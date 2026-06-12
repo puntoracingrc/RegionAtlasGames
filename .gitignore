@@ -53,8 +53,9 @@ next-env.d.ts
 /data/marketplace/
 /public/listing-photos/
 
-# portadas descargadas (binarios locales)
-/public/covers/
+# portadas en disco externo (symlink local — no subir a git/vercel)
+/public/covers
+public/covers
 
 # logs de cron / scripts
 /logs/

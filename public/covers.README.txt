@@ -1,0 +1,5 @@
+Las portadas no van en git. En local, crea un symlink al disco externo:
+
+  ln -sf "/Volumes/Nuevo vol/pal-es-retro/covers" public/covers
+
+En Vercel las portadas no están (solo URLs en catalog.json); usa Blob/CDN cuando toque producción.
