@@ -74,7 +74,9 @@ chmod +x scripts/run_ebay_ingest.sh
 
 ### Comportamiento
 
-- Búsqueda: `{título} {plataforma} {PAL español|PAL}` según región catálogo.
+- Búsqueda: `{título} {plataforma} {referencia?} {PAL español|PAL}` según región catálogo.
+- Si la ficha tiene **referencia producto** (`game-details.json`), se añade a la query eBay.
+- Anuncios con código de otro juego/edición se descartan; coincidencia de SKU → `sku_regional`.
 - Filtro ubicación: España (`LocatedIn=ES`) vía Finding API.
 - Región en ingest: inferida del **título** (`cover_spain`, `listing_title_region`, etc.) + `aiConfidence` 0.86–0.88.
 - Descarta títulos con NTSC/USA/JAPón cuando el catálogo es PAL ES/EU.

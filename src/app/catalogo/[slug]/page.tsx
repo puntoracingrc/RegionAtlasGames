@@ -6,6 +6,8 @@ import { CollectionToggle } from "@/components/collection-toggle";
 import { GameFaq } from "@/components/game-faq";
 import { GameJsonLd } from "@/components/game-json-ld";
 import { GamePriceHero } from "@/components/game-price-hero";
+import { GameRegionIdentityPanel } from "@/components/game-region-identity-panel";
+import { RetailPriceReferences } from "@/components/retail-price-references";
 import { ProListingsComparator } from "@/components/pro-listings-comparator";
 import { RecordedProSalesPanel } from "@/components/recorded-pro-sales-panel";
 import { SimilarGames } from "@/components/similar-games";
@@ -153,6 +155,10 @@ export default async function CatalogGamePage({ params }: Props) {
             </header>
 
             <GamePriceHero game={game} />
+
+            <GameRegionIdentityPanel game={game} details={details} />
+
+            <RetailPriceReferences game={game} />
 
             <CollectionToggle
               catalogId={game.id}

@@ -41,5 +41,17 @@
       "regionVerified": true,
       "regionEvidence": ["sku_regional", "listing_title_region"]
     }
+  ],
+  "jgo": [
+    {
+      "catalogId": "dreamcast-sonic-adventure",
+      "retailPriceEur": 35,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": ["listing_title_region"],
+      "productUrl": "https://japangameonline.com/producto/example/",
+      "condition": "used",
+      "inStock": true
+    }
   ]
 }

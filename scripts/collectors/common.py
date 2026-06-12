@@ -9,6 +9,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from collectors.reference_match import catalog_reference, listing_reference_valid_for_catalog
+
 ROOT = Path(__file__).resolve().parents[2]
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
@@ -77,6 +79,9 @@ def build_search_query(game: dict[str, Any], platform: dict[str, Any] | None) ->
     hint = REGION_QUERY_HINTS.get(region)
     if hint:
         parts.append(hint)
+    ref = catalog_reference(str(game.get("id") or ""))
+    if ref:
+        parts.append(ref)
     return normalize_query(" ".join(p for p in parts if p))
 
 
@@ -127,15 +132,30 @@ def to_ingest_listing(
     title: str,
     catalog_region: str,
     external_id: str | None = None,
+    ref_to_ids: dict[str, list[str]] | None = None,
 ) -> dict[str, Any] | None:
     if price_eur <= 0:
         return None
     if title_conflicts_region(title, catalog_region):
         return None
 
+    ok_ref, matched_ref = listing_reference_valid_for_catalog(
+        title,
+        catalog_id,
+        catalog_region,
+        ref_to_ids=ref_to_ids,
+    )
+    if not ok_ref:
+        return None
+
     listing_region, evidence, ai_conf, verified = infer_listing_region_and_evidence(
         title, catalog_region
     )
+    if matched_ref:
+        if "sku_regional" not in evidence:
+            evidence.append("sku_regional")
+        ai_conf = max(ai_conf, 0.93)
+
     row: dict[str, Any] = {
         "catalogId": catalog_id,
         "source": source,
@@ -148,4 +168,6 @@ def to_ingest_listing(
     }
     if external_id:
         row["externalId"] = external_id
+    if matched_ref:
+        row["matchedReference"] = matched_ref
     return row

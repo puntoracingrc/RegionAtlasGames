@@ -1,0 +1,2962 @@
+{
+  "platformSlug": "saturn",
+  "collectedAt": "2026-06-12T22:36:23Z",
+  "source": "chollogames",
+  "listings": [],
+  "cex": [],
+  "jgo": [],
+  "chollo": [
+    {
+      "catalogId": "saturn-japon-6-inch-my-darling",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90826-6-inch-my-darling-4933516801211.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "90826",
+      "title": "6 Inch My Darling",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-advanced-world-war-sennen-teikoku-no-koubou",
+      "source": "chollogames",
+      "retailPriceEur": 12.0,
+      "priceEur": 12.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/83857-advanced-world-war-sennen-teikoku-no-koubou-4974365090876.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "83857",
+      "title": "Advanced World War: Sennen Teikoku no Koubou",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-air-management-96",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27384-air-management-96-4988615007507.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27384",
+      "title": "Air Management 96",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-airs-adventure",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25453-airs-adventure-4512874000018.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25453",
+      "title": "Airs Adventure",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-area-51",
+      "source": "chollogames",
+      "retailPriceEur": 45.0,
+      "priceEur": 45.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/88986-area-51-4980124010160.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "88986",
+      "title": "Area 51",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-baku-baku-animal-sekai-shiikugakari-senshuken",
+      "source": "chollogames",
+      "retailPriceEur": 55.0,
+      "priceEur": 55.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27397-baku-baku-animal-sekai-shiikukei-satakore-4974365091446.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "27397",
+      "title": "Baku Baku Animal: Sekai Shiikukei - Satakore",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-bishoujo-senshi-sailor-moon-super-s-various-emotion",
+      "source": "chollogames",
+      "retailPriceEur": 40.0,
+      "priceEur": 40.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/91039-bishoujo-senshi-sailor-moon-super-s-various-emotion-4994068800336.html",
+      "condition": "no_manual",
+      "inStock": true,
+      "externalId": "91039",
+      "title": "Bishoujo Senshi Sailor Moon Super S: Various Emotion",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-blue-seed-kushinada-hirokuden",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/10506-blue-seed-4974365090142.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "10506",
+      "title": "Blue Seed",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-bug",
+      "source": "chollogames",
+      "retailPriceEur": 49.0,
+      "priceEur": 49.0,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/93257-bug-010086810042.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "93257",
+      "title": "Bug!",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-can-can-bunny-premiere",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27394-can-can-bunny-premiere-4933516601019.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27394",
+      "title": "Can Can Bunny Premiere",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-cross-tantei-monogatari-motsureta-7tsu-no-labyrinth",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28168-cross-tantei-monogatari-motsureta-7tsu-4536862000101.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28168",
+      "title": "Cross Tantei Monogatari: Motsureta 7tsu",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-daitoride",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/85891-daitoride-4516280130000.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "85891",
+      "title": "Daitoride",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-daytona-usa",
+      "source": "chollogames",
+      "retailPriceEur": 20.0,
+      "priceEur": 20.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/18599-daytona-usa-4974365090135.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "18599",
+      "title": "Daytona USA",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-daytona-usa-circuit-edition",
+      "source": "chollogames",
+      "retailPriceEur": 25.0,
+      "priceEur": 25.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27386-daytona-usa-circuit-edition-4974365091002.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27386",
+      "title": "Daytona USA Circuit Edition",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-death-mask",
+      "source": "chollogames",
+      "retailPriceEur": 20.0,
+      "priceEur": 20.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/84931-death-mask-4996925080103.html",
+      "condition": "no_manual",
+      "inStock": true,
+      "externalId": "84931",
+      "title": "Death Mask",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-decathlete",
+      "source": "chollogames",
+      "retailPriceEur": 12.0,
+      "priceEur": 12.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/22723-decathlete-4974365090968.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "22723",
+      "title": "Decathlete",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-digital-dance-mix-vol-1-namie-amuro",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27398-digital-dance-mix-namie-amuro-4974365091330.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27398",
+      "title": "Digital Dance Mix: Namie Amuro",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-doukoku-soshite",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/15435-doukoku-soshite-4961082500184.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "15435",
+      "title": "Doukoku Soshite",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-dx-jinsei-game",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25449-dx-jinsei-game-4904880133765.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25449",
+      "title": "DX Jinsei Game",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-dx-jinsei-game-ii",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27376-dx-jinsei-game-ii-4904880134649.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27376",
+      "title": "DX Jinsei Game II",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-eve-lost-one",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/18610-eve-the-lost-one-4965857030401.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "18610",
+      "title": "Eve The Lost One",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-feda-remake-emblem-justice",
+      "source": "chollogames",
+      "retailPriceEur": 30.0,
+      "priceEur": 30.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27396-feda-remake-the-emblem-of-justice-4979817850015.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27396",
+      "title": "Feda Remake! The Emblem of Justice",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-fighters-megamix",
+      "source": "chollogames",
+      "retailPriceEur": 18.0,
+      "priceEur": 18.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9450-fighters-megamix-4974365091262.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9450",
+      "title": "Fighters Megamix",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-fire-pro-gaiden-blazing-tornado",
+      "source": "chollogames",
+      "retailPriceEur": 35.0,
+      "priceEur": 35.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9896-fire-pro-gaiden-blazing-tornado-4959143850019.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "9896",
+      "title": "Fire Pro Gaiden: Blazing Tornado",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-full-cowl-mini-yonku-super-factory",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28192-full-car-mini-yontou-super-factory-limited-edition-4902931950194.html",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "28192",
+      "title": "Full Car Mini Yontou Super Factory (Limited Edition)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-funky-fantasy",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/93851-funky-fantasy-4943656300048.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "93851",
+      "title": "Funky Fantasy",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-gaia-breeder",
+      "source": "chollogames",
+      "retailPriceEur": 12.0,
+      "priceEur": 12.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/92207-gaia-breeder-4535852010106.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "92207",
+      "title": "Gaia Breeder",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-gakkou-no-kowai-uwasa-hanako-san-ga-kita",
+      "source": "chollogames",
+      "retailPriceEur": 8.0,
+      "priceEur": 8.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/89944-gakkou-no-kowai-uwasa-hanako-san-ga-kita-4976219154383.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "89944",
+      "title": "Gakkou no Kowai Uwasa: Hanako-san ga Kita!!",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-gals-panic-ss",
+      "source": "chollogames",
+      "retailPriceEur": 140.0,
+      "priceEur": 140.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/84659-gals-panic-ss-4515978000038.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "84659",
+      "title": "Gals Panic SS",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-game-no-tatsujin",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/84981-game-no-tatsujin-4907940701072.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "84981",
+      "title": "Game no Tatsujin",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-game-ware",
+      "source": "chollogames",
+      "retailPriceEur": 6.0,
+      "priceEur": 6.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/86147-game-ware-4995492213013.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "86147",
+      "title": "Game-Ware",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-game-ware-vol-2",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27399-game-ware-vol-3-4995492213037.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "27399",
+      "title": "Game-Ware Vol. 3",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-gekka-no-kishi-ouryusen",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/87259-gekka-no-kishi-ouryusen-4983164738186.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "87259",
+      "title": "Gekka no Kishi: Ouryusen",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-golden-axe-duel",
+      "source": "chollogames",
+      "retailPriceEur": 50.0,
+      "priceEur": 50.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9452-golden-axe-the-duel-4974365090418.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9452",
+      "title": "Golden Axe: The Duel",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-gotha-ii-tenkuu-no-kishi",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28195-gotha-ii-tenkuu-no-kishi-4988615007071.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28195",
+      "title": "Gotha II: Tenkuu no Kishi",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-gotha-ismailia-seneki",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25461-gotha-ismailia-seneki-4974365090098.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25461",
+      "title": "Gotha: Ismailia Seneki",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-gran-chaser",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25467-gran-chaser-4974365090227.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25467",
+      "title": "Gran Chaser",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-greatest-nine-96",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25430-greatest-nine-96-4974365090869.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25430",
+      "title": "Greatest Nine '96",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-pro-yakyuu-greatest-nine-97",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28052-greatest-nine-97-4974365091392.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28052",
+      "title": "Greatest Nine '97",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-pro-yakyuu-greatest-nine-98",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28053-greatest-nine-98-4974365091859.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28053",
+      "title": "Greatest Nine '98",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-hang-gp-95",
+      "source": "chollogames",
+      "retailPriceEur": 25.0,
+      "priceEur": 25.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9892-hang-on-gp-95-4974365090326.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9892",
+      "title": "Hang On GP 95",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-world-series-baseball",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25460-hideo-nomo-world-series-baseball-4974365090616.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25460",
+      "title": "Hideo Nomo World Series Baseball",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-hissatsu",
+      "source": "chollogames",
+      "retailPriceEur": 140.0,
+      "priceEur": 140.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90578-hissatsu-4934569500939.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "90578",
+      "title": "Hissatsu!",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-idol-janshi-suchie-pai-remix",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28034-idol-janshi-suchie-pai-ii-4907859109044.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28034",
+      "title": "Idol Janshi Suchie-Pai II",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-impact-racing",
+      "source": "chollogames",
+      "retailPriceEur": 50.0,
+      "priceEur": 50.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90575-impact-racing-4953507970450.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "90575",
+      "title": "Impact Racing",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-ippatsu-gyakuten-gambling-king-heno-michi",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90834-ippatsu-gyakuten-gambling-king-no-michi-4939439500019.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "90834",
+      "title": "Ippatsu Gyakuten Gambling King no Michi",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-jb-harold-blue-chicago-blues",
+      "source": "chollogames",
+      "retailPriceEur": 20.0,
+      "priceEur": 20.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/89935-jb-harold-blue-chicago-blues-4967652101133.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "89935",
+      "title": "J.B. Harold Blue Chicago Blues",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-j-league-pro-soccer-club-wo-tsukurou",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25429-jleague-pro-soccer-club-o-tsukurou-4974365090340.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25429",
+      "title": "J.League Pro Soccer Club o Tsukurou!",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-j-league-victory-goal-97",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28184-jleague-victory-goal-4974365090029.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28184",
+      "title": "J.League Victory Goal",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-jikkyou-powerful-pro-yakyuu-95-kaimakuban",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27702-jikkyou-powerful-pro-yakyuu-95-4988602006605.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27702",
+      "title": "Jikkyou Powerful Pro Yakyuu '95",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-jikkyou-powerful-pro-yakyuu-s",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/85786-jikkyou-powerful-pro-yakyuu-s-4988602029215.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "85786",
+      "title": "Jikkyou Powerful Pro Yakyuu S",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-jikuu-tantei-dd-dracula-detective-maboroshi-no-lorelei",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28153-jikuu-tantei-dd-dracula-detective-mabo-4988606100811.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "28153",
+      "title": "Jikuu Tantei DD: Dracula Detective: Mabo",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-jissen-mahjong",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/91664-jissen-mahjong-4965857030029.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "91664",
+      "title": "Jissen Mahjong",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-jissen-pachi-slot-hisshouhou-3",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/89924-jissen-pachi-slot-hisshouhou-4-4991694000086.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "89924",
+      "title": "Jissen Pachi-Slot Hisshouhou! 4",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-kidou-senkan-nadesico-yappari-saigo-ha-ai-ga-katsu",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25459-kidou-senkan-nadesico-yappari-ai-ga-katsu-4974365091422.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25459",
+      "title": "Kidou Senkan Nadesico: Yappari Ai ga Katsu?",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-kidou-senshi-gundam-gaiden-i-senritsu-no-blue-standard-edition",
+      "source": "chollogames",
+      "retailPriceEur": 8.0,
+      "priceEur": 8.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25441-kidou-senshi-gundam-gaiden-i-senritsu-no-blue-4902425544649.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25441",
+      "title": "Kidou Senshi Gundam Gaiden I: Senritsu no Blue",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-kidou-senshi-gundam-gaiden-ii-ao-wo-uketsugu-mono",
+      "source": "chollogames",
+      "retailPriceEur": 8.0,
+      "priceEur": 8.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27385-kidou-senshi-gundam-gaiden-ii-aoi-o-uketsugu-mono-4902425544656.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27385",
+      "title": "Kidou Senshi Gundam Gaiden II: Aoi o Uketsugu Mono",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-kidou-senshi-gundam-gaiden-iii-sabakareshi-mono-standard-edition",
+      "source": "chollogames",
+      "retailPriceEur": 18.0,
+      "priceEur": 18.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27383-kidou-senshi-gundam-gaiden-iii-sabakareshi-mono-4902425544663.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27383",
+      "title": "Kidou Senshi Gundam Gaiden III: Sabakareshi Mono",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-kidou-senshi-gundam-gihren-no-yabou",
+      "source": "chollogames",
+      "retailPriceEur": 8.0,
+      "priceEur": 8.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25443-kidou-senshi-gundam-ghiren-no-yabou-4902425613710.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25443",
+      "title": "Kidou Senshi Gundam: Ghiren no Yabou",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-kiss-yori",
+      "source": "chollogames",
+      "retailPriceEur": 8.0,
+      "priceEur": 8.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90837-kiss-yori-4933516901249.html",
+      "condition": "no_manual",
+      "inStock": true,
+      "externalId": "90837",
+      "title": "Kiss Yori...",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-krazy-ivan",
+      "source": "chollogames",
+      "retailPriceEur": 30.0,
+      "priceEur": 30.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90942-krazy-ivan-4980124010146.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "90942",
+      "title": "Krazy Ivan",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-kuro-no-danshou-literary-fragment",
+      "source": "chollogames",
+      "retailPriceEur": 25.0,
+      "priceEur": 25.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/92461-kuro-no-inoshou-the-literary-fragment-4948426972012.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "92461",
+      "title": "Kuro no Inoshou: The Literary Fragment",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-kurubushi-kyoudai-gekijou-daiikkan-mahjong-hen",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/87262-kurubushi-kyoudai-gekijou-1st-maki-mahjong-hen-4995515961068.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "87262",
+      "title": "Kurubushi Kyoudai Gekijou 1st Maki Mahjong Hen",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-mahjong-gokuu-tenjiku",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25605-maajan-gokuu-tenjiku-4938833001498.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25605",
+      "title": "Maajan Gokuu Tenjiku",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-machi",
+      "source": "chollogames",
+      "retailPriceEur": 12.0,
+      "priceEur": 12.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28167-machi-4932345975063.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28167",
+      "title": "Machi",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-magic-carpet",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/82230-magic-carpet-4938833002235.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "82230",
+      "title": "Magic Carpet",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-magical-drop",
+      "source": "chollogames",
+      "retailPriceEur": 35.0,
+      "priceEur": 35.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/91284-magical-drop-2-4974365091040.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "91284",
+      "title": "Magical Drop 2",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-maria-kimitachi-ga-umareta-wake",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90369-maria-kimitachi-ga-umareta-wake-4533296000080.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "90369",
+      "title": "Maria: Kimitachi ga Umareta Wake",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-marvel-super-heroes",
+      "source": "chollogames",
+      "retailPriceEur": 65.0,
+      "priceEur": 65.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/2381-marvel-super-heroes-4976219154840.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "2381",
+      "title": "Marvel Super Heroes",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-master-monsters-neo-generations",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27921-master-of-monsters-neo-generations-4988006591417.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27921",
+      "title": "Master of Monsters: Neo Generations",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-masters-harukanaru-augusta-3",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27381-masters-harukanaru-augusta-3-4988604320013.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27381",
+      "title": "Masters Harukanaru Augusta 3",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-matsukata-hiroki-no-world-fishing",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28174-matsukata-hiroki-no-world-fishing-4902931950026.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28174",
+      "title": "Matsukata Hiroki no World Fishing",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-momotarou-douchuki",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28180-momotarou-douchuki-4988607201142.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28180",
+      "title": "Momotarou Douchuki",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-nanatsu-no-hikan",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28182-nanatsu-no-hikan-4988615007552.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28182",
+      "title": "Nanatsu no Hikan",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-shinseiki-evangelion-digital-card-library",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/7249-neon-genesis-evangelion-digital-card-4974365091590.html",
+      "condition": "no_manual",
+      "inStock": true,
+      "externalId": "7249",
+      "title": "Neon Genesis Evangelion Digital Card",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-nobunaga-no-yabou-returns",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/85789-nobunaga-no-yabou-returns-4988615007538.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "85789",
+      "title": "Nobunaga no Yabou Returns",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-nonomura-byoin-no-hitobito",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/18619-nonomura-byoin-no-hitobito-4937644800108.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "18619",
+      "title": "Nonomura Byoin No Hitobito",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-pd-ultraman-link",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/89947-pd-ultraman-link-4902425494838.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "89947",
+      "title": "PD Ultraman Link",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-pebble-beach-golf-links-stadler-ni-chousen",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27371-pebble-beach-golf-links-stadler-ni-chou-4974365090067.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27371",
+      "title": "Pebble Beach Golf Links: Stadler ni Chou",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-pro-yakyuu-team-mo-tsukurou",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28054-pro-yakyuu-team-mo-tsukurou-4974365091651.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28054",
+      "title": "Pro Yakyuu Team mo Tsukurou!",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-puyo-puyo-sun",
+      "source": "chollogames",
+      "retailPriceEur": 18.0,
+      "priceEur": 18.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/20506-puyo-puyo-sun-4988161700020.html",
+      "condition": "no_manual",
+      "inStock": true,
+      "externalId": "20506",
+      "title": "Puyo Puyo Sun",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-puyo-puyo-tsuu",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/21942-puyo-puyo-tsuu-4988161500040.html",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "21942",
+      "title": "Puyo Puyo Tsuu",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-quantum-gate-i-akuma-no-joshou",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/92208-quantum-gate-i-akuma-no-joshou-solo-venta-en-tienda-4902333100029.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "92208",
+      "title": "Quantum Gate I: Akuma no Joshou (SOLO Venta en tienda)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-quovadis",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/24712-quovadis-4934878070130.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "24712",
+      "title": "Quovadis",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-radiant-silvergun",
+      "source": "chollogames",
+      "retailPriceEur": 190.0,
+      "priceEur": 190.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/20017-radiant-silvergun-4534373100020.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "20017",
+      "title": "Radiant Silvergun",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-real-bout-garou-densetsu-special",
+      "source": "chollogames",
+      "retailPriceEur": 39.0,
+      "priceEur": 39.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/13987-real-bout-special-4964808200146.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "13987",
+      "title": "Real Bout Special",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-roommate-ryouko-summer-vacation",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27372-roommate-ryouko-in-summer-vacation-4932688000149.html",
+      "condition": "no_manual",
+      "inStock": true,
+      "externalId": "27372",
+      "title": "Roommate: Ryouko in Summer Vacation",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sega-ages-rouka-ni-ichidant-r",
+      "source": "chollogames",
+      "retailPriceEur": 25.0,
+      "priceEur": 25.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25193-rouka-ni-ichidant-r-4974365090432.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25193",
+      "title": "Rouka ni Ichidant-R",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-ryouri-no-tetsujin-kitchen-stadium-tour",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25445-ryouri-no-tetsujin-kitchen-stadium-tour-4513881999999.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25445",
+      "title": "Ryouri no Tetsujin: Kitchen Stadium Tour",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sakura-taisen-hanagumi-tsushin",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25424-sakura-taisen-hanagumi-tsuushin-4974365091347.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25424",
+      "title": "Sakura Taisen Hanagumi Tsuushin",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-samurai-spirits-zankourou-musouken",
+      "source": "chollogames",
+      "retailPriceEur": 30.0,
+      "priceEur": 30.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/7590-samurai-spirits-iii-zankurou-musouken-4964808200061.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "7590",
+      "title": "Samurai Spirits III: Zankurou Musouken",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-samurai-spirits-amakusa-kourin",
+      "source": "chollogames",
+      "retailPriceEur": 30.0,
+      "priceEur": 30.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9090-samurai-spirits-iv-amakusa-kourin-solo-venta-en-tienda-4964808200122.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9090",
+      "title": "Samurai Spirits IV: Amakusa Kourin (Solo venta en tienda)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sangokushi-v",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27370-sangokushi-v-4988615008719.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27370",
+      "title": "Sangokushi V",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sankyo-fever-jikki-simulation-s",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28175-sankyo-jikki-simulation-s-4997940210025.html",
+      "condition": "no_manual",
+      "inStock": true,
+      "externalId": "28175",
+      "title": "Sankyo Jikki Simulation S",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-saturn-bomberman-fight",
+      "source": "chollogames",
+      "retailPriceEur": 45.0,
+      "priceEur": 45.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/18605-saturn-bomberman-fight-4988607201203.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "18605",
+      "title": "Saturn Bomberman Fight",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sega-rally-championship",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/17977-sega-rally-championship-1995-4974365090470.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "17977",
+      "title": "Sega Rally Championship 1995",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sentimental-graffiti",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/16079-sentimental-graffiti-4513244900105.html",
+      "condition": "no_manual",
+      "inStock": true,
+      "externalId": "16079",
+      "title": "Sentimental Graffiti",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sentimental-graffiti-first-window",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/30292-sentimental-graffiti-first-window-4513244900174.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "30292",
+      "title": "Sentimental Graffiti: First Window",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-shanghai-banri-no-choujou",
+      "source": "chollogames",
+      "retailPriceEur": 50.0,
+      "priceEur": 50.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/91167-shanghai-banri-no-choujou-satakore-4907940701928.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "91167",
+      "title": "Shanghai: Banri no Choujou - Satakore",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-shanghai-great-moments",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90580-shanghai-great-moments-4907940701485.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "90580",
+      "title": "Shanghai: Great Moments",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-shesn",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28152-she-sn-4933516801198.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28152",
+      "title": "She'sn",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-shichu-suimei-pitagraph",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/89949-shichu-suimei-pitagraph-4932688000088.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "89949",
+      "title": "Shichu Suimei Pitagraph",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-shin-shinobi-den",
+      "source": "chollogames",
+      "retailPriceEur": 20.0,
+      "priceEur": 20.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/18607-toh-shin-den-s-4974365090784.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "18607",
+      "title": "Toh Shin Den S",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-shining-holy-ark",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25439-shining-the-holy-ark-4530098961212.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25439",
+      "title": "Shining the Holy Ark",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-shining-wisdom",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25422-shining-wisdom-4974365090579.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25422",
+      "title": "Shining Wisdom",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-side-pocket-3",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/8883-side-pocket-3-4961082500177.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "8883",
+      "title": "Side Pocket 3",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sim-city-2000",
+      "source": "chollogames",
+      "retailPriceEur": 8.0,
+      "priceEur": 8.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/82250-sim-city-2000-4974365090272.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "82250",
+      "title": "Sim City 2000",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sokko-seitokai-sonic-council",
+      "source": "chollogames",
+      "retailPriceEur": 80.0,
+      "priceEur": 80.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/29199-sokko-seitokai-sonic-council-4983164738278.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "29199",
+      "title": "Sokko Seitokai: Sonic Council",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sotsugyou-ii-neo-generation",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27393-sotsugyou-ii-neo-generation-4967652101126.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27393",
+      "title": "Sotsugyou II: Neo Generation",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-space-invaders",
+      "source": "chollogames",
+      "retailPriceEur": 70.0,
+      "priceEur": 70.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/18606-space-invaders-4988611960110.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "18606",
+      "title": "Space Invaders",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-street-fighter-zero",
+      "source": "chollogames",
+      "retailPriceEur": 25.0,
+      "priceEur": 25.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9091-street-fighter-zero-4976219154475.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9091",
+      "title": "Street Fighter Zero",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-suikoden-tenmei-no-chikai",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/30031-suikoden-tenmei-no-chikai-4988615008979.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "30031",
+      "title": "Suikoden: Tenmei no Chikai",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-super-real-mahjong-p-vi",
+      "source": "chollogames",
+      "retailPriceEur": 45.0,
+      "priceEur": 45.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/92464-super-real-mahjong-p-vi-4963919530050.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "92464",
+      "title": "Super Real Mahjong P VI",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-super-robot-taisen-f",
+      "source": "chollogames",
+      "retailPriceEur": 9.0,
+      "priceEur": 9.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9181-super-robot-wars-f-4983164733051.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9181",
+      "title": "Super Robot Wars F",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sword-sorcery",
+      "source": "chollogames",
+      "retailPriceEur": 8.0,
+      "priceEur": 8.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/85787-sword-sorcery-4988608612909.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "85787",
+      "title": "Sword & Sorcery",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-shutokou-battle-97",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25228-syutokoh-battle-97-4965857030111.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25228",
+      "title": "Syutokoh Battle 97",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-taiheiyou-no-arashi-2-shippuu-no-moudou",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/30028-taiheiyou-no-arashi-2-shippuu-no-moudou-4965857030265.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "30028",
+      "title": "Taiheiyou no Arashi 2: Shippuu no Moudou",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-taikou-risshiden-ii",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/85788-taikou-risshiden-ii-4988615008832.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "85788",
+      "title": "Taikou Risshiden II",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-teitoku-no-ketsudan-ii",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28200-teitoku-no-ketsudan-ii-4988615007088.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28200",
+      "title": "Teitoku no Ketsudan II",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-teitoku-no-ketsudan-iii",
+      "source": "chollogames",
+      "retailPriceEur": 12.0,
+      "priceEur": 12.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/84193-teitoku-no-ketsudan-iii-4988615010064.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "84193",
+      "title": "Teitoku no Ketsudan III",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-tenchi-muyou-rensa-hitsuyou",
+      "source": "chollogames",
+      "retailPriceEur": 45.0,
+      "priceEur": 45.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/92463-tenchi-muyou-rensa-hitsuyou-4988102146023.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "92463",
+      "title": "Tenchi Muyou! Rensa Hitsuyou",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-tennis-arena",
+      "source": "chollogames",
+      "retailPriceEur": 50.0,
+      "priceEur": 50.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/87264-tennis-arena-4949244000147.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "87264",
+      "title": "Tennis Arena",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-terra-phantastica",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/26654-terra-phantastica-4974365090548.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "26654",
+      "title": "Terra Phantastica",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-tetris-s",
+      "source": "chollogames",
+      "retailPriceEur": 60.0,
+      "priceEur": 60.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/91166-tetris-s-satakore-4988627020044.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "91166",
+      "title": "Tetris S - Satakore",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-texthoth-ludo-arcana-senki",
+      "source": "chollogames",
+      "retailPriceEur": 20.0,
+      "priceEur": 20.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/89081-texthoth-ludo-arcanum-senki-4511130115558.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "89081",
+      "title": "Texthoth Ludo: Arcanum Senki",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-conveni-ano-machi-o-dokusen-seyo",
+      "source": "chollogames",
+      "retailPriceEur": 1.0,
+      "priceEur": 1.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25465-the-conveni-ano-machi-o-dokusen-satakore-4959143850194.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25465",
+      "title": "The Conveni:Ano Machi o Dokusen Satakore",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-king-boxing",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90135-the-king-of-boxing-4988002320196.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "90135",
+      "title": "The King of Boxing",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-king-fighters-96",
+      "source": "chollogames",
+      "retailPriceEur": 25.0,
+      "priceEur": 25.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/10904-the-king-of-fighters-96-solo-venta-en-tienda-4964808200092.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "10904",
+      "title": "The King of Fighters 96 (Solo venta en tienda)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-tower",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/30021-the-tower-4946522370121.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "30021",
+      "title": "The Tower",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-titan-wars",
+      "source": "chollogames",
+      "retailPriceEur": 20.0,
+      "priceEur": 20.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/82228-titan-wars-4988017203644.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "82228",
+      "title": "Titan Wars",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-toh-shin-den-ura-ultimate-revenge-attack",
+      "source": "chollogames",
+      "retailPriceEur": 60.0,
+      "priceEur": 60.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9883-toh-shin-den-ura-4904880134243.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "9883",
+      "title": "Toh Shin Den Ura",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-tokimeki-mahjong-graffiti-toshishita-no-tenshi-tachi",
+      "source": "chollogames",
+      "retailPriceEur": 50.0,
+      "priceEur": 50.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/87258-tokimeki-mahjong-graffiti-4959020001466.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "87258",
+      "title": "Tokimeki Mahjong Graffiti",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-tokimeki-memorial-forever-you",
+      "source": "chollogames",
+      "retailPriceEur": 12.0,
+      "priceEur": 12.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/81960-tokimeki-memorial-forever-with-you-49886020265591.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "81960",
+      "title": "Tokimeki Memorial - Forever With You",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-tokimeki-memorial-drama-series-vol-3-tabidachi-no-uta",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/92462-tokimeki-memorial-drama-series-vol-3-tabidachi-no-uta-4988602522686.html",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "92462",
+      "title": "Tokimeki Memorial Drama Series Vol. 3: Tabidachi no Uta",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-tokimeki-memorial-taisen-puzzle-dama",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9887-tokimeki-memorial-taisen-pazurudama-4988602025835.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9887",
+      "title": "Tokimeki Memorial Taisen Pazurudama",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-touge-king-spirits",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/24710-touge-king-the-spirits-4984995800011.html",
+      "condition": "no_manual",
+      "inStock": true,
+      "externalId": "24710",
+      "title": "Touge: King the Spirits",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-tournament-leader",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90374-tournament-leader-4988002329915.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "90374",
+      "title": "Tournament Leader",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-turfwind-96-take-yutaka-kyousouba-ikusei-game",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/85026-turf-wind-96-take-yutaka-kyousouba-ikusei-game-4907859109051.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "85026",
+      "title": "Turf Wind '96: Take Yutaka Kyousouba Ikusei Game",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-ultraman-hikari-no-kyojin-densetsu",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27919-ultraman-hikari-no-kyojin-densetsu-4902425551968.html",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "27919",
+      "title": "Ultraman Hikari no Kyojin Densetsu",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-umanari-1-furlong-gekijou",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90364-umanari-1-haron-gekijou-4941685012833.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "90364",
+      "title": "Umanari 1 Haron Gekijou",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-vampire-hunter",
+      "source": "chollogames",
+      "retailPriceEur": 25.0,
+      "priceEur": 25.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9460-vampire-hunter-4976219154291.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9460",
+      "title": "Vampire Hunter",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-virtua-cop",
+      "source": "chollogames",
+      "retailPriceEur": 18.0,
+      "priceEur": 18.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/14432-virtua-cop-2-4974365090975.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "14432",
+      "title": "Virtua Cop 2",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-virtua-fighter",
+      "source": "chollogames",
+      "retailPriceEur": 8.0,
+      "priceEur": 8.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9179-virtua-fighter-2-4974365090791.html",
+      "condition": "no_manual",
+      "inStock": true,
+      "externalId": "9179",
+      "title": "Virtua Fighter 2",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-virtua-fighter-cg-portrait-series-vol-7-shun-di",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/17502-virtua-fighter-cg-portrait-7-shun-di-4974365090708.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "17502",
+      "title": "Virtua Fighter CG Portrait 7 Shun Di",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-virtua-fighter-remix",
+      "source": "chollogames",
+      "retailPriceEur": 12.0,
+      "priceEur": 12.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/22726-virtua-fighter-remix-4974365090395.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "22726",
+      "title": "Virtua Fighter Remix",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-virtual-casino",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/30018-virtual-casino-4988699562909.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "30018",
+      "title": "Virtual Casino",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-cyber-troopers-virtual",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9180-virtual-on-cyber-troopers-4974365090999.html",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9180",
+      "title": "Virtual On: Cyber Troopers",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-virtual-volleyball",
+      "source": "chollogames",
+      "retailPriceEur": 8.0,
+      "priceEur": 8.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9885-virtual-volleyball-4965857030043.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9885",
+      "title": "Virtual Volleyball",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-wanchai-connection",
+      "source": "chollogames",
+      "retailPriceEur": 25.0,
+      "priceEur": 25.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25452-wanchai-connection-4974365090074.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "25452",
+      "title": "Wanchai Connection",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-wangan-dead-heat",
+      "source": "chollogames",
+      "retailPriceEur": 15.0,
+      "priceEur": 15.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/24709-wangan-dead-heat-4988110600241.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "24709",
+      "title": "Wangan Dead Heat",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-wangan-dead-heat-real-arrange",
+      "source": "chollogames",
+      "retailPriceEur": 30.0,
+      "priceEur": 30.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/24708-wangan-dead-heat-real-arrange-4988110600265.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "24708",
+      "title": "Wangan Dead Heat + Real Arrange",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-wangan-trial-love",
+      "source": "chollogames",
+      "retailPriceEur": 30.0,
+      "priceEur": 30.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/90825-wangan-trial-love-4988110600326.html",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "90825",
+      "title": "Wangan Trial Love",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-wing-arms-karei-naru-gekitsui-ou",
+      "source": "chollogames",
+      "retailPriceEur": 20.0,
+      "priceEur": 20.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/9801-wing-arms-kareinaru-gekitsui-ou-4974365090388.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9801",
+      "title": "Wing Arms: Kareinaru Gekitsui Ou",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-winning-post-2",
+      "source": "chollogames",
+      "retailPriceEur": 1.0,
+      "priceEur": 1.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/30016-winning-post-2-4988615007514.html",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "30016",
+      "title": "Winning Post 2",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-winning-post-2-final-97",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28040-winning-post-2-final-97-4988615010361.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28040",
+      "title": "Winning Post 2: Final 97",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-winning-post-ex",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/28042-winning-post-ex-4988615006845.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "28042",
+      "title": "Winning Post EX",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-you-mitsumete-itai",
+      "source": "chollogames",
+      "retailPriceEur": 5.0,
+      "priceEur": 5.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/85015-with-you-4513244900266.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "85015",
+      "title": "With You",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-world-advanced-daisenryaku-sakusen-file",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27920-world-advanced-daisenryaku-4974365090821.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27920",
+      "title": "World Advanced Daisenryaku",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-world-advanced-daisenryaku-koutetsu-no-ikusakaze",
+      "source": "chollogames",
+      "retailPriceEur": 12.0,
+      "priceEur": 12.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27924-world-advanced-daisenryaku-koutetsu-no-ikusakaze-4974365090258.html",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "27924",
+      "title": "World Advanced Daisenryaku: Koutetsu no Ikusakaze",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-world-series-baseball-ii",
+      "source": "chollogames",
+      "retailPriceEur": 3.0,
+      "priceEur": 3.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/29960-world-series-baseball-ii-4974365091200.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "29960",
+      "title": "World Series Baseball II",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-yuukyuu-no-kobako-official-collection",
+      "source": "chollogames",
+      "retailPriceEur": 8.0,
+      "priceEur": 8.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/89080-yukyu-no-kobako-official-collection-4942330611319.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "89080",
+      "title": "Yukyu no Kobako: Official Collection",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-zap-snowboarding-trix",
+      "source": "chollogames",
+      "retailPriceEur": 10.0,
+      "priceEur": 10.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/27390-zap-snowboarding-trix-4988013038196.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "27390",
+      "title": "Zap! Snowboarding Trix",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-zero-4-champ-doozy-j-type-r",
+      "source": "chollogames",
+      "retailPriceEur": 18.0,
+      "priceEur": 18.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/25448-zero4-champ-doozy-j-type-r-4989006000121.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "25448",
+      "title": "Zero4 Champ DooZy-J Type-R",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-gussun-oyoyo-s",
+      "source": "chollogames",
+      "retailPriceEur": 110.0,
+      "priceEur": 110.0,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://www.chollogames.es/saturn-importacion/84929-zoku-gussun-oyoyo-4983164738162.html",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "84929",
+      "title": "Zoku Gussun Oyoyo",
+      "matchMethod": "title"
+    }
+  ]
+}

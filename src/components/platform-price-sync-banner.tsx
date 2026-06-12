@@ -47,6 +47,9 @@ export function PlatformPriceSyncBanner({ platformSlug, className }: Props) {
         {(sync.gamesRejectedRegionMismatch ?? 0).toLocaleString("es-ES")} región distinta ·{" "}
         {(sync.gamesRejectedInsufficientEvidence ?? 0).toLocaleString("es-ES")} pruebas
         insuficientes · {(sync.cexGamesUpdated ?? 0).toLocaleString("es-ES")} CeX ·{" "}
+        {(sync.jgoGamesUpdated ?? 0).toLocaleString("es-ES")} JGO ·{" "}
+        {(sync.cholloGamesUpdated ?? 0).toLocaleString("es-ES")} Chollo ·{" "}
+        {(sync.kaotoGamesUpdated ?? 0).toLocaleString("es-ES")} Kaoto ·{" "}
         {sync.gamesRejectedOutliers.toLocaleString("es-ES")} outliers
       </p>
     </div>

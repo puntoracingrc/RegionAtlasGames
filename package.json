@@ -13,6 +13,9 @@
     "ingest:template": "python3 scripts/build_ingest_template.py",
     "ingest:import-csv": "python3 scripts/import_listings_csv.py",
     "ingest:ebay": "python3 scripts/collect_ebay_es.py",
+    "ingest:jgo": "python3 scripts/collect_japangameonline.py",
+    "ingest:chollo": "python3 scripts/collect_chollogames.py",
+    "ingest:kaoto": "python3 scripts/collect_kaotostore.py",
     "museum:details": "PYTHONUNBUFFERED=1 python3 scripts/seed_museum_details.py",
     "museum:indexes": "python3 scripts/seed_museum_details.py --indexes-only",
     "covers:seed": "PYTHONUNBUFFERED=1 python3 scripts/seed_covers.py --skip-pc-map"

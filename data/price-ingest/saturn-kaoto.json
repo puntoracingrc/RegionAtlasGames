@@ -1,0 +1,407 @@
+{
+  "platformSlug": "saturn",
+  "collectedAt": "2026-06-12T22:34:54Z",
+  "source": "kaotostore",
+  "listings": [],
+  "cex": [],
+  "jgo": [],
+  "chollo": [],
+  "kaoto": [
+    {
+      "catalogId": "saturn-japon-vampire-hunter",
+      "source": "kaotostore",
+      "retailPriceEur": 39.95,
+      "priceEur": 39.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/vampire-hunter-darkstalkers-revenge-saturn-importacion-japonesa",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "10223381348618",
+      "title": "Vampire Hunter Darkstalkers Revenge SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-king-fighters-96",
+      "source": "kaotostore",
+      "retailPriceEur": 49.95,
+      "priceEur": 49.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/the-king-of-fighters-96-saturn-importacion-japonesa",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "10223374500106",
+      "title": "The King of Fighters 96 SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-radiant-silvergun",
+      "source": "kaotostore",
+      "retailPriceEur": 299.95,
+      "priceEur": 299.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/radiant-silvergun-saturn-importacion-japonesa",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "10223368634634",
+      "title": "Radiant Silvergun SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sega-ages-out-run",
+      "source": "kaotostore",
+      "retailPriceEur": 149.95,
+      "priceEur": 149.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/out-run-saturn-importacion-japonesa",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "10223360049418",
+      "title": "Out Run SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-darius-ii",
+      "source": "kaotostore",
+      "retailPriceEur": 59.95,
+      "priceEur": 59.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/darius-ii-saturn-importacion-japonesa",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "10223337668874",
+      "title": "Darius II SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-darius-gaiden",
+      "source": "kaotostore",
+      "retailPriceEur": 59.95,
+      "priceEur": 59.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/darius-gaiden-saturn-importacion-japonesa-1",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "10223326986506",
+      "title": "Darius Gaiden SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-street-fighter-ii-movie",
+      "source": "kaotostore",
+      "retailPriceEur": 49.95,
+      "priceEur": 49.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/street-fighter-ii-movie-saturn-importacion-japonesa",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "10153172041994",
+      "title": "Street Fighter II Movie SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-layer-section",
+      "source": "kaotostore",
+      "retailPriceEur": 59.95,
+      "priceEur": 59.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/layer-section-saturn-importacion-japonesa-1",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "10126716797194",
+      "title": "Layer Section SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-fire-pro-gaiden-blazing-tornado",
+      "source": "kaotostore",
+      "retailPriceEur": 29.95,
+      "priceEur": 29.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/fire-pro-gaiden-blazing-tornado-saturn-importacion-japonesa",
+      "condition": "sealed",
+      "inStock": true,
+      "externalId": "10106080755978",
+      "title": "Fire Pro Gaiden Blazing Tornado SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sega-ages-rouka-ni-ichidant-r",
+      "source": "kaotostore",
+      "retailPriceEur": 29.95,
+      "priceEur": 29.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/rouka-ni-ichidant-r-saturn-importacion-japonesa",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9996756287754",
+      "title": "Rouka ni Ichidant-R SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-virtua-fighter-kids",
+      "source": "kaotostore",
+      "retailPriceEur": 49.95,
+      "priceEur": 49.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/virtua-fighter-kids-saturn",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9995973165322",
+      "title": "Virtua Fighter Kids SATURN",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-command-conquer",
+      "source": "kaotostore",
+      "retailPriceEur": 29.95,
+      "priceEur": 29.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/command-conquer-saturn",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9979586969866",
+      "title": "Command & Conquer SATURN",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-street-racer-extra",
+      "source": "kaotostore",
+      "retailPriceEur": 49.95,
+      "priceEur": 49.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/street-racer-saturn",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9979584053514",
+      "title": "Street Racer SATURN",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-final-fight-revenge",
+      "source": "kaotostore",
+      "retailPriceEur": 499.95,
+      "priceEur": 499.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/final-fight-revenge-saturn-importacion-japonesa",
+      "condition": "cib",
+      "inStock": true,
+      "externalId": "9978197704970",
+      "title": "Final Fight Revenge SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-destruction-derby",
+      "source": "kaotostore",
+      "retailPriceEur": 59.95,
+      "priceEur": 59.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/destruction-derby-saturn",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9962868015370",
+      "title": "Destruction Derby SATURN",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-game-tengoku",
+      "source": "kaotostore",
+      "retailPriceEur": 79.95,
+      "priceEur": 79.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/game-tengoku-saturn-importacion-japonesa",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9853177790730",
+      "title": "Game Tengoku SATURN (Importación japonesa)",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-johnny-bazookatone",
+      "source": "kaotostore",
+      "retailPriceEur": 69.95,
+      "priceEur": 69.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/johnny-bazookatone-saturn",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9764358357258",
+      "title": "Johnny Bazookatone SATURN",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-worms",
+      "source": "kaotostore",
+      "retailPriceEur": 39.95,
+      "priceEur": 39.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/worms-saturn",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9764357079306",
+      "title": "Worms SATURN",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-hang-gp-95",
+      "source": "kaotostore",
+      "retailPriceEur": 49.95,
+      "priceEur": 49.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/hang-on-gp-96-saturn",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9764219388170",
+      "title": "Hang On GP 96 SATURN",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-mystaria-realms-lore",
+      "source": "kaotostore",
+      "retailPriceEur": 69.95,
+      "priceEur": 69.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/mystaria-the-realms-of-lore-saturn",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9764215193866",
+      "title": "Mystaria The Realms of Lore SATURN",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-sega-international-victory-goal",
+      "source": "kaotostore",
+      "retailPriceEur": 19.95,
+      "priceEur": 19.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/international-victory-goal-saturn",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9754560397578",
+      "title": "International Victory Goal SATURN",
+      "matchMethod": "title"
+    },
+    {
+      "catalogId": "saturn-japon-fifa-soccer-96",
+      "source": "kaotostore",
+      "retailPriceEur": 29.95,
+      "priceEur": 29.95,
+      "listingRegion": "Japón",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_region"
+      ],
+      "productUrl": "https://kaotostore.myshopify.com/products/fifa-96-saturn",
+      "condition": "used",
+      "inStock": true,
+      "externalId": "9665857192202",
+      "title": "Fifa 96 SATURN",
+      "matchMethod": "title"
+    }
+  ]
+}

@@ -12,6 +12,12 @@ export type PlatformPriceSync = {
   gamesRejectedInsufficientEvidence?: number;
   cexGamesUpdated?: number;
   cexGamesSkipped?: number;
+  jgoGamesUpdated?: number;
+  jgoGamesSkipped?: number;
+  cholloGamesUpdated?: number;
+  cholloGamesSkipped?: number;
+  kaotoGamesUpdated?: number;
+  kaotoGamesSkipped?: number;
   coveragePct: number;
   regionPolicy?: string;
 };

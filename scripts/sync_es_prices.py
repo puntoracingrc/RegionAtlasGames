@@ -3,6 +3,9 @@
 
 - P2P (Wallapop / eBay / Vinted): mediana con región verificada + reglas por plataforma.
 - CeX: cexSellPrice / cexCashPrice aparte (no entra en la mediana P2P).
+- Japan Game Online: jgoRetailPrice aparte (retail import JP en ES).
+- Chollo Games: cholloRetailPrice aparte (importación Madrid).
+- Kaoto Store: kaotoRetailPrice aparte (Shopify, import JP/PAL).
 
 Ver data/region-evidence-rules.json y scripts/region_evidence_rules.py
 """
@@ -270,6 +273,87 @@ def apply_cex_row(
     return True
 
 
+def apply_jgo_row(
+    game: dict[str, Any],
+    row: dict[str, Any],
+    synced_at: str,
+) -> bool:
+    catalog_region = str(game.get("region") or "")
+    listing_region = str(row.get("listingRegion") or catalog_region).strip()
+    if not listing_region or not catalog_regions_match(catalog_region, listing_region):
+        return False
+
+    price = row.get("retailPriceEur")
+    if price is None:
+        price = row.get("priceEur")
+    if price is None or float(price) <= 0:
+        return False
+
+    game["jgoRetailPrice"] = round(float(price), 2)
+    if row.get("productUrl"):
+        game["jgoProductUrl"] = str(row["productUrl"])
+    if row.get("condition"):
+        game["jgoCondition"] = str(row["condition"])
+    if row.get("inStock") is not None:
+        game["jgoInStock"] = bool(row["inStock"])
+    game["jgoMatchedAt"] = synced_at
+    return True
+
+
+def apply_chollo_row(
+    game: dict[str, Any],
+    row: dict[str, Any],
+    synced_at: str,
+) -> bool:
+    catalog_region = str(game.get("region") or "")
+    listing_region = str(row.get("listingRegion") or catalog_region).strip()
+    if not listing_region or not catalog_regions_match(catalog_region, listing_region):
+        return False
+
+    price = row.get("retailPriceEur")
+    if price is None:
+        price = row.get("priceEur")
+    if price is None or float(price) <= 0:
+        return False
+
+    game["cholloRetailPrice"] = round(float(price), 2)
+    if row.get("productUrl"):
+        game["cholloProductUrl"] = str(row["productUrl"])
+    if row.get("condition"):
+        game["cholloCondition"] = str(row["condition"])
+    if row.get("inStock") is not None:
+        game["cholloInStock"] = bool(row["inStock"])
+    game["cholloMatchedAt"] = synced_at
+    return True
+
+
+def apply_kaoto_row(
+    game: dict[str, Any],
+    row: dict[str, Any],
+    synced_at: str,
+) -> bool:
+    catalog_region = str(game.get("region") or "")
+    listing_region = str(row.get("listingRegion") or catalog_region).strip()
+    if not listing_region or not catalog_regions_match(catalog_region, listing_region):
+        return False
+
+    price = row.get("retailPriceEur")
+    if price is None:
+        price = row.get("priceEur")
+    if price is None or float(price) <= 0:
+        return False
+
+    game["kaotoRetailPrice"] = round(float(price), 2)
+    if row.get("productUrl"):
+        game["kaotoProductUrl"] = str(row["productUrl"])
+    if row.get("condition"):
+        game["kaotoCondition"] = str(row["condition"])
+    if row.get("inStock") is not None:
+        game["kaotoInStock"] = bool(row["inStock"])
+    game["kaotoMatchedAt"] = synced_at
+    return True
+
+
 def advance_rotation(order: list[str], current: str) -> str | None:
     if current not in order:
         return order[0] if order else None
@@ -306,8 +390,14 @@ def main() -> None:
     synced_at = ingest.get("collectedAt") or now_iso()
     listings = ingest.get("listings") or []
     cex_rows = ingest.get("cex") or []
+    jgo_rows = ingest.get("jgo") or []
+    chollo_rows = ingest.get("chollo") or []
+    kaoto_rows = ingest.get("kaoto") or []
     grouped = group_by_catalog_id(listings)
     cex_by_id = {str(r["catalogId"]): r for r in cex_rows if r.get("catalogId")}
+    jgo_by_id = {str(r["catalogId"]): r for r in jgo_rows if r.get("catalogId")}
+    chollo_by_id = {str(r["catalogId"]): r for r in chollo_rows if r.get("catalogId")}
+    kaoto_by_id = {str(r["catalogId"]): r for r in kaoto_rows if r.get("catalogId")}
 
     targets = [
         g
@@ -327,6 +417,12 @@ def main() -> None:
     rejected_insufficient = 0
     cex_updated = 0
     cex_skipped = 0
+    jgo_updated = 0
+    jgo_skipped = 0
+    chollo_updated = 0
+    chollo_skipped = 0
+    kaoto_updated = 0
+    kaoto_skipped = 0
 
     for game in targets:
         gid = game["id"]
@@ -373,6 +469,44 @@ def main() -> None:
 
         by_id[gid] = game
 
+    platform_games = [
+        g
+        for g in catalog
+        if g.get("platformSlug") == platform_slug and g.get("listingStatus") != "excluded"
+    ]
+    for game in platform_games:
+        gid = game["id"]
+        jgo_row = jgo_by_id.get(gid)
+        if not jgo_row:
+            continue
+        if apply_jgo_row(game, jgo_row, synced_at):
+            jgo_updated += 1
+        else:
+            jgo_skipped += 1
+        by_id[gid] = game
+
+    for game in platform_games:
+        gid = game["id"]
+        chollo_row = chollo_by_id.get(gid)
+        if not chollo_row:
+            continue
+        if apply_chollo_row(game, chollo_row, synced_at):
+            chollo_updated += 1
+        else:
+            chollo_skipped += 1
+        by_id[gid] = game
+
+    for game in platform_games:
+        gid = game["id"]
+        kaoto_row = kaoto_by_id.get(gid)
+        if not kaoto_row:
+            continue
+        if apply_kaoto_row(game, kaoto_row, synced_at):
+            kaoto_updated += 1
+        else:
+            kaoto_skipped += 1
+        by_id[gid] = game
+
     coverage = round((updated / len(targets)) * 100, 1) if targets else 0.0
 
     print(f"Plataforma: {platform_slug}")
@@ -381,6 +515,12 @@ def main() -> None:
     print(f"  Precio P2P actualizado: {updated}")
     print(f"  CeX actualizado (retail aparte): {cex_updated}")
     print(f"  CeX rechazado (región): {cex_skipped}")
+    print(f"  JGO actualizado (retail aparte): {jgo_updated}")
+    print(f"  JGO rechazado (región): {jgo_skipped}")
+    print(f"  Chollo actualizado (retail aparte): {chollo_updated}")
+    print(f"  Chollo rechazado (región): {chollo_skipped}")
+    print(f"  Kaoto actualizado (retail aparte): {kaoto_updated}")
+    print(f"  Kaoto rechazado (región): {kaoto_skipped}")
     print(f"  Sin dato P2P / rechazado: {skipped}")
     print(f"  Anuncios sin región verificada: {rejected_unverified}")
     print(f"  Región distinta al catálogo: {rejected_mismatch}")
@@ -406,6 +546,12 @@ def main() -> None:
         "gamesRejectedInsufficientEvidence": rejected_insufficient,
         "cexGamesUpdated": cex_updated,
         "cexGamesSkipped": cex_skipped,
+        "jgoGamesUpdated": jgo_updated,
+        "jgoGamesSkipped": jgo_skipped,
+        "cholloGamesUpdated": chollo_updated,
+        "cholloGamesSkipped": chollo_skipped,
+        "kaotoGamesUpdated": kaoto_updated,
+        "kaotoGamesSkipped": kaoto_skipped,
         "coveragePct": coverage,
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
     }

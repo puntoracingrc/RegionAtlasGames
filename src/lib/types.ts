@@ -78,6 +78,24 @@ export type CatalogGame = {
   cexProductUrl?: string | null;
   cexMatchedAt?: string | null;
   cexRegionVerified?: boolean;
+  /** Referencia retail Japan Game Online (import JP en ES) */
+  jgoRetailPrice?: number | null;
+  jgoProductUrl?: string | null;
+  jgoMatchedAt?: string | null;
+  jgoCondition?: string | null;
+  jgoInStock?: boolean;
+  /** Referencia retail Chollo Games (importación Madrid) */
+  cholloRetailPrice?: number | null;
+  cholloProductUrl?: string | null;
+  cholloMatchedAt?: string | null;
+  cholloCondition?: string | null;
+  cholloInStock?: boolean;
+  /** Referencia retail Kaoto Store (Shopify) */
+  kaotoRetailPrice?: number | null;
+  kaotoProductUrl?: string | null;
+  kaotoMatchedAt?: string | null;
+  kaotoCondition?: string | null;
+  kaotoInStock?: boolean;
 };
 
 export type CollectionItem = {
@@ -108,6 +126,21 @@ export type CollectionItem = {
   cexProductUrl?: string | null;
   cexMatchedAt?: string | null;
   cexRegionVerified?: boolean;
+  jgoRetailPrice?: number | null;
+  jgoProductUrl?: string | null;
+  jgoMatchedAt?: string | null;
+  jgoCondition?: string | null;
+  jgoInStock?: boolean;
+  cholloRetailPrice?: number | null;
+  cholloProductUrl?: string | null;
+  cholloMatchedAt?: string | null;
+  cholloCondition?: string | null;
+  cholloInStock?: boolean;
+  kaotoRetailPrice?: number | null;
+  kaotoProductUrl?: string | null;
+  kaotoMatchedAt?: string | null;
+  kaotoCondition?: string | null;
+  kaotoInStock?: boolean;
 };
 
 export type CatalogMeta = {

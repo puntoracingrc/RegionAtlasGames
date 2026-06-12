@@ -72,6 +72,9 @@ def build_template(platform_slug: str, limit: int | None, region: str | None) ->
         "notes": "Plantilla Fase 1 — sustituir priceEur: null por precios reales y añadir más anuncios.",
         "listings": [placeholder_listing(g) for g in games],
         "cex": [],
+        "jgo": [],
+        "chollo": [],
+        "kaoto": [],
     }
 
 

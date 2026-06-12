@@ -148,6 +148,21 @@ export function catalogGameToCollectionItem(game: CatalogGame, items: Collection
     cexProductUrl: game.cexProductUrl ?? null,
     cexMatchedAt: game.cexMatchedAt ?? null,
     cexRegionVerified: game.cexRegionVerified,
+    jgoRetailPrice: game.jgoRetailPrice ?? null,
+    jgoProductUrl: game.jgoProductUrl ?? null,
+    jgoMatchedAt: game.jgoMatchedAt ?? null,
+    jgoCondition: game.jgoCondition ?? null,
+    jgoInStock: game.jgoInStock,
+    cholloRetailPrice: game.cholloRetailPrice ?? null,
+    cholloProductUrl: game.cholloProductUrl ?? null,
+    cholloMatchedAt: game.cholloMatchedAt ?? null,
+    cholloCondition: game.cholloCondition ?? null,
+    cholloInStock: game.cholloInStock,
+    kaotoRetailPrice: game.kaotoRetailPrice ?? null,
+    kaotoProductUrl: game.kaotoProductUrl ?? null,
+    kaotoMatchedAt: game.kaotoMatchedAt ?? null,
+    kaotoCondition: game.kaotoCondition ?? null,
+    kaotoInStock: game.kaotoInStock,
   };
 }
 

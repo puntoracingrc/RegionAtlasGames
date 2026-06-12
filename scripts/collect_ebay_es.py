@@ -33,6 +33,7 @@ from collectors.common import (  # noqa: E402
     to_ingest_listing,
 )
 from collectors.ebay_client import search_ebay_es  # noqa: E402
+from collectors.reference_match import build_platform_reference_index, listing_reference_valid_for_catalog  # noqa: E402
 from region_evidence_rules import check_listing_evidence_meets_rules  # noqa: E402
 
 REQUEST_DELAY = 1.0
@@ -75,6 +76,7 @@ def main() -> None:
 
     games = es_market_games(args.platform, args.region)[: args.limit]
     out = args.output or INGEST_DIR / f"{args.platform}-ebay.json"
+    _, ref_to_ids = build_platform_reference_index(args.platform)
 
     payload = load_json(out, {"listings": [], "cex": []}) if args.merge else {"listings": [], "cex": []}
     payload["platformSlug"] = args.platform
@@ -94,6 +96,8 @@ def main() -> None:
         "listingsAdded": 0,
         "skippedRules": 0,
         "skippedTitle": 0,
+        "skippedReference": 0,
+        "matchedReference": 0,
         "errors": [],
         "backend": None,
     }
@@ -137,18 +141,31 @@ def main() -> None:
             added_for_game = 0
             for item in raw_items[: args.per_game * (1 + int(sold) + int(active))]:
                 listing_type = "sold" if item.get("_listingType") == "sold" else "active"
+                item_title = item.get("title", "")
+                ok_ref, _ = listing_reference_valid_for_catalog(
+                    item_title,
+                    catalog_id,
+                    catalog_region,
+                    ref_to_ids=ref_to_ids,
+                )
+                if not ok_ref:
+                    report["skippedReference"] += 1
+                    continue
                 row = to_ingest_listing(
                     catalog_id=catalog_id,
                     source="ebay-es",
                     listing_type=listing_type,
                     price_eur=float(item["priceEur"]),
-                    title=item.get("title", ""),
+                    title=item_title,
                     catalog_region=catalog_region,
                     external_id=item.get("itemId"),
+                    ref_to_ids=ref_to_ids,
                 )
                 if not row:
                     report["skippedTitle"] += 1
                     continue
+                if row.get("matchedReference"):
+                    report["matchedReference"] += 1
                 if not passes_rules(args.platform, catalog_region, row):
                     report["skippedRules"] += 1
                     continue
@@ -173,6 +190,8 @@ def main() -> None:
     print(
         f"\nTotal anuncios: {len(payload['listings'])} · "
         f"juegos con datos: {report['gamesWithListings']} · "
+        f"ref. SKU: {report['matchedReference']} · "
+        f"rechazados ref.: {report['skippedReference']} · "
         f"backend: {report['backend']}"
     )
 

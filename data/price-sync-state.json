@@ -23,8 +23,8 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-06-12T20:15:13Z",
-  "nextPlatformSlug": "nes",
+  "lastRunAt": "2026-06-12T22:36:24Z",
+  "nextPlatformSlug": "dreamcast",
   "platforms": {
     "dreamcast": {
       "lastSyncAt": "2026-06-12T20:30:00Z",
@@ -69,6 +69,46 @@
       "cexGamesUpdated": 2,
       "cexGamesSkipped": 0,
       "coveragePct": 0.3,
+      "regionPolicy": "Reglas en data/region-evidence-rules.json"
+    },
+    "saturn": {
+      "lastSyncAt": "2026-06-12T22:36:23Z",
+      "source": "Mercado ES",
+      "gamesTargeted": 239,
+      "gamesUpdated": 0,
+      "gamesSkippedNoData": 239,
+      "gamesRejectedOutliers": 0,
+      "gamesRejectedUnverifiedRegion": 0,
+      "gamesRejectedRegionMismatch": 0,
+      "gamesRejectedInsufficientEvidence": 0,
+      "cexGamesUpdated": 0,
+      "cexGamesSkipped": 0,
+      "jgoGamesUpdated": 0,
+      "jgoGamesSkipped": 0,
+      "cholloGamesUpdated": 164,
+      "cholloGamesSkipped": 0,
+      "kaotoGamesUpdated": 0,
+      "kaotoGamesSkipped": 0,
+      "coveragePct": 0.0,
+      "regionPolicy": "Reglas en data/region-evidence-rules.json"
+    },
+    "n64": {
+      "lastSyncAt": "2026-06-12T22:32:37Z",
+      "source": "Mercado ES",
+      "gamesTargeted": 246,
+      "gamesUpdated": 0,
+      "gamesSkippedNoData": 246,
+      "gamesRejectedOutliers": 0,
+      "gamesRejectedUnverifiedRegion": 0,
+      "gamesRejectedRegionMismatch": 0,
+      "gamesRejectedInsufficientEvidence": 0,
+      "cexGamesUpdated": 0,
+      "cexGamesSkipped": 0,
+      "jgoGamesUpdated": 0,
+      "jgoGamesSkipped": 0,
+      "cholloGamesUpdated": 39,
+      "cholloGamesSkipped": 0,
+      "coveragePct": 0.0,
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     }
   }

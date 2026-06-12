@@ -8,7 +8,12 @@ Rotación semanal por plataforma. **No** actualiza 30k juegos de golpe.
 |------|----------------|----------------------|
 | Wallapop / eBay / Vinted | `recommendedPrice` | Sí (región verificada) |
 | CeX retail | `cexSellPrice`, `cexCashPrice` | No (referencia aparte) |
+| Japan Game Online | `jgoRetailPrice`, `jgoProductUrl` | No (retail import JP en ES) |
+| Chollo Games | `cholloRetailPrice`, `cholloProductUrl` | No (importación Madrid) |
+| Kaoto Store | `kaotoRetailPrice`, `kaotoProductUrl` | No (Shopify, import JP/PAL) |
 | PriceCharting | `pcRefPrice` | No (ref. EU) |
+
+Matching por **referencia producto** (`T-…`, `SLPS-`, `HDR-…`) en eBay y JGO cuando aparece en título/descripción; ver `scripts/collectors/reference_match.py`.
 
 ## Reglas
 
@@ -42,6 +47,18 @@ python3 scripts/import_listings_csv.py --platform ps2 --input data/price-ingest/
 
 # Portadas locales
 python3 scripts/seed_covers.py --platforms ps4,ps2,snes --skip-pc-map
+
+# Referencias retail Japan Game Online (import JP)
+python3 scripts/collect_japangameonline.py --platform saturn --dry-run
+./scripts/run_jgo_ingest.sh saturn --sync
+
+# Referencias retail Chollo Games (importación Madrid)
+python3 scripts/collect_chollogames.py --platform n64 --dry-run
+./scripts/run_chollo_ingest.sh n64 --sync
+
+# Referencias retail Kaoto Store (Shopify)
+python3 scripts/collect_kaotostore.py --platform saturn --dry-run
+./scripts/run_kaoto_ingest.sh saturn --sync
 ```
 
 ## Cron ejemplo
