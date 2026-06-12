@@ -15,15 +15,21 @@ export function buildCatalogSeoSlug(game: CatalogGame): string {
 }
 
 const catalogBySeoSlug = new Map<string, CatalogGame>();
-for (const game of listedCatalog) {
-  catalogBySeoSlug.set(buildCatalogSeoSlug(game), game);
+
+function ensureCatalogSeoSlugIndex(): void {
+  if (catalogBySeoSlug.size > 0) return;
+  for (const game of listedCatalog) {
+    catalogBySeoSlug.set(buildCatalogSeoSlug(game), game);
+  }
 }
 
 export function getCatalogGameBySeoSlug(slug: string): CatalogGame | undefined {
+  ensureCatalogSeoSlugIndex();
   return catalogBySeoSlug.get(slug);
 }
 
 export function resolveCatalogGameParam(param: string): CatalogGame | undefined {
+  ensureCatalogSeoSlugIndex();
   return catalogBySeoSlug.get(param) ?? getCatalogGame(param);
 }
 

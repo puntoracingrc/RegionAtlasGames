@@ -2,6 +2,8 @@ import { IndexGrid } from "@/components/index-grid";
 import { SiteNav } from "@/components/site-nav";
 import { getSeriesList, indexStats } from "@/lib/indexes";
 
+export const dynamic = "force-dynamic";
+
 export default function SeriesPage() {
   const series = getSeriesList();
   const stats = indexStats();

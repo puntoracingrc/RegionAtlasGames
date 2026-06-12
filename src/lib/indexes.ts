@@ -3,7 +3,7 @@ import genresData from "../../data/index/genres.json";
 import seriesData from "../../data/index/series.json";
 import gameDetailsData from "../../data/game-details.json";
 import type { CatalogGame, GameDetails, IndexEntry } from "./types";
-import { catalog, getCatalogGame, getPlatform, listedCatalog } from "./catalog";
+import { getCatalogGame, getPlatform, listedCatalog, meta } from "./catalog";
 
 export const companies = companiesData as Record<string, IndexEntry>;
 export const genres = genresData as Record<string, IndexEntry>;
@@ -15,12 +15,18 @@ function isGameDetails(value: unknown): value is GameDetails {
   return "museumPath" in value && "fetchedAt" in value;
 }
 
-const rawGameDetails = gameDetailsData as Record<string, unknown>;
-export const gameDetails: Record<string, GameDetails> = Object.fromEntries(
-  Object.entries(rawGameDetails).filter((entry): entry is [string, GameDetails] =>
-    isGameDetails(entry[1]),
-  ),
-);
+let gameDetailsCache: Record<string, GameDetails> | null = null;
+
+function loadGameDetails(): Record<string, GameDetails> {
+  if (gameDetailsCache) return gameDetailsCache;
+  const raw = gameDetailsData as Record<string, unknown>;
+  gameDetailsCache = Object.fromEntries(
+    Object.entries(raw).filter((entry): entry is [string, GameDetails] =>
+      isGameDetails(entry[1]),
+    ),
+  );
+  return gameDetailsCache;
+}
 
 const companyList = Object.values(companies).sort(
   (a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"),
@@ -33,7 +39,7 @@ const seriesList = Object.values(seriesIndex).sort(
 );
 
 export function getGameDetails(id: string): GameDetails | undefined {
-  return gameDetails[id];
+  return loadGameDetails()[id];
 }
 
 export function getCompany(slug: string): IndexEntry | undefined {
@@ -67,12 +73,11 @@ export function gamesForIndex(entry: IndexEntry): CatalogGame[] {
 }
 
 export function indexStats() {
-  const withDetails = listedCatalog.filter((g) => gameDetails[g.id]).length;
   return {
-    companies: companyList.length,
-    genres: genreList.length,
+    companies: meta.indexCompanies ?? companyList.length,
+    genres: meta.indexGenres ?? genreList.length,
     series: seriesList.length,
-    gamesWithDetails: withDetails,
+    gamesWithDetails: meta.gamesWithDetails ?? 0,
   };
 }
 
@@ -84,4 +89,9 @@ export function platformBreakdown(entry: IndexEntry) {
       name: getPlatform(slug)?.shortName ?? slug,
     }))
     .sort((a, b) => b.count - a.count);
+}
+
+/** @deprecated usar getGameDetails */
+export function getGameDetailsRecord(): Record<string, GameDetails> {
+  return loadGameDetails();
 }

@@ -123,6 +123,9 @@ export type CatalogMeta = {
   excludedByPlatform?: Record<string, number>;
   curationByCategory?: Record<string, number>;
   lastCuratedAt?: string;
+  gamesWithDetails?: number;
+  indexCompanies?: number;
+  indexGenres?: number;
   collection: {
     totalItems: number;
     retroItems: number;

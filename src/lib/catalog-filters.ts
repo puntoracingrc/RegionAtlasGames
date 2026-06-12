@@ -1,6 +1,6 @@
 import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
 import { getPlatform } from "@/lib/catalog";
-import { gameDetails } from "@/lib/indexes";
+import { getGameDetails } from "@/lib/indexes";
 import type { CatalogGame, GameDetails } from "@/lib/types";
 
 export type CatalogSort =
@@ -69,7 +69,7 @@ export function countByPriceFilter(games: CatalogGame[]): Record<CatalogPriceFil
 }
 
 export function getDetails(game: CatalogGame): GameDetails | undefined {
-  return gameDetails[game.id];
+  return getGameDetails(game.id);
 }
 
 export function buildSearchHaystack(game: CatalogGame): string {

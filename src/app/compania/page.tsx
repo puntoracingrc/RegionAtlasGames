@@ -2,6 +2,8 @@ import { IndexGrid } from "@/components/index-grid";
 import { SiteNav } from "@/components/site-nav";
 import { getCompanies, indexStats } from "@/lib/indexes";
 
+export const dynamic = "force-dynamic";
+
 export default function CompaniesPage() {
   const companies = getCompanies();
   const stats = indexStats();

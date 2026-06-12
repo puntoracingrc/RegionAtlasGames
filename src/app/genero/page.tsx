@@ -2,6 +2,8 @@ import { IndexGrid } from "@/components/index-grid";
 import { SiteNav } from "@/components/site-nav";
 import { getGenres, indexStats } from "@/lib/indexes";
 
+export const dynamic = "force-dynamic";
+
 export default function GenresPage() {
   const genres = getGenres();
   const stats = indexStats();
