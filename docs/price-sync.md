@@ -48,7 +48,7 @@ python3 scripts/seed_covers.py --platforms ps4,ps2,snes --skip-pc-map
 
 ```cron
 # Domingo 04:00 — tras generar data/price-ingest/{plataforma}.json
-0 4 * * 0 cd /ruta/pal-es-market && ./scripts/weekly-price-sync.sh >> logs/price-sync.log 2>&1
+0 4 * * 0 cd /ruta/RegionAtlasGames && ./scripts/weekly-price-sync.sh >> logs/price-sync.log 2>&1
 ```
 
 ## Formato ingest
