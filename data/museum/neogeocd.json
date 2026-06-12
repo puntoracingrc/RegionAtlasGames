@@ -1,0 +1,968 @@
+[
+  {
+    "title": "3 Count Bout",
+    "museumPath": "/juegos/neo-geo-cd/usa/3-count-bout",
+    "museumSlug": "3-count-bout",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "ADK World",
+    "museumPath": "/juegos/neo-geo-cd/japon/adk-world",
+    "museumSlug": "adk-world",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Aero Fighters 2",
+    "museumPath": "/juegos/neo-geo-cd/usa/aero-fighters-2",
+    "museumSlug": "aero-fighters-2",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Aero Fighters 3",
+    "museumPath": "/juegos/neo-geo-cd/usa/aero-fighters-3",
+    "museumSlug": "aero-fighters-3",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Aggressors of Dark Kombat",
+    "museumPath": "/juegos/neo-geo-cd/usa/aggressors-dark-kombat",
+    "museumSlug": "aggressors-dark-kombat",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Alpha Mission II",
+    "museumPath": "/juegos/neo-geo-cd/usa/alpha-mission-ii",
+    "museumSlug": "alpha-mission-ii",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Art of Fighting",
+    "museumPath": "/juegos/neo-geo-cd/usa/art-fighting",
+    "museumSlug": "art-fighting",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Art of Fighting 2",
+    "museumPath": "/juegos/neo-geo-cd/usa/art-fighting-2",
+    "museumSlug": "art-fighting-2",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Art of Fighting: Ryuuko no Ken Gaiden",
+    "museumPath": "/juegos/neo-geo-cd/japon/art-fighting-ryuuko-no-ken-gaiden",
+    "museumSlug": "art-fighting-ryuuko-no-ken-gaiden",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "ASO II: Last Guardian",
+    "museumPath": "/juegos/neo-geo-cd/japon/aso-ii-last-guardian",
+    "museumSlug": "aso-ii-last-guardian",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Bakumatsu Roman: Gekka no Kenshi",
+    "museumPath": "/juegos/neo-geo-cd/japon/bakumatsu-roman-gekka-no-kenshi",
+    "museumSlug": "bakumatsu-roman-gekka-no-kenshi",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Bakumatsu Rouman Dai Ni Maku: Gekka no Kenshi",
+    "museumPath": "/juegos/neo-geo-cd/japon/bakumatsu-rouman-dai-ni-maku-gekka-no-kenshi",
+    "museumSlug": "bakumatsu-rouman-dai-ni-maku-gekka-no-kenshi",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Baseball Stars 2",
+    "museumPath": "/juegos/neo-geo-cd/japon/baseball-stars-2",
+    "museumSlug": "baseball-stars-2",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Baseball Stars 2",
+    "museumPath": "/juegos/neo-geo-cd/usa/baseball-stars-2",
+    "museumSlug": "baseball-stars-2",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Baseball Stars Professional",
+    "museumPath": "/juegos/neo-geo-cd/usa/baseball-stars-professional",
+    "museumSlug": "baseball-stars-professional",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Baseball Stars Professional",
+    "museumPath": "/juegos/neo-geo-cd/japon/baseball-stars-professional",
+    "museumSlug": "baseball-stars-professional",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Big Tournament Golf",
+    "museumPath": "/juegos/neo-geo-cd/japon/big-tournament-golf",
+    "museumSlug": "big-tournament-golf",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Breakers",
+    "museumPath": "/juegos/neo-geo-cd/japon/breakers",
+    "museumSlug": "breakers",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Burning Fight",
+    "museumPath": "/juegos/neo-geo-cd/japon/burning-fight",
+    "museumSlug": "burning-fight",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Burning Fight",
+    "museumPath": "/juegos/neo-geo-cd/usa/burning-fight",
+    "museumSlug": "burning-fight",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Bust-A-Move",
+    "museumPath": "/juegos/neo-geo-cd/usa/bust-move",
+    "museumSlug": "bust-move",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Chotetsu Brikin'ger",
+    "museumPath": "/juegos/neo-geo-cd/japon/chotetsu-brikinger",
+    "museumSlug": "chotetsu-brikinger",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Choujin Gakuen Gowcaizer",
+    "museumPath": "/juegos/neo-geo-cd/japon/choujin-gakuen-gowcaizer",
+    "museumSlug": "choujin-gakuen-gowcaizer",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Crossed Swords",
+    "museumPath": "/juegos/neo-geo-cd/japon/crossed-swords",
+    "museumSlug": "crossed-swords",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Crossed Swords II",
+    "museumPath": "/juegos/neo-geo-cd/japon/crossed-swords-ii",
+    "museumSlug": "crossed-swords-ii",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Cyber-Lip",
+    "museumPath": "/juegos/neo-geo-cd/usa/cyber-lip",
+    "museumSlug": "cyber-lip",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Cyber-Lip",
+    "museumPath": "/juegos/neo-geo-cd/japon/cyber-lip",
+    "museumSlug": "cyber-lip",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Double Dragon",
+    "museumPath": "/juegos/neo-geo-cd/usa/double-dragon",
+    "museumSlug": "double-dragon",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Double Dragon",
+    "museumPath": "/juegos/neo-geo-cd/japon/double-dragon",
+    "museumSlug": "double-dragon",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Dunk Dream",
+    "museumPath": "/juegos/neo-geo-cd/japon/dunk-dream",
+    "museumSlug": "dunk-dream",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Fatal Fury 2",
+    "museumPath": "/juegos/neo-geo-cd/usa/fatal-fury-2",
+    "museumSlug": "fatal-fury-2",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Fatal Fury 3: Road to the Final Victory",
+    "museumPath": "/juegos/neo-geo-cd/usa/fatal-fury-3-road-final-victory",
+    "museumSlug": "fatal-fury-3-road-final-victory",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Fatal Fury Special",
+    "museumPath": "/juegos/neo-geo-cd/usa/fatal-fury-special",
+    "museumSlug": "fatal-fury-special",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Fatal Fury: The Battle of Fury",
+    "museumPath": "/juegos/neo-geo-cd/usa/fatal-fury-battle-fury",
+    "museumSlug": "fatal-fury-battle-fury",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Fighter's History Dynamite",
+    "museumPath": "/juegos/neo-geo-cd/japon/fighters-history-dynamite",
+    "museumSlug": "fighters-history-dynamite",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Fire Suplex",
+    "museumPath": "/juegos/neo-geo-cd/japon/fire-suplex",
+    "museumSlug": "fire-suplex",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Flying Power Disk",
+    "museumPath": "/juegos/neo-geo-cd/japon/flying-power-disk",
+    "museumSlug": "flying-power-disk",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Football Frenzy",
+    "museumPath": "/juegos/neo-geo-cd/usa/football-frenzy",
+    "museumSlug": "football-frenzy",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Football Frenzy",
+    "museumPath": "/juegos/neo-geo-cd/japon/football-frenzy",
+    "museumSlug": "football-frenzy",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Fu'un Mokujiroku",
+    "museumPath": "/juegos/neo-geo-cd/japon/fuun-mokujiroku",
+    "museumSlug": "fuun-mokujiroku",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Futsal: 5 on 5 Mini Soccer",
+    "museumPath": "/juegos/neo-geo-cd/japon/futsal-5-5-mini-soccer",
+    "museumSlug": "futsal-5-5-mini-soccer",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Galaxy Fight: Universal Warriors",
+    "museumPath": "/juegos/neo-geo-cd/usa/galaxy-fight-universal-warriors",
+    "museumSlug": "galaxy-fight-universal-warriors",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Galaxy Fight: Universal Warriors",
+    "museumPath": "/juegos/neo-geo-cd/japon/galaxy-fight-universal-warriors",
+    "museumSlug": "galaxy-fight-universal-warriors",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Garou Densetsu 2: Arata-naru Tatakai",
+    "museumPath": "/juegos/neo-geo-cd/japon/garou-densetsu-2-arata-naru-tatakai",
+    "museumSlug": "garou-densetsu-2-arata-naru-tatakai",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Garou Densetsu 3: Haruka-naru Tatakai",
+    "museumPath": "/juegos/neo-geo-cd/japon/garou-densetsu-3-haruka-naru-tatakai",
+    "museumSlug": "garou-densetsu-3-haruka-naru-tatakai",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Garou Densetsu Special",
+    "museumPath": "/juegos/neo-geo-cd/japon/garou-densetsu-special",
+    "museumSlug": "garou-densetsu-special",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Garou Densetsu: Shukumei no Tatakai",
+    "museumPath": "/juegos/neo-geo-cd/japon/garou-densetsu-shukumei-no-tatakai",
+    "museumSlug": "garou-densetsu-shukumei-no-tatakai",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Ghost Pilots",
+    "museumPath": "/juegos/neo-geo-cd/usa/ghost-pilots",
+    "museumSlug": "ghost-pilots",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Ghost Pilots",
+    "museumPath": "/juegos/neo-geo-cd/japon/ghost-pilots",
+    "museumSlug": "ghost-pilots",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Idol Mahjong Final Romance 2",
+    "museumPath": "/juegos/neo-geo-cd/japon/idol-mahjong-final-romance-2",
+    "museumSlug": "idol-mahjong-final-romance-2",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Joy Joy Kid",
+    "museumPath": "/juegos/neo-geo-cd/japon/joy-joy-kid",
+    "museumSlug": "joy-joy-kid",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Jyanshin Densetsu: Quest of Jongmaster",
+    "museumPath": "/juegos/neo-geo-cd/japon/jyanshin-densetsu-quest-jongmaster",
+    "museumSlug": "jyanshin-densetsu-quest-jongmaster",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Karnov's Revenge",
+    "museumPath": "/juegos/neo-geo-cd/usa/karnovs-revenge",
+    "museumSlug": "karnovs-revenge",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "King of the Monsters 2: The Next Thing",
+    "museumPath": "/juegos/neo-geo-cd/japon/king-monsters-2-next-thing",
+    "museumSlug": "king-monsters-2-next-thing",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Last Resort",
+    "museumPath": "/juegos/neo-geo-cd/japon/last-resort",
+    "museumSlug": "last-resort",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Last Resort",
+    "museumPath": "/juegos/neo-geo-cd/usa/last-resort",
+    "museumSlug": "last-resort",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "League Bowling",
+    "museumPath": "/juegos/neo-geo-cd/japon/league-bowling",
+    "museumSlug": "league-bowling",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "League Bowling",
+    "museumPath": "/juegos/neo-geo-cd/usa/league-bowling",
+    "museumSlug": "league-bowling",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Magical Drop 2",
+    "museumPath": "/juegos/neo-geo-cd/japon/magical-drop-2",
+    "museumSlug": "magical-drop-2",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Magical Drop 2",
+    "museumPath": "/juegos/neo-geo-cd/usa/magical-drop-2",
+    "museumSlug": "magical-drop-2",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Magician Lord",
+    "museumPath": "/juegos/neo-geo-cd/japon/magician-lord",
+    "museumSlug": "magician-lord",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Magician Lord",
+    "museumPath": "/juegos/neo-geo-cd/usa/magician-lord",
+    "museumSlug": "magician-lord",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Mahjong Kyoretsuden",
+    "museumPath": "/juegos/neo-geo-cd/japon/mahjong-kyoretsuden",
+    "museumSlug": "mahjong-kyoretsuden",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Metal Slug",
+    "museumPath": "/juegos/neo-geo-cd/japon/metal-slug",
+    "museumSlug": "metal-slug",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Metal Slug",
+    "museumPath": "/juegos/neo-geo-cd/usa/metal-slug",
+    "museumSlug": "metal-slug",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Metal Slug 2",
+    "museumPath": "/juegos/neo-geo-cd/japon/metal-slug-2",
+    "museumSlug": "metal-slug-2",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Metal Slug 2",
+    "museumPath": "/juegos/neo-geo-cd/usa/metal-slug-2",
+    "museumSlug": "metal-slug-2",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Mutation Nation",
+    "museumPath": "/juegos/neo-geo-cd/japon/mutation-nation",
+    "museumSlug": "mutation-nation",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Mutation Nation",
+    "museumPath": "/juegos/neo-geo-cd/usa/mutation-nation",
+    "museumSlug": "mutation-nation",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "NAM-1975",
+    "museumPath": "/juegos/neo-geo-cd/usa/nam-1975",
+    "museumSlug": "nam-1975",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "NAM-1975",
+    "museumPath": "/juegos/neo-geo-cd/japon/nam-1975",
+    "museumSlug": "nam-1975",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Neo Drift Out",
+    "museumPath": "/juegos/neo-geo-cd/japon/neo-drift-out",
+    "museumSlug": "neo-drift-out",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Ninja Combat",
+    "museumPath": "/juegos/neo-geo-cd/usa/ninja-combat",
+    "museumSlug": "ninja-combat",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Ninja Combat",
+    "museumPath": "/juegos/neo-geo-cd/japon/ninja-combat",
+    "museumSlug": "ninja-combat",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Ninja Commando",
+    "museumPath": "/juegos/neo-geo-cd/japon/ninja-commando",
+    "museumSlug": "ninja-commando",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Ninja Master's Haou Ninpou-chou",
+    "museumPath": "/juegos/neo-geo-cd/japon/ninja-masters-haou-ninpou-chou",
+    "museumSlug": "ninja-masters-haou-ninpou-chou",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Oshidashi Zintrick",
+    "museumPath": "/juegos/neo-geo-cd/japon/oshidashi-zintrick",
+    "museumSlug": "oshidashi-zintrick",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "OverTop",
+    "museumPath": "/juegos/neo-geo-cd/japon/overtop",
+    "museumSlug": "overtop",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Power Spikes II",
+    "museumPath": "/juegos/neo-geo-cd/japon/power-spikes-ii",
+    "museumSlug": "power-spikes-ii",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Pulstar",
+    "museumPath": "/juegos/neo-geo-cd/japon/pulstar",
+    "museumSlug": "pulstar",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Pulstar",
+    "museumPath": "/juegos/neo-geo-cd/usa/pulstar",
+    "museumSlug": "pulstar",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Puzzle Bobble",
+    "museumPath": "/juegos/neo-geo-cd/japon/puzzle-bobble",
+    "museumSlug": "puzzle-bobble",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Puzzled",
+    "museumPath": "/juegos/neo-geo-cd/usa/puzzled",
+    "museumSlug": "puzzled",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Quiz King of Fighters",
+    "museumPath": "/juegos/neo-geo-cd/japon/quiz-king-fighters",
+    "museumSlug": "quiz-king-fighters",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Raguy",
+    "museumPath": "/juegos/neo-geo-cd/japon/raguy",
+    "museumSlug": "raguy",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Rally Chase",
+    "museumPath": "/juegos/neo-geo-cd/usa/rally-chase",
+    "museumSlug": "rally-chase",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Rally Chase",
+    "museumPath": "/juegos/neo-geo-cd/japon/rally-chase",
+    "museumSlug": "rally-chase",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Real Bout Fatal Fury",
+    "museumPath": "/juegos/neo-geo-cd/usa/real-bout-fatal-fury",
+    "museumSlug": "real-bout-fatal-fury",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Real Bout Fatal Fury Special",
+    "museumPath": "/juegos/neo-geo-cd/usa/real-bout-fatal-fury-special",
+    "museumSlug": "real-bout-fatal-fury-special",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Real Bout Garou Densetsu",
+    "museumPath": "/juegos/neo-geo-cd/japon/real-bout-garou-densetsu",
+    "museumSlug": "real-bout-garou-densetsu",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Real Bout Garou Densetsu 2",
+    "museumPath": "/juegos/neo-geo-cd/japon/real-bout-garou-densetsu-2",
+    "museumSlug": "real-bout-garou-densetsu-2",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Real Bout Garou Densetsu Special",
+    "museumPath": "/juegos/neo-geo-cd/japon/real-bout-garou-densetsu-special",
+    "museumSlug": "real-bout-garou-densetsu-special",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Riding Hero",
+    "museumPath": "/juegos/neo-geo-cd/usa/riding-hero",
+    "museumSlug": "riding-hero",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Riding Hero",
+    "museumPath": "/juegos/neo-geo-cd/japon/riding-hero",
+    "museumSlug": "riding-hero",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Robo Army",
+    "museumPath": "/juegos/neo-geo-cd/usa/robo-army",
+    "museumSlug": "robo-army",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Robo Army",
+    "museumPath": "/juegos/neo-geo-cd/japon/robo-army",
+    "museumSlug": "robo-army",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Ryuuko no Ken",
+    "museumPath": "/juegos/neo-geo-cd/japon/ryuuko-no-ken",
+    "museumSlug": "ryuuko-no-ken",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Ryuuko no Ken 2",
+    "museumPath": "/juegos/neo-geo-cd/japon/ryuuko-no-ken-2",
+    "museumSlug": "ryuuko-no-ken-2",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Samurai Shodown",
+    "museumPath": "/juegos/neo-geo-cd/usa/samurai-shodown",
+    "museumSlug": "samurai-shodown",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Samurai Shodown II",
+    "museumPath": "/juegos/neo-geo-cd/usa/samurai-shodown-ii",
+    "museumSlug": "samurai-shodown-ii",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Samurai Shodown III",
+    "museumPath": "/juegos/neo-geo-cd/usa/samurai-shodown-iii",
+    "museumSlug": "samurai-shodown-iii",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Samurai Shodown IV",
+    "museumPath": "/juegos/neo-geo-cd/usa/samurai-shodown-iv",
+    "museumSlug": "samurai-shodown-iv",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Samurai Spirits",
+    "museumPath": "/juegos/neo-geo-cd/japon/samurai-spirits",
+    "museumSlug": "samurai-spirits",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Samurai Spirits: Amakusa Kourin",
+    "museumPath": "/juegos/neo-geo-cd/japon/samurai-spirits-amakusa-kourin",
+    "museumSlug": "samurai-spirits-amakusa-kourin",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Samurai Spirits: Zankurou Musouken",
+    "museumPath": "/juegos/neo-geo-cd/japon/samurai-spirits-zankurou-musouken",
+    "museumSlug": "samurai-spirits-zankurou-musouken",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Savage Reign",
+    "museumPath": "/juegos/neo-geo-cd/usa/savage-reign",
+    "museumSlug": "savage-reign",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Sengoku",
+    "museumPath": "/juegos/neo-geo-cd/usa/sengoku",
+    "museumSlug": "sengoku",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Sengoku 2",
+    "museumPath": "/juegos/neo-geo-cd/usa/sengoku-2",
+    "museumSlug": "sengoku-2",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Sengoku Denshou",
+    "museumPath": "/juegos/neo-geo-cd/japon/sengoku-denshou",
+    "museumSlug": "sengoku-denshou",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Sengoku Denshou 2",
+    "museumPath": "/juegos/neo-geo-cd/japon/sengoku-denshou-2",
+    "museumSlug": "sengoku-denshou-2",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Shin Samurai Spirits: Haohmaru Jigokuhen",
+    "museumPath": "/juegos/neo-geo-cd/japon/shin-samurai-spirits-haohmaru-jigokuhen",
+    "museumSlug": "shin-samurai-spirits-haohmaru-jigokuhen",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Shin-Oh-Ken",
+    "museumPath": "/juegos/neo-geo-cd/japon/shin-oh-ken",
+    "museumSlug": "shin-oh-ken",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Shinsetsu Samurai Spirits Bushidouretsuden",
+    "museumPath": "/juegos/neo-geo-cd/japon/shinsetsu-samurai-spirits-bushidouretsuden",
+    "museumSlug": "shinsetsu-samurai-spirits-bushidouretsuden",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Shogi no Tatsujin",
+    "museumPath": "/juegos/neo-geo-cd/japon/shogi-no-tatsujin",
+    "museumSlug": "shogi-no-tatsujin",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Soccer Brawl",
+    "museumPath": "/juegos/neo-geo-cd/japon/soccer-brawl",
+    "museumSlug": "soccer-brawl",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Soccer Brawl",
+    "museumPath": "/juegos/neo-geo-cd/usa/soccer-brawl",
+    "museumSlug": "soccer-brawl",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Sonic Wings 2",
+    "museumPath": "/juegos/neo-geo-cd/japon/sonic-wings-2",
+    "museumSlug": "sonic-wings-2",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Sonic Wings 3",
+    "museumPath": "/juegos/neo-geo-cd/japon/sonic-wings-3",
+    "museumSlug": "sonic-wings-3",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Stakes Winner",
+    "museumPath": "/juegos/neo-geo-cd/japon/stakes-winner",
+    "museumSlug": "stakes-winner",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Street Hoop",
+    "museumPath": "/juegos/neo-geo-cd/usa/street-hoop",
+    "museumSlug": "street-hoop",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Super Baseball 2020",
+    "museumPath": "/juegos/neo-geo-cd/japon/super-baseball-2020",
+    "museumSlug": "super-baseball-2020",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Super Baseball 2020",
+    "museumPath": "/juegos/neo-geo-cd/usa/super-baseball-2020",
+    "museumSlug": "super-baseball-2020",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Super Sidekicks",
+    "museumPath": "/juegos/neo-geo-cd/usa/super-sidekicks",
+    "museumSlug": "super-sidekicks",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Super Sidekicks 2",
+    "museumPath": "/juegos/neo-geo-cd/usa/super-sidekicks-2",
+    "museumSlug": "super-sidekicks-2",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Super Sidekicks 3: The Next Glory",
+    "museumPath": "/juegos/neo-geo-cd/usa/super-sidekicks-3-next-glory",
+    "museumSlug": "super-sidekicks-3-next-glory",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Tengai Makyou Shinden",
+    "museumPath": "/juegos/neo-geo-cd/japon/tengai-makyou-shinden",
+    "museumSlug": "tengai-makyou-shinden",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "The King of Fighters '94",
+    "museumPath": "/juegos/neo-geo-cd/japon/king-fighters-94",
+    "museumSlug": "king-fighters-94",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "The King of Fighters '94",
+    "museumPath": "/juegos/neo-geo-cd/usa/king-fighters-94",
+    "museumSlug": "king-fighters-94",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "The King of Fighters '95",
+    "museumPath": "/juegos/neo-geo-cd/usa/king-fighters-95",
+    "museumSlug": "king-fighters-95",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "The King of Fighters '95",
+    "museumPath": "/juegos/neo-geo-cd/japon/king-fighters-95",
+    "museumSlug": "king-fighters-95",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "The King of Fighters '96",
+    "museumPath": "/juegos/neo-geo-cd/usa/king-fighters-96",
+    "museumSlug": "king-fighters-96",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "The King of Fighters '96",
+    "museumPath": "/juegos/neo-geo-cd/japon/king-fighters-96",
+    "museumSlug": "king-fighters-96",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "The King of Fighters '96 Neo-Geo Collection",
+    "museumPath": "/juegos/neo-geo-cd/japon/king-fighters-96-neo-geo-collection",
+    "museumSlug": "king-fighters-96-neo-geo-collection",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "The King of Fighters '97",
+    "museumPath": "/juegos/neo-geo-cd/japon/king-fighters-97",
+    "museumSlug": "king-fighters-97",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "The King of Fighters '97",
+    "museumPath": "/juegos/neo-geo-cd/usa/king-fighters-97",
+    "museumSlug": "king-fighters-97",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "The King of Fighters '98",
+    "museumPath": "/juegos/neo-geo-cd/usa/king-fighters-98",
+    "museumSlug": "king-fighters-98",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "The King of Fighters '98: Dream Match Never Ends",
+    "museumPath": "/juegos/neo-geo-cd/japon/king-fighters-98-dream-match-never-ends",
+    "museumSlug": "king-fighters-98-dream-match-never-ends",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "The King of Fighters '98: Dream Match Never Ends (Limited Edition)",
+    "museumPath": "/juegos/neo-geo-cd/japon/king-fighters-98-dream-match-never-ends-limited-edition",
+    "museumSlug": "king-fighters-98-dream-match-never-ends-limited-edition",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "The King of Fighters '99",
+    "museumPath": "/juegos/neo-geo-cd/japon/king-fighters-99",
+    "museumSlug": "king-fighters-99",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "The King of Fighters '99: Millennium Battle",
+    "museumPath": "/juegos/neo-geo-cd/usa/king-fighters-99-millennium-battle",
+    "museumSlug": "king-fighters-99-millennium-battle",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "The Last Blade",
+    "museumPath": "/juegos/neo-geo-cd/usa/last-blade",
+    "museumSlug": "last-blade",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "The Last Blade 2",
+    "museumPath": "/juegos/neo-geo-cd/usa/last-blade-2",
+    "museumSlug": "last-blade-2",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "The Super Spy",
+    "museumPath": "/juegos/neo-geo-cd/usa/super-spy",
+    "museumSlug": "super-spy",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "The Super Spy",
+    "museumPath": "/juegos/neo-geo-cd/japon/super-spy",
+    "museumSlug": "super-spy",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Tokuten Oh 2",
+    "museumPath": "/juegos/neo-geo-cd/japon/tokuten-oh-2",
+    "museumSlug": "tokuten-oh-2",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Tokuten Oh 3: Eikoue no Michi",
+    "museumPath": "/juegos/neo-geo-cd/japon/tokuten-oh-3-eikoue-no-michi",
+    "museumSlug": "tokuten-oh-3-eikoue-no-michi",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Tokuten Oh: Super Sidekicks",
+    "museumPath": "/juegos/neo-geo-cd/japon/tokuten-oh-super-sidekicks",
+    "museumSlug": "tokuten-oh-super-sidekicks",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Top Hunter",
+    "museumPath": "/juegos/neo-geo-cd/japon/top-hunter",
+    "museumSlug": "top-hunter",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Top Hunter: Roddy & Cathy",
+    "museumPath": "/juegos/neo-geo-cd/usa/top-hunter-roddy-cathy",
+    "museumSlug": "top-hunter-roddy-cathy",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Top Player's Golf",
+    "museumPath": "/juegos/neo-geo-cd/usa/top-players-golf",
+    "museumSlug": "top-players-golf",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Top Player's Golf",
+    "museumPath": "/juegos/neo-geo-cd/japon/top-players-golf",
+    "museumSlug": "top-players-golf",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Tsukai Gan Gan Koshinkyoku",
+    "museumPath": "/juegos/neo-geo-cd/japon/tsukai-gan-gan-koshinkyoku",
+    "museumSlug": "tsukai-gan-gan-koshinkyoku",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Twinkle Star Sprites",
+    "museumPath": "/juegos/neo-geo-cd/japon/twinkle-star-sprites",
+    "museumSlug": "twinkle-star-sprites",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "Viewpoint",
+    "museumPath": "/juegos/neo-geo-cd/usa/viewpoint",
+    "museumSlug": "viewpoint",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "Viewpoint",
+    "museumPath": "/juegos/neo-geo-cd/japon/viewpoint",
+    "museumSlug": "viewpoint",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "WindJammers",
+    "museumPath": "/juegos/neo-geo-cd/usa/windjammers",
+    "museumSlug": "windjammers",
+    "museumRegion": "usa"
+  },
+  {
+    "title": "World Heroes",
+    "museumPath": "/juegos/neo-geo-cd/japon/world-heroes",
+    "museumSlug": "world-heroes",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "World Heroes 2",
+    "museumPath": "/juegos/neo-geo-cd/japon/world-heroes-2",
+    "museumSlug": "world-heroes-2",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "World Heroes 2 Jet",
+    "museumPath": "/juegos/neo-geo-cd/japon/world-heroes-2-jet",
+    "museumSlug": "world-heroes-2-jet",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "World Heroes Perfect",
+    "museumPath": "/juegos/neo-geo-cd/japon/world-heroes-perfect",
+    "museumSlug": "world-heroes-perfect",
+    "museumRegion": "japon"
+  },
+  {
+    "title": "World Heroes Perfect",
+    "museumPath": "/juegos/neo-geo-cd/usa/world-heroes-perfect",
+    "museumSlug": "world-heroes-perfect",
+    "museumRegion": "usa"
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "total": 18746,
+  "listed": 14653,
+  "excluded": 4093,
+  "byCategory": {
+    "hardware": 138,
+    "variant": 3055,
+    "accessory": 97,
+    "promo": 716,
+    "demo": 76,
+    "homebrew": 8,
+    "rental": 3
+  },
+  "listedByPlatform": {
+    "3ds": 483,
+    "ds": 1740,
+    "gamecube": 483,
+    "gamegear": 214,
+    "megadrive": 631,
+    "n64": 271,
+    "neogeo": 117,
+    "nes": 410,
+    "ps1": 1542,
+    "ps2": 2508,
+    "ps3": 1362,
+    "ps4": 3021,
+    "snes": 577,
+    "wii": 1294
+  },
+  "excludedByPlatform": {
+    "3ds": 136,
+    "ds": 52,
+    "gamecube": 81,
+    "gamegear": 16,
+    "megadrive": 39,
+    "n64": 39,
+    "neogeo": 7,
+    "nes": 29,
+    "ps1": 394,
+    "ps2": 763,
+    "ps3": 1088,
+    "ps4": 1221,
+    "snes": 52,
+    "wii": 176
+  },
+  "generatedAt": "2026-06-12T17:06:29"
+}

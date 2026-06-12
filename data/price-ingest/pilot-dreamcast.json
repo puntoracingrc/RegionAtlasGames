@@ -1,0 +1,189 @@
+{
+  "platformSlug": "dreamcast",
+  "collectedAt": "2026-06-12T20:30:00Z",
+  "notes": "Piloto Fase 1 — ingest manual Wallapop/eBay ES. Región catálogo: PAL Europa.",
+  "listings": [
+    {
+      "catalogId": "dreamcast-sonic-adventure",
+      "source": "wallapop",
+      "listingType": "active",
+      "priceEur": 28,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu", "photo_region_mark"]
+    },
+    {
+      "catalogId": "dreamcast-sonic-adventure",
+      "source": "ebay-es",
+      "listingType": "sold",
+      "priceEur": 32,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["sku_regional", "cover_pal_eu"]
+    },
+    {
+      "catalogId": "dreamcast-jet-set-radio",
+      "source": "wallapop",
+      "listingType": "active",
+      "priceEur": 38,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu", "photo_region_mark"]
+    },
+    {
+      "catalogId": "dreamcast-jet-set-radio",
+      "source": "ebay-es",
+      "listingType": "active",
+      "priceEur": 42,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["sku_regional"]
+    },
+    {
+      "catalogId": "dreamcast-crazy-taxi-2",
+      "source": "wallapop",
+      "listingType": "active",
+      "priceEur": 18,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu"]
+    },
+    {
+      "catalogId": "dreamcast-crazy-taxi-2",
+      "source": "vinted-es",
+      "listingType": "sold",
+      "priceEur": 16,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["photo_region_mark", "cover_pal_eu"]
+    },
+    {
+      "catalogId": "dreamcast-pal-marvel-vs-capcom-2",
+      "source": "ebay-es",
+      "listingType": "active",
+      "priceEur": 95,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu", "sku_regional"]
+    },
+    {
+      "catalogId": "dreamcast-pal-marvel-vs-capcom-2",
+      "source": "wallapop",
+      "listingType": "sold",
+      "priceEur": 110,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu", "photo_region_mark"]
+    },
+    {
+      "catalogId": "dreamcast-pal-soul-calibur",
+      "source": "wallapop",
+      "listingType": "active",
+      "priceEur": 22,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu"]
+    },
+    {
+      "catalogId": "dreamcast-pal-soul-calibur",
+      "source": "ebay-es",
+      "listingType": "sold",
+      "priceEur": 25,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["sku_regional"]
+    },
+    {
+      "catalogId": "dreamcast-pal-resident-evil-code-veronica",
+      "source": "wallapop",
+      "listingType": "active",
+      "priceEur": 52,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu", "photo_region_mark"]
+    },
+    {
+      "catalogId": "dreamcast-pal-resident-evil-code-veronica",
+      "source": "ebay-es",
+      "listingType": "sold",
+      "priceEur": 48,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["sku_regional", "cover_pal_eu"]
+    },
+    {
+      "catalogId": "dreamcast-shenmue-ii",
+      "source": "wallapop",
+      "listingType": "active",
+      "priceEur": 42,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu", "photo_region_mark"]
+    },
+    {
+      "catalogId": "dreamcast-pal-power-stone",
+      "source": "ebay-es",
+      "listingType": "active",
+      "priceEur": 48,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu", "sku_regional"]
+    },
+    {
+      "catalogId": "dreamcast-pal-skies-arcadia",
+      "source": "wallapop",
+      "listingType": "active",
+      "priceEur": 115,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu", "photo_region_mark"]
+    },
+    {
+      "catalogId": "dreamcast-pal-skies-arcadia",
+      "source": "ebay-es",
+      "listingType": "sold",
+      "priceEur": 125,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["sku_regional"]
+    },
+    {
+      "catalogId": "dreamcast-phantasy-star-online-ver2",
+      "source": "wallapop",
+      "listingType": "active",
+      "priceEur": 28,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu"]
+    },
+    {
+      "catalogId": "dreamcast-phantasy-star-online-ver2",
+      "source": "vinted-es",
+      "listingType": "sold",
+      "priceEur": 26,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["photo_region_mark"]
+    }
+  ],
+  "cex": [
+    {
+      "catalogId": "dreamcast-sonic-adventure",
+      "sellPriceEur": 19,
+      "cashPriceEur": 12,
+      "productUrl": "https://es.webuy.com/search?keyword=sonic+adventure+dreamcast",
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["sku_regional", "cover_pal_eu"]
+    },
+    {
+      "catalogId": "dreamcast-pal-marvel-vs-capcom-2",
+      "sellPriceEur": 72,
+      "cashPriceEur": 45,
+      "productUrl": "https://es.webuy.com/search?keyword=marvel+vs+capcom+2+dreamcast",
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["sku_regional", "cover_pal_eu"]
+    }
+  ]
+}

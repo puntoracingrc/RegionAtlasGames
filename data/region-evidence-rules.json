@@ -1,0 +1,179 @@
+{
+  "default": {
+    "minEvidenceCount": 1,
+    "minAiConfidence": 0.85,
+    "forbiddenEvidence": []
+  },
+  "catalogRegionOverrides": {
+    "pal españa": {
+      "requiredAnyOf": ["cover_spain", "manual_es"],
+      "minEvidenceCount": 1,
+      "summary": "Carátula española o manual en castellano."
+    },
+    "españa": {
+      "requiredAnyOf": ["cover_spain", "manual_es"],
+      "minEvidenceCount": 1,
+      "summary": "Carátula española o manual en castellano."
+    },
+    "pal europa": {
+      "requiredAnyOf": ["cover_pal_eu", "sku_regional", "photo_region_mark", "barcode_regional"],
+      "minEvidenceCount": 1,
+      "summary": "Etiqueta PAL EU, SKU regional o clasificación PEGI visible."
+    },
+    "usa": {
+      "requiredAnyOf": ["cover_usa", "sku_regional"],
+      "minEvidenceCount": 1,
+      "forbiddenEvidence": ["cover_spain", "cover_japan"],
+      "summary": "Carátula NTSC-USA o código regional USA en etiqueta."
+    },
+    "japón": {
+      "requiredAnyOf": ["cover_japan", "sku_regional"],
+      "minEvidenceCount": 1,
+      "forbiddenEvidence": ["cover_spain", "cover_usa", "cover_pal_eu"],
+      "summary": "Carátula japonesa o código regional JPN."
+    },
+    "japan": {
+      "requiredAnyOf": ["cover_japan", "sku_regional"],
+      "minEvidenceCount": 1,
+      "forbiddenEvidence": ["cover_spain", "cover_usa", "cover_pal_eu"],
+      "summary": "Carátula japonesa o código regional JPN."
+    }
+  },
+  "platforms": {
+    "ps4": {
+      "minEvidenceCount": 2,
+      "minAiConfidence": 0.9,
+      "catalogRegionOverrides": {
+        "pal españa": {
+          "requiredAnyOf": ["cover_spain"],
+          "minEvidenceCount": 1,
+          "summary": "PS4 PAL España: carátula con logo/textos ES visibles (foto obligatoria)."
+        },
+        "españa": {
+          "requiredAnyOf": ["cover_spain"],
+          "minEvidenceCount": 1,
+          "summary": "PS4 España: carátula ES visible."
+        },
+        "pal europa": {
+          "requiredAnyOf": ["cover_pal_eu", "photo_region_mark"],
+          "minEvidenceCount": 2,
+          "summary": "PS4 PAL EU: carátula multilingüe + PEGI en contraportada."
+        }
+      }
+    },
+    "ps3": {
+      "minEvidenceCount": 2,
+      "minAiConfidence": 0.88,
+      "catalogRegionOverrides": {
+        "pal españa": {
+          "requiredAnyOf": ["cover_spain"],
+          "minEvidenceCount": 1,
+          "summary": "PS3 PAL España: carátula ES visible."
+        },
+        "españa": {
+          "requiredAnyOf": ["cover_spain"],
+          "minEvidenceCount": 1,
+          "summary": "PS3 España: carátula ES visible."
+        }
+      }
+    },
+    "ps2": {
+      "minEvidenceCount": 1,
+      "minAiConfidence": 0.87,
+      "catalogRegionOverrides": {
+        "pal españa": {
+          "requiredAnyOf": ["cover_spain", "manual_es"],
+          "minEvidenceCount": 1,
+          "summary": "PS2 PAL ES: carátula ES o manual castellano en foto."
+        }
+      }
+    },
+    "ps1": {
+      "minEvidenceCount": 1,
+      "minAiConfidence": 0.86,
+      "catalogRegionOverrides": {
+        "pal españa": {
+          "requiredAnyOf": ["cover_spain", "manual_es", "sku_regional"],
+          "minEvidenceCount": 1,
+          "summary": "PS1 PAL ES: carátula/manual ES o SKU SCEE/ES en disco."
+        }
+      }
+    },
+    "nes": {
+      "catalogRegionOverrides": {
+        "pal europa": {
+          "requiredAnyOf": ["sku_regional", "photo_region_mark", "cover_pal_eu"],
+          "minEvidenceCount": 1,
+          "summary": "NES PAL: etiqueta cartucho (EUR/ES) o foto trasera legible."
+        }
+      }
+    },
+    "snes": {
+      "catalogRegionOverrides": {
+        "pal europa": {
+          "requiredAnyOf": ["sku_regional", "photo_region_mark", "cover_pal_eu"],
+          "minEvidenceCount": 1,
+          "summary": "SNES PAL: código región en etiqueta posterior del cartucho."
+        }
+      }
+    },
+    "n64": {
+      "catalogRegionOverrides": {
+        "pal europa": {
+          "requiredAnyOf": ["sku_regional", "photo_region_mark"],
+          "minEvidenceCount": 1,
+          "summary": "N64 PAL: etiqueta posterior con región NUS/EUR visible."
+        }
+      }
+    },
+    "gameboy": {
+      "catalogRegionOverrides": {
+        "pal europa": {
+          "requiredAnyOf": ["sku_regional", "photo_region_mark"],
+          "minEvidenceCount": 1,
+          "summary": "Game Boy: código región en cartucho visible."
+        }
+      }
+    },
+    "megadrive": {
+      "catalogRegionOverrides": {
+        "pal europa": {
+          "requiredAnyOf": ["sku_regional", "cover_pal_eu", "photo_region_mark"],
+          "minEvidenceCount": 1,
+          "summary": "Mega Drive PAL: etiqueta cartucho o caja PAL legible."
+        }
+      }
+    },
+    "saturn": {
+      "catalogRegionOverrides": {
+        "pal europa": {
+          "requiredAnyOf": ["sku_regional", "cover_pal_eu", "photo_region_mark"],
+          "minEvidenceCount": 1,
+          "summary": "Saturn PAL: anillo/región en cubierta o SKU en disco."
+        }
+      }
+    },
+    "dreamcast": {
+      "catalogRegionOverrides": {
+        "pal europa": {
+          "requiredAnyOf": ["sku_regional", "cover_pal_eu", "photo_region_mark"],
+          "minEvidenceCount": 1,
+          "summary": "Dreamcast PAL: región en cubierta o disco visible."
+        }
+      }
+    }
+  },
+  "evidenceLabels": {
+    "cover_spain": "Carátula española visible",
+    "cover_pal_eu": "Carátula PAL europea",
+    "cover_usa": "Carátula NTSC-USA",
+    "cover_japan": "Carátula japonesa",
+    "manual_es": "Manual en castellano",
+    "manual_pal": "Manual PAL multilingüe",
+    "sku_regional": "SKU / código regional en soporte",
+    "barcode_regional": "Código de barras regional",
+    "seller_states_region": "Vendedor indica región en texto",
+    "listing_title_region": "Región explícita en título",
+    "photo_region_mark": "PEGI / rating / sello regional en foto"
+  }
+}

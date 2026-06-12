@@ -1,0 +1,43 @@
+{
+  "name": "region-atlas-games",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "sync:prices": "python3 scripts/sync_es_prices.py",
+    "ingest:validate": "python3 scripts/build_ingest_template.py --validate data/price-ingest/pilot-dreamcast.json && python3 scripts/build_ingest_template.py --validate data/price-ingest/pilot-ps2.json && python3 scripts/build_ingest_template.py --validate data/price-ingest/pilot-ps4.json",
+    "ingest:pilot": "bash scripts/run_pilot_sync.sh",
+    "ingest:template": "python3 scripts/build_ingest_template.py",
+    "ingest:import-csv": "python3 scripts/import_listings_csv.py",
+    "ingest:ebay": "python3 scripts/collect_ebay_es.py",
+    "museum:details": "PYTHONUNBUFFERED=1 python3 scripts/seed_museum_details.py",
+    "museum:indexes": "python3 scripts/seed_museum_details.py --indexes-only",
+    "covers:seed": "PYTHONUNBUFFERED=1 python3 scripts/seed_covers.py --skip-pc-map"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "country-flag-icons": "^1.6.17",
+    "iron-session": "^8.0.4",
+    "next": "16.2.9",
+    "next-themes": "^0.4.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "resend": "^4.8.0",
+    "sharp": "^0.35.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

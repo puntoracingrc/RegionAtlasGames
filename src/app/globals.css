@@ -1,0 +1,288 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f1f5f9;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --border: rgb(15 23 42 / 0.1);
+  --card: rgb(255 255 255 / 0.92);
+  --card-hover: #ffffff;
+  --input: #ffffff;
+  --nav: rgb(255 255 255 / 0.88);
+  --accent: #d97706;
+  --accent-fg: #ffffff;
+  --gradient-1: rgba(251, 191, 36, 0.2);
+  --gradient-2: rgba(239, 68, 68, 0.06);
+}
+
+.dark {
+  --background: #0b0d12;
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --border: rgb(255 255 255 / 0.08);
+  --card: rgb(255 255 255 / 0.03);
+  --card-hover: rgb(255 255 255 / 0.06);
+  --input: rgb(0 0 0 / 0.35);
+  --nav: rgb(11 13 18 / 0.88);
+  --accent: #fbbf24;
+  --accent-fg: #0b0d12;
+  --gradient-1: rgba(251, 191, 36, 0.08);
+  --gradient-2: rgba(239, 68, 68, 0.06);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-input: var(--input);
+  --color-nav: var(--nav);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background:
+    radial-gradient(circle at top, var(--gradient-1), transparent 28%),
+    radial-gradient(circle at 80% 0%, var(--gradient-2), transparent 24%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(251, 191, 36, 0.25);
+}
+
+.input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--input);
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  outline: none;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 2px rgb(251 191 36 / 0.25);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: var(--accent);
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-fg);
+  transition: opacity 0.15s;
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  transition: background 0.15s;
+}
+
+.btn-secondary:hover {
+  background: var(--card-hover);
+}
+
+/* Contornos épicos para rareza / top / combo */
+.card-glow {
+  border-color: transparent !important;
+  isolation: isolate;
+}
+
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 2px;
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition:
+    filter 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.card-glow > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-glow-grail {
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(145deg, rgb(251 191 36 / 0.12), transparent 55%) border-box;
+  box-shadow:
+    0 0 0 1px rgb(251 191 36 / 0.12),
+    0 0 24px -6px rgb(251 191 36 / 0.45),
+    0 0 48px -16px rgb(245 158 11 / 0.25);
+}
+
+.card-glow-grail::before {
+  background: linear-gradient(
+    135deg,
+    rgb(253 224 71 / 0.95),
+    rgb(251 191 36 / 0.55) 35%,
+    rgb(245 158 11 / 0.85) 70%,
+    rgb(253 224 71 / 0.75)
+  );
+}
+
+.card-glow-top {
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(145deg, rgb(167 139 250 / 0.12), transparent 55%) border-box;
+  box-shadow:
+    0 0 0 1px rgb(167 139 250 / 0.14),
+    0 0 24px -6px rgb(139 92 246 / 0.42),
+    0 0 48px -16px rgb(167 139 250 / 0.22);
+}
+
+.card-glow-top::before {
+  background: linear-gradient(
+    135deg,
+    rgb(196 181 253 / 0.95),
+    rgb(139 92 246 / 0.55) 40%,
+    rgb(167 139 250 / 0.85) 75%,
+    rgb(196 181 253 / 0.75)
+  );
+}
+
+.card-glow-legendary {
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(145deg, rgb(251 191 36 / 0.1), rgb(167 139 250 / 0.1)) border-box;
+  box-shadow:
+    0 0 0 1px rgb(251 191 36 / 0.1),
+    0 0 28px -5px rgb(251 191 36 / 0.42),
+    0 0 36px -8px rgb(139 92 246 / 0.38),
+    inset 0 1px 0 rgb(255 255 255 / 0.05);
+}
+
+.card-glow-legendary::before {
+  padding: 2.5px;
+  background: conic-gradient(
+    from 210deg,
+    rgb(253 224 71 / 0.98),
+    rgb(167 139 250 / 0.95) 28%,
+    rgb(251 191 36 / 0.9) 52%,
+    rgb(139 92 246 / 0.98) 76%,
+    rgb(253 224 71 / 0.98)
+  );
+}
+
+.card-glow-owned {
+  background:
+    linear-gradient(rgb(16 185 129 / 0.08), rgb(16 185 129 / 0.04)) padding-box,
+    linear-gradient(145deg, rgb(16 185 129 / 0.14), transparent 55%) border-box;
+  box-shadow:
+    0 0 0 1px rgb(16 185 129 / 0.16),
+    0 0 22px -7px rgb(16 185 129 / 0.35);
+}
+
+.card-glow-owned::before {
+  background: linear-gradient(
+    135deg,
+    rgb(52 211 153 / 0.9),
+    rgb(16 185 129 / 0.45) 45%,
+    rgb(52 211 153 / 0.8)
+  );
+}
+
+.card-glow-owned-legendary {
+  background:
+    linear-gradient(
+      145deg,
+      rgb(16 185 129 / 0.1),
+      var(--card) 42%,
+      rgb(251 191 36 / 0.08)
+    )
+    padding-box;
+  box-shadow:
+    0 0 0 1px rgb(16 185 129 / 0.12),
+    0 0 26px -5px rgb(251 191 36 / 0.38),
+    0 0 34px -8px rgb(139 92 246 / 0.34),
+    0 0 18px -8px rgb(16 185 129 / 0.28);
+}
+
+.card-glow-owned-legendary::before {
+  padding: 2.5px;
+  background: conic-gradient(
+    from 200deg,
+    rgb(52 211 153 / 0.95),
+    rgb(253 224 71 / 0.98) 22%,
+    rgb(167 139 250 / 0.95) 48%,
+    rgb(251 191 36 / 0.92) 72%,
+    rgb(52 211 153 / 0.95)
+  );
+}
+
+.card-glow:hover::before,
+.card-glow:focus-visible::before {
+  filter: brightness(1.12) saturate(1.08);
+}
+
+.card-glow-legendary:hover,
+.card-glow-owned-legendary:hover {
+  box-shadow:
+    0 0 0 1px rgb(251 191 36 / 0.16),
+    0 0 34px -4px rgb(251 191 36 / 0.5),
+    0 0 44px -6px rgb(139 92 246 / 0.45),
+    inset 0 1px 0 rgb(255 255 255 / 0.07);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card-glow-legendary::before,
+  .card-glow-owned-legendary::before {
+    animation: card-legendary-shimmer 8s linear infinite;
+  }
+}
+
+@keyframes card-legendary-shimmer {
+  from {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  to {
+    filter: hue-rotate(18deg) brightness(1.06);
+  }
+}

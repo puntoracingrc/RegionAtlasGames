@@ -1,0 +1,222 @@
+[
+  {
+    "slug": "nes",
+    "name": "Nintendo Entertainment System",
+    "shortName": "NES",
+    "manufacturer": "nintendo",
+    "status": "closed",
+    "estimatedCatalogSize": 2166,
+    "sortOrder": 1,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "snes",
+    "name": "Super Nintendo",
+    "shortName": "SNES",
+    "manufacturer": "nintendo",
+    "status": "closed",
+    "estimatedCatalogSize": 2761,
+    "sortOrder": 2,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "n64",
+    "name": "Nintendo 64",
+    "shortName": "N64",
+    "manufacturer": "nintendo",
+    "status": "closed",
+    "estimatedCatalogSize": 776,
+    "sortOrder": 3,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "gameboy",
+    "name": "Nintendo Game Boy",
+    "shortName": "Game Boy",
+    "manufacturer": "nintendo",
+    "status": "closed",
+    "estimatedCatalogSize": 1788,
+    "sortOrder": 4,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "gamecube",
+    "name": "Nintendo GameCube",
+    "shortName": "GameCube",
+    "manufacturer": "nintendo",
+    "status": "closed",
+    "estimatedCatalogSize": 220,
+    "sortOrder": 5,
+    "description": "Catálogo oficial PAL España."
+  },
+  {
+    "slug": "wii",
+    "name": "Nintendo Wii",
+    "shortName": "Wii",
+    "manufacturer": "nintendo",
+    "status": "closed",
+    "estimatedCatalogSize": 350,
+    "sortOrder": 6,
+    "description": "Catálogo oficial PAL España."
+  },
+  {
+    "slug": "ds",
+    "name": "Nintendo DS",
+    "shortName": "DS",
+    "manufacturer": "nintendo",
+    "status": "closed",
+    "estimatedCatalogSize": 600,
+    "sortOrder": 7,
+    "description": "Catálogo oficial PAL España."
+  },
+  {
+    "slug": "3ds",
+    "name": "Nintendo 3DS",
+    "shortName": "3DS",
+    "manufacturer": "nintendo",
+    "status": "closed",
+    "estimatedCatalogSize": 480,
+    "sortOrder": 8,
+    "description": "Catálogo oficial PAL España."
+  },
+  {
+    "slug": "mastersystem",
+    "name": "Sega Master System",
+    "shortName": "Master System",
+    "manufacturer": "sega",
+    "status": "closed",
+    "estimatedCatalogSize": 500,
+    "sortOrder": 9,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "megadrive",
+    "name": "Sega Mega Drive",
+    "shortName": "Mega Drive",
+    "manufacturer": "sega",
+    "status": "closed",
+    "estimatedCatalogSize": 1679,
+    "sortOrder": 10,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "sega32x",
+    "name": "Sega 32X",
+    "shortName": "32X",
+    "manufacturer": "sega",
+    "status": "closed",
+    "estimatedCatalogSize": 82,
+    "sortOrder": 11,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "megacd",
+    "name": "Sega Mega CD",
+    "shortName": "Mega CD",
+    "manufacturer": "sega",
+    "status": "closed",
+    "estimatedCatalogSize": 372,
+    "sortOrder": 12,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "saturn",
+    "name": "Sega Saturn",
+    "shortName": "Saturn",
+    "manufacturer": "sega",
+    "status": "closed",
+    "estimatedCatalogSize": 1597,
+    "sortOrder": 13,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "dreamcast",
+    "name": "Sega Dreamcast",
+    "shortName": "Dreamcast",
+    "manufacturer": "sega",
+    "status": "closed",
+    "estimatedCatalogSize": 950,
+    "sortOrder": 14,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "gamegear",
+    "name": "Sega Game Gear",
+    "shortName": "Game Gear",
+    "manufacturer": "sega",
+    "status": "closed",
+    "estimatedCatalogSize": 637,
+    "sortOrder": 15,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "neogeo",
+    "name": "Neo Geo AES",
+    "shortName": "Neo Geo AES",
+    "manufacturer": "sega",
+    "status": "closed",
+    "estimatedCatalogSize": 212,
+    "sortOrder": 16,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "neogeocd",
+    "name": "Neo Geo CD",
+    "shortName": "Neo Geo CD",
+    "manufacturer": "sega",
+    "status": "closed",
+    "estimatedCatalogSize": 161,
+    "sortOrder": 17,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "neogeopocket",
+    "name": "Neo Geo Pocket Color",
+    "shortName": "NGPC",
+    "manufacturer": "sega",
+    "status": "closed",
+    "estimatedCatalogSize": 165,
+    "sortOrder": 18,
+    "description": "Catálogo multiregión (PAL, USA y Japón)."
+  },
+  {
+    "slug": "ps1",
+    "name": "PlayStation",
+    "shortName": "PS1",
+    "manufacturer": "sony",
+    "status": "closed",
+    "estimatedCatalogSize": 750,
+    "sortOrder": 19,
+    "description": "Catálogo oficial PAL España."
+  },
+  {
+    "slug": "ps2",
+    "name": "PlayStation 2",
+    "shortName": "PS2",
+    "manufacturer": "sony",
+    "status": "closed",
+    "estimatedCatalogSize": 1200,
+    "sortOrder": 20,
+    "description": "Catálogo oficial PAL España."
+  },
+  {
+    "slug": "ps3",
+    "name": "PlayStation 3",
+    "shortName": "PS3",
+    "manufacturer": "sony",
+    "status": "closed",
+    "estimatedCatalogSize": 800,
+    "sortOrder": 21,
+    "description": "Catálogo oficial PAL España."
+  },
+  {
+    "slug": "ps4",
+    "name": "PlayStation 4",
+    "shortName": "PS4",
+    "manufacturer": "sony",
+    "status": "semi-closed",
+    "estimatedCatalogSize": 1800,
+    "sortOrder": 22,
+    "description": "Catálogo casi cerrado. Solo se añaden ediciones puntuales (LRG, limitadas)."
+  }
+]

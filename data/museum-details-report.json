@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-06-12T18:04:45",
+  "targets": 165,
+  "updated": 157,
+  "cached": 8,
+  "missing": 0,
+  "errors": 0,
+  "byPlatform": {
+    "neogeopocket": {
+      "updated": 157,
+      "cached": 8,
+      "missing": 0,
+      "errors": 0
+    }
+  },
+  "indexes": {
+    "gamesWithDetails": 722,
+    "companies": 279,
+    "genres": 43,
+    "series": 0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-06-12T22:55:16",
+  "targets": 50,
+  "downloaded": 50,
+  "skippedExisting": 0,
+  "missingSource": 0,
+  "downloadErrors": 0,
+  "byPlatform": {
+    "3ds": {
+      "downloaded": 50,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    }
+  }
+}

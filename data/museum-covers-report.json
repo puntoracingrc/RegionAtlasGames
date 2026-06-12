@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-06-12T17:50:27",
+  "targets": 5,
+  "updated": 5,
+  "cached": 0,
+  "missing": 0,
+  "errors": 0,
+  "byPlatform": {
+    "neogeopocket": {
+      "updated": 5,
+      "cached": 0,
+      "missing": 0,
+      "errors": 0
+    }
+  },
+  "samplesMissing": []
+}

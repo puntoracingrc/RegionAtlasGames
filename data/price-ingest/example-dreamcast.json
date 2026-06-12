@@ -1,0 +1,45 @@
+{
+  "platformSlug": "dreamcast",
+  "collectedAt": "2026-06-12T19:00:00Z",
+  "listings": [
+    {
+      "catalogId": "dreamcast-sonic-adventure",
+      "source": "wallapop",
+      "listingType": "active",
+      "priceEur": 28,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["cover_pal_eu", "photo_region_mark"],
+      "aiConfidence": 0.91
+    },
+    {
+      "catalogId": "dreamcast-sonic-adventure",
+      "source": "ebay-es",
+      "listingType": "sold",
+      "priceEur": 32,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["sku_regional", "cover_pal_eu"],
+      "aiConfidence": 0.88
+    },
+    {
+      "catalogId": "dreamcast-sonic-adventure",
+      "source": "wallapop",
+      "priceEur": 15,
+      "listingRegion": "USA",
+      "regionVerified": true,
+      "regionEvidence": ["cover_usa"]
+    }
+  ],
+  "cex": [
+    {
+      "catalogId": "dreamcast-sonic-adventure",
+      "sellPriceEur": 22,
+      "cashPriceEur": 14,
+      "productUrl": "https://es.webuy.com/example",
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": ["sku_regional", "listing_title_region"]
+    }
+  ]
+}
