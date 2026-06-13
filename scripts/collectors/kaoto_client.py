@@ -5,21 +5,90 @@ from __future__ import annotations
 import json
 import re
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from html import unescape
 from typing import Any
 
+from collectors.common import build_search_query, normalize_query
+from collectors.kaoto_match import KAOTO_PLATFORM_COLLECTIONS
+
 KAOTO_BASE = "https://kaotostore.myshopify.com"
 USER_AGENT = "RegionAtlasGames/1.0 (+price-reference-ingest)"
+PRODUCT_HANDLE_RE = re.compile(r"/products/([a-z0-9-]+)")
+DEFAULT_GAME_SEARCH_MAX_PAGES: int | None = None
 
 CONDITION_RANK = {"used": 1, "no_manual": 2, "cib": 3, "sealed": 4, "unknown": 5}
 
 
-def fetch_json(url: str) -> dict[str, Any]:
+def build_kaoto_search_query(game: dict[str, Any]) -> str:
+    """Query del buscador: título + plataforma."""
+    return build_search_query(game)
+
+
+def kaoto_sources_for_platform(platform_slug: str) -> list[str]:
+    if platform_slug in KAOTO_PLATFORM_COLLECTIONS:
+        return [platform_slug]
+    return []
+
+
+def supported_platform_slugs() -> list[str]:
+    return sorted(KAOTO_PLATFORM_COLLECTIONS)
+
+
+def collection_handle_for_platform(platform_slug: str) -> str | None:
+    return KAOTO_PLATFORM_COLLECTIONS.get(platform_slug)
+
+
+def fetch_json(url: str, *, retries: int = 3) -> dict[str, Any]:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    last_exc: Exception | None = None
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            if exc.code == 404:
+                return {}
+            if exc.code == 429 and attempt + 1 < retries:
+                time.sleep(3.0 * (attempt + 1))
+                last_exc = exc
+                continue
+            raise
+        except urllib.error.URLError as exc:
+            if attempt + 1 < retries:
+                time.sleep(1.0 * (attempt + 1))
+                last_exc = exc
+                continue
+            raise
+    if last_exc:
+        raise last_exc
+    return {}
+
+
+def fetch_html(url: str, *, retries: int = 3) -> str:
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    last_exc: Exception | None = None
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                return resp.read().decode("utf-8", errors="ignore")
+        except urllib.error.HTTPError as exc:
+            if exc.code == 429 and attempt + 1 < retries:
+                time.sleep(3.0 * (attempt + 1))
+                last_exc = exc
+                continue
+            raise
+        except urllib.error.URLError as exc:
+            if attempt + 1 < retries:
+                time.sleep(1.0 * (attempt + 1))
+                last_exc = exc
+                continue
+            raise
+    if last_exc:
+        raise last_exc
+    return ""
 
 
 def infer_kaoto_region(title: str, body_html: str = "") -> str:
@@ -98,12 +167,99 @@ def shopify_product_to_row(product: dict[str, Any]) -> dict[str, Any] | None:
     }
 
 
+def search_url(query: str, *, page: int = 1) -> str:
+    params = urllib.parse.urlencode({"q": query, "type": "product", "page": page})
+    return f"{KAOTO_BASE}/search?{params}"
+
+
+def parse_search_handles(html_text: str) -> list[str]:
+    handles: list[str] = []
+    seen: set[str] = set()
+    for match in PRODUCT_HANDLE_RE.finditer(html_text):
+        handle = match.group(1)
+        if handle in seen or handle in {"all", "new", "sale"}:
+            continue
+        seen.add(handle)
+        handles.append(handle)
+    return handles
+
+
+def fetch_product_by_handle(handle: str) -> dict[str, Any] | None:
+    url = f"{KAOTO_BASE}/products/{handle.strip('/')}.json"
+    payload = fetch_json(url)
+    product = payload.get("product")
+    return product if isinstance(product, dict) else None
+
+
+def fetch_search_products(
+    query: str,
+    *,
+    max_pages: int | None = DEFAULT_GAME_SEARCH_MAX_PAGES,
+    delay_s: float = 0.3,
+) -> list[dict[str, Any]]:
+    """Buscador de la home (lupa). Sin resultados → []."""
+    query = normalize_query(query)
+    if not query:
+        return []
+
+    if max_pages is not None:
+        page_limit = max(1, max_pages)
+    else:
+        from collectors.listing_recency import search_pages_cap
+
+        page_limit = search_pages_cap()
+
+    seen_handles: set[str] = set()
+    products: list[dict[str, Any]] = []
+
+    for page in range(1, page_limit + 1):
+        html = fetch_html(search_url(query, page=page))
+        handles = parse_search_handles(html)
+        if not handles:
+            break
+
+        new_handles = [handle for handle in handles if handle not in seen_handles]
+        if not new_handles:
+            break
+        for handle in new_handles:
+            seen_handles.add(handle)
+
+        for handle in new_handles:
+            raw = fetch_product_by_handle(handle)
+            if not raw:
+                continue
+            row = shopify_product_to_row(raw)
+            if row:
+                products.append(row)
+            if delay_s:
+                time.sleep(min(delay_s, 0.15))
+
+        if page < page_limit:
+            time.sleep(delay_s)
+
+    return products
+
+
+def fetch_game_products(
+    game: dict[str, Any],
+    *,
+    max_pages: int | None = DEFAULT_GAME_SEARCH_MAX_PAGES,
+    delay_s: float = 0.3,
+) -> list[dict[str, Any]]:
+    return fetch_search_products(
+        build_kaoto_search_query(game),
+        max_pages=max_pages,
+        delay_s=delay_s,
+    )
+
+
 def fetch_collection_products(
     collection_handle: str,
     *,
     limit: int = 250,
     delay_s: float = 0.3,
 ) -> list[dict[str, Any]]:
+    """Deprecated: barrido por colección. Usar fetch_game_products por título."""
     products: list[dict[str, Any]] = []
     page = 1
     while True:
@@ -122,3 +278,11 @@ def fetch_collection_products(
         page += 1
         time.sleep(delay_s)
     return products
+
+
+def fetch_platform_products(platform_slug: str, *, delay_s: float = 0.3) -> list[dict[str, Any]]:
+    """Deprecated: barrido por colección."""
+    handle = collection_handle_for_platform(platform_slug)
+    if not handle:
+        return []
+    return fetch_collection_products(handle, delay_s=delay_s)

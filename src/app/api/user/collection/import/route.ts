@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
 import {
   getUserCollectionViews,
+  redactCollectionViewsForPlan,
   saveUserCollectionItems,
-  summarizeCollection,
+  summarizeCollectionForPlan,
 } from "@/lib/collection-store";
 import { importSpreadsheet } from "@/lib/import-collection";
+import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
 export async function POST(request: Request) {
@@ -36,11 +38,12 @@ export async function POST(request: Request) {
   }
 
   saveUserCollectionItems(user.id, items, { source: file.name });
-  const views = getUserCollectionViews(user.id);
+  const views = redactCollectionViewsForPlan(getUserCollectionViews(user.id), user.plan);
 
   return NextResponse.json({
     items: views,
-    summary: summarizeCollection(items),
+    summary: summarizeCollectionForPlan(items, user.plan),
+    canViewCollectionValue: canViewCollectionValue(user.plan),
     stats,
     importedAt: new Date().toISOString(),
     source: file.name,

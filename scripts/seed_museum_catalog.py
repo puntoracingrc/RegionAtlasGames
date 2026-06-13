@@ -13,6 +13,12 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+import sys
+
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from collectors.pc_region_paths import build_pc_path  # noqa: E402
+
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 META_FILE = ROOT / "data" / "meta.json"
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
@@ -351,17 +357,27 @@ def make_game_from_museum(
     cat_id = catalog_id_for_museum(platform_slug, museum, multi_region=multi_region)
     museum_region = museum.get("museumRegion")
     region = region_label(museum_region)
-    pc_path = f"/game/{pc_console}/{slug}"
-    if "neo-geo-pocket" in pc_console:
-        pc_region = "Referencia global (NGPC)"
-    elif "neo-geo-cd" in pc_console:
-        pc_region = "Referencia global (CD)"
-    elif "neo-geo-aes" in pc_console:
-        pc_region = "Referencia global (AES)"
-    elif multi_region:
-        pc_region = "Referencia global (multiregión)"
-    else:
-        pc_region = "PAL EU (referencia)"
+    pc_path, pc_region = build_pc_path(
+        {
+            "platformSlug": platform_slug,
+            "slug": slug,
+            "museumSlug": slug,
+            "museumRegion": museum_region,
+            "region": region,
+        }
+    )
+    if not pc_path:
+        pc_path = f"/game/{pc_console}/{slug}"
+        if "neo-geo-pocket" in pc_console:
+            pc_region = "Referencia global (NGPC)"
+        elif "neo-geo-cd" in pc_console:
+            pc_region = "Referencia global (CD)"
+        elif "neo-geo-aes" in pc_console:
+            pc_region = "Referencia global (AES)"
+        elif multi_region:
+            pc_region = "Referencia global (multiregión)"
+        else:
+            pc_region = "PAL EU (referencia)"
     return {
         "id": cat_id,
         "slug": slug,
@@ -428,7 +444,11 @@ def apply_museum_whitelist(
             )
             if not hit.get("seedSource"):
                 hit["seedSource"] = f"museum-{museum_seed_kind(pc_console)}"
-            if not hit.get("pcPath"):
+            pc_path, pc_region = build_pc_path(hit)
+            if pc_path:
+                hit["pcPath"] = pc_path
+                hit["pcRegion"] = pc_region
+            elif not hit.get("pcPath"):
                 hit["pcPath"] = f"/game/{pc_console}/{museum['museumSlug']}"
             matched += 1
         else:

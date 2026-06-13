@@ -33,7 +33,8 @@ export default async function SettingsPage() {
             <Panel>
               <PanelTitle>Plan y mercado</PanelTitle>
               <p className="mb-4 text-sm text-muted">
-                Solo usuarios Pro pueden publicar anuncios, chatear y usar análisis IA de fotos.
+                Pro incluye valor total de tu colección (global y por plataforma), mercado entre
+                usuarios y análisis IA de fotos.
               </p>
               <PlanPanel plan={user.plan} aiQuotaRemaining={aiQuotaRemaining(user.id, user.plan)} />
             </Panel>

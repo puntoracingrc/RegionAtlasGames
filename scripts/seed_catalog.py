@@ -13,6 +13,10 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+import sys
+
+sys.path.insert(0, str(ROOT / "scripts"))
+
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 META_FILE = ROOT / "data" / "meta.json"
@@ -20,31 +24,9 @@ META_FILE = ROOT / "data" / "meta.json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 REQUEST_DELAY = 1.6
 
-# slug interno -> ruta consola en PriceCharting
-PC_CONSOLE_PATHS: dict[str, str] = {
-    "nes": "pal-nes",
-    "snes": "pal-super-nintendo",
-    "n64": "pal-nintendo-64",
-    "gameboy": "pal-gameboy",
-    "gamecube": "pal-gamecube",
-    "wii": "pal-wii",
-    "ds": "pal-nintendo-ds",
-    "3ds": "pal-nintendo-3ds",
-    "megadrive": "pal-sega-mega-drive",
-    "sega32x": "pal-mega-drive-32x",
-    "megacd": "pal-sega-mega-cd",
-    "mastersystem": "pal-sega-master-system",
-    "saturn": "pal-sega-saturn",
-    "dreamcast": "pal-sega-dreamcast",
-    "gamegear": "pal-sega-game-gear",
-    "neogeo": "neo-geo-aes",
-    "neogeocd": "neo-geo-cd",
-    "neogeopocket": "neo-geo-pocket-color",
-    "ps1": "pal-playstation",
-    "ps2": "pal-playstation-2",
-    "ps3": "pal-playstation-3",
-    "ps4": "pal-playstation-4",
-}
+from collectors.pc_region_paths import PAL_PC_CONSOLE
+
+PC_CONSOLE_PATHS: dict[str, str] = PAL_PC_CONSOLE
 
 
 def slugify(text: str) -> str:

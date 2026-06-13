@@ -8,9 +8,10 @@ import { Panel, PanelTitle } from "@/components/ui";
 
 type Props = {
   hasItems: boolean;
+  canViewCollectionValue: boolean;
 };
 
-export function CollectionImport({ hasItems }: Props) {
+export function CollectionImport({ hasItems, canViewCollectionValue }: Props) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(false);
@@ -92,9 +93,14 @@ export function CollectionImport({ hasItems }: Props) {
           Importados {result.stats.imported} juegos · {result.stats.matchedCatalog} enlazados al
           catálogo
           {result.stats.unmatched > 0 && ` · ${result.stats.unmatched} sin ficha exacta`}.
-          Valor venta ES:{" "}
-          {new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(
-            result.summary.totalRecommendedValue,
+          {canViewCollectionValue && (
+            <>
+              {" "}
+              Valor venta ES:{" "}
+              {new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(
+                result.summary.totalRecommendedValue,
+              )}
+            </>
           )}
         </div>
       )}

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Referencias retail Japan Game Online → ingest + sync opcional.
+# Referencias retail Japan Game Online (búsqueda título+plataforma) → ingest + sync opcional.
 #
 #   ./scripts/run_jgo_ingest.sh saturn
 #   ./scripts/run_jgo_ingest.sh saturn --sync

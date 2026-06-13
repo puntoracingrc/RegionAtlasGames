@@ -53,7 +53,7 @@ REGION_QUERY_HINTS: dict[str, str] = {
     "PAL UK/ENG": "PAL UK",
     "PAL Alemania": "PAL alemán",
 }
-# Obsoleto para queries de búsqueda: región y consola se filtran post-fetch (build_search_query).
+# Región y consola se filtran post-fetch; la query lleva título + plataforma (build_search_query).
 
 
 def normalize_region(region: str) -> str:

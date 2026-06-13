@@ -1,0 +1,109 @@
+{
+  "generatedAt": "2026-06-13T13:55:45",
+  "dryRun": false,
+  "changed": 12261,
+  "skippedNoConsole": 0,
+  "byBucket": {
+    "usa": 4240,
+    "pal": 1790,
+    "japan": 6231
+  },
+  "samples": [
+    {
+      "id": "dreamcast-102-dalmatians-disneys-puppies-rescue",
+      "region": "USA",
+      "museumRegion": "usa",
+      "oldPath": "/game/pal-sega-dreamcast/102-dalmatians-disneys-puppies-rescue",
+      "newPath": "/game/sega-dreamcast/102-dalmatians-disneys-puppies-rescue",
+      "newPcRegion": "NTSC USA (referencia)"
+    },
+    {
+      "id": "dreamcast-pal-102-dalmatians-disneys-puppies-rescue",
+      "region": "PAL Europa",
+      "museumRegion": "pal",
+      "oldPath": "/game/pal-sega-dreamcast/102-dalmatians-disneys-puppies-rescue",
+      "newPath": "/game/pal-sega-dreamcast/102-dalmatians-disneys-puppies-rescue",
+      "newPcRegion": "PAL EU (referencia)"
+    },
+    {
+      "id": "dreamcast-usa-18-wheeler-american-pro-trucker",
+      "region": "USA",
+      "museumRegion": "usa",
+      "oldPath": "/game/pal-sega-dreamcast/18-wheeler-american-pro-trucker",
+      "newPath": "/game/sega-dreamcast/18-wheeler-american-pro-trucker",
+      "newPcRegion": "NTSC USA (referencia)"
+    },
+    {
+      "id": "dreamcast-18-wheeler-american-pro-trucker",
+      "region": "Japón",
+      "museumRegion": "japon",
+      "oldPath": "/game/pal-sega-dreamcast/18-wheeler-american-pro-trucker",
+      "newPath": "/game/jp-sega-dreamcast/18-wheeler-american-pro-trucker",
+      "newPcRegion": "Japón (referencia)"
+    },
+    {
+      "id": "dreamcast-pal-18-wheeler-american-pro-trucker",
+      "region": "PAL Europa",
+      "museumRegion": "pal",
+      "oldPath": "/game/pal-sega-dreamcast/18-wheeler-american-pro-trucker",
+      "newPath": "/game/pal-sega-dreamcast/18-wheeler-american-pro-trucker",
+      "newPcRegion": "PAL EU (referencia)"
+    },
+    {
+      "id": "dreamcast-japon-21-two-one",
+      "region": "Japón",
+      "museumRegion": "japon",
+      "oldPath": "/game/pal-sega-dreamcast/21-two-one",
+      "newPath": "/game/jp-sega-dreamcast/21-two-one",
+      "newPcRegion": "Japón (referencia)"
+    },
+    {
+      "id": "dreamcast-usa-4-wheel-thunder",
+      "region": "USA",
+      "museumRegion": "usa",
+      "oldPath": "/game/pal-sega-dreamcast/4-wheel-thunder",
+      "newPath": "/game/sega-dreamcast/4-wheel-thunder",
+      "newPcRegion": "NTSC USA (referencia)"
+    },
+    {
+      "id": "dreamcast-japon-advanced-daisenryaku-sturn-uber-europa-der-deutsche-bllitzkrieg",
+      "region": "Japón",
+      "museumRegion": "japon",
+      "oldPath": "/game/pal-sega-dreamcast/advanced-daisenryaku-sturn-uber-europa-der-deutsche-bllitzkrieg",
+      "newPath": "/game/jp-sega-dreamcast/advanced-daisenryaku-sturn-uber-europa-der-deutsche-bllitzkrieg",
+      "newPcRegion": "Japón (referencia)"
+    },
+    {
+      "id": "dreamcast-japon-advanced-daisenryaku-2001",
+      "region": "Japón",
+      "museumRegion": "japon",
+      "oldPath": "/game/pal-sega-dreamcast/advanced-daisenryaku-2001",
+      "newPath": "/game/jp-sega-dreamcast/advanced-daisenryaku-2001",
+      "newPcRegion": "Japón (referencia)"
+    },
+    {
+      "id": "dreamcast-japon-aero-dancing-f-todoroki-tsubasa-no-hatsu-hikou",
+      "region": "Japón",
+      "museumRegion": "japon",
+      "oldPath": "/game/pal-sega-dreamcast/aero-dancing-f-todoroki-tsubasa-no-hatsu-hikou",
+      "newPath": "/game/jp-sega-dreamcast/aero-dancing-f-todoroki-tsubasa-no-hatsu-hikou",
+      "newPcRegion": "Japón (referencia)"
+    },
+    {
+      "id": "dreamcast-japon-aero-dancing-featuring-blue-impulse",
+      "region": "Japón",
+      "museumRegion": "japon",
+      "oldPath": "/game/pal-sega-dreamcast/aero-dancing-featuring-blue-impulse",
+      "newPath": "/game/jp-sega-dreamcast/aero-dancing-featuring-blue-impulse",
+      "newPcRegion": "Japón (referencia)"
+    },
+    {
+      "id": "dreamcast-japon-aero-dancing-i-jikai-sakuma-de-machite-masen",
+      "region": "Japón",
+      "museumRegion": "japon",
+      "oldPath": "/game/pal-sega-dreamcast/aero-dancing-i-jikai-sakuma-de-machite-masen",
+      "newPath": "/game/jp-sega-dreamcast/aero-dancing-i-jikai-sakuma-de-machite-masen",
+      "newPcRegion": "Japón (referencia)"
+    }
+  ]
+}

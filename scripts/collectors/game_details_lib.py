@@ -329,10 +329,10 @@ def _merge_entity(
 
     if museum_entity:
         return museum_entity, SOURCE_MUSEUM
-    if pc_entity:
-        return pc_entity, SOURCE_PC
     if serialstation_entity:
         return serialstation_entity, SOURCE_SERIALSTATION
+    if pc_entity:
+        return pc_entity, SOURCE_PC
     if wikidata_entity:
         return wikidata_entity, SOURCE_WIKIDATA
     return None, None
@@ -351,12 +351,12 @@ def _merge_genres(
     if museum_genres:
         merged = [normalize_entity(g, default_source=SOURCE_MUSEUM) for g in museum_genres]
         return [g for g in merged if g], SOURCE_MUSEUM
-    if pc_genres:
-        merged = [normalize_entity(g, default_source=SOURCE_PC) for g in pc_genres]
-        return [g for g in merged if g], SOURCE_PC
     if serialstation_genres:
         merged = [normalize_entity(g, default_source=SOURCE_SERIALSTATION) for g in serialstation_genres]
         return [g for g in merged if g], SOURCE_SERIALSTATION
+    if pc_genres:
+        merged = [normalize_entity(g, default_source=SOURCE_PC) for g in pc_genres]
+        return [g for g in merged if g], SOURCE_PC
     if wikidata_genres:
         merged = [normalize_entity(g, default_source=SOURCE_WIKIDATA) for g in wikidata_genres]
         return [g for g in merged if g], SOURCE_WIKIDATA
@@ -372,7 +372,12 @@ def _merge_scalar(
     *,
     source_order: tuple[str, ...] | None = None,
 ) -> tuple[Any, str | None]:
-    order = source_order or (SOURCE_MUSEUM, SOURCE_PC, SOURCE_SERIALSTATION, SOURCE_WIKIDATA)
+    order = source_order or (
+        SOURCE_MUSEUM,
+        SOURCE_SERIALSTATION,
+        SOURCE_PC,
+        SOURCE_WIKIDATA,
+    )
     by_source = {
         SOURCE_MUSEUM: museum_detail,
         SOURCE_PC: pc_detail,

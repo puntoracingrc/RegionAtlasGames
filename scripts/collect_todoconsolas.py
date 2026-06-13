@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Ingest referencias retail desde todoconsolas.com (PrestaShop, segunda mano ES).
 
-  python3 scripts/collect_todoconsolas.py --platform saturn --dry-run
+Búsqueda avanzada por juego (título + plataforma, paginación).
+Si TodoConsolas no tiene el juego, no hay resultados → siguiente.
+
+  python3 scripts/collect_todoconsolas.py --platform gamegear --limit 5 --dry-run
   python3 scripts/collect_todoconsolas.py --all
   ./scripts/run_todoconsolas_ingest.sh ps2 --sync
 """
@@ -11,19 +14,22 @@ from __future__ import annotations
 import argparse
 import subprocess
 import sys
+import time
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from collectors.common import load_json, now_iso, save_json  # noqa: E402
 from collectors.collector_args import add_match_flags, match_kwargs  # noqa: E402
-from collectors.match_pipeline import print_match_stats, run_match_pipeline  # noqa: E402
+from collectors.common import load_json, now_iso, platform_catalog_games, save_json  # noqa: E402
+from collectors.match_pipeline import run_match_pipeline  # noqa: E402
+from collectors.listing_recency import search_per_game_pages  # noqa: E402
 from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
 from collectors.tcns_client import (  # noqa: E402
-    fetch_platform_products,
+    build_tcns_search_query,
+    fetch_game_products,
     supported_platform_slugs,
     tcns_sources_for_platform,
 )
@@ -33,48 +39,52 @@ from collectors.tcns_match import (  # noqa: E402
     product_to_ingest_row,
 )
 
-CATALOG_FILE = ROOT / "data" / "catalog.json"
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
 CACHE_DIR = ROOT / "data" / "price-ingest" / "cache" / "todoconsolas"
+REQUEST_DELAY = 0.35
 
 
-def load_catalog() -> list[dict[str, Any]]:
-    return load_json(CATALOG_FILE, [])
-
-
-def collect_platform(platform_slug: str, *, use_cache: bool, max_pages: int | None) -> list[dict[str, Any]]:
-    cache_file = CACHE_DIR / f"{platform_slug}.json"
-    if not tcns_sources_for_platform(platform_slug):
-        raise SystemExit(f"Plataforma sin categoría TodoConsolas: {platform_slug}")
-
-    if use_cache and cache_file.exists():
-        return load_json(cache_file, [])
-
-    products = fetch_platform_products(platform_slug, max_pages=max_pages)
-    for product in products:
-        product["platformSlug"] = platform_slug
-    save_json(cache_file, products)
-    return products
-
-
-def build_tcns_rows(
+def collect_game_rows(
+    game: dict[str, Any],
     platform_slug: str,
-    products: list[dict[str, Any]],
     *,
+    ref_to_ids: dict[str, list[str]],
+    max_pages: int | None,
+    use_cache: bool,
     use_ai: bool,
     use_match_cache: bool,
 ) -> list[dict[str, Any]]:
-    catalog = load_catalog()
-    platform_games = [g for g in catalog if g.get("platformSlug") == platform_slug]
-    _, ref_to_ids = build_platform_reference_index(platform_slug)
+    catalog_id = str(game["id"])
+    cache_file = CACHE_DIR / platform_slug / f"{catalog_id}.json"
 
-    def row_builder(product: dict[str, Any], game: dict[str, Any], result) -> dict[str, Any] | None:
-        row = product_to_ingest_row(product, str(game["id"]), **match_row_kwargs(result))
-        return row if row else None
+    if use_cache and cache_file.exists():
+        cached = load_json(cache_file, {})
+        return list(cached.get("tcns") or [])
+
+    products = fetch_game_products(game, max_pages=max_pages, delay_s=0)
+    if not products:
+        if use_cache:
+            cache_file.parent.mkdir(parents=True, exist_ok=True)
+            save_json(
+                cache_file,
+                {"query": build_tcns_search_query(game), "tcns": [], "products": 0},
+            )
+        return []
+
+    def row_builder(product: dict[str, Any], matched_game: dict[str, Any], result) -> dict[str, Any] | None:
+        row = product_to_ingest_row(
+            product,
+            str(matched_game["id"]),
+            **match_row_kwargs(result),
+        )
+        if not row:
+            return None
+        row["matchMethod"] = "search"
+        return row
 
     stats = run_match_pipeline(
         products,
-        platform_games,
+        [game],
         platform_slug,
         source="todoconsolas",
         ref_to_ids=ref_to_ids,
@@ -84,9 +94,69 @@ def build_tcns_rows(
         use_match_cache=use_match_cache,
         pick_best=pick_best_product_rows,
     )
-    print_match_stats(stats, label="TodoConsolas")
-    print(f"  Referencias TodoConsolas: {len(stats.rows)}")
+
+    if use_cache:
+        cache_file.parent.mkdir(parents=True, exist_ok=True)
+        save_json(
+            cache_file,
+            {
+                "query": build_tcns_search_query(game),
+                "products": len(products),
+                "tcns": stats.rows,
+            },
+        )
+
     return stats.rows
+
+
+def collect_platform(platform_slug: str, args: argparse.Namespace) -> tuple[list[dict[str, Any]], dict[str, int]]:
+    if not tcns_sources_for_platform(platform_slug):
+        raise SystemExit(f"Plataforma sin soporte TodoConsolas: {platform_slug}")
+
+    games = platform_catalog_games(platform_slug)
+    if args.limit:
+        games = games[: args.limit]
+
+    _, ref_to_ids = build_platform_reference_index(platform_slug)
+    match_opts = match_kwargs(args)
+
+    stats = {
+        "games_requested": len(games),
+        "games_with_rows": 0,
+        "searches": 0,
+        "rows": 0,
+    }
+    all_rows: list[dict[str, Any]] = []
+    search_pages = args.max_pages if args.max_pages is not None else search_per_game_pages()
+
+    for index, game in enumerate(games, start=1):
+        try:
+            rows = collect_game_rows(
+                game,
+                platform_slug,
+                ref_to_ids=ref_to_ids,
+                max_pages=search_pages,
+                use_cache=args.use_cache,
+                **match_opts,
+            )
+        except Exception as exc:  # noqa: BLE001
+            print(f"  [{index}/{len(games)}] ERROR {game['title'][:40]}: {exc}")
+            continue
+
+        stats["searches"] += 1
+        if rows:
+            stats["games_with_rows"] += 1
+            stats["rows"] += len(rows)
+            all_rows.extend(rows)
+        query = build_tcns_search_query(game)
+        if index <= 5 or rows:
+            status = f"{len(rows)} ref" if rows else "0 resultados"
+            print(f"  [{index}/{len(games)}] «{query}» → {status}")
+
+        if index < len(games):
+            time.sleep(args.delay)
+
+    return all_rows, stats
 
 
 def platform_slugs_to_run(args: argparse.Namespace) -> list[str]:
@@ -106,9 +176,13 @@ def platform_slugs_to_run(args: argparse.Namespace) -> list[str]:
 def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
     out = args.output or ROOT / "data" / "price-ingest" / f"{platform_slug}-todoconsolas.json"
 
-    print(f"=== TodoConsolas · {platform_slug} ===")
-    products = collect_platform(platform_slug, use_cache=args.use_cache, max_pages=args.max_pages)
-    tcns_rows = build_tcns_rows(platform_slug, products, **match_kwargs(args))
+    print(f"=== TodoConsolas · {platform_slug} (búsqueda por título) ===")
+    tcns_rows, stats = collect_platform(platform_slug, args)
+    print(
+        f"  Búsquedas: {stats['searches']} · "
+        f"Con fila: {stats['games_with_rows']} · "
+        f"Referencias: {stats['rows']}"
+    )
 
     if args.dry_run:
         for row in tcns_rows[:8]:
@@ -121,6 +195,7 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         "platformSlug": platform_slug,
         "collectedAt": now_iso(),
         "source": "todoconsolas",
+        "searchMode": "title",
         "listings": [],
         "cex": [],
         "jgo": [],
@@ -132,6 +207,7 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         existing = load_json(out, {})
         existing["tcns"] = tcns_rows
         existing["tcnsCollectedAt"] = now_iso()
+        existing["searchMode"] = "title"
         payload = existing
 
     save_json(out, payload)
@@ -153,14 +229,20 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Collect TodoConsolas retail references")
+    parser = argparse.ArgumentParser(description="Collect TodoConsolas retail references (search by title)")
     parser.add_argument("--platform")
     parser.add_argument("--all", action="store_true")
+    parser.add_argument("--limit", type=int, help="Máximo juegos a buscar")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--merge", action="store_true")
     parser.add_argument("--use-cache", action="store_true")
     add_match_flags(parser)
-    parser.add_argument("--max-pages", type=int)
+    parser.add_argument(
+        "--max-pages",
+        type=int,
+        help="Páginas de búsqueda por juego (default: todas hasta vacío, ver data/ingest-recency.json)",
+    )
+    parser.add_argument("--delay", type=float, default=REQUEST_DELAY, help="Segundos entre búsquedas")
     parser.add_argument("--sync", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()

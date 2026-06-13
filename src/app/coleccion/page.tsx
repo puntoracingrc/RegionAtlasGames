@@ -7,8 +7,9 @@ import { Panel, PanelTitle } from "@/components/ui";
 import {
   getUserCollectionViews,
   readUserCollection,
-  summarizeCollection,
+  summarizeCollectionForPlan,
 } from "@/lib/collection-store";
+import { canViewCollectionValue } from "@/lib/plans";
 import { SITE_LOGO } from "@/lib/site-brand";
 import { getCurrentUser } from "@/lib/users";
 
@@ -42,7 +43,8 @@ export default async function CollectionPage() {
 
   const file = readUserCollection(user.id);
   const items = getUserCollectionViews(user.id);
-  const summary = summarizeCollection(file.items);
+  const summary = summarizeCollectionForPlan(file.items, user.plan);
+  const showCollectionValue = canViewCollectionValue(user.plan);
   const hasItems = items.length > 0;
 
   return (
@@ -66,11 +68,19 @@ export default async function CollectionPage() {
           </p>
         </header>
 
-        <CollectionImport hasItems={hasItems} />
+        <CollectionImport hasItems={hasItems} canViewCollectionValue={showCollectionValue} />
 
-        {hasItems && <CollectionValueHero summary={summary} />}
+        {hasItems && (
+          <CollectionValueHero summary={summary} canViewCollectionValue={showCollectionValue} />
+        )}
 
-        {hasItems && <CollectionExplorer items={items} summary={summary} />}
+        {hasItems && (
+          <CollectionExplorer
+            items={items}
+            summary={summary}
+            canViewCollectionValue={showCollectionValue}
+          />
+        )}
       </main>
     </>
   );

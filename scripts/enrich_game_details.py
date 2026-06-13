@@ -29,6 +29,7 @@ from collectors.game_details_lib import (
     save_json,
     split_detail_sources,
 )
+from collectors.pc_region_paths import effective_pc_path_for_game
 from collectors.wikidata_details import details_have_gaps, fetch_wikidata_details
 
 CATALOG_FILE = ROOT / "data" / "catalog.json"
@@ -83,7 +84,7 @@ def update_meta(index_stats: dict) -> None:
 def needs_pc_fetch(game: dict, existing: dict | None, pc_cache: dict, force: bool) -> bool:
     if force:
         return True
-    pc_path = game.get("pcPath")
+    pc_path = effective_pc_path_for_game(game)
     if not pc_path:
         return False
     cached = pc_cache.get(pc_path)
@@ -190,7 +191,7 @@ def main() -> None:
     for idx, game in enumerate(targets, start=1):
         game_id = game["id"]
         platform = game["platformSlug"]
-        pc_path = game.get("pcPath")
+        pc_path = effective_pc_path_for_game(game)
         plat_stats = report["byPlatform"].setdefault(
             platform,
             {

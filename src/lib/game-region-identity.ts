@@ -164,7 +164,7 @@ export function buildGameRegionIdentity(
       id: "pricecharting-region",
       label: "Ref. PriceCharting",
       value: game.pcRegion,
-      hint: "Referencia externa; puede no coincidir con la edición concreta del catálogo.",
+      hint: "Referencia externa por edición (PAL, USA o Japón); puede no coincidir con la ficha concreta del catálogo.",
     });
   }
 

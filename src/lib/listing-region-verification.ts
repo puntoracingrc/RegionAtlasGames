@@ -1,6 +1,7 @@
 /**
  * Un anuncio solo cuenta para el precio si la región está verificada con pruebas
- * que cumplen las reglas de la plataforma y coinciden con el catálogo.
+ * que cumplen las reglas de la plataforma y coinciden con la edición del catálogo
+ * (PAL España, PAL Europa, USA, Japón, etc.).
  */
 
 import { checkListingEvidenceMeetsRules } from "./region-evidence-rules";
@@ -127,8 +128,10 @@ export function filterVerifiedListingsForGame(
 }
 
 export const REGION_VERIFICATION_POLICY =
-  "Solo entran anuncios con región verificada según las reglas de cada plataforma " +
-  "(p. ej. PS4 PAL ES exige carátula española visible). Sin prueba suficiente = no cuenta.";
+  "Cada ficha es una edición concreta (PAL España, PAL Europa, USA, Japón…). " +
+  "Solo entran anuncios cuya región coincide con esa ficha y está verificada con pruebas visibles " +
+  "(carátula, manual, SKU, título del anuncio…). Las reglas varían por plataforma y región " +
+  "(p. ej. PAL ES: carátula española; Japón: marcaje NTSC-J). Sin prueba suficiente = no cuenta.";
 
 export function priceVerificationLabel(verified: boolean | undefined | null): string {
   if (verified === true) return "Región verificada";

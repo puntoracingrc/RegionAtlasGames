@@ -34,6 +34,9 @@ type Props = {
   listingCounts?: Record<string, number>;
   isLoggedIn?: boolean;
   compactLegends?: boolean;
+  /** Filtro de región controlado (p. ej. desde la barra del hero) */
+  region?: string;
+  onRegionChange?: (region: string) => void;
 };
 
 export function CatalogBrowser({
@@ -45,6 +48,8 @@ export function CatalogBrowser({
   listingCounts = {},
   isLoggedIn = false,
   compactLegends = false,
+  region: controlledRegion,
+  onRegionChange,
 }: Props) {
   const gridRef = useRef<HTMLElement>(null);
   const [ownedIds, setOwnedIds] = useState(ownedCatalogIds);
@@ -54,7 +59,9 @@ export function CatalogBrowser({
     setOwnedIds(ownedCatalogIds);
   }, [ownedCatalogIds]);
   const [q, setQ] = useState("");
-  const [region, setRegion] = useState("all");
+  const [internalRegion, setInternalRegion] = useState("all");
+  const region = controlledRegion ?? internalRegion;
+  const setRegion = onRegionChange ?? setInternalRegion;
   const [platform, setPlatform] = useState("all");
   const [sort, setSort] = useState<CatalogSort>(DEFAULT_SORT);
   const [priceFilter, setPriceFilter] = useState<CatalogPriceFilter>("all");

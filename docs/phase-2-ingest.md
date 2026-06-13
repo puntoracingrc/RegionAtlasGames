@@ -95,8 +95,8 @@ chmod +x scripts/run_ebay_ingest.sh
 scripts/collectors/
   common.py        # catálogo, queries, inferencia región
   ebay_client.py   # Finding + Browse API
-  wallapop.py      # (pendiente)
-  vinted_es.py     # (pendiente)
+  wallapop.py      # collect_wallapop.py
+  vinted_client.py # collect_vinted.py (Vinted ES, búsqueda título+plataforma)
 scripts/collect_ebay_es.py
 scripts/run_ebay_ingest.sh
 ```

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { GameProductReference } from "@/components/game-product-reference";
+import { CollectionValueUpsell } from "@/components/collection-value-upsell";
 import { SellListingButton } from "@/components/sell-listing-button";
 import { DetailCoverArt } from "@/components/detail-cover-art";
 import { isGrailGame, isTopInSegment } from "@/lib/game-highlight";
@@ -9,9 +10,12 @@ import { SiteNav } from "@/components/site-nav";
 import { PriceBox } from "@/components/ui";
 import { getSellerOpenListing } from "@/lib/listings";
 import { getUserCollectionItem } from "@/lib/collection-store";
+import { getCoverSrc } from "@/lib/cover-url";
+import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { formatEur, getCatalogGame, getPlatform } from "@/lib/catalog";
 import { getGameDetails } from "@/lib/indexes";
 import { catalogGamePath } from "@/lib/catalog-url";
+import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
 type Props = { params: Promise<{ id: string }> };
@@ -33,6 +37,7 @@ export default async function CollectionItemPage({ params }: Props) {
   const topSegment = isTopInSegment(item);
   const catalogGame = item.catalogId ? getCatalogGame(item.catalogId) : undefined;
   const catalogDetails = catalogGame ? getGameDetails(catalogGame.id) : undefined;
+  const showCollectionValue = canViewCollectionValue(user.plan);
 
   return (
     <>
@@ -51,8 +56,8 @@ export default async function CollectionItemPage({ params }: Props) {
         <div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-10">
           <div className="lg:sticky lg:top-20 lg:self-start">
             <DetailCoverArt
-              src={item.coverUrl}
-              alt={item.title}
+              src={getCoverSrc(item.coverUrl, item.catalogId ?? item.id)}
+              alt={decodeHtmlEntities(item.title)}
               platformSlug={item.platformSlug}
               owned
               grail={grail}
@@ -74,8 +79,16 @@ export default async function CollectionItemPage({ params }: Props) {
             <section className="grid gap-3 sm:grid-cols-3">
               <PriceBox label="Venta recomendada" value={formatEur(item.recommendedPrice)} main />
               <PriceBox label="Precio compra" value={formatEur(item.buyPrice)} />
-              <PriceBox label="Valor total" value={formatEur(item.totalValue)} />
+              <PriceBox
+                label="Valor total"
+                value={showCollectionValue ? formatEur(item.totalValue) : "—"}
+              />
             </section>
+            {!showCollectionValue && (
+              <p className="text-sm">
+                <CollectionValueUpsell compact />
+              </p>
+            )}
 
             {catalogGame && (
               <GameProductReference game={catalogGame} details={catalogDetails} variant="compact" />

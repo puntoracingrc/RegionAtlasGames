@@ -1,4 +1,4 @@
-"""Cliente HTML — todocoleccion.net (JSON-LD ItemList en categorías y buscador)."""
+"""Cliente HTML — todocoleccion.net (JSON-LD ItemList en categorías; HTML en buscador avanzado)."""
 
 from __future__ import annotations
 
@@ -7,12 +7,20 @@ import re
 import time
 import urllib.parse
 import urllib.request
+from html import unescape
 from typing import Any
+
+from collectors.common import build_search_query, normalize_query
 
 TC_BASE = "https://www.todocoleccion.net"
 USER_AGENT = "RegionAtlasGames/1.0 (+price-reference-ingest)"
 
-# Slugs verificados en /s/{slug} (jun 2026).
+# Búsqueda avanzada (home → Avanzada): Juguetes y Juegos → Videojuegos y Consolas.
+TC_SECTION_JUGUETES = "187"
+TC_SUBSECTION_VIDEOJUEGOS = "1826"
+DEFAULT_GAME_SEARCH_MAX_PAGES: int | None = None
+
+# Slugs verificados en /s/{slug} (jun 2026) — solo referencia legacy.
 TC_PLATFORM_CATEGORIES: dict[str, str | list[str]] = {
     "nes": "nintendo-nes",
     "snes": "super-nintendo",
@@ -34,7 +42,7 @@ TC_PLATFORM_CATEGORIES: dict[str, str | list[str]] = {
     "ps4": "playstation-ps4",
 }
 
-# Sin categoría propia en TodoColeccion → buscador acotado por palabras clave.
+# Plataformas sin categoría propia (siguen admitidas vía búsqueda avanzada).
 TC_PLATFORM_SEARCH: dict[str, str] = {
     "sega32x": "sega 32x juego",
     "neogeo": "neo geo aes juego",
@@ -51,6 +59,36 @@ from collectors.listing_recency import (  # noqa: E402
 )
 
 DEFAULT_SEARCH_MAX_PAGES = 40
+CARD_LOT_MARKER = 'class="card-lote card-lote-as-gallery"'
+PRICE_RE = re.compile(r"class=\"card-price[^\"]*\"[^>]*>\s*([\d.,]+)\s*€")
+
+
+def build_tc_search_query(game: dict[str, Any]) -> str:
+    """Campo «con la frase exacta»: título + plataforma."""
+    return build_search_query(game)
+
+
+def tc_sources_for_platform(platform_slug: str) -> list[str]:
+    """Plataforma admitida si está en el mapa (búsqueda global por frase exacta)."""
+    if platform_slug in supported_platform_slugs():
+        return [platform_slug]
+    return []
+
+
+def tc_category_slugs_for_platform(platform_slug: str) -> list[str]:
+    raw = TC_PLATFORM_CATEGORIES.get(platform_slug)
+    if not raw:
+        return []
+    return raw if isinstance(raw, list) else [raw]
+
+
+def tc_legacy_search_query(platform_slug: str) -> str | None:
+    return TC_PLATFORM_SEARCH.get(platform_slug)
+
+
+def supported_platform_slugs() -> list[str]:
+    slugs = set(TC_PLATFORM_CATEGORIES) | set(TC_PLATFORM_SEARCH)
+    return sorted(slugs)
 
 
 def _product_image(product: dict[str, Any]) -> str | None:
@@ -126,21 +164,127 @@ def parse_item_list(html_text: str) -> tuple[list[dict[str, Any]], int | None]:
     return products, total
 
 
-def tc_sources_for_platform(platform_slug: str) -> list[tuple[str, str]]:
-    """Devuelve [(modo, slug|query), …] con modo category|search."""
-    raw = TC_PLATFORM_CATEGORIES.get(platform_slug)
-    if raw:
-        slugs = raw if isinstance(raw, list) else [raw]
-        return [("category", slug) for slug in slugs]
-    query = TC_PLATFORM_SEARCH.get(platform_slug)
-    if query:
-        return [("search", query)]
-    return []
+def advanced_search_url(query: str, *, page: int = 1) -> str:
+    params = {
+        "tit_busqueda": "Búsqueda avanzada",
+        "Turbo": "s",
+        "seccion": TC_SECTION_JUGUETES,
+        "hija": TC_SUBSECTION_VIDEOJUEGOS,
+        "frase_exacta": query,
+        "Donde": "t",
+        "Mostrar": "t",
+        "Navegacion": "g",
+    }
+    base = f"{TC_BASE}/buscador?{urllib.parse.urlencode(params)}"
+    return base if page <= 1 else f"{base}&P={page}"
 
 
-def supported_platform_slugs() -> list[str]:
-    slugs = set(TC_PLATFORM_CATEGORIES) | set(TC_PLATFORM_SEARCH)
-    return sorted(slugs)
+def parse_search_total_lots(html_text: str) -> int | None:
+    match = re.search(r">\s*(\d+)\s+lotes\s*<", html_text)
+    if not match:
+        return None
+    return int(match.group(1))
+
+
+def parse_search_results(html_text: str) -> list[dict[str, Any]]:
+    """Parsea tarjetas HTML del buscador avanzado (no usa JSON-LD ItemList)."""
+    products: list[dict[str, Any]] = []
+    for chunk in html_text.split(CARD_LOT_MARKER)[1:]:
+        lot_match = re.search(r'data-testid="(\d+)"', chunk)
+        if not lot_match:
+            continue
+        lot_id = lot_match.group(1)
+        title_match = re.search(rf'id="lot-title-{lot_id}"[^>]*>([^<]+)', chunk)
+        href_match = re.search(rf'href="(/[^"]+~x{lot_id})"', chunk)
+        price_match = PRICE_RE.search(chunk)
+        if not title_match or not href_match or not price_match:
+            continue
+        try:
+            price = round(float(price_match.group(1).replace(".", "").replace(",", ".")), 2)
+        except ValueError:
+            continue
+        if price <= 0:
+            continue
+
+        image_match = re.search(rf'data-id-lote="{lot_id}" data-image-url="([^"]+)"', chunk)
+        row: dict[str, Any] = {
+            "title": unescape(title_match.group(1).strip()),
+            "productUrl": f"{TC_BASE}{href_match.group(1)}",
+            "priceEur": price,
+            "externalId": lot_id,
+            "listingType": "active",
+        }
+        if image_match:
+            row["imageUrl"] = image_match.group(1)
+            listed_at = parse_listed_at_from_tc_image(row["imageUrl"])
+            if listed_at:
+                row["listedAt"] = listed_at
+        products.append(row)
+    return products
+
+
+def fetch_advanced_search_products(
+    query: str,
+    *,
+    max_pages: int | None = DEFAULT_GAME_SEARCH_MAX_PAGES,
+    delay_s: float = 0.45,
+) -> list[dict[str, Any]]:
+    """Buscador avanzado TC. Sin lotes → []."""
+    query = normalize_query(query)
+    if not query:
+        return []
+
+    first_html = fetch_html(advanced_search_url(query, page=1))
+    total_lots = parse_search_total_lots(first_html)
+    if total_lots == 0:
+        return []
+
+    page_size = len(parse_search_results(first_html)) or 30
+    expected_pages = 1
+    if total_lots and page_size:
+        expected_pages = max(1, (total_lots + page_size - 1) // page_size)
+    if max_pages is not None:
+        expected_pages = min(expected_pages, max_pages)
+    else:
+        from collectors.listing_recency import search_pages_cap
+
+        expected_pages = min(expected_pages, search_pages_cap())
+
+    seen: set[str] = set()
+    products: list[dict[str, Any]] = []
+
+    def ingest_batch(batch: list[dict[str, Any]]) -> None:
+        for product in batch:
+            key = str(product.get("externalId") or product.get("productUrl"))
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            enrich_tc_product(product)
+            products.append(product)
+
+    ingest_batch(parse_search_results(first_html))
+    for page in range(2, expected_pages + 1):
+        time.sleep(delay_s)
+        page_html = fetch_html(advanced_search_url(query, page=page))
+        batch = parse_search_results(page_html)
+        if not batch:
+            break
+        ingest_batch(batch)
+
+    return products
+
+
+def fetch_game_products(
+    game: dict[str, Any],
+    *,
+    max_pages: int | None = DEFAULT_GAME_SEARCH_MAX_PAGES,
+    delay_s: float = 0.45,
+) -> list[dict[str, Any]]:
+    return fetch_advanced_search_products(
+        build_tc_search_query(game),
+        max_pages=max_pages,
+        delay_s=delay_s,
+    )
 
 
 def category_url(category_slug: str, page: int = 1) -> str:
@@ -190,7 +334,7 @@ def _fetch_paginated_products(
             kept += 1
         return kept, stale
 
-    kept, stale = ingest_batch(first_batch)
+    ingest_batch(first_batch)
 
     for page in range(2, expected_pages + 1):
         time.sleep(delay_s)
@@ -240,28 +384,30 @@ def fetch_platform_products(
     search_max_pages: int | None = DEFAULT_SEARCH_MAX_PAGES,
     delay_s: float = 0.45,
 ) -> list[dict[str, Any]]:
-    sources = tc_sources_for_platform(platform_slug)
-    if not sources:
+    """Deprecated: barrido por categoría. Usar fetch_game_products por título."""
+    category_slugs = tc_category_slugs_for_platform(platform_slug)
+    legacy_query = tc_legacy_search_query(platform_slug)
+    if not category_slugs and not legacy_query:
         return []
 
     seen: set[str] = set()
     products: list[dict[str, Any]] = []
+    page_limit = max_pages if max_pages is not None else tc_max_pages()
 
-    for mode, value in sources:
-        page_limit = max_pages if max_pages is not None else tc_max_pages()
-        if mode == "category":
-            batch = fetch_category_products(value, max_pages=page_limit, delay_s=delay_s)
-        else:
-            search_limit = search_max_pages if max_pages is None else min(
-                max_pages,
-                search_max_pages or max_pages,
-            )
-            batch = fetch_search_products(
-                value,
-                max_pages=search_limit,
-                delay_s=delay_s,
-            )
-        for product in batch:
+    for category_slug in category_slugs:
+        for product in fetch_category_products(category_slug, max_pages=page_limit, delay_s=delay_s):
+            key = str(product.get("externalId") or product.get("productUrl"))
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            products.append(product)
+
+    if legacy_query:
+        search_limit = search_max_pages if max_pages is None else min(
+            max_pages,
+            search_max_pages or max_pages,
+        )
+        for product in fetch_search_products(legacy_query, max_pages=search_limit, delay_s=delay_s):
             key = str(product.get("externalId") or product.get("productUrl"))
             if not key or key in seen:
                 continue

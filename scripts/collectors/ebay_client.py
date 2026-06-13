@@ -236,25 +236,35 @@ def search_ebay_es(
     sold: bool = False,
     max_results: int = 20,
 ) -> tuple[list[dict[str, Any]], str]:
-    """Busca en eBay ES. Devuelve (items, backend usado)."""
+    """Busca en eBay ES. Devuelve (items, backend usado).
+
+    Finding API está descontinuada (2025); Browse OAuth es la vía fiable para activos.
+    Si Finding falla y hay Client ID/Secret, hace fallback a Browse (solo activos).
+    """
     app_id = os.environ.get("EBAY_APP_ID", "").strip()
-    client_id = os.environ.get("EBAY_CLIENT_ID", "").strip()
+    client_id = os.environ.get("EBAY_CLIENT_ID", "").strip() or app_id
     client_secret = os.environ.get("EBAY_CLIENT_SECRET", "").strip()
 
-    if app_id:
-        return (
-            finding_search(app_id, keywords, sold=sold, max_results=max_results),
-            "finding-sold" if sold else "finding-active",
-        )
+    finding_error: RuntimeError | None = None
+    if app_id and (sold or not (client_id and client_secret)):
+        try:
+            items = finding_search(app_id, keywords, sold=sold, max_results=max_results)
+            return items, "finding-sold" if sold else "finding-active"
+        except RuntimeError as exc:
+            finding_error = exc
+            if not (client_id and client_secret):
+                raise
 
-    if client_id and client_secret and not sold:
-        return (
-            browse_search(client_id, client_secret, keywords, max_results=max_results),
-            "browse-active",
-        )
+    if client_id and client_secret:
+        items = browse_search(client_id, client_secret, keywords, max_results=max_results)
+        if finding_error:
+            return items, "browse-active-finding-unavailable"
+        return items, "browse-active"
+
+    if finding_error:
+        raise finding_error
 
     raise RuntimeError(
-        "Faltan credenciales eBay. Define EBAY_APP_ID (Finding) o "
-        "EBAY_CLIENT_ID + EBAY_CLIENT_SECRET (Browse, solo activos). "
-        "Ver docs/phase-2-ingest.md"
+        "Faltan credenciales eBay. Define EBAY_CLIENT_ID + EBAY_CLIENT_SECRET (Browse) o "
+        "EBAY_APP_ID (Finding, descontinuada). Ver docs/phase-2-ingest.md"
     )

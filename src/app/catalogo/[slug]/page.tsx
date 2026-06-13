@@ -32,6 +32,8 @@ import {
   getSimilarGames,
   resolveCatalogGameParam,
 } from "@/lib/catalog-seo";
+import { getCoverSrc } from "@/lib/cover-url";
+import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { getPlatform } from "@/lib/catalog";
 import { grailLabel, isGrailGame, isTopInSegment, topSegmentLabel } from "@/lib/game-highlight";
 import { esPriceDisplayLabel } from "@/lib/price-display";
@@ -81,7 +83,7 @@ export default async function CatalogGamePage({ params }: Props) {
     ...(platform
       ? [{ label: platform.shortName, href: `/plataforma/${platform.slug}` }]
       : []),
-    { label: game.title },
+    { label: decodeHtmlEntities(game.title) },
   ];
 
   const jsonLd = [
@@ -92,7 +94,7 @@ export default async function CatalogGamePage({ params }: Props) {
       ...(platform
         ? [{ name: platform.shortName, href: `/plataforma/${platform.slug}` }]
         : []),
-      { name: game.title, href: catalogGamePath(game) },
+      { name: decodeHtmlEntities(game.title), href: catalogGamePath(game) },
     ]),
     buildFaqJsonLd(faqs),
   ];
@@ -117,7 +119,7 @@ export default async function CatalogGamePage({ params }: Props) {
         <div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-10">
           <div className="lg:sticky lg:top-20 lg:self-start">
             <DetailCoverArt
-              src={game.coverUrl}
+              src={getCoverSrc(game.coverUrl, game.id)}
               alt={coverAlt}
               platformSlug={game.platformSlug}
               owned={owned}

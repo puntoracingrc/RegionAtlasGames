@@ -1,14 +1,24 @@
 import { formatEur } from "@/lib/catalog";
 import type { CollectionSummary } from "@/lib/collection-store";
+import { CollectionValueUpsell } from "@/components/collection-value-upsell";
 
-export function CollectionValueHero({ summary }: { summary: CollectionSummary }) {
+type Props = {
+  summary: CollectionSummary;
+  canViewCollectionValue: boolean;
+};
+
+export function CollectionValueHero({ summary, canViewCollectionValue }: Props) {
+  if (!canViewCollectionValue) {
+    return <CollectionValueUpsell className="mb-8" itemCount={summary.totalItems} />;
+  }
+
   const pricedPct =
     summary.totalItems > 0
       ? Math.round((summary.withEsPrice / summary.totalItems) * 100)
       : 0;
 
   return (
-    <section className="rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/10 via-card to-violet-500/5 p-6 sm:p-8">
+    <section className="mb-8 rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/10 via-card to-violet-500/5 p-6 sm:p-8">
       <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
         Valor estimado de tu colección
       </p>

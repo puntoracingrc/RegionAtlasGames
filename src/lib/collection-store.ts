@@ -2,6 +2,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import path from "path";
 import type { CatalogGame, CollectionItem, CollectionView } from "./types";
 import { enrichCollectionItem, getCatalogGame } from "./catalog";
+import type { UserPlan } from "./marketplace-types";
+import { canViewCollectionValue } from "./plans";
 import { slugify } from "./slug";
 
 const COLLECTIONS_DIR = path.join(process.cwd(), "data", "collections");
@@ -81,6 +83,27 @@ export function summarizeCollection(items: CollectionItem[]): CollectionSummary 
       items.reduce((s, i) => s + (i.buyPrice ?? 0) * i.quantity, 0) * 100,
     ) / 100,
   };
+}
+
+export function summarizeCollectionForPlan(
+  items: CollectionItem[],
+  plan: UserPlan,
+): CollectionSummary {
+  const summary = summarizeCollection(items);
+  if (canViewCollectionValue(plan)) return summary;
+  return {
+    ...summary,
+    totalRecommendedValue: 0,
+    totalBuyValue: 0,
+  };
+}
+
+export function redactCollectionViewsForPlan(
+  views: CollectionView[],
+  plan: UserPlan,
+): CollectionView[] {
+  if (canViewCollectionValue(plan)) return views;
+  return views.map((view) => ({ ...view, totalValue: null }));
 }
 
 export function saveUserCollectionItems(

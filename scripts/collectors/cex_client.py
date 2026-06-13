@@ -8,6 +8,8 @@ import urllib.parse
 import urllib.request
 from typing import Any
 
+from collectors.common import build_search_query, normalize_query
+
 CEX_BASE = "https://es.webuy.com"
 WSS_BASE = "https://wss2.cex.es.webuy.io"
 ALGOLIA_PROXY = "https://search.webuy.io"
@@ -18,7 +20,7 @@ USER_AGENT = (
 )
 ALGOLIA_AGENT = "Algolia for JavaScript (4.24.1); Browser; RegionAtlasGames/1.0"
 
-# categoryIds verificados en sitemap-es-supercats.xml (solo «juegos»).
+# Plataformas soportadas (búsqueda global por título, como el buscador de la home).
 CEX_PLATFORM_CATEGORIES: dict[str, str | list[str]] = {
     "nes": "1155",
     "snes": "1027",
@@ -44,10 +46,17 @@ CEX_PLATFORM_CATEGORIES: dict[str, str | list[str]] = {
     "ps4": "1001",
 }
 
-DEFAULT_HITS_PER_PAGE = 100
+DEFAULT_HITS_PER_PAGE = 24
 
 
 def cex_sources_for_platform(platform_slug: str) -> list[str]:
+    """Plataforma admitida si está en el mapa (la búsqueda es global por título)."""
+    if platform_slug in CEX_PLATFORM_CATEGORIES:
+        return [platform_slug]
+    return []
+
+
+def cex_category_ids_for_platform(platform_slug: str) -> list[str]:
     raw = CEX_PLATFORM_CATEGORIES.get(platform_slug)
     if not raw:
         return []
@@ -56,6 +65,11 @@ def cex_sources_for_platform(platform_slug: str) -> list[str]:
 
 def supported_platform_slugs() -> list[str]:
     return sorted(CEX_PLATFORM_CATEGORIES.keys())
+
+
+def build_cex_search_query(game: dict[str, Any]) -> str:
+    """Query del buscador: título + plataforma."""
+    return build_search_query(game)
 
 
 def _browser_headers(*, accept: str = "application/json") -> dict[str, str]:
@@ -85,6 +99,91 @@ def _algolia_headers(settings: dict[str, Any]) -> dict[str, str]:
         "X-Algolia-API-Key": str(settings["algoliaSearchAppKey"]),
         "X-Algolia-Agent": ALGOLIA_AGENT,
     }
+
+
+def search_query_page(
+    settings: dict[str, Any],
+    query: str,
+    *,
+    page: int,
+    hits_per_page: int = DEFAULT_HITS_PER_PAGE,
+) -> dict[str, Any]:
+    index = str(settings["algoliaIndexName"])
+    params = urllib.parse.urlencode(
+        {
+            "query": query,
+            "hitsPerPage": hits_per_page,
+            "page": page,
+        }
+    )
+    url = f"{ALGOLIA_PROXY}/1/indexes/{index}?{params}"
+    req = urllib.request.Request(url, headers=_algolia_headers(settings))
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def _consume_algolia_hits(page_payload: dict[str, Any], seen: set[str]) -> list[dict[str, Any]]:
+    products: list[dict[str, Any]] = []
+    for hit in page_payload.get("hits") or []:
+        if hit.get("inStockOnline") is False:
+            continue
+        if hit.get("showOnWeb") == 0:
+            continue
+        product = algolia_hit_to_product(hit)
+        box_id = product["boxId"]
+        if not box_id or box_id in seen:
+            continue
+        if product["sellPriceEur"] is None and product["cashPriceEur"] is None:
+            continue
+        seen.add(box_id)
+        products.append(product)
+    return products
+
+
+def fetch_search_products(
+    query: str,
+    *,
+    settings: dict[str, Any] | None = None,
+    max_pages: int | None = None,
+    delay_s: float = 0.35,
+) -> list[dict[str, Any]]:
+    """Busca en Algolia (mismo motor que el buscador de es.webuy.com). Sin hits → []."""
+    query = normalize_query(query)
+    if not query:
+        return []
+
+    cfg = settings or fetch_prelogin_settings()
+    first = search_query_page(cfg, query, page=0)
+    nb_pages = int(first.get("nbPages") or 1)
+    if max_pages is not None:
+        nb_pages = min(nb_pages, max_pages)
+    else:
+        from collectors.listing_recency import search_pages_cap
+
+        nb_pages = min(nb_pages, search_pages_cap())
+
+    seen: set[str] = set()
+    products = _consume_algolia_hits(first, seen)
+    for page in range(1, nb_pages):
+        time.sleep(delay_s)
+        payload = search_query_page(cfg, query, page=page)
+        products.extend(_consume_algolia_hits(payload, seen))
+    return products
+
+
+def fetch_game_products(
+    game: dict[str, Any],
+    *,
+    settings: dict[str, Any] | None = None,
+    max_pages: int | None = None,
+    delay_s: float = 0.35,
+) -> list[dict[str, Any]]:
+    return fetch_search_products(
+        build_cex_search_query(game),
+        settings=settings,
+        max_pages=max_pages,
+        delay_s=delay_s,
+    )
 
 
 def search_category_page(
@@ -146,26 +245,11 @@ def fetch_category_products(
     seen: set[str] = set()
     products: list[dict[str, Any]] = []
 
-    def consume(page_payload: dict[str, Any]) -> None:
-        for hit in page_payload.get("hits") or []:
-            if hit.get("inStockOnline") is False:
-                continue
-            if hit.get("showOnWeb") == 0:
-                continue
-            product = algolia_hit_to_product(hit)
-            box_id = product["boxId"]
-            if not box_id or box_id in seen:
-                continue
-            if product["sellPriceEur"] is None and product["cashPriceEur"] is None:
-                continue
-            seen.add(box_id)
-            products.append(product)
-
-    consume(first)
+    products.extend(_consume_algolia_hits(first, seen))
     for page in range(1, nb_pages):
         time.sleep(delay_s)
         payload = search_category_page(cfg, category_id, page=page)
-        consume(payload)
+        products.extend(_consume_algolia_hits(payload, seen))
 
     return products
 
@@ -177,7 +261,8 @@ def fetch_platform_products(
     max_pages: int | None = None,
     delay_s: float = 0.35,
 ) -> list[dict[str, Any]]:
-    category_ids = cex_sources_for_platform(platform_slug)
+    """Deprecated: barrido por categoría. Usar fetch_game_products por título."""
+    category_ids = cex_category_ids_for_platform(platform_slug)
     if not category_ids:
         return []
 

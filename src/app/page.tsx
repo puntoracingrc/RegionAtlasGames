@@ -4,17 +4,21 @@ import { SiteNav } from "@/components/site-nav";
 import {
   getUserCollectionViews,
   readUserCollection,
-  summarizeCollection,
+  summarizeCollectionForPlan,
 } from "@/lib/collection-store";
 import { formatEur, meta, platforms } from "@/lib/catalog";
 import { indexStats } from "@/lib/indexes";
+import { canViewCollectionValue } from "@/lib/plans";
 import { SITE_LOGO } from "@/lib/site-brand";
 import { getCurrentUser } from "@/lib/users";
 
 export default async function HomePage() {
   const user = await getCurrentUser();
   const ownedItems = user ? getUserCollectionViews(user.id) : [];
-  const userSummary = user ? summarizeCollection(readUserCollection(user.id).items) : null;
+  const userSummary = user
+    ? summarizeCollectionForPlan(readUserCollection(user.id).items, user.plan)
+    : null;
+  const showCollectionValue = user ? canViewCollectionValue(user.plan) : false;
   const indexes = indexStats();
 
   return (
@@ -67,12 +71,16 @@ export default async function HomePage() {
             label={userSummary ? "Tu colección" : "Mi colección"}
             value={
               userSummary
-                ? formatEur(userSummary.totalRecommendedValue)
+                ? showCollectionValue
+                  ? formatEur(userSummary.totalRecommendedValue)
+                  : String(userSummary.totalItems)
                 : "Importa Excel"
             }
             hint={
               userSummary
-                ? `${userSummary.totalItems} juegos importados`
+                ? showCollectionValue
+                  ? `${userSummary.totalItems} juegos importados`
+                  : `${userSummary.totalItems} juegos · valor total con Pro`
                 : "Regístrate e importa tu inventario"
             }
           />

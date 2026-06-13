@@ -11,7 +11,7 @@ import urllib.request
 from datetime import datetime, timezone
 from typing import Any
 
-from collectors.common import load_platforms, normalize_query
+from collectors.common import load_platforms, normalize_query, build_search_query
 from collectors.listing_recency import (
     is_recent_listing,
     wallapop_listing_age_days,
@@ -70,46 +70,9 @@ def supported_platform_slugs() -> list[str]:
     return sorted(load_platforms().keys())
 
 
-# Una palabra por plataforma en la query (slug del catálogo).
-WALLAPOP_PLATFORM_QUERY: dict[str, str] = {
-    "megadrive": "megadrive",
-    "mastersystem": "mastersystem",
-    "gamegear": "gamegear",
-    "megacd": "megacd",
-    "sega32x": "32x",
-    "saturn": "saturn",
-    "dreamcast": "dreamcast",
-    "neogeo": "neogeo",
-    "neogeocd": "neogeocd",
-    "neogeopocket": "ngpc",
-    "gameboy": "gameboy",
-    "gamecube": "gamecube",
-    "nes": "nes",
-    "snes": "snes",
-    "n64": "n64",
-    "wii": "wii",
-    "ds": "ds",
-    "3ds": "3ds",
-    "ps1": "ps1",
-    "ps2": "ps2",
-    "ps3": "ps3",
-    "ps4": "ps4",
-}
-
-
-def _wallapop_platform_query(platform_slug: str) -> str:
-    slug = platform_slug.strip().lower()
-    return WALLAPOP_PLATFORM_QUERY.get(slug, slug)
-
-
 def build_wallapop_query(game: dict[str, Any]) -> str:
-    """Título + una palabra de plataforma. Ej.: «Sonic the Hedgehog megadrive»."""
-    parts = [str(game.get("title") or "").strip()]
-    platform_slug = str(game.get("platformSlug") or "").strip()
-    platform_kw = _wallapop_platform_query(platform_slug)
-    if platform_kw:
-        parts.append(platform_kw)
-    return normalize_query(" ".join(p for p in parts if p))
+    """Título + plataforma. Ej.: «Sonic the Hedgehog megadrive»."""
+    return build_search_query(game)
 
 
 def _headers() -> dict[str, str]:

@@ -34,16 +34,15 @@ export function PriceLegend({ defaultOpen = false }: { defaultOpen?: boolean }) 
           Fuentes y abreviaturas
         </summary>
         <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 border-t border-border/50 pt-2">
-          <RetailBadge code="P2P" label="eBay ES · TodoColeccion" />
-          <RetailBadge code="CeX" label="Retail" />
-          <RetailBadge code="JGO" label="Import Barcelona" />
-          <RetailBadge code="Chollo" label="Import Madrid" />
-          <RetailBadge code="Kaoto" label="Shopify ES" />
-          <RetailBadge code="TC" label="TodoColección" />
+          <RetailBadge code="P2P" label="Wallapop · Vinted · eBay ES · TodoColeccion" />
+          <RetailBadge code="CeX" label="Retail ES" />
+          <RetailBadge code="JGO" label="Japan Game Online" />
+          <RetailBadge code="Chollo" label="Chollo Games" />
+          <RetailBadge code="Kaoto" label="Kaoto Store" />
           <RetailBadge code="TCNS" label="TodoConsolas" />
           <span className="inline-flex items-center gap-1.5">
             <span className="font-semibold text-foreground/60">PC</span>
-            Ref. EU PriceCharting
+            Ref. PriceCharting por edición (PAL · USA · JP)
           </span>
         </div>
       </details>

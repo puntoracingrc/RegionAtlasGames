@@ -31,6 +31,7 @@ from collectors.jgo_match import JGO_PLATFORM_CATEGORIES  # noqa: E402
 from collectors.kaoto_match import KAOTO_PLATFORM_COLLECTIONS  # noqa: E402
 from collectors.tc_client import tc_sources_for_platform  # noqa: E402
 from collectors.tcns_client import tcns_sources_for_platform  # noqa: E402
+from collectors.vinted_client import vinted_sources_for_platform  # noqa: E402
 from collectors.wallapop_client import wallapop_sources_for_platform  # noqa: E402
 
 STATE_FILE = ROOT / "data" / "price-sync-state.json"
@@ -114,6 +115,8 @@ def planned_sources(platform_slug: str) -> list[tuple[str, Path]]:
         planned.append(("todocoleccion", INGEST_DIR / f"{platform_slug}-todocoleccion.json"))
     if wallapop_sources_for_platform(platform_slug):
         planned.append(("wallapop", INGEST_DIR / f"{platform_slug}-wallapop.json"))
+    if vinted_sources_for_platform(platform_slug):
+        planned.append(("vinted", INGEST_DIR / f"{platform_slug}-vinted.json"))
     if tcns_sources_for_platform(platform_slug):
         planned.append(("todoconsolas", INGEST_DIR / f"{platform_slug}-todoconsolas.json"))
     if platform_slug in CHOLLO_PLATFORM_CATEGORIES:
@@ -144,6 +147,7 @@ def collector_command(source: str, platform_slug: str, output: Path) -> list[str
     script_map = {
         "todocoleccion": scripts / "collect_todocoleccion.py",
         "wallapop": scripts / "collect_wallapop.py",
+        "vinted": scripts / "collect_vinted.py",
         "todoconsolas": scripts / "collect_todoconsolas.py",
         "chollo": scripts / "collect_chollogames.py",
         "jgo": scripts / "collect_japangameonline.py",
@@ -340,8 +344,7 @@ def main() -> None:
     else:
         print(f"Plataforma: {platform_slugs[0]}")
     if not ebay_configured():
-        print("eBay: omitido (sin EBAY_APP_ID ni EBAY_CLIENT_ID/SECRET)")
-    print("Pendientes (sin collector): Vinted")
+        print("eBay: omitido (sin EBAY_APP_ID ni EBAY_CLIENT_ID/SECRET en el entorno)")
 
     synced = 0
     platform_pause = platform_pause_seconds()

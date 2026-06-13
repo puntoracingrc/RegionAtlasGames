@@ -2,8 +2,10 @@ import { NextResponse } from "next/server";
 import {
   getUserCollectionViews,
   readUserCollection,
-  summarizeCollection,
+  redactCollectionViewsForPlan,
+  summarizeCollectionForPlan,
 } from "@/lib/collection-store";
+import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
 export async function GET() {
@@ -13,11 +15,13 @@ export async function GET() {
   }
 
   const file = readUserCollection(user.id);
-  const items = getUserCollectionViews(user.id);
+  const items = redactCollectionViewsForPlan(getUserCollectionViews(user.id), user.plan);
+  const showValues = canViewCollectionValue(user.plan);
 
   return NextResponse.json({
     items,
-    summary: summarizeCollection(file.items),
+    summary: summarizeCollectionForPlan(file.items, user.plan),
+    canViewCollectionValue: showValues,
     importedAt: file.importedAt,
     source: file.source,
   });

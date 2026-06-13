@@ -35,6 +35,9 @@ KAOTO_PLATFORM_COLLECTIONS: dict[str, str] = {
     "ps4": "playstation-4",
 }
 
+# Kaoto vende import JP (y algún USA); no encaja con filas PAL ES/EU del catálogo.
+KAOTO_CATALOG_REGIONS = frozenset({"Japón", "USA"})
+
 PLATFORM_SUFFIX_RE = re.compile(
     r"\s+(saturn|dreamcast|mega drive|megadrive|genesis|snes|super nintendo|nes|nintendo 64|n64|"
     r"game boy|gameboy|gamecube|wii|playstation|ps1|ps2|ps3|ps4|game gear|neo geo|32x|"

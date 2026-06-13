@@ -14,6 +14,8 @@ import { formatEsPriceForCard } from "@/lib/price-display";
 import { CollectionQuickAdd } from "@/components/collection-quick-add";
 import { gameCardHighlightClass } from "@/lib/card-highlight";
 import { cn } from "@/lib/cn";
+import { getCoverSrc } from "@/lib/cover-url";
+import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 
 const cardBase =
   "group relative flex flex-col overflow-hidden rounded-xl border bg-card transition-all duration-200 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/45 hover:bg-card-hover";
@@ -44,8 +46,8 @@ export function CatalogGameCard({
     <div className={cn(cardBase, gameCardHighlightClass(owned, grail, topSegment))}>
       <Link href={catalogGamePath(game)} className="flex flex-1 flex-col">
         <CoverSlot
-          image={game.coverUrl}
-          title={game.title}
+          image={getCoverSrc(game.coverUrl, game.id)}
+          title={decodeHtmlEntities(game.title)}
           platformSlug={game.platformSlug}
           owned={owned}
           grail={grail}
@@ -53,7 +55,7 @@ export function CatalogGameCard({
           hideOwnedBadge
         />
         <CardBody
-          title={game.title}
+          title={decodeHtmlEntities(game.title)}
           platform={platform?.shortName ?? game.platformSlug}
           region={game.region}
           price={formatEsPriceForCard(game, formatEur)}
@@ -83,8 +85,8 @@ export function CollectionGameCard({ game }: { game: CollectionView }) {
   return (
     <Link href={href} className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment))}>
       <CoverSlot
-        image={game.coverUrl}
-        title={game.title}
+        image={getCoverSrc(game.coverUrl, game.catalogId ?? game.id)}
+        title={decodeHtmlEntities(game.title)}
         platformSlug={game.platformSlug}
         sealed={game.sealed}
         platform={platform?.shortName}
@@ -93,7 +95,7 @@ export function CollectionGameCard({ game }: { game: CollectionView }) {
         topSegment={topSegment}
       />
       <CardBody
-        title={game.title}
+        title={decodeHtmlEntities(game.title)}
         platform={platform?.shortName ?? game.platformSlug}
         price={formatEsPriceForCard(game, formatEur)}
         priceVerified={game.priceRegionVerified === true}

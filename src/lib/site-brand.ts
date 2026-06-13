@@ -1,5 +1,8 @@
 /** Marca pública: logo «Region Atlas» · legal RegionAtlasGames · sigla RAG */
 export const SITE_LOGO = "Region Atlas";
+export const SITE_LOGO_ALT = "Region Atlas Games";
+export const SITE_LOGO_DARK_SRC = "/brand/logo-dark-mode.png";
+export const SITE_LOGO_LIGHT_SRC = "/brand/logo-light-mode.png";
 export const SITE_NAME = "RegionAtlasGames";
 export const SITE_ACRONYM = "RAG";
 export const SITE_DEFAULT_URL = "https://regionatlas.games";

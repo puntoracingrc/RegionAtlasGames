@@ -16,6 +16,8 @@ DEFAULT_WALLAPOP_TIME_FILTER = "lastMonth"
 DEFAULT_TC_MAX_PAGES = 25
 DEFAULT_WALLAPOP_MAX_PAGES = 5
 DEFAULT_WALLAPOP_PER_GAME_PAGES = None
+DEFAULT_SEARCH_PER_GAME_PAGES = None
+DEFAULT_SEARCH_PAGES_CAP = 20
 DEFAULT_TC_EARLY_STOP_STALE_RATIO = 0.9
 
 _TC_IMAGE_DATE = re.compile(r"/tc/(\d{4})/(\d{2})/(\d{2})/")
@@ -114,7 +116,23 @@ def wallapop_max_pages() -> int | None:
 
 
 def wallapop_per_game_pages() -> int | None:
-    env = os.environ.get("INGEST_WALLAPOP_PER_GAME_PAGES", "").strip()
+    pages = _per_game_pages_from_config(
+        env_key="INGEST_WALLAPOP_PER_GAME_PAGES",
+        cfg_key="wallapopPerGamePages",
+        default=DEFAULT_WALLAPOP_PER_GAME_PAGES,
+    )
+    if pages is not None:
+        return pages
+    return search_per_game_pages()
+
+
+def _per_game_pages_from_config(
+    *,
+    env_key: str,
+    cfg_key: str,
+    default: int | None,
+) -> int | None:
+    env = os.environ.get(env_key, "").strip()
     if env:
         if env.lower() in {"0", "none", "all"}:
             return None
@@ -123,14 +141,38 @@ def wallapop_per_game_pages() -> int | None:
         except ValueError:
             pass
     cfg = _load_recency_config()
-    raw = cfg.get("wallapopPerGamePages")
+    raw = cfg.get(cfg_key)
     if raw is None:
-        return DEFAULT_WALLAPOP_PER_GAME_PAGES
+        return default
     try:
         pages = int(raw)
         return max(1, pages) if pages > 0 else None
     except (TypeError, ValueError):
-        return DEFAULT_WALLAPOP_PER_GAME_PAGES
+        return default
+
+
+def search_per_game_pages() -> int | None:
+    """Páginas de búsqueda por juego (CeX, TodoColeccion, TodoConsolas, Kaoto, …). None = todas."""
+    return _per_game_pages_from_config(
+        env_key="INGEST_SEARCH_PER_GAME_PAGES",
+        cfg_key="searchPerGamePages",
+        default=DEFAULT_SEARCH_PER_GAME_PAGES,
+    )
+
+
+def search_pages_cap() -> int:
+    """Tope duro cuando search_per_game_pages() es None (evita barridos infinitos)."""
+    env = os.environ.get("INGEST_SEARCH_PAGES_CAP", "").strip()
+    if env:
+        try:
+            return max(1, int(env))
+        except ValueError:
+            pass
+    cfg = _load_recency_config()
+    try:
+        return max(1, int(cfg.get("searchPagesCap") or DEFAULT_SEARCH_PAGES_CAP))
+    except (TypeError, ValueError):
+        return DEFAULT_SEARCH_PAGES_CAP
 
 
 def apply_recency_to_retail() -> bool:
@@ -259,6 +301,8 @@ __all__ = [
     "listing_cutoff",
     "max_listing_age_days",
     "parse_listed_at_from_tc_image",
+    "search_pages_cap",
+    "search_per_game_pages",
     "tc_early_stop_stale_ratio",
     "tc_max_pages",
     "wallapop_listing_age_days",

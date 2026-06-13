@@ -34,8 +34,10 @@ export function PlatformPriceCoverage({ platformSlug, className }: Props) {
       <div className={cn("bg-muted/5 px-5 py-4 md:px-7", className)}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="text-sm font-medium text-foreground">Precios mercado español</p>
-            <p className="mt-0.5 text-xs text-muted">Rotación semanal · aún sin sync en esta plataforma</p>
+            <p className="text-sm font-medium text-foreground">Precios por región verificada</p>
+            <p className="mt-0.5 text-xs text-muted">
+              Rotación semanal · PAL ES, PAL EU, USA, Japón… · aún sin sync en esta plataforma
+            </p>
           </div>
           <span className="rounded-full border border-dashed border-border px-3 py-1 text-xs text-muted">
             Pendiente
@@ -64,7 +66,7 @@ export function PlatformPriceCoverage({ platformSlug, className }: Props) {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0 flex-1 space-y-2">
           <div className="flex flex-wrap items-center gap-2">
-            <p className="text-sm font-medium text-foreground">Precios ES verificados</p>
+            <p className="text-sm font-medium text-foreground">Precios con región verificada</p>
             <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[11px] font-semibold text-accent">
               {coverage}%
             </span>
@@ -80,7 +82,7 @@ export function PlatformPriceCoverage({ platformSlug, className }: Props) {
             </div>
             <p className="text-[11px] text-muted">
               {sync.gamesUpdated.toLocaleString("es-ES")} de{" "}
-              {sync.gamesTargeted.toLocaleString("es-ES")} títulos con dato · {sync.source ?? "Mercado ES"}
+              {sync.gamesTargeted.toLocaleString("es-ES")} ediciones con dato · {sync.source ?? "Mercado"}
             </p>
           </div>
         </div>

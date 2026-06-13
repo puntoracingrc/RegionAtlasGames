@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { CollectionGameCard } from "@/components/game-card";
 import { HighlightLegend } from "@/components/highlight-legend";
+import { CollectionValueUpsell } from "@/components/collection-value-upsell";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { filterCollection, formatEur, platforms } from "@/lib/catalog";
 import type { CollectionSummary } from "@/lib/collection-store";
@@ -11,9 +12,10 @@ import type { CollectionView, GameFilters } from "@/lib/types";
 type Props = {
   items: CollectionView[];
   summary: CollectionSummary;
+  canViewCollectionValue: boolean;
 };
 
-export function CollectionExplorer({ items, summary }: Props) {
+export function CollectionExplorer({ items, summary, canViewCollectionValue }: Props) {
   const [filters, setFilters] = useState<GameFilters>({
     q: "",
     platform: "all",
@@ -28,12 +30,23 @@ export function CollectionExplorer({ items, summary }: Props) {
     <div className="space-y-8">
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <StatCard label="Ítems retro" value={String(summary.retroItems)} hint={`${summary.totalUnits} unidades`} />
-        <StatCard
-          label="Valor venta ES"
-          value={formatEur(summary.totalRecommendedValue)}
-          hint={`${summary.withEsPrice} con precio actualizado`}
-        />
-        <StatCard label="Inversión compra" value={formatEur(summary.totalBuyValue)} hint="Base de coste" />
+        {canViewCollectionValue ? (
+          <>
+            <StatCard
+              label="Valor venta ES"
+              value={formatEur(summary.totalRecommendedValue)}
+              hint={`${summary.withEsPrice} con precio actualizado`}
+            />
+            <StatCard label="Inversión compra" value={formatEur(summary.totalBuyValue)} hint="Base de coste" />
+          </>
+        ) : (
+          <StatCard
+            label="Valor venta ES"
+            value="Pro"
+            hint={`${summary.withEsPrice} con precio ES · desbloquea el total en Ajustes`}
+            locked
+          />
+        )}
         <StatCard
           label="Fuera catálogo retro"
           value={String(summary.outOfScopeItems)}
@@ -80,7 +93,11 @@ export function CollectionExplorer({ items, summary }: Props) {
           <span>
             Mostrando <strong className="text-foreground">{filtered.length}</strong> juegos
           </span>
-          <span>Valor filtrado: {formatEur(filteredValue)}</span>
+          {canViewCollectionValue ? (
+            <span>Valor filtrado: {formatEur(filteredValue)}</span>
+          ) : (
+            <CollectionValueUpsell compact />
+          )}
         </div>
         <div className="mt-2">
           <HighlightLegend />
@@ -109,13 +126,15 @@ function StatCard({
   value,
   hint,
   accent = "amber",
+  locked = false,
 }: {
   label: string;
   value: string;
   hint: string;
   accent?: "amber" | "rose";
+  locked?: boolean;
 }) {
-  const color = accent === "rose" ? "text-rose-300" : "text-accent";
+  const color = locked ? "text-muted" : accent === "rose" ? "text-rose-300" : "text-accent";
   return (
     <article className="rounded-2xl border border-border bg-gradient-to-br from-white/[0.05] to-transparent p-5">
       <p className="text-xs uppercase tracking-wider text-muted">{label}</p>

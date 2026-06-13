@@ -17,6 +17,7 @@ import {
 import { slugify } from "./slug";
 import { getRegionDisplay } from "./region-display";
 import { SITE_LOGO } from "./site-brand";
+import { getCoverSrc } from "./cover-url";
 import { getSiteUrl } from "./site-url";
 import { hasVerifiedEsPrice, hasVerifiedEsPriceRange } from "./price-display";
 
@@ -165,9 +166,10 @@ export function buildGameMetadata(game: CatalogGame): Metadata {
     seo?.coverAlt?.trim() ||
     `Portada de ${game.title} para ${platformName} (${regionLabel})`;
 
-  const ogImage = game.coverUrl
+  const resolvedCover = getCoverSrc(game.coverUrl, game.id);
+  const ogImage = resolvedCover
     ? {
-        url: game.coverUrl.startsWith("/") ? `${getSiteUrl()}${game.coverUrl}` : game.coverUrl,
+        url: resolvedCover.startsWith("/") ? `${getSiteUrl()}${resolvedCover}` : resolvedCover,
         alt: coverAlt,
       }
     : undefined;
@@ -226,6 +228,13 @@ export function buildGameJsonLd(
     seo?.coverAlt?.trim() ||
     `Portada de ${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel})`;
 
+  const resolvedCover = getCoverSrc(game.coverUrl, game.id);
+  const coverImageUrl = resolvedCover
+    ? resolvedCover.startsWith("/")
+      ? `${getSiteUrl()}${resolvedCover}`
+      : resolvedCover
+    : null;
+
   const offer =
     game.hasEsPrice && game.recommendedPrice != null
       ? {
@@ -266,13 +275,11 @@ export function buildGameJsonLd(
     ...(resolvedDetails?.publisher
       ? { publisher: { "@type": "Organization", name: resolvedDetails.publisher.name } }
       : {}),
-    ...(game.coverUrl
+    ...(coverImageUrl
       ? {
           image: {
             "@type": "ImageObject",
-            url: game.coverUrl.startsWith("/")
-              ? `${getSiteUrl()}${game.coverUrl}`
-              : game.coverUrl,
+            url: coverImageUrl,
             name: coverAlt,
             caption: coverAlt,
           },

@@ -2,12 +2,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { buildPlatformMetadata } from "@/lib/catalog-seo";
-import { CatalogBrowser } from "@/components/catalog-browser";
-import { PlatformHero } from "@/components/platform-hero";
+import { PlatformCatalogSection } from "@/components/platform-catalog-section";
 import { SiteNav } from "@/components/site-nav";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import { getOwnedCatalogIds, getUserCollectionViews } from "@/lib/collection-store";
 import { getCatalogByPlatform, getPlatform } from "@/lib/catalog";
+import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -35,8 +35,6 @@ export default async function PlatformPage({ params }: Props) {
     <>
       <SiteNav />
       <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
-        <PlatformHero platform={platform} games={catalogGames} ownedItems={owned} />
-
         {catalogGames.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border p-12 text-center">
             <p className="text-lg text-foreground/80">Catálogo en construcción</p>
@@ -45,14 +43,14 @@ export default async function PlatformPage({ params }: Props) {
             </p>
           </div>
         ) : (
-          <CatalogBrowser
+          <PlatformCatalogSection
+            platform={platform}
             games={catalogGames}
-            contextName={platform.shortName}
-            showRegionFilter
+            ownedItems={owned}
             ownedCatalogIds={ownedCatalogIds}
             listingCounts={listingCounts}
             isLoggedIn={!!user}
-            compactLegends
+            canViewCollectionValue={user ? canViewCollectionValue(user.plan) : false}
           />
         )}
 

@@ -2,6 +2,7 @@ import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
 import { referenceSearchHaystack, referenceSortKey } from "@/lib/game-product-reference";
 import { getPlatform } from "@/lib/catalog";
 import { getGameDetails } from "@/lib/indexes";
+import { regionSortRank } from "@/lib/platform-catalog-insights";
 import type { CatalogGame, GameDetails } from "@/lib/types";
 
 export type CatalogSort =
@@ -230,7 +231,12 @@ export function regionOptions(games: CatalogGame[]) {
     const label = game.region || "Desconocida";
     counts.set(label, (counts.get(label) ?? 0) + 1);
   }
-  return [...counts.entries()].sort((a, b) => b[1] - a[1]);
+  return [...counts.entries()].sort((a, b) => {
+    const rankDiff = regionSortRank(a[0]) - regionSortRank(b[0]);
+    if (rankDiff !== 0) return rankDiff;
+    if (b[1] !== a[1]) return b[1] - a[1];
+    return a[0].localeCompare(b[0], "es");
+  });
 }
 
 export function platformOptions(games: CatalogGame[]) {

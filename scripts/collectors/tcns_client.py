@@ -5,13 +5,16 @@ from __future__ import annotations
 import html
 import re
 import time
+import urllib.parse
 import urllib.request
 from typing import Any
+
+from collectors.common import build_search_query, normalize_query
 
 TCNS_BASE = "https://www.todoconsolas.com"
 USER_AGENT = "RegionAtlasGames/1.0 (+price-reference-ingest)"
 
-# Categorías «Juegos» verificadas en el menú Gaming Retro / Gaming.
+# Plataformas soportadas (búsqueda global por título, no barrido de categoría).
 TCNS_PLATFORM_CATEGORIES: dict[str, str | list[str]] = {
     "nes": "135-juegos-nes",
     "snes": "159-juegos-snes",
@@ -75,14 +78,82 @@ def parse_price(raw: str) -> float | None:
 
 
 def tcns_sources_for_platform(platform_slug: str) -> list[str]:
-    raw = TCNS_PLATFORM_CATEGORIES.get(platform_slug)
-    if not raw:
-        return []
-    return raw if isinstance(raw, list) else [raw]
+    """Plataforma admitida si está en el mapa (la búsqueda es global por título)."""
+    if platform_slug in TCNS_PLATFORM_CATEGORIES:
+        return [platform_slug]
+    return []
 
 
 def supported_platform_slugs() -> list[str]:
     return sorted(TCNS_PLATFORM_CATEGORIES.keys())
+
+
+def build_tcns_search_query(game: dict[str, Any]) -> str:
+    """Query del buscador: título + plataforma."""
+    return build_search_query(game)
+
+
+def search_url(query: str, page: int = 1) -> str:
+    params = urllib.parse.urlencode({"controller": "search", "s": query})
+    base = f"{TCNS_BASE}/busqueda?{params}"
+    return base if page <= 1 else f"{base}&page={page}"
+
+
+def fetch_search_products(
+    query: str,
+    *,
+    max_pages: int | None = None,
+    delay_s: float = 0.35,
+) -> list[dict[str, Any]]:
+    """Busca en todoconsolas.com/busqueda. Sin resultados → lista vacía."""
+    query = normalize_query(query)
+    if not query:
+        return []
+
+    first_html = fetch_html(search_url(query, 1))
+    max_page = max_page_number(first_html)
+    if max_pages is not None:
+        max_page = min(max_page, max_pages)
+    else:
+        from collectors.listing_recency import search_pages_cap
+
+        max_page = min(max_page, search_pages_cap())
+
+    seen_urls: set[str] = set()
+    products: list[dict[str, Any]] = []
+
+    for page in range(1, max_page + 1):
+        page_html = first_html if page == 1 else fetch_html(search_url(query, page))
+        for product in parse_category_page(page_html):
+            url = str(product["productUrl"])
+            if url in seen_urls:
+                continue
+            seen_urls.add(url)
+            products.append(product)
+        if page < max_page:
+            time.sleep(delay_s)
+
+    return products
+
+
+def fetch_game_products(
+    game: dict[str, Any],
+    *,
+    max_pages: int | None = None,
+    delay_s: float = 0.35,
+) -> list[dict[str, Any]]:
+    return fetch_search_products(
+        build_tcns_search_query(game),
+        max_pages=max_pages,
+        delay_s=delay_s,
+    )
+
+
+def tcns_sources_for_platform_legacy_categories(platform_slug: str) -> list[str]:
+    raw = TCNS_PLATFORM_CATEGORIES.get(platform_slug)
+    if not raw:
+        return []
+    return raw if isinstance(raw, list) else [raw]
 
 
 def parse_category_page(html_text: str) -> list[dict[str, Any]]:
@@ -161,7 +232,8 @@ def fetch_platform_products(
     max_pages: int | None = None,
     delay_s: float = 0.35,
 ) -> list[dict[str, Any]]:
-    paths = tcns_sources_for_platform(platform_slug)
+    """Deprecated: usar fetch_game_products por título. Mantener solo para cachés antiguas."""
+    paths = tcns_sources_for_platform_legacy_categories(platform_slug)
     if not paths:
         return []
 

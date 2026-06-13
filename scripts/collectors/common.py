@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from collectors.listing_images import attach_image_urls
 from collectors.reference_match import listing_reference_valid_for_catalog
 from collectors.region_inference import (
     infer_listing_region_and_evidence,
@@ -72,10 +73,48 @@ def normalize_query(text: str) -> str:
     return re.sub(r"\s+", " ", t).strip()
 
 
+# Una palabra corta por plataforma en la query (slug del catálogo). Igual que Wallapop.
+PLATFORM_SEARCH_KEYWORDS: dict[str, str] = {
+    "megadrive": "megadrive",
+    "mastersystem": "mastersystem",
+    "gamegear": "gamegear",
+    "megacd": "megacd",
+    "sega32x": "32x",
+    "saturn": "saturn",
+    "dreamcast": "dreamcast",
+    "neogeo": "neogeo",
+    "neogeocd": "neogeocd",
+    "neogeopocket": "ngpc",
+    "gameboy": "gameboy",
+    "gamecube": "gamecube",
+    "nes": "nes",
+    "snes": "snes",
+    "n64": "n64",
+    "wii": "wii",
+    "ds": "ds",
+    "3ds": "3ds",
+    "ps1": "ps1",
+    "ps2": "ps2",
+    "ps3": "ps3",
+    "ps4": "ps4",
+}
+
+
+def platform_search_keyword(platform_slug: str) -> str:
+    slug = platform_slug.strip().lower()
+    return PLATFORM_SEARCH_KEYWORDS.get(slug, slug)
+
+
 def build_search_query(game: dict[str, Any], platform: dict[str, Any] | None = None) -> str:
-    """Solo título del juego. Consola, región y SKU se filtran después del fetch."""
-    _ = platform  # retrocompat; la plataforma no va en la query
-    return normalize_query(str(game.get("title") or "").strip())
+    """Título + plataforma. Ej.: «Batman Arkham Knight ps4», «Sonic megadrive»."""
+    parts = [str(game.get("title") or "").strip()]
+    platform_slug = str(game.get("platformSlug") or "").strip()
+    if not platform_slug and platform:
+        platform_slug = str(platform.get("slug") or "").strip()
+    platform_kw = platform_search_keyword(platform_slug)
+    if platform_kw:
+        parts.append(platform_kw)
+    return normalize_query(" ".join(p for p in parts if p))
 
 
 def to_ingest_listing(

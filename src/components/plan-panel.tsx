@@ -30,6 +30,14 @@ export function PlanPanel({
         <dd className="font-medium text-foreground">{planLabel(plan)}</dd>
       </div>
       <div>
+        <dt className="text-muted">Valor de colección</dt>
+        <dd className="font-medium text-foreground">
+          {limits.canViewCollectionValue
+            ? "Total y por plataforma"
+            : "Solo plan Pro"}
+        </dd>
+      </div>
+      <div>
         <dt className="text-muted">Mercado entre usuarios</dt>
         <dd className="font-medium text-foreground">
           {limits.canTrade ? "Activo (comprar y vender)" : "No incluido"}
