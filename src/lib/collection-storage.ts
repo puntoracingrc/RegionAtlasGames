@@ -11,6 +11,7 @@ export type UserCollectionFile = {
   importedAt: string | null;
   source: string | null;
   items: CollectionItem[];
+  catalogGapReportSentAt?: string | null;
 };
 
 function useBlobStorage(): boolean {

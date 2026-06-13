@@ -2,7 +2,7 @@ import { Resend } from "resend";
 import { SITE_LOGO } from "./site-brand";
 import { getSiteUrl } from "./site-url";
 
-function magicLinkFromAddress(): string {
+function mailFromAddress(): string {
   const from = process.env.RESEND_FROM_EMAIL?.trim();
   if (from) return from;
   return `${SITE_LOGO} <onboarding@resend.dev>`;
@@ -47,6 +47,18 @@ export function isResendConfigured(): boolean {
   return Boolean(process.env.RESEND_API_KEY?.trim());
 }
 
+export function catalogRequestRecipient(): string | null {
+  const to =
+    process.env.CATALOG_REQUEST_TO_EMAIL?.trim() ||
+    process.env.DEVELOPER_EMAIL?.trim() ||
+    null;
+  return to && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to) ? to : null;
+}
+
+export function isCatalogRequestConfigured(): boolean {
+  return isResendConfigured() && catalogRequestRecipient() != null;
+}
+
 export async function sendMagicLinkEmail(
   to: string,
   verifyUrl: string,
@@ -58,7 +70,7 @@ export async function sendMagicLinkEmail(
 
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
-    from: magicLinkFromAddress(),
+    from: mailFromAddress(),
     to,
     subject: `Tu enlace de acceso a ${SITE_LOGO}`,
     html: buildMagicLinkHtml(verifyUrl),
@@ -68,6 +80,36 @@ export async function sendMagicLinkEmail(
   if (error) {
     console.error("[resend] magic-link", error.message ?? error);
     return { error: "No se pudo enviar el email. Inténtalo de nuevo más tarde." };
+  }
+
+  return { ok: true };
+}
+
+export async function sendCatalogGapReportEmail(input: {
+  to: string;
+  replyTo: string;
+  subject: string;
+  html: string;
+  text: string;
+}): Promise<{ ok: true } | { error: string }> {
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+  if (!apiKey) {
+    return { error: "RESEND_API_KEY no configurada." };
+  }
+
+  const resend = new Resend(apiKey);
+  const { error } = await resend.emails.send({
+    from: mailFromAddress(),
+    to: input.to,
+    replyTo: input.replyTo,
+    subject: input.subject,
+    html: input.html,
+    text: input.text,
+  });
+
+  if (error) {
+    console.error("[resend] catalog-gap-report", error.message ?? error);
+    return { error: "No se pudo enviar el email al equipo de catálogo." };
   }
 
   return { ok: true };

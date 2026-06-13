@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CollectionCatalogRequestPanel } from "@/components/collection-catalog-request";
 import { CollectionExplorer } from "@/components/collection-explorer";
 import { CollectionImport } from "@/components/collection-import";
 import {
@@ -18,6 +19,7 @@ import { outOfScopeCollectionItems, pendingCatalogItems } from "@/lib/import-col
 import { countCollectionByPlatform } from "@/lib/collection-platform-groups";
 import { enrichCollectionItem } from "@/lib/catalog";
 import { canViewCollectionValue } from "@/lib/plans";
+import { isCatalogRequestConfigured } from "@/lib/email";
 import { SITE_LOGO } from "@/lib/site-brand";
 import { getCurrentUser } from "@/lib/users";
 
@@ -60,6 +62,9 @@ export default async function CollectionPage() {
   const showCollectionValue = canViewCollectionValue(user.plan);
   const hasItems = items.length > 0;
   const hasLinkedItems = linkedItems.length > 0;
+  const gapTotal = summary.pendingCatalog + summary.outOfScopeItems;
+  const catalogRequestConfigured =
+    isCatalogRequestConfigured() || process.env.NODE_ENV !== "production";
 
   return (
     <>
@@ -97,6 +102,16 @@ export default async function CollectionPage() {
 
         {hasItems && summary.outOfScopeItems > 0 && (
           <CollectionOutOfScopePanel items={outOfScopeItems} />
+        )}
+
+        {hasItems && gapTotal > 0 && (
+          <CollectionCatalogRequestPanel
+            totalItems={gapTotal}
+            pendingCount={summary.pendingCatalog}
+            outOfScopeCount={summary.outOfScopeItems}
+            lastSentAt={file.catalogGapReportSentAt ?? null}
+            configured={catalogRequestConfigured}
+          />
         )}
 
         {hasLinkedItems && (
