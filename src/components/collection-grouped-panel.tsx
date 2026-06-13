@@ -1,11 +1,6 @@
-import { CollectionGapGameCard } from "@/components/collection-gap-game-card";
-import {
-  groupCollectionByPlatform,
-  MANUFACTURER_PANEL_STYLE,
-  type CollectionPlatformGroup,
-} from "@/lib/collection-platform-groups";
+import { CollectionGapPlatformGrid } from "@/components/collection-gap-platform-card";
+import { groupCollectionByPlatform } from "@/lib/collection-platform-groups";
 import { countLinkableGapItems } from "@/lib/collection-gap";
-import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import type { CollectionView } from "@/lib/types";
 import { Panel, PanelTitle } from "@/components/ui";
 
@@ -23,69 +18,40 @@ const COPY: Record<
   pending: {
     title: (count) => `Pendientes de catálogo (${count})`,
     description:
-      "Plataformas retro que indexamos pero estos títulos aún no tienen ficha. Cuando la haya, pulsa + para enlazarlos al catálogo.",
+      "Elige una plataforma para ver tu listado. Cuando haya ficha en el catálogo, pulsa + para enlazar el juego.",
     panelClass: "border-amber-400/25 bg-amber-500/5",
   },
   outOfScope: {
     title: (count) => `Plataformas sin catálogo oficial (${count})`,
     description:
-      "PS5 y otras plataformas que aún no indexamos del todo. Cuando activemos la plataforma y haya ficha, verás un + para enlazarla al catálogo y sacarla de esta lista.",
+      "PS5 y otras plataformas aún no indexadas. Entra en cada bloque para ver tus juegos y enlazarlos cuando tengamos ficha.",
     panelClass: "border-blue-400/20 bg-blue-500/5",
   },
 };
-
-function PlatformSection({ group }: { group: CollectionPlatformGroup }) {
-  const style = MANUFACTURER_PANEL_STYLE[group.manufacturer];
-  const sectionId = group.slug === "ps5" ? "ps5" : undefined;
-  const linkable = countLinkableGapItems(group.items);
-
-  return (
-    <section
-      id={sectionId}
-      className={`overflow-hidden rounded-2xl border bg-gradient-to-br ${style}`}
-    >
-      <header className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 px-4 py-3 md:px-5">
-        <div>
-          <p className="text-xs uppercase tracking-wider text-muted">{group.manufacturer}</p>
-          <h3 className="text-lg font-bold text-foreground">{group.shortName}</h3>
-          {linkable > 0 ? (
-            <p className="mt-0.5 text-xs text-accent/90">
-              {linkable} {linkable === 1 ? "ficha disponible" : "fichas disponibles"} · pulsa +
-            </p>
-          ) : group.slug === "ps5" ? (
-            <p className="mt-0.5 text-xs text-muted">Sin ficha en catálogo · solo en tu colección</p>
-          ) : null}
-        </div>
-        <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs font-medium text-muted">
-          {group.items.length} {group.items.length === 1 ? "juego" : "juegos"}
-          {group.units > group.items.length ? ` · ${group.units} uds.` : ""}
-        </span>
-      </header>
-
-      <div className={`p-3 md:p-4 ${CATALOG_GRID_CLASS}`}>
-        {group.items.map((item) => (
-          <CollectionGapGameCard key={item.id} game={item} />
-        ))}
-      </div>
-    </section>
-  );
-}
 
 export function CollectionGroupedPanel({ variant, items }: Props) {
   if (items.length === 0) return null;
 
   const copy = COPY[variant];
   const groups = groupCollectionByPlatform(items);
+  const linkableTotal = countLinkableGapItems(items);
 
   return (
     <Panel className={`mb-8 ${copy.panelClass}`}>
-      <PanelTitle>{copy.title(items.length)}</PanelTitle>
-      <p className="mt-2 max-w-3xl text-sm text-muted">{copy.description}</p>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <PanelTitle>{copy.title(items.length)}</PanelTitle>
+          <p className="mt-2 max-w-3xl text-sm text-muted">{copy.description}</p>
+        </div>
+        {linkableTotal > 0 && (
+          <span className="rounded-full border border-emerald-400/40 bg-emerald-600/90 px-3 py-1.5 text-xs font-semibold text-white shadow-sm">
+            {linkableTotal} {linkableTotal === 1 ? "listo" : "listos"} para +
+          </span>
+        )}
+      </div>
 
-      <div className="mt-5 space-y-4">
-        {groups.map((group) => (
-          <PlatformSection key={group.slug} group={group} />
-        ))}
+      <div className="mt-5">
+        <CollectionGapPlatformGrid variant={variant} groups={groups} />
       </div>
     </Panel>
   );
