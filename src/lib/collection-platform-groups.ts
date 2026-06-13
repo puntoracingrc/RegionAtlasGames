@@ -1,4 +1,5 @@
 import { getPlatform, platforms } from "./catalog";
+import { normalizeImportedPlatformSlug } from "./collection-platform-slugs";
 import type { CollectionView, Platform } from "./types";
 
 export type CollectionPlatformGroup = {
@@ -7,6 +8,7 @@ export type CollectionPlatformGroup = {
   manufacturer: Platform["manufacturer"] | "other";
   sortOrder: number;
   items: CollectionView[];
+  units: number;
 };
 
 const EXTENDED_PLATFORMS: Record<
@@ -54,23 +56,39 @@ export function groupCollectionByPlatform(items: CollectionView[]): CollectionPl
   const buckets = new Map<string, CollectionView[]>();
 
   for (const item of items) {
-    const list = buckets.get(item.platformSlug) ?? [];
+    const slug = normalizeImportedPlatformSlug(item.platformSlug);
+    const list = buckets.get(slug) ?? [];
     list.push(item);
-    buckets.set(item.platformSlug, list);
+    buckets.set(slug, list);
   }
 
   return [...buckets.entries()]
     .map(([slug, groupItems]) => {
       const meta = platformMeta(slug);
+      const units = groupItems.reduce((sum, item) => sum + item.quantity, 0);
       return {
         slug,
         shortName: meta.shortName,
         manufacturer: meta.manufacturer,
         sortOrder: meta.sortOrder,
         items: groupItems.sort((a, b) => a.title.localeCompare(b.title, "es")),
+        units,
       };
     })
     .sort((a, b) => a.sortOrder - b.sortOrder || a.shortName.localeCompare(b.shortName, "es"));
+}
+
+export function countCollectionByPlatform(
+  items: Array<{ platformSlug: string; quantity: number }>,
+): Record<string, { items: number; units: number }> {
+  const counts: Record<string, { items: number; units: number }> = {};
+  for (const item of items) {
+    const slug = normalizeImportedPlatformSlug(item.platformSlug);
+    if (!counts[slug]) counts[slug] = { items: 0, units: 0 };
+    counts[slug].items += 1;
+    counts[slug].units += item.quantity;
+  }
+  return counts;
 }
 
 export function platformSortIndex(slug: string): number {

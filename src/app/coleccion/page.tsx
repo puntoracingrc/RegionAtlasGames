@@ -15,6 +15,7 @@ import {
   summarizeCollectionForPlan,
 } from "@/lib/collection-store";
 import { outOfScopeCollectionItems, pendingCatalogItems } from "@/lib/import-collection";
+import { countCollectionByPlatform } from "@/lib/collection-platform-groups";
 import { enrichCollectionItem } from "@/lib/catalog";
 import { canViewCollectionValue } from "@/lib/plans";
 import { SITE_LOGO } from "@/lib/site-brand";
@@ -54,6 +55,8 @@ export default async function CollectionPage() {
   const pendingItems = pendingCatalogItems(file.items).map(enrichCollectionItem);
   const outOfScopeItems = outOfScopeCollectionItems(file.items).map(enrichCollectionItem);
   const summary = summarizeCollectionForPlan(file.items, user.plan);
+  const platformCounts = countCollectionByPlatform(file.items);
+  const ps5Count = platformCounts.ps5;
   const showCollectionValue = canViewCollectionValue(user.plan);
   const hasItems = items.length > 0;
   const hasLinkedItems = linkedItems.length > 0;
@@ -68,6 +71,9 @@ export default async function CollectionPage() {
             {hasItems ? (
               <>
                 {summary.totalItems} juegos importados
+                {ps5Count
+                  ? ` · ${ps5Count.items} PS5${ps5Count.units > ps5Count.items ? ` (${ps5Count.units} uds.)` : ""}`
+                  : ""}
                 {file.source ? ` desde ${file.source}` : ""}
                 {file.importedAt
                   ? ` · ${new Date(file.importedAt).toLocaleString("es-ES")}`

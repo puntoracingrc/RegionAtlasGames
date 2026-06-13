@@ -1,4 +1,5 @@
 import * as XLSX from "xlsx";
+import { normalizeImportedPlatformSlug } from "./collection-platform-slugs";
 import { slugify } from "./slug";
 import { catalog, platforms } from "./catalog";
 import type { CatalogGame, CollectionItem } from "./types";
@@ -168,20 +169,12 @@ export type ImportStats = {
   skipped: number;
   detectedHeaders: string[];
   warnings: string[];
+  byPlatform: Record<string, { items: number; units: number }>;
 };
 
 const retroSlugs = new Set(platforms.map((p) => p.slug));
 
-/** Slugs generados antes de ampliar aliases PriceCharting */
-const LEGACY_PLATFORM_SLUGS: Record<string, string> = {
-  "pal-playstation-5": "ps5",
-  "jp-playstation-4": "ps4",
-  "pal-xbox-360": "xbox360",
-};
-
-export function normalizeImportedPlatformSlug(slug: string): string {
-  return LEGACY_PLATFORM_SLUGS[slug] ?? slug;
-}
+export { normalizeImportedPlatformSlug } from "./collection-platform-slugs";
 
 export function repairCollectionPlatform(item: CollectionItem): CollectionItem {
   const platformSlug = normalizeImportedPlatformSlug(item.platformSlug);
@@ -470,6 +463,7 @@ export function importRowsToCollection(rows: unknown[][]): {
     skipped: 0,
     detectedHeaders: [],
     warnings: [],
+    byPlatform: {},
   };
 
   if (rows.length < 2) {
@@ -522,7 +516,7 @@ export function importRowsToCollection(rows: unknown[][]): {
     const matched = inRetro ? findCatalogMatch(plat, title, titlePc, pcId, region) : null;
     const catalogMatched = Boolean(matched);
 
-    const base = slugify(title);
+    const base = `${plat}--${slugify(title)}`;
     const count = idCounts.get(base) ?? 0;
     idCounts.set(base, count + 1);
     const itemId = count === 0 ? base : `${base}-${count + 1}`;
@@ -564,6 +558,14 @@ export function importRowsToCollection(rows: unknown[][]): {
 
   if (stats.imported === 0 && stats.totalRows > 0) {
     stats.warnings.push("No se importó ninguna fila válida. Revisa consolas y títulos.");
+  }
+
+  stats.byPlatform = {};
+  for (const item of items) {
+    const slug = normalizeImportedPlatformSlug(item.platformSlug);
+    if (!stats.byPlatform[slug]) stats.byPlatform[slug] = { items: 0, units: 0 };
+    stats.byPlatform[slug].items += 1;
+    stats.byPlatform[slug].units += item.quantity;
   }
 
   return { items, stats };

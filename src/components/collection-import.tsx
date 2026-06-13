@@ -99,6 +99,16 @@ export function CollectionImport({ hasItems, canViewCollectionValue }: Props) {
           .
           {result.summary.outOfScopeItems > 0 &&
             ` ${result.summary.outOfScopeItems} en PS5 u otras plataformas fuera del catálogo.`}
+          {result.stats.byPlatform?.ps5 && (
+            <>
+              {" "}
+              PS5 detectados: {result.stats.byPlatform.ps5.items} títulos
+              {result.stats.byPlatform.ps5.units > result.stats.byPlatform.ps5.items
+                ? ` (${result.stats.byPlatform.ps5.units} unidades)`
+                : ""}
+              .
+            </>
+          )}
           {canViewCollectionValue && (
             <>
               {" "}

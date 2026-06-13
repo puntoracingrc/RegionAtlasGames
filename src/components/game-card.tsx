@@ -3,7 +3,7 @@ import { CoverArt } from "@/components/cover-art";
 import { RegionFlag } from "@/components/region-flag";
 import type { CatalogGame, CollectionView } from "@/lib/types";
 import { formatEur, getPlatform } from "@/lib/catalog";
-import { getCollectionPlatformShortName } from "@/lib/collection-platform-groups";
+import { countCollectionByPlatform, getCollectionPlatformShortName } from "@/lib/collection-platform-groups";
 import { catalogGamePath } from "@/lib/catalog-url";
 import {
   grailLabel,
@@ -79,9 +79,7 @@ export function CatalogGameCard({
 }
 
 export function CollectionGameCard({ game }: { game: CollectionView }) {
-  const platform = getPlatform(game.platformSlug);
-  const platformLabel =
-    platform?.shortName ?? getCollectionPlatformShortName(game.platformSlug);
+  const platformLabel = getCollectionPlatformShortName(game.platformSlug);
   const href = game.catalogId ? catalogGamePath(game.catalogId) : `/coleccion/${game.id}`;
   const { grail, topSegment } = gameHighlights(game);
   const priceLabel =

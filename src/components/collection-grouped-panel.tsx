@@ -52,6 +52,7 @@ function PlatformSection({ group }: { group: CollectionPlatformGroup }) {
         </div>
         <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs font-medium text-muted">
           {group.items.length} {group.items.length === 1 ? "juego" : "juegos"}
+          {group.units > group.items.length ? ` · ${group.units} uds.` : ""}
         </span>
       </header>
 

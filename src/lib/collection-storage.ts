@@ -40,10 +40,7 @@ function parseCollection(raw: string, userId: string): UserCollectionFile {
     if (!parsed || parsed.userId !== userId || !Array.isArray(parsed.items)) {
       return emptyCollection(userId);
     }
-    return {
-      ...parsed,
-      items: parsed.items.map(repairCollectionPlatform),
-    };
+    return parsed;
   } catch {
     return emptyCollection(userId);
   }
@@ -106,17 +103,37 @@ async function writeCollectionToBlob(
 }
 
 export async function loadUserCollection(userId: string): Promise<UserCollectionFile> {
+  let data: UserCollectionFile;
+
   if (useBlobStorage()) {
     const blobData = await readCollectionFromBlob(userId);
-    if (blobData.items.length > 0 || blobData.importedAt) return blobData;
-    const localData = readCollectionFromDisk(userId);
-    if (localData.items.length > 0 || localData.importedAt) {
-      await writeCollectionToBlob(localData);
-      return localData;
+    if (blobData.items.length > 0 || blobData.importedAt) {
+      data = blobData;
+    } else {
+      const localData = readCollectionFromDisk(userId);
+      if (localData.items.length > 0 || localData.importedAt) {
+        await writeCollectionToBlob(localData);
+        data = localData;
+      } else {
+        data = blobData;
+      }
     }
-    return blobData;
+  } else {
+    data = readCollectionFromDisk(userId);
   }
-  return readCollectionFromDisk(userId);
+
+  const repairedItems = data.items.map(repairCollectionPlatform);
+  const needsSave = repairedItems.some(
+    (item, index) =>
+      item.platformSlug !== data.items[index]?.platformSlug ||
+      item.inRetroCatalog !== data.items[index]?.inRetroCatalog,
+  );
+
+  if (!needsSave) return data;
+
+  const repaired: UserCollectionFile = { ...data, items: repairedItems };
+  await saveUserCollectionFile(repaired);
+  return repaired;
 }
 
 export async function saveUserCollectionFile(
