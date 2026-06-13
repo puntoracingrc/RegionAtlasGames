@@ -1,5 +1,5 @@
 import { cn } from "@/lib/cn";
-import { coverAspectClass, coverDetailSizeClass } from "@/lib/cover-aspect";
+import { coverAspectClass, coverCardAspectClass, coverDetailSizeClass } from "@/lib/cover-aspect";
 
 type Props = {
   src: string | null;
@@ -20,23 +20,33 @@ export function CoverArt({ src, alt, platformSlug, variant = "card", className }
         isDetail
           ? "rounded-xl border-border/80 shadow-xl shadow-black/50 ring-1 ring-white/10"
           : "rounded-lg border-border shadow-md shadow-black/30",
-        coverAspectClass(platformSlug),
-        isDetail ? coverDetailSizeClass(platformSlug) : "w-full",
+        isDetail
+          ? cn(coverAspectClass(platformSlug), coverDetailSizeClass(platformSlug))
+          : cn(coverCardAspectClass(), "w-full"),
         className,
       )}
     >
       {src ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={src}
-          alt={alt}
-          className={cn(
-            "h-full w-full object-contain bg-black/25",
-            isDetail ? "p-0" : "p-0.5 sm:p-1",
-          )}
-          loading={isDetail ? "eager" : "lazy"}
-          fetchPriority={isDetail ? "high" : undefined}
-        />
+        isDetail ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={src}
+            alt={alt}
+            className="h-full w-full object-cover object-center"
+            loading="eager"
+            fetchPriority="high"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-b from-black/15 to-black/35 p-1.5 sm:p-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={src}
+              alt={alt}
+              className="max-h-full max-w-full object-contain object-center"
+              loading="lazy"
+            />
+          </div>
+        )
       ) : (
         <div className="flex h-full flex-col items-center justify-center gap-1 px-2 text-center">
           <span className="text-[9px] uppercase tracking-wider text-muted">Sin portada</span>

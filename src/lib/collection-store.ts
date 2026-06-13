@@ -137,6 +137,10 @@ export function catalogGameToCollectionItem(game: CatalogGame, items: Collection
     marketMin: game.marketMin,
     marketMax: game.marketMax,
     recommendedPrice: game.recommendedPrice,
+    estimatedPriceLoose: game.estimatedPriceLoose ?? null,
+    estimatedPriceComplete: game.estimatedPriceComplete ?? null,
+    estimatedPriceSealed: game.estimatedPriceSealed ?? null,
+    priceDataSources: game.priceDataSources ?? null,
     pcRefPrice: game.pcRefPrice,
     deltaEsVsPc: game.deltaEsVsPc,
     priceSource: game.priceSource,
@@ -163,6 +167,14 @@ export function catalogGameToCollectionItem(game: CatalogGame, items: Collection
     kaotoMatchedAt: game.kaotoMatchedAt ?? null,
     kaotoCondition: game.kaotoCondition ?? null,
     kaotoInStock: game.kaotoInStock,
+    tcListingPrice: game.tcListingPrice ?? null,
+    tcProductUrl: game.tcProductUrl ?? null,
+    tcMatchedAt: game.tcMatchedAt ?? null,
+    tcnsRetailPrice: game.tcnsRetailPrice ?? null,
+    tcnsProductUrl: game.tcnsProductUrl ?? null,
+    tcnsMatchedAt: game.tcnsMatchedAt ?? null,
+    tcnsCondition: game.tcnsCondition ?? null,
+    tcnsInStock: game.tcnsInStock,
   };
 }
 

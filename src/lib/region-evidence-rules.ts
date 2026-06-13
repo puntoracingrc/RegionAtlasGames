@@ -13,6 +13,7 @@ type RulesFile = {
   default: RegionRuleBlock;
   catalogRegionOverrides: Record<string, RegionRuleBlock>;
   platforms: Record<string, RegionRuleBlock & { catalogRegionOverrides?: Record<string, RegionRuleBlock> }>;
+  retailSources?: Record<string, RegionRuleBlock>;
   evidenceLabels: Record<string, string>;
 };
 

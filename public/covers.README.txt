@@ -1,5 +1,30 @@
-Las portadas no van en git. En local, crea un symlink al disco externo:
+Las portadas no van en git.
 
+Almacenamiento en disco externo (`PAL_ES_RETRO_ROOT`, por defecto):
+  /Volumes/Nuevo vol/pal-es-retro/
+    covers/          — portadas JPG por plataforma
+    ingest/          — data/price-ingest (symlink)
+    pc/              — cover-map, details-cache PriceCharting
+    museum/          — cachés museo
+    wikidata/        — caché Wikidata
+    serialstation/   — caché SerialStation
+    descriptions/    — caché IA descripciones
+    cache/.next/     — caché Next.js (dev/build)
+    logs/            — logs de pipelines
+
+Configurar una vez:
+  npm run storage:setup
+
+Symlink portadas (si hace falta manualmente):
   ln -sf "/Volumes/Nuevo vol/pal-es-retro/covers" public/covers
 
-En Vercel las portadas no están (solo URLs en catalog.json); usa Blob/CDN cuando toque producción.
+Opcional en .env.local:
+  PAL_ES_RETRO_ROOT="/Volumes/Nuevo vol/pal-es-retro"
+  COVERS_ROOT="/Volumes/Nuevo vol/pal-es-retro/covers"
+
+Reglas de nombre:
+  - Solo el título del juego (slug ASCII: animal-crossing-new-leaf.jpg)
+  - Nunca id de catálogo, slug interno ni referencia a la fuente (PC/Museo/Wikipedia)
+  - Sufijo -2, -3 solo si hay otro juego con el mismo título en la misma plataforma
+
+En Vercel las portadas no están en el bundle; usa Blob/CDN en producción.

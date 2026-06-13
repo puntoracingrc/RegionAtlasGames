@@ -1,7 +1,8 @@
 import type { CatalogGame } from "@/lib/types";
 import { formatEur } from "@/lib/catalog";
 import { getRegionDisplay } from "@/lib/region-display";
-import { esPriceDisplayLabel, hasVerifiedEsPriceRange } from "@/lib/price-display";
+import { conditionPriceEntries, hasAnyConditionEstimate } from "@/lib/condition-prices";
+import { esPriceDisplayLabel, hasVerifiedEsPrice } from "@/lib/price-display";
 import {
   bestJapanRetailPrice,
   bestJapanRetailSource,
@@ -15,8 +16,8 @@ type Props = { game: CatalogGame };
 export function GamePriceHero({ game }: Props) {
   const status = esPriceDisplayLabel(game);
   const regionLabel = getRegionDisplay(game.region).label;
-  const hasRange = hasVerifiedEsPriceRange(game);
-  const hasEstimate = game.recommendedPrice != null;
+  const conditionPrices = conditionPriceEntries(game);
+  const hasEstimate = hasAnyConditionEstimate(game) || hasVerifiedEsPrice(game);
 
   const updatedLabel = game.updatedAt
     ? new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(game.updatedAt))
@@ -27,7 +28,7 @@ export function GamePriceHero({ game }: Props) {
       const retailPrice = bestJapanRetailPrice(game);
       const retailSource = bestJapanRetailSource(game);
       const updatedAt = latestJapanRetailMatchedAt(game);
-      const updatedLabel = updatedAt
+      const retailUpdatedLabel = updatedAt
         ? new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(updatedAt))
         : null;
       return (
@@ -37,8 +38,8 @@ export function GamePriceHero({ game }: Props) {
               <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                 Referencia retail · {regionLabel}
               </p>
-              {updatedLabel && (
-                <p className="mt-1 text-xs text-muted">Actualizado: {updatedLabel}</p>
+              {retailUpdatedLabel && (
+                <p className="mt-1 text-xs text-muted">Actualizado: {retailUpdatedLabel}</p>
               )}
             </div>
             <Badge tone="amber">{retailSource}</Badge>
@@ -47,8 +48,8 @@ export function GamePriceHero({ game }: Props) {
             {formatEur(retailPrice)}
           </p>
           <p className="mt-3 text-sm text-muted">
-            Precio «desde» en tienda especializada en importación (Madrid/Barcelona). No sustituye
-            ventas P2P verificadas; el estado concreto puede variar.
+            Precio «desde» en tienda especializada. Aún no hay media de reventa por estado para
+            esta edición.
           </p>
         </section>
       );
@@ -58,7 +59,7 @@ export function GamePriceHero({ game }: Props) {
       <section className="rounded-2xl border border-dashed border-border bg-card/60 p-6 text-center">
         <p className="text-lg font-semibold text-foreground">Precio pendiente</p>
         <p className="mt-2 text-sm text-muted">
-          Aún no hay ventas verificadas en el mercado español para esta edición ({regionLabel}).
+          Aún no hay datos de reventa verificados para esta edición ({regionLabel}).
         </p>
       </section>
     );
@@ -69,7 +70,7 @@ export function GamePriceHero({ game }: Props) {
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-            Valor de mercado · {regionLabel}
+            Valor de reventa · {regionLabel}
           </p>
           {updatedLabel && (
             <p className="mt-1 text-xs text-muted">Actualizado: {updatedLabel}</p>
@@ -81,45 +82,31 @@ export function GamePriceHero({ game }: Props) {
       </div>
 
       <div className="mt-5 grid gap-4 sm:grid-cols-3">
-        {hasRange && (
-          <div>
-            <p className="text-[10px] uppercase tracking-wider text-muted">Rango verificado</p>
-            <p className="mt-1 text-xl font-bold text-foreground sm:text-2xl">
-              {formatEur(game.marketMin)} – {formatEur(game.marketMax)}
+        {conditionPrices.map((entry) => (
+          <div key={entry.bucket}>
+            <p className="text-[10px] uppercase tracking-wider text-muted">{entry.label}</p>
+            <p className="mt-1 text-2xl font-bold text-accent sm:text-3xl">
+              {formatEur(entry.price)}
             </p>
           </div>
-        )}
-        <div className={hasRange ? "" : "sm:col-span-2"}>
-          <p className="text-[10px] uppercase tracking-wider text-muted">Estimación media</p>
-          <p className="mt-1 text-3xl font-bold text-accent sm:text-4xl">
-            {formatEur(game.recommendedPrice)}
-          </p>
-        </div>
-        {hasRange && (
-          <div className="flex items-end">
-            <p className="text-sm leading-relaxed text-muted">
-              El precio final depende del estado de conservación: suelto, completo (CIB), precintado
-              o gradado.
-            </p>
-          </div>
-        )}
+        ))}
       </div>
 
-      {!hasRange && status === "unverified" && (
-        <p className="mt-4 text-sm text-muted">
-          El rango min–máx se publicará cuando haya anuncios P2P con región verificada para esta
-          edición.
+      {conditionPrices.length === 0 && game.recommendedPrice != null && (
+        <p className="mt-5 text-3xl font-bold text-accent sm:text-4xl">
+          {formatEur(game.recommendedPrice)}
         </p>
       )}
 
-      {!hasRange && status !== "unverified" && (
-        <p className="mt-4 text-sm text-muted">
-          El valor concreto varía según el estado de la copia (suelto, completo, precintado o gradado).
-        </p>
-      )}
+      <p className="mt-4 text-sm text-muted">
+        Media ponderada de anuncios y tiendas en España (particulares ~55 %, tiendas ES ~30 %,
+        import ~15 % cuando hay una observación de cada tipo), separada por estado de la copia.
+      </p>
 
-      {game.priceSource && (
-        <p className="mt-3 text-xs text-muted/80">Fuente: {game.priceSource}</p>
+      {game.priceDataSources && (
+        <p className="mt-3 text-xs text-muted/80">
+          Datos recopilados de: {game.priceDataSources}
+        </p>
       )}
     </section>
   );

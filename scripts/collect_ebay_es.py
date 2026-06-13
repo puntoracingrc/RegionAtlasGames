@@ -83,7 +83,7 @@ def main() -> None:
     payload["collectedAt"] = now_iso()
     payload["notes"] = (
         f"eBay ES collector — sold={sold} active={active}. "
-        "Región inferida del título; revisar con IA en Fase 2b."
+        "Búsqueda por título del juego; región y consola filtradas post-fetch."
     )
 
     if not args.merge:
@@ -107,7 +107,7 @@ def main() -> None:
     for idx, game in enumerate(games, start=1):
         catalog_id = game["id"]
         catalog_region = game.get("region") or ""
-        query = build_search_query(game, platforms.get(args.platform))
+        query = build_search_query(game)
         cache_file = CACHE_DIR / args.platform / f"{catalog_id}.json"
         game_listings: list[dict] = []
 
@@ -160,6 +160,9 @@ def main() -> None:
                     catalog_region=catalog_region,
                     external_id=item.get("itemId"),
                     ref_to_ids=ref_to_ids,
+                    platform_slug=args.platform,
+                    product_url=str(item.get("url") or ""),
+                    image_url=str(item.get("imageUrl") or "") or None,
                 )
                 if not row:
                     report["skippedTitle"] += 1

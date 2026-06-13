@@ -13,8 +13,13 @@ CATALOG_FILE = ROOT / "data" / "catalog.json"
 DETAILS_FILE = ROOT / "data" / "game-details.json"
 
 REFERENCE_EXTRACTORS: list[re.Pattern[str]] = [
+    re.compile(r"\b(CUSA-\d{5,6})\b", re.I),
+    re.compile(r"\b(BLUS-\d{5,6})\b", re.I),
+    re.compile(r"\b(BLES-\d{5,6})\b", re.I),
+    re.compile(r"\b(BLJM-\d{5,6})\b", re.I),
     re.compile(r"\b(T-\d{1,6}[A-Z0-9]*(?:-\d{2})?)\b", re.I),
     re.compile(r"\b(HDR-\d{4,6})\b", re.I),
+    re.compile(r"\b(GS-\d{4,5})\b", re.I),
     re.compile(r"\b(SLPS-\d{3,5})\b", re.I),
     re.compile(r"\b(SLES-\d{3,5})\b", re.I),
     re.compile(r"\b(SLED-\d{3,5})\b", re.I),
@@ -47,7 +52,7 @@ def extract_references_from_text(text: str) -> set[str]:
 
 def reference_implies_region(ref: str) -> str | None:
     r = normalize_reference(ref)
-    if r.startswith("HDR-") or re.match(r"^T-\d+[GM]$", r):
+    if r.startswith("HDR-") or r.startswith("GS-") or re.match(r"^T-\d+[GM]$", r):
         return "Japón"
     if re.match(r"^T-\d+N$", r) or r.startswith("SLUS-"):
         return "USA"

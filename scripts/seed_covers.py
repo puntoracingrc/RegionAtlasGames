@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Descarga portadas al proyecto: PriceCharting, Museo u URL remota existente.
+"""Descarga portadas locales: Museo → PriceCharting → Wikipedia.
 
-Las imágenes se guardan en public/covers/{plataforma}/{titulo}.jpg
-(sin referencias a PriceCharting en nombre ni metadatos).
+Archivos en disco externo (COVERS_ROOT / public/covers symlink):
+  {plataforma}/{slug-del-titulo}.jpg
+
+El nombre deriva solo del título del juego (nunca del id, slug de catálogo ni fuente).
+Sin metadatos ni referencias a PriceCharting/Museo/Wikipedia en el archivo.
 """
 
 from __future__ import annotations
@@ -10,29 +13,38 @@ from __future__ import annotations
 import argparse
 import html
 import http.client
-import io
 import json
 import re
 import socket
+import sys
 import time
-import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from collectors.cover_sources import resolve_cover_url  # noqa: E402
+from collectors.covers_storage import (  # noqa: E402
+    cover_filename_from_title,
+    ensure_covers_root,
+    is_local_cover_url,
+    local_cover_path,
+    public_cover_url,
+    save_cover_jpeg,
+)
+
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 META_FILE = ROOT / "data" / "meta.json"
-COVERS_DIR = ROOT / "public" / "covers"
 PC_MAP_FILE = ROOT / "data" / "pc" / "cover-map.json"
 MUSEUM_CACHE_FILE = ROOT / "data" / "museum" / "covers-cache.json"
+WIKI_CACHE_FILE = ROOT / "data" / "covers" / "wikipedia-cache.json"
 REPORT_FILE = ROOT / "data" / "covers-report.json"
 
-MUSEUM_BASE = "https://museodelvideojuego.com"
 PC_BASE = "https://www.pricecharting.com"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-REQUEST_DELAY = 0.35
 PC_LIST_DELAY = 1.2
 SAVE_EVERY = 40
 
@@ -61,26 +73,7 @@ PC_CONSOLE_PATHS: dict[str, str] = {
     "ps4": "pal-playstation-4",
 }
 
-COLORBOX_THUMB_RE = re.compile(
-    r'href="(https://museodelvideojuego\.com/files/thumbs/[^"]+)"',
-    re.I,
-)
-STYLE_THUMB_RE = re.compile(
-    r'/files/styles/[^"\']+/public/thumbs/([^"\']+)',
-    re.I,
-)
-FULL_THUMB_RE = re.compile(
-    r'https://museodelvideojuego\.com/files/thumbs/([^"\']+)',
-    re.I,
-)
 TR_ROW_RE = re.compile(r'<tr[^>]*id="product-[^"]*"[^>]*>(.*?)</tr>', re.S | re.I)
-
-
-def slugify(text: str) -> str:
-    t = unicodedata.normalize("NFKD", str(text))
-    t = t.encode("ascii", "ignore").decode("ascii").lower()
-    t = re.sub(r"[^a-z0-9]+", "-", t).strip("-")
-    return t or "juego"
 
 
 def fetch_bytes(url: str, attempt: int = 0) -> bytes | None:
@@ -153,30 +146,6 @@ def upscale_pc_thumb(url: str) -> str:
     return re.sub(r"/\d+\.(jpg|png|webp)$", r"/1600.\1", url, flags=re.I)
 
 
-def parse_museum_cover(html_doc: str) -> str | None:
-    block_match = re.search(
-        r"field-thumb-juego.*?(?=<!-- THEME HOOK: 'field' -->.*?field--name-field-(?!field-thumb))",
-        html_doc,
-        re.S | re.I,
-    )
-    search_in = block_match.group(0) if block_match else html_doc
-
-    colorbox = COLORBOX_THUMB_RE.search(search_in)
-    if colorbox:
-        raw = colorbox.group(1).strip()
-        return raw if raw.startswith("http") else f"{MUSEUM_BASE}{raw}"
-
-    full = FULL_THUMB_RE.search(search_in)
-    if full:
-        return f"{MUSEUM_BASE}/files/thumbs/{full.group(1)}"
-
-    styled = STYLE_THUMB_RE.search(search_in)
-    if styled:
-        return f"{MUSEUM_BASE}/files/thumbs/{styled.group(1)}"
-
-    return None
-
-
 def parse_console_covers(html_doc: str) -> dict[str, str]:
     out: dict[str, str] = {}
     for row in TR_ROW_RE.findall(html_doc):
@@ -230,100 +199,20 @@ def save_json(path: Path, data: dict) -> None:
 
 
 def is_local_cover(url: str | None) -> bool:
-    return bool(url and url.startswith("/covers/"))
-
-
-def local_cover_path(platform: str, filename: str) -> Path:
-    return COVERS_DIR / platform / filename
-
-
-def public_cover_url(platform: str, filename: str) -> str:
-    return f"/covers/{platform}/{filename}"
+    return is_local_cover_url(url)
 
 
 def pick_filename(title: str, platform: str, used: dict[str, set[str]]) -> str:
-    base = slugify(title)
-    names = used.setdefault(platform, set())
-    candidate = f"{base}.jpg"
-    if candidate not in names:
-        names.add(candidate)
-        return candidate
-    n = 2
-    while True:
-        candidate = f"{base}-{n}.jpg"
-        if candidate not in names:
-            names.add(candidate)
-            return candidate
-        n += 1
+    return cover_filename_from_title(title, platform, used)
 
 
 def save_cover_image(raw: bytes, dest: Path) -> bool:
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    try:
-        from PIL import Image
-
-        img = Image.open(io.BytesIO(raw))
-        if img.mode not in ("RGB", "L"):
-            img = img.convert("RGB")
-        elif img.mode == "L":
-            img = img.convert("RGB")
-        buf = io.BytesIO()
-        img.save(buf, format="JPEG", quality=88, optimize=True)
-        dest.write_bytes(buf.getvalue())
-        return True
-    except Exception:
-        if raw[:3] == b"\xff\xd8\xff" or raw[:8] == b"\x89PNG\r\n\x1a\n":
-            dest.write_bytes(raw)
-            return True
-        return False
-
-
-def resolve_remote_url(game: dict, pc_map: dict[str, str], museum_cache: dict) -> str | None:
-    existing = game.get("coverUrl")
-    if existing and existing.startswith("http"):
-        return existing
-
-    museum_path = game.get("museumPath")
-    if museum_path:
-        cached = museum_cache.get(museum_path, {})
-        if cached.get("coverUrl"):
-            return cached["coverUrl"]
-        page = fetch_html(f"{MUSEUM_BASE}{museum_path}")
-        cover = parse_museum_cover(page) if page else None
-        museum_cache[museum_path] = {
-            "coverUrl": cover,
-            "fetchedAt": time.strftime("%Y-%m-%dT%H:%M:%S"),
-        }
-        time.sleep(REQUEST_DELAY)
-        return cover
-
-    pc_path = game.get("pcPath")
-    if pc_path:
-        if pc_path in pc_map:
-            return pc_map[pc_path]
-        page = fetch_html(f"{PC_BASE}{pc_path}")
-        if page:
-            imgs = re.findall(
-                r"https://storage\.googleapis\.com/images\.pricecharting\.com/[^\"']+",
-                page,
-            )
-            if imgs:
-                url = upscale_pc_thumb(imgs[0])
-                pc_map[pc_path] = url
-                return url
-        time.sleep(REQUEST_DELAY)
-        return None
-
-    return None
+    return save_cover_jpeg(raw, dest)
 
 
 def build_pc_maps(platforms: set[str], force: bool) -> dict[str, str]:
     pc_map: dict[str, str] = load_json(PC_MAP_FILE) if not force else {}
-    needed_pc_paths = {
-        PC_CONSOLE_PATHS[p]
-        for p in platforms
-        if p in PC_CONSOLE_PATHS
-    }
+    needed_pc_paths = {PC_CONSOLE_PATHS[p] for p in platforms if p in PC_CONSOLE_PATHS}
     for pc_path in sorted(needed_pc_paths):
         existing = sum(1 for k in pc_map if k.startswith(f"/game/{pc_path}/"))
         print(f"  PriceCharting map {pc_path} ({existing} en caché)...", flush=True)
@@ -349,13 +238,17 @@ def update_meta(catalog: list[dict]) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Descarga portadas locales (PC + Museo)")
+    parser = argparse.ArgumentParser(description="Descarga portadas locales (Museo + PC + Wikipedia)")
     parser.add_argument("--platforms", help="Slugs separados por coma")
     parser.add_argument("--limit", type=int, help="Máximo de juegos a procesar")
     parser.add_argument("--force", action="store_true", help="Re-descargar aunque ya haya /covers/")
     parser.add_argument("--skip-pc-map", action="store_true", help="No refrescar mapa PriceCharting")
+    parser.add_argument("--no-wikipedia", action="store_true", help="No usar Wikipedia como fallback")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
+
+    covers_root = ensure_covers_root()
+    print(f"Almacén portadas: {covers_root}")
 
     platform_filter = (
         {p.strip() for p in args.platforms.split(",") if p.strip()} if args.platforms else None
@@ -364,6 +257,7 @@ def main() -> None:
     catalog = json.loads(CATALOG_FILE.read_text(encoding="utf-8"))
     by_id = {g["id"]: g for g in catalog}
     museum_cache = load_json(MUSEUM_CACHE_FILE)
+    wiki_cache = load_json(WIKI_CACHE_FILE)
 
     targets = [
         g
@@ -376,21 +270,20 @@ def main() -> None:
             or not local_cover_path(
                 g["platformSlug"],
                 Path(g["coverUrl"]).name if g.get("coverUrl") else "",
+                root=covers_root,
             ).exists()
         )
     ]
     if args.limit:
         targets = targets[: args.limit]
 
-    platforms_needed = {g["platformSlug"] for g in targets}
-    pc_targets = [g for g in targets if g.get("pcPath") and not g.get("museumPath")]
-
     print(f"Juegos pendientes de portada local: {len(targets)}")
     pc_map = load_json(PC_MAP_FILE)
-    if pc_targets and not args.skip_pc_map:
-        pc_platforms = {g["platformSlug"] for g in pc_targets}
-        print(f"Actualizando mapa PriceCharting ({len(pc_platforms)} plataformas)...")
-        pc_map = build_pc_maps(pc_platforms, force=False)
+    if not args.skip_pc_map:
+        pc_platforms = {g["platformSlug"] for g in targets if g.get("pcPath")}
+        if pc_platforms:
+            print(f"Actualizando mapa PriceCharting ({len(pc_platforms)} plataformas)...")
+            pc_map = build_pc_maps(pc_platforms, force=False)
 
     used_names: dict[str, set[str]] = {}
     for g in catalog:
@@ -405,6 +298,7 @@ def main() -> None:
         "skippedExisting": 0,
         "missingSource": 0,
         "downloadErrors": 0,
+        "bySource": {"museum": 0, "pricecharting": 0, "wikipedia": 0, "existing": 0},
         "byPlatform": {},
     }
 
@@ -420,20 +314,29 @@ def main() -> None:
         if (
             not args.force
             and is_local_cover(current)
-            and local_cover_path(platform, Path(current).name).exists()
+            and local_cover_path(platform, Path(current).name, root=covers_root).exists()
         ):
             report["skippedExisting"] += 1
             plat_stats["skippedExisting"] += 1
             continue
 
-        remote = resolve_remote_url(game, pc_map, museum_cache)
+        remote, source = resolve_cover_url(
+            game,
+            pc_map=pc_map,
+            museum_cache=museum_cache,
+            wiki_cache=wiki_cache,
+            allow_wikipedia=not args.no_wikipedia,
+        )
         if not remote:
             report["missingSource"] += 1
             plat_stats["missingSource"] += 1
             continue
 
+        if source:
+            report["bySource"][source] = report["bySource"].get(source, 0) + 1
+
         filename = pick_filename(game["title"], platform, used_names)
-        dest = local_cover_path(platform, filename)
+        dest = local_cover_path(platform, filename, root=covers_root)
         if not args.dry_run:
             raw = fetch_bytes(remote)
             if not raw or not save_cover_image(raw, dest):
@@ -451,6 +354,7 @@ def main() -> None:
         if idx % SAVE_EVERY == 0:
             if not args.dry_run:
                 save_json(MUSEUM_CACHE_FILE, museum_cache)
+                save_json(WIKI_CACHE_FILE, wiki_cache)
                 save_json(PC_MAP_FILE, pc_map)
                 CATALOG_FILE.write_text(
                     json.dumps(list(by_id.values()), ensure_ascii=False, indent=2),
@@ -458,12 +362,14 @@ def main() -> None:
                 )
             print(
                 f"  [{idx}/{len(targets)}] ok={report['downloaded']} "
-                f"missing={report['missingSource']} err={report['downloadErrors']}",
+                f"missing={report['missingSource']} err={report['downloadErrors']} "
+                f"sources={report['bySource']}",
                 flush=True,
             )
 
     if not args.dry_run:
         save_json(MUSEUM_CACHE_FILE, museum_cache)
+        save_json(WIKI_CACHE_FILE, wiki_cache)
         save_json(PC_MAP_FILE, pc_map)
         final = list(by_id.values())
         CATALOG_FILE.write_text(json.dumps(final, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -476,8 +382,9 @@ def main() -> None:
         f"{report['missingSource']} sin origen, "
         f"{report['downloadErrors']} errores"
     )
+    print(f"Por fuente: {report['bySource']}")
     if not args.dry_run:
-        print(f"Portadas: {COVERS_DIR}")
+        print(f"Portadas en disco: {covers_root}")
         print(f"Informe: {REPORT_FILE}")
 
 

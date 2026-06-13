@@ -18,12 +18,15 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from region_evidence_rules import check_listing_evidence_meets_rules  # noqa: E402
+from region_evidence_rules import (  # noqa: E402
+    check_listing_evidence_meets_rules,
+    check_retail_evidence_meets_rules,
+)
 
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 INGEST_DIR = ROOT / "data" / "price-ingest"
 
-ES_MARKET_EXCLUDE = {"usa", "japón", "japan", "australia", "pal uk/eng", "pal alemania"}
+ES_MARKET_EXCLUDE = set()  # legacy; plantillas incluyen todas las regiones
 
 
 def now_iso() -> str:
@@ -38,9 +41,7 @@ def es_market_games(platform_slug: str, region: str | None = None) -> list[dict[
     games = [
         g
         for g in load_catalog()
-        if g.get("platformSlug") == platform_slug
-        and g.get("listingStatus") != "excluded"
-        and (g.get("region") or "").strip().lower() not in ES_MARKET_EXCLUDE
+        if g.get("platformSlug") == platform_slug and g.get("listingStatus") != "excluded"
     ]
     if region:
         games = [g for g in games if g.get("region") == region]
@@ -75,6 +76,7 @@ def build_template(platform_slug: str, limit: int | None, region: str | None) ->
         "jgo": [],
         "chollo": [],
         "kaoto": [],
+        "tcns": [],
     }
 
 
@@ -98,7 +100,6 @@ def validate_ingest(path: Path) -> int:
         if row.get("priceEur") is None:
             errors.append(f"listings[{idx}]: {cid} sin priceEur")
         if row.get("regionVerified") is not True:
-            errors.append(f"listings[{idx}]: {cid} regionVerified != true")
             continue
         evidence = [str(e) for e in (row.get("regionEvidence") or [])]
         catalog_region = str(game.get("region") or "")
@@ -115,6 +116,13 @@ def validate_ingest(path: Path) -> int:
         game = catalog_by_id.get(cid)
         if not game:
             errors.append(f"cex[{idx}]: catalogId desconocido '{cid}'")
+            continue
+        evidence = [str(e) for e in (row.get("regionEvidence") or [])]
+        ai = row.get("aiConfidence")
+        ai_val = float(ai) if ai is not None else None
+        ok, reason = check_retail_evidence_meets_rules("cex", evidence, ai_val)
+        if not ok:
+            errors.append(f"cex[{idx}]: {cid} evidencia retail rechazada ({reason})")
 
     ids_in_listings = {str(r.get("catalogId")) for r in ingest.get("listings") or []}
     print(f"Archivo: {path.name}")

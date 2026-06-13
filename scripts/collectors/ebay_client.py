@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 from collectors.common import load_json, save_json
+from collectors.listing_recency import listing_cutoff
 
 USER_AGENT = "PAL-ES-Market/1.0 (+price-ingest; contact=local)"
 FINDING_URL = "https://svcs.ebay.com/services/search/FindingService/v1"
@@ -114,12 +115,14 @@ def _parse_finding_item(item: dict[str, Any]) -> dict[str, Any] | None:
         return None
     currency = price_block.get("@currencyId") if isinstance(price_block, dict) else "EUR"
     item_id = _first(item.get("itemId"))
+    gallery = _first(item.get("galleryURL"))
     return {
         "title": title,
         "priceEur": price if currency in ("EUR", "") else price,
         "currency": currency,
         "itemId": item_id,
         "url": _first(item.get("viewItemURL")),
+        "imageUrl": gallery or None,
     }
 
 
@@ -151,6 +154,10 @@ def finding_search(
     if sold:
         params.append((f"itemFilter({idx}).name", "SoldItemsOnly"))
         params.append((f"itemFilter({idx}).value", "true"))
+        idx += 1
+        end_from = listing_cutoff().replace(microsecond=0).isoformat().replace("+00:00", "Z")
+        params.append((f"itemFilter({idx}).name", "EndTimeFrom"))
+        params.append((f"itemFilter({idx}).value", end_from))
 
     url = FINDING_URL + "?" + urllib.parse.urlencode(params)
     status, raw = _fetch(url)
@@ -206,6 +213,10 @@ def browse_search(
             price = float(item.get("price", {}).get("value", 0))
         except (TypeError, ValueError):
             continue
+        thumb = item.get("thumbnailImages") or []
+        image_url = (item.get("image") or {}).get("imageUrl") or (
+            thumb[0].get("imageUrl") if thumb and isinstance(thumb[0], dict) else None
+        )
         parsed.append(
             {
                 "title": item.get("title", ""),
@@ -213,6 +224,7 @@ def browse_search(
                 "currency": item.get("price", {}).get("currency", "EUR"),
                 "itemId": item.get("itemId", ""),
                 "url": item.get("itemWebUrl", ""),
+                "imageUrl": image_url,
             }
         )
     return parsed

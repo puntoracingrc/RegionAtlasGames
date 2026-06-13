@@ -50,6 +50,8 @@ export function PlatformPriceSyncBanner({ platformSlug, className }: Props) {
         {(sync.jgoGamesUpdated ?? 0).toLocaleString("es-ES")} JGO ·{" "}
         {(sync.cholloGamesUpdated ?? 0).toLocaleString("es-ES")} Chollo ·{" "}
         {(sync.kaotoGamesUpdated ?? 0).toLocaleString("es-ES")} Kaoto ·{" "}
+        {(sync.tcnsGamesUpdated ?? 0).toLocaleString("es-ES")} TodoConsolas ·{" "}
+        {(sync.tcGamesUpdated ?? 0).toLocaleString("es-ES")} TodoColeccion ·{" "}
         {sync.gamesRejectedOutliers.toLocaleString("es-ES")} outliers
       </p>
     </div>

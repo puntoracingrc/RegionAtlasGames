@@ -10,7 +10,7 @@ Objetivo: generar `data/price-ingest/{plataforma}.json` desde Wallapop, eBay ES 
 | Entrada manual | Editar JSON / CSV | CSV → `import_listings_csv.py` |
 | Wallapop | — | Scraper o export asistido |
 | eBay ES | — | Sold + active, filtro PAL ES |
-| Vinted | — | Búsqueda por título + región |
+| Vinted | — | Solo título del juego (región post-fetch) |
 | Región | Reglas estáticas | + IA visión (`regionEvidence`, `aiConfidence`) |
 | Sync | `sync_es_prices.py` | Sin cambios |
 
@@ -109,7 +109,8 @@ Cada collector devuelve filas con el mismo schema que Fase 1. La IA de región (
 2. Wallapop active (mercado local ES)
 3. Vinted ES
 4. IA visión región (reutilizar reglas `region-evidence-rules.json`)
-5. CeX scraper (Fase 3, aparte del P2P)
+5. CeX retail (`collect_cex.py` — Algolia ES vía search.webuy.io)
+6. IA visión región (reutilizar reglas `region-evidence-rules.json`)
 
 ## Ventas Pro → precio ES (Fase 6)
 

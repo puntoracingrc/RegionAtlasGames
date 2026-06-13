@@ -60,16 +60,14 @@ export function GameRegionIdentityPanel({ game, details }: Props) {
         </ul>
       </div>
 
-      {!aligned && summary.referenceNote && (
-        <p className="mt-3 text-xs text-muted">{summary.referenceNote}</p>
-      )}
-
-      <p className="mt-3 text-[11px] text-muted">
-        Al comparar anuncios (Wallapop, eBay, Japan Game Online…) la región debe coincidir con esta
-        edición. Un mismo título puede valer distinto en PAL, USA o Japón.
-        {summary.signals.some((s) => s.id === "product-reference") && (
-          <> La referencia producto también se usa para emparejar anuncios eBay, JGO, Chollo y Kaoto.</>
+        {summary.referenceNote && (
+          <p className="mt-3 text-xs text-muted">{summary.referenceNote}</p>
         )}
+
+        <p className="mt-3 text-[11px] text-muted">
+        Al comparar anuncios (Wallapop, eBay, TodoColeccion, Japan Game Online…) la región debe coincidir con esta
+        edición. Un mismo título puede valer distinto en PAL, USA o Japón. Consulta el bloque de referencia / SKU
+        en esta ficha para emparejar anuncios por código de producto.
       </p>
     </Panel>
   );

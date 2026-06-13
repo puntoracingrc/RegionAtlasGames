@@ -80,6 +80,10 @@ def shopify_product_to_row(product: dict[str, Any]) -> dict[str, Any] | None:
     title = str(product.get("title") or "")
     body = str(product.get("body_html") or "")
     handle = str(product.get("handle") or "")
+    image_url = None
+    images = product.get("images") or []
+    if images and isinstance(images[0], dict):
+        image_url = images[0].get("src")
     return {
         "title": title,
         "productUrl": f"{KAOTO_BASE}/products/{handle}",
@@ -89,6 +93,8 @@ def shopify_product_to_row(product: dict[str, Any]) -> dict[str, Any] | None:
         "inStock": variant.get("available") is not False,
         "externalId": str(product.get("id") or ""),
         "variantTitle": str(variant.get("title") or ""),
+        "imageUrl": image_url,
+        "images": images,
     }
 
 

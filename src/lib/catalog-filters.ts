@@ -1,4 +1,5 @@
 import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
+import { referenceSearchHaystack, referenceSortKey } from "@/lib/game-product-reference";
 import { getPlatform } from "@/lib/catalog";
 import { getGameDetails } from "@/lib/indexes";
 import type { CatalogGame, GameDetails } from "@/lib/types";
@@ -88,6 +89,7 @@ export function buildSearchHaystack(game: CatalogGame): string {
     platform?.shortName,
     game.platformSlug,
     d?.reference,
+    referenceSearchHaystack(game, d),
     d?.support,
     d?.releaseDate,
     d?.developer?.name,
@@ -117,7 +119,11 @@ export function matchesQuery(game: CatalogGame, rawQuery: string): boolean {
 
   const haystack = buildSearchHaystack(game);
   const tokens = query.split(/\s+/).filter(Boolean);
-  return tokens.every((token) => haystack.includes(token));
+  return tokens.every((token) => {
+    if (haystack.includes(token)) return true;
+    const compact = token.replace(/-/g, "");
+    return compact.length >= 3 && haystack.includes(compact);
+  });
 }
 
 function genreKey(game: CatalogGame): string {
@@ -126,7 +132,7 @@ function genreKey(game: CatalogGame): string {
 }
 
 function referenceKey(game: CatalogGame): string {
-  return getDetails(game)?.reference?.toLowerCase() ?? game.slug;
+  return referenceSortKey(game, getDetails(game));
 }
 
 function yearKey(game: CatalogGame): number | null {

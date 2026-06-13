@@ -3,31 +3,25 @@
 from __future__ import annotations
 
 import json
-import re
-import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from collectors.reference_match import catalog_reference, listing_reference_valid_for_catalog
+from collectors.reference_match import listing_reference_valid_for_catalog
+from collectors.region_inference import (
+    infer_listing_region_and_evidence,
+    title_conflicts_region,
+)
+
+from collectors.storage_paths import ingest_dir
 
 ROOT = Path(__file__).resolve().parents[2]
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
-INGEST_DIR = ROOT / "data" / "price-ingest"
+INGEST_DIR = ingest_dir()
 
-ES_MARKET_EXCLUDE = {"usa", "japón", "japan", "australia", "pal uk/eng", "pal alemania"}
-
-TITLE_EXCLUDE_RE = re.compile(
-    r"\b(ntsc|usa|us version|u\.s\.|japan|japanese|japon|japonés|japón)\b",
-    re.I,
-)
-
-REGION_QUERY_HINTS: dict[str, str] = {
-    "PAL España": "PAL español",
-    "España": "PAL español",
-    "PAL Europa": "PAL",
-}
+# Solo para filtros opcionales (p. ej. plantillas PAL); el sync usa todas las regiones.
+ES_MARKET_FOCUS = {"pal españa", "españa", "pal europa"}
 
 
 def now_iso() -> str:
@@ -50,77 +44,38 @@ def load_platforms() -> dict[str, dict[str, Any]]:
     return {p["slug"]: p for p in rows}
 
 
-def es_market_games(platform_slug: str, region: str | None = None) -> list[dict[str, Any]]:
+def platform_catalog_games(platform_slug: str, region: str | None = None) -> list[dict[str, Any]]:
+    """Todos los juegos indexados de la plataforma (todas las regiones)."""
     catalog = load_json(CATALOG_FILE, [])
     games = [
         g
         for g in catalog
-        if g.get("platformSlug") == platform_slug
-        and g.get("listingStatus") != "excluded"
-        and (g.get("region") or "").strip().lower() not in ES_MARKET_EXCLUDE
+        if g.get("platformSlug") == platform_slug and g.get("listingStatus") != "excluded"
     ]
     if region:
         games = [g for g in games if g.get("region") == region]
     return sorted(games, key=lambda g: g["title"].lower())
 
 
+def es_market_games(platform_slug: str, region: str | None = None) -> list[dict[str, Any]]:
+    """Alias retrocompatible: ahora incluye todas las regiones del catálogo."""
+    return platform_catalog_games(platform_slug, region)
+
+
 def normalize_query(text: str) -> str:
+    import re
+    import unicodedata
+
     t = unicodedata.normalize("NFKD", text)
     t = t.encode("ascii", "ignore").decode("ascii")
     t = re.sub(r"[^\w\s-]", " ", t)
     return re.sub(r"\s+", " ", t).strip()
 
 
-def build_search_query(game: dict[str, Any], platform: dict[str, Any] | None) -> str:
-    parts = [game["title"]]
-    if platform:
-        parts.append(platform.get("shortName") or platform.get("name") or "")
-    region = game.get("region") or ""
-    hint = REGION_QUERY_HINTS.get(region)
-    if hint:
-        parts.append(hint)
-    ref = catalog_reference(str(game.get("id") or ""))
-    if ref:
-        parts.append(ref)
-    return normalize_query(" ".join(p for p in parts if p))
-
-
-def title_conflicts_region(title: str, catalog_region: str) -> bool:
-    if TITLE_EXCLUDE_RE.search(title):
-        cr = catalog_region.lower()
-        if "pal" in cr or "espa" in cr:
-            return True
-    return False
-
-
-def infer_listing_region_and_evidence(
-    title: str,
-    catalog_region: str,
-) -> tuple[str, list[str], float, bool]:
-    """Devuelve listingRegion, regionEvidence, aiConfidence, regionVerified."""
-    t = title.lower()
-    region = catalog_region.strip() or "PAL Europa"
-    evidence: list[str] = []
-
-    if region in ("PAL España", "España"):
-        if any(k in t for k in ("españ", "spanish", "castellano", "espana", "spain")):
-            evidence.append("cover_spain")
-        if any(k in t for k in ("pal", "europe", "eu", "peg")):
-            evidence.append("listing_title_region")
-        if evidence:
-            return region, evidence, 0.88, True
-        return region, ["listing_title_region", "seller_states_region"], 0.86, True
-
-    if region == "PAL Europa":
-        if any(k in t for k in ("pal", "eur", "europe", "eu", "peg")):
-            evidence.extend(["cover_pal_eu", "listing_title_region"])
-        elif any(k in t for k in ("españ", "spanish", "castellano")):
-            evidence.append("cover_spain")
-        else:
-            evidence = ["listing_title_region", "seller_states_region"]
-        return region, evidence, 0.87, True
-
-    return region, ["listing_title_region"], 0.85, True
+def build_search_query(game: dict[str, Any], platform: dict[str, Any] | None = None) -> str:
+    """Solo título del juego. Consola, región y SKU se filtran después del fetch."""
+    _ = platform  # retrocompat; la plataforma no va en la query
+    return normalize_query(str(game.get("title") or "").strip())
 
 
 def to_ingest_listing(
@@ -133,6 +88,9 @@ def to_ingest_listing(
     catalog_region: str,
     external_id: str | None = None,
     ref_to_ids: dict[str, list[str]] | None = None,
+    platform_slug: str | None = None,
+    product_url: str | None = None,
+    image_url: str | None = None,
 ) -> dict[str, Any] | None:
     if price_eur <= 0:
         return None
@@ -149,12 +107,17 @@ def to_ingest_listing(
         return None
 
     listing_region, evidence, ai_conf, verified = infer_listing_region_and_evidence(
-        title, catalog_region
+        title,
+        catalog_region,
+        matched_reference=matched_ref,
     )
-    if matched_ref:
-        if "sku_regional" not in evidence:
-            evidence.append("sku_regional")
-        ai_conf = max(ai_conf, 0.93)
+
+    if platform_slug:
+        from region_evidence_rules import check_listing_evidence_meets_rules
+
+        ok, _ = check_listing_evidence_meets_rules(platform_slug, catalog_region, evidence, ai_conf)
+        if not ok:
+            return None
 
     row: dict[str, Any] = {
         "catalogId": catalog_id,
@@ -170,4 +133,11 @@ def to_ingest_listing(
         row["externalId"] = external_id
     if matched_ref:
         row["matchedReference"] = matched_ref
+    row["title"] = title
+    if product_url:
+        row["productUrl"] = product_url
+    product_payload: dict[str, Any] = {"productUrl": product_url, "url": product_url}
+    if image_url:
+        product_payload["imageUrl"] = image_url
+    attach_image_urls(row, product_payload, source)
     return row

@@ -42,6 +42,13 @@ export function coverAspectClass(platformSlug?: string | null): string {
   return ASPECT_CLASS[coverAspectKind(platformSlug)];
 }
 
+/** Rejilla catálogo/colección: mismo hueco para todas las plataformas (mezcla género, búsqueda…). */
+export const COVER_CARD_ASPECT_CLASS = "aspect-[3/4]";
+
+export function coverCardAspectClass(): string {
+  return COVER_CARD_ASPECT_CLASS;
+}
+
 /** Ancho de portada en ficha — ocupa la columna lateral en desktop. */
 export function coverDetailSizeClass(platformSlug?: string | null): string {
   switch (coverAspectKind(platformSlug)) {

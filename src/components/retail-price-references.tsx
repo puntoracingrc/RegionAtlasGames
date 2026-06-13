@@ -20,6 +20,12 @@ type GameLike = Pick<
   | "kaotoProductUrl"
   | "kaotoCondition"
   | "kaotoInStock"
+  | "tcListingPrice"
+  | "tcProductUrl"
+  | "tcnsRetailPrice"
+  | "tcnsProductUrl"
+  | "tcnsCondition"
+  | "tcnsInStock"
 >;
 
 const CONDITION_LABELS: Record<string, string> = {
@@ -77,12 +83,14 @@ export function RetailPriceReferences({ game }: { game: GameLike }) {
   const hasJgo = game.jgoRetailPrice != null;
   const hasChollo = game.cholloRetailPrice != null;
   const hasKaoto = game.kaotoRetailPrice != null;
+  const hasTc = game.tcListingPrice != null;
+  const hasTcns = game.tcnsRetailPrice != null;
 
-  if (!hasCex && !hasJgo && !hasChollo && !hasKaoto) return null;
+  if (!hasCex && !hasJgo && !hasChollo && !hasKaoto && !hasTc && !hasTcns) return null;
 
   return (
     <Panel>
-      <PanelTitle>Referencias retail (aparte del P2P)</PanelTitle>
+      <PanelTitle>Referencias de mercado (aparte del P2P mediano)</PanelTitle>
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {hasCex && (
           <div className="rounded-xl border border-border bg-background/40 p-4">
@@ -143,6 +151,26 @@ export function RetailPriceReferences({ game }: { game: GameLike }) {
             inStock={game.kaotoInStock}
             url={game.kaotoProductUrl}
             linkLabel="Ver en kaotostore.com →"
+          />
+        )}
+
+        {hasTc && game.tcListingPrice != null && (
+          <RetailCard
+            label="TodoColeccion"
+            price={game.tcListingPrice}
+            url={game.tcProductUrl}
+            linkLabel="Ver lote en todocoleccion.net →"
+          />
+        )}
+
+        {hasTcns && game.tcnsRetailPrice != null && (
+          <RetailCard
+            label="TodoConsolas"
+            price={game.tcnsRetailPrice}
+            condition={game.tcnsCondition}
+            inStock={game.tcnsInStock}
+            url={game.tcnsProductUrl}
+            linkLabel="Ver en todoconsolas.com →"
           />
         )}
       </div>

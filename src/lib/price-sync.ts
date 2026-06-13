@@ -18,6 +18,10 @@ export type PlatformPriceSync = {
   cholloGamesSkipped?: number;
   kaotoGamesUpdated?: number;
   kaotoGamesSkipped?: number;
+  tcnsGamesUpdated?: number;
+  tcnsGamesSkipped?: number;
+  tcGamesUpdated?: number;
+  tcGamesSkipped?: number;
   coveragePct: number;
   regionPolicy?: string;
 };

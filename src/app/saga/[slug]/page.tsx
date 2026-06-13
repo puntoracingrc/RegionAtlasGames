@@ -1,48 +1,8 @@
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { EntityBrowser } from "@/components/catalog-browser";
-import { SiteNav } from "@/components/site-nav";
-import { getOwnedCatalogIds } from "@/lib/collection-store";
-import { gamesForIndex, getSeries, platformBreakdown } from "@/lib/indexes";
-import { getCurrentUser } from "@/lib/users";
+import { IndexEntityDetail } from "@/components/index-entity-detail";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export default async function SeriesDetailPage({ params }: Props) {
   const { slug } = await params;
-  const series = getSeries(slug);
-  if (!series) notFound();
-
-  const games = gamesForIndex(series);
-  const platforms = platformBreakdown(series);
-  const user = await getCurrentUser();
-  const ownedCatalogIds = user ? getOwnedCatalogIds(user.id) : [];
-
-  return (
-    <>
-      <SiteNav />
-      <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
-        <Link href="/saga" className="text-sm text-muted hover:text-accent">
-          ← Sagas
-        </Link>
-
-        <header className="mt-4 mb-8 space-y-4">
-          <h1 className="text-4xl font-bold text-foreground">{series.name}</h1>
-          <p className="text-muted">{series.gameCount} juegos en el catálogo</p>
-          <div className="flex flex-wrap gap-2">
-            {platforms.map((p) => (
-              <span
-                key={p.slug}
-                className="rounded-full bg-white/10 px-3 py-1 text-xs text-foreground/80"
-              >
-                {p.name}: {p.count}
-              </span>
-            ))}
-          </div>
-        </header>
-
-        <EntityBrowser games={games} title={series.name} ownedCatalogIds={ownedCatalogIds} isLoggedIn={!!user} />
-      </main>
-    </>
-  );
+  return <IndexEntityDetail kind="series" slug={slug} />;
 }

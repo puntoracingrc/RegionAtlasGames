@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { buildPlatformMetadata } from "@/lib/catalog-seo";
 import { CatalogBrowser } from "@/components/catalog-browser";
 import { PlatformPriceSyncBanner } from "@/components/platform-price-sync-banner";
-import { PriceLegend } from "@/components/price-legend";
 import { SiteNav } from "@/components/site-nav";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import { getOwnedCatalogIds, getUserCollectionViews } from "@/lib/collection-store";
@@ -55,7 +54,7 @@ export default async function PlatformPage({ params }: Props) {
           <h1 className="text-4xl font-bold text-foreground">{platform.name}</h1>
           <p className="max-w-2xl text-muted">{platform.description}</p>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="flex flex-wrap gap-3">
             <MiniStat
               label="Títulos en catálogo"
               value={stats.listed.toLocaleString("es-ES")}
@@ -64,7 +63,6 @@ export default async function PlatformPage({ params }: Props) {
           </div>
 
           <PlatformPriceSyncBanner platformSlug={slug} />
-          <PriceLegend />
         </header>
 
         {catalogGames.length === 0 ? (
@@ -106,7 +104,7 @@ export default async function PlatformPage({ params }: Props) {
 
 function MiniStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl border border-border bg-card p-3.5">
+    <div className="min-w-[9.5rem] rounded-xl border border-border bg-card p-3.5">
       <p className="text-[10px] uppercase tracking-wider text-muted">{label}</p>
       <p className="mt-1 text-lg font-bold text-accent">{value}</p>
     </div>

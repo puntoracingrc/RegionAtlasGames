@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
+import { GameProductReference } from "@/components/game-product-reference";
 import { SellListingButton } from "@/components/sell-listing-button";
 import { DetailCoverArt } from "@/components/detail-cover-art";
 import { isGrailGame, isTopInSegment } from "@/lib/game-highlight";
@@ -8,7 +9,8 @@ import { SiteNav } from "@/components/site-nav";
 import { PriceBox } from "@/components/ui";
 import { getSellerOpenListing } from "@/lib/listings";
 import { getUserCollectionItem } from "@/lib/collection-store";
-import { formatEur, getPlatform } from "@/lib/catalog";
+import { formatEur, getCatalogGame, getPlatform } from "@/lib/catalog";
+import { getGameDetails } from "@/lib/indexes";
 import { catalogGamePath } from "@/lib/catalog-url";
 import { getCurrentUser } from "@/lib/users";
 
@@ -29,6 +31,8 @@ export default async function CollectionItemPage({ params }: Props) {
       : undefined;
   const grail = isGrailGame(item);
   const topSegment = isTopInSegment(item);
+  const catalogGame = item.catalogId ? getCatalogGame(item.catalogId) : undefined;
+  const catalogDetails = catalogGame ? getGameDetails(catalogGame.id) : undefined;
 
   return (
     <>
@@ -72,6 +76,10 @@ export default async function CollectionItemPage({ params }: Props) {
               <PriceBox label="Precio compra" value={formatEur(item.buyPrice)} />
               <PriceBox label="Valor total" value={formatEur(item.totalValue)} />
             </section>
+
+            {catalogGame && (
+              <GameProductReference game={catalogGame} details={catalogDetails} variant="compact" />
+            )}
 
             {item.catalogId && item.inRetroCatalog && (
               <SellListingButton

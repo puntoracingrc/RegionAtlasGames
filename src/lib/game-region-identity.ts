@@ -1,4 +1,5 @@
 import type { CatalogGame, GameDetails } from "./types";
+import { interpretReference, getGameProductReference } from "./game-product-reference";
 import { getRegionDisplay } from "./region-display";
 
 export type RegionSignal = {
@@ -41,59 +42,6 @@ function catalogIdRegionHint(catalogId: string): string | null {
   if (id.includes("-pal-")) return "PAL Europa";
   if (id.includes("-usa-")) return "USA";
   if (id.includes("-espana-") || id.includes("-spain-")) return "PAL España";
-  return null;
-}
-
-function interpretReference(
-  ref: string,
-  platformSlug: string,
-): { suggests: string; hint: string } | null {
-  const r = ref.trim().toUpperCase();
-  if (!r) return null;
-
-  if (/^HDR-/i.test(r)) {
-    return { suggests: "Japón", hint: "Prefijo HDR: catálogo Sega Japón (Dreamcast/Saturn)." };
-  }
-  if (/^T-\d+[GM]$/i.test(r)) {
-    return { suggests: "Japón", hint: "Código T-…G/M: edición japonesa Sega (cartucho/CD)." };
-  }
-  if (/^T-\d+D-/i.test(r) || (/^T-/i.test(r) && /-\d{2}$/.test(r))) {
-    return { suggests: "PAL Europa", hint: "Código T-…D o sufijo -50/-61: edición PAL europea Sega." };
-  }
-  if (/^T-\d+N$/i.test(r)) {
-    return { suggests: "USA", hint: "Código T-…N: edición NTSC norteamericana Sega." };
-  }
-  if (/^MK-\d+-\d+$/i.test(r)) {
-    return { suggests: "PAL Europa", hint: "Código MK-…-50: distribución PAL Europa (Sega/Nintendo)." };
-  }
-  if (/^SLPS-/i.test(r)) {
-    return { suggests: "Japón", hint: "SLPS: catálogo PlayStation Japón." };
-  }
-  if (/^SCPS-/i.test(r)) {
-    return { suggests: "Japón", hint: "SCPS: catálogo Sony Japón." };
-  }
-  if (/^SLES-/i.test(r) || /^SLED-/i.test(r)) {
-    return { suggests: "PAL Europa", hint: "SLES/SLED: catálogo PlayStation PAL Europa." };
-  }
-  if (/^SLUS-/i.test(r)) {
-    return { suggests: "USA", hint: "SLUS: catálogo PlayStation USA." };
-  }
-  if (/^SHVC-/i.test(r)) {
-    return { suggests: "Japón", hint: "SHVC: cartucho Super Famicom (Japón)." };
-  }
-  if (/^SNS[A-Z]?-/i.test(r) && !/^SNSP-/i.test(r)) {
-    return { suggests: "Japón", hint: "SNS-: nomenclatura Super Famicom / SNES Japón." };
-  }
-  if (/^SNSP-/i.test(r)) {
-    return { suggests: "PAL Europa", hint: "SNSP-: cartucho SNES PAL." };
-  }
-  if (/^NUS-/i.test(r)) {
-    return { suggests: "PAL Europa", hint: "NUS- con sufijo europeo: cartucho N64 PAL." };
-  }
-  if (/^NEO-/i.test(r) && platformSlug.startsWith("neo")) {
-    return { suggests: "Japón", hint: "NEO-: catálogo Neo Geo (edición Japón habitual)." };
-  }
-
   return null;
 }
 
@@ -185,20 +133,13 @@ export function buildGameRegionIdentity(
     });
   }
 
-  const ref = details?.reference?.trim();
-  if (ref) {
-    const parsed = interpretReference(ref, game.platformSlug);
-    pushSignal(signals, {
-      id: "product-reference",
-      label: "Referencia producto",
-      value: ref,
-      suggests: parsed?.suggests,
-      hint: parsed?.hint ?? "Código impreso en carátula, cartucho o CD.",
-    });
+  const refInfo = getGameProductReference(game, details);
+  if (refInfo) {
+    const parsed = interpretReference(refInfo.normalized, game.platformSlug);
     if (parsed) {
-      referenceNote = parsed.hint;
-      if (parsed.suggests && parsed.suggests !== editionLabel) {
-        referenceNote += ` La referencia apunta a ${parsed.suggests}; la ficha cataloga ${editionLabel}.`;
+      referenceNote = parsed.note;
+      if (parsed.regionHint && parsed.regionHint !== editionLabel) {
+        referenceNote += ` La referencia apunta a ${parsed.regionHint}; la ficha cataloga ${editionLabel}.`;
       }
     }
   }

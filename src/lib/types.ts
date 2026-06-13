@@ -1,7 +1,45 @@
-export type MuseumEntity = {
+export type DetailEntitySource = "museum" | "pricecharting" | "serialstation" | "wikidata" | "merged";
+
+export type DetailEntity = {
   name: string;
   slug: string;
-  museumPath: string;
+  museumPath?: string | null;
+  pcPath?: string | null;
+  wikidataId?: string | null;
+  serialstationId?: string | null;
+  source?: DetailEntitySource;
+};
+
+/** @deprecated use DetailEntity */
+export type MuseumEntity = DetailEntity;
+
+export type GameDetailsFieldSource = "museum" | "pricecharting" | "serialstation" | "wikidata";
+
+export type GameDetailsSources = {
+  museum?: { museumPath: string; fetchedAt: string };
+  pricecharting?: { pcPath: string; fetchedAt: string; productId?: number | null };
+  serialstation?: {
+    serialstationId: string;
+    titleId?: string | null;
+    matchMethod?: "reference" | "title" | null;
+    matchScore?: number | null;
+    fetchedAt: string;
+  };
+  wikidata?: { wikidataId: string; fetchedAt: string; matchScore?: number | null };
+};
+
+export type GameDetailsSeoFaq = { question: string; answer: string };
+
+export type GameDetailsSeoMeta = {
+  seoTitle?: string;
+  seoDescription?: string;
+  coverAlt?: string;
+  jsonLdDescription?: string;
+  faqs?: GameDetailsSeoFaq[];
+  highlights?: string[];
+  generatedAt?: string;
+  method?: "ai" | "template";
+  model?: string | null;
 };
 
 export type GameDetails = {
@@ -10,12 +48,39 @@ export type GameDetails = {
   reference: string | null;
   players: number | null;
   support: string | null;
-  developer: MuseumEntity | null;
-  publisher: MuseumEntity | null;
-  genres: MuseumEntity[];
-  series: MuseumEntity | null;
-  museumPath: string;
+  developer: DetailEntity | null;
+  publisher: DetailEntity | null;
+  genres: DetailEntity[];
+  series: DetailEntity | null;
+  museumPath?: string | null;
+  pcProductId?: number | null;
+  ean?: string | null;
+  sources?: GameDetailsSources;
+  fieldSources?: Partial<
+    Record<
+      | "developer"
+      | "publisher"
+      | "genres"
+      | "series"
+      | "reference"
+      | "year"
+      | "releaseDate"
+      | "players"
+      | "support",
+      GameDetailsFieldSource
+    >
+  >;
   fetchedAt: string;
+  mergedAt?: string;
+  description?: string | null;
+  descriptionMeta?: {
+    generatedAt?: string;
+    method?: "ai" | "template";
+    model?: string | null;
+    referenceUsed?: boolean;
+    referenceUrl?: string | null;
+  };
+  seoMeta?: GameDetailsSeoMeta | null;
 };
 
 export type IndexEntry = {
@@ -65,6 +130,12 @@ export type CatalogGame = {
   marketMin: number | null;
   marketMax: number | null;
   recommendedPrice: number | null;
+  /** Media por estado (todas las fuentes verificadas) */
+  estimatedPriceLoose?: number | null;
+  estimatedPriceComplete?: number | null;
+  estimatedPriceSealed?: number | null;
+  /** Origen de datos agregados (TodoColeccion, CeX, …) */
+  priceDataSources?: string | null;
   pcRefPrice: number | null;
   deltaEsVsPc: number | null;
   priceSource: string | null;
@@ -96,6 +167,16 @@ export type CatalogGame = {
   kaotoMatchedAt?: string | null;
   kaotoCondition?: string | null;
   kaotoInStock?: boolean;
+  /** Mejor lote activo TodoColeccion (particular / subasta ES) */
+  tcListingPrice?: number | null;
+  tcProductUrl?: string | null;
+  tcMatchedAt?: string | null;
+  /** Referencia retail TodoConsolas (segunda mano ES) */
+  tcnsRetailPrice?: number | null;
+  tcnsProductUrl?: string | null;
+  tcnsMatchedAt?: string | null;
+  tcnsCondition?: string | null;
+  tcnsInStock?: boolean;
 };
 
 export type CollectionItem = {
@@ -115,6 +196,10 @@ export type CollectionItem = {
   marketMin: number | null;
   marketMax: number | null;
   recommendedPrice: number | null;
+  estimatedPriceLoose?: number | null;
+  estimatedPriceComplete?: number | null;
+  estimatedPriceSealed?: number | null;
+  priceDataSources?: string | null;
   pcRefPrice: number | null;
   deltaEsVsPc: number | null;
   priceSource: string | null;
@@ -141,6 +226,14 @@ export type CollectionItem = {
   kaotoMatchedAt?: string | null;
   kaotoCondition?: string | null;
   kaotoInStock?: boolean;
+  tcListingPrice?: number | null;
+  tcProductUrl?: string | null;
+  tcMatchedAt?: string | null;
+  tcnsRetailPrice?: number | null;
+  tcnsProductUrl?: string | null;
+  tcnsMatchedAt?: string | null;
+  tcnsCondition?: string | null;
+  tcnsInStock?: boolean;
 };
 
 export type CatalogMeta = {

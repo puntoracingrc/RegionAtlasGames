@@ -42,6 +42,41 @@ def get_region_evidence_rule(platform_slug: str, catalog_region: str) -> dict[st
     )
 
 
+def get_retail_evidence_rule(retail_source: str) -> dict[str, Any]:
+    rules = _load_rules()
+    return dict((rules.get("retailSources") or {}).get(retail_source) or {})
+
+
+def check_retail_evidence_meets_rules(
+    retail_source: str,
+    region_evidence: list[str],
+    ai_confidence: float | None = None,
+) -> tuple[bool, str | None]:
+    rules = _load_rules()
+    rule = get_retail_evidence_rule(retail_source)
+    if not rule:
+        return False, "unknown_retail_source"
+
+    evidence = {e.strip() for e in region_evidence if e and str(e).strip()}
+    min_count = rule.get("minEvidenceCount") or rules.get("default", {}).get("minEvidenceCount", 1)
+    if len(evidence) < min_count:
+        return False, "insufficient_count"
+
+    required_any = rule.get("requiredAnyOf") or []
+    if required_any and not any(code in evidence for code in required_any):
+        return False, "missing_required"
+
+    forbidden = rule.get("forbiddenEvidence") or []
+    if any(code in evidence for code in forbidden):
+        return False, "forbidden"
+
+    min_ai = rule.get("minAiConfidence") or rules.get("default", {}).get("minAiConfidence")
+    if min_ai is not None and ai_confidence is not None and ai_confidence < min_ai:
+        return False, "low_ai_confidence"
+
+    return True, None
+
+
 def check_listing_evidence_meets_rules(
     platform_slug: str,
     catalog_region: str,

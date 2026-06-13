@@ -19,11 +19,14 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from collectors.chollo_client import fetch_category_products  # noqa: E402
 from collectors.chollo_match import (  # noqa: E402
     CHOLLO_PLATFORM_CATEGORIES,
-    best_chollo_match,
+    infer_chollo_region_product,
     pick_best_product_rows,
     product_to_ingest_row,
 )
+from collectors.collector_args import add_match_flags, match_kwargs  # noqa: E402
 from collectors.common import load_json, now_iso, save_json  # noqa: E402
+from collectors.match_pipeline import print_match_stats, run_match_pipeline  # noqa: E402
+from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
 
 CATALOG_FILE = ROOT / "data" / "catalog.json"
@@ -50,43 +53,36 @@ def collect_platform(platform_slug: str, *, use_cache: bool) -> list[dict[str, A
     return products
 
 
-def build_chollo_rows(platform_slug: str, products: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def build_chollo_rows(
+    platform_slug: str,
+    products: list[dict[str, Any]],
+    *,
+    use_ai: bool,
+    use_match_cache: bool,
+) -> list[dict[str, Any]]:
     catalog = load_catalog()
     platform_games = [g for g in catalog if g.get("platformSlug") == platform_slug]
     _, ref_to_ids = build_platform_reference_index(platform_slug)
-    grouped: dict[str, list[dict[str, Any]]] = {}
-    unmatched = 0
-    matched_by_ref = 0
 
-    for product in products:
-        game, matched_ref = best_chollo_match(
-            product,
-            platform_games,
-            platform_slug,
-            ref_to_ids=ref_to_ids,
-        )
-        if not game:
-            unmatched += 1
-            continue
-        if matched_ref:
-            matched_by_ref += 1
-        row = product_to_ingest_row(
-            product,
-            str(game["id"]),
-            matched_reference=matched_ref,
-            match_method="reference" if matched_ref else "title",
-        )
-        if not row:
-            continue
-        grouped.setdefault(str(game["id"]), []).append(row)
+    def row_builder(product: dict[str, Any], game: dict[str, Any], result) -> dict[str, Any] | None:
+        row = product_to_ingest_row(product, str(game["id"]), **match_row_kwargs(result))
+        return row if row else None
 
-    chosen = pick_best_product_rows(grouped)
-    rows = list(chosen.values())
-    print(f"  Productos Chollo: {len(products)}")
-    print(f"  Sin match catálogo: {unmatched}")
-    print(f"  Match por referencia: {matched_by_ref}")
-    print(f"  Referencias Chollo: {len(rows)}")
-    return rows
+    stats = run_match_pipeline(
+        products,
+        platform_games,
+        platform_slug,
+        source="chollogames",
+        ref_to_ids=ref_to_ids,
+        row_builder=row_builder,
+        infer_listing_region=infer_chollo_region_product,
+        use_ai=use_ai,
+        use_match_cache=use_match_cache,
+        pick_best=pick_best_product_rows,
+    )
+    print_match_stats(stats, label="Chollo")
+    print(f"  Referencias Chollo: {len(stats.rows)}")
+    return stats.rows
 
 
 def main() -> None:
@@ -95,6 +91,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path)
     parser.add_argument("--merge", action="store_true")
     parser.add_argument("--use-cache", action="store_true")
+    add_match_flags(parser)
     parser.add_argument("--sync", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
@@ -107,7 +104,7 @@ def main() -> None:
 
     print(f"=== Chollo Games · {args.platform} ===")
     products = collect_platform(args.platform, use_cache=args.use_cache)
-    chollo_rows = build_chollo_rows(args.platform, products)
+    chollo_rows = build_chollo_rows(args.platform, products, **match_kwargs(args))
 
     if args.dry_run:
         for row in chollo_rows[:8]:

@@ -6,6 +6,8 @@ import { CollectionToggle } from "@/components/collection-toggle";
 import { GameFaq } from "@/components/game-faq";
 import { GameJsonLd } from "@/components/game-json-ld";
 import { GamePriceHero } from "@/components/game-price-hero";
+import { GamePriceHistoryChart } from "@/components/game-price-history-chart";
+import { GameProductReference } from "@/components/game-product-reference";
 import { GameRegionIdentityPanel } from "@/components/game-region-identity-panel";
 import { RetailPriceReferences } from "@/components/retail-price-references";
 import { ProListingsComparator } from "@/components/pro-listings-comparator";
@@ -36,6 +38,7 @@ import { esPriceDisplayLabel } from "@/lib/price-display";
 import { RegionEvidenceRulesPanel } from "@/components/region-evidence-rules-panel";
 import { REGION_VERIFICATION_POLICY, priceVerificationLabel } from "@/lib/listing-region-verification";
 import { getGameDetails } from "@/lib/indexes";
+import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCurrentUser } from "@/lib/users";
 
@@ -70,6 +73,7 @@ export default async function CatalogGamePage({ params }: Props) {
   const regionLabel = getRegionDisplay(game.region).label;
   const similar = getSimilarGames(game);
   const faqs = buildGameFaq(game, platform, details);
+  const priceHistory = hasPriceHistory(game.id) ? getPriceHistory(game.id) : [];
 
   const breadcrumbItems = [
     { label: "Inicio", href: "/" },
@@ -81,7 +85,7 @@ export default async function CatalogGamePage({ params }: Props) {
   ];
 
   const jsonLd = [
-    buildGameJsonLd(game, platform),
+    buildGameJsonLd(game, platform, details),
     buildBreadcrumbJsonLd([
       { name: "Inicio", href: "/" },
       { name: "Plataformas", href: "/plataformas" },
@@ -94,9 +98,14 @@ export default async function CatalogGamePage({ params }: Props) {
   ];
 
   const seoDescription =
-    details?.year && platform
+    details?.description?.trim() ||
+    (details?.year && platform
       ? `${game.title} (${platform.shortName}, ${regionLabel}, ${details.year}) en el catálogo de Region Atlas.`
-      : `${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel}) en Region Atlas.`;
+      : `${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel}) en Region Atlas.`);
+
+  const coverAlt =
+    details?.seoMeta?.coverAlt?.trim() ||
+    `Portada de ${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel})`;
 
   return (
     <>
@@ -109,7 +118,7 @@ export default async function CatalogGamePage({ params }: Props) {
           <div className="lg:sticky lg:top-20 lg:self-start">
             <DetailCoverArt
               src={game.coverUrl}
-              alt={game.title}
+              alt={coverAlt}
               platformSlug={game.platformSlug}
               owned={owned}
               grail={grail}
@@ -156,7 +165,13 @@ export default async function CatalogGamePage({ params }: Props) {
 
             <GamePriceHero game={game} />
 
+            {priceHistory.length > 0 && (
+              <GamePriceHistoryChart catalogId={game.id} history={priceHistory} />
+            )}
+
             <GameRegionIdentityPanel game={game} details={details} />
+
+            <GameProductReference game={game} details={details} />
 
             <RetailPriceReferences game={game} />
 
@@ -173,7 +188,22 @@ export default async function CatalogGamePage({ params }: Props) {
 
             <Panel>
               <PanelTitle>Descripción</PanelTitle>
-              <p className="text-sm leading-relaxed text-muted">{seoDescription}</p>
+              <div className="space-y-3 text-sm leading-relaxed text-muted">
+                {details?.description ? (
+                  details.description.split(/\n{2,}/).map((paragraph) => (
+                    <p key={paragraph.slice(0, 40)}>{paragraph.trim()}</p>
+                  ))
+                ) : (
+                  <p>{seoDescription}</p>
+                )}
+              </div>
+              {details?.seoMeta?.highlights && details.seoMeta.highlights.length > 0 && (
+                <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted">
+                  {details.seoMeta.highlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
               <p className="mt-3 text-sm leading-relaxed text-muted">{REGION_VERIFICATION_POLICY}</p>
               <p className="mt-2 text-xs text-muted/80">
                 Estado: {priceVerificationLabel(game.priceRegionVerified)}
@@ -187,7 +217,6 @@ export default async function CatalogGamePage({ params }: Props) {
                 <dl className="grid gap-3 sm:grid-cols-2">
                   <DetailRow label="Año" value={details.year ? String(details.year) : "—"} />
                   <DetailRow label="Lanzamiento" value={details.releaseDate || "—"} />
-                  <DetailRow label="Referencia" value={details.reference || "—"} />
                   <DetailRow label="Soporte" value={details.support || "—"} />
                   <DetailRow
                     label="Jugadores"

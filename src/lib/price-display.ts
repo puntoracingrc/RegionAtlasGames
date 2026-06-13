@@ -1,4 +1,5 @@
 import type { CatalogGame, CollectionItem } from "./types";
+import { hasAnyConditionEstimate, primaryConditionPrice } from "./condition-prices";
 
 type PriceFields = Pick<
   CatalogGame | CollectionItem,
@@ -31,11 +32,23 @@ export function esPriceDisplayLabel(
 }
 
 export function formatEsPriceForCard(
-  game: Pick<CatalogGame | CollectionItem, "hasEsPrice" | "priceRegionVerified" | "recommendedPrice">,
+  game: Pick<
+    CatalogGame | CollectionItem,
+    | "hasEsPrice"
+    | "priceRegionVerified"
+    | "recommendedPrice"
+    | "estimatedPriceLoose"
+    | "estimatedPriceComplete"
+    | "estimatedPriceSealed"
+  >,
   formatEur: (n: number | null) => string,
 ): string {
   const status = esPriceDisplayLabel(game);
   if (status === "pending") return "Pendiente";
   if (status === "unverified") return "Sin verificar";
+  const price = primaryConditionPrice(game) ?? game.recommendedPrice;
+  if (hasAnyConditionEstimate(game) && price != null) {
+    return formatEur(price);
+  }
   return formatEur(game.recommendedPrice);
 }

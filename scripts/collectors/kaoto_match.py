@@ -6,14 +6,10 @@ import re
 from html import unescape
 from typing import Any
 
-from collectors.jgo_match import (
-    catalog_match_title,
-    pick_best_product_rows,
-    product_core_title,
-    regions_compatible,
-    token_similarity,
-)
-from collectors.reference_match import extract_references_from_text, product_search_text
+from collectors.catalog_match import CatalogMatchResult, match_catalog_product, product_title
+from collectors.jgo_match import pick_best_product_rows, product_core_title
+from collectors.listing_images import attach_image_urls
+from collectors.reference_match import product_search_text
 
 KAOTO_PLATFORM_COLLECTIONS: dict[str, str] = {
     "nes": "nintendo-nes",
@@ -54,6 +50,40 @@ def normalize_kaoto_title(title: str) -> str:
     return product_core_title(t)
 
 
+def infer_kaoto_region_product(product: dict[str, Any]) -> str | None:
+    region = str(product.get("listingRegion") or "").strip()
+    return region or "Japón"
+
+
+def match_kaoto_product(
+    product: dict[str, Any],
+    catalog_games: list[dict[str, Any]],
+    platform_slug: str,
+    *,
+    ref_to_ids: dict[str, list[str]] | None = None,
+    min_score: float = 0.42,
+) -> CatalogMatchResult:
+    title = str(product.get("title") or "")
+    adapted = dict(product)
+    adapted["title"] = normalize_kaoto_title(title)
+    adapted["_referenceText"] = product_search_text(
+        {
+            "name": title,
+            "description": title,
+            "short_description": "",
+            "sku": "",
+        }
+    )
+    return match_catalog_product(
+        adapted,
+        catalog_games,
+        platform_slug,
+        ref_to_ids=ref_to_ids,
+        min_score=min_score,
+        infer_listing_region=infer_kaoto_region_product,
+    )
+
+
 def best_kaoto_match(
     product: dict[str, Any],
     catalog_games: list[dict[str, Any]],
@@ -62,52 +92,16 @@ def best_kaoto_match(
     ref_to_ids: dict[str, list[str]] | None = None,
     min_score: float = 0.42,
 ) -> tuple[dict[str, Any] | None, str | None]:
-    listing_region = str(product.get("listingRegion") or "")
-    title = str(product.get("title") or "")
-
-    search_text = product_search_text(
-        {
-            "name": title,
-            "description": title,
-            "short_description": "",
-            "sku": "",
-        }
+    result = match_kaoto_product(
+        product,
+        catalog_games,
+        platform_slug,
+        ref_to_ids=ref_to_ids,
+        min_score=min_score,
     )
-    refs = extract_references_from_text(search_text)
-    if ref_to_ids and refs:
-        games_by_id = {str(g["id"]): g for g in catalog_games}
-        for ref in refs:
-            for catalog_id in ref_to_ids.get(ref, []):
-                game = games_by_id.get(catalog_id)
-                if not game or game.get("platformSlug") != platform_slug:
-                    continue
-                if regions_compatible(str(game.get("region") or ""), listing_region):
-                    return game, ref
-
-    product_region = listing_region or "Japón"
-    candidates = [
-        g
-        for g in catalog_games
-        if g.get("platformSlug") == platform_slug
-        and g.get("listingStatus") != "excluded"
-        and regions_compatible(str(g.get("region") or ""), product_region)
-    ]
-    if not candidates:
+    if result.ambiguous or not result.game:
         return None, None
-
-    product_core = normalize_kaoto_title(title)
-    best: tuple[float, dict[str, Any]] | None = None
-    for game in candidates:
-        for candidate_title in filter(
-            None,
-            [game.get("title"), game.get("titlePc"), catalog_match_title(str(game.get("title") or ""))],
-        ):
-            score = token_similarity(str(candidate_title), product_core)
-            if score >= min_score and (best is None or score > best[0]):
-                best = (score, game)
-    if best:
-        return best[1], None
-    return None, None
+    return result.game, result.matched_reference
 
 
 def product_to_ingest_row(
@@ -116,6 +110,10 @@ def product_to_ingest_row(
     *,
     matched_reference: str | None = None,
     match_method: str = "title",
+    match_score: float | None = None,
+    match_margin: float | None = None,
+    match_alternatives: list[dict[str, Any]] | None = None,
+    ai_confidence: float | None = None,
 ) -> dict[str, Any]:
     price = product.get("priceEur")
     if price is None or float(price) <= 0:
@@ -123,7 +121,7 @@ def product_to_ingest_row(
     evidence = ["listing_title_region", "seller_states_region"]
     if matched_reference:
         evidence.append("sku_regional")
-    return {
+    row: dict[str, Any] = {
         "catalogId": catalog_id,
         "source": "kaotostore",
         "retailPriceEur": round(float(price), 2),
@@ -135,15 +133,27 @@ def product_to_ingest_row(
         "condition": str(product.get("condition") or "unknown"),
         "inStock": bool(product.get("inStock", True)),
         "externalId": str(product.get("externalId") or ""),
-        "title": str(product.get("title") or ""),
+        "title": product_title(product),
         "matchMethod": match_method,
         **({"matchedReference": matched_reference} if matched_reference else {}),
     }
+    if match_score is not None:
+        row["matchScore"] = round(float(match_score), 3)
+    if match_margin is not None:
+        row["matchMargin"] = round(float(match_margin), 3)
+    if match_alternatives:
+        row["matchAlternatives"] = match_alternatives
+    if ai_confidence is not None:
+        row["aiConfidence"] = round(float(ai_confidence), 3)
+    attach_image_urls(row, product, "kaoto")
+    return row
 
 
 __all__ = [
     "KAOTO_PLATFORM_COLLECTIONS",
     "best_kaoto_match",
+    "infer_kaoto_region_product",
+    "match_kaoto_product",
     "pick_best_product_rows",
     "product_to_ingest_row",
 ]

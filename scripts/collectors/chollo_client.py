@@ -21,6 +21,7 @@ CONDITION_RE = re.compile(
     r"Sin Caja Ni Manual|Sin Manual|Sin Caja|Completo|Nuevo",
     re.I,
 )
+IMG_RE = re.compile(r'\bsrc="([^"]+/(\d+)(?:-[a-z]|/)[^"]+\.(?:jpg|jpeg|png|webp))"', re.I)
 PAGE_LINK_RE = re.compile(r"[?&]p=(\d+)")
 
 
@@ -74,6 +75,8 @@ def parse_category_page(html_text: str) -> list[dict[str, Any]]:
         id_match = re.search(r"/(\d+)-[^/]+\.html", url)
         if id_match:
             external_id = id_match.group(1)
+        img_match = IMG_RE.search(meta)
+        image_url = html.unescape(img_match.group(1)).strip() if img_match else ""
         products.append(
             {
                 "title": html.unescape(title).strip(),
@@ -83,6 +86,7 @@ def parse_category_page(html_text: str) -> list[dict[str, Any]]:
                 "condition": infer_chollo_condition(meta),
                 "system": html.unescape(system_raw.group(1)).strip() if system_raw else None,
                 "externalId": external_id,
+                "imageUrl": image_url or None,
             }
         )
     return products

@@ -64,6 +64,12 @@ export function getSimilarGames(game: CatalogGame, limit = 4): CatalogGame[] {
 
 export type GameFaqItem = { question: string; answer: string };
 
+function clipMeta(text: string, max: number): string {
+  const clean = text.trim();
+  if (clean.length <= max) return clean;
+  return `${clean.slice(0, max - 1).trimEnd()}…`;
+}
+
 export function buildGameFaq(
   game: CatalogGame,
   platform: Platform | undefined,
@@ -112,6 +118,17 @@ export function buildGameFaq(
     });
   }
 
+  const aiFaqs = details?.seoMeta?.faqs ?? [];
+  const seen = new Set(faqs.map((f) => f.question.toLowerCase()));
+  for (const faq of aiFaqs) {
+    const question = faq.question?.trim();
+    const answer = faq.answer?.trim();
+    if (!question || !answer) continue;
+    if (seen.has(question.toLowerCase())) continue;
+    faqs.push({ question, answer });
+    seen.add(question.toLowerCase());
+  }
+
   return faqs;
 }
 
@@ -121,9 +138,16 @@ export function buildGameMetadata(game: CatalogGame): Metadata {
   const platformName = platform?.shortName ?? game.platformSlug;
   const path = catalogGamePath(game);
   const url = `${getSiteUrl()}${path}`;
+  const details = getGameDetails(game.id);
+  const seo = details?.seoMeta;
+  const catalogDescription = details?.description?.trim();
 
   let description: string;
-  if (game.hasEsPrice && game.recommendedPrice != null) {
+  if (seo?.seoDescription) {
+    description = clipMeta(seo.seoDescription, 155);
+  } else if (catalogDescription) {
+    description = clipMeta(catalogDescription, 155);
+  } else if (game.hasEsPrice && game.recommendedPrice != null) {
     const range = hasVerifiedEsPriceRange(game)
       ? ` entre ${formatEur(game.marketMin)} y ${formatEur(game.marketMax)}`
       : "";
@@ -133,7 +157,20 @@ export function buildGameMetadata(game: CatalogGame): Metadata {
     description = `${game.title} para ${platformName} (${regionLabel}). Ficha del catálogo ${SITE_LOGO}: metadatos, región y precio de mercado en España cuando haya datos verificados.`;
   }
 
-  const title = `${game.title} — Precio ${platformName} ${regionLabel}`;
+  const title =
+    seo?.seoTitle?.trim() ||
+    `${game.title} — Precio ${platformName} ${regionLabel}`;
+
+  const coverAlt =
+    seo?.coverAlt?.trim() ||
+    `Portada de ${game.title} para ${platformName} (${regionLabel})`;
+
+  const ogImage = game.coverUrl
+    ? {
+        url: game.coverUrl.startsWith("/") ? `${getSiteUrl()}${game.coverUrl}` : game.coverUrl,
+        alt: coverAlt,
+      }
+    : undefined;
 
   return {
     title,
@@ -146,7 +183,7 @@ export function buildGameMetadata(game: CatalogGame): Metadata {
       type: "website",
       locale: "es_ES",
       siteName: SITE_LOGO,
-      ...(game.coverUrl ? { images: [{ url: game.coverUrl.startsWith("/") ? `${getSiteUrl()}${game.coverUrl}` : game.coverUrl }] } : {}),
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
     twitter: {
       card: "summary_large_image",
@@ -173,9 +210,21 @@ export function buildPlatformMetadata(platform: Platform): Metadata {
 export function buildGameJsonLd(
   game: CatalogGame,
   platform: Platform | undefined,
+  details?: GameDetails | undefined,
 ): Record<string, unknown> {
   const url = `${getSiteUrl()}${catalogGamePath(game)}`;
   const regionLabel = getRegionDisplay(game.region).label;
+  const resolvedDetails = details ?? getGameDetails(game.id);
+  const seo = resolvedDetails?.seoMeta;
+
+  const description =
+    seo?.jsonLdDescription?.trim() ||
+    resolvedDetails?.description?.trim() ||
+    `${game.title} para ${platform?.name ?? game.platformSlug} (${regionLabel}). Videojuego en catálogo ${SITE_LOGO}.`;
+
+  const coverAlt =
+    seo?.coverAlt?.trim() ||
+    `Portada de ${game.title} para ${platform?.shortName ?? game.platformSlug} (${regionLabel})`;
 
   const offer =
     game.hasEsPrice && game.recommendedPrice != null
@@ -202,21 +251,33 @@ export function buildGameJsonLd(
 
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "VideoGame",
     name: game.title,
-    description: `${game.title} para ${platform?.name ?? game.platformSlug} (${regionLabel}). Videojuego en catálogo ${SITE_LOGO}.`,
-    category: "Video Games",
+    description: clipMeta(description, 320),
     url,
+    gamePlatform: platform?.name ?? game.platformSlug,
+    ...(resolvedDetails?.year ? { datePublished: String(resolvedDetails.year) } : {}),
+    ...(resolvedDetails?.genres?.length
+      ? { genre: resolvedDetails.genres.map((g) => g.name) }
+      : {}),
+    ...(resolvedDetails?.developer
+      ? { author: { "@type": "Organization", name: resolvedDetails.developer.name } }
+      : {}),
+    ...(resolvedDetails?.publisher
+      ? { publisher: { "@type": "Organization", name: resolvedDetails.publisher.name } }
+      : {}),
     ...(game.coverUrl
       ? {
-          image: game.coverUrl.startsWith("/")
-            ? `${getSiteUrl()}${game.coverUrl}`
-            : game.coverUrl,
+          image: {
+            "@type": "ImageObject",
+            url: game.coverUrl.startsWith("/")
+              ? `${getSiteUrl()}${game.coverUrl}`
+              : game.coverUrl,
+            name: coverAlt,
+            caption: coverAlt,
+          },
         }
       : {}),
-    brand: platform
-      ? { "@type": "Brand", name: platform.manufacturer === "sony" ? "Sony" : platform.manufacturer === "nintendo" ? "Nintendo" : "Sega" }
-      : undefined,
     ...(offer ? { offers: offer } : {}),
   };
 }

@@ -57,10 +57,23 @@ next-env.d.ts
 /public/covers
 public/covers
 
+# datos pesados en disco externo (symlinks locales — ver npm run storage:setup)
+/data/museum
+/data/pc
+/data/price-ingest
+/data/wikidata
+/data/serialstation
+/data/descriptions
+/data/covers
+
+# informes locales de pipelines (regenerables)
+/data/*-enrich-report.json
+/data/ingest-recency.json
+
 # logs de cron / scripts
 /logs/
 
-# ingest eBay (token + caché local)
+# ingest eBay (token + caché local — resto de price-ingest en disco externo)
 /data/price-ingest/ebay-token-cache.json
 /data/price-ingest/cache/
 /data/price-ingest/reports/

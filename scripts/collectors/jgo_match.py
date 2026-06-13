@@ -5,12 +5,13 @@ from __future__ import annotations
 import re
 import unicodedata
 from typing import Any
-
 from collectors.jgo_client import product_in_stock, product_price_eur
+from collectors.listing_images import attach_image_urls
 from collectors.reference_match import (
     extract_references_from_text,
     product_search_text,
 )
+from collectors.region_inference import regions_match as catalog_regions_compatible
 
 JGO_PLATFORM_CATEGORIES: dict[str, list[str]] = {
     "nes": ["nesfamicom"],
@@ -152,17 +153,7 @@ def product_platform_slug(categories: list[dict[str, Any]]) -> str | None:
 def regions_compatible(catalog_region: str, product_region: str | None) -> bool:
     if not product_region:
         return False
-    cr = catalog_region.strip().lower()
-    pr = product_region.strip().lower()
-    if cr == pr:
-        return True
-    if cr in ("japón", "japan") and pr in ("japón", "japan"):
-        return True
-    if cr in ("pal europa", "pal españa", "españa") and pr == "pal europa":
-        return True
-    if cr == "usa" and pr == "usa":
-        return True
-    return False
+    return catalog_regions_compatible(catalog_region, product_region)
 
 
 def match_by_reference(
@@ -213,6 +204,37 @@ def match_by_reference(
     return None, matched_ref
 
 
+def infer_jgo_region_product(product: dict[str, Any]) -> str | None:
+    return infer_product_region(str(product.get("name") or ""))
+
+
+def match_jgo_product(
+    product: dict[str, Any],
+    catalog_games: list[dict[str, Any]],
+    platform_slug: str,
+    *,
+    ref_to_ids: dict[str, list[str]] | None = None,
+    min_score: float = 0.42,
+):
+    from collectors.catalog_match import CatalogMatchResult, match_catalog_product
+
+    if not is_game_product(product):
+        return CatalogMatchResult()
+    if product_platform_slug(product.get("categories") or []) != platform_slug:
+        return CatalogMatchResult()
+    adapted = dict(product)
+    adapted["_referenceText"] = product_search_text(product)
+    return match_catalog_product(
+        adapted,
+        catalog_games,
+        platform_slug,
+        ref_to_ids=ref_to_ids,
+        min_score=min_score,
+        infer_listing_region=infer_jgo_region_product,
+        is_valid_product=is_game_product,
+    )
+
+
 def best_catalog_match(
     product: dict[str, Any],
     catalog_games: list[dict[str, Any]],
@@ -220,45 +242,19 @@ def best_catalog_match(
     ref_to_ids: dict[str, list[str]] | None = None,
     min_score: float = 0.45,
 ) -> tuple[dict[str, Any] | None, str | None]:
-    title = str(product.get("name") or "")
-    if not is_game_product(product):
-        return None, None
     platform_slug = product_platform_slug(product.get("categories") or [])
     if not platform_slug:
         return None, None
-
-    product_region = infer_product_region(title)
-    if not product_region:
+    result = match_jgo_product(
+        product,
+        catalog_games,
+        platform_slug,
+        ref_to_ids=ref_to_ids,
+        min_score=min_score,
+    )
+    if result.ambiguous or not result.game:
         return None, None
-
-    if ref_to_ids:
-        ref_match, matched_ref = match_by_reference(product, catalog_games, ref_to_ids)
-        if ref_match and ref_match.get("platformSlug") == platform_slug:
-            return ref_match, matched_ref
-
-    candidates = [
-        g
-        for g in catalog_games
-        if g.get("platformSlug") == platform_slug
-        and g.get("listingStatus") != "excluded"
-        and regions_compatible(str(g.get("region") or ""), product_region)
-    ]
-    if not candidates:
-        return None, None
-
-    product_core = product_core_title(title)
-    best: tuple[float, dict[str, Any]] | None = None
-    for game in candidates:
-        for candidate_title in filter(
-            None,
-            [game.get("title"), game.get("titlePc"), catalog_match_title(str(game.get("title") or ""))],
-        ):
-            score = token_similarity(str(candidate_title), product_core)
-            if score >= min_score and (best is None or score > best[0]):
-                best = (score, game)
-    if best:
-        return best[1], None
-    return None, None
+    return result.game, result.matched_reference
 
 
 def pick_best_product_rows(
@@ -291,6 +287,10 @@ def product_to_ingest_row(
     *,
     matched_reference: str | None = None,
     match_method: str = "title",
+    match_score: float | None = None,
+    match_margin: float | None = None,
+    match_alternatives: list[dict[str, Any]] | None = None,
+    ai_confidence: float | None = None,
 ) -> dict[str, Any] | None:
     price = product_price_eur(product)
     if price is None:
@@ -317,4 +317,13 @@ def product_to_ingest_row(
     }
     if matched_reference:
         row["matchedReference"] = matched_reference
+    if match_score is not None:
+        row["matchScore"] = round(float(match_score), 3)
+    if match_margin is not None:
+        row["matchMargin"] = round(float(match_margin), 3)
+    if match_alternatives:
+        row["matchAlternatives"] = match_alternatives
+    if ai_confidence is not None:
+        row["aiConfidence"] = round(float(ai_confidence), 3)
+    attach_image_urls(row, product, "jgo")
     return row
