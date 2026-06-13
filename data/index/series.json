@@ -1,32 +1,4 @@
 {
-  "james-bond-007": {
-    "name": "James Bond 007",
-    "slug": "james-bond-007",
-    "museumPath": "",
-    "gameIds": [
-      "ps2-007-nightfire",
-      "ps2-007-everything-or-nothing",
-      "ps2-007-quantum-of-solace",
-      "ps2-007-from-russia-with-love",
-      "ps2-007-agent-under-fire"
-    ],
-    "byPlatform": {
-      "ps2": 5
-    },
-    "gameCount": 5
-  },
-  "fifa-ea-sports-fc": {
-    "name": "FIFA/EA Sports FC",
-    "slug": "fifa-ea-sports-fc",
-    "museumPath": "",
-    "gameIds": [
-      "ps2-2002-fifa-world-cup"
-    ],
-    "byPlatform": {
-      "ps2": 1
-    },
-    "gameCount": 1
-  },
   "hack": {
     "name": ".hack",
     "slug": "hack",

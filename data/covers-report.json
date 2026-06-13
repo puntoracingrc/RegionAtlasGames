@@ -1,20 +1,140 @@
 {
-  "generatedAt": "2026-06-13T08:35:48",
-  "targets": 30,
-  "downloaded": 30,
+  "generatedAt": "2026-06-13T12:17:55",
+  "targets": 20111,
+  "downloaded": 20095,
   "skippedExisting": 0,
-  "missingSource": 0,
-  "downloadErrors": 0,
+  "missingSource": 12,
+  "downloadErrors": 4,
   "bySource": {
-    "museum": 0,
-    "pricecharting": 30,
-    "wikipedia": 0,
-    "existing": 0
+    "museum": 8593,
+    "pricecharting": 7188,
+    "wikipedia": 9,
+    "existing": 4309
   },
   "byPlatform": {
     "3ds": {
-      "downloaded": 30,
+      "downloaded": 398,
       "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "dreamcast": {
+      "downloaded": 950,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "ds": {
+      "downloaded": 1738,
+      "missingSource": 1,
+      "downloadErrors": 1,
+      "skippedExisting": 0
+    },
+    "gameboy": {
+      "downloaded": 1788,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "gamecube": {
+      "downloaded": 483,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "gamegear": {
+      "downloaded": 636,
+      "missingSource": 0,
+      "downloadErrors": 1,
+      "skippedExisting": 0
+    },
+    "mastersystem": {
+      "downloaded": 500,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "megacd": {
+      "downloaded": 372,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "megadrive": {
+      "downloaded": 1679,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "n64": {
+      "downloaded": 775,
+      "missingSource": 0,
+      "downloadErrors": 1,
+      "skippedExisting": 0
+    },
+    "neogeo": {
+      "downloaded": 212,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "neogeocd": {
+      "downloaded": 161,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "neogeopocket": {
+      "downloaded": 165,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "nes": {
+      "downloaded": 2166,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "ps1": {
+      "downloaded": 1542,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "ps2": {
+      "downloaded": 6,
+      "missingSource": 6,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "ps3": {
+      "downloaded": 1361,
+      "missingSource": 1,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "saturn": {
+      "downloaded": 1596,
+      "missingSource": 1,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "sega32x": {
+      "downloaded": 82,
+      "missingSource": 0,
+      "downloadErrors": 0,
+      "skippedExisting": 0
+    },
+    "snes": {
+      "downloaded": 2193,
+      "missingSource": 1,
+      "downloadErrors": 1,
+      "skippedExisting": 0
+    },
+    "wii": {
+      "downloaded": 1292,
+      "missingSource": 2,
       "downloadErrors": 0,
       "skippedExisting": 0
     }

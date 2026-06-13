@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-06-13T00:29:14Z",
+  "lastRunAt": "2026-06-13T23:41:06Z",
   "nextPlatformSlug": "gamegear",
   "platforms": {
     "dreamcast": {
@@ -143,6 +143,31 @@
       "tcGamesUpdated": 79,
       "tcGamesSkipped": 0,
       "coveragePct": 4.7,
+      "regionPolicy": "Reglas en data/region-evidence-rules.json"
+    },
+    "gamegear": {
+      "lastSyncAt": "2026-06-13T17:34:10Z",
+      "source": "Wallapop ES / eBay ES / Vinted ES",
+      "gamesTargeted": 637,
+      "gamesUpdated": 320,
+      "gamesSkippedNoData": 317,
+      "gamesRejectedOutliers": 256,
+      "gamesRejectedUnverifiedRegion": 1050,
+      "gamesRejectedRegionMismatch": 0,
+      "gamesRejectedInsufficientEvidence": 0,
+      "cexGamesUpdated": 0,
+      "cexGamesSkipped": 147,
+      "jgoGamesUpdated": 0,
+      "jgoGamesSkipped": 0,
+      "cholloGamesUpdated": 0,
+      "cholloGamesSkipped": 0,
+      "kaotoGamesUpdated": 3,
+      "kaotoGamesSkipped": 0,
+      "tcnsGamesUpdated": 2,
+      "tcnsGamesSkipped": 0,
+      "tcGamesUpdated": 0,
+      "tcGamesSkipped": 0,
+      "coveragePct": 50.2,
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     }
   }

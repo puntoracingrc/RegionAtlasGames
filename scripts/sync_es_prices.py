@@ -42,6 +42,7 @@ from collectors.condition_buckets import (  # noqa: E402
     mean_by_bucket,
     observation_from_row,
 )
+from collectors.price_history import record_platform_snapshots  # noqa: E402
 
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 STATE_FILE = ROOT / "data" / "price-sync-state.json"
