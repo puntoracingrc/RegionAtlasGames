@@ -15,7 +15,11 @@ const LISTINGS_FILE = path.join(MARKET_DIR, "listings.json");
 const SALES_FILE = path.join(MARKET_DIR, "recorded-sales.json");
 
 function ensureDir() {
-  if (!existsSync(MARKET_DIR)) mkdirSync(MARKET_DIR, { recursive: true });
+  try {
+    if (!existsSync(MARKET_DIR)) mkdirSync(MARKET_DIR, { recursive: true });
+  } catch {
+    // Vercel: filesystem de solo lectura salvo /tmp
+  }
 }
 
 function readListings(): MarketplaceListing[] {

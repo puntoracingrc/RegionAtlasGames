@@ -29,8 +29,10 @@ function collectionPath(userId: string): string {
 }
 
 function ensureDir() {
-  if (!existsSync(COLLECTIONS_DIR)) {
-    mkdirSync(COLLECTIONS_DIR, { recursive: true });
+  try {
+    if (!existsSync(COLLECTIONS_DIR)) mkdirSync(COLLECTIONS_DIR, { recursive: true });
+  } catch {
+    // Vercel: filesystem de solo lectura salvo /tmp
   }
 }
 
