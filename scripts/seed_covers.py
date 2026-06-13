@@ -247,7 +247,7 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
-    covers_root = ensure_covers_root()
+    covers_root = ensure_covers_root(require_external_storage=True)
     print(f"Almacén portadas: {covers_root}")
 
     platform_filter = (

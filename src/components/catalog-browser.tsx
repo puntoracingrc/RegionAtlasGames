@@ -33,6 +33,7 @@ type Props = {
   ownedCatalogIds?: string[];
   listingCounts?: Record<string, number>;
   isLoggedIn?: boolean;
+  compactLegends?: boolean;
 };
 
 export function CatalogBrowser({
@@ -43,6 +44,7 @@ export function CatalogBrowser({
   ownedCatalogIds = [],
   listingCounts = {},
   isLoggedIn = false,
+  compactLegends = false,
 }: Props) {
   const gridRef = useRef<HTMLElement>(null);
   const [ownedIds, setOwnedIds] = useState(ownedCatalogIds);
@@ -176,31 +178,29 @@ export function CatalogBrowser({
           </select>
         </div>
 
-        <p className="text-sm text-muted">
-          {total === 0 ? (
-            <>0 resultados en {contextName}</>
-          ) : totalPages > 1 ? (
-            <>
-              Mostrando {resultStart.toLocaleString("es-ES")}–{resultEnd.toLocaleString("es-ES")} de{" "}
-              {total.toLocaleString("es-ES")} en {contextName}
-            </>
-          ) : (
-            <>
-              {total.toLocaleString("es-ES")} resultado{total !== 1 ? "s" : ""} en {contextName}
-            </>
-          )}
-          {ownedIds.length > 0 && (
-            <span className="ml-2 inline-flex items-center gap-1 text-emerald-300/90">
-              ·{" "}
-              <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-600/80 text-[10px] text-white">
-                ✓
-              </span>{" "}
-              en tu colección
-            </span>
-          )}
-        </p>
-        <HighlightLegend showOwned />
-        <PriceLegend />
+        <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <p className="text-sm text-muted">
+            {total === 0 ? (
+              <>0 resultados en {contextName}</>
+            ) : totalPages > 1 ? (
+              <>
+                Mostrando {resultStart.toLocaleString("es-ES")}–{resultEnd.toLocaleString("es-ES")} de{" "}
+                {total.toLocaleString("es-ES")} en {contextName}
+              </>
+            ) : (
+              <>
+                {total.toLocaleString("es-ES")} resultado{total !== 1 ? "s" : ""} en {contextName}
+              </>
+            )}
+            {ownedIds.length > 0 && (
+              <span className="ml-2 inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+                · {ownedIds.length} en colección
+              </span>
+            )}
+          </p>
+          <HighlightLegend showOwned compact={compactLegends} />
+        </div>
+        <PriceLegend defaultOpen={!compactLegends} />
       </div>
 
       {pageItems.length === 0 ? (

@@ -14,6 +14,13 @@ PUBLIC_COVERS_SYMLINK = ROOT / "public" / "covers"
 PUBLIC_URL_PREFIX = "/covers"
 
 
+def external_storage_mounted() -> bool:
+    """True si el volumen externo PAL ES Retro está montado."""
+    from collectors.storage_paths import get_retro_root
+
+    return get_retro_root().is_dir()
+
+
 def get_covers_root() -> Path:
     """Directorio físico de portadas. Prioridad: COVERS_ROOT → symlink public/covers."""
     env = os.environ.get("COVERS_ROOT", "").strip()
@@ -26,7 +33,13 @@ def get_covers_root() -> Path:
     return DEFAULT_COVERS_ROOT
 
 
-def ensure_covers_root() -> Path:
+def ensure_covers_root(*, require_external_storage: bool = False) -> Path:
+    if require_external_storage and not external_storage_mounted():
+        raise SystemExit(
+            "Portadas: disco externo no montado.\n"
+            f"Conecta «Nuevo vol» (esperado en {DEFAULT_COVERS_ROOT.parent}) "
+            "y vuelve a ejecutar npm run covers:seed."
+        )
     root = get_covers_root()
     if not root.exists():
         raise SystemExit(

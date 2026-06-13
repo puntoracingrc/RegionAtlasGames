@@ -1,7 +1,12 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--max-old-space-size=6144"
+    }
+  },
   "functions": {
-    "app/**": {
-      "memory": 3008,
+    "src/app/**/**": {
       "maxDuration": 60
     }
   }

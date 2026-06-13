@@ -1,0 +1,11 @@
+# Symlink local al disco externo — rompe el empaquetado del CLI de Vercel
+public/covers
+
+# Datos pesados solo locales (symlinks en data/)
+data/museum
+data/pc
+data/price-ingest
+data/wikidata
+data/serialstation
+data/descriptions
+data/covers

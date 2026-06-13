@@ -31,8 +31,9 @@
     "details:indexes": "python3 scripts/enrich_game_details.py --indexes-only",
     "descriptions:generate": "PYTHONUNBUFFERED=1 python3 scripts/generate_game_descriptions.py",
     "catalog:phase3": "bash scripts/run_phase3_catalog.sh",
-    "covers:seed": "PYTHONUNBUFFERED=1 python3 scripts/seed_covers.py",
-    "storage:setup": "bash scripts/setup_external_storage.sh"
+    "covers:seed": "caffeinate -dimsu env PYTHONUNBUFFERED=1 python3 scripts/seed_covers.py",
+    "storage:setup": "bash scripts/setup_external_storage.sh",
+    "pipeline:watch": "caffeinate -dimsu bash scripts/watch_pipeline_progress.sh"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
