@@ -3,6 +3,12 @@ export const SITE_LOGO = "Region Atlas";
 export const SITE_LOGO_ALT = "Region Atlas Games";
 export const SITE_LOGO_DARK_SRC = "/brand/logo-dark-mode.png";
 export const SITE_LOGO_LIGHT_SRC = "/brand/logo-light-mode.png";
+
+/** Portadas JPG en hosting propio (misma estructura que public/covers local). */
+export const COVERS_PUBLIC_BASE_URL = (
+  process.env.NEXT_PUBLIC_COVERS_BASE_URL?.trim() ||
+  "https://www.puntoracing.net/MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers"
+).replace(/\/$/, "");
 export const SITE_NAME = "RegionAtlasGames";
 export const SITE_ACRONYM = "RAG";
 export const SITE_DEFAULT_URL = "https://regionatlas.games";

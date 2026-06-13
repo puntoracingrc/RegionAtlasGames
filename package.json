@@ -34,7 +34,7 @@
     "descriptions:generate": "PYTHONUNBUFFERED=1 python3 scripts/generate_game_descriptions.py",
     "catalog:phase3": "bash scripts/run_phase3_catalog.sh",
     "covers:seed": "caffeinate -dimsu env PYTHONUNBUFFERED=1 python3 scripts/seed_covers.py",
-    "covers:export-remote": "python3 scripts/export_cover_remote_urls.py",
+    "covers:normalize-urls": "python3 scripts/normalize_catalog_cover_urls.py",
     "storage:setup": "bash scripts/setup_external_storage.sh",
     "pipeline:watch": "caffeinate -dimsu bash scripts/watch_pipeline_progress.sh"
   },

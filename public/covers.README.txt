@@ -1,31 +1,20 @@
 Las portadas no van en git.
 
-Almacenamiento en disco externo (`PAL_ES_RETRO_ROOT`, por defecto):
-  /Volumes/Nuevo vol/pal-es-retro/
-    covers/          — portadas JPG por plataforma
-    ingest/          — data/price-ingest (symlink)
-    pc/              — cover-map, details-cache PriceCharting
-    museum/          — cachés museo
-    wikidata/        — caché Wikidata
-    serialstation/   — caché SerialStation
-    descriptions/    — caché IA descripciones
-    logs/            — logs de pipelines
+Hosting público (web):
+  https://www.puntoracing.net/MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers/
+    {plataforma}/{slug-del-titulo}.jpg
 
-Nota: .next NO va al externo (Turbopack rompe rutas a node_modules).
+Local (desarrollo): symlink al disco externo
+  public/covers -> /Volumes/Nuevo vol/pal-es-retro/covers
 
-Configurar una vez:
   npm run storage:setup
 
-Symlink portadas (si hace falta manualmente):
-  ln -sf "/Volumes/Nuevo vol/pal-es-retro/covers" public/covers
-
-Opcional en .env.local:
-  PAL_ES_RETRO_ROOT="/Volumes/Nuevo vol/pal-es-retro"
-  COVERS_ROOT="/Volumes/Nuevo vol/pal-es-retro/covers"
+Override opcional (.env.local / Vercel):
+  NEXT_PUBLIC_COVERS_BASE_URL=https://www.puntoracing.net/MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers
 
 Reglas de nombre:
   - Solo el título del juego (slug ASCII: animal-crossing-new-leaf.jpg)
-  - Nunca id de catálogo, slug interno ni referencia a la fuente (PC/Museo/Wikipedia)
   - Sufijo -2, -3 solo si hay otro juego con el mismo título en la misma plataforma
 
-En Vercel las portadas no están en el bundle; usa Blob/CDN en producción.
+Normalizar catálogo (quitar URLs externas en coverUrl):
+  python3 scripts/normalize_catalog_cover_urls.py
