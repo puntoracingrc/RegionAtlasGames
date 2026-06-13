@@ -3,6 +3,7 @@ import { CoverArt } from "@/components/cover-art";
 import { RegionFlag } from "@/components/region-flag";
 import type { CatalogGame, CollectionView } from "@/lib/types";
 import { formatEur, getPlatform } from "@/lib/catalog";
+import { getCollectionPlatformShortName } from "@/lib/collection-platform-groups";
 import { catalogGamePath } from "@/lib/catalog-url";
 import {
   grailLabel,
@@ -79,8 +80,14 @@ export function CatalogGameCard({
 
 export function CollectionGameCard({ game }: { game: CollectionView }) {
   const platform = getPlatform(game.platformSlug);
+  const platformLabel =
+    platform?.shortName ?? getCollectionPlatformShortName(game.platformSlug);
   const href = game.catalogId ? catalogGamePath(game.catalogId) : `/coleccion/${game.id}`;
   const { grail, topSegment } = gameHighlights(game);
+  const priceLabel =
+    !game.hasEsPrice && game.recommendedPrice != null
+      ? formatEur(game.recommendedPrice)
+      : formatEsPriceForCard(game, formatEur);
 
   return (
     <Link href={href} className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment))}>
@@ -89,17 +96,20 @@ export function CollectionGameCard({ game }: { game: CollectionView }) {
         title={decodeHtmlEntities(game.title)}
         platformSlug={game.platformSlug}
         sealed={game.sealed}
-        platform={platform?.shortName}
+        platform={platformLabel}
         owned
         grail={grail}
         topSegment={topSegment}
       />
       <CardBody
         title={decodeHtmlEntities(game.title)}
-        platform={platform?.shortName ?? game.platformSlug}
-        price={formatEsPriceForCard(game, formatEur)}
+        platform={platformLabel}
+        price={priceLabel}
         priceVerified={game.priceRegionVerified === true}
-        priceUnverified={game.hasEsPrice && game.priceRegionVerified !== true}
+        priceUnverified={
+          game.hasEsPrice && game.priceRegionVerified !== true
+        }
+        importPrice={!game.hasEsPrice && game.recommendedPrice != null}
         quantity={game.quantity}
         grail={grail}
         topSegment={topSegment}
@@ -196,6 +206,7 @@ function CardBody({
   topSegment,
   listingsForSale,
   priceUnverified,
+  importPrice,
 }: {
   title: string;
   platform: string;
@@ -207,6 +218,7 @@ function CardBody({
   listingsForSale?: number;
   priceVerified?: boolean;
   priceUnverified?: boolean;
+  importPrice?: boolean;
 }) {
   const tags = [
     topSegment ? "Top región" : null,
@@ -237,17 +249,22 @@ function CardBody({
           <p
             className={cn(
               "text-base font-bold",
-              priceUnverified
+              importPrice
                 ? "text-muted"
-                : grail
-                  ? "text-amber-300"
-                  : topSegment
-                    ? "text-violet-300"
-                    : "text-accent",
+                : priceUnverified
+                  ? "text-muted"
+                  : grail
+                    ? "text-amber-300"
+                    : topSegment
+                      ? "text-violet-300"
+                      : "text-accent",
             )}
           >
             {price}
           </p>
+          {importPrice && (
+            <p className="mt-0.5 text-[10px] uppercase tracking-wider text-muted">Ref. import</p>
+          )}
           {listingsForSale != null && listingsForSale > 0 && (
             <p className="mt-0.5 text-[11px] font-medium text-violet-300">
               {listingsForSale} en venta

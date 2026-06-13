@@ -28,6 +28,14 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
 
   return (
     <div className="space-y-8">
+      <header className="space-y-1">
+        <h2 className="text-xl font-bold text-foreground">Catálogo enlazado</h2>
+        <p className="text-sm text-muted">
+          Juegos con ficha oficial en Region Atlas. El resto está en las secciones de pendientes y
+          plataformas sin catálogo arriba.
+        </p>
+      </header>
+
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <StatCard label="Ítems retro" value={String(summary.retroItems)} hint={`${summary.totalUnits} unidades`} />
         {canViewCollectionValue ? (
@@ -75,7 +83,6 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
                 {p.shortName}
               </option>
             ))}
-            <option value="ps5">PS5 (fuera catálogo)</option>
           </select>
           <select
             value={filters.priced}

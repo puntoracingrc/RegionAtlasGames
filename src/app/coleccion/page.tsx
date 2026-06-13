@@ -9,6 +9,7 @@ import { CollectionValueHero } from "@/components/collection-value-hero";
 import { SiteNav } from "@/components/site-nav";
 import { Panel, PanelTitle } from "@/components/ui";
 import {
+  filterMainCollectionExplorerItems,
   getUserCollectionViews,
   readUserCollection,
   summarizeCollectionForPlan,
@@ -49,11 +50,13 @@ export default async function CollectionPage() {
 
   const file = await readUserCollection(user.id);
   const items = await getUserCollectionViews(user.id);
+  const linkedItems = filterMainCollectionExplorerItems(items);
   const pendingItems = pendingCatalogItems(file.items).map(enrichCollectionItem);
   const outOfScopeItems = outOfScopeCollectionItems(file.items).map(enrichCollectionItem);
   const summary = summarizeCollectionForPlan(file.items, user.plan);
   const showCollectionValue = canViewCollectionValue(user.plan);
   const hasItems = items.length > 0;
+  const hasLinkedItems = linkedItems.length > 0;
 
   return (
     <>
@@ -90,12 +93,19 @@ export default async function CollectionPage() {
           <CollectionOutOfScopePanel items={outOfScopeItems} />
         )}
 
-        {hasItems && (
+        {hasLinkedItems && (
           <CollectionExplorer
-            items={items}
+            items={linkedItems}
             summary={summary}
             canViewCollectionValue={showCollectionValue}
           />
+        )}
+
+        {hasItems && !hasLinkedItems && summary.pendingCatalog === 0 && summary.outOfScopeItems === 0 && (
+          <p className="rounded-2xl border border-dashed border-border p-10 text-center text-muted">
+            Ningún juego enlazado al catálogo todavía. Revisa las secciones de pendientes arriba o
+            reimporta tu archivo.
+          </p>
         )}
       </main>
     </>

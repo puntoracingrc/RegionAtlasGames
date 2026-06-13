@@ -77,4 +77,8 @@ export function platformSortIndex(slug: string): number {
   return platformMeta(slug).sortOrder;
 }
 
+export function getCollectionPlatformShortName(slug: string): string {
+  return platformMeta(slug).shortName;
+}
+
 export const retroPlatformSlugs = new Set(platforms.map((p) => p.slug));

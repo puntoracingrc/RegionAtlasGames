@@ -85,6 +85,11 @@ export function redactCollectionViewsForPlan(
   return views.map((view) => ({ ...view, totalValue: null }));
 }
 
+/** Juegos ya enlazados a ficha oficial — los que van en el grid principal. */
+export function filterMainCollectionExplorerItems(items: CollectionView[]): CollectionView[] {
+  return items.filter((item) => item.inRetroCatalog && item.catalogMatched);
+}
+
 export async function saveUserCollectionItems(
   userId: string,
   items: CollectionItem[],

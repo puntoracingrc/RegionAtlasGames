@@ -1,9 +1,10 @@
-import Link from "next/link";
+import { CollectionGameCard } from "@/components/game-card";
 import {
   groupCollectionByPlatform,
   MANUFACTURER_PANEL_STYLE,
   type CollectionPlatformGroup,
 } from "@/lib/collection-platform-groups";
+import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import type { CollectionView } from "@/lib/types";
 import { Panel, PanelTitle } from "@/components/ui";
 
@@ -25,55 +26,40 @@ const COPY: Record<
     panelClass: "border-amber-400/25 bg-amber-500/5",
   },
   outOfScope: {
-    title: (count) => `PS5 y otras plataformas (${count})`,
+    title: (count) => `Plataformas sin catálogo oficial (${count})`,
     description:
-      "Importados correctamente desde PriceCharting. Region Atlas aún no indexa PS5 ni otras plataformas vivas, pero siguen en tu colección.",
+      "PS5 y otras plataformas que aún no indexamos. Tus juegos siguen aquí, agrupados por consola, hasta que tengan ficha en Region Atlas.",
     panelClass: "border-blue-400/20 bg-blue-500/5",
   },
 };
 
 function PlatformSection({ group }: { group: CollectionPlatformGroup }) {
   const style = MANUFACTURER_PANEL_STYLE[group.manufacturer];
+  const sectionId = group.slug === "ps5" ? "ps5" : undefined;
 
   return (
     <section
+      id={sectionId}
       className={`overflow-hidden rounded-2xl border bg-gradient-to-br ${style}`}
     >
       <header className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 px-4 py-3 md:px-5">
         <div>
           <p className="text-xs uppercase tracking-wider text-muted">{group.manufacturer}</p>
           <h3 className="text-lg font-bold text-foreground">{group.shortName}</h3>
+          {group.slug === "ps5" && (
+            <p className="mt-0.5 text-xs text-muted">Sin ficha en catálogo · solo en tu colección</p>
+          )}
         </div>
         <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs font-medium text-muted">
           {group.items.length} {group.items.length === 1 ? "juego" : "juegos"}
         </span>
       </header>
 
-      <ul className="grid gap-2 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:p-4">
+      <div className={`p-3 md:p-4 ${CATALOG_GRID_CLASS}`}>
         {group.items.map((item) => (
-          <li key={item.id}>
-            <Link
-              href={`/coleccion/${item.id}`}
-              className="group block h-full rounded-xl border border-black/20 bg-black/25 px-3 py-3 transition hover:-translate-y-0.5 hover:border-accent/30 hover:bg-black/40 hover:shadow-lg hover:shadow-black/30"
-            >
-              <p className="line-clamp-2 text-sm font-medium leading-snug text-foreground group-hover:text-accent">
-                {item.title}
-              </p>
-              <p className="mt-2 text-xs text-muted">
-                {item.sealed ? "Precintado" : "Usado"}
-                {item.quantity > 1 ? ` · ×${item.quantity}` : ""}
-                {item.recommendedPrice != null
-                  ? ` · ${new Intl.NumberFormat("es-ES", {
-                      style: "currency",
-                      currency: "EUR",
-                      maximumFractionDigits: 0,
-                    }).format(item.recommendedPrice)}`
-                  : ""}
-              </p>
-            </Link>
-          </li>
+          <CollectionGameCard key={item.id} game={item} />
         ))}
-      </ul>
+      </div>
     </section>
   );
 }
