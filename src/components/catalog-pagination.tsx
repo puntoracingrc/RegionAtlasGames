@@ -54,9 +54,9 @@ export function CatalogPagination({ page, pageSize, total, onPageChange, classNa
                 onClick={() => onPageChange(p)}
                 aria-current={p === page ? "page" : undefined}
                 className={cn(
-                  "min-w-9 rounded-lg border px-2.5 py-1.5 text-sm transition",
+                  "min-w-9 cursor-pointer rounded-lg border px-2.5 py-1.5 text-sm transition",
                   p === page
-                    ? "border-accent/40 bg-accent/15 font-semibold text-accent"
+                    ? "cursor-default border-accent/40 bg-accent/15 font-semibold text-accent"
                     : "border-border bg-card text-foreground hover:border-accent/30 hover:bg-card-hover",
                 )}
               >
@@ -90,7 +90,7 @@ function PaginationButton({
       type="button"
       disabled={disabled}
       onClick={onClick}
-      className="rounded-lg border border-border bg-card px-3 py-1.5 text-sm text-foreground transition hover:border-accent/30 hover:bg-card-hover disabled:cursor-not-allowed disabled:opacity-40"
+      className="cursor-pointer rounded-lg border border-border bg-card px-3 py-1.5 text-sm text-foreground transition hover:border-accent/30 hover:bg-card-hover disabled:cursor-not-allowed disabled:opacity-40"
     >
       {label}
     </button>
