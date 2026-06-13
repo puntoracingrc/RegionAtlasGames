@@ -31,7 +31,7 @@ export function DetailCoverArt({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-xl",
+        "relative inline-flex w-full max-w-full justify-center overflow-hidden rounded-xl",
         coverDetailSizeClass(platformSlug),
         glow,
       )}

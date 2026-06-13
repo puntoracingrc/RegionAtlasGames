@@ -28,7 +28,8 @@ const PLATFORM_ASPECT: Record<string, CoverAspectKind> = {
 
 const ASPECT_CLASS: Record<CoverAspectKind, string> = {
   case: "aspect-[2/3]",
-  "box-landscape": "aspect-[4/3]",
+  /** Caja retro PAL/USA en catálogo: JPGs verticales (~3:4), no landscape. */
+  "box-landscape": "aspect-[3/4]",
   square: "aspect-square",
   "handheld-tall": "aspect-[3/4]",
 };
@@ -49,18 +50,9 @@ export function coverCardAspectClass(): string {
   return COVER_CARD_ASPECT_CLASS;
 }
 
-/** Ancho de portada en ficha — ocupa la columna lateral en desktop. */
-export function coverDetailSizeClass(platformSlug?: string | null): string {
-  switch (coverAspectKind(platformSlug)) {
-    case "box-landscape":
-      return "mx-auto w-full max-w-[320px] rounded-xl sm:max-w-[360px] lg:max-w-none";
-    case "square":
-      return "mx-auto w-full max-w-[280px] rounded-xl sm:max-w-[320px] lg:max-w-none";
-    case "handheld-tall":
-      return "mx-auto w-full max-w-[240px] rounded-xl sm:max-w-[280px] lg:max-w-none";
-    default:
-      return "mx-auto w-full max-w-[240px] rounded-xl sm:max-w-[280px] lg:max-w-none";
-  }
+/** Ancho de portada en ficha — la altura la marca la imagen (carátula completa). */
+export function coverDetailSizeClass(_platformSlug?: string | null): string {
+  return "mx-auto w-full max-w-[240px] sm:max-w-[280px] lg:max-w-[320px]";
 }
 
 /** Rejilla densa para catálogo/colección — portadas más pequeñas. */
