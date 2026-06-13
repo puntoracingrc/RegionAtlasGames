@@ -1,11 +1,11 @@
+import companiesData from "../../data/index/companies.json";
+import genresData from "../../data/index/genres.json";
+import seriesData from "../../data/index/series.json";
 import gameDetailsData from "../../data/game-details.json";
-import type { CatalogGame, DetailEntity, GameDetails, IndexEntry } from "./types";
-import { getCatalogGame, getPlatform, listedCatalog } from "./catalog";
+import type { CatalogGame, GameDetails, IndexEntry } from "./types";
+import { getCatalogGame, getPlatform, meta } from "./catalog";
 
-/**
- * Índices cruzados (compañías, géneros, sagas) calculados desde catálogo + game-details.
- * Aplica a todas las entidades del museo: si un juego sale del catálogo, los contadores bajan solos.
- */
+/** Índices precalculados (data/index/*.json). Regenerar con npm run details:indexes. */
 
 function isGameDetails(value: unknown): value is GameDetails {
   if (!value || typeof value !== "object") return false;
@@ -35,67 +35,21 @@ function loadGameDetails(): Record<string, GameDetails> {
   return gameDetailsCache;
 }
 
-type IndexBucket = Record<string, IndexEntry>;
+export const companies = companiesData as Record<string, IndexEntry>;
+export const genres = genresData as Record<string, IndexEntry>;
+export const seriesIndex = seriesData as Record<string, IndexEntry>;
 
-function entityIndexPath(entity: DetailEntity): string {
-  return entity.museumPath ?? entity.pcPath ?? "";
-}
+const companyList = Object.values(companies).sort(
+  (a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"),
+);
+const genreList = Object.values(genres).sort(
+  (a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"),
+);
+const seriesList = Object.values(seriesIndex).sort(
+  (a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"),
+);
 
-function bumpEntity(
-  bucket: IndexBucket,
-  entity: DetailEntity | null | undefined,
-  game: CatalogGame,
-  role?: "developer" | "publisher",
-): void {
-  if (!entity?.name) return;
-  const slug = entity.slug || entity.name.toLowerCase().replace(/\s+/g, "-");
-
-  const entry =
-    bucket[slug] ??
-    (bucket[slug] = {
-      name: entity.name,
-      slug,
-      museumPath: entityIndexPath(entity),
-      gameIds: [],
-      byPlatform: {},
-      gameCount: 0,
-      ...(role ? { asDeveloper: [], asPublisher: [] } : {}),
-    });
-
-  if (!entry.museumPath && entityIndexPath(entity)) {
-    entry.museumPath = entityIndexPath(entity);
-  }
-
-  if (!entry.gameIds.includes(game.id)) {
-    entry.gameIds.push(game.id);
-    entry.byPlatform[game.platformSlug] = (entry.byPlatform[game.platformSlug] ?? 0) + 1;
-  }
-
-  if (role === "developer") {
-    if (!entry.asDeveloper!.includes(game.id)) entry.asDeveloper!.push(game.id);
-  }
-  if (role === "publisher") {
-    if (!entry.asPublisher!.includes(game.id)) entry.asPublisher!.push(game.id);
-  }
-}
-
-function finalizeBucket(bucket: IndexBucket): IndexBucket {
-  for (const entry of Object.values(bucket)) {
-    entry.gameCount = entry.gameIds.length;
-    entry.byPlatform = Object.fromEntries(
-      Object.entries(entry.byPlatform).sort(([a], [b]) => a.localeCompare(b)),
-    );
-  }
-  return bucket;
-}
-
-function sortEntries(bucket: IndexBucket): IndexEntry[] {
-  return Object.values(bucket).sort(
-    (a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"),
-  );
-}
-
-/** Recalcula contadores desde el catálogo listado actual (todas las compañías/géneros/sagas). */
+/** Recalcula contadores desde el catálogo listado actual. */
 export function resolveIndexEntry(entry: IndexEntry): IndexEntry {
   const games = entry.gameIds
     .map((id) => getCatalogGame(id))
@@ -125,55 +79,6 @@ export function resolveIndexEntry(entry: IndexEntry): IndexEntry {
   return resolved;
 }
 
-function buildIndexes(): {
-  companies: IndexBucket;
-  genres: IndexBucket;
-  series: IndexBucket;
-  companyList: IndexEntry[];
-  genreList: IndexEntry[];
-  seriesList: IndexEntry[];
-  gamesWithDetails: number;
-} {
-  const details = loadGameDetails();
-  const companies: IndexBucket = {};
-  const genres: IndexBucket = {};
-  const series: IndexBucket = {};
-  let gamesWithDetails = 0;
-
-  for (const game of listedCatalog) {
-    const detail = details[game.id];
-    if (!detail) continue;
-
-    gamesWithDetails += 1;
-    bumpEntity(companies, detail.developer, game, "developer");
-    bumpEntity(companies, detail.publisher, game, "publisher");
-    for (const genre of detail.genres ?? []) {
-      bumpEntity(genres, genre, game);
-    }
-    bumpEntity(series, detail.series, game);
-  }
-
-  finalizeBucket(companies);
-  finalizeBucket(genres);
-  finalizeBucket(series);
-
-  return {
-    companies,
-    genres,
-    series,
-    companyList: sortEntries(companies),
-    genreList: sortEntries(genres),
-    seriesList: sortEntries(series),
-    gamesWithDetails,
-  };
-}
-
-const indexCache = buildIndexes();
-
-export const companies = indexCache.companies;
-export const genres = indexCache.genres;
-export const seriesIndex = indexCache.series;
-
 export function getGameDetails(id: string): GameDetails | undefined {
   return loadGameDetails()[id];
 }
@@ -194,15 +99,15 @@ export function getSeries(slug: string): IndexEntry | undefined {
 }
 
 export function getCompanies(): IndexEntry[] {
-  return indexCache.companyList.map(resolveIndexEntry);
+  return companyList;
 }
 
 export function getGenres(): IndexEntry[] {
-  return indexCache.genreList.map(resolveIndexEntry);
+  return genreList;
 }
 
 export function getSeriesList(): IndexEntry[] {
-  return indexCache.seriesList.map(resolveIndexEntry);
+  return seriesList;
 }
 
 export function gamesForIndex(entry: IndexEntry): CatalogGame[] {
@@ -212,14 +117,11 @@ export function gamesForIndex(entry: IndexEntry): CatalogGame[] {
 }
 
 export function indexStats() {
-  const companyList = getCompanies();
-  const genreList = getGenres();
-  const seriesList = getSeriesList();
   return {
-    companies: companyList.length,
-    genres: genreList.length,
+    companies: meta.indexCompanies ?? companyList.length,
+    genres: meta.indexGenres ?? genreList.length,
     series: seriesList.length,
-    gamesWithDetails: indexCache.gamesWithDetails,
+    gamesWithDetails: meta.gamesWithDetails ?? 0,
   };
 }
 

@@ -85,15 +85,19 @@ export function getIndexList(kind: IndexKind): IndexEntry[] {
   }
 }
 
-export function summarizeIndexEntry(entry: IndexEntry, kind: IndexKind): IndexEntitySummary {
+export function summarizeIndexEntry(
+  entry: IndexEntry,
+  kind: IndexKind,
+  options?: { withGames?: boolean },
+): IndexEntitySummary {
   const resolved = resolveIndexEntry(entry);
-  const games = gamesForIndex(resolved);
+  const games = options?.withGames ? gamesForIndex(resolved) : [];
   return {
     kind,
     entry: resolved,
     name: resolved.name,
     slug: resolved.slug,
-    gameCount: games.length,
+    gameCount: resolved.gameCount,
     games,
     platforms: platformBreakdown(resolved),
     developerCount: resolved.asDeveloper?.length ?? 0,
@@ -104,7 +108,7 @@ export function summarizeIndexEntry(entry: IndexEntry, kind: IndexKind): IndexEn
 export function summarizeIndexSlug(kind: IndexKind, slug: string): IndexEntitySummary | undefined {
   const entry = getIndexEntry(kind, slug);
   if (!entry) return undefined;
-  return summarizeIndexEntry(entry, kind);
+  return summarizeIndexEntry(entry, kind, { withGames: true });
 }
 
 /** Texto unificado para cabeceras de listado. */
