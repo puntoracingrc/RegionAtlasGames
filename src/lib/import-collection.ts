@@ -92,7 +92,13 @@ const PC_CONSOLE_TO_SLUG: Record<string, string> = {
   "pal playstation 4": "ps4",
   ps4: "ps4",
   "playstation 5": "ps5",
+  "pal playstation 5": "ps5",
+  playstation5: "ps5",
   ps5: "ps5",
+  "jp playstation 4": "ps4",
+  "japanese playstation 4": "ps4",
+  "xbox 360": "xbox360",
+  "pal xbox 360": "xbox360",
   "neo geo": "neogeo",
   "neo geo aes": "neogeo",
   "neo geo cd": "neogeocd",
@@ -115,7 +121,7 @@ const COLUMN_ALIASES: Record<string, string[]> = {
   platform: ["plataforma", "platform", "consola", "sistema", "console name", "console", "system"],
   region: ["region", "country"],
   sealed: ["precintado", "sealed", "nuevo", "new sealed"],
-  condition: ["condition", "condicion", "item condition", "includes"],
+  condition: ["condition", "condicion", "item condition", "includes", "include string", "condition string"],
   quantity: ["cantidad", "quantity", "qty", "unidades", "count"],
   quantityPc: ["cantidad pc verificada", "cantidad pc"],
   buyPrice: [
@@ -126,9 +132,19 @@ const COLUMN_ALIASES: Record<string, string[]> = {
     "paid",
     "cost",
     "purchase price",
+    "cost basis in pennies",
+    "cost-basis-in-pennies",
   ],
   previousSalePrice: ["precio venta anterior", "previous sale"],
-  recommendedPrice: ["precio venta recomendado", "precio venta", "venta", "value", "your price"],
+  recommendedPrice: [
+    "precio venta recomendado",
+    "precio venta",
+    "venta",
+    "value",
+    "your price",
+    "price in pennies",
+    "price-in-pennies",
+  ],
   loosePrice: ["loose price", "loose-price"],
   cibPrice: ["cib price", "cib-price", "complete price"],
   newPrice: ["new price", "new-price", "sealed price"],
@@ -156,6 +172,27 @@ export type ImportStats = {
 
 const retroSlugs = new Set(platforms.map((p) => p.slug));
 
+/** Slugs generados antes de ampliar aliases PriceCharting */
+const LEGACY_PLATFORM_SLUGS: Record<string, string> = {
+  "pal-playstation-5": "ps5",
+  "jp-playstation-4": "ps4",
+  "pal-xbox-360": "xbox360",
+};
+
+export function normalizeImportedPlatformSlug(slug: string): string {
+  return LEGACY_PLATFORM_SLUGS[slug] ?? slug;
+}
+
+export function repairCollectionPlatform(item: CollectionItem): CollectionItem {
+  const platformSlug = normalizeImportedPlatformSlug(item.platformSlug);
+  if (platformSlug === item.platformSlug) return item;
+  return {
+    ...item,
+    platformSlug,
+    inRetroCatalog: retroSlugs.has(platformSlug),
+  };
+}
+
 function normalizeHeader(value: unknown): string {
   return String(value ?? "")
     .replace(/^\uFEFF/, "")
@@ -176,25 +213,28 @@ function clean(value: unknown): string | null {
   return v;
 }
 
-function num(value: unknown): number | null {
+function num(value: unknown, options?: { pennies?: boolean }): number | null {
   const v = clean(value);
   if (v == null) return null;
   const normalized = v.replace(/[€$£\s]/g, "").replace(",", ".");
   const n = Number(normalized);
   if (!Number.isFinite(n)) return null;
-  // PriceCharting API usa céntimos; export CSV suele ir en dólares/euros
-  const asMoney = n > 10_000 ? n / 100 : n;
-  return Math.round(asMoney * 100) / 100;
+  if (options?.pennies || n > 10_000) {
+    return Math.round((n / 100) * 100) / 100;
+  }
+  return Math.round(n * 100) / 100;
 }
 
 function platformSlug(raw: string | null): string | null {
   if (!raw) return null;
   const normalized = normalizeHeader(raw);
-  if (PC_CONSOLE_TO_SLUG[normalized]) return PC_CONSOLE_TO_SLUG[normalized];
+  if (PC_CONSOLE_TO_SLUG[normalized]) {
+    return normalizeImportedPlatformSlug(PC_CONSOLE_TO_SLUG[normalized]);
+  }
   const key = raw.trim().toUpperCase();
-  if (EXCEL_TO_SLUG[key]) return EXCEL_TO_SLUG[key];
+  if (EXCEL_TO_SLUG[key]) return normalizeImportedPlatformSlug(EXCEL_TO_SLUG[key]);
   const slug = slugify(raw);
-  return slug || null;
+  return slug ? normalizeImportedPlatformSlug(slug) : null;
 }
 
 function columnMatchScore(header: string, alias: string): number {
@@ -356,34 +396,60 @@ function priceFromCondition(
   row: unknown[],
   cols: Record<string, number>,
   condition: string | null,
+  priceOpts?: { pennies?: boolean },
 ): number | null {
   const c = (condition ?? "").toLowerCase();
   if (c.includes("new") || c.includes("sealed") || c.includes("precint")) {
-    return num(cell(row, cols.newPrice)) ?? num(cell(row, cols.recommendedPrice));
+    return (
+      num(cell(row, cols.newPrice), priceOpts) ?? num(cell(row, cols.recommendedPrice), priceOpts)
+    );
   }
   if (c.includes("cib") || c.includes("complete") || c.includes("box")) {
-    return num(cell(row, cols.cibPrice)) ?? num(cell(row, cols.recommendedPrice));
+    return (
+      num(cell(row, cols.cibPrice), priceOpts) ?? num(cell(row, cols.recommendedPrice), priceOpts)
+    );
   }
   return (
-    num(cell(row, cols.loosePrice)) ??
-    num(cell(row, cols.recommendedPrice)) ??
-    num(cell(row, cols.cibPrice)) ??
-    num(cell(row, cols.newPrice))
+    num(cell(row, cols.loosePrice), priceOpts) ??
+    num(cell(row, cols.recommendedPrice), priceOpts) ??
+    num(cell(row, cols.cibPrice), priceOpts) ??
+    num(cell(row, cols.newPrice), priceOpts)
   );
 }
 
-function marketFields(row: unknown[], cols: Record<string, number>, condition: string | null) {
-  const recommendedPrice = priceFromCondition(row, cols, condition);
+function headerUsesPennies(headers: string[], colIndex: number | undefined): boolean {
+  if (colIndex === undefined) return false;
+  return normalizeHeader(headers[colIndex] ?? "").includes("penn");
+}
+
+function marketFields(
+  row: unknown[],
+  cols: Record<string, number>,
+  condition: string | null,
+  headers: string[],
+) {
+  const priceOpts = {
+    pennies:
+      headerUsesPennies(headers, cols.recommendedPrice) ||
+      headerUsesPennies(headers, cols.loosePrice) ||
+      headerUsesPennies(headers, cols.cibPrice) ||
+      headerUsesPennies(headers, cols.newPrice),
+  };
+  const buyOpts = {
+    pennies: headerUsesPennies(headers, cols.buyPrice) || priceOpts.pennies,
+  };
+  const recommendedPrice = priceFromCondition(row, cols, condition, priceOpts);
   const priceSource = clean(cell(row, cols.priceSource));
   return {
-    marketMin: num(cell(row, cols.marketMin)),
-    marketMax: num(cell(row, cols.marketMax)),
+    marketMin: num(cell(row, cols.marketMin), priceOpts),
+    marketMax: num(cell(row, cols.marketMax), priceOpts),
     recommendedPrice,
+    buyPriceFromImport: num(cell(row, cols.buyPrice), buyOpts),
     pcRefPrice:
-      num(cell(row, cols.pcRefPrice)) ??
-      num(cell(row, cols.loosePrice)) ??
-      num(cell(row, cols.cibPrice)) ??
-      num(cell(row, cols.newPrice)),
+      num(cell(row, cols.pcRefPrice), priceOpts) ??
+      num(cell(row, cols.loosePrice), priceOpts) ??
+      num(cell(row, cols.cibPrice), priceOpts) ??
+      num(cell(row, cols.newPrice), priceOpts),
     deltaEsVsPc: num(cell(row, cols.deltaEsVsPc)),
     priceSource: priceSource ?? (recommendedPrice != null ? "PriceCharting" : null),
     updatedAt: clean(cell(row, cols.updatedAt)),
@@ -462,7 +528,7 @@ export function importRowsToCollection(rows: unknown[][]): {
     const itemId = count === 0 ? base : `${base}-${count + 1}`;
 
     const qty = Math.max(1, Math.floor(num(cell(row, cols.quantity)) ?? 1));
-    const market = marketFields(row, cols, condition);
+    const market = marketFields(row, cols, condition, headers);
     const rec = market.recommendedPrice;
 
     if (catalogMatched) stats.matchedCatalog += 1;
@@ -479,11 +545,19 @@ export function importRowsToCollection(rows: unknown[][]): {
       sealed: inferSealed(condition, clean(cell(row, cols.sealed))),
       quantity: qty,
       quantityPc: num(cell(row, cols.quantityPc)),
-      buyPrice: num(cell(row, cols.buyPrice)),
+      buyPrice: market.buyPriceFromImport,
       previousSalePrice: num(cell(row, cols.previousSalePrice)),
       totalValue: rec != null ? Math.round(rec * qty * 100) / 100 : null,
       notes: clean(cell(row, cols.notes)),
-      ...market,
+      marketMin: market.marketMin,
+      marketMax: market.marketMax,
+      recommendedPrice: market.recommendedPrice,
+      pcRefPrice: market.pcRefPrice,
+      deltaEsVsPc: market.deltaEsVsPc,
+      priceSource: market.priceSource,
+      updatedAt: market.updatedAt,
+      hasEsPrice: market.hasEsPrice,
+      priceRegionVerified: market.priceRegionVerified,
     });
     stats.imported += 1;
   }
@@ -502,4 +576,8 @@ export function importSpreadsheet(buffer: Buffer, filename: string) {
 
 export function pendingCatalogItems(items: CollectionItem[]): CollectionItem[] {
   return items.filter((item) => item.inRetroCatalog && !item.catalogMatched);
+}
+
+export function outOfScopeCollectionItems(items: CollectionItem[]): CollectionItem[] {
+  return items.filter((item) => !item.inRetroCatalog);
 }

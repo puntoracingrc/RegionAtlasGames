@@ -4,6 +4,7 @@ import { get, put } from "@vercel/blob";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { ensureAppDataDir } from "./app-data-dir";
 import type { CollectionItem } from "./types";
+import { repairCollectionPlatform } from "./import-collection";
 
 export type UserCollectionFile = {
   userId: string;
@@ -39,7 +40,10 @@ function parseCollection(raw: string, userId: string): UserCollectionFile {
     if (!parsed || parsed.userId !== userId || !Array.isArray(parsed.items)) {
       return emptyCollection(userId);
     }
-    return parsed;
+    return {
+      ...parsed,
+      items: parsed.items.map(repairCollectionPlatform),
+    };
   } catch {
     return emptyCollection(userId);
   }

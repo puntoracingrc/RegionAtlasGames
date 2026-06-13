@@ -95,8 +95,10 @@ export function CollectionImport({ hasItems, canViewCollectionValue }: Props) {
           Importados {result.stats.imported} juegos · {result.stats.matchedCatalog} enlazados al
           catálogo
           {result.stats.unmatched > 0 &&
-            ` · ${result.stats.unmatched} pendientes de ficha (ver lista abajo)`}
+            ` · ${result.stats.unmatched} pendientes de ficha (retro)`}
           .
+          {result.summary.outOfScopeItems > 0 &&
+            ` ${result.summary.outOfScopeItems} en PS5 u otras plataformas fuera del catálogo.`}
           {canViewCollectionValue && (
             <>
               {" "}
