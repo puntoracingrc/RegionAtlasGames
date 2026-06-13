@@ -1,9 +1,10 @@
-import { CollectionGameCard } from "@/components/game-card";
+import { CollectionGapGameCard } from "@/components/collection-gap-game-card";
 import {
   groupCollectionByPlatform,
   MANUFACTURER_PANEL_STYLE,
   type CollectionPlatformGroup,
 } from "@/lib/collection-platform-groups";
+import { countLinkableGapItems } from "@/lib/collection-gap";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import type { CollectionView } from "@/lib/types";
 import { Panel, PanelTitle } from "@/components/ui";
@@ -22,13 +23,13 @@ const COPY: Record<
   pending: {
     title: (count) => `Pendientes de catálogo (${count})`,
     description:
-      "Estos juegos están en plataformas retro que indexamos, pero aún no tienen ficha en Region Atlas. Los guardamos aquí para no olvidarte de incluirlos.",
+      "Plataformas retro que indexamos pero estos títulos aún no tienen ficha. Cuando la haya, pulsa + para enlazarlos al catálogo.",
     panelClass: "border-amber-400/25 bg-amber-500/5",
   },
   outOfScope: {
     title: (count) => `Plataformas sin catálogo oficial (${count})`,
     description:
-      "PS5 y otras plataformas que aún no indexamos. Tus juegos siguen aquí, agrupados por consola, hasta que tengan ficha en Region Atlas.",
+      "PS5 y otras plataformas que aún no indexamos del todo. Cuando activemos la plataforma y haya ficha, verás un + para enlazarla al catálogo y sacarla de esta lista.",
     panelClass: "border-blue-400/20 bg-blue-500/5",
   },
 };
@@ -36,6 +37,7 @@ const COPY: Record<
 function PlatformSection({ group }: { group: CollectionPlatformGroup }) {
   const style = MANUFACTURER_PANEL_STYLE[group.manufacturer];
   const sectionId = group.slug === "ps5" ? "ps5" : undefined;
+  const linkable = countLinkableGapItems(group.items);
 
   return (
     <section
@@ -46,9 +48,13 @@ function PlatformSection({ group }: { group: CollectionPlatformGroup }) {
         <div>
           <p className="text-xs uppercase tracking-wider text-muted">{group.manufacturer}</p>
           <h3 className="text-lg font-bold text-foreground">{group.shortName}</h3>
-          {group.slug === "ps5" && (
+          {linkable > 0 ? (
+            <p className="mt-0.5 text-xs text-accent/90">
+              {linkable} {linkable === 1 ? "ficha disponible" : "fichas disponibles"} · pulsa +
+            </p>
+          ) : group.slug === "ps5" ? (
             <p className="mt-0.5 text-xs text-muted">Sin ficha en catálogo · solo en tu colección</p>
-          )}
+          ) : null}
         </div>
         <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs font-medium text-muted">
           {group.items.length} {group.items.length === 1 ? "juego" : "juegos"}
@@ -58,7 +64,7 @@ function PlatformSection({ group }: { group: CollectionPlatformGroup }) {
 
       <div className={`p-3 md:p-4 ${CATALOG_GRID_CLASS}`}>
         {group.items.map((item) => (
-          <CollectionGameCard key={item.id} game={item} />
+          <CollectionGapGameCard key={item.id} game={item} />
         ))}
       </div>
     </section>

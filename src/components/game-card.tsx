@@ -1,9 +1,10 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { CoverArt } from "@/components/cover-art";
 import { RegionFlag } from "@/components/region-flag";
 import type { CatalogGame, CollectionView } from "@/lib/types";
 import { formatEur, getPlatform } from "@/lib/catalog";
-import { countCollectionByPlatform, getCollectionPlatformShortName } from "@/lib/collection-platform-groups";
+import { getCollectionPlatformShortName } from "@/lib/collection-platform-groups";
 import { catalogGamePath } from "@/lib/catalog-url";
 import {
   grailLabel,
@@ -78,7 +79,13 @@ export function CatalogGameCard({
   );
 }
 
-export function CollectionGameCard({ game }: { game: CollectionView }) {
+export function CollectionGameCard({
+  game,
+  overlayAction,
+}: {
+  game: CollectionView;
+  overlayAction?: ReactNode;
+}) {
   const platformLabel = getCollectionPlatformShortName(game.platformSlug);
   const href = game.catalogId ? catalogGamePath(game.catalogId) : `/coleccion/${game.id}`;
   const { grail, topSegment } = gameHighlights(game);
@@ -87,8 +94,8 @@ export function CollectionGameCard({ game }: { game: CollectionView }) {
       ? formatEur(game.recommendedPrice)
       : formatEsPriceForCard(game, formatEur);
 
-  return (
-    <Link href={href} className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment))}>
+  const body = (
+    <>
       <CoverSlot
         image={getCoverSrc(game.coverUrl, game.catalogId ?? game.id)}
         title={decodeHtmlEntities(game.title)}
@@ -104,14 +111,29 @@ export function CollectionGameCard({ game }: { game: CollectionView }) {
         platform={platformLabel}
         price={priceLabel}
         priceVerified={game.priceRegionVerified === true}
-        priceUnverified={
-          game.hasEsPrice && game.priceRegionVerified !== true
-        }
+        priceUnverified={game.hasEsPrice && game.priceRegionVerified !== true}
         importPrice={!game.hasEsPrice && game.recommendedPrice != null}
         quantity={game.quantity}
         grail={grail}
         topSegment={topSegment}
       />
+    </>
+  );
+
+  if (overlayAction) {
+    return (
+      <div className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment), "relative")}>
+        <Link href={href} className="flex flex-1 flex-col">
+          {body}
+        </Link>
+        {overlayAction}
+      </div>
+    );
+  }
+
+  return (
+    <Link href={href} className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment))}>
+      {body}
     </Link>
   );
 }

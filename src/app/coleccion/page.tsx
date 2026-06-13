@@ -16,6 +16,7 @@ import {
   summarizeCollectionForPlan,
 } from "@/lib/collection-store";
 import { outOfScopeCollectionItems, pendingCatalogItems } from "@/lib/import-collection";
+import { enrichCollectionGapItem } from "@/lib/collection-gap";
 import { countCollectionByPlatform } from "@/lib/collection-platform-groups";
 import { enrichCollectionItem } from "@/lib/catalog";
 import { canViewCollectionValue } from "@/lib/plans";
@@ -54,8 +55,8 @@ export default async function CollectionPage() {
   const file = await readUserCollection(user.id);
   const items = await getUserCollectionViews(user.id);
   const linkedItems = filterMainCollectionExplorerItems(items);
-  const pendingItems = pendingCatalogItems(file.items).map(enrichCollectionItem);
-  const outOfScopeItems = outOfScopeCollectionItems(file.items).map(enrichCollectionItem);
+  const pendingItems = pendingCatalogItems(file.items).map(enrichCollectionGapItem);
+  const outOfScopeItems = outOfScopeCollectionItems(file.items).map(enrichCollectionGapItem);
   const summary = summarizeCollectionForPlan(file.items, user.plan);
   const platformCounts = countCollectionByPlatform(file.items);
   const ps5Count = platformCounts.ps5;

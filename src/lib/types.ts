@@ -270,6 +270,8 @@ export type CollectionView = CollectionItem & {
   coverUrl: string | null;
   titlePc: string | null;
   pcId: number | null;
+  /** Ficha de catálogo detectada pero aún no enlazada por el usuario */
+  availableCatalogId?: string | null;
 };
 
 export type GameFilters = {

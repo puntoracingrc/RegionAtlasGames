@@ -4,6 +4,7 @@ import type { UserPlan } from "./marketplace-types";
 import { canViewCollectionValue } from "./plans";
 import { slugify } from "./slug";
 import { loadUserCollection, saveUserCollectionFile, type UserCollectionFile } from "./collection-storage";
+import { findAvailableCatalogLink } from "./import-collection";
 
 export type { UserCollectionFile } from "./collection-storage";
 
@@ -225,4 +226,68 @@ export async function removeCatalogGameFromCollection(
   }
   await writeUserCollection(file);
   return { removed: before - file.items.length };
+}
+
+export async function linkCollectionItemToCatalog(
+  userId: string,
+  collectionItemId: string,
+): Promise<{ item: CollectionItem } | { error: string }> {
+  const file = await readUserCollection(userId);
+  const index = file.items.findIndex((i) => i.id === collectionItemId);
+  if (index < 0) {
+    return { error: "Juego no encontrado en tu colección." };
+  }
+
+  const current = file.items[index];
+  if (current.catalogMatched && current.catalogId) {
+    return { error: "Este juego ya está enlazado al catálogo." };
+  }
+
+  const match = findAvailableCatalogLink(current);
+  if (!match) {
+    return { error: "Este juego aún no tiene ficha disponible en el catálogo." };
+  }
+
+  const duplicateIndex = file.items.findIndex(
+    (item, itemIndex) => itemIndex !== index && item.catalogId === match.id,
+  );
+
+  if (duplicateIndex >= 0) {
+    const existing = file.items[duplicateIndex];
+    existing.quantity += current.quantity;
+    if (current.buyPrice != null) {
+      existing.buyPrice = (existing.buyPrice ?? 0) + current.buyPrice;
+    }
+    file.items.splice(index, 1);
+    await writeUserCollection(file);
+    return { item: existing };
+  }
+
+  const others = file.items.filter((_, itemIndex) => itemIndex !== index);
+  const fromCatalog = catalogGameToCollectionItem(match, others);
+  const recommendedPrice = current.recommendedPrice ?? fromCatalog.recommendedPrice;
+  const totalValue =
+    current.totalValue ??
+    (recommendedPrice != null
+      ? Math.round(recommendedPrice * current.quantity * 100) / 100
+      : null);
+
+  file.items[index] = {
+    ...fromCatalog,
+    id: current.id,
+    quantity: current.quantity,
+    buyPrice: current.buyPrice ?? fromCatalog.buyPrice,
+    previousSalePrice: current.previousSalePrice ?? fromCatalog.previousSalePrice,
+    notes: current.notes ?? fromCatalog.notes,
+    sealed: current.sealed,
+    quantityPc: current.quantityPc ?? fromCatalog.quantityPc,
+    recommendedPrice,
+    totalValue,
+    hasEsPrice: fromCatalog.hasEsPrice || current.hasEsPrice,
+    priceSource: current.priceSource ?? fromCatalog.priceSource,
+    pcRefPrice: current.pcRefPrice ?? fromCatalog.pcRefPrice,
+  };
+
+  await writeUserCollection(file);
+  return { item: file.items[index] };
 }

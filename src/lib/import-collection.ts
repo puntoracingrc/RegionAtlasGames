@@ -371,6 +371,21 @@ function findCatalogMatch(
   return candidates[0] ?? null;
 }
 
+export function isPlatformCatalogActive(platformSlug: string): boolean {
+  const slug = normalizeImportedPlatformSlug(platformSlug);
+  return retroSlugs.has(slug);
+}
+
+/** Si la plataforma ya está activa en RA y existe ficha, devuelve el juego del catálogo. */
+export function findAvailableCatalogLink(item: CollectionItem): CatalogGame | null {
+  if (item.catalogMatched && item.catalogId) return null;
+
+  const platform = normalizeImportedPlatformSlug(item.platformSlug);
+  if (!isPlatformCatalogActive(platform)) return null;
+
+  return findCatalogMatch(platform, item.title, item.title, null, item.region);
+}
+
 function inferRegion(raw: string | null, platform: string): string {
   if (raw) return raw;
   return retroSlugs.has(platform) ? "PAL España" : "—";
