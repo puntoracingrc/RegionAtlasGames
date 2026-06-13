@@ -9,8 +9,9 @@ Almacenamiento en disco externo (`PAL_ES_RETRO_ROOT`, por defecto):
     wikidata/        — caché Wikidata
     serialstation/   — caché SerialStation
     descriptions/    — caché IA descripciones
-    cache/.next/     — caché Next.js (dev/build)
     logs/            — logs de pipelines
+
+Nota: .next NO va al externo (Turbopack rompe rutas a node_modules).
 
 Configurar una vez:
   npm run storage:setup

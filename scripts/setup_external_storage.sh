@@ -67,22 +67,8 @@ else
   echo "  ✓ public/covers → $(readlink "$PROJECT/public/covers")"
 fi
 
-# Caché Next.js (dev/build) — el mayor ahorro en SSD interno
-if [[ -d "$PROJECT/.next" && ! -L "$PROJECT/.next" ]]; then
-  echo "  → Moviendo .next a disco externo (puede tardar)…"
-  mkdir -p "$ROOT/cache"
-  if [[ -d "$ROOT/cache/.next" ]]; then
-    rm -rf "$ROOT/cache/.next"
-  fi
-  mv "$PROJECT/.next" "$ROOT/cache/.next"
-fi
-if [[ ! -e "$PROJECT/.next" ]]; then
-  mkdir -p "$ROOT/cache"
-  ln -sf "$ROOT/cache/.next" "$PROJECT/.next"
-  echo "  ✓ .next → $ROOT/cache/.next"
-elif [[ -L "$PROJECT/.next" ]]; then
-  echo "  ✓ .next → $(readlink "$PROJECT/.next")"
-fi
+# .next NO va al externo: Turbopack resuelve mal rutas a node_modules desde otro volumen.
+echo "  · .next se mantiene en el repo (gitignored); no mover al externo"
 
 # Logs de pipelines fuera de /tmp
 mkdir -p "$ROOT/logs"
