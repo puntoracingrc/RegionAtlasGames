@@ -5,7 +5,7 @@ import { getListing, updateListing } from "@/lib/listings";
 import {
   normalizeListingPhoto,
   validateListingPhoto,
-} from "@/lib/listing-photos";
+} from "@/lib/listing-photo-sharp";
 import type { ListingPhotoSlot } from "@/lib/marketplace-types";
 import { PHOTO_SLOT_LABELS, REQUIRED_PHOTO_SLOTS } from "@/lib/marketplace-types";
 import { canUseMarketplace } from "@/lib/plans";
