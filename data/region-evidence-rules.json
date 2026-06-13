@@ -37,6 +37,21 @@
       "minEvidenceCount": 1,
       "forbiddenEvidence": ["cover_spain", "cover_usa", "cover_pal_eu"],
       "summary": "Carátula japonesa o código regional JPN."
+    },
+    "australia": {
+      "requiredAnyOf": ["cover_pal_eu", "sku_regional", "listing_title_region"],
+      "minEvidenceCount": 1,
+      "summary": "Edición australiana o región explícita en anuncio."
+    },
+    "pal uk/eng": {
+      "requiredAnyOf": ["cover_pal_eu", "sku_regional", "listing_title_region"],
+      "minEvidenceCount": 1,
+      "summary": "Edición PAL UK o región explícita en anuncio."
+    },
+    "pal alemania": {
+      "requiredAnyOf": ["cover_pal_eu", "sku_regional", "listing_title_region"],
+      "minEvidenceCount": 1,
+      "summary": "Edición PAL alemana o región explícita en anuncio."
     }
   },
   "platforms": {
@@ -163,7 +178,16 @@
       }
     }
   },
+  "retailSources": {
+    "cex": {
+      "requiredAnyOf": ["retail_trusted_es", "sku_regional"],
+      "minEvidenceCount": 1,
+      "minAiConfidence": 0.85,
+      "summary": "CeX ES: tienda retail verificada (sin foto de cubierta)."
+    }
+  },
   "evidenceLabels": {
+    "retail_trusted_es": "Tienda retail CeX España (origen ES)",
     "cover_spain": "Carátula española visible",
     "cover_pal_eu": "Carátula PAL europea",
     "cover_usa": "Carátula NTSC-USA",

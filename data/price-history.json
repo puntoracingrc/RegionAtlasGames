@@ -1,0 +1,5021 @@
+{
+  "version": 1,
+  "games": {
+    "dreamcast-pal-18-wheeler-american-pro-trucker": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-21-two-one": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 29.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-aero-dancing-f-todoroki-tsubasa-no-hatsu-hikou": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 50.0
+      }
+    ],
+    "dreamcast-japon-aero-dancing-featuring-blue-impulse": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-airforce-delta": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 18.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-alone-dark-new-nightmare": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-animastar": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 40.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-aqua-gt": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 78.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-army-men-sarges-heroes": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-baldr-force-exe": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 95.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-bangai-o": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 35.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-biohazard-code-veronica": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 30.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-black-matrix-ad": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-blue-stinger": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 9.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-blue-stinger": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 14.95,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-blue-sky-blue-aki-o-mau-tsubasa": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-buggy-heat": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-bust-move-4": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-buzz-lightyear-star-command": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-candy-stripe-minarai-tenshi": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 5.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-cannon-spike": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 360.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-capcom-vs-snk-2-millionaire-fighting-2001": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 54.98,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-capcom-vs-snk-millennium-fight-2000-pro": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 59.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-carrier": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 82.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-championship-surfer": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-charge-n-blast": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-chicken-run": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-chu-chu-rocket": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 4.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-chu-chu-rocket": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 35.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-climax-landers": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 20.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-coaster-works": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-confidential-mission": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-conflict-zone": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 32.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-cool-boarders-burrrn": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 11.95,
+        "complete": 8.0,
+        "sealed": 100.0
+      }
+    ],
+    "dreamcast-japon-crazy-taxi": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-crazy-taxi-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 59.95,
+        "complete": 40.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-d-no-shokutaku-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-dance-dance-revolution-club-version": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-dave-mirra-freestyle-bmx": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-daytona-usa-2001": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 55.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-dead-or-alive-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 30.0,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-dead-or-alive-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-deadly-skies": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-deep-fighter": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-usa-demolition-racer-no-exit": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-dino-crisis": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 69.95,
+        "complete": 55.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-donald-duck-quack-attack": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 45.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-dousoukai-2-again-refrain": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 10.0
+      }
+    ],
+    "dreamcast-dragon-riders-chronicles-pern": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 155.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-dragons-blood": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-ducati-world": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-dynamite-cop": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 68.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-ecw-anarchy-rulz": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-ecw-hardcore-revolution": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 16.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-eldorado-gate-volume-1": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-eternal-arcadia": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 35.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-european-super-league": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-evil-dead-hail-king": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 32.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-evolution-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-exhibition-speed": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-exodus-guilty-neos": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 120.0
+      }
+    ],
+    "dreamcast-pal-f1-world-grand-prix": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-f1-world-grand-prix-ii": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-f355-challenge-passion-rossa": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-f355-challenge-passione-rossa": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-fighting-force-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 14.95,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-fighting-vipers-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 55.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-fighting-vipers-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 79.95,
+        "sealed": null
+      }
+    ],
+    "dreamcast-freestyle-scooter": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 88.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-fur-fighters": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 34.95,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-ganbare-nippon-olympics-2000": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 18.0
+      }
+    ],
+    "dreamcast-japon-garou-mark-wolves": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 90.0,
+        "complete": 50.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-gauntlet-legends": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 48.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-get-bass-sega-bass-fishing": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-giant-killers": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-giga-wing": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 58.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-godzilla-generations": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 120.0
+      }
+    ],
+    "dreamcast-japon-golf-shiyouyo-kouryaku-pack": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-grand-theft-auto-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 32.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-grandia-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-grinch": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 55.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-gunbird-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 50.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-gunbird-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 150.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-gundam-battle-online": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 45.0
+      }
+    ],
+    "dreamcast-headhunter": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-heavy-metal-geomatrix": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 70.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-himitsu-tadagaita-natsu": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-house-dead-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 39.95,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-house-dead-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 21.25,
+        "complete": 18.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-hydro-thunder": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-idol-janshi-o-tsukucchaou": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-ikaruga": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 100.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-incoming": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-iron-aces": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-jet-coaster-dream": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-jet-set-radio": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 32.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-jinsei-game-dreamcast": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-kao-kangaroo": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-kidou-senkan-nadesico-nadesico-mission": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-kidou-senshi-gundam-renpou-vs-zeon-dx": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 110.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-king-fighters-2000": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 74.98,
+        "complete": 40.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-king-fighters-2001": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 40.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-king-fighters-2002": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 90.0,
+        "complete": 45.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-king-fighters-99-dream-match": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 30.0,
+        "complete": 30.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-king-fighters-99-evolution": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 44.98,
+        "complete": 30.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-konohana-2-todoke-kanai-requiem": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 75.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-le-mans-24-hours": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-legacy-kain-soul-reaver": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": 250.0
+      }
+    ],
+    "dreamcast-japon-lets-make-j-league-pro-soccer-club": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 5.95,
+        "complete": null,
+        "sealed": 15.0
+      }
+    ],
+    "dreamcast-pal-looney-tunes-space-race": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 28.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-magforce-racing": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-maken-x": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 70.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-mdk-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-meipuru": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 25.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-memories-2nd": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 40.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-memories-complete": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-metal-wolf": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 40.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-mizuiro": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 25.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-monaco-grand-prix-racing-simulation-2-online": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 32.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-mortal-kombat-gold": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 42.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-motto-pro-yakyu-team-wo-tsukurou": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-mr-driller": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-msr-metropolis-street-racer": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 19.95,
+        "complete": null,
+        "sealed": 35.95
+      }
+    ],
+    "dreamcast-japon-my-merry-maybe": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 60.0
+      }
+    ],
+    "dreamcast-nba-2k": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 20.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-nba-2k": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-nba-2k2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-nba-hoopz": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-neppachi-iii": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 5.0
+      }
+    ],
+    "dreamcast-japon-net-versus-chess": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 15.0
+      }
+    ],
+    "dreamcast-japon-never-7-end-infinity": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 35.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-next-tetris": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-nfl-blitz-2000": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-nfl-quarterback-club-2000": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-nhl-2k": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-nightmare-creatures-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 48.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-nobunaga-no-yabou-reppuuden": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-nomad-soul": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-otoire-dreamcast-sequencer": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-omoide-ni-kawaru-kimi-memories": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 20.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-outtrigger": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-phantasy-star-online": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 35.0,
+        "complete": 39.95,
+        "sealed": null
+      }
+    ],
+    "dreamcast-phantasy-star-online-ver2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 24.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-phantasy-star-online-ver2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 32.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-pia-carrot-e-youkoso-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-planet-ring": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 19.95,
+        "complete": 4.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-power-stone": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 99.95,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-power-stone-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 149.95,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-power-stone-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 45.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pro-pinball-trilogy": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-pro-yakyuu-team-o-tsukurou": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 5.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-project-justice-rival-schools-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 145.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-psychic-force-2012": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-psychic-force-2012": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-puyo-puyo-4": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 30.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-quake-iii-arena": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 24.95,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-railroad-tycoon-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-rainbow-cotton": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 350.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-rainbow-six-tom-clancys-rogue-spear": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 5.95,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-ready-2-rumble-boxing": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 19.95,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-ready-2-rumble-boxing-round-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 24.95,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-record-lodoss-war": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 28.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-red-dog-superior-firepower": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-rent-hero-no1": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": 200.0
+      }
+    ],
+    "dreamcast-pal-resident-evil-code-veronica": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-rez": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 100.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-roadsters": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-samba-de-amigo": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 92.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-samba-de-amigo": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 149.95,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-san-francisco-rush-2049": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-usa-seaman": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 150.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-seaman": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 20.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-sega-bass-fishing": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-sega-extreme-sports": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 19.95,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-sega-extreme-sports": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-usa-sega-marine-fishing": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 35.0
+      }
+    ],
+    "dreamcast-japon-sega-rally-2-sega-rally-championship": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 14.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-sega-tetris": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 30.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-sega-worldwide-soccer-2000": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 19.95,
+        "complete": 4.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-sega-worldwide-soccer-2000-euro-edition": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-seventh-cross-evolution": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 70.0
+      }
+    ],
+    "dreamcast-shadowman": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-shanghai-dynasty": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-shenmue": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 35.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-shenmue-ii": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 89.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-shenmue-ii": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 40.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-shutokou-battle": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 25.0,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-silent-scope": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 80.0
+      }
+    ],
+    "dreamcast-pal-silent-scope": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-silver": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-skies-arcadia": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 82.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-slave-zero": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-snow-surfers": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-sonic-adventure": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-sonic-adventure": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 37.48,
+        "complete": 100.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-sonic-adventure-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 88.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-sonic-shuffle": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 110.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-sonic-shuffle": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 35.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-sorcerian-shichisei-mahou-no-shito": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-soul-calibur": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 45.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-soul-calibur": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 11.95,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-soul-fighter": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-south-park-rally": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-south-park-chefs-luv-shack": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-space-channel-5": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": null,
+        "sealed": 59.95
+      }
+    ],
+    "dreamcast-pal-space-channel-5": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 32.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-spawn-demons-hand": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 50.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-spec-ops-2-omega-squad": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-speed-devils": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-speed-devils-online": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-spider-man": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 70.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-spirit-speed-1937": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-star-wars-demolition": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 16.95,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-star-wars-episode-1-jedi-power-battles": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-star-wars-episode-1-racer": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-starlancer": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-street-fighter-alpha-3": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 45.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-street-fighter-iii-double-impact": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 45.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-street-fighter-iii-double-impact": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 100.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-street-fighter-iii-third-strike": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 95.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-street-fighter-iii-third-strike": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 74.98,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-street-fighter-zero-3-saikyooryuu-doujou": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 69.95,
+        "complete": 50.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-stunt-gp": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-stupid-invaders": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 42.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-sunrise-eiyuutan": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-super-euro-soccer-2000": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-super-magnetic-neo": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 28.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-super-producers": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-super-runabout-golden-state": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-super-speed-racing": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 15.0,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-surf-rocket-racers": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 48.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-suzuki-alstare-extreme-racing": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-sword-berserk": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 40.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-sydney-2000": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-taisen-net-gimmick-capcom-psikyo-all-stars": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 45.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-tantei-shinshi-dash": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-tech-romancer": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 50.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-tee": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 5.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-time-stalkers": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 40.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-tokyo-highway-challenge": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 29.95,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-tokyo-highway-challenge-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 82.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-tomb-raider-chronicles": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 19.95,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-tomb-raider-last-revelation": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 5.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-tony-hawks-pro-skater-2": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 29.95,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-toy-commander": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-toy-story-2-buzz-lightyear-rescue-disneypixar": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 19.95,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-trickstyle": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-typing-dead": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 70.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-ultimate-fighting-championship": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-ultimate-fighting-championship": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-unreal-tournament": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-urban-chaos": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-v-rally-2-expert-edition": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-vampire-chronicles-matching-service": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 79.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "dreamcast-vanishing-point": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-vigilante-8-2nd-offense": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-virtua-athlete-2k": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 9.95,
+        "complete": null,
+        "sealed": 25.0
+      }
+    ],
+    "dreamcast-japon-virtua-fighter-3tb": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-virtua-striker-2-ver-20001": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 25.0,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-virtua-striker-2-ver-20001": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-wacky-races": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-walt-disney-world-quest-magical-racing-tour": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-wild-metal": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-world-neverland-2-plus": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-worms-armageddon": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-worms-world-party": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-wwf-attitude": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 11.45,
+        "sealed": null
+      }
+    ],
+    "dreamcast-wwf-royal-rumble": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-pal-zombie-revenge": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": null,
+        "complete": 40.0,
+        "sealed": null
+      }
+    ],
+    "dreamcast-japon-zombie-revenge": [
+      {
+        "at": "2026-06-12T23:16:03Z",
+        "loose": 50.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-688-attack-sub": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-ressha-de-ikou-md": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-aaahh-real-monsters": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-addams-family-values": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 32.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-aero-blasters": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 230.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-after-burner-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 50.0,
+        "complete": 39.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-alien-3": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 30.0,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-alien-soldier": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 110.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-alien-storm": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 88.97,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-alisia-dragoon": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 350.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-usa-alisia-dragoon": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 45.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-alisia-dragoon": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 160.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-altered-beast": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 5.0,
+        "complete": 60.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-andre-agassi-tennis": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 7.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-another-world": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 47.15,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-arch-rivals-arcade-game": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 19.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-arcus-odyssey": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 71.58,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-arnold-palmer-tournament-golf": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-arrow-flash": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 250.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-art-alive": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 60.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-art-fighting": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 28.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-assault-suit-leynos": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 130.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-asterix-and-great-rescue": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 17.97,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-atomic-robo-kid": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 170.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-atomic-runner": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 38.71,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-back-future-part-iii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-bahamut-senki": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 50.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-ball-jacks": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 60.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-bare-knuckle-ii-shitou-e-no-chingonka": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 80.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-batman-returns": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 30.97,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-batman-returns": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 300.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-battle-golfer-yui": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 119.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-beast-warriors": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 100.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-bishoujo-senshi-sailor-moon": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 250.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-blades-of-vengeance": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 42.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-blockout": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-bonanza-bros": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 54.14,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-boogie-woogie-bowling": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 110.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-brutal-paws-of-fury": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 6.0,
+        "complete": 24.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-bubba-%27n%27-stix": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 50.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-bubsy-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 6.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-buck-rogers-countdown-to-doomsday": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 24.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-bugs-bunny-in-double-trouble": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 25.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-burning-force": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 130.0,
+        "complete": 59.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-california-games": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 4.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-cannon-fodder": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 8.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-castle-of-illusion": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 10.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-castlevania-the-new-generation": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 72.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-chelnov": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 300.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-chiki-chiki-boys": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 175.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-columns": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-combat-cars": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 59.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-comix-zone": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-cool-spot": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 29.95,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-cosmic-spacehead": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 6.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-crack-down": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 90.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-dangerous-seed": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 220.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-darius-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 100.0,
+        "complete": 60.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-dark-castle": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 28.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-darwin-4081": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 100.0,
+        "complete": 29.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-david-robinson-basketball": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 40.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-david-robinson%27s-supreme-court": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 9.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-decap-attack": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 34.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-dick-tracy": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 140.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-dick-tracy": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 19.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-dj-boy": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 90.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-donald-in-maui-mallard": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 35.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-double-dragon-ii-revenge": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 180.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-dr-robotnik%27s-mean-bean-machine": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 26.48,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-dyna-brothers": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 140.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-dyna-brothers-2": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 120.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-dynamite-duke": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 29.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-dynamite-duke": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 110.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-dynamite-headdy": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 150.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-dynamite-headdy": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 22.97,
+        "complete": 37.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-ea-hockey": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-earthworm-jim-2": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 40.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-ecco-the-dolphin": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 11.95,
+        "complete": 28.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-ecco-dolphin-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 39.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-el-viento": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 420.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-elemental-master": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 250.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-eternal-champions": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.95,
+        "complete": 17.52,
+        "sealed": null
+      }
+    ],
+    "megadrive-european-club-soccer": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.68,
+        "complete": 28.4,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-exo-squad": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 42.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-f-117-night-storm": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 5.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-f-117-stealth-operation-night-storm": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 14.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-faery-tale-adventure": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-fastest-1": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 35.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-fatal-fury": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 34.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-fatal-labyrinth": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 4.0,
+        "complete": 45.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-fatal-rewind": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 8.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-fifa-97": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 5.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-fifa-international-soccer": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 6.59,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-fifa-soccer-95": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 5.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-fifa-soccer-96": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 5.4,
+        "complete": 12.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-fighting-masters": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 100.0,
+        "complete": 35.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-final-blow": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 60.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-fire-mustang": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 220.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-flashback": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 250.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-forgotten-worlds": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 100.0,
+        "complete": 89.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-gain-ground": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 90.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-galaxy-force-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-gambler-jiko-chuushinha-katayama-masayuki-no-mahjong-doujou": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 11.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-garfield-caught-in-the-act": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 25.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-gauntlet-iv": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 115.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-general-chaos": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 7.47,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-generations-lost": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-global-gladiators": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 4.0,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-golden-axe": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 35.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-golden-axe-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 120.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-golden-axe-iii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 275.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-granada": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 120.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-greatest-heavyweights": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-gunstar-heroes": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 150.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-gynoug": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 140.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-gynoug": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 20.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-hard-drivin": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 35.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-hellfire": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 150.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-herzog-zwei": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 80.0,
+        "complete": 59.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-herzog-zwei": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 20.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-home-alone": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-insector-x": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 170.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-international-sensible-soccer": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 22.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-international-superstar-soccer-deluxe": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 15.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-izzys-quest-olympic-rings": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 20.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-jack-nicklaus%27-power-challenge-golf": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 19.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-james-bond-007-duel": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 6.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-jantei-monogatari": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 140.0,
+        "complete": 45.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-jewel-master": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 85.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-jewel-master": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 100.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-joe-montana-football": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 30.0,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-joe-montana-ii-sports-talk-football": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 19.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-joe-montana-ii-sports-talk-football": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 60.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-john-madden-american-football": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 16.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-usa-john-madden-american-football": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-john-madden-football-%2793": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 19.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-john-madden-football-pro-football": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 75.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-jordan-vs-bird-one-one": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 75.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-jurassic-park-rampage-edition": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 8.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-kick-boxing": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 90.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-kid-chameleon": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 130.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-kid-chameleon": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 13.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-king-of-the-monsters": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 28.98,
+        "complete": 55.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-king-monsters": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 130.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-king%27s-bounty": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 160.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-klax": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-krustys-super-fun-house": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-kuuga-operation-code-vapor-trail": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 250.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-lakers-versus-celtics-and-nba-playoffs": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-langrisser": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 80.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-last-battle": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-lawnmower-man": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-legend-galahad": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 10.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-lhx-attack-chopper": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 7.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-light-crusader": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 20.0,
+        "complete": 127.5,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-lost-vikings": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 58.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-lost-world-jurassic-park": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 79.95,
+        "complete": 35.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-lotus-ii-recs": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 11.45,
+        "sealed": null
+      }
+    ],
+    "megadrive-man-overboard": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 35.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-mario-lemieux-hockey": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 7.95,
+        "complete": 9.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-marvel-land": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 47.74,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-master-monsters": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 70.0,
+        "complete": 35.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-master-weapon": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 250.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-mcdonalds-treasure-land-adventure": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 600.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-mega-bomberman": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-mega-games-2": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 65.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-mega-games-3": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 130.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-mega-games-6-vol-2": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-mega-games-6-vol-3": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 28.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-mega-swiv": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-menacer-6-game-cartridge": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-metal-fangs": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 200.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-michael-jacksons-moonwalker": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 280.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-mickey-mania": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 5.0,
+        "complete": 60.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-mickey-minnie-magical-adventure-2": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 160.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-micro-machines": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 8.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-micro-machines-military": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-midnight-resistance": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 220.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-mighty-morphin-power-rangers-the-movie": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.97,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-mortal-kombat-ii-kyuukyoku-shinken": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 350.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-mr-nutz": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-mutant-league-football": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 6.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-mutant-league-football": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 120.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-nba-jam": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 105.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-nba-live-95": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 9.19,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-nba-live-96": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 9.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-nba-live-97": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 5.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-nba-pro-basketball-bulls-vs-lakers": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 40.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-newman-haas-indycar-featuring-nigel-mansell": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 24.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-newzealand-story": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 190.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-nhl-95": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-nhlpa-hockey-%2793": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 7.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-nobunaga-no-yabou-bushou-fuuunroku": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.95,
+        "complete": 19.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-nobunaga-no-yabou-zenkokuban": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 49.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-olympic-gold-barcelona-92": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 16.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-osomatsu-kun-hachamecha-gekijou": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 44.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-outrunners": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 180.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-paperboy": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 29.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-paperboy-2": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pete-sampras-tennis": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 29.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pga-european-tour": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 10.89,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pga-tour-96": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 16.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-pga-tour-golf-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 17.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-phantasy-star-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 75.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-phantasy-star-iii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 45.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-phantasy-star-iii-toki-no-keishousha": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 35.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-phantasy-star-iv": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 145.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-phantom-2040": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 20.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pinocchio": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 25.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-pit-fighter": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 70.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-populous": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-power-athlete": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 90.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-primal-rage": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 9.47,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-prince-persia": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 28.0,
+        "complete": 130.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-puyo-puyo": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 25.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-rambo-iii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 120.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-rastan-saga-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 80.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-rent-hero": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 80.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-revenge-shinobi": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 6.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-rings-power": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-risky-woods": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 10.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-road-rash": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 200.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-road-rash-iii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-roadblasters": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 150.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-robocop-3": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 78.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-robocop-vs-terminator": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 20.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-rock-n-roll-racing": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-rocket-knight-adventures": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 300.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-rocket-knight-adventures": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 20.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-rolling-thunder-2": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 200.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-rolo-rescue": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 5.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-royal-blood": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 130.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-saint-sword": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 120.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-samurai-shodown": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 48.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-samurai-spirits": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 180.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-seaquest-dsv": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 32.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-shadow-beast-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 13.97,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-shaq-fu": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 25.5,
+        "sealed": null
+      }
+    ],
+    "megadrive-shining-force": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 85.0,
+        "complete": 198.3,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-shining-force-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 186.18,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-shining-force-ii-inishie-no-fuuin": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 50.0,
+        "complete": 39.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-shining-in-the-darkness": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 25.0,
+        "complete": 110.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-shining-darkness": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 31.43,
+        "complete": 23.3,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-shura-no-mon": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 50.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-side-pocket": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 19.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-slime-world": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 120.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-snake-rattle-%27n%27-roll": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 15.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-sonic-&amp;-knuckles": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 55.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-sonic-3d": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 22.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-sonic-compilation": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-sonic-spinball": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 80.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-sonic-the-hedgehog": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 6.97,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-sonic-hedgehog-2": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 44.48,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-sonic-hedgehog-3": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 170.0,
+        "complete": 95.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-sonic-hedgehog-spinball": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 39.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-sorcer-kingdom": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 30.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-space-funky-bob": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 1000.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-space-harrier-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 39.95,
+        "complete": 33.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-space-harrier-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 65.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-space-invaders-90": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 100.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-sparkster": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 92.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-splatterhouse-part-2": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 400.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-splatterhouse-part-3": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 400.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-spot-goes-to-hollywood": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 8.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-star-cruiser": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 40.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-star-trek-deep-space-nine-crossroads-of-time": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 92.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-steel-talons": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 75.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-street-fighter-ii-plus-champion-edition": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 80.0,
+        "complete": 39.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-street-racer": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 29.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-streets-rage-3": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 82.0,
+        "complete": 350.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-streets-rage-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 40.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-strider-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 35.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-super-airwolf": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 180.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-super-baseball-2020": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 150.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-super-daisenryaku": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 50.0,
+        "complete": 19.98,
+        "sealed": null
+      }
+    ],
+    "megadrive-super-fantasy-zone": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 32.48,
+        "complete": 95.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-super-fantasy-zone": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 160.0,
+        "complete": 119.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-super-hydlide": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 65.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-super-hydlide": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 8.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-super-kick-off": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 19.95,
+        "complete": 35.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-super-monaco-gp": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 40.0,
+        "complete": 19.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-super-monaco-gp-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 24.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-super-monaco-gp-ii-ayrton-senna": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 30.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-super-monaco-gp-ii-ayrton-sennas": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.9,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-super-real-basketball": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 45.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-super-shinobi-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 280.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-super-shinobi": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 120.0,
+        "complete": 119.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-super-skidmarks": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 24.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-super-smash-tv": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 39.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-super-thunder-blade": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 29.95,
+        "complete": 22.5,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-super-thunder-blade": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 40.0,
+        "complete": 34.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-superman-man-steel": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 59.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-sword-of-sodan": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 6.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-sword-sodan": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 110.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-sword-of-vermilion": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 10.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-sylvester-and-tweety-in-cagey-capers": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 5.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-t2-arcade-game": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.97,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-tatsujin": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 130.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-taz-escape-from-mars": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 10.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-team-usa-basketball": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 18.37,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-teenage-mutant-hero-turtles-hyperstone-heist": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 110.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-teenage-mutant-hero-turtles-tournament-fighters": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 180.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-teenage-mutant-hero-turtles-tournament-fighters": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 75.0,
+        "complete": 35.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-tel-tel-mahjong": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 50.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-aquatic-games-starring-james-pond-and-aquabats": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 18.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-the-addams-family": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 45.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-adventures-mighty-max": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 32.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-the-chaos-engine": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 152.24,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-incredible-hulk": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 32.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-the-lion-king": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-lost-world-jurassic-park": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 58.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-ooze": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 270.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-the-simpsons-bart-vs-the-space-mutants": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 16.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-the-story-of-thor": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 25.0,
+        "complete": 240.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-theme-park": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.97,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-thunder-force-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 85.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-thunder-force-ii-md": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 120.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-thunder-force-iii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 100.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-thunder-force-iv": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 175.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-thunder-fox": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 150.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-thunder-pro-wrestling-retsuden": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 32.1,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-time-dominator-1st": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 400.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-time-killers": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 58.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-tintin-in-tibet": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 82.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-tiny-toon-adventures-acme-all-stars": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-tiny-toons-adventures-busters-hidden-treasure": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 29.95,
+        "complete": 34.9,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-top-pro-golf-2": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 40.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-true-lies": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 129.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-turbo-outrun": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-turbo-outrun": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 100.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-two-tribes-populous-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 6.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-ultimate-mortal-kombat-3": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 42.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-universal-soldier": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 12.0,
+        "complete": 130.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-usa-valis": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 90.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-valis-iii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 150.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-vectorman": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 20.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-vermilion": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 20.0,
+        "complete": 19.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-virtua-fighter-2": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-virtua-racing": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 38.56,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-virtua-racing": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 21.47,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-vixen-357": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 60.0,
+        "complete": 60.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-volfied": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 90.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-vr-troopers": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 10.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-wani-wani-world": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 180.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-usa-wings-wor": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 45.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-wonder-boy-in-monster-world-sega-gold-collection": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 19.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-world-championship-soccer-ii": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 14.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-world-cup-italia-%2790": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 7.95,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-world-cup-soccer": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 8.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-usa-world-cup-usa94-version-kiss": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 29.95,
+        "sealed": null
+      }
+    ],
+    "megadrive-world-of-illusion": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 5.0,
+        "complete": 60.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-wrestle-war": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 90.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-wrestleball": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 60.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-wwf-royal-rumble": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 150.0,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-pal-wwf-super-wrestlemania": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": null,
+        "complete": 6.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-zero-tolerance": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 6.0,
+        "complete": 60.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-zero-wing": [
+      {
+        "at": "2026-06-13T00:20:00Z",
+        "loose": 200.0,
+        "complete": null,
+        "sealed": null
+      }
+    ]
+  }
+}

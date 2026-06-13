@@ -1,0 +1,25 @@
+{
+  "notes": "Peso relativo por categoría de fuente dentro de cada estado (suelto / completo / precintado). Varios anuncios P2P suman peso → dominan cuando hay volumen.",
+  "sourceCategories": {
+    "todocoleccion": "p2p",
+    "ebay": "p2p",
+    "ebay-es": "p2p",
+    "wallapop": "p2p",
+    "vinted": "p2p",
+    "vinted-es": "p2p",
+    "cex": "retail_es",
+    "todoconsolas": "retail_es",
+    "japangameonline": "import_retail",
+    "jgo": "import_retail",
+    "chollogames": "import_retail",
+    "chollo": "import_retail",
+    "kaotostore": "import_retail",
+    "kaoto": "import_retail",
+    "otro": "p2p"
+  },
+  "categoryWeights": {
+    "p2p": 1.0,
+    "retail_es": 0.65,
+    "import_retail": 0.55
+  }
+}

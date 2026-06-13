@@ -1,0 +1,8 @@
+{
+  "batches": {
+    "batch:mini-neo-sega": {
+      "label": "Mini Neo/Sega — 32X, Neo Geo, Neo Geo CD, NG Pocket",
+      "platforms": ["sega32x", "neogeo", "neogeocd", "neogeopocket"]
+    }
+  }
+}
