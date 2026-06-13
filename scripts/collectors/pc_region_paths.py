@@ -28,6 +28,17 @@ PAL_PC_CONSOLE: dict[str, str] = {
     "ps2": "pal-playstation-2",
     "ps3": "pal-playstation-3",
     "ps4": "pal-playstation-4",
+    "ps5": "pal-playstation-5",
+    "xbox360": "xbox-360",
+    "xboxone": "xbox-one",
+    "xboxseriesx": "xbox-series-x",
+    "switch": "pal-nintendo-switch",
+    "switch2": "switch-2",
+    "gameboycolor": "pal-gameboy-color",
+    "psp": "pal-psp",
+    "psvita": "pal-ps-vita",
+    "wiiu": "pal-wii-u",
+    "pcengine": "pc-engine",
 }
 
 # NTSC (Americas) — slug sin prefijo pal-
@@ -54,6 +65,11 @@ NTSC_PC_CONSOLE: dict[str, str] = {
     "ps2": "playstation-2",
     "ps3": "playstation-3",
     "ps4": "playstation-4",
+    "ps5": "playstation-5",
+    "switch": "nintendo-switch",
+    "xbox360": "xbox-360",
+    "xboxone": "xbox-one",
+    "xboxseriesx": "xbox-series-x",
 }
 
 # Japón — consolas jp-* (algunas plataformas no existen en PC → fallback en resolve)
@@ -80,6 +96,7 @@ JP_PC_CONSOLE: dict[str, str] = {
     "ps2": "jp-playstation-2",
     "ps3": "jp-playstation-3",
     "ps4": "jp-playstation-4",
+    "ps5": "jp-playstation-5",
 }
 
 MUSEUM_REGION_BUCKETS: dict[str, str] = {

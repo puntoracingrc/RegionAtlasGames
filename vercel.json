@@ -7,6 +7,12 @@
       "NEXT_PUBLIC_COVERS_BASE_URL": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers"
     }
   },
+  "crons": [
+    {
+      "path": "/api/cron/enrich-catalog-staging",
+      "schedule": "0 4 * * *"
+    }
+  ],
   "functions": {
     "src/app/**/**": {
       "maxDuration": 60

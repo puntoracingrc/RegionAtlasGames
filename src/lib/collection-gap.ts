@@ -13,7 +13,7 @@ export function enrichCollectionGapItem(item: CollectionItem): CollectionView {
     availableCatalogId: match?.id ?? null,
     coverUrl: match?.coverUrl ?? view.coverUrl,
     titlePc: match?.titlePc ?? view.titlePc,
-    pcId: match?.pcId ?? view.pcId,
+    pcId: match?.pcId ?? view.pcId ?? item.pcImportId ?? null,
   };
 }
 

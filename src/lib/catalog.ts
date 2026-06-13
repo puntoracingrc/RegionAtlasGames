@@ -44,8 +44,8 @@ export function enrichCollectionItem(item: CollectionItem): CollectionView {
   return {
     ...item,
     coverUrl: cat?.coverUrl ?? null,
-    titlePc: cat?.titlePc ?? null,
-    pcId: cat?.pcId ?? null,
+    titlePc: cat?.titlePc ?? item.titlePc ?? null,
+    pcId: cat?.pcId ?? item.pcImportId ?? null,
   };
 }
 

@@ -185,6 +185,9 @@ export type CollectionItem = {
   catalogMatched?: boolean;
   inRetroCatalog: boolean;
   title: string;
+  titlePc?: string | null;
+  consoleName?: string | null;
+  pcImportId?: number | null;
   platformSlug: string;
   region: string;
   sealed: boolean;

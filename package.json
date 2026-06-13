@@ -34,6 +34,8 @@
     "catalog:fix-pc-paths": "python3 scripts/fix_catalog_pc_paths.py",
     "descriptions:generate": "PYTHONUNBUFFERED=1 python3 scripts/generate_game_descriptions.py",
     "catalog:phase3": "bash scripts/run_phase3_catalog.sh",
+    "staging:enrich": "PYTHONUNBUFFERED=1 python3 scripts/enrich_catalog_staging.py",
+    "staging:promote": "python3 scripts/promote_catalog_staging.py",
     "covers:seed": "caffeinate -dimsu env PYTHONUNBUFFERED=1 python3 scripts/seed_covers.py",
     "covers:normalize-urls": "python3 scripts/normalize_catalog_cover_urls.py",
     "covers:check-upload": "python3 scripts/check_covers_upload.py",

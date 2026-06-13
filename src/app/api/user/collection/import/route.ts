@@ -6,6 +6,7 @@ import {
   summarizeCollectionForPlan,
 } from "@/lib/collection-store";
 import { importSpreadsheet } from "@/lib/import-collection";
+import { upsertCatalogStagingFromImport } from "@/lib/catalog-staging";
 import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
@@ -42,6 +43,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: saved.error }, { status: 500 });
   }
 
+  const staging = await upsertCatalogStagingFromImport({
+    userId: user.id,
+    items,
+    importedAt: saved.importedAt ?? new Date().toISOString(),
+  });
+
   const views = redactCollectionViewsForPlan(await getUserCollectionViews(user.id), user.plan);
 
   return NextResponse.json({
@@ -49,6 +56,7 @@ export async function POST(request: Request) {
     summary: summarizeCollectionForPlan(items, user.plan),
     canViewCollectionValue: canViewCollectionValue(user.plan),
     stats,
+    staging,
     importedAt: new Date().toISOString(),
     source: file.name,
   });

@@ -105,7 +105,27 @@ const PC_CONSOLE_TO_SLUG: Record<string, string> = {
   "neo geo cd": "neogeocd",
   "neo geo pocket": "neogeopocket",
   "neo geo pocket color": "neogeopocket",
+  "nintendo switch": "switch",
+  switch: "switch",
+  "switch 2": "switch2",
+  "xbox one": "xboxone",
+  "xbox series x": "xboxseriesx",
+  "xbox series s": "xboxseriesx",
+  "game boy color": "gameboycolor",
+  "gameboy color": "gameboycolor",
+  gbc: "gameboycolor",
+  psp: "psp",
+  "playstation portable": "psp",
+  "ps vita": "psvita",
+  "playstation vita": "psvita",
+  psvita: "psvita",
+  "wii u": "wiiu",
+  "pc engine": "pcengine",
+  "turbografx 16": "pcengine",
+  turbografx: "pcengine",
 };
+
+const REGIONAL_PREFIXES = ["pal ", "jp ", "ntsc ", "sony ", "japanese "];
 
 const COLUMN_ALIASES: Record<string, string[]> = {
   title: [
@@ -218,12 +238,28 @@ function num(value: unknown, options?: { pennies?: boolean }): number | null {
   return Math.round(n * 100) / 100;
 }
 
-function platformSlug(raw: string | null): string | null {
-  if (!raw) return null;
-  const normalized = normalizeHeader(raw);
+function resolveConsoleSlug(normalized: string): string | null {
   if (PC_CONSOLE_TO_SLUG[normalized]) {
     return normalizeImportedPlatformSlug(PC_CONSOLE_TO_SLUG[normalized]);
   }
+
+  for (const prefix of REGIONAL_PREFIXES) {
+    if (!normalized.startsWith(prefix)) continue;
+    const stripped = normalized.slice(prefix.length);
+    if (PC_CONSOLE_TO_SLUG[stripped]) {
+      return normalizeImportedPlatformSlug(PC_CONSOLE_TO_SLUG[stripped]);
+    }
+  }
+
+  return null;
+}
+
+function platformSlug(raw: string | null): string | null {
+  if (!raw) return null;
+  const normalized = normalizeHeader(raw);
+  const mapped = resolveConsoleSlug(normalized);
+  if (mapped) return mapped;
+
   const key = raw.trim().toUpperCase();
   if (EXCEL_TO_SLUG[key]) return normalizeImportedPlatformSlug(EXCEL_TO_SLUG[key]);
   const slug = slugify(raw);
@@ -234,11 +270,22 @@ function columnMatchScore(header: string, alias: string): number {
   if (!header || !alias) return 0;
   if (header === alias) return 100;
   if (header.startsWith(`${alias} `) || header.endsWith(` ${alias}`)) return 95;
+  const tokens = header.split(" ");
+  if (tokens.includes(alias)) return 90;
+  if (alias.length <= 3) return 0;
   if (header.includes(alias)) return 85;
-  const hTokens = new Set(header.split(" "));
+  const hTokens = new Set(tokens);
   const aTokens = alias.split(" ");
   if (aTokens.every((t) => hTokens.has(t))) return 80;
   return 0;
+}
+
+function parsePcId(raw: string | null): number | null {
+  if (!raw) return null;
+  const cleaned = raw.replace(/[^\d]/g, "");
+  if (!cleaned) return null;
+  const n = Number.parseInt(cleaned, 10);
+  return Number.isFinite(n) && n > 0 ? n : null;
 }
 
 function mapColumns(headers: string[]): Record<string, number> {
@@ -521,9 +568,10 @@ export function importRowsToCollection(rows: unknown[][]): {
       continue;
     }
 
+    const consoleName = clean(cell(row, cols.platform));
     const titlePc = clean(cell(row, cols.titlePc)) ?? title;
     const pcIdRaw = clean(cell(row, cols.pcId));
-    const pcId = pcIdRaw ? num(pcIdRaw) : null;
+    const pcId = parsePcId(pcIdRaw);
     const region = inferRegion(clean(cell(row, cols.region)), plat);
     const condition = clean(cell(row, cols.condition));
     const inRetro = retroSlugs.has(plat);
@@ -549,6 +597,9 @@ export function importRowsToCollection(rows: unknown[][]): {
       catalogMatched,
       inRetroCatalog: inRetro,
       title,
+      titlePc,
+      consoleName,
+      pcImportId: pcId,
       platformSlug: plat,
       region,
       sealed: inferSealed(condition, clean(cell(row, cols.sealed))),
