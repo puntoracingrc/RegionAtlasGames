@@ -10,6 +10,7 @@ import urllib.request
 from typing import Any
 
 from collectors.common import build_search_query, normalize_query
+from collectors import platform_sources as ps
 
 JGO_BASE = "https://japangameonline.com"
 JGO_API = f"{JGO_BASE}/wp-json/wc/store/products"
@@ -25,11 +26,7 @@ def build_jgo_search_query(game: dict[str, Any]) -> str:
 
 
 def jgo_sources_for_platform(platform_slug: str) -> list[str]:
-    from collectors.jgo_match import JGO_PLATFORM_CATEGORIES
-
-    if platform_slug in JGO_PLATFORM_CATEGORIES:
-        return [platform_slug]
-    return []
+    return ps.jgo_sources_for_platform(platform_slug)
 
 
 def supported_platform_slugs() -> list[str]:

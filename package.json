@@ -7,6 +7,7 @@
     "build": "NODE_OPTIONS=--max-old-space-size=6144 next build",
     "start": "next start",
     "lint": "eslint",
+    "env:sync-vercel": "node scripts/sync-vercel-env.mjs",
     "sync:prices": "python3 scripts/sync_es_prices.py",
     "ingest:validate": "python3 scripts/build_ingest_template.py --validate data/price-ingest/pilot-dreamcast.json && python3 scripts/build_ingest_template.py --validate data/price-ingest/pilot-ps2.json && python3 scripts/build_ingest_template.py --validate data/price-ingest/pilot-ps4.json",
     "ingest:pilot": "bash scripts/run_pilot_sync.sh",
@@ -35,10 +36,13 @@
     "catalog:phase3": "bash scripts/run_phase3_catalog.sh",
     "covers:seed": "caffeinate -dimsu env PYTHONUNBUFFERED=1 python3 scripts/seed_covers.py",
     "covers:normalize-urls": "python3 scripts/normalize_catalog_cover_urls.py",
+    "covers:check-upload": "python3 scripts/check_covers_upload.py",
     "storage:setup": "bash scripts/setup_external_storage.sh",
     "pipeline:watch": "caffeinate -dimsu bash scripts/watch_pipeline_progress.sh"
   },
   "dependencies": {
+    "@vercel/blob": "^2.4.0",
+    "@vercel/functions": "^3.7.1",
     "bcryptjs": "^3.0.3",
     "country-flag-icons": "^1.6.17",
     "iron-session": "^8.0.4",

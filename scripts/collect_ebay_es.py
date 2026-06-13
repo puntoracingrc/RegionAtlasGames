@@ -17,6 +17,7 @@ import argparse
 import sys
 import time
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -32,12 +33,17 @@ from collectors.common import (  # noqa: E402
     save_json,
     to_ingest_listing,
 )
-from collectors.ebay_client import search_ebay_es  # noqa: E402
+from collectors.ebay_client import is_active_auction, search_ebay_es  # noqa: E402
+from collectors.ebay_game_cache import (  # noqa: E402
+    GAME_CACHE_DIR,
+    game_cache_is_fresh,
+    load_game_cache,
+)
+from collectors.ebay_listing_cache import read_listing_cache, write_listing_cache  # noqa: E402
 from collectors.reference_match import build_platform_reference_index, listing_reference_valid_for_catalog  # noqa: E402
 from region_evidence_rules import check_listing_evidence_meets_rules  # noqa: E402
 
 REQUEST_DELAY = 1.0
-CACHE_DIR = INGEST_DIR / "cache" / "ebay"
 
 
 def passes_rules(platform_slug: str, catalog_region: str, row: dict) -> bool:
@@ -50,6 +56,124 @@ def passes_rules(platform_slug: str, catalog_region: str, row: dict) -> bool:
     return ok
 
 
+def process_ebay_item(
+    item: dict[str, Any],
+    *,
+    game: dict[str, Any],
+    platform_slug: str,
+    catalog_id: str,
+    catalog_region: str,
+    ref_to_ids: dict[str, list[str]],
+    use_listing_cache: bool,
+    report: dict[str, Any],
+) -> dict[str, Any] | None:
+    if is_active_auction(item):
+        report["skippedAuctions"] += 1
+        if use_listing_cache:
+            write_listing_cache(
+                item,
+                platform_slug=platform_slug,
+                catalog_id=catalog_id,
+                accepted=False,
+                skip_reason="auction",
+            )
+        return None
+
+    if use_listing_cache:
+        cached = read_listing_cache(
+            item,
+            platform_slug=platform_slug,
+            catalog_id=catalog_id,
+        )
+        if cached is not None:
+            report["listingCacheHits"] += 1
+            if cached.get("accepted") and cached.get("row"):
+                return cached["row"]
+            reason = str(cached.get("skipReason") or "cached_skip")
+            if reason == "reference":
+                report["skippedReference"] += 1
+            elif reason == "rules":
+                report["skippedRules"] += 1
+            elif reason == "auction":
+                report["skippedAuctions"] += 1
+            else:
+                report["skippedTitle"] += 1
+            return None
+
+    listing_type = "sold" if item.get("_listingType") == "sold" else "active"
+    item_title = str(item.get("title") or "")
+
+    ok_ref, _ = listing_reference_valid_for_catalog(
+        item_title,
+        catalog_id,
+        catalog_region,
+        ref_to_ids=ref_to_ids,
+    )
+    if not ok_ref:
+        report["skippedReference"] += 1
+        if use_listing_cache:
+            write_listing_cache(
+                item,
+                platform_slug=platform_slug,
+                catalog_id=catalog_id,
+                accepted=False,
+                skip_reason="reference",
+            )
+        return None
+
+    row = to_ingest_listing(
+        catalog_id=catalog_id,
+        source="ebay-es",
+        listing_type=listing_type,
+        price_eur=float(item["priceEur"]),
+        title=item_title,
+        catalog_region=catalog_region,
+        external_id=item.get("itemId"),
+        ref_to_ids=ref_to_ids,
+        platform_slug=platform_slug,
+        product_url=str(item.get("url") or ""),
+        image_url=str(item.get("imageUrl") or "") or None,
+        game_title=str(game.get("title") or ""),
+    )
+    if not row:
+        report["skippedTitle"] += 1
+        if use_listing_cache:
+            write_listing_cache(
+                item,
+                platform_slug=platform_slug,
+                catalog_id=catalog_id,
+                accepted=False,
+                skip_reason="title",
+            )
+        return None
+
+    if row.get("matchedReference"):
+        report["matchedReference"] += 1
+
+    if not passes_rules(platform_slug, catalog_region, row):
+        report["skippedRules"] += 1
+        if use_listing_cache:
+            write_listing_cache(
+                item,
+                platform_slug=platform_slug,
+                catalog_id=catalog_id,
+                accepted=False,
+                row=row,
+                skip_reason="rules",
+            )
+        return None
+
+    if use_listing_cache:
+        write_listing_cache(
+            item,
+            platform_slug=platform_slug,
+            catalog_id=catalog_id,
+            accepted=True,
+            row=row,
+        )
+    return row
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Collector eBay ES → ingest JSON")
     parser.add_argument("--platform", required=True, help="Slug plataforma (ps2, ps4, dreamcast…)")
@@ -60,7 +184,16 @@ def main() -> None:
     parser.add_argument("--active", action="store_true", help="Solo activos")
     parser.add_argument("--output", type=Path, help="JSON destino (default: data/price-ingest/{platform}-ebay.json)")
     parser.add_argument("--merge", action="store_true", help="Fusionar con JSON existente")
-    parser.add_argument("--use-cache", action="store_true", help="Leer caché por juego si existe")
+    parser.add_argument(
+        "--use-cache",
+        action="store_true",
+        help="Reutilizar respuesta API por juego si la caché no ha caducado (EBAY_GAME_CACHE_MAX_AGE_HOURS)",
+    )
+    parser.add_argument(
+        "--no-listing-cache",
+        action="store_true",
+        help="No reutilizar filas ingest por itemId (reprocesa reglas/visión)",
+    )
     parser.add_argument("--delay", type=float, default=REQUEST_DELAY, help="Segundos entre búsquedas")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
@@ -77,39 +210,50 @@ def main() -> None:
     games = es_market_games(args.platform, args.region)[: args.limit]
     out = args.output or INGEST_DIR / f"{args.platform}-ebay.json"
     _, ref_to_ids = build_platform_reference_index(args.platform)
+    use_listing_cache = not args.no_listing_cache and not args.dry_run
 
     payload = load_json(out, {"listings": [], "cex": []}) if args.merge else {"listings": [], "cex": []}
     payload["platformSlug"] = args.platform
     payload["collectedAt"] = now_iso()
     payload["notes"] = (
         f"eBay ES collector — sold={sold} active={active}. "
-        "Búsqueda por título del juego; región y consola filtradas post-fetch."
+        "Activos: solo precio fijo (sin subastas en curso). Vendidos: incluye subastas finalizadas. "
+        "Búsqueda por título del juego; región y consola filtradas post-fetch. "
+        "Caché listing por itemId (invalida si cambia título/precio)."
     )
 
     if not args.merge:
         payload["listings"] = []
 
-    report = {
+    report: dict[str, Any] = {
         "platform": args.platform,
         "gamesRequested": len(games),
         "gamesWithListings": 0,
         "listingsAdded": 0,
+        "listingCacheHits": 0,
+        "gameCacheHits": 0,
         "skippedRules": 0,
         "skippedTitle": 0,
         "skippedReference": 0,
+        "skippedAuctions": 0,
         "matchedReference": 0,
         "errors": [],
         "backend": None,
     }
 
-    print(f"Juegos: {len(games)} · sold={sold} active={active}")
+    print(
+        f"Juegos: {len(games)} · sold={sold} active={active} · "
+        f"listing-cache={'on' if use_listing_cache else 'off'} · "
+        f"game-cache={'on' if args.use_cache else 'off'}"
+    )
 
     for idx, game in enumerate(games, start=1):
         catalog_id = game["id"]
         catalog_region = game.get("region") or ""
         query = build_search_query(game)
-        cache_file = CACHE_DIR / args.platform / f"{catalog_id}.json"
+        cache_file = GAME_CACHE_DIR / args.platform / f"{catalog_id}.json"
         game_listings: list[dict] = []
+        used_game_cache = False
 
         try:
             modes: list[tuple[bool, str]] = []
@@ -118,12 +262,16 @@ def main() -> None:
             if active:
                 modes.append((False, "active"))
 
-            cached = load_json(cache_file) if args.use_cache and cache_file.exists() else None
-            if cached:
-                raw_items = cached.get("items", [])
-                report["backend"] = cached.get("backend")
-            else:
-                raw_items = []
+            raw_items: list[dict] = []
+            if args.use_cache and game_cache_is_fresh(cache_file):
+                cached = load_game_cache(cache_file)
+                if cached:
+                    raw_items = list(cached.get("items") or [])
+                    report["backend"] = cached.get("backend")
+                    report["gameCacheHits"] += 1
+                    used_game_cache = True
+
+            if not raw_items:
                 for is_sold, label in modes:
                     items, backend = search_ebay_es(query, sold=is_sold, max_results=args.per_game)
                     report["backend"] = backend
@@ -135,45 +283,30 @@ def main() -> None:
                 if not args.dry_run:
                     save_json(
                         cache_file,
-                        {"query": query, "backend": report["backend"], "items": raw_items},
+                        {
+                            "query": query,
+                            "backend": report["backend"],
+                            "items": raw_items,
+                            "collectedAt": now_iso(),
+                        },
                     )
 
             added_for_game = 0
-            for item in raw_items[: args.per_game * (1 + int(sold) + int(active))]:
-                listing_type = "sold" if item.get("_listingType") == "sold" else "active"
-                item_title = item.get("title", "")
-                ok_ref, _ = listing_reference_valid_for_catalog(
-                    item_title,
-                    catalog_id,
-                    catalog_region,
-                    ref_to_ids=ref_to_ids,
-                )
-                if not ok_ref:
-                    report["skippedReference"] += 1
-                    continue
-                row = to_ingest_listing(
-                    catalog_id=catalog_id,
-                    source="ebay-es",
-                    listing_type=listing_type,
-                    price_eur=float(item["priceEur"]),
-                    title=item_title,
-                    catalog_region=catalog_region,
-                    external_id=item.get("itemId"),
-                    ref_to_ids=ref_to_ids,
+            max_items = args.per_game * (1 + int(sold) + int(active))
+            for item in raw_items[:max_items]:
+                row = process_ebay_item(
+                    item,
+                    game=game,
                     platform_slug=args.platform,
-                    product_url=str(item.get("url") or ""),
-                    image_url=str(item.get("imageUrl") or "") or None,
+                    catalog_id=catalog_id,
+                    catalog_region=catalog_region,
+                    ref_to_ids=ref_to_ids,
+                    use_listing_cache=use_listing_cache,
+                    report=report,
                 )
-                if not row:
-                    report["skippedTitle"] += 1
-                    continue
-                if row.get("matchedReference"):
-                    report["matchedReference"] += 1
-                if not passes_rules(args.platform, catalog_region, row):
-                    report["skippedRules"] += 1
-                    continue
-                game_listings.append(row)
-                added_for_game += 1
+                if row:
+                    game_listings.append(row)
+                    added_for_game += 1
 
             if game_listings:
                 report["gamesWithListings"] += 1
@@ -187,14 +320,17 @@ def main() -> None:
             report["errors"].append({"catalogId": catalog_id, "error": str(exc)})
             print(f"  [{idx}/{len(games)}] ERROR {catalog_id}: {exc}")
 
-        if not cached and idx < len(games):
+        if not used_game_cache and idx < len(games):
             time.sleep(args.delay)
 
     print(
         f"\nTotal anuncios: {len(payload['listings'])} · "
         f"juegos con datos: {report['gamesWithListings']} · "
+        f"listing-cache hits: {report['listingCacheHits']} · "
+        f"game-cache hits: {report['gameCacheHits']} · "
         f"ref. SKU: {report['matchedReference']} · "
         f"rechazados ref.: {report['skippedReference']} · "
+        f"subastas activas descartadas: {report['skippedAuctions']} · "
         f"backend: {report['backend']}"
     )
 

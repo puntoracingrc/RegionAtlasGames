@@ -124,12 +124,8 @@ def product_to_ingest_row(
         catalog_region,
         matched_reference=matched_reference,
     )
-    if not regions_match(catalog_region, listing_region):
-        return None
-
-    ok, _ = check_listing_evidence_meets_rules(platform_slug, catalog_region, evidence, ai_conf)
-    if not ok:
-        return None
+    rules_ok, _ = check_listing_evidence_meets_rules(platform_slug, catalog_region, evidence, ai_conf)
+    region_verified = rules_ok and regions_match(catalog_region, listing_region)
 
     row: dict[str, Any] = {
         "catalogId": catalog_id,
@@ -137,7 +133,7 @@ def product_to_ingest_row(
         "listingType": str(product.get("listingType") or "active"),
         "priceEur": round(float(price), 2),
         "listingRegion": listing_region,
-        "regionVerified": True,
+        "regionVerified": region_verified,
         "regionEvidence": evidence,
         "aiConfidence": ai_conf,
         "productUrl": str(product.get("productUrl") or ""),

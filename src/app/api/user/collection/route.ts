@@ -14,8 +14,8 @@ export async function GET() {
     return NextResponse.json({ error: "No autenticado." }, { status: 401 });
   }
 
-  const file = readUserCollection(user.id);
-  const items = redactCollectionViewsForPlan(getUserCollectionViews(user.id), user.plan);
+  const file = await readUserCollection(user.id);
+  const items = redactCollectionViewsForPlan(await getUserCollectionViews(user.id), user.plan);
   const showValues = canViewCollectionValue(user.plan);
 
   return NextResponse.json({

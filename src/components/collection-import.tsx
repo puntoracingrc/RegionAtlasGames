@@ -57,10 +57,12 @@ export function CollectionImport({ hasItems, canViewCollectionValue }: Props) {
         {hasItems ? "Actualizar colección" : "Importar colección"}
       </PanelTitle>
       <p className="mt-2 text-sm text-muted">
-        Sube un Excel (.xlsx) o CSV con tus juegos. Compatible con plantillas tipo PriceCharting:
-        columnas <strong className="font-medium text-foreground">Título</strong>,{" "}
-        <strong className="font-medium text-foreground">Plataforma</strong>, precios, cantidad,
-        precintado, notas…
+        Sube un Excel (.xlsx) o CSV con tus juegos. Compatible con exportaciones de{" "}
+        <strong className="font-medium text-foreground">PriceCharting</strong> (
+        <code className="text-xs">product-name</code>, <code className="text-xs">console-name</code>
+        , precios loose/CIB/new…) y plantillas propias con columnas{" "}
+        <strong className="font-medium text-foreground">Título</strong> y{" "}
+        <strong className="font-medium text-foreground">Plataforma</strong>.
       </p>
 
       <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -92,7 +94,9 @@ export function CollectionImport({ hasItems, canViewCollectionValue }: Props) {
         <div className="mt-3 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
           Importados {result.stats.imported} juegos · {result.stats.matchedCatalog} enlazados al
           catálogo
-          {result.stats.unmatched > 0 && ` · ${result.stats.unmatched} sin ficha exacta`}.
+          {result.stats.unmatched > 0 &&
+            ` · ${result.stats.unmatched} pendientes de ficha (ver lista abajo)`}
+          .
           {canViewCollectionValue && (
             <>
               {" "}

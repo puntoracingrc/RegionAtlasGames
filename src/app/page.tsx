@@ -14,9 +14,9 @@ import { getCurrentUser } from "@/lib/users";
 
 export default async function HomePage() {
   const user = await getCurrentUser();
-  const ownedItems = user ? getUserCollectionViews(user.id) : [];
+  const ownedItems = user ? await getUserCollectionViews(user.id) : [];
   const userSummary = user
-    ? summarizeCollectionForPlan(readUserCollection(user.id).items, user.plan)
+    ? summarizeCollectionForPlan((await readUserCollection(user.id)).items, user.plan)
     : null;
   const showCollectionValue = user ? canViewCollectionValue(user.plan) : false;
   const indexes = indexStats();

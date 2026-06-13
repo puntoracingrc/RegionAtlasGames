@@ -145,6 +145,7 @@ def collect_game_listings(
             platform_slug,
             ref_to_ids=ref_to_ids,
             match_method="search",
+            game_title=str(game.get("title") or ""),
             match_score=round(
                 token_similarity(str(game.get("title") or ""), product_title(product)),
                 3,

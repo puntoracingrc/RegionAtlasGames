@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { SiteNav } from "@/components/site-nav";
+import { AuthDivider, GoogleSignInButton } from "@/components/google-sign-in-button";
 import { Panel, PanelTitle } from "@/components/ui";
 
 export default function RegisterPage() {
@@ -18,19 +19,30 @@ export default function RegisterPage() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    const res = await fetch("/api/auth/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, password }),
-    });
-    const data = await res.json();
-    setLoading(false);
-    if (!res.ok) {
-      setError(data.error ?? "Error al registrarse.");
-      return;
+    try {
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password }),
+      });
+      let data: { error?: string } = {};
+      try {
+        data = await res.json();
+      } catch {
+        setError("Respuesta inválida del servidor. Inténtalo de nuevo.");
+        return;
+      }
+      if (!res.ok) {
+        setError(data.error ?? "Error al registrarse.");
+        return;
+      }
+      router.push("/ajustes");
+      router.refresh();
+    } catch {
+      setError("No se pudo conectar. Comprueba tu conexión e inténtalo de nuevo.");
+    } finally {
+      setLoading(false);
     }
-    router.push("/ajustes");
-    router.refresh();
   }
 
   return (
@@ -39,6 +51,8 @@ export default function RegisterPage() {
       <main className="mx-auto max-w-md px-4 py-10 md:px-6">
         <Panel>
           <PanelTitle>Crear cuenta</PanelTitle>
+          <GoogleSignInButton next="/ajustes" label="Registrarse con Google" />
+          <AuthDivider />
           <form onSubmit={onSubmit} className="space-y-4">
             <Field label="Nombre">
               <input

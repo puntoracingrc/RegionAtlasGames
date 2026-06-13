@@ -25,7 +25,7 @@ export default async function CollectionItemPage({ params }: Props) {
   if (!user) redirect("/login");
 
   const { id } = await params;
-  const item = getUserCollectionItem(user.id, id);
+  const item = await getUserCollectionItem(user.id, id);
   if (!item) notFound();
 
   const platform = getPlatform(item.platformSlug);
@@ -50,6 +50,13 @@ export default async function CollectionItemPage({ params }: Props) {
         {!item.inRetroCatalog && (
           <div className="mt-4 rounded-xl border border-rose-400/20 bg-rose-500/10 px-4 py-3 text-sm text-rose-200">
             Este juego no está indexado en el catálogo retro ({platform?.shortName ?? item.platformSlug}).
+          </div>
+        )}
+
+        {item.inRetroCatalog && !item.catalogMatched && (
+          <div className="mt-4 rounded-xl border border-amber-400/25 bg-amber-500/10 px-4 py-3 text-sm text-amber-100">
+            Este juego está en tu colección pero aún no tiene ficha en el catálogo de Region Atlas.
+            Lo mantendremos en tu lista de pendientes hasta que lo indexemos.
           </div>
         )}
 

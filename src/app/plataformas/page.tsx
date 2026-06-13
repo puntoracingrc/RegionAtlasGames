@@ -6,7 +6,7 @@ import { getCurrentUser } from "@/lib/users";
 
 export default async function PlatformsPage() {
   const user = await getCurrentUser();
-  const ownedItems = user ? getUserCollectionViews(user.id) : [];
+  const ownedItems = user ? await getUserCollectionViews(user.id) : [];
 
   return (
     <>

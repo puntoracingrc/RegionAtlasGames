@@ -12,6 +12,7 @@ from html import unescape
 from typing import Any
 
 from collectors.common import build_search_query, normalize_query
+from collectors import platform_sources as ps
 from collectors.kaoto_match import KAOTO_PLATFORM_COLLECTIONS
 
 KAOTO_BASE = "https://kaotostore.myshopify.com"
@@ -28,9 +29,7 @@ def build_kaoto_search_query(game: dict[str, Any]) -> str:
 
 
 def kaoto_sources_for_platform(platform_slug: str) -> list[str]:
-    if platform_slug in KAOTO_PLATFORM_COLLECTIONS:
-        return [platform_slug]
-    return []
+    return ps.kaoto_sources_for_platform(platform_slug)
 
 
 def supported_platform_slugs() -> list[str]:
@@ -38,7 +37,7 @@ def supported_platform_slugs() -> list[str]:
 
 
 def collection_handle_for_platform(platform_slug: str) -> str | None:
-    return KAOTO_PLATFORM_COLLECTIONS.get(platform_slug)
+    return ps.kaoto_collection(platform_slug)
 
 
 def fetch_json(url: str, *, retries: int = 3) -> dict[str, Any]:

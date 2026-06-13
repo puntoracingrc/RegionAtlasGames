@@ -2,8 +2,6 @@ import { cookies } from "next/headers";
 import { getIronSession } from "iron-session";
 import bcrypt from "bcryptjs";
 import { randomUUID } from "crypto";
-import { readFileSync, writeFileSync } from "fs";
-import path from "path";
 import {
   defaultSession,
   sessionOptions,
@@ -12,23 +10,12 @@ import {
   type ThemePreference,
 } from "./session";
 import type { UserPlan } from "./marketplace-types";
+import { loadUsers, saveUsers, type StoredUserRecord } from "./users-store";
 
-const USERS_FILE = path.join(process.cwd(), "data", "users.json");
+type StoredUser = StoredUserRecord;
 
-type StoredUser = PublicUser & {
-  passwordHash: string;
-};
-
-export function readUsers(): StoredUser[] {
-  try {
-    return JSON.parse(readFileSync(USERS_FILE, "utf-8")) as StoredUser[];
-  } catch {
-    return [];
-  }
-}
-
-function writeUsers(users: StoredUser[]) {
-  writeFileSync(USERS_FILE, JSON.stringify(users, null, 2), "utf-8");
+export async function readUsers(): Promise<StoredUser[]> {
+  return loadUsers();
 }
 
 export function toPublicUser(user: StoredUser): PublicUser {
@@ -50,7 +37,8 @@ export async function getSession() {
 export async function getCurrentUser(): Promise<PublicUser | null> {
   const session = await getSession();
   if (!session.isLoggedIn || !session.userId) return null;
-  const user = readUsers().find((u) => u.id === session.userId);
+  const users = await readUsers();
+  const user = users.find((u) => u.id === session.userId);
   return user ? toPublicUser(user) : null;
 }
 
@@ -67,7 +55,7 @@ export async function registerUser(input: {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: "Email no válido." };
   if (password.length < 8) return { error: "La contraseña debe tener al menos 8 caracteres." };
 
-  const users = readUsers();
+  const users = await readUsers();
   if (users.some((u) => u.email === email)) {
     return { error: "Ya existe una cuenta con ese email." };
   }
@@ -82,7 +70,8 @@ export async function registerUser(input: {
     createdAt: new Date().toISOString(),
   };
   users.push(user);
-  writeUsers(users);
+  const saved = await saveUsers(users);
+  if ("error" in saved) return saved;
   return { user: toPublicUser(user) };
 }
 
@@ -91,11 +80,66 @@ export async function loginUser(
   password: string,
 ): Promise<{ user: PublicUser } | { error: string }> {
   const normalized = email.trim().toLowerCase();
-  const user = readUsers().find((u) => u.email === normalized);
+  const users = await readUsers();
+  const user = users.find((u) => u.email === normalized);
   if (!user) return { error: "Email o contraseña incorrectos." };
+  if (!user.passwordHash) {
+    return { error: "Esta cuenta usa Google. Pulsa «Continuar con Google»." };
+  }
 
   const ok = await bcrypt.compare(password, user.passwordHash);
   if (!ok) return { error: "Email o contraseña incorrectos." };
+
+  const session = await getSession();
+  session.userId = user.id;
+  session.email = user.email;
+  session.name = user.name;
+  session.isLoggedIn = true;
+  await session.save();
+
+  return { user: toPublicUser(user) };
+}
+
+export async function loginOrRegisterWithGoogle(profile: {
+  googleId: string;
+  email: string;
+  name: string;
+}): Promise<{ user: PublicUser } | { error: string }> {
+  const email = profile.email.trim().toLowerCase();
+  const name = profile.name.trim() || email.split("@")[0] || "Usuario";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return { error: "Google no devolvió un email válido." };
+  }
+
+  const users = await readUsers();
+  let user = users.find((u) => u.googleId === profile.googleId);
+  let needsSave = false;
+
+  if (!user) {
+    user = users.find((u) => u.email === email);
+    if (user) {
+      user.googleId = profile.googleId;
+      if (name.length >= 2 && user.name.length < 2) user.name = name;
+      needsSave = true;
+    } else {
+      user = {
+        id: randomUUID(),
+        email,
+        name: name.length >= 2 ? name : "Usuario",
+        googleId: profile.googleId,
+        theme: "system",
+        plan: "free",
+        createdAt: new Date().toISOString(),
+      };
+      users.push(user);
+      needsSave = true;
+    }
+  }
+
+  if (needsSave) {
+    const saved = await saveUsers(users);
+    if ("error" in saved) return saved;
+  }
 
   const session = await getSession();
   session.userId = user.id;
@@ -111,7 +155,8 @@ export async function loginUserByEmail(
   email: string,
 ): Promise<{ user: PublicUser } | { error: string }> {
   const normalized = email.trim().toLowerCase();
-  const user = readUsers().find((u) => u.email === normalized);
+  const users = await readUsers();
+  const user = users.find((u) => u.email === normalized);
   if (!user) return { error: "Cuenta no encontrada." };
 
   const session = await getSession();
@@ -130,16 +175,18 @@ export async function logoutUser() {
 }
 
 export async function setUserPlan(userId: string, plan: UserPlan): Promise<PublicUser | null> {
-  const users = readUsers();
+  const users = await readUsers();
   const idx = users.findIndex((u) => u.id === userId);
   if (idx === -1) return null;
   users[idx].plan = plan;
-  writeUsers(users);
+  const saved = await saveUsers(users);
+  if ("error" in saved) return null;
   return toPublicUser(users[idx]);
 }
 
-export function getUserById(userId: string): PublicUser | null {
-  const user = readUsers().find((u) => u.id === userId);
+export async function getUserById(userId: string): Promise<PublicUser | null> {
+  const users = await readUsers();
+  const user = users.find((u) => u.id === userId);
   return user ? toPublicUser(user) : null;
 }
 
@@ -147,10 +194,11 @@ export async function updateUserTheme(
   userId: string,
   theme: ThemePreference,
 ): Promise<PublicUser | null> {
-  const users = readUsers();
+  const users = await readUsers();
   const idx = users.findIndex((u) => u.id === userId);
   if (idx === -1) return null;
   users[idx].theme = theme;
-  writeUsers(users);
+  const saved = await saveUsers(users);
+  if ("error" in saved) return null;
   return toPublicUser(users[idx]);
 }

@@ -24,15 +24,12 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from collectors.cex_client import cex_sources_for_platform  # noqa: E402
-from collectors.chollo_match import CHOLLO_PLATFORM_CATEGORIES  # noqa: E402
+from collectors.common import load_local_env  # noqa: E402
+
+load_local_env()
+
 from collectors.common import load_json, now_iso, save_json  # noqa: E402
-from collectors.jgo_match import JGO_PLATFORM_CATEGORIES  # noqa: E402
-from collectors.kaoto_match import KAOTO_PLATFORM_COLLECTIONS  # noqa: E402
-from collectors.tc_client import tc_sources_for_platform  # noqa: E402
-from collectors.tcns_client import tcns_sources_for_platform  # noqa: E402
-from collectors.vinted_client import vinted_sources_for_platform  # noqa: E402
-from collectors.wallapop_client import wallapop_sources_for_platform  # noqa: E402
+from collectors import platform_sources as ps  # noqa: E402
 
 STATE_FILE = ROOT / "data" / "price-sync-state.json"
 BATCHES_FILE = ROOT / "data" / "price-sync-batches.json"
@@ -109,27 +106,22 @@ def wallapop_game_limit() -> int:
 
 
 def planned_sources(platform_slug: str) -> list[tuple[str, Path]]:
+    source_paths = {
+        "todocoleccion": INGEST_DIR / f"{platform_slug}-todocoleccion.json",
+        "wallapop": INGEST_DIR / f"{platform_slug}-wallapop.json",
+        "vinted": INGEST_DIR / f"{platform_slug}-vinted.json",
+        "todoconsolas": INGEST_DIR / f"{platform_slug}-todoconsolas.json",
+        "chollo": INGEST_DIR / f"{platform_slug}-chollo.json",
+        "jgo": INGEST_DIR / f"{platform_slug}-jgo.json",
+        "kaoto": INGEST_DIR / f"{platform_slug}-kaoto.json",
+        "cex": INGEST_DIR / f"{platform_slug}-cex.json",
+        "ebay": INGEST_DIR / f"{platform_slug}-ebay.json",
+    }
     planned: list[tuple[str, Path]] = []
-
-    if tc_sources_for_platform(platform_slug):
-        planned.append(("todocoleccion", INGEST_DIR / f"{platform_slug}-todocoleccion.json"))
-    if wallapop_sources_for_platform(platform_slug):
-        planned.append(("wallapop", INGEST_DIR / f"{platform_slug}-wallapop.json"))
-    if vinted_sources_for_platform(platform_slug):
-        planned.append(("vinted", INGEST_DIR / f"{platform_slug}-vinted.json"))
-    if tcns_sources_for_platform(platform_slug):
-        planned.append(("todoconsolas", INGEST_DIR / f"{platform_slug}-todoconsolas.json"))
-    if platform_slug in CHOLLO_PLATFORM_CATEGORIES:
-        planned.append(("chollo", INGEST_DIR / f"{platform_slug}-chollo.json"))
-    if platform_slug in JGO_PLATFORM_CATEGORIES:
-        planned.append(("jgo", INGEST_DIR / f"{platform_slug}-jgo.json"))
-    if platform_slug in KAOTO_PLATFORM_COLLECTIONS:
-        planned.append(("kaoto", INGEST_DIR / f"{platform_slug}-kaoto.json"))
-    if cex_sources_for_platform(platform_slug):
-        planned.append(("cex", INGEST_DIR / f"{platform_slug}-cex.json"))
-    if ebay_configured():
-        planned.append(("ebay", INGEST_DIR / f"{platform_slug}-ebay.json"))
-
+    for source in ps.collectors_for_platform(platform_slug, ebay_configured=ebay_configured()):
+        path = source_paths.get(source)
+        if path is not None:
+            planned.append((source, path))
     return planned
 
 
@@ -160,7 +152,7 @@ def collector_command(source: str, platform_slug: str, output: Path) -> list[str
         raise ValueError(f"Fuente desconocida: {source}")
 
     if source == "ebay":
-        return [
+        cmd = [
             PYTHON,
             str(script),
             "--platform",
@@ -169,9 +161,13 @@ def collector_command(source: str, platform_slug: str, output: Path) -> list[str
             str(ebay_game_limit()),
             "--sold",
             "--active",
+            "--use-cache",
             "--output",
             str(output),
         ]
+        if os.environ.get("DAILY_EBAY_NO_LISTING_CACHE", "").strip():
+            cmd.append("--no-listing-cache")
+        return cmd
 
     if source == "wallapop":
         cmd = [

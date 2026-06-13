@@ -1,17 +1,17 @@
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
-import path from "path";
 import type { CatalogGame, CollectionItem, CollectionView } from "./types";
 import { enrichCollectionItem, getCatalogGame } from "./catalog";
 import type { UserPlan } from "./marketplace-types";
 import { canViewCollectionValue } from "./plans";
 import { slugify } from "./slug";
+import { loadUserCollection, saveUserCollectionFile, type UserCollectionFile } from "./collection-storage";
 
-const COLLECTIONS_DIR = path.join(process.cwd(), "data", "collections");
+export type { UserCollectionFile } from "./collection-storage";
 
 export type CollectionSummary = {
   totalItems: number;
   retroItems: number;
   outOfScopeItems: number;
+  pendingCatalog: number;
   totalUnits: number;
   withEsPrice: number;
   pendingEsPrice: number;
@@ -19,60 +19,39 @@ export type CollectionSummary = {
   totalBuyValue: number;
 };
 
-export type UserCollectionFile = {
-  userId: string;
-  importedAt: string | null;
-  source: string | null;
-  items: CollectionItem[];
-};
-
-function collectionPath(userId: string): string {
-  return path.join(COLLECTIONS_DIR, `${userId}.json`);
+export async function readUserCollection(userId: string): Promise<UserCollectionFile> {
+  return loadUserCollection(userId);
 }
 
-function ensureDir() {
-  try {
-    if (!existsSync(COLLECTIONS_DIR)) mkdirSync(COLLECTIONS_DIR, { recursive: true });
-  } catch {
-    // Vercel: filesystem de solo lectura salvo /tmp
-  }
+export async function writeUserCollection(data: UserCollectionFile): Promise<void> {
+  const saved = await saveUserCollectionFile(data);
+  if ("error" in saved) throw new Error(saved.error);
 }
 
-export function readUserCollection(userId: string): UserCollectionFile {
-  ensureDir();
-  const file = collectionPath(userId);
-  try {
-    return JSON.parse(readFileSync(file, "utf-8")) as UserCollectionFile;
-  } catch {
-    return { userId, importedAt: null, source: null, items: [] };
-  }
+export async function getUserCollectionViews(userId: string): Promise<CollectionView[]> {
+  const file = await readUserCollection(userId);
+  return file.items.map(enrichCollectionItem);
 }
 
-export function writeUserCollection(data: UserCollectionFile): void {
-  ensureDir();
-  writeFileSync(collectionPath(data.userId), JSON.stringify(data, null, 2), "utf-8");
-}
-
-export function getUserCollectionViews(userId: string): CollectionView[] {
-  return readUserCollection(userId).items.map(enrichCollectionItem);
-}
-
-export function getUserCollectionItem(
+export async function getUserCollectionItem(
   userId: string,
   itemId: string,
-): CollectionView | undefined {
-  const item = readUserCollection(userId).items.find((i) => i.id === itemId);
+): Promise<CollectionView | undefined> {
+  const file = await readUserCollection(userId);
+  const item = file.items.find((i) => i.id === itemId);
   return item ? enrichCollectionItem(item) : undefined;
 }
 
 export function summarizeCollection(items: CollectionItem[]): CollectionSummary {
   const retroItems = items.filter((i) => i.inRetroCatalog);
   const withEs = items.filter((i) => i.hasEsPrice);
+  const pendingCatalog = items.filter((i) => i.inRetroCatalog && !i.catalogMatched).length;
 
   return {
     totalItems: items.length,
     retroItems: retroItems.length,
     outOfScopeItems: items.length - retroItems.length,
+    pendingCatalog,
     totalUnits: items.reduce((s, i) => s + i.quantity, 0),
     withEsPrice: withEs.length,
     pendingEsPrice: items.length - withEs.length,
@@ -106,33 +85,35 @@ export function redactCollectionViewsForPlan(
   return views.map((view) => ({ ...view, totalValue: null }));
 }
 
-export function saveUserCollectionItems(
+export async function saveUserCollectionItems(
   userId: string,
   items: CollectionItem[],
   meta: { source: string | null },
-): UserCollectionFile {
+): Promise<UserCollectionFile | { error: string }> {
   const data: UserCollectionFile = {
     userId,
     importedAt: new Date().toISOString(),
     source: meta.source,
     items,
   };
-  writeUserCollection(data);
+  const saved = await saveUserCollectionFile(data);
+  if ("error" in saved) return saved;
   return data;
 }
 
-export function getOwnedCatalogIds(userId: string): string[] {
-  return readUserCollection(userId).items
-    .map((i) => i.catalogId)
-    .filter((id): id is string => Boolean(id));
+export async function getOwnedCatalogIds(userId: string): Promise<string[]> {
+  const file = await readUserCollection(userId);
+  return file.items.map((i) => i.catalogId).filter((id): id is string => Boolean(id));
 }
 
-export function isCatalogGameOwned(userId: string, catalogId: string): boolean {
-  return readUserCollection(userId).items.some((i) => i.catalogId === catalogId);
+export async function isCatalogGameOwned(userId: string, catalogId: string): Promise<boolean> {
+  const file = await readUserCollection(userId);
+  return file.items.some((i) => i.catalogId === catalogId);
 }
 
-export function countCatalogGameOwned(userId: string, catalogId: string): number {
-  return readUserCollection(userId).items.filter((i) => i.catalogId === catalogId).length;
+export async function countCatalogGameOwned(userId: string, catalogId: string): Promise<number> {
+  const file = await readUserCollection(userId);
+  return file.items.filter((i) => i.catalogId === catalogId).length;
 }
 
 function uniqueItemId(items: CollectionItem[], title: string): string {
@@ -143,11 +124,15 @@ function uniqueItemId(items: CollectionItem[], title: string): string {
   return `${base}-${n}`;
 }
 
-export function catalogGameToCollectionItem(game: CatalogGame, items: CollectionItem[]): CollectionItem {
+export function catalogGameToCollectionItem(
+  game: CatalogGame,
+  items: CollectionItem[],
+): CollectionItem {
   const rec = game.recommendedPrice;
   return {
     id: uniqueItemId(items, game.title),
     catalogId: game.id,
+    catalogMatched: true,
     inRetroCatalog: true,
     title: game.title,
     platformSlug: game.platformSlug,
@@ -203,36 +188,36 @@ export function catalogGameToCollectionItem(game: CatalogGame, items: Collection
   };
 }
 
-export function addCatalogGameToCollection(
+export async function addCatalogGameToCollection(
   userId: string,
   catalogId: string,
-): { item: CollectionItem } | { error: string } {
+): Promise<{ item: CollectionItem } | { error: string }> {
   const game = getCatalogGame(catalogId);
   if (!game || game.listingStatus === "excluded") {
     return { error: "Juego no encontrado en el catálogo." };
   }
 
-  const file = readUserCollection(userId);
+  const file = await readUserCollection(userId);
   if (file.items.some((i) => i.catalogId === catalogId)) {
     return { error: "Ya está en tu colección." };
   }
 
   const item = catalogGameToCollectionItem(game, file.items);
   file.items.push(item);
-  writeUserCollection(file);
+  await writeUserCollection(file);
   return { item };
 }
 
-export function removeCatalogGameFromCollection(
+export async function removeCatalogGameFromCollection(
   userId: string,
   catalogId: string,
-): { removed: number } | { error: string } {
-  const file = readUserCollection(userId);
+): Promise<{ removed: number } | { error: string }> {
+  const file = await readUserCollection(userId);
   const before = file.items.length;
   file.items = file.items.filter((i) => i.catalogId !== catalogId);
   if (file.items.length === before) {
     return { error: "No está en tu colección." };
   }
-  writeUserCollection(file);
+  await writeUserCollection(file);
   return { removed: before - file.items.length };
 }

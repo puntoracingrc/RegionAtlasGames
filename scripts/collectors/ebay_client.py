@@ -116,6 +116,11 @@ def _parse_finding_item(item: dict[str, Any]) -> dict[str, Any] | None:
     currency = price_block.get("@currencyId") if isinstance(price_block, dict) else "EUR"
     item_id = _first(item.get("itemId"))
     gallery = _first(item.get("galleryURL"))
+    listing_info = item.get("listingInfo", [{}])
+    if isinstance(listing_info, list) and listing_info:
+        ebay_listing_type = _first(listing_info[0].get("listingType"))
+    else:
+        ebay_listing_type = ""
     return {
         "title": title,
         "priceEur": price if currency in ("EUR", "") else price,
@@ -123,7 +128,22 @@ def _parse_finding_item(item: dict[str, Any]) -> dict[str, Any] | None:
         "itemId": item_id,
         "url": _first(item.get("viewItemURL")),
         "imageUrl": gallery or None,
+        "ebayListingType": ebay_listing_type,
     }
+
+
+def _is_auction_listing_type(listing_type: str) -> bool:
+    key = listing_type.strip().lower()
+    return key in ("auction", "auctionwithbin")
+
+
+def is_active_auction(item: dict[str, Any]) -> bool:
+    """Subastas en curso — precio de puja; vendidas (sold) sí cuentan."""
+    if item.get("_listingType") == "sold":
+        return False
+    if "AUCTION" in (item.get("buyingOptions") or []):
+        return True
+    return _is_auction_listing_type(str(item.get("ebayListingType") or ""))
 
 
 def finding_search(
@@ -158,6 +178,11 @@ def finding_search(
         end_from = listing_cutoff().replace(microsecond=0).isoformat().replace("+00:00", "Z")
         params.append((f"itemFilter({idx}).name", "EndTimeFrom"))
         params.append((f"itemFilter({idx}).value", end_from))
+    else:
+        # Activos: solo precio fijo — las subastas en curso distorsionan el mercado.
+        params.append((f"itemFilter({idx}).name", "ListingType"))
+        params.append((f"itemFilter({idx}).value", "FixedPrice"))
+        idx += 1
 
     url = FINDING_URL + "?" + urllib.parse.urlencode(params)
     status, raw = _fetch(url)
@@ -174,8 +199,11 @@ def finding_search(
     parsed: list[dict[str, Any]] = []
     for item in items:
         row = _parse_finding_item(item)
-        if row:
-            parsed.append(row)
+        if not row:
+            continue
+        if not sold and _is_auction_listing_type(str(row.get("ebayListingType") or "")):
+            continue
+        parsed.append(row)
     return parsed
 
 
@@ -191,7 +219,8 @@ def browse_search(
         {
             "q": keywords,
             "limit": str(min(max_results, 50)),
-            "filter": "buyingOptions:{FIXED_PRICE|AUCTION}",
+            # Solo compra inmediata; excluir subastas activas (precios de puja irreales).
+            "filter": "buyingOptions:{FIXED_PRICE}",
         }
     )
     url = f"{BROWSE_SEARCH_URL}?{params}"
@@ -209,6 +238,9 @@ def browse_search(
     payload = json.loads(raw)
     parsed: list[dict[str, Any]] = []
     for item in payload.get("itemSummaries", []):
+        buying_options = item.get("buyingOptions") or []
+        if "AUCTION" in buying_options:
+            continue
         try:
             price = float(item.get("price", {}).get("value", 0))
         except (TypeError, ValueError):
@@ -225,6 +257,7 @@ def browse_search(
                 "itemId": item.get("itemId", ""),
                 "url": item.get("itemWebUrl", ""),
                 "imageUrl": image_url,
+                "buyingOptions": buying_options,
             }
         )
     return parsed

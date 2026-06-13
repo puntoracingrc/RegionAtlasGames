@@ -19,17 +19,16 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Falta catalogId." }, { status: 400 });
   }
 
-  const result = addCatalogGameToCollection(user.id, catalogId);
+  const result = await addCatalogGameToCollection(user.id, catalogId);
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 400 });
   }
 
+  const views = await getUserCollectionViews(user.id);
   return NextResponse.json({
     item: enrichCollectionItem(result.item),
     owned: true,
-    ownedCatalogIds: getUserCollectionViews(user.id)
-      .map((i) => i.catalogId)
-      .filter(Boolean),
+    ownedCatalogIds: views.map((i) => i.catalogId).filter(Boolean),
   });
 }
 
@@ -45,16 +44,15 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ error: "Falta catalogId." }, { status: 400 });
   }
 
-  const result = removeCatalogGameFromCollection(user.id, catalogId);
+  const result = await removeCatalogGameFromCollection(user.id, catalogId);
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 400 });
   }
 
+  const views = await getUserCollectionViews(user.id);
   return NextResponse.json({
     removed: result.removed,
     owned: false,
-    ownedCatalogIds: getUserCollectionViews(user.id)
-      .map((i) => i.catalogId)
-      .filter(Boolean),
+    ownedCatalogIds: views.map((i) => i.catalogId).filter(Boolean),
   });
 }

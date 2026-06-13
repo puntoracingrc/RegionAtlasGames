@@ -11,6 +11,7 @@ from html import unescape
 from typing import Any
 
 from collectors.common import build_search_query, normalize_query
+from collectors import platform_sources as ps
 
 TC_BASE = "https://www.todocoleccion.net"
 USER_AGENT = "RegionAtlasGames/1.0 (+price-reference-ingest)"
@@ -20,35 +21,8 @@ TC_SECTION_JUGUETES = "187"
 TC_SUBSECTION_VIDEOJUEGOS = "1826"
 DEFAULT_GAME_SEARCH_MAX_PAGES: int | None = None
 
-# Slugs verificados en /s/{slug} (jun 2026) — solo referencia legacy.
-TC_PLATFORM_CATEGORIES: dict[str, str | list[str]] = {
-    "nes": "nintendo-nes",
-    "snes": "super-nintendo",
-    "n64": "nintendo-64",
-    "gameboy": "game-boy",
-    "gamecube": "nintendo-gamecube",
-    "wii": "nintendo-wii",
-    "ds": "nintendo-ds",
-    "3ds": "nintendo-3ds",
-    "mastersystem": "sega-master-system",
-    "megadrive": "sega-megadrive",
-    "megacd": "sega-mega-cd",
-    "saturn": "sega-saturn",
-    "dreamcast": "sega-dreamcast",
-    "gamegear": "sega-game-gear",
-    "ps1": "ps1",
-    "ps2": "ps2",
-    "ps3": "ps3",
-    "ps4": "playstation-ps4",
-}
-
-# Plataformas sin categoría propia (siguen admitidas vía búsqueda avanzada).
-TC_PLATFORM_SEARCH: dict[str, str] = {
-    "sega32x": "sega 32x juego",
-    "neogeo": "neo geo aes juego",
-    "neogeocd": "neo geo cd juego",
-    "neogeopocket": "neo geo pocket juego",
-}
+TC_PLATFORM_CATEGORIES = ps.legacy_tc_categories()
+TC_PLATFORM_SEARCH = ps.legacy_tc_search_queries()
 
 from collectors.listing_recency import (  # noqa: E402
     enrich_tc_product,
@@ -69,26 +43,19 @@ def build_tc_search_query(game: dict[str, Any]) -> str:
 
 
 def tc_sources_for_platform(platform_slug: str) -> list[str]:
-    """Plataforma admitida si está en el mapa (búsqueda global por frase exacta)."""
-    if platform_slug in supported_platform_slugs():
-        return [platform_slug]
-    return []
+    return ps.tc_sources_for_platform(platform_slug)
 
 
 def tc_category_slugs_for_platform(platform_slug: str) -> list[str]:
-    raw = TC_PLATFORM_CATEGORIES.get(platform_slug)
-    if not raw:
-        return []
-    return raw if isinstance(raw, list) else [raw]
+    return ps.tc_category_slugs(platform_slug)
 
 
 def tc_legacy_search_query(platform_slug: str) -> str | None:
-    return TC_PLATFORM_SEARCH.get(platform_slug)
+    return ps.tc_legacy_search_query(platform_slug)
 
 
 def supported_platform_slugs() -> list[str]:
-    slugs = set(TC_PLATFORM_CATEGORIES) | set(TC_PLATFORM_SEARCH)
-    return sorted(slugs)
+    return sorted(set(TC_PLATFORM_CATEGORIES) | set(TC_PLATFORM_SEARCH))
 
 
 def _product_image(product: dict[str, Any]) -> str | None:

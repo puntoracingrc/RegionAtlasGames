@@ -64,8 +64,8 @@ export default async function CatalogGamePage({ params }: Props) {
   }
 
   const user = await getCurrentUser();
-  const owned = user ? isCatalogGameOwned(user.id, game.id) : false;
-  const ownedCount = user ? countCatalogGameOwned(user.id, game.id) : 0;
+  const owned = user ? await isCatalogGameOwned(user.id, game.id) : false;
+  const ownedCount = user ? await countCatalogGameOwned(user.id, game.id) : 0;
 
   const platform = getPlatform(game.platformSlug);
   const details = getGameDetails(game.id);

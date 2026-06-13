@@ -40,6 +40,9 @@ def write_match_cache(source: str, platform_slug: str, cache_key: str, payload: 
 
 
 def ai_available() -> bool:
+    from collectors.common import load_local_env
+
+    load_local_env()
     return bool(os.environ.get("OPENAI_API_KEY", "").strip())
 
 

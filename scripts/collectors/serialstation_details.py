@@ -19,22 +19,15 @@ from collectors.game_details_lib import (
     slugify,
 )
 from collectors.reference_match import extract_references_from_text, normalize_reference
+from collectors import platform_sources as ps
 
 API_BASE = "https://api.serialstation.com/v1"
 USER_AGENT = "RegionAtlasGames/1.0 (catalog enrichment)"
 REQUEST_DELAY = 0.25
 
-PS_PLATFORMS = frozenset({"ps1", "ps2", "ps3", "ps4", "psp", "psvita", "ps5"})
+PS_PLATFORMS = frozenset(ps.ps_platform_slugs()) | frozenset({"ps5"})
 
-PLATFORM_TO_CONSOLE: dict[str, str] = {
-    "ps1": "PS1",
-    "ps2": "PS2",
-    "ps3": "PS3",
-    "ps4": "PS4",
-    "ps5": "PS5",
-    "psp": "PSP",
-    "psvita": "PSV",
-}
+PLATFORM_TO_CONSOLE = ps.legacy_serialstation_consoles()
 
 REGION_TITLE_ID_PREFIXES: dict[str, list[str]] = {
     "PAL ES": ["SLES", "SCES", "BLES", "ULES", "CUSA", "PCSB", "PCSE", "NPUB", "NPEB", "NPEG"],

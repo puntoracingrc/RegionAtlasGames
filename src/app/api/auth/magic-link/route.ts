@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Email no válido." }, { status: 400 });
   }
 
-  const users = readUsers();
+  const users = await readUsers();
   if (!users.some((u) => u.email === email)) {
     return NextResponse.json(
       { error: "No hay cuenta con ese email. Regístrate primero." },

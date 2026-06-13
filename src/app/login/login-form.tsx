@@ -4,6 +4,11 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SiteNav } from "@/components/site-nav";
+import {
+  AuthDivider,
+  GoogleSignInButton,
+  googleAuthErrorMessage,
+} from "@/components/google-sign-in-button";
 import { Panel, PanelTitle } from "@/components/ui";
 
 export function LoginForm() {
@@ -19,10 +24,14 @@ export function LoginForm() {
 
   useEffect(() => {
     const magic = searchParams.get("magic");
-    if (!magic) return;
-    if (magic === "invalid") setError("Enlace de acceso no válido.");
-    else if (magic === "login-failed") setError("No se pudo iniciar sesión con el enlace.");
-    else setError(decodeURIComponent(magic));
+    if (magic) {
+      if (magic === "invalid") setError("Enlace de acceso no válido.");
+      else if (magic === "login-failed") setError("No se pudo iniciar sesión con el enlace.");
+      else setError(decodeURIComponent(magic));
+      return;
+    }
+    const google = searchParams.get("google");
+    if (google) setError(googleAuthErrorMessage(google));
   }, [searchParams]);
 
   async function onPasswordSubmit(e: React.FormEvent) {
@@ -31,19 +40,30 @@ export function LoginForm() {
     setError(null);
     setInfo(null);
     setDevLink(null);
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    const data = await res.json();
-    setLoading(false);
-    if (!res.ok) {
-      setError(data.error ?? "Error al iniciar sesión.");
-      return;
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      let data: { error?: string } = {};
+      try {
+        data = await res.json();
+      } catch {
+        setError("Respuesta inválida del servidor.");
+        return;
+      }
+      if (!res.ok) {
+        setError(data.error ?? "Error al iniciar sesión.");
+        return;
+      }
+      router.push("/coleccion");
+      router.refresh();
+    } catch {
+      setError("No se pudo conectar. Inténtalo de nuevo.");
+    } finally {
+      setLoading(false);
     }
-    router.push("/coleccion");
-    router.refresh();
   }
 
   async function onMagicSubmit(e: React.FormEvent) {
@@ -52,19 +72,30 @@ export function LoginForm() {
     setError(null);
     setInfo(null);
     setDevLink(null);
-    const res = await fetch("/api/auth/magic-link", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
-    const data = await res.json();
-    setLoading(false);
-    if (!res.ok) {
-      setError(data.error ?? "No se pudo enviar el enlace.");
-      return;
+    try {
+      const res = await fetch("/api/auth/magic-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      let data: { error?: string; message?: string; verifyUrl?: string } = {};
+      try {
+        data = await res.json();
+      } catch {
+        setError("Respuesta inválida del servidor.");
+        return;
+      }
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo enviar el enlace.");
+        return;
+      }
+      setInfo(data.message ?? "Revisa tu email.");
+      if (data.verifyUrl) setDevLink(data.verifyUrl);
+    } catch {
+      setError("No se pudo conectar. Inténtalo de nuevo.");
+    } finally {
+      setLoading(false);
     }
-    setInfo(data.message ?? "Revisa tu email.");
-    if (data.verifyUrl) setDevLink(data.verifyUrl);
   }
 
   return (
@@ -76,6 +107,9 @@ export function LoginForm() {
           <p className="mb-4 text-sm text-muted">
             Accede para guardar juegos en tu colección y usar el mercado Pro.
           </p>
+
+          <GoogleSignInButton />
+          <AuthDivider />
 
           <div className="mb-4 flex rounded-lg border border-border p-0.5">
             <button

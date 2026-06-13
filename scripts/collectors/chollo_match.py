@@ -7,18 +7,9 @@ from typing import Any
 from collectors.catalog_match import CatalogMatchResult, match_catalog_product, product_title
 from collectors.jgo_match import pick_best_product_rows
 from collectors.listing_images import attach_image_urls
+from collectors import platform_sources as ps
 
-CHOLLO_PLATFORM_CATEGORIES: dict[str, str] = {
-    "n64": "45-nintendo-64-importacion",
-    "gamecube": "29-gamecube-importacion",
-    "megadrive": "36-megadrive-importacion",
-    "dreamcast": "20-dreamcast-importacion",
-    "saturn": "65-saturn-importacion",
-    "wii": "48-nintendo-wii-importacion",
-    "ps1": "55-playstation-importacion",
-    "ps2": "57-playstation-2-importacion",
-    "ps3": "59-playstation-3-importacion",
-}
+CHOLLO_PLATFORM_CATEGORIES = ps.legacy_chollo_categories()
 
 
 def infer_chollo_region_product(product: dict[str, Any]) -> str | None:

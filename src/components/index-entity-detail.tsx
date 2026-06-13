@@ -12,7 +12,7 @@ export async function IndexEntityDetail({ kind, slug }: { kind: IndexKind; slug:
   if (!summary) notFound();
 
   const user = await getCurrentUser();
-  const ownedCatalogIds = user ? getOwnedCatalogIds(user.id) : [];
+  const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
 
   return (
     <>

@@ -104,12 +104,12 @@ export function countActiveListingsForCollectionItem(
   ).length;
 }
 
-export function createListingDraft(input: {
+export async function createListingDraft(input: {
   sellerId: string;
   sellerName: string;
   collectionItemId: string;
-}): MarketplaceListing | { error: string; existingListingId?: string } {
-  const item = getUserCollectionItem(input.sellerId, input.collectionItemId);
+}): Promise<MarketplaceListing | { error: string; existingListingId?: string }> {
+  const item = await getUserCollectionItem(input.sellerId, input.collectionItemId);
   if (!item?.catalogId) {
     return { error: "Solo puedes vender juegos enlazados al catálogo." };
   }

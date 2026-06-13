@@ -3,6 +3,7 @@
   "build": {
     "env": {
       "NODE_OPTIONS": "--max-old-space-size=6144",
+      "NEXT_PUBLIC_SITE_URL": "https://regionatlas.games",
       "NEXT_PUBLIC_COVERS_BASE_URL": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers"
     }
   },

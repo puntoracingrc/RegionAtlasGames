@@ -31,31 +31,117 @@ const EXCEL_TO_SLUG: Record<string, string> = {
   "NEO GEO POCKET COLOR": "neogeopocket",
 };
 
+/** Nombres de consola PriceCharting → slug interno */
+const PC_CONSOLE_TO_SLUG: Record<string, string> = {
+  nes: "nes",
+  "pal nes": "nes",
+  snes: "snes",
+  "super nintendo": "snes",
+  "pal super nintendo": "snes",
+  "nintendo 64": "n64",
+  "pal nintendo 64": "n64",
+  n64: "n64",
+  gameboy: "gameboy",
+  "game boy": "gameboy",
+  "pal gameboy": "gameboy",
+  "pal game boy": "gameboy",
+  gamecube: "gamecube",
+  "pal gamecube": "gamecube",
+  wii: "wii",
+  "pal wii": "wii",
+  ds: "ds",
+  "nintendo ds": "ds",
+  "pal nintendo ds": "ds",
+  "3ds": "3ds",
+  "nintendo 3ds": "3ds",
+  "pal nintendo 3ds": "3ds",
+  "mega drive": "megadrive",
+  "sega mega drive": "megadrive",
+  "pal sega mega drive": "megadrive",
+  "sega genesis": "megadrive",
+  genesis: "megadrive",
+  "sega 32x": "sega32x",
+  "32x": "sega32x",
+  "pal mega drive 32x": "sega32x",
+  "mega cd": "megacd",
+  "sega cd": "megacd",
+  "pal sega mega cd": "megacd",
+  "sega master system": "mastersystem",
+  "master system": "mastersystem",
+  "pal sega master system": "mastersystem",
+  saturn: "saturn",
+  "sega saturn": "saturn",
+  "pal sega saturn": "saturn",
+  dreamcast: "dreamcast",
+  "sega dreamcast": "dreamcast",
+  "pal sega dreamcast": "dreamcast",
+  "game gear": "gamegear",
+  "sega game gear": "gamegear",
+  "pal sega game gear": "gamegear",
+  playstation: "ps1",
+  "pal playstation": "ps1",
+  "sony playstation": "ps1",
+  ps1: "ps1",
+  "playstation 2": "ps2",
+  "pal playstation 2": "ps2",
+  ps2: "ps2",
+  "playstation 3": "ps3",
+  "pal playstation 3": "ps3",
+  ps3: "ps3",
+  "playstation 4": "ps4",
+  "pal playstation 4": "ps4",
+  ps4: "ps4",
+  "playstation 5": "ps5",
+  ps5: "ps5",
+  "neo geo": "neogeo",
+  "neo geo aes": "neogeo",
+  "neo geo cd": "neogeocd",
+  "neo geo pocket": "neogeopocket",
+  "neo geo pocket color": "neogeopocket",
+};
+
 const COLUMN_ALIASES: Record<string, string[]> = {
-  title: ["título", "titulo", "title", "nombre", "juego"],
-  platform: ["plataforma", "platform", "consola", "sistema"],
-  region: ["región", "region"],
-  sealed: ["precintado", "sealed", "nuevo"],
-  quantity: ["cantidad", "quantity", "qty", "unidades"],
-  quantityPc: ["cantidad pc verificada", "cantidad pc"],
-  buyPrice: ["precio compra (€)", "precio compra", "buy price", "compra"],
-  previousSalePrice: ["precio venta anterior (€)", "precio venta anterior"],
-  recommendedPrice: [
-    "precio venta recomendado (€)",
-    "precio venta recomendado",
-    "precio venta",
-    "venta",
+  title: [
+    "titulo",
+    "title",
+    "nombre",
+    "juego",
+    "product name",
+    "product",
+    "game name",
+    "game",
+    "name",
   ],
-  marketMin: ["precio mercado es mín (€)", "precio mercado es min", "mercado min"],
-  marketMax: ["precio mercado es máx (€)", "precio mercado es max", "mercado max"],
-  pcRefPrice: ["ref. pricecharting eu (€)", "ref pricecharting", "precio pc"],
-  deltaEsVsPc: ["δ es vs pc (%)", "delta es vs pc", "delta"],
-  priceSource: ["fuente precio", "fuente"],
-  updatedAt: ["fecha actualización", "fecha actualizacion", "actualizado"],
-  notes: ["notas", "notes", "comentarios"],
-  coverUrl: ["url portada", "portada", "cover"],
-  titlePc: ["título pricecharting", "titulo pricecharting"],
-  pcId: ["id pricecharting", "pc id"],
+  platform: ["plataforma", "platform", "consola", "sistema", "console name", "console", "system"],
+  region: ["region", "country"],
+  sealed: ["precintado", "sealed", "nuevo", "new sealed"],
+  condition: ["condition", "condicion", "item condition", "includes"],
+  quantity: ["cantidad", "quantity", "qty", "unidades", "count"],
+  quantityPc: ["cantidad pc verificada", "cantidad pc"],
+  buyPrice: [
+    "precio compra",
+    "buy price",
+    "compra",
+    "price paid",
+    "paid",
+    "cost",
+    "purchase price",
+  ],
+  previousSalePrice: ["precio venta anterior", "previous sale"],
+  recommendedPrice: ["precio venta recomendado", "precio venta", "venta", "value", "your price"],
+  loosePrice: ["loose price", "loose-price"],
+  cibPrice: ["cib price", "cib-price", "complete price"],
+  newPrice: ["new price", "new-price", "sealed price"],
+  marketMin: ["precio mercado es min", "mercado min", "market min"],
+  marketMax: ["precio mercado es max", "mercado max", "market max"],
+  pcRefPrice: ["ref. pricecharting eu", "ref pricecharting", "precio pc", "pricecharting price"],
+  deltaEsVsPc: ["delta es vs pc", "delta"],
+  priceSource: ["fuente precio", "fuente", "source"],
+  updatedAt: ["fecha actualizacion", "fecha actualización", "actualizado", "date"],
+  notes: ["notas", "notes", "comentarios", "item notes", "description"],
+  coverUrl: ["url portada", "portada", "cover", "photo", "photos"],
+  titlePc: ["titulo pricecharting", "pricecharting title"],
+  pcId: ["id pricecharting", "pc id", "product id", "id"],
 };
 
 export type ImportStats = {
@@ -64,6 +150,7 @@ export type ImportStats = {
   matchedCatalog: number;
   unmatched: number;
   skipped: number;
+  detectedHeaders: string[];
   warnings: string[];
 };
 
@@ -71,10 +158,14 @@ const retroSlugs = new Set(platforms.map((p) => p.slug));
 
 function normalizeHeader(value: unknown): string {
   return String(value ?? "")
+    .replace(/^\uFEFF/, "")
     .trim()
     .toLowerCase()
     .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "");
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function clean(value: unknown): string | null {
@@ -88,14 +179,33 @@ function clean(value: unknown): string | null {
 function num(value: unknown): number | null {
   const v = clean(value);
   if (v == null) return null;
-  const n = Number(v.replace(",", "."));
-  return Number.isFinite(n) ? Math.round(n * 100) / 100 : null;
+  const normalized = v.replace(/[€$£\s]/g, "").replace(",", ".");
+  const n = Number(normalized);
+  if (!Number.isFinite(n)) return null;
+  // PriceCharting API usa céntimos; export CSV suele ir en dólares/euros
+  const asMoney = n > 10_000 ? n / 100 : n;
+  return Math.round(asMoney * 100) / 100;
 }
 
 function platformSlug(raw: string | null): string | null {
   if (!raw) return null;
+  const normalized = normalizeHeader(raw);
+  if (PC_CONSOLE_TO_SLUG[normalized]) return PC_CONSOLE_TO_SLUG[normalized];
   const key = raw.trim().toUpperCase();
-  return EXCEL_TO_SLUG[key] ?? slugify(raw);
+  if (EXCEL_TO_SLUG[key]) return EXCEL_TO_SLUG[key];
+  const slug = slugify(raw);
+  return slug || null;
+}
+
+function columnMatchScore(header: string, alias: string): number {
+  if (!header || !alias) return 0;
+  if (header === alias) return 100;
+  if (header.startsWith(`${alias} `) || header.endsWith(` ${alias}`)) return 95;
+  if (header.includes(alias)) return 85;
+  const hTokens = new Set(header.split(" "));
+  const aTokens = alias.split(" ");
+  if (aTokens.every((t) => hTokens.has(t))) return 80;
+  return 0;
 }
 
 function mapColumns(headers: string[]): Record<string, number> {
@@ -103,8 +213,20 @@ function mapColumns(headers: string[]): Record<string, number> {
   const normalized = headers.map(normalizeHeader);
 
   for (const [field, aliases] of Object.entries(COLUMN_ALIASES)) {
-    const idx = normalized.findIndex((h) => aliases.includes(h));
-    if (idx !== -1) map[field] = idx;
+    let bestIdx = -1;
+    let bestScore = 0;
+    for (let i = 0; i < normalized.length; i++) {
+      const header = normalized[i];
+      if (!header) continue;
+      for (const alias of aliases) {
+        const score = columnMatchScore(header, alias);
+        if (score > bestScore) {
+          bestScore = score;
+          bestIdx = i;
+        }
+      }
+    }
+    if (bestIdx >= 0 && bestScore >= 80) map[field] = bestIdx;
   }
   return map;
 }
@@ -114,24 +236,32 @@ function cell(row: unknown[], col: number | undefined): unknown {
   return row[col] ?? null;
 }
 
+function findHeaderRowIndex(rows: unknown[][]): number {
+  for (let i = 0; i < Math.min(rows.length, 20); i++) {
+    const headers = rows[i]?.map((h) => String(h ?? "")) ?? [];
+    const cols = mapColumns(headers);
+    if (cols.title !== undefined && cols.platform !== undefined) return i;
+  }
+  return 0;
+}
+
 export function parseSpreadsheet(buffer: Buffer, filename: string): unknown[][] {
-  const workbook = XLSX.read(buffer, { type: "buffer", cellDates: true });
+  const workbook = XLSX.read(buffer, {
+    type: "buffer",
+    cellDates: true,
+    codepage: 65001,
+  });
   const sheetName =
     workbook.SheetNames.find((n) => n.toUpperCase() === "TODO") ??
     workbook.SheetNames[0];
   if (!sheetName) return [];
 
   const sheet = workbook.Sheets[sheetName];
-  const rows = XLSX.utils.sheet_to_json<unknown[]>(sheet, {
+  return XLSX.utils.sheet_to_json<unknown[]>(sheet, {
     header: 1,
     defval: null,
     raw: false,
   }) as unknown[][];
-
-  if (filename.toLowerCase().endsWith(".csv") && rows.length > 0) {
-    return rows;
-  }
-  return rows;
 }
 
 function slugKey(text: string): string {
@@ -168,6 +298,13 @@ function findCatalogMatch(
 ): CatalogGame | null {
   const { byPlatformTitle, byId } = buildCatalogMatchIndex();
 
+  if (pcId != null) {
+    const byPcId = catalog.find(
+      (g) => g.platformSlug === platform && g.pcId === pcId && g.listingStatus !== "excluded",
+    );
+    if (byPcId) return byPcId;
+  }
+
   const directId = `${platform}-${slugify(title)}`;
   if (byId.has(directId)) return byId.get(directId)!;
 
@@ -179,13 +316,6 @@ function findCatalogMatch(
   for (const key of keys) {
     const id = byPlatformTitle.get(key);
     if (id && byId.has(id)) return byId.get(id)!;
-  }
-
-  if (pcId != null) {
-    const byPcId = catalog.find(
-      (g) => g.platformSlug === platform && g.pcId === pcId && g.listingStatus !== "excluded",
-    );
-    if (byPcId) return byPcId;
   }
 
   const candidates = catalog.filter(
@@ -208,16 +338,54 @@ function findCatalogMatch(
   return candidates[0] ?? null;
 }
 
-function marketFields(row: unknown[], cols: Record<string, number>) {
-  const recommendedPrice = num(cell(row, cols.recommendedPrice));
+function inferRegion(raw: string | null, platform: string): string {
+  if (raw) return raw;
+  return retroSlugs.has(platform) ? "PAL España" : "—";
+}
+
+function inferSealed(condition: string | null, sealedRaw: string | null): boolean {
+  if (sealedRaw) {
+    return ["si", "sí", "yes", "true", "1"].includes(sealedRaw.toLowerCase());
+  }
+  if (!condition) return false;
+  const c = condition.toLowerCase();
+  return c.includes("new") || c.includes("sealed") || c.includes("precint") || c === "nuevo";
+}
+
+function priceFromCondition(
+  row: unknown[],
+  cols: Record<string, number>,
+  condition: string | null,
+): number | null {
+  const c = (condition ?? "").toLowerCase();
+  if (c.includes("new") || c.includes("sealed") || c.includes("precint")) {
+    return num(cell(row, cols.newPrice)) ?? num(cell(row, cols.recommendedPrice));
+  }
+  if (c.includes("cib") || c.includes("complete") || c.includes("box")) {
+    return num(cell(row, cols.cibPrice)) ?? num(cell(row, cols.recommendedPrice));
+  }
+  return (
+    num(cell(row, cols.loosePrice)) ??
+    num(cell(row, cols.recommendedPrice)) ??
+    num(cell(row, cols.cibPrice)) ??
+    num(cell(row, cols.newPrice))
+  );
+}
+
+function marketFields(row: unknown[], cols: Record<string, number>, condition: string | null) {
+  const recommendedPrice = priceFromCondition(row, cols, condition);
   const priceSource = clean(cell(row, cols.priceSource));
   return {
     marketMin: num(cell(row, cols.marketMin)),
     marketMax: num(cell(row, cols.marketMax)),
     recommendedPrice,
-    pcRefPrice: num(cell(row, cols.pcRefPrice)),
+    pcRefPrice:
+      num(cell(row, cols.pcRefPrice)) ??
+      num(cell(row, cols.loosePrice)) ??
+      num(cell(row, cols.cibPrice)) ??
+      num(cell(row, cols.newPrice)),
     deltaEsVsPc: num(cell(row, cols.deltaEsVsPc)),
-    priceSource,
+    priceSource: priceSource ?? (recommendedPrice != null ? "PriceCharting" : null),
     updatedAt: clean(cell(row, cols.updatedAt)),
     hasEsPrice: priceSource === "Wallapop/eBay ES" || recommendedPrice != null,
     priceRegionVerified: false,
@@ -234,6 +402,7 @@ export function importRowsToCollection(rows: unknown[][]): {
     matchedCatalog: 0,
     unmatched: 0,
     skipped: 0,
+    detectedHeaders: [],
     warnings: [],
   };
 
@@ -242,12 +411,16 @@ export function importRowsToCollection(rows: unknown[][]): {
     return { items: [], stats };
   }
 
-  const headers = rows[0].map((h) => String(h ?? ""));
+  const headerRowIndex = findHeaderRowIndex(rows);
+  const headers = rows[headerRowIndex].map((h) => String(h ?? "").replace(/^\uFEFF/, "").trim());
+  stats.detectedHeaders = headers.filter(Boolean);
   const cols = mapColumns(headers);
 
   if (cols.title === undefined || cols.platform === undefined) {
+    const preview = stats.detectedHeaders.slice(0, 8).join(", ") || "(vacío)";
     stats.warnings.push(
-      "Faltan columnas obligatorias: Título y Plataforma (o Title / Platform).",
+      `No encontramos columnas de juego y consola. Cabeceras detectadas: ${preview}. ` +
+        "PriceCharting usa «product-name» y «console-name»; plantillas propias usan «Título» y «Plataforma».",
     );
     return { items: [], stats };
   }
@@ -255,13 +428,13 @@ export function importRowsToCollection(rows: unknown[][]): {
   const items: CollectionItem[] = [];
   const idCounts = new Map<string, number>();
 
-  for (let i = 1; i < rows.length; i++) {
+  for (let i = headerRowIndex + 1; i < rows.length; i++) {
     const row = rows[i];
     if (!row || row.every((c) => clean(c) == null)) continue;
 
     stats.totalRows += 1;
     const title = clean(cell(row, cols.title));
-    if (!title || title.toLowerCase() === "título") {
+    if (!title || ["titulo", "title", "product name"].includes(title.toLowerCase())) {
       stats.skipped += 1;
       continue;
     }
@@ -269,18 +442,19 @@ export function importRowsToCollection(rows: unknown[][]): {
     const plat = platformSlug(clean(cell(row, cols.platform)));
     if (!plat) {
       stats.skipped += 1;
+      stats.warnings.push(`Fila ${i + 1}: consola no reconocida («${clean(cell(row, cols.platform))}»).`);
       continue;
     }
 
-    const titlePc = clean(cell(row, cols.titlePc));
-    const pcId = num(cell(row, cols.pcId));
-    const region = clean(cell(row, cols.region)) ?? "PAL España";
+    const titlePc = clean(cell(row, cols.titlePc)) ?? title;
+    const pcIdRaw = clean(cell(row, cols.pcId));
+    const pcId = pcIdRaw ? num(pcIdRaw) : null;
+    const region = inferRegion(clean(cell(row, cols.region)), plat);
+    const condition = clean(cell(row, cols.condition));
     const inRetro = retroSlugs.has(plat);
 
-    const matched = inRetro
-      ? findCatalogMatch(plat, title, titlePc, pcId, region)
-      : null;
-    const fallbackCatalogId = inRetro ? `${plat}-${slugify(title)}` : null;
+    const matched = inRetro ? findCatalogMatch(plat, title, titlePc, pcId, region) : null;
+    const catalogMatched = Boolean(matched);
 
     const base = slugify(title);
     const count = idCounts.get(base) ?? 0;
@@ -288,22 +462,21 @@ export function importRowsToCollection(rows: unknown[][]): {
     const itemId = count === 0 ? base : `${base}-${count + 1}`;
 
     const qty = Math.max(1, Math.floor(num(cell(row, cols.quantity)) ?? 1));
-    const market = marketFields(row, cols);
+    const market = marketFields(row, cols, condition);
     const rec = market.recommendedPrice;
 
-    if (matched) stats.matchedCatalog += 1;
+    if (catalogMatched) stats.matchedCatalog += 1;
     else if (inRetro) stats.unmatched += 1;
 
     items.push({
       id: itemId,
-      catalogId: matched?.id ?? fallbackCatalogId,
+      catalogId: matched?.id ?? null,
+      catalogMatched,
       inRetroCatalog: inRetro,
       title,
       platformSlug: plat,
       region,
-      sealed: ["si", "sí", "yes", "true", "1"].includes(
-        (clean(cell(row, cols.sealed)) ?? "").toLowerCase(),
-      ),
+      sealed: inferSealed(condition, clean(cell(row, cols.sealed))),
       quantity: qty,
       quantityPc: num(cell(row, cols.quantityPc)),
       buyPrice: num(cell(row, cols.buyPrice)),
@@ -315,10 +488,18 @@ export function importRowsToCollection(rows: unknown[][]): {
     stats.imported += 1;
   }
 
+  if (stats.imported === 0 && stats.totalRows > 0) {
+    stats.warnings.push("No se importó ninguna fila válida. Revisa consolas y títulos.");
+  }
+
   return { items, stats };
 }
 
 export function importSpreadsheet(buffer: Buffer, filename: string) {
   const rows = parseSpreadsheet(buffer, filename);
   return importRowsToCollection(rows);
+}
+
+export function pendingCatalogItems(items: CollectionItem[]): CollectionItem[] {
+  return items.filter((item) => item.inRetroCatalog && !item.catalogMatched);
 }

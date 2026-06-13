@@ -25,8 +25,8 @@ export default async function PlatformPage({ params }: Props) {
   if (!platform) notFound();
 
   const user = await getCurrentUser();
-  const owned = user ? getUserCollectionViews(user.id) : [];
-  const ownedCatalogIds = user ? getOwnedCatalogIds(user.id) : [];
+  const owned = user ? await getUserCollectionViews(user.id) : [];
+  const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
   const ownedOnPlatform = owned.filter((c) => c.platformSlug === slug);
   const catalogGames = getCatalogByPlatform(slug);
   const listingCounts = getActiveListingCountsByCatalog();

@@ -10,30 +10,9 @@ from collectors.catalog_match import CatalogMatchResult, match_catalog_product, 
 from collectors.jgo_match import pick_best_product_rows, product_core_title
 from collectors.listing_images import attach_image_urls
 from collectors.reference_match import product_search_text
+from collectors import platform_sources as ps
 
-KAOTO_PLATFORM_COLLECTIONS: dict[str, str] = {
-    "nes": "nintendo-nes",
-    "snes": "super-nintendo",
-    "n64": "nintendo-64",
-    "gameboy": "game-boy-game-boy-color",
-    "gamecube": "gamecube",
-    "wii": "wii",
-    "ds": "nintendo-ds",
-    "3ds": "nintendo-3ds",
-    "megadrive": "mega-drive",
-    "sega32x": "32x",
-    "megacd": "mega-cd",
-    "saturn": "saturn",
-    "dreamcast": "dreamcast",
-    "gamegear": "game-gear",
-    "neogeo": "neo-geo-aes",
-    "neogeocd": "neo-geo-cd",
-    "neogeopocket": "neo-geo-pocket-color",
-    "ps1": "playstation",
-    "ps2": "playstation-2",
-    "ps3": "playstation-3",
-    "ps4": "playstation-4",
-}
+KAOTO_PLATFORM_COLLECTIONS = ps.legacy_kaoto_collections()
 
 # Kaoto vende import JP (y algún USA); no encaja con filas PAL ES/EU del catálogo.
 KAOTO_CATALOG_REGIONS = frozenset({"Japón", "USA"})

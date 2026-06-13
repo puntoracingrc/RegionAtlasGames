@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 1,
+  "notes": "Registro único por plataforma. Tras añadir el slug en platforms.json + catalog.json, edita aquí las fuentes. Wallapop/Vinted/eBay arrancan solos con searchKeyword. Campos opcionales: cex [ids], todocoleccion [slug], todocoleccionSearch (sin categoría TC), todoconsolas [slug], kaoto, jgo [slugs], chollo, serialstationConsole (PS). Ejemplo PS5: {\"searchKeyword\":\"ps5\",\"cex\":[\"...\"],\"serialstationConsole\":\"PS5\"}",
+  "platforms": {
+    "nes": {
+      "searchKeyword": "nes",
+      "cex": [
+        "1155"
+      ],
+      "todocoleccion": [
+        "nintendo-nes"
+      ],
+      "todoconsolas": [
+        "135-juegos-nes"
+      ],
+      "kaoto": "nintendo-nes",
+      "jgo": [
+        "nesfamicom"
+      ]
+    },
+    "snes": {
+      "searchKeyword": "snes",
+      "cex": [
+        "1027"
+      ],
+      "todocoleccion": [
+        "super-nintendo"
+      ],
+      "todoconsolas": [
+        "159-juegos-snes"
+      ],
+      "kaoto": "super-nintendo",
+      "jgo": [
+        "snessuper-famicom",
+        "snes-juegos"
+      ]
+    },
+    "n64": {
+      "searchKeyword": "n64",
+      "cex": [
+        "1019"
+      ],
+      "todocoleccion": [
+        "nintendo-64"
+      ],
+      "todoconsolas": [
+        "129-juegos-n64"
+      ],
+      "kaoto": "nintendo-64",
+      "jgo": [
+        "nintendo-64"
+      ],
+      "chollo": "45-nintendo-64-importacion"
+    },
+    "gameboy": {
+      "searchKeyword": "gameboy",
+      "cex": [
+        "1141",
+        "1139",
+        "1093"
+      ],
+      "todocoleccion": [
+        "game-boy"
+      ],
+      "todoconsolas": [
+        "81-juegos-gb",
+        "93-juegos-gbc",
+        "87-juegos-gba"
+      ],
+      "kaoto": "game-boy-game-boy-color",
+      "jgo": [
+        "game-boy",
+        "game-boy-classic",
+        "game-boy-color",
+        "game-boy-pocket"
+      ]
+    },
+    "gamecube": {
+      "searchKeyword": "gamecube",
+      "cex": [
+        "837"
+      ],
+      "todocoleccion": [
+        "nintendo-gamecube"
+      ],
+      "todoconsolas": [
+        "99-juegos-gamecube"
+      ],
+      "kaoto": "gamecube",
+      "jgo": [
+        "gamecube"
+      ],
+      "chollo": "29-gamecube-importacion"
+    },
+    "wii": {
+      "searchKeyword": "wii",
+      "cex": [
+        "831"
+      ],
+      "todocoleccion": [
+        "nintendo-wii"
+      ],
+      "todoconsolas": [
+        "48-juegos-wii"
+      ],
+      "kaoto": "wii",
+      "chollo": "48-nintendo-wii-importacion"
+    },
+    "ds": {
+      "searchKeyword": "ds",
+      "cex": [
+        "834"
+      ],
+      "todocoleccion": [
+        "nintendo-ds"
+      ],
+      "todoconsolas": [
+        "18-juegos-ds"
+      ],
+      "kaoto": "nintendo-ds"
+    },
+    "3ds": {
+      "searchKeyword": "3ds",
+      "cex": [
+        "977"
+      ],
+      "todocoleccion": [
+        "nintendo-3ds"
+      ],
+      "todoconsolas": [
+        "13-juegos-3ds"
+      ],
+      "kaoto": "nintendo-3ds"
+    },
+    "mastersystem": {
+      "searchKeyword": "mastersystem",
+      "cex": [
+        "1147"
+      ],
+      "todocoleccion": [
+        "sega-master-system"
+      ],
+      "todoconsolas": [
+        "111-juegos-ms"
+      ],
+      "jgo": [
+        "master-system"
+      ]
+    },
+    "megadrive": {
+      "searchKeyword": "megadrive",
+      "cex": [
+        "1151"
+      ],
+      "todocoleccion": [
+        "sega-megadrive"
+      ],
+      "todoconsolas": [
+        "117-juegos-md"
+      ],
+      "kaoto": "mega-drive",
+      "jgo": [
+        "megadrive",
+        "md-juegos"
+      ],
+      "chollo": "36-megadrive-importacion"
+    },
+    "sega32x": {
+      "searchKeyword": "32x",
+      "cex": [
+        "1148"
+      ],
+      "todocoleccionSearch": "sega 32x juego",
+      "kaoto": "32x",
+      "jgo": [
+        "32x"
+      ]
+    },
+    "megacd": {
+      "searchKeyword": "megacd",
+      "cex": [
+        "1152"
+      ],
+      "todocoleccion": [
+        "sega-mega-cd"
+      ],
+      "kaoto": "mega-cd",
+      "jgo": [
+        "mega-cd"
+      ]
+    },
+    "saturn": {
+      "searchKeyword": "saturn",
+      "cex": [
+        "1158"
+      ],
+      "todocoleccion": [
+        "sega-saturn"
+      ],
+      "todoconsolas": [
+        "153-juegos-ss"
+      ],
+      "kaoto": "saturn",
+      "jgo": [
+        "saturn",
+        "ss-videojuegos"
+      ],
+      "chollo": "65-saturn-importacion"
+    },
+    "dreamcast": {
+      "searchKeyword": "dreamcast",
+      "cex": [
+        "1136"
+      ],
+      "todocoleccion": [
+        "sega-dreamcast"
+      ],
+      "todoconsolas": [
+        "75-juegos-dreamcast"
+      ],
+      "kaoto": "dreamcast",
+      "jgo": [
+        "dreamcast",
+        "dc-juegos"
+      ],
+      "chollo": "20-dreamcast-importacion"
+    },
+    "gamegear": {
+      "searchKeyword": "gamegear",
+      "cex": [
+        "1144"
+      ],
+      "todocoleccion": [
+        "sega-game-gear"
+      ],
+      "todoconsolas": [
+        "105-juegos-gamegear"
+      ],
+      "kaoto": "game-gear",
+      "jgo": [
+        "game-gear"
+      ]
+    },
+    "neogeo": {
+      "searchKeyword": "neogeo",
+      "cex": [
+        "212"
+      ],
+      "todocoleccionSearch": "neo geo aes juego",
+      "todoconsolas": [
+        "401-juegos-neogeo"
+      ],
+      "kaoto": "neo-geo-aes",
+      "jgo": [
+        "neo-geo",
+        "neo-geo-aesmvs",
+        "aes-juegos",
+        "mvs-games"
+      ]
+    },
+    "neogeocd": {
+      "searchKeyword": "neogeocd",
+      "cex": [
+        "212"
+      ],
+      "todocoleccionSearch": "neo geo cd juego",
+      "todoconsolas": [
+        "401-juegos-neogeo"
+      ],
+      "kaoto": "neo-geo-cd",
+      "jgo": [
+        "neo-geo-cd",
+        "ncd-games"
+      ]
+    },
+    "neogeopocket": {
+      "searchKeyword": "ngpc",
+      "cex": [
+        "212"
+      ],
+      "todocoleccionSearch": "neo geo pocket juego",
+      "kaoto": "neo-geo-pocket-color",
+      "jgo": [
+        "neo-geo-pocket",
+        "ngp-games"
+      ]
+    },
+    "ps1": {
+      "searchKeyword": "ps1",
+      "cex": [
+        "1088"
+      ],
+      "todocoleccion": [
+        "ps1"
+      ],
+      "todoconsolas": [
+        "147-juegos-psx"
+      ],
+      "kaoto": "playstation",
+      "jgo": [
+        "ps1-games"
+      ],
+      "chollo": "55-playstation-importacion",
+      "serialstationConsole": "PS1"
+    },
+    "ps2": {
+      "searchKeyword": "ps2",
+      "cex": [
+        "824"
+      ],
+      "todocoleccion": [
+        "ps2"
+      ],
+      "todoconsolas": [
+        "141-juegos-ps2"
+      ],
+      "kaoto": "playstation-2",
+      "jgo": [
+        "ps2-games"
+      ],
+      "chollo": "57-playstation-2-importacion",
+      "serialstationConsole": "PS2"
+    },
+    "ps3": {
+      "searchKeyword": "ps3",
+      "cex": [
+        "821"
+      ],
+      "todocoleccion": [
+        "ps3"
+      ],
+      "todoconsolas": [
+        "23-juegos-ps3"
+      ],
+      "kaoto": "playstation-3",
+      "chollo": "59-playstation-3-importacion",
+      "serialstationConsole": "PS3"
+    },
+    "ps4": {
+      "searchKeyword": "ps4",
+      "cex": [
+        "1001"
+      ],
+      "todocoleccion": [
+        "playstation-ps4"
+      ],
+      "todoconsolas": [
+        "28-juegos-ps4"
+      ],
+      "kaoto": "playstation-4",
+      "serialstationConsole": "PS4"
+    }
+  }
+}

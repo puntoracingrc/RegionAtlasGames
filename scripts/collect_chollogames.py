@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from collectors.chollo_client import fetch_category_products  # noqa: E402
+from collectors import platform_sources as ps  # noqa: E402
 from collectors.chollo_match import (  # noqa: E402
     CHOLLO_PLATFORM_CATEGORIES,
     infer_chollo_region_product,
@@ -39,7 +40,7 @@ def load_catalog() -> list[dict[str, Any]]:
 
 def collect_platform(platform_slug: str, *, use_cache: bool) -> list[dict[str, Any]]:
     cache_file = CACHE_DIR / f"{platform_slug}.json"
-    category = CHOLLO_PLATFORM_CATEGORIES.get(platform_slug)
+    category = ps.chollo_category(platform_slug)
     if not category:
         raise SystemExit(f"Plataforma sin categoría Chollo: {platform_slug}")
 

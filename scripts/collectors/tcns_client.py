@@ -10,32 +10,12 @@ import urllib.request
 from typing import Any
 
 from collectors.common import build_search_query, normalize_query
+from collectors import platform_sources as ps
 
 TCNS_BASE = "https://www.todoconsolas.com"
 USER_AGENT = "RegionAtlasGames/1.0 (+price-reference-ingest)"
 
-# Plataformas soportadas (búsqueda global por título, no barrido de categoría).
-TCNS_PLATFORM_CATEGORIES: dict[str, str | list[str]] = {
-    "nes": "135-juegos-nes",
-    "snes": "159-juegos-snes",
-    "n64": "129-juegos-n64",
-    "gameboy": ["81-juegos-gb", "93-juegos-gbc", "87-juegos-gba"],
-    "gamecube": "99-juegos-gamecube",
-    "wii": "48-juegos-wii",
-    "ds": "18-juegos-ds",
-    "3ds": "13-juegos-3ds",
-    "mastersystem": "111-juegos-ms",
-    "megadrive": "117-juegos-md",
-    "saturn": "153-juegos-ss",
-    "dreamcast": "75-juegos-dreamcast",
-    "gamegear": "105-juegos-gamegear",
-    "neogeo": "401-juegos-neogeo",
-    "neogeocd": "401-juegos-neogeo",
-    "ps1": "147-juegos-psx",
-    "ps2": "141-juegos-ps2",
-    "ps3": "23-juegos-ps3",
-    "ps4": "28-juegos-ps4",
-}
+TCNS_PLATFORM_CATEGORIES = ps.legacy_tcns_categories()
 
 ARTICLE_RE = re.compile(
     r'<article[^>]*class="[^"]*product[^"]*"[^>]*>(.*?)</article>',
@@ -78,10 +58,7 @@ def parse_price(raw: str) -> float | None:
 
 
 def tcns_sources_for_platform(platform_slug: str) -> list[str]:
-    """Plataforma admitida si está en el mapa (la búsqueda es global por título)."""
-    if platform_slug in TCNS_PLATFORM_CATEGORIES:
-        return [platform_slug]
-    return []
+    return ps.tcns_sources_for_platform(platform_slug)
 
 
 def supported_platform_slugs() -> list[str]:

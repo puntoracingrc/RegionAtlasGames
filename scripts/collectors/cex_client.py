@@ -9,6 +9,10 @@ import urllib.request
 from typing import Any
 
 from collectors.common import build_search_query, normalize_query
+from collectors import platform_sources as ps
+
+from collectors.common import build_search_query, normalize_query
+from collectors import platform_sources as ps
 
 CEX_BASE = "https://es.webuy.com"
 WSS_BASE = "https://wss2.cex.es.webuy.io"
@@ -20,47 +24,17 @@ USER_AGENT = (
 )
 ALGOLIA_AGENT = "Algolia for JavaScript (4.24.1); Browser; RegionAtlasGames/1.0"
 
-# Plataformas soportadas (búsqueda global por título, como el buscador de la home).
-CEX_PLATFORM_CATEGORIES: dict[str, str | list[str]] = {
-    "nes": "1155",
-    "snes": "1027",
-    "n64": "1019",
-    "gameboy": ["1141", "1139", "1093"],
-    "gamecube": "837",
-    "wii": "831",
-    "ds": "834",
-    "3ds": "977",
-    "megadrive": "1151",
-    "sega32x": "1148",
-    "megacd": "1152",
-    "mastersystem": "1147",
-    "saturn": "1158",
-    "dreamcast": "1136",
-    "gamegear": "1144",
-    "neogeo": "212",
-    "neogeocd": "212",
-    "neogeopocket": "212",
-    "ps1": "1088",
-    "ps2": "824",
-    "ps3": "821",
-    "ps4": "1001",
-}
+CEX_PLATFORM_CATEGORIES = ps.legacy_cex_categories()
 
 DEFAULT_HITS_PER_PAGE = 24
 
 
 def cex_sources_for_platform(platform_slug: str) -> list[str]:
-    """Plataforma admitida si está en el mapa (la búsqueda es global por título)."""
-    if platform_slug in CEX_PLATFORM_CATEGORIES:
-        return [platform_slug]
-    return []
+    return ps.cex_sources_for_platform(platform_slug)
 
 
 def cex_category_ids_for_platform(platform_slug: str) -> list[str]:
-    raw = CEX_PLATFORM_CATEGORIES.get(platform_slug)
-    if not raw:
-        return []
-    return raw if isinstance(raw, list) else [raw]
+    return ps.cex_category_ids(platform_slug)
 
 
 def supported_platform_slugs() -> list[str]:

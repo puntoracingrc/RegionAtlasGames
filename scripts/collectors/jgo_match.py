@@ -7,31 +7,14 @@ import unicodedata
 from typing import Any
 from collectors.jgo_client import product_in_stock, product_price_eur
 from collectors.listing_images import attach_image_urls
+from collectors import platform_sources as ps
 from collectors.reference_match import (
     extract_references_from_text,
     product_search_text,
 )
 from collectors.region_inference import regions_match as catalog_regions_compatible
 
-JGO_PLATFORM_CATEGORIES: dict[str, list[str]] = {
-    "nes": ["nesfamicom"],
-    "snes": ["snessuper-famicom", "snes-juegos"],
-    "n64": ["nintendo-64"],
-    "gameboy": ["game-boy", "game-boy-classic", "game-boy-color", "game-boy-pocket"],
-    "gamecube": ["gamecube"],
-    "mastersystem": ["master-system"],
-    "megadrive": ["megadrive", "md-juegos"],
-    "sega32x": ["32x"],
-    "megacd": ["mega-cd"],
-    "saturn": ["saturn", "ss-videojuegos"],
-    "dreamcast": ["dreamcast", "dc-juegos"],
-    "gamegear": ["game-gear"],
-    "neogeo": ["neo-geo", "neo-geo-aesmvs", "aes-juegos", "mvs-games"],
-    "neogeocd": ["neo-geo-cd", "ncd-games"],
-    "neogeopocket": ["neo-geo-pocket", "ngp-games"],
-    "ps1": ["ps1-games"],
-    "ps2": ["ps2-games"],
-}
+JGO_PLATFORM_CATEGORIES = ps.legacy_jgo_categories()
 
 STOPWORDS = {
     "the",

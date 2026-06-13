@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Falta collectionItemId." }, { status: 400 });
   }
 
-  const result = createListingDraft({
+  const result = await createListingDraft({
     sellerId: user.id,
     sellerName: user.name,
     collectionItemId,

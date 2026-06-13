@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CollectionExplorer } from "@/components/collection-explorer";
 import { CollectionImport } from "@/components/collection-import";
+import { CollectionPendingPanel } from "@/components/collection-pending-panel";
 import { CollectionValueHero } from "@/components/collection-value-hero";
 import { SiteNav } from "@/components/site-nav";
 import { Panel, PanelTitle } from "@/components/ui";
@@ -9,6 +10,8 @@ import {
   readUserCollection,
   summarizeCollectionForPlan,
 } from "@/lib/collection-store";
+import { pendingCatalogItems } from "@/lib/import-collection";
+import { enrichCollectionItem } from "@/lib/catalog";
 import { canViewCollectionValue } from "@/lib/plans";
 import { SITE_LOGO } from "@/lib/site-brand";
 import { getCurrentUser } from "@/lib/users";
@@ -41,8 +44,9 @@ export default async function CollectionPage() {
     );
   }
 
-  const file = readUserCollection(user.id);
-  const items = getUserCollectionViews(user.id);
+  const file = await readUserCollection(user.id);
+  const items = await getUserCollectionViews(user.id);
+  const pendingItems = pendingCatalogItems(file.items).map(enrichCollectionItem);
   const summary = summarizeCollectionForPlan(file.items, user.plan);
   const showCollectionValue = canViewCollectionValue(user.plan);
   const hasItems = items.length > 0;
@@ -72,6 +76,10 @@ export default async function CollectionPage() {
 
         {hasItems && (
           <CollectionValueHero summary={summary} canViewCollectionValue={showCollectionValue} />
+        )}
+
+        {hasItems && summary.pendingCatalog > 0 && (
+          <CollectionPendingPanel items={pendingItems} />
         )}
 
         {hasItems && (

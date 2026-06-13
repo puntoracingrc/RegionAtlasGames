@@ -9,6 +9,12 @@ export const COVERS_PUBLIC_BASE_URL = (
   process.env.NEXT_PUBLIC_COVERS_BASE_URL?.trim() ||
   "https://www.puntoracing.net/MEDIAREGIONATLAS/covers"
 ).replace(/\/$/, "");
+
+/** Imágenes de consola en hero de plataforma: /platforms/{slug}.png */
+export const PLATFORMS_PUBLIC_BASE_URL = (
+  process.env.NEXT_PUBLIC_PLATFORMS_BASE_URL?.trim() ||
+  "https://www.puntoracing.net/MEDIAREGIONATLAS/platforms"
+).replace(/\/$/, "");
 export const SITE_NAME = "RegionAtlasGames";
 export const SITE_ACRONYM = "RAG";
 export const SITE_DEFAULT_URL = "https://regionatlas.games";

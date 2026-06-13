@@ -182,6 +182,7 @@ export type CatalogGame = {
 export type CollectionItem = {
   id: string;
   catalogId: string | null;
+  catalogMatched?: boolean;
   inRetroCatalog: boolean;
   title: string;
   platformSlug: string;

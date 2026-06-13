@@ -37,8 +37,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: stats.warnings[0], stats }, { status: 400 });
   }
 
-  saveUserCollectionItems(user.id, items, { source: file.name });
-  const views = redactCollectionViewsForPlan(getUserCollectionViews(user.id), user.plan);
+  const saved = await saveUserCollectionItems(user.id, items, { source: file.name });
+  if ("error" in saved) {
+    return NextResponse.json({ error: saved.error }, { status: 500 });
+  }
+
+  const views = redactCollectionViewsForPlan(await getUserCollectionViews(user.id), user.plan);
 
   return NextResponse.json({
     items: views,

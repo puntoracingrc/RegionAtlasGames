@@ -7,6 +7,7 @@ from typing import Any, Callable
 
 from collectors.catalog_ai_match import ai_available, hydrate_cached_game, resolve_ambiguous_match
 from collectors.catalog_match import CatalogMatchResult, is_likely_game_product, match_catalog_product
+from collectors.listing_region_enrich import apply_region_enrichment_to_row
 
 
 @dataclass
@@ -18,6 +19,8 @@ class MatchPipelineStats:
     matched_by_title: int = 0
     matched_by_ai: int = 0
     ambiguous_skipped: int = 0
+    region_rejected: int = 0
+    cover_vision_used: int = 0
     rows: list[dict[str, Any]] = field(default_factory=list)
 
 
@@ -84,6 +87,23 @@ def run_match_pipeline(
             stats.unmatched += 1
             continue
 
+        row_source = str(row.get("source") or source)
+        enriched = apply_region_enrichment_to_row(
+            row,
+            product,
+            platform_slug=platform_slug,
+            catalog_region=str(game.get("region") or ""),
+            game_title=str(game.get("title") or ""),
+            source=row_source,
+            ok_ref=True,
+        )
+        if not enriched:
+            stats.region_rejected += 1
+            continue
+        row = enriched
+        if "cover_vision" in (row.get("regionEvidence") or []):
+            stats.cover_vision_used += 1
+
         if result.match_method == "reference":
             stats.matched_by_ref += 1
         elif result.match_method == "ai":
@@ -124,8 +144,12 @@ def print_match_stats(stats: MatchPipelineStats, *, label: str) -> None:
     print(f"  Match por título (auto): {stats.matched_by_title}")
     print(f"  Match por IA: {stats.matched_by_ai}")
     print(f"  Ambiguos omitidos: {stats.ambiguous_skipped}")
+    print(f"  Región rechazada (sin prueba): {stats.region_rejected}")
+    print(f"  Visión carátula aplicada: {stats.cover_vision_used}")
     if stats.ambiguous_skipped and not ai_available():
         print("  (OPENAI_API_KEY ausente — ambiguos no resueltos)")
+    if stats.region_rejected and not ai_available():
+        print("  (OPENAI_API_KEY ausente — visión región no disponible en duda)")
 
 
 __all__ = [

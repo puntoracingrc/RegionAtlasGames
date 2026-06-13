@@ -9,6 +9,7 @@ from collectors.catalog_match import is_manual_only_listing, product_title
 from collectors.condition_buckets import DISPLAY_BUCKETS, infer_condition_bucket
 from collectors.jgo_match import infer_condition
 from collectors.listing_images import attach_image_urls
+from collectors.listing_region_enrich import enrich_listing_region_from_cover
 from collectors.reference_match import listing_reference_valid_for_catalog
 from collectors.wallapop_listing_ai import ListingAiResult
 from collectors.region_inference import (
@@ -66,6 +67,7 @@ def product_to_ingest_row(
     match_alternatives: list[dict[str, Any]] | None = None,
     ai_confidence: float | None = None,
     listing_ai: Any | None = None,
+    game_title: str | None = None,
 ) -> dict[str, Any] | None:
     title = product_title(product)
     description = str(product.get("description") or "").strip()
@@ -119,11 +121,31 @@ def product_to_ingest_row(
         if ai_result.confidence:
             ai_confidence = ai_result.confidence
 
+    image_scratch: dict[str, Any] = {}
+    attach_image_urls(image_scratch, product, "wallapop")
+    external_id = str(product.get("externalId") or "").strip()
+
+    listing_region, evidence, ai_conf, region_verified, vision_condition, vision_notes = (
+        enrich_listing_region_from_cover(
+            platform_slug=platform_slug,
+            catalog_region=catalog_region,
+            game_title=game_title or title,
+            listing_title=title,
+            listing_region=listing_region,
+            evidence=evidence,
+            ai_conf=float(ai_conf or 0),
+            ok_ref=ok_ref,
+            source="wallapop",
+            product=product,
+            row=image_scratch,
+            external_id=external_id or None,
+        )
+    )
+
     rules_ok, rules_reason = check_listing_evidence_meets_rules(
         platform_slug, catalog_region, evidence, ai_conf
     )
     region_matches = regions_match(catalog_region, listing_region)
-    region_verified = ok_ref and region_matches and rules_ok
 
     row: dict[str, Any] = {
         "catalogId": catalog_id,
@@ -150,9 +172,9 @@ def product_to_ingest_row(
             notes.append("region_no_detectada")
         if not rules_ok and rules_reason:
             notes.append(str(rules_reason))
+        notes.extend(vision_notes)
         if notes:
             row["regionReviewNotes"] = notes
-    external_id = str(product.get("externalId") or "").strip()
     if external_id:
         row["externalId"] = external_id
     if matched_reference:
@@ -171,11 +193,21 @@ def product_to_ingest_row(
     bucket = infer_condition_bucket(full_text, condition_raw=raw_cond)
     if ai_result and not bucket and ai_result.condition in DISPLAY_BUCKETS:
         bucket = ai_result.condition
+    if vision_condition in DISPLAY_BUCKETS:
+        bucket = vision_condition
     if bucket:
         row["condition"] = bucket
     if ai_result and match_method == "search":
         row["matchMethod"] = "search+ai"
-    attach_image_urls(row, product, "wallapop")
+    if "cover_vision" in evidence and region_verified:
+        base_method = str(row.get("matchMethod") or match_method)
+        if "+cover-vision" not in base_method:
+            row["matchMethod"] = f"{base_method}+cover-vision"
+    if image_scratch.get("imageUrls"):
+        row["imageUrls"] = image_scratch["imageUrls"]
+        row["imageUrl"] = image_scratch.get("imageUrl")
+    elif not row.get("imageUrl"):
+        attach_image_urls(row, product, "wallapop")
     return row
 
 
