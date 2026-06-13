@@ -1,8 +1,10 @@
 Las portadas no van en git.
 
 Hosting público (web):
-  https://www.puntoracing.net/MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers/
+  https://www.puntoracing.net/MEDIAREGIONATLAS/covers/
     {plataforma}/{slug-del-titulo}.jpg
+
+FTP: la raíz pública empieza en MEDIAREGIONATLAS/ (MEDIAPUNTORACINGWEB no es web pública).
 
 Local (desarrollo): symlink al disco externo
   public/covers -> /Volumes/Nuevo vol/pal-es-retro/covers
@@ -10,7 +12,7 @@ Local (desarrollo): symlink al disco externo
   npm run storage:setup
 
 Override opcional (.env.local / Vercel):
-  NEXT_PUBLIC_COVERS_BASE_URL=https://www.puntoracing.net/MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers
+  NEXT_PUBLIC_COVERS_BASE_URL=https://www.puntoracing.net/MEDIAREGIONATLAS/covers
 
 Reglas de nombre:
   - Solo el título del juego (slug ASCII: animal-crossing-new-leaf.jpg)
@@ -18,3 +20,6 @@ Reglas de nombre:
 
 Normalizar catálogo (quitar URLs externas en coverUrl):
   python3 scripts/normalize_catalog_cover_urls.py
+
+Comprobar subida vs hosting:
+  npm run covers:check-upload -- --platform ps4

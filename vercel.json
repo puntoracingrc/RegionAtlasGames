@@ -3,7 +3,7 @@
   "build": {
     "env": {
       "NODE_OPTIONS": "--max-old-space-size=6144",
-      "NEXT_PUBLIC_COVERS_BASE_URL": "https://www.puntoracing.net/MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers"
+      "NEXT_PUBLIC_COVERS_BASE_URL": "https://www.puntoracing.net/MEDIAREGIONATLAS/covers"
     }
   },
   "functions": {

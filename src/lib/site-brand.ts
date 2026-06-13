@@ -7,7 +7,7 @@ export const SITE_LOGO_LIGHT_SRC = "/brand/logo-light-mode.png";
 /** Portadas JPG en hosting propio (misma estructura que public/covers local). */
 export const COVERS_PUBLIC_BASE_URL = (
   process.env.NEXT_PUBLIC_COVERS_BASE_URL?.trim() ||
-  "https://www.puntoracing.net/MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers"
+  "https://www.puntoracing.net/MEDIAREGIONATLAS/covers"
 ).replace(/\/$/, "");
 export const SITE_NAME = "RegionAtlasGames";
 export const SITE_ACRONYM = "RAG";
