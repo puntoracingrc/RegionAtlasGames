@@ -1,5 +1,6 @@
 import { catalogGamePath } from "./catalog-url";
 import { listedCatalog } from "./catalog";
+import { getGameDetails } from "./indexes";
 import { slugify } from "./slug";
 import type { CatalogGame } from "./types";
 
@@ -11,10 +12,15 @@ const EDITION_SUFFIXES =
 export type SimilarCatalogMatch = {
   catalogId: string;
   title: string;
+  titlePc: string | null;
   region: string;
   slug: string;
   similarity: number;
   catalogUrl: string;
+  coverUrl: string | null;
+  year: number | null;
+  series: string | null;
+  matchReason: string;
 };
 
 function normalizeTitleForMatch(text: string): string {
@@ -71,10 +77,39 @@ export function titleSimilarity(a: string, b: string): number {
   return stringSimilarity(na, nb);
 }
 
+function sharedTitleTokens(a: string, b: string): string[] {
+  const ta = new Set(normalizeTitleForMatch(a).split(" ").filter((t) => t.length > 2));
+  const tb = new Set(normalizeTitleForMatch(b).split(" ").filter((t) => t.length > 2));
+  const shared: string[] = [];
+  for (const token of ta) {
+    if (tb.has(token)) shared.push(token);
+  }
+  return shared.sort((x, y) => y.length - x.length);
+}
+
+function buildMatchReason(input: {
+  title: string;
+  slug: string;
+  game: CatalogGame;
+  titleSim: number;
+  slugSim: number;
+}): string {
+  if (input.titleSim >= 0.95) return "Nombre casi idéntico — probablemente es el mismo juego.";
+  if (input.slugSim >= 0.9) return "Slug muy parecido — revisa si no lo tienes ya.";
+  const shared = sharedTitleTokens(input.title, input.game.title);
+  if (shared.length >= 2) {
+    return `Comparte «${shared.slice(0, 3).join("», «")}» — puede ser la misma saga, pero otro volúmen o entrega.`;
+  }
+  if (shared.length === 1) {
+    return `Comparte la palabra «${shared[0]}» en el título.`;
+  }
+  return "Título ortográficamente parecido.";
+}
+
 function scoreGameMatch(
   input: { title: string; slug: string; region: string },
   game: CatalogGame,
-): number {
+): { score: number; titleSim: number; slugSim: number } {
   const titleScores = [
     titleSimilarity(input.title, game.title),
     game.titlePc ? titleSimilarity(input.title, game.titlePc) : 0,
@@ -83,9 +118,11 @@ function scoreGameMatch(
     stringSimilarity(input.slug, game.slug),
     stringSimilarity(slugify(input.title), game.slug),
   ];
-  let score = Math.max(...titleScores, ...slugScores);
+  const titleSim = Math.max(...titleScores);
+  const slugSim = Math.max(...slugScores);
+  let score = Math.max(titleSim, slugSim);
   if (game.region === input.region) score += 0.04;
-  return Math.min(score, 1);
+  return { score: Math.min(score, 1), titleSim, slugSim };
 }
 
 export function findSimilarCatalogGames(input: {
@@ -105,27 +142,41 @@ export function findSimilarCatalogGames(input: {
   );
 
   const scored = candidates
-    .map((game) => ({
-      game,
-      similarity: scoreGameMatch(
+    .map((game) => {
+      const metrics = scoreGameMatch(
         { title: input.title.trim(), slug, region: input.region },
         game,
-      ),
-    }))
-    .filter((entry) => entry.similarity >= SIMILARITY_THRESHOLD)
+      );
+      return { game, ...metrics };
+    })
+    .filter((entry) => entry.score >= SIMILARITY_THRESHOLD)
     .sort(
       (a, b) =>
-        b.similarity - a.similarity ||
+        b.score - a.score ||
         a.game.title.localeCompare(b.game.title, "es"),
     )
-    .slice(0, input.limit ?? 5);
+    .slice(0, input.limit ?? 6);
 
-  return scored.map(({ game, similarity }) => ({
-    catalogId: game.id,
-    title: game.title,
-    region: game.region,
-    slug: game.slug,
-    similarity: Math.round(similarity * 1000) / 1000,
-    catalogUrl: catalogGamePath(game),
-  }));
+  return scored.map(({ game, score, titleSim, slugSim }) => {
+    const details = getGameDetails(game.id);
+    return {
+      catalogId: game.id,
+      title: game.title,
+      titlePc: game.titlePc ?? null,
+      region: game.region,
+      slug: game.slug,
+      similarity: Math.round(score * 1000) / 1000,
+      catalogUrl: catalogGamePath(game),
+      coverUrl: game.coverUrl ?? null,
+      year: details?.year ?? null,
+      series: details?.series?.name ?? null,
+      matchReason: buildMatchReason({
+        title: input.title.trim(),
+        slug,
+        game,
+        titleSim,
+        slugSim,
+      }),
+    };
+  });
 }

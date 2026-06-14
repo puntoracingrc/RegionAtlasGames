@@ -71,7 +71,7 @@ export async function POST(request: Request) {
         {
           error: "similar_games",
           message:
-            "Hay juegos con un nombre muy parecido en esta plataforma. ¿Es el mismo título o uno nuevo?",
+            "Revisa los juegos parecidos antes de crear la ficha. Puede ser la misma saga o un duplicado que ya tenías.",
           matches: similar,
         },
         { status: 409 },
