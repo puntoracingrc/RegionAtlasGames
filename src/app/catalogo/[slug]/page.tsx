@@ -40,6 +40,7 @@ import { RegionEvidenceRulesPanel } from "@/components/region-evidence-rules-pan
 import { REGION_VERIFICATION_POLICY, priceVerificationLabel } from "@/lib/listing-region-verification";
 import { getGameDetails } from "@/lib/indexes";
 import { resolveCanonicalEntity } from "@/lib/company-canonical";
+import { resolveCanonicalGenreEntity } from "@/lib/genre-canonical";
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCurrentUser } from "@/lib/users";
@@ -259,15 +260,18 @@ export default async function CatalogGamePage({ params }: Props) {
                     value={
                       details.genres.length > 0 ? (
                         <span className="flex flex-wrap gap-1.5">
-                          {details.genres.map((g) => (
-                            <Link
-                              key={g.slug}
-                              href={`/genero/${g.slug}`}
-                              className="rounded-md bg-white/10 px-2 py-0.5 text-xs text-accent/90 hover:bg-white/15"
-                            >
-                              {g.name}
-                            </Link>
-                          ))}
+                          {details.genres.map((g) => {
+                            const genre = resolveCanonicalGenreEntity(g);
+                            return (
+                              <Link
+                                key={`${g.slug}-${genre.slug}`}
+                                href={`/genero/${genre.slug}`}
+                                className="rounded-md bg-white/10 px-2 py-0.5 text-xs text-accent/90 hover:bg-white/15"
+                              >
+                                {genre.name}
+                              </Link>
+                            );
+                          })}
                         </span>
                       ) : (
                         "—"

@@ -16,9 +16,14 @@ if str(_SCRIPTS_DIR) not in sys.path:
 
 from company_entity import (
     build_company_entity_registry,
-    canonicalize_entity,
     resolve_canonical_company,
     save_company_entity_registry,
+)
+from genre_entity import (
+    build_genre_entity_registry,
+    canonicalize_genre_entity,
+    resolve_canonical_genre,
+    save_genre_entity_registry,
 )
 
 SOURCE_MUSEUM = "museum"
@@ -716,6 +721,7 @@ def build_indexes(details: dict[str, dict], catalog: list[dict]) -> dict[str, An
     by_id = {g["id"]: g for g in catalog}
 
     save_company_entity_registry(build_company_entity_registry(details, listed_ids))
+    save_genre_entity_registry(build_genre_entity_registry(details, listed_ids))
 
     companies: dict[str, dict] = {}
     genres: dict[str, dict] = {}
@@ -729,16 +735,25 @@ def build_indexes(details: dict[str, dict], catalog: list[dict]) -> dict[str, An
         entity: dict[str, Any] | None,
         game_id: str,
         role: str | None = None,
+        *,
+        entity_kind: str = "company",
     ) -> None:
         if not entity or not entity.get("name"):
             return
         raw_slug = entity.get("slug") or slugify(entity["name"])
-        canonical = resolve_canonical_company(
-            raw_slug,
-            str(entity["name"]),
-            wikidata_id=entity.get("wikidataId"),
-            museum_path=entity.get("museumPath"),
-        )
+        if entity_kind == "genre":
+            canonical = resolve_canonical_genre(
+                raw_slug,
+                str(entity["name"]),
+                museum_path=entity.get("museumPath"),
+            )
+        else:
+            canonical = resolve_canonical_company(
+                raw_slug,
+                str(entity["name"]),
+                wikidata_id=entity.get("wikidataId"),
+                museum_path=entity.get("museumPath"),
+            )
         slug = canonical["slug"]
         display_name = canonical["name"]
         entry = bucket.setdefault(
@@ -765,10 +780,10 @@ def build_indexes(details: dict[str, dict], catalog: list[dict]) -> dict[str, An
 
     for game_id in listed_ids:
         detail = details[game_id]
-        bump_entity(companies, detail.get("developer"), game_id, "developer")
-        bump_entity(companies, detail.get("publisher"), game_id, "publisher")
+        bump_entity(companies, detail.get("developer"), game_id, "developer", entity_kind="company")
+        bump_entity(companies, detail.get("publisher"), game_id, "publisher", entity_kind="company")
         for genre in detail.get("genres") or []:
-            bump_entity(genres, genre, game_id)
+            bump_entity(genres, genre, game_id, entity_kind="genre")
         bump_entity(series, detail.get("series"), game_id)
 
     for bucket in (companies, genres, series):

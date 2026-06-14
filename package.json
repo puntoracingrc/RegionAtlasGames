@@ -34,6 +34,7 @@
     "details:serialstation": "PYTHONUNBUFFERED=1 python3 scripts/enrich_serialstation.py",
     "details:indexes": "python3 scripts/enrich_game_details.py --indexes-only",
     "entities:build": "python3 scripts/build_company_entities.py",
+    "genres:build": "python3 scripts/build_genre_entities.py",
     "companies:enrich": "python3 scripts/enrich_company_profiles.py",
     "catalog:fix-pc-paths": "python3 scripts/fix_catalog_pc_paths.py",
     "descriptions:generate": "PYTHONUNBUFFERED=1 python3 scripts/generate_game_descriptions.py",

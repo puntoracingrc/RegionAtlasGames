@@ -1,0 +1,978 @@
+{
+  "version": 1,
+  "generatedAt": "2026-06-14T08:00:45Z",
+  "stats": {
+    "entities": 70,
+    "aliases": 56,
+    "autoNormalized": 0
+  },
+  "entities": {
+    "accessories": {
+      "slug": "accessories",
+      "name": "Accessories",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "action": {
+      "slug": "action",
+      "name": "Acción",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "accion",
+        "combat",
+        "combate",
+        "hack-and-slash"
+      ],
+      "aliasNames": [
+        "Action",
+        "Combat",
+        "Combate",
+        "Hack and Slash"
+      ],
+      "museumPaths": [
+        "/generos/accion",
+        "/generos/combate"
+      ]
+    },
+    "adventure": {
+      "slug": "adventure",
+      "name": "Aventura",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "amp-adventure",
+        "aventura"
+      ],
+      "aliasNames": [
+        "amp; Adventure"
+      ],
+      "museumPaths": [
+        "/generos/aventura"
+      ]
+    },
+    "amp-nfr": {
+      "slug": "amp-nfr",
+      "name": "amp; NFR",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "arcade": {
+      "slug": "arcade",
+      "name": "Arcade",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/arcade"
+      ]
+    },
+    "baseball": {
+      "slug": "baseball",
+      "name": "Béisbol",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "beisbol"
+      ],
+      "aliasNames": [
+        "Baseball",
+        "Beisbol"
+      ],
+      "museumPaths": [
+        "/generos/beisbol"
+      ]
+    },
+    "basketball": {
+      "slug": "basketball",
+      "name": "Baloncesto",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "baloncesto"
+      ],
+      "aliasNames": [
+        "Basketball"
+      ],
+      "museumPaths": [
+        "/generos/baloncesto"
+      ]
+    },
+    "beat-em-up": {
+      "slug": "beat-em-up",
+      "name": "Beat 'em up",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "39-em-up",
+        "beat",
+        "beat-em"
+      ],
+      "aliasNames": [
+        "#39;em Up",
+        "Beat",
+        "Beat ´em up"
+      ],
+      "museumPaths": [
+        "/generos/beat-em"
+      ]
+    },
+    "belico": {
+      "slug": "belico",
+      "name": "Bélico",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/belico"
+      ]
+    },
+    "board": {
+      "slug": "board",
+      "name": "Juego de mesa",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "ajedrez",
+        "billar",
+        "juego-de-mesa"
+      ],
+      "aliasNames": [
+        "Ajedrez",
+        "Billar",
+        "Board",
+        "Juego de Mesa"
+      ],
+      "museumPaths": [
+        "/generos/ajedrez",
+        "/generos/billar",
+        "/generos/juego-de-mesa"
+      ]
+    },
+    "bowling": {
+      "slug": "bowling",
+      "name": "Bowling",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/bowling"
+      ]
+    },
+    "calculo": {
+      "slug": "calculo",
+      "name": "Cálculo",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/calculo"
+      ]
+    },
+    "card": {
+      "slug": "card",
+      "name": "Cartas",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "amp-card",
+        "card-battle"
+      ],
+      "aliasNames": [
+        "Card Battle",
+        "amp; Card"
+      ],
+      "museumPaths": [
+        "/generos/card-battle"
+      ]
+    },
+    "casino": {
+      "slug": "casino",
+      "name": "Casino",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/casino"
+      ]
+    },
+    "ciclismo": {
+      "slug": "ciclismo",
+      "name": "Ciclismo",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/ciclismo"
+      ]
+    },
+    "citas": {
+      "slug": "citas",
+      "name": "Citas",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/citas"
+      ]
+    },
+    "comic-digital": {
+      "slug": "comic-digital",
+      "name": "Comic digital",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/comic-digital"
+      ]
+    },
+    "compilation": {
+      "slug": "compilation",
+      "name": "Recopilación",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "recopilacion"
+      ],
+      "aliasNames": [
+        "Compilation"
+      ],
+      "museumPaths": [
+        "/generos/recopilacion"
+      ]
+    },
+    "construccion": {
+      "slug": "construccion",
+      "name": "Construcción",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/construccion"
+      ]
+    },
+    "controllers": {
+      "slug": "controllers",
+      "name": "Controllers",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "demo": {
+      "slug": "demo",
+      "name": "Demo",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/demo"
+      ]
+    },
+    "educational": {
+      "slug": "educational",
+      "name": "Educativo",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "educativo"
+      ],
+      "aliasNames": [
+        "Educational"
+      ],
+      "museumPaths": [
+        "/generos/educativo"
+      ]
+    },
+    "esqui": {
+      "slug": "esqui",
+      "name": "Esquí",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/esqui"
+      ]
+    },
+    "fantastico": {
+      "slug": "fantastico",
+      "name": "Fantástico",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/fantastico"
+      ]
+    },
+    "fighting": {
+      "slug": "fighting",
+      "name": "Lucha",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "boxeo",
+        "lucha"
+      ],
+      "aliasNames": [
+        "Boxeo",
+        "FIghting",
+        "Fighting"
+      ],
+      "museumPaths": [
+        "/generos/boxeo",
+        "/generos/lucha"
+      ]
+    },
+    "fishing": {
+      "slug": "fishing",
+      "name": "Pesca",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "pesca"
+      ],
+      "aliasNames": [
+        "Fishing"
+      ],
+      "museumPaths": [
+        "/generos/pesca"
+      ]
+    },
+    "fmv": {
+      "slug": "fmv",
+      "name": "FMV",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/fmv"
+      ]
+    },
+    "football-americano": {
+      "slug": "football-americano",
+      "name": "Fútbol americano",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "futbol-americano"
+      ],
+      "aliasNames": [
+        "Fútbol Americano"
+      ],
+      "museumPaths": [
+        "/generos/futbol-americano"
+      ]
+    },
+    "futurista": {
+      "slug": "futurista",
+      "name": "Futurista",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/futurista"
+      ]
+    },
+    "game-show": {
+      "slug": "game-show",
+      "name": "Game Show",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/game-show"
+      ]
+    },
+    "golf": {
+      "slug": "golf",
+      "name": "Golf",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/golf"
+      ]
+    },
+    "habilidad": {
+      "slug": "habilidad",
+      "name": "Habilidad",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "habilidad-mental"
+      ],
+      "aliasNames": [
+        "Habilidad Mental"
+      ],
+      "museumPaths": [
+        "/generos/habilidad",
+        "/generos/habilidad-mental"
+      ]
+    },
+    "hipica": {
+      "slug": "hipica",
+      "name": "Hípica",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/hipica"
+      ]
+    },
+    "hockey": {
+      "slug": "hockey",
+      "name": "Hockey",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "hockey-hielo": {
+      "slug": "hockey-hielo",
+      "name": "Hockey Hielo",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/hockey-hielo"
+      ]
+    },
+    "horror": {
+      "slug": "horror",
+      "name": "Terror",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "survival-horror",
+        "terror"
+      ],
+      "aliasNames": [
+        "Horror",
+        "Survival Horror"
+      ],
+      "museumPaths": [
+        "/generos/survival-horror",
+        "/generos/terror"
+      ]
+    },
+    "juego-interactivo": {
+      "slug": "juego-interactivo",
+      "name": "Juego Interactivo",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/juego-interactivo"
+      ]
+    },
+    "juegos-de-verano": {
+      "slug": "juegos-de-verano",
+      "name": "Juegos de verano",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/juegos-de-verano"
+      ]
+    },
+    "juegos-olimpicos": {
+      "slug": "juegos-olimpicos",
+      "name": "Juegos Olímpicos",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/juegos-olimpicos"
+      ]
+    },
+    "juegos-olimpicos-de-invierno": {
+      "slug": "juegos-olimpicos-de-invierno",
+      "name": "Juegos Olímpicos de Invierno",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/juegos-olimpicos-de-invierno"
+      ]
+    },
+    "mascota": {
+      "slug": "mascota",
+      "name": "Mascota",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/mascota"
+      ]
+    },
+    "movie": {
+      "slug": "movie",
+      "name": "Movie",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "music": {
+      "slug": "music",
+      "name": "Música",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "baile",
+        "creador-musical",
+        "dance",
+        "musical"
+      ],
+      "aliasNames": [
+        "Baile",
+        "Creador musical",
+        "Dance",
+        "Music",
+        "Musical"
+      ],
+      "museumPaths": [
+        "/generos/baile",
+        "/generos/creador-musical",
+        "/generos/musical"
+      ]
+    },
+    "ninos": {
+      "slug": "ninos",
+      "name": "Niños",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/ninos"
+      ]
+    },
+    "other": {
+      "slug": "other",
+      "name": "Varios",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "varios"
+      ],
+      "aliasNames": [
+        "Other"
+      ],
+      "museumPaths": [
+        "/generos/varios"
+      ]
+    },
+    "party": {
+      "slug": "party",
+      "name": "Party",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "mini-games",
+        "mini-juegos",
+        "party-games"
+      ],
+      "aliasNames": [
+        "Mini Games",
+        "Mini Juegos",
+        "Party Games"
+      ],
+      "museumPaths": [
+        "/generos/mini-juegos",
+        "/generos/party-games"
+      ]
+    },
+    "pinball": {
+      "slug": "pinball",
+      "name": "Pinball",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/pinball"
+      ]
+    },
+    "platformer": {
+      "slug": "platformer",
+      "name": "Plataformas",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "plataformas"
+      ],
+      "aliasNames": [
+        "Platformer"
+      ],
+      "museumPaths": [
+        "/generos/plataformas"
+      ]
+    },
+    "puzzle": {
+      "slug": "puzzle",
+      "name": "Puzzle",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/puzzle"
+      ]
+    },
+    "quiz": {
+      "slug": "quiz",
+      "name": "Quiz",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "trivia"
+      ],
+      "aliasNames": [
+        "Trivia"
+      ],
+      "museumPaths": [
+        "/generos/quiz",
+        "/generos/trivia"
+      ]
+    },
+    "racing": {
+      "slug": "racing",
+      "name": "Carreras",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "conduccion",
+        "motociclismo",
+        "motocross"
+      ],
+      "aliasNames": [
+        "Conducción",
+        "Motociclismo",
+        "Motocross",
+        "Racing"
+      ],
+      "museumPaths": [
+        "/generos/conduccion",
+        "/generos/motociclismo",
+        "/generos/motocross"
+      ]
+    },
+    "rpg": {
+      "slug": "rpg",
+      "name": "RPG",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/rpg"
+      ]
+    },
+    "rugby": {
+      "slug": "rugby",
+      "name": "Rugby",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/rugby"
+      ]
+    },
+    "shooter": {
+      "slug": "shooter",
+      "name": "Shooter",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "fps",
+        "juego-de-pistola",
+        "light-gun",
+        "shoot",
+        "shoot-em",
+        "shooter-interactivo",
+        "third-person-shooter"
+      ],
+      "aliasNames": [
+        "FPS",
+        "Juego de Pistola",
+        "Light Gun",
+        "Shoot",
+        "Shoot ´em up",
+        "Shooter Interactivo",
+        "Third Person Shooter"
+      ],
+      "museumPaths": [
+        "/generos/fps",
+        "/generos/juego-de-pistola",
+        "/generos/shoot-em",
+        "/generos/shooter",
+        "/generos/shooter-interactivo"
+      ]
+    },
+    "simulation": {
+      "slug": "simulation",
+      "name": "Simulación",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "simulador",
+        "simulazione"
+      ],
+      "aliasNames": [
+        "Simulador",
+        "Simulation",
+        "Simulazione"
+      ],
+      "museumPaths": [
+        "/generos/simulador"
+      ]
+    },
+    "skate": {
+      "slug": "skate",
+      "name": "Skate",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/skate"
+      ]
+    },
+    "snowboard": {
+      "slug": "snowboard",
+      "name": "Snowboard",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/snowboard"
+      ]
+    },
+    "soccer": {
+      "slug": "soccer",
+      "name": "Fútbol",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "football",
+        "futbol"
+      ],
+      "aliasNames": [
+        "Football",
+        "Soccer"
+      ],
+      "museumPaths": [
+        "/generos/futbol"
+      ]
+    },
+    "sports": {
+      "slug": "sports",
+      "name": "Deportes",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "deporte",
+        "extreme",
+        "extreme-sports",
+        "track-field"
+      ],
+      "aliasNames": [
+        "Deporte",
+        "Extreme",
+        "Extreme Sports",
+        "Sports",
+        "Track & Field"
+      ],
+      "museumPaths": [
+        "/generos/deporte",
+        "/generos/track-field"
+      ]
+    },
+    "strategy": {
+      "slug": "strategy",
+      "name": "Estrategia",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "estrategia"
+      ],
+      "aliasNames": [
+        "Estratégia",
+        "Strategy"
+      ],
+      "museumPaths": [
+        "/generos/estrategia"
+      ]
+    },
+    "submarino": {
+      "slug": "submarino",
+      "name": "Submarino",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/submarino"
+      ]
+    },
+    "surf": {
+      "slug": "surf",
+      "name": "Surf",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/surf"
+      ]
+    },
+    "systems": {
+      "slug": "systems",
+      "name": "Systems",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "tenis": {
+      "slug": "tenis",
+      "name": "Tenis",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/tenis"
+      ]
+    },
+    "tren": {
+      "slug": "tren",
+      "name": "Tren",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/tren"
+      ]
+    },
+    "vida-virtual": {
+      "slug": "vida-virtual",
+      "name": "Vida Virtual",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/vida-virtual"
+      ]
+    },
+    "visual-novel": {
+      "slug": "visual-novel",
+      "name": "Novela visual",
+      "mergeMethod": "manual",
+      "aliasSlugs": [
+        "aventura-grafica",
+        "vizualny-roman"
+      ],
+      "aliasNames": [
+        "Aventura Gráfica",
+        "Visual Novel",
+        "Vizuálny román"
+      ],
+      "museumPaths": [
+        "/generos/aventura-grafica"
+      ]
+    },
+    "voleibol": {
+      "slug": "voleibol",
+      "name": "Voleibol",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/voleibol"
+      ]
+    },
+    "vuelo": {
+      "slug": "vuelo",
+      "name": "Vuelo",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/vuelo"
+      ]
+    },
+    "wrestling": {
+      "slug": "wrestling",
+      "name": "Wrestling",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": [
+        "/generos/wrestling"
+      ]
+    }
+  },
+  "slugToCanonical": {
+    "39-em-up": "beat-em-up",
+    "accion": "action",
+    "action": "action",
+    "adventure": "adventure",
+    "ajedrez": "board",
+    "amp-adventure": "adventure",
+    "amp-card": "card",
+    "aventura": "adventure",
+    "aventura-grafica": "visual-novel",
+    "baile": "music",
+    "baloncesto": "basketball",
+    "baseball": "baseball",
+    "basketball": "basketball",
+    "beat": "beat-em-up",
+    "beat-em": "beat-em-up",
+    "beat-em-up": "beat-em-up",
+    "beisbol": "baseball",
+    "belico": "belico",
+    "billar": "board",
+    "board": "board",
+    "boxeo": "fighting",
+    "card": "card",
+    "card-battle": "card",
+    "combat": "action",
+    "combate": "action",
+    "compilation": "compilation",
+    "conduccion": "racing",
+    "construccion": "construccion",
+    "creador-musical": "music",
+    "dance": "music",
+    "deporte": "sports",
+    "educational": "educational",
+    "educativo": "educational",
+    "estrategia": "strategy",
+    "extreme": "sports",
+    "extreme-sports": "sports",
+    "fighting": "fighting",
+    "fishing": "fishing",
+    "football": "soccer",
+    "football-americano": "football-americano",
+    "fps": "shooter",
+    "futbol": "soccer",
+    "futbol-americano": "football-americano",
+    "habilidad": "habilidad",
+    "habilidad-mental": "habilidad",
+    "hack-and-slash": "action",
+    "horror": "horror",
+    "juego-de-mesa": "board",
+    "juego-de-pistola": "shooter",
+    "light-gun": "shooter",
+    "lucha": "fighting",
+    "mini-games": "party",
+    "mini-juegos": "party",
+    "motociclismo": "racing",
+    "motocross": "racing",
+    "music": "music",
+    "musical": "music",
+    "other": "other",
+    "party": "party",
+    "party-games": "party",
+    "pesca": "fishing",
+    "plataformas": "platformer",
+    "platformer": "platformer",
+    "quiz": "quiz",
+    "racing": "racing",
+    "recopilacion": "compilation",
+    "shoot": "shooter",
+    "shoot-em": "shooter",
+    "shooter": "shooter",
+    "shooter-interactivo": "shooter",
+    "simulador": "simulation",
+    "simulation": "simulation",
+    "simulazione": "simulation",
+    "soccer": "soccer",
+    "sports": "sports",
+    "strategy": "strategy",
+    "survival-horror": "horror",
+    "terror": "horror",
+    "third-person-shooter": "shooter",
+    "track-field": "sports",
+    "trivia": "quiz",
+    "varios": "other",
+    "visual-novel": "visual-novel",
+    "vizualny-roman": "visual-novel",
+    "vuelo": "vuelo",
+    "wrestling": "wrestling"
+  },
+  "museumPathToCanonical": {},
+  "normalizedToCanonical": {}
+}

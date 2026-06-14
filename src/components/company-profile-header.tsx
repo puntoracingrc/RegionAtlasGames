@@ -31,6 +31,16 @@ export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
             </p>
           </div>
           <div className="flex flex-wrap gap-2 text-sm">
+            {view.developerCount > 0 && (
+              <span className="rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-violet-100">
+                Desarrolladora
+              </span>
+            )}
+            {view.publisherCount > 0 && (
+              <span className="rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-1 text-sky-100">
+                Publicadora
+              </span>
+            )}
             <span className="rounded-full border border-border bg-card px-3 py-1 text-foreground/85">
               {companyStatusLabel(view.status)}
             </span>

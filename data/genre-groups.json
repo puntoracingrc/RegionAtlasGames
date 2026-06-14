@@ -1,0 +1,163 @@
+{
+  "groups": [
+    {
+      "slug": "action",
+      "name": "Acción",
+      "exactSlugs": ["accion", "action", "combate", "combat", "hack-and-slash"]
+    },
+    {
+      "slug": "adventure",
+      "name": "Aventura",
+      "exactSlugs": ["aventura", "amp-adventure"]
+    },
+    {
+      "slug": "racing",
+      "name": "Carreras",
+      "exactSlugs": ["racing", "conduccion", "motocross", "motociclismo"]
+    },
+    {
+      "slug": "sports",
+      "name": "Deportes",
+      "exactSlugs": ["sports", "deporte", "extreme-sports", "extreme", "track-field"]
+    },
+    {
+      "slug": "fighting",
+      "name": "Lucha",
+      "exactSlugs": ["fighting", "lucha", "boxeo"]
+    },
+    {
+      "slug": "wrestling",
+      "name": "Wrestling",
+      "exactSlugs": ["wrestling"]
+    },
+    {
+      "slug": "shooter",
+      "name": "Shooter",
+      "exactSlugs": [
+        "shooter",
+        "fps",
+        "shoot-em",
+        "shoot",
+        "third-person-shooter",
+        "shooter-interactivo",
+        "juego-de-pistola",
+        "light-gun"
+      ]
+    },
+    {
+      "slug": "strategy",
+      "name": "Estrategia",
+      "exactSlugs": ["strategy", "estrategia"]
+    },
+    {
+      "slug": "platformer",
+      "name": "Plataformas",
+      "exactSlugs": ["platformer", "plataformas"]
+    },
+    {
+      "slug": "simulation",
+      "name": "Simulación",
+      "exactSlugs": ["simulation", "simulador", "simulazione"]
+    },
+    {
+      "slug": "soccer",
+      "name": "Fútbol",
+      "exactSlugs": ["soccer", "futbol", "football"]
+    },
+    {
+      "slug": "basketball",
+      "name": "Baloncesto",
+      "exactSlugs": ["basketball", "baloncesto"]
+    },
+    {
+      "slug": "baseball",
+      "name": "Béisbol",
+      "exactSlugs": ["baseball", "beisbol"]
+    },
+    {
+      "slug": "football-americano",
+      "name": "Fútbol americano",
+      "exactSlugs": ["futbol-americano"]
+    },
+    {
+      "slug": "horror",
+      "name": "Terror",
+      "exactSlugs": ["horror", "terror", "survival-horror"]
+    },
+    {
+      "slug": "music",
+      "name": "Música",
+      "exactSlugs": ["music", "musical", "baile", "dance", "creador-musical"]
+    },
+    {
+      "slug": "educational",
+      "name": "Educativo",
+      "exactSlugs": ["educational", "educativo"]
+    },
+    {
+      "slug": "compilation",
+      "name": "Recopilación",
+      "exactSlugs": ["compilation", "recopilacion"]
+    },
+    {
+      "slug": "board",
+      "name": "Juego de mesa",
+      "exactSlugs": ["board", "juego-de-mesa", "ajedrez", "billar"]
+    },
+    {
+      "slug": "party",
+      "name": "Party",
+      "exactSlugs": ["party", "party-games", "mini-games", "mini-juegos"]
+    },
+    {
+      "slug": "visual-novel",
+      "name": "Novela visual",
+      "exactSlugs": ["visual-novel", "vizualny-roman", "aventura-grafica"]
+    },
+    {
+      "slug": "beat-em-up",
+      "name": "Beat 'em up",
+      "exactSlugs": ["beat-em", "beat", "39-em-up"]
+    },
+    {
+      "slug": "fishing",
+      "name": "Pesca",
+      "exactSlugs": ["fishing", "pesca"]
+    },
+    {
+      "slug": "other",
+      "name": "Varios",
+      "exactSlugs": ["other", "varios"]
+    },
+    {
+      "slug": "card",
+      "name": "Cartas",
+      "exactSlugs": ["amp-card", "card-battle"]
+    },
+    {
+      "slug": "belico",
+      "name": "Bélico",
+      "exactSlugs": ["belico"]
+    },
+    {
+      "slug": "vuelo",
+      "name": "Vuelo",
+      "exactSlugs": ["vuelo"]
+    },
+    {
+      "slug": "construccion",
+      "name": "Construcción",
+      "exactSlugs": ["construccion"]
+    },
+    {
+      "slug": "habilidad",
+      "name": "Habilidad",
+      "exactSlugs": ["habilidad", "habilidad-mental"]
+    },
+    {
+      "slug": "quiz",
+      "name": "Quiz",
+      "exactSlugs": ["quiz", "trivia"]
+    }
+  ]
+}

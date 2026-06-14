@@ -2,6 +2,7 @@ import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
 import { referenceSearchHaystack, referenceSortKey } from "@/lib/game-product-reference";
 import { getPlatform } from "@/lib/catalog";
 import { getGameDetails } from "@/lib/indexes";
+import { resolveCanonicalGenreEntity } from "@/lib/genre-canonical";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import type { CatalogGame, GameDetails } from "@/lib/types";
 
@@ -128,8 +129,9 @@ export function matchesQuery(game: CatalogGame, rawQuery: string): boolean {
 }
 
 function genreKey(game: CatalogGame): string {
-  const g = getDetails(game)?.genres?.[0]?.name;
-  return g?.toLowerCase() ?? "\uffff";
+  const g = getDetails(game)?.genres?.[0];
+  if (!g) return "\uffff";
+  return resolveCanonicalGenreEntity(g).name.toLowerCase();
 }
 
 function referenceKey(game: CatalogGame): string {
