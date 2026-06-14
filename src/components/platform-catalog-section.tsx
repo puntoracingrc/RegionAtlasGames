@@ -5,9 +5,7 @@ import Link from "next/link";
 import type { CatalogGame, CollectionView, Platform } from "@/lib/types";
 import { formatEur, getPlatformStats } from "@/lib/catalog";
 import { buildPlatformCatalogInsights } from "@/lib/platform-catalog-insights";
-import { getPlatformConsoleArt } from "@/lib/platform-console-art";
 import { PlatformRegionBar } from "@/components/platform-region-bar";
-import { PlatformConsoleArt } from "@/components/platform-console-art";
 import { CatalogBrowser } from "@/components/catalog-browser";
 
 const MANUFACTURER_STYLE = {
@@ -41,7 +39,6 @@ export function PlatformCatalogSection({
   const insights = buildPlatformCatalogInsights(games);
   const collectionValue = ownedOnPlatform.reduce((s, g) => s + (g.totalValue || 0), 0);
   const gradient = MANUFACTURER_STYLE[platform.manufacturer];
-  const consoleArt = getPlatformConsoleArt(platform.slug, platform.name);
 
   return (
     <>
@@ -54,25 +51,16 @@ export function PlatformCatalogSection({
           className={`overflow-hidden rounded-2xl border bg-gradient-to-br ${gradient} bg-card shadow-sm`}
         >
           <div className="p-5 md:p-7">
-            <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
-              <div className="min-w-0 flex-1 space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted">
-                  {platform.manufacturer}
-                </p>
-                <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-                  {platform.name}
-                </h1>
-                <p className="max-w-xl text-sm leading-relaxed text-muted line-clamp-2">
-                  {platform.description}
-                </p>
-              </div>
-
-              {consoleArt && (
-                <PlatformConsoleArt
-                  art={consoleArt}
-                  className="self-center md:self-start md:mt-1"
-                />
-              )}
+            <div className="space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted">
+                {platform.manufacturer}
+              </p>
+              <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                {platform.name}
+              </h1>
+              <p className="max-w-xl text-sm leading-relaxed text-muted line-clamp-2">
+                {platform.description}
+              </p>
             </div>
 
             <PlatformRegionBar

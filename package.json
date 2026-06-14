@@ -38,6 +38,7 @@
     "staging:promote": "python3 scripts/promote_catalog_staging.py",
     "covers:seed": "caffeinate -dimsu env PYTHONUNBUFFERED=1 python3 scripts/seed_covers.py",
     "covers:normalize-urls": "python3 scripts/normalize_catalog_cover_urls.py",
+    "covers:link-catalog": "python3 scripts/link_catalog_covers.py --trust-cdn-only",
     "covers:check-upload": "python3 scripts/check_covers_upload.py",
     "storage:setup": "bash scripts/setup_external_storage.sh",
     "pipeline:watch": "caffeinate -dimsu bash scripts/watch_pipeline_progress.sh"

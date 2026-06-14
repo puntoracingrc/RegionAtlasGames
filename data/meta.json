@@ -79,5 +79,7 @@
   "lastEsPriceSyncAt": "2026-06-13T23:41:06Z",
   "lastEsPriceSyncPlatform": "gamegear",
   "lastDetailsEnrichAt": "2026-06-13T21:21:54",
-  "lastSerialstationEnrichAt": "2026-06-13T08:51:10"
+  "lastSerialstationEnrichAt": "2026-06-13T08:51:10",
+  "catalogWithCover": 20031,
+  "catalogWithLocalCover": 20031
 }
