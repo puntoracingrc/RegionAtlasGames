@@ -1,5 +1,6 @@
 import { getPlatform, platforms } from "@/lib/catalog";
 import { getGameDetails } from "@/lib/indexes";
+import { resolveCanonicalCompany, resolveCanonicalCompanySlug } from "@/lib/company-canonical";
 import type { CollectionView, GameFilters } from "@/lib/types";
 
 export type CollectionSort = GameFilters["sort"];
@@ -44,11 +45,16 @@ export function collectionDeveloperOptions(items: CollectionView[]): CollectionF
   for (const item of items) {
     const dev = collectionDetails(item)?.developer;
     if (!dev?.slug) continue;
-    const existing = counts.get(dev.slug);
+    const canonical = resolveCanonicalCompany(dev.slug, dev.name);
+    const existing = counts.get(canonical.slug);
     if (existing) {
       existing.count += 1;
     } else {
-      counts.set(dev.slug, { slug: dev.slug, name: dev.name, count: 1 });
+      counts.set(canonical.slug, {
+        slug: canonical.slug,
+        name: canonical.name,
+        count: 1,
+      });
     }
   }
   return Array.from(counts.values()).sort((a, b) =>
@@ -61,11 +67,16 @@ export function collectionPublisherOptions(items: CollectionView[]): CollectionF
   for (const item of items) {
     const pub = collectionDetails(item)?.publisher;
     if (!pub?.slug) continue;
-    const existing = counts.get(pub.slug);
+    const canonical = resolveCanonicalCompany(pub.slug, pub.name);
+    const existing = counts.get(canonical.slug);
     if (existing) {
       existing.count += 1;
     } else {
-      counts.set(pub.slug, { slug: pub.slug, name: pub.name, count: 1 });
+      counts.set(canonical.slug, {
+        slug: canonical.slug,
+        name: canonical.name,
+        count: 1,
+      });
     }
   }
   return Array.from(counts.values()).sort((a, b) =>
@@ -126,10 +137,16 @@ export function filterCollection(
 
     const details = collectionDetails(item);
     if (filters.developer !== "all") {
-      if (details?.developer?.slug !== filters.developer) return false;
+      const devSlug = details?.developer?.slug;
+      if (!devSlug || resolveCanonicalCompanySlug(devSlug) !== filters.developer) {
+        return false;
+      }
     }
     if (filters.publisher !== "all") {
-      if (details?.publisher?.slug !== filters.publisher) return false;
+      const pubSlug = details?.publisher?.slug;
+      if (!pubSlug || resolveCanonicalCompanySlug(pubSlug) !== filters.publisher) {
+        return false;
+      }
     }
 
     if (!q) return true;

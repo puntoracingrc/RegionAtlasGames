@@ -4,10 +4,17 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 import time
 import unicodedata
 from pathlib import Path
 from typing import Any
+
+_SCRIPTS_DIR = Path(__file__).resolve().parents[1]
+if str(_SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS_DIR))
+
+from company_canonical import resolve_canonical_company
 
 SOURCE_MUSEUM = "museum"
 SOURCE_PC = "pricecharting"
@@ -718,11 +725,14 @@ def build_indexes(details: dict[str, dict], catalog: list[dict]) -> dict[str, An
     ) -> None:
         if not entity or not entity.get("name"):
             return
-        slug = entity.get("slug") or slugify(entity["name"])
+        raw_slug = entity.get("slug") or slugify(entity["name"])
+        canonical = resolve_canonical_company(raw_slug, entity["name"])
+        slug = canonical["slug"]
+        display_name = canonical["name"]
         entry = bucket.setdefault(
             slug,
             {
-                "name": entity["name"],
+                "name": display_name,
                 "slug": slug,
                 "museumPath": entity_path(entity),
                 "gameIds": [],

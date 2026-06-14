@@ -39,6 +39,7 @@ import { esPriceDisplayLabel } from "@/lib/price-display";
 import { RegionEvidenceRulesPanel } from "@/components/region-evidence-rules-panel";
 import { REGION_VERIFICATION_POLICY, priceVerificationLabel } from "@/lib/listing-region-verification";
 import { getGameDetails } from "@/lib/indexes";
+import { resolveCanonicalCompany } from "@/lib/company-canonical";
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCurrentUser } from "@/lib/users";
@@ -68,6 +69,12 @@ export default async function CatalogGamePage({ params }: Props) {
 
   const platform = getPlatform(game.platformSlug);
   const details = getGameDetails(game.id);
+  const developerCompany = details?.developer
+    ? resolveCanonicalCompany(details.developer.slug, details.developer.name)
+    : null;
+  const publisherCompany = details?.publisher
+    ? resolveCanonicalCompany(details.publisher.slug, details.publisher.name)
+    : null;
   const grail = isGrailGame(game);
   const topSegment = isTopInSegment(game);
   const priceStatus = esPriceDisplayLabel(game);
@@ -224,12 +231,12 @@ export default async function CatalogGamePage({ params }: Props) {
                   <DetailRow
                     label="Desarrolladora"
                     value={
-                      details.developer ? (
+                      developerCompany ? (
                         <Link
-                          href={`/compania/${details.developer.slug}`}
+                          href={`/compania/${developerCompany.slug}`}
                           className="text-accent hover:underline"
                         >
-                          {details.developer.name}
+                          {developerCompany.name}
                         </Link>
                       ) : (
                         "—"
@@ -239,12 +246,12 @@ export default async function CatalogGamePage({ params }: Props) {
                   <DetailRow
                     label="Publicadora"
                     value={
-                      details.publisher ? (
+                      publisherCompany ? (
                         <Link
-                          href={`/compania/${details.publisher.slug}`}
+                          href={`/compania/${publisherCompany.slug}`}
                           className="text-accent hover:underline"
                         >
-                          {details.publisher.name}
+                          {publisherCompany.name}
                         </Link>
                       ) : (
                         "—"

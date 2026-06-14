@@ -2,6 +2,7 @@ import companiesData from "../../data/index/companies.json";
 import genresData from "../../data/index/genres.json";
 import seriesData from "../../data/index/series.json";
 import gameDetailsData from "../../data/game-details.json";
+import { mergeCompanyIndex, resolveCanonicalCompanySlug } from "./company-canonical";
 import type { CatalogGame, GameDetails, IndexEntry } from "./types";
 import { getCatalogGame, getPlatform, meta } from "./catalog";
 
@@ -35,7 +36,7 @@ function loadGameDetails(): Record<string, GameDetails> {
   return gameDetailsCache;
 }
 
-export const companies = companiesData as Record<string, IndexEntry>;
+export const companies = mergeCompanyIndex(companiesData as Record<string, IndexEntry>);
 export const genres = genresData as Record<string, IndexEntry>;
 export const seriesIndex = seriesData as Record<string, IndexEntry>;
 
@@ -84,7 +85,8 @@ export function getGameDetails(id: string): GameDetails | undefined {
 }
 
 export function getCompany(slug: string): IndexEntry | undefined {
-  const entry = companies[slug];
+  const canonicalSlug = resolveCanonicalCompanySlug(slug);
+  const entry = companies[canonicalSlug];
   return entry ? resolveIndexEntry(entry) : undefined;
 }
 

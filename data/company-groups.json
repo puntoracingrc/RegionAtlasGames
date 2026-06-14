@@ -1,0 +1,143 @@
+{
+  "groups": [
+    {
+      "slug": "sony-interactive-entertainment",
+      "name": "Sony Interactive Entertainment",
+      "exactSlugs": [
+        "sony",
+        "sony-computer",
+        "sony-computer-entertainement",
+        "sony-electronics",
+        "sie-sony-interactive-entertainment"
+      ],
+      "slugPrefixes": [
+        "sony-computer-entertainment",
+        "sony-interactive-entertainment",
+        "sony-imagesoft"
+      ]
+    },
+    {
+      "slug": "warner-bros-interactive-entertainment",
+      "name": "Warner Bros. Interactive Entertainment",
+      "exactSlugs": [
+        "warner-bros",
+        "warner-brothers",
+        "warner-bros-entertainment",
+        "warner-bros-games",
+        "warner-brothers-games",
+        "warner-bros-international-enterprises",
+        "time-warner"
+      ],
+      "slugPrefixes": [
+        "warner-bros-interactive",
+        "warner-bros-intractive",
+        "time-warner-interactive"
+      ]
+    },
+    {
+      "slug": "bandai-namco-entertainment",
+      "name": "Bandai Namco Entertainment",
+      "exactSlugs": [
+        "bandai",
+        "bandai-america-inc",
+        "bandai-entertainment",
+        "bandai-namco",
+        "bandai-namco-europe",
+        "bandai-shinsei",
+        "namco-bandai",
+        "namco-bandai-entertainment"
+      ],
+      "slugPrefixes": [
+        "bandai-namco-entertainment",
+        "bandai-namco-games",
+        "namco-bandai-games"
+      ]
+    },
+    {
+      "slug": "square-enix",
+      "name": "Square Enix",
+      "exactSlugs": ["square", "squaresoft"],
+      "slugPrefixes": ["square-enix"]
+    },
+    {
+      "slug": "electronic-arts",
+      "name": "Electronic Arts",
+      "exactSlugs": ["electronic-arts-canada"],
+      "slugPrefixes": ["electronic-arts"]
+    },
+    {
+      "slug": "activision",
+      "name": "Activision",
+      "exactSlugs": [
+        "activision-blizzard",
+        "activision-blizzard-international",
+        "activision-o2",
+        "activision-publishing",
+        "activision-value"
+      ],
+      "slugPrefixes": ["activision"]
+    },
+    {
+      "slug": "konami",
+      "name": "Konami",
+      "exactSlugs": [
+        "konami",
+        "konami-co-ltd",
+        "konami-of-europe",
+        "konami-digital-entertainment",
+        "konami-digital-entertainment-co-ltd"
+      ]
+    },
+    {
+      "slug": "ubisoft",
+      "name": "Ubisoft",
+      "exactSlugs": [
+        "ubisoft",
+        "ubisoft-entertainment",
+        "ubisoft-inc",
+        "ubisoft-divertissements-inc"
+      ]
+    },
+    {
+      "slug": "capcom",
+      "name": "Capcom",
+      "exactSlugs": [
+        "capcom",
+        "capcom-co",
+        "capcom-co-ltd",
+        "capcom-entertainment-europe-ltd",
+        "capcome"
+      ]
+    },
+    {
+      "slug": "nintendo",
+      "name": "Nintendo",
+      "exactSlugs": [
+        "nintendo-software-technology-corporation"
+      ],
+      "slugPrefixes": ["nintendo-software-technology"]
+    },
+    {
+      "slug": "microsoft",
+      "name": "Microsoft",
+      "exactSlugs": [
+        "microsoft-corporation",
+        "microsoft-game-studios",
+        "microsoft-studios"
+      ],
+      "slugPrefixes": [
+        "microsoft",
+        "xbox-game-studios"
+      ]
+    },
+    {
+      "slug": "sega",
+      "name": "Sega",
+      "exactSlugs": [
+        "sega",
+        "sega-of-america",
+        "segasoft"
+      ]
+    }
+  ]
+}
