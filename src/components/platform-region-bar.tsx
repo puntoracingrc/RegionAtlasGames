@@ -1,5 +1,6 @@
 "use client";
 
+import { RegionFlag } from "@/components/region-flag";
 import { type RegionSlice } from "@/lib/platform-catalog-insights";
 import { cn } from "@/lib/cn";
 
@@ -50,7 +51,7 @@ export function PlatformRegionBar({ regions, total, selectedRegion, onSelectRegi
         })}
       </div>
 
-      <div className="flex flex-wrap gap-x-3 gap-y-1">
+      <div className="flex flex-wrap gap-2">
         {regions.map((region) => {
           const active = selectedRegion === region.label;
           return (
@@ -59,16 +60,19 @@ export function PlatformRegionBar({ regions, total, selectedRegion, onSelectRegi
               type="button"
               onClick={() => handleSelect(region.label)}
               aria-pressed={active}
-              aria-label={`Filtrar por ${region.label}`}
-              title={region.label}
+              aria-label={`Filtrar por ${region.label}: ${region.count} títulos (${region.pct}%)`}
+              title={`${region.label}: ${region.count.toLocaleString("es-ES")} títulos`}
               className={cn(
-                "inline-flex items-center gap-1.5 rounded-md border-0 bg-transparent px-1 py-0.5 text-[11px] text-muted transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
-                active && "font-medium text-accent",
+                "inline-flex min-h-9 items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+                active
+                  ? "border-accent/50 bg-accent/15 text-accent"
+                  : "border-border/60 bg-black/10 text-muted hover:border-accent/30 hover:text-foreground",
               )}
             >
-              <span className={cn("h-2 w-2 shrink-0 rounded-full", region.barColorClass)} />
-              <span>{region.label}</span>
-              <span className={cn("text-foreground/70", active && "text-accent")}>{region.pct}%</span>
+              <RegionFlag region={region.label} size="xs" showLabel labelMode="short" />
+              <span className={cn("tabular-nums text-foreground/70", active && "text-accent/90")}>
+                {region.pct}%
+              </span>
             </button>
           );
         })}

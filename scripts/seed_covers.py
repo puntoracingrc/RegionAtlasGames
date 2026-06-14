@@ -210,9 +210,22 @@ def save_cover_image(raw: bytes, dest: Path) -> bool:
     return save_cover_jpeg(raw, dest)
 
 
-def build_pc_maps(platforms: set[str], force: bool) -> dict[str, str]:
+def needed_pc_console_paths(platforms: set[str], catalog: list[dict]) -> set[str]:
+    paths = {PC_CONSOLE_PATHS[p] for p in platforms if p in PC_CONSOLE_PATHS}
+    for game in catalog:
+        if game.get("platformSlug") not in platforms:
+            continue
+        pc_path = str(game.get("pcPath") or "")
+        if pc_path.startswith("/game/"):
+            parts = pc_path.split("/")
+            if len(parts) >= 3 and parts[2]:
+                paths.add(parts[2])
+    return paths
+
+
+def build_pc_maps(platforms: set[str], force: bool, catalog: list[dict] | None = None) -> dict[str, str]:
     pc_map: dict[str, str] = load_json(PC_MAP_FILE) if not force else {}
-    needed_pc_paths = {PC_CONSOLE_PATHS[p] for p in platforms if p in PC_CONSOLE_PATHS}
+    needed_pc_paths = needed_pc_console_paths(platforms, catalog or [])
     for pc_path in sorted(needed_pc_paths):
         existing = sum(1 for k in pc_map if k.startswith(f"/game/{pc_path}/"))
         print(f"  PriceCharting map {pc_path} ({existing} en caché)...", flush=True)
@@ -283,7 +296,7 @@ def main() -> None:
         pc_platforms = {g["platformSlug"] for g in targets if g.get("pcPath")}
         if pc_platforms:
             print(f"Actualizando mapa PriceCharting ({len(pc_platforms)} plataformas)...")
-            pc_map = build_pc_maps(pc_platforms, force=False)
+            pc_map = build_pc_maps(pc_platforms, force=False, catalog=catalog)
 
     used_names: dict[str, set[str]] = {}
     for g in catalog:

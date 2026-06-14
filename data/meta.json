@@ -3,8 +3,8 @@
   "source": "/Users/macbookpro14/Downloads/CATALOGO_COMPLETO_PAL_ESPAÑA.xlsx",
   "catalogScope": "retro-pal-es-closed",
   "platformCount": 22,
-  "catalogListed": 26279,
-  "catalogEstimatedTotal": 20046,
+  "catalogListed": 31702,
+  "catalogEstimatedTotal": 30246,
   "listedByPlatform": {
     "3ds": 483,
     "dreamcast": 950,
@@ -23,7 +23,7 @@
     "ps1": 1542,
     "ps2": 2508,
     "ps3": 1362,
-    "ps4": 3021,
+    "ps4": 8444,
     "saturn": 1597,
     "sega32x": 82,
     "snes": 2761,
@@ -36,11 +36,11 @@
     "totalUnits": 541,
     "withEsPrice": 415,
     "pendingEsPrice": 64,
-    "totalRecommendedValue": 19497.0,
+    "totalRecommendedValue": 19497,
     "totalBuyValue": 19199.33
   },
   "catalogExcluded": 4317,
-  "catalogTotal": 30596,
+  "catalogTotal": 36019,
   "excludedByPlatform": {
     "3ds": 136,
     "ds": 52,
@@ -81,5 +81,6 @@
   "lastDetailsEnrichAt": "2026-06-14T10:00:48",
   "lastSerialstationEnrichAt": "2026-06-13T08:51:10",
   "catalogWithCover": 25774,
-  "catalogWithLocalCover": 25774
+  "catalogWithLocalCover": 25774,
+  "lastSeedAt": "2026-06-14T23:46:00"
 }

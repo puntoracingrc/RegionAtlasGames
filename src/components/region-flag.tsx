@@ -56,7 +56,7 @@ export function RegionFlag({
         )}
       />
       {showLabel && (
-        <span className="normal-case tracking-normal text-muted">{visibleLabel}</span>
+        <span className="normal-case tracking-normal text-foreground/75">{visibleLabel}</span>
       )}
     </span>
   );

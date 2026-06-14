@@ -215,8 +215,8 @@
     "shortName": "PS4",
     "manufacturer": "sony",
     "status": "semi-closed",
-    "estimatedCatalogSize": 1800,
+    "estimatedCatalogSize": 12000,
     "sortOrder": 22,
-    "description": "Catálogo casi cerrado. Solo se añaden ediciones puntuales (LRG, limitadas)."
+    "description": "Catálogo multiregión (PAL, USA y Japón) desde PriceCharting."
   }
 ]

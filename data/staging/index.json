@@ -1,1 +1,13 @@
-{"updatedAt":"1970-01-01T00:00:00.000Z","pcIds":[],"byPlatform":{}}
+{
+  "updatedAt": "2026-06-14T21:36:00.569Z",
+  "pcIds": [],
+  "byPlatform": {
+    "neogeo": [
+      "games",
+      "units",
+      "pendingEnrich",
+      "enriched",
+      "promoted"
+    ]
+  }
+}

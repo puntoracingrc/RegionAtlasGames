@@ -264,14 +264,14 @@ function CardBody({
       <h3 className="line-clamp-2 text-[13px] font-semibold leading-snug text-foreground">{title}</h3>
       <div className="mt-auto flex items-end justify-between gap-2 pt-1">
         <div className="min-w-0">
-          <p className="flex min-w-0 items-center gap-1 truncate text-[10px] uppercase tracking-wider text-muted">
-            <span className="truncate">{platform}</span>
+          <p className="flex flex-wrap items-center gap-x-1 gap-y-0.5 text-[10px] uppercase tracking-wider text-muted">
+            <span className="max-w-full truncate">{platform}</span>
             {year != null && (
               <>
                 <span aria-hidden className="text-muted/50">
                   ·
                 </span>
-                <span className="tabular-nums normal-case tracking-normal">{year}</span>
+                <span className="shrink-0 tabular-nums normal-case tracking-normal">{year}</span>
               </>
             )}
             {region && (
@@ -279,12 +279,18 @@ function CardBody({
                 <span aria-hidden className="text-muted/50">
                   ·
                 </span>
-                <RegionFlag region={region} size="xs" />
+                <RegionFlag
+                  region={region}
+                  size="xs"
+                  showLabel
+                  labelMode="short"
+                  className="shrink-0 normal-case tracking-normal"
+                />
               </>
             )}
             {tags.length > 0 && (
-              <span className="truncate normal-case tracking-normal">
-                {tags.length > 0 ? ` · ${tags.join(" · ")}` : ""}
+              <span className="min-w-0 truncate normal-case tracking-normal">
+                {` · ${tags.join(" · ")}`}
               </span>
             )}
           </p>

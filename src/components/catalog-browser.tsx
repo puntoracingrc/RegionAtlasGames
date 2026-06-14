@@ -5,6 +5,7 @@ import { CatalogGameCard } from "@/components/game-card";
 import { CatalogPagination } from "@/components/catalog-pagination";
 import { HighlightLegend } from "@/components/highlight-legend";
 import { PriceLegend } from "@/components/price-legend";
+import { RegionFilterChips } from "@/components/region-filter-chips";
 import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
@@ -17,7 +18,6 @@ import {
   type CatalogPriceFilter,
   type CatalogSort,
 } from "@/lib/catalog-filters";
-import { getRegionDisplay } from "@/lib/region-display";
 import type { CatalogGame } from "@/lib/types";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { cn } from "@/lib/cn";
@@ -144,17 +144,17 @@ export function CatalogBrowser({
 
         <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
           {showRegionFilter && regions.length > 1 && (
-            <select value={region} onChange={(e) => setRegion(e.target.value)} className={selectClass}>
-              <option value="all">Todas las regiones ({games.length})</option>
-              {regions.map(([label, count]) => {
-                const { shortLabel } = getRegionDisplay(label);
-                return (
-                  <option key={label} value={label}>
-                    {shortLabel} · {label} ({count})
-                  </option>
-                );
-              })}
-            </select>
+            <RegionFilterChips
+              value={region}
+              onChange={setRegion}
+              allLabel="Todas las regiones"
+              options={regions.map(([label, count]) => ({
+                value: label,
+                label,
+                count,
+              }))}
+              className="w-full sm:flex-1"
+            />
           )}
 
           {showPlatformFilter && platforms.length > 1 && (
