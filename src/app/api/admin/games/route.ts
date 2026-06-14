@@ -10,6 +10,7 @@ import {
   triggerPostSaveEnrichment,
 } from "@/lib/admin-catalog-publish";
 import { catalogIdExistsInCatalog } from "@/lib/catalog-runtime-overlay";
+import { findSimilarCatalogGames } from "@/lib/admin-title-similarity";
 import { REGION_OPTIONS } from "@/lib/admin-draft-storage";
 
 export async function POST(request: Request) {
@@ -25,6 +26,7 @@ export async function POST(request: Request) {
     reference?: string;
     autoEnrich?: boolean;
     autoAi?: boolean;
+    confirmDistinct?: boolean;
   };
 
   const title = body.title?.trim();
@@ -54,6 +56,27 @@ export async function POST(request: Request) {
       },
       { status: 409 },
     );
+  }
+
+  if (!body.confirmDistinct) {
+    const similar = findSimilarCatalogGames({
+      title,
+      platformSlug,
+      region,
+      slug: body.slug,
+      excludeCatalogId: draft.catalogId,
+    });
+    if (similar.length > 0) {
+      return NextResponse.json(
+        {
+          error: "similar_games",
+          message:
+            "Hay juegos con un nombre muy parecido en esta plataforma. ¿Es el mismo título o uno nuevo?",
+          matches: similar,
+        },
+        { status: 409 },
+      );
+    }
   }
 
   await ensureManualStagingEntry(draft);
