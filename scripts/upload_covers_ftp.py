@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Sube portadas locales al hosting puntoracing (FTP/FTPS).
+"""Sube portadas locales al hosting puntoracing (SFTP o FTP/FTPS).
 
 Variables (.env.local o entorno):
   COVERS_FTP_HOST
   COVERS_FTP_USER
   COVERS_FTP_PASSWORD
-  COVERS_FTP_REMOTE_ROOT=MEDIAREGIONATLAS/covers   (opcional)
-  COVERS_FTP_TLS=1                                   (opcional, FTPS explícito)
+  COVERS_FTP_REMOTE_ROOT=MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers
+  COVERS_FTP_PROTOCOL=sftp|ftp          (default: sftp si puerto 22)
+  COVERS_FTP_PORT=22                    (SFTP) o 21 (FTP)
+  COVERS_FTP_TLS=1                      (solo FTP, FTPS explícito)
 
 Uso:
   python3 scripts/upload_covers_ftp.py --platform wii,saturn,ps3,ps1,sega32x
@@ -54,29 +56,73 @@ def load_env_local() -> None:
             os.environ[key] = value.strip().strip('"').strip("'")
 
 
-def ftp_config() -> dict[str, str | bool]:
+def ftp_config() -> dict[str, str | bool | int]:
     load_env_local()
     host = os.environ.get("COVERS_FTP_HOST", "").strip()
     user = os.environ.get("COVERS_FTP_USER", "").strip()
     password = os.environ.get("COVERS_FTP_PASSWORD", "").strip()
-    remote_root = os.environ.get("COVERS_FTP_REMOTE_ROOT", "MEDIAREGIONATLAS/covers").strip().strip("/")
+    remote_root = os.environ.get(
+        "COVERS_FTP_REMOTE_ROOT", "MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers"
+    ).strip().strip("/")
+    port_raw = os.environ.get("COVERS_FTP_PORT", "").strip()
+    port = int(port_raw) if port_raw.isdigit() else 22
+    protocol = os.environ.get("COVERS_FTP_PROTOCOL", "").strip().lower()
+    if not protocol:
+        protocol = "sftp" if port == 22 else "ftp"
     use_tls = os.environ.get("COVERS_FTP_TLS", "1").strip().lower() not in {"0", "false", "no"}
     if not host or not user or not password:
         raise SystemExit(
-            "Faltan credenciales FTP.\n"
-            "Añade a .env.local:\n"
-            "  COVERS_FTP_HOST=ftp.tuservidor.com\n"
-            "  COVERS_FTP_USER=...\n"
-            "  COVERS_FTP_PASSWORD=...\n"
-            "  COVERS_FTP_REMOTE_ROOT=MEDIAREGIONATLAS/covers\n"
+            "Faltan credenciales FTP/SFTP.\n"
+            "Añade a .env.local (ver .env.example).\n"
         )
     return {
         "host": host,
         "user": user,
         "password": password,
         "remote_root": remote_root,
+        "port": port,
+        "protocol": protocol,
         "use_tls": use_tls,
     }
+
+
+def connect_sftp(cfg: dict[str, str | bool | int]):
+    import paramiko
+
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(
+        str(cfg["host"]),
+        port=int(cfg["port"]),
+        username=str(cfg["user"]),
+        password=str(cfg["password"]),
+        timeout=60,
+        allow_agent=False,
+        look_for_keys=False,
+    )
+    return client, client.open_sftp()
+
+
+def ensure_remote_dir_sftp(sftp, remote_dir: str) -> None:
+    parts = [p for p in remote_dir.replace("\\", "/").split("/") if p]
+    path = ""
+    for part in parts:
+        path = f"{path}/{part}" if path else part
+        try:
+            sftp.stat(path)
+        except OSError:
+            try:
+                sftp.mkdir(path)
+            except OSError:
+                pass
+
+
+def upload_file_sftp(sftp, local_path: Path, remote_rel: str, remote_root: str) -> None:
+    remote_dir = f"{remote_root}/{Path(remote_rel).parent.as_posix()}".replace("\\", "/").strip("/")
+    if remote_dir and remote_dir != ".":
+        ensure_remote_dir_sftp(sftp, remote_dir)
+    remote_path = f"{remote_root}/{remote_rel}".replace("\\", "/")
+    sftp.put(str(local_path), remote_path)
 
 
 def connect_ftp(cfg: dict[str, str | bool]) -> ftplib.FTP:
@@ -211,15 +257,29 @@ def main() -> None:
         return
 
     cfg = ftp_config()
-    print(f"Remoto: /{cfg['remote_root']}/")
+    print(f"Remoto: /{cfg['remote_root']}/ ({cfg['protocol']}:{cfg['port']})")
     uploaded = 0
     failed: list[tuple[str, str]] = []
     started = time.time()
+    use_sftp = str(cfg["protocol"]) == "sftp"
+    ssh_client = None
+    sftp = None
+    ftp = None
+
+    if use_sftp:
+        ssh_client, sftp = connect_sftp(cfg)
+    else:
+        ftp = connect_ftp(cfg)
 
     try:
         for idx, (local_path, rel) in enumerate(targets, start=1):
             try:
-                upload_file(ftp, local_path, rel, str(cfg["remote_root"]))
+                if use_sftp:
+                    assert sftp is not None
+                    upload_file_sftp(sftp, local_path, rel, str(cfg["remote_root"]))
+                else:
+                    assert ftp is not None
+                    upload_file(ftp, local_path, rel, str(cfg["remote_root"]))
                 uploaded += 1
             except Exception as exc:
                 failed.append((rel, str(exc)))
@@ -228,10 +288,15 @@ def main() -> None:
                 rate = uploaded / elapsed * 60
                 print(f"  … {idx}/{len(targets)} ({uploaded} OK, {len(failed)} err, {rate:.0f}/min)")
     finally:
-        try:
-            ftp.quit()
-        except Exception:
-            pass
+        if sftp is not None:
+            sftp.close()
+        if ssh_client is not None:
+            ssh_client.close()
+        if ftp is not None:
+            try:
+                ftp.quit()
+            except Exception:
+                pass
 
     print()
     print(f"Subidos: {uploaded}")

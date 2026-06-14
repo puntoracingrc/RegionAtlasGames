@@ -1,4 +1,4 @@
-"""Fusión de metadatos de juego desde Museo del Videojuego y PriceCharting."""
+"""Fusión de metadatos de juego desde Museo, PriceCharting, SerialStation y Wikidata."""
 
 from __future__ import annotations
 
@@ -13,6 +13,26 @@ SOURCE_MUSEUM = "museum"
 SOURCE_PC = "pricecharting"
 SOURCE_SERIALSTATION = "serialstation"
 SOURCE_WIKIDATA = "wikidata"
+
+# Prioridad de fusión: fuentes externas antes que Museo (Museo queda como fallback regional).
+MERGE_ENTITY_ORDER = (
+    SOURCE_SERIALSTATION,
+    SOURCE_WIKIDATA,
+    SOURCE_PC,
+    SOURCE_MUSEUM,
+)
+MERGE_SCALAR_ORDER = (
+    SOURCE_SERIALSTATION,
+    SOURCE_WIKIDATA,
+    SOURCE_PC,
+    SOURCE_MUSEUM,
+)
+MERGE_REFERENCE_ORDER = (
+    SOURCE_SERIALSTATION,
+    SOURCE_MUSEUM,
+    SOURCE_PC,
+    SOURCE_WIKIDATA,
+)
 
 FIELD_KEYS = (
     "developer",
@@ -327,14 +347,16 @@ def _merge_entity(
     serialstation_entity = normalize_entity(serialstation_entity, default_source=SOURCE_SERIALSTATION)
     wikidata_entity = normalize_entity(wikidata_entity, default_source=SOURCE_WIKIDATA)
 
-    if museum_entity:
-        return museum_entity, SOURCE_MUSEUM
-    if serialstation_entity:
-        return serialstation_entity, SOURCE_SERIALSTATION
-    if pc_entity:
-        return pc_entity, SOURCE_PC
-    if wikidata_entity:
-        return wikidata_entity, SOURCE_WIKIDATA
+    by_role = {
+        SOURCE_SERIALSTATION: serialstation_entity,
+        SOURCE_WIKIDATA: wikidata_entity,
+        SOURCE_PC: pc_entity,
+        SOURCE_MUSEUM: museum_entity,
+    }
+    for source in MERGE_ENTITY_ORDER:
+        entity = by_role.get(source)
+        if entity:
+            return entity, source
     return None, None
 
 
@@ -348,19 +370,27 @@ def _merge_genres(
     pc_genres = pc_genres or []
     serialstation_genres = serialstation_genres or []
     wikidata_genres = wikidata_genres or []
-    if museum_genres:
-        merged = [normalize_entity(g, default_source=SOURCE_MUSEUM) for g in museum_genres]
-        return [g for g in merged if g], SOURCE_MUSEUM
-    if serialstation_genres:
-        merged = [normalize_entity(g, default_source=SOURCE_SERIALSTATION) for g in serialstation_genres]
-        return [g for g in merged if g], SOURCE_SERIALSTATION
-    if pc_genres:
-        merged = [normalize_entity(g, default_source=SOURCE_PC) for g in pc_genres]
-        return [g for g in merged if g], SOURCE_PC
-    if wikidata_genres:
-        merged = [normalize_entity(g, default_source=SOURCE_WIKIDATA) for g in wikidata_genres]
-        return [g for g in merged if g], SOURCE_WIKIDATA
-    return [], None
+    merged: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    primary_source: str | None = None
+    for source, genre_list in (
+        (SOURCE_SERIALSTATION, serialstation_genres),
+        (SOURCE_WIKIDATA, wikidata_genres),
+        (SOURCE_PC, pc_genres),
+        (SOURCE_MUSEUM, museum_genres),
+    ):
+        for item in genre_list:
+            norm = normalize_entity(item, default_source=source)
+            if not norm:
+                continue
+            slug = str(norm["slug"])
+            if slug in seen:
+                continue
+            seen.add(slug)
+            merged.append(norm)
+            if primary_source is None:
+                primary_source = source
+    return merged, primary_source
 
 
 def _merge_scalar(
@@ -372,12 +402,7 @@ def _merge_scalar(
     *,
     source_order: tuple[str, ...] | None = None,
 ) -> tuple[Any, str | None]:
-    order = source_order or (
-        SOURCE_MUSEUM,
-        SOURCE_SERIALSTATION,
-        SOURCE_PC,
-        SOURCE_WIKIDATA,
-    )
+    order = source_order or MERGE_SCALAR_ORDER
     by_source = {
         SOURCE_MUSEUM: museum_detail,
         SOURCE_PC: pc_detail,
@@ -502,7 +527,7 @@ def merge_details(
     if series_source:
         merged["fieldSources"]["series"] = series_source
 
-    ref_order = (SOURCE_MUSEUM, SOURCE_SERIALSTATION, SOURCE_PC, SOURCE_WIKIDATA)
+    ref_order = MERGE_REFERENCE_ORDER
     reference, ref_source = _merge_scalar(
         museum_detail,
         pc_detail,
@@ -629,6 +654,45 @@ def _looks_like_serialstation_only(detail: dict[str, Any]) -> bool:
         if isinstance(entity, dict) and entity.get("source") == SOURCE_SERIALSTATION:
             return True
     return False
+
+
+def _cache_entry_ok(entry: dict[str, Any] | None) -> bool:
+    return bool(entry and is_valid_detail(entry) and entry.get("error") not in {"fetch-failed", "not-found"})
+
+
+def resolve_source_parts(
+    game: dict[str, Any],
+    existing: dict[str, Any] | None,
+    *,
+    museum_cache: dict[str, dict],
+    pc_cache: dict[str, dict],
+    wd_cache: dict[str, dict],
+    ss_cache: dict[str, dict],
+    pc_path: str | None = None,
+) -> tuple[dict[str, Any] | None, dict[str, Any] | None, dict[str, Any] | None, dict[str, Any] | None]:
+    """Carga partes por fuente desde cachés (evita contaminar Museo con datos ya fusionados)."""
+    museum_path = str(game.get("museumPath") or (existing or {}).get("museumPath") or "").strip()
+    museum_part = museum_cache.get(museum_path) if museum_path else None
+    if not _cache_entry_ok(museum_part):
+        museum_part = None
+
+    if pc_path:
+        pc_part = pc_cache.get(pc_path)
+        if not _cache_entry_ok(pc_part):
+            pc_part = None
+    else:
+        pc_part = None
+
+    game_id = str(game["id"])
+    wd_part = wd_cache.get(game_id)
+    if not _cache_entry_ok(wd_part):
+        wd_part = None
+
+    ss_part = ss_cache.get(game_id)
+    if not _cache_entry_ok(ss_part):
+        ss_part = None
+
+    return museum_part, pc_part, wd_part, ss_part
 
 
 def build_indexes(details: dict[str, dict], catalog: list[dict]) -> dict[str, Any]:

@@ -16,7 +16,7 @@ log() {
 log "=== Fase 3: resto del catálogo (Wikidata + SerialStation + descripciones) ==="
 
 log "--- 3a: Wikidata (solo huecos) ---"
-PYTHONUNBUFFERED=1 python3 scripts/enrich_game_details.py --wikidata-only 2>&1 | tee -a "$LOG_DIR/phase3-wikidata.log"
+PYTHONUNBUFFERED=1 python3 scripts/enrich_details_gaps.py --fetch-gaps 2>&1 | tee -a "$LOG_DIR/phase3-wikidata.log"
 
 log "--- 3b: SerialStation PS (solo huecos) ---"
 PYTHONUNBUFFERED=1 python3 scripts/enrich_serialstation.py --gaps-only 2>&1 | tee -a "$LOG_DIR/phase3-serialstation.log"

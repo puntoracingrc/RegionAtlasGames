@@ -11,6 +11,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+from collectors.common import load_local_env  # noqa: E402
+
+load_local_env()
+
 from collectors.catalog_ai_match import ai_available  # noqa: E402
 from collectors.game_description_ai import (  # noqa: E402
     REPORT_FILE,

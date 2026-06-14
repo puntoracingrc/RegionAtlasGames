@@ -8,7 +8,6 @@ import { GameJsonLd } from "@/components/game-json-ld";
 import { GamePriceHero } from "@/components/game-price-hero";
 import { GamePriceHistoryChart } from "@/components/game-price-history-chart";
 import { GameProductReference } from "@/components/game-product-reference";
-import { GameRegionIdentityPanel } from "@/components/game-region-identity-panel";
 import { RetailPriceReferences } from "@/components/retail-price-references";
 import { ProListingsComparator } from "@/components/pro-listings-comparator";
 import { RecordedProSalesPanel } from "@/components/recorded-pro-sales-panel";
@@ -170,8 +169,6 @@ export default async function CatalogGamePage({ params }: Props) {
             {priceHistory.length > 0 && (
               <GamePriceHistoryChart catalogId={game.id} history={priceHistory} />
             )}
-
-            <GameRegionIdentityPanel game={game} details={details} />
 
             <GameProductReference game={game} details={details} />
 
