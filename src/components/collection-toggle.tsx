@@ -17,7 +17,6 @@ export function CollectionToggle({
   ownedCount = 0,
   isLoggedIn,
 }: Props) {
-  const router = useRouter();
   const [owned, setOwned] = useState(initialOwned);
   const [count, setCount] = useState(ownedCount);
   const [loading, setLoading] = useState(false);
