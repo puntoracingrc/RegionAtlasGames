@@ -38,7 +38,7 @@ export function CatalogGameCard({
   game: CatalogGame;
   owned?: boolean;
   isLoggedIn?: boolean;
-  onOwnedChange?: (catalogId: string, owned: boolean) => void;
+  onOwnedChange?: (catalogId: string, owned: boolean, ownedCatalogIds?: string[]) => void;
   listingsForSale?: number;
 }) {
   const platform = getPlatform(game.platformSlug);

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import type { MouseEvent } from "react";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 
@@ -10,7 +9,7 @@ type Props = {
   catalogId: string;
   owned: boolean;
   isLoggedIn: boolean;
-  onChange?: (catalogId: string, owned: boolean) => void;
+  onChange?: (catalogId: string, owned: boolean, ownedCatalogIds?: string[]) => void;
   className?: string;
 };
 
@@ -21,33 +20,43 @@ export function CollectionQuickAdd({
   onChange,
   className,
 }: Props) {
-  const router = useRouter();
   const [localOwned, setLocalOwned] = useState(owned);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setLocalOwned(owned);
-  }, [owned]);
-
-  const isOwned = onChange ? owned : localOwned;
+  }, [owned, catalogId]);
 
   async function handleAdd(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     event.stopPropagation();
 
-    if (!isLoggedIn || isOwned) return;
+    if (!isLoggedIn || localOwned || loading) return;
 
     setLoading(true);
+    setError(null);
     try {
       const res = await fetch("/api/user/collection/items", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ catalogId }),
       });
-      if (!res.ok) return;
+      const data = (await res.json().catch(() => ({}))) as {
+        error?: string;
+        ownedCatalogIds?: string[];
+      };
+
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo guardar");
+        return;
+      }
+
       setLocalOwned(true);
-      onChange?.(catalogId, true);
-      router.refresh();
+      const ids = Array.isArray(data.ownedCatalogIds)
+        ? data.ownedCatalogIds.filter((id): id is string => typeof id === "string")
+        : undefined;
+      onChange?.(catalogId, true, ids);
     } finally {
       setLoading(false);
     }
@@ -70,7 +79,7 @@ export function CollectionQuickAdd({
     );
   }
 
-  if (isOwned) {
+  if (localOwned) {
     return (
       <span
         className={cn(
@@ -92,18 +101,20 @@ export function CollectionQuickAdd({
   }
 
   return (
-    <button
-      type="button"
-      onClick={handleAdd}
-      disabled={loading}
-      className={cn(
-        "flex h-7 w-7 items-center justify-center rounded-full border border-accent/40 bg-black/75 text-base font-bold leading-none text-accent shadow-md transition hover:border-accent hover:bg-black/90 disabled:opacity-50",
-        className,
-      )}
-      title="Añadir a mi colección"
-      aria-label="Añadir a mi colección"
-    >
-      {loading ? "…" : "+"}
-    </button>
+    <span className={cn("relative", className)}>
+      <button
+        type="button"
+        onClick={handleAdd}
+        disabled={loading}
+        className={cn(
+          "flex h-7 w-7 items-center justify-center rounded-full border border-accent/40 bg-black/75 text-base font-bold leading-none text-accent shadow-md transition hover:border-accent hover:bg-black/90 disabled:opacity-50",
+          error && "border-rose-400/60",
+        )}
+        title={error ?? "Añadir a mi colección"}
+        aria-label={error ?? "Añadir a mi colección"}
+      >
+        {loading ? "…" : "+"}
+      </button>
+    </span>
   );
 }

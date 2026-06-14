@@ -19,9 +19,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Falta catalogId." }, { status: 400 });
   }
 
-  const result = await addCatalogGameToCollection(user.id, catalogId);
+  let result: Awaited<ReturnType<typeof addCatalogGameToCollection>>;
+  try {
+    result = await addCatalogGameToCollection(user.id, catalogId);
+  } catch (error) {
+    console.error("[collection/items] POST failed", error);
+    return NextResponse.json(
+      { error: "No se pudo guardar en tu colección." },
+      { status: 503 },
+    );
+  }
+
   if ("error" in result) {
-    return NextResponse.json({ error: result.error }, { status: 400 });
+    const status = result.error.includes("guardar") ? 503 : 400;
+    return NextResponse.json({ error: result.error }, { status });
   }
 
   const views = await getUserCollectionViews(user.id);

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { cn } from "@/lib/cn";
 
@@ -43,7 +42,6 @@ export function CollectionToggle({
         const res = await fetch(`/api/user/collection/items?catalogId=${encodeURIComponent(catalogId)}`, {
           method: "DELETE",
         });
-        const data = await res.json();
         if (!res.ok) return;
         setOwned(false);
         setCount(0);
@@ -53,12 +51,10 @@ export function CollectionToggle({
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ catalogId }),
         });
-        const data = await res.json();
         if (!res.ok) return;
         setOwned(true);
         setCount((c) => c + 1);
       }
-      router.refresh();
     } finally {
       setLoading(false);
     }

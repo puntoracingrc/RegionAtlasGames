@@ -117,7 +117,15 @@ export function CatalogBrowser({
     gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  function handleOwnedChange(catalogId: string, owned: boolean) {
+  function handleOwnedChange(
+    catalogId: string,
+    owned: boolean,
+    ownedCatalogIds?: string[],
+  ) {
+    if (ownedCatalogIds) {
+      setOwnedIds(ownedCatalogIds);
+      return;
+    }
     setOwnedIds((prev) =>
       owned ? [...new Set([...prev, catalogId])] : prev.filter((id) => id !== catalogId),
     );

@@ -141,7 +141,11 @@ export async function saveUserCollectionFile(
   data: UserCollectionFile,
 ): Promise<{ ok: true } | { error: string }> {
   if (useBlobStorage()) {
-    return writeCollectionToBlob(data);
+    const blobResult = await writeCollectionToBlob(data);
+    if ("error" in blobResult) return blobResult;
+    // Copia local best-effort (dev / respaldo); la fuente de verdad en prod es Blob.
+    writeCollectionToDisk(data);
+    return { ok: true };
   }
   return writeCollectionToDisk(data);
 }

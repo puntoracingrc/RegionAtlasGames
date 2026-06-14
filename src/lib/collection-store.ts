@@ -211,8 +211,20 @@ export async function addCatalogGameToCollection(
 
   const item = catalogGameToCollectionItem(game, file.items);
   file.items.push(item);
-  await writeUserCollection(file);
-  return { item };
+
+  try {
+    await writeUserCollection(file);
+  } catch (error) {
+    console.error("[collection-store] add failed", error);
+    return { error: "No se pudo guardar en tu colección. Inténtalo de nuevo." };
+  }
+
+  const saved = await readUserCollection(userId);
+  if (!saved.items.some((i) => i.catalogId === catalogId)) {
+    return { error: "No se pudo guardar en tu colección. Inténtalo de nuevo." };
+  }
+
+  return { item: saved.items.find((i) => i.catalogId === catalogId) ?? item };
 }
 
 export async function removeCatalogGameFromCollection(
