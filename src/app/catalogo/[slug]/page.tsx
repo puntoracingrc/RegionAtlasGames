@@ -39,8 +39,7 @@ import { esPriceDisplayLabel } from "@/lib/price-display";
 import { RegionEvidenceRulesPanel } from "@/components/region-evidence-rules-panel";
 import { REGION_VERIFICATION_POLICY, priceVerificationLabel } from "@/lib/listing-region-verification";
 import { getGameDetails } from "@/lib/indexes";
-import { resolveCanonicalEntity } from "@/lib/company-canonical";
-import { resolveCanonicalGenreEntity } from "@/lib/genre-canonical";
+import { resolveGameEntityLinks } from "@/lib/entity-links";
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCurrentUser } from "@/lib/users";
@@ -70,8 +69,7 @@ export default async function CatalogGamePage({ params }: Props) {
 
   const platform = getPlatform(game.platformSlug);
   const details = getGameDetails(game.id);
-  const developerCompany = details?.developer ? resolveCanonicalEntity(details.developer) : null;
-  const publisherCompany = details?.publisher ? resolveCanonicalEntity(details.publisher) : null;
+  const entityLinks = details ? resolveGameEntityLinks(details) : null;
   const grail = isGrailGame(game);
   const topSegment = isTopInSegment(game);
   const priceStatus = esPriceDisplayLabel(game);
@@ -228,50 +226,47 @@ export default async function CatalogGamePage({ params }: Props) {
                   <DetailRow
                     label="Desarrolladora"
                     value={
-                      developerCompany ? (
+                      entityLinks?.developer ? (
                         <Link
-                          href={`/compania/${developerCompany.slug}`}
+                          href={entityLinks.developer.href}
                           className="text-accent hover:underline"
                         >
-                          {developerCompany.name}
+                          {entityLinks.developer.name}
                         </Link>
                       ) : (
-                        "—"
+                        details.developer?.name ?? "—"
                       )
                     }
                   />
                   <DetailRow
                     label="Publicadora"
                     value={
-                      publisherCompany ? (
+                      entityLinks?.publisher ? (
                         <Link
-                          href={`/compania/${publisherCompany.slug}`}
+                          href={entityLinks.publisher.href}
                           className="text-accent hover:underline"
                         >
-                          {publisherCompany.name}
+                          {entityLinks.publisher.name}
                         </Link>
                       ) : (
-                        "—"
+                        details.publisher?.name ?? "—"
                       )
                     }
                   />
                   <DetailRow
                     label="Géneros"
                     value={
-                      details.genres.length > 0 ? (
+                      entityLinks && entityLinks.genres.length > 0 ? (
                         <span className="flex flex-wrap gap-1.5">
-                          {details.genres.map((g) => {
-                            const genre = resolveCanonicalGenreEntity(g);
-                            return (
-                              <Link
-                                key={`${g.slug}-${genre.slug}`}
-                                href={`/genero/${genre.slug}`}
-                                className="rounded-md bg-white/10 px-2 py-0.5 text-xs text-accent/90 hover:bg-white/15"
-                              >
-                                {genre.name}
-                              </Link>
-                            );
-                          })}
+                          {entityLinks.genres.map((genre) => (
+                            <Link
+                              key={genre.slug}
+                              href={genre.href}
+                              className="rounded-md bg-white/10 px-2 py-0.5 text-xs text-accent/90 hover:bg-white/15"
+                            >
+                              {genre.name}
+                            </Link>
+                          ))}
                         </span>
                       ) : (
                         "—"

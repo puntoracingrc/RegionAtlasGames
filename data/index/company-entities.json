@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-14T07:44:20Z",
+  "generatedAt": "2026-06-14T08:00:44Z",
   "stats": {
     "entities": 3235,
     "aliases": 210,
@@ -2994,10 +2994,8 @@
         "namco-bandai-games-inc"
       ],
       "aliasNames": [
-        "BANDAI NAMCO Entertainment Europe S.A.S",
-        "Bandai Namco Entertainment Europe",
-        "Bandai Namco Entertainment Europe S.A.S.",
-        "Bandai Namco entertainment"
+        "Bandai Namco Games",
+        "Bandai Namco Games Europe S.A.S"
       ],
       "wikidataIds": [],
       "museumPaths": [

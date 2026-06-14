@@ -2,6 +2,7 @@ import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
 import { referenceSearchHaystack, referenceSortKey } from "@/lib/game-product-reference";
 import { getPlatform } from "@/lib/catalog";
 import { getGameDetails } from "@/lib/indexes";
+import { companyEntityLink, genreEntityLink } from "@/lib/entity-links";
 import { resolveCanonicalGenreEntity } from "@/lib/genre-canonical";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import type { CatalogGame, GameDetails } from "@/lib/types";
@@ -78,6 +79,11 @@ export function getDetails(game: CatalogGame): GameDetails | undefined {
 export function buildSearchHaystack(game: CatalogGame): string {
   const d = getDetails(game);
   const platform = getPlatform(game.platformSlug);
+  const devLink = d?.developer ? companyEntityLink(d.developer) : null;
+  const pubLink = d?.publisher ? companyEntityLink(d.publisher) : null;
+  const genreLinks = (d?.genres ?? [])
+    .map((g) => genreEntityLink(g))
+    .filter((link): link is NonNullable<typeof link> => Boolean(link));
   const parts = [
     game.title,
     game.titlePc,
@@ -96,12 +102,17 @@ export function buildSearchHaystack(game: CatalogGame): string {
     d?.releaseDate,
     d?.developer?.name,
     d?.developer?.slug,
+    devLink?.name,
+    devLink?.slug,
     d?.publisher?.name,
     d?.publisher?.slug,
+    pubLink?.name,
+    pubLink?.slug,
     d?.series?.name,
     d?.series?.slug,
     d?.players != null ? String(d.players) : null,
     ...(d?.genres?.map((g) => `${g.name} ${g.slug}`) ?? []),
+    ...genreLinks.map((g) => `${g.name} ${g.slug}`),
   ];
   return parts
     .filter(Boolean)

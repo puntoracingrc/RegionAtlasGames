@@ -1,5 +1,5 @@
 import { EntityBrowser } from "@/components/catalog-browser";
-import { GenrePlatformGames, GenreProfileHeader } from "@/components/genre-profile-sections";
+import { GenrePlatformGames, GenreProfileHeader, GenreReferenceTop } from "@/components/genre-profile-sections";
 import { SiteNav } from "@/components/site-nav";
 import { buildGenreIntro } from "@/lib/genre-seo";
 import type { GenreProfileView } from "@/lib/genre-profile";
@@ -21,6 +21,8 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn }: Props)
           <h2 className="text-lg font-semibold text-foreground">Sobre {view.name}</h2>
           <p className="mt-3 text-sm leading-relaxed text-foreground/85">{buildGenreIntro(view)}</p>
         </section>
+
+        <GenreReferenceTop view={view} />
 
         <div className="mb-10">
           <GenrePlatformGames view={view} />

@@ -138,5 +138,3349 @@
       "seoDescription": "SNK está presente en el catálogo retro de Region Atlascon 526 juegos indexados (326 como desarrolladora y 470 como publicadora). Fundada en 2001. Sus…"
     },
     "method": "template"
+  },
+  "sony-interactive-entertainment": {
+    "slug": "sony-interactive-entertainment",
+    "name": "Sony Interactive Entertainment",
+    "wikidataId": "Q1856289",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:12Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q1856289",
+        "fetchedAt": "2026-06-14T08:14:12Z",
+        "url": "https://www.wikidata.org/wiki/Q1856289"
+      }
+    },
+    "history": "Sony Interactive Entertainment está presente en el catálogo retro de Region Atlascon 446 juegos indexados (38 como desarrolladora y 440 como publicadora). Sus plataformas más representadas en el catálogo son ps2, ps3, ps1, ps4.",
+    "seoMeta": {
+      "seoTitle": "Sony Interactive Entertainment · juegos retro y catálogo PAL | Region…",
+      "seoDescription": "Sony Interactive Entertainment está presente en el catálogo retro de Region Atlascon 446 juegos indexados (38 como desarrolladora y 440 como publicadora). Sus…"
+    },
+    "method": "wikidata"
+  },
+  "capcom": {
+    "slug": "capcom",
+    "name": "Capcom",
+    "wikidataId": "Q144680",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:46Z",
+    "history": "Capcom está presente en el catálogo retro de Region Atlascon 405 juegos indexados (244 como desarrolladora y 359 como publicadora). Sus plataformas más representadas en el catálogo son nes, dreamcast, saturn, gameboy.",
+    "seoMeta": {
+      "seoTitle": "Capcom · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Capcom está presente en el catálogo retro de Region Atlascon 405 juegos indexados (244 como desarrolladora y 359 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "activision": {
+    "slug": "activision",
+    "name": "Activision",
+    "wikidataId": "Q467037",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:46Z",
+    "history": "Activision está presente en el catálogo retro de Region Atlascon 383 juegos indexados (35 como desarrolladora y 369 como publicadora). Sus plataformas más representadas en el catálogo son wii, ps2, ps3, nes.",
+    "seoMeta": {
+      "seoTitle": "Activision · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Activision está presente en el catálogo retro de Region Atlascon 383 juegos indexados (35 como desarrolladora y 369 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "bandai-namco-entertainment": {
+    "slug": "bandai-namco-entertainment",
+    "name": "Bandai Namco Entertainment",
+    "wikidataId": "Q1190773",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:20Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q1190773",
+        "fetchedAt": "2026-06-14T08:14:20Z",
+        "url": "https://www.wikidata.org/wiki/Q1190773"
+      }
+    },
+    "history": "Bandai Namco Entertainment está presente en el catálogo retro de Region Atlascon 335 juegos indexados (72 como desarrolladora y 327 como publicadora). Sus plataformas más representadas en el catálogo son nes, ps4, ps3, gameboy.",
+    "seoMeta": {
+      "seoTitle": "Bandai Namco Entertainment · juegos retro y catálogo PAL | Region…",
+      "seoDescription": "Bandai Namco Entertainment está presente en el catálogo retro de Region Atlascon 335 juegos indexados (72 como desarrolladora y 327 como publicadora). Sus…"
+    },
+    "method": "wikidata"
+  },
+  "ubisoft": {
+    "slug": "ubisoft",
+    "name": "Ubisoft",
+    "wikidataId": "Q188316",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:47Z",
+    "history": "Ubisoft está presente en el catálogo retro de Region Atlascon 290 juegos indexados (84 como desarrolladora y 275 como publicadora). Sus plataformas más representadas en el catálogo son wii, ds, ps2, ps3.",
+    "seoMeta": {
+      "seoTitle": "Ubisoft · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Ubisoft está presente en el catálogo retro de Region Atlascon 290 juegos indexados (84 como desarrolladora y 275 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "acclaim": {
+    "slug": "acclaim",
+    "name": "Acclaim Japan, Ltd.",
+    "wikidataId": "Q54150798",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:26Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q54150798",
+        "fetchedAt": "2026-06-14T08:14:26Z",
+        "url": "https://www.wikidata.org/wiki/Q54150798"
+      }
+    },
+    "history": "Acclaim Japan, Ltd. está presente en el catálogo retro de Region Atlascon 261 juegos indexados (19 como desarrolladora y 261 como publicadora). Sus plataformas más representadas en el catálogo son n64, gameboy, nes, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Acclaim Japan, Ltd. · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Acclaim Japan, Ltd. está presente en el catálogo retro de Region Atlascon 261 juegos indexados (19 como desarrolladora y 261 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "thq": {
+    "slug": "thq",
+    "name": "THQ inc",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:27Z",
+    "history": "THQ inc está presente en el catálogo retro de Region Atlascon 249 juegos indexados (12 como desarrolladora y 245 como publicadora). Sus plataformas más representadas en el catálogo son wii, gameboy, ps2, n64.",
+    "seoMeta": {
+      "seoTitle": "THQ inc · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "THQ inc está presente en el catálogo retro de Region Atlascon 249 juegos indexados (12 como desarrolladora y 245 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "namco": {
+    "slug": "namco",
+    "name": "Namco Limited",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:27Z",
+    "history": "Namco Limited está presente en el catálogo retro de Region Atlascon 244 juegos indexados (169 como desarrolladora y 196 como publicadora). Sus plataformas más representadas en el catálogo son nes, megadrive, ps2, ps1.",
+    "seoMeta": {
+      "seoTitle": "Namco Limited · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Namco Limited está presente en el catálogo retro de Region Atlascon 244 juegos indexados (169 como desarrolladora y 196 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "taito-corporation": {
+    "slug": "taito-corporation",
+    "name": "Taito Corporation",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:28Z",
+    "history": "Taito Corporation está presente en el catálogo retro de Region Atlascon 232 juegos indexados (170 como desarrolladora y 165 como publicadora). Sus plataformas más representadas en el catálogo son nes, saturn, megadrive, gameboy.",
+    "seoMeta": {
+      "seoTitle": "Taito Corporation · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Taito Corporation está presente en el catálogo retro de Region Atlascon 232 juegos indexados (170 como desarrolladora y 165 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "virgin-interactive": {
+    "slug": "virgin-interactive",
+    "name": "Virgin Interactive",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:28Z",
+    "history": "Virgin Interactive está presente en el catálogo retro de Region Atlascon 207 juegos indexados (38 como desarrolladora y 197 como publicadora). Sus plataformas más representadas en el catálogo son megadrive, saturn, gamegear, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "Virgin Interactive · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Virgin Interactive está presente en el catálogo retro de Region Atlascon 207 juegos indexados (38 como desarrolladora y 197 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "hudson-soft": {
+    "slug": "hudson-soft",
+    "name": "Hudson Soft",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:29Z",
+    "history": "Hudson Soft está presente en el catálogo retro de Region Atlascon 174 juegos indexados (126 como desarrolladora y 130 como publicadora). Sus plataformas más representadas en el catálogo son nes, n64, gameboy, saturn.",
+    "seoMeta": {
+      "seoTitle": "Hudson Soft · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Hudson Soft está presente en el catálogo retro de Region Atlascon 174 juegos indexados (126 como desarrolladora y 130 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "acclaim-entertainment": {
+    "slug": "acclaim-entertainment",
+    "name": "Acclaim Entertainment",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:30Z",
+    "history": "Acclaim Entertainment está presente en el catálogo retro de Region Atlascon 167 juegos indexados (1 como desarrolladora y 167 como publicadora). Sus plataformas más representadas en el catálogo son megadrive, saturn, ps2, megacd.",
+    "seoMeta": {
+      "seoTitle": "Acclaim Entertainment · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Acclaim Entertainment está presente en el catálogo retro de Region Atlascon 167 juegos indexados (1 como desarrolladora y 167 como publicadora). Sus…"
+    },
+    "method": "wikidata"
+  },
+  "rare": {
+    "slug": "rare",
+    "name": "Rare Ltd.",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:30Z",
+    "history": "Rare Ltd. está presente en el catálogo retro de Region Atlascon 150 juegos indexados (150 como desarrolladora y 5 como publicadora). Sus plataformas más representadas en el catálogo son nes, n64, gameboy, megadrive.",
+    "seoMeta": {
+      "seoTitle": "Rare Ltd. · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Rare Ltd. está presente en el catálogo retro de Region Atlascon 150 juegos indexados (150 como desarrolladora y 5 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "data-east": {
+    "slug": "data-east",
+    "name": "Data East",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:31Z",
+    "history": "Data East está presente en el catálogo retro de Region Atlascon 146 juegos indexados (110 como desarrolladora y 106 como publicadora). Sus plataformas más representadas en el catálogo son nes, saturn, megadrive, gameboy.",
+    "seoMeta": {
+      "seoTitle": "Data East · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Data East está presente en el catálogo retro de Region Atlascon 146 juegos indexados (110 como desarrolladora y 106 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "sunsoft": {
+    "slug": "sunsoft",
+    "name": "SunSoft",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:31Z",
+    "history": "SunSoft está presente en el catálogo retro de Region Atlascon 144 juegos indexados (77 como desarrolladora y 137 como publicadora). Sus plataformas más representadas en el catálogo son nes, megadrive, gameboy, saturn.",
+    "seoMeta": {
+      "seoTitle": "SunSoft · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "SunSoft está presente en el catálogo retro de Region Atlascon 144 juegos indexados (77 como desarrolladora y 137 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "midway": {
+    "slug": "midway",
+    "name": "Midway",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:32Z",
+    "history": "Midway está presente en el catálogo retro de Region Atlascon 138 juegos indexados (69 como desarrolladora y 93 como publicadora). Sus plataformas más representadas en el catálogo son n64, dreamcast, megadrive, saturn.",
+    "seoMeta": {
+      "seoTitle": "Midway · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Midway está presente en el catálogo retro de Region Atlascon 138 juegos indexados (69 como desarrolladora y 93 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "koei": {
+    "slug": "koei",
+    "name": "Koei",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:33Z",
+    "history": "Koei está presente en el catálogo retro de Region Atlascon 129 juegos indexados (98 como desarrolladora y 126 como publicadora). Sus plataformas más representadas en el catálogo son saturn, megadrive, nes, ps2.",
+    "seoMeta": {
+      "seoTitle": "Koei · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Koei está presente en el catálogo retro de Region Atlascon 129 juegos indexados (98 como desarrolladora y 126 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "mindscape": {
+    "slug": "mindscape",
+    "name": "Mindscape Inc",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:33Z",
+    "history": "Mindscape Inc está presente en el catálogo retro de Region Atlascon 127 juegos indexados (24 como desarrolladora y 117 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, ds, wii.",
+    "seoMeta": {
+      "seoTitle": "Mindscape Inc · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Mindscape Inc está presente en el catálogo retro de Region Atlascon 127 juegos indexados (24 como desarrolladora y 117 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "ea-sports": {
+    "slug": "ea-sports",
+    "name": "EA Sports",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:34Z",
+    "history": "EA Sports está presente en el catálogo retro de Region Atlascon 124 juegos indexados (19 como desarrolladora y 107 como publicadora). Sus plataformas más representadas en el catálogo son ps2, n64, ps1, ps3.",
+    "seoMeta": {
+      "seoTitle": "EA Sports · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "EA Sports está presente en el catálogo retro de Region Atlascon 124 juegos indexados (19 como desarrolladora y 107 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "probe-entertainment-limited": {
+    "slug": "probe-entertainment-limited",
+    "name": "Probe Entertainment Limited",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:34Z",
+    "history": "Probe Entertainment Limited está presente en el catálogo retro de Region Atlascon 124 juegos indexados (124 como desarrolladora). Sus plataformas más representadas en el catálogo son gamegear, gameboy, megadrive, mastersystem.",
+    "seoMeta": {
+      "seoTitle": "Probe Entertainment Limited · juegos retro y catálogo PAL | Region…",
+      "seoDescription": "Probe Entertainment Limited está presente en el catálogo retro de Region Atlascon 124 juegos indexados (124 como desarrolladora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "jaleco": {
+    "slug": "jaleco",
+    "name": "Jaleco Ltd",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:35Z",
+    "history": "Jaleco Ltd está presente en el catálogo retro de Region Atlascon 118 juegos indexados (1 como desarrolladora y 118 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, saturn, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "Jaleco Ltd · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Jaleco Ltd está presente en el catálogo retro de Region Atlascon 118 juegos indexados (1 como desarrolladora y 118 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "square-enix": {
+    "slug": "square-enix",
+    "name": "Square Enix",
+    "wikidataId": "Q206663",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:36Z",
+    "history": "Square Enix está presente en el catálogo retro de Region Atlascon 117 juegos indexados (64 como desarrolladora y 103 como publicadora). Sus plataformas más representadas en el catálogo son ps4, nes, ps3, 3ds.",
+    "seoMeta": {
+      "seoTitle": "Square Enix · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Square Enix está presente en el catálogo retro de Region Atlascon 117 juegos indexados (64 como desarrolladora y 103 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "ocean": {
+    "slug": "ocean",
+    "name": "Ocean",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:36Z",
+    "history": "Ocean está presente en el catálogo retro de Region Atlascon 115 juegos indexados (57 como desarrolladora y 94 como publicadora). Sus plataformas más representadas en el catálogo son gameboy, nes, n64, megadrive.",
+    "seoMeta": {
+      "seoTitle": "Ocean · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Ocean está presente en el catálogo retro de Region Atlascon 115 juegos indexados (57 como desarrolladora y 94 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "codemasters": {
+    "slug": "codemasters",
+    "name": "Codemasters",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:37Z",
+    "history": "Codemasters está presente en el catálogo retro de Region Atlascon 114 juegos indexados (78 como desarrolladora y 84 como publicadora). Sus plataformas más representadas en el catálogo son nes, ps2, megadrive, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Codemasters · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Codemasters está presente en el catálogo retro de Region Atlascon 114 juegos indexados (78 como desarrolladora y 84 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "warner-bros-interactive-entertainment": {
+    "slug": "warner-bros-interactive-entertainment",
+    "name": "Warner Bros. Interactive Entertainment",
+    "wikidataId": "Q1468116",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:37Z",
+    "history": "Warner Bros. Interactive Entertainment está presente en el catálogo retro de Region Atlascon 108 juegos indexados (9 como desarrolladora y 107 como publicadora). Sus plataformas más representadas en el catálogo son wii, ps4, megadrive, ps3.",
+    "seoMeta": {
+      "seoTitle": "Warner Bros. Interactive Entertainment · juegos retro y catálogo PAL…",
+      "seoDescription": "Warner Bros. Interactive Entertainment está presente en el catálogo retro de Region Atlascon 108 juegos indexados (9 como desarrolladora y 107 como…"
+    },
+    "method": "wikidata"
+  },
+  "infogrames": {
+    "slug": "infogrames",
+    "name": "Infogrames",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:38Z",
+    "history": "Infogrames está presente en el catálogo retro de Region Atlascon 107 juegos indexados (35 como desarrolladora y 88 como publicadora). Sus plataformas más representadas en el catálogo son dreamcast, gameboy, n64, ps1.",
+    "seoMeta": {
+      "seoTitle": "Infogrames · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Infogrames está presente en el catálogo retro de Region Atlascon 107 juegos indexados (35 como desarrolladora y 88 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "beam-software": {
+    "slug": "beam-software",
+    "name": "Beam Software",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:39Z",
+    "history": "Beam Software está presente en el catálogo retro de Region Atlascon 103 juegos indexados (103 como desarrolladora). Sus plataformas más representadas en el catálogo son gameboy, nes, megadrive, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Beam Software · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Beam Software está presente en el catálogo retro de Region Atlascon 103 juegos indexados (103 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "red-art-games": {
+    "slug": "red-art-games",
+    "name": "Red Art Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:39Z",
+    "history": "Red Art Games está presente en el catálogo retro de Region Atlascon 101 juegos indexados (3 como desarrolladora y 99 como publicadora). Sus plataformas más representadas en el catálogo son ps4.",
+    "seoMeta": {
+      "seoTitle": "Red Art Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Red Art Games está presente en el catálogo retro de Region Atlascon 101 juegos indexados (3 como desarrolladora y 99 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "ubi-soft": {
+    "slug": "ubi-soft",
+    "name": "Ubi Soft",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:40Z",
+    "history": "Ubi Soft está presente en el catálogo retro de Region Atlascon 97 juegos indexados (2 como desarrolladora y 96 como publicadora). Sus plataformas más representadas en el catálogo son dreamcast, n64, gameboy, saturn.",
+    "seoMeta": {
+      "seoTitle": "Ubi Soft · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Ubi Soft está presente en el catálogo retro de Region Atlascon 97 juegos indexados (2 como desarrolladora y 96 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "atlus": {
+    "slug": "atlus",
+    "name": "Atlus Co Ltd.",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:40Z",
+    "history": "Atlus Co Ltd. está presente en el catálogo retro de Region Atlascon 94 juegos indexados (59 como desarrolladora y 62 como publicadora). Sus plataformas más representadas en el catálogo son saturn, 3ds, nes, n64.",
+    "seoMeta": {
+      "seoTitle": "Atlus Co Ltd. · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Atlus Co Ltd. está presente en el catálogo retro de Region Atlascon 94 juegos indexados (59 como desarrolladora y 62 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "ea-canada": {
+    "slug": "ea-canada",
+    "name": "EA Canada",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:41Z",
+    "history": "EA Canada está presente en el catálogo retro de Region Atlascon 94 juegos indexados (94 como desarrolladora). Sus plataformas más representadas en el catálogo son ps2, wii, ps1, ps3.",
+    "seoMeta": {
+      "seoTitle": "EA Canada · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "EA Canada está presente en el catálogo retro de Region Atlascon 94 juegos indexados (94 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "hal-laboratory": {
+    "slug": "hal-laboratory",
+    "name": "HAL Laboratory",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:42Z",
+    "history": "HAL Laboratory está presente en el catálogo retro de Region Atlascon 84 juegos indexados (83 como desarrolladora y 5 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, n64, snes.",
+    "seoMeta": {
+      "seoTitle": "HAL Laboratory · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "HAL Laboratory está presente en el catálogo retro de Region Atlascon 84 juegos indexados (83 como desarrolladora y 5 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "kemco": {
+    "slug": "kemco",
+    "name": "Kemco",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:42Z",
+    "history": "Kemco está presente en el catálogo retro de Region Atlascon 84 juegos indexados (45 como desarrolladora y 74 como publicadora). Sus plataformas más representadas en el catálogo son nes, n64, gameboy, ps4.",
+    "seoMeta": {
+      "seoTitle": "Kemco · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Kemco está presente en el catálogo retro de Region Atlascon 84 juegos indexados (45 como desarrolladora y 74 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "core-design": {
+    "slug": "core-design",
+    "name": "Core Design",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:43Z",
+    "history": "Core Design está presente en el catálogo retro de Region Atlascon 81 juegos indexados (81 como desarrolladora y 17 como publicadora). Sus plataformas más representadas en el catálogo son megacd, megadrive, saturn, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Core Design · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Core Design está presente en el catálogo retro de Region Atlascon 81 juegos indexados (81 como desarrolladora y 17 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "imagineering-inc": {
+    "slug": "imagineering-inc",
+    "name": "Imagineering Inc",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:43Z",
+    "history": "Imagineering Inc está presente en el catálogo retro de Region Atlascon 80 juegos indexados (80 como desarrolladora). Sus plataformas más representadas en el catálogo son gameboy, nes, megadrive, n64.",
+    "seoMeta": {
+      "seoTitle": "Imagineering Inc · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Imagineering Inc está presente en el catálogo retro de Region Atlascon 80 juegos indexados (80 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "tecmo": {
+    "slug": "tecmo",
+    "name": "Tecmo",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:44Z",
+    "history": "Tecmo está presente en el catálogo retro de Region Atlascon 80 juegos indexados (62 como desarrolladora y 71 como publicadora). Sus plataformas más representadas en el catálogo son nes, megadrive, gameboy, saturn.",
+    "seoMeta": {
+      "seoTitle": "Tecmo · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Tecmo está presente en el catálogo retro de Region Atlascon 80 juegos indexados (62 como desarrolladora y 71 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "gametek": {
+    "slug": "gametek",
+    "name": "GameTek",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:45Z",
+    "history": "GameTek está presente en el catálogo retro de Region Atlascon 79 juegos indexados (8 como desarrolladora y 78 como publicadora). Sus plataformas más representadas en el catálogo son gameboy, nes, megadrive, gamegear.",
+    "seoMeta": {
+      "seoTitle": "GameTek · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "GameTek está presente en el catálogo retro de Region Atlascon 79 juegos indexados (8 como desarrolladora y 78 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "tengen": {
+    "slug": "tengen",
+    "name": "Tengen",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:45Z",
+    "history": "Tengen está presente en el catálogo retro de Region Atlascon 75 juegos indexados (44 como desarrolladora y 51 como publicadora). Sus plataformas más representadas en el catálogo son nes, gamegear, megadrive, gameboy.",
+    "seoMeta": {
+      "seoTitle": "Tengen · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Tengen está presente en el catálogo retro de Region Atlascon 75 juegos indexados (44 como desarrolladora y 51 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "flying-edge": {
+    "slug": "flying-edge",
+    "name": "Flying Edge",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:46Z",
+    "history": "Flying Edge está presente en el catálogo retro de Region Atlascon 74 juegos indexados (3 como desarrolladora y 74 como publicadora). Sus plataformas más representadas en el catálogo son megadrive, gamegear, mastersystem.",
+    "seoMeta": {
+      "seoTitle": "Flying Edge · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Flying Edge está presente en el catálogo retro de Region Atlascon 74 juegos indexados (3 como desarrolladora y 74 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "us-gold": {
+    "slug": "us-gold",
+    "name": "U.S. Gold",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:46Z",
+    "history": "U.S. Gold está presente en el catálogo retro de Region Atlascon 72 juegos indexados (12 como desarrolladora y 67 como publicadora). Sus plataformas más representadas en el catálogo son gamegear, megadrive, mastersystem, saturn.",
+    "seoMeta": {
+      "seoTitle": "U.S. Gold · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "U.S. Gold está presente en el catálogo retro de Region Atlascon 72 juegos indexados (12 como desarrolladora y 67 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "jaleco-entertainment": {
+    "slug": "jaleco-entertainment",
+    "name": "Jaleco Entertainment",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:47Z",
+    "history": "Jaleco Entertainment está presente en el catálogo retro de Region Atlascon 71 juegos indexados (68 como desarrolladora y 7 como publicadora). Sus plataformas más representadas en el catálogo son nes, saturn, gameboy, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "Jaleco Entertainment · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Jaleco Entertainment está presente en el catálogo retro de Region Atlascon 71 juegos indexados (68 como desarrolladora y 7 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "eurocom": {
+    "slug": "eurocom",
+    "name": "Eurocom",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:48Z",
+    "history": "Eurocom está presente en el catálogo retro de Region Atlascon 69 juegos indexados (69 como desarrolladora). Sus plataformas más representadas en el catálogo son n64, gameboy, ps2, nes.",
+    "seoMeta": {
+      "seoTitle": "Eurocom · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Eurocom está presente en el catálogo retro de Region Atlascon 69 juegos indexados (69 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "ljn-ltd": {
+    "slug": "ljn-ltd",
+    "name": "LJN Ltd.",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:48Z",
+    "history": "LJN Ltd. está presente en el catálogo retro de Region Atlascon 69 juegos indexados (6 como desarrolladora y 66 como publicadora). Sus plataformas más representadas en el catálogo son gameboy, nes, snes, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "LJN Ltd. · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "LJN Ltd. está presente en el catálogo retro de Region Atlascon 69 juegos indexados (6 como desarrolladora y 66 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "tiertex-design-studios": {
+    "slug": "tiertex-design-studios",
+    "name": "Tiertex Design Studios",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:49Z",
+    "history": "Tiertex Design Studios está presente en el catálogo retro de Region Atlascon 69 juegos indexados (69 como desarrolladora). Sus plataformas más representadas en el catálogo son gameboy, gamegear, megadrive, mastersystem.",
+    "seoMeta": {
+      "seoTitle": "Tiertex Design Studios · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Tiertex Design Studios está presente en el catálogo retro de Region Atlascon 69 juegos indexados (69 como desarrolladora). Sus plataformas más representadas en…"
+    },
+    "method": "wikidata"
+  },
+  "eidos-interactive": {
+    "slug": "eidos-interactive",
+    "name": "Eidos Interactive",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:50Z",
+    "history": "Eidos Interactive está presente en el catálogo retro de Region Atlascon 67 juegos indexados (1 como desarrolladora y 66 como publicadora). Sus plataformas más representadas en el catálogo son dreamcast, ps2, ps1, wii.",
+    "seoMeta": {
+      "seoTitle": "Eidos Interactive · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Eidos Interactive está presente en el catálogo retro de Region Atlascon 67 juegos indexados (1 como desarrolladora y 66 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "compile": {
+    "slug": "compile",
+    "name": "Compile",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:50Z",
+    "history": "Compile está presente en el catálogo retro de Region Atlascon 66 juegos indexados (64 como desarrolladora y 15 como publicadora). Sus plataformas más representadas en el catálogo son nes, mastersystem, megadrive, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Compile · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Compile está presente en el catálogo retro de Region Atlascon 66 juegos indexados (64 como desarrolladora y 15 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "natsume": {
+    "slug": "natsume",
+    "name": "Natsume",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:51Z",
+    "history": "Natsume está presente en el catálogo retro de Region Atlascon 66 juegos indexados (44 como desarrolladora y 37 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, saturn, snes.",
+    "seoMeta": {
+      "seoTitle": "Natsume · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Natsume está presente en el catálogo retro de Region Atlascon 66 juegos indexados (44 como desarrolladora y 37 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "sculptured-software": {
+    "slug": "sculptured-software",
+    "name": "Sculptured Software",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:51Z",
+    "history": "Sculptured Software está presente en el catálogo retro de Region Atlascon 65 juegos indexados (65 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, nes, gameboy, saturn.",
+    "seoMeta": {
+      "seoTitle": "Sculptured Software · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Sculptured Software está presente en el catálogo retro de Region Atlascon 65 juegos indexados (65 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "kid": {
+    "slug": "kid",
+    "name": "KID Corp",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:52Z",
+    "history": "KID Corp está presente en el catálogo retro de Region Atlascon 63 juegos indexados (54 como desarrolladora y 36 como publicadora). Sus plataformas más representadas en el catálogo son saturn, dreamcast, nes, gameboy.",
+    "seoMeta": {
+      "seoTitle": "KID Corp · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "KID Corp está presente en el catálogo retro de Region Atlascon 63 juegos indexados (54 como desarrolladora y 36 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "interplay": {
+    "slug": "interplay",
+    "name": "Interplay",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:14:53Z",
+    "history": "Interplay está presente en el catálogo retro de Region Atlascon 61 juegos indexados (16 como desarrolladora y 51 como publicadora). Sus plataformas más representadas en el catálogo son gameboy, saturn, dreamcast, megadrive.",
+    "seoMeta": {
+      "seoTitle": "Interplay · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Interplay está presente en el catálogo retro de Region Atlascon 61 juegos indexados (16 como desarrolladora y 51 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "irem": {
+    "slug": "irem",
+    "name": "Irem",
+    "wikidataId": "Q617752",
+    "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Irem_Corporation_logo.svg",
+    "foundedYear": 1974,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:17:53Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q617752",
+        "fetchedAt": "2026-06-14T08:17:53Z",
+        "url": "https://www.wikidata.org/wiki/Q617752"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/Irem",
+        "title": "Irem",
+        "fetchedAt": "2026-06-14T08:17:53Z"
+      }
+    },
+    "history": "Irem, fundada en 1974, es una destacada compañía japonesa en el desarrollo y publicación de videojuegos. Conocida por su legado en los arcades, Irem ha creado títulos icónicos como Moon Patrol y R-Type, además de influir en el género beat 'em up con Kung-Fu Master. A lo largo de su trayectoria, ha lanzado un total de 61 juegos en diversas plataformas, incluyendo NES, Game Boy y Saturn. La compañía se ha ganado la reputación de crear títulos desafiantes, incorporando modos que permiten a los jugadores superar sus difíciles retos.",
+    "seoMeta": {
+      "seoTitle": "Irem: Historia y Juegos de una Leyenda del Videojuego",
+      "seoDescription": "Descubre la historia de Irem, desarrolladora de clásicos como R-Type y Kung-Fu Master, y su legado en el mundo de los videojuegos."
+    },
+    "method": "ai"
+  },
+  "sega-am2": {
+    "slug": "sega-am2",
+    "name": "Sega-AM2",
+    "wikidataId": "Q294587",
+    "logoUrl": null,
+    "foundedYear": 1983,
+    "closedYear": 2004,
+    "status": "defunct",
+    "generatedAt": "2026-06-14T08:17:59Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q294587",
+        "fetchedAt": "2026-06-14T08:17:59Z",
+        "url": "https://www.wikidata.org/wiki/Q294587"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/Sega-AM2",
+        "title": "Sega-AM2",
+        "fetchedAt": "2026-06-14T08:17:59Z"
+      }
+    },
+    "history": "Sega-AM2, fundada en 1983, fue un destacado equipo de desarrollo de videojuegos dentro de Sega, dirigido por Yu Suzuki. Conocido por crear clásicos atemporales como After Burner II, Out Run y Space Harrier, AM2 se convirtió en sinónimo de innovación en el sector arcade. A finales de los años 90 y principios de los 2000, el equipo desarrolló títulos icónicos como Virtua Fighter y Shenmue, consolidando su legado en la historia de los videojuegos. En 2004, Sega-AM2 fue absorbido por Sega, marcando el cierre de una era de creatividad y éxito en el desarrollo de videojuegos.",
+    "seoMeta": {
+      "seoTitle": "Historia de Sega-AM2: Innovación en Videojuegos Retro",
+      "seoDescription": "Descubre la historia de Sega-AM2, pionero en el desarrollo de videojuegos retro como Out Run y Virtua Fighter."
+    },
+    "method": "ai"
+  },
+  "sims": {
+    "slug": "sims",
+    "name": "Sims",
+    "wikidataId": "Q16883354",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:06Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q16883354",
+        "fetchedAt": "2026-06-14T08:18:06Z",
+        "url": "https://www.wikidata.org/wiki/Q16883354"
+      },
+      "wikipedia": {
+        "url": "https://en.wikipedia.org/wiki/Sims_%28surname%29",
+        "title": "Sims (surname)",
+        "fetchedAt": "2026-06-14T08:18:06Z"
+      }
+    },
+    "history": "Sims está presente en el catálogo retro de Region Atlascon 61 juegos indexados (52 como desarrolladora y 15 como publicadora). Sus plataformas más representadas en el catálogo son gamegear, megadrive, dreamcast, saturn.",
+    "seoMeta": {
+      "seoTitle": "Sims · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Sims está presente en el catálogo retro de Region Atlascon 61 juegos indexados (52 como desarrolladora y 15 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "software-creations": {
+    "slug": "software-creations",
+    "name": "Software Creations Ltd.",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:07Z",
+    "history": "Software Creations Ltd. está presente en el catálogo retro de Region Atlascon 60 juegos indexados (60 como desarrolladora y 1 como publicadora). Sus plataformas más representadas en el catálogo son gameboy, nes, megadrive, n64.",
+    "seoMeta": {
+      "seoTitle": "Software Creations Ltd. · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Software Creations Ltd. está presente en el catálogo retro de Region Atlascon 60 juegos indexados (60 como desarrolladora y 1 como publicadora). Sus…"
+    },
+    "method": "wikidata"
+  },
+  "nis-america": {
+    "slug": "nis-america",
+    "name": "NIS America Inc.",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:08Z",
+    "history": "NIS America Inc. está presente en el catálogo retro de Region Atlascon 59 juegos indexados (59 como publicadora). Sus plataformas más representadas en el catálogo son ps4, 3ds, ps3, ps2.",
+    "seoMeta": {
+      "seoTitle": "NIS America Inc. · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "NIS America Inc. está presente en el catálogo retro de Region Atlascon 59 juegos indexados (59 como publicadora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "adk": {
+    "slug": "adk",
+    "name": "ADK",
+    "wikidataId": "Q18247429",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:10Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q18247429",
+        "fetchedAt": "2026-06-14T08:18:10Z",
+        "url": "https://www.wikidata.org/wiki/Q18247429"
+      },
+      "wikipedia": {
+        "url": "https://en.wikipedia.org/wiki/ADK_%28gene%29",
+        "title": "ADK (gene)",
+        "fetchedAt": "2026-06-14T08:18:10Z"
+      }
+    },
+    "history": "ADK está presente en el catálogo retro de Region Atlascon 58 juegos indexados (54 como desarrolladora y 9 como publicadora). Sus plataformas más representadas en el catálogo son neogeo, neogeocd, neogeopocket, megadrive.",
+    "seoMeta": {
+      "seoTitle": "ADK · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "ADK está presente en el catálogo retro de Region Atlascon 58 juegos indexados (54 como desarrolladora y 9 como publicadora). Sus plataformas más representadas…"
+    },
+    "method": "wikidata"
+  },
+  "iguana-entertainment": {
+    "slug": "iguana-entertainment",
+    "name": "Iguana Entertainment",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:10Z",
+    "history": "Iguana Entertainment está presente en el catálogo retro de Region Atlascon 57 juegos indexados (57 como desarrolladora). Sus plataformas más representadas en el catálogo son n64, megadrive, saturn, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Iguana Entertainment · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Iguana Entertainment está presente en el catálogo retro de Region Atlascon 57 juegos indexados (57 como desarrolladora). Sus plataformas más representadas en…"
+    },
+    "method": "wikidata"
+  },
+  "realtime-associates": {
+    "slug": "realtime-associates",
+    "name": "Realtime Associates",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:11Z",
+    "history": "Realtime Associates está presente en el catálogo retro de Region Atlascon 57 juegos indexados (57 como desarrolladora). Sus plataformas más representadas en el catálogo son gameboy, saturn, gamegear, megadrive.",
+    "seoMeta": {
+      "seoTitle": "Realtime Associates · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Realtime Associates está presente en el catálogo retro de Region Atlascon 57 juegos indexados (57 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "sonic-team": {
+    "slug": "sonic-team",
+    "name": "Sonic Team",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:12Z",
+    "history": "Sonic Team está presente en el catálogo retro de Region Atlascon 57 juegos indexados (57 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, dreamcast, saturn, ps2.",
+    "seoMeta": {
+      "seoTitle": "Sonic Team · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Sonic Team está presente en el catálogo retro de Region Atlascon 57 juegos indexados (57 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "takara": {
+    "slug": "takara",
+    "name": "Takara",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:12Z",
+    "history": "Takara está presente en el catálogo retro de Region Atlascon 57 juegos indexados (10 como desarrolladora y 55 como publicadora). Sus plataformas más representadas en el catálogo son gameboy, nes, saturn, megadrive.",
+    "seoMeta": {
+      "seoTitle": "Takara · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Takara está presente en el catálogo retro de Region Atlascon 57 juegos indexados (10 como desarrolladora y 55 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "capcom-production-studio-1": {
+    "slug": "capcom-production-studio-1",
+    "name": "Capcom Production Studio 1",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:13Z",
+    "history": "Capcom Production Studio 1 está presente en el catálogo retro de Region Atlascon 56 juegos indexados (56 como desarrolladora). Sus plataformas más representadas en el catálogo son dreamcast, saturn, ps2.",
+    "seoMeta": {
+      "seoTitle": "Capcom Production Studio 1 · juegos retro y catálogo PAL | Region…",
+      "seoDescription": "Capcom Production Studio 1 está presente en el catálogo retro de Region Atlascon 56 juegos indexados (56 como desarrolladora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "deep-silver": {
+    "slug": "deep-silver",
+    "name": "Deep SIlver",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:13Z",
+    "history": "Deep SIlver está presente en el catálogo retro de Region Atlascon 56 juegos indexados (3 como desarrolladora y 53 como publicadora). Sus plataformas más representadas en el catálogo son ps4, wii, ds, ps3.",
+    "seoMeta": {
+      "seoTitle": "Deep SIlver · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Deep SIlver está presente en el catálogo retro de Region Atlascon 56 juegos indexados (3 como desarrolladora y 53 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "strictly-limited-games": {
+    "slug": "strictly-limited-games",
+    "name": "Strictly Limited Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:14Z",
+    "history": "Strictly Limited Games está presente en el catálogo retro de Region Atlascon 56 juegos indexados (56 como publicadora). Sus plataformas más representadas en el catálogo son ps4, snes.",
+    "seoMeta": {
+      "seoTitle": "Strictly Limited Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Strictly Limited Games está presente en el catálogo retro de Region Atlascon 56 juegos indexados (56 como publicadora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "vic-tokai": {
+    "slug": "vic-tokai",
+    "name": "VIC Tokai",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:15Z",
+    "history": "VIC Tokai está presente en el catálogo retro de Region Atlascon 56 juegos indexados (29 como desarrolladora y 47 como publicadora). Sus plataformas más representadas en el catálogo son nes, megadrive, saturn, gameboy.",
+    "seoMeta": {
+      "seoTitle": "VIC Tokai · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "VIC Tokai está presente en el catálogo retro de Region Atlascon 56 juegos indexados (29 como desarrolladora y 47 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "genki": {
+    "slug": "genki",
+    "name": "Genki",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:15Z",
+    "history": "Genki está presente en el catálogo retro de Region Atlascon 55 juegos indexados (54 como desarrolladora y 3 como publicadora). Sus plataformas más representadas en el catálogo son saturn, dreamcast, n64, megacd.",
+    "seoMeta": {
+      "seoTitle": "Genki · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Genki está presente en el catálogo retro de Region Atlascon 55 juegos indexados (54 como desarrolladora y 3 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "lucasarts": {
+    "slug": "lucasarts",
+    "name": "LucasArts",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:16Z",
+    "history": "LucasArts está presente en el catálogo retro de Region Atlascon 55 juegos indexados (27 como desarrolladora y 33 como publicadora). Sus plataformas más representadas en el catálogo son ps2, wii, n64, megacd.",
+    "seoMeta": {
+      "seoTitle": "LucasArts · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "LucasArts está presente en el catálogo retro de Region Atlascon 55 juegos indexados (27 como desarrolladora y 33 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "sega-am7-cs2": {
+    "slug": "sega-am7-cs2",
+    "name": "Sega AM7 (CS2)",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:16Z",
+    "history": "Sega AM7 (CS2) está presente en el catálogo retro de Region Atlascon 55 juegos indexados (55 como desarrolladora). Sus plataformas más representadas en el catálogo son saturn, megadrive, megacd.",
+    "seoMeta": {
+      "seoTitle": "Sega AM7 (CS2) · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Sega AM7 (CS2) está presente en el catálogo retro de Region Atlascon 55 juegos indexados (55 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "tose-software": {
+    "slug": "tose-software",
+    "name": "Tose Software",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:17Z",
+    "history": "Tose Software está presente en el catálogo retro de Region Atlascon 55 juegos indexados (54 como desarrolladora y 1 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, saturn, megadrive.",
+    "seoMeta": {
+      "seoTitle": "Tose Software · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Tose Software está presente en el catálogo retro de Region Atlascon 55 juegos indexados (54 como desarrolladora y 1 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "accolade": {
+    "slug": "accolade",
+    "name": "Accolade",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:18Z",
+    "history": "Accolade está presente en el catálogo retro de Region Atlascon 53 juegos indexados (22 como desarrolladora y 45 como publicadora). Sus plataformas más representadas en el catálogo son megadrive, gameboy, dreamcast, nes.",
+    "seoMeta": {
+      "seoTitle": "Accolade · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Accolade está presente en el catálogo retro de Region Atlascon 53 juegos indexados (22 como desarrolladora y 45 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "imagineer": {
+    "slug": "imagineer",
+    "name": "Imagineer",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:18Z",
+    "history": "Imagineer está presente en el catálogo retro de Region Atlascon 53 juegos indexados (53 como publicadora). Sus plataformas más representadas en el catálogo son saturn, n64, nes, gameboy.",
+    "seoMeta": {
+      "seoTitle": "Imagineer · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Imagineer está presente en el catálogo retro de Region Atlascon 53 juegos indexados (53 como publicadora). Sus plataformas más representadas en el catálogo son…"
+    },
+    "method": "wikidata"
+  },
+  "technos-japan": {
+    "slug": "technos-japan",
+    "name": "Technos Japan Corp",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:19Z",
+    "history": "Technos Japan Corp está presente en el catálogo retro de Region Atlascon 53 juegos indexados (48 como desarrolladora y 25 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, neogeo, megadrive.",
+    "seoMeta": {
+      "seoTitle": "Technos Japan Corp · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Technos Japan Corp está presente en el catálogo retro de Region Atlascon 53 juegos indexados (48 como desarrolladora y 25 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "psygnosis": {
+    "slug": "psygnosis",
+    "name": "Psygnosis",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:19Z",
+    "history": "Psygnosis está presente en el catálogo retro de Region Atlascon 52 juegos indexados (29 como desarrolladora y 39 como publicadora). Sus plataformas más representadas en el catálogo son ps1, megacd, saturn, megadrive.",
+    "seoMeta": {
+      "seoTitle": "Psygnosis · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Psygnosis está presente en el catálogo retro de Region Atlascon 52 juegos indexados (29 como desarrolladora y 39 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "visual-concepts": {
+    "slug": "visual-concepts",
+    "name": "Visual Concepts",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:20Z",
+    "history": "Visual Concepts está presente en el catálogo retro de Region Atlascon 52 juegos indexados (52 como desarrolladora). Sus plataformas más representadas en el catálogo son dreamcast, wii, megadrive, saturn.",
+    "seoMeta": {
+      "seoTitle": "Visual Concepts · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Visual Concepts está presente en el catálogo retro de Region Atlascon 52 juegos indexados (52 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "505-games": {
+    "slug": "505-games",
+    "name": "505 Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:21Z",
+    "history": "505 Games está presente en el catálogo retro de Region Atlascon 51 juegos indexados (7 como desarrolladora y 49 como publicadora). Sus plataformas más representadas en el catálogo son wii, ds, ps4, ps2.",
+    "seoMeta": {
+      "seoTitle": "505 Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "505 Games está presente en el catálogo retro de Region Atlascon 51 juegos indexados (7 como desarrolladora y 49 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "disney-interactive-studios": {
+    "slug": "disney-interactive-studios",
+    "name": "Disney Interactive Studios",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:21Z",
+    "history": "Disney Interactive Studios está presente en el catálogo retro de Region Atlascon 50 juegos indexados (8 como desarrolladora y 48 como publicadora). Sus plataformas más representadas en el catálogo son wii, ps2, ds, ps3.",
+    "seoMeta": {
+      "seoTitle": "Disney Interactive Studios · juegos retro y catálogo PAL | Region…",
+      "seoDescription": "Disney Interactive Studios está presente en el catálogo retro de Region Atlascon 50 juegos indexados (8 como desarrolladora y 48 como publicadora). Sus…"
+    },
+    "method": "wikidata"
+  },
+  "crave-entertainment": {
+    "slug": "crave-entertainment",
+    "name": "Crave Entertainment",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:22Z",
+    "history": "Crave Entertainment está presente en el catálogo retro de Region Atlascon 44 juegos indexados (44 como publicadora). Sus plataformas más representadas en el catálogo son dreamcast, n64, wii, 3ds.",
+    "seoMeta": {
+      "seoTitle": "Crave Entertainment · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Crave Entertainment está presente en el catálogo retro de Region Atlascon 44 juegos indexados (44 como publicadora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "ea-games": {
+    "slug": "ea-games",
+    "name": "EA Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:23Z",
+    "history": "EA Games está presente en el catálogo retro de Region Atlascon 44 juegos indexados (11 como desarrolladora y 33 como publicadora). Sus plataformas más representadas en el catálogo son ps2, gamecube, ps1, ds.",
+    "seoMeta": {
+      "seoTitle": "EA Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "EA Games está presente en el catálogo retro de Region Atlascon 44 juegos indexados (11 como desarrolladora y 33 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "phoenix-games": {
+    "slug": "phoenix-games",
+    "name": "Phoenix Games Ltd.",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:23Z",
+    "history": "Phoenix Games Ltd. está presente en el catálogo retro de Region Atlascon 44 juegos indexados (14 como desarrolladora y 42 como publicadora). Sus plataformas más representadas en el catálogo son ps2, ps1, wii.",
+    "seoMeta": {
+      "seoTitle": "Phoenix Games Ltd. · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Phoenix Games Ltd. está presente en el catálogo retro de Region Atlascon 44 juegos indexados (14 como desarrolladora y 42 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "ascii-entertainment": {
+    "slug": "ascii-entertainment",
+    "name": "ASCII Entertainment",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:24Z",
+    "history": "ASCII Entertainment está presente en el catálogo retro de Region Atlascon 43 juegos indexados (1 como desarrolladora y 43 como publicadora). Sus plataformas más representadas en el catálogo son nes, saturn, n64, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "ASCII Entertainment · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "ASCII Entertainment está presente en el catálogo retro de Region Atlascon 43 juegos indexados (1 como desarrolladora y 43 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "rockstar-games": {
+    "slug": "rockstar-games",
+    "name": "Rockstar Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:24Z",
+    "history": "Rockstar Games está presente en el catálogo retro de Region Atlascon 43 juegos indexados (3 como desarrolladora y 43 como publicadora). Sus plataformas más representadas en el catálogo son ps2, ps3, ps4, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "Rockstar Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Rockstar Games está presente en el catálogo retro de Region Atlascon 43 juegos indexados (3 como desarrolladora y 43 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "digital-pictures": {
+    "slug": "digital-pictures",
+    "name": "Digital Pictures",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:25Z",
+    "history": "Digital Pictures está presente en el catálogo retro de Region Atlascon 42 juegos indexados (41 como desarrolladora y 20 como publicadora). Sus plataformas más representadas en el catálogo son megacd, sega32x, saturn.",
+    "seoMeta": {
+      "seoTitle": "Digital Pictures · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Digital Pictures está presente en el catálogo retro de Region Atlascon 42 juegos indexados (41 como desarrolladora y 20 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "game-arts": {
+    "slug": "game-arts",
+    "name": "Game Arts",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:26Z",
+    "history": "Game Arts está presente en el catálogo retro de Region Atlascon 42 juegos indexados (41 como desarrolladora y 22 como publicadora). Sus plataformas más representadas en el catálogo son saturn, megacd, megadrive, nes.",
+    "seoMeta": {
+      "seoTitle": "Game Arts · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Game Arts está presente en el catálogo retro de Region Atlascon 42 juegos indexados (41 como desarrolladora y 22 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "kceo": {
+    "slug": "kceo",
+    "name": "KCEO",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:26Z",
+    "history": "KCEO está presente en el catálogo retro de Region Atlascon 41 juegos indexados (41 como desarrolladora). Sus plataformas más representadas en el catálogo son n64, dreamcast, saturn.",
+    "seoMeta": {
+      "seoTitle": "KCEO · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "KCEO está presente en el catálogo retro de Region Atlascon 41 juegos indexados (41 como desarrolladora). Sus plataformas más representadas en el catálogo son…"
+    },
+    "method": "wikidata"
+  },
+  "tengen-atari-games": {
+    "slug": "tengen-atari-games",
+    "name": "Tengen (Atari Games)",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:27Z",
+    "history": "Tengen (Atari Games) está presente en el catálogo retro de Region Atlascon 41 juegos indexados (10 como desarrolladora y 39 como publicadora). Sus plataformas más representadas en el catálogo son megadrive, megacd.",
+    "seoMeta": {
+      "seoTitle": "Tengen (Atari Games) · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Tengen (Atari Games) está presente en el catálogo retro de Region Atlascon 41 juegos indexados (10 como desarrolladora y 39 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "zoo-games": {
+    "slug": "zoo-games",
+    "name": "Zoo Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:28Z",
+    "history": "Zoo Games está presente en el catálogo retro de Region Atlascon 41 juegos indexados (19 como desarrolladora y 26 como publicadora). Sus plataformas más representadas en el catálogo son wii, ps2.",
+    "seoMeta": {
+      "seoTitle": "Zoo Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Zoo Games está presente en el catálogo retro de Region Atlascon 41 juegos indexados (19 como desarrolladora y 26 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "atari": {
+    "slug": "atari",
+    "name": "Atari Europe",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:28Z",
+    "history": "Atari Europe está presente en el catálogo retro de Region Atlascon 40 juegos indexados (10 como desarrolladora y 30 como publicadora). Sus plataformas más representadas en el catálogo son wii, ps2, ds, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "Atari Europe · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Atari Europe está presente en el catálogo retro de Region Atlascon 40 juegos indexados (10 como desarrolladora y 30 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "perp-games": {
+    "slug": "perp-games",
+    "name": "Perp Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:29Z",
+    "history": "Perp Games está presente en el catálogo retro de Region Atlascon 40 juegos indexados (40 como publicadora). Sus plataformas más representadas en el catálogo son ps4.",
+    "seoMeta": {
+      "seoTitle": "Perp Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Perp Games está presente en el catálogo retro de Region Atlascon 40 juegos indexados (40 como publicadora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "tradewest": {
+    "slug": "tradewest",
+    "name": "Tradewest",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:29Z",
+    "history": "Tradewest está presente en el catálogo retro de Region Atlascon 40 juegos indexados (40 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, megadrive, ds.",
+    "seoMeta": {
+      "seoTitle": "Tradewest · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Tradewest está presente en el catálogo retro de Region Atlascon 40 juegos indexados (40 como publicadora). Sus plataformas más representadas en el catálogo son…"
+    },
+    "method": "wikidata"
+  },
+  "victor": {
+    "slug": "victor",
+    "name": "Victor",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:30Z",
+    "history": "Victor está presente en el catálogo retro de Region Atlascon 40 juegos indexados (40 como publicadora). Sus plataformas más representadas en el catálogo son nes, megacd, saturn, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "Victor · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Victor está presente en el catálogo retro de Region Atlascon 40 juegos indexados (40 como publicadora). Sus plataformas más representadas en el catálogo son…"
+    },
+    "method": "wikidata"
+  },
+  "gt-interactive": {
+    "slug": "gt-interactive",
+    "name": "GT Interactive",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:31Z",
+    "history": "GT Interactive está presente en el catálogo retro de Region Atlascon 39 juegos indexados (39 como publicadora). Sus plataformas más representadas en el catálogo son n64, saturn, gameboy, ps1.",
+    "seoMeta": {
+      "seoTitle": "GT Interactive · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "GT Interactive está presente en el catálogo retro de Region Atlascon 39 juegos indexados (39 como publicadora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "micronics": {
+    "slug": "micronics",
+    "name": "Micronics",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:31Z",
+    "history": "Micronics está presente en el catálogo retro de Region Atlascon 39 juegos indexados (39 como desarrolladora). Sus plataformas más representadas en el catálogo son nes, snes.",
+    "seoMeta": {
+      "seoTitle": "Micronics · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Micronics está presente en el catálogo retro de Region Atlascon 39 juegos indexados (39 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "pony-canyon": {
+    "slug": "pony-canyon",
+    "name": "Pony Canyon",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:32Z",
+    "history": "Pony Canyon está presente en el catálogo retro de Region Atlascon 39 juegos indexados (10 como desarrolladora y 35 como publicadora). Sus plataformas más representadas en el catálogo son nes, saturn, megacd.",
+    "seoMeta": {
+      "seoTitle": "Pony Canyon · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Pony Canyon está presente en el catálogo retro de Region Atlascon 39 juegos indexados (10 como desarrolladora y 35 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "atari-games": {
+    "slug": "atari-games",
+    "name": "Atari Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:33Z",
+    "history": "Atari Games está presente en el catálogo retro de Region Atlascon 38 juegos indexados (38 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, dreamcast, saturn.",
+    "seoMeta": {
+      "seoTitle": "Atari Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Atari Games está presente en el catálogo retro de Region Atlascon 38 juegos indexados (38 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "banpresto": {
+    "slug": "banpresto",
+    "name": "Banpresto",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:33Z",
+    "history": "Banpresto está presente en el catálogo retro de Region Atlascon 38 juegos indexados (10 como desarrolladora y 31 como publicadora). Sus plataformas más representadas en el catálogo son saturn, nes, gameboy, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Banpresto · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Banpresto está presente en el catálogo retro de Region Atlascon 38 juegos indexados (10 como desarrolladora y 31 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "d3-publisher": {
+    "slug": "d3-publisher",
+    "name": "D3 Publisher Inc",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:34Z",
+    "history": "D3 Publisher Inc está presente en el catálogo retro de Region Atlascon 38 juegos indexados (1 como desarrolladora y 37 como publicadora). Sus plataformas más representadas en el catálogo son wii, dreamcast, 3ds, ps2.",
+    "seoMeta": {
+      "seoTitle": "D3 Publisher Inc · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "D3 Publisher Inc está presente en el catálogo retro de Region Atlascon 38 juegos indexados (1 como desarrolladora y 37 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "jvc": {
+    "slug": "jvc",
+    "name": "JVC",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:34Z",
+    "history": "JVC está presente en el catálogo retro de Region Atlascon 38 juegos indexados (4 como desarrolladora y 35 como publicadora). Sus plataformas más representadas en el catálogo son megacd, saturn, ps1, megadrive.",
+    "seoMeta": {
+      "seoTitle": "JVC · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "JVC está presente en el catálogo retro de Region Atlascon 38 juegos indexados (4 como desarrolladora y 35 como publicadora). Sus plataformas más representadas…"
+    },
+    "method": "wikidata"
+  },
+  "seta": {
+    "slug": "seta",
+    "name": "Seta Corporation",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:35Z",
+    "history": "Seta Corporation está presente en el catálogo retro de Region Atlascon 38 juegos indexados (25 como desarrolladora y 33 como publicadora). Sus plataformas más representadas en el catálogo son nes, n64, saturn, snes.",
+    "seoMeta": {
+      "seoTitle": "Seta Corporation · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Seta Corporation está presente en el catálogo retro de Region Atlascon 38 juegos indexados (25 como desarrolladora y 33 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "pqube": {
+    "slug": "pqube",
+    "name": "PQube Ltd.",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:36Z",
+    "history": "PQube Ltd. está presente en el catálogo retro de Region Atlascon 37 juegos indexados (37 como publicadora). Sus plataformas más representadas en el catálogo son ps4, ps3, ds, wii.",
+    "seoMeta": {
+      "seoTitle": "PQube Ltd. · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "PQube Ltd. está presente en el catálogo retro de Region Atlascon 37 juegos indexados (37 como publicadora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "treasure": {
+    "slug": "treasure",
+    "name": "Treasure",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:36Z",
+    "history": "Treasure está presente en el catálogo retro de Region Atlascon 37 juegos indexados (37 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, saturn, n64, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "Treasure · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Treasure está presente en el catálogo retro de Region Atlascon 37 juegos indexados (37 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "ubisoft-montreal": {
+    "slug": "ubisoft-montreal",
+    "name": "Ubisoft Montreal",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:18:37Z",
+    "history": "Ubisoft Montreal está presente en el catálogo retro de Region Atlascon 37 juegos indexados (37 como desarrolladora). Sus plataformas más representadas en el catálogo son ps3, wii, dreamcast, ps2.",
+    "seoMeta": {
+      "seoTitle": "Ubisoft Montreal · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Ubisoft Montreal está presente en el catálogo retro de Region Atlascon 37 juegos indexados (37 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "domark": {
+    "slug": "domark",
+    "name": "Domark Software",
+    "wikidataId": "Q1235040",
+    "logoUrl": null,
+    "foundedYear": 1983,
+    "closedYear": 1996,
+    "status": "defunct",
+    "generatedAt": "2026-06-14T08:22:39Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q1235040",
+        "fetchedAt": "2026-06-14T08:22:39Z",
+        "url": "https://www.wikidata.org/wiki/Q1235040"
+      },
+      "wikipedia": {
+        "url": "https://en.wikipedia.org/wiki/Domark_Software",
+        "title": "Domark Software",
+        "fetchedAt": "2026-06-14T08:22:39Z"
+      }
+    },
+    "history": "Domark Software está presente en el catálogo retro de Region Atlascon 36 juegos indexados (8 como desarrolladora y 35 como publicadora). Fundada en 1983 y activa hasta 1996. Sus plataformas más representadas en el catálogo son megadrive, gamegear, mastersystem, megacd.",
+    "seoMeta": {
+      "seoTitle": "Domark Software · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Domark Software está presente en el catálogo retro de Region Atlascon 36 juegos indexados (8 como desarrolladora y 35 como publicadora). Fundada en 1983 y…"
+    },
+    "method": "wikidata"
+  },
+  "titus-software": {
+    "slug": "titus-software",
+    "name": "Titus Interactive",
+    "wikidataId": "Q2300984",
+    "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Titus-logo.svg",
+    "foundedYear": 1985,
+    "closedYear": 2005,
+    "status": "defunct",
+    "generatedAt": "2026-06-14T08:22:41Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q2300984",
+        "fetchedAt": "2026-06-14T08:22:41Z",
+        "url": "https://www.wikidata.org/wiki/Q2300984"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/Titus_Interactive",
+        "title": "Titus Interactive",
+        "fetchedAt": "2026-06-14T08:22:41Z"
+      }
+    },
+    "history": "Titus Interactive, fundada en 1985, fue una destacada compañía francesa en la industria de los videojuegos. Durante su trayectoria, desarrolló y publicó un total de 36 videojuegos, colaborando con 21 desarrolladores y 36 editores. La empresa se destacó por su trabajo en plataformas icónicas como Nintendo 64, Game Boy, Dreamcast, NES y Master System. A pesar de su éxito, Titus Interactive cerró sus puertas en 2005, dejando un legado en el mundo de los videojuegos retro.",
+    "seoMeta": {
+      "seoTitle": "Titus Interactive: Historia y Legado de un Clásico Francés",
+      "seoDescription": "Descubre la historia de Titus Interactive, una influyente compañía de videojuegos francesa que operó entre 1985 y 2005."
+    },
+    "method": "ai"
+  },
+  "gremlin-interactive": {
+    "slug": "gremlin-interactive",
+    "name": "Gremlin Interactive",
+    "wikidataId": "Q2274654",
+    "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Gremlin_Interactive_Logo.svg",
+    "foundedYear": 1984,
+    "closedYear": 2003,
+    "status": "defunct",
+    "generatedAt": "2026-06-14T08:22:46Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q2274654",
+        "fetchedAt": "2026-06-14T08:22:46Z",
+        "url": "https://www.wikidata.org/wiki/Q2274654"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/Gremlin_Interactive",
+        "title": "Gremlin Interactive",
+        "fetchedAt": "2026-06-14T08:22:46Z"
+      }
+    },
+    "history": "Gremlin Interactive fue una destacada compañía británica de videojuegos fundada en 1984 en Sheffield. A lo largo de su trayectoria, desarrolló y publicó un total de 35 videojuegos, colaborando con 34 desarrolladores y 9 editores. Su catálogo abarcó diversas plataformas emblemáticas de la época, como Mega Drive, Saturn, PS1, Game Gear, N64 y Game Boy. La empresa se destacó por su enfoque en el mercado de videojuegos para ordenadores y consolas, y su legado perdura en la memoria de los coleccionistas de videojuegos retro. Sin embargo, en 2003, Gremlin Interactive cerró sus puertas, marcando el final de una era en la industria del videojuego.",
+    "seoMeta": {
+      "seoTitle": "Gremlin Interactive: Historia y Legado en Videojuegos Retro",
+      "seoDescription": "Descubre la historia de Gremlin Interactive, una icónica compañía británica de videojuegos con un legado en consolas retro."
+    },
+    "method": "ai"
+  },
+  "high-voltage-software": {
+    "slug": "high-voltage-software",
+    "name": "High Voltage Software",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:49Z",
+    "history": "High Voltage Software está presente en el catálogo retro de Region Atlascon 35 juegos indexados (35 como desarrolladora). Sus plataformas más representadas en el catálogo son wii, n64, ps2, saturn.",
+    "seoMeta": {
+      "seoTitle": "High Voltage Software · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "High Voltage Software está presente en el catálogo retro de Region Atlascon 35 juegos indexados (35 como desarrolladora). Sus plataformas más representadas en…"
+    },
+    "method": "wikidata"
+  },
+  "nms-software": {
+    "slug": "nms-software",
+    "name": "NMS Software",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:50Z",
+    "history": "NMS Software está presente en el catálogo retro de Region Atlascon 35 juegos indexados (35 como desarrolladora). Sus plataformas más representadas en el catálogo son gameboy, saturn, nes, gamegear.",
+    "seoMeta": {
+      "seoTitle": "NMS Software · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "NMS Software está presente en el catálogo retro de Region Atlascon 35 juegos indexados (35 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "radical-entertainment": {
+    "slug": "radical-entertainment",
+    "name": "Radical Entertainment",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:50Z",
+    "history": "Radical Entertainment está presente en el catálogo retro de Region Atlascon 35 juegos indexados (35 como desarrolladora). Sus plataformas más representadas en el catálogo son saturn, megadrive, ps2, nes.",
+    "seoMeta": {
+      "seoTitle": "Radical Entertainment · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Radical Entertainment está presente en el catálogo retro de Region Atlascon 35 juegos indexados (35 como desarrolladora). Sus plataformas más representadas en…"
+    },
+    "method": "wikidata"
+  },
+  "bits-studios": {
+    "slug": "bits-studios",
+    "name": "BITS Studios",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:51Z",
+    "history": "BITS Studios está presente en el catálogo retro de Region Atlascon 34 juegos indexados (34 como desarrolladora). Sus plataformas más representadas en el catálogo son gameboy, gamegear, megadrive, nes.",
+    "seoMeta": {
+      "seoTitle": "BITS Studios · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "BITS Studios está presente en el catálogo retro de Region Atlascon 34 juegos indexados (34 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "black-pearl-software": {
+    "slug": "black-pearl-software",
+    "name": "Black Pearl Software",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:51Z",
+    "history": "Black Pearl Software está presente en el catálogo retro de Region Atlascon 34 juegos indexados (3 como desarrolladora y 32 como publicadora). Sus plataformas más representadas en el catálogo son gameboy, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Black Pearl Software · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Black Pearl Software está presente en el catálogo retro de Region Atlascon 34 juegos indexados (3 como desarrolladora y 32 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "culture-brain": {
+    "slug": "culture-brain",
+    "name": "Culture Brain",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:52Z",
+    "history": "Culture Brain está presente en el catálogo retro de Region Atlascon 34 juegos indexados (31 como desarrolladora y 31 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, n64, snes.",
+    "seoMeta": {
+      "seoTitle": "Culture Brain · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Culture Brain está presente en el catálogo retro de Region Atlascon 34 juegos indexados (31 como desarrolladora y 31 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "sega-development-division-3": {
+    "slug": "sega-development-division-3",
+    "name": "Sega Development Division #3",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:52Z",
+    "history": "Sega Development Division #3 está presente en el catálogo retro de Region Atlascon 34 juegos indexados (34 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive.",
+    "seoMeta": {
+      "seoTitle": "Sega Development Division #3 · juegos retro y catálogo PAL | Region…",
+      "seoDescription": "Sega Development Division #3 está presente en el catálogo retro de Region Atlascon 34 juegos indexados (34 como desarrolladora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "bluesky-software": {
+    "slug": "bluesky-software",
+    "name": "BlueSky Software",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:53Z",
+    "history": "BlueSky Software está presente en el catálogo retro de Region Atlascon 33 juegos indexados (33 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, gamegear.",
+    "seoMeta": {
+      "seoTitle": "BlueSky Software · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "BlueSky Software está presente en el catálogo retro de Region Atlascon 33 juegos indexados (33 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "crystal-dynamics": {
+    "slug": "crystal-dynamics",
+    "name": "Crystal Dynamics",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:54Z",
+    "history": "Crystal Dynamics está presente en el catálogo retro de Region Atlascon 33 juegos indexados (25 como desarrolladora y 13 como publicadora). Sus plataformas más representadas en el catálogo son saturn, dreamcast, ps2, ps1.",
+    "seoMeta": {
+      "seoTitle": "Crystal Dynamics · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Crystal Dynamics está presente en el catálogo retro de Region Atlascon 33 juegos indexados (25 como desarrolladora y 13 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "park-place-productions": {
+    "slug": "park-place-productions",
+    "name": "Park Place Productions",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:54Z",
+    "history": "Park Place Productions está presente en el catálogo retro de Region Atlascon 33 juegos indexados (33 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, megacd, gameboy, nes.",
+    "seoMeta": {
+      "seoTitle": "Park Place Productions · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Park Place Productions está presente en el catálogo retro de Region Atlascon 33 juegos indexados (33 como desarrolladora). Sus plataformas más representadas en…"
+    },
+    "method": "wikidata"
+  },
+  "bigben-interactive": {
+    "slug": "bigben-interactive",
+    "name": "BigBen Interactive",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:55Z",
+    "history": "BigBen Interactive está presente en el catálogo retro de Region Atlascon 32 juegos indexados (3 como desarrolladora y 31 como publicadora). Sus plataformas más representadas en el catálogo son wii, 3ds, ps4, ds.",
+    "seoMeta": {
+      "seoTitle": "BigBen Interactive · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "BigBen Interactive está presente en el catálogo retro de Region Atlascon 32 juegos indexados (3 como desarrolladora y 31 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "fromsoftware": {
+    "slug": "fromsoftware",
+    "name": "FromSoftware",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:55Z",
+    "history": "FromSoftware está presente en el catálogo retro de Region Atlascon 32 juegos indexados (31 como desarrolladora y 1 como publicadora). Sus plataformas más representadas en el catálogo son ps2, ps3, ps4, gamecube.",
+    "seoMeta": {
+      "seoTitle": "FromSoftware · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "FromSoftware está presente en el catálogo retro de Region Atlascon 32 juegos indexados (31 como desarrolladora y 1 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "game-freak": {
+    "slug": "game-freak",
+    "name": "Game Freak",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:56Z",
+    "history": "Game Freak está presente en el catálogo retro de Region Atlascon 32 juegos indexados (32 como desarrolladora). Sus plataformas más representadas en el catálogo son 3ds, ds, gameboy, nes.",
+    "seoMeta": {
+      "seoTitle": "Game Freak · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Game Freak está presente en el catálogo retro de Region Atlascon 32 juegos indexados (32 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "high-score-productions": {
+    "slug": "high-score-productions",
+    "name": "High Score Productions",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:57Z",
+    "history": "High Score Productions está presente en el catálogo retro de Region Atlascon 32 juegos indexados (32 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, megacd, saturn, gamegear.",
+    "seoMeta": {
+      "seoTitle": "High Score Productions · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "High Score Productions está presente en el catálogo retro de Region Atlascon 32 juegos indexados (32 como desarrolladora). Sus plataformas más representadas en…"
+    },
+    "method": "wikidata"
+  },
+  "human-entertainment": {
+    "slug": "human-entertainment",
+    "name": "Human Entertainment",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:57Z",
+    "history": "Human Entertainment está presente en el catálogo retro de Region Atlascon 32 juegos indexados (27 como desarrolladora y 14 como publicadora). Sus plataformas más representadas en el catálogo son nes, saturn, n64, gameboy.",
+    "seoMeta": {
+      "seoTitle": "Human Entertainment · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Human Entertainment está presente en el catálogo retro de Region Atlascon 32 juegos indexados (27 como desarrolladora y 14 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "micronet": {
+    "slug": "micronet",
+    "name": "Micronet",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:58Z",
+    "history": "Micronet está presente en el catálogo retro de Region Atlascon 32 juegos indexados (26 como desarrolladora y 24 como publicadora). Sus plataformas más representadas en el catálogo son megacd, megadrive, saturn, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "Micronet · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Micronet está presente en el catálogo retro de Region Atlascon 32 juegos indexados (26 como desarrolladora y 24 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "aspect": {
+    "slug": "aspect",
+    "name": "Aspect",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:59Z",
+    "history": "Aspect está presente en el catálogo retro de Region Atlascon 31 juegos indexados (31 como desarrolladora y 2 como publicadora). Sus plataformas más representadas en el catálogo son gamegear, mastersystem, saturn, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "Aspect · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Aspect está presente en el catálogo retro de Region Atlascon 31 juegos indexados (31 como desarrolladora y 2 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "cri": {
+    "slug": "cri",
+    "name": "Cri",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:22:59Z",
+    "history": "Cri está presente en el catálogo retro de Region Atlascon 31 juegos indexados (25 como desarrolladora y 15 como publicadora). Sus plataformas más representadas en el catálogo son dreamcast, saturn, megadrive, megacd.",
+    "seoMeta": {
+      "seoTitle": "Cri · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Cri está presente en el catálogo retro de Region Atlascon 31 juegos indexados (25 como desarrolladora y 15 como publicadora). Sus plataformas más representadas…"
+    },
+    "method": "wikidata"
+  },
+  "hal": {
+    "slug": "hal",
+    "name": "Hal",
+    "wikidataId": "Q1570085",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:01Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q1570085",
+        "fetchedAt": "2026-06-14T08:23:01Z",
+        "url": "https://www.wikidata.org/wiki/Q1570085"
+      },
+      "wikipedia": {
+        "url": "https://en.wikipedia.org/wiki/Hal_%28given_name%29",
+        "title": "Hal (given name)",
+        "fetchedAt": "2026-06-14T08:23:01Z"
+      }
+    },
+    "history": "Hal es una compañía destacada en el sector de los videojuegos, conocida por su extensa trayectoria como editora. Con un catálogo que abarca 31 títulos, Hal ha dejado una huella significativa en la industria, especialmente en la plataforma NES, donde se ha ganado el reconocimiento de los coleccionistas. Aunque no se dispone de información sobre su año de fundación o cierre, su legado perdura a través de los juegos que ha publicado, convirtiéndola en una entidad de interés para los aficionados a los videojuegos retro.",
+    "seoMeta": {
+      "seoTitle": "Hal: Editora de Videojuegos Retro en NES",
+      "seoDescription": "Descubre Hal, una editora con 31 títulos en NES, clave en el mundo de los videojuegos retro."
+    },
+    "method": "ai"
+  },
+  "travellers-tales": {
+    "slug": "travellers-tales",
+    "name": "Traveller's Tales",
+    "wikidataId": "Q2568920",
+    "logoUrl": null,
+    "foundedYear": 1989,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:06Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q2568920",
+        "fetchedAt": "2026-06-14T08:23:06Z",
+        "url": "https://www.wikidata.org/wiki/Q2568920"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/Traveller%27s_Tales",
+        "title": "Traveller's Tales",
+        "fetchedAt": "2026-06-14T08:23:06Z"
+      }
+    },
+    "history": "Traveller's Tales es una destacada desarrolladora de videojuegos, establecida en 1989 en Knutsford, Cheshire, Inglaterra. A lo largo de su trayectoria, ha creado un total de 31 juegos, siendo reconocida por su habilidad para desarrollar títulos en diversas plataformas como Megadrive, Saturn, Mega CD, N64, Dreamcast y 3DS. La compañía ha mantenido su actividad desde su fundación, consolidándose como un referente en la industria del videojuego retro.",
+    "seoMeta": {
+      "seoTitle": "Traveller's Tales: Historia de una icónica desarrolladora",
+      "seoDescription": "Descubre la historia de Traveller's Tales, desarrolladora de 31 videojuegos retro desde 1989, destacando en plataformas clásicas."
+    },
+    "method": "ai"
+  },
+  "wolf-team": {
+    "slug": "wolf-team",
+    "name": "Wolf Team",
+    "wikidataId": "Q3178663",
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:09Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q3178663",
+        "fetchedAt": "2026-06-14T08:23:09Z",
+        "url": "https://www.wikidata.org/wiki/Q3178663"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/Wolf_Team",
+        "title": "Wolf Team",
+        "fetchedAt": "2026-06-14T08:23:09Z"
+      }
+    },
+    "history": "Wolf Team es un estudio de desarrollo de videojuegos japonés conocido por su trabajo en plataformas como Mega CD, Mega Drive y SNES. A lo largo de su trayectoria, ha desarrollado un total de 31 videojuegos, colaborando con 27 desarrolladores y 19 editores. Aunque su año de fundación no está documentado, su legado se ha consolidado en la industria gracias a títulos emblemáticos como Tales of Phantasia. A pesar de los desafíos y cambios en su estructura, Wolf Team ha dejado una huella significativa en el mundo de los videojuegos retro.",
+    "seoMeta": {
+      "seoTitle": "Wolf Team: Pioneros en Videojuegos Retro",
+      "seoDescription": "Descubre la historia de Wolf Team, un influyente desarrollador de videojuegos retro con títulos icónicos en Mega CD, Mega Drive y SNES."
+    },
+    "method": "ai"
+  },
+  "bethesda-softworks": {
+    "slug": "bethesda-softworks",
+    "name": "Bethesda Softworks",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:13Z",
+    "history": "Bethesda Softworks está presente en el catálogo retro de Region Atlascon 30 juegos indexados (3 como desarrolladora y 27 como publicadora). Sus plataformas más representadas en el catálogo son ps4, ps3, nes, wii.",
+    "seoMeta": {
+      "seoTitle": "Bethesda Softworks · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Bethesda Softworks está presente en el catálogo retro de Region Atlascon 30 juegos indexados (3 como desarrolladora y 27 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "data-design-interactive": {
+    "slug": "data-design-interactive",
+    "name": "Data Design Interactive",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:14Z",
+    "history": "Data Design Interactive está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como desarrolladora y 1 como publicadora). Sus plataformas más representadas en el catálogo son wii, gameboy.",
+    "seoMeta": {
+      "seoTitle": "Data Design Interactive · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Data Design Interactive está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como desarrolladora y 1 como publicadora). Sus…"
+    },
+    "method": "wikidata"
+  },
+  "fci-inc": {
+    "slug": "fci-inc",
+    "name": "FCI Inc",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:14Z",
+    "history": "FCI Inc está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, snes.",
+    "seoMeta": {
+      "seoTitle": "FCI Inc · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "FCI Inc está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como publicadora). Sus plataformas más representadas en el catálogo son…"
+    },
+    "method": "wikidata"
+  },
+  "level-5": {
+    "slug": "level-5",
+    "name": "Level 5",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:15Z",
+    "history": "Level 5 está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como desarrolladora y 2 como publicadora). Sus plataformas más representadas en el catálogo son 3ds, ds, ps4, ps2.",
+    "seoMeta": {
+      "seoTitle": "Level 5 · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Level 5 está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como desarrolladora y 2 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "london-studio": {
+    "slug": "london-studio",
+    "name": "London Studio",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:15Z",
+    "history": "London Studio está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como desarrolladora). Sus plataformas más representadas en el catálogo son ps2, ps3, ps4.",
+    "seoMeta": {
+      "seoTitle": "London Studio · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "London Studio está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "masaya-ncs": {
+    "slug": "masaya-ncs",
+    "name": "Masaya (NCS)",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:16Z",
+    "history": "Masaya (NCS) está presente en el catálogo retro de Region Atlascon 30 juegos indexados (14 como desarrolladora y 25 como publicadora). Sus plataformas más representadas en el catálogo son megadrive, saturn, dreamcast, megacd.",
+    "seoMeta": {
+      "seoTitle": "Masaya (NCS) · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Masaya (NCS) está presente en el catálogo retro de Region Atlascon 30 juegos indexados (14 como desarrolladora y 25 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "sega-am3": {
+    "slug": "sega-am3",
+    "name": "Sega AM3",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:17Z",
+    "history": "Sega AM3 está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como desarrolladora). Sus plataformas más representadas en el catálogo son saturn, megadrive, dreamcast, ps3.",
+    "seoMeta": {
+      "seoTitle": "Sega AM3 · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Sega AM3 está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "thq-nordic": {
+    "slug": "thq-nordic",
+    "name": "THQ Nordic GmbH",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:17Z",
+    "history": "THQ Nordic GmbH está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como publicadora). Sus plataformas más representadas en el catálogo son ps4.",
+    "seoMeta": {
+      "seoTitle": "THQ Nordic GmbH · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "THQ Nordic GmbH está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como publicadora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "traveller-39-s-tales": {
+    "slug": "traveller-39-s-tales",
+    "name": "Traveller's Tales",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:18Z",
+    "history": "Traveller's Tales está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como desarrolladora). Sus plataformas más representadas en el catálogo son ps2, ps3, wii, ps4.",
+    "seoMeta": {
+      "seoTitle": "Traveller's Tales · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Traveller's Tales está presente en el catálogo retro de Region Atlascon 30 juegos indexados (30 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "hi-tech-expressions": {
+    "slug": "hi-tech-expressions",
+    "name": "Hi Tech Expressions",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:18Z",
+    "history": "Hi Tech Expressions está presente en el catálogo retro de Region Atlascon 29 juegos indexados (29 como publicadora). Sus plataformas más representadas en el catálogo son gameboy, nes, megadrive, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Hi Tech Expressions · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Hi Tech Expressions está presente en el catálogo retro de Region Atlascon 29 juegos indexados (29 como publicadora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "ascii-corporation": {
+    "slug": "ascii-corporation",
+    "name": "ASCII Corporation",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:19Z",
+    "history": "ASCII Corporation está presente en el catálogo retro de Region Atlascon 28 juegos indexados (27 como desarrolladora y 1 como publicadora). Sus plataformas más representadas en el catálogo son nes, dreamcast, gameboy, saturn.",
+    "seoMeta": {
+      "seoTitle": "ASCII Corporation · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "ASCII Corporation está presente en el catálogo retro de Region Atlascon 28 juegos indexados (27 como desarrolladora y 1 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "coconuts-japan": {
+    "slug": "coconuts-japan",
+    "name": "Coconuts Japan",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:20Z",
+    "history": "Coconuts Japan está presente en el catálogo retro de Region Atlascon 28 juegos indexados (4 como desarrolladora y 27 como publicadora). Sus plataformas más representadas en el catálogo son nes, saturn, gameboy, snes.",
+    "seoMeta": {
+      "seoTitle": "Coconuts Japan · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Coconuts Japan está presente en el catálogo retro de Region Atlascon 28 juegos indexados (4 como desarrolladora y 27 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "hot-b": {
+    "slug": "hot-b",
+    "name": "Hot B",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:20Z",
+    "history": "Hot B está presente en el catálogo retro de Region Atlascon 28 juegos indexados (11 como desarrolladora y 24 como publicadora). Sus plataformas más representadas en el catálogo son nes, megadrive, gameboy, megacd.",
+    "seoMeta": {
+      "seoTitle": "Hot B · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Hot B está presente en el catálogo retro de Region Atlascon 28 juegos indexados (11 como desarrolladora y 24 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "treyarch": {
+    "slug": "treyarch",
+    "name": "Treyarch",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:21Z",
+    "history": "Treyarch está presente en el catálogo retro de Region Atlascon 28 juegos indexados (28 como desarrolladora). Sus plataformas más representadas en el catálogo son dreamcast, ps2, n64, ps3.",
+    "seoMeta": {
+      "seoTitle": "Treyarch · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Treyarch está presente en el catálogo retro de Region Atlascon 28 juegos indexados (28 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "nec-interchannel": {
+    "slug": "nec-interchannel",
+    "name": "NEC Interchannel",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:21Z",
+    "history": "NEC Interchannel está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como publicadora). Sus plataformas más representadas en el catálogo son dreamcast, saturn.",
+    "seoMeta": {
+      "seoTitle": "NEC Interchannel · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "NEC Interchannel está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como publicadora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "novotrade": {
+    "slug": "novotrade",
+    "name": "Novotrade",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:22Z",
+    "history": "Novotrade está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, megacd, gamegear, nes.",
+    "seoMeta": {
+      "seoTitle": "Novotrade · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Novotrade está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "pack-video": {
+    "slug": "pack-video",
+    "name": "Pack-In-Video",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:23Z",
+    "history": "Pack-In-Video está presente en el catálogo retro de Region Atlascon 27 juegos indexados (19 como desarrolladora y 14 como publicadora). Sus plataformas más representadas en el catálogo son nes, saturn, gameboy, n64.",
+    "seoMeta": {
+      "seoTitle": "Pack-In-Video · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Pack-In-Video está presente en el catálogo retro de Region Atlascon 27 juegos indexados (19 como desarrolladora y 14 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "sega-am1": {
+    "slug": "sega-am1",
+    "name": "Sega AM1",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:23Z",
+    "history": "Sega AM1 está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como desarrolladora). Sus plataformas más representadas en el catálogo son saturn, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "Sega AM1 · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Sega AM1 está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "take-two-interactive": {
+    "slug": "take-two-interactive",
+    "name": "Take Two Interactive Europe",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:24Z",
+    "history": "Take Two Interactive Europe está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como publicadora). Sus plataformas más representadas en el catálogo son dreamcast, ps2, gameboy, n64.",
+    "seoMeta": {
+      "seoTitle": "Take Two Interactive Europe · juegos retro y catálogo PAL | Region…",
+      "seoDescription": "Take Two Interactive Europe está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como publicadora). Sus plataformas más representadas…"
+    },
+    "method": "wikidata"
+  },
+  "torus-games": {
+    "slug": "torus-games",
+    "name": "Torus Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:24Z",
+    "history": "Torus Games está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como desarrolladora). Sus plataformas más representadas en el catálogo son wii, gameboy, 3ds, ds.",
+    "seoMeta": {
+      "seoTitle": "Torus Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Torus Games está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "video-system": {
+    "slug": "video-system",
+    "name": "Video System",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:25Z",
+    "history": "Video System está presente en el catálogo retro de Region Atlascon 27 juegos indexados (22 como desarrolladora y 14 como publicadora). Sus plataformas más representadas en el catálogo son dreamcast, n64, neogeocd, saturn.",
+    "seoMeta": {
+      "seoTitle": "Video System · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Video System está presente en el catálogo retro de Region Atlascon 27 juegos indexados (22 como desarrolladora y 14 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "yuke-39-s": {
+    "slug": "yuke-39-s",
+    "name": "Yuke's",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:26Z",
+    "history": "Yuke's está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como desarrolladora). Sus plataformas más representadas en el catálogo son ps2, ps3, wii, ps1.",
+    "seoMeta": {
+      "seoTitle": "Yuke's · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Yuke's está presente en el catálogo retro de Region Atlascon 27 juegos indexados (27 como desarrolladora). Sus plataformas más representadas en el catálogo son…"
+    },
+    "method": "wikidata"
+  },
+  "altron": {
+    "slug": "altron",
+    "name": "Altron",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:26Z",
+    "history": "Altron está presente en el catálogo retro de Region Atlascon 26 juegos indexados (18 como desarrolladora y 19 como publicadora). Sus plataformas más representadas en el catálogo son saturn, nes, ds, dreamcast.",
+    "seoMeta": {
+      "seoTitle": "Altron · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Altron está presente en el catálogo retro de Region Atlascon 26 juegos indexados (18 como desarrolladora y 19 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "rising-star-games": {
+    "slug": "rising-star-games",
+    "name": "Rising Star Games limited",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:27Z",
+    "history": "Rising Star Games limited está presente en el catálogo retro de Region Atlascon 26 juegos indexados (4 como desarrolladora y 23 como publicadora). Sus plataformas más representadas en el catálogo son ds, wii, 3ds, ps2.",
+    "seoMeta": {
+      "seoTitle": "Rising Star Games limited · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Rising Star Games limited está presente en el catálogo retro de Region Atlascon 26 juegos indexados (4 como desarrolladora y 23 como publicadora). Sus…"
+    },
+    "method": "wikidata"
+  },
+  "technosoft": {
+    "slug": "technosoft",
+    "name": "Technosoft",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:27Z",
+    "history": "Technosoft está presente en el catálogo retro de Region Atlascon 26 juegos indexados (25 como desarrolladora y 19 como publicadora). Sus plataformas más representadas en el catálogo son megadrive, saturn.",
+    "seoMeta": {
+      "seoTitle": "Technosoft · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Technosoft está presente en el catálogo retro de Region Atlascon 26 juegos indexados (25 como desarrolladora y 19 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "color-dreams": {
+    "slug": "color-dreams",
+    "name": "Color Dreams",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:28Z",
+    "history": "Color Dreams está presente en el catálogo retro de Region Atlascon 25 juegos indexados (20 como desarrolladora y 16 como publicadora). Sus plataformas más representadas en el catálogo son nes.",
+    "seoMeta": {
+      "seoTitle": "Color Dreams · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Color Dreams está presente en el catálogo retro de Region Atlascon 25 juegos indexados (20 como desarrolladora y 16 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "intelligent-systems": {
+    "slug": "intelligent-systems",
+    "name": "Intelligent Systems",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:31Z",
+    "history": "Intelligent Systems está presente en el catálogo retro de Region Atlascon 25 juegos indexados (25 como desarrolladora). Sus plataformas más representadas en el catálogo son 3ds, gameboy, n64, nes.",
+    "seoMeta": {
+      "seoTitle": "Intelligent Systems · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Intelligent Systems está presente en el catálogo retro de Region Atlascon 25 juegos indexados (25 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "merge-games": {
+    "slug": "merge-games",
+    "name": "Merge Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:32Z",
+    "history": "Merge Games está presente en el catálogo retro de Region Atlascon 25 juegos indexados (2 como desarrolladora y 25 como publicadora). Sus plataformas más representadas en el catálogo son ps4.",
+    "seoMeta": {
+      "seoTitle": "Merge Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Merge Games está presente en el catálogo retro de Region Atlascon 25 juegos indexados (2 como desarrolladora y 25 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "nihon-falcom": {
+    "slug": "nihon-falcom",
+    "name": "Nihon Falcom Corporation",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:32Z",
+    "history": "Nihon Falcom Corporation está presente en el catálogo retro de Region Atlascon 25 juegos indexados (25 como desarrolladora). Sus plataformas más representadas en el catálogo son ps4, saturn, megadrive, megacd.",
+    "seoMeta": {
+      "seoTitle": "Nihon Falcom Corporation · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Nihon Falcom Corporation está presente en el catálogo retro de Region Atlascon 25 juegos indexados (25 como desarrolladora). Sus plataformas más representadas…"
+    },
+    "method": "wikidata"
+  },
+  "renovation-nihon-telenet": {
+    "slug": "renovation-nihon-telenet",
+    "name": "Renovation (Nihon Telenet)",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:33Z",
+    "history": "Renovation (Nihon Telenet) está presente en el catálogo retro de Region Atlascon 25 juegos indexados (25 como publicadora). Sus plataformas más representadas en el catálogo son megadrive, megacd.",
+    "seoMeta": {
+      "seoTitle": "Renovation (Nihon Telenet) · juegos retro y catálogo PAL | Region…",
+      "seoDescription": "Renovation (Nihon Telenet) está presente en el catálogo retro de Region Atlascon 25 juegos indexados (25 como publicadora). Sus plataformas más representadas…"
+    },
+    "method": "wikidata"
+  },
+  "saurus": {
+    "slug": "saurus",
+    "name": "Saurus",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:33Z",
+    "history": "Saurus está presente en el catálogo retro de Region Atlascon 25 juegos indexados (23 como desarrolladora y 6 como publicadora). Sus plataformas más representadas en el catálogo son neogeopocket, neogeo, neogeocd, gameboy.",
+    "seoMeta": {
+      "seoTitle": "Saurus · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Saurus está presente en el catálogo retro de Region Atlascon 25 juegos indexados (23 como desarrolladora y 6 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "sega-am6-cs1": {
+    "slug": "sega-am6-cs1",
+    "name": "Sega AM6 (CS1)",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:34Z",
+    "history": "Sega AM6 (CS1) está presente en el catálogo retro de Region Atlascon 25 juegos indexados (25 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, saturn.",
+    "seoMeta": {
+      "seoTitle": "Sega AM6 (CS1) · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Sega AM6 (CS1) está presente en el catálogo retro de Region Atlascon 25 juegos indexados (25 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "athena": {
+    "slug": "athena",
+    "name": "Athena",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:35Z",
+    "history": "Athena está presente en el catálogo retro de Region Atlascon 24 juegos indexados (19 como desarrolladora y 19 como publicadora). Sus plataformas más representadas en el catálogo son nes, n64, saturn, gameboy.",
+    "seoMeta": {
+      "seoTitle": "Athena · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Athena está presente en el catálogo retro de Region Atlascon 24 juegos indexados (19 como desarrolladora y 19 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "electro-brain": {
+    "slug": "electro-brain",
+    "name": "Electro Brain",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:35Z",
+    "history": "Electro Brain está presente en el catálogo retro de Region Atlascon 24 juegos indexados (24 como publicadora). Sus plataformas más representadas en el catálogo son gameboy, nes, megadrive, n64.",
+    "seoMeta": {
+      "seoTitle": "Electro Brain · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Electro Brain está presente en el catálogo retro de Region Atlascon 24 juegos indexados (24 como publicadora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "te-soft": {
+    "slug": "te-soft",
+    "name": "T&E Soft",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:36Z",
+    "history": "T&E Soft está presente en el catálogo retro de Region Atlascon 24 juegos indexados (24 como desarrolladora y 4 como publicadora). Sus plataformas más representadas en el catálogo son megadrive, saturn, nes, n64.",
+    "seoMeta": {
+      "seoTitle": "T&E Soft · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "T&E Soft está presente en el catálogo retro de Region Atlascon 24 juegos indexados (24 como desarrolladora y 4 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "toaplan": {
+    "slug": "toaplan",
+    "name": "Toaplan",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:37Z",
+    "history": "Toaplan está presente en el catálogo retro de Region Atlascon 24 juegos indexados (22 como desarrolladora y 4 como publicadora). Sus plataformas más representadas en el catálogo son megadrive, nes, saturn.",
+    "seoMeta": {
+      "seoTitle": "Toaplan · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Toaplan está presente en el catálogo retro de Region Atlascon 24 juegos indexados (22 como desarrolladora y 4 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "aicom": {
+    "slug": "aicom",
+    "name": "Aicom",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:37Z",
+    "history": "Aicom está presente en el catálogo retro de Region Atlascon 23 juegos indexados (23 como desarrolladora y 1 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, neogeocd, neogeo.",
+    "seoMeta": {
+      "seoTitle": "Aicom · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Aicom está presente en el catálogo retro de Region Atlascon 23 juegos indexados (23 como desarrolladora y 1 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "arc-system-works": {
+    "slug": "arc-system-works",
+    "name": "Arc System Works",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:38Z",
+    "history": "Arc System Works está presente en el catálogo retro de Region Atlascon 23 juegos indexados (21 como desarrolladora y 4 como publicadora). Sus plataformas más representadas en el catálogo son ps4, ps3, wii, saturn.",
+    "seoMeta": {
+      "seoTitle": "Arc System Works · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Arc System Works está presente en el catálogo retro de Region Atlascon 23 juegos indexados (21 como desarrolladora y 4 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "bit-managers": {
+    "slug": "bit-managers",
+    "name": "Bit Managers",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:39Z",
+    "history": "Bit Managers está presente en el catálogo retro de Region Atlascon 23 juegos indexados (23 como desarrolladora). Sus plataformas más representadas en el catálogo son gameboy, gamegear, nes, mastersystem.",
+    "seoMeta": {
+      "seoTitle": "Bit Managers · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Bit Managers está presente en el catálogo retro de Region Atlascon 23 juegos indexados (23 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "bullet-proof-software": {
+    "slug": "bullet-proof-software",
+    "name": "Bullet Proof Software",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:39Z",
+    "history": "Bullet Proof Software está presente en el catálogo retro de Region Atlascon 23 juegos indexados (17 como desarrolladora y 13 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, dreamcast, saturn.",
+    "seoMeta": {
+      "seoTitle": "Bullet Proof Software · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Bullet Proof Software está presente en el catálogo retro de Region Atlascon 23 juegos indexados (17 como desarrolladora y 13 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "code-monkeys": {
+    "slug": "code-monkeys",
+    "name": "The Code Monkeys",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:40Z",
+    "history": "The Code Monkeys está presente en el catálogo retro de Region Atlascon 23 juegos indexados (23 como desarrolladora). Sus plataformas más representadas en el catálogo son gameboy, megacd, ps1.",
+    "seoMeta": {
+      "seoTitle": "The Code Monkeys · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "The Code Monkeys está presente en el catálogo retro de Region Atlascon 23 juegos indexados (23 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "majesco-entertainment": {
+    "slug": "majesco-entertainment",
+    "name": "Majesco Entertainment",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:41Z",
+    "history": "Majesco Entertainment está presente en el catálogo retro de Region Atlascon 23 juegos indexados (23 como publicadora). Sus plataformas más representadas en el catálogo son wii, ds, ps2.",
+    "seoMeta": {
+      "seoTitle": "Majesco Entertainment · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Majesco Entertainment está presente en el catálogo retro de Region Atlascon 23 juegos indexados (23 como publicadora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "rage-software": {
+    "slug": "rage-software",
+    "name": "Rage Software",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:41Z",
+    "history": "Rage Software está presente en el catálogo retro de Region Atlascon 23 juegos indexados (23 como desarrolladora y 3 como publicadora). Sus plataformas más representadas en el catálogo son dreamcast, saturn, gamegear, megadrive.",
+    "seoMeta": {
+      "seoTitle": "Rage Software · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Rage Software está presente en el catálogo retro de Region Atlascon 23 juegos indexados (23 como desarrolladora y 3 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "absolute-entertainment": {
+    "slug": "absolute-entertainment",
+    "name": "Absolute Entertainment",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:42Z",
+    "history": "Absolute Entertainment está presente en el catálogo retro de Region Atlascon 22 juegos indexados (6 como desarrolladora y 22 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy, megadrive, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Absolute Entertainment · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Absolute Entertainment está presente en el catálogo retro de Region Atlascon 22 juegos indexados (6 como desarrolladora y 22 como publicadora). Sus plataformas…"
+    },
+    "method": "wikidata"
+  },
+  "argonaut-games": {
+    "slug": "argonaut-games",
+    "name": "Argonaut Games PLC",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:42Z",
+    "history": "Argonaut Games PLC está presente en el catálogo retro de Region Atlascon 22 juegos indexados (22 como desarrolladora). Sus plataformas más representadas en el catálogo son gameboy, saturn, n64, ps2.",
+    "seoMeta": {
+      "seoTitle": "Argonaut Games PLC · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Argonaut Games PLC está presente en el catálogo retro de Region Atlascon 22 juegos indexados (22 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "enix": {
+    "slug": "enix",
+    "name": "Enix America Inc.",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:43Z",
+    "history": "Enix America Inc. está presente en el catálogo retro de Region Atlascon 22 juegos indexados (1 como desarrolladora y 22 como publicadora). Sus plataformas más representadas en el catálogo son nes, snes, saturn, n64.",
+    "seoMeta": {
+      "seoTitle": "Enix America Inc. · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Enix America Inc. está presente en el catálogo retro de Region Atlascon 22 juegos indexados (1 como desarrolladora y 22 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "hect": {
+    "slug": "hect",
+    "name": "Hect",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:44Z",
+    "history": "Hect está presente en el catálogo retro de Region Atlascon 22 juegos indexados (16 como desarrolladora y 20 como publicadora). Sus plataformas más representadas en el catálogo son nes, gameboy.",
+    "seoMeta": {
+      "seoTitle": "Hect · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Hect está presente en el catálogo retro de Region Atlascon 22 juegos indexados (16 como desarrolladora y 20 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "midway-games": {
+    "slug": "midway-games",
+    "name": "Midway Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:44Z",
+    "history": "Midway Games está presente en el catálogo retro de Region Atlascon 22 juegos indexados (7 como desarrolladora y 22 como publicadora). Sus plataformas más representadas en el catálogo son ps2, wii, ps1, ps3.",
+    "seoMeta": {
+      "seoTitle": "Midway Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Midway Games está presente en el catálogo retro de Region Atlascon 22 juegos indexados (7 como desarrolladora y 22 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "naughty-dog": {
+    "slug": "naughty-dog",
+    "name": "Naughty Dog Inc.",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:45Z",
+    "history": "Naughty Dog Inc. está presente en el catálogo retro de Region Atlascon 22 juegos indexados (22 como desarrolladora). Sus plataformas más representadas en el catálogo son ps4, ps2, ps1, ps3.",
+    "seoMeta": {
+      "seoTitle": "Naughty Dog Inc. · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Naughty Dog Inc. está presente en el catálogo retro de Region Atlascon 22 juegos indexados (22 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "nintendo-ead": {
+    "slug": "nintendo-ead",
+    "name": "Nintendo EAD",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:45Z",
+    "history": "Nintendo EAD está presente en el catálogo retro de Region Atlascon 22 juegos indexados (22 como desarrolladora). Sus plataformas más representadas en el catálogo son wii, ds, gamecube, 3ds.",
+    "seoMeta": {
+      "seoTitle": "Nintendo EAD · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Nintendo EAD está presente en el catálogo retro de Region Atlascon 22 juegos indexados (22 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "snk-playmore": {
+    "slug": "snk-playmore",
+    "name": "SNK Playmore",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:46Z",
+    "history": "SNK Playmore está presente en el catálogo retro de Region Atlascon 22 juegos indexados (15 como desarrolladora y 17 como publicadora). Sus plataformas más representadas en el catálogo son neogeo, ps2, wii, ps3.",
+    "seoMeta": {
+      "seoTitle": "SNK Playmore · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "SNK Playmore está presente en el catálogo retro de Region Atlascon 22 juegos indexados (15 como desarrolladora y 17 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "success": {
+    "slug": "success",
+    "name": "Success",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:47Z",
+    "history": "Success está presente en el catálogo retro de Region Atlascon 22 juegos indexados (19 como desarrolladora y 10 como publicadora). Sus plataformas más representadas en el catálogo son saturn, dreamcast, neogeopocket, ds.",
+    "seoMeta": {
+      "seoTitle": "Success · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Success está presente en el catálogo retro de Region Atlascon 22 juegos indexados (19 como desarrolladora y 10 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "ubisoft-paris": {
+    "slug": "ubisoft-paris",
+    "name": "Ubisoft Paris",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:47Z",
+    "history": "Ubisoft Paris está presente en el catálogo retro de Region Atlascon 22 juegos indexados (22 como desarrolladora). Sus plataformas más representadas en el catálogo son wii, dreamcast, ps2.",
+    "seoMeta": {
+      "seoTitle": "Ubisoft Paris · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Ubisoft Paris está presente en el catálogo retro de Region Atlascon 22 juegos indexados (22 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "westwood-studios": {
+    "slug": "westwood-studios",
+    "name": "Westwood Studios",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:48Z",
+    "history": "Westwood Studios está presente en el catálogo retro de Region Atlascon 22 juegos indexados (22 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, saturn, megacd, ps1.",
+    "seoMeta": {
+      "seoTitle": "Westwood Studios · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Westwood Studios está presente en el catálogo retro de Region Atlascon 22 juegos indexados (22 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "arena": {
+    "slug": "arena",
+    "name": "Arena",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:48Z",
+    "history": "Arena está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como publicadora). Sus plataformas más representadas en el catálogo son gamegear, megadrive, megacd, mastersystem.",
+    "seoMeta": {
+      "seoTitle": "Arena · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Arena está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como publicadora). Sus plataformas más representadas en el catálogo son…"
+    },
+    "method": "wikidata"
+  },
+  "bullfrog": {
+    "slug": "bullfrog",
+    "name": "Bullfrog",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:49Z",
+    "history": "Bullfrog está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, saturn, megacd.",
+    "seoMeta": {
+      "seoTitle": "Bullfrog · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Bullfrog está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "nec": {
+    "slug": "nec",
+    "name": "Nec International",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:50Z",
+    "history": "Nec International está presente en el catálogo retro de Region Atlascon 21 juegos indexados (13 como desarrolladora y 8 como publicadora). Sus plataformas más representadas en el catálogo son dreamcast, saturn, megacd, nes.",
+    "seoMeta": {
+      "seoTitle": "Nec International · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Nec International está presente en el catálogo retro de Region Atlascon 21 juegos indexados (13 como desarrolladora y 8 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "saffire-corporation": {
+    "slug": "saffire-corporation",
+    "name": "Saffire Corporation",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:50Z",
+    "history": "Saffire Corporation está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como desarrolladora). Sus plataformas más representadas en el catálogo son n64, gameboy, dreamcast, ps1.",
+    "seoMeta": {
+      "seoTitle": "Saffire Corporation · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Saffire Corporation está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "sega-development-division-2": {
+    "slug": "sega-development-division-2",
+    "name": "Sega Development Division #2",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:51Z",
+    "history": "Sega Development Division #2 está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como desarrolladora). Sus plataformas más representadas en el catálogo son megadrive, saturn.",
+    "seoMeta": {
+      "seoTitle": "Sega Development Division #2 · juegos retro y catálogo PAL | Region…",
+      "seoDescription": "Sega Development Division #2 está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como desarrolladora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "unexpected-development": {
+    "slug": "unexpected-development",
+    "name": "Unexpected Development",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:51Z",
+    "history": "Unexpected Development está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como desarrolladora). Sus plataformas más representadas en el catálogo son gameboy, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Unexpected Development · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Unexpected Development está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como desarrolladora). Sus plataformas más representadas en…"
+    },
+    "method": "wikidata"
+  },
+  "vicarious-visions": {
+    "slug": "vicarious-visions",
+    "name": "Vicarious Visions",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:52Z",
+    "history": "Vicarious Visions está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como desarrolladora). Sus plataformas más representadas en el catálogo son wii, ds, ps1, ps2.",
+    "seoMeta": {
+      "seoTitle": "Vicarious Visions · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Vicarious Visions está presente en el catálogo retro de Region Atlascon 21 juegos indexados (21 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "ancient": {
+    "slug": "ancient",
+    "name": "Ancient",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:53Z",
+    "history": "Ancient está presente en el catálogo retro de Region Atlascon 20 juegos indexados (19 como desarrolladora y 1 como publicadora). Sus plataformas más representadas en el catálogo son gamegear, megadrive, saturn.",
+    "seoMeta": {
+      "seoTitle": "Ancient · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Ancient está presente en el catálogo retro de Region Atlascon 20 juegos indexados (19 como desarrolladora y 1 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "avalanche-software": {
+    "slug": "avalanche-software",
+    "name": "Avalanche Software",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:53Z",
+    "history": "Avalanche Software está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el catálogo son n64, wii, ps1, ps2.",
+    "seoMeta": {
+      "seoTitle": "Avalanche Software · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Avalanche Software está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "ballistic": {
+    "slug": "ballistic",
+    "name": "Ballistic",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:54Z",
+    "history": "Ballistic está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como publicadora). Sus plataformas más representadas en el catálogo son megadrive, gamegear.",
+    "seoMeta": {
+      "seoTitle": "Ballistic · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Ballistic está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como publicadora). Sus plataformas más representadas en el catálogo son…"
+    },
+    "method": "wikidata"
+  },
+  "blitz-games": {
+    "slug": "blitz-games",
+    "name": "Blitz Games",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:54Z",
+    "history": "Blitz Games está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el catálogo son wii, ps2, dreamcast, gamecube.",
+    "seoMeta": {
+      "seoTitle": "Blitz Games · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Blitz Games está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "camerica": {
+    "slug": "camerica",
+    "name": "Camerica",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:55Z",
+    "history": "Camerica está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como publicadora). Sus plataformas más representadas en el catálogo son nes.",
+    "seoMeta": {
+      "seoTitle": "Camerica · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Camerica está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como publicadora). Sus plataformas más representadas en el catálogo son…"
+    },
+    "method": "wikidata"
+  },
+  "capcom-production-studio-4": {
+    "slug": "capcom-production-studio-4",
+    "name": "Capcom Production Studio 4",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:56Z",
+    "history": "Capcom Production Studio 4 está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el catálogo son dreamcast, ps2, saturn, gamecube.",
+    "seoMeta": {
+      "seoTitle": "Capcom Production Studio 4 · juegos retro y catálogo PAL | Region…",
+      "seoDescription": "Capcom Production Studio 4 está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "ea-redwood-shores": {
+    "slug": "ea-redwood-shores",
+    "name": "EA Redwood Shores",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:56Z",
+    "history": "EA Redwood Shores está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el catálogo son ps2, wii, ps3.",
+    "seoMeta": {
+      "seoTitle": "EA Redwood Shores · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "EA Redwood Shores está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "ea-tiburon": {
+    "slug": "ea-tiburon",
+    "name": "EA Tiburon",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:57Z",
+    "history": "EA Tiburon está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el catálogo son n64, wii, ps2, saturn.",
+    "seoMeta": {
+      "seoTitle": "EA Tiburon · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "EA Tiburon está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "hitmaker": {
+    "slug": "hitmaker",
+    "name": "Hitmaker",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:57Z",
+    "history": "Hitmaker está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el catálogo son dreamcast, ps2.",
+    "seoMeta": {
+      "seoTitle": "Hitmaker · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Hitmaker está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el catálogo…"
+    },
+    "method": "wikidata"
+  },
+  "neko-entertainment": {
+    "slug": "neko-entertainment",
+    "name": "NEKO Entertainment",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:58Z",
+    "history": "NEKO Entertainment está presente en el catálogo retro de Region Atlascon 20 juegos indexados (17 como desarrolladora y 4 como publicadora). Sus plataformas más representadas en el catálogo son wii, ds, ps2, 3ds.",
+    "seoMeta": {
+      "seoTitle": "NEKO Entertainment · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "NEKO Entertainment está presente en el catálogo retro de Region Atlascon 20 juegos indexados (17 como desarrolladora y 4 como publicadora). Sus plataformas más…"
+    },
+    "method": "wikidata"
+  },
+  "now-production": {
+    "slug": "now-production",
+    "name": "NOW Production",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:59Z",
+    "history": "NOW Production está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el catálogo son gameboy, megadrive, wii, 3ds.",
+    "seoMeta": {
+      "seoTitle": "NOW Production · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "NOW Production está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "omega-force": {
+    "slug": "omega-force",
+    "name": "Omega Force",
+    "wikidataId": null,
+    "logoUrl": null,
+    "foundedYear": null,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:23:59Z",
+    "history": "Omega Force está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el catálogo son ps2, n64, ps4, ps3.",
+    "seoMeta": {
+      "seoTitle": "Omega Force · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Omega Force está presente en el catálogo retro de Region Atlascon 20 juegos indexados (20 como desarrolladora). Sus plataformas más representadas en el…"
+    },
+    "method": "wikidata"
+  },
+  "toys-for-bob": {
+    "slug": "toys-for-bob",
+    "name": "Toys for Bob",
+    "wikidataId": "Q2130108",
+    "logoUrl": null,
+    "foundedYear": 1989,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T08:24:01Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q2130108",
+        "fetchedAt": "2026-06-14T08:24:01Z",
+        "url": "https://www.wikidata.org/wiki/Q2130108"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/Toys_for_Bob",
+        "title": "Toys for Bob",
+        "fetchedAt": "2026-06-14T08:24:01Z"
+      }
+    },
+    "history": "Toys for Bob es una destacada desarrolladora de videojuegos fundada en 1989 en Novato, California. Con un catálogo de 20 juegos, la compañía ha sido reconocida por su creatividad y enfoque en el entretenimiento. A lo largo de los años, ha trabajado en diversas plataformas, incluyendo consolas icónicas como PS1, PS2, PS3, PS4, Wii y 3DS. Aunque no ha sido editora de títulos, su legado en la industria se ha consolidado gracias a su innovadora propuesta de juegos.",
+    "seoMeta": {
+      "seoTitle": "Toys for Bob: Innovación en Videojuegos desde 1989",
+      "seoDescription": "Descubre Toys for Bob, desarrolladora de videojuegos desde 1989, con un legado en plataformas como PS1, PS2, PS3, PS4, Wii y 3DS."
+    },
+    "method": "ai"
+  },
+  "williams-entertainment": {
+    "slug": "williams-entertainment",
+    "name": "Midway Home Entertainment",
+    "wikidataId": "Q106483478",
+    "logoUrl": null,
+    "foundedYear": 1994,
+    "closedYear": 2009,
+    "status": "defunct",
+    "generatedAt": "2026-06-14T08:24:10Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q106483478",
+        "fetchedAt": "2026-06-14T08:24:10Z",
+        "url": "https://www.wikidata.org/wiki/Q106483478"
+      }
+    },
+    "history": "Midway Home Entertainment está presente en el catálogo retro de Region Atlascon 20 juegos indexados (13 como desarrolladora y 7 como publicadora). Fundada en 1994 y activa hasta 2009. Sus plataformas más representadas en el catálogo son gameboy, gamegear, megadrive, ps1.",
+    "seoMeta": {
+      "seoTitle": "Midway Home Entertainment · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Midway Home Entertainment está presente en el catálogo retro de Region Atlascon 20 juegos indexados (13 como desarrolladora y 7 como publicadora). Fundada en…"
+    },
+    "method": "wikidata"
   }
 }

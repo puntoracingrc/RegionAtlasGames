@@ -7,7 +7,7 @@ import { mergeGenreIndex, resolveCanonicalGenreSlug } from "./genre-canonical";
 import type { CatalogGame, GameDetails, IndexEntry } from "./types";
 import { getCatalogGame, getPlatform, meta } from "./catalog";
 
-/** Índices precalculados (data/index/*.json). Regenerar con npm run details:indexes. */
+/** Índices precalculados (data/index/*.json). Regenerar con npm run details:indexes (incluye sync de entidades). */
 
 function isGameDetails(value: unknown): value is GameDetails {
   if (!value || typeof value !== "object") return false;

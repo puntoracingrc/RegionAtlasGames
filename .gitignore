@@ -72,6 +72,7 @@ public/covers
 
 # logs de cron / scripts
 /logs/
+/data/logs/
 
 # ingest eBay (token + caché local — resto de price-ingest en disco externo)
 /data/price-ingest/ebay-token-cache.json

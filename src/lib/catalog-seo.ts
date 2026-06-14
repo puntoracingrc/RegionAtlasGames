@@ -7,6 +7,8 @@ import {
   listedCatalog,
 } from "./catalog";
 import { getGameDetails } from "./indexes";
+import { companyEntityLink, resolveGameEntityLinks } from "./entity-links";
+import { resolveCanonicalGenreSlug } from "./genre-canonical";
 import {
   buildCatalogSeoSlug,
   catalogGamePath,
@@ -32,7 +34,11 @@ export { getSiteUrl };
 
 export function getSimilarGames(game: CatalogGame, limit = 4): CatalogGame[] {
   const details = getGameDetails(game.id);
-  const genreSlugs = new Set(details?.genres.map((g) => g.slug) ?? []);
+  const genreSlugs = new Set(
+    (details?.genres ?? []).map((g) =>
+      resolveCanonicalGenreSlug(g.slug, { name: g.name, museumPath: g.museumPath }),
+    ),
+  );
   const candidates = listedCatalog.filter(
     (g) =>
       g.id !== game.id &&
@@ -45,7 +51,11 @@ export function getSimilarGames(game: CatalogGame, limit = 4): CatalogGame[] {
     let score = 0;
     if (g.region === game.region) score += 3;
     for (const genre of d?.genres ?? []) {
-      if (genreSlugs.has(genre.slug)) score += 2;
+      const canonicalSlug = resolveCanonicalGenreSlug(genre.slug, {
+        name: genre.name,
+        museumPath: genre.museumPath,
+      });
+      if (genreSlugs.has(canonicalSlug)) score += 2;
     }
     if (d?.series?.slug && d.series.slug === details?.series?.slug) score += 5;
     if (g.recommendedPrice != null) score += 1;
@@ -113,9 +123,11 @@ export function buildGameFaq(
   }
 
   if (details?.year) {
+    const dev = details.developer ? companyEntityLink(details.developer) : null;
+    const pub = details.publisher ? companyEntityLink(details.publisher) : null;
     faqs.push({
       question: `¿Qué edición es ${game.title}?`,
-      answer: `${game.title} salió en ${details.year} para ${platformName} (${regionLabel})${details.publisher ? `, publicado por ${details.publisher.name}` : ""}${details.developer ? ` y desarrollado por ${details.developer.name}` : ""}.`,
+      answer: `${game.title} salió en ${details.year} para ${platformName} (${regionLabel})${pub ? `, publicado por ${pub.name}` : ""}${dev ? ` y desarrollado por ${dev.name}` : ""}.`,
     });
   }
 
@@ -218,6 +230,7 @@ export function buildGameJsonLd(
   const regionLabel = getRegionDisplay(game.region).label;
   const resolvedDetails = details ?? getGameDetails(game.id);
   const seo = resolvedDetails?.seoMeta;
+  const entityLinks = resolvedDetails ? resolveGameEntityLinks(resolvedDetails) : null;
 
   const description =
     seo?.jsonLdDescription?.trim() ||
@@ -266,14 +279,26 @@ export function buildGameJsonLd(
     url,
     gamePlatform: platform?.name ?? game.platformSlug,
     ...(resolvedDetails?.year ? { datePublished: String(resolvedDetails.year) } : {}),
-    ...(resolvedDetails?.genres?.length
-      ? { genre: resolvedDetails.genres.map((g) => g.name) }
+    ...(entityLinks?.genres.length
+      ? { genre: entityLinks.genres.map((g) => g.name) }
       : {}),
-    ...(resolvedDetails?.developer
-      ? { author: { "@type": "Organization", name: resolvedDetails.developer.name } }
+    ...(entityLinks?.developer
+      ? {
+          author: {
+            "@type": "Organization",
+            name: entityLinks.developer.name,
+            url: `${getSiteUrl()}${entityLinks.developer.href}`,
+          },
+        }
       : {}),
-    ...(resolvedDetails?.publisher
-      ? { publisher: { "@type": "Organization", name: resolvedDetails.publisher.name } }
+    ...(entityLinks?.publisher
+      ? {
+          publisher: {
+            "@type": "Organization",
+            name: entityLinks.publisher.name,
+            url: `${getSiteUrl()}${entityLinks.publisher.href}`,
+          },
+        }
       : {}),
     ...(coverImageUrl
       ? {

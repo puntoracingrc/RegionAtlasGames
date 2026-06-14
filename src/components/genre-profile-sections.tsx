@@ -3,6 +3,41 @@ import { BackLink } from "@/components/breadcrumbs";
 import { genreGameHref, type GenreProfileView } from "@/lib/genre-profile";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 
+export function GenreReferenceTop({ view }: { view: GenreProfileView }) {
+  if (view.referenceTops.length === 0) return null;
+
+  return (
+    <section className="mb-8 rounded-xl border border-border/80 bg-card/60 px-4 py-3">
+      <h2 className="text-xs font-semibold uppercase tracking-wide text-foreground/70">
+        Referentes del género
+      </h2>
+      <dl className="mt-2 space-y-1.5">
+        {view.referenceTops.map((platform) => (
+          <div
+            key={platform.platformSlug}
+            className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-2"
+          >
+            <dt className="shrink-0 text-xs font-medium text-foreground/80 sm:w-24">
+              {platform.platformName}
+            </dt>
+            <dd className="min-w-0 text-xs leading-relaxed text-foreground/75">
+              {platform.games.map((game, index) => (
+                <span key={game.id}>
+                  {index > 0 && <span className="text-muted"> · </span>}
+                  <Link href={game.href} className="text-accent/90 hover:text-accent hover:underline">
+                    {decodeHtmlEntities(game.title)}
+                    {game.year ? ` (${game.year})` : ""}
+                  </Link>
+                </span>
+              ))}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
 export function GenreProfileHeader({ view }: { view: GenreProfileView }) {
   return (
     <header className="mt-4 mb-8 space-y-4">

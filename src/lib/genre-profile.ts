@@ -6,6 +6,7 @@ import {
   resolveCanonicalGenreSlug,
 } from "./genre-canonical";
 import { gamesForIndex, getGenre } from "./indexes";
+import { getGenreReferenceTops, type GenrePlatformReferenceTop } from "./genre-tops";
 import type { CatalogGame } from "./types";
 
 export type GenrePlatformGames = {
@@ -21,6 +22,7 @@ export type GenreProfileView = {
   gameCount: number;
   alsoKnownAs: string[];
   platforms: GenrePlatformGames[];
+  referenceTops: GenrePlatformReferenceTop[];
   games: CatalogGame[];
 };
 
@@ -52,6 +54,7 @@ export function buildGenreProfileView(slug: string): GenreProfileView | undefine
     gameCount: entry.gameCount,
     alsoKnownAs: formatGenreAliases(entity),
     platforms: groupGamesByPlatform(games),
+    referenceTops: getGenreReferenceTops(entry.slug),
     games,
   };
 }

@@ -114,6 +114,22 @@ def needs_wikidata_fetch(
     return True
 
 
+def sync_entity_derivatives_after_index(*, dry_run: bool = False) -> None:
+    from sync_entity_derivatives import run_sync
+
+    print("\n--- Sync entidades (validar · perfiles · tops) ---")
+    run_sync(dry_run=dry_run)
+
+
+def write_indexes(details: dict, catalog: list) -> dict:
+    indexes = build_indexes(details, catalog)
+    save_json(INDEX_DIR / "companies.json", indexes["companies"])
+    save_json(INDEX_DIR / "genres.json", indexes["genres"])
+    save_json(INDEX_DIR / "series.json", indexes["series"])
+    update_meta(indexes["stats"])
+    return indexes
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Enriquece metadatos del catálogo (Museo + PC + Wikidata)")
     parser.add_argument("--platforms", help="Slugs separados por coma")
@@ -132,6 +148,11 @@ def main() -> None:
     parser.add_argument("--no-wikidata", action="store_true", help="No consultar Wikidata")
     parser.add_argument("--no-pc", action="store_true", help="No consultar PriceCharting")
     parser.add_argument("--indexes-only", action="store_true", help="Solo regenerar índices")
+    parser.add_argument(
+        "--no-entity-sync",
+        action="store_true",
+        help="No ejecutar sync de perfiles/tops tras regenerar índices",
+    )
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
@@ -141,12 +162,12 @@ def main() -> None:
     wd_cache: dict[str, dict] = load_json(WIKIDATA_CACHE_FILE, {})
 
     if args.indexes_only:
-        indexes = build_indexes(details, catalog)
-        save_json(INDEX_DIR / "companies.json", indexes["companies"])
-        save_json(INDEX_DIR / "genres.json", indexes["genres"])
-        save_json(INDEX_DIR / "series.json", indexes["series"])
-        update_meta(indexes["stats"])
+        indexes = write_indexes(details, catalog)
         print(f"Índices: {indexes['stats']}")
+        if not args.no_entity_sync and not args.dry_run:
+            sync_entity_derivatives_after_index()
+        elif not args.no_entity_sync:
+            sync_entity_derivatives_after_index(dry_run=True)
         return
 
     platform_filter = (
@@ -309,14 +330,12 @@ def main() -> None:
         save_json(WIKIDATA_CACHE_FILE, wd_cache)
         save_json(DETAILS_FILE, details)
         save_json(CATALOG_FILE, catalog)
-        indexes = build_indexes(details, catalog)
-        save_json(INDEX_DIR / "companies.json", indexes["companies"])
-        save_json(INDEX_DIR / "genres.json", indexes["genres"])
-        save_json(INDEX_DIR / "series.json", indexes["series"])
-        update_meta(indexes["stats"])
+        indexes = write_indexes(details, catalog)
         report["indexes"] = indexes["stats"]
         report["coverage"] = coverage_stats(details, catalog)
         save_json(REPORT_FILE, report)
+        if not args.no_entity_sync:
+            sync_entity_derivatives_after_index()
 
     print(
         f"\nHecho: {report['merged']} fusionadas, "

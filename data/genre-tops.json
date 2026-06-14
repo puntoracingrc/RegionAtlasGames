@@ -1,0 +1,5259 @@
+{
+  "version": 1,
+  "generatedAt": "2026-06-14T08:25:43Z",
+  "genres": {
+    "action": {
+      "platforms": {
+        "ps4": [
+          {
+            "id": "ps4-angry-birds-star-wars",
+            "year": 2013
+          },
+          {
+            "id": "ps4-helldivers-super-earth-ultimate-edition",
+            "year": 2015
+          },
+          {
+            "id": "ps4-fist-of-the-north-star-lost-paradise",
+            "year": 2018
+          },
+          {
+            "id": "ps4-ghostbusters-the-video-game-remastered",
+            "year": 2019
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-gun",
+            "year": 2000
+          },
+          {
+            "id": "ps2-enter-the-matrix",
+            "year": 2003
+          },
+          {
+            "id": "ps2-24-the-game",
+            "year": 2006
+          },
+          {
+            "id": "ps2-lego-batman-the-video-game",
+            "year": 2008
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-donkey-kong-arcade-classics-series",
+            "year": 1986
+          },
+          {
+            "id": "nes-teenage-mutant-ninja-turtles-ii-arcade-game",
+            "year": 1989
+          },
+          {
+            "id": "nes-adventure-island-part-ii",
+            "year": 1988
+          },
+          {
+            "id": "nes-usa-bill-teds-excellent-video-game-adventure",
+            "year": 1991
+          }
+        ],
+        "wii": [
+          {
+            "id": "wii-bee-movie-game",
+            "year": 2007
+          },
+          {
+            "id": "wii-ghostbusters-the-video-game",
+            "year": 2009
+          },
+          {
+            "id": "wii-resident-evil-archives-resident-evil",
+            "year": 2009
+          },
+          {
+            "id": "wii-captain-america-super-soldier",
+            "year": 2011
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-d",
+            "year": 1996
+          },
+          {
+            "id": "ps1-marvel-super-heroes",
+            "year": 1997
+          },
+          {
+            "id": "ps1-spiderman-2-enter-electro",
+            "year": 2001
+          },
+          {
+            "id": "ps1-all-star-action",
+            "year": 2003
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-super-metroid",
+            "year": 1994
+          },
+          {
+            "id": "snes-super-star-wars-return-of-the-jedi",
+            "year": 1994
+          },
+          {
+            "id": "snes-super-mario-all-stars-and-super-mario-world",
+            "year": 1993
+          },
+          {
+            "id": "snes-super-mario-world-2-yoshi%27s-island",
+            "year": 1995
+          }
+        ],
+        "ds": [
+          {
+            "id": "ds-final-fantasy-fables-chocobo-tales",
+            "year": 2006
+          },
+          {
+            "id": "ds-dora-the-explorer-dora-saves-the-mermaids",
+            "year": 2007
+          },
+          {
+            "id": "ds-lego-star-wars-ii-original-trilogy",
+            "year": 2006
+          },
+          {
+            "id": "ds-ghostbusters-the-video-game",
+            "year": 2009
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-pal-batman-video-game",
+            "year": 1990
+          },
+          {
+            "id": "gameboy-double-dragon-3-arcade-game",
+            "year": 1990
+          },
+          {
+            "id": "gameboy-star-wars",
+            "year": 1993
+          },
+          {
+            "id": "gameboy-star-trek-next-generation",
+            "year": 1993
+          }
+        ]
+      },
+      "gameCount": 9846
+    },
+    "adventure": {
+      "platforms": {
+        "ps4": [
+          {
+            "id": "ps4-rime",
+            "year": 2017
+          },
+          {
+            "id": "ps4-witcher-3-hearts-of-stone",
+            "year": 2015
+          },
+          {
+            "id": "ps4-witcher-3-blood-and-wine",
+            "year": 2016
+          },
+          {
+            "id": "ps4-helldivers-super-earth-ultimate-edition",
+            "year": 2015
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-enter-the-matrix",
+            "year": 2003
+          },
+          {
+            "id": "ps2-50-cent-bulletproof",
+            "year": 2005
+          },
+          {
+            "id": "ps2-lego-star-wars-ii-original-trilogy",
+            "year": 2006
+          },
+          {
+            "id": "ps2-dora-the-explorer-dora-saves-the-mermaids",
+            "year": 2008
+          }
+        ],
+        "wii": [
+          {
+            "id": "wii-lego-pirates-of-the-caribbean-the-video-game",
+            "year": 2011
+          },
+          {
+            "id": "wii-mini-ninjas",
+            "year": 2009
+          },
+          {
+            "id": "wii-ghostbusters-the-video-game",
+            "year": 2009
+          },
+          {
+            "id": "wii-rio",
+            "year": 2011
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-d",
+            "year": 1996
+          },
+          {
+            "id": "ps1-one",
+            "year": 1998
+          },
+          {
+            "id": "ps1-buzz-lightyear-of-star-command",
+            "year": 2001
+          },
+          {
+            "id": "ps1-rainbow-six-lone-wolf",
+            "year": 2002
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-super-mario-world",
+            "year": 1991
+          },
+          {
+            "id": "snes-super-metroid",
+            "year": 1994
+          },
+          {
+            "id": "snes-legend",
+            "year": 1994
+          },
+          {
+            "id": "snes-super-mario-world-2-yoshi%27s-island",
+            "year": 1995
+          }
+        ],
+        "ds": [
+          {
+            "id": "ds-toy-story-3-the-video-game",
+            "year": 2007
+          },
+          {
+            "id": "ds-ghostbusters-the-video-game",
+            "year": 2009
+          },
+          {
+            "id": "ds-lego-pirates-of-the-caribbean-the-video-game",
+            "year": 2009
+          },
+          {
+            "id": "ds-adventure-time-hey-ice-king",
+            "year": 2012
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-lego-star-wars-complete-saga",
+            "year": 2007
+          },
+          {
+            "id": "ps3-ghostbusters-the-video-game",
+            "year": 2009
+          },
+          {
+            "id": "ps3-lego-batman-2-dc-super-heroes",
+            "year": 2012
+          },
+          {
+            "id": "ps3-lego-marvel-super-heroes",
+            "year": 2013
+          }
+        ],
+        "gamecube": [
+          {
+            "id": "gamecube-metroid-prime",
+            "year": 2003
+          },
+          {
+            "id": "gamecube-metroid-prime-2-echoes",
+            "year": 2004
+          },
+          {
+            "id": "gamecube-batman-vengeance",
+            "year": 2002
+          },
+          {
+            "id": "gamecube-batman-begins",
+            "year": 2005
+          }
+        ]
+      },
+      "gameCount": 7152
+    },
+    "sports": {
+      "platforms": {
+        "megadrive": [
+          {
+            "id": "megadrive-japon-naomichi-ozaki-no-super-masters",
+            "year": 1989
+          },
+          {
+            "id": "megadrive-super-kick-off",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-japon-mutant-league-football",
+            "year": 1993
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-mike-tyson%27s-punch-out-yapon-rental",
+            "year": 1987
+          },
+          {
+            "id": "nes-usa-punch-out",
+            "year": 1990
+          },
+          {
+            "id": "nes-japon-captain-tsubasa-ii-super-striker",
+            "year": 1990
+          },
+          {
+            "id": "nes-nintendo-world-cup",
+            "year": 1990
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-real-world-golf-2007",
+            "year": 2000
+          },
+          {
+            "id": "ps2-rugby",
+            "year": 2002
+          },
+          {
+            "id": "ps2-espn-nhl-hockey",
+            "year": 2003
+          },
+          {
+            "id": "ps2-mundial-2002-challenge",
+            "year": 2002
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-actua-golf",
+            "year": 1996
+          },
+          {
+            "id": "ps1-everybody%27s-golf",
+            "year": 1998
+          },
+          {
+            "id": "ps1-actua-ice-hockey",
+            "year": 1998
+          },
+          {
+            "id": "ps1-box-champions",
+            "year": 1998
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-japon-airboarder-64",
+            "year": 1997
+          },
+          {
+            "id": "n64-nintendo-64-system-nhl-99-special-value-pak",
+            "year": 1998
+          },
+          {
+            "id": "n64-all-star-baseball-2000",
+            "year": 1999
+          },
+          {
+            "id": "n64-usa-all-star-baseball-2001",
+            "year": 2000
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-baseball",
+            "year": 1990
+          },
+          {
+            "id": "gameboy-nintendo-world-cup",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-nba-all-star-challenge",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-alien-olympics",
+            "year": 1994
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-japan-super-bass-classic-96",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-nippon-daihyou-team-no-kantoku-ninarou-sekaihatsu-soccer-rpg",
+            "year": 1998
+          },
+          {
+            "id": "saturn-virtual-open-tennis",
+            "year": 1996
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-nba-2k",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-pal-tony-hawks-pro-skater-2",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-pal-nba-2k2",
+            "year": 2001
+          },
+          {
+            "id": "dreamcast-japon-ganbare-nippon-olympics-2000",
+            "year": 2000
+          }
+        ]
+      },
+      "gameCount": 2132
+    },
+    "platformer": {
+      "platforms": {
+        "nes": [
+          {
+            "id": "nes-adventure-island-in-the-pacific",
+            "year": 1986
+          },
+          {
+            "id": "nes-adventure-island-part-ii",
+            "year": 1988
+          },
+          {
+            "id": "nes-usa-adventure-island-ii",
+            "year": 1991
+          },
+          {
+            "id": "nes-usa-adventure-island-3",
+            "year": 1992
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-pal-batman-video-game",
+            "year": 1990
+          },
+          {
+            "id": "gameboy-japon-akumajo-special-boku-dracula-kun",
+            "year": 1993
+          },
+          {
+            "id": "gameboy-aladdin",
+            "year": 1994
+          },
+          {
+            "id": "gameboy-animaniacs",
+            "year": 1995
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-sega-mega-drive-sonic-the-hedgehog-bundle",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-japon-michael-jacksons-moonwalker",
+            "year": 1990
+          },
+          {
+            "id": "megadrive-japon-mcdonalds-treasure-land-adventure",
+            "year": 1993
+          },
+          {
+            "id": "megadrive-japon-dynamite-headdy",
+            "year": 1994
+          }
+        ],
+        "gamegear": [
+          {
+            "id": "gamegear-man-overboard",
+            "year": 1993
+          },
+          {
+            "id": "gamegear-pal-sonic-hedgehog-triple-trouble",
+            "year": 1994
+          },
+          {
+            "id": "gamegear-pal-ristar",
+            "year": 1995
+          },
+          {
+            "id": "gamegear-bugs-bunny-in-double-trouble",
+            "year": 1996
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-slain-back-from-hell",
+            "year": 2016
+          },
+          {
+            "id": "ps4-valfaris",
+            "year": 2018
+          },
+          {
+            "id": "ps4-hollow-knight",
+            "year": 2019
+          },
+          {
+            "id": "ps4-celeste",
+            "year": 2023
+          }
+        ],
+        "mastersystem": [
+          {
+            "id": "mastersystem-alex-kidd-miracle-world",
+            "year": 1986
+          },
+          {
+            "id": "mastersystem-usa-alex-kidd-lost-stars",
+            "year": 1988
+          },
+          {
+            "id": "mastersystem-alex-kidd-shinobi-world",
+            "year": 1990
+          },
+          {
+            "id": "mastersystem-master-darkness",
+            "year": 1992
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-banjo-kazooie",
+            "year": 1998
+          },
+          {
+            "id": "n64-banjo-tooie",
+            "year": 2001
+          },
+          {
+            "id": "n64-a-bug%27s-life",
+            "year": 1999
+          },
+          {
+            "id": "n64-blues-brothers-2000",
+            "year": 2000
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-nights-dreams-sega-saturn-collection",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-rockman-x4-sega-saturn-collection",
+            "year": 1998
+          },
+          {
+            "id": "saturn-japon-super-tempo",
+            "year": 1998
+          },
+          {
+            "id": "saturn-usa-bubble-bobble-also-featuring-rainbow-islands",
+            "year": 1996
+          }
+        ]
+      },
+      "gameCount": 1852
+    },
+    "racing": {
+      "platforms": {
+        "ps2": [
+          {
+            "id": "ps2-international-super-karts",
+            "year": 2000
+          },
+          {
+            "id": "ps2-star-wars-racer-revenge",
+            "year": 2000
+          },
+          {
+            "id": "ps2-gran-turismo-4",
+            "year": 2005
+          },
+          {
+            "id": "ps2-moto-x-maniac",
+            "year": 2007
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-micro-machines-v3",
+            "year": 1997
+          },
+          {
+            "id": "ps1-rock-&amp;-roll-racing-2-red-asphalt",
+            "year": 1997
+          },
+          {
+            "id": "ps1-ctr-crash-team-racing",
+            "year": 1999
+          },
+          {
+            "id": "ps1-micro-maniacs",
+            "year": 2000
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-usa-f-1-world-grand-prix",
+            "year": 1998
+          },
+          {
+            "id": "n64-japon-human-grand-prix-new-generation",
+            "year": 1997
+          },
+          {
+            "id": "n64-f1-world-grand-prix-ii",
+            "year": 1999
+          },
+          {
+            "id": "n64-monaco-grand-prix-2-racing-simulation",
+            "year": 1999
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-pal-sega-rally-2-sega-rally-championship",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-japon-sega-gt-homologation-special",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-pal-daytona-usa-2001",
+            "year": 2001
+          },
+          {
+            "id": "dreamcast-crazy-taxi-2",
+            "year": 2000
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-crash-team-racing-nitro-fueled-nitros-oxide-edition",
+            "year": 2019
+          },
+          {
+            "id": "ps4-gran-turismo-sport",
+            "year": 2017
+          },
+          {
+            "id": "ps4-onrush",
+            "year": 2018
+          },
+          {
+            "id": "ps4-sonic-team-racing",
+            "year": 2019
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-full-auto-2-battlelines",
+            "year": 2007
+          },
+          {
+            "id": "ps3-gran-turismo-5-prologue",
+            "year": 2008
+          },
+          {
+            "id": "ps3-burnout-paradise",
+            "year": 2008
+          },
+          {
+            "id": "ps3-gran-turismo-6",
+            "year": 2013
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-sega-rally-championship",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-sega-ages-out-run",
+            "year": 1996
+          },
+          {
+            "id": "saturn-sega-touring-car-championship",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-sonic-r",
+            "year": 1997
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-japon-bump-n-jump",
+            "year": 1986
+          },
+          {
+            "id": "nes-japon-family-circuit",
+            "year": 1988
+          },
+          {
+            "id": "nes-usa-days-thunder",
+            "year": 1990
+          },
+          {
+            "id": "nes-danny-sullivan%27s-indy-heat",
+            "year": 1992
+          }
+        ]
+      },
+      "gameCount": 1584
+    },
+    "shooter": {
+      "platforms": {
+        "nes": [
+          {
+            "id": "nes-japon-front-line",
+            "year": 1985
+          },
+          {
+            "id": "nes-usa-1942",
+            "year": 1986
+          },
+          {
+            "id": "nes-usa-operation-wolf",
+            "year": 1989
+          },
+          {
+            "id": "nes-japon-abadox",
+            "year": 1989
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-star-wars-battlefront-ii",
+            "year": 2017
+          },
+          {
+            "id": "ps4-huntdown",
+            "year": 2020
+          },
+          {
+            "id": "ps4-natsuki-chronicles",
+            "year": 2022
+          },
+          {
+            "id": "ps4-ginga-force",
+            "year": 2023
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-japon-atomic-robo-kid",
+            "year": 1990
+          },
+          {
+            "id": "megadrive-japon-kuuga-operation-code-vapor-trail",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-thunder-force-iv",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-the-chaos-engine",
+            "year": 1993
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-usa-corpse-killer-graveyard-edition",
+            "year": 1994
+          },
+          {
+            "id": "saturn-japon-layer-section-sega-saturn-collection",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-house-dead-sega-saturn-collection",
+            "year": 1999
+          },
+          {
+            "id": "saturn-japon-gun-griffon-eurasian-conflict-sega-saturn-collection",
+            "year": 1998
+          }
+        ],
+        "mastersystem": [
+          {
+            "id": "mastersystem-usa-rambo-first-blood-part-ii",
+            "year": 1986
+          },
+          {
+            "id": "mastersystem-fantasy-zone-maze",
+            "year": 1986
+          },
+          {
+            "id": "mastersystem-operation-wolf",
+            "year": 1988
+          },
+          {
+            "id": "mastersystem-line-fire",
+            "year": 1991
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-pal-blue-stinger",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-pal-cannon-spike",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-japon-ikaruga",
+            "year": 2002
+          },
+          {
+            "id": "dreamcast-rez",
+            "year": 2002
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-007-quantum-of-solace",
+            "year": 2008
+          },
+          {
+            "id": "ps3-battlefield-3",
+            "year": 2011
+          },
+          {
+            "id": "ps3-spec-ops-the-line",
+            "year": 2012
+          },
+          {
+            "id": "ps3-bioshock-infinite",
+            "year": 2013
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-007-agent-under-fire",
+            "year": 2001
+          },
+          {
+            "id": "ps2-star-wars-battlefront",
+            "year": 2004
+          },
+          {
+            "id": "ps2-call-of-duty-2-big-red-one",
+            "year": 2005
+          },
+          {
+            "id": "ps2-black",
+            "year": 2006
+          }
+        ]
+      },
+      "gameCount": 1539
+    },
+    "rpg": {
+      "platforms": {
+        "ps4": [
+          {
+            "id": "ps4-legend-of-heroes-trails-of-cold-steel",
+            "year": 2019
+          },
+          {
+            "id": "ps4-tales-of-berseria",
+            "year": 2017
+          },
+          {
+            "id": "ps4-cris-tales",
+            "year": 2021
+          },
+          {
+            "id": "ps4-tales-of-arise",
+            "year": 2021
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-japon-king-kong-2-ikari-no-megaton-punch",
+            "year": 1986
+          },
+          {
+            "id": "nes-japon-arabian-dream-scheherazade",
+            "year": 1987
+          },
+          {
+            "id": "nes-japon-kawa-no-nushi-tsuri",
+            "year": 1990
+          },
+          {
+            "id": "nes-japon-bards-tale-ii-destiny-knight",
+            "year": 1992
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-shin-megami-tensei-devil-summoner",
+            "year": 1995
+          },
+          {
+            "id": "saturn-usa-albert-odyssey-legend-eldean",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-langrisser-iii-sega-saturn-collection",
+            "year": 1998
+          },
+          {
+            "id": "saturn-japon-falcom-classics-sega-saturn-collection",
+            "year": 1999
+          }
+        ],
+        "ds": [
+          {
+            "id": "ds-children-of-mana",
+            "year": 2007
+          },
+          {
+            "id": "ds-dragon-quest-iv-chapters-of-the-chosen",
+            "year": 2007
+          },
+          {
+            "id": "ds-dragon-quest-ix-sentinels-of-the-starry-skies",
+            "year": 2010
+          },
+          {
+            "id": "ds-pokemon-heartgold-version",
+            "year": 2010
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-super-hydlide",
+            "year": 1989
+          },
+          {
+            "id": "megadrive-shining-in-the-darkness",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-shining-force",
+            "year": 1993
+          },
+          {
+            "id": "megadrive-phantasy-star-iv",
+            "year": 1994
+          }
+        ],
+        "3ds": [
+          {
+            "id": "3ds-bravely-default",
+            "year": 2013
+          },
+          {
+            "id": "3ds-etrian-odyssey-iv-legends-of-the-titan",
+            "year": 2013
+          },
+          {
+            "id": "3ds-dragon-quest-vii-fragments-of-the-forgotten-past",
+            "year": 2016
+          },
+          {
+            "id": "3ds-ever-oasis",
+            "year": 2017
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-tales-of-graces-f",
+            "year": 2012
+          },
+          {
+            "id": "ps3-tales-of-xillia",
+            "year": 2013
+          },
+          {
+            "id": "ps3-tales-of-symphonia-chronicles",
+            "year": 2014
+          },
+          {
+            "id": "ps3-ar-nosurge-ode-to-an-unborn-star",
+            "year": 2014
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-japon-shenmue",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-japon-seventh-cross-evolution",
+            "year": 1998
+          },
+          {
+            "id": "dreamcast-pal-skies-arcadia",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-phantasy-star-online",
+            "year": 2000
+          }
+        ]
+      },
+      "gameCount": 1221
+    },
+    "fighting": {
+      "platforms": {
+        "megadrive": [
+          {
+            "id": "megadrive-japon-thunder-fox",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-japon-splatterhouse-part-2",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-pal-streets-rage-3",
+            "year": 1994
+          },
+          {
+            "id": "megadrive-japon-mortal-kombat-ii-kyuukyoku-shinken",
+            "year": 1994
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-bishoujo-senshi-sailor-moon-super-s-various-emotion",
+            "year": 1996
+          },
+          {
+            "id": "saturn-king-fighters-95",
+            "year": null
+          },
+          {
+            "id": "saturn-japon-street-fighter-zero-2-sega-saturn-collection",
+            "year": 1998
+          },
+          {
+            "id": "saturn-japon-marvel-super-heroes-vs-street-fighter",
+            "year": 1998
+          }
+        ],
+        "neogeo": [
+          {
+            "id": "neogeo-fatal-fury-king-fighters",
+            "year": 1991
+          },
+          {
+            "id": "neogeo-fatal-fury-2",
+            "year": 1993
+          },
+          {
+            "id": "neogeo-samurai-shodown",
+            "year": 1993
+          },
+          {
+            "id": "neogeo-samurai-shodown-4-amakusas-revenge",
+            "year": 1996
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-dragon-ball-z-super-butoden",
+            "year": 1993
+          },
+          {
+            "id": "snes-art-of-fighting",
+            "year": 1993
+          },
+          {
+            "id": "snes-super-street-fighter-ii",
+            "year": 1994
+          },
+          {
+            "id": "snes-japon-super-tekkyuu-fight",
+            "year": 1995
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-power-stone-2",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-pal-marvel-vs-capcom-2",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-pal-street-fighter-iii-double-impact",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-pal-project-justice-rival-schools-2",
+            "year": 2001
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-japon-custom-robo",
+            "year": 1999
+          },
+          {
+            "id": "n64-usa-dual-heroes",
+            "year": 1998
+          },
+          {
+            "id": "n64-pal-clayfighter-63-13",
+            "year": 1997
+          },
+          {
+            "id": "n64-japon-nintendo-all-star-dairantou-smash-brothers",
+            "year": 1999
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-tekken-5",
+            "year": 2005
+          },
+          {
+            "id": "ps2-tekken-4",
+            "year": 2002
+          },
+          {
+            "id": "ps2-tekken-tag-tournament",
+            "year": 2000
+          },
+          {
+            "id": "ps2-dragon-ball-z-budokai",
+            "year": 2002
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-jojo%27s-bizarre-adventure-all-star-battle-r",
+            "year": 2022
+          },
+          {
+            "id": "ps4-ufc",
+            "year": 2014
+          },
+          {
+            "id": "ps4-mortal-kombat-11",
+            "year": 2019
+          },
+          {
+            "id": "ps4-injustice-2-legendary-edition",
+            "year": 2018
+          }
+        ]
+      },
+      "gameCount": 1122
+    },
+    "puzzle": {
+      "platforms": {
+        "ds": [
+          {
+            "id": "ds-tetris-ds",
+            "year": 2006
+          },
+          {
+            "id": "ds-super-fun-sudoku",
+            "year": 2007
+          },
+          {
+            "id": "ds-roogoo-attack",
+            "year": 2008
+          },
+          {
+            "id": "ds-tetris-party-deluxe",
+            "year": 2009
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-pal-spot-video-game",
+            "year": 1992
+          },
+          {
+            "id": "gameboy-franky-joe-dirk-tiles",
+            "year": 1993
+          },
+          {
+            "id": "gameboy-pal-kirbys-star-stacker",
+            "year": 1998
+          },
+          {
+            "id": "gameboy-adventures-lolo",
+            "year": 1995
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-japon-dr-mario",
+            "year": 1990
+          },
+          {
+            "id": "nes-japon-flipull-exciting-cube-game",
+            "year": 1989
+          },
+          {
+            "id": "nes-japon-yoshi-no-cookie",
+            "year": 1992
+          },
+          {
+            "id": "nes-pal-yoshis-cookie",
+            "year": 1994
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-game-no-tetsujin-shanghai",
+            "year": 1995
+          },
+          {
+            "id": "saturn-usa-bust-move-2-arcade-edition",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-puyo-puyo-sun-sega-saturn-collection",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-puzzle-bobble-3-edicion-para-seganet",
+            "year": 1997
+          }
+        ],
+        "3ds": [
+          {
+            "id": "3ds-puzzler-world-2012-3d",
+            "year": 2012
+          },
+          {
+            "id": "3ds-cubic-ninja",
+            "year": 2011
+          },
+          {
+            "id": "3ds-mario-and-donkey-kong-minis-on-the-move-&#43;-minis-march-again",
+            "year": 2015
+          },
+          {
+            "id": "3ds-captain-toad-treasure-tracker",
+            "year": 2018
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-yoshi%27s-cookie",
+            "year": 1993
+          },
+          {
+            "id": "snes-tetris-and-dr-mario",
+            "year": 1994
+          },
+          {
+            "id": "snes-japon-mario-no-super-picross",
+            "year": 1995
+          },
+          {
+            "id": "snes-puzzle-bobble",
+            "year": 1995
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-usa-shove-it-warehouse-game",
+            "year": 1990
+          },
+          {
+            "id": "megadrive-japon-puyo-puyo",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-usa-pac-attack",
+            "year": 1993
+          },
+          {
+            "id": "megadrive-usa-columns-iii",
+            "year": 1994
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-flockers",
+            "year": 2014
+          },
+          {
+            "id": "ps4-bridge-constructor-compilation",
+            "year": 2018
+          },
+          {
+            "id": "ps4-bugsnax",
+            "year": 2020
+          },
+          {
+            "id": "ps4-catherine-full-body",
+            "year": 2019
+          }
+        ]
+      },
+      "gameCount": 938
+    },
+    "other": {
+      "platforms": {
+        "ds": [
+          {
+            "id": "ds-metroid-prime-pinball",
+            "year": 2005
+          },
+          {
+            "id": "ds-animal-crossing-wild-world",
+            "year": 2005
+          },
+          {
+            "id": "ds-1001-touch-games",
+            "year": 2007
+          },
+          {
+            "id": "ds-grey%27s-anatomy-the-video-game",
+            "year": 2009
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-super-aleste",
+            "year": 1992
+          },
+          {
+            "id": "snes-usa-super-caesars-palace",
+            "year": 1993
+          },
+          {
+            "id": "snes-japon-super-casino-2",
+            "year": 1994
+          },
+          {
+            "id": "snes-air-cavalry",
+            "year": 1995
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-eyetoy-play-pom-pom-party",
+            "year": 1999
+          },
+          {
+            "id": "ps2-play-it-chess-challenger",
+            "year": 2000
+          },
+          {
+            "id": "ps2-buzz-the-big-quiz",
+            "year": 2006
+          },
+          {
+            "id": "ps2-aqua-teen-hunger-force-zombie-ninja-pro-am",
+            "year": 2007
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-acdc-live-rock-band",
+            "year": 2009
+          },
+          {
+            "id": "ps3-blazing-angels-2-secret-missions-of-wwii",
+            "year": 2007
+          },
+          {
+            "id": "ps3-dance-dance-revolution-new-moves",
+            "year": 2011
+          },
+          {
+            "id": "ps3-just-dance-2017",
+            "year": 2016
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-sega-saturn-cg-collection",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-angel-paradise-vol-1-koi-no-yokan-sakaki-yuko-hollywood",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-devil-summoner-soul-hackers-akuma-zensho-dainishuu",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-find-love-2-prologue",
+            "year": 1998
+          }
+        ],
+        "megacd": [
+          {
+            "id": "megacd-usa-marky-mark-and-funky-bunch-make-my-video",
+            "year": 1992
+          },
+          {
+            "id": "megacd-sega-classics-arcade-collection-limited-edition",
+            "year": 1992
+          },
+          {
+            "id": "megacd-usa-dracula-unleashed",
+            "year": 1993
+          },
+          {
+            "id": "megacd-pal-dragons-lair",
+            "year": 1994
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-ace-combat-2",
+            "year": 1997
+          },
+          {
+            "id": "ps1-caesar%27s-palace",
+            "year": 1998
+          },
+          {
+            "id": "ps1-dancing-stage-disney-mix",
+            "year": 2001
+          },
+          {
+            "id": "ps1-blue%27s-clues-blue%27s-big-musical",
+            "year": 2001
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-japon-family-basic",
+            "year": 1984
+          },
+          {
+            "id": "nes-japon-family-trainer-meiro-daisakusen",
+            "year": 1987
+          },
+          {
+            "id": "nes-usa-family-feud",
+            "year": 1991
+          },
+          {
+            "id": "nes-usa-wheel-fortune-family-edition",
+            "year": 1990
+          }
+        ]
+      },
+      "gameCount": 811
+    },
+    "simulation": {
+      "platforms": {
+        "saturn": [
+          {
+            "id": "saturn-japon-sakura-taisen",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-civilization-shin-sekai-nadaibunmei",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-princess-maker-2-sega-saturn-collection",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-j-league-pro-soccer-club-wo-tsukurou-2-sega-saturn-collection",
+            "year": 1999
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-the-sims-4-x-star-wars-bundle-journey-to-batuu",
+            "year": 2020
+          },
+          {
+            "id": "ps4-ace-combat-7-skies-unknown-strangereal-edition",
+            "year": 2019
+          },
+          {
+            "id": "ps4-birthdays-the-beginning",
+            "year": 2017
+          },
+          {
+            "id": "ps4-bus-simulator",
+            "year": 2018
+          }
+        ],
+        "ds": [
+          {
+            "id": "ds-harvest-moon",
+            "year": 2005
+          },
+          {
+            "id": "ds-nintendogs-dachshund-and-friends",
+            "year": 2005
+          },
+          {
+            "id": "ds-baby-life",
+            "year": 2009
+          },
+          {
+            "id": "ds-city-life-ds",
+            "year": 2008
+          }
+        ],
+        "3ds": [
+          {
+            "id": "3ds-animal-crossing-new-leaf-welcome-amiibo",
+            "year": 2016
+          },
+          {
+            "id": "3ds-farming-simulator-2012-3d",
+            "year": 2012
+          },
+          {
+            "id": "3ds-farming-simulator-14",
+            "year": 2013
+          },
+          {
+            "id": "3ds-harvest-moon-3d-a-new-beginning",
+            "year": 2013
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-simcity",
+            "year": 1991
+          },
+          {
+            "id": "snes-pilotwings",
+            "year": 1991
+          },
+          {
+            "id": "snes-usa-harvest-moon",
+            "year": 1997
+          },
+          {
+            "id": "snes-japon-derby-stallion-98",
+            "year": 1998
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-populous",
+            "year": 1990
+          },
+          {
+            "id": "megadrive-688-attack-sub",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-usa-aerobiz",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-theme-park",
+            "year": 1995
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-reel-fishing-iii",
+            "year": 2000
+          },
+          {
+            "id": "ps2-dsf-fussball-manager-2002",
+            "year": 2002
+          },
+          {
+            "id": "ps2-the-sims",
+            "year": 2003
+          },
+          {
+            "id": "ps2-the-sims-2",
+            "year": 2005
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-japon-airforce-delta",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-usa-seaman",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-aerowings",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-aerowings-2",
+            "year": 1999
+          }
+        ]
+      },
+      "gameCount": 679
+    },
+    "soccer": {
+      "platforms": {
+        "ps2": [
+          {
+            "id": "ps2-pro-evolution-soccer",
+            "year": 2001
+          },
+          {
+            "id": "ps2-pro-evolution-soccer-2",
+            "year": 2002
+          },
+          {
+            "id": "ps2-pro-evolution-soccer-2008",
+            "year": 2007
+          },
+          {
+            "id": "ps2-pro-evolution-soccer-2011",
+            "year": 2010
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-namco-soccer-prime-goal",
+            "year": 1996
+          },
+          {
+            "id": "ps1-4-4-2-soccer",
+            "year": 1997
+          },
+          {
+            "id": "ps1-pro-evolution-soccer",
+            "year": 2002
+          },
+          {
+            "id": "ps1-2002-fifa-world-cup",
+            "year": 2002
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-euro-football-champ",
+            "year": 1992
+          },
+          {
+            "id": "snes-usa-super-play-action-football",
+            "year": 1992
+          },
+          {
+            "id": "snes-fifa-international-soccer",
+            "year": 1994
+          },
+          {
+            "id": "snes-fifa-soccer-96",
+            "year": 1995
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-japon-world-cup-soccer",
+            "year": 1989
+          },
+          {
+            "id": "megadrive-world-cup-italia-%2790",
+            "year": 1990
+          },
+          {
+            "id": "megadrive-international-sensible-soccer",
+            "year": 1993
+          },
+          {
+            "id": "megadrive-pal-fifa-soccer-96",
+            "year": 1995
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-fifa-08",
+            "year": 2007
+          },
+          {
+            "id": "ps3-fifa-10",
+            "year": 2009
+          },
+          {
+            "id": "ps3-fifa-13",
+            "year": 2012
+          },
+          {
+            "id": "ps3-fifa-14",
+            "year": 2013
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-uefa-euro-96-england",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-sega-worldwide-soccer-98",
+            "year": 1998
+          },
+          {
+            "id": "saturn-japon-j-league-pro-soccer-club-wo-tsukurou-2-sega-saturn-collection",
+            "year": 1999
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-pal-soccer-classic-series",
+            "year": 1985
+          },
+          {
+            "id": "nes-japon-captain-tsubasa",
+            "year": 1988
+          },
+          {
+            "id": "nes-tecmo-cup-football-game",
+            "year": 1992
+          },
+          {
+            "id": "nes-japon-j-league-super-top-players",
+            "year": 1994
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-nintendo-world-cup",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-football-international",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-usa-fifa-international-soccer",
+            "year": 1995
+          },
+          {
+            "id": "gameboy-international-superstar-soccer",
+            "year": 1998
+          }
+        ]
+      },
+      "gameCount": 663
+    },
+    "strategy": {
+      "platforms": {
+        "nes": [
+          {
+            "id": "nes-japon-america-daitouryou-senkyo-united-state-presidental-race",
+            "year": 1988
+          },
+          {
+            "id": "nes-japon-aoki-ookami-shiroki-meshika-genghis-khan",
+            "year": 1989
+          },
+          {
+            "id": "nes-japon-dai-2-ji-super-robot-taisen",
+            "year": 1991
+          },
+          {
+            "id": "nes-battleship",
+            "year": 1993
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-quovadis",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-dragon-force",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-command-conquer-sega-saturn-collection",
+            "year": null
+          },
+          {
+            "id": "saturn-japon-langrisser-iii-sega-saturn-collection",
+            "year": 1998
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-astroneer",
+            "year": 2016
+          },
+          {
+            "id": "ps4-civilization-vi",
+            "year": 2019
+          },
+          {
+            "id": "ps4-13-sentinels-aegis-rim",
+            "year": 2020
+          },
+          {
+            "id": "ps4-persona-5-tactica",
+            "year": 2023
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-populous",
+            "year": 1990
+          },
+          {
+            "id": "megadrive-king%27s-bounty",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-japon-nobunaga-no-yabou-zenkokuban",
+            "year": 1993
+          },
+          {
+            "id": "megadrive-general-chaos",
+            "year": 1993
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-pal-worms-armageddon",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-pal-worms-world-party",
+            "year": 2001
+          },
+          {
+            "id": "dreamcast-conflict-zone",
+            "year": 2001
+          },
+          {
+            "id": "dreamcast-japon-advanced-daisenryaku-2001",
+            "year": 2001
+          }
+        ],
+        "ds": [
+          {
+            "id": "ds-advance-wars-dual-strike",
+            "year": 2005
+          },
+          {
+            "id": "ds-age-of-empires-the-age-of-kings",
+            "year": 2006
+          },
+          {
+            "id": "ds-advance-wars-dark-conflict",
+            "year": 2008
+          },
+          {
+            "id": "ds-civilization-revolution",
+            "year": 2008
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-japon-ogre-battle-64-person-lordly-caliber",
+            "year": 1999
+          },
+          {
+            "id": "n64-japon-super-robot-taisen-64",
+            "year": 1999
+          },
+          {
+            "id": "n64-pal-command-conquer",
+            "year": 1999
+          },
+          {
+            "id": "n64-usa-battlezone-rise-black-dogs",
+            "year": 2000
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-populous",
+            "year": 1991
+          },
+          {
+            "id": "snes-metal-marines",
+            "year": 1993
+          },
+          {
+            "id": "snes-king-arthur%27s-world",
+            "year": 1994
+          },
+          {
+            "id": "snes-mega-lo-mania",
+            "year": 1994
+          }
+        ]
+      },
+      "gameCount": 576
+    },
+    "beat-em-up": {
+      "platforms": {
+        "ps4": [
+          {
+            "id": "ps4-nickelodeon-all-star-brawl",
+            "year": 2021
+          },
+          {
+            "id": "ps4-huntdown",
+            "year": 2020
+          },
+          {
+            "id": "ps4-double-dragon-gaiden-rise-of-the-dragons",
+            "year": 2023
+          },
+          {
+            "id": "ps4-mayhem-brawler",
+            "year": 2022
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-japon-splatterhouse-part-2",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-pal-teenage-mutant-hero-turtles-hyperstone-heist",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-pal-streets-rage-3",
+            "year": 1994
+          },
+          {
+            "id": "megadrive-the-punisher",
+            "year": 1994
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-usa-bad-street-brawler",
+            "year": 1989
+          },
+          {
+            "id": "nes-double-dragon-ii",
+            "year": 1988
+          },
+          {
+            "id": "nes-adventures-of-bayou-billy",
+            "year": 1991
+          },
+          {
+            "id": "nes-pal-battletoads-double-dragon",
+            "year": 1993
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-japon-double-dragon",
+            "year": 1990
+          },
+          {
+            "id": "gameboy-pal-double-dragon-ii",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-battletoads",
+            "year": 1993
+          },
+          {
+            "id": "gameboy-usa-battletoads-double-dragon-ultimate-team",
+            "year": null
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-mortal-kombat-shaolin-monks",
+            "year": 2005
+          },
+          {
+            "id": "ps2-final-fight-streetwise",
+            "year": 2006
+          },
+          {
+            "id": "ps2-urban-reign",
+            "year": 2006
+          },
+          {
+            "id": "ps2-dragon-ball-z-infinite-world",
+            "year": 2008
+          }
+        ],
+        "mastersystem": [
+          {
+            "id": "mastersystem-my-hero-sega-card",
+            "year": 1986
+          },
+          {
+            "id": "mastersystem-black-belt",
+            "year": 1986
+          },
+          {
+            "id": "mastersystem-double-dragon",
+            "year": 1988
+          },
+          {
+            "id": "mastersystem-golden-axe",
+            "year": 1989
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-usa-guardian-heroes",
+            "year": 1996
+          },
+          {
+            "id": "saturn-usa-die-hard-arcade",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-dynamite-deka",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-arcade-gears-pu-li-ru-la",
+            "year": null
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-japon-zombie-revenge",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-pal-dynamite-cop",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-nightmare-creatures-2",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-sword-berserk",
+            "year": 2000
+          }
+        ]
+      },
+      "gameCount": 515
+    },
+    "board": {
+      "platforms": {
+        "nes": [
+          {
+            "id": "nes-japon-lunar-ball",
+            "year": 1985
+          },
+          {
+            "id": "nes-usa-archon",
+            "year": 1989
+          },
+          {
+            "id": "nes-usa-battle-chess",
+            "year": 1990
+          },
+          {
+            "id": "nes-chessmaster",
+            "year": 1990
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-super-real-mahjong-p-vi",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-pro-mahjong-kiwame-s-sega-saturn-collection",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-culdcept-sega-saturn-collection",
+            "year": null
+          },
+          {
+            "id": "saturn-japon-momotarou-douchuki-sega-saturn-collection",
+            "year": 1998
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-japon-mahjong-ii-special",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-sonic-shuffle",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-japon-culdcept-2",
+            "year": 2001
+          },
+          {
+            "id": "dreamcast-japon-net-versus-chess",
+            "year": 2001
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-pal-othello",
+            "year": 1990
+          },
+          {
+            "id": "gameboy-usa-monopoly",
+            "year": 1992
+          },
+          {
+            "id": "gameboy-japon-ishida-yoshio-no-tsumego-paradise",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-pal-solitaire-funpak",
+            "year": 1994
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-japon-64-trump-collection-alice-no-waku-waku-trump-world",
+            "year": 1998
+          },
+          {
+            "id": "n64-usa-monopoly",
+            "year": 1999
+          },
+          {
+            "id": "n64-japon-jinsei-game-64",
+            "year": 1999
+          },
+          {
+            "id": "n64-japon-ide-yosuke-no-mahjong-juku",
+            "year": 2000
+          }
+        ],
+        "ds": [
+          {
+            "id": "ds-card-games-the-classics",
+            "year": 2004
+          },
+          {
+            "id": "ds-best-of-card-games-ds",
+            "year": 2006
+          },
+          {
+            "id": "ds-catan",
+            "year": 2009
+          },
+          {
+            "id": "ds-monopoly",
+            "year": 2010
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-usa-monopoly-parker-brothers-real-estate-trading-game",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-usa-clue-parker-brothers-classic-detective-game",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-usa-risk-parker-brothers-world-conquest-game",
+            "year": 1994
+          },
+          {
+            "id": "megadrive-usa-championship-pool",
+            "year": 1993
+          }
+        ],
+        "gamegear": [
+          {
+            "id": "gamegear-chessmaster",
+            "year": 1991
+          },
+          {
+            "id": "gamegear-japon-taisen-mahjong-haopai",
+            "year": 1990
+          },
+          {
+            "id": "gamegear-usa-battleship",
+            "year": 1993
+          },
+          {
+            "id": "gamegear-japon-super-momotarou-dentetsu-iii",
+            "year": 1995
+          }
+        ]
+      },
+      "gameCount": 338
+    },
+    "basketball": {
+      "platforms": {
+        "megadrive": [
+          {
+            "id": "megadrive-super-real-basketball",
+            "year": 1990
+          },
+          {
+            "id": "megadrive-pal-lakers-versus-celtics-and-nba-playoffs",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-japon-nba-jam",
+            "year": 1994
+          },
+          {
+            "id": "megadrive-pal-nba-live-96",
+            "year": 1995
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-usa-tecmo-super-nba-basketball",
+            "year": 1905
+          },
+          {
+            "id": "snes-bulls-vs-blazers-and-the-nba-playoffs",
+            "year": 1992
+          },
+          {
+            "id": "snes-nba-all-star-challenge",
+            "year": 1992
+          },
+          {
+            "id": "snes-nba-jam",
+            "year": 1994
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-kidz-sports-basketball",
+            "year": 2000
+          },
+          {
+            "id": "ps2-nba-2k9",
+            "year": 2008
+          },
+          {
+            "id": "ps2-nba-08",
+            "year": 2007
+          },
+          {
+            "id": "ps2-nba-2k10",
+            "year": 2009
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-nba-jam-extreme",
+            "year": 1996
+          },
+          {
+            "id": "ps1-nba-live-96",
+            "year": 1996
+          },
+          {
+            "id": "ps1-nba-live-2000",
+            "year": 1999
+          },
+          {
+            "id": "ps1-nba-hoopz",
+            "year": 2001
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-nba-hangtime",
+            "year": 1997
+          },
+          {
+            "id": "n64-usa-nba-jam-99",
+            "year": 1998
+          },
+          {
+            "id": "n64-usa-nba-zone-2000",
+            "year": 2000
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-from-tv-animation-slam-dunk-i-love-basketball",
+            "year": 1995
+          },
+          {
+            "id": "saturn-usa-nba-live-97",
+            "year": 1997
+          },
+          {
+            "id": "saturn-usa-nba-action-98",
+            "year": 1997
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-nba-all-star-challenge",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-japon-super-street-basketball",
+            "year": 1992
+          },
+          {
+            "id": "gameboy-nba-jam",
+            "year": 1994
+          },
+          {
+            "id": "gameboy-pal-nba-live-96",
+            "year": 1996
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-nba-2k11",
+            "year": 2010
+          },
+          {
+            "id": "ps3-nba-2k12",
+            "year": 2011
+          },
+          {
+            "id": "ps3-nba-2k13",
+            "year": 2012
+          },
+          {
+            "id": "ps3-nba-08",
+            "year": 2008
+          }
+        ]
+      },
+      "gameCount": 294
+    },
+    "music": {
+      "platforms": {
+        "ps2": [
+          {
+            "id": "ps2-britney%27s-dance-beat",
+            "year": 2002
+          },
+          {
+            "id": "ps2-amplitude",
+            "year": 2003
+          },
+          {
+            "id": "ps2-dance-uk",
+            "year": 2003
+          },
+          {
+            "id": "ps2-dj-hero",
+            "year": 2009
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-guitar-hero-iii-legends-of-rock",
+            "year": 2007
+          },
+          {
+            "id": "ps3-guitar-hero-world-tour",
+            "year": 2008
+          },
+          {
+            "id": "ps3-dj-hero",
+            "year": 2009
+          }
+        ],
+        "wii": [
+          {
+            "id": "wii-guitar-hero-iii-legends-of-rock",
+            "year": 2007
+          },
+          {
+            "id": "wii-dance-dance-revolution-hottest-party",
+            "year": 2008
+          },
+          {
+            "id": "wii-band-hero",
+            "year": 2009
+          },
+          {
+            "id": "wii-def-jam-rapstar",
+            "year": 2010
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-tu-cara-me-suena-el-videojuego",
+            "year": 2018
+          },
+          {
+            "id": "ps4-theatrhythm-final-bar-line",
+            "year": 2023
+          },
+          {
+            "id": "ps4-just-dance-2020",
+            "year": 2019
+          },
+          {
+            "id": "ps4-kingdom-hearts-melody-of-memory",
+            "year": 2020
+          }
+        ],
+        "ds": [
+          {
+            "id": "ds-elite-beat-agents",
+            "year": 2006
+          },
+          {
+            "id": "ds-dj-star",
+            "year": 2009
+          },
+          {
+            "id": "ds-maestro-jump-in-music",
+            "year": 2009
+          },
+          {
+            "id": "ds-k3-karaoke",
+            "year": 2012
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-japon-otoire-dreamcast-sequencer",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-japon-space-channel-5",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-pal-samba-de-amigo",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-japon-space-channel-5-part-2",
+            "year": 2002
+          }
+        ],
+        "3ds": [
+          {
+            "id": "3ds-hello-kitty-and-the-apron-of-magic-rhythm-cooking",
+            "year": 2010
+          },
+          {
+            "id": "3ds-michael-jackson-the-experience-3d",
+            "year": 2011
+          },
+          {
+            "id": "3ds-theatrhythm-final-fantasy",
+            "year": 2012
+          },
+          {
+            "id": "3ds-rhythm-paradise-megamix",
+            "year": 2016
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-japon-ikinari-musician",
+            "year": 1987
+          },
+          {
+            "id": "nes-japon-karaoke-studio",
+            "year": 1987
+          },
+          {
+            "id": "nes-usa-dance-aerobics",
+            "year": 1989
+          },
+          {
+            "id": "nes-usa-miracle-piano-teaching-system",
+            "year": 1990
+          }
+        ]
+      },
+      "gameCount": 288
+    },
+    "baseball": {
+      "platforms": {
+        "nes": [
+          {
+            "id": "nes-japon-baseball",
+            "year": 1983
+          },
+          {
+            "id": "nes-usa-baseball-stars",
+            "year": 1989
+          },
+          {
+            "id": "nes-japon-baseball-star-mezase-sankanou",
+            "year": 1989
+          },
+          {
+            "id": "nes-usa-baseball-stars-ii",
+            "year": 1992
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-usa-cal-ripken-jr-baseball",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-pal-hardball",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-super-baseball-2020",
+            "year": 1994
+          },
+          {
+            "id": "megadrive-usa-mlbpa-sports-talk-baseball",
+            "year": 1992
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-usa-super-baseball-simulator-1000",
+            "year": 1991
+          },
+          {
+            "id": "snes-japon-super-professional-baseball-2",
+            "year": 1992
+          },
+          {
+            "id": "snes-japon-super-3d-baseball",
+            "year": 1993
+          },
+          {
+            "id": "snes-japon-super-famista-5",
+            "year": 1996
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-jikkyou-powerful-pro-yakyuu-95-kaimakuban",
+            "year": 1995
+          },
+          {
+            "id": "saturn-usa-3d-baseball",
+            "year": 1996
+          },
+          {
+            "id": "saturn-usa-all-star-baseball-1997-featuring-frank-thomas",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-pro-yakyuu-greatest-nine-97",
+            "year": 1997
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-japon-chou-kuukan-night-pro-yakyuu-king",
+            "year": 1996
+          },
+          {
+            "id": "n64-all-star-baseball-99",
+            "year": 1998
+          },
+          {
+            "id": "n64-usa-all-star-baseball-2001",
+            "year": 2000
+          },
+          {
+            "id": "n64-japon-jikkyou-powerful-pro-yakyuu-basic-ban-2001",
+            "year": 2001
+          }
+        ],
+        "gamegear": [
+          {
+            "id": "gamegear-japon-hyper-pro-yakyuu-92",
+            "year": 1992
+          },
+          {
+            "id": "gamegear-japon-pro-yakyuu-gg-league-94",
+            "year": 1994
+          },
+          {
+            "id": "gamegear-usa-world-series-baseball-95",
+            "year": 1994
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-japon-baseball",
+            "year": 1989
+          },
+          {
+            "id": "gameboy-usa-extra-bases",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-usa-ken-griffey-jr-presents-major-league-baseball",
+            "year": 1997
+          },
+          {
+            "id": "gameboy-japon-power-pro-gb",
+            "year": 1998
+          }
+        ],
+        "neogeopocket": [
+          {
+            "id": "neogeopocket-japon-baseball-stars",
+            "year": 1998
+          },
+          {
+            "id": "neogeopocket-japon-baseball-stars-color",
+            "year": 1999
+          },
+          {
+            "id": "neogeopocket-pal-dynamite-slugger",
+            "year": 2000
+          },
+          {
+            "id": "neogeopocket-japon-neopoke-pro-yakyuu",
+            "year": 1999
+          }
+        ]
+      },
+      "gameCount": 242
+    },
+    "party": {
+      "platforms": {
+        "ds": [
+          {
+            "id": "ds-mario-party-ds",
+            "year": 2007
+          },
+          {
+            "id": "ds-rayman-raving-rabbids-tv-party",
+            "year": 2008
+          },
+          {
+            "id": "ds-happy-party-with-hello-kitty-and-friends",
+            "year": 2009
+          },
+          {
+            "id": "ds-k3-fashion-party",
+            "year": 2012
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-buzz-das-mega-quiz",
+            "year": 2000
+          },
+          {
+            "id": "ps2-eye-toy-play",
+            "year": 2003
+          },
+          {
+            "id": "ps2-buzz-the-music-quiz",
+            "year": 2005
+          },
+          {
+            "id": "ps2-buzz-hollywood-quiz",
+            "year": 2007
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-gang-beasts",
+            "year": 2017
+          },
+          {
+            "id": "ps4-carnival-games",
+            "year": 2018
+          },
+          {
+            "id": "ps4-just-die-already",
+            "year": 2021
+          },
+          {
+            "id": "ps4-among-us-ejected-edition",
+            "year": 2022
+          }
+        ],
+        "wii": [
+          {
+            "id": "wii-mario-party-8",
+            "year": null
+          },
+          {
+            "id": "wii-sports-party",
+            "year": 2008
+          },
+          {
+            "id": "wii-fun-park-party",
+            "year": 2009
+          },
+          {
+            "id": "wii-family-trainer-magical-carnival",
+            "year": 2011
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-buzz-quiz-tv",
+            "year": 2008
+          },
+          {
+            "id": "ps3-buzz-quiz-world",
+            "year": 2009
+          },
+          {
+            "id": "ps3-hasbro-family-game-night-3",
+            "year": 2010
+          },
+          {
+            "id": "ps3-monopoly",
+            "year": 2008
+          }
+        ],
+        "3ds": [
+          {
+            "id": "3ds-mario-party-the-top-100",
+            "year": 2017
+          },
+          {
+            "id": "3ds-mario-party-island-tour",
+            "year": null
+          },
+          {
+            "id": "3ds-funfair-party-games",
+            "year": 2013
+          },
+          {
+            "id": "3ds-carnival-games-wild-west-3d",
+            "year": 2011
+          }
+        ],
+        "gamecube": [
+          {
+            "id": "gamecube-mario-party-4",
+            "year": 2002
+          },
+          {
+            "id": "gamecube-mario-party-5",
+            "year": 2003
+          },
+          {
+            "id": "gamecube-wario-ware-mega-party-games",
+            "year": 2004
+          },
+          {
+            "id": "gamecube-super-monkey-ball-2",
+            "year": 2003
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-japon-chibi-maruko-chan-2-deluxe-maruko-world",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-japon-tiny-toon-adventures-3",
+            "year": 1994
+          },
+          {
+            "id": "gameboy-japon-purikura-pocket-3",
+            "year": 1998
+          },
+          {
+            "id": "gameboy-japon-tokyo-disneyland-fantasy-tour",
+            "year": 1998
+          }
+        ]
+      },
+      "gameCount": 221
+    },
+    "wrestling": {
+      "platforms": {
+        "n64": [
+          {
+            "id": "n64-wcw-vs-nwo-world-tour",
+            "year": 1997
+          },
+          {
+            "id": "n64-pal-wcw-vs-nwo-world-tour",
+            "year": 1998
+          },
+          {
+            "id": "n64-pal-wcwnwo-revenge",
+            "year": 1998
+          },
+          {
+            "id": "n64-japon-virtual-pro-wrestling-2-oudou-keishou",
+            "year": 2000
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-legends-of-wrestling",
+            "year": 2000
+          },
+          {
+            "id": "ps2-legends-of-wrestling-ii",
+            "year": 2000
+          },
+          {
+            "id": "ps2-wwe-smackdown-here-comes-the-pain",
+            "year": 2003
+          },
+          {
+            "id": "ps2-wwe-smackdown-vs-raw",
+            "year": 2004
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-japon-super-fire-pro-wrestling-2",
+            "year": 1992
+          },
+          {
+            "id": "snes-japon-super-fire-pro-wrestling-3-final-bout",
+            "year": 1993
+          },
+          {
+            "id": "snes-wwf-royal-rumble",
+            "year": 1993
+          },
+          {
+            "id": "snes-pal-wwf-super-wrestlemania",
+            "year": 1992
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-usa-tag-team-wrestling",
+            "year": 1986
+          },
+          {
+            "id": "nes-usa-pro-wrestling",
+            "year": 1987
+          },
+          {
+            "id": "nes-wwf-wrestlemania",
+            "year": 1989
+          },
+          {
+            "id": "nes-usa-tecmo-world-wrestling",
+            "year": 1990
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-usa-hal-wrestling",
+            "year": 1990
+          },
+          {
+            "id": "gameboy-usa-wwf-superstars",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-pal-wwf-king-ring",
+            "year": 1994
+          },
+          {
+            "id": "gameboy-wwf-war-zone",
+            "year": 1998
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-power-move-pro-wrestling",
+            "year": 1996
+          },
+          {
+            "id": "ps1-wcw-vs-the-world",
+            "year": 1997
+          },
+          {
+            "id": "ps1-wwf-war-zone",
+            "year": 1998
+          },
+          {
+            "id": "ps1-wwf-smackdown-2-know-your-role",
+            "year": 2000
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-wwe-legends-of-wrestlemania",
+            "year": 2009
+          },
+          {
+            "id": "ps3-wwe-smackdown-vs-raw-2008",
+            "year": 2007
+          },
+          {
+            "id": "ps3-wwe-%2712",
+            "year": 2011
+          },
+          {
+            "id": "ps3-wwe-2k14",
+            "year": 2013
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-pal-wwf-super-wrestlemania",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-wrestle-war",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-japon-thunder-pro-wrestling-retsuden",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-japon-wwf-royal-rumble",
+            "year": 1994
+          }
+        ]
+      },
+      "gameCount": 205
+    },
+    "arcade": {
+      "platforms": {
+        "ps2": [
+          {
+            "id": "ps2-intellivision-lives-the-history-of-video-gaming",
+            "year": 2000
+          },
+          {
+            "id": "ps2-crazy-taxi",
+            "year": 2001
+          },
+          {
+            "id": "ps2-retro",
+            "year": 2004
+          },
+          {
+            "id": "ps2-eye-toy-play-hero",
+            "year": 2008
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-arcade%27s-greatest-hits-atari-collection",
+            "year": 1997
+          },
+          {
+            "id": "ps1-arcade%27s-greatest-hits-atari-collection-2",
+            "year": 1998
+          },
+          {
+            "id": "ps1-arcade%27s-greatest-hits-midway-collection-2",
+            "year": 1998
+          },
+          {
+            "id": "ps1-atari-anniversary-edition-redux",
+            "year": 2002
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-pal-kirbys-block-ball",
+            "year": 1995
+          },
+          {
+            "id": "gameboy-japon-konami-gb-collection-vol-2",
+            "year": 1997
+          },
+          {
+            "id": "gameboy-usa-centipede",
+            "year": 1992
+          },
+          {
+            "id": "gameboy-japon-pac-man",
+            "year": 1990
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-arcade-paradise",
+            "year": 2022
+          },
+          {
+            "id": "ps4-tempest-4000",
+            "year": 2018
+          },
+          {
+            "id": "ps4-metal-slug-combo-pack-pix%27n-love-edition",
+            "year": 2022
+          },
+          {
+            "id": "ps4-windjammers-2",
+            "year": 2022
+          }
+        ],
+        "ds": [
+          {
+            "id": "ds-pac-n-roll",
+            "year": 2005
+          },
+          {
+            "id": "ds-space-invaders-revolution",
+            "year": 2005
+          },
+          {
+            "id": "ds-namco-museum",
+            "year": 2007
+          },
+          {
+            "id": "ds-space-invaders-extreme",
+            "year": 2008
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-williams-arcade%27s-greatest-hits",
+            "year": 1996
+          },
+          {
+            "id": "snes-arkanoid",
+            "year": 1997
+          },
+          {
+            "id": "snes-pinball-dreams",
+            "year": 1905
+          },
+          {
+            "id": "snes-wild-guns-strictly-limited",
+            "year": null
+          }
+        ],
+        "3ds": [
+          {
+            "id": "3ds-arcade-classics-3d",
+            "year": 2011
+          },
+          {
+            "id": "3ds-angry-birds-star-wars",
+            "year": 2013
+          },
+          {
+            "id": "3ds-super-monkey-ball-3d",
+            "year": 2011
+          },
+          {
+            "id": "3ds-frogger-3d",
+            "year": 2011
+          }
+        ]
+      },
+      "gameCount": 176
+    },
+    "horror": {
+      "platforms": {
+        "ps4": [
+          {
+            "id": "ps4-dark-pictures-anthology-man-of-medan",
+            "year": 2019
+          },
+          {
+            "id": "ps4-resident-evil-3",
+            "year": 2020
+          },
+          {
+            "id": "ps4-the-nightfall",
+            "year": 2020
+          },
+          {
+            "id": "ps4-do-not-open",
+            "year": 2022
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-kuon",
+            "year": 2000
+          },
+          {
+            "id": "ps2-resident-evil-code-veronica-x",
+            "year": 2001
+          },
+          {
+            "id": "ps2-forbidden-siren",
+            "year": 2004
+          },
+          {
+            "id": "ps2-haunting-ground",
+            "year": 2005
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-japon-biohazard-2-value-plus",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-japon-biohazard-3-last-escape",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-japon-biohazard-code-veronica-version-completa",
+            "year": 2001
+          },
+          {
+            "id": "dreamcast-alone-dark-new-nightmare",
+            "year": 2001
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-resident-evil",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-d-no-shokutaku",
+            "year": 1995
+          },
+          {
+            "id": "saturn-deep-fear",
+            "year": 1998
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-resident-evil",
+            "year": 1996
+          },
+          {
+            "id": "ps1-resident-evil-2",
+            "year": 1998
+          },
+          {
+            "id": "ps1-fear-effect",
+            "year": 1999
+          },
+          {
+            "id": "ps1-galerians",
+            "year": 2000
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-alone-in-the-dark-inferno",
+            "year": 2008
+          },
+          {
+            "id": "ps3-siren-blood-curse",
+            "year": 2008
+          },
+          {
+            "id": "ps3-the-evil-within",
+            "year": 2014
+          },
+          {
+            "id": "ps3-resident-evil-revelations-2",
+            "year": 2015
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-usa-resident-evil-2",
+            "year": 1999
+          },
+          {
+            "id": "n64-usa-shadow-man",
+            "year": 1999
+          },
+          {
+            "id": "n64-japon-biohazard-2",
+            "year": 2000
+          },
+          {
+            "id": "n64-usa-nightmare-creatures",
+            "year": null
+          }
+        ],
+        "gamecube": [
+          {
+            "id": "gamecube-eternal-darkness",
+            "year": 2002
+          },
+          {
+            "id": "gamecube-resident-evil",
+            "year": 2002
+          },
+          {
+            "id": "gamecube-resident-evil-2",
+            "year": 2003
+          },
+          {
+            "id": "gamecube-resident-evil-zero",
+            "year": 2003
+          }
+        ]
+      },
+      "gameCount": 171
+    },
+    "systems": {
+      "platforms": {
+        "ps4": [
+          {
+            "id": "ps4-playstation-4-1tb-slim-fifa-20-bundle",
+            "year": 2019
+          },
+          {
+            "id": "ps4-sony-playstation-4-pro-1tb-console-black",
+            "year": 2016
+          },
+          {
+            "id": "ps4-playstation-4-1tb-system-star-wars-battlefront-limited-edition",
+            "year": 2013
+          },
+          {
+            "id": "ps4-playstation-4-20th-anniversary-gray-console",
+            "year": 2014
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-black-playstation-3-slim",
+            "year": 2009
+          },
+          {
+            "id": "ps3-playstation-3-littlebigplanet-bundle",
+            "year": 2008
+          },
+          {
+            "id": "ps3-playstation-3-slim-320gb",
+            "year": 2010
+          },
+          {
+            "id": "ps3-playstation-3-500gb-super-slim",
+            "year": 2012
+          }
+        ],
+        "3ds": [
+          {
+            "id": "3ds-nintendo-3ds-club-nintendo-peach",
+            "year": 2011
+          },
+          {
+            "id": "3ds-nintendo-3ds-xl-fire-emblem-awakening-limited-edition",
+            "year": 2013
+          },
+          {
+            "id": "3ds-nintendo-3ds-xl-luigi-special-edition",
+            "year": 2014
+          },
+          {
+            "id": "3ds-nintendo-3ds-xl-pokemon-xerneasyveltal-blue-edition",
+            "year": 2013
+          }
+        ],
+        "wii": [
+          {
+            "id": "wii-wii-console-backwards-compatible",
+            "year": 2006
+          },
+          {
+            "id": "wii-wii-fit-plus-pack",
+            "year": 2009
+          },
+          {
+            "id": "wii-wii-console-black-v2-mario-kart-edition",
+            "year": 2011
+          },
+          {
+            "id": "wii-wii-mini",
+            "year": 2013
+          }
+        ],
+        "ds": [
+          {
+            "id": "ds-silver-nintendo-ds-system",
+            "year": 2004
+          },
+          {
+            "id": "ds-blue-nintendogs-edition-ds-system",
+            "year": 2005
+          },
+          {
+            "id": "ds-black-nintendo-dsi",
+            "year": 2009
+          },
+          {
+            "id": "ds-pink-nintendo-dsi-system",
+            "year": 2010
+          }
+        ],
+        "gamecube": [
+          {
+            "id": "gamecube-platinum-nintendo-gamecube-system",
+            "year": 2002
+          },
+          {
+            "id": "gamecube-black-gamecube-system",
+            "year": 2003
+          },
+          {
+            "id": "gamecube-mario-kart-double-dash-limited-edition-system",
+            "year": 2004
+          },
+          {
+            "id": "gamecube-resident-evil-4-limited-edition-console",
+            "year": 2005
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-playstation-2-satin-silver",
+            "year": 2000
+          },
+          {
+            "id": "ps2-playstation-2-system",
+            "year": 2001
+          },
+          {
+            "id": "ps2-playstation-2-slim-system",
+            "year": 2004
+          },
+          {
+            "id": "ps2-slim-playstation-2-system-pink",
+            "year": 2007
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-playstation-system",
+            "year": 1995
+          },
+          {
+            "id": "ps1-playstation-dual-shock-version",
+            "year": 1995
+          },
+          {
+            "id": "ps1-psone-slim-console-with-lcd-screen-combo",
+            "year": 2000
+          },
+          {
+            "id": "ps1-psone-slim-system",
+            "year": 2000
+          }
+        ]
+      },
+      "gameCount": 161
+    },
+    "football-americano": {
+      "platforms": {
+        "megadrive": [
+          {
+            "id": "megadrive-usa-john-madden-american-football",
+            "year": 1990
+          },
+          {
+            "id": "megadrive-japon-joe-montana-football",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-japon-tecmo-super-bowl",
+            "year": 1993
+          },
+          {
+            "id": "megadrive-usa-prime-time-nfl-starring-deion-sanders",
+            "year": 1996
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-usa-nfl-blitz",
+            "year": 1998
+          },
+          {
+            "id": "n64-usa-madden-nfl-2000",
+            "year": 1999
+          },
+          {
+            "id": "n64-usa-nfl-blitz-2000",
+            "year": 1999
+          },
+          {
+            "id": "n64-usa-madden-nfl-2001",
+            "year": 2000
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-usa-nfl-2k-sega-all-stars",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-japon-sega-sports-nfl-2k",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-japon-nfl-2k1",
+            "year": 2001
+          },
+          {
+            "id": "dreamcast-japon-nfl-2k2",
+            "year": 2002
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-nfl-quarterback-club",
+            "year": 1993
+          },
+          {
+            "id": "gameboy-madden-95",
+            "year": 1994
+          },
+          {
+            "id": "gameboy-nfl-quarterback-club-96",
+            "year": 1993
+          },
+          {
+            "id": "gameboy-pal-nfl-quarterback-club-ii",
+            "year": 1995
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-usa-10-yard-fight",
+            "year": 1985
+          },
+          {
+            "id": "nes-usa-tecmo-bowl",
+            "year": 1989
+          },
+          {
+            "id": "nes-usa-nfl-football",
+            "year": 1989
+          },
+          {
+            "id": "nes-usa-tecmo-super-bowl",
+            "year": 1991
+          }
+        ],
+        "gamegear": [
+          {
+            "id": "gamegear-joe-montana-football",
+            "year": 1991
+          },
+          {
+            "id": "gamegear-usa-nfl-95",
+            "year": 1994
+          },
+          {
+            "id": "gamegear-pal-madden-96",
+            "year": 1996
+          },
+          {
+            "id": "gamegear-nfl-quarterback-club-96",
+            "year": 1995
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-nfl-quarterback-club-96",
+            "year": 1996
+          },
+          {
+            "id": "saturn-usa-madden-nfl-97",
+            "year": 1996
+          },
+          {
+            "id": "saturn-madden-nfl-98",
+            "year": 1997
+          },
+          {
+            "id": "saturn-nfl-quarterback-club-97",
+            "year": 1996
+          }
+        ],
+        "mastersystem": [
+          {
+            "id": "mastersystem-great-football",
+            "year": 1987
+          },
+          {
+            "id": "mastersystem-usa-sports-pad-football",
+            "year": 1987
+          },
+          {
+            "id": "mastersystem-american-pro-football",
+            "year": 1989
+          },
+          {
+            "id": "mastersystem-joe-montana-football",
+            "year": 1990
+          }
+        ]
+      },
+      "gameCount": 156
+    },
+    "golf": {
+      "platforms": {
+        "megadrive": [
+          {
+            "id": "megadrive-pal-arnold-palmer-tournament-golf",
+            "year": 1990
+          },
+          {
+            "id": "megadrive-pal-pga-tour-golf-ii",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-pga-tour-96",
+            "year": 1995
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-jack-nicklaus-greatest-18-holes-major-championship-golf",
+            "year": 1984
+          },
+          {
+            "id": "nes-golf",
+            "year": 1989
+          },
+          {
+            "id": "nes-usa-greg-normans-golf-power",
+            "year": 1992
+          },
+          {
+            "id": "nes-japon-mario-open-golf",
+            "year": 1991
+          }
+        ],
+        "gamegear": [
+          {
+            "id": "gamegear-japon-super-golf",
+            "year": 1991
+          },
+          {
+            "id": "gamegear-ernie-els-golf",
+            "year": 1994
+          },
+          {
+            "id": "gamegear-pal-pga-tour-golf-ii",
+            "year": 1995
+          },
+          {
+            "id": "gamegear-pal-pga-tour-96",
+            "year": 1996
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-golf",
+            "year": 1990
+          },
+          {
+            "id": "gameboy-usa-jack-nicklaus-golf",
+            "year": 1992
+          },
+          {
+            "id": "gameboy-konami-golf",
+            "year": 1994
+          },
+          {
+            "id": "gameboy-pga-european-tour",
+            "year": 1995
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-japon-eikou-no-saint-andrews",
+            "year": 1996
+          },
+          {
+            "id": "n64-japon-harukanaru-augusta-masters-98",
+            "year": 1997
+          },
+          {
+            "id": "n64-mario-golf",
+            "year": 1999
+          },
+          {
+            "id": "n64-pal-waialae-country-club-true-golf-classics",
+            "year": 1998
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-hyper-golf-devils-course",
+            "year": 1995
+          },
+          {
+            "id": "saturn-pebble-beach-golf-links",
+            "year": 1995
+          },
+          {
+            "id": "saturn-pga-tour-97",
+            "year": 1996
+          }
+        ],
+        "mastersystem": [
+          {
+            "id": "mastersystem-japon-great-golf-japon",
+            "year": 1986
+          },
+          {
+            "id": "mastersystem-great-golf",
+            "year": 1987
+          },
+          {
+            "id": "mastersystem-golfamania",
+            "year": 1990
+          },
+          {
+            "id": "mastersystem-sega-world-tournament-golf",
+            "year": 1993
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-real-world-golf",
+            "year": null
+          },
+          {
+            "id": "ps2-realplay-golf",
+            "year": 2007
+          },
+          {
+            "id": "ps2-tiger-woods-08",
+            "year": 2007
+          },
+          {
+            "id": "ps2-tiger-woods-10",
+            "year": 2009
+          }
+        ]
+      },
+      "gameCount": 146
+    },
+    "educational": {
+      "platforms": {
+        "ds": [
+          {
+            "id": "ds-left-brain-right-brain",
+            "year": null
+          },
+          {
+            "id": "ds-berlitz-my-english-coach",
+            "year": 2009
+          },
+          {
+            "id": "ds-practise-english",
+            "year": 2007
+          },
+          {
+            "id": "ds-junior-brain-trainer-maths-edition",
+            "year": 2011
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-japon-donkey-kong-jr-no-sansuu-asobi",
+            "year": 1983
+          },
+          {
+            "id": "nes-usa-donkey-kong-jr-math",
+            "year": 1985
+          },
+          {
+            "id": "nes-usa-fisher-price-i-can-remember",
+            "year": 1990
+          },
+          {
+            "id": "nes-usa-marios-time-machine",
+            "year": 1994
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-miracle-piano-teaching-system",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-where-in-time-is-carmen-sandiego",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-usa-bible-adventures",
+            "year": 1994
+          },
+          {
+            "id": "megadrive-usa-magic-school-bus-scholastics-space-exploration-game",
+            "year": 1995
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-usa-infogenius-productivity-pak-personal-organizer-and-phone-book",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-pal-infogenius-productivity-pak-berlitz-french-translator",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-japon-doraemon-no-study-boy-3-ku-ku-master",
+            "year": 1997
+          },
+          {
+            "id": "gameboy-japon-doraemon-no-study-boy-6-gakushu-kanji-master-1006",
+            "year": 1998
+          }
+        ],
+        "wii": [
+          {
+            "id": "wii-my-spanish-coach",
+            "year": 2007
+          },
+          {
+            "id": "wii-clever-kids-creepy-crawlies",
+            "year": 2009
+          },
+          {
+            "id": "wii-reader-rabbit-preschool",
+            "year": 2010
+          },
+          {
+            "id": "wii-nutrition-matters",
+            "year": 2009
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-emit-vol-1-toki-no-maigo",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-emit-vol-2-meigake-no-tabi",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-okudera-yasuhiko-no-sekai-wo-mezase-soccer-kids-nyuumon-hen",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-lifescape-2-body-bionics",
+            "year": 1997
+          }
+        ],
+        "snes": [
+          {
+            "id": "snes-usa-captain-novolin",
+            "year": 1992
+          },
+          {
+            "id": "snes-usa-marios-early-years-fun-letters",
+            "year": 1994
+          },
+          {
+            "id": "snes-usa-marios-early-years-fun-numbers",
+            "year": 1994
+          },
+          {
+            "id": "snes-japon-nintama-rantarou",
+            "year": 1996
+          }
+        ]
+      },
+      "gameCount": 145
+    },
+    "compilation": {
+      "platforms": {
+        "saturn": [
+          {
+            "id": "saturn-japon-sega-ages-columns-arcade-collection",
+            "year": 1997
+          },
+          {
+            "id": "saturn-usa-midway-presents-arcades-greatest-hits-atari-collection-1",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-falcom-classics-sega-saturn-collection",
+            "year": 1999
+          },
+          {
+            "id": "saturn-japon-konami-antiques-msx-collection-ultra-pack",
+            "year": 1998
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-mega-games-1",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-mega-games-2",
+            "year": 1995
+          },
+          {
+            "id": "megadrive-classic-collection",
+            "year": 1996
+          },
+          {
+            "id": "megadrive-quackshot-castle-illusion-pack-2-juegos",
+            "year": 1996
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-usa-super-mario-bros-duck-hunt",
+            "year": 1988
+          },
+          {
+            "id": "nes-usa-super-spike-vball-nintendo-world-cup",
+            "year": 1990
+          },
+          {
+            "id": "nes-maxi-15-pack",
+            "year": 1992
+          },
+          {
+            "id": "nes-usa-action-52",
+            "year": 1991
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-game-watch-gallery",
+            "year": 1997
+          },
+          {
+            "id": "gameboy-game-boy-gallery",
+            "year": 1995
+          },
+          {
+            "id": "gameboy-japon-taito-variety-pack",
+            "year": 1997
+          },
+          {
+            "id": "gameboy-arcade-classics-super-breakout-battlezone",
+            "year": 1996
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-contraptions-collection",
+            "year": 2024
+          },
+          {
+            "id": "ps4-form-and-twilight-path",
+            "year": 2018
+          },
+          {
+            "id": "ps4-wonder-boy-anniversary-collection",
+            "year": 2023
+          },
+          {
+            "id": "ps4-flashback-classics-vol1",
+            "year": null
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-usa-midways-greatest-arcade-hits-volume-1",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-usa-namco-museum",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-usa-midways-greatest-arcade-hits-volume-2",
+            "year": 2001
+          },
+          {
+            "id": "dreamcast-usa-atari-anniversary-edition",
+            "year": 2001
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-disgaea-triple-play-collection",
+            "year": 2015
+          },
+          {
+            "id": "ps3-atelier-arland-trilogy",
+            "year": 2015
+          },
+          {
+            "id": "ps3-dragon-ball-z-budokai-hd-collection",
+            "year": 2012
+          },
+          {
+            "id": "ps3-ultimate-action-triple-pack",
+            "year": 2014
+          }
+        ],
+        "megacd": [
+          {
+            "id": "megacd-usa-sega-classics-arcade-collection-4-1",
+            "year": 1992
+          },
+          {
+            "id": "megacd-japon-wondermega-collection",
+            "year": 1992
+          },
+          {
+            "id": "megacd-japon-game-no-kanzume-vol-1",
+            "year": 1994
+          },
+          {
+            "id": "megacd-usa-sega-classics-arcade-collection-5-1",
+            "year": 1995
+          }
+        ]
+      },
+      "gameCount": 141
+    },
+    "casino": {
+      "platforms": {
+        "neogeopocket": [
+          {
+            "id": "neogeopocket-japon-neo-cherry-master",
+            "year": 1998
+          },
+          {
+            "id": "neogeopocket-japon-neo-dragons-wild",
+            "year": 1999
+          },
+          {
+            "id": "neogeopocket-japon-neo-baccarat",
+            "year": 2000
+          },
+          {
+            "id": "neogeopocket-japon-pachi-slot-aruze-oukoku-pocket-azteca",
+            "year": 2000
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-japon-1000000-kid-maboroshi-no-teiou-hen",
+            "year": 1989
+          },
+          {
+            "id": "nes-usa-casino-kid",
+            "year": 1990
+          },
+          {
+            "id": "nes-usa-casino-kid-ii",
+            "year": 1993
+          },
+          {
+            "id": "nes-usa-vegas-dream",
+            "year": 1990
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-caesars-palace",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-casino-funpak",
+            "year": 1995
+          },
+          {
+            "id": "gameboy-pal-vegas-stakes",
+            "year": 1995
+          },
+          {
+            "id": "gameboy-cool-hand",
+            "year": 1998
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-jissen-pachi-slot-hisshouhou-3",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-haunted-casino",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-jissen-pachi-slot-hisshouhou-4",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-super-casino-special",
+            "year": 1997
+          }
+        ],
+        "gamegear": [
+          {
+            "id": "gamegear-japon-ryu-kyu",
+            "year": 1991
+          },
+          {
+            "id": "gamegear-pal-solitaire-poker",
+            "year": 1991
+          },
+          {
+            "id": "gamegear-usa-caesars-palace",
+            "year": 1993
+          },
+          {
+            "id": "gamegear-usa-casino-fun-pak",
+            "year": 1995
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-japon-neppachi-i",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-japon-neppachi-iii",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-usa-caesars-palace-2000",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-japon-neppachi-ii",
+            "year": 2000
+          }
+        ]
+      },
+      "gameCount": 108
+    },
+    "hockey-hielo": {
+      "platforms": {
+        "megadrive": [
+          {
+            "id": "megadrive-ea-hockey",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-nhlpa-hockey-%2793",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-nhl-96",
+            "year": 1995
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-wayne-gretzky%27s-3d-hockey",
+            "year": 1996
+          },
+          {
+            "id": "n64-wayne-gretzky%27s-3d-hockey-98",
+            "year": 1998
+          },
+          {
+            "id": "n64-nhl-99",
+            "year": 1998
+          },
+          {
+            "id": "n64-usa-nhl-blades-steel-99",
+            "year": 1999
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-nhl-all-star-hockey",
+            "year": 1995
+          },
+          {
+            "id": "saturn-usa-nhl-powerplay-96",
+            "year": 1996
+          },
+          {
+            "id": "saturn-nhl-97",
+            "year": 1997
+          },
+          {
+            "id": "saturn-nhl-98",
+            "year": null
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-usa-ice-hockey",
+            "year": 1988
+          },
+          {
+            "id": "nes-japon-stick-hunter-exciting-ice-hockey",
+            "year": 1987
+          },
+          {
+            "id": "nes-usa-wayne-gretzky-hockey",
+            "year": 1991
+          },
+          {
+            "id": "nes-usa-blades-steel",
+            "year": 1988
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-pal-blades-steel",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-pal-hit-ice",
+            "year": 1992
+          },
+          {
+            "id": "gameboy-nhl-hockey-95",
+            "year": 1995
+          },
+          {
+            "id": "gameboy-nhl-96",
+            "year": 1996
+          }
+        ]
+      },
+      "gameCount": 87
+    },
+    "quiz": {
+      "platforms": {
+        "ps2": [
+          {
+            "id": "ps2-the-ultimate-tv-&amp;-film-quiz",
+            "year": 2005
+          },
+          {
+            "id": "ps2-maxi-quiz-du-foot-francais",
+            "year": 2006
+          },
+          {
+            "id": "ps2-buzz-brain-of-the-world",
+            "year": 2009
+          },
+          {
+            "id": "ps2-buzz-junior-dino-den",
+            "year": null
+          }
+        ],
+        "ds": [
+          {
+            "id": "ds-are-you-smarter-than-a-10-year-old",
+            "year": 2008
+          },
+          {
+            "id": "ds-the-biggest-loser",
+            "year": 2009
+          },
+          {
+            "id": "ds-wer-wird-millionar-2-edition",
+            "year": null
+          },
+          {
+            "id": "ds-questions-pour-un-champion",
+            "year": null
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-japon-america-odan-ultra-quiz-part-2",
+            "year": 1991
+          },
+          {
+            "id": "gameboy-japon-america-odan-ultra-quiz-part-3",
+            "year": 1992
+          },
+          {
+            "id": "gameboy-japon-america-odan-ultra-quiz-part-4",
+            "year": 1993
+          },
+          {
+            "id": "gameboy-japon-hayaoshi-quiz-ouza-keteisen",
+            "year": 1998
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-usa-jeopardy",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-usa-wheel-fortune",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-usa-family-feud",
+            "year": 1993
+          },
+          {
+            "id": "megadrive-japon-party-quiz-mega-q",
+            "year": 1993
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-bakushou-all-yoshimoto-quiz-ou-ketteisen-dx",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-mainichi-kawaru-quiz-bangumi-quiz-365",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-brain-battle-q",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-quiz-nanairo-dreams-nijiirochou-no-kiseki",
+            "year": 1997
+          }
+        ],
+        "dreamcast": [
+          {
+            "id": "dreamcast-usa-south-park-chefs-luv-shack",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-japon-ah-megamisama-quiz-game",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-usa-who-wants-beat-up-millionaire",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-pal-who-wants-be-millionaire",
+            "year": 2000
+          }
+        ]
+      },
+      "gameCount": 77
+    },
+    "tenis": {
+      "platforms": {
+        "megadrive": [
+          {
+            "id": "megadrive-andre-agassi-tennis",
+            "year": 1993
+          },
+          {
+            "id": "megadrive-usa-amazing-tennis-david-cranes",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-pete-sampras-tennis",
+            "year": 1994
+          },
+          {
+            "id": "megadrive-sampras-tennis-96",
+            "year": 1995
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-japon-tennis",
+            "year": 1984
+          },
+          {
+            "id": "nes-usa-tennis",
+            "year": 1985
+          },
+          {
+            "id": "nes-usa-top-players-tennis",
+            "year": 1990
+          },
+          {
+            "id": "nes-japon-moero-pro-tennis",
+            "year": 1988
+          }
+        ],
+        "mastersystem": [
+          {
+            "id": "mastersystem-japon-great-tennis",
+            "year": 1985
+          },
+          {
+            "id": "mastersystem-super-tennis",
+            "year": 1985
+          },
+          {
+            "id": "mastersystem-tennis-ace",
+            "year": 1989
+          },
+          {
+            "id": "mastersystem-wimbledon",
+            "year": 1992
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-japon-lets-smash",
+            "year": 1998
+          },
+          {
+            "id": "n64-all-star-tennis-99",
+            "year": 1999
+          },
+          {
+            "id": "n64-centre-court-tennis",
+            "year": 1999
+          },
+          {
+            "id": "n64-mario-tennis",
+            "year": 2000
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-usa-tennis",
+            "year": 1990
+          },
+          {
+            "id": "gameboy-jimmy-connors-tennis",
+            "year": 1993
+          },
+          {
+            "id": "gameboy-usa-top-rank-tennis",
+            "year": 1993
+          },
+          {
+            "id": "gameboy-pal-top-ranking-tennis",
+            "year": 1993
+          }
+        ],
+        "gamegear": [
+          {
+            "id": "gamegear-pal-wimbledon",
+            "year": 1992
+          },
+          {
+            "id": "gamegear-wimbledon",
+            "year": 1993
+          },
+          {
+            "id": "gamegear-pete-sampras-tennis",
+            "year": 1994
+          },
+          {
+            "id": "gamegear-andre-agassi-tennis",
+            "year": 1994
+          }
+        ]
+      },
+      "gameCount": 74
+    },
+    "vuelo": {
+      "platforms": {
+        "megadrive": [
+          {
+            "id": "megadrive-f-22-interceptor",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-lhx-attack-chopper",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-japon-f-117-stealth-operation-night-storm",
+            "year": 1994
+          },
+          {
+            "id": "megadrive-pal-mig-29-fighter-pilot",
+            "year": 1993
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-usa-top-gun",
+            "year": 1987
+          },
+          {
+            "id": "nes-usa-f-15-city-war",
+            "year": 1990
+          },
+          {
+            "id": "nes-japon-aces-iron-eagle-iii",
+            "year": 1992
+          },
+          {
+            "id": "nes-pal-top-gun-second-mission",
+            "year": 1991
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-black-fire",
+            "year": 1995
+          },
+          {
+            "id": "saturn-usa-black-fire",
+            "year": 1995
+          },
+          {
+            "id": "saturn-darklight-conflict",
+            "year": 1997
+          },
+          {
+            "id": "saturn-independence-day-game",
+            "year": 1997
+          }
+        ],
+        "mastersystem": [
+          {
+            "id": "mastersystem-japon-f-16-fighting-falcon",
+            "year": 1985
+          },
+          {
+            "id": "mastersystem-f-16-fighter-falcon-sega-card",
+            "year": 1986
+          },
+          {
+            "id": "mastersystem-japon-after-burner",
+            "year": 1987
+          },
+          {
+            "id": "mastersystem-g-loc-air-battle",
+            "year": 1991
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-phantom-air-mission",
+            "year": 1992
+          },
+          {
+            "id": "gameboy-usa-turn-and-burn-f-14-dogfight-simulator",
+            "year": 1992
+          },
+          {
+            "id": "gameboy-f-15-strike-eagle",
+            "year": 1993
+          },
+          {
+            "id": "gameboy-top-gun-guts-and-glory",
+            "year": 1993
+          }
+        ]
+      },
+      "gameCount": 72
+    },
+    "pinball": {
+      "platforms": {
+        "megadrive": [
+          {
+            "id": "megadrive-crue-ball-heavy-metal-pinball",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-sonic-spinball",
+            "year": 1993
+          },
+          {
+            "id": "megadrive-psycho-pinball",
+            "year": 1994
+          },
+          {
+            "id": "megadrive-dragon%27s-fury",
+            "year": 1992
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-japon-pinball",
+            "year": 1984
+          },
+          {
+            "id": "nes-usa-pinball-quest",
+            "year": 1990
+          },
+          {
+            "id": "nes-japon-super-pinball",
+            "year": 1988
+          },
+          {
+            "id": "nes-high-speed",
+            "year": 1994
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-usa-pinball-revenge-gator",
+            "year": 1990
+          },
+          {
+            "id": "gameboy-pal-kirbys-pinball-land",
+            "year": 1993
+          },
+          {
+            "id": "gameboy-pal-pinball-fantasies",
+            "year": 1995
+          },
+          {
+            "id": "gameboy-pinball-mania",
+            "year": 1995
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-pro-pinball-web",
+            "year": 1996
+          },
+          {
+            "id": "saturn-digital-pinball",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-digital-pinball-last-gladiators",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-hyper-3d-pinball",
+            "year": 1997
+          }
+        ]
+      },
+      "gameCount": 66
+    },
+    "accessories": {
+      "platforms": {
+        "ps2": [
+          {
+            "id": "ps2-action-replay",
+            "year": 2003
+          },
+          {
+            "id": "ps2-eyetoy-usb-camera",
+            "year": 2005
+          },
+          {
+            "id": "ps2-multi-tap-adaptor",
+            "year": 2006
+          },
+          {
+            "id": "ps2-singstar-microphone-pack",
+            "year": 2008
+          }
+        ],
+        "ps3": [
+          {
+            "id": "ps3-playstation-eye-camera",
+            "year": 2007
+          },
+          {
+            "id": "ps3-thrustmaster-t-flight-hotas-x",
+            "year": 2008
+          },
+          {
+            "id": "ps3-playstation-3-slim-white-320-gb",
+            "year": 2009
+          },
+          {
+            "id": "ps3-playstation-3-mediablu-ray-remote",
+            "year": null
+          }
+        ],
+        "wii": [
+          {
+            "id": "wii-wii-remote-silicone-cover-skin",
+            "year": 2006
+          },
+          {
+            "id": "wii-ben-10-ultimate-alien-5-in-1-accessory-pack",
+            "year": 2011
+          },
+          {
+            "id": "wii-wii-nunchuk-black",
+            "year": null
+          },
+          {
+            "id": "wii-wii-wheel",
+            "year": null
+          }
+        ]
+      },
+      "gameCount": 60
+    },
+    "card": {
+      "platforms": {
+        "ds": [
+          {
+            "id": "ds-card-games-the-classics",
+            "year": 2004
+          },
+          {
+            "id": "ds-42-all-time-classics",
+            "year": 2005
+          },
+          {
+            "id": "ds-best-of-card-games-ds",
+            "year": 2006
+          },
+          {
+            "id": "ds-hasbro-family-game-night",
+            "year": 2009
+          }
+        ],
+        "gameboy": [
+          {
+            "id": "gameboy-japon-taikyoku-renju",
+            "year": 1990
+          },
+          {
+            "id": "gameboy-japon-trump-collection-gb",
+            "year": 1997
+          },
+          {
+            "id": "gameboy-japon-uno-small-world-2",
+            "year": 1995
+          },
+          {
+            "id": "gameboy-japon-game-life-jinsei-game",
+            "year": 1995
+          }
+        ],
+        "neogeopocket": [
+          {
+            "id": "neogeopocket-japon-snk-vs-capcom-gekitotsu-card-fighters-capcom-version",
+            "year": 1999
+          },
+          {
+            "id": "neogeopocket-japon-snk-vs-capcom-gekitotsu-card-fighters-snk-version",
+            "year": 1999
+          },
+          {
+            "id": "neogeopocket-pal-snk-vs-capcom-card-fighters-clash-capcom-cardfighters",
+            "year": 1999
+          },
+          {
+            "id": "neogeopocket-usa-snk-vs-capcom-card-fighters-clash-snk-version",
+            "year": 1999
+          }
+        ],
+        "ps2": [
+          {
+            "id": "ps2-board-games-gallery-10-games",
+            "year": 2004
+          },
+          {
+            "id": "ps2-ultimate-board-game-collection",
+            "year": 2006
+          },
+          {
+            "id": "ps2-monopoly",
+            "year": 2008
+          },
+          {
+            "id": "ps2-top-trumps-adventures-dogs-&amp;-dinosaurs",
+            "year": 2007
+          }
+        ],
+        "ps4": [
+          {
+            "id": "ps4-hand-of-fate-2",
+            "year": 2017
+          },
+          {
+            "id": "ps4-pure-chess",
+            "year": 2014
+          },
+          {
+            "id": "ps4-hasbro-family-fun-pack",
+            "year": 2015
+          },
+          {
+            "id": "ps4-catan-console-edition",
+            "year": 2024
+          }
+        ]
+      },
+      "gameCount": 60
+    },
+    "visual-novel": {
+      "platforms": {
+        "ps4": [
+          {
+            "id": "ps4-steins-gate-0-limited-edition",
+            "year": 2016
+          },
+          {
+            "id": "ps4-life-is-strange-2",
+            "year": 2018
+          },
+          {
+            "id": "ps4-rezero-starting-life-in-another-world-the-prophecy-of-the-throne",
+            "year": 2021
+          },
+          {
+            "id": "ps4-ai-the-somnium-files",
+            "year": 2019
+          }
+        ]
+      },
+      "gameCount": 58
+    },
+    "fishing": {
+      "platforms": {
+        "dreamcast": [
+          {
+            "id": "dreamcast-japon-get-bass-sega-bass-fishing",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-pal-sega-bass-fishing",
+            "year": 1999
+          },
+          {
+            "id": "dreamcast-usa-sega-bass-fishing-2",
+            "year": 2001
+          },
+          {
+            "id": "dreamcast-usa-sega-marine-fishing",
+            "year": 2000
+          }
+        ],
+        "saturn": [
+          {
+            "id": "saturn-japon-fishing-koushien",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-japan-super-bass-classic-96",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-maboroshi-no-black-bass",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-sea-bass-fishing-2",
+            "year": 1997
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-japon-nushi-tsuri-64",
+            "year": 1998
+          },
+          {
+            "id": "n64-usa-bassmasters-2000",
+            "year": 1999
+          },
+          {
+            "id": "n64-bass-hunter-64",
+            "year": 1999
+          },
+          {
+            "id": "n64-japon-bass-rush-ecogear-powerworm-championship",
+            "year": 2000
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-japon-black-bass",
+            "year": 1987
+          },
+          {
+            "id": "nes-usa-black-bass",
+            "year": 1989
+          },
+          {
+            "id": "nes-japon-blue-marlin",
+            "year": 1991
+          },
+          {
+            "id": "nes-usa-blue-marlin",
+            "year": 1992
+          }
+        ],
+        "megadrive": [
+          {
+            "id": "megadrive-japon-king-salmon",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-usa-king-salmon-big-catch",
+            "year": 1993
+          },
+          {
+            "id": "megadrive-usa-bass-masters-classic",
+            "year": 1994
+          },
+          {
+            "id": "megadrive-usa-tnn-outdoors-bass-tournament-96",
+            "year": 1996
+          }
+        ]
+      },
+      "gameCount": 45
+    },
+    "demo": {
+      "platforms": {
+        "ps2": [
+          {
+            "id": "ps2-silent-hill-2-promo",
+            "year": 2001
+          },
+          {
+            "id": "ps2-playstation-2-official-magazine-uk-20",
+            "year": 2002
+          },
+          {
+            "id": "ps2-playstation-2-magazine-ufficiale-dvd-demo-09",
+            "year": 2003
+          },
+          {
+            "id": "ps2-playstation-2-magazine-ufficiale-italia-58",
+            "year": 2007
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-demo-one",
+            "year": 1996
+          },
+          {
+            "id": "ps1-ps-one-kids-autumn-2000",
+            "year": 2000
+          },
+          {
+            "id": "ps1-playstation-demo-62",
+            "year": 2001
+          },
+          {
+            "id": "ps1-experience-the-magic-of-disney-on-playstation",
+            "year": 2002
+          }
+        ]
+      },
+      "gameCount": 43
+    },
+    "amp-nfr": {
+      "platforms": {
+        "ps2": [
+          {
+            "id": "ps2-silent-hill-2-promo",
+            "year": 2001
+          },
+          {
+            "id": "ps2-playstation-2-official-magazine-uk-20",
+            "year": 2002
+          },
+          {
+            "id": "ps2-playstation-2-magazine-ufficiale-italia-58",
+            "year": 2007
+          },
+          {
+            "id": "ps2-bonus-demo-8",
+            "year": 2004
+          }
+        ],
+        "ps1": [
+          {
+            "id": "ps1-autumnchristmas-releases",
+            "year": 1996
+          },
+          {
+            "id": "ps1-demo-one",
+            "year": 1996
+          },
+          {
+            "id": "ps1-ps-one-kids-autumn-2000",
+            "year": 2000
+          },
+          {
+            "id": "ps1-playstation-demo-62",
+            "year": 2001
+          }
+        ]
+      },
+      "gameCount": 42
+    },
+    "juegos-olimpicos": {
+      "platforms": {
+        "nes": [
+          {
+            "id": "nes-japon-hyper-olympic-gentai-ban",
+            "year": 1985
+          },
+          {
+            "id": "nes-usa-athletic-world",
+            "year": 1987
+          },
+          {
+            "id": "nes-japon-capcom-barcelona-92",
+            "year": 1992
+          },
+          {
+            "id": "nes-pal-capcoms-gold-medal-challenge-92",
+            "year": 1993
+          }
+        ]
+      },
+      "gameCount": 35
+    },
+    "skate": {
+      "platforms": {
+        "dreamcast": [
+          {
+            "id": "dreamcast-pal-tony-hawks-pro-skater-2",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-usa-tony-hawks-pro-skater-2",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-tony-hawks-skateboarding",
+            "year": 2000
+          },
+          {
+            "id": "dreamcast-usa-mtv-sports-skateboarding-feat-andy-macdonald",
+            "year": 2000
+          }
+        ],
+        "nes": [
+          {
+            "id": "nes-usa-skate-or-die",
+            "year": 1988
+          },
+          {
+            "id": "nes-usa-720-degrees",
+            "year": 1989
+          },
+          {
+            "id": "nes-usa-rollerblade-racer",
+            "year": 1993
+          },
+          {
+            "id": "nes-pal-ski-or-die",
+            "year": 1991
+          }
+        ],
+        "n64": [
+          {
+            "id": "n64-tony-hawks-pro-skater-2",
+            "year": 2000
+          },
+          {
+            "id": "n64-tony-hawk%27s-skateboarding",
+            "year": 2001
+          },
+          {
+            "id": "n64-usa-tony-hawks-pro-skater-3",
+            "year": 2002
+          },
+          {
+            "id": "n64-usa-razor-freestyle-scooter",
+            "year": 2001
+          }
+        ]
+      },
+      "gameCount": 26
+    },
+    "snowboard": {
+      "platforms": {
+        "n64": [
+          {
+            "id": "n64-japon-snobow-kids",
+            "year": 1997
+          },
+          {
+            "id": "n64-snowboard-kids",
+            "year": 1998
+          },
+          {
+            "id": "n64-usa-1080-teneighty-snowboarding",
+            "year": 1998
+          },
+          {
+            "id": "n64-usa-big-mountain-2000",
+            "year": 2000
+          }
+        ]
+      },
+      "gameCount": 24
+    },
+    "hipica": {
+      "platforms": {
+        "nes": [
+          {
+            "id": "nes-japon-family-jockey",
+            "year": 1987
+          },
+          {
+            "id": "nes-japon-keiba-simulation-honmei",
+            "year": 1989
+          },
+          {
+            "id": "nes-japon-baken-hisshou-gaku-gate",
+            "year": 1990
+          },
+          {
+            "id": "nes-japon-derby-stallion-zengokuban",
+            "year": 1992
+          }
+        ]
+      },
+      "gameCount": 17
+    },
+    "voleibol": {
+      "platforms": {
+        "nes": [
+          {
+            "id": "nes-super-spike-volleyball",
+            "year": 1987
+          },
+          {
+            "id": "nes-usa-super-spike-vball",
+            "year": 1990
+          },
+          {
+            "id": "nes-japon-us-championship-vball",
+            "year": 1989
+          },
+          {
+            "id": "nes-super-spike-vball",
+            "year": 1992
+          }
+        ]
+      },
+      "gameCount": 17
+    },
+    "ninos": {
+      "platforms": {
+        "megadrive": [
+          {
+            "id": "megadrive-usa-barneys-hide-seek-game",
+            "year": 1993
+          },
+          {
+            "id": "megadrive-miracle-piano-teaching-system",
+            "year": 1992
+          },
+          {
+            "id": "megadrive-usa-richard-scarrys-busytown",
+            "year": 1994
+          }
+        ]
+      },
+      "gameCount": 15
+    },
+    "citas": {
+      "platforms": {
+        "saturn": [
+          {
+            "id": "saturn-japon-kekkon-marriage",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-eternal-melody",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-angel-graffiti-s",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-kiss-yori",
+            "year": 1999
+          }
+        ]
+      },
+      "gameCount": 14
+    },
+    "controllers": {
+      "platforms": {
+        "ps1": [
+          {
+            "id": "ps1-ascii-resident-evil-pad",
+            "year": 1998
+          },
+          {
+            "id": "ps1-performance-dual-impact-gamepad",
+            "year": null
+          },
+          {
+            "id": "ps1-ascii-specialized-pad",
+            "year": null
+          },
+          {
+            "id": "ps1-asciiware-arcade-stick",
+            "year": null
+          }
+        ]
+      },
+      "gameCount": 14
+    },
+    "belico": {
+      "platforms": {
+        "saturn": [
+          {
+            "id": "saturn-japon-sangokushi-iv",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-sangokushi-eiketsuden",
+            "year": 1996
+          },
+          {
+            "id": "saturn-battle-stations",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-sd-gundam-g-century-s",
+            "year": 1998
+          }
+        ]
+      },
+      "gameCount": 13
+    },
+    "fmv": {
+      "platforms": {
+        "saturn": [
+          {
+            "id": "saturn-japon-gakkou-no-kowai-uwasa-hanako-san-ga-kita",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-brain-dead-13",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-daina-airan",
+            "year": 1997
+          },
+          {
+            "id": "saturn-usa-double-switch",
+            "year": null
+          }
+        ]
+      },
+      "gameCount": 12
+    },
+    "comic-digital": {
+      "platforms": {
+        "saturn": [
+          {
+            "id": "saturn-japon-gakkou-no-kowai-uwasa-hanako-san-ga-kita",
+            "year": 1995
+          },
+          {
+            "id": "saturn-japon-can-can-bunny-premiere",
+            "year": 1996
+          },
+          {
+            "id": "saturn-japon-daina-airan",
+            "year": 1997
+          },
+          {
+            "id": "saturn-japon-machi",
+            "year": 1998
+          }
+        ]
+      },
+      "gameCount": 11
+    },
+    "construccion": {
+      "platforms": {
+        "n64": [
+          {
+            "id": "n64-usa-harvest-moon-64",
+            "year": 1999
+          },
+          {
+            "id": "n64-japon-bokujou-monogatari-2",
+            "year": 1999
+          },
+          {
+            "id": "n64-japon-doubutsu-no-mori",
+            "year": 2001
+          },
+          {
+            "id": "n64-japon-hamster-monogatari-64",
+            "year": 2001
+          }
+        ]
+      },
+      "gameCount": 7
+    },
+    "habilidad": {
+      "platforms": {
+        "megadrive": [
+          {
+            "id": "megadrive-columns",
+            "year": 1990
+          },
+          {
+            "id": "megadrive-pal-marble-madness",
+            "year": 1991
+          },
+          {
+            "id": "megadrive-marble-madness",
+            "year": 1993
+          }
+        ]
+      },
+      "gameCount": 7
+    },
+    "hockey": {
+      "platforms": {
+        "snes": [
+          {
+            "id": "snes-nhlpa-hockey-%2793",
+            "year": 1992
+          },
+          {
+            "id": "snes-nhl-95",
+            "year": 1905
+          },
+          {
+            "id": "snes-nhl-96",
+            "year": 1995
+          },
+          {
+            "id": "snes-nhl-97",
+            "year": 1996
+          }
+        ]
+      },
+      "gameCount": 7
+    }
+  }
+}
