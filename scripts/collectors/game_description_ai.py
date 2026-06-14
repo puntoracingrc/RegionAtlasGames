@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from collectors.catalog_ai_match import ai_available
+from collectors.price_ai_policy import batch_openai_allowed
 from collectors.common import load_json, now_iso, save_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -394,7 +395,7 @@ def build_description_for_game(
         str(game.get("platformSlug") or ""),
     )
 
-    if use_ai and ai_available():
+    if use_ai and ai_available() and batch_openai_allowed(purpose="batch"):
         try:
             result = generate_content_with_ai(facts, reference_text, reference_url)
             result["method"] = "ai"

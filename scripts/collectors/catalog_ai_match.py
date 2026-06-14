@@ -134,7 +134,9 @@ def resolve_ambiguous_match(
         if cached is not None:
             return _result_from_cache(result, cached)
 
-    if not ai_available():
+    from collectors.price_ai_policy import price_collectors_use_ai
+
+    if not price_collectors_use_ai():
         return None
 
     region = listing_region

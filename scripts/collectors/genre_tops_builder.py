@@ -10,6 +10,7 @@ import urllib.request
 from typing import Any
 
 from collectors.catalog_ai_match import ai_available
+from collectors.price_ai_policy import batch_openai_allowed
 from collectors.common import now_iso
 from collectors.game_description_ai import PLATFORM_WIKI_HINT, _http_json
 from collectors.game_description_ai import _openai_chat
@@ -147,7 +148,7 @@ def pick_with_ai(
     wiki_context: str,
     limit: int,
 ) -> list[str] | None:
-    if not ai_available() or len(candidates) < limit:
+    if not ai_available() or not batch_openai_allowed(purpose="batch") or len(candidates) < limit:
         return None
 
     pool = candidates[:CANDIDATE_POOL]

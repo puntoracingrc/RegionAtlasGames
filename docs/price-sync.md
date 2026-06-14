@@ -88,6 +88,22 @@ eBay vendidos: filtro `EndTimeFrom` en Finding API al mismo horizonte.
 - Outliers descartados (1 €, caídas >50 %, IQR).
 - Estado en `data/price-sync-state.json`.
 
+## Prioridad IA (on-demand en precios)
+
+Cuando un collector tiene un **anuncio abierto** y surge duda (match ambiguo, región, carátula, listing AI), **usa OpenAI** si hay clave configurada.
+
+| Control | Efecto |
+|---------|--------|
+| `OPENAI_API_KEY` | IA on-demand en collectors + batch en paralelo |
+| `PRICE_AI_DISABLED=1` | Desactiva IA de precios (emergencia) |
+| `--no-ai` en un collector | Override manual puntual |
+| `OPENAI_BATCH_DISABLED=1` | Desactiva IA en batch (descripciones, etc.) |
+| `DAILY_NO_AI` | **Ya no** desactiva IA en collectors |
+
+Batch de descripciones e ingest de precios **corren en conjunto** (sin pausa mutua).
+
+Implementación: `scripts/collectors/price_ai_policy.py`.
+
 ## Comandos
 
 ```bash

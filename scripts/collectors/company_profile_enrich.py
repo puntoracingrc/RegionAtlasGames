@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from collectors.catalog_ai_match import ai_available
+from collectors.price_ai_policy import batch_openai_allowed
 from collectors.common import now_iso
 from collectors.game_description_ai import _clip_sentence, _openai_chat
 
@@ -301,7 +302,12 @@ def build_company_profile(
         if wikipedia_source:
             profile["sources"]["wikipedia"] = wikipedia_source
 
-    if use_ai and ai_available() and len(str(reference_text or "")) >= 80:
+    if (
+        use_ai
+        and ai_available()
+        and batch_openai_allowed(purpose="batch")
+        and len(str(reference_text or "")) >= 80
+    ):
         ai_content = generate_company_content_with_ai(facts, reference_text)
         profile["history"] = ai_content["history"]
         profile["seoMeta"] = ai_content["seoMeta"]

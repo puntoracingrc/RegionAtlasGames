@@ -5,7 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Callable
 
-from collectors.catalog_ai_match import ai_available, hydrate_cached_game, resolve_ambiguous_match
+from collectors.catalog_ai_match import hydrate_cached_game, resolve_ambiguous_match
+from collectors.price_ai_policy import price_collectors_use_ai
 from collectors.catalog_match import CatalogMatchResult, is_likely_game_product, match_catalog_product
 from collectors.listing_region_enrich import apply_region_enrichment_to_row
 
@@ -146,10 +147,10 @@ def print_match_stats(stats: MatchPipelineStats, *, label: str) -> None:
     print(f"  Ambiguos omitidos: {stats.ambiguous_skipped}")
     print(f"  Región rechazada (sin prueba): {stats.region_rejected}")
     print(f"  Visión carátula aplicada: {stats.cover_vision_used}")
-    if stats.ambiguous_skipped and not ai_available():
-        print("  (OPENAI_API_KEY ausente — ambiguos no resueltos)")
-    if stats.region_rejected and not ai_available():
-        print("  (OPENAI_API_KEY ausente — visión región no disponible en duda)")
+    if stats.ambiguous_skipped and not price_collectors_use_ai():
+        print("  (IA de precios desactivada o OPENAI_API_KEY ausente — ambiguos no resueltos)")
+    if stats.region_rejected and not price_collectors_use_ai():
+        print("  (IA de precios desactivada — visión región no disponible en duda)")
 
 
 __all__ = [

@@ -282,7 +282,7 @@ def classify_products_for_game(
     pause = batch_delay_s() if delay_s is None else delay_s
     workers = batch_workers()
     if use_regex_prefilter:
-        from collectors.wallopop_match import is_wallapop_game_product as _is_game_product
+        from collectors.wallapop_match import is_wallapop_game_product as _is_game_product
     else:
         _is_game_product = None
     stats = {

@@ -127,8 +127,8 @@ def planned_sources(platform_slug: str) -> list[tuple[str, Path]]:
 
 def collector_match_args() -> list[str]:
     extra: list[str] = []
-    if os.environ.get("DAILY_NO_AI", "").strip():
-        extra.append("--no-ai")
+    # DAILY_NO_AI ya no desactiva IA en collectors: la política prioritaria reserva OpenAI
+    # para dudas en anuncios. Usar PRICE_AI_DISABLED=1 solo para emergencias.
     if os.environ.get("DAILY_NO_MATCH_CACHE", "").strip():
         extra.append("--no-match-cache")
     return extra
