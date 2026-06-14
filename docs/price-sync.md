@@ -182,18 +182,35 @@ python3 scripts/collect_todoconsolas.py --all
 
 **GitHub Actions:** `.github/workflows/daily-price-ingest.yml` — cron `0 4 * * *` (04:00 UTC).
 
+Una plataforma (o lote mini) por día → collectors → merge → `sync_es_prices.py` → commit a `main`.
+
+### Modo CI (GitHub Actions)
+
+En runners de GitHub el ingest usa límites conservadores (detecta `GITHUB_ACTIONS=true`):
+
+| Control | Default CI | Motivo |
+|---------|------------|--------|
+| `timeout-minutes` | 360 | Game Gear + Vinted sin límite superaba 90 min |
+| `DAILY_SKIP_TODOCOLECCION` | `1` | TodoColeccion devuelve 403 desde datacenter |
+| `DAILY_VINTED_GAME_LIMIT` | 35 | Vinted ~10 min/juego sin límite |
+| `DAILY_WALLAPOP_GAME_LIMIT` | 50 | API rápida, cupo diario |
+| `DAILY_EBAY_GAME_LIMIT` | 25 | Cuota API |
+| `DAILY_RETAIL_GAME_LIMIT` | 120 | CeX/JGO/Kaoto/TodoConsolas |
+| `DAILY_USE_CACHE` | `1` | Reutiliza caché entre días |
+
+Prioridad dentro del límite: juegos **sin** `hasEsPrice` primero (rotación progresiva).
+
 Fuentes en el job diario (si existen collector + credenciales):
 
 | Fuente | Collector | Requisito |
 |--------|-----------|-----------|
-| TodoColeccion | sí | — |
+| TodoColeccion | omitida en CI | 403 desde GitHub |
 | TodoConsolas | sí | — |
-| CeX | sí | — |
-| Chollo / JGO / Kaoto | sí | plataforma mapeada |
-| eBay ES | sí | `EBAY_APP_ID` o client id/secret en secrets |
-| Wallapop | sí (`collect_wallapop.py`) | Vinted pendiente |
+| CeX / Chollo / JGO / Kaoto | sí | plataforma mapeada |
+| eBay ES | sí | secrets eBay |
+| Wallapop / Vinted | sí | límites CI arriba |
 
-Variables opcionales: `DAILY_SOURCE_PAUSE_SEC` (default 5), `DAILY_EBAY_GAME_LIMIT` (default 25 juegos).
+Variables opcionales locales: `DAILY_SOURCE_PAUSE_SEC`, `DAILY_SKIP_SOURCES=todocoleccion,vinted`, etc.
 
 ## Cron local (alternativa)
 

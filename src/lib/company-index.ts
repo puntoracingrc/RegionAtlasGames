@@ -189,8 +189,8 @@ export function getCompanyExplorerData(): CompanyExplorerData {
     genreOptions: buildFilterOptions(companies, "genreSlugs", (slug) => getGenre(slug)?.name ?? slug),
     stats: {
       total: companies.length,
-      publishers: companies.filter((c) => c.publisherCount > 0).length,
-      developers: companies.filter((c) => c.developerCount > 0).length,
+      publishers: companies.filter((c) => c.roleKind === "publisher").length,
+      developers: companies.filter((c) => c.roleKind === "developer").length,
       dualRole: companies.filter((c) => c.roleKind === "both").length,
       withProfile: companies.filter((c) => c.hasProfile).length,
       gamesWithDetails: statsMeta.gamesWithDetails ?? 0,
@@ -221,9 +221,9 @@ function matchesSearch(company: CompanyCardData, query: string): boolean {
 function matchesRole(company: CompanyCardData, role: CompanyRoleFilter): boolean {
   switch (role) {
     case "publishers":
-      return company.publisherCount > 0;
+      return company.roleKind === "publisher";
     case "developers":
-      return company.developerCount > 0;
+      return company.roleKind === "developer";
     case "both":
       return company.roleKind === "both";
     default:
@@ -312,8 +312,8 @@ export function companyRoleLabel(role: CompanyRoleKind): string {
 export function companyListIntro(stats: CompanyExplorerData["stats"]): string {
   return [
     `${stats.total.toLocaleString("es-ES")} compañías unificadas`,
-    `${stats.publishers.toLocaleString("es-ES")} publicadoras`,
-    `${stats.developers.toLocaleString("es-ES")} desarrolladoras`,
+    `${stats.publishers.toLocaleString("es-ES")} solo publicadoras`,
+    `${stats.developers.toLocaleString("es-ES")} solo desarrolladoras`,
     `${stats.dualRole.toLocaleString("es-ES")} con ambos roles`,
     `${stats.gamesWithDetails.toLocaleString("es-ES")} juegos con ficha`,
   ].join(" · ");

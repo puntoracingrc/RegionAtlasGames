@@ -29,8 +29,8 @@ import {
   buildGameMetadata,
   catalogGamePath,
   getSimilarGames,
-  resolveCatalogGameParam,
 } from "@/lib/catalog-seo";
+import { resolveCatalogGameWithOverlay, getGameDetailsWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { getPlatform } from "@/lib/catalog";
@@ -38,7 +38,6 @@ import { grailLabel, isGrailGame, isTopInSegment, topSegmentLabel } from "@/lib/
 import { esPriceDisplayLabel } from "@/lib/price-display";
 import { RegionEvidenceRulesPanel } from "@/components/region-evidence-rules-panel";
 import { REGION_VERIFICATION_POLICY, priceVerificationLabel } from "@/lib/listing-region-verification";
-import { getGameDetails } from "@/lib/indexes";
 import { resolveGameEntityLinks } from "@/lib/entity-links";
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
@@ -48,14 +47,14 @@ type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const game = resolveCatalogGameParam(slug);
+  const game = await resolveCatalogGameWithOverlay(slug);
   if (!game) return { title: "Juego no encontrado" };
   return buildGameMetadata(game);
 }
 
 export default async function CatalogGamePage({ params }: Props) {
   const { slug } = await params;
-  const game = resolveCatalogGameParam(slug);
+  const game = await resolveCatalogGameWithOverlay(slug);
   if (!game) notFound();
 
   const canonicalSlug = buildCatalogSeoSlug(game);
@@ -68,7 +67,7 @@ export default async function CatalogGamePage({ params }: Props) {
   const ownedCount = user ? await countCatalogGameOwned(user.id, game.id) : 0;
 
   const platform = getPlatform(game.platformSlug);
-  const details = getGameDetails(game.id);
+  const details = await getGameDetailsWithOverlay(game.id);
   const entityLinks = details ? resolveGameEntityLinks(details) : null;
   const grail = isGrailGame(game);
   const topSegment = isTopInSegment(game);

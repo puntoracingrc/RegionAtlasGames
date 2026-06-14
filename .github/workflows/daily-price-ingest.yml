@@ -19,7 +19,7 @@ on:
 jobs:
   ingest:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 360
     permissions:
       contents: write
 
@@ -30,13 +30,22 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install SFTP deps (optional collectors)
+        run: pip install paramiko
+
       - name: Run daily ingest
         env:
           EBAY_APP_ID: ${{ secrets.EBAY_APP_ID }}
           EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
           EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
-          DAILY_SOURCE_PAUSE_SEC: "8"
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DAILY_SOURCE_PAUSE_SEC: "5"
           DAILY_EBAY_GAME_LIMIT: "25"
+          DAILY_WALLAPOP_GAME_LIMIT: "50"
+          DAILY_VINTED_GAME_LIMIT: "35"
+          DAILY_RETAIL_GAME_LIMIT: "120"
+          DAILY_USE_CACHE: "1"
+          DAILY_SKIP_TODOCOLECCION: "1"
         run: |
           ARGS=()
           if [[ -n "${{ inputs.platform }}" ]]; then
@@ -52,7 +61,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/catalog.json data/price-sync-state.json data/meta.json data/price-ingest/
+          git add data/catalog.json data/price-sync-state.json data/meta.json data/price-history.json data/price-ingest/
           if git diff --staged --quiet; then
             echo "Sin cambios en precios."
             exit 0

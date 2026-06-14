@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
+import { assertAdminApi } from "@/lib/admin-auth";
 import { getCatalogStagingSummary } from "@/lib/catalog-staging";
 
-function authorized(request: Request): boolean {
+function cronAuthorized(request: Request): boolean {
   const secret = process.env.CRON_SECRET?.trim();
   if (!secret) return process.env.NODE_ENV !== "production";
   const header = request.headers.get("authorization");
@@ -9,7 +10,8 @@ function authorized(request: Request): boolean {
 }
 
 export async function GET(request: Request) {
-  if (!authorized(request)) {
+  const admin = await assertAdminApi();
+  if (!admin && !cronAuthorized(request)) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
 

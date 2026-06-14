@@ -16,6 +16,8 @@ const LINKS = [
   { href: "/ajustes", label: "Ajustes" },
 ];
 
+const ADMIN_LINK = { href: "/admin", label: "Admin" };
+
 function MenuIcon({ open }: { open: boolean }) {
   return (
     <svg
@@ -43,6 +45,22 @@ function MenuIcon({ open }: { open: boolean }) {
 export function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/admin/me")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data?.admin) setIsAdmin(true);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const navLinks = isAdmin ? [...LINKS, ADMIN_LINK] : LINKS;
 
   useEffect(() => {
     setOpen(false);
@@ -62,7 +80,7 @@ export function SiteNav() {
 
         <div className="flex items-center justify-end gap-2 sm:gap-3 md:gap-5">
           <div className="hidden items-center gap-x-4 text-[13px] text-muted sm:flex">
-            {LINKS.filter((link) => link.href !== "/ajustes").map((link) => (
+            {navLinks.filter((link) => link.href !== "/ajustes" && link.href !== "/admin").map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -72,6 +90,15 @@ export function SiteNav() {
               </Link>
             ))}
           </div>
+
+          {isAdmin && (
+            <Link
+              href="/admin"
+              className="hidden rounded-md px-2 py-1.5 text-[13px] font-medium text-violet-700 transition hover:text-violet-900 dark:text-violet-300 sm:inline"
+            >
+              Admin
+            </Link>
+          )}
 
           <AuthNav />
 
@@ -101,7 +128,7 @@ export function SiteNav() {
             className="relative z-50 border-t border-border bg-nav px-4 py-3 sm:hidden"
           >
             <ul className="space-y-1">
-              {LINKS.map((link) => {
+              {navLinks.map((link) => {
                 const active =
                   link.href === "/"
                     ? pathname === "/"

@@ -6,7 +6,8 @@ import { PlatformCatalogSection } from "@/components/platform-catalog-section";
 import { SiteNav } from "@/components/site-nav";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import { getOwnedCatalogIds, getUserCollectionViews } from "@/lib/collection-store";
-import { getCatalogByPlatform, getPlatform } from "@/lib/catalog";
+import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
+import { getPlatform } from "@/lib/catalog";
 import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
@@ -28,7 +29,7 @@ export default async function PlatformPage({ params }: Props) {
   const owned = user ? await getUserCollectionViews(user.id) : [];
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
   const ownedOnPlatform = owned.filter((c) => c.platformSlug === slug);
-  const catalogGames = getCatalogByPlatform(slug);
+  const catalogGames = await getCatalogByPlatformWithOverlay(slug);
   const listingCounts = getActiveListingCountsByCatalog();
 
   return (

@@ -93,6 +93,58 @@ def ebay_game_limit() -> int:
         return 25
 
 
+def is_ci_daily() -> bool:
+    return os.environ.get("GITHUB_ACTIONS", "").strip().lower() == "true"
+
+
+def daily_skip_sources() -> set[str]:
+    skipped = {
+        part.strip()
+        for part in os.environ.get("DAILY_SKIP_SOURCES", "").split(",")
+        if part.strip()
+    }
+    if is_ci_daily() and os.environ.get("DAILY_SKIP_TODOCOLECCION", "1") != "0":
+        skipped.add("todocoleccion")
+    return skipped
+
+
+def daily_use_cache() -> bool:
+    raw = os.environ.get("DAILY_USE_CACHE", "")
+    if raw.strip():
+        return raw.strip().lower() not in {"0", "false", "no"}
+    return is_ci_daily()
+
+
+def daily_retail_game_limit() -> int | None:
+    raw = os.environ.get("DAILY_RETAIL_GAME_LIMIT", "").strip()
+    if raw:
+        try:
+            return max(1, int(raw))
+        except ValueError:
+            pass
+    if is_ci_daily():
+        try:
+            return max(1, int(os.environ.get("DAILY_CI_RETAIL_GAME_LIMIT", "120")))
+        except ValueError:
+            return 120
+    return None
+
+
+def vinted_game_limit() -> int | None:
+    raw = os.environ.get("DAILY_VINTED_GAME_LIMIT", "").strip()
+    if raw:
+        try:
+            return max(1, int(raw))
+        except ValueError:
+            pass
+    if is_ci_daily():
+        try:
+            return max(1, int(os.environ.get("DAILY_CI_VINTED_GAME_LIMIT", "35")))
+        except ValueError:
+            return 35
+    return None
+
+
 def wallapop_game_limit() -> int:
     raw = os.environ.get("DAILY_WALLAPOP_GAME_LIMIT", "").strip()
     if raw:
@@ -180,7 +232,25 @@ def collector_command(source: str, platform_slug: str, output: Path) -> list[str
             "--output",
             str(output),
         ]
+        if daily_use_cache():
+            cmd.append("--use-cache")
         cmd.extend(collector_match_args())
+        return cmd
+
+    if source == "vinted":
+        cmd = [
+            PYTHON,
+            str(script),
+            "--platform",
+            platform_slug,
+            "--output",
+            str(output),
+        ]
+        limit = vinted_game_limit()
+        if limit:
+            cmd.extend(["--limit", str(limit)])
+        if daily_use_cache():
+            cmd.append("--use-cache")
         return cmd
 
     cmd = [
@@ -191,7 +261,12 @@ def collector_command(source: str, platform_slug: str, output: Path) -> list[str
         "--output",
         str(output),
     ]
+    retail_limit = daily_retail_game_limit()
+    if retail_limit and source in {"todoconsolas", "jgo", "kaoto", "cex", "todocoleccion"}:
+        cmd.extend(["--limit", str(retail_limit)])
     cmd.extend(collector_match_args())
+    if daily_use_cache() and source in {"cex", "jgo", "kaoto", "todoconsolas"}:
+        cmd.append("--use-cache")
     return cmd
 
 
@@ -273,6 +348,9 @@ def ingest_platform(
     pause = source_pause_seconds()
 
     for index, (source, output) in enumerate(planned):
+        if source in daily_skip_sources():
+            print(f"\n--- Collector: {source} --- omitido (DAILY_SKIP_SOURCES / CI)")
+            continue
         if index > 0 and pause > 0 and not dry_run:
             time.sleep(pause)
         if run_collector(source, platform_slug, output, dry_run=dry_run):
@@ -341,6 +419,16 @@ def main() -> None:
         print(f"Plataforma: {platform_slugs[0]}")
     if not ebay_configured():
         print("eBay: omitido (sin EBAY_APP_ID ni EBAY_CLIENT_ID/SECRET en el entorno)")
+    skipped = daily_skip_sources()
+    if skipped:
+        print(f"Fuentes omitidas: {', '.join(sorted(skipped))}")
+    if is_ci_daily():
+        print(
+            "Modo CI: "
+            f"Vinted≤{vinted_game_limit()} · Wallapop≤{wallapop_game_limit()} · "
+            f"eBay≤{ebay_game_limit()} · retail≤{daily_retail_game_limit()} · "
+            f"caché={'sí' if daily_use_cache() else 'no'}"
+        )
 
     synced = 0
     platform_pause = platform_pause_seconds()

@@ -84,6 +84,18 @@ def platform_catalog_games(platform_slug: str, region: str | None = None) -> lis
     return sorted(games, key=lambda g: g["title"].lower())
 
 
+def prioritize_catalog_games(
+    games: list[dict[str, Any]],
+    limit: int | None,
+) -> list[dict[str, Any]]:
+    """Para ingest diario: prioriza juegos sin precio ES verificado."""
+    if not limit or limit <= 0:
+        return games
+    without_price = [g for g in games if not g.get("hasEsPrice")]
+    with_price = [g for g in games if g.get("hasEsPrice")]
+    return (without_price + with_price)[:limit]
+
+
 def es_market_games(platform_slug: str, region: str | None = None) -> list[dict[str, Any]]:
     """Alias retrocompatible: ahora incluye todas las regiones del catálogo."""
     return platform_catalog_games(platform_slug, region)

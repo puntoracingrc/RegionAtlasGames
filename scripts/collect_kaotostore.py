@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from collectors.collector_args import add_match_flags, match_kwargs  # noqa: E402
-from collectors.common import load_json, now_iso, platform_catalog_games, save_json  # noqa: E402
+from collectors.common import load_json, now_iso, platform_catalog_games, prioritize_catalog_games, save_json  # noqa: E402
 from collectors.kaoto_client import (  # noqa: E402
     build_kaoto_search_query,
     fetch_game_products,
@@ -132,8 +132,7 @@ def collect_platform(
         region=getattr(args, "region", None),
         all_regions=getattr(args, "all_regions", False),
     )
-    if args.limit:
-        games = games[: args.limit]
+    games = prioritize_catalog_games(games, args.limit)
 
     _, ref_to_ids = build_platform_reference_index(platform_slug)
     match_opts = match_kwargs(args)

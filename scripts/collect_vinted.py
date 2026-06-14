@@ -28,7 +28,7 @@ from collectors.catalog_match import (  # noqa: E402
     product_title,
     token_similarity,
 )
-from collectors.common import load_json, load_platforms, now_iso, platform_catalog_games, save_json  # noqa: E402
+from collectors.common import load_json, load_platforms, now_iso, platform_catalog_games, prioritize_catalog_games, save_json  # noqa: E402
 from collectors.listing_recency import search_per_game_pages  # noqa: E402
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
 from collectors.vinted_client import (  # noqa: E402
@@ -129,9 +129,7 @@ def collect_platform(
     if not vinted_sources_for_platform(platform_slug):
         raise SystemExit(f"Plataforma sin soporte Vinted: {platform_slug}")
 
-    games = platform_catalog_games(platform_slug)
-    if args.limit:
-        games = games[: args.limit]
+    games = prioritize_catalog_games(platform_catalog_games(platform_slug), args.limit)
 
     _, ref_to_ids = build_platform_reference_index(platform_slug)
     search_pages = args.max_pages if args.max_pages is not None else search_per_game_pages()

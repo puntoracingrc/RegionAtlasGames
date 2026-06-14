@@ -31,7 +31,7 @@ from collectors.catalog_match import (  # noqa: E402
     token_similarity,
 )
 from collectors.collector_args import add_match_flags, match_kwargs  # noqa: E402
-from collectors.common import load_json, load_platforms, now_iso, platform_catalog_games, save_json  # noqa: E402
+from collectors.common import load_json, load_platforms, now_iso, platform_catalog_games, prioritize_catalog_games, save_json  # noqa: E402
 from collectors.listing_recency import (  # noqa: E402
     max_listing_age_days,
     wallapop_listing_age_days,
@@ -168,7 +168,7 @@ def collect_platform(
         raise SystemExit(f"Plataforma no soportada: {platform_slug}")
 
     platform = load_platforms().get(platform_slug)
-    games = platform_catalog_games(platform_slug)[: args.limit]
+    games = prioritize_catalog_games(platform_catalog_games(platform_slug), args.limit)
     _, ref_to_ids = build_platform_reference_index(platform_slug)
 
     stats = {

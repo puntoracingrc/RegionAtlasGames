@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from collectors.collector_args import add_match_flags, match_kwargs  # noqa: E402
-from collectors.common import load_json, now_iso, platform_catalog_games, save_json  # noqa: E402
+from collectors.common import load_json, now_iso, platform_catalog_games, prioritize_catalog_games, save_json  # noqa: E402
 from collectors.match_pipeline import run_match_pipeline  # noqa: E402
 from collectors.listing_recency import search_per_game_pages  # noqa: E402
 from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
@@ -113,9 +113,7 @@ def collect_platform(platform_slug: str, args: argparse.Namespace) -> tuple[list
     if not tcns_sources_for_platform(platform_slug):
         raise SystemExit(f"Plataforma sin soporte TodoConsolas: {platform_slug}")
 
-    games = platform_catalog_games(platform_slug)
-    if args.limit:
-        games = games[: args.limit]
+    games = prioritize_catalog_games(platform_catalog_games(platform_slug), args.limit)
 
     _, ref_to_ids = build_platform_reference_index(platform_slug)
     match_opts = match_kwargs(args)

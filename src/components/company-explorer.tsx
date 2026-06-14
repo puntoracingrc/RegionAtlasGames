@@ -20,9 +20,9 @@ type Props = CompanyExplorerData;
 
 const ROLE_TABS: { value: CompanyRoleFilter; label: string; hint: string }[] = [
   { value: "all", label: "Todas", hint: "Catálogo completo" },
-  { value: "publishers", label: "Publicadoras", hint: "Han publicado al menos un título" },
-  { value: "developers", label: "Desarrolladoras", hint: "Han desarrollado al menos un título" },
-  { value: "both", label: "Ambos roles", hint: "Desarrollo y publicación" },
+  { value: "publishers", label: "Publicadoras", hint: "Solo publican (sin créditos de desarrollo)" },
+  { value: "developers", label: "Desarrolladoras", hint: "Solo desarrollan (sin créditos de publicación)" },
+  { value: "both", label: "Ambos roles", hint: "Desarrollan y publican en el catálogo" },
 ];
 
 const selectClass =
@@ -59,12 +59,12 @@ export function CompanyExplorer({ companies, platformOptions, genreOptions, stat
         <StatCard
           label="Publicadoras"
           value={stats.publishers.toLocaleString("es-ES")}
-          hint={`${stats.dualRole.toLocaleString("es-ES")} también desarrollan`}
+          hint="Solo publican"
         />
         <StatCard
           label="Desarrolladoras"
           value={stats.developers.toLocaleString("es-ES")}
-          hint="Con al menos un crédito de dev"
+          hint="Solo desarrollan"
         />
         <StatCard
           label="Perfiles enriquecidos"
