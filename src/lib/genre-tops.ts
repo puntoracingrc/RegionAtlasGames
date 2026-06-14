@@ -15,6 +15,7 @@ const topsFile = genreTopsData as GenreTopsFile;
 export type GenreReferenceGame = {
   id: string;
   title: string;
+  region: string;
   year: number | null;
   href: string;
 };
@@ -38,6 +39,7 @@ export function getGenreReferenceTops(genreSlug: string): GenrePlatformReference
       games.push({
         id: game.id,
         title: game.title,
+        region: game.region,
         year: entry.year ?? null,
         href: catalogGamePath(game),
       });

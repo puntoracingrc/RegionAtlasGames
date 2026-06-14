@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { BackLink } from "@/components/breadcrumbs";
+import { CatalogGameListLink } from "@/components/catalog-game-list-link";
 import { genreGameHref, type GenreProfileView } from "@/lib/genre-profile";
-import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 
 export function GenreReferenceTop({ view }: { view: GenreProfileView }) {
   if (view.referenceTops.length === 0) return null;
@@ -24,10 +23,12 @@ export function GenreReferenceTop({ view }: { view: GenreProfileView }) {
               {platform.games.map((game, index) => (
                 <span key={game.id}>
                   {index > 0 && <span className="text-muted"> · </span>}
-                  <Link href={game.href} className="text-accent/90 hover:text-accent hover:underline">
-                    {decodeHtmlEntities(game.title)}
-                    {game.year ? ` (${game.year})` : ""}
-                  </Link>
+                  <CatalogGameListLink
+                    game={{ title: game.title, region: game.region }}
+                    href={game.href}
+                    layout="inline"
+                  />
+                  {game.year ? ` (${game.year})` : ""}
                 </span>
               ))}
             </dd>
@@ -85,12 +86,7 @@ export function GenrePlatformGames({ view }: { view: GenreProfileView }) {
             <ul className="max-h-80 space-y-1 overflow-y-auto border-t border-border/70 px-4 py-3">
               {platform.games.map((game) => (
                 <li key={game.id}>
-                  <Link
-                    href={genreGameHref(game)}
-                    className="block rounded-lg px-2 py-1.5 text-sm text-foreground/90 hover:bg-black/20 hover:text-accent"
-                  >
-                    {decodeHtmlEntities(game.title)}
-                  </Link>
+                  <CatalogGameListLink game={game} href={genreGameHref(game)} />
                 </li>
               ))}
             </ul>

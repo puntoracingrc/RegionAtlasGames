@@ -1,6 +1,5 @@
-import Link from "next/link";
+import { CatalogGameListLink } from "@/components/catalog-game-list-link";
 import { companyGameHref, type CompanyPlatformGames } from "@/lib/company-profile";
-import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 
 export function CompanyPlatformGames({ platforms }: { platforms: CompanyPlatformGames[] }) {
   if (platforms.length === 0) return null;
@@ -31,12 +30,7 @@ export function CompanyPlatformGames({ platforms }: { platforms: CompanyPlatform
             <ul className="max-h-80 space-y-1 overflow-y-auto border-t border-border/70 px-4 py-3">
               {platform.games.map((game) => (
                 <li key={game.id}>
-                  <Link
-                    href={companyGameHref(game)}
-                    className="block rounded-lg px-2 py-1.5 text-sm text-foreground/90 hover:bg-black/20 hover:text-accent"
-                  >
-                    {decodeHtmlEntities(game.title)}
-                  </Link>
+                  <CatalogGameListLink game={game} href={companyGameHref(game)} />
                 </li>
               ))}
             </ul>
