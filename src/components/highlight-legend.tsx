@@ -1,22 +1,26 @@
 import { grailLabel, topSegmentLabel } from "@/lib/game-highlight";
+import { cn } from "@/lib/cn";
 
 export function HighlightLegend({
   showOwned = true,
   compact = false,
+  subdued = true,
 }: {
   showOwned?: boolean;
   compact?: boolean;
+  subdued?: boolean;
 }) {
   const itemClass = compact
     ? "inline-flex items-center gap-1 rounded-full border border-border/60 bg-card/50 px-2 py-0.5"
     : "inline-flex items-center gap-1.5";
+  const textClass = subdued ? "text-muted" : "text-foreground/85";
 
   return (
     <div
       className={
         compact
-          ? "flex flex-wrap gap-1.5 text-[10px] text-muted"
-          : "flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted"
+          ? cn("flex flex-wrap gap-1.5 text-[10px]", textClass)
+          : cn("flex flex-wrap items-center gap-x-4 gap-y-1 text-xs", textClass)
       }
     >
       {showOwned && (

@@ -92,6 +92,10 @@ export type IndexEntry = {
   gameCount: number;
   asDeveloper?: string[];
   asPublisher?: string[];
+  wikidataId?: string | null;
+  aliasSlugs?: string[];
+  aliasNames?: string[];
+  mergeMethod?: "manual" | "wikidata" | "museum" | "normalized" | "slug";
 };
 
 export type PlatformStatus = "closed" | "semi-closed";

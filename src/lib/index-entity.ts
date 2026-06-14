@@ -1,4 +1,5 @@
 import type { CatalogGame, IndexEntry } from "./types";
+import { formatCompanyAliases, getCompanyEntity } from "./company-canonical";
 import {
   gamesForIndex,
   getCompanies,
@@ -24,6 +25,9 @@ export type IndexEntitySummary = {
   platforms: ReturnType<typeof platformBreakdown>;
   developerCount: number;
   publisherCount: number;
+  alsoKnownAs?: string[];
+  wikidataId?: string | null;
+  mergeMethod?: IndexEntry["mergeMethod"];
 };
 
 export const INDEX_KIND_META: Record<
@@ -92,6 +96,7 @@ export function summarizeIndexEntry(
 ): IndexEntitySummary {
   const resolved = resolveIndexEntry(entry);
   const games = options?.withGames ? gamesForIndex(resolved) : [];
+  const companyEntity = kind === "company" ? getCompanyEntity(resolved.slug) : undefined;
   return {
     kind,
     entry: resolved,
@@ -102,6 +107,9 @@ export function summarizeIndexEntry(
     platforms: platformBreakdown(resolved),
     developerCount: resolved.asDeveloper?.length ?? 0,
     publisherCount: resolved.asPublisher?.length ?? 0,
+    alsoKnownAs: kind === "company" ? formatCompanyAliases(companyEntity) : undefined,
+    wikidataId: resolved.wikidataId ?? companyEntity?.wikidataIds?.[0] ?? null,
+    mergeMethod: resolved.mergeMethod,
   };
 }
 

@@ -18,6 +18,7 @@ import { gameCardHighlightClass } from "@/lib/card-highlight";
 import { cn } from "@/lib/cn";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
+import { getGameDetails } from "@/lib/indexes";
 
 const cardBase =
   "group relative flex flex-col overflow-hidden rounded-xl border bg-card transition-all duration-200 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/45 hover:bg-card-hover";
@@ -26,6 +27,12 @@ function gameHighlights(game: CatalogGame | CollectionView) {
   const grail = isGrailGame(game);
   const topSegment = isTopInSegment(game);
   return { grail, topSegment };
+}
+
+function catalogYear(game: CatalogGame | CollectionView): number | null {
+  const catalogId = "listingStatus" in game ? game.id : game.catalogId;
+  if (!catalogId) return null;
+  return getGameDetails(catalogId)?.year ?? null;
 }
 
 export function CatalogGameCard({
@@ -43,6 +50,7 @@ export function CatalogGameCard({
 }) {
   const platform = getPlatform(game.platformSlug);
   const { grail, topSegment } = gameHighlights(game);
+  const year = catalogYear(game);
 
   return (
     <div className={cn(cardBase, gameCardHighlightClass(owned, grail, topSegment))}>
@@ -60,6 +68,7 @@ export function CatalogGameCard({
           title={decodeHtmlEntities(game.title)}
           platform={platform?.shortName ?? game.platformSlug}
           region={game.region}
+          year={year}
           price={formatEsPriceForCard(game, formatEur)}
           priceVerified={game.priceRegionVerified === true}
           priceUnverified={game.hasEsPrice && game.priceRegionVerified !== true}
@@ -89,6 +98,7 @@ export function CollectionGameCard({
   const platformLabel = getCollectionPlatformShortName(game.platformSlug);
   const href = game.catalogId ? catalogGamePath(game.catalogId) : `/coleccion/${game.id}`;
   const { grail, topSegment } = gameHighlights(game);
+  const year = catalogYear(game);
   const priceLabel =
     !game.hasEsPrice && game.recommendedPrice != null
       ? formatEur(game.recommendedPrice)
@@ -109,6 +119,8 @@ export function CollectionGameCard({
       <CardBody
         title={decodeHtmlEntities(game.title)}
         platform={platformLabel}
+        region={game.region}
+        year={year}
         price={priceLabel}
         priceVerified={game.priceRegionVerified === true}
         priceUnverified={game.hasEsPrice && game.priceRegionVerified !== true}
@@ -220,6 +232,7 @@ function CardBody({
   title,
   platform,
   region,
+  year,
   price,
   quantity,
   grail,
@@ -231,6 +244,7 @@ function CardBody({
   title: string;
   platform: string;
   region?: string;
+  year?: number | null;
   price: string;
   quantity?: number;
   grail?: boolean;
@@ -252,6 +266,14 @@ function CardBody({
         <div className="min-w-0">
           <p className="flex min-w-0 items-center gap-1 truncate text-[10px] uppercase tracking-wider text-muted">
             <span className="truncate">{platform}</span>
+            {year != null && (
+              <>
+                <span aria-hidden className="text-muted/50">
+                  ·
+                </span>
+                <span className="tabular-nums normal-case tracking-normal">{year}</span>
+              </>
+            )}
             {region && (
               <>
                 <span aria-hidden className="text-muted/50">

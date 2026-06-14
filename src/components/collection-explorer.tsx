@@ -8,11 +8,12 @@ import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { formatEur } from "@/lib/catalog";
 import {
   COLLECTION_SORT_OPTIONS,
-  DEFAULT_COLLECTION_SORT,
+  DEFAULT_COLLECTION_FILTERS,
   collectionDeveloperOptions,
   collectionPlatformOptions,
   collectionPublisherOptions,
   filterCollection,
+  hasActiveCollectionFilters,
 } from "@/lib/collection-filters";
 import type { CollectionSummary } from "@/lib/collection-store";
 import type { CollectionView, GameFilters } from "@/lib/types";
@@ -24,17 +25,13 @@ type Props = {
 };
 
 const selectClass =
-  "rounded-xl border border-border bg-black/30 px-4 py-2.5 text-sm outline-none ring-accent/30 focus:ring-2";
+  "rounded-xl border border-border bg-input px-4 py-2.5 text-sm text-foreground outline-none ring-accent/30 focus:ring-2";
+
+const searchClass =
+  "rounded-xl border border-border bg-input px-4 py-2.5 text-sm text-foreground outline-none ring-accent/30 placeholder:text-muted/90 focus:ring-2 xl:col-span-3";
 
 export function CollectionExplorer({ items, summary, canViewCollectionValue }: Props) {
-  const [filters, setFilters] = useState<GameFilters>({
-    q: "",
-    platform: "all",
-    developer: "all",
-    publisher: "all",
-    sort: DEFAULT_COLLECTION_SORT,
-    sealed: "all",
-  });
+  const [filters, setFilters] = useState<GameFilters>(DEFAULT_COLLECTION_FILTERS);
 
   const platformOptions = useMemo(() => collectionPlatformOptions(items), [items]);
   const developerOptions = useMemo(() => collectionDeveloperOptions(items), [items]);
@@ -42,6 +39,7 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
 
   const filtered = useMemo(() => filterCollection(items, filters), [items, filters]);
   const filteredValue = filtered.reduce((sum, g) => sum + (g.totalValue || 0), 0);
+  const filtersActive = hasActiveCollectionFilters(filters);
 
   return (
     <div className="space-y-8">
@@ -87,7 +85,7 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
             placeholder="Buscar título, plataforma, compañía…"
             value={filters.q}
             onChange={(e) => setFilters((f) => ({ ...f, q: e.target.value }))}
-            className="rounded-xl border border-border bg-black/30 px-4 py-2.5 text-sm outline-none ring-accent/30 placeholder:text-muted focus:ring-2 xl:col-span-3"
+            className={searchClass}
           />
           <select
             value={filters.platform}
@@ -121,7 +119,7 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
               onChange={(e) => setFilters((f) => ({ ...f, publisher: e.target.value }))}
               className={selectClass}
             >
-              <option value="all">Todos los publishers</option>
+              <option value="all">Todas las publicadoras</option>
               {publisherOptions.map((p) => (
                 <option key={p.slug} value={p.slug}>
                   {p.name} ({p.count})
@@ -142,19 +140,31 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
               </option>
             ))}
           </select>
+          {filtersActive && (
+            <button
+              type="button"
+              onClick={() => setFilters(DEFAULT_COLLECTION_FILTERS)}
+              className="rounded-xl border border-border bg-input px-4 py-2.5 text-sm font-medium text-foreground transition hover:border-accent/40 hover:bg-card-hover"
+            >
+              Limpiar filtros
+            </button>
+          )}
         </div>
-        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm text-muted">
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm text-foreground/85">
           <span>
-            Mostrando <strong className="text-foreground">{filtered.length}</strong> juegos
+            Mostrando <strong className="font-semibold text-foreground">{filtered.length}</strong> juegos
           </span>
           {canViewCollectionValue ? (
-            <span>Valor filtrado: {formatEur(filteredValue)}</span>
+            <span>
+              Valor filtrado:{" "}
+              <strong className="font-semibold text-foreground">{formatEur(filteredValue)}</strong>
+            </span>
           ) : (
             <CollectionValueUpsell compact />
           )}
         </div>
-        <div className="mt-2">
-          <HighlightLegend />
+        <div className="mt-2 border-t border-border/60 pt-3">
+          <HighlightLegend subdued={false} />
         </div>
       </section>
 

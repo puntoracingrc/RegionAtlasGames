@@ -1,6 +1,6 @@
 import { getPlatform, platforms } from "@/lib/catalog";
 import { getGameDetails } from "@/lib/indexes";
-import { resolveCanonicalCompany, resolveCanonicalCompanySlug } from "@/lib/company-canonical";
+import { resolveCanonicalEntity, resolveCanonicalCompanySlug } from "@/lib/company-canonical";
 import type { CollectionView, GameFilters } from "@/lib/types";
 
 export type CollectionSort = GameFilters["sort"];
@@ -13,6 +13,26 @@ export const COLLECTION_SORT_OPTIONS: { value: CollectionSort; label: string }[]
 ];
 
 export const DEFAULT_COLLECTION_SORT: CollectionSort = "added-desc";
+
+export const DEFAULT_COLLECTION_FILTERS: GameFilters = {
+  q: "",
+  platform: "all",
+  developer: "all",
+  publisher: "all",
+  sort: DEFAULT_COLLECTION_SORT,
+  sealed: "all",
+};
+
+export function hasActiveCollectionFilters(filters: GameFilters): boolean {
+  return (
+    filters.q.trim() !== "" ||
+    filters.platform !== "all" ||
+    filters.developer !== "all" ||
+    filters.publisher !== "all" ||
+    filters.sort !== DEFAULT_COLLECTION_SORT ||
+    filters.sealed !== "all"
+  );
+}
 
 export type CollectionFilterOption = {
   slug: string;
@@ -45,7 +65,7 @@ export function collectionDeveloperOptions(items: CollectionView[]): CollectionF
   for (const item of items) {
     const dev = collectionDetails(item)?.developer;
     if (!dev?.slug) continue;
-    const canonical = resolveCanonicalCompany(dev.slug, dev.name);
+    const canonical = resolveCanonicalEntity(dev);
     const existing = counts.get(canonical.slug);
     if (existing) {
       existing.count += 1;
@@ -67,7 +87,7 @@ export function collectionPublisherOptions(items: CollectionView[]): CollectionF
   for (const item of items) {
     const pub = collectionDetails(item)?.publisher;
     if (!pub?.slug) continue;
-    const canonical = resolveCanonicalCompany(pub.slug, pub.name);
+    const canonical = resolveCanonicalEntity(pub);
     const existing = counts.get(canonical.slug);
     if (existing) {
       existing.count += 1;
@@ -137,14 +157,32 @@ export function filterCollection(
 
     const details = collectionDetails(item);
     if (filters.developer !== "all") {
-      const devSlug = details?.developer?.slug;
-      if (!devSlug || resolveCanonicalCompanySlug(devSlug) !== filters.developer) {
+      const developer = details?.developer;
+      const devSlug = developer?.slug;
+      if (
+        !devSlug ||
+        !developer ||
+        resolveCanonicalCompanySlug(devSlug, {
+          name: developer.name,
+          wikidataId: developer.wikidataId,
+          museumPath: developer.museumPath,
+        }) !== filters.developer
+      ) {
         return false;
       }
     }
     if (filters.publisher !== "all") {
-      const pubSlug = details?.publisher?.slug;
-      if (!pubSlug || resolveCanonicalCompanySlug(pubSlug) !== filters.publisher) {
+      const publisher = details?.publisher;
+      const pubSlug = publisher?.slug;
+      if (
+        !pubSlug ||
+        !publisher ||
+        resolveCanonicalCompanySlug(pubSlug, {
+          name: publisher.name,
+          wikidataId: publisher.wikidataId,
+          museumPath: publisher.museumPath,
+        }) !== filters.publisher
+      ) {
         return false;
       }
     }

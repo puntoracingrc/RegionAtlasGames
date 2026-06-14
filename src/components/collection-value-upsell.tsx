@@ -9,9 +9,9 @@ type Props = {
 export function CollectionValueUpsell({ compact, className = "", itemCount }: Props) {
   if (compact) {
     return (
-      <span className={`text-muted ${className}`.trim()}>
+      <span className={`text-foreground/85 ${className}`.trim()}>
         Valor total —{" "}
-        <Link href="/ajustes" className="text-accent hover:underline">
+        <Link href="/ajustes" className="font-semibold text-accent hover:underline">
           Pro
         </Link>
       </span>

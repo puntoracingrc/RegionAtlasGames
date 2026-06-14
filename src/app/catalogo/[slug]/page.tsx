@@ -39,7 +39,7 @@ import { esPriceDisplayLabel } from "@/lib/price-display";
 import { RegionEvidenceRulesPanel } from "@/components/region-evidence-rules-panel";
 import { REGION_VERIFICATION_POLICY, priceVerificationLabel } from "@/lib/listing-region-verification";
 import { getGameDetails } from "@/lib/indexes";
-import { resolveCanonicalCompany } from "@/lib/company-canonical";
+import { resolveCanonicalEntity } from "@/lib/company-canonical";
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCurrentUser } from "@/lib/users";
@@ -69,12 +69,8 @@ export default async function CatalogGamePage({ params }: Props) {
 
   const platform = getPlatform(game.platformSlug);
   const details = getGameDetails(game.id);
-  const developerCompany = details?.developer
-    ? resolveCanonicalCompany(details.developer.slug, details.developer.name)
-    : null;
-  const publisherCompany = details?.publisher
-    ? resolveCanonicalCompany(details.publisher.slug, details.publisher.name)
-    : null;
+  const developerCompany = details?.developer ? resolveCanonicalEntity(details.developer) : null;
+  const publisherCompany = details?.publisher ? resolveCanonicalEntity(details.publisher) : null;
   const grail = isGrailGame(game);
   const topSegment = isTopInSegment(game);
   const priceStatus = esPriceDisplayLabel(game);

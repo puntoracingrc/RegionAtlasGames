@@ -14,7 +14,12 @@ _SCRIPTS_DIR = Path(__file__).resolve().parents[1]
 if str(_SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_DIR))
 
-from company_canonical import resolve_canonical_company
+from company_entity import (
+    build_company_entity_registry,
+    canonicalize_entity,
+    resolve_canonical_company,
+    save_company_entity_registry,
+)
 
 SOURCE_MUSEUM = "museum"
 SOURCE_PC = "pricecharting"
@@ -710,6 +715,8 @@ def build_indexes(details: dict[str, dict], catalog: list[dict]) -> dict[str, An
     }
     by_id = {g["id"]: g for g in catalog}
 
+    save_company_entity_registry(build_company_entity_registry(details, listed_ids))
+
     companies: dict[str, dict] = {}
     genres: dict[str, dict] = {}
     series: dict[str, dict] = {}
@@ -726,7 +733,12 @@ def build_indexes(details: dict[str, dict], catalog: list[dict]) -> dict[str, An
         if not entity or not entity.get("name"):
             return
         raw_slug = entity.get("slug") or slugify(entity["name"])
-        canonical = resolve_canonical_company(raw_slug, entity["name"])
+        canonical = resolve_canonical_company(
+            raw_slug,
+            str(entity["name"]),
+            wikidata_id=entity.get("wikidataId"),
+            museum_path=entity.get("museumPath"),
+        )
         slug = canonical["slug"]
         display_name = canonical["name"]
         entry = bucket.setdefault(
