@@ -15,7 +15,7 @@ export function PriceLegend({ defaultOpen = false }: { defaultOpen?: boolean }) 
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <span className="inline-flex items-center gap-2">
           <span className="rounded-md bg-accent/15 px-1.5 py-0.5 font-semibold text-accent">29 €</span>
-          <span>Precio ES verificado</span>
+          <span>Precio verificado</span>
         </span>
         <span className="inline-flex items-center gap-2">
           <span className="rounded-md bg-muted/20 px-1.5 py-0.5 font-semibold text-muted">—</span>
@@ -25,7 +25,7 @@ export function PriceLegend({ defaultOpen = false }: { defaultOpen?: boolean }) 
           <span className="rounded-md border border-dashed border-border px-1.5 py-0.5 font-semibold text-muted/80">
             ···
           </span>
-          <span>Sin dato mercado ES</span>
+          <span>Sin dato de mercado</span>
         </span>
       </div>
 

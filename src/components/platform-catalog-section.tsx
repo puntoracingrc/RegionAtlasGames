@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { CatalogGame, CollectionView, Platform } from "@/lib/types";
+import { BackLink } from "@/components/breadcrumbs";
+import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import { formatEur, getPlatformStats } from "@/lib/catalog";
 import { buildPlatformCatalogInsights } from "@/lib/platform-catalog-insights";
 import { PlatformRegionBar } from "@/components/platform-region-bar";
@@ -43,18 +45,14 @@ export function PlatformCatalogSection({
   return (
     <>
       <header className="mb-8 space-y-4">
-        <Link href="/plataformas" className="text-sm text-muted hover:text-accent">
-          ← Plataformas
-        </Link>
+        <BackLink href="/plataformas">Plataformas</BackLink>
 
         <div
           className={`overflow-hidden rounded-2xl border bg-gradient-to-br ${gradient} bg-card shadow-sm`}
         >
           <div className="p-5 md:p-7">
             <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted">
-                {platform.manufacturer}
-              </p>
+              <ManufacturerLogo manufacturer={platform.manufacturer} />
               <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 {platform.name}
               </h1>

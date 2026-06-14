@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { BackLink } from "@/components/breadcrumbs";
+import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import { CollectionGapGameCard } from "@/components/collection-gap-game-card";
 import {
   groupCollectionByPlatform,
@@ -53,14 +54,12 @@ export function CollectionGapPlatformDetail({ variant, platformSlug, items }: Pr
 
   return (
     <div className="space-y-6">
-      <Link href={copy.listHref} className="text-sm text-accent hover:underline">
-        ← {copy.backLabel}
-      </Link>
+      <BackLink href={copy.listHref}>{copy.backLabel}</BackLink>
 
       <section className={cn("overflow-hidden rounded-2xl border bg-gradient-to-br", style)}>
         <header className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-4 py-4 md:px-5">
           <div>
-            <p className="text-xs uppercase tracking-wider text-muted">{group.manufacturer}</p>
+            <ManufacturerLogo manufacturer={group.manufacturer} />
             <h1 className="text-2xl font-bold text-foreground">{group.shortName}</h1>
             <p className={cn("mt-1 text-sm font-medium", copy.badgeClass)}>{copy.badge}</p>
             {linkable > 0 && (

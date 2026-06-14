@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BackLink } from "@/components/breadcrumbs";
 import { notFound, redirect } from "next/navigation";
 import { GameProductReference } from "@/components/game-product-reference";
 import { CollectionValueUpsell } from "@/components/collection-value-upsell";
@@ -43,9 +44,7 @@ export default async function CollectionItemPage({ params }: Props) {
     <>
       <SiteNav />
       <main className="mx-auto max-w-5xl px-4 py-6 md:px-6 md:py-8">
-        <Link href="/coleccion" className="text-sm text-muted transition hover:text-accent">
-          ← Mi colección
-        </Link>
+        <BackLink href="/coleccion">Mi colección</BackLink>
 
         {!item.inRetroCatalog && (
           <div className="mt-4 rounded-xl border border-rose-400/20 bg-rose-500/10 px-4 py-3 text-sm text-rose-200">

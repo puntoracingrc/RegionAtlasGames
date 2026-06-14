@@ -145,7 +145,7 @@ export default async function CatalogGamePage({ params }: Props) {
                   }
                 >
                   {priceStatus === "verified"
-                    ? "Precio ES verificado"
+                    ? "Precio verificado"
                     : priceStatus === "unverified"
                       ? "Precio sin verificar región"
                       : "Precio pendiente"}

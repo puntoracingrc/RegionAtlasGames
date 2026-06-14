@@ -41,7 +41,7 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
         {canViewCollectionValue ? (
           <>
             <StatCard
-              label="Valor venta ES"
+              label="Valor venta"
               value={formatEur(summary.totalRecommendedValue)}
               hint={`${summary.withEsPrice} con precio actualizado`}
             />
@@ -49,9 +49,9 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
           </>
         ) : (
           <StatCard
-            label="Valor venta ES"
+            label="Valor venta"
             value="Pro"
-            hint={`${summary.withEsPrice} con precio ES · desbloquea el total en Ajustes`}
+            hint={`${summary.withEsPrice} con precio · desbloquea el total en Ajustes`}
             locked
           />
         )}
@@ -92,7 +92,7 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
             className="rounded-xl border border-border bg-black/30 px-4 py-2.5 text-sm outline-none"
           >
             <option value="all">Todos los precios</option>
-            <option value="yes">Con precio ES</option>
+            <option value="yes">Con precio</option>
             <option value="no">Pendientes</option>
           </select>
         </div>

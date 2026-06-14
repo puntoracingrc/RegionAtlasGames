@@ -30,7 +30,7 @@ export function CollectionValueHero({ summary, canViewCollectionValue }: Props) 
           <strong className="text-foreground">{summary.totalItems}</strong> juegos
         </span>
         <span>
-          <strong className="text-foreground">{summary.withEsPrice}</strong> con precio ES (
+          <strong className="text-foreground">{summary.withEsPrice}</strong> con precio (
           {pricedPct}%)
         </span>
         {summary.totalBuyValue > 0 && (

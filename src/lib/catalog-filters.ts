@@ -24,8 +24,8 @@ export const SORT_OPTIONS: { value: CatalogSort; label: string }[] = [
   { value: "title-desc", label: "Nombre (Z → A)" },
   { value: "year-asc", label: "Año (antiguo → reciente)" },
   { value: "year-desc", label: "Año (reciente → antiguo)" },
-  { value: "price-asc", label: "Precio ES (menor → mayor)" },
-  { value: "price-desc", label: "Precio ES (mayor → menor)" },
+  { value: "price-asc", label: "Precio (menor → mayor)" },
+  { value: "price-desc", label: "Precio (mayor → menor)" },
   { value: "reference-asc", label: "Referencia / SKU (A → Z)" },
   { value: "reference-desc", label: "Referencia / SKU (Z → A)" },
   { value: "genre-asc", label: "Género (A → Z)" },
@@ -41,7 +41,7 @@ export type CatalogPriceFilter = "all" | "verified" | "unverified" | "pending";
 
 export const PRICE_FILTER_OPTIONS: { value: CatalogPriceFilter; label: string }[] = [
   { value: "all", label: "Todos los precios" },
-  { value: "verified", label: "Precio ES verificado" },
+  { value: "verified", label: "Precio verificado" },
   { value: "unverified", label: "Precio sin verificar región" },
   { value: "pending", label: "Precio pendiente" },
 ];

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { BackLink } from "@/components/breadcrumbs";
 import type { IndexEntitySummary } from "@/lib/index-entity";
 import { INDEX_KIND_META, indexEntitySubtitle } from "@/lib/index-entity";
 
@@ -7,9 +7,7 @@ export function IndexEntityHeader({ summary }: { summary: IndexEntitySummary }) 
 
   return (
     <header className="mt-4 mb-8 space-y-4">
-      <Link href={meta.basePath} className="text-sm text-muted hover:text-accent">
-        ← {meta.backLabel}
-      </Link>
+      <BackLink href={meta.basePath}>{meta.backLabel}</BackLink>
       <h1 className="text-4xl font-bold text-foreground">{summary.name}</h1>
       <p className="text-muted">{indexEntitySubtitle(summary)}</p>
       {summary.platforms.length > 0 && (

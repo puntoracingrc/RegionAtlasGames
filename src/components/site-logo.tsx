@@ -18,7 +18,7 @@ type Props = {
 const LOGO_WIDTH = 401;
 const LOGO_HEIGHT = 150;
 
-export function SiteLogo({ href = "/", className, height = 36, priority = false }: Props) {
+export function SiteLogo({ href = "/", className, height = 43, priority = false }: Props) {
   const imageClass = cn("h-auto w-auto object-contain object-left", className);
 
   const logos = (

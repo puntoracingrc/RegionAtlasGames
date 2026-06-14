@@ -55,7 +55,7 @@ export default async function HomePage() {
           </div>
         </header>
 
-        <section className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <section className="mb-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
           <Stat label="Plataformas" value={String(meta.platformCount)} hint="Consolas retro indexadas" />
           <Stat
             label="Juegos en catálogo"
@@ -107,10 +107,10 @@ export default async function HomePage() {
 
 function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
-    <article className="rounded-xl border border-border bg-card p-4 sm:p-5">
-      <p className="text-xs uppercase tracking-wider text-muted">{label}</p>
-      <p className="mt-2 text-2xl font-bold text-accent">{value}</p>
-      {hint && <p className="mt-1 text-sm text-muted">{hint}</p>}
+    <article className="rounded-lg border border-border/60 bg-card/40 px-3 py-2">
+      <p className="text-[10px] font-medium uppercase tracking-wider text-muted">{label}</p>
+      <p className="mt-0.5 text-base font-semibold text-accent/95">{value}</p>
+      {hint && <p className="mt-0.5 text-[11px] leading-snug text-muted/85">{hint}</p>}
     </article>
   );
 }

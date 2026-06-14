@@ -40,6 +40,7 @@
     "covers:normalize-urls": "python3 scripts/normalize_catalog_cover_urls.py",
     "covers:link-catalog": "python3 scripts/link_catalog_covers.py --trust-cdn-only",
     "covers:check-upload": "python3 scripts/check_covers_upload.py",
+    "covers:upload": "python3 scripts/upload_covers_ftp.py",
     "storage:setup": "bash scripts/setup_external_storage.sh",
     "pipeline:watch": "caffeinate -dimsu bash scripts/watch_pipeline_progress.sh"
   },

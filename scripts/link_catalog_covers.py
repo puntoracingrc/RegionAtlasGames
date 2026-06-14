@@ -55,6 +55,11 @@ def main() -> None:
         action="store_true",
         help="Asignar /covers/ sin JPG local solo en plataformas sin carpeta local (p. ej. NES en CDN)",
     )
+    parser.add_argument(
+        "--prune-missing",
+        action="store_true",
+        help="Quitar coverUrl si no hay JPG local ni plataforma solo-CDN",
+    )
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
@@ -114,9 +119,12 @@ def main() -> None:
             continue
 
         if is_local_cover_url(str(current or "")) or current:
-            if not args.dry_run:
-                game["coverUrl"] = None
-            cleared += 1
+            if args.prune_missing:
+                if not args.dry_run:
+                    game["coverUrl"] = None
+                cleared += 1
+            else:
+                kept += 1
             continue
 
         skipped += 1

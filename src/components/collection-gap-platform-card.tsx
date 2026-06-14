@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import {
   MANUFACTURER_PANEL_STYLE,
   type CollectionPlatformGroup,
@@ -47,7 +48,7 @@ export function CollectionGapPlatformCard({ variant, group }: Props) {
       )}
 
       <div className="pr-10">
-        <p className="text-xs uppercase tracking-wider text-muted">{group.manufacturer}</p>
+        <ManufacturerLogo manufacturer={group.manufacturer} />
         <h3 className="mt-1 text-xl font-bold text-foreground">{group.shortName}</h3>
       </div>
 

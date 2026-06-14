@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { BackLink } from "@/components/breadcrumbs";
 import type { MarketplaceListing } from "@/lib/marketplace-types";
 import { PHOTO_SLOT_LABELS, REQUIRED_PHOTO_SLOTS } from "@/lib/marketplace-types";
 import { formatEur } from "@/lib/catalog";
@@ -119,9 +120,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
     <>
       <SiteNav />
       <main className="mx-auto max-w-3xl px-4 py-8 md:px-6">
-        <Link href={catalogHref} className="text-sm text-muted hover:text-accent">
-          ← Volver al juego
-        </Link>
+        <BackLink href={catalogHref}>Volver al juego</BackLink>
 
         <header className="mt-4 mb-6 space-y-2">
           <h1 className="text-2xl font-bold text-foreground">{current.title}</h1>

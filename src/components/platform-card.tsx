@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import type { CollectionView, Platform } from "@/lib/types";
 import { getPlatformStats } from "@/lib/catalog";
 
@@ -31,9 +32,7 @@ export function PlatformCard({
     >
       <div className="flex items-start justify-between gap-2">
         <div>
-          <p className="text-xs uppercase tracking-wider text-muted">
-            {platform.manufacturer}
-          </p>
+          <ManufacturerLogo manufacturer={platform.manufacturer} />
           <h3 className="mt-1 text-xl font-bold text-foreground">{platform.shortName}</h3>
         </div>
       </div>
