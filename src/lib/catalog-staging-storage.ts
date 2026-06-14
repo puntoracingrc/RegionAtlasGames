@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import path from "path";
 import { get, put } from "@vercel/blob";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
-import { ensureAppDataDir } from "./app-data-dir";
+import { appDataDir, ensureAppDataDir } from "./app-data-dir";
 import type { CatalogStagingGame, CatalogStagingIndex } from "./catalog-staging-types";
 
 const STAGING_BLOB_PREFIX = "region-atlas/staging";
@@ -14,7 +14,8 @@ function useBlobStorage(): boolean {
 }
 
 function stagingRootDir(): string {
-  return path.join(process.cwd(), "data", "staging");
+  ensureAppDataDir();
+  return path.join(appDataDir(), "staging");
 }
 
 function stagingGamesDir(): string {
@@ -131,13 +132,14 @@ export async function writeCatalogStagingIndex(
 ): Promise<{ ok: true } | { error: string }> {
   const payload = { ...index, updatedAt: new Date().toISOString() };
   const diskResult = writeIndexToDisk(payload);
-  if ("error" in diskResult) return diskResult;
   if (useBlobStorage()) {
     const blobResult = await writeIndexToBlob(payload);
-    if ("error" in blobResult) {
-      console.warn("[catalog-staging] blob index write failed; kept on disk", blobResult.error);
-    }
+    if ("ok" in blobResult) return { ok: true };
+    if ("error" in diskResult) return blobResult;
+    console.warn("[catalog-staging] blob index write failed; kept on disk");
+    return { ok: true };
   }
+  if ("error" in diskResult) return diskResult;
   return { ok: true };
 }
 
@@ -201,13 +203,14 @@ export async function writeCatalogStagingGame(
   game: CatalogStagingGame,
 ): Promise<{ ok: true } | { error: string }> {
   const diskResult = writeGameToDisk(game);
-  if ("error" in diskResult) return diskResult;
   if (useBlobStorage()) {
     const blobResult = await writeGameToBlob(game);
-    if ("error" in blobResult) {
-      console.warn("[catalog-staging] blob game write failed; kept on disk", blobResult.error);
-    }
+    if ("ok" in blobResult) return { ok: true };
+    if ("error" in diskResult) return blobResult;
+    console.warn("[catalog-staging] blob game write failed; kept on disk");
+    return { ok: true };
   }
+  if ("error" in diskResult) return diskResult;
   return { ok: true };
 }
 

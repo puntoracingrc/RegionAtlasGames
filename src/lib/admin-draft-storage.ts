@@ -1,7 +1,9 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "fs";
 import path from "path";
 import { get, put } from "@vercel/blob";
+import { ensureAppDataDir, appDataDir } from "./app-data-dir";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
+import { readCatalogStagingIndex } from "./catalog-staging-storage";
 import type { AdminGameDraft } from "./admin-draft-types";
 import type { CatalogStagingGame } from "./catalog-staging-types";
 import { catalogIdFromStaging, guessPcPath } from "./pc-path-guess";
@@ -17,7 +19,8 @@ function useBlobStorage(): boolean {
 }
 
 function draftsRootDir(): string {
-  return path.join(process.cwd(), "data", "admin", "drafts");
+  ensureAppDataDir();
+  return path.join(appDataDir(), "admin", "drafts");
 }
 
 function draftDiskPath(pcId: number): string {
@@ -59,31 +62,49 @@ export async function readAdminGameDraft(pcId: number): Promise<AdminGameDraft |
   }
 }
 
-export async function writeAdminGameDraft(
-  draft: AdminGameDraft,
-): Promise<{ ok: true } | { error: string }> {
-  const payload: AdminGameDraft = { ...draft, updatedAt: new Date().toISOString() };
+function writeDraftToDisk(payload: AdminGameDraft): { ok: true } | { error: string } {
   try {
     const dir = draftsRootDir();
     if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
     writeFileSync(draftDiskPath(payload.pcId), JSON.stringify(payload, null, 2), "utf-8");
-  } catch {
+    return { ok: true };
+  } catch (error) {
+    console.warn("[admin-draft] disk write failed", error);
     return { error: "No se pudo guardar el borrador en disco." };
   }
+}
+
+async function writeDraftToBlob(payload: AdminGameDraft): Promise<{ ok: true } | { error: string }> {
+  try {
+    const auth = await blobAuthOptions("private");
+    await put(draftBlobPath(payload.pcId), JSON.stringify(payload, null, 2), {
+      ...auth,
+      contentType: "application/json",
+      addRandomSuffix: false,
+      allowOverwrite: true,
+    });
+    return { ok: true };
+  } catch (error) {
+    console.error("[admin-draft] blob write failed", error);
+    return { error: "No se pudo guardar el borrador en Blob." };
+  }
+}
+
+export async function writeAdminGameDraft(
+  draft: AdminGameDraft,
+): Promise<{ ok: true } | { error: string }> {
+  const payload: AdminGameDraft = { ...draft, updatedAt: new Date().toISOString() };
+  const diskResult = writeDraftToDisk(payload);
 
   if (useBlobStorage()) {
-    try {
-      const auth = await blobAuthOptions("private");
-      await put(draftBlobPath(payload.pcId), JSON.stringify(payload, null, 2), {
-        ...auth,
-        contentType: "application/json",
-        addRandomSuffix: false,
-        allowOverwrite: true,
-      });
-    } catch (error) {
-      console.warn("[admin-draft] blob write failed", error);
-    }
+    const blobResult = await writeDraftToBlob(payload);
+    if ("ok" in blobResult) return { ok: true };
+    if ("error" in diskResult) return blobResult;
+    console.warn("[admin-draft] blob write failed; kept on disk");
+    return { ok: true };
   }
+
+  if ("error" in diskResult) return diskResult;
   return { ok: true };
 }
 
@@ -107,7 +128,7 @@ export function draftFromStaging(
   const catalogId =
     existing?.catalogId ||
     game.catalogId ||
-    catalogIdFromStaging({ platformSlug: game.platformSlug, slug });
+    catalogIdFromStaging({ platformSlug: game.platformSlug, slug, region: game.region });
 
   const details = getGameDetails(catalogId);
 
@@ -159,7 +180,11 @@ export function draftFromManualInput(input: {
     throw new Error("Plataforma no válida.");
   }
   const slug = input.slug?.trim() || slugify(input.title);
-  const catalogId = catalogIdFromStaging({ platformSlug: input.platformSlug, slug });
+  const catalogId = catalogIdFromStaging({
+    platformSlug: input.platformSlug,
+    slug,
+    region: input.region,
+  });
 
   return {
     pcId: input.pcId,
@@ -191,13 +216,19 @@ export function draftFromManualInput(input: {
 
 let manualPcIdCounter: number | null = null;
 
-export function nextManualPcId(): number {
+export async function nextManualPcId(): Promise<number> {
   if (manualPcIdCounter != null) {
     manualPcIdCounter -= 1;
     return manualPcIdCounter;
   }
-  const dir = draftsRootDir();
+
   let minId = -1;
+  const index = await readCatalogStagingIndex();
+  for (const id of index.pcIds) {
+    if (id < minId) minId = id;
+  }
+
+  const dir = draftsRootDir();
   if (existsSync(dir)) {
     for (const file of readdirSync(dir)) {
       if (!file.endsWith(".json")) continue;
@@ -205,6 +236,7 @@ export function nextManualPcId(): number {
       if (Number.isFinite(id) && id < minId) minId = id;
     }
   }
+
   manualPcIdCounter = minId - 1;
   return manualPcIdCounter;
 }

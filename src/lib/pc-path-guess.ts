@@ -130,6 +130,10 @@ export function guessPcPath(input: {
 export function catalogIdFromStaging(input: {
   platformSlug: string;
   slug: string;
+  region?: string;
 }): string {
+  const bucket = input.region ? regionBucket(input.region) : "pal";
+  if (bucket === "usa") return `${input.platformSlug}-usa-${input.slug}`;
+  if (bucket === "japan") return `${input.platformSlug}-japon-${input.slug}`;
   return `${input.platformSlug}-${input.slug}`;
 }

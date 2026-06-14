@@ -9,6 +9,7 @@ import {
   ensureManualStagingEntry,
   triggerPostSaveEnrichment,
 } from "@/lib/admin-catalog-publish";
+import { catalogIdExistsInCatalog } from "@/lib/catalog-runtime-overlay";
 import { REGION_OPTIONS } from "@/lib/admin-draft-storage";
 
 export async function POST(request: Request) {
@@ -36,7 +37,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Región no válida." }, { status: 400 });
   }
 
-  const pcId = nextManualPcId();
+  const pcId = await nextManualPcId();
   const draft = draftFromManualInput({
     title,
     platformSlug,
@@ -45,6 +46,15 @@ export async function POST(request: Request) {
     reference: body.reference ?? null,
     pcId,
   });
+
+  if (await catalogIdExistsInCatalog(draft.catalogId)) {
+    return NextResponse.json(
+      {
+        error: `Ya existe «${draft.catalogId}» en el catálogo. Prueba otro slug o edita la ficha existente.`,
+      },
+      { status: 409 },
+    );
+  }
 
   await ensureManualStagingEntry(draft);
   const saved = await writeAdminGameDraft(draft);
