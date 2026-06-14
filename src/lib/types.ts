@@ -98,6 +98,35 @@ export type IndexEntry = {
   mergeMethod?: "manual" | "wikidata" | "museum" | "normalized" | "slug";
 };
 
+export type CompanyProfileStatus = "active" | "defunct" | "subsidiary" | "unknown";
+
+export type CompanyProfileSeoMeta = {
+  seoTitle?: string;
+  seoDescription?: string;
+  jsonLdDescription?: string;
+};
+
+export type CompanyProfileSources = {
+  wikidata?: { wikidataId: string; fetchedAt: string; url?: string };
+  wikipedia?: { url: string; title?: string; fetchedAt: string };
+};
+
+/** Contenido enriquecido por compañía (Wikidata/Wikipedia + IA). */
+export type CompanyProfile = {
+  slug: string;
+  name: string;
+  wikidataId?: string | null;
+  logoUrl?: string | null;
+  foundedYear?: number | null;
+  closedYear?: number | null;
+  status?: CompanyProfileStatus;
+  history?: string | null;
+  seoMeta?: CompanyProfileSeoMeta | null;
+  sources?: CompanyProfileSources;
+  generatedAt?: string | null;
+  method?: "ai" | "template" | "wikidata" | null;
+};
+
 export type PlatformStatus = "closed" | "semi-closed";
 
 export type Platform = {

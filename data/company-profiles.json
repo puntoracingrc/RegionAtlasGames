@@ -1,0 +1,142 @@
+{
+  "sega": {
+    "slug": "sega",
+    "name": "Sega",
+    "wikidataId": "Q122741",
+    "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/SEGA_logo_JPN.svg",
+    "foundedYear": 1960,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T07:53:56Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q122741",
+        "fetchedAt": "2026-06-14T07:53:56Z",
+        "url": "https://www.wikidata.org/wiki/Q122741"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/Sega",
+        "title": "Sega",
+        "fetchedAt": "2026-06-14T07:53:56Z"
+      }
+    },
+    "history": "Sega está presente en el catálogo retro de Region Atlascon 2075 juegos indexados (627 como desarrolladora y 2044 como publicadora). Fundada en 1960. Sus plataformas más representadas en el catálogo son megadrive, mastersystem, gamegear, saturn.",
+    "seoMeta": {
+      "seoTitle": "Sega · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Sega está presente en el catálogo retro de Region Atlascon 2075 juegos indexados (627 como desarrolladora y 2044 como publicadora). Fundada en 1960. Sus…"
+    },
+    "method": "template"
+  },
+  "nintendo": {
+    "slug": "nintendo",
+    "name": "Nintendo",
+    "wikidataId": "Q8093",
+    "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Nintendo.svg",
+    "foundedYear": 1889,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T07:51:57Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q8093",
+        "fetchedAt": "2026-06-14T07:51:57Z",
+        "url": "https://www.wikidata.org/wiki/Q8093"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/Nintendo",
+        "title": "Nintendo",
+        "fetchedAt": "2026-06-14T07:51:57Z"
+      }
+    },
+    "history": "Nintendo está presente en el catálogo retro de Region Atlascon 815 juegos indexados (283 como desarrolladora y 807 como publicadora). Fundada en 1889. Sus plataformas más representadas en el catálogo son nes, n64, gameboy, 3ds.",
+    "seoMeta": {
+      "seoTitle": "Nintendo · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Nintendo está presente en el catálogo retro de Region Atlascon 815 juegos indexados (283 como desarrolladora y 807 como publicadora). Fundada en 1889. Sus…"
+    },
+    "method": "template"
+  },
+  "electronic-arts": {
+    "slug": "electronic-arts",
+    "name": "Electronic Arts",
+    "wikidataId": "Q173941",
+    "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Electronic_Arts_historical_logo_80s.svg",
+    "foundedYear": 1982,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T07:52:00Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q173941",
+        "fetchedAt": "2026-06-14T07:52:00Z",
+        "url": "https://www.wikidata.org/wiki/Q173941"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/Electronic_Arts",
+        "title": "Electronic Arts",
+        "fetchedAt": "2026-06-14T07:52:00Z"
+      }
+    },
+    "history": "Electronic Arts está presente en el catálogo retro de Region Atlascon 530 juegos indexados (95 como desarrolladora y 515 como publicadora). Fundada en 1982. Sus plataformas más representadas en el catálogo son megadrive, wii, saturn, ps3.",
+    "seoMeta": {
+      "seoTitle": "Electronic Arts · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Electronic Arts está presente en el catálogo retro de Region Atlascon 530 juegos indexados (95 como desarrolladora y 515 como publicadora). Fundada en 1982…"
+    },
+    "method": "template"
+  },
+  "konami": {
+    "slug": "konami",
+    "name": "Konami",
+    "wikidataId": "Q45700",
+    "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Konami_4th_logo_1.svg",
+    "foundedYear": 1969,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T07:52:02Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q45700",
+        "fetchedAt": "2026-06-14T07:52:02Z",
+        "url": "https://www.wikidata.org/wiki/Q45700"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/Konami",
+        "title": "Konami",
+        "fetchedAt": "2026-06-14T07:52:02Z"
+      }
+    },
+    "history": "Konami está presente en el catálogo retro de Region Atlascon 528 juegos indexados (321 como desarrolladora y 484 como publicadora). Fundada en 1969. Sus plataformas más representadas en el catálogo son nes, gameboy, n64, megadrive.",
+    "seoMeta": {
+      "seoTitle": "Konami · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "Konami está presente en el catálogo retro de Region Atlascon 528 juegos indexados (321 como desarrolladora y 484 como publicadora). Fundada en 1969. Sus…"
+    },
+    "method": "template"
+  },
+  "snk": {
+    "slug": "snk",
+    "name": "SNK",
+    "wikidataId": "Q1044563",
+    "logoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/SNK_logo.svg",
+    "foundedYear": 2001,
+    "closedYear": null,
+    "status": "active",
+    "generatedAt": "2026-06-14T07:52:04Z",
+    "sources": {
+      "wikidata": {
+        "wikidataId": "Q1044563",
+        "fetchedAt": "2026-06-14T07:52:04Z",
+        "url": "https://www.wikidata.org/wiki/Q1044563"
+      },
+      "wikipedia": {
+        "url": "https://es.wikipedia.org/wiki/SNK",
+        "title": "SNK",
+        "fetchedAt": "2026-06-14T07:52:04Z"
+      }
+    },
+    "history": "SNK está presente en el catálogo retro de Region Atlascon 526 juegos indexados (326 como desarrolladora y 470 como publicadora). Fundada en 2001. Sus plataformas más representadas en el catálogo son neogeo, neogeocd, neogeopocket, nes.",
+    "seoMeta": {
+      "seoTitle": "SNK · juegos retro y catálogo PAL | Region Atlas",
+      "seoDescription": "SNK está presente en el catálogo retro de Region Atlascon 526 juegos indexados (326 como desarrolladora y 470 como publicadora). Fundada en 2001. Sus…"
+    },
+    "method": "template"
+  }
+}
