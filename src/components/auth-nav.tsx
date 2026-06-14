@@ -31,23 +31,24 @@ export function AuthNav() {
 
   if (!user) {
     return (
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1.5 sm:gap-2">
         <Link
           href="/ajustes"
-          className="rounded-md px-2 py-1.5 text-[13px] text-muted transition hover:text-foreground"
+          className="hidden rounded-md px-2 py-1.5 text-[13px] text-muted transition hover:text-foreground sm:inline"
           title="Ajustes"
         >
           Ajustes
         </Link>
         <Link
           href="/login"
-          className="rounded-md px-2.5 py-1.5 text-[13px] text-muted transition hover:text-foreground"
+          className="rounded-md px-2 py-1.5 text-[12px] text-muted transition hover:text-foreground sm:px-2.5 sm:text-[13px]"
         >
-          Iniciar sesión
+          <span className="sm:hidden">Entrar</span>
+          <span className="hidden sm:inline">Iniciar sesión</span>
         </Link>
         <Link
           href="/registro"
-          className="rounded-md bg-accent px-2.5 py-1.5 text-[13px] font-medium text-accent-fg transition hover:opacity-90"
+          className="rounded-md bg-accent px-2 py-1.5 text-[12px] font-medium text-accent-fg transition hover:opacity-90 sm:px-2.5 sm:text-[13px]"
         >
           Registrarse
         </Link>
