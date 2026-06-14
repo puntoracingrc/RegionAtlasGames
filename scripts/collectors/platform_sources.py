@@ -47,6 +47,22 @@ def search_keyword(platform_slug: str) -> str:
     return str(cfg.get("searchKeyword") or platform_slug).strip() or platform_slug
 
 
+def ebay_search_keyword(platform_slug: str) -> str:
+    """Keyword de consola en queries eBay (p. ej. «neo geo aes» en lugar de «neogeo»)."""
+    cfg = platform_config(platform_slug)
+    explicit = str(cfg.get("ebaySearchKeyword") or "").strip()
+    if explicit:
+        return explicit
+    return search_keyword(platform_slug)
+
+
+def ebay_enabled_for_platform(platform_slug: str) -> bool:
+    cfg = platform_config(platform_slug)
+    if cfg.get("ebay") is False:
+        return False
+    return bool(search_keyword(platform_slug))
+
+
 def p2p_sources_for_platform(platform_slug: str) -> list[str]:
     if not platform_slug:
         return []
@@ -154,7 +170,7 @@ def collectors_for_platform(platform_slug: str, *, ebay_configured: bool = True)
         planned.append("kaoto")
     if cex_sources_for_platform(platform_slug):
         planned.append("cex")
-    if ebay_configured and platform_slug:
+    if ebay_configured and ebay_enabled_for_platform(platform_slug):
         planned.append("ebay")
     return planned
 

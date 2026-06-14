@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "notes": "Registro único por plataforma. Tras añadir el slug en platforms.json + catalog.json, edita aquí las fuentes. Wallapop/Vinted/eBay arrancan solos con searchKeyword. Campos opcionales: cex [ids], todocoleccion [slug], todocoleccionSearch (sin categoría TC), todoconsolas [slug], kaoto, jgo [slugs], chollo, serialstationConsole (PS). Ejemplo PS5: {\"searchKeyword\":\"ps5\",\"cex\":[\"...\"],\"serialstationConsole\":\"PS5\"}",
+  "notes": "Registro único por plataforma. Tras añadir el slug en platforms.json + catalog.json, edita aquí las fuentes. Wallapop/Vinted arrancan con searchKeyword. eBay se incluye automáticamente si hay EBAY_APP_ID (o CLIENT_ID/SECRET) en el entorno; opcional ebaySearchKeyword para queries más precisas. Campos opcionales: cex [ids], todocoleccion [slug], todocoleccionSearch, todoconsolas [slug], kaoto, jgo [slugs], chollo, serialstationConsole (PS), ebay false (desactivar).",
   "platforms": {
     "nes": {
       "searchKeyword": "nes",
@@ -243,6 +243,7 @@
     },
     "neogeo": {
       "searchKeyword": "neogeo",
+      "ebaySearchKeyword": "neo geo aes",
       "cex": [
         "212"
       ],
@@ -260,6 +261,7 @@
     },
     "neogeocd": {
       "searchKeyword": "neogeocd",
+      "ebaySearchKeyword": "neo geo cd",
       "cex": [
         "212"
       ],
@@ -275,6 +277,7 @@
     },
     "neogeopocket": {
       "searchKeyword": "ngpc",
+      "ebaySearchKeyword": "neo geo pocket",
       "cex": [
         "212"
       ],

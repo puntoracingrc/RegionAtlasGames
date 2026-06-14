@@ -25,7 +25,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from build_ingest_template import validate_ingest  # noqa: E402
 from collectors.common import (  # noqa: E402
     INGEST_DIR,
-    build_search_query,
+    build_ebay_search_query,
     es_market_games,
     load_json,
     load_platforms,
@@ -250,7 +250,7 @@ def main() -> None:
     for idx, game in enumerate(games, start=1):
         catalog_id = game["id"]
         catalog_region = game.get("region") or ""
-        query = build_search_query(game)
+        query = build_ebay_search_query(game)
         cache_file = GAME_CACHE_DIR / args.platform / f"{catalog_id}.json"
         game_listings: list[dict] = []
         used_game_cache = False

@@ -118,6 +118,20 @@ def build_search_query(game: dict[str, Any], platform: dict[str, Any] | None = N
     return normalize_query(" ".join(p for p in parts if p))
 
 
+def build_ebay_search_query(game: dict[str, Any], platform: dict[str, Any] | None = None) -> str:
+    """Título + keyword eBay (ebaySearchKeyword si existe en platform-sources.json)."""
+    from collectors.platform_sources import ebay_search_keyword
+
+    parts = [str(game.get("title") or "").strip()]
+    platform_slug = str(game.get("platformSlug") or "").strip()
+    if not platform_slug and platform:
+        platform_slug = str(platform.get("slug") or "").strip()
+    platform_kw = ebay_search_keyword(platform_slug)
+    if platform_kw:
+        parts.append(platform_kw)
+    return normalize_query(" ".join(p for p in parts if p))
+
+
 def to_ingest_listing(
     *,
     catalog_id: str,
