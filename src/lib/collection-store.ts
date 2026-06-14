@@ -161,6 +161,7 @@ export function catalogGameToCollectionItem(
     deltaEsVsPc: game.deltaEsVsPc,
     priceSource: game.priceSource,
     updatedAt: game.updatedAt,
+    addedAt: new Date().toISOString(),
     hasEsPrice: game.hasEsPrice,
     priceRegionVerified: game.priceRegionVerified,
     cexSellPrice: game.cexSellPrice ?? null,
@@ -286,6 +287,7 @@ export async function linkCollectionItemToCatalog(
     hasEsPrice: fromCatalog.hasEsPrice || current.hasEsPrice,
     priceSource: current.priceSource ?? fromCatalog.priceSource,
     pcRefPrice: current.pcRefPrice ?? fromCatalog.pcRefPrice,
+    addedAt: current.addedAt ?? new Date().toISOString(),
   };
 
   await writeUserCollection(file);

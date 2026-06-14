@@ -7,7 +7,6 @@ import type {
   CatalogMeta,
   CollectionItem,
   CollectionView,
-  GameFilters,
   Platform,
 } from "./types";
 
@@ -69,30 +68,6 @@ export function getPlatformStats(slug: string, ownedItems: CollectionView[] = []
   const completion = estimated > 0 ? Math.round((owned / estimated) * 100) : 0;
 
   return { platform, listed, owned, estimated, completion };
-}
-
-export function filterCollection(
-  source: CollectionView[],
-  filters: GameFilters,
-): CollectionView[] {
-  const q = filters.q.trim().toLowerCase();
-
-  return source.filter((game) => {
-    if (filters.platform !== "all" && game.platformSlug !== filters.platform) {
-      return false;
-    }
-    if (filters.sealed === "yes" && !game.sealed) return false;
-    if (filters.sealed === "no" && game.sealed) return false;
-    if (filters.priced === "yes" && !game.hasEsPrice) return false;
-    if (filters.priced === "no" && game.hasEsPrice) return false;
-    if (!q) return true;
-
-    const haystack = [game.title, game.titlePc, game.platformSlug, game.notes]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
-    return haystack.includes(q);
-  });
 }
 
 export function formatEur(value: number | null | undefined): string {

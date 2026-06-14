@@ -209,6 +209,8 @@ export type CollectionItem = {
   priceSource: string | null;
   updatedAt: string | null;
   hasEsPrice: boolean;
+  /** ISO — cuándo se añadió a la colección (manual o enlace a catálogo). */
+  addedAt?: string | null;
   priceRegionVerified?: boolean;
   cexSellPrice?: number | null;
   cexCashPrice?: number | null;
@@ -277,11 +279,15 @@ export type CollectionView = CollectionItem & {
   availableCatalogId?: string | null;
 };
 
+export type CollectionSort = "added-desc" | "title-asc" | "year-asc" | "year-desc";
+
 export type GameFilters = {
   q: string;
   platform: string;
+  developer: string;
+  publisher: string;
+  sort: CollectionSort;
   sealed: "all" | "yes" | "no";
-  priced: "all" | "yes" | "no";
 };
 
 /** @deprecated usar CollectionView */

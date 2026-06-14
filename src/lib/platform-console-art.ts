@@ -15,7 +15,7 @@ type ConsoleAsset = {
 const PLATFORM_CONSOLE_ASSETS: Partial<Record<string, ConsoleAsset>> = {
   gameboy: {
     src: "/platform-consoles/gameboy.png",
-    width: 682,
+    width: 1024,
     height: 1024,
   },
 };

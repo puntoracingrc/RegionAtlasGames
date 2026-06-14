@@ -5,7 +5,15 @@ import { CollectionGameCard } from "@/components/game-card";
 import { HighlightLegend } from "@/components/highlight-legend";
 import { CollectionValueUpsell } from "@/components/collection-value-upsell";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
-import { filterCollection, formatEur, platforms } from "@/lib/catalog";
+import { formatEur } from "@/lib/catalog";
+import {
+  COLLECTION_SORT_OPTIONS,
+  DEFAULT_COLLECTION_SORT,
+  collectionDeveloperOptions,
+  collectionPlatformOptions,
+  collectionPublisherOptions,
+  filterCollection,
+} from "@/lib/collection-filters";
 import type { CollectionSummary } from "@/lib/collection-store";
 import type { CollectionView, GameFilters } from "@/lib/types";
 
@@ -15,13 +23,22 @@ type Props = {
   canViewCollectionValue: boolean;
 };
 
+const selectClass =
+  "rounded-xl border border-border bg-black/30 px-4 py-2.5 text-sm outline-none ring-accent/30 focus:ring-2";
+
 export function CollectionExplorer({ items, summary, canViewCollectionValue }: Props) {
   const [filters, setFilters] = useState<GameFilters>({
     q: "",
     platform: "all",
+    developer: "all",
+    publisher: "all",
+    sort: DEFAULT_COLLECTION_SORT,
     sealed: "all",
-    priced: "all",
   });
+
+  const platformOptions = useMemo(() => collectionPlatformOptions(items), [items]);
+  const developerOptions = useMemo(() => collectionDeveloperOptions(items), [items]);
+  const publisherOptions = useMemo(() => collectionPublisherOptions(items), [items]);
 
   const filtered = useMemo(() => filterCollection(items, filters), [items, filters]);
   const filteredValue = filtered.reduce((sum, g) => sum + (g.totalValue || 0), 0);
@@ -64,36 +81,66 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
       </section>
 
       <section className="rounded-2xl border border-border bg-card p-4 md:p-5">
-        <div className="grid gap-3 md:grid-cols-4">
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           <input
             type="search"
-            placeholder="Buscar título, plataforma..."
+            placeholder="Buscar título, plataforma, compañía…"
             value={filters.q}
             onChange={(e) => setFilters((f) => ({ ...f, q: e.target.value }))}
-            className="rounded-xl border border-border bg-black/30 px-4 py-2.5 text-sm outline-none ring-accent/30 placeholder:text-muted focus:ring-2 md:col-span-2"
+            className="rounded-xl border border-border bg-black/30 px-4 py-2.5 text-sm outline-none ring-accent/30 placeholder:text-muted focus:ring-2 xl:col-span-3"
           />
           <select
             value={filters.platform}
             onChange={(e) => setFilters((f) => ({ ...f, platform: e.target.value }))}
-            className="rounded-xl border border-border bg-black/30 px-4 py-2.5 text-sm outline-none"
+            className={selectClass}
           >
-            <option value="all">Todas las plataformas</option>
-            {platforms.map((p) => (
+            <option value="all">Todas las plataformas ({items.length})</option>
+            {platformOptions.map((p) => (
               <option key={p.slug} value={p.slug}>
-                {p.shortName}
+                {p.name} ({p.count})
               </option>
             ))}
           </select>
+          {developerOptions.length > 0 && (
+            <select
+              value={filters.developer}
+              onChange={(e) => setFilters((f) => ({ ...f, developer: e.target.value }))}
+              className={selectClass}
+            >
+              <option value="all">Todas las desarrolladoras</option>
+              {developerOptions.map((d) => (
+                <option key={d.slug} value={d.slug}>
+                  {d.name} ({d.count})
+                </option>
+              ))}
+            </select>
+          )}
+          {publisherOptions.length > 0 && (
+            <select
+              value={filters.publisher}
+              onChange={(e) => setFilters((f) => ({ ...f, publisher: e.target.value }))}
+              className={selectClass}
+            >
+              <option value="all">Todos los publishers</option>
+              {publisherOptions.map((p) => (
+                <option key={p.slug} value={p.slug}>
+                  {p.name} ({p.count})
+                </option>
+              ))}
+            </select>
+          )}
           <select
-            value={filters.priced}
+            value={filters.sort}
             onChange={(e) =>
-              setFilters((f) => ({ ...f, priced: e.target.value as GameFilters["priced"] }))
+              setFilters((f) => ({ ...f, sort: e.target.value as GameFilters["sort"] }))
             }
-            className="rounded-xl border border-border bg-black/30 px-4 py-2.5 text-sm outline-none"
+            className={selectClass}
           >
-            <option value="all">Todos los precios</option>
-            <option value="yes">Con precio</option>
-            <option value="no">Pendientes</option>
+            {COLLECTION_SORT_OPTIONS.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
           </select>
         </div>
         <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm text-muted">
