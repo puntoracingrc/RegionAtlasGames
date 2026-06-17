@@ -1,6 +1,6 @@
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from "fs";
 import path from "path";
-import { get, put } from "@vercel/blob";
+import { del, get, put } from "@vercel/blob";
 import { ensureAppDataDir, appDataDir } from "./app-data-dir";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { readCatalogStagingIndex } from "./catalog-staging-storage";
@@ -35,7 +35,7 @@ function parseDraft(raw: string, pcId: number): AdminGameDraft | null {
   try {
     const parsed = JSON.parse(raw) as AdminGameDraft;
     if (!parsed || parsed.pcId !== pcId) return null;
-    return parsed;
+    return { ...parsed, physicalVariant: parsed.physicalVariant ?? null };
   } catch {
     return null;
   }
@@ -140,6 +140,7 @@ export function draftFromStaging(
     titlePc: existing?.titlePc ?? game.titlePc,
     platformSlug: existing?.platformSlug ?? game.platformSlug,
     region: existing?.region ?? game.region,
+    physicalVariant: existing?.physicalVariant ?? null,
     edition: existing?.edition ?? "standard",
     reference: existing?.reference ?? details?.reference ?? null,
     coverUrl: existing?.coverUrl ?? game.coverUrl,
@@ -163,6 +164,9 @@ export function draftFromStaging(
     seoMeta: existing?.seoMeta ?? details?.seoMeta ?? null,
     descriptionMeta: existing?.descriptionMeta ?? details?.descriptionMeta ?? null,
     source: game.pcId < 0 ? "manual" : "import",
+    contributorEmail: existing?.contributorEmail ?? game.contributorEmail ?? null,
+    reviewStatus: existing?.reviewStatus ?? game.reviewStatus ?? null,
+    submittedAt: existing?.submittedAt ?? game.submittedAt ?? null,
     updatedAt: existing?.updatedAt ?? new Date().toISOString(),
   };
 }
@@ -174,6 +178,8 @@ export function draftFromManualInput(input: {
   slug?: string;
   reference?: string | null;
   pcId: number;
+  contributorEmail?: string | null;
+  reviewStatus?: AdminGameDraft["reviewStatus"];
 }): AdminGameDraft {
   const platform = getPlatform(input.platformSlug);
   if (!platform) {
@@ -194,6 +200,7 @@ export function draftFromManualInput(input: {
     titlePc: input.title.trim(),
     platformSlug: input.platformSlug,
     region: input.region,
+    physicalVariant: null,
     edition: "standard",
     reference: input.reference?.trim() || null,
     coverUrl: null,
@@ -210,6 +217,9 @@ export function draftFromManualInput(input: {
     seoMeta: null,
     descriptionMeta: null,
     source: "manual",
+    contributorEmail: input.contributorEmail ?? null,
+    reviewStatus: input.reviewStatus ?? null,
+    submittedAt: null,
     updatedAt: new Date().toISOString(),
   };
 }
@@ -241,8 +251,27 @@ export async function nextManualPcId(): Promise<number> {
   return manualPcIdCounter;
 }
 
+export async function deleteAdminGameDraft(pcId: number): Promise<{ ok: true }> {
+  try {
+    unlinkSync(draftDiskPath(pcId));
+  } catch {
+    /* missing on disk */
+  }
+
+  if (useBlobStorage()) {
+    try {
+      const auth = await blobAuthOptions("private");
+      await del(draftBlobPath(pcId), auth);
+    } catch (error) {
+      console.warn("[admin-draft] blob delete failed", pcId, error);
+    }
+  }
+
+  return { ok: true };
+}
+
 export function platformOptions() {
   return [...platforms].sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
-export const REGION_OPTIONS = ["PAL España", "USA", "Japón"] as const;
+export const REGION_OPTIONS = ["PAL España", "PAL Europa", "USA", "Japón"] as const;
