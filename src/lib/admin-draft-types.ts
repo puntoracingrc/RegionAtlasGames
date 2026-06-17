@@ -1,5 +1,11 @@
 import type { GameDetailsSeoMeta } from "./types";
 
+export type ContributorReviewStatus =
+  | "contributor-draft"
+  | "pending-review"
+  | "approved"
+  | "rejected";
+
 export type AdminGameDraft = {
   pcId: number;
   catalogId: string;
@@ -8,6 +14,7 @@ export type AdminGameDraft = {
   titlePc: string | null;
   platformSlug: string;
   region: string;
+  physicalVariant: string | null;
   edition: string;
   reference: string | null;
   coverUrl: string | null;
@@ -30,6 +37,9 @@ export type AdminGameDraft = {
     referenceUrl?: string | null;
   } | null;
   source: "import" | "manual";
+  contributorEmail?: string | null;
+  reviewStatus?: ContributorReviewStatus | null;
+  submittedAt?: string | null;
   updatedAt: string;
 };
 
