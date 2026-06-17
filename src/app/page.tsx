@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HomeCatalogSearch } from "@/components/home-catalog-search";
 import { PlatformGrid } from "@/components/platform-card";
 import { SiteNav } from "@/components/site-nav";
 import {
@@ -26,6 +27,12 @@ export default async function HomePage() {
   const indexes = indexStats();
   const atlasStats = buildAtlasPanelStats();
   const activePlatforms = (await listAdminPlatforms()).filter((platform) => platform.active !== false);
+  const searchPlatforms = activePlatforms.map((platform) => ({
+    slug: platform.slug,
+    name: platform.name,
+    shortName: platform.shortName,
+  }));
+  const searchRegions = buildHomeRegionOptions();
   const platformRange =
     activePlatforms.length > 1
       ? `${activePlatforms[0].shortName} a ${activePlatforms.at(-1)?.shortName}`
@@ -68,6 +75,8 @@ export default async function HomePage() {
             <HeroAtlasPanel stats={atlasStats} />
           </div>
         </header>
+
+        <HomeCatalogSearch platforms={searchPlatforms} regions={searchRegions} />
 
         <section className="mb-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <Stat label="Plataformas" value={String(activePlatforms.length)} hint="Consolas activas en catálogo" />
@@ -117,6 +126,22 @@ export default async function HomePage() {
       </main>
     </>
   );
+}
+
+function buildHomeRegionOptions() {
+  const counts = new Map<string, number>();
+  for (const game of listedCatalog) {
+    const label = getRegionDisplay(game.region).label;
+    counts.set(label, (counts.get(label) ?? 0) + 1);
+  }
+
+  return [...counts.entries()]
+    .sort((a, b) => {
+      const rankDiff = regionSortRank(a[0]) - regionSortRank(b[0]);
+      if (rankDiff !== 0) return rankDiff;
+      return b[1] - a[1] || a[0].localeCompare(b[0], "es");
+    })
+    .map(([label, count]) => ({ value: label, label, count }));
 }
 
 function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {
