@@ -44,6 +44,7 @@ next-env.d.ts
 # auth (cuentas locales)
 /data/users.json
 /data/auth/
+/data/admin/
 .env.local
 
 # colecciones de usuario (importaciones Excel)

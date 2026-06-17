@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
 import {
   draftFromStaging,
@@ -6,10 +6,11 @@ import {
 } from "@/lib/admin-draft-storage";
 import { publishAdminGameDraft } from "@/lib/admin-catalog-publish";
 import { readCatalogStagingGame } from "@/lib/catalog-staging-storage";
+import { createAdminPublishJob, runAdminPublishJob } from "@/lib/admin-publish-jobs";
 
 type RouteParams = { params: Promise<{ pcId: string }> };
 
-export async function POST(_request: Request, { params }: RouteParams) {
+export async function POST(request: Request, { params }: RouteParams) {
   if (!(await assertAdminApi())) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
@@ -32,6 +33,22 @@ export async function POST(_request: Request, { params }: RouteParams) {
   }
   if (!draft.slug?.trim()) {
     return NextResponse.json({ error: "Falta el slug." }, { status: 400 });
+  }
+
+  const body = await request.json().catch(() => null);
+  if (body?.background === true) {
+    const job = await createAdminPublishJob(draft);
+    after(async () => {
+      await runAdminPublishJob(job.jobId, draft);
+    });
+    return NextResponse.json(
+      {
+        ok: true,
+        queued: true,
+        job,
+      },
+      { status: 202 },
+    );
   }
 
   const result = await publishAdminGameDraft(draft);

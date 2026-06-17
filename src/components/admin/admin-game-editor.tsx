@@ -12,6 +12,13 @@ import { getPhysicalVariant, PHYSICAL_VARIANTS } from "@/lib/physical-variants";
 import { buildCatalogSeoSlug } from "@/lib/catalog-path";
 
 type CompanyOption = { name: string; slug: string };
+type ReviewNavItem = { pcId: number; title: string };
+type ReviewNav = {
+  previous: ReviewNavItem | null;
+  next: ReviewNavItem | null;
+  position: number;
+  total: number;
+};
 
 type Props = {
   pcId: number;
@@ -22,6 +29,7 @@ type Props = {
   mode?: "staging" | "published" | "contributor";
   catalogId?: string;
   readOnly?: boolean;
+  reviewNav?: ReviewNav;
 };
 
 type LogLine = { id: number; text: string; tone?: "ok" | "err" };
@@ -29,6 +37,12 @@ type PriceJobState = {
   jobId: string;
   status: "running" | "done" | "error";
   logTail?: string;
+  error?: string;
+};
+type PublishJobState = {
+  jobId: string;
+  status: "running" | "done" | "error";
+  url?: string;
   error?: string;
 };
 
@@ -81,6 +95,7 @@ export function AdminGameEditor({
   mode = "staging",
   catalogId: catalogIdProp,
   readOnly = false,
+  reviewNav,
 }: Props) {
   const isPublished = mode === "published";
   const isContributor = mode === "contributor";
@@ -94,6 +109,7 @@ export function AdminGameEditor({
   const [aiRunning, setAiRunning] = useState(false);
   const [priceCollecting, setPriceCollecting] = useState(false);
   const [priceJob, setPriceJob] = useState<PriceJobState | null>(null);
+  const [publishJob, setPublishJob] = useState<PublishJobState | null>(null);
   const [deleting, setDeleting] = useState(false);
   const [logs, setLogs] = useState<LogLine[]>([]);
   const [message, setMessage] = useState<string | null>(null);
@@ -102,6 +118,7 @@ export function AdminGameEditor({
   const [aiExtraInstructions, setAiExtraInstructions] = useState("");
   const logId = useRef(0);
   const pricePollRef = useRef<number | null>(null);
+  const publishPollRef = useRef<number | null>(null);
   const autoAiStarted = useRef(false);
 
   const pushLog = useCallback((text: string, tone?: LogLine["tone"]) => {
@@ -255,6 +272,28 @@ export function AdminGameEditor({
     }, 3000);
   }
 
+  function pollPublishJob(jobId: string) {
+    if (publishPollRef.current != null) window.clearInterval(publishPollRef.current);
+    publishPollRef.current = window.setInterval(async () => {
+      try {
+        const res = await fetch(`/api/admin/publish-jobs/${encodeURIComponent(jobId)}`);
+        const data = await res.json();
+        if (!res.ok) return;
+        const job = data.job as PublishJobState;
+        setPublishJob(job);
+        if (job.status === "done") {
+          setMessage("Publicado. Ya puedes seguir revisando fichas.");
+          if (publishPollRef.current != null) window.clearInterval(publishPollRef.current);
+        } else if (job.status === "error") {
+          setError(job.error ?? "La publicación falló.");
+          if (publishPollRef.current != null) window.clearInterval(publishPollRef.current);
+        }
+      } catch {
+        /* ignore transient polling errors */
+      }
+    }, 2500);
+  }
+
   async function collectGamePrices() {
     if (!isPublished) return;
     setPriceCollecting(true);
@@ -346,16 +385,29 @@ export function AdminGameEditor({
     if (!confirm("¿Publicar este juego en el catálogo maestro?")) return;
     setPublishing(true);
     setError(null);
+    setMessage(null);
+    setPublishJob(null);
     const saved = await saveDraft();
     if (!saved) {
       setPublishing(false);
       return;
     }
     try {
-      const res = await fetch(`/api/admin/staging/${pcId}/publish`, { method: "POST" });
+      const res = await fetch(`/api/admin/staging/${pcId}/publish`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ background: true }),
+      });
       const data = await res.json();
       if (!res.ok) {
         setError(data.error ?? "No se pudo publicar.");
+        return;
+      }
+      if (data.queued && data.job) {
+        const job = data.job as PublishJobState;
+        setPublishJob(job);
+        setMessage("Publicación lanzada en segundo plano. Puedes abrir otro juego.");
+        pollPublishJob(job.jobId);
         return;
       }
       setMessage(
@@ -368,7 +420,6 @@ export function AdminGameEditor({
       if (data.deployHook?.triggered) {
         setMessage((prev) => `${prev ?? ""} Deploy de Vercel disparado.`.trim());
       }
-      window.location.href = data.url;
     } catch {
       setError("Error al publicar.");
     } finally {
@@ -462,6 +513,7 @@ export function AdminGameEditor({
   useEffect(() => {
     return () => {
       if (pricePollRef.current != null) window.clearInterval(pricePollRef.current);
+      if (publishPollRef.current != null) window.clearInterval(publishPollRef.current);
     };
   }, []);
 
@@ -511,6 +563,44 @@ export function AdminGameEditor({
               )}
             </div>
           </div>
+
+          {reviewNav && (
+            <div className="mb-5 grid gap-2 rounded-2xl border border-border bg-background/60 p-3 text-sm md:grid-cols-[1fr_auto_1fr] md:items-center">
+              {reviewNav.previous ? (
+                <Link
+                  href={`/admin/cola/${reviewNav.previous.pcId}`}
+                  className="rounded-xl border border-border px-3 py-2 font-semibold text-foreground transition hover:bg-card-hover"
+                >
+                  ← Anterior
+                  <span className="mt-1 block truncate text-xs font-normal text-muted">
+                    {reviewNav.previous.title}
+                  </span>
+                </Link>
+              ) : (
+                <span className="rounded-xl border border-border px-3 py-2 text-muted opacity-60">
+                  ← Anterior
+                </span>
+              )}
+              <span className="text-center text-xs font-semibold uppercase tracking-wider text-muted">
+                {reviewNav.position} / {reviewNav.total}
+              </span>
+              {reviewNav.next ? (
+                <Link
+                  href={`/admin/cola/${reviewNav.next.pcId}`}
+                  className="rounded-xl border border-border px-3 py-2 text-right font-semibold text-foreground transition hover:bg-card-hover"
+                >
+                  Siguiente →
+                  <span className="mt-1 block truncate text-xs font-normal text-muted">
+                    {reviewNav.next.title}
+                  </span>
+                </Link>
+              ) : (
+                <span className="rounded-xl border border-border px-3 py-2 text-right text-muted opacity-60">
+                  Siguiente →
+                </span>
+              )}
+            </div>
+          )}
 
           <fieldset disabled={locked} className="grid gap-4 sm:grid-cols-2 disabled:opacity-70">
             <label className="block space-y-1 sm:col-span-2">
@@ -793,7 +883,7 @@ export function AdminGameEditor({
                   disabled={publishing || aiRunning}
                   onClick={() => void publish()}
                 >
-                  {publishing ? "Publicando…" : "Publicar al catálogo"}
+                  {publishing ? "Lanzando…" : "Publicar en segundo plano"}
                 </button>
               </>
             )}
@@ -852,6 +942,34 @@ export function AdminGameEditor({
 
           {message && <p className="mt-3 text-sm text-emerald-600 dark:text-emerald-400">{message}</p>}
           {error && <p className="mt-3 text-sm text-rose-600 dark:text-rose-400">{error}</p>}
+          {publishJob && (
+            <div className="mt-3 rounded-xl border border-border bg-background/70 p-3 text-sm">
+              <p className="font-semibold text-foreground">
+                {publishJob.status === "running"
+                  ? "Publicación en curso…"
+                  : publishJob.status === "done"
+                    ? "Publicación completada"
+                    : "Publicación con error"}
+              </p>
+              {publishJob.status === "done" && publishJob.url && (
+                <Link
+                  href={publishJob.url}
+                  className="mt-1 inline-block text-accent hover:underline"
+                  target="_blank"
+                >
+                  Ver ficha publicada →
+                </Link>
+              )}
+              {publishJob.status === "running" && reviewNav?.next && (
+                <Link
+                  href={`/admin/cola/${reviewNav.next.pcId}`}
+                  className="mt-1 inline-block text-accent hover:underline"
+                >
+                  Seguir con el siguiente juego →
+                </Link>
+              )}
+            </div>
+          )}
           {priceJob?.logTail && (
             <pre className="mt-3 max-h-40 overflow-auto rounded-xl border border-border bg-background/80 p-3 text-[11px] leading-relaxed text-muted">
               {priceJob.logTail.slice(-1600)}
