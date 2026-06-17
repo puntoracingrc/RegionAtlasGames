@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
 import { get, put } from "@vercel/blob";
+import { appDataDir } from "./app-data-dir";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { slugify } from "./slug";
 
@@ -29,7 +30,7 @@ export type AdminTaxonomyFile = {
   nodes: Record<string, AdminTaxonomyNode>;
 };
 
-const DATA_DIR = path.join(process.cwd(), "data", "admin");
+const DATA_DIR = path.join(appDataDir(), "admin");
 const TAXONOMY_FILE = path.join(DATA_DIR, "taxonomy.json");
 const TAXONOMY_BLOB_PATH = "region-atlas/admin/taxonomy.json";
 
@@ -216,13 +217,21 @@ async function writeTaxonomyToBlob(taxonomy: AdminTaxonomyFile): Promise<void> {
 
 export async function readAdminTaxonomy(): Promise<AdminTaxonomyFile> {
   const taxonomy = (await readTaxonomyFromBlob()) ?? readTaxonomyFromDisk() ?? defaultTaxonomy();
-  if (!readTaxonomyFromDisk()) writeTaxonomyToDisk(taxonomy);
+  if (!readTaxonomyFromDisk()) {
+    try {
+      writeTaxonomyToDisk(taxonomy);
+    } catch {
+    }
+  }
   return taxonomy;
 }
 
 async function writeAdminTaxonomy(taxonomy: AdminTaxonomyFile): Promise<void> {
   const payload = { ...taxonomy, updatedAt: now() };
-  writeTaxonomyToDisk(payload);
+  try {
+    writeTaxonomyToDisk(payload);
+  } catch {
+  }
   await writeTaxonomyToBlob(payload);
 }
 
