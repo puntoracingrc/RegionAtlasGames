@@ -38,6 +38,7 @@ export const MANUFACTURER_PANEL_STYLE: Record<
   nintendo: "from-red-500/15 to-red-500/5 border-red-400/25",
   sony: "from-blue-500/15 to-blue-500/5 border-blue-400/25",
   sega: "from-indigo-500/15 to-indigo-500/5 border-indigo-400/25",
+  snk: "from-cyan-500/15 to-cyan-500/5 border-cyan-400/25",
   other: "from-zinc-500/15 to-zinc-500/5 border-zinc-400/25",
 };
 
