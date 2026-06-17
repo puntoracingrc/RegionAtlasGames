@@ -25,6 +25,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from collectors.game_details_lib import (  # noqa: E402
     SOURCE_SERIALSTATION,
     SOURCE_WIKIDATA,
+    apply_merged_details,
     build_indexes,
     details_changed,
     is_valid_detail,
@@ -194,9 +195,7 @@ def main() -> None:
 
         if details_changed(existing, merged):
             if not args.dry_run:
-                if existing:
-                    merged["mergedAt"] = time.strftime("%Y-%m-%dT%H:%M:%S")
-                details[game_id] = merged
+                details[game_id] = apply_merged_details(existing, merged)
             report["remerged"] += 1
         else:
             report["unchanged"] += 1

@@ -169,6 +169,31 @@ def parse_year_from_date(text: str | None) -> int | None:
     return int(match.group(0)) if match else None
 
 
+def normalize_pc_release_date(text: str | None) -> str | None:
+    if not text or text.lower() == "none":
+        return None
+
+    clean = text.strip()
+    # PriceCharting sometimes exposes year-only values as Excel serial dates.
+    # Example: "June 17, 1905" is serial 1995, not a real SNES release date.
+    match = re.fullmatch(r"([A-Za-z]+)\s+(\d{1,2}),\s+1905", clean)
+    if not match:
+        return clean
+
+    try:
+        import datetime as _dt
+
+        parsed = _dt.datetime.strptime(clean, "%B %d, %Y").date()
+    except ValueError:
+        return clean
+
+    excel_epoch = _dt.date(1899, 12, 30)
+    serial = (parsed - excel_epoch).days
+    if 1970 <= serial <= 2035:
+        return str(serial)
+    return clean
+
+
 def normalize_reference(text: str | None) -> str | None:
     if not text or text.lower() == "none":
         return None
@@ -295,12 +320,12 @@ def parse_pc_details(html_doc: str, pc_path: str) -> dict[str, Any]:
     developer = parse_company_value(row_html.get("Developer", ""), rows.get("Developer", ""))
     publisher = parse_company_value(row_html.get("Publisher", ""), rows.get("Publisher", ""))
     genres = parse_genre_values(row_html.get("Genre", ""), rows.get("Genre", ""))
-    release_date = rows.get("Release Date")
+    release_date = normalize_pc_release_date(rows.get("Release Date"))
     fetched_at = time.strftime("%Y-%m-%dT%H:%M:%S")
 
     detail = {
         "year": parse_year_from_date(release_date),
-        "releaseDate": release_date if release_date and release_date.lower() != "none" else None,
+        "releaseDate": release_date,
         "reference": normalize_reference(rows.get("Model Number")),
         "players": parse_players(rows.get("Player Count")),
         "support": None,
@@ -334,15 +359,32 @@ def _field_has_value(detail: dict[str, Any], field: str) -> bool:
     return value not in (None, "", [])
 
 
+GENERATED_DETAIL_KEYS = ("description", "descriptionMeta", "seoMeta")
+
+
 def details_changed(before: dict[str, Any] | None, after: dict[str, Any] | None) -> bool:
     if before is None and after is None:
         return False
     if before is None or after is None:
         return True
-    ignore = {"mergedAt", "fetchedAt"}
+    ignore = {"mergedAt", "fetchedAt", *GENERATED_DETAIL_KEYS}
     left = {key: value for key, value in before.items() if key not in ignore}
     right = {key: value for key, value in after.items() if key not in ignore}
     return left != right
+
+
+def apply_merged_details(
+    existing: dict[str, Any] | None,
+    merged: dict[str, Any],
+) -> dict[str, Any]:
+    """Write metadata merge without dropping generated description fields."""
+    result = {**merged}
+    if existing:
+        result["mergedAt"] = time.strftime("%Y-%m-%dT%H:%M:%S")
+        for key in GENERATED_DETAIL_KEYS:
+            if existing.get(key):
+                result[key] = existing[key]
+    return result
 
 
 def is_valid_detail(entry: dict[str, Any] | None) -> bool:
