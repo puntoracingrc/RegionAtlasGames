@@ -44,7 +44,7 @@ export function CollectionToggle({
   const buttonClass = cn(
     "inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium transition disabled:opacity-50",
     owned
-      ? "border border-emerald-500/30 bg-emerald-500/15 text-emerald-100 hover:bg-emerald-500/25"
+      ? "border border-emerald-500/40 bg-emerald-500/15 text-emerald-800 hover:bg-emerald-500/25 dark:text-emerald-100"
       : "bg-accent text-accent-fg hover:opacity-90",
   );
 

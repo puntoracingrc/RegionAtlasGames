@@ -173,7 +173,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
             <span className="text-muted"> — {LISTING_STATUS_HINTS[current.status]}</span>
           </p>
           {isOwner && current.status === "draft" && current.publishedAt && (
-            <p className="rounded-lg border border-amber-400/20 bg-amber-500/10 px-3 py-2 text-xs text-amber-100">
+            <p className="rounded-lg border border-amber-400/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-900 dark:text-amber-100">
               Has cambiado una foto: el anuncio volvió a borrador. Vuelve a analizar y publicar.
             </p>
           )}

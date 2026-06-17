@@ -86,7 +86,7 @@ export function CollectionCatalogRequestPanel({
       )}
 
       {success && (
-        <p className="mt-3 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
+        <p className="mt-3 rounded-lg border border-emerald-400/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-800 dark:text-emerald-100">
           {success}
         </p>
       )}

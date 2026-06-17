@@ -32,12 +32,12 @@ export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
           </div>
           <div className="flex flex-wrap gap-2 text-sm">
             {view.developerCount > 0 && (
-              <span className="rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-violet-100">
+              <span className="rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-violet-900 dark:text-violet-100">
                 Desarrolladora
               </span>
             )}
             {view.publisherCount > 0 && (
-              <span className="rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-1 text-sky-100">
+              <span className="rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-1 text-sky-900 dark:text-sky-100">
                 Publicadora
               </span>
             )}
