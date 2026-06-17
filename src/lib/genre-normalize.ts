@@ -17,3 +17,10 @@ export function pickGenreDisplayName(names: Iterable<string>): string {
   const preferred = unique.find((name) => /[áéíóúñ]/i.test(name)) ?? unique[0];
   return preferred;
 }
+
+export function isInvalidGenreEntity(input: { slug?: string | null; name?: string | null }): boolean {
+  const slug = input.slug?.trim().toLowerCase() ?? "";
+  const name = decodeEntityText(input.name ?? "").trim().toLowerCase();
+  const key = normalizeGenreKey(name);
+  return slug === "amp-nfr" || key === "amp nfr" || name === "amp; nfr";
+}
