@@ -90,6 +90,7 @@ export type IndexEntry = {
   gameIds: string[];
   byPlatform: Record<string, number>;
   gameCount: number;
+  active?: boolean;
   asDeveloper?: string[];
   asPublisher?: string[];
   wikidataId?: string | null;
@@ -133,11 +134,12 @@ export type Platform = {
   slug: string;
   name: string;
   shortName: string;
-  manufacturer: "nintendo" | "sony" | "sega";
+  manufacturer: "nintendo" | "sony" | "sega" | "snk";
   status: PlatformStatus;
   estimatedCatalogSize: number;
   sortOrder: number;
   description: string;
+  active?: boolean;
 };
 
 export type CatalogGame = {
@@ -147,6 +149,7 @@ export type CatalogGame = {
   titlePc: string | null;
   platformSlug: string;
   region: string;
+  physicalVariant?: string | null;
   edition: string;
   listingStatus: "listed" | "pending" | "excluded";
   excludeCategory?: string | null;
@@ -165,6 +168,7 @@ export type CatalogGame = {
   recommendedPrice: number | null;
   /** Media por estado (todas las fuentes verificadas) */
   estimatedPriceLoose?: number | null;
+  estimatedPriceGameManual?: number | null;
   estimatedPriceComplete?: number | null;
   estimatedPriceSealed?: number | null;
   /** Origen de datos agregados (TodoColeccion, CeX, …) */
@@ -212,6 +216,33 @@ export type CatalogGame = {
   tcnsInStock?: boolean;
 };
 
+export type CatalogListGame = Pick<
+  CatalogGame,
+  | "id"
+  | "slug"
+  | "title"
+  | "platformSlug"
+  | "region"
+  | "physicalVariant"
+  | "coverUrl"
+  | "recommendedPrice"
+  | "estimatedPriceLoose"
+  | "estimatedPriceGameManual"
+  | "estimatedPriceComplete"
+  | "estimatedPriceSealed"
+  | "pcRefPrice"
+  | "hasEsPrice"
+  | "priceRegionVerified"
+> & {
+  displayPlatform: string;
+  displayYear: number | null;
+  searchText: string;
+  sortGenre: string;
+  sortReference: string;
+  isGrail: boolean;
+  isTopSegment: boolean;
+};
+
 export type CollectionItem = {
   id: string;
   catalogId: string | null;
@@ -234,6 +265,7 @@ export type CollectionItem = {
   marketMax: number | null;
   recommendedPrice: number | null;
   estimatedPriceLoose?: number | null;
+  estimatedPriceGameManual?: number | null;
   estimatedPriceComplete?: number | null;
   estimatedPriceSealed?: number | null;
   priceDataSources?: string | null;
