@@ -8,17 +8,33 @@ export function Panel({
   className?: string;
 }) {
   return (
-    <section className={cn("rounded-xl border border-border bg-card p-4 sm:p-5", className)}>
+    <section
+      className={cn(
+        "rounded-2xl border border-border/80 bg-card/90 p-4 shadow-sm shadow-black/5 backdrop-blur sm:p-5 dark:shadow-black/20",
+        className,
+      )}
+    >
       {children}
     </section>
   );
 }
 
-export function PanelTitle({ children }: { children: React.ReactNode }) {
+export function PanelTitle({
+  children,
+  eyebrow,
+}: {
+  children: React.ReactNode;
+  eyebrow?: React.ReactNode;
+}) {
   return (
-    <h2 className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-muted">
-      {children}
-    </h2>
+    <div className="mb-4">
+      {eyebrow ? (
+        <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
+          {eyebrow}
+        </p>
+      ) : null}
+      <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">{children}</h2>
+    </div>
   );
 }
 
