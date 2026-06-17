@@ -16,6 +16,7 @@ const MANUFACTURER_STYLE = {
   nintendo: "from-red-500/15 via-red-500/5 to-transparent border-red-400/25",
   sony: "from-blue-500/15 via-blue-500/5 to-transparent border-blue-400/25",
   sega: "from-indigo-500/15 via-indigo-500/5 to-transparent border-indigo-400/25",
+  snk: "from-cyan-500/15 via-cyan-500/5 to-transparent border-cyan-400/25",
 } as const;
 
 type Props = {
