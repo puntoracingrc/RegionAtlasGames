@@ -78,3 +78,10 @@ public/covers
 /data/price-ingest/ebay-token-cache.json
 /data/price-ingest/cache/
 /data/price-ingest/reports/
+
+# Rakuten advertiser discovery local output
+/data/rakuten-advertiser-candidates.local.json
+/data/rakuten-advertiser-review.local.json
+
+# Backups locales pesados del catálogo
+/data/_catalog_backup_gg.json
