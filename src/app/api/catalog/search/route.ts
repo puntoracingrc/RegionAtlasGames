@@ -8,6 +8,7 @@ import {
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { listedCatalog } from "@/lib/catalog";
 import { getPlatform } from "@/lib/catalog";
+import { catalogGamePath } from "@/lib/catalog-seo";
 
 const MAX_RESULTS = 12;
 
@@ -46,7 +47,7 @@ export async function GET(request: Request) {
     return {
       id: game.id,
       title: game.title,
-      href: `/catalogo/${game.slug}`,
+      href: catalogGamePath(game),
       platform: platformData?.shortName ?? game.displayPlatform,
       platformSlug: game.platformSlug,
       region: game.region,
