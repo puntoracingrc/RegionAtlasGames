@@ -1,10 +1,8 @@
-import { existsSync, readdirSync, readFileSync } from "fs";
-import path from "path";
 import catalogData from "../../data/catalog.json";
 import platformsData from "../../data/platforms.json";
 import batchesData from "../../data/price-sync-batches.json";
 import priceSyncStateData from "../../data/price-sync-state.json";
-import type { AdminPriceJobMeta } from "./admin-price-collect";
+import { listAdminPriceJobs, type AdminPriceJobMeta } from "./admin-price-collect";
 
 type PlatformInfo = {
   slug: string;
@@ -96,8 +94,6 @@ const catalog = catalogData as {
   recommendedPrice?: number | null;
   priceRegionVerified?: boolean;
 }[];
-const JOBS_DIR = path.join(process.cwd(), "data", "admin", "price-jobs");
-
 function platformName(slug: string): string {
   const platform = platforms.find((p) => p.slug === slug);
   return platform?.shortName || platform?.name || slug;
@@ -132,22 +128,6 @@ function nextDailyPriceRunAt(now = new Date()): string {
     next.setUTCDate(next.getUTCDate() + 1);
   }
   return next.toISOString();
-}
-
-function readManualJobs(limit: number): AdminPriceJobMeta[] {
-  if (!existsSync(JOBS_DIR)) return [];
-  return readdirSync(JOBS_DIR)
-    .filter((file) => file.endsWith(".json"))
-    .map((file) => {
-      try {
-        return JSON.parse(readFileSync(path.join(JOBS_DIR, file), "utf8")) as AdminPriceJobMeta;
-      } catch {
-        return null;
-      }
-    })
-    .filter((job): job is AdminPriceJobMeta => Boolean(job))
-    .sort((a, b) => Date.parse(b.startedAt) - Date.parse(a.startedAt))
-    .slice(0, limit);
 }
 
 function pct(part: number, total: number): number {
@@ -212,7 +192,7 @@ function platformHealth(): AdminPlatformPriceHealth[] {
     });
 }
 
-export function getAdminPriceDashboard(limit = 18): AdminPriceDashboard {
+export async function getAdminPriceDashboard(limit = 18): Promise<AdminPriceDashboard> {
   const recentSyncs = Object.entries(priceSyncState.platforms ?? {})
     .map(([platformSlug, stats]) => ({
       platformSlug,
@@ -228,6 +208,6 @@ export function getAdminPriceDashboard(limit = 18): AdminPriceDashboard {
     nextStep: resolveStep(priceSyncState.nextPlatformSlug),
     recentSyncs,
     platformHealth: platformHealth(),
-    manualJobs: readManualJobs(limit),
+    manualJobs: await listAdminPriceJobs(limit),
   };
 }

@@ -16,7 +16,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
 
-  const dashboard = getAdminPriceDashboard();
+  const dashboard = await getAdminPriceDashboard();
   const step = dashboard.nextStep.slug;
   if (!step) {
     return NextResponse.json({ ok: false, error: "No hay paso de rotación programado." }, { status: 400 });

@@ -126,7 +126,7 @@ export default async function AdminPricesPage({
 }) {
   const params = await searchParams;
   const coverageSort = normalizeCoverageSort(params?.coverageSort);
-  const dashboard = getAdminPriceDashboard(20);
+  const dashboard = await getAdminPriceDashboard(20);
   const canCollectPrices = isAdminPriceCollectAvailable();
   const freshRows = dashboard.recentSyncs.filter((row) => {
     const label = dayLabel(row.lastSyncAt);

@@ -1,7 +1,9 @@
 import { spawn } from "child_process";
-import { closeSync, existsSync, mkdirSync, openSync, readFileSync, writeFileSync } from "fs";
-import os from "os";
+import { closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
+import { get, put } from "@vercel/blob";
+import { appDataDir } from "./app-data-dir";
+import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 
 export type AdminPriceJobMeta = {
   jobId: string;
@@ -29,8 +31,16 @@ export type AdminPriceCollectTarget = {
 const JOBS_DIR =
   process.env.ADMIN_PRICE_JOBS_DIR ??
   (process.env.VERCEL
-    ? path.join(os.tmpdir(), "region-atlas-price-jobs")
+    ? path.join(appDataDir(), "price-jobs")
     : path.join(process.cwd(), "data", "admin", "price-jobs"));
+const JOBS_REGISTRY_FILE = path.join(JOBS_DIR, "index.json");
+const JOBS_REGISTRY_BLOB_PATH = "region-atlas/admin/price-jobs/index.json";
+
+type AdminPriceJobRegistry = {
+  version: number;
+  updatedAt: string;
+  jobs: AdminPriceJobMeta[];
+};
 
 type PriceJobStartInput = {
   catalogId?: string;
@@ -90,6 +100,135 @@ function jobPaths(jobId: string) {
     log: path.join(JOBS_DIR, `${jobId}.log`),
     status: path.join(JOBS_DIR, `${jobId}.json`),
   };
+}
+
+function shouldUseJobRegistryBlobStorage(): boolean {
+  if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
+  return blobAuthConfigured();
+}
+
+function emptyJobRegistry(): AdminPriceJobRegistry {
+  return { version: 1, updatedAt: new Date().toISOString(), jobs: [] };
+}
+
+function parseJobRegistry(raw: string): AdminPriceJobRegistry {
+  try {
+    const parsed = JSON.parse(raw) as Partial<AdminPriceJobRegistry>;
+    const jobs = Array.isArray(parsed.jobs)
+      ? parsed.jobs.filter((job): job is AdminPriceJobMeta =>
+          Boolean(
+            job &&
+              typeof job.jobId === "string" &&
+              typeof job.startedAt === "string" &&
+              (job.status === "running" || job.status === "done" || job.status === "error"),
+          ),
+        )
+      : [];
+    return {
+      version: parsed.version ?? 1,
+      updatedAt: parsed.updatedAt ?? new Date().toISOString(),
+      jobs,
+    };
+  } catch {
+    return emptyJobRegistry();
+  }
+}
+
+function readJobRegistryFromDisk(): AdminPriceJobRegistry | null {
+  try {
+    if (!existsSync(JOBS_REGISTRY_FILE)) return null;
+    return parseJobRegistry(readFileSync(JOBS_REGISTRY_FILE, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+function writeJobRegistryToDisk(registry: AdminPriceJobRegistry): void {
+  if (!existsSync(JOBS_DIR)) mkdirSync(JOBS_DIR, { recursive: true });
+  writeFileSync(JOBS_REGISTRY_FILE, JSON.stringify(registry, null, 2), "utf8");
+}
+
+async function readJobRegistryFromBlob(): Promise<AdminPriceJobRegistry | null> {
+  if (!shouldUseJobRegistryBlobStorage()) return null;
+  try {
+    const auth = await blobAuthOptions("private");
+    const result = await get(JOBS_REGISTRY_BLOB_PATH, { ...auth, useCache: false });
+    if (!result?.stream || result.statusCode !== 200) return null;
+    return parseJobRegistry(await new Response(result.stream).text());
+  } catch {
+    return null;
+  }
+}
+
+async function writeJobRegistryToBlob(registry: AdminPriceJobRegistry): Promise<void> {
+  if (!shouldUseJobRegistryBlobStorage()) return;
+  const auth = await blobAuthOptions("private");
+  await put(JOBS_REGISTRY_BLOB_PATH, JSON.stringify(registry, null, 2), {
+    ...auth,
+    contentType: "application/json",
+    addRandomSuffix: false,
+    allowOverwrite: true,
+    cacheControlMaxAge: 30,
+  });
+}
+
+async function readJobRegistry(): Promise<AdminPriceJobRegistry> {
+  return (await readJobRegistryFromBlob()) ?? readJobRegistryFromDisk() ?? emptyJobRegistry();
+}
+
+async function writeJobRegistry(registry: AdminPriceJobRegistry): Promise<void> {
+  const payload = { ...registry, updatedAt: new Date().toISOString() };
+  try {
+    writeJobRegistryToDisk(payload);
+  } catch {}
+  await writeJobRegistryToBlob(payload);
+}
+
+async function rememberAdminPriceJob(job: AdminPriceJobMeta): Promise<void> {
+  const registry = await readJobRegistry();
+  const existing = registry.jobs.filter((item) => item.jobId !== job.jobId);
+  registry.jobs = [job, ...existing]
+    .sort((a, b) => Date.parse(b.startedAt) - Date.parse(a.startedAt))
+    .slice(0, 50);
+  await writeJobRegistry(registry);
+}
+
+function readLocalPriceJobs(): AdminPriceJobMeta[] {
+  if (!existsSync(JOBS_DIR)) return [];
+  return readdirSync(JOBS_DIR)
+    .filter((file) => file.endsWith(".json") && file !== "index.json")
+    .map((file) => {
+      try {
+        const parsed = JSON.parse(readFileSync(path.join(JOBS_DIR, file), "utf8")) as AdminPriceJobMeta;
+        return parsed?.jobId ? parsed : null;
+      } catch {
+        return null;
+      }
+    })
+    .filter((job): job is AdminPriceJobMeta => Boolean(job?.jobId && job.startedAt));
+}
+
+export async function listAdminPriceJobs(limit = 20): Promise<AdminPriceJobMeta[]> {
+  const registry = await readJobRegistry();
+  const byId = new Map<string, AdminPriceJobMeta>();
+  for (const job of [...registry.jobs, ...readLocalPriceJobs()]) {
+    if (!job.jobId) continue;
+    const existing = byId.get(job.jobId);
+    if (!existing || Date.parse(job.startedAt) > Date.parse(existing.startedAt)) {
+      byId.set(job.jobId, job);
+    }
+  }
+
+  const jobs = [...byId.values()]
+    .sort((a, b) => Date.parse(b.startedAt) - Date.parse(a.startedAt))
+    .slice(0, limit);
+  const refreshed = await Promise.all(
+    jobs.map(async (job) => {
+      const live = await readAdminPriceJob(job.jobId);
+      return live ? { ...job, ...live } : job;
+    }),
+  );
+  return refreshed.sort((a, b) => Date.parse(b.startedAt) - Date.parse(a.startedAt)).slice(0, limit);
 }
 
 function validateInput(input: PriceJobStartInput): { targets: AdminPriceCollectTarget[] } | { error: string } {
@@ -164,6 +303,7 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
   const config = remoteWorkerConfig();
   if (!config) return { error: adminPriceCollectUnavailableReason() };
   const jobId = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  const startedAt = new Date().toISOString();
   const remoteDir = shellQuote(config.remoteDir);
   const statusFile = `"$(pwd)/jobs/${jobId}.json"`;
   const args = ["app/scripts/admin_price_collect.py", "--status-file", statusFile];
@@ -186,6 +326,16 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
 
   try {
     await execSsh(config, command);
+    await rememberAdminPriceJob({
+      jobId,
+      status: "running",
+      catalogId: input.catalogId,
+      platformSlug: input.platformSlug,
+      region: input.region,
+      targets: targets.length > 0 ? targets : undefined,
+      estimateMinutes: input.estimateMinutes,
+      startedAt,
+    });
     return { jobId };
   } catch (error) {
     return { error: error instanceof Error ? error.message : "No se pudo iniciar el worker remoto." };
@@ -220,23 +370,21 @@ export async function startAdminPriceCollectJob(input: PriceJobStartInput): Prom
   }
 
   const startedAt = new Date().toISOString();
+  const initialMeta = {
+    jobId,
+    status: "running",
+    catalogId: input.catalogId,
+    platformSlug: input.platformSlug,
+    region: input.region,
+    targets: targets.length > 0 ? targets : undefined,
+    estimateMinutes: input.estimateMinutes,
+    startedAt,
+  } satisfies AdminPriceJobMeta;
   writeFileSync(
     paths.status,
-    JSON.stringify(
-      {
-        jobId,
-        status: "running",
-        catalogId: input.catalogId,
-        platformSlug: input.platformSlug,
-        region: input.region,
-        targets: targets.length > 0 ? targets : undefined,
-        estimateMinutes: input.estimateMinutes,
-        startedAt,
-      } satisfies AdminPriceJobMeta,
-      null,
-      2,
-    ),
+    JSON.stringify(initialMeta, null, 2),
   );
+  await rememberAdminPriceJob(initialMeta);
 
   const logFd = openSync(paths.log, "a");
   const child = spawn("python3", args, {
@@ -246,32 +394,21 @@ export async function startAdminPriceCollectJob(input: PriceJobStartInput): Prom
     stdio: ["ignore", logFd, logFd],
   });
   child.on("error", (error) => {
+    const errorMeta = {
+      ...initialMeta,
+      status: "error",
+      finishedAt: new Date().toISOString(),
+      error:
+        error.message.includes("ENOENT")
+          ? "No se pudo iniciar Python en este entorno. La recolección necesita ejecutarse en un worker/servidor, no directamente en esta función web."
+          : error.message,
+    } satisfies AdminPriceJobMeta;
     try {
-      writeFileSync(
-        paths.status,
-        JSON.stringify(
-          {
-            jobId,
-            status: "error",
-            catalogId: input.catalogId,
-            platformSlug: input.platformSlug,
-            region: input.region,
-            targets: targets.length > 0 ? targets : undefined,
-            estimateMinutes: input.estimateMinutes,
-            startedAt,
-            finishedAt: new Date().toISOString(),
-            error:
-              error.message.includes("ENOENT")
-                ? "No se pudo iniciar Python en este entorno. La recolección necesita ejecutarse en un worker/servidor, no directamente en esta función web."
-                : error.message,
-          } satisfies AdminPriceJobMeta,
-          null,
-          2,
-        ),
-      );
+      writeFileSync(paths.status, JSON.stringify(errorMeta, null, 2));
     } catch {
       // noop
     }
+    void rememberAdminPriceJob(errorMeta);
     try {
       closeSync(logFd);
     } catch {
