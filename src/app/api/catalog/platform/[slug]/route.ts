@@ -11,6 +11,35 @@ import {
 } from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
+import type { CatalogListGame } from "@/lib/types";
+
+type PlatformSearchCacheEntry = {
+  games: CatalogListGame[];
+  regions: ReturnType<typeof regionOptions>;
+  priceCounts: ReturnType<typeof countByPriceFilter>;
+  createdAt: number;
+};
+
+const PLATFORM_SEARCH_CACHE_TTL_MS = 5 * 60 * 1000;
+const platformSearchCache = new Map<string, PlatformSearchCacheEntry>();
+
+async function getPlatformSearchData(slug: string): Promise<PlatformSearchCacheEntry> {
+  const now = Date.now();
+  const cached = platformSearchCache.get(slug);
+  if (cached && now - cached.createdAt < PLATFORM_SEARCH_CACHE_TTL_MS) {
+    return cached;
+  }
+
+  const games = (await getCatalogByPlatformWithOverlay(slug)).map(toCatalogListGame);
+  const entry = {
+    games,
+    regions: regionOptions(games),
+    priceCounts: countByPriceFilter(games),
+    createdAt: now,
+  };
+  platformSearchCache.set(slug, entry);
+  return entry;
+}
 
 export async function GET(
   request: Request,
@@ -27,7 +56,7 @@ export async function GET(
     : "all";
   const page = Math.max(1, Number.parseInt(url.searchParams.get("page") ?? "1", 10) || 1);
 
-  const games = (await getCatalogByPlatformWithOverlay(slug)).map(toCatalogListGame);
+  const { games, regions, priceCounts } = await getPlatformSearchData(slug);
   const filtered = filterCatalogGames(
     games,
     { q, region, platform: "all", sort, priceFilter },
@@ -38,7 +67,7 @@ export async function GET(
   return NextResponse.json({
     items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE),
     total: filtered.total,
-    regions: regionOptions(games),
-    priceCounts: countByPriceFilter(games),
+    regions,
+    priceCounts,
   });
 }
