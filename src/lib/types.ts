@@ -51,6 +51,8 @@ export type GameDetails = {
   developer: DetailEntity | null;
   publisher: DetailEntity | null;
   genres: DetailEntity[];
+  /** Etiquetas flexibles estilo Steam: no sustituyen a los géneros. */
+  tags?: DetailEntity[];
   series: DetailEntity | null;
   museumPath?: string | null;
   pcProductId?: number | null;

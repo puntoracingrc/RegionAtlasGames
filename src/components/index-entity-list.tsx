@@ -34,6 +34,13 @@ export function IndexEntityList({ kind }: { kind: IndexKind }) {
               FIFA/EA Sports FC y otras familias que cruzan plataformas, compañías y regiones.
             </p>
           )}
+          {kind === "tag" && (
+            <p className="max-w-3xl text-sm leading-6 text-muted">
+              Las etiquetas sirven para clasificar fino: soulslike, mundo abierto,
+              cooperativo local, pixel art, terror psicológico, metroidvania o cualquier rasgo
+              útil para descubrir juegos sin romper la jerarquía de géneros.
+            </p>
+          )}
         </header>
         <IndexGrid items={items} kind={kind} />
       </main>

@@ -8,12 +8,14 @@ import {
   getGenres,
   getSeries,
   getSeriesList,
+  getTag,
+  getTags,
   indexStats,
   platformBreakdown,
   resolveIndexEntry,
 } from "./indexes";
 
-export type IndexKind = "company" | "genre" | "series";
+export type IndexKind = "company" | "genre" | "series" | "tag";
 
 export type IndexEntitySummary = {
   kind: IndexKind;
@@ -36,7 +38,7 @@ export const INDEX_KIND_META: Record<
     listTitle: string;
     backLabel: string;
     searchLabel: string;
-    basePath: "/compania" | "/genero" | "/saga";
+    basePath: "/compania" | "/genero" | "/saga" | "/etiqueta";
     entityLabel: string;
     entityLabelPlural: string;
   }
@@ -65,6 +67,14 @@ export const INDEX_KIND_META: Record<
     entityLabel: "saga",
     entityLabelPlural: "sagas",
   },
+  tag: {
+    listTitle: "Etiquetas",
+    backLabel: "Etiquetas",
+    searchLabel: "etiqueta",
+    basePath: "/etiqueta",
+    entityLabel: "etiqueta",
+    entityLabelPlural: "etiquetas",
+  },
 };
 
 export function getIndexEntry(kind: IndexKind, slug: string): IndexEntry | undefined {
@@ -75,6 +85,8 @@ export function getIndexEntry(kind: IndexKind, slug: string): IndexEntry | undef
       return getGenre(slug);
     case "series":
       return getSeries(slug);
+    case "tag":
+      return getTag(slug);
   }
 }
 
@@ -86,6 +98,8 @@ export function getIndexList(kind: IndexKind): IndexEntry[] {
       return getGenres();
     case "series":
       return getSeriesList();
+    case "tag":
+      return getTags();
   }
 }
 
@@ -124,7 +138,13 @@ export function indexListIntro(kind: IndexKind): string {
   const stats = indexStats();
   const meta = INDEX_KIND_META[kind];
   const count =
-    kind === "company" ? stats.companies : kind === "genre" ? stats.genres : stats.series;
+    kind === "company"
+      ? stats.companies
+      : kind === "genre"
+        ? stats.genres
+        : kind === "series"
+          ? stats.series
+          : stats.tags;
   const entities = `${count.toLocaleString("es-ES")} ${meta.entityLabelPlural}`;
   const fichas = `${stats.gamesWithDetails.toLocaleString("es-ES")} juegos con ficha del museo`;
   return `${entities} · ${fichas}`;

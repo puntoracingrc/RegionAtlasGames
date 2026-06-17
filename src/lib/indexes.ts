@@ -55,6 +55,10 @@ export const seriesIndex = loadDataJson<Record<string, IndexEntry>>(
   path.join("index", "series.json"),
   {},
 );
+export const tagsIndex = loadDataJson<Record<string, IndexEntry>>(
+  path.join("index", "tags.json"),
+  {},
+);
 
 const companyList = Object.values(companies).sort(
   (a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"),
@@ -63,6 +67,9 @@ const genreList = Object.values(genres).sort(
   (a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"),
 );
 const seriesList = Object.values(seriesIndex).sort(
+  (a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"),
+);
+const tagList = Object.values(tagsIndex).sort(
   (a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"),
 );
 
@@ -117,6 +124,11 @@ export function getSeries(slug: string): IndexEntry | undefined {
   return entry ? resolveIndexEntry(entry) : undefined;
 }
 
+export function getTag(slug: string): IndexEntry | undefined {
+  const entry = tagsIndex[slug];
+  return entry ? resolveIndexEntry(entry) : undefined;
+}
+
 export function getCompanies(): IndexEntry[] {
   return companyList;
 }
@@ -127,6 +139,10 @@ export function getGenres(): IndexEntry[] {
 
 export function getSeriesList(): IndexEntry[] {
   return seriesList;
+}
+
+export function getTags(): IndexEntry[] {
+  return tagList;
 }
 
 export function gamesForIndex(entry: IndexEntry): CatalogGame[] {
@@ -140,6 +156,7 @@ export function indexStats() {
     companies: meta.indexCompanies ?? companyList.length,
     genres: meta.indexGenres ?? genreList.length,
     series: seriesList.length,
+    tags: tagList.length,
     gamesWithDetails: meta.gamesWithDetails ?? 0,
   };
 }

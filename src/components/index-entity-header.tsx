@@ -11,13 +11,23 @@ export function IndexEntityHeader({ summary }: { summary: IndexEntitySummary }) 
     <header className="mt-4 mb-8 space-y-4">
       <BackLink href={meta.basePath}>{meta.backLabel}</BackLink>
       <h1 className="text-4xl font-bold text-foreground">
-        {summary.kind === "series" ? `Saga ${summary.name}` : summary.name}
+        {summary.kind === "series"
+          ? `Saga ${summary.name}`
+          : summary.kind === "tag"
+            ? `Etiqueta ${summary.name}`
+            : summary.name}
       </h1>
       <p className="text-foreground/85">{indexEntitySubtitle(summary)}</p>
       {summary.kind === "series" && (
         <p className="max-w-3xl text-sm leading-6 text-foreground/75">
           También puedes leer estas agrupaciones como franquicias: juegos conectados por marca,
           universo, personajes, numeración o continuidad editorial.
+        </p>
+      )}
+      {summary.kind === "tag" && (
+        <p className="max-w-3xl text-sm leading-6 text-foreground/75">
+          Las etiquetas son una capa flexible estilo Steam: ayudan a afinar temas, tono,
+          perspectiva, mecánicas o rasgos concretos sin sustituir al género principal.
         </p>
       )}
       {summary.kind === "company" && summary.alsoKnownAs && summary.alsoKnownAs.length > 0 && (

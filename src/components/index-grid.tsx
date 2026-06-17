@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { IndexEntry } from "@/lib/types";
 
-type IndexKind = "company" | "genre" | "series";
+type IndexKind = "company" | "genre" | "series" | "tag";
 
 type Props = {
   items: IndexEntry[];
@@ -17,12 +17,13 @@ const INDEX_KIND_META: Record<
   IndexKind,
   {
     searchLabel: string;
-    basePath: "/compania" | "/genero" | "/saga";
+    basePath: "/compania" | "/genero" | "/saga" | "/etiqueta";
   }
 > = {
   company: { searchLabel: "compañía", basePath: "/compania" },
   genre: { searchLabel: "género", basePath: "/genero" },
   series: { searchLabel: "saga", basePath: "/saga" },
+  tag: { searchLabel: "etiqueta", basePath: "/etiqueta" },
 };
 
 export function IndexGrid({ items, kind }: Props) {

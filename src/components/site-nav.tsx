@@ -13,6 +13,7 @@ const LINKS = [
   { href: "/compania", label: "Compañías" },
   { href: "/genero", label: "Géneros" },
   { href: "/saga", label: "Sagas" },
+  { href: "/etiqueta", label: "Etiquetas" },
   { href: "/coleccion", label: "Mi colección" },
   { href: "/ajustes", label: "Ajustes" },
 ];
