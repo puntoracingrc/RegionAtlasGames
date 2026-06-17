@@ -35,6 +35,12 @@ const quickActions = [
     icon: "✎",
   },
   {
+    href: "/admin/acciones",
+    title: "Acciones masivas",
+    description: "Agrupa juegos por filtros y aplica facetas o etiquetas.",
+    icon: "☷",
+  },
+  {
     href: "/admin/entidades",
     title: "Entidades",
     description: "Plataformas, compañías y géneros.",

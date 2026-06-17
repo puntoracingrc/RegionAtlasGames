@@ -7,6 +7,7 @@ const links = [
   { href: "/admin", label: "Resumen", icon: "⌁" },
   { href: "/admin/cola", label: "Revisión", icon: "✓" },
   { href: "/admin/juegos", label: "Juegos", icon: "✎" },
+  { href: "/admin/acciones", label: "Acciones", icon: "☷" },
   { href: "/admin/juegos/nuevo", label: "Crear", icon: "+" },
   { href: "/admin/importacion", label: "Importar", icon: "⇪" },
   { href: "/admin/ia", label: "IA", icon: "✦" },

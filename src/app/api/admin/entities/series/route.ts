@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
 import {
   createAdminSeries,
+  listAdminSeriesGamePlatforms,
   listAdminSeries,
   searchAdminSeriesGames,
 } from "@/lib/admin-series-manager";
@@ -15,11 +16,16 @@ export async function GET(req: Request) {
   const q = searchParams.get("q") ?? "";
   const limit = Number(searchParams.get("limit") ?? 150);
 
+  if (mode === "game-platforms") {
+    return NextResponse.json({ ok: true, platforms: listAdminSeriesGamePlatforms() });
+  }
+
   if (mode === "games") {
     const games = await searchAdminSeriesGames({
       q,
       limit,
       excludeSeriesSlug: searchParams.get("excludeSeriesSlug") ?? undefined,
+      platformSlug: searchParams.get("platformSlug") ?? undefined,
     });
     return NextResponse.json({ ok: true, games });
   }

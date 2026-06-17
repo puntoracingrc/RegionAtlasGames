@@ -3,6 +3,7 @@ import path from "path";
 import { get, put } from "@vercel/blob";
 import { canWriteCatalogFiles } from "./admin-auth";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
+import { getGameFacetsTaxonomy } from "./game-facets/taxonomy";
 import { slugify } from "./slug";
 import type { CatalogGame, DetailEntity, GameDetails, IndexEntry } from "./types";
 
@@ -74,6 +75,20 @@ export type AdminSeriesGenreOption = {
   slug: string;
   name: string;
   count: number;
+};
+
+export type AdminSeriesPlatformOption = {
+  slug: string;
+  name: string;
+  count: number;
+};
+
+export type AdminBulkGameActionOptions = {
+  platforms: AdminSeriesPlatformOption[];
+  regions: { slug: string; name: string; count: number }[];
+  genres: { slug: string; name: string; count: number }[];
+  subgenres: { slug: string; name: string; count: number | null }[];
+  facets: { slug: string; name: string; count: number | null }[];
 };
 
 export type AdminSeriesDetail = {
@@ -276,6 +291,50 @@ function genreOptionsForGames(games: AdminSeriesGameRow[]): AdminSeriesGenreOpti
   return [...map.values()].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"));
 }
 
+function genreOptionsForCatalog(
+  catalog: CatalogGame[],
+  details: Record<string, GameDetails>,
+): AdminSeriesGenreOption[] {
+  return genreOptionsForGames(catalog.map((game) => toGameRow(game, details, {})));
+}
+
+function regionOptionsForCatalog(catalog: CatalogGame[]): { slug: string; name: string; count: number }[] {
+  const counts = new Map<string, number>();
+  for (const game of catalog) counts.set(game.region, (counts.get(game.region) ?? 0) + 1);
+  return [...counts.entries()]
+    .map(([region, count]) => ({ slug: region, name: region, count }))
+    .sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true }));
+}
+
+function platformDisplayName(slug: string): string {
+  const names: Record<string, string> = {
+    "3ds": "Nintendo 3DS",
+    ds: "Nintendo DS",
+    gameboy: "Game Boy",
+    gamecube: "GameCube",
+    gamegear: "Game Gear",
+    gba: "Game Boy Advance",
+    n64: "Nintendo 64",
+    neogeo: "Neo Geo AES",
+    neogeocd: "Neo Geo CD",
+    nes: "NES",
+    ps1: "PlayStation",
+    ps2: "PlayStation 2",
+    ps3: "PlayStation 3",
+    ps4: "PlayStation 4",
+    ps5: "PlayStation 5",
+    snes: "Super Nintendo",
+    switch: "Nintendo Switch",
+    switch2: "Nintendo Switch 2",
+    wiiu: "Wii U",
+    xbox: "Xbox",
+    xbox360: "Xbox 360",
+    xboxone: "Xbox One",
+    xboxseries: "Xbox Series",
+  };
+  return names[slug] ?? slug.toUpperCase();
+}
+
 export async function listAdminSeries(input?: { q?: string; limit?: number }): Promise<AdminSeriesRow[]> {
   const index = loadSeriesIndex();
   const catalog = loadCatalog();
@@ -291,6 +350,36 @@ export async function listAdminSeries(input?: { q?: string; limit?: number }): P
     .filter((entry) => !q || entry.name.toLowerCase().includes(q) || entry.slug.includes(q))
     .sort((a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es", { numeric: true }))
     .slice(0, limit);
+}
+
+export function listAdminSeriesGamePlatforms(): AdminSeriesPlatformOption[] {
+  const counts = new Map<string, number>();
+  for (const game of loadCatalog()) {
+    counts.set(game.platformSlug, (counts.get(game.platformSlug) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .map(([slug, count]) => ({ slug, name: platformDisplayName(slug), count }))
+    .sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true }));
+}
+
+export function getAdminBulkGameActionOptions(): AdminBulkGameActionOptions {
+  const catalog = loadCatalog();
+  const details = loadDetails();
+  const taxonomy = getGameFacetsTaxonomy();
+
+  return {
+    platforms: listAdminSeriesGamePlatforms(),
+    regions: regionOptionsForCatalog(catalog),
+    genres: genreOptionsForCatalog(catalog, details),
+    subgenres: taxonomy.subgenres
+      .filter((entity) => entity.status === "approved")
+      .map((entity) => ({ slug: entity.slug, name: entity.name, count: null }))
+      .sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true })),
+    facets: taxonomy.facets
+      .filter((entity) => entity.status === "approved")
+      .map((entity) => ({ slug: entity.slug, name: entity.name, count: null }))
+      .sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true })),
+  };
 }
 
 export async function getAdminSeries(slug: string): Promise<AdminSeriesDetail | { error: string }> {
@@ -320,10 +409,12 @@ export async function searchAdminSeriesGames(input: {
   q?: string;
   limit?: number;
   excludeSeriesSlug?: string;
+  platformSlug?: string;
 }): Promise<AdminSeriesGameRow[]> {
   const q = input.q?.trim().toLowerCase() ?? "";
   if (q.length < 2) return [];
   const limit = Math.min(80, Math.max(5, input.limit ?? 30));
+  const platformSlug = input.platformSlug?.trim().toLowerCase() ?? "";
   const catalog = loadCatalog();
   const details = loadDetails();
   const overlay = await readAdminSeriesOverlay();
@@ -334,6 +425,7 @@ export async function searchAdminSeriesGames(input: {
 
   return catalog
     .filter((game) => !excluded.has(game.id))
+    .filter((game) => !platformSlug || game.platformSlug === platformSlug)
     .filter((game) => {
       const detail = details[game.id];
       const haystack = [
@@ -346,6 +438,69 @@ export async function searchAdminSeriesGames(input: {
         detail?.developer?.name,
         detail?.publisher?.name,
         ...(detail?.genres?.map((genre) => genre.name) ?? []),
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+      return haystack.includes(q);
+    })
+    .slice(0, limit)
+    .map((game) => toGameRow(game, details, overlay.assignments));
+}
+
+export async function searchAdminBulkActionGames(input: {
+  q?: string;
+  limit?: number;
+  platformSlug?: string;
+  region?: string;
+  genreSlug?: string;
+  facetSlug?: string;
+}): Promise<AdminSeriesGameRow[]> {
+  const q = input.q?.trim().toLowerCase() ?? "";
+  const platformSlug = input.platformSlug?.trim().toLowerCase() ?? "";
+  const region = input.region?.trim() ?? "";
+  const genreSlug = input.genreSlug?.trim() ?? "";
+  const facetSlug = input.facetSlug?.trim() ?? "";
+  const hasSearchCriteria = q.length >= 2 || platformSlug || region || genreSlug || facetSlug;
+  if (!hasSearchCriteria) return [];
+
+  const limit = Math.min(200, Math.max(10, input.limit ?? 80));
+  const catalog = loadCatalog();
+  const details = loadDetails();
+  const overlay = await readAdminSeriesOverlay();
+
+  return catalog
+    .filter((game) => !platformSlug || game.platformSlug === platformSlug)
+    .filter((game) => !region || game.region === region)
+    .filter((game) => {
+      const detail = details[game.id];
+      if (genreSlug && !(detail?.genres ?? []).some((genre) => genre.slug === genreSlug)) return false;
+
+      const assignment = overlay.assignments[game.id];
+      if (facetSlug) {
+        const labels = [
+          ...(detail?.tags ?? []),
+          ...(detail?.genres ?? []),
+          ...(assignment?.tags ?? []),
+          ...(assignment?.facets ?? []),
+        ];
+        if (!labels.some((entity) => entity.slug === facetSlug)) return false;
+      }
+
+      if (q.length < 2) return true;
+      const haystack = [
+        game.title,
+        game.slug,
+        game.id,
+        game.platformSlug,
+        game.region,
+        detail?.reference,
+        detail?.developer?.name,
+        detail?.publisher?.name,
+        ...(detail?.genres?.map((genre) => genre.name) ?? []),
+        ...(detail?.tags?.map((tag) => tag.name) ?? []),
+        ...(assignment?.tags?.map((tag) => tag.name) ?? []),
+        ...(assignment?.facets?.map((facet) => facet.name) ?? []),
       ]
         .filter(Boolean)
         .join(" ")
@@ -388,6 +543,53 @@ export async function createAdminSeries(input: {
   return { ok: true, series: { slug, name, gameCount: 0 } };
 }
 
+export async function addGamesToAdminSeries(
+  slug: string,
+  gameIds: string[],
+): Promise<{ ok: true; addedCount: number; series: AdminSeriesDetail } | { error: string }> {
+  const normalizedSlug = normalizeSlug(slug);
+  const requestedGameIds = uniqueStrings(gameIds);
+  if (requestedGameIds.length === 0) return { error: "No hay juegos para añadir." };
+
+  const catalog = loadCatalog();
+  const map = catalogMap(catalog);
+  const validGameIds = requestedGameIds.filter((id) => map.has(id));
+  if (validGameIds.length === 0) return { error: "No se encontró ningún juego válido en catálogo." };
+
+  const index = loadSeriesIndex();
+  const overlay = await readAdminSeriesOverlay();
+  const entry = effectiveSeriesEntry(normalizedSlug, index, overlay);
+  if (!entry) return { error: "Saga no encontrada." };
+
+  const existing = new Set(entry.gameIds ?? []);
+  const idsToAdd = validGameIds.filter((id) => !existing.has(id));
+
+  if (idsToAdd.length > 0) {
+    if (canWriteCatalogFiles() && index[normalizedSlug]) {
+      const current = index[normalizedSlug];
+      current.gameIds = uniqueStrings([...(current.gameIds ?? []), ...idsToAdd]);
+      index[normalizedSlug] = recalculateEntry(current, catalog);
+      saveSeriesIndex(index);
+    } else {
+      const overlayEntry = overlay.series[normalizedSlug] ?? {
+        slug: normalizedSlug,
+        name: entry.name,
+        additions: [],
+        removals: [],
+      };
+      overlayEntry.additions = uniqueStrings([...(overlayEntry.additions ?? []), ...idsToAdd]);
+      const added = new Set(idsToAdd);
+      overlayEntry.removals = (overlayEntry.removals ?? []).filter((id) => !added.has(id));
+      overlay.series[normalizedSlug] = overlayEntry;
+      await writeAdminSeriesOverlay(overlay);
+    }
+  }
+
+  const series = await getAdminSeries(normalizedSlug);
+  if ("error" in series) return series;
+  return { ok: true, addedCount: idsToAdd.length, series };
+}
+
 export async function addGameToAdminSeries(
   slug: string,
   gameId: string,
@@ -422,6 +624,38 @@ export async function addGameToAdminSeries(
   const series = await getAdminSeries(normalizedSlug);
   if ("error" in series) return series;
   return { ok: true, series };
+}
+
+export async function bulkAssignAdminGames(input: {
+  gameIds: string[];
+  tags?: string[];
+  facets?: string[];
+}): Promise<{ ok: true; affectedCount: number } | { error: string }> {
+  const gameIds = uniqueStrings(input.gameIds);
+  const tags = uniqueStrings(input.tags ?? []);
+  const facets = uniqueStrings(input.facets ?? []);
+  if (gameIds.length === 0) return { error: "Selecciona al menos un juego." };
+  if (tags.length === 0 && facets.length === 0) {
+    return { error: "Añade al menos una etiqueta o faceta." };
+  }
+
+  const catalogIds = new Set(loadCatalog().map((game) => game.id));
+  const targetGameIds = gameIds.filter((gameId) => catalogIds.has(gameId));
+  if (targetGameIds.length === 0) return { error: "No hay juegos válidos para modificar." };
+
+  const overlay = await readAdminSeriesOverlay();
+  const now = new Date().toISOString();
+  for (const gameId of targetGameIds) {
+    const current = overlay.assignments[gameId] ?? { tags: [], facets: [], updatedAt: now };
+    overlay.assignments[gameId] = {
+      tags: mergeEntities(current.tags, tags),
+      facets: mergeEntities(current.facets, facets),
+      updatedAt: now,
+    };
+  }
+  await writeAdminSeriesOverlay(overlay);
+
+  return { ok: true, affectedCount: targetGameIds.length };
 }
 
 export async function removeGameFromAdminSeries(

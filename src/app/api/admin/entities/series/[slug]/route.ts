@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
 import {
+  addGamesToAdminSeries,
   addGameToAdminSeries,
   bulkAssignAdminSeriesFacets,
   getAdminSeries,
@@ -34,6 +35,21 @@ export async function PATCH(req: Request, { params }: Props) {
     );
     if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
     return NextResponse.json({ ok: true, series: result.series });
+  }
+
+  if (action === "add-games") {
+    const result = await addGamesToAdminSeries(
+      slug,
+      Array.isArray(body.gameIds)
+        ? body.gameIds.filter((gameId: unknown): gameId is string => typeof gameId === "string")
+        : [],
+    );
+    if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
+    return NextResponse.json({
+      ok: true,
+      addedCount: result.addedCount,
+      series: result.series,
+    });
   }
 
   if (action === "remove-game") {

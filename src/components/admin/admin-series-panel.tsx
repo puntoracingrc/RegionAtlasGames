@@ -6,6 +6,7 @@ import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type {
   AdminSeriesDetail,
   AdminSeriesGameRow,
+  AdminSeriesPlatformOption,
   AdminSeriesRow,
 } from "@/lib/admin-series-manager";
 
@@ -39,7 +40,10 @@ export function AdminSeriesPanel() {
   const [detail, setDetail] = useState<AdminSeriesDetail | null>(null);
   const [seriesSearch, setSeriesSearch] = useState("");
   const [gameSearch, setGameSearch] = useState("");
+  const [gamePlatformFilter, setGamePlatformFilter] = useState("");
   const [gameResults, setGameResults] = useState<AdminSeriesGameRow[]>([]);
+  const [hiddenGameResultIds, setHiddenGameResultIds] = useState<Set<string>>(new Set());
+  const [platformOptions, setPlatformOptions] = useState<AdminSeriesPlatformOption[]>([]);
   const [genreFilter, setGenreFilter] = useState("");
   const [newSeriesName, setNewSeriesName] = useState("");
   const [newSeriesSlug, setNewSeriesSlug] = useState("");
@@ -58,6 +62,11 @@ export function AdminSeriesPanel() {
       game.genres.some((genre) => genre.slug === genreFilter),
     );
   }, [detail, genreFilter]);
+
+  const visibleGameResults = useMemo(
+    () => gameResults.filter((game) => !hiddenGameResultIds.has(game.id)),
+    [gameResults, hiddenGameResultIds],
+  );
 
   const loadSeries = useCallback(async (q = seriesSearch) => {
     setLoadingSeries(true);
@@ -80,6 +89,17 @@ export function AdminSeriesPanel() {
       setLoadingSeries(false);
     }
   }, [seriesSearch]);
+
+  const loadPlatformOptions = useCallback(async () => {
+    try {
+      const params = new URLSearchParams({ mode: "game-platforms" });
+      const res = await fetch(`/api/admin/entities/series?${params}`);
+      const data = await res.json();
+      if (res.ok) setPlatformOptions(data.platforms ?? []);
+    } catch {
+      setPlatformOptions([]);
+    }
+  }, []);
 
   const loadDetail = useCallback(async (slug: string) => {
     if (!slug) {
@@ -105,7 +125,11 @@ export function AdminSeriesPanel() {
     }
   }, []);
 
-  const searchGames = useCallback(async (q = gameSearch, slug = selectedSlug) => {
+  const searchGames = useCallback(async (
+    q = gameSearch,
+    slug = selectedSlug,
+    platformSlug = gamePlatformFilter,
+  ) => {
     if (q.trim().length < 2) {
       setGameResults([]);
       return;
@@ -116,10 +140,11 @@ export function AdminSeriesPanel() {
       limit: "40",
       excludeSeriesSlug: slug,
     });
+    if (platformSlug) params.set("platformSlug", platformSlug);
     const res = await fetch(`/api/admin/entities/series?${params}`);
     const data = await res.json();
     if (res.ok) setGameResults(data.games ?? []);
-  }, [gameSearch, selectedSlug]);
+  }, [gameSearch, selectedSlug, gamePlatformFilter]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -131,6 +156,14 @@ export function AdminSeriesPanel() {
   useEffect(() => {
     void loadDetail(selectedSlug);
   }, [loadDetail, selectedSlug]);
+
+  useEffect(() => {
+    void loadPlatformOptions();
+  }, [loadPlatformOptions]);
+
+  useEffect(() => {
+    setHiddenGameResultIds(new Set());
+  }, [gameSearch, gamePlatformFilter, selectedSlug]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -192,8 +225,16 @@ export function AdminSeriesPanel() {
       await loadSeries(seriesSearch);
       if (body.action === "add-game") {
         setMessage("Juego añadido a la saga.");
-        setGameSearch("");
-        setGameResults([]);
+        const addedGameId = typeof body.gameId === "string" ? body.gameId : "";
+        setGameResults((current) => current.filter((game) => game.id !== addedGameId));
+      } else if (body.action === "add-games") {
+        setMessage(`Añadidos ${data.addedCount ?? 0} juegos a la saga.`);
+        const addedGameIds = new Set(
+          Array.isArray(body.gameIds)
+            ? body.gameIds.filter((gameId): gameId is string => typeof gameId === "string")
+            : [],
+        );
+        setGameResults((current) => current.filter((game) => !addedGameIds.has(game.id)));
       } else if (body.action === "remove-game") {
         setMessage("Juego sacado de la saga.");
       } else if (body.action === "bulk-assign") {
@@ -204,6 +245,10 @@ export function AdminSeriesPanel() {
     } finally {
       setSaving(false);
     }
+  }
+
+  function hideGameResult(gameId: string) {
+    setHiddenGameResultIds((current) => new Set([...current, gameId]));
   }
 
   return (
@@ -304,15 +349,47 @@ export function AdminSeriesPanel() {
                 <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted">
                   Añadir juegos
                 </h3>
-                <input
-                  className="input"
-                  value={gameSearch}
-                  onChange={(e) => setGameSearch(e.target.value)}
-                  placeholder="Buscar por título, plataforma, referencia, compañía o género…"
-                />
-                {gameResults.length > 0 && (
+                <div className="grid gap-3 md:grid-cols-[1fr_260px]">
+                  <input
+                    className="input"
+                    value={gameSearch}
+                    onChange={(e) => setGameSearch(e.target.value)}
+                    placeholder="Buscar por título, referencia, compañía o género…"
+                  />
+                  <select
+                    className="input"
+                    value={gamePlatformFilter}
+                    onChange={(e) => setGamePlatformFilter(e.target.value)}
+                  >
+                    <option value="">Todas las plataformas</option>
+                    {platformOptions.map((platform) => (
+                      <option key={platform.slug} value={platform.slug}>
+                        {platform.name} ({platform.count})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                {visibleGameResults.length > 0 && (
                   <div className="mt-3 grid gap-2">
-                    {gameResults.map((game) => (
+                    <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-amber-400/25 bg-amber-400/10 p-3">
+                      <p className="text-sm text-muted">
+                        {visibleGameResults.length} resultados visibles. Quita de la vista los que no quieras y añade el resto de golpe.
+                      </p>
+                      <button
+                        type="button"
+                        className="btn-primary px-3 py-2 text-xs"
+                        disabled={saving}
+                        onClick={() =>
+                          void patchSeries({
+                            action: "add-games",
+                            gameIds: visibleGameResults.map((game) => game.id),
+                          })
+                        }
+                      >
+                        Añadir visibles
+                      </button>
+                    </div>
+                    {visibleGameResults.map((game) => (
                       <div
                         key={game.id}
                         className="flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-card/70 p-3"
@@ -329,9 +406,22 @@ export function AdminSeriesPanel() {
                         >
                           Añadir
                         </button>
+                        <button
+                          type="button"
+                          className="rounded-xl border border-border px-3 py-2 text-xs font-semibold text-muted transition hover:border-amber-400/40 hover:text-foreground disabled:opacity-50"
+                          disabled={saving}
+                          onClick={() => hideGameResult(game.id)}
+                        >
+                          Quitar de vista
+                        </button>
                       </div>
                     ))}
                   </div>
+                )}
+                {gameResults.length > 0 && visibleGameResults.length === 0 && (
+                  <p className="mt-3 rounded-2xl border border-dashed border-border p-4 text-sm text-muted">
+                    Has quitado todos los resultados visibles. Cambia la búsqueda o la plataforma para volver a cargar.
+                  </p>
                 )}
               </div>
 
