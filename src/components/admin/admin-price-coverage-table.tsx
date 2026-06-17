@@ -140,6 +140,16 @@ export function AdminPriceCoverageTable({
     const key = targetKey(target.platformSlug, target.region);
     setSelected((current) => {
       const next = { ...current };
+      const platformKey = targetKey(target.platformSlug);
+      if (target.region) {
+        delete next[platformKey];
+      } else {
+        for (const selectedKey of Object.keys(next)) {
+          if (selectedKey.startsWith(`${target.platformSlug}::`) && selectedKey !== platformKey) {
+            delete next[selectedKey];
+          }
+        }
+      }
       if (next[key]) delete next[key];
       else next[key] = target;
       return next;
@@ -307,7 +317,7 @@ export function AdminPriceCoverageTable({
         <table className="min-w-full text-left text-sm">
           <thead className="text-[10px] uppercase tracking-wider text-muted">
             <tr className="border-b border-border">
-              <th className="py-3 pr-4 font-semibold">Sel.</th>
+              <th className="py-3 pr-4 font-semibold">Toda</th>
               <th className="py-3 pr-4 font-semibold">Plataforma</th>
               <th className="py-3 pr-4 font-semibold">Cobertura total</th>
               <th className="py-3 pr-4 font-semibold">Verificada</th>
@@ -319,6 +329,8 @@ export function AdminPriceCoverageTable({
           <tbody>
             {sortedRows.map((row) => {
               const platformSelected = Boolean(selected[targetKey(row.platformSlug)]);
+              const selectedRegionCount = row.regions.filter((region) => selected[targetKey(row.platformSlug, region.region)]).length;
+              const partialRegionSelection = !platformSelected && selectedRegionCount > 0;
               return (
                 <tr key={row.platformSlug} className="border-b border-border/60 align-top last:border-0">
                   <td className="py-3 pr-4">
@@ -326,6 +338,9 @@ export function AdminPriceCoverageTable({
                       type="checkbox"
                       className="h-4 w-4 rounded border-border accent-current"
                       checked={platformSelected}
+                      ref={(element) => {
+                        if (element) element.indeterminate = partialRegionSelection;
+                      }}
                       onChange={() =>
                         toggle({
                           platformSlug: row.platformSlug,
@@ -333,7 +348,7 @@ export function AdminPriceCoverageTable({
                           games: row.totalGames,
                         })
                       }
-                      aria-label={`Seleccionar ${row.platformName}`}
+                      aria-label={`Seleccionar toda la plataforma ${row.platformName}`}
                     />
                   </td>
                   <td className="py-3 pr-4">
@@ -344,6 +359,12 @@ export function AdminPriceCoverageTable({
                     <p className="mt-1 text-xs text-muted">
                       {row.platformSlug} · {row.totalGames.toLocaleString("es-ES")} juegos
                     </p>
+                    {partialRegionSelection ? (
+                      <p className="mt-1 text-xs font-semibold text-accent">
+                        {selectedRegionCount} región{selectedRegionCount === 1 ? "" : "es"} seleccionada
+                        {selectedRegionCount === 1 ? "" : "s"}
+                      </p>
+                    ) : null}
                   </td>
                   <td className="py-3 pr-4">
                     <Badge tone={coverageTone(row.coveragePct)}>{row.coveragePct}%</Badge>
