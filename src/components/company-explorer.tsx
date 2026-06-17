@@ -5,7 +5,6 @@ import { useMemo, useState } from "react";
 import { cn } from "@/lib/cn";
 
 type CompanyRoleKind = "publisher" | "developer" | "both";
-type CompanyMarketFilter = "all" | "collectible" | "priced" | "major";
 type CompanySort =
   | "name-asc"
   | "name-desc"
@@ -20,7 +19,6 @@ type CompanyIndexFilters = {
   role: CompanyRoleFilter;
   platform: string;
   genre: string;
-  market: CompanyMarketFilter;
   sort: CompanySort;
 };
 type CompanyCardData = {
@@ -59,7 +57,6 @@ const DEFAULT_COMPANY_FILTERS: CompanyIndexFilters = {
   role: "all",
   platform: "all",
   genre: "all",
-  market: "all",
   sort: "games-desc",
 };
 const COMPANY_SORT_OPTIONS: { value: CompanySort; label: string }[] = [
@@ -71,13 +68,6 @@ const COMPANY_SORT_OPTIONS: { value: CompanySort; label: string }[] = [
   { value: "dev-desc", label: "Más títulos como desarrolladora" },
   { value: "pub-desc", label: "Más títulos como publicadora" },
 ];
-const COMPANY_MARKET_OPTIONS: { value: CompanyMarketFilter; label: string }[] = [
-  { value: "all", label: "Todo el mercado" },
-  { value: "major", label: "Catálogo amplio (50+ juegos)" },
-  { value: "collectible", label: "Con títulos de alto valor" },
-  { value: "priced", label: "Con precios de mercado ES" },
-];
-
 type Props = CompanyExplorerData;
 
 const ROLE_TABS: { value: CompanyRoleFilter; label: string; hint: string }[] = [
@@ -105,13 +95,6 @@ function matchesRole(company: CompanyCardData, role: CompanyRoleFilter): boolean
   return true;
 }
 
-function matchesMarket(company: CompanyCardData, market: CompanyMarketFilter): boolean {
-  if (market === "major") return company.gameCount >= 50;
-  if (market === "collectible") return company.grailCount > 0;
-  if (market === "priced") return company.pricedCount > 0;
-  return true;
-}
-
 function sortCompanies(list: CompanyCardData[], sort: CompanySort): CompanyCardData[] {
   return [...list].sort((a, b) => {
     if (sort === "name-asc") return a.name.localeCompare(b.name, "es", { sensitivity: "base" });
@@ -130,7 +113,6 @@ function filterCompanies(companies: CompanyCardData[], filters: CompanyIndexFilt
       (company) =>
         matchesSearch(company, filters.q) &&
         matchesRole(company, filters.role) &&
-        matchesMarket(company, filters.market) &&
         (filters.platform === "all" || company.platformSlugs.includes(filters.platform)) &&
         (filters.genre === "all" || company.genreSlugs.includes(filters.genre)),
     ),
@@ -144,7 +126,6 @@ function hasActiveCompanyFilters(filters: CompanyIndexFilters): boolean {
     filters.role !== "all" ||
     filters.platform !== "all" ||
     filters.genre !== "all" ||
-    filters.market !== "all" ||
     filters.sort !== DEFAULT_COMPANY_FILTERS.sort
   );
 }
@@ -166,8 +147,7 @@ export function CompanyExplorer({ companies, platformOptions, genreOptions, stat
     filters.role === "all" &&
     !filters.q.trim() &&
     filters.platform === "all" &&
-    filters.genre === "all" &&
-    filters.market === "all";
+    filters.genre === "all";
 
   const grouped = useMemo(() => {
     if (!showGrouped) return null;
@@ -247,22 +227,6 @@ export function CompanyExplorer({ companies, platformOptions, genreOptions, stat
             {genreOptions.slice(0, 80).map((genre) => (
               <option key={genre.slug} value={genre.slug}>
                 {genre.name} ({genre.count})
-              </option>
-            ))}
-          </select>
-          <select
-            value={filters.market}
-            onChange={(e) =>
-              setFilters((current) => ({
-                ...current,
-                market: e.target.value as CompanyIndexFilters["market"],
-              }))
-            }
-            className={selectClass}
-          >
-            {COMPANY_MARKET_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
               </option>
             ))}
           </select>
