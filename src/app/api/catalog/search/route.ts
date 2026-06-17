@@ -9,6 +9,7 @@ import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { listedCatalog } from "@/lib/catalog";
 import { getPlatform } from "@/lib/catalog";
 import { catalogGamePath } from "@/lib/catalog-seo";
+import { getCoverSrc } from "@/lib/cover-url";
 import type { CatalogListGame } from "@/lib/types";
 
 const MAX_RESULTS = 12;
@@ -58,7 +59,7 @@ export async function GET(request: Request) {
       region: game.region,
       year: game.displayYear,
       price: game.recommendedPrice,
-      coverUrl: game.coverUrl,
+      coverUrl: getCoverSrc(game.coverUrl, game.id),
     };
   });
 
