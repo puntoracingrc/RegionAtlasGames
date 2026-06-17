@@ -44,6 +44,7 @@ const nextConfig: NextConfig = {
       "data/covers-upload-one.txt",
       "data/logs/**",
       "data/**/*.local.json",
+      "public/catalog-details/**",
       "public/mascots/**",
       "public/platform-consoles/**",
     ],

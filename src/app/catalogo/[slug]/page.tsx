@@ -3,13 +3,15 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CollectionToggle } from "@/components/collection-toggle";
+import { CatalogMarketplacePanel } from "@/components/catalog-marketplace-panel";
+import { AffiliateOffersPanel } from "@/components/affiliate-offers-panel";
+import { SellListingButton } from "@/components/sell-listing-button";
 import { GameFaq } from "@/components/game-faq";
 import { GameJsonLd } from "@/components/game-json-ld";
 import { GamePriceHero } from "@/components/game-price-hero";
 import { GamePriceHistoryChart } from "@/components/game-price-history-chart";
 import { GameProductReference } from "@/components/game-product-reference";
 import { RetailPriceReferences } from "@/components/retail-price-references";
-import { ProListingsComparator } from "@/components/pro-listings-comparator";
 import { RecordedProSalesPanel } from "@/components/recorded-pro-sales-panel";
 import { SimilarGames } from "@/components/similar-games";
 import { DetailCoverArt } from "@/components/detail-cover-art";
@@ -18,6 +20,7 @@ import { SiteNav } from "@/components/site-nav";
 import { Badge, DetailRow, Panel, PanelTitle } from "@/components/ui";
 import {
   countCatalogGameOwned,
+  getFirstCollectionItemForCatalog,
   isCatalogGameOwned,
 } from "@/lib/collection-store";
 import {
@@ -36,12 +39,18 @@ import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { getPlatform } from "@/lib/catalog";
 import { grailLabel, isGrailGame, isTopInSegment, topSegmentLabel } from "@/lib/game-highlight";
 import { esPriceDisplayLabel } from "@/lib/price-display";
-import { RegionEvidenceRulesPanel } from "@/components/region-evidence-rules-panel";
-import { REGION_VERIFICATION_POLICY, priceVerificationLabel } from "@/lib/listing-region-verification";
 import { resolveGameEntityLinks } from "@/lib/entity-links";
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
+import { getSellerOpenListing } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
+import { getAffiliateOfferBlock } from "@/lib/affiliate-offers";
+import {
+  cleanSupportLabel,
+  defaultSupportForPlatform,
+  formatGameReleaseDate,
+  formatPlayerCount,
+} from "@/lib/game-detail-display";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -49,7 +58,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const game = await resolveCatalogGameWithOverlay(slug);
   if (!game) return { title: "Juego no encontrado" };
-  return buildGameMetadata(game);
+  const details = await getGameDetailsWithOverlay(game.id);
+  return buildGameMetadata(game, details);
 }
 
 export default async function CatalogGamePage({ params }: Props) {
@@ -65,6 +75,8 @@ export default async function CatalogGamePage({ params }: Props) {
   const user = await getCurrentUser();
   const owned = user ? await isCatalogGameOwned(user.id, game.id) : false;
   const ownedCount = user ? await countCatalogGameOwned(user.id, game.id) : 0;
+  const ownedItem = user && owned ? await getFirstCollectionItemForCatalog(user.id, game.id) : undefined;
+  const openListing = user && owned ? await getSellerOpenListing(user.id, game.id) : undefined;
 
   const platform = getPlatform(game.platformSlug);
   const details = await getGameDetailsWithOverlay(game.id);
@@ -76,6 +88,7 @@ export default async function CatalogGamePage({ params }: Props) {
   const similar = getSimilarGames(game);
   const faqs = buildGameFaq(game, platform, details);
   const priceHistory = hasPriceHistory(game.id) ? getPriceHistory(game.id) : [];
+  const affiliateOffers = await getAffiliateOfferBlock(game, details ?? null);
 
   const breadcrumbItems = [
     { label: "Inicio", href: "/" },
@@ -117,15 +130,21 @@ export default async function CatalogGamePage({ params }: Props) {
         <Breadcrumbs items={breadcrumbItems} />
 
         <div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-10">
-          <div className="lg:sticky lg:top-20 lg:self-start">
-            <DetailCoverArt
-              src={getCoverSrc(game.coverUrl, game.id)}
-              alt={coverAlt}
-              platformSlug={game.platformSlug}
-              owned={owned}
-              grail={grail}
-              topSegment={topSegment}
-            />
+          <div className="space-y-4 lg:self-start">
+            <div className="lg:sticky lg:top-20">
+              <DetailCoverArt
+                src={getCoverSrc(game.coverUrl, game.id)}
+                alt={coverAlt}
+                platformSlug={game.platformSlug}
+                owned={owned}
+                grail={grail}
+                topSegment={topSegment}
+              />
+            </div>
+
+            <CatalogMarketplacePanel catalogId={game.id} />
+
+            <AffiliateOffersPanel offers={affiliateOffers.offers} />
           </div>
 
           <div className="min-w-0 space-y-5">
@@ -150,7 +169,11 @@ export default async function CatalogGamePage({ params }: Props) {
                       ? "Precio sin verificar región"
                       : "Precio pendiente"}
                 </Badge>
-                {owned && <Badge tone="green">En tu colección</Badge>}
+                {owned && (
+                  <Badge tone="green">
+                    {ownedCount > 1 ? `${ownedCount} copias en tu colección` : "En tu colección"}
+                  </Badge>
+                )}
                 {topSegment && <Badge tone="violet">{topSegmentLabel()}</Badge>}
                 {grail && <Badge tone="amber">{grailLabel()}</Badge>}
               </div>
@@ -177,12 +200,21 @@ export default async function CatalogGamePage({ params }: Props) {
 
             <CollectionToggle
               catalogId={game.id}
+              gameTitle={game.title}
               initialOwned={owned}
               ownedCount={ownedCount}
               isLoggedIn={Boolean(user)}
+              platformName={platform?.shortName}
+              platformSlug={game.platformSlug}
             />
 
-            <ProListingsComparator catalogId={game.id} />
+            {user && ownedItem && (
+              <SellListingButton
+                collectionItemId={ownedItem.id}
+                plan={user.plan}
+                openListingId={openListing?.id}
+              />
+            )}
 
             <RecordedProSalesPanel catalogId={game.id} />
 
@@ -204,11 +236,6 @@ export default async function CatalogGamePage({ params }: Props) {
                   ))}
                 </ul>
               )}
-              <p className="mt-3 text-sm leading-relaxed text-muted">{REGION_VERIFICATION_POLICY}</p>
-              <p className="mt-2 text-xs text-muted/80">
-                Estado: {priceVerificationLabel(game.priceRegionVerified)}
-                {game.priceSource ? ` · Fuente: ${game.priceSource}` : ""}
-              </p>
             </Panel>
 
             {details && (
@@ -216,11 +243,14 @@ export default async function CatalogGamePage({ params }: Props) {
                 <PanelTitle>Detalles del juego</PanelTitle>
                 <dl className="grid gap-3 sm:grid-cols-2">
                   <DetailRow label="Año" value={details.year ? String(details.year) : "—"} />
-                  <DetailRow label="Lanzamiento" value={details.releaseDate || "—"} />
-                  <DetailRow label="Soporte" value={details.support || "—"} />
+                  <DetailRow label="Lanzamiento" value={formatGameReleaseDate(details.releaseDate)} />
+                  <DetailRow
+                    label="Soporte"
+                    value={cleanSupportLabel(details.support) || defaultSupportForPlatform(game.platformSlug) || "—"}
+                  />
                   <DetailRow
                     label="Jugadores"
-                    value={details.players != null ? String(details.players) : "—"}
+                    value={formatPlayerCount(details.players)}
                   />
                   <DetailRow
                     label="Desarrolladora"
@@ -288,11 +318,6 @@ export default async function CatalogGamePage({ params }: Props) {
                 </dl>
               </Panel>
             )}
-
-            <RegionEvidenceRulesPanel
-              platformSlug={game.platformSlug}
-              catalogRegion={game.region}
-            />
 
             <GameFaq faqs={faqs} />
 

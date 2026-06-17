@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import type { CatalogGame, GameDetails, Platform } from "./types";
-import {
-  formatEur,
-  getCatalogGame,
-  getPlatform,
-  listedCatalog,
-} from "./catalog";
+import { getCatalogGame, getPlatform, listedCatalog } from "./catalog";
+import { formatEur } from "./price-format";
 import { getGameDetails } from "./indexes";
 import { companyEntityLink, resolveGameEntityLinks } from "./entity-links";
 import { resolveCanonicalGenreSlug } from "./genre-canonical";
@@ -145,13 +141,13 @@ export function buildGameFaq(
   return faqs;
 }
 
-export function buildGameMetadata(game: CatalogGame): Metadata {
+export function buildGameMetadata(game: CatalogGame, loadedDetails?: GameDetails): Metadata {
   const platform = getPlatform(game.platformSlug);
   const regionLabel = getRegionDisplay(game.region).label;
   const platformName = platform?.shortName ?? game.platformSlug;
   const path = catalogGamePath(game);
   const url = `${getSiteUrl()}${path}`;
-  const details = getGameDetails(game.id);
+  const details = loadedDetails ?? getGameDetails(game.id);
   const seo = details?.seoMeta;
   const catalogDescription = details?.description?.trim();
 

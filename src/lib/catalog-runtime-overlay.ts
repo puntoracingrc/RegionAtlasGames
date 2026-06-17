@@ -1,12 +1,14 @@
-import { get, put } from "@vercel/blob";
-import { cache } from "react";
+import { del, get, put } from "@vercel/blob";
+import { revalidateTag, unstable_cache } from "next/cache";
 import { buildCatalogSeoSlug } from "./catalog-url";
 import { getCatalogGame, listedCatalog } from "./catalog";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
+import { getStaticGameDetails } from "./static-game-details";
 import type { CatalogGame, GameDetails } from "./types";
 
 const OVERLAY_PREFIX = "region-atlas/catalog/overlay";
 const INDEX_PATH = `${OVERLAY_PREFIX}/index.json`;
+const OVERLAY_CACHE_TAG = "catalog-overlay";
 
 export type CatalogOverlayIndex = {
   updatedAt: string;
@@ -16,6 +18,7 @@ export type CatalogOverlayIndex = {
 };
 
 function useBlobStorage(): boolean {
+  if (process.env.CATALOG_RUNTIME_OVERLAY_ENABLED !== "1") return false;
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
   return blobAuthConfigured();
 }
@@ -39,17 +42,27 @@ function parseIndex(raw: string): CatalogOverlayIndex {
   }
 }
 
-async function readIndexFromBlob(): Promise<CatalogOverlayIndex> {
+async function readIndexFromBlobFresh(): Promise<CatalogOverlayIndex> {
   if (!useBlobStorage()) return emptyIndex();
   try {
     const auth = await blobAuthOptions("private");
-    const result = await get(INDEX_PATH, auth);
+    const result = await get(INDEX_PATH, { ...auth, useCache: false });
     if (!result?.stream || result.statusCode !== 200) return emptyIndex();
     const text = await new Response(result.stream).text();
     return parseIndex(text);
   } catch {
     return emptyIndex();
   }
+}
+
+const readIndexFromBlobCached = unstable_cache(
+  readIndexFromBlobFresh,
+  ["catalog-overlay-index"],
+  { revalidate: 60, tags: [OVERLAY_CACHE_TAG] },
+);
+
+async function readIndexFromBlob(options?: { fresh?: boolean }): Promise<CatalogOverlayIndex> {
+  return options?.fresh ? readIndexFromBlobFresh() : readIndexFromBlobCached();
 }
 
 async function writeIndexToBlob(index: CatalogOverlayIndex): Promise<void> {
@@ -60,7 +73,9 @@ async function writeIndexToBlob(index: CatalogOverlayIndex): Promise<void> {
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
+    cacheControlMaxAge: 60,
   });
+  revalidateTag(OVERLAY_CACHE_TAG, { expire: 0 });
 }
 
 function gameBlobPath(catalogId: string): string {
@@ -71,15 +86,15 @@ function detailsBlobPath(catalogId: string): string {
   return `${OVERLAY_PREFIX}/details/${catalogId}.json`;
 }
 
-export const loadCatalogOverlayIndex = cache(async (): Promise<CatalogOverlayIndex> => {
+export async function loadCatalogOverlayIndex(): Promise<CatalogOverlayIndex> {
   return readIndexFromBlob();
-});
+}
 
-export async function readCatalogOverlayGame(catalogId: string): Promise<CatalogGame | null> {
+async function readCatalogOverlayGameFresh(catalogId: string): Promise<CatalogGame | null> {
   if (!useBlobStorage()) return null;
   try {
     const auth = await blobAuthOptions("private");
-    const result = await get(gameBlobPath(catalogId), auth);
+    const result = await get(gameBlobPath(catalogId), { ...auth, useCache: false });
     if (!result?.stream || result.statusCode !== 200) return null;
     const text = await new Response(result.stream).text();
     return JSON.parse(text) as CatalogGame;
@@ -88,17 +103,37 @@ export async function readCatalogOverlayGame(catalogId: string): Promise<Catalog
   }
 }
 
-export async function readCatalogOverlayDetails(catalogId: string): Promise<GameDetails | null> {
+const readCatalogOverlayGameCached = unstable_cache(
+  readCatalogOverlayGameFresh,
+  ["catalog-overlay-game"],
+  { revalidate: 60, tags: [OVERLAY_CACHE_TAG] },
+);
+
+export async function readCatalogOverlayGame(catalogId: string): Promise<CatalogGame | null> {
+  return readCatalogOverlayGameCached(catalogId);
+}
+
+async function readCatalogOverlayDetailsFresh(catalogId: string): Promise<GameDetails | null> {
   if (!useBlobStorage()) return null;
   try {
     const auth = await blobAuthOptions("private");
-    const result = await get(detailsBlobPath(catalogId), auth);
+    const result = await get(detailsBlobPath(catalogId), { ...auth, useCache: false });
     if (!result?.stream || result.statusCode !== 200) return null;
     const text = await new Response(result.stream).text();
     return JSON.parse(text) as GameDetails;
   } catch {
     return null;
   }
+}
+
+const readCatalogOverlayDetailsCached = unstable_cache(
+  readCatalogOverlayDetailsFresh,
+  ["catalog-overlay-details"],
+  { revalidate: 60, tags: [OVERLAY_CACHE_TAG] },
+);
+
+export async function readCatalogOverlayDetails(catalogId: string): Promise<GameDetails | null> {
+  return readCatalogOverlayDetailsCached(catalogId);
 }
 
 export async function writeCatalogOverlay(input: {
@@ -118,15 +153,17 @@ export async function writeCatalogOverlay(input: {
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
+    cacheControlMaxAge: 60,
   });
   await put(detailsBlobPath(input.game.id), detailsJson, {
     ...auth,
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
+    cacheControlMaxAge: 60,
   });
 
-  const index = await readIndexFromBlob();
+  const index = await readIndexFromBlob({ fresh: true });
   if (!index.ids.includes(input.game.id)) {
     index.ids.push(input.game.id);
     index.ids.sort();
@@ -138,7 +175,51 @@ export async function writeCatalogOverlay(input: {
   index.seoSlugs[buildCatalogSeoSlug(input.game)] = input.game.id;
 
   await writeIndexToBlob(index);
+  revalidateTag(OVERLAY_CACHE_TAG, { expire: 0 });
   return { ok: true };
+}
+
+export async function deleteCatalogOverlayGame(
+  catalogId: string,
+): Promise<{ ok: true; removed: boolean } | { error: string }> {
+  if (!useBlobStorage()) {
+    return { ok: true, removed: false };
+  }
+
+  const auth = await blobAuthOptions("private");
+  const game = await readCatalogOverlayGameFresh(catalogId);
+  const index = await readIndexFromBlob({ fresh: true });
+  const inIndex = index.ids.includes(catalogId);
+
+  if (!game && !inIndex) {
+    return { ok: true, removed: false };
+  }
+
+  try {
+    await del([gameBlobPath(catalogId), detailsBlobPath(catalogId)], auth);
+  } catch (error) {
+    console.warn("[catalog-overlay] blob delete failed", catalogId, error);
+  }
+
+  index.ids = index.ids.filter((id) => id !== catalogId);
+
+  if (game) {
+    const platformIds = (index.byPlatform[game.platformSlug] ?? []).filter((id) => id !== catalogId);
+    if (platformIds.length > 0) {
+      index.byPlatform[game.platformSlug] = platformIds;
+    } else {
+      delete index.byPlatform[game.platformSlug];
+    }
+    delete index.seoSlugs[buildCatalogSeoSlug(game)];
+  } else {
+    for (const [slug, id] of Object.entries(index.seoSlugs)) {
+      if (id === catalogId) delete index.seoSlugs[slug];
+    }
+  }
+
+  await writeIndexToBlob(index);
+  revalidateTag(OVERLAY_CACHE_TAG, { expire: 0 });
+  return { ok: true, removed: true };
 }
 
 export async function catalogIdExistsInCatalog(catalogId: string): Promise<boolean> {
@@ -164,6 +245,10 @@ export async function getGameDetailsWithOverlay(id: string): Promise<GameDetails
   const overlay = await readCatalogOverlayDetails(id);
   if (overlay) return overlay;
 
+  const platformSlug = getCatalogGame(id)?.platformSlug;
+  const staticDetails = await getStaticGameDetails(id, platformSlug);
+  if (staticDetails) return staticDetails;
+
   const { getGameDetails } = await import("./indexes");
   return getGameDetails(id);
 }
@@ -187,6 +272,15 @@ export async function getCatalogByPlatformWithOverlay(platformSlug: string): Pro
 export async function triggerCatalogDeployHook(): Promise<{ triggered: boolean; detail?: string }> {
   const hook = process.env.VERCEL_DEPLOY_HOOK_URL?.trim();
   if (!hook) return { triggered: false, detail: "VERCEL_DEPLOY_HOOK_URL no configurada." };
+
+  try {
+    new URL(hook);
+  } catch {
+    return {
+      triggered: false,
+      detail: "VERCEL_DEPLOY_HOOK_URL no es una URL válida; publicación caliente guardada en Blob.",
+    };
+  }
 
   try {
     const res = await fetch(hook, { method: "POST" });
