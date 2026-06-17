@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CatalogGameCard } from "@/components/game-card";
 import { CatalogPagination } from "@/components/catalog-pagination";
 import { HighlightLegend } from "@/components/highlight-legend";
@@ -68,6 +68,7 @@ export function CatalogBrowser({
   useEffect(() => {
     setOwnedIds(ownedCatalogIds);
   }, [ownedCatalogIds]);
+  const [draftQ, setDraftQ] = useState("");
   const [q, setQ] = useState("");
   const [internalRegion, setInternalRegion] = useState("all");
   const region = controlledRegion ?? internalRegion;
@@ -87,18 +88,28 @@ export function CatalogBrowser({
     [games, initialPriceCounts],
   );
 
-  const localResult = useMemo(
-    () =>
-      filterCatalogGames(
-        games,
-        { q, region, platform, sort, priceFilter },
-        {
-          regions: showRegionFilter,
-          platforms: showPlatformFilter,
-        },
-      ),
-    [games, q, region, platform, sort, priceFilter, showRegionFilter, showPlatformFilter],
-  );
+  useEffect(() => {
+    const timeout = window.setTimeout(
+      () => {
+        const trimmed = draftQ.trim();
+        setQ(trimmed.length === 1 ? "" : draftQ);
+      },
+      draftQ.trim() ? 320 : 0,
+    );
+    return () => window.clearTimeout(timeout);
+  }, [draftQ]);
+
+  const localResult = useMemo(() => {
+    if (source) return { items: serverItems, total: serverTotal };
+    return filterCatalogGames(
+      games,
+      { q, region, platform, sort, priceFilter },
+      {
+        regions: showRegionFilter,
+        platforms: showPlatformFilter,
+      },
+    );
+  }, [games, priceFilter, platform, q, region, serverItems, serverTotal, showPlatformFilter, showRegionFilter, sort, source]);
   const filteredItems = source ? serverItems : localResult.items;
   const total = source ? serverTotal : localResult.total;
 
@@ -117,6 +128,21 @@ export function CatalogBrowser({
 
   useEffect(() => {
     if (!source) return;
+
+    const defaultServerView =
+      q.trim() === "" &&
+      region === "all" &&
+      sort === DEFAULT_SORT &&
+      priceFilter === "all" &&
+      page === 1;
+
+    if (defaultServerView) {
+      setServerItems(games);
+      setServerTotal(totalCount ?? games.length);
+      setIsLoading(false);
+      return;
+    }
+
     const controller = new AbortController();
     const timeout = window.setTimeout(async () => {
       setIsLoading(true);
@@ -150,7 +176,7 @@ export function CatalogBrowser({
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [source, q, region, sort, priceFilter, page]);
+  }, [games, page, priceFilter, q, region, sort, source, totalCount]);
 
   const pageItems = useMemo(() => {
     if (source) return filteredItems;
@@ -159,7 +185,7 @@ export function CatalogBrowser({
   }, [filteredItems, safePage, source]);
 
   const hasActiveFilters =
-    q.trim() !== "" ||
+    draftQ.trim() !== "" ||
     region !== "all" ||
     platform !== "all" ||
     priceFilter !== "all" ||
@@ -173,7 +199,7 @@ export function CatalogBrowser({
     gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  function handleOwnedChange(
+  const handleOwnedChange = useCallback(function handleOwnedChange(
     catalogId: string,
     owned: boolean,
     ownedCatalogIds?: string[],
@@ -185,7 +211,25 @@ export function CatalogBrowser({
     setOwnedIds((prev) =>
       owned ? [...new Set([...prev, catalogId])] : prev.filter((id) => id !== catalogId),
     );
-  }
+  }, []);
+
+  const catalogGrid = useMemo(
+    () => (
+      <section ref={gridRef} className={CATALOG_GRID_CLASS}>
+        {pageItems.map((game) => (
+          <CatalogGameCard
+            key={game.id}
+            game={game}
+            owned={ownedSet.has(game.id)}
+            isLoggedIn={isLoggedIn}
+            onOwnedChange={handleOwnedChange}
+            listingsForSale={listingCounts[game.id] ?? 0}
+          />
+        ))}
+      </section>
+    ),
+    [handleOwnedChange, isLoggedIn, listingCounts, ownedSet, pageItems],
+  );
 
   return (
     <div className="space-y-4">
@@ -193,8 +237,11 @@ export function CatalogBrowser({
         <input
           type="search"
           placeholder="Nombre, compañía, género, referencia, SKU, región…"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
+          value={draftQ}
+          onChange={(e) => setDraftQ(e.target.value)}
+          autoComplete="off"
+          autoCorrect="off"
+          spellCheck={false}
           className="w-full rounded-lg border border-border bg-input px-3.5 py-2.5 text-sm outline-none ring-accent/25 placeholder:text-muted focus:ring-2"
         />
 
@@ -269,7 +316,7 @@ export function CatalogBrowser({
               </span>
             )}
           </p>
-          {isLoading && <p className="text-xs text-accent">Actualizando catálogo…</p>}
+          {(isLoading || draftQ !== q) && <p className="text-xs text-accent">Actualizando catálogo…</p>}
           <HighlightLegend showOwned compact={compactLegends} />
         </div>
         <PriceLegend defaultOpen={!compactLegends} />
@@ -290,18 +337,7 @@ export function CatalogBrowser({
             />
           )}
 
-          <section ref={gridRef} className={CATALOG_GRID_CLASS}>
-            {pageItems.map((game) => (
-            <CatalogGameCard
-              key={game.id}
-              game={game}
-              owned={ownedSet.has(game.id)}
-              isLoggedIn={isLoggedIn}
-              onOwnedChange={handleOwnedChange}
-              listingsForSale={listingCounts[game.id] ?? 0}
-            />
-            ))}
-          </section>
+          {catalogGrid}
 
           {totalPages > 1 && (
             <CatalogPagination
