@@ -12,6 +12,7 @@ const LINKS = [
   { href: "/plataformas", label: "Plataformas" },
   { href: "/compania", label: "Compañías" },
   { href: "/genero", label: "Géneros" },
+  { href: "/saga", label: "Sagas" },
   { href: "/coleccion", label: "Mi colección" },
   { href: "/ajustes", label: "Ajustes" },
 ];

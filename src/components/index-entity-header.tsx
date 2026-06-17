@@ -10,8 +10,16 @@ export function IndexEntityHeader({ summary }: { summary: IndexEntitySummary }) 
   return (
     <header className="mt-4 mb-8 space-y-4">
       <BackLink href={meta.basePath}>{meta.backLabel}</BackLink>
-      <h1 className="text-4xl font-bold text-foreground">{summary.name}</h1>
+      <h1 className="text-4xl font-bold text-foreground">
+        {summary.kind === "series" ? `Saga ${summary.name}` : summary.name}
+      </h1>
       <p className="text-foreground/85">{indexEntitySubtitle(summary)}</p>
+      {summary.kind === "series" && (
+        <p className="max-w-3xl text-sm leading-6 text-foreground/75">
+          También puedes leer estas agrupaciones como franquicias: juegos conectados por marca,
+          universo, personajes, numeración o continuidad editorial.
+        </p>
+      )}
       {summary.kind === "company" && summary.alsoKnownAs && summary.alsoKnownAs.length > 0 && (
         <p className="max-w-3xl text-sm text-foreground/75">
           También indexada como{" "}

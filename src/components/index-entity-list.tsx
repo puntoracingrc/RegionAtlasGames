@@ -28,6 +28,12 @@ export function IndexEntityList({ kind }: { kind: IndexKind }) {
         <header className="mb-8 space-y-2">
           <h1 className="text-3xl font-bold text-foreground">{meta.listTitle}</h1>
           <p className="max-w-2xl text-muted">{indexListIntro(kind)}</p>
+          {kind === "series" && (
+            <p className="max-w-3xl text-sm leading-6 text-muted">
+              Agrupaciones por saga o franquicia: Final Fantasy, Resident Evil, Mario, Zelda,
+              FIFA/EA Sports FC y otras familias que cruzan plataformas, compañías y regiones.
+            </p>
+          )}
         </header>
         <IndexGrid items={items} kind={kind} />
       </main>
