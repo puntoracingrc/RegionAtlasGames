@@ -47,10 +47,12 @@ type ReferenceSource = {
   sku?: string | null;
   coverUrl?: string | null;
   platforms?: string[];
+  developerName?: string | null;
   publisherName?: string | null;
   releaseDate?: string | null;
   genres?: string[];
   players?: number | null;
+  steamTags?: string[];
 };
 
 type PlayStationProduct = {
@@ -130,6 +132,7 @@ const NINTENDO_OFFICIAL_INDEX: Record<string, string> = {
 };
 
 const XBOX_OFFICIAL_INDEX = "https://www.xbox.com/es-es/games";
+const STEAM_SEARCH_SUGGEST_URL = "https://store.steampowered.com/search/suggest";
 
 type TrustedSearchResult = {
   title: string;
@@ -376,16 +379,25 @@ function parseProductJsonLd(html: string): Record<string, unknown> | null {
 }
 
 function stripHtmlToText(html: string): string {
-  return html
+  return decodeHtmlEntities(html)
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function decodeHtmlEntities(value: string): string {
+  return value
     .replace(/&nbsp;/gi, " ")
     .replace(/&amp;/gi, "&")
     .replace(/&quot;/gi, "\"")
     .replace(/&#39;/g, "'")
-    .replace(/\s+/g, " ")
-    .trim();
+    .replace(/&apos;/gi, "'")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&#(\d+);/g, (_match, code) => String.fromCharCode(Number(code)))
+    .replace(/&#x([0-9a-f]+);/gi, (_match, code) => String.fromCharCode(Number.parseInt(code, 16)));
 }
 
 function metaContent(html: string, name: string): string | null {
@@ -395,6 +407,97 @@ function metaContent(html: string, name: string): string | null {
     "i",
   );
   return html.match(pattern)?.[1]?.trim() ?? null;
+}
+
+function extractSteamAppIdFromSuggest(html: string, title: string): string | null {
+  const wanted = normalizeMatchText(title);
+  const matches = html.matchAll(/<a\b[^>]*data-ds-appid="(\d+)"[^>]*>([\s\S]*?)<\/a>/g);
+  for (const match of matches) {
+    const appId = match[1];
+    const name = stripHtmlToText(match[2].match(/<div class="match_name">([\s\S]*?)<\/div>/)?.[1] ?? "");
+    if (!appId || !name) continue;
+    const normalizedName = normalizeMatchText(name);
+    if (normalizedName === wanted || normalizedName.includes(wanted) || wanted.includes(normalizedName)) {
+      return appId;
+    }
+  }
+  return null;
+}
+
+function extractSteamField(html: string, label: string): string | null {
+  const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = html.match(
+    new RegExp(
+      `<div class="dev_row">[\\s\\S]*?<div class="subtitle column">\\s*${escaped}:\\s*<\\/div>[\\s\\S]*?<div class="summary column"[^>]*>([\\s\\S]*?)<\\/div>`,
+      "i",
+    ),
+  );
+  if (!match) return null;
+  return stripHtmlToText(match[1]).replace(/\s*,\s*/g, ", ").trim() || null;
+}
+
+function extractSteamTags(html: string): string[] {
+  const tagsBlock = html.match(/<div[^>]+class="glance_tags popular_tags"[\s\S]*?<\/div>/i)?.[0] ?? "";
+  const tags = [...tagsBlock.matchAll(/<a\b[^>]*class="app_tag"[^>]*>([\s\S]*?)<\/a>/gi)]
+    .map((match) => stripHtmlToText(match[1]))
+    .filter((tag) => tag.length > 0 && !/^\+$/.test(tag));
+  return [...new Set(tags)].slice(0, 16);
+}
+
+async function searchSteamStoreExperimental(draft: AdminGameDraft): Promise<ReferenceSource | null> {
+  const query = `${draft.title} ${platformSearchLabel(draft.platformSlug)}`;
+  const params = new URLSearchParams({
+    term: query,
+    f: "games",
+    cc: "ES",
+    l: "spanish",
+  });
+  const suggestRes = await fetch(`${STEAM_SEARCH_SUGGEST_URL}?${params}`, {
+    headers: { "User-Agent": USER_AGENT },
+  });
+  if (!suggestRes.ok) return null;
+
+  const suggestHtml = await suggestRes.text();
+  const appId = extractSteamAppIdFromSuggest(suggestHtml, draft.title);
+  if (!appId) return null;
+
+  const appUrl = `https://store.steampowered.com/app/${appId}/?cc=ES&l=spanish`;
+  const appRes = await fetch(appUrl, { headers: { "User-Agent": USER_AGENT } });
+  if (!appRes.ok) return null;
+
+  const html = await appRes.text();
+  const title = stripHtmlToText(html.match(/<div id="appHubAppName"[^>]*>([\s\S]*?)<\/div>/i)?.[1] ?? "");
+  if (!isSameGameTitle(draft.title, title)) return null;
+
+  const developerName = extractSteamField(html, "Desarrollador");
+  const publisherName = extractSteamField(html, "Editor");
+  const releaseDate = stripHtmlToText(html.match(/<div class="release_date">[\s\S]*?<div class="date">([\s\S]*?)<\/div>/i)?.[1] ?? "");
+  const steamTags = extractSteamTags(html);
+  const description = stripHtmlToText(
+    html.match(/<div class="game_description_snippet">([\s\S]*?)<\/div>/i)?.[1] ??
+      metaContent(html, "og:description") ??
+      "",
+  );
+
+  const facts = [
+    "Fuente experimental: Steam Store España. Uso de prueba, no importación masiva.",
+    `Título en Steam: ${title}.`,
+    developerName ? `Desarrollador indicado por Steam: ${developerName}.` : null,
+    publisherName ? `Editor indicado por Steam: ${publisherName}.` : null,
+    releaseDate ? `Fecha indicada por Steam: ${releaseDate}.` : null,
+    steamTags.length ? `Etiquetas populares en Steam: ${steamTags.join(", ")}.` : null,
+    description ? `Texto breve de Steam para contexto: ${description}` : null,
+  ].filter(Boolean);
+
+  return {
+    label: "Steam experimental",
+    url: appUrl,
+    title,
+    text: facts.join("\n"),
+    developerName,
+    publisherName,
+    steamTags,
+  };
 }
 
 async function fetchManualReference(url: string): Promise<ReferenceSource | null> {
@@ -1006,6 +1109,43 @@ export async function* streamAdminAiFill(
     }
   }
 
+  let steamExperimentalTags: string[] = [];
+  let steamExperimentalUrl: string | null = null;
+  try {
+    yield { type: "log", message: "Buscando referencia experimental en Steam…" };
+    const steamReference = await searchSteamStoreExperimental(draft);
+    if (steamReference) {
+      steamExperimentalTags = steamReference.steamTags ?? [];
+      steamExperimentalUrl = steamReference.url;
+      referenceText = [referenceText, steamReference.text].filter(Boolean).join("\n\n---\n\n") || referenceText;
+      referenceUrl = referenceUrl ?? steamReference.url;
+      referenceLabel = referenceLabel ? `${referenceLabel} + ${steamReference.label}` : steamReference.label;
+      yield { type: "log", message: `Fuente experimental encontrada: Steam · ${steamReference.url}` };
+      if (steamExperimentalTags.length) {
+        yield { type: "log", message: `Etiquetas Steam detectadas: ${steamExperimentalTags.join(", ")}` };
+      }
+      if (steamReference.developerName && (!options.onlyMissing || !draft.developerName)) {
+        draft.developerName = normalizeCompanyDisplayName(steamReference.developerName);
+        draft.developerSlug = slugify(draft.developerName);
+        yield { type: "field", field: "developerName", value: draft.developerName };
+        yield { type: "field", field: "developerSlug", value: draft.developerSlug };
+      }
+      if (steamReference.publisherName && (!options.onlyMissing || !draft.publisherName)) {
+        draft.publisherName = normalizeCompanyDisplayName(steamReference.publisherName);
+        draft.publisherSlug = slugify(draft.publisherName);
+        yield { type: "field", field: "publisherName", value: draft.publisherName };
+        yield { type: "field", field: "publisherSlug", value: draft.publisherSlug };
+      }
+    } else {
+      yield { type: "log", message: "Steam experimental no encontró coincidencia clara." };
+    }
+  } catch (error) {
+    yield {
+      type: "log",
+      message: `Steam experimental omitido: ${error instanceof Error ? error.message : "error"}`,
+    };
+  }
+
   if (!referenceText) {
     if (webSearchConfigured()) {
       yield {
@@ -1102,6 +1242,8 @@ export async function* streamAdminAiFill(
     genres: draft.genreNames,
     source: referenceLabel,
     sourceUrl: referenceUrl,
+    steamExperimentalTags,
+    steamExperimentalUrl,
   };
 
   if (includeMetadata) {
@@ -1197,6 +1339,7 @@ export async function* streamAdminAiFill(
     "Si la fecha de lanzamiento ya pasó respecto a FECHA_ACTUAL, usa pasado ('se lanzó'), nunca futuro ('se lanzará'). " +
     "Si el juego aún no ha salido, usa futuro de forma prudente. " +
     "Si faltan desarrolladora, editora, año o características, omítelos; no los rellenes con frases genéricas. " +
+    "Si HECHOS incluye steamExperimentalTags, intégralas en una sola frase natural como rasgos populares detectados en Steam, no como géneros oficiales. " +
     "Evita fórmulas pobres como 'juego completo de'. " +
     "Evita adjetivos vacíos como 'único', 'envolvente', 'imprescindible' o 'los aficionados no querrán perdérselo'. " +
     "Prohibido decir 'exclusivo', 'aventura inmersiva', 'equipo talentoso', 'reconocida compañía' o similares si no aparece en la fuente. " +
