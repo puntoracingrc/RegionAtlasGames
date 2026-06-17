@@ -23,6 +23,7 @@ function gitignoreIncludes(line) {
 
 const requiredFiles = [
   "docs/game-genre-normalization-v1.md",
+  "docs/game-genre-normalization-apply-closure-v1.md",
   "data/game-genre-normalization.json",
   "scripts/normalize-game-genres-dry-run.mjs",
   "scripts/normalize-game-genres-apply.mjs",
@@ -126,10 +127,26 @@ for (const phrase of [
   "CONFIRM_GAME_GENRE_NORMALIZATION=YES",
   "rollback",
   "backup",
+  "Apply closure",
+  "docs/game-genre-normalization-apply-closure-v1.md",
   "No se crean landings públicas",
   "No se activan facetas reales",
 ]) {
   if (!doc.toLowerCase().includes(phrase.toLowerCase())) fail(`Documento debe incluir: ${phrase}`);
+}
+
+const closureDoc = existsSync(file("docs/game-genre-normalization-apply-closure-v1.md"))
+  ? read("docs/game-genre-normalization-apply-closure-v1.md")
+  : "";
+for (const phrase of [
+  "data/backups/game-genre-normalization/20260617-194724",
+  "data/game-genre-normalization-apply-report.local.json",
+  "0 cambios pendientes",
+  "No se han creado facetas",
+  "No se han creado landings públicas",
+  "No se ha modificado la UI pública",
+]) {
+  if (!closureDoc.includes(phrase)) fail(`Documento de cierre debe incluir: ${phrase}`);
 }
 
 if (failures.length) {

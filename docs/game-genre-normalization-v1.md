@@ -239,3 +239,13 @@ npm run validate:game-facets-taxonomy-audit-v1
 npm run validate:all
 npx tsc --noEmit --pretty false
 ```
+
+## Apply closure
+
+La aplicación real de `GAME_GENRE_NORMALIZATION_APPLY_V1` quedó cerrada documentalmente en:
+
+```txt
+docs/game-genre-normalization-apply-closure-v1.md
+```
+
+Ese documento deja constancia de reglas aplicadas, conteos, backup, reporte local, segundo dry-run con 0 cambios pendientes, validaciones y confirmaciones de alcance.
