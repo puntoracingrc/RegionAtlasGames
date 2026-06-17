@@ -1,5 +1,7 @@
-import { readFileSync } from "fs";
-import path from "path";
+import catalogData from "../../data/catalog.json";
+import collectionData from "../../data/collection.json";
+import metaData from "../../data/meta.json";
+import platformsData from "../../data/platforms.json";
 import { getRegionDisplay } from "@/lib/region-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import type {
@@ -10,40 +12,10 @@ import type {
   Platform,
 } from "./types";
 
-function loadDataJson<T>(filename: string, fallback: T): T {
-  try {
-    return JSON.parse(
-      readFileSync(path.join(/* turbopackIgnore: true */ process.cwd(), "data", filename), "utf-8"),
-    ) as T;
-  } catch {
-    return fallback;
-  }
-}
-
-export const platforms = loadDataJson<Platform[]>("platforms.json", []);
-export const catalog = loadDataJson<CatalogGame[]>("catalog.json", []);
-export const collection = loadDataJson<CollectionItem[]>("collection.json", []);
-export const meta = loadDataJson<CatalogMeta>("meta.json", {
-  importedAt: "",
-  source: "",
-  catalogScope: "",
-  platformCount: 0,
-  catalogListed: 0,
-  catalogExcluded: 0,
-  catalogEstimatedTotal: 0,
-  listedByPlatform: {},
-  excludedByPlatform: {},
-  collection: {
-    totalItems: 0,
-    retroItems: 0,
-    outOfScopeItems: 0,
-    totalUnits: 0,
-    withEsPrice: 0,
-    pendingEsPrice: 0,
-    totalRecommendedValue: 0,
-    totalBuyValue: 0,
-  },
-});
+export const platforms = platformsData as Platform[];
+export const catalog = catalogData as CatalogGame[];
+export const collection = collectionData as CollectionItem[];
+export const meta = metaData as CatalogMeta;
 
 export function isListedGame(game: CatalogGame): boolean {
   return game.listingStatus !== "excluded";
@@ -112,6 +84,15 @@ export function getPlatformRegions(slug: string): string[] {
     if (rankDiff !== 0) return rankDiff;
     return a.localeCompare(b, "es");
   });
+}
+
+export function formatEur(value: number | null | undefined): string {
+  if (value == null) return "—";
+  return new Intl.NumberFormat("es-ES", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  }).format(value);
 }
 
 export function formatDelta(value: number | null | undefined): string {
