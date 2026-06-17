@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import {
+  CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
   filterCatalogGames,
   regionOptions,
+  type CatalogPriceFilter,
   type CatalogSort,
 } from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
@@ -32,17 +34,29 @@ export async function GET(request: Request) {
   const platform = url.searchParams.get("platform") ?? "all";
   const region = url.searchParams.get("region") ?? "all";
   const sort = (url.searchParams.get("sort") ?? DEFAULT_SORT) as CatalogSort;
+  const priceFilter = (url.searchParams.get("priceFilter") ?? "all") as CatalogPriceFilter;
+  const page = Math.max(1, Number(url.searchParams.get("page") ?? "1") || 1);
+  const mode = url.searchParams.get("mode") ?? "quick";
 
-  if (q.trim().length < 2 && platform === "all" && region === "all") {
+  if (q.trim().length < 2 && platform === "all" && region === "all" && mode !== "browser") {
     return NextResponse.json({ items: [], total: 0 });
   }
 
   const games = listedCatalog.map(toCatalogListGame);
   const filtered = filterCatalogGames(
     games,
-    { q, platform, region, sort, priceFilter: "all" },
+    { q, platform, region, sort, priceFilter },
     { platforms: true, regions: true },
   );
+
+  if (mode === "browser") {
+    const start = (page - 1) * CATALOG_PAGE_SIZE;
+    return NextResponse.json({
+      items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE),
+      total: filtered.total,
+      regions: regionOptions(games),
+    });
+  }
 
   const rankedItems = q.trim()
     ? [...filtered.items].sort((a, b) => relevanceScore(b, q) - relevanceScore(a, q) || a.title.localeCompare(b.title, "es"))

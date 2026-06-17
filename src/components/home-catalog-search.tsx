@@ -48,13 +48,20 @@ export function HomeCatalogSearch({ platforms, regions }: Props) {
 
   const hasSearch = q.trim().length >= 2 || platform !== "all" || region !== "all";
   const allResultsHref = useMemo(() => {
+    const params = new URLSearchParams();
+    if (q.trim()) params.set("q", q.trim());
+    if (platform !== "all") params.set("platform", platform);
+    if (region !== "all") params.set("region", region);
+    return `/catalogo${params.size ? `?${params}` : ""}`;
+  }, [platform, q, region]);
+
+  const platformResultsHref = useMemo(() => {
     if (platform !== "all") {
       const params = new URLSearchParams();
       if (q.trim()) params.set("q", q.trim());
       if (region !== "all") params.set("region", region);
       return `/plataforma/${platform}${params.size ? `?${params}` : ""}`;
     }
-    return "/plataformas";
   }, [platform, q, region]);
 
   useEffect(() => {
@@ -175,9 +182,14 @@ export function HomeCatalogSearch({ platforms, regions }: Props) {
       </div>
 
       {hasSearch && payload.total > payload.items.length && (
-        <div className="mt-4 flex justify-end">
+        <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
+          {platformResultsHref && (
+            <Link href={platformResultsHref} className="btn-secondary text-sm">
+              Ver en {platforms.find((item) => item.slug === platform)?.shortName ?? "plataforma"} →
+            </Link>
+          )}
           <Link href={allResultsHref} className="btn-secondary text-sm">
-            Ver más resultados →
+            Ver todos los resultados →
           </Link>
         </div>
       )}

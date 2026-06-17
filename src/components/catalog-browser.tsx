@@ -28,7 +28,7 @@ const selectClass =
 type Props = {
   games: CatalogListGame[];
   contextName: string;
-  source?: { kind: "platform"; slug: string };
+  source?: { kind: "platform"; slug: string } | { kind: "catalog" };
   totalCount?: number;
   regions?: ReturnType<typeof regionOptions>;
   platforms?: ReturnType<typeof platformOptions>;
@@ -39,6 +39,9 @@ type Props = {
   listingCounts?: Record<string, number>;
   isLoggedIn?: boolean;
   compactLegends?: boolean;
+  initialQuery?: string;
+  initialRegion?: string;
+  initialPlatform?: string;
   /** Filtro de región controlado (p. ej. desde la barra del hero) */
   region?: string;
   onRegionChange?: (region: string) => void;
@@ -58,6 +61,9 @@ export function CatalogBrowser({
   listingCounts = {},
   isLoggedIn = false,
   compactLegends = false,
+  initialQuery = "",
+  initialRegion = "all",
+  initialPlatform = "all",
   region: controlledRegion,
   onRegionChange,
 }: Props) {
@@ -68,12 +74,12 @@ export function CatalogBrowser({
   useEffect(() => {
     setOwnedIds(ownedCatalogIds);
   }, [ownedCatalogIds]);
-  const [draftQ, setDraftQ] = useState("");
-  const [q, setQ] = useState("");
-  const [internalRegion, setInternalRegion] = useState("all");
+  const [draftQ, setDraftQ] = useState(initialQuery);
+  const [q, setQ] = useState(initialQuery.trim().length === 1 ? "" : initialQuery);
+  const [internalRegion, setInternalRegion] = useState(initialRegion);
   const region = controlledRegion ?? internalRegion;
   const setRegion = onRegionChange ?? setInternalRegion;
-  const [platform, setPlatform] = useState("all");
+  const [platform, setPlatform] = useState(initialPlatform);
   const [sort, setSort] = useState<CatalogSort>(DEFAULT_SORT);
   const [priceFilter, setPriceFilter] = useState<CatalogPriceFilter>("all");
   const [page, setPage] = useState(1);
@@ -134,7 +140,8 @@ export function CatalogBrowser({
       region === "all" &&
       sort === DEFAULT_SORT &&
       priceFilter === "all" &&
-      page === 1;
+      page === 1 &&
+      (source.kind !== "catalog" || platform === "all");
 
     if (defaultServerView) {
       setServerItems(games);
@@ -154,9 +161,15 @@ export function CatalogBrowser({
           priceFilter,
           page: String(page),
         });
-        const response = await fetch(`/api/catalog/platform/${encodeURIComponent(source.slug)}?${params}`, {
-          signal: controller.signal,
-        });
+        if (source.kind === "catalog") {
+          params.set("platform", platform);
+          params.set("mode", "browser");
+        }
+        const endpoint =
+          source.kind === "platform"
+            ? `/api/catalog/platform/${encodeURIComponent(source.slug)}?${params}`
+            : `/api/catalog/search?${params}`;
+        const response = await fetch(endpoint, { signal: controller.signal });
         if (!response.ok) return;
         const payload = (await response.json()) as {
           items: CatalogListGame[];
@@ -262,7 +275,7 @@ export function CatalogBrowser({
 
           {showPlatformFilter && platforms.length > 1 && (
             <select value={platform} onChange={(e) => setPlatform(e.target.value)} className={selectClass}>
-              <option value="all">Todas las plataformas ({games.length})</option>
+              <option value="all">Todas las plataformas ({(totalCount ?? games.length).toLocaleString("es-ES")})</option>
               {platforms.map((p) => (
                 <option key={p.slug} value={p.slug}>
                   {p.name} ({p.count})

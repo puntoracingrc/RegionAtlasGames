@@ -20,7 +20,10 @@ import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ q?: string; region?: string }>;
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -30,8 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildPlatformMetadata(platform);
 }
 
-export default async function PlatformPage({ params }: Props) {
+export default async function PlatformPage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const query = await searchParams;
   const platform = await getAdminPlatform(slug);
   if (!platform || platform.active === false) notFound();
 
@@ -72,6 +76,8 @@ export default async function PlatformPage({ params }: Props) {
             listingCounts={listingCounts}
             isLoggedIn={!!user}
             canViewCollectionValue={user ? canViewCollectionValue(user.plan) : false}
+            initialQuery={typeof query?.q === "string" ? query.q : ""}
+            initialRegion={typeof query?.region === "string" ? query.region : "all"}
           />
         )}
 

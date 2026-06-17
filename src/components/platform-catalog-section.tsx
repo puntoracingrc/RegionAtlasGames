@@ -31,6 +31,8 @@ type Props = {
   listingCounts: Record<string, number>;
   isLoggedIn: boolean;
   canViewCollectionValue: boolean;
+  initialQuery?: string;
+  initialRegion?: string;
 };
 
 export function PlatformCatalogSection({
@@ -45,8 +47,10 @@ export function PlatformCatalogSection({
   listingCounts,
   isLoggedIn,
   canViewCollectionValue,
+  initialQuery = "",
+  initialRegion = "all",
 }: Props) {
-  const [region, setRegion] = useState("all");
+  const [region, setRegion] = useState(initialRegion);
   const ownedOnPlatform = ownedItems.filter((c) => c.platformSlug === platform.slug);
   const stats = { owned: ownedOnPlatform.length };
   const collectionValue = ownedOnPlatform.reduce((s, g) => s + (g.totalValue || 0), 0);
@@ -115,6 +119,7 @@ export function PlatformCatalogSection({
         listingCounts={listingCounts}
         isLoggedIn={isLoggedIn}
         compactLegends
+        initialQuery={initialQuery}
         region={region}
         onRegionChange={setRegion}
       />
