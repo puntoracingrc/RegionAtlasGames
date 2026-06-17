@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { PlatformCardArt } from "@/components/platform-card-art";
 import { ManufacturerLogo } from "@/components/manufacturer-logo";
+import { RegionFlag } from "@/components/region-flag";
 import type { CollectionView, Platform } from "@/lib/types";
-import { getPlatformStats } from "@/lib/catalog";
+import { getPlatformRegions, getPlatformStats } from "@/lib/catalog";
 
 const HOVER_LIFT =
   "transition-all duration-200 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/45";
@@ -10,6 +12,7 @@ const MANUFACTURER_STYLE = {
   nintendo: "from-red-500/20 to-red-500/5 border-red-400/20",
   sony: "from-blue-500/20 to-blue-500/5 border-blue-400/20",
   sega: "from-indigo-500/20 to-indigo-500/5 border-indigo-400/20",
+  snk: "from-cyan-500/20 to-cyan-500/5 border-cyan-400/20",
 };
 
 export function PlatformCard({
@@ -20,6 +23,7 @@ export function PlatformCard({
   ownedItems?: CollectionView[];
 }) {
   const stats = getPlatformStats(platform.slug, ownedItems);
+  const regions = getPlatformRegions(platform.slug);
   const listedLabel =
     stats.listed === 1
       ? "1 título listado"
@@ -28,18 +32,34 @@ export function PlatformCard({
   return (
     <Link
       href={`/plataforma/${platform.slug}`}
-      className={`group rounded-xl border bg-gradient-to-br p-4 ${HOVER_LIFT} hover:border-white/25 ${MANUFACTURER_STYLE[platform.manufacturer]}`}
+      className={`group relative min-h-[168px] overflow-hidden rounded-xl border bg-gradient-to-br p-4 ${HOVER_LIFT} hover:border-white/25 ${MANUFACTURER_STYLE[platform.manufacturer]}`}
     >
-      <div className="flex items-start justify-between gap-2">
+      <PlatformCardArt platform={platform} />
+
+      <div className="relative z-10 flex max-w-[calc(100%-6.25rem)] items-start justify-between gap-2">
         <div>
           <ManufacturerLogo manufacturer={platform.manufacturer} />
           <h3 className="mt-1 text-xl font-bold text-foreground">{platform.shortName}</h3>
         </div>
       </div>
 
-      <p className="mt-3 text-sm text-muted line-clamp-2">{platform.description}</p>
+      {regions.length > 0 && (
+        <div
+          className="relative z-10 mt-3 flex max-w-[calc(100%-5.5rem)] flex-wrap gap-1.5"
+          aria-label="Regiones disponibles"
+        >
+          {regions.map((region) => (
+            <span
+              key={region}
+              className="inline-flex min-h-7 items-center rounded-full border border-border/60 bg-card/60 px-2"
+            >
+              <RegionFlag region={region} size="xs" showLabel labelMode="short" />
+            </span>
+          ))}
+        </div>
+      )}
 
-      <div className="mt-4 space-y-2">
+      <div className="relative z-10 mt-4 space-y-2">
         <p className="text-xs text-muted">{listedLabel}</p>
         {stats.owned > 0 && (
           <p className="text-xs text-accent/90">
