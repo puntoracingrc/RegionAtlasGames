@@ -20,9 +20,9 @@ export function PlatformRegionBar({ regions, total, selectedRegion, onSelectRegi
 
   return (
     <div className="mt-6 space-y-2">
-      <div className="flex items-center justify-between text-[11px] text-muted">
-        <span>Regiones en catálogo</span>
-        <span>{total.toLocaleString("es-ES")} títulos</span>
+      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[11px] text-muted">
+        <span className="font-medium uppercase tracking-wider">Distribución por región</span>
+        <span>{total.toLocaleString("es-ES")} títulos en catálogo</span>
       </div>
 
       <div
@@ -66,11 +66,15 @@ export function PlatformRegionBar({ regions, total, selectedRegion, onSelectRegi
                 "inline-flex min-h-9 items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
                 active
                   ? "border-accent/50 bg-accent/15 text-accent"
-                  : "border-border/60 bg-black/10 text-muted hover:border-accent/30 hover:text-foreground",
+                  : "border-border/60 bg-card/70 text-muted hover:border-accent/30 hover:bg-card-hover hover:text-foreground dark:bg-black/10",
               )}
             >
+              <span
+                className={cn("h-2.5 w-2.5 rounded-full shadow-sm", region.barColorClass)}
+                aria-hidden
+              />
               <RegionFlag region={region.label} size="xs" showLabel labelMode="short" />
-              <span className={cn("tabular-nums text-foreground/70", active && "text-accent/90")}>
+              <span className={cn("tabular-nums text-muted", active && "text-accent")}>
                 {region.pct}%
               </span>
             </button>

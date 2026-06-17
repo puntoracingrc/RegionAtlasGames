@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any
 
 from collectors.common import load_json, now_iso, save_json
+from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.condition_buckets import DISPLAY_BUCKETS
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -35,13 +36,14 @@ def read_vision_cache(cache_key: str) -> dict[str, Any] | None:
     path = _cache_file(cache_key)
     if not path.exists():
         return None
-    return load_json(path, {})
+    cached = load_json(path, {})
+    return cached if cache_policy_matches(cached) else None
 
 
 def write_vision_cache(cache_key: str, payload: dict[str, Any]) -> None:
     path = _cache_file(cache_key)
     path.parent.mkdir(parents=True, exist_ok=True)
-    save_json(path, payload)
+    save_json(path, attach_policy_version(payload))
 
 
 def _openai_vision(messages: list[dict[str, Any]]) -> str:
@@ -106,9 +108,10 @@ def classify_condition_from_images(
                 f"Título anuncio: {title}\n\n"
                 "Clasifica el ESTADO FÍSICO de la copia en venta mirando la(s) foto(s).\n"
                 "Responde JSON: "
-                '{"bucket":"loose|complete|sealed|null","confidence":0-1,"reason":"..."}\n\n'
+                '{"bucket":"loose|game_manual|complete|sealed|null","confidence":0-1,"reason":"..."}\n\n'
                 "Reglas:\n"
                 "- loose: solo cartucho/disco/medio suelto, sin caja retail completa\n"
+                "- game_manual: juego/cartucho/disco con manual visible, pero sin caja retail\n"
                 "- complete: caja abierta con juego; puede faltar manual; caja + disco\n"
                 "- sealed: precintado de fábrica, film plástico intacto, sin abrir\n"
                 "- null: no se puede determinar\n"

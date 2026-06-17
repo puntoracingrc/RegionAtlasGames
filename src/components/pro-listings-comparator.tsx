@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatEur } from "@/lib/catalog";
+import { formatEur } from "@/lib/price-format";
 import {
   getActiveListingsForCatalog,
   getPublicSellerListing,
@@ -11,7 +11,7 @@ import { Panel, PanelTitle } from "@/components/ui";
 type Props = { catalogId: string };
 
 export async function ProListingsComparator({ catalogId }: Props) {
-  const listings = getActiveListingsForCatalog(catalogId).slice(0, 5);
+  const listings = (await getActiveListingsForCatalog(catalogId)).slice(0, 5);
   const user = await getCurrentUser();
   const canContact = user ? canUseMarketplace(user.plan) : false;
 

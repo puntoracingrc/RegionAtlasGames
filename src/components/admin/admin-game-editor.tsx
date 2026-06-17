@@ -5,20 +5,32 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type { AdminGameDraft } from "@/lib/admin-draft-types";
+import { recomputeCatalogId } from "@/lib/admin-draft-patch";
 import type { CatalogStagingGame } from "@/lib/catalog-staging-types";
 import { getCoverSrc } from "@/lib/cover-url";
+import { getPhysicalVariant, PHYSICAL_VARIANTS } from "@/lib/physical-variants";
+import { buildCatalogSeoSlug } from "@/lib/catalog-path";
 
 type CompanyOption = { name: string; slug: string };
 
 type Props = {
   pcId: number;
   initialDraft: AdminGameDraft;
-  staging: CatalogStagingGame;
+  staging?: CatalogStagingGame | null;
   companies: CompanyOption[];
   autoAi?: boolean;
+  mode?: "staging" | "published" | "contributor";
+  catalogId?: string;
+  readOnly?: boolean;
 };
 
 type LogLine = { id: number; text: string; tone?: "ok" | "err" };
+type PriceJobState = {
+  jobId: string;
+  status: "running" | "done" | "error";
+  logTail?: string;
+  error?: string;
+};
 
 function EntityCombo({
   label,
@@ -40,7 +52,7 @@ function EntityCombo({
       <span className="text-[10px] uppercase tracking-wider text-muted">{label}</span>
       <input
         list={listId}
-        className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+        className="input"
         value={name}
         onChange={(e) => {
           const nextName = e.target.value;
@@ -66,17 +78,30 @@ export function AdminGameEditor({
   staging,
   companies,
   autoAi = false,
+  mode = "staging",
+  catalogId: catalogIdProp,
+  readOnly = false,
 }: Props) {
+  const isPublished = mode === "published";
+  const isContributor = mode === "contributor";
+  const locked = readOnly || (isContributor && staging?.reviewStatus === "pending-review");
+  const catalogId = catalogIdProp ?? initialDraft.catalogId;
   const [draft, setDraft] = useState(initialDraft);
   const [saving, setSaving] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [enriching, setEnriching] = useState(false);
   const [coverUploading, setCoverUploading] = useState(false);
   const [aiRunning, setAiRunning] = useState(false);
+  const [priceCollecting, setPriceCollecting] = useState(false);
+  const [priceJob, setPriceJob] = useState<PriceJobState | null>(null);
+  const [deleting, setDeleting] = useState(false);
   const [logs, setLogs] = useState<LogLine[]>([]);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [aiManualUrl, setAiManualUrl] = useState("");
+  const [aiExtraInstructions, setAiExtraInstructions] = useState("");
   const logId = useRef(0);
+  const pricePollRef = useRef<number | null>(null);
   const autoAiStarted = useRef(false);
 
   const pushLog = useCallback((text: string, tone?: LogLine["tone"]) => {
@@ -94,7 +119,12 @@ export function AdminGameEditor({
     setMessage(null);
     const payload = { ...draft, ...next };
     try {
-      const res = await fetch(`/api/admin/staging/${pcId}`, {
+      const url = isPublished
+        ? `/api/admin/catalog/${encodeURIComponent(catalogId)}`
+        : isContributor
+          ? `/api/contribuir/staging/${pcId}`
+          : `/api/admin/staging/${pcId}`;
+      const res = await fetch(url, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -105,7 +135,16 @@ export function AdminGameEditor({
         return false;
       }
       setDraft(data.draft);
-      setMessage("Borrador guardado.");
+      setMessage(
+        isPublished
+          ? "Ficha publicada actualizada."
+          : isContributor
+            ? "Borrador guardado."
+            : "Borrador guardado.",
+      );
+      if (isPublished && data.redirect) {
+        window.location.href = data.redirect;
+      }
       return true;
     } catch {
       setError("Error de red al guardar.");
@@ -125,7 +164,14 @@ export function AdminGameEditor({
     await saveDraft();
 
     try {
-      const res = await fetch(`/api/admin/staging/${pcId}/ai-fill`, { method: "POST" });
+      const res = await fetch(`/api/admin/staging/${pcId}/ai-fill`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          manualUrl: aiManualUrl,
+          extraInstructions: aiExtraInstructions,
+        }),
+      });
       if (!res.ok || !res.body) {
         const data = await res.json().catch(() => ({}));
         setError(data.error ?? "No se pudo iniciar la IA.");
@@ -185,25 +231,89 @@ export function AdminGameEditor({
     }
   }
 
+  function pollPriceJob(jobId: string) {
+    if (pricePollRef.current != null) window.clearInterval(pricePollRef.current);
+    pricePollRef.current = window.setInterval(async () => {
+      try {
+        const res = await fetch(`/api/admin/price-jobs/${encodeURIComponent(jobId)}`);
+        const data = await res.json();
+        if (!res.ok) return;
+        const job = data.job as PriceJobState;
+        setPriceJob(job);
+        if (job.status === "done") {
+          setPriceCollecting(false);
+          setMessage("Recolección de precios terminada. Revisa el panel de precios.");
+          if (pricePollRef.current != null) window.clearInterval(pricePollRef.current);
+        } else if (job.status === "error") {
+          setPriceCollecting(false);
+          setError(job.error ?? "La recolección de precios falló.");
+          if (pricePollRef.current != null) window.clearInterval(pricePollRef.current);
+        }
+      } catch {
+        /* ignore transient polling errors */
+      }
+    }, 3000);
+  }
+
+  async function collectGamePrices() {
+    if (!isPublished) return;
+    setPriceCollecting(true);
+    setPriceJob(null);
+    setError(null);
+    setMessage(null);
+    try {
+      const res = await fetch(`/api/admin/catalog/${encodeURIComponent(catalogId)}/collect-prices`, {
+        method: "POST",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo iniciar la recolección de precios.");
+        setPriceCollecting(false);
+        return;
+      }
+      setPriceJob({ jobId: data.jobId, status: "running" });
+      setMessage("Recolección de precios en curso para este juego…");
+      pollPriceJob(data.jobId);
+    } catch {
+      setError("Error de red al iniciar la recolección de precios.");
+      setPriceCollecting(false);
+    }
+  }
+
   async function uploadCoverFile(file: File) {
     setCoverUploading(true);
     setError(null);
     try {
       const form = new FormData();
       form.append("file", file);
-      const res = await fetch(`/api/admin/staging/${pcId}/cover`, {
+      const url = isPublished
+        ? `/api/admin/catalog/${encodeURIComponent(catalogId)}/cover`
+        : isContributor
+          ? `/api/contribuir/staging/${pcId}/cover`
+          : `/api/admin/staging/${pcId}/cover`;
+      const res = await fetch(url, {
         method: "POST",
         body: form,
       });
-      const data = await res.json();
+      const text = await res.text();
+      let data: { error?: string; coverUrl?: string } = {};
+      try {
+        data = text ? JSON.parse(text) : {};
+      } catch {
+        data = { error: text.slice(0, 500) || "Respuesta no válida del servidor." };
+      }
       if (!res.ok) {
         setError(data.error ?? "No se pudo subir la portada.");
         return;
       }
+      if (!data.coverUrl) {
+        setError("La portada se subió, pero el servidor no devolvió la URL.");
+        return;
+      }
       patchDraft({ coverUrl: data.coverUrl });
       setMessage(`Portada subida: ${data.coverUrl}`);
-    } catch {
-      setError("Error al subir la portada.");
+    } catch (error) {
+      setError(error instanceof Error ? `Error al subir la portada: ${error.message}` : "Error al subir la portada.");
     } finally {
       setCoverUploading(false);
     }
@@ -266,16 +376,99 @@ export function AdminGameEditor({
     }
   }
 
+  async function submitForReview() {
+    if (
+      !confirm(
+        "¿Enviar esta ficha a revisión del administrador? Después no podrás editarla hasta que la revisen.",
+      )
+    ) {
+      return;
+    }
+
+    setPublishing(true);
+    setError(null);
+    setMessage(null);
+    const saved = await saveDraft();
+    if (!saved) {
+      setPublishing(false);
+      return;
+    }
+
+    try {
+      const res = await fetch(`/api/contribuir/staging/${pcId}/submit`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(draft),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo enviar a revisión.");
+        return;
+      }
+      setMessage(data.message ?? "Enviada a revisión.");
+      window.location.href = data.redirect ?? "/contribuir";
+    } catch {
+      setError("Error de red al enviar.");
+    } finally {
+      setPublishing(false);
+    }
+  }
+
+  async function deleteGame() {
+    const publishedHint = isPublished
+      ? "\n\nSe eliminará del catálogo publicado."
+      : staging?.status === "promoted"
+        ? "\n\nTambién se eliminará del catálogo publicado."
+        : draft.catalogId
+          ? "\n\nSi ya estaba publicado, también se quitará del catálogo."
+          : "";
+    if (
+      !confirm(
+        `¿Eliminar la ficha «${draft.title}»? Esta acción no se puede deshacer.${publishedHint}`,
+      )
+    ) {
+      return;
+    }
+
+    setDeleting(true);
+    setError(null);
+    setMessage(null);
+    try {
+      const url = isPublished
+        ? `/api/admin/catalog/${encodeURIComponent(catalogId)}`
+        : `/api/admin/staging/${pcId}`;
+      const res = await fetch(url, { method: "DELETE" });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo eliminar la ficha.");
+        return;
+      }
+      window.location.href = data.redirect ?? (isPublished ? "/admin/juegos" : "/admin/cola");
+    } catch {
+      setError("Error al eliminar la ficha.");
+    } finally {
+      setDeleting(false);
+    }
+  }
+
   useEffect(() => {
-    if (autoAi && !autoAiStarted.current) {
+    if (autoAi && !autoAiStarted.current && !isPublished && !isContributor) {
       autoAiStarted.current = true;
       void runAiFill();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoAi]);
 
-  const regionSlug =
-    draft.region === "USA" ? "usa" : draft.region === "Japón" ? "japon" : "pal";
+  useEffect(() => {
+    return () => {
+      if (pricePollRef.current != null) window.clearInterval(pricePollRef.current);
+    };
+  }, []);
+
+  const coverTargetId = recomputeCatalogId(draft);
+  const coverTargetPath = `/covers/${draft.platformSlug}/${coverTargetId}.jpg`;
+  const selectedPhysicalVariant = getPhysicalVariant(draft.physicalVariant);
+  const publicPreviewSlug = buildCatalogSeoSlug(draft);
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
@@ -283,30 +476,47 @@ export function AdminGameEditor({
         <Panel>
           <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
             <div>
-              <PanelTitle>Ficha de catálogo</PanelTitle>
+              <PanelTitle eyebrow={isContributor ? "Edición colaborador" : "Editor"}>Ficha de catálogo</PanelTitle>
               <p className="text-sm text-muted">
-                {staging.importCount > 0
-                  ? `${staging.userCount} usuarios · ${staging.unitCount} unidades importadas`
-                  : staging.pcId < 0
-                    ? "Entrada manual"
-                    : "Cola de importación"}
+                {isContributor
+                  ? locked
+                    ? "En revisión por el administrador"
+                    : "Borrador de colaborador"
+                  : isPublished
+                    ? "Ficha publicada en catálogo"
+                    : staging && staging.importCount > 0
+                      ? `${staging.userCount} usuarios · ${staging.unitCount} unidades importadas`
+                      : staging && staging.pcId < 0
+                        ? "Entrada manual"
+                        : staging
+                          ? "Revisión de importación"
+                          : "Borrador"}
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <Badge tone={staging.status === "enriched" ? "green" : "amber"}>
-                {staging.status}
-              </Badge>
-              {staging.pcId > 0 && (
+              {staging && (
+                <Badge tone={staging.status === "enriched" ? "green" : "amber"}>
+                  {isPublished ? "publicado" : staging.status}
+                </Badge>
+              )}
+              {isContributor && staging?.reviewStatus === "pending-review" && (
+                <Badge tone="amber">pendiente revisión</Badge>
+              )}
+              {isContributor && staging?.reviewStatus === "contributor-draft" && (
+                <Badge tone="neutral">borrador</Badge>
+              )}
+              {isPublished && <Badge tone="green">catálogo</Badge>}
+              {!isPublished && staging && staging.pcId > 0 && (
                 <Badge tone="neutral">PC #{staging.pcId}</Badge>
               )}
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <fieldset disabled={locked} className="grid gap-4 sm:grid-cols-2 disabled:opacity-70">
             <label className="block space-y-1 sm:col-span-2">
               <span className="text-[10px] uppercase tracking-wider text-muted">Título</span>
               <input
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+                className="input"
                 value={draft.title}
                 onChange={(e) => patchDraft({ title: e.target.value })}
               />
@@ -315,21 +525,26 @@ export function AdminGameEditor({
             <label className="block space-y-1">
               <span className="text-[10px] uppercase tracking-wider text-muted">Slug URL</span>
               <input
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm font-mono text-xs"
+                className="input font-mono text-xs"
                 value={draft.slug}
-                onChange={(e) =>
+                onChange={(e) => {
+                  const slug = e.target.value;
                   patchDraft({
-                    slug: e.target.value,
-                    catalogId: `${draft.platformSlug}-${e.target.value}`,
-                  })
-                }
+                    slug,
+                    catalogId: recomputeCatalogId({
+                      platformSlug: draft.platformSlug,
+                      slug,
+                      region: draft.region,
+                    }),
+                  });
+                }}
               />
             </label>
 
             <label className="block space-y-1">
               <span className="text-[10px] uppercase tracking-wider text-muted">ID catálogo</span>
               <input
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm font-mono text-xs"
+                className="input font-mono text-xs"
                 value={draft.catalogId}
                 readOnly
               />
@@ -338,7 +553,7 @@ export function AdminGameEditor({
             <label className="block space-y-1">
               <span className="text-[10px] uppercase tracking-wider text-muted">Plataforma</span>
               <input
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+                className="input"
                 value={draft.platformSlug}
                 readOnly
               />
@@ -347,14 +562,47 @@ export function AdminGameEditor({
             <label className="block space-y-1">
               <span className="text-[10px] uppercase tracking-wider text-muted">Región</span>
               <select
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+                className="input"
                 value={draft.region}
-                onChange={(e) => patchDraft({ region: e.target.value })}
+                onChange={(e) =>
+                  patchDraft({
+                    region: e.target.value,
+                    catalogId: recomputeCatalogId({
+                      platformSlug: draft.platformSlug,
+                      slug: draft.slug,
+                      region: e.target.value,
+                    }),
+                  })
+                }
               >
                 <option value="PAL España">PAL España</option>
+                <option value="PAL Europa">PAL Europa</option>
                 <option value="USA">USA</option>
                 <option value="Japón">Japón</option>
               </select>
+            </label>
+
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">
+                Variante física / portada
+              </span>
+              <select
+                className="input"
+                value={draft.physicalVariant ?? ""}
+                onChange={(e) => patchDraft({ physicalVariant: e.target.value || null })}
+              >
+                <option value="">Sin clasificar</option>
+                {PHYSICAL_VARIANTS.map((variant) => (
+                  <option key={variant.slug} value={variant.slug}>
+                    {variant.label}
+                  </option>
+                ))}
+              </select>
+              <p className="text-xs leading-5 text-muted">
+                {selectedPhysicalVariant
+                  ? selectedPhysicalVariant.description
+                  : "Clave para no mezclar precios de portadas españolas, UK, USK, ESRB, CERO, etc."}
+              </p>
             </label>
 
             <label className="block space-y-1 sm:col-span-2">
@@ -362,7 +610,7 @@ export function AdminGameEditor({
                 Referencia (SKU / CUSA / código)
               </span>
               <input
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm font-mono"
+                className="input font-mono"
                 value={draft.reference ?? ""}
                 onChange={(e) => patchDraft({ reference: e.target.value || null })}
                 placeholder="ej. CUSA-12345, SLES-12345…"
@@ -373,7 +621,7 @@ export function AdminGameEditor({
               <span className="text-[10px] uppercase tracking-wider text-muted">Año</span>
               <input
                 type="number"
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+                className="input"
                 value={draft.year ?? ""}
                 onChange={(e) =>
                   patchDraft({
@@ -387,13 +635,23 @@ export function AdminGameEditor({
               <span className="text-[10px] uppercase tracking-wider text-muted">Jugadores</span>
               <input
                 type="number"
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+                className="input"
                 value={draft.players ?? ""}
                 onChange={(e) =>
                   patchDraft({
                     players: e.target.value ? Number.parseInt(e.target.value, 10) : null,
                   })
                 }
+              />
+            </label>
+
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Soporte</span>
+              <input
+                className="input"
+                value={draft.support ?? ""}
+                onChange={(e) => patchDraft({ support: e.target.value || null })}
+                placeholder="PS5, PS4, PS VR2, mando, online…"
               />
             </label>
 
@@ -418,7 +676,7 @@ export function AdminGameEditor({
                 Géneros (separados por coma)
               </span>
               <input
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+                className="input"
                 value={draft.genreNames.join(", ")}
                 onChange={(e) =>
                   patchDraft({
@@ -434,10 +692,10 @@ export function AdminGameEditor({
             <label className="block space-y-1 sm:col-span-2">
               <span className="text-[10px] uppercase tracking-wider text-muted">URL portada</span>
               <input
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+                className="input"
                 value={draft.coverUrl ?? ""}
                 onChange={(e) => patchDraft({ coverUrl: e.target.value || null })}
-                placeholder="/covers/plataforma/archivo.jpg"
+                placeholder={coverTargetPath}
               />
             </label>
 
@@ -459,7 +717,7 @@ export function AdminGameEditor({
               <p className="text-xs text-muted">
                 Se sube a{" "}
                 <code className="text-[11px]">
-                  /covers/{draft.platformSlug}/{draft.slug}.jpg
+                  {coverTargetPath}
                 </code>{" "}
                 vía SFTP (COVERS_FTP_*).
               </p>
@@ -469,50 +727,136 @@ export function AdminGameEditor({
               <span className="text-[10px] uppercase tracking-wider text-muted">Descripción</span>
               <textarea
                 rows={6}
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm leading-relaxed"
+                className="input leading-relaxed"
                 value={draft.description ?? ""}
                 onChange={(e) => patchDraft({ description: e.target.value || null })}
               />
             </label>
-          </div>
+          </fieldset>
 
           <div className="mt-6 flex flex-wrap gap-2">
-            <button
-              type="button"
-              className="btn-primary"
-              disabled={saving || aiRunning}
-              onClick={() => void saveDraft()}
-            >
-              {saving ? "Guardando…" : "Guardar borrador"}
-            </button>
-            <button
-              type="button"
-              className="btn-secondary"
-              disabled={enriching || aiRunning}
-              onClick={() => void enrichCover()}
-            >
-              {enriching ? "Buscando portada…" : "Portada (PriceCharting)"}
-            </button>
-            <button
-              type="button"
-              className="rounded-lg border border-violet-400/40 bg-violet-500/10 px-4 py-2 text-sm font-medium text-violet-800 dark:text-violet-200 disabled:opacity-50"
-              disabled={aiRunning || saving}
-              onClick={() => void runAiFill()}
-            >
-              {aiRunning ? "IA trabajando…" : "Rellenar con IA"}
-            </button>
-            <button
-              type="button"
-              className="rounded-lg border border-emerald-400/40 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-800 dark:text-emerald-200 disabled:opacity-50"
-              disabled={publishing || aiRunning}
-              onClick={() => void publish()}
-            >
-              {publishing ? "Publicando…" : "Publicar al catálogo"}
-            </button>
+            {!locked && (
+              <button
+                type="button"
+                className="btn-primary"
+                disabled={saving || aiRunning}
+                onClick={() => void saveDraft()}
+              >
+                {saving
+                  ? "Guardando…"
+                  : isPublished
+                    ? "Guardar cambios"
+                    : "Guardar borrador"}
+              </button>
+            )}
+            {isContributor && !locked && (
+              <button
+                type="button"
+                className="rounded-xl border border-emerald-400/40 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-500/15 dark:text-emerald-200 disabled:opacity-50"
+                disabled={publishing || saving}
+                onClick={() => void submitForReview()}
+              >
+                {publishing ? "Enviando…" : "Enviar a revisión"}
+              </button>
+            )}
+            {isPublished && (
+              <button
+                type="button"
+                className="rounded-xl border border-amber-400/50 bg-amber-500/10 px-4 py-2 text-sm font-semibold text-amber-800 transition hover:bg-amber-500/15 dark:text-amber-200 disabled:opacity-50"
+                disabled={priceCollecting}
+                onClick={() => void collectGamePrices()}
+              >
+                {priceCollecting ? "Recolectando precios…" : "Recolectar precios de este juego"}
+              </button>
+            )}
+            {!isPublished && !isContributor && (
+              <>
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  disabled={enriching || aiRunning}
+                  onClick={() => void enrichCover()}
+                >
+                  {enriching ? "Buscando portada…" : "Portada (PriceCharting)"}
+                </button>
+                <button
+                  type="button"
+                  className="rounded-xl border border-violet-400/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-800 transition hover:bg-violet-500/15 dark:text-violet-200 disabled:opacity-50"
+                  disabled={aiRunning || saving}
+                  onClick={() => void runAiFill()}
+                >
+                  {aiRunning ? "IA trabajando…" : "Rellenar con IA"}
+                </button>
+                <button
+                  type="button"
+                  className="rounded-xl border border-emerald-400/40 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-500/15 dark:text-emerald-200 disabled:opacity-50"
+                  disabled={publishing || aiRunning}
+                  onClick={() => void publish()}
+                >
+                  {publishing ? "Publicando…" : "Publicar al catálogo"}
+                </button>
+              </>
+            )}
+            {!isContributor && (
+              <button
+                type="button"
+                className="rounded-xl border border-rose-400/40 bg-rose-500/10 px-4 py-2 text-sm font-semibold text-rose-800 transition hover:bg-rose-500/15 dark:text-rose-200 disabled:opacity-50"
+                disabled={deleting || publishing || aiRunning}
+                onClick={() => void deleteGame()}
+              >
+                {deleting ? "Eliminando…" : "Eliminar ficha"}
+              </button>
+            )}
           </div>
+
+          {locked && isContributor && (
+            <p className="mt-3 text-sm text-muted">
+              Esta ficha está en revisión. El administrador la publicará o pedirá cambios.
+            </p>
+          )}
+
+          {!isPublished && !isContributor && (
+            <div className="mt-4 grid gap-3 rounded-2xl border border-violet-400/20 bg-violet-500/5 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+                Opciones para la IA
+              </p>
+              <label className="block space-y-1">
+                <span className="text-[10px] uppercase tracking-wider text-muted">
+                  URL fuente manual
+                </span>
+                <input
+                  className="input"
+                  value={aiManualUrl}
+                  onChange={(e) => setAiManualUrl(e.target.value)}
+                  placeholder="https://store.playstation.com/... o web oficial con mejor info"
+                  disabled={aiRunning}
+                />
+              </label>
+              <label className="block space-y-1">
+                <span className="text-[10px] uppercase tracking-wider text-muted">
+                  Instrucciones extra
+                </span>
+                <textarea
+                  className="input min-h-24"
+                  value={aiExtraInstructions}
+                  onChange={(e) => setAiExtraInstructions(e.target.value)}
+                  placeholder="Ej.: prioriza datos de PS Store, no menciones precio, la edición es PAL Europa física..."
+                  disabled={aiRunning}
+                />
+              </label>
+              <p className="text-xs text-muted">
+                Si indicas una URL, la IA la consultará primero y la mostrará en Actividad IA.
+              </p>
+            </div>
+          )}
 
           {message && <p className="mt-3 text-sm text-emerald-600 dark:text-emerald-400">{message}</p>}
           {error && <p className="mt-3 text-sm text-rose-600 dark:text-rose-400">{error}</p>}
+          {priceJob?.logTail && (
+            <pre className="mt-3 max-h-40 overflow-auto rounded-xl border border-border bg-background/80 p-3 text-[11px] leading-relaxed text-muted">
+              {priceJob.logTail.slice(-1600)}
+            </pre>
+          )}
         </Panel>
       </div>
 
@@ -549,8 +893,13 @@ export function AdminGameEditor({
           <p className="text-center text-xs text-muted">
             {draft.platformSlug} · {draft.region}
           </p>
+          {selectedPhysicalVariant && (
+            <p className="mt-1 text-center text-xs font-medium text-accent">
+              {selectedPhysicalVariant.label}
+            </p>
+          )}
           <Link
-            href={`/catalogo/${draft.slug}-${draft.platformSlug}-${regionSlug}`}
+            href={`/catalogo/${publicPreviewSlug}`}
             className="mt-3 block text-center text-xs text-accent hover:underline"
             target="_blank"
           >

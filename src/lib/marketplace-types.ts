@@ -22,9 +22,18 @@ export type AiListingAnalysis = {
   conditionVerdict: string;
   conditionScore: number;
   estimatedPriceEur: number;
+  visualDescription?: string;
+  gameMatchVerdict?: string;
+  gameMatchConfidence?: number;
+  conditionIssues?: string[];
   notes: string;
   analyzedAt: string;
   model: string;
+};
+
+export type ListingSaleOptions = {
+  pickup: boolean;
+  shipping: boolean;
 };
 
 export type MarketplaceListing = {
@@ -32,8 +41,12 @@ export type MarketplaceListing = {
   catalogId: string;
   sellerId: string;
   sellerName: string;
+  sellerCity: string | null;
   collectionItemId: string;
   title: string;
+  customTitle: string | null;
+  customDescription: string | null;
+  saleOptions: ListingSaleOptions;
   platformSlug: string;
   region: string;
   status: ListingStatus;
@@ -56,6 +69,7 @@ export type ChatMessage = {
   senderName: string;
   body: string;
   createdAt: string;
+  status?: "sent" | "delivered";
 };
 
 export type MarketplaceConversation = {
@@ -67,8 +81,17 @@ export type MarketplaceConversation = {
   sellerId: string;
   sellerName: string;
   messages: ChatMessage[];
+  blockedByUserIds?: string[];
   createdAt: string;
   updatedAt: string;
+};
+
+export type MarketplaceBlock = {
+  id: string;
+  blockerId: string;
+  blockedId: string;
+  conversationId: string;
+  createdAt: string;
 };
 
 export type RecordedPrivateSale = {

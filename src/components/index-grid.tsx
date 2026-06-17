@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { IndexKind } from "@/lib/index-entity";
-import { INDEX_KIND_META, summarizeIndexEntry } from "@/lib/index-entity";
 import type { IndexEntry } from "@/lib/types";
+
+type IndexKind = "company" | "genre" | "series";
 
 type Props = {
   items: IndexEntry[];
@@ -12,6 +12,17 @@ type Props = {
 };
 
 const PLATFORM_PREVIEW = 4;
+const INDEX_KIND_META: Record<
+  IndexKind,
+  {
+    searchLabel: string;
+    basePath: "/compania" | "/genero" | "/saga";
+  }
+> = {
+  company: { searchLabel: "compañía", basePath: "/compania" },
+  genre: { searchLabel: "género", basePath: "/genero" },
+  series: { searchLabel: "saga", basePath: "/saga" },
+};
 
 export function IndexGrid({ items, kind }: Props) {
   const meta = INDEX_KIND_META[kind];
@@ -37,30 +48,34 @@ export function IndexGrid({ items, kind }: Props) {
 
       <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filtered.map((item) => {
-          const summary = summarizeIndexEntry(item, kind);
+          const platforms = Object.entries(item.byPlatform ?? {})
+            .map(([slug, count]) => ({ name: slug.toUpperCase(), count }))
+            .sort((a, b) => b.count - a.count);
+          const developerCount = item.asDeveloper?.length ?? 0;
+          const publisherCount = item.asPublisher?.length ?? 0;
           return (
             <Link
               key={item.slug}
               href={`${meta.basePath}/${item.slug}`}
               className="rounded-2xl border border-border bg-card p-4 transition hover:border-accent/40 hover:bg-card-hover"
             >
-              <h2 className="font-semibold text-foreground">{summary.name}</h2>
+              <h2 className="font-semibold text-foreground">{item.name}</h2>
               <p className="mt-1 text-sm text-accent">
-                {summary.gameCount.toLocaleString("es-ES")} juegos
+                {item.gameCount.toLocaleString("es-ES")} juegos
               </p>
-              {summary.platforms.length > 0 && (
+              {platforms.length > 0 && (
                 <p className="mt-2 line-clamp-2 text-xs text-muted">
-                  {summary.platforms
+                  {platforms
                     .slice(0, PLATFORM_PREVIEW)
                     .map((platform) => `${platform.name} (${platform.count})`)
                     .join(" · ")}
                 </p>
               )}
               {kind === "company" &&
-                (summary.developerCount > 0 || summary.publisherCount > 0) && (
+                (developerCount > 0 || publisherCount > 0) && (
                   <p className="mt-2 text-[11px] uppercase tracking-wider text-muted">
-                    Dev {summary.developerCount.toLocaleString("es-ES")} · Pub{" "}
-                    {summary.publisherCount.toLocaleString("es-ES")}
+                    Dev {developerCount.toLocaleString("es-ES")} · Pub{" "}
+                    {publisherCount.toLocaleString("es-ES")}
                   </p>
                 )}
             </Link>

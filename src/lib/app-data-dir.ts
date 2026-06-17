@@ -8,7 +8,7 @@ export function appDataDir(): string {
   if (process.env.VERCEL) {
     return path.join("/tmp", "region-atlas-data");
   }
-  return path.join(process.cwd(), "data");
+  return path.join(/* turbopackIgnore: true */ process.cwd(), "data");
 }
 
 export function ensureAppDataDir(): string {
@@ -22,5 +22,5 @@ export function ensureAppDataDir(): string {
 }
 
 export function appDataFile(name: string): string {
-  return path.join(ensureAppDataDir(), name);
+  return path.join(/* turbopackIgnore: true */ ensureAppDataDir(), name);
 }

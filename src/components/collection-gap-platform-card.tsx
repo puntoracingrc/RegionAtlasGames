@@ -58,7 +58,7 @@ export function CollectionGapPlatformCard({ variant, group }: Props) {
       </p>
 
       {linkable > 0 ? (
-        <p className="mt-2 text-xs font-medium text-emerald-300/95">
+        <p className="mt-2 text-xs font-medium text-emerald-700 dark:text-emerald-300/95">
           {linkable} {linkable === 1 ? "listo para enlazar" : "listos para enlazar"} · pulsa +
         </p>
       ) : variant === "outOfScope" && group.slug === "ps5" ? (

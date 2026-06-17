@@ -18,6 +18,7 @@ import os
 import subprocess
 import sys
 import time
+import re
 from pathlib import Path
 from typing import Any
 
@@ -158,16 +159,20 @@ def wallapop_game_limit() -> int:
 
 
 def planned_sources(platform_slug: str) -> list[tuple[str, Path]]:
+    region = os.environ.get("PRICE_COLLECT_REGION", "").strip()
+    suffix = ""
+    if region:
+        suffix = "-" + re.sub(r"[^a-zA-Z0-9]+", "-", region).strip("-").lower()
     source_paths = {
-        "todocoleccion": INGEST_DIR / f"{platform_slug}-todocoleccion.json",
-        "wallapop": INGEST_DIR / f"{platform_slug}-wallapop.json",
-        "vinted": INGEST_DIR / f"{platform_slug}-vinted.json",
-        "todoconsolas": INGEST_DIR / f"{platform_slug}-todoconsolas.json",
-        "chollo": INGEST_DIR / f"{platform_slug}-chollo.json",
-        "jgo": INGEST_DIR / f"{platform_slug}-jgo.json",
-        "kaoto": INGEST_DIR / f"{platform_slug}-kaoto.json",
-        "cex": INGEST_DIR / f"{platform_slug}-cex.json",
-        "ebay": INGEST_DIR / f"{platform_slug}-ebay.json",
+        "todocoleccion": INGEST_DIR / f"{platform_slug}{suffix}-todocoleccion.json",
+        "wallapop": INGEST_DIR / f"{platform_slug}{suffix}-wallapop.json",
+        "vinted": INGEST_DIR / f"{platform_slug}{suffix}-vinted.json",
+        "todoconsolas": INGEST_DIR / f"{platform_slug}{suffix}-todoconsolas.json",
+        "chollo": INGEST_DIR / f"{platform_slug}{suffix}-chollo.json",
+        "jgo": INGEST_DIR / f"{platform_slug}{suffix}-jgo.json",
+        "kaoto": INGEST_DIR / f"{platform_slug}{suffix}-kaoto.json",
+        "cex": INGEST_DIR / f"{platform_slug}{suffix}-cex.json",
+        "ebay": INGEST_DIR / f"{platform_slug}{suffix}-ebay.json",
     }
     planned: list[tuple[str, Path]] = []
     for source in ps.collectors_for_platform(platform_slug, ebay_configured=ebay_configured()):
@@ -217,6 +222,9 @@ def collector_command(source: str, platform_slug: str, output: Path) -> list[str
             "--output",
             str(output),
         ]
+        region = os.environ.get("PRICE_COLLECT_REGION", "").strip()
+        if region:
+            cmd.extend(["--region", region])
         if os.environ.get("DAILY_EBAY_NO_LISTING_CACHE", "").strip():
             cmd.append("--no-listing-cache")
         return cmd
@@ -267,6 +275,9 @@ def collector_command(source: str, platform_slug: str, output: Path) -> list[str
     cmd.extend(collector_match_args())
     if daily_use_cache() and source in {"cex", "jgo", "kaoto", "todoconsolas"}:
         cmd.append("--use-cache")
+    region = os.environ.get("PRICE_COLLECT_REGION", "").strip()
+    if region and source == "kaoto":
+        cmd.extend(["--region", region])
     return cmd
 
 
@@ -295,11 +306,14 @@ def ingest_has_data(payload: dict[str, Any]) -> bool:
 
 
 def merge_platform_ingest(platform_slug: str, partial_paths: list[Path], sources_ok: list[str]) -> dict[str, Any]:
+    region = os.environ.get("PRICE_COLLECT_REGION", "").strip()
     merged: dict[str, Any] = {
         "platformSlug": platform_slug,
         "collectedAt": now_iso(),
         "notes": f"Daily ingest — fuentes: {', '.join(sources_ok) or 'ninguna'}",
     }
+    if region:
+        merged["region"] = region
     for key in LIST_KEYS:
         merged[key] = []
 
@@ -331,11 +345,20 @@ def ingest_platform(
     collect_only: bool,
     rotation_step: str,
     advance_rotation: bool,
+    region: str | None = None,
 ) -> bool:
-    merged_path = INGEST_DIR / f"{platform_slug}.json"
+    if region:
+        os.environ["PRICE_COLLECT_REGION"] = region
+        safe_region = re.sub(r"[^a-zA-Z0-9]+", "-", region).strip("-").lower()
+        merged_path = INGEST_DIR / f"{platform_slug}-{safe_region}.json"
+    else:
+        os.environ.pop("PRICE_COLLECT_REGION", None)
+        merged_path = INGEST_DIR / f"{platform_slug}.json"
     planned = planned_sources(platform_slug)
 
     print(f"\n=== Plataforma: {platform_slug} ===")
+    if region:
+        print(f"Región: {region}")
     print(f"Merge: {merged_path}")
     print(f"Fuentes: {', '.join(name for name, _ in planned) or 'ninguna'}")
 
@@ -386,6 +409,8 @@ def ingest_platform(
         "--rotation-step",
         rotation_step,
     ]
+    if region:
+        sync_cmd.extend(["--region", region])
     if not advance_rotation:
         sync_cmd.append("--no-advance-rotation")
 
@@ -400,15 +425,23 @@ def main() -> None:
         "--platform",
         help="Forzar plataforma o batch (p. ej. batch:mini-neo-sega)",
     )
+    parser.add_argument("--region", help="Filtrar región de catálogo (solo con plataforma concreta)")
     parser.add_argument("--dry-run", action="store_true", help="Solo listar pasos, sin red ni escritura")
     parser.add_argument(
         "--collect-only",
         action="store_true",
         help="Collect + merge; no sync ni avance de rotación",
     )
+    parser.add_argument(
+        "--no-advance-rotation",
+        action="store_true",
+        help="Sync catálogo sin avanzar nextPlatformSlug",
+    )
     args = parser.parse_args()
 
     rotation_step, platform_slugs, batch_label = resolve_rotation(args)
+    if args.region and len(platform_slugs) != 1:
+        raise SystemExit("--region solo puede usarse con una plataforma concreta, no con lotes.")
 
     print(f"=== Daily price ingest {now_iso()} ===")
     print(f"Paso rotación: {rotation_step}")
@@ -436,13 +469,18 @@ def main() -> None:
     for index, platform_slug in enumerate(platform_slugs):
         if index > 0 and platform_pause > 0 and not args.dry_run:
             time.sleep(platform_pause)
-        advance = index == len(platform_slugs) - 1 and not args.collect_only
+        advance = (
+            index == len(platform_slugs) - 1
+            and not args.collect_only
+            and not args.no_advance_rotation
+        )
         if ingest_platform(
             platform_slug,
             dry_run=args.dry_run,
             collect_only=args.collect_only,
             rotation_step=rotation_step,
             advance_rotation=advance,
+            region=args.region,
         ):
             synced += 1
 

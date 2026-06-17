@@ -30,8 +30,9 @@ from collectors.catalog_match import (  # noqa: E402
     product_title,
     token_similarity,
 )
+from collectors.cache_policy import attach_policy_version, cache_policy_matches  # noqa: E402
 from collectors.collector_args import add_match_flags, match_kwargs  # noqa: E402
-from collectors.common import load_json, load_platforms, now_iso, platform_catalog_games, prioritize_catalog_games, save_json  # noqa: E402
+from collectors.common import load_json, load_platforms, now_iso, platform_catalog_games, platform_search_keyword, prioritize_catalog_games, save_json  # noqa: E402
 from collectors.listing_recency import (  # noqa: E402
     max_listing_age_days,
     wallapop_listing_age_days,
@@ -39,9 +40,12 @@ from collectors.listing_recency import (  # noqa: E402
     wallapop_time_filter,
 )
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
+from collectors.match_pipeline import print_match_stats, run_match_pipeline  # noqa: E402
+from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
 from collectors.wallapop_client import (  # noqa: E402
     build_wallapop_query,
     fetch_game_products,
+    fetch_query_products,
     supported_platform_slugs,
     wallapop_game_limit,
     wallapop_order_by,
@@ -53,7 +57,7 @@ from collectors.wallapop_listing_ai import (
     passes_listing_ai,
     result_key,
 )
-from collectors.wallapop_match import is_wallapop_game_product, product_to_ingest_row  # noqa: E402
+from collectors.wallapop_match import infer_wallapop_region_product, is_wallapop_game_product, product_to_ingest_row  # noqa: E402
 
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
@@ -62,21 +66,56 @@ REQUEST_DELAY = 0.35
 MIN_TITLE_SCORE = 0.42
 
 
-# Otras consolas en el título → descartar al buscar un juego concreto
-OTHER_PLATFORM_RE = re.compile(
+PLATFORM_ALIAS_GROUPS: dict[str, set[str]] = {
+    "nes": {"nintendo", "nes"},
+    "snes": {"nintendo", "snes", "super nintendo"},
+    "n64": {"nintendo", "n64", "nintendo 64"},
+    "gameboy": {"nintendo", "gameboy", "game boy"},
+    "gamecube": {"nintendo", "gamecube"},
+    "wii": {"nintendo", "wii"},
+    "ds": {"nintendo", "ds", "nintendo ds"},
+    "3ds": {"nintendo", "3ds", "nintendo 3ds"},
+    "mastersystem": {"master system", "sega"},
+    "megadrive": {"megadrive", "mega drive", "genesis", "sega"},
+    "sega32x": {"32x", "sega"},
+    "megacd": {"mega cd", "sega cd", "sega"},
+    "saturn": {"saturn", "sega"},
+    "dreamcast": {"dreamcast", "sega"},
+    "gamegear": {"game gear", "sega"},
+    "neogeo": {"neo geo", "neogeo", "aes"},
+    "neogeocd": {"neo geo cd", "neogeo cd"},
+    "neogeopocket": {"neo geo pocket", "neogeo pocket", "ngp", "ngpc"},
+    "ps1": {"playstation", "ps1", "psx"},
+    "ps2": {"playstation", "ps2"},
+    "ps3": {"playstation", "ps3"},
+    "ps4": {"playstation", "ps4"},
+}
+
+PLATFORM_TERM_RE = re.compile(
     r"\b("
-    r"game gear|gameboy|game boy|master system|mega cd|sega cd|"
-    r"32x|dreamcast|saturn|nintendo|playstation|\bps[1-5]\b|"
-    r"xbox|switch|\bnes\b|\bsnes\b|\bn64\b"
+    r"neo geo pocket|neogeo pocket|neo geo cd|neogeo cd|neo geo|neogeo|"
+    r"game gear|gameboy|game boy|master system|mega drive|megadrive|mega cd|sega cd|"
+    r"super nintendo|nintendo 64|nintendo ds|nintendo 3ds|"
+    r"32x|dreamcast|saturn|nintendo|playstation|psx|\bps[1-5]\b|"
+    r"xbox|switch|gamecube|wii|3ds|ds|\bnes\b|\bsnes\b|\bn64\b"
     r")\b",
     re.I,
 )
 
 
+def mentions_other_platform(text: str, platform_slug: str) -> bool:
+    allowed = PLATFORM_ALIAS_GROUPS.get(platform_slug, {platform_slug})
+    for match in PLATFORM_TERM_RE.finditer(text):
+        term = match.group(1).lower().strip()
+        if term not in allowed:
+            return True
+    return False
+
+
 def listing_matches_game(product: dict[str, Any], game: dict[str, Any], platform_slug: str) -> bool:
     title = product_title(product)
     full_text = f"{title} {product.get('description') or ''}"
-    if OTHER_PLATFORM_RE.search(full_text):
+    if mentions_other_platform(full_text, platform_slug):
         return False
     game_title = str(game.get("title") or "")
     if edition_numbers_conflict(title, game_title):
@@ -84,6 +123,102 @@ def listing_matches_game(product: dict[str, Any], game: dict[str, Any], platform
     listing_core = product_core_title(title)
     game_core = product_core_title(game_title)
     return token_similarity(game_core, listing_core) >= MIN_TITLE_SCORE
+
+
+def default_sweep_queries(platform_slug: str) -> list[str]:
+    keyword = platform_search_keyword(platform_slug)
+    aliases = PLATFORM_ALIAS_GROUPS.get(platform_slug, {keyword})
+    preferred = [keyword, *sorted(a for a in aliases if a != keyword)]
+    queries: list[str] = []
+    for alias in preferred[:3]:
+        queries.append(f"{alias} juego")
+        queries.append(f"{alias} videojuegos")
+    return list(dict.fromkeys(q.strip() for q in queries if q.strip()))
+
+
+def collect_platform_sweep(
+    platform_slug: str,
+    args: argparse.Namespace,
+) -> tuple[list[dict[str, Any]], dict[str, int]]:
+    platform_games = platform_catalog_games(platform_slug)
+    _, ref_to_ids = build_platform_reference_index(platform_slug)
+    queries = [args.sweep_query] if args.sweep_query else default_sweep_queries(platform_slug)
+    cache_file = CACHE_DIR / platform_slug / "_platform-sweep.json"
+    match_opts = match_kwargs(args)
+
+    products: list[dict[str, Any]] | None = None
+    if args.use_cache and cache_file.exists():
+        cached = load_json(cache_file, {})
+        if cache_policy_matches(cached):
+            products = list(cached.get("products") or [])
+            queries = list(cached.get("queries") or queries)
+    if products is None:
+        seen: set[str] = set()
+        products = []
+        for index, query in enumerate(queries, start=1):
+            fetched = fetch_query_products(
+                query,
+                max_pages=args.sweep_pages if args.sweep_pages is not None else args.max_pages,
+                delay_s=args.delay,
+            )
+            accepted = []
+            for product in fetched:
+                full_text = f"{product_title(product)} {product.get('description') or ''}"
+                key = str(product.get("externalId") or product.get("productUrl") or "")
+                if not key or key in seen:
+                    continue
+                if mentions_other_platform(full_text, platform_slug):
+                    continue
+                if not is_wallapop_game_product(product):
+                    continue
+                seen.add(key)
+                accepted.append(product)
+            products.extend(accepted)
+            print(f"  Sweep [{index}/{len(queries)}] «{query}» → {len(accepted)} candidatos")
+            if index < len(queries):
+                time.sleep(args.delay)
+        if args.use_cache:
+            save_json(cache_file, attach_policy_version({"queries": queries, "products": products}))
+
+    def row_builder(product: dict[str, Any], matched_game: dict[str, Any], result) -> dict[str, Any] | None:
+        row = product_to_ingest_row(
+            product,
+            str(matched_game["id"]),
+            str(matched_game.get("region") or ""),
+            platform_slug,
+            ref_to_ids=ref_to_ids,
+            game_title=str(matched_game.get("title") or ""),
+            **match_row_kwargs(result),
+        )
+        return row if row else None
+
+    stats_match = run_match_pipeline(
+        products,
+        platform_games,
+        platform_slug,
+        source="wallapop",
+        ref_to_ids=ref_to_ids,
+        row_builder=row_builder,
+        infer_listing_region=infer_wallapop_region_product,
+        is_valid_product=is_wallapop_game_product,
+        use_ai=match_opts["use_ai"],
+        use_match_cache=match_opts["use_match_cache"],
+    )
+    print_match_stats(stats_match, label="Wallapop sweep")
+
+    stats = {
+        "games_requested": len(platform_games),
+        "games_with_listings": len({row.get("catalogId") for row in stats_match.rows}),
+        "listings": len(stats_match.rows),
+        "listings_verified": sum(1 for row in stats_match.rows if row.get("regionVerified") is True),
+        "listings_review": sum(1 for row in stats_match.rows if row.get("regionReviewNeeded")),
+        "api_calls": len(queries),
+        "ai_cache_hits": 0,
+        "ai_batches": 0,
+        "ai_rejected": 0,
+        "ai_regex_rejected": 0,
+    }
+    return stats_match.rows, stats
 
 
 def collect_game_listings(
@@ -108,7 +243,8 @@ def collect_game_listings(
 
     if use_cache and cache_file.exists():
         cached = load_json(cache_file, {})
-        return list(cached.get("listings") or []), game_stats
+        if cache_policy_matches(cached):
+            return list(cached.get("listings") or []), game_stats
 
     products = fetch_game_products(game, max_pages=max_pages, delay_s=delay_s)
     matched = [
@@ -156,7 +292,10 @@ def collect_game_listings(
             rows.append(row)
 
     if use_cache:
-        save_json(cache_file, {"query": build_wallapop_query(game), "listings": rows})
+        save_json(
+            cache_file,
+            attach_policy_version({"query": build_wallapop_query(game), "listings": rows}),
+        )
     return rows, game_stats
 
 
@@ -248,7 +387,10 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         f"IA anuncios {'on' if listing_ai_on else 'off (--no-ai o sin OPENAI_API_KEY)'}"
     )
 
-    listing_rows, stats = collect_platform(platform_slug, args)
+    if args.sweep_platform:
+        listing_rows, stats = collect_platform_sweep(platform_slug, args)
+    else:
+        listing_rows, stats = collect_platform(platform_slug, args)
     print(
         f"\n  Juegos consultados: {stats['games_requested']} · "
         f"con anuncios: {stats['games_with_listings']} · "
@@ -276,10 +418,12 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         "collectedAt": now_iso(),
         "source": "wallapop",
         "notes": (
-            "Wallapop ES — búsqueda por juego (título + plataforma, categoría videojuegos). "
+            f"Wallapop ES — {'barrido por plataforma' if args.sweep_platform else 'búsqueda por juego'} "
+            "(categoría videojuegos). "
             "Filtrado IA por anuncio con caché en data/price-ingest/cache/wallapop-listing-ai/ "
             "(re-analiza si cambia título o precio). Desactivar: --no-ai."
         ),
+        "searchMode": "platform-sweep" if args.sweep_platform else "title",
         "listings": listing_rows,
         "cex": [],
         "jgo": [],
@@ -344,6 +488,13 @@ def main() -> None:
         help="Tope opcional de páginas por juego (default: todas hasta que no haya «Cargar más»)",
     )
     parser.add_argument("--delay", type=float, default=REQUEST_DELAY)
+    parser.add_argument(
+        "--sweep-platform",
+        action="store_true",
+        help="Buscar por términos amplios de plataforma y clasificar contra todo el catálogo",
+    )
+    parser.add_argument("--sweep-query", help="Query única para barrido de plataforma")
+    parser.add_argument("--sweep-pages", type=int, help="Páginas por query del barrido")
     parser.add_argument("--verbose", action="store_true")
     parser.add_argument("--sync", action="store_true")
     parser.add_argument("--dry-run", action="store_true")

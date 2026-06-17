@@ -6,6 +6,7 @@ import {
   summarizeCollectionForPlan,
 } from "@/lib/collection-store";
 import { importSpreadsheet } from "@/lib/import-collection";
+import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import { upsertCatalogStagingFromImport } from "@/lib/catalog-staging";
 import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
@@ -33,6 +34,13 @@ export async function POST(request: Request) {
 
   const buffer = Buffer.from(await file.arrayBuffer());
   const { items, stats } = importSpreadsheet(buffer, file.name);
+  const knownPlatformSlugs = new Set((await listAdminPlatforms()).map((platform) => platform.slug));
+  for (const item of items) {
+    if (knownPlatformSlugs.has(item.platformSlug)) {
+      item.inRetroCatalog = true;
+    }
+  }
+  stats.unmatched = items.filter((item) => item.inRetroCatalog && !item.catalogMatched).length;
 
   if (stats.warnings.length > 0 && stats.imported === 0) {
     return NextResponse.json({ error: stats.warnings[0], stats }, { status: 400 });

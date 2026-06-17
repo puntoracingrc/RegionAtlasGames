@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
 import {
   addCatalogGameToCollection,
+  countCatalogGameOwned,
   getUserCollectionViews,
   removeCatalogGameFromCollection,
+  removeOneCatalogGameFromCollection,
 } from "@/lib/collection-store";
 import { enrichCollectionItem } from "@/lib/catalog";
+import { getSellerListings } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
 
 export async function POST(request: Request) {
@@ -24,8 +27,9 @@ export async function POST(request: Request) {
     result = await addCatalogGameToCollection(user.id, catalogId);
   } catch (error) {
     console.error("[collection/items] POST failed", error);
+    const detail = error instanceof Error ? error.message : String(error);
     return NextResponse.json(
-      { error: "No se pudo guardar en tu colección." },
+      { error: detail || "No se pudo guardar en tu colección." },
       { status: 503 },
     );
   }
@@ -36,10 +40,14 @@ export async function POST(request: Request) {
   }
 
   const views = await getUserCollectionViews(user.id);
+
   return NextResponse.json({
     item: enrichCollectionItem(result.item),
     owned: true,
-    ownedCatalogIds: views.map((i) => i.catalogId).filter(Boolean),
+    ownedCount: await countCatalogGameOwned(user.id, catalogId),
+    ownedCatalogIds: [
+      ...new Set(views.map((i) => i.catalogId).filter((id): id is string => Boolean(id))),
+    ],
   });
 }
 
@@ -51,19 +59,37 @@ export async function DELETE(request: Request) {
 
   const { searchParams } = new URL(request.url);
   const catalogId = searchParams.get("catalogId")?.trim();
+  const mode = searchParams.get("mode")?.trim();
   if (!catalogId) {
     return NextResponse.json({ error: "Falta catalogId." }, { status: 400 });
   }
 
-  const result = await removeCatalogGameFromCollection(user.id, catalogId);
+  const result =
+    mode === "one"
+      ? await removeOneCatalogGameFromCollection(
+          user.id,
+          catalogId,
+          (await getSellerListings(user.id))
+            .filter(
+              (listing) =>
+                listing.catalogId === catalogId &&
+                (listing.status === "active" || listing.status === "draft"),
+            )
+            .map((listing) => listing.collectionItemId),
+        )
+      : await removeCatalogGameFromCollection(user.id, catalogId);
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 400 });
   }
 
   const views = await getUserCollectionViews(user.id);
+  const ownedCount = await countCatalogGameOwned(user.id, catalogId);
   return NextResponse.json({
     removed: result.removed,
-    owned: false,
-    ownedCatalogIds: views.map((i) => i.catalogId).filter(Boolean),
+    owned: ownedCount > 0,
+    ownedCount,
+    ownedCatalogIds: [
+      ...new Set(views.map((i) => i.catalogId).filter((id): id is string => Boolean(id))),
+    ],
   });
 }

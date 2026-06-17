@@ -89,6 +89,10 @@ def run_match_pipeline(
             continue
 
         row_source = str(row.get("source") or source)
+        ok_ref = bool(row.get("matchedReference") or result.matched_reference)
+        strong_match = result.match_method in {"reference", "ai"} or (
+            result.match_score is not None and result.match_score >= 0.75
+        )
         enriched = apply_region_enrichment_to_row(
             row,
             product,
@@ -96,7 +100,7 @@ def run_match_pipeline(
             catalog_region=str(game.get("region") or ""),
             game_title=str(game.get("title") or ""),
             source=row_source,
-            ok_ref=True,
+            ok_ref=ok_ref or strong_match,
         )
         if not enriched:
             stats.region_rejected += 1

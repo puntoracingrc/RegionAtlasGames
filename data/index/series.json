@@ -1,4 +1,2765 @@
 {
+  "fifa-ea-sports-fc": {
+    "name": "FIFA/EA Sports FC",
+    "slug": "fifa-ea-sports-fc",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-2002-fifa-world-cup",
+      "ps2-fifa-football-2004",
+      "ps1-fifa-97",
+      "ps1-fifa-2000",
+      "ps2-fifa-football-2002",
+      "ps1-fifa-96",
+      "ps1-fifa-2005",
+      "ps2-fifa-13",
+      "ps2-2002-fifa-world-cup",
+      "ps2-fifa-11",
+      "ps1-world-cup-98",
+      "ps2-fifa-06",
+      "ps2-fifa-2001",
+      "ps1-fifa-football-2003",
+      "ps2-fifa-08",
+      "ps1-fifa-football-2002",
+      "ps1-fifa-football-2005",
+      "ps2-fifa-football-2003",
+      "ps1-fifa-football-2004",
+      "ps2-fifa-10",
+      "ps1-fifa-2002",
+      "ps2-fifa-09",
+      "ps2-fifa-07",
+      "ps2-fifa-12",
+      "ps2-fifa-football-2005",
+      "ps1-fifa-road-to-world-cup-98",
+      "ps2-fifa-world-cup-germany-2006",
+      "ps1-fifa-99",
+      "ps1-fifa-2001"
+    ],
+    "byPlatform": {
+      "ps1": 14,
+      "ps2": 15
+    },
+    "gameCount": 29
+  },
+  "nba-live": {
+    "name": "NBA Live",
+    "slug": "nba-live",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-nba-live-08",
+      "ps2-nba-live-2002",
+      "ps1-nba-live-2002",
+      "ps2-nba-live-2005",
+      "ps1-nba-live-2001",
+      "ps2-nba-live-2006",
+      "ps2-nba-live-2004",
+      "ps1-nba-live-96",
+      "ps1-nba-live-99",
+      "ps2-nba-live-2003",
+      "ps2-nba-live-2001",
+      "ps1-nba-live-97",
+      "ps1-nba-live-98",
+      "ps1-nba-live-2000",
+      "ps2-nba-live-09",
+      "ps1-nba-live-2003"
+    ],
+    "byPlatform": {
+      "ps1": 8,
+      "ps2": 8
+    },
+    "gameCount": 16
+  },
+  "need-for-speed": {
+    "name": "Need for Speed",
+    "slug": "need-for-speed",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-need-for-speed-prostreet",
+      "ps1-need-for-speed-3-hot-pursuit",
+      "ps2-need-for-speed-carbon",
+      "ps1-need-for-speed",
+      "ps1-need-for-speed-high-stakes",
+      "ps2-need-for-speed-underground-2",
+      "ps1-need-for-speed-porsche",
+      "ps2-need-for-speed-hot-pursuit-2",
+      "ps2-need-for-speed-undercover",
+      "ps1-need-for-speed-porsche-2000",
+      "ps2-need-for-speed-underground",
+      "ps1-wanted",
+      "ps1-need-for-speed-ii",
+      "ps2-need-for-speed-most-wanted"
+    ],
+    "byPlatform": {
+      "ps1": 7,
+      "ps2": 7
+    },
+    "gameCount": 14
+  },
+  "nhl": {
+    "name": "nhl",
+    "slug": "nhl",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-nhl-2000",
+      "ps2-nhl-2003",
+      "ps2-nhl-08",
+      "ps2-nhl-2004",
+      "ps2-nhl-2005",
+      "ps2-nhl-06",
+      "ps2-nhl-07",
+      "ps2-nhl-2002",
+      "ps2-nhl-09",
+      "ps1-nhl-98",
+      "ps2-nhl-2001",
+      "ps1-nhl-97",
+      "ps1-nhl-99",
+      "ps1-nhl-2001"
+    ],
+    "byPlatform": {
+      "ps1": 5,
+      "ps2": 9
+    },
+    "gameCount": 14
+  },
+  "madden-nfl": {
+    "name": "Madden NFL",
+    "slug": "madden-nfl",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-madden-97",
+      "ps2-madden-2002",
+      "ps1-madden-2000",
+      "ps1-madden-2001",
+      "ps1-madden-99",
+      "ps2-madden-2004",
+      "ps2-madden-2005",
+      "ps2-madden-nfl-09",
+      "ps1-madden-98",
+      "ps2-madden-2001",
+      "ps2-madden-nfl-08",
+      "ps2-madden-2003"
+    ],
+    "byPlatform": {
+      "ps1": 5,
+      "ps2": 7
+    },
+    "gameCount": 12
+  },
+  "actua-sports": {
+    "name": "Actua Sports",
+    "slug": "actua-sports",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-actua-soccer-2",
+      "ps1-actua-soccer",
+      "ps1-actua-tennis",
+      "ps1-actua-golf-3",
+      "ps1-actua-ice-hockey-2",
+      "ps1-actua-golf-2",
+      "ps1-actua-golf",
+      "ps1-actua-soccer-club-edition",
+      "ps1-actua-soccer-3",
+      "ps1-actua-pool",
+      "ps1-actua-ice-hockey"
+    ],
+    "byPlatform": {
+      "ps1": 11
+    },
+    "gameCount": 11
+  },
+  "crash-bandicoot": {
+    "name": "Crash Bandicoot",
+    "slug": "crash-bandicoot",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-crash-bandicoot",
+      "ps2-crash-of-the-titans",
+      "ps1-crash-bandicoot-2-cortex-strikes-back",
+      "ps2-crash-mind-over-mutant",
+      "ps2-crash-tag-team-racing",
+      "ps1-crash-bandicoot-3-warped",
+      "ps2-crash-nitro-kart",
+      "ps1-crash-bash",
+      "ps1-ctr-crash-team-racing",
+      "ps2-crash-twinsanity",
+      "ps2-crash-bandicoot-the-wrath-of-cortex"
+    ],
+    "byPlatform": {
+      "ps1": 5,
+      "ps2": 6
+    },
+    "gameCount": 11
+  },
+  "guitar-hero": {
+    "name": "Guitar Hero",
+    "slug": "guitar-hero",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-guitar-hero-metallica",
+      "ps2-guitar-hero-van-halen",
+      "ps2-guitar-hero-rocks-the-80s",
+      "ps2-band-hero",
+      "ps2-guitar-hero-aerosmith",
+      "ps2-guitar-hero-ii",
+      "ps2-guitar-hero-5",
+      "ps2-guitar-hero-iii-legends-of-rock",
+      "ps2-guitar-hero",
+      "ps2-guitar-hero-world-tour",
+      "ps2-dj-hero"
+    ],
+    "byPlatform": {
+      "ps2": 11
+    },
+    "gameCount": 11
+  },
+  "dynasty-warriors": {
+    "name": "Dynasty Warriors",
+    "slug": "dynasty-warriors",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-dynasty-warriors-2",
+      "ps1-dynasty-warriors",
+      "ps2-dynasty-warriors-5-empires",
+      "ps2-dynasty-warriors-4-xtreme-legends",
+      "ps2-dynasty-warriors-3",
+      "ps2-dynasty-warriors-4-empires",
+      "ps2-dynasty-warriors-5",
+      "ps2-dynasty-warriors-4",
+      "ps2-dynasty-warriors-5-xtreme-legend",
+      "ps2-dynasty-warriors-3-xtreme-legends"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 9
+    },
+    "gameCount": 10
+  },
+  "final-fantasy": {
+    "name": "Final Fantasy",
+    "slug": "final-fantasy",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-final-fantasy-xii",
+      "ps2-final-fantasy-vii-dirge-of-cerberus",
+      "ps1-final-fantasy-ix",
+      "ps1-final-fantasy-vii",
+      "ps2-final-fantasy-x-2",
+      "ps1-final-fantasy-viii",
+      "ps1-final-fantasy-vi",
+      "ps2-final-fantasy-x",
+      "ps1-final-fantasy-origins",
+      "ps1-final-fantasy-anthology"
+    ],
+    "byPlatform": {
+      "ps1": 6,
+      "ps2": 4
+    },
+    "gameCount": 10
+  },
+  "james-bond-007": {
+    "name": "James Bond 007",
+    "slug": "james-bond-007",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-007-nightfire",
+      "ps2-goldeneye-rogue-agent",
+      "ps1-007-the-world-is-not-enough",
+      "ps2-007-from-russia-with-love",
+      "ps2-007-agent-under-fire",
+      "ps1-007-racing",
+      "ps1-007-tomorrow-never-dies",
+      "ps2-007-everything-or-nothing",
+      "ps1-legend",
+      "ps2-007-quantum-of-solace"
+    ],
+    "byPlatform": {
+      "ps1": 4,
+      "ps2": 6
+    },
+    "gameCount": 10
+  },
+  "nba-2k": {
+    "name": "nba-2k",
+    "slug": "nba-2k",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-nba-2k7",
+      "ps2-nba-2k3",
+      "ps2-nba-2k12",
+      "ps2-nba-2k10",
+      "ps2-espn-basketball",
+      "ps2-nba-2k9",
+      "ps2-espn-nba-2k5",
+      "ps2-nba-2k11",
+      "ps2-nba-2k6",
+      "ps2-nba-2k8"
+    ],
+    "byPlatform": {
+      "ps2": 10
+    },
+    "gameCount": 10
+  },
+  "dance-dance-revolution": {
+    "name": "Dance Dance Revolution",
+    "slug": "dance-dance-revolution",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-dancing-stage-fever",
+      "ps1-revolution-x",
+      "ps1-dancing-stage-party-edition",
+      "ps2-dancing-stage-fusion",
+      "ps2-dancing-stage-max",
+      "ps1-dancing-stage-fusion",
+      "ps1-x2",
+      "ps2-dancing-stage-fever",
+      "ps1-dancing-stage-euromix"
+    ],
+    "byPlatform": {
+      "ps1": 6,
+      "ps2": 3
+    },
+    "gameCount": 9
+  },
+  "dragon-ball": {
+    "name": "Dragon Ball",
+    "slug": "dragon-ball",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-dragon-ball-z-budokai-2",
+      "ps2-dragon-ball-z-budokai-tenkaichi-2",
+      "ps2-dragon-ball-z-budokai",
+      "ps2-dragon-ball-z-budokai-tenkaichi",
+      "ps2-dragon-ball-z-budokai-3",
+      "ps1-dragon-ball-z-ultimate-battle-22",
+      "ps2-dragon-ball-z-infinite-world",
+      "ps2-dragon-ball-z-budokai-tenkaichi-3",
+      "ps1-dragon-ball-final-bout"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 7
+    },
+    "gameCount": 9
+  },
+  "harry-potter": {
+    "name": "Harry Potter",
+    "slug": "harry-potter",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-harry-potter-and-the-goblet-of-fire",
+      "ps2-harry-potter-prisoner-of-azkaban",
+      "ps2-harry-potter-and-the-order-of-the-phoenix",
+      "ps2-harry-potter-and-the-philosopher%27s-stone",
+      "ps2-harry-potter-and-the-half-blood-prince",
+      "ps1-harry-potter-and-the-chamber-of-secrets",
+      "ps2-harry-potter-chamber-of-secrets",
+      "ps1-harry-potter-and-the-philosopher%27s-stone",
+      "ps2-harry-potter-quidditch-world-cup"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 7
+    },
+    "gameCount": 9
+  },
+  "mortal-kombat": {
+    "name": "Mortal Kombat",
+    "slug": "mortal-kombat",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-mortal-kombat-deadly-alliance",
+      "ps2-mortal-kombat-deception",
+      "ps1-mortal-kombat-special-forces",
+      "ps2-mortal-kombat-shaolin-monks",
+      "ps1-mortal-kombat-mythologies-sub-zero",
+      "ps1-mortal-kombat-4",
+      "ps2-mortal-kombat-armageddon",
+      "ps1-mortal-kombat-3",
+      "ps1-mortal-kombat-trilogy"
+    ],
+    "byPlatform": {
+      "ps1": 5,
+      "ps2": 4
+    },
+    "gameCount": 9
+  },
+  "armored-core": {
+    "name": "Armored Core",
+    "slug": "armored-core",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-armored-core-2-another-age",
+      "ps2-armored-core-silent-line",
+      "ps2-armored-core-3",
+      "ps2-armored-core-last-raven",
+      "ps2-armored-core-2",
+      "ps2-armored-core-nine-breaker",
+      "ps2-armored-core-nexus",
+      "ps1-armored-core"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 7
+    },
+    "gameCount": 8
+  },
+  "buzz": {
+    "name": "Buzz!",
+    "slug": "buzz",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-buzz-junior-jungle-party",
+      "ps2-buzz-the-music-quiz",
+      "ps2-buzz-junior-monster-rumble",
+      "ps2-buzz-brain-of-the-world",
+      "ps2-buzz-the-sports-quiz",
+      "ps1-music",
+      "ps2-buzz-junior-dino-den",
+      "ps2-buzz-the-big-quiz"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 7
+    },
+    "gameCount": 8
+  },
+  "grand-theft-auto": {
+    "name": "Grand Theft Auto",
+    "slug": "grand-theft-auto",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-grand-theft-auto-liberty-city-stories",
+      "ps2-grand-theft-auto-iii",
+      "ps1-grand-theft-auto-mission-pack-1-london",
+      "ps2-grand-theft-auto-san-andreas",
+      "ps2-grand-theft-auto-vice-city",
+      "ps1-grand-theft-auto",
+      "ps2-grand-theft-auto-vice-city-stories",
+      "ps1-grand-theft-auto-2"
+    ],
+    "byPlatform": {
+      "ps1": 3,
+      "ps2": 5
+    },
+    "gameCount": 8
+  },
+  "formula-one-ea-sports": {
+    "name": "Formula One (EA Sports)",
+    "slug": "formula-one-ea-sports",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-f1-championship-season-2000",
+      "ps1-andretti-racing",
+      "ps2-f1-2002",
+      "ps2-f1-career-challenge",
+      "ps2-f1-championship-season-2000",
+      "ps2-f1-2001",
+      "ps1-f1-2000"
+    ],
+    "byPlatform": {
+      "ps1": 3,
+      "ps2": 4
+    },
+    "gameCount": 7
+  },
+  "international-superstar-soccer-jikkyou-world-soccer": {
+    "name": "International Superstar Soccer/Jikkyou World Soccer",
+    "slug": "international-superstar-soccer-jikkyou-world-soccer",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-international-superstar-soccer",
+      "ps2-international-superstar-soccer-2",
+      "ps2-international-superstar-soccer",
+      "ps1-international-superstar-soccer-pro",
+      "ps2-international-superstar-soccer-3",
+      "ps1-international-superstar-soccer-deluxe",
+      "ps1-international-superstar-soccer-pro-98"
+    ],
+    "byPlatform": {
+      "ps1": 4,
+      "ps2": 3
+    },
+    "gameCount": 7
+  },
+  "medal-of-honor": {
+    "name": "Medal of Honor",
+    "slug": "medal-of-honor",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-medal-of-honor",
+      "ps2-medal-of-honor-european-assault",
+      "ps1-medal-of-honor-&amp;-medal-of-honor-underground",
+      "ps1-medal-of-honor-underground",
+      "ps2-medal-of-honor-frontline",
+      "ps2-medal-of-honor-vanguard",
+      "ps2-medal-of-honor-rising-sun"
+    ],
+    "byPlatform": {
+      "ps1": 3,
+      "ps2": 4
+    },
+    "gameCount": 7
+  },
+  "mega-man-x": {
+    "name": "Mega Man X",
+    "slug": "mega-man-x",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-mega-man-x7",
+      "ps1-mega-man-x6",
+      "ps1-mega-man-x3",
+      "ps1-mega-man-x4",
+      "ps2-mega-man-x8",
+      "ps2-mega-man-x-command-mission",
+      "ps1-mega-man-x5"
+    ],
+    "byPlatform": {
+      "ps1": 4,
+      "ps2": 3
+    },
+    "gameCount": 7
+  },
+  "street-fighter": {
+    "name": "Street Fighter",
+    "slug": "street-fighter",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-street-fighter-alpha-2",
+      "ps1-street-fighter-the-movie",
+      "ps1-super-puzzle-fighter-ii-turbo",
+      "ps1-street-fighter-alpha-3",
+      "ps1-street-fighter-collection",
+      "ps1-street-fighter-alpha-warriors%27-dreams",
+      "ps1-pocket-fighter"
+    ],
+    "byPlatform": {
+      "ps1": 7
+    },
+    "gameCount": 7
+  },
+  "batman": {
+    "name": "Batman",
+    "slug": "batman",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-batman-begins",
+      "ps2-batman-vengeance",
+      "ps1-batman-gotham-city-racer",
+      "ps1-batman-&amp;-robin",
+      "ps2-batman-rise-of-sin-tzu",
+      "ps1-batman-forever"
+    ],
+    "byPlatform": {
+      "ps1": 3,
+      "ps2": 3
+    },
+    "gameCount": 6
+  },
+  "gran-turismo": {
+    "name": "Gran Turismo",
+    "slug": "gran-turismo",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-gran-turismo-2",
+      "ps2-gran-turismo-4-prologue",
+      "ps2-gran-turismo-4",
+      "ps2-gran-turismo-3",
+      "ps2-gran-turismo-concept-2002-tokyo-geneva",
+      "ps1-gran-turismo"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 4
+    },
+    "gameCount": 6
+  },
+  "knockout-kings": {
+    "name": "Knockout Kings",
+    "slug": "knockout-kings",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-knockout-kings-99",
+      "ps1-knockout-kings-2001",
+      "ps1-box-champions",
+      "ps2-knockout-kings-2002",
+      "ps2-knockout-kings-2001",
+      "ps1-knockout-kings-2000"
+    ],
+    "byPlatform": {
+      "ps1": 4,
+      "ps2": 2
+    },
+    "gameCount": 6
+  },
+  "looney-tunes": {
+    "name": "Looney Tunes",
+    "slug": "looney-tunes",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-bugs-bunny-lost-in-time",
+      "ps1-space-jam",
+      "ps1-bugs-bunny-&amp;-taz-time-busters",
+      "ps1-looney-tunes-racing",
+      "ps2-looney-tunes-acme-arsenal",
+      "ps2-looney-tunes-back-in-action"
+    ],
+    "byPlatform": {
+      "ps1": 4,
+      "ps2": 2
+    },
+    "gameCount": 6
+  },
+  "metal-gear": {
+    "name": "Metal Gear",
+    "slug": "metal-gear",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-metal-gear-solid-3-snake-eater",
+      "ps2-metal-gear-solid-2-substance",
+      "ps2-metal-gear-solid-2",
+      "ps1-metal-gear-solid-double-pack",
+      "ps1-metal-gear-solid",
+      "ps2-metal-gear-solid-3-subsistence"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 4
+    },
+    "gameCount": 6
+  },
+  "nascar-electronic-arts": {
+    "name": "NASCAR (Electronic Arts)",
+    "slug": "nascar-electronic-arts",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-nascar-07",
+      "ps1-nascar-98",
+      "ps2-nascar-06-total-team-control",
+      "ps1-nascar-99",
+      "ps1-nascar-2000",
+      "ps2-nascar-08"
+    ],
+    "byPlatform": {
+      "ps1": 3,
+      "ps2": 3
+    },
+    "gameCount": 6
+  },
+  "nhl-2k": {
+    "name": "nhl-2k",
+    "slug": "nhl-2k",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-nhl-2k7",
+      "ps2-nhl-2k3",
+      "ps2-nhl-2k8",
+      "ps2-nhl-2k9",
+      "ps2-espn-nhl-hockey",
+      "ps2-espn-nhl-2k5"
+    ],
+    "byPlatform": {
+      "ps2": 6
+    },
+    "gameCount": 6
+  },
+  "pga-tour": {
+    "name": "PGA Tour",
+    "slug": "pga-tour",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-tiger-woods-pga-tour-golf",
+      "ps1-pga-tour-96",
+      "ps1-tiger-woods-pga-tour-2000",
+      "ps1-tiger-woods-pga-tour-golf-99",
+      "ps1-pga-tour-98",
+      "ps1-pga-tour-97"
+    ],
+    "byPlatform": {
+      "ps1": 6
+    },
+    "gameCount": 6
+  },
+  "wwe-wwf": {
+    "name": "wwe-wwf",
+    "slug": "wwe-wwf",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-wwf-war-zone",
+      "ps1-wwf-attitude",
+      "ps1-wwf-smackdown-2-know-your-role",
+      "ps1-wwf-in-your-house",
+      "ps1-wwf-smackdown",
+      "ps1-wwf-wrestlemania-the-arcade-game"
+    ],
+    "byPlatform": {
+      "ps1": 6
+    },
+    "gameCount": 6
+  },
+  "ace-combat": {
+    "name": "Ace Combat",
+    "slug": "ace-combat",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-ace-combat-2",
+      "ps2-ace-combat-the-belkan-war",
+      "ps1-assault",
+      "ps1-air-combat",
+      "ps1-ace-combat-3-electrosphere"
+    ],
+    "byPlatform": {
+      "ps1": 4,
+      "ps2": 1
+    },
+    "gameCount": 5
+  },
+  "brian-lara-cricket": {
+    "name": "Brian Lara Cricket",
+    "slug": "brian-lara-cricket",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-brian-lara-cricket-2005",
+      "ps2-brian-lara-international-cricket-2005",
+      "ps2-cricket-2005",
+      "ps1-brian-lara-cricket",
+      "ps2-brian-lara-international-cricket-2007"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 4
+    },
+    "gameCount": 5
+  },
+  "burnout": {
+    "name": "Burnout",
+    "slug": "burnout",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-burnout-2-point-of-impact",
+      "ps2-burnout-3-takedown",
+      "ps2-burnout-revenge",
+      "ps2-burnout",
+      "ps2-burnout-dominator"
+    ],
+    "byPlatform": {
+      "ps2": 5
+    },
+    "gameCount": 5
+  },
+  "call-of-duty": {
+    "name": "Call of Duty",
+    "slug": "call-of-duty",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-call-of-duty-2-big-red-one",
+      "ps1-one",
+      "ps2-call-of-duty-3",
+      "ps2-call-of-duty-world-at-war-final-fronts",
+      "ps2-call-of-duty-finest-hour"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 4
+    },
+    "gameCount": 5
+  },
+  "digimon-digital-monsters": {
+    "name": "Digimon: Digital Monsters",
+    "slug": "digimon-digital-monsters",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-digimon-rumble-arena-2",
+      "ps1-digimon-digital-card-battle",
+      "ps2-digimon-world-4",
+      "ps1-digimon-world",
+      "ps1-digimon-rumble-arena"
+    ],
+    "byPlatform": {
+      "ps1": 3,
+      "ps2": 2
+    },
+    "gameCount": 5
+  },
+  "metal-slug": {
+    "name": "Metal Slug",
+    "slug": "metal-slug",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-metal-slug-4",
+      "ps2-metal-slug-5",
+      "ps1-metal-slug-x",
+      "ps2-metal-slug-3",
+      "ps2-metal-slug-anthology"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 4
+    },
+    "gameCount": 5
+  },
+  "midway-presents-arcade-hits": {
+    "name": "Midway Presents Arcade Hits",
+    "slug": "midway-presents-arcade-hits",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-williams-arcade%27s-greatest-hits",
+      "ps1-arcade%27s-greatest-hits-atari-collection-2",
+      "ps1-arcade-party-pak",
+      "ps1-arcade%27s-greatest-hits-atari-collection",
+      "ps1-arcade%27s-greatest-hits-midway-collection-2"
+    ],
+    "byPlatform": {
+      "ps1": 5
+    },
+    "gameCount": 5
+  },
+  "pac-man-world": {
+    "name": "Pac-Man World",
+    "slug": "pac-man-world",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-pac-man-rally",
+      "ps2-pac-man-world-rally",
+      "ps2-pac-man-world-2",
+      "ps1-pac-man-world",
+      "ps2-pac-man-world-3"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 4
+    },
+    "gameCount": 5
+  },
+  "the-king-of-fighters": {
+    "name": "The King of Fighters",
+    "slug": "the-king-of-fighters",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-king-of-fighters-maximum-impact",
+      "ps2-king-of-fighters-maximum-impact-2",
+      "ps2-king-of-fighters-xi",
+      "ps2-king-of-fighters-2002",
+      "ps1-king-of-fighters-95"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 4
+    },
+    "gameCount": 5
+  },
+  "tomb-raider": {
+    "name": "Tomb Raider",
+    "slug": "tomb-raider",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-tomb-raider-chronicles",
+      "ps1-tomb-raider-ii",
+      "ps1-tomb-raider",
+      "ps1-tomb-raider-last-revelation",
+      "ps1-tomb-raider-iii"
+    ],
+    "byPlatform": {
+      "ps1": 5
+    },
+    "gameCount": 5
+  },
+  "all-star-baseball": {
+    "name": "All-Star Baseball",
+    "slug": "all-star-baseball",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-all-star-baseball-2003",
+      "ps2-all-star-baseball-2002",
+      "ps1-frank-thomas-big-hurt-baseball",
+      "ps2-all-star-baseball-2004"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 3
+    },
+    "gameCount": 4
+  },
+  "atelier": {
+    "name": "Atelier",
+    "slug": "atelier",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-atelier-iris-eternal-mana",
+      "ps2-atelier-iris-2-the-azoth-of-destiny",
+      "ps2-atelier-iris-3-grand-phantasm",
+      "ps2-mana-khemia-alchemists-of-al-revis"
+    ],
+    "byPlatform": {
+      "ps2": 4
+    },
+    "gameCount": 4
+  },
+  "ben-10": {
+    "name": "Ben 10",
+    "slug": "ben-10",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-ben-10-ultimate-alien-cosmic-destruction",
+      "ps2-ben-10-protector-of-earth",
+      "ps2-ben-10-alien-force-vilgax-attacks",
+      "ps2-ben-10-alien-force"
+    ],
+    "byPlatform": {
+      "ps2": 4
+    },
+    "gameCount": 4
+  },
+  "castlevania": {
+    "name": "Castlevania",
+    "slug": "castlevania",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-castlevania-chronicles",
+      "ps2-castlevania-curse-of-darkness",
+      "ps1-castlevania-symphony-of-the-night",
+      "ps2-castlevania-lament-of-innocence"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 2
+    },
+    "gameCount": 4
+  },
+  "disney-pixar-cars": {
+    "name": "Disney-Pixar Cars",
+    "slug": "disney-pixar-cars",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-driven",
+      "ps2-cars-mater-national-championship",
+      "ps2-cars-race-o-rama",
+      "ps2-disney-pixar-cars"
+    ],
+    "byPlatform": {
+      "ps2": 4
+    },
+    "gameCount": 4
+  },
+  "ea-cricket": {
+    "name": "EA Cricket",
+    "slug": "ea-cricket",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-cricket-2004",
+      "ps1-cricket-2000",
+      "ps2-cricket-07",
+      "ps2-cricket-2002"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 3
+    },
+    "gameCount": 4
+  },
+  "lemmings": {
+    "name": "Lemmings",
+    "slug": "lemmings",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-lemmings",
+      "ps1-3d-lemmings",
+      "ps1-lomax",
+      "ps1-lemmings-and-oh-no-more-lemmings"
+    ],
+    "byPlatform": {
+      "ps1": 3,
+      "ps2": 1
+    },
+    "gameCount": 4
+  },
+  "olympic-games": {
+    "name": "Olympic Games",
+    "slug": "olympic-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-olympic-soccer",
+      "ps1-sydney-2000",
+      "ps1-olympic-games",
+      "ps2-athens-2004"
+    ],
+    "byPlatform": {
+      "ps1": 3,
+      "ps2": 1
+    },
+    "gameCount": 4
+  },
+  "power-rangers": {
+    "name": "Power Rangers",
+    "slug": "power-rangers",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-tilt",
+      "ps1-power-rangers-time-force",
+      "ps1-power-rangers-lightspeed-rescue",
+      "ps1-power-rangers-zeo-full-tilt-battle-pinball"
+    ],
+    "byPlatform": {
+      "ps1": 4
+    },
+    "gameCount": 4
+  },
+  "pro-evolution-soccer-winning-eleven-efootball": {
+    "name": "Pro Evolution Soccer/Winning Eleven/eFootball",
+    "slug": "pro-evolution-soccer-winning-eleven-efootball",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-iss-pro-evolution",
+      "ps1-iss-pro-evolution-2",
+      "ps1-goal-storm",
+      "ps1-pro-evolution-soccer"
+    ],
+    "byPlatform": {
+      "ps1": 4
+    },
+    "gameCount": 4
+  },
+  "resident-evil": {
+    "name": "Resident Evil",
+    "slug": "resident-evil",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-resident-evil-survivor",
+      "ps1-resident-evil-2",
+      "ps1-resident-evil-director%27s-cut",
+      "ps1-resident-evil"
+    ],
+    "byPlatform": {
+      "ps1": 4
+    },
+    "gameCount": 4
+  },
+  "rugrats": {
+    "name": "Rugrats",
+    "slug": "rugrats",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-rugrats-in-paris",
+      "ps1-rugrats-studio-tour",
+      "ps1-rugrats-search-for-reptar",
+      "ps1-rugrats-totally-angelica"
+    ],
+    "byPlatform": {
+      "ps1": 4
+    },
+    "gameCount": 4
+  },
+  "the-legend-of-spyro": {
+    "name": "The Legend of Spyro",
+    "slug": "the-legend-of-spyro",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-legend-of-spyro-the-eternal-night",
+      "ps2-legend-of-the-dragon",
+      "ps2-legend-of-spyro-dawn-of-the-dragon",
+      "ps2-legend-of-spyro-a-new-beginning"
+    ],
+    "byPlatform": {
+      "ps2": 4
+    },
+    "gameCount": 4
+  },
+  "the-lord-of-the-rings": {
+    "name": "The Lord of the Rings",
+    "slug": "the-lord-of-the-rings",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-lord-of-the-rings-two-towers",
+      "ps2-lord-of-the-rings-return-of-the-king",
+      "ps2-lord-of-the-rings-the-third-age",
+      "ps2-lord-of-the-rings-aragorn%27s-quest"
+    ],
+    "byPlatform": {
+      "ps2": 4
+    },
+    "gameCount": 4
+  },
+  "tom-clancy-s-rainbow-six": {
+    "name": "Tom Clancy's Rainbow Six",
+    "slug": "tom-clancy-s-rainbow-six",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-rainbow-six-rogue-spear",
+      "ps1-rainbow-six-&#43;-rainbow-six-rogue-spear",
+      "ps1-rainbow-six",
+      "ps1-rainbow-six-lone-wolf"
+    ],
+    "byPlatform": {
+      "ps1": 4
+    },
+    "gameCount": 4
+  },
+  "who-wants-to-be-a-millionaire": {
+    "name": "Who Wants to Be a Millionaire?",
+    "slug": "who-wants-to-be-a-millionaire",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-who-wants-to-be-a-millionaire-junior",
+      "ps1-who-wants-to-be-a-millionaire",
+      "ps1-who-wants-to-be-a-millionaire-2nd-edition",
+      "ps1-who-wants-to-be-a-millionaire-3rd-edition"
+    ],
+    "byPlatform": {
+      "ps1": 4
+    },
+    "gameCount": 4
+  },
+  "ape-escape": {
+    "name": "Ape Escape",
+    "slug": "ape-escape",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-ape-escape",
+      "ps2-ape-escape-2",
+      "ps2-ape-escape-3"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 2
+    },
+    "gameCount": 3
+  },
+  "bratz": {
+    "name": "bratz",
+    "slug": "bratz",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-bratz-forever-diamondz",
+      "ps1-bratz",
+      "ps2-bratz-rock-angelz"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 2
+    },
+    "gameCount": 3
+  },
+  "breath-of-fire": {
+    "name": "Breath of Fire",
+    "slug": "breath-of-fire",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-breath-of-fire-dragon-quarter",
+      "ps1-breath-of-fire-iii",
+      "ps1-breath-of-fire-iv"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 1
+    },
+    "gameCount": 3
+  },
+  "bust-a-move": {
+    "name": "Bust-A-Move",
+    "slug": "bust-a-move",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-bust-a-move-2-arcade-edition",
+      "ps1-bust-a-move-4",
+      "ps1-bust-a-move-3-dx"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "cabela-s": {
+    "name": "Cabela's",
+    "slug": "cabela-s",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-cabela%27s-outdoor-adventures",
+      "ps2-cabela%27s-dangerous-hunts",
+      "ps2-cabela%27s-big-game-hunter"
+    ],
+    "byPlatform": {
+      "ps2": 3
+    },
+    "gameCount": 3
+  },
+  "dino-crisis": {
+    "name": "Dino Crisis",
+    "slug": "dino-crisis",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-dino-stalker",
+      "ps1-dino-crisis-2",
+      "ps1-dino-crisis"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 1
+    },
+    "gameCount": 3
+  },
+  "discworld": {
+    "name": "Discworld",
+    "slug": "discworld",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-discworld-ii",
+      "ps1-discworld",
+      "ps1-discworld-noir"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "everybody-s-golf": {
+    "name": "Everybody's Golf",
+    "slug": "everybody-s-golf",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-everybody%27s-golf",
+      "ps1-everybody%27s-golf-2",
+      "ps1-everybody%27s-golf"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 1
+    },
+    "gameCount": 3
+  },
+  "fight-night": {
+    "name": "Fight Night",
+    "slug": "fight-night",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-fight-night-2004",
+      "ps2-fight-night-round-3",
+      "ps2-fight-night-round-2"
+    ],
+    "byPlatform": {
+      "ps2": 3
+    },
+    "gameCount": 3
+  },
+  "gauntlet": {
+    "name": "Gauntlet",
+    "slug": "gauntlet",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-gauntlet-legends",
+      "ps2-gauntlet-dark-legacy",
+      "ps2-gauntlet-seven-sorrows"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 2
+    },
+    "gameCount": 3
+  },
+  "indiana-jones": {
+    "name": "Indiana Jones",
+    "slug": "indiana-jones",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-indiana-jones-and-the-emperor%27s-tomb",
+      "ps2-lego-indiana-jones-the-original-adventures",
+      "ps2-indiana-jones-and-the-staff-of-kings"
+    ],
+    "byPlatform": {
+      "ps2": 3
+    },
+    "gameCount": 3
+  },
+  "jak-and-daxter": {
+    "name": "Jak and Daxter",
+    "slug": "jak-and-daxter",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-jak-and-daxter-the-precursor-legacy",
+      "ps2-jak-and-daxter-collection",
+      "ps2-jak-3"
+    ],
+    "byPlatform": {
+      "ps2": 3
+    },
+    "gameCount": 3
+  },
+  "jimmy-neutron": {
+    "name": "Jimmy Neutron",
+    "slug": "jimmy-neutron",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-jimmy-neutron-jet-fusion",
+      "ps2-jimmy-neutron-boy-genius",
+      "ps2-jimmy-neutron-attack-of-the-twonkies"
+    ],
+    "byPlatform": {
+      "ps2": 3
+    },
+    "gameCount": 3
+  },
+  "jurassic-park": {
+    "name": "Jurassic Park",
+    "slug": "jurassic-park",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-lost-world-jurassic-park",
+      "ps1-warpath-jurassic-park",
+      "ps2-jurassic-park-operation-genesis"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 1
+    },
+    "gameCount": 3
+  },
+  "lego-racers": {
+    "name": "LEGO Racers",
+    "slug": "lego-racers",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-lego-racers",
+      "ps2-lego-racers-2",
+      "ps2-drome-racers"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 2
+    },
+    "gameCount": 3
+  },
+  "lego-star-wars": {
+    "name": "LEGO Star Wars",
+    "slug": "lego-star-wars",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-lego-star-wars-ii-original-trilogy",
+      "gamecube-lego-star-wars",
+      "ps2-lego-star-wars"
+    ],
+    "byPlatform": {
+      "gamecube": 1,
+      "ps2": 2
+    },
+    "gameCount": 3
+  },
+  "marvel": {
+    "name": "Marvel",
+    "slug": "marvel",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-x-men-children-of-the-atom",
+      "ps1-x-men-vs-street-fighter",
+      "ps1-marvel-super-heroes"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "marvel-vs-capcom": {
+    "name": "Marvel vs. Capcom",
+    "slug": "marvel-vs-capcom",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-marvel-super-heroes-vs-street-fighter",
+      "ps2-marvel-vs-capcom-2",
+      "ps1-marvel-vs-capcom-clash-of-super-heroes"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 1
+    },
+    "gameCount": 3
+  },
+  "mega-man-legends": {
+    "name": "Mega Man Legends",
+    "slug": "mega-man-legends",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-the-misadventures-of-tron-bonne",
+      "ps1-mega-man-legends",
+      "ps1-mega-man-legends-2"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "mickey-mouse": {
+    "name": "Mickey Mouse",
+    "slug": "mickey-mouse",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-mickey%27s-wild-adventure",
+      "ps1-disney-learning-mickey",
+      "ps1-magical-tetris-challenge"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "midway-arcade-treasures": {
+    "name": "Midway Arcade Treasures",
+    "slug": "midway-arcade-treasures",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-midway-arcade-treasures-3",
+      "ps2-midway-arcade-treasures",
+      "ps2-midway-arcade-treasures-2"
+    ],
+    "byPlatform": {
+      "ps2": 3
+    },
+    "gameCount": 3
+  },
+  "midway-sports": {
+    "name": "Midway Sports",
+    "slug": "midway-sports",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-nba-showtime-nba-on-nbc",
+      "ps1-nba-hoopz",
+      "ps2-nba-hoopz"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 1
+    },
+    "gameCount": 3
+  },
+  "mobile-suit-gundam": {
+    "name": "Mobile Suit Gundam",
+    "slug": "mobile-suit-gundam",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-gundam-battle-assault-2",
+      "ps2-mobile-suit-gundam-federation-vs-zeon",
+      "ps1-gundam-battle-assault"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 1
+    },
+    "gameCount": 3
+  },
+  "monopoly": {
+    "name": "Monopoly",
+    "slug": "monopoly",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-monopoly",
+      "ps2-monopoly",
+      "ps2-monopoly-party"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 2
+    },
+    "gameCount": 3
+  },
+  "monsters-inc": {
+    "name": "Monsters Inc.",
+    "slug": "monsters-inc",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-monsters-inc",
+      "ps2-monsters-inc-scare-island",
+      "ps2-monsters-inc-scare-island-limited-edition"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 2
+    },
+    "gameCount": 3
+  },
+  "nba-in-the-zone": {
+    "name": "NBA In The Zone",
+    "slug": "nba-in-the-zone",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-nba-in-the-zone-2",
+      "ps1-nba-in-the-zone-2000",
+      "ps1-nba-in-the-zone"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "nfl-2k": {
+    "name": "nfl-2k",
+    "slug": "nfl-2k",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-espn-nfl-2k5",
+      "ps2-espn-nfl-football",
+      "ps2-nfl-2k3"
+    ],
+    "byPlatform": {
+      "ps2": 3
+    },
+    "gameCount": 3
+  },
+  "rampage": {
+    "name": "Rampage",
+    "slug": "rampage",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-rampage-world-tour",
+      "ps1-rampage-2-universal-tour",
+      "ps1-rampage-through-time"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "rayman": {
+    "name": "Rayman",
+    "slug": "rayman",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-rayman-&#43;-rayman-2-the-great-escape",
+      "ps1-rayman-2-the-great-escape",
+      "ps1-rayman"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "ridge-racer": {
+    "name": "Ridge Racer",
+    "slug": "ridge-racer",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-ridge-racer",
+      "ps1-ridge-racer-type-4",
+      "ps1-ridge-racer-revolution"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "sesame-street": {
+    "name": "Sesame Street",
+    "slug": "sesame-street",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-sesame-street-elmo%27s-number-journey",
+      "ps1-sesame-street-sports",
+      "ps1-sesame-street-elmo%27s-letter-adventure"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "simple-1500-series": {
+    "name": "Simple 1500 Series",
+    "slug": "simple-1500-series",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-rc-de-go",
+      "ps1-burstrick-wake-boarding",
+      "ps1-pink-panther-pinkadelic-pursuit"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "south-park": {
+    "name": "South Park",
+    "slug": "south-park",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-south-park-chef%27s-luv-shack",
+      "ps1-south-park",
+      "ps1-south-park-rally"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "star-wars": {
+    "name": "Star Wars",
+    "slug": "star-wars",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-star-wars-episode-i-jedi-power-battles",
+      "ps1-star-wars-episode-i-the-phantom-menace",
+      "ps1-star-wars-dark-forces"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "tekken": {
+    "name": "Tekken",
+    "slug": "tekken",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-death-by-degrees",
+      "ps1-tekken",
+      "ps1-tekken-3"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 1
+    },
+    "gameCount": 3
+  },
+  "the-muppets": {
+    "name": "The Muppets",
+    "slug": "the-muppets",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-muppets-party-cruise",
+      "ps1-muppet-racemania",
+      "ps1-muppet-monster-adventure"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 1
+    },
+    "gameCount": 3
+  },
+  "time-crisis": {
+    "name": "Time Crisis",
+    "slug": "time-crisis",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-time-crisis-project-titan",
+      "ps2-crisis-zone",
+      "ps1-time-crisis"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 1
+    },
+    "gameCount": 3
+  },
+  "toy-story": {
+    "name": "Toy Story",
+    "slug": "toy-story",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-toy-story-racer",
+      "ps1-toy-story-2",
+      "ps1-buzz-lightyear-of-star-command"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "track-field-hyper-olympic": {
+    "name": "Track & Field/Hyper Olympic",
+    "slug": "track-field-hyper-olympic",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-international-track-and-field",
+      "ps2-espn-international-winter-sports",
+      "ps1-nagano-winter-olympics-%2798"
+    ],
+    "byPlatform": {
+      "ps1": 2,
+      "ps2": 1
+    },
+    "gameCount": 3
+  },
+  "v-rally": {
+    "name": "V-Rally",
+    "slug": "v-rally",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-v-rally-%2797-championship-edition",
+      "ps1-v-rally-championship-edition",
+      "ps1-v-rally-2-championship-edition"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "worms": {
+    "name": "Worms",
+    "slug": "worms",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-worms-pinball",
+      "ps1-worms-armageddon",
+      "ps1-worms"
+    ],
+    "byPlatform": {
+      "ps1": 3
+    },
+    "gameCount": 3
+  },
+  "a-bug-s-life": {
+    "name": "A Bug's Life",
+    "slug": "a-bug-s-life",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-a-bug%27s-life",
+      "ps1-activity-centre-a-bug%27s-life"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "alien": {
+    "name": "Alien",
+    "slug": "alien",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-alien-resurrection",
+      "ps1-alien-trilogy"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "army-men": {
+    "name": "Army Men",
+    "slug": "army-men",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-army-men-major-malfunction",
+      "ps2-army-men-sarge%27s-war"
+    ],
+    "byPlatform": {
+      "ps2": 2
+    },
+    "gameCount": 2
+  },
+  "capcom-compilations": {
+    "name": "Capcom Compilations",
+    "slug": "capcom-compilations",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-capcom-generations",
+      "ps1-street-fighter-collection-2"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "casper": {
+    "name": "Casper",
+    "slug": "casper",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-casper-and-the-ghostly-trio",
+      "ps1-casper"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 1
+    },
+    "gameCount": 2
+  },
+  "command-conquer": {
+    "name": "Command & Conquer",
+    "slug": "command-conquer",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-command-&amp;-conquer",
+      "ps1-command-&amp;-conquer-red-alert"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "croc": {
+    "name": "Croc",
+    "slug": "croc",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-croc-legend-of-the-gobbos",
+      "ps1-croc-2"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "darkstalkers": {
+    "name": "Darkstalkers",
+    "slug": "darkstalkers",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-darkstalkers-the-night-warriors",
+      "ps1-darkstalkers-3"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "dead-or-alive": {
+    "name": "Dead or Alive",
+    "slug": "dead-or-alive",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-dead-or-alive",
+      "ps2-dead-or-alive-2"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 1
+    },
+    "gameCount": 2
+  },
+  "devil-may-cry": {
+    "name": "Devil May Cry",
+    "slug": "devil-may-cry",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-devil-may-cry-3",
+      "ps2-devil-may-cry"
+    ],
+    "byPlatform": {
+      "ps2": 2
+    },
+    "gameCount": 2
+  },
+  "die-hard": {
+    "name": "Die Hard",
+    "slug": "die-hard",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-die-hard-trilogy",
+      "ps1-die-hard-trilogy-2-viva-las-vegas"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "doom": {
+    "name": "doom",
+    "slug": "doom",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-final-doom",
+      "ps1-doom"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "fifa-street": {
+    "name": "FIFA Street",
+    "slug": "fifa-street",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-fifa-street-2",
+      "ps2-fifa-street"
+    ],
+    "byPlatform": {
+      "ps2": 2
+    },
+    "gameCount": 2
+  },
+  "fire-emblem": {
+    "name": "Fire Emblem",
+    "slug": "fire-emblem",
+    "museumPath": "",
+    "gameIds": [
+      "nes-japon-fire-emblem-ankoku-ryu-hikari-no-tsurugi",
+      "nes-japon-fire-emblem-gaiden"
+    ],
+    "byPlatform": {
+      "nes": 2
+    },
+    "gameCount": 2
+  },
+  "flatout": {
+    "name": "FlatOut",
+    "slug": "flatout",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-flatout",
+      "ps2-flatout-2"
+    ],
+    "byPlatform": {
+      "ps2": 2
+    },
+    "gameCount": 2
+  },
+  "front-mission": {
+    "name": "Front Mission",
+    "slug": "front-mission",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-front-mission-3",
+      "ps1-scars"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "g-police": {
+    "name": "G-Police",
+    "slug": "g-police",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-g-police-weapons-of-justice",
+      "ps1-g-police"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "gallop-racer": {
+    "name": "Gallop Racer",
+    "slug": "gallop-racer",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-gallop-racer",
+      "ps2-gallop-racer-2"
+    ],
+    "byPlatform": {
+      "ps2": 2
+    },
+    "gameCount": 2
+  },
+  "gex": {
+    "name": "Gex",
+    "slug": "gex",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-gex",
+      "ps1-gex-3-deep-cover-gecko"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "god-of-war": {
+    "name": "God of War",
+    "slug": "god-of-war",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-god-of-war-collection",
+      "ps2-god-of-war"
+    ],
+    "byPlatform": {
+      "ps2": 2
+    },
+    "gameCount": 2
+  },
+  "grandia": {
+    "name": "Grandia",
+    "slug": "grandia",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-grandia-ii",
+      "ps1-grandia"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 1
+    },
+    "gameCount": 2
+  },
+  "guilty-gear": {
+    "name": "Guilty Gear",
+    "slug": "guilty-gear",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-guilty-gear",
+      "ps2-guilty-gear-xx-accent-core-plus"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 1
+    },
+    "gameCount": 2
+  },
+  "harvest-moon": {
+    "name": "Harvest Moon",
+    "slug": "harvest-moon",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-harvest-moon-back-to-nature",
+      "ps2-harvest-moon-a-wonderful-life-special-edition"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 1
+    },
+    "gameCount": 2
+  },
+  "hitman": {
+    "name": "Hitman",
+    "slug": "hitman",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-hitman-2",
+      "ps2-hitman-blood-money"
+    ],
+    "byPlatform": {
+      "ps2": 2
+    },
+    "gameCount": 2
+  },
+  "king-s-field": {
+    "name": "King's Field",
+    "slug": "king-s-field",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-king%27s-field-iv",
+      "ps1-king%27s-field"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 1
+    },
+    "gameCount": 2
+  },
+  "lego-bionicle": {
+    "name": "LEGO Bionicle",
+    "slug": "lego-bionicle",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-bionicle",
+      "ps2-bionicle-heroes"
+    ],
+    "byPlatform": {
+      "ps2": 2
+    },
+    "gameCount": 2
+  },
+  "lego-island": {
+    "name": "LEGO Island",
+    "slug": "lego-island",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-island-extreme-stunts",
+      "ps1-lego-island-2-the-brickster%27s-revenge"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 1
+    },
+    "gameCount": 2
+  },
+  "lilo-stitch": {
+    "name": "Lilo & Stitch",
+    "slug": "lilo-stitch",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-lilo-&amp;-stitch-trouble-in-paradise",
+      "ps2-disney%27s-stitch-experiment-626"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 1
+    },
+    "gameCount": 2
+  },
+  "mat-hoffman": {
+    "name": "Mat Hoffman",
+    "slug": "mat-hoffman",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-mat-hoffman%27s-pro-bmx-2",
+      "ps1-mat-hoffman%27s-pro-bmx"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 1
+    },
+    "gameCount": 2
+  },
+  "mega-man": {
+    "name": "Mega Man",
+    "slug": "mega-man",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-mega-man-battle-&amp;-chase",
+      "ps1-mega-man-8"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "myst": {
+    "name": "Myst",
+    "slug": "myst",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-myst",
+      "ps1-riven-the-sequel-to-myst"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "nba-jam": {
+    "name": "NBA Jam",
+    "slug": "nba-jam",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-nba-jam-extreme",
+      "ps1-nba-jam-tournament-edition"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "nba-street": {
+    "name": "NBA Street",
+    "slug": "nba-street",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-nba-street",
+      "ps2-nba-street-vol-2"
+    ],
+    "byPlatform": {
+      "ps2": 2
+    },
+    "gameCount": 2
+  },
+  "nicktoons": {
+    "name": "Nicktoons",
+    "slug": "nicktoons",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-nicktoons-attack-of-the-toybots",
+      "ps1-nicktoons-racing"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 1
+    },
+    "gameCount": 2
+  },
+  "rayforce": {
+    "name": "RayForce",
+    "slug": "rayforce",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-raystorm",
+      "ps1-raycrisis"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "spider-man": {
+    "name": "Spider-Man",
+    "slug": "spider-man",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-spider",
+      "ps1-spiderman-2-enter-electro"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "spyro-the-dragon": {
+    "name": "Spyro the Dragon",
+    "slug": "spyro-the-dragon",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-spyro-the-dragon",
+      "ps1-spyro-year-of-the-dragon"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "suikoden": {
+    "name": "Suikoden",
+    "slug": "suikoden",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-suikoden-ii",
+      "ps1-suikoden"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "tetris": {
+    "name": "Tetris",
+    "slug": "tetris",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-tetris-plus",
+      "ps1-the-next-tetris"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "twin-cobra": {
+    "name": "Twin Cobra",
+    "slug": "twin-cobra",
+    "museumPath": "",
+    "gameIds": [
+      "nes-pal-tiger-heli",
+      "nes-usa-tiger-heli"
+    ],
+    "byPlatform": {
+      "nes": 2
+    },
+    "gameCount": 2
+  },
+  "x-men": {
+    "name": "X-Men",
+    "slug": "x-men",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-x-men-mutant-academy",
+      "ps1-x-men-mutant-academy-2"
+    ],
+    "byPlatform": {
+      "ps1": 2
+    },
+    "gameCount": 2
+  },
+  "xi-devil-dice": {
+    "name": "XI/Devil Dice",
+    "slug": "xi-devil-dice",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-devil-dice",
+      "ps2-bombastic"
+    ],
+    "byPlatform": {
+      "ps1": 1,
+      "ps2": 1
+    },
+    "gameCount": 2
+  },
+  "a-train-a-ressha-de-ikou": {
+    "name": "A-Train/A-Ressha de Ikou",
+    "slug": "a-train-a-ressha-de-ikou",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-a-train-6"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "aca-neogeo": {
+    "name": "ACA NeoGeo",
+    "slug": "aca-neogeo",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-real-bout-fatal-fury"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "aladdin": {
+    "name": "Aladdin",
+    "slug": "aladdin",
+    "museumPath": "",
+    "gameIds": [
+      "gameboy-usa-disneys-aladdin"
+    ],
+    "byPlatform": {
+      "gameboy": 1
+    },
+    "gameCount": 1
+  },
+  "ar-tonelico": {
+    "name": "Ar Tonelico",
+    "slug": "ar-tonelico",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-ar-tonelico-melody-of-elemia"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "arc-the-lad": {
+    "name": "Arc the Lad",
+    "slug": "arc-the-lad",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-arc-the-lad-twilight-of-the-spirits"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "assassin-s-creed": {
+    "name": "Assassin's Creed",
+    "slug": "assassin-s-creed",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-china"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "bakugan": {
+    "name": "Bakugan",
+    "slug": "bakugan",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-bakugan-battle-brawlers"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "battlefield": {
+    "name": "Battlefield",
+    "slug": "battlefield",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-battlefield-2-modern-combat"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "battlestar-galactica": {
+    "name": "Battlestar Galactica",
+    "slug": "battlestar-galactica",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-battlestar-galactica"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "beatmania": {
+    "name": "beatmania",
+    "slug": "beatmania",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-beatmania"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "beyond-good-evil": {
+    "name": "Beyond Good & Evil",
+    "slug": "beyond-good-evil",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-beyond-good-and-evil"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "bishi-bashi": {
+    "name": "Bishi Bashi",
+    "slug": "bishi-bashi",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-bishi-bashi-special"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "brothers-in-arms": {
+    "name": "Brothers in Arms",
+    "slug": "brothers-in-arms",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-brothers-in-arms-earned-in-blood"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "bubsy": {
+    "name": "Bubsy",
+    "slug": "bubsy",
+    "museumPath": "",
+    "gameIds": [
+      "megadrive-bubsy-in-claws-encounters-of-the-furred-kind"
+    ],
+    "byPlatform": {
+      "megadrive": 1
+    },
+    "gameCount": 1
+  },
+  "buffy-the-vampire-slayer": {
+    "name": "Buffy the Vampire Slayer",
+    "slug": "buffy-the-vampire-slayer",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-buffy-the-vampire-slayer-chaos-bleeds"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "capcom-vs-snk": {
+    "name": "Capcom vs. SNK",
+    "slug": "capcom-vs-snk",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-capcom-vs-snk-2"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "carnage-heart": {
+    "name": "Carnage Heart",
+    "slug": "carnage-heart",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-carnage-heart"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "championship-manager": {
+    "name": "Championship Manager",
+    "slug": "championship-manager",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-championship-manager-5"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "choro-q": {
+    "name": "Choro Q",
+    "slug": "choro-q",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-choro-q"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "civilization": {
+    "name": "Civilization",
+    "slug": "civilization",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-civilization-ii"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "conflict": {
+    "name": "Conflict",
+    "slug": "conflict",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-conflict-vietnam"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "crazy-taxi": {
+    "name": "Crazy Taxi",
+    "slug": "crazy-taxi",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-crazy-taxi"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "csi-crime-scene-investigation": {
+    "name": "CSI: Crime Scene Investigation",
+    "slug": "csi-crime-scene-investigation",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-csi-3-dimensions-of-murder"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "darius": {
+    "name": "Darius",
+    "slug": "darius",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-g-darius"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "def-jam": {
+    "name": "Def Jam",
+    "slug": "def-jam",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-def-jam-fight-for-ny"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "descent": {
+    "name": "Descent",
+    "slug": "descent",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-descent"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "destroy-all-humans": {
+    "name": "Destroy All Humans!",
+    "slug": "destroy-all-humans",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-destroy-all-humans"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "destruction-derby": {
+    "name": "Destruction Derby",
+    "slug": "destruction-derby",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-destruction-derby-2"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "diablo": {
+    "name": "Diablo",
+    "slug": "diablo",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-diablo"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "disney-s-aladdin": {
+    "name": "Disney's Aladdin",
+    "slug": "disney-s-aladdin",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-aladdin-in-nasira%27s-revenge"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "disney-s-tarzan": {
+    "name": "Disney's Tarzan",
+    "slug": "disney-s-tarzan",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-tarzan"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "dora-the-explorer": {
+    "name": "Dora the Explorer",
+    "slug": "dora-the-explorer",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-dora-the-explorer-barnyard-buddies"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "double-dragon": {
+    "name": "Double Dragon",
+    "slug": "double-dragon",
+    "museumPath": "",
+    "gameIds": [
+      "nes-double-dragon-ii"
+    ],
+    "byPlatform": {
+      "nes": 1
+    },
+    "gameCount": 1
+  },
+  "dragon-quest": {
+    "name": "Dragon Quest",
+    "slug": "dragon-quest",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-dragon-quest-viii-journey-of-the-cursed-king"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "dune": {
+    "name": "Dune",
+    "slug": "dune",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-dune-2000"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "earthworm-jim": {
+    "name": "Earthworm Jim",
+    "slug": "earthworm-jim",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-earthworm-jim-2"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "fallout": {
+    "name": "Fallout",
+    "slug": "fallout",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-fallout-brotherhood-of-steel"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "fire-pro-wrestling": {
+    "name": "Fire Pro Wrestling",
+    "slug": "fire-pro-wrestling",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-fire-pro-wrestling-returns"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "flashback": {
+    "name": "Flashback",
+    "slug": "flashback",
+    "museumPath": "",
+    "gameIds": [
+      "megadrive-usa-flashback-quest-identity"
+    ],
+    "byPlatform": {
+      "megadrive": 1
+    },
+    "gameCount": 1
+  },
+  "g1-jockey": {
+    "name": "G1 Jockey",
+    "slug": "g1-jockey",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-g1-jockey"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "gradius": {
+    "name": "Gradius",
+    "slug": "gradius",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-gradius-v"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "gunbird": {
+    "name": "Gunbird",
+    "slug": "gunbird",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-gunbird-special-edition"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
   "hack": {
     "name": ".hack",
     "slug": "hack",
@@ -8,6 +2769,510 @@
     ],
     "byPlatform": {
       "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "half-life": {
+    "name": "Half-Life",
+    "slug": "half-life",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-half-life"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "hot-wheels": {
+    "name": "Hot Wheels",
+    "slug": "hot-wheels",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-hot-wheels-extreme-racing"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "jojo-s-bizarre-adventure": {
+    "name": "JoJo's Bizarre Adventure",
+    "slug": "jojo-s-bizarre-adventure",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-jojo%27s-bizarre-adventure"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "juiced": {
+    "name": "Juiced",
+    "slug": "juiced",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-juiced-2-hot-import-nights"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "just-cause": {
+    "name": "Just Cause",
+    "slug": "just-cause",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-just-cause"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "kid-icarus": {
+    "name": "Kid Icarus",
+    "slug": "kid-icarus",
+    "museumPath": "",
+    "gameIds": [
+      "nes-kid-icarus"
+    ],
+    "byPlatform": {
+      "nes": 1
+    },
+    "gameCount": 1
+  },
+  "killzone": {
+    "name": "Killzone",
+    "slug": "killzone",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-killzone"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "kingdom-hearts": {
+    "name": "Kingdom Hearts",
+    "slug": "kingdom-hearts",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-kingdom-hearts"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "legends-of-wrestling-serie": {
+    "name": "Legends of Wrestling (serie)",
+    "slug": "legends-of-wrestling-serie",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-legends-of-wrestling-ii"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "lego": {
+    "name": "LEGO",
+    "slug": "lego",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-lego-rock-raiders"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "lego-harry-potter": {
+    "name": "LEGO Harry Potter",
+    "slug": "lego-harry-potter",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-harry-potter-collection"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "lumines": {
+    "name": "Lumines",
+    "slug": "lumines",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-lumines-plus"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "max-payne": {
+    "name": "Max Payne",
+    "slug": "max-payne",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-max-payne"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "mercenaries": {
+    "name": "Mercenaries",
+    "slug": "mercenaries",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-mercenaries-2-world-in-flames"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "micro-machines": {
+    "name": "Micro Machines",
+    "slug": "micro-machines",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-micro-maniacs"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "midnight-club": {
+    "name": "Midnight Club",
+    "slug": "midnight-club",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-midnight-club-street-racing"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "monster-rancher": {
+    "name": "Monster Rancher",
+    "slug": "monster-rancher",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-monster-rancher"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "motogp": {
+    "name": "MotoGP",
+    "slug": "motogp",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-motogp-08"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "motor-toon-grand-prix": {
+    "name": "Motor Toon Grand Prix",
+    "slug": "motor-toon-grand-prix",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-motor-toon-grand-prix-2"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "motorstorm": {
+    "name": "MotorStorm",
+    "slug": "motorstorm",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-motorstorm-arctic-edge"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "mx-vs-atv": {
+    "name": "MX vs. ATV",
+    "slug": "mx-vs-atv",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-mx-vs-atv-untamed"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "namco-museum": {
+    "name": "Namco Museum",
+    "slug": "namco-museum",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-namco-museum-50th-anniversary"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "naruto-ultimate-ninja": {
+    "name": "Naruto: Ultimate Ninja",
+    "slug": "naruto-ultimate-ninja",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-naruto-shippuden-ultimate-ninja-4"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "nba": {
+    "name": "nba",
+    "slug": "nba",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-nba-08"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "nfl-blitz": {
+    "name": "NFL Blitz",
+    "slug": "nfl-blitz",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-nfl-blitz-2000"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "nhl-hitz": {
+    "name": "NHL Hitz",
+    "slug": "nhl-hitz",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-nhl-hitz-pro"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "nightmare-creatures": {
+    "name": "Nightmare Creatures",
+    "slug": "nightmare-creatures",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-nightmare-creatures"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "ninja-gaiden": {
+    "name": "Ninja Gaiden",
+    "slug": "ninja-gaiden",
+    "museumPath": "",
+    "gameIds": [
+      "nes-usa-ninja-gaiden-iii-ancient-ship-doom"
+    ],
+    "byPlatform": {
+      "nes": 1
+    },
+    "gameCount": 1
+  },
+  "onimusha": {
+    "name": "Onimusha",
+    "slug": "onimusha",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-onimusha-blade-warriors"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "p-t-o-teitoku-no-ketsudan": {
+    "name": "P.T.O./Teitoku no Ketsudan",
+    "slug": "p-t-o-teitoku-no-ketsudan",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-pto-iv-pacific-theater-of-operations"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "pac-man": {
+    "name": "Pac-Man",
+    "slug": "pac-man",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-ms-pac-man-maze-madness"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "pandemonium": {
+    "name": "Pandemonium",
+    "slug": "pandemonium",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-pandemonium-2"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "parasite-eve": {
+    "name": "Parasite Eve",
+    "slug": "parasite-eve",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-parasite-eve-ii"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "quake": {
+    "name": "Quake",
+    "slug": "quake",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-quake-ii"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "racer": {
+    "name": "Racer",
+    "slug": "racer",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-london-racer"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "reel-fishing": {
+    "name": "Reel Fishing",
+    "slug": "reel-fishing",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-reel-fishing-ii"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "rock-band": {
+    "name": "Rock Band",
+    "slug": "rock-band",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-acdc-live-rock-band"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "rush": {
+    "name": "Rush",
+    "slug": "rush",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-san-francisco-rush"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "scooby-doo": {
+    "name": "Scooby-Doo",
+    "slug": "scooby-doo",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-scooby-doo-and-the-cyber-chase"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "shinobi": {
+    "name": "Shinobi",
+    "slug": "shinobi",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-nightshade"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "silent-hill": {
+    "name": "Silent Hill",
+    "slug": "silent-hill",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-silent-hill"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "simcity": {
+    "name": "SimCity",
+    "slug": "simcity",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-simcity-2000"
+    ],
+    "byPlatform": {
+      "ps1": 1
     },
     "gameCount": 1
   },
@@ -23,6 +3288,30 @@
     },
     "gameCount": 1
   },
+  "strider": {
+    "name": "Strider",
+    "slug": "strider",
+    "museumPath": "",
+    "gameIds": [
+      "megadrive-pal-strider-ii"
+    ],
+    "byPlatform": {
+      "megadrive": 1
+    },
+    "gameCount": 1
+  },
+  "syphon-filter": {
+    "name": "Syphon Filter",
+    "slug": "syphon-filter",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-syphon-filter"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
   "tama-and-friends": {
     "name": "tama-and-friends",
     "slug": "tama-and-friends",
@@ -32,6 +3321,174 @@
     ],
     "byPlatform": {
       "gameboy": 1
+    },
+    "gameCount": 1
+  },
+  "the-behemoth-games": {
+    "name": "The Behemoth Games",
+    "slug": "the-behemoth-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-alien-hominid"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "the-lion-king": {
+    "name": "The Lion King",
+    "slug": "the-lion-king",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-the-lion-king-simbas-mighty-adventure"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "the-matrix": {
+    "name": "The Matrix",
+    "slug": "the-matrix",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-enter-the-matrix"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "the-neverhood-klaymen-klaymen": {
+    "name": "The Neverhood/Klaymen Klaymen",
+    "slug": "the-neverhood-klaymen-klaymen",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-skullmonkeys"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "the-simpsons": {
+    "name": "The Simpsons",
+    "slug": "the-simpsons",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-the-simpsons-wrestling"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "the-x-files": {
+    "name": "The X-Files",
+    "slug": "the-x-files",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-the-x-files"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "tom-clancy-s-ghost-recon": {
+    "name": "Tom Clancy's Ghost Recon",
+    "slug": "tom-clancy-s-ghost-recon",
+    "museumPath": "",
+    "gameIds": [
+      "ps2-ghost-recon-advanced-warfighter"
+    ],
+    "byPlatform": {
+      "ps2": 1
+    },
+    "gameCount": 1
+  },
+  "tony-hawk": {
+    "name": "Tony Hawk",
+    "slug": "tony-hawk",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-tony-hawk-2"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "transformers": {
+    "name": "Transformers",
+    "slug": "transformers",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-beast-wars-transformers"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "vandal-hearts": {
+    "name": "Vandal Hearts",
+    "slug": "vandal-hearts",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-vandal-hearts"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "wild-arms": {
+    "name": "Wild Arms",
+    "slug": "wild-arms",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-wild-arms"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "winnie-the-pooh": {
+    "name": "Winnie the Pooh",
+    "slug": "winnie-the-pooh",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-tigger%27s-honey-hunt"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "wipeout": {
+    "name": "WipEout",
+    "slug": "wipeout",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-wipeout"
+    ],
+    "byPlatform": {
+      "ps1": 1
+    },
+    "gameCount": 1
+  },
+  "yu-gi-oh": {
+    "name": "Yu-Gi-Oh!",
+    "slug": "yu-gi-oh",
+    "museumPath": "",
+    "gameIds": [
+      "ps1-yu-gi-oh-forbidden-memories"
+    ],
+    "byPlatform": {
+      "ps1": 1
     },
     "gameCount": 1
   }

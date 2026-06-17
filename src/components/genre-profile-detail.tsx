@@ -1,6 +1,7 @@
 import { EntityBrowser } from "@/components/catalog-browser";
 import { GenrePlatformGames, GenreProfileHeader, GenreReferenceTop } from "@/components/genre-profile-sections";
 import { SiteNav } from "@/components/site-nav";
+import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { buildGenreIntro } from "@/lib/genre-seo";
 import type { GenreProfileView } from "@/lib/genre-profile";
 
@@ -11,6 +12,8 @@ type Props = {
 };
 
 export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn }: Props) {
+  const games = view.games.map(toCatalogListGame);
+
   return (
     <>
       <SiteNav />
@@ -36,7 +39,7 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn }: Props)
             </p>
           </div>
           <EntityBrowser
-            games={view.games}
+            games={games}
             title={view.name}
             ownedCatalogIds={ownedCatalogIds}
             isLoggedIn={isLoggedIn}

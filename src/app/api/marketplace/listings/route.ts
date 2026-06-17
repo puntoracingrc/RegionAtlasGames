@@ -10,7 +10,7 @@ export async function GET(request: Request) {
   }
 
   const user = await getCurrentUser();
-  const listings = getActiveListingsForCatalog(catalogId).map(getPublicSellerListing);
+  const listings = (await getActiveListingsForCatalog(catalogId)).map(getPublicSellerListing);
 
   return NextResponse.json({
     count: listings.length,

@@ -1,5 +1,5 @@
 import { getRegionDisplay } from "@/lib/region-display";
-import type { CatalogGame } from "@/lib/types";
+import type { CatalogListGame } from "@/lib/types";
 
 export type RegionSlice = {
   label: string;
@@ -19,23 +19,22 @@ export type PlatformCatalogInsights = {
   topRegions: RegionSlice[];
 };
 
-const REGION_BAR_COLORS = [
-  "bg-amber-500/80",
-  "bg-sky-500/70",
-  "bg-violet-500/70",
-  "bg-emerald-500/70",
-  "bg-rose-500/60",
-  "bg-orange-500/60",
-  "bg-cyan-500/60",
-];
+const FALLBACK_REGION_BAR_COLORS = ["bg-rose-500/60", "bg-orange-500/60", "bg-cyan-500/60"];
 
-/** Orden en barra: española → europea → US → Japón → resto (por cantidad). */
+const REGION_BAR_COLOR_BY_RANK: Record<number, string> = {
+  0: "bg-amber-500/80",
+  1: "bg-sky-500/70",
+  2: "bg-violet-500/70",
+  3: "bg-emerald-500/70",
+};
+
+/** Orden en barra: PAL ES → PAL EU → NTSC US → NTSC-J → resto (por cantidad). */
 export function regionSortRank(label: string): number {
   const key = label.trim().toLowerCase();
   if (key === "pal españa" || key === "españa") return 0;
   if (key === "pal europa") return 1;
-  if (key === "usa") return 2;
-  if (key === "japón" || key === "japan") return 3;
+  if (key === "usa" || key === "ntsc usa") return 2;
+  if (key === "japón" || key === "japan" || key === "ntsc-j japón") return 3;
   return 4;
 }
 
@@ -52,8 +51,8 @@ export function sortRegionSlices(entries: [string, number][], total: number): Re
     const rank = regionSortRank(label);
     const barColorClass =
       rank < 4
-        ? REGION_BAR_COLORS[rank]
-        : REGION_BAR_COLORS[4 + (restIndex++ % (REGION_BAR_COLORS.length - 4))];
+        ? regionBarColorForLabel(label)
+        : regionBarColorForLabel(label, restIndex++);
     const { shortLabel } = getRegionDisplay(label);
     return {
       label,
@@ -66,24 +65,32 @@ export function sortRegionSlices(entries: [string, number][], total: number): Re
 }
 
 export function regionBarColor(index: number): string {
-  return REGION_BAR_COLORS[index % REGION_BAR_COLORS.length];
+  const stableColors = [
+    REGION_BAR_COLOR_BY_RANK[0],
+    REGION_BAR_COLOR_BY_RANK[1],
+    REGION_BAR_COLOR_BY_RANK[2],
+    REGION_BAR_COLOR_BY_RANK[3],
+    ...FALLBACK_REGION_BAR_COLORS,
+  ];
+  return stableColors[index % stableColors.length];
 }
 
 /** Color estable por tipo de región (ES/EU/US/JP); resto por índice en la barra. */
 export function regionBarColorForLabel(label: string, restIndex = 0): string {
   const rank = regionSortRank(label);
-  if (rank < 4) return REGION_BAR_COLORS[rank];
-  return REGION_BAR_COLORS[4 + (restIndex % (REGION_BAR_COLORS.length - 4))];
+  if (rank < 4) return REGION_BAR_COLOR_BY_RANK[rank];
+  return FALLBACK_REGION_BAR_COLORS[restIndex % FALLBACK_REGION_BAR_COLORS.length];
 }
 
-export function buildPlatformCatalogInsights(games: CatalogGame[]): PlatformCatalogInsights {
+export function buildPlatformCatalogInsights(games: CatalogListGame[]): PlatformCatalogInsights {
   const total = games.length;
   const withEsPrice = games.filter((g) => g.hasEsPrice).length;
   const withCover = games.filter((g) => Boolean(g.coverUrl)).length;
 
   const regionCounts = new Map<string, number>();
   for (const game of games) {
-    regionCounts.set(game.region, (regionCounts.get(game.region) ?? 0) + 1);
+    const label = getRegionDisplay(game.region).label;
+    regionCounts.set(label, (regionCounts.get(label) ?? 0) + 1);
   }
 
   const topRegions = sortRegionSlices([...regionCounts.entries()], total);

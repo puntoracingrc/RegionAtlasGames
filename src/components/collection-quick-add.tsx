@@ -32,7 +32,7 @@ export function CollectionQuickAdd({
     event.preventDefault();
     event.stopPropagation();
 
-    if (!isLoggedIn || localOwned || loading) return;
+    if (!isLoggedIn || loading) return;
 
     setLoading(true);
     setError(null);
@@ -79,27 +79,6 @@ export function CollectionQuickAdd({
     );
   }
 
-  if (localOwned) {
-    return (
-      <span
-        className={cn(
-          "pointer-events-none flex h-7 w-7 items-center justify-center rounded-full border border-emerald-400/50 bg-emerald-600/90 text-white shadow-md",
-          className,
-        )}
-        title="En tu colección (quitar desde la ficha del juego)"
-        aria-label="En tu colección"
-      >
-        <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5" aria-hidden>
-          <path
-            fillRule="evenodd"
-            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-            clipRule="evenodd"
-          />
-        </svg>
-      </span>
-    );
-  }
-
   return (
     <span className={cn("relative", className)}>
       <button
@@ -107,13 +86,16 @@ export function CollectionQuickAdd({
         onClick={handleAdd}
         disabled={loading}
         className={cn(
-          "flex h-7 w-7 items-center justify-center rounded-full border border-accent/40 bg-black/75 text-base font-bold leading-none text-accent shadow-md transition hover:border-accent hover:bg-black/90 disabled:opacity-50",
+          "flex h-7 w-7 items-center justify-center rounded-full border bg-black/75 text-base font-bold leading-none shadow-md transition hover:bg-black/90 disabled:opacity-50",
+          localOwned
+            ? "border-emerald-400/60 text-emerald-300 hover:border-emerald-300"
+            : "border-accent/40 text-accent hover:border-accent",
           error && "border-rose-400/60",
         )}
-        title={error ?? "Añadir a mi colección"}
-        aria-label={error ?? "Añadir a mi colección"}
+        title={error ?? (localOwned ? "Añadir otra copia" : "Añadir a mi colección")}
+        aria-label={error ?? (localOwned ? "Añadir otra copia" : "Añadir a mi colección")}
       >
-        {loading ? "…" : "+"}
+        {loading ? "…" : localOwned ? "+1" : "+"}
       </button>
     </span>
   );

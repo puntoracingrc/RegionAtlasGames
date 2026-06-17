@@ -10,8 +10,8 @@ export default async function MessagesPage() {
   if (!user) redirect("/login");
   if (!canUseMarketplace(user.plan)) redirect("/ajustes");
 
-  const conversations = getUserConversations(user.id).map((conv) => {
-    const listing = getListing(conv.listingId);
+  const conversations = await Promise.all((await getUserConversations(user.id)).map(async (conv) => {
+    const listing = await getListing(conv.listingId);
     const last = conv.messages[conv.messages.length - 1];
     const role = conv.sellerId === user.id ? ("seller" as const) : ("buyer" as const);
     const peerName = role === "seller" ? conv.buyerName : conv.sellerName;
@@ -29,7 +29,7 @@ export default async function MessagesPage() {
       lastMessageAt: last?.createdAt ?? conv.updatedAt,
       updatedAt: conv.updatedAt,
     };
-  });
+  }));
 
   return <MessagesInboxClient conversations={conversations} />;
 }

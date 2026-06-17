@@ -21,7 +21,7 @@ export function GameProductReference({
   if (!info) return null;
 
   const code = (
-    <code className="rounded-md bg-black/30 px-2 py-1 font-mono text-sm text-foreground">
+    <code className="rounded-md bg-foreground/10 px-2 py-1 font-mono text-sm text-foreground dark:bg-black/30">
       {info.raw}
     </code>
   );

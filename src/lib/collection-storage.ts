@@ -65,7 +65,7 @@ function readCollectionFromDisk(userId: string): UserCollectionFile {
 async function readCollectionFromBlob(userId: string): Promise<UserCollectionFile> {
   try {
     const auth = await blobAuthOptions("private");
-    const result = await get(collectionBlobPath(userId), auth);
+    const result = await get(collectionBlobPath(userId), { ...auth, useCache: false });
     if (!result || result.statusCode !== 200 || !result.stream) return emptyCollection(userId);
     const text = await new Response(result.stream).text();
     return parseCollection(text, userId);
@@ -95,11 +95,13 @@ async function writeCollectionToBlob(
       contentType: "application/json",
       addRandomSuffix: false,
       allowOverwrite: true,
+      cacheControlMaxAge: 60,
     });
     return { ok: true };
   } catch (error) {
     console.error("[collection-storage] blob write failed", error);
-    return { error: "No se pudo guardar la colección en Vercel Blob." };
+    const detail = error instanceof Error ? error.message : String(error);
+    return { error: `No se pudo guardar la colección en Vercel Blob: ${detail}` };
   }
 }
 

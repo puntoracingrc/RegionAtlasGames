@@ -6,10 +6,10 @@ import { useState } from "react";
 import { BackLink } from "@/components/breadcrumbs";
 import type { MarketplaceListing } from "@/lib/marketplace-types";
 import { PHOTO_SLOT_LABELS, REQUIRED_PHOTO_SLOTS } from "@/lib/marketplace-types";
-import { formatEur } from "@/lib/catalog";
+import { formatEur } from "@/lib/price-format";
 import { coverAspectClass, LISTING_PHOTOS_GRID_CLASS } from "@/lib/cover-aspect";
 import { cn } from "@/lib/cn";
-import { LISTING_STATUS_HINTS, listingStatusLabel } from "@/lib/marketplace-ui";
+import { conditionScoreOutOfTen, LISTING_STATUS_HINTS, listingStatusLabel } from "@/lib/marketplace-ui";
 import { SiteNav } from "@/components/site-nav";
 import { Panel, PanelTitle } from "@/components/ui";
 
@@ -23,7 +23,14 @@ type Props = {
 export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogHref }: Props) {
   const router = useRouter();
   const [current, setCurrent] = useState(listing);
+  const [customTitle, setCustomTitle] = useState(listing.customTitle ?? "");
+  const [customDescription, setCustomDescription] = useState(listing.customDescription ?? "");
+  const [sellerCity, setSellerCity] = useState(listing.sellerCity ?? "");
+  const [saleOptions, setSaleOptions] = useState(
+    listing.saleOptions ?? { pickup: true, shipping: true },
+  );
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   async function upload(slot: string, file: File) {
@@ -81,6 +88,31 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
     router.refresh();
   }
 
+  async function saveDetails() {
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
+    const res = await fetch(`/api/marketplace/listings/${current.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        customTitle,
+        customDescription,
+        sellerCity,
+        saleOptions,
+      }),
+    });
+    const data = await res.json();
+    setLoading(false);
+    if (!res.ok) {
+      setError(data.error ?? "No se pudo guardar el anuncio.");
+      return;
+    }
+    if (data.listing) setCurrent(data.listing);
+    setSuccess("Anuncio actualizado.");
+    router.refresh();
+  }
+
   async function startChat() {
     setLoading(true);
     const res = await fetch("/api/marketplace/conversations", {
@@ -125,8 +157,16 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
         <header className="mt-4 mb-6 space-y-2">
           <h1 className="text-2xl font-bold text-foreground">{current.title}</h1>
           <p className="text-sm text-muted">
-            Vendedor: {current.sellerName} · {current.region}
+            Vendedor: {current.sellerName}
+            {current.sellerCity ? ` · ${current.sellerCity}` : ""}
+            {" · "}
+            {current.region}
             {current.sealed ? " · Precintado" : ""}
+          </p>
+          <p className="text-xs text-muted">
+            {(current.saleOptions?.pickup ?? true) && "Trato en mano"}
+            {(current.saleOptions?.pickup ?? true) && (current.saleOptions?.shipping ?? true) ? " · " : ""}
+            {(current.saleOptions?.shipping ?? true) && "Envío"}
           </p>
           <p className="text-sm">
             <span className="font-medium text-accent">{listingStatusLabel(current.status)}</span>
@@ -199,17 +239,116 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
         {current.aiAnalysis && (
           <Panel className="mb-6">
             <PanelTitle>Análisis IA (privado entre partes)</PanelTitle>
-            <p className="text-sm text-foreground">{current.aiAnalysis.conditionVerdict}</p>
+            <ConditionMeter score={current.aiAnalysis.conditionScore} />
+            <p className="mt-3 text-sm text-foreground">{current.aiAnalysis.conditionVerdict}</p>
             <p className="mt-2 text-lg font-bold text-accent">
               Estimación: {formatEur(current.aiAnalysis.estimatedPriceEur)}
             </p>
+            {current.aiAnalysis.visualDescription && (
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                {current.aiAnalysis.visualDescription}
+              </p>
+            )}
+            {current.aiAnalysis.gameMatchVerdict && (
+              <p className="mt-2 text-xs text-muted">
+                Coincidencia: {current.aiAnalysis.gameMatchVerdict}
+              </p>
+            )}
+            {current.aiAnalysis.conditionIssues && current.aiAnalysis.conditionIssues.length > 0 && (
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-muted">
+                {current.aiAnalysis.conditionIssues.map((issue) => (
+                  <li key={issue}>{issue}</li>
+                ))}
+              </ul>
+            )}
             <p className="mt-1 text-xs text-muted">{current.aiAnalysis.notes}</p>
           </Panel>
         )}
 
+        {isOwner && (current.status === "draft" || current.status === "active") && (
+          <Panel className="mb-6">
+            <PanelTitle>Detalles del anuncio</PanelTitle>
+            <div className="space-y-3">
+              <label className="block space-y-1.5">
+                <span className="text-xs font-medium uppercase tracking-wider text-muted">
+                  Título personalizado
+                </span>
+                <input
+                  value={customTitle}
+                  onChange={(e) => setCustomTitle(e.target.value)}
+                  className="input"
+                  placeholder={current.title}
+                  maxLength={120}
+                />
+              </label>
+              <label className="block space-y-1.5">
+                <span className="text-xs font-medium uppercase tracking-wider text-muted">
+                  Descripción del vendedor
+                </span>
+                <textarea
+                  value={customDescription}
+                  onChange={(e) => setCustomDescription(e.target.value)}
+                  className="input min-h-28 resize-y"
+                  maxLength={1200}
+                  placeholder="Ej. Caja con señales leves, disco probado, envío protegido..."
+                />
+              </label>
+              <label className="block space-y-1.5">
+                <span className="text-xs font-medium uppercase tracking-wider text-muted">
+                  Ciudad
+                </span>
+                <input
+                  value={sellerCity}
+                  onChange={(e) => setSellerCity(e.target.value)}
+                  className="input"
+                  placeholder="Ej. Madrid"
+                />
+              </label>
+              <div className="flex flex-wrap gap-2 text-sm">
+                <label className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-foreground">
+                  <input
+                    type="checkbox"
+                    checked={saleOptions.pickup}
+                    onChange={(e) => setSaleOptions((prev) => ({ ...prev, pickup: e.target.checked }))}
+                  />
+                  Trato en mano
+                </label>
+                <label className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-foreground">
+                  <input
+                    type="checkbox"
+                    checked={saleOptions.shipping}
+                    onChange={(e) => setSaleOptions((prev) => ({ ...prev, shipping: e.target.checked }))}
+                  />
+                  Envío
+                </label>
+              </div>
+              <button type="button" className="btn-secondary" disabled={loading} onClick={saveDetails}>
+                Guardar detalles
+              </button>
+            </div>
+          </Panel>
+        )}
+
+        {!isOwner && (current.customDescription || current.sellerCity) && (
+          <Panel className="mb-6">
+            <PanelTitle>Información del vendedor</PanelTitle>
+            {current.customDescription && (
+              <p className="text-sm leading-relaxed text-foreground">{current.customDescription}</p>
+            )}
+            <p className="mt-3 text-xs text-muted">
+              {current.sellerCity ? `Ciudad: ${current.sellerCity}` : "Ciudad no indicada"}
+            </p>
+          </Panel>
+        )}
+
         {error && (
-          <p className="mb-4 rounded-lg border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-sm text-rose-200">
+          <p className="mb-4 rounded-lg border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-sm text-rose-700 dark:text-rose-200">
             {error}
+          </p>
+        )}
+        {success && (
+          <p className="mb-4 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-700 dark:text-emerald-200">
+            {success}
           </p>
         )}
 
@@ -258,5 +397,23 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
         )}
       </main>
     </>
+  );
+}
+
+function ConditionMeter({ score }: { score: number }) {
+  const value = conditionScoreOutOfTen(score) ?? 1;
+  return (
+    <div>
+      <div className="mb-1 flex items-center justify-between text-xs">
+        <span className="font-medium text-muted">Estado estimado</span>
+        <span className="font-semibold text-foreground">{value}/10</span>
+      </div>
+      <div className="h-2 overflow-hidden rounded-full bg-card-hover">
+        <div
+          className="h-full rounded-full bg-accent"
+          style={{ width: `${value * 10}%` }}
+        />
+      </div>
+    </div>
   );
 }

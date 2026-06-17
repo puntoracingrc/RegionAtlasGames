@@ -10,7 +10,7 @@ import { readCatalogStagingGame } from "@/lib/catalog-staging-storage";
 
 type RouteParams = { params: Promise<{ pcId: string }> };
 
-export async function POST(_request: Request, { params }: RouteParams) {
+export async function POST(request: Request, { params }: RouteParams) {
   if (!(await assertAdminApi())) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
@@ -27,14 +27,25 @@ export async function POST(_request: Request, { params }: RouteParams) {
 
   const existing = await readAdminGameDraft(pcId);
   const draft = draftFromStaging(staging, existing);
+  const body = await request.json().catch(() => ({})) as {
+    manualUrl?: unknown;
+    extraInstructions?: unknown;
+  };
+  const manualUrl = typeof body.manualUrl === "string" ? body.manualUrl : "";
+  const extraInstructions =
+    typeof body.extraInstructions === "string" ? body.extraInstructions : "";
 
   const stream = new ReadableStream({
     async start(controller) {
       const encoder = new TextEncoder();
       try {
-        for await (const event of streamAdminAiFill(draft)) {
+        for await (const event of streamAdminAiFill(draft, { manualUrl, extraInstructions })) {
           controller.enqueue(encoder.encode(sseEncode(event)));
           if (event.type === "done") {
+            event.draft.slug = draft.slug;
+            event.draft.catalogId = draft.catalogId;
+            event.draft.platformSlug = draft.platformSlug;
+            event.draft.region = draft.region;
             await writeAdminGameDraft(event.draft);
           }
         }

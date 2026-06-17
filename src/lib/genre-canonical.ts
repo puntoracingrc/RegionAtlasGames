@@ -1,6 +1,6 @@
 import genreGroupsData from "../../data/genre-groups.json";
 import genreEntitiesData from "../../data/index/genre-entities.json";
-import { normalizeGenreKey, pickGenreDisplayName } from "./genre-normalize";
+import { isInvalidGenreEntity, normalizeGenreKey, pickGenreDisplayName } from "./genre-normalize";
 import type { DetailEntity, IndexEntry } from "./types";
 
 export type GenreMergeMethod = "manual" | "museum" | "normalized" | "slug";
@@ -163,6 +163,7 @@ export function mergeGenreIndex(raw: Record<string, IndexEntry>): Record<string,
   const buckets = new Map<string, IndexEntry[]>();
 
   for (const entry of Object.values(raw)) {
+    if (isInvalidGenreEntity(entry)) continue;
     const canonical = resolveCanonicalGenre(entry.slug, entry.name, { museumPath: entry.museumPath });
     const list = buckets.get(canonical.slug) ?? [];
     list.push(entry);

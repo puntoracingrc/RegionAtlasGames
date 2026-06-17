@@ -1,18 +1,7 @@
 import type { CatalogGame } from "./types";
 import { getCatalogGame, listedCatalog } from "./catalog";
-import { getRegionDisplay } from "./region-display";
-import { slugify } from "./slug";
-
-function regionSlugForSeo(region: string): string {
-  const short = getRegionDisplay(region).shortLabel.toLowerCase();
-  if (short !== "?") return slugify(short === "uk" ? "pal-uk" : `pal-${short}`);
-  return slugify(region.replace(/^PAL\s+/i, "pal-"));
-}
-
-/** Canonical SEO slug: e.g. super-mario-world-snes-pal-es */
-export function buildCatalogSeoSlug(game: CatalogGame): string {
-  return `${game.slug}-${game.platformSlug}-${regionSlugForSeo(game.region)}`;
-}
+export { buildCatalogSeoSlug, catalogGamePath } from "./catalog-path";
+import { buildCatalogSeoSlug } from "./catalog-path";
 
 const catalogBySeoSlug = new Map<string, CatalogGame>();
 
@@ -31,12 +20,6 @@ export function getCatalogGameBySeoSlug(slug: string): CatalogGame | undefined {
 export function resolveCatalogGameParam(param: string): CatalogGame | undefined {
   ensureCatalogSeoSlugIndex();
   return catalogBySeoSlug.get(param) ?? getCatalogGame(param);
-}
-
-export function catalogGamePath(game: CatalogGame | string): string {
-  const g = typeof game === "string" ? getCatalogGame(game) : game;
-  if (!g) return "/catalogo";
-  return `/catalogo/${buildCatalogSeoSlug(g)}`;
 }
 
 export function getListedGamesWithEsPrice(): CatalogGame[] {

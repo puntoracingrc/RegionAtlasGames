@@ -37,7 +37,7 @@ export function CatalogGameListLink({ game, href, className, layout = "row" }: P
     <Link
       href={href}
       className={cn(
-        "flex items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-sm text-foreground/90 hover:bg-black/20 hover:text-accent",
+        "flex items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-sm text-foreground/90 hover:bg-card-hover hover:text-accent dark:hover:bg-black/20",
         className,
       )}
     >

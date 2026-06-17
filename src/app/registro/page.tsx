@@ -11,7 +11,9 @@ export default function RegisterPage() {
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [city, setCity] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -23,7 +25,7 @@ export default function RegisterPage() {
       const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, email, password, city }),
       });
       let data: { error?: string } = {};
       try {
@@ -75,16 +77,36 @@ export default function RegisterPage() {
                 autoComplete="email"
               />
             </Field>
-            <Field label="Contraseña (mín. 8 caracteres)">
+            <Field label="Ciudad">
               <input
-                type="password"
-                required
-                minLength={8}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
                 className="input"
-                autoComplete="new-password"
+                autoComplete="address-level2"
+                placeholder="Ej. Madrid"
               />
+            </Field>
+            <Field label="Contraseña (mín. 8 caracteres)">
+              <div className="flex gap-2">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  required
+                  minLength={8}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="input"
+                  autoComplete="new-password"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((value) => !value)}
+                  className="rounded-lg border border-border px-3 text-sm text-muted transition hover:bg-card-hover hover:text-foreground"
+                  aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                >
+                  {showPassword ? "Ocultar" : "Ver"}
+                </button>
+              </div>
             </Field>
             {error && <p className="text-sm text-rose-500">{error}</p>}
             <button type="submit" disabled={loading} className="btn-primary w-full">

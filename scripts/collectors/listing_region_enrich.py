@@ -34,9 +34,10 @@ def region_needs_cover_vision(
     evidence: list[str],
     ai_conf: float,
     ok_ref: bool,
+    force_weak_evidence: bool = False,
 ) -> bool:
     """True solo si faltan pruebas de región y la visión podría resolverlo."""
-    if not ok_ref:
+    if not ok_ref and not force_weak_evidence:
         return False
     if os.environ.get("REGION_VISION_DISABLED", "").strip():
         return False
@@ -45,6 +46,8 @@ def region_needs_cover_vision(
     rules_ok, _ = check_listing_evidence_meets_rules(
         platform_slug, catalog_region, evidence, ai_conf
     )
+    if force_weak_evidence and "seller_states_region" in evidence and "sku_regional" not in evidence:
+        return True
     return not (rules_ok and regions_match(catalog_region, listing_region))
 
 
@@ -62,6 +65,7 @@ def enrich_listing_region_from_cover(
     product: dict[str, Any] | None = None,
     row: dict[str, Any] | None = None,
     external_id: str | None = None,
+    force_weak_evidence: bool = False,
 ) -> tuple[str, list[str], float, bool, str | None, list[str]]:
     """
     Texto/reglas primero. Solo si faltan pruebas y hay fotos + API → visión en el mismo paso.
@@ -72,13 +76,15 @@ def enrich_listing_region_from_cover(
         platform_slug, catalog_region, evidence, ai_conf
     )
     region_matches = regions_match(catalog_region, listing_region)
+    vision_ok_ref = ok_ref or force_weak_evidence
     if not region_needs_cover_vision(
         platform_slug=platform_slug,
         catalog_region=catalog_region,
         listing_region=listing_region,
         evidence=evidence,
         ai_conf=ai_conf,
-        ok_ref=ok_ref,
+        ok_ref=vision_ok_ref,
+        force_weak_evidence=force_weak_evidence,
     ):
         return listing_region, evidence, ai_conf, rules_ok and region_matches, None, notes
 
@@ -102,11 +108,16 @@ def enrich_listing_region_from_cover(
         listing_region=listing_region,
         evidence=evidence,
         ai_conf=ai_conf,
-        ok_ref=ok_ref,
+        ok_ref=vision_ok_ref,
         image_urls=image_urls,
         source=source,
         external_id=external_id,
+        force_vision=force_weak_evidence,
     )
+
+    if force_weak_evidence and "cover_vision" not in evidence:
+        notes.append("cover_vision_required")
+        return listing_region, evidence, ai_conf, False, condition, notes
 
     if "cover_vision" in evidence and verified:
         notes.append("cover_vision_verified")
@@ -149,7 +160,13 @@ def apply_region_enrichment_to_row(
         evidence=evidence,
         ai_conf=ai_conf,
         ok_ref=ok_ref,
+        force_weak_evidence=use_strict
+        and "seller_states_region" in evidence
+        and "sku_regional" not in evidence
+        and not row.get("matchedReference"),
     ):
+        if use_strict and not row.get("regionVerified"):
+            return None
         return row
 
     image_scratch: dict[str, Any] = {}
@@ -174,6 +191,10 @@ def apply_region_enrichment_to_row(
             product=product,
             row=image_scratch if image_scratch else row,
             external_id=external_id,
+            force_weak_evidence=use_strict
+            and "seller_states_region" in evidence
+            and "sku_regional" not in evidence
+            and not row.get("matchedReference"),
         )
     )
 

@@ -1,0 +1,182 @@
+{
+  "version": 2,
+  "updatedAt": "2026-06-15",
+  "assets": [
+    {
+      "slug": "nes",
+      "label": "Nintendo Entertainment System",
+      "file": "/mascots/consoles/nes.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_56_59 (1).png",
+      "width": 1182,
+      "height": 870
+    },
+    {
+      "slug": "snes",
+      "label": "Super Nintendo",
+      "file": "/mascots/consoles/snes.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_56_59 (2).png",
+      "width": 948,
+      "height": 828
+    },
+    {
+      "slug": "n64",
+      "label": "Nintendo 64",
+      "file": "/mascots/consoles/n64.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_57_00 (3).png",
+      "width": 1107,
+      "height": 809
+    },
+    {
+      "slug": "wii",
+      "label": "Wii",
+      "file": "/mascots/consoles/wii.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_57_01 (6).png",
+      "width": 736,
+      "height": 945
+    },
+    {
+      "slug": "ds",
+      "label": "Nintendo DS",
+      "file": "/mascots/consoles/ds.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_57_01 (7).png",
+      "width": 895,
+      "height": 880
+    },
+    {
+      "slug": "3ds",
+      "label": "Nintendo 3DS",
+      "file": "/mascots/consoles/3ds.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_57_01 (8).png",
+      "width": 1208,
+      "height": 1044
+    },
+    {
+      "slug": "gamecube",
+      "label": "GameCube",
+      "file": "/mascots/consoles/gamecube.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_57_00 (5).png",
+      "width": 1067,
+      "height": 927
+    },
+    {
+      "slug": "gameboy",
+      "label": "Game Boy",
+      "file": "/mascots/consoles/gameboy.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_57_00 (4).png",
+      "width": 776,
+      "height": 975
+    },
+    {
+      "slug": "mastersystem",
+      "label": "Master System",
+      "file": "/mascots/consoles/mastersystem.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_57_01 (9).png",
+      "width": 1095,
+      "height": 664
+    },
+    {
+      "slug": "megadrive",
+      "label": "Mega Drive",
+      "file": "/mascots/consoles/megadrive.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_57_02 (10).png",
+      "width": 1139,
+      "height": 790
+    },
+    {
+      "slug": "sega32x",
+      "label": "Sega 32X",
+      "file": "/mascots/consoles/sega32x.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_58_56 (1).png",
+      "width": 1068,
+      "height": 815
+    },
+    {
+      "slug": "dreamcast",
+      "label": "Dreamcast",
+      "file": "/mascots/consoles/dreamcast.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_58_56 (2).png",
+      "width": 1099,
+      "height": 921
+    },
+    {
+      "slug": "ps1",
+      "label": "PlayStation",
+      "file": "/mascots/consoles/ps1.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_58_56 (3).png",
+      "width": 1080,
+      "height": 827
+    },
+    {
+      "slug": "saturn",
+      "label": "Saturn",
+      "file": "/mascots/consoles/saturn.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_58_57 (4).png",
+      "width": 1177,
+      "height": 857
+    },
+    {
+      "slug": "megacd",
+      "label": "Mega CD",
+      "file": "/mascots/consoles/megacd.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_58_57 (5).png",
+      "width": 1161,
+      "height": 779
+    },
+    {
+      "slug": "neogeo",
+      "label": "Neo Geo AES",
+      "file": "/mascots/consoles/neogeo.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_58_57 (6).png",
+      "width": 1090,
+      "height": 809
+    },
+    {
+      "slug": "ps2",
+      "label": "PlayStation 2",
+      "file": "/mascots/consoles/ps2.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_58_57 (7).png",
+      "width": 1064,
+      "height": 1027
+    },
+    {
+      "slug": "neogeopocket",
+      "label": "Neo Geo Pocket",
+      "file": "/mascots/consoles/neogeopocket.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_58_57 (8).png",
+      "width": 983,
+      "height": 817
+    },
+    {
+      "slug": "neogeocd",
+      "label": "Neo Geo CD",
+      "file": "/mascots/consoles/neogeocd.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_58_58 (10).png",
+      "width": 1073,
+      "height": 856
+    },
+    {
+      "slug": "gamegear",
+      "label": "Game Gear",
+      "file": "/mascots/consoles/gamegear.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 21_58_58 (9).png",
+      "width": 1163,
+      "height": 784
+    },
+    {
+      "slug": "ps3",
+      "label": "PlayStation 3",
+      "file": "/mascots/consoles/ps3.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 22_08_25 (1).png",
+      "width": 888,
+      "height": 1022
+    },
+    {
+      "slug": "ps4",
+      "label": "PlayStation 4",
+      "file": "/mascots/consoles/ps4.png",
+      "sourceFile": "ChatGPT Image 15 jun 2026, 22_08_25 (2).png",
+      "width": 951,
+      "height": 916
+    }
+  ]
+}

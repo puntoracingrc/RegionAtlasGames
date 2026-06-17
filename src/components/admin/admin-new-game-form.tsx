@@ -13,6 +13,10 @@ type PlatformOption = { slug: string; name: string };
 type Props = {
   platforms: PlatformOption[];
   regions: readonly string[];
+  createApiUrl?: string;
+  similarApiUrl?: string;
+  redirectBase?: string;
+  contributorMode?: boolean;
 };
 
 type CreatePayload = {
@@ -26,7 +30,14 @@ type CreatePayload = {
   confirmDistinct?: boolean;
 };
 
-export function AdminNewGameForm({ platforms, regions }: Props) {
+export function AdminNewGameForm({
+  platforms,
+  regions,
+  createApiUrl = "/api/admin/games",
+  similarApiUrl = "/api/admin/games/similar",
+  redirectBase = "/admin/cola",
+  contributorMode = false,
+}: Props) {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [platformSlug, setPlatformSlug] = useState(platforms[0]?.slug ?? "snes");
@@ -61,7 +72,7 @@ export function AdminNewGameForm({ platforms, regions }: Props) {
           region,
         });
         if (slug.trim()) params.set("slug", slug.trim());
-        const res = await fetch(`/api/admin/games/similar?${params}`, {
+        const res = await fetch(`${similarApiUrl}?${params}`, {
           signal: controller.signal,
         });
         if (!res.ok) return;
@@ -84,7 +95,7 @@ export function AdminNewGameForm({ platforms, regions }: Props) {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/admin/games", {
+      const res = await fetch(createApiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -104,7 +115,7 @@ export function AdminNewGameForm({ platforms, regions }: Props) {
 
       setShowSimilarGate(false);
       setSimilarMatches([]);
-      router.push(data.redirect ?? `/admin/cola/${data.pcId}`);
+      router.push(data.redirect ?? `${redirectBase}/${data.pcId}`);
     } catch {
       setError("Error de red.");
     } finally {
@@ -119,8 +130,8 @@ export function AdminNewGameForm({ platforms, regions }: Props) {
       region,
       reference: reference || undefined,
       slug: slug || undefined,
-      autoEnrich: true,
-      autoAi,
+      autoEnrich: !contributorMode,
+      autoAi: contributorMode ? false : autoAi,
       confirmDistinct,
     };
   }
@@ -148,19 +159,24 @@ export function AdminNewGameForm({ platforms, regions }: Props) {
 
   return (
     <Panel>
-      <PanelTitle>Nuevo juego manual</PanelTitle>
-      <p className="mb-4 text-sm text-muted">
-        Crea una ficha desde cero. Al escribir el título verás si ya hay nombres parecidos en el
-        catálogo. Al guardar se busca portada en PriceCharting y, si activas la opción, la IA
-        rellenará metadatos y descripción en directo.
+      <PanelTitle eyebrow="Alta manual">
+        {contributorMode ? "Nueva ficha para revisión" : "Nuevo juego manual"}
+      </PanelTitle>
+      <p className="mb-5 max-w-3xl text-sm leading-6 text-muted">
+        {contributorMode
+          ? "Crea una ficha nueva. Solo puedes enviarla a revisión; el administrador decidirá si publicarla."
+          : "Crea una ficha desde cero. Al escribir el título verás si ya hay nombres parecidos en el catálogo. Al guardar se busca portada en PriceCharting y, si activas la opción, la IA rellenará metadatos y descripción en directo."}
       </p>
 
-      <form onSubmit={onSubmit} className="grid max-w-2xl gap-4">
+      <form
+        onSubmit={onSubmit}
+        className="grid max-w-3xl gap-4 rounded-2xl border border-border bg-background/45 p-4 md:grid-cols-2"
+      >
         <label className="block space-y-1">
           <span className="text-[10px] uppercase tracking-wider text-muted">Título</span>
           <input
             required
-            className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+            className="input"
             value={title}
             onChange={(e) => {
               setTitle(e.target.value);
@@ -172,7 +188,7 @@ export function AdminNewGameForm({ platforms, regions }: Props) {
         <label className="block space-y-1">
           <span className="text-[10px] uppercase tracking-wider text-muted">Plataforma</span>
           <select
-            className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+            className="input"
             value={platformSlug}
             onChange={(e) => {
               setPlatformSlug(e.target.value);
@@ -190,7 +206,7 @@ export function AdminNewGameForm({ platforms, regions }: Props) {
         <label className="block space-y-1">
           <span className="text-[10px] uppercase tracking-wider text-muted">Región</span>
           <select
-            className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+            className="input"
             value={region}
             onChange={(e) => {
               setRegion(e.target.value);
@@ -210,7 +226,7 @@ export function AdminNewGameForm({ platforms, regions }: Props) {
             Referencia SKU / CUSA (opcional)
           </span>
           <input
-            className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm font-mono"
+            className="input font-mono"
             value={reference}
             onChange={(e) => setReference(e.target.value)}
           />
@@ -219,7 +235,7 @@ export function AdminNewGameForm({ platforms, regions }: Props) {
         <label className="block space-y-1">
           <span className="text-[10px] uppercase tracking-wider text-muted">Slug (opcional)</span>
           <input
-            className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm font-mono text-xs"
+            className="input font-mono text-xs"
             value={slug}
             onChange={(e) => {
               setSlug(e.target.value);
@@ -229,14 +245,21 @@ export function AdminNewGameForm({ platforms, regions }: Props) {
           />
         </label>
 
-        <label className="flex items-center gap-2 text-sm">
-          <input
-            type="checkbox"
-            checked={autoAi}
-            onChange={(e) => setAutoAi(e.target.checked)}
-          />
-          Rellenar con IA al abrir el editor
-        </label>
+        {!contributorMode && (
+          <label className="flex items-center gap-3 rounded-xl border border-border bg-card/70 p-3 text-sm md:col-span-2">
+            <input
+              type="checkbox"
+              checked={autoAi}
+              onChange={(e) => setAutoAi(e.target.checked)}
+            />
+            <span>
+              <span className="block font-medium text-foreground">Rellenar con IA al abrir el editor</span>
+              <span className="text-xs text-muted">
+                Útil para completar descripción, año, compañía y géneros tras crear la ficha.
+              </span>
+            </span>
+          </label>
+        )}
 
         {(gateActive ||
           previewLoading ||
@@ -255,12 +278,14 @@ export function AdminNewGameForm({ platforms, regions }: Props) {
         )}
 
         {!gateActive && (
-          <button type="submit" className="btn-primary w-fit" disabled={loading || previewLoading}>
-            {loading ? "Creando…" : "Crear y abrir editor"}
-          </button>
+          <div className="md:col-span-2">
+            <button type="submit" className="btn-primary w-full sm:w-auto" disabled={loading || previewLoading}>
+              {loading ? "Creando…" : contributorMode ? "Crear ficha" : "Crear y abrir editor"}
+            </button>
+          </div>
         )}
 
-        {error && <p className="text-sm text-rose-600 dark:text-rose-400">{error}</p>}
+        {error && <p className="text-sm text-rose-600 dark:text-rose-400 md:col-span-2">{error}</p>}
       </form>
     </Panel>
   );

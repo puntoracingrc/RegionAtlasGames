@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import ssl
 import time
 import urllib.error
 import urllib.parse
@@ -36,6 +37,12 @@ DEFAULT_LONGITUDE = -3.7038
 # Como la web: «Más recientes» + «Últimos 30 días» (API: lastMonth)
 DEFAULT_ORDER_BY = "newest"
 VALID_ORDER_BY = frozenset({"newest", "closest", "score", "most_relevance"})
+RETRYABLE_URL_ERRORS = (
+    TimeoutError,
+    ConnectionError,
+    urllib.error.URLError,
+    ssl.SSLError,
+)
 
 
 def wallapop_order_by() -> str:
@@ -168,6 +175,7 @@ def search_page(
     keywords: str,
     next_page: str | None = None,
     category_id: str = DEFAULT_CATEGORY_ID,
+    retries: int = 3,
 ) -> dict[str, Any]:
     lat, lon = _coords()
     params: dict[str, str] = {
@@ -186,12 +194,23 @@ def search_page(
 
     url = f"{WALLAPOP_API}?{urllib.parse.urlencode(params)}"
     req = urllib.request.Request(url, headers=_headers())
-    try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as exc:
-        body = exc.read().decode("utf-8", errors="ignore")[:400]
-        raise RuntimeError(f"Wallapop API ({exc.code}): {body}") from exc
+    last_error: BaseException | None = None
+    for attempt in range(1, max(1, retries) + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            body = exc.read().decode("utf-8", errors="ignore")[:400]
+            if exc.code in {429, 500, 502, 503, 504} and attempt < retries:
+                last_error = exc
+            else:
+                raise RuntimeError(f"Wallapop API ({exc.code}): {body}") from exc
+        except RETRYABLE_URL_ERRORS as exc:
+            if attempt >= retries:
+                raise RuntimeError(f"Wallapop API: error de conexión tras {attempt} intentos ({exc})") from exc
+            last_error = exc
+        time.sleep(min(1.5 * attempt, 5.0))
+    raise RuntimeError(f"Wallapop API: error de conexión ({last_error})")
 
 
 def fetch_query_products(

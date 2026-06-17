@@ -1,4 +1,4 @@
-import { formatEur } from "@/lib/catalog";
+import { formatEur } from "@/lib/price-format";
 import type { CollectionSummary } from "@/lib/collection-store";
 import { CollectionValueUpsell } from "@/components/collection-value-upsell";
 

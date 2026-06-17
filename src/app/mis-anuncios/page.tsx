@@ -9,7 +9,7 @@ export default async function MyListingsPage() {
   if (!user) redirect("/login");
   if (!canUseMarketplace(user.plan)) redirect("/ajustes");
 
-  const listings = getSellerListings(user.id).sort((a, b) =>
+  const listings = (await getSellerListings(user.id)).sort((a, b) =>
     b.updatedAt.localeCompare(a.updatedAt),
   );
 

@@ -502,6 +502,34 @@ def collect_condition_observations(
     return observations
 
 
+CONDITION_PRICE_FIELDS = {
+    "loose": "estimatedPriceLoose",
+    "game_manual": "estimatedPriceGameManual",
+    "complete": "estimatedPriceComplete",
+    "sealed": "estimatedPriceSealed",
+}
+
+
+def _merge_price_source_labels(previous: str | None, sources: set[str]) -> str | None:
+    labels: list[str] = []
+
+    def add(label: str) -> None:
+        clean = label.strip()
+        if clean and clean not in labels:
+            labels.append(clean)
+
+    if previous:
+        for part in str(previous).split("·"):
+            add(part)
+    current = format_data_sources(sources)
+    if current:
+        for part in current.split("·"):
+            add(part)
+    if not labels:
+        return None
+    return " · ".join(labels)
+
+
 def apply_condition_price_estimates(
     game: dict[str, Any],
     observations: list[tuple[float, str, str]],
@@ -510,30 +538,34 @@ def apply_condition_price_estimates(
     pc_ref: float | None,
 ) -> bool:
     estimates, sources = mean_by_bucket(observations)
-    if not any(estimates.get(b) is not None for b in DISPLAY_BUCKETS):
-        game["estimatedPriceLoose"] = None
-        game["estimatedPriceComplete"] = None
-        game["estimatedPriceSealed"] = None
-        game["priceDataSources"] = None
+    has_new_estimate = any(estimates.get(b) is not None for b in DISPLAY_BUCKETS)
+    if not has_new_estimate:
         return False
 
-    game["estimatedPriceLoose"] = estimates.get("loose")
-    game["estimatedPriceComplete"] = estimates.get("complete")
-    game["estimatedPriceSealed"] = estimates.get("sealed")
-    game["priceDataSources"] = format_data_sources(sources)
+    for bucket, field in CONDITION_PRICE_FIELDS.items():
+        value = estimates.get(bucket)
+        if value is not None:
+            game[field] = value
+
+    game["priceDataSources"] = _merge_price_source_labels(game.get("priceDataSources"), sources)
     game["hasEsPrice"] = True
     game["priceRegionVerified"] = True
     game["updatedAt"] = synced_at
 
     primary = (
-        estimates.get("complete")
-        or estimates.get("loose")
-        or estimates.get("sealed")
+        game.get("estimatedPriceComplete")
+        or game.get("estimatedPriceGameManual")
+        or game.get("estimatedPriceLoose")
+        or game.get("estimatedPriceSealed")
     )
     game["recommendedPrice"] = primary
     game["deltaEsVsPc"] = delta_es_vs_pc(primary, pc_ref)
 
-    bucket_prices = [p for p in estimates.values() if p is not None]
+    bucket_prices = [
+        game.get(field)
+        for field in CONDITION_PRICE_FIELDS.values()
+        if game.get(field) is not None
+    ]
     if bucket_prices:
         game["marketMin"] = round(min(bucket_prices), 2)
         game["marketMax"] = round(max(bucket_prices), 2)
@@ -560,6 +592,7 @@ def advance_rotation(order: list[str], current: str) -> str | None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Sync precios ES por plataforma")
     parser.add_argument("--platform", help="Plataforma concreta (slug)")
+    parser.add_argument("--region", help="Filtrar región de catálogo (p. ej. PAL España)")
     parser.add_argument("--input", type=Path, help="JSON de anuncios ingestados")
     parser.add_argument(
         "--rotation-step",
@@ -621,6 +654,7 @@ def main() -> None:
         for g in catalog
         if g.get("platformSlug") == platform_slug
         and is_price_tracked_game(g)
+        and (not args.region or g.get("region") == args.region)
     ]
     target_ids = {g["id"] for g in targets}
     by_id = {g["id"]: g for g in catalog}
@@ -696,6 +730,7 @@ def main() -> None:
         g
         for g in catalog
         if g.get("platformSlug") == platform_slug and g.get("listingStatus") != "excluded"
+        and (not args.region or g.get("region") == args.region)
     ]
     for game in platform_games:
         gid = game["id"]
@@ -781,7 +816,9 @@ def main() -> None:
     coverage = round((updated / len(targets)) * 100, 1) if targets else 0.0
 
     print(f"Plataforma: {platform_slug}")
-    print(f"  Objetivo catálogo (todas las regiones): {len(targets)} juegos")
+    if args.region:
+        print(f"  Región catálogo: {args.region}")
+    print(f"  Objetivo catálogo: {len(targets)} juegos")
     print(f"  P2P con ingest: {len(set(grouped) & target_ids)}")
     print(f"  Precio P2P actualizado: {updated}")
     print(f"  CeX actualizado (retail aparte): {cex_updated}")
@@ -850,6 +887,16 @@ def main() -> None:
         "coveragePct": coverage,
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
     }
+    if args.region:
+        regions_state = state.setdefault("regions", {})
+        platform_regions = regions_state.setdefault(platform_slug, {})
+        platform_regions[args.region] = {
+            "lastSyncAt": synced_at,
+            "source": price_source_label({str(r.get("source", "other")).lower() for r in listings}),
+            "gamesTargeted": len(targets),
+            "gamesUpdated": updated,
+            "coveragePct": coverage,
+        }
     state["lastRunAt"] = now_iso()
     rotation_step = args.rotation_step or platform_slug
     if not args.no_advance_rotation:

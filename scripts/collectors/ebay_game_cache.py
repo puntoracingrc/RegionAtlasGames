@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from collectors.cache_policy import cache_policy_matches
 from collectors.common import load_json
 
 GAME_CACHE_DIR = Path(__file__).resolve().parents[2] / "data" / "price-ingest" / "cache" / "ebay"
@@ -39,6 +40,8 @@ def game_cache_is_fresh(cache_file: Path, *, max_age_hours: float | None = None)
     if max_age_hours <= 0:
         return False
     cached = load_json(cache_file, {})
+    if not cache_policy_matches(cached):
+        return False
     collected = parse_iso(str(cached.get("collectedAt") or ""))
     if collected is None:
         return False
@@ -49,7 +52,8 @@ def game_cache_is_fresh(cache_file: Path, *, max_age_hours: float | None = None)
 def load_game_cache(cache_file: Path) -> dict[str, Any] | None:
     if not cache_file.exists():
         return None
-    return load_json(cache_file, {})
+    cached = load_json(cache_file, {})
+    return cached if cache_policy_matches(cached) else None
 
 
 __all__ = [

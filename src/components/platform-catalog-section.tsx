@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import type { CatalogGame, CollectionView, Platform } from "@/lib/types";
+import type { CatalogListGame, CollectionView, Platform } from "@/lib/types";
 import { BackLink } from "@/components/breadcrumbs";
 import { ManufacturerLogo } from "@/components/manufacturer-logo";
-import { formatEur, getPlatformStats } from "@/lib/catalog";
-import { buildPlatformCatalogInsights } from "@/lib/platform-catalog-insights";
-import { getPlatformConsoleArt } from "@/lib/platform-console-art";
+import type { PlatformCatalogInsights } from "@/lib/platform-catalog-insights";
 import { PlatformRegionBar } from "@/components/platform-region-bar";
-import { PlatformConsoleArt } from "@/components/platform-console-art";
 import { CatalogBrowser } from "@/components/catalog-browser";
+import { PlatformHeroArt } from "@/components/platform-card-art";
+import { formatEur } from "@/lib/price-format";
+import type { countByPriceFilter, regionOptions } from "@/lib/catalog-filters";
 
 const MANUFACTURER_STYLE = {
   nintendo: "from-red-500/15 via-red-500/5 to-transparent border-red-400/25",
@@ -21,7 +21,11 @@ const MANUFACTURER_STYLE = {
 
 type Props = {
   platform: Platform;
-  games: CatalogGame[];
+  games: CatalogListGame[];
+  totalGames: number;
+  insights: PlatformCatalogInsights;
+  regions: ReturnType<typeof regionOptions>;
+  priceCounts: ReturnType<typeof countByPriceFilter>;
   ownedItems: CollectionView[];
   ownedCatalogIds: string[];
   listingCounts: Record<string, number>;
@@ -32,6 +36,10 @@ type Props = {
 export function PlatformCatalogSection({
   platform,
   games,
+  totalGames,
+  insights,
+  regions,
+  priceCounts,
   ownedItems,
   ownedCatalogIds,
   listingCounts,
@@ -39,24 +47,22 @@ export function PlatformCatalogSection({
   canViewCollectionValue,
 }: Props) {
   const [region, setRegion] = useState("all");
-  const stats = getPlatformStats(platform.slug, ownedItems);
   const ownedOnPlatform = ownedItems.filter((c) => c.platformSlug === platform.slug);
-  const insights = buildPlatformCatalogInsights(games);
+  const stats = { owned: ownedOnPlatform.length };
   const collectionValue = ownedOnPlatform.reduce((s, g) => s + (g.totalValue || 0), 0);
   const gradient = MANUFACTURER_STYLE[platform.manufacturer];
-  const consoleArt = getPlatformConsoleArt(platform.slug, platform.name);
 
   return (
     <>
       <header className="mb-8 space-y-4">
         <BackLink href="/plataformas">Plataformas</BackLink>
 
-        <div
-          className={`overflow-hidden rounded-2xl border bg-gradient-to-br ${gradient} bg-card shadow-sm`}
-        >
-          <div className="p-5 md:p-7">
+        <div className={`relative overflow-hidden rounded-2xl border bg-gradient-to-br ${gradient} bg-card shadow-sm`}>
+          <PlatformHeroArt platform={platform} />
+
+          <div className="relative z-10 p-5 md:p-7">
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-              <div className="min-w-0 flex-1 space-y-3">
+              <div className="min-w-0 flex-1 space-y-3 md:max-w-[calc(100%-17rem)] lg:max-w-[calc(100%-21rem)]">
                 <ManufacturerLogo manufacturer={platform.manufacturer} />
                 <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                   {platform.name}
@@ -65,21 +71,16 @@ export function PlatformCatalogSection({
                   {platform.description}
                 </p>
               </div>
-
-              {consoleArt && (
-                <PlatformConsoleArt
-                  art={consoleArt}
-                  className="self-end md:self-start md:mt-1"
-                />
-              )}
             </div>
 
-            <PlatformRegionBar
-              regions={insights.topRegions}
-              total={insights.total}
-              selectedRegion={region}
-              onSelectRegion={setRegion}
-            />
+            <div className="md:max-w-[calc(100%-17rem)] lg:max-w-[calc(100%-21rem)]">
+              <PlatformRegionBar
+                regions={insights.topRegions}
+                total={insights.total}
+                selectedRegion={region}
+                onSelectRegion={setRegion}
+              />
+            </div>
 
             {stats.owned > 0 && (
               <p className="mt-4 text-sm text-muted">
@@ -105,6 +106,10 @@ export function PlatformCatalogSection({
       <CatalogBrowser
         games={games}
         contextName={platform.shortName}
+        source={{ kind: "platform", slug: platform.slug }}
+        totalCount={totalGames}
+        regions={regions}
+        priceCounts={priceCounts}
         showRegionFilter
         ownedCatalogIds={ownedCatalogIds}
         listingCounts={listingCounts}

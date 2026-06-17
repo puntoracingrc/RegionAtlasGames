@@ -18,7 +18,7 @@ import {
   type CatalogPriceFilter,
   type CatalogSort,
 } from "@/lib/catalog-filters";
-import type { CatalogGame } from "@/lib/types";
+import type { CatalogListGame } from "@/lib/types";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { cn } from "@/lib/cn";
 
@@ -26,8 +26,13 @@ const selectClass =
   "rounded-lg border border-border bg-input px-3 py-2 text-sm outline-none ring-accent/25 focus:ring-2";
 
 type Props = {
-  games: CatalogGame[];
+  games: CatalogListGame[];
   contextName: string;
+  source?: { kind: "platform"; slug: string };
+  totalCount?: number;
+  regions?: ReturnType<typeof regionOptions>;
+  platforms?: ReturnType<typeof platformOptions>;
+  priceCounts?: ReturnType<typeof countByPriceFilter>;
   showRegionFilter?: boolean;
   showPlatformFilter?: boolean;
   ownedCatalogIds?: string[];
@@ -42,6 +47,11 @@ type Props = {
 export function CatalogBrowser({
   games,
   contextName,
+  source,
+  totalCount,
+  regions: initialRegions,
+  platforms: initialPlatforms,
+  priceCounts: initialPriceCounts,
   showRegionFilter = true,
   showPlatformFilter = false,
   ownedCatalogIds = [],
@@ -66,12 +76,18 @@ export function CatalogBrowser({
   const [sort, setSort] = useState<CatalogSort>(DEFAULT_SORT);
   const [priceFilter, setPriceFilter] = useState<CatalogPriceFilter>("all");
   const [page, setPage] = useState(1);
+  const [serverItems, setServerItems] = useState(games);
+  const [serverTotal, setServerTotal] = useState(totalCount ?? games.length);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const regions = useMemo(() => regionOptions(games), [games]);
-  const platforms = useMemo(() => platformOptions(games), [games]);
-  const priceCounts = useMemo(() => countByPriceFilter(games), [games]);
+  const regions = useMemo(() => initialRegions ?? regionOptions(games), [games, initialRegions]);
+  const platforms = useMemo(() => initialPlatforms ?? platformOptions(games), [games, initialPlatforms]);
+  const priceCounts = useMemo(
+    () => initialPriceCounts ?? countByPriceFilter(games),
+    [games, initialPriceCounts],
+  );
 
-  const { items: filteredItems, total } = useMemo(
+  const localResult = useMemo(
     () =>
       filterCatalogGames(
         games,
@@ -83,6 +99,8 @@ export function CatalogBrowser({
       ),
     [games, q, region, platform, sort, priceFilter, showRegionFilter, showPlatformFilter],
   );
+  const filteredItems = source ? serverItems : localResult.items;
+  const total = source ? serverTotal : localResult.total;
 
   const totalPages = Math.max(1, Math.ceil(total / CATALOG_PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
@@ -97,10 +115,48 @@ export function CatalogBrowser({
     }
   }, [page, totalPages]);
 
+  useEffect(() => {
+    if (!source) return;
+    const controller = new AbortController();
+    const timeout = window.setTimeout(async () => {
+      setIsLoading(true);
+      try {
+        const params = new URLSearchParams({
+          q,
+          region,
+          sort,
+          priceFilter,
+          page: String(page),
+        });
+        const response = await fetch(`/api/catalog/platform/${encodeURIComponent(source.slug)}?${params}`, {
+          signal: controller.signal,
+        });
+        if (!response.ok) return;
+        const payload = (await response.json()) as {
+          items: CatalogListGame[];
+          total: number;
+        };
+        setServerItems(payload.items);
+        setServerTotal(payload.total);
+      } catch (error) {
+        if (!controller.signal.aborted) {
+          console.warn("[catalog-browser] fetch failed", error);
+        }
+      } finally {
+        if (!controller.signal.aborted) setIsLoading(false);
+      }
+    }, q.trim() ? 220 : 0);
+    return () => {
+      controller.abort();
+      window.clearTimeout(timeout);
+    };
+  }, [source, q, region, sort, priceFilter, page]);
+
   const pageItems = useMemo(() => {
+    if (source) return filteredItems;
     const start = (safePage - 1) * CATALOG_PAGE_SIZE;
     return filteredItems.slice(start, start + CATALOG_PAGE_SIZE);
-  }, [filteredItems, safePage]);
+  }, [filteredItems, safePage, source]);
 
   const hasActiveFilters =
     q.trim() !== "" ||
@@ -213,6 +269,7 @@ export function CatalogBrowser({
               </span>
             )}
           </p>
+          {isLoading && <p className="text-xs text-accent">Actualizando catálogo…</p>}
           <HighlightLegend showOwned compact={compactLegends} />
         </div>
         <PriceLegend defaultOpen={!compactLegends} />
@@ -274,7 +331,7 @@ export function EntityBrowser({
   listingCounts = {},
   isLoggedIn = false,
 }: {
-  games: CatalogGame[];
+  games: CatalogListGame[];
   title: string;
   ownedCatalogIds?: string[];
   listingCounts?: Record<string, number>;

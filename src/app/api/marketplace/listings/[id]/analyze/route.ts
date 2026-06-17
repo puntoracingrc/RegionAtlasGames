@@ -13,7 +13,7 @@ export async function POST(request: Request, { params }: Params) {
   }
 
   const { id } = await params;
-  const listing = getListing(id);
+  const listing = await getListing(id);
   if (!listing || listing.sellerId !== user.id) {
     return NextResponse.json({ error: "Anuncio no encontrado." }, { status: 404 });
   }
@@ -22,23 +22,23 @@ export async function POST(request: Request, { params }: Params) {
   const action = body.action as string | undefined;
 
   if (action === "publish") {
-    const pub = publishListing(id, user.id);
+    const pub = await publishListing(id, user.id);
     if ("error" in pub) return NextResponse.json({ error: pub.error }, { status: 400 });
-    return NextResponse.json({ listing: getListing(id) });
+    return NextResponse.json({ listing: await getListing(id) });
   }
 
   const analysis = await analyzeListingPhotos(listing, user.plan, user.id);
   if ("error" in analysis) {
     return NextResponse.json(
-      { error: analysis.error, quotaRemaining: aiQuotaRemaining(user.id, user.plan) },
+      { error: analysis.error, quotaRemaining: await aiQuotaRemaining(user.id, user.plan) },
       { status: 400 },
     );
   }
 
-  setListingAiAnalysis(id, analysis);
+  await setListingAiAnalysis(id, analysis);
   return NextResponse.json({
     analysis,
-    quotaRemaining: aiQuotaRemaining(user.id, user.plan),
-    listing: getListing(id),
+    quotaRemaining: await aiQuotaRemaining(user.id, user.plan),
+    listing: await getListing(id),
   });
 }

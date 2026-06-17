@@ -2,11 +2,11 @@
 """Collector eBay ES → data/price-ingest/{platform}.json (Fase 2).
 
 Requiere credenciales (una de):
-  EBAY_APP_ID          — Finding API (activos + vendidos, recomendado)
-  EBAY_CLIENT_ID + EBAY_CLIENT_SECRET — Browse API (solo activos)
+  EBAY_CLIENT_ID + EBAY_CLIENT_SECRET — Browse API (activos/precio fijo, recomendado)
+  EBAY_APP_ID          — Finding API legacy (vendidos solo con EBAY_ALLOW_LEGACY_SOLD=1)
 
 Ejemplos:
-  python3 scripts/collect_ebay_es.py --platform ps2 --limit 5 --sold --dry-run
+  python3 scripts/collect_ebay_es.py --platform ps2 --limit 5 --active --dry-run
   python3 scripts/collect_ebay_es.py --platform ps2 --limit 20 --output data/price-ingest/ps2-ebay.json
   python3 scripts/collect_ebay_es.py --platform ps2 --merge --output data/price-ingest/pilot-ps2.json
 """
@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from build_ingest_template import validate_ingest  # noqa: E402
+from collectors.cache_policy import attach_policy_version  # noqa: E402
 from collectors.common import (  # noqa: E402
     INGEST_DIR,
     build_ebay_search_query,
@@ -180,8 +181,12 @@ def main() -> None:
     parser.add_argument("--region", help="Filtrar región catálogo (p. ej. PAL España)")
     parser.add_argument("--limit", type=int, default=10, help="Máximo juegos a procesar")
     parser.add_argument("--per-game", type=int, default=8, help="Anuncios eBay por juego")
-    parser.add_argument("--sold", action="store_true", help="Solo vendidos (Finding API)")
-    parser.add_argument("--active", action="store_true", help="Solo activos")
+    parser.add_argument(
+        "--sold",
+        action="store_true",
+        help="Legacy: intentar vendidos con Finding API solo si EBAY_ALLOW_LEGACY_SOLD=1",
+    )
+    parser.add_argument("--active", action="store_true", help="Solo activos/precio fijo (Browse API)")
     parser.add_argument("--output", type=Path, help="JSON destino (default: data/price-ingest/{platform}-ebay.json)")
     parser.add_argument("--merge", action="store_true", help="Fusionar con JSON existente")
     parser.add_argument(
@@ -198,7 +203,7 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
-    sold = args.sold or not args.active
+    sold = args.sold
     active = args.active or not args.sold
     if args.sold and args.active:
         sold = active = True
@@ -217,7 +222,8 @@ def main() -> None:
     payload["collectedAt"] = now_iso()
     payload["notes"] = (
         f"eBay ES collector — sold={sold} active={active}. "
-        "Activos: solo precio fijo (sin subastas en curso). Vendidos: incluye subastas finalizadas. "
+        "Activos: Browse API oficial, solo precio fijo (sin subastas en curso). "
+        "Vendidos: Finding API legacy; requiere EBAY_ALLOW_LEGACY_SOLD=1 y puede no estar disponible. "
         "Búsqueda por título del juego; región y consola filtradas post-fetch. "
         "Caché listing por itemId (invalida si cambia título/precio)."
     )
@@ -272,23 +278,36 @@ def main() -> None:
                     used_game_cache = True
 
             if not raw_items:
-                for is_sold, label in modes:
-                    items, backend = search_ebay_es(query, sold=is_sold, max_results=args.per_game)
+                for mode_idx, (is_sold, label) in enumerate(modes):
+                    try:
+                        items, backend = search_ebay_es(query, sold=is_sold, max_results=args.per_game)
+                    except RuntimeError as exc:
+                        report["errors"].append(
+                            {
+                                "catalogId": catalog_id,
+                                "mode": label,
+                                "error": str(exc),
+                            }
+                        )
+                        print(f"  [{idx}/{len(games)}] AVISO {catalog_id} ({label}): {exc}")
+                        if len(modes) == 1:
+                            raise
+                        continue
                     report["backend"] = backend
                     for item in items:
                         item["_listingType"] = label
                     raw_items.extend(items)
-                    if idx < len(games) or label != modes[-1][1]:
+                    if idx < len(games) or mode_idx < len(modes) - 1:
                         time.sleep(args.delay)
                 if not args.dry_run:
                     save_json(
                         cache_file,
-                        {
+                        attach_policy_version({
                             "query": query,
                             "backend": report["backend"],
                             "items": raw_items,
                             "collectedAt": now_iso(),
-                        },
+                        }),
                     )
 
             added_for_game = 0

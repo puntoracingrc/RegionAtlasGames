@@ -21,6 +21,7 @@ export function LoginForm() {
   const [devLink, setDevLink] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState<"password" | "magic">("password");
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     const magic = searchParams.get("magic");
@@ -141,14 +142,24 @@ export function LoginForm() {
                 />
               </Field>
               <Field label="Contraseña">
-                <input
-                  type="password"
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="input"
-                  autoComplete="current-password"
-                />
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="input pr-24"
+                    autoComplete="current-password"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((visible) => !visible)}
+                    className="absolute inset-y-0 right-3 text-xs font-medium text-muted transition hover:text-foreground"
+                    aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                  >
+                    {showPassword ? "Ocultar" : "Mostrar"}
+                  </button>
+                </div>
               </Field>
               {error && <p className="text-sm text-rose-500">{error}</p>}
               <button type="submit" disabled={loading} className="btn-primary w-full">

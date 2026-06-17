@@ -36,7 +36,7 @@ export function IndexEntityHeader({ summary }: { summary: IndexEntitySummary }) 
           {summary.platforms.map((platform) => (
             <span
               key={platform.slug}
-              className="rounded-full bg-white/10 px-3 py-1 text-xs text-foreground/80"
+              className="rounded-full border border-border bg-card-hover px-3 py-1 text-xs text-foreground/80 dark:border-transparent dark:bg-white/10"
             >
               {platform.name}: {platform.count.toLocaleString("es-ES")}
             </span>

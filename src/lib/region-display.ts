@@ -8,13 +8,16 @@ export type RegionDisplay = {
 
 const REGION_MAP: Record<string, RegionDisplay> = {
   "pal españa": { flagCode: "ES", label: "PAL España", shortLabel: "ES" },
-  españa: { flagCode: "ES", label: "España", shortLabel: "ES" },
+  españa: { flagCode: "ES", label: "PAL España", shortLabel: "ES" },
   "pal europa": { flagCode: "EU", label: "PAL Europa", shortLabel: "EU" },
   "pal uk/eng": { flagCode: "GB", label: "PAL UK", shortLabel: "UK" },
+  "pal uk": { flagCode: "GB", label: "PAL UK", shortLabel: "UK" },
   "pal alemania": { flagCode: "DE", label: "PAL Alemania", shortLabel: "DE" },
-  usa: { flagCode: "US", label: "USA", shortLabel: "US" },
-  japón: { flagCode: "JP", label: "Japón", shortLabel: "JP" },
-  japan: { flagCode: "JP", label: "Japón", shortLabel: "JP" },
+  usa: { flagCode: "US", label: "NTSC USA", shortLabel: "US" },
+  "ntsc usa": { flagCode: "US", label: "NTSC USA", shortLabel: "US" },
+  japón: { flagCode: "JP", label: "NTSC-J Japón", shortLabel: "JP" },
+  japan: { flagCode: "JP", label: "NTSC-J Japón", shortLabel: "JP" },
+  "ntsc-j japón": { flagCode: "JP", label: "NTSC-J Japón", shortLabel: "JP" },
   australia: { flagCode: "AU", label: "Australia", shortLabel: "AU" },
 };
 

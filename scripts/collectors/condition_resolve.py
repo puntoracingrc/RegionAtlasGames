@@ -70,6 +70,8 @@ def _needs_vision(row: dict[str, Any], *, title: str, condition_raw: str) -> boo
     if _text_bucket(row, title=title, condition_raw=condition_raw):
         _VISION_STATS["skipped_has_bucket"] += 1
         return False
+    if row.get("imageUrls") or row.get("imageUrl"):
+        return True
     text = f"{title} {_row_description(row)} {condition_raw}".strip()
     if not CONDITION_HINT_RE.search(text):
         _VISION_STATS["skipped_no_hints"] += 1
@@ -86,7 +88,7 @@ def resolve_condition_bucket(
 ) -> tuple[str | None, str]:
     """
     Devuelve (estado, method) con method: text | vision | none.
-    estado ∈ loose | complete | sealed | None
+    estado ∈ loose | game_manual | complete | sealed | None
     """
     title = str(row.get("title") or "")
     condition_raw = str(row.get("condition") or "")

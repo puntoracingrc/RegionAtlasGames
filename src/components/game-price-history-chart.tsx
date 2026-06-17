@@ -6,7 +6,7 @@ import {
   CONDITION_CHART_COLORS,
   type PriceHistorySnapshot,
 } from "@/lib/price-history";
-import { formatEur } from "@/lib/catalog";
+import { formatEur } from "@/lib/price-format";
 import { Panel, PanelTitle } from "@/components/ui";
 
 type Props = {
@@ -19,7 +19,7 @@ type Point = { x: number; y: number; at: string; value: number };
 const WIDTH = 640;
 const HEIGHT = 240;
 const PAD = { top: 18, right: 16, bottom: 36, left: 52 };
-const BUCKETS: ConditionBucket[] = ["loose", "complete", "sealed"];
+const BUCKETS: ConditionBucket[] = ["loose", "gameManual", "complete", "sealed"];
 
 function seriesPoints(
   history: PriceHistorySnapshot[],

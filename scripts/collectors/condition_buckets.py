@@ -1,4 +1,4 @@
-"""Estado de conservación → precios por estado (suelto / completo / precintado)."""
+"""Estado de conservación → precios por estado."""
 
 from __future__ import annotations
 
@@ -12,10 +12,11 @@ from collectors.jgo_match import infer_condition
 ROOT = Path(__file__).resolve().parents[2]
 WEIGHTS_FILE = ROOT / "data" / "price-source-weights.json"
 
-DISPLAY_BUCKETS = ("loose", "complete", "sealed")
+DISPLAY_BUCKETS = ("loose", "game_manual", "complete", "sealed")
 
 BUCKET_LABELS_ES: dict[str, str] = {
     "loose": "Suelto",
+    "game_manual": "Juego + manual",
     "complete": "Completo",
     "sealed": "Precintado",
 }
@@ -23,6 +24,9 @@ BUCKET_LABELS_ES: dict[str, str] = {
 RAW_TO_BUCKET: dict[str, str] = {
     "used": "loose",
     "loose": "loose",
+    "game_manual": "game_manual",
+    "with_manual": "game_manual",
+    "no_box": "game_manual",
     "no_manual": "complete",
     "cib": "complete",
     "complete": "complete",
@@ -32,9 +36,23 @@ RAW_TO_BUCKET: dict[str, str] = {
 SEALED_RE = re.compile(r"\b(precintado|precintada|sellado|sealed|brand new sealed|new sealed)\b", re.I)
 COMPLETE_RE = re.compile(
     r"\b("
-    r"completo|complete|cib|con manual|con caja|"
+    r"completo|complete|cib|con caja|"
     r"sin manual|no manual|solo falta manual|"
-    r"caja y|box and|with box|in box"
+    r"caja y|box and|with box|in box|boxed"
+    r")\b",
+    re.I,
+)
+GAME_MANUAL_RE = re.compile(
+    r"\b("
+    r"juego\s*(?:\+|y|con)\s*manual|"
+    r"cartucho\s*(?:\+|y|con)\s*manual|"
+    r"disco\s*(?:\+|y|con)\s*manual|"
+    r"con manual(?:\s+y\s+sin\s+caja|\s+sin\s+caja)|"
+    r"manual incluido(?:\s+sin\s+caja)?|"
+    r"manual incl\.?(?:\s+sin\s+caja)?|"
+    r"game\s*(?:\+|and|with)\s*manual|"
+    r"disc\s*(?:\+|and|with)\s*manual|"
+    r"cart\s*(?:\+|and|with)\s*manual"
     r")\b",
     re.I,
 )
@@ -67,6 +85,8 @@ def infer_condition_bucket(
 
     if SEALED_RE.search(combined):
         return "sealed"
+    if GAME_MANUAL_RE.search(combined) and not COMPLETE_RE.search(combined):
+        return "game_manual"
     if COMPLETE_RE.search(combined):
         return "complete"
     if LOOSE_RE.search(combined):

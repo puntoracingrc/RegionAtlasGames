@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 from collectors.catalog_ai_match import ai_available, product_cache_key
+from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.catalog_match import product_title
 from collectors.common import load_json, load_platforms, now_iso, save_json
 from collectors.region_inference import regions_match
@@ -153,6 +154,8 @@ def read_listing_ai_cache(
     if not path.exists():
         return None
     cached = load_json(path, {})
+    if not cache_policy_matches(cached):
+        return None
     if not cache_is_fresh(cached, product):
         return None
     return ListingAiResult.from_dict(cached)
@@ -171,7 +174,7 @@ def write_listing_ai_cache(
     title, price = listing_snapshot(product)
     external_id = str(product.get("externalId") or cache_key)
     payload = result.to_cache(title=title, price_eur=price, external_id=external_id)
-    save_json(_cache_path(platform_slug, catalog_id, cache_key), payload)
+    save_json(_cache_path(platform_slug, catalog_id, cache_key), attach_policy_version(payload))
 
 
 def _openai_chat(messages: list[dict[str, str]]) -> str:
@@ -208,7 +211,7 @@ def _build_system_prompt(game: dict[str, Any], platform_slug: str) -> str:
         "Responde JSON: "
         '{"results":[{"externalId":"...","isVideoGame":bool,"isTargetGame":bool,'
         '"listingRegion":"PAL Europa|PAL España|USA|Japón|unknown",'
-        '"regionMatchesCatalog":bool,"condition":"loose|complete|sealed|null",'
+        '"regionMatchesCatalog":bool,"condition":"loose|game_manual|complete|sealed|null",'
         '"confidence":0-1,"reason":"..."}]}. '
         "isVideoGame=false para peluches, ropa, pósters, consolas, lotes, manuales sueltos, figuras, revistas. "
         f"isTargetGame=true solo si el anuncio vende ese juego concreto en {platform_name}, "

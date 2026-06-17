@@ -1,6 +1,8 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import path from "path";
 import { randomUUID } from "crypto";
+import { get, put } from "@vercel/blob";
+import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { getCatalogGame } from "./catalog";
 import { getUserCollectionItem } from "./collection-store";
 import type {
@@ -13,6 +15,13 @@ import { photosReadyForPublish } from "./listing-photos";
 const MARKET_DIR = path.join(process.cwd(), "data", "marketplace");
 const LISTINGS_FILE = path.join(MARKET_DIR, "listings.json");
 const SALES_FILE = path.join(MARKET_DIR, "recorded-sales.json");
+const LISTINGS_BLOB_PATH = "region-atlas/marketplace/listings.json";
+const SALES_BLOB_PATH = "region-atlas/marketplace/recorded-sales.json";
+
+function useBlobStorage(): boolean {
+  if (process.env.VERCEL) return blobAuthConfigured();
+  return Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim());
+}
 
 function ensureDir() {
   try {
@@ -22,61 +31,89 @@ function ensureDir() {
   }
 }
 
-function readListings(): MarketplaceListing[] {
+function readLocalJson<T>(file: string, fallback: T): T {
   ensureDir();
   try {
-    return JSON.parse(readFileSync(LISTINGS_FILE, "utf-8")) as MarketplaceListing[];
+    return JSON.parse(readFileSync(file, "utf-8")) as T;
   } catch {
-    return [];
+    return fallback;
   }
 }
 
-function writeListings(listings: MarketplaceListing[]) {
+function writeLocalJson(file: string, data: unknown) {
   ensureDir();
-  writeFileSync(LISTINGS_FILE, JSON.stringify(listings, null, 2), "utf-8");
+  writeFileSync(file, JSON.stringify(data, null, 2), "utf-8");
 }
 
-function readSales(): RecordedPrivateSale[] {
-  ensureDir();
+async function readBlobJson<T>(blobPath: string, fallback: T): Promise<T> {
   try {
-    return JSON.parse(readFileSync(SALES_FILE, "utf-8")) as RecordedPrivateSale[];
+    const auth = await blobAuthOptions("private");
+    const result = await get(blobPath, { ...auth, useCache: false });
+    if (!result || result.statusCode !== 200 || !result.stream) return fallback;
+    return JSON.parse(await new Response(result.stream).text()) as T;
   } catch {
-    return [];
+    return fallback;
   }
 }
 
-function writeSales(sales: RecordedPrivateSale[]) {
-  ensureDir();
-  writeFileSync(SALES_FILE, JSON.stringify(sales, null, 2), "utf-8");
+async function writeBlobJson(blobPath: string, data: unknown) {
+  const auth = await blobAuthOptions("private");
+  await put(blobPath, JSON.stringify(data, null, 2), {
+    ...auth,
+    contentType: "application/json",
+    addRandomSuffix: false,
+    allowOverwrite: true,
+    cacheControlMaxAge: 30,
+  });
 }
 
-export function getListing(id: string): MarketplaceListing | undefined {
-  return readListings().find((l) => l.id === id);
+async function readListings(): Promise<MarketplaceListing[]> {
+  if (useBlobStorage()) return readBlobJson(LISTINGS_BLOB_PATH, []);
+  return readLocalJson(LISTINGS_FILE, []);
 }
 
-export function getActiveListingsForCatalog(catalogId: string): MarketplaceListing[] {
-  return readListings().filter((l) => l.catalogId === catalogId && l.status === "active");
+async function writeListings(listings: MarketplaceListing[]) {
+  if (useBlobStorage()) return writeBlobJson(LISTINGS_BLOB_PATH, listings);
+  writeLocalJson(LISTINGS_FILE, listings);
 }
 
-export function countActiveListingsForCatalog(catalogId: string): number {
-  return getActiveListingsForCatalog(catalogId).length;
+async function readSales(): Promise<RecordedPrivateSale[]> {
+  if (useBlobStorage()) return readBlobJson(SALES_BLOB_PATH, []);
+  return readLocalJson(SALES_FILE, []);
+}
+
+async function writeSales(sales: RecordedPrivateSale[]) {
+  if (useBlobStorage()) return writeBlobJson(SALES_BLOB_PATH, sales);
+  writeLocalJson(SALES_FILE, sales);
+}
+
+export async function getListing(id: string): Promise<MarketplaceListing | undefined> {
+  return (await readListings()).find((l) => l.id === id);
+}
+
+export async function getActiveListingsForCatalog(catalogId: string): Promise<MarketplaceListing[]> {
+  return (await readListings()).filter((l) => l.catalogId === catalogId && l.status === "active");
+}
+
+export async function countActiveListingsForCatalog(catalogId: string): Promise<number> {
+  return (await getActiveListingsForCatalog(catalogId)).length;
 }
 
 /** Mapa catalogId → nº de anuncios activos (solo status active). */
-export function getActiveListingCountsByCatalog(): Record<string, number> {
+export async function getActiveListingCountsByCatalog(): Promise<Record<string, number>> {
   const counts: Record<string, number> = {};
-  for (const listing of readListings()) {
+  for (const listing of await readListings()) {
     if (listing.status !== "active") continue;
     counts[listing.catalogId] = (counts[listing.catalogId] ?? 0) + 1;
   }
   return counts;
 }
 
-export function getSellerOpenListing(
+export async function getSellerOpenListing(
   sellerId: string,
   catalogId: string,
-): MarketplaceListing | undefined {
-  return readListings().find(
+): Promise<MarketplaceListing | undefined> {
+  return (await readListings()).find(
     (l) =>
       l.sellerId === sellerId &&
       l.catalogId === catalogId &&
@@ -84,19 +121,19 @@ export function getSellerOpenListing(
   );
 }
 
-export function sellerHasOpenListing(sellerId: string, catalogId: string): boolean {
-  return getSellerOpenListing(sellerId, catalogId) != null;
+export async function sellerHasOpenListing(sellerId: string, catalogId: string): Promise<boolean> {
+  return (await getSellerOpenListing(sellerId, catalogId)) != null;
 }
 
-export function getSellerListings(sellerId: string): MarketplaceListing[] {
-  return readListings().filter((l) => l.sellerId === sellerId);
+export async function getSellerListings(sellerId: string): Promise<MarketplaceListing[]> {
+  return (await readListings()).filter((l) => l.sellerId === sellerId);
 }
 
-export function countActiveListingsForCollectionItem(
+export async function countActiveListingsForCollectionItem(
   sellerId: string,
   collectionItemId: string,
-): number {
-  return readListings().filter(
+): Promise<number> {
+  return (await readListings()).filter(
     (l) =>
       l.sellerId === sellerId &&
       l.collectionItemId === collectionItemId &&
@@ -107,6 +144,7 @@ export function countActiveListingsForCollectionItem(
 export async function createListingDraft(input: {
   sellerId: string;
   sellerName: string;
+  sellerCity?: string | null;
   collectionItemId: string;
 }): Promise<MarketplaceListing | { error: string; existingListingId?: string }> {
   const item = await getUserCollectionItem(input.sellerId, input.collectionItemId);
@@ -114,7 +152,7 @@ export async function createListingDraft(input: {
     return { error: "Solo puedes vender juegos enlazados al catálogo." };
   }
 
-  const existing = getSellerOpenListing(input.sellerId, item.catalogId);
+  const existing = await getSellerOpenListing(input.sellerId, item.catalogId);
   if (existing) {
     return {
       error: "Ya tienes un anuncio abierto para este juego (máx. 1 unidad).",
@@ -129,8 +167,15 @@ export async function createListingDraft(input: {
     catalogId: item.catalogId,
     sellerId: input.sellerId,
     sellerName: input.sellerName,
+    sellerCity: input.sellerCity?.trim() || null,
     collectionItemId: input.collectionItemId,
     title: item.title,
+    customTitle: null,
+    customDescription: null,
+    saleOptions: {
+      pickup: true,
+      shipping: true,
+    },
     platformSlug: item.platformSlug,
     region: item.region,
     status: "draft",
@@ -147,26 +192,26 @@ export async function createListingDraft(input: {
     recordedSalePriceEur: game?.recommendedPrice ?? item.recommendedPrice ?? null,
   };
 
-  const listings = readListings();
+  const listings = await readListings();
   listings.push(listing);
-  writeListings(listings);
+  await writeListings(listings);
   return listing;
 }
 
-export function updateListing(
+export async function updateListing(
   id: string,
   patch: Partial<MarketplaceListing>,
-): MarketplaceListing | null {
-  const listings = readListings();
+): Promise<MarketplaceListing | null> {
+  const listings = await readListings();
   const idx = listings.findIndex((l) => l.id === id);
   if (idx === -1) return null;
   listings[idx] = { ...listings[idx], ...patch, updatedAt: new Date().toISOString() };
-  writeListings(listings);
+  await writeListings(listings);
   return listings[idx];
 }
 
-export function publishListing(id: string, sellerId: string): { ok: true } | { error: string } {
-  const listing = getListing(id);
+export async function publishListing(id: string, sellerId: string): Promise<{ ok: true } | { error: string }> {
+  const listing = await getListing(id);
   if (!listing || listing.sellerId !== sellerId) return { error: "Anuncio no encontrado." };
   if (!photosReadyForPublish(listing.photos)) {
     return { error: "Sube todas las fotos obligatorias antes de publicar." };
@@ -174,26 +219,26 @@ export function publishListing(id: string, sellerId: string): { ok: true } | { e
   if (!listing.aiAnalysis) {
     return { error: "Ejecuta el análisis IA antes de publicar." };
   }
-  updateListing(id, { status: "active", publishedAt: new Date().toISOString() });
+  await updateListing(id, { status: "active", publishedAt: new Date().toISOString() });
   return { ok: true };
 }
 
-export function cancelListing(id: string, sellerId: string): boolean {
-  const listing = getListing(id);
+export async function cancelListing(id: string, sellerId: string): Promise<boolean> {
+  const listing = await getListing(id);
   if (!listing || listing.sellerId !== sellerId) return false;
   if (listing.status === "sold") return false;
-  updateListing(id, { status: "cancelled" });
+  await updateListing(id, { status: "cancelled" });
   return true;
 }
 
-export function markListingSold(input: {
+export async function markListingSold(input: {
   listingId: string;
   sellerId: string;
   buyerId: string;
   buyerName: string;
   priceEur: number;
-}): { ok: true } | { error: string } {
-  const listing = getListing(input.listingId);
+}): Promise<{ ok: true } | { error: string }> {
+  const listing = await getListing(input.listingId);
   if (!listing || listing.sellerId !== input.sellerId) return { error: "Anuncio no encontrado." };
   if (listing.status !== "active") return { error: "El anuncio no está activo." };
   if (!input.buyerId.trim()) return { error: "Comprador no válido." };
@@ -201,7 +246,7 @@ export function markListingSold(input: {
     return { error: "Indica un precio final válido (mayor que 0 €)." };
   }
 
-  updateListing(input.listingId, {
+  await updateListing(input.listingId, {
     status: "sold",
     soldToUserId: input.buyerId,
     soldToUserName: input.buyerName,
@@ -211,11 +256,11 @@ export function markListingSold(input: {
   return { ok: true };
 }
 
-export function confirmBuyerReceipt(input: {
+export async function confirmBuyerReceipt(input: {
   listingId: string;
   buyerId: string;
-}): { ok: true; recorded: boolean } | { error: string } {
-  const listing = getListing(input.listingId);
+}): Promise<{ ok: true; recorded: boolean } | { error: string }> {
+  const listing = await getListing(input.listingId);
   if (!listing || listing.soldToUserId !== input.buyerId) {
     return { error: "No puedes confirmar esta venta." };
   }
@@ -226,18 +271,18 @@ export function confirmBuyerReceipt(input: {
     return { ok: true, recorded: false };
   }
 
-  updateListing(input.listingId, {
+  await updateListing(input.listingId, {
     buyerConfirmedAt: new Date().toISOString(),
   });
 
-  const refreshed = getListing(input.listingId)!;
+  const refreshed = (await getListing(input.listingId))!;
   let recorded = false;
   if (
     refreshed.sellerConfirmedAt &&
     refreshed.buyerConfirmedAt &&
     refreshed.recordedSalePriceEur != null
   ) {
-    const sales = readSales();
+    const sales = await readSales();
     const alreadyRecorded = sales.some(
       (s) =>
         s.catalogId === refreshed.catalogId &&
@@ -254,7 +299,7 @@ export function confirmBuyerReceipt(input: {
         sealed: refreshed.sealed,
         completedAt: new Date().toISOString(),
       });
-      writeSales(sales);
+      await writeSales(sales);
       recorded = true;
     }
   }
@@ -262,10 +307,10 @@ export function confirmBuyerReceipt(input: {
   return { ok: true, recorded };
 }
 
-export function setListingAiAnalysis(
+export async function setListingAiAnalysis(
   listingId: string,
   analysis: AiListingAnalysis,
-): MarketplaceListing | null {
+): Promise<MarketplaceListing | null> {
   return updateListing(listingId, { aiAnalysis: analysis });
 }
 
@@ -273,12 +318,19 @@ export function getPublicSellerListing(listing: MarketplaceListing) {
   return {
     id: listing.id,
     sellerName: listing.sellerName,
+    sellerCity: listing.sellerCity ?? null,
+    title: listing.customTitle || listing.title,
     sealed: listing.sealed,
     region: listing.region,
+    saleOptions: listing.saleOptions ?? { pickup: true, shipping: true },
     aiAnalysis: listing.aiAnalysis
       ? {
           conditionVerdict: listing.aiAnalysis.conditionVerdict,
+          conditionScore: listing.aiAnalysis.conditionScore,
           estimatedPriceEur: listing.aiAnalysis.estimatedPriceEur,
+          visualDescription: listing.aiAnalysis.visualDescription ?? null,
+          gameMatchVerdict: listing.aiAnalysis.gameMatchVerdict ?? null,
+          gameMatchConfidence: listing.aiAnalysis.gameMatchConfidence ?? null,
         }
       : null,
     photoCount: listing.photos.length,

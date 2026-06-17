@@ -10,7 +10,7 @@ export async function GET(_request: Request, { params }: Params) {
   if (!user) return NextResponse.json({ error: "No autenticado." }, { status: 401 });
 
   const { id } = await params;
-  const conversation = getConversation(id);
+  const conversation = await getConversation(id);
   if (!conversation) {
     return NextResponse.json({ error: "No encontrada." }, { status: 404 });
   }
@@ -18,7 +18,7 @@ export async function GET(_request: Request, { params }: Params) {
     return NextResponse.json({ error: "No autorizado." }, { status: 403 });
   }
 
-  const listing = getListing(conversation.listingId);
+  const listing = await getListing(conversation.listingId);
   return NextResponse.json({ conversation, listing });
 }
 
@@ -35,7 +35,7 @@ export async function PATCH(request: Request, { params }: Params) {
     return NextResponse.json({ error: "Mensaje vacío." }, { status: 400 });
   }
 
-  const result = addMessage({
+  const result = await addMessage({
     conversationId: id,
     senderId: user.id,
     senderName: user.name,

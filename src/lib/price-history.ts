@@ -5,6 +5,7 @@ import { CONDITION_PRICE_LABELS } from "./condition-prices";
 export type PriceHistorySnapshot = {
   at: string;
   loose: number | null;
+  gameManual?: number | null;
   complete: number | null;
   sealed: number | null;
 };
@@ -14,6 +15,7 @@ export const CONDITION_CHART_COLORS: Record<
   { stroke: string; label: string }
 > = {
   loose: { stroke: "#d97706", label: CONDITION_PRICE_LABELS.loose },
+  gameManual: { stroke: "#0ea5e9", label: CONDITION_PRICE_LABELS.gameManual },
   complete: { stroke: "#10b981", label: CONDITION_PRICE_LABELS.complete },
   sealed: { stroke: "#8b5cf6", label: CONDITION_PRICE_LABELS.sealed },
 };

@@ -5,7 +5,7 @@ import { CollectionGameCard } from "@/components/game-card";
 import { HighlightLegend } from "@/components/highlight-legend";
 import { CollectionValueUpsell } from "@/components/collection-value-upsell";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
-import { formatEur } from "@/lib/catalog";
+import { formatEur } from "@/lib/price-format";
 import {
   COLLECTION_SORT_OPTIONS,
   DEFAULT_COLLECTION_FILTERS,
@@ -198,7 +198,7 @@ function StatCard({
   accent?: "amber" | "rose";
   locked?: boolean;
 }) {
-  const color = locked ? "text-muted" : accent === "rose" ? "text-rose-300" : "text-accent";
+  const color = locked ? "text-muted" : accent === "rose" ? "text-rose-700 dark:text-rose-300" : "text-accent";
   return (
     <article className="rounded-2xl border border-border bg-gradient-to-br from-white/[0.05] to-transparent p-5">
       <p className="text-xs uppercase tracking-wider text-muted">{label}</p>

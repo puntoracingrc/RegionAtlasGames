@@ -8,6 +8,7 @@ export type StoredUserRecord = {
   id: string;
   email: string;
   name: string;
+  city?: string | null;
   passwordHash?: string;
   googleId?: string;
   theme: "light" | "dark" | "system";
@@ -46,7 +47,7 @@ function readUsersFromDisk(): StoredUserRecord[] {
 async function readUsersFromBlob(): Promise<StoredUserRecord[]> {
   try {
     const auth = await blobAuthOptions("private");
-    const result = await get(BLOB_PATH, auth);
+    const result = await get(BLOB_PATH, { ...auth, useCache: false });
     if (!result || result.statusCode !== 200 || !result.stream) return [];
     const text = await new Response(result.stream).text();
     return parseUsers(text);
@@ -79,6 +80,7 @@ async function writeUsersToBlob(
       contentType: "application/json",
       addRandomSuffix: false,
       allowOverwrite: true,
+      cacheControlMaxAge: 60,
     });
     return { ok: true };
   } catch (error) {

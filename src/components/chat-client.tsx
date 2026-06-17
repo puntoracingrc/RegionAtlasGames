@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SiteNav } from "@/components/site-nav";
 import { Panel, PanelTitle } from "@/components/ui";
-import { formatEur } from "@/lib/catalog";
+import { formatEur } from "@/lib/price-format";
 import type { ChatMessage, MarketplaceConversation } from "@/lib/marketplace-types";
 import type { MarketplaceListing } from "@/lib/marketplace-types";
 
@@ -110,6 +110,26 @@ export function ChatClient({ conversationId, userId }: Props) {
     load();
   }
 
+  async function blockPeer() {
+    if (!confirm("¿Bloquear a este usuario? No podrá volver a escribirte en esta conversación.")) {
+      return;
+    }
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
+    const res = await fetch(`/api/marketplace/conversations/${conversationId}/block`, {
+      method: "POST",
+    });
+    const data = await res.json().catch(() => ({}));
+    setLoading(false);
+    if (!res.ok) {
+      setError(data.error ?? "No se pudo bloquear al usuario.");
+      return;
+    }
+    setSuccess("Usuario bloqueado.");
+    load();
+  }
+
   if (!conversation) {
     return (
       <>
@@ -135,6 +155,14 @@ export function ChatClient({ conversationId, userId }: Props) {
           <Link href="/mensajes" className="text-muted hover:text-accent">
             Todos los mensajes
           </Link>
+          <button
+            type="button"
+            className="text-muted transition hover:text-rose-600 dark:hover:text-rose-300"
+            disabled={loading || Boolean(conversation.blockedByUserIds?.length)}
+            onClick={blockPeer}
+          >
+            Bloquear usuario
+          </button>
         </div>
         <header className="mt-4 mb-4">
           <h1 className="text-xl font-bold text-foreground">Chat de venta</h1>
@@ -145,12 +173,12 @@ export function ChatClient({ conversationId, userId }: Props) {
         </header>
 
         {error && (
-          <p className="mb-4 rounded-lg border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-sm text-rose-200">
+          <p className="mb-4 rounded-lg border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-sm text-rose-700 dark:text-rose-200">
             {error}
           </p>
         )}
         {success && (
-          <p className="mb-4 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+          <p className="mb-4 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-700 dark:text-emerald-200">
             {success}
           </p>
         )}
@@ -165,7 +193,7 @@ export function ChatClient({ conversationId, userId }: Props) {
               className={`rounded-lg px-3 py-2 text-sm ${
                 m.senderId === userId
                   ? "ml-8 bg-accent/15 text-foreground"
-                  : "mr-8 bg-card-hover text-muted"
+                  : "mr-8 bg-card-hover text-foreground/85"
               }`}
             >
               <p className="text-[10px] uppercase text-muted">{m.senderName}</p>
@@ -174,6 +202,11 @@ export function ChatClient({ conversationId, userId }: Props) {
           ))}
         </Panel>
 
+        {conversation.blockedByUserIds?.length ? (
+          <p className="rounded-lg border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-sm text-rose-700 dark:text-rose-200">
+            Esta conversación está bloqueada. Ya no se pueden enviar mensajes.
+          </p>
+        ) : (
         <div className="flex gap-2">
           <input
             value={text}
@@ -191,6 +224,7 @@ export function ChatClient({ conversationId, userId }: Props) {
             Enviar
           </button>
         </div>
+        )}
 
         {listing?.status === "active" && isSeller && (
           <Panel className="mt-6">
@@ -228,7 +262,7 @@ export function ChatClient({ conversationId, userId }: Props) {
         )}
 
         {listing?.buyerConfirmedAt && (
-          <p className="mt-4 text-sm text-emerald-300">
+          <p className="mt-4 text-sm text-emerald-700 dark:text-emerald-300">
             Venta cerrada
             {listing.recordedSalePriceEur != null && ` · ${formatEur(listing.recordedSalePriceEur)}`}
           </p>

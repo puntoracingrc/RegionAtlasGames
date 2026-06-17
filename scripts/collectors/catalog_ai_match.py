@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from collectors.catalog_match import AI_MIN_CONFIDENCE, CatalogMatchResult, product_title
+from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.common import load_json, now_iso, save_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -30,13 +31,14 @@ def read_match_cache(source: str, platform_slug: str, cache_key: str) -> dict[st
     path = _cache_file(source, platform_slug, cache_key)
     if not path.exists():
         return None
-    return load_json(path, {})
+    cached = load_json(path, {})
+    return cached if cache_policy_matches(cached) else None
 
 
 def write_match_cache(source: str, platform_slug: str, cache_key: str, payload: dict[str, Any]) -> None:
     path = _cache_file(source, platform_slug, cache_key)
     path.parent.mkdir(parents=True, exist_ok=True)
-    save_json(path, payload)
+    save_json(path, attach_policy_version(payload))
 
 
 def ai_available() -> bool:

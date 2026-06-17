@@ -1,15 +1,23 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-14T08:00:45Z",
+  "generatedAt": "2026-06-17T10:50:22Z",
   "stats": {
-    "entities": 70,
-    "aliases": 56,
+    "entities": 106,
+    "aliases": 57,
     "autoNormalized": 0
   },
   "entities": {
     "accessories": {
       "slug": "accessories",
       "name": "Accessories",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "accion-aventura": {
+      "slug": "accion-aventura",
+      "name": "acción-aventura",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -29,7 +37,8 @@
         "Action",
         "Combat",
         "Combate",
-        "Hack and Slash"
+        "Hack and Slash",
+        "hack and slash"
       ],
       "museumPaths": [
         "/generos/accion",
@@ -108,9 +117,8 @@
         "beat-em"
       ],
       "aliasNames": [
-        "#39;em Up",
-        "Beat",
-        "Beat ´em up"
+        "Beat ´em up",
+        "beat 'em up"
       ],
       "museumPaths": [
         "/generos/beat-em"
@@ -157,6 +165,14 @@
         "/generos/bowling"
       ]
     },
+    "breakout-clone": {
+      "slug": "breakout-clone",
+      "name": "Breakout clone",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
     "calculo": {
       "slug": "calculo",
       "name": "Cálculo",
@@ -183,6 +199,14 @@
         "/generos/card-battle"
       ]
     },
+    "carreras": {
+      "slug": "carreras",
+      "name": "carreras",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
     "casino": {
       "slug": "casino",
       "name": "Casino",
@@ -193,6 +217,14 @@
         "/generos/casino"
       ]
     },
+    "christmas-video-game": {
+      "slug": "christmas-video-game",
+      "name": "Christmas video game",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
     "ciclismo": {
       "slug": "ciclismo",
       "name": "Ciclismo",
@@ -202,6 +234,14 @@
       "museumPaths": [
         "/generos/ciclismo"
       ]
+    },
+    "cinematic-platformer": {
+      "slug": "cinematic-platformer",
+      "name": "cinematic platformer",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
     },
     "citas": {
       "slug": "citas",
@@ -255,6 +295,14 @@
       "aliasNames": [],
       "museumPaths": []
     },
+    "cricket-video-game": {
+      "slug": "cricket-video-game",
+      "name": "cricket video game",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
     "demo": {
       "slug": "demo",
       "name": "Demo",
@@ -264,6 +312,22 @@
       "museumPaths": [
         "/generos/demo"
       ]
+    },
+    "disparos-en-primera-persona": {
+      "slug": "disparos-en-primera-persona",
+      "name": "disparos en primera persona",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "disparos-en-tercera-persona": {
+      "slug": "disparos-en-tercera-persona",
+      "name": "disparos en tercera persona",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
     },
     "educational": {
       "slug": "educational",
@@ -279,6 +343,14 @@
         "/generos/educativo"
       ]
     },
+    "entretenimiento-educativo": {
+      "slug": "entretenimiento-educativo",
+      "name": "entretenimiento educativo",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
     "esqui": {
       "slug": "esqui",
       "name": "Esquí",
@@ -288,6 +360,14 @@
       "museumPaths": [
         "/generos/esqui"
       ]
+    },
+    "estrategia-en-tiempo-real": {
+      "slug": "estrategia-en-tiempo-real",
+      "name": "estrategia en tiempo real",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
     },
     "fantastico": {
       "slug": "fantastico",
@@ -310,7 +390,8 @@
       "aliasNames": [
         "Boxeo",
         "FIghting",
-        "Fighting"
+        "Fighting",
+        "boxeo"
       ],
       "museumPaths": [
         "/generos/boxeo",
@@ -438,12 +519,29 @@
       ],
       "aliasNames": [
         "Horror",
-        "Survival Horror"
+        "Survival Horror",
+        "survival horror"
       ],
       "museumPaths": [
         "/generos/survival-horror",
         "/generos/terror"
       ]
+    },
+    "j-rol": {
+      "slug": "j-rol",
+      "name": "J-rol",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "juego-de-simulacion-de-combate-en-el-espacio": {
+      "slug": "juego-de-simulacion-de-combate-en-el-espacio",
+      "name": "juego de simulación de combate en el espacio",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
     },
     "juego-interactivo": {
       "slug": "juego-interactivo",
@@ -535,6 +633,14 @@
       "museumPaths": [
         "/generos/ninos"
       ]
+    },
+    "not-applicable": {
+      "slug": "not-applicable",
+      "name": "Not Applicable",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
     },
     "other": {
       "slug": "other",
@@ -669,17 +775,13 @@
         "light-gun",
         "shoot",
         "shoot-em",
+        "shoot-em-up",
         "shooter-interactivo",
         "third-person-shooter"
       ],
       "aliasNames": [
-        "FPS",
-        "Juego de Pistola",
-        "Light Gun",
-        "Shoot",
         "Shoot ´em up",
-        "Shooter Interactivo",
-        "Third Person Shooter"
+        "shoot 'em up"
       ],
       "museumPaths": [
         "/generos/fps",
@@ -688,6 +790,14 @@
         "/generos/shooter",
         "/generos/shooter-interactivo"
       ]
+    },
+    "simulacion-espacial": {
+      "slug": "simulacion-espacial",
+      "name": "simulación espacial",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
     },
     "simulation": {
       "slug": "simulation",
@@ -817,6 +927,22 @@
         "/generos/tenis"
       ]
     },
+    "tennis-video-game": {
+      "slug": "tennis-video-game",
+      "name": "tennis video game",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "terror-psicologico": {
+      "slug": "terror-psicologico",
+      "name": "terror psicológico",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
     "tren": {
       "slug": "tren",
       "name": "Tren",
@@ -827,6 +953,22 @@
         "/generos/tren"
       ]
     },
+    "tube-shooter": {
+      "slug": "tube-shooter",
+      "name": "tube shooter",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "vertically-scrolling-shooter": {
+      "slug": "vertically-scrolling-shooter",
+      "name": "vertically scrolling shooter",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
     "vida-virtual": {
       "slug": "vida-virtual",
       "name": "Vida Virtual",
@@ -836,6 +978,150 @@
       "museumPaths": [
         "/generos/vida-virtual"
       ]
+    },
+    "videojuego-ciberpunk": {
+      "slug": "videojuego-ciberpunk",
+      "name": "videojuego ciberpunk",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-accion": {
+      "slug": "videojuego-de-accion",
+      "name": "videojuego de acción",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-ciencia-ficcion": {
+      "slug": "videojuego-de-ciencia-ficcion",
+      "name": "videojuego de ciencia ficción",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-combate-en-vehiculos": {
+      "slug": "videojuego-de-combate-en-vehiculos",
+      "name": "videojuego de combate en vehículos",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-deportes": {
+      "slug": "videojuego-de-deportes",
+      "name": "videojuego de deportes",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-desplazamiento-lateral": {
+      "slug": "videojuego-de-desplazamiento-lateral",
+      "name": "videojuego de desplazamiento lateral",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-disparos": {
+      "slug": "videojuego-de-disparos",
+      "name": "videojuego de disparos",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-disparos-tactico": {
+      "slug": "videojuego-de-disparos-tactico",
+      "name": "videojuego de disparos táctico",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-futbol": {
+      "slug": "videojuego-de-futbol",
+      "name": "videojuego de fútbol",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-futbol-americano": {
+      "slug": "videojuego-de-futbol-americano",
+      "name": "videojuego de fútbol americano",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-logica": {
+      "slug": "videojuego-de-logica",
+      "name": "videojuego de lógica",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-lucha": {
+      "slug": "videojuego-de-lucha",
+      "name": "videojuego de lucha",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-pesca": {
+      "slug": "videojuego-de-pesca",
+      "name": "Videojuego de pesca",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-plataformas": {
+      "slug": "videojuego-de-plataformas",
+      "name": "videojuego de plataformas",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-rol": {
+      "slug": "videojuego-de-rol",
+      "name": "videojuego de rol",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-rol-de-accion": {
+      "slug": "videojuego-de-rol-de-accion",
+      "name": "videojuego de rol de acción",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-de-rol-tactico": {
+      "slug": "videojuego-de-rol-tactico",
+      "name": "videojuego de rol táctico",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
+    "videojuego-posapocaliptico": {
+      "slug": "videojuego-posapocaliptico",
+      "name": "videojuego posapocalíptico",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
     },
     "visual-novel": {
       "slug": "visual-novel",
@@ -954,6 +1240,7 @@
     "recopilacion": "compilation",
     "shoot": "shooter",
     "shoot-em": "shooter",
+    "shoot-em-up": "shooter",
     "shooter": "shooter",
     "shooter-interactivo": "shooter",
     "simulador": "simulation",
@@ -974,5 +1261,8 @@
     "wrestling": "wrestling"
   },
   "museumPathToCanonical": {},
-  "normalizedToCanonical": {}
+  "normalizedToCanonical": {
+    "beat em up": "beat-em-up",
+    "shoot em up": "shooter"
+  }
 }

@@ -15,6 +15,7 @@ from typing import Any
 
 import json
 
+from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.condition_buckets import DISPLAY_BUCKETS
 from collectors.region_inference import regions_match
 
@@ -157,6 +158,9 @@ def classify_region_from_cover(
         cached_path = _cache_file(key)
         if cached_path.exists():
             cached = _load_json(cached_path, {})
+            if not cache_policy_matches(cached):
+                cached = None
+        if cached:
             return RegionCoverVisionResult(
                 listing_region=cached.get("listingRegion"),
                 region_matches_catalog=cached.get("regionMatchesCatalog") is True,
@@ -184,13 +188,13 @@ def classify_region_from_cover(
                 '{"isTargetGame":bool,"listingRegion":"PAL Europa|PAL España|USA|Japón|unknown",'
                 '"regionMatchesCatalog":bool,'
                 '"evidence":["cover_japan"|"cover_usa"|"cover_pal_eu"|"cover_spain"|"photo_region_mark"],'
-                '"condition":"loose|complete|sealed|null","confidence":0-1,"reason":"..."}\n\n'
+                '"condition":"loose|game_manual|complete|sealed|null","confidence":0-1,"reason":"..."}\n\n'
                 "Reglas:\n"
                 "- isTargetGame=true solo si la foto muestra ese juego en esa plataforma.\n"
                 "- listingRegion según textos visibles (katakana/kanji→Japón, ESRB NTSC→USA, PEGI multilingüe→PAL Europa, textos ES→PAL España).\n"
                 "- regionMatchesCatalog=true si la edición visible encaja con la región del catálogo.\n"
                 "- evidence: códigos que justifiquen la región vista (mínimo uno válido).\n"
-                "- condition: estado físico visible si se puede; si no, null."
+                "- condition: loose si solo está el juego/cartucho/disco; game_manual si hay juego + manual sin caja; complete si hay caja retail + juego; sealed si está precintado; null si no se puede saber."
             ),
         }
     ]
@@ -239,7 +243,7 @@ def classify_region_from_cover(
 
     _save_json(
         _cache_file(key),
-        {
+        attach_policy_version({
             "listingRegion": listing_region,
             "regionMatchesCatalog": region_matches,
             "evidence": evidence,
@@ -255,7 +259,7 @@ def classify_region_from_cover(
             "source": source,
             "externalId": external_id,
             "resolvedAt": _now_iso(),
-        },
+        }),
     )
     return result
 
@@ -273,6 +277,7 @@ def apply_region_cover_vision(
     image_urls: list[str],
     source: str,
     external_id: str | None = None,
+    force_vision: bool = False,
 ) -> tuple[str, list[str], float, bool, str | None]:
     """
     Si el anuncio ya está verificado por texto/reglas, no hace nada.
@@ -288,7 +293,7 @@ def apply_region_cover_vision(
         platform_slug, catalog_region, evidence, ai_conf
     )
     region_matches = regions_match(catalog_region, listing_region)
-    if rules_ok and region_matches:
+    if rules_ok and region_matches and not force_vision:
         return listing_region, evidence, ai_conf, True, None
 
     if not image_urls or not region_cover_vision_available():

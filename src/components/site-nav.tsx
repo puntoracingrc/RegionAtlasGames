@@ -17,6 +17,7 @@ const LINKS = [
 ];
 
 const ADMIN_LINK = { href: "/admin", label: "Admin" };
+const CONTRIBUTOR_LINK = { href: "/contribuir", label: "Contribuir" };
 
 function MenuIcon({ open }: { open: boolean }) {
   return (
@@ -45,14 +46,16 @@ function MenuIcon({ open }: { open: boolean }) {
 export function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [staffRole, setStaffRole] = useState<"admin" | "contributor" | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     fetch("/api/admin/me")
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
-        if (!cancelled && data?.admin) setIsAdmin(true);
+        if (!cancelled && (data?.role === "admin" || data?.role === "contributor")) {
+          setStaffRole(data.role);
+        }
       })
       .catch(() => {});
     return () => {
@@ -60,7 +63,12 @@ export function SiteNav() {
     };
   }, []);
 
-  const navLinks = isAdmin ? [...LINKS, ADMIN_LINK] : LINKS;
+  const navLinks =
+    staffRole === "admin"
+      ? [...LINKS, ADMIN_LINK]
+      : staffRole === "contributor"
+        ? [...LINKS, CONTRIBUTOR_LINK]
+        : LINKS;
 
   useEffect(() => {
     setOpen(false);
@@ -80,7 +88,7 @@ export function SiteNav() {
 
         <div className="flex items-center justify-end gap-2 sm:gap-3 md:gap-5">
           <div className="hidden items-center gap-x-4 text-[13px] text-muted sm:flex">
-            {navLinks.filter((link) => link.href !== "/ajustes" && link.href !== "/admin").map((link) => (
+            {navLinks.filter((link) => link.href !== "/ajustes" && link.href !== "/admin" && link.href !== "/contribuir").map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -91,12 +99,20 @@ export function SiteNav() {
             ))}
           </div>
 
-          {isAdmin && (
+          {staffRole === "admin" && (
             <Link
               href="/admin"
               className="hidden rounded-md px-2 py-1.5 text-[13px] font-medium text-violet-700 transition hover:text-violet-900 dark:text-violet-300 sm:inline"
             >
               Admin
+            </Link>
+          )}
+          {staffRole === "contributor" && (
+            <Link
+              href="/contribuir"
+              className="hidden rounded-md px-2 py-1.5 text-[13px] font-medium text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-300 sm:inline"
+            >
+              Contribuir
             </Link>
           )}
 

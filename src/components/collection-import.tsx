@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import type { ImportStats } from "@/lib/import-collection";
 import type { CollectionSummary } from "@/lib/collection-store";
 import { Panel, PanelTitle } from "@/components/ui";
+import { CollectionImportRace } from "@/components/collection-import-race";
 
 type Props = {
   hasItems: boolean;
@@ -85,40 +86,33 @@ export function CollectionImport({ hasItems, canViewCollectionValue }: Props) {
       </div>
 
       {error && (
-        <p className="mt-3 rounded-lg border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-sm text-rose-200">
+        <p className="mt-3 rounded-lg border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-sm text-rose-700 dark:text-rose-200">
           {error}
         </p>
       )}
 
       {result && (
-        <div className="mt-3 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100">
-          Importados {result.stats.imported} juegos · {result.stats.matchedCatalog} enlazados al
-          catálogo
-          {result.stats.unmatched > 0 &&
-            ` · ${result.stats.unmatched} pendientes de ficha (retro)`}
-          .
-          {result.summary.outOfScopeItems > 0 &&
-            ` ${result.summary.outOfScopeItems} en PS5 u otras plataformas fuera del catálogo.`}
-          {result.stats.byPlatform?.ps5 && (
-            <>
-              {" "}
-              PS5 detectados: {result.stats.byPlatform.ps5.items} títulos
-              {result.stats.byPlatform.ps5.units > result.stats.byPlatform.ps5.items
-                ? ` (${result.stats.byPlatform.ps5.units} unidades)`
-                : ""}
-              .
-            </>
-          )}
-          {canViewCollectionValue && (
-            <>
-              {" "}
-              Valor venta:{" "}
-              {new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(
-                result.summary.totalRecommendedValue,
-              )}
-            </>
-          )}
-        </div>
+        <>
+          <div className="mt-3 rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-700 dark:text-emerald-100">
+            Importados {result.stats.imported} juegos · {result.stats.matchedCatalog} enlazados al
+            catálogo
+            {result.stats.unmatched > 0 &&
+              ` · ${result.stats.unmatched} pendientes de ficha`}
+            .
+            {result.summary.outOfScopeItems > 0 &&
+              ` ${result.summary.outOfScopeItems} en plataformas aún sin ficha pública completa.`}
+            {canViewCollectionValue && (
+              <>
+                {" "}
+                Valor venta:{" "}
+                {new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(
+                  result.summary.totalRecommendedValue,
+                )}
+              </>
+            )}
+          </div>
+          <CollectionImportRace stats={result.stats} />
+        </>
       )}
     </Panel>
   );

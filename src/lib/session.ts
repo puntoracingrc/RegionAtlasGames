@@ -31,6 +31,7 @@ export type PublicUser = {
   id: string;
   email: string;
   name: string;
+  city: string | null;
   theme: ThemePreference;
   plan: UserPlan;
   createdAt: string;

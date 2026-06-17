@@ -2,8 +2,10 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import {
   OAUTH_NEXT_COOKIE,
+  OAUTH_REDIRECT_COOKIE,
   OAUTH_STATE_COOKIE,
   exchangeGoogleCode,
+  googleRedirectUri,
   isGoogleAuthConfigured,
   sanitizeNextPath,
   verifyOAuthState,
@@ -32,13 +34,17 @@ export async function GET(request: Request) {
   const cookieStore = await cookies();
   const savedState = cookieStore.get(OAUTH_STATE_COOKIE)?.value;
   const next = sanitizeNextPath(cookieStore.get(OAUTH_NEXT_COOKIE)?.value);
+  const requestUrl = new URL(request.url);
+  const redirectUri =
+    cookieStore.get(OAUTH_REDIRECT_COOKIE)?.value ||
+    googleRedirectUri(requestUrl.origin);
 
   if (!code || !verifyOAuthState(state) || state !== savedState) {
     return redirectWithGoogleError(request, "invalid-state");
   }
 
   try {
-    const profile = await exchangeGoogleCode(code);
+    const profile = await exchangeGoogleCode(code, redirectUri);
     const result = await loginOrRegisterWithGoogle(profile);
     if ("error" in result) {
       return redirectWithGoogleError(request, result.error);
@@ -47,6 +53,7 @@ export async function GET(request: Request) {
     const response = NextResponse.redirect(new URL(next, request.url));
     response.cookies.delete(OAUTH_STATE_COOKIE);
     response.cookies.delete(OAUTH_NEXT_COOKIE);
+    response.cookies.delete(OAUTH_REDIRECT_COOKIE);
     return response;
   } catch (error) {
     console.error("[auth/google/callback]", error);

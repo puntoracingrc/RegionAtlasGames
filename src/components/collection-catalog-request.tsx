@@ -80,7 +80,7 @@ export function CollectionCatalogRequestPanel({
       )}
 
       {error && (
-        <p className="mt-3 rounded-lg border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-sm text-rose-200">
+        <p className="mt-3 rounded-lg border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-sm text-rose-700 dark:text-rose-200">
           {error}
         </p>
       )}

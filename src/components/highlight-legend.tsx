@@ -1,5 +1,7 @@
-import { grailLabel, topSegmentLabel } from "@/lib/game-highlight";
 import { cn } from "@/lib/cn";
+
+const grailLabel = "Alto valor (≥100 €)";
+const topSegmentLabel = "Top cotizado · consola y región";
 
 export function HighlightLegend({
   showOwned = true,
@@ -31,11 +33,11 @@ export function HighlightLegend({
       )}
       <span className={itemClass}>
         <span className="h-2 w-2 rounded-full bg-violet-500/80" />
-        {compact ? "Top" : topSegmentLabel()}
+        {compact ? "Top" : topSegmentLabel}
       </span>
       <span className={itemClass}>
         <span className="h-2 w-2 rounded-full bg-amber-500/80" />
-        {compact ? "Grail" : grailLabel()}
+        {compact ? "Grail" : grailLabel}
       </span>
     </div>
   );

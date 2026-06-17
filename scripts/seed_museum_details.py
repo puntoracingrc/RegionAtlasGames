@@ -18,6 +18,7 @@ import sys
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from collectors.game_details_lib import (  # noqa: E402
+    apply_merged_details,
     build_indexes,
     is_valid_detail,
     load_json,
@@ -171,7 +172,7 @@ def main() -> None:
         if museum_part:
             merged = merge_details(museum_part, pc_part, None, None)
             if merged:
-                details[game_id] = merged
+                details[game_id] = apply_merged_details(details.get(game_id), merged)
 
         if idx % SAVE_EVERY == 0:
             if not args.dry_run:

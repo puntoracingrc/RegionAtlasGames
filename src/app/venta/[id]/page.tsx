@@ -14,7 +14,7 @@ export default async function ListingPage({ params }: Props) {
   if (!canUseMarketplace(user.plan)) redirect("/ajustes");
 
   const { id } = await params;
-  const listing = getListing(id);
+  const listing = await getListing(id);
   if (!listing) notFound();
 
   const isOwner = listing.sellerId === user.id;
@@ -31,7 +31,7 @@ export default async function ListingPage({ params }: Props) {
       key={listing.updatedAt}
       listing={listing}
       isOwner={isOwner}
-      quotaRemaining={aiQuotaRemaining(user.id, user.plan)}
+      quotaRemaining={await aiQuotaRemaining(user.id, user.plan)}
       catalogHref={catalogGamePath(listing.catalogId)}
     />
   );

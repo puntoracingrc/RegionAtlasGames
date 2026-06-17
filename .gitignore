@@ -65,6 +65,7 @@ public/covers
 /data/serialstation
 /data/descriptions
 /data/covers
+/data/local-caches
 
 # informes locales de pipelines (regenerables)
 /data/*-enrich-report.json

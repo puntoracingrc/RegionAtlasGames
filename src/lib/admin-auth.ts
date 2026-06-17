@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "./users";
+import { isContributorEmail } from "./admin-contributors";
 
 function adminEmails(): string[] {
   const raw = process.env.ADMIN_EMAILS?.trim();
@@ -23,6 +24,14 @@ export function isAdminEmail(email: string | null | undefined): boolean {
     return process.env.NODE_ENV !== "production";
   }
   return allowed.includes(normalized);
+}
+
+export async function requireContributorUser() {
+  const user = await getCurrentUser();
+  if (!user || !(await isContributorEmail(user.email)) || isAdminEmail(user.email)) {
+    redirect("/login?next=/contribuir");
+  }
+  return user;
 }
 
 export async function requireAdminUser() {

@@ -3,6 +3,7 @@ import { CompanyCollaborators } from "@/components/company-collaborators";
 import { CompanyPlatformGames } from "@/components/company-platform-games";
 import { CompanyProfileHeader } from "@/components/company-profile-header";
 import { SiteNav } from "@/components/site-nav";
+import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { buildCompanyIntro } from "@/lib/company-seo";
 import type { CompanyProfileView } from "@/lib/company-profile";
 
@@ -14,6 +15,7 @@ type Props = {
 
 export function CompanyProfileDetail({ view, ownedCatalogIds, isLoggedIn }: Props) {
   const intro = buildCompanyIntro(view);
+  const games = view.games.map(toCatalogListGame);
 
   return (
     <>
@@ -39,7 +41,7 @@ export function CompanyProfileDetail({ view, ownedCatalogIds, isLoggedIn }: Prop
             </p>
           </div>
           <EntityBrowser
-            games={view.games}
+            games={games}
             title={view.name}
             ownedCatalogIds={ownedCatalogIds}
             isLoggedIn={isLoggedIn}

@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from collectors.catalog_ai_match import product_cache_key
+from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.common import load_json, now_iso, save_json
 
 LISTING_CACHE_ROOT = Path(__file__).resolve().parents[2] / "data" / "price-ingest" / "cache" / "ebay-listings"
@@ -46,6 +47,8 @@ def read_listing_cache(
     if not path.exists():
         return None
     cached = load_json(path, {})
+    if not cache_policy_matches(cached):
+        return None
     if not cache_is_fresh(cached, item):
         return None
     return cached
@@ -75,7 +78,7 @@ def write_listing_cache(
     }
     if row:
         payload["row"] = row
-    save_json(_cache_path(platform_slug, catalog_id, cache_key), payload)
+    save_json(_cache_path(platform_slug, catalog_id, cache_key), attach_policy_version(payload))
 
 
 __all__ = [

@@ -1,13 +1,21 @@
-import companiesData from "../../data/index/companies.json";
-import genresData from "../../data/index/genres.json";
-import seriesData from "../../data/index/series.json";
-import gameDetailsData from "../../data/game-details.json";
+import { readFileSync } from "fs";
+import path from "path";
 import { mergeCompanyIndex, resolveCanonicalCompanySlug } from "./company-canonical";
 import { mergeGenreIndex, resolveCanonicalGenreSlug } from "./genre-canonical";
 import type { CatalogGame, GameDetails, IndexEntry } from "./types";
 import { getCatalogGame, getPlatform, meta } from "./catalog";
 
 /** Índices precalculados (data/index/*.json). Regenerar con npm run details:indexes (incluye sync de entidades). */
+
+function loadDataJson<T>(filename: string, fallback: T): T {
+  try {
+    return JSON.parse(
+      readFileSync(path.join(/* turbopackIgnore: true */ process.cwd(), "data", filename), "utf-8"),
+    ) as T;
+  } catch {
+    return fallback;
+  }
+}
 
 function isGameDetails(value: unknown): value is GameDetails {
   if (!value || typeof value !== "object") return false;
@@ -28,7 +36,7 @@ let gameDetailsCache: Record<string, GameDetails> | null = null;
 
 function loadGameDetails(): Record<string, GameDetails> {
   if (gameDetailsCache) return gameDetailsCache;
-  const raw = gameDetailsData as Record<string, unknown>;
+  const raw = loadDataJson<Record<string, unknown>>("game-details.json", {});
   gameDetailsCache = Object.fromEntries(
     Object.entries(raw).filter((entry): entry is [string, GameDetails] =>
       isGameDetails(entry[1]),
@@ -37,9 +45,16 @@ function loadGameDetails(): Record<string, GameDetails> {
   return gameDetailsCache;
 }
 
-export const companies = mergeCompanyIndex(companiesData as Record<string, IndexEntry>);
-export const genres = mergeGenreIndex(genresData as Record<string, IndexEntry>);
-export const seriesIndex = seriesData as Record<string, IndexEntry>;
+export const companies = mergeCompanyIndex(
+  loadDataJson<Record<string, IndexEntry>>(path.join("index", "companies.json"), {}),
+);
+export const genres = mergeGenreIndex(
+  loadDataJson<Record<string, IndexEntry>>(path.join("index", "genres.json"), {}),
+);
+export const seriesIndex = loadDataJson<Record<string, IndexEntry>>(
+  path.join("index", "series.json"),
+  {},
+);
 
 const companyList = Object.values(companies).sort(
   (a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"),

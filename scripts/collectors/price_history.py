@@ -1,4 +1,4 @@
-"""Histórico de medias por estado (suelto / completo / precintado) tras cada sync."""
+"""Histórico de medias por estado tras cada sync."""
 
 from __future__ import annotations
 
@@ -15,19 +15,26 @@ def _parse_day(iso_at: str) -> str:
     return iso_at[:10]
 
 
-def _snapshot_values(snapshot: dict[str, Any]) -> tuple[Any, Any, Any]:
-    return snapshot.get("loose"), snapshot.get("complete"), snapshot.get("sealed")
+def _snapshot_values(snapshot: dict[str, Any]) -> tuple[Any, Any, Any, Any]:
+    return (
+        snapshot.get("loose"),
+        snapshot.get("gameManual"),
+        snapshot.get("complete"),
+        snapshot.get("sealed"),
+    )
 
 
 def snapshot_from_game(game: dict[str, Any], synced_at: str) -> dict[str, Any] | None:
     loose = game.get("estimatedPriceLoose")
+    game_manual = game.get("estimatedPriceGameManual")
     complete = game.get("estimatedPriceComplete")
     sealed = game.get("estimatedPriceSealed")
-    if loose is None and complete is None and sealed is None:
+    if loose is None and game_manual is None and complete is None and sealed is None:
         return None
     return {
         "at": synced_at,
         "loose": loose,
+        "gameManual": game_manual,
         "complete": complete,
         "sealed": sealed,
     }

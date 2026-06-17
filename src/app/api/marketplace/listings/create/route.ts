@@ -24,6 +24,7 @@ export async function POST(request: Request) {
   const result = await createListingDraft({
     sellerId: user.id,
     sellerName: user.name,
+    sellerCity: user.city,
     collectionItemId,
   });
 

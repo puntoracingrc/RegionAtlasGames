@@ -73,6 +73,9 @@ def load_platforms() -> dict[str, dict[str, Any]]:
 
 def platform_catalog_games(platform_slug: str, region: str | None = None) -> list[dict[str, Any]]:
     """Todos los juegos indexados de la plataforma (todas las regiones)."""
+    env_region = os.environ.get("PRICE_COLLECT_REGION", "").strip()
+    if not region and env_region:
+        region = env_region
     catalog = load_json(CATALOG_FILE, [])
     games = [
         g
@@ -81,6 +84,9 @@ def platform_catalog_games(platform_slug: str, region: str | None = None) -> lis
     ]
     if region:
         games = [g for g in games if g.get("region") == region]
+    catalog_id = os.environ.get("PRICE_COLLECT_CATALOG_ID", "").strip()
+    if catalog_id:
+        games = [g for g in games if str(g.get("id")) == catalog_id]
     return sorted(games, key=lambda g: g["title"].lower())
 
 

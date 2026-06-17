@@ -63,12 +63,12 @@ export function CollectionGapPlatformDetail({ variant, platformSlug, items }: Pr
             <h1 className="text-2xl font-bold text-foreground">{group.shortName}</h1>
             <p className={cn("mt-1 text-sm font-medium", copy.badgeClass)}>{copy.badge}</p>
             {linkable > 0 && (
-              <p className="mt-1 text-xs text-emerald-300/95">
+              <p className="mt-1 text-xs text-emerald-700 dark:text-emerald-300/95">
                 {linkable} {linkable === 1 ? "ficha disponible" : "fichas disponibles"} · pulsa +
               </p>
             )}
           </div>
-          <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-xs font-medium text-muted">
+          <span className="rounded-full border border-border bg-card-hover px-3 py-1.5 text-xs font-medium text-muted dark:border-white/10 dark:bg-black/20">
             {group.items.length} {group.items.length === 1 ? "juego" : "juegos"}
             {group.units > group.items.length ? ` · ${group.units} uds.` : ""}
           </span>

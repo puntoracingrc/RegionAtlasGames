@@ -7,6 +7,7 @@ const GOOGLE_USERINFO_URL = "https://www.googleapis.com/oauth2/v3/userinfo";
 
 export const OAUTH_STATE_COOKIE = "pal-es-oauth-state";
 export const OAUTH_NEXT_COOKIE = "pal-es-oauth-next";
+export const OAUTH_REDIRECT_COOKIE = "pal-es-oauth-redirect";
 
 export type GoogleProfile = {
   googleId: string;
@@ -26,8 +27,9 @@ export function isGoogleAuthConfigured(): boolean {
   );
 }
 
-export function googleRedirectUri(): string {
-  return `${getSiteUrl()}/api/auth/google/callback`;
+export function googleRedirectUri(origin?: string): string {
+  const base = origin?.trim() || getSiteUrl();
+  return `${base.replace(/\/$/, "")}/api/auth/google/callback`;
 }
 
 export function sanitizeNextPath(next: string | null | undefined): string {
@@ -53,13 +55,13 @@ export function verifyOAuthState(state: string | null | undefined): boolean {
   }
 }
 
-export function buildGoogleAuthUrl(state: string): string {
+export function buildGoogleAuthUrl(state: string, redirectUri = googleRedirectUri()): string {
   const clientId = process.env.GOOGLE_CLIENT_ID?.trim();
   if (!clientId) throw new Error("GOOGLE_CLIENT_ID no configurado.");
 
   const params = new URLSearchParams({
     client_id: clientId,
-    redirect_uri: googleRedirectUri(),
+    redirect_uri: redirectUri,
     response_type: "code",
     scope: "openid email profile",
     state,
@@ -70,7 +72,10 @@ export function buildGoogleAuthUrl(state: string): string {
   return `${GOOGLE_AUTH_URL}?${params.toString()}`;
 }
 
-export async function exchangeGoogleCode(code: string): Promise<GoogleProfile> {
+export async function exchangeGoogleCode(
+  code: string,
+  redirectUri = googleRedirectUri(),
+): Promise<GoogleProfile> {
   const clientId = process.env.GOOGLE_CLIENT_ID?.trim();
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET?.trim();
   if (!clientId || !clientSecret) {
@@ -84,7 +89,7 @@ export async function exchangeGoogleCode(code: string): Promise<GoogleProfile> {
       code,
       client_id: clientId,
       client_secret: clientSecret,
-      redirect_uri: googleRedirectUri(),
+      redirect_uri: redirectUri,
       grant_type: "authorization_code",
     }),
   });

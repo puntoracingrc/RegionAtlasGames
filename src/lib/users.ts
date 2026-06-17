@@ -1,7 +1,6 @@
-import { cookies } from "next/headers";
-import { getIronSession } from "iron-session";
+import { cookies, headers } from "next/headers";
 import bcrypt from "bcryptjs";
-import { randomUUID } from "crypto";
+import { createHmac, randomUUID, timingSafeEqual } from "crypto";
 import {
   defaultSession,
   sessionOptions,
@@ -13,6 +12,10 @@ import type { UserPlan } from "./marketplace-types";
 import { loadUsers, saveUsers, type StoredUserRecord } from "./users-store";
 
 type StoredUser = StoredUserRecord;
+type MutableSession = SessionData & {
+  save: () => Promise<void>;
+  destroy: () => void;
+};
 
 export async function readUsers(): Promise<StoredUser[]> {
   return loadUsers();
@@ -23,15 +26,73 @@ export function toPublicUser(user: StoredUser): PublicUser {
     id: user.id,
     email: user.email,
     name: user.name,
+    city: user.city?.trim() || null,
     theme: user.theme,
     plan: user.plan ?? "free",
     createdAt: user.createdAt,
   };
 }
 
-export async function getSession() {
+function sessionSecret(): string {
+  const secret = process.env.SESSION_SECRET?.trim();
+  return secret && secret !== "\"\"" ? secret : "dev-only-secret-min-32-chars-long!!";
+}
+
+function signSession(payload: string): string {
+  return createHmac("sha256", sessionSecret()).update(payload).digest("base64url");
+}
+
+function encodeSession(data: SessionData): string {
+  const payload = Buffer.from(JSON.stringify(data)).toString("base64url");
+  return `${payload}.${signSession(payload)}`;
+}
+
+function decodeSession(value: string | undefined): SessionData | null {
+  if (!value || !value.includes(".")) return null;
+  const [payload, signature] = value.split(".");
+  if (!payload || !signature) return null;
+  const expected = signSession(payload);
+  const actualBuffer = Buffer.from(signature);
+  const expectedBuffer = Buffer.from(expected);
+  if (actualBuffer.length !== expectedBuffer.length) return null;
+  if (!timingSafeEqual(actualBuffer, expectedBuffer)) return null;
+  try {
+    return JSON.parse(Buffer.from(payload, "base64url").toString("utf-8")) as SessionData;
+  } catch {
+    return null;
+  }
+}
+
+export async function getSession(): Promise<MutableSession> {
   const cookieStore = await cookies();
-  return getIronSession<SessionData>(cookieStore, sessionOptions);
+  const requestHeaders = await headers();
+  const host = requestHeaders.get("host")?.split(":")[0].toLowerCase() ?? "";
+  const cookieDomain =
+    host === "regionatlas.games" || host === "www.regionatlas.games"
+      ? ".regionatlas.games"
+      : undefined;
+  const stored = decodeSession(cookieStore.get(sessionOptions.cookieName)?.value);
+  const session: MutableSession = {
+    ...defaultSession,
+    ...stored,
+    async save() {
+      const { save: _save, destroy: _destroy, ...data } = session;
+      cookieStore.set(sessionOptions.cookieName, encodeSession(data), {
+        ...sessionOptions.cookieOptions,
+        path: "/",
+        ...(cookieDomain ? { domain: cookieDomain } : {}),
+      });
+    },
+    destroy() {
+      cookieStore.set(sessionOptions.cookieName, "", {
+        ...sessionOptions.cookieOptions,
+        path: "/",
+        maxAge: 0,
+        ...(cookieDomain ? { domain: cookieDomain } : {}),
+      });
+    },
+  };
+  return session;
 }
 
 export async function getCurrentUser(): Promise<PublicUser | null> {
@@ -46,14 +107,17 @@ export async function registerUser(input: {
   name: string;
   email: string;
   password: string;
+  city?: string;
 }): Promise<{ user: PublicUser } | { error: string }> {
   const name = input.name.trim();
   const email = input.email.trim().toLowerCase();
   const password = input.password;
+  const city = input.city?.trim() ?? "";
 
   if (!name || name.length < 2) return { error: "Nombre demasiado corto." };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: "Email no válido." };
   if (password.length < 8) return { error: "La contraseña debe tener al menos 8 caracteres." };
+  if (city && city.length < 2) return { error: "Ciudad demasiado corta." };
 
   const users = await readUsers();
   if (users.some((u) => u.email === email)) {
@@ -64,6 +128,7 @@ export async function registerUser(input: {
     id: randomUUID(),
     name,
     email,
+    city: city || null,
     passwordHash: await bcrypt.hash(password, 10),
     theme: "system",
     plan: "free",
@@ -73,6 +138,25 @@ export async function registerUser(input: {
   const saved = await saveUsers(users);
   if ("error" in saved) return saved;
   return { user: toPublicUser(user) };
+}
+
+export async function updateUserProfile(
+  userId: string,
+  input: { city?: string | null },
+): Promise<PublicUser | { error: string }> {
+  const users = await readUsers();
+  const idx = users.findIndex((u) => u.id === userId);
+  if (idx === -1) return { error: "Usuario no encontrado." };
+
+  if (input.city !== undefined) {
+    const city = input.city?.trim() ?? "";
+    if (city && city.length < 2) return { error: "Ciudad demasiado corta." };
+    users[idx].city = city || null;
+  }
+
+  const saved = await saveUsers(users);
+  if ("error" in saved) return saved;
+  return toPublicUser(users[idx]);
 }
 
 export async function loginUser(

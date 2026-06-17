@@ -13,7 +13,8 @@ import { getSellerOpenListing } from "@/lib/listings";
 import { getUserCollectionItem } from "@/lib/collection-store";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
-import { formatEur, getCatalogGame, getPlatform } from "@/lib/catalog";
+import { getCatalogGame, getPlatform } from "@/lib/catalog";
+import { formatEur } from "@/lib/price-format";
 import { getGameDetails } from "@/lib/indexes";
 import { catalogGamePath } from "@/lib/catalog-url";
 import { canViewCollectionValue } from "@/lib/plans";
@@ -32,7 +33,7 @@ export default async function CollectionItemPage({ params }: Props) {
   const platform = getPlatform(item.platformSlug);
   const openListing =
     item.catalogId != null
-      ? getSellerOpenListing(user.id, item.catalogId)
+      ? await getSellerOpenListing(user.id, item.catalogId)
       : undefined;
   const grail = isGrailGame(item);
   const topSegment = isTopInSegment(item);
@@ -47,13 +48,13 @@ export default async function CollectionItemPage({ params }: Props) {
         <BackLink href="/coleccion">Mi colección</BackLink>
 
         {!item.inRetroCatalog && (
-          <div className="mt-4 rounded-xl border border-rose-400/20 bg-rose-500/10 px-4 py-3 text-sm text-rose-200">
+          <div className="mt-4 rounded-xl border border-rose-400/20 bg-rose-500/10 px-4 py-3 text-sm text-rose-700 dark:text-rose-200">
             Este juego no está indexado en el catálogo retro ({platform?.shortName ?? item.platformSlug}).
           </div>
         )}
 
         {item.inRetroCatalog && !item.catalogMatched && (
-          <div className="mt-4 rounded-xl border border-amber-400/25 bg-amber-500/10 px-4 py-3 text-sm text-amber-100">
+          <div className="mt-4 rounded-xl border border-amber-400/25 bg-amber-500/10 px-4 py-3 text-sm text-amber-800 dark:text-amber-100">
             Este juego está en tu colección pero aún no tiene ficha en el catálogo de Region Atlas.
             Lo mantendremos en tu lista de pendientes hasta que lo indexemos.
           </div>

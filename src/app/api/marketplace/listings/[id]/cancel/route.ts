@@ -12,7 +12,7 @@ export async function POST(_request: Request, { params }: Params) {
   }
 
   const { id } = await params;
-  const listing = getListing(id);
+  const listing = await getListing(id);
   if (!listing || listing.sellerId !== user.id) {
     return NextResponse.json({ error: "Anuncio no encontrado." }, { status: 404 });
   }
@@ -23,10 +23,10 @@ export async function POST(_request: Request, { params }: Params) {
     return NextResponse.json({ ok: true, listing });
   }
 
-  const ok = cancelListing(id, user.id);
+  const ok = await cancelListing(id, user.id);
   if (!ok) {
     return NextResponse.json({ error: "No se pudo cancelar." }, { status: 400 });
   }
 
-  return NextResponse.json({ ok: true, listing: getListing(id) });
+  return NextResponse.json({ ok: true, listing: await getListing(id) });
 }

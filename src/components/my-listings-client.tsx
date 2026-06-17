@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { SiteNav } from "@/components/site-nav";
 import { Panel } from "@/components/ui";
-import { formatEur } from "@/lib/catalog";
+import { formatEur } from "@/lib/price-format";
 import type { MarketplaceListing } from "@/lib/marketplace-types";
-import { LISTING_STATUS_HINTS, listingStatusLabel } from "@/lib/marketplace-ui";
+import { conditionScoreOutOfTen, LISTING_STATUS_HINTS, listingStatusLabel } from "@/lib/marketplace-ui";
 
 type Props = {
   listings: MarketplaceListing[];
@@ -51,7 +51,7 @@ export function MyListingsClient({ listings }: Props) {
         </header>
 
         {error && (
-          <p className="mb-4 rounded-lg border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-sm text-rose-200">
+          <p className="mb-4 rounded-lg border border-rose-400/20 bg-rose-500/10 px-3 py-2 text-sm text-rose-700 dark:text-rose-200">
             {error}
           </p>
         )}
@@ -126,9 +126,16 @@ function ListingRow({
           </Link>
           <p className="mt-1 text-xs text-muted">
             {listing.region}
+            {listing.sellerCity ? ` · ${listing.sellerCity}` : ""}
             {listing.sealed ? " · Precintado" : ""}
             {price != null ? ` · ~${formatEur(price)}` : ""}
           </p>
+          {listing.aiAnalysis?.conditionScore != null && (
+            <p className="mt-1 text-xs text-muted">
+              Estado IA: {conditionScoreOutOfTen(listing.aiAnalysis.conditionScore)}/10 ·{" "}
+              {listing.aiAnalysis.conditionVerdict}
+            </p>
+          )}
           <p className="mt-1 text-xs">
             <span className="font-medium text-accent">{listingStatusLabel(listing.status)}</span>
             <span className="text-muted"> — {LISTING_STATUS_HINTS[listing.status]}</span>

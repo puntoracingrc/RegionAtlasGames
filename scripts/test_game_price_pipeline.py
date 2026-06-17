@@ -112,7 +112,7 @@ def main() -> None:
         print(f"  {BUCKET_LABELS_ES[bucket]}: {price} € ({source}, peso {source_weight(source)})")
 
     print("\n=== Medias ponderadas ===")
-    for bucket in ("loose", "complete", "sealed"):
+    for bucket in ("loose", "game_manual", "complete", "sealed"):
         val = estimates.get(bucket)
         if val is not None:
             print(f"  {BUCKET_LABELS_ES[bucket]}: {val} €")
@@ -132,6 +132,7 @@ def main() -> None:
     ):
         print("\n=== Campos catálogo (simulado) ===")
         print(f"  estimatedPriceLoose: {dry_game.get('estimatedPriceLoose')}")
+        print(f"  estimatedPriceGameManual: {dry_game.get('estimatedPriceGameManual')}")
         print(f"  estimatedPriceComplete: {dry_game.get('estimatedPriceComplete')}")
         print(f"  estimatedPriceSealed: {dry_game.get('estimatedPriceSealed')}")
         print(f"  recommendedPrice: {dry_game.get('recommendedPrice')}")

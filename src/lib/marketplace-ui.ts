@@ -17,3 +17,8 @@ export const LISTING_STATUS_HINTS: Record<ListingStatus, string> = {
 export function listingStatusLabel(status: ListingStatus): string {
   return LISTING_STATUS_LABELS[status] ?? status;
 }
+
+export function conditionScoreOutOfTen(score: number | null | undefined): number | null {
+  if (score == null || !Number.isFinite(score)) return null;
+  return Math.max(1, Math.min(10, Math.round(score * 10)));
+}

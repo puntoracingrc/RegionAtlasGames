@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -63,6 +64,9 @@ def build_chollo_rows(
 ) -> list[dict[str, Any]]:
     catalog = load_catalog()
     platform_games = [g for g in catalog if g.get("platformSlug") == platform_slug]
+    region = os.environ.get("PRICE_COLLECT_REGION", "").strip()
+    if region:
+        platform_games = [g for g in platform_games if g.get("region") == region]
     _, ref_to_ids = build_platform_reference_index(platform_slug)
 
     def row_builder(product: dict[str, Any], game: dict[str, Any], result) -> dict[str, Any] | None:

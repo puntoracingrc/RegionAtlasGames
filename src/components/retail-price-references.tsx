@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { CatalogGame, CollectionItem } from "@/lib/types";
-import { formatEur } from "@/lib/catalog";
+import { formatEur } from "@/lib/price-format";
 import { Panel, PanelTitle } from "@/components/ui";
 
 type GameLike = Pick<

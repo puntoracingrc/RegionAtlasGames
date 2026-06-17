@@ -1,11 +1,13 @@
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from "fs";
 import path from "path";
-import { get, put } from "@vercel/blob";
+import { del, get, put } from "@vercel/blob";
+import { revalidateTag, unstable_cache } from "next/cache";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { appDataDir, ensureAppDataDir } from "./app-data-dir";
 import type { CatalogStagingGame, CatalogStagingIndex } from "./catalog-staging-types";
 
 const STAGING_BLOB_PREFIX = "region-atlas/staging";
+const STAGING_CACHE_TAG = "catalog-staging";
 const MAX_TRACKED_USERS = 200;
 
 function useBlobStorage(): boolean {
@@ -72,16 +74,26 @@ function readIndexFromDisk(): CatalogStagingIndex {
   }
 }
 
-async function readIndexFromBlob(): Promise<CatalogStagingIndex> {
+async function readIndexFromBlobFresh(): Promise<CatalogStagingIndex> {
   try {
     const auth = await blobAuthOptions("private");
-    const result = await get(stagingIndexBlobPath(), auth);
+    const result = await get(stagingIndexBlobPath(), { ...auth, useCache: false });
     if (!result || result.statusCode !== 200 || !result.stream) return emptyIndex();
     const text = await new Response(result.stream).text();
     return parseIndex(text);
   } catch {
     return emptyIndex();
   }
+}
+
+const readIndexFromBlobCached = unstable_cache(
+  readIndexFromBlobFresh,
+  ["catalog-staging-index"],
+  { revalidate: 30, tags: [STAGING_CACHE_TAG] },
+);
+
+async function readIndexFromBlob(options?: { fresh?: boolean }): Promise<CatalogStagingIndex> {
+  return options?.fresh ? readIndexFromBlobFresh() : readIndexFromBlobCached();
 }
 
 export async function readCatalogStagingIndex(): Promise<CatalogStagingIndex> {
@@ -119,7 +131,9 @@ async function writeIndexToBlob(index: CatalogStagingIndex): Promise<{ ok: true 
       contentType: "application/json",
       addRandomSuffix: false,
       allowOverwrite: true,
+      cacheControlMaxAge: 60,
     });
+    revalidateTag(STAGING_CACHE_TAG, { expire: 0 });
     return { ok: true };
   } catch (error) {
     console.error("[catalog-staging] blob index write failed", error);
@@ -151,16 +165,26 @@ function readGameFromDisk(pcId: number): CatalogStagingGame | null {
   }
 }
 
-async function readGameFromBlob(pcId: number): Promise<CatalogStagingGame | null> {
+async function readGameFromBlobFresh(pcId: number): Promise<CatalogStagingGame | null> {
   try {
     const auth = await blobAuthOptions("private");
-    const result = await get(stagingGameBlobPath(pcId), auth);
+    const result = await get(stagingGameBlobPath(pcId), { ...auth, useCache: false });
     if (!result || result.statusCode !== 200 || !result.stream) return null;
     const text = await new Response(result.stream).text();
     return parseGame(text, pcId);
   } catch {
     return null;
   }
+}
+
+const readGameFromBlobCached = unstable_cache(
+  readGameFromBlobFresh,
+  ["catalog-staging-game"],
+  { revalidate: 30, tags: [STAGING_CACHE_TAG] },
+);
+
+async function readGameFromBlob(pcId: number, options?: { fresh?: boolean }): Promise<CatalogStagingGame | null> {
+  return options?.fresh ? readGameFromBlobFresh(pcId) : readGameFromBlobCached(pcId);
 }
 
 export async function readCatalogStagingGame(pcId: number): Promise<CatalogStagingGame | null> {
@@ -191,7 +215,9 @@ async function writeGameToBlob(game: CatalogStagingGame): Promise<{ ok: true } |
       contentType: "application/json",
       addRandomSuffix: false,
       allowOverwrite: true,
+      cacheControlMaxAge: 60,
     });
+    revalidateTag(STAGING_CACHE_TAG, { expire: 0 });
     return { ok: true };
   } catch (error) {
     console.error("[catalog-staging] blob game write failed", error);
@@ -212,6 +238,42 @@ export async function writeCatalogStagingGame(
   }
   if ("error" in diskResult) return diskResult;
   return { ok: true };
+}
+
+export async function deleteCatalogStagingGame(
+  pcId: number,
+): Promise<{ ok: true; removed: boolean } | { error: string }> {
+  const index = await readCatalogStagingIndex();
+  const hadEntry = index.pcIds.includes(pcId);
+  index.pcIds = index.pcIds.filter((id) => id !== pcId);
+
+  const remaining: CatalogStagingGame[] = [];
+  for (const id of index.pcIds) {
+    const game = await readCatalogStagingGame(id);
+    if (game) remaining.push(game);
+  }
+  index.byPlatform = rebuildPlatformStats(remaining);
+
+  const indexSaved = await writeCatalogStagingIndex(index);
+  if ("error" in indexSaved) return indexSaved;
+
+  try {
+    unlinkSync(stagingGameDiskPath(pcId));
+  } catch {
+    /* missing on disk */
+  }
+
+  if (useBlobStorage()) {
+    try {
+      const auth = await blobAuthOptions("private");
+      await del(stagingGameBlobPath(pcId), auth);
+      revalidateTag(STAGING_CACHE_TAG, { expire: 0 });
+    } catch (error) {
+      console.warn("[catalog-staging] blob delete failed", pcId, error);
+    }
+  }
+
+  return { ok: true, removed: hadEntry };
 }
 
 export function trackUserId(existing: string[], userId: string): { userIds: string[]; isNew: boolean } {

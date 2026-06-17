@@ -33,7 +33,7 @@ export default async function AdminQueueGamePage({ params, searchParams }: Props
   return (
     <div>
       <Link href="/admin/cola" className="mb-4 inline-block text-sm text-muted hover:text-foreground">
-        ← Volver a la cola
+        ← Volver a revisión
       </Link>
       <AdminGameEditor
         pcId={pcId}

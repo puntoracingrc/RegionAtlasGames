@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { AccountProfileSettings } from "@/components/account-profile-settings";
 import { PlanPanel } from "@/components/plan-panel";
 import { SiteNav } from "@/components/site-nav";
 import { ThemeSettings } from "@/components/theme-settings";
@@ -36,29 +36,36 @@ export default async function SettingsPage() {
                 Pro incluye valor total de tu colección (global y por plataforma), mercado entre
                 usuarios y análisis IA de fotos.
               </p>
-              <PlanPanel plan={user.plan} aiQuotaRemaining={aiQuotaRemaining(user.id, user.plan)} />
+              <PlanPanel plan={user.plan} aiQuotaRemaining={await aiQuotaRemaining(user.id, user.plan)} />
             </Panel>
           )}
 
           <Panel>
             <PanelTitle>Cuenta</PanelTitle>
             {user ? (
-              <dl className="space-y-3 text-sm">
-                <div>
-                  <dt className="text-muted">Nombre</dt>
-                  <dd className="font-medium text-foreground">{user.name}</dd>
-                </div>
-                <div>
-                  <dt className="text-muted">Email</dt>
-                  <dd className="font-medium text-foreground">{user.email}</dd>
-                </div>
-                <div>
-                  <dt className="text-muted">Miembro desde</dt>
-                  <dd className="font-medium text-foreground">
-                    {new Date(user.createdAt).toLocaleDateString("es-ES")}
-                  </dd>
-                </div>
-              </dl>
+              <>
+                <dl className="space-y-3 text-sm">
+                  <div>
+                    <dt className="text-muted">Nombre</dt>
+                    <dd className="font-medium text-foreground">{user.name}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-muted">Email</dt>
+                    <dd className="font-medium text-foreground">{user.email}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-muted">Ciudad</dt>
+                    <dd className="font-medium text-foreground">{user.city ?? "Sin indicar"}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-muted">Miembro desde</dt>
+                    <dd className="font-medium text-foreground">
+                      {new Date(user.createdAt).toLocaleDateString("es-ES")}
+                    </dd>
+                  </div>
+                </dl>
+                <AccountProfileSettings initialCity={user.city} />
+              </>
             ) : (
               <div className="space-y-3 text-sm text-muted">
                 <p>Inicia sesión para sincronizar tu colección y preferencias entre dispositivos.</p>

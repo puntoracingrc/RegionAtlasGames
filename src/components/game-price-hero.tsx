@@ -1,7 +1,12 @@
 import type { CatalogGame } from "@/lib/types";
-import { formatEur } from "@/lib/catalog";
+import { formatEur } from "@/lib/price-format";
 import { getRegionDisplay } from "@/lib/region-display";
-import { conditionPriceEntries, hasAnyConditionEstimate } from "@/lib/condition-prices";
+import {
+  CONDITION_PRICE_DESCRIPTIONS,
+  conditionPriceEntries,
+  hasAnyConditionEstimate,
+  primaryConditionPriceEntry,
+} from "@/lib/condition-prices";
 import { esPriceDisplayLabel, hasVerifiedEsPrice } from "@/lib/price-display";
 import {
   bestJapanRetailPrice,
@@ -17,6 +22,7 @@ export function GamePriceHero({ game }: Props) {
   const status = esPriceDisplayLabel(game);
   const regionLabel = getRegionDisplay(game.region).label;
   const conditionPrices = conditionPriceEntries(game);
+  const primaryCondition = primaryConditionPriceEntry(game);
   const hasEstimate = hasAnyConditionEstimate(game) || hasVerifiedEsPrice(game);
 
   const updatedLabel = game.updatedAt
@@ -72,25 +78,50 @@ export function GamePriceHero({ game }: Props) {
           <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
             Valor de reventa · {regionLabel}
           </p>
-          {updatedLabel && (
-            <p className="mt-1 text-xs text-muted">Actualizado: {updatedLabel}</p>
-          )}
+          <p className="mt-1 text-xs text-muted">Mercado español · precios por estado</p>
         </div>
         <Badge tone={status === "verified" ? "amber" : "rose"}>
           {status === "verified" ? "Precio verificado" : "Precio orientativo"}
         </Badge>
       </div>
 
-      <div className="mt-5 grid gap-4 sm:grid-cols-3">
-        {conditionPrices.map((entry) => (
-          <div key={entry.bucket}>
-            <p className="text-[10px] uppercase tracking-wider text-muted">{entry.label}</p>
-            <p className="mt-1 text-2xl font-bold text-accent sm:text-3xl">
-              {formatEur(entry.price)}
-            </p>
-          </div>
-        ))}
-      </div>
+      {primaryCondition && (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {conditionPrices.map((entry) => {
+            const isPrimary = entry.bucket === primaryCondition.bucket;
+            return (
+              <div
+                key={entry.bucket}
+                className={[
+                  "rounded-2xl border p-4 transition",
+                  isPrimary
+                    ? "border-accent/35 bg-accent/10 shadow-sm"
+                    : "border-border/70 bg-background/45",
+                ].join(" ")}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+                      {entry.label}
+                    </p>
+                    <p className="mt-1 text-xs leading-snug text-muted/80">
+                      {CONDITION_PRICE_DESCRIPTIONS[entry.bucket]}
+                    </p>
+                  </div>
+                  {isPrimary && (
+                    <span className="rounded-full bg-accent/15 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-accent">
+                      Principal
+                    </span>
+                  )}
+                </div>
+                <p className="mt-5 text-3xl font-black tracking-tight text-foreground">
+                  {formatEur(entry.price)}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       {conditionPrices.length === 0 && game.recommendedPrice != null && (
         <p className="mt-5 text-3xl font-bold text-accent sm:text-4xl">
@@ -98,14 +129,21 @@ export function GamePriceHero({ game }: Props) {
         </p>
       )}
 
-      <p className="mt-4 text-sm text-muted">
-        Media ponderada de anuncios y tiendas en España (particulares ~55 %, tiendas ES ~30 %,
-        import ~15 % cuando hay una observación de cada tipo), separada por estado de la copia.
+      <p className="mt-5 text-sm leading-relaxed text-muted">
+        Estimación basada en observaciones verificadas en España, separadas por estado para evitar
+        mezclar copias sueltas, juego + manual, completas y precintadas.
       </p>
+
+      {conditionPrices.length > 0 && (
+        <p className="mt-2 text-xs text-muted/80">
+          La etiqueta principal indica qué precio se usa como referencia rápida en el catálogo.
+        </p>
+      )}
 
       {game.priceDataSources && (
         <p className="mt-3 text-xs text-muted/80">
-          Datos recopilados de: {game.priceDataSources}
+          Datos usados: {game.priceDataSources}
+          {updatedLabel ? ` · Último dato con precio: ${updatedLabel}` : ""}
         </p>
       )}
     </section>

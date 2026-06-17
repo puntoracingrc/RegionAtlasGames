@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
+import { applyDraftPatch } from "@/lib/admin-draft-patch";
 import {
   draftFromStaging,
   readAdminGameDraft,
   writeAdminGameDraft,
 } from "@/lib/admin-draft-storage";
+import { deleteAdminStagingEntry } from "@/lib/admin-catalog-publish";
 import { readCatalogStagingGame } from "@/lib/catalog-staging-storage";
 
 type RouteParams = { params: Promise<{ pcId: string }> };
@@ -47,40 +49,8 @@ export async function PATCH(request: Request, { params }: RouteParams) {
 
   const body = (await request.json()) as Partial<Record<string, unknown>>;
   const existing = await readAdminGameDraft(pcId);
-  const draft = draftFromStaging(staging, existing);
-
-  const assignString = (key: keyof typeof draft, value: unknown) => {
-    if (typeof value === "string") (draft[key] as string | null) = value.trim() || null;
-  };
-  const assignNumber = (key: "year" | "players", value: unknown) => {
-    if (value === null || value === "") draft[key] = null;
-    else if (typeof value === "number") draft[key] = value;
-    else if (typeof value === "string") {
-      const n = Number.parseInt(value, 10);
-      draft[key] = Number.isFinite(n) ? n : null;
-    }
-  };
-
-  if (typeof body.title === "string") draft.title = body.title.trim();
-  if (typeof body.slug === "string") draft.slug = body.slug.trim();
-  if (typeof body.catalogId === "string") draft.catalogId = body.catalogId.trim();
-  if (typeof body.platformSlug === "string") draft.platformSlug = body.platformSlug;
-  if (typeof body.region === "string") draft.region = body.region;
-  if (typeof body.edition === "string") draft.edition = body.edition;
-  assignString("reference", body.reference);
-  assignString("coverUrl", body.coverUrl);
-  assignString("releaseDate", body.releaseDate);
-  assignString("support", body.support);
-  assignString("developerName", body.developerName);
-  assignString("developerSlug", body.developerSlug);
-  assignString("publisherName", body.publisherName);
-  assignString("publisherSlug", body.publisherSlug);
-  assignNumber("year", body.year);
-  assignNumber("players", body.players);
-  if (typeof body.description === "string") draft.description = body.description.trim() || null;
-  if (Array.isArray(body.genreNames)) {
-    draft.genreNames = body.genreNames.filter((g): g is string => typeof g === "string");
-  }
+  const base = draftFromStaging(staging, existing);
+  const draft = applyDraftPatch(base, body);
 
   const saved = await writeAdminGameDraft(draft);
   if ("error" in saved) {
@@ -88,4 +58,48 @@ export async function PATCH(request: Request, { params }: RouteParams) {
   }
 
   return NextResponse.json({ ok: true, draft });
+}
+
+export async function DELETE(request: Request, { params }: RouteParams) {
+  if (!(await assertAdminApi())) {
+    return NextResponse.json({ error: "No autorizado." }, { status: 401 });
+  }
+
+  const pcId = Number.parseInt((await params).pcId, 10);
+  if (!Number.isFinite(pcId)) {
+    return NextResponse.json({ error: "ID inválido." }, { status: 400 });
+  }
+
+  const staging = await readCatalogStagingGame(pcId);
+  const draft = await readAdminGameDraft(pcId);
+  if (!staging && !draft) {
+    return NextResponse.json({ error: "Ficha no encontrada." }, { status: 404 });
+  }
+
+  let deletePublished = true;
+  try {
+    const body = (await request.json()) as { deletePublished?: boolean };
+    if (body.deletePublished === false) deletePublished = false;
+  } catch {
+    /* body opcional */
+  }
+
+  const result = await deleteAdminStagingEntry({
+    pcId,
+    catalogId: draft?.catalogId ?? staging?.catalogId ?? null,
+    deletePublished,
+  });
+
+  if ("error" in result) {
+    return NextResponse.json({ error: result.error }, { status: 400 });
+  }
+
+  return NextResponse.json({
+    ok: true,
+    redirect: "/admin/cola",
+    deletedCatalogId:
+      result.deletedCatalog && "ok" in result.deletedCatalog
+        ? result.deletedCatalog.catalogId
+        : null,
+  });
 }

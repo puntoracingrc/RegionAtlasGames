@@ -5,9 +5,18 @@ import { buildPlatformMetadata } from "@/lib/catalog-seo";
 import { PlatformCatalogSection } from "@/components/platform-catalog-section";
 import { SiteNav } from "@/components/site-nav";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
+import {
+  CATALOG_PAGE_SIZE,
+  DEFAULT_SORT,
+  countByPriceFilter,
+  filterCatalogGames,
+  regionOptions,
+} from "@/lib/catalog-filters";
+import { buildPlatformCatalogInsights } from "@/lib/platform-catalog-insights";
 import { getOwnedCatalogIds, getUserCollectionViews } from "@/lib/collection-store";
 import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
-import { getPlatform } from "@/lib/catalog";
+import { getAdminPlatform } from "@/lib/admin-entity-catalog";
+import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
@@ -15,22 +24,29 @@ type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const platform = getPlatform(slug);
+  const platform = await getAdminPlatform(slug);
+  if (platform?.active === false) return { title: "Plataforma no encontrada" };
   if (!platform) return { title: "Plataforma no encontrada" };
   return buildPlatformMetadata(platform);
 }
 
 export default async function PlatformPage({ params }: Props) {
   const { slug } = await params;
-  const platform = getPlatform(slug);
-  if (!platform) notFound();
+  const platform = await getAdminPlatform(slug);
+  if (!platform || platform.active === false) notFound();
 
   const user = await getCurrentUser();
   const owned = user ? await getUserCollectionViews(user.id) : [];
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
   const ownedOnPlatform = owned.filter((c) => c.platformSlug === slug);
   const catalogGames = await getCatalogByPlatformWithOverlay(slug);
-  const listingCounts = getActiveListingCountsByCatalog();
+  const catalogListGames = catalogGames.map(toCatalogListGame);
+  const initialCatalog = filterCatalogGames(
+    catalogListGames,
+    { q: "", region: "all", platform: "all", sort: DEFAULT_SORT, priceFilter: "all" },
+    { regions: true, platforms: false },
+  );
+  const listingCounts = await getActiveListingCountsByCatalog();
 
   return (
     <>
@@ -46,7 +62,11 @@ export default async function PlatformPage({ params }: Props) {
         ) : (
           <PlatformCatalogSection
             platform={platform}
-            games={catalogGames}
+            games={initialCatalog.items.slice(0, CATALOG_PAGE_SIZE)}
+            totalGames={initialCatalog.total}
+            insights={buildPlatformCatalogInsights(catalogListGames)}
+            regions={regionOptions(catalogListGames)}
+            priceCounts={countByPriceFilter(catalogListGames)}
             ownedItems={owned}
             ownedCatalogIds={ownedCatalogIds}
             listingCounts={listingCounts}

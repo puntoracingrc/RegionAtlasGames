@@ -17,7 +17,7 @@ export const PLATFORMS_PUBLIC_BASE_URL = (
 ).replace(/\/$/, "");
 export const SITE_NAME = "RegionAtlasGames";
 export const SITE_ACRONYM = "RAG";
-export const SITE_DEFAULT_URL = "https://regionatlas.games";
+export const SITE_DEFAULT_URL = "https://www.regionatlas.games";
 
 export const SITE_TITLE =
   "Region Atlas — Catálogo por región y precios de mercado en España";

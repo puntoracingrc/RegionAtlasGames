@@ -18,12 +18,12 @@ export async function POST(request: Request, { params }: Params) {
 
   if (action === "seller-confirm") {
     const buyerId = String(body.buyerId ?? "").trim();
-    const conv = findConversation(id, buyerId);
+    const conv = await findConversation(id, buyerId);
     if (!conv || conv.sellerId !== user.id) {
       return NextResponse.json({ error: "Comprador no válido para este anuncio." }, { status: 400 });
     }
 
-    const result = markListingSold({
+    const result = await markListingSold({
       listingId: id,
       sellerId: user.id,
       buyerId,
@@ -35,7 +35,7 @@ export async function POST(request: Request, { params }: Params) {
   }
 
   if (action === "buyer-confirm") {
-    const result = confirmBuyerReceipt({ listingId: id, buyerId: user.id });
+    const result = await confirmBuyerReceipt({ listingId: id, buyerId: user.id });
     if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
     return NextResponse.json(result);
   }

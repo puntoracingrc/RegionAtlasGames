@@ -2,37 +2,66 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { CoverArt } from "@/components/cover-art";
 import { RegionFlag } from "@/components/region-flag";
-import type { CatalogGame, CollectionView } from "@/lib/types";
-import { formatEur, getPlatform } from "@/lib/catalog";
-import { getCollectionPlatformShortName } from "@/lib/collection-platform-groups";
-import { catalogGamePath } from "@/lib/catalog-url";
-import {
-  grailLabel,
-  isGrailGame,
-  isTopInSegment,
-  topSegmentLabel,
-} from "@/lib/game-highlight";
+import type { CatalogListGame, CollectionView } from "@/lib/types";
+import { catalogGamePath } from "@/lib/catalog-path";
 import { formatEsPriceForCard } from "@/lib/price-display";
+import { formatEur } from "@/lib/price-format";
 import { CollectionQuickAdd } from "@/components/collection-quick-add";
 import { gameCardHighlightClass } from "@/lib/card-highlight";
 import { cn } from "@/lib/cn";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
-import { getGameDetails } from "@/lib/indexes";
 
 const cardBase =
   "group relative flex flex-col overflow-hidden rounded-xl border bg-card transition-all duration-200 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/45 hover:bg-card-hover";
+const RARE_PRICE_THRESHOLD_EUR = 100;
+const CLIENT_PLATFORM_LABELS: Record<string, string> = {
+  "3ds": "Nintendo 3DS",
+  dreamcast: "Dreamcast",
+  ds: "Nintendo DS",
+  gameboy: "Game Boy",
+  gameboycolor: "Game Boy Color",
+  gamecube: "GameCube",
+  gamegear: "Game Gear",
+  mastersystem: "Master System",
+  megacd: "Mega-CD",
+  megadrive: "Mega Drive",
+  n64: "Nintendo 64",
+  neogeo: "Neo Geo",
+  neogeocd: "Neo Geo CD",
+  neogeopocket: "Neo Geo Pocket",
+  nes: "NES",
+  ps1: "PS1",
+  ps2: "PS2",
+  ps3: "PS3",
+  ps4: "PS4",
+  ps5: "PS5",
+  psp: "PSP",
+  psvita: "PS Vita",
+  saturn: "Saturn",
+  sega32x: "32X",
+  snes: "Super Nintendo",
+  switch: "Switch",
+  switch2: "Switch 2",
+  wii: "Wii",
+  wiiu: "Wii U",
+  xbox360: "Xbox 360",
+  xboxone: "Xbox One",
+  xboxseriesx: "Xbox Series X|S",
+};
 
-function gameHighlights(game: CatalogGame | CollectionView) {
-  const grail = isGrailGame(game);
-  const topSegment = isTopInSegment(game);
-  return { grail, topSegment };
+function platformLabel(slug: string): string {
+  return CLIENT_PLATFORM_LABELS[slug] ?? slug.toUpperCase();
 }
 
-function catalogYear(game: CatalogGame | CollectionView): number | null {
-  const catalogId = "listingStatus" in game ? game.id : game.catalogId;
-  if (!catalogId) return null;
-  return getGameDetails(catalogId)?.year ?? null;
+function gameHighlights(game: CatalogListGame | CollectionView) {
+  if ("isGrail" in game && "isTopSegment" in game) {
+    return { grail: game.isGrail, topSegment: game.isTopSegment };
+  }
+  const price = game.recommendedPrice ?? game.pcRefPrice ?? null;
+  const grail = price != null && price >= RARE_PRICE_THRESHOLD_EUR;
+  const topSegment = false;
+  return { grail, topSegment };
 }
 
 export function CatalogGameCard({
@@ -42,15 +71,13 @@ export function CatalogGameCard({
   onOwnedChange,
   listingsForSale = 0,
 }: {
-  game: CatalogGame;
+  game: CatalogListGame;
   owned?: boolean;
   isLoggedIn?: boolean;
   onOwnedChange?: (catalogId: string, owned: boolean, ownedCatalogIds?: string[]) => void;
   listingsForSale?: number;
 }) {
-  const platform = getPlatform(game.platformSlug);
   const { grail, topSegment } = gameHighlights(game);
-  const year = catalogYear(game);
 
   return (
     <div className={cn(cardBase, gameCardHighlightClass(owned, grail, topSegment))}>
@@ -66,9 +93,9 @@ export function CatalogGameCard({
         />
         <CardBody
           title={decodeHtmlEntities(game.title)}
-          platform={platform?.shortName ?? game.platformSlug}
+          platform={game.displayPlatform}
           region={game.region}
-          year={year}
+          year={game.displayYear}
           price={formatEsPriceForCard(game, formatEur)}
           priceVerified={game.priceRegionVerified === true}
           priceUnverified={game.hasEsPrice && game.priceRegionVerified !== true}
@@ -95,10 +122,9 @@ export function CollectionGameCard({
   game: CollectionView;
   overlayAction?: ReactNode;
 }) {
-  const platformLabel = getCollectionPlatformShortName(game.platformSlug);
+  const collectionPlatformLabel = platformLabel(game.platformSlug);
   const href = game.catalogId ? catalogGamePath(game.catalogId) : `/coleccion/${game.id}`;
   const { grail, topSegment } = gameHighlights(game);
-  const year = catalogYear(game);
   const priceLabel =
     !game.hasEsPrice && game.recommendedPrice != null
       ? formatEur(game.recommendedPrice)
@@ -111,16 +137,16 @@ export function CollectionGameCard({
         title={decodeHtmlEntities(game.title)}
         platformSlug={game.platformSlug}
         sealed={game.sealed}
-        platform={platformLabel}
+        platform={collectionPlatformLabel}
         owned
         grail={grail}
         topSegment={topSegment}
       />
       <CardBody
         title={decodeHtmlEntities(game.title)}
-        platform={platformLabel}
+        platform={collectionPlatformLabel}
         region={game.region}
-        year={year}
+        year={null}
         price={priceLabel}
         priceVerified={game.priceRegionVerified === true}
         priceUnverified={game.hasEsPrice && game.priceRegionVerified !== true}
@@ -189,7 +215,7 @@ function CoverSlot({
         {topSegment && (
           <span
             className="rounded-md border border-violet-300/40 bg-violet-500/90 px-1.5 py-0.5 text-[9px] font-semibold uppercase text-violet-50"
-            title={topSegmentLabel()}
+            title="Top cotizado · consola y región"
           >
             Top
           </span>
@@ -197,7 +223,7 @@ function CoverSlot({
         {grail && (
           <span
             className="rounded-md border border-amber-400/40 bg-amber-500/90 px-1.5 py-0.5 text-[9px] font-semibold uppercase text-amber-950"
-            title={grailLabel()}
+            title={`Alto valor (≥${RARE_PRICE_THRESHOLD_EUR} €)`}
           >
             Rareza
           </span>

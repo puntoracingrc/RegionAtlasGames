@@ -10,8 +10,8 @@ export async function GET() {
     return NextResponse.json({ error: "Plan Pro requerido." }, { status: 403 });
   }
 
-  const conversations = getUserConversations(user.id).map((conv) => {
-    const listing = getListing(conv.listingId);
+  const conversations = await Promise.all((await getUserConversations(user.id)).map(async (conv) => {
+    const listing = await getListing(conv.listingId);
     const last = conv.messages[conv.messages.length - 1];
     const role = conv.sellerId === user.id ? "seller" : "buyer";
     const peerName = role === "seller" ? conv.buyerName : conv.sellerName;
@@ -29,7 +29,7 @@ export async function GET() {
       lastMessageAt: last?.createdAt ?? conv.updatedAt,
       updatedAt: conv.updatedAt,
     };
-  });
+  }));
 
   return NextResponse.json({ conversations });
 }
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Falta listingId." }, { status: 400 });
   }
 
-  const result = startConversation({
+  const result = await startConversation({
     listingId,
     buyerId: user.id,
     buyerName: user.name,

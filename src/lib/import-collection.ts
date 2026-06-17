@@ -10,12 +10,18 @@ const EXCEL_TO_SLUG: Record<string, string> = {
   PS3: "ps3",
   PS4: "ps4",
   PS5: "ps5",
+  XBOX: "xbox",
+  "XBOX 360": "xbox360",
+  "XBOX ONE": "xboxone",
+  "XBOX SERIES S": "xboxseriess",
+  "XBOX SERIES X": "xboxseriesx",
   NES: "nes",
   SNES: "snes",
   N64: "n64",
   "GAME BOY": "gameboy",
   GAMECUBE: "gamecube",
   WII: "wii",
+  "WII U": "wiiu",
   DS: "ds",
   "3DS": "3ds",
   "MEGA DRIVE": "megadrive",
@@ -99,6 +105,10 @@ const PC_CONSOLE_TO_SLUG: Record<string, string> = {
   "jp playstation 4": "ps4",
   "japanese playstation 4": "ps4",
   "xbox 360": "xbox360",
+  xbox: "xbox",
+  "original xbox": "xbox",
+  "microsoft xbox": "xbox",
+  "pal xbox": "xbox",
   "pal xbox 360": "xbox360",
   "neo geo": "neogeo",
   "neo geo aes": "neogeo",
@@ -107,10 +117,17 @@ const PC_CONSOLE_TO_SLUG: Record<string, string> = {
   "neo geo pocket color": "neogeopocket",
   "nintendo switch": "switch",
   switch: "switch",
+  "nintendo switch 2": "switch2",
+  "pal nintendo switch 2": "switch2",
   "switch 2": "switch2",
   "xbox one": "xboxone",
   "xbox series x": "xboxseriesx",
-  "xbox series s": "xboxseriesx",
+  "xbox series s": "xboxseriess",
+  "xbox series x/s": "xboxseriesx",
+  "xbox series": "xboxseriesx",
+  "nintendo wii u": "wiiu",
+  "wii u": "wiiu",
+  "pal nintendo wii u": "wiiu",
   "game boy color": "gameboycolor",
   "gameboy color": "gameboycolor",
   gbc: "gameboycolor",
@@ -119,7 +136,6 @@ const PC_CONSOLE_TO_SLUG: Record<string, string> = {
   "ps vita": "psvita",
   "playstation vita": "psvita",
   psvita: "psvita",
-  "wii u": "wiiu",
   "pc engine": "pcengine",
   "turbografx 16": "pcengine",
   turbografx: "pcengine",
@@ -174,7 +190,7 @@ const COLUMN_ALIASES: Record<string, string[]> = {
   pcRefPrice: ["ref. pricecharting eu", "ref pricecharting", "precio pc", "pricecharting price"],
   deltaEsVsPc: ["delta es vs pc", "delta"],
   priceSource: ["fuente precio", "fuente", "source"],
-  updatedAt: ["fecha actualizacion", "fecha actualización", "actualizado", "date"],
+  updatedAt: ["fecha actualizacion", "fecha actualización", "actualizado", "date", "date entered", "date-entered"],
   notes: ["notas", "notes", "comentarios", "item notes", "description"],
   coverUrl: ["url portada", "portada", "cover", "photo", "photos"],
   titlePc: ["titulo pricecharting", "pricecharting title"],
@@ -325,7 +341,7 @@ function findHeaderRowIndex(rows: unknown[][]): number {
   return 0;
 }
 
-export function parseSpreadsheet(buffer: Buffer, filename: string): unknown[][] {
+export function parseSpreadsheet(buffer: Buffer): unknown[][] {
   const workbook = XLSX.read(buffer, {
     type: "buffer",
     cellDates: true,
@@ -638,7 +654,8 @@ export function importRowsToCollection(rows: unknown[][]): {
 }
 
 export function importSpreadsheet(buffer: Buffer, filename: string) {
-  const rows = parseSpreadsheet(buffer, filename);
+  void filename;
+  const rows = parseSpreadsheet(buffer);
   return importRowsToCollection(rows);
 }
 

@@ -15,6 +15,7 @@ Uso:
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 import time
 from pathlib import Path
@@ -44,10 +45,17 @@ from collectors.wikidata_details import details_have_gaps, fetch_wikidata_detail
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 DETAILS_FILE = ROOT / "data" / "game-details.json"
 META_FILE = ROOT / "data" / "meta.json"
-MUSEUM_CACHE_FILE = ROOT / "data" / "museum" / "details-cache.json"
-PC_CACHE_FILE = ROOT / "data" / "pc" / "details-cache.json"
-WIKIDATA_CACHE_FILE = ROOT / "data" / "wikidata" / "details-cache.json"
-SS_CACHE_FILE = ROOT / "data" / "serialstation" / "details-cache.json"
+
+
+def env_path(name: str, fallback: Path) -> Path:
+    value = os.environ.get(name)
+    return Path(value).expanduser() if value else fallback
+
+
+MUSEUM_CACHE_FILE = env_path("DETAILS_MUSEUM_CACHE_FILE", ROOT / "data" / "museum" / "details-cache.json")
+PC_CACHE_FILE = env_path("DETAILS_PC_CACHE_FILE", ROOT / "data" / "pc" / "details-cache.json")
+WIKIDATA_CACHE_FILE = env_path("DETAILS_WIKIDATA_CACHE_FILE", ROOT / "data" / "wikidata" / "details-cache.json")
+SS_CACHE_FILE = env_path("DETAILS_SERIALSTATION_CACHE_FILE", ROOT / "data" / "serialstation" / "details-cache.json")
 INDEX_DIR = ROOT / "data" / "index"
 REPORT_FILE = ROOT / "data" / "details-gaps-report.json"
 

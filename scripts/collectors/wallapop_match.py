@@ -139,6 +139,9 @@ def product_to_ingest_row(
             product=product,
             row=image_scratch,
             external_id=external_id or None,
+            force_weak_evidence="seller_states_region" in evidence
+            and "sku_regional" not in evidence
+            and not matched_reference,
         )
     )
 

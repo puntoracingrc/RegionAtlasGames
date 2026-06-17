@@ -1,11 +1,7 @@
 import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
-import { referenceSearchHaystack, referenceSortKey } from "@/lib/game-product-reference";
-import { getPlatform } from "@/lib/catalog";
-import { getGameDetails } from "@/lib/indexes";
-import { companyEntityLink, genreEntityLink } from "@/lib/entity-links";
-import { resolveCanonicalGenreEntity } from "@/lib/genre-canonical";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
-import type { CatalogGame, GameDetails } from "@/lib/types";
+import { getRegionDisplay } from "@/lib/region-display";
+import type { CatalogListGame } from "@/lib/types";
 
 export type CatalogSort =
   | "title-asc"
@@ -48,7 +44,7 @@ export const PRICE_FILTER_OPTIONS: { value: CatalogPriceFilter; label: string }[
   { value: "pending", label: "Precio pendiente" },
 ];
 
-export function matchesPriceFilter(game: CatalogGame, filter: CatalogPriceFilter): boolean {
+export function matchesPriceFilter(game: CatalogListGame, filter: CatalogPriceFilter): boolean {
   if (filter === "all") return true;
   const status = esPriceDisplayLabel(game);
   if (filter === "verified") return status === "verified";
@@ -56,7 +52,7 @@ export function matchesPriceFilter(game: CatalogGame, filter: CatalogPriceFilter
   return status === "pending";
 }
 
-export function countByPriceFilter(games: CatalogGame[]): Record<CatalogPriceFilter, number> {
+export function countByPriceFilter(games: CatalogListGame[]): Record<CatalogPriceFilter, number> {
   const counts: Record<CatalogPriceFilter, number> = {
     all: games.length,
     verified: 0,
@@ -72,47 +68,14 @@ export function countByPriceFilter(games: CatalogGame[]): Record<CatalogPriceFil
   return counts;
 }
 
-export function getDetails(game: CatalogGame): GameDetails | undefined {
-  return getGameDetails(game.id);
-}
-
-export function buildSearchHaystack(game: CatalogGame): string {
-  const d = getDetails(game);
-  const platform = getPlatform(game.platformSlug);
-  const devLink = d?.developer ? companyEntityLink(d.developer) : null;
-  const pubLink = d?.publisher ? companyEntityLink(d.publisher) : null;
-  const genreLinks = (d?.genres ?? [])
-    .map((g) => genreEntityLink(g))
-    .filter((link): link is NonNullable<typeof link> => Boolean(link));
+export function buildSearchHaystack(game: CatalogListGame): string {
+  if (game.searchText) return game.searchText;
   const parts = [
     game.title,
-    game.titlePc,
     game.slug,
     game.id,
     game.region,
-    game.edition,
-    game.museumSlug,
-    game.museumRegion,
-    platform?.name,
-    platform?.shortName,
     game.platformSlug,
-    d?.reference,
-    referenceSearchHaystack(game, d),
-    d?.support,
-    d?.releaseDate,
-    d?.developer?.name,
-    d?.developer?.slug,
-    devLink?.name,
-    devLink?.slug,
-    d?.publisher?.name,
-    d?.publisher?.slug,
-    pubLink?.name,
-    pubLink?.slug,
-    d?.series?.name,
-    d?.series?.slug,
-    d?.players != null ? String(d.players) : null,
-    ...(d?.genres?.map((g) => `${g.name} ${g.slug}`) ?? []),
-    ...genreLinks.map((g) => `${g.name} ${g.slug}`),
   ];
   return parts
     .filter(Boolean)
@@ -122,7 +85,7 @@ export function buildSearchHaystack(game: CatalogGame): string {
     .replace(/\p{M}/gu, "");
 }
 
-export function matchesQuery(game: CatalogGame, rawQuery: string): boolean {
+export function matchesQuery(game: CatalogListGame, rawQuery: string): boolean {
   const query = rawQuery
     .trim()
     .toLowerCase()
@@ -139,21 +102,20 @@ export function matchesQuery(game: CatalogGame, rawQuery: string): boolean {
   });
 }
 
-function genreKey(game: CatalogGame): string {
-  const g = getDetails(game)?.genres?.[0];
-  if (!g) return "\uffff";
-  return resolveCanonicalGenreEntity(g).name.toLowerCase();
+function genreKey(game: CatalogListGame): string {
+  return game.sortGenre || "\uffff";
 }
 
-function referenceKey(game: CatalogGame): string {
-  return referenceSortKey(game, getDetails(game));
+function referenceKey(game: CatalogListGame): string {
+  return game.sortReference || game.slug || game.id;
 }
 
-function yearKey(game: CatalogGame): number | null {
-  return getDetails(game)?.year ?? null;
+function yearKey(game: CatalogListGame): number | null {
+  if (game.displayYear != null) return game.displayYear;
+  return null;
 }
 
-function priceKey(game: CatalogGame): number | null {
+function priceKey(game: CatalogListGame): number | null {
   if (hasVerifiedEsPrice(game) && game.recommendedPrice != null) {
     return game.recommendedPrice;
   }
@@ -167,7 +129,7 @@ function compareNullsLast(a: number | null, b: number | null, asc: boolean): num
   return asc ? a - b : b - a;
 }
 
-export function sortCatalogGames(games: CatalogGame[], sort: CatalogSort): CatalogGame[] {
+export function sortCatalogListGames(games: CatalogListGame[], sort: CatalogSort): CatalogListGame[] {
   const sorted = [...games];
   sorted.sort((a, b) => {
     switch (sort) {
@@ -211,14 +173,14 @@ export type CatalogFilterState = {
 };
 
 export function filterCatalogGames(
-  games: CatalogGame[],
+  games: CatalogListGame[],
   { q, region, platform, sort, priceFilter }: CatalogFilterState,
   options?: { regions?: boolean; platforms?: boolean },
-): { items: CatalogGame[]; total: number } {
+): { items: CatalogListGame[]; total: number } {
   let list = games;
 
   if (options?.regions !== false && region !== "all") {
-    list = list.filter((g) => g.region === region);
+    list = list.filter((g) => getRegionDisplay(g.region).label === region);
   }
   if (options?.platforms && platform !== "all") {
     list = list.filter((g) => g.platformSlug === platform);
@@ -230,7 +192,7 @@ export function filterCatalogGames(
     list = list.filter((g) => matchesQuery(g, q));
   }
 
-  list = sortCatalogGames(list, sort);
+  list = sortCatalogListGames(list, sort);
 
   return {
     items: list,
@@ -238,10 +200,10 @@ export function filterCatalogGames(
   };
 }
 
-export function regionOptions(games: CatalogGame[]) {
+export function regionOptions(games: CatalogListGame[]) {
   const counts = new Map<string, number>();
   for (const game of games) {
-    const label = game.region || "Desconocida";
+    const label = getRegionDisplay(game.region).label;
     counts.set(label, (counts.get(label) ?? 0) + 1);
   }
   return [...counts.entries()].sort((a, b) => {
@@ -252,7 +214,7 @@ export function regionOptions(games: CatalogGame[]) {
   });
 }
 
-export function platformOptions(games: CatalogGame[]) {
+export function platformOptions(games: CatalogListGame[]) {
   const counts = new Map<string, number>();
   for (const game of games) {
     counts.set(game.platformSlug, (counts.get(game.platformSlug) ?? 0) + 1);
@@ -261,7 +223,7 @@ export function platformOptions(games: CatalogGame[]) {
     .map(([slug, count]) => ({
       slug,
       count,
-      name: getPlatform(slug)?.shortName ?? slug,
+      name: slug.toUpperCase(),
     }))
     .sort((a, b) => b.count - a.count);
 }

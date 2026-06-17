@@ -1,4 +1,4 @@
-"""Cliente eBay ES — Finding API (sold/active) + Browse API (active)."""
+"""Cliente eBay ES — Browse API (activos) + Finding legacy opcional (sold)."""
 
 from __future__ import annotations
 
@@ -271,21 +271,27 @@ def search_ebay_es(
 ) -> tuple[list[dict[str, Any]], str]:
     """Busca en eBay ES. Devuelve (items, backend usado).
 
-    Finding API está descontinuada (2025); Browse OAuth es la vía fiable para activos.
-    Si Finding falla y hay Client ID/Secret, hace fallback a Browse (solo activos).
+    Browse OAuth es la vía fiable para activos de precio fijo. Finding queda solo
+    como ruta legacy para vendidos y nunca debe caer silenciosamente a activos.
     """
     app_id = os.environ.get("EBAY_APP_ID", "").strip()
     client_id = os.environ.get("EBAY_CLIENT_ID", "").strip() or app_id
     client_secret = os.environ.get("EBAY_CLIENT_SECRET", "").strip()
 
     finding_error: RuntimeError | None = None
+    if sold and not os.environ.get("EBAY_ALLOW_LEGACY_SOLD", "").strip():
+        raise RuntimeError(
+            "eBay vendidos está desactivado: findCompletedItems/SoldItemsOnly es legacy/no fiable. "
+            "Usa activos Browse API o define EBAY_ALLOW_LEGACY_SOLD=1 bajo tu responsabilidad."
+        )
+
     if app_id and (sold or not (client_id and client_secret)):
         try:
             items = finding_search(app_id, keywords, sold=sold, max_results=max_results)
             return items, "finding-sold" if sold else "finding-active"
         except RuntimeError as exc:
             finding_error = exc
-            if not (client_id and client_secret):
+            if sold or not (client_id and client_secret):
                 raise
 
     if client_id and client_secret:

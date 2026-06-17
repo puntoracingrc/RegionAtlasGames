@@ -87,7 +87,7 @@ export function SellListingButton({
       >
         {loading ? "Creando…" : "Poner en venta"}
       </button>
-      {error && <p className="mt-2 text-sm text-rose-300">{error}</p>}
+      {error && <p className="mt-2 text-sm text-rose-700 dark:text-rose-300">{error}</p>}
     </div>
   );
 }

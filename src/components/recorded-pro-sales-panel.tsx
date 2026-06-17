@@ -1,4 +1,4 @@
-import { formatEur } from "@/lib/catalog";
+import { formatEur } from "@/lib/price-format";
 import { recordedSalesSummary } from "@/lib/recorded-sales";
 import { Panel, PanelTitle } from "@/components/ui";
 
