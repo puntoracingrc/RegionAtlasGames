@@ -25,12 +25,19 @@ const LOGOS: Record<
     width: 48,
     height: 14,
   },
+  snk: {
+    src: "/brand/manufacturers/snk.svg",
+    alt: "SNK",
+    width: 42,
+    height: 14,
+  },
 };
 
 const LOGO_CLASS: Record<Platform["manufacturer"], string> = {
   nintendo: "h-3.5 w-auto max-w-[76px] object-contain object-left opacity-95",
   sony: "h-3.5 w-auto max-w-[56px] object-contain object-left opacity-80 brightness-0 invert",
   sega: "h-3.5 w-auto max-w-[52px] object-contain object-left",
+  snk: "h-3.5 w-auto max-w-[46px] object-contain object-left",
 };
 
 /** Logotipo de fabricante — misma altura que la etiqueta textual anterior (~text-xs). */
