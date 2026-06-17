@@ -1,4 +1,5 @@
 import type { CatalogGame } from "./types";
+import { decodeHtmlEntities } from "./decode-html-entities";
 import { getRegionDisplay } from "./region-display";
 import { slugify } from "./slug";
 
@@ -11,10 +12,20 @@ function regionSlugForSeo(region: string): string {
 }
 
 export function buildCatalogSeoSlug(game: CatalogPathGame): string {
-  return `${game.slug}-${game.platformSlug}-${regionSlugForSeo(game.region)}`;
+  return `${cleanCatalogSlug(game.slug)}-${game.platformSlug}-${regionSlugForSeo(game.region)}`;
 }
 
 export function catalogGamePath(game: CatalogPathGame | string): string {
   if (typeof game === "string") return `/catalogo/${game}`;
   return `/catalogo/${buildCatalogSeoSlug(game)}`;
+}
+
+export function cleanCatalogSlug(slug: string): string {
+  let decodedSlug = slug;
+  try {
+    decodedSlug = decodeURIComponent(slug);
+  } catch {
+    decodedSlug = slug;
+  }
+  return slugify(decodeHtmlEntities(decodedSlug));
 }
