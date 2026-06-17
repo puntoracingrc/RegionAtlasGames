@@ -10,6 +10,7 @@ Principios:
 - Sin redirecciones automáticas, iframes ocultos, autoclick ni cookie stuffing.
 - Matching conservador: mejor mostrar menos ofertas que mostrar una incorrecta.
 - Rakuten queda preparado pero desactivado por defecto.
+- GamersGate queda en backlog/review para PC digital games, sin implementación pública.
 
 Texto visible obligatorio:
 
@@ -23,3 +24,7 @@ Los enlaces externos visibles deben usar:
 rel="sponsored nofollow noopener noreferrer"
 target="_blank"
 ```
+
+## Backlog / Review
+
+- `GAMERSGATE_AFFILIATE_REVIEW_V1`: investigación/documentación para valorar GamersGate como proveedor potencial de juegos digitales PC/Mac/Linux. No implementa runtime, frontend, provider ni enlaces públicos. No forma parte de `EBAY_SYNC_V1`.

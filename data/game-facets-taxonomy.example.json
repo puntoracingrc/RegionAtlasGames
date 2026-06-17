@@ -1,0 +1,113 @@
+{
+  "genres": [
+    {
+      "id": "adventure",
+      "name": "Adventure",
+      "slug": "adventure",
+      "type": "genre",
+      "description": "Broad genre for games focused on exploration, progression, narrative or discovery.",
+      "status": "approved"
+    },
+    {
+      "id": "sports",
+      "name": "Sports",
+      "slug": "sports",
+      "type": "genre",
+      "description": "Broad genre for games based on real or fictional sports competition.",
+      "status": "approved"
+    },
+    {
+      "id": "racing",
+      "name": "Racing",
+      "slug": "racing",
+      "type": "genre",
+      "description": "Broad genre for speed, vehicle competition and time trial games.",
+      "status": "approved"
+    },
+    {
+      "id": "horror",
+      "name": "Horror",
+      "slug": "horror",
+      "type": "genre",
+      "description": "Broad genre for games built around fear, tension, survival or disturbing themes.",
+      "status": "approved"
+    }
+  ],
+  "subgenres": [
+    {
+      "id": "metroidvania",
+      "name": "Metroidvania",
+      "slug": "metroidvania",
+      "type": "subgenre",
+      "family": "gameplay",
+      "parentGenreIds": ["adventure", "platformer"],
+      "aliases": ["metroid-like", "castlevania-like"],
+      "description": "Exploration-based progression with ability-gated areas.",
+      "status": "approved"
+    },
+    {
+      "id": "survival-horror",
+      "name": "Survival Horror",
+      "slug": "survival-horror",
+      "type": "subgenre",
+      "family": "gameplay",
+      "parentGenreIds": ["horror", "adventure"],
+      "aliases": ["survival horror"],
+      "description": "Horror games where limited resources, tension and survival are core to progression.",
+      "status": "approved"
+    },
+    {
+      "id": "kart-racing",
+      "name": "Kart Racing",
+      "slug": "kart-racing",
+      "type": "subgenre",
+      "family": "gameplay",
+      "parentGenreIds": ["racing"],
+      "aliases": ["kart racer"],
+      "description": "Arcade racing built around karts, power-ups and accessible multiplayer competition.",
+      "status": "approved"
+    }
+  ],
+  "facets": [
+    {
+      "id": "side-scroller",
+      "name": "Side Scroller",
+      "slug": "side-scroller",
+      "type": "facet",
+      "family": "perspective",
+      "aliases": ["side-scrolling"],
+      "description": "Gameplay primarily viewed from a horizontal side perspective.",
+      "status": "approved"
+    },
+    {
+      "id": "local-coop",
+      "name": "Local Co-op",
+      "slug": "local-coop",
+      "type": "facet",
+      "family": "player_mode",
+      "aliases": ["couch co-op", "local cooperative"],
+      "description": "Supports cooperative play with players sharing the same local system or screen.",
+      "status": "approved"
+    },
+    {
+      "id": "zombies",
+      "name": "Zombies",
+      "slug": "zombies",
+      "type": "facet",
+      "family": "theme",
+      "aliases": ["undead"],
+      "description": "Includes zombies, undead outbreaks or zombie survival themes.",
+      "status": "approved"
+    },
+    {
+      "id": "pixel-art",
+      "name": "Pixel Art",
+      "slug": "pixel-art",
+      "type": "facet",
+      "family": "visual",
+      "aliases": ["8-bit style", "16-bit style"],
+      "description": "Uses pixel-based visual styling as a primary aesthetic trait.",
+      "status": "approved"
+    }
+  ]
+}

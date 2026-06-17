@@ -1,4 +1,5 @@
 import { IndexGrid } from "@/components/index-grid";
+import { SagaMascotWelcome } from "@/components/saga-mascot-welcome";
 import { SiteNav } from "@/components/site-nav";
 import type { IndexKind } from "@/lib/index-entity";
 import { INDEX_KIND_META, getIndexList, indexListIntro } from "@/lib/index-entity";
@@ -42,6 +43,7 @@ export function IndexEntityList({ kind }: { kind: IndexKind }) {
             </p>
           )}
         </header>
+        {kind === "series" && <SagaMascotWelcome />}
         <IndexGrid items={items} kind={kind} />
       </main>
     </>

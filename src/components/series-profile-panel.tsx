@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { RegionFlag } from "@/components/region-flag";
 import type { SeriesProfile } from "@/lib/series-profile";
 
 function roleLabel(role: "developer" | "publisher" | "both"): string {
@@ -99,30 +98,6 @@ export function SeriesProfilePanel({ profile }: { profile: SeriesProfile }) {
           </div>
         </div>
       </div>
-
-      {profile.timeline.length > 0 && (
-        <div className="rounded-3xl border border-border bg-card p-5 shadow-sm lg:col-span-2">
-          <h3 className="text-sm font-black uppercase tracking-wider text-foreground">
-            Primeras entregas detectadas
-          </h3>
-          <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {profile.timeline.slice(0, 9).map((game) => (
-              <Link
-                key={game.id}
-                href={game.href}
-                className="rounded-2xl border border-border bg-background/60 p-3 transition hover:border-accent/50 hover:bg-card-hover"
-              >
-                <p className="line-clamp-1 text-sm font-semibold text-foreground">{game.title}</p>
-                <p className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
-                  <span>{game.year ?? "Año pendiente"}</span>
-                  <span>· {game.platformName}</span>
-                  <RegionFlag region={game.region} size="xs" showLabel labelMode="short" />
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
     </section>
   );
 }

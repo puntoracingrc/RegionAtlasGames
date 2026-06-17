@@ -1,0 +1,34 @@
+[
+  {
+    "raw": "amp; Adventure",
+    "suggestedNormalized": "Adventure",
+    "reason": "HTML entity parsing artifact",
+    "confidence": 0.95,
+    "action": "suggest_normalize",
+    "destructive": false
+  },
+  {
+    "raw": "Action amp; Adventure",
+    "suggestedNormalized": ["Action", "Adventure"],
+    "reason": "HTML entity parsing artifact",
+    "confidence": 0.95,
+    "action": "suggest_split",
+    "destructive": false
+  },
+  {
+    "raw": "Action & Adventure",
+    "suggestedNormalized": ["Action", "Adventure"],
+    "reason": "Compound genre should split into controlled genres while preserving the original raw value",
+    "confidence": 0.9,
+    "action": "suggest_split",
+    "destructive": false
+  },
+  {
+    "raw": " Role-Playing  ",
+    "suggestedNormalized": "Role-Playing",
+    "reason": "Leading/trailing spaces",
+    "confidence": 0.85,
+    "action": "suggest_trim",
+    "destructive": false
+  }
+]

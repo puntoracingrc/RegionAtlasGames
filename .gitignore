@@ -87,3 +87,8 @@ public/covers
 
 # Backups locales pesados del catálogo
 /data/_catalog_backup_gg.json
+
+# Genre normalization local dry-run report
+/data/game-genre-normalization-report.local.json
+/data/game-genre-normalization-apply-report.local.json
+/data/backups/

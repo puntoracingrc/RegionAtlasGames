@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { EntityBrowser } from "@/components/catalog-browser";
 import { IndexEntityHeader } from "@/components/index-entity-header";
+import { SagaMascotWelcome } from "@/components/saga-mascot-welcome";
 import { SeriesProfilePanel } from "@/components/series-profile-panel";
 import { SiteNav } from "@/components/site-nav";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
@@ -17,15 +18,16 @@ export async function IndexEntityDetail({ kind, slug }: { kind: IndexKind; slug:
   const user = await getCurrentUser();
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
   const games = summary.games.map(toCatalogListGame);
+  const seriesProfile = kind === "series" ? buildSeriesProfile(summary.entry, summary.games) : null;
 
   return (
     <>
       <SiteNav />
       <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
         <IndexEntityHeader summary={summary} />
-        {kind === "series" && (
-          <SeriesProfilePanel profile={buildSeriesProfile(summary.entry, summary.games)} />
-        )}
+        {seriesProfile && <SagaMascotWelcome profile={seriesProfile} compact />}
+        {seriesProfile && <SeriesProfilePanel profile={seriesProfile} />}
+        <div id="saga-games" />
         <EntityBrowser
           games={games}
           title={summary.name}

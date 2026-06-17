@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MascotToast } from "@/components/mascot-toast";
 import { cn } from "@/lib/cn";
-import { getConsoleMascot } from "@/lib/console-mascots";
+import { getConsoleMascot, getConsoleMascotPhrase } from "@/lib/console-mascots";
 
 type Props = {
   catalogId: string;
@@ -80,7 +80,7 @@ export function CollectionToggle({
       setOwned(true);
       setCount(nextCount);
       setToast({
-        message: owned ? "Otra copia añadida." : "¡Juegazo guardado!",
+        message: getConsoleMascotPhrase(platformSlug, owned ? "duplicate-game" : "add-game", `${catalogId}:${nextCount}`),
         detail: gameTitle
           ? `${gameTitle}: ${nextCount} ${nextCount === 1 ? "copia" : "copias"} en tu colección.`
           : platformName
@@ -118,7 +118,7 @@ export function CollectionToggle({
       setCount(nextCount);
       setOwned(nextCount > 0);
       setToast({
-        message: nextCount > 0 ? "He quitado una copia." : "Juego retirado de tu colección.",
+        message: getConsoleMascotPhrase(platformSlug, "remove-game", `${catalogId}:${nextCount}`),
         detail:
           nextCount > 0
             ? `${nextCount} ${nextCount === 1 ? "copia queda" : "copias quedan"} en tu colección.`

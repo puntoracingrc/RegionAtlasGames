@@ -1,0 +1,122 @@
+[
+  {
+    "raw": "amp; Adventure",
+    "normalized": ["Adventure"],
+    "reason": "HTML entity parsing artifact from Action & Adventure; Action is already present on affected games",
+    "confidence": 0.95,
+    "action": "normalize",
+    "status": "approved"
+  },
+  {
+    "raw": "amp; NFR",
+    "normalized": ["NFR"],
+    "reason": "HTML entity parsing artifact from Demo & NFR; preserve NFR for future tag/type review",
+    "confidence": 0.95,
+    "action": "normalize",
+    "status": "approved"
+  },
+  {
+    "raw": "amp; Card",
+    "normalized": ["Card"],
+    "reason": "HTML entity parsing artifact from Board & Card; Board is already present on affected games",
+    "confidence": 0.95,
+    "action": "normalize",
+    "status": "approved"
+  },
+  {
+    "raw": "Track &amp; Field",
+    "normalized": ["Track", "Field"],
+    "reason": "HTML entity compound genre detected as Track & Field",
+    "confidence": 0.9,
+    "action": "split",
+    "status": "approved"
+  },
+  {
+    "raw": "#39;em Up",
+    "normalized": ["Beat 'em up"],
+    "reason": "HTML apostrophe artifact, but source may be paired with Beat or Shoot; needs manual review before applying",
+    "confidence": 0.55,
+    "action": "normalize",
+    "status": "review"
+  },
+  {
+    "raw": "Action",
+    "normalized": ["Acción"],
+    "reason": "English/Spanish duplicate candidate",
+    "confidence": 0.75,
+    "action": "alias",
+    "status": "review"
+  },
+  {
+    "raw": "Adventure",
+    "normalized": ["Aventura"],
+    "reason": "English/Spanish duplicate candidate",
+    "confidence": 0.75,
+    "action": "alias",
+    "status": "review"
+  },
+  {
+    "raw": "Sports",
+    "normalized": ["Deportes"],
+    "reason": "English/Spanish duplicate candidate",
+    "confidence": 0.75,
+    "action": "alias",
+    "status": "review"
+  },
+  {
+    "raw": "Racing",
+    "normalized": ["Carreras"],
+    "reason": "English/Spanish duplicate candidate",
+    "confidence": 0.75,
+    "action": "alias",
+    "status": "review"
+  },
+  {
+    "raw": "Fighting",
+    "normalized": ["Lucha"],
+    "reason": "English/Spanish duplicate candidate",
+    "confidence": 0.75,
+    "action": "alias",
+    "status": "review"
+  },
+  {
+    "raw": "Platformer",
+    "normalized": ["Plataformas"],
+    "reason": "English/Spanish duplicate candidate",
+    "confidence": 0.75,
+    "action": "alias",
+    "status": "review"
+  },
+  {
+    "raw": "Simulation",
+    "normalized": ["Simulación"],
+    "reason": "English/Spanish duplicate candidate",
+    "confidence": 0.75,
+    "action": "alias",
+    "status": "review"
+  },
+  {
+    "raw": "Strategy",
+    "normalized": ["Estrategia"],
+    "reason": "English/Spanish duplicate candidate",
+    "confidence": 0.75,
+    "action": "alias",
+    "status": "review"
+  },
+  {
+    "raw": "Music",
+    "normalized": ["Música"],
+    "reason": "English/Spanish duplicate candidate",
+    "confidence": 0.75,
+    "action": "alias",
+    "status": "review"
+  },
+  {
+    "raw": "Hack and Slash",
+    "normalized": ["Hack", "Slash"],
+    "reason": "Compound genre candidate; needs editorial review before splitting",
+    "confidence": 0.65,
+    "action": "split",
+    "status": "review"
+  }
+]

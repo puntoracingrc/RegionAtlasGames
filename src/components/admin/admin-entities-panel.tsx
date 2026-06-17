@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import { AdminSeriesPanel } from "@/components/admin/admin-series-panel";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 
-type Tab = "platforms" | "companies" | "genres";
+type EntityTab = "platforms" | "companies" | "genres";
+type Tab = EntityTab | "series";
 
 type PlatformRow = {
   slug: string;
@@ -29,6 +31,7 @@ const tabs: { id: Tab; label: string }[] = [
   { id: "platforms", label: "Plataformas" },
   { id: "companies", label: "Compañías" },
   { id: "genres", label: "Géneros" },
+  { id: "series", label: "Sagas" },
 ];
 
 const sortOptions: { value: EntitySort; label: string }[] = [
@@ -247,7 +250,7 @@ export function AdminEntitiesPanel() {
     }
   }
 
-  async function deleteEntity(kind: Tab, slug: string, label: string) {
+  async function deleteEntity(kind: EntityTab, slug: string, label: string) {
     if (
       !confirm(
         `¿Eliminar «${label}»? Solo se permite si no tiene juegos asociados. Esta acción no se puede deshacer.`,
@@ -278,7 +281,7 @@ export function AdminEntitiesPanel() {
     }
   }
 
-  async function toggleEntity(kind: Tab, slug: string, label: string, active: boolean) {
+  async function toggleEntity(kind: EntityTab, slug: string, label: string, active: boolean) {
     setTogglingSlug(slug);
     setError(null);
     setMessage(null);
@@ -325,7 +328,7 @@ export function AdminEntitiesPanel() {
     setEditingSlug(null);
   }
 
-  async function saveEdit(kind: Tab, originalSlug: string) {
+  async function saveEdit(kind: EntityTab, originalSlug: string) {
     setEditSaving(true);
     setError(null);
     setMessage(null);
@@ -518,6 +521,9 @@ export function AdminEntitiesPanel() {
         </Panel>
       )}
 
+      {tab === "series" && <AdminSeriesPanel />}
+
+      {tab !== "series" && (
       <Panel>
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <PanelTitle>
@@ -872,6 +878,7 @@ export function AdminEntitiesPanel() {
           </ul>
         )}
       </Panel>
+      )}
 
       {message && <p className="text-sm text-emerald-600 dark:text-emerald-400">{message}</p>}
       {error && <p className="text-sm text-rose-600 dark:text-rose-400">{error}</p>}
