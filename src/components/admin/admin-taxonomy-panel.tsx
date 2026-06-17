@@ -79,7 +79,7 @@ export function AdminTaxonomyPanel() {
       const res = await fetch("/api/admin/taxonomy");
       const data = (await res.json()) as TaxonomyResponse | { error?: string };
       if (!res.ok || !("taxonomy" in data)) {
-        setError(("error" in data ? data.error : null) ?? "No se pudo cargar la taxonomía.");
+        setError(("error" in data ? data.error : null) ?? "No se pudieron cargar los géneros.");
         return;
       }
       setNodes(data.taxonomy.nodes ?? {});
@@ -87,7 +87,7 @@ export function AdminTaxonomyPanel() {
       const firstMain = data.tree?.[0]?.slug ?? null;
       setSelectedMainSlug((current) => current ?? firstMain);
     } catch {
-      setError("Error de red al cargar la taxonomía.");
+      setError("Error de red al cargar los géneros.");
     } finally {
       setLoading(false);
     }
@@ -147,7 +147,7 @@ export function AdminTaxonomyPanel() {
         setError(data.error ?? "No se pudo guardar.");
         return;
       }
-      setMessage(`«${data.node.name}» guardado en taxonomía.`);
+      setMessage(`«${data.node.name}» guardado en géneros.`);
       resetForm(formLevel);
       await load();
     } catch {
@@ -237,7 +237,7 @@ export function AdminTaxonomyPanel() {
   return (
     <div className="space-y-6">
       <Panel>
-        <PanelTitle eyebrow="Taxonomía editorial">Género principal · Subgénero · Tipo/etiqueta</PanelTitle>
+        <PanelTitle eyebrow="Géneros editoriales">Género principal · Subgénero · Tipo/etiqueta</PanelTitle>
         <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="rounded-2xl border border-border bg-background/45 p-4">
             <p className="text-sm leading-6 text-muted">
@@ -339,7 +339,7 @@ export function AdminTaxonomyPanel() {
           </p>
         </div>
         {loading ? (
-          <p className="text-sm text-muted">Cargando taxonomía…</p>
+          <p className="text-sm text-muted">Cargando géneros…</p>
         ) : (
           <div className="grid gap-4 xl:grid-cols-3">
             <section className="space-y-3">

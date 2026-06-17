@@ -12,7 +12,7 @@ const links = [
   { href: "/admin/ia", label: "IA", icon: "✦" },
   { href: "/admin/colaboradores", label: "Colaboradores", icon: "◎" },
   { href: "/admin/entidades", label: "Entidades", icon: "▦" },
-  { href: "/admin/taxonomia", label: "Taxonomía", icon: "✣" },
+  { href: "/admin/taxonomia", label: "Géneros", icon: "✣" },
   { href: "/admin/precios", label: "Precios", icon: "€" },
 ];
 

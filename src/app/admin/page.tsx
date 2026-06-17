@@ -42,7 +42,7 @@ const quickActions = [
   },
   {
     href: "/admin/taxonomia",
-    title: "Taxonomía",
+    title: "Géneros",
     description: "Agrupa géneros en principal, subgénero y etiqueta.",
     icon: "✣",
   },
