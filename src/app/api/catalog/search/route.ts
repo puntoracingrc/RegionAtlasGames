@@ -9,6 +9,7 @@ import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { listedCatalog } from "@/lib/catalog";
 import { getPlatform } from "@/lib/catalog";
 import { catalogGamePath } from "@/lib/catalog-seo";
+import type { CatalogListGame } from "@/lib/types";
 
 const MAX_RESULTS = 12;
 
@@ -42,7 +43,11 @@ export async function GET(request: Request) {
     { platforms: true, regions: true },
   );
 
-  const items: SearchResult[] = filtered.items.slice(0, MAX_RESULTS).map((game) => {
+  const rankedItems = q.trim()
+    ? [...filtered.items].sort((a, b) => relevanceScore(b, q) - relevanceScore(a, q) || a.title.localeCompare(b.title, "es"))
+    : filtered.items;
+
+  const items: SearchResult[] = rankedItems.slice(0, MAX_RESULTS).map((game) => {
     const platformData = getPlatform(game.platformSlug);
     return {
       id: game.id,
@@ -62,4 +67,33 @@ export async function GET(request: Request) {
     total: filtered.total,
     regions: regionOptions(games),
   });
+}
+
+function normalizeSearchValue(value: string | null | undefined): string {
+  return (value ?? "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "");
+}
+
+function relevanceScore(game: CatalogListGame, rawQuery: string): number {
+  const query = normalizeSearchValue(rawQuery);
+  const title = normalizeSearchValue(game.title);
+  const slug = normalizeSearchValue(game.slug);
+  const id = normalizeSearchValue(game.id);
+  const tokens = query.split(/\s+/).filter(Boolean);
+  let score = 0;
+
+  if (title === query) score += 10000;
+  if (title.startsWith(query)) score += 9000;
+  if (title.includes(` ${query}`)) score += 8000;
+  if (title.includes(query)) score += 7000;
+  if (tokens.length && tokens.every((token) => title.includes(token))) score += 3000;
+  if (slug.includes(query)) score += 1500;
+  if (id.includes(query)) score += 1000;
+  if (game.platformSlug === query) score += 300;
+  if (game.recommendedPrice != null) score += 50;
+
+  return score;
 }
