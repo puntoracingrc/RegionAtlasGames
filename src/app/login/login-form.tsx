@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SiteNav } from "@/components/site-nav";
 import {
@@ -12,7 +12,6 @@ import {
 import { Panel, PanelTitle } from "@/components/ui";
 
 export function LoginForm() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -60,8 +59,7 @@ export function LoginForm() {
         setError(data.error ?? "Error al iniciar sesión.");
         return;
       }
-      router.push(nextPath);
-      router.refresh();
+      window.location.assign(nextPath);
     } catch {
       setError("No se pudo conectar. Inténtalo de nuevo.");
     } finally {

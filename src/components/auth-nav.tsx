@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { PublicUser } from "@/lib/session";
 
 export function AuthNav() {
   const router = useRouter();
+  const pathname = usePathname();
   const [user, setUser] = useState<PublicUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
@@ -40,7 +41,7 @@ export function AuthNav() {
           Ajustes
         </Link>
         <Link
-          href="/login"
+          href={`/login?next=${encodeURIComponent(pathname || "/coleccion")}`}
           className="rounded-md px-2 py-1.5 text-[12px] text-muted transition hover:text-foreground sm:px-2.5 sm:text-[13px]"
         >
           <span className="sm:hidden">Entrar</span>
