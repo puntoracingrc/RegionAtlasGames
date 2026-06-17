@@ -23,6 +23,8 @@ export function LoginForm() {
   const [mode, setMode] = useState<"password" | "magic">("password");
   const [showPassword, setShowPassword] = useState(false);
 
+  const nextPath = safeNextPath(searchParams.get("next")) ?? "/coleccion";
+
   useEffect(() => {
     const magic = searchParams.get("magic");
     if (magic) {
@@ -58,7 +60,7 @@ export function LoginForm() {
         setError(data.error ?? "Error al iniciar sesión.");
         return;
       }
-      router.push("/coleccion");
+      router.push(nextPath);
       router.refresh();
     } catch {
       setError("No se pudo conectar. Inténtalo de nuevo.");
@@ -201,6 +203,12 @@ export function LoginForm() {
       </main>
     </>
   );
+}
+
+function safeNextPath(next: string | null): string | null {
+  if (!next) return null;
+  if (!next.startsWith("/") || next.startsWith("//")) return null;
+  return next;
 }
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
