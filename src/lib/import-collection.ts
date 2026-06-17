@@ -439,9 +439,13 @@ export function isPlatformCatalogActive(platformSlug: string): boolean {
   return retroSlugs.has(slug);
 }
 
+function hasCatalogGame(catalogId: string | null | undefined): boolean {
+  return Boolean(catalogId && catalog.some((game) => game.id === catalogId));
+}
+
 /** Si la plataforma ya está activa en RA y existe ficha, devuelve el juego del catálogo. */
 export function findAvailableCatalogLink(item: CollectionItem): CatalogGame | null {
-  if (item.catalogMatched && item.catalogId) return null;
+  if (item.catalogMatched && hasCatalogGame(item.catalogId)) return null;
 
   const platform = normalizeImportedPlatformSlug(item.platformSlug);
   if (!isPlatformCatalogActive(platform)) return null;
@@ -660,7 +664,7 @@ export function importSpreadsheet(buffer: Buffer, filename: string) {
 }
 
 export function pendingCatalogItems(items: CollectionItem[]): CollectionItem[] {
-  return items.filter((item) => item.inRetroCatalog && !item.catalogMatched);
+  return items.filter((item) => item.inRetroCatalog && (!item.catalogMatched || !hasCatalogGame(item.catalogId)));
 }
 
 export function outOfScopeCollectionItems(items: CollectionItem[]): CollectionItem[] {

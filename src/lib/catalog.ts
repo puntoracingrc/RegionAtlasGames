@@ -44,6 +44,7 @@ export function enrichCollectionItem(item: CollectionItem): CollectionView {
   const cat = item.catalogId ? catalogById.get(item.catalogId) : undefined;
   return {
     ...item,
+    catalogMatched: Boolean(item.catalogMatched && cat),
     coverUrl: cat?.coverUrl ?? null,
     titlePc: cat?.titlePc ?? item.titlePc ?? null,
     pcId: cat?.pcId ?? item.pcImportId ?? null,

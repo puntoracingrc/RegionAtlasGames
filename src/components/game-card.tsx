@@ -123,7 +123,7 @@ export function CollectionGameCard({
   overlayAction?: ReactNode;
 }) {
   const collectionPlatformLabel = platformLabel(game.platformSlug);
-  const href = game.catalogId ? catalogGamePath(game.catalogId) : `/coleccion/${game.id}`;
+  const href = game.catalogId && game.catalogMatched ? catalogGamePath(game.catalogId) : `/coleccion/${game.id}`;
   const { grail, topSegment } = gameHighlights(game);
   const priceLabel =
     !game.hasEsPrice && game.recommendedPrice != null
