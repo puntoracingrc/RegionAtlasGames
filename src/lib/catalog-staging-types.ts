@@ -1,5 +1,11 @@
 export type CatalogStagingStatus = "pending-catalog" | "enriched" | "promoted";
 
+export type ContributorReviewStatus =
+  | "contributor-draft"
+  | "pending-review"
+  | "approved"
+  | "rejected";
+
 export type CatalogStagingGame = {
   pcId: number;
   title: string;
@@ -28,6 +34,9 @@ export type CatalogStagingGame = {
   enrichError: string | null;
   catalogId: string | null;
   promotedAt: string | null;
+  contributorEmail?: string | null;
+  reviewStatus?: ContributorReviewStatus | null;
+  submittedAt?: string | null;
 };
 
 export type CatalogStagingPlatformStats = {
