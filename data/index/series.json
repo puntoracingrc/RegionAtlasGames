@@ -10,5 +10,29 @@
       "ps2": 1
     },
     "gameCount": 1
+  },
+  "space-invaders": {
+    "name": "Space Invaders",
+    "slug": "space-invaders",
+    "museumPath": "",
+    "gameIds": [
+      "ds-space-invaders-extreme"
+    ],
+    "byPlatform": {
+      "ds": 1
+    },
+    "gameCount": 1
+  },
+  "tama-and-friends": {
+    "name": "tama-and-friends",
+    "slug": "tama-and-friends",
+    "museumPath": "",
+    "gameIds": [
+      "gameboy-japon-3-chome-no-tama-tama-obake-panic"
+    ],
+    "byPlatform": {
+      "gameboy": 1
+    },
+    "gameCount": 1
   }
 }
