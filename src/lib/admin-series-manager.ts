@@ -97,6 +97,14 @@ export type AdminSeriesDetail = {
   genreOptions: AdminSeriesGenreOption[];
 };
 
+export type PublicSeriesReference = {
+  slug: string;
+  name: string;
+  gameCount: number;
+  matchedGameCount: number;
+  matchedGameIds: string[];
+};
+
 function emptyOverlay(): AdminSeriesOverlay {
   return { updatedAt: new Date().toISOString(), series: {}, assignments: {} };
 }
@@ -173,6 +181,47 @@ export async function getPublicSeriesIndexEntry(slug: string): Promise<IndexEntr
   const overlay = await readAdminSeriesOverlay();
   const entry = effectiveSeriesEntry(normalizedSlug, index, overlay);
   return entry ? recalculateEntry(entry, catalog) : null;
+}
+
+export async function listPublicSeriesForGame(gameId: string): Promise<PublicSeriesReference[]> {
+  const normalizedGameId = gameId.trim();
+  if (!normalizedGameId) return [];
+
+  const entries = await listPublicSeriesIndexEntries();
+  return entries
+    .filter((entry) => entry.gameIds.includes(normalizedGameId))
+    .map((entry) => ({
+      slug: entry.slug,
+      name: entry.name,
+      gameCount: entry.gameCount,
+      matchedGameCount: 1,
+      matchedGameIds: [normalizedGameId],
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true }));
+}
+
+export async function listPublicSeriesForGames(gameIds: string[]): Promise<PublicSeriesReference[]> {
+  const selectedGameIds = new Set(gameIds.map((id) => id.trim()).filter(Boolean));
+  if (selectedGameIds.size === 0) return [];
+
+  const entries = await listPublicSeriesIndexEntries();
+  return entries
+    .map((entry) => {
+      const matchedGameIds = entry.gameIds.filter((id) => selectedGameIds.has(id));
+      return {
+        slug: entry.slug,
+        name: entry.name,
+        gameCount: entry.gameCount,
+        matchedGameCount: matchedGameIds.length,
+        matchedGameIds,
+      };
+    })
+    .filter((entry) => entry.matchedGameCount > 0)
+    .sort(
+      (a, b) =>
+        b.matchedGameCount - a.matchedGameCount ||
+        a.name.localeCompare(b.name, "es", { numeric: true }),
+    );
 }
 
 async function writeAdminSeriesOverlay(overlay: AdminSeriesOverlay): Promise<void> {

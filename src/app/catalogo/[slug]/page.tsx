@@ -45,6 +45,7 @@ import { getRegionDisplay } from "@/lib/region-display";
 import { getSellerOpenListing } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
 import { getAffiliateOfferBlock } from "@/lib/affiliate-offers";
+import { listPublicSeriesForGame } from "@/lib/admin-series-manager";
 import {
   cleanSupportLabel,
   defaultSupportForPlatform,
@@ -89,6 +90,20 @@ export default async function CatalogGamePage({ params }: Props) {
   const faqs = buildGameFaq(game, platform, details);
   const priceHistory = hasPriceHistory(game.id) ? getPriceHistory(game.id) : [];
   const affiliateOffers = await getAffiliateOfferBlock(game, details ?? null);
+  const publicSeries = await listPublicSeriesForGame(game.id);
+  const detailsSeries =
+    details?.series && !publicSeries.some((series) => series.slug === details.series?.slug)
+      ? [
+          {
+            slug: details.series.slug,
+            name: details.series.name,
+            gameCount: 0,
+            matchedGameCount: 1,
+            matchedGameIds: [game.id],
+          },
+        ]
+      : [];
+  const seriesLinks = [...publicSeries, ...detailsSeries];
 
   const breadcrumbItems = [
     { label: "Inicio", href: "/" },
@@ -302,16 +317,21 @@ export default async function CatalogGamePage({ params }: Props) {
                       )
                     }
                   />
-                  {details.series && (
+                  {seriesLinks.length > 0 && (
                     <DetailRow
-                      label="Saga"
+                      label={seriesLinks.length === 1 ? "Saga" : "Sagas"}
                       value={
-                        <Link
-                          href={`/saga/${details.series.slug}`}
-                          className="text-accent hover:underline"
-                        >
-                          {details.series.name}
-                        </Link>
+                        <span className="flex flex-wrap gap-1.5">
+                          {seriesLinks.map((series) => (
+                            <Link
+                              key={series.slug}
+                              href={`/saga/${series.slug}`}
+                              className="rounded-md bg-white/10 px-2 py-0.5 text-xs text-accent/90 hover:bg-white/15"
+                            >
+                              {series.name}
+                            </Link>
+                          ))}
+                        </span>
                       }
                     />
                   )}
