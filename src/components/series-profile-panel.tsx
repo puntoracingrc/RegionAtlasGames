@@ -27,9 +27,6 @@ export function SeriesProfilePanel({ profile }: { profile: SeriesProfile }) {
         <p className="mt-3 max-w-4xl text-sm leading-7 text-muted">
           {profile.description}
         </p>
-        <p className="mt-3 max-w-4xl text-sm leading-7 text-foreground/80">
-          {profile.history}
-        </p>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-4">
           <div className="rounded-2xl border border-border bg-background/60 p-3">
