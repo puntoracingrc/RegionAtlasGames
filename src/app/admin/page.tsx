@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { getCatalogStagingSummary } from "@/lib/catalog-staging";
-import { catalogOverlayEnabled } from "@/lib/catalog-runtime-overlay";
 
 const quickActions = [
   {
@@ -74,42 +73,25 @@ const quickActions = [
 
 export default async function AdminDashboardPage() {
   const summary = await getCatalogStagingSummary(8);
-  const hotPublishEnabled = catalogOverlayEnabled();
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-4 md:grid-cols-3">
-        <Panel className="md:col-span-2">
-          <PanelTitle eyebrow="Prioridad">Revisión de fichas</PanelTitle>
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-5xl font-black tracking-tight text-foreground">
-                {summary.totalGames}
-              </p>
-              <p className="mt-2 text-sm text-muted">
-                juegos pendientes de revisión, enriquecimiento o publicación.
-              </p>
-            </div>
-            <Link href="/admin/cola" className="btn-primary w-full sm:w-auto">
-              Abrir revisión
-            </Link>
+      <Panel>
+        <PanelTitle eyebrow="Prioridad">Revisión de fichas</PanelTitle>
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-5xl font-black tracking-tight text-foreground">
+              {summary.totalGames}
+            </p>
+            <p className="mt-2 text-sm text-muted">
+              juegos pendientes de revisión, enriquecimiento o publicación.
+            </p>
           </div>
-        </Panel>
-
-        <Panel>
-          <PanelTitle eyebrow="Sistema">Estado</PanelTitle>
-          <div className="space-y-3 text-sm">
-            <div className="flex items-center justify-between gap-3 rounded-xl border border-border bg-background/50 p-3">
-              <span className="text-muted">Publicación caliente</span>
-              {hotPublishEnabled ? <Badge tone="green">activa</Badge> : <Badge tone="amber">no activa</Badge>}
-            </div>
-            <div className="rounded-xl border border-border bg-background/50 p-3">
-              <p className="font-medium text-foreground">Siguiente paso recomendado</p>
-              <p className="mt-1 text-xs text-muted">Probar cambios en local y desplegar con confianza.</p>
-            </div>
-          </div>
-        </Panel>
-      </div>
+          <Link href="/admin/cola" className="btn-primary w-full sm:w-auto">
+            Abrir revisión
+          </Link>
+        </div>
+      </Panel>
 
       <Panel>
         <PanelTitle eyebrow="Atajos">Acciones rápidas</PanelTitle>
