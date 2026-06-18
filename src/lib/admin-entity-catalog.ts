@@ -863,6 +863,268 @@ function renameCompanySlugInDetails(
   }
 }
 
+function uniqueStrings(values: Array<string | null | undefined>): string[] {
+  return [...new Set(values.map((value) => value?.trim()).filter(Boolean) as string[])];
+}
+
+function mergeGameIds(...groups: Array<string[] | undefined>): string[] {
+  return uniqueStrings(groups.flatMap((group) => group ?? []));
+}
+
+function rebuildByPlatform(gameIds: string[], fallback: Record<string, number> = {}): Record<string, number> {
+  const catalogById = new Map(listedCatalog.map((game) => [game.id, game]));
+  const byPlatform: Record<string, number> = {};
+  for (const gameId of gameIds) {
+    const platformSlug = catalogById.get(gameId)?.platformSlug;
+    if (!platformSlug) continue;
+    byPlatform[platformSlug] = (byPlatform[platformSlug] ?? 0) + 1;
+  }
+  return Object.keys(byPlatform).length > 0 ? byPlatform : fallback;
+}
+
+function mergeCompanyIndexEntry(target: IndexEntry, source: IndexEntry): IndexEntry {
+  const gameIds = mergeGameIds(target.gameIds, source.gameIds, target.asDeveloper, source.asDeveloper, target.asPublisher, source.asPublisher);
+  const asDeveloper = mergeGameIds(target.asDeveloper, source.asDeveloper);
+  const asPublisher = mergeGameIds(target.asPublisher, source.asPublisher);
+  return {
+    ...target,
+    gameIds,
+    byPlatform: rebuildByPlatform(gameIds, { ...source.byPlatform, ...target.byPlatform }),
+    gameCount: gameIds.length,
+    asDeveloper,
+    asPublisher,
+    aliasSlugs: uniqueStrings([...(target.aliasSlugs ?? []), source.slug, ...(source.aliasSlugs ?? [])]),
+    aliasNames: uniqueStrings([...(target.aliasNames ?? []), source.name, ...(source.aliasNames ?? [])]),
+  };
+}
+
+function mergeCompanyEntityRegistry(
+  registry: CompanyEntitiesFile,
+  source: IndexEntry,
+  target: IndexEntry,
+): CompanyEntitiesFile {
+  registry.entities = registry.entities ?? {};
+  registry.slugToCanonical = registry.slugToCanonical ?? {};
+
+  const sourceEntity = registry.entities[source.slug] ?? {
+    slug: source.slug,
+    name: source.name,
+    mergeMethod: "manual",
+    aliasSlugs: [],
+    aliasNames: [],
+    wikidataIds: [],
+    museumPaths: [],
+  };
+  const targetEntity = registry.entities[target.slug] ?? {
+    slug: target.slug,
+    name: target.name,
+    mergeMethod: "manual",
+    aliasSlugs: [],
+    aliasNames: [],
+    wikidataIds: [],
+    museumPaths: [],
+  };
+
+  registry.entities[target.slug] = {
+    ...targetEntity,
+    slug: target.slug,
+    name: target.name,
+    mergeMethod: targetEntity.mergeMethod || "manual",
+    aliasSlugs: uniqueStrings([
+      ...(targetEntity.aliasSlugs ?? []),
+      source.slug,
+      ...(source.aliasSlugs ?? []),
+      ...(sourceEntity.aliasSlugs ?? []),
+    ]),
+    aliasNames: uniqueStrings([
+      ...(targetEntity.aliasNames ?? []),
+      source.name,
+      ...(source.aliasNames ?? []),
+      ...(sourceEntity.aliasNames ?? []),
+    ]),
+    wikidataIds: uniqueStrings([
+      ...(targetEntity.wikidataIds ?? []),
+      source.wikidataId ?? undefined,
+      ...(sourceEntity.wikidataIds ?? []),
+    ]),
+    museumPaths: uniqueStrings([
+      ...(targetEntity.museumPaths ?? []),
+      target.museumPath,
+      source.museumPath,
+      ...(sourceEntity.museumPaths ?? []),
+    ]),
+  };
+  delete registry.entities[source.slug];
+
+  for (const [key, value] of Object.entries(registry.slugToCanonical)) {
+    if (value === source.slug) registry.slugToCanonical[key] = target.slug;
+  }
+  registry.slugToCanonical[source.slug] = target.slug;
+  registry.slugToCanonical[target.slug] = target.slug;
+
+  for (const map of [
+    registry.wikidataToCanonical,
+    registry.museumPathToCanonical,
+    registry.normalizedToCanonical,
+  ]) {
+    if (!map) continue;
+    for (const [key, value] of Object.entries(map)) {
+      if (value === source.slug) map[key] = target.slug;
+    }
+  }
+
+  if (registry.stats) registry.stats.entities = Math.max(0, (registry.stats.entities ?? 1) - 1);
+  registry.generatedAt = new Date().toISOString();
+  return registry;
+}
+
+function mergeCompanyProfiles(
+  profiles: Record<string, CompanyProfile>,
+  source: IndexEntry,
+  target: IndexEntry,
+): Record<string, CompanyProfile> {
+  const sourceProfile = profiles[source.slug];
+  const targetProfile = profiles[target.slug];
+  const now = new Date().toISOString();
+  const merged: CompanyProfile = {
+    ...(sourceProfile ?? {}),
+    ...(targetProfile ?? {}),
+    slug: target.slug,
+    name: target.name,
+    wikidataId: targetProfile?.wikidataId ?? sourceProfile?.wikidataId ?? target.wikidataId ?? source.wikidataId ?? null,
+    logoUrl: targetProfile?.logoUrl ?? sourceProfile?.logoUrl ?? null,
+    foundedYear: targetProfile?.foundedYear ?? sourceProfile?.foundedYear ?? null,
+    closedYear: targetProfile?.closedYear ?? sourceProfile?.closedYear ?? null,
+    status: targetProfile?.status ?? sourceProfile?.status ?? "unknown",
+    history: targetProfile?.history ?? sourceProfile?.history ?? null,
+    seoMeta: targetProfile?.seoMeta ?? sourceProfile?.seoMeta ?? null,
+    sources: {
+      ...(sourceProfile?.sources ?? {}),
+      ...(targetProfile?.sources ?? {}),
+    },
+    generatedAt: now,
+    method: targetProfile?.method ?? sourceProfile?.method ?? "template",
+  };
+  if (Object.keys(merged.sources ?? {}).length === 0) delete merged.sources;
+  profiles[target.slug] = merged;
+  delete profiles[source.slug];
+  return profiles;
+}
+
+function mergeCompanySlugInDetails(
+  details: Record<string, unknown>,
+  oldSlug: string,
+  newSlug: string,
+  newName: string,
+): { updatedGames: number; developerUpdates: number; publisherUpdates: number } {
+  const updatedGameIds = new Set<string>();
+  let developerUpdates = 0;
+  let publisherUpdates = 0;
+
+  for (const [gameId, value] of Object.entries(details)) {
+    if (!value || typeof value !== "object") continue;
+    const detail = value as {
+      developer?: { slug?: string; name?: string } | null;
+      publisher?: { slug?: string; name?: string } | null;
+      developerSlug?: string;
+      developerName?: string;
+      publisherSlug?: string;
+      publisherName?: string;
+    };
+    if (detail.developer?.slug === oldSlug) {
+      detail.developer.slug = newSlug;
+      detail.developer.name = newName;
+      developerUpdates += 1;
+      updatedGameIds.add(gameId);
+    }
+    if (detail.developerSlug === oldSlug) {
+      detail.developerSlug = newSlug;
+      detail.developerName = newName;
+      developerUpdates += 1;
+      updatedGameIds.add(gameId);
+    }
+    if (detail.publisher?.slug === oldSlug) {
+      detail.publisher.slug = newSlug;
+      detail.publisher.name = newName;
+      publisherUpdates += 1;
+      updatedGameIds.add(gameId);
+    }
+    if (detail.publisherSlug === oldSlug) {
+      detail.publisherSlug = newSlug;
+      detail.publisherName = newName;
+      publisherUpdates += 1;
+      updatedGameIds.add(gameId);
+    }
+  }
+
+  return { updatedGames: updatedGameIds.size, developerUpdates, publisherUpdates };
+}
+
+export async function mergeAdminCompany(
+  sourceSlug: string,
+  targetSlug: string,
+): Promise<
+  | {
+      ok: true;
+      sourceSlug: string;
+      targetSlug: string;
+      targetName: string;
+      updatedGames: number;
+      developerUpdates: number;
+      publisherUpdates: number;
+      mergedGameCount: number;
+    }
+  | { error: string }
+> {
+  const sourceKey = sourceSlug.trim();
+  const targetKey = targetSlug.trim();
+  if (!sourceKey || !targetKey) return { error: "Faltan compañías para fusionar." };
+  if (sourceKey === targetKey) return { error: "El origen y el destino son la misma compañía." };
+  const writable = assertWritable();
+  if ("error" in writable) {
+    return { error: "La fusión necesita escritura real del catálogo. Hazla en local o con escritura admin activada." };
+  }
+
+  const index = loadJson<Record<string, IndexEntry>>(COMPANIES_INDEX_FILE, {});
+  const source = index[sourceKey];
+  const target = index[targetKey];
+  if (!source) return { error: "Compañía origen no encontrada." };
+  if (!target) return { error: "Compañía destino no encontrada." };
+
+  const mergedTarget = mergeCompanyIndexEntry(target, source);
+  index[targetKey] = mergedTarget;
+  delete index[sourceKey];
+  saveJson(COMPANIES_INDEX_FILE, index);
+
+  const registry = loadJson<CompanyEntitiesFile>(COMPANY_ENTITIES_FILE, { entities: {} });
+  saveJson(COMPANY_ENTITIES_FILE, mergeCompanyEntityRegistry(registry, source, mergedTarget));
+
+  const profiles = loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {});
+  saveJson(COMPANY_PROFILES_FILE, mergeCompanyProfiles(profiles, source, mergedTarget));
+
+  const details = loadJson<Record<string, unknown>>(DETAILS_FILE, {});
+  const detailUpdates = mergeCompanySlugInDetails(details, sourceKey, targetKey, mergedTarget.name);
+  saveJson(DETAILS_FILE, details);
+
+  const overlay = await readAdminEntitiesOverlay();
+  delete overlay.active.companies[sourceKey];
+  delete overlay.companies[sourceKey];
+  await writeAdminEntitiesOverlay(overlay);
+
+  bumpMetaCounter("indexCompanies", -1);
+
+  return {
+    ok: true,
+    sourceSlug: sourceKey,
+    targetSlug: targetKey,
+    targetName: mergedTarget.name,
+    updatedGames: detailUpdates.updatedGames,
+    developerUpdates: detailUpdates.developerUpdates,
+    publisherUpdates: detailUpdates.publisherUpdates,
+    mergedGameCount: mergedTarget.gameCount,
+  };
+}
+
 export async function updateAdminCompany(
   slug: string,
   input: {

@@ -116,6 +116,9 @@ export function AdminEntitiesPanel() {
   const [togglingSlug, setTogglingSlug] = useState<string | null>(null);
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [editSaving, setEditSaving] = useState(false);
+  const [mergeSourceSlug, setMergeSourceSlug] = useState<string | null>(null);
+  const [mergeTargetSlug, setMergeTargetSlug] = useState("");
+  const [mergingSlug, setMergingSlug] = useState<string | null>(null);
   const [editName, setEditName] = useState("");
   const [editNewSlug, setEditNewSlug] = useState("");
   const [editShortName, setEditShortName] = useState("");
@@ -347,6 +350,7 @@ export function AdminEntitiesPanel() {
 
   function startEditPlatform(platform: PlatformRow) {
     setEditingSlug(platform.slug);
+    setMergeSourceSlug(null);
     setEditName(platform.name);
     setEditNewSlug(platform.slug);
     setEditShortName(platform.shortName);
@@ -358,6 +362,7 @@ export function AdminEntitiesPanel() {
 
   function startEditIndex(row: IndexRow) {
     setEditingSlug(row.slug);
+    setMergeSourceSlug(null);
     setEditName(row.name);
     setEditNewSlug(row.slug);
     setEditCompanyHistory(row.history ?? "");
@@ -373,6 +378,14 @@ export function AdminEntitiesPanel() {
 
   function cancelEdit() {
     setEditingSlug(null);
+  }
+
+  function startMergeCompany(company: IndexRow) {
+    setEditingSlug(null);
+    setMergeSourceSlug(company.slug);
+    setMergeTargetSlug("");
+    setError(null);
+    setMessage(null);
   }
 
   async function saveEdit(kind: EntityTab, originalSlug: string) {
@@ -428,6 +441,53 @@ export function AdminEntitiesPanel() {
     }
   }
 
+  async function mergeCompany(source: IndexRow) {
+    const targetSlug = mergeTargetSlug.trim();
+    if (!targetSlug) {
+      setError("Elige la compañía destino.");
+      return;
+    }
+    if (targetSlug === source.slug) {
+      setError("No puedes fusionar una compañía consigo misma.");
+      return;
+    }
+    const target = companies.find((company) => company.slug === targetSlug);
+    const targetLabel = target?.name ?? targetSlug;
+    if (
+      !confirm(
+        `¿Fusionar «${source.name}» dentro de «${targetLabel}»?\n\nLos juegos, aliases y perfiles pasarán al destino. La compañía origen desaparecerá del listado principal y quedará como alias.`,
+      )
+    ) {
+      return;
+    }
+
+    setMergingSlug(source.slug);
+    setError(null);
+    setMessage(null);
+    try {
+      const res = await fetch(`/api/admin/entities/companies/${encodeURIComponent(source.slug)}/merge`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ targetSlug }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo fusionar la compañía.");
+        return;
+      }
+      setMergeSourceSlug(null);
+      setMergeTargetSlug("");
+      setMessage(
+        `«${source.name}» fusionada en «${data.targetName ?? targetLabel}». Juegos actualizados: ${data.updatedGames ?? 0}.`,
+      );
+      await loadCompanies(search);
+    } catch {
+      setError("Error de red al fusionar compañías.");
+    } finally {
+      setMergingSlug(null);
+    }
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap gap-2 rounded-2xl border border-border bg-card/70 p-2">
@@ -451,6 +511,7 @@ export function AdminEntitiesPanel() {
               window.history.replaceState(null, "", url);
               setSearch("");
               setEditingSlug(null);
+              setMergeSourceSlug(null);
               setError(null);
               setMessage(null);
             }}
@@ -867,6 +928,7 @@ export function AdminEntitiesPanel() {
                     </div>
                   </form>
                 ) : (
+                  <>
                   <div className="flex flex-wrap items-center gap-3">
                     <div className="min-w-0 flex-1">
                       <Link
@@ -891,6 +953,13 @@ export function AdminEntitiesPanel() {
                       onClick={() => startEditIndex(company)}
                     >
                       Editar
+                    </button>
+                    <button
+                      type="button"
+                      className="rounded-xl border border-sky-400/40 px-3 py-1.5 text-xs font-semibold text-sky-700 transition hover:bg-sky-500/10 disabled:opacity-50 dark:text-sky-300"
+                      onClick={() => startMergeCompany(company)}
+                    >
+                      Fusionar
                     </button>
                     <button
                       type="button"
@@ -919,6 +988,59 @@ export function AdminEntitiesPanel() {
                       {deletingSlug === company.slug ? "Eliminando…" : "Eliminar"}
                     </button>
                   </div>
+                  {mergeSourceSlug === company.slug && (
+                    <form
+                      className="mt-4 grid gap-3 rounded-2xl border border-sky-400/30 bg-sky-500/5 p-4 md:grid-cols-[1fr_auto_auto]"
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        void mergeCompany(company);
+                      }}
+                    >
+                      <label className="block space-y-1">
+                        <span className="text-[10px] uppercase tracking-wider text-muted">
+                          Fusionar dentro de
+                        </span>
+                        <input
+                          required
+                          className="input font-mono text-xs"
+                          list="admin-company-merge-targets"
+                          value={mergeTargetSlug}
+                          onChange={(e) => setMergeTargetSlug(e.target.value)}
+                          placeholder="slug destino, ej. square-enix"
+                        />
+                        <datalist id="admin-company-merge-targets">
+                          {companies
+                            .filter((target) => target.slug !== company.slug)
+                            .map((target) => (
+                              <option key={target.slug} value={target.slug}>
+                                {target.name}
+                              </option>
+                            ))}
+                        </datalist>
+                        <span className="text-xs text-muted">
+                          Útil para erratas: el origen desaparece y queda como alias del destino.
+                        </span>
+                      </label>
+                      <button
+                        type="submit"
+                        className="btn-primary self-end px-4 py-2 text-xs"
+                        disabled={mergingSlug === company.slug}
+                      >
+                        {mergingSlug === company.slug ? "Fusionando…" : "Fusionar"}
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-secondary self-end px-4 py-2 text-xs"
+                        onClick={() => {
+                          setMergeSourceSlug(null);
+                          setMergeTargetSlug("");
+                        }}
+                      >
+                        Cancelar
+                      </button>
+                    </form>
+                  )}
+                  </>
                 )}
               </li>
             ))}
