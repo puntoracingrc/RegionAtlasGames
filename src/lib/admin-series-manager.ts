@@ -60,6 +60,7 @@ export type AdminSeriesRow = {
   slug: string;
   name: string;
   gameCount: number;
+  description?: string | null;
 };
 
 export type AdminSeriesGameRow = {
@@ -377,6 +378,7 @@ function effectiveSeriesEntry(
     gameIds,
     byPlatform: staticEntry?.byPlatform ?? {},
     gameCount: gameIds.length,
+    description: overlayEntry?.description ?? staticEntry?.description ?? null,
     active: staticEntry?.active,
   };
 }
@@ -400,7 +402,12 @@ function recalculateEntry(entry: IndexEntry, catalog: CatalogGame[]): IndexEntry
 
 function toSeriesRow(entry: IndexEntry, catalog: CatalogGame[]): AdminSeriesRow {
   const resolved = recalculateEntry(entry, catalog);
-  return { slug: resolved.slug, name: resolved.name, gameCount: resolved.gameCount };
+  return {
+    slug: resolved.slug,
+    name: resolved.name,
+    gameCount: resolved.gameCount,
+    description: resolved.description ?? null,
+  };
 }
 
 function toGameRow(
@@ -561,6 +568,33 @@ export async function getAdminSeries(slug: string): Promise<AdminSeriesDetail | 
     games,
     genreOptions: genreOptionsForGames(games),
   };
+}
+
+export async function updateAdminSeriesDescription(
+  slug: string,
+  description: string | null,
+): Promise<{ series: AdminSeriesDetail } | { error: string }> {
+  const normalizedSlug = normalizeSlug(slug);
+  const index = loadSeriesIndex();
+  const overlay = await readAdminSeriesOverlay();
+  const current = effectiveSeriesEntry(normalizedSlug, index, overlay);
+  if (!current) return { error: "Saga no encontrada." };
+
+  const existing = overlay.series[normalizedSlug] ?? {
+    slug: normalizedSlug,
+    name: current.name,
+    gameIds: current.gameIds,
+  };
+  overlay.series[normalizedSlug] = {
+    ...existing,
+    slug: normalizedSlug,
+    name: existing.name || current.name,
+    description: description?.trim() || undefined,
+  };
+  await writeAdminSeriesOverlay(overlay);
+  const series = await getAdminSeries(normalizedSlug);
+  if ("error" in series) return series;
+  return { series };
 }
 
 export async function searchAdminSeriesGames(input: {

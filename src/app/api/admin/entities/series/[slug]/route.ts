@@ -6,6 +6,7 @@ import {
   bulkAssignAdminSeriesFacets,
   getAdminSeries,
   removeGameFromAdminSeries,
+  updateAdminSeriesDescription,
 } from "@/lib/admin-series-manager";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -78,6 +79,15 @@ export async function PATCH(req: Request, { params }: Props) {
       affectedCount: result.affectedCount,
       series: result.series,
     });
+  }
+
+  if (action === "update-description") {
+    const result = await updateAdminSeriesDescription(
+      slug,
+      typeof body.description === "string" ? body.description : null,
+    );
+    if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
+    return NextResponse.json({ ok: true, series: result.series });
   }
 
   return NextResponse.json({ error: "Acción no válida." }, { status: 400 });

@@ -187,20 +187,24 @@ export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): Ser
     companies,
     platforms,
     timeline: sortedTimeline,
-    description: buildSeriesDescription({
-      name: entry.name,
-      gameCount: games.length,
-      platformCount: platforms.length,
-      firstYear,
-      latestYear,
-      topPlatforms: platforms,
-    }),
-    history: buildSeriesHistory({
-      name: entry.name,
-      firstYear,
-      latestYear,
-      companies,
-      platforms,
-    }),
+    description:
+      entry.description?.trim() ||
+      buildSeriesDescription({
+        name: entry.name,
+        gameCount: games.length,
+        platformCount: platforms.length,
+        firstYear,
+        latestYear,
+        topPlatforms: platforms,
+      }),
+    history:
+      entry.description?.trim() ||
+      buildSeriesHistory({
+        name: entry.name,
+        firstYear,
+        latestYear,
+        companies,
+        platforms,
+      }),
   };
 }

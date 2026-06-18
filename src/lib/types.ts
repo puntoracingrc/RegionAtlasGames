@@ -99,6 +99,7 @@ export type IndexEntry = {
   gameIds: string[];
   byPlatform: Record<string, number>;
   gameCount: number;
+  description?: string | null;
   active?: boolean;
   asDeveloper?: string[];
   asPublisher?: string[];

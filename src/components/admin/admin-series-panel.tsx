@@ -49,9 +49,11 @@ export function AdminSeriesPanel() {
   const [newSeriesSlug, setNewSeriesSlug] = useState("");
   const [tagsInput, setTagsInput] = useState("");
   const [facetsInput, setFacetsInput] = useState("");
+  const [seriesDescription, setSeriesDescription] = useState("");
   const [loadingSeries, setLoadingSeries] = useState(true);
   const [loadingDetail, setLoadingDetail] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [seriesAiRunning, setSeriesAiRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
 
@@ -116,7 +118,9 @@ export function AdminSeriesPanel() {
         setDetail(null);
         return;
       }
-      setDetail(data.series as AdminSeriesDetail);
+      const nextDetail = data.series as AdminSeriesDetail;
+      setDetail(nextDetail);
+      setSeriesDescription(nextDetail.series.description ?? "");
       setGenreFilter("");
     } catch {
       setError("Error de red al cargar la saga.");
@@ -221,7 +225,9 @@ export function AdminSeriesPanel() {
         setError(data.error ?? "No se pudo guardar el cambio.");
         return;
       }
-      setDetail(data.series as AdminSeriesDetail);
+      const nextDetail = data.series as AdminSeriesDetail;
+      setDetail(nextDetail);
+      setSeriesDescription(nextDetail.series.description ?? "");
       await loadSeries(seriesSearch);
       if (body.action === "add-game") {
         setMessage("Juego añadido a la saga.");
@@ -239,12 +245,46 @@ export function AdminSeriesPanel() {
         setMessage("Juego sacado de la saga.");
       } else if (body.action === "bulk-assign") {
         setMessage(`Asignación aplicada a ${data.affectedCount ?? 0} juegos.`);
+      } else if (body.action === "update-description") {
+        setMessage("Descripción de saga guardada.");
       }
     } catch {
       setError("Error de red al guardar el cambio.");
     } finally {
       setSaving(false);
     }
+  }
+
+  async function regenerateSeriesDescription() {
+    if (!selectedSlug) return;
+    setSeriesAiRunning(true);
+    setError(null);
+    setMessage(null);
+    try {
+      const res = await fetch(`/api/admin/entities/series/${encodeURIComponent(selectedSlug)}/ai-fill`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ description: seriesDescription }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo generar la descripción de la saga.");
+        return;
+      }
+      setSeriesDescription(data.description ?? "");
+      setMessage("Descripción generada con IA. Revisa y guarda.");
+    } catch {
+      setError("Error de red al generar la descripción de saga.");
+    } finally {
+      setSeriesAiRunning(false);
+    }
+  }
+
+  async function saveSeriesDescription() {
+    await patchSeries({
+      action: "update-description",
+      description: seriesDescription,
+    });
   }
 
   function hideGameResult(gameId: string) {
@@ -343,6 +383,52 @@ export function AdminSeriesPanel() {
                 <Link href={`/saga/${detail.series.slug}`} target="_blank" className="btn-secondary">
                   Ver página pública
                 </Link>
+              </div>
+
+              <div className="rounded-2xl border border-violet-300/50 bg-violet-100/35 p-4 dark:border-violet-400/30 dark:bg-violet-950/20">
+                <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">
+                      Descripción de la saga
+                    </h3>
+                    <p className="text-xs text-muted">
+                      Se muestra en la página pública. Puedes editarla a mano o regenerarla con IA.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    className="rounded-full border border-violet-300/60 bg-violet-500/10 px-3 py-1 text-xs font-semibold text-violet-800 transition hover:bg-violet-500/15 disabled:opacity-50 dark:text-violet-200"
+                    disabled={seriesAiRunning || saving}
+                    onClick={() => void regenerateSeriesDescription()}
+                    title="Regenerar descripción con IA"
+                  >
+                    {seriesAiRunning ? "✦ IA trabajando…" : "✦ IA"}
+                  </button>
+                </div>
+                <textarea
+                  className="input min-h-36 leading-7"
+                  value={seriesDescription}
+                  onChange={(event) => setSeriesDescription(event.target.value)}
+                  placeholder="Descripción editorial de la saga…"
+                />
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    className="btn-primary"
+                    disabled={saving || seriesAiRunning}
+                    onClick={() => void saveSeriesDescription()}
+                  >
+                    {saving ? "Guardando…" : "Guardar descripción"}
+                  </button>
+                  <button
+                    type="button"
+                    className="btn-secondary"
+                    disabled={saving || seriesAiRunning}
+                    onClick={() => setSeriesDescription(detail.series.description ?? "")}
+                  >
+                    Restaurar actual
+                  </button>
+                </div>
               </div>
 
               <div className="rounded-2xl border border-border bg-background/45 p-4">
