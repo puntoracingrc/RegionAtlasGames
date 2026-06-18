@@ -87,8 +87,9 @@ export type AdminBulkGameActionOptions = {
   platforms: AdminSeriesPlatformOption[];
   regions: { slug: string; name: string; count: number }[];
   genres: { slug: string; name: string; count: number }[];
-  subgenres: { slug: string; name: string; count: number | null }[];
-  facets: { slug: string; name: string; count: number | null }[];
+  tags: { slug: string; name: string; count: number | null }[];
+  subgenres: { slug: string; name: string; count: number | null; parentGenreSlugs?: string[] }[];
+  facets: { slug: string; name: string; count: number | null; family?: string }[];
 };
 
 export type AdminSeriesDetail = {
@@ -280,6 +281,21 @@ function mergeEntities(existing: DetailEntity[], incomingNames: string[]): Detai
   return [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true }));
 }
 
+function countDetailEntities(games: CatalogGame[], details: Record<string, GameDetails>, field: "tags"): { slug: string; name: string; count: number }[] {
+  const counts = new Map<string, { slug: string; name: string; count: number }>();
+  for (const game of games) {
+    const seen = new Set<string>();
+    for (const entity of details[game.id]?.[field] ?? []) {
+      if (!entity.slug || seen.has(entity.slug)) continue;
+      seen.add(entity.slug);
+      const current = counts.get(entity.slug) ?? { slug: entity.slug, name: entity.name, count: 0 };
+      current.count += 1;
+      counts.set(entity.slug, current);
+    }
+  }
+  return [...counts.values()].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es", { numeric: true }));
+}
+
 function catalogMap(catalog: CatalogGame[]): Map<string, CatalogGame> {
   return new Map(catalog.map((game) => [game.id, game]));
 }
@@ -443,18 +459,27 @@ export function getAdminBulkGameActionOptions(): AdminBulkGameActionOptions {
   const catalog = loadCatalog();
   const details = loadDetails();
   const taxonomy = getGameFacetsTaxonomy();
+  const taxonomyGenreSlugById = new Map(taxonomy.genres.map((entity) => [entity.id, entity.slug]));
 
   return {
     platforms: listAdminSeriesGamePlatforms(),
     regions: regionOptionsForCatalog(catalog),
     genres: genreOptionsForCatalog(catalog, details),
+    tags: countDetailEntities(catalog, details, "tags").slice(0, 250),
     subgenres: taxonomy.subgenres
       .filter((entity) => entity.status === "approved")
-      .map((entity) => ({ slug: entity.slug, name: entity.name, count: null }))
+      .map((entity) => ({
+        slug: entity.slug,
+        name: entity.name,
+        count: null,
+        parentGenreSlugs: entity.parentGenreIds
+          .map((id) => taxonomyGenreSlugById.get(id))
+          .filter((slug): slug is string => Boolean(slug)),
+      }))
       .sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true })),
     facets: taxonomy.facets
       .filter((entity) => entity.status === "approved")
-      .map((entity) => ({ slug: entity.slug, name: entity.name, count: null }))
+      .map((entity) => ({ slug: entity.slug, name: entity.name, count: null, family: entity.family }))
       .sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true })),
   };
 }
@@ -558,6 +583,8 @@ export async function searchAdminBulkActionGames(input: {
         const labels = [
           ...(detail?.tags ?? []),
           ...(detail?.genres ?? []),
+          ...(detail?.subgenres ?? []),
+          ...(detail?.facets ?? []),
           ...(assignment?.tags ?? []),
           ...(assignment?.facets ?? []),
         ];
@@ -575,6 +602,8 @@ export async function searchAdminBulkActionGames(input: {
         detail?.developer?.name,
         detail?.publisher?.name,
         ...(detail?.genres?.map((genre) => genre.name) ?? []),
+        ...(detail?.subgenres?.map((subgenre) => subgenre.name) ?? []),
+        ...(detail?.facets?.map((facet) => facet.name) ?? []),
         ...(detail?.tags?.map((tag) => tag.name) ?? []),
         ...(assignment?.tags?.map((tag) => tag.name) ?? []),
         ...(assignment?.facets?.map((facet) => facet.name) ?? []),

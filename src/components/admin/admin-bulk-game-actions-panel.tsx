@@ -5,12 +5,19 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type { AdminSeriesGameRow } from "@/lib/admin-series-manager";
 
-type Option = { slug: string; name: string; count: number | null };
+type Option = {
+  slug: string;
+  name: string;
+  count: number | null;
+  parentGenreSlugs?: string[];
+  family?: string;
+};
 
 type BulkOptions = {
   platforms: Option[];
   regions: Option[];
   genres: Option[];
+  tags: Option[];
   subgenres: Option[];
   facets: Option[];
 };
@@ -19,6 +26,7 @@ const emptyOptions: BulkOptions = {
   platforms: [],
   regions: [],
   genres: [],
+  tags: [],
   subgenres: [],
   facets: [],
 };
@@ -48,6 +56,119 @@ function optionLabel(option: Option): string {
   return option.count === null ? option.name : `${option.name} (${option.count})`;
 }
 
+function normalizeSearch(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "");
+}
+
+function optionNameList(options: Option[]): string[] {
+  return options.map((option) => option.name);
+}
+
+function SelectableOptionList({
+  title,
+  helper,
+  options,
+  selected,
+  onChange,
+}: {
+  title: string;
+  helper?: string;
+  options: Option[];
+  selected: string[];
+  onChange: (next: string[]) => void;
+}) {
+  const [query, setQuery] = useState("");
+  const selectedSet = useMemo(() => new Set(selected), [selected]);
+  const visibleOptions = useMemo(() => {
+    const normalizedQuery = normalizeSearch(query);
+    return options
+      .filter((option) => !normalizedQuery || normalizeSearch(`${option.name} ${option.family ?? ""}`).includes(normalizedQuery))
+      .slice(0, 60);
+  }, [options, query]);
+
+  function toggle(name: string) {
+    if (selectedSet.has(name)) {
+      onChange(selected.filter((item) => item !== name));
+      return;
+    }
+    onChange([...selected, name].sort((a, b) => a.localeCompare(b, "es", { numeric: true })));
+  }
+
+  function clearSelected() {
+    onChange([]);
+  }
+
+  return (
+    <div className="rounded-2xl border border-border bg-background/45 p-3">
+      <div className="flex flex-wrap items-start justify-between gap-2">
+        <div>
+          <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">{title}</p>
+          {helper ? <p className="mt-1 text-xs text-muted">{helper}</p> : null}
+        </div>
+        {selected.length ? (
+          <button type="button" className="text-xs font-semibold text-accent hover:underline" onClick={clearSelected}>
+            Limpiar
+          </button>
+        ) : null}
+      </div>
+      <input
+        className="input mt-3"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        placeholder="Filtrar opciones…"
+      />
+      {selected.length ? (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {selected.map((name) => (
+            <button
+              key={name}
+              type="button"
+              className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
+              onClick={() => toggle(name)}
+              title="Quitar"
+            >
+              {name} ×
+            </button>
+          ))}
+        </div>
+      ) : null}
+      <div className="mt-3 grid max-h-56 gap-2 overflow-auto pr-1">
+        {visibleOptions.map((option) => {
+          const checked = selectedSet.has(option.name);
+          return (
+            <label
+              key={option.slug}
+              className={`flex cursor-pointer items-center justify-between gap-3 rounded-xl border px-3 py-2 text-sm transition ${
+                checked
+                  ? "border-accent bg-accent/10 text-foreground"
+                  : "border-border bg-card/50 text-muted hover:border-accent/50 hover:text-foreground"
+              }`}
+            >
+              <span className="min-w-0">
+                <span className="block truncate font-medium">{optionLabel(option)}</span>
+                {option.family ? <span className="text-[10px] uppercase tracking-wider text-muted">{option.family}</span> : null}
+              </span>
+              <input type="checkbox" checked={checked} onChange={() => toggle(option.name)} />
+            </label>
+          );
+        })}
+        {visibleOptions.length === 0 ? (
+          <p className="rounded-xl border border-dashed border-border p-3 text-xs text-muted">
+            No hay opciones con ese filtro.
+          </p>
+        ) : null}
+      </div>
+      {options.length > visibleOptions.length ? (
+        <p className="mt-2 text-xs text-muted">Mostrando {visibleOptions.length} de {options.length}; usa el filtro para afinar.</p>
+      ) : null}
+    </div>
+  );
+}
+
 export function AdminBulkGameActionsPanel() {
   const [options, setOptions] = useState<BulkOptions>(emptyOptions);
   const [q, setQ] = useState("");
@@ -59,12 +180,24 @@ export function AdminBulkGameActionsPanel() {
   const [selection, setSelection] = useState<AdminSeriesGameRow[]>([]);
   const [tagsInput, setTagsInput] = useState("");
   const [facetsInput, setFacetsInput] = useState("");
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedFacets, setSelectedFacets] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
 
   const selectedIds = useMemo(() => new Set(selection.map((game) => game.id)), [selection]);
+  const hasAssignments = parseCsv(tagsInput).length > 0 || parseCsv(facetsInput).length > 0 || selectedTags.length > 0 || selectedFacets.length > 0;
+  const selectableSubgenres = useMemo(() => {
+    if (!genreSlug) return options.subgenres;
+    const scoped = options.subgenres.filter((option) => option.parentGenreSlugs?.includes(genreSlug));
+    return scoped.length ? scoped : options.subgenres;
+  }, [genreSlug, options.subgenres]);
+  const selectableFacets = useMemo(
+    () => [...selectableSubgenres, ...options.facets],
+    [options.facets, selectableSubgenres],
+  );
   const visibleResults = useMemo(
     () => results.filter((game) => !selectedIds.has(game.id)),
     [results, selectedIds],
@@ -155,8 +288,8 @@ export function AdminBulkGameActionsPanel() {
         body: JSON.stringify({
           action: "bulk-assign",
           gameIds: selection.map((game) => game.id),
-          tags: parseCsv(tagsInput),
-          facets: parseCsv(facetsInput),
+          tags: [...parseCsv(tagsInput), ...selectedTags],
+          facets: [...parseCsv(facetsInput), ...selectedFacets],
         }),
       });
       const data = await res.json();
@@ -167,6 +300,8 @@ export function AdminBulkGameActionsPanel() {
       setMessage(`Asignación aplicada a ${data.affectedCount ?? 0} juegos.`);
       setTagsInput("");
       setFacetsInput("");
+      setSelectedTags([]);
+      setSelectedFacets([]);
     } catch {
       setError("Error de red al aplicar la asignación masiva.");
     } finally {
@@ -347,29 +482,43 @@ export function AdminBulkGameActionsPanel() {
               Aplicar a la lista
             </h3>
             <div className="grid gap-3">
+              <SelectableOptionList
+                title="Etiquetas existentes"
+                helper="Opciones ya usadas en fichas; puedes filtrar y marcar varias."
+                options={options.tags}
+                selected={selectedTags}
+                onChange={setSelectedTags}
+              />
               <label className="block space-y-1">
-                <span className="text-[10px] uppercase tracking-wider text-muted">Etiquetas</span>
+                <span className="text-[10px] uppercase tracking-wider text-muted">Etiquetas manuales</span>
                 <input
                   className="input"
                   value={tagsInput}
                   onChange={(event) => setTagsInput(event.target.value)}
-                  placeholder="soulslike, cooperativo, mundo abierto…"
+                  placeholder={optionNameList(options.tags).slice(0, 3).join(", ") || "soulslike, cooperativo…"}
                 />
               </label>
+              <SelectableOptionList
+                title="Subgéneros y facetas oficiales"
+                helper={genreSlug ? "Primero muestra subgéneros relacionados con el género filtrado; las facetas siguen disponibles." : "Lista controlada aprobada; filtra para encontrar rápido."}
+                options={selectableFacets}
+                selected={selectedFacets}
+                onChange={setSelectedFacets}
+              />
               <label className="block space-y-1">
-                <span className="text-[10px] uppercase tracking-wider text-muted">Facetas</span>
+                <span className="text-[10px] uppercase tracking-wider text-muted">Facetas manuales</span>
                 <input
                   className="input"
                   value={facetsInput}
                   onChange={(event) => setFacetsInput(event.target.value)}
-                  placeholder="Edición completa, remaster, multijugador local…"
+                  placeholder={optionNameList(selectableFacets).slice(0, 3).join(", ") || "Edición completa, remaster…"}
                 />
               </label>
             </div>
             <button
               type="button"
               className="btn-primary mt-4 w-full"
-              disabled={saving || selection.length === 0}
+              disabled={saving || selection.length === 0 || !hasAssignments}
               onClick={() => void applyBulkAssignment()}
             >
               {saving ? "Aplicando…" : `Aplicar a ${selection.length} juegos`}
