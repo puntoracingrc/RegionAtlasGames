@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { AdminFunctionCard, AdminFunctionHeader, AdminNotice } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type {
   AdminSeriesDetail,
@@ -294,7 +295,7 @@ export function AdminSeriesPanel() {
   return (
     <div className="grid gap-6 xl:grid-cols-[minmax(280px,360px)_1fr]">
       <div className="space-y-6">
-        <Panel>
+        <Panel className="border-amber-300/40 bg-amber-50/40 dark:border-amber-400/20 dark:bg-amber-950/10">
           <PanelTitle eyebrow="Sagas">Crear saga</PanelTitle>
           <form onSubmit={createSeries} className="grid gap-3">
             <label className="block space-y-1">
@@ -322,8 +323,8 @@ export function AdminSeriesPanel() {
           </form>
         </Panel>
 
-        <Panel>
-          <PanelTitle>Seleccionar saga</PanelTitle>
+        <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
+          <PanelTitle eyebrow="Buscar">Seleccionar saga</PanelTitle>
           <input
             className="input mb-3"
             value={seriesSearch}
@@ -358,14 +359,10 @@ export function AdminSeriesPanel() {
 
       <div className="space-y-6">
         {error && (
-          <div className="rounded-2xl border border-rose-300 bg-rose-100/70 p-4 text-sm text-rose-700 dark:border-rose-400/30 dark:bg-rose-950/40 dark:text-rose-200">
-            {error}
-          </div>
+          <AdminNotice tone="danger">{error}</AdminNotice>
         )}
         {message && (
-          <div className="rounded-2xl border border-emerald-300 bg-emerald-100/70 p-4 text-sm text-emerald-700 dark:border-emerald-400/30 dark:bg-emerald-950/40 dark:text-emerald-200">
-            {message}
-          </div>
+          <AdminNotice tone="status">{message}</AdminNotice>
         )}
 
         <Panel>
@@ -385,21 +382,21 @@ export function AdminSeriesPanel() {
                 </Link>
               </div>
 
-              <div className="rounded-2xl border border-violet-300/50 bg-violet-100/35 p-4 dark:border-violet-400/30 dark:bg-violet-950/20">
-                <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">
-                      Descripción de la saga
-                    </h3>
-                    <p className="text-xs text-muted">
+              <AdminFunctionCard tone="edit">
+                <AdminFunctionHeader
+                  tone="edit"
+                  title="Descripción de la saga"
+                  description={
+                    <>
                       Se muestra en la página pública. Puedes editarla a mano o regenerarla con IA.
-                    </p>
-                    {detail.series.description ? (
-                      <p className="mt-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300">
-                        Descripción actual cargada en el editor.
-                      </p>
-                    ) : null}
-                  </div>
+                      {detail.series.description ? (
+                        <span className="mt-1 block font-semibold text-emerald-700 dark:text-emerald-300">
+                          Descripción actual cargada en el editor.
+                        </span>
+                      ) : null}
+                    </>
+                  }
+                  action={
                   <button
                     type="button"
                     className="rounded-full border border-violet-300/60 bg-violet-500/10 px-3 py-1 text-xs font-semibold text-violet-800 transition hover:bg-violet-500/15 disabled:opacity-50 dark:text-violet-200"
@@ -409,7 +406,8 @@ export function AdminSeriesPanel() {
                   >
                     {seriesAiRunning ? "✦ IA trabajando…" : "✦ IA"}
                   </button>
-                </div>
+                  }
+                />
                 <textarea
                   className="input min-h-36 leading-7"
                   value={seriesDescription}
@@ -434,12 +432,14 @@ export function AdminSeriesPanel() {
                     Restaurar actual
                   </button>
                 </div>
-              </div>
+              </AdminFunctionCard>
 
-              <div className="rounded-2xl border border-border bg-background/45 p-4">
-                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted">
-                  Añadir juegos
-                </h3>
+              <AdminFunctionCard tone="search">
+                <AdminFunctionHeader
+                  tone="search"
+                  title="Añadir juegos"
+                  description="Busca en el catálogo y añade resultados a esta saga."
+                />
                 <div className="grid gap-3 md:grid-cols-[1fr_260px]">
                   <input
                     className="input"
@@ -514,9 +514,9 @@ export function AdminSeriesPanel() {
                     Has quitado todos los resultados visibles. Cambia la búsqueda o la plataforma para volver a cargar.
                   </p>
                 )}
-              </div>
+              </AdminFunctionCard>
 
-              <div className="rounded-2xl border border-border bg-background/45 p-4">
+              <AdminFunctionCard tone="neutral">
                 <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
                   <p className="text-sm font-semibold uppercase tracking-wider text-muted">
                     Filtra por género
@@ -535,13 +535,12 @@ export function AdminSeriesPanel() {
                   </select>
                 </div>
 
-                <div className="mb-4 rounded-2xl border border-violet-300/50 bg-violet-100/40 p-4 dark:border-violet-400/30 dark:bg-violet-950/20">
-                  <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-muted">
-                    Aplicar facetas y etiquetas en lote
-                  </h3>
-                  <p className="mb-4 text-sm text-muted">
-                    Se aplicará solo a los {filteredGames.length} juegos visibles con el filtro actual.
-                  </p>
+                <AdminFunctionCard tone="bulk" className="mb-4">
+                  <AdminFunctionHeader
+                    tone="bulk"
+                    title="Aplicar facetas y etiquetas en lote"
+                    description={`Se aplicará solo a los ${filteredGames.length} juegos visibles con el filtro actual.`}
+                  />
                   <div className="grid gap-3 md:grid-cols-2">
                     <label className="block space-y-1">
                       <span className="text-[10px] uppercase tracking-wider text-muted">
@@ -581,7 +580,7 @@ export function AdminSeriesPanel() {
                   >
                     {saving ? "Aplicando…" : "Aplicar a los juegos filtrados"}
                   </button>
-                </div>
+                </AdminFunctionCard>
 
                 <div className="grid gap-2">
                   {filteredGames.map((game) => (
@@ -626,7 +625,7 @@ export function AdminSeriesPanel() {
                     </p>
                   )}
                 </div>
-              </div>
+              </AdminFunctionCard>
             </div>
           ) : (
             <p className="text-sm text-muted">Selecciona una saga para editarla.</p>
