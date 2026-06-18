@@ -13,6 +13,12 @@ import { buildSeriesProfile } from "@/lib/series-profile";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { getCurrentUser } from "@/lib/users";
 
+const SERIES_BACKGROUND_IMAGES: Record<string, string> = {
+  "final-fantasy": "/saga-backgrounds/final-fantasy.webp",
+  "hollow-knight": "/saga-backgrounds/hollow-knight.webp",
+  "resident-evil": "/saga-backgrounds/resident-evil.jpg",
+};
+
 export async function IndexEntityDetail({ kind, slug }: { kind: IndexKind; slug: string }) {
   const publicSeriesEntry = kind === "series" ? await getPublicSeriesIndexEntry(slug) : null;
   const summary = publicSeriesEntry
@@ -24,28 +30,55 @@ export async function IndexEntityDetail({ kind, slug }: { kind: IndexKind; slug:
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
   const games = summary.games.map(toCatalogListGame);
   const seriesProfile = kind === "series" ? buildSeriesProfile(summary.entry, summary.games) : null;
+  const seriesBackgroundImage =
+    kind === "series" ? SERIES_BACKGROUND_IMAGES[summary.entry.slug] ?? null : null;
+
+  const content = (
+    <>
+      {kind === "series" && (
+        <div className="mb-4 flex justify-end">
+          <Link href="/admin/entidades?tab=series" className="btn-secondary">
+            Editar sagas
+          </Link>
+        </div>
+      )}
+      <IndexEntityHeader summary={summary} />
+      {seriesProfile && <SagaMascotWelcome profile={seriesProfile} compact />}
+      {seriesProfile && <SeriesProfilePanel profile={seriesProfile} />}
+      <div id="saga-games" />
+      <EntityBrowser
+        games={games}
+        title={summary.name}
+        ownedCatalogIds={ownedCatalogIds}
+        isLoggedIn={!!user}
+      />
+    </>
+  );
 
   return (
     <>
       <SiteNav />
       <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
-        {kind === "series" && (
-          <div className="mb-4 flex justify-end">
-            <Link href="/admin/entidades?tab=series" className="btn-secondary">
-              Editar sagas
-            </Link>
-          </div>
+        {seriesBackgroundImage ? (
+          <section className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/80 p-4 shadow-2xl shadow-black/30 md:p-6">
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 scale-[1.02] bg-cover bg-center opacity-45 blur-[1px]"
+              style={{ backgroundImage: `url(${seriesBackgroundImage})` }}
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-b from-background/55 via-background/78 to-background"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(255,255,255,0.12),transparent_32%),radial-gradient(circle_at_78%_12%,rgba(56,189,248,0.16),transparent_28%)]"
+            />
+            <div className="saga-immersive relative">{content}</div>
+          </section>
+        ) : (
+          content
         )}
-        <IndexEntityHeader summary={summary} />
-        {seriesProfile && <SagaMascotWelcome profile={seriesProfile} compact />}
-        {seriesProfile && <SeriesProfilePanel profile={seriesProfile} />}
-        <div id="saga-games" />
-        <EntityBrowser
-          games={games}
-          title={summary.name}
-          ownedCatalogIds={ownedCatalogIds}
-          isLoggedIn={!!user}
-        />
       </main>
     </>
   );

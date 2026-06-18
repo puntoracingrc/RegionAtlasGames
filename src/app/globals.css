@@ -167,6 +167,18 @@ button:disabled,
   background: var(--card-hover);
 }
 
+.saga-immersive .bg-card,
+.saga-immersive .bg-card\/70,
+.saga-immersive .bg-background\/60,
+.saga-immersive .bg-background\/70 {
+  background-color: color-mix(in srgb, var(--card) 82%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.saga-immersive .bg-card\/90 {
+  background-color: color-mix(in srgb, var(--card) 88%, transparent);
+}
+
 /* Contornos épicos para rareza / top / combo */
 .card-glow {
   border-color: transparent !important;
