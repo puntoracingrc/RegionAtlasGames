@@ -27,6 +27,8 @@ export type AdminGameDraft = {
   publisherName: string | null;
   publisherSlug: string | null;
   genreNames: string[];
+  subgenreNames: string[];
+  facetNames: string[];
   description: string | null;
   seoMeta: GameDetailsSeoMeta | null;
   descriptionMeta: {

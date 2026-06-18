@@ -54,7 +54,11 @@ function saveJson(filePath: string, data: unknown) {
   writeFileSync(filePath, `${JSON.stringify(data, null, 2)}\n`, "utf-8");
 }
 
-function entityDraft(name: string | null, slug: string | null) {
+function entityDraft(
+  name: string | null,
+  slug: string | null,
+  source: "wikidata" | "merged" = "wikidata",
+) {
   if (!name?.trim()) return null;
   const s = slug?.trim() || slugify(name);
   return {
@@ -62,7 +66,7 @@ function entityDraft(name: string | null, slug: string | null) {
     slug: s,
     museumPath: null,
     pcPath: null,
-    source: "wikidata" as const,
+    source,
   };
 }
 
@@ -157,6 +161,12 @@ function buildDetailsEntry(draft: AdminGameDraft): GameDetails {
     .map((name) => entityDraft(name, slugify(name)))
     .filter((genre) => !genre || !isInvalidGenreEntity(genre))
     .filter((g): g is NonNullable<typeof g> => Boolean(g));
+  const subgenres = (draft.subgenreNames ?? [])
+    .map((name) => entityDraft(name, slugify(name), "merged"))
+    .filter((g): g is NonNullable<typeof g> => Boolean(g));
+  const facets = (draft.facetNames ?? [])
+    .map((name) => entityDraft(name, slugify(name), "merged"))
+    .filter((g): g is NonNullable<typeof g> => Boolean(g));
 
   return {
     year: draft.year,
@@ -167,6 +177,8 @@ function buildDetailsEntry(draft: AdminGameDraft): GameDetails {
     developer,
     publisher,
     genres,
+    subgenres,
+    facets,
     series: null,
     fetchedAt: now,
     mergedAt: now,
@@ -177,6 +189,8 @@ function buildDetailsEntry(draft: AdminGameDraft): GameDetails {
       developer: developer ? "wikidata" : undefined,
       publisher: publisher ? "wikidata" : undefined,
       genres: genres.length ? "wikidata" : undefined,
+      subgenres: subgenres.length ? "wikidata" : undefined,
+      facets: facets.length ? "wikidata" : undefined,
       year: draft.year ? "wikidata" : undefined,
       reference: draft.reference ? "serialstation" : undefined,
     },
@@ -221,6 +235,8 @@ function mergeDetailsFromDraft(existing: GameDetails | null, draft: AdminGameDra
     developer: built.developer,
     publisher: built.publisher,
     genres: built.genres,
+    subgenres: built.subgenres,
+    facets: built.facets,
     description: built.description,
     descriptionMeta: built.descriptionMeta ?? existing.descriptionMeta,
     seoMeta: built.seoMeta ?? existing.seoMeta,
@@ -420,6 +436,8 @@ export async function updatePublishedCatalogPrices(
       developer: null,
       publisher: null,
       genres: [],
+      subgenres: [],
+      facets: [],
       series: null,
       fetchedAt: now,
       mergedAt: now,

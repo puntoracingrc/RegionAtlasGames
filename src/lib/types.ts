@@ -51,6 +51,10 @@ export type GameDetails = {
   developer: DetailEntity | null;
   publisher: DetailEntity | null;
   genres: DetailEntity[];
+  /** Subgéneros controlados por la taxonomía nueva. No sustituyen al género principal. */
+  subgenres?: DetailEntity[];
+  /** Facetas controladas: tono, mecánicas, tema, formato, mercado, etc. */
+  facets?: DetailEntity[];
   /** Etiquetas flexibles estilo Steam: no sustituyen a los géneros. */
   tags?: DetailEntity[];
   series: DetailEntity | null;
@@ -63,6 +67,9 @@ export type GameDetails = {
       | "developer"
       | "publisher"
       | "genres"
+      | "subgenres"
+      | "facets"
+      | "tags"
       | "series"
       | "reference"
       | "year"

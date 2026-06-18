@@ -2,6 +2,7 @@ import type { AdminAiFillEvent, AdminGameDraft } from "./admin-draft-types";
 import { getPlatform } from "./catalog";
 import { slugify } from "./slug";
 import { cleanSupportLabel, defaultSupportForPlatform } from "./game-detail-display";
+import { resolveExternalFacetSignals } from "./game-facets/external-signal-mapping";
 
 export type AdminAiFillOptions = {
   onlyMissing?: boolean;
@@ -1001,12 +1002,27 @@ function normalizeAiGenreName(value: string): string {
   return dictionary[key] ?? name;
 }
 
+function appendUniqueNames(current: string[], next: string[]): string[] {
+  const seen = new Set(current.map((value) => value.trim().toLowerCase()).filter(Boolean));
+  const merged = [...current];
+  for (const value of next) {
+    const clean = value.trim();
+    const key = clean.toLowerCase();
+    if (!clean || seen.has(key)) continue;
+    seen.add(key);
+    merged.push(clean);
+  }
+  return merged;
+}
+
 export async function* streamAdminAiFill(
   draft: AdminGameDraft,
   options: AdminAiFillOptions = {},
 ): AsyncGenerator<AdminAiFillEvent> {
   const includeMetadata = options.includeMetadata !== false;
   const includeDescription = options.includeDescription !== false;
+  draft.subgenreNames = draft.subgenreNames ?? [];
+  draft.facetNames = draft.facetNames ?? [];
   const platform = getPlatform(draft.platformSlug);
   const platformName = platform?.name ?? draft.platformSlug;
 
@@ -1123,6 +1139,44 @@ export async function* streamAdminAiFill(
       yield { type: "log", message: `Fuente experimental encontrada: Steam · ${steamReference.url}` };
       if (steamExperimentalTags.length) {
         yield { type: "log", message: `Etiquetas Steam detectadas: ${steamExperimentalTags.join(", ")}` };
+        const facetSignals = resolveExternalFacetSignals(
+          steamExperimentalTags.map((signal) => ({ source: "steam", signal })),
+        );
+        const mappedGenreNames = facetSignals
+          .filter((result) => result.ok && result.target?.type === "genre")
+          .map((result) => result.target?.name ?? "")
+          .filter(Boolean);
+        const mappedSubgenreNames = facetSignals
+          .filter((result) => result.ok && result.target?.type === "subgenre")
+          .map((result) => result.target?.name ?? "")
+          .filter(Boolean);
+        const mappedFacetNames = facetSignals
+          .filter((result) => result.ok && result.target?.type === "facet")
+          .map((result) => result.target?.name ?? "")
+          .filter(Boolean);
+
+        if (mappedGenreNames.length && (!options.onlyMissing || draft.genreNames.length === 0)) {
+          draft.genreNames = appendUniqueNames(draft.genreNames, mappedGenreNames).slice(0, 6);
+          yield { type: "field", field: "genres", value: draft.genreNames };
+        }
+        if (mappedSubgenreNames.length && (!options.onlyMissing || draft.subgenreNames.length === 0)) {
+          draft.subgenreNames = appendUniqueNames(draft.subgenreNames, mappedSubgenreNames).slice(0, 12);
+          yield { type: "field", field: "subgenreNames", value: draft.subgenreNames };
+        }
+        if (mappedFacetNames.length && (!options.onlyMissing || draft.facetNames.length === 0)) {
+          draft.facetNames = appendUniqueNames(draft.facetNames, mappedFacetNames).slice(0, 18);
+          yield { type: "field", field: "facetNames", value: draft.facetNames };
+        }
+        const mappedLabels = [
+          ...mappedSubgenreNames.map((name) => `subgénero: ${name}`),
+          ...mappedFacetNames.map((name) => `faceta: ${name}`),
+        ];
+        if (mappedLabels.length) {
+          yield {
+            type: "log",
+            message: `Etiquetas Steam mapeadas a taxonomía: ${mappedLabels.join(" · ")}`,
+          };
+        }
       }
       if (steamReference.developerName && (!options.onlyMissing || !draft.developerName)) {
         draft.developerName = normalizeCompanyDisplayName(steamReference.developerName);
@@ -1240,6 +1294,8 @@ export async function* streamAdminAiFill(
     developer: draft.developerName,
     publisher: draft.publisherName,
     genres: draft.genreNames,
+    subgenres: draft.subgenreNames,
+    facets: draft.facetNames,
     source: referenceLabel,
     sourceUrl: referenceUrl,
     steamExperimentalTags,
@@ -1358,6 +1414,8 @@ export async function* streamAdminAiFill(
         developer: draft.developerName,
         publisher: draft.publisherName,
         genres: draft.genreNames,
+        subgenres: draft.subgenreNames,
+        facets: draft.facetNames,
       },
       null,
       2,

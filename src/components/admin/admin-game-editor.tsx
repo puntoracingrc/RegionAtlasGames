@@ -101,7 +101,11 @@ export function AdminGameEditor({
   const isContributor = mode === "contributor";
   const locked = readOnly || (isContributor && staging?.reviewStatus === "pending-review");
   const catalogId = catalogIdProp ?? initialDraft.catalogId;
-  const [draft, setDraft] = useState(initialDraft);
+  const [draft, setDraft] = useState<AdminGameDraft>({
+    ...initialDraft,
+    subgenreNames: initialDraft.subgenreNames ?? [],
+    facetNames: initialDraft.facetNames ?? [],
+  });
   const [saving, setSaving] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [enriching, setEnriching] = useState(false);
@@ -776,6 +780,44 @@ export function AdminGameEditor({
                       .filter(Boolean),
                   })
                 }
+              />
+            </label>
+
+            <label className="block space-y-1 sm:col-span-2">
+              <span className="text-[10px] uppercase tracking-wider text-muted">
+                Subgéneros controlados (separados por coma)
+              </span>
+              <input
+                className="input"
+                value={draft.subgenreNames.join(", ")}
+                onChange={(e) =>
+                  patchDraft({
+                    subgenreNames: e.target.value
+                      .split(",")
+                      .map((g) => g.trim())
+                      .filter(Boolean),
+                  })
+                }
+                placeholder="Metroidvania, Survival Horror, JRPG…"
+              />
+            </label>
+
+            <label className="block space-y-1 sm:col-span-2">
+              <span className="text-[10px] uppercase tracking-wider text-muted">
+                Facetas / etiquetas controladas (separadas por coma)
+              </span>
+              <input
+                className="input"
+                value={draft.facetNames.join(", ")}
+                onChange={(e) =>
+                  patchDraft({
+                    facetNames: e.target.value
+                      .split(",")
+                      .map((g) => g.trim())
+                      .filter(Boolean),
+                  })
+                }
+                placeholder="Mundo abierto, Cooperativo, Zombis, Pixel Art…"
               />
             </label>
 

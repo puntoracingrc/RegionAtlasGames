@@ -27,6 +27,8 @@ export function draftFromCatalogGame(
     publisherName: details?.publisher?.name ?? null,
     publisherSlug: details?.publisher?.slug ?? null,
     genreNames: details?.genres?.map((g) => g.name).filter(Boolean) ?? [],
+    subgenreNames: details?.subgenres?.map((g) => g.name).filter(Boolean) ?? [],
+    facetNames: details?.facets?.map((g) => g.name).filter(Boolean) ?? [],
     description: details?.description ?? null,
     seoMeta: details?.seoMeta ?? null,
     descriptionMeta: details?.descriptionMeta ?? null,
@@ -80,6 +82,12 @@ export function applyDraftPatch(
   if (typeof body.description === "string") next.description = body.description.trim() || null;
   if (Array.isArray(body.genreNames)) {
     next.genreNames = body.genreNames.filter((g): g is string => typeof g === "string");
+  }
+  if (Array.isArray(body.subgenreNames)) {
+    next.subgenreNames = body.subgenreNames.filter((g): g is string => typeof g === "string");
+  }
+  if (Array.isArray(body.facetNames)) {
+    next.facetNames = body.facetNames.filter((g): g is string => typeof g === "string");
   }
 
   next.catalogId = recomputeCatalogId(next);

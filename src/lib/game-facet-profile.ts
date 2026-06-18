@@ -40,6 +40,8 @@ function matchesGameFacet(game: CatalogGame, entity: GameFacetTaxonomyEntity, as
   return (
     matchesAnyDetailEntity(details?.genres ?? [], terms) ||
     matchesAnyDetailEntity(canonicalGenres.map((genre) => ({ name: genre.name, slug: genre.slug })), terms) ||
+    matchesAnyDetailEntity(details?.subgenres ?? [], terms) ||
+    matchesAnyDetailEntity(details?.facets ?? [], terms) ||
     matchesAnyDetailEntity(details?.tags ?? [], terms) ||
     matchesAnyDetailEntity(assignment?.tags ?? [], terms) ||
     matchesAnyDetailEntity(assignment?.facets ?? [], terms)

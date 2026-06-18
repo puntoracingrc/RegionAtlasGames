@@ -52,8 +52,39 @@ import {
   formatGameReleaseDate,
   formatPlayerCount,
 } from "@/lib/game-detail-display";
+import type { DetailEntity } from "@/lib/types";
 
 type Props = { params: Promise<{ slug: string }> };
+
+function uniqueDetailEntities(entities: DetailEntity[]): DetailEntity[] {
+  const seen = new Set<string>();
+  const unique: DetailEntity[] = [];
+  for (const entity of entities) {
+    const key = entity.slug || entity.name.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    unique.push(entity);
+  }
+  return unique;
+}
+
+function taxonomyPillLinks(entities: DetailEntity[]) {
+  const unique = uniqueDetailEntities(entities);
+  if (unique.length === 0) return "—";
+  return (
+    <span className="flex flex-wrap gap-1.5">
+      {unique.map((entity) => (
+        <Link
+          key={entity.slug || entity.name}
+          href={`/etiqueta/${entity.slug}`}
+          className="rounded-md bg-white/10 px-2 py-0.5 text-xs text-accent/90 hover:bg-white/15"
+        >
+          {entity.name}
+        </Link>
+      ))}
+    </span>
+  );
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -104,6 +135,8 @@ export default async function CatalogGamePage({ params }: Props) {
         ]
       : [];
   const seriesLinks = [...publicSeries, ...detailsSeries];
+  const subgenreEntities = details?.subgenres ?? [];
+  const facetEntities = [...(details?.facets ?? []), ...(details?.tags ?? [])];
 
   const breadcrumbItems = [
     { label: "Inicio", href: "/" },
@@ -317,6 +350,18 @@ export default async function CatalogGamePage({ params }: Props) {
                       )
                     }
                   />
+                  {(subgenreEntities.length > 0 || facetEntities.length > 0) && (
+                    <>
+                      <DetailRow
+                        label="Subgéneros"
+                        value={taxonomyPillLinks(subgenreEntities)}
+                      />
+                      <DetailRow
+                        label="Facetas"
+                        value={taxonomyPillLinks(facetEntities)}
+                      />
+                    </>
+                  )}
                   {seriesLinks.length > 0 && (
                     <DetailRow
                       label={seriesLinks.length === 1 ? "Saga" : "Sagas"}

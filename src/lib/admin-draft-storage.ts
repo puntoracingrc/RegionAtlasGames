@@ -160,6 +160,14 @@ export function draftFromStaging(
       existing?.genreNames ??
       (details?.genres?.map((g) => g.name).filter(Boolean) as string[]) ??
       [],
+    subgenreNames:
+      existing?.subgenreNames ??
+      (details?.subgenres?.map((g) => g.name).filter(Boolean) as string[]) ??
+      [],
+    facetNames:
+      existing?.facetNames ??
+      (details?.facets?.map((g) => g.name).filter(Boolean) as string[]) ??
+      [],
     description: existing?.description ?? details?.description ?? null,
     seoMeta: existing?.seoMeta ?? details?.seoMeta ?? null,
     descriptionMeta: existing?.descriptionMeta ?? details?.descriptionMeta ?? null,
@@ -213,6 +221,8 @@ export function draftFromManualInput(input: {
     publisherName: null,
     publisherSlug: null,
     genreNames: [],
+    subgenreNames: [],
+    facetNames: [],
     description: null,
     seoMeta: null,
     descriptionMeta: null,
