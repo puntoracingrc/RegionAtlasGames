@@ -200,6 +200,10 @@ export function buildHomeNewsQuery(): string {
   return "videojuegos España when:1d";
 }
 
+export function buildCompanyNewsQuery(): string {
+  return "noticias compañías desarrolladoras de videojuegos España when:7d";
+}
+
 export function buildPlatformNewsQuery(platform: { slug: string; shortName: string; name: string }): string {
   return platformNewsTopicForSlug(platform.slug)?.query ?? `videojuegos ${platform.shortName} ${platform.slug} España when:1d`;
 }
@@ -215,6 +219,14 @@ export async function refreshEnabledNewsSections(input?: {
       section: "home",
       topic: "general",
       query: buildHomeNewsQuery(),
+      dryRun: input?.dryRun,
+    }),
+  );
+  results.push(
+    await refreshNewsSection({
+      section: "company",
+      topic: "developers",
+      query: buildCompanyNewsQuery(),
       dryRun: input?.dryRun,
     }),
   );

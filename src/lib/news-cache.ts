@@ -28,7 +28,7 @@ function normalizeNewsItem(item: unknown, index: number): NewsItem | null {
   if (!title || !url) return null;
   return {
     id: raw.id?.trim() || stableFallbackNewsId(raw, index),
-    section: raw.section === "platform" ? "platform" : "home",
+    section: raw.section === "platform" || raw.section === "company" ? raw.section : "home",
     topic: raw.topic?.trim() || "general",
     title,
     sourceName: raw.sourceName?.trim() || raw.source?.trim() || "Fuente",

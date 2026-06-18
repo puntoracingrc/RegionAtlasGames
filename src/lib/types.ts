@@ -171,7 +171,7 @@ export type Platform = {
   newsEnabled?: boolean;
 };
 
-export type NewsSection = "home" | "platform";
+export type NewsSection = "home" | "platform" | "company";
 
 export type NewsItem = {
   id: string;

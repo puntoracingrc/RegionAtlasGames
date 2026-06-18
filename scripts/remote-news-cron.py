@@ -22,6 +22,16 @@ MAX_AGE_DAYS = 3
 NEWS_BLOCKS = (
     {"section": "home", "topic": "general", "query": "videojuegos España when:1d", "max_age_days": 3},
     {
+        "section": "company",
+        "topic": "developers",
+        "query": "noticias compañías desarrolladoras de videojuegos España when:7d",
+        "required_terms": (
+            "desarrolladora", "desarrolladoras", "desarrollador", "desarrolladores",
+            "estudio", "compañía", "compañías", "compania", "companias", "videojuegos",
+        ),
+        "max_age_days": 14,
+    },
+    {
         "section": "platform",
         "topic": "playstation",
         "query": "videojuegos PlayStation PS5 PS4 España when:7d",

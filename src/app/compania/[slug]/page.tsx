@@ -5,6 +5,7 @@ import { resolveCanonicalCompanySlug } from "@/lib/company-canonical";
 import { buildCompanyProfileView } from "@/lib/company-profile";
 import { buildCompanyMetadata } from "@/lib/company-seo";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
+import { listNewsForSection } from "@/lib/news-cache";
 import { getCurrentUser } from "@/lib/users";
 import { listPublicSeriesForGames } from "@/lib/admin-series-manager";
 
@@ -30,11 +31,13 @@ export default async function CompanyPage({ params }: Props) {
   const user = await getCurrentUser();
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
   const series = await listPublicSeriesForGames(view.games.map((game) => game.id));
+  const companyNews = await listNewsForSection({ section: "company", topic: "developers", limit: 9 });
 
   return (
     <CompanyProfileDetail
       view={view}
       series={series}
+      newsItems={companyNews}
       ownedCatalogIds={ownedCatalogIds}
       isLoggedIn={!!user}
     />
