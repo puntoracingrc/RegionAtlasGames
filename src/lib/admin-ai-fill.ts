@@ -135,6 +135,7 @@ const NINTENDO_OFFICIAL_INDEX: Record<string, string> = {
 
 const XBOX_OFFICIAL_INDEX = "https://www.xbox.com/es-es/games";
 const STEAM_SEARCH_SUGGEST_URL = "https://store.steampowered.com/search/suggest";
+const STEAM_AGE_COOKIE = "birthtime=568022401; lastagecheckage=1-January-1988; wants_mature_content=1";
 
 type ControlledTaxonomyBuckets = {
   genres: string[];
@@ -495,11 +496,26 @@ function extractSteamField(html: string, label: string): string | null {
 }
 
 function extractSteamTags(html: string): string[] {
+  const tags = new Set<string>();
+  const modalTagsJson = html.match(/InitAppTagModal\(\s*\d+\s*,\s*(\[[\s\S]*?\])\s*,\s*\[/i)?.[1];
+  if (modalTagsJson) {
+    try {
+      const modalTags = JSON.parse(modalTagsJson) as Array<{ name?: unknown }>;
+      for (const tag of modalTags) {
+        if (typeof tag.name !== "string") continue;
+        const clean = tag.name.trim();
+        if (clean) tags.add(clean);
+      }
+    } catch {}
+  }
+
   const tagsBlock = html.match(/<div[^>]+class="glance_tags popular_tags"[\s\S]*?<\/div>/i)?.[0] ?? "";
-  const tags = [...tagsBlock.matchAll(/<a\b[^>]*class="app_tag"[^>]*>([\s\S]*?)<\/a>/gi)]
-    .map((match) => stripHtmlToText(match[1]))
-    .filter((tag) => tag.length > 0 && !/^\+$/.test(tag));
-  return [...new Set(tags)].slice(0, 16);
+  for (const match of tagsBlock.matchAll(/<a\b[^>]*class="app_tag"[^>]*>([\s\S]*?)<\/a>/gi)) {
+    const clean = stripHtmlToText(match[1]);
+    if (clean.length > 0 && !/^\+$/.test(clean)) tags.add(clean);
+  }
+
+  return Array.from(tags).slice(0, 32);
 }
 
 async function searchSteamStoreExperimental(draft: AdminGameDraft): Promise<ReferenceSource | null> {
@@ -531,7 +547,12 @@ async function searchSteamStoreExperimental(draft: AdminGameDraft): Promise<Refe
   if (!appId) return null;
 
   const appUrl = `https://store.steampowered.com/app/${appId}/?cc=ES&l=spanish`;
-  const appRes = await fetch(appUrl, { headers: { "User-Agent": USER_AGENT } });
+  const appRes = await fetch(appUrl, {
+    headers: {
+      "User-Agent": USER_AGENT,
+      Cookie: STEAM_AGE_COOKIE,
+    },
+  });
   if (!appRes.ok) return null;
 
   const html = await appRes.text();
