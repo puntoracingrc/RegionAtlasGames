@@ -284,21 +284,22 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
   return (
     <div className="space-y-6">
       <Panel>
-        <PanelTitle eyebrow="IA de fichas">Completar borradores por lote</PanelTitle>
+        <PanelTitle eyebrow="IA de fichas">Completar cola de borradores por lote</PanelTitle>
         <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr]">
           <div className="rounded-2xl border border-border bg-background/45 p-4">
             <p className="text-sm leading-6 text-muted">
               Lanza la misma IA del editor individual: busca fuentes oficiales, usa Steam como referencia
               experimental cuando encuentra coincidencia clara, recoge etiquetas populares y genera textos
               SEO sin cambiar rutas, plataforma ni región. En simulación genera una previsualización real,
-              pero no guarda nada.
+              pero no guarda nada. Esta herramienta cuenta y procesa solo juegos de la cola no publicada,
+              no todo el catálogo ya publicado.
             </p>
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
               <Stat label="Modo" value={mode === "missing" ? "Solo huecos" : "Forzar"} />
               <Stat label="Límite" value={limit} />
               <Stat label="Ejecución" value={dryRun ? "Previsualizar" : "Guardar"} />
-              <Stat label={mode === "missing" ? "Faltan con filtros" : "Candidatas con filtros"} value={summaryLoading ? "…" : summary?.needsFill ?? "—"} />
-              <Stat label="Total filtradas" value={summaryLoading ? "…" : summary?.candidates ?? "—"} />
+              <Stat label={mode === "missing" ? "Faltan en cola" : "Candidatas en cola"} value={summaryLoading ? "…" : summary?.needsFill ?? "—"} />
+              <Stat label="Cola filtrada" value={summaryLoading ? "…" : summary?.candidates ?? "—"} />
               <Stat label="Entrarán ahora" value={summaryLoading ? "…" : summary?.selectable ?? "—"} />
             </div>
           </div>
@@ -378,9 +379,9 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
                 <span>Calculando juegos pendientes con estos filtros…</span>
               ) : summary ? (
                 <span>
-                  Con estos filtros hay <strong className="text-foreground">{summary.needsFill}</strong>{" "}
+                  En la cola no publicada hay <strong className="text-foreground">{summary.needsFill}</strong>{" "}
                   {mode === "missing" ? "juegos que necesitan relleno" : "juegos candidatos para regenerar"} de{" "}
-                  <strong className="text-foreground">{summary.candidates}</strong>. Se procesarán{" "}
+                  <strong className="text-foreground">{summary.candidates}</strong> con estos filtros. Se procesarán{" "}
                   <strong className="text-foreground">{summary.selectable}</strong> con el límite actual.
                   {mode === "missing" ? (
                     <> Ya parecen completos <strong className="text-foreground">{summary.complete}</strong>.</>
