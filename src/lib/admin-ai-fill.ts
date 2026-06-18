@@ -136,6 +136,7 @@ const NINTENDO_OFFICIAL_INDEX: Record<string, string> = {
 const XBOX_OFFICIAL_INDEX = "https://www.xbox.com/es-es/games";
 const STEAM_SEARCH_SUGGEST_URL = "https://store.steampowered.com/search/suggest";
 const STEAM_AGE_COOKIE = "birthtime=568022401; lastagecheckage=1-January-1988; wants_mature_content=1";
+const STEAM_TAG_LIMIT = 20;
 
 type ControlledTaxonomyBuckets = {
   genres: string[];
@@ -515,7 +516,7 @@ function extractSteamTags(html: string): string[] {
     if (clean.length > 0 && !/^\+$/.test(clean)) tags.add(clean);
   }
 
-  return Array.from(tags).slice(0, 32);
+  return Array.from(tags).slice(0, STEAM_TAG_LIMIT);
 }
 
 async function searchSteamStoreExperimental(draft: AdminGameDraft): Promise<ReferenceSource | null> {
