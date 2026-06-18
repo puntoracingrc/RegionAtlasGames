@@ -92,8 +92,8 @@ V2 amplía la taxonomía para cubrir grandes bloques:
 Estado actual de la taxonomía ampliada:
 
 - `genres`: 18
-- `subgenres`: 92
-- `facets`: 294
+- `subgenres`: 96
+- `facets`: 296
 
 Estos conteos son vocabulario disponible, no asignaciones aplicadas a juegos.
 
@@ -131,6 +131,30 @@ Las frases ambiguas se han resuelto con destino único para evitar duplicados de
 - `combate por turnos` apunta a `RPG por turnos`.
 - `SRPG` apunta a `Strategy RPG`.
 - `conducción realista` apunta a `Simulación de carreras`.
+
+### Tandas finales de sinónimos principales
+
+Se han añadido las tandas finales de `searchAliases` para mejorar la búsqueda de categorías, géneros, subgéneros, tags y etiquetas principales sin crear etiquetas visibles duplicadas.
+
+Cobertura añadida:
+
+- Visual y cámara: `2D`, `2.5D`, `Pixel Art`, `anime`, `cámara al hombro`, `vista cenital`, `sobre raíles`.
+- Temas y tono: `fantasía oscura`, `postapocalíptico`, `crimen`, `espionaje`, `cozy`, `melancólico`, `satírico`.
+- Mecánicas: `loot`, `crafteo`, `árbol de habilidades`, `permadeath`, `score attack`, `speedrun`, `decisiones morales`.
+- Estructura: `mundo abierto`, `lineal`, `por misiones`, `episódico`, `roguelike structure`, `campaña narrativa`.
+- Deportes, vehículos y simulación: `FIFA`, `NBA`, `motocross`, `BMX`, `simulador de vuelo`, `tycoon`, `job simulator`.
+- Terror y contenido sensible: `survival horror`, `jump scare`, `body horror`, `gore`, `contenido adulto`.
+- Épocas, criaturas y personajes: `Roma`, `Guerra Fría`, `años 80`, `dragones`, `vampiros`, `samuráis`, `protagonista femenina`.
+- Música, controles y periféricos: `OST`, `chiptune`, `VR`, `light gun`, `multitap`, `link cable`, `Expansion Pak`.
+
+También se han añadido subgéneros de simulación que faltaban para poder recibir señales externas sin forzarlas a facetas genéricas:
+
+- `Hobby Sim`
+- `Job Simulator`
+- `Simulación médica`
+- `Simulación económica`
+
+Los términos ambiguos se mantienen con un único propietario. Si una búsqueda puede significar varias cosas, se prioriza la entidad más concreta ya existente.
 
 ## Uso futuro con IA y Steam
 
