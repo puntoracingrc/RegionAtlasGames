@@ -87,7 +87,7 @@ export function GameTaxonomyGroupBrowser({ groups }: { groups: PublicTaxonomyGro
                         </p>
                       </div>
                       <span className="rounded-full bg-accent/10 px-2 py-1 text-xs font-bold text-accent">
-                        {term.count.toLocaleString("es-ES")}
+                        {term.count == null ? "—" : term.count.toLocaleString("es-ES")}
                       </span>
                     </div>
                     {term.aliases.length > 0 && (

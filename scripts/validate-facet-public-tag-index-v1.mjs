@@ -37,6 +37,7 @@ const page = read("src/app/etiqueta/page.tsx");
 for (const snippet of [
   "GameTaxonomyGroupBrowser",
   "getPublicTaxonomyGroups",
+  "includeFacetCounts: false",
   "term.type !== \"genre\"",
   "Etiquetas y facetas",
 ]) {

@@ -39,6 +39,7 @@ for (const snippet of [
   "searchAliases: string[]",
   "searchAliases: entity.searchAliases",
   "filter((group) => group.terms.length > 0)",
+  "includeFacetCounts",
   "Tono y sensaciones",
   "Actividades del jugador",
 ]) {
@@ -48,6 +49,9 @@ for (const snippet of [
 const browser = read("src/components/game-taxonomy-group-browser.tsx");
 if (!browser.includes("...term.searchAliases")) {
   fail("game-taxonomy-group-browser no busca por searchAliases invisibles");
+}
+if (!browser.includes('term.count == null ? "—"')) {
+  fail("game-taxonomy-group-browser debe soportar conteos omitidos");
 }
 if (browser.includes("Alias: {term.searchAliases")) {
   fail("No deben mostrarse searchAliases como alias visibles");

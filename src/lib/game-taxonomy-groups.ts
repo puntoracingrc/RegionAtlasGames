@@ -13,7 +13,7 @@ export type PublicTaxonomyTerm = {
   searchAliases: string[];
   description: string;
   href: string;
-  count: number;
+  count: number | null;
 };
 
 export type PublicTaxonomyGroup = {
@@ -142,14 +142,15 @@ function hrefForEntity(entity: GameFacetTaxonomyEntity): string {
   return entity.type === "genre" ? `/genero/${entity.slug}` : `/etiqueta/${entity.slug}`;
 }
 
-function countForEntity(entity: GameFacetTaxonomyEntity, facetCounts: Record<string, number>): number {
+function countForEntity(entity: GameFacetTaxonomyEntity, facetCounts: Record<string, number> | null): number | null {
   if (entity.type === "genre") {
-    return getGenre(entity.slug)?.gameCount ?? getGenre(entity.id)?.gameCount ?? facetCounts[entity.slug] ?? 0;
+    return getGenre(entity.slug)?.gameCount ?? getGenre(entity.id)?.gameCount ?? facetCounts?.[entity.slug] ?? 0;
   }
+  if (!facetCounts) return null;
   return facetCounts[entity.slug] ?? 0;
 }
 
-function toTerm(entity: GameFacetTaxonomyEntity, facetCounts: Record<string, number>): PublicTaxonomyTerm {
+function toTerm(entity: GameFacetTaxonomyEntity, facetCounts: Record<string, number> | null): PublicTaxonomyTerm {
   return {
     id: entity.id,
     name: entity.name,
@@ -164,9 +165,9 @@ function toTerm(entity: GameFacetTaxonomyEntity, facetCounts: Record<string, num
   };
 }
 
-export async function getPublicTaxonomyGroups(): Promise<PublicTaxonomyGroup[]> {
+export async function getPublicTaxonomyGroups(options: { includeFacetCounts?: boolean } = {}): Promise<PublicTaxonomyGroup[]> {
   const entities = getAllGameFacetTaxonomyEntities().filter((entity) => entity.status === "approved");
-  const facetCounts = await buildGameFacetCounts();
+  const facetCounts = options.includeFacetCounts === false ? null : await buildGameFacetCounts();
 
   return GROUPS.map((group) => ({
     number: group.number,
@@ -175,6 +176,6 @@ export async function getPublicTaxonomyGroups(): Promise<PublicTaxonomyGroup[]> 
     terms: entities
       .filter(group.include)
       .map((entity) => toTerm(entity, facetCounts))
-      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es", { sensitivity: "base" })),
+      .sort((a, b) => (b.count ?? -1) - (a.count ?? -1) || a.name.localeCompare(b.name, "es", { sensitivity: "base" })),
   })).filter((group) => group.terms.length > 0);
 }

@@ -5,7 +5,7 @@ import { getPublicTaxonomyGroups } from "@/lib/game-taxonomy-groups";
 export const dynamic = "force-dynamic";
 
 export default async function TagsPage() {
-  const groups = (await getPublicTaxonomyGroups())
+  const groups = (await getPublicTaxonomyGroups({ includeFacetCounts: false }))
     .map((group) => ({
       ...group,
       terms: group.terms.filter((term) => term.type !== "genre"),
