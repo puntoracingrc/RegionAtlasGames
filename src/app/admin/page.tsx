@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Badge, Panel, PanelTitle } from "@/components/ui";
+import { Panel, PanelTitle } from "@/components/ui";
 import { getCatalogStagingSummary } from "@/lib/catalog-staging";
 
 const quickActions = [
@@ -111,43 +111,6 @@ export default async function AdminDashboardPage() {
           ))}
         </div>
       </Panel>
-
-      {summary.topByUnits.length > 0 && (
-        <Panel>
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <PanelTitle eyebrow="Demanda">Más solicitados por usuarios</PanelTitle>
-            <Link href="/admin/cola?status=pending" className="btn-secondary text-xs">
-              Ver pendientes
-            </Link>
-          </div>
-          <ul className="grid gap-3 md:grid-cols-2">
-            {summary.topByUnits.map((game) => (
-              <li
-                key={game.pcId}
-                className="rounded-2xl border border-border bg-background/45 p-4"
-              >
-                <div>
-                  <Link
-                    href={`/admin/cola/${game.pcId}`}
-                    className="font-medium text-foreground hover:text-accent"
-                  >
-                    {game.title}
-                  </Link>
-                  <p className="text-xs text-muted">
-                    {game.platformSlug} · {game.unitCount} uds · {game.userCount} usuarios
-                  </p>
-                </div>
-                <div className="mt-3 flex items-center justify-between gap-2">
-                  <Badge tone={game.status === "enriched" ? "green" : "amber"}>{game.status}</Badge>
-                  <Link href={`/admin/cola/${game.pcId}`} className="text-xs font-semibold text-accent">
-                    Revisar →
-                  </Link>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </Panel>
-      )}
     </div>
   );
 }
