@@ -41,6 +41,16 @@ const sortOptions: { value: EntitySort; label: string }[] = [
   { value: "games-asc", label: "Menos juegos" },
 ];
 
+function isTab(value: string | null): value is Tab {
+  return tabs.some((item) => item.id === value);
+}
+
+function initialTab(): Tab {
+  if (typeof window === "undefined") return "platforms";
+  const tabParam = new URLSearchParams(window.location.search).get("tab");
+  return isTab(tabParam) ? tabParam : "platforms";
+}
+
 function matchesSearch(row: { name: string; slug: string }, search: string): boolean {
   const query = search.trim().toLowerCase();
   if (!query) return true;
@@ -71,7 +81,7 @@ function activeToggleLabel(active: boolean): string {
 }
 
 export function AdminEntitiesPanel() {
-  const [tab, setTab] = useState<Tab>("platforms");
+  const [tab, setTab] = useState<Tab>(initialTab);
   const [platforms, setPlatforms] = useState<PlatformRow[]>([]);
   const [companies, setCompanies] = useState<IndexRow[]>([]);
   const [genres, setGenres] = useState<IndexRow[]>([]);
@@ -384,6 +394,13 @@ export function AdminEntitiesPanel() {
             }`}
             onClick={() => {
               setTab(item.id);
+              const url = new URL(window.location.href);
+              if (item.id === "platforms") {
+                url.searchParams.delete("tab");
+              } else {
+                url.searchParams.set("tab", item.id);
+              }
+              window.history.replaceState(null, "", url);
               setSearch("");
               setEditingSlug(null);
               setError(null);

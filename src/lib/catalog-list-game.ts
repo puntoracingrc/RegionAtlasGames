@@ -1,18 +1,11 @@
 import { getPlatform } from "@/lib/catalog";
+import { catalogSearchAliasesForGenre } from "@/lib/catalog-search-aliases";
+import { normalizeCatalogSearchParts } from "@/lib/catalog-search-normalize";
 import { isGrailGame, isTopInSegment } from "@/lib/game-highlight";
 import { normalizeReference, referenceSortKey } from "@/lib/game-product-reference";
 import { getGameDetails } from "@/lib/indexes";
 import { resolveCanonicalGenreEntity } from "@/lib/genre-canonical";
 import type { CatalogGame, CatalogListGame } from "@/lib/types";
-
-function normalizeSearchText(parts: Array<string | number | null | undefined>): string {
-  return parts
-    .filter(Boolean)
-    .join(" ")
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/\p{M}/gu, "");
-}
 
 export function toCatalogListGame(game: CatalogGame): CatalogListGame {
   const details = getGameDetails(game.id);
@@ -39,7 +32,7 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
     priceRegionVerified: game.priceRegionVerified,
     displayPlatform: platform?.shortName ?? game.platformSlug.toUpperCase(),
     displayYear: details?.year ?? null,
-    searchText: normalizeSearchText([
+    searchText: normalizeCatalogSearchParts([
       game.title,
       game.titlePc,
       game.slug,
@@ -66,7 +59,9 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
       details?.series?.name,
       details?.series?.slug,
       ...(details?.genres?.map((genre) => `${genre.name} ${genre.slug}`) ?? []),
+      ...((details?.genres ?? []).flatMap((genre) => catalogSearchAliasesForGenre(resolveCanonicalGenreEntity(genre)))),
       canonicalGenre ? `${canonicalGenre.name} ${canonicalGenre.slug}` : null,
+      ...(canonicalGenre ? catalogSearchAliasesForGenre(canonicalGenre) : []),
     ]),
     sortGenre: canonicalGenre?.name.toLowerCase() ?? "\uffff",
     sortReference,

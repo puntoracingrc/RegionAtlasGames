@@ -2,6 +2,8 @@ import { BackLink } from "@/components/breadcrumbs";
 import { CatalogGameListLink } from "@/components/catalog-game-list-link";
 import { genreGameHref, type GenreProfileView } from "@/lib/genre-profile";
 
+const MAX_PLATFORM_PREVIEW_GAMES = 24;
+
 export function GenreReferenceTop({ view }: { view: GenreProfileView }) {
   if (view.referenceTops.length === 0) return null;
 
@@ -84,11 +86,18 @@ export function GenrePlatformGames({ view }: { view: GenreProfileView }) {
               <span className="text-xs text-muted transition group-open:rotate-180">▼</span>
             </summary>
             <ul className="max-h-80 space-y-1 overflow-y-auto border-t border-border/70 px-4 py-3">
-              {platform.games.map((game) => (
+              {platform.games.slice(0, MAX_PLATFORM_PREVIEW_GAMES).map((game) => (
                 <li key={game.id}>
                   <CatalogGameListLink game={game} href={genreGameHref(game)} />
                 </li>
               ))}
+              {platform.games.length > MAX_PLATFORM_PREVIEW_GAMES && (
+                <li className="pt-2 text-xs text-muted">
+                  Mostrando {MAX_PLATFORM_PREVIEW_GAMES.toLocaleString("es-ES")} de{" "}
+                  {platform.games.length.toLocaleString("es-ES")}. Usa el catálogo completo
+                  inferior para paginar, buscar y filtrar esta plataforma.
+                </li>
+              )}
             </ul>
           </details>
         ))}

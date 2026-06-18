@@ -147,6 +147,34 @@ async function readAdminSeriesOverlay(): Promise<AdminSeriesOverlay> {
   return parseOverlay(JSON.stringify(loadJson<AdminSeriesOverlay>(ADMIN_SERIES_OVERLAY_FILE, emptyOverlay())));
 }
 
+
+export async function readAdminSeriesAssignmentsForPublic(): Promise<Record<string, AdminSeriesAssignment>> {
+  const overlay = await readAdminSeriesOverlay();
+  return overlay.assignments;
+}
+
+export async function listPublicSeriesIndexEntries(): Promise<IndexEntry[]> {
+  const index = loadSeriesIndex();
+  const catalog = loadCatalog();
+  const overlay = await readAdminSeriesOverlay();
+  const slugs = uniqueStrings([...Object.keys(index), ...Object.keys(overlay.series)]);
+
+  return slugs
+    .map((slug) => effectiveSeriesEntry(slug, index, overlay))
+    .filter((entry): entry is IndexEntry => Boolean(entry))
+    .map((entry) => recalculateEntry(entry, catalog))
+    .sort((a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es", { numeric: true }));
+}
+
+export async function getPublicSeriesIndexEntry(slug: string): Promise<IndexEntry | null> {
+  const normalizedSlug = normalizeSlug(slug);
+  const index = loadSeriesIndex();
+  const catalog = loadCatalog();
+  const overlay = await readAdminSeriesOverlay();
+  const entry = effectiveSeriesEntry(normalizedSlug, index, overlay);
+  return entry ? recalculateEntry(entry, catalog) : null;
+}
+
 async function writeAdminSeriesOverlay(overlay: AdminSeriesOverlay): Promise<void> {
   const payload = { ...overlay, updatedAt: new Date().toISOString() };
   if (shouldUseBlobOverlay()) {

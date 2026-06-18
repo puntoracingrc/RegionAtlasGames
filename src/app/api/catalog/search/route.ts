@@ -12,6 +12,7 @@ import { listedCatalog } from "@/lib/catalog";
 import { getPlatform } from "@/lib/catalog";
 import { catalogGamePath } from "@/lib/catalog-seo";
 import { getCoverSrc } from "@/lib/cover-url";
+import { gamesForIndex, getGenre } from "@/lib/indexes";
 import type { CatalogListGame } from "@/lib/types";
 
 const MAX_RESULTS = 12;
@@ -37,12 +38,15 @@ export async function GET(request: Request) {
   const priceFilter = (url.searchParams.get("priceFilter") ?? "all") as CatalogPriceFilter;
   const page = Math.max(1, Number(url.searchParams.get("page") ?? "1") || 1);
   const mode = url.searchParams.get("mode") ?? "quick";
+  const genreSlug = url.searchParams.get("genre") ?? "";
 
   if (q.trim().length < 2 && platform === "all" && region === "all" && mode !== "browser") {
     return NextResponse.json({ items: [], total: 0 });
   }
 
-  const games = listedCatalog.map(toCatalogListGame);
+  const genreEntry = genreSlug ? getGenre(genreSlug) : undefined;
+  const sourceGames = genreSlug ? (genreEntry ? gamesForIndex(genreEntry) : []) : listedCatalog;
+  const games = sourceGames.map(toCatalogListGame);
   const filtered = filterCatalogGames(
     games,
     { q, platform, region, sort, priceFilter },

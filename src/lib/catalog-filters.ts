@@ -1,3 +1,4 @@
+import { catalogSearchTokens } from "@/lib/catalog-search-normalize";
 import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { getRegionDisplay } from "@/lib/region-display";
@@ -86,15 +87,10 @@ export function buildSearchHaystack(game: CatalogListGame): string {
 }
 
 export function matchesQuery(game: CatalogListGame, rawQuery: string): boolean {
-  const query = rawQuery
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/\p{M}/gu, "");
-  if (!query) return true;
+  const tokens = catalogSearchTokens(rawQuery);
+  if (!tokens.length) return true;
 
   const haystack = buildSearchHaystack(game);
-  const tokens = query.split(/\s+/).filter(Boolean);
   return tokens.every((token) => {
     if (haystack.includes(token)) return true;
     const compact = token.replace(/-/g, "");

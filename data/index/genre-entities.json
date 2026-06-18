@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-17T17:47:25.041Z",
+  "generatedAt": "2026-06-17T23:28:14Z",
   "stats": {
     "entities": 106,
-    "aliases": 57,
+    "aliases": 55,
     "autoNormalized": 0
   },
   "entities": {
@@ -50,7 +50,6 @@
       "name": "Aventura",
       "mergeMethod": "manual",
       "aliasSlugs": [
-        "amp-adventure",
         "aventura"
       ],
       "aliasNames": [
@@ -180,12 +179,11 @@
       "name": "Cartas",
       "mergeMethod": "manual",
       "aliasSlugs": [
-        "amp-card",
         "card-battle"
       ],
       "aliasNames": [
-        "Card Battle",
-        "Card"
+        "Card",
+        "Card Battle"
       ],
       "museumPaths": [
         "/generos/card-battle"
@@ -369,6 +367,20 @@
       "aliasNames": [],
       "museumPaths": [
         "/generos/fantastico"
+      ]
+    },
+    "field": {
+      "slug": "field",
+      "name": "Field",
+      "mergeMethod": "museum",
+      "aliasSlugs": [
+        "track"
+      ],
+      "aliasNames": [
+        "Track"
+      ],
+      "museumPaths": [
+        "/generos/track-field"
       ]
     },
     "fighting": {
@@ -616,6 +628,14 @@
         "/generos/musical"
       ]
     },
+    "nfr": {
+      "slug": "nfr",
+      "name": "NFR",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "museumPaths": []
+    },
     "ninos": {
       "slug": "ninos",
       "name": "Niños",
@@ -851,19 +871,16 @@
       "aliasSlugs": [
         "deporte",
         "extreme",
-        "extreme-sports",
-        "track-field"
+        "extreme-sports"
       ],
       "aliasNames": [
         "Deporte",
         "Extreme",
         "Extreme Sports",
-        "Sports",
-        "Track & Field"
+        "Sports"
       ],
       "museumPaths": [
-        "/generos/deporte",
-        "/generos/track-field"
+        "/generos/deporte"
       ]
     },
     "strategy": {
@@ -1011,14 +1028,6 @@
       "aliasNames": [],
       "museumPaths": []
     },
-    "videojuego-de-desplazamiento-lateral": {
-      "slug": "videojuego-de-desplazamiento-lateral",
-      "name": "videojuego de desplazamiento lateral",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "museumPaths": []
-    },
     "videojuego-de-disparos": {
       "slug": "videojuego-de-disparos",
       "name": "videojuego de disparos",
@@ -1161,16 +1170,6 @@
       "museumPaths": [
         "/generos/wrestling"
       ]
-    },
-    "nfr": {
-      "slug": "nfr",
-      "name": "NFR",
-      "mergeMethod": "slug",
-      "aliasSlugs": [
-        "amp-nfr"
-      ],
-      "aliasNames": [],
-      "museumPaths": []
     }
   },
   "slugToCanonical": {
@@ -1179,8 +1178,6 @@
     "action": "action",
     "adventure": "adventure",
     "ajedrez": "board",
-    "amp-adventure": "adventure",
-    "amp-card": "card",
     "aventura": "adventure",
     "aventura-grafica": "visual-novel",
     "baile": "music",
@@ -1210,6 +1207,7 @@
     "estrategia": "strategy",
     "extreme": "sports",
     "extreme-sports": "sports",
+    "field": "field",
     "fighting": "fighting",
     "fishing": "fishing",
     "football": "soccer",
@@ -1254,20 +1252,19 @@
     "survival-horror": "horror",
     "terror": "horror",
     "third-person-shooter": "shooter",
-    "track-field": "sports",
+    "track": "field",
     "trivia": "quiz",
     "varios": "other",
     "visual-novel": "visual-novel",
     "vizualny-roman": "visual-novel",
     "vuelo": "vuelo",
-    "wrestling": "wrestling",
-    "amp-nfr": "nfr",
-    "nfr": "nfr"
+    "wrestling": "wrestling"
   },
-  "museumPathToCanonical": {},
+  "museumPathToCanonical": {
+    "/generos/track-field": "field"
+  },
   "normalizedToCanonical": {
     "beat em up": "beat-em-up",
-    "shoot em up": "shooter",
-    "nfr": "nfr"
+    "shoot em up": "shooter"
   }
 }

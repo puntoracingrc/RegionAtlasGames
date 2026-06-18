@@ -1,6 +1,14 @@
-import { EntityBrowser } from "@/components/catalog-browser";
+import { CatalogBrowser } from "@/components/catalog-browser";
 import { GenrePlatformGames, GenreProfileHeader, GenreReferenceTop } from "@/components/genre-profile-sections";
 import { SiteNav } from "@/components/site-nav";
+import {
+  CATALOG_PAGE_SIZE,
+  DEFAULT_SORT,
+  countByPriceFilter,
+  filterCatalogGames,
+  platformOptions,
+  regionOptions,
+} from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { buildGenreIntro } from "@/lib/genre-seo";
 import type { GenreProfileView } from "@/lib/genre-profile";
@@ -12,7 +20,13 @@ type Props = {
 };
 
 export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn }: Props) {
-  const games = view.games.map(toCatalogListGame);
+  const allGames = view.games.map(toCatalogListGame);
+  const initialResult = filterCatalogGames(
+    allGames,
+    { q: "", region: "all", platform: "all", sort: DEFAULT_SORT, priceFilter: "all" },
+    { regions: true, platforms: true },
+  );
+  const initialGames = initialResult.items.slice(0, CATALOG_PAGE_SIZE);
 
   return (
     <>
@@ -38,9 +52,16 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn }: Props)
               Explora y filtra todos los juegos del género {view.name}.
             </p>
           </div>
-          <EntityBrowser
-            games={games}
-            title={view.name}
+          <CatalogBrowser
+            games={initialGames}
+            contextName={view.name}
+            source={{ kind: "genre", slug: view.slug }}
+            totalCount={initialResult.total}
+            regions={regionOptions(allGames)}
+            platforms={platformOptions(allGames)}
+            priceCounts={countByPriceFilter(allGames)}
+            showRegionFilter
+            showPlatformFilter
             ownedCatalogIds={ownedCatalogIds}
             isLoggedIn={isLoggedIn}
           />

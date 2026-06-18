@@ -81,23 +81,23 @@ export const SAGA_MASCOTS: SagaMascot[] = [
   },
 ];
 
-export const DEFAULT_SAGA_MASCOT = SAGA_MASCOTS[0];
-
 const ELDEN_RING_SLUGS = new Set(["elden-ring"]);
 const FINAL_FANTASY_SLUGS = new Set(["final-fantasy"]);
 const RESIDENT_EVIL_SLUGS = new Set(["resident-evil"]);
 
-export function getSagaMascot(slug?: string): SagaMascot {
+export function getSagaMascot(slug?: string): SagaMascot | null {
   if (slug && FINAL_FANTASY_SLUGS.has(slug)) return SAGA_MASCOTS[2];
   if (slug && RESIDENT_EVIL_SLUGS.has(slug)) return SAGA_MASCOTS[1];
-  if (slug && ELDEN_RING_SLUGS.has(slug)) return DEFAULT_SAGA_MASCOT;
-  return DEFAULT_SAGA_MASCOT;
+  if (slug && ELDEN_RING_SLUGS.has(slug)) return SAGA_MASCOTS[0];
+  return null;
 }
 
 export function buildSagaMascotLine(
   profile?: Pick<SeriesProfile, "name" | "gameCount" | "platformCount">,
-  mascot = DEFAULT_SAGA_MASCOT,
+  mascot?: SagaMascot,
 ) {
+  if (!mascot) return "";
+
   if (!profile) {
     return mascot.lines[0];
   }

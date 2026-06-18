@@ -5,7 +5,10 @@
       "name": "Acción",
       "slug": "accion",
       "type": "genre",
-      "aliases": ["Action", "Accion"],
+      "aliases": [
+        "Action",
+        "Accion"
+      ],
       "description": "Género principal para juegos centrados en reflejos, combate, habilidad inmediata o intensidad mecánica.",
       "status": "approved"
     },
@@ -14,7 +17,9 @@
       "name": "Aventura",
       "slug": "aventura",
       "type": "genre",
-      "aliases": ["Adventure"],
+      "aliases": [
+        "Adventure"
+      ],
       "description": "Género principal para exploración, progresión narrativa, descubrimiento o resolución de situaciones.",
       "status": "approved"
     },
@@ -23,7 +28,11 @@
       "name": "RPG",
       "slug": "rpg",
       "type": "genre",
-      "aliases": ["Role-playing", "Role Playing", "Rol"],
+      "aliases": [
+        "Role-playing",
+        "Role Playing",
+        "Rol"
+      ],
       "description": "Género principal para juegos basados en progresión de personaje, estadísticas, equipo, narrativa o toma de decisiones.",
       "status": "approved"
     },
@@ -32,7 +41,12 @@
       "name": "Plataformas",
       "slug": "plataformas",
       "type": "genre",
-      "aliases": ["Platformer", "Platform"],
+      "aliases": [
+        "Platformer",
+        "Platform",
+        "Juego de plataformas",
+        "Juegos de plataformas"
+      ],
       "description": "Género principal para juegos donde el salto, el movimiento por escenarios y la precisión espacial son centrales.",
       "status": "approved"
     },
@@ -41,7 +55,14 @@
       "name": "Shooter",
       "slug": "shooter",
       "type": "genre",
-      "aliases": ["Disparos", "Shoot", "Shooting"],
+      "aliases": [
+        "Disparos",
+        "Shoot",
+        "Shooting",
+        "Juegos de disparos",
+        "Juego de disparos",
+        "Shooting game"
+      ],
       "description": "Género principal para juegos donde apuntar, disparar y gestionar combate a distancia es la mecánica dominante.",
       "status": "approved"
     },
@@ -50,7 +71,13 @@
       "name": "Deportes",
       "slug": "deportes",
       "type": "genre",
-      "aliases": ["Sports", "Deporte"],
+      "aliases": [
+        "Sports",
+        "Deporte",
+        "Sport",
+        "Sports games",
+        "Juegos deportivos"
+      ],
       "description": "Género principal para competiciones deportivas reales, ficticias, arcade o de simulación.",
       "status": "approved"
     },
@@ -59,7 +86,13 @@
       "name": "Carreras",
       "slug": "carreras",
       "type": "genre",
-      "aliases": ["Racing", "Conducción", "Conduccion"],
+      "aliases": [
+        "Racing",
+        "Conducción",
+        "Conduccion",
+        "Juegos de coches",
+        "Juegos de carreras"
+      ],
       "description": "Género principal para velocidad, conducción, vehículos, competición y contrarreloj.",
       "status": "approved"
     },
@@ -68,7 +101,13 @@
       "name": "Lucha",
       "slug": "lucha",
       "type": "genre",
-      "aliases": ["Fighting", "Fight"],
+      "aliases": [
+        "Fighting",
+        "Fight",
+        "Peleas",
+        "Juego de lucha",
+        "Juegos de lucha"
+      ],
       "description": "Género principal para combates directos entre personajes, duelos, artes marciales o enfrentamientos competitivos.",
       "status": "approved"
     },
@@ -77,7 +116,12 @@
       "name": "Puzzle",
       "slug": "puzzle",
       "type": "genre",
-      "aliases": ["Puzle", "Puzzles"],
+      "aliases": [
+        "Puzle",
+        "Puzzles",
+        "Rompecabezas",
+        "Juego de puzzles"
+      ],
       "description": "Género principal para lógica, patrones, resolución de problemas y retos mentales.",
       "status": "approved"
     },
@@ -86,7 +130,12 @@
       "name": "Estrategia",
       "slug": "estrategia",
       "type": "genre",
-      "aliases": ["Strategy", "Estratégia"],
+      "aliases": [
+        "Strategy",
+        "Estratégia",
+        "Estrategia",
+        "Juegos de estrategia"
+      ],
       "description": "Género principal para planificación, gestión de recursos, control táctico o toma de decisiones a largo plazo.",
       "status": "approved"
     },
@@ -95,7 +144,12 @@
       "name": "Simulación",
       "slug": "simulacion",
       "type": "genre",
-      "aliases": ["Simulation", "Simulador"],
+      "aliases": [
+        "Simulation",
+        "Simulador",
+        "Simulación",
+        "Juegos de simulación"
+      ],
       "description": "Género principal para juegos que modelan actividades, sistemas, vehículos, gestión o experiencias realistas/semirrealistas.",
       "status": "approved"
     },
@@ -104,7 +158,15 @@
       "name": "Terror",
       "slug": "terror",
       "type": "genre",
-      "aliases": ["Horror"],
+      "aliases": [
+        "Horror",
+        "Miedo",
+        "Juegos de miedo",
+        "Juegos de terror",
+        "Juegos de horror",
+        "Terrorífico",
+        "Terrorificos"
+      ],
       "description": "Género principal para miedo, tensión, supervivencia, criaturas, amenaza o atmósferas inquietantes.",
       "status": "approved"
     },
@@ -113,7 +175,13 @@
       "name": "Música",
       "slug": "musica",
       "type": "genre",
-      "aliases": ["Music", "Rhythm", "Ritmo"],
+      "aliases": [
+        "Music",
+        "Rhythm",
+        "Ritmo",
+        "Juegos de ritmo",
+        "Juegos musicales"
+      ],
       "description": "Género principal para ritmo, interpretación musical, baile o interacción guiada por música.",
       "status": "approved"
     },
@@ -122,7 +190,12 @@
       "name": "Party",
       "slug": "party",
       "type": "genre",
-      "aliases": ["Fiesta", "Minijuegos", "Mini-games"],
+      "aliases": [
+        "Fiesta",
+        "Minijuegos",
+        "Mini-games",
+        "Party Game"
+      ],
       "description": "Género principal para minijuegos, juego social, sesiones rápidas y competición local accesible.",
       "status": "approved"
     },
@@ -131,7 +204,9 @@
       "name": "Arcade",
       "slug": "arcade",
       "type": "genre",
-      "aliases": ["Arcade Style"],
+      "aliases": [
+        "Arcade Style"
+      ],
       "description": "Género principal para experiencias directas, puntuación, partidas cortas o herencia clara de recreativa.",
       "status": "approved"
     },
@@ -140,7 +215,11 @@
       "name": "Novela visual",
       "slug": "novela-visual",
       "type": "genre",
-      "aliases": ["Visual Novel"],
+      "aliases": [
+        "Visual Novel",
+        "Novela visual",
+        "VN"
+      ],
       "description": "Género principal para lectura interactiva, rutas narrativas, diálogos y elecciones textuales o visuales.",
       "status": "approved"
     },
@@ -149,7 +228,10 @@
       "name": "Recopilación",
       "slug": "recopilacion",
       "type": "genre",
-      "aliases": ["Compilation", "Collection"],
+      "aliases": [
+        "Compilation",
+        "Collection"
+      ],
       "description": "Género principal para packs, colecciones, recopilatorios o ediciones con varios juegos incluidos.",
       "status": "approved"
     }
@@ -161,8 +243,14 @@
       "slug": "survival-horror",
       "type": "subgenre",
       "family": "gameplay",
-      "parentGenreIds": ["horror", "adventure"],
-      "aliases": ["survival horror", "terror de supervivencia"],
+      "parentGenreIds": [
+        "horror",
+        "adventure"
+      ],
+      "aliases": [
+        "survival horror",
+        "terror de supervivencia"
+      ],
       "description": "Terror con recursos limitados, amenaza persistente, exploración tensa y supervivencia como eje central.",
       "status": "approved"
     },
@@ -172,8 +260,14 @@
       "slug": "metroidvania",
       "type": "subgenre",
       "family": "gameplay",
-      "parentGenreIds": ["adventure", "platformer"],
-      "aliases": ["metroid-like", "castlevania-like"],
+      "parentGenreIds": [
+        "adventure",
+        "platformer"
+      ],
+      "aliases": [
+        "metroid-like",
+        "castlevania-like"
+      ],
       "description": "Exploración interconectada con progresión bloqueada por habilidades, llaves o mejoras.",
       "status": "approved"
     },
@@ -183,8 +277,13 @@
       "slug": "jrpg",
       "type": "subgenre",
       "family": "gameplay",
-      "parentGenreIds": ["rpg"],
-      "aliases": ["Japanese RPG", "J-RPG"],
+      "parentGenreIds": [
+        "rpg"
+      ],
+      "aliases": [
+        "Japanese RPG",
+        "J-RPG"
+      ],
       "description": "RPG de tradición japonesa, normalmente con progresión narrativa fuerte, grupo de personajes y estructura marcada.",
       "status": "approved"
     },
@@ -194,8 +293,14 @@
       "slug": "action-rpg",
       "type": "subgenre",
       "family": "gameplay",
-      "parentGenreIds": ["rpg", "action"],
-      "aliases": ["ARPG", "RPG de acción"],
+      "parentGenreIds": [
+        "rpg",
+        "action"
+      ],
+      "aliases": [
+        "ARPG",
+        "RPG de acción"
+      ],
       "description": "RPG con combate en tiempo real o acción directa como parte esencial de la progresión.",
       "status": "approved"
     },
@@ -205,8 +310,14 @@
       "slug": "tactical-rpg",
       "type": "subgenre",
       "family": "gameplay",
-      "parentGenreIds": ["rpg", "strategy"],
-      "aliases": ["SRPG", "RPG táctico"],
+      "parentGenreIds": [
+        "rpg",
+        "strategy"
+      ],
+      "aliases": [
+        "SRPG",
+        "RPG táctico"
+      ],
       "description": "RPG basado en posicionamiento, turnos, unidades y decisiones tácticas en mapas o escenarios.",
       "status": "approved"
     },
@@ -216,8 +327,13 @@
       "slug": "fps",
       "type": "subgenre",
       "family": "perspective",
-      "parentGenreIds": ["shooter"],
-      "aliases": ["First-person shooter", "Disparos en primera persona"],
+      "parentGenreIds": [
+        "shooter"
+      ],
+      "aliases": [
+        "First-person shooter",
+        "Disparos en primera persona"
+      ],
       "description": "Shooter jugado principalmente desde perspectiva en primera persona.",
       "status": "approved"
     },
@@ -227,8 +343,14 @@
       "slug": "third-person-shooter",
       "type": "subgenre",
       "family": "perspective",
-      "parentGenreIds": ["shooter", "action"],
-      "aliases": ["TPS", "Disparos en tercera persona"],
+      "parentGenreIds": [
+        "shooter",
+        "action"
+      ],
+      "aliases": [
+        "TPS",
+        "Disparos en tercera persona"
+      ],
       "description": "Shooter con cámara externa sobre el personaje o por encima del hombro.",
       "status": "approved"
     },
@@ -238,8 +360,15 @@
       "slug": "shoot-em-up",
       "type": "subgenre",
       "family": "gameplay",
-      "parentGenreIds": ["shooter", "arcade"],
-      "aliases": ["shmup", "matamarcianos", "Shoot em Up"],
+      "parentGenreIds": [
+        "shooter",
+        "arcade"
+      ],
+      "aliases": [
+        "shmup",
+        "matamarcianos",
+        "Shoot em Up"
+      ],
       "description": "Shooter arcade basado en oleadas de enemigos, patrones de disparo y esquiva constante.",
       "status": "approved"
     },
@@ -249,8 +378,16 @@
       "slug": "beat-em-up",
       "type": "subgenre",
       "family": "gameplay",
-      "parentGenreIds": ["action", "fighting", "arcade"],
-      "aliases": ["yo contra el barrio", "brawler", "Beat ´em up"],
+      "parentGenreIds": [
+        "action",
+        "fighting",
+        "arcade"
+      ],
+      "aliases": [
+        "yo contra el barrio",
+        "brawler",
+        "Beat ´em up"
+      ],
       "description": "Acción cuerpo a cuerpo contra grupos de enemigos, normalmente con avance por escenarios.",
       "status": "approved"
     },
@@ -260,8 +397,12 @@
       "slug": "kart-racing",
       "type": "subgenre",
       "family": "gameplay",
-      "parentGenreIds": ["racing"],
-      "aliases": ["kart racer"],
+      "parentGenreIds": [
+        "racing"
+      ],
+      "aliases": [
+        "kart racer"
+      ],
       "description": "Carreras arcade con karts, objetos, derrapes y multijugador accesible.",
       "status": "approved"
     },
@@ -271,8 +412,14 @@
       "slug": "sim-racing",
       "type": "subgenre",
       "family": "gameplay",
-      "parentGenreIds": ["racing", "simulation"],
-      "aliases": ["Simulation Racing", "simulador de conducción"],
+      "parentGenreIds": [
+        "racing",
+        "simulation"
+      ],
+      "aliases": [
+        "Simulation Racing",
+        "simulador de conducción"
+      ],
       "description": "Conducción orientada a realismo, físicas, circuitos, reglajes o competición automovilística seria.",
       "status": "approved"
     },
@@ -282,8 +429,16 @@
       "slug": "futbol",
       "type": "subgenre",
       "family": "sport",
-      "parentGenreIds": ["sports"],
-      "aliases": ["Soccer", "Football"],
+      "parentGenreIds": [
+        "sports"
+      ],
+      "aliases": [
+        "Soccer",
+        "Football",
+        "Futbol",
+        "Juegos de fútbol",
+        "Juegos de futbol"
+      ],
       "description": "Juegos centrados en fútbol, ligas, selecciones, gestión o variantes arcade del deporte.",
       "status": "approved"
     },
@@ -293,8 +448,14 @@
       "slug": "baloncesto",
       "type": "subgenre",
       "family": "sport",
-      "parentGenreIds": ["sports"],
-      "aliases": ["Basketball", "NBA"],
+      "parentGenreIds": [
+        "sports"
+      ],
+      "aliases": [
+        "Basketball",
+        "NBA",
+        "Juegos de baloncesto"
+      ],
       "description": "Juegos centrados en baloncesto, competición NBA/FIBA o variantes arcade del deporte.",
       "status": "approved"
     },
@@ -304,8 +465,13 @@
       "slug": "estrategia-tactica",
       "type": "subgenre",
       "family": "gameplay",
-      "parentGenreIds": ["strategy"],
-      "aliases": ["Tactics", "Tactical"],
+      "parentGenreIds": [
+        "strategy"
+      ],
+      "aliases": [
+        "Tactics",
+        "Tactical"
+      ],
       "description": "Estrategia centrada en unidades, posicionamiento, turnos o pequeñas decisiones tácticas.",
       "status": "approved"
     },
@@ -315,8 +481,14 @@
       "slug": "juego-de-ritmo",
       "type": "subgenre",
       "family": "gameplay",
-      "parentGenreIds": ["music", "arcade"],
-      "aliases": ["Rhythm game", "Ritmo"],
+      "parentGenreIds": [
+        "music",
+        "arcade"
+      ],
+      "aliases": [
+        "Rhythm game",
+        "Ritmo"
+      ],
       "description": "Juego donde pulsar, cantar, bailar o actuar siguiendo patrones musicales es el núcleo.",
       "status": "approved"
     },
@@ -326,8 +498,15 @@
       "slug": "full-motion-video-fmv",
       "type": "subgenre",
       "family": "format",
-      "parentGenreIds": ["adventure", "visual-novel"],
-      "aliases": ["FMV", "Vídeo interactivo", "Interactive Movie"],
+      "parentGenreIds": [
+        "adventure",
+        "visual-novel"
+      ],
+      "aliases": [
+        "FMV",
+        "Vídeo interactivo",
+        "Interactive Movie"
+      ],
       "description": "Experiencia basada en vídeo real o secuencias pregrabadas con decisiones, rutas o interacción limitada.",
       "status": "approved"
     }
@@ -339,7 +518,11 @@
       "slug": "cooperativo-local",
       "type": "facet",
       "family": "player_mode",
-      "aliases": ["Local Co-op", "Couch co-op", "cooperativo en sofá"],
+      "aliases": [
+        "Local Co-op",
+        "Couch co-op",
+        "cooperativo en sofá"
+      ],
       "description": "Permite cooperación entre jugadores en la misma consola, pantalla o entorno local.",
       "status": "approved"
     },
@@ -349,7 +532,10 @@
       "slug": "multijugador-local",
       "type": "facet",
       "family": "player_mode",
-      "aliases": ["Local Multiplayer", "Versus local"],
+      "aliases": [
+        "Local Multiplayer",
+        "Versus local"
+      ],
       "description": "Incluye modos multijugador locales competitivos o compartidos.",
       "status": "approved"
     },
@@ -359,7 +545,10 @@
       "slug": "multijugador-online",
       "type": "facet",
       "family": "player_mode",
-      "aliases": ["Online Multiplayer", "Online"],
+      "aliases": [
+        "Online Multiplayer",
+        "Online"
+      ],
       "description": "Incluye juego online competitivo, cooperativo o conectado a red.",
       "status": "approved"
     },
@@ -369,7 +558,10 @@
       "slug": "un-jugador",
       "type": "facet",
       "family": "player_mode",
-      "aliases": ["Single-player", "Solo"],
+      "aliases": [
+        "Single-player",
+        "Solo"
+      ],
       "description": "Diseñado principalmente para una experiencia individual.",
       "status": "approved"
     },
@@ -379,7 +571,11 @@
       "slug": "desplazamiento-lateral",
       "type": "facet",
       "family": "perspective",
-      "aliases": ["Side Scroller", "side-scrolling", "scroll lateral"],
+      "aliases": [
+        "Side Scroller",
+        "side-scrolling",
+        "scroll lateral"
+      ],
       "description": "Jugabilidad vista principalmente desde perspectiva lateral con avance horizontal.",
       "status": "approved"
     },
@@ -389,7 +585,9 @@
       "slug": "primera-persona",
       "type": "facet",
       "family": "perspective",
-      "aliases": ["First-person"],
+      "aliases": [
+        "First-person"
+      ],
       "description": "La cámara representa la visión directa del personaje o vehículo.",
       "status": "approved"
     },
@@ -399,7 +597,9 @@
       "slug": "tercera-persona",
       "type": "facet",
       "family": "perspective",
-      "aliases": ["Third-person"],
+      "aliases": [
+        "Third-person"
+      ],
       "description": "La cámara muestra al personaje desde fuera, normalmente detrás o alrededor de él.",
       "status": "approved"
     },
@@ -409,7 +609,10 @@
       "slug": "vista-cenital",
       "type": "facet",
       "family": "perspective",
-      "aliases": ["Top-down", "cenital"],
+      "aliases": [
+        "Top-down",
+        "cenital"
+      ],
       "description": "Perspectiva superior o casi superior del escenario.",
       "status": "approved"
     },
@@ -419,7 +622,10 @@
       "slug": "pixel-art",
       "type": "facet",
       "family": "visual",
-      "aliases": ["8-bit style", "16-bit style"],
+      "aliases": [
+        "8-bit style",
+        "16-bit style"
+      ],
       "description": "Estética basada en píxeles, sprites o estilo retro digital.",
       "status": "approved"
     },
@@ -429,7 +635,10 @@
       "slug": "estilo-anime",
       "type": "facet",
       "family": "visual",
-      "aliases": ["Anime", "Manga style"],
+      "aliases": [
+        "Anime",
+        "Manga style"
+      ],
       "description": "Dirección artística influida por anime, manga o ilustración japonesa.",
       "status": "approved"
     },
@@ -439,7 +648,10 @@
       "slug": "estilo-cartoon",
       "type": "facet",
       "family": "visual",
-      "aliases": ["Cartoon", "toon"],
+      "aliases": [
+        "Cartoon",
+        "toon"
+      ],
       "description": "Estética caricaturesca, animada o de dibujo exagerado.",
       "status": "approved"
     },
@@ -449,7 +661,11 @@
       "slug": "zombis",
       "type": "facet",
       "family": "theme",
-      "aliases": ["Zombies", "undead", "no muertos"],
+      "aliases": [
+        "Zombies",
+        "undead",
+        "no muertos"
+      ],
       "description": "Incluye zombis, infectados, muertos vivientes o brotes biológicos similares.",
       "status": "approved"
     },
@@ -459,7 +675,9 @@
       "slug": "fantasia",
       "type": "facet",
       "family": "theme",
-      "aliases": ["Fantasy"],
+      "aliases": [
+        "Fantasy"
+      ],
       "description": "Ambientación con magia, criaturas fantásticas, mundos imaginarios o elementos míticos.",
       "status": "approved"
     },
@@ -469,7 +687,10 @@
       "slug": "ciencia-ficcion",
       "type": "facet",
       "family": "theme",
-      "aliases": ["Sci-fi", "Science fiction"],
+      "aliases": [
+        "Sci-fi",
+        "Science fiction"
+      ],
       "description": "Ambientación basada en tecnología avanzada, espacio, futuros posibles o ciencia especulativa.",
       "status": "approved"
     },
@@ -479,7 +700,10 @@
       "slug": "militar",
       "type": "facet",
       "family": "theme",
-      "aliases": ["Military", "war"],
+      "aliases": [
+        "Military",
+        "war"
+      ],
       "description": "Temática de guerra, fuerzas armadas, operaciones tácticas o conflicto militar.",
       "status": "approved"
     },
@@ -489,7 +713,10 @@
       "slug": "licencia-oficial",
       "type": "facet",
       "family": "content",
-      "aliases": ["Licensed", "tie-in"],
+      "aliases": [
+        "Licensed",
+        "tie-in"
+      ],
       "description": "Juego basado en una licencia externa: película, serie, cómic, deporte, juguete, anime o marca.",
       "status": "approved"
     },
@@ -499,7 +726,9 @@
       "slug": "remaster",
       "type": "facet",
       "family": "edition",
-      "aliases": ["Remastered"],
+      "aliases": [
+        "Remastered"
+      ],
       "description": "Versión mejorada de un juego anterior con mejoras visuales, técnicas o de contenido.",
       "status": "approved"
     },
@@ -509,7 +738,9 @@
       "slug": "remake",
       "type": "facet",
       "family": "edition",
-      "aliases": ["Recreated"],
+      "aliases": [
+        "Recreated"
+      ],
       "description": "Nueva versión reconstruida de un juego anterior con cambios sustanciales de motor, assets o diseño.",
       "status": "approved"
     },
@@ -519,7 +750,12 @@
       "slug": "demo-promo",
       "type": "facet",
       "family": "edition",
-      "aliases": ["Demo", "Promo", "NFR", "Not For Resale"],
+      "aliases": [
+        "Demo",
+        "Promo",
+        "NFR",
+        "Not For Resale"
+      ],
       "description": "Edición de demostración, promocional, prensa o no destinada a venta normal.",
       "status": "approved"
     },
@@ -529,7 +765,12 @@
       "slug": "edicion-completa",
       "type": "facet",
       "family": "edition",
-      "aliases": ["Complete Edition", "Game of the Year", "GOTY", "Definitive Edition"],
+      "aliases": [
+        "Complete Edition",
+        "Game of the Year",
+        "GOTY",
+        "Definitive Edition"
+      ],
       "description": "Edición que reúne juego base y contenido adicional, mejoras o expansiones.",
       "status": "approved"
     },
@@ -539,7 +780,11 @@
       "slug": "portada-pal-espana",
       "type": "facet",
       "family": "market",
-      "aliases": ["PAL España", "Spanish cover", "carátula española"],
+      "aliases": [
+        "PAL España",
+        "Spanish cover",
+        "carátula española"
+      ],
       "description": "Edición física con portada o contraportada localizada específicamente para España.",
       "status": "approved"
     },
@@ -549,7 +794,11 @@
       "slug": "portada-multi-pal",
       "type": "facet",
       "family": "market",
-      "aliases": ["PAL Europa", "Multi-PAL", "Multi EU"],
+      "aliases": [
+        "PAL Europa",
+        "Multi-PAL",
+        "Multi EU"
+      ],
       "description": "Edición física europea multilingüe o común a varios países PAL.",
       "status": "approved"
     },
@@ -559,7 +808,11 @@
       "slug": "portada-ntsc-usa",
       "type": "facet",
       "family": "market",
-      "aliases": ["ESRB", "USA", "NTSC-U"],
+      "aliases": [
+        "ESRB",
+        "USA",
+        "NTSC-U"
+      ],
       "description": "Edición física norteamericana o marcada con sistema ESRB.",
       "status": "approved"
     },
@@ -569,7 +822,11 @@
       "slug": "portada-japonesa",
       "type": "facet",
       "family": "market",
-      "aliases": ["NTSC-J", "CERO", "Japan"],
+      "aliases": [
+        "NTSC-J",
+        "CERO",
+        "Japan"
+      ],
       "description": "Edición física japonesa, normalmente con CERO y textos japoneses.",
       "status": "approved"
     }

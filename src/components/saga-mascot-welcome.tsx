@@ -11,6 +11,8 @@ type Props = {
 
 export function SagaMascotWelcome({ profile, compact = false }: Props) {
   const mascot = getSagaMascot(profile?.slug);
+  if (!mascot) return null;
+
   const line = buildSagaMascotLine(profile, mascot);
 
   return (

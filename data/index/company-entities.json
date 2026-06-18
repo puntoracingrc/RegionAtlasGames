@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-17T10:50:21Z",
+  "generatedAt": "2026-06-17T23:28:14Z",
   "stats": {
-    "entities": 4222,
-    "aliases": 258,
-    "autoNormalized": 151,
+    "entities": 4219,
+    "aliases": 259,
+    "autoNormalized": 152,
     "autoWikidata": 0,
     "autoMuseum": 0
   },
@@ -730,7 +730,9 @@
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
-      "wikidataIds": [],
+      "wikidataIds": [
+        "Q2822030"
+      ],
       "museumPaths": [
         "/desarrolladoras-de-software/absolute-entertainment",
         "/publicadoras-de-juegos/absolute-entertainment"
@@ -1761,17 +1763,6 @@
       "museumPaths": [
         "/desarrolladoras-de-software/ambrella"
       ]
-    },
-    "america-del-norte": {
-      "slug": "america-del-norte",
-      "name": "América del Norte",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [
-        "Q49"
-      ],
-      "museumPaths": []
     },
     "american-game-cartridges": {
       "slug": "american-game-cartridges",
@@ -3519,15 +3510,6 @@
       "wikidataIds": [],
       "museumPaths": []
     },
-    "b-ai": {
-      "slug": "b-ai",
-      "name": "B-AI",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
-    },
     "b-b-studio": {
       "slug": "b-b-studio",
       "name": "B.B. Studio",
@@ -3680,12 +3662,10 @@
         "namco-bandai-games-inc"
       ],
       "aliasNames": [
-        "BANDAI NAMCO Entertainment",
-        "BANDAI NAMCO Entertainment Europe S.A.S",
-        "Bandai Namco Entertainment Europe",
-        "Bandai Namco Entertainment Europe S.A.S.",
-        "Bandai Namco Entertainment Inc.",
-        "Bandai Namco entertainment"
+        "Namco Bandai Games",
+        "Namco Bandai Games Europe",
+        "Namco Bandai Games Europe SAS",
+        "Namco Bandai Games Inc"
       ],
       "wikidataIds": [
         "Q507269"
@@ -9722,9 +9702,7 @@
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
-      "wikidataIds": [
-        "Q1229035"
-      ],
+      "wikidataIds": [],
       "museumPaths": []
     },
     "disney-interactive-studios-inc": {
@@ -10647,11 +10625,17 @@
     },
     "east-technology": {
       "slug": "east-technology",
-      "name": "East Technology",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
+      "name": "East Technology Corp.",
+      "mergeMethod": "normalized",
+      "aliasSlugs": [
+        "east-technology-corp"
+      ],
+      "aliasNames": [
+        "East Technology"
+      ],
+      "wikidataIds": [
+        "Q131940377"
+      ],
       "museumPaths": [
         "/desarrolladoras-de-software/east-technology"
       ]
@@ -19024,9 +19008,7 @@
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
-      "wikidataIds": [
-        "Q845047"
-      ],
+      "wikidataIds": [],
       "museumPaths": [
         "/desarrolladoras-de-software/koei",
         "/publicadoras-de-juegos/koei"
@@ -21169,18 +21151,6 @@
       "wikidataIds": [],
       "museumPaths": [
         "/publicadoras-de-juegos/majesco-games"
-      ]
-    },
-    "majesco-sales": {
-      "slug": "majesco-sales",
-      "name": "Majesco Sales",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": [
-        "/desarrolladoras-de-software/majesco-sales",
-        "/publicadoras-de-juegos/majesco-sales"
       ]
     },
     "major-league-baseball": {
@@ -29364,9 +29334,7 @@
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
-      "wikidataIds": [
-        "Q7301372"
-      ],
+      "wikidataIds": [],
       "museumPaths": [
         "/desarrolladoras-de-software/realtime-associates"
       ]
@@ -34890,9 +34858,7 @@
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
-      "wikidataIds": [
-        "Q2298387"
-      ],
+      "wikidataIds": [],
       "museumPaths": [
         "/desarrolladoras-de-software/sunsoft",
         "/publicadoras-de-juegos/sunsoft"
@@ -37654,9 +37620,7 @@
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
-      "wikidataIds": [
-        "Q2568920"
-      ],
+      "wikidataIds": [],
       "museumPaths": []
     },
     "travellers-tales": {
@@ -41838,6 +41802,8 @@
     "drinkbox-studios-inc": "drinkbox-studios",
     "dtp-young-entertainment": "dtp-young-entertainment",
     "dtp-young-entertainment-gmbh": "dtp-young-entertainment",
+    "east-technology": "east-technology",
+    "east-technology-corp": "east-technology",
     "electronic-arts": "electronic-arts",
     "electronic-arts-black-pearl-software": "electronic-arts",
     "electronic-arts-canada": "electronic-arts",
@@ -42205,6 +42171,7 @@
     "dimps": "dimps",
     "drinkbox studios": "drinkbox-studios",
     "dtp young entertainment": "dtp-young-entertainment",
+    "east technology": "east-technology",
     "empire interactive": "empire-interactive",
     "enix": "enix-corporation",
     "fci": "fci-inc",

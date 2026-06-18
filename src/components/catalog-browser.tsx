@@ -28,7 +28,7 @@ const selectClass =
 type Props = {
   games: CatalogListGame[];
   contextName: string;
-  source?: { kind: "platform"; slug: string } | { kind: "catalog" };
+  source?: { kind: "platform"; slug: string } | { kind: "catalog" } | { kind: "genre"; slug: string };
   totalCount?: number;
   regions?: ReturnType<typeof regionOptions>;
   platforms?: ReturnType<typeof platformOptions>;
@@ -141,7 +141,7 @@ export function CatalogBrowser({
       sort === DEFAULT_SORT &&
       priceFilter === "all" &&
       page === 1 &&
-      (source.kind !== "catalog" || platform === "all");
+      (source.kind === "platform" || platform === "all");
 
     if (defaultServerView) {
       setServerItems(games);
@@ -161,9 +161,12 @@ export function CatalogBrowser({
           priceFilter,
           page: String(page),
         });
-        if (source.kind === "catalog") {
+        if (source.kind === "catalog" || source.kind === "genre") {
           params.set("platform", platform);
           params.set("mode", "browser");
+        }
+        if (source.kind === "genre") {
+          params.set("genre", source.slug);
         }
         const endpoint =
           source.kind === "platform"
@@ -189,7 +192,7 @@ export function CatalogBrowser({
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [games, page, priceFilter, q, region, sort, source, totalCount]);
+  }, [games, page, platform, priceFilter, q, region, sort, source, totalCount]);
 
   const pageItems = useMemo(() => {
     if (source) return filteredItems;
