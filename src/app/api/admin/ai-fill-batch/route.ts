@@ -2,15 +2,20 @@ import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
 import { draftFromStaging, readAdminGameDraft, writeAdminGameDraft } from "@/lib/admin-draft-storage";
 import { streamAdminAiFill, type AdminAiFillOptions } from "@/lib/admin-ai-fill";
-import { listCatalogStagingGames } from "@/lib/catalog-staging-storage";
+import { draftFromCatalogGame, updatePublishedCatalogGame } from "@/lib/admin-catalog-publish";
+import { listedCatalog } from "@/lib/catalog";
+import { getGameDetails } from "@/lib/indexes";
+import { listCatalogStagingGames, readCatalogStagingGame } from "@/lib/catalog-staging-storage";
 import type { AdminGameDraft } from "@/lib/admin-draft-types";
 import type { CatalogStagingStatus } from "@/lib/catalog-staging-types";
 
 type BatchMode = "missing" | "force";
+type BatchSource = "staging" | "catalog";
 type BatchItemStatus = "processed" | "skipped" | "error" | "dry-run";
 
 type BatchItem = {
-  pcId: number;
+  pcId: number | null;
+  catalogId?: string;
   title: string;
   platformSlug: string;
   region: string;
@@ -25,11 +30,13 @@ type BatchItem = {
 };
 
 type SearchItem = {
-  pcId: number;
+  id: string;
+  pcId: number | null;
+  catalogId?: string;
   title: string;
   platformSlug: string;
   region: string;
-  status: CatalogStagingStatus;
+  status: CatalogStagingStatus | "published";
   lastSeenAt: string;
 };
 
@@ -40,6 +47,68 @@ type BatchSummary = {
   limit: number;
   selectable: number;
 };
+
+
+type BatchCandidate = {
+  id: string;
+  source: BatchSource;
+  pcId: number | null;
+  catalogId?: string;
+  title: string;
+  platformSlug: string;
+  region: string;
+  status: CatalogStagingStatus | "published";
+  lastSeenAt: string;
+};
+
+function normalizeBatchSource(value: string | null | undefined): BatchSource {
+  return value === "catalog" ? "catalog" : "staging";
+}
+
+function catalogCandidates(): BatchCandidate[] {
+  return listedCatalog
+    .filter((game) => game.listingStatus !== "excluded")
+    .map((game): BatchCandidate => ({
+      id: `catalog:${game.id}`,
+      source: "catalog",
+      pcId: game.pcId ?? null,
+      catalogId: game.id,
+      title: game.title,
+      platformSlug: game.platformSlug,
+      region: game.region,
+      status: "published",
+      lastSeenAt: game.updatedAt ?? "",
+    }));
+}
+
+async function stagingCandidates(): Promise<BatchCandidate[]> {
+  const games = await listCatalogStagingGames();
+  return games
+    .filter((game) => game.status !== "promoted")
+    .map((game): BatchCandidate => ({
+      id: `staging:${game.pcId}`,
+      source: "staging",
+      pcId: game.pcId,
+      title: game.title,
+      platformSlug: game.platformSlug,
+      region: game.region,
+      status: game.status,
+      lastSeenAt: game.lastSeenAt,
+    }));
+}
+
+async function resolveCandidateDraft(candidate: BatchCandidate): Promise<AdminGameDraft | null> {
+  if (candidate.source === "catalog") {
+    const game = listedCatalog.find((entry) => entry.id === candidate.catalogId);
+    if (!game) return null;
+    return draftFromCatalogGame(game, getGameDetails(game.id) ?? null);
+  }
+  if (!candidate.pcId) return null;
+  const staging = await readCatalogStagingGame(candidate.pcId);
+  if (!staging) return null;
+  const existing = await readAdminGameDraft(staging.pcId);
+  return draftFromStaging(staging, existing);
+}
 
 function hasUsefulAiContent(draft: AdminGameDraft): boolean {
   return Boolean(
@@ -112,32 +181,31 @@ export async function GET(request: Request) {
 
   const { searchParams } = new URL(request.url);
   const requestMode = searchParams.get("mode") ?? "search";
+  const source = normalizeBatchSource(searchParams.get("source"));
   const platformSlug = searchParams.get("platformSlug")?.trim() || "all";
   const region = searchParams.get("region")?.trim() || "all";
   const status = searchParams.get("status")?.trim() || "all";
   const limit = normalizeLimit(searchParams.get("limit") ?? 20);
 
+  const allCandidates = source === "catalog" ? catalogCandidates() : await stagingCandidates();
+  const filteredCandidates = allCandidates
+    .filter((game) => platformSlug === "all" || game.platformSlug === platformSlug)
+    .filter((game) => region === "all" || game.region === region)
+    .filter((game) => source === "catalog" || status === "all" || game.status === status)
+    .sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt) || a.title.localeCompare(b.title, "es"));
+
   if (requestMode === "summary") {
     const batchMode: BatchMode = searchParams.get("batchMode") === "force" ? "force" : "missing";
-    const allGames = await listCatalogStagingGames();
-    const candidates = allGames
-      .filter((game) => game.status !== "promoted")
-      .filter((game) => platformSlug === "all" || game.platformSlug === platformSlug)
-      .filter((game) => region === "all" || game.region === region)
-      .filter((game) => status === "all" || game.status === status)
-      .sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt) || a.title.localeCompare(b.title, "es"));
-
     let needsFill = 0;
-    for (const game of candidates) {
-      const existing = await readAdminGameDraft(game.pcId);
-      const draft = draftFromStaging(game, existing);
-      if (batchMode === "force" || needsMissingFill(draft)) needsFill += 1;
+    for (const candidate of filteredCandidates) {
+      const draft = await resolveCandidateDraft(candidate);
+      if (draft && (batchMode === "force" || needsMissingFill(draft))) needsFill += 1;
     }
 
     const summary: BatchSummary = {
-      candidates: candidates.length,
+      candidates: filteredCandidates.length,
       needsFill,
-      complete: Math.max(0, candidates.length - needsFill),
+      complete: Math.max(0, filteredCandidates.length - needsFill),
       limit,
       selectable: Math.min(limit, needsFill),
     };
@@ -153,21 +221,17 @@ export async function GET(request: Request) {
     return NextResponse.json({ ok: true, games: [] as SearchItem[] });
   }
 
-  const allGames = await listCatalogStagingGames();
-  const games = allGames
-    .filter((game) => game.status !== "promoted")
-    .filter((game) => platformSlug === "all" || game.platformSlug === platformSlug)
-    .filter((game) => region === "all" || game.region === region)
-    .filter((game) => status === "all" || game.status === status)
+  const games = filteredCandidates
     .filter((game) => {
       if (hasNumericQuery && game.pcId === parsedPcId) return true;
-      const haystack = normalizeSearch(`${game.title} ${game.titlePc ?? ""} ${game.pcId}`);
+      const haystack = normalizeSearch(`${game.title} ${game.catalogId ?? ""} ${game.pcId ?? ""}`);
       return haystack.includes(normalizedQuery);
     })
-    .sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt) || a.title.localeCompare(b.title, "es"))
     .slice(0, limit)
     .map((game): SearchItem => ({
+      id: game.id,
       pcId: game.pcId,
+      catalogId: game.catalogId,
       title: game.title,
       platformSlug: game.platformSlug,
       region: game.region,
@@ -224,6 +288,7 @@ export async function POST(request: Request) {
   }
 
   const body = (await request.json()) as {
+    source?: BatchSource;
     platformSlug?: string;
     region?: string;
     status?: "all" | CatalogStagingStatus;
@@ -233,13 +298,16 @@ export async function POST(request: Request) {
     includeDescription?: boolean;
     dryRun?: boolean;
     pcIds?: number[];
+    itemIds?: string[];
   };
 
+  const source = normalizeBatchSource(body.source);
   const platformSlug = body.platformSlug?.trim() || "all";
   const region = body.region?.trim() || "all";
   const status = body.status ?? "pending-catalog";
   const mode: BatchMode = body.mode === "force" ? "force" : "missing";
   const limit = normalizeLimit(body.limit);
+  const requestedItemIds = Array.isArray(body.itemIds) ? new Set(body.itemIds.map(String)) : null;
   const requestedPcIds = Array.isArray(body.pcIds)
     ? new Set(
         body.pcIds
@@ -253,13 +321,13 @@ export async function POST(request: Request) {
     includeDescription: body.includeDescription !== false,
   };
 
-  const allGames = await listCatalogStagingGames();
-  const candidates = allGames
-    .filter((game) => game.status !== "promoted")
-    .filter((game) => !requestedPcIds || requestedPcIds.has(game.pcId))
+  const allCandidates = source === "catalog" ? catalogCandidates() : await stagingCandidates();
+  const candidates = allCandidates
+    .filter((game) => !requestedItemIds || requestedItemIds.has(game.id))
+    .filter((game) => !requestedPcIds || (game.pcId != null && requestedPcIds.has(game.pcId)))
     .filter((game) => platformSlug === "all" || game.platformSlug === platformSlug)
     .filter((game) => region === "all" || game.region === region)
-    .filter((game) => status === "all" || game.status === status)
+    .filter((game) => source === "catalog" || status === "all" || game.status === status)
     .sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt) || a.title.localeCompare(b.title, "es"));
 
   const report = {
@@ -270,6 +338,7 @@ export async function POST(request: Request) {
     skipped: 0,
     errors: 0,
     dryRun: body.dryRun === true,
+    source,
     sourceCoverage: {
       steam: 0,
       official: 0,
@@ -281,21 +350,41 @@ export async function POST(request: Request) {
     items: [] as BatchItem[],
   };
 
-  for (const game of candidates) {
+  for (const candidate of candidates) {
     if (report.selected >= limit) break;
-    const existing = await readAdminGameDraft(game.pcId);
-    const draft = draftFromStaging(game, existing);
+    const draft = await resolveCandidateDraft(candidate);
+    if (!draft) {
+      report.errors += 1;
+      report.items.push({
+        pcId: candidate.pcId,
+        catalogId: candidate.catalogId,
+        title: candidate.title,
+        platformSlug: candidate.platformSlug,
+        region: candidate.region,
+        status: "error",
+        message: "No se pudo cargar la ficha para IA.",
+        fieldsUpdated: [],
+        sources: [],
+        urls: [],
+        steamTags: [],
+        descriptionPreview: null,
+        seoPreview: null,
+      });
+      continue;
+    }
+
     const shouldProcess = mode === "force" ? true : needsMissingFill(draft);
 
     if (!shouldProcess) {
       report.skipped += 1;
       report.items.push({
-        pcId: game.pcId,
-        title: game.title,
-        platformSlug: game.platformSlug,
-        region: game.region,
+        pcId: candidate.pcId,
+        catalogId: candidate.catalogId,
+        title: candidate.title,
+        platformSlug: candidate.platformSlug,
+        region: candidate.region,
         status: "skipped",
-        message: "Ya tiene descripción, SEO y metadatos básicos.",
+        message: source === "catalog" ? "La ficha publicada ya parece completa." : "Ya tiene descripción, SEO y metadatos básicos.",
         fieldsUpdated: [],
         sources: [],
         urls: [],
@@ -315,10 +404,11 @@ export async function POST(request: Request) {
       if (!finalDraft || lastError) {
         report.errors += 1;
         report.items.push({
-          pcId: game.pcId,
-          title: game.title,
-          platformSlug: game.platformSlug,
-          region: game.region,
+          pcId: candidate.pcId,
+          catalogId: candidate.catalogId,
+          title: candidate.title,
+          platformSlug: candidate.platformSlug,
+          region: candidate.region,
           status: "error",
           message: lastError ?? "La IA no devolvió borrador final.",
           fieldsUpdated: aiResult.fieldsUpdated,
@@ -335,12 +425,12 @@ export async function POST(request: Request) {
       for (const field of aiResult.fieldsUpdated) {
         report.fieldCoverage[field] = (report.fieldCoverage[field] ?? 0) + 1;
       }
-      if (aiResult.sources.some((source) => source.toLowerCase().includes("steam"))) report.sourceCoverage.steam += 1;
-      if (aiResult.sources.some((source) => /playstation|nintendo|xbox|microsoft|fuentes fiables/i.test(source))) {
+      if (aiResult.sources.some((entry) => entry.toLowerCase().includes("steam"))) report.sourceCoverage.steam += 1;
+      if (aiResult.sources.some((entry) => /playstation|nintendo|xbox|microsoft|fuentes fiables/i.test(entry))) {
         report.sourceCoverage.official += 1;
       }
-      if (aiResult.sources.some((source) => /wikipedia|wikidata/i.test(source))) report.sourceCoverage.wikipedia += 1;
-      if (aiResult.sources.some((source) => /datos existentes/i.test(source))) report.sourceCoverage.existing += 1;
+      if (aiResult.sources.some((entry) => /wikipedia|wikidata/i.test(entry))) report.sourceCoverage.wikipedia += 1;
+      if (aiResult.sources.some((entry) => /datos existentes/i.test(entry))) report.sourceCoverage.existing += 1;
       if (aiResult.sources.length === 0) report.sourceCoverage.other += 1;
 
       finalDraft.slug = draft.slug;
@@ -350,10 +440,11 @@ export async function POST(request: Request) {
 
       if (body.dryRun) {
         report.items.push({
-          pcId: game.pcId,
-          title: game.title,
-          platformSlug: game.platformSlug,
-          region: game.region,
+          pcId: candidate.pcId,
+          catalogId: candidate.catalogId,
+          title: candidate.title,
+          platformSlug: candidate.platformSlug,
+          region: candidate.region,
           status: "dry-run",
           message: hasUsefulAiContent(finalDraft)
             ? "Previsualización generada; no se ha guardado."
@@ -368,14 +459,17 @@ export async function POST(request: Request) {
         continue;
       }
 
-      const saved = await writeAdminGameDraft(finalDraft);
+      const saved = source === "catalog"
+        ? await updatePublishedCatalogGame(draft.catalogId, finalDraft)
+        : await writeAdminGameDraft(finalDraft);
       if ("error" in saved) {
         report.errors += 1;
         report.items.push({
-          pcId: game.pcId,
-          title: game.title,
-          platformSlug: game.platformSlug,
-          region: game.region,
+          pcId: candidate.pcId,
+          catalogId: candidate.catalogId,
+          title: candidate.title,
+          platformSlug: candidate.platformSlug,
+          region: candidate.region,
           status: "error",
           message: saved.error,
           fieldsUpdated: aiResult.fieldsUpdated,
@@ -390,12 +484,13 @@ export async function POST(request: Request) {
 
       report.saved += 1;
       report.items.push({
-        pcId: game.pcId,
-        title: game.title,
-        platformSlug: game.platformSlug,
-        region: game.region,
+        pcId: candidate.pcId,
+        catalogId: candidate.catalogId,
+        title: candidate.title,
+        platformSlug: candidate.platformSlug,
+        region: candidate.region,
         status: "processed",
-        message: "Borrador completado con IA.",
+        message: source === "catalog" ? "Ficha publicada actualizada con IA." : "Borrador completado con IA.",
         fieldsUpdated: aiResult.fieldsUpdated,
         sources: aiResult.sources,
         urls: aiResult.urls,
@@ -406,10 +501,11 @@ export async function POST(request: Request) {
     } catch (error) {
       report.errors += 1;
       report.items.push({
-        pcId: game.pcId,
-        title: game.title,
-        platformSlug: game.platformSlug,
-        region: game.region,
+        pcId: candidate.pcId,
+        catalogId: candidate.catalogId,
+        title: candidate.title,
+        platformSlug: candidate.platformSlug,
+        region: candidate.region,
         status: "error",
         message: error instanceof Error ? error.message : "Error inesperado.",
         fieldsUpdated: [],

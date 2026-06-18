@@ -6,7 +6,8 @@ import { Badge, Panel, PanelTitle } from "@/components/ui";
 type PlatformOption = { slug: string; name: string; shortName?: string };
 
 type BatchItem = {
-  pcId: number;
+  pcId: number | null;
+  catalogId?: string;
   title: string;
   platformSlug: string;
   region: string;
@@ -48,7 +49,9 @@ type BatchSummary = {
 };
 
 type SearchItem = {
-  pcId: number;
+  id: string;
+  pcId: number | null;
+  catalogId?: string;
   title: string;
   platformSlug: string;
   region: string;
@@ -118,6 +121,7 @@ function truncate(value: string | null, size = 260): string {
 }
 
 export function AdminAiToolsPanel({ platforms, regions }: Props) {
+  const [source, setSource] = useState<"catalog" | "staging">("catalog");
   const [platformSlug, setPlatformSlug] = useState("all");
   const [region, setRegion] = useState("all");
   const [status, setStatus] = useState("pending-catalog");
@@ -127,7 +131,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
   const [includeDescription, setIncludeDescription] = useState(true);
   const [dryRun, setDryRun] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [rerunningPcId, setRerunningPcId] = useState<number | null>(null);
+  const [rerunningItemId, setRerunningItemId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [searching, setSearching] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchItem[]>([]);
@@ -138,7 +142,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
   const [report, setReport] = useState<BatchReport | null>(null);
 
   const processedTotal = report?.processed ?? 0;
-  const selectedPcIds = useMemo(() => selectedGames.map((game) => game.pcId), [selectedGames]);
+  const selectedItemIds = useMemo(() => selectedGames.map((game) => game.id), [selectedGames]);
   const fieldEntries = useMemo(() => {
     if (!report) return [];
     return Object.entries(report.fieldCoverage).sort((a, b) => b[1] - a[1]);
@@ -151,6 +155,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
       try {
         const params = new URLSearchParams({
           mode: "summary",
+          source,
           platformSlug,
           region,
           status,
@@ -171,7 +176,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
       cancelled = true;
       window.clearTimeout(timer);
     };
-  }, [limit, mode, platformSlug, region, status]);
+  }, [limit, mode, platformSlug, region, source, status]);
 
   async function postBatch(payload: Record<string, unknown>): Promise<BatchReport | null> {
     const res = await fetch("/api/admin/ai-fill-batch", {
@@ -202,6 +207,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
     try {
       const params = new URLSearchParams({
         q: query,
+        source,
         limit: "20",
         platformSlug,
         region,
@@ -223,8 +229,8 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
 
   function toggleSelectedGame(game: SearchItem) {
     setSelectedGames((current) => {
-      if (current.some((item) => item.pcId === game.pcId)) {
-        return current.filter((item) => item.pcId !== game.pcId);
+      if (current.some((item) => item.id === game.id)) {
+        return current.filter((item) => item.id !== game.id);
       }
       return [...current, game].slice(0, 50);
     });
@@ -235,17 +241,18 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
     setError(null);
     setReport(null);
     try {
-      const hasManualSelection = selectedPcIds.length > 0;
+      const hasManualSelection = selectedItemIds.length > 0;
       const nextReport = await postBatch({
+        source,
         platformSlug: hasManualSelection ? "all" : platformSlug,
         region: hasManualSelection ? "all" : region,
         status: hasManualSelection ? "all" : status,
         mode,
-        limit: hasManualSelection ? selectedPcIds.length : limit,
+        limit: hasManualSelection ? selectedItemIds.length : limit,
         includeMetadata,
         includeDescription,
         dryRun,
-        pcIds: hasManualSelection ? selectedPcIds : undefined,
+        itemIds: hasManualSelection ? selectedItemIds : undefined,
       });
       if (nextReport) setReport(nextReport);
     } catch {
@@ -255,12 +262,13 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
     }
   }
 
-  async function rerunItem(pcId: number, nextDryRun = dryRun) {
-    setRerunningPcId(pcId);
+  async function rerunItem(itemId: string, nextDryRun = dryRun) {
+    setRerunningItemId(itemId);
     setError(null);
     try {
       const singleReport = await postBatch({
-        pcIds: [pcId],
+        itemIds: [itemId],
+        source,
         platformSlug: "all",
         region: "all",
         status: "all",
@@ -277,35 +285,49 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
     } catch {
       setError("Error de red al relanzar esa ficha.");
     } finally {
-      setRerunningPcId(null);
+      setRerunningItemId(null);
     }
   }
 
   return (
     <div className="space-y-6">
       <Panel>
-        <PanelTitle eyebrow="IA de fichas">Completar cola de borradores por lote</PanelTitle>
+        <PanelTitle eyebrow="IA de fichas">Completar fichas con IA</PanelTitle>
         <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr]">
           <div className="rounded-2xl border border-border bg-background/45 p-4">
             <p className="text-sm leading-6 text-muted">
               Lanza la misma IA del editor individual: busca fuentes oficiales, usa Steam como referencia
               experimental cuando encuentra coincidencia clara, recoge etiquetas populares y genera textos
               SEO sin cambiar rutas, plataforma ni región. En simulación genera una previsualización real,
-              pero no guarda nada. Esta herramienta cuenta y procesa solo juegos de la cola no publicada,
-              no todo el catálogo ya publicado.
+              pero no guarda nada. Puedes trabajar sobre el catálogo publicado o sobre la cola de borradores desde el mismo panel.
             </p>
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
               <Stat label="Modo" value={mode === "missing" ? "Solo huecos" : "Forzar"} />
               <Stat label="Límite" value={limit} />
               <Stat label="Ejecución" value={dryRun ? "Previsualizar" : "Guardar"} />
-              <Stat label={mode === "missing" ? "Faltan en cola" : "Candidatas en cola"} value={summaryLoading ? "…" : summary?.needsFill ?? "—"} />
-              <Stat label="Cola filtrada" value={summaryLoading ? "…" : summary?.candidates ?? "—"} />
+              <Stat label={mode === "missing" ? "Faltan con filtros" : "Candidatas"} value={summaryLoading ? "…" : summary?.needsFill ?? "—"} />
+              <Stat label={source === "catalog" ? "Catálogo filtrado" : "Cola filtrada"} value={summaryLoading ? "…" : summary?.candidates ?? "—"} />
               <Stat label="Entrarán ahora" value={summaryLoading ? "…" : summary?.selectable ?? "—"} />
             </div>
           </div>
 
           <div className="grid gap-4 rounded-2xl border border-border bg-background/45 p-4">
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-3">
+              <label className="block space-y-1">
+                <span className="text-[10px] uppercase tracking-wider text-muted">Origen</span>
+                <select
+                  className="input"
+                  value={source}
+                  onChange={(e) => {
+                    setSource(e.target.value as "catalog" | "staging");
+                    setSelectedGames([]);
+                    setSearchResults([]);
+                  }}
+                >
+                  <option value="catalog">Catálogo publicado</option>
+                  <option value="staging">Cola de borradores</option>
+                </select>
+              </label>
               <label className="block space-y-1">
                 <span className="text-[10px] uppercase tracking-wider text-muted">Plataforma</span>
                 <select className="input" value={platformSlug} onChange={(e) => setPlatformSlug(e.target.value)}>
@@ -333,7 +355,8 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
             <div className="grid gap-3 sm:grid-cols-3">
               <label className="block space-y-1">
                 <span className="text-[10px] uppercase tracking-wider text-muted">Estado</span>
-                <select className="input" value={status} onChange={(e) => setStatus(e.target.value)}>
+                <select className="input" value={source === "catalog" ? "published" : status} disabled={source === "catalog"} onChange={(e) => setStatus(e.target.value)}>
+                  {source === "catalog" ? <option value="published">Publicadas</option> : null}
                   <option value="pending-catalog">Pendientes</option>
                   <option value="enriched">Enriquecidas</option>
                   <option value="all">Todas no publicadas</option>
@@ -379,12 +402,12 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
                 <span>Calculando juegos pendientes con estos filtros…</span>
               ) : summary ? (
                 <span>
-                  En la cola no publicada hay <strong className="text-foreground">{summary.needsFill}</strong>{" "}
+                  En {source === "catalog" ? "el catálogo publicado" : "la cola no publicada"} hay <strong className="text-foreground">{summary.needsFill}</strong>{" "}
                   {mode === "missing" ? "juegos que necesitan relleno" : "juegos candidatos para regenerar"} de{" "}
                   <strong className="text-foreground">{summary.candidates}</strong> con estos filtros. Se procesarán{" "}
                   <strong className="text-foreground">{summary.selectable}</strong> con el límite actual.
                   {mode === "missing" ? (
-                    <> Ya parecen completos <strong className="text-foreground">{summary.complete}</strong>.</>
+                    <> Ya parecen completas <strong className="text-foreground">{summary.complete}</strong>.</>
                   ) : null}
                 </span>
               ) : (
@@ -420,13 +443,13 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
                 <div className="mt-3 flex flex-wrap gap-2">
                   {selectedGames.map((game) => (
                     <button
-                      key={game.pcId}
+                      key={game.id}
                       type="button"
                       className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
                       onClick={() => toggleSelectedGame(game)}
                       title="Quitar de la selección"
                     >
-                      {game.title} · {game.pcId} ×
+                      {game.title} · {game.catalogId ?? game.pcId} ×
                     </button>
                   ))}
                 </div>
@@ -434,10 +457,10 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
               {searchResults.length ? (
                 <div className="mt-3 grid max-h-56 gap-2 overflow-auto pr-1">
                   {searchResults.map((game) => {
-                    const selected = selectedPcIds.includes(game.pcId);
+                    const selected = selectedItemIds.includes(game.id);
                     return (
                       <button
-                        key={game.pcId}
+                        key={game.id}
                         type="button"
                         className={`rounded-xl border px-3 py-2 text-left text-sm transition ${
                           selected
@@ -448,7 +471,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
                       >
                         <span className="block font-semibold">{selected ? "✓ " : ""}{game.title}</span>
                         <span className="text-xs">
-                          {game.platformSlug.toUpperCase()} · {game.region} · {game.status} · {game.pcId}
+                          {game.platformSlug.toUpperCase()} · {game.region} · {game.status} · {game.catalogId ?? game.pcId}
                         </span>
                       </button>
                     );
@@ -520,18 +543,21 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
           <div className="mt-4 grid gap-3">
             {report.items.length === 0 ? (
               <div className="rounded-2xl border border-border bg-background/45 p-4 text-sm text-muted">
-                No se ha procesado ningún juego con esos filtros. Prueba con otro estado, usa “Todas no publicadas” o selecciona juegos sueltos.
+                No se ha procesado ningún juego con esos filtros. Prueba con otros filtros o selecciona juegos sueltos.
               </div>
             ) : null}
-            {report.items.map((item) => (
-              <article key={`${item.pcId}-${item.status}`} className="rounded-2xl border border-border bg-background/45 p-4">
+            {report.items.map((item) => {
+              const itemId = item.catalogId ? `catalog:${item.catalogId}` : `staging:${item.pcId}`;
+              const itemHref = item.catalogId ? `/admin/juegos/${encodeURIComponent(item.catalogId)}` : `/admin/cola/${item.pcId}`;
+              return (
+              <article key={`${itemId}-${item.status}`} className="rounded-2xl border border-border bg-background/45 p-4">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    <a href={`/admin/cola/${item.pcId}`} className="font-semibold text-foreground hover:text-accent">
+                    <a href={itemHref} className="font-semibold text-foreground hover:text-accent">
                       {item.title}
                     </a>
                     <p className="mt-1 text-xs text-muted">
-                      {item.platformSlug.toUpperCase()} · {item.region} · <span className="font-mono">{item.pcId}</span>
+                      {item.platformSlug.toUpperCase()} · {item.region} · <span className="font-mono">{item.catalogId ?? item.pcId}</span>
                     </p>
                   </div>
                   <div className="flex flex-wrap items-center gap-2">
@@ -539,16 +565,16 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
                     <button
                       type="button"
                       className="btn-secondary px-3 py-2 text-sm"
-                      disabled={rerunningPcId === item.pcId || loading}
-                      onClick={() => void rerunItem(item.pcId, true)}
+                      disabled={rerunningItemId === itemId || loading}
+                      onClick={() => void rerunItem(itemId, true)}
                     >
-                      {rerunningPcId === item.pcId ? "Rehaciendo…" : "Rehacer preview"}
+                      {rerunningItemId === itemId ? "Rehaciendo…" : "Rehacer preview"}
                     </button>
                     <button
                       type="button"
                       className="btn-primary px-3 py-2 text-sm"
-                      disabled={rerunningPcId === item.pcId || loading}
-                      onClick={() => void rerunItem(item.pcId, false)}
+                      disabled={rerunningItemId === itemId || loading}
+                      onClick={() => void rerunItem(itemId, false)}
                     >
                       Guardar IA
                     </button>
@@ -593,7 +619,8 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
                   </details>
                 ) : null}
               </article>
-            ))}
+              );
+            })}
           </div>
         </Panel>
       ) : null}
