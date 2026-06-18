@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 
 type PlatformOption = { slug: string; name: string; shortName?: string };
@@ -37,6 +37,14 @@ type BatchReport = {
   };
   fieldCoverage: Record<string, number>;
   items: BatchItem[];
+};
+
+type BatchSummary = {
+  candidates: number;
+  needsFill: number;
+  complete: number;
+  limit: number;
+  selectable: number;
 };
 
 type SearchItem = {
@@ -124,6 +132,8 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
   const [searching, setSearching] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchItem[]>([]);
   const [selectedGames, setSelectedGames] = useState<SearchItem[]>([]);
+  const [summary, setSummary] = useState<BatchSummary | null>(null);
+  const [summaryLoading, setSummaryLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<BatchReport | null>(null);
 
@@ -133,6 +143,35 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
     if (!report) return [];
     return Object.entries(report.fieldCoverage).sort((a, b) => b[1] - a[1]);
   }, [report]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const timer = window.setTimeout(async () => {
+      setSummaryLoading(true);
+      try {
+        const params = new URLSearchParams({
+          mode: "summary",
+          platformSlug,
+          region,
+          status,
+          batchMode: mode,
+          limit: String(limit),
+        });
+        const res = await fetch(`/api/admin/ai-fill-batch?${params}`);
+        const data = await res.json();
+        if (!cancelled && res.ok) setSummary(data.summary ?? null);
+      } catch {
+        if (!cancelled) setSummary(null);
+      } finally {
+        if (!cancelled) setSummaryLoading(false);
+      }
+    }, 350);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [limit, mode, platformSlug, region, status]);
 
   async function postBatch(payload: Record<string, unknown>): Promise<BatchReport | null> {
     const res = await fetch("/api/admin/ai-fill-batch", {
@@ -258,6 +297,9 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
               <Stat label="Modo" value={mode === "missing" ? "Solo huecos" : "Forzar"} />
               <Stat label="Límite" value={limit} />
               <Stat label="Ejecución" value={dryRun ? "Previsualizar" : "Guardar"} />
+              <Stat label={mode === "missing" ? "Faltan con filtros" : "Candidatas con filtros"} value={summaryLoading ? "…" : summary?.needsFill ?? "—"} />
+              <Stat label="Total filtradas" value={summaryLoading ? "…" : summary?.candidates ?? "—"} />
+              <Stat label="Entrarán ahora" value={summaryLoading ? "…" : summary?.selectable ?? "—"} />
             </div>
           </div>
 
@@ -329,6 +371,24 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
                 <input type="checkbox" checked={dryRun} onChange={(e) => setDryRun(e.target.checked)} />
                 Previsualizar primero, no guardar cambios
               </label>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card/45 p-3 text-sm text-muted">
+              {summaryLoading ? (
+                <span>Calculando juegos pendientes con estos filtros…</span>
+              ) : summary ? (
+                <span>
+                  Con estos filtros hay <strong className="text-foreground">{summary.needsFill}</strong>{" "}
+                  {mode === "missing" ? "juegos que necesitan relleno" : "juegos candidatos para regenerar"} de{" "}
+                  <strong className="text-foreground">{summary.candidates}</strong>. Se procesarán{" "}
+                  <strong className="text-foreground">{summary.selectable}</strong> con el límite actual.
+                  {mode === "missing" ? (
+                    <> Ya parecen completos <strong className="text-foreground">{summary.complete}</strong>.</>
+                  ) : null}
+                </span>
+              ) : (
+                <span>No se pudo calcular el resumen de filtros.</span>
+              )}
             </div>
 
             <div className="rounded-2xl border border-border bg-card/45 p-3">

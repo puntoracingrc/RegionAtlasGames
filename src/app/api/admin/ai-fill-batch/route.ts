@@ -33,6 +33,14 @@ type SearchItem = {
   lastSeenAt: string;
 };
 
+type BatchSummary = {
+  candidates: number;
+  needsFill: number;
+  complete: number;
+  limit: number;
+  selectable: number;
+};
+
 function hasUsefulAiContent(draft: AdminGameDraft): boolean {
   return Boolean(
     draft.description &&
@@ -103,6 +111,39 @@ export async function GET(request: Request) {
   }
 
   const { searchParams } = new URL(request.url);
+  const requestMode = searchParams.get("mode") ?? "search";
+  const platformSlug = searchParams.get("platformSlug")?.trim() || "all";
+  const region = searchParams.get("region")?.trim() || "all";
+  const status = searchParams.get("status")?.trim() || "all";
+  const limit = normalizeLimit(searchParams.get("limit") ?? 20);
+
+  if (requestMode === "summary") {
+    const batchMode: BatchMode = searchParams.get("batchMode") === "force" ? "force" : "missing";
+    const allGames = await listCatalogStagingGames();
+    const candidates = allGames
+      .filter((game) => game.status !== "promoted")
+      .filter((game) => platformSlug === "all" || game.platformSlug === platformSlug)
+      .filter((game) => region === "all" || game.region === region)
+      .filter((game) => status === "all" || game.status === status)
+      .sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt) || a.title.localeCompare(b.title, "es"));
+
+    let needsFill = 0;
+    for (const game of candidates) {
+      const existing = await readAdminGameDraft(game.pcId);
+      const draft = draftFromStaging(game, existing);
+      if (batchMode === "force" || needsMissingFill(draft)) needsFill += 1;
+    }
+
+    const summary: BatchSummary = {
+      candidates: candidates.length,
+      needsFill,
+      complete: Math.max(0, candidates.length - needsFill),
+      limit,
+      selectable: Math.min(limit, needsFill),
+    };
+    return NextResponse.json({ ok: true, summary });
+  }
+
   const query = searchParams.get("q") ?? "";
   const normalizedQuery = normalizeSearch(query);
   const parsedPcId = Number.parseInt(query.trim(), 10);
@@ -112,10 +153,6 @@ export async function GET(request: Request) {
     return NextResponse.json({ ok: true, games: [] as SearchItem[] });
   }
 
-  const platformSlug = searchParams.get("platformSlug")?.trim() || "all";
-  const region = searchParams.get("region")?.trim() || "all";
-  const status = searchParams.get("status")?.trim() || "all";
-  const limit = normalizeLimit(searchParams.get("limit") ?? 20);
   const allGames = await listCatalogStagingGames();
   const games = allGames
     .filter((game) => game.status !== "promoted")
