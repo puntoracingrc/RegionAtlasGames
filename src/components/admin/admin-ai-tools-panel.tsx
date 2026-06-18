@@ -39,6 +39,15 @@ type BatchReport = {
   items: BatchItem[];
 };
 
+type SearchItem = {
+  pcId: number;
+  title: string;
+  platformSlug: string;
+  region: string;
+  status: string;
+  lastSeenAt: string;
+};
+
 type Props = {
   platforms: PlatformOption[];
   regions: readonly string[];
@@ -88,6 +97,13 @@ function mergeReportItem(report: BatchReport, incoming: BatchItem): BatchReport 
   return { ...report, items };
 }
 
+function reportBadge(report: BatchReport): { tone: "green" | "amber" | "rose" | "neutral"; label: string } {
+  if (report.errors > 0) return { tone: "rose", label: "con errores" };
+  if (report.selected === 0 && report.processed === 0) return { tone: "neutral", label: "sin candidatos" };
+  if (report.dryRun) return { tone: "amber", label: "previsualización" };
+  return { tone: "green", label: "guardado" };
+}
+
 function truncate(value: string | null, size = 260): string {
   if (!value) return "";
   return value.length > size ? `${value.slice(0, size).trim()}…` : value;
@@ -104,10 +120,15 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
   const [dryRun, setDryRun] = useState(true);
   const [loading, setLoading] = useState(false);
   const [rerunningPcId, setRerunningPcId] = useState<number | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searching, setSearching] = useState(false);
+  const [searchResults, setSearchResults] = useState<SearchItem[]>([]);
+  const [selectedGames, setSelectedGames] = useState<SearchItem[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<BatchReport | null>(null);
 
   const processedTotal = report?.processed ?? 0;
+  const selectedPcIds = useMemo(() => selectedGames.map((game) => game.pcId), [selectedGames]);
   const fieldEntries = useMemo(() => {
     if (!report) return [];
     return Object.entries(report.fieldCoverage).sort((a, b) => b[1] - a[1]);
@@ -127,20 +148,65 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
     return data.report as BatchReport;
   }
 
+  async function searchGames() {
+    const query = searchQuery.trim();
+    const numericQuery = Number.parseInt(query, 10);
+    const isNumericQuery = Number.isFinite(numericQuery) && numericQuery > 0;
+    if (query.length < 2 && !isNumericQuery) {
+      setSearchResults([]);
+      setError("Escribe al menos 2 letras o un ID de PriceCharting.");
+      return;
+    }
+
+    setSearching(true);
+    setError(null);
+    try {
+      const params = new URLSearchParams({
+        q: query,
+        limit: "20",
+        platformSlug,
+        region,
+        status,
+      });
+      const res = await fetch(`/api/admin/ai-fill-batch?${params}`);
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo buscar juegos.");
+        return;
+      }
+      setSearchResults(Array.isArray(data.games) ? data.games : []);
+    } catch {
+      setError("Error de red al buscar juegos.");
+    } finally {
+      setSearching(false);
+    }
+  }
+
+  function toggleSelectedGame(game: SearchItem) {
+    setSelectedGames((current) => {
+      if (current.some((item) => item.pcId === game.pcId)) {
+        return current.filter((item) => item.pcId !== game.pcId);
+      }
+      return [...current, game].slice(0, 50);
+    });
+  }
+
   async function runBatch() {
     setLoading(true);
     setError(null);
     setReport(null);
     try {
+      const hasManualSelection = selectedPcIds.length > 0;
       const nextReport = await postBatch({
-        platformSlug,
-        region,
-        status,
+        platformSlug: hasManualSelection ? "all" : platformSlug,
+        region: hasManualSelection ? "all" : region,
+        status: hasManualSelection ? "all" : status,
         mode,
-        limit,
+        limit: hasManualSelection ? selectedPcIds.length : limit,
         includeMetadata,
         includeDescription,
         dryRun,
+        pcIds: hasManualSelection ? selectedPcIds : undefined,
       });
       if (nextReport) setReport(nextReport);
     } catch {
@@ -265,8 +331,81 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
               </label>
             </div>
 
+            <div className="rounded-2xl border border-border bg-card/45 p-3">
+              <div className="flex flex-wrap items-end gap-2">
+                <label className="min-w-0 flex-1 space-y-1">
+                  <span className="text-[10px] uppercase tracking-wider text-muted">Juegos sueltos opcionales</span>
+                  <input
+                    className="input"
+                    value={searchQuery}
+                    onChange={(event) => setSearchQuery(event.target.value)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        event.preventDefault();
+                        void searchGames();
+                      }
+                    }}
+                    placeholder="Buscar por título o ID"
+                  />
+                </label>
+                <button type="button" className="btn-secondary px-4 py-3" disabled={searching} onClick={() => void searchGames()}>
+                  {searching ? "Buscando…" : "Buscar"}
+                </button>
+              </div>
+              <p className="mt-2 text-xs text-muted">
+                Si seleccionas juegos aquí, el lote usará solo esos juegos e ignorará plataforma, región y estado.
+              </p>
+              {selectedGames.length ? (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {selectedGames.map((game) => (
+                    <button
+                      key={game.pcId}
+                      type="button"
+                      className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
+                      onClick={() => toggleSelectedGame(game)}
+                      title="Quitar de la selección"
+                    >
+                      {game.title} · {game.pcId} ×
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+              {searchResults.length ? (
+                <div className="mt-3 grid max-h-56 gap-2 overflow-auto pr-1">
+                  {searchResults.map((game) => {
+                    const selected = selectedPcIds.includes(game.pcId);
+                    return (
+                      <button
+                        key={game.pcId}
+                        type="button"
+                        className={`rounded-xl border px-3 py-2 text-left text-sm transition ${
+                          selected
+                            ? "border-accent bg-accent/10 text-foreground"
+                            : "border-border bg-background/60 text-muted hover:border-accent/50 hover:text-foreground"
+                        }`}
+                        onClick={() => toggleSelectedGame(game)}
+                      >
+                        <span className="block font-semibold">{selected ? "✓ " : ""}{game.title}</span>
+                        <span className="text-xs">
+                          {game.platformSlug.toUpperCase()} · {game.region} · {game.status} · {game.pcId}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              ) : null}
+            </div>
+
             <button type="button" className="btn-primary" disabled={loading} onClick={() => void runBatch()}>
-              {loading ? "Trabajando…" : dryRun ? "Previsualizar lote IA" : "Lanzar lote IA"}
+              {loading
+                ? "Trabajando…"
+                : selectedGames.length
+                  ? dryRun
+                    ? `Previsualizar ${selectedGames.length} juego(s)`
+                    : `Guardar IA en ${selectedGames.length} juego(s)`
+                  : dryRun
+                    ? "Previsualizar lote IA"
+                    : "Lanzar lote IA"}
             </button>
           </div>
         </div>
@@ -282,9 +421,10 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
         <Panel>
           <div className="flex flex-wrap items-start justify-between gap-3">
             <PanelTitle eyebrow="Resultado">Lote IA</PanelTitle>
-            <Badge tone={report.errors > 0 ? "rose" : report.dryRun ? "amber" : "green"}>
-              {report.dryRun ? "previsualización" : "guardado"}
-            </Badge>
+            {(() => {
+              const badge = reportBadge(report);
+              return <Badge tone={badge.tone}>{badge.label}</Badge>;
+            })()}
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
@@ -317,6 +457,11 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
           </div>
 
           <div className="mt-4 grid gap-3">
+            {report.items.length === 0 ? (
+              <div className="rounded-2xl border border-border bg-background/45 p-4 text-sm text-muted">
+                No se ha procesado ningún juego con esos filtros. Prueba con otro estado, usa “Todas no publicadas” o selecciona juegos sueltos.
+              </div>
+            ) : null}
             {report.items.map((item) => (
               <article key={`${item.pcId}-${item.status}`} className="rounded-2xl border border-border bg-background/45 p-4">
                 <div className="flex flex-wrap items-start justify-between gap-3">

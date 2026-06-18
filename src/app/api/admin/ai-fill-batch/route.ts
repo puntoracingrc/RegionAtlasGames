@@ -24,6 +24,15 @@ type BatchItem = {
   seoPreview: string | null;
 };
 
+type SearchItem = {
+  pcId: number;
+  title: string;
+  platformSlug: string;
+  region: string;
+  status: CatalogStagingStatus;
+  lastSeenAt: string;
+};
+
 function hasUsefulAiContent(draft: AdminGameDraft): boolean {
   return Boolean(
     draft.description &&
@@ -78,6 +87,58 @@ function extractSteamTagsFromLog(message: string): string[] {
     .split(",")
     .map((tag) => tag.trim())
     .filter(Boolean);
+}
+
+function normalizeSearch(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "");
+}
+
+export async function GET(request: Request) {
+  if (!(await assertAdminApi())) {
+    return NextResponse.json({ error: "No autorizado." }, { status: 401 });
+  }
+
+  const { searchParams } = new URL(request.url);
+  const query = searchParams.get("q") ?? "";
+  const normalizedQuery = normalizeSearch(query);
+  const parsedPcId = Number.parseInt(query.trim(), 10);
+  const hasNumericQuery = Number.isFinite(parsedPcId) && parsedPcId > 0;
+
+  if (normalizedQuery.length < 2 && !hasNumericQuery) {
+    return NextResponse.json({ ok: true, games: [] as SearchItem[] });
+  }
+
+  const platformSlug = searchParams.get("platformSlug")?.trim() || "all";
+  const region = searchParams.get("region")?.trim() || "all";
+  const status = searchParams.get("status")?.trim() || "all";
+  const limit = normalizeLimit(searchParams.get("limit") ?? 20);
+  const allGames = await listCatalogStagingGames();
+  const games = allGames
+    .filter((game) => game.status !== "promoted")
+    .filter((game) => platformSlug === "all" || game.platformSlug === platformSlug)
+    .filter((game) => region === "all" || game.region === region)
+    .filter((game) => status === "all" || game.status === status)
+    .filter((game) => {
+      if (hasNumericQuery && game.pcId === parsedPcId) return true;
+      const haystack = normalizeSearch(`${game.title} ${game.titlePc ?? ""} ${game.pcId}`);
+      return haystack.includes(normalizedQuery);
+    })
+    .sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt) || a.title.localeCompare(b.title, "es"))
+    .slice(0, limit)
+    .map((game): SearchItem => ({
+      pcId: game.pcId,
+      title: game.title,
+      platformSlug: game.platformSlug,
+      region: game.region,
+      status: game.status,
+      lastSeenAt: game.lastSeenAt,
+    }));
+
+  return NextResponse.json({ ok: true, games });
 }
 
 async function runAiForDraft(
