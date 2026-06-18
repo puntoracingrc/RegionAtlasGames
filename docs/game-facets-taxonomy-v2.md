@@ -93,7 +93,7 @@ Estado actual de la taxonomía ampliada:
 
 - `genres`: 18
 - `subgenres`: 92
-- `facets`: 293
+- `facets`: 294
 
 Estos conteos son vocabulario disponible, no asignaciones aplicadas a juegos.
 
@@ -114,6 +114,23 @@ Ejemplos:
 - `simulador de caminar` → `Walking Simulator`
 
 Los `searchAliases` se consultan antes que los aliases normales para poder resolver frases coloquiales hacia una categoría concreta sin crear duplicados visibles.
+
+### Tanda RPG/Shooter/Carreras/Terror/Estrategia/Deportes
+
+Se ha añadido una segunda tanda de `searchAliases` para términos habituales de búsqueda y etiquetas externas, incluyendo:
+
+- RPG: `estilo Final Fantasy`, `RPG tipo Baldur's Gate`, `ARPG`, `TRPG`, `SRPG`, `estilo Pokémon`.
+- Shooter: `estilo Quake`, `estilo Rainbow Six`, `estilo Overwatch`, `estilo Borderlands`, `matamarcianos`, `danmaku`.
+- Carreras: `estilo Mario Kart`, `estilo Need for Speed`, `WRC`, `F1`, `estilo Wipeout`.
+- Terror: `estilo Resident Evil`, `estilo Silent Hill`, `horror cósmico`, `Jump Scare`.
+- Estrategia/simulación: `RTS`, `TBS`, `Tower Defense`, `City Builder`, `Tycoon`, `estilo Populous`.
+- Deportes/puzle: `FIFA`, `PES`, `eFootball`, `Tony Hawk`, `estilo Street Fighter`, `estilo Tekken`, `hidden object`, `Match 3`.
+
+Las frases ambiguas se han resuelto con destino único para evitar duplicados de búsqueda:
+
+- `combate por turnos` apunta a `RPG por turnos`.
+- `SRPG` apunta a `Strategy RPG`.
+- `conducción realista` apunta a `Simulación de carreras`.
 
 ## Uso futuro con IA y Steam
 

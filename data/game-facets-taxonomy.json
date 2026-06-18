@@ -411,7 +411,14 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "arcade racing",
+        "conducción arcade",
+        "carreras rápidas",
+        "conducción sencilla",
+        "carreras no realistas"
+      ]
     },
     {
       "id": "bullet-hell",
@@ -433,7 +440,14 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "infierno de balas",
+        "danmaku",
+        "lluvia de balas",
+        "shmup difícil",
+        "esquivar proyectiles"
+      ]
     },
     {
       "id": "city-builder",
@@ -455,7 +469,13 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "constructor de ciudades",
+        "construcción de ciudades",
+        "gestión urbana",
+        "ciudades"
+      ]
     },
     {
       "id": "dungeon-crawler",
@@ -477,7 +497,17 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "mazmorras",
+        "dungeon RPG",
+        "exploración de mazmorras",
+        "crawler",
+        "mazmorras en primera persona",
+        "dungeon exploration",
+        "Dungeon Crawler",
+        "rol de mazmorras"
+      ]
     },
     {
       "id": "farming-sim",
@@ -498,7 +528,14 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "simulador de granja",
+        "farming simulator",
+        "granja",
+        "cultivos",
+        "vida rural"
+      ]
     },
     {
       "id": "flight-sim",
@@ -519,7 +556,14 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "simulador de vuelo",
+        "flight simulator",
+        "aviación",
+        "pilotaje",
+        "aviones"
+      ]
     },
     {
       "id": "hack-and-slash",
@@ -570,7 +614,13 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "simulador de vida",
+        "vida virtual",
+        "life simulator",
+        "estilo The Sims"
+      ]
     },
     {
       "id": "logic-puzzle",
@@ -591,7 +641,13 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "logic puzzle",
+        "lógica",
+        "rompecabezas lógico",
+        "puzles mentales"
+      ]
     },
     {
       "id": "management-sim",
@@ -613,7 +669,14 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "gestión",
+        "simulador de gestión",
+        "management",
+        "administrar recursos",
+        "tycoon"
+      ]
     },
     {
       "id": "point-and-click",
@@ -663,7 +726,14 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "psychological horror",
+        "horror psicológico",
+        "terror mental",
+        "terror inquietante",
+        "estilo Silent Hill"
+      ]
     },
     {
       "id": "puzzle-platformer",
@@ -685,7 +755,13 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "plataformas con puzles",
+        "puzzle-platformer",
+        "puzle y plataformas",
+        "saltos y lógica"
+      ]
     },
     {
       "id": "rts",
@@ -706,7 +782,14 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "real-time strategy",
+        "estrategia en tiempo real",
+        "ETR",
+        "estrategia rápida",
+        "gestión en tiempo real"
+      ]
     },
     {
       "id": "soulslike",
@@ -760,7 +843,14 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "SRPG",
+        "RPG estratégico",
+        "strategy role-playing",
+        "estrategia y rol",
+        "combate táctico con progresión"
+      ]
     },
     {
       "id": "three-d-fighting",
@@ -781,7 +871,14 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "3D fighter",
+        "fighting 3D",
+        "versus 3D",
+        "peleas 3D",
+        "estilo Tekken"
+      ]
     },
     {
       "id": "tower-defense",
@@ -802,7 +899,14 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "defensa de torres",
+        "torres",
+        "defender oleadas",
+        "tower defence",
+        "oleadas de enemigos"
+      ]
     },
     {
       "id": "turn-based-rpg",
@@ -823,7 +927,13 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "turn-based RPG",
+        "rol por turnos",
+        "combate por turnos",
+        "RPG clásico por turnos"
+      ]
     },
     {
       "id": "turn-based-strategy",
@@ -844,7 +954,13 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "turn-based strategy",
+        "TBS",
+        "estrategia turnos",
+        "táctica por turnos"
+      ]
     },
     {
       "id": "two-d-fighting",
@@ -865,7 +981,14 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "2D fighter",
+        "fighting 2D",
+        "versus 2D",
+        "peleas 2D",
+        "estilo Street Fighter"
+      ]
     },
     {
       "id": "action-horror",
@@ -887,7 +1010,13 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "action horror",
+        "horror de acción",
+        "terror con combate",
+        "acción y monstruos"
+      ]
     },
     {
       "id": "action-rpg",
@@ -908,7 +1037,17 @@
       "canonicalSlug": "action-rpg",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "ARPG",
+        "RPG de acción",
+        "action role-playing",
+        "rol con combate en tiempo real",
+        "RPG con combate activo",
+        "Action RPG",
+        "rol de acción",
+        "RPG con combate en tiempo real"
+      ]
     },
     {
       "id": "arena-shooter",
@@ -928,7 +1067,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "shooter de arena",
+        "arena FPS",
+        "combate en arenas",
+        "shooter rápido competitivo",
+        "estilo Quake"
+      ]
     },
     {
       "id": "baseball",
@@ -970,7 +1116,14 @@
       "canonicalSlug": "basketball",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "basketball",
+        "basket",
+        "NBA",
+        "baloncesto arcade",
+        "baloncesto sim"
+      ]
     },
     {
       "id": "beat-em-up",
@@ -1021,7 +1174,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "horror corporal",
+        "mutaciones",
+        "deformaciones",
+        "terror físico",
+        "grotesco"
+      ]
     },
     {
       "id": "boomer-shooter",
@@ -1042,7 +1202,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "shooter retro",
+        "FPS retro",
+        "estilo Doom clásico",
+        "shooter old school",
+        "shooter noventero"
+      ]
     },
     {
       "id": "boxing",
@@ -1063,7 +1230,13 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "boxing",
+        "boxeo arcade",
+        "boxeo realista",
+        "combate de boxeo"
+      ]
     },
     {
       "id": "character-action",
@@ -1114,7 +1287,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "simulador de colonias",
+        "colony simulator",
+        "gestión de colonia",
+        "colonos",
+        "supervivencia de colonia"
+      ]
     },
     {
       "id": "combat-racing",
@@ -1136,7 +1316,13 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "combat racing",
+        "carreras con armas",
+        "conducción y combate",
+        "vehicular combat racing"
+      ]
     },
     {
       "id": "crpg",
@@ -1157,7 +1343,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "computer RPG",
+        "RPG clásico de PC",
+        "rol de PC",
+        "RPG isométrico",
+        "RPG occidental clásico"
+      ]
     },
     {
       "id": "first-person-shooter",
@@ -1177,7 +1370,13 @@
       "canonicalSlug": "first-person-shooter",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "first person shooter",
+        "shooter en primera persona",
+        "disparos en primera persona",
+        "tiros en primera persona"
+      ]
     },
     {
       "id": "football",
@@ -1200,7 +1399,16 @@
       "canonicalSlug": "football",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "soccer",
+        "football",
+        "fútbol europeo",
+        "balompié",
+        "FIFA",
+        "PES",
+        "eFootball"
+      ]
     },
     {
       "id": "formula-racing",
@@ -1223,7 +1431,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "formula racing",
+        "F1",
+        "fórmula 1",
+        "monoplazas",
+        "carreras de fórmula"
+      ]
     },
     {
       "id": "four-x",
@@ -1244,7 +1459,13 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "explorar expandir explotar exterminar",
+        "4x strategy",
+        "estrategia espacial",
+        "civilizaciones"
+      ]
     },
     {
       "id": "future-racing",
@@ -1265,7 +1486,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "futuristic racing",
+        "antigravedad",
+        "anti-gravity racing",
+        "naves de carreras",
+        "estilo Wipeout"
+      ]
     },
     {
       "id": "god-game",
@@ -1287,7 +1515,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "juego de dios",
+        "dios",
+        "control divino",
+        "gestión de civilización",
+        "estilo Populous"
+      ]
     },
     {
       "id": "golf",
@@ -1307,7 +1542,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "golf",
+        "minigolf",
+        "mini golf",
+        "golf arcade",
+        "simulador de golf"
+      ]
     },
     {
       "id": "gothic-horror",
@@ -1328,7 +1570,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "gothic horror",
+        "horror gótico",
+        "castillos",
+        "vampiros",
+        "atmósfera gótica"
+      ]
     },
     {
       "id": "grand-strategy",
@@ -1348,7 +1597,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "grand strategy",
+        "estrategia global",
+        "gestión de imperios",
+        "mapa mundial",
+        "estrategia profunda"
+      ]
     },
     {
       "id": "hidden-object",
@@ -1370,7 +1626,13 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "hidden object",
+        "buscar objetos",
+        "objetos escondidos",
+        "aventura de objetos ocultos"
+      ]
     },
     {
       "id": "interactive-fiction",
@@ -1439,7 +1701,15 @@
       "canonicalSlug": "jrpg",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "japanese RPG",
+        "RPG japonés",
+        "rol japonés",
+        "estilo Final Fantasy",
+        "estilo Dragon Quest",
+        "RPG anime"
+      ]
     },
     {
       "id": "kart-racing",
@@ -1458,7 +1728,14 @@
       "canonicalSlug": "kart-racing",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "karts",
+        "carreras de karts",
+        "kart racer",
+        "estilo Mario Kart",
+        "carreras con power-ups"
+      ]
     },
     {
       "id": "looter-shooter",
@@ -1480,7 +1757,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "shooter con loot",
+        "disparos con botín",
+        "loot shooter",
+        "armas y equipo",
+        "estilo Borderlands"
+      ]
     },
     {
       "id": "lovecraftian-horror",
@@ -1500,7 +1784,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "lovecraftian horror",
+        "horror cósmico",
+        "terror cósmico",
+        "criaturas ancestrales",
+        "locura"
+      ]
     },
     {
       "id": "martial-arts",
@@ -1521,7 +1812,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "martial arts",
+        "kung fu",
+        "karate",
+        "judo",
+        "combate cuerpo a cuerpo"
+      ]
     },
     {
       "id": "match-3",
@@ -1542,7 +1840,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "tres en raya",
+        "match-3",
+        "combinar 3",
+        "puzzle casual",
+        "gemas"
+      ]
     },
     {
       "id": "metroidvania",
@@ -1590,7 +1895,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "MMO RPG",
+        "MMO",
+        "rol online masivo",
+        "multijugador masivo online",
+        "RPG online"
+      ]
     },
     {
       "id": "monster-collector",
@@ -1612,7 +1924,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "coleccionismo de monstruos",
+        "captura de criaturas",
+        "creature collector",
+        "estilo Pokémon",
+        "entrenar monstruos"
+      ]
     },
     {
       "id": "motorcycle-racing",
@@ -1634,7 +1953,15 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "motorbike racing",
+        "motociclismo",
+        "carreras de motos",
+        "motos GP",
+        "moto GP",
+        "motocross"
+      ]
     },
     {
       "id": "offroad-racing",
@@ -1655,7 +1982,15 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "offroad racing",
+        "todoterreno",
+        "barro",
+        "pistas de tierra",
+        "4x4",
+        "motocross offroad"
+      ]
     },
     {
       "id": "open-world-adventure",
@@ -1705,7 +2040,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "shooter sobre raíles",
+        "on-rails shooter",
+        "disparos guiados",
+        "pistola de luz",
+        "light gun"
+      ]
     },
     {
       "id": "rally",
@@ -1725,7 +2067,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "rally racing",
+        "carreras de rally",
+        "conducción offroad cronometrada",
+        "WRC",
+        "tramos"
+      ]
     },
     {
       "id": "rhythm-game",
@@ -1768,7 +2117,15 @@
       "canonicalSlug": "shoot-em-up",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "shmup",
+        "matamarcianos",
+        "disparos arcade",
+        "naves",
+        "scroll shooter",
+        "shootemup"
+      ]
     },
     {
       "id": "sim-racing",
@@ -1793,7 +2150,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "nameEn": "Simulation Racing"
+      "nameEn": "Simulation Racing",
+      "searchAliases": [
+        "sim racing",
+        "racing sim",
+        "conducción realista",
+        "simulador de conducción",
+        "simulación automovilística"
+      ]
     },
     {
       "id": "sokoban",
@@ -1813,7 +2177,13 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "sokoban",
+        "empujar cajas",
+        "puzle de cajas",
+        "lógica de cajas"
+      ]
     },
     {
       "id": "space-sim",
@@ -1834,7 +2204,13 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "simulador espacial",
+        "space simulator",
+        "naves espaciales",
+        "exploración espacial"
+      ]
     },
     {
       "id": "stealth-action",
@@ -1885,7 +2261,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "carreras callejeras",
+        "racing urbano",
+        "conducción urbana",
+        "carreras ilegales",
+        "estilo Need for Speed"
+      ]
     },
     {
       "id": "survival-horror",
@@ -1906,7 +2289,13 @@
       "canonicalSlug": "survival-horror",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "terror de supervivencia",
+        "survival horror clásico",
+        "horror con recursos limitados",
+        "estilo Resident Evil"
+      ]
     },
     {
       "id": "tactical-rpg",
@@ -1927,7 +2316,18 @@
       "canonicalSlug": "tactical-rpg",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "RPG táctico",
+        "tactical role-playing",
+        "TRPG",
+        "estrategia con rol",
+        "combate táctico por casillas",
+        "Tactical RPG",
+        "rol táctico",
+        "combate por casillas",
+        "estrategia táctica con rol"
+      ]
     },
     {
       "id": "tactical-shooter",
@@ -1947,7 +2347,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "shooter táctico",
+        "disparos tácticos",
+        "FPS táctico",
+        "combate realista",
+        "estilo Rainbow Six"
+      ]
     },
     {
       "id": "tactical-strategy",
@@ -1987,7 +2394,13 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "tennis",
+        "tenis arcade",
+        "tenis realista",
+        "juego de tenis"
+      ]
     },
     {
       "id": "third-person-shooter",
@@ -2008,7 +2421,13 @@
       "canonicalSlug": "third-person-shooter",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "third-person shooter",
+        "TPS",
+        "disparos en tercera persona",
+        "acción con cámara trasera"
+      ]
     },
     {
       "id": "train-sim",
@@ -2029,7 +2448,13 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "simulador de trenes",
+        "trenes",
+        "conducción ferroviaria",
+        "railway sim"
+      ]
     },
     {
       "id": "twin-stick-shooter",
@@ -2051,7 +2476,13 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "twin-stick",
+        "shooter de doble stick",
+        "disparos cenitales",
+        "top-down shooter con dos sticks"
+      ]
     },
     {
       "id": "vehicle-sim",
@@ -2072,7 +2503,12 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "simulador de vehículos",
+        "vehicle simulator",
+        "manejar vehículos"
+      ]
     },
     {
       "id": "walking-simulator",
@@ -2121,7 +2557,15 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "western RPG",
+        "WRPG",
+        "rol occidental",
+        "RPG tipo Baldur’s Gate",
+        "RPG tipo Elder Scrolls",
+        "RPG de mundo abierto"
+      ]
     },
     {
       "id": "wrestling",
@@ -2143,7 +2587,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "lucha libre",
+        "wrestling americano",
+        "WWE",
+        "catch",
+        "lucha espectáculo"
+      ]
     },
     {
       "id": "zombie-horror",
@@ -2163,7 +2614,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "zombie horror",
+        "zombis",
+        "muertos vivientes",
+        "apocalipsis zombi",
+        "supervivencia zombi"
+      ]
     },
     {
       "id": "billiards",
@@ -2275,7 +2733,14 @@
       "priority": "C",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "shooter de héroes",
+        "personajes con habilidades",
+        "héroes",
+        "clases",
+        "estilo Overwatch"
+      ]
     },
     {
       "id": "hockey",
@@ -2316,7 +2781,14 @@
       "priority": "C",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "simulador político",
+        "política",
+        "elecciones",
+        "gobierno",
+        "gestión política"
+      ]
     },
     {
       "id": "rugby",
@@ -2358,7 +2830,14 @@
       "priority": "C",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "preguntas y respuestas",
+        "quiz",
+        "concurso",
+        "cultura general",
+        "trivial"
+      ]
     },
     {
       "id": "volleyball",
@@ -2400,7 +2879,14 @@
       "priority": "C",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "word game",
+        "palabras",
+        "letras",
+        "vocabulario",
+        "crucigramas"
+      ]
     }
   ],
   "facets": [
@@ -4310,6 +4796,32 @@
       "status": "approved"
     },
     {
+      "id": "jump-scare",
+      "name": "Jump Scare",
+      "nameEn": "Jump Scare",
+      "slug": "jump-scare",
+      "canonicalSlug": "jump-scare",
+      "type": "facet",
+      "family": "content",
+      "group": "horror-technique",
+      "aliases": [
+        "susto repentino",
+        "sustos repentinos"
+      ],
+      "searchAliases": [
+        "sustos",
+        "jumpscare",
+        "jump scare",
+        "sustos repentinos",
+        "terror de sobresalto"
+      ],
+      "description": "Faceta para juegos de terror que usan sustos repentinos o sobresaltos como recurso principal o frecuente.",
+      "priority": "B",
+      "publicEligible": true,
+      "seoEligible": true,
+      "status": "approved"
+    },
+    {
       "id": "level-based",
       "name": "Por niveles",
       "nameEn": "Level-Based",
@@ -5265,7 +5777,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "skate",
+        "monopatín",
+        "skateboarding",
+        "Tony Hawk",
+        "trucos de skate"
+      ]
     },
     {
       "id": "snowboarding",
@@ -5283,7 +5802,14 @@
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "snowboard",
+        "snow",
+        "tabla de nieve",
+        "deportes de nieve",
+        "trucos en nieve"
+      ]
     },
     {
       "id": "soundtrack",
