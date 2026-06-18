@@ -18,8 +18,24 @@ for (const group of MANUAL_EQUIVALENCE_GROUPS) {
   }
 }
 
-function entityTerms(entity: { id: string; name: string; slug: string; aliases?: string[] }): string[] {
-  return [entity.id, entity.name, entity.slug, ...(entity.aliases ?? [])];
+function entityTerms(entity: {
+  id: string;
+  name: string;
+  nameEn?: string;
+  slug: string;
+  canonicalSlug?: string;
+  aliases?: string[];
+  searchAliases?: string[];
+}): string[] {
+  return [
+    entity.id,
+    entity.name,
+    entity.nameEn,
+    entity.slug,
+    entity.canonicalSlug,
+    ...(entity.aliases ?? []),
+    ...(entity.searchAliases ?? []),
+  ].filter((term): term is string => Boolean(term));
 }
 
 export function catalogSearchAliasesForText(value: string | null | undefined): string[] {
@@ -89,4 +105,15 @@ export function catalogSearchAliasesForGenre(genre: { slug: string; name: string
   const result = [...aliases].filter(Boolean);
   genreAliasCache.set(cacheKey, result);
   return result;
+}
+
+export function catalogSearchAliasesForDetailEntity(entity: { slug: string; name: string } | null | undefined): string[] {
+  if (!entity) return [];
+  const aliases = new Set<string>();
+  for (const term of [entity.slug, entity.name]) {
+    aliases.add(normalizeCatalogSearchText(term));
+    aliases.add(normalizeCatalogSearchSlug(term));
+    for (const alias of catalogSearchAliasesForText(term)) aliases.add(alias);
+  }
+  return [...aliases].filter(Boolean);
 }

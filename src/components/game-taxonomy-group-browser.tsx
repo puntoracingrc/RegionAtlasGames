@@ -27,6 +27,7 @@ export function GameTaxonomyGroupBrowser({ groups }: { groups: PublicTaxonomyGro
           term.type,
           term.family,
           ...term.aliases,
+          ...term.searchAliases,
         ].filter(Boolean).join(" "));
         return needle.split(/\s+/).every((token) => haystack.includes(token));
       }),

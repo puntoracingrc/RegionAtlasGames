@@ -10,6 +10,7 @@ export type PublicTaxonomyTerm = {
   type: GameFacetTaxonomyEntity["type"];
   family?: string;
   aliases: string[];
+  searchAliases: string[];
   description: string;
   href: string;
   count: number;
@@ -56,9 +57,10 @@ const GROUPS: GroupDef[] = [
   },
   {
     number: 5,
-    title: "Mood / tono",
-    description: "Cozy, difícil, oscuro, épico, humor negro y otras sensaciones editoriales. Pendiente de poblar con más etiquetas.",
-    include: () => false,
+    title: "Tono y sensaciones",
+    description: "Cozy, difícil, oscuro, bonito, atmosférico, humor negro y otras sensaciones editoriales.",
+    include: (entity) =>
+      ["cozy", "difficult", "dark-humor", "atmospheric", "beautiful", "cute", "addictive"].includes(entity.id),
   },
   {
     number: 6,
@@ -69,8 +71,9 @@ const GROUPS: GroupDef[] = [
   {
     number: 7,
     title: "Actividades del jugador",
-    description: "Acciones principales como explorar, disparar, conducir, construir, pescar o competir. Pendiente de ampliar.",
-    include: () => false,
+    description: "Acciones principales como explorar, disparar, conducir, construir, cultivar, bailar, competir o decorar.",
+    include: (entity) =>
+      ["exploration", "driving", "building", "farming", "dancing", "competition", "collecting", "decorating", "fishing"].includes(entity.id),
   },
   {
     number: 8,
@@ -81,14 +84,16 @@ const GROUPS: GroupDef[] = [
   {
     number: 9,
     title: "Estructura del juego",
-    description: "Mundo abierto, lineal, sandbox, por misiones, roguelike o rejugable. Pendiente de poblar.",
-    include: () => false,
+    description: "Campaña, episodios, infinito, misiones, rejugabilidad y otras formas de estructurar la partida.",
+    include: (entity) =>
+      ["campaign", "episodic", "endless", "level-editor", "sandbox", "open-world", "replay-value"].includes(entity.id),
   },
   {
     number: 10,
     title: "Software / contenido no-juego",
     description: "Utilidades, herramientas, benchmark, formación o software creativo. Separado para no mezclarlo con videojuegos.",
-    include: () => false,
+    include: (entity) => ["format", "technical"].includes("family" in entity ? entity.family : "") &&
+      ["software", "utilities", "benchmark", "software-training", "photo-editing", "video-production", "audio-production", "design-illustration", "animation-modeling", "game-development"].includes(entity.id),
   },
   {
     number: 11,
@@ -108,14 +113,16 @@ const GROUPS: GroupDef[] = [
   {
     number: 13,
     title: "Épocas / historia / política",
-    description: "Guerra, militar, historia alternativa, épocas históricas y conflictos. Pendiente de ampliar.",
-    include: (entity) => ["military"].includes(entity.id),
+    description: "Guerra, militar, historia alternativa, épocas históricas, imperios y conflictos.",
+    include: (entity) =>
+      ["military", "historical", "alternate-history", "ancient", "rome", "cold-war", "world-war-i", "world-war-ii", "modern-era", "empire", "revolution", "colonial"].includes(entity.id),
   },
   {
     number: 14,
     title: "Animales / personajes / criaturas",
     description: "Zombis, monstruos, alienígenas, dragones, ninjas, samuráis y arquetipos de personaje.",
-    include: (entity) => ["zombies"].includes(entity.id),
+    include: (entity) =>
+      ["zombies", "monsters", "aliens", "dragons", "vampires", "samurai", "ninja", "robots", "animals", "cats", "dogs", "dinosaurs"].includes(entity.id),
   },
   {
     number: 15,
@@ -150,6 +157,7 @@ function toTerm(entity: GameFacetTaxonomyEntity, facetCounts: Record<string, num
     type: entity.type,
     family: "family" in entity ? entity.family : undefined,
     aliases: entity.aliases ?? [],
+    searchAliases: entity.searchAliases ?? [],
     description: entity.description,
     href: hrefForEntity(entity),
     count: countForEntity(entity, facetCounts),
@@ -168,5 +176,5 @@ export async function getPublicTaxonomyGroups(): Promise<PublicTaxonomyGroup[]> 
       .filter(group.include)
       .map((entity) => toTerm(entity, facetCounts))
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es", { sensitivity: "base" })),
-  }));
+  })).filter((group) => group.terms.length > 0);
 }

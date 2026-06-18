@@ -38,6 +38,26 @@ export type AdminFacetReviewSummary = {
   withSuggestions: number;
 };
 
+export type AdminFacetCoveragePlatform = {
+  platformSlug: string;
+  totalGames: number;
+  withSubgenres: number;
+  withFacets: number;
+  complete: number;
+};
+
+export type AdminFacetCoverageEntity = {
+  slug: string;
+  name: string;
+  count: number;
+};
+
+export type AdminFacetCoverage = {
+  platforms: AdminFacetCoveragePlatform[];
+  topSubgenres: AdminFacetCoverageEntity[];
+  topFacets: AdminFacetCoverageEntity[];
+};
+
 export type AdminFacetReviewOptions = {
   subgenres: { slug: string; name: string }[];
   facets: { slug: string; name: string }[];
@@ -150,11 +170,15 @@ export function getAdminFacetReviewQueue(input: {
   limit?: number;
 }): {
   summary: AdminFacetReviewSummary;
+  coverage: AdminFacetCoverage;
   options: AdminFacetReviewOptions;
   games: AdminFacetReviewGame[];
 } {
   const detailsById = loadJson<Record<string, GameDetails>>(DETAILS_FILE, {});
   const allRows = listedCatalog.map((game) => toReviewGame(game, detailsById[game.id]));
+  const platforms = new Map<string, AdminFacetCoveragePlatform>();
+  const subgenreCounts = new Map<string, AdminFacetCoverageEntity>();
+  const facetCounts = new Map<string, AdminFacetCoverageEntity>();
   const summary = allRows.reduce<AdminFacetReviewSummary>(
     (acc, row) => {
       acc.totalGames += 1;
@@ -163,10 +187,45 @@ export function getAdminFacetReviewQueue(input: {
       if (row.status === "complete") acc.complete += 1;
       if (row.status === "empty") acc.empty += 1;
       if (row.suggestedSubgenres.length > 0 || row.suggestedFacets.length > 0) acc.withSuggestions += 1;
+
+      const platform = platforms.get(row.platformSlug) ?? {
+        platformSlug: row.platformSlug,
+        totalGames: 0,
+        withSubgenres: 0,
+        withFacets: 0,
+        complete: 0,
+      };
+      platform.totalGames += 1;
+      if (row.subgenres.length > 0) platform.withSubgenres += 1;
+      if (row.facets.length > 0) platform.withFacets += 1;
+      if (row.status === "complete") platform.complete += 1;
+      platforms.set(row.platformSlug, platform);
+
+      for (const subgenre of row.subgenres) {
+        const current = subgenreCounts.get(subgenre.slug) ?? { slug: subgenre.slug, name: subgenre.name, count: 0 };
+        current.count += 1;
+        subgenreCounts.set(subgenre.slug, current);
+      }
+      for (const facet of row.facets) {
+        const current = facetCounts.get(facet.slug) ?? { slug: facet.slug, name: facet.name, count: 0 };
+        current.count += 1;
+        facetCounts.set(facet.slug, current);
+      }
       return acc;
     },
     { totalGames: 0, withSubgenres: 0, withFacets: 0, complete: 0, empty: 0, withSuggestions: 0 },
   );
+  const coverage: AdminFacetCoverage = {
+    platforms: [...platforms.values()]
+      .sort((a, b) => b.totalGames - a.totalGames || a.platformSlug.localeCompare(b.platformSlug))
+      .slice(0, 18),
+    topSubgenres: [...subgenreCounts.values()]
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"))
+      .slice(0, 18),
+    topFacets: [...facetCounts.values()]
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"))
+      .slice(0, 18),
+  };
 
   const needle = normalizeText(input.q ?? "");
   const status = input.status?.trim() ?? "";
@@ -184,7 +243,7 @@ export function getAdminFacetReviewQueue(input: {
     })
     .slice(0, limit);
 
-  return { summary, options: getAdminFacetReviewOptions(), games };
+  return { summary, coverage, options: getAdminFacetReviewOptions(), games };
 }
 
 function defaultDetails(): GameDetails {

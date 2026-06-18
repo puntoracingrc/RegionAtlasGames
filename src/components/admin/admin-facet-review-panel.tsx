@@ -3,13 +3,18 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
-import type { AdminFacetReviewGame, AdminFacetReviewSummary } from "@/lib/admin-facet-review";
+import type {
+  AdminFacetCoverage,
+  AdminFacetReviewGame,
+  AdminFacetReviewSummary,
+} from "@/lib/admin-facet-review";
 
 type Option = { slug: string; name: string };
 
 type ReviewResponse = {
   ok: boolean;
   summary: AdminFacetReviewSummary;
+  coverage: AdminFacetCoverage;
   options: {
     subgenres: Option[];
     facets: Option[];
@@ -24,6 +29,12 @@ const emptySummary: AdminFacetReviewSummary = {
   complete: 0,
   empty: 0,
   withSuggestions: 0,
+};
+
+const emptyCoverage: AdminFacetCoverage = {
+  platforms: [],
+  topSubgenres: [],
+  topFacets: [],
 };
 
 function parseCsv(value: string): string[] {
@@ -51,6 +62,7 @@ function optionLabel(option: Option): string {
 
 export function AdminFacetReviewPanel() {
   const [summary, setSummary] = useState<AdminFacetReviewSummary>(emptySummary);
+  const [coverage, setCoverage] = useState<AdminFacetCoverage>(emptyCoverage);
   const [subgenreOptions, setSubgenreOptions] = useState<Option[]>([]);
   const [facetOptions, setFacetOptions] = useState<Option[]>([]);
   const [games, setGames] = useState<AdminFacetReviewGame[]>([]);
@@ -82,6 +94,7 @@ export function AdminFacetReviewPanel() {
         return;
       }
       setSummary(data.summary);
+      setCoverage(data.coverage);
       setSubgenreOptions(data.options.subgenres);
       setFacetOptions(data.options.facets);
       setGames(data.games);
@@ -196,6 +209,46 @@ export function AdminFacetReviewPanel() {
         <Panel>
           <p className="text-[10px] uppercase tracking-wider text-muted">Sugerencias</p>
           <p className="mt-1 text-2xl font-bold text-foreground">{summary.withSuggestions.toLocaleString("es-ES")}</p>
+        </Panel>
+      </div>
+
+      <div className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)_minmax(320px,0.8fr)]">
+        <Panel>
+          <PanelTitle eyebrow="Cobertura">Plataformas principales</PanelTitle>
+          <div className="space-y-2">
+            {coverage.platforms.map((item) => (
+              <div key={item.platformSlug} className="grid grid-cols-[90px_1fr_64px] items-center gap-3 text-sm">
+                <span className="font-semibold uppercase text-foreground">{item.platformSlug}</span>
+                <div className="h-2 overflow-hidden rounded-full bg-card-hover">
+                  <div
+                    className="h-full rounded-full bg-accent"
+                    style={{ width: percent(item.complete, item.totalGames) }}
+                  />
+                </div>
+                <span className="text-right text-xs text-muted">{percent(item.complete, item.totalGames)}</span>
+              </div>
+            ))}
+          </div>
+        </Panel>
+
+        <Panel>
+          <PanelTitle eyebrow="Top">Subgéneros</PanelTitle>
+          <div className="flex flex-wrap gap-1.5">
+            {coverage.topSubgenres.map((entity) => (
+              <Badge key={entity.slug} tone="violet">{entity.name} · {entity.count}</Badge>
+            ))}
+            {coverage.topSubgenres.length === 0 && <p className="text-sm text-muted">Sin datos todavía.</p>}
+          </div>
+        </Panel>
+
+        <Panel>
+          <PanelTitle eyebrow="Top">Facetas</PanelTitle>
+          <div className="flex flex-wrap gap-1.5">
+            {coverage.topFacets.map((entity) => (
+              <Badge key={entity.slug} tone="amber">{entity.name} · {entity.count}</Badge>
+            ))}
+            {coverage.topFacets.length === 0 && <p className="text-sm text-muted">Sin datos todavía.</p>}
+          </div>
         </Panel>
       </div>
 

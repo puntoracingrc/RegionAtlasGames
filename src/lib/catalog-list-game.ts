@@ -1,5 +1,5 @@
 import { getPlatform } from "@/lib/catalog";
-import { catalogSearchAliasesForGenre } from "@/lib/catalog-search-aliases";
+import { catalogSearchAliasesForDetailEntity, catalogSearchAliasesForGenre } from "@/lib/catalog-search-aliases";
 import { normalizeCatalogSearchParts } from "@/lib/catalog-search-normalize";
 import { isGrailGame, isTopInSegment } from "@/lib/game-highlight";
 import { normalizeReference, referenceSortKey } from "@/lib/game-product-reference";
@@ -12,6 +12,11 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
   const platform = getPlatform(game.platformSlug);
   const firstGenre = details?.genres?.[0];
   const canonicalGenre = firstGenre ? resolveCanonicalGenreEntity(firstGenre) : null;
+  const facetSearchEntities = [
+    ...(details?.subgenres ?? []),
+    ...(details?.facets ?? []),
+    ...(details?.tags ?? []),
+  ];
   const normalizedReference = details?.reference ? normalizeReference(details.reference) : null;
   const sortReference = referenceSortKey(game, details);
 
@@ -60,6 +65,8 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
       details?.series?.slug,
       ...(details?.genres?.map((genre) => `${genre.name} ${genre.slug}`) ?? []),
       ...((details?.genres ?? []).flatMap((genre) => catalogSearchAliasesForGenre(resolveCanonicalGenreEntity(genre)))),
+      ...facetSearchEntities.map((entity) => `${entity.name} ${entity.slug}`),
+      ...facetSearchEntities.flatMap((entity) => catalogSearchAliasesForDetailEntity(entity)),
       canonicalGenre ? `${canonicalGenre.name} ${canonicalGenre.slug}` : null,
       ...(canonicalGenre ? catalogSearchAliasesForGenre(canonicalGenre) : []),
     ]),
