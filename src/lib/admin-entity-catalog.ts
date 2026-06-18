@@ -78,6 +78,9 @@ type AdminEntitiesOverlay = {
     companies: Record<string, boolean>;
     genres: Record<string, boolean>;
   };
+  news: {
+    platforms: Record<string, boolean>;
+  };
 };
 
 function emptyOverlay(): AdminEntitiesOverlay {
@@ -91,6 +94,9 @@ function emptyOverlay(): AdminEntitiesOverlay {
       platforms: {},
       companies: {},
       genres: {},
+    },
+    news: {
+      platforms: {},
     },
   };
 }
@@ -113,6 +119,9 @@ function parseOverlay(raw: string): AdminEntitiesOverlay {
         platforms: parsed.active?.platforms ?? {},
         companies: parsed.active?.companies ?? {},
         genres: parsed.active?.genres ?? {},
+      },
+      news: {
+        platforms: parsed.news?.platforms ?? {},
       },
     };
   } catch {
@@ -203,6 +212,7 @@ async function createOverlayPlatform(
     status?: PlatformStatus;
     description?: string;
     sortOrder?: number;
+    newsEnabled?: boolean;
   },
   staticPlatforms: Platform[],
 ): Promise<{ ok: true; platform: Platform } | { error: string }> {
@@ -237,6 +247,7 @@ async function createOverlayPlatform(
     sortOrder: input.sortOrder ?? maxSortOrder + 1,
     description: input.description?.trim() || "Catálogo administrado manualmente.",
     active: true,
+    newsEnabled: input.newsEnabled ?? false,
   };
   overlay.platforms[slug] = platform;
   await writeAdminEntitiesOverlay(overlay);
@@ -312,6 +323,7 @@ export async function listAdminPlatforms(): Promise<AdminPlatformRow[]> {
     .map((platform) => ({
       ...platform,
       active: overlay.active.platforms[platform.slug] ?? platform.active !== false,
+      newsEnabled: overlay.news.platforms[platform.slug] ?? platform.newsEnabled === true,
       catalogGames: countCatalogGamesForPlatform(platform.slug),
     }))
     .sort((a, b) => a.sortOrder - b.sortOrder || a.name.localeCompare(b.name, "es"));
@@ -330,6 +342,7 @@ export async function createAdminPlatform(input: {
   status?: PlatformStatus;
   description?: string;
   sortOrder?: number;
+  newsEnabled?: boolean;
 }): Promise<{ ok: true; platform: Platform } | { error: string }> {
   const name = input.name.trim();
   if (!name) return { error: "Falta el nombre de la plataforma." };
@@ -370,6 +383,7 @@ export async function createAdminPlatform(input: {
     sortOrder,
     description: input.description?.trim() || "Catálogo administrado manualmente.",
     active: true,
+    newsEnabled: input.newsEnabled ?? false,
   };
 
   platforms.push(platform);
@@ -459,6 +473,7 @@ export async function updateAdminPlatform(
     description?: string;
     sortOrder?: number;
     newSlug?: string;
+    newsEnabled?: boolean;
   },
 ): Promise<{ ok: true; platform: Platform; slug: string } | { error: string }> {
   const currentSlug = slug.trim();
@@ -486,6 +501,7 @@ export async function updateAdminPlatform(
       status: input.status ?? current.status,
       description: input.description?.trim() || current.description,
       sortOrder: input.sortOrder ?? current.sortOrder,
+      newsEnabled: input.newsEnabled ?? current.newsEnabled ?? false,
     };
     if (nextSlug !== currentSlug) delete overlay.platforms[currentSlug];
     overlay.platforms[nextSlug] = platform;
@@ -519,6 +535,7 @@ export async function updateAdminPlatform(
     status: input.status ?? current.status,
     description: input.description?.trim() || current.description,
     sortOrder: input.sortOrder ?? current.sortOrder,
+    newsEnabled: input.newsEnabled ?? current.newsEnabled ?? false,
   };
 
   platforms[index] = platform;
@@ -735,6 +752,30 @@ export async function setAdminEntityActive(
   if (!exists) return { error: "Género no encontrado." };
   overlay.active.genres[trimmed] = active;
   if (overlay.genres[trimmed]) overlay.genres[trimmed].active = active;
+  await writeAdminEntitiesOverlay(overlay);
+  return { ok: true };
+}
+
+export async function setAdminPlatformNewsEnabled(
+  slug: string,
+  newsEnabled: boolean,
+): Promise<{ ok: true } | { error: string }> {
+  const trimmed = slug.trim();
+  if (!trimmed) return { error: "Slug no válido." };
+
+  const overlay = await readAdminEntitiesOverlay();
+  const platforms = loadJson<Platform[]>(PLATFORMS_FILE, []);
+  const index = platforms.findIndex((platform) => platform.slug === trimmed);
+  const exists = index >= 0 || Boolean(overlay.platforms[trimmed]);
+  if (!exists) return { error: "Plataforma no encontrada." };
+
+  if (canWriteCatalogFiles() && index >= 0) {
+    platforms[index] = { ...platforms[index], newsEnabled };
+    saveJson(PLATFORMS_FILE, platforms);
+  }
+
+  overlay.news.platforms[trimmed] = newsEnabled;
+  if (overlay.platforms[trimmed]) overlay.platforms[trimmed].newsEnabled = newsEnabled;
   await writeAdminEntitiesOverlay(overlay);
   return { ok: true };
 }

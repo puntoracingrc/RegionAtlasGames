@@ -24,6 +24,7 @@ export async function POST(request: Request) {
     status?: "closed" | "semi-closed";
     description?: string;
     sortOrder?: number;
+    newsEnabled?: boolean;
   };
 
   if (!body.name?.trim()) {
@@ -38,6 +39,7 @@ export async function POST(request: Request) {
     status: body.status,
     description: body.description,
     sortOrder: body.sortOrder,
+    newsEnabled: body.newsEnabled,
   });
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 400 });

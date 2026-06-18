@@ -16,6 +16,7 @@ type PlatformRow = {
   status: string;
   catalogGames: number;
   active?: boolean;
+  newsEnabled?: boolean;
 };
 
 type IndexRow = {
@@ -144,6 +145,7 @@ export function AdminEntitiesPanel() {
   const [saving, setSaving] = useState(false);
   const [deletingSlug, setDeletingSlug] = useState<string | null>(null);
   const [togglingSlug, setTogglingSlug] = useState<string | null>(null);
+  const [togglingNewsSlug, setTogglingNewsSlug] = useState<string | null>(null);
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [editSaving, setEditSaving] = useState(false);
   const [companyAiRunning, setCompanyAiRunning] = useState<string | null>(null);
@@ -155,6 +157,7 @@ export function AdminEntitiesPanel() {
   const [editShortName, setEditShortName] = useState("");
   const [editManufacturer, setEditManufacturer] = useState("nintendo");
   const [editStatus, setEditStatus] = useState("closed");
+  const [editPlatformNewsEnabled, setEditPlatformNewsEnabled] = useState(false);
   const [editCompanyHistory, setEditCompanyHistory] = useState("");
   const [editCompanyLogoUrl, setEditCompanyLogoUrl] = useState("");
   const [editCompanyWebsiteUrl, setEditCompanyWebsiteUrl] = useState("");
@@ -380,6 +383,31 @@ export function AdminEntitiesPanel() {
     }
   }
 
+  async function togglePlatformNews(platform: PlatformRow) {
+    const nextNewsEnabled = platform.newsEnabled !== true;
+    setTogglingNewsSlug(platform.slug);
+    setError(null);
+    setMessage(null);
+    try {
+      const res = await fetch(`/api/admin/entities/platforms/${encodeURIComponent(platform.slug)}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ newsEnabled: nextNewsEnabled }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo cambiar noticias.");
+        return;
+      }
+      setMessage(`Noticias de «${platform.name}» ${nextNewsEnabled ? "activadas" : "desactivadas"}.`);
+      await loadPlatforms();
+    } catch {
+      setError("Error de red al cambiar noticias.");
+    } finally {
+      setTogglingNewsSlug(null);
+    }
+  }
+
   function startEditPlatform(platform: PlatformRow) {
     setEditingSlug(platform.slug);
     setMergeSourceSlug(null);
@@ -388,6 +416,7 @@ export function AdminEntitiesPanel() {
     setEditShortName(platform.shortName);
     setEditManufacturer(platform.manufacturer);
     setEditStatus(platform.status);
+    setEditPlatformNewsEnabled(platform.newsEnabled === true);
     setError(null);
     setMessage(null);
   }
@@ -434,6 +463,7 @@ export function AdminEntitiesPanel() {
               shortName: editShortName,
               manufacturer: editManufacturer,
               status: editStatus,
+              newsEnabled: editPlatformNewsEnabled,
             }
           : {
               name: editName,
@@ -829,6 +859,21 @@ export function AdminEntitiesPanel() {
                         <option value="semi-closed">Semi-cerrada</option>
                       </select>
                     </label>
+                    <label className="flex items-center gap-3 rounded-xl border border-border bg-background/40 px-3 py-2">
+                      <input
+                        type="checkbox"
+                        checked={editPlatformNewsEnabled}
+                        onChange={(e) => setEditPlatformNewsEnabled(e.target.checked)}
+                      />
+                      <span>
+                        <span className="block text-[10px] uppercase tracking-wider text-muted">
+                          Noticias en la página de plataforma
+                        </span>
+                        <span className="block text-xs text-muted">
+                          Si está apagado, no se mostrarán noticias ni se deben lanzar búsquedas para esta sección.
+                        </span>
+                      </span>
+                    </label>
                     <div className="flex flex-wrap gap-2 md:col-span-2">
                       <button type="submit" className="btn-primary" disabled={editSaving}>
                         {editSaving ? "Guardando…" : "Guardar"}
@@ -852,6 +897,9 @@ export function AdminEntitiesPanel() {
                         <Badge tone="neutral">{platform.shortName}</Badge>
                         <Badge tone={platform.active === false ? "amber" : "green"}>
                           {platform.active === false ? "Pausada" : "Activa"}
+                        </Badge>
+                        <Badge tone={platform.newsEnabled === true ? "green" : "neutral"}>
+                          Noticias {platform.newsEnabled === true ? "ON" : "OFF"}
                         </Badge>
                       </div>
                       <p className="text-xs text-muted">
@@ -877,6 +925,17 @@ export function AdminEntitiesPanel() {
                       {togglingSlug === platform.slug
                         ? "Cambiando…"
                         : activeToggleLabel(platform.active !== false)}
+                    </button>
+                    <button
+                      type="button"
+                      className={activeToggleButtonClass(platform.newsEnabled === true)}
+                      disabled={togglingNewsSlug === platform.slug}
+                      title={platform.newsEnabled === true ? "Desactivar noticias" : "Activar noticias"}
+                      onClick={() => void togglePlatformNews(platform)}
+                    >
+                      {togglingNewsSlug === platform.slug
+                        ? "Noticias…"
+                        : `Noticias ${activeToggleLabel(platform.newsEnabled === true)}`}
                     </button>
                     <button
                       type="button"

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { buildPlatformMetadata } from "@/lib/catalog-seo";
+import { NewsStrip } from "@/components/news-strip";
 import { PlatformCatalogSection } from "@/components/platform-catalog-section";
 import { SiteNav } from "@/components/site-nav";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
@@ -17,6 +18,7 @@ import { getOwnedCatalogIds, getUserCollectionViews } from "@/lib/collection-sto
 import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { getAdminPlatform } from "@/lib/admin-entity-catalog";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
+import { listNewsForSection } from "@/lib/news-cache";
 import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
@@ -51,6 +53,10 @@ export default async function PlatformPage({ params, searchParams }: Props) {
     { regions: true, platforms: false },
   );
   const listingCounts = await getActiveListingCountsByCatalog();
+  const platformNews =
+    platform.newsEnabled === true
+      ? listNewsForSection({ section: "platform", topic: platform.slug, limit: 3 })
+      : [];
 
   return (
     <>
@@ -64,21 +70,29 @@ export default async function PlatformPage({ params, searchParams }: Props) {
             </p>
           </div>
         ) : (
-          <PlatformCatalogSection
-            platform={platform}
-            games={initialCatalog.items.slice(0, CATALOG_PAGE_SIZE)}
-            totalGames={initialCatalog.total}
-            insights={buildPlatformCatalogInsights(catalogListGames)}
-            regions={regionOptions(catalogListGames)}
-            priceCounts={countByPriceFilter(catalogListGames)}
-            ownedItems={owned}
-            ownedCatalogIds={ownedCatalogIds}
-            listingCounts={listingCounts}
-            isLoggedIn={!!user}
-            canViewCollectionValue={user ? canViewCollectionValue(user.plan) : false}
-            initialQuery={typeof query?.q === "string" ? query.q : ""}
-            initialRegion={typeof query?.region === "string" ? query.region : "all"}
-          />
+          <>
+            <NewsStrip
+              eyebrow="Actualidad"
+              title={`Noticias sobre ${platform.shortName}`}
+              description="Solo se muestra si esta plataforma tiene activadas las noticias en el panel de control."
+              items={platformNews}
+            />
+            <PlatformCatalogSection
+              platform={platform}
+              games={initialCatalog.items.slice(0, CATALOG_PAGE_SIZE)}
+              totalGames={initialCatalog.total}
+              insights={buildPlatformCatalogInsights(catalogListGames)}
+              regions={regionOptions(catalogListGames)}
+              priceCounts={countByPriceFilter(catalogListGames)}
+              ownedItems={owned}
+              ownedCatalogIds={ownedCatalogIds}
+              listingCounts={listingCounts}
+              isLoggedIn={!!user}
+              canViewCollectionValue={user ? canViewCollectionValue(user.plan) : false}
+              initialQuery={typeof query?.q === "string" ? query.q : ""}
+              initialRegion={typeof query?.region === "string" ? query.region : "all"}
+            />
+          </>
         )}
 
         {ownedOnPlatform.length > 0 && (

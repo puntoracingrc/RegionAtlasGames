@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
-import { deleteAdminPlatform, setAdminEntityActive, updateAdminPlatform } from "@/lib/admin-entity-catalog";
+import {
+  deleteAdminPlatform,
+  setAdminEntityActive,
+  setAdminPlatformNewsEnabled,
+  updateAdminPlatform,
+} from "@/lib/admin-entity-catalog";
 
 type RouteParams = { params: Promise<{ slug: string }> };
 
@@ -19,6 +24,7 @@ export async function PATCH(request: Request, { params }: RouteParams) {
     sortOrder?: number;
     newSlug?: string;
     active?: boolean;
+    newsEnabled?: boolean;
   };
 
   if (typeof body.active === "boolean" && Object.keys(body).length === 1) {
@@ -27,6 +33,14 @@ export async function PATCH(request: Request, { params }: RouteParams) {
       return NextResponse.json({ error: result.error }, { status: 400 });
     }
     return NextResponse.json({ ok: true, slug, active: body.active });
+  }
+
+  if (typeof body.newsEnabled === "boolean" && Object.keys(body).length === 1) {
+    const result = await setAdminPlatformNewsEnabled(slug, body.newsEnabled);
+    if ("error" in result) {
+      return NextResponse.json({ error: result.error }, { status: 400 });
+    }
+    return NextResponse.json({ ok: true, slug, newsEnabled: body.newsEnabled });
   }
 
   const result = await updateAdminPlatform(slug, body);

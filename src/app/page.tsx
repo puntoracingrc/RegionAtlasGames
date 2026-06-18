@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HomeCatalogSearch } from "@/components/home-catalog-search";
+import { NewsStrip } from "@/components/news-strip";
 import { PlatformGrid } from "@/components/platform-card";
 import { SiteNav } from "@/components/site-nav";
 import {
@@ -11,6 +12,7 @@ import { listedCatalog, meta } from "@/lib/catalog";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import { formatEur } from "@/lib/price-format";
 import { getGameDetails, indexStats } from "@/lib/indexes";
+import { listNewsForSection } from "@/lib/news-cache";
 import { canViewCollectionValue } from "@/lib/plans";
 import { regionBarColorForLabel, regionSortRank } from "@/lib/platform-catalog-insights";
 import { getRegionDisplay } from "@/lib/region-display";
@@ -26,6 +28,7 @@ export default async function HomePage() {
   const showCollectionValue = user ? canViewCollectionValue(user.plan) : false;
   const indexes = indexStats();
   const atlasStats = buildAtlasPanelStats();
+  const homeNews = listNewsForSection({ section: "home", topic: "general", limit: 3 });
   const activePlatforms = (await listAdminPlatforms()).filter((platform) => platform.active !== false);
   const searchPlatforms = activePlatforms.map((platform) => ({
     slug: platform.slug,
@@ -77,6 +80,12 @@ export default async function HomePage() {
         </header>
 
         <HomeCatalogSearch platforms={searchPlatforms} regions={searchRegions} />
+
+        <NewsStrip
+          title="Actualidad del videojuego"
+          description="Noticias recientes enlazadas a su fuente original, sin sacarte de Region Atlas salvo que elijas leer más."
+          items={homeNews}
+        />
 
         <section className="mb-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <Stat label="Plataformas" value={String(activePlatforms.length)} hint="Consolas activas en catálogo" />

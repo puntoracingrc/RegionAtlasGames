@@ -168,6 +168,24 @@ export type Platform = {
   sortOrder: number;
   description: string;
   active?: boolean;
+  newsEnabled?: boolean;
+};
+
+export type NewsSection = "home" | "platform";
+
+export type NewsItem = {
+  id: string;
+  section: NewsSection;
+  topic: string;
+  title: string;
+  sourceName: string;
+  sourceIconUrl?: string | null;
+  url: string;
+  imageUrl?: string | null;
+  publishedAt?: string | null;
+  snippet?: string | null;
+  query: string;
+  fetchedAt: string;
 };
 
 export type CatalogGame = {
