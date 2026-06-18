@@ -535,6 +535,54 @@ export function AdminSeriesPanel() {
                   </select>
                 </div>
 
+                <div className="mb-4 rounded-2xl border border-violet-300/50 bg-violet-100/40 p-4 dark:border-violet-400/30 dark:bg-violet-950/20">
+                  <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-muted">
+                    Aplicar facetas y etiquetas en lote
+                  </h3>
+                  <p className="mb-4 text-sm text-muted">
+                    Se aplicará solo a los {filteredGames.length} juegos visibles con el filtro actual.
+                  </p>
+                  <div className="grid gap-3 md:grid-cols-2">
+                    <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">
+                        Etiquetas
+                      </span>
+                      <input
+                        className="input"
+                        value={tagsInput}
+                        onChange={(e) => setTagsInput(e.target.value)}
+                        placeholder="soulslike, cooperativo, mundo abierto…"
+                      />
+                    </label>
+                    <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">
+                        Facetas
+                      </span>
+                      <input
+                        className="input"
+                        value={facetsInput}
+                        onChange={(e) => setFacetsInput(e.target.value)}
+                        placeholder="Edición física, edición GOTY…"
+                      />
+                    </label>
+                  </div>
+                  <button
+                    type="button"
+                    className="btn-primary mt-4"
+                    disabled={saving || filteredGames.length === 0}
+                    onClick={() =>
+                      void patchSeries({
+                        action: "bulk-assign",
+                        genreSlug: genreFilter || null,
+                        tags: parseCsv(tagsInput),
+                        facets: parseCsv(facetsInput),
+                      })
+                    }
+                  >
+                    {saving ? "Aplicando…" : "Aplicar a los juegos filtrados"}
+                  </button>
+                </div>
+
                 <div className="grid gap-2">
                   {filteredGames.map((game) => (
                     <div
@@ -578,54 +626,6 @@ export function AdminSeriesPanel() {
                     </p>
                   )}
                 </div>
-              </div>
-
-              <div className="rounded-2xl border border-violet-300/50 bg-violet-100/40 p-4 dark:border-violet-400/30 dark:bg-violet-950/20">
-                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-muted">
-                  Aplicar facetas y etiquetas en lote
-                </h3>
-                <p className="mb-4 text-sm text-muted">
-                  Se aplicará solo a los {filteredGames.length} juegos visibles con el filtro actual.
-                </p>
-                <div className="grid gap-3 md:grid-cols-2">
-                  <label className="block space-y-1">
-                    <span className="text-[10px] uppercase tracking-wider text-muted">
-                      Etiquetas
-                    </span>
-                    <input
-                      className="input"
-                      value={tagsInput}
-                      onChange={(e) => setTagsInput(e.target.value)}
-                      placeholder="soulslike, cooperativo, mundo abierto…"
-                    />
-                  </label>
-                  <label className="block space-y-1">
-                    <span className="text-[10px] uppercase tracking-wider text-muted">
-                      Facetas
-                    </span>
-                    <input
-                      className="input"
-                      value={facetsInput}
-                      onChange={(e) => setFacetsInput(e.target.value)}
-                      placeholder="Edición física, edición GOTY…"
-                    />
-                  </label>
-                </div>
-                <button
-                  type="button"
-                  className="btn-primary mt-4"
-                  disabled={saving || filteredGames.length === 0}
-                  onClick={() =>
-                    void patchSeries({
-                      action: "bulk-assign",
-                      genreSlug: genreFilter || null,
-                      tags: parseCsv(tagsInput),
-                      facets: parseCsv(facetsInput),
-                    })
-                  }
-                >
-                  {saving ? "Aplicando…" : "Aplicar a los juegos filtrados"}
-                </button>
               </div>
             </div>
           ) : (
