@@ -16,6 +16,7 @@ type CompanySort =
 type CompanyRoleFilter = "all" | "publishers" | "developers" | "both";
 type CompanyIndexFilters = {
   q: string;
+  initial: string;
   role: CompanyRoleFilter;
   platform: string;
   genre: string;
@@ -54,6 +55,7 @@ type CompanyExplorerData = {
 
 const DEFAULT_COMPANY_FILTERS: CompanyIndexFilters = {
   q: "",
+  initial: "all",
   role: "all",
   platform: "all",
   genre: "all",
@@ -82,10 +84,20 @@ const selectClass =
 
 const DISPLAY_CAP = 480;
 
+function companyInitial(name: string): string {
+  const first = name.trim().charAt(0).toLocaleUpperCase("es-ES");
+  if (!first) return "#";
+  return /^\d$/.test(first) ? "0-9" : first.normalize("NFD").replace(/\p{M}/gu, "");
+}
+
 function matchesSearch(company: CompanyCardData, query: string): boolean {
   const needle = query.trim().toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
   if (!needle) return true;
   return needle.split(/\s+/).every((token) => company.searchHaystack.includes(token));
+}
+
+function matchesInitial(company: CompanyCardData, initial: string): boolean {
+  return initial === "all" || companyInitial(company.name) === initial;
 }
 
 function matchesRole(company: CompanyCardData, role: CompanyRoleFilter): boolean {
@@ -112,6 +124,7 @@ function filterCompanies(companies: CompanyCardData[], filters: CompanyIndexFilt
     companies.filter(
       (company) =>
         matchesSearch(company, filters.q) &&
+        matchesInitial(company, filters.initial) &&
         matchesRole(company, filters.role) &&
         (filters.platform === "all" || company.platformSlugs.includes(filters.platform)) &&
         (filters.genre === "all" || company.genreSlugs.includes(filters.genre)),
@@ -123,6 +136,7 @@ function filterCompanies(companies: CompanyCardData[], filters: CompanyIndexFilt
 function hasActiveCompanyFilters(filters: CompanyIndexFilters): boolean {
   return (
     filters.q.trim() !== "" ||
+    filters.initial !== "all" ||
     filters.role !== "all" ||
     filters.platform !== "all" ||
     filters.genre !== "all" ||
@@ -142,10 +156,19 @@ export function CompanyExplorer({ companies, platformOptions, genreOptions, stat
   const filtered = useMemo(() => filterCompanies(companies, filters), [companies, filters]);
   const visible = filtered.slice(0, DISPLAY_CAP);
   const filtersActive = hasActiveCompanyFilters(filters);
+  const initials = useMemo(() => {
+    const order = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    const available = new Set(companies.map((company) => companyInitial(company.name)));
+    return [
+      ...(available.has("0-9") ? ["0-9"] : []),
+      ...order.filter((letter) => available.has(letter)),
+    ];
+  }, [companies]);
 
   const showGrouped =
     filters.role === "all" &&
     !filters.q.trim() &&
+    filters.initial === "all" &&
     filters.platform === "all" &&
     filters.genre === "all";
 
@@ -263,11 +286,40 @@ export function CompanyExplorer({ companies, platformOptions, genreOptions, stat
             <> · primeras {DISPLAY_CAP.toLocaleString("es-ES")} en pantalla</>
           )}
         </p>
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          <button
+            type="button"
+            onClick={() => setFilters((current) => ({ ...current, initial: "all" }))}
+            className={cn(
+              "rounded-lg border px-2.5 py-1 text-xs font-semibold transition",
+              filters.initial === "all"
+                ? "border-accent/50 bg-accent/15 text-accent"
+                : "border-border bg-background/60 text-muted hover:border-accent/30 hover:text-accent",
+            )}
+          >
+            Todas
+          </button>
+          {initials.map((initial) => (
+            <button
+              key={initial}
+              type="button"
+              onClick={() => setFilters((current) => ({ ...current, initial, sort: "name-asc" }))}
+              className={cn(
+                "rounded-lg border px-2.5 py-1 text-xs font-semibold transition",
+                filters.initial === initial
+                  ? "border-accent/50 bg-accent/15 text-accent"
+                  : "border-border bg-background/60 text-muted hover:border-accent/30 hover:text-accent",
+              )}
+            >
+              {initial}
+            </button>
+          ))}
+        </div>
       </section>
 
       {grouped && (
-        <div className="space-y-8">
-          <div className="grid gap-8 xl:grid-cols-2">
+        <div className="space-y-5">
+          <div className="grid gap-4 xl:grid-cols-2">
             <CompanyPreviewSection title="Publicadoras destacadas" items={grouped.publishers} />
             <CompanyPreviewSection title="Desarrolladoras destacadas" items={grouped.developers} />
           </div>
@@ -295,9 +347,22 @@ function CompanyPreviewSection({
 }) {
   if (items.length === 0) return null;
   return (
-    <section className="space-y-3">
+    <section className="rounded-2xl border border-border bg-card p-4">
       <h2 className="text-lg font-semibold text-foreground">{title}</h2>
-      <CompanyGrid companies={items} compact />
+      <div className="mt-3 grid gap-2 sm:grid-cols-2">
+        {items.map((company) => (
+          <Link
+            key={company.slug}
+            href={`/compania/${company.slug}`}
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-background/50 px-3 py-2 text-sm transition hover:border-accent/40 hover:bg-card-hover"
+          >
+            <span className="truncate font-semibold text-foreground">{company.name}</span>
+            <span className="shrink-0 text-xs font-semibold text-accent">
+              {company.gameCount.toLocaleString("es-ES")}
+            </span>
+          </Link>
+        ))}
+      </div>
     </section>
   );
 }
