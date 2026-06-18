@@ -50,7 +50,7 @@ export function platformNewsTopicForSlug(slug: string): PlatformNewsTopic | null
     return {
       topic: "sega",
       label: "SEGA",
-      query: "videojuegos SEGA Dreamcast Saturn Mega Drive España when:30d",
+      query: "SEGA videojuegos España when:30d",
     };
   }
   return null;
@@ -61,6 +61,6 @@ export function platformNewsTopics(): PlatformNewsTopic[] {
     { topic: "playstation", label: "PlayStation", query: "videojuegos PlayStation PS5 PS4 España when:7d" },
     { topic: "nintendo", label: "Nintendo", query: "videojuegos Nintendo Switch España when:7d" },
     { topic: "snk", label: "SNK / Neo Geo", query: "videojuegos Neo Geo SNK España when:30d" },
-    { topic: "sega", label: "SEGA", query: "videojuegos SEGA Dreamcast Saturn Mega Drive España when:30d" },
+    { topic: "sega", label: "SEGA", query: "SEGA videojuegos España when:30d" },
   ];
 }

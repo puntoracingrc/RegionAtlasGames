@@ -57,7 +57,7 @@ NEWS_BLOCKS = (
     {
         "section": "platform",
         "topic": "sega",
-        "query": "videojuegos SEGA Dreamcast Saturn Mega Drive España when:30d",
+        "query": "SEGA videojuegos España when:30d",
         "required_terms": ("sega", "dreamcast", "saturn", "mega drive", "megadrive", "master system", "game gear"),
         "max_age_days": 45,
     },
@@ -77,6 +77,7 @@ PREFERRED_TERMS = (
     "videojuego", "videojuegos", "playstation", "ps5", "ps4", "xbox", "nintendo",
     "switch", "steam", "pc gaming", "consola", "consolas", "gaming",
     "desarrolladora", "lanzamiento", "tráiler", "trailer", "game pass", "esports", "e-sports",
+    "sega", "sonic", "dreamcast", "saturn", "mega drive", "megadrive", "master system", "game gear",
 )
 
 SOFT_TERMS = (
