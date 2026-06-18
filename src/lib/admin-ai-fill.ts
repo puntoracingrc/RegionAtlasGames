@@ -498,6 +498,7 @@ async function searchSteamStoreExperimental(draft: AdminGameDraft): Promise<Refe
       metaContent(html, "og:description") ??
       "",
   );
+  const coverUrl = metaContent(html, "og:image");
 
   const facts = [
     "Fuente experimental: Steam Store España. Uso de prueba, no importación masiva.",
@@ -516,6 +517,7 @@ async function searchSteamStoreExperimental(draft: AdminGameDraft): Promise<Refe
     text: facts.join("\n"),
     developerName,
     publisherName,
+    coverUrl,
     steamTags,
   };
 }
@@ -541,6 +543,7 @@ async function fetchManualReference(url: string): Promise<ReferenceSource | null
     html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim() ??
     parsed.hostname;
   const description = metaContent(html, "og:description") ?? metaContent(html, "description");
+  const coverUrl = metaContent(html, "og:image");
   const text = stripHtmlToText(html).slice(0, 2400);
   const facts = [
     `URL aportada manualmente por admin: ${parsed.toString()}`,
@@ -554,6 +557,7 @@ async function fetchManualReference(url: string): Promise<ReferenceSource | null
     url: parsed.toString(),
     title,
     text: facts.join("\n"),
+    coverUrl,
   };
 }
 
@@ -840,6 +844,21 @@ function referenceFromSearchResults(results: TrustedSearchResult[]): ReferenceSo
 
 function hasSolidReference(referenceText: string | null, referenceUrl: string | null): boolean {
   return Boolean(referenceText && referenceUrl);
+}
+
+function aggregateReferenceSources(sources: ReferenceSource[]): {
+  text: string | null;
+  url: string | null;
+  label: string | null;
+} {
+  if (sources.length === 0) return { text: null, url: null, label: null };
+  return {
+    text: sources
+      .map((source, index) => `### Fuente ${index + 1}: ${source.label}\nURL: ${source.url}\n${source.text}`)
+      .join("\n\n---\n\n"),
+    url: sources[0].url,
+    label: sources.map((source) => source.label).join(" + "),
+  };
 }
 
 function hasEnoughExistingFacts(draft: AdminGameDraft): boolean {
@@ -1141,15 +1160,26 @@ export async function* streamAdminAiFill(
   let referenceText: string | null = null;
   let referenceUrl: string | null = null;
   let referenceLabel: string | null = null;
+  const referenceSources: ReferenceSource[] = [];
+  const refreshReferenceContext = () => {
+    const aggregate = aggregateReferenceSources(referenceSources);
+    referenceText = aggregate.text;
+    referenceUrl = aggregate.url;
+    referenceLabel = aggregate.label;
+  };
+  const addReferenceSource = (source: ReferenceSource) => {
+    if (!referenceSources.some((existing) => existing.url === source.url)) {
+      referenceSources.push(source);
+      refreshReferenceContext();
+    }
+  };
 
   const manualUrl = options.manualUrl?.trim();
   if (manualUrl) {
     yield { type: "log", message: `URL manual indicada: ${manualUrl}` };
     const manualReference = await fetchManualReference(manualUrl);
     if (manualReference) {
-      referenceText = manualReference.text;
-      referenceUrl = manualReference.url;
-      referenceLabel = manualReference.label;
+      addReferenceSource(manualReference);
       yield { type: "log", message: `Fuente consultada: ${referenceLabel} · ${referenceUrl}` };
       if (!isSameGameTitle(draft.title, manualReference.title ?? draft.title)) {
         yield {
@@ -1162,7 +1192,7 @@ export async function* streamAdminAiFill(
     }
   }
 
-  if (!referenceText && draft.platformSlug.startsWith("ps")) {
+  if (draft.platformSlug.startsWith("ps")) {
     yield { type: "log", message: "Buscando fuente oficial en PlayStation Store…" };
 
     const psStoreReference = await searchPlayStationStore(draft);
@@ -1179,9 +1209,7 @@ export async function* streamAdminAiFill(
         message: `PlayStation Store encontró otra plataforma (${psStoreReference.platforms.join(", ")}), no se usará para esta ficha ${expectedPsPlatform}.`,
       };
     } else if (psStoreReference) {
-      referenceText = psStoreReference.text;
-      referenceUrl = psStoreReference.url;
-      referenceLabel = psStoreReference.label;
+      addReferenceSource(psStoreReference);
       yield {
         type: "log",
         message: `Fuente oficial encontrada: ${psStoreReference.label}`,
@@ -1245,9 +1273,7 @@ export async function* streamAdminAiFill(
     if (steamReference) {
       steamExperimentalTags = steamReference.steamTags ?? [];
       steamExperimentalUrl = steamReference.url;
-      referenceText = [referenceText, steamReference.text].filter(Boolean).join("\n\n---\n\n") || referenceText;
-      referenceUrl = referenceUrl ?? steamReference.url;
-      referenceLabel = referenceLabel ? `${referenceLabel} + ${steamReference.label}` : steamReference.label;
+      addReferenceSource(steamReference);
       yield { type: "log", message: `Fuente experimental encontrada: Steam · ${steamReference.url}` };
       if (steamExperimentalTags.length) {
         yield { type: "log", message: `Etiquetas Steam detectadas: ${steamExperimentalTags.join(", ")}` };
@@ -1307,38 +1333,36 @@ export async function* streamAdminAiFill(
     };
   }
 
-  if (!referenceText) {
-    if (webSearchConfigured()) {
-      yield {
-        type: "log",
-        message: isModernCatalogPlatform(draft.platformSlug)
+  if (webSearchConfigured()) {
+    yield {
+      type: "log",
+      message: referenceText
+        ? "Buscando fuentes adicionales para completar huecos y contrastar datos…"
+        : isModernCatalogPlatform(draft.platformSlug)
           ? "Buscando fuentes oficiales y editoras/desarrolladoras en web…"
           : "Buscando fuentes retro/especializadas en web…",
-      };
-      const trustedResults = await trustedWebSearch(draft);
-      const searchReference = referenceFromSearchResults(trustedResults);
-      if (searchReference) {
-        referenceText = searchReference.text;
-        referenceUrl = searchReference.url;
-        referenceLabel = searchReference.label;
-        yield {
-          type: "log",
-          message: `Fuentes fiables encontradas: ${trustedResults.map((result) => result.source).join(", ")}`,
-        };
-        yield {
-          type: "log",
-          message: `URLs consultadas: ${trustedResults.map((result) => result.url).join(" · ")}`,
-        };
-      }
-    } else {
+    };
+    const trustedResults = await trustedWebSearch(draft);
+    const searchReference = referenceFromSearchResults(trustedResults);
+    if (searchReference) {
+      addReferenceSource(searchReference);
       yield {
         type: "log",
-        message: "Búsqueda web fiable no configurada; usando fuentes directas disponibles.",
+        message: `Fuentes fiables encontradas: ${trustedResults.map((result) => result.source).join(", ")}`,
+      };
+      yield {
+        type: "log",
+        message: `URLs consultadas: ${trustedResults.map((result) => result.url).join(" · ")}`,
       };
     }
+  } else {
+    yield {
+      type: "log",
+      message: "Búsqueda web fiable no configurada; usando fuentes directas disponibles.",
+    };
   }
 
-  if (!referenceText) {
+  if (!referenceText || referenceSources.length < 2) {
     yield { type: "log", message: "Buscando referencia en Wikipedia (es)…" };
 
     for (const lang of ["es", "en"] as const) {
@@ -1347,14 +1371,18 @@ export async function* streamAdminAiFill(
       if (!isSameGameTitle(draft.title, wikiTitle)) continue;
       const extract = await fetchWikiExtract(wikiTitle, lang);
       if (extract && extract.length > 80) {
-        referenceText = extract.slice(0, 1400);
-        referenceUrl = `https://${lang}.wikipedia.org/wiki/${encodeURIComponent(wikiTitle.replace(/ /g, "_"))}`;
-        referenceLabel = `Wikipedia (${lang.toUpperCase()})`;
+        const wikiReference = {
+          label: `Wikipedia (${lang.toUpperCase()})`,
+          url: `https://${lang}.wikipedia.org/wiki/${encodeURIComponent(wikiTitle.replace(/ /g, "_"))}`,
+          title: wikiTitle,
+          text: extract.slice(0, 1400),
+        };
+        addReferenceSource(wikiReference);
         yield {
           type: "log",
           message: `Referencia encontrada: ${wikiTitle} (${lang.toUpperCase()})`,
         };
-        yield { type: "log", message: `URL consultada: ${referenceUrl}` };
+        yield { type: "log", message: `URL consultada: ${wikiReference.url}` };
         break;
       }
     }
@@ -1367,6 +1395,13 @@ export async function* streamAdminAiFill(
         "No hay fuente fiable ni metadatos suficientes para rellenar con IA. Añade una URL/SKU oficial o algunos datos básicos y vuelve a intentarlo.",
     };
     return;
+  }
+
+  const coverReference = referenceSources.find((source) => source.coverUrl?.trim());
+  if (coverReference?.coverUrl && (!options.onlyMissing || !draft.coverUrl)) {
+    draft.coverUrl = coverReference.coverUrl;
+    yield { type: "field", field: "coverUrl", value: draft.coverUrl };
+    yield { type: "log", message: `Portada detectada desde ${coverReference.label}.` };
   }
 
   if (!referenceText) {
