@@ -18,6 +18,7 @@ function fail(message) {
 
 for (const requiredFile of [
   "docs/facet-public-taxonomy-polish-v1.md",
+  "src/lib/game-facet-profile.ts",
   "src/lib/game-taxonomy-groups.ts",
   "src/components/game-taxonomy-group-browser.tsx",
 ]) {
@@ -50,6 +51,15 @@ if (!browser.includes("...term.searchAliases")) {
 }
 if (browser.includes("Alias: {term.searchAliases")) {
   fail("No deben mostrarse searchAliases como alias visibles");
+}
+
+const profile = read("src/lib/game-facet-profile.ts");
+for (const snippet of [
+  "matchedSlugs",
+  "findGameFacetEntityByNameOrAlias",
+  "for (const detailEntity of detailEntities)",
+]) {
+  if (!profile.includes(snippet)) fail(`game-facet-profile no tiene conteo optimizado: ${snippet}`);
 }
 
 if (existsSync(file("src/app/faceta")) || existsSync(file("src/app/facet"))) {

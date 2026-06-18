@@ -2,7 +2,11 @@ import { listedCatalog } from "@/lib/catalog";
 import { normalizeCatalogSearchSlug, normalizeCatalogSearchText } from "@/lib/catalog-search-normalize";
 import { resolveCanonicalGenreEntity } from "@/lib/genre-canonical";
 import { getGameDetails } from "@/lib/indexes";
-import { getAllGameFacetTaxonomyEntities, findGameFacetEntityBySlug } from "@/lib/game-facets/taxonomy";
+import {
+  getAllGameFacetTaxonomyEntities,
+  findGameFacetEntityByNameOrAlias,
+  findGameFacetEntityBySlug,
+} from "@/lib/game-facets/taxonomy";
 import type { GameFacetTaxonomyEntity } from "@/lib/game-facets/types";
 import { readAdminSeriesAssignmentsForPublic } from "@/lib/admin-series-manager";
 import type { CatalogGame, DetailEntity } from "@/lib/types";
@@ -82,10 +86,28 @@ export async function buildGameFacetCounts(): Promise<Record<string, number>> {
   for (const entity of entities) counts[entity.slug] = 0;
 
   for (const game of listedCatalog) {
-    for (const entity of entities) {
-      if (matchesGameFacet(game, entity, assignments[game.id])) {
-        counts[entity.slug] = (counts[entity.slug] ?? 0) + 1;
-      }
+    const details = getGameDetails(game.id);
+    const matchedSlugs = new Set<string>();
+    const canonicalGenres = (details?.genres ?? []).map(resolveCanonicalGenreEntity);
+    const detailEntities = [
+      ...(details?.genres ?? []),
+      ...canonicalGenres.map((genre) => ({ name: genre.name, slug: genre.slug })),
+      ...(details?.subgenres ?? []),
+      ...(details?.facets ?? []),
+      ...(details?.tags ?? []),
+      ...(assignments[game.id]?.tags ?? []),
+      ...(assignments[game.id]?.facets ?? []),
+    ];
+
+    for (const detailEntity of detailEntities) {
+      const entity =
+        findGameFacetEntityBySlug(detailEntity.slug) ??
+        findGameFacetEntityByNameOrAlias(detailEntity.name);
+      if (entity) matchedSlugs.add(entity.slug);
+    }
+
+    for (const slug of matchedSlugs) {
+      if (slug in counts) counts[slug] = (counts[slug] ?? 0) + 1;
     }
   }
 
