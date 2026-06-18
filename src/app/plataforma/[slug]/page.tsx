@@ -55,7 +55,7 @@ export default async function PlatformPage({ params, searchParams }: Props) {
   const listingCounts = await getActiveListingCountsByCatalog();
   const platformNews =
     platform.newsEnabled === true
-      ? listNewsForSection({ section: "platform", topic: platform.slug, limit: 3 })
+      ? await listNewsForSection({ section: "platform", topic: platform.slug, limit: 3 })
       : [];
 
   return (

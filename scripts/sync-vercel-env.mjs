@@ -18,6 +18,7 @@ const SYNC_PLAN = [
   { key: "GOOGLE_CLIENT_SECRET", targets: ["production", "preview"] },
   { key: "SESSION_SECRET", targets: ["preview"] },
   { key: "NEXT_PUBLIC_SITE_URL", targets: ["preview"] },
+  { key: "SERPAPI_API_KEY", targets: ["production", "preview"] },
 ];
 
 function parseEnvLocal(filePath) {
