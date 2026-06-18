@@ -240,10 +240,23 @@ export function AdminTaxonomyPanel() {
         <PanelTitle eyebrow="Géneros editoriales">Género principal · Subgénero · Tipo/etiqueta</PanelTitle>
         <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="rounded-2xl border border-border bg-background/45 p-4">
-            <p className="text-sm leading-6 text-muted">
-              Esta sección sirve para simplificar y agrupar los géneros reales del catálogo. De momento es
-              una capa editorial: no cambia todavía las fichas públicas hasta que la conectemos al catálogo.
-            </p>
+            <div className="rounded-2xl border border-border bg-card/60 p-3">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Accesos rápidos</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <a href="#crear-taxonomia" className="btn-secondary px-3 py-1.5 text-xs">
+                  Crear / editar
+                </a>
+                <a href="#generos-principales" className="btn-secondary px-3 py-1.5 text-xs">
+                  Géneros principales
+                </a>
+                <a href="#subgeneros" className="btn-secondary px-3 py-1.5 text-xs">
+                  Subgéneros
+                </a>
+                <a href="#tipos-etiquetas" className="btn-secondary px-3 py-1.5 text-xs">
+                  Tipos / etiquetas
+                </a>
+              </div>
+            </div>
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
               {(Object.keys(levelLabels) as AdminTaxonomyLevel[]).map((level) => (
                 <button
@@ -263,7 +276,7 @@ export function AdminTaxonomyPanel() {
             </div>
           </div>
 
-          <form onSubmit={saveNode} className="grid gap-3 rounded-2xl border border-border bg-background/45 p-4">
+          <form id="crear-taxonomia" onSubmit={saveNode} className="grid scroll-mt-24 gap-3 rounded-2xl border border-border bg-background/45 p-4">
             <div className="flex items-center justify-between gap-3">
               <PanelTitle eyebrow={editingSlug ? "Editar" : "Crear"}>
                 {editingSlug ? "Elemento seleccionado" : levelLabels[formLevel]}
@@ -342,7 +355,7 @@ export function AdminTaxonomyPanel() {
           <p className="text-sm text-muted">Cargando géneros…</p>
         ) : (
           <div className="grid gap-4 xl:grid-cols-3">
-            <section className="space-y-3">
+            <section id="generos-principales" className="scroll-mt-24 space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">Género principal</h3>
                 <Badge>{mainNodes.length}</Badge>
@@ -360,7 +373,7 @@ export function AdminTaxonomyPanel() {
               ))}
             </section>
 
-            <section className="space-y-3">
+            <section id="subgeneros" className="scroll-mt-24 space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">Subgéneros</h3>
                 <Badge>{subNodes.length}</Badge>
@@ -381,7 +394,7 @@ export function AdminTaxonomyPanel() {
               )}
             </section>
 
-            <section className="space-y-3">
+            <section id="tipos-etiquetas" className="scroll-mt-24 space-y-3">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">Tipos / etiquetas</h3>
                 <Badge>{tagNodes.length}</Badge>
