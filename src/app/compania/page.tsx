@@ -51,11 +51,6 @@ export default async function CompaniesPage() {
       <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
         <header className="mb-8 space-y-2">
           <h1 className="text-3xl font-bold text-foreground">Compañías</h1>
-          <p className="max-w-3xl text-muted">{companyListIntro(data.stats)}</p>
-          <p className="max-w-3xl text-sm text-foreground/75">
-            Explora publicadoras y desarrolladoras del catálogo retro. Cruza plataformas, géneros y
-            señales de mercado para encontrar estudios relevantes en España.
-          </p>
         </header>
         <NewsStrip eyebrow="Industria" title="Actualidad de compañías y desarrolladoras" items={companyNews} />
         <CompanyExplorer {...data} />
