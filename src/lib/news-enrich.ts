@@ -1,6 +1,7 @@
 import crypto from "crypto";
 import { listAdminPlatforms } from "./admin-entity-catalog";
 import { readNewsCache, writeNewsCache } from "./news-cache";
+import { newsItemAllowedBySettings, newsSectionEnabled, readNewsSettings } from "./news-settings";
 import { platformNewsTopicForSlug, platformNewsTopics } from "./news-platform-topics";
 import type { NewsItem, NewsSection } from "./types";
 
@@ -157,6 +158,17 @@ export async function refreshNewsSection(input: RefreshNewsSectionInput): Promis
   const limit = Math.max(1, Math.min(input.limit ?? 9, 20));
   const maxAgeDays = Math.max(1, Math.min(input.maxAgeDays ?? 3, 14));
   const fetchedAt = new Date().toISOString();
+  const settings = await readNewsSettings();
+  if (!newsSectionEnabled(settings, input.section, input.topic)) {
+    return {
+      section: input.section,
+      topic: input.topic,
+      query: input.query,
+      fetched: 0,
+      saved: 0,
+      items: [],
+    };
+  }
   const results = await fetchGoogleNews(input);
   const items: NewsItem[] = [];
   const seenUrls = new Set<string>();
@@ -169,6 +181,7 @@ export async function refreshNewsSection(input: RefreshNewsSectionInput): Promis
     if (!isRelevantNews(result)) continue;
     const item = toNewsItem(result, input, fetchedAt);
     if (!item) continue;
+    if (!newsItemAllowedBySettings(settings, item)) continue;
     items.push(item);
     if (items.length >= limit) break;
   }

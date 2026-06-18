@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "home": true,
+    "companies": true
+  },
+  "platformTopics": {
+    "playstation": true,
+    "nintendo": true,
+    "snk": true
+  },
+  "blockedDomains": [],
+  "blockedSources": [],
+  "blockedTerms": []
+}

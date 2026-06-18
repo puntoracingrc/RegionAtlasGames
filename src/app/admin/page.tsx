@@ -29,6 +29,12 @@ const quickActions = [
     icon: "✦",
   },
   {
+    href: "/admin/noticias",
+    title: "Noticias",
+    description: "Activa bloques y bloquea fuentes.",
+    icon: "◫",
+  },
+  {
     href: "/admin/juegos",
     title: "Editar publicado",
     description: "Busca por título, slug o id de catálogo.",

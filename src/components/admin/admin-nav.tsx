@@ -12,6 +12,7 @@ const links = [
   { href: "/admin/juegos/nuevo", label: "Crear", icon: "+" },
   { href: "/admin/importacion", label: "Importar", icon: "⇪" },
   { href: "/admin/ia", label: "IA", icon: "✦" },
+  { href: "/admin/noticias", label: "Noticias", icon: "◫" },
   { href: "/admin/colaboradores", label: "Colaboradores", icon: "◎" },
   { href: "/admin/entidades", label: "Entidades", icon: "▦" },
   { href: "/admin/taxonomia", label: "Géneros", icon: "✣" },

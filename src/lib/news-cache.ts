@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
 import { canWriteCatalogFiles } from "./admin-auth";
+import { newsItemAllowedBySettings, newsSectionEnabled, readNewsSettings } from "./news-settings";
 import type { NewsItem, NewsSection } from "./types";
 
 const NEWS_CACHE_FILE = path.join(process.cwd(), "data", "news-cache.json");
@@ -155,10 +156,16 @@ export async function listNewsForSection(input: {
   const limit = Math.max(1, Math.min(input.limit ?? 3, 12));
   const now = Date.now();
   const maxAgeMs = 1000 * 60 * 60 * 24 * 14;
+  const settings = await readNewsSettings();
+
+  if (!newsSectionEnabled(settings, input.section, input.topic)) {
+    return [];
+  }
 
   return ((await readNewsCache()).items ?? [])
     .filter((item) => item.section === input.section)
     .filter((item) => !input.topic || item.topic === input.topic)
+    .filter((item) => newsItemAllowedBySettings(settings, item))
     .filter((item) => {
       if (!item.publishedAt) return true;
       const publishedTime = Date.parse(item.publishedAt);

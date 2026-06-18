@@ -14,6 +14,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 ENV_FILE = BASE_DIR / ".env"
 OUTPUT_FILE = Path("/kunden/homepages/43/d424401959/htdocs/MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/news/news-cache.json")
+SETTINGS_FILE = OUTPUT_FILE.with_name("news-settings.json")
 
 SERPAPI_URL = "https://serpapi.com/search.json"
 MAX_ITEMS = 9
@@ -81,6 +82,21 @@ BANNED_TERMS = (
     "eurosport", "quiniela", "apuestas", "lotería", "loteria",
 )
 
+DEFAULT_SETTINGS = {
+    "sections": {
+        "home": True,
+        "companies": True,
+    },
+    "platformTopics": {
+        "playstation": True,
+        "nintendo": True,
+        "snk": True,
+    },
+    "blockedDomains": [],
+    "blockedSources": [],
+    "blockedTerms": [],
+}
+
 
 def load_env():
     values = {}
@@ -108,18 +124,79 @@ def domain_from_url(url):
     return host[4:] if host.startswith("www.") else host
 
 
-def is_blocked(url):
+def normalize_list(values, lower=False):
+    if not isinstance(values, list):
+        return []
+    normalized = []
+    seen = set()
+    for value in values:
+        if not isinstance(value, str):
+            continue
+        item = value.strip()
+        item = re.sub(r"^https?://", "", item, flags=re.I)
+        item = re.sub(r"^www\.", "", item, flags=re.I).rstrip("/")
+        if not item:
+            continue
+        final = item.lower() if lower else item
+        key = final.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        normalized.append(final)
+    return normalized
+
+
+def load_settings():
+    try:
+        with SETTINGS_FILE.open("r", encoding="utf-8") as handle:
+            raw = json.load(handle)
+    except Exception:
+        raw = {}
+    sections = raw.get("sections") if isinstance(raw.get("sections"), dict) else {}
+    platform_topics = raw.get("platformTopics") if isinstance(raw.get("platformTopics"), dict) else {}
+    return {
+        "sections": {
+            "home": sections.get("home", DEFAULT_SETTINGS["sections"]["home"]) is not False,
+            "companies": sections.get("companies", DEFAULT_SETTINGS["sections"]["companies"]) is not False,
+        },
+        "platformTopics": {
+            "playstation": platform_topics.get("playstation", DEFAULT_SETTINGS["platformTopics"]["playstation"]) is not False,
+            "nintendo": platform_topics.get("nintendo", DEFAULT_SETTINGS["platformTopics"]["nintendo"]) is not False,
+            "snk": platform_topics.get("snk", DEFAULT_SETTINGS["platformTopics"]["snk"]) is not False,
+        },
+        "blockedDomains": normalize_list(raw.get("blockedDomains"), lower=True),
+        "blockedSources": normalize_list(raw.get("blockedSources")),
+        "blockedTerms": normalize_list(raw.get("blockedTerms")),
+    }
+
+
+def block_enabled(block, settings):
+    if block["section"] == "home":
+        return settings["sections"].get("home", True)
+    if block["section"] == "company":
+        return settings["sections"].get("companies", True)
+    if block["section"] == "platform":
+        return settings["platformTopics"].get(block["topic"], True)
+    return True
+
+
+def is_blocked(url, settings):
     domain = domain_from_url(url)
-    return any(domain == blocked or domain.endswith("." + blocked) for blocked in BLOCKED_DOMAINS)
+    blocked_domains = set(BLOCKED_DOMAINS) | set(settings.get("blockedDomains") or [])
+    return any(domain == blocked or domain.endswith("." + blocked) for blocked in blocked_domains)
 
 
-def looks_relevant(item, block):
+def looks_relevant(item, block, settings):
     haystack = " ".join([
         item.get("title") or "",
         item.get("snippet") or "",
         item.get("sourceName") or "",
     ]).lower()
-    if any(term in haystack for term in BANNED_TERMS):
+    blocked_terms = tuple(BANNED_TERMS) + tuple((term or "").lower() for term in settings.get("blockedTerms") or [])
+    if any(term in haystack for term in blocked_terms):
+        return False
+    source = (item.get("sourceName") or "").lower()
+    if any((blocked or "").lower() in source for blocked in settings.get("blockedSources") or []):
         return False
     if any(term in haystack for term in block.get("blocked_terms", ())):
         return False
@@ -197,7 +274,7 @@ def stable_news_id(url):
     return hashlib.sha1(url.encode("utf-8")).hexdigest()[:16]
 
 
-def extract_items(payload, block):
+def extract_items(payload, block, settings):
     raw_items = payload.get("news_results") or []
     items = []
     seen = set()
@@ -207,7 +284,7 @@ def extract_items(payload, block):
     for raw in raw_items:
         title = clean_text(raw.get("title"))
         link = normalize_url(raw.get("link"))
-        if not title or not link or is_blocked(link):
+        if not title or not link or is_blocked(link, settings):
             continue
         if not is_fresh(raw, max_age_days):
             continue
@@ -233,7 +310,7 @@ def extract_items(payload, block):
             "query": query,
             "fetchedAt": fetched_at,
         }
-        if not looks_relevant(item, block):
+        if not looks_relevant(item, block, settings):
             continue
         seen.add(key)
         items.append(item)
@@ -275,11 +352,16 @@ def main():
         print("SERPAPI_API_KEY missing", file=sys.stderr)
         return 2
     previous_items = read_existing_cache(OUTPUT_FILE)
+    settings = load_settings()
     refreshed_items = []
     refreshed_keys = set()
     for block in NEWS_BLOCKS:
+        if not block_enabled(block, settings):
+            print(f"Skipped disabled news block {block['section']}:{block['topic']}")
+            refreshed_keys.add((block["section"], block["topic"]))
+            continue
         payload = fetch_news(api_key, block["query"])
-        items = extract_items(payload, block)
+        items = extract_items(payload, block, settings)
         if not items:
             print(f"No relevant news items found for {block['section']}:{block['topic']}", file=sys.stderr)
             continue
