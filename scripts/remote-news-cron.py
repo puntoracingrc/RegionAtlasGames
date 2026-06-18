@@ -54,6 +54,13 @@ NEWS_BLOCKS = (
         "required_terms": ("neo geo", "neogeo", "snk"),
         "max_age_days": 45,
     },
+    {
+        "section": "platform",
+        "topic": "sega",
+        "query": "videojuegos SEGA Dreamcast Saturn Mega Drive España when:30d",
+        "required_terms": ("sega", "dreamcast", "saturn", "mega drive", "megadrive", "master system", "game gear"),
+        "max_age_days": 45,
+    },
 )
 
 BLOCKED_DOMAINS = {
@@ -91,6 +98,7 @@ DEFAULT_SETTINGS = {
         "playstation": True,
         "nintendo": True,
         "snk": True,
+        "sega": True,
     },
     "blockedDomains": [],
     "blockedSources": [],
@@ -163,6 +171,7 @@ def load_settings():
             "playstation": platform_topics.get("playstation", DEFAULT_SETTINGS["platformTopics"]["playstation"]) is not False,
             "nintendo": platform_topics.get("nintendo", DEFAULT_SETTINGS["platformTopics"]["nintendo"]) is not False,
             "snk": platform_topics.get("snk", DEFAULT_SETTINGS["platformTopics"]["snk"]) is not False,
+            "sega": platform_topics.get("sega", DEFAULT_SETTINGS["platformTopics"]["sega"]) is not False,
         },
         "blockedDomains": normalize_list(raw.get("blockedDomains"), lower=True),
         "blockedSources": normalize_list(raw.get("blockedSources")),

@@ -21,6 +21,7 @@ const NINTENDO_SLUGS = new Set([
   "switch2",
 ]);
 const SNK_SLUGS = new Set(["neogeo", "neogeocd", "neogeopocket", "neogeopocketcolor"]);
+const SEGA_SLUGS = new Set(["mastersystem", "megadrive", "sega32x", "megacd", "saturn", "dreamcast", "gamegear"]);
 
 export function platformNewsTopicForSlug(slug: string): PlatformNewsTopic | null {
   const normalized = slug.trim().toLowerCase();
@@ -45,6 +46,13 @@ export function platformNewsTopicForSlug(slug: string): PlatformNewsTopic | null
       query: "videojuegos Neo Geo SNK España when:30d",
     };
   }
+  if (SEGA_SLUGS.has(normalized)) {
+    return {
+      topic: "sega",
+      label: "SEGA",
+      query: "videojuegos SEGA Dreamcast Saturn Mega Drive España when:30d",
+    };
+  }
   return null;
 }
 
@@ -53,5 +61,6 @@ export function platformNewsTopics(): PlatformNewsTopic[] {
     { topic: "playstation", label: "PlayStation", query: "videojuegos PlayStation PS5 PS4 España when:7d" },
     { topic: "nintendo", label: "Nintendo", query: "videojuegos Nintendo Switch España when:7d" },
     { topic: "snk", label: "SNK / Neo Geo", query: "videojuegos Neo Geo SNK España when:30d" },
+    { topic: "sega", label: "SEGA", query: "videojuegos SEGA Dreamcast Saturn Mega Drive España when:30d" },
   ];
 }

@@ -6,7 +6,8 @@
   "platformTopics": {
     "playstation": true,
     "nintendo": true,
-    "snk": true
+    "snk": true,
+    "sega": true
   },
   "blockedDomains": [],
   "blockedSources": [],

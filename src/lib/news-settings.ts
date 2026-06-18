@@ -16,6 +16,7 @@ export type NewsSettings = {
     playstation: boolean;
     nintendo: boolean;
     snk: boolean;
+    sega: boolean;
   };
   blockedDomains: string[];
   blockedSources: string[];
@@ -31,6 +32,7 @@ const DEFAULT_NEWS_SETTINGS: NewsSettings = {
     playstation: true,
     nintendo: true,
     snk: true,
+    sega: true,
   },
   blockedDomains: [],
   blockedSources: [],
@@ -66,6 +68,7 @@ export function normalizeNewsSettings(input: unknown): NewsSettings {
       playstation: raw.platformTopics?.playstation !== false,
       nintendo: raw.platformTopics?.nintendo !== false,
       snk: raw.platformTopics?.snk !== false,
+      sega: raw.platformTopics?.sega !== false,
     },
     blockedDomains: uniqueList(raw.blockedDomains, true),
     blockedSources: uniqueList(raw.blockedSources),
@@ -185,6 +188,7 @@ export function newsSectionEnabled(settings: NewsSettings, section: NewsSection,
     if (topic === "playstation") return settings.platformTopics.playstation;
     if (topic === "nintendo") return settings.platformTopics.nintendo;
     if (topic === "snk") return settings.platformTopics.snk;
+    if (topic === "sega") return settings.platformTopics.sega;
   }
   return true;
 }

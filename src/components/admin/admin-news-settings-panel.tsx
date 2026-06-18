@@ -19,6 +19,7 @@ const platformToggles = [
   { key: "playstation", label: "PlayStation", description: "PS1, PS2, PS3, PS4, PS5, PSP y PS Vita." },
   { key: "nintendo", label: "Nintendo", description: "NES, SNES, N64, Game Boy, Wii, DS, 3DS, Switch y familia." },
   { key: "snk", label: "SNK / Neo Geo", description: "Neo Geo y consolas SNK relacionadas." },
+  { key: "sega", label: "SEGA", description: "Master System, Mega Drive, Mega CD, 32X, Saturn, Dreamcast y Game Gear." },
 ] as const;
 
 function listToText(values: string[]): string {
