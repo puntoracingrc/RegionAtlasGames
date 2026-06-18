@@ -1239,6 +1239,8 @@ export async function* streamAdminAiFill(
   let referenceText: string | null = null;
   let referenceUrl: string | null = null;
   let referenceLabel: string | null = null;
+  let developerFromDirectSource = false;
+  let publisherFromDirectSource = false;
   const referenceSources: ReferenceSource[] = [];
   const refreshReferenceContext = () => {
     const aggregate = aggregateReferenceSources(referenceSources);
@@ -1317,6 +1319,8 @@ export async function* streamAdminAiFill(
       if (psStoreReference.publisherName && (!options.onlyMissing || !draft.publisherName)) {
         draft.publisherName = normalizeCompanyDisplayName(psStoreReference.publisherName);
         draft.publisherSlug = slugify(draft.publisherName);
+        publisherFromDirectSource = true;
+        yield { type: "log", message: `Editor leído de PlayStation: ${draft.publisherName}` };
         yield { type: "field", field: "publisherName", value: draft.publisherName };
         yield { type: "field", field: "publisherSlug", value: draft.publisherSlug };
       }
@@ -1393,12 +1397,16 @@ export async function* streamAdminAiFill(
       if (steamReference.developerName && (!options.onlyMissing || !draft.developerName)) {
         draft.developerName = normalizeCompanyDisplayName(steamReference.developerName);
         draft.developerSlug = slugify(draft.developerName);
+        developerFromDirectSource = true;
+        yield { type: "log", message: `Desarrollador leído de Steam: ${draft.developerName}` };
         yield { type: "field", field: "developerName", value: draft.developerName };
         yield { type: "field", field: "developerSlug", value: draft.developerSlug };
       }
       if (steamReference.publisherName && (!options.onlyMissing || !draft.publisherName)) {
         draft.publisherName = normalizeCompanyDisplayName(steamReference.publisherName);
         draft.publisherSlug = slugify(draft.publisherName);
+        publisherFromDirectSource = true;
+        yield { type: "log", message: `Editor leído de Steam: ${draft.publisherName}` };
         yield { type: "field", field: "publisherName", value: draft.publisherName };
         yield { type: "field", field: "publisherSlug", value: draft.publisherSlug };
       }
@@ -1558,6 +1566,7 @@ export async function* streamAdminAiFill(
       if (
         typeof meta.developer === "string" &&
         meta.developer.trim() &&
+        !developerFromDirectSource &&
         (!options.onlyMissing || !draft.developerName)
       ) {
         draft.developerName = meta.developer.trim();
@@ -1568,6 +1577,7 @@ export async function* streamAdminAiFill(
       if (
         typeof meta.publisher === "string" &&
         meta.publisher.trim() &&
+        !publisherFromDirectSource &&
         (!options.onlyMissing || !draft.publisherName)
       ) {
         draft.publisherName = meta.publisher.trim();
