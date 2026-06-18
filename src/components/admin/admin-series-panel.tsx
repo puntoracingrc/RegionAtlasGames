@@ -518,14 +518,9 @@ export function AdminSeriesPanel() {
 
               <div className="rounded-2xl border border-border bg-background/45 p-4">
                 <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
-                  <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">
-                      Juegos de la saga
-                    </h3>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted">
-                      Filtra por género
-                    </p>
-                  </div>
+                  <p className="text-sm font-semibold uppercase tracking-wider text-muted">
+                    Filtra por género
+                  </p>
                   <select
                     className="input w-full md:w-72"
                     value={genreFilter}
