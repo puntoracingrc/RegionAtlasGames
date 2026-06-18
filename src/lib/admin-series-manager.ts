@@ -266,6 +266,14 @@ function normalizeSlug(raw: string): string {
   return slugify(raw.trim());
 }
 
+function normalizeLooseSearch(raw: string): string {
+  return raw
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "");
+}
+
 function uniqueStrings(values: string[]): string[] {
   return [...new Set(values.map((value) => value.trim()).filter(Boolean))];
 }
@@ -606,7 +614,7 @@ export async function searchAdminBulkActionGames(input: {
   genreSlug?: string;
   facetSlug?: string;
 }): Promise<AdminSeriesGameRow[]> {
-  const q = input.q?.trim().toLowerCase() ?? "";
+  const q = normalizeLooseSearch(input.q ?? "");
   const platformSlug = input.platformSlug?.trim().toLowerCase() ?? "";
   const region = input.region?.trim() ?? "";
   const genreSlug = input.genreSlug?.trim() ?? "";
@@ -618,45 +626,51 @@ export async function searchAdminBulkActionGames(input: {
   const catalog = loadCatalog();
   const details = loadDetails();
   const overlay = await readAdminSeriesOverlay();
+  const rows: AdminSeriesGameRow[] = [];
 
-  return catalog
-    .filter((game) => !platformSlug || game.platformSlug === platformSlug)
-    .filter((game) => !region || game.region === region)
-    .filter((game) => {
-      const detail = details[game.id];
-      const assignment = overlay.assignments[game.id];
-      if (genreSlug && !effectiveGenres(detail, assignment).some((genre) => genre.slug === genreSlug)) return false;
+  for (const game of catalog) {
+    if (rows.length >= limit) break;
+    if (platformSlug && game.platformSlug !== platformSlug) continue;
+    if (region && game.region !== region) continue;
 
-      if (facetSlug) {
-        const labels = [
-          ...effectiveGenres(detail, assignment),
-          ...effectiveTags(detail, assignment),
-          ...effectiveFacets(detail, assignment),
-        ];
-        if (!labels.some((entity) => entity.slug === facetSlug)) return false;
-      }
+    const detail = details[game.id];
+    const assignment = overlay.assignments[game.id];
+    let genres: DetailEntity[] | null = null;
+    let tags: DetailEntity[] | null = null;
+    let facets: DetailEntity[] | null = null;
 
-      if (q.length < 2) return true;
-      const haystack = [
-        game.title,
-        game.slug,
-        game.id,
-        game.platformSlug,
-        game.region,
-        detail?.reference,
-        detail?.developer?.name,
-        detail?.publisher?.name,
-        ...effectiveGenres(detail, assignment).map((genre) => genre.name),
-        ...effectiveTags(detail, assignment).map((tag) => tag.name),
-        ...effectiveFacets(detail, assignment).map((facet) => facet.name),
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-      return haystack.includes(q);
-    })
-    .slice(0, limit)
-    .map((game) => toGameRow(game, details, overlay.assignments));
+    if (genreSlug) {
+      genres = effectiveGenres(detail, assignment);
+      if (!genres.some((genre) => genre.slug === genreSlug)) continue;
+    }
+
+    if (facetSlug) {
+      genres = genres ?? effectiveGenres(detail, assignment);
+      tags = effectiveTags(detail, assignment);
+      facets = effectiveFacets(detail, assignment);
+      const labels = [...genres, ...tags, ...facets];
+      if (!labels.some((entity) => entity.slug === facetSlug)) continue;
+    }
+
+    if (q.length >= 2) {
+      const textHaystack = normalizeLooseSearch(
+        [
+          game.title,
+          game.titlePc,
+          game.slug,
+          game.id,
+          detail?.reference,
+        ]
+          .filter(Boolean)
+          .join(" "),
+      );
+      if (!textHaystack.includes(q)) continue;
+    }
+
+    rows.push(toGameRow(game, details, overlay.assignments));
+  }
+
+  return rows;
 }
 
 export async function createAdminSeries(input: {

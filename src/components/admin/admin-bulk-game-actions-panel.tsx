@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type { AdminSeriesGameRow } from "@/lib/admin-series-manager";
 
@@ -198,6 +198,7 @@ export function AdminBulkGameActionsPanel() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const searchAbortRef = useRef<AbortController | null>(null);
 
   const selectedIds = useMemo(() => new Set(selection.map((game) => game.id)), [selection]);
   const selectedGenreSlugs = useMemo(() => {
@@ -236,6 +237,10 @@ export function AdminBulkGameActionsPanel() {
       return;
     }
 
+    searchAbortRef.current?.abort();
+    const controller = new AbortController();
+    searchAbortRef.current = controller;
+
     setLoading(true);
     setError(null);
     try {
@@ -245,7 +250,7 @@ export function AdminBulkGameActionsPanel() {
       if (region) params.set("region", region);
       if (genreSlug) params.set("genreSlug", genreSlug);
       if (facetSlug) params.set("facetSlug", facetSlug);
-      const res = await fetch(`/api/admin/bulk-game-actions?${params}`);
+      const res = await fetch(`/api/admin/bulk-game-actions?${params}`, { signal: controller.signal });
       const data = await res.json();
       if (!res.ok) {
         setError(data.error ?? "No se pudieron buscar juegos.");
@@ -253,10 +258,14 @@ export function AdminBulkGameActionsPanel() {
         return;
       }
       setResults(data.games ?? []);
-    } catch {
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
       setError("Error de red al buscar juegos.");
     } finally {
-      setLoading(false);
+      if (searchAbortRef.current === controller) {
+        searchAbortRef.current = null;
+        setLoading(false);
+      }
     }
   }, [facetSlug, genreSlug, hasFilters, platformSlug, q, region]);
 
