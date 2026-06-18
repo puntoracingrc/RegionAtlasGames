@@ -28,7 +28,7 @@ export default async function HomePage() {
   const showCollectionValue = user ? canViewCollectionValue(user.plan) : false;
   const indexes = indexStats();
   const atlasStats = buildAtlasPanelStats();
-  const homeNews = await listNewsForSection({ section: "home", topic: "general", limit: 3 });
+  const homeNews = await listNewsForSection({ section: "home", topic: "general", limit: 9 });
   const activePlatforms = (await listAdminPlatforms()).filter((platform) => platform.active !== false);
   const searchPlatforms = activePlatforms.map((platform) => ({
     slug: platform.slug,
