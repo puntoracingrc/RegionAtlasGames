@@ -486,14 +486,23 @@ function extractSteamAppIdFromSuggest(html: string, title: string): string | nul
 
 function extractSteamField(html: string, label: string): string | null {
   const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const match = html.match(
+  const rowMatch = html.match(
     new RegExp(
-      `<div class="dev_row">[\\s\\S]*?<div class="subtitle column">\\s*${escaped}:\\s*<\\/div>[\\s\\S]*?<div class="summary column"[^>]*>([\\s\\S]*?)<\\/div>`,
+      `<div[^>]+class=["'][^"']*\\bdev_row\\b[^"']*["'][^>]*>[\\s\\S]*?<div[^>]+class=["'][^"']*\\bsubtitle\\b[^"']*["'][^>]*>\\s*${escaped}:?\\s*<\\/div>[\\s\\S]*?<div[^>]+class=["'][^"']*\\bsummary\\b[^"']*["'][^>]*>([\\s\\S]*?)<\\/div>`,
       "i",
     ),
   );
-  if (!match) return null;
-  return stripHtmlToText(match[1]).replace(/\s*,\s*/g, ", ").trim() || null;
+  const rowValue = rowMatch ? stripHtmlToText(rowMatch[1]).replace(/\s*,\s*/g, ", ").trim() : "";
+  if (rowValue) return rowValue;
+
+  const detailsMatch = html.match(
+    new RegExp(
+      `<b>\\s*${escaped}:\\s*<\\/b>\\s*([\\s\\S]*?)(?=<br\\s*\\/?>\\s*<b>|<br\\s*\\/?>\\s*\\n\\s*<b>|<\\/div>)`,
+      "i",
+    ),
+  );
+  const detailsValue = detailsMatch ? stripHtmlToText(detailsMatch[1]).replace(/\s*,\s*/g, ", ").trim() : "";
+  return detailsValue || null;
 }
 
 function extractSteamTags(html: string): string[] {
