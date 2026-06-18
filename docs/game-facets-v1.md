@@ -184,3 +184,13 @@ Objetivo futuro:
 - usar alias, títulos, series, compañías y géneros existentes;
 - funcionar primero en dry-run;
 - no escribir asignaciones hasta validación humana.
+
+## Evolución V2
+
+La ampliación controlada posterior queda documentada en:
+
+```txt
+docs/game-facets-taxonomy-v2.md
+```
+
+`GAME_FACETS_TAXONOMY_V2` amplía aliases, subgéneros y facetas para preparar el futuro mapeo de señales externas como Steam, webs oficiales o Vandal, pero mantiene las mismas prohibiciones: no asigna juegos, no crea landings y no modifica UI pública.

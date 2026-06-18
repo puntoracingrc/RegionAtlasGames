@@ -2,6 +2,8 @@ export type GameFacetTaxonomyType = "genre" | "subgenre" | "facet";
 
 export type GameFacetStatus = "approved" | "review" | "hidden";
 
+export type GameFacetPriority = "A" | "B" | "C" | "D";
+
 export type GameFacetFamily =
   | "content"
   | "edition"
@@ -36,11 +38,18 @@ export const GAME_FACET_FAMILIES: readonly GameFacetFamily[] = [
 export type GameFacetBase = {
   id: string;
   name: string;
+  nameEn?: string;
   slug: string;
+  canonicalSlug?: string;
   type: GameFacetTaxonomyType;
   aliases?: string[];
   description: string;
   status: GameFacetStatus;
+  priority?: GameFacetPriority;
+  publicEligible?: boolean;
+  seoEligible?: boolean;
+  group?: string;
+  subfamily?: string;
 };
 
 export type GameFacetGenre = GameFacetBase & {

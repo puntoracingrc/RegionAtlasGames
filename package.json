@@ -10,7 +10,7 @@
     "validate:affiliate-offers-v1": "node scripts/validate-affiliate-offers-v1.mjs",
     "validate:rakuten-auth-v1": "node scripts/validate-rakuten-auth-v1.mjs",
     "validate:rakuten-advertiser-discovery-v1": "node scripts/validate-rakuten-advertiser-discovery-v1.mjs",
-    "validate:all": "npm run validate:affiliate-offers-v1 && npm run validate:rakuten-auth-v1 && npm run validate:rakuten-advertiser-discovery-v1 && npm run validate:ebay-sync-v1 && npm run validate:game-facets-taxonomy-audit-v1 && npm run validate:game-genre-data-quality-audit-v1 && npm run validate:game-genre-normalization-v1 && npm run validate:game-genre-normalization-apply-v1 && npm run validate:game-facets-v1",
+    "validate:all": "npm run validate:affiliate-offers-v1 && npm run validate:rakuten-auth-v1 && npm run validate:rakuten-advertiser-discovery-v1 && npm run validate:ebay-sync-v1 && npm run validate:game-facets-taxonomy-audit-v1 && npm run validate:game-genre-data-quality-audit-v1 && npm run validate:game-genre-normalization-v1 && npm run validate:game-genre-normalization-apply-v1 && npm run validate:game-facets-v1 && npm run validate:game-facets-taxonomy-v2",
     "test:affiliate-offers-v1": "node scripts/test-affiliate-offers-v1.mjs",
     "test:rakuten-auth-v1": "node scripts/test-rakuten-auth-v1.mjs",
     "test:rakuten-advertiser-discovery-v1": "node scripts/test-rakuten-advertiser-discovery-v1.mjs",
@@ -76,7 +76,8 @@
     "normalize:game-genres:apply": "node scripts/normalize-game-genres-apply.mjs",
     "validate:game-genre-normalization-v1": "node scripts/validate-game-genre-normalization-v1.mjs",
     "validate:game-genre-normalization-apply-v1": "node scripts/validate-game-genre-normalization-apply-v1.mjs",
-    "validate:game-facets-v1": "node scripts/validate-game-facets-v1.mjs"
+    "validate:game-facets-v1": "node scripts/validate-game-facets-v1.mjs",
+    "validate:game-facets-taxonomy-v2": "node scripts/validate-game-facets-taxonomy-v2.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.4.0",
