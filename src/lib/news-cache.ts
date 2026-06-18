@@ -11,10 +11,42 @@ type NewsCacheFile = {
   items?: NewsItem[];
 };
 
+function stableFallbackNewsId(item: Partial<NewsItem> & { source?: string }, index: number): string {
+  const base = item.url || item.title || `news-${index}`;
+  let hash = 0;
+  for (let i = 0; i < base.length; i += 1) {
+    hash = (hash * 31 + base.charCodeAt(i)) >>> 0;
+  }
+  return hash.toString(16).padStart(8, "0");
+}
+
+function normalizeNewsItem(item: unknown, index: number): NewsItem | null {
+  if (!item || typeof item !== "object") return null;
+  const raw = item as Partial<NewsItem> & { source?: string };
+  const title = raw.title?.trim();
+  const url = raw.url?.trim();
+  if (!title || !url) return null;
+  return {
+    id: raw.id?.trim() || stableFallbackNewsId(raw, index),
+    section: raw.section === "platform" ? "platform" : "home",
+    topic: raw.topic?.trim() || "general",
+    title,
+    sourceName: raw.sourceName?.trim() || raw.source?.trim() || "Fuente",
+    sourceIconUrl: raw.sourceIconUrl ?? null,
+    url,
+    imageUrl: raw.imageUrl ?? null,
+    publishedAt: raw.publishedAt ?? null,
+    snippet: raw.snippet ?? null,
+    query: raw.query?.trim() || "",
+    fetchedAt: raw.fetchedAt?.trim() || raw.publishedAt?.trim() || raw.id?.trim() || "",
+  };
+}
+
 function normalizeNewsCache(cache: NewsCacheFile): NewsCacheFile {
+  const rawItems = Array.isArray(cache.items) ? cache.items : [];
   return {
     updatedAt: cache.updatedAt,
-    items: Array.isArray(cache.items) ? cache.items : [],
+    items: rawItems.map(normalizeNewsItem).filter((item): item is NewsItem => Boolean(item)),
   };
 }
 
