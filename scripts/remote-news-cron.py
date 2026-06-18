@@ -15,13 +15,35 @@ BASE_DIR = Path(__file__).resolve().parent
 ENV_FILE = BASE_DIR / ".env"
 OUTPUT_FILE = Path("/kunden/homepages/43/d424401959/htdocs/MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/news/news-cache.json")
 
-QUERY = "videojuegos España when:1d"
 SERPAPI_URL = "https://serpapi.com/search.json"
 MAX_ITEMS = 9
 TIMEOUT = 25
-SECTION = "home"
-TOPIC = "general"
 MAX_AGE_DAYS = 3
+NEWS_BLOCKS = (
+    {"section": "home", "topic": "general", "query": "videojuegos España when:1d", "max_age_days": 3},
+    {
+        "section": "platform",
+        "topic": "playstation",
+        "query": "videojuegos PlayStation PS5 PS4 España when:7d",
+        "required_terms": ("playstation", "ps5", "ps4", "sony interactive", "playstation blog"),
+        "blocked_terms": ("sony pictures", "spider-man: brand new day", "switch 2"),
+        "max_age_days": 14,
+    },
+    {
+        "section": "platform",
+        "topic": "nintendo",
+        "query": "videojuegos Nintendo Switch España when:7d",
+        "required_terms": ("nintendo", "switch", "eshop"),
+        "max_age_days": 14,
+    },
+    {
+        "section": "platform",
+        "topic": "snk",
+        "query": "videojuegos Neo Geo SNK España when:30d",
+        "required_terms": ("neo geo", "neogeo", "snk"),
+        "max_age_days": 45,
+    },
+)
 
 BLOCKED_DOMAINS = {
     "youtube.com",
@@ -81,13 +103,18 @@ def is_blocked(url):
     return any(domain == blocked or domain.endswith("." + blocked) for blocked in BLOCKED_DOMAINS)
 
 
-def looks_relevant(item):
+def looks_relevant(item, block):
     haystack = " ".join([
         item.get("title") or "",
         item.get("snippet") or "",
         item.get("sourceName") or "",
     ]).lower()
     if any(term in haystack for term in BANNED_TERMS):
+        return False
+    if any(term in haystack for term in block.get("blocked_terms", ())):
+        return False
+    required_terms = block.get("required_terms")
+    if required_terms and not any(term in haystack for term in required_terms):
         return False
     if any(term in haystack for term in PREFERRED_TERMS):
         return True
@@ -127,13 +154,13 @@ def parse_serpapi_date(raw):
     return None
 
 
-def is_fresh(raw):
+def is_fresh(raw, max_age_days):
     parsed = parse_serpapi_date(raw.get("iso_date") or raw.get("date") or raw.get("published_at"))
     if parsed is None:
         return True
     if parsed.tzinfo is None:
         parsed = parsed.replace(tzinfo=timezone.utc)
-    return datetime.now(timezone.utc) - parsed.astimezone(timezone.utc) <= timedelta_days(MAX_AGE_DAYS)
+    return datetime.now(timezone.utc) - parsed.astimezone(timezone.utc) <= timedelta_days(max_age_days)
 
 
 def timedelta_days(days):
@@ -141,10 +168,10 @@ def timedelta_days(days):
     return timedelta(days=days)
 
 
-def fetch_news(api_key):
+def fetch_news(api_key, query):
     params = {
         "engine": "google_news",
-        "q": QUERY,
+        "q": query,
         "gl": "es",
         "hl": "es",
         "num": "20",
@@ -160,17 +187,19 @@ def stable_news_id(url):
     return hashlib.sha1(url.encode("utf-8")).hexdigest()[:16]
 
 
-def extract_items(payload):
+def extract_items(payload, block):
     raw_items = payload.get("news_results") or []
     items = []
     seen = set()
     fetched_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    query = block["query"]
+    max_age_days = int(block.get("max_age_days") or MAX_AGE_DAYS)
     for raw in raw_items:
         title = clean_text(raw.get("title"))
         link = normalize_url(raw.get("link"))
         if not title or not link or is_blocked(link):
             continue
-        if not is_fresh(raw):
+        if not is_fresh(raw, max_age_days):
             continue
         key = (title.lower(), domain_from_url(link))
         if key in seen:
@@ -182,8 +211,8 @@ def extract_items(payload):
             source_icon = normalize_url(source_raw.get("icon") or "")
         item = {
             "id": stable_news_id(link),
-            "section": SECTION,
-            "topic": TOPIC,
+            "section": block["section"],
+            "topic": block["topic"],
             "title": title,
             "sourceName": source_name or "Fuente",
             "sourceIconUrl": source_icon or None,
@@ -191,16 +220,28 @@ def extract_items(payload):
             "publishedAt": clean_text(raw.get("iso_date") or raw.get("date") or raw.get("published_at") or "") or None,
             "snippet": clean_text(raw.get("snippet")),
             "imageUrl": normalize_url(raw.get("thumbnail") or raw.get("thumbnail_url") or ""),
-            "query": QUERY,
+            "query": query,
             "fetchedAt": fetched_at,
         }
-        if not looks_relevant(item):
+        if not looks_relevant(item, block):
             continue
         seen.add(key)
         items.append(item)
         if len(items) >= MAX_ITEMS:
             break
     return items
+
+
+def read_existing_cache(path):
+    try:
+        with path.open("r", encoding="utf-8") as handle:
+            data = json.load(handle)
+            items = data.get("items")
+            if isinstance(items, list):
+                return items
+    except Exception:
+        pass
+    return []
 
 
 def atomic_write_json(path, data):
@@ -223,17 +264,33 @@ def main():
     if not api_key:
         print("SERPAPI_API_KEY missing", file=sys.stderr)
         return 2
-    payload = fetch_news(api_key)
-    items = extract_items(payload)
-    if not items:
+    previous_items = read_existing_cache(OUTPUT_FILE)
+    refreshed_items = []
+    refreshed_keys = set()
+    for block in NEWS_BLOCKS:
+        payload = fetch_news(api_key, block["query"])
+        items = extract_items(payload, block)
+        if not items:
+            print(f"No relevant news items found for {block['section']}:{block['topic']}", file=sys.stderr)
+            continue
+        refreshed_items.extend(items)
+        refreshed_keys.add((block["section"], block["topic"]))
+        print(f"{block['section']}:{block['topic']} · {len(items)} items")
+
+    if not refreshed_items:
         print("No relevant news items found; cache not overwritten", file=sys.stderr)
         return 3
+
+    kept_items = [
+        item for item in previous_items
+        if (item.get("section"), item.get("topic")) not in refreshed_keys
+    ]
     data = {
         "updatedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-        "items": items,
+        "items": refreshed_items + kept_items,
     }
     atomic_write_json(OUTPUT_FILE, data)
-    print(f"Wrote {len(items)} items to {OUTPUT_FILE}")
+    print(f"Wrote {len(data['items'])} items to {OUTPUT_FILE}")
     return 0
 
 

@@ -19,6 +19,7 @@ import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { getAdminPlatform } from "@/lib/admin-entity-catalog";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { listNewsForSection } from "@/lib/news-cache";
+import { platformNewsTopicForSlug } from "@/lib/news-platform-topics";
 import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
@@ -53,10 +54,13 @@ export default async function PlatformPage({ params, searchParams }: Props) {
     { regions: true, platforms: false },
   );
   const listingCounts = await getActiveListingCountsByCatalog();
-  const platformNews =
-    platform.newsEnabled === true
-      ? await listNewsForSection({ section: "platform", topic: platform.slug, limit: 3 })
+  const platformNewsTopic = platformNewsTopicForSlug(platform.slug);
+  const platformNews = platformNewsTopic
+    ? await listNewsForSection({ section: "platform", topic: platformNewsTopic.topic, limit: 9 })
+    : platform.newsEnabled === true
+      ? await listNewsForSection({ section: "platform", topic: platform.slug, limit: 9 })
       : [];
+  const platformNewsLabel = platformNewsTopic?.label ?? platform.shortName;
 
   return (
     <>
@@ -73,8 +77,7 @@ export default async function PlatformPage({ params, searchParams }: Props) {
           <>
             <NewsStrip
               eyebrow="Actualidad"
-              title={`Noticias sobre ${platform.shortName}`}
-              description="Solo se muestra si esta plataforma tiene activadas las noticias en el panel de control."
+              title={`Noticias sobre ${platformNewsLabel}`}
               items={platformNews}
             />
             <PlatformCatalogSection

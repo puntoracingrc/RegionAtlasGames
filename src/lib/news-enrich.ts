@@ -1,6 +1,7 @@
 import crypto from "crypto";
 import { listAdminPlatforms } from "./admin-entity-catalog";
 import { readNewsCache, writeNewsCache } from "./news-cache";
+import { platformNewsTopicForSlug, platformNewsTopics } from "./news-platform-topics";
 import type { NewsItem, NewsSection } from "./types";
 
 type SerpApiNewsResult = {
@@ -200,7 +201,7 @@ export function buildHomeNewsQuery(): string {
 }
 
 export function buildPlatformNewsQuery(platform: { slug: string; shortName: string; name: string }): string {
-  return `videojuegos ${platform.shortName} ${platform.slug} España when:1d`;
+  return platformNewsTopicForSlug(platform.slug)?.query ?? `videojuegos ${platform.shortName} ${platform.slug} España when:1d`;
 }
 
 export async function refreshEnabledNewsSections(input?: {
@@ -219,15 +220,25 @@ export async function refreshEnabledNewsSections(input?: {
   );
 
   if (input?.includePlatforms !== false) {
-    const platforms = (await listAdminPlatforms())
+    const enabledFamilyTopics = new Map(platformNewsTopics().map((topic) => [topic.topic, topic]));
+    const platforms = await listAdminPlatforms();
+    const extraPlatformTopics = platforms
       .filter((platform) => platform.active !== false && platform.newsEnabled === true)
-      .slice(0, Math.max(0, input?.platformLimit ?? 6));
-    for (const platform of platforms) {
+      .map((platform) => ({
+        topic: platform.slug,
+        query: buildPlatformNewsQuery(platform),
+      }))
+      .filter((topic) => !enabledFamilyTopics.has(topic.topic));
+    const topics = [
+      ...enabledFamilyTopics.values(),
+      ...extraPlatformTopics,
+    ].slice(0, Math.max(0, input?.platformLimit ?? 6));
+    for (const topic of topics) {
       results.push(
         await refreshNewsSection({
           section: "platform",
-          topic: platform.slug,
-          query: buildPlatformNewsQuery(platform),
+          topic: topic.topic,
+          query: topic.query,
           dryRun: input?.dryRun,
         }),
       );
