@@ -1508,6 +1508,11 @@ export async function* streamAdminAiFill(
       "Eres asistente de catálogo de videojuegos. Responde JSON con hechos verificables. " +
       "No inventes referencias SKU/CUSA si no las conoces con certeza. " +
       "Si la fuente no incluye un dato, devuelve null o cadena vacía; nunca uses frases genéricas como 'equipo talentoso' o 'reconocida compañía'. " +
+      "Para año, desarrolladora, editora, jugadores y soporte prioriza fuentes oficiales. " +
+      "Para taxonomía usa también Steam, bases de datos y referencias secundarias, porque las tiendas oficiales suelen omitir subgéneros o facetas reales como hack and slash, metroidvania, roguelike, cooperativo o mundo abierto. " +
+      "En el campo genres devuelve candidatos de taxonomía mezclados si aparecen sustentados por las fuentes: géneros base, subgéneros y facetas; el sistema los recolocará después en su bloque correcto. " +
+      "Prefiere nombres canónicos en español si existen en el listado controlado; no traduzcas términos asentados que el catálogo use tal cual. " +
+      "No rechaces una faceta solo porque no aparezca en la web oficial si sí aparece de forma consistente en Steam, MobyGames, IGDB, GameFAQs, Giant Bomb, RAWG, Nintendo Life, Vandal o 3DJuegos. " +
       'Campos: {"year":number|null,"developer":"...","publisher":"...","genres":["..."],"players":number|null,"support":"..."}';
     const metadataUser =
       `Juego: ${draft.title}\nPlataforma: ${platformName}\nRegión: ${draft.region}\n` +
