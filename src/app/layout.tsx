@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { UserThemeSync } from "@/components/user-theme-sync";
+import { SiteFooter } from "@/components/site-footer";
 import {
   SITE_DEFAULT_URL,
   SITE_DESCRIPTION,
@@ -50,6 +51,7 @@ export default function RootLayout({
         <ThemeProvider>
           <UserThemeSync />
           {children}
+          <SiteFooter />
         </ThemeProvider>
       </body>
     </html>
