@@ -44,9 +44,11 @@ function removeHiddenEntities(existing: DetailEntity[], hidden: DetailEntity[] |
 
 function assignmentAwareEntities(details: ReturnType<typeof getGameDetails>, assignment?: AdminSeriesAssignment): DetailEntity[] {
   return [
+    ...removeHiddenEntities(details?.genres ?? [], assignment?.hiddenGenres),
     ...removeHiddenEntities(details?.subgenres ?? [], assignment?.hiddenFacets),
     ...removeHiddenEntities(details?.facets ?? [], assignment?.hiddenFacets),
     ...removeHiddenEntities(details?.tags ?? [], assignment?.hiddenTags),
+    ...(assignment?.genres ?? []),
     ...(assignment?.tags ?? []),
     ...(assignment?.facets ?? []),
   ];
@@ -58,8 +60,11 @@ function matchesGameFacet(game: CatalogGame, entity: GameFacetTaxonomyEntity, as
   const canonicalGenres = (details?.genres ?? []).map(resolveCanonicalGenreEntity);
 
   return (
-    matchesAnyDetailEntity(details?.genres ?? [], terms) ||
-    matchesAnyDetailEntity(canonicalGenres.map((genre) => ({ name: genre.name, slug: genre.slug })), terms) ||
+    matchesAnyDetailEntity(removeHiddenEntities(details?.genres ?? [], assignment?.hiddenGenres), terms) ||
+    matchesAnyDetailEntity(
+      removeHiddenEntities(canonicalGenres.map((genre) => ({ name: genre.name, slug: genre.slug })), assignment?.hiddenGenres),
+      terms,
+    ) ||
     matchesAnyDetailEntity(assignmentAwareEntities(details, assignment), terms)
   );
 }

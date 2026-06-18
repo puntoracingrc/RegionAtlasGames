@@ -40,6 +40,9 @@ export async function PATCH(req: Request) {
       gameIds: Array.isArray(body.gameIds)
         ? body.gameIds.filter((gameId: unknown): gameId is string => typeof gameId === "string")
         : [],
+      genres: Array.isArray(body.genres)
+        ? body.genres.filter((genre: unknown): genre is string => typeof genre === "string")
+        : [],
       tags: Array.isArray(body.tags)
         ? body.tags.filter((tag: unknown): tag is string => typeof tag === "string")
         : [],

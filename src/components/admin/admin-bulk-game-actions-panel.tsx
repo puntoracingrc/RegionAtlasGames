@@ -31,13 +31,6 @@ const emptyOptions: BulkOptions = {
   facets: [],
 };
 
-function parseCsv(value: string): string[] {
-  return value
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
-
 function regionLabel(region: string): string {
   if (region === "PAL España") return "ES";
   if (region === "PAL Europa") return "EU";
@@ -64,10 +57,6 @@ function normalizeSearch(value: string): string {
     .replace(/\p{Diacritic}/gu, "");
 }
 
-function optionNameList(options: Option[]): string[] {
-  return options.map((option) => option.name);
-}
-
 function uniqueNames(names: string[]): string[] {
   return [...new Set(names.map((name) => name.trim()).filter(Boolean))].sort((a, b) =>
     a.localeCompare(b, "es", { numeric: true }),
@@ -76,9 +65,20 @@ function uniqueNames(names: string[]): string[] {
 
 function namesFromSelection(
   games: AdminSeriesGameRow[],
-  field: "tags" | "facets",
+  field: "genres" | "facets",
 ): string[] {
   return uniqueNames(games.flatMap((game) => game[field].map((entity) => entity.name)));
+}
+
+function namesFromSelectionByOptions(games: AdminSeriesGameRow[], options: Option[]): string[] {
+  const optionSlugs = new Set(options.map((option) => option.slug));
+  return uniqueNames(
+    games.flatMap((game) =>
+      game.facets
+        .filter((entity) => optionSlugs.has(entity.slug))
+        .map((entity) => entity.name),
+    ),
+  );
 }
 
 function SelectableOptionList({
@@ -191,9 +191,8 @@ export function AdminBulkGameActionsPanel() {
   const [facetSlug, setFacetSlug] = useState("");
   const [results, setResults] = useState<AdminSeriesGameRow[]>([]);
   const [selection, setSelection] = useState<AdminSeriesGameRow[]>([]);
-  const [tagsInput, setTagsInput] = useState("");
-  const [facetsInput, setFacetsInput] = useState("");
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+  const [selectedSubgenres, setSelectedSubgenres] = useState<string[]>([]);
   const [selectedFacets, setSelectedFacets] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -201,15 +200,19 @@ export function AdminBulkGameActionsPanel() {
   const [message, setMessage] = useState<string | null>(null);
 
   const selectedIds = useMemo(() => new Set(selection.map((game) => game.id)), [selection]);
+  const selectedGenreSlugs = useMemo(() => {
+    const selectedGenreNames = new Set(selectedGenres.map((name) => normalizeSearch(name)));
+    return options.genres
+      .filter((option) => selectedGenreNames.has(normalizeSearch(option.name)))
+      .map((option) => option.slug);
+  }, [options.genres, selectedGenres]);
   const selectableSubgenres = useMemo(() => {
-    if (!genreSlug) return options.subgenres;
-    const scoped = options.subgenres.filter((option) => option.parentGenreSlugs?.includes(genreSlug));
+    const scopeSlugs = selectedGenreSlugs.length ? selectedGenreSlugs : genreSlug ? [genreSlug] : [];
+    if (scopeSlugs.length === 0) return options.subgenres;
+    const scopeSet = new Set(scopeSlugs);
+    const scoped = options.subgenres.filter((option) => option.parentGenreSlugs?.some((slug) => scopeSet.has(slug)));
     return scoped.length ? scoped : options.subgenres;
-  }, [genreSlug, options.subgenres]);
-  const selectableFacets = useMemo(
-    () => [...selectableSubgenres, ...options.facets],
-    [options.facets, selectableSubgenres],
-  );
+  }, [genreSlug, options.subgenres, selectedGenreSlugs]);
   const visibleResults = useMemo(
     () => results.filter((game) => !selectedIds.has(game.id)),
     [results, selectedIds],
@@ -269,9 +272,10 @@ export function AdminBulkGameActionsPanel() {
   }, [searchGames]);
 
   useEffect(() => {
-    setSelectedTags(namesFromSelection(selection, "tags"));
-    setSelectedFacets(namesFromSelection(selection, "facets"));
-  }, [selection]);
+    setSelectedGenres(namesFromSelection(selection, "genres"));
+    setSelectedSubgenres(namesFromSelectionByOptions(selection, options.subgenres));
+    setSelectedFacets(namesFromSelectionByOptions(selection, options.facets));
+  }, [options.facets, options.subgenres, selection]);
 
   function addToSelection(games: AdminSeriesGameRow[]) {
     setSelection((current) => {
@@ -305,8 +309,9 @@ export function AdminBulkGameActionsPanel() {
         body: JSON.stringify({
           action: "bulk-assign",
           gameIds: selection.map((game) => game.id),
-          tags: [...parseCsv(tagsInput), ...selectedTags],
-          facets: [...parseCsv(facetsInput), ...selectedFacets],
+          genres: selectedGenres,
+          tags: [],
+          facets: [...selectedSubgenres, ...selectedFacets],
           replaceLabels: true,
         }),
       });
@@ -316,13 +321,12 @@ export function AdminBulkGameActionsPanel() {
         return;
       }
       setMessage(`Asignación aplicada a ${data.affectedCount ?? 0} juegos.`);
-      setTagsInput("");
-      setFacetsInput("");
-      const nextTags = uniqueNames([...selectedTags, ...parseCsv(tagsInput)]).map((name) => ({ name, slug: normalizeSearch(name).replace(/\s+/g, "-") }));
-      const nextFacets = uniqueNames([...selectedFacets, ...parseCsv(facetsInput)]).map((name) => ({ name, slug: normalizeSearch(name).replace(/\s+/g, "-") }));
-      setSelection((current) => current.map((game) => ({ ...game, tags: nextTags, facets: nextFacets })));
-      setSelectedTags(nextTags.map((tag) => tag.name));
-      setSelectedFacets(nextFacets.map((facet) => facet.name));
+      const nextGenres = uniqueNames(selectedGenres).map((name) => ({ name, slug: normalizeSearch(name).replace(/\s+/g, "-") }));
+      const nextFacets = uniqueNames([...selectedSubgenres, ...selectedFacets]).map((name) => ({ name, slug: normalizeSearch(name).replace(/\s+/g, "-") }));
+      setSelection((current) => current.map((game) => ({ ...game, genres: nextGenres, tags: [], facets: nextFacets })));
+      setSelectedGenres(nextGenres.map((genre) => genre.name));
+      setSelectedSubgenres(uniqueNames(selectedSubgenres));
+      setSelectedFacets(uniqueNames(selectedFacets));
     } catch {
       setError("Error de red al aplicar la asignación masiva.");
     } finally {
@@ -447,7 +451,6 @@ export function AdminBulkGameActionsPanel() {
                   <div className="text-xs text-muted">{gameSubtitle(game)}</div>
                   <div className="mt-2 flex flex-wrap gap-1">
                     {game.genres.slice(0, 4).map((genre) => <Badge key={genre.slug}>{genre.name}</Badge>)}
-                    {game.tags.slice(0, 3).map((tag) => <Badge key={`tag-${tag.slug}`} tone="green">{tag.name}</Badge>)}
                     {game.facets.slice(0, 3).map((facet) => <Badge key={`facet-${facet.slug}`} tone="amber">{facet.name}</Badge>)}
                   </div>
                 </div>
@@ -489,12 +492,6 @@ export function AdminBulkGameActionsPanel() {
                       </div>
                     </div>
                     <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Etiquetas activas</p>
-                      <div className="mt-1 flex flex-wrap gap-1">
-                        {game.tags.length ? game.tags.map((tag) => <Badge key={tag.slug} tone="green">{tag.name}</Badge>) : <span className="text-xs text-muted">Sin etiquetas.</span>}
-                      </div>
-                    </div>
-                    <div>
                       <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Subgéneros y facetas activas</p>
                       <div className="mt-1 flex flex-wrap gap-1">
                         {game.facets.length ? game.facets.map((facet) => <Badge key={facet.slug} tone="amber">{facet.name}</Badge>) : <span className="text-xs text-muted">Sin facetas.</span>}
@@ -524,37 +521,26 @@ export function AdminBulkGameActionsPanel() {
             </h3>
             <div className="grid gap-3">
               <SelectableOptionList
-                title="Etiquetas existentes"
-                helper="Al añadir juegos se marcan las que ya tienen. Desmarca para quitarlas al aplicar."
-                options={options.tags}
-                selected={selectedTags}
-                onChange={setSelectedTags}
+                title="1. Género"
+                helper="Elige el género principal usando los nombres oficiales en castellano."
+                options={options.genres}
+                selected={selectedGenres}
+                onChange={setSelectedGenres}
               />
-              <label className="block space-y-1">
-                <span className="text-[10px] uppercase tracking-wider text-muted">Etiquetas manuales</span>
-                <input
-                  className="input"
-                  value={tagsInput}
-                  onChange={(event) => setTagsInput(event.target.value)}
-                  placeholder={optionNameList(options.tags).slice(0, 3).join(", ") || "soulslike, cooperativo…"}
-                />
-              </label>
               <SelectableOptionList
-                title="Subgéneros y facetas oficiales"
-                helper={genreSlug ? "Se marcan las activas; primero salen subgéneros del género filtrado. Los géneros base se muestran arriba como referencia." : "Se marcan las activas. Los géneros base se muestran en cada juego como referencia."}
-                options={selectableFacets}
+                title="2. Subgénero"
+                helper="Primero aparecen los subgéneros relacionados con el género elegido o filtrado."
+                options={selectableSubgenres}
+                selected={selectedSubgenres}
+                onChange={setSelectedSubgenres}
+              />
+              <SelectableOptionList
+                title="3. Facetas"
+                helper="Mecánicas, formato, tema, edición, modo de juego y otras facetas aprobadas."
+                options={options.facets}
                 selected={selectedFacets}
                 onChange={setSelectedFacets}
               />
-              <label className="block space-y-1">
-                <span className="text-[10px] uppercase tracking-wider text-muted">Facetas manuales</span>
-                <input
-                  className="input"
-                  value={facetsInput}
-                  onChange={(event) => setFacetsInput(event.target.value)}
-                  placeholder={optionNameList(selectableFacets).slice(0, 3).join(", ") || "Edición completa, remaster…"}
-                />
-              </label>
             </div>
             <button
               type="button"

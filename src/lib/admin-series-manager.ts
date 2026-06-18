@@ -3,7 +3,7 @@ import path from "path";
 import { get, put } from "@vercel/blob";
 import { canWriteCatalogFiles } from "./admin-auth";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
-import { getGameFacetsTaxonomy } from "./game-facets/taxonomy";
+import { findGameFacetEntityByNameOrAlias, getGameFacetsTaxonomy } from "./game-facets/taxonomy";
 import { slugify } from "./slug";
 import type { CatalogGame, DetailEntity, GameDetails, IndexEntry } from "./types";
 
@@ -41,8 +41,10 @@ type AdminSeriesOverlayEntry = {
 };
 
 export type AdminSeriesAssignment = {
+  genres?: DetailEntity[];
   tags: DetailEntity[];
   facets: DetailEntity[];
+  hiddenGenres?: DetailEntity[];
   hiddenTags?: DetailEntity[];
   hiddenFacets?: DetailEntity[];
   updatedAt: string;
@@ -271,7 +273,13 @@ function uniqueStrings(values: string[]): string[] {
 function entityFromName(name: string): DetailEntity | null {
   const trimmed = name.trim();
   if (!trimmed) return null;
+  const canonical = findGameFacetEntityByNameOrAlias(trimmed);
+  if (canonical) return { name: canonical.name, slug: canonical.slug, source: "merged" };
   return { name: trimmed, slug: normalizeSlug(trimmed), source: "merged" };
+}
+
+function canonicalizeEntities(entities: DetailEntity[]): DetailEntity[] {
+  return mergeEntities([], entities.map((entity) => entity.name || entity.slug));
 }
 
 function mergeEntities(existing: DetailEntity[], incomingNames: string[]): DetailEntity[] {
@@ -295,6 +303,13 @@ function hiddenFromBase(base: DetailEntity[], selectedNames: string[]): DetailEn
   return base.filter((entity) => !selectedSlugs.has(entity.slug));
 }
 
+function effectiveGenres(detail: GameDetails | undefined, assignment: AdminSeriesAssignment | undefined): DetailEntity[] {
+  return mergeEntities(
+    removeHiddenEntities(canonicalizeEntities(detail?.genres ?? []), assignment?.hiddenGenres),
+    assignment?.genres?.map((genre) => genre.name) ?? [],
+  );
+}
+
 function effectiveTags(detail: GameDetails | undefined, assignment: AdminSeriesAssignment | undefined): DetailEntity[] {
   return mergeEntities(
     removeHiddenEntities(detail?.tags ?? [], assignment?.hiddenTags),
@@ -303,7 +318,7 @@ function effectiveTags(detail: GameDetails | undefined, assignment: AdminSeriesA
 }
 
 function baseFacetEntities(detail: GameDetails | undefined): DetailEntity[] {
-  return [...(detail?.subgenres ?? []), ...(detail?.facets ?? [])];
+  return canonicalizeEntities([...(detail?.subgenres ?? []), ...(detail?.facets ?? [])]);
 }
 
 function effectiveFacets(detail: GameDetails | undefined, assignment: AdminSeriesAssignment | undefined): DetailEntity[] {
@@ -395,8 +410,8 @@ function toGameRow(
     region: game.region,
     year: detail?.year ?? null,
     coverUrl: game.coverUrl,
-    genres: detail?.genres ?? [],
-    subgenres: detail?.subgenres ?? [],
+    genres: effectiveGenres(detail, assignment),
+    subgenres: canonicalizeEntities(detail?.subgenres ?? []),
     tags: effectiveTags(detail, assignment),
     facets: effectiveFacets(detail, assignment),
   };
@@ -609,12 +624,12 @@ export async function searchAdminBulkActionGames(input: {
     .filter((game) => !region || game.region === region)
     .filter((game) => {
       const detail = details[game.id];
-      if (genreSlug && !(detail?.genres ?? []).some((genre) => genre.slug === genreSlug)) return false;
-
       const assignment = overlay.assignments[game.id];
+      if (genreSlug && !effectiveGenres(detail, assignment).some((genre) => genre.slug === genreSlug)) return false;
+
       if (facetSlug) {
         const labels = [
-          ...(detail?.genres ?? []),
+          ...effectiveGenres(detail, assignment),
           ...effectiveTags(detail, assignment),
           ...effectiveFacets(detail, assignment),
         ];
@@ -631,7 +646,7 @@ export async function searchAdminBulkActionGames(input: {
         detail?.reference,
         detail?.developer?.name,
         detail?.publisher?.name,
-        ...(detail?.genres?.map((genre) => genre.name) ?? []),
+        ...effectiveGenres(detail, assignment).map((genre) => genre.name),
         ...effectiveTags(detail, assignment).map((tag) => tag.name),
         ...effectiveFacets(detail, assignment).map((facet) => facet.name),
       ]
@@ -761,16 +776,18 @@ export async function addGameToAdminSeries(
 
 export async function bulkAssignAdminGames(input: {
   gameIds: string[];
+  genres?: string[];
   tags?: string[];
   facets?: string[];
   replaceLabels?: boolean;
 }): Promise<{ ok: true; affectedCount: number } | { error: string }> {
   const gameIds = uniqueStrings(input.gameIds);
+  const genres = uniqueStrings(input.genres ?? []);
   const tags = uniqueStrings(input.tags ?? []);
   const facets = uniqueStrings(input.facets ?? []);
   if (gameIds.length === 0) return { error: "Selecciona al menos un juego." };
-  if (!input.replaceLabels && tags.length === 0 && facets.length === 0) {
-    return { error: "Añade al menos una etiqueta o faceta." };
+  if (!input.replaceLabels && genres.length === 0 && tags.length === 0 && facets.length === 0) {
+    return { error: "Añade al menos un género, subgénero o faceta." };
   }
 
   const catalogIds = new Set(loadCatalog().map((game) => game.id));
@@ -785,8 +802,10 @@ export async function bulkAssignAdminGames(input: {
     if (input.replaceLabels) {
       const detail = details[gameId];
       overlay.assignments[gameId] = {
+        genres: mergeEntities([], genres),
         tags: mergeEntities([], tags),
         facets: mergeEntities([], facets),
+        hiddenGenres: hiddenFromBase(canonicalizeEntities(detail?.genres ?? []), genres),
         hiddenTags: hiddenFromBase(detail?.tags ?? [], tags),
         hiddenFacets: hiddenFromBase(baseFacetEntities(detail), facets),
         updatedAt: now,
@@ -794,6 +813,7 @@ export async function bulkAssignAdminGames(input: {
     } else {
       overlay.assignments[gameId] = {
         ...current,
+        genres: mergeEntities(current.genres ?? [], genres),
         tags: mergeEntities(current.tags, tags),
         facets: mergeEntities(current.facets, facets),
         updatedAt: now,
