@@ -122,9 +122,6 @@ export default async function HomePage() {
                 Accede al listado completo, filtra por región y ordena por año, precio o referencia.
               </p>
             </div>
-            <Link href="/plataformas" className="text-sm text-accent hover:underline">
-              Ver todas →
-            </Link>
           </div>
           <PlatformGrid items={activePlatforms} ownedItems={ownedItems} />
         </section>
