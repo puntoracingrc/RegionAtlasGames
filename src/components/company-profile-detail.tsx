@@ -15,6 +15,7 @@ type Props = {
 
 export function CompanyProfileDetail({ view, ownedCatalogIds, isLoggedIn }: Props) {
   const intro = buildCompanyIntro(view);
+  const introParagraphs = intro.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
   const games = view.games.map(toCatalogListGame);
 
   return (
@@ -25,7 +26,11 @@ export function CompanyProfileDetail({ view, ownedCatalogIds, isLoggedIn }: Prop
 
         <section className="mb-10 rounded-2xl border border-border bg-card p-5 md:p-6">
           <h2 className="text-lg font-semibold text-foreground">Sobre {view.name}</h2>
-          <p className="mt-3 text-sm leading-relaxed text-foreground/85">{intro}</p>
+          <div className="mt-3 space-y-3 text-sm leading-relaxed text-foreground/85">
+            {introParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
         </section>
 
         <div className="mb-10 grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">

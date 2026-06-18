@@ -7,6 +7,22 @@ import type { AdminGameDraft } from "@/lib/admin-draft-types";
 import type { CatalogStagingStatus } from "@/lib/catalog-staging-types";
 
 type BatchMode = "missing" | "force";
+type BatchItemStatus = "processed" | "skipped" | "error" | "dry-run";
+
+type BatchItem = {
+  pcId: number;
+  title: string;
+  platformSlug: string;
+  region: string;
+  status: BatchItemStatus;
+  message: string;
+  fieldsUpdated: string[];
+  sources: string[];
+  urls: string[];
+  steamTags: string[];
+  descriptionPreview: string | null;
+  seoPreview: string | null;
+};
 
 function hasUsefulAiContent(draft: AdminGameDraft): boolean {
   return Boolean(
@@ -32,6 +48,78 @@ function normalizeLimit(value: unknown): number {
   return Math.max(1, Math.min(50, parsed));
 }
 
+function uniqueStrings(values: string[]): string[] {
+  return Array.from(new Set(values.map((value) => value.trim()).filter(Boolean)));
+}
+
+function extractUrlsFromLog(message: string): string[] {
+  const matches = message.match(/https?:\/\/[^\s·]+/g) ?? [];
+  return matches.map((url) => url.replace(/[),.;]+$/, ""));
+}
+
+function extractSourceFromLog(message: string): string | null {
+  if (message.includes("Steam")) return "Steam";
+  if (message.includes("PlayStation")) return "PlayStation";
+  if (message.includes("Nintendo")) return "Nintendo";
+  if (message.includes("Xbox") || message.includes("Microsoft")) return "Xbox/Microsoft";
+  if (message.includes("Wikipedia")) return "Wikipedia";
+  if (message.includes("Wikidata")) return "Wikidata";
+  if (message.includes("fuente externa clara") || message.includes("metadatos ya existentes")) return "Datos existentes";
+  if (message.includes("fuentes fiables") || message.includes("Fuente fiable")) return "Fuentes fiables";
+  return null;
+}
+
+function extractSteamTagsFromLog(message: string): string[] {
+  const prefix = "Etiquetas Steam detectadas:";
+  const index = message.indexOf(prefix);
+  if (index < 0) return [];
+  return message
+    .slice(index + prefix.length)
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+}
+
+async function runAiForDraft(
+  draft: AdminGameDraft,
+  options: AdminAiFillOptions,
+): Promise<{
+  finalDraft: AdminGameDraft | null;
+  lastError: string | null;
+  fieldsUpdated: string[];
+  sources: string[];
+  urls: string[];
+  steamTags: string[];
+}> {
+  let finalDraft: AdminGameDraft | null = null;
+  let lastError: string | null = null;
+  const fieldsUpdated: string[] = [];
+  const sources: string[] = [];
+  const urls: string[] = [];
+  const steamTags: string[] = [];
+
+  for await (const event of streamAdminAiFill(draft, options)) {
+    if (event.type === "done") finalDraft = event.draft;
+    if (event.type === "error") lastError = event.message;
+    if (event.type === "field") fieldsUpdated.push(String(event.field));
+    if (event.type === "log") {
+      const source = extractSourceFromLog(event.message);
+      if (source) sources.push(source);
+      urls.push(...extractUrlsFromLog(event.message));
+      steamTags.push(...extractSteamTagsFromLog(event.message));
+    }
+  }
+
+  return {
+    finalDraft,
+    lastError,
+    fieldsUpdated: uniqueStrings(fieldsUpdated),
+    sources: uniqueStrings(sources),
+    urls: uniqueStrings(urls),
+    steamTags: uniqueStrings(steamTags),
+  };
+}
+
 export async function POST(request: Request) {
   if (!(await assertAdminApi())) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
@@ -46,6 +134,7 @@ export async function POST(request: Request) {
     includeMetadata?: boolean;
     includeDescription?: boolean;
     dryRun?: boolean;
+    pcIds?: number[];
   };
 
   const platformSlug = body.platformSlug?.trim() || "all";
@@ -53,6 +142,13 @@ export async function POST(request: Request) {
   const status = body.status ?? "pending-catalog";
   const mode: BatchMode = body.mode === "force" ? "force" : "missing";
   const limit = normalizeLimit(body.limit);
+  const requestedPcIds = Array.isArray(body.pcIds)
+    ? new Set(
+        body.pcIds
+          .map((pcId) => Number.parseInt(String(pcId), 10))
+          .filter((pcId) => Number.isFinite(pcId) && pcId > 0),
+      )
+    : null;
   const options: AdminAiFillOptions = {
     onlyMissing: mode !== "force",
     includeMetadata: body.includeMetadata !== false,
@@ -62,6 +158,7 @@ export async function POST(request: Request) {
   const allGames = await listCatalogStagingGames();
   const candidates = allGames
     .filter((game) => game.status !== "promoted")
+    .filter((game) => !requestedPcIds || requestedPcIds.has(game.pcId))
     .filter((game) => platformSlug === "all" || game.platformSlug === platformSlug)
     .filter((game) => region === "all" || game.region === region)
     .filter((game) => status === "all" || game.status === status)
@@ -75,12 +172,15 @@ export async function POST(request: Request) {
     skipped: 0,
     errors: 0,
     dryRun: body.dryRun === true,
-    items: [] as Array<{
-      pcId: number;
-      title: string;
-      status: "processed" | "skipped" | "error" | "dry-run";
-      message: string;
-    }>,
+    sourceCoverage: {
+      steam: 0,
+      official: 0,
+      wikipedia: 0,
+      existing: 0,
+      other: 0,
+    },
+    fieldCoverage: {} as Record<string, number>,
+    items: [] as BatchItem[],
   };
 
   for (const game of candidates) {
@@ -94,46 +194,81 @@ export async function POST(request: Request) {
       report.items.push({
         pcId: game.pcId,
         title: game.title,
+        platformSlug: game.platformSlug,
+        region: game.region,
         status: "skipped",
         message: "Ya tiene descripción, SEO y metadatos básicos.",
+        fieldsUpdated: [],
+        sources: [],
+        urls: [],
+        steamTags: [],
+        descriptionPreview: draft.description,
+        seoPreview: draft.seoMeta?.seoDescription ?? null,
       });
       continue;
     }
 
     report.selected += 1;
-    if (body.dryRun) {
-      report.items.push({
-        pcId: game.pcId,
-        title: game.title,
-        status: "dry-run",
-        message: hasUsefulAiContent(draft) ? "Se completaría respetando huecos." : "Se generaría desde cero.",
-      });
-      continue;
-    }
 
     try {
-      let finalDraft: AdminGameDraft | null = null;
-      let lastError: string | null = null;
-      for await (const event of streamAdminAiFill(draft, options)) {
-        if (event.type === "done") finalDraft = event.draft;
-        if (event.type === "error") lastError = event.message;
-      }
+      const aiResult = await runAiForDraft(draft, options);
+      const { finalDraft, lastError } = aiResult;
 
       if (!finalDraft || lastError) {
         report.errors += 1;
         report.items.push({
           pcId: game.pcId,
           title: game.title,
+          platformSlug: game.platformSlug,
+          region: game.region,
           status: "error",
           message: lastError ?? "La IA no devolvió borrador final.",
+          fieldsUpdated: aiResult.fieldsUpdated,
+          sources: aiResult.sources,
+          urls: aiResult.urls,
+          steamTags: aiResult.steamTags,
+          descriptionPreview: finalDraft?.description ?? draft.description,
+          seoPreview: finalDraft?.seoMeta?.seoDescription ?? draft.seoMeta?.seoDescription ?? null,
         });
         continue;
       }
+
+      report.processed += 1;
+      for (const field of aiResult.fieldsUpdated) {
+        report.fieldCoverage[field] = (report.fieldCoverage[field] ?? 0) + 1;
+      }
+      if (aiResult.sources.some((source) => source.toLowerCase().includes("steam"))) report.sourceCoverage.steam += 1;
+      if (aiResult.sources.some((source) => /playstation|nintendo|xbox|microsoft|fuentes fiables/i.test(source))) {
+        report.sourceCoverage.official += 1;
+      }
+      if (aiResult.sources.some((source) => /wikipedia|wikidata/i.test(source))) report.sourceCoverage.wikipedia += 1;
+      if (aiResult.sources.some((source) => /datos existentes/i.test(source))) report.sourceCoverage.existing += 1;
+      if (aiResult.sources.length === 0) report.sourceCoverage.other += 1;
 
       finalDraft.slug = draft.slug;
       finalDraft.catalogId = draft.catalogId;
       finalDraft.platformSlug = draft.platformSlug;
       finalDraft.region = draft.region;
+
+      if (body.dryRun) {
+        report.items.push({
+          pcId: game.pcId,
+          title: game.title,
+          platformSlug: game.platformSlug,
+          region: game.region,
+          status: "dry-run",
+          message: hasUsefulAiContent(finalDraft)
+            ? "Previsualización generada; no se ha guardado."
+            : "Previsualización parcial; revisa antes de guardar.",
+          fieldsUpdated: aiResult.fieldsUpdated,
+          sources: aiResult.sources,
+          urls: aiResult.urls,
+          steamTags: aiResult.steamTags,
+          descriptionPreview: finalDraft.description,
+          seoPreview: finalDraft.seoMeta?.seoDescription ?? null,
+        });
+        continue;
+      }
 
       const saved = await writeAdminGameDraft(finalDraft);
       if ("error" in saved) {
@@ -141,27 +276,50 @@ export async function POST(request: Request) {
         report.items.push({
           pcId: game.pcId,
           title: game.title,
+          platformSlug: game.platformSlug,
+          region: game.region,
           status: "error",
           message: saved.error,
+          fieldsUpdated: aiResult.fieldsUpdated,
+          sources: aiResult.sources,
+          urls: aiResult.urls,
+          steamTags: aiResult.steamTags,
+          descriptionPreview: finalDraft.description,
+          seoPreview: finalDraft.seoMeta?.seoDescription ?? null,
         });
         continue;
       }
 
-      report.processed += 1;
       report.saved += 1;
       report.items.push({
         pcId: game.pcId,
         title: game.title,
+        platformSlug: game.platformSlug,
+        region: game.region,
         status: "processed",
         message: "Borrador completado con IA.",
+        fieldsUpdated: aiResult.fieldsUpdated,
+        sources: aiResult.sources,
+        urls: aiResult.urls,
+        steamTags: aiResult.steamTags,
+        descriptionPreview: finalDraft.description,
+        seoPreview: finalDraft.seoMeta?.seoDescription ?? null,
       });
     } catch (error) {
       report.errors += 1;
       report.items.push({
         pcId: game.pcId,
         title: game.title,
+        platformSlug: game.platformSlug,
+        region: game.region,
         status: "error",
         message: error instanceof Error ? error.message : "Error inesperado.",
+        fieldsUpdated: [],
+        sources: [],
+        urls: [],
+        steamTags: [],
+        descriptionPreview: draft.description,
+        seoPreview: draft.seoMeta?.seoDescription ?? null,
       });
     }
   }

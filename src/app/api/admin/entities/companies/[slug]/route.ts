@@ -10,7 +10,18 @@ export async function PATCH(request: Request, { params }: RouteParams) {
   }
 
   const slug = decodeURIComponent((await params).slug);
-  const body = (await request.json()) as { name?: string; newSlug?: string; active?: boolean };
+  const body = (await request.json()) as {
+    name?: string;
+    newSlug?: string;
+    active?: boolean;
+    history?: string | null;
+    logoUrl?: string | null;
+    foundedYear?: number | null;
+    closedYear?: number | null;
+    status?: "active" | "defunct" | "subsidiary" | "unknown";
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+  };
   if (typeof body.active === "boolean" && Object.keys(body).length === 1) {
     const result = await setAdminEntityActive("companies", slug, body.active);
     if ("error" in result) {

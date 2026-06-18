@@ -6,7 +6,7 @@ import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { listedCatalog } from "./catalog";
 import { slugify } from "./slug";
 import { isInvalidGenreEntity } from "./genre-normalize";
-import type { IndexEntry, Platform, PlatformStatus } from "./types";
+import type { CompanyProfile, CompanyProfileStatus, IndexEntry, Platform, PlatformStatus } from "./types";
 import {
   registerPlatformInPriceRotation,
   renamePlatformInPriceRotation,
@@ -554,7 +554,99 @@ export async function updateAdminPlatform(
 
 export type AdminEntityKind = "platforms" | "companies" | "genres";
 
+export type AdminCompanyRow = Pick<IndexEntry, "slug" | "name" | "gameCount" | "active"> & {
+  history?: string | null;
+  logoUrl?: string | null;
+  foundedYear?: number | null;
+  closedYear?: number | null;
+  status?: CompanyProfileStatus;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+};
+
 export type AdminIndexRow = Pick<IndexEntry, "slug" | "name" | "gameCount" | "active">;
+
+function normalizeSearchText(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function compactSearchText(value: string): string {
+  return normalizeSearchText(value).replace(/\s+/g, "");
+}
+
+function tokenizeSearchText(value: string): string[] {
+  return normalizeSearchText(value).split(/\s+/).filter(Boolean);
+}
+
+function companySearchScore(
+  entry: AdminIndexRow,
+  query: string,
+  aliases: string[],
+): number {
+  const queryTokens = tokenizeSearchText(query);
+  if (queryTokens.length === 0) return 1;
+
+  const fields = [entry.name, entry.slug, ...aliases];
+  const normalizedFields = fields.map(normalizeSearchText);
+  const compactFields = fields.map(compactSearchText);
+  const compactQuery = compactSearchText(query);
+
+  let score = 0;
+  for (const token of queryTokens) {
+    let tokenScore = 0;
+    for (const field of normalizedFields) {
+      const words = field.split(/\s+/).filter(Boolean);
+      if (field === normalizeSearchText(query)) tokenScore = Math.max(tokenScore, 120);
+      if (words.includes(token)) tokenScore = Math.max(tokenScore, 100);
+      if (words.some((word) => word.startsWith(token))) tokenScore = Math.max(tokenScore, token.length >= 3 ? 80 : 40);
+      if (token.length >= 4 && field.includes(token)) tokenScore = Math.max(tokenScore, 45);
+    }
+    for (const field of compactFields) {
+      if (field === compactQuery) tokenScore = Math.max(tokenScore, 110);
+      if (compactQuery.length >= 4 && field.startsWith(compactQuery)) tokenScore = Math.max(tokenScore, 85);
+      if (compactQuery.length >= 5 && field.includes(compactQuery)) tokenScore = Math.max(tokenScore, 50);
+    }
+    if (tokenScore === 0) return 0;
+    score += tokenScore;
+  }
+  return score + Math.min(entry.gameCount ?? 0, 500) / 1000;
+}
+
+function parseNullableYear(value: unknown): number | null | undefined {
+  if (value == null || value === "") return null;
+  const parsed = Number.parseInt(String(value), 10);
+  if (!Number.isFinite(parsed)) return undefined;
+  if (parsed < 1800 || parsed > 2100) return undefined;
+  return parsed;
+}
+
+function normalizeCompanyStatus(value: unknown): CompanyProfileStatus | undefined {
+  if (value === "active" || value === "defunct" || value === "subsidiary" || value === "unknown") return value;
+  return undefined;
+}
+
+function profileForAdminCompany(
+  entry: AdminIndexRow,
+  profiles: Record<string, CompanyProfile>,
+): AdminCompanyRow {
+  const profile = profiles[entry.slug];
+  return {
+    ...entry,
+    history: profile?.history ?? null,
+    logoUrl: profile?.logoUrl ?? null,
+    foundedYear: profile?.foundedYear ?? null,
+    closedYear: profile?.closedYear ?? null,
+    status: profile?.status ?? "unknown",
+    seoTitle: profile?.seoMeta?.seoTitle ?? null,
+    seoDescription: profile?.seoMeta?.seoDescription ?? null,
+  };
+}
 
 export async function setAdminEntityActive(
   kind: AdminEntityKind,
@@ -598,10 +690,12 @@ export async function setAdminEntityActive(
 export async function listAdminCompanies(input?: {
   q?: string;
   limit?: number;
-}): Promise<AdminIndexRow[]> {
+}): Promise<AdminCompanyRow[]> {
   const index = loadJson<Record<string, IndexEntry>>(COMPANIES_INDEX_FILE, {});
   const overlay = await readAdminEntitiesOverlay();
-  const q = input?.q?.trim().toLowerCase() ?? "";
+  const registry = loadJson<CompanyEntitiesFile>(COMPANY_ENTITIES_FILE, { entities: {} });
+  const profiles = loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {});
+  const q = input?.q?.trim() ?? "";
   const limit = Math.min(500, Math.max(20, input?.limit ?? 150));
 
   return [...Object.values(index).map(staticIndexRow), ...Object.values(overlay.companies)]
@@ -609,15 +703,33 @@ export async function listAdminCompanies(input?: {
       ...entry,
       active: overlay.active.companies[entry.slug] ?? entry.active !== false,
     }))
-    .filter((entry) => !q || entry.name.toLowerCase().includes(q) || entry.slug.includes(q))
-    .sort((a, b) => a.gameCount - b.gameCount || a.name.localeCompare(b.name, "es"))
-    .slice(0, limit)
     .map((entry) => ({
-      slug: entry.slug,
-      name: entry.name,
-      gameCount: entry.gameCount,
-      active: entry.active,
-    }));
+      entry,
+      score: q
+        ? companySearchScore(entry, q, [
+            ...(registry.entities?.[entry.slug]?.aliasNames ?? []),
+            ...(registry.entities?.[entry.slug]?.aliasSlugs ?? []),
+          ])
+        : 1,
+    }))
+    .filter((item) => item.score > 0)
+    .sort((a, b) =>
+      q
+        ? b.score - a.score || b.entry.gameCount - a.entry.gameCount || a.entry.name.localeCompare(b.entry.name, "es")
+        : b.entry.gameCount - a.entry.gameCount || a.entry.name.localeCompare(b.entry.name, "es"),
+    )
+    .slice(0, limit)
+    .map(({ entry }) =>
+      profileForAdminCompany(
+        {
+          slug: entry.slug,
+          name: entry.name,
+          gameCount: entry.gameCount,
+          active: entry.active,
+        },
+        profiles,
+      ),
+    );
 }
 
 export async function createAdminCompany(input: {
@@ -753,10 +865,26 @@ function renameCompanySlugInDetails(
 
 export async function updateAdminCompany(
   slug: string,
-  input: { name?: string; newSlug?: string },
+  input: {
+    name?: string;
+    newSlug?: string;
+    history?: string | null;
+    logoUrl?: string | null;
+    foundedYear?: number | null;
+    closedYear?: number | null;
+    status?: CompanyProfileStatus;
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+  },
 ): Promise<{ ok: true; entry: AdminIndexRow; slug: string } | { error: string }> {
   const currentSlug = slug.trim();
   const index = loadJson<Record<string, IndexEntry>>(COMPANIES_INDEX_FILE, {});
+  const foundedYear = parseNullableYear(input.foundedYear);
+  const closedYear = parseNullableYear(input.closedYear);
+  const status = normalizeCompanyStatus(input.status);
+  if (foundedYear === undefined) return { error: "Año de fundación no válido." };
+  if (closedYear === undefined) return { error: "Año de cierre no válido." };
+  if (input.status != null && !status) return { error: "Estado de compañía no válido." };
   if (!canWriteCatalogFiles()) {
     const overlay = await readAdminEntitiesOverlay();
     const entry = overlay.companies[currentSlug];
@@ -819,12 +947,39 @@ export async function updateAdminCompany(
   registry.generatedAt = new Date().toISOString();
   saveJson(COMPANY_ENTITIES_FILE, registry);
 
-  const profiles = loadJson<Record<string, Record<string, unknown>>>(COMPANY_PROFILES_FILE, {});
-  if (profiles[currentSlug]) {
-    profiles[nextSlug] = { ...profiles[currentSlug], slug: nextSlug, name };
-    delete profiles[currentSlug];
-    saveJson(COMPANY_PROFILES_FILE, profiles);
+  const profiles = loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {});
+  const currentProfile = profiles[currentSlug] ?? {
+    slug: nextSlug,
+    name,
+    generatedAt: new Date().toISOString(),
+    method: "template",
+  };
+  const nextProfile: CompanyProfile = {
+    ...currentProfile,
+    slug: nextSlug,
+    name,
+    history: input.history != null ? input.history.trim() || null : currentProfile.history ?? null,
+    logoUrl: input.logoUrl != null ? input.logoUrl.trim() || null : currentProfile.logoUrl ?? null,
+    foundedYear: foundedYear ?? currentProfile.foundedYear ?? null,
+    closedYear: closedYear ?? currentProfile.closedYear ?? null,
+    status: status ?? currentProfile.status ?? "unknown",
+    seoMeta: {
+      ...(currentProfile.seoMeta ?? {}),
+      seoTitle: input.seoTitle != null ? input.seoTitle.trim() || undefined : currentProfile.seoMeta?.seoTitle,
+      seoDescription:
+        input.seoDescription != null
+          ? input.seoDescription.trim() || undefined
+          : currentProfile.seoMeta?.seoDescription,
+    },
+    generatedAt: new Date().toISOString(),
+    method: "template",
+  };
+  if (!nextProfile.seoMeta?.seoTitle && !nextProfile.seoMeta?.seoDescription) {
+    nextProfile.seoMeta = null;
   }
+  if (nextSlug !== currentSlug) delete profiles[currentSlug];
+  profiles[nextSlug] = nextProfile;
+  saveJson(COMPANY_PROFILES_FILE, profiles);
 
   const details = loadJson<Record<string, unknown>>(DETAILS_FILE, {});
   renameCompanySlugInDetails(details, currentSlug, nextSlug, name);

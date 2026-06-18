@@ -23,6 +23,13 @@ type IndexRow = {
   name: string;
   gameCount: number;
   active?: boolean;
+  history?: string | null;
+  logoUrl?: string | null;
+  foundedYear?: number | null;
+  closedYear?: number | null;
+  status?: "active" | "defunct" | "subsidiary" | "unknown";
+  seoTitle?: string | null;
+  seoDescription?: string | null;
 };
 
 type EntitySort = "alpha-asc" | "alpha-desc" | "games-desc" | "games-asc";
@@ -52,9 +59,25 @@ function initialTab(): Tab {
 }
 
 function matchesSearch(row: { name: string; slug: string }, search: string): boolean {
-  const query = search.trim().toLowerCase();
+  const query = normalizeSearchText(search);
   if (!query) return true;
-  return row.name.toLowerCase().includes(query) || row.slug.toLowerCase().includes(query);
+  const queryTokens = query.split(/\s+/).filter(Boolean);
+  const searchable = [row.name, row.slug].map(normalizeSearchText);
+  return queryTokens.every((token) =>
+    searchable.some((field) => {
+      const words = field.split(/\s+/).filter(Boolean);
+      return words.includes(token) || words.some((word) => word.startsWith(token));
+    }),
+  );
+}
+
+function normalizeSearchText(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
 }
 
 function gameCount(row: PlatformRow | IndexRow): number {
@@ -98,6 +121,13 @@ export function AdminEntitiesPanel() {
   const [editShortName, setEditShortName] = useState("");
   const [editManufacturer, setEditManufacturer] = useState("nintendo");
   const [editStatus, setEditStatus] = useState("closed");
+  const [editCompanyHistory, setEditCompanyHistory] = useState("");
+  const [editCompanyLogoUrl, setEditCompanyLogoUrl] = useState("");
+  const [editCompanyFoundedYear, setEditCompanyFoundedYear] = useState("");
+  const [editCompanyClosedYear, setEditCompanyClosedYear] = useState("");
+  const [editCompanyStatus, setEditCompanyStatus] = useState<"active" | "defunct" | "subsidiary" | "unknown">("unknown");
+  const [editCompanySeoTitle, setEditCompanySeoTitle] = useState("");
+  const [editCompanySeoDescription, setEditCompanySeoDescription] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
 
@@ -127,7 +157,7 @@ export function AdminEntitiesPanel() {
   }, []);
 
   const loadCompanies = useCallback(async (q = search) => {
-    const params = new URLSearchParams({ limit: "150" });
+    const params = new URLSearchParams({ limit: "500" });
     if (q.trim()) params.set("q", q.trim());
     const res = await fetch(`/api/admin/entities/companies?${params}`);
     const data = await res.json();
@@ -330,6 +360,13 @@ export function AdminEntitiesPanel() {
     setEditingSlug(row.slug);
     setEditName(row.name);
     setEditNewSlug(row.slug);
+    setEditCompanyHistory(row.history ?? "");
+    setEditCompanyLogoUrl(row.logoUrl ?? "");
+    setEditCompanyFoundedYear(row.foundedYear != null ? String(row.foundedYear) : "");
+    setEditCompanyClosedYear(row.closedYear != null ? String(row.closedYear) : "");
+    setEditCompanyStatus(row.status ?? "unknown");
+    setEditCompanySeoTitle(row.seoTitle ?? "");
+    setEditCompanySeoDescription(row.seoDescription ?? "");
     setError(null);
     setMessage(null);
   }
@@ -355,6 +392,17 @@ export function AdminEntitiesPanel() {
           : {
               name: editName,
               newSlug: editNewSlug !== originalSlug ? editNewSlug : undefined,
+              ...(kind === "companies"
+                ? {
+                    history: editCompanyHistory,
+                    logoUrl: editCompanyLogoUrl,
+                    foundedYear: editCompanyFoundedYear.trim() ? Number(editCompanyFoundedYear) : null,
+                    closedYear: editCompanyClosedYear.trim() ? Number(editCompanyClosedYear) : null,
+                    status: editCompanyStatus,
+                    seoTitle: editCompanySeoTitle,
+                    seoDescription: editCompanySeoDescription,
+                  }
+                : {}),
             };
 
       const res = await fetch(
@@ -731,6 +779,82 @@ export function AdminEntitiesPanel() {
                         className="input font-mono text-xs"
                         value={editNewSlug}
                         onChange={(e) => setEditNewSlug(e.target.value)}
+                      />
+                    </label>
+                    <label className="block space-y-1 md:col-span-2">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">
+                        Sobre la compañía
+                      </span>
+                      <textarea
+                        className="input min-h-40 leading-7"
+                        value={editCompanyHistory}
+                        onChange={(e) => setEditCompanyHistory(e.target.value)}
+                        placeholder="Texto editorial. Puedes usar varios párrafos; se respetarán los saltos de línea en la ficha pública."
+                      />
+                      <span className="text-xs text-muted">
+                        Este texto alimenta la sección pública “Sobre la compañía”.
+                      </span>
+                    </label>
+                    <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">URL logo</span>
+                      <input
+                        className="input"
+                        value={editCompanyLogoUrl}
+                        onChange={(e) => setEditCompanyLogoUrl(e.target.value)}
+                        placeholder="https://..."
+                      />
+                    </label>
+                    <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">Estado editorial</span>
+                      <select
+                        className="input"
+                        value={editCompanyStatus}
+                        onChange={(e) =>
+                          setEditCompanyStatus(e.target.value as "active" | "defunct" | "subsidiary" | "unknown")
+                        }
+                      >
+                        <option value="unknown">Desconocido</option>
+                        <option value="active">Activa</option>
+                        <option value="defunct">Cerrada</option>
+                        <option value="subsidiary">Filial / subsidiaria</option>
+                      </select>
+                    </label>
+                    <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">Año fundación</span>
+                      <input
+                        className="input"
+                        inputMode="numeric"
+                        value={editCompanyFoundedYear}
+                        onChange={(e) => setEditCompanyFoundedYear(e.target.value)}
+                        placeholder="Ej. 1986"
+                      />
+                    </label>
+                    <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">Año cierre</span>
+                      <input
+                        className="input"
+                        inputMode="numeric"
+                        value={editCompanyClosedYear}
+                        onChange={(e) => setEditCompanyClosedYear(e.target.value)}
+                        placeholder="Opcional"
+                      />
+                    </label>
+                    <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">Título SEO</span>
+                      <input
+                        className="input"
+                        value={editCompanySeoTitle}
+                        onChange={(e) => setEditCompanySeoTitle(e.target.value)}
+                        placeholder={`${editName || "Compañía"} · juegos y catálogo | Region Atlas`}
+                      />
+                    </label>
+                    <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">Descripción SEO</span>
+                      <textarea
+                        className="input min-h-24 leading-6"
+                        value={editCompanySeoDescription}
+                        onChange={(e) => setEditCompanySeoDescription(e.target.value)}
+                        placeholder="Resumen corto para Google y tarjetas sociales."
                       />
                     </label>
                     <div className="flex flex-wrap gap-2 md:col-span-2">
