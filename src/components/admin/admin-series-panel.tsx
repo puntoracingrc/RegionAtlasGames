@@ -517,8 +517,8 @@ export function AdminSeriesPanel() {
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-muted">
                       Juegos de la saga
                     </h3>
-                    <p className="text-xs text-muted">
-                      El filtro de género también controla la asignación masiva.
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+                      Filtra por género
                     </p>
                   </div>
                   <select
