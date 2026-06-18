@@ -155,7 +155,8 @@ export async function listNewsForSection(input: {
 }): Promise<NewsItem[]> {
   const limit = Math.max(1, Math.min(input.limit ?? 3, 12));
   const now = Date.now();
-  const maxAgeMs = 1000 * 60 * 60 * 24 * 14;
+  const maxAgeDays = input.section === "platform" && (input.topic === "snk" || input.topic === "sega") ? 45 : 14;
+  const maxAgeMs = 1000 * 60 * 60 * 24 * maxAgeDays;
   const settings = await readNewsSettings();
 
   if (!newsSectionEnabled(settings, input.section, input.topic)) {
