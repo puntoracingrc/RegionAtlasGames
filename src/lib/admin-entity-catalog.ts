@@ -71,6 +71,7 @@ type AdminEntitiesOverlay = {
   updatedAt: string;
   platforms: Record<string, Platform>;
   companies: Record<string, AdminIndexRow>;
+  companyProfiles: Record<string, CompanyProfile>;
   genres: Record<string, AdminIndexRow>;
   active: {
     platforms: Record<string, boolean>;
@@ -84,6 +85,7 @@ function emptyOverlay(): AdminEntitiesOverlay {
     updatedAt: new Date().toISOString(),
     platforms: {},
     companies: {},
+    companyProfiles: {},
     genres: {},
     active: {
       platforms: {},
@@ -105,6 +107,7 @@ function parseOverlay(raw: string): AdminEntitiesOverlay {
       updatedAt: parsed.updatedAt ?? new Date().toISOString(),
       platforms: parsed.platforms ?? {},
       companies: parsed.companies ?? {},
+      companyProfiles: parsed.companyProfiles ?? {},
       genres: parsed.genres ?? {},
       active: {
         platforms: parsed.active?.platforms ?? {},
@@ -648,6 +651,51 @@ function profileForAdminCompany(
   };
 }
 
+function companyProfileFromInput(
+  slug: string,
+  name: string,
+  currentProfile: CompanyProfile | undefined,
+  input: {
+    history?: string | null;
+    logoUrl?: string | null;
+    foundedYear?: number | null;
+    closedYear?: number | null;
+    status?: CompanyProfileStatus;
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+  },
+  parsed: {
+    foundedYear: number | null;
+    closedYear: number | null;
+    status?: CompanyProfileStatus;
+  },
+): CompanyProfile {
+  const nextProfile: CompanyProfile = {
+    ...(currentProfile ?? {}),
+    slug,
+    name,
+    history: input.history != null ? input.history.trim() || null : currentProfile?.history ?? null,
+    logoUrl: input.logoUrl != null ? input.logoUrl.trim() || null : currentProfile?.logoUrl ?? null,
+    foundedYear: parsed.foundedYear ?? currentProfile?.foundedYear ?? null,
+    closedYear: parsed.closedYear ?? currentProfile?.closedYear ?? null,
+    status: parsed.status ?? currentProfile?.status ?? "unknown",
+    seoMeta: {
+      ...(currentProfile?.seoMeta ?? {}),
+      seoTitle: input.seoTitle != null ? input.seoTitle.trim() || undefined : currentProfile?.seoMeta?.seoTitle,
+      seoDescription:
+        input.seoDescription != null
+          ? input.seoDescription.trim() || undefined
+          : currentProfile?.seoMeta?.seoDescription,
+    },
+    generatedAt: new Date().toISOString(),
+    method: "template",
+  };
+  if (!nextProfile.seoMeta?.seoTitle && !nextProfile.seoMeta?.seoDescription) {
+    nextProfile.seoMeta = null;
+  }
+  return nextProfile;
+}
+
 export async function setAdminEntityActive(
   kind: AdminEntityKind,
   slug: string,
@@ -694,11 +742,21 @@ export async function listAdminCompanies(input?: {
   const index = loadJson<Record<string, IndexEntry>>(COMPANIES_INDEX_FILE, {});
   const overlay = await readAdminEntitiesOverlay();
   const registry = loadJson<CompanyEntitiesFile>(COMPANY_ENTITIES_FILE, { entities: {} });
-  const profiles = loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {});
+  const profiles = {
+    ...loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {}),
+    ...overlay.companyProfiles,
+  };
   const q = input?.q?.trim() ?? "";
   const limit = Math.min(500, Math.max(20, input?.limit ?? 150));
+  const mergedEntries = new Map<string, AdminIndexRow>();
+  for (const entry of Object.values(index).map(staticIndexRow)) {
+    mergedEntries.set(entry.slug, entry);
+  }
+  for (const entry of Object.values(overlay.companies)) {
+    mergedEntries.set(entry.slug, entry);
+  }
 
-  return [...Object.values(index).map(staticIndexRow), ...Object.values(overlay.companies)]
+  return [...mergedEntries.values()]
     .map((entry) => ({
       ...entry,
       active: overlay.active.companies[entry.slug] ?? entry.active !== false,
@@ -1149,19 +1207,40 @@ export async function updateAdminCompany(
   if (input.status != null && !status) return { error: "Estado de compañía no válido." };
   if (!canWriteCatalogFiles()) {
     const overlay = await readAdminEntitiesOverlay();
-    const entry = overlay.companies[currentSlug];
+    const staticEntry = index[currentSlug] ? staticIndexRow(index[currentSlug]) : null;
+    const entry = overlay.companies[currentSlug] ?? staticEntry;
     if (!entry) return { error: "Compañía no encontrada." };
 
     const name = input.name?.trim() || entry.name;
     const nextSlug = input.newSlug ? normalizeSlug(input.newSlug) : currentSlug;
     if (!nextSlug) return { error: "Slug no válido." };
+    if (nextSlug !== currentSlug && staticEntry && !overlay.companies[currentSlug]) {
+      return {
+        error:
+          "No se puede cambiar el slug de una compañía base desde producción. Cambia solo textos/perfil o haz el rename en local.",
+      };
+    }
     if (nextSlug !== currentSlug && (index[nextSlug] || overlay.companies[nextSlug])) {
       return { error: `Ya existe la compañía «${nextSlug}».` };
     }
 
-    const updated = { slug: nextSlug, name, gameCount: entry.gameCount };
+    const updated = {
+      slug: nextSlug,
+      name,
+      gameCount: entry.gameCount,
+      active: overlay.active.companies[currentSlug] ?? entry.active !== false,
+    };
     if (nextSlug !== currentSlug) delete overlay.companies[currentSlug];
     overlay.companies[nextSlug] = updated;
+    const currentProfile = overlay.companyProfiles[currentSlug];
+    if (nextSlug !== currentSlug) delete overlay.companyProfiles[currentSlug];
+    overlay.companyProfiles[nextSlug] = companyProfileFromInput(
+      nextSlug,
+      name,
+      currentProfile,
+      input,
+      { foundedYear: foundedYear ?? null, closedYear: closedYear ?? null, status },
+    );
     await writeAdminEntitiesOverlay(overlay);
     return { ok: true, slug: nextSlug, entry: updated };
   }
@@ -1210,35 +1289,14 @@ export async function updateAdminCompany(
   saveJson(COMPANY_ENTITIES_FILE, registry);
 
   const profiles = loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {});
-  const currentProfile = profiles[currentSlug] ?? {
-    slug: nextSlug,
+  const currentProfile = profiles[currentSlug];
+  const nextProfile = companyProfileFromInput(
+    nextSlug,
     name,
-    generatedAt: new Date().toISOString(),
-    method: "template",
-  };
-  const nextProfile: CompanyProfile = {
-    ...currentProfile,
-    slug: nextSlug,
-    name,
-    history: input.history != null ? input.history.trim() || null : currentProfile.history ?? null,
-    logoUrl: input.logoUrl != null ? input.logoUrl.trim() || null : currentProfile.logoUrl ?? null,
-    foundedYear: foundedYear ?? currentProfile.foundedYear ?? null,
-    closedYear: closedYear ?? currentProfile.closedYear ?? null,
-    status: status ?? currentProfile.status ?? "unknown",
-    seoMeta: {
-      ...(currentProfile.seoMeta ?? {}),
-      seoTitle: input.seoTitle != null ? input.seoTitle.trim() || undefined : currentProfile.seoMeta?.seoTitle,
-      seoDescription:
-        input.seoDescription != null
-          ? input.seoDescription.trim() || undefined
-          : currentProfile.seoMeta?.seoDescription,
-    },
-    generatedAt: new Date().toISOString(),
-    method: "template",
-  };
-  if (!nextProfile.seoMeta?.seoTitle && !nextProfile.seoMeta?.seoDescription) {
-    nextProfile.seoMeta = null;
-  }
+    currentProfile,
+    input,
+    { foundedYear: foundedYear ?? null, closedYear: closedYear ?? null, status },
+  );
   if (nextSlug !== currentSlug) delete profiles[currentSlug];
   profiles[nextSlug] = nextProfile;
   saveJson(COMPANY_PROFILES_FILE, profiles);
