@@ -3,6 +3,7 @@ import { getPlatform } from "./catalog";
 import { slugify } from "./slug";
 import { cleanSupportLabel, defaultSupportForPlatform } from "./game-detail-display";
 import { resolveExternalFacetSignals } from "./game-facets/external-signal-mapping";
+import { findGameFacetEntityByNameOrAlias } from "./game-facets/taxonomy";
 
 export type AdminAiFillOptions = {
   onlyMissing?: boolean;
@@ -134,6 +135,13 @@ const NINTENDO_OFFICIAL_INDEX: Record<string, string> = {
 
 const XBOX_OFFICIAL_INDEX = "https://www.xbox.com/es-es/games";
 const STEAM_SEARCH_SUGGEST_URL = "https://store.steampowered.com/search/suggest";
+
+type ControlledTaxonomyBuckets = {
+  genres: string[];
+  subgenres: string[];
+  facets: string[];
+  rejected: string[];
+};
 
 type TrustedSearchResult = {
   title: string;
@@ -446,20 +454,31 @@ function extractSteamTags(html: string): string[] {
 }
 
 async function searchSteamStoreExperimental(draft: AdminGameDraft): Promise<ReferenceSource | null> {
-  const query = `${draft.title} ${platformSearchLabel(draft.platformSlug)}`;
-  const params = new URLSearchParams({
-    term: query,
-    f: "games",
-    cc: "ES",
-    l: "spanish",
-  });
-  const suggestRes = await fetch(`${STEAM_SEARCH_SUGGEST_URL}?${params}`, {
-    headers: { "User-Agent": USER_AGENT },
-  });
-  if (!suggestRes.ok) return null;
+  const queryVariants = [
+    draft.title,
+    `${draft.title} ${platformSearchLabel(draft.platformSlug)}`,
+    draft.title.replace(/\b(collector'?s?|deluxe|ultimate|standard|complete|definitive)\s+edition\b/gi, "").trim(),
+  ]
+    .map((query) => query.replace(/\s+/g, " ").trim())
+    .filter(Boolean);
 
-  const suggestHtml = await suggestRes.text();
-  const appId = extractSteamAppIdFromSuggest(suggestHtml, draft.title);
+  let appId: string | null = null;
+  for (const query of Array.from(new Set(queryVariants))) {
+    const params = new URLSearchParams({
+      term: query,
+      f: "games",
+      cc: "ES",
+      l: "spanish",
+    });
+    const suggestRes = await fetch(`${STEAM_SEARCH_SUGGEST_URL}?${params}`, {
+      headers: { "User-Agent": USER_AGENT },
+    });
+    if (!suggestRes.ok) continue;
+
+    const suggestHtml = await suggestRes.text();
+    appId = extractSteamAppIdFromSuggest(suggestHtml, draft.title);
+    if (appId) break;
+  }
   if (!appId) return null;
 
   const appUrl = `https://store.steampowered.com/app/${appId}/?cc=ES&l=spanish`;
@@ -1002,6 +1021,79 @@ function normalizeAiGenreName(value: string): string {
   return dictionary[key] ?? name;
 }
 
+function classifyControlledTaxonomyNames(values: string[]): ControlledTaxonomyBuckets {
+  const buckets: ControlledTaxonomyBuckets = { genres: [], subgenres: [], facets: [], rejected: [] };
+  const seenByType = {
+    genre: new Set<string>(),
+    subgenre: new Set<string>(),
+    facet: new Set<string>(),
+  };
+
+  for (const value of values) {
+    const clean = normalizeAiGenreName(value).trim();
+    if (!clean) continue;
+    const entity = findGameFacetEntityByNameOrAlias(clean);
+    if (!entity) {
+      buckets.rejected.push(clean);
+      continue;
+    }
+
+    const seen = seenByType[entity.type];
+    if (seen.has(entity.slug)) continue;
+    seen.add(entity.slug);
+
+    if (entity.type === "genre") buckets.genres.push(entity.name);
+    else if (entity.type === "subgenre") buckets.subgenres.push(entity.name);
+    else buckets.facets.push(entity.name);
+  }
+
+  return buckets;
+}
+
+function applyControlledTaxonomyBuckets(
+  draft: AdminGameDraft,
+  buckets: ControlledTaxonomyBuckets,
+  options: AdminAiFillOptions,
+): Array<{ field: "genres" | "subgenreNames" | "facetNames"; value: string[] }> {
+  const updates: Array<{ field: "genres" | "subgenreNames" | "facetNames"; value: string[] }> = [];
+
+  if (buckets.genres.length && (!options.onlyMissing || draft.genreNames.length === 0)) {
+    draft.genreNames = appendUniqueNames(draft.genreNames, buckets.genres).slice(0, 5);
+    updates.push({ field: "genres", value: draft.genreNames });
+  }
+  if (buckets.subgenres.length && (!options.onlyMissing || draft.subgenreNames.length === 0)) {
+    draft.subgenreNames = appendUniqueNames(draft.subgenreNames, buckets.subgenres).slice(0, 12);
+    updates.push({ field: "subgenreNames", value: draft.subgenreNames });
+  }
+  if (buckets.facets.length && (!options.onlyMissing || draft.facetNames.length === 0)) {
+    draft.facetNames = appendUniqueNames(draft.facetNames, buckets.facets).slice(0, 18);
+    updates.push({ field: "facetNames", value: draft.facetNames });
+  }
+
+  return updates;
+}
+
+function normalizeDraftControlledTaxonomy(draft: AdminGameDraft): {
+  changed: boolean;
+  rejected: string[];
+} {
+  const buckets = classifyControlledTaxonomyNames([
+    ...(draft.genreNames ?? []),
+    ...(draft.subgenreNames ?? []),
+    ...(draft.facetNames ?? []),
+  ]);
+  const same =
+    draft.genreNames.join("|") === buckets.genres.join("|") &&
+    draft.subgenreNames.join("|") === buckets.subgenres.join("|") &&
+    draft.facetNames.join("|") === buckets.facets.join("|");
+
+  draft.genreNames = buckets.genres;
+  draft.subgenreNames = buckets.subgenres;
+  draft.facetNames = buckets.facets;
+
+  return { changed: !same || buckets.rejected.length > 0, rejected: buckets.rejected };
+}
+
 function appendUniqueNames(current: string[], next: string[]): string[] {
   const seen = new Set(current.map((value) => value.trim().toLowerCase()).filter(Boolean));
   const merged = [...current];
@@ -1023,6 +1115,18 @@ export async function* streamAdminAiFill(
   const includeDescription = options.includeDescription !== false;
   draft.subgenreNames = draft.subgenreNames ?? [];
   draft.facetNames = draft.facetNames ?? [];
+  const normalizedTaxonomy = normalizeDraftControlledTaxonomy(draft);
+  if (normalizedTaxonomy.changed) {
+    yield { type: "field", field: "genres", value: draft.genreNames };
+    yield { type: "field", field: "subgenreNames", value: draft.subgenreNames };
+    yield { type: "field", field: "facetNames", value: draft.facetNames };
+    yield {
+      type: "log",
+      message: normalizedTaxonomy.rejected.length
+        ? `Taxonomía normalizada; valores fuera del listado retirados: ${normalizedTaxonomy.rejected.join(", ")}`
+        : "Taxonomía normalizada: géneros, subgéneros y facetas recolocados en su bloque correcto.",
+    };
+  }
   const platform = getPlatform(draft.platformSlug);
   const platformName = platform?.name ?? draft.platformSlug;
 
@@ -1109,9 +1213,17 @@ export async function* streamAdminAiFill(
         yield { type: "field", field: "publisherName", value: draft.publisherName };
         yield { type: "field", field: "publisherSlug", value: draft.publisherSlug };
       }
-      if (psStoreReference.genres?.length && (!options.onlyMissing || draft.genreNames.length === 0)) {
-        draft.genreNames = psStoreReference.genres.slice(0, 4);
-        yield { type: "field", field: "genres", value: draft.genreNames };
+      if (psStoreReference.genres?.length) {
+        const buckets = classifyControlledTaxonomyNames(psStoreReference.genres);
+        for (const update of applyControlledTaxonomyBuckets(draft, buckets, options)) {
+          yield { type: "field", field: update.field, value: update.value };
+        }
+        if (buckets.rejected.length) {
+          yield {
+            type: "log",
+            message: `Géneros externos ignorados por no estar en taxonomía controlada: ${buckets.rejected.join(", ")}`,
+          };
+        }
       }
       if (psStoreReference.players && (!options.onlyMissing || draft.players == null)) {
         draft.players = psStoreReference.players;
@@ -1155,17 +1267,12 @@ export async function* streamAdminAiFill(
           .map((result) => result.target?.name ?? "")
           .filter(Boolean);
 
-        if (mappedGenreNames.length && (!options.onlyMissing || draft.genreNames.length === 0)) {
-          draft.genreNames = appendUniqueNames(draft.genreNames, mappedGenreNames).slice(0, 6);
-          yield { type: "field", field: "genres", value: draft.genreNames };
-        }
-        if (mappedSubgenreNames.length && (!options.onlyMissing || draft.subgenreNames.length === 0)) {
-          draft.subgenreNames = appendUniqueNames(draft.subgenreNames, mappedSubgenreNames).slice(0, 12);
-          yield { type: "field", field: "subgenreNames", value: draft.subgenreNames };
-        }
-        if (mappedFacetNames.length && (!options.onlyMissing || draft.facetNames.length === 0)) {
-          draft.facetNames = appendUniqueNames(draft.facetNames, mappedFacetNames).slice(0, 18);
-          yield { type: "field", field: "facetNames", value: draft.facetNames };
+        for (const update of applyControlledTaxonomyBuckets(
+          draft,
+          { genres: mappedGenreNames, subgenres: mappedSubgenreNames, facets: mappedFacetNames, rejected: [] },
+          options,
+        )) {
+          yield { type: "field", field: update.field, value: update.value };
         }
         const mappedLabels = [
           ...mappedSubgenreNames.map((name) => `subgénero: ${name}`),
@@ -1349,12 +1456,19 @@ export async function* streamAdminAiFill(
         yield { type: "field", field: "publisherName", value: draft.publisherName };
         yield { type: "field", field: "publisherSlug", value: draft.publisherSlug };
       }
-      if (Array.isArray(meta.genres) && (!options.onlyMissing || draft.genreNames.length === 0)) {
-        draft.genreNames = meta.genres
-          .filter((g): g is string => typeof g === "string" && g.trim().length > 0)
-          .map(normalizeAiGenreName)
-          .slice(0, 4);
-        yield { type: "field", field: "genres", value: draft.genreNames };
+      if (Array.isArray(meta.genres)) {
+        const buckets = classifyControlledTaxonomyNames(
+          meta.genres.filter((g): g is string => typeof g === "string" && g.trim().length > 0),
+        );
+        for (const update of applyControlledTaxonomyBuckets(draft, buckets, options)) {
+          yield { type: "field", field: update.field, value: update.value };
+        }
+        if (buckets.rejected.length) {
+          yield {
+            type: "log",
+            message: `Géneros sugeridos por IA ignorados por no estar en taxonomía controlada: ${buckets.rejected.join(", ")}`,
+          };
+        }
       }
       if (typeof meta.players === "number" && (!options.onlyMissing || draft.players == null)) {
         draft.players = meta.players;
