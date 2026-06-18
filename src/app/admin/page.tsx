@@ -47,6 +47,12 @@ const quickActions = [
     icon: "▦",
   },
   {
+    href: "/admin/entidades?tab=series",
+    title: "Editar sagas",
+    description: "Crear, buscar y agrupar juegos por saga.",
+    icon: "♢",
+  },
+  {
     href: "/admin/taxonomia",
     title: "Géneros",
     description: "Agrupa géneros en principal, subgénero y etiqueta.",
