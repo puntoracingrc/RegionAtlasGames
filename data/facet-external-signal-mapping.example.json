@@ -1,0 +1,11 @@
+[
+  {
+    "source": "steam",
+    "signal": "Metroidvania",
+    "targetId": "metroidvania",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved",
+    "notes": "Ejemplo de señal externa mapeada a entidad controlada de Region Atlas."
+  }
+]

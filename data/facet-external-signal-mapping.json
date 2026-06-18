@@ -1,0 +1,502 @@
+[
+  {
+    "source": "steam",
+    "signal": "Action-Adventure",
+    "targetId": "action-adventure",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved",
+    "notes": "Etiqueta Steam común equivalente a Acción-aventura."
+  },
+  {
+    "source": "steam",
+    "signal": "Metroidvania",
+    "targetId": "metroidvania",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Souls-like",
+    "targetId": "soulslike",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Hack and Slash",
+    "targetId": "hack-and-slash",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Beat 'em up",
+    "targetId": "beat-em-up",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Character Action Game",
+    "targetId": "character-action",
+    "targetType": "subgenre",
+    "confidence": 0.9,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Stealth",
+    "targetId": "stealth-action",
+    "targetType": "subgenre",
+    "confidence": 0.88,
+    "status": "approved",
+    "notes": "Steam suele usar Stealth como etiqueta amplia; se mapea a Acción sigilosa si la ficha ya apunta a acción/aventura."
+  },
+  {
+    "source": "steam",
+    "signal": "Open World",
+    "targetId": "open-world",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Point & Click",
+    "targetId": "point-and-click",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Walking Simulator",
+    "targetId": "walking-simulator",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Interactive Fiction",
+    "targetId": "interactive-fiction",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Choose Your Own Adventure",
+    "targetId": "choose-your-own-adventure",
+    "targetType": "subgenre",
+    "confidence": 0.92,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "JRPG",
+    "targetId": "jrpg",
+    "targetType": "subgenre",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Action RPG",
+    "targetId": "action-rpg",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Tactical RPG",
+    "targetId": "tactical-rpg",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Roguelike",
+    "targetId": "roguelike-structure",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Roguelite",
+    "targetId": "roguelike-structure",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Visual Novel",
+    "targetId": "visual-novel",
+    "targetType": "genre",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Survival Horror",
+    "targetId": "survival-horror",
+    "targetType": "subgenre",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Psychological Horror",
+    "targetId": "psychological-horror",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "FPS",
+    "targetId": "first-person-shooter",
+    "targetType": "subgenre",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Third-Person Shooter",
+    "targetId": "third-person-shooter",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Arena Shooter",
+    "targetId": "arena-shooter",
+    "targetType": "subgenre",
+    "confidence": 0.92,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Platformer",
+    "targetId": "platformer",
+    "targetType": "genre",
+    "confidence": 0.9,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Puzzle Platformer",
+    "targetId": "puzzle-platformer",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Racing",
+    "targetId": "racing",
+    "targetType": "genre",
+    "confidence": 0.9,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Arcade Racing",
+    "targetId": "arcade-racing",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Simulation Racing",
+    "targetId": "sim-racing",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Kart Racing",
+    "targetId": "kart-racing",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Sports",
+    "targetId": "sports",
+    "targetType": "genre",
+    "confidence": 0.9,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Football",
+    "targetId": "football",
+    "targetType": "subgenre",
+    "confidence": 0.92,
+    "status": "approved",
+    "notes": "En Steam puede significar fútbol europeo o americano; mantener revisión si hay ambigüedad regional."
+  },
+  {
+    "source": "steam",
+    "signal": "Soccer",
+    "targetId": "football",
+    "targetType": "subgenre",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Basketball",
+    "targetId": "basketball",
+    "targetType": "subgenre",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Skateboarding",
+    "targetId": "skateboarding",
+    "targetType": "facet",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Fighting",
+    "targetId": "fighting",
+    "targetType": "genre",
+    "confidence": 0.9,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "2D Fighter",
+    "targetId": "two-d-fighting",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "3D Fighter",
+    "targetId": "three-d-fighting",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Local Co-Op",
+    "targetId": "local-coop",
+    "targetType": "facet",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Online Co-Op",
+    "targetId": "online-coop",
+    "targetType": "facet",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Singleplayer",
+    "targetId": "single-player",
+    "targetType": "facet",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Multiplayer",
+    "targetId": "multiplayer",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Split Screen",
+    "targetId": "split-screen",
+    "targetType": "facet",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "PvP",
+    "targetId": "pvp",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "PvE",
+    "targetId": "pve",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Female Protagonist",
+    "targetId": "female-protagonist",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Zombies",
+    "targetId": "zombies",
+    "targetType": "facet",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Aliens",
+    "targetId": "aliens",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Cyberpunk",
+    "targetId": "cyberpunk",
+    "targetType": "facet",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Post-apocalyptic",
+    "targetId": "post-apocalyptic",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Medieval",
+    "targetId": "medieval",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Sci-fi",
+    "targetId": "sci-fi",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Fantasy",
+    "targetId": "fantasy",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Anime",
+    "targetId": "anime-style",
+    "targetType": "facet",
+    "confidence": 0.92,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Pixel Graphics",
+    "targetId": "pixel-art",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "steam",
+    "signal": "Retro",
+    "targetId": "retro",
+    "targetType": "facet",
+    "confidence": 0.85,
+    "status": "review",
+    "notes": "Retro en Steam suele describir estética, no antigüedad física. Revisión recomendada."
+  },
+  {
+    "source": "vandal",
+    "signal": "Aventura de acción",
+    "targetId": "action-adventure",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "vandal",
+    "signal": "Hack and Slash",
+    "targetId": "hack-and-slash",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "vandal",
+    "signal": "Survival Horror",
+    "targetId": "survival-horror",
+    "targetType": "subgenre",
+    "confidence": 0.97,
+    "status": "approved"
+  },
+  {
+    "source": "vandal",
+    "signal": "Metroidvania",
+    "targetId": "metroidvania",
+    "targetType": "subgenre",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "vandal",
+    "signal": "Mundo abierto",
+    "targetId": "open-world",
+    "targetType": "facet",
+    "confidence": 0.95,
+    "status": "approved"
+  },
+  {
+    "source": "official",
+    "signal": "1 jugador",
+    "targetId": "single-player",
+    "targetType": "facet",
+    "confidence": 0.92,
+    "status": "approved"
+  },
+  {
+    "source": "official",
+    "signal": "Juego online opcional",
+    "targetId": "online-multiplayer",
+    "targetType": "facet",
+    "confidence": 0.9,
+    "status": "approved"
+  }
+]
