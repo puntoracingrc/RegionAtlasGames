@@ -148,41 +148,59 @@ type TrustedSearchResult = {
   url: string;
   snippet: string;
   source: string;
+  tier: TrustedSourceTier;
   score: number;
 };
 
-const TRUSTED_SOURCE_PRIORITY: Array<{ domain: string; label: string; platformPrefixes?: string[]; score: number }> = [
-  { domain: "store.playstation.com", label: "PlayStation Store", platformPrefixes: ["ps"], score: 100 },
-  { domain: "xbox.com", label: "Xbox Store", platformPrefixes: ["xbox"], score: 95 },
-  { domain: "microsoft.com", label: "Microsoft Store", platformPrefixes: ["xbox"], score: 90 },
-  { domain: "store.nintendo.com", label: "Nintendo Store", platformPrefixes: ["switch"], score: 100 },
-  { domain: "nintendo.com", label: "Nintendo oficial", platformPrefixes: ["switch", "wii", "ds", "3ds"], score: 95 },
-  { domain: "store.steampowered.com", label: "Steam", platformPrefixes: ["pc"], score: 95 },
-  { domain: "sega.com", label: "SEGA oficial", score: 88 },
-  { domain: "snk-corp.co.jp", label: "SNK oficial", score: 88 },
-  { domain: "bandainamcoent.eu", label: "Bandai Namco oficial", score: 88 },
-  { domain: "bandainamcoent.com", label: "Bandai Namco oficial", score: 86 },
-  { domain: "capcom-games.com", label: "Capcom oficial", score: 88 },
-  { domain: "square-enix-games.com", label: "Square Enix oficial", score: 88 },
-  { domain: "konami.com", label: "Konami oficial", score: 86 },
-  { domain: "ubisoft.com", label: "Ubisoft oficial", score: 86 },
-  { domain: "ea.com", label: "EA oficial", score: 86 },
-  { domain: "2k.com", label: "2K oficial", score: 84 },
-  { domain: "rockstargames.com", label: "Rockstar Games oficial", score: 86 },
-  { domain: "atlus.com", label: "Atlus oficial", score: 84 },
-  { domain: "505games.com", label: "505 Games oficial", score: 82 },
-  { domain: "focus-entmt.com", label: "Focus Entertainment oficial", score: 82 },
-  { domain: "devolverdigital.com", label: "Devolver Digital oficial", score: 82 },
-  { domain: "team17.com", label: "Team17 oficial", score: 82 },
-  { domain: "thqnordic.com", label: "THQ Nordic oficial", score: 82 },
-  { domain: "microids.com", label: "Microids oficial", score: 80 },
-  { domain: "maximum-ent.com", label: "Maximum Entertainment oficial", score: 80 },
-  { domain: "indiegames-studio.com", label: "Web oficial del estudio", score: 74 },
-  { domain: "mobygames.com", label: "MobyGames", score: 82 },
-  { domain: "thegamesdb.net", label: "TheGamesDB", score: 76 },
-  { domain: "igdb.com", label: "IGDB", score: 74 },
-  { domain: "wikipedia.org", label: "Wikipedia", score: 62 },
-  { domain: "wikidata.org", label: "Wikidata", score: 62 },
+type TrustedSourceTier = "official" | "database" | "secondary" | "wiki";
+
+type TrustedSourceDefinition = {
+  domain: string;
+  label: string;
+  tier: TrustedSourceTier;
+  platformPrefixes?: string[];
+  score: number;
+};
+
+const TRUSTED_SOURCE_PRIORITY: TrustedSourceDefinition[] = [
+  { domain: "store.playstation.com", label: "PlayStation Store", tier: "official", platformPrefixes: ["ps"], score: 100 },
+  { domain: "xbox.com", label: "Xbox Store", tier: "official", platformPrefixes: ["xbox"], score: 95 },
+  { domain: "microsoft.com", label: "Microsoft Store", tier: "official", platformPrefixes: ["xbox"], score: 90 },
+  { domain: "store.nintendo.com", label: "Nintendo Store", tier: "official", platformPrefixes: ["switch"], score: 100 },
+  { domain: "nintendo.com", label: "Nintendo oficial", tier: "official", platformPrefixes: ["switch", "wii", "ds", "3ds"], score: 95 },
+  { domain: "store.steampowered.com", label: "Steam", tier: "official", platformPrefixes: ["pc"], score: 95 },
+  { domain: "sega.com", label: "SEGA oficial", tier: "official", score: 88 },
+  { domain: "snk-corp.co.jp", label: "SNK oficial", tier: "official", score: 88 },
+  { domain: "bandainamcoent.eu", label: "Bandai Namco oficial", tier: "official", score: 88 },
+  { domain: "bandainamcoent.com", label: "Bandai Namco oficial", tier: "official", score: 86 },
+  { domain: "capcom-games.com", label: "Capcom oficial", tier: "official", score: 88 },
+  { domain: "square-enix-games.com", label: "Square Enix oficial", tier: "official", score: 88 },
+  { domain: "konami.com", label: "Konami oficial", tier: "official", score: 86 },
+  { domain: "ubisoft.com", label: "Ubisoft oficial", tier: "official", score: 86 },
+  { domain: "ea.com", label: "EA oficial", tier: "official", score: 86 },
+  { domain: "2k.com", label: "2K oficial", tier: "official", score: 84 },
+  { domain: "rockstargames.com", label: "Rockstar Games oficial", tier: "official", score: 86 },
+  { domain: "atlus.com", label: "Atlus oficial", tier: "official", score: 84 },
+  { domain: "505games.com", label: "505 Games oficial", tier: "official", score: 82 },
+  { domain: "focus-entmt.com", label: "Focus Entertainment oficial", tier: "official", score: 82 },
+  { domain: "devolverdigital.com", label: "Devolver Digital oficial", tier: "official", score: 82 },
+  { domain: "team17.com", label: "Team17 oficial", tier: "official", score: 82 },
+  { domain: "thqnordic.com", label: "THQ Nordic oficial", tier: "official", score: 82 },
+  { domain: "microids.com", label: "Microids oficial", tier: "official", score: 80 },
+  { domain: "maximum-ent.com", label: "Maximum Entertainment oficial", tier: "official", score: 80 },
+  { domain: "indiegames-studio.com", label: "Web oficial del estudio", tier: "official", score: 74 },
+  { domain: "mobygames.com", label: "MobyGames", tier: "database", score: 82 },
+  { domain: "gamefaqs.gamespot.com", label: "Referencia secundaria: GameFAQs", tier: "secondary", score: 66 },
+  { domain: "giantbomb.com", label: "Referencia secundaria: Giant Bomb", tier: "secondary", score: 64 },
+  { domain: "rawg.io", label: "Referencia secundaria: RAWG", tier: "secondary", score: 62 },
+  { domain: "steamdb.info", label: "Referencia secundaria: SteamDB", tier: "secondary", platformPrefixes: ["pc"], score: 62 },
+  { domain: "nintendolife.com", label: "Referencia secundaria: Nintendo Life", tier: "secondary", platformPrefixes: ["nes", "snes", "n64", "gameboy", "gba", "gamecube", "wii", "wiiu", "ds", "3ds", "switch"], score: 62 },
+  { domain: "vandal.elespanol.com", label: "Referencia secundaria: Vandal", tier: "secondary", score: 60 },
+  { domain: "3djuegos.com", label: "Referencia secundaria: 3DJuegos", tier: "secondary", score: 58 },
+  { domain: "thegamesdb.net", label: "TheGamesDB", tier: "database", score: 76 },
+  { domain: "igdb.com", label: "IGDB", tier: "database", score: 74 },
+  { domain: "wikipedia.org", label: "Wikipedia", tier: "wiki", score: 62 },
+  { domain: "wikidata.org", label: "Wikidata", tier: "wiki", score: 62 },
 ];
 
 const MODERN_CATALOG_PLATFORMS = new Set([
@@ -196,7 +214,17 @@ const MODERN_CATALOG_PLATFORMS = new Set([
   "pc",
 ]);
 
-const RETRO_REFERENCE_DOMAINS = ["mobygames.com", "thegamesdb.net", "igdb.com", "wikipedia.org", "wikidata.org"];
+const DATABASE_REFERENCE_DOMAINS = ["mobygames.com", "thegamesdb.net", "igdb.com"];
+const KNOWLEDGE_REFERENCE_DOMAINS = ["wikipedia.org", "wikidata.org"];
+const SECONDARY_REFERENCE_DOMAINS = [
+  "gamefaqs.gamespot.com",
+  "giantbomb.com",
+  "rawg.io",
+  "vandal.elespanol.com",
+  "3djuegos.com",
+];
+const NINTENDO_SECONDARY_REFERENCE_DOMAINS = ["nintendolife.com"];
+const PC_SECONDARY_REFERENCE_DOMAINS = ["steamdb.info"];
 
 const COMPANY_DOMAIN_HINTS: Record<string, string[]> = {
   sega: ["sega.com"],
@@ -256,7 +284,10 @@ function platformSearchLabel(platformSlug: string): string {
   return PLAYSTATION_STORE_PLATFORM[platformSlug] ?? PLATFORM_WIKI_HINT[platformSlug] ?? platformSlug;
 }
 
-function trustedSourceForUrl(url: string, platformSlug: string): { label: string; score: number } | null {
+function trustedSourceForUrl(
+  url: string,
+  platformSlug: string,
+): { label: string; tier: TrustedSourceTier; score: number } | null {
   let hostname = "";
   try {
     hostname = new URL(url).hostname.replace(/^www\./, "");
@@ -268,7 +299,7 @@ function trustedSourceForUrl(url: string, platformSlug: string): { label: string
     if (!hostname.endsWith(candidate.domain)) return false;
     return !candidate.platformPrefixes || candidate.platformPrefixes.some((prefix) => platformSlug.startsWith(prefix));
   });
-  return source ? { label: source.label, score: source.score } : null;
+  return source ? { label: source.label, tier: source.tier, score: source.score } : null;
 }
 
 function webSearchConfigured(): boolean {
@@ -296,6 +327,20 @@ function companySearchDomains(draft: AdminGameDraft): string[] {
     }
   }
 
+  return Array.from(domains);
+}
+
+function secondarySearchDomains(platformSlug: string): string[] {
+  const domains = new Set(SECONDARY_REFERENCE_DOMAINS);
+  if (platformSlug === "pc") {
+    PC_SECONDARY_REFERENCE_DOMAINS.forEach((domain) => domains.add(domain));
+  }
+  if (
+    platformSlug.startsWith("switch") ||
+    ["nes", "snes", "n64", "gameboy", "gba", "gamecube", "wii", "wiiu", "ds", "3ds"].includes(platformSlug)
+  ) {
+    NINTENDO_SECONDARY_REFERENCE_DOMAINS.forEach((domain) => domains.add(domain));
+  }
   return Array.from(domains);
 }
 
@@ -327,18 +372,22 @@ function buildTrustedSearchQueries(draft: AdminGameDraft): string[] {
     }
     queries.add(`${base} official game developer publisher`);
   } else {
-    for (const domain of RETRO_REFERENCE_DOMAINS) {
+    for (const domain of [...DATABASE_REFERENCE_DOMAINS, ...KNOWLEDGE_REFERENCE_DOMAINS]) {
       queries.add(`${base} site:${domain}`);
     }
   }
 
   if (isModernCatalogPlatform(draft.platformSlug)) {
-    queries.add(`${base} site:mobygames.com`);
-    queries.add(`${base} site:thegamesdb.net`);
-    queries.add(`${base} site:igdb.com`);
+    for (const domain of DATABASE_REFERENCE_DOMAINS) {
+      queries.add(`${base} site:${domain}`);
+    }
   }
 
-  return Array.from(queries).slice(0, 8);
+  for (const domain of secondarySearchDomains(draft.platformSlug)) {
+    queries.add(`${base} site:${domain}`);
+  }
+
+  return Array.from(queries).slice(0, 14);
 }
 
 function psStoreProductUrlFromReference(reference: string | null): string | null {
@@ -762,6 +811,7 @@ async function googleTrustedSearch(query: string, platformSlug: string): Promise
         url,
         snippet: item.snippet ?? "",
         source: source.label,
+        tier: source.tier,
         score: source.score,
       };
     })
@@ -798,6 +848,7 @@ async function serpApiTrustedSearch(query: string, platformSlug: string): Promis
         url,
         snippet: item.snippet ?? "",
         source: source.label,
+        tier: source.tier,
         score: source.score,
       };
     })
@@ -832,13 +883,19 @@ async function trustedWebSearch(draft: AdminGameDraft): Promise<TrustedSearchRes
 
 function referenceFromSearchResults(results: TrustedSearchResult[]): ReferenceSource | null {
   if (results.length === 0) return null;
-  const lines = results.map((result, index) => {
+  const formatLines = (items: TrustedSearchResult[]) => items.map((result, index) => {
     return `${index + 1}. ${result.source}: ${result.title}\nURL: ${result.url}\nResumen: ${result.snippet}`;
   });
+  const primaryLines = formatLines(results.filter((result) => result.tier !== "secondary"));
+  const secondaryLines = formatLines(results.filter((result) => result.tier === "secondary"));
+  const sections = [
+    primaryLines.length ? `Fuentes oficiales, bases de datos y conocimiento:\n${primaryLines.join("\n\n")}` : "",
+    secondaryLines.length ? `Referencias secundarias de apoyo, no autoridad principal:\n${secondaryLines.join("\n\n")}` : "",
+  ].filter(Boolean);
   return {
-    label: "Búsqueda web fiable",
+    label: secondaryLines.length ? "Búsqueda web fiable + referencias secundarias" : "Búsqueda web fiable",
     url: results[0].url,
-    text: `Resultados fiables encontrados para contrastar:\n${lines.join("\n\n")}`,
+    text: `Resultados encontrados para contrastar, manteniendo separada la autoridad de cada fuente:\n${sections.join("\n\n")}`,
   };
 }
 
