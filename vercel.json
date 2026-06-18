@@ -15,10 +15,6 @@
     {
       "path": "/api/cron/enrich-catalog-staging",
       "schedule": "0 4 * * *"
-    },
-    {
-      "path": "/api/cron/news-refresh",
-      "schedule": "30 10 * * *"
     }
   ],
   "functions": {
