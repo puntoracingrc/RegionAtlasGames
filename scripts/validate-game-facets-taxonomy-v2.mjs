@@ -115,6 +115,7 @@ if (taxonomy) {
     if (typeof entity.publicEligible !== "boolean") fail(`publicEligible debe ser boolean en ${entity.id}`);
     if (typeof entity.seoEligible !== "boolean") fail(`seoEligible debe ser boolean en ${entity.id}`);
     if (entity.aliases && !Array.isArray(entity.aliases)) fail(`aliases debe ser array en ${entity.id}`);
+    if (entity.searchAliases && !Array.isArray(entity.searchAliases)) fail(`searchAliases debe ser array en ${entity.id}`);
     if ((entity.type === "subgenre" || entity.type === "facet") && !VALID_FAMILIES.has(entity.family)) {
       fail(`Family inválida en ${entity.id}: ${entity.family}`);
     }
@@ -159,6 +160,7 @@ if (taxonomy) {
   }
 
   const aliasOwner = new Map();
+  const searchAliasOwner = new Map();
   for (const entity of all) {
     const terms = [entity.name, entity.nameEn, entity.slug, entity.canonicalSlug, ...(entity.aliases ?? [])]
       .filter(Boolean)
@@ -168,6 +170,13 @@ if (taxonomy) {
       const owner = aliasOwner.get(term);
       if (owner && owner !== entity.id) warn(`Alias compartido: "${term}" en ${owner} y ${entity.id}`);
       else aliasOwner.set(term, entity.id);
+    }
+    for (const searchAlias of entity.searchAliases ?? []) {
+      const term = normalize(searchAlias);
+      if (!term) continue;
+      const owner = searchAliasOwner.get(term);
+      if (owner && owner !== entity.id) fail(`searchAlias duplicado: "${term}" en ${owner} y ${entity.id}`);
+      else searchAliasOwner.set(term, entity.id);
     }
   }
 
@@ -186,6 +195,21 @@ if (taxonomy) {
   for (const [term, expectedOwner] of aliasExpectations) {
     const owner = aliasOwner.get(normalize(term));
     if (owner !== expectedOwner) warn(`Alias "${term}" apunta a ${owner ?? "nadie"}, esperado ${expectedOwner}`);
+  }
+
+  const searchAliasExpectations = new Map([
+    ["tipo Dark Souls", "soulslike"],
+    ["estilo Metroid", "metroidvania"],
+    ["yo contra el barrio", "beat-em-up"],
+    ["estilo Devil May Cry", "character-action"],
+    ["estilo Metal Gear", "stealth-action"],
+    ["aventura gráfica", "point-and-click"],
+    ["simulador de caminar", "walking-simulator"],
+    ["CYOA", "choose-your-own-adventure"],
+  ]);
+  for (const [term, expectedOwner] of searchAliasExpectations) {
+    const owner = searchAliasOwner.get(normalize(term));
+    if (owner !== expectedOwner) fail(`searchAlias "${term}" apunta a ${owner ?? "nadie"}, esperado ${expectedOwner}`);
   }
 }
 

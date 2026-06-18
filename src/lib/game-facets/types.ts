@@ -43,6 +43,7 @@ export type GameFacetBase = {
   canonicalSlug?: string;
   type: GameFacetTaxonomyType;
   aliases?: string[];
+  searchAliases?: string[];
   description: string;
   status: GameFacetStatus;
   priority?: GameFacetPriority;

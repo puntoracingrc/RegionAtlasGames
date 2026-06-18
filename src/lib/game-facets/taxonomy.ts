@@ -29,8 +29,13 @@ export function findGameFacetEntityBySlug(slug: string): GameFacetTaxonomyEntity
 
 export function findGameFacetEntityByNameOrAlias(value: string): GameFacetTaxonomyEntity | undefined {
   const normalizedValue = normalizeFacetText(value);
+  const bySearchAlias = getAllGameFacetTaxonomyEntities().find((entity) => {
+    return entity.searchAliases?.some((alias) => normalizeFacetText(alias) === normalizedValue) ?? false;
+  });
+  if (bySearchAlias) return bySearchAlias;
   return getAllGameFacetTaxonomyEntities().find((entity) => {
     if (normalizeFacetText(entity.name) === normalizedValue) return true;
+    if (entity.nameEn && normalizeFacetText(entity.nameEn) === normalizedValue) return true;
     return entity.aliases?.some((alias) => normalizeFacetText(alias) === normalizedValue) ?? false;
   });
 }

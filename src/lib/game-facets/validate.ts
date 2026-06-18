@@ -34,6 +34,7 @@ function validateEntityShape(entity: GameFacetTaxonomyEntity, collectionName: st
   if (entity.group !== undefined && typeof entity.group !== "string") errors.push(`${label} group debe ser string si existe`);
   if (entity.subfamily !== undefined && typeof entity.subfamily !== "string") errors.push(`${label} subfamily debe ser string si existe`);
   if (entity.aliases && !Array.isArray(entity.aliases)) errors.push(`${label} aliases debe ser array si existe`);
+  if (entity.searchAliases && !Array.isArray(entity.searchAliases)) errors.push(`${label} searchAliases debe ser array si existe`);
   if ((entity.type === "subgenre" || entity.type === "facet") && !VALID_FAMILIES.has(entity.family)) {
     errors.push(`${label} tiene family no válida`);
   }
@@ -76,7 +77,7 @@ export function validateGameFacetsTaxonomy(taxonomy: GameFacetsTaxonomy): GameFa
     slugSet.add(entity.slug);
 
     if (entity.aliases?.some((alias) => !alias.trim())) warnings.push(`alias vacío en ${entity.id}`);
-    const aliases = entity.aliases ?? [];
+    const aliases = [...(entity.aliases ?? []), ...(entity.searchAliases ?? [])];
     const comparableTerms = [entity.name, entity.nameEn, entity.slug, entity.canonicalSlug, ...aliases]
       .filter((term): term is string => typeof term === "string" && Boolean(term.trim()))
       .map(normalizeComparable);

@@ -373,7 +373,6 @@
         "adventure"
       ],
       "aliases": [
-        "action adventure",
         "accion aventura",
         "acción / aventura",
         "juegos de accion aventura"
@@ -382,7 +381,15 @@
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "action-adventure",
+        "acción y aventura",
+        "aventura de acción",
+        "action adventure",
+        "aventuras con combate",
+        "exploración y acción"
+      ]
     },
     {
       "id": "arcade-racing",
@@ -526,15 +533,23 @@
         "action"
       ],
       "aliases": [
-        "hack n slash",
-        "hack & slash",
         "corta y raja"
       ],
       "description": "Subgénero controlado para juegos de Hack and Slash.",
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "hack & slash",
+        "hack n slash",
+        "hack slash",
+        "cortar y machacar",
+        "acción cuerpo a cuerpo",
+        "espadas",
+        "combos",
+        "musou"
+      ]
     },
     {
       "id": "life-sim",
@@ -612,15 +627,21 @@
         "adventure"
       ],
       "aliases": [
-        "point and click",
-        "aventura grafica",
         "aventuras graficas"
       ],
       "description": "Subgénero controlado para juegos de Point & Click.",
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "point and click",
+        "point’n’click",
+        "aventura gráfica",
+        "aventura point click",
+        "clic y explorar",
+        "puzzles narrativos"
+      ]
     },
     {
       "id": "psychological-horror",
@@ -700,16 +721,24 @@
         "rpg"
       ],
       "aliases": [
-        "souls-like",
         "souls like",
-        "tipo souls",
-        "souls"
+        "tipo souls"
       ],
       "description": "Subgénero controlado para juegos de Soulslike.",
       "priority": "A",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "souls-like",
+        "soulsborne",
+        "tipo Dark Souls",
+        "estilo Souls",
+        "souls",
+        "combate difícil",
+        "jefes difíciles",
+        "acción RPG difícil"
+      ]
     },
     {
       "id": "strategy-rpg",
@@ -955,8 +984,6 @@
         "arcade"
       ],
       "aliases": [
-        "yo contra el barrio",
-        "brawler",
         "Beat ´em up"
       ],
       "description": "Acción cuerpo a cuerpo contra grupos de enemigos, normalmente con avance por escenarios.",
@@ -964,7 +991,16 @@
       "canonicalSlug": "beat-em-up",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "beat em up",
+        "beat-em-up",
+        "yo contra el barrio",
+        "brawler",
+        "peleas callejeras",
+        "mamporros",
+        "arcade de peleas"
+      ]
     },
     {
       "id": "body-horror",
@@ -1041,15 +1077,22 @@
         "action"
       ],
       "aliases": [
-        "accion tecnica",
-        "stylish action",
         "juego de accion tecnica"
       ],
       "description": "Subgénero controlado para juegos de Character Action.",
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "character action",
+        "stylish action",
+        "acción técnica",
+        "acción con combos",
+        "hack and slash técnico",
+        "estilo Devil May Cry",
+        "estilo Bayonetta"
+      ]
     },
     {
       "id": "colony-sim",
@@ -1342,14 +1385,21 @@
         "visual-novel"
       ],
       "aliases": [
-        "interactive fiction",
         "ficcion interactiva"
       ],
       "description": "Subgénero controlado para juegos de Ficción interactiva.",
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "interactive fiction",
+        "IF",
+        "texto interactivo",
+        "aventura de texto",
+        "narrativa interactiva",
+        "novela interactiva"
+      ]
     },
     {
       "id": "interactive-movie",
@@ -1504,16 +1554,22 @@
         "adventure",
         "platformer"
       ],
-      "aliases": [
-        "metroid-like",
-        "castlevania-like"
-      ],
+      "aliases": [],
       "description": "Exploración interconectada con progresión bloqueada por habilidades, llaves o mejoras.",
       "status": "approved",
       "canonicalSlug": "metroidvania",
       "priority": "B",
       "publicEligible": true,
-      "seoEligible": true
+      "seoEligible": true,
+      "searchAliases": [
+        "metroidvania",
+        "metroid-like",
+        "castlevania-like",
+        "estilo Metroid",
+        "estilo Castlevania",
+        "exploración con habilidades",
+        "mapa interconectado"
+      ]
     },
     {
       "id": "mmorpg",
@@ -1613,14 +1669,21 @@
         "adventure"
       ],
       "aliases": [
-        "open world adventure",
         "aventura mundo abierto"
       ],
       "description": "Subgénero controlado para juegos de Aventura de mundo abierto.",
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "open world adventure",
+        "mundo abierto",
+        "aventura open world",
+        "exploración libre",
+        "sandbox adventure",
+        "aventura sandbox"
+      ]
     },
     {
       "id": "rail-shooter",
@@ -1785,14 +1848,23 @@
         "action"
       ],
       "aliases": [
-        "stealth action",
         "juego de sigilo"
       ],
       "description": "Subgénero controlado para juegos de Acción sigilosa.",
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "stealth action",
+        "sigilo",
+        "infiltración",
+        "espionaje",
+        "acción táctica",
+        "ocultación",
+        "estilo Metal Gear",
+        "stealth"
+      ]
     },
     {
       "id": "street-racing",
@@ -2014,14 +2086,21 @@
         "adventure"
       ],
       "aliases": [
-        "simulador de caminar",
         "narrative exploration"
       ],
       "description": "Subgénero controlado para juegos de Walking Simulator.",
       "priority": "B",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "walking sim",
+        "simulador de caminar",
+        "aventura narrativa",
+        "exploración narrativa",
+        "juego contemplativo",
+        "narrativa ambiental"
+      ]
     },
     {
       "id": "western-rpg",
@@ -2141,14 +2220,22 @@
         "visual-novel"
       ],
       "aliases": [
-        "elige tu aventura",
-        "choose your own adventure"
+        "elige tu aventura"
       ],
       "description": "Subgénero controlado para juegos de Elige tu propia aventura.",
       "priority": "C",
       "publicEligible": true,
       "seoEligible": true,
-      "status": "approved"
+      "status": "approved",
+      "searchAliases": [
+        "choose your own adventure",
+        "CYOA",
+        "decisiones",
+        "decisiones importantes",
+        "branching story",
+        "historia ramificada",
+        "múltiples caminos"
+      ]
     },
     {
       "id": "cricket",

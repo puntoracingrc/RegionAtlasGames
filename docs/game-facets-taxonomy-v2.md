@@ -60,7 +60,8 @@ Cada entidad puede incluir:
 - `family`: familia cerrada para subgéneros/facetas.
 - `group`: agrupación editorial opcional para paneles.
 - `subfamily`: agrupación secundaria opcional.
-- `aliases`: sinónimos, traducciones y búsquedas frecuentes.
+- `aliases`: sinónimos editoriales y traducciones reutilizables.
+- `searchAliases`: sinónimos invisibles solo para búsqueda, frases naturales y formas coloquiales.
 - `priority`: `A`, `B`, `C` o `D`.
 - `publicEligible`: si puede aparecer en filtros/landings públicas futuras.
 - `seoEligible`: si puede generar páginas SEO futuras.
@@ -95,6 +96,24 @@ Estado actual de la taxonomía ampliada:
 - `facets`: 293
 
 Estos conteos son vocabulario disponible, no asignaciones aplicadas a juegos.
+
+
+## Sinónimos invisibles de búsqueda
+
+V2 separa dos conceptos:
+
+- `aliases`: equivalencias editoriales relativamente limpias.
+- `searchAliases`: frases que puede escribir una persona aunque no deban mostrarse como etiqueta pública.
+
+Ejemplos:
+
+- `tipo Dark Souls` → `Soulslike`
+- `yo contra el barrio` → `Beat 'em up`
+- `estilo Metal Gear` → `Acción sigilosa`
+- `aventura gráfica` → `Point & Click`
+- `simulador de caminar` → `Walking Simulator`
+
+Los `searchAliases` se consultan antes que los aliases normales para poder resolver frases coloquiales hacia una categoría concreta sin crear duplicados visibles.
 
 ## Uso futuro con IA y Steam
 
