@@ -16,6 +16,7 @@ export async function PATCH(request: Request, { params }: RouteParams) {
     active?: boolean;
     history?: string | null;
     logoUrl?: string | null;
+    websiteUrl?: string | null;
     foundedYear?: number | null;
     closedYear?: number | null;
     status?: "active" | "defunct" | "subsidiary" | "unknown";

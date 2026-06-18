@@ -25,6 +25,7 @@ type IndexRow = {
   active?: boolean;
   history?: string | null;
   logoUrl?: string | null;
+  websiteUrl?: string | null;
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: "active" | "defunct" | "subsidiary" | "unknown";
@@ -33,7 +34,7 @@ type IndexRow = {
 };
 
 type EntitySort = "alpha-asc" | "alpha-desc" | "games-desc" | "games-asc";
-type CompanyAiTarget = "history" | "logo" | "years" | "seo";
+type CompanyAiTarget = "history" | "logo" | "website" | "years" | "seo";
 
 const tabs: { id: Tab; label: string }[] = [
   { id: "platforms", label: "Plataformas" },
@@ -156,6 +157,7 @@ export function AdminEntitiesPanel() {
   const [editStatus, setEditStatus] = useState("closed");
   const [editCompanyHistory, setEditCompanyHistory] = useState("");
   const [editCompanyLogoUrl, setEditCompanyLogoUrl] = useState("");
+  const [editCompanyWebsiteUrl, setEditCompanyWebsiteUrl] = useState("");
   const [editCompanyFoundedYear, setEditCompanyFoundedYear] = useState("");
   const [editCompanyClosedYear, setEditCompanyClosedYear] = useState("");
   const [editCompanyStatus, setEditCompanyStatus] = useState<"active" | "defunct" | "subsidiary" | "unknown">("unknown");
@@ -397,6 +399,7 @@ export function AdminEntitiesPanel() {
     setEditNewSlug(row.slug);
     setEditCompanyHistory(row.history ?? "");
     setEditCompanyLogoUrl(row.logoUrl ?? "");
+    setEditCompanyWebsiteUrl(row.websiteUrl ?? "");
     setEditCompanyFoundedYear(row.foundedYear != null ? String(row.foundedYear) : "");
     setEditCompanyClosedYear(row.closedYear != null ? String(row.closedYear) : "");
     setEditCompanyStatus(row.status ?? "unknown");
@@ -439,6 +442,7 @@ export function AdminEntitiesPanel() {
                 ? {
                     history: editCompanyHistory,
                     logoUrl: editCompanyLogoUrl,
+                    websiteUrl: editCompanyWebsiteUrl,
                     foundedYear: editCompanyFoundedYear.trim() ? Number(editCompanyFoundedYear) : null,
                     closedYear: editCompanyClosedYear.trim() ? Number(editCompanyClosedYear) : null,
                     status: editCompanyStatus,
@@ -485,6 +489,7 @@ export function AdminEntitiesPanel() {
             name: editName,
             history: editCompanyHistory,
             logoUrl: editCompanyLogoUrl,
+            websiteUrl: editCompanyWebsiteUrl,
             foundedYear: editCompanyFoundedYear.trim() ? Number(editCompanyFoundedYear) : null,
             closedYear: editCompanyClosedYear.trim() ? Number(editCompanyClosedYear) : null,
             status: editCompanyStatus,
@@ -502,6 +507,7 @@ export function AdminEntitiesPanel() {
       const patch = data.patch ?? {};
       if (typeof patch.history === "string") setEditCompanyHistory(patch.history);
       if (typeof patch.logoUrl === "string") setEditCompanyLogoUrl(patch.logoUrl);
+      if (typeof patch.websiteUrl === "string") setEditCompanyWebsiteUrl(patch.websiteUrl);
       if (typeof patch.foundedYear === "number") setEditCompanyFoundedYear(String(patch.foundedYear));
       if (patch.foundedYear === null && targets?.includes("years")) setEditCompanyFoundedYear("");
       if (typeof patch.closedYear === "number") setEditCompanyClosedYear(String(patch.closedYear));
@@ -956,6 +962,23 @@ export function AdminEntitiesPanel() {
                         className="input"
                         value={editCompanyLogoUrl}
                         onChange={(e) => setEditCompanyLogoUrl(e.target.value)}
+                        placeholder="https://..."
+                      />
+                    </label>
+                    <label className="block space-y-1">
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] uppercase tracking-wider text-muted">Web oficial</span>
+                        <AiMagicButton
+                          label="Buscar web oficial con IA"
+                          busy={companyAiRunning === "website"}
+                          disabled={editSaving || Boolean(companyAiRunning)}
+                          onClick={() => void runCompanyAi(company.slug, ["website"], "web oficial")}
+                        />
+                      </span>
+                      <input
+                        className="input"
+                        value={editCompanyWebsiteUrl}
+                        onChange={(e) => setEditCompanyWebsiteUrl(e.target.value)}
                         placeholder="https://..."
                       />
                     </label>

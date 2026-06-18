@@ -560,6 +560,7 @@ export type AdminEntityKind = "platforms" | "companies" | "genres";
 export type AdminCompanyRow = Pick<IndexEntry, "slug" | "name" | "gameCount" | "active"> & {
   history?: string | null;
   logoUrl?: string | null;
+  websiteUrl?: string | null;
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: CompanyProfileStatus;
@@ -643,6 +644,7 @@ function profileForAdminCompany(
     ...entry,
     history: profile?.history ?? null,
     logoUrl: profile?.logoUrl ?? null,
+    websiteUrl: profile?.websiteUrl ?? null,
     foundedYear: profile?.foundedYear ?? null,
     closedYear: profile?.closedYear ?? null,
     status: profile?.status ?? "unknown",
@@ -658,6 +660,7 @@ function companyProfileFromInput(
   input: {
     history?: string | null;
     logoUrl?: string | null;
+    websiteUrl?: string | null;
     foundedYear?: number | null;
     closedYear?: number | null;
     status?: CompanyProfileStatus;
@@ -676,6 +679,7 @@ function companyProfileFromInput(
     name,
     history: input.history != null ? input.history.trim() || null : currentProfile?.history ?? null,
     logoUrl: input.logoUrl != null ? input.logoUrl.trim() || null : currentProfile?.logoUrl ?? null,
+    websiteUrl: input.websiteUrl != null ? input.websiteUrl.trim() || null : currentProfile?.websiteUrl ?? null,
     foundedYear: parsed.foundedYear ?? currentProfile?.foundedYear ?? null,
     closedYear: parsed.closedYear ?? currentProfile?.closedYear ?? null,
     status: parsed.status ?? currentProfile?.status ?? "unknown",
@@ -1051,6 +1055,7 @@ function mergeCompanyProfiles(
     name: target.name,
     wikidataId: targetProfile?.wikidataId ?? sourceProfile?.wikidataId ?? target.wikidataId ?? source.wikidataId ?? null,
     logoUrl: targetProfile?.logoUrl ?? sourceProfile?.logoUrl ?? null,
+    websiteUrl: targetProfile?.websiteUrl ?? sourceProfile?.websiteUrl ?? null,
     foundedYear: targetProfile?.foundedYear ?? sourceProfile?.foundedYear ?? null,
     closedYear: targetProfile?.closedYear ?? sourceProfile?.closedYear ?? null,
     status: targetProfile?.status ?? sourceProfile?.status ?? "unknown",
@@ -1190,6 +1195,7 @@ export async function updateAdminCompany(
     newSlug?: string;
     history?: string | null;
     logoUrl?: string | null;
+    websiteUrl?: string | null;
     foundedYear?: number | null;
     closedYear?: number | null;
     status?: CompanyProfileStatus;

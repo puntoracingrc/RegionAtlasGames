@@ -5,7 +5,7 @@ import { companies } from "@/lib/indexes";
 
 type RouteParams = { params: Promise<{ slug: string }> };
 
-const VALID_TARGETS = new Set<AdminCompanyAiTarget>(["history", "logo", "years", "seo"]);
+const VALID_TARGETS = new Set<AdminCompanyAiTarget>(["history", "logo", "website", "years", "seo"]);
 
 function parseTargets(value: unknown): AdminCompanyAiTarget[] | undefined {
   if (!Array.isArray(value)) return undefined;
@@ -30,6 +30,7 @@ export async function POST(request: Request, { params }: RouteParams) {
     name?: unknown;
     history?: unknown;
     logoUrl?: unknown;
+    websiteUrl?: unknown;
     foundedYear?: unknown;
     closedYear?: unknown;
     status?: unknown;
@@ -44,6 +45,7 @@ export async function POST(request: Request, { params }: RouteParams) {
     gameCount: company.gameCount ?? 0,
     history: typeof body.history === "string" ? body.history : null,
     logoUrl: typeof body.logoUrl === "string" ? body.logoUrl : null,
+    websiteUrl: typeof body.websiteUrl === "string" ? body.websiteUrl : null,
     foundedYear: typeof body.foundedYear === "number" ? body.foundedYear : null,
     closedYear: typeof body.closedYear === "number" ? body.closedYear : null,
     status:

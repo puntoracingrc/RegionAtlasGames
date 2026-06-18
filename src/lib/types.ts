@@ -120,6 +120,7 @@ export type CompanyProfileSeoMeta = {
 export type CompanyProfileSources = {
   wikidata?: { wikidataId: string; fetchedAt: string; url?: string };
   wikipedia?: { url: string; title?: string; fetchedAt: string };
+  officialWebsite?: { url: string; fetchedAt: string };
 };
 
 /** Contenido enriquecido por compañía (Wikidata/Wikipedia + IA). */
@@ -128,6 +129,7 @@ export type CompanyProfile = {
   name: string;
   wikidataId?: string | null;
   logoUrl?: string | null;
+  websiteUrl?: string | null;
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: CompanyProfileStatus;
