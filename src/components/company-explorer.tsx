@@ -320,7 +320,7 @@ function CompanyGrid({
         <Link
           key={company.slug}
           href={`/compania/${company.slug}`}
-          className="rounded-2xl border border-border bg-card p-4 transition hover:border-accent/40 hover:bg-card-hover"
+          className="flex min-h-[178px] flex-col rounded-2xl border border-border bg-card p-4 transition hover:border-accent/40 hover:bg-card-hover"
         >
           <div className="flex flex-wrap items-start justify-between gap-2">
             <h3 className="font-semibold leading-snug text-foreground">{company.name}</h3>
@@ -338,7 +338,7 @@ function CompanyGrid({
           {company.platformPreview && (
             <p className="mt-2 line-clamp-2 text-xs text-muted">{company.platformPreview}</p>
           )}
-          <div className="mt-2 flex flex-wrap gap-1.5">
+          <div className="mt-auto flex flex-wrap gap-1.5 pt-3">
             {company.hasProfile && (
               <span className="rounded-md border border-border bg-card-hover px-2 py-0.5 text-[10px] uppercase tracking-wide text-muted">
                 Perfil
