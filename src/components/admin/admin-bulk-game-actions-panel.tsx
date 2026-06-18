@@ -68,6 +68,19 @@ function optionNameList(options: Option[]): string[] {
   return options.map((option) => option.name);
 }
 
+function uniqueNames(names: string[]): string[] {
+  return [...new Set(names.map((name) => name.trim()).filter(Boolean))].sort((a, b) =>
+    a.localeCompare(b, "es", { numeric: true }),
+  );
+}
+
+function namesFromSelection(
+  games: AdminSeriesGameRow[],
+  field: "tags" | "facets",
+): string[] {
+  return uniqueNames(games.flatMap((game) => game[field].map((entity) => entity.name)));
+}
+
 function SelectableOptionList({
   title,
   helper,
@@ -188,7 +201,6 @@ export function AdminBulkGameActionsPanel() {
   const [message, setMessage] = useState<string | null>(null);
 
   const selectedIds = useMemo(() => new Set(selection.map((game) => game.id)), [selection]);
-  const hasAssignments = parseCsv(tagsInput).length > 0 || parseCsv(facetsInput).length > 0 || selectedTags.length > 0 || selectedFacets.length > 0;
   const selectableSubgenres = useMemo(() => {
     if (!genreSlug) return options.subgenres;
     const scoped = options.subgenres.filter((option) => option.parentGenreSlugs?.includes(genreSlug));
@@ -256,6 +268,11 @@ export function AdminBulkGameActionsPanel() {
     return () => window.clearTimeout(timer);
   }, [searchGames]);
 
+  useEffect(() => {
+    setSelectedTags(namesFromSelection(selection, "tags"));
+    setSelectedFacets(namesFromSelection(selection, "facets"));
+  }, [selection]);
+
   function addToSelection(games: AdminSeriesGameRow[]) {
     setSelection((current) => {
       const map = new Map(current.map((game) => [game.id, game]));
@@ -290,6 +307,7 @@ export function AdminBulkGameActionsPanel() {
           gameIds: selection.map((game) => game.id),
           tags: [...parseCsv(tagsInput), ...selectedTags],
           facets: [...parseCsv(facetsInput), ...selectedFacets],
+          replaceLabels: true,
         }),
       });
       const data = await res.json();
@@ -300,8 +318,11 @@ export function AdminBulkGameActionsPanel() {
       setMessage(`Asignación aplicada a ${data.affectedCount ?? 0} juegos.`);
       setTagsInput("");
       setFacetsInput("");
-      setSelectedTags([]);
-      setSelectedFacets([]);
+      const nextTags = uniqueNames([...selectedTags, ...parseCsv(tagsInput)]).map((name) => ({ name, slug: normalizeSearch(name).replace(/\s+/g, "-") }));
+      const nextFacets = uniqueNames([...selectedFacets, ...parseCsv(facetsInput)]).map((name) => ({ name, slug: normalizeSearch(name).replace(/\s+/g, "-") }));
+      setSelection((current) => current.map((game) => ({ ...game, tags: nextTags, facets: nextFacets })));
+      setSelectedTags(nextTags.map((tag) => tag.name));
+      setSelectedFacets(nextFacets.map((facet) => facet.name));
     } catch {
       setError("Error de red al aplicar la asignación masiva.");
     } finally {
@@ -460,6 +481,26 @@ export function AdminBulkGameActionsPanel() {
                 <div className="min-w-0">
                   <div className="font-semibold text-foreground">{game.title}</div>
                   <div className="text-xs text-muted">{gameSubtitle(game)}</div>
+                  <div className="mt-3 grid gap-2">
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Géneros base</p>
+                      <div className="mt-1 flex flex-wrap gap-1">
+                        {game.genres.length ? game.genres.map((genre) => <Badge key={genre.slug}>{genre.name}</Badge>) : <span className="text-xs text-muted">Sin géneros.</span>}
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Etiquetas activas</p>
+                      <div className="mt-1 flex flex-wrap gap-1">
+                        {game.tags.length ? game.tags.map((tag) => <Badge key={tag.slug} tone="green">{tag.name}</Badge>) : <span className="text-xs text-muted">Sin etiquetas.</span>}
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Subgéneros y facetas activas</p>
+                      <div className="mt-1 flex flex-wrap gap-1">
+                        {game.facets.length ? game.facets.map((facet) => <Badge key={facet.slug} tone="amber">{facet.name}</Badge>) : <span className="text-xs text-muted">Sin facetas.</span>}
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -484,7 +525,7 @@ export function AdminBulkGameActionsPanel() {
             <div className="grid gap-3">
               <SelectableOptionList
                 title="Etiquetas existentes"
-                helper="Opciones ya usadas en fichas; puedes filtrar y marcar varias."
+                helper="Al añadir juegos se marcan las que ya tienen. Desmarca para quitarlas al aplicar."
                 options={options.tags}
                 selected={selectedTags}
                 onChange={setSelectedTags}
@@ -500,7 +541,7 @@ export function AdminBulkGameActionsPanel() {
               </label>
               <SelectableOptionList
                 title="Subgéneros y facetas oficiales"
-                helper={genreSlug ? "Primero muestra subgéneros relacionados con el género filtrado; las facetas siguen disponibles." : "Lista controlada aprobada; filtra para encontrar rápido."}
+                helper={genreSlug ? "Se marcan las activas; primero salen subgéneros del género filtrado. Los géneros base se muestran arriba como referencia." : "Se marcan las activas. Los géneros base se muestran en cada juego como referencia."}
                 options={selectableFacets}
                 selected={selectedFacets}
                 onChange={setSelectedFacets}
@@ -518,7 +559,7 @@ export function AdminBulkGameActionsPanel() {
             <button
               type="button"
               className="btn-primary mt-4 w-full"
-              disabled={saving || selection.length === 0 || !hasAssignments}
+              disabled={saving || selection.length === 0}
               onClick={() => void applyBulkAssignment()}
             >
               {saving ? "Aplicando…" : `Aplicar a ${selection.length} juegos`}

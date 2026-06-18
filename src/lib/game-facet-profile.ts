@@ -8,7 +8,7 @@ import {
   findGameFacetEntityBySlug,
 } from "@/lib/game-facets/taxonomy";
 import type { GameFacetTaxonomyEntity } from "@/lib/game-facets/types";
-import { readAdminSeriesAssignmentsForPublic } from "@/lib/admin-series-manager";
+import { readAdminSeriesAssignmentsForPublic, type AdminSeriesAssignment } from "@/lib/admin-series-manager";
 import type { CatalogGame, DetailEntity } from "@/lib/types";
 
 export type GameFacetProfileView = {
@@ -36,7 +36,23 @@ function matchesAnyDetailEntity(entities: DetailEntity[], terms: Set<string>): b
   return entities.some((entity) => detailEntityTerms(entity).some((term) => terms.has(term)));
 }
 
-function matchesGameFacet(game: CatalogGame, entity: GameFacetTaxonomyEntity, assignment?: { tags?: DetailEntity[]; facets?: DetailEntity[] }): boolean {
+function removeHiddenEntities(existing: DetailEntity[], hidden: DetailEntity[] | undefined): DetailEntity[] {
+  const hiddenSlugs = new Set((hidden ?? []).map((entity) => entity.slug));
+  if (hiddenSlugs.size === 0) return existing;
+  return existing.filter((entity) => !hiddenSlugs.has(entity.slug));
+}
+
+function assignmentAwareEntities(details: ReturnType<typeof getGameDetails>, assignment?: AdminSeriesAssignment): DetailEntity[] {
+  return [
+    ...removeHiddenEntities(details?.subgenres ?? [], assignment?.hiddenFacets),
+    ...removeHiddenEntities(details?.facets ?? [], assignment?.hiddenFacets),
+    ...removeHiddenEntities(details?.tags ?? [], assignment?.hiddenTags),
+    ...(assignment?.tags ?? []),
+    ...(assignment?.facets ?? []),
+  ];
+}
+
+function matchesGameFacet(game: CatalogGame, entity: GameFacetTaxonomyEntity, assignment?: AdminSeriesAssignment): boolean {
   const terms = entityTerms(entity);
   const details = getGameDetails(game.id);
   const canonicalGenres = (details?.genres ?? []).map(resolveCanonicalGenreEntity);
@@ -44,11 +60,7 @@ function matchesGameFacet(game: CatalogGame, entity: GameFacetTaxonomyEntity, as
   return (
     matchesAnyDetailEntity(details?.genres ?? [], terms) ||
     matchesAnyDetailEntity(canonicalGenres.map((genre) => ({ name: genre.name, slug: genre.slug })), terms) ||
-    matchesAnyDetailEntity(details?.subgenres ?? [], terms) ||
-    matchesAnyDetailEntity(details?.facets ?? [], terms) ||
-    matchesAnyDetailEntity(details?.tags ?? [], terms) ||
-    matchesAnyDetailEntity(assignment?.tags ?? [], terms) ||
-    matchesAnyDetailEntity(assignment?.facets ?? [], terms)
+    matchesAnyDetailEntity(assignmentAwareEntities(details, assignment), terms)
   );
 }
 
@@ -92,11 +104,7 @@ export async function buildGameFacetCounts(): Promise<Record<string, number>> {
     const detailEntities = [
       ...(details?.genres ?? []),
       ...canonicalGenres.map((genre) => ({ name: genre.name, slug: genre.slug })),
-      ...(details?.subgenres ?? []),
-      ...(details?.facets ?? []),
-      ...(details?.tags ?? []),
-      ...(assignments[game.id]?.tags ?? []),
-      ...(assignments[game.id]?.facets ?? []),
+      ...assignmentAwareEntities(details, assignments[game.id]),
     ];
 
     for (const detailEntity of detailEntities) {

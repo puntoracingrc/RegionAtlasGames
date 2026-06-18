@@ -40,9 +40,11 @@ type AdminSeriesOverlayEntry = {
   removals?: string[];
 };
 
-type AdminSeriesAssignment = {
+export type AdminSeriesAssignment = {
   tags: DetailEntity[];
   facets: DetailEntity[];
+  hiddenTags?: DetailEntity[];
+  hiddenFacets?: DetailEntity[];
   updatedAt: string;
 };
 
@@ -67,6 +69,7 @@ export type AdminSeriesGameRow = {
   year: number | null;
   coverUrl: string | null;
   genres: DetailEntity[];
+  subgenres: DetailEntity[];
   tags: DetailEntity[];
   facets: DetailEntity[];
 };
@@ -281,6 +284,35 @@ function mergeEntities(existing: DetailEntity[], incomingNames: string[]): Detai
   return [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true }));
 }
 
+function removeHiddenEntities(existing: DetailEntity[], hidden: DetailEntity[] | undefined): DetailEntity[] {
+  const hiddenSlugs = new Set((hidden ?? []).map((entity) => entity.slug));
+  if (hiddenSlugs.size === 0) return existing;
+  return existing.filter((entity) => !hiddenSlugs.has(entity.slug));
+}
+
+function hiddenFromBase(base: DetailEntity[], selectedNames: string[]): DetailEntity[] {
+  const selectedSlugs = new Set(selectedNames.map((name) => normalizeSlug(name)));
+  return base.filter((entity) => !selectedSlugs.has(entity.slug));
+}
+
+function effectiveTags(detail: GameDetails | undefined, assignment: AdminSeriesAssignment | undefined): DetailEntity[] {
+  return mergeEntities(
+    removeHiddenEntities(detail?.tags ?? [], assignment?.hiddenTags),
+    assignment?.tags?.map((tag) => tag.name) ?? [],
+  );
+}
+
+function baseFacetEntities(detail: GameDetails | undefined): DetailEntity[] {
+  return [...(detail?.subgenres ?? []), ...(detail?.facets ?? [])];
+}
+
+function effectiveFacets(detail: GameDetails | undefined, assignment: AdminSeriesAssignment | undefined): DetailEntity[] {
+  return mergeEntities(
+    removeHiddenEntities(baseFacetEntities(detail), assignment?.hiddenFacets),
+    assignment?.facets?.map((facet) => facet.name) ?? [],
+  );
+}
+
 function countDetailEntities(games: CatalogGame[], details: Record<string, GameDetails>, field: "tags"): { slug: string; name: string; count: number }[] {
   const counts = new Map<string, { slug: string; name: string; count: number }>();
   for (const game of games) {
@@ -364,8 +396,9 @@ function toGameRow(
     year: detail?.year ?? null,
     coverUrl: game.coverUrl,
     genres: detail?.genres ?? [],
-    tags: mergeEntities(detail?.tags ?? [], assignment?.tags?.map((tag) => tag.name) ?? []),
-    facets: assignment?.facets ?? [],
+    subgenres: detail?.subgenres ?? [],
+    tags: effectiveTags(detail, assignment),
+    facets: effectiveFacets(detail, assignment),
   };
 }
 
@@ -581,12 +614,9 @@ export async function searchAdminBulkActionGames(input: {
       const assignment = overlay.assignments[game.id];
       if (facetSlug) {
         const labels = [
-          ...(detail?.tags ?? []),
           ...(detail?.genres ?? []),
-          ...(detail?.subgenres ?? []),
-          ...(detail?.facets ?? []),
-          ...(assignment?.tags ?? []),
-          ...(assignment?.facets ?? []),
+          ...effectiveTags(detail, assignment),
+          ...effectiveFacets(detail, assignment),
         ];
         if (!labels.some((entity) => entity.slug === facetSlug)) return false;
       }
@@ -602,11 +632,8 @@ export async function searchAdminBulkActionGames(input: {
         detail?.developer?.name,
         detail?.publisher?.name,
         ...(detail?.genres?.map((genre) => genre.name) ?? []),
-        ...(detail?.subgenres?.map((subgenre) => subgenre.name) ?? []),
-        ...(detail?.facets?.map((facet) => facet.name) ?? []),
-        ...(detail?.tags?.map((tag) => tag.name) ?? []),
-        ...(assignment?.tags?.map((tag) => tag.name) ?? []),
-        ...(assignment?.facets?.map((facet) => facet.name) ?? []),
+        ...effectiveTags(detail, assignment).map((tag) => tag.name),
+        ...effectiveFacets(detail, assignment).map((facet) => facet.name),
       ]
         .filter(Boolean)
         .join(" ")
@@ -736,16 +763,18 @@ export async function bulkAssignAdminGames(input: {
   gameIds: string[];
   tags?: string[];
   facets?: string[];
+  replaceLabels?: boolean;
 }): Promise<{ ok: true; affectedCount: number } | { error: string }> {
   const gameIds = uniqueStrings(input.gameIds);
   const tags = uniqueStrings(input.tags ?? []);
   const facets = uniqueStrings(input.facets ?? []);
   if (gameIds.length === 0) return { error: "Selecciona al menos un juego." };
-  if (tags.length === 0 && facets.length === 0) {
+  if (!input.replaceLabels && tags.length === 0 && facets.length === 0) {
     return { error: "Añade al menos una etiqueta o faceta." };
   }
 
   const catalogIds = new Set(loadCatalog().map((game) => game.id));
+  const details = loadDetails();
   const targetGameIds = gameIds.filter((gameId) => catalogIds.has(gameId));
   if (targetGameIds.length === 0) return { error: "No hay juegos válidos para modificar." };
 
@@ -753,11 +782,23 @@ export async function bulkAssignAdminGames(input: {
   const now = new Date().toISOString();
   for (const gameId of targetGameIds) {
     const current = overlay.assignments[gameId] ?? { tags: [], facets: [], updatedAt: now };
-    overlay.assignments[gameId] = {
-      tags: mergeEntities(current.tags, tags),
-      facets: mergeEntities(current.facets, facets),
-      updatedAt: now,
-    };
+    if (input.replaceLabels) {
+      const detail = details[gameId];
+      overlay.assignments[gameId] = {
+        tags: mergeEntities([], tags),
+        facets: mergeEntities([], facets),
+        hiddenTags: hiddenFromBase(detail?.tags ?? [], tags),
+        hiddenFacets: hiddenFromBase(baseFacetEntities(detail), facets),
+        updatedAt: now,
+      };
+    } else {
+      overlay.assignments[gameId] = {
+        ...current,
+        tags: mergeEntities(current.tags, tags),
+        facets: mergeEntities(current.facets, facets),
+        updatedAt: now,
+      };
+    }
   }
   await writeAdminSeriesOverlay(overlay);
 

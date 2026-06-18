@@ -46,6 +46,7 @@ export async function PATCH(req: Request) {
       facets: Array.isArray(body.facets)
         ? body.facets.filter((facet: unknown): facet is string => typeof facet === "string")
         : [],
+      replaceLabels: body.replaceLabels === true,
     });
     if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
     return NextResponse.json({ ok: true, affectedCount: result.affectedCount });
