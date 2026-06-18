@@ -181,14 +181,12 @@ function buildAtlasPanelStats(): HeroAtlasStats {
   const regionCounts = new Map<string, number>();
   let detailCount = 0;
   let priceCount = 0;
-  let verifiedPriceCount = 0;
 
   for (const game of listedCatalog) {
     const region = getRegionDisplay(game.region).label;
     regionCounts.set(region, (regionCounts.get(region) ?? 0) + 1);
     if (getGameDetails(game.id)) detailCount += 1;
     if (game.hasEsPrice || game.recommendedPrice != null) priceCount += 1;
-    if (game.priceRegionVerified) verifiedPriceCount += 1;
   }
 
   const total = listedCatalog.length;
@@ -217,8 +215,7 @@ function buildAtlasPanelStats(): HeroAtlasStats {
     regions,
     metrics: [
       { label: "Fichas", value: detailCount.toLocaleString("es-ES") },
-      { label: "Precios ES", value: priceCount.toLocaleString("es-ES") },
-      { label: "Verificados", value: verifiedPriceCount.toLocaleString("es-ES") },
+      { label: "Precios", value: priceCount.toLocaleString("es-ES") },
     ],
   };
 }
