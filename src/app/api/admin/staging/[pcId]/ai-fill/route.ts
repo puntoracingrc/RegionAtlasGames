@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
-import { sseEncode, streamAdminAiFill } from "@/lib/admin-ai-fill";
+import { sseEncode, streamAdminAiFill, type AdminAiFillTarget } from "@/lib/admin-ai-fill";
 import {
   draftFromStaging,
   readAdminGameDraft,
@@ -30,16 +30,30 @@ export async function POST(request: Request, { params }: RouteParams) {
   const body = await request.json().catch(() => ({})) as {
     manualUrl?: unknown;
     extraInstructions?: unknown;
+    targets?: unknown;
   };
   const manualUrl = typeof body.manualUrl === "string" ? body.manualUrl : "";
   const extraInstructions =
     typeof body.extraInstructions === "string" ? body.extraInstructions : "";
+  const validTargets = new Set<AdminAiFillTarget>([
+    "cover",
+    "companies",
+    "taxonomy",
+    "release",
+    "players",
+    "support",
+    "description",
+    "seo",
+  ]);
+  const targets = Array.isArray(body.targets)
+    ? body.targets.filter((target): target is AdminAiFillTarget => typeof target === "string" && validTargets.has(target as AdminAiFillTarget))
+    : undefined;
 
   const stream = new ReadableStream({
     async start(controller) {
       const encoder = new TextEncoder();
       try {
-        for await (const event of streamAdminAiFill(draft, { manualUrl, extraInstructions })) {
+        for await (const event of streamAdminAiFill(draft, { manualUrl, extraInstructions, targets })) {
           controller.enqueue(encoder.encode(sseEncode(event)));
           if (event.type === "done") {
             event.draft.slug = draft.slug;

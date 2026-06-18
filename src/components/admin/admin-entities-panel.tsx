@@ -33,6 +33,7 @@ type IndexRow = {
 };
 
 type EntitySort = "alpha-asc" | "alpha-desc" | "games-desc" | "games-asc";
+type CompanyAiTarget = "history" | "logo" | "years" | "seo";
 
 const tabs: { id: Tab; label: string }[] = [
   { id: "platforms", label: "Plataformas" },
@@ -93,6 +94,34 @@ function sortEntities<T extends PlatformRow | IndexRow>(rows: T[], sort: EntityS
   });
 }
 
+function AiMagicButton({
+  label,
+  busy,
+  disabled,
+  onClick,
+}: {
+  label: string;
+  busy: boolean;
+  disabled?: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      className="rounded-full border border-violet-300/60 bg-violet-500/10 px-2 py-0.5 text-[10px] font-semibold text-violet-800 transition hover:bg-violet-500/15 disabled:cursor-not-allowed disabled:opacity-45 dark:text-violet-200"
+      disabled={disabled || busy}
+      onClick={(event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        onClick();
+      }}
+      title={label}
+    >
+      {busy ? "✦…" : "✦ IA"}
+    </button>
+  );
+}
+
 function activeToggleButtonClass(active: boolean): string {
   return active
     ? "rounded-xl border border-emerald-400/40 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition hover:bg-emerald-500/10 disabled:opacity-50 dark:text-emerald-300"
@@ -116,6 +145,7 @@ export function AdminEntitiesPanel() {
   const [togglingSlug, setTogglingSlug] = useState<string | null>(null);
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [editSaving, setEditSaving] = useState(false);
+  const [companyAiRunning, setCompanyAiRunning] = useState<string | null>(null);
   const [mergeSourceSlug, setMergeSourceSlug] = useState<string | null>(null);
   const [mergeTargetSlug, setMergeTargetSlug] = useState("");
   const [mergingSlug, setMergingSlug] = useState<string | null>(null);
@@ -438,6 +468,54 @@ export function AdminEntitiesPanel() {
       setError("Error de red al guardar.");
     } finally {
       setEditSaving(false);
+    }
+  }
+
+  async function runCompanyAi(originalSlug: string, targets?: CompanyAiTarget[], label = "compañía") {
+    setCompanyAiRunning(targets?.join("+") ?? "all");
+    setError(null);
+    setMessage(null);
+    try {
+      const res = await fetch(
+        `/api/admin/entities/companies/${encodeURIComponent(originalSlug)}/ai-fill`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: editName,
+            history: editCompanyHistory,
+            logoUrl: editCompanyLogoUrl,
+            foundedYear: editCompanyFoundedYear.trim() ? Number(editCompanyFoundedYear) : null,
+            closedYear: editCompanyClosedYear.trim() ? Number(editCompanyClosedYear) : null,
+            status: editCompanyStatus,
+            seoTitle: editCompanySeoTitle,
+            seoDescription: editCompanySeoDescription,
+            targets,
+          }),
+        },
+      );
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo completar la compañía con IA.");
+        return;
+      }
+      const patch = data.patch ?? {};
+      if (typeof patch.history === "string") setEditCompanyHistory(patch.history);
+      if (typeof patch.logoUrl === "string") setEditCompanyLogoUrl(patch.logoUrl);
+      if (typeof patch.foundedYear === "number") setEditCompanyFoundedYear(String(patch.foundedYear));
+      if (patch.foundedYear === null && targets?.includes("years")) setEditCompanyFoundedYear("");
+      if (typeof patch.closedYear === "number") setEditCompanyClosedYear(String(patch.closedYear));
+      if (patch.closedYear === null && targets?.includes("years")) setEditCompanyClosedYear("");
+      if (patch.status === "active" || patch.status === "defunct" || patch.status === "subsidiary" || patch.status === "unknown") {
+        setEditCompanyStatus(patch.status);
+      }
+      if (typeof patch.seoTitle === "string") setEditCompanySeoTitle(patch.seoTitle);
+      if (typeof patch.seoDescription === "string") setEditCompanySeoDescription(patch.seoDescription);
+      setMessage(`IA aplicada a ${label}. Revisa y guarda.`);
+    } catch {
+      setError("Error de red al completar la compañía con IA.");
+    } finally {
+      setCompanyAiRunning(null);
     }
   }
 
@@ -843,8 +921,16 @@ export function AdminEntitiesPanel() {
                       />
                     </label>
                     <label className="block space-y-1 md:col-span-2">
-                      <span className="text-[10px] uppercase tracking-wider text-muted">
-                        Sobre la compañía
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] uppercase tracking-wider text-muted">
+                          Sobre la compañía
+                        </span>
+                        <AiMagicButton
+                          label="Generar sobre la compañía con IA"
+                          busy={companyAiRunning === "history"}
+                          disabled={editSaving || Boolean(companyAiRunning)}
+                          onClick={() => void runCompanyAi(company.slug, ["history"], "sobre la compañía")}
+                        />
                       </span>
                       <textarea
                         className="input min-h-40 leading-7"
@@ -857,7 +943,15 @@ export function AdminEntitiesPanel() {
                       </span>
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-[10px] uppercase tracking-wider text-muted">URL logo</span>
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] uppercase tracking-wider text-muted">URL logo</span>
+                        <AiMagicButton
+                          label="Buscar logo con IA"
+                          busy={companyAiRunning === "logo"}
+                          disabled={editSaving || Boolean(companyAiRunning)}
+                          onClick={() => void runCompanyAi(company.slug, ["logo"], "logo")}
+                        />
+                      </span>
                       <input
                         className="input"
                         value={editCompanyLogoUrl}
@@ -866,7 +960,15 @@ export function AdminEntitiesPanel() {
                       />
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-[10px] uppercase tracking-wider text-muted">Estado editorial</span>
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] uppercase tracking-wider text-muted">Estado editorial</span>
+                        <AiMagicButton
+                          label="Revisar años y estado con IA"
+                          busy={companyAiRunning === "years"}
+                          disabled={editSaving || Boolean(companyAiRunning)}
+                          onClick={() => void runCompanyAi(company.slug, ["years"], "años y estado")}
+                        />
+                      </span>
                       <select
                         className="input"
                         value={editCompanyStatus}
@@ -881,7 +983,15 @@ export function AdminEntitiesPanel() {
                       </select>
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-[10px] uppercase tracking-wider text-muted">Año fundación</span>
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] uppercase tracking-wider text-muted">Año fundación</span>
+                        <AiMagicButton
+                          label="Buscar año de fundación con IA"
+                          busy={companyAiRunning === "years"}
+                          disabled={editSaving || Boolean(companyAiRunning)}
+                          onClick={() => void runCompanyAi(company.slug, ["years"], "años y estado")}
+                        />
+                      </span>
                       <input
                         className="input"
                         inputMode="numeric"
@@ -891,7 +1001,15 @@ export function AdminEntitiesPanel() {
                       />
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-[10px] uppercase tracking-wider text-muted">Año cierre</span>
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] uppercase tracking-wider text-muted">Año cierre</span>
+                        <AiMagicButton
+                          label="Buscar año de cierre con IA"
+                          busy={companyAiRunning === "years"}
+                          disabled={editSaving || Boolean(companyAiRunning)}
+                          onClick={() => void runCompanyAi(company.slug, ["years"], "años y estado")}
+                        />
+                      </span>
                       <input
                         className="input"
                         inputMode="numeric"
@@ -901,7 +1019,15 @@ export function AdminEntitiesPanel() {
                       />
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-[10px] uppercase tracking-wider text-muted">Título SEO</span>
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] uppercase tracking-wider text-muted">Título SEO</span>
+                        <AiMagicButton
+                          label="Generar SEO con IA"
+                          busy={companyAiRunning === "seo"}
+                          disabled={editSaving || Boolean(companyAiRunning)}
+                          onClick={() => void runCompanyAi(company.slug, ["seo"], "SEO")}
+                        />
+                      </span>
                       <input
                         className="input"
                         value={editCompanySeoTitle}
@@ -910,7 +1036,15 @@ export function AdminEntitiesPanel() {
                       />
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-[10px] uppercase tracking-wider text-muted">Descripción SEO</span>
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] uppercase tracking-wider text-muted">Descripción SEO</span>
+                        <AiMagicButton
+                          label="Generar SEO con IA"
+                          busy={companyAiRunning === "seo"}
+                          disabled={editSaving || Boolean(companyAiRunning)}
+                          onClick={() => void runCompanyAi(company.slug, ["seo"], "SEO")}
+                        />
+                      </span>
                       <textarea
                         className="input min-h-24 leading-6"
                         value={editCompanySeoDescription}
@@ -919,6 +1053,14 @@ export function AdminEntitiesPanel() {
                       />
                     </label>
                     <div className="flex flex-wrap gap-2 md:col-span-2">
+                      <button
+                        type="button"
+                        className="rounded-xl border border-violet-400/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-800 transition hover:bg-violet-500/15 disabled:opacity-50 dark:text-violet-200"
+                        disabled={editSaving || Boolean(companyAiRunning)}
+                        onClick={() => void runCompanyAi(company.slug)}
+                      >
+                        {companyAiRunning === "all" ? "IA trabajando…" : "Completar compañía con IA"}
+                      </button>
                       <button type="submit" className="btn-primary" disabled={editSaving}>
                         {editSaving ? "Guardando…" : "Guardar"}
                       </button>

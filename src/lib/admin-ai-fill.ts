@@ -9,9 +9,20 @@ export type AdminAiFillOptions = {
   onlyMissing?: boolean;
   includeMetadata?: boolean;
   includeDescription?: boolean;
+  targets?: AdminAiFillTarget[];
   manualUrl?: string;
   extraInstructions?: string;
 };
+
+export type AdminAiFillTarget =
+  | "cover"
+  | "companies"
+  | "taxonomy"
+  | "release"
+  | "players"
+  | "support"
+  | "description"
+  | "seo";
 
 const PLATFORM_WIKI_HINT: Record<string, string> = {
   nes: "NES",
@@ -254,7 +265,7 @@ const COMPANY_DOMAIN_HINTS: Record<string, string[]> = {
   microids: ["microids.com"],
 };
 
-function descriptionModel(): string {
+export function descriptionModel(): string {
   return (
     process.env.GAME_DESCRIPTION_MODEL?.trim() ||
     process.env.OPENAI_MODEL?.trim() ||
@@ -262,11 +273,11 @@ function descriptionModel(): string {
   );
 }
 
-function openAiConfigured(): boolean {
+export function openAiConfigured(): boolean {
   return Boolean(process.env.OPENAI_API_KEY?.trim());
 }
 
-function missingOpenAiMessage(): string {
+export function missingOpenAiMessage(): string {
   return (
     "La IA no está activa en este entorno porque falta la clave de OpenAI. " +
     "Ya puedes seguir editando manualmente; para usar este botón hay que configurar OPENAI_API_KEY y redeplegar."
@@ -1038,7 +1049,7 @@ async function fetchWikiExtract(title: string, lang: string) {
   return page?.extract?.trim() || null;
 }
 
-async function openAiJson(system: string, user: string): Promise<Record<string, unknown>> {
+export async function openAiJson(system: string, user: string): Promise<Record<string, unknown>> {
   const apiKey = process.env.OPENAI_API_KEY?.trim();
   if (!apiKey) throw new Error("OPENAI_API_KEY no configurada");
 
@@ -1218,12 +1229,21 @@ export async function* streamAdminAiFill(
   draft: AdminGameDraft,
   options: AdminAiFillOptions = {},
 ): AsyncGenerator<AdminAiFillEvent> {
-  const includeMetadata = options.includeMetadata !== false;
-  const includeDescription = options.includeDescription !== false;
+  const targets = new Set(options.targets ?? []);
+  const hasTargetFilter = targets.size > 0;
+  const wants = (target: AdminAiFillTarget) => !hasTargetFilter || targets.has(target);
+  const wantsAny = (...targetList: AdminAiFillTarget[]) => !hasTargetFilter || targetList.some((target) => targets.has(target));
+  const includeMetadata =
+    options.includeMetadata !== false &&
+    wantsAny("companies", "taxonomy", "release", "players", "support");
+  const includeDescription = options.includeDescription !== false && wantsAny("description", "seo");
+  const includeCover = wants("cover");
   draft.subgenreNames = draft.subgenreNames ?? [];
   draft.facetNames = draft.facetNames ?? [];
-  const normalizedTaxonomy = normalizeDraftControlledTaxonomy(draft);
-  if (normalizedTaxonomy.changed) {
+  const normalizedTaxonomy = wants("taxonomy")
+    ? normalizeDraftControlledTaxonomy(draft)
+    : { changed: false, rejected: [] };
+  if (wants("taxonomy") && normalizedTaxonomy.changed) {
     yield { type: "field", field: "genres", value: draft.genreNames };
     yield { type: "field", field: "subgenreNames", value: draft.subgenreNames };
     yield { type: "field", field: "facetNames", value: draft.facetNames };
@@ -1237,7 +1257,7 @@ export async function* streamAdminAiFill(
   const platform = getPlatform(draft.platformSlug);
   const platformName = platform?.name ?? draft.platformSlug;
 
-  if (!openAiConfigured()) {
+  if ((includeMetadata || includeDescription) && !openAiConfigured()) {
     yield {
       type: "error",
       message: missingOpenAiMessage(),
@@ -1305,27 +1325,27 @@ export async function* streamAdminAiFill(
         message: `Fuente oficial encontrada: ${psStoreReference.label}`,
       };
       yield { type: "log", message: `URL consultada: ${psStoreReference.url}` };
-      if (psStoreReference.sku && (!options.onlyMissing || !draft.reference)) {
+      if (wants("release") && psStoreReference.sku && (!options.onlyMissing || !draft.reference)) {
         draft.reference = psStoreReference.sku;
         yield { type: "field", field: "reference", value: draft.reference };
       }
-      if (psStoreReference.coverUrl && (!options.onlyMissing || !draft.coverUrl)) {
+      if (includeCover && psStoreReference.coverUrl && (!options.onlyMissing || !draft.coverUrl)) {
         draft.coverUrl = psStoreReference.coverUrl;
         yield { type: "field", field: "coverUrl", value: draft.coverUrl };
       }
-      if (psStoreReference.releaseDate && (!options.onlyMissing || !draft.releaseDate)) {
+      if (wants("release") && psStoreReference.releaseDate && (!options.onlyMissing || !draft.releaseDate)) {
         draft.releaseDate = psStoreReference.releaseDate;
         yield { type: "field", field: "releaseDate", value: draft.releaseDate };
       }
       const releaseYear = yearFromIsoDate(psStoreReference.releaseDate);
-      if (releaseYear && (!options.onlyMissing || draft.year == null)) {
+      if (wants("release") && releaseYear && (!options.onlyMissing || draft.year == null)) {
         draft.year = releaseYear;
         yield { type: "field", field: "year", value: draft.year };
-      } else if (releaseYear && draft.releaseDate) {
+      } else if (wants("release") && releaseYear && draft.releaseDate) {
         draft.year = releaseYear;
         yield { type: "field", field: "year", value: draft.year };
       }
-      if (psStoreReference.publisherName && (!options.onlyMissing || !draft.publisherName)) {
+      if (wants("companies") && psStoreReference.publisherName && (!options.onlyMissing || !draft.publisherName)) {
         draft.publisherName = normalizeCompanyDisplayName(psStoreReference.publisherName);
         draft.publisherSlug = slugify(draft.publisherName);
         publisherFromDirectSource = true;
@@ -1333,7 +1353,7 @@ export async function* streamAdminAiFill(
         yield { type: "field", field: "publisherName", value: draft.publisherName };
         yield { type: "field", field: "publisherSlug", value: draft.publisherSlug };
       }
-      if (psStoreReference.genres?.length) {
+      if (wants("taxonomy") && psStoreReference.genres?.length) {
         const buckets = classifyControlledTaxonomyNames(psStoreReference.genres);
         for (const update of applyControlledTaxonomyBuckets(draft, buckets, options)) {
           yield { type: "field", field: update.field, value: update.value };
@@ -1345,12 +1365,12 @@ export async function* streamAdminAiFill(
           };
         }
       }
-      if (psStoreReference.players && (!options.onlyMissing || draft.players == null)) {
+      if (wants("players") && psStoreReference.players && (!options.onlyMissing || draft.players == null)) {
         draft.players = psStoreReference.players;
         yield { type: "field", field: "players", value: draft.players };
       }
       const platformSupport = defaultSupportForPlatform(draft.platformSlug);
-      if (platformSupport && (!options.onlyMissing || !draft.support)) {
+      if (wants("support") && platformSupport && (!options.onlyMissing || !draft.support)) {
         draft.support = platformSupport;
         yield { type: "field", field: "support", value: draft.support };
       }
@@ -1367,7 +1387,7 @@ export async function* streamAdminAiFill(
       steamExperimentalUrl = steamReference.url;
       addReferenceSource(steamReference);
       yield { type: "log", message: `Fuente experimental encontrada: Steam · ${steamReference.url}` };
-      if (steamExperimentalTags.length) {
+      if (wants("taxonomy") && steamExperimentalTags.length) {
         yield { type: "log", message: `Etiquetas Steam detectadas: ${steamExperimentalTags.join(", ")}` };
         const facetSignals = resolveExternalFacetSignals(
           steamExperimentalTags.map((signal) => ({ source: "steam", signal })),
@@ -1403,7 +1423,7 @@ export async function* streamAdminAiFill(
           };
         }
       }
-      if (steamReference.developerName && (!options.onlyMissing || !draft.developerName)) {
+      if (wants("companies") && steamReference.developerName && (!options.onlyMissing || !draft.developerName)) {
         draft.developerName = normalizeCompanyDisplayName(steamReference.developerName);
         draft.developerSlug = slugify(draft.developerName);
         developerFromDirectSource = true;
@@ -1411,7 +1431,7 @@ export async function* streamAdminAiFill(
         yield { type: "field", field: "developerName", value: draft.developerName };
         yield { type: "field", field: "developerSlug", value: draft.developerSlug };
       }
-      if (steamReference.publisherName && (!options.onlyMissing || !draft.publisherName)) {
+      if (wants("companies") && steamReference.publisherName && (!options.onlyMissing || !draft.publisherName)) {
         draft.publisherName = normalizeCompanyDisplayName(steamReference.publisherName);
         draft.publisherSlug = slugify(draft.publisherName);
         publisherFromDirectSource = true;
@@ -1494,7 +1514,7 @@ export async function* streamAdminAiFill(
   }
 
   const coverReference = referenceSources.find((source) => source.coverUrl?.trim());
-  if (coverReference?.coverUrl && (!options.onlyMissing || !draft.coverUrl)) {
+  if (includeCover && coverReference?.coverUrl && (!options.onlyMissing || !draft.coverUrl)) {
     draft.coverUrl = coverReference.coverUrl;
     yield { type: "field", field: "coverUrl", value: draft.coverUrl };
     yield { type: "log", message: `Portada detectada desde ${coverReference.label}.` };
@@ -1508,12 +1528,13 @@ export async function* streamAdminAiFill(
   }
 
   const knownReleaseYear = yearFromIsoDate(draft.releaseDate);
-  if (knownReleaseYear && draft.year !== knownReleaseYear) {
+  if (wants("release") && knownReleaseYear && draft.year !== knownReleaseYear) {
     draft.year = knownReleaseYear;
     yield { type: "field", field: "year", value: draft.year };
   }
   const platformSupport = defaultSupportForPlatform(draft.platformSlug);
   if (
+    wants("support") &&
     platformSupport &&
     (!options.onlyMissing || !cleanSupportLabel(draft.support) || draft.support !== platformSupport)
   ) {
@@ -1567,6 +1588,7 @@ export async function* streamAdminAiFill(
       if (
         typeof meta.year === "number" &&
         !draft.releaseDate &&
+        wants("release") &&
         (!options.onlyMissing || draft.year == null)
       ) {
         draft.year = meta.year;
@@ -1575,6 +1597,7 @@ export async function* streamAdminAiFill(
       if (
         typeof meta.developer === "string" &&
         meta.developer.trim() &&
+        wants("companies") &&
         !developerFromDirectSource &&
         (!options.onlyMissing || !draft.developerName)
       ) {
@@ -1586,6 +1609,7 @@ export async function* streamAdminAiFill(
       if (
         typeof meta.publisher === "string" &&
         meta.publisher.trim() &&
+        wants("companies") &&
         !publisherFromDirectSource &&
         (!options.onlyMissing || !draft.publisherName)
       ) {
@@ -1594,7 +1618,7 @@ export async function* streamAdminAiFill(
         yield { type: "field", field: "publisherName", value: draft.publisherName };
         yield { type: "field", field: "publisherSlug", value: draft.publisherSlug };
       }
-      if (Array.isArray(meta.genres)) {
+      if (wants("taxonomy") && Array.isArray(meta.genres)) {
         const buckets = classifyControlledTaxonomyNames(
           meta.genres.filter((g): g is string => typeof g === "string" && g.trim().length > 0),
         );
@@ -1608,13 +1632,14 @@ export async function* streamAdminAiFill(
           };
         }
       }
-      if (typeof meta.players === "number" && (!options.onlyMissing || draft.players == null)) {
+      if (wants("players") && typeof meta.players === "number" && (!options.onlyMissing || draft.players == null)) {
         draft.players = meta.players;
         yield { type: "field", field: "players", value: meta.players };
       }
       const supportLabel = cleanSupportLabel(typeof meta.support === "string" ? meta.support : null);
       const platformSupport = defaultSupportForPlatform(draft.platformSlug);
       if (
+        wants("support") &&
         supportLabel &&
         !platformSupport &&
         (!options.onlyMissing || !cleanSupportLabel(draft.support))
@@ -1679,7 +1704,7 @@ export async function* streamAdminAiFill(
   try {
     const parsed = await openAiJson(descSystem, descUserWithInstructions);
     const description = sanitizeGeneratedCatalogText(String(parsed.description ?? ""), draft);
-    if (description.length >= 40 && (!options.onlyMissing || !draft.description)) {
+    if (wants("description") && description.length >= 40 && (!options.onlyMissing || !draft.description)) {
       draft.description = description.slice(0, 900);
       yield { type: "field", field: "description", value: draft.description };
     }
@@ -1703,7 +1728,7 @@ export async function* streamAdminAiFill(
       model: descriptionModel(),
     };
 
-    if (options.onlyMissing && draft.seoMeta) {
+    if (wants("seo") && options.onlyMissing && draft.seoMeta) {
       draft.seoMeta = {
         ...draft.seoMeta,
         seoTitle: draft.seoMeta.seoTitle || generatedSeo.seoTitle,
@@ -1720,12 +1745,12 @@ export async function* streamAdminAiFill(
         model: draft.seoMeta.model || generatedSeo.model,
       };
       yield { type: "field", field: "seoMeta", value: draft.seoMeta };
-    } else if (!options.onlyMissing || !draft.seoMeta) {
+    } else if (wants("seo") && (!options.onlyMissing || !draft.seoMeta)) {
       draft.seoMeta = generatedSeo;
       yield { type: "field", field: "seoMeta", value: draft.seoMeta };
     }
 
-    if (!options.onlyMissing || !draft.descriptionMeta) {
+    if (wantsAny("description", "seo") && (!options.onlyMissing || !draft.descriptionMeta)) {
       draft.descriptionMeta = {
         generatedAt: new Date().toISOString(),
         method: "ai",

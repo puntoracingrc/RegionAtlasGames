@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type { AdminGameDraft } from "@/lib/admin-draft-types";
@@ -39,6 +40,7 @@ type Props = {
 };
 
 type LogLine = { id: number; text: string; tone?: "ok" | "err" };
+type AiTarget = "cover" | "companies" | "taxonomy" | "release" | "players" | "support" | "description" | "seo";
 type PriceJobState = {
   jobId: string;
   status: "running" | "done" | "error";
@@ -58,18 +60,23 @@ function EntityCombo({
   slug,
   options,
   onChange,
+  action,
 }: {
   label: string;
   name: string;
   slug: string;
   options: CompanyOption[];
   onChange: (name: string, slug: string) => void;
+  action?: ReactNode;
 }) {
   const listId = `${label.replace(/\s+/g, "-").toLowerCase()}-list`;
 
   return (
     <label className="block space-y-1">
-      <span className="text-[10px] uppercase tracking-wider text-muted">{label}</span>
+      <span className="flex items-center justify-between gap-2">
+        <span className="text-[10px] uppercase tracking-wider text-muted">{label}</span>
+        {action}
+      </span>
       <input
         list={listId}
         className="input"
@@ -113,6 +120,7 @@ function ControlledTaxonomySelector({
   options,
   onChange,
   disabled = false,
+  action,
 }: {
   label: string;
   helper: string;
@@ -120,6 +128,7 @@ function ControlledTaxonomySelector({
   options: AdminGameEditorTaxonomyOption[];
   onChange: (next: string[]) => void;
   disabled?: boolean;
+  action?: ReactNode;
 }) {
   const [query, setQuery] = useState("");
   const selectedNames = uniqueNames(selected);
@@ -146,7 +155,10 @@ function ControlledTaxonomySelector({
   return (
     <div className="space-y-2 rounded-2xl border border-border bg-background/45 p-3 sm:col-span-2">
       <div>
-        <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">{label}</p>
+        <div className="flex items-center justify-between gap-2">
+          <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">{label}</p>
+          {action}
+        </div>
         <p className="mt-1 text-xs text-muted">{helper}</p>
       </div>
       <input
@@ -219,6 +231,34 @@ function ControlledTaxonomySelector({
   );
 }
 
+function AiMagicButton({
+  label,
+  busy,
+  disabled,
+  onClick,
+}: {
+  label: string;
+  busy: boolean;
+  disabled?: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      className="rounded-full border border-violet-300/60 bg-violet-500/10 px-2 py-0.5 text-[10px] font-semibold text-violet-800 transition hover:bg-violet-500/15 disabled:cursor-not-allowed disabled:opacity-45 dark:text-violet-200"
+      disabled={disabled || busy}
+      onClick={(event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        onClick();
+      }}
+      title={label}
+    >
+      {busy ? "✦…" : "✦ IA"}
+    </button>
+  );
+}
+
 export function AdminGameEditor({
   pcId,
   initialDraft,
@@ -245,6 +285,7 @@ export function AdminGameEditor({
   const [enriching, setEnriching] = useState(false);
   const [coverUploading, setCoverUploading] = useState(false);
   const [aiRunning, setAiRunning] = useState(false);
+  const [aiTargetRunning, setAiTargetRunning] = useState<string | null>(null);
   const [priceCollecting, setPriceCollecting] = useState(false);
   const [priceJob, setPriceJob] = useState<PriceJobState | null>(null);
   const [publishJob, setPublishJob] = useState<PublishJobState | null>(null);
@@ -324,22 +365,27 @@ export function AdminGameEditor({
     }
   }
 
-  async function runAiFill() {
+  async function runAiFill(targets?: AiTarget[], label = "relleno con IA") {
     setAiRunning(true);
+    setAiTargetRunning(targets?.join("+") ?? "all");
     setError(null);
     setMessage(null);
     setLogs([]);
-    pushLog("Iniciando relleno con IA…");
+    pushLog(targets?.length ? `Iniciando IA para ${label}…` : "Iniciando relleno con IA…");
 
     await saveDraft();
 
     try {
-      const res = await fetch(`/api/admin/staging/${pcId}/ai-fill`, {
+      const aiUrl = isPublished
+        ? `/api/admin/catalog/${encodeURIComponent(catalogId)}/ai-fill`
+        : `/api/admin/staging/${pcId}/ai-fill`;
+      const res = await fetch(aiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           manualUrl: aiManualUrl,
           extraInstructions: aiExtraInstructions,
+          targets,
         }),
       });
       if (!res.ok || !res.body) {
@@ -386,8 +432,8 @@ export function AdminGameEditor({
               setError(event.message);
             } else if (event.type === "done" && event.draft) {
               setDraft(event.draft);
-              pushLog("IA terminada. Revisa y publica.", "ok");
-              setMessage("Datos rellenados con IA.");
+              pushLog(targets?.length ? `IA terminada para ${label}.` : "IA terminada. Revisa y publica.", "ok");
+              setMessage(targets?.length ? `IA aplicada a ${label}.` : "Datos rellenados con IA.");
             }
           } catch {
             /* ignore malformed chunks */
@@ -398,6 +444,7 @@ export function AdminGameEditor({
       setError("Conexión interrumpida con la IA.");
     } finally {
       setAiRunning(false);
+      setAiTargetRunning(null);
     }
   }
 
@@ -849,8 +896,16 @@ export function AdminGameEditor({
             </label>
 
             <label className="block space-y-1 sm:col-span-2">
-              <span className="text-[10px] uppercase tracking-wider text-muted">
-                Referencia (SKU / CUSA / código)
+              <span className="flex items-center justify-between gap-2">
+                <span className="text-[10px] uppercase tracking-wider text-muted">
+                  Referencia (SKU / CUSA / código)
+                </span>
+                <AiMagicButton
+                  label="Buscar referencia y fecha con IA"
+                  busy={aiTargetRunning === "release"}
+                  disabled={saving || aiRunning || locked || isContributor}
+                  onClick={() => void runAiFill(["release"], "referencia y fecha")}
+                />
               </span>
               <input
                 className="input font-mono"
@@ -861,7 +916,15 @@ export function AdminGameEditor({
             </label>
 
             <label className="block space-y-1">
-              <span className="text-[10px] uppercase tracking-wider text-muted">Año</span>
+              <span className="flex items-center justify-between gap-2">
+                <span className="text-[10px] uppercase tracking-wider text-muted">Año</span>
+                <AiMagicButton
+                  label="Buscar año con IA"
+                  busy={aiTargetRunning === "release"}
+                  disabled={saving || aiRunning || locked || isContributor}
+                  onClick={() => void runAiFill(["release"], "año")}
+                />
+              </span>
               <input
                 type="number"
                 className="input"
@@ -875,7 +938,15 @@ export function AdminGameEditor({
             </label>
 
             <label className="block space-y-1">
-              <span className="text-[10px] uppercase tracking-wider text-muted">Jugadores</span>
+              <span className="flex items-center justify-between gap-2">
+                <span className="text-[10px] uppercase tracking-wider text-muted">Jugadores</span>
+                <AiMagicButton
+                  label="Buscar jugadores con IA"
+                  busy={aiTargetRunning === "players"}
+                  disabled={saving || aiRunning || locked || isContributor}
+                  onClick={() => void runAiFill(["players"], "jugadores")}
+                />
+              </span>
               <input
                 type="number"
                 className="input"
@@ -889,7 +960,15 @@ export function AdminGameEditor({
             </label>
 
             <label className="block space-y-1">
-              <span className="text-[10px] uppercase tracking-wider text-muted">Soporte</span>
+              <span className="flex items-center justify-between gap-2">
+                <span className="text-[10px] uppercase tracking-wider text-muted">Soporte</span>
+                <AiMagicButton
+                  label="Buscar soporte con IA"
+                  busy={aiTargetRunning === "support"}
+                  disabled={saving || aiRunning || locked || isContributor}
+                  onClick={() => void runAiFill(["support"], "soporte")}
+                />
+              </span>
               <input
                 className="input"
                 value={draft.support ?? ""}
@@ -904,6 +983,14 @@ export function AdminGameEditor({
               slug={draft.developerSlug ?? ""}
               options={companies}
               onChange={(name, slug) => patchDraft({ developerName: name, developerSlug: slug })}
+              action={
+                <AiMagicButton
+                  label="Buscar desarrolladora y editora con IA"
+                  busy={aiTargetRunning === "companies"}
+                  disabled={saving || aiRunning || locked || isContributor}
+                  onClick={() => void runAiFill(["companies"], "compañías")}
+                />
+              }
             />
 
             <EntityCombo
@@ -912,6 +999,14 @@ export function AdminGameEditor({
               slug={draft.publisherSlug ?? ""}
               options={companies}
               onChange={(name, slug) => patchDraft({ publisherName: name, publisherSlug: slug })}
+              action={
+                <AiMagicButton
+                  label="Buscar desarrolladora y editora con IA"
+                  busy={aiTargetRunning === "companies"}
+                  disabled={saving || aiRunning || locked || isContributor}
+                  onClick={() => void runAiFill(["companies"], "compañías")}
+                />
+              }
             />
 
             <ControlledTaxonomySelector
@@ -921,6 +1016,14 @@ export function AdminGameEditor({
               options={taxonomyOptions.genres}
               disabled={locked}
               onChange={(genreNames) => patchDraft({ genreNames })}
+              action={
+                <AiMagicButton
+                  label="Buscar taxonomía con IA"
+                  busy={aiTargetRunning === "taxonomy"}
+                  disabled={saving || aiRunning || locked || isContributor}
+                  onClick={() => void runAiFill(["taxonomy"], "géneros, subgéneros y facetas")}
+                />
+              }
             />
 
             <ControlledTaxonomySelector
@@ -930,6 +1033,14 @@ export function AdminGameEditor({
               options={subgenreOptions}
               disabled={locked}
               onChange={(subgenreNames) => patchDraft({ subgenreNames })}
+              action={
+                <AiMagicButton
+                  label="Buscar taxonomía con IA"
+                  busy={aiTargetRunning === "taxonomy"}
+                  disabled={saving || aiRunning || locked || isContributor}
+                  onClick={() => void runAiFill(["taxonomy"], "géneros, subgéneros y facetas")}
+                />
+              }
             />
 
             <ControlledTaxonomySelector
@@ -939,10 +1050,26 @@ export function AdminGameEditor({
               options={taxonomyOptions.facets}
               disabled={locked}
               onChange={(facetNames) => patchDraft({ facetNames })}
+              action={
+                <AiMagicButton
+                  label="Buscar taxonomía con IA"
+                  busy={aiTargetRunning === "taxonomy"}
+                  disabled={saving || aiRunning || locked || isContributor}
+                  onClick={() => void runAiFill(["taxonomy"], "géneros, subgéneros y facetas")}
+                />
+              }
             />
 
             <label className="block space-y-1 sm:col-span-2">
-              <span className="text-[10px] uppercase tracking-wider text-muted">URL portada</span>
+              <span className="flex items-center justify-between gap-2">
+                <span className="text-[10px] uppercase tracking-wider text-muted">URL portada</span>
+                <AiMagicButton
+                  label="Buscar solo portada con IA"
+                  busy={aiTargetRunning === "cover"}
+                  disabled={saving || aiRunning || locked || isContributor}
+                  onClick={() => void runAiFill(["cover"], "portada")}
+                />
+              </span>
               <input
                 className="input"
                 value={draft.coverUrl ?? ""}
@@ -976,7 +1103,23 @@ export function AdminGameEditor({
             </label>
 
             <label className="block space-y-1 sm:col-span-2">
-              <span className="text-[10px] uppercase tracking-wider text-muted">Descripción</span>
+              <span className="flex items-center justify-between gap-2">
+                <span className="text-[10px] uppercase tracking-wider text-muted">Descripción</span>
+                <span className="flex gap-1">
+                  <AiMagicButton
+                    label="Generar solo descripción con IA"
+                    busy={aiTargetRunning === "description"}
+                    disabled={saving || aiRunning || locked || isContributor}
+                    onClick={() => void runAiFill(["description"], "descripción")}
+                  />
+                  <AiMagicButton
+                    label="Generar SEO con IA"
+                    busy={aiTargetRunning === "seo"}
+                    disabled={saving || aiRunning || locked || isContributor}
+                    onClick={() => void runAiFill(["seo"], "SEO")}
+                  />
+                </span>
+              </span>
               <textarea
                 rows={6}
                 className="input leading-relaxed"
@@ -1021,6 +1164,16 @@ export function AdminGameEditor({
                 {priceCollecting ? "Recolectando precios…" : "Recolectar precios de este juego"}
               </button>
             )}
+            {!isContributor && !locked && (
+              <button
+                type="button"
+                className="rounded-xl border border-violet-400/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-800 transition hover:bg-violet-500/15 dark:text-violet-200 disabled:opacity-50"
+                disabled={aiRunning || saving}
+                onClick={() => void runAiFill()}
+              >
+                {aiRunning ? "IA trabajando…" : "Rellenar con IA"}
+              </button>
+            )}
             {!isPublished && !isContributor && (
               <>
                 <button
@@ -1030,14 +1183,6 @@ export function AdminGameEditor({
                   onClick={() => void enrichCover()}
                 >
                   {enriching ? "Buscando portada…" : "Portada (PriceCharting)"}
-                </button>
-                <button
-                  type="button"
-                  className="rounded-xl border border-violet-400/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-800 transition hover:bg-violet-500/15 dark:text-violet-200 disabled:opacity-50"
-                  disabled={aiRunning || saving}
-                  onClick={() => void runAiFill()}
-                >
-                  {aiRunning ? "IA trabajando…" : "Rellenar con IA"}
                 </button>
                 <button
                   type="button"
