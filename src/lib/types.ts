@@ -42,6 +42,21 @@ export type GameDetailsSeoMeta = {
   model?: string | null;
 };
 
+export type GameVideo = {
+  provider: "youtube";
+  source: "youtube-serpapi" | "manual";
+  videoId: string;
+  url: string;
+  title: string;
+  channelTitle?: string | null;
+  channelUrl?: string | null;
+  thumbnailUrl?: string | null;
+  publishedAt?: string | null;
+  duration?: string | null;
+  kind?: "official-trailer" | "official-gameplay" | "official-video" | "related";
+  fetchedAt?: string;
+};
+
 export type GameDetails = {
   year: number | null;
   releaseDate: string | null;
@@ -90,6 +105,7 @@ export type GameDetails = {
     referenceUrl?: string | null;
   };
   seoMeta?: GameDetailsSeoMeta | null;
+  videos?: GameVideo[];
 };
 
 export type IndexEntry = {

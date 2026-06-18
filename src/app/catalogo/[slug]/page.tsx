@@ -52,7 +52,7 @@ import {
   formatGameReleaseDate,
   formatPlayerCount,
 } from "@/lib/game-detail-display";
-import type { DetailEntity } from "@/lib/types";
+import type { DetailEntity, GameVideo } from "@/lib/types";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -84,6 +84,14 @@ function taxonomyPillLinks(entities: DetailEntity[]) {
       ))}
     </span>
   );
+}
+
+function getYoutubeEmbedUrl(videoId: string) {
+  return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`;
+}
+
+function getYoutubeWatchUrl(video: GameVideo) {
+  return video.url || `https://www.youtube.com/watch?v=${encodeURIComponent(video.videoId)}`;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -122,6 +130,11 @@ export default async function CatalogGamePage({ params }: Props) {
   const priceHistory = hasPriceHistory(game.id) ? getPriceHistory(game.id) : [];
   const affiliateOffers = await getAffiliateOfferBlock(game, details ?? null);
   const publicSeries = await listPublicSeriesForGame(game.id);
+  const youtubeVideos = (details?.videos ?? [])
+    .filter((video) => video.provider === "youtube" && video.videoId)
+    .slice(0, 4);
+  const featuredVideo = youtubeVideos[0];
+  const secondaryVideos = youtubeVideos.slice(1);
   const detailsSeries =
     details?.series && !publicSeries.some((series) => series.slug === details.series?.slug)
       ? [
@@ -265,6 +278,55 @@ export default async function CatalogGamePage({ params }: Props) {
             )}
 
             <RecordedProSalesPanel catalogId={game.id} />
+
+            {featuredVideo && (
+              <Panel>
+                <PanelTitle>Vídeos oficiales</PanelTitle>
+                <div className="space-y-3">
+                  <div className="overflow-hidden rounded-xl border border-white/10 bg-black">
+                    <iframe
+                      src={getYoutubeEmbedUrl(featuredVideo.videoId)}
+                      title={featuredVideo.title}
+                      className="aspect-video w-full"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-sm font-semibold text-foreground">{featuredVideo.title}</p>
+                    {featuredVideo.channelTitle && (
+                      <p className="text-xs text-muted">
+                        Fuente:{" "}
+                        {featuredVideo.channelUrl ? (
+                          <Link href={featuredVideo.channelUrl} className="text-accent hover:underline">
+                            {featuredVideo.channelTitle}
+                          </Link>
+                        ) : (
+                          featuredVideo.channelTitle
+                        )}
+                      </p>
+                    )}
+                  </div>
+                  {secondaryVideos.length > 0 && (
+                    <div className="grid gap-2 sm:grid-cols-3">
+                      {secondaryVideos.map((video) => (
+                        <Link
+                          key={video.videoId}
+                          href={getYoutubeWatchUrl(video)}
+                          className="rounded-xl border border-white/10 bg-white/5 p-3 text-sm text-muted hover:bg-white/10"
+                        >
+                          <span className="line-clamp-2 font-medium text-foreground">{video.title}</span>
+                          {video.channelTitle && (
+                            <span className="mt-1 block text-xs text-muted">{video.channelTitle}</span>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </Panel>
+            )}
 
             <Panel>
               <PanelTitle>Descripción</PanelTitle>
