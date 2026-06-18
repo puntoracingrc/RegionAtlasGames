@@ -8,6 +8,7 @@ import {
 import { readCatalogStagingGame } from "@/lib/catalog-staging-storage";
 import { companies } from "@/lib/indexes";
 import { requireContributorUser } from "@/lib/admin-auth";
+import { getAdminGameEditorTaxonomyOptions } from "@/lib/admin-game-editor-options";
 
 type Props = { params: Promise<{ pcId: string }> };
 
@@ -32,6 +33,7 @@ export default async function ContribuirEditPage({ params }: Props) {
     .sort((a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"))
     .slice(0, 400)
     .map((c) => ({ name: c.name, slug: c.slug }));
+  const taxonomyOptions = getAdminGameEditorTaxonomyOptions();
 
   return (
     <div className="space-y-4">
@@ -43,6 +45,7 @@ export default async function ContribuirEditPage({ params }: Props) {
         initialDraft={draft}
         staging={staging}
         companies={companyList}
+        taxonomyOptions={taxonomyOptions}
         mode="contributor"
         readOnly={readOnly}
       />

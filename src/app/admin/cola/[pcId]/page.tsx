@@ -7,6 +7,7 @@ import {
 } from "@/lib/admin-draft-storage";
 import { listCatalogStagingGames, readCatalogStagingGame } from "@/lib/catalog-staging-storage";
 import { companies } from "@/lib/indexes";
+import { getAdminGameEditorTaxonomyOptions } from "@/lib/admin-game-editor-options";
 
 type Props = {
   params: Promise<{ pcId: string }>;
@@ -29,6 +30,7 @@ export default async function AdminQueueGamePage({ params, searchParams }: Props
     .sort((a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"))
     .slice(0, 400)
     .map((c) => ({ name: c.name, slug: c.slug }));
+  const taxonomyOptions = getAdminGameEditorTaxonomyOptions();
   const queueGames = (await listCatalogStagingGames())
     .filter((game) => game.status !== "promoted")
     .sort(
@@ -54,6 +56,7 @@ export default async function AdminQueueGamePage({ params, searchParams }: Props
         initialDraft={draft}
         staging={staging}
         companies={companyList}
+        taxonomyOptions={taxonomyOptions}
         autoAi={autoAi}
         reviewNav={
           currentIndex >= 0

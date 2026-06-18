@@ -8,6 +8,7 @@ import {
   priceFieldsFromGame,
 } from "@/lib/admin-catalog-publish";
 import { companies } from "@/lib/indexes";
+import { getAdminGameEditorTaxonomyOptions } from "@/lib/admin-game-editor-options";
 
 type Props = { params: Promise<{ catalogId: string }> };
 
@@ -21,6 +22,7 @@ export default async function AdminEditPublishedGamePage({ params }: Props) {
     .sort((a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"))
     .slice(0, 400)
     .map((c) => ({ name: c.name, slug: c.slug }));
+  const taxonomyOptions = getAdminGameEditorTaxonomyOptions();
 
   return (
     <div>
@@ -31,6 +33,7 @@ export default async function AdminEditPublishedGamePage({ params }: Props) {
         pcId={resolved.game.pcId ?? 0}
         initialDraft={draft}
         companies={companyList}
+        taxonomyOptions={taxonomyOptions}
         mode="published"
         catalogId={catalogId}
       />

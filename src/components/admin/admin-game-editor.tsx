@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type { AdminGameDraft } from "@/lib/admin-draft-types";
 import { recomputeCatalogId } from "@/lib/admin-draft-patch";
+import type { AdminGameEditorTaxonomyOption } from "@/lib/admin-game-editor-options";
 import type { CatalogStagingGame } from "@/lib/catalog-staging-types";
 import { getCoverSrc } from "@/lib/cover-url";
 import { getPhysicalVariant, PHYSICAL_VARIANTS } from "@/lib/physical-variants";
@@ -25,6 +26,11 @@ type Props = {
   initialDraft: AdminGameDraft;
   staging?: CatalogStagingGame | null;
   companies: CompanyOption[];
+  taxonomyOptions: {
+    genres: AdminGameEditorTaxonomyOption[];
+    subgenres: AdminGameEditorTaxonomyOption[];
+    facets: AdminGameEditorTaxonomyOption[];
+  };
   autoAi?: boolean;
   mode?: "staging" | "published" | "contributor";
   catalogId?: string;
@@ -86,11 +92,139 @@ function EntityCombo({
   );
 }
 
+function normalizeSearch(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "");
+}
+
+function uniqueNames(values: string[]): string[] {
+  return [...new Set(values.map((value) => value.trim()).filter(Boolean))].sort((a, b) =>
+    a.localeCompare(b, "es", { numeric: true }),
+  );
+}
+
+function ControlledTaxonomySelector({
+  label,
+  helper,
+  selected,
+  options,
+  onChange,
+  disabled = false,
+}: {
+  label: string;
+  helper: string;
+  selected: string[];
+  options: AdminGameEditorTaxonomyOption[];
+  onChange: (next: string[]) => void;
+  disabled?: boolean;
+}) {
+  const [query, setQuery] = useState("");
+  const selectedNames = uniqueNames(selected);
+  const selectedSet = new Set(selectedNames);
+  const validNameSet = new Set(options.map((option) => option.name));
+  const legacySelected = selectedNames.filter((name) => !validNameSet.has(name));
+  const visibleOptions = options
+    .filter((option) => {
+      const needle = normalizeSearch(query);
+      if (!needle) return true;
+      return normalizeSearch(`${option.name} ${option.family ?? ""} ${option.slug}`).includes(needle);
+    })
+    .slice(0, 80);
+
+  function toggle(name: string) {
+    if (disabled) return;
+    if (selectedSet.has(name)) {
+      onChange(selectedNames.filter((item) => item !== name));
+      return;
+    }
+    onChange(uniqueNames([...selectedNames, name]));
+  }
+
+  return (
+    <div className="space-y-2 rounded-2xl border border-border bg-background/45 p-3 sm:col-span-2">
+      <div>
+        <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">{label}</p>
+        <p className="mt-1 text-xs text-muted">{helper}</p>
+      </div>
+      <input
+        className="input"
+        value={query}
+        disabled={disabled}
+        onChange={(event) => setQuery(event.target.value)}
+        placeholder="Busca y marca opciones existentes…"
+      />
+      {selectedNames.length ? (
+        <div className="flex flex-wrap gap-2">
+          {selectedNames.map((name) => (
+            <button
+              key={name}
+              type="button"
+              disabled={disabled}
+              className={`rounded-full border px-3 py-1 text-xs font-medium ${
+                validNameSet.has(name)
+                  ? "border-accent/40 bg-accent/10 text-accent"
+                  : "border-amber-400/50 bg-amber-500/10 text-amber-800 dark:text-amber-200"
+              }`}
+              onClick={() => toggle(name)}
+              title={validNameSet.has(name) ? "Quitar" : "Valor antiguo fuera del listado controlado; pulsa para quitarlo"}
+            >
+              {name} ×
+            </button>
+          ))}
+        </div>
+      ) : null}
+      {legacySelected.length ? (
+        <p className="rounded-xl border border-amber-300/60 bg-amber-500/10 p-2 text-xs text-amber-800 dark:text-amber-200">
+          Hay valores antiguos fuera del listado controlado. Puedes quitarlos, pero para añadir nuevos usa solo las opciones marcables.
+        </p>
+      ) : null}
+      <div className="grid max-h-60 gap-2 overflow-auto pr-1">
+        {visibleOptions.map((option) => {
+          const checked = selectedSet.has(option.name);
+          return (
+            <label
+              key={option.slug}
+              className={`flex cursor-pointer items-center justify-between gap-3 rounded-xl border px-3 py-2 text-sm transition ${
+                checked
+                  ? "border-accent bg-accent/10 text-foreground"
+                  : "border-border bg-card/50 text-muted hover:border-accent/50 hover:text-foreground"
+              } ${disabled ? "cursor-not-allowed opacity-60" : ""}`}
+            >
+              <span className="min-w-0">
+                <span className="block truncate font-medium">{option.name}</span>
+                {option.family ? <span className="text-[10px] uppercase tracking-wider text-muted">{option.family}</span> : null}
+              </span>
+              <input
+                type="checkbox"
+                checked={checked}
+                disabled={disabled}
+                onChange={() => toggle(option.name)}
+              />
+            </label>
+          );
+        })}
+        {visibleOptions.length === 0 ? (
+          <p className="rounded-xl border border-dashed border-border p-3 text-xs text-muted">
+            No hay opciones válidas con ese filtro.
+          </p>
+        ) : null}
+      </div>
+      {options.length > visibleOptions.length ? (
+        <p className="text-xs text-muted">Mostrando {visibleOptions.length} de {options.length}; escribe para afinar.</p>
+      ) : null}
+    </div>
+  );
+}
+
 export function AdminGameEditor({
   pcId,
   initialDraft,
   staging,
   companies,
+  taxonomyOptions,
   autoAi = false,
   mode = "staging",
   catalogId: catalogIdProp,
@@ -124,6 +258,21 @@ export function AdminGameEditor({
   const pricePollRef = useRef<number | null>(null);
   const publishPollRef = useRef<number | null>(null);
   const autoAiStarted = useRef(false);
+  const selectedGenreSlugs = useMemo(() => {
+    const selectedGenreNames = new Set(draft.genreNames.map((name) => normalizeSearch(name)));
+    return taxonomyOptions.genres
+      .filter((option) => selectedGenreNames.has(normalizeSearch(option.name)))
+      .map((option) => option.slug);
+  }, [draft.genreNames, taxonomyOptions.genres]);
+  const subgenreOptions = useMemo(() => {
+    if (selectedGenreSlugs.length === 0) return taxonomyOptions.subgenres;
+    const selectedGenreSlugSet = new Set(selectedGenreSlugs);
+    const related = taxonomyOptions.subgenres.filter((option) =>
+      option.parentGenreSlugs?.some((slug) => selectedGenreSlugSet.has(slug)),
+    );
+    const relatedSlugs = new Set(related.map((option) => option.slug));
+    return [...related, ...taxonomyOptions.subgenres.filter((option) => !relatedSlugs.has(option.slug))];
+  }, [selectedGenreSlugs, taxonomyOptions.subgenres]);
 
   const pushLog = useCallback((text: string, tone?: LogLine["tone"]) => {
     logId.current += 1;
@@ -765,61 +914,32 @@ export function AdminGameEditor({
               onChange={(name, slug) => patchDraft({ publisherName: name, publisherSlug: slug })}
             />
 
-            <label className="block space-y-1 sm:col-span-2">
-              <span className="text-[10px] uppercase tracking-wider text-muted">
-                Géneros (separados por coma)
-              </span>
-              <input
-                className="input"
-                value={draft.genreNames.join(", ")}
-                onChange={(e) =>
-                  patchDraft({
-                    genreNames: e.target.value
-                      .split(",")
-                      .map((g) => g.trim())
-                      .filter(Boolean),
-                  })
-                }
-              />
-            </label>
+            <ControlledTaxonomySelector
+              label="Géneros"
+              helper="Busca y marca géneros del listado controlado; no admite texto libre nuevo."
+              selected={draft.genreNames}
+              options={taxonomyOptions.genres}
+              disabled={locked}
+              onChange={(genreNames) => patchDraft({ genreNames })}
+            />
 
-            <label className="block space-y-1 sm:col-span-2">
-              <span className="text-[10px] uppercase tracking-wider text-muted">
-                Subgéneros controlados (separados por coma)
-              </span>
-              <input
-                className="input"
-                value={draft.subgenreNames.join(", ")}
-                onChange={(e) =>
-                  patchDraft({
-                    subgenreNames: e.target.value
-                      .split(",")
-                      .map((g) => g.trim())
-                      .filter(Boolean),
-                  })
-                }
-                placeholder="Metroidvania, Survival Horror, JRPG…"
-              />
-            </label>
+            <ControlledTaxonomySelector
+              label="Subgéneros controlados"
+              helper="Al elegir género, los subgéneros relacionados aparecen primero."
+              selected={draft.subgenreNames}
+              options={subgenreOptions}
+              disabled={locked}
+              onChange={(subgenreNames) => patchDraft({ subgenreNames })}
+            />
 
-            <label className="block space-y-1 sm:col-span-2">
-              <span className="text-[10px] uppercase tracking-wider text-muted">
-                Facetas / etiquetas controladas (separadas por coma)
-              </span>
-              <input
-                className="input"
-                value={draft.facetNames.join(", ")}
-                onChange={(e) =>
-                  patchDraft({
-                    facetNames: e.target.value
-                      .split(",")
-                      .map((g) => g.trim())
-                      .filter(Boolean),
-                  })
-                }
-                placeholder="Mundo abierto, Cooperativo, Zombis, Pixel Art…"
-              />
-            </label>
+            <ControlledTaxonomySelector
+              label="Facetas / etiquetas controladas"
+              helper="Mecánicas, formato, tema, edición, modo de juego y otras facetas aprobadas."
+              selected={draft.facetNames}
+              options={taxonomyOptions.facets}
+              disabled={locked}
+              onChange={(facetNames) => patchDraft({ facetNames })}
+            />
 
             <label className="block space-y-1 sm:col-span-2">
               <span className="text-[10px] uppercase tracking-wider text-muted">URL portada</span>
