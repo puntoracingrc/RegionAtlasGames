@@ -74,6 +74,85 @@ type CompanyReference = {
   extract?: string | null;
 };
 
+type CompanySearchResult = {
+  title: string;
+  url: string;
+  snippet: string;
+  source: string;
+};
+
+const COMPANY_SEARCH_BLOCKED_HOSTS = new Set([
+  "facebook.com",
+  "instagram.com",
+  "linkedin.com",
+  "x.com",
+  "twitter.com",
+  "youtube.com",
+  "tiktok.com",
+  "reddit.com",
+]);
+
+function hostnameOf(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "").toLowerCase();
+  } catch {
+    return "";
+  }
+}
+
+function isUsefulCompanySearchResult(url: string): boolean {
+  const hostname = hostnameOf(url);
+  if (!hostname) return false;
+  if (COMPANY_SEARCH_BLOCKED_HOSTS.has(hostname)) return false;
+  return true;
+}
+
+function serpApiConfigured(): boolean {
+  return Boolean(process.env.SERPAPI_API_KEY?.trim());
+}
+
+async function searchCompanyWebWithSerpApi(name: string, websiteUrl?: string | null): Promise<CompanySearchResult[]> {
+  const apiKey = process.env.SERPAPI_API_KEY?.trim();
+  if (!apiKey) return [];
+  const queries = [
+    `"${name}" video game company official website`,
+    `"${name}" videojuegos empresa historia fundación`,
+    websiteUrl ? `site:${hostnameOf(websiteUrl)} "${name}"` : null,
+  ].filter((query): query is string => Boolean(query));
+  const byUrl = new Map<string, CompanySearchResult>();
+  for (const query of queries) {
+    const params = new URLSearchParams({
+      engine: "google",
+      q: query,
+      api_key: apiKey,
+      google_domain: "google.es",
+      gl: "es",
+      hl: "es",
+      num: "6",
+    });
+    const res = await fetch(`https://serpapi.com/search.json?${params}`, {
+      headers: { "User-Agent": "RegionAtlasGames/1.0 (admin company ai)" },
+      signal: AbortSignal.timeout(20_000),
+    });
+    if (!res.ok) continue;
+    const data = (await res.json()) as {
+      organic_results?: Array<{ title?: string; link?: string; snippet?: string; source?: string }>;
+    };
+    for (const result of data.organic_results ?? []) {
+      if (!result.link || !isUsefulCompanySearchResult(result.link)) continue;
+      if (byUrl.has(result.link)) continue;
+      byUrl.set(result.link, {
+        title: result.title?.trim() || hostnameOf(result.link),
+        url: result.link,
+        snippet: result.snippet?.trim() || "",
+        source: result.source?.trim() || hostnameOf(result.link),
+      });
+      if (byUrl.size >= 6) return [...byUrl.values()];
+    }
+  }
+  return [...byUrl.values()];
+}
+
 async function searchWikipediaCompany(name: string): Promise<CompanyReference | null> {
   const searchParams = new URLSearchParams({
     action: "query",
@@ -181,6 +260,15 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
   const context = companyCatalogContext(input.slug, input.name);
   const reference = await searchWikipediaCompany(input.name).catch(() => null);
   if (reference?.wikipediaTitle) logs.push(`Wikipedia consultada: ${reference.wikipediaTitle}.`);
+  const searchResults = await searchCompanyWebWithSerpApi(
+    input.name,
+    input.websiteUrl || reference?.officialWebsite,
+  ).catch(() => []);
+  if (searchResults.length) {
+    logs.push(`SerpAPI: ${searchResults.length} resultado(s) web usados como apoyo.`);
+  } else if (!serpApiConfigured()) {
+    logs.push("SerpAPI no configurada; usando Wikipedia/Wikidata y catálogo.");
+  }
   const system =
     "Eres editor de un catálogo de videojuegos. Responde SOLO JSON válido. " +
     "Estás completando una ficha de COMPAÑÍA, no de un juego. Prioriza Wikipedia/Wikidata y la web oficial si aparece. " +
@@ -205,7 +293,11 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
       },
       null,
       2,
-    )}\n\nReferencia Wikipedia/Wikidata:\n${JSON.stringify(reference, null, 2)}\n\nJuegos relacionados en Region Atlas:\n${context}`;
+    )}\n\nReferencia Wikipedia/Wikidata:\n${JSON.stringify(reference, null, 2)}\n\nResultados web SerpAPI:\n${JSON.stringify(
+      searchResults,
+      null,
+      2,
+    )}\n\nJuegos relacionados en Region Atlas:\n${context}`;
 
   const parsed = await openAiJson(system, user);
   const patch: AdminCompanyAiPatch = {};
