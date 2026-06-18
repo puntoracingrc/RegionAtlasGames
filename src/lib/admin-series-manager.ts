@@ -279,6 +279,39 @@ function uniqueStrings(values: string[]): string[] {
   return [...new Set(values.map((value) => value.trim()).filter(Boolean))];
 }
 
+function normalizeDescriptionForComparison(value: string): string {
+  return value
+    .replace(/\*\*/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function dedupeSeriesDescription(value: string | null | undefined): string | null {
+  const trimmed = value?.trim();
+  if (!trimmed) return null;
+
+  const paragraphs = trimmed.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
+  const dedupedParagraphs: string[] = [];
+  for (const paragraph of paragraphs) {
+    if (normalizeDescriptionForComparison(paragraph) === normalizeDescriptionForComparison(dedupedParagraphs.at(-1) ?? "")) {
+      continue;
+    }
+    dedupedParagraphs.push(paragraph);
+  }
+
+  if (dedupedParagraphs.length > 1 && dedupedParagraphs.length % 2 === 0) {
+    const midpoint = dedupedParagraphs.length / 2;
+    const firstHalf = dedupedParagraphs.slice(0, midpoint).join("\n\n");
+    const secondHalf = dedupedParagraphs.slice(midpoint).join("\n\n");
+    if (normalizeDescriptionForComparison(firstHalf) === normalizeDescriptionForComparison(secondHalf)) {
+      return firstHalf;
+    }
+  }
+
+  return dedupedParagraphs.join("\n\n");
+}
+
 function entityFromName(name: string): DetailEntity | null {
   const trimmed = name.trim();
   if (!trimmed) return null;
@@ -378,7 +411,7 @@ function effectiveSeriesEntry(
     gameIds,
     byPlatform: staticEntry?.byPlatform ?? {},
     gameCount: gameIds.length,
-    description: overlayEntry?.description ?? staticEntry?.description ?? null,
+    description: dedupeSeriesDescription(overlayEntry?.description ?? staticEntry?.description),
     active: staticEntry?.active,
   };
 }
@@ -589,7 +622,7 @@ export async function updateAdminSeriesDescription(
     ...existing,
     slug: normalizedSlug,
     name: existing.name || current.name,
-    description: description?.trim() || undefined,
+    description: dedupeSeriesDescription(description) ?? undefined,
   };
   await writeAdminSeriesOverlay(overlay);
   const series = await getAdminSeries(normalizedSlug);

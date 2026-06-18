@@ -394,6 +394,11 @@ export function AdminSeriesPanel() {
                     <p className="text-xs text-muted">
                       Se muestra en la página pública. Puedes editarla a mano o regenerarla con IA.
                     </p>
+                    {detail.series.description ? (
+                      <p className="mt-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+                        Descripción actual cargada en el editor.
+                      </p>
+                    ) : null}
                   </div>
                   <button
                     type="button"

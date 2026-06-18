@@ -175,6 +175,7 @@ export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): Ser
       a.title.localeCompare(b.title, "es") ||
       a.platformName.localeCompare(b.platformName, "es"),
   );
+  const editorialDescription = entry.description?.trim() || "";
 
   return {
     slug: entry.slug,
@@ -188,7 +189,7 @@ export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): Ser
     platforms,
     timeline: sortedTimeline,
     description:
-      entry.description?.trim() ||
+      editorialDescription ||
       buildSeriesDescription({
         name: entry.name,
         gameCount: games.length,
@@ -198,7 +199,6 @@ export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): Ser
         topPlatforms: platforms,
       }),
     history:
-      entry.description?.trim() ||
       buildSeriesHistory({
         name: entry.name,
         firstYear,
