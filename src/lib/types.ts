@@ -142,6 +142,11 @@ export type CompanyProfileSources = {
   officialWebsite?: { url: string; fetchedAt: string };
 };
 
+export type CompanyRelation = {
+  slug: string;
+  name: string;
+};
+
 /** Contenido enriquecido por compañía (Wikidata/Wikipedia + IA). */
 export type CompanyProfile = {
   slug: string;
@@ -152,6 +157,9 @@ export type CompanyProfile = {
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: CompanyProfileStatus;
+  parentCompany?: CompanyRelation | null;
+  acquiredByCompany?: CompanyRelation | null;
+  successorCompany?: CompanyRelation | null;
   history?: string | null;
   seoMeta?: CompanyProfileSeoMeta | null;
   sources?: CompanyProfileSources;

@@ -6,7 +6,7 @@ import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { listedCatalog } from "./catalog";
 import { slugify } from "./slug";
 import { isInvalidGenreEntity } from "./genre-normalize";
-import type { CompanyProfile, CompanyProfileStatus, IndexEntry, Platform, PlatformStatus } from "./types";
+import type { CompanyProfile, CompanyProfileStatus, CompanyRelation, IndexEntry, Platform, PlatformStatus } from "./types";
 import {
   registerPlatformInPriceRotation,
   renamePlatformInPriceRotation,
@@ -140,6 +140,11 @@ async function readAdminEntitiesOverlay(): Promise<AdminEntitiesOverlay> {
   } catch {
     return emptyOverlay();
   }
+}
+
+export async function readAdminCompanyProfilesOverlay(): Promise<Record<string, CompanyProfile>> {
+  const overlay = await readAdminEntitiesOverlay();
+  return overlay.companyProfiles;
 }
 
 async function writeAdminEntitiesOverlay(overlay: AdminEntitiesOverlay): Promise<void> {
@@ -581,6 +586,9 @@ export type AdminCompanyRow = Pick<IndexEntry, "slug" | "name" | "gameCount" | "
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: CompanyProfileStatus;
+  parentCompany?: CompanyRelation | null;
+  acquiredByCompany?: CompanyRelation | null;
+  successorCompany?: CompanyRelation | null;
   seoTitle?: string | null;
   seoDescription?: string | null;
 };
@@ -652,6 +660,17 @@ function normalizeCompanyStatus(value: unknown): CompanyProfileStatus | undefine
   return undefined;
 }
 
+function normalizeCompanyRelation(value: unknown): CompanyRelation | null | undefined {
+  if (value == null || value === "") return null;
+  if (typeof value !== "object") return undefined;
+  const relation = value as { slug?: unknown; name?: unknown };
+  const slug = typeof relation.slug === "string" ? normalizeSlug(relation.slug) : "";
+  const name = typeof relation.name === "string" ? relation.name.trim() : "";
+  if (!slug && !name) return null;
+  if (!slug || !name) return undefined;
+  return { slug, name };
+}
+
 function profileForAdminCompany(
   entry: AdminIndexRow,
   profiles: Record<string, CompanyProfile>,
@@ -665,6 +684,9 @@ function profileForAdminCompany(
     foundedYear: profile?.foundedYear ?? null,
     closedYear: profile?.closedYear ?? null,
     status: profile?.status ?? "unknown",
+    parentCompany: profile?.parentCompany ?? null,
+    acquiredByCompany: profile?.acquiredByCompany ?? null,
+    successorCompany: profile?.successorCompany ?? null,
     seoTitle: profile?.seoMeta?.seoTitle ?? null,
     seoDescription: profile?.seoMeta?.seoDescription ?? null,
   };
@@ -681,6 +703,9 @@ function companyProfileFromInput(
     foundedYear?: number | null;
     closedYear?: number | null;
     status?: CompanyProfileStatus;
+    parentCompany?: CompanyRelation | null;
+    acquiredByCompany?: CompanyRelation | null;
+    successorCompany?: CompanyRelation | null;
     seoTitle?: string | null;
     seoDescription?: string | null;
   },
@@ -700,6 +725,12 @@ function companyProfileFromInput(
     foundedYear: parsed.foundedYear ?? currentProfile?.foundedYear ?? null,
     closedYear: parsed.closedYear ?? currentProfile?.closedYear ?? null,
     status: parsed.status ?? currentProfile?.status ?? "unknown",
+    parentCompany:
+      input.parentCompany !== undefined ? input.parentCompany : currentProfile?.parentCompany ?? null,
+    acquiredByCompany:
+      input.acquiredByCompany !== undefined ? input.acquiredByCompany : currentProfile?.acquiredByCompany ?? null,
+    successorCompany:
+      input.successorCompany !== undefined ? input.successorCompany : currentProfile?.successorCompany ?? null,
     seoMeta: {
       ...(currentProfile?.seoMeta ?? {}),
       seoTitle: input.seoTitle != null ? input.seoTitle.trim() || undefined : currentProfile?.seoMeta?.seoTitle,
@@ -1240,6 +1271,9 @@ export async function updateAdminCompany(
     foundedYear?: number | null;
     closedYear?: number | null;
     status?: CompanyProfileStatus;
+    parentCompany?: CompanyRelation | null;
+    acquiredByCompany?: CompanyRelation | null;
+    successorCompany?: CompanyRelation | null;
     seoTitle?: string | null;
     seoDescription?: string | null;
   },
@@ -1249,9 +1283,21 @@ export async function updateAdminCompany(
   const foundedYear = parseNullableYear(input.foundedYear);
   const closedYear = parseNullableYear(input.closedYear);
   const status = normalizeCompanyStatus(input.status);
+  const parentCompany = normalizeCompanyRelation(input.parentCompany);
+  const acquiredByCompany = normalizeCompanyRelation(input.acquiredByCompany);
+  const successorCompany = normalizeCompanyRelation(input.successorCompany);
   if (foundedYear === undefined) return { error: "Año de fundación no válido." };
   if (closedYear === undefined) return { error: "Año de cierre no válido." };
   if (input.status != null && !status) return { error: "Estado de compañía no válido." };
+  if (parentCompany === undefined) return { error: "Empresa matriz no válida." };
+  if (acquiredByCompany === undefined) return { error: "Compañía compradora no válida." };
+  if (successorCompany === undefined) return { error: "Compañía sucesora no válida." };
+  const relationsInput = {
+    ...input,
+    ...(input.parentCompany !== undefined ? { parentCompany } : {}),
+    ...(input.acquiredByCompany !== undefined ? { acquiredByCompany } : {}),
+    ...(input.successorCompany !== undefined ? { successorCompany } : {}),
+  };
   if (!canWriteCatalogFiles()) {
     const overlay = await readAdminEntitiesOverlay();
     const staticEntry = index[currentSlug] ? staticIndexRow(index[currentSlug]) : null;
@@ -1285,7 +1331,7 @@ export async function updateAdminCompany(
       nextSlug,
       name,
       currentProfile,
-      input,
+      relationsInput,
       { foundedYear: foundedYear ?? null, closedYear: closedYear ?? null, status },
     );
     await writeAdminEntitiesOverlay(overlay);
@@ -1341,7 +1387,7 @@ export async function updateAdminCompany(
     nextSlug,
     name,
     currentProfile,
-    input,
+    relationsInput,
     { foundedYear: foundedYear ?? null, closedYear: closedYear ?? null, status },
   );
   if (nextSlug !== currentSlug) delete profiles[currentSlug];

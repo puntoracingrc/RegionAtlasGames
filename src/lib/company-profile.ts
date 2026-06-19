@@ -1,4 +1,5 @@
 import companyProfilesData from "../../data/company-profiles.json";
+import { readAdminCompanyProfilesOverlay } from "./admin-entity-catalog";
 import { catalogGamePath } from "./catalog-url";
 import { getPlatform } from "./catalog";
 import {
@@ -39,6 +40,9 @@ export type CompanyProfileView = {
   foundedYear: number | null;
   closedYear: number | null;
   status: CompanyProfile["status"];
+  parentCompany: CompanyProfile["parentCompany"] | null;
+  acquiredByCompany: CompanyProfile["acquiredByCompany"] | null;
+  successorCompany: CompanyProfile["successorCompany"] | null;
   logoUrl: string | null;
   history: string | null;
   seoTitle: string | null;
@@ -54,6 +58,12 @@ const profiles = companyProfilesData as Record<string, CompanyProfile>;
 export function getStoredCompanyProfile(slug: string): CompanyProfile | undefined {
   const canonical = resolveCanonicalCompanySlug(slug);
   return profiles[canonical];
+}
+
+export async function getStoredCompanyProfileWithOverlay(slug: string): Promise<CompanyProfile | undefined> {
+  const canonical = resolveCanonicalCompanySlug(slug);
+  const overlayProfiles = await readAdminCompanyProfilesOverlay();
+  return overlayProfiles[canonical] ?? profiles[canonical];
 }
 
 function inferStatus(
@@ -118,12 +128,14 @@ function groupGamesByPlatform(games: CatalogGame[]): CompanyPlatformGames[] {
     .sort((a, b) => b.count - a.count || a.platformName.localeCompare(b.platformName, "es"));
 }
 
-export function buildCompanyProfileView(slug: string): CompanyProfileView | undefined {
+function buildCompanyProfileViewFromProfile(
+  slug: string,
+  stored: CompanyProfile | undefined,
+): CompanyProfileView | undefined {
   const entry = getCompany(slug);
   if (!entry) return undefined;
 
   const entity = getCompanyEntity(entry.slug);
-  const stored = getStoredCompanyProfile(entry.slug);
   const games = gamesForIndex(entry);
   const foundedYear = stored?.foundedYear ?? null;
   const closedYear = stored?.closedYear ?? null;
@@ -139,6 +151,9 @@ export function buildCompanyProfileView(slug: string): CompanyProfileView | unde
     foundedYear,
     closedYear,
     status: inferStatus(stored, closedYear),
+    parentCompany: stored?.parentCompany ?? null,
+    acquiredByCompany: stored?.acquiredByCompany ?? null,
+    successorCompany: stored?.successorCompany ?? null,
     logoUrl: stored?.logoUrl ?? null,
     history: stored?.history?.trim() || null,
     seoTitle: stored?.seoMeta?.seoTitle ?? null,
@@ -148,6 +163,18 @@ export function buildCompanyProfileView(slug: string): CompanyProfileView | unde
     games,
     profilePending: !stored?.history,
   };
+}
+
+export function buildCompanyProfileView(slug: string): CompanyProfileView | undefined {
+  const entry = getCompany(slug);
+  if (!entry) return undefined;
+  return buildCompanyProfileViewFromProfile(slug, getStoredCompanyProfile(entry.slug));
+}
+
+export async function buildCompanyProfileViewWithOverlay(slug: string): Promise<CompanyProfileView | undefined> {
+  const entry = getCompany(slug);
+  if (!entry) return undefined;
+  return buildCompanyProfileViewFromProfile(slug, await getStoredCompanyProfileWithOverlay(entry.slug));
 }
 
 export function companyGameHref(game: CatalogGame): string {

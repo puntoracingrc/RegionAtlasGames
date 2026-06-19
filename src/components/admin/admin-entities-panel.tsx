@@ -31,8 +31,16 @@ type IndexRow = {
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: "active" | "defunct" | "subsidiary" | "unknown";
+  parentCompany?: CompanyRelation | null;
+  acquiredByCompany?: CompanyRelation | null;
+  successorCompany?: CompanyRelation | null;
   seoTitle?: string | null;
   seoDescription?: string | null;
+};
+
+type CompanyRelation = {
+  slug: string;
+  name: string;
 };
 
 type EntitySort = "alpha-asc" | "alpha-desc" | "games-desc" | "games-asc";
@@ -165,6 +173,9 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
   const [editCompanyFoundedYear, setEditCompanyFoundedYear] = useState("");
   const [editCompanyClosedYear, setEditCompanyClosedYear] = useState("");
   const [editCompanyStatus, setEditCompanyStatus] = useState<"active" | "defunct" | "subsidiary" | "unknown">("unknown");
+  const [editParentCompany, setEditParentCompany] = useState("");
+  const [editAcquiredByCompany, setEditAcquiredByCompany] = useState("");
+  const [editSuccessorCompany, setEditSuccessorCompany] = useState("");
   const [editCompanySeoTitle, setEditCompanySeoTitle] = useState("");
   const [editCompanySeoDescription, setEditCompanySeoDescription] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -198,6 +209,25 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
   );
   const visibleCompanies = sortEntities(companies, sort);
   const visibleGenres = sortEntities(genres, sort);
+
+  function relationInputValue(relation: CompanyRelation | null | undefined): string {
+    return relation ? `${relation.name} (${relation.slug})` : "";
+  }
+
+  function relationFromInput(value: string, currentSlug: string): CompanyRelation | null {
+    const trimmed = value.trim();
+    if (!trimmed) return null;
+    const slugMatch = trimmed.match(/\(([^()]+)\)\s*$/);
+    const typedSlug = slugMatch?.[1]?.trim() ?? trimmed;
+    const normalizedSlug = typedSlug.toLowerCase();
+    const match = companies.find(
+      (company) =>
+        company.slug.toLowerCase() === normalizedSlug ||
+        company.name.toLowerCase() === trimmed.toLowerCase(),
+    );
+    if (!match || match.slug === currentSlug) return null;
+    return { slug: match.slug, name: match.name };
+  }
 
   const loadPlatforms = useCallback(async () => {
     const res = await fetch("/api/admin/entities/platforms");
@@ -443,6 +473,9 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
     setEditCompanyFoundedYear(row.foundedYear != null ? String(row.foundedYear) : "");
     setEditCompanyClosedYear(row.closedYear != null ? String(row.closedYear) : "");
     setEditCompanyStatus(row.status ?? "unknown");
+    setEditParentCompany(relationInputValue(row.parentCompany));
+    setEditAcquiredByCompany(relationInputValue(row.acquiredByCompany));
+    setEditSuccessorCompany(relationInputValue(row.successorCompany));
     setEditCompanySeoTitle(row.seoTitle ?? "");
     setEditCompanySeoDescription(row.seoDescription ?? "");
     setError(null);
@@ -487,6 +520,9 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
                     foundedYear: editCompanyFoundedYear.trim() ? Number(editCompanyFoundedYear) : null,
                     closedYear: editCompanyClosedYear.trim() ? Number(editCompanyClosedYear) : null,
                     status: editCompanyStatus,
+                    parentCompany: relationFromInput(editParentCompany, originalSlug),
+                    acquiredByCompany: relationFromInput(editAcquiredByCompany, originalSlug),
+                    successorCompany: relationFromInput(editSuccessorCompany, originalSlug),
                     seoTitle: editCompanySeoTitle,
                     seoDescription: editCompanySeoDescription,
                   }
@@ -1076,6 +1112,43 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
                       </select>
                     </label>
                     <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">Pertenece a / empresa matriz</span>
+                      <input
+                        className="input"
+                        list="admin-company-relation-targets"
+                        value={editParentCompany}
+                        onChange={(e) => setEditParentCompany(e.target.value)}
+                        placeholder="Ej. Take-Two Interactive (take-two-interactive)"
+                      />
+                    </label>
+                    <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">Comprada o absorbida por</span>
+                      <input
+                        className="input"
+                        list="admin-company-relation-targets"
+                        value={editAcquiredByCompany}
+                        onChange={(e) => setEditAcquiredByCompany(e.target.value)}
+                        placeholder="Compañía compradora / absorbente"
+                      />
+                    </label>
+                    <label className="block space-y-1 md:col-span-2">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">Se convirtió en</span>
+                      <input
+                        className="input"
+                        list="admin-company-relation-targets"
+                        value={editSuccessorCompany}
+                        onChange={(e) => setEditSuccessorCompany(e.target.value)}
+                        placeholder="Nueva compañía o marca sucesora"
+                      />
+                      <datalist id="admin-company-relation-targets">
+                        {companies
+                          .filter((target) => target.slug !== company.slug)
+                          .map((target) => (
+                            <option key={target.slug} value={`${target.name} (${target.slug})`} />
+                          ))}
+                      </datalist>
+                    </label>
+                    <label className="block space-y-1">
                       <span className="flex items-center justify-between gap-2">
                         <span className="text-[10px] uppercase tracking-wider text-muted">Año fundación</span>
                         <AiMagicButton
@@ -1181,6 +1254,25 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
                       <p className="text-xs text-muted">
                         {company.slug} · {company.gameCount} juegos
                       </p>
+                      {(company.parentCompany || company.acquiredByCompany || company.successorCompany) && (
+                        <div className="mt-2 flex flex-wrap gap-2 text-[11px] font-semibold text-muted">
+                          {company.parentCompany && (
+                            <span className="rounded-full border border-border bg-background/60 px-2 py-1">
+                              Matriz: {company.parentCompany.name}
+                            </span>
+                          )}
+                          {company.acquiredByCompany && (
+                            <span className="rounded-full border border-border bg-background/60 px-2 py-1">
+                              Comprada por: {company.acquiredByCompany.name}
+                            </span>
+                          )}
+                          {company.successorCompany && (
+                            <span className="rounded-full border border-border bg-background/60 px-2 py-1">
+                              Se convirtió en: {company.successorCompany.name}
+                            </span>
+                          )}
+                        </div>
+                      )}
                     </div>
                     <button
                       type="button"

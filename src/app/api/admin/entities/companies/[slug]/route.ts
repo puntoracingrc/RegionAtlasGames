@@ -20,6 +20,9 @@ export async function PATCH(request: Request, { params }: RouteParams) {
     foundedYear?: number | null;
     closedYear?: number | null;
     status?: "active" | "defunct" | "subsidiary" | "unknown";
+    parentCompany?: { slug: string; name: string } | null;
+    acquiredByCompany?: { slug: string; name: string } | null;
+    successorCompany?: { slug: string; name: string } | null;
     seoTitle?: string | null;
     seoDescription?: string | null;
   };

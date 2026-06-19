@@ -11,6 +11,11 @@ import { cn } from "@/lib/cn";
 
 export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
   const lifespan = companyLifespanLabel(view.foundedYear, view.closedYear);
+  const relations = [
+    view.parentCompany ? { label: "Pertenece a", company: view.parentCompany } : null,
+    view.acquiredByCompany ? { label: "Comprada / absorbida por", company: view.acquiredByCompany } : null,
+    view.successorCompany ? { label: "Se convirtió en", company: view.successorCompany } : null,
+  ].filter(Boolean) as { label: string; company: { slug: string; name: string } }[];
 
   return (
     <header className="mt-4 mb-8 space-y-5">
@@ -60,6 +65,22 @@ export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
               También indexada como {view.alsoKnownAs.slice(0, 5).join(" · ")}
               {view.alsoKnownAs.length > 5 ? " · …" : ""}
             </p>
+          )}
+          {relations.length > 0 && (
+            <div className="grid max-w-3xl gap-2 text-sm sm:grid-cols-2">
+              {relations.map((relation) => (
+                <Link
+                  key={`${relation.label}:${relation.company.slug}`}
+                  href={`/compania/${relation.company.slug}`}
+                  className="rounded-2xl border border-border bg-card px-3 py-2 text-foreground/85 transition hover:border-accent/40 hover:text-accent"
+                >
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
+                    {relation.label}
+                  </span>
+                  <span className="font-semibold">{relation.company.name}</span>
+                </Link>
+              ))}
+            </div>
           )}
           {view.wikidataId && (
             <p className="text-sm">
