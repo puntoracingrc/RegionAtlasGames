@@ -6,17 +6,11 @@ import { usePathname } from "next/navigation";
 const links = [
   { href: "/admin", label: "Resumen", icon: "⌁" },
   { href: "/admin/cola", label: "Revisión", icon: "✓" },
-  { href: "/admin/juegos", label: "Juegos", icon: "✎" },
-  { href: "/admin/acciones", label: "Acciones", icon: "☷" },
-  { href: "/admin/facetas", label: "Facetas", icon: "◇" },
-  { href: "/admin/juegos/nuevo", label: "Crear", icon: "+" },
-  { href: "/admin/importacion", label: "Importar", icon: "⇪" },
+  { href: "/admin/gestion", label: "Gestión", icon: "▦" },
   { href: "/admin/ia", label: "IA", icon: "✦" },
   { href: "/admin/noticias", label: "Noticias", icon: "◫" },
-  { href: "/admin/colaboradores", label: "Colaboradores", icon: "◎" },
-  { href: "/admin/entidades", label: "Entidades", icon: "▦" },
-  { href: "/admin/taxonomia", label: "Géneros", icon: "✣" },
-  { href: "/admin/precios", label: "Precios", icon: "€" },
+  { href: "/admin/precios", label: "Recolección", icon: "€" },
+  { href: "/admin/importacion", label: "Importar", icon: "⇪" },
 ];
 
 export function AdminNav() {
@@ -28,6 +22,14 @@ export function AdminNav() {
         const active =
           link.href === "/admin"
             ? pathname === "/admin"
+            : link.href === "/admin/gestion"
+              ? pathname === "/admin/gestion" ||
+                pathname.startsWith("/admin/juegos") ||
+                pathname.startsWith("/admin/acciones") ||
+                pathname.startsWith("/admin/facetas") ||
+                pathname.startsWith("/admin/colaboradores") ||
+                pathname.startsWith("/admin/entidades") ||
+                pathname.startsWith("/admin/taxonomia")
             : link.href === "/admin/juegos"
               ? pathname === "/admin/juegos" || /^\/admin\/juegos\/[^/]+$/.test(pathname)
               : pathname.startsWith(link.href);

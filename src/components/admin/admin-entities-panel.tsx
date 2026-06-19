@@ -135,8 +135,8 @@ function activeToggleLabel(active: boolean): string {
   return active ? "ON" : "OFF";
 }
 
-export function AdminEntitiesPanel() {
-  const [tab, setTab] = useState<Tab>(initialTab);
+export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initialTab?: Tab } = {}) {
+  const [tab, setTab] = useState<Tab>(initialTabOverride ?? initialTab);
   const [platforms, setPlatforms] = useState<PlatformRow[]>([]);
   const [companies, setCompanies] = useState<IndexRow[]>([]);
   const [genres, setGenres] = useState<IndexRow[]>([]);
@@ -169,6 +169,16 @@ export function AdminEntitiesPanel() {
   const [editCompanySeoDescription, setEditCompanySeoDescription] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!initialTabOverride) return;
+    setTab(initialTabOverride);
+    setSearch("");
+    setEditingSlug(null);
+    setMergeSourceSlug(null);
+    setError(null);
+    setMessage(null);
+  }, [initialTabOverride]);
 
   const [platformName, setPlatformName] = useState("");
   const [platformSlug, setPlatformSlug] = useState("");

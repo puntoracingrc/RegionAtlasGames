@@ -1,0 +1,188 @@
+"use client";
+
+import type { ReactNode } from "react";
+import { useMemo, useState } from "react";
+import { AdminCatalogSearchPanel } from "@/components/admin/admin-catalog-search-panel";
+import { AdminContributorsPanel } from "@/components/admin/admin-contributors-panel";
+import { AdminEntitiesPanel } from "@/components/admin/admin-entities-panel";
+import { AdminNewGameForm } from "@/components/admin/admin-new-game-form";
+import { AdminTaxonomyPanel } from "@/components/admin/admin-taxonomy-panel";
+import { AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
+import { Panel, PanelTitle } from "@/components/ui";
+
+type PlatformOption = { slug: string; name: string };
+
+type EntityKey = "games" | "series" | "platforms" | "companies" | "taxonomy" | "contributors";
+type ActionKey = "create" | "edit" | "delete";
+
+type Props = {
+  platforms: PlatformOption[];
+  regions: readonly string[];
+};
+
+const entities: { id: EntityKey; label: string; helper: string }[] = [
+  { id: "games", label: "Juegos", helper: "Fichas del catálogo." },
+  { id: "series", label: "Sagas", helper: "Universos y agrupaciones." },
+  { id: "platforms", label: "Plataformas", helper: "Consolas y familias." },
+  { id: "companies", label: "Compañías", helper: "Desarrolladoras y editoras." },
+  { id: "taxonomy", label: "Taxonomías", helper: "Géneros, subgéneros y facetas." },
+  { id: "contributors", label: "Colaboradores", helper: "Accesos del equipo." },
+];
+
+const actions: { id: ActionKey; label: string; helper: string }[] = [
+  { id: "create", label: "Crear", helper: "Alta nueva." },
+  { id: "edit", label: "Editar", helper: "Buscar y modificar." },
+  { id: "delete", label: "Eliminar", helper: "Quitar con revisión." },
+];
+
+function optionClass(active: boolean): string {
+  return `rounded-2xl border px-4 py-3 text-left transition-all ${
+    active
+      ? "border-accent bg-accent text-accent-fg shadow-sm"
+      : "border-border bg-background/55 text-foreground hover:border-accent/40 hover:bg-card-hover"
+  }`;
+}
+
+function entityTitle(entity: EntityKey): string {
+  return entities.find((item) => item.id === entity)?.label ?? entity;
+}
+
+function actionTitle(action: ActionKey): string {
+  return actions.find((item) => item.id === action)?.label ?? action;
+}
+
+function PendingPanel({
+  entity,
+  action,
+  children,
+}: {
+  entity: EntityKey;
+  action: ActionKey;
+  children: ReactNode;
+}) {
+  return (
+    <Panel className={adminToneClass("status")}>
+      <PanelTitle eyebrow={`${entityTitle(entity)} · ${actionTitle(action)}`}>
+        Acción pendiente de rematar
+      </PanelTitle>
+      <AdminNotice tone="status">{children}</AdminNotice>
+    </Panel>
+  );
+}
+
+export function AdminManagementPanel({ platforms, regions }: Props) {
+  const [entity, setEntity] = useState<EntityKey>("games");
+  const [action, setAction] = useState<ActionKey>("edit");
+
+  const activeDescription = useMemo(() => {
+    const entityItem = entities.find((item) => item.id === entity);
+    const actionItem = actions.find((item) => item.id === action);
+    return `${entityItem?.label ?? entity}: ${actionItem?.helper ?? ""}`;
+  }, [action, entity]);
+
+  function renderPanel() {
+    if (entity === "games" && action === "create") {
+      return <AdminNewGameForm platforms={platforms} regions={regions} redirectBase="/admin/cola" />;
+    }
+
+    if (entity === "games" && action === "edit") {
+      return <AdminCatalogSearchPanel />;
+    }
+
+    if (entity === "games" && action === "delete") {
+      return (
+        <PendingPanel entity={entity} action={action}>
+          Primero busca el juego en “Editar”. La eliminación definitiva de fichas publicadas necesita una
+          confirmación específica para no borrar catálogo por accidente.
+        </PendingPanel>
+      );
+    }
+
+    if (entity === "series") {
+      return <AdminEntitiesPanel initialTab="series" />;
+    }
+
+    if (entity === "platforms") {
+      return <AdminEntitiesPanel initialTab="platforms" />;
+    }
+
+    if (entity === "companies") {
+      return <AdminEntitiesPanel initialTab="companies" />;
+    }
+
+    if (entity === "taxonomy") {
+      return <AdminTaxonomyPanel />;
+    }
+
+    if (entity === "contributors") {
+      return <AdminContributorsPanel />;
+    }
+
+    return null;
+  }
+
+  return (
+    <div className="space-y-6">
+      <Panel className={adminToneClass("search")}>
+        <PanelTitle eyebrow="Gestión">Crear, editar y eliminar</PanelTitle>
+        <p className="mb-5 max-w-4xl text-sm leading-6 text-muted">
+          Elige primero sobre qué parte del admin quieres trabajar y después la acción. Debajo se abre el panel
+          correspondiente con sus buscadores, filtros y opciones actuales.
+        </p>
+
+        <div className="space-y-5">
+          <section className="space-y-3">
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">1. Selecciona sección</p>
+            <div className="grid gap-3 md:grid-cols-3 xl:grid-cols-6">
+              {entities.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={optionClass(entity === item.id)}
+                  onClick={() => {
+                    setEntity(item.id);
+                  }}
+                >
+                  <span className="block text-sm font-black">{item.label}</span>
+                  <span className={`mt-1 block text-xs leading-5 ${entity === item.id ? "text-accent-fg/80" : "text-muted"}`}>
+                    {item.helper}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section className="space-y-3">
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">2. Selecciona acción</p>
+            <div className="grid gap-3 md:grid-cols-3">
+              {actions.map((item) => {
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className={optionClass(action === item.id)}
+                    onClick={() => setAction(item.id)}
+                  >
+                    <span className="block text-sm font-black">{item.label}</span>
+                    <span className={`mt-1 block text-xs leading-5 ${action === item.id ? "text-accent-fg/80" : "text-muted"}`}>
+                      {item.helper}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+      </Panel>
+
+      <Panel className={adminToneClass("edit")}>
+        <PanelTitle eyebrow="Panel activo">{activeDescription}</PanelTitle>
+        <p className="text-sm leading-6 text-muted">
+          Los botones de guardado propios de cada bloque se mantienen dentro del editor abierto.
+        </p>
+      </Panel>
+
+      {renderPanel()}
+    </div>
+  );
+}
