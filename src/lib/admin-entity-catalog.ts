@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import path from "path";
 import { get, put } from "@vercel/blob";
@@ -21,6 +22,7 @@ const GENRES_INDEX_FILE = path.join(DATA_DIR, "index", "genres.json");
 const COMPANY_ENTITIES_FILE = path.join(DATA_DIR, "index", "company-entities.json");
 const GENRE_ENTITIES_FILE = path.join(DATA_DIR, "index", "genre-entities.json");
 const COMPANY_PROFILES_FILE = path.join(DATA_DIR, "company-profiles.json");
+const COMPANY_MERGE_LOG_FILE = path.join(DATA_DIR, "admin-company-merge-log.json");
 const META_FILE = path.join(DATA_DIR, "meta.json");
 const DETAILS_FILE = path.join(DATA_DIR, "game-details.json");
 const ADMIN_ENTITIES_OVERLAY_PATH = "region-atlas/admin/entities-overlay.json";
@@ -45,6 +47,54 @@ type CompanyEntitiesFile = {
   wikidataToCanonical?: Record<string, string>;
   museumPathToCanonical?: Record<string, string>;
   normalizedToCanonical?: Record<string, string>;
+};
+
+type CompanyEntityRecord = CompanyEntitiesFile["entities"][string];
+
+type CompanyRegistrySnapshot = {
+  sourceEntity?: CompanyEntityRecord;
+  targetEntity?: CompanyEntityRecord;
+  slugToCanonical: Record<string, string | null>;
+  wikidataToCanonical: Record<string, string | null>;
+  museumPathToCanonical: Record<string, string | null>;
+  normalizedToCanonical: Record<string, string | null>;
+  statsEntities?: number;
+  generatedAt?: string;
+};
+
+type CompanyOverlaySnapshot = {
+  sourceCompany?: AdminIndexRow;
+  targetCompany?: AdminIndexRow;
+  sourceProfile?: CompanyProfile;
+  targetProfile?: CompanyProfile;
+  sourceActive?: boolean;
+  targetActive?: boolean;
+};
+
+type CompanyMergeLogEntry = {
+  id: string;
+  createdAt: string;
+  sourceSlug: string;
+  sourceName: string;
+  targetSlug: string;
+  targetName: string;
+  snapshot: {
+    sourceIndex: IndexEntry;
+    targetIndex: IndexEntry;
+    sourceProfile?: CompanyProfile;
+    targetProfile?: CompanyProfile;
+    registry: CompanyRegistrySnapshot;
+    overlay: CompanyOverlaySnapshot;
+    details: Record<string, unknown>;
+    metaIndexCompanies?: number;
+  };
+  result: {
+    updatedGames: number;
+    developerUpdates: number;
+    publisherUpdates: number;
+    mergedGameCount: number;
+  };
+  revertedAt?: string;
 };
 
 type GenreEntitiesFile = {
@@ -355,6 +405,17 @@ function bumpMetaCounter(key: "indexCompanies" | "indexGenres" | "platformCount"
   const current = typeof meta[key] === "number" ? (meta[key] as number) : 0;
   meta[key] = Math.max(0, current + delta);
   saveJson(META_FILE, meta);
+}
+
+function restoreMetaCounter(key: "indexCompanies" | "indexGenres" | "platformCount", value: number | undefined) {
+  if (typeof value !== "number") return;
+  const meta = loadJson<Record<string, unknown>>(META_FILE, {});
+  meta[key] = Math.max(0, value);
+  saveJson(META_FILE, meta);
+}
+
+function cloneJson<T>(value: T): T {
+  return JSON.parse(JSON.stringify(value)) as T;
 }
 
 export type AdminPlatformRow = Platform & { catalogGames: number };
@@ -1081,6 +1142,173 @@ function mergeGameIds(...groups: Array<string[] | undefined>): string[] {
   return uniqueStrings(groups.flatMap((group) => group ?? []));
 }
 
+function mapSnapshot(
+  map: Record<string, string> | undefined,
+  sourceSlug: string,
+  targetSlug: string,
+): Record<string, string | null> {
+  const snapshot: Record<string, string | null> = {
+    [sourceSlug]: map?.[sourceSlug] ?? null,
+    [targetSlug]: map?.[targetSlug] ?? null,
+  };
+  if (!map) return snapshot;
+  for (const [key, value] of Object.entries(map)) {
+    if (key === sourceSlug || key === targetSlug || value === sourceSlug || value === targetSlug) {
+      snapshot[key] = value;
+    }
+  }
+  return snapshot;
+}
+
+function applyMapSnapshot(map: Record<string, string> | undefined, snapshot: Record<string, string | null>) {
+  if (!map) return;
+  for (const [key, value] of Object.entries(snapshot)) {
+    if (value == null) {
+      delete map[key];
+    } else {
+      map[key] = value;
+    }
+  }
+}
+
+function snapshotCompanyRegistry(
+  registry: CompanyEntitiesFile,
+  sourceSlug: string,
+  targetSlug: string,
+): CompanyRegistrySnapshot {
+  return {
+    sourceEntity: registry.entities?.[sourceSlug] ? cloneJson(registry.entities[sourceSlug]) : undefined,
+    targetEntity: registry.entities?.[targetSlug] ? cloneJson(registry.entities[targetSlug]) : undefined,
+    slugToCanonical: mapSnapshot(registry.slugToCanonical, sourceSlug, targetSlug),
+    wikidataToCanonical: mapSnapshot(registry.wikidataToCanonical, sourceSlug, targetSlug),
+    museumPathToCanonical: mapSnapshot(registry.museumPathToCanonical, sourceSlug, targetSlug),
+    normalizedToCanonical: mapSnapshot(registry.normalizedToCanonical, sourceSlug, targetSlug),
+    statsEntities: registry.stats?.entities,
+    generatedAt: registry.generatedAt,
+  };
+}
+
+function restoreCompanyRegistrySnapshot(
+  registry: CompanyEntitiesFile,
+  sourceSlug: string,
+  targetSlug: string,
+  snapshot: CompanyRegistrySnapshot,
+): CompanyEntitiesFile {
+  registry.entities = registry.entities ?? {};
+  if (snapshot.sourceEntity) registry.entities[sourceSlug] = cloneJson(snapshot.sourceEntity);
+  else delete registry.entities[sourceSlug];
+  if (snapshot.targetEntity) registry.entities[targetSlug] = cloneJson(snapshot.targetEntity);
+  else delete registry.entities[targetSlug];
+
+  registry.slugToCanonical = registry.slugToCanonical ?? {};
+  registry.wikidataToCanonical = registry.wikidataToCanonical ?? {};
+  registry.museumPathToCanonical = registry.museumPathToCanonical ?? {};
+  registry.normalizedToCanonical = registry.normalizedToCanonical ?? {};
+  applyMapSnapshot(registry.slugToCanonical, snapshot.slugToCanonical);
+  applyMapSnapshot(registry.wikidataToCanonical, snapshot.wikidataToCanonical);
+  applyMapSnapshot(registry.museumPathToCanonical, snapshot.museumPathToCanonical);
+  applyMapSnapshot(registry.normalizedToCanonical, snapshot.normalizedToCanonical);
+
+  registry.stats = registry.stats ?? {};
+  if (typeof snapshot.statsEntities === "number") registry.stats.entities = snapshot.statsEntities;
+  registry.generatedAt = snapshot.generatedAt ?? new Date().toISOString();
+  return registry;
+}
+
+function snapshotCompanyOverlay(
+  overlay: AdminEntitiesOverlay,
+  sourceSlug: string,
+  targetSlug: string,
+): CompanyOverlaySnapshot {
+  return {
+    sourceCompany: overlay.companies[sourceSlug] ? cloneJson(overlay.companies[sourceSlug]) : undefined,
+    targetCompany: overlay.companies[targetSlug] ? cloneJson(overlay.companies[targetSlug]) : undefined,
+    sourceProfile: overlay.companyProfiles[sourceSlug] ? cloneJson(overlay.companyProfiles[sourceSlug]) : undefined,
+    targetProfile: overlay.companyProfiles[targetSlug] ? cloneJson(overlay.companyProfiles[targetSlug]) : undefined,
+    sourceActive: overlay.active.companies[sourceSlug],
+    targetActive: overlay.active.companies[targetSlug],
+  };
+}
+
+function restoreOverlayValue<T>(record: Record<string, T>, slug: string, value: T | undefined) {
+  if (value === undefined) delete record[slug];
+  else record[slug] = cloneJson(value);
+}
+
+function restoreCompanyOverlaySnapshot(
+  overlay: AdminEntitiesOverlay,
+  sourceSlug: string,
+  targetSlug: string,
+  snapshot: CompanyOverlaySnapshot,
+): AdminEntitiesOverlay {
+  restoreOverlayValue(overlay.companies, sourceSlug, snapshot.sourceCompany);
+  restoreOverlayValue(overlay.companies, targetSlug, snapshot.targetCompany);
+  restoreOverlayValue(overlay.companyProfiles, sourceSlug, snapshot.sourceProfile);
+  restoreOverlayValue(overlay.companyProfiles, targetSlug, snapshot.targetProfile);
+  restoreOverlayValue(overlay.active.companies, sourceSlug, snapshot.sourceActive);
+  restoreOverlayValue(overlay.active.companies, targetSlug, snapshot.targetActive);
+  return overlay;
+}
+
+function detailReferencesCompany(value: unknown, slug: string): boolean {
+  if (!value || typeof value !== "object") return false;
+  const detail = value as {
+    developer?: { slug?: string } | null;
+    publisher?: { slug?: string } | null;
+    developerSlug?: string;
+    publisherSlug?: string;
+  };
+  return (
+    detail.developer?.slug === slug ||
+    detail.publisher?.slug === slug ||
+    detail.developerSlug === slug ||
+    detail.publisherSlug === slug
+  );
+}
+
+function snapshotCompanyDetails(
+  details: Record<string, unknown>,
+  source: IndexEntry,
+  target: IndexEntry,
+): Record<string, unknown> {
+  const ids = new Set([
+    ...(source.gameIds ?? []),
+    ...(source.asDeveloper ?? []),
+    ...(source.asPublisher ?? []),
+    ...(target.gameIds ?? []),
+    ...(target.asDeveloper ?? []),
+    ...(target.asPublisher ?? []),
+  ]);
+  for (const [gameId, detail] of Object.entries(details)) {
+    if (detailReferencesCompany(detail, source.slug)) ids.add(gameId);
+  }
+  const snapshot: Record<string, unknown> = {};
+  for (const gameId of ids) {
+    if (gameId in details) snapshot[gameId] = cloneJson(details[gameId]);
+  }
+  return snapshot;
+}
+
+function restoreCompanyDetailsSnapshot(details: Record<string, unknown>, snapshot: Record<string, unknown>) {
+  for (const [gameId, detail] of Object.entries(snapshot)) {
+    details[gameId] = cloneJson(detail);
+  }
+}
+
+function appendCompanyMergeLog(entry: CompanyMergeLogEntry) {
+  const log = loadJson<CompanyMergeLogEntry[]>(COMPANY_MERGE_LOG_FILE, []);
+  log.push(entry);
+  saveJson(COMPANY_MERGE_LOG_FILE, log);
+}
+
+function markCompanyMergeLogReverted(entryId: string) {
+  const log = loadJson<CompanyMergeLogEntry[]>(COMPANY_MERGE_LOG_FILE, []);
+  const index = log.findIndex((entry) => entry.id === entryId);
+  if (index < 0) return;
+  log[index] = { ...log[index], revertedAt: new Date().toISOString() };
+  saveJson(COMPANY_MERGE_LOG_FILE, log);
+}
+
 function rebuildByPlatform(gameIds: string[], fallback: Record<string, number> = {}): Record<string, number> {
   const catalogById = new Map(listedCatalog.map((game) => [game.id, game]));
   const byPlatform: Record<string, number> = {};
@@ -1302,27 +1530,56 @@ export async function mergeAdminCompany(
   if (!source) return { error: "Compañía origen no encontrada." };
   if (!target) return { error: "Compañía destino no encontrada." };
 
+  const registry = loadJson<CompanyEntitiesFile>(COMPANY_ENTITIES_FILE, { entities: {} });
+  const profiles = loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {});
+  const details = loadJson<Record<string, unknown>>(DETAILS_FILE, {});
+  const overlay = await readAdminEntitiesOverlay();
+  const meta = loadJson<Record<string, unknown>>(META_FILE, {});
+  const metaIndexCompanies = typeof meta.indexCompanies === "number" ? meta.indexCompanies : undefined;
+  const snapshot = {
+    sourceIndex: cloneJson(source),
+    targetIndex: cloneJson(target),
+    sourceProfile: profiles[sourceKey] ? cloneJson(profiles[sourceKey]) : undefined,
+    targetProfile: profiles[targetKey] ? cloneJson(profiles[targetKey]) : undefined,
+    registry: snapshotCompanyRegistry(registry, sourceKey, targetKey),
+    overlay: snapshotCompanyOverlay(overlay, sourceKey, targetKey),
+    details: snapshotCompanyDetails(details, source, target),
+    metaIndexCompanies,
+  };
+
   const mergedTarget = mergeCompanyIndexEntry(target, source);
   index[targetKey] = mergedTarget;
   delete index[sourceKey];
   saveJson(COMPANIES_INDEX_FILE, index);
 
-  const registry = loadJson<CompanyEntitiesFile>(COMPANY_ENTITIES_FILE, { entities: {} });
   saveJson(COMPANY_ENTITIES_FILE, mergeCompanyEntityRegistry(registry, source, mergedTarget));
 
-  const profiles = loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {});
   saveJson(COMPANY_PROFILES_FILE, mergeCompanyProfiles(profiles, source, mergedTarget));
 
-  const details = loadJson<Record<string, unknown>>(DETAILS_FILE, {});
   const detailUpdates = mergeCompanySlugInDetails(details, sourceKey, targetKey, mergedTarget.name);
   saveJson(DETAILS_FILE, details);
 
-  const overlay = await readAdminEntitiesOverlay();
   delete overlay.active.companies[sourceKey];
   delete overlay.companies[sourceKey];
   await writeAdminEntitiesOverlay(overlay);
 
   bumpMetaCounter("indexCompanies", -1);
+
+  appendCompanyMergeLog({
+    id: randomUUID(),
+    createdAt: new Date().toISOString(),
+    sourceSlug: sourceKey,
+    sourceName: source.name,
+    targetSlug: targetKey,
+    targetName: mergedTarget.name,
+    snapshot,
+    result: {
+      updatedGames: detailUpdates.updatedGames,
+      developerUpdates: detailUpdates.developerUpdates,
+      publisherUpdates: detailUpdates.publisherUpdates,
+      mergedGameCount: mergedTarget.gameCount,
+    },
+  });
 
   return {
     ok: true,
@@ -1333,6 +1590,72 @@ export async function mergeAdminCompany(
     developerUpdates: detailUpdates.developerUpdates,
     publisherUpdates: detailUpdates.publisherUpdates,
     mergedGameCount: mergedTarget.gameCount,
+  };
+}
+
+export async function revertLastAdminCompanyMerge(
+  targetSlug: string,
+): Promise<
+  | {
+      ok: true;
+      sourceSlug: string;
+      sourceName: string;
+      targetSlug: string;
+      targetName: string;
+      restoredGames: number;
+    }
+  | { error: string }
+> {
+  const targetKey = targetSlug.trim();
+  if (!targetKey) return { error: "Falta la compañía destino." };
+  const writable = assertWritable();
+  if ("error" in writable) {
+    return { error: "Deshacer una fusión necesita escritura real del catálogo." };
+  }
+
+  const log = loadJson<CompanyMergeLogEntry[]>(COMPANY_MERGE_LOG_FILE, []);
+  const entry = [...log]
+    .reverse()
+    .find((candidate) => candidate.targetSlug === targetKey && !candidate.revertedAt);
+  if (!entry) return { error: "No hay ninguna fusión reciente sin deshacer para esta compañía." };
+
+  const index = loadJson<Record<string, IndexEntry>>(COMPANIES_INDEX_FILE, {});
+  index[entry.sourceSlug] = cloneJson(entry.snapshot.sourceIndex);
+  index[entry.targetSlug] = cloneJson(entry.snapshot.targetIndex);
+  saveJson(COMPANIES_INDEX_FILE, index);
+
+  const registry = loadJson<CompanyEntitiesFile>(COMPANY_ENTITIES_FILE, { entities: {} });
+  saveJson(
+    COMPANY_ENTITIES_FILE,
+    restoreCompanyRegistrySnapshot(registry, entry.sourceSlug, entry.targetSlug, entry.snapshot.registry),
+  );
+
+  const profiles = loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {});
+  if (entry.snapshot.sourceProfile) profiles[entry.sourceSlug] = cloneJson(entry.snapshot.sourceProfile);
+  else delete profiles[entry.sourceSlug];
+  if (entry.snapshot.targetProfile) profiles[entry.targetSlug] = cloneJson(entry.snapshot.targetProfile);
+  else delete profiles[entry.targetSlug];
+  saveJson(COMPANY_PROFILES_FILE, profiles);
+
+  const details = loadJson<Record<string, unknown>>(DETAILS_FILE, {});
+  restoreCompanyDetailsSnapshot(details, entry.snapshot.details);
+  saveJson(DETAILS_FILE, details);
+
+  const overlay = await readAdminEntitiesOverlay();
+  await writeAdminEntitiesOverlay(
+    restoreCompanyOverlaySnapshot(overlay, entry.sourceSlug, entry.targetSlug, entry.snapshot.overlay),
+  );
+
+  restoreMetaCounter("indexCompanies", entry.snapshot.metaIndexCompanies);
+  markCompanyMergeLogReverted(entry.id);
+
+  return {
+    ok: true,
+    sourceSlug: entry.sourceSlug,
+    sourceName: entry.sourceName,
+    targetSlug: entry.targetSlug,
+    targetName: entry.targetName,
+    restoredGames: Object.keys(entry.snapshot.details).length,
   };
 }
 

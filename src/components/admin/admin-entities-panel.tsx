@@ -170,6 +170,7 @@ export function AdminEntitiesPanel({
   const [mergeSourceSlug, setMergeSourceSlug] = useState<string | null>(null);
   const [mergeTargetSlug, setMergeTargetSlug] = useState("");
   const [mergingSlug, setMergingSlug] = useState<string | null>(null);
+  const [revertingMergeSlug, setRevertingMergeSlug] = useState<string | null>(null);
   const [editName, setEditName] = useState("");
   const [editNewSlug, setEditNewSlug] = useState("");
   const [editShortName, setEditShortName] = useState("");
@@ -708,6 +709,41 @@ export function AdminEntitiesPanel({
       setError("Error de red al fusionar compañías.");
     } finally {
       setMergingSlug(null);
+    }
+  }
+
+  async function revertCompanyMerge(target: IndexRow) {
+    if (
+      !confirm(
+        `¿Deshacer la última fusión aplicada sobre «${target.name}»?\n\nSe restaurará la compañía origen, sus juegos volverán a apuntar a ella y se recuperarán los datos previos guardados en el registro.`,
+      )
+    ) {
+      return;
+    }
+
+    setRevertingMergeSlug(target.slug);
+    setError(null);
+    setMessage(null);
+    try {
+      const res = await fetch(
+        `/api/admin/entities/companies/${encodeURIComponent(target.slug)}/merge/revert`,
+        { method: "POST" },
+      );
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo deshacer la fusión.");
+        return;
+      }
+      setMergeSourceSlug(null);
+      setMergeTargetSlug("");
+      setMessage(
+        `Fusión deshecha: «${data.sourceName}» vuelve a estar separada de «${data.targetName}». Fichas restauradas: ${data.restoredGames ?? 0}.`,
+      );
+      await loadCompanies(search);
+    } catch {
+      setError("Error de red al deshacer la fusión.");
+    } finally {
+      setRevertingMergeSlug(null);
     }
   }
 
@@ -1500,6 +1536,14 @@ export function AdminEntitiesPanel({
                       onClick={() => startMergeCompany(company)}
                     >
                       Fusionar
+                    </button>
+                    <button
+                      type="button"
+                      className="rounded-xl border border-amber-400/40 px-3 py-1.5 text-xs font-semibold text-amber-700 transition hover:bg-amber-500/10 disabled:opacity-50 dark:text-amber-300"
+                      disabled={revertingMergeSlug === company.slug}
+                      onClick={() => void revertCompanyMerge(company)}
+                    >
+                      {revertingMergeSlug === company.slug ? "Restaurando…" : "Deshacer fusión"}
                     </button>
                     <button
                       type="button"
