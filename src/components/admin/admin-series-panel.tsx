@@ -26,7 +26,7 @@ type SeriesTaxonomyOptions = {
 };
 
 type BulkLabelOperation = "add" | "remove" | "replace";
-type LabelPickerKind = "genres" | "tags" | "facets";
+type LabelPickerKind = "genres" | "subgenres" | "facets";
 
 const FAMILY_LABELS: Record<string, string> = {
   subgenre: "Subgéneros",
@@ -96,10 +96,6 @@ function normalizeOptionSearch(value: string): string {
     .toLowerCase()
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "");
-}
-
-function optionFromEntity(entity: { slug: string; name: string }, family?: string): LabelOption {
-  return { slug: entity.slug, name: entity.name, count: null, family };
 }
 
 function mergeLabelOptions(...groups: LabelOption[][]): LabelOption[] {
@@ -262,8 +258,8 @@ function LabelLibraryModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" role="dialog" aria-modal="true">
-      <div className="max-h-[86vh] w-full max-w-5xl overflow-hidden rounded-3xl border border-indigo-300/40 bg-card shadow-2xl dark:border-indigo-400/20">
-        <div className="flex flex-wrap items-start justify-between gap-3 border-b border-border p-5">
+      <div className="flex max-h-[86vh] min-h-0 w-full max-w-5xl flex-col overflow-hidden rounded-3xl border border-indigo-300/40 bg-card shadow-2xl dark:border-indigo-400/20">
+        <div className="shrink-0 flex flex-wrap items-start justify-between gap-3 border-b border-border p-5">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-700 dark:text-indigo-300">
               Biblioteca
@@ -277,7 +273,7 @@ function LabelLibraryModal({
             Cerrar
           </button>
         </div>
-        <div className="space-y-4 overflow-auto p-5">
+        <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-5">
           <input
             className="input"
             value={query}
@@ -362,7 +358,7 @@ export function AdminSeriesPanel() {
   const [bulkOperation, setBulkOperation] = useState<BulkLabelOperation>("add");
   const [selectedGameIds, setSelectedGameIds] = useState<string[]>([]);
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedSubgenres, setSelectedSubgenres] = useState<string[]>([]);
   const [selectedFacets, setSelectedFacets] = useState<string[]>([]);
   const [labelPickerKind, setLabelPickerKind] = useState<LabelPickerKind | null>(null);
   const [seriesDescription, setSeriesDescription] = useState("");
@@ -387,24 +383,22 @@ export function AdminSeriesPanel() {
   );
 
   const selectedGameIdSet = useMemo(() => new Set(selectedGameIds), [selectedGameIds]);
-  const visibleLabelOptions = useMemo(
-    () => ({
-      genres: mergeLabelOptions(filteredGames.flatMap((game) => game.genres.map((genre) => optionFromEntity(genre)))),
-      tags: mergeLabelOptions(filteredGames.flatMap((game) => game.tags.map((tag) => optionFromEntity(tag)))),
-      facets: mergeLabelOptions(filteredGames.flatMap((game) => game.facets.map((facet) => optionFromEntity(facet)))),
-    }),
-    [filteredGames],
-  );
   const labelOptions = useMemo(
     () => ({
-      genres: mergeLabelOptions(visibleLabelOptions.genres, OFFICIAL_TAXONOMY_OPTIONS.genres, taxonomyOptions.genres),
-      tags: mergeLabelOptions(visibleLabelOptions.tags, taxonomyOptions.tags),
-      facets: mergeLabelOptions(visibleLabelOptions.facets, OFFICIAL_TAXONOMY_OPTIONS.facets, taxonomyOptions.facets),
+      genres: mergeLabelOptions(OFFICIAL_TAXONOMY_OPTIONS.genres, taxonomyOptions.genres),
+      subgenres: mergeLabelOptions(
+        OFFICIAL_TAXONOMY_OPTIONS.facets.filter((option) => option.family === "subgenre"),
+        taxonomyOptions.facets.filter((option) => option.family === "subgenre"),
+      ),
+      facets: mergeLabelOptions(
+        OFFICIAL_TAXONOMY_OPTIONS.facets.filter((option) => option.family !== "subgenre"),
+        taxonomyOptions.facets.filter((option) => option.family !== "subgenre"),
+      ),
     }),
-    [taxonomyOptions.facets, taxonomyOptions.genres, taxonomyOptions.tags, visibleLabelOptions],
+    [taxonomyOptions.facets, taxonomyOptions.genres],
   );
   const bulkTargetCount = selectedGameIds.length || filteredGames.length;
-  const hasBulkLabels = selectedGenres.length > 0 || selectedTags.length > 0 || selectedFacets.length > 0;
+  const hasBulkLabels = selectedGenres.length > 0 || selectedSubgenres.length > 0 || selectedFacets.length > 0;
   const labelPickerConfig = labelPickerKind
     ? {
         genres: {
@@ -413,14 +407,14 @@ export function AdminSeriesPanel() {
           selected: selectedGenres,
           onChange: setSelectedGenres,
         },
-        tags: {
-          title: "Etiquetas",
-          options: labelOptions.tags,
-          selected: selectedTags,
-          onChange: setSelectedTags,
+        subgenres: {
+          title: "Subgéneros",
+          options: labelOptions.subgenres,
+          selected: selectedSubgenres,
+          onChange: setSelectedSubgenres,
         },
         facets: {
-          title: "Subgéneros y facetas",
+          title: "Facetas",
           options: labelOptions.facets,
           selected: selectedFacets,
           onChange: setSelectedFacets,
@@ -647,7 +641,7 @@ export function AdminSeriesPanel() {
       } else if (body.action === "bulk-assign") {
         setMessage(`Asignación aplicada a ${data.affectedCount ?? 0} juegos.`);
         setSelectedGenres([]);
-        setSelectedTags([]);
+        setSelectedSubgenres([]);
         setSelectedFacets([]);
         setSelectedGameIds([]);
       } else if (body.action === "update-description") {
@@ -974,16 +968,16 @@ export function AdminSeriesPanel() {
                       onOpenLibrary={() => setLabelPickerKind("genres")}
                     />
                     <LabelAutocomplete
-                      title="Etiquetas"
-                      placeholder="Escribe y elige una etiqueta…"
-                      options={labelOptions.tags}
-                      selected={selectedTags}
-                      onChange={setSelectedTags}
-                      onOpenLibrary={() => setLabelPickerKind("tags")}
+                      title="Subgéneros"
+                      placeholder="Escribe y elige un subgénero…"
+                      options={labelOptions.subgenres}
+                      selected={selectedSubgenres}
+                      onChange={setSelectedSubgenres}
+                      onOpenLibrary={() => setLabelPickerKind("subgenres")}
                     />
                     <LabelAutocomplete
                       title="Facetas"
-                      placeholder="Escribe y elige una faceta o subgénero…"
+                      placeholder="Escribe y elige una faceta…"
                       options={labelOptions.facets}
                       selected={selectedFacets}
                       onChange={setSelectedFacets}
@@ -1001,8 +995,8 @@ export function AdminSeriesPanel() {
                         genreSlug: genreFilter || null,
                         gameIds: selectedGameIds,
                         genres: selectedGenres,
-                        tags: selectedTags,
-                        facets: selectedFacets,
+                        tags: [],
+                        facets: [...selectedSubgenres, ...selectedFacets],
                       })
                     }
                   >
