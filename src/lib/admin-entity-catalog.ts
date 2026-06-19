@@ -67,6 +67,7 @@ type CompanyOverlaySnapshot = {
   targetCompany?: AdminIndexRow;
   sourceProfile?: CompanyProfile;
   targetProfile?: CompanyProfile;
+  relatedProfiles?: Record<string, CompanyProfile>;
   sourceActive?: boolean;
   targetActive?: boolean;
 };
@@ -85,6 +86,7 @@ type CompanyMergeLogEntry = {
     targetProfile?: CompanyProfile;
     registry: CompanyRegistrySnapshot;
     overlay: CompanyOverlaySnapshot;
+    relatedProfiles?: Record<string, CompanyProfile>;
     details: Record<string, unknown>;
     metaIndexCompanies?: number;
   };
@@ -1251,6 +1253,7 @@ function snapshotCompanyOverlay(
     targetCompany: overlay.companies[targetSlug] ? cloneJson(overlay.companies[targetSlug]) : undefined,
     sourceProfile: overlay.companyProfiles[sourceSlug] ? cloneJson(overlay.companyProfiles[sourceSlug]) : undefined,
     targetProfile: overlay.companyProfiles[targetSlug] ? cloneJson(overlay.companyProfiles[targetSlug]) : undefined,
+    relatedProfiles: snapshotCompanyRelationProfiles(overlay.companyProfiles, sourceSlug, targetSlug),
     sourceActive: overlay.active.companies[sourceSlug],
     targetActive: overlay.active.companies[targetSlug],
   };
@@ -1271,9 +1274,97 @@ function restoreCompanyOverlaySnapshot(
   restoreOverlayValue(overlay.companies, targetSlug, snapshot.targetCompany);
   restoreOverlayValue(overlay.companyProfiles, sourceSlug, snapshot.sourceProfile);
   restoreOverlayValue(overlay.companyProfiles, targetSlug, snapshot.targetProfile);
+  for (const [slug, profile] of Object.entries(snapshot.relatedProfiles ?? {})) {
+    restoreOverlayValue(overlay.companyProfiles, slug, profile);
+  }
   restoreOverlayValue(overlay.active.companies, sourceSlug, snapshot.sourceActive);
   restoreOverlayValue(overlay.active.companies, targetSlug, snapshot.targetActive);
   return overlay;
+}
+
+const COMPANY_RELATION_FIELDS = [
+  "parentCompany",
+  "acquiredByCompany",
+  "mergedWithCompany",
+  "predecessorCompany",
+  "successorCompany",
+] as const satisfies readonly (keyof CompanyProfile)[];
+
+function companyRelationReferencesSlug(relation: CompanyProfile[keyof CompanyProfile], slug: string): boolean {
+  return Boolean(
+    relation &&
+      typeof relation === "object" &&
+      "slug" in relation &&
+      (relation as CompanyRelation).slug === slug,
+  );
+}
+
+function companyProfileReferencesSlug(profile: CompanyProfile | undefined, slug: string): boolean {
+  if (!profile) return false;
+  return COMPANY_RELATION_FIELDS.some((field) => companyRelationReferencesSlug(profile[field], slug));
+}
+
+function snapshotCompanyRelationProfiles(
+  profiles: Record<string, CompanyProfile>,
+  sourceSlug: string,
+  targetSlug: string,
+): Record<string, CompanyProfile> {
+  const snapshot: Record<string, CompanyProfile> = {};
+  for (const [slug, profile] of Object.entries(profiles)) {
+    if (slug === sourceSlug || slug === targetSlug) continue;
+    if (companyProfileReferencesSlug(profile, sourceSlug)) {
+      snapshot[slug] = cloneJson(profile);
+    }
+  }
+  return snapshot;
+}
+
+function remapCompanyRelation(
+  relation: CompanyRelation | null | undefined,
+  sourceSlug: string,
+  targetSlug: string,
+  targetName: string,
+  ownerSlug: string,
+): CompanyRelation | null | undefined {
+  if (relation === undefined) return undefined;
+  if (relation === null) return null;
+  const next = relation.slug === sourceSlug ? { slug: targetSlug, name: targetName } : relation;
+  return next.slug === ownerSlug ? null : next;
+}
+
+function firstUsefulCompanyRelation(
+  targetRelation: CompanyRelation | null | undefined,
+  sourceRelation: CompanyRelation | null | undefined,
+  sourceSlug: string,
+  targetSlug: string,
+  targetName: string,
+): CompanyRelation | null {
+  const remappedTarget = remapCompanyRelation(targetRelation, sourceSlug, targetSlug, targetName, targetSlug);
+  if (remappedTarget) return remappedTarget;
+  const remappedSource = remapCompanyRelation(sourceRelation, sourceSlug, targetSlug, targetName, targetSlug);
+  return remappedSource ?? null;
+}
+
+function remapCompanyProfileRelations(
+  profile: CompanyProfile,
+  sourceSlug: string,
+  targetSlug: string,
+  targetName: string,
+): CompanyProfile {
+  let next = profile;
+  for (const field of COMPANY_RELATION_FIELDS) {
+    const relation = remapCompanyRelation(
+      next[field] as CompanyRelation | null | undefined,
+      sourceSlug,
+      targetSlug,
+      targetName,
+      next.slug,
+    );
+    if (relation !== next[field]) {
+      next = { ...next, [field]: relation ?? null };
+    }
+  }
+  return next;
 }
 
 function detailReferencesCompany(value: unknown, slug: string): boolean {
@@ -1461,6 +1552,41 @@ function mergeCompanyProfiles(
     foundedYear: targetProfile?.foundedYear ?? sourceProfile?.foundedYear ?? null,
     closedYear: targetProfile?.closedYear ?? sourceProfile?.closedYear ?? null,
     status: targetProfile?.status ?? sourceProfile?.status ?? "unknown",
+    parentCompany: firstUsefulCompanyRelation(
+      targetProfile?.parentCompany,
+      sourceProfile?.parentCompany,
+      source.slug,
+      target.slug,
+      target.name,
+    ),
+    acquiredByCompany: firstUsefulCompanyRelation(
+      targetProfile?.acquiredByCompany,
+      sourceProfile?.acquiredByCompany,
+      source.slug,
+      target.slug,
+      target.name,
+    ),
+    mergedWithCompany: firstUsefulCompanyRelation(
+      targetProfile?.mergedWithCompany,
+      sourceProfile?.mergedWithCompany,
+      source.slug,
+      target.slug,
+      target.name,
+    ),
+    predecessorCompany: firstUsefulCompanyRelation(
+      targetProfile?.predecessorCompany,
+      sourceProfile?.predecessorCompany,
+      source.slug,
+      target.slug,
+      target.name,
+    ),
+    successorCompany: firstUsefulCompanyRelation(
+      targetProfile?.successorCompany,
+      sourceProfile?.successorCompany,
+      source.slug,
+      target.slug,
+      target.name,
+    ),
     history: targetProfile?.history ?? sourceProfile?.history ?? null,
     seoMeta: targetProfile?.seoMeta ?? sourceProfile?.seoMeta ?? null,
     sources: {
@@ -1473,6 +1599,10 @@ function mergeCompanyProfiles(
   if (Object.keys(merged.sources ?? {}).length === 0) delete merged.sources;
   profiles[target.slug] = merged;
   delete profiles[source.slug];
+  for (const [slug, profile] of Object.entries(profiles)) {
+    if (slug === target.slug) continue;
+    profiles[slug] = remapCompanyProfileRelations(profile, source.slug, target.slug, target.name);
+  }
   return profiles;
 }
 
@@ -1569,6 +1699,7 @@ export async function mergeAdminCompany(
     targetProfile: profiles[targetKey] ? cloneJson(profiles[targetKey]) : undefined,
     registry: snapshotCompanyRegistry(registry, sourceKey, targetKey),
     overlay: snapshotCompanyOverlay(overlay, sourceKey, targetKey),
+    relatedProfiles: snapshotCompanyRelationProfiles(profiles, sourceKey, targetKey),
     details: snapshotCompanyDetails(details, source, target),
     metaIndexCompanies,
   };
@@ -1580,13 +1711,25 @@ export async function mergeAdminCompany(
 
   saveJson(COMPANY_ENTITIES_FILE, mergeCompanyEntityRegistry(registry, source, mergedTarget));
 
-  saveJson(COMPANY_PROFILES_FILE, mergeCompanyProfiles(profiles, source, mergedTarget));
+  const mergedProfiles = mergeCompanyProfiles(profiles, source, mergedTarget);
+  saveJson(COMPANY_PROFILES_FILE, mergedProfiles);
 
   const detailUpdates = mergeCompanySlugInDetails(details, sourceKey, targetKey, mergedTarget.name);
   saveJson(DETAILS_FILE, details);
 
   delete overlay.active.companies[sourceKey];
   delete overlay.companies[sourceKey];
+  delete overlay.companyProfiles[sourceKey];
+  overlay.companies[targetKey] = {
+    slug: mergedTarget.slug,
+    name: mergedTarget.name,
+    gameCount: mergedTarget.gameCount,
+    active: mergedTarget.active,
+  };
+  if (mergedProfiles[targetKey]) overlay.companyProfiles[targetKey] = cloneJson(mergedProfiles[targetKey]);
+  for (const slug of Object.keys(snapshot.overlay.relatedProfiles ?? {})) {
+    if (mergedProfiles[slug]) overlay.companyProfiles[slug] = cloneJson(mergedProfiles[slug]);
+  }
   await writeAdminEntitiesOverlay(overlay);
 
   bumpMetaCounter("indexCompanies", -1);
@@ -1661,6 +1804,9 @@ export async function revertLastAdminCompanyMerge(
   else delete profiles[entry.sourceSlug];
   if (entry.snapshot.targetProfile) profiles[entry.targetSlug] = cloneJson(entry.snapshot.targetProfile);
   else delete profiles[entry.targetSlug];
+  for (const [slug, profile] of Object.entries(entry.snapshot.relatedProfiles ?? {})) {
+    profiles[slug] = cloneJson(profile);
+  }
   saveJson(COMPANY_PROFILES_FILE, profiles);
 
   const details = loadJson<Record<string, unknown>>(DETAILS_FILE, {});

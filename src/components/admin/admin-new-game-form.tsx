@@ -460,9 +460,11 @@ export function AdminNewGameForm({
               onChange={(e) => setAutoAi(e.target.checked)}
             />
             <span>
-              <span className="block font-medium text-foreground">Rellenar con IA al abrir el editor</span>
+              <span className="block font-medium text-foreground">
+                Crear ficha y completar huecos con IA en el editor
+              </span>
               <span className="text-xs text-muted">
-                Completa lo que falte respetando lo que hayas rellenado aquí.
+                Respeta los campos que ya hayas rellenado y solo intenta completar lo que falte.
               </span>
             </span>
           </label>
@@ -487,7 +489,13 @@ export function AdminNewGameForm({
         {!gateActive && (
           <div className="md:col-span-2">
             <button type="submit" className="btn-primary w-full sm:w-auto" disabled={loading || previewLoading}>
-              {loading ? "Creando…" : contributorMode ? "Crear ficha" : autoAi ? "Crear y abrir con IA" : "Crear y abrir editor"}
+              {loading
+                ? "Creando…"
+                : contributorMode
+                  ? "Crear ficha"
+                  : autoAi
+                    ? "Crear ficha y completar huecos con IA en el editor"
+                    : "Crear y abrir editor"}
             </button>
           </div>
         )}
