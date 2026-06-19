@@ -66,6 +66,16 @@ export async function PATCH(req: Request, { params }: Props) {
     const result = await bulkAssignAdminSeriesFacets({
       slug,
       genreSlug: typeof body.genreSlug === "string" && body.genreSlug ? body.genreSlug : null,
+      operation:
+        body.operation === "remove" || body.operation === "replace" || body.operation === "add"
+          ? body.operation
+          : "add",
+      gameIds: Array.isArray(body.gameIds)
+        ? body.gameIds.filter((gameId: unknown): gameId is string => typeof gameId === "string")
+        : [],
+      genres: Array.isArray(body.genres)
+        ? body.genres.filter((genre: unknown): genre is string => typeof genre === "string")
+        : [],
       tags: Array.isArray(body.tags)
         ? body.tags.filter((tag: unknown): tag is string => typeof tag === "string")
         : [],

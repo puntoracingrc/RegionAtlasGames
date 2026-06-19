@@ -19,9 +19,12 @@ type LabelOption = {
 };
 
 type SeriesTaxonomyOptions = {
+  genres: LabelOption[];
   tags: LabelOption[];
   facets: LabelOption[];
 };
+
+type BulkLabelOperation = "add" | "remove" | "replace";
 
 function regionLabel(region: string): string {
   if (region === "PAL España") return "ES";
@@ -152,7 +155,10 @@ export function AdminSeriesPanel() {
   const [genreFilter, setGenreFilter] = useState("");
   const [newSeriesName, setNewSeriesName] = useState("");
   const [newSeriesSlug, setNewSeriesSlug] = useState("");
-  const [taxonomyOptions, setTaxonomyOptions] = useState<SeriesTaxonomyOptions>({ tags: [], facets: [] });
+  const [taxonomyOptions, setTaxonomyOptions] = useState<SeriesTaxonomyOptions>({ genres: [], tags: [], facets: [] });
+  const [bulkOperation, setBulkOperation] = useState<BulkLabelOperation>("add");
+  const [selectedGameIds, setSelectedGameIds] = useState<string[]>([]);
+  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedFacets, setSelectedFacets] = useState<string[]>([]);
   const [seriesDescription, setSeriesDescription] = useState("");
@@ -175,6 +181,20 @@ export function AdminSeriesPanel() {
     () => gameResults.filter((game) => !hiddenGameResultIds.has(game.id)),
     [gameResults, hiddenGameResultIds],
   );
+
+  const selectedGameIdSet = useMemo(() => new Set(selectedGameIds), [selectedGameIds]);
+  const bulkTargetCount = selectedGameIds.length || filteredGames.length;
+  const hasBulkLabels = selectedGenres.length > 0 || selectedTags.length > 0 || selectedFacets.length > 0;
+
+  function toggleSelectedGame(gameId: string) {
+    setSelectedGameIds((current) =>
+      current.includes(gameId) ? current.filter((id) => id !== gameId) : [...current, gameId],
+    );
+  }
+
+  function selectVisibleGames() {
+    setSelectedGameIds(filteredGames.map((game) => game.id));
+  }
 
   const loadSeries = useCallback(async (q = seriesSearch) => {
     setLoadingSeries(true);
@@ -216,12 +236,13 @@ export function AdminSeriesPanel() {
       const data = await res.json();
       if (res.ok) {
         setTaxonomyOptions({
+          genres: data.genres ?? [],
           tags: data.tags ?? [],
           facets: data.facets ?? [],
         });
       }
     } catch {
-      setTaxonomyOptions({ tags: [], facets: [] });
+      setTaxonomyOptions({ genres: [], tags: [], facets: [] });
     }
   }, []);
 
@@ -243,7 +264,8 @@ export function AdminSeriesPanel() {
       const nextDetail = data.series as AdminSeriesDetail;
       setDetail(nextDetail);
       setSeriesDescription(nextDetail.series.description ?? "");
-      setGenreFilter("");
+        setGenreFilter("");
+        setSelectedGameIds([]);
     } catch {
       setError("Error de red al cargar la saga.");
     } finally {
@@ -371,8 +393,10 @@ export function AdminSeriesPanel() {
         setMessage("Juego sacado de la saga.");
       } else if (body.action === "bulk-assign") {
         setMessage(`Asignación aplicada a ${data.affectedCount ?? 0} juegos.`);
+        setSelectedGenres([]);
         setSelectedTags([]);
         setSelectedFacets([]);
+        setSelectedGameIds([]);
       } else if (body.action === "update-description") {
         setMessage("Descripción de saga guardada.");
       }
@@ -651,7 +675,10 @@ export function AdminSeriesPanel() {
                   <select
                     className="input w-full md:w-72"
                     value={genreFilter}
-                    onChange={(e) => setGenreFilter(e.target.value)}
+                    onChange={(e) => {
+                      setGenreFilter(e.target.value);
+                      setSelectedGameIds([]);
+                    }}
                   >
                     <option value="">Todos los géneros ({detail.games.length})</option>
                     {detail.genreOptions.map((genre) => (
@@ -665,10 +692,33 @@ export function AdminSeriesPanel() {
                 <AdminFunctionCard tone="bulk" className="mb-4">
                   <AdminFunctionHeader
                     tone="bulk"
-                    title="Aplicar facetas y etiquetas en lote"
-                    description={`Se aplicará solo a los ${filteredGames.length} juegos visibles con el filtro actual.`}
+                    title="Gestionar géneros, etiquetas y facetas"
+                    description={
+                      selectedGameIds.length
+                        ? `Se aplicará solo a ${selectedGameIds.length} juegos marcados.`
+                        : `Se aplicará a los ${filteredGames.length} juegos visibles con el filtro actual.`
+                    }
                   />
-                  <div className="grid gap-3 md:grid-cols-2">
+                  <label className="mb-3 block space-y-1">
+                    <span className="text-[10px] uppercase tracking-wider text-muted">Acción</span>
+                    <select
+                      className="input"
+                      value={bulkOperation}
+                      onChange={(event) => setBulkOperation(event.target.value as BulkLabelOperation)}
+                    >
+                      <option value="add">Añadir a lo que ya tienen</option>
+                      <option value="remove">Quitar de esos juegos</option>
+                      <option value="replace">Reemplazar y dejar solo lo elegido</option>
+                    </select>
+                  </label>
+                  <div className="grid gap-3 md:grid-cols-3">
+                    <LabelAutocomplete
+                      title="Géneros"
+                      placeholder="Escribe y elige un género…"
+                      options={taxonomyOptions.genres}
+                      selected={selectedGenres}
+                      onChange={setSelectedGenres}
+                    />
                     <LabelAutocomplete
                       title="Etiquetas"
                       placeholder="Escribe y elige una etiqueta…"
@@ -687,18 +737,33 @@ export function AdminSeriesPanel() {
                   <button
                     type="button"
                     className="btn-primary mt-4"
-                    disabled={saving || filteredGames.length === 0 || (selectedTags.length === 0 && selectedFacets.length === 0)}
+                    disabled={saving || bulkTargetCount === 0 || !hasBulkLabels}
                     onClick={() =>
                       void patchSeries({
                         action: "bulk-assign",
+                        operation: bulkOperation,
                         genreSlug: genreFilter || null,
+                        gameIds: selectedGameIds,
+                        genres: selectedGenres,
                         tags: selectedTags,
                         facets: selectedFacets,
                       })
                     }
                   >
-                    {saving ? "Aplicando…" : "Aplicar a los juegos filtrados"}
+                    {saving
+                      ? "Aplicando…"
+                      : selectedGameIds.length
+                        ? `Aplicar a ${selectedGameIds.length} juegos marcados`
+                        : "Aplicar a los juegos filtrados"}
                   </button>
+                  <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                    <button type="button" className="btn-secondary px-3 py-1.5" onClick={selectVisibleGames} disabled={filteredGames.length === 0}>
+                      Marcar visibles
+                    </button>
+                    <button type="button" className="btn-secondary px-3 py-1.5" onClick={() => setSelectedGameIds([])} disabled={selectedGameIds.length === 0}>
+                      Limpiar marcados
+                    </button>
+                  </div>
                 </AdminFunctionCard>
 
                 <div className="grid gap-2">
@@ -708,8 +773,18 @@ export function AdminSeriesPanel() {
                       className="grid gap-3 rounded-2xl border border-border bg-card/70 p-3 md:grid-cols-[1fr_auto]"
                     >
                       <div className="min-w-0">
-                        <div className="font-semibold text-foreground">{game.title}</div>
-                        <div className="mt-1 text-xs text-muted">{gameSubtitle(game)}</div>
+                        <label className="flex items-start gap-3">
+                          <input
+                            type="checkbox"
+                            className="mt-1 h-4 w-4 rounded border-border"
+                            checked={selectedGameIdSet.has(game.id)}
+                            onChange={() => toggleSelectedGame(game.id)}
+                          />
+                          <span className="min-w-0">
+                            <span className="block font-semibold text-foreground">{game.title}</span>
+                            <span className="mt-1 block text-xs text-muted">{gameSubtitle(game)}</span>
+                          </span>
+                        </label>
                         <div className="mt-2 flex flex-wrap gap-1">
                           {game.genres.slice(0, 5).map((genre) => (
                             <Badge key={genre.slug} tone="neutral">

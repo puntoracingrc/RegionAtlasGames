@@ -104,6 +104,8 @@ export type AdminSeriesDetail = {
   genreOptions: AdminSeriesGenreOption[];
 };
 
+export type AdminSeriesLabelOperation = "add" | "remove" | "replace";
+
 export type PublicSeriesReference = {
   slug: string;
   name: string;
@@ -941,33 +943,83 @@ export async function removeGameFromAdminSeries(
   return { ok: true, series };
 }
 
+function removeEntitiesByName(existing: DetailEntity[] | undefined, names: string[]): DetailEntity[] {
+  const removeSlugs = new Set(names.map((name) => normalizeSlug(name)));
+  return (existing ?? []).filter((entity) => !removeSlugs.has(entity.slug));
+}
+
+function entitiesFromNames(names: string[]): DetailEntity[] {
+  return mergeEntities([], names);
+}
+
+function mergeHiddenEntities(existing: DetailEntity[] | undefined, names: string[]): DetailEntity[] {
+  return canonicalizeEntities([...(existing ?? []), ...entitiesFromNames(names)]);
+}
+
 export async function bulkAssignAdminSeriesFacets(input: {
   slug: string;
   genreSlug?: string | null;
+  gameIds?: string[];
+  operation?: AdminSeriesLabelOperation;
+  genres?: string[];
   tags?: string[];
   facets?: string[];
 }): Promise<{ ok: true; affectedCount: number; series: AdminSeriesDetail } | { error: string }> {
   const normalizedSlug = normalizeSlug(input.slug);
+  const operation = input.operation ?? "add";
+  const genres = uniqueStrings(input.genres ?? []);
   const tags = uniqueStrings(input.tags ?? []);
   const facets = uniqueStrings(input.facets ?? []);
-  if (tags.length === 0 && facets.length === 0) {
-    return { error: "Añade al menos una etiqueta o faceta." };
+  if (genres.length === 0 && tags.length === 0 && facets.length === 0) {
+    return { error: "Añade al menos un género, etiqueta o faceta." };
   }
 
   const series = await getAdminSeries(normalizedSlug);
   if ("error" in series) return series;
 
   const genreSlug = input.genreSlug?.trim();
+  const selectedGameIds = new Set(uniqueStrings(input.gameIds ?? []));
   const targetGames = series.games.filter(
-    (game) => !genreSlug || game.genres.some((genre) => genre.slug === genreSlug),
+    (game) =>
+      (selectedGameIds.size === 0 || selectedGameIds.has(game.id)) &&
+      (!genreSlug || game.genres.some((genre) => genre.slug === genreSlug)),
   );
   if (targetGames.length === 0) return { error: "No hay juegos afectados con ese filtro." };
 
   const overlay = await readAdminSeriesOverlay();
+  const details = loadDetails();
   const now = new Date().toISOString();
   for (const game of targetGames) {
     const current = overlay.assignments[game.id] ?? { tags: [], facets: [], updatedAt: now };
+    const detail = details[game.id];
+    if (operation === "replace") {
+      overlay.assignments[game.id] = {
+        genres: mergeEntities([], genres),
+        tags: mergeEntities([], tags),
+        facets: mergeEntities([], facets),
+        hiddenGenres: hiddenFromBase(canonicalizeEntities(detail?.genres ?? []), genres),
+        hiddenTags: hiddenFromBase(detail?.tags ?? [], tags),
+        hiddenFacets: hiddenFromBase(baseFacetEntities(detail), facets),
+        updatedAt: now,
+      };
+      continue;
+    }
+    if (operation === "remove") {
+      overlay.assignments[game.id] = {
+        ...current,
+        genres: removeEntitiesByName(current.genres, genres),
+        tags: removeEntitiesByName(current.tags, tags),
+        facets: removeEntitiesByName(current.facets, facets),
+        hiddenGenres: mergeHiddenEntities(current.hiddenGenres, genres),
+        hiddenTags: mergeHiddenEntities(current.hiddenTags, tags),
+        hiddenFacets: mergeHiddenEntities(current.hiddenFacets, facets),
+        updatedAt: now,
+      };
+      continue;
+    }
     overlay.assignments[game.id] = {
+      ...current,
+      genres: mergeEntities(current.genres ?? [], genres),
       tags: mergeEntities(current.tags, tags),
       facets: mergeEntities(current.facets, facets),
       updatedAt: now,

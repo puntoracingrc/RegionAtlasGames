@@ -25,6 +25,7 @@ export async function GET(req: Request) {
     const options = getAdminBulkGameActionOptions();
     return NextResponse.json({
       ok: true,
+      genres: options.genres,
       tags: options.tags,
       facets: [...options.subgenres, ...options.facets].sort((a, b) =>
         a.name.localeCompare(b.name, "es", { numeric: true }),
