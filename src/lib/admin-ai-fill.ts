@@ -202,7 +202,6 @@ const TRUSTED_SOURCE_PRIORITY: TrustedSourceDefinition[] = [
   { domain: "microids.com", label: "Microids oficial", tier: "official", score: 80 },
   { domain: "maximum-ent.com", label: "Maximum Entertainment oficial", tier: "official", score: 80 },
   { domain: "indiegames-studio.com", label: "Web oficial del estudio", tier: "official", score: 74 },
-  { domain: "mobygames.com", label: "MobyGames", tier: "database", score: 82 },
   { domain: "gamefaqs.gamespot.com", label: "Referencia secundaria: GameFAQs", tier: "secondary", score: 66 },
   { domain: "giantbomb.com", label: "Referencia secundaria: Giant Bomb", tier: "secondary", score: 64 },
   { domain: "rawg.io", label: "Referencia secundaria: RAWG", tier: "secondary", score: 62 },
@@ -212,6 +211,7 @@ const TRUSTED_SOURCE_PRIORITY: TrustedSourceDefinition[] = [
   { domain: "3djuegos.com", label: "Referencia secundaria: 3DJuegos", tier: "secondary", score: 58 },
   { domain: "thegamesdb.net", label: "TheGamesDB", tier: "database", score: 76 },
   { domain: "igdb.com", label: "IGDB", tier: "database", score: 74 },
+  { domain: "mobygames.com", label: "MobyGames", tier: "database", score: 52 },
   { domain: "wikipedia.org", label: "Wikipedia", tier: "wiki", score: 62 },
   { domain: "wikidata.org", label: "Wikidata", tier: "wiki", score: 62 },
 ];
@@ -227,7 +227,7 @@ const MODERN_CATALOG_PLATFORMS = new Set([
   "pc",
 ]);
 
-const DATABASE_REFERENCE_DOMAINS = ["mobygames.com", "thegamesdb.net", "igdb.com"];
+const DATABASE_REFERENCE_DOMAINS = ["thegamesdb.net", "igdb.com", "mobygames.com"];
 const KNOWLEDGE_REFERENCE_DOMAINS = ["wikipedia.org", "wikidata.org"];
 const SECONDARY_REFERENCE_DOMAINS = [
   "gamefaqs.gamespot.com",
@@ -1570,6 +1570,7 @@ export async function* streamAdminAiFill(
       "Si la fuente no incluye un dato, devuelve null o cadena vacía; nunca uses frases genéricas como 'equipo talentoso' o 'reconocida compañía'. " +
       "Para año, desarrolladora, editora, jugadores y soporte prioriza fuentes oficiales. " +
       "Para taxonomía usa también Steam, bases de datos y referencias secundarias, porque las tiendas oficiales suelen omitir subgéneros o facetas reales como hack and slash, metroidvania, roguelike, cooperativo o mundo abierto. " +
+      "Usa MobyGames principalmente como confirmación histórica o último recurso si no hay fuentes mejores; no lo conviertas en la base principal del texto si existen fuentes oficiales, Steam, Wikipedia/Wikidata u otras referencias fiables. " +
       "En el campo genres devuelve candidatos de taxonomía mezclados si aparecen sustentados por las fuentes: géneros base, subgéneros y facetas; el sistema los recolocará después en su bloque correcto. " +
       "Prefiere nombres canónicos en español si existen en el listado controlado; no traduzcas términos asentados que el catálogo use tal cual. " +
       "No rechaces una faceta solo porque no aparezca en la web oficial si sí aparece de forma consistente en Steam, MobyGames, IGDB, GameFAQs, Giant Bomb, RAWG, Nintendo Life, Vandal o 3DJuegos. " +

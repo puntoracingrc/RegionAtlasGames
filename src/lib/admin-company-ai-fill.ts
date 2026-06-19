@@ -83,13 +83,13 @@ type CompanySearchResult = {
 };
 
 const COMPANY_REFERENCE_DOMAINS = [
-  "mobygames.com",
   "wikipedia.org",
   "wikidata.org",
   "company-information.service.gov.uk",
   "gamefaqs.gamespot.com",
   "giantbomb.com",
   "rawg.io",
+  "mobygames.com",
 ];
 
 const COMPANY_SEARCH_BLOCKED_HOSTS = new Set([
@@ -176,16 +176,34 @@ async function addCompanyReferenceExcerpts(results: CompanySearchResult[]): Prom
   return enriched;
 }
 
+function companySearchResultScore(result: CompanySearchResult, websiteUrl?: string | null): number {
+  const hostname = hostnameOf(result.url);
+  const officialHostname = websiteUrl ? hostnameOf(websiteUrl) : "";
+  if (officialHostname && (hostname === officialHostname || hostname.endsWith(`.${officialHostname}`))) return 100;
+  if (hostname === "wikipedia.org" || hostname.endsWith(".wikipedia.org")) return 92;
+  if (hostname === "wikidata.org" || hostname.endsWith(".wikidata.org")) return 88;
+  if (hostname === "company-information.service.gov.uk") return 82;
+  if (hostname === "giantbomb.com" || hostname.endsWith(".giantbomb.com")) return 72;
+  if (hostname === "rawg.io" || hostname.endsWith(".rawg.io")) return 68;
+  if (hostname === "gamefaqs.gamespot.com") return 64;
+  if (hostname === "mobygames.com" || hostname.endsWith(".mobygames.com")) return 35;
+  return 55;
+}
+
 async function searchCompanyWebWithSerpApi(name: string, websiteUrl?: string | null): Promise<CompanySearchResult[]> {
   const apiKey = serpApiKey();
   if (!apiKey) return [];
+  const websiteHostname = websiteUrl ? hostnameOf(websiteUrl) : "";
   const queries = [
+    websiteHostname ? `site:${websiteHostname} "${name}"` : null,
+    `"${name}" video game company official website`,
+    `"${name}" site:wikipedia.org`,
+    `"${name}" video game company founded acquired merged closed`,
+    `"${name}" videojuegos empresa historia fundación`,
+    `"${name}" site:giantbomb.com`,
+    `"${name}" site:rawg.io`,
     `"${name}" site:mobygames.com/company`,
     `"${name}" MobyGames company`,
-    `"${name}" video game company founded acquired merged closed`,
-    `"${name}" video game company official website`,
-    `"${name}" videojuegos empresa historia fundación`,
-    websiteUrl ? `site:${hostnameOf(websiteUrl)} "${name}"` : null,
   ].filter((query): query is string => Boolean(query));
   const byUrl = new Map<string, CompanySearchResult>();
   for (const query of queries) {
@@ -215,10 +233,18 @@ async function searchCompanyWebWithSerpApi(name: string, websiteUrl?: string | n
         snippet: result.snippet?.trim() || "",
         source: result.source?.trim() || hostnameOf(result.link),
       });
-      if (byUrl.size >= 8) return addCompanyReferenceExcerpts([...byUrl.values()]);
     }
   }
-  return addCompanyReferenceExcerpts([...byUrl.values()]);
+  const sortedResults = [...byUrl.values()].sort(
+    (a, b) => companySearchResultScore(b, websiteUrl) - companySearchResultScore(a, websiteUrl),
+  );
+  const primaryResults = sortedResults.slice(0, 8);
+  const mobyFallback = sortedResults.find((result) => hostnameOf(result.url).endsWith("mobygames.com"));
+  const withMobyConfirmation =
+    mobyFallback && !primaryResults.some((result) => result.url === mobyFallback.url)
+      ? [...primaryResults, mobyFallback]
+      : primaryResults;
+  return addCompanyReferenceExcerpts(withMobyConfirmation);
 }
 
 async function searchWikipediaCompany(name: string): Promise<CompanyReference | null> {
@@ -346,7 +372,8 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
   }
   const system =
     "Eres editor de un catálogo de videojuegos. Responde SOLO JSON válido. " +
-    "Estás completando una ficha de COMPAÑÍA, no de un juego. Contrasta Wikipedia/Wikidata, MobyGames, web oficial y otras bases de datos cuando existan. " +
+    "Estás completando una ficha de COMPAÑÍA, no de un juego. Prioriza web oficial, Wikipedia/Wikidata y fuentes corporativas o editoriales fiables; contrasta con otras bases de datos cuando existan. " +
+    "Usa MobyGames como fuente de confirmación, catálogo histórico o último recurso cuando falten datos en fuentes mejores, no como base principal para redactar history salvo que no haya alternativa. " +
     "Rellena únicamente con datos verificables o inferencias prudentes desde varias señales del contexto. " +
     "No inventes fechas si no tienes seguridad. Detecta fundación, cierre, fusiones, absorciones, compras, cambios de nombre, matriz o sucesora si las fuentes lo indican. " +
     "foundedYear debe ser el año en que empezó la compañía o marca canónica que estás editando; si una compañía actual nace por fusión, usa el año de esa fusión y menciona las raíces anteriores en history. " +
