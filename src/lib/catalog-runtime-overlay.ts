@@ -247,10 +247,19 @@ export async function getGameDetailsWithOverlay(id: string): Promise<GameDetails
 
   const platformSlug = getCatalogGame(id)?.platformSlug;
   const staticDetails = await getStaticGameDetails(id, platformSlug);
-  if (staticDetails) return staticDetails;
-
   const { getGameDetails } = await import("./indexes");
-  return getGameDetails(id);
+  const indexedDetails = getGameDetails(id);
+  if (!staticDetails) return indexedDetails;
+  if (!indexedDetails) return staticDetails;
+
+  return {
+    ...indexedDetails,
+    description: staticDetails.description ?? indexedDetails.description,
+    descriptionMeta: staticDetails.descriptionMeta ?? indexedDetails.descriptionMeta,
+    seoMeta: staticDetails.seoMeta ?? indexedDetails.seoMeta,
+    videos: staticDetails.videos ?? indexedDetails.videos,
+    ...("pegi" in staticDetails ? { pegi: (staticDetails as GameDetails & { pegi?: unknown }).pegi } : {}),
+  };
 }
 
 export async function getCatalogByPlatformWithOverlay(platformSlug: string): Promise<CatalogGame[]> {
