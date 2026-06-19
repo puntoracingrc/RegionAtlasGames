@@ -1,5 +1,8 @@
-import Link from "next/link";
-import { AdminFunctionCard, adminToneClass } from "@/components/admin/admin-visual";
+import {
+  AdminQuickActionsBoard,
+  type AdminQuickAction,
+} from "@/components/admin/admin-quick-actions-board";
+import { adminToneClass } from "@/components/admin/admin-visual";
 import { Panel, PanelTitle } from "@/components/ui";
 import { getCatalogStagingSummary } from "@/lib/catalog-staging";
 
@@ -81,7 +84,7 @@ const quickActions = [
     icon: "€",
     tone: "status",
   },
-] as const;
+] satisfies AdminQuickAction[];
 
 export default async function AdminDashboardPage() {
   const summary = await getCatalogStagingSummary(8);
@@ -91,29 +94,11 @@ export default async function AdminDashboardPage() {
     <div className="space-y-6">
       <Panel className={adminToneClass("search")}>
         <PanelTitle eyebrow="Atajos">Acciones rápidas</PanelTitle>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
-          {quickActions.map((action) => (
-            <Link
-              key={action.href}
-              href={action.href}
-              className="group transition hover:-translate-y-0.5"
-            >
-              <AdminFunctionCard tone={action.tone} className="relative h-full transition group-hover:shadow-sm">
-                {action.href === "/admin/cola" && hasPendingReview ? (
-                  <span
-                    aria-label={`${summary.totalGames} fichas pendientes de revisión`}
-                    className="absolute right-4 top-4 h-3 w-3 rounded-full bg-red-500 shadow-[0_0_0_4px_rgba(239,68,68,0.16)]"
-                  />
-                ) : null}
-                <span className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 text-lg font-bold text-accent">
-                  {action.icon}
-                </span>
-                <p className="font-semibold text-foreground group-hover:text-accent">{action.title}</p>
-                <p className="mt-1 text-xs leading-5 text-muted">{action.description}</p>
-              </AdminFunctionCard>
-            </Link>
-          ))}
-        </div>
+        <AdminQuickActionsBoard
+          actions={quickActions}
+          hasPendingReview={hasPendingReview}
+          pendingReviewCount={summary.totalGames}
+        />
       </Panel>
     </div>
   );
