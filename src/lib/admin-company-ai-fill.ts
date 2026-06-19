@@ -48,6 +48,18 @@ function clip(text: string, max: number): string {
   return `${clean.slice(0, max - 1).trimEnd()}…`;
 }
 
+function cleanEditorialTone(text: string): string {
+  return text
+    .replace(/Region Atlascon/g, "Region Atlas con")
+    .replace(/\buna\s+(?:compañía|empresa|desarrolladora|editora|distribuidora)\s+destacada\b/gi, (match) =>
+      match.replace(/\s+destacada\b/i, ""),
+    )
+    .replace(/\b(?:destacada|destacado|icónica|icónico|aclamada|aclamado|reconocida|reconocido|emblemática|emblemático|famosa|famoso|influyente)\s+/gi, "")
+    .replace(/\s+como\s+\.?/g, ".")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
 function numberOrNull(value: unknown): number | null {
   if (typeof value !== "number" || !Number.isFinite(value)) return null;
   const year = Math.trunc(value);
@@ -479,7 +491,7 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
     }
   }
   if (targets.has("history") && typeof parsed.history === "string" && parsed.history.trim().length >= 40) {
-    patch.history = parsed.history.trim().slice(0, 1800);
+    patch.history = cleanEditorialTone(parsed.history).slice(0, 1800);
     logs.push("Historia generada.");
   }
   if (targets.has("logo") && typeof parsed.logoUrl === "string" && /^https?:\/\//i.test(parsed.logoUrl.trim())) {
@@ -503,10 +515,10 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
   }
   if (targets.has("seo")) {
     if (typeof parsed.seoTitle === "string" && parsed.seoTitle.trim()) {
-      patch.seoTitle = clip(parsed.seoTitle, 70);
+      patch.seoTitle = clip(cleanEditorialTone(parsed.seoTitle), 70);
     }
     if (typeof parsed.seoDescription === "string" && parsed.seoDescription.trim()) {
-      patch.seoDescription = clip(parsed.seoDescription, 160);
+      patch.seoDescription = clip(cleanEditorialTone(parsed.seoDescription), 160);
     }
     logs.push("SEO generado.");
   }
