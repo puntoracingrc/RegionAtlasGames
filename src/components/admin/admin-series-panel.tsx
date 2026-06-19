@@ -25,6 +25,25 @@ type SeriesTaxonomyOptions = {
 };
 
 type BulkLabelOperation = "add" | "remove" | "replace";
+type LabelPickerKind = "genres" | "tags" | "facets";
+
+const FAMILY_LABELS: Record<string, string> = {
+  subgenre: "Subgéneros",
+  content: "Contenido",
+  edition: "Ediciones",
+  format: "Formato",
+  gameplay: "Gameplay",
+  market: "Mercado",
+  mechanic: "Mecánicas",
+  perspective: "Perspectiva",
+  player_mode: "Jugadores",
+  setting: "Ambientación",
+  sport: "Deportes",
+  technical: "Técnico",
+  theme: "Temas",
+  visual: "Visual",
+  general: "General",
+};
 
 function regionLabel(region: string): string {
   if (region === "PAL España") return "ES";
@@ -72,12 +91,14 @@ function LabelAutocomplete({
   options,
   selected,
   onChange,
+  onOpenLibrary,
 }: {
   title: string;
   placeholder: string;
   options: LabelOption[];
   selected: string[];
   onChange: (next: string[]) => void;
+  onOpenLibrary: () => void;
 }) {
   const [query, setQuery] = useState("");
   const selectedSet = useMemo(() => new Set(selected), [selected]);
@@ -106,7 +127,16 @@ function LabelAutocomplete({
   return (
     <div className="space-y-2">
       <label className="block space-y-1">
-        <span className="text-[10px] uppercase tracking-wider text-muted">{title}</span>
+        <span className="flex items-center justify-between gap-2 text-[10px] uppercase tracking-wider text-muted">
+          {title}
+          <button
+            type="button"
+            className="rounded-full border border-indigo-300/50 bg-indigo-500/10 px-2 py-1 text-[10px] font-semibold text-indigo-800 transition hover:bg-indigo-500/15 dark:text-indigo-200"
+            onClick={onOpenLibrary}
+          >
+            Ver todas
+          </button>
+        </span>
         <input
           className="input"
           value={query}
@@ -158,6 +188,135 @@ function LabelAutocomplete({
   );
 }
 
+function LabelLibraryModal({
+  title,
+  options,
+  selected,
+  onChange,
+  onClose,
+}: {
+  title: string;
+  options: LabelOption[];
+  selected: string[];
+  onChange: (next: string[]) => void;
+  onClose: () => void;
+}) {
+  const [query, setQuery] = useState("");
+  const selectedSet = useMemo(() => new Set(selected), [selected]);
+  const filteredOptions = useMemo(() => {
+    const normalizedQuery = normalizeOptionSearch(query);
+    return options.filter((option) => {
+      if (!normalizedQuery) return true;
+      const haystack = normalizeOptionSearch(`${option.name} ${option.family ?? ""}`);
+      return haystack.includes(normalizedQuery) || haystack.split(/\s+/).some((word) => word.startsWith(normalizedQuery));
+    });
+  }, [options, query]);
+  const groups = useMemo(() => {
+    const map = new Map<string, LabelOption[]>();
+    for (const option of filteredOptions) {
+      const family = option.family ?? "general";
+      map.set(family, [...(map.get(family) ?? []), option]);
+    }
+    return [...map.entries()].sort(([left], [right]) => {
+      if (left === "subgenre") return -1;
+      if (right === "subgenre") return 1;
+      return (FAMILY_LABELS[left] ?? left).localeCompare(FAMILY_LABELS[right] ?? right, "es", { numeric: true });
+    });
+  }, [filteredOptions]);
+
+  function toggleOption(name: string) {
+    if (selectedSet.has(name)) {
+      onChange(selected.filter((item) => item !== name));
+      return;
+    }
+    onChange([...selected, name].sort((left, right) => left.localeCompare(right, "es", { numeric: true })));
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" role="dialog" aria-modal="true">
+      <div className="max-h-[86vh] w-full max-w-5xl overflow-hidden rounded-3xl border border-indigo-300/40 bg-card shadow-2xl dark:border-indigo-400/20">
+        <div className="flex flex-wrap items-start justify-between gap-3 border-b border-border p-5">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-700 dark:text-indigo-300">
+              Biblioteca
+            </p>
+            <h3 className="text-2xl font-black text-foreground">{title}</h3>
+            <p className="text-sm text-muted">
+              Marca opciones con un click. Se añadirán al listado y luego las aplicas de golpe.
+            </p>
+          </div>
+          <button type="button" className="btn-secondary px-4 py-2" onClick={onClose}>
+            Cerrar
+          </button>
+        </div>
+        <div className="space-y-4 overflow-auto p-5">
+          <input
+            className="input"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Filtrar dentro de la biblioteca…"
+            autoFocus
+          />
+          {selected.length ? (
+            <div className="rounded-2xl border border-indigo-300/40 bg-indigo-500/10 p-3">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">Elegidas</p>
+              <div className="flex flex-wrap gap-2">
+                {selected.map((name) => (
+                  <button
+                    key={name}
+                    type="button"
+                    className="rounded-full border border-indigo-300/50 bg-background/70 px-3 py-1 text-xs font-semibold text-indigo-800 dark:text-indigo-200"
+                    onClick={() => toggleOption(name)}
+                  >
+                    {name} ×
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+          <div className="grid gap-4 md:grid-cols-2">
+            {groups.map(([family, familyOptions]) => (
+              <section key={family} className="rounded-2xl border border-border bg-background/55 p-3">
+                <div className="mb-3 flex items-center justify-between gap-2">
+                  <h4 className="text-sm font-black uppercase tracking-wider text-foreground">
+                    {FAMILY_LABELS[family] ?? family}
+                  </h4>
+                  <span className="text-xs text-muted">{familyOptions.length}</span>
+                </div>
+                <div className="flex max-h-72 flex-wrap gap-2 overflow-auto pr-1">
+                  {familyOptions.map((option) => {
+                    const active = selectedSet.has(option.name);
+                    return (
+                      <button
+                        key={option.slug}
+                        type="button"
+                        className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                          active
+                            ? "border-indigo-400 bg-indigo-500/20 text-indigo-800 dark:text-indigo-200"
+                            : "border-border bg-card/70 text-muted hover:border-indigo-400/40 hover:text-foreground"
+                        }`}
+                        onClick={() => toggleOption(option.name)}
+                      >
+                        {active ? "✓ " : ""}
+                        {option.name}
+                      </button>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
+          </div>
+          {groups.length === 0 ? (
+            <p className="rounded-2xl border border-dashed border-border p-5 text-sm text-muted">
+              No hay opciones con ese filtro.
+            </p>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function AdminSeriesPanel() {
   const [series, setSeries] = useState<AdminSeriesRow[]>([]);
   const [selectedSlug, setSelectedSlug] = useState<string>("");
@@ -177,6 +336,7 @@ export function AdminSeriesPanel() {
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedFacets, setSelectedFacets] = useState<string[]>([]);
+  const [labelPickerKind, setLabelPickerKind] = useState<LabelPickerKind | null>(null);
   const [seriesDescription, setSeriesDescription] = useState("");
   const [loadingSeries, setLoadingSeries] = useState(true);
   const [loadingDetail, setLoadingDetail] = useState(false);
@@ -217,6 +377,28 @@ export function AdminSeriesPanel() {
   );
   const bulkTargetCount = selectedGameIds.length || filteredGames.length;
   const hasBulkLabels = selectedGenres.length > 0 || selectedTags.length > 0 || selectedFacets.length > 0;
+  const labelPickerConfig = labelPickerKind
+    ? {
+        genres: {
+          title: "Géneros",
+          options: labelOptions.genres,
+          selected: selectedGenres,
+          onChange: setSelectedGenres,
+        },
+        tags: {
+          title: "Etiquetas",
+          options: labelOptions.tags,
+          selected: selectedTags,
+          onChange: setSelectedTags,
+        },
+        facets: {
+          title: "Subgéneros y facetas",
+          options: labelOptions.facets,
+          selected: selectedFacets,
+          onChange: setSelectedFacets,
+        },
+      }[labelPickerKind]
+    : null;
 
   function toggleSelectedGame(gameId: string) {
     setSelectedGameIds((current) =>
@@ -761,6 +943,7 @@ export function AdminSeriesPanel() {
                       options={labelOptions.genres}
                       selected={selectedGenres}
                       onChange={setSelectedGenres}
+                      onOpenLibrary={() => setLabelPickerKind("genres")}
                     />
                     <LabelAutocomplete
                       title="Etiquetas"
@@ -768,6 +951,7 @@ export function AdminSeriesPanel() {
                       options={labelOptions.tags}
                       selected={selectedTags}
                       onChange={setSelectedTags}
+                      onOpenLibrary={() => setLabelPickerKind("tags")}
                     />
                     <LabelAutocomplete
                       title="Facetas"
@@ -775,6 +959,7 @@ export function AdminSeriesPanel() {
                       options={labelOptions.facets}
                       selected={selectedFacets}
                       onChange={setSelectedFacets}
+                      onOpenLibrary={() => setLabelPickerKind("facets")}
                     />
                   </div>
                   <button
@@ -884,6 +1069,15 @@ export function AdminSeriesPanel() {
                   )}
                 </div>
               </AdminFunctionCard>
+              {labelPickerConfig ? (
+                <LabelLibraryModal
+                  title={labelPickerConfig.title}
+                  options={labelPickerConfig.options}
+                  selected={labelPickerConfig.selected}
+                  onChange={labelPickerConfig.onChange}
+                  onClose={() => setLabelPickerKind(null)}
+                />
+              ) : null}
             </div>
           ) : (
             <p className="text-sm text-muted">Selecciona una saga para editarla.</p>

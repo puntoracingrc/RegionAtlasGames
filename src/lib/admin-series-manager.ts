@@ -94,7 +94,7 @@ export type AdminBulkGameActionOptions = {
   regions: { slug: string; name: string; count: number }[];
   genres: { slug: string; name: string; count: number }[];
   tags: { slug: string; name: string; count: number | null }[];
-  subgenres: { slug: string; name: string; count: number | null; parentGenreSlugs?: string[] }[];
+  subgenres: { slug: string; name: string; count: number | null; family?: string; parentGenreSlugs?: string[] }[];
   facets: { slug: string; name: string; count: number | null; family?: string }[];
 };
 
@@ -558,11 +558,19 @@ export function getAdminBulkGameActionOptions(): AdminBulkGameActionOptions {
   const details = loadDetails();
   const taxonomy = getGameFacetsTaxonomy();
   const taxonomyGenreSlugById = new Map(taxonomy.genres.map((entity) => [entity.id, entity.slug]));
+  const catalogGenreCounts = new Map(genreOptionsForCatalog(catalog, details).map((genre) => [genre.slug, genre.count]));
 
   return {
     platforms: listAdminSeriesGamePlatforms(),
     regions: regionOptionsForCatalog(catalog),
-    genres: genreOptionsForCatalog(catalog, details),
+    genres: taxonomy.genres
+      .filter((entity) => entity.status === "approved")
+      .map((entity) => ({
+        slug: entity.slug,
+        name: entity.name,
+        count: catalogGenreCounts.get(entity.slug) ?? 0,
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true })),
     tags: countDetailEntities(catalog, details, "tags").slice(0, 250),
     subgenres: taxonomy.subgenres
       .filter((entity) => entity.status === "approved")
@@ -570,6 +578,7 @@ export function getAdminBulkGameActionOptions(): AdminBulkGameActionOptions {
         slug: entity.slug,
         name: entity.name,
         count: null,
+        family: "subgenre",
         parentGenreSlugs: entity.parentGenreIds
           .map((id) => taxonomyGenreSlugById.get(id))
           .filter((slug): slug is string => Boolean(slug)),
