@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AdminFunctionCard, AdminFunctionHeader, AdminNotice } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
+import taxonomyData from "../../../data/game-facets-taxonomy.json";
 import type {
   AdminSeriesDetail,
   AdminSeriesGameRow,
@@ -43,6 +44,33 @@ const FAMILY_LABELS: Record<string, string> = {
   theme: "Temas",
   visual: "Visual",
   general: "General",
+};
+
+const OFFICIAL_TAXONOMY_OPTIONS: Pick<SeriesTaxonomyOptions, "genres" | "facets"> = {
+  genres: taxonomyData.genres
+    .filter((entity) => entity.status === "approved")
+    .map((entity) => ({
+      slug: entity.slug,
+      name: entity.name,
+      count: null,
+      family: "general",
+    }))
+    .sort((left, right) => left.name.localeCompare(right.name, "es", { numeric: true })),
+  facets: [...taxonomyData.subgenres, ...taxonomyData.facets]
+    .filter((entity) => entity.status === "approved")
+    .map((entity) => ({
+      slug: entity.slug,
+      name: entity.name,
+      count: null,
+      family: entity.type === "subgenre" ? "subgenre" : entity.family,
+    }))
+    .sort((left, right) => {
+      const leftFamily = left.family ?? "general";
+      const rightFamily = right.family ?? "general";
+      if (leftFamily === "subgenre" && rightFamily !== "subgenre") return -1;
+      if (rightFamily === "subgenre" && leftFamily !== "subgenre") return 1;
+      return leftFamily.localeCompare(rightFamily, "es", { numeric: true }) || left.name.localeCompare(right.name, "es", { numeric: true });
+    }),
 };
 
 function regionLabel(region: string): string {
@@ -369,9 +397,9 @@ export function AdminSeriesPanel() {
   );
   const labelOptions = useMemo(
     () => ({
-      genres: mergeLabelOptions(visibleLabelOptions.genres, taxonomyOptions.genres),
+      genres: mergeLabelOptions(visibleLabelOptions.genres, OFFICIAL_TAXONOMY_OPTIONS.genres, taxonomyOptions.genres),
       tags: mergeLabelOptions(visibleLabelOptions.tags, taxonomyOptions.tags),
-      facets: mergeLabelOptions(visibleLabelOptions.facets, taxonomyOptions.facets),
+      facets: mergeLabelOptions(visibleLabelOptions.facets, OFFICIAL_TAXONOMY_OPTIONS.facets, taxonomyOptions.facets),
     }),
     [taxonomyOptions.facets, taxonomyOptions.genres, taxonomyOptions.tags, visibleLabelOptions],
   );
