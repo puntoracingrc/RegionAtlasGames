@@ -708,17 +708,24 @@ export async function updateAdminSeriesBackground(
     name: current.name,
     gameIds: current.gameIds,
   };
+  const nextOpacity =
+    normalizedOpacity ??
+    existing.backgroundImageOpacity ??
+    current.backgroundImageOpacity ??
+    DEFAULT_SERIES_BACKGROUND_OPACITY;
+  const nextReadability =
+    normalizedReadability ??
+    existing.backgroundReadability ??
+    current.backgroundReadability ??
+    DEFAULT_SERIES_BACKGROUND_READABILITY;
+
   overlay.series[normalizedSlug] = {
     ...existing,
     slug: normalizedSlug,
     name: existing.name || current.name,
     backgroundImageUrl: normalizedUrl ?? undefined,
-    backgroundImageOpacity: normalizedUrl
-      ? (normalizedOpacity ?? existing.backgroundImageOpacity ?? DEFAULT_SERIES_BACKGROUND_OPACITY)
-      : undefined,
-    backgroundReadability: normalizedUrl
-      ? (normalizedReadability ?? existing.backgroundReadability ?? DEFAULT_SERIES_BACKGROUND_READABILITY)
-      : undefined,
+    backgroundImageOpacity: nextOpacity,
+    backgroundReadability: nextReadability,
   };
   await writeAdminSeriesOverlay(overlay);
   const series = await getAdminSeries(normalizedSlug);

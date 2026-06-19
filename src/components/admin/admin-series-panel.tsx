@@ -685,7 +685,7 @@ export function AdminSeriesPanel() {
       } else if (body.action === "update-description") {
         setMessage("Descripción de saga guardada.");
       } else if (body.action === "update-background") {
-        setMessage("Fondo de bloque guardado.");
+        setMessage("Ajustes de fondo guardados.");
       }
     } catch {
       setError("Error de red al guardar el cambio.");
@@ -970,7 +970,7 @@ export function AdminSeriesPanel() {
                     Esta saga todavía no tiene fondo propio. Si no guardas uno, solo algunas sagas de prueba usan imagen fija.
                   </p>
                 )}
-                <div className="grid gap-3 lg:grid-cols-[1fr_auto]">
+                <div className="grid gap-3">
                   <label className="block space-y-1">
                     <span className="text-[10px] uppercase tracking-wider text-muted">URL guardada</span>
                     <input
@@ -980,16 +980,6 @@ export function AdminSeriesPanel() {
                       placeholder="https://... o /saga-backgrounds/..."
                     />
                   </label>
-                  <div className="flex items-end">
-                    <button
-                      type="button"
-                      className="btn-primary w-full lg:w-auto"
-                      disabled={saving || seriesBackgroundUploading}
-                      onClick={() => void saveSeriesBackgroundUrl()}
-                    >
-                      Guardar fondo
-                    </button>
-                  </div>
                 </div>
                 <div className="mt-3 rounded-2xl border border-border bg-background/50 p-3">
                   <div className="mb-2 flex flex-wrap items-center justify-between gap-3">
@@ -1040,6 +1030,19 @@ export function AdminSeriesPanel() {
                     <option value="strong">Fuerte · prioriza lectura</option>
                   </select>
                 </label>
+                <div className="mt-3 flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-background/45 p-3">
+                  <button
+                    type="button"
+                    className="btn-primary"
+                    disabled={saving || seriesBackgroundUploading}
+                    onClick={() => void saveSeriesBackgroundUrl()}
+                  >
+                    {saving ? "Guardando…" : "Guardar ajustes de fondo"}
+                  </button>
+                  <p className="text-xs text-muted">
+                    Guarda la URL, la intensidad y la legibilidad aunque la saga use una imagen fija de prueba.
+                  </p>
+                </div>
                 <div className="mt-3 grid gap-3 lg:grid-cols-[1fr_auto]">
                   <label className="block space-y-1">
                     <span className="text-[10px] uppercase tracking-wider text-muted">Importar desde URL al hosting</span>
