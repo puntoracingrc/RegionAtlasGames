@@ -1570,7 +1570,8 @@ export async function* streamAdminAiFill(
       "Si la fuente no incluye un dato, devuelve null o cadena vacía; nunca uses frases genéricas como 'equipo talentoso' o 'reconocida compañía'. " +
       "Para año, desarrolladora, editora, jugadores y soporte prioriza fuentes oficiales. " +
       "Para taxonomía usa también Steam, bases de datos y referencias secundarias, porque las tiendas oficiales suelen omitir subgéneros o facetas reales como hack and slash, metroidvania, roguelike, cooperativo o mundo abierto. " +
-      "Usa MobyGames principalmente como confirmación histórica o último recurso si no hay fuentes mejores; no lo conviertas en la base principal del texto si existen fuentes oficiales, Steam, Wikipedia/Wikidata u otras referencias fiables. " +
+      "Usa MobyGames principalmente como confirmación factual estructurada —fechas, nombres, plataformas, roles, publishers, developers y relaciones—, preferiblemente contrastando con otras fuentes. " +
+      "No uses textos narrativos de MobyGames como base para traducir, reescribir o parafrasear descripciones; las descripciones de Region Atlas Games deben nacer desde cero con hechos contrastados y estilo propio. " +
       "En el campo genres devuelve candidatos de taxonomía mezclados si aparecen sustentados por las fuentes: géneros base, subgéneros y facetas; el sistema los recolocará después en su bloque correcto. " +
       "Prefiere nombres canónicos en español si existen en el listado controlado; no traduzcas términos asentados que el catálogo use tal cual. " +
       "No rechaces una faceta solo porque no aparezca en la web oficial si sí aparece de forma consistente en Steam, MobyGames, IGDB, GameFAQs, Giant Bomb, RAWG, Nintendo Life, Vandal o 3DJuegos. " +
@@ -1667,6 +1668,7 @@ export async function* streamAdminAiFill(
   const descSystem =
     "Eres redactor SEO para Region Atlas (catálogo de videojuegos físico y digital). Textos ORIGINALES en español. " +
     "No copies Wikipedia ni tiendas oficiales, pero tampoco inventes datos. " +
+    "No uses textos narrativos de MobyGames como base para traducir, reescribir o parafrasear; de MobyGames solo puedes aprovechar datos factuales estructurados contrastables. " +
     "Usa las fuentes solo como material de consulta: reescribe siempre con tus propias palabras. " +
     "Escribe solo con hechos presentes en HECHOS y REFERENCIA. " +
     "No menciones precios de tienda, descuentos ni disponibilidad comercial actual; Region Atlas separa descripción y precios. " +

@@ -373,7 +373,8 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
   const system =
     "Eres editor de un catálogo de videojuegos. Responde SOLO JSON válido. " +
     "Estás completando una ficha de COMPAÑÍA, no de un juego. Prioriza web oficial, Wikipedia/Wikidata y fuentes corporativas o editoriales fiables; contrasta con otras bases de datos cuando existan. " +
-    "Usa MobyGames como fuente de confirmación, catálogo histórico o último recurso cuando falten datos en fuentes mejores, no como base principal para redactar history salvo que no haya alternativa. " +
+    "Usa MobyGames como fuente de confirmación para datos factuales estructurados —fechas, nombres, plataformas, roles, publishers, developers, cambios de nombre y relaciones corporativas—, preferiblemente contrastando con otras fuentes. " +
+    "No uses textos narrativos de MobyGames como base para traducir, reescribir o parafrasear; history debe redactarse desde cero con hechos contrastados y estilo propio de Region Atlas Games. " +
     "Rellena únicamente con datos verificables o inferencias prudentes desde varias señales del contexto. " +
     "No inventes fechas si no tienes seguridad. Detecta fundación, cierre, fusiones, absorciones, compras, cambios de nombre, matriz o sucesora si las fuentes lo indican. " +
     "foundedYear debe ser el año en que empezó la compañía o marca canónica que estás editando; si una compañía actual nace por fusión, usa el año de esa fusión y menciona las raíces anteriores en history. " +
