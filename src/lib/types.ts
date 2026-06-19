@@ -117,6 +117,7 @@ export type IndexEntry = {
   gameCount: number;
   description?: string | null;
   backgroundImageUrl?: string | null;
+  backgroundImageOpacity?: number | null;
   active?: boolean;
   asDeveloper?: string[];
   asPublisher?: string[];

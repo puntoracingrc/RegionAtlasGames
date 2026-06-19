@@ -33,12 +33,20 @@ export async function IndexEntityDetail({ kind, slug }: { kind: IndexKind; slug:
     kind === "series"
       ? summary.entry.backgroundImageUrl ?? SERIES_BACKGROUND_IMAGES[summary.entry.slug] ?? null
       : null;
+  const seriesBackgroundOpacity =
+    kind === "series" ? summary.entry.backgroundImageOpacity ?? 68 : 68;
 
   const content = (
     <>
       <IndexEntityHeader summary={summary} />
       {seriesProfile && <SagaMascotWelcome profile={seriesProfile} compact />}
-      {seriesProfile && <SeriesProfilePanel profile={seriesProfile} backgroundImage={seriesBackgroundImage} />}
+      {seriesProfile && (
+        <SeriesProfilePanel
+          profile={seriesProfile}
+          backgroundImage={seriesBackgroundImage}
+          backgroundOpacity={seriesBackgroundOpacity}
+        />
+      )}
       <div id="saga-games" />
       <EntityBrowser
         games={games}

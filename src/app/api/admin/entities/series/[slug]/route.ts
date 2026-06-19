@@ -105,6 +105,7 @@ export async function PATCH(req: Request, { params }: Props) {
     const result = await updateAdminSeriesBackground(
       slug,
       typeof body.backgroundImageUrl === "string" ? body.backgroundImageUrl : null,
+      typeof body.backgroundImageOpacity === "number" ? body.backgroundImageOpacity : undefined,
     );
     if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
     return NextResponse.json({ ok: true, series: result.series });

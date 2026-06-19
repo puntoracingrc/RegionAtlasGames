@@ -368,6 +368,7 @@ export function AdminSeriesPanel() {
   const [labelPickerKind, setLabelPickerKind] = useState<LabelPickerKind | null>(null);
   const [seriesDescription, setSeriesDescription] = useState("");
   const [seriesBackgroundUrl, setSeriesBackgroundUrl] = useState("");
+  const [seriesBackgroundOpacity, setSeriesBackgroundOpacity] = useState(68);
   const [seriesBackgroundSourceUrl, setSeriesBackgroundSourceUrl] = useState("");
   const [loadingSeries, setLoadingSeries] = useState(true);
   const [loadingDetail, setLoadingDetail] = useState(false);
@@ -539,6 +540,7 @@ export function AdminSeriesPanel() {
       setDetail(nextDetail);
       setSeriesDescription(nextDetail.series.description ?? "");
       setSeriesBackgroundUrl(nextDetail.series.backgroundImageUrl ?? "");
+      setSeriesBackgroundOpacity(nextDetail.series.backgroundImageOpacity ?? 68);
       setSeriesBackgroundSourceUrl("");
       setGenreFilter("");
       setSelectedGameIds([]);
@@ -653,6 +655,7 @@ export function AdminSeriesPanel() {
       setDetail(nextDetail);
       setSeriesDescription(nextDetail.series.description ?? "");
       setSeriesBackgroundUrl(nextDetail.series.backgroundImageUrl ?? "");
+      setSeriesBackgroundOpacity(nextDetail.series.backgroundImageOpacity ?? 68);
       await loadSeries(seriesSearch);
       if (body.action === "add-game") {
         setMessage("Juego añadido a la saga.");
@@ -722,6 +725,7 @@ export function AdminSeriesPanel() {
     await patchSeries({
       action: "update-background",
       backgroundImageUrl: seriesBackgroundUrl,
+      backgroundImageOpacity: seriesBackgroundOpacity,
     });
   }
 
@@ -744,6 +748,7 @@ export function AdminSeriesPanel() {
       const nextDetail = data.series as AdminSeriesDetail;
       setDetail(nextDetail);
       setSeriesBackgroundUrl(data.backgroundImageUrl ?? nextDetail.series.backgroundImageUrl ?? "");
+      setSeriesBackgroundOpacity(nextDetail.series.backgroundImageOpacity ?? 68);
       setSeriesBackgroundSourceUrl("");
       await loadSeries(seriesSearch);
       setMessage("Fondo importado al hosting y guardado.");
@@ -776,6 +781,7 @@ export function AdminSeriesPanel() {
       const nextDetail = data.series as AdminSeriesDetail;
       setDetail(nextDetail);
       setSeriesBackgroundUrl(data.backgroundImageUrl ?? nextDetail.series.backgroundImageUrl ?? "");
+      setSeriesBackgroundOpacity(nextDetail.series.backgroundImageOpacity ?? 68);
       await loadSeries(seriesSearch);
       setMessage("Fondo subido al hosting y guardado.");
     } catch {
@@ -938,11 +944,16 @@ export function AdminSeriesPanel() {
                   description="Se muestra solo dentro del bloque principal de la saga. Puedes pegar una URL, importarla al hosting o subir una imagen desde tu Mac."
                 />
                 {seriesBackgroundUrl ? (
-                  <div
-                    className="mb-4 min-h-36 overflow-hidden rounded-3xl border border-border bg-cover bg-center p-4"
-                    style={{ backgroundImage: `url(${seriesBackgroundUrl})` }}
-                  >
-                    <div className="inline-flex rounded-2xl bg-background/80 px-3 py-2 text-xs font-semibold text-foreground shadow-sm backdrop-blur">
+                  <div className="relative mb-4 min-h-36 overflow-hidden rounded-3xl border border-border p-4">
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-cover bg-center"
+                      style={{
+                        backgroundImage: `url(${seriesBackgroundUrl})`,
+                        opacity: seriesBackgroundOpacity / 100,
+                      }}
+                    />
+                    <div className="relative inline-flex rounded-2xl bg-background/80 px-3 py-2 text-xs font-semibold text-foreground shadow-sm backdrop-blur">
                       Fondo actual cargado
                     </div>
                   </div>
@@ -968,9 +979,42 @@ export function AdminSeriesPanel() {
                       disabled={saving || seriesBackgroundUploading}
                       onClick={() => void saveSeriesBackgroundUrl()}
                     >
-                      Guardar URL
+                      Guardar fondo
                     </button>
                   </div>
+                </div>
+                <div className="mt-3 rounded-2xl border border-border bg-background/50 p-3">
+                  <div className="mb-2 flex flex-wrap items-center justify-between gap-3">
+                    <span className="text-[10px] uppercase tracking-wider text-muted">
+                      Intensidad de imagen
+                    </span>
+                    <label className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                      <input
+                        className="input w-24 px-3 py-2 text-center"
+                        type="number"
+                        min={1}
+                        max={100}
+                        value={seriesBackgroundOpacity}
+                        onChange={(event) =>
+                          setSeriesBackgroundOpacity(
+                            Math.min(100, Math.max(1, Number(event.target.value) || 1)),
+                          )
+                        }
+                      />
+                      %
+                    </label>
+                  </div>
+                  <input
+                    className="w-full accent-amber-500"
+                    type="range"
+                    min={1}
+                    max={100}
+                    value={seriesBackgroundOpacity}
+                    onChange={(event) => setSeriesBackgroundOpacity(Number(event.target.value))}
+                  />
+                  <p className="mt-2 text-xs text-muted">
+                    Base recomendada: 68%. Sube si queda apagada; baja si tapa el texto.
+                  </p>
                 </div>
                 <div className="mt-3 grid gap-3 lg:grid-cols-[1fr_auto]">
                   <label className="block space-y-1">

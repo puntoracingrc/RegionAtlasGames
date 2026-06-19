@@ -10,10 +10,13 @@ function roleLabel(role: "developer" | "publisher" | "both"): string {
 export function SeriesProfilePanel({
   profile,
   backgroundImage,
+  backgroundOpacity = 68,
 }: {
   profile: SeriesProfile;
   backgroundImage?: string | null;
+  backgroundOpacity?: number | null;
 }) {
+  const opacity = Math.min(100, Math.max(1, Math.round(backgroundOpacity ?? 68))) / 100;
   const yearRange =
     profile.firstYear && profile.latestYear && profile.firstYear !== profile.latestYear
       ? `${profile.firstYear}–${profile.latestYear}`
@@ -28,16 +31,16 @@ export function SeriesProfilePanel({
           <>
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-cover bg-center opacity-35"
-              style={{ backgroundImage: `url(${backgroundImage})` }}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${backgroundImage})`, opacity }}
             />
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-r from-card via-card/88 to-card/58"
+              className="absolute inset-0 bg-gradient-to-r from-card/75 via-card/52 to-card/20"
             />
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-card/35"
+              className="absolute inset-0 bg-gradient-to-t from-card/62 via-transparent to-card/20"
             />
           </>
         ) : null}

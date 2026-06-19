@@ -30,12 +30,14 @@ const ADMIN_SERIES_OVERLAY_FILE = path.join(
   "series-overlay.json",
 );
 const ADMIN_SERIES_OVERLAY_PATH = "region-atlas/admin/series-overlay.json";
+export const DEFAULT_SERIES_BACKGROUND_OPACITY = 68;
 
 type AdminSeriesOverlayEntry = {
   slug: string;
   name: string;
   description?: string;
   backgroundImageUrl?: string;
+  backgroundImageOpacity?: number;
   gameIds?: string[];
   additions?: string[];
   removals?: string[];
@@ -63,6 +65,7 @@ export type AdminSeriesRow = {
   gameCount: number;
   description?: string | null;
   backgroundImageUrl?: string | null;
+  backgroundImageOpacity?: number | null;
 };
 
 export type AdminSeriesGameRow = {
@@ -279,6 +282,11 @@ function normalizeOptionalUrl(value: string | null | undefined): string | null {
   return null;
 }
 
+function normalizeBackgroundOpacity(value: number | null | undefined): number | null {
+  if (typeof value !== "number" || !Number.isFinite(value)) return null;
+  return Math.min(100, Math.max(1, Math.round(value)));
+}
+
 function normalizeLooseSearch(raw: string): string {
   return raw
     .trim()
@@ -425,6 +433,9 @@ function effectiveSeriesEntry(
     gameCount: gameIds.length,
     description: dedupeSeriesDescription(overlayEntry?.description ?? staticEntry?.description),
     backgroundImageUrl: normalizeOptionalUrl(overlayEntry?.backgroundImageUrl ?? staticEntry?.backgroundImageUrl),
+    backgroundImageOpacity: normalizeBackgroundOpacity(
+      overlayEntry?.backgroundImageOpacity ?? staticEntry?.backgroundImageOpacity,
+    ),
     active: staticEntry?.active,
   };
 }
@@ -454,6 +465,7 @@ function toSeriesRow(entry: IndexEntry, catalog: CatalogGame[]): AdminSeriesRow 
     gameCount: resolved.gameCount,
     description: resolved.description ?? null,
     backgroundImageUrl: resolved.backgroundImageUrl ?? null,
+    backgroundImageOpacity: resolved.backgroundImageOpacity ?? null,
   };
 }
 
@@ -656,6 +668,7 @@ export async function updateAdminSeriesDescription(
 export async function updateAdminSeriesBackground(
   slug: string,
   backgroundImageUrl: string | null,
+  backgroundImageOpacity?: number | null,
 ): Promise<{ series: AdminSeriesDetail } | { error: string }> {
   const normalizedSlug = normalizeSlug(slug);
   const index = loadSeriesIndex();
@@ -666,6 +679,10 @@ export async function updateAdminSeriesBackground(
   const normalizedUrl = normalizeOptionalUrl(backgroundImageUrl);
   if (backgroundImageUrl?.trim() && !normalizedUrl) {
     return { error: "URL de fondo inválida." };
+  }
+  const normalizedOpacity = normalizeBackgroundOpacity(backgroundImageOpacity);
+  if (backgroundImageOpacity !== undefined && backgroundImageOpacity !== null && !normalizedOpacity) {
+    return { error: "Porcentaje de fondo inválido." };
   }
 
   const existing = overlay.series[normalizedSlug] ?? {
@@ -678,6 +695,9 @@ export async function updateAdminSeriesBackground(
     slug: normalizedSlug,
     name: existing.name || current.name,
     backgroundImageUrl: normalizedUrl ?? undefined,
+    backgroundImageOpacity: normalizedUrl
+      ? (normalizedOpacity ?? existing.backgroundImageOpacity ?? DEFAULT_SERIES_BACKGROUND_OPACITY)
+      : undefined,
   };
   await writeAdminSeriesOverlay(overlay);
   const series = await getAdminSeries(normalizedSlug);

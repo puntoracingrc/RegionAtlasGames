@@ -4,7 +4,10 @@ import {
   downloadAndUploadSagaBackgroundToCdn,
   uploadSagaBackgroundToCdn,
 } from "@/lib/covers-upload";
-import { updateAdminSeriesBackground } from "@/lib/admin-series-manager";
+import {
+  DEFAULT_SERIES_BACKGROUND_OPACITY,
+  updateAdminSeriesBackground,
+} from "@/lib/admin-series-manager";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -41,7 +44,11 @@ export async function POST(req: Request, { params }: Props) {
     return NextResponse.json({ error: uploaded.error }, { status: 400 });
   }
 
-  const result = await updateAdminSeriesBackground(slug, uploaded.backgroundImageUrl);
+  const result = await updateAdminSeriesBackground(
+    slug,
+    uploaded.backgroundImageUrl,
+    DEFAULT_SERIES_BACKGROUND_OPACITY,
+  );
   if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
 
   return NextResponse.json({
