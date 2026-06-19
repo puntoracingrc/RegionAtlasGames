@@ -8,10 +8,7 @@ import urllib.parse
 import urllib.request
 from typing import Any
 
-from collectors.common import build_search_query, normalize_query
-from collectors import platform_sources as ps
-
-from collectors.common import build_search_query, normalize_query
+from collectors.common import build_search_queries, build_search_query, normalize_query
 from collectors import platform_sources as ps
 
 CEX_BASE = "https://es.webuy.com"
@@ -152,12 +149,24 @@ def fetch_game_products(
     max_pages: int | None = None,
     delay_s: float = 0.35,
 ) -> list[dict[str, Any]]:
-    return fetch_search_products(
-        build_cex_search_query(game),
-        settings=settings,
-        max_pages=max_pages,
-        delay_s=delay_s,
-    )
+    seen: set[str] = set()
+    products: list[dict[str, Any]] = []
+    for query in build_search_queries(game):
+        for product in fetch_search_products(
+            query,
+            settings=settings,
+            max_pages=max_pages,
+            delay_s=delay_s,
+        ):
+            key = str(product.get("boxId") or product.get("productUrl") or "")
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            product["searchQuery"] = query
+            products.append(product)
+        if products:
+            break
+    return products
 
 
 def search_category_page(

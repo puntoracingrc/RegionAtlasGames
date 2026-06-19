@@ -10,7 +10,7 @@ import urllib.request
 from html import unescape
 from typing import Any
 
-from collectors.common import build_search_query, normalize_query
+from collectors.common import build_search_queries, build_search_query, normalize_query
 from collectors import platform_sources as ps
 
 TC_BASE = "https://www.todocoleccion.net"
@@ -247,11 +247,19 @@ def fetch_game_products(
     max_pages: int | None = DEFAULT_GAME_SEARCH_MAX_PAGES,
     delay_s: float = 0.45,
 ) -> list[dict[str, Any]]:
-    return fetch_advanced_search_products(
-        build_tc_search_query(game),
-        max_pages=max_pages,
-        delay_s=delay_s,
-    )
+    seen: set[str] = set()
+    products: list[dict[str, Any]] = []
+    for query in build_search_queries(game):
+        for product in fetch_advanced_search_products(query, max_pages=max_pages, delay_s=delay_s):
+            key = str(product.get("externalId") or product.get("productUrl") or "")
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            product["searchQuery"] = query
+            products.append(product)
+        if products:
+            break
+    return products
 
 
 def category_url(category_slug: str, page: int = 1) -> str:

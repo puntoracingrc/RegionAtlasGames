@@ -124,6 +124,13 @@ def platform_search_keyword(platform_slug: str) -> str:
     return search_keyword(slug)
 
 
+def platform_search_aliases(platform_slug: str) -> list[str]:
+    slug = platform_slug.strip().lower()
+    from collectors.platform_sources import search_aliases
+
+    return search_aliases(slug)
+
+
 def build_search_query(game: dict[str, Any], platform: dict[str, Any] | None = None) -> str:
     """Título + plataforma. Ej.: «Batman Arkham Knight ps4», «Sonic megadrive»."""
     parts = [str(game.get("title") or "").strip()]
@@ -134,6 +141,34 @@ def build_search_query(game: dict[str, Any], platform: dict[str, Any] | None = N
     if platform_kw:
         parts.append(platform_kw)
     return normalize_query(" ".join(p for p in parts if p))
+
+
+def build_search_queries(
+    game: dict[str, Any],
+    platform: dict[str, Any] | None = None,
+    *,
+    include_title_only: bool = True,
+) -> list[str]:
+    title = str(game.get("title") or "").strip()
+    platform_slug = str(game.get("platformSlug") or "").strip()
+    if not platform_slug and platform:
+        platform_slug = str(platform.get("slug") or "").strip()
+
+    queries: list[str] = []
+    for alias in platform_search_aliases(platform_slug):
+        queries.append(normalize_query(" ".join(p for p in (title, alias) if p)))
+    if include_title_only:
+        queries.append(normalize_query(title))
+
+    clean: list[str] = []
+    seen: set[str] = set()
+    for query in queries:
+        key = query.lower()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        clean.append(query)
+    return clean
 
 
 def build_ebay_search_query(game: dict[str, Any], platform: dict[str, Any] | None = None) -> str:

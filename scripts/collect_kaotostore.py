@@ -90,7 +90,6 @@ def collect_game_rows(
         row = product_to_ingest_row(product, str(matched_game["id"]), **match_row_kwargs(result))
         if not row:
             return None
-        row["matchMethod"] = "search"
         return row
 
     stats = run_match_pipeline(

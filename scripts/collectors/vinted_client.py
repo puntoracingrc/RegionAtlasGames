@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from http.cookiejar import CookieJar
 from typing import Any
 
-from collectors.common import build_search_query, load_platforms, normalize_query
+from collectors.common import build_search_queries, build_search_query, load_platforms, normalize_query
 
 VINTED_BASE = "https://www.vinted.es"
 VINTED_API = f"{VINTED_BASE}/api/v2/catalog/items"
@@ -257,13 +257,25 @@ def fetch_game_products(
     max_pages: int | None = DEFAULT_GAME_SEARCH_MAX_PAGES,
     delay_s: float = 0.35,
 ) -> list[dict[str, Any]]:
-    return fetch_search_products(
-        build_vinted_search_query(game),
-        session,
-        max_pages=max_pages,
-        delay_s=delay_s,
-        order=DEFAULT_ORDER,
-    )
+    seen: set[str] = set()
+    products: list[dict[str, Any]] = []
+    for query in build_search_queries(game):
+        for product in fetch_search_products(
+            query,
+            session,
+            max_pages=max_pages,
+            delay_s=delay_s,
+            order=DEFAULT_ORDER,
+        ):
+            key = str(product.get("externalId") or product.get("productUrl") or "")
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            product["searchQuery"] = query
+            products.append(product)
+        if products:
+            break
+    return products
 
 
 __all__ = [

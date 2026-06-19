@@ -9,7 +9,7 @@ import urllib.parse
 import urllib.request
 from typing import Any
 
-from collectors.common import build_search_query, normalize_query
+from collectors.common import build_search_queries, build_search_query, normalize_query
 from collectors import platform_sources as ps
 
 JGO_BASE = "https://japangameonline.com"
@@ -142,11 +142,19 @@ def fetch_game_products(
     max_pages: int | None = DEFAULT_GAME_SEARCH_MAX_PAGES,
     delay_s: float = 0.25,
 ) -> list[dict[str, Any]]:
-    return fetch_search_products(
-        build_jgo_search_query(game),
-        max_pages=max_pages,
-        delay_s=delay_s,
-    )
+    seen: set[str] = set()
+    products: list[dict[str, Any]] = []
+    for query in build_search_queries(game):
+        for product in fetch_search_products(query, max_pages=max_pages, delay_s=delay_s):
+            key = str(product.get("id") or product.get("permalink") or product.get("slug") or "")
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            product["searchQuery"] = query
+            products.append(product)
+        if products:
+            break
+    return products
 
 
 def fetch_products_for_categories(

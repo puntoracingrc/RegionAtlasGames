@@ -47,6 +47,24 @@ def search_keyword(platform_slug: str) -> str:
     return str(cfg.get("searchKeyword") or platform_slug).strip() or platform_slug
 
 
+def search_aliases(platform_slug: str) -> list[str]:
+    cfg = platform_config(platform_slug)
+    aliases: list[str] = []
+    primary = str(cfg.get("searchKeyword") or platform_slug).strip()
+    if primary:
+        aliases.append(primary)
+    aliases.extend(_as_list(cfg.get("searchAliases")))
+    clean: list[str] = []
+    seen: set[str] = set()
+    for alias in aliases:
+        key = alias.strip().lower()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        clean.append(alias.strip())
+    return clean
+
+
 def ebay_search_keyword(platform_slug: str) -> str:
     """Keyword de consola en queries eBay (p. ej. «neo geo aes» en lugar de «neogeo»)."""
     cfg = platform_config(platform_slug)
@@ -278,6 +296,7 @@ __all__ = [
     "platform_config",
     "ps_platform_slugs",
     "search_keyword",
+    "search_aliases",
     "serialstation_console",
     "tc_category_slugs",
     "tc_legacy_search_query",

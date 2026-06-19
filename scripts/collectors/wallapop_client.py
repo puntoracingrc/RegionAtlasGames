@@ -12,7 +12,7 @@ import urllib.request
 from datetime import datetime, timezone
 from typing import Any
 
-from collectors.common import load_platforms, normalize_query, build_search_query
+from collectors.common import build_search_queries, load_platforms, normalize_query, build_search_query
 from collectors.listing_recency import (
     is_recent_listing,
     wallapop_listing_age_days,
@@ -261,8 +261,19 @@ def fetch_game_products(
     max_pages: int | None = None,
     delay_s: float = 0.35,
 ) -> list[dict[str, Any]]:
-    query = build_wallapop_query(game)
-    return fetch_query_products(query, max_pages=max_pages, delay_s=delay_s)
+    seen: set[str] = set()
+    products: list[dict[str, Any]] = []
+    for query in build_search_queries(game):
+        for product in fetch_query_products(query, max_pages=max_pages, delay_s=delay_s):
+            key = str(product.get("externalId") or product.get("productUrl") or "")
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            product["searchQuery"] = query
+            products.append(product)
+        if products:
+            break
+    return products
 
 
 __all__ = [

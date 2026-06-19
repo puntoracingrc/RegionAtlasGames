@@ -154,6 +154,7 @@ def classify_region_from_cover(
         ]
     )
 
+    cached: dict[str, Any] | None = None
     if use_cache:
         cached_path = _cache_file(key)
         if cached_path.exists():

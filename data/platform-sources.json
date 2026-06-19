@@ -286,6 +286,12 @@
       "jgo": [
         "neo-geo-pocket",
         "ngp-games"
+      ],
+      "searchAliases": [
+        "neo geo pocket",
+        "neo geo pocket color",
+        "ngpc",
+        "ngp"
       ]
     },
     "ps1": {

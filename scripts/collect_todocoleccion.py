@@ -83,7 +83,6 @@ def collect_game_rows(
         )
         if not row:
             return None
-        row["matchMethod"] = "search"
         return row
 
     stats = run_match_pipeline(
