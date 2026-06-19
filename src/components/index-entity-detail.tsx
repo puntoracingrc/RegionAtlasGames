@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EntityBrowser } from "@/components/catalog-browser";
 import { IndexEntityHeader } from "@/components/index-entity-header";
@@ -31,20 +30,15 @@ export async function IndexEntityDetail({ kind, slug }: { kind: IndexKind; slug:
   const games = summary.games.map(toCatalogListGame);
   const seriesProfile = kind === "series" ? buildSeriesProfile(summary.entry, summary.games) : null;
   const seriesBackgroundImage =
-    kind === "series" ? SERIES_BACKGROUND_IMAGES[summary.entry.slug] ?? null : null;
+    kind === "series"
+      ? summary.entry.backgroundImageUrl ?? SERIES_BACKGROUND_IMAGES[summary.entry.slug] ?? null
+      : null;
 
   const content = (
     <>
-      {kind === "series" && (
-        <div className="mb-4 flex justify-end">
-          <Link href="/admin/entidades?tab=series" className="btn-secondary">
-            Editar sagas
-          </Link>
-        </div>
-      )}
       <IndexEntityHeader summary={summary} />
       {seriesProfile && <SagaMascotWelcome profile={seriesProfile} compact />}
-      {seriesProfile && <SeriesProfilePanel profile={seriesProfile} />}
+      {seriesProfile && <SeriesProfilePanel profile={seriesProfile} backgroundImage={seriesBackgroundImage} />}
       <div id="saga-games" />
       <EntityBrowser
         games={games}
@@ -59,26 +53,7 @@ export async function IndexEntityDetail({ kind, slug }: { kind: IndexKind; slug:
     <>
       <SiteNav />
       <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
-        {seriesBackgroundImage ? (
-          <section className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/80 p-4 shadow-2xl shadow-black/30 md:p-6">
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 scale-[1.02] bg-cover bg-center opacity-45 blur-[1px]"
-              style={{ backgroundImage: `url(${seriesBackgroundImage})` }}
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-b from-background/55 via-background/78 to-background"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(255,255,255,0.12),transparent_32%),radial-gradient(circle_at_78%_12%,rgba(56,189,248,0.16),transparent_28%)]"
-            />
-            <div className="saga-immersive relative">{content}</div>
-          </section>
-        ) : (
-          content
-        )}
+        {content}
       </main>
     </>
   );

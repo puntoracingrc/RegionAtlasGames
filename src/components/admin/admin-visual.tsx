@@ -4,6 +4,7 @@ export type AdminVisualTone =
   | "neutral"
   | "search"
   | "edit"
+  | "media"
   | "ai"
   | "bulk"
   | "status"
@@ -13,6 +14,7 @@ const toneStyles: Record<AdminVisualTone, string> = {
   neutral: "border-border bg-background/45",
   search: "border-sky-300/60 bg-sky-100/45 dark:border-sky-400/30 dark:bg-sky-950/20",
   edit: "border-amber-300/70 bg-amber-100/45 dark:border-amber-400/30 dark:bg-amber-950/20",
+  media: "border-cyan-300/60 bg-cyan-100/45 dark:border-cyan-400/30 dark:bg-cyan-950/20",
   ai: "border-violet-300/60 bg-violet-100/45 dark:border-violet-400/30 dark:bg-violet-950/20",
   bulk: "border-indigo-300/60 bg-indigo-100/45 dark:border-indigo-400/30 dark:bg-indigo-950/20",
   status: "border-emerald-300/70 bg-emerald-100/55 dark:border-emerald-400/30 dark:bg-emerald-950/30",
@@ -23,6 +25,7 @@ const labelStyles: Record<AdminVisualTone, string> = {
   neutral: "text-muted",
   search: "text-sky-800 dark:text-sky-200",
   edit: "text-amber-800 dark:text-amber-200",
+  media: "text-cyan-800 dark:text-cyan-200",
   ai: "text-violet-800 dark:text-violet-200",
   bulk: "text-indigo-800 dark:text-indigo-200",
   status: "text-emerald-800 dark:text-emerald-200",

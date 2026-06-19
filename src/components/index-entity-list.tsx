@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { IndexGrid } from "@/components/index-grid";
 import { SiteNav } from "@/components/site-nav";
 import { listPublicSeriesIndexEntries } from "@/lib/admin-series-manager";
@@ -28,16 +27,9 @@ export async function IndexEntityList({ kind }: { kind: IndexKind }) {
       <SiteNav />
       <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
         <header className="mb-8 space-y-3">
-          <div className="flex flex-wrap items-start justify-between gap-3">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold text-foreground">{meta.listTitle}</h1>
-              <p className="max-w-2xl text-muted">{indexListIntro(kind)}</p>
-            </div>
-            {kind === "series" && (
-              <Link href="/admin/entidades?tab=series" className="btn-secondary">
-                Editar sagas
-              </Link>
-            )}
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold text-foreground">{meta.listTitle}</h1>
+            <p className="max-w-2xl text-muted">{indexListIntro(kind)}</p>
           </div>
           {kind === "series" && (
             <p className="max-w-3xl text-sm leading-6 text-muted">

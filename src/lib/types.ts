@@ -116,6 +116,7 @@ export type IndexEntry = {
   byPlatform: Record<string, number>;
   gameCount: number;
   description?: string | null;
+  backgroundImageUrl?: string | null;
   active?: boolean;
   asDeveloper?: string[];
   asPublisher?: string[];

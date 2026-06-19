@@ -367,9 +367,12 @@ export function AdminSeriesPanel() {
   const [selectedFacets, setSelectedFacets] = useState<string[]>([]);
   const [labelPickerKind, setLabelPickerKind] = useState<LabelPickerKind | null>(null);
   const [seriesDescription, setSeriesDescription] = useState("");
+  const [seriesBackgroundUrl, setSeriesBackgroundUrl] = useState("");
+  const [seriesBackgroundSourceUrl, setSeriesBackgroundSourceUrl] = useState("");
   const [loadingSeries, setLoadingSeries] = useState(true);
   const [loadingDetail, setLoadingDetail] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [seriesBackgroundUploading, setSeriesBackgroundUploading] = useState(false);
   const [seriesAiRunning, setSeriesAiRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
@@ -535,8 +538,10 @@ export function AdminSeriesPanel() {
       const nextDetail = data.series as AdminSeriesDetail;
       setDetail(nextDetail);
       setSeriesDescription(nextDetail.series.description ?? "");
-        setGenreFilter("");
-        setSelectedGameIds([]);
+      setSeriesBackgroundUrl(nextDetail.series.backgroundImageUrl ?? "");
+      setSeriesBackgroundSourceUrl("");
+      setGenreFilter("");
+      setSelectedGameIds([]);
     } catch {
       setError("Error de red al cargar la saga.");
     } finally {
@@ -647,6 +652,7 @@ export function AdminSeriesPanel() {
       const nextDetail = data.series as AdminSeriesDetail;
       setDetail(nextDetail);
       setSeriesDescription(nextDetail.series.description ?? "");
+      setSeriesBackgroundUrl(nextDetail.series.backgroundImageUrl ?? "");
       await loadSeries(seriesSearch);
       if (body.action === "add-game") {
         setMessage("Juego añadido a la saga.");
@@ -670,6 +676,8 @@ export function AdminSeriesPanel() {
         setSelectedGameIds([]);
       } else if (body.action === "update-description") {
         setMessage("Descripción de saga guardada.");
+      } else if (body.action === "update-background") {
+        setMessage("Fondo de bloque guardado.");
       }
     } catch {
       setError("Error de red al guardar el cambio.");
@@ -708,6 +716,73 @@ export function AdminSeriesPanel() {
       action: "update-description",
       description: seriesDescription,
     });
+  }
+
+  async function saveSeriesBackgroundUrl() {
+    await patchSeries({
+      action: "update-background",
+      backgroundImageUrl: seriesBackgroundUrl,
+    });
+  }
+
+  async function importSeriesBackgroundFromUrl() {
+    if (!selectedSlug || !seriesBackgroundSourceUrl.trim()) return;
+    setSeriesBackgroundUploading(true);
+    setError(null);
+    setMessage(null);
+    try {
+      const res = await fetch(`/api/admin/entities/series/${encodeURIComponent(selectedSlug)}/background`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sourceUrl: seriesBackgroundSourceUrl }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo importar el fondo.");
+        return;
+      }
+      const nextDetail = data.series as AdminSeriesDetail;
+      setDetail(nextDetail);
+      setSeriesBackgroundUrl(data.backgroundImageUrl ?? nextDetail.series.backgroundImageUrl ?? "");
+      setSeriesBackgroundSourceUrl("");
+      await loadSeries(seriesSearch);
+      setMessage("Fondo importado al hosting y guardado.");
+    } catch {
+      setError("Error de red al importar el fondo.");
+    } finally {
+      setSeriesBackgroundUploading(false);
+    }
+  }
+
+  async function uploadSeriesBackgroundFile(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!selectedSlug || !file) return;
+    setSeriesBackgroundUploading(true);
+    setError(null);
+    setMessage(null);
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const res = await fetch(`/api/admin/entities/series/${encodeURIComponent(selectedSlug)}/background`, {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo subir el fondo.");
+        return;
+      }
+      const nextDetail = data.series as AdminSeriesDetail;
+      setDetail(nextDetail);
+      setSeriesBackgroundUrl(data.backgroundImageUrl ?? nextDetail.series.backgroundImageUrl ?? "");
+      await loadSeries(seriesSearch);
+      setMessage("Fondo subido al hosting y guardado.");
+    } catch {
+      setError("Error de red al subir el fondo.");
+    } finally {
+      setSeriesBackgroundUploading(false);
+    }
   }
 
   function hideGameResult(gameId: string) {
@@ -853,6 +928,95 @@ export function AdminSeriesPanel() {
                   >
                     Restaurar actual
                   </button>
+                </div>
+              </AdminFunctionCard>
+
+              <AdminFunctionCard tone="media">
+                <AdminFunctionHeader
+                  tone="media"
+                  title="Fondo del bloque público"
+                  description="Se muestra solo dentro del bloque principal de la saga. Puedes pegar una URL, importarla al hosting o subir una imagen desde tu Mac."
+                />
+                {seriesBackgroundUrl ? (
+                  <div
+                    className="mb-4 min-h-36 overflow-hidden rounded-3xl border border-border bg-cover bg-center p-4"
+                    style={{ backgroundImage: `url(${seriesBackgroundUrl})` }}
+                  >
+                    <div className="inline-flex rounded-2xl bg-background/80 px-3 py-2 text-xs font-semibold text-foreground shadow-sm backdrop-blur">
+                      Fondo actual cargado
+                    </div>
+                  </div>
+                ) : (
+                  <p className="mb-4 rounded-2xl border border-dashed border-border p-4 text-sm text-muted">
+                    Esta saga todavía no tiene fondo propio. Si no guardas uno, solo algunas sagas de prueba usan imagen fija.
+                  </p>
+                )}
+                <div className="grid gap-3 lg:grid-cols-[1fr_auto]">
+                  <label className="block space-y-1">
+                    <span className="text-[10px] uppercase tracking-wider text-muted">URL guardada</span>
+                    <input
+                      className="input"
+                      value={seriesBackgroundUrl}
+                      onChange={(event) => setSeriesBackgroundUrl(event.target.value)}
+                      placeholder="https://... o /saga-backgrounds/..."
+                    />
+                  </label>
+                  <div className="flex items-end">
+                    <button
+                      type="button"
+                      className="btn-primary w-full lg:w-auto"
+                      disabled={saving || seriesBackgroundUploading}
+                      onClick={() => void saveSeriesBackgroundUrl()}
+                    >
+                      Guardar URL
+                    </button>
+                  </div>
+                </div>
+                <div className="mt-3 grid gap-3 lg:grid-cols-[1fr_auto]">
+                  <label className="block space-y-1">
+                    <span className="text-[10px] uppercase tracking-wider text-muted">Importar desde URL al hosting</span>
+                    <input
+                      className="input"
+                      value={seriesBackgroundSourceUrl}
+                      onChange={(event) => setSeriesBackgroundSourceUrl(event.target.value)}
+                      placeholder="URL de imagen externa para descargar y guardar"
+                    />
+                  </label>
+                  <div className="flex items-end">
+                    <button
+                      type="button"
+                      className="btn-secondary w-full lg:w-auto"
+                      disabled={seriesBackgroundUploading || !seriesBackgroundSourceUrl.trim()}
+                      onClick={() => void importSeriesBackgroundFromUrl()}
+                    >
+                      {seriesBackgroundUploading ? "Trabajando…" : "Importar"}
+                    </button>
+                  </div>
+                </div>
+                <div className="mt-3 flex flex-wrap items-center gap-3">
+                  <label className="btn-secondary cursor-pointer">
+                    Subir imagen desde Mac
+                    <input
+                      className="hidden"
+                      type="file"
+                      accept="image/*"
+                      disabled={seriesBackgroundUploading}
+                      onChange={(event) => void uploadSeriesBackgroundFile(event)}
+                    />
+                  </label>
+                  {seriesBackgroundUrl ? (
+                    <button
+                      type="button"
+                      className="rounded-xl border border-rose-300/50 px-4 py-3 text-sm font-semibold text-rose-700 transition hover:bg-rose-500/10 disabled:opacity-50 dark:text-rose-200"
+                      disabled={saving || seriesBackgroundUploading}
+                      onClick={() => {
+                        setSeriesBackgroundUrl("");
+                        void patchSeries({ action: "update-background", backgroundImageUrl: "" });
+                      }}
+                    >
+                      Quitar fondo
+                    </button>
+                  ) : null}
                 </div>
               </AdminFunctionCard>
 

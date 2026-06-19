@@ -7,7 +7,13 @@ function roleLabel(role: "developer" | "publisher" | "both"): string {
   return "Edición";
 }
 
-export function SeriesProfilePanel({ profile }: { profile: SeriesProfile }) {
+export function SeriesProfilePanel({
+  profile,
+  backgroundImage,
+}: {
+  profile: SeriesProfile;
+  backgroundImage?: string | null;
+}) {
   const yearRange =
     profile.firstYear && profile.latestYear && profile.firstYear !== profile.latestYear
       ? `${profile.firstYear}–${profile.latestYear}`
@@ -17,39 +23,58 @@ export function SeriesProfilePanel({ profile }: { profile: SeriesProfile }) {
 
   return (
     <section className="mb-8 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-      <div className="rounded-3xl border border-border bg-card p-5 shadow-sm">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
-          Saga / franquicia
-        </p>
-        <h2 className="mt-2 text-2xl font-black text-foreground">
-          Universo {profile.name}
-        </h2>
-        <p className="mt-3 max-w-4xl text-sm leading-7 text-muted">
-          {profile.description}
-        </p>
+      <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-5 shadow-sm">
+        {backgroundImage ? (
+          <>
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-cover bg-center opacity-35"
+              style={{ backgroundImage: `url(${backgroundImage})` }}
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-r from-card via-card/88 to-card/58"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-card/35"
+            />
+          </>
+        ) : null}
+        <div className="relative">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
+            Saga / franquicia
+          </p>
+          <h2 className="mt-2 text-2xl font-black text-foreground">
+            Universo {profile.name}
+          </h2>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-muted">
+            {profile.description}
+          </p>
 
-        <div className="mt-5 grid gap-3 sm:grid-cols-4">
-          <div className="rounded-2xl border border-border bg-background/60 p-3">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Juegos</p>
-            <p className="mt-1 text-2xl font-black text-foreground">
-              {profile.gameCount.toLocaleString("es-ES")}
-            </p>
-          </div>
-          <div className="rounded-2xl border border-border bg-background/60 p-3">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Periodo</p>
-            <p className="mt-1 text-2xl font-black text-foreground">{yearRange}</p>
-          </div>
-          <div className="rounded-2xl border border-border bg-background/60 p-3">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Plataformas</p>
-            <p className="mt-1 text-2xl font-black text-foreground">
-              {profile.platformCount.toLocaleString("es-ES")}
-            </p>
-          </div>
-          <div className="rounded-2xl border border-border bg-background/60 p-3">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Compañías</p>
-            <p className="mt-1 text-2xl font-black text-foreground">
-              {profile.companyCount.toLocaleString("es-ES")}
-            </p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-4">
+            <div className="rounded-2xl border border-border bg-background/70 p-3 shadow-sm backdrop-blur">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Juegos</p>
+              <p className="mt-1 text-2xl font-black text-foreground">
+                {profile.gameCount.toLocaleString("es-ES")}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-background/70 p-3 shadow-sm backdrop-blur">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Periodo</p>
+              <p className="mt-1 text-2xl font-black text-foreground">{yearRange}</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-background/70 p-3 shadow-sm backdrop-blur">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Plataformas</p>
+              <p className="mt-1 text-2xl font-black text-foreground">
+                {profile.platformCount.toLocaleString("es-ES")}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-background/70 p-3 shadow-sm backdrop-blur">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Compañías</p>
+              <p className="mt-1 text-2xl font-black text-foreground">
+                {profile.companyCount.toLocaleString("es-ES")}
+              </p>
+            </div>
           </div>
         </div>
       </div>

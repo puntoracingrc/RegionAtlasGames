@@ -9,6 +9,7 @@ import { slugify } from "./slug";
 
 const execFileAsync = promisify(execFile);
 const MAX_REMOTE_COVER_BYTES = 12 * 1024 * 1024;
+const MAX_REMOTE_SAGA_BACKGROUND_BYTES = 16 * 1024 * 1024;
 
 type SftpClient = {
   connect(config: Record<string, unknown>): Promise<void>;
@@ -62,12 +63,25 @@ function coverUploadConfig() {
   };
 }
 
-async function uploadSftp(localFile: string, remoteRel: string) {
+function sagaBackgroundRemoteRoot(remoteRoot: string): string {
+  return remoteRoot.replace(/\/covers$/i, "/saga-backgrounds");
+}
+
+function sagaBackgroundPublicBaseUrl(): string {
+  return COVERS_PUBLIC_BASE_URL.replace(/\/covers\/?$/i, "/saga-backgrounds");
+}
+
+function buildSagaBackgroundPublicUrl(slug: string): string {
+  return `${sagaBackgroundPublicBaseUrl()}/${slug}.webp`;
+}
+
+async function uploadSftp(localFile: string, remoteRel: string, remoteRoot?: string) {
   const cfg = coverUploadConfig();
   const mod = (await import("ssh2-sftp-client")) as unknown as { default: new () => SftpClient };
   const client = new mod.default();
-  const remoteDir = path.posix.join(cfg.remoteRoot, path.posix.dirname(remoteRel));
-  const remotePath = path.posix.join(cfg.remoteRoot, remoteRel);
+  const root = remoteRoot ?? cfg.remoteRoot;
+  const remoteDir = path.posix.join(root, path.posix.dirname(remoteRel));
+  const remotePath = path.posix.join(root, remoteRel);
   try {
     await client.connect({
       host: cfg.host,
@@ -81,6 +95,103 @@ async function uploadSftp(localFile: string, remoteRel: string) {
     await client.put(localFile, remotePath);
   } finally {
     await client.end().catch(() => undefined);
+  }
+}
+
+export async function uploadSagaBackgroundToCdn(input: {
+  slug: string;
+  fileBuffer: Buffer;
+  mimeType?: string;
+}): Promise<{ ok: true; backgroundImageUrl: string } | { error: string }> {
+  if (!coversFtpConfigured()) {
+    return { error: "FTP de imágenes no configurado (COVERS_FTP_* en env)." };
+  }
+
+  const slug = slugify(input.slug);
+  if (!slug) return { error: "Slug de saga inválido." };
+
+  const cfg = coverUploadConfig();
+  if (cfg.protocol !== "sftp") {
+    return { error: "La subida de fondos de saga requiere SFTP en este momento." };
+  }
+
+  const tmpDir = path.join(os.tmpdir(), "region-atlas-saga-backgrounds");
+  const tmpFile = path.join(tmpDir, `${slug}-${Date.now()}.webp`);
+
+  try {
+    if (!existsSync(tmpDir)) mkdirSync(tmpDir, { recursive: true });
+    await sharp(input.fileBuffer)
+      .rotate()
+      .resize({ width: 1800, withoutEnlargement: true })
+      .webp({ quality: 82 })
+      .toFile(tmpFile);
+
+    await uploadSftp(tmpFile, `${slug}.webp`, sagaBackgroundRemoteRoot(cfg.remoteRoot));
+    return { ok: true, backgroundImageUrl: buildSagaBackgroundPublicUrl(slug) };
+  } catch (error) {
+    const err = error as Error & { stderr?: string; stdout?: string; code?: number | string };
+    const detail = [err.stderr, err.stdout, err.message].find((value) => value?.trim())?.trim();
+    const message = detail
+      ? `No se pudo subir el fondo de saga al CDN: ${detail.slice(0, 700)}`
+      : "No se pudo subir el fondo de saga al CDN.";
+    return { error: message };
+  } finally {
+    try {
+      unlinkSync(tmpFile);
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
+export async function downloadAndUploadSagaBackgroundToCdn(input: {
+  slug: string;
+  sourceUrl: string;
+}): Promise<{ ok: true; backgroundImageUrl: string } | { error: string }> {
+  const sourceUrl = input.sourceUrl.trim();
+  if (!/^https?:\/\//i.test(sourceUrl)) {
+    return { error: "URL de imagen inválida." };
+  }
+
+  if (!coversFtpConfigured()) {
+    return { error: "FTP de imágenes no configurado (COVERS_FTP_* en env)." };
+  }
+
+  try {
+    const response = await fetch(sourceUrl, {
+      headers: {
+        Accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+        "User-Agent": "RegionAtlasGames/1.0 (+https://www.regionatlas.games)",
+      },
+      redirect: "follow",
+      signal: AbortSignal.timeout(45_000),
+    });
+
+    if (!response.ok) {
+      return { error: `No se pudo descargar la imagen remota (${response.status}).` };
+    }
+
+    const contentLength = Number(response.headers.get("content-length") ?? "0");
+    if (contentLength > MAX_REMOTE_SAGA_BACKGROUND_BYTES) {
+      return { error: "La imagen remota es demasiado grande para importarla." };
+    }
+
+    const arrayBuffer = await response.arrayBuffer();
+    if (arrayBuffer.byteLength > MAX_REMOTE_SAGA_BACKGROUND_BYTES) {
+      return { error: "La imagen remota es demasiado grande para importarla." };
+    }
+    if (arrayBuffer.byteLength < 512) {
+      return { error: "La imagen remota descargada no parece una imagen válida." };
+    }
+
+    return await uploadSagaBackgroundToCdn({
+      slug: input.slug,
+      fileBuffer: Buffer.from(arrayBuffer),
+      mimeType: response.headers.get("content-type") ?? undefined,
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Error desconocido";
+    return { error: `No se pudo importar la imagen remota: ${message.slice(0, 500)}` };
   }
 }
 

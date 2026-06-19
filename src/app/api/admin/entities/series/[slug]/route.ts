@@ -6,6 +6,7 @@ import {
   bulkAssignAdminSeriesFacets,
   getAdminSeries,
   removeGameFromAdminSeries,
+  updateAdminSeriesBackground,
   updateAdminSeriesDescription,
 } from "@/lib/admin-series-manager";
 
@@ -95,6 +96,15 @@ export async function PATCH(req: Request, { params }: Props) {
     const result = await updateAdminSeriesDescription(
       slug,
       typeof body.description === "string" ? body.description : null,
+    );
+    if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
+    return NextResponse.json({ ok: true, series: result.series });
+  }
+
+  if (action === "update-background") {
+    const result = await updateAdminSeriesBackground(
+      slug,
+      typeof body.backgroundImageUrl === "string" ? body.backgroundImageUrl : null,
     );
     if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
     return NextResponse.json({ ok: true, series: result.series });

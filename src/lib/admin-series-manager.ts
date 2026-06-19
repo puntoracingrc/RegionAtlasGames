@@ -35,6 +35,7 @@ type AdminSeriesOverlayEntry = {
   slug: string;
   name: string;
   description?: string;
+  backgroundImageUrl?: string;
   gameIds?: string[];
   additions?: string[];
   removals?: string[];
@@ -61,6 +62,7 @@ export type AdminSeriesRow = {
   name: string;
   gameCount: number;
   description?: string | null;
+  backgroundImageUrl?: string | null;
 };
 
 export type AdminSeriesGameRow = {
@@ -269,6 +271,14 @@ function normalizeSlug(raw: string): string {
   return slugify(raw.trim());
 }
 
+function normalizeOptionalUrl(value: string | null | undefined): string | null {
+  const trimmed = value?.trim();
+  if (!trimmed) return null;
+  if (trimmed.startsWith("/")) return trimmed;
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  return null;
+}
+
 function normalizeLooseSearch(raw: string): string {
   return raw
     .trim()
@@ -414,6 +424,7 @@ function effectiveSeriesEntry(
     byPlatform: staticEntry?.byPlatform ?? {},
     gameCount: gameIds.length,
     description: dedupeSeriesDescription(overlayEntry?.description ?? staticEntry?.description),
+    backgroundImageUrl: normalizeOptionalUrl(overlayEntry?.backgroundImageUrl ?? staticEntry?.backgroundImageUrl),
     active: staticEntry?.active,
   };
 }
@@ -442,6 +453,7 @@ function toSeriesRow(entry: IndexEntry, catalog: CatalogGame[]): AdminSeriesRow 
     name: resolved.name,
     gameCount: resolved.gameCount,
     description: resolved.description ?? null,
+    backgroundImageUrl: resolved.backgroundImageUrl ?? null,
   };
 }
 
@@ -634,6 +646,38 @@ export async function updateAdminSeriesDescription(
     slug: normalizedSlug,
     name: existing.name || current.name,
     description: dedupeSeriesDescription(description) ?? undefined,
+  };
+  await writeAdminSeriesOverlay(overlay);
+  const series = await getAdminSeries(normalizedSlug);
+  if ("error" in series) return series;
+  return { series };
+}
+
+export async function updateAdminSeriesBackground(
+  slug: string,
+  backgroundImageUrl: string | null,
+): Promise<{ series: AdminSeriesDetail } | { error: string }> {
+  const normalizedSlug = normalizeSlug(slug);
+  const index = loadSeriesIndex();
+  const overlay = await readAdminSeriesOverlay();
+  const current = effectiveSeriesEntry(normalizedSlug, index, overlay);
+  if (!current) return { error: "Saga no encontrada." };
+
+  const normalizedUrl = normalizeOptionalUrl(backgroundImageUrl);
+  if (backgroundImageUrl?.trim() && !normalizedUrl) {
+    return { error: "URL de fondo inválida." };
+  }
+
+  const existing = overlay.series[normalizedSlug] ?? {
+    slug: normalizedSlug,
+    name: current.name,
+    gameIds: current.gameIds,
+  };
+  overlay.series[normalizedSlug] = {
+    ...existing,
+    slug: normalizedSlug,
+    name: existing.name || current.name,
+    backgroundImageUrl: normalizedUrl ?? undefined,
   };
   await writeAdminSeriesOverlay(overlay);
   const series = await getAdminSeries(normalizedSlug);
