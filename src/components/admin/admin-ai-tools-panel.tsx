@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { AdminNotice } from "@/components/admin/admin-visual";
+import { AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 
 type PlatformOption = { slug: string; name: string; shortName?: string };
@@ -292,7 +292,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
 
   return (
     <div className="space-y-6">
-      <Panel className="border-violet-300/40 bg-violet-50/40 dark:border-violet-400/20 dark:bg-violet-950/10">
+      <Panel className={adminToneClass("ai")}>
         <PanelTitle eyebrow="IA de fichas">Completar fichas con IA</PanelTitle>
         <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr]">
           <div className="rounded-2xl border border-violet-300/50 bg-violet-100/30 p-4 dark:border-violet-400/20 dark:bg-violet-950/10">
@@ -501,7 +501,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
       ) : null}
 
       {report ? (
-        <Panel className="border-emerald-300/40 bg-emerald-50/40 dark:border-emerald-400/20 dark:bg-emerald-950/10">
+        <Panel className={adminToneClass("status")}>
           <div className="flex flex-wrap items-start justify-between gap-3">
             <PanelTitle eyebrow="Resultado">Lote IA</PanelTitle>
             {(() => {

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type { AdminGameDraft } from "@/lib/admin-draft-types";
 import { recomputeCatalogId } from "@/lib/admin-draft-patch";
@@ -725,7 +726,7 @@ export function AdminGameEditor({
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
       <div className="space-y-6">
-        <Panel>
+        <Panel className={adminToneClass("edit")}>
           <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
             <div>
               <PanelTitle eyebrow={isContributor ? "Edición colaborador" : "Editor"}>Ficha de catálogo</PanelTitle>
@@ -1286,7 +1287,7 @@ export function AdminGameEditor({
       </div>
 
       <aside className="space-y-4">
-        <Panel>
+        <Panel className={adminToneClass("media")}>
           <PanelTitle>Vista previa</PanelTitle>
           <div className="relative mx-auto aspect-[3/4] w-full max-w-[200px] overflow-hidden rounded-lg border border-border bg-card-hover">
             {draft.coverUrl ? (
@@ -1333,7 +1334,7 @@ export function AdminGameEditor({
         </Panel>
 
         {(aiRunning || logs.length > 0) && (
-          <Panel className="border-violet-400/20 bg-violet-500/5">
+          <Panel className={adminToneClass("ai")}>
             <PanelTitle>Actividad IA</PanelTitle>
             <ul className="max-h-64 space-y-1 overflow-y-auto font-mono text-[11px] leading-relaxed">
               {logs.map((line) => (

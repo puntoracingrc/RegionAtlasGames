@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AdminFunctionCard, AdminFunctionHeader, AdminNotice } from "@/components/admin/admin-visual";
+import { AdminFunctionCard, AdminFunctionHeader, AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import taxonomyData from "../../../data/game-facets-taxonomy.json";
 import type {
@@ -806,7 +806,7 @@ export function AdminSeriesPanel() {
   return (
     <div className="grid gap-6 xl:grid-cols-[minmax(280px,360px)_1fr]">
       <div className="space-y-6">
-        <Panel className="border-amber-300/40 bg-amber-50/40 dark:border-amber-400/20 dark:bg-amber-950/10">
+        <Panel className={adminToneClass("edit")}>
           <PanelTitle eyebrow="Sagas">Crear saga</PanelTitle>
           <form onSubmit={createSeries} className="grid gap-3">
             <label className="block space-y-1">
@@ -834,7 +834,7 @@ export function AdminSeriesPanel() {
           </form>
         </Panel>
 
-        <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
+        <Panel className={adminToneClass("search")}>
           <PanelTitle eyebrow="Buscar">Seleccionar saga</PanelTitle>
           <input
             className="input mb-3"
@@ -876,7 +876,7 @@ export function AdminSeriesPanel() {
           <AdminNotice tone="status">{message}</AdminNotice>
         )}
 
-        <Panel>
+        <Panel className={adminToneClass("edit")}>
           {loadingDetail ? (
             <p className="text-sm text-muted">Cargando saga…</p>
           ) : detail ? (

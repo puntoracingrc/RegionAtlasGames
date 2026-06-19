@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AdminNotice } from "@/components/admin/admin-visual";
+import { AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type { AdminSeriesGameRow } from "@/lib/admin-series-manager";
 
@@ -346,7 +346,7 @@ export function AdminBulkGameActionsPanel() {
 
   return (
     <div className="space-y-6">
-      <Panel className="border-indigo-300/40 bg-indigo-50/40 dark:border-indigo-400/20 dark:bg-indigo-950/10">
+      <Panel className={adminToneClass("bulk")}>
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <PanelTitle eyebrow="Acciones masivas">Grupo de trabajo de juegos</PanelTitle>
@@ -369,7 +369,7 @@ export function AdminBulkGameActionsPanel() {
       )}
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(360px,520px)]">
-        <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
+        <Panel className={adminToneClass("search")}>
           <PanelTitle eyebrow="Buscar y filtrar">Encontrar juegos</PanelTitle>
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             <label className="block space-y-1 md:col-span-2 xl:col-span-3">
@@ -473,7 +473,7 @@ export function AdminBulkGameActionsPanel() {
           </div>
         </Panel>
 
-        <Panel className="border-amber-300/40 bg-amber-50/40 dark:border-amber-400/20 dark:bg-amber-950/10">
+        <Panel className={adminToneClass("edit")}>
           <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
             <div>
               <PanelTitle eyebrow="Lista editable">{selection.length} juegos seleccionados</PanelTitle>

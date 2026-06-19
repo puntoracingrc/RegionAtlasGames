@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { AdminNotice, AdminStatTile, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type {
   AdminFacetCoverage,
@@ -164,7 +165,7 @@ export function AdminFacetReviewPanel() {
 
   return (
     <div className="space-y-6">
-      <Panel>
+      <Panel className={adminToneClass("bulk")}>
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <PanelTitle eyebrow="Facetas">Revisión y aplicación</PanelTitle>
@@ -178,42 +179,19 @@ export function AdminFacetReviewPanel() {
         </div>
       </Panel>
 
-      {error && (
-        <div className="rounded-2xl border border-rose-300 bg-rose-100/70 p-4 text-sm text-rose-700 dark:border-rose-400/30 dark:bg-rose-950/40 dark:text-rose-200">
-          {error}
-        </div>
-      )}
-      {message && (
-        <div className="rounded-2xl border border-emerald-300 bg-emerald-100/70 p-4 text-sm text-emerald-700 dark:border-emerald-400/30 dark:bg-emerald-950/40 dark:text-emerald-200">
-          {message}
-        </div>
-      )}
+      {error && <AdminNotice tone="danger">{error}</AdminNotice>}
+      {message && <AdminNotice tone="status">{message}</AdminNotice>}
 
       <div className="grid gap-3 md:grid-cols-5">
-        <Panel>
-          <p className="text-[10px] uppercase tracking-wider text-muted">Subgéneros</p>
-          <p className="mt-1 text-2xl font-bold text-foreground">{percent(summary.withSubgenres, summary.totalGames)}</p>
-        </Panel>
-        <Panel>
-          <p className="text-[10px] uppercase tracking-wider text-muted">Facetas</p>
-          <p className="mt-1 text-2xl font-bold text-foreground">{percent(summary.withFacets, summary.totalGames)}</p>
-        </Panel>
-        <Panel>
-          <p className="text-[10px] uppercase tracking-wider text-muted">Completas</p>
-          <p className="mt-1 text-2xl font-bold text-foreground">{summary.complete.toLocaleString("es-ES")}</p>
-        </Panel>
-        <Panel>
-          <p className="text-[10px] uppercase tracking-wider text-muted">Vacías</p>
-          <p className="mt-1 text-2xl font-bold text-foreground">{summary.empty.toLocaleString("es-ES")}</p>
-        </Panel>
-        <Panel>
-          <p className="text-[10px] uppercase tracking-wider text-muted">Sugerencias</p>
-          <p className="mt-1 text-2xl font-bold text-foreground">{summary.withSuggestions.toLocaleString("es-ES")}</p>
-        </Panel>
+        <AdminStatTile tone="bulk" label="Subgéneros" value={percent(summary.withSubgenres, summary.totalGames)} />
+        <AdminStatTile tone="bulk" label="Facetas" value={percent(summary.withFacets, summary.totalGames)} />
+        <AdminStatTile tone="status" label="Completas" value={summary.complete.toLocaleString("es-ES")} />
+        <AdminStatTile tone="danger" label="Vacías" value={summary.empty.toLocaleString("es-ES")} />
+        <AdminStatTile tone="ai" label="Sugerencias" value={summary.withSuggestions.toLocaleString("es-ES")} />
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)_minmax(320px,0.8fr)]">
-        <Panel>
+        <Panel className={adminToneClass("status")}>
           <PanelTitle eyebrow="Cobertura">Plataformas principales</PanelTitle>
           <div className="space-y-2">
             {coverage.platforms.map((item) => (
@@ -231,7 +209,7 @@ export function AdminFacetReviewPanel() {
           </div>
         </Panel>
 
-        <Panel>
+        <Panel className={adminToneClass("bulk")}>
           <PanelTitle eyebrow="Top">Subgéneros</PanelTitle>
           <div className="flex flex-wrap gap-1.5">
             {coverage.topSubgenres.map((entity) => (
@@ -241,7 +219,7 @@ export function AdminFacetReviewPanel() {
           </div>
         </Panel>
 
-        <Panel>
+        <Panel className={adminToneClass("edit")}>
           <PanelTitle eyebrow="Top">Facetas</PanelTitle>
           <div className="flex flex-wrap gap-1.5">
             {coverage.topFacets.map((entity) => (
@@ -253,7 +231,7 @@ export function AdminFacetReviewPanel() {
       </div>
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(360px,520px)]">
-        <Panel>
+        <Panel className={adminToneClass("search")}>
           <PanelTitle eyebrow="Cola">Juegos para revisar</PanelTitle>
           <div className="grid gap-3 md:grid-cols-[1fr_220px]">
             <label className="block space-y-1">
@@ -335,7 +313,7 @@ export function AdminFacetReviewPanel() {
           </div>
         </Panel>
 
-        <Panel className="xl:sticky xl:top-24 xl:self-start">
+        <Panel className={`${adminToneClass("bulk")} xl:sticky xl:top-24 xl:self-start`}>
           <PanelTitle eyebrow="Aplicar">Selección revisada</PanelTitle>
           <div className="space-y-3">
             <label className="block space-y-1">

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { adminToneClass } from "@/components/admin/admin-visual";
 import { Panel, PanelTitle } from "@/components/ui";
 import {
   AdminSimilarGamesPanel,
@@ -158,7 +159,7 @@ export function AdminNewGameForm({
   const gateActive = showSimilarGate && similarMatches.length > 0;
 
   return (
-    <Panel>
+    <Panel className={adminToneClass("edit")}>
       <PanelTitle eyebrow="Alta manual">
         {contributorMode ? "Nueva ficha para revisión" : "Nuevo juego manual"}
       </PanelTitle>

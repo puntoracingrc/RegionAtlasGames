@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { listCatalogStagingGames } from "@/lib/catalog-staging-storage";
 import { getPlatform } from "@/lib/catalog";
@@ -77,7 +78,7 @@ export default async function AdminQueuePage({ searchParams }: Props) {
   );
 
   return (
-    <Panel>
+    <Panel className={adminToneClass("search")}>
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <PanelTitle eyebrow="Trabajo pendiente">Revisión de fichas ({games.length})</PanelTitle>

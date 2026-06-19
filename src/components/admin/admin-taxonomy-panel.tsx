@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { AdminNotice } from "@/components/admin/admin-visual";
+import { AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type { AdminTaxonomyLevel, AdminTaxonomyNode, AdminTaxonomyTreeNode } from "@/lib/admin-taxonomy";
 
@@ -237,7 +237,7 @@ export function AdminTaxonomyPanel() {
 
   return (
     <div className="space-y-6">
-      <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
+      <Panel className={adminToneClass("search")}>
         <PanelTitle eyebrow="Géneros editoriales">Género principal · Subgénero · Tipo/etiqueta</PanelTitle>
         <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="rounded-2xl border border-sky-300/60 bg-sky-100/35 p-4 dark:border-sky-400/25 dark:bg-sky-950/15">
@@ -342,7 +342,7 @@ export function AdminTaxonomyPanel() {
       {error ? <AdminNotice tone="danger">{error}</AdminNotice> : null}
       {message ? <AdminNotice tone="status">{message}</AdminNotice> : null}
 
-      <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
+      <Panel className={adminToneClass("bulk")}>
         <div className="flex flex-wrap items-end justify-between gap-3">
           <PanelTitle eyebrow="Mapa actual">Árbol de clasificación</PanelTitle>
           <p className="text-xs text-muted">

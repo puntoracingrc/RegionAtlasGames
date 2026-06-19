@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Panel, PanelTitle } from "@/components/ui";
 
 type ContributorRow = {
@@ -92,7 +93,7 @@ export function AdminContributorsPanel() {
 
   return (
     <div className="space-y-6">
-      <Panel>
+      <Panel className={adminToneClass("edit")}>
         <PanelTitle eyebrow="Permisos">Añadir colaborador</PanelTitle>
         <p className="mb-5 max-w-3xl text-sm leading-6 text-muted">
           El usuario debe tener cuenta en la web (mismo email). Podrá crear fichas nuevas y enviarlas
@@ -119,7 +120,7 @@ export function AdminContributorsPanel() {
         </form>
       </Panel>
 
-      <Panel>
+      <Panel className={adminToneClass("status")}>
         <PanelTitle eyebrow="Equipo">Colaboradores ({contributors.length})</PanelTitle>
         {loading ? (
           <p className="text-sm text-muted">Cargando…</p>
@@ -152,8 +153,8 @@ export function AdminContributorsPanel() {
         )}
       </Panel>
 
-      {message && <p className="text-sm text-emerald-600 dark:text-emerald-400">{message}</p>}
-      {error && <p className="text-sm text-rose-600 dark:text-rose-400">{error}</p>}
+      {message && <AdminNotice tone="status">{message}</AdminNotice>}
+      {error && <AdminNotice tone="danger">{error}</AdminNotice>}
     </div>
   );
 }

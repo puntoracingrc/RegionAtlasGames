@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AdminFunctionCard } from "@/components/admin/admin-visual";
+import { AdminFunctionCard, adminToneClass } from "@/components/admin/admin-visual";
 import { Panel, PanelTitle } from "@/components/ui";
 import { getCatalogStagingSummary } from "@/lib/catalog-staging";
 
@@ -89,7 +89,7 @@ export default async function AdminDashboardPage() {
 
   return (
     <div className="space-y-6">
-      <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
+      <Panel className={adminToneClass("search")}>
         <PanelTitle eyebrow="Atajos">Acciones rápidas</PanelTitle>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
           {quickActions.map((action) => (

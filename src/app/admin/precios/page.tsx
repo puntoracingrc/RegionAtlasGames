@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AdminPriceCoverageTable } from "@/components/admin/admin-price-coverage-table";
+import { AdminStatTile, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { getAdminPriceDashboard, type AdminPriceSyncRow } from "@/lib/admin-price-dashboard";
 import {
@@ -136,23 +137,12 @@ export default async function AdminPricesPage({
   return (
     <div className="space-y-6">
       <div className="grid gap-4 lg:grid-cols-3">
-        <Panel className="lg:col-span-2">
+        <Panel className={`${adminToneClass("status")} lg:col-span-2`}>
           <PanelTitle eyebrow="Rotación automática">Estado de recopilación</PanelTitle>
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-2xl border border-border bg-background/45 p-4">
-              <p className="text-[10px] uppercase tracking-wider text-muted">Última sincronización</p>
-              <p className="mt-2 text-lg font-bold text-foreground">{formatDate(dashboard.lastRunAt)}</p>
-            </div>
-            <div className="rounded-2xl border border-border bg-background/45 p-4">
-              <p className="text-[10px] uppercase tracking-wider text-muted">Hoy / ayer</p>
-              <p className="mt-2 text-lg font-bold text-foreground">{freshRows.length}</p>
-              <p className="mt-1 text-xs text-muted">plataformas con actividad registrada</p>
-            </div>
-            <div className="rounded-2xl border border-border bg-background/45 p-4">
-              <p className="text-[10px] uppercase tracking-wider text-muted">Siguiente paso</p>
-              <p className="mt-2 text-lg font-bold text-foreground">{dashboard.nextStep.label}</p>
-              <p className="mt-1 text-xs text-muted">{formatNextRun(dashboard.nextStep.scheduledAt)}</p>
-            </div>
+            <AdminStatTile tone="status" label="Última sincronización" value={formatDate(dashboard.lastRunAt)} />
+            <AdminStatTile tone="status" label="Hoy / ayer" value={freshRows.length} helper="plataformas con actividad registrada" />
+            <AdminStatTile tone="status" label="Siguiente paso" value={dashboard.nextStep.label} helper={formatNextRun(dashboard.nextStep.scheduledAt)} />
           </div>
           {dashboard.nextStep.platforms.length > 1 && (
             <p className="mt-3 text-xs text-muted">
@@ -161,7 +151,7 @@ export default async function AdminPricesPage({
           )}
         </Panel>
 
-        <Panel>
+        <Panel className={adminToneClass("search")}>
           <PanelTitle eyebrow="Lectura rápida">¿Ha corrido hoy?</PanelTitle>
           {freshRows.length > 0 ? (
             <div className="space-y-2 text-sm">
@@ -180,7 +170,7 @@ export default async function AdminPricesPage({
         </Panel>
       </div>
 
-      <Panel>
+        <Panel className={adminToneClass("search")}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <PanelTitle eyebrow="Historial">Últimas plataformas sincronizadas</PanelTitle>
           <Link href="/admin/entidades" className="btn-secondary text-xs">
@@ -231,7 +221,7 @@ export default async function AdminPricesPage({
         </div>
       </Panel>
 
-      <Panel>
+      <Panel className={adminToneClass("bulk")}>
         <div className="mb-4">
           <PanelTitle eyebrow="Cobertura">Estado de precios por plataforma y región</PanelTitle>
           <p className="mt-2 text-sm leading-6 text-muted">
@@ -247,7 +237,7 @@ export default async function AdminPricesPage({
         />
       </Panel>
 
-      <Panel>
+      <Panel className={adminToneClass("status")}>
         <PanelTitle eyebrow="Trabajos manuales">Lanzados desde el admin</PanelTitle>
         {dashboard.manualJobs.length > 0 ? (
           <div className="grid gap-3 md:grid-cols-2">

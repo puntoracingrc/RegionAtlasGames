@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { adminToneClass } from "@/components/admin/admin-visual";
 import { Panel, PanelTitle } from "@/components/ui";
 import { getPhysicalVariant } from "@/lib/physical-variants";
 
@@ -49,7 +50,7 @@ export function AdminCatalogSearchPanel() {
   }, [q]);
 
   return (
-    <Panel>
+    <Panel className={adminToneClass("search")}>
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <PanelTitle eyebrow="Catálogo maestro">Editar juegos publicados</PanelTitle>

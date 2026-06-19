@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 
 type PlatformOption = {
@@ -131,7 +132,7 @@ export function AdminCatalogImportPanel({ platforms, regions }: Props) {
 
   return (
     <div className="space-y-6">
-      <Panel>
+      <Panel className={adminToneClass("bulk")}>
         <PanelTitle eyebrow="Importación catálogo">CSV/Excel → Cola de revisión</PanelTitle>
         <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr]">
           <div className="rounded-2xl border border-border bg-background/45 p-4">
@@ -210,14 +211,10 @@ export function AdminCatalogImportPanel({ platforms, regions }: Props) {
         </div>
       </Panel>
 
-      {error ? (
-        <div className="rounded-2xl border border-rose-300 bg-rose-50 px-4 py-3 text-sm text-rose-700 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-200">
-          {error}
-        </div>
-      ) : null}
+      {error ? <AdminNotice tone="danger">{error}</AdminNotice> : null}
 
       {result ? (
-        <Panel>
+        <Panel className={adminToneClass("status")}>
           <div className="flex flex-wrap items-start justify-between gap-3">
             <PanelTitle eyebrow="Resultado">Importación preparada</PanelTitle>
             <Badge tone={result.stats.queued > 0 ? "green" : "amber"}>

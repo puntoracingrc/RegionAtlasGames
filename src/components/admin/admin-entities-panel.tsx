@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { AdminSeriesPanel } from "@/components/admin/admin-series-panel";
-import { AdminFunctionCard, AdminNotice } from "@/components/admin/admin-visual";
+import { AdminFunctionCard, AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 
 type EntityTab = "platforms" | "companies" | "genres";
@@ -637,7 +637,7 @@ export function AdminEntitiesPanel() {
       </div>
 
       {tab === "platforms" && (
-        <Panel className="border-amber-300/40 bg-amber-50/40 dark:border-amber-400/20 dark:bg-amber-950/10">
+        <Panel className={adminToneClass("edit")}>
           <PanelTitle eyebrow="Alta rápida">Nueva plataforma</PanelTitle>
           <form onSubmit={createPlatform} className="grid max-w-3xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
             <label className="block space-y-1 md:col-span-2">
@@ -701,7 +701,7 @@ export function AdminEntitiesPanel() {
       )}
 
       {tab === "companies" && (
-        <Panel className="border-amber-300/40 bg-amber-50/40 dark:border-amber-400/20 dark:bg-amber-950/10">
+        <Panel className={adminToneClass("edit")}>
           <PanelTitle eyebrow="Alta rápida">Nueva compañía</PanelTitle>
           <form onSubmit={createCompany} className="grid max-w-2xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
             <label className="block space-y-1">
@@ -732,7 +732,7 @@ export function AdminEntitiesPanel() {
       )}
 
       {tab === "genres" && (
-        <Panel className="border-amber-300/40 bg-amber-50/40 dark:border-amber-400/20 dark:bg-amber-950/10">
+        <Panel className={adminToneClass("edit")}>
           <PanelTitle eyebrow="Alta rápida">Nuevo género</PanelTitle>
           <form onSubmit={createGenre} className="grid max-w-2xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
             <label className="block space-y-1">
@@ -765,7 +765,7 @@ export function AdminEntitiesPanel() {
       {tab === "series" && <AdminSeriesPanel />}
 
       {tab !== "series" && (
-      <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
+      <Panel className={adminToneClass("search")}>
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <PanelTitle>
             {tab === "platforms"

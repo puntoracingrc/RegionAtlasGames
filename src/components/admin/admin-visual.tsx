@@ -32,6 +32,14 @@ const labelStyles: Record<AdminVisualTone, string> = {
   danger: "text-rose-800 dark:text-rose-200",
 };
 
+export function adminToneClass(tone: AdminVisualTone): string {
+  return toneStyles[tone];
+}
+
+export function adminToneLabelClass(tone: AdminVisualTone): string {
+  return labelStyles[tone];
+}
+
 export function AdminFunctionCard({
   children,
   tone = "neutral",
@@ -45,6 +53,28 @@ export function AdminFunctionCard({
     <section className={cn("rounded-2xl border p-4", toneStyles[tone], className)}>
       {children}
     </section>
+  );
+}
+
+export function AdminStatTile({
+  label,
+  value,
+  helper,
+  tone = "neutral",
+}: {
+  label: React.ReactNode;
+  value: React.ReactNode;
+  helper?: React.ReactNode;
+  tone?: AdminVisualTone;
+}) {
+  return (
+    <div className={cn("rounded-2xl border p-4", toneStyles[tone])}>
+      <p className={cn("text-[10px] font-semibold uppercase tracking-wider", labelStyles[tone])}>
+        {label}
+      </p>
+      <p className="mt-2 text-2xl font-black tracking-tight text-foreground">{value}</p>
+      {helper ? <p className="mt-1 text-xs leading-5 text-muted">{helper}</p> : null}
+    </div>
   );
 }
 

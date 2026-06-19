@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { adminToneClass } from "@/components/admin/admin-visual";
 import { Panel, PanelTitle } from "@/components/ui";
 import type { AdminPriceFields } from "@/lib/admin-price-patch";
 
@@ -169,7 +170,7 @@ export function AdminGamePricesPanel({ catalogId, initialPrices, updatedAt }: Pr
   }
 
   return (
-    <Panel>
+    <Panel className={adminToneClass("status")}>
       <PanelTitle>Precios</PanelTitle>
       {updatedAt && (
         <p className="mb-4 text-xs text-muted">Última actualización catálogo: {updatedAt}</p>
