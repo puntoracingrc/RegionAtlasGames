@@ -5,7 +5,7 @@ import { companies } from "@/lib/indexes";
 
 type RouteParams = { params: Promise<{ slug: string }> };
 
-const VALID_TARGETS = new Set<AdminCompanyAiTarget>(["history", "logo", "website", "years", "seo"]);
+const VALID_TARGETS = new Set<AdminCompanyAiTarget>(["history", "logo", "website", "years", "relations", "seo"]);
 
 function parseTargets(value: unknown): AdminCompanyAiTarget[] | undefined {
   if (!Array.isArray(value)) return undefined;
@@ -34,6 +34,11 @@ export async function POST(request: Request, { params }: RouteParams) {
     foundedYear?: unknown;
     closedYear?: unknown;
     status?: unknown;
+    parentCompany?: { slug: string; name: string } | null;
+    acquiredByCompany?: { slug: string; name: string } | null;
+    mergedWithCompany?: { slug: string; name: string } | null;
+    predecessorCompany?: { slug: string; name: string } | null;
+    successorCompany?: { slug: string; name: string } | null;
     seoTitle?: unknown;
     seoDescription?: unknown;
     targets?: unknown;
@@ -52,8 +57,17 @@ export async function POST(request: Request, { params }: RouteParams) {
       body.status === "active" || body.status === "defunct" || body.status === "subsidiary" || body.status === "unknown"
         ? body.status
         : "unknown",
+    parentCompany: body.parentCompany ?? null,
+    acquiredByCompany: body.acquiredByCompany ?? null,
+    mergedWithCompany: body.mergedWithCompany ?? null,
+    predecessorCompany: body.predecessorCompany ?? null,
+    successorCompany: body.successorCompany ?? null,
     seoTitle: typeof body.seoTitle === "string" ? body.seoTitle : null,
     seoDescription: typeof body.seoDescription === "string" ? body.seoDescription : null,
+    companyCandidates: Object.values(companies).map((candidate) => ({
+      slug: candidate.slug,
+      name: candidate.name,
+    })),
     targets: parseTargets(body.targets),
   });
 

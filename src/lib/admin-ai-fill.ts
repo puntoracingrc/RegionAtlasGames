@@ -1670,6 +1670,7 @@ export async function* streamAdminAiFill(
     "No copies Wikipedia ni tiendas oficiales, pero tampoco inventes datos. " +
     "No uses textos narrativos de MobyGames como base para traducir, reescribir o parafrasear; de MobyGames solo puedes aprovechar datos factuales estructurados contrastables. " +
     "Usa las fuentes solo como material de consulta: reescribe siempre con tus propias palabras. " +
+    "No uses elogios vacíos o promocionales como 'líder', 'destacado', 'icónico', 'aclamado', 'reconocido', 'emblemático', 'famoso' o 'influyente'; describe hechos concretos con tono editorial neutral. " +
     "Escribe solo con hechos presentes en HECHOS y REFERENCIA. " +
     "No menciones precios de tienda, descuentos ni disponibilidad comercial actual; Region Atlas separa descripción y precios. " +
     "Si la fecha de lanzamiento ya pasó respecto a FECHA_ACTUAL, usa pasado ('se lanzó'), nunca futuro ('se lanzará'). " +

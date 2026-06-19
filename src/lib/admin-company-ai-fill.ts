@@ -1,8 +1,9 @@
 import { listedCatalog } from "./catalog";
 import { missingOpenAiMessage, openAiConfigured, openAiJson } from "./admin-ai-fill";
 import { getGameDetails } from "./indexes";
+import type { CompanyRelation } from "./types";
 
-export type AdminCompanyAiTarget = "history" | "logo" | "website" | "years" | "seo";
+export type AdminCompanyAiTarget = "history" | "logo" | "website" | "years" | "relations" | "seo";
 
 export type AdminCompanyAiInput = {
   slug: string;
@@ -14,8 +15,14 @@ export type AdminCompanyAiInput = {
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: "active" | "defunct" | "subsidiary" | "unknown";
+  parentCompany?: CompanyRelation | null;
+  acquiredByCompany?: CompanyRelation | null;
+  mergedWithCompany?: CompanyRelation | null;
+  predecessorCompany?: CompanyRelation | null;
+  successorCompany?: CompanyRelation | null;
   seoTitle?: string | null;
   seoDescription?: string | null;
+  companyCandidates?: CompanyRelation[];
   targets?: AdminCompanyAiTarget[];
 };
 
@@ -26,6 +33,11 @@ export type AdminCompanyAiPatch = {
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: "active" | "defunct" | "subsidiary" | "unknown";
+  parentCompany?: CompanyRelation | null;
+  acquiredByCompany?: CompanyRelation | null;
+  mergedWithCompany?: CompanyRelation | null;
+  predecessorCompany?: CompanyRelation | null;
+  successorCompany?: CompanyRelation | null;
   seoTitle?: string | null;
   seoDescription?: string | null;
 };
@@ -44,6 +56,41 @@ function numberOrNull(value: unknown): number | null {
 
 function statusOrUnknown(value: unknown): AdminCompanyAiPatch["status"] {
   return value === "active" || value === "defunct" || value === "subsidiary" ? value : "unknown";
+}
+
+function normalizeRelationText(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function relationFromAiValue(
+  value: unknown,
+  candidates: CompanyRelation[],
+  currentSlug: string,
+  currentName: string,
+): CompanyRelation | null {
+  if (!value) return null;
+  const raw =
+    typeof value === "string"
+      ? value
+      : typeof value === "object"
+        ? String((value as { slug?: unknown; name?: unknown }).slug ?? (value as { name?: unknown }).name ?? "")
+        : "";
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  const wanted = normalizeRelationText(trimmed);
+  const currentNameKey = normalizeRelationText(currentName);
+  const match = candidates.find((candidate) => {
+    if (candidate.slug === currentSlug) return false;
+    if (normalizeRelationText(candidate.name) === currentNameKey) return false;
+    return normalizeRelationText(candidate.slug) === wanted || normalizeRelationText(candidate.name) === wanted;
+  });
+  return match ? { slug: match.slug, name: match.name } : null;
 }
 
 function firstWikidataStringClaim(entity: WikidataEntity | null, property: string): string | null {
@@ -349,7 +396,7 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
 > {
   if (!openAiConfigured()) return { error: missingOpenAiMessage() };
 
-  const targets = new Set(input.targets?.length ? input.targets : ["history", "logo", "website", "years", "seo"]);
+  const targets = new Set(input.targets?.length ? input.targets : ["history", "logo", "website", "years", "relations", "seo"]);
   const logs = [`Preparando IA para ${input.name}.`];
   const context = companyCatalogContext(input.slug, input.name);
   const reference = await searchWikipediaCompany(input.name).catch(() => null);
@@ -377,6 +424,8 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
     "No uses textos narrativos de MobyGames como base para traducir, reescribir o parafrasear; history debe redactarse desde cero con hechos contrastados y estilo propio de Region Atlas Games. " +
     "Rellena únicamente con datos verificables o inferencias prudentes desde varias señales del contexto. " +
     "No inventes fechas si no tienes seguridad. Detecta fundación, cierre, fusiones, absorciones, compras, cambios de nombre, matriz o sucesora si las fuentes lo indican. " +
+    "Para relaciones corporativas usa solo compañías que existan en el listado de compañías candidatas. Devuelve null si no encuentras una coincidencia clara. " +
+    "parentCompany es empresa matriz actual o más directa; acquiredByCompany es compradora o absorbente; mergedWithCompany es compañía con la que se fusionó; predecessorCompany es entidad anterior directa; successorCompany es nombre/entidad posterior directa. " +
     "foundedYear debe ser el año en que empezó la compañía o marca canónica que estás editando; si una compañía actual nace por fusión, usa el año de esa fusión y menciona las raíces anteriores en history. " +
     "No escribas 'fue fundada en YEAR' usando el año de una predecesora si la entidad actual nació después por fusión, compra o cambio de nombre; formula esas raíces como antecedentes. " +
     "No menciones años de fundación de predecesoras salvo que estén confirmados de forma clara por varias fuentes; si dudas, omite esos años y conserva solo la relación histórica. " +
@@ -385,9 +434,9 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
     "history debe ser texto original en español, útil para una sección pública 'Sobre la compañía'. " +
     "No copies la estructura ni frases exactas de Wikipedia, MobyGames, tiendas, bases de datos ni webs oficiales: resume y reescribe con tus propias palabras para Region Atlas Games. " +
     "Si dos fuentes discrepan, prioriza el dato más concreto e indica en el texto solo lo que esté suficientemente sustentado; si no, omite. " +
-    "Evita elogios vacíos como 'líder', 'destacada', 'actor clave', 'icónica', 'aclamada' o 'reconocida' si no aportan información concreta. " +
+    "No uses elogios vacíos o promocionales como 'líder', 'destacada', 'actor clave', 'icónica', 'aclamada', 'reconocida', 'emblemática', 'famosa' o 'influyente'; usa formulaciones neutrales y concretas. " +
     "seoTitle y seoDescription deben ser naturales, sin keyword stuffing ni adjetivos promocionales. " +
-    'Campos posibles: {"history":string|null,"logoUrl":string|null,"websiteUrl":string|null,"foundedYear":number|null,"closedYear":number|null,"status":"active|defunct|subsidiary|unknown","seoTitle":string|null,"seoDescription":string|null}.';
+    'Campos posibles: {"history":string|null,"logoUrl":string|null,"websiteUrl":string|null,"foundedYear":number|null,"closedYear":number|null,"status":"active|defunct|subsidiary|unknown","parentCompany":"nombre o slug"|null,"acquiredByCompany":"nombre o slug"|null,"mergedWithCompany":"nombre o slug"|null,"predecessorCompany":"nombre o slug"|null,"successorCompany":"nombre o slug"|null,"seoTitle":string|null,"seoDescription":string|null}.';
   const user =
     `Compañía: ${input.name}\nSlug: ${input.slug}\nJuegos en índice: ${input.gameCount}\n` +
     `Campos pedidos: ${Array.from(targets).join(", ")}\n` +
@@ -399,6 +448,11 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
         foundedYear: input.foundedYear,
         closedYear: input.closedYear,
         status: input.status,
+        parentCompany: input.parentCompany,
+        acquiredByCompany: input.acquiredByCompany,
+        mergedWithCompany: input.mergedWithCompany,
+        predecessorCompany: input.predecessorCompany,
+        successorCompany: input.successorCompany,
         seoTitle: input.seoTitle,
         seoDescription: input.seoDescription,
       },
@@ -406,6 +460,10 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
       2,
     )}\n\nReferencia Wikipedia/Wikidata:\n${JSON.stringify(reference, null, 2)}\n\nResultados web SerpAPI:\n${JSON.stringify(
       searchResults,
+      null,
+      2,
+    )}\n\nCompañías candidatas para relaciones:\n${JSON.stringify(
+      (input.companyCandidates ?? []).slice(0, 500),
       null,
       2,
     )}\n\nJuegos relacionados en Region Atlas:\n${context}`;
@@ -433,6 +491,15 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
     patch.closedYear = numberOrNull(parsed.closedYear) ?? reference?.closedYear ?? null;
     patch.status = statusOrUnknown(parsed.status);
     logs.push("Años y estado revisados.");
+  }
+  if (targets.has("relations")) {
+    const candidates = input.companyCandidates ?? [];
+    patch.parentCompany = relationFromAiValue(parsed.parentCompany, candidates, input.slug, input.name);
+    patch.acquiredByCompany = relationFromAiValue(parsed.acquiredByCompany, candidates, input.slug, input.name);
+    patch.mergedWithCompany = relationFromAiValue(parsed.mergedWithCompany, candidates, input.slug, input.name);
+    patch.predecessorCompany = relationFromAiValue(parsed.predecessorCompany, candidates, input.slug, input.name);
+    patch.successorCompany = relationFromAiValue(parsed.successorCompany, candidates, input.slug, input.name);
+    logs.push("Relaciones corporativas revisadas.");
   }
   if (targets.has("seo")) {
     if (typeof parsed.seoTitle === "string" && parsed.seoTitle.trim()) {

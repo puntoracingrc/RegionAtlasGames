@@ -13,6 +13,8 @@ export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
   const relations = [
     view.parentCompany ? { label: "Pertenece a", company: view.parentCompany } : null,
     view.acquiredByCompany ? { label: "Comprada / absorbida por", company: view.acquiredByCompany } : null,
+    view.mergedWithCompany ? { label: "Fusionada con", company: view.mergedWithCompany } : null,
+    view.predecessorCompany ? { label: "Viene de", company: view.predecessorCompany } : null,
     view.successorCompany ? { label: "Se convirtió en", company: view.successorCompany } : null,
   ].filter(Boolean) as { label: string; company: { slug: string; name: string } }[];
 

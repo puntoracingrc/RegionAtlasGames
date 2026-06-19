@@ -234,6 +234,8 @@ async function createOverlayCompany(
     status?: CompanyProfileStatus;
     parentCompany?: CompanyRelation | null;
     acquiredByCompany?: CompanyRelation | null;
+    mergedWithCompany?: CompanyRelation | null;
+    predecessorCompany?: CompanyRelation | null;
     successorCompany?: CompanyRelation | null;
     seoTitle?: string | null;
     seoDescription?: string | null;
@@ -249,12 +251,16 @@ async function createOverlayCompany(
   const status = normalizeCompanyStatus(input.status);
   const parentCompany = normalizeCompanyRelation(input.parentCompany);
   const acquiredByCompany = normalizeCompanyRelation(input.acquiredByCompany);
+  const mergedWithCompany = normalizeCompanyRelation(input.mergedWithCompany);
+  const predecessorCompany = normalizeCompanyRelation(input.predecessorCompany);
   const successorCompany = normalizeCompanyRelation(input.successorCompany);
   if (foundedYear === undefined) return { error: "Año de fundación no válido." };
   if (closedYear === undefined) return { error: "Año de cierre no válido." };
   if (input.status != null && !status) return { error: "Estado de compañía no válido." };
   if (parentCompany === undefined) return { error: "Empresa matriz no válida." };
   if (acquiredByCompany === undefined) return { error: "Compañía compradora no válida." };
+  if (mergedWithCompany === undefined) return { error: "Compañía fusionada no válida." };
+  if (predecessorCompany === undefined) return { error: "Compañía predecesora no válida." };
   if (successorCompany === undefined) return { error: "Compañía sucesora no válida." };
   const overlay = await readAdminEntitiesOverlay();
   if (staticIndex[slug] || overlay.companies[slug]) {
@@ -270,6 +276,8 @@ async function createOverlayCompany(
       ...input,
       parentCompany,
       acquiredByCompany,
+      mergedWithCompany,
+      predecessorCompany,
       successorCompany,
     },
     { foundedYear: foundedYear ?? null, closedYear: closedYear ?? null, status },
@@ -687,6 +695,8 @@ export type AdminCompanyRow = Pick<IndexEntry, "slug" | "name" | "gameCount" | "
   status?: CompanyProfileStatus;
   parentCompany?: CompanyRelation | null;
   acquiredByCompany?: CompanyRelation | null;
+  mergedWithCompany?: CompanyRelation | null;
+  predecessorCompany?: CompanyRelation | null;
   successorCompany?: CompanyRelation | null;
   seoTitle?: string | null;
   seoDescription?: string | null;
@@ -785,6 +795,8 @@ function profileForAdminCompany(
     status: profile?.status ?? "unknown",
     parentCompany: profile?.parentCompany ?? null,
     acquiredByCompany: profile?.acquiredByCompany ?? null,
+    mergedWithCompany: profile?.mergedWithCompany ?? null,
+    predecessorCompany: profile?.predecessorCompany ?? null,
     successorCompany: profile?.successorCompany ?? null,
     seoTitle: profile?.seoMeta?.seoTitle ?? null,
     seoDescription: profile?.seoMeta?.seoDescription ?? null,
@@ -804,6 +816,8 @@ function companyProfileFromInput(
     status?: CompanyProfileStatus;
     parentCompany?: CompanyRelation | null;
     acquiredByCompany?: CompanyRelation | null;
+    mergedWithCompany?: CompanyRelation | null;
+    predecessorCompany?: CompanyRelation | null;
     successorCompany?: CompanyRelation | null;
     seoTitle?: string | null;
     seoDescription?: string | null;
@@ -828,6 +842,10 @@ function companyProfileFromInput(
       input.parentCompany !== undefined ? input.parentCompany : currentProfile?.parentCompany ?? null,
     acquiredByCompany:
       input.acquiredByCompany !== undefined ? input.acquiredByCompany : currentProfile?.acquiredByCompany ?? null,
+    mergedWithCompany:
+      input.mergedWithCompany !== undefined ? input.mergedWithCompany : currentProfile?.mergedWithCompany ?? null,
+    predecessorCompany:
+      input.predecessorCompany !== undefined ? input.predecessorCompany : currentProfile?.predecessorCompany ?? null,
     successorCompany:
       input.successorCompany !== undefined ? input.successorCompany : currentProfile?.successorCompany ?? null,
     seoMeta: {
@@ -976,6 +994,8 @@ export async function createAdminCompany(input: {
   status?: CompanyProfileStatus;
   parentCompany?: CompanyRelation | null;
   acquiredByCompany?: CompanyRelation | null;
+  mergedWithCompany?: CompanyRelation | null;
+  predecessorCompany?: CompanyRelation | null;
   successorCompany?: CompanyRelation | null;
   seoTitle?: string | null;
   seoDescription?: string | null;
@@ -989,12 +1009,16 @@ export async function createAdminCompany(input: {
   const status = normalizeCompanyStatus(input.status);
   const parentCompany = normalizeCompanyRelation(input.parentCompany);
   const acquiredByCompany = normalizeCompanyRelation(input.acquiredByCompany);
+  const mergedWithCompany = normalizeCompanyRelation(input.mergedWithCompany);
+  const predecessorCompany = normalizeCompanyRelation(input.predecessorCompany);
   const successorCompany = normalizeCompanyRelation(input.successorCompany);
   if (foundedYear === undefined) return { error: "Año de fundación no válido." };
   if (closedYear === undefined) return { error: "Año de cierre no válido." };
   if (input.status != null && !status) return { error: "Estado de compañía no válido." };
   if (parentCompany === undefined) return { error: "Empresa matriz no válida." };
   if (acquiredByCompany === undefined) return { error: "Compañía compradora no válida." };
+  if (mergedWithCompany === undefined) return { error: "Compañía fusionada no válida." };
+  if (predecessorCompany === undefined) return { error: "Compañía predecesora no válida." };
   if (successorCompany === undefined) return { error: "Compañía sucesora no válida." };
 
   const index = loadJson<Record<string, IndexEntry>>(COMPANIES_INDEX_FILE, {});
@@ -1044,6 +1068,8 @@ export async function createAdminCompany(input: {
       ...input,
       parentCompany,
       acquiredByCompany,
+      mergedWithCompany,
+      predecessorCompany,
       successorCompany,
     },
     { foundedYear: foundedYear ?? null, closedYear: closedYear ?? null, status },
@@ -1672,6 +1698,8 @@ export async function updateAdminCompany(
     status?: CompanyProfileStatus;
     parentCompany?: CompanyRelation | null;
     acquiredByCompany?: CompanyRelation | null;
+    mergedWithCompany?: CompanyRelation | null;
+    predecessorCompany?: CompanyRelation | null;
     successorCompany?: CompanyRelation | null;
     seoTitle?: string | null;
     seoDescription?: string | null;
@@ -1684,17 +1712,23 @@ export async function updateAdminCompany(
   const status = normalizeCompanyStatus(input.status);
   const parentCompany = normalizeCompanyRelation(input.parentCompany);
   const acquiredByCompany = normalizeCompanyRelation(input.acquiredByCompany);
+  const mergedWithCompany = normalizeCompanyRelation(input.mergedWithCompany);
+  const predecessorCompany = normalizeCompanyRelation(input.predecessorCompany);
   const successorCompany = normalizeCompanyRelation(input.successorCompany);
   if (foundedYear === undefined) return { error: "Año de fundación no válido." };
   if (closedYear === undefined) return { error: "Año de cierre no válido." };
   if (input.status != null && !status) return { error: "Estado de compañía no válido." };
   if (parentCompany === undefined) return { error: "Empresa matriz no válida." };
   if (acquiredByCompany === undefined) return { error: "Compañía compradora no válida." };
+  if (mergedWithCompany === undefined) return { error: "Compañía fusionada no válida." };
+  if (predecessorCompany === undefined) return { error: "Compañía predecesora no válida." };
   if (successorCompany === undefined) return { error: "Compañía sucesora no válida." };
   const relationsInput = {
     ...input,
     ...(input.parentCompany !== undefined ? { parentCompany } : {}),
     ...(input.acquiredByCompany !== undefined ? { acquiredByCompany } : {}),
+    ...(input.mergedWithCompany !== undefined ? { mergedWithCompany } : {}),
+    ...(input.predecessorCompany !== undefined ? { predecessorCompany } : {}),
     ...(input.successorCompany !== undefined ? { successorCompany } : {}),
   };
   if (!canWriteCatalogFiles()) {

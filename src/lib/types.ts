@@ -159,6 +159,8 @@ export type CompanyProfile = {
   status?: CompanyProfileStatus;
   parentCompany?: CompanyRelation | null;
   acquiredByCompany?: CompanyRelation | null;
+  mergedWithCompany?: CompanyRelation | null;
+  predecessorCompany?: CompanyRelation | null;
   successorCompany?: CompanyRelation | null;
   history?: string | null;
   seoMeta?: CompanyProfileSeoMeta | null;

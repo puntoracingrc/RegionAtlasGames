@@ -42,6 +42,8 @@ export type CompanyProfileView = {
   status: CompanyProfile["status"];
   parentCompany: CompanyProfile["parentCompany"] | null;
   acquiredByCompany: CompanyProfile["acquiredByCompany"] | null;
+  mergedWithCompany: CompanyProfile["mergedWithCompany"] | null;
+  predecessorCompany: CompanyProfile["predecessorCompany"] | null;
   successorCompany: CompanyProfile["successorCompany"] | null;
   logoUrl: string | null;
   history: string | null;
@@ -153,6 +155,8 @@ function buildCompanyProfileViewFromProfile(
     status: inferStatus(stored, closedYear),
     parentCompany: stored?.parentCompany ?? null,
     acquiredByCompany: stored?.acquiredByCompany ?? null,
+    mergedWithCompany: stored?.mergedWithCompany ?? null,
+    predecessorCompany: stored?.predecessorCompany ?? null,
     successorCompany: stored?.successorCompany ?? null,
     logoUrl: stored?.logoUrl ?? null,
     history: stored?.history?.trim() || null,

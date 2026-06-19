@@ -33,6 +33,8 @@ type IndexRow = {
   status?: "active" | "defunct" | "subsidiary" | "unknown";
   parentCompany?: CompanyRelation | null;
   acquiredByCompany?: CompanyRelation | null;
+  mergedWithCompany?: CompanyRelation | null;
+  predecessorCompany?: CompanyRelation | null;
   successorCompany?: CompanyRelation | null;
   seoTitle?: string | null;
   seoDescription?: string | null;
@@ -44,7 +46,7 @@ type CompanyRelation = {
 };
 
 type EntitySort = "alpha-asc" | "alpha-desc" | "games-desc" | "games-asc";
-type CompanyAiTarget = "history" | "logo" | "website" | "years" | "seo";
+type CompanyAiTarget = "history" | "logo" | "website" | "years" | "relations" | "seo";
 type EntityMode = "create" | "edit" | "delete";
 
 const tabs: { id: Tab; label: string }[] = [
@@ -185,6 +187,8 @@ export function AdminEntitiesPanel({
   const [editCompanyStatus, setEditCompanyStatus] = useState<"active" | "defunct" | "subsidiary" | "unknown">("unknown");
   const [editParentCompany, setEditParentCompany] = useState("");
   const [editAcquiredByCompany, setEditAcquiredByCompany] = useState("");
+  const [editMergedWithCompany, setEditMergedWithCompany] = useState("");
+  const [editPredecessorCompany, setEditPredecessorCompany] = useState("");
   const [editSuccessorCompany, setEditSuccessorCompany] = useState("");
   const [editCompanySeoTitle, setEditCompanySeoTitle] = useState("");
   const [editCompanySeoDescription, setEditCompanySeoDescription] = useState("");
@@ -220,6 +224,8 @@ export function AdminEntitiesPanel({
   const [companyStatus, setCompanyStatus] = useState<"active" | "defunct" | "subsidiary" | "unknown">("unknown");
   const [companyParent, setCompanyParent] = useState("");
   const [companyAcquiredBy, setCompanyAcquiredBy] = useState("");
+  const [companyMergedWith, setCompanyMergedWith] = useState("");
+  const [companyPredecessor, setCompanyPredecessor] = useState("");
   const [companySuccessor, setCompanySuccessor] = useState("");
   const [companySeoTitle, setCompanySeoTitle] = useState("");
   const [companySeoDescription, setCompanySeoDescription] = useState("");
@@ -368,6 +374,8 @@ export function AdminEntitiesPanel({
           status: companyStatus,
           parentCompany: relationFromInput(companyParent, companySlug || ""),
           acquiredByCompany: relationFromInput(companyAcquiredBy, companySlug || ""),
+          mergedWithCompany: relationFromInput(companyMergedWith, companySlug || ""),
+          predecessorCompany: relationFromInput(companyPredecessor, companySlug || ""),
           successorCompany: relationFromInput(companySuccessor, companySlug || ""),
           seoTitle: companySeoTitle || null,
           seoDescription: companySeoDescription || null,
@@ -388,6 +396,8 @@ export function AdminEntitiesPanel({
       setCompanyStatus("unknown");
       setCompanyParent("");
       setCompanyAcquiredBy("");
+      setCompanyMergedWith("");
+      setCompanyPredecessor("");
       setCompanySuccessor("");
       setCompanySeoTitle("");
       setCompanySeoDescription("");
@@ -538,6 +548,8 @@ export function AdminEntitiesPanel({
     setEditCompanyStatus(row.status ?? "unknown");
     setEditParentCompany(relationInputValue(row.parentCompany));
     setEditAcquiredByCompany(relationInputValue(row.acquiredByCompany));
+    setEditMergedWithCompany(relationInputValue(row.mergedWithCompany));
+    setEditPredecessorCompany(relationInputValue(row.predecessorCompany));
     setEditSuccessorCompany(relationInputValue(row.successorCompany));
     setEditCompanySeoTitle(row.seoTitle ?? "");
     setEditCompanySeoDescription(row.seoDescription ?? "");
@@ -585,6 +597,8 @@ export function AdminEntitiesPanel({
                     status: editCompanyStatus,
                     parentCompany: relationFromInput(editParentCompany, originalSlug),
                     acquiredByCompany: relationFromInput(editAcquiredByCompany, originalSlug),
+                    mergedWithCompany: relationFromInput(editMergedWithCompany, originalSlug),
+                    predecessorCompany: relationFromInput(editPredecessorCompany, originalSlug),
                     successorCompany: relationFromInput(editSuccessorCompany, originalSlug),
                     seoTitle: editCompanySeoTitle,
                     seoDescription: editCompanySeoDescription,
@@ -633,6 +647,11 @@ export function AdminEntitiesPanel({
             foundedYear: editCompanyFoundedYear.trim() ? Number(editCompanyFoundedYear) : null,
             closedYear: editCompanyClosedYear.trim() ? Number(editCompanyClosedYear) : null,
             status: editCompanyStatus,
+            parentCompany: relationFromInput(editParentCompany, originalSlug),
+            acquiredByCompany: relationFromInput(editAcquiredByCompany, originalSlug),
+            mergedWithCompany: relationFromInput(editMergedWithCompany, originalSlug),
+            predecessorCompany: relationFromInput(editPredecessorCompany, originalSlug),
+            successorCompany: relationFromInput(editSuccessorCompany, originalSlug),
             seoTitle: editCompanySeoTitle,
             seoDescription: editCompanySeoDescription,
             targets,
@@ -655,6 +674,11 @@ export function AdminEntitiesPanel({
       if (patch.status === "active" || patch.status === "defunct" || patch.status === "subsidiary" || patch.status === "unknown") {
         setEditCompanyStatus(patch.status);
       }
+      if (patch.parentCompany !== undefined) setEditParentCompany(relationInputValue(patch.parentCompany));
+      if (patch.acquiredByCompany !== undefined) setEditAcquiredByCompany(relationInputValue(patch.acquiredByCompany));
+      if (patch.mergedWithCompany !== undefined) setEditMergedWithCompany(relationInputValue(patch.mergedWithCompany));
+      if (patch.predecessorCompany !== undefined) setEditPredecessorCompany(relationInputValue(patch.predecessorCompany));
+      if (patch.successorCompany !== undefined) setEditSuccessorCompany(relationInputValue(patch.successorCompany));
       if (typeof patch.seoTitle === "string") setEditCompanySeoTitle(patch.seoTitle);
       if (typeof patch.seoDescription === "string") setEditCompanySeoDescription(patch.seoDescription);
       setMessage(`IA aplicada a ${label}. Revisa y guarda.`);
@@ -982,6 +1006,26 @@ export function AdminEntitiesPanel({
                 value={companyAcquiredBy}
                 onChange={(e) => setCompanyAcquiredBy(e.target.value)}
                 placeholder="Compañía compradora / absorbente"
+              />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Fusionada con</span>
+              <input
+                className="input"
+                list="admin-new-company-relation-targets"
+                value={companyMergedWith}
+                onChange={(e) => setCompanyMergedWith(e.target.value)}
+                placeholder="Compañía con la que se fusionó"
+              />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Viene de / predecesora</span>
+              <input
+                className="input"
+                list="admin-new-company-relation-targets"
+                value={companyPredecessor}
+                onChange={(e) => setCompanyPredecessor(e.target.value)}
+                placeholder="Compañía anterior"
               />
             </label>
             <label className="block space-y-1 md:col-span-2">
@@ -1361,7 +1405,15 @@ export function AdminEntitiesPanel({
                       </select>
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-[10px] uppercase tracking-wider text-muted">Pertenece a / empresa matriz</span>
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-[10px] uppercase tracking-wider text-muted">Pertenece a / empresa matriz</span>
+                        <AiMagicButton
+                          label="Buscar relaciones corporativas con IA"
+                          busy={companyAiRunning === "relations"}
+                          disabled={editSaving || Boolean(companyAiRunning)}
+                          onClick={() => void runCompanyAi(company.slug, ["relations"], "relaciones corporativas")}
+                        />
+                      </span>
                       <input
                         className="input"
                         list="admin-company-relation-targets"
@@ -1378,6 +1430,26 @@ export function AdminEntitiesPanel({
                         value={editAcquiredByCompany}
                         onChange={(e) => setEditAcquiredByCompany(e.target.value)}
                         placeholder="Compañía compradora / absorbente"
+                      />
+                    </label>
+                    <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">Fusionada con</span>
+                      <input
+                        className="input"
+                        list="admin-company-relation-targets"
+                        value={editMergedWithCompany}
+                        onChange={(e) => setEditMergedWithCompany(e.target.value)}
+                        placeholder="Compañía con la que se fusionó"
+                      />
+                    </label>
+                    <label className="block space-y-1">
+                      <span className="text-[10px] uppercase tracking-wider text-muted">Viene de / predecesora</span>
+                      <input
+                        className="input"
+                        list="admin-company-relation-targets"
+                        value={editPredecessorCompany}
+                        onChange={(e) => setEditPredecessorCompany(e.target.value)}
+                        placeholder="Compañía anterior"
                       />
                     </label>
                     <label className="block space-y-1 md:col-span-2">
@@ -1503,7 +1575,11 @@ export function AdminEntitiesPanel({
                       <p className="text-xs text-muted">
                         {company.slug} · {company.gameCount} juegos
                       </p>
-                      {(company.parentCompany || company.acquiredByCompany || company.successorCompany) && (
+                      {(company.parentCompany ||
+                        company.acquiredByCompany ||
+                        company.mergedWithCompany ||
+                        company.predecessorCompany ||
+                        company.successorCompany) && (
                         <div className="mt-2 flex flex-wrap gap-2 text-[11px] font-semibold text-muted">
                           {company.parentCompany && (
                             <span className="rounded-full border border-border bg-background/60 px-2 py-1">
@@ -1513,6 +1589,16 @@ export function AdminEntitiesPanel({
                           {company.acquiredByCompany && (
                             <span className="rounded-full border border-border bg-background/60 px-2 py-1">
                               Comprada por: {company.acquiredByCompany.name}
+                            </span>
+                          )}
+                          {company.mergedWithCompany && (
+                            <span className="rounded-full border border-border bg-background/60 px-2 py-1">
+                              Fusionada con: {company.mergedWithCompany.name}
+                            </span>
+                          )}
+                          {company.predecessorCompany && (
+                            <span className="rounded-full border border-border bg-background/60 px-2 py-1">
+                              Viene de: {company.predecessorCompany.name}
                             </span>
                           )}
                           {company.successorCompany && (
