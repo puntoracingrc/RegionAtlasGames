@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AdminFunctionCard, AdminFunctionHeader, AdminNotice } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import taxonomyData from "../../../data/game-facets-taxonomy.json";
@@ -300,21 +300,26 @@ function LabelLibraryModal({
           ) : null}
           <div className="grid gap-4 md:grid-cols-2">
             {groups.map(([family, familyOptions]) => (
-              <section key={family} className="rounded-2xl border border-border bg-background/55 p-3">
+              <section
+                key={family}
+                className={`rounded-2xl border border-border bg-background/55 p-3 ${
+                  groups.length === 1 ? "md:col-span-2" : ""
+                }`}
+              >
                 <div className="mb-3 flex items-center justify-between gap-2">
                   <h4 className="text-sm font-black uppercase tracking-wider text-foreground">
                     {FAMILY_LABELS[family] ?? family}
                   </h4>
                   <span className="text-xs text-muted">{familyOptions.length}</span>
                 </div>
-                <div className="flex max-h-72 flex-wrap gap-2 overflow-auto pr-1">
+                <div className="grid max-h-72 gap-2 overflow-auto pr-1 sm:grid-cols-2 lg:grid-cols-3">
                   {familyOptions.map((option) => {
                     const active = selectedSet.has(option.name);
                     return (
                       <button
                         key={option.slug}
                         type="button"
-                        className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                        className={`rounded-full border px-3 py-1.5 text-left text-xs font-semibold transition ${
                           active
                             ? "border-indigo-400 bg-indigo-500/20 text-indigo-800 dark:text-indigo-200"
                             : "border-border bg-card/70 text-muted hover:border-indigo-400/40 hover:text-foreground"
@@ -368,6 +373,7 @@ export function AdminSeriesPanel() {
   const [seriesAiRunning, setSeriesAiRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const bulkEditorRef = useRef<HTMLDivElement>(null);
 
   const filteredGames = useMemo(() => {
     if (!detail) return [];
@@ -421,6 +427,24 @@ export function AdminSeriesPanel() {
         },
       }[labelPickerKind]
     : null;
+
+  useEffect(() => {
+    if (!labelPickerKind) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [labelPickerKind]);
+
+  function closeLabelPicker() {
+    setLabelPickerKind(null);
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        bulkEditorRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    });
+  }
 
   function toggleSelectedGame(gameId: string) {
     setSelectedGameIds((current) =>
@@ -936,10 +960,11 @@ export function AdminSeriesPanel() {
                   </select>
                 </div>
 
+                <div ref={bulkEditorRef}>
                 <AdminFunctionCard tone="bulk" className="mb-4">
                   <AdminFunctionHeader
                     tone="bulk"
-                    title="Gestionar géneros, etiquetas y facetas"
+                    title="Gestionar géneros, subgéneros y facetas"
                     description={
                       selectedGameIds.length
                         ? `Se aplicará solo a ${selectedGameIds.length} juegos marcados.`
@@ -1015,6 +1040,7 @@ export function AdminSeriesPanel() {
                     </button>
                   </div>
                 </AdminFunctionCard>
+                </div>
 
                 <div className="grid gap-2">
                   {filteredGames.map((game) => (
@@ -1097,7 +1123,7 @@ export function AdminSeriesPanel() {
                   options={labelPickerConfig.options}
                   selected={labelPickerConfig.selected}
                   onChange={labelPickerConfig.onChange}
-                  onClose={() => setLabelPickerKind(null)}
+                  onClose={closeLabelPicker}
                 />
               ) : null}
             </div>
