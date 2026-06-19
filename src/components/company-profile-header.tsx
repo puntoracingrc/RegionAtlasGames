@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { BackLink } from "@/components/breadcrumbs";
-import { companyEntityWikidataUrl } from "@/lib/company-canonical";
 import {
   companyLifespanLabel,
   companyStatusLabel,
@@ -81,18 +80,6 @@ export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
                 </Link>
               ))}
             </div>
-          )}
-          {view.wikidataId && (
-            <p className="text-sm">
-              <Link
-                href={companyEntityWikidataUrl(view.wikidataId)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent hover:underline"
-              >
-                Wikidata ({view.wikidataId})
-              </Link>
-            </p>
           )}
         </div>
       </div>

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { BackLink } from "@/components/breadcrumbs";
 import type { IndexEntitySummary } from "@/lib/index-entity";
 import { INDEX_KIND_META, indexEntitySubtitle } from "@/lib/index-entity";
-import { companyEntityWikidataUrl } from "@/lib/company-canonical";
 
 export function IndexEntityHeader({ summary }: { summary: IndexEntitySummary }) {
   const meta = INDEX_KIND_META[summary.kind];
@@ -35,18 +34,6 @@ export function IndexEntityHeader({ summary }: { summary: IndexEntitySummary }) 
           También indexada como{" "}
           {summary.alsoKnownAs.slice(0, 5).join(" · ")}
           {summary.alsoKnownAs.length > 5 ? " · …" : ""}
-        </p>
-      )}
-      {summary.kind === "company" && summary.wikidataId && (
-        <p className="text-sm">
-          <Link
-            href={companyEntityWikidataUrl(summary.wikidataId)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline"
-          >
-            Wikidata ({summary.wikidataId})
-          </Link>
         </p>
       )}
       {summary.platforms.length > 0 && (
