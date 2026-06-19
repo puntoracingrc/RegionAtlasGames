@@ -51,6 +51,21 @@ function normalizeOptionSearch(value: string): string {
     .replace(/\p{Diacritic}/gu, "");
 }
 
+function optionFromEntity(entity: { slug: string; name: string }, family?: string): LabelOption {
+  return { slug: entity.slug, name: entity.name, count: null, family };
+}
+
+function mergeLabelOptions(...groups: LabelOption[][]): LabelOption[] {
+  const map = new Map<string, LabelOption>();
+  for (const group of groups) {
+    for (const option of group) {
+      const slug = option.slug || normalizeOptionSearch(option.name).replace(/\s+/g, "-");
+      if (!map.has(slug)) map.set(slug, { ...option, slug });
+    }
+  }
+  return [...map.values()].sort((left, right) => left.name.localeCompare(right.name, "es", { numeric: true }));
+}
+
 function LabelAutocomplete({
   title,
   placeholder,
@@ -68,13 +83,14 @@ function LabelAutocomplete({
   const selectedSet = useMemo(() => new Set(selected), [selected]);
   const visibleOptions = useMemo(() => {
     const normalizedQuery = normalizeOptionSearch(query);
-    if (!normalizedQuery) return [];
     return options
       .filter((option) => {
         if (selectedSet.has(option.name)) return false;
-        return normalizeOptionSearch(`${option.name} ${option.family ?? ""}`).includes(normalizedQuery);
+        if (!normalizedQuery) return true;
+        const haystack = normalizeOptionSearch(`${option.name} ${option.family ?? ""}`);
+        return haystack.includes(normalizedQuery) || haystack.split(/\s+/).some((word) => word.startsWith(normalizedQuery));
       })
-      .slice(0, 10);
+      .slice(0, normalizedQuery ? 12 : 18);
   }, [options, query, selectedSet]);
 
   function addOption(name: string) {
@@ -119,25 +135,25 @@ function LabelAutocomplete({
           ))}
         </div>
       ) : null}
-      {query.trim() ? (
-        <div className="grid max-h-56 gap-1 overflow-auto rounded-2xl border border-indigo-300/40 bg-background/80 p-2 dark:border-indigo-400/25">
-          {visibleOptions.length ? (
-            visibleOptions.map((option) => (
-              <button
-                key={option.slug}
-                type="button"
-                className="rounded-xl px-3 py-2 text-left text-sm text-muted transition hover:bg-indigo-500/10 hover:text-foreground"
-                onClick={() => addOption(option.name)}
-              >
-                <span className="font-semibold">{option.name}</span>
-                {option.family ? <span className="ml-2 text-xs opacity-70">{option.family}</span> : null}
-              </button>
-            ))
-          ) : (
-            <p className="px-3 py-2 text-sm text-muted">No hay opciones oficiales con ese texto.</p>
-          )}
-        </div>
-      ) : null}
+      <div className="grid max-h-56 gap-1 overflow-auto rounded-2xl border border-indigo-300/40 bg-background/80 p-2 dark:border-indigo-400/25">
+        {visibleOptions.length ? (
+          visibleOptions.map((option) => (
+            <button
+              key={option.slug}
+              type="button"
+              className="rounded-xl px-3 py-2 text-left text-sm text-muted transition hover:bg-indigo-500/10 hover:text-foreground"
+              onClick={() => addOption(option.name)}
+            >
+              <span className="font-semibold">{option.name}</span>
+              {option.family ? <span className="ml-2 text-xs opacity-70">{option.family}</span> : null}
+            </button>
+          ))
+        ) : (
+          <p className="px-3 py-2 text-sm text-muted">
+            No hay opciones con ese texto en la lista actual.
+          </p>
+        )}
+      </div>
     </div>
   );
 }
@@ -183,6 +199,22 @@ export function AdminSeriesPanel() {
   );
 
   const selectedGameIdSet = useMemo(() => new Set(selectedGameIds), [selectedGameIds]);
+  const visibleLabelOptions = useMemo(
+    () => ({
+      genres: mergeLabelOptions(filteredGames.flatMap((game) => game.genres.map((genre) => optionFromEntity(genre)))),
+      tags: mergeLabelOptions(filteredGames.flatMap((game) => game.tags.map((tag) => optionFromEntity(tag)))),
+      facets: mergeLabelOptions(filteredGames.flatMap((game) => game.facets.map((facet) => optionFromEntity(facet)))),
+    }),
+    [filteredGames],
+  );
+  const labelOptions = useMemo(
+    () => ({
+      genres: mergeLabelOptions(visibleLabelOptions.genres, taxonomyOptions.genres),
+      tags: mergeLabelOptions(visibleLabelOptions.tags, taxonomyOptions.tags),
+      facets: mergeLabelOptions(visibleLabelOptions.facets, taxonomyOptions.facets),
+    }),
+    [taxonomyOptions.facets, taxonomyOptions.genres, taxonomyOptions.tags, visibleLabelOptions],
+  );
   const bulkTargetCount = selectedGameIds.length || filteredGames.length;
   const hasBulkLabels = selectedGenres.length > 0 || selectedTags.length > 0 || selectedFacets.length > 0;
 
@@ -194,6 +226,17 @@ export function AdminSeriesPanel() {
 
   function selectVisibleGames() {
     setSelectedGameIds(filteredGames.map((game) => game.id));
+  }
+
+  function removeLabelFromGame(gameId: string, kind: "genre" | "tag" | "facet", name: string) {
+    void patchSeries({
+      action: "bulk-assign",
+      operation: "remove",
+      gameIds: [gameId],
+      genres: kind === "genre" ? [name] : [],
+      tags: kind === "tag" ? [name] : [],
+      facets: kind === "facet" ? [name] : [],
+    });
   }
 
   const loadSeries = useCallback(async (q = seriesSearch) => {
@@ -715,21 +758,21 @@ export function AdminSeriesPanel() {
                     <LabelAutocomplete
                       title="Géneros"
                       placeholder="Escribe y elige un género…"
-                      options={taxonomyOptions.genres}
+                      options={labelOptions.genres}
                       selected={selectedGenres}
                       onChange={setSelectedGenres}
                     />
                     <LabelAutocomplete
                       title="Etiquetas"
                       placeholder="Escribe y elige una etiqueta…"
-                      options={taxonomyOptions.tags}
+                      options={labelOptions.tags}
                       selected={selectedTags}
                       onChange={setSelectedTags}
                     />
                     <LabelAutocomplete
                       title="Facetas"
                       placeholder="Escribe y elige una faceta o subgénero…"
-                      options={taxonomyOptions.facets}
+                      options={labelOptions.facets}
                       selected={selectedFacets}
                       onChange={setSelectedFacets}
                     />
@@ -787,19 +830,40 @@ export function AdminSeriesPanel() {
                         </label>
                         <div className="mt-2 flex flex-wrap gap-1">
                           {game.genres.slice(0, 5).map((genre) => (
-                            <Badge key={genre.slug} tone="neutral">
-                              {genre.name}
-                            </Badge>
+                            <button
+                              key={genre.slug}
+                              type="button"
+                              className="rounded-full border border-border bg-background/60 px-2.5 py-1 text-xs font-medium text-muted transition hover:border-rose-400/40 hover:text-rose-600 disabled:opacity-50"
+                              disabled={saving}
+                              onClick={() => removeLabelFromGame(game.id, "genre", genre.name)}
+                              title={`Quitar ${genre.name}`}
+                            >
+                              {genre.name} ×
+                            </button>
                           ))}
                           {game.tags.map((tag) => (
-                            <Badge key={`tag-${tag.slug}`} tone="green">
-                              {tag.name}
-                            </Badge>
+                            <button
+                              key={`tag-${tag.slug}`}
+                              type="button"
+                              className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-700 transition hover:border-rose-400/40 hover:text-rose-600 disabled:opacity-50 dark:text-emerald-300"
+                              disabled={saving}
+                              onClick={() => removeLabelFromGame(game.id, "tag", tag.name)}
+                              title={`Quitar ${tag.name}`}
+                            >
+                              {tag.name} ×
+                            </button>
                           ))}
                           {game.facets.map((facet) => (
-                            <Badge key={`facet-${facet.slug}`} tone="amber">
-                              {facet.name}
-                            </Badge>
+                            <button
+                              key={`facet-${facet.slug}`}
+                              type="button"
+                              className="rounded-full border border-amber-400/30 bg-amber-500/10 px-2.5 py-1 text-xs font-medium text-amber-700 transition hover:border-rose-400/40 hover:text-rose-600 disabled:opacity-50 dark:text-amber-300"
+                              disabled={saving}
+                              onClick={() => removeLabelFromGame(game.id, "facet", facet.name)}
+                              title={`Quitar ${facet.name}`}
+                            >
+                              {facet.name} ×
+                            </button>
                           ))}
                         </div>
                       </div>
