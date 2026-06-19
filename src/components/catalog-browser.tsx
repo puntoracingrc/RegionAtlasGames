@@ -9,13 +9,10 @@ import { RegionFilterChips } from "@/components/region-filter-chips";
 import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
-  countByPriceFilter,
   filterCatalogGames,
   platformOptions,
-  PRICE_FILTER_OPTIONS,
   regionOptions,
   SORT_OPTIONS,
-  type CatalogPriceFilter,
   type CatalogSort,
 } from "@/lib/catalog-filters";
 import type { CatalogListGame } from "@/lib/types";
@@ -32,7 +29,6 @@ type Props = {
   totalCount?: number;
   regions?: ReturnType<typeof regionOptions>;
   platforms?: ReturnType<typeof platformOptions>;
-  priceCounts?: ReturnType<typeof countByPriceFilter>;
   showRegionFilter?: boolean;
   showPlatformFilter?: boolean;
   ownedCatalogIds?: string[];
@@ -54,7 +50,6 @@ export function CatalogBrowser({
   totalCount,
   regions: initialRegions,
   platforms: initialPlatforms,
-  priceCounts: initialPriceCounts,
   showRegionFilter = true,
   showPlatformFilter = false,
   ownedCatalogIds = [],
@@ -81,7 +76,7 @@ export function CatalogBrowser({
   const setRegion = onRegionChange ?? setInternalRegion;
   const [platform, setPlatform] = useState(initialPlatform);
   const [sort, setSort] = useState<CatalogSort>(DEFAULT_SORT);
-  const [priceFilter, setPriceFilter] = useState<CatalogPriceFilter>("all");
+  const priceFilter = "all";
   const [page, setPage] = useState(1);
   const [serverItems, setServerItems] = useState(games);
   const [serverTotal, setServerTotal] = useState(totalCount ?? games.length);
@@ -89,10 +84,6 @@ export function CatalogBrowser({
 
   const regions = useMemo(() => initialRegions ?? regionOptions(games), [games, initialRegions]);
   const platforms = useMemo(() => initialPlatforms ?? platformOptions(games), [games, initialPlatforms]);
-  const priceCounts = useMemo(
-    () => initialPriceCounts ?? countByPriceFilter(games),
-    [games, initialPriceCounts],
-  );
 
   useEffect(() => {
     const timeout = window.setTimeout(
@@ -115,7 +106,7 @@ export function CatalogBrowser({
         platforms: showPlatformFilter,
       },
     );
-  }, [games, priceFilter, platform, q, region, serverItems, serverTotal, showPlatformFilter, showRegionFilter, sort, source]);
+  }, [games, platform, q, region, serverItems, serverTotal, showPlatformFilter, showRegionFilter, sort, source]);
   const filteredItems = source ? serverItems : localResult.items;
   const total = source ? serverTotal : localResult.total;
 
@@ -124,7 +115,7 @@ export function CatalogBrowser({
 
   useEffect(() => {
     setPage(1);
-  }, [q, region, platform, sort, priceFilter]);
+  }, [q, region, platform, sort]);
 
   useEffect(() => {
     if (page > totalPages) {
@@ -139,7 +130,6 @@ export function CatalogBrowser({
       q.trim() === "" &&
       region === "all" &&
       sort === DEFAULT_SORT &&
-      priceFilter === "all" &&
       page === 1 &&
       (source.kind === "platform" || platform === "all");
 
@@ -158,7 +148,7 @@ export function CatalogBrowser({
           q,
           region,
           sort,
-          priceFilter,
+          priceFilter: "all",
           page: String(page),
         });
         if (source.kind === "catalog" || source.kind === "genre") {
@@ -192,7 +182,7 @@ export function CatalogBrowser({
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [games, page, platform, priceFilter, q, region, sort, source, totalCount]);
+  }, [games, page, platform, q, region, sort, source, totalCount]);
 
   const pageItems = useMemo(() => {
     if (source) return filteredItems;
@@ -204,7 +194,6 @@ export function CatalogBrowser({
     draftQ.trim() !== "" ||
     region !== "all" ||
     platform !== "all" ||
-    priceFilter !== "all" ||
     sort !== DEFAULT_SORT;
 
   const resultStart = total === 0 ? 0 : (safePage - 1) * CATALOG_PAGE_SIZE + 1;
@@ -286,18 +275,6 @@ export function CatalogBrowser({
               ))}
             </select>
           )}
-
-          <select
-            value={priceFilter}
-            onChange={(e) => setPriceFilter(e.target.value as CatalogPriceFilter)}
-            className={cn(selectClass, "sm:min-w-[220px]")}
-          >
-            {PRICE_FILTER_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label} ({priceCounts[opt.value].toLocaleString("es-ES")})
-              </option>
-            ))}
-          </select>
 
           <select
             value={sort}

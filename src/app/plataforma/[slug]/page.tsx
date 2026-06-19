@@ -9,7 +9,6 @@ import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
-  countByPriceFilter,
   filterCatalogGames,
   regionOptions,
 } from "@/lib/catalog-filters";
@@ -86,7 +85,6 @@ export default async function PlatformPage({ params, searchParams }: Props) {
               totalGames={initialCatalog.total}
               insights={buildPlatformCatalogInsights(catalogListGames)}
               regions={regionOptions(catalogListGames)}
-              priceCounts={countByPriceFilter(catalogListGames)}
               ownedItems={owned}
               ownedCatalogIds={ownedCatalogIds}
               listingCounts={listingCounts}

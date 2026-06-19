@@ -3,7 +3,6 @@ import { SiteNav } from "@/components/site-nav";
 import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
-  countByPriceFilter,
   filterCatalogGames,
   platformOptions,
   regionOptions,
@@ -64,7 +63,6 @@ export default async function CatalogPage({ searchParams }: Props) {
           totalCount={initialCatalog.total}
           regions={regionOptions(catalogListGames)}
           platforms={platformOptions(catalogListGames)}
-          priceCounts={countByPriceFilter(catalogListGames)}
           showRegionFilter
           showPlatformFilter
           ownedCatalogIds={ownedCatalogIds}

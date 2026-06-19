@@ -4,7 +4,6 @@ import { SiteNav } from "@/components/site-nav";
 import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
-  countByPriceFilter,
   filterCatalogGames,
   platformOptions,
   regionOptions,
@@ -59,7 +58,6 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn }: Props)
             totalCount={initialResult.total}
             regions={regionOptions(allGames)}
             platforms={platformOptions(allGames)}
-            priceCounts={countByPriceFilter(allGames)}
             showRegionFilter
             showPlatformFilter
             ownedCatalogIds={ownedCatalogIds}

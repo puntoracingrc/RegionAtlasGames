@@ -10,7 +10,7 @@ import { PlatformRegionBar } from "@/components/platform-region-bar";
 import { CatalogBrowser } from "@/components/catalog-browser";
 import { PlatformHeroArt } from "@/components/platform-card-art";
 import { formatEur } from "@/lib/price-format";
-import type { countByPriceFilter, regionOptions } from "@/lib/catalog-filters";
+import type { regionOptions } from "@/lib/catalog-filters";
 
 const MANUFACTURER_STYLE = {
   nintendo: "from-red-500/15 via-red-500/5 to-transparent border-red-400/25",
@@ -25,7 +25,6 @@ type Props = {
   totalGames: number;
   insights: PlatformCatalogInsights;
   regions: ReturnType<typeof regionOptions>;
-  priceCounts: ReturnType<typeof countByPriceFilter>;
   ownedItems: CollectionView[];
   ownedCatalogIds: string[];
   listingCounts: Record<string, number>;
@@ -41,7 +40,6 @@ export function PlatformCatalogSection({
   totalGames,
   insights,
   regions,
-  priceCounts,
   ownedItems,
   ownedCatalogIds,
   listingCounts,
@@ -113,7 +111,6 @@ export function PlatformCatalogSection({
         source={{ kind: "platform", slug: platform.slug }}
         totalCount={totalGames}
         regions={regions}
-        priceCounts={priceCounts}
         showRegionFilter
         ownedCatalogIds={ownedCatalogIds}
         listingCounts={listingCounts}
