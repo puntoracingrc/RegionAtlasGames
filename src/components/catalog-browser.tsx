@@ -238,81 +238,92 @@ export function CatalogBrowser({
 
   return (
     <div className="space-y-4">
-      <div className="space-y-3">
-        <input
-          type="search"
-          placeholder="Nombre, compañía, género, referencia, SKU, región…"
-          value={draftQ}
-          onChange={(e) => setDraftQ(e.target.value)}
-          autoComplete="off"
-          autoCorrect="off"
-          spellCheck={false}
-          className="w-full rounded-lg border border-border bg-input px-3.5 py-2.5 text-sm outline-none ring-accent/25 placeholder:text-muted focus:ring-2"
-        />
+      <div className="rounded-3xl border border-sky-500/25 bg-sky-50/85 p-4 shadow-sm shadow-black/5 backdrop-blur dark:border-sky-300/15 dark:bg-slate-900/80 md:p-5">
+        <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-[0.24em] text-accent">
+              Buscar y filtrar
+            </p>
+            <h3 className="mt-1 text-lg font-black text-foreground">Explorar catálogo</h3>
+          </div>
+          {(isLoading || draftQ !== q) && <p className="text-xs font-semibold text-accent">Actualizando catálogo…</p>}
+        </div>
 
-        <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-          {showRegionFilter && regions.length > 1 && (
-            <RegionFilterChips
-              value={region}
-              onChange={setRegion}
-              allLabel="Todas las regiones"
-              options={regions.map(([label, count]) => ({
-                value: label,
-                label,
-                count,
-              }))}
-              className="w-full sm:flex-1"
-            />
-          )}
+        <div className="space-y-3">
+          <input
+            type="search"
+            placeholder="Nombre, compañía, género, referencia, SKU, región…"
+            value={draftQ}
+            onChange={(e) => setDraftQ(e.target.value)}
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck={false}
+            className="w-full rounded-2xl border border-sky-600/20 bg-white px-4 py-3 text-sm shadow-inner outline-none ring-accent/25 placeholder:text-muted focus:border-accent/50 focus:ring-2 dark:border-white/10 dark:bg-black/35"
+          />
 
-          {showPlatformFilter && platforms.length > 1 && (
-            <select value={platform} onChange={(e) => setPlatform(e.target.value)} className={selectClass}>
-              <option value="all">Todas las plataformas ({(totalCount ?? games.length).toLocaleString("es-ES")})</option>
-              {platforms.map((p) => (
-                <option key={p.slug} value={p.slug}>
-                  {p.name} ({p.count})
+          <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+            {showRegionFilter && regions.length > 1 && (
+              <RegionFilterChips
+                value={region}
+                onChange={setRegion}
+                allLabel="Todas las regiones"
+                options={regions.map(([label, count]) => ({
+                  value: label,
+                  label,
+                  count,
+                }))}
+                className="w-full sm:flex-1"
+              />
+            )}
+
+            {showPlatformFilter && platforms.length > 1 && (
+              <select value={platform} onChange={(e) => setPlatform(e.target.value)} className={selectClass}>
+                <option value="all">Todas las plataformas ({(totalCount ?? games.length).toLocaleString("es-ES")})</option>
+                {platforms.map((p) => (
+                  <option key={p.slug} value={p.slug}>
+                    {p.name} ({p.count})
+                  </option>
+                ))}
+              </select>
+            )}
+
+            <select
+              value={sort}
+              onChange={(e) => setSort(e.target.value as CatalogSort)}
+              className={cn(selectClass, "sm:min-w-[220px]")}
+            >
+              {SORT_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
                 </option>
               ))}
             </select>
-          )}
+          </div>
 
-          <select
-            value={sort}
-            onChange={(e) => setSort(e.target.value as CatalogSort)}
-            className={cn(selectClass, "sm:min-w-[220px]")}
-          >
-            {SORT_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
+          <div className="flex flex-col gap-2 rounded-2xl border border-sky-600/15 bg-white/65 p-3 dark:border-white/10 dark:bg-white/5 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+            <p className="text-sm font-medium text-muted">
+              {total === 0 ? (
+                <>0 resultados en {contextName}</>
+              ) : totalPages > 1 ? (
+                <>
+                  Mostrando {resultStart.toLocaleString("es-ES")}–{resultEnd.toLocaleString("es-ES")} de{" "}
+                  {total.toLocaleString("es-ES")} en {contextName}
+                </>
+              ) : (
+                <>
+                  {total.toLocaleString("es-ES")} resultado{total !== 1 ? "s" : ""} en {contextName}
+                </>
+              )}
+              {ownedIds.length > 0 && (
+                <span className="ml-2 inline-flex items-center gap-1 font-semibold text-emerald-600 dark:text-emerald-400">
+                  · {ownedIds.length} en colección
+                </span>
+              )}
+            </p>
+            <HighlightLegend showOwned compact={compactLegends} />
+          </div>
+          <PriceLegend defaultOpen={!compactLegends} />
         </div>
-
-        <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-          <p className="text-sm text-muted">
-            {total === 0 ? (
-              <>0 resultados en {contextName}</>
-            ) : totalPages > 1 ? (
-              <>
-                Mostrando {resultStart.toLocaleString("es-ES")}–{resultEnd.toLocaleString("es-ES")} de{" "}
-                {total.toLocaleString("es-ES")} en {contextName}
-              </>
-            ) : (
-              <>
-                {total.toLocaleString("es-ES")} resultado{total !== 1 ? "s" : ""} en {contextName}
-              </>
-            )}
-            {ownedIds.length > 0 && (
-              <span className="ml-2 inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
-                · {ownedIds.length} en colección
-              </span>
-            )}
-          </p>
-          {(isLoading || draftQ !== q) && <p className="text-xs text-accent">Actualizando catálogo…</p>}
-          <HighlightLegend showOwned compact={compactLegends} />
-        </div>
-        <PriceLegend defaultOpen={!compactLegends} />
       </div>
 
       {pageItems.length === 0 ? (
