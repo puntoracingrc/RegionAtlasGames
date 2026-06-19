@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdminFunctionCard } from "@/components/admin/admin-visual";
 import { Panel, PanelTitle } from "@/components/ui";
 import { getCatalogStagingSummary } from "@/lib/catalog-staging";
 
@@ -8,75 +9,86 @@ const quickActions = [
     title: "Revisar fichas",
     description: "Importaciones, manuales y envíos pendientes.",
     icon: "✓",
+    tone: "search",
   },
   {
     href: "/admin/juegos/nuevo",
     title: "Crear juego",
     description: "Alta manual con comprobación de similares.",
     icon: "+",
+    tone: "edit",
   },
   {
     href: "/admin/importacion",
     title: "Importar catálogo",
     description: "CSV/Excel a revisión sin tocar colecciones.",
     icon: "⇪",
+    tone: "bulk",
   },
   {
     href: "/admin/ia",
     title: "Completar con IA",
     description: "Rellena huecos por ficha o por lote seguro.",
     icon: "✦",
+    tone: "ai",
   },
   {
     href: "/admin/noticias",
     title: "Noticias",
     description: "Activa bloques y bloquea fuentes.",
     icon: "◫",
+    tone: "status",
   },
   {
     href: "/admin/juegos",
     title: "Editar publicado",
     description: "Busca por título, slug o id de catálogo.",
     icon: "✎",
+    tone: "edit",
   },
   {
     href: "/admin/acciones",
     title: "Acciones masivas",
     description: "Agrupa juegos por filtros y aplica facetas o etiquetas.",
     icon: "☷",
+    tone: "bulk",
   },
   {
     href: "/admin/entidades",
     title: "Entidades",
     description: "Plataformas, compañías y géneros.",
     icon: "▦",
+    tone: "search",
   },
   {
     href: "/admin/entidades?tab=series",
     title: "Editar sagas",
     description: "Crear, buscar y agrupar juegos por saga.",
     icon: "♢",
+    tone: "edit",
   },
   {
     href: "/admin/taxonomia",
     title: "Géneros",
     description: "Agrupa géneros en principal, subgénero y etiqueta.",
     icon: "✣",
+    tone: "search",
   },
   {
     href: "/admin/precios",
     title: "Historial precios",
     description: "Últimas recopilaciones, fuentes y siguiente plataforma.",
     icon: "€",
+    tone: "status",
   },
-];
+] as const;
 
 export default async function AdminDashboardPage() {
   const summary = await getCatalogStagingSummary(8);
 
   return (
     <div className="space-y-6">
-      <Panel>
+      <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
         <PanelTitle eyebrow="Prioridad">Revisión de fichas</PanelTitle>
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -93,20 +105,22 @@ export default async function AdminDashboardPage() {
         </div>
       </Panel>
 
-      <Panel>
+      <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
         <PanelTitle eyebrow="Atajos">Acciones rápidas</PanelTitle>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
           {quickActions.map((action) => (
             <Link
               key={action.href}
               href={action.href}
-              className="group rounded-2xl border border-border bg-background/45 p-4 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-card-hover"
+              className="group transition hover:-translate-y-0.5"
             >
-              <span className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 text-lg font-bold text-accent">
-                {action.icon}
-              </span>
-              <p className="font-semibold text-foreground group-hover:text-accent">{action.title}</p>
-              <p className="mt-1 text-xs leading-5 text-muted">{action.description}</p>
+              <AdminFunctionCard tone={action.tone} className="h-full transition group-hover:shadow-sm">
+                <span className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 text-lg font-bold text-accent">
+                  {action.icon}
+                </span>
+                <p className="font-semibold text-foreground group-hover:text-accent">{action.title}</p>
+                <p className="mt-1 text-xs leading-5 text-muted">{action.description}</p>
+              </AdminFunctionCard>
             </Link>
           ))}
         </div>

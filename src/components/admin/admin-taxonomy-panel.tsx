@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { AdminNotice } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type { AdminTaxonomyLevel, AdminTaxonomyNode, AdminTaxonomyTreeNode } from "@/lib/admin-taxonomy";
 
@@ -236,11 +237,11 @@ export function AdminTaxonomyPanel() {
 
   return (
     <div className="space-y-6">
-      <Panel>
+      <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
         <PanelTitle eyebrow="Géneros editoriales">Género principal · Subgénero · Tipo/etiqueta</PanelTitle>
         <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="rounded-2xl border border-border bg-background/45 p-4">
-            <div className="rounded-2xl border border-border bg-card/60 p-3">
+          <div className="rounded-2xl border border-sky-300/60 bg-sky-100/35 p-4 dark:border-sky-400/25 dark:bg-sky-950/15">
+            <div className="rounded-2xl border border-sky-300/50 bg-card/60 p-3 dark:border-sky-400/20">
               <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Accesos rápidos</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <a href="#crear-taxonomia" className="btn-secondary px-3 py-1.5 text-xs">
@@ -276,7 +277,7 @@ export function AdminTaxonomyPanel() {
             </div>
           </div>
 
-          <form id="crear-taxonomia" onSubmit={saveNode} className="grid scroll-mt-24 gap-3 rounded-2xl border border-border bg-background/45 p-4">
+          <form id="crear-taxonomia" onSubmit={saveNode} className="grid scroll-mt-24 gap-3 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15">
             <div className="flex items-center justify-between gap-3">
               <PanelTitle eyebrow={editingSlug ? "Editar" : "Crear"}>
                 {editingSlug ? "Elemento seleccionado" : levelLabels[formLevel]}
@@ -338,13 +339,10 @@ export function AdminTaxonomyPanel() {
         </div>
       </Panel>
 
-      {(error || message) && (
-        <div className={`rounded-2xl border px-4 py-3 text-sm ${error ? "border-rose-300 bg-rose-50 text-rose-700 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-200" : "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-500/40 dark:bg-emerald-500/10 dark:text-emerald-200"}`}>
-          {error ?? message}
-        </div>
-      )}
+      {error ? <AdminNotice tone="danger">{error}</AdminNotice> : null}
+      {message ? <AdminNotice tone="status">{message}</AdminNotice> : null}
 
-      <Panel>
+      <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <PanelTitle eyebrow="Mapa actual">Árbol de clasificación</PanelTitle>
           <p className="text-xs text-muted">

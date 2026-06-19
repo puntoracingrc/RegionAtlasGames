@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { AdminNotice } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 
 type PlatformOption = { slug: string; name: string; shortName?: string };
@@ -66,7 +67,7 @@ type Props = {
 
 function Stat({ label, value }: { label: string; value: number | string }) {
   return (
-    <div className="rounded-2xl border border-border bg-background/45 p-4">
+    <div className="rounded-2xl border border-violet-300/40 bg-violet-100/30 p-4 dark:border-violet-400/20 dark:bg-violet-950/10">
       <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">{label}</p>
       <p className="mt-1 text-2xl font-black text-foreground">{value}</p>
     </div>
@@ -291,10 +292,10 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
 
   return (
     <div className="space-y-6">
-      <Panel>
+      <Panel className="border-violet-300/40 bg-violet-50/40 dark:border-violet-400/20 dark:bg-violet-950/10">
         <PanelTitle eyebrow="IA de fichas">Completar fichas con IA</PanelTitle>
         <div className="grid gap-5 lg:grid-cols-[1fr_0.8fr]">
-          <div className="rounded-2xl border border-border bg-background/45 p-4">
+          <div className="rounded-2xl border border-violet-300/50 bg-violet-100/30 p-4 dark:border-violet-400/20 dark:bg-violet-950/10">
             <p className="text-sm leading-6 text-muted">
               Lanza la misma IA del editor individual: busca fuentes oficiales, usa Steam como referencia
               experimental cuando encuentra coincidencia clara, recoge etiquetas populares y genera textos
@@ -311,7 +312,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
             </div>
           </div>
 
-          <div className="grid gap-4 rounded-2xl border border-border bg-background/45 p-4">
+          <div className="grid gap-4 rounded-2xl border border-sky-300/50 bg-sky-100/30 p-4 dark:border-sky-400/20 dark:bg-sky-950/10">
             <div className="grid gap-3 sm:grid-cols-3">
               <label className="block space-y-1">
                 <span className="text-[10px] uppercase tracking-wider text-muted">Origen</span>
@@ -397,7 +398,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
               </label>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card/45 p-3 text-sm text-muted">
+            <div className="rounded-2xl border border-sky-300/40 bg-card/45 p-3 text-sm text-muted dark:border-sky-400/20">
               {summaryLoading ? (
                 <span>Calculando juegos pendientes con estos filtros…</span>
               ) : summary ? (
@@ -415,7 +416,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
               )}
             </div>
 
-            <div className="rounded-2xl border border-border bg-card/45 p-3">
+            <div className="rounded-2xl border border-sky-300/40 bg-card/45 p-3 dark:border-sky-400/20">
               <div className="flex flex-wrap items-end gap-2">
                 <label className="min-w-0 flex-1 space-y-1">
                   <span className="text-[10px] uppercase tracking-wider text-muted">Juegos sueltos opcionales</span>
@@ -496,13 +497,11 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
       </Panel>
 
       {error ? (
-        <div className="rounded-2xl border border-rose-300 bg-rose-50 px-4 py-3 text-sm text-rose-700 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-200">
-          {error}
-        </div>
+        <AdminNotice tone="danger">{error}</AdminNotice>
       ) : null}
 
       {report ? (
-        <Panel>
+        <Panel className="border-emerald-300/40 bg-emerald-50/40 dark:border-emerald-400/20 dark:bg-emerald-950/10">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <PanelTitle eyebrow="Resultado">Lote IA</PanelTitle>
             {(() => {
@@ -521,7 +520,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
           </div>
 
           <div className="mt-4 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="rounded-2xl border border-border bg-background/45 p-4">
+            <div className="rounded-2xl border border-emerald-300/50 bg-emerald-100/30 p-4 dark:border-emerald-400/20 dark:bg-emerald-950/10">
               <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Mapa de fuentes</p>
               <div className="mt-3 grid gap-3">
                 <CoverageBar label="Steam" value={report.sourceCoverage.steam} total={processedTotal} />
@@ -530,7 +529,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
                 <CoverageBar label="Datos existentes" value={report.sourceCoverage.existing} total={processedTotal} />
               </div>
             </div>
-            <div className="rounded-2xl border border-border bg-background/45 p-4">
+            <div className="rounded-2xl border border-emerald-300/50 bg-emerald-100/30 p-4 dark:border-emerald-400/20 dark:bg-emerald-950/10">
               <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Campos tocados</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {fieldEntries.length ? fieldEntries.map(([field, count]) => (
@@ -542,7 +541,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
 
           <div className="mt-4 grid gap-3">
             {report.items.length === 0 ? (
-              <div className="rounded-2xl border border-border bg-background/45 p-4 text-sm text-muted">
+              <div className="rounded-2xl border border-emerald-300/50 bg-emerald-100/30 p-4 text-sm text-muted dark:border-emerald-400/20 dark:bg-emerald-950/10">
                 No se ha procesado ningún juego con esos filtros. Prueba con otros filtros o selecciona juegos sueltos.
               </div>
             ) : null}
@@ -550,7 +549,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
               const itemId = item.catalogId ? `catalog:${item.catalogId}` : `staging:${item.pcId}`;
               const itemHref = item.catalogId ? `/admin/juegos/${encodeURIComponent(item.catalogId)}` : `/admin/cola/${item.pcId}`;
               return (
-              <article key={`${itemId}-${item.status}`} className="rounded-2xl border border-border bg-background/45 p-4">
+              <article key={`${itemId}-${item.status}`} className="rounded-2xl border border-emerald-300/50 bg-background/45 p-4 dark:border-emerald-400/20">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <a href={itemHref} className="font-semibold text-foreground hover:text-accent">

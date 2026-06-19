@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { AdminSeriesPanel } from "@/components/admin/admin-series-panel";
+import { AdminFunctionCard, AdminNotice } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 
 type EntityTab = "platforms" | "companies" | "genres";
@@ -604,7 +605,7 @@ export function AdminEntitiesPanel() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap gap-2 rounded-2xl border border-border bg-card/70 p-2">
+      <div className="flex flex-wrap gap-2 rounded-2xl border border-sky-300/40 bg-sky-100/30 p-2 dark:border-sky-400/20 dark:bg-sky-950/10">
         {tabs.map((item) => (
           <button
             key={item.id}
@@ -636,9 +637,9 @@ export function AdminEntitiesPanel() {
       </div>
 
       {tab === "platforms" && (
-        <Panel>
+        <Panel className="border-amber-300/40 bg-amber-50/40 dark:border-amber-400/20 dark:bg-amber-950/10">
           <PanelTitle eyebrow="Alta rápida">Nueva plataforma</PanelTitle>
-          <form onSubmit={createPlatform} className="grid max-w-3xl gap-4 rounded-2xl border border-border bg-background/45 p-4 md:grid-cols-2">
+          <form onSubmit={createPlatform} className="grid max-w-3xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
             <label className="block space-y-1 md:col-span-2">
               <span className="text-[10px] uppercase tracking-wider text-muted">Nombre</span>
               <input
@@ -700,9 +701,9 @@ export function AdminEntitiesPanel() {
       )}
 
       {tab === "companies" && (
-        <Panel>
+        <Panel className="border-amber-300/40 bg-amber-50/40 dark:border-amber-400/20 dark:bg-amber-950/10">
           <PanelTitle eyebrow="Alta rápida">Nueva compañía</PanelTitle>
-          <form onSubmit={createCompany} className="grid max-w-2xl gap-4 rounded-2xl border border-border bg-background/45 p-4 md:grid-cols-2">
+          <form onSubmit={createCompany} className="grid max-w-2xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
             <label className="block space-y-1">
               <span className="text-[10px] uppercase tracking-wider text-muted">Nombre</span>
               <input
@@ -731,9 +732,9 @@ export function AdminEntitiesPanel() {
       )}
 
       {tab === "genres" && (
-        <Panel>
+        <Panel className="border-amber-300/40 bg-amber-50/40 dark:border-amber-400/20 dark:bg-amber-950/10">
           <PanelTitle eyebrow="Alta rápida">Nuevo género</PanelTitle>
-          <form onSubmit={createGenre} className="grid max-w-2xl gap-4 rounded-2xl border border-border bg-background/45 p-4 md:grid-cols-2">
+          <form onSubmit={createGenre} className="grid max-w-2xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
             <label className="block space-y-1">
               <span className="text-[10px] uppercase tracking-wider text-muted">Nombre</span>
               <input
@@ -764,7 +765,7 @@ export function AdminEntitiesPanel() {
       {tab === "series" && <AdminSeriesPanel />}
 
       {tab !== "series" && (
-      <Panel>
+      <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <PanelTitle>
             {tab === "platforms"
@@ -800,10 +801,10 @@ export function AdminEntitiesPanel() {
         ) : tab === "platforms" ? (
           <ul className="grid gap-3">
             {visiblePlatforms.map((platform) => (
-              <li key={platform.slug} className="rounded-2xl border border-border bg-background/45 p-4 transition hover:border-accent/40 hover:bg-card-hover">
+              <li key={platform.slug} className="rounded-2xl border border-border bg-background/45 p-4 transition hover:border-sky-400/40 hover:bg-card-hover">
                 {editingSlug === platform.slug ? (
                   <form
-                    className="grid gap-3 rounded-2xl border border-accent/30 bg-card-hover/60 p-4 md:grid-cols-2"
+                    className="grid gap-3 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2"
                     onSubmit={(e) => {
                       e.preventDefault();
                       void saveEdit("platforms", platform.slug);
@@ -958,10 +959,10 @@ export function AdminEntitiesPanel() {
         ) : tab === "companies" ? (
           <ul className="grid gap-3">
             {visibleCompanies.map((company) => (
-              <li key={company.slug} className="rounded-2xl border border-border bg-background/45 p-4 transition hover:border-accent/40 hover:bg-card-hover">
+              <li key={company.slug} className="rounded-2xl border border-border bg-background/45 p-4 transition hover:border-sky-400/40 hover:bg-card-hover">
                 {editingSlug === company.slug ? (
                   <form
-                    className="grid gap-3 rounded-2xl border border-accent/30 bg-card-hover/60 p-4 md:grid-cols-2"
+                    className="grid gap-3 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2"
                     onSubmit={(e) => {
                       e.preventDefault();
                       void saveEdit("companies", company.slug);
@@ -1214,7 +1215,7 @@ export function AdminEntitiesPanel() {
                   </div>
                   {mergeSourceSlug === company.slug && (
                     <form
-                      className="mt-4 grid gap-3 rounded-2xl border border-sky-400/30 bg-sky-500/5 p-4 md:grid-cols-[1fr_auto_auto]"
+                      className="mt-4 grid gap-3 rounded-2xl border border-indigo-400/30 bg-indigo-500/10 p-4 md:grid-cols-[1fr_auto_auto]"
                       onSubmit={(e) => {
                         e.preventDefault();
                         void mergeCompany(company);
@@ -1272,10 +1273,10 @@ export function AdminEntitiesPanel() {
         ) : (
           <ul className="grid gap-3">
             {visibleGenres.map((genre) => (
-              <li key={genre.slug} className="rounded-2xl border border-border bg-background/45 p-4 transition hover:border-accent/40 hover:bg-card-hover">
+              <li key={genre.slug} className="rounded-2xl border border-border bg-background/45 p-4 transition hover:border-sky-400/40 hover:bg-card-hover">
                 {editingSlug === genre.slug ? (
                   <form
-                    className="grid gap-3 rounded-2xl border border-accent/30 bg-card-hover/60 p-4 md:grid-cols-2"
+                    className="grid gap-3 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2"
                     onSubmit={(e) => {
                       e.preventDefault();
                       void saveEdit("genres", genre.slug);
@@ -1367,14 +1368,14 @@ export function AdminEntitiesPanel() {
       </Panel>
       )}
 
-      {message && <p className="text-sm text-emerald-600 dark:text-emerald-400">{message}</p>}
-      {error && <p className="text-sm text-rose-600 dark:text-rose-400">{error}</p>}
+      {message && <AdminNotice tone="status">{message}</AdminNotice>}
+      {error && <AdminNotice tone="danger">{error}</AdminNotice>}
 
-      <p className="text-xs text-muted">
+      <AdminFunctionCard tone="neutral" className="text-xs leading-5 text-muted">
         En local, los cambios se guardan en JSON del proyecto. En producción, las altas rápidas se guardan
         en Blob para que funcionen sin redeploy. Solo puedes borrar entidades sin juegos asociados;
         para recolecciones de precios usa el panel Admin → Precios.
-      </p>
+      </AdminFunctionCard>
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AdminNotice } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type { AdminSeriesGameRow } from "@/lib/admin-series-manager";
 
@@ -116,7 +117,7 @@ function SelectableOptionList({
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-background/45 p-3">
+    <div className="rounded-2xl border border-indigo-300/50 bg-indigo-100/30 p-3 dark:border-indigo-400/20 dark:bg-indigo-950/10">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
           <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">{title}</p>
@@ -345,7 +346,7 @@ export function AdminBulkGameActionsPanel() {
 
   return (
     <div className="space-y-6">
-      <Panel>
+      <Panel className="border-indigo-300/40 bg-indigo-50/40 dark:border-indigo-400/20 dark:bg-indigo-950/10">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <PanelTitle eyebrow="Acciones masivas">Grupo de trabajo de juegos</PanelTitle>
@@ -361,18 +362,14 @@ export function AdminBulkGameActionsPanel() {
       </Panel>
 
       {error && (
-        <div className="rounded-2xl border border-rose-300 bg-rose-100/70 p-4 text-sm text-rose-700 dark:border-rose-400/30 dark:bg-rose-950/40 dark:text-rose-200">
-          {error}
-        </div>
+        <AdminNotice tone="danger">{error}</AdminNotice>
       )}
       {message && (
-        <div className="rounded-2xl border border-emerald-300 bg-emerald-100/70 p-4 text-sm text-emerald-700 dark:border-emerald-400/30 dark:bg-emerald-950/40 dark:text-emerald-200">
-          {message}
-        </div>
+        <AdminNotice tone="status">{message}</AdminNotice>
       )}
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(360px,520px)]">
-        <Panel>
+        <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
           <PanelTitle eyebrow="Buscar y filtrar">Encontrar juegos</PanelTitle>
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             <label className="block space-y-1 md:col-span-2 xl:col-span-3">
@@ -454,7 +451,7 @@ export function AdminBulkGameActionsPanel() {
 
           <div className="mt-4 grid max-h-[680px] gap-2 overflow-auto pr-1">
             {visibleResults.map((game) => (
-              <div key={game.id} className="flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-background/45 p-3">
+              <div key={game.id} className="flex flex-wrap items-center gap-3 rounded-2xl border border-sky-300/40 bg-background/45 p-3 transition hover:border-sky-400/50 dark:border-sky-400/20">
                 <div className="min-w-0 flex-1">
                   <div className="font-semibold text-foreground">{game.title}</div>
                   <div className="text-xs text-muted">{gameSubtitle(game)}</div>
@@ -476,7 +473,7 @@ export function AdminBulkGameActionsPanel() {
           </div>
         </Panel>
 
-        <Panel>
+        <Panel className="border-amber-300/40 bg-amber-50/40 dark:border-amber-400/20 dark:bg-amber-950/10">
           <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
             <div>
               <PanelTitle eyebrow="Lista editable">{selection.length} juegos seleccionados</PanelTitle>
@@ -489,7 +486,7 @@ export function AdminBulkGameActionsPanel() {
 
           <div className="grid max-h-[420px] gap-2 overflow-auto pr-1">
             {selection.map((game) => (
-              <div key={game.id} className="grid gap-3 rounded-2xl border border-border bg-background/45 p-3 sm:grid-cols-[1fr_auto]">
+              <div key={game.id} className="grid gap-3 rounded-2xl border border-amber-300/40 bg-background/45 p-3 dark:border-amber-400/20 sm:grid-cols-[1fr_auto]">
                 <div className="min-w-0">
                   <div className="font-semibold text-foreground">{game.title}</div>
                   <div className="text-xs text-muted">{gameSubtitle(game)}</div>
