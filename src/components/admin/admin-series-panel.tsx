@@ -28,6 +28,7 @@ type SeriesTaxonomyOptions = {
 
 type BulkLabelOperation = "add" | "remove" | "replace";
 type LabelPickerKind = "genres" | "subgenres" | "facets";
+type SeriesPanelMode = "create" | "edit" | "delete";
 
 const FAMILY_LABELS: Record<string, string> = {
   subgenre: "Subgéneros",
@@ -347,7 +348,13 @@ function LabelLibraryModal({
   );
 }
 
-export function AdminSeriesPanel() {
+export function AdminSeriesPanel({
+  mode = "edit",
+  lockTab = false,
+}: {
+  mode?: SeriesPanelMode;
+  lockTab?: boolean;
+} = {}) {
   const [series, setSeries] = useState<AdminSeriesRow[]>([]);
   const [selectedSlug, setSelectedSlug] = useState<string>("");
   const [detail, setDetail] = useState<AdminSeriesDetail | null>(null);
@@ -417,6 +424,8 @@ export function AdminSeriesPanel() {
   );
   const bulkTargetCount = selectedGameIds.length || filteredGames.length;
   const hasBulkLabels = selectedGenres.length > 0 || selectedSubgenres.length > 0 || selectedFacets.length > 0;
+  const showCreatePanel = !lockTab || mode === "create";
+  const showEditorPanel = !lockTab || mode !== "create";
   const labelPickerConfig = labelPickerKind
     ? {
         genres: {
@@ -817,8 +826,9 @@ export function AdminSeriesPanel() {
   }
 
   return (
-    <div className="grid gap-6 xl:grid-cols-[minmax(280px,360px)_1fr]">
+    <div className={showEditorPanel ? "grid gap-6 xl:grid-cols-[minmax(280px,360px)_1fr]" : "grid gap-6"}>
       <div className="space-y-6">
+        {showCreatePanel ? (
         <Panel className={adminToneClass("edit")}>
           <PanelTitle eyebrow="Sagas">Crear saga</PanelTitle>
           <form onSubmit={createSeries} className="grid gap-3">
@@ -906,7 +916,9 @@ export function AdminSeriesPanel() {
             </button>
           </form>
         </Panel>
+        ) : null}
 
+        {showEditorPanel ? (
         <Panel className={adminToneClass("search")}>
           <PanelTitle eyebrow="Buscar">Seleccionar saga</PanelTitle>
           <input
@@ -939,8 +951,10 @@ export function AdminSeriesPanel() {
             </div>
           )}
         </Panel>
+        ) : null}
       </div>
 
+      {showEditorPanel ? (
       <div className="space-y-6">
         {error && (
           <AdminNotice tone="danger">{error}</AdminNotice>
@@ -1440,6 +1454,7 @@ export function AdminSeriesPanel() {
           )}
         </Panel>
       </div>
+      ) : null}
     </div>
   );
 }

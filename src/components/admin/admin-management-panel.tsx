@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { AdminCatalogSearchPanel } from "@/components/admin/admin-catalog-search-panel";
 import { AdminContributorsPanel } from "@/components/admin/admin-contributors-panel";
 import { AdminEntitiesPanel } from "@/components/admin/admin-entities-panel";
@@ -82,12 +82,6 @@ export function AdminManagementPanel({ platforms, regions, companies, taxonomyOp
   const [entity, setEntity] = useState<EntityKey>("games");
   const [action, setAction] = useState<ActionKey>("edit");
 
-  const activeDescription = useMemo(() => {
-    const entityItem = entities.find((item) => item.id === entity);
-    const actionItem = actions.find((item) => item.id === action);
-    return `${entityItem?.label ?? entity}: ${actionItem?.helper ?? ""}`;
-  }, [action, entity]);
-
   function renderPanel() {
     if (entity === "games" && action === "create") {
       return (
@@ -115,15 +109,15 @@ export function AdminManagementPanel({ platforms, regions, companies, taxonomyOp
     }
 
     if (entity === "series") {
-      return <AdminEntitiesPanel initialTab="series" />;
+      return <AdminEntitiesPanel initialTab="series" mode={action} lockTab />;
     }
 
     if (entity === "platforms") {
-      return <AdminEntitiesPanel initialTab="platforms" />;
+      return <AdminEntitiesPanel initialTab="platforms" mode={action} lockTab />;
     }
 
     if (entity === "companies") {
-      return <AdminEntitiesPanel initialTab="companies" />;
+      return <AdminEntitiesPanel initialTab="companies" mode={action} lockTab />;
     }
 
     if (entity === "taxonomy") {
@@ -189,13 +183,6 @@ export function AdminManagementPanel({ platforms, regions, companies, taxonomyOp
             </div>
           </section>
         </div>
-      </Panel>
-
-      <Panel className={adminToneClass("edit")}>
-        <PanelTitle eyebrow="Panel activo">{activeDescription}</PanelTitle>
-        <p className="text-sm leading-6 text-muted">
-          Los botones de guardado propios de cada bloque se mantienen dentro del editor abierto.
-        </p>
       </Panel>
 
       {renderPanel()}

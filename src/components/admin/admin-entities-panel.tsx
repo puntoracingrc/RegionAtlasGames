@@ -45,6 +45,7 @@ type CompanyRelation = {
 
 type EntitySort = "alpha-asc" | "alpha-desc" | "games-desc" | "games-asc";
 type CompanyAiTarget = "history" | "logo" | "website" | "years" | "seo";
+type EntityMode = "create" | "edit" | "delete";
 
 const tabs: { id: Tab; label: string }[] = [
   { id: "platforms", label: "Plataformas" },
@@ -143,7 +144,15 @@ function activeToggleLabel(active: boolean): string {
   return active ? "ON" : "OFF";
 }
 
-export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initialTab?: Tab } = {}) {
+export function AdminEntitiesPanel({
+  initialTab: initialTabOverride,
+  mode = "edit",
+  lockTab = false,
+}: {
+  initialTab?: Tab;
+  mode?: EntityMode;
+  lockTab?: boolean;
+} = {}) {
   const [tab, setTab] = useState<Tab>(initialTabOverride ?? initialTab);
   const [platforms, setPlatforms] = useState<PlatformRow[]>([]);
   const [companies, setCompanies] = useState<IndexRow[]>([]);
@@ -221,8 +230,16 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
     platforms.filter((platform) => matchesSearch(platform, search)),
     sort,
   );
-  const visibleCompanies = sortEntities(companies, sort);
-  const visibleGenres = sortEntities(genres, sort);
+  const visibleCompanies = sortEntities(
+    companies.filter((company) => matchesSearch(company, search)),
+    sort,
+  );
+  const visibleGenres = sortEntities(
+    genres.filter((genre) => matchesSearch(genre, search)),
+    sort,
+  );
+  const showCreatePanel = !lockTab || mode === "create";
+  const showListPanel = !lockTab || mode !== "create";
 
   function relationInputValue(relation: CompanyRelation | null | undefined): string {
     return relation ? `${relation.name} (${relation.slug})` : "";
@@ -246,6 +263,7 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
   const loadPlatforms = useCallback(async () => {
     const res = await fetch("/api/admin/entities/platforms");
     const data = await res.json();
+    if (!res.ok) throw new Error(data.error ?? "No se pudieron cargar las plataformas.");
     if (res.ok) setPlatforms(data.platforms ?? []);
   }, []);
 
@@ -254,6 +272,7 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
     if (q.trim()) params.set("q", q.trim());
     const res = await fetch(`/api/admin/entities/companies?${params}`);
     const data = await res.json();
+    if (!res.ok) throw new Error(data.error ?? "No se pudieron cargar las compañías.");
     if (res.ok) setCompanies(data.companies ?? []);
   }, [search]);
 
@@ -262,6 +281,7 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
     if (q.trim()) params.set("q", q.trim());
     const res = await fetch(`/api/admin/entities/genres?${params}`);
     const data = await res.json();
+    if (!res.ok) throw new Error(data.error ?? "No se pudieron cargar los géneros.");
     if (res.ok) setGenres(data.genres ?? []);
   }, [search]);
 
@@ -272,8 +292,8 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
       if (tab === "platforms") await loadPlatforms();
       if (tab === "companies") await loadCompanies();
       if (tab === "genres") await loadGenres();
-    } catch {
-      setError("No se pudo cargar la lista.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "No se pudo cargar la lista.");
     } finally {
       setLoading(false);
     }
@@ -693,6 +713,7 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
 
   return (
     <div className="space-y-6">
+      {!lockTab ? (
       <div className="flex flex-wrap gap-2 rounded-2xl border border-sky-300/40 bg-sky-100/30 p-2 dark:border-sky-400/20 dark:bg-sky-950/10">
         {tabs.map((item) => (
           <button
@@ -723,8 +744,9 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
           </button>
         ))}
       </div>
+      ) : null}
 
-      {tab === "platforms" && (
+      {showCreatePanel && tab === "platforms" && (
         <Panel className={adminToneClass("edit")}>
           <PanelTitle eyebrow="Alta completa">Nueva plataforma</PanelTitle>
           <form onSubmit={createPlatform} className="grid max-w-3xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
@@ -818,7 +840,7 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
         </Panel>
       )}
 
-      {tab === "companies" && (
+      {showCreatePanel && tab === "companies" && (
         <Panel className={adminToneClass("edit")}>
           <PanelTitle eyebrow="Alta completa">Nueva compañía</PanelTitle>
           <form onSubmit={createCompany} className="grid max-w-5xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
@@ -968,7 +990,7 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
         </Panel>
       )}
 
-      {tab === "genres" && (
+      {showCreatePanel && tab === "genres" && (
         <Panel className={adminToneClass("edit")}>
           <PanelTitle eyebrow="Alta rápida">Nuevo género</PanelTitle>
           <form onSubmit={createGenre} className="grid max-w-2xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
@@ -999,9 +1021,9 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
         </Panel>
       )}
 
-      {tab === "series" && <AdminSeriesPanel />}
+      {tab === "series" && <AdminSeriesPanel mode={mode} lockTab={lockTab} />}
 
-      {tab !== "series" && (
+      {showListPanel && tab !== "series" && (
       <Panel className={adminToneClass("search")}>
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <PanelTitle>

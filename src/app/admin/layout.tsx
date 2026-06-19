@@ -2,9 +2,11 @@ import { Suspense } from "react";
 import { SiteNav } from "@/components/site-nav";
 import { AdminNav } from "@/components/admin/admin-nav";
 import { requireAdminUser } from "@/lib/admin-auth";
+import { getCatalogStagingSummary } from "@/lib/catalog-staging";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   await requireAdminUser();
+  const summary = await getCatalogStagingSummary(0);
 
   return (
     <>
@@ -25,7 +27,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           </div>
         </header>
         <Suspense fallback={null}>
-          <AdminNav />
+          <AdminNav pendingReviewCount={summary.totalGames} />
         </Suspense>
         {children}
       </main>

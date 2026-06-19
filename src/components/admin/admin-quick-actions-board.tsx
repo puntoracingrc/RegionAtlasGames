@@ -37,6 +37,18 @@ function moveAction(actions: AdminQuickAction[], fromHref: string, toHref: strin
   return next;
 }
 
+function moveActionByStep(actions: AdminQuickAction[], href: string, step: -1 | 1): AdminQuickAction[] {
+  const fromIndex = actions.findIndex((action) => action.href === href);
+  if (fromIndex < 0) return actions;
+  const toIndex = fromIndex + step;
+  if (toIndex < 0 || toIndex >= actions.length) return actions;
+
+  const next = [...actions];
+  const [moved] = next.splice(fromIndex, 1);
+  next.splice(toIndex, 0, moved);
+  return next;
+}
+
 export function AdminQuickActionsBoard({
   actions,
   hasPendingReview,
@@ -81,13 +93,46 @@ export function AdminQuickActionsBoard({
     setHasChanges(true);
   }
 
-  function renderCard(action: AdminQuickAction) {
+  function moveWithButtons(href: string, step: -1 | 1) {
+    setItems((current) => moveActionByStep(current, href, step));
+    setHasChanges(true);
+  }
+
+  function renderCard(action: AdminQuickAction, index: number) {
     return (
       <AdminFunctionCard tone={action.tone} className="relative h-full transition group-hover:shadow-sm">
         {isEditingOrder ? (
-          <span className="absolute right-3 top-3 rounded-lg border border-border bg-background/70 px-2 py-1 text-xs font-black text-muted">
-            ⋮⋮
-          </span>
+          <div className="absolute right-3 top-3 flex items-center gap-1">
+            <button
+              type="button"
+              className="rounded-lg border border-border bg-background/80 px-2 py-1 text-xs font-black text-muted transition hover:text-foreground disabled:opacity-35"
+              disabled={index === 0}
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                moveWithButtons(action.href, -1);
+              }}
+              title="Subir"
+            >
+              ↑
+            </button>
+            <button
+              type="button"
+              className="rounded-lg border border-border bg-background/80 px-2 py-1 text-xs font-black text-muted transition hover:text-foreground disabled:opacity-35"
+              disabled={index === items.length - 1}
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                moveWithButtons(action.href, 1);
+              }}
+              title="Bajar"
+            >
+              ↓
+            </button>
+            <span className="rounded-lg border border-border bg-background/70 px-2 py-1 text-xs font-black text-muted">
+              ⋮⋮
+            </span>
+          </div>
         ) : null}
         {action.href === "/admin/cola" && hasPendingReview ? (
           <span
@@ -107,12 +152,12 @@ export function AdminQuickActionsBoard({
   return (
     <div className="space-y-4">
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
-        {items.map((action) => {
+        {items.map((action, index) => {
           const isDragging = draggingHref === action.href;
           if (!isEditingOrder) {
             return (
               <Link key={action.href} href={action.href} className="group block h-full transition hover:-translate-y-0.5">
-                {renderCard(action)}
+                {renderCard(action, index)}
               </Link>
             );
           }
@@ -144,7 +189,7 @@ export function AdminQuickActionsBoard({
               }`}
               title="Arrastra para reordenar"
             >
-              {renderCard(action)}
+              {renderCard(action, index)}
             </div>
           );
         })}
@@ -153,7 +198,7 @@ export function AdminQuickActionsBoard({
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border bg-background/45 p-3">
         <p className="text-xs leading-5 text-muted">
           {isEditingOrder
-            ? "Arrastra los bloques y guarda el orden cuando lo tengas a tu gusto."
+            ? "Arrastra los bloques o usa ↑/↓. Guarda el orden cuando lo tengas a tu gusto."
             : "Pulsa ordenar para mover los atajos. En modo normal las tarjetas abren su sección."}
         </p>
         <div className="flex flex-wrap gap-2">

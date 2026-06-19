@@ -13,8 +13,9 @@ const links = [
   { href: "/admin/importacion", label: "Importar", icon: "⇪" },
 ];
 
-export function AdminNav() {
+export function AdminNav({ pendingReviewCount = 0 }: { pendingReviewCount?: number }) {
   const pathname = usePathname();
+  const hasPendingReview = pendingReviewCount > 0;
 
   return (
     <nav className="sticky top-3 z-20 mb-8 flex flex-wrap gap-2 rounded-2xl border border-border/80 bg-nav/90 p-2 shadow-sm shadow-black/5 backdrop-blur dark:shadow-black/20">
@@ -46,7 +47,16 @@ export function AdminNav() {
             <span aria-hidden="true" className="text-xs opacity-80">
               {link.icon}
             </span>
-            {link.label}
+            <span className="relative inline-flex items-center">
+              {link.label}
+              {link.href === "/admin/cola" && hasPendingReview ? (
+                <span
+                  className="absolute -right-3 -top-2 h-2.5 w-2.5 rounded-full bg-rose-500 ring-2 ring-background"
+                  aria-label={`${pendingReviewCount} fichas pendientes de revisión`}
+                  title={`${pendingReviewCount} fichas pendientes de revisión`}
+                />
+              ) : null}
+            </span>
           </Link>
         );
       })}

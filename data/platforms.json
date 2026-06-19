@@ -218,5 +218,17 @@
     "estimatedCatalogSize": 12000,
     "sortOrder": 22,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón) desde PriceCharting."
+  },
+  {
+    "slug": "ps5",
+    "name": "PlayStation 5",
+    "shortName": "PS5",
+    "manufacturer": "sony",
+    "status": "semi-closed",
+    "estimatedCatalogSize": 0,
+    "sortOrder": 23,
+    "active": false,
+    "newsEnabled": false,
+    "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
   }
 ]

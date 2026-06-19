@@ -91,12 +91,11 @@ export default async function AdminQueuePage({ searchParams }: Props) {
   const knownPlatformSlugs = new Set(platforms.map((platform) => platform.slug));
   const platformFilterOptions = [
     ...platforms
-      .filter((platform) => platformStatsBySlug.has(platform.slug))
       .map((platform) => ({
         slug: platform.slug,
         name: platform.shortName || platform.name,
         sortOrder: platform.sortOrder ?? 9999,
-        stats: platformStatsBySlug.get(platform.slug)!,
+        stats: platformStatsBySlug.get(platform.slug) ?? { games: 0, units: 0 },
       })),
     ...[...platformStatsBySlug.entries()]
       .filter(([slug]) => !knownPlatformSlugs.has(slug))
