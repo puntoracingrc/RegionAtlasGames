@@ -79,7 +79,18 @@ type CompanySearchResult = {
   url: string;
   snippet: string;
   source: string;
+  excerpt?: string;
 };
+
+const COMPANY_REFERENCE_DOMAINS = [
+  "mobygames.com",
+  "wikipedia.org",
+  "wikidata.org",
+  "company-information.service.gov.uk",
+  "gamefaqs.gamespot.com",
+  "giantbomb.com",
+  "rawg.io",
+];
 
 const COMPANY_SEARCH_BLOCKED_HOSTS = new Set([
   "facebook.com",
@@ -108,13 +119,70 @@ function isUsefulCompanySearchResult(url: string): boolean {
 }
 
 function serpApiConfigured(): boolean {
-  return Boolean(process.env.SERPAPI_API_KEY?.trim());
+  return Boolean((process.env.SERPAPI_API_KEY ?? process.env.SERPAPI_KEY)?.trim());
+}
+
+function serpApiKey(): string {
+  return (process.env.SERPAPI_API_KEY ?? process.env.SERPAPI_KEY ?? "").trim();
+}
+
+function stripHtmlToText(html: string): string {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<noscript[\s\S]*?<\/noscript>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+async function fetchCompanyReferenceExcerpt(url: string): Promise<string | null> {
+  try {
+    const res = await fetch(url, {
+      headers: { "User-Agent": "RegionAtlasGames/1.0 (admin company ai)" },
+      signal: AbortSignal.timeout(16_000),
+    });
+    if (!res.ok) return null;
+    const contentType = res.headers.get("content-type") ?? "";
+    if (!contentType.includes("text/html")) return null;
+    const text = stripHtmlToText(await res.text());
+    return text.length >= 80 ? clip(text, 2200) : null;
+  } catch {
+    return null;
+  }
+}
+
+function isPriorityCompanyReference(url: string): boolean {
+  const hostname = hostnameOf(url);
+  return COMPANY_REFERENCE_DOMAINS.some((domain) => hostname === domain || hostname.endsWith(`.${domain}`));
+}
+
+async function addCompanyReferenceExcerpts(results: CompanySearchResult[]): Promise<CompanySearchResult[]> {
+  const enriched: CompanySearchResult[] = [];
+  let fetched = 0;
+  for (const result of results) {
+    if (fetched >= 5 || !isPriorityCompanyReference(result.url)) {
+      enriched.push(result);
+      continue;
+    }
+    const excerpt = await fetchCompanyReferenceExcerpt(result.url);
+    enriched.push(excerpt ? { ...result, excerpt } : result);
+    fetched += 1;
+  }
+  return enriched;
 }
 
 async function searchCompanyWebWithSerpApi(name: string, websiteUrl?: string | null): Promise<CompanySearchResult[]> {
-  const apiKey = process.env.SERPAPI_API_KEY?.trim();
+  const apiKey = serpApiKey();
   if (!apiKey) return [];
   const queries = [
+    `"${name}" site:mobygames.com/company`,
+    `"${name}" MobyGames company`,
+    `"${name}" video game company founded acquired merged closed`,
     `"${name}" video game company official website`,
     `"${name}" videojuegos empresa historia fundación`,
     websiteUrl ? `site:${hostnameOf(websiteUrl)} "${name}"` : null,
@@ -147,10 +215,10 @@ async function searchCompanyWebWithSerpApi(name: string, websiteUrl?: string | n
         snippet: result.snippet?.trim() || "",
         source: result.source?.trim() || hostnameOf(result.link),
       });
-      if (byUrl.size >= 6) return [...byUrl.values()];
+      if (byUrl.size >= 8) return addCompanyReferenceExcerpts([...byUrl.values()]);
     }
   }
-  return [...byUrl.values()];
+  return addCompanyReferenceExcerpts([...byUrl.values()]);
 }
 
 async function searchWikipediaCompany(name: string): Promise<CompanyReference | null> {
@@ -266,16 +334,31 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
   ).catch(() => []);
   if (searchResults.length) {
     logs.push(`SerpAPI: ${searchResults.length} resultado(s) web usados como apoyo.`);
+    for (const result of searchResults.slice(0, 6)) {
+      logs.push(
+        `Fuente apoyo: ${result.source} · ${result.title} · ${result.url}${
+          result.excerpt ? " · extracto leído" : ""
+        }`,
+      );
+    }
   } else if (!serpApiConfigured()) {
     logs.push("SerpAPI no configurada; usando Wikipedia/Wikidata y catálogo.");
   }
   const system =
     "Eres editor de un catálogo de videojuegos. Responde SOLO JSON válido. " +
-    "Estás completando una ficha de COMPAÑÍA, no de un juego. Prioriza Wikipedia/Wikidata y la web oficial si aparece. " +
-    "Rellena únicamente con datos verificables o inferencias prudentes desde el contexto. " +
-    "No inventes fechas si no tienes seguridad. Para websiteUrl usa solo web oficial clara. Para logoUrl usa una URL pública oficial o null. " +
+    "Estás completando una ficha de COMPAÑÍA, no de un juego. Contrasta Wikipedia/Wikidata, MobyGames, web oficial y otras bases de datos cuando existan. " +
+    "Rellena únicamente con datos verificables o inferencias prudentes desde varias señales del contexto. " +
+    "No inventes fechas si no tienes seguridad. Detecta fundación, cierre, fusiones, absorciones, compras, cambios de nombre, matriz o sucesora si las fuentes lo indican. " +
+    "foundedYear debe ser el año en que empezó la compañía o marca canónica que estás editando; si una compañía actual nace por fusión, usa el año de esa fusión y menciona las raíces anteriores en history. " +
+    "No escribas 'fue fundada en YEAR' usando el año de una predecesora si la entidad actual nació después por fusión, compra o cambio de nombre; formula esas raíces como antecedentes. " +
+    "No menciones años de fundación de predecesoras salvo que estén confirmados de forma clara por varias fuentes; si dudas, omite esos años y conserva solo la relación histórica. " +
+    "Si una compañía heredó activos tras una quiebra o cambio legal, diferencia en history la empresa original, la sucesora y el uso actual del nombre. " +
+    "Para websiteUrl usa solo web oficial clara. Para logoUrl usa una URL pública oficial o null. " +
     "history debe ser texto original en español, útil para una sección pública 'Sobre la compañía'. " +
-    "seoTitle y seoDescription deben ser naturales, sin keyword stuffing. " +
+    "No copies la estructura ni frases exactas de Wikipedia, MobyGames, tiendas, bases de datos ni webs oficiales: resume y reescribe con tus propias palabras para Region Atlas Games. " +
+    "Si dos fuentes discrepan, prioriza el dato más concreto e indica en el texto solo lo que esté suficientemente sustentado; si no, omite. " +
+    "Evita elogios vacíos como 'líder', 'destacada', 'actor clave', 'icónica', 'aclamada' o 'reconocida' si no aportan información concreta. " +
+    "seoTitle y seoDescription deben ser naturales, sin keyword stuffing ni adjetivos promocionales. " +
     'Campos posibles: {"history":string|null,"logoUrl":string|null,"websiteUrl":string|null,"foundedYear":number|null,"closedYear":number|null,"status":"active|defunct|subsidiary|unknown","seoTitle":string|null,"seoDescription":string|null}.';
   const user =
     `Compañía: ${input.name}\nSlug: ${input.slug}\nJuegos en índice: ${input.gameCount}\n` +
@@ -318,8 +401,8 @@ export async function fillAdminCompanyWithAi(input: AdminCompanyAiInput): Promis
     logs.push("Logo sugerido.");
   }
   if (targets.has("years")) {
-    patch.foundedYear = reference?.foundedYear ?? numberOrNull(parsed.foundedYear);
-    patch.closedYear = reference?.closedYear ?? numberOrNull(parsed.closedYear);
+    patch.foundedYear = numberOrNull(parsed.foundedYear) ?? reference?.foundedYear ?? null;
+    patch.closedYear = numberOrNull(parsed.closedYear) ?? reference?.closedYear ?? null;
     patch.status = statusOrUnknown(parsed.status);
     logs.push("Años y estado revisados.");
   }
