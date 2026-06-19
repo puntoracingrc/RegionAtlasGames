@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
 import {
   createAdminSeries,
+  getAdminBulkGameActionOptions,
   listAdminSeriesGamePlatforms,
   listAdminSeries,
   searchAdminSeriesGames,
@@ -18,6 +19,17 @@ export async function GET(req: Request) {
 
   if (mode === "game-platforms") {
     return NextResponse.json({ ok: true, platforms: listAdminSeriesGamePlatforms() });
+  }
+
+  if (mode === "taxonomy-options") {
+    const options = getAdminBulkGameActionOptions();
+    return NextResponse.json({
+      ok: true,
+      tags: options.tags,
+      facets: [...options.subgenres, ...options.facets].sort((a, b) =>
+        a.name.localeCompare(b.name, "es", { numeric: true }),
+      ),
+    });
   }
 
   if (mode === "games") {

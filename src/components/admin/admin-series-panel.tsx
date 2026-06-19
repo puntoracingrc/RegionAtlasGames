@@ -11,12 +11,17 @@ import type {
   AdminSeriesRow,
 } from "@/lib/admin-series-manager";
 
-function parseCsv(value: string): string[] {
-  return value
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-}
+type LabelOption = {
+  slug: string;
+  name: string;
+  count: number | null;
+  family?: string;
+};
+
+type SeriesTaxonomyOptions = {
+  tags: LabelOption[];
+  facets: LabelOption[];
+};
 
 function regionLabel(region: string): string {
   if (region === "PAL España") return "ES";
@@ -35,6 +40,105 @@ function gameSubtitle(game: AdminSeriesGameRow): string {
   return parts.join(" · ");
 }
 
+function normalizeOptionSearch(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "");
+}
+
+function LabelAutocomplete({
+  title,
+  placeholder,
+  options,
+  selected,
+  onChange,
+}: {
+  title: string;
+  placeholder: string;
+  options: LabelOption[];
+  selected: string[];
+  onChange: (next: string[]) => void;
+}) {
+  const [query, setQuery] = useState("");
+  const selectedSet = useMemo(() => new Set(selected), [selected]);
+  const visibleOptions = useMemo(() => {
+    const normalizedQuery = normalizeOptionSearch(query);
+    if (!normalizedQuery) return [];
+    return options
+      .filter((option) => {
+        if (selectedSet.has(option.name)) return false;
+        return normalizeOptionSearch(`${option.name} ${option.family ?? ""}`).includes(normalizedQuery);
+      })
+      .slice(0, 10);
+  }, [options, query, selectedSet]);
+
+  function addOption(name: string) {
+    if (selectedSet.has(name)) return;
+    onChange([...selected, name].sort((left, right) => left.localeCompare(right, "es", { numeric: true })));
+    setQuery("");
+  }
+
+  function removeOption(name: string) {
+    onChange(selected.filter((item) => item !== name));
+  }
+
+  return (
+    <div className="space-y-2">
+      <label className="block space-y-1">
+        <span className="text-[10px] uppercase tracking-wider text-muted">{title}</span>
+        <input
+          className="input"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" && visibleOptions[0]) {
+              event.preventDefault();
+              addOption(visibleOptions[0].name);
+            }
+          }}
+          placeholder={placeholder}
+        />
+      </label>
+      {selected.length ? (
+        <div className="flex flex-wrap gap-2">
+          {selected.map((name) => (
+            <button
+              key={name}
+              type="button"
+              className="rounded-full border border-indigo-300/50 bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-800 dark:border-indigo-400/30 dark:text-indigo-200"
+              onClick={() => removeOption(name)}
+              title="Quitar"
+            >
+              {name} ×
+            </button>
+          ))}
+        </div>
+      ) : null}
+      {query.trim() ? (
+        <div className="grid max-h-56 gap-1 overflow-auto rounded-2xl border border-indigo-300/40 bg-background/80 p-2 dark:border-indigo-400/25">
+          {visibleOptions.length ? (
+            visibleOptions.map((option) => (
+              <button
+                key={option.slug}
+                type="button"
+                className="rounded-xl px-3 py-2 text-left text-sm text-muted transition hover:bg-indigo-500/10 hover:text-foreground"
+                onClick={() => addOption(option.name)}
+              >
+                <span className="font-semibold">{option.name}</span>
+                {option.family ? <span className="ml-2 text-xs opacity-70">{option.family}</span> : null}
+              </button>
+            ))
+          ) : (
+            <p className="px-3 py-2 text-sm text-muted">No hay opciones oficiales con ese texto.</p>
+          )}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export function AdminSeriesPanel() {
   const [series, setSeries] = useState<AdminSeriesRow[]>([]);
   const [selectedSlug, setSelectedSlug] = useState<string>("");
@@ -48,8 +152,9 @@ export function AdminSeriesPanel() {
   const [genreFilter, setGenreFilter] = useState("");
   const [newSeriesName, setNewSeriesName] = useState("");
   const [newSeriesSlug, setNewSeriesSlug] = useState("");
-  const [tagsInput, setTagsInput] = useState("");
-  const [facetsInput, setFacetsInput] = useState("");
+  const [taxonomyOptions, setTaxonomyOptions] = useState<SeriesTaxonomyOptions>({ tags: [], facets: [] });
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedFacets, setSelectedFacets] = useState<string[]>([]);
   const [seriesDescription, setSeriesDescription] = useState("");
   const [loadingSeries, setLoadingSeries] = useState(true);
   const [loadingDetail, setLoadingDetail] = useState(false);
@@ -101,6 +206,22 @@ export function AdminSeriesPanel() {
       if (res.ok) setPlatformOptions(data.platforms ?? []);
     } catch {
       setPlatformOptions([]);
+    }
+  }, []);
+
+  const loadTaxonomyOptions = useCallback(async () => {
+    try {
+      const params = new URLSearchParams({ mode: "taxonomy-options" });
+      const res = await fetch(`/api/admin/entities/series?${params}`);
+      const data = await res.json();
+      if (res.ok) {
+        setTaxonomyOptions({
+          tags: data.tags ?? [],
+          facets: data.facets ?? [],
+        });
+      }
+    } catch {
+      setTaxonomyOptions({ tags: [], facets: [] });
     }
   }, []);
 
@@ -165,6 +286,10 @@ export function AdminSeriesPanel() {
   useEffect(() => {
     void loadPlatformOptions();
   }, [loadPlatformOptions]);
+
+  useEffect(() => {
+    void loadTaxonomyOptions();
+  }, [loadTaxonomyOptions]);
 
   useEffect(() => {
     setHiddenGameResultIds(new Set());
@@ -246,6 +371,8 @@ export function AdminSeriesPanel() {
         setMessage("Juego sacado de la saga.");
       } else if (body.action === "bulk-assign") {
         setMessage(`Asignación aplicada a ${data.affectedCount ?? 0} juegos.`);
+        setSelectedTags([]);
+        setSelectedFacets([]);
       } else if (body.action === "update-description") {
         setMessage("Descripción de saga guardada.");
       }
@@ -542,39 +669,31 @@ export function AdminSeriesPanel() {
                     description={`Se aplicará solo a los ${filteredGames.length} juegos visibles con el filtro actual.`}
                   />
                   <div className="grid gap-3 md:grid-cols-2">
-                    <label className="block space-y-1">
-                      <span className="text-[10px] uppercase tracking-wider text-muted">
-                        Etiquetas
-                      </span>
-                      <input
-                        className="input"
-                        value={tagsInput}
-                        onChange={(e) => setTagsInput(e.target.value)}
-                        placeholder="soulslike, cooperativo, mundo abierto…"
-                      />
-                    </label>
-                    <label className="block space-y-1">
-                      <span className="text-[10px] uppercase tracking-wider text-muted">
-                        Facetas
-                      </span>
-                      <input
-                        className="input"
-                        value={facetsInput}
-                        onChange={(e) => setFacetsInput(e.target.value)}
-                        placeholder="Edición física, edición GOTY…"
-                      />
-                    </label>
+                    <LabelAutocomplete
+                      title="Etiquetas"
+                      placeholder="Escribe y elige una etiqueta…"
+                      options={taxonomyOptions.tags}
+                      selected={selectedTags}
+                      onChange={setSelectedTags}
+                    />
+                    <LabelAutocomplete
+                      title="Facetas"
+                      placeholder="Escribe y elige una faceta o subgénero…"
+                      options={taxonomyOptions.facets}
+                      selected={selectedFacets}
+                      onChange={setSelectedFacets}
+                    />
                   </div>
                   <button
                     type="button"
                     className="btn-primary mt-4"
-                    disabled={saving || filteredGames.length === 0}
+                    disabled={saving || filteredGames.length === 0 || (selectedTags.length === 0 && selectedFacets.length === 0)}
                     onClick={() =>
                       void patchSeries({
                         action: "bulk-assign",
                         genreSlug: genreFilter || null,
-                        tags: parseCsv(tagsInput),
-                        facets: parseCsv(facetsInput),
+                        tags: selectedTags,
+                        facets: selectedFacets,
                       })
                     }
                   >
