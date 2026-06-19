@@ -10,6 +10,7 @@ import type {
   AdminSeriesGameRow,
   AdminSeriesPlatformOption,
   AdminSeriesRow,
+  SeriesBackgroundReadability,
 } from "@/lib/admin-series-manager";
 
 type LabelOption = {
@@ -369,6 +370,8 @@ export function AdminSeriesPanel() {
   const [seriesDescription, setSeriesDescription] = useState("");
   const [seriesBackgroundUrl, setSeriesBackgroundUrl] = useState("");
   const [seriesBackgroundOpacity, setSeriesBackgroundOpacity] = useState(68);
+  const [seriesBackgroundReadability, setSeriesBackgroundReadability] =
+    useState<SeriesBackgroundReadability>("normal");
   const [seriesBackgroundSourceUrl, setSeriesBackgroundSourceUrl] = useState("");
   const [loadingSeries, setLoadingSeries] = useState(true);
   const [loadingDetail, setLoadingDetail] = useState(false);
@@ -541,6 +544,7 @@ export function AdminSeriesPanel() {
       setSeriesDescription(nextDetail.series.description ?? "");
       setSeriesBackgroundUrl(nextDetail.series.backgroundImageUrl ?? "");
       setSeriesBackgroundOpacity(nextDetail.series.backgroundImageOpacity ?? 68);
+      setSeriesBackgroundReadability(nextDetail.series.backgroundReadability ?? "normal");
       setSeriesBackgroundSourceUrl("");
       setGenreFilter("");
       setSelectedGameIds([]);
@@ -656,6 +660,7 @@ export function AdminSeriesPanel() {
       setSeriesDescription(nextDetail.series.description ?? "");
       setSeriesBackgroundUrl(nextDetail.series.backgroundImageUrl ?? "");
       setSeriesBackgroundOpacity(nextDetail.series.backgroundImageOpacity ?? 68);
+      setSeriesBackgroundReadability(nextDetail.series.backgroundReadability ?? "normal");
       await loadSeries(seriesSearch);
       if (body.action === "add-game") {
         setMessage("Juego añadido a la saga.");
@@ -726,6 +731,7 @@ export function AdminSeriesPanel() {
       action: "update-background",
       backgroundImageUrl: seriesBackgroundUrl,
       backgroundImageOpacity: seriesBackgroundOpacity,
+      backgroundReadability: seriesBackgroundReadability,
     });
   }
 
@@ -749,6 +755,7 @@ export function AdminSeriesPanel() {
       setDetail(nextDetail);
       setSeriesBackgroundUrl(data.backgroundImageUrl ?? nextDetail.series.backgroundImageUrl ?? "");
       setSeriesBackgroundOpacity(nextDetail.series.backgroundImageOpacity ?? 68);
+      setSeriesBackgroundReadability(nextDetail.series.backgroundReadability ?? "normal");
       setSeriesBackgroundSourceUrl("");
       await loadSeries(seriesSearch);
       setMessage("Fondo importado al hosting y guardado.");
@@ -782,6 +789,7 @@ export function AdminSeriesPanel() {
       setDetail(nextDetail);
       setSeriesBackgroundUrl(data.backgroundImageUrl ?? nextDetail.series.backgroundImageUrl ?? "");
       setSeriesBackgroundOpacity(nextDetail.series.backgroundImageOpacity ?? 68);
+      setSeriesBackgroundReadability(nextDetail.series.backgroundReadability ?? "normal");
       await loadSeries(seriesSearch);
       setMessage("Fondo subido al hosting y guardado.");
     } catch {
@@ -1016,6 +1024,22 @@ export function AdminSeriesPanel() {
                     Base recomendada: 68%. Sube si queda apagada; baja si tapa el texto.
                   </p>
                 </div>
+                <label className="mt-3 block space-y-1">
+                  <span className="text-[10px] uppercase tracking-wider text-muted">
+                    Legibilidad del texto
+                  </span>
+                  <select
+                    className="input"
+                    value={seriesBackgroundReadability}
+                    onChange={(event) =>
+                      setSeriesBackgroundReadability(event.target.value as SeriesBackgroundReadability)
+                    }
+                  >
+                    <option value="soft">Suave · deja ver más imagen</option>
+                    <option value="normal">Normal · equilibrio recomendado</option>
+                    <option value="strong">Fuerte · prioriza lectura</option>
+                  </select>
+                </label>
                 <div className="mt-3 grid gap-3 lg:grid-cols-[1fr_auto]">
                   <label className="block space-y-1">
                     <span className="text-[10px] uppercase tracking-wider text-muted">Importar desde URL al hosting</span>

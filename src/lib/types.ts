@@ -118,6 +118,7 @@ export type IndexEntry = {
   description?: string | null;
   backgroundImageUrl?: string | null;
   backgroundImageOpacity?: number | null;
+  backgroundReadability?: "soft" | "normal" | "strong" | null;
   active?: boolean;
   asDeveloper?: string[];
   asPublisher?: string[];

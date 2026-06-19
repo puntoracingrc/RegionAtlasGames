@@ -6,6 +6,7 @@ import {
 } from "@/lib/covers-upload";
 import {
   DEFAULT_SERIES_BACKGROUND_OPACITY,
+  DEFAULT_SERIES_BACKGROUND_READABILITY,
   updateAdminSeriesBackground,
 } from "@/lib/admin-series-manager";
 
@@ -48,6 +49,7 @@ export async function POST(req: Request, { params }: Props) {
     slug,
     uploaded.backgroundImageUrl,
     DEFAULT_SERIES_BACKGROUND_OPACITY,
+    DEFAULT_SERIES_BACKGROUND_READABILITY,
   );
   if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
 

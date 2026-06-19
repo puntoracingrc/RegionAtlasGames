@@ -11,12 +11,29 @@ export function SeriesProfilePanel({
   profile,
   backgroundImage,
   backgroundOpacity = 68,
+  backgroundReadability = "normal",
 }: {
   profile: SeriesProfile;
   backgroundImage?: string | null;
   backgroundOpacity?: number | null;
+  backgroundReadability?: "soft" | "normal" | "strong" | null;
 }) {
   const opacity = Math.min(100, Math.max(1, Math.round(backgroundOpacity ?? 68))) / 100;
+  const readability = backgroundReadability ?? "normal";
+  const readabilityLayers = {
+    soft: {
+      side: "from-card/58 via-card/34 to-card/10",
+      bottom: "from-card/46 via-transparent to-card/10",
+    },
+    normal: {
+      side: "from-card/72 via-card/48 to-card/18",
+      bottom: "from-card/58 via-transparent to-card/18",
+    },
+    strong: {
+      side: "from-card/86 via-card/68 to-card/34",
+      bottom: "from-card/76 via-card/20 to-card/32",
+    },
+  }[readability];
   const yearRange =
     profile.firstYear && profile.latestYear && profile.firstYear !== profile.latestYear
       ? `${profile.firstYear}–${profile.latestYear}`
@@ -36,11 +53,11 @@ export function SeriesProfilePanel({
             />
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-r from-card/75 via-card/52 to-card/20"
+              className={`absolute inset-0 bg-gradient-to-r ${readabilityLayers.side}`}
             />
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-card/62 via-transparent to-card/20"
+              className={`absolute inset-0 bg-gradient-to-t ${readabilityLayers.bottom}`}
             />
           </>
         ) : null}

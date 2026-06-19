@@ -106,6 +106,11 @@ export async function PATCH(req: Request, { params }: Props) {
       slug,
       typeof body.backgroundImageUrl === "string" ? body.backgroundImageUrl : null,
       typeof body.backgroundImageOpacity === "number" ? body.backgroundImageOpacity : undefined,
+      body.backgroundReadability === "soft" ||
+        body.backgroundReadability === "normal" ||
+        body.backgroundReadability === "strong"
+        ? body.backgroundReadability
+        : undefined,
     );
     if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
     return NextResponse.json({ ok: true, series: result.series });

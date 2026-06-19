@@ -31,6 +31,8 @@ const ADMIN_SERIES_OVERLAY_FILE = path.join(
 );
 const ADMIN_SERIES_OVERLAY_PATH = "region-atlas/admin/series-overlay.json";
 export const DEFAULT_SERIES_BACKGROUND_OPACITY = 68;
+export const DEFAULT_SERIES_BACKGROUND_READABILITY = "normal";
+export type SeriesBackgroundReadability = "soft" | "normal" | "strong";
 
 type AdminSeriesOverlayEntry = {
   slug: string;
@@ -38,6 +40,7 @@ type AdminSeriesOverlayEntry = {
   description?: string;
   backgroundImageUrl?: string;
   backgroundImageOpacity?: number;
+  backgroundReadability?: SeriesBackgroundReadability;
   gameIds?: string[];
   additions?: string[];
   removals?: string[];
@@ -66,6 +69,7 @@ export type AdminSeriesRow = {
   description?: string | null;
   backgroundImageUrl?: string | null;
   backgroundImageOpacity?: number | null;
+  backgroundReadability?: SeriesBackgroundReadability | null;
 };
 
 export type AdminSeriesGameRow = {
@@ -287,6 +291,11 @@ function normalizeBackgroundOpacity(value: number | null | undefined): number | 
   return Math.min(100, Math.max(1, Math.round(value)));
 }
 
+function normalizeBackgroundReadability(value: unknown): SeriesBackgroundReadability | null {
+  if (value === "soft" || value === "normal" || value === "strong") return value;
+  return null;
+}
+
 function normalizeLooseSearch(raw: string): string {
   return raw
     .trim()
@@ -436,6 +445,9 @@ function effectiveSeriesEntry(
     backgroundImageOpacity: normalizeBackgroundOpacity(
       overlayEntry?.backgroundImageOpacity ?? staticEntry?.backgroundImageOpacity,
     ),
+    backgroundReadability: normalizeBackgroundReadability(
+      overlayEntry?.backgroundReadability ?? staticEntry?.backgroundReadability,
+    ),
     active: staticEntry?.active,
   };
 }
@@ -466,6 +478,7 @@ function toSeriesRow(entry: IndexEntry, catalog: CatalogGame[]): AdminSeriesRow 
     description: resolved.description ?? null,
     backgroundImageUrl: resolved.backgroundImageUrl ?? null,
     backgroundImageOpacity: resolved.backgroundImageOpacity ?? null,
+    backgroundReadability: resolved.backgroundReadability ?? null,
   };
 }
 
@@ -669,6 +682,7 @@ export async function updateAdminSeriesBackground(
   slug: string,
   backgroundImageUrl: string | null,
   backgroundImageOpacity?: number | null,
+  backgroundReadability?: SeriesBackgroundReadability | null,
 ): Promise<{ series: AdminSeriesDetail } | { error: string }> {
   const normalizedSlug = normalizeSlug(slug);
   const index = loadSeriesIndex();
@@ -684,6 +698,10 @@ export async function updateAdminSeriesBackground(
   if (backgroundImageOpacity !== undefined && backgroundImageOpacity !== null && !normalizedOpacity) {
     return { error: "Porcentaje de fondo inválido." };
   }
+  const normalizedReadability = normalizeBackgroundReadability(backgroundReadability);
+  if (backgroundReadability !== undefined && backgroundReadability !== null && !normalizedReadability) {
+    return { error: "Modo de legibilidad inválido." };
+  }
 
   const existing = overlay.series[normalizedSlug] ?? {
     slug: normalizedSlug,
@@ -697,6 +715,9 @@ export async function updateAdminSeriesBackground(
     backgroundImageUrl: normalizedUrl ?? undefined,
     backgroundImageOpacity: normalizedUrl
       ? (normalizedOpacity ?? existing.backgroundImageOpacity ?? DEFAULT_SERIES_BACKGROUND_OPACITY)
+      : undefined,
+    backgroundReadability: normalizedUrl
+      ? (normalizedReadability ?? existing.backgroundReadability ?? DEFAULT_SERIES_BACKGROUND_READABILITY)
       : undefined,
   };
   await writeAdminSeriesOverlay(overlay);

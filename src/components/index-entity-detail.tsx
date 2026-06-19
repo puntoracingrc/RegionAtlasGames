@@ -35,6 +35,8 @@ export async function IndexEntityDetail({ kind, slug }: { kind: IndexKind; slug:
       : null;
   const seriesBackgroundOpacity =
     kind === "series" ? summary.entry.backgroundImageOpacity ?? 68 : 68;
+  const seriesBackgroundReadability =
+    kind === "series" ? summary.entry.backgroundReadability ?? "normal" : "normal";
 
   const content = (
     <>
@@ -45,6 +47,7 @@ export async function IndexEntityDetail({ kind, slug }: { kind: IndexKind; slug:
           profile={seriesProfile}
           backgroundImage={seriesBackgroundImage}
           backgroundOpacity={seriesBackgroundOpacity}
+          backgroundReadability={seriesBackgroundReadability}
         />
       )}
       <div id="saga-games" />
