@@ -85,26 +85,10 @@ const quickActions = [
 
 export default async function AdminDashboardPage() {
   const summary = await getCatalogStagingSummary(8);
+  const hasPendingReview = summary.totalGames > 0;
 
   return (
     <div className="space-y-6">
-      <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
-        <PanelTitle eyebrow="Prioridad">Revisión de fichas</PanelTitle>
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-5xl font-black tracking-tight text-foreground">
-              {summary.totalGames}
-            </p>
-            <p className="mt-2 text-sm text-muted">
-              juegos pendientes de revisión, enriquecimiento o publicación.
-            </p>
-          </div>
-          <Link href="/admin/cola" className="btn-primary w-full sm:w-auto">
-            Abrir revisión
-          </Link>
-        </div>
-      </Panel>
-
       <Panel className="border-sky-300/40 bg-sky-50/40 dark:border-sky-400/20 dark:bg-sky-950/10">
         <PanelTitle eyebrow="Atajos">Acciones rápidas</PanelTitle>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
@@ -114,7 +98,13 @@ export default async function AdminDashboardPage() {
               href={action.href}
               className="group transition hover:-translate-y-0.5"
             >
-              <AdminFunctionCard tone={action.tone} className="h-full transition group-hover:shadow-sm">
+              <AdminFunctionCard tone={action.tone} className="relative h-full transition group-hover:shadow-sm">
+                {action.href === "/admin/cola" && hasPendingReview ? (
+                  <span
+                    aria-label={`${summary.totalGames} fichas pendientes de revisión`}
+                    className="absolute right-4 top-4 h-3 w-3 rounded-full bg-red-500 shadow-[0_0_0_4px_rgba(239,68,68,0.16)]"
+                  />
+                ) : null}
                 <span className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 text-lg font-bold text-accent">
                   {action.icon}
                 </span>
