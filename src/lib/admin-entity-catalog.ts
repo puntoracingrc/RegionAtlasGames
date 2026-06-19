@@ -173,19 +173,57 @@ function staticIndexRow(entry: IndexEntry): AdminIndexRow {
 }
 
 async function createOverlayCompany(
-  input: { slug?: string; name: string },
+  input: {
+    slug?: string;
+    name: string;
+    history?: string | null;
+    logoUrl?: string | null;
+    websiteUrl?: string | null;
+    foundedYear?: number | null;
+    closedYear?: number | null;
+    status?: CompanyProfileStatus;
+    parentCompany?: CompanyRelation | null;
+    acquiredByCompany?: CompanyRelation | null;
+    successorCompany?: CompanyRelation | null;
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+  },
   staticIndex: Record<string, IndexEntry>,
 ): Promise<{ ok: true; entry: AdminIndexRow } | { error: string }> {
   const name = input.name.trim();
   if (!name) return { error: "Falta el nombre de la compañía." };
   const slug = normalizeSlug(input.slug || name);
   if (!slug) return { error: "Slug no válido." };
+  const foundedYear = parseNullableYear(input.foundedYear);
+  const closedYear = parseNullableYear(input.closedYear);
+  const status = normalizeCompanyStatus(input.status);
+  const parentCompany = normalizeCompanyRelation(input.parentCompany);
+  const acquiredByCompany = normalizeCompanyRelation(input.acquiredByCompany);
+  const successorCompany = normalizeCompanyRelation(input.successorCompany);
+  if (foundedYear === undefined) return { error: "Año de fundación no válido." };
+  if (closedYear === undefined) return { error: "Año de cierre no válido." };
+  if (input.status != null && !status) return { error: "Estado de compañía no válido." };
+  if (parentCompany === undefined) return { error: "Empresa matriz no válida." };
+  if (acquiredByCompany === undefined) return { error: "Compañía compradora no válida." };
+  if (successorCompany === undefined) return { error: "Compañía sucesora no válida." };
   const overlay = await readAdminEntitiesOverlay();
   if (staticIndex[slug] || overlay.companies[slug]) {
     return { error: `Ya existe la compañía «${slug}».` };
   }
   const entry = { slug, name, gameCount: 0, active: true };
   overlay.companies[slug] = entry;
+  overlay.companyProfiles[slug] = companyProfileFromInput(
+    slug,
+    name,
+    undefined,
+    {
+      ...input,
+      parentCompany,
+      acquiredByCompany,
+      successorCompany,
+    },
+    { foundedYear: foundedYear ?? null, closedYear: closedYear ?? null, status },
+  );
   await writeAdminEntitiesOverlay(overlay);
   return { ok: true, entry };
 }
@@ -869,11 +907,34 @@ export async function listAdminCompanies(input?: {
 export async function createAdminCompany(input: {
   slug?: string;
   name: string;
+  history?: string | null;
+  logoUrl?: string | null;
+  websiteUrl?: string | null;
+  foundedYear?: number | null;
+  closedYear?: number | null;
+  status?: CompanyProfileStatus;
+  parentCompany?: CompanyRelation | null;
+  acquiredByCompany?: CompanyRelation | null;
+  successorCompany?: CompanyRelation | null;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
 }): Promise<{ ok: true; entry: AdminIndexRow } | { error: string }> {
   const name = input.name.trim();
   if (!name) return { error: "Falta el nombre de la compañía." };
   const slug = normalizeSlug(input.slug || name);
   if (!slug) return { error: "Slug no válido." };
+  const foundedYear = parseNullableYear(input.foundedYear);
+  const closedYear = parseNullableYear(input.closedYear);
+  const status = normalizeCompanyStatus(input.status);
+  const parentCompany = normalizeCompanyRelation(input.parentCompany);
+  const acquiredByCompany = normalizeCompanyRelation(input.acquiredByCompany);
+  const successorCompany = normalizeCompanyRelation(input.successorCompany);
+  if (foundedYear === undefined) return { error: "Año de fundación no válido." };
+  if (closedYear === undefined) return { error: "Año de cierre no válido." };
+  if (input.status != null && !status) return { error: "Estado de compañía no válido." };
+  if (parentCompany === undefined) return { error: "Empresa matriz no válida." };
+  if (acquiredByCompany === undefined) return { error: "Compañía compradora no válida." };
+  if (successorCompany === undefined) return { error: "Compañía sucesora no válida." };
 
   const index = loadJson<Record<string, IndexEntry>>(COMPANIES_INDEX_FILE, {});
   if (!canWriteCatalogFiles()) {
@@ -912,6 +973,21 @@ export async function createAdminCompany(input: {
   registry.generatedAt = new Date().toISOString();
   saveJson(COMPANY_ENTITIES_FILE, registry);
   bumpMetaCounter("indexCompanies", 1);
+
+  const profiles = loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {});
+  profiles[slug] = companyProfileFromInput(
+    slug,
+    name,
+    undefined,
+    {
+      ...input,
+      parentCompany,
+      acquiredByCompany,
+      successorCompany,
+    },
+    { foundedYear: foundedYear ?? null, closedYear: closedYear ?? null, status },
+  );
+  saveJson(COMPANY_PROFILES_FILE, profiles);
 
   return { ok: true, entry: { slug, name, gameCount: 0, active: true } };
 }

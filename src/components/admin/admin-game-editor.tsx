@@ -14,7 +14,7 @@ import { getCoverSrc } from "@/lib/cover-url";
 import { getPhysicalVariant, PHYSICAL_VARIANTS } from "@/lib/physical-variants";
 import { buildCatalogSeoSlug } from "@/lib/catalog-path";
 
-type CompanyOption = { name: string; slug: string };
+export type CompanyOption = { name: string; slug: string };
 type ReviewNavItem = { pcId: number; title: string };
 type ReviewNav = {
   previous: ReviewNavItem | null;
@@ -55,7 +55,7 @@ type PublishJobState = {
   error?: string;
 };
 
-function EntityCombo({
+export function EntityCombo({
   label,
   name,
   slug,
@@ -114,7 +114,7 @@ function uniqueNames(values: string[]): string[] {
   );
 }
 
-function ControlledTaxonomySelector({
+export function ControlledTaxonomySelector({
   label,
   helper,
   selected,

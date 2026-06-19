@@ -360,6 +360,11 @@ export function AdminSeriesPanel() {
   const [genreFilter, setGenreFilter] = useState("");
   const [newSeriesName, setNewSeriesName] = useState("");
   const [newSeriesSlug, setNewSeriesSlug] = useState("");
+  const [newSeriesDescription, setNewSeriesDescription] = useState("");
+  const [newSeriesBackgroundUrl, setNewSeriesBackgroundUrl] = useState("");
+  const [newSeriesBackgroundOpacity, setNewSeriesBackgroundOpacity] = useState(68);
+  const [newSeriesBackgroundReadability, setNewSeriesBackgroundReadability] =
+    useState<SeriesBackgroundReadability>("normal");
   const [taxonomyOptions, setTaxonomyOptions] = useState<SeriesTaxonomyOptions>({ genres: [], tags: [], facets: [] });
   const [bulkOperation, setBulkOperation] = useState<BulkLabelOperation>("add");
   const [selectedGameIds, setSelectedGameIds] = useState<string[]>([]);
@@ -618,6 +623,10 @@ export function AdminSeriesPanel() {
         body: JSON.stringify({
           name: newSeriesName,
           slug: newSeriesSlug || undefined,
+          description: newSeriesDescription || null,
+          backgroundImageUrl: newSeriesBackgroundUrl || null,
+          backgroundImageOpacity: newSeriesBackgroundOpacity,
+          backgroundReadability: newSeriesBackgroundReadability,
         }),
       });
       const data = await res.json();
@@ -628,6 +637,10 @@ export function AdminSeriesPanel() {
       const created = data.series as AdminSeriesRow;
       setNewSeriesName("");
       setNewSeriesSlug("");
+      setNewSeriesDescription("");
+      setNewSeriesBackgroundUrl("");
+      setNewSeriesBackgroundOpacity(68);
+      setNewSeriesBackgroundReadability("normal");
       setMessage(`Saga «${created.name}» creada.`);
       await loadSeries("");
       setSeriesSearch("");
@@ -827,6 +840,66 @@ export function AdminSeriesPanel() {
                 onChange={(e) => setNewSeriesSlug(e.target.value)}
                 placeholder="Opcional"
               />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Descripción pública</span>
+              <textarea
+                className="input min-h-32"
+                value={newSeriesDescription}
+                onChange={(e) => setNewSeriesDescription(e.target.value)}
+                placeholder="Texto editorial de la saga. Puedes dejarlo vacío y regenerarlo con IA después."
+              />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Fondo del bloque público</span>
+              <input
+                className="input"
+                value={newSeriesBackgroundUrl}
+                onChange={(e) => setNewSeriesBackgroundUrl(e.target.value)}
+                placeholder="https://... o /saga-backgrounds/..."
+              />
+            </label>
+            <div className="rounded-2xl border border-border bg-background/50 p-3">
+              <div className="mb-2 flex flex-wrap items-center justify-between gap-3">
+                <span className="text-[10px] uppercase tracking-wider text-muted">Intensidad de imagen</span>
+                <label className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                  <input
+                    className="input w-24 px-3 py-2 text-center"
+                    type="number"
+                    min={1}
+                    max={100}
+                    value={newSeriesBackgroundOpacity}
+                    onChange={(event) =>
+                      setNewSeriesBackgroundOpacity(
+                        Math.min(100, Math.max(1, Number(event.target.value) || 1)),
+                      )
+                    }
+                  />
+                  %
+                </label>
+              </div>
+              <input
+                className="w-full accent-amber-500"
+                type="range"
+                min={1}
+                max={100}
+                value={newSeriesBackgroundOpacity}
+                onChange={(event) => setNewSeriesBackgroundOpacity(Number(event.target.value))}
+              />
+            </div>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Legibilidad del texto</span>
+              <select
+                className="input"
+                value={newSeriesBackgroundReadability}
+                onChange={(event) =>
+                  setNewSeriesBackgroundReadability(event.target.value as SeriesBackgroundReadability)
+                }
+              >
+                <option value="soft">Suave · deja ver más imagen</option>
+                <option value="normal">Normal · equilibrio recomendado</option>
+                <option value="strong">Fuerte · prioriza lectura</option>
+              </select>
             </label>
             <button type="submit" className="btn-primary" disabled={saving}>
               {saving ? "Creando…" : "Crear saga"}

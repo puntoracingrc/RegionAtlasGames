@@ -185,6 +185,20 @@ export function draftFromManualInput(input: {
   region: string;
   slug?: string;
   reference?: string | null;
+  physicalVariant?: string | null;
+  coverUrl?: string | null;
+  year?: number | null;
+  releaseDate?: string | null;
+  players?: number | null;
+  support?: string | null;
+  developerName?: string | null;
+  developerSlug?: string | null;
+  publisherName?: string | null;
+  publisherSlug?: string | null;
+  genreNames?: string[];
+  subgenreNames?: string[];
+  facetNames?: string[];
+  description?: string | null;
   pcId: number;
   contributorEmail?: string | null;
   reviewStatus?: AdminGameDraft["reviewStatus"];
@@ -208,22 +222,22 @@ export function draftFromManualInput(input: {
     titlePc: input.title.trim(),
     platformSlug: input.platformSlug,
     region: input.region,
-    physicalVariant: null,
+    physicalVariant: input.physicalVariant?.trim() || null,
     edition: "standard",
     reference: input.reference?.trim() || null,
-    coverUrl: null,
-    year: null,
-    releaseDate: null,
-    players: null,
-    support: null,
-    developerName: null,
-    developerSlug: null,
-    publisherName: null,
-    publisherSlug: null,
-    genreNames: [],
-    subgenreNames: [],
-    facetNames: [],
-    description: null,
+    coverUrl: input.coverUrl?.trim() || null,
+    year: input.year ?? null,
+    releaseDate: input.releaseDate?.trim() || null,
+    players: input.players ?? null,
+    support: input.support?.trim() || null,
+    developerName: input.developerName?.trim() || null,
+    developerSlug: input.developerSlug?.trim() || null,
+    publisherName: input.publisherName?.trim() || null,
+    publisherSlug: input.publisherSlug?.trim() || null,
+    genreNames: input.genreNames ?? [],
+    subgenreNames: input.subgenreNames ?? [],
+    facetNames: input.facetNames ?? [],
+    description: input.description?.trim() || null,
     seoMeta: null,
     descriptionMeta: null,
     source: "manual",

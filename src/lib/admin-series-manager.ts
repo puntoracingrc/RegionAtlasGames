@@ -846,11 +846,30 @@ export async function searchAdminBulkActionGames(input: {
 export async function createAdminSeries(input: {
   name: string;
   slug?: string;
+  description?: string | null;
+  backgroundImageUrl?: string | null;
+  backgroundImageOpacity?: number | null;
+  backgroundReadability?: SeriesBackgroundReadability | null;
 }): Promise<{ ok: true; series: AdminSeriesRow } | { error: string }> {
   const name = input.name.trim();
   if (!name) return { error: "Falta el nombre de la saga." };
   const slug = normalizeSlug(input.slug || name);
   if (!slug) return { error: "Slug no válido." };
+  const normalizedUrl = normalizeOptionalUrl(input.backgroundImageUrl);
+  if (input.backgroundImageUrl?.trim() && !normalizedUrl) {
+    return { error: "URL de fondo inválida." };
+  }
+  const normalizedOpacity = normalizeBackgroundOpacity(input.backgroundImageOpacity);
+  if (input.backgroundImageOpacity !== undefined && input.backgroundImageOpacity !== null && !normalizedOpacity) {
+    return { error: "Porcentaje de fondo inválido." };
+  }
+  const normalizedReadability = normalizeBackgroundReadability(input.backgroundReadability);
+  if (input.backgroundReadability !== undefined && input.backgroundReadability !== null && !normalizedReadability) {
+    return { error: "Modo de legibilidad inválido." };
+  }
+  const description = dedupeSeriesDescription(input.description) ?? undefined;
+  const backgroundImageOpacity = normalizedOpacity ?? DEFAULT_SERIES_BACKGROUND_OPACITY;
+  const backgroundReadability = normalizedReadability ?? DEFAULT_SERIES_BACKGROUND_READABILITY;
   const index = loadSeriesIndex();
   const catalog = loadCatalog();
   const overlay = await readAdminSeriesOverlay();
@@ -864,15 +883,38 @@ export async function createAdminSeries(input: {
       gameIds: [],
       byPlatform: {},
       gameCount: 0,
+      description,
+      backgroundImageUrl: normalizedUrl ?? undefined,
+      backgroundImageOpacity,
+      backgroundReadability,
     };
     index[slug] = entry;
     saveSeriesIndex(index);
     return { ok: true, series: toSeriesRow(entry, catalog) };
   }
 
-  overlay.series[slug] = { slug, name, gameIds: [] };
+  overlay.series[slug] = {
+    slug,
+    name,
+    description,
+    backgroundImageUrl: normalizedUrl ?? undefined,
+    backgroundImageOpacity,
+    backgroundReadability,
+    gameIds: [],
+  };
   await writeAdminSeriesOverlay(overlay);
-  return { ok: true, series: { slug, name, gameCount: 0 } };
+  return {
+    ok: true,
+    series: {
+      slug,
+      name,
+      gameCount: 0,
+      description: description ?? null,
+      backgroundImageUrl: normalizedUrl ?? null,
+      backgroundImageOpacity,
+      backgroundReadability,
+    },
+  };
 }
 
 export async function addGamesToAdminSeries(

@@ -20,11 +20,39 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
 
-  const body = (await request.json()) as { slug?: string; name?: string };
+  const body = (await request.json()) as {
+    slug?: string;
+    name?: string;
+    history?: string | null;
+    logoUrl?: string | null;
+    websiteUrl?: string | null;
+    foundedYear?: number | null;
+    closedYear?: number | null;
+    status?: "active" | "defunct" | "subsidiary" | "unknown";
+    parentCompany?: { slug: string; name: string } | null;
+    acquiredByCompany?: { slug: string; name: string } | null;
+    successorCompany?: { slug: string; name: string } | null;
+    seoTitle?: string | null;
+    seoDescription?: string | null;
+  };
   if (!body.name?.trim()) {
     return NextResponse.json({ error: "Falta el nombre." }, { status: 400 });
   }
-  const result = await createAdminCompany({ name: body.name.trim(), slug: body.slug });
+  const result = await createAdminCompany({
+    name: body.name.trim(),
+    slug: body.slug,
+    history: body.history ?? null,
+    logoUrl: body.logoUrl ?? null,
+    websiteUrl: body.websiteUrl ?? null,
+    foundedYear: body.foundedYear ?? null,
+    closedYear: body.closedYear ?? null,
+    status: body.status,
+    parentCompany: body.parentCompany ?? null,
+    acquiredByCompany: body.acquiredByCompany ?? null,
+    successorCompany: body.successorCompany ?? null,
+    seoTitle: body.seoTitle ?? null,
+    seoDescription: body.seoDescription ?? null,
+  });
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 400 });
   }

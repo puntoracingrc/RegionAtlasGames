@@ -5,10 +5,12 @@ import { useMemo, useState } from "react";
 import { AdminCatalogSearchPanel } from "@/components/admin/admin-catalog-search-panel";
 import { AdminContributorsPanel } from "@/components/admin/admin-contributors-panel";
 import { AdminEntitiesPanel } from "@/components/admin/admin-entities-panel";
+import type { CompanyOption } from "@/components/admin/admin-game-editor";
 import { AdminNewGameForm } from "@/components/admin/admin-new-game-form";
 import { AdminTaxonomyPanel } from "@/components/admin/admin-taxonomy-panel";
 import { AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Panel, PanelTitle } from "@/components/ui";
+import type { AdminGameEditorTaxonomyOption } from "@/lib/admin-game-editor-options";
 
 type PlatformOption = { slug: string; name: string };
 
@@ -18,6 +20,12 @@ type ActionKey = "create" | "edit" | "delete";
 type Props = {
   platforms: PlatformOption[];
   regions: readonly string[];
+  companies: CompanyOption[];
+  taxonomyOptions: {
+    genres: AdminGameEditorTaxonomyOption[];
+    subgenres: AdminGameEditorTaxonomyOption[];
+    facets: AdminGameEditorTaxonomyOption[];
+  };
 };
 
 const entities: { id: EntityKey; label: string; helper: string }[] = [
@@ -70,7 +78,7 @@ function PendingPanel({
   );
 }
 
-export function AdminManagementPanel({ platforms, regions }: Props) {
+export function AdminManagementPanel({ platforms, regions, companies, taxonomyOptions }: Props) {
   const [entity, setEntity] = useState<EntityKey>("games");
   const [action, setAction] = useState<ActionKey>("edit");
 
@@ -82,7 +90,15 @@ export function AdminManagementPanel({ platforms, regions }: Props) {
 
   function renderPanel() {
     if (entity === "games" && action === "create") {
-      return <AdminNewGameForm platforms={platforms} regions={regions} redirectBase="/admin/cola" />;
+      return (
+        <AdminNewGameForm
+          platforms={platforms}
+          regions={regions}
+          companies={companies}
+          taxonomyOptions={taxonomyOptions}
+          redirectBase="/admin/cola"
+        />
+      );
     }
 
     if (entity === "games" && action === "edit") {

@@ -55,6 +55,16 @@ export async function POST(req: Request) {
   const result = await createAdminSeries({
     name: typeof body.name === "string" ? body.name : "",
     slug: typeof body.slug === "string" ? body.slug : undefined,
+    description: typeof body.description === "string" ? body.description : null,
+    backgroundImageUrl: typeof body.backgroundImageUrl === "string" ? body.backgroundImageUrl : null,
+    backgroundImageOpacity:
+      typeof body.backgroundImageOpacity === "number" ? body.backgroundImageOpacity : null,
+    backgroundReadability:
+      body.backgroundReadability === "soft" ||
+      body.backgroundReadability === "normal" ||
+      body.backgroundReadability === "strong"
+        ? body.backgroundReadability
+        : null,
   });
   if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
   return NextResponse.json({ ok: true, series: result.series });

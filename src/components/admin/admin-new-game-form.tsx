@@ -8,12 +8,26 @@ import {
   AdminSimilarGamesPanel,
   type SimilarCatalogMatchView,
 } from "@/components/admin/admin-similar-games-panel";
+import {
+  ControlledTaxonomySelector,
+  EntityCombo,
+  type CompanyOption,
+} from "@/components/admin/admin-game-editor";
+import type { AdminGameEditorTaxonomyOption } from "@/lib/admin-game-editor-options";
+import { PHYSICAL_VARIANTS } from "@/lib/physical-variants";
 
 type PlatformOption = { slug: string; name: string };
+type TaxonomyOptions = {
+  genres: AdminGameEditorTaxonomyOption[];
+  subgenres: AdminGameEditorTaxonomyOption[];
+  facets: AdminGameEditorTaxonomyOption[];
+};
 
 type Props = {
   platforms: PlatformOption[];
   regions: readonly string[];
+  companies?: CompanyOption[];
+  taxonomyOptions?: TaxonomyOptions;
   createApiUrl?: string;
   similarApiUrl?: string;
   redirectBase?: string;
@@ -26,6 +40,20 @@ type CreatePayload = {
   region: string;
   reference?: string;
   slug?: string;
+  physicalVariant?: string | null;
+  coverUrl?: string | null;
+  year?: number | null;
+  releaseDate?: string | null;
+  players?: number | null;
+  support?: string | null;
+  developerName?: string | null;
+  developerSlug?: string | null;
+  publisherName?: string | null;
+  publisherSlug?: string | null;
+  genreNames?: string[];
+  subgenreNames?: string[];
+  facetNames?: string[];
+  description?: string | null;
   autoEnrich: boolean;
   autoAi: boolean;
   confirmDistinct?: boolean;
@@ -34,6 +62,8 @@ type CreatePayload = {
 export function AdminNewGameForm({
   platforms,
   regions,
+  companies = [],
+  taxonomyOptions = { genres: [], subgenres: [], facets: [] },
   createApiUrl = "/api/admin/games",
   similarApiUrl = "/api/admin/games/similar",
   redirectBase = "/admin/cola",
@@ -45,6 +75,20 @@ export function AdminNewGameForm({
   const [region, setRegion] = useState(regions[0] ?? "PAL España");
   const [reference, setReference] = useState("");
   const [slug, setSlug] = useState("");
+  const [physicalVariant, setPhysicalVariant] = useState("");
+  const [coverUrl, setCoverUrl] = useState("");
+  const [year, setYear] = useState("");
+  const [releaseDate, setReleaseDate] = useState("");
+  const [players, setPlayers] = useState("");
+  const [support, setSupport] = useState("");
+  const [developerName, setDeveloperName] = useState("");
+  const [developerSlug, setDeveloperSlug] = useState("");
+  const [publisherName, setPublisherName] = useState("");
+  const [publisherSlug, setPublisherSlug] = useState("");
+  const [genreNames, setGenreNames] = useState<string[]>([]);
+  const [subgenreNames, setSubgenreNames] = useState<string[]>([]);
+  const [facetNames, setFacetNames] = useState<string[]>([]);
+  const [description, setDescription] = useState("");
   const [autoAi, setAutoAi] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -131,6 +175,20 @@ export function AdminNewGameForm({
       region,
       reference: reference || undefined,
       slug: slug || undefined,
+      physicalVariant: physicalVariant || null,
+      coverUrl: coverUrl || null,
+      year: year.trim() ? Number.parseInt(year, 10) : null,
+      releaseDate: releaseDate || null,
+      players: players.trim() ? Number.parseInt(players, 10) : null,
+      support: support || null,
+      developerName: developerName || null,
+      developerSlug: developerSlug || null,
+      publisherName: publisherName || null,
+      publisherSlug: publisherSlug || null,
+      genreNames,
+      subgenreNames,
+      facetNames,
+      description: description || null,
       autoEnrich: !contributorMode,
       autoAi: contributorMode ? false : autoAi,
       confirmDistinct,
@@ -171,7 +229,7 @@ export function AdminNewGameForm({
 
       <form
         onSubmit={onSubmit}
-        className="grid max-w-3xl gap-4 rounded-2xl border border-border bg-background/45 p-4 md:grid-cols-2"
+        className="grid max-w-6xl gap-4 rounded-2xl border border-border bg-background/45 p-4 md:grid-cols-2"
       >
         <label className="block space-y-1">
           <span className="text-[10px] uppercase tracking-wider text-muted">Título</span>
@@ -247,6 +305,154 @@ export function AdminNewGameForm({
         </label>
 
         {!contributorMode && (
+          <>
+            <div className="md:col-span-2">
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">Datos de ficha</p>
+            </div>
+
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Edición física</span>
+              <select
+                className="input"
+                value={physicalVariant}
+                onChange={(e) => setPhysicalVariant(e.target.value)}
+              >
+                <option value="">Sin especificar</option>
+                {PHYSICAL_VARIANTS.map((variant) => (
+                  <option key={variant.slug} value={variant.label}>
+                    {variant.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Año</span>
+              <input
+                className="input"
+                type="number"
+                min={1950}
+                max={2100}
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
+                placeholder="Ej. 2004"
+              />
+            </label>
+
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Fecha lanzamiento</span>
+              <input
+                className="input"
+                value={releaseDate}
+                onChange={(e) => setReleaseDate(e.target.value)}
+                placeholder="Ej. 18 noviembre 2004"
+              />
+            </label>
+
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Jugadores</span>
+              <input
+                className="input"
+                type="number"
+                min={1}
+                max={999}
+                value={players}
+                onChange={(e) => setPlayers(e.target.value)}
+                placeholder="Ej. 1"
+              />
+            </label>
+
+            <label className="block space-y-1 md:col-span-2">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Soporte / formato</span>
+              <input
+                className="input"
+                value={support}
+                onChange={(e) => setSupport(e.target.value)}
+                placeholder="Ej. Blu-ray, cartucho, CD-ROM..."
+              />
+            </label>
+
+            <div className="md:col-span-2">
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">Compañías</p>
+            </div>
+
+            <EntityCombo
+              label="Desarrolladora"
+              name={developerName}
+              slug={developerSlug}
+              options={companies}
+              onChange={(nextName, nextSlug) => {
+                setDeveloperName(nextName);
+                setDeveloperSlug(nextSlug ?? "");
+              }}
+            />
+            <EntityCombo
+              label="Editora"
+              name={publisherName}
+              slug={publisherSlug}
+              options={companies}
+              onChange={(nextName, nextSlug) => {
+                setPublisherName(nextName);
+                setPublisherSlug(nextSlug ?? "");
+              }}
+            />
+
+            <div className="md:col-span-2">
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">Taxonomía</p>
+            </div>
+
+            <ControlledTaxonomySelector
+              label="Géneros"
+              helper="Elige géneros principales oficiales en castellano."
+              selected={genreNames}
+              options={taxonomyOptions.genres}
+              onChange={setGenreNames}
+              disabled={loading}
+            />
+            <ControlledTaxonomySelector
+              label="Subgéneros"
+              helper="Opciones controladas vinculadas a la jugabilidad principal."
+              selected={subgenreNames}
+              options={taxonomyOptions.subgenres}
+              onChange={setSubgenreNames}
+              disabled={loading}
+            />
+            <ControlledTaxonomySelector
+              label="Facetas"
+              helper="Formato, perspectiva, jugadores, temas, edición y otras señales controladas."
+              selected={facetNames}
+              options={taxonomyOptions.facets}
+              onChange={setFacetNames}
+              disabled={loading}
+            />
+
+            <div className="md:col-span-2">
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">Contenido</p>
+            </div>
+
+            <label className="block space-y-1 md:col-span-2">
+              <span className="text-[10px] uppercase tracking-wider text-muted">URL portada</span>
+              <input
+                className="input font-mono text-xs"
+                value={coverUrl}
+                onChange={(e) => setCoverUrl(e.target.value)}
+                placeholder="https://... o /covers/..."
+              />
+            </label>
+
+            <label className="block space-y-1 md:col-span-2">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Descripción</span>
+              <textarea
+                className="input min-h-40"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Puedes dejarla vacía y lanzar IA al abrir el editor."
+              />
+            </label>
+          </>
+        )}
+
+        {!contributorMode && (
           <label className="flex items-center gap-3 rounded-xl border border-border bg-card/70 p-3 text-sm md:col-span-2">
             <input
               type="checkbox"
@@ -256,7 +462,7 @@ export function AdminNewGameForm({
             <span>
               <span className="block font-medium text-foreground">Rellenar con IA al abrir el editor</span>
               <span className="text-xs text-muted">
-                Útil para completar descripción, año, compañía y géneros tras crear la ficha.
+                Completa lo que falte respetando lo que hayas rellenado aquí.
               </span>
             </span>
           </label>
@@ -281,7 +487,7 @@ export function AdminNewGameForm({
         {!gateActive && (
           <div className="md:col-span-2">
             <button type="submit" className="btn-primary w-full sm:w-auto" disabled={loading || previewLoading}>
-              {loading ? "Creando…" : contributorMode ? "Crear ficha" : "Crear y abrir editor"}
+              {loading ? "Creando…" : contributorMode ? "Crear ficha" : autoAi ? "Crear y abrir con IA" : "Crear y abrir editor"}
             </button>
           </div>
         )}

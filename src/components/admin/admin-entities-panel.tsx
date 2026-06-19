@@ -196,9 +196,23 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
   const [platformShortName, setPlatformShortName] = useState("");
   const [platformManufacturer, setPlatformManufacturer] = useState("nintendo");
   const [platformStatus, setPlatformStatus] = useState("closed");
+  const [platformDescription, setPlatformDescription] = useState("");
+  const [platformSortOrder, setPlatformSortOrder] = useState("");
+  const [platformNewsEnabled, setPlatformNewsEnabled] = useState(false);
 
   const [companyName, setCompanyName] = useState("");
   const [companySlug, setCompanySlug] = useState("");
+  const [companyHistory, setCompanyHistory] = useState("");
+  const [companyLogoUrl, setCompanyLogoUrl] = useState("");
+  const [companyWebsiteUrl, setCompanyWebsiteUrl] = useState("");
+  const [companyFoundedYear, setCompanyFoundedYear] = useState("");
+  const [companyClosedYear, setCompanyClosedYear] = useState("");
+  const [companyStatus, setCompanyStatus] = useState<"active" | "defunct" | "subsidiary" | "unknown">("unknown");
+  const [companyParent, setCompanyParent] = useState("");
+  const [companyAcquiredBy, setCompanyAcquiredBy] = useState("");
+  const [companySuccessor, setCompanySuccessor] = useState("");
+  const [companySeoTitle, setCompanySeoTitle] = useState("");
+  const [companySeoDescription, setCompanySeoDescription] = useState("");
 
   const [genreName, setGenreName] = useState("");
   const [genreSlug, setGenreSlug] = useState("");
@@ -288,6 +302,9 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
           shortName: platformShortName || undefined,
           manufacturer: platformManufacturer,
           status: platformStatus,
+          description: platformDescription || undefined,
+          sortOrder: platformSortOrder ? Number.parseInt(platformSortOrder, 10) : undefined,
+          newsEnabled: platformNewsEnabled,
         }),
       });
       const data = await res.json();
@@ -298,6 +315,9 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
       setPlatformName("");
       setPlatformSlug("");
       setPlatformShortName("");
+      setPlatformDescription("");
+      setPlatformSortOrder("");
+      setPlatformNewsEnabled(false);
       setMessage(`Plataforma «${data.platform.name}» creada. Entra en la rotación diaria de precios.`);
       await loadPlatforms();
     } catch {
@@ -319,6 +339,17 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
         body: JSON.stringify({
           name: companyName,
           slug: companySlug || undefined,
+          history: companyHistory || null,
+          logoUrl: companyLogoUrl || null,
+          websiteUrl: companyWebsiteUrl || null,
+          foundedYear: companyFoundedYear ? Number.parseInt(companyFoundedYear, 10) : null,
+          closedYear: companyClosedYear ? Number.parseInt(companyClosedYear, 10) : null,
+          status: companyStatus,
+          parentCompany: relationFromInput(companyParent, companySlug || ""),
+          acquiredByCompany: relationFromInput(companyAcquiredBy, companySlug || ""),
+          successorCompany: relationFromInput(companySuccessor, companySlug || ""),
+          seoTitle: companySeoTitle || null,
+          seoDescription: companySeoDescription || null,
         }),
       });
       const data = await res.json();
@@ -328,6 +359,17 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
       }
       setCompanyName("");
       setCompanySlug("");
+      setCompanyHistory("");
+      setCompanyLogoUrl("");
+      setCompanyWebsiteUrl("");
+      setCompanyFoundedYear("");
+      setCompanyClosedYear("");
+      setCompanyStatus("unknown");
+      setCompanyParent("");
+      setCompanyAcquiredBy("");
+      setCompanySuccessor("");
+      setCompanySeoTitle("");
+      setCompanySeoDescription("");
       setMessage(`Compañía «${data.company.name}» creada.`);
       await loadCompanies("");
       setSearch("");
@@ -684,7 +726,7 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
 
       {tab === "platforms" && (
         <Panel className={adminToneClass("edit")}>
-          <PanelTitle eyebrow="Alta rápida">Nueva plataforma</PanelTitle>
+          <PanelTitle eyebrow="Alta completa">Nueva plataforma</PanelTitle>
           <form onSubmit={createPlatform} className="grid max-w-3xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
             <label className="block space-y-1 md:col-span-2">
               <span className="text-[10px] uppercase tracking-wider text-muted">Nombre</span>
@@ -737,6 +779,36 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
                 <option value="semi-closed">Semi-cerrada</option>
               </select>
             </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Orden</span>
+              <input
+                className="input"
+                type="number"
+                value={platformSortOrder}
+                onChange={(e) => setPlatformSortOrder(e.target.value)}
+                placeholder="Opcional"
+              />
+            </label>
+            <label className="flex items-center gap-3 rounded-xl border border-border bg-background/50 p-3 text-sm">
+              <input
+                type="checkbox"
+                checked={platformNewsEnabled}
+                onChange={(e) => setPlatformNewsEnabled(e.target.checked)}
+              />
+              <span>
+                <span className="block font-medium text-foreground">Noticias activas</span>
+                <span className="text-xs text-muted">Permite mostrar bloque de actualidad para esta plataforma.</span>
+              </span>
+            </label>
+            <label className="block space-y-1 md:col-span-2">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Descripción</span>
+              <textarea
+                className="input min-h-28"
+                value={platformDescription}
+                onChange={(e) => setPlatformDescription(e.target.value)}
+                placeholder="Descripción pública o nota interna de la plataforma."
+              />
+            </label>
             <div className="md:col-span-2">
               <button type="submit" className="btn-primary" disabled={saving}>
                 {saving ? "Creando…" : "Crear plataforma"}
@@ -748,8 +820,8 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
 
       {tab === "companies" && (
         <Panel className={adminToneClass("edit")}>
-          <PanelTitle eyebrow="Alta rápida">Nueva compañía</PanelTitle>
-          <form onSubmit={createCompany} className="grid max-w-2xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
+          <PanelTitle eyebrow="Alta completa">Nueva compañía</PanelTitle>
+          <form onSubmit={createCompany} className="grid max-w-5xl gap-4 rounded-2xl border border-amber-300/60 bg-amber-100/35 p-4 dark:border-amber-400/25 dark:bg-amber-950/15 md:grid-cols-2">
             <label className="block space-y-1">
               <span className="text-[10px] uppercase tracking-wider text-muted">Nombre</span>
               <input
@@ -765,6 +837,125 @@ export function AdminEntitiesPanel({ initialTab: initialTabOverride }: { initial
                 className="input font-mono text-xs"
                 value={companySlug}
                 onChange={(e) => setCompanySlug(e.target.value)}
+                placeholder="Opcional"
+              />
+            </label>
+            <label className="block space-y-1 md:col-span-2">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Sobre la compañía</span>
+              <textarea
+                className="input min-h-36 leading-7"
+                value={companyHistory}
+                onChange={(e) => setCompanyHistory(e.target.value)}
+                placeholder="Historia o descripción editorial de la compañía."
+              />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">URL logo</span>
+              <input
+                className="input"
+                value={companyLogoUrl}
+                onChange={(e) => setCompanyLogoUrl(e.target.value)}
+                placeholder="https://..."
+              />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Web oficial</span>
+              <input
+                className="input"
+                value={companyWebsiteUrl}
+                onChange={(e) => setCompanyWebsiteUrl(e.target.value)}
+                placeholder="https://..."
+              />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Estado editorial</span>
+              <select
+                className="input"
+                value={companyStatus}
+                onChange={(e) =>
+                  setCompanyStatus(e.target.value as "active" | "defunct" | "subsidiary" | "unknown")
+                }
+              >
+                <option value="unknown">Desconocido</option>
+                <option value="active">Activa</option>
+                <option value="defunct">Cerrada</option>
+                <option value="subsidiary">Filial / subsidiaria</option>
+              </select>
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Año fundación</span>
+              <input
+                className="input"
+                type="number"
+                min={1800}
+                max={2100}
+                value={companyFoundedYear}
+                onChange={(e) => setCompanyFoundedYear(e.target.value)}
+                placeholder="Ej. 1986"
+              />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Año cierre</span>
+              <input
+                className="input"
+                type="number"
+                min={1800}
+                max={2100}
+                value={companyClosedYear}
+                onChange={(e) => setCompanyClosedYear(e.target.value)}
+                placeholder="Opcional"
+              />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Pertenece a / empresa matriz</span>
+              <input
+                className="input"
+                list="admin-new-company-relation-targets"
+                value={companyParent}
+                onChange={(e) => setCompanyParent(e.target.value)}
+                placeholder="Ej. Take-Two Interactive"
+              />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Comprada o absorbida por</span>
+              <input
+                className="input"
+                list="admin-new-company-relation-targets"
+                value={companyAcquiredBy}
+                onChange={(e) => setCompanyAcquiredBy(e.target.value)}
+                placeholder="Compañía compradora / absorbente"
+              />
+            </label>
+            <label className="block space-y-1 md:col-span-2">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Se convirtió en</span>
+              <input
+                className="input"
+                list="admin-new-company-relation-targets"
+                value={companySuccessor}
+                onChange={(e) => setCompanySuccessor(e.target.value)}
+                placeholder="Nueva compañía o marca sucesora"
+              />
+              <datalist id="admin-new-company-relation-targets">
+                {companies.map((target) => (
+                  <option key={target.slug} value={`${target.name} (${target.slug})`} />
+                ))}
+              </datalist>
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Título SEO</span>
+              <input
+                className="input"
+                value={companySeoTitle}
+                onChange={(e) => setCompanySeoTitle(e.target.value)}
+                placeholder="Opcional"
+              />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-muted">Descripción SEO</span>
+              <textarea
+                className="input min-h-28"
+                value={companySeoDescription}
+                onChange={(e) => setCompanySeoDescription(e.target.value)}
                 placeholder="Opcional"
               />
             </label>
