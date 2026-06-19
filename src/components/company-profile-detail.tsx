@@ -80,7 +80,7 @@ export function CompanyProfileDetail({ view, series, ownedCatalogIds, isLoggedIn
 
         <section className="space-y-4">
           <div>
-            <h2 className="text-xl font-bold text-foreground">Catálogo completo</h2>
+            <h2 className="text-xl font-bold text-foreground">Catálogo completo · {view.name}</h2>
             <p className="mt-1 text-sm text-foreground/75">
               Explora y filtra todos los juegos de {view.name} en Region Atlas.
             </p>
