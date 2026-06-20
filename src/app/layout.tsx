@@ -30,6 +30,15 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_LOGO}`,
   },
   description: SITE_DESCRIPTION,
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "64x64" },
+      { url: "/brand-icon.png", type: "image/png", sizes: "256x256" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
+  },
   openGraph: {
     siteName: SITE_LOGO,
     locale: "es_ES",
