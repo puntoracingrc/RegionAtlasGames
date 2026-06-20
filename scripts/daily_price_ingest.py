@@ -107,7 +107,7 @@ def daily_skip_sources() -> set[str]:
         for part in os.environ.get("DAILY_SKIP_SOURCES", "").split(",")
         if part.strip()
     })
-    if os.environ.get("DAILY_ENABLE_TODOCOLECCION", "").strip().lower() in {"1", "true", "yes"}:
+    if os.environ.get("ENABLE_TODOCOLECCION_PRICE_WHEEL", "").strip().lower() in {"1", "true", "yes"}:
         skipped.discard("todocoleccion")
     if os.environ.get("DAILY_ENABLE_VINTED", "").strip().lower() in {"1", "true", "yes"}:
         skipped.discard("vinted")

@@ -8,6 +8,7 @@ type Props = {
 };
 
 type SaveState = "idle" | "saving" | "saved" | "error";
+type WorkerSyncState = "idle" | "syncing" | "synced" | "error";
 
 const priceCollectorSourceOrder = [
   "wallapop",
@@ -34,6 +35,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
   const [settings, setSettings] = useState(initialSettings);
   const [draftCustom, setDraftCustom] = useState<PriceCustomSourceSetting>(emptyCustomSource);
   const [saveState, setSaveState] = useState<SaveState>("idle");
+  const [workerSyncState, setWorkerSyncState] = useState<WorkerSyncState>("idle");
   const [message, setMessage] = useState("");
 
   const activeCount = useMemo(
@@ -106,6 +108,22 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
     setMessage("Fuentes guardadas. La próxima recolección usará estos interruptores en el worker.");
   }
 
+  async function syncWorker() {
+    setWorkerSyncState("syncing");
+    setMessage("");
+    const response = await fetch("/api/admin/price-worker/sync", { method: "POST" });
+    const data = await response.json().catch(() => null) as { ok?: boolean; uploaded?: unknown[]; error?: string } | null;
+    if (!response.ok || !data?.ok) {
+      setWorkerSyncState("error");
+      setSaveState("error");
+      setMessage(data?.error ?? "No se pudo sincronizar el worker.");
+      return;
+    }
+    setWorkerSyncState("synced");
+    setSaveState("saved");
+    setMessage(`Worker sincronizado: ${data.uploaded?.length ?? 0} archivos subidos.`);
+  }
+
   return (
     <section className="rounded-3xl border border-emerald-300/70 bg-emerald-50/70 p-5 shadow-sm dark:border-emerald-400/30 dark:bg-emerald-950/25 md:p-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
@@ -116,9 +134,19 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
             Activa o apaga collectors reales. Las webs candidatas quedan guardadas como rutas de apoyo: sirven para documentar dónde buscar, pero necesitan collector propio antes de entrar en la rueda automática.
           </p>
         </div>
-        <button type="button" onClick={saveSettings} disabled={saveState === "saving"} className="btn-primary">
-          {saveState === "saving" ? "Guardando..." : `Guardar fuentes (${activeCount} activas)`}
-        </button>
+        <div className="flex flex-wrap gap-2">
+          <button type="button" onClick={saveSettings} disabled={saveState === "saving"} className="btn-primary">
+            {saveState === "saving" ? "Guardando..." : `Guardar fuentes (${activeCount} activas)`}
+          </button>
+          <button
+            type="button"
+            onClick={syncWorker}
+            disabled={workerSyncState === "syncing"}
+            className="btn-secondary"
+          >
+            {workerSyncState === "syncing" ? "Sincronizando..." : "Sincronizar worker"}
+          </button>
+        </div>
       </div>
 
       {message ? (

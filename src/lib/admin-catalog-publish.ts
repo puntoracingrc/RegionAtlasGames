@@ -28,6 +28,7 @@ import { slugify } from "./slug";
 import { applyDraftPatch, draftFromCatalogGame, recomputeCatalogId } from "./admin-draft-patch";
 import { applyPricePatch, priceFieldsFromGame, type AdminPriceFields } from "./admin-price-patch";
 import { createAdminCompany } from "./admin-entity-catalog";
+import { addAffiliateOfferWhitelistGame } from "./affiliate-offers";
 import { isInvalidGenreEntity } from "./genre-normalize";
 import {
   buildCoverCatalogPath,
@@ -550,6 +551,10 @@ export async function publishAdminGameDraft(
       meta.catalogListed += 1;
     }
     saveJson(META_FILE, meta);
+    const affiliateWhitelist = addAffiliateOfferWhitelistGame(draft.catalogId);
+    if ("error" in affiliateWhitelist) {
+      console.warn("[admin-catalog] could not update affiliate whitelist", draft.catalogId, affiliateWhitelist.error);
+    }
     mode = "error" in overlaySaved ? "disk" : "both";
   }
 

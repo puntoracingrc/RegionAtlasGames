@@ -221,6 +221,8 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
     code = validate_ingest(out)
     if code != 0:
         return code
+    if stats.get("blocked"):
+        return 75
 
     if args.sync:
         subprocess.run(
