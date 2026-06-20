@@ -255,14 +255,23 @@ export function AdminEntitiesPanel({
     if (!trimmed) return null;
     const slugMatch = trimmed.match(/\(([^()]+)\)\s*$/);
     const typedSlug = slugMatch?.[1]?.trim() ?? trimmed;
-    const normalizedSlug = typedSlug.toLowerCase();
+    const normalizedSlug = typedSlug
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    const typedName = slugMatch ? trimmed.replace(/\s*\([^()]+\)\s*$/, "").trim() : trimmed;
     const match = companies.find(
       (company) =>
         company.slug.toLowerCase() === normalizedSlug ||
         company.name.toLowerCase() === trimmed.toLowerCase(),
     );
-    if (!match || match.slug === currentSlug) return null;
-    return { slug: match.slug, name: match.name };
+    if (match?.slug === currentSlug) return null;
+    if (match) return { slug: match.slug, name: match.name };
+    if (!normalizedSlug || normalizedSlug === currentSlug) return null;
+    return { slug: normalizedSlug, name: typedName || normalizedSlug };
   }
 
   function applyCompanyAiPatch(patch: Record<string, unknown>, targets?: CompanyAiTarget[]) {

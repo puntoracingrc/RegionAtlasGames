@@ -68,20 +68,25 @@ export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
             </p>
           )}
           {relations.length > 0 && (
-            <div className="grid max-w-3xl gap-2 text-sm sm:grid-cols-2">
-              {relations.map((relation) => (
-                <Link
-                  key={`${relation.label}:${relation.company.slug}`}
-                  href={`/compania/${relation.company.slug}`}
-                  className="rounded-2xl border border-border bg-card px-3 py-2 text-foreground/85 transition hover:border-accent/40 hover:text-accent"
-                >
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
-                    {relation.label}
-                  </span>
-                  <span className="font-semibold">{relation.company.name}</span>
-                </Link>
-              ))}
-            </div>
+            <section className="max-w-4xl rounded-3xl border border-sky-400/25 bg-sky-500/10 p-4 shadow-sm">
+              <h2 className="text-[11px] font-bold uppercase tracking-[0.22em] text-sky-900 dark:text-sky-100">
+                Relaciones corporativas
+              </h2>
+              <div className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+                {relations.map((relation) => (
+                  <Link
+                    key={`${relation.label}:${relation.company.slug}`}
+                    href={`/compania/${relation.company.slug}`}
+                    className="rounded-2xl border border-border bg-background/80 px-4 py-3 text-foreground/85 transition hover:border-accent/50 hover:bg-accent/10 hover:text-accent"
+                  >
+                    <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
+                      {relation.label}
+                    </span>
+                    <span className="font-semibold">{relation.company.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </section>
           )}
         </div>
       </div>
