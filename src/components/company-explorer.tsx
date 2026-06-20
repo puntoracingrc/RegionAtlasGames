@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 
 type CompanyRoleKind = "publisher" | "developer" | "both";
@@ -43,6 +43,12 @@ type CompanyExplorerData = {
   companies: CompanyCardData[];
   platformOptions: CompanyFilterOption[];
   genreOptions: CompanyFilterOption[];
+  totalCount: number;
+  initials: string[];
+  grouped: {
+    publishers: CompanyCardData[];
+    developers: CompanyCardData[];
+  } | null;
   stats: {
     total: number;
     publishers: number;
@@ -82,57 +88,6 @@ const ROLE_TABS: { value: CompanyRoleFilter; label: string; hint: string }[] = [
 const selectClass =
   "rounded-xl border border-border bg-input px-4 py-2.5 text-sm text-foreground outline-none ring-accent/30 focus:ring-2";
 
-const DISPLAY_CAP = 480;
-
-function companyInitial(name: string): string {
-  const first = name.trim().charAt(0).toLocaleUpperCase("es-ES");
-  if (!first) return "#";
-  return /^\d$/.test(first) ? "0-9" : first.normalize("NFD").replace(/\p{M}/gu, "");
-}
-
-function matchesSearch(company: CompanyCardData, query: string): boolean {
-  const needle = query.trim().toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
-  if (!needle) return true;
-  return needle.split(/\s+/).every((token) => company.searchHaystack.includes(token));
-}
-
-function matchesInitial(company: CompanyCardData, initial: string): boolean {
-  return initial === "all" || companyInitial(company.name) === initial;
-}
-
-function matchesRole(company: CompanyCardData, role: CompanyRoleFilter): boolean {
-  if (role === "publishers") return company.roleKind === "publisher";
-  if (role === "developers") return company.roleKind === "developer";
-  if (role === "both") return company.roleKind === "both";
-  return true;
-}
-
-function sortCompanies(list: CompanyCardData[], sort: CompanySort): CompanyCardData[] {
-  return [...list].sort((a, b) => {
-    if (sort === "name-asc") return a.name.localeCompare(b.name, "es", { sensitivity: "base" });
-    if (sort === "name-desc") return b.name.localeCompare(a.name, "es", { sensitivity: "base" });
-    if (sort === "games-asc") return a.gameCount - b.gameCount || a.name.localeCompare(b.name, "es");
-    if (sort === "market-desc") return b.marketScore - a.marketScore || b.grailCount - a.grailCount || b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es");
-    if (sort === "dev-desc") return b.developerCount - a.developerCount || b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es");
-    if (sort === "pub-desc") return b.publisherCount - a.publisherCount || b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es");
-    return b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es");
-  });
-}
-
-function filterCompanies(companies: CompanyCardData[], filters: CompanyIndexFilters): CompanyCardData[] {
-  return sortCompanies(
-    companies.filter(
-      (company) =>
-        matchesSearch(company, filters.q) &&
-        matchesInitial(company, filters.initial) &&
-        matchesRole(company, filters.role) &&
-        (filters.platform === "all" || company.platformSlugs.includes(filters.platform)) &&
-        (filters.genre === "all" || company.genreSlugs.includes(filters.genre)),
-    ),
-    filters.sort,
-  );
-}
-
 function hasActiveCompanyFilters(filters: CompanyIndexFilters): boolean {
   return (
     filters.q.trim() !== "" ||
@@ -150,20 +105,49 @@ function companyRoleLabel(role: CompanyRoleKind): string {
   return "Dev + Pub";
 }
 
-export function CompanyExplorer({ companies, platformOptions, genreOptions, stats }: Props) {
-  const [filters, setFilters] = useState<CompanyIndexFilters>(DEFAULT_COMPANY_FILTERS);
+type CompanyPagePayload = {
+  items: CompanyCardData[];
+  total: number;
+};
 
-  const filtered = useMemo(() => filterCompanies(companies, filters), [companies, filters]);
-  const visible = filtered.slice(0, DISPLAY_CAP);
+function companyPageParams(filters: CompanyIndexFilters, page: number): URLSearchParams {
+  return new URLSearchParams({
+    q: filters.q,
+    initial: filters.initial,
+    role: filters.role,
+    platform: filters.platform,
+    genre: filters.genre,
+    sort: filters.sort,
+    page: String(page),
+  });
+}
+
+async function fetchCompanyPage(
+  filters: CompanyIndexFilters,
+  page: number,
+  signal?: AbortSignal,
+): Promise<CompanyPagePayload> {
+  const response = await fetch(`/api/catalog/companies?${companyPageParams(filters, page)}`, { signal });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return (await response.json()) as CompanyPagePayload;
+}
+
+export function CompanyExplorer({
+  companies: initialCompanies,
+  platformOptions,
+  genreOptions,
+  stats,
+  totalCount,
+  initials,
+  grouped,
+}: Props) {
+  const [filters, setFilters] = useState<CompanyIndexFilters>(DEFAULT_COMPANY_FILTERS);
   const filtersActive = hasActiveCompanyFilters(filters);
-  const initials = useMemo(() => {
-    const order = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    const available = new Set(companies.map((company) => companyInitial(company.name)));
-    return [
-      ...(available.has("0-9") ? ["0-9"] : []),
-      ...order.filter((letter) => available.has(letter)),
-    ];
-  }, [companies]);
+  const [items, setItems] = useState(initialCompanies);
+  const [total, setTotal] = useState(totalCount);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadError, setLoadError] = useState(false);
 
   const showGrouped =
     filters.role === "all" &&
@@ -171,14 +155,57 @@ export function CompanyExplorer({ companies, platformOptions, genreOptions, stat
     filters.initial === "all" &&
     filters.platform === "all" &&
     filters.genre === "all";
+  const hasMore = items.length < total;
 
-  const grouped = useMemo(() => {
-    if (!showGrouped) return null;
-    const publishers = filterCompanies(companies, { ...filters, role: "publishers" }).slice(0, 12);
-    const developers = filterCompanies(companies, { ...filters, role: "developers" }).slice(0, 12);
-    if (publishers.length === 0 && developers.length === 0) return null;
-    return { publishers, developers };
-  }, [companies, filters, showGrouped]);
+  useEffect(() => {
+    const controller = new AbortController();
+
+    if (!filtersActive) {
+      setItems(initialCompanies);
+      setTotal(totalCount);
+      setPage(1);
+      setIsLoading(false);
+      setLoadError(false);
+      return () => controller.abort();
+    }
+
+    setIsLoading(true);
+    setLoadError(false);
+    fetchCompanyPage(filters, 1, controller.signal)
+      .then((payload) => {
+        setItems(payload.items);
+        setTotal(payload.total);
+        setPage(1);
+      })
+      .catch((error) => {
+        if (!controller.signal.aborted) {
+          console.warn("[company-explorer] fetch failed", error);
+          setLoadError(true);
+        }
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) setIsLoading(false);
+      });
+
+    return () => controller.abort();
+  }, [filters, filtersActive, initialCompanies, totalCount]);
+
+  async function loadMore() {
+    const nextPage = page + 1;
+    setIsLoading(true);
+    setLoadError(false);
+    try {
+      const payload = await fetchCompanyPage(filters, nextPage);
+      setItems((current) => [...current, ...payload.items]);
+      setTotal(payload.total);
+      setPage(nextPage);
+    } catch (error) {
+      console.warn("[company-explorer] load more failed", error);
+      setLoadError(true);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   return (
     <div className="space-y-6">
@@ -280,11 +307,8 @@ export function CompanyExplorer({ companies, platformOptions, genreOptions, stat
           )}
         </div>
         <p className="mt-3 text-sm text-foreground/85">
-          Mostrando <strong className="text-foreground">{filtered.length.toLocaleString("es-ES")}</strong>{" "}
-          compañías
-          {filtered.length > DISPLAY_CAP && (
-            <> · primeras {DISPLAY_CAP.toLocaleString("es-ES")} en pantalla</>
-          )}
+          Mostrando <strong className="text-foreground">{items.length.toLocaleString("es-ES")}</strong>{" "}
+          de <strong className="text-foreground">{total.toLocaleString("es-ES")}</strong> compañías
         </p>
         <div className="mt-4 flex flex-wrap gap-1.5">
           <button
@@ -317,7 +341,7 @@ export function CompanyExplorer({ companies, platformOptions, genreOptions, stat
         </div>
       </section>
 
-      {grouped && (
+      {showGrouped && grouped && (
         <div className="space-y-5">
           <div className="grid gap-4 xl:grid-cols-2">
             <CompanyPreviewSection title="Publicadoras destacadas" items={grouped.publishers} />
@@ -327,9 +351,28 @@ export function CompanyExplorer({ companies, platformOptions, genreOptions, stat
         </div>
       )}
 
-      <CompanyGrid companies={visible} />
+      <CompanyGrid companies={items} />
 
-      {filtered.length === 0 && (
+      {hasMore && (
+        <div className="flex justify-center">
+          <button
+            type="button"
+            onClick={loadMore}
+            disabled={isLoading}
+            className="rounded-xl border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-accent/40 hover:bg-card-hover disabled:cursor-wait disabled:opacity-60"
+          >
+            {isLoading ? "Cargando…" : "Cargar más compañías"}
+          </button>
+        </div>
+      )}
+
+      {loadError && (
+        <p className="rounded-2xl border border-dashed border-border p-5 text-center text-muted">
+          No se pudo cargar la siguiente tanda de compañías.
+        </p>
+      )}
+
+      {total === 0 && !isLoading && (
         <p className="rounded-2xl border border-dashed border-border p-10 text-center text-muted">
           No hay compañías con estos filtros.
         </p>

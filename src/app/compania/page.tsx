@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { CompanyExplorer } from "@/components/company-explorer";
 import { NewsStrip } from "@/components/news-strip";
 import { SiteNav } from "@/components/site-nav";
-import { companyListIntro, getCompanyExplorerData } from "@/lib/company-index";
+import { companyListIntro, getCompanyExplorerData, getCompanyExplorerInitialData } from "@/lib/company-index";
 import { listNewsForSection } from "@/lib/news-cache";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -30,7 +30,7 @@ export function buildCompaniesListMetadata(): Metadata {
 export const metadata = buildCompaniesListMetadata();
 
 export default async function CompaniesPage() {
-  const data = getCompanyExplorerData();
+  const data = getCompanyExplorerInitialData();
   const companyNews = await listNewsForSection({ section: "company", topic: "developers", limit: 9 });
 
   if (data.companies.length === 0) {

@@ -24,6 +24,7 @@ export type CompanyRoleFilter = "all" | "publishers" | "developers" | "both";
 
 export type CompanyIndexFilters = {
   q: string;
+  initial: string;
   role: CompanyRoleFilter;
   platform: string;
   genre: string;
@@ -33,6 +34,7 @@ export type CompanyIndexFilters = {
 
 export const DEFAULT_COMPANY_FILTERS: CompanyIndexFilters = {
   q: "",
+  initial: "all",
   role: "all",
   platform: "all",
   genre: "all",
@@ -90,8 +92,19 @@ export type CompanyExplorerData = {
   };
 };
 
+export type CompanyExplorerInitialData = Omit<CompanyExplorerData, "companies"> & {
+  companies: CompanyCardData[];
+  totalCount: number;
+  initials: string[];
+  grouped: {
+    publishers: CompanyCardData[];
+    developers: CompanyCardData[];
+  } | null;
+};
+
 const PLATFORM_PREVIEW = 4;
 const MAJOR_CATALOG_MIN = 50;
+export const COMPANY_PAGE_SIZE = 120;
 
 let explorerCache: CompanyExplorerData | null = null;
 
@@ -107,6 +120,12 @@ function buildSearchHaystack(name: string, slug: string, aliases: string[]): str
     .toLowerCase()
     .normalize("NFD")
     .replace(/\p{M}/gu, "");
+}
+
+export function companyInitial(name: string): string {
+  const first = name.trim().charAt(0).toLocaleUpperCase("es-ES");
+  if (!first) return "#";
+  return /^\d$/.test(first) ? "0-9" : first.normalize("NFD").replace(/\p{M}/gu, "");
 }
 
 function enrichCompany(entry: IndexEntry): CompanyCardData {
@@ -200,15 +219,46 @@ export function getCompanyExplorerData(): CompanyExplorerData {
   return explorerCache;
 }
 
+export function getCompanyExplorerInitialData(): CompanyExplorerInitialData {
+  const data = getCompanyExplorerData();
+  const order = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const available = new Set(data.companies.map((company) => companyInitial(company.name)));
+  const initials = [
+    ...(available.has("0-9") ? ["0-9"] : []),
+    ...order.filter((letter) => available.has(letter)),
+  ];
+  const publishers = filterCompanies(data.companies, {
+    ...DEFAULT_COMPANY_FILTERS,
+    role: "publishers",
+  }).slice(0, 12);
+  const developers = filterCompanies(data.companies, {
+    ...DEFAULT_COMPANY_FILTERS,
+    role: "developers",
+  }).slice(0, 12);
+
+  return {
+    ...data,
+    companies: data.companies.slice(0, COMPANY_PAGE_SIZE),
+    totalCount: data.companies.length,
+    initials,
+    grouped: publishers.length === 0 && developers.length === 0 ? null : { publishers, developers },
+  };
+}
+
 export function hasActiveCompanyFilters(filters: CompanyIndexFilters): boolean {
   return (
     filters.q.trim() !== "" ||
+    filters.initial !== "all" ||
     filters.role !== "all" ||
     filters.platform !== "all" ||
     filters.genre !== "all" ||
     filters.market !== "all" ||
     filters.sort !== DEFAULT_COMPANY_FILTERS.sort
   );
+}
+
+function matchesInitial(company: CompanyCardData, initial: string): boolean {
+  return initial === "all" || companyInitial(company.name) === initial;
 }
 
 function matchesSearch(company: CompanyCardData, query: string): boolean {
@@ -289,6 +339,7 @@ export function filterCompanies(
   let result = companies.filter(
     (company) =>
       matchesSearch(company, filters.q) &&
+      matchesInitial(company, filters.initial) &&
       matchesRole(company, filters.role) &&
       matchesMarket(company, filters.market) &&
       (filters.platform === "all" || company.platformSlugs.includes(filters.platform)) &&
