@@ -25,6 +25,103 @@ function numValue(value: number | null | undefined): string {
   return value == null ? "" : String(value);
 }
 
+function formatAdminPrice(value: number | null | undefined): string {
+  if (value == null) return "—";
+  return `${value.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+}
+
+function sourceTextIncludes(prices: AdminPriceFields, needle: string): boolean {
+  const text = `${prices.priceSource ?? ""} ${prices.priceDataSources ?? ""}`.toLowerCase();
+  return text.includes(needle.toLowerCase());
+}
+
+type PriceSourceRow = {
+  label: string;
+  role: string;
+  status: "active" | "empty";
+  value?: string;
+  href?: string | null;
+};
+
+function priceSourceRows(prices: AdminPriceFields): PriceSourceRow[] {
+  const recommendedRange =
+    prices.marketMin != null || prices.marketMax != null
+      ? `${formatAdminPrice(prices.marketMin)} – ${formatAdminPrice(prices.marketMax)}`
+      : formatAdminPrice(prices.recommendedPrice);
+  const p2pValue = prices.recommendedPrice != null ? `Incluido en recomendado · ${recommendedRange}` : undefined;
+  return [
+    {
+      label: "Wallapop ES",
+      role: "P2P agregado",
+      status: sourceTextIncludes(prices, "Wallapop") ? "active" : "empty",
+      value: p2pValue,
+    },
+    {
+      label: "eBay ES",
+      role: "P2P agregado",
+      status: sourceTextIncludes(prices, "eBay") ? "active" : "empty",
+      value: p2pValue,
+    },
+    {
+      label: "Vinted ES",
+      role: "P2P agregado",
+      status: sourceTextIncludes(prices, "Vinted") ? "active" : "empty",
+      value: p2pValue,
+    },
+    {
+      label: "TodoColeccion",
+      role: "P2P / referencia",
+      status: prices.tcListingPrice != null || sourceTextIncludes(prices, "TodoColeccion") ? "active" : "empty",
+      value: prices.tcListingPrice != null ? formatAdminPrice(prices.tcListingPrice) : p2pValue,
+      href: prices.tcProductUrl,
+    },
+    {
+      label: "PriceCharting",
+      role: "Referencia internacional",
+      status: prices.pcRefPrice != null ? "active" : "empty",
+      value: formatAdminPrice(prices.pcRefPrice),
+    },
+    {
+      label: "CeX",
+      role: "Retail segunda mano",
+      status: prices.cexSellPrice != null || prices.cexCashPrice != null ? "active" : "empty",
+      value:
+        prices.cexSellPrice != null || prices.cexCashPrice != null
+          ? `Venta ${formatAdminPrice(prices.cexSellPrice)} · Cash ${formatAdminPrice(prices.cexCashPrice)}`
+          : undefined,
+      href: prices.cexProductUrl,
+    },
+    {
+      label: "Japan Game Online",
+      role: "Retail import/Japón",
+      status: prices.jgoRetailPrice != null ? "active" : "empty",
+      value: formatAdminPrice(prices.jgoRetailPrice),
+      href: prices.jgoProductUrl,
+    },
+    {
+      label: "Chollo Games",
+      role: "Retail",
+      status: prices.cholloRetailPrice != null ? "active" : "empty",
+      value: formatAdminPrice(prices.cholloRetailPrice),
+      href: prices.cholloProductUrl,
+    },
+    {
+      label: "Kaoto Store",
+      role: "Retail",
+      status: prices.kaotoRetailPrice != null ? "active" : "empty",
+      value: formatAdminPrice(prices.kaotoRetailPrice),
+      href: prices.kaotoProductUrl,
+    },
+    {
+      label: "TodoConsolas",
+      role: "Retail segunda mano",
+      status: prices.tcnsRetailPrice != null ? "active" : "empty",
+      value: formatAdminPrice(prices.tcnsRetailPrice),
+      href: prices.tcnsProductUrl,
+    },
+  ];
+}
+
 function PriceInput({
   label,
   value,
@@ -49,6 +146,67 @@ function PriceInput({
         placeholder="—"
       />
     </label>
+  );
+}
+
+function PriceSourcesMap({ prices }: { prices: AdminPriceFields }) {
+  const rows = priceSourceRows(prices);
+  const activeCount = rows.filter((row) => row.status === "active").length;
+  return (
+    <div className="mb-6 rounded-2xl border border-border bg-background/45 p-4">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted">Mapa de fuentes</p>
+          <p className="mt-1 text-sm text-muted">
+            {activeCount} fuentes con dato. Wallapop, eBay, Vinted y parte de TodoColeccion se usan para calcular el precio recomendado.
+          </p>
+        </div>
+        {(prices.priceSource || prices.priceDataSources) && (
+          <span className="rounded-full border border-border px-3 py-1 text-xs font-semibold text-muted">
+            {prices.priceDataSources || prices.priceSource}
+          </span>
+        )}
+      </div>
+      <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+        {rows.map((row) => (
+          <div
+            key={row.label}
+            className={`rounded-xl border p-3 ${
+              row.status === "active"
+                ? "border-emerald-400/30 bg-emerald-500/10"
+                : "border-border bg-background/60"
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2">
+              <div>
+                <p className="font-semibold text-foreground">{row.label}</p>
+                <p className="mt-1 text-[11px] uppercase tracking-wider text-muted">{row.role}</p>
+              </div>
+              <span
+                className={`rounded-full px-2 py-1 text-[10px] font-bold uppercase tracking-wider ${
+                  row.status === "active"
+                    ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300"
+                    : "bg-muted/10 text-muted"
+                }`}
+              >
+                {row.status === "active" ? "con dato" : "sin dato"}
+              </span>
+            </div>
+            <p className="mt-2 text-sm text-muted">{row.value ?? "No ha aportado precio para esta ficha."}</p>
+            {row.href ? (
+              <a
+                href={row.href}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-flex text-xs font-semibold text-accent"
+              >
+                Abrir fuente →
+              </a>
+            ) : null}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -269,6 +427,8 @@ export function AdminGamePricesPanel({ catalogId, initialPrices, updatedAt }: Pr
           onChange={(v) => patchPrice("tcnsRetailPrice", v)}
         />
       </div>
+
+      <PriceSourcesMap prices={prices} />
 
       <div className="mb-4 flex flex-wrap gap-4 text-sm">
         <label className="inline-flex items-center gap-2">
