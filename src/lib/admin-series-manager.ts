@@ -123,6 +123,14 @@ export type PublicSeriesReference = {
   matchedGameIds: string[];
 };
 
+type PublicSeriesCache = {
+  entries: IndexEntry[];
+  bySlug: Map<string, IndexEntry>;
+  byGameId: Map<string, PublicSeriesReference[]>;
+};
+
+let publicSeriesCachePromise: Promise<PublicSeriesCache> | null = null;
+
 function emptyOverlay(): AdminSeriesOverlay {
   return { updatedAt: new Date().toISOString(), series: {}, assignments: {} };
 }
@@ -180,49 +188,26 @@ export async function readAdminSeriesAssignmentsForPublic(): Promise<Record<stri
 }
 
 export async function listPublicSeriesIndexEntries(): Promise<IndexEntry[]> {
-  const index = loadSeriesIndex();
-  const catalog = loadCatalog();
-  const overlay = await readAdminSeriesOverlay();
-  const slugs = uniqueStrings([...Object.keys(index), ...Object.keys(overlay.series)]);
-
-  return slugs
-    .map((slug) => effectiveSeriesEntry(slug, index, overlay))
-    .filter((entry): entry is IndexEntry => Boolean(entry))
-    .map((entry) => recalculateEntry(entry, catalog))
-    .sort((a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es", { numeric: true }));
+  return [...(await getPublicSeriesCache()).entries];
 }
 
 export async function getPublicSeriesIndexEntry(slug: string): Promise<IndexEntry | null> {
   const normalizedSlug = normalizeSlug(slug);
-  const index = loadSeriesIndex();
-  const catalog = loadCatalog();
-  const overlay = await readAdminSeriesOverlay();
-  const entry = effectiveSeriesEntry(normalizedSlug, index, overlay);
-  return entry ? recalculateEntry(entry, catalog) : null;
+  return (await getPublicSeriesCache()).bySlug.get(normalizedSlug) ?? null;
 }
 
 export async function listPublicSeriesForGame(gameId: string): Promise<PublicSeriesReference[]> {
   const normalizedGameId = gameId.trim();
   if (!normalizedGameId) return [];
 
-  const entries = await listPublicSeriesIndexEntries();
-  return entries
-    .filter((entry) => entry.gameIds.includes(normalizedGameId))
-    .map((entry) => ({
-      slug: entry.slug,
-      name: entry.name,
-      gameCount: entry.gameCount,
-      matchedGameCount: 1,
-      matchedGameIds: [normalizedGameId],
-    }))
-    .sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true }));
+  return [...((await getPublicSeriesCache()).byGameId.get(normalizedGameId) ?? [])];
 }
 
 export async function listPublicSeriesForGames(gameIds: string[]): Promise<PublicSeriesReference[]> {
   const selectedGameIds = new Set(gameIds.map((id) => id.trim()).filter(Boolean));
   if (selectedGameIds.size === 0) return [];
 
-  const entries = await listPublicSeriesIndexEntries();
+  const entries = (await getPublicSeriesCache()).entries;
   return entries
     .map((entry) => {
       const matchedGameIds = entry.gameIds.filter((id) => selectedGameIds.has(id));
@@ -242,6 +227,52 @@ export async function listPublicSeriesForGames(gameIds: string[]): Promise<Publi
     );
 }
 
+async function getPublicSeriesCache(): Promise<PublicSeriesCache> {
+  publicSeriesCachePromise ??= buildPublicSeriesCache();
+  return publicSeriesCachePromise;
+}
+
+async function buildPublicSeriesCache(): Promise<PublicSeriesCache> {
+  const index = loadSeriesIndex();
+  const catalog = loadCatalog();
+  const map = catalogMap(catalog);
+  const overlay = await readAdminSeriesOverlay();
+  const slugs = uniqueStrings([...Object.keys(index), ...Object.keys(overlay.series)]);
+
+  const entries = slugs
+    .map((slug) => effectiveSeriesEntry(slug, index, overlay))
+    .filter((entry): entry is IndexEntry => Boolean(entry))
+    .map((entry) => recalculateEntryWithCatalogMap(entry, map))
+    .sort((a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es", { numeric: true }));
+
+  const bySlug = new Map(entries.map((entry) => [entry.slug, entry]));
+  const byGameId = new Map<string, PublicSeriesReference[]>();
+
+  for (const entry of entries) {
+    for (const gameId of entry.gameIds) {
+      const references = byGameId.get(gameId) ?? [];
+      references.push({
+        slug: entry.slug,
+        name: entry.name,
+        gameCount: entry.gameCount,
+        matchedGameCount: 1,
+        matchedGameIds: [gameId],
+      });
+      byGameId.set(gameId, references);
+    }
+  }
+
+  for (const references of byGameId.values()) {
+    references.sort((a, b) => a.name.localeCompare(b.name, "es", { numeric: true }));
+  }
+
+  return { entries, bySlug, byGameId };
+}
+
+function invalidatePublicSeriesCache() {
+  publicSeriesCachePromise = null;
+}
+
 async function writeAdminSeriesOverlay(overlay: AdminSeriesOverlay): Promise<void> {
   const payload = { ...overlay, updatedAt: new Date().toISOString() };
   if (shouldUseBlobOverlay()) {
@@ -253,9 +284,11 @@ async function writeAdminSeriesOverlay(overlay: AdminSeriesOverlay): Promise<voi
       allowOverwrite: true,
       cacheControlMaxAge: 60,
     });
+    invalidatePublicSeriesCache();
     return;
   }
   saveJson(ADMIN_SERIES_OVERLAY_FILE, payload);
+  invalidatePublicSeriesCache();
 }
 
 function loadCatalog(): CatalogGame[] {
@@ -272,6 +305,7 @@ function loadSeriesIndex(): Record<string, IndexEntry> {
 
 function saveSeriesIndex(index: Record<string, IndexEntry>) {
   saveJson(SERIES_INDEX_FILE, index);
+  invalidatePublicSeriesCache();
 }
 
 function normalizeSlug(raw: string): string {
@@ -453,7 +487,10 @@ function effectiveSeriesEntry(
 }
 
 function recalculateEntry(entry: IndexEntry, catalog: CatalogGame[]): IndexEntry {
-  const map = catalogMap(catalog);
+  return recalculateEntryWithCatalogMap(entry, catalogMap(catalog));
+}
+
+function recalculateEntryWithCatalogMap(entry: IndexEntry, map: Map<string, CatalogGame>): IndexEntry {
   const gameIds = entry.gameIds.filter((id) => map.has(id));
   const byPlatform: Record<string, number> = {};
   for (const id of gameIds) {
