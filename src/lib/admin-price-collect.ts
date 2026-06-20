@@ -4,6 +4,7 @@ import path from "path";
 import { get, put } from "@vercel/blob";
 import { appDataDir } from "./app-data-dir";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
+import { getSiteUrl } from "./site-url";
 
 export type AdminPriceJobMeta = {
   jobId: string;
@@ -21,6 +22,9 @@ export type AdminPriceJobMeta = {
   error?: string;
   sources?: string[];
   logTail?: string;
+  autoApplied?: boolean;
+  autoApplySummary?: string;
+  autoApplyError?: string;
 };
 
 export type AdminPriceCollectTarget = {
@@ -316,11 +320,25 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
     args.push("--targets-json", shellQuote(JSON.stringify(targets)));
   }
 
+  const callbackSecret = process.env.CRON_SECRET?.trim();
+  const callbackUrl =
+    input.catalogId && callbackSecret
+      ? `${getSiteUrl()}/api/cron/price-job-apply?jobId=${encodeURIComponent(jobId)}`
+      : null;
+  const runCommand = callbackUrl
+    ? [
+        `${args.join(" ")}`,
+        "code=$?",
+        `if [ "$code" -eq 0 ]; then curl -fsS -X POST -H ${shellQuote(`Authorization: Bearer ${callbackSecret}`)} ${shellQuote(callbackUrl)} || true; fi`,
+        "exit $code",
+      ].join("; ")
+    : args.join(" ");
+
   const command = [
     "set -e",
     `cd "$HOME"/${remoteDir}`,
     "mkdir -p jobs logs",
-    `nohup app/venv/bin/python ${args.join(" ")} > logs/${jobId}.log 2>&1 &`,
+    `nohup sh -c ${shellQuote(`app/venv/bin/python ${runCommand}`)} > logs/${jobId}.log 2>&1 &`,
     `echo ${shellQuote(jobId)}`,
   ].join("\n");
 

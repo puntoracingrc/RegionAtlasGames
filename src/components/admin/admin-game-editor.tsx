@@ -47,6 +47,9 @@ type PriceJobState = {
   status: "running" | "done" | "error";
   logTail?: string;
   error?: string;
+  autoApplied?: boolean;
+  autoApplySummary?: string;
+  autoApplyError?: string;
 };
 type PublishJobState = {
   jobId: string;
@@ -121,6 +124,16 @@ function PriceCollectionLivePanel({ job }: { job: PriceJobState }) {
           <p className="mt-1 text-xs text-muted">
             Job {job.jobId} · se refresca automáticamente cada pocos segundos.
           </p>
+          {job.autoApplySummary ? (
+            <p className="mt-2 rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-3 py-2 text-xs font-semibold text-emerald-800 dark:text-emerald-200">
+              Precios aplicados automáticamente: {job.autoApplySummary}.
+            </p>
+          ) : null}
+          {job.autoApplyError ? (
+            <p className="mt-2 rounded-xl border border-rose-400/30 bg-rose-500/10 px-3 py-2 text-xs font-semibold text-rose-800 dark:text-rose-200">
+              Recolección terminada, pero no se pudieron aplicar: {job.autoApplyError}
+            </p>
+          ) : null}
         </div>
         <span
           className={`rounded-full border px-3 py-1 text-xs font-semibold ${
@@ -570,7 +583,11 @@ export function AdminGameEditor({
       setPriceJob(job);
       if (job.status === "done") {
         setPriceCollecting(false);
-        setMessage("Recolección de precios terminada. Revisa el panel de precios.");
+        setMessage(
+          job.autoApplied
+            ? `Recolección terminada y precios aplicados automáticamente (${job.autoApplySummary}).`
+            : "Recolección de precios terminada. Revisa el panel de precios.",
+        );
       } else if (job.status === "error") {
         setPriceCollecting(false);
         setError(job.error ?? "La recolección de precios falló.");

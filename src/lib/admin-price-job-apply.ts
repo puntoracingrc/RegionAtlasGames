@@ -4,7 +4,7 @@ import { priceWorkerPublicBaseUrl, readAdminPriceJob, type AdminPriceJobMeta } f
 import { getCatalogGame } from "./catalog";
 import type { CatalogGame } from "./types";
 
-type ApplyResult =
+export type AdminPriceApplyResult =
   | {
       ok: true;
       jobId: string;
@@ -55,7 +55,7 @@ async function fetchWorkerCatalog(): Promise<CatalogGame[] | { error: string }> 
   return data as CatalogGame[];
 }
 
-export async function applyAdminPriceJobResults(jobId: string): Promise<ApplyResult> {
+export async function applyAdminPriceJobResults(jobId: string): Promise<AdminPriceApplyResult> {
   const job = await readAdminPriceJob(jobId);
   if (!job) return { error: "Job no encontrado." };
   if (job.status !== "done") return { error: "Solo se pueden aplicar jobs terminados correctamente." };

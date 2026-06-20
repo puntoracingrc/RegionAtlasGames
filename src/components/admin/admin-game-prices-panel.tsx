@@ -16,6 +16,9 @@ type JobState = {
   status: "running" | "done" | "error";
   logTail?: string;
   error?: string;
+  autoApplied?: boolean;
+  autoApplySummary?: string;
+  autoApplyError?: string;
 };
 
 function numValue(value: number | null | undefined): string {
@@ -128,7 +131,11 @@ export function AdminGamePricesPanel({ catalogId, initialPrices, updatedAt }: Pr
         setJob(meta);
         if (meta.status === "done") {
           setCollecting(false);
-          setMessage("Recolección de precios terminada. Recarga para ver valores actualizados.");
+          setMessage(
+            meta.autoApplied
+              ? `Recolección terminada y precios aplicados automáticamente (${meta.autoApplySummary}).`
+              : "Recolección de precios terminada. Revisa si hay valores nuevos.",
+          );
           if (pollRef.current != null) window.clearInterval(pollRef.current);
           const priceRes = await fetch(`/api/admin/catalog/${encodeURIComponent(catalogId)}/prices`);
           const priceData = await priceRes.json();
