@@ -200,54 +200,51 @@ export default async function AdminQueuePage({ searchParams }: Props) {
       </div>
 
       {platformFilterOptions.length > 0 ? (
-        <div className="mb-5 rounded-2xl border border-sky-300/40 bg-background/45 p-3 dark:border-sky-400/20">
-          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">
-              Filtrar por plataforma
-            </p>
-            {currentPlatform ? (
-              <Link
-                href={buildQueueHref({ source: currentSource, status: params.status })}
-                className="text-xs font-semibold text-accent hover:underline"
+        <div className="mb-5 rounded-2xl border border-sky-300/40 bg-background/45 p-4 dark:border-sky-400/20">
+          <form action="/admin/cola" method="get" className="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+            {currentSource ? <input type="hidden" name="source" value={currentSource} /> : null}
+            {params.status ? <input type="hidden" name="status" value={params.status} /> : null}
+            <label className="block">
+              <span className="mb-2 block text-[10px] font-semibold uppercase tracking-wider text-muted">
+                Filtrar por plataforma
+              </span>
+              <select
+                name="platform"
+                defaultValue={currentPlatform ?? ""}
+                className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm font-semibold text-foreground outline-none transition focus:border-accent"
               >
-                Quitar filtro de plataforma
-              </Link>
-            ) : null}
-          </div>
-          <div className="flex flex-wrap gap-2 text-xs">
-            <Link
-              href={buildQueueHref({ source: currentSource, status: params.status })}
-              className={`rounded-full border px-3 py-1.5 font-semibold ${
-                !currentPlatform
-                  ? "border-accent bg-accent text-accent-fg"
-                  : "border-border text-muted hover:bg-card-hover hover:text-foreground"
-              }`}
-            >
-              Todas · {gamesBeforePlatformFilter.length}
-            </Link>
-            {platformFilterOptions.map((platform) => {
-              const unitsLabel =
-                platform.stats.units !== platform.stats.games ? ` · ${platform.stats.units} uds` : "";
-              return (
+                <option value="">Todas · {gamesBeforePlatformFilter.length}</option>
+                {platformFilterOptions.map((platform) => {
+                  const unitsLabel =
+                    platform.stats.units !== platform.stats.games ? ` · ${platform.stats.units} uds` : "";
+                  return (
+                    <option key={platform.slug} value={platform.slug}>
+                      {platform.name} · {platform.stats.games}
+                      {unitsLabel}
+                    </option>
+                  );
+                })}
+              </select>
+            </label>
+            <div className="flex items-center gap-3">
+              <p className="text-xs text-muted">
+                {currentPlatform
+                  ? `${games.length.toLocaleString("es-ES")} visibles`
+                  : `${gamesBeforePlatformFilter.length.toLocaleString("es-ES")} pendientes`}
+              </p>
+              <button type="submit" className="rounded-full border border-accent bg-accent px-3 py-2 text-xs font-semibold text-accent-fg">
+                Aplicar
+              </button>
+              {currentPlatform ? (
                 <Link
-                  key={platform.slug}
-                  href={buildQueueHref({
-                    source: currentSource,
-                    status: params.status,
-                    platform: platform.slug,
-                  })}
-                  className={`rounded-full border px-3 py-1.5 font-semibold ${
-                    currentPlatform === platform.slug
-                      ? "border-accent bg-accent text-accent-fg"
-                      : "border-border text-muted hover:bg-card-hover hover:text-foreground"
-                  }`}
+                  href={buildQueueHref({ source: currentSource, status: params.status })}
+                  className="rounded-full border border-border px-3 py-2 text-xs font-semibold text-accent hover:bg-card-hover"
                 >
-                  {platform.name} · {platform.stats.games}
-                  {unitsLabel}
+                  Quitar
                 </Link>
-              );
-            })}
-          </div>
+              ) : null}
+            </div>
+          </form>
         </div>
       ) : null}
 
