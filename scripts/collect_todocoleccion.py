@@ -29,6 +29,7 @@ from collectors.listing_recency import search_per_game_pages  # noqa: E402
 from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
 from collectors.tc_client import (  # noqa: E402
+    TodoColeccionBlockedError,
     build_tc_search_query,
     fetch_game_products,
     supported_platform_slugs,
@@ -131,6 +132,8 @@ def collect_platform(
         "games_with_rows": 0,
         "searches": 0,
         "rows": 0,
+        "blocked": 0,
+        "stopped_at": 0,
     }
     all_rows: list[dict[str, Any]] = []
     search_pages = args.max_pages if args.max_pages is not None else search_per_game_pages()
@@ -145,6 +148,12 @@ def collect_platform(
                 use_cache=args.use_cache,
                 **match_opts,
             )
+        except TodoColeccionBlockedError as exc:
+            stats["blocked"] = 1
+            stats["stopped_at"] = index
+            print(f"  [{index}/{len(games)}] BLOQUEADO {game['title'][:40]}: {exc}")
+            print("  TodoColeccion ha bloqueado o limitado la sesión. Se corta esta fuente para no perder tiempo.")
+            break
         except Exception as exc:  # noqa: BLE001
             print(f"  [{index}/{len(games)}] ERROR {game['title'][:40]}: {exc}")
             continue
@@ -175,6 +184,8 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         f"Con anuncio: {stats['games_with_rows']} · "
         f"Filas ingest: {stats['rows']}"
     )
+    if stats.get("blocked"):
+        print(f"  TodoColeccion bloqueado: recolección cortada en {stats.get('stopped_at')}/{stats['games_requested']}.")
 
     if args.dry_run:
         for row in listing_rows[:10]:
@@ -189,6 +200,8 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         "source": "todocoleccion",
         "searchMode": "advanced_title",
         "notes": "TodoColeccion ES — búsqueda avanzada (Juguetes → Videojuegos y Consolas, frase exacta).",
+        "blocked": bool(stats.get("blocked")),
+        "stoppedAt": stats.get("stopped_at") or None,
         "listings": listing_rows,
         "cex": [],
         "jgo": [],

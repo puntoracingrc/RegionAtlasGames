@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import re
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from html import unescape
@@ -35,6 +36,12 @@ from collectors.listing_recency import (  # noqa: E402
 DEFAULT_SEARCH_MAX_PAGES = 40
 CARD_LOT_MARKER = 'class="card-lote card-lote-as-gallery"'
 PRICE_RE = re.compile(r"class=\"card-price[^\"]*\"[^>]*>\s*([\d.,]+)\s*€")
+
+
+class TodoColeccionBlockedError(RuntimeError):
+    def __init__(self, message: str, *, status_code: int | None = None) -> None:
+        super().__init__(message)
+        self.status_code = status_code
 
 
 def build_tc_search_query(game: dict[str, Any]) -> str:
@@ -69,8 +76,16 @@ def _product_image(product: dict[str, Any]) -> str | None:
 
 def fetch_html(url: str) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        return resp.read().decode("utf-8", errors="ignore")
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            return resp.read().decode("utf-8", errors="ignore")
+    except urllib.error.HTTPError as exc:
+        if exc.code in {403, 429}:
+            raise TodoColeccionBlockedError(
+                f"TodoColeccion HTTP {exc.code}: acceso bloqueado o limitado",
+                status_code=exc.code,
+            ) from exc
+        raise
 
 
 def parse_item_list(html_text: str) -> tuple[list[dict[str, Any]], int | None]:
