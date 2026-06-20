@@ -10,7 +10,9 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
-IMAGE_CACHE_DIR = ROOT / "data" / "price-ingest" / "cache" / "listing-images"
+from collectors.storage_paths import ingest_dir
+
+IMAGE_CACHE_DIR = ingest_dir() / "cache" / "listing-images"
 
 OG_IMAGE_RE = re.compile(
     r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',

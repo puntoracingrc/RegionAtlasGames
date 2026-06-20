@@ -26,6 +26,8 @@ def repo_or_external(repo_relative: str, external_subdir: str) -> Path:
     """Usa disco externo si está montado; si no, cae al path del repo."""
     external = retro_subdir(external_subdir)
     repo_path = ROOT / repo_relative
+    if os.environ.get("PAL_ES_RETRO_ROOT", "").strip():
+        return external
     if external.exists():
         return external
     return repo_path

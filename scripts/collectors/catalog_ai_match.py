@@ -15,7 +15,9 @@ from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.common import load_json, now_iso, save_json
 
 ROOT = Path(__file__).resolve().parents[2]
-MATCH_CACHE_ROOT = ROOT / "data" / "price-ingest" / "cache" / "catalog-matches"
+from collectors.storage_paths import ingest_dir
+
+MATCH_CACHE_ROOT = ingest_dir() / "cache" / "catalog-matches"
 
 DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"

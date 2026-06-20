@@ -213,8 +213,9 @@ def browse_search(
     keywords: str,
     *,
     max_results: int = 20,
+    access_token: str = "",
 ) -> list[dict[str, Any]]:
-    token = get_browse_token(client_id, client_secret)
+    token = access_token.strip() or get_browse_token(client_id, client_secret)
     params = urllib.parse.urlencode(
         {
             "q": keywords,
@@ -277,6 +278,10 @@ def search_ebay_es(
     app_id = os.environ.get("EBAY_APP_ID", "").strip()
     client_id = os.environ.get("EBAY_CLIENT_ID", "").strip() or app_id
     client_secret = os.environ.get("EBAY_CLIENT_SECRET", "").strip()
+    access_token = (
+        os.environ.get("EBAY_ACCESS_TOKEN", "").strip()
+        or os.environ.get("EBAY_OAUTH_TOKEN", "").strip()
+    )
 
     finding_error: RuntimeError | None = None
     if sold and not os.environ.get("EBAY_ALLOW_LEGACY_SOLD", "").strip():
@@ -285,25 +290,31 @@ def search_ebay_es(
             "Usa activos Browse API o define EBAY_ALLOW_LEGACY_SOLD=1 bajo tu responsabilidad."
         )
 
-    if app_id and (sold or not (client_id and client_secret)):
+    if app_id and (sold or not ((client_id and client_secret) or access_token)):
         try:
             items = finding_search(app_id, keywords, sold=sold, max_results=max_results)
             return items, "finding-sold" if sold else "finding-active"
         except RuntimeError as exc:
             finding_error = exc
-            if sold or not (client_id and client_secret):
+            if sold or not ((client_id and client_secret) or access_token):
                 raise
 
-    if client_id and client_secret:
-        items = browse_search(client_id, client_secret, keywords, max_results=max_results)
+    if access_token or (client_id and client_secret):
+        items = browse_search(
+            client_id,
+            client_secret,
+            keywords,
+            max_results=max_results,
+            access_token=access_token,
+        )
         if finding_error:
             return items, "browse-active-finding-unavailable"
-        return items, "browse-active"
+        return items, "browse-active-token" if access_token else "browse-active"
 
     if finding_error:
         raise finding_error
 
     raise RuntimeError(
-        "Faltan credenciales eBay. Define EBAY_CLIENT_ID + EBAY_CLIENT_SECRET (Browse) o "
-        "EBAY_APP_ID (Finding, descontinuada). Ver docs/phase-2-ingest.md"
+        "Faltan credenciales eBay. Define EBAY_ACCESS_TOKEN, EBAY_CLIENT_ID + EBAY_CLIENT_SECRET "
+        "(Browse) o EBAY_APP_ID (Finding, descontinuada). Ver docs/phase-2-ingest.md"
     )

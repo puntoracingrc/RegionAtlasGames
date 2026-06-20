@@ -20,7 +20,9 @@ from collectors.condition_buckets import DISPLAY_BUCKETS
 from collectors.region_inference import regions_match
 
 ROOT = Path(__file__).resolve().parents[2]
-VISION_CACHE_DIR = ROOT / "data" / "price-ingest" / "cache" / "region-cover-vision"
+from collectors.storage_paths import ingest_dir
+
+VISION_CACHE_DIR = ingest_dir() / "cache" / "region-cover-vision"
 
 
 def _load_json(path: Path, default: Any = None) -> Any:

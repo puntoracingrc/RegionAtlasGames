@@ -20,7 +20,9 @@ from collectors.common import load_json, load_platforms, now_iso, save_json
 from collectors.region_inference import regions_match
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE_ROOT = ROOT / "data" / "price-ingest" / "cache" / "wallapop-listing-ai"
+from collectors.storage_paths import ingest_dir
+
+CACHE_ROOT = ingest_dir() / "cache" / "wallapop-listing-ai"
 
 DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"

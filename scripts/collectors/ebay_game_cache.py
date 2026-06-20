@@ -9,8 +9,9 @@ from typing import Any
 
 from collectors.cache_policy import cache_policy_matches
 from collectors.common import load_json
+from collectors.storage_paths import ingest_dir
 
-GAME_CACHE_DIR = Path(__file__).resolve().parents[2] / "data" / "price-ingest" / "cache" / "ebay"
+GAME_CACHE_DIR = ingest_dir() / "cache" / "ebay"
 
 
 def game_cache_max_age_hours() -> float:

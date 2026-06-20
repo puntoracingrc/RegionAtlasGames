@@ -62,6 +62,8 @@ def expand_rotation_step(step: str) -> tuple[str, list[str], str | None]:
 
 
 def ebay_configured() -> bool:
+    if os.environ.get("EBAY_ACCESS_TOKEN", "").strip() or os.environ.get("EBAY_OAUTH_TOKEN", "").strip():
+        return True
     if os.environ.get("EBAY_APP_ID", "").strip():
         return True
     return bool(

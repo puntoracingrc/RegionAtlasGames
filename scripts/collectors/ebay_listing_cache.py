@@ -9,8 +9,9 @@ from typing import Any
 from collectors.catalog_ai_match import product_cache_key
 from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.common import load_json, now_iso, save_json
+from collectors.storage_paths import ingest_dir
 
-LISTING_CACHE_ROOT = Path(__file__).resolve().parents[2] / "data" / "price-ingest" / "cache" / "ebay-listings"
+LISTING_CACHE_ROOT = ingest_dir() / "cache" / "ebay-listings"
 
 
 def item_snapshot(item: dict[str, Any]) -> tuple[str, float, str]:

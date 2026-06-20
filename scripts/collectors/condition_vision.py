@@ -15,7 +15,9 @@ from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.condition_buckets import DISPLAY_BUCKETS
 
 ROOT = Path(__file__).resolve().parents[2]
-VISION_CACHE_DIR = ROOT / "data" / "price-ingest" / "cache" / "condition-vision"
+from collectors.storage_paths import ingest_dir
+
+VISION_CACHE_DIR = ingest_dir() / "cache" / "condition-vision"
 
 DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
