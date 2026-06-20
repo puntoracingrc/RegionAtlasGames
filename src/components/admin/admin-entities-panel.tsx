@@ -31,6 +31,7 @@ type IndexRow = {
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: "active" | "defunct" | "subsidiary" | "unknown";
+  isParentCompany?: boolean;
   parentCompany?: CompanyRelation | null;
   acquiredByCompany?: CompanyRelation | null;
   mergedWithCompany?: CompanyRelation | null;
@@ -183,6 +184,7 @@ export function AdminEntitiesPanel({
   const [editCompanyFoundedYear, setEditCompanyFoundedYear] = useState("");
   const [editCompanyClosedYear, setEditCompanyClosedYear] = useState("");
   const [editCompanyStatus, setEditCompanyStatus] = useState<"active" | "defunct" | "subsidiary" | "unknown">("unknown");
+  const [editCompanyIsParent, setEditCompanyIsParent] = useState(false);
   const [editParentCompany, setEditParentCompany] = useState("");
   const [editAcquiredByCompany, setEditAcquiredByCompany] = useState("");
   const [editMergedWithCompany, setEditMergedWithCompany] = useState("");
@@ -219,6 +221,7 @@ export function AdminEntitiesPanel({
   const [companyFoundedYear, setCompanyFoundedYear] = useState("");
   const [companyClosedYear, setCompanyClosedYear] = useState("");
   const [companyStatus, setCompanyStatus] = useState<"active" | "defunct" | "subsidiary" | "unknown">("unknown");
+  const [companyIsParent, setCompanyIsParent] = useState(false);
   const [companyParent, setCompanyParent] = useState("");
   const [companyAcquiredBy, setCompanyAcquiredBy] = useState("");
   const [companyMergedWith, setCompanyMergedWith] = useState("");
@@ -397,6 +400,7 @@ export function AdminEntitiesPanel({
           foundedYear: companyFoundedYear ? Number.parseInt(companyFoundedYear, 10) : null,
           closedYear: companyClosedYear ? Number.parseInt(companyClosedYear, 10) : null,
           status: companyStatus,
+          isParentCompany: companyIsParent,
           parentCompany: relationFromInput(companyParent, companySlug || ""),
           acquiredByCompany: relationFromInput(companyAcquiredBy, companySlug || ""),
           mergedWithCompany: relationFromInput(companyMergedWith, companySlug || ""),
@@ -414,6 +418,7 @@ export function AdminEntitiesPanel({
       const createdSlug = data.company.slug as string;
       const createdName = data.company.name as string;
       const createdStatus = companyStatus;
+      const createdIsParentCompany = companyIsParent;
       const createdParentCompany = relationFromInput(companyParent, createdSlug);
       const createdAcquiredByCompany = relationFromInput(companyAcquiredBy, createdSlug);
       const createdMergedWithCompany = relationFromInput(companyMergedWith, createdSlug);
@@ -430,6 +435,7 @@ export function AdminEntitiesPanel({
       setEditCompanyFoundedYear(companyFoundedYear);
       setEditCompanyClosedYear(companyClosedYear);
       setEditCompanyStatus(createdStatus);
+      setEditCompanyIsParent(createdIsParentCompany);
       setEditParentCompany(relationInputValue(createdParentCompany));
       setEditAcquiredByCompany(relationInputValue(createdAcquiredByCompany));
       setEditMergedWithCompany(relationInputValue(createdMergedWithCompany));
@@ -446,6 +452,7 @@ export function AdminEntitiesPanel({
       setCompanyFoundedYear("");
       setCompanyClosedYear("");
       setCompanyStatus("unknown");
+      setCompanyIsParent(false);
       setCompanyParent("");
       setCompanyAcquiredBy("");
       setCompanyMergedWith("");
@@ -471,6 +478,7 @@ export function AdminEntitiesPanel({
               foundedYear: companyFoundedYear ? Number.parseInt(companyFoundedYear, 10) : null,
               closedYear: companyClosedYear ? Number.parseInt(companyClosedYear, 10) : null,
               status: createdStatus,
+              isParentCompany: createdIsParentCompany,
               parentCompany: createdParentCompany,
               acquiredByCompany: createdAcquiredByCompany,
               mergedWithCompany: createdMergedWithCompany,
@@ -609,6 +617,7 @@ export function AdminEntitiesPanel({
     setEditCompanyFoundedYear(row.foundedYear != null ? String(row.foundedYear) : "");
     setEditCompanyClosedYear(row.closedYear != null ? String(row.closedYear) : "");
     setEditCompanyStatus(row.status ?? "unknown");
+    setEditCompanyIsParent(row.isParentCompany === true);
     setEditParentCompany(relationInputValue(row.parentCompany));
     setEditAcquiredByCompany(relationInputValue(row.acquiredByCompany));
     setEditMergedWithCompany(relationInputValue(row.mergedWithCompany));
@@ -657,6 +666,7 @@ export function AdminEntitiesPanel({
                     foundedYear: editCompanyFoundedYear.trim() ? Number(editCompanyFoundedYear) : null,
                     closedYear: editCompanyClosedYear.trim() ? Number(editCompanyClosedYear) : null,
                     status: editCompanyStatus,
+                    isParentCompany: editCompanyIsParent,
                     parentCompany: relationFromInput(editParentCompany, originalSlug),
                     acquiredByCompany: relationFromInput(editAcquiredByCompany, originalSlug),
                     mergedWithCompany: relationFromInput(editMergedWithCompany, originalSlug),
@@ -709,6 +719,7 @@ export function AdminEntitiesPanel({
             foundedYear: editCompanyFoundedYear.trim() ? Number(editCompanyFoundedYear) : null,
             closedYear: editCompanyClosedYear.trim() ? Number(editCompanyClosedYear) : null,
             status: editCompanyStatus,
+            isParentCompany: editCompanyIsParent,
             parentCompany: relationFromInput(editParentCompany, originalSlug),
             acquiredByCompany: relationFromInput(editAcquiredByCompany, originalSlug),
             mergedWithCompany: relationFromInput(editMergedWithCompany, originalSlug),
@@ -747,9 +758,17 @@ export function AdminEntitiesPanel({
     }
     const target = companies.find((company) => company.slug === targetSlug);
     const targetLabel = target?.name ?? targetSlug;
+    const protectionNotice =
+      source.isParentCompany && !target?.isParentCompany
+        ? "\n\nOjo: el origen está marcado como empresa madre. El sistema invertirá la fusión para conservar esa ficha y absorber la otra."
+        : target?.isParentCompany
+          ? "\n\nLa ficha destino está marcada como empresa madre y quedará protegida."
+          : source.isParentCompany && target?.isParentCompany
+            ? "\n\nAmbas están marcadas como empresa madre; el sistema bloqueará la fusión."
+            : "";
     if (
       !confirm(
-        `¿Fusionar «${source.name}» dentro de «${targetLabel}»?\n\nLos juegos, aliases y perfiles pasarán al destino. La compañía origen desaparecerá del listado principal y quedará como alias.`,
+        `¿Fusionar «${source.name}» dentro de «${targetLabel}»?\n\nLos juegos, aliases y perfiles pasarán al destino. La compañía origen desaparecerá del listado principal y quedará como alias.${protectionNotice}`,
       )
     ) {
       return;
@@ -772,7 +791,9 @@ export function AdminEntitiesPanel({
       setMergeSourceSlug(null);
       setMergeTargetSlug("");
       setMessage(
-        `«${source.name}» fusionada en «${data.targetName ?? targetLabel}». Juegos actualizados: ${data.updatedGames ?? 0}.`,
+        data.protectedParentCompany
+          ? `Fusión protegida: se conservó la ficha madre «${data.targetName ?? targetLabel}». Juegos actualizados: ${data.updatedGames ?? 0}.`
+          : `«${source.name}» fusionada en «${data.targetName ?? targetLabel}». Juegos actualizados: ${data.updatedGames ?? 0}.`,
       );
       await loadCompanies(search);
     } catch {
@@ -998,6 +1019,19 @@ export function AdminEntitiesPanel({
                 <option value="defunct">Cerrada</option>
                 <option value="subsidiary">Filial / subsidiaria</option>
               </select>
+            </label>
+            <label className="flex items-center gap-3 rounded-xl border border-amber-300/60 bg-amber-50/70 p-3 text-sm dark:border-amber-400/30 dark:bg-amber-950/20">
+              <input
+                type="checkbox"
+                checked={companyIsParent}
+                onChange={(e) => setCompanyIsParent(e.target.checked)}
+              />
+              <span>
+                <span className="block font-semibold text-foreground">Empresa madre protegida</span>
+                <span className="text-xs text-muted">
+                  Si se fusiona por error, esta ficha permanece y absorbe a la otra.
+                </span>
+              </span>
             </label>
             <label className="block space-y-1">
               <span className="text-[10px] uppercase tracking-wider text-muted">Año fundación</span>
@@ -1434,6 +1468,19 @@ export function AdminEntitiesPanel({
                         <option value="subsidiary">Filial / subsidiaria</option>
                       </select>
                     </label>
+                    <label className="flex items-center gap-3 rounded-xl border border-amber-300/60 bg-amber-50/70 p-3 text-sm dark:border-amber-400/30 dark:bg-amber-950/20">
+                      <input
+                        type="checkbox"
+                        checked={editCompanyIsParent}
+                        onChange={(e) => setEditCompanyIsParent(e.target.checked)}
+                      />
+                      <span>
+                        <span className="block font-semibold text-foreground">Empresa madre protegida</span>
+                        <span className="text-xs text-muted">
+                          Esta ficha gana siempre ante fusiones accidentales en sentido inverso.
+                        </span>
+                      </span>
+                    </label>
                     <label className="block space-y-1">
                       <span className="flex items-center justify-between gap-2">
                         <span className="text-[10px] uppercase tracking-wider text-muted">Pertenece a / empresa matriz</span>
@@ -1601,6 +1648,11 @@ export function AdminEntitiesPanel({
                         <Badge tone={company.active === false ? "amber" : "green"}>
                           {company.active === false ? "Pausada" : "Activa"}
                         </Badge>
+                        {company.isParentCompany && (
+                          <span className="ml-2 rounded-full border border-amber-400/60 bg-amber-300/20 px-2 py-1 text-[10px] font-black uppercase tracking-wider text-amber-800 dark:text-amber-200">
+                            Madre
+                          </span>
+                        )}
                       </div>
                       <p className="text-xs text-muted">
                         {company.slug} · {company.gameCount} juegos
@@ -1712,9 +1764,11 @@ export function AdminEntitiesPanel({
                           {companies
                             .filter((target) => target.slug !== company.slug)
                             .map((target) => (
-                              <option key={target.slug} value={target.slug}>
-                                {target.name}
-                              </option>
+                              <option
+                                key={target.slug}
+                                value={target.slug}
+                                label={`${target.name}${target.isParentCompany ? " · MADRE" : ""}`}
+                              />
                             ))}
                         </datalist>
                         <span className="text-xs text-muted">

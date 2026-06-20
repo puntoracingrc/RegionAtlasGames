@@ -29,6 +29,7 @@ export async function POST(request: Request) {
     foundedYear?: number | null;
     closedYear?: number | null;
     status?: "active" | "defunct" | "subsidiary" | "unknown";
+    isParentCompany?: boolean;
     parentCompany?: { slug: string; name: string } | null;
     acquiredByCompany?: { slug: string; name: string } | null;
     mergedWithCompany?: { slug: string; name: string } | null;
@@ -49,6 +50,7 @@ export async function POST(request: Request) {
     foundedYear: body.foundedYear ?? null,
     closedYear: body.closedYear ?? null,
     status: body.status,
+    isParentCompany: body.isParentCompany === true,
     parentCompany: body.parentCompany ?? null,
     acquiredByCompany: body.acquiredByCompany ?? null,
     mergedWithCompany: body.mergedWithCompany ?? null,

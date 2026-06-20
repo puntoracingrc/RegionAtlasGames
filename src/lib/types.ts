@@ -157,6 +157,7 @@ export type CompanyProfile = {
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: CompanyProfileStatus;
+  isParentCompany?: boolean;
   parentCompany?: CompanyRelation | null;
   acquiredByCompany?: CompanyRelation | null;
   mergedWithCompany?: CompanyRelation | null;

@@ -726,6 +726,7 @@ export type AdminCompanyRow = Pick<IndexEntry, "slug" | "name" | "gameCount" | "
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: CompanyProfileStatus;
+  isParentCompany?: boolean;
   parentCompany?: CompanyRelation | null;
   acquiredByCompany?: CompanyRelation | null;
   mergedWithCompany?: CompanyRelation | null;
@@ -826,6 +827,7 @@ function profileForAdminCompany(
     foundedYear: profile?.foundedYear ?? null,
     closedYear: profile?.closedYear ?? null,
     status: profile?.status ?? "unknown",
+    isParentCompany: profile?.isParentCompany === true,
     parentCompany: profile?.parentCompany ?? null,
     acquiredByCompany: profile?.acquiredByCompany ?? null,
     mergedWithCompany: profile?.mergedWithCompany ?? null,
@@ -847,6 +849,7 @@ function companyProfileFromInput(
     foundedYear?: number | null;
     closedYear?: number | null;
     status?: CompanyProfileStatus;
+    isParentCompany?: boolean;
     parentCompany?: CompanyRelation | null;
     acquiredByCompany?: CompanyRelation | null;
     mergedWithCompany?: CompanyRelation | null;
@@ -871,6 +874,8 @@ function companyProfileFromInput(
     foundedYear: parsed.foundedYear ?? currentProfile?.foundedYear ?? null,
     closedYear: parsed.closedYear ?? currentProfile?.closedYear ?? null,
     status: parsed.status ?? currentProfile?.status ?? "unknown",
+    isParentCompany:
+      typeof input.isParentCompany === "boolean" ? input.isParentCompany : currentProfile?.isParentCompany === true,
     parentCompany:
       input.parentCompany !== undefined ? input.parentCompany : currentProfile?.parentCompany ?? null,
     acquiredByCompany:
@@ -1025,6 +1030,7 @@ export async function createAdminCompany(input: {
   foundedYear?: number | null;
   closedYear?: number | null;
   status?: CompanyProfileStatus;
+  isParentCompany?: boolean;
   parentCompany?: CompanyRelation | null;
   acquiredByCompany?: CompanyRelation | null;
   mergedWithCompany?: CompanyRelation | null;
@@ -1583,6 +1589,7 @@ function mergeCompanyProfiles(
     foundedYear: targetProfile?.foundedYear ?? sourceProfile?.foundedYear ?? null,
     closedYear: targetProfile?.closedYear ?? sourceProfile?.closedYear ?? null,
     status: targetProfile?.status ?? sourceProfile?.status ?? "unknown",
+    isParentCompany: targetProfile?.isParentCompany === true || sourceProfile?.isParentCompany === true,
     parentCompany: firstUsefulCompanyRelation(
       targetProfile?.parentCompany,
       sourceProfile?.parentCompany,
@@ -1699,16 +1706,29 @@ export async function mergeAdminCompany(
       developerUpdates: number;
       publisherUpdates: number;
       mergedGameCount: number;
+      protectedParentCompany?: boolean;
     }
   | { error: string }
 > {
-  const sourceKey = sourceSlug.trim();
-  const targetKey = targetSlug.trim();
+  let sourceKey = sourceSlug.trim();
+  let targetKey = targetSlug.trim();
   if (!sourceKey || !targetKey) return { error: "Faltan compañías para fusionar." };
   if (sourceKey === targetKey) return { error: "El origen y el destino son la misma compañía." };
   const writable = assertWritable();
   if ("error" in writable) {
     return { error: "La fusión necesita escritura real del catálogo. Hazla en local o con escritura admin activada." };
+  }
+
+  const registry = loadJson<CompanyEntitiesFile>(COMPANY_ENTITIES_FILE, { entities: {} });
+  const profiles = loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {});
+  const sourceIsParentCompany = profiles[sourceKey]?.isParentCompany === true;
+  const targetIsParentCompany = profiles[targetKey]?.isParentCompany === true;
+  if (sourceIsParentCompany && targetIsParentCompany) {
+    return { error: "No se pueden fusionar dos compañías marcadas como empresa madre." };
+  }
+  const protectedParentCompany = sourceIsParentCompany && !targetIsParentCompany;
+  if (protectedParentCompany) {
+    [sourceKey, targetKey] = [targetKey, sourceKey];
   }
 
   const index = loadJson<Record<string, IndexEntry>>(COMPANIES_INDEX_FILE, {});
@@ -1717,8 +1737,6 @@ export async function mergeAdminCompany(
   if (!source) return { error: "Compañía origen no encontrada." };
   if (!target) return { error: "Compañía destino no encontrada." };
 
-  const registry = loadJson<CompanyEntitiesFile>(COMPANY_ENTITIES_FILE, { entities: {} });
-  const profiles = loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {});
   const details = loadJson<Record<string, unknown>>(DETAILS_FILE, {});
   const overlay = await readAdminEntitiesOverlay();
   const meta = loadJson<Record<string, unknown>>(META_FILE, {});
@@ -1790,6 +1808,7 @@ export async function mergeAdminCompany(
     developerUpdates: detailUpdates.developerUpdates,
     publisherUpdates: detailUpdates.publisherUpdates,
     mergedGameCount: mergedTarget.gameCount,
+    protectedParentCompany,
   };
 }
 
@@ -1873,6 +1892,7 @@ export async function updateAdminCompany(
     foundedYear?: number | null;
     closedYear?: number | null;
     status?: CompanyProfileStatus;
+    isParentCompany?: boolean;
     parentCompany?: CompanyRelation | null;
     acquiredByCompany?: CompanyRelation | null;
     mergedWithCompany?: CompanyRelation | null;
