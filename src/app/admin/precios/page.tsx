@@ -380,7 +380,7 @@ export default async function AdminPricesPage({
             ) : null}
             {dashboard.workerUrls.cronLog ? (
               <a href={dashboard.workerUrls.cronLog} target="_blank" rel="noreferrer" className="btn-secondary text-xs">
-                Ver log cron
+                Abrir log crudo
               </a>
             ) : null}
           </div>
@@ -412,6 +412,26 @@ export default async function AdminPricesPage({
             Todavía no hay intentos reales del hosting registrados. Cuando el cron llame a la rueda, aquí quedará reflejado aunque falle.
           </p>
         )}
+        <div className="mt-4 rounded-2xl border border-emerald-400/30 bg-slate-950 p-4 shadow-inner">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-emerald-300">
+                Terminal del cron
+              </p>
+              <p className="mt-1 text-xs text-slate-400">
+                Últimas líneas del log real publicado por el hosting externo.
+              </p>
+            </div>
+            {dashboard.workerUrls.cronLog ? (
+              <a href={dashboard.workerUrls.cronLog} target="_blank" rel="noreferrer" className="rounded-xl border border-emerald-400/30 px-3 py-2 text-xs font-semibold text-emerald-200 transition hover:bg-emerald-400/10">
+                Ver archivo completo
+              </a>
+            ) : null}
+          </div>
+          <pre className="max-h-80 overflow-auto whitespace-pre-wrap rounded-xl border border-emerald-400/20 bg-black/70 p-4 font-mono text-xs leading-6 text-emerald-100">
+            {dashboard.cronLogTail || "Sin log del cron disponible todavía."}
+          </pre>
+        </div>
       </Panel>
 
       <Panel className={adminToneClass("status")}>

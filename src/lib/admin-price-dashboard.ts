@@ -63,6 +63,7 @@ export type AdminPriceDashboard = {
     cronLog: string | null;
     attempts: string | null;
   };
+  cronLogTail: string | null;
   nextStep: {
     slug: string | null;
     label: string;
@@ -223,6 +224,25 @@ async function listHostingPriceCronAttempts(
       .slice(0, limit);
   } catch {
     return [];
+  }
+}
+
+async function loadHostingPriceCronLogTail(): Promise<string | null> {
+  const base = priceWorkerPublicBaseUrl();
+  if (!base) return null;
+  try {
+    const response = await fetch(`${base}/cron/price-rotation.log`, {
+      cache: "no-store",
+    });
+    if (!response.ok) return null;
+    const text = await response.text();
+    const lines = text
+      .split(/\r?\n/)
+      .map((line) => line.trimEnd())
+      .filter((line) => line.trim().length > 0);
+    return lines.slice(-80).join("\n") || null;
+  } catch {
+    return null;
   }
 }
 
@@ -401,6 +421,7 @@ export async function getAdminPriceDashboard(
     lastRunAt: activeState.lastRunAt ?? null,
     syncStateSource: workerState ? "worker" : "local",
     workerUrls: workerUrls(),
+    cronLogTail: await loadHostingPriceCronLogTail(),
     nextStep: resolveStep(activeState.nextPlatformSlug),
     recentSyncs,
     platformHealth: platformHealth(activeState),
