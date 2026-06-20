@@ -47,6 +47,12 @@ export type AdminPriceSyncRow = PriceSyncPlatformStats & {
 
 export type AdminPriceDashboard = {
   lastRunAt: string | null;
+  syncStateSource: "worker" | "local";
+  workerUrls: {
+    state: string | null;
+    cronLog: string | null;
+    attempts: string | null;
+  };
   nextStep: {
     slug: string | null;
     label: string;
@@ -125,11 +131,41 @@ function resolveStep(step: string | undefined): AdminPriceDashboard["nextStep"] 
 
 function nextDailyPriceRunAt(now = new Date()): string {
   const next = new Date(now);
-  next.setUTCHours(2, 17, 0, 0);
+  next.setUTCHours(4, 17, 0, 0);
   if (next.getTime() <= now.getTime()) {
     next.setUTCDate(next.getUTCDate() + 1);
   }
   return next.toISOString();
+}
+
+function parseRemotePriceSyncState(data: unknown): PriceSyncState | null {
+  if (!data || typeof data !== "object") return null;
+  const state = data as PriceSyncState;
+  if (!state.platforms || typeof state.platforms !== "object") return null;
+  return state;
+}
+
+async function loadWorkerPriceSyncState(): Promise<PriceSyncState | null> {
+  const base = priceWorkerPublicBaseUrl();
+  if (!base) return null;
+  try {
+    const response = await fetch(`${base}/app/data/price-sync-state.json`, {
+      cache: "no-store",
+    });
+    if (!response.ok) return null;
+    return parseRemotePriceSyncState(await response.json());
+  } catch {
+    return null;
+  }
+}
+
+function workerUrls() {
+  const base = priceWorkerPublicBaseUrl();
+  return {
+    state: base ? `${base}/app/data/price-sync-state.json` : null,
+    cronLog: base ? `${base}/cron/price-rotation.log` : null,
+    attempts: base ? `${base}/cron/price-rotation-attempts.json` : null,
+  };
 }
 
 async function listHostingPriceCronAttempts(limit: number): Promise<AdminPriceCronAttempt[]> {
@@ -164,9 +200,9 @@ function hasPrice(game: (typeof catalog)[number]): boolean {
   return Boolean(game.hasEsPrice || game.recommendedPrice != null);
 }
 
-function platformHealth(): AdminPlatformPriceHealth[] {
+function platformHealth(state: PriceSyncState): AdminPlatformPriceHealth[] {
   const listed = catalog.filter((game) => game.listingStatus !== "excluded");
-  const next = resolveStep(priceSyncState.nextPlatformSlug).platforms.map((p) => p.slug);
+  const next = resolveStep(state.nextPlatformSlug).platforms.map((p) => p.slug);
 
   return platforms
     .map((platform) => {
@@ -178,7 +214,7 @@ function platformHealth(): AdminPlatformPriceHealth[] {
       }
       const pricedGames = games.filter(hasPrice).length;
       const verifiedGames = games.filter((game) => game.priceRegionVerified === true).length;
-      const sync = priceSyncState.platforms?.[platform.slug];
+      const sync = state.platforms?.[platform.slug];
       return {
         platformSlug: platform.slug,
         platformName: platform.shortName || platform.name || platform.slug,
@@ -195,7 +231,7 @@ function platformHealth(): AdminPlatformPriceHealth[] {
           .map(([region, regionGames]) => {
             const regionPriced = regionGames.filter(hasPrice).length;
             const regionVerified = regionGames.filter((game) => game.priceRegionVerified === true).length;
-            const regionSync = priceSyncState.regions?.[platform.slug]?.[region];
+            const regionSync = state.regions?.[platform.slug]?.[region];
             return {
               region,
               totalGames: regionGames.length,
@@ -218,7 +254,9 @@ function platformHealth(): AdminPlatformPriceHealth[] {
 }
 
 export async function getAdminPriceDashboard(limit = 18): Promise<AdminPriceDashboard> {
-  const recentSyncs = Object.entries(priceSyncState.platforms ?? {})
+  const workerState = await loadWorkerPriceSyncState();
+  const activeState = workerState ?? priceSyncState;
+  const recentSyncs = Object.entries(activeState.platforms ?? {})
     .map(([platformSlug, stats]) => ({
       platformSlug,
       platformName: platformName(platformSlug),
@@ -233,10 +271,12 @@ export async function getAdminPriceDashboard(limit = 18): Promise<AdminPriceDash
     .slice(0, 12);
 
   return {
-    lastRunAt: priceSyncState.lastRunAt ?? null,
-    nextStep: resolveStep(priceSyncState.nextPlatformSlug),
+    lastRunAt: activeState.lastRunAt ?? null,
+    syncStateSource: workerState ? "worker" : "local",
+    workerUrls: workerUrls(),
+    nextStep: resolveStep(activeState.nextPlatformSlug),
     recentSyncs,
-    platformHealth: platformHealth(),
+    platformHealth: platformHealth(activeState),
     manualJobs: await listAdminPriceJobs(limit),
     cronAttempts,
   };

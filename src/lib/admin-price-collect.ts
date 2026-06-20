@@ -361,7 +361,7 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
     "set -e",
     `cd "$HOME"/${remoteDir}`,
     "mkdir -p jobs logs",
-    `nohup sh -c ${shellQuote(`app/venv/bin/python ${runCommand}`)} > logs/${jobId}.log 2>&1 &`,
+    `nohup sh -c ${shellQuote(`PYTHONUNBUFFERED=1 app/venv/bin/python -u ${runCommand}`)} > logs/${jobId}.log 2>&1 &`,
     `echo ${shellQuote(jobId)}`,
   ].join("\n");
 

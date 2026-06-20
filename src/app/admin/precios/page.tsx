@@ -8,6 +8,7 @@ import {
   isAdminPriceCollectAvailable,
   type AdminPriceJobMeta,
 } from "@/lib/admin-price-collect";
+import type { AdminPriceCronAttempt } from "@/lib/admin-price-cron-log";
 
 export const dynamic = "force-dynamic";
 
@@ -91,9 +92,18 @@ function cronStatusTone(status: "started" | "done" | "blocked" | "skipped" | "er
 function cronStatusLabel(status: "started" | "done" | "blocked" | "skipped" | "error"): string {
   if (status === "started") return "lanzado";
   if (status === "done") return "terminado";
-  if (status === "skipped") return "prueba";
+  if (status === "skipped") return "saltado";
   if (status === "blocked") return "bloqueado";
   return "error";
+}
+
+function isHostingRotationAttempt(attempt: AdminPriceCronAttempt): boolean {
+  return attempt.userAgent === "1and1-hosting-cron" || attempt.id.startsWith("hosting-");
+}
+
+function isTodayOrYesterday(value: string | null | undefined): boolean {
+  const label = dayLabel(value);
+  return label === "hoy" || label === "ayer";
 }
 
 function jobTitle(job: AdminPriceJobMeta): string {
@@ -145,9 +155,11 @@ export default async function AdminPricesPage({
   const dashboard = await getAdminPriceDashboard(20);
   const canCollectPrices = isAdminPriceCollectAvailable();
   const freshRows = dashboard.recentSyncs.filter((row) => {
-    const label = dayLabel(row.lastSyncAt);
-    return label === "hoy" || label === "ayer";
+    return isTodayOrYesterday(row.lastSyncAt);
   });
+  const rotationAttempts = dashboard.cronAttempts.filter(isHostingRotationAttempt);
+  const lastRotationDone = rotationAttempts.find((attempt) => attempt.status === "done");
+  const recentRotationAttempts = rotationAttempts.filter((attempt) => isTodayOrYesterday(attempt.at));
 
   return (
     <div className="space-y-6">
@@ -155,10 +167,13 @@ export default async function AdminPricesPage({
         <Panel className={`${adminToneClass("status")} lg:col-span-2`}>
           <PanelTitle eyebrow="Rotación automática">Estado de recopilación</PanelTitle>
           <div className="grid gap-3 sm:grid-cols-3">
-            <AdminStatTile tone="status" label="Última sincronización" value={formatDate(dashboard.lastRunAt)} />
-            <AdminStatTile tone="status" label="Hoy / ayer" value={freshRows.length} helper="plataformas con actividad registrada" />
+            <AdminStatTile tone="status" label="Última rotación OK" value={formatDate(lastRotationDone?.at)} />
+            <AdminStatTile tone="status" label="Intentos hoy / ayer" value={recentRotationAttempts.length} helper="solo cron real del hosting" />
             <AdminStatTile tone="status" label="Siguiente paso" value={dashboard.nextStep.label} helper={formatNextRun(dashboard.nextStep.scheduledAt)} />
           </div>
+          <p className="mt-3 text-xs text-muted">
+            Este bloque solo cuenta llamadas reales de la rotación automática del hosting externo. Los lanzamientos manuales se ven abajo.
+          </p>
           {dashboard.nextStep.platforms.length > 1 && (
             <p className="mt-3 text-xs text-muted">
               Este lote incluye: {dashboard.nextStep.platforms.map((p) => p.name).join(", ")}.
@@ -167,7 +182,7 @@ export default async function AdminPricesPage({
         </Panel>
 
         <Panel className={adminToneClass("search")}>
-          <PanelTitle eyebrow="Lectura rápida">¿Ha corrido hoy?</PanelTitle>
+          <PanelTitle eyebrow="Lectura rápida">Sincronizaciones recientes</PanelTitle>
           {freshRows.length > 0 ? (
             <div className="space-y-2 text-sm">
               {freshRows.map((row) => (
@@ -182,15 +197,25 @@ export default async function AdminPricesPage({
               No hay recopilaciones registradas hoy ni ayer. La última registrada queda abajo en el historial.
             </p>
           )}
+          <p className="mt-3 text-xs text-muted">
+            Fuente de datos: {dashboard.syncStateSource === "worker" ? "worker externo" : "copia local"}.
+          </p>
         </Panel>
       </div>
 
-        <Panel className={adminToneClass("search")}>
+      <Panel className={adminToneClass("search")}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <PanelTitle eyebrow="Historial">Últimas plataformas sincronizadas</PanelTitle>
-          <Link href="/admin/entidades" className="btn-secondary text-xs">
-            Lanzar por plataforma
-          </Link>
+          <div className="flex flex-wrap gap-2">
+            {dashboard.workerUrls.state ? (
+              <a href={dashboard.workerUrls.state} target="_blank" rel="noreferrer" className="btn-secondary text-xs">
+                Ver estado JSON
+              </a>
+            ) : null}
+            <Link href="/admin/entidades" className="btn-secondary text-xs">
+              Lanzar por plataforma
+            </Link>
+          </div>
         </div>
         <div className="overflow-x-auto">
           <table className="min-w-full text-left text-sm">
@@ -253,10 +278,24 @@ export default async function AdminPricesPage({
       </Panel>
 
       <Panel className={adminToneClass("status")}>
-        <PanelTitle eyebrow="Cron automático">Últimos intentos de la rueda</PanelTitle>
-        {dashboard.cronAttempts.length > 0 ? (
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <PanelTitle eyebrow="Cron automático">Últimos intentos reales de la rueda</PanelTitle>
+          <div className="flex flex-wrap gap-2">
+            {dashboard.workerUrls.attempts ? (
+              <a href={dashboard.workerUrls.attempts} target="_blank" rel="noreferrer" className="btn-secondary text-xs">
+                Ver intentos JSON
+              </a>
+            ) : null}
+            {dashboard.workerUrls.cronLog ? (
+              <a href={dashboard.workerUrls.cronLog} target="_blank" rel="noreferrer" className="btn-secondary text-xs">
+                Ver log cron
+              </a>
+            ) : null}
+          </div>
+        </div>
+        {rotationAttempts.length > 0 ? (
           <div className="grid gap-3 md:grid-cols-2">
-            {dashboard.cronAttempts.map((attempt) => (
+            {rotationAttempts.map((attempt) => (
               <div key={attempt.id} className="rounded-2xl border border-border bg-background/45 p-4">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
@@ -278,7 +317,7 @@ export default async function AdminPricesPage({
           </div>
         ) : (
           <p className="rounded-xl border border-border bg-background/45 p-3 text-sm text-muted">
-            Todavía no hay intentos registrados. Cuando el hosting llame a la rueda, aquí quedará reflejado aunque falle.
+            Todavía no hay intentos reales del hosting registrados. Cuando el cron llame a la rueda, aquí quedará reflejado aunque falle.
           </p>
         )}
       </Panel>
