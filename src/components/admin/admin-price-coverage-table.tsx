@@ -597,7 +597,6 @@ export function AdminPriceCoverageTable({
             <tr className="border-b border-border">
               <th className="py-3 pr-4 font-semibold">Toda</th>
               <th className="py-3 pr-4 font-semibold">Plataforma</th>
-              <th className="py-3 pr-4 font-semibold">Cobertura total</th>
               <th className="py-3 pr-4 font-semibold">Verificada</th>
               <th className="py-3 pr-4 font-semibold">Última sync</th>
               <th className="py-3 pr-4 font-semibold">Regiones</th>
@@ -678,14 +677,6 @@ export function AdminPriceCoverageTable({
                       ) : null}
                     </td>
                     <td className="py-3 pr-4">
-                      <Badge tone={coverageTone(row.coveragePct)}>
-                        {row.coveragePct}%
-                      </Badge>
-                      <p className="mt-1 text-xs text-muted">
-                        {row.pricedGames.toLocaleString("es-ES")} con precio
-                      </p>
-                    </td>
-                    <td className="py-3 pr-4">
                       <Badge tone={coverageTone(row.verifiedCoveragePct)}>
                         {row.verifiedCoveragePct}%
                       </Badge>
@@ -716,7 +707,7 @@ export function AdminPriceCoverageTable({
                           return (
                             <label
                               key={region.region}
-                              className="grid grid-cols-[18px_minmax(90px,1fr)_80px_80px] items-center gap-2 rounded-lg border border-border/70 bg-background/40 px-2 py-1.5 text-xs"
+                              className="grid grid-cols-[18px_minmax(120px,1fr)_90px] items-center gap-2 rounded-lg border border-border/70 bg-background/40 px-2 py-1.5 text-xs"
                             >
                               <input
                                 type="checkbox"
@@ -736,13 +727,10 @@ export function AdminPriceCoverageTable({
                                 {region.region}
                               </span>
                               <span className="text-muted">
-                                {region.coveragePct}% total
-                              </span>
-                              <span className="text-muted">
                                 {region.verifiedCoveragePct}% verif.
                               </span>
                               {region.lastSyncAt && (
-                                <span className="col-start-2 col-span-3 text-[10px] text-muted">
+                                <span className="col-start-2 col-span-2 text-[10px] text-muted">
                                   Región actualizada:{" "}
                                   {ageLabel(region.lastSyncAt)}
                                 </span>
