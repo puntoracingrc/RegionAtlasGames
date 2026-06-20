@@ -11,6 +11,7 @@ Búsqueda por juego (título + plataforma), orden «más recientes» y paginaci�
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import subprocess
 import sys
@@ -36,6 +37,7 @@ from collectors.match_pipeline import print_match_stats, run_match_pipeline  # n
 from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
 from collectors.vinted_client import (  # noqa: E402
+    VintedRateLimitError,
     VintedSession,
     build_vinted_search_query,
     fetch_game_products,
@@ -47,8 +49,15 @@ from collectors.vinted_match import infer_vinted_region_product, is_vinted_game_
 
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
 CACHE_DIR = ROOT / "data" / "price-ingest" / "cache" / "vinted"
-REQUEST_DELAY = 0.4
 MIN_TITLE_SCORE = 0.42
+
+
+def request_delay_default() -> float:
+    raw = os.environ.get("VINTED_REQUEST_DELAY_SEC", "2.5")
+    try:
+        return max(0.4, float(raw))
+    except ValueError:
+        return 2.5
 
 PLATFORM_ALIAS_GROUPS: dict[str, set[str]] = {
     "nes": {"nintendo", "nes"},
@@ -140,13 +149,22 @@ def collect_platform_sweep(
     if products is None:
         seen: set[str] = set()
         products = []
+        rate_limited = False
+        stopped_at = 0
         for index, query in enumerate(queries, start=1):
-            fetched = fetch_search_products(
-                query,
-                session,
-                max_pages=args.sweep_pages if args.sweep_pages is not None else args.max_pages,
-                delay_s=args.delay,
-            )
+            try:
+                fetched = fetch_search_products(
+                    query,
+                    session,
+                    max_pages=args.sweep_pages if args.sweep_pages is not None else args.max_pages,
+                    delay_s=args.delay,
+                )
+            except VintedRateLimitError as exc:
+                suffix = f" Retry-After: {exc.retry_after}" if exc.retry_after else ""
+                print(f"  Sweep [{index}/{len(queries)}] RATE LIMIT «{query}»: {exc}.{suffix}")
+                rate_limited = True
+                stopped_at = index
+                break
             accepted = []
             for product in fetched:
                 full_text = f"{product_title(product)} {product.get('description') or ''}"
@@ -164,7 +182,15 @@ def collect_platform_sweep(
             if index < len(queries):
                 time.sleep(args.delay)
         if args.use_cache:
-            save_json(cache_file, attach_policy_version({"queries": queries, "products": products}))
+            save_json(cache_file, attach_policy_version({
+                "queries": queries,
+                "products": products,
+                "rateLimited": rate_limited,
+                "stoppedAt": stopped_at or None,
+            }))
+    else:
+        rate_limited = bool(cached.get("rateLimited")) if "cached" in locals() else False
+        stopped_at = int(cached.get("stoppedAt") or 0) if "cached" in locals() else 0
 
     def row_builder(product: dict[str, Any], matched_game: dict[str, Any], result) -> dict[str, Any] | None:
         row = product_to_ingest_row(
@@ -199,6 +225,8 @@ def collect_platform_sweep(
         "listings": len(stats_match.rows),
         "listings_verified": sum(1 for row in stats_match.rows if row.get("regionVerified") is True),
         "listings_review": sum(1 for row in stats_match.rows if row.get("regionReviewNeeded")),
+        "rate_limited": int(rate_limited),
+        "stopped_at": stopped_at,
     }
     return stats_match.rows, stats
 
@@ -277,6 +305,8 @@ def collect_platform(
         "listings": 0,
         "listings_verified": 0,
         "listings_review": 0,
+        "rate_limited": 0,
+        "stopped_at": 0,
     }
     all_rows: list[dict[str, Any]] = []
 
@@ -291,6 +321,13 @@ def collect_platform(
                 use_cache=args.use_cache,
                 delay_s=0 if index == len(games) else args.delay,
             )
+        except VintedRateLimitError as exc:
+            stats["rate_limited"] = 1
+            stats["stopped_at"] = index
+            suffix = f" Retry-After: {exc.retry_after}" if exc.retry_after else ""
+            print(f"  [{index}/{len(games)}] RATE LIMIT {game['title'][:40]}: {exc}.{suffix}")
+            print("  Vinted ha limitado la sesión. Se corta esta fuente para no perder tiempo ni empeorar el bloqueo.")
+            break
         except Exception as exc:  # noqa: BLE001
             print(f"  [{index}/{len(games)}] ERROR {game['title'][:40]}: {exc}")
             continue
@@ -342,6 +379,8 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         f"verificados: {stats['listings_verified']} · "
         f"pendientes revisión: {stats['listings_review']}"
     )
+    if stats.get("rate_limited"):
+        print(f"  Vinted rate limit: recolección cortada en {stats.get('stopped_at')}/{stats['games_requested']}.")
 
     if args.dry_run:
         for row in listing_rows[:10]:
@@ -360,6 +399,8 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
             "(título + plataforma). "
             "Orden: más recientes. Paginación numérica al final de resultados."
         ),
+        "rateLimited": bool(stats.get("rate_limited")),
+        "stoppedAt": stats.get("stopped_at") or None,
         "listings": listing_rows,
         "cex": [],
         "jgo": [],
@@ -411,7 +452,7 @@ def main() -> None:
         type=int,
         help="Páginas de resultados por juego (default: ver data/ingest-recency.json)",
     )
-    parser.add_argument("--delay", type=float, default=REQUEST_DELAY, help="Segundos entre búsquedas")
+    parser.add_argument("--delay", type=float, default=request_delay_default(), help="Segundos entre búsquedas")
     parser.add_argument(
         "--sweep-platform",
         action="store_true",

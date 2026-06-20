@@ -24,6 +24,12 @@ DEFAULT_PER_PAGE = 96
 DEFAULT_GAME_SEARCH_MAX_PAGES: int | None = None
 
 
+class VintedRateLimitError(RuntimeError):
+    def __init__(self, message: str, *, retry_after: str | None = None) -> None:
+        super().__init__(message)
+        self.retry_after = retry_after
+
+
 def build_vinted_search_query(game: dict[str, Any]) -> str:
     """Query del buscador: título + plataforma."""
     return build_search_query(game)
@@ -85,6 +91,10 @@ class VintedSession:
             if exc.code in {401, 403}:
                 self.warm()
                 body = _request()
+            elif exc.code == 429:
+                err_body = exc.read().decode("utf-8", errors="ignore")[:400]
+                retry_after = exc.headers.get("Retry-After")
+                raise VintedRateLimitError(f"Vinted API (429): {err_body}", retry_after=retry_after) from exc
             else:
                 err_body = exc.read().decode("utf-8", errors="ignore")[:400]
                 raise RuntimeError(f"Vinted API ({exc.code}): {err_body}") from exc
@@ -282,6 +292,7 @@ __all__ = [
     "DEFAULT_ORDER",
     "DEFAULT_PER_PAGE",
     "VintedSession",
+    "VintedRateLimitError",
     "build_vinted_search_query",
     "fetch_game_products",
     "fetch_search_products",
