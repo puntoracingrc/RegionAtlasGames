@@ -81,6 +81,20 @@ function statusTone(status: AdminPriceJobMeta["status"]): "green" | "amber" | "r
   return "rose";
 }
 
+function cronStatusTone(status: "started" | "blocked" | "skipped" | "error"): "green" | "amber" | "rose" | "neutral" {
+  if (status === "started") return "green";
+  if (status === "skipped") return "amber";
+  if (status === "blocked" || status === "error") return "rose";
+  return "neutral";
+}
+
+function cronStatusLabel(status: "started" | "blocked" | "skipped" | "error"): string {
+  if (status === "started") return "lanzado";
+  if (status === "skipped") return "prueba";
+  if (status === "blocked") return "bloqueado";
+  return "error";
+}
+
 function jobTitle(job: AdminPriceJobMeta): string {
   if (job.targets?.length) return `Lote de ${job.targets.length} objetivo(s)`;
   if (job.platformSlug) return `Plataforma ${job.platformSlug}${job.region ? ` · ${job.region}` : ""}`;
@@ -235,6 +249,37 @@ export default async function AdminPricesPage({
           canCollect={canCollectPrices}
           unavailableReason={canCollectPrices ? undefined : adminPriceCollectUnavailableReason()}
         />
+      </Panel>
+
+      <Panel className={adminToneClass("status")}>
+        <PanelTitle eyebrow="Cron automático">Últimos intentos de la rueda</PanelTitle>
+        {dashboard.cronAttempts.length > 0 ? (
+          <div className="grid gap-3 md:grid-cols-2">
+            {dashboard.cronAttempts.map((attempt) => (
+              <div key={attempt.id} className="rounded-2xl border border-border bg-background/45 p-4">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p className="font-semibold text-foreground">
+                      {attempt.label || attempt.step || "Rotación de precios"}
+                    </p>
+                    <p className="mt-1 text-xs text-muted">{formatDate(attempt.at)}</p>
+                  </div>
+                  <Badge tone={cronStatusTone(attempt.status)}>{cronStatusLabel(attempt.status)}</Badge>
+                </div>
+                {attempt.message ? <p className="mt-3 text-xs leading-5 text-muted">{attempt.message}</p> : null}
+                {attempt.jobId ? (
+                  <Link href={`/api/admin/price-jobs/${encodeURIComponent(attempt.jobId)}`} className="mt-3 inline-flex text-xs font-semibold text-accent">
+                    Ver job lanzado →
+                  </Link>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="rounded-xl border border-border bg-background/45 p-3 text-sm text-muted">
+            Todavía no hay intentos registrados. Cuando Vercel llame al cron, aquí quedará reflejado aunque falle.
+          </p>
+        )}
       </Panel>
 
       <Panel className={adminToneClass("status")}>

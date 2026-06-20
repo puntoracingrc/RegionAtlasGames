@@ -3,6 +3,7 @@ import platformsData from "../../data/platforms.json";
 import batchesData from "../../data/price-sync-batches.json";
 import priceSyncStateData from "../../data/price-sync-state.json";
 import { listAdminPriceJobs, type AdminPriceJobMeta } from "./admin-price-collect";
+import { listAdminPriceCronAttempts, type AdminPriceCronAttempt } from "./admin-price-cron-log";
 
 type PlatformInfo = {
   slug: string;
@@ -55,6 +56,7 @@ export type AdminPriceDashboard = {
   recentSyncs: AdminPriceSyncRow[];
   platformHealth: AdminPlatformPriceHealth[];
   manualJobs: AdminPriceJobMeta[];
+  cronAttempts: AdminPriceCronAttempt[];
 };
 
 export type AdminRegionPriceHealth = {
@@ -123,7 +125,7 @@ function resolveStep(step: string | undefined): AdminPriceDashboard["nextStep"] 
 
 function nextDailyPriceRunAt(now = new Date()): string {
   const next = new Date(now);
-  next.setUTCHours(4, 0, 0, 0);
+  next.setUTCHours(11, 0, 0, 0);
   if (next.getTime() <= now.getTime()) {
     next.setUTCDate(next.getUTCDate() + 1);
   }
@@ -209,5 +211,6 @@ export async function getAdminPriceDashboard(limit = 18): Promise<AdminPriceDash
     recentSyncs,
     platformHealth: platformHealth(),
     manualJobs: await listAdminPriceJobs(limit),
+    cronAttempts: await listAdminPriceCronAttempts(12),
   };
 }
