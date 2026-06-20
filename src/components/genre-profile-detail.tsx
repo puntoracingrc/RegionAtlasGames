@@ -1,5 +1,4 @@
 import { CatalogBrowser } from "@/components/catalog-browser";
-import { CatalogGameCard } from "@/components/game-card";
 import { GenrePlatformGames, GenreProfileHeader, GenreReferenceTop } from "@/components/genre-profile-sections";
 import { SiteNav } from "@/components/site-nav";
 import {
@@ -11,22 +10,16 @@ import {
 } from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { buildGenreIntro } from "@/lib/genre-seo";
-import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
-import { pickRecommendedGames } from "@/lib/game-facet-profile";
 import type { GenreProfileView } from "@/lib/genre-profile";
 
 type Props = {
   view: GenreProfileView;
   ownedCatalogIds: string[];
   isLoggedIn: boolean;
-  fromCatalogId?: string | null;
 };
 
-export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn, fromCatalogId }: Props) {
+export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn }: Props) {
   const allGames = view.games.map(toCatalogListGame);
-  const ownedSet = new Set(ownedCatalogIds);
-  const { originGame, recommendedGames } = pickRecommendedGames(view.games, fromCatalogId);
-  const recommendedListGames = recommendedGames.map(toCatalogListGame);
   const initialResult = filterCatalogGames(
     allGames,
     { q: "", region: "all", platform: "all", sort: DEFAULT_SORT, priceFilter: "all" },
@@ -50,34 +43,6 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn, fromCata
         <div className="mb-10">
           <GenrePlatformGames view={view} />
         </div>
-
-        {recommendedListGames.length > 0 && (
-          <section className="mb-10 space-y-4 rounded-2xl border border-accent/20 bg-accent/5 p-5 md:p-6">
-            <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.24em] text-accent">
-                Recomendados
-              </p>
-              <h2 className="mt-1 text-xl font-black text-foreground">
-                {originGame
-                  ? `Juegos de ${view.name} parecidos a ${originGame.title}`
-                  : `Juegos destacados de ${view.name}`}
-              </h2>
-              <p className="mt-1 text-sm text-foreground/75">
-                Selección destacada y separada del buscador completo del género.
-              </p>
-            </div>
-            <div className={CATALOG_GRID_CLASS}>
-              {recommendedListGames.map((game) => (
-                <CatalogGameCard
-                  key={game.id}
-                  game={game}
-                  owned={ownedSet.has(game.id)}
-                  isLoggedIn={isLoggedIn}
-                />
-              ))}
-            </div>
-          </section>
-        )}
 
         <section className="space-y-4">
           <div>

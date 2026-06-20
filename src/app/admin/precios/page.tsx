@@ -16,11 +16,6 @@ export const dynamic = "force-dynamic";
 
 type RecentLabel = "hoy" | "ayer" | "reciente" | "antiguo";
 type CoverageSort = "updated-desc" | "updated-asc" | "coverage-desc" | "coverage-asc";
-type PriceSyncHealth = {
-  label: string;
-  tone: "green" | "amber" | "rose" | "neutral";
-  helper: string;
-};
 
 function formatDate(value: string | null | undefined): string {
   if (!value) return "—";
@@ -182,93 +177,6 @@ function realSourceLabels(row: AdminPriceSyncRow): string[] {
   return labels;
 }
 
-function syncHealth(row: AdminPriceSyncRow): PriceSyncHealth {
-  const updates = Number(row.gamesUpdated ?? 0);
-  const targeted = Number(row.gamesTargeted ?? 0);
-  const coverage = Number(row.coveragePct ?? 0);
-  const sources = realSourceLabels(row);
-
-  if (!row.lastSyncAt) {
-    return {
-      label: "Sin sincronizar",
-      tone: "rose",
-      helper: "No hay fecha guardada para esta plataforma.",
-    };
-  }
-  if (sources.length === 0) {
-    return {
-      label: "Sin fuente real",
-      tone: "rose",
-      helper: "El worker no dejó fuentes identificables.",
-    };
-  }
-  if (updates <= 0) {
-    return {
-      label: "Sin datos nuevos",
-      tone: "amber",
-      helper: "La rueda pasó, pero no actualizó juegos.",
-    };
-  }
-  if (coverage >= 60 || (targeted > 0 && updates / targeted >= 0.6)) {
-    return {
-      label: "Fuerte",
-      tone: "green",
-      helper: `${updates} actualizados con buena cobertura.`,
-    };
-  }
-  return {
-    label: "Parcial",
-    tone: "amber",
-    helper: `${updates} actualizados; conviene revisar cobertura.`,
-  };
-}
-
-function sourceLeaderboard(rows: AdminPriceSyncRow[]): { label: string; value: number }[] {
-  const totals = new Map<string, number>();
-  for (const row of rows) {
-    for (const source of updatedBySource(row)) {
-      if (source.label === "P2P total") continue;
-      totals.set(source.label, (totals.get(source.label) ?? 0) + source.value);
-    }
-  }
-  return [...totals.entries()]
-    .map(([label, value]) => ({ label, value }))
-    .filter((item) => item.value > 0)
-    .sort((a, b) => b.value - a.value || a.label.localeCompare(b.label, "es"))
-    .slice(0, 8);
-}
-
-function priceListProgressLabel(row: AdminPriceSyncRow): string | null {
-  if (
-    row.priceListCoverageBeforePct == null ||
-    row.priceListCoverageAfterPct == null ||
-    row.priceListPricedBefore == null ||
-    row.priceListPricedAfter == null ||
-    row.priceListTotalGames == null
-  ) {
-    return null;
-  }
-  const delta = Number(row.priceListCoverageDeltaPct ?? 0);
-  const deltaLabel = delta > 0 ? `+${delta.toLocaleString("es-ES")}` : delta.toLocaleString("es-ES");
-  return `${row.priceListPricedBefore}/${row.priceListTotalGames} → ${row.priceListPricedAfter}/${row.priceListTotalGames} juegos con precio (${deltaLabel} puntos)`;
-}
-
-function latestPriceListProgress(rows: AdminPriceSyncRow[]): AdminPriceSyncRow | null {
-  return rows.find((row) => priceListProgressLabel(row)) ?? null;
-}
-
-function priceListProgressSummary(row: AdminPriceSyncRow): string {
-  const delta = Number(row.priceListCoverageDeltaPct ?? 0);
-  const deltaLabel = Math.abs(delta).toLocaleString("es-ES", { maximumFractionDigits: 1 });
-  if (delta > 0) {
-    return `Hemos mejorado un ${deltaLabel}% de juegos con precio en ${row.platformName}.`;
-  }
-  if (delta < 0) {
-    return `La última recolecta dejó ${deltaLabel}% menos juegos con precio en ${row.platformName}.`;
-  }
-  return `La última recolecta mantuvo igual la cobertura de juegos con precio en ${row.platformName}.`;
-}
-
 function normalizeCoverageSort(value: string | string[] | undefined): CoverageSort {
   const current = Array.isArray(value) ? value[0] : value;
   if (current === "updated-asc" || current === "coverage-desc" || current === "coverage-asc") return current;
@@ -293,8 +201,6 @@ export default async function AdminPricesPage({
   const rotationAttempts = dashboard.cronAttempts.filter(isHostingRotationAttempt);
   const lastRotationDone = rotationAttempts.find((attempt) => attempt.status === "done");
   const recentRotationAttempts = rotationAttempts.filter((attempt) => isTodayOrYesterday(attempt.at));
-  const recentSourceTotals = sourceLeaderboard(dashboard.recentSyncs);
-  const latestProgress = latestPriceListProgress(dashboard.recentSyncs);
 
   return (
     <div className="space-y-6">
@@ -306,17 +212,6 @@ export default async function AdminPricesPage({
             <AdminStatTile tone="status" label="Intentos hoy / ayer" value={recentRotationAttempts.length} helper="solo cron real del hosting" />
             <AdminStatTile tone="status" label="Siguiente paso" value={dashboard.nextStep.label} helper={formatNextRun(dashboard.nextStep.scheduledAt)} />
           </div>
-          {latestProgress ? (
-            <div className="mt-3 rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-3">
-              <p className="text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
-                Avance tras la última recolecta
-              </p>
-              <p className="mt-1 text-sm font-semibold text-foreground">
-                {priceListProgressSummary(latestProgress)}
-              </p>
-              <p className="mt-1 text-xs text-muted">{priceListProgressLabel(latestProgress)}</p>
-            </div>
-          ) : null}
           <p className="mt-3 text-xs text-muted">
             Este bloque solo cuenta llamadas reales de la rotación automática del hosting externo. Los lanzamientos manuales se ven abajo.
           </p>
@@ -385,21 +280,6 @@ export default async function AdminPricesPage({
             </Link>
           </div>
         </div>
-        <div className="mb-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          {recentSourceTotals.length > 0 ? (
-            recentSourceTotals.slice(0, 4).map((source) => (
-              <div key={source.label} className="rounded-xl border border-border bg-background/45 p-3">
-                <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">{source.label}</p>
-                <p className="mt-1 text-xl font-black text-foreground">{source.value}</p>
-                <p className="text-xs text-muted">juegos actualizados en el historial visible</p>
-              </div>
-            ))
-          ) : (
-            <p className="rounded-xl border border-border bg-background/45 p-3 text-sm text-muted sm:col-span-2 lg:col-span-4">
-              El historial visible todavía no trae conteos por fuente real.
-            </p>
-          )}
-        </div>
         <div className="overflow-x-auto">
           <table className="min-w-full text-left text-sm">
             <thead className="text-[10px] uppercase tracking-wider text-muted">
@@ -409,7 +289,6 @@ export default async function AdminPricesPage({
                 <th className="py-3 pr-4 font-semibold">Fuente</th>
                 <th className="py-3 pr-4 font-semibold">P2P verif.</th>
                 <th className="py-3 pr-4 font-semibold">Cobertura sync</th>
-                <th className="py-3 pr-4 font-semibold">Estado</th>
                 <th className="py-3 pr-4 font-semibold">Detalle</th>
               </tr>
             </thead>
@@ -419,7 +298,6 @@ export default async function AdminPricesPage({
                 const realUpdates = sourceUpdates.filter((source) => source.label !== "P2P total");
                 const sources = realSourceLabels(row);
                 const label = dayLabel(row.lastSyncAt);
-                const health = syncHealth(row);
                 return (
                   <tr key={row.platformSlug} className="border-b border-border/60 align-top last:border-0">
                     <td className="py-3 pr-4">
@@ -456,15 +334,6 @@ export default async function AdminPricesPage({
                     </td>
                     <td className="py-3 pr-4 whitespace-nowrap text-muted">
                       {row.coveragePct == null ? "—" : `${row.coveragePct}%`}
-                      {priceListProgressLabel(row) ? (
-                        <p className="mt-1 text-xs whitespace-normal text-emerald-700 dark:text-emerald-300">
-                          {priceListProgressLabel(row)}
-                        </p>
-                      ) : null}
-                    </td>
-                    <td className="py-3 pr-4 max-w-[220px]">
-                      <Badge tone={health.tone}>{health.label}</Badge>
-                      <p className="mt-1 text-xs leading-5 text-muted">{health.helper}</p>
                     </td>
                     <td className="py-3 pr-4 text-xs text-muted">
                       {sourceUpdates.length > 0
@@ -543,8 +412,8 @@ export default async function AdminPricesPage({
             Todavía no hay intentos reales del hosting registrados. Cuando el cron llame a la rueda, aquí quedará reflejado aunque falle.
           </p>
         )}
-        <details open className="group mt-4 rounded-2xl border border-emerald-400/30 bg-slate-950 p-4 shadow-inner">
-          <summary className="flex cursor-pointer list-none flex-wrap items-center justify-between gap-2">
+        <div className="mt-4 rounded-2xl border border-emerald-400/30 bg-slate-950 p-4 shadow-inner">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
             <div>
               <p className="text-[10px] font-black uppercase tracking-[0.22em] text-emerald-300">
                 Terminal del cron
@@ -553,22 +422,16 @@ export default async function AdminPricesPage({
                 Últimas líneas del log real publicado por el hosting externo.
               </p>
             </div>
-            <span className="rounded-xl border border-emerald-400/30 px-3 py-2 text-xs font-semibold text-emerald-200 transition group-open:hidden">
-              Expandir
-            </span>
-            <span className="hidden rounded-xl border border-emerald-400/30 px-3 py-2 text-xs font-semibold text-emerald-200 transition group-open:inline-flex">
-              Minimizar
-            </span>
-          </summary>
-          {dashboard.workerUrls.cronLog ? (
-            <a href={dashboard.workerUrls.cronLog} target="_blank" rel="noreferrer" className="mt-3 inline-flex rounded-xl border border-emerald-400/30 px-3 py-2 text-xs font-semibold text-emerald-200 transition hover:bg-emerald-400/10">
-              Ver archivo completo
-            </a>
-          ) : null}
-          <pre className="mt-3 max-h-80 overflow-auto whitespace-pre-wrap rounded-xl border border-emerald-400/20 bg-black/70 p-4 font-mono text-xs leading-6 text-emerald-100">
+            {dashboard.workerUrls.cronLog ? (
+              <a href={dashboard.workerUrls.cronLog} target="_blank" rel="noreferrer" className="rounded-xl border border-emerald-400/30 px-3 py-2 text-xs font-semibold text-emerald-200 transition hover:bg-emerald-400/10">
+                Ver archivo completo
+              </a>
+            ) : null}
+          </div>
+          <pre className="max-h-80 overflow-auto whitespace-pre-wrap rounded-xl border border-emerald-400/20 bg-black/70 p-4 font-mono text-xs leading-6 text-emerald-100">
             {dashboard.cronLogTail || "Sin log del cron disponible todavía."}
           </pre>
-        </details>
+        </div>
       </Panel>
 
       <Panel className={adminToneClass("status")}>
@@ -618,16 +481,6 @@ export default async function AdminPricesPage({
                   <p className="mt-3 text-xs text-muted">Fuentes: {job.sources.join(", ")}</p>
                 ) : null}
                 {job.error && <p className="mt-3 text-xs text-rose-600 dark:text-rose-300">{job.error}</p>}
-                {job.logTail?.trim() ? (
-                  <details className="mt-3 rounded-xl border border-emerald-400/25 bg-slate-950 p-3">
-                    <summary className="cursor-pointer list-none text-xs font-semibold text-emerald-200">
-                      Terminal del job
-                    </summary>
-                    <pre className="mt-3 max-h-64 overflow-auto whitespace-pre-wrap rounded-lg border border-emerald-400/15 bg-black/70 p-3 font-mono text-[11px] leading-5 text-emerald-100">
-                      {job.logTail}
-                    </pre>
-                  </details>
-                ) : null}
                 <Link href={`/api/admin/price-jobs/${encodeURIComponent(job.jobId)}`} className="mt-3 inline-flex text-xs font-semibold text-accent">
                   Ver JSON del job →
                 </Link>

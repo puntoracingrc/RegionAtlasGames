@@ -107,8 +107,7 @@ Regla crítica:
 - `itemAffiliateWebUrl` se usa como `affiliateUrl`.
 - `itemWebUrl` se guarda solo como `rawProductUrl` / referencia cruda.
 - Si no hay `itemAffiliateWebUrl`, la oferta normalizada queda como `invalid_affiliate_url`.
-- En el bloque público, si no hay resultados válidos de API, se muestra un CTA separado: `Buscar este juego en eBay`.
-- Ese CTA conserva `campid` y `customid`, pero no se renderiza como oferta ni se mezcla con cards de listings.
+- En el bloque público, si no hay resultados válidos de API, se muestra un fallback de búsqueda de eBay con `campid` y `customid` automáticos.
 
 No generar enlaces manuales por juego.
 

@@ -16,8 +16,6 @@ export type GameFacetProfileView = {
   title: string;
   subtitle: string;
   games: CatalogGame[];
-  recommendedGames: CatalogGame[];
-  originGame?: CatalogGame;
 };
 
 function entityTerms(entity: GameFacetTaxonomyEntity): Set<string> {
@@ -71,70 +69,6 @@ function matchesGameFacet(game: CatalogGame, entity: GameFacetTaxonomyEntity, as
   );
 }
 
-function taxonomyKeys(entities: DetailEntity[]): Set<string> {
-  return new Set(
-    entities
-      .flatMap((entity) => {
-        const taxonomyEntity =
-          findGameFacetEntityBySlug(entity.slug) ?? findGameFacetEntityByNameOrAlias(entity.name);
-        return [entity.slug, entity.name, taxonomyEntity?.slug, taxonomyEntity?.id];
-      })
-      .flatMap((term) => (term ? [normalizeCatalogSearchSlug(term), normalizeCatalogSearchText(term)] : []))
-      .filter(Boolean),
-  );
-}
-
-function overlapScore(a: Set<string>, b: Set<string>, weight: number): number {
-  let score = 0;
-  for (const key of a) {
-    if (b.has(key)) score += weight;
-  }
-  return score;
-}
-
-function scoreRelatedGame(originGame: CatalogGame, candidate: CatalogGame): number {
-  const originDetails = getGameDetails(originGame.id);
-  const candidateDetails = getGameDetails(candidate.id);
-  if (!originDetails || !candidateDetails) return 0;
-
-  const originGenres = taxonomyKeys(originDetails.genres ?? []);
-  const candidateGenres = taxonomyKeys(candidateDetails.genres ?? []);
-  const originSubgenres = taxonomyKeys(originDetails.subgenres ?? []);
-  const candidateSubgenres = taxonomyKeys(candidateDetails.subgenres ?? []);
-  const originFacets = taxonomyKeys([...(originDetails.facets ?? []), ...(originDetails.tags ?? [])]);
-  const candidateFacets = taxonomyKeys([...(candidateDetails.facets ?? []), ...(candidateDetails.tags ?? [])]);
-
-  return (
-    overlapScore(originGenres, candidateGenres, 4) +
-    overlapScore(originSubgenres, candidateSubgenres, 3) +
-    overlapScore(originFacets, candidateFacets, 2) +
-    (originGame.platformSlug === candidate.platformSlug ? 1 : 0) +
-    (originGame.region === candidate.region ? 0.5 : 0)
-  );
-}
-
-export function pickRecommendedGames(games: CatalogGame[], fromCatalogId?: string | null): {
-  originGame?: CatalogGame;
-  recommendedGames: CatalogGame[];
-} {
-  const originGame = fromCatalogId ? listedCatalog.find((game) => game.id === fromCatalogId) : undefined;
-
-  if (!originGame) {
-    return {
-      recommendedGames: games.slice(0, 6),
-    };
-  }
-
-  const recommendedGames = games
-    .filter((game) => game.id !== originGame.id)
-    .map((game) => ({ game, score: scoreRelatedGame(originGame, game) }))
-    .sort((a, b) => b.score - a.score || a.game.title.localeCompare(b.game.title, "es", { sensitivity: "base" }))
-    .slice(0, 6)
-    .map(({ game }) => game);
-
-  return { originGame, recommendedGames };
-}
-
 export function findGameFacetProfileEntity(slug: string): GameFacetTaxonomyEntity | undefined {
   const normalized = normalizeCatalogSearchSlug(slug);
   return (
@@ -146,24 +80,18 @@ export function findGameFacetProfileEntity(slug: string): GameFacetTaxonomyEntit
   );
 }
 
-export async function buildGameFacetProfileView(
-  slug: string,
-  options: { fromCatalogId?: string | null } = {},
-): Promise<GameFacetProfileView | null> {
+export async function buildGameFacetProfileView(slug: string): Promise<GameFacetProfileView | null> {
   const entity = findGameFacetProfileEntity(slug);
   if (!entity) return null;
 
   const assignments = await readAdminSeriesAssignmentsForPublic();
   const games = listedCatalog.filter((game) => matchesGameFacet(game, entity, assignments[game.id]));
-  const { originGame, recommendedGames } = pickRecommendedGames(games, options.fromCatalogId);
 
   return {
     entity,
     title: entity.name,
     subtitle: `${games.length.toLocaleString("es-ES")} juegos relacionados`,
     games,
-    recommendedGames,
-    originGame,
   };
 }
 

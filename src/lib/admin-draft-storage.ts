@@ -12,10 +12,6 @@ import { getGameDetails } from "./indexes";
 import { getPlatform, platforms } from "./catalog";
 
 const ADMIN_DRAFT_BLOB_PREFIX = "region-atlas/admin/drafts";
-const emptyTaxonomyFields = {
-  subgenreNames: [],
-  facetNames: [],
-};
 
 function useBlobStorage(): boolean {
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
@@ -239,8 +235,8 @@ export function draftFromManualInput(input: {
     publisherName: input.publisherName?.trim() || null,
     publisherSlug: input.publisherSlug?.trim() || null,
     genreNames: input.genreNames ?? [],
-    subgenreNames: input.subgenreNames ?? emptyTaxonomyFields.subgenreNames,
-    facetNames: input.facetNames ?? emptyTaxonomyFields.facetNames,
+    subgenreNames: input.subgenreNames ?? [],
+    facetNames: input.facetNames ?? [],
     description: input.description?.trim() || null,
     seoMeta: null,
     descriptionMeta: null,

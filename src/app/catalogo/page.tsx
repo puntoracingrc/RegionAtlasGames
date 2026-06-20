@@ -3,12 +3,9 @@ import { SiteNav } from "@/components/site-nav";
 import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
-  facetFilterOptions,
   filterCatalogGames,
-  genreFilterOptions,
   platformOptions,
   regionOptions,
-  subgenreFilterOptions,
 } from "@/lib/catalog-filters";
 import { listedCatalog, meta } from "@/lib/catalog";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
@@ -17,7 +14,7 @@ import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { getCurrentUser } from "@/lib/users";
 
 type Props = {
-  searchParams?: Promise<{ q?: string; platform?: string; region?: string; genre?: string; subgenre?: string; facet?: string }>;
+  searchParams?: Promise<{ q?: string; platform?: string; region?: string }>;
 };
 
 export const dynamic = "force-dynamic";
@@ -27,9 +24,6 @@ export default async function CatalogPage({ searchParams }: Props) {
   const initialQuery = typeof params?.q === "string" ? params.q : "";
   const initialPlatform = typeof params?.platform === "string" ? params.platform : "all";
   const initialRegion = typeof params?.region === "string" ? params.region : "all";
-  const initialGenre = typeof params?.genre === "string" ? params.genre : "all";
-  const initialSubgenre = typeof params?.subgenre === "string" ? params.subgenre : "all";
-  const initialFacet = typeof params?.facet === "string" ? params.facet : "all";
 
   const user = await getCurrentUser();
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
@@ -43,9 +37,6 @@ export default async function CatalogPage({ searchParams }: Props) {
       region: initialRegion,
       sort: DEFAULT_SORT,
       priceFilter: "all",
-      genre: initialGenre,
-      subgenre: initialSubgenre,
-      facet: initialFacet,
     },
     { regions: true, platforms: true },
   );
@@ -72,9 +63,6 @@ export default async function CatalogPage({ searchParams }: Props) {
           totalCount={initialCatalog.total}
           regions={regionOptions(catalogListGames)}
           platforms={platformOptions(catalogListGames)}
-          genres={genreFilterOptions(catalogListGames)}
-          subgenres={subgenreFilterOptions(catalogListGames)}
-          facets={facetFilterOptions(catalogListGames)}
           showRegionFilter
           showPlatformFilter
           ownedCatalogIds={ownedCatalogIds}
@@ -83,9 +71,6 @@ export default async function CatalogPage({ searchParams }: Props) {
           initialQuery={initialQuery}
           initialRegion={initialRegion}
           initialPlatform={initialPlatform}
-          initialGenre={initialGenre}
-          initialSubgenre={initialSubgenre}
-          initialFacet={initialFacet}
         />
       </main>
     </>

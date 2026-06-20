@@ -16,7 +16,6 @@ export function AdminPricePlatformActions({
   canCollect,
   unavailableReason,
   onJobUpdate,
-  onStopJob,
 }: {
   platformSlug: string;
   platformName: string;
@@ -24,7 +23,6 @@ export function AdminPricePlatformActions({
   canCollect: boolean;
   unavailableReason?: string;
   onJobUpdate?: (job: JobState) => void;
-  onStopJob?: (jobId: string) => void;
 }) {
   const [job, setJob] = useState<JobState | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -99,20 +97,9 @@ export function AdminPricePlatformActions({
         {running ? "Recolectando…" : "Actualizar plataforma"}
       </button>
       {job?.jobId && (
-        <div className="flex flex-wrap gap-2">
-          <a href={`/api/admin/price-jobs/${encodeURIComponent(job.jobId)}`} className="text-[11px] font-semibold text-accent">
-            Ver job →
-          </a>
-          {running ? (
-            <button
-              type="button"
-              className="text-[11px] font-semibold text-rose-600 dark:text-rose-300"
-              onClick={() => onStopJob?.(job.jobId)}
-            >
-              Parar
-            </button>
-          ) : null}
-        </div>
+        <a href={`/api/admin/price-jobs/${encodeURIComponent(job.jobId)}`} className="block text-[11px] font-semibold text-accent">
+          Ver job →
+        </a>
       )}
       {message && <p className="max-w-[220px] text-[11px] text-emerald-600 dark:text-emerald-400">{message}</p>}
       {error && <p className="max-w-[220px] text-[11px] text-rose-600 dark:text-rose-300">{error}</p>}

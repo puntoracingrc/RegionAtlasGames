@@ -9,10 +9,7 @@ import { buildGenreMetadata } from "@/lib/genre-seo";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { getCurrentUser } from "@/lib/users";
 
-type Props = {
-  params: Promise<{ slug: string }>;
-  searchParams?: Promise<{ from?: string }>;
-};
+type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -30,10 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildGenreMetadata(view);
 }
 
-export default async function GenrePage({ params, searchParams }: Props) {
+export default async function GenrePage({ params }: Props) {
   const { slug } = await params;
-  const query = await searchParams;
-  const fromCatalogId = query?.from;
   const canonicalSlug = resolveCanonicalGenreSlug(slug);
   if (canonicalSlug !== slug) {
     redirect(`/genero/${canonicalSlug}`);
@@ -43,7 +38,7 @@ export default async function GenrePage({ params, searchParams }: Props) {
   if (!view) {
     const facet = findGameFacetProfileEntity(canonicalSlug);
     if (facet?.type === "genre") {
-      return <GameFacetProfileDetail slug={canonicalSlug} fromCatalogId={fromCatalogId} />;
+      return <GameFacetProfileDetail slug={canonicalSlug} />;
     }
     notFound();
   }
@@ -56,7 +51,6 @@ export default async function GenrePage({ params, searchParams }: Props) {
       view={view}
       ownedCatalogIds={ownedCatalogIds}
       isLoggedIn={!!user}
-      fromCatalogId={fromCatalogId}
     />
   );
 }

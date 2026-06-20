@@ -47,7 +47,6 @@ type JobState = {
   logTail?: string;
   error?: string;
   appliedSummary?: string;
-  stopRequestedAt?: string;
 };
 
 type PlatformJobMap = Record<string, JobState>;
@@ -207,11 +206,9 @@ function syncSummaryLines(row: AdminPlatformPriceHealth): string {
 function PriceJobTerminal({
   job,
   row,
-  onStop,
 }: {
   job?: JobState | null;
   row: AdminPlatformPriceHealth;
-  onStop?: (jobId: string) => void;
 }) {
   const [expanded, setExpanded] = useState(job?.status === "running");
   const terminalRef = useRef<HTMLPreElement | null>(null);
@@ -263,15 +260,6 @@ function PriceJobTerminal({
           >
             {expanded ? "Minimizar" : "Expandir"}
           </button>
-          {job?.jobId && job.status === "running" ? (
-            <button
-              type="button"
-              className="rounded-full border border-rose-400/50 px-3 py-1 text-[11px] font-semibold text-rose-100 transition hover:bg-rose-500/15"
-              onClick={() => onStop?.(job.jobId)}
-            >
-              Parar
-            </button>
-          ) : null}
         </div>
       </div>
       {expanded ? (
@@ -375,33 +363,6 @@ export function AdminPriceCoverageTable({
     };
     await read();
     pollRef.current = window.setInterval(() => void read(), 4000);
-  }
-
-  async function stopJob(jobId: string) {
-    if (!jobId) return;
-    if (!confirm("¿Parar esta recolección ahora? Puede tardar unos segundos en reflejarse en el log.")) return;
-    setError(null);
-    setMessage("Solicitando parada del job…");
-    const res = await fetch(`/api/admin/price-jobs/${encodeURIComponent(jobId)}/stop`, {
-      method: "POST",
-    }).catch(() => null);
-    const data = await res?.json().catch(() => null);
-    if (!res?.ok) {
-      setError(data?.error ?? "No se pudo parar el job.");
-      setMessage(null);
-      return;
-    }
-    const stopped = data.job as JobState;
-    setJob((current) => (current?.jobId === jobId ? stopped : current));
-    setPlatformJobs((current) => {
-      const updated = { ...current };
-      for (const [platformSlug, platformJob] of Object.entries(updated)) {
-        if (platformJob.jobId === jobId) updated[platformSlug] = stopped;
-      }
-      return updated;
-    });
-    if (pollRef.current != null) window.clearInterval(pollRef.current);
-    setMessage("Recolección parada manualmente.");
   }
 
   async function startBatch() {
@@ -619,15 +580,6 @@ export function AdminPriceCoverageTable({
               )}
             </div>
           ) : null}
-          {job.status === "running" && job.jobId ? (
-            <button
-              type="button"
-              className="mt-3 btn-secondary text-xs text-rose-600 dark:text-rose-300"
-              onClick={() => void stopJob(job.jobId)}
-            >
-              Parar recolección
-            </button>
-          ) : null}
         </div>
       )}
       {job?.jobId && (
@@ -814,14 +766,13 @@ export function AdminPriceCoverageTable({
                             [row.platformSlug]: nextJob,
                           }))
                         }
-                        onStopJob={(jobId) => void stopJob(jobId)}
                       />
                     </td>
                   </tr>
                   {showTerminal ? (
                     <tr className="border-b border-border/60">
                       <td colSpan={7} className="pb-5 pt-1">
-                        <PriceJobTerminal job={platformJob} row={row} onStop={(jobId) => void stopJob(jobId)} />
+                        <PriceJobTerminal job={platformJob} row={row} />
                       </td>
                     </tr>
                   ) : null}

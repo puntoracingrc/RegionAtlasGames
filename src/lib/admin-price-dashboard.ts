@@ -36,13 +36,6 @@ type PriceSyncPlatformStats = {
   tcnsGamesUpdated?: number;
   tcGamesUpdated?: number;
   coveragePct?: number;
-  priceListTotalGames?: number;
-  priceListPricedBefore?: number;
-  priceListPricedAfter?: number;
-  priceListPricedDelta?: number;
-  priceListCoverageBeforePct?: number;
-  priceListCoverageAfterPct?: number;
-  priceListCoverageDeltaPct?: number;
 };
 
 type PriceSyncState = {

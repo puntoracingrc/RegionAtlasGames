@@ -1,8 +1,7 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import path from "path";
 import { buildEbayGameCustomId } from "./ebay/ebay-enduserctx";
 import { getPlatform } from "./catalog";
-import { readCatalogOverlayGame } from "./catalog-runtime-overlay";
 import { getRegionDisplay } from "./region-display";
 import type { CatalogGame, GameDetails } from "./types";
 
@@ -22,17 +21,9 @@ export type AffiliateOffer = {
   confidence: number;
 };
 
-export type AffiliateFallbackCta = {
-  provider: Extract<AffiliateProvider, "ebay">;
-  id: string;
-  label: string;
-  url: string;
-};
-
 export type AffiliateOfferBlock = {
   enabled: boolean;
   offers: AffiliateOffer[];
-  fallbackCta: AffiliateFallbackCta | null;
   checkedAt: string | null;
   trackingId: string | null;
 };
@@ -81,36 +72,15 @@ function affiliateProductionWhitelistEnabled(): boolean {
   return process.env.AFFILIATE_OFFERS_PRODUCTION_WHITELIST === "true";
 }
 
-function readAffiliateWhitelistGameIds(): string[] {
-  try {
-    if (!existsSync(AFFILIATE_WHITELIST_FILE)) return [];
-    const parsed = JSON.parse(readFileSync(AFFILIATE_WHITELIST_FILE, "utf8")) as { gameIds?: string[] };
-    return (parsed.gameIds ?? []).map((value) => String(value).trim()).filter(Boolean);
-  } catch {
-    return [];
-  }
-}
-
-async function affiliateGameWhitelisted(game: CatalogGame): Promise<boolean> {
+function affiliateGameWhitelisted(game: CatalogGame): boolean {
   if (!affiliateProductionWhitelistEnabled()) return true;
-  const gameIds = new Set(readAffiliateWhitelistGameIds());
-  if (gameIds.has(game.id)) return true;
-  return Boolean(await readCatalogOverlayGame(game.id));
-}
-
-export function addAffiliateOfferWhitelistGame(catalogId: string): { ok: true; added: boolean } | { error: string } {
-  const gameId = catalogId.trim();
-  if (!gameId) return { error: "Falta catalogId." };
   try {
-    const gameIds = readAffiliateWhitelistGameIds();
-    if (gameIds.includes(gameId)) return { ok: true, added: false };
-    const next = { gameIds: [...gameIds, gameId].sort((a, b) => a.localeCompare(b, "es")) };
-    const dir = path.dirname(AFFILIATE_WHITELIST_FILE);
-    if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-    writeFileSync(AFFILIATE_WHITELIST_FILE, `${JSON.stringify(next, null, 2)}\n`, "utf8");
-    return { ok: true, added: true };
-  } catch (error) {
-    return { error: error instanceof Error ? error.message : "No se pudo actualizar whitelist de afiliados." };
+    if (!existsSync(AFFILIATE_WHITELIST_FILE)) return false;
+    const parsed = JSON.parse(readFileSync(AFFILIATE_WHITELIST_FILE, "utf8")) as { gameIds?: string[] };
+    const gameIds = new Set((parsed.gameIds ?? []).map((value) => String(value).trim()).filter(Boolean));
+    return gameIds.has(game.id);
+  } catch {
+    return false;
   }
 }
 
@@ -228,6 +198,19 @@ export function getEbayAffiliateImpressionPixelUrl(customId = "region-atlas-game
   return `https://www.ebayadservices.com/marketingtracking/v1/impression?${params.toString()}`;
 }
 
+function appendEbayTracking(url: string, customId: string): string {
+  const campaignId = ebayCampaignId();
+  if (!campaignId) return url;
+  try {
+    const parsed = new URL(url);
+    parsed.searchParams.set("campid", campaignId);
+    parsed.searchParams.set("customid", customId);
+    return parsed.toString();
+  } catch {
+    return url;
+  }
+}
+
 function ebayGameCustomId(game: CatalogGame): string {
   return buildEbayGameCustomId({ gameSlug: game.slug, platformSlug: game.platformSlug });
 }
@@ -295,7 +278,7 @@ function ebayQuery(game: CatalogGame, details: GameDetails | null): string {
   return [title, platformName, ...regionTerms].filter(Boolean).join(" ");
 }
 
-function ebayFallbackSearchCta(game: CatalogGame, details: GameDetails | null): AffiliateFallbackCta | null {
+function ebayFallbackSearchOffer(game: CatalogGame, details: GameDetails | null): AffiliateOffer | null {
   const campaignId = ebayCampaignId();
   if (!campaignId) return null;
   const query = ebayQuery(game, details);
@@ -306,20 +289,24 @@ function ebayFallbackSearchCta(game: CatalogGame, details: GameDetails | null): 
   return {
     provider: "ebay",
     id: `${game.id}-ebay-search-fallback`,
-    label: "Buscar este juego en eBay",
+    title: `Buscar “${query}” en eBay`,
     url: url.toString(),
+    imageUrl: null,
+    price: null,
+    currency: "EUR",
+    shippingPrice: null,
+    condition: null,
+    location: null,
+    confidence: 0.62,
   };
 }
 
-async function getEbayOffers(
-  game: CatalogGame,
-  details: GameDetails | null,
-): Promise<{ offers: AffiliateOffer[]; fallbackCta: AffiliateFallbackCta | null }> {
-  if (!affiliateEnabled() || !ebayAffiliateEnabled()) return { offers: [], fallbackCta: null };
-  const fallbackCta = ebayFallbackSearchCta(game, details);
-  if (!ebayConfigured()) return { offers: [], fallbackCta };
+async function getEbayOffers(game: CatalogGame, details: GameDetails | null): Promise<AffiliateOffer[]> {
+  if (!affiliateEnabled() || !ebayAffiliateEnabled()) return [];
+  const fallback = ebayFallbackSearchOffer(game, details);
+  if (!ebayConfigured()) return fallback ? [fallback] : [];
   const token = await getEbayAccessToken();
-  if (!token) return { offers: [], fallbackCta };
+  if (!token) return fallback ? [fallback] : [];
 
   const params = new URLSearchParams({
     q: ebayQuery(game, details),
@@ -337,19 +324,19 @@ async function getEbayOffers(
     headers,
     next: { revalidate: DEFAULT_CACHE_SECONDS },
   });
-  if (!res.ok) return { offers: [], fallbackCta };
+  if (!res.ok) return [];
 
   const data = (await res.json()) as EbaySearchResponse;
   const offers = (data.itemSummaries ?? [])
     .map((item): AffiliateOffer | null => {
-      if (!item.itemId || !item.title || !item.itemWebUrl || !item.itemAffiliateWebUrl) return null;
+      if (!item.itemId || !item.title || !item.itemWebUrl) return null;
       const confidence = scoreOffer(game, details, item.title);
       if (confidence < 0.62) return null;
       return {
         provider: "ebay",
         id: item.itemId,
         title: item.title,
-        url: item.itemAffiliateWebUrl,
+        url: item.itemAffiliateWebUrl ?? appendEbayTracking(item.itemWebUrl, ebayGameCustomId(game)),
         imageUrl: item.image?.imageUrl ?? null,
         price: numberValue(item.price?.value),
         currency: item.price?.currency ?? "EUR",
@@ -363,10 +350,7 @@ async function getEbayOffers(
     .sort((a, b) => b.confidence - a.confidence || (a.price ?? 999999) - (b.price ?? 999999));
 
   const sliced = offers.slice(0, ebayLimit());
-  return {
-    offers: sliced,
-    fallbackCta: sliced.length > 0 ? null : fallbackCta,
-  };
+  return sliced.length > 0 ? sliced : fallback ? [fallback] : [];
 }
 
 async function getAmazonOffers(_game: CatalogGame, _details: GameDetails | null): Promise<AffiliateOffer[]> {
@@ -381,17 +365,16 @@ export async function getAffiliateOfferBlock(
   details: GameDetails | null,
 ): Promise<AffiliateOfferBlock> {
   const trackingId = ebayGameCustomId(game);
-  if (!affiliateEnabled()) return { enabled: false, offers: [], fallbackCta: null, checkedAt: null, trackingId };
-  if (!(await affiliateGameWhitelisted(game))) return { enabled: true, offers: [], fallbackCta: null, checkedAt: null, trackingId };
+  if (!affiliateEnabled()) return { enabled: false, offers: [], checkedAt: null, trackingId };
+  if (!affiliateGameWhitelisted(game)) return { enabled: true, offers: [], checkedAt: null, trackingId };
 
-  const [ebayResult, amazonOffers] = await Promise.all([
+  const [ebayOffers, amazonOffers] = await Promise.all([
     getEbayOffers(game, details),
     getAmazonOffers(game, details),
   ]);
   return {
     enabled: true,
-    offers: [...ebayResult.offers, ...amazonOffers],
-    fallbackCta: amazonOffers.length > 0 ? null : ebayResult.fallbackCta,
+    offers: [...ebayOffers, ...amazonOffers],
     checkedAt: new Date().toISOString(),
     trackingId,
   };

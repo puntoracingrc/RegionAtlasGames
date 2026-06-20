@@ -78,19 +78,7 @@ def fetch_html(url: str) -> str:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
-            html_text = resp.read().decode("utf-8", errors="ignore")
-            lower = html_text.lower()
-            blocked_markers = (
-                "access denied",
-                "acceso denegado",
-                "forbidden",
-                "captcha",
-                "demasiadas peticiones",
-                "too many requests",
-            )
-            if any(marker in lower for marker in blocked_markers):
-                raise TodoColeccionBlockedError("TodoColeccion devolvió página de bloqueo o captcha")
-            return html_text
+            return resp.read().decode("utf-8", errors="ignore")
     except urllib.error.HTTPError as exc:
         if exc.code in {403, 429}:
             raise TodoColeccionBlockedError(

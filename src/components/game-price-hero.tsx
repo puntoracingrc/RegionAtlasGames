@@ -86,7 +86,7 @@ export function GamePriceHero({ game }: Props) {
       </div>
 
       {primaryCondition && (
-        <div className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-3">
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           {conditionPrices.map((entry) => {
             const isPrimary = entry.bucket === primaryCondition.bucket;
             return (
@@ -99,8 +99,8 @@ export function GamePriceHero({ game }: Props) {
                     : "border-border/70 bg-background/45",
                 ].join(" ")}
               >
-                <div className="flex min-w-0 flex-wrap items-start justify-between gap-2">
-                  <div className="min-w-0">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
                     <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                       {entry.label}
                     </p>
@@ -109,12 +109,12 @@ export function GamePriceHero({ game }: Props) {
                     </p>
                   </div>
                   {isPrimary && (
-                    <span className="shrink-0 rounded-full bg-accent/15 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-accent">
+                    <span className="rounded-full bg-accent/15 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-accent">
                       Principal
                     </span>
                   )}
                 </div>
-                <p className="mt-5 break-words text-2xl font-black tracking-tight text-foreground sm:text-3xl">
+                <p className="mt-5 text-3xl font-black tracking-tight text-foreground">
                   {formatEur(entry.price)}
                 </p>
               </div>
