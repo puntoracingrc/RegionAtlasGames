@@ -50,6 +50,17 @@ type EntitySort = "alpha-asc" | "alpha-desc" | "games-desc" | "games-asc";
 type CompanyAiTarget = "history" | "logo" | "website" | "years" | "relations" | "seo";
 type EntityMode = "create" | "edit" | "delete";
 
+type CompanyDuplicateCandidate = {
+  slug: string;
+  name: string;
+  gameCount: number;
+  active?: boolean;
+  isParentCompany?: boolean;
+  score: number;
+  confidence: "alta" | "media" | "baja";
+  reasons: string[];
+};
+
 const tabs: { id: Tab; label: string }[] = [
   { id: "platforms", label: "Plataformas" },
   { id: "companies", label: "Compañías" },
@@ -169,6 +180,9 @@ export function AdminEntitiesPanel({
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [editSaving, setEditSaving] = useState(false);
   const [companyAiRunning, setCompanyAiRunning] = useState<string | null>(null);
+  const [companyDuplicateRunning, setCompanyDuplicateRunning] = useState(false);
+  const [companyDuplicateSourceSlug, setCompanyDuplicateSourceSlug] = useState<string | null>(null);
+  const [companyDuplicateCandidates, setCompanyDuplicateCandidates] = useState<CompanyDuplicateCandidate[]>([]);
   const [mergeSourceSlug, setMergeSourceSlug] = useState<string | null>(null);
   const [mergeTargetSlug, setMergeTargetSlug] = useState("");
   const [mergingSlug, setMergingSlug] = useState<string | null>(null);
@@ -609,6 +623,8 @@ export function AdminEntitiesPanel({
   function startEditIndex(row: IndexRow) {
     setEditingSlug(row.slug);
     setMergeSourceSlug(null);
+    setCompanyDuplicateSourceSlug(null);
+    setCompanyDuplicateCandidates([]);
     setEditName(row.name);
     setEditNewSlug(row.slug);
     setEditCompanyHistory(row.history ?? "");
@@ -631,10 +647,14 @@ export function AdminEntitiesPanel({
 
   function cancelEdit() {
     setEditingSlug(null);
+    setCompanyDuplicateSourceSlug(null);
+    setCompanyDuplicateCandidates([]);
   }
 
   function startMergeCompany(company: IndexRow) {
     setEditingSlug(null);
+    setCompanyDuplicateSourceSlug(null);
+    setCompanyDuplicateCandidates([]);
     setMergeSourceSlug(company.slug);
     setMergeTargetSlug("");
     setError(null);
@@ -743,6 +763,34 @@ export function AdminEntitiesPanel({
       setError("Error de red al completar la compañía con IA.");
     } finally {
       setCompanyAiRunning(null);
+    }
+  }
+
+  async function runCompanyDuplicateScan(originalSlug: string) {
+    setCompanyDuplicateRunning(true);
+    setCompanyDuplicateSourceSlug(originalSlug);
+    setCompanyDuplicateCandidates([]);
+    setError(null);
+    setMessage(null);
+    try {
+      const res = await fetch(
+        `/api/admin/entities/companies/${encodeURIComponent(originalSlug)}/duplicates?limit=12`,
+      );
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudieron buscar posibles duplicadas.");
+        return;
+      }
+      setCompanyDuplicateCandidates(data.candidates ?? []);
+      setMessage(
+        (data.candidates ?? []).length
+          ? `Radar de duplicadas: ${(data.candidates ?? []).length} posibles coincidencias.`
+          : "Radar de duplicadas: no hay sospechosas sin controlar.",
+      );
+    } catch {
+      setError("Error de red al buscar posibles duplicadas.");
+    } finally {
+      setCompanyDuplicateRunning(false);
     }
   }
 
@@ -1616,6 +1664,86 @@ export function AdminEntitiesPanel({
                         placeholder="Resumen corto para Google y tarjetas sociales."
                       />
                     </label>
+                    <div className="rounded-2xl border border-sky-400/35 bg-sky-500/10 p-4 md:col-span-2">
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <div>
+                          <p className="text-[10px] font-black uppercase tracking-[0.22em] text-sky-700 dark:text-sky-200">
+                            Radar de duplicadas
+                          </p>
+                          <p className="mt-1 text-sm text-muted">
+                            Busca compañías parecidas que aún no estén controladas como madre, hija, sucesora o fusionada.
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          className="rounded-xl border border-sky-400/50 bg-sky-500/10 px-4 py-2 text-sm font-semibold text-sky-800 transition hover:bg-sky-500/15 disabled:opacity-50 dark:text-sky-200"
+                          disabled={companyDuplicateRunning}
+                          onClick={() => void runCompanyDuplicateScan(company.slug)}
+                        >
+                          {companyDuplicateRunning && companyDuplicateSourceSlug === company.slug
+                            ? "Buscando…"
+                            : "Buscar repetidas"}
+                        </button>
+                      </div>
+                      {companyDuplicateSourceSlug === company.slug && (
+                        <div className="mt-4 grid gap-2">
+                          {companyDuplicateCandidates.length === 0 && !companyDuplicateRunning ? (
+                            <div className="rounded-xl border border-border bg-background/60 p-3 text-sm text-muted">
+                              No hay posibles duplicadas sin controlar para esta compañía.
+                            </div>
+                          ) : (
+                            companyDuplicateCandidates.map((candidate) => (
+                              <div
+                                key={candidate.slug}
+                                className="flex flex-wrap items-center gap-3 rounded-xl border border-border bg-background/70 p-3"
+                              >
+                                <div className="min-w-0 flex-1">
+                                  <div className="flex flex-wrap items-center gap-2">
+                                    <span className="font-semibold text-foreground">{candidate.name}</span>
+                                    {candidate.isParentCompany && (
+                                      <span className="rounded-full border border-amber-400/60 bg-amber-300/20 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-800 dark:text-amber-200">
+                                        Madre
+                                      </span>
+                                    )}
+                                    <span className="rounded-full border border-sky-400/40 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-sky-700 dark:text-sky-200">
+                                      {candidate.confidence}
+                                    </span>
+                                  </div>
+                                  <p className="mt-1 text-xs text-muted">
+                                    {candidate.slug} · {candidate.gameCount} juegos · score {candidate.score}
+                                  </p>
+                                  {candidate.reasons.length > 0 && (
+                                    <p className="mt-1 text-xs text-muted">
+                                      {candidate.reasons.join(" · ")}
+                                    </p>
+                                  )}
+                                </div>
+                                <Link
+                                  href={`/compania/${candidate.slug}`}
+                                  className="btn-secondary px-3 py-2 text-xs"
+                                  target="_blank"
+                                >
+                                  Ver ficha
+                                </Link>
+                                <button
+                                  type="button"
+                                  className="rounded-xl border border-sky-400/40 px-3 py-2 text-xs font-semibold text-sky-700 transition hover:bg-sky-500/10 dark:text-sky-300"
+                                  onClick={() => {
+                                    setEditingSlug(null);
+                                    setCompanyDuplicateSourceSlug(null);
+                                    setCompanyDuplicateCandidates([]);
+                                    setMergeSourceSlug(company.slug);
+                                    setMergeTargetSlug(candidate.slug);
+                                  }}
+                                >
+                                  Preparar fusión
+                                </button>
+                              </div>
+                            ))
+                          )}
+                        </div>
+                      )}
+                    </div>
                     <div className="flex flex-wrap gap-2 md:col-span-2">
                       <button
                         type="button"

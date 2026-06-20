@@ -234,6 +234,7 @@ async function createOverlayCompany(
     foundedYear?: number | null;
     closedYear?: number | null;
     status?: CompanyProfileStatus;
+    isParentCompany?: boolean;
     parentCompany?: CompanyRelation | null;
     acquiredByCompany?: CompanyRelation | null;
     mergedWithCompany?: CompanyRelation | null;
@@ -738,6 +739,17 @@ export type AdminCompanyRow = Pick<IndexEntry, "slug" | "name" | "gameCount" | "
 
 export type AdminIndexRow = Pick<IndexEntry, "slug" | "name" | "gameCount" | "active">;
 
+export type AdminCompanyDuplicateCandidate = {
+  slug: string;
+  name: string;
+  gameCount: number;
+  active?: boolean;
+  isParentCompany?: boolean;
+  score: number;
+  confidence: "alta" | "media" | "baja";
+  reasons: string[];
+};
+
 function normalizeSearchText(value: string): string {
   return value
     .toLowerCase()
@@ -750,6 +762,81 @@ function normalizeSearchText(value: string): string {
 
 function compactSearchText(value: string): string {
   return normalizeSearchText(value).replace(/\s+/g, "");
+}
+
+function simplifyCompanyName(value: string): string {
+  const removable = new Set([
+    "co",
+    "company",
+    "corp",
+    "corporation",
+    "inc",
+    "incorporated",
+    "interactive",
+    "entertainment",
+    "game",
+    "games",
+    "software",
+    "studio",
+    "studios",
+    "ltd",
+    "limited",
+    "llc",
+    "plc",
+    "sa",
+    "sarl",
+    "gmbh",
+    "kk",
+    "europe",
+    "europa",
+    "usa",
+    "us",
+    "america",
+    "japan",
+    "jp",
+    "the",
+  ]);
+  return normalizeSearchText(value)
+    .split(/\s+/)
+    .filter((token) => token.length > 1 && !removable.has(token))
+    .join(" ");
+}
+
+function levenshteinDistance(a: string, b: string): number {
+  if (a === b) return 0;
+  if (!a) return b.length;
+  if (!b) return a.length;
+  const previous = Array.from({ length: b.length + 1 }, (_, index) => index);
+  const current = Array.from({ length: b.length + 1 }, () => 0);
+  for (let i = 1; i <= a.length; i += 1) {
+    current[0] = i;
+    for (let j = 1; j <= b.length; j += 1) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      current[j] = Math.min(
+        current[j - 1] + 1,
+        previous[j] + 1,
+        previous[j - 1] + cost,
+      );
+    }
+    for (let j = 0; j <= b.length; j += 1) previous[j] = current[j];
+  }
+  return previous[b.length];
+}
+
+function similarityRatio(a: string, b: string): number {
+  if (!a && !b) return 1;
+  const maxLength = Math.max(a.length, b.length);
+  if (maxLength === 0) return 1;
+  return 1 - levenshteinDistance(a, b) / maxLength;
+}
+
+function tokenOverlapScore(a: string, b: string): number {
+  const left = new Set(a.split(/\s+/).filter(Boolean));
+  const right = new Set(b.split(/\s+/).filter(Boolean));
+  if (left.size === 0 || right.size === 0) return 0;
+  const intersection = [...left].filter((token) => right.has(token)).length;
+  const union = new Set([...left, ...right]).size;
+  return intersection / union;
 }
 
 function tokenizeSearchText(value: string): string[] {
@@ -1019,6 +1106,100 @@ export async function listAdminCompanies(input?: {
         profiles,
       ),
     );
+}
+
+export async function findAdminCompanyDuplicateCandidates(
+  slug: string,
+  input?: { limit?: number },
+): Promise<
+  | {
+      ok: true;
+      source: AdminCompanyRow;
+      candidates: AdminCompanyDuplicateCandidate[];
+    }
+  | { error: string }
+> {
+  const sourceSlug = slug.trim();
+  if (!sourceSlug) return { error: "Compañía no válida." };
+
+  const index = loadJson<Record<string, IndexEntry>>(COMPANIES_INDEX_FILE, {});
+  const overlay = await readAdminEntitiesOverlay();
+  const registry = loadJson<CompanyEntitiesFile>(COMPANY_ENTITIES_FILE, { entities: {} });
+  const profiles = {
+    ...loadJson<Record<string, CompanyProfile>>(COMPANY_PROFILES_FILE, {}),
+    ...overlay.companyProfiles,
+  };
+  const mergedEntries = new Map<string, AdminIndexRow>();
+  for (const entry of Object.values(index).map(staticIndexRow)) {
+    mergedEntries.set(entry.slug, {
+      ...entry,
+      active: overlay.active.companies[entry.slug] ?? entry.active !== false,
+    });
+  }
+  for (const entry of Object.values(overlay.companies)) {
+    mergedEntries.set(entry.slug, {
+      ...entry,
+      active: overlay.active.companies[entry.slug] ?? entry.active !== false,
+    });
+  }
+
+  const source = mergedEntries.get(sourceSlug);
+  if (!source) return { error: "Compañía no encontrada." };
+
+  const sourceProfile = profiles[sourceSlug];
+  const sourceEntity = registry.entities?.[sourceSlug];
+  const limit = Math.min(30, Math.max(5, input?.limit ?? 12));
+  const candidates: AdminCompanyDuplicateCandidate[] = [];
+
+  for (const candidate of mergedEntries.values()) {
+    if (candidate.slug === sourceSlug) continue;
+    const candidateProfile = profiles[candidate.slug];
+    const candidateEntity = registry.entities?.[candidate.slug];
+    if (
+      companyPairAlreadyControlled({
+        leftSlug: sourceSlug,
+        rightSlug: candidate.slug,
+        leftProfile: sourceProfile,
+        rightProfile: candidateProfile,
+        leftEntity: sourceEntity,
+        rightEntity: candidateEntity,
+      })
+    ) {
+      continue;
+    }
+
+    const { score, reasons } = scoreCompanyDuplicateCandidate({
+      source,
+      candidate,
+      sourceEntity,
+      candidateEntity,
+    });
+    if (score < 70) continue;
+    candidates.push({
+      slug: candidate.slug,
+      name: candidate.name,
+      gameCount: candidate.gameCount,
+      active: candidate.active,
+      isParentCompany: candidateProfile?.isParentCompany === true,
+      score,
+      confidence: score >= 92 ? "alta" : score >= 82 ? "media" : "baja",
+      reasons,
+    });
+  }
+
+  candidates.sort(
+    (a, b) =>
+      b.score - a.score ||
+      Number(b.isParentCompany === true) - Number(a.isParentCompany === true) ||
+      b.gameCount - a.gameCount ||
+      a.name.localeCompare(b.name, "es"),
+  );
+
+  return {
+    ok: true,
+    source: profileForAdminCompany(source, profiles),
+    candidates: candidates.slice(0, limit),
+  };
 }
 
 export async function createAdminCompany(input: {
@@ -1339,6 +1520,92 @@ function companyRelationReferencesSlug(relation: CompanyProfile[keyof CompanyPro
 function companyProfileReferencesSlug(profile: CompanyProfile | undefined, slug: string): boolean {
   if (!profile) return false;
   return COMPANY_RELATION_FIELDS.some((field) => companyRelationReferencesSlug(profile[field], slug));
+}
+
+function companyPairAlreadyControlled(input: {
+  leftSlug: string;
+  rightSlug: string;
+  leftProfile?: CompanyProfile;
+  rightProfile?: CompanyProfile;
+  leftEntity?: CompanyEntityRecord;
+  rightEntity?: CompanyEntityRecord;
+}): boolean {
+  const { leftSlug, rightSlug, leftProfile, rightProfile, leftEntity, rightEntity } = input;
+  if (companyProfileReferencesSlug(leftProfile, rightSlug)) return true;
+  if (companyProfileReferencesSlug(rightProfile, leftSlug)) return true;
+  if (leftEntity?.aliasSlugs?.includes(rightSlug) || rightEntity?.aliasSlugs?.includes(leftSlug)) return true;
+  const leftAliases = new Set((leftEntity?.aliasNames ?? []).map(simplifyCompanyName).filter(Boolean));
+  const rightAliases = new Set((rightEntity?.aliasNames ?? []).map(simplifyCompanyName).filter(Boolean));
+  if (leftAliases.has(simplifyCompanyName(rightProfile?.name ?? ""))) return true;
+  if (rightAliases.has(simplifyCompanyName(leftProfile?.name ?? ""))) return true;
+  for (const alias of leftAliases) {
+    if (rightAliases.has(alias)) return true;
+  }
+  return false;
+}
+
+function scoreCompanyDuplicateCandidate(input: {
+  source: AdminIndexRow;
+  candidate: AdminIndexRow;
+  sourceEntity?: CompanyEntityRecord;
+  candidateEntity?: CompanyEntityRecord;
+}): { score: number; reasons: string[] } {
+  const { source, candidate, sourceEntity, candidateEntity } = input;
+  const sourceNames = [source.name, source.slug, ...(sourceEntity?.aliasNames ?? []), ...(sourceEntity?.aliasSlugs ?? [])];
+  const candidateNames = [
+    candidate.name,
+    candidate.slug,
+    ...(candidateEntity?.aliasNames ?? []),
+    ...(candidateEntity?.aliasSlugs ?? []),
+  ];
+  let score = 0;
+  const reasons = new Set<string>();
+
+  for (const leftRaw of sourceNames) {
+    for (const rightRaw of candidateNames) {
+      const left = simplifyCompanyName(leftRaw);
+      const right = simplifyCompanyName(rightRaw);
+      if (!left || !right) continue;
+      const compactLeft = left.replace(/\s+/g, "");
+      const compactRight = right.replace(/\s+/g, "");
+      if (left === right || compactLeft === compactRight) {
+        score = Math.max(score, 98);
+        reasons.add("nombre normalizado casi idéntico");
+      }
+      if (
+        compactLeft.length >= 4 &&
+        compactRight.length >= 4 &&
+        (compactLeft.startsWith(compactRight) || compactRight.startsWith(compactLeft))
+      ) {
+        score = Math.max(score, 88);
+        reasons.add("un nombre parece variante corta/larga");
+      }
+      const ratio = similarityRatio(compactLeft, compactRight);
+      if (ratio >= 0.86) {
+        score = Math.max(score, Math.round(ratio * 90));
+        reasons.add("texto muy parecido");
+      }
+      const overlap = tokenOverlapScore(left, right);
+      if (overlap >= 0.66) {
+        score = Math.max(score, Math.round(72 + overlap * 18));
+        reasons.add("comparten palabras clave");
+      }
+    }
+  }
+
+  if (sourceEntity?.wikidataIds?.length && candidateEntity?.wikidataIds?.length) {
+    const sourceWikidata = new Set(sourceEntity.wikidataIds);
+    if (candidateEntity.wikidataIds.some((id) => sourceWikidata.has(id))) {
+      score = Math.max(score, 99);
+      reasons.add("mismo Wikidata");
+    }
+  }
+
+  if (source.gameCount > 0 && candidate.gameCount > 0 && score >= 70) {
+    reasons.add("ambas tienen juegos asociados");
+  }
+
+  return { score, reasons: [...reasons] };
 }
 
 function snapshotCompanyRelationProfiles(
