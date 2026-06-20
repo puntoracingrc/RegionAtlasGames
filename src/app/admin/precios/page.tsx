@@ -142,6 +142,39 @@ function updatedBySource(row: AdminPriceSyncRow): { label: string; value: number
     .filter((item) => item.value > 0);
 }
 
+function splitSourceLabel(source: string | null | undefined): string[] {
+  if (!source) return [];
+  return source
+    .split("/")
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+function sourceKey(label: string): string {
+  return label
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+function realSourceLabels(row: AdminPriceSyncRow): string[] {
+  const labels: string[] = [];
+  const seen = new Set<string>();
+  const add = (label: string) => {
+    const clean = label.trim();
+    if (!clean || clean === "P2P total") return;
+    const key = sourceKey(clean);
+    if (seen.has(key)) return;
+    seen.add(key);
+    labels.push(clean);
+  };
+
+  splitSourceLabel(row.source).forEach(add);
+  updatedBySource(row).forEach((source) => add(source.label));
+  return labels;
+}
+
 function normalizeCoverageSort(value: string | string[] | undefined): CoverageSort {
   const current = Array.isArray(value) ? value[0] : value;
   if (current === "updated-asc" || current === "coverage-desc" || current === "coverage-asc") return current;
@@ -255,6 +288,7 @@ export default async function AdminPricesPage({
             <tbody>
               {dashboard.recentSyncs.map((row) => {
                 const sourceUpdates = updatedBySource(row);
+                const sources = realSourceLabels(row);
                 const label = dayLabel(row.lastSyncAt);
                 return (
                   <tr key={row.platformSlug} className="border-b border-border/60 align-top last:border-0">
@@ -266,7 +300,19 @@ export default async function AdminPricesPage({
                       <Badge tone={toneForLabel(label)}>{label}</Badge>
                       <p className="mt-1 text-xs text-muted">{formatDate(row.lastSyncAt)}</p>
                     </td>
-                    <td className="py-3 pr-4 max-w-[220px] text-muted">{row.source ?? "—"}</td>
+                    <td className="py-3 pr-4 max-w-[320px]">
+                      {sources.length > 0 ? (
+                        <div className="flex flex-wrap gap-1.5">
+                          {sources.map((source) => (
+                            <Badge key={source} tone="neutral">
+                              {source}
+                            </Badge>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="text-muted">—</span>
+                      )}
+                    </td>
                     <td className="py-3 pr-4 whitespace-nowrap font-semibold text-foreground">
                       {row.gamesUpdated ?? 0}/{row.gamesTargeted ?? 0}
                     </td>
