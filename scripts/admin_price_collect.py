@@ -266,11 +266,30 @@ def main() -> None:
                 raise SystemExit("--targets-json debe ser una lista")
             code = collect_targets(targets, status_file=args.status_file)
     except SystemExit as exc:
-        if args.status_file and not args.status_file.exists():
+        if args.status_file:
             write_status(
                 args.status_file,
                 {
                     "status": "error",
+                    "platformSlug": args.platform,
+                    "region": args.region,
+                    "catalogId": args.catalog_id,
+                    "targets": json.loads(args.targets_json) if args.targets_json else None,
+                    "error": str(exc),
+                    "finishedAt": now_iso(),
+                },
+            )
+        raise
+    except Exception as exc:
+        if args.status_file:
+            write_status(
+                args.status_file,
+                {
+                    "status": "error",
+                    "platformSlug": args.platform,
+                    "region": args.region,
+                    "catalogId": args.catalog_id,
+                    "targets": json.loads(args.targets_json) if args.targets_json else None,
                     "error": str(exc),
                     "finishedAt": now_iso(),
                 },

@@ -91,6 +91,29 @@ function useRemoteWorker(): boolean {
   return Boolean(remoteWorkerConfig() && (process.env.VERCEL || process.env.PRICE_WORKER_FORCE_REMOTE === "1"));
 }
 
+function inferRemoteJobErrorFromLog(meta: AdminPriceJobMeta, logTail?: string): AdminPriceJobMeta {
+  if (meta.status !== "running" || !logTail) return meta;
+  const notFound = logTail.match(/(?:^|\n)\s*Juego no encontrado:\s*([^\n]+)/i);
+  if (notFound) {
+    return {
+      ...meta,
+      status: "error",
+      finishedAt: meta.finishedAt ?? new Date().toISOString(),
+      error: `Juego no encontrado en el worker: ${notFound[1].trim()}`,
+    };
+  }
+  const fatal = logTail.match(/(?:^|\n)\s*(Ninguna fuente produjo datos\.|Traceback .*|ModuleNotFoundError:[^\n]+|RuntimeError:[^\n]+)/i);
+  if (fatal) {
+    return {
+      ...meta,
+      status: "error",
+      finishedAt: meta.finishedAt ?? new Date().toISOString(),
+      error: fatal[1].trim(),
+    };
+  }
+  return meta;
+}
+
 export function isAdminPriceCollectAvailable(): boolean {
   return Boolean(remoteWorkerConfig() || process.env.ENABLE_VERCEL_PRICE_JOBS === "1" || !process.env.VERCEL);
 }
@@ -356,7 +379,13 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
     });
     return { jobId };
   } catch (error) {
-    return { error: error instanceof Error ? error.message : "No se pudo iniciar el worker remoto." };
+    const message = error instanceof Error ? error.message : "No se pudo iniciar el worker remoto.";
+    if (/All configured authentication methods failed|authentication/i.test(message)) {
+      return {
+        error: `No se pudo autenticar con el worker de precios (${config.username}@${config.host}). Revisa PRICE_WORKER_SSH_* / COVERS_FTP_* en Vercel.`,
+      };
+    }
+    return { error: message };
   }
 }
 
@@ -451,7 +480,7 @@ async function readRemotePriceJob(jobId: string): Promise<AdminPriceJobMeta | nu
       const log = await logRes.text();
       meta.logTail = log.slice(-4000);
     }
-    return meta;
+    return inferRemoteJobErrorFromLog(meta, meta.logTail);
   } catch {
     return null;
   }
@@ -471,7 +500,7 @@ export async function readAdminPriceJob(jobId: string): Promise<AdminPriceJobMet
       const log = readFileSync(paths.log, "utf8");
       meta.logTail = log.slice(-4000);
     }
-    return meta;
+    return inferRemoteJobErrorFromLog(meta, meta.logTail);
   } catch {
     return null;
   }
