@@ -9,10 +9,6 @@
   },
   "crons": [
     {
-      "path": "/api/cron/price-rotation",
-      "schedule": "0 11 * * *"
-    },
-    {
       "path": "/api/cron/enrich-catalog-staging",
       "schedule": "0 4 * * *"
     }
