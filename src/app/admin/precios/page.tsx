@@ -81,15 +81,16 @@ function statusTone(status: AdminPriceJobMeta["status"]): "green" | "amber" | "r
   return "rose";
 }
 
-function cronStatusTone(status: "started" | "blocked" | "skipped" | "error"): "green" | "amber" | "rose" | "neutral" {
-  if (status === "started") return "green";
+function cronStatusTone(status: "started" | "done" | "blocked" | "skipped" | "error"): "green" | "amber" | "rose" | "neutral" {
+  if (status === "started" || status === "done") return "green";
   if (status === "skipped") return "amber";
   if (status === "blocked" || status === "error") return "rose";
   return "neutral";
 }
 
-function cronStatusLabel(status: "started" | "blocked" | "skipped" | "error"): string {
+function cronStatusLabel(status: "started" | "done" | "blocked" | "skipped" | "error"): string {
   if (status === "started") return "lanzado";
+  if (status === "done") return "terminado";
   if (status === "skipped") return "prueba";
   if (status === "blocked") return "bloqueado";
   return "error";
@@ -277,7 +278,7 @@ export default async function AdminPricesPage({
           </div>
         ) : (
           <p className="rounded-xl border border-border bg-background/45 p-3 text-sm text-muted">
-            Todavía no hay intentos registrados. Cuando Vercel llame al cron, aquí quedará reflejado aunque falle.
+            Todavía no hay intentos registrados. Cuando el hosting llame a la rueda, aquí quedará reflejado aunque falle.
           </p>
         )}
       </Panel>

@@ -7,7 +7,7 @@ import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 export type AdminPriceCronAttempt = {
   id: string;
   at: string;
-  status: "started" | "blocked" | "skipped" | "error";
+  status: "started" | "done" | "blocked" | "skipped" | "error";
   step?: string | null;
   label?: string | null;
   jobId?: string | null;
@@ -48,6 +48,7 @@ function parseCronLog(raw: string): AdminPriceCronLog {
               typeof attempt.id === "string" &&
               typeof attempt.at === "string" &&
               (attempt.status === "started" ||
+                attempt.status === "done" ||
                 attempt.status === "blocked" ||
                 attempt.status === "skipped" ||
                 attempt.status === "error"),

@@ -2,7 +2,7 @@ import catalogData from "../../data/catalog.json";
 import platformsData from "../../data/platforms.json";
 import batchesData from "../../data/price-sync-batches.json";
 import priceSyncStateData from "../../data/price-sync-state.json";
-import { listAdminPriceJobs, type AdminPriceJobMeta } from "./admin-price-collect";
+import { listAdminPriceJobs, priceWorkerPublicBaseUrl, type AdminPriceJobMeta } from "./admin-price-collect";
 import { listAdminPriceCronAttempts, type AdminPriceCronAttempt } from "./admin-price-cron-log";
 
 type PlatformInfo = {
@@ -125,11 +125,34 @@ function resolveStep(step: string | undefined): AdminPriceDashboard["nextStep"] 
 
 function nextDailyPriceRunAt(now = new Date()): string {
   const next = new Date(now);
-  next.setUTCHours(11, 0, 0, 0);
+  next.setUTCHours(2, 17, 0, 0);
   if (next.getTime() <= now.getTime()) {
     next.setUTCDate(next.getUTCDate() + 1);
   }
   return next.toISOString();
+}
+
+async function listHostingPriceCronAttempts(limit: number): Promise<AdminPriceCronAttempt[]> {
+  const base = priceWorkerPublicBaseUrl();
+  if (!base) return [];
+  try {
+    const response = await fetch(`${base}/cron/price-rotation-attempts.json`, {
+      cache: "no-store",
+    });
+    if (!response.ok) return [];
+    const data = (await response.json()) as { attempts?: AdminPriceCronAttempt[] };
+    return (Array.isArray(data.attempts) ? data.attempts : [])
+      .filter((attempt): attempt is AdminPriceCronAttempt =>
+        Boolean(
+          attempt?.id &&
+            attempt.at &&
+            ["started", "done", "blocked", "skipped", "error"].includes(attempt.status),
+        ),
+      )
+      .slice(0, limit);
+  } catch {
+    return [];
+  }
 }
 
 function pct(part: number, total: number): number {
@@ -205,12 +228,16 @@ export async function getAdminPriceDashboard(limit = 18): Promise<AdminPriceDash
     .sort((a, b) => Date.parse(b.lastSyncAt ?? "") - Date.parse(a.lastSyncAt ?? ""))
     .slice(0, limit);
 
+  const cronAttempts = [...(await listHostingPriceCronAttempts(12)), ...(await listAdminPriceCronAttempts(12))]
+    .sort((a, b) => Date.parse(b.at) - Date.parse(a.at))
+    .slice(0, 12);
+
   return {
     lastRunAt: priceSyncState.lastRunAt ?? null,
     nextStep: resolveStep(priceSyncState.nextPlatformSlug),
     recentSyncs,
     platformHealth: platformHealth(),
     manualJobs: await listAdminPriceJobs(limit),
-    cronAttempts: await listAdminPriceCronAttempts(12),
+    cronAttempts,
   };
 }
