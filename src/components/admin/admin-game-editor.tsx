@@ -55,6 +55,118 @@ type PublishJobState = {
   error?: string;
 };
 
+const PRICE_SOURCE_LABELS = [
+  "eBay",
+  "Wallapop",
+  "Vinted",
+  "TodoColeccion",
+  "TodoConsolas",
+  "JGO",
+  "Kaoto",
+  "CeX",
+  "Chollo",
+] as const;
+
+function priceLogLines(logTail?: string): string[] {
+  return (logTail ?? "")
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .slice(-60);
+}
+
+function priceLogSourceStatus(logTail?: string): { source: string; status: string; tone: "idle" | "active" | "done" }[] {
+  const lines = priceLogLines(logTail);
+  return PRICE_SOURCE_LABELS.map((source) => {
+    const sourceLines = lines.filter((line) => line.toLowerCase().includes(source.toLowerCase()));
+    const latest = sourceLines.at(-1);
+    if (!latest) return { source, status: "pendiente", tone: "idle" as const };
+    if (/guardado|actualizado|rechazado|referencias|listings|búsquedas|busquedas/i.test(latest)) {
+      return { source, status: latest.replace(/^[-=\s]+|[-=\s]+$/g, ""), tone: "done" as const };
+    }
+    return { source, status: latest.replace(/^[-=\s]+|[-=\s]+$/g, ""), tone: "active" as const };
+  }).filter((item) => item.tone !== "idle");
+}
+
+function priceLogCurrentStep(logTail?: string): string {
+  const lines = priceLogLines(logTail);
+  return (
+    [...lines]
+      .reverse()
+      .find((line) =>
+        /collector|plataforma|merge|sync|buscando|búsqueda|busqueda|\[\d+\/\d+\]|resultados|referencias|listings/i.test(line),
+      ) ?? "Preparando collectors de precios…"
+  );
+}
+
+function PriceCollectionLivePanel({ job }: { job: PriceJobState }) {
+  const sources = priceLogSourceStatus(job.logTail);
+  const currentStep = priceLogCurrentStep(job.logTail);
+  const lines = priceLogLines(job.logTail);
+  const statusLabel =
+    job.status === "running"
+      ? "Recolectando en directo"
+      : job.status === "done"
+        ? "Recolección terminada"
+        : "Recolección con error";
+
+  return (
+    <div className="mt-3 rounded-2xl border border-emerald-400/25 bg-emerald-500/10 p-4 text-sm">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-800 dark:text-emerald-200">
+            {statusLabel}
+          </p>
+          <p className="mt-1 font-semibold text-foreground">{currentStep}</p>
+          <p className="mt-1 text-xs text-muted">
+            Job {job.jobId} · se refresca automáticamente cada pocos segundos.
+          </p>
+        </div>
+        <span
+          className={`rounded-full border px-3 py-1 text-xs font-semibold ${
+            job.status === "running"
+              ? "border-emerald-400/40 text-emerald-800 dark:text-emerald-200"
+              : job.status === "done"
+                ? "border-sky-400/40 text-sky-800 dark:text-sky-200"
+                : "border-rose-400/40 text-rose-800 dark:text-rose-200"
+          }`}
+        >
+          {job.status}
+        </span>
+      </div>
+
+      {sources.length > 0 ? (
+        <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          {sources.map((source) => (
+            <div
+              key={source.source}
+              className="rounded-xl border border-border bg-background/70 p-3"
+            >
+              <p className="font-semibold text-foreground">{source.source}</p>
+              <p className="mt-1 line-clamp-2 text-xs text-muted">{source.status}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="mt-3 rounded-xl border border-border bg-background/70 p-3 text-xs text-muted">
+          Esperando primeras líneas del worker: aparecerán Wallapop, Vinted, CeX, TodoColeccion y el resto de collectors cuando arranquen.
+        </p>
+      )}
+
+      {lines.length > 0 ? (
+        <details className="mt-3">
+          <summary className="cursor-pointer text-xs font-semibold text-accent">
+            Ver detalle técnico de la recolección
+          </summary>
+          <pre className="mt-2 max-h-56 overflow-auto rounded-xl border border-border bg-background/80 p-3 text-[11px] leading-relaxed text-muted">
+            {lines.slice(-45).join("\n")}
+          </pre>
+        </details>
+      ) : null}
+    </div>
+  );
+}
+
 export function EntityCombo({
   label,
   name,
@@ -449,26 +561,33 @@ export function AdminGameEditor({
     }
   }
 
+  const refreshPriceJob = useCallback(async (jobId: string): Promise<PriceJobState | null> => {
+    try {
+      const res = await fetch(`/api/admin/price-jobs/${encodeURIComponent(jobId)}`);
+      const data = await res.json();
+      if (!res.ok) return null;
+      const job = data.job as PriceJobState;
+      setPriceJob(job);
+      if (job.status === "done") {
+        setPriceCollecting(false);
+        setMessage("Recolección de precios terminada. Revisa el panel de precios.");
+      } else if (job.status === "error") {
+        setPriceCollecting(false);
+        setError(job.error ?? "La recolección de precios falló.");
+      }
+      return job;
+    } catch {
+      return null;
+    }
+  }, []);
+
   function pollPriceJob(jobId: string) {
     if (pricePollRef.current != null) window.clearInterval(pricePollRef.current);
+    void refreshPriceJob(jobId);
     pricePollRef.current = window.setInterval(async () => {
-      try {
-        const res = await fetch(`/api/admin/price-jobs/${encodeURIComponent(jobId)}`);
-        const data = await res.json();
-        if (!res.ok) return;
-        const job = data.job as PriceJobState;
-        setPriceJob(job);
-        if (job.status === "done") {
-          setPriceCollecting(false);
-          setMessage("Recolección de precios terminada. Revisa el panel de precios.");
-          if (pricePollRef.current != null) window.clearInterval(pricePollRef.current);
-        } else if (job.status === "error") {
-          setPriceCollecting(false);
-          setError(job.error ?? "La recolección de precios falló.");
-          if (pricePollRef.current != null) window.clearInterval(pricePollRef.current);
-        }
-      } catch {
-        /* ignore transient polling errors */
+      const job = await refreshPriceJob(jobId);
+      if (job?.status === "done" || job?.status === "error") {
+        if (pricePollRef.current != null) window.clearInterval(pricePollRef.current);
       }
     }, 3000);
   }
@@ -1270,11 +1389,7 @@ export function AdminGameEditor({
               )}
             </div>
           )}
-          {priceJob?.logTail && (
-            <pre className="mt-3 max-h-40 overflow-auto rounded-xl border border-border bg-background/80 p-3 text-[11px] leading-relaxed text-muted">
-              {priceJob.logTail.slice(-1600)}
-            </pre>
-          )}
+          {priceJob && <PriceCollectionLivePanel job={priceJob} />}
         </Panel>
       </div>
 
