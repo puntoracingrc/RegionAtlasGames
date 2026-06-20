@@ -5,9 +5,27 @@ import { isGrailGame, isTopInSegment } from "@/lib/game-highlight";
 import { normalizeReference, referenceSortKey } from "@/lib/game-product-reference";
 import { getGameDetails } from "@/lib/indexes";
 import { resolveCanonicalGenreEntity } from "@/lib/genre-canonical";
+import { findGameFacetEntityByNameOrAlias, findGameFacetEntityBySlug } from "@/lib/game-facets/taxonomy";
 import type { CatalogGame, CatalogListGame } from "@/lib/types";
 
+const catalogListGameCache = new WeakMap<CatalogGame, CatalogListGame>();
+
+function uniqueSlugs(values: Array<string | null | undefined>): string[] {
+  return [...new Set(values.filter((value): value is string => Boolean(value)))];
+}
+
+function taxonomySlug(entity: { name: string; slug: string }): string {
+  return (
+    findGameFacetEntityBySlug(entity.slug)?.slug ??
+    findGameFacetEntityByNameOrAlias(entity.name)?.slug ??
+    entity.slug
+  );
+}
+
 export function toCatalogListGame(game: CatalogGame): CatalogListGame {
+  const cached = catalogListGameCache.get(game);
+  if (cached) return cached;
+
   const details = getGameDetails(game.id);
   const platform = getPlatform(game.platformSlug);
   const firstGenre = details?.genres?.[0];
@@ -19,8 +37,32 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
   ];
   const normalizedReference = details?.reference ? normalizeReference(details.reference) : null;
   const sortReference = referenceSortKey(game, details);
+  const companies = uniqueSlugs([details?.developer?.name, details?.publisher?.name]);
+  const gameSearchText = normalizeCatalogSearchParts([
+    game.title,
+    game.titlePc,
+    game.slug,
+    game.id,
+    game.edition,
+    game.museumSlug,
+    game.museumRegion,
+    game.pcPath,
+    game.pcRegion,
+    game.pcCondition,
+    game.pcId,
+    details?.reference,
+    normalizedReference,
+    normalizedReference?.replace(/-/g, ""),
+    sortReference,
+  ]);
+  const companySearchText = normalizeCatalogSearchParts([
+    details?.developer?.name,
+    details?.developer?.slug,
+    details?.publisher?.name,
+    details?.publisher?.slug,
+  ]);
 
-  return {
+  const listGame: CatalogListGame = {
     id: game.id,
     slug: game.slug,
     title: game.title,
@@ -37,6 +79,9 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
     priceRegionVerified: game.priceRegionVerified,
     displayPlatform: platform?.shortName ?? game.platformSlug.toUpperCase(),
     displayYear: details?.year ?? null,
+    gameSearchText,
+    companySearchText,
+    companies,
     searchText: normalizeCatalogSearchParts([
       game.title,
       game.titlePc,
@@ -72,7 +117,18 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
     ]),
     sortGenre: canonicalGenre?.name.toLowerCase() ?? "\uffff",
     sortReference,
+    genreSlugs: uniqueSlugs([
+      ...(details?.genres?.map((genre) => resolveCanonicalGenreEntity(genre).slug) ?? []),
+      ...(details?.genres?.map(taxonomySlug) ?? []),
+    ]),
+    subgenreSlugs: uniqueSlugs(details?.subgenres?.map(taxonomySlug) ?? []),
+    facetSlugs: uniqueSlugs([
+      ...(details?.facets?.map(taxonomySlug) ?? []),
+      ...(details?.tags?.map(taxonomySlug) ?? []),
+    ]),
     isGrail: isGrailGame(game),
     isTopSegment: isTopInSegment(game),
   };
+  catalogListGameCache.set(game, listGame);
+  return listGame;
 }

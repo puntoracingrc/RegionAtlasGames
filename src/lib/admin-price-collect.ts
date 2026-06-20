@@ -25,6 +25,8 @@ export type AdminPriceJobMeta = {
   autoApplied?: boolean;
   autoApplySummary?: string;
   autoApplyError?: string;
+  pid?: number;
+  stopRequestedAt?: string;
 };
 
 export type AdminPriceCollectTarget = {
@@ -226,6 +228,18 @@ async function rememberAdminPriceJob(job: AdminPriceJobMeta): Promise<void> {
   await writeJobRegistry(registry);
 }
 
+async function markAdminPriceJob(job: AdminPriceJobMeta): Promise<AdminPriceJobMeta> {
+  await rememberAdminPriceJob(job);
+  try {
+    const paths = jobPaths(job.jobId);
+    if (!existsSync(JOBS_DIR)) mkdirSync(JOBS_DIR, { recursive: true });
+    writeFileSync(paths.status, JSON.stringify(job, null, 2), "utf8");
+  } catch {
+    // noop
+  }
+  return job;
+}
+
 function readLocalPriceJobs(): AdminPriceJobMeta[] {
   if (!existsSync(JOBS_DIR)) return [];
   return readdirSync(JOBS_DIR)
@@ -339,6 +353,7 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
   const startedAt = new Date().toISOString();
   const remoteDir = shellQuote(config.remoteDir);
   const statusFile = `"$(pwd)/jobs/${jobId}.json"`;
+  const pidFile = `"$(pwd)/jobs/${jobId}.pid"`;
   const args = ["app/scripts/admin_price_collect.py", "--status-file", statusFile];
   if (input.catalogId) args.push("--catalog-id", shellQuote(input.catalogId));
   else if (input.platformSlug) {
@@ -368,6 +383,7 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
     `cd "$HOME"/${remoteDir}`,
     "mkdir -p jobs logs",
     `nohup sh -c ${shellQuote(`PYTHONUNBUFFERED=1 app/venv/bin/python -u ${runCommand}`)} > logs/${jobId}.log 2>&1 &`,
+    `echo $! > ${pidFile}`,
     `echo ${shellQuote(jobId)}`,
   ].join("\n");
 
@@ -446,6 +462,9 @@ export async function startAdminPriceCollectJob(input: PriceJobStartInput): Prom
     detached: true,
     stdio: ["ignore", logFd, logFd],
   });
+  const runningMeta = { ...initialMeta, pid: child.pid };
+  writeFileSync(paths.status, JSON.stringify(runningMeta, null, 2));
+  await rememberAdminPriceJob(runningMeta);
   child.on("error", (error) => {
     const errorMeta = {
       ...initialMeta,
@@ -471,6 +490,68 @@ export async function startAdminPriceCollectJob(input: PriceJobStartInput): Prom
   child.unref();
 
   return { jobId };
+}
+
+async function stopRemotePriceJob(job: AdminPriceJobMeta): Promise<AdminPriceJobMeta | { error: string }> {
+  const config = remoteWorkerConfig();
+  if (!config) return { error: adminPriceCollectUnavailableReason() };
+  const remoteDir = shellQuote(config.remoteDir);
+  const stoppedAt = new Date().toISOString();
+  const statusJson = JSON.stringify({
+    ...job,
+    status: "error",
+    stopRequestedAt: stoppedAt,
+    finishedAt: stoppedAt,
+    error: "Cancelado manualmente desde el admin.",
+  });
+  const command = [
+    "set +e",
+    `cd "$HOME"/${remoteDir}`,
+    `if [ -f jobs/${shellQuote(job.jobId)}.pid ]; then kill -TERM "$(cat jobs/${shellQuote(job.jobId)}.pid)" 2>/dev/null || true; fi`,
+    `pkill -TERM -f ${shellQuote(job.jobId)} 2>/dev/null || true`,
+    `python3 - <<'PY'\nimport json, pathlib\npath = pathlib.Path(${JSON.stringify(`jobs/${job.jobId}.json`)})\npath.parent.mkdir(parents=True, exist_ok=True)\npath.write_text(${JSON.stringify(statusJson)} + "\\n", encoding="utf-8")\nPY`,
+  ].join("\n");
+  try {
+    await execSsh(config, command);
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo parar el job remoto." };
+  }
+  return markAdminPriceJob({
+    ...job,
+    status: "error",
+    stopRequestedAt: stoppedAt,
+    finishedAt: stoppedAt,
+    error: "Cancelado manualmente desde el admin.",
+  });
+}
+
+async function stopLocalPriceJob(job: AdminPriceJobMeta): Promise<AdminPriceJobMeta | { error: string }> {
+  if (job.pid) {
+    try {
+      process.kill(-job.pid, "SIGTERM");
+    } catch {
+      try {
+        process.kill(job.pid, "SIGTERM");
+      } catch {
+        // El proceso puede haber terminado justo antes.
+      }
+    }
+  }
+  const stoppedAt = new Date().toISOString();
+  return markAdminPriceJob({
+    ...job,
+    status: "error",
+    stopRequestedAt: stoppedAt,
+    finishedAt: stoppedAt,
+    error: "Cancelado manualmente desde el admin.",
+  });
+}
+
+export async function stopAdminPriceJob(jobId: string): Promise<AdminPriceJobMeta | { error: string }> {
+  const job = await readAdminPriceJob(jobId);
+  if (!job) return { error: "Job no encontrado." };
+  if (job.status !== "running") return { error: "El job ya no está en marcha." };
+  return useRemoteWorker() ? stopRemotePriceJob(job) : stopLocalPriceJob(job);
 }
 
 async function readRemotePriceJob(jobId: string): Promise<AdminPriceJobMeta | null> {

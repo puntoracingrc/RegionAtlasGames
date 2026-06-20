@@ -67,6 +67,31 @@ def is_es_market_game(game: dict[str, Any]) -> bool:
     return is_price_tracked_game(game)
 
 
+def has_public_price(game: dict[str, Any]) -> bool:
+    return bool(game.get("hasEsPrice") or game.get("recommendedPrice") is not None)
+
+
+def price_coverage_snapshot(
+    games: list[dict[str, Any]],
+    platform_slug: str,
+    region: str | None = None,
+) -> dict[str, float | int]:
+    scoped = [
+        g
+        for g in games
+        if g.get("platformSlug") == platform_slug
+        and g.get("listingStatus") != "excluded"
+        and (not region or g.get("region") == region)
+    ]
+    priced = sum(1 for g in scoped if has_public_price(g))
+    coverage = round((priced / len(scoped)) * 100, 1) if scoped else 0.0
+    return {
+        "totalGames": len(scoped),
+        "pricedGames": priced,
+        "coveragePct": coverage,
+    }
+
+
 def is_listing_region_verified(row: dict[str, Any]) -> bool:
     if row.get("regionVerified") is not True:
         return False
@@ -658,6 +683,7 @@ def main() -> None:
     ]
     target_ids = {g["id"] for g in targets}
     by_id = {g["id"]: g for g in catalog}
+    coverage_before = price_coverage_snapshot(catalog, platform_slug, args.region)
 
     updated = 0
     wallapop_updated = 0
@@ -823,6 +849,18 @@ def main() -> None:
         by_id[gid] = game
 
     coverage = round((updated / len(targets)) * 100, 1) if targets else 0.0
+    catalog_after = list(by_id.values())
+    coverage_after = price_coverage_snapshot(catalog_after, platform_slug, args.region)
+    priced_games_before = int(coverage_before["pricedGames"])
+    priced_games_after = int(coverage_after["pricedGames"])
+    total_games_in_scope = int(coverage_after["totalGames"])
+    priced_games_delta = priced_games_after - priced_games_before
+    price_list_coverage_before = float(coverage_before["coveragePct"])
+    price_list_coverage_after = float(coverage_after["coveragePct"])
+    price_list_coverage_delta = round(
+        price_list_coverage_after - price_list_coverage_before,
+        1,
+    )
 
     print(f"Plataforma: {platform_slug}")
     if args.region:
@@ -863,6 +901,13 @@ def main() -> None:
     print(f"  Pruebas insuficientes (reglas plataforma): {rejected_insufficient}")
     print(f"  Outliers de precio: {rejected_outliers}")
     print(f"  Cobertura P2P: {coverage}%")
+    print(
+        "  Avance listado con precio: "
+        f"{priced_games_before}/{total_games_in_scope} → "
+        f"{priced_games_after}/{total_games_in_scope} "
+        f"({price_list_coverage_before}% → {price_list_coverage_after}%, "
+        f"{price_list_coverage_delta:+.1f} puntos)"
+    )
 
     if args.dry_run:
         print("Dry-run: no se escriben archivos.")
@@ -872,7 +917,7 @@ def main() -> None:
     if history_recorded:
         print(f"  Histórico precios: {history_recorded} puntos nuevos/actualizados")
 
-    save_json(CATALOG_FILE, list(by_id.values()))
+    save_json(CATALOG_FILE, catalog_after)
 
     state.setdefault("platforms", {})[platform_slug] = {
         "lastSyncAt": synced_at,
@@ -900,6 +945,13 @@ def main() -> None:
         "tcGamesUpdated": tc_updated,
         "tcGamesSkipped": tc_skipped,
         "coveragePct": coverage,
+        "priceListTotalGames": total_games_in_scope,
+        "priceListPricedBefore": priced_games_before,
+        "priceListPricedAfter": priced_games_after,
+        "priceListPricedDelta": priced_games_delta,
+        "priceListCoverageBeforePct": price_list_coverage_before,
+        "priceListCoverageAfterPct": price_list_coverage_after,
+        "priceListCoverageDeltaPct": price_list_coverage_delta,
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
     }
     if args.region:
@@ -914,6 +966,13 @@ def main() -> None:
             "ebayGamesUpdated": ebay_updated,
             "vintedGamesUpdated": vinted_updated,
             "coveragePct": coverage,
+            "priceListTotalGames": total_games_in_scope,
+            "priceListPricedBefore": priced_games_before,
+            "priceListPricedAfter": priced_games_after,
+            "priceListPricedDelta": priced_games_delta,
+            "priceListCoverageBeforePct": price_list_coverage_before,
+            "priceListCoverageAfterPct": price_list_coverage_after,
+            "priceListCoverageDeltaPct": price_list_coverage_delta,
         }
     state["lastRunAt"] = now_iso()
     rotation_step = args.rotation_step or platform_slug

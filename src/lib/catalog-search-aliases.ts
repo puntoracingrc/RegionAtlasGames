@@ -10,6 +10,7 @@ const MANUAL_EQUIVALENCE_GROUPS: string[][] = aliasesFile.groups ?? [];
 const manualAliasLookup = new Map<string, string[]>();
 const textAliasCache = new Map<string, string[]>();
 const genreAliasCache = new Map<string, string[]>();
+const detailEntityAliasCache = new Map<string, string[]>();
 
 for (const group of MANUAL_EQUIVALENCE_GROUPS) {
   const normalizedGroup = [...new Set(group.flatMap((term) => [normalizeCatalogSearchText(term), normalizeCatalogSearchSlug(term)]).filter(Boolean))];
@@ -109,11 +110,17 @@ export function catalogSearchAliasesForGenre(genre: { slug: string; name: string
 
 export function catalogSearchAliasesForDetailEntity(entity: { slug: string; name: string } | null | undefined): string[] {
   if (!entity) return [];
+  const cacheKey = `${normalizeCatalogSearchSlug(entity.slug)}|${normalizeCatalogSearchText(entity.name)}`;
+  const cached = detailEntityAliasCache.get(cacheKey);
+  if (cached) return cached;
+
   const aliases = new Set<string>();
   for (const term of [entity.slug, entity.name]) {
     aliases.add(normalizeCatalogSearchText(term));
     aliases.add(normalizeCatalogSearchSlug(term));
     for (const alias of catalogSearchAliasesForText(term)) aliases.add(alias);
   }
-  return [...aliases].filter(Boolean);
+  const result = [...aliases].filter(Boolean);
+  detailEntityAliasCache.set(cacheKey, result);
+  return result;
 }

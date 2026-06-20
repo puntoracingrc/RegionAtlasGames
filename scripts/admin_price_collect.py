@@ -30,6 +30,7 @@ from daily_price_ingest import (  # noqa: E402
     LIST_KEYS,
     PYTHON,
     collector_command,
+    daily_skip_sources,
     ingest_has_data,
     merge_platform_ingest,
     planned_sources,
@@ -138,7 +139,8 @@ def collect_game(catalog_id: str, *, status_file: Path | None) -> int:
         raise SystemExit(f"Juego sin plataforma: {catalog_id}")
 
     os.environ["PRICE_COLLECT_CATALOG_ID"] = catalog_id
-    planned = planned_sources(platform_slug)
+    skipped_sources = daily_skip_sources()
+    planned = [(source, output) for source, output in planned_sources(platform_slug) if source not in skipped_sources]
     if not planned:
         write_status(
             status_file,
@@ -153,6 +155,8 @@ def collect_game(catalog_id: str, *, status_file: Path | None) -> int:
 
     print(f"=== Admin price collect · {game.get('title')} ({catalog_id}) ===")
     print(f"Plataforma: {platform_slug} · fuentes: {', '.join(s for s, _ in planned)}")
+    if skipped_sources:
+        print(f"Fuentes omitidas: {', '.join(sorted(skipped_sources))}")
 
     sources_ok: list[str] = []
     partial_paths: list[Path] = []

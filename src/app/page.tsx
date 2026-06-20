@@ -11,7 +11,7 @@ import {
 import { listedCatalog, meta } from "@/lib/catalog";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import { formatEur } from "@/lib/price-format";
-import { getGameDetails, indexStats } from "@/lib/indexes";
+import { indexStats } from "@/lib/indexes";
 import { listNewsForSection } from "@/lib/news-cache";
 import { canViewCollectionValue } from "@/lib/plans";
 import { regionBarColorForLabel, regionSortRank } from "@/lib/platform-catalog-insights";
@@ -79,9 +79,9 @@ export default async function HomePage() {
           </div>
         </header>
 
-        <HomeCatalogSearch platforms={searchPlatforms} regions={searchRegions} />
-
         <NewsStrip title="Actualidad del videojuego" items={homeNews} />
+
+        <HomeCatalogSearch platforms={searchPlatforms} regions={searchRegions} />
 
         <section className="mb-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <Stat label="Plataformas" value={String(activePlatforms.length)} hint="Consolas activas en catálogo" />
@@ -176,17 +176,16 @@ type HeroAtlasStats = {
 
 function buildAtlasPanelStats(): HeroAtlasStats {
   const regionCounts = new Map<string, number>();
-  let detailCount = 0;
   let priceCount = 0;
 
   for (const game of listedCatalog) {
     const region = getRegionDisplay(game.region).label;
     regionCounts.set(region, (regionCounts.get(region) ?? 0) + 1);
-    if (getGameDetails(game.id)) detailCount += 1;
     if (game.hasEsPrice || game.recommendedPrice != null) priceCount += 1;
   }
 
   const total = listedCatalog.length;
+  const detailCount = meta.gamesWithDetails ?? 0;
   let restColorIndex = 0;
   const regions = [...regionCounts.entries()]
     .sort((a, b) => {

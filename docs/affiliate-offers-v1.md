@@ -9,6 +9,8 @@ Principios:
 - Solo enlaces autorizados por el proveedor o anunciante.
 - Sin redirecciones automáticas, iframes ocultos, autoclick ni cookie stuffing.
 - Matching conservador: mejor mostrar menos ofertas que mostrar una incorrecta.
+- eBay solo renderiza cards cuando Browse API devuelve `itemAffiliateWebUrl`.
+- Si eBay no devuelve ofertas válidas, el fallback trackeado se muestra como CTA separado, no como oferta.
 - Rakuten queda preparado pero desactivado por defecto.
 - GamersGate queda en backlog/review para PC digital games, sin implementación pública.
 

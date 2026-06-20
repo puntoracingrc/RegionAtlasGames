@@ -297,8 +297,14 @@ export type CatalogListGame = Pick<
   displayPlatform: string;
   displayYear: number | null;
   searchText: string;
+  gameSearchText: string;
+  companySearchText: string;
+  companies: string[];
   sortGenre: string;
   sortReference: string;
+  genreSlugs?: string[];
+  subgenreSlugs?: string[];
+  facetSlugs?: string[];
   isGrail: boolean;
   isTopSegment: boolean;
 };

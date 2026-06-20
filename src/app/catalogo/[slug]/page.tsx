@@ -11,6 +11,7 @@ import { GameJsonLd } from "@/components/game-json-ld";
 import { GamePriceHero } from "@/components/game-price-hero";
 import { GamePriceHistoryChart } from "@/components/game-price-history-chart";
 import { GameProductReference } from "@/components/game-product-reference";
+import { GameTaxonomyLinks, type GameTaxonomyLink } from "@/components/game-taxonomy-links";
 import { RetailPriceReferences } from "@/components/retail-price-references";
 import { RecordedProSalesPanel } from "@/components/recorded-pro-sales-panel";
 import { SimilarGames } from "@/components/similar-games";
@@ -46,6 +47,7 @@ import { getSellerOpenListing } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
 import { getAffiliateOfferBlock } from "@/lib/affiliate-offers";
 import { listPublicSeriesForGame } from "@/lib/admin-series-manager";
+import { findGameFacetEntityByNameOrAlias, findGameFacetEntityBySlug } from "@/lib/game-facets/taxonomy";
 import {
   cleanSupportLabel,
   defaultSupportForPlatform,
@@ -68,22 +70,21 @@ function uniqueDetailEntities(entities: DetailEntity[]): DetailEntity[] {
   return unique;
 }
 
-function taxonomyPillLinks(entities: DetailEntity[]) {
-  const unique = uniqueDetailEntities(entities);
-  if (unique.length === 0) return "—";
-  return (
-    <span className="flex flex-wrap gap-1.5">
-      {unique.map((entity) => (
-        <Link
-          key={entity.slug || entity.name}
-          href={`/etiqueta/${entity.slug}`}
-          className="rounded-md bg-white/10 px-2 py-0.5 text-xs text-accent/90 hover:bg-white/15"
-        >
-          {entity.name}
-        </Link>
-      ))}
-    </span>
-  );
+function taxonomyHref(entity: DetailEntity, fromCatalogId: string): string {
+  const taxonomyEntity =
+    findGameFacetEntityBySlug(entity.slug) ?? findGameFacetEntityByNameOrAlias(entity.name);
+  const slug = taxonomyEntity?.slug ?? entity.slug;
+  const pathname = taxonomyEntity?.type === "genre" ? `/genero/${slug}` : `/etiqueta/${slug}`;
+  return `${pathname}?from=${encodeURIComponent(fromCatalogId)}`;
+}
+
+function taxonomyLinks(entities: DetailEntity[], fromCatalogId: string): GameTaxonomyLink[] {
+  return uniqueDetailEntities(entities)
+    .filter((entity) => entity.slug)
+    .map((entity) => ({
+      name: entity.name,
+      href: taxonomyHref(entity, fromCatalogId),
+    }));
 }
 
 function getYoutubeEmbedUrl(videoId: string) {
@@ -205,7 +206,11 @@ export default async function CatalogGamePage({ params }: Props) {
 
             <CatalogMarketplacePanel catalogId={game.id} />
 
-            <AffiliateOffersPanel offers={affiliateOffers.offers} trackingId={affiliateOffers.trackingId} />
+            <AffiliateOffersPanel
+              offers={affiliateOffers.offers}
+              fallbackCta={affiliateOffers.fallbackCta}
+              trackingId={affiliateOffers.trackingId}
+            />
           </div>
 
           <div className="min-w-0 space-y-5">
@@ -396,17 +401,12 @@ export default async function CatalogGamePage({ params }: Props) {
                     label="Géneros"
                     value={
                       entityLinks && entityLinks.genres.length > 0 ? (
-                        <span className="flex flex-wrap gap-1.5">
-                          {entityLinks.genres.map((genre) => (
-                            <Link
-                              key={genre.slug}
-                              href={genre.href}
-                              className="rounded-md bg-white/10 px-2 py-0.5 text-xs text-accent/90 hover:bg-white/15"
-                            >
-                              {genre.name}
-                            </Link>
-                          ))}
-                        </span>
+                        <GameTaxonomyLinks
+                          links={entityLinks.genres.map((genre) => ({
+                            name: genre.name,
+                            href: `${genre.href}?from=${encodeURIComponent(game.id)}`,
+                          }))}
+                        />
                       ) : (
                         "—"
                       )
@@ -416,11 +416,17 @@ export default async function CatalogGamePage({ params }: Props) {
                     <>
                       <DetailRow
                         label="Subgéneros"
-                        value={taxonomyPillLinks(subgenreEntities)}
+                        value={<GameTaxonomyLinks links={taxonomyLinks(subgenreEntities, game.id)} />}
                       />
                       <DetailRow
                         label="Facetas"
-                        value={taxonomyPillLinks(facetEntities)}
+                        value={
+                          <GameTaxonomyLinks
+                            links={taxonomyLinks(facetEntities, game.id)}
+                            maxInline={5}
+                            modalTitle={`Facetas de ${game.title}`}
+                          />
+                        }
                       />
                     </>
                   )}

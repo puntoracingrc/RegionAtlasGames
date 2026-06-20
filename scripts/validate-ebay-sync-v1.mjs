@@ -104,6 +104,14 @@ if (/feed\.api|feed beta|notification api|webhook|webhooks|buy\/feed|commerce\/n
 if (!normalize.includes("itemAffiliateWebUrl")) fail("affiliateUrl debe usar itemAffiliateWebUrl");
 if (!normalize.includes("itemWebUrl") || !normalize.includes("rawProductUrl")) fail("itemWebUrl solo debe guardarse como rawProductUrl/externalProductUrl");
 if (/affiliateUrl:\s*rawProductUrl|affiliateUrl:\s*item\.itemWebUrl|affiliateUrl:\s*itemWebUrl/.test(normalize)) fail("No usar itemWebUrl como affiliateUrl");
+const affiliateOffers = read("src/lib/affiliate-offers.ts");
+const offersPanel = read("src/components/affiliate-offers-panel.tsx");
+if (!affiliateOffers.includes("fallbackCta")) fail("El fallback eBay debe separarse de offers");
+if (!affiliateOffers.includes("!item.itemAffiliateWebUrl")) fail("Las ofertas públicas de eBay deben exigir itemAffiliateWebUrl");
+if (!affiliateOffers.includes("url: item.itemAffiliateWebUrl")) fail("Las ofertas públicas de eBay deben enlazar itemAffiliateWebUrl");
+if (affiliateOffers.includes("item.itemAffiliateWebUrl ?? appendEbayTracking")) fail("El fallback trackeado no debe renderizarse como oferta individual");
+if (!affiliateOffers.includes("Buscar este juego en eBay")) fail("El fallback debe llamarse Buscar este juego en eBay");
+if (!offersPanel.includes("fallbackCta.label")) fail("El fallback debe renderizarse como CTA separado");
 if (!normalize.includes("invalid_affiliate_url")) fail("Sin itemAffiliateWebUrl debe quedar invalid_affiliate_url");
 if (!normalize.includes("itemEndDate")) fail("Debe soportar itemEndDate para expiración");
 if (!normalize.includes("OUT_OF_STOCK")) fail("Debe soportar OUT_OF_STOCK como inactive");

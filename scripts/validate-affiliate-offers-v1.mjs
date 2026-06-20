@@ -53,10 +53,16 @@ assert(envExample.includes("# AFFILIATE_OFFERS_PRODUCTION_WHITELIST=true"), "Deb
 assert(existsSync(file("data/affiliate-offers-whitelist.json")), "Falta data/affiliate-offers-whitelist.json");
 assert(affiliateOffers.includes("affiliateGameWhitelisted"), "Falta control de whitelist en getAffiliateOfferBlock");
 assert(affiliateOffers.includes("affiliate-offers-whitelist.json"), "Affiliate offers debe leer data/affiliate-offers-whitelist.json");
-assert(affiliateOffers.includes("ebayFallbackSearchOffer"), "Falta fallback de búsqueda eBay sin resultados API");
-assert(affiliateOffers.includes("item.itemAffiliateWebUrl ?? appendEbayTracking"), "eBay debe priorizar itemAffiliateWebUrl y solo usar fallback trackeado si falta");
+assert(affiliateOffers.includes("ebayFallbackSearchCta"), "Falta CTA fallback de búsqueda eBay sin resultados API");
+assert(affiliateOffers.includes("fallbackCta"), "AffiliateOfferBlock debe separar fallbackCta de offers");
+assert(affiliateOffers.includes("!item.itemAffiliateWebUrl"), "Las cards eBay deben exigir itemAffiliateWebUrl");
+assert(affiliateOffers.includes("url: item.itemAffiliateWebUrl"), "Las cards eBay deben enlazar con itemAffiliateWebUrl");
+assert(!affiliateOffers.includes("item.itemAffiliateWebUrl ?? appendEbayTracking"), "El fallback trackeado no debe renderizarse como oferta individual");
+assert(affiliateOffers.includes("Buscar este juego en eBay"), "El CTA fallback debe llamarse Buscar este juego en eBay");
+assert(offersPanel.includes("fallbackCta") && offersPanel.includes("fallbackCta.label"), "El panel debe renderizar fallbackCta como CTA separado");
 assert(affiliateOffers.includes("trackingId"), "AffiliateOfferBlock debe devolver trackingId por ficha");
 assert(offersPanel.includes("trackingId") && read("src/app/catalogo/[slug]/page.tsx").includes("trackingId={affiliateOffers.trackingId}"), "El panel público debe recibir trackingId por ficha");
+assert(read("src/app/catalogo/[slug]/page.tsx").includes("fallbackCta={affiliateOffers.fallbackCta}"), "El panel público debe recibir fallbackCta por ficha");
 assert(envExample.includes("# EBAY_AFFILIATE_IMPRESSION_PIXEL_URL="), "Falta documentar píxel de impresión eBay");
 assert(!/process\.env\.NEXT_PUBLIC_RAKUTEN_|NEXT_PUBLIC_RAKUTEN_[A-Z0-9_]+\s*=/.test(allSource), "No debe existir uso real de NEXT_PUBLIC_RAKUTEN_*");
 assert(!/<iframe[^>]+(?:ebay|rakuten|amazon|affiliate|adservice|marketingtracking)/i.test(allSource), "No debe haber iframes ocultos de afiliación");

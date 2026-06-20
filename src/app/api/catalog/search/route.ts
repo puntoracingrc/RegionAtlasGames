@@ -2,8 +2,11 @@ import { NextResponse } from "next/server";
 import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
+  facetFilterOptions,
   filterCatalogGames,
+  genreFilterOptions,
   regionOptions,
+  subgenreFilterOptions,
   type CatalogPriceFilter,
   type CatalogSort,
 } from "@/lib/catalog-filters";
@@ -12,7 +15,6 @@ import { listedCatalog } from "@/lib/catalog";
 import { getPlatform } from "@/lib/catalog";
 import { catalogGamePath } from "@/lib/catalog-seo";
 import { getCoverSrc } from "@/lib/cover-url";
-import { gamesForIndex, getGenre } from "@/lib/indexes";
 import type { CatalogListGame } from "@/lib/types";
 
 const MAX_RESULTS = 12;
@@ -39,26 +41,39 @@ export async function GET(request: Request) {
   const page = Math.max(1, Number(url.searchParams.get("page") ?? "1") || 1);
   const mode = url.searchParams.get("mode") ?? "quick";
   const genreSlug = url.searchParams.get("genre") ?? "";
+  const subgenreSlug = url.searchParams.get("subgenre") ?? "";
+  const facetSlug = url.searchParams.get("facet") ?? "";
+  const hasTaxonomyFilter = Boolean(genreSlug || subgenreSlug || facetSlug);
 
-  if (q.trim().length < 2 && platform === "all" && region === "all" && mode !== "browser") {
+  if (q.trim().length < 2 && platform === "all" && region === "all" && !hasTaxonomyFilter && mode !== "browser") {
     return NextResponse.json({ items: [], total: 0 });
   }
 
-  const genreEntry = genreSlug ? getGenre(genreSlug) : undefined;
-  const sourceGames = genreSlug ? (genreEntry ? gamesForIndex(genreEntry) : []) : listedCatalog;
-  const games = sourceGames.map(toCatalogListGame);
+  const games = listedCatalog.map(toCatalogListGame);
+  const filters = {
+    q,
+    platform,
+    region,
+    sort,
+    priceFilter,
+    genre: genreSlug || "all",
+    subgenre: subgenreSlug || "all",
+    facet: facetSlug || "all",
+  };
   const filtered = filterCatalogGames(
     games,
-    { q, platform, region, sort, priceFilter },
+    filters,
     { platforms: true, regions: true },
   );
 
   if (mode === "browser") {
+    const taxonomyOptions = buildTaxonomyOptions(games, filters);
     const start = (page - 1) * CATALOG_PAGE_SIZE;
     return NextResponse.json({
       items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE),
       total: filtered.total,
       regions: regionOptions(games),
+      taxonomyOptions,
     });
   }
 
@@ -84,8 +99,33 @@ export async function GET(request: Request) {
   return NextResponse.json({
     items,
     total: filtered.total,
-    regions: regionOptions(games),
   });
+}
+
+function buildTaxonomyOptions(
+  games: CatalogListGame[],
+  filters: {
+    q: string;
+    platform: string;
+    region: string;
+    sort: CatalogSort;
+    priceFilter: CatalogPriceFilter;
+    genre: string;
+    subgenre: string;
+    facet: string;
+  },
+) {
+  return {
+    genres: genreFilterOptions(
+      filterCatalogGames(games, { ...filters, genre: "all" }, { platforms: true, regions: true }).items,
+    ),
+    subgenres: subgenreFilterOptions(
+      filterCatalogGames(games, { ...filters, subgenre: "all" }, { platforms: true, regions: true }).items,
+    ),
+    facets: facetFilterOptions(
+      filterCatalogGames(games, { ...filters, facet: "all" }, { platforms: true, regions: true }).items,
+    ),
+  };
 }
 
 function normalizeSearchValue(value: string | null | undefined): string {
