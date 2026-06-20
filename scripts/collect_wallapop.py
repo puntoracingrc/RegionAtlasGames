@@ -13,6 +13,7 @@ Replica la búsqueda web:
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import subprocess
 import sys
@@ -307,7 +308,12 @@ def collect_platform(
         raise SystemExit(f"Plataforma no soportada: {platform_slug}")
 
     platform = load_platforms().get(platform_slug)
-    games = prioritize_catalog_games(platform_catalog_games(platform_slug), args.limit)
+    region_key = os.environ.get("PRICE_COLLECT_REGION", "").strip() or "all"
+    games = prioritize_catalog_games(
+        platform_catalog_games(platform_slug),
+        args.limit,
+        rotation_key=f"wallapop:{platform_slug}:{region_key}",
+    )
     _, ref_to_ids = build_platform_reference_index(platform_slug)
 
     stats = {

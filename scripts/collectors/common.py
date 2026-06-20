@@ -90,15 +90,67 @@ def platform_catalog_games(platform_slug: str, region: str | None = None) -> lis
     return sorted(games, key=lambda g: g["title"].lower())
 
 
+def _collector_window_state_path() -> Path:
+    return INGEST_DIR / "collector-window-state.json"
+
+
+def _rotating_window(
+    items: list[dict[str, Any]],
+    limit: int,
+    rotation_key: str,
+) -> list[dict[str, Any]]:
+    if not items or limit <= 0:
+        return []
+    state_path = _collector_window_state_path()
+    state = load_json(state_path, {})
+    if not isinstance(state, dict):
+        state = {}
+
+    entry = state.get(rotation_key, {})
+    if not isinstance(entry, dict):
+        entry = {}
+    try:
+        offset = int(entry.get("offset") or 0)
+    except (TypeError, ValueError):
+        offset = 0
+    offset = offset % len(items)
+
+    rotated = items[offset:] + items[:offset]
+    selected = rotated[:limit]
+    next_offset = (offset + min(limit, len(items))) % len(items)
+    state[rotation_key] = {
+        "offset": next_offset,
+        "updatedAt": now_iso(),
+        "limit": limit,
+        "poolSize": len(items),
+    }
+    save_json(state_path, state)
+    return selected
+
+
 def prioritize_catalog_games(
     games: list[dict[str, Any]],
     limit: int | None,
+    rotation_key: str | None = None,
 ) -> list[dict[str, Any]]:
     """Para ingest diario: prioriza juegos sin precio ES verificado."""
     if not limit or limit <= 0:
         return games
     without_price = [g for g in games if not g.get("hasEsPrice")]
     with_price = [g for g in games if g.get("hasEsPrice")]
+    if rotation_key:
+        selected_without_price = _rotating_window(
+            without_price,
+            min(limit, len(without_price)),
+            f"{rotation_key}:missing",
+        )
+        remaining = limit - len(selected_without_price)
+        selected_with_price = _rotating_window(
+            with_price,
+            remaining,
+            f"{rotation_key}:priced",
+        )
+        return selected_without_price + selected_with_price
     return (without_price + with_price)[:limit]
 
 
