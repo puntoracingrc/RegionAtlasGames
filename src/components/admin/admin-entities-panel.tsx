@@ -1152,7 +1152,7 @@ export function AdminEntitiesPanel({
 
       {showListPanel && tab !== "series" && (
       <Panel className={adminToneClass("search")}>
-        <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+        <div className="mb-4 space-y-4">
           <PanelTitle>
             {tab === "platforms"
               ? `Plataformas (${visiblePlatforms.length}/${platforms.length})`
@@ -1160,14 +1160,17 @@ export function AdminEntitiesPanel({
                 ? `Compañías (${visibleCompanies.length}/${companies.length})`
                 : `Géneros (${visibleGenres.length}/${genres.length})`}
           </PanelTitle>
-          <div className="flex w-full flex-wrap items-center gap-2 md:w-auto">
-            <input
-              className="input w-full max-w-xs"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Buscar por nombre o slug…"
-            />
-            <div className="flex flex-wrap gap-2">
+          <div className="rounded-2xl border border-border bg-background/45 p-4">
+            <label className="block space-y-1">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Buscar</span>
+              <input
+                className="input w-full"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Buscar por nombre o slug…"
+              />
+            </label>
+            <div className="mt-3 flex flex-wrap gap-2">
               {sortOptions.map((option) => (
                 <button
                   key={option.value}
