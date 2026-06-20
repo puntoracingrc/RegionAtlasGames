@@ -253,17 +253,42 @@ export type AdminCatalogSearchRow = {
   coverUrl: string | null;
 };
 
+export async function listAdminCatalogSearchFilters(): Promise<{ regions: string[] }> {
+  const regions = new Set<string>();
+
+  for (const game of listedCatalog) {
+    if (game.region?.trim()) regions.add(game.region.trim());
+  }
+
+  const overlayIndex = await loadCatalogOverlayIndex();
+  for (const id of overlayIndex.ids) {
+    const game = await readCatalogOverlayGame(id);
+    if (!game || game.listingStatus === "excluded") continue;
+    if (game.region?.trim()) regions.add(game.region.trim());
+  }
+
+  return {
+    regions: [...regions].sort((a, b) => a.localeCompare(b, "es", { numeric: true })),
+  };
+}
+
 export async function searchAdminCatalogGames(
   q: string,
   limit = 40,
+  filters?: { platformSlug?: string | null; region?: string | null },
 ): Promise<AdminCatalogSearchRow[]> {
   const needle = q.trim().toLowerCase();
-  if (needle.length < 2) return [];
+  const platformSlug = filters?.platformSlug?.trim() ?? "";
+  const region = filters?.region?.trim() ?? "";
+  if (needle.length < 2 && !platformSlug && !region) return [];
 
   const matches = (game: CatalogGame) =>
-    game.title.toLowerCase().includes(needle) ||
-    game.id.toLowerCase().includes(needle) ||
-    game.slug.toLowerCase().includes(needle);
+    (!platformSlug || game.platformSlug === platformSlug) &&
+    (!region || game.region === region) &&
+    (needle.length < 2 ||
+      game.title.toLowerCase().includes(needle) ||
+      game.id.toLowerCase().includes(needle) ||
+      game.slug.toLowerCase().includes(needle));
 
   const rows = new Map<string, AdminCatalogSearchRow>();
 
