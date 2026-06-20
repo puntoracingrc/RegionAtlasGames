@@ -15,8 +15,8 @@ type CoverageSort =
 const SORT_OPTIONS: { value: CoverageSort; label: string }[] = [
   { value: "updated-desc", label: "Más reciente" },
   { value: "updated-asc", label: "Menos reciente" },
-  { value: "coverage-desc", label: "Más cobertura" },
-  { value: "coverage-asc", label: "Menos cobertura" },
+  { value: "coverage-desc", label: "Más verificados" },
+  { value: "coverage-asc", label: "Menos verificados" },
 ];
 
 type SelectedTarget = {
@@ -98,11 +98,11 @@ function sortRows(
       );
     if (sort === "coverage-desc")
       return (
-        b.coveragePct - a.coveragePct ||
+        b.verifiedCoveragePct - a.verifiedCoveragePct ||
         a.platformName.localeCompare(b.platformName, "es")
       );
     return (
-      a.coveragePct - b.coveragePct ||
+      a.verifiedCoveragePct - b.verifiedCoveragePct ||
       a.platformName.localeCompare(b.platformName, "es")
     );
   });
