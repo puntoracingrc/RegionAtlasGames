@@ -430,10 +430,41 @@ function cloneJson<T>(value: T): T {
 
 export type AdminPlatformRow = Platform & { catalogGames: number };
 
+function platformDuplicateKey(platform: Platform): string {
+  const shortNameKey = normalizeSlug(platform.shortName || platform.name);
+  return `${platform.manufacturer}:${shortNameKey}`;
+}
+
+function mergePlatformLists(staticPlatforms: Platform[], overlayPlatforms: Record<string, Platform>): Platform[] {
+  const bySlug = new Map<string, Platform>();
+  for (const platform of staticPlatforms) {
+    bySlug.set(platform.slug, platform);
+  }
+  for (const platform of Object.values(overlayPlatforms)) {
+    const current = bySlug.get(platform.slug);
+    bySlug.set(platform.slug, current ? { ...current, ...platform } : platform);
+  }
+
+  const byDisplay = new Map<string, Platform>();
+  for (const platform of bySlug.values()) {
+    const key = platformDuplicateKey(platform);
+    const current = byDisplay.get(key);
+    if (!current) {
+      byDisplay.set(key, platform);
+      continue;
+    }
+    const currentGames = countCatalogGamesForPlatform(current.slug);
+    const nextGames = countCatalogGamesForPlatform(platform.slug);
+    if (nextGames > currentGames) byDisplay.set(key, platform);
+  }
+
+  return [...byDisplay.values()];
+}
+
 export async function listAdminPlatforms(): Promise<AdminPlatformRow[]> {
   const platforms = loadJson<Platform[]>(PLATFORMS_FILE, []);
   const overlay = await readAdminEntitiesOverlay();
-  return [...platforms, ...Object.values(overlay.platforms)]
+  return mergePlatformLists(platforms, overlay.platforms)
     .map((platform) => ({
       ...platform,
       active: overlay.active.platforms[platform.slug] ?? platform.active !== false,
