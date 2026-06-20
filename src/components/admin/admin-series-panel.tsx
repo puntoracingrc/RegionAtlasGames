@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { AdminFunctionCard, AdminFunctionHeader, AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import taxonomyData from "../../../data/game-facets-taxonomy.json";
@@ -258,10 +259,14 @@ function LabelLibraryModal({
     onChange([...selected, name].sort((left, right) => left.localeCompare(right, "es", { numeric: true })));
   }
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" role="dialog" aria-modal="true">
-      <div className="flex max-h-[86vh] min-h-0 w-full max-w-5xl flex-col overflow-hidden rounded-3xl border border-indigo-300/40 bg-card shadow-2xl dark:border-indigo-400/20">
-        <div className="shrink-0 flex flex-wrap items-start justify-between gap-3 border-b border-border p-5">
+  const modal = (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div className="flex max-h-[86vh] min-h-0 w-full max-w-6xl flex-col overflow-hidden rounded-3xl border border-indigo-300/60 bg-white shadow-2xl ring-1 ring-black/20 dark:border-indigo-400/45 dark:bg-[#080a12]">
+        <div className="shrink-0 flex flex-wrap items-start justify-between gap-3 border-b border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-[#0d101a]">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-700 dark:text-indigo-300">
               Biblioteca
@@ -275,13 +280,12 @@ function LabelLibraryModal({
             Cerrar
           </button>
         </div>
-        <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-5">
+        <div className="min-h-0 flex-1 space-y-4 overflow-y-auto bg-slate-50 p-5 dark:bg-[#080a12]">
           <input
             className="input"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Filtrar dentro de la biblioteca…"
-            autoFocus
           />
           {selected.length ? (
             <div className="rounded-2xl border border-indigo-300/40 bg-indigo-500/10 p-3">
@@ -304,7 +308,7 @@ function LabelLibraryModal({
             {groups.map(([family, familyOptions]) => (
               <section
                 key={family}
-                className={`rounded-2xl border border-border bg-background/55 p-3 ${
+                className={`rounded-2xl border border-slate-200 bg-white p-3 shadow-sm dark:border-white/10 dark:bg-[#10131d] ${
                   groups.length === 1 ? "md:col-span-2" : ""
                 }`}
               >
@@ -324,7 +328,7 @@ function LabelLibraryModal({
                         className={`rounded-full border px-3 py-1.5 text-left text-xs font-semibold transition ${
                           active
                             ? "border-indigo-400 bg-indigo-500/20 text-indigo-800 dark:text-indigo-200"
-                            : "border-border bg-card/70 text-muted hover:border-indigo-400/40 hover:text-foreground"
+                            : "border-slate-200 bg-slate-50 text-muted hover:border-indigo-400/40 hover:text-foreground dark:border-white/10 dark:bg-[#080a12]"
                         }`}
                         onClick={() => toggleOption(option.name)}
                       >
@@ -346,6 +350,9 @@ function LabelLibraryModal({
       </div>
     </div>
   );
+
+  if (typeof document === "undefined") return null;
+  return createPortal(modal, document.body);
 }
 
 export function AdminSeriesPanel({
@@ -393,6 +400,7 @@ export function AdminSeriesPanel({
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const bulkEditorRef = useRef<HTMLDivElement>(null);
+  const labelPickerScrollRef = useRef(0);
 
   const filteredGames = useMemo(() => {
     if (!detail) return [];
@@ -451,10 +459,21 @@ export function AdminSeriesPanel({
 
   useEffect(() => {
     if (!labelPickerKind) return;
+    labelPickerScrollRef.current = window.scrollY;
     const previousOverflow = document.body.style.overflow;
+    const previousPosition = document.body.style.position;
+    const previousTop = document.body.style.top;
+    const previousWidth = document.body.style.width;
     document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${labelPickerScrollRef.current}px`;
+    document.body.style.width = "100%";
     return () => {
       document.body.style.overflow = previousOverflow;
+      document.body.style.position = previousPosition;
+      document.body.style.top = previousTop;
+      document.body.style.width = previousWidth;
+      window.scrollTo(0, labelPickerScrollRef.current);
     };
   }, [labelPickerKind]);
 
