@@ -8,16 +8,18 @@ import { PriceLegend } from "@/components/price-legend";
 import { RegionFilterChips } from "@/components/region-filter-chips";
 import {
   CATALOG_PAGE_SIZE,
-  companyFilterOptions,
   DEFAULT_SORT,
-  facetFilterOptions,
   filterCatalogGames,
-  genreFilterOptions,
   platformOptions,
+  publicFacetFilterOptions,
+  publicGenreFilterOptions,
+  publicRegionFilterOptions,
+  publicSubgenreFilterOptions,
   regionOptions,
   SORT_OPTIONS,
-  subgenreFilterOptions,
   type CatalogCompanyFilterOption,
+  type CatalogPlatformFilterOption,
+  type CatalogRegionFilterOption,
   type CatalogSort,
   type CatalogTaxonomyFilterOption,
 } from "@/lib/catalog-filters";
@@ -28,13 +30,21 @@ import { cn } from "@/lib/cn";
 const selectClass =
   "rounded-lg border border-border bg-input px-3 py-2 text-sm outline-none ring-accent/25 focus:ring-2";
 
+function filterOptionLabel(label: string, _count?: number): string {
+  return label;
+}
+
 type Props = {
   games: CatalogListGame[];
   contextName: string;
-  source?: { kind: "platform"; slug: string } | { kind: "catalog" } | { kind: "genre"; slug: string };
+  source?:
+    | { kind: "platform"; slug: string }
+    | { kind: "catalog" }
+    | { kind: "genre"; slug: string }
+    | { kind: "taxonomy"; filter: "genre" | "subgenre" | "facet"; slug: string };
   totalCount?: number;
-  regions?: ReturnType<typeof regionOptions>;
-  platforms?: ReturnType<typeof platformOptions>;
+  regions?: CatalogRegionFilterOption[];
+  platforms?: CatalogPlatformFilterOption[];
   genres?: CatalogTaxonomyFilterOption[];
   subgenres?: CatalogTaxonomyFilterOption[];
   facets?: CatalogTaxonomyFilterOption[];
@@ -114,15 +124,19 @@ export function CatalogBrowser({
   const [serverTotal, setServerTotal] = useState(totalCount ?? games.length);
   const [isLoading, setIsLoading] = useState(false);
   const canShowPriceLegend = showPriceLegend && source?.kind !== "platform";
-  const [matchedIds, setMatchedIds] = useState<string[] | null>(null);
   const [savedStateLoaded, setSavedStateLoaded] = useState(!persistKey);
 
-  const regions = useMemo(() => initialRegions ?? regionOptions(games), [games, initialRegions]);
+  const regions = useMemo(
+    () =>
+      initialRegions ??
+      regionOptions(games).map(([label, count]) => ({ value: label, label, count })),
+    [games, initialRegions],
+  );
   const platforms = useMemo(() => initialPlatforms ?? platformOptions(games), [games, initialPlatforms]);
-  const genres = useMemo(() => initialGenres ?? genreFilterOptions(games), [games, initialGenres]);
-  const subgenres = useMemo(() => initialSubgenres ?? subgenreFilterOptions(games), [games, initialSubgenres]);
-  const facets = useMemo(() => initialFacets ?? facetFilterOptions(games), [games, initialFacets]);
-  const companies = useMemo(() => initialCompanies ?? companyFilterOptions(games), [games, initialCompanies]);
+  const genres = useMemo(() => initialGenres ?? publicGenreFilterOptions(), [initialGenres]);
+  const subgenres = useMemo(() => initialSubgenres ?? publicSubgenreFilterOptions(), [initialSubgenres]);
+  const facets = useMemo(() => initialFacets ?? publicFacetFilterOptions(), [initialFacets]);
+  const companies = useMemo(() => initialCompanies ?? [], [initialCompanies]);
   const [activeRegions, setActiveRegions] = useState(regions);
   const [activeGenres, setActiveGenres] = useState(genres);
   const [activeSubgenres, setActiveSubgenres] = useState(subgenres);
@@ -247,7 +261,6 @@ export function CatalogBrowser({
       setActiveSubgenres(subgenres);
       setActiveFacets(facets);
       setActiveCompanies(companies);
-      setMatchedIds(null);
       setIsLoading(false);
       return;
     }
@@ -264,12 +277,15 @@ export function CatalogBrowser({
           page: String(page),
         });
         if (company.trim()) params.set("company", company.trim());
-        if (source.kind === "catalog" || source.kind === "genre") {
+        if (source.kind === "catalog" || source.kind === "genre" || source.kind === "taxonomy") {
           params.set("platform", platform);
           params.set("mode", "browser");
         }
         if (source.kind === "genre") {
           params.set("genre", source.slug);
+        }
+        if (source.kind === "taxonomy") {
+          params.set(source.filter, source.slug);
         }
         if (genre !== "all") params.set("genre", genre);
         if (subgenre !== "all") params.set("subgenre", subgenre);
@@ -283,25 +299,9 @@ export function CatalogBrowser({
         const payload = (await response.json()) as {
           items: CatalogListGame[];
           total: number;
-          regions?: ReturnType<typeof regionOptions>;
-          taxonomyOptions?: {
-            genres: CatalogTaxonomyFilterOption[];
-            subgenres: CatalogTaxonomyFilterOption[];
-            facets: CatalogTaxonomyFilterOption[];
-            companies: CatalogCompanyFilterOption[];
-          };
-          matchedIds?: string[];
         };
         setServerItems(payload.items);
         setServerTotal(payload.total);
-        if (payload.regions) setActiveRegions(payload.regions);
-        if (payload.taxonomyOptions) {
-          setActiveGenres(payload.taxonomyOptions.genres);
-          setActiveSubgenres(payload.taxonomyOptions.subgenres);
-          setActiveFacets(payload.taxonomyOptions.facets);
-          setActiveCompanies(payload.taxonomyOptions.companies);
-        }
-        setMatchedIds(payload.matchedIds ?? null);
       } catch (error) {
         if (!controller.signal.aborted) {
           console.warn("[catalog-browser] fetch failed", error);
@@ -331,18 +331,6 @@ export function CatalogBrowser({
     subgenre !== "all" ||
     facet !== "all" ||
     sort !== DEFAULT_SORT;
-
-  const filteredOwnedCount = useMemo(() => {
-    if (matchedIds) {
-      const visible = new Set(matchedIds);
-      return ownedIds.filter((id) => visible.has(id)).length;
-    }
-    if (hasActiveFilters && !source) {
-      const visible = new Set(filteredItems.map((game) => game.id));
-      return ownedIds.filter((id) => visible.has(id)).length;
-    }
-    return ownedIds.length;
-  }, [filteredItems, hasActiveFilters, matchedIds, ownedIds, source]);
 
   const companySuggestions = useMemo(() => {
     const needle = company.trim().toLowerCase();
@@ -423,21 +411,17 @@ export function CatalogBrowser({
                 value={region}
                 onChange={setRegion}
                 allLabel="Todas las regiones"
-                options={activeRegions.map(([label, count]) => ({
-                  value: label,
-                  label,
-                  count,
-                }))}
+                options={activeRegions}
                 className="w-full sm:flex-1"
               />
             )}
 
             {showPlatformFilter && platforms.length > 1 && (
               <select value={platform} onChange={(e) => setPlatform(e.target.value)} className={selectClass}>
-                <option value="all">Todas las plataformas ({(totalCount ?? games.length).toLocaleString("es-ES")})</option>
+                <option value="all">Todas las plataformas</option>
                 {platforms.map((p) => (
                   <option key={p.slug} value={p.slug}>
-                    {p.name} ({p.count})
+                    {filterOptionLabel(p.name, p.count)}
                   </option>
                 ))}
               </select>
@@ -448,7 +432,7 @@ export function CatalogBrowser({
                 <option value="all">Todos los géneros</option>
                 {activeGenres.map((option) => (
                   <option key={option.slug} value={option.slug}>
-                    {option.name} ({option.count})
+                    {filterOptionLabel(option.name, option.count)}
                   </option>
                 ))}
               </select>
@@ -459,7 +443,7 @@ export function CatalogBrowser({
                 <option value="all">Todos los subgéneros</option>
                 {activeSubgenres.map((option) => (
                   <option key={option.slug} value={option.slug}>
-                    {option.name} ({option.count})
+                    {filterOptionLabel(option.name, option.count)}
                   </option>
                 ))}
               </select>
@@ -470,7 +454,7 @@ export function CatalogBrowser({
                 <option value="all">Todas las facetas</option>
                 {activeFacets.map((option) => (
                   <option key={option.slug} value={option.slug}>
-                    {option.name} ({option.count})
+                    {filterOptionLabel(option.name, option.count)}
                   </option>
                 ))}
               </select>
@@ -498,7 +482,6 @@ export function CatalogBrowser({
                         className="flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2 text-left text-sm hover:bg-card-hover"
                       >
                         <span className="truncate font-medium text-foreground">{option.name}</span>
-                        <span className="shrink-0 text-xs text-muted">{option.count.toLocaleString("es-ES")}</span>
                       </button>
                     ))}
                   </div>
@@ -532,11 +515,6 @@ export function CatalogBrowser({
                 <>
                   {total.toLocaleString("es-ES")} resultado{total !== 1 ? "s" : ""} en {contextName}
                 </>
-              )}
-              {filteredOwnedCount > 0 && (
-                <span className="ml-2 inline-flex items-center gap-1 font-semibold text-emerald-600 dark:text-emerald-400">
-                  · {filteredOwnedCount.toLocaleString("es-ES")} en colección
-                </span>
               )}
             </p>
             <HighlightLegend showOwned compact={compactLegends} />

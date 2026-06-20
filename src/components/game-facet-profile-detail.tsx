@@ -1,10 +1,12 @@
 import { CatalogBrowser } from "@/components/catalog-browser";
 import { CatalogGameCard } from "@/components/game-card";
 import { SiteNav } from "@/components/site-nav";
+import { CATALOG_PAGE_SIZE, publicRegionFilterOptions } from "@/lib/catalog-filters";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { buildGameFacetProfileView } from "@/lib/game-facet-profile";
+import { publicPlatformFilterOptions } from "@/lib/public-catalog-filter-options";
 import { getCurrentUser } from "@/lib/users";
 
 function entityTypeLabel(type: "genre" | "subgenre" | "facet"): string {
@@ -30,7 +32,10 @@ export async function GameFacetProfileDetail({
   const user = await getCurrentUser();
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
   const ownedSet = new Set(ownedCatalogIds);
-  const games = view.games.map(toCatalogListGame);
+  const games = [...view.games]
+    .sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }))
+    .slice(0, CATALOG_PAGE_SIZE)
+    .map(toCatalogListGame);
   const recommendedGames = view.recommendedGames.map(toCatalogListGame);
   const typeLabel = entityTypeLabel(view.entity.type);
 
@@ -87,6 +92,10 @@ export async function GameFacetProfileDetail({
           <CatalogBrowser
             games={games}
             contextName={view.title}
+            source={{ kind: "taxonomy", filter: view.entity.type, slug: view.entity.slug }}
+            totalCount={view.games.length}
+            regions={publicRegionFilterOptions()}
+            platforms={publicPlatformFilterOptions()}
             showRegionFilter
             showPlatformFilter
             ownedCatalogIds={ownedCatalogIds}

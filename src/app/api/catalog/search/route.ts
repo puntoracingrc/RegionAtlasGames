@@ -2,11 +2,7 @@ import { NextResponse } from "next/server";
 import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
-  facetFilterOptions,
   filterCatalogGames,
-  genreFilterOptions,
-  regionOptions,
-  subgenreFilterOptions,
   type CatalogPriceFilter,
   type CatalogSort,
 } from "@/lib/catalog-filters";
@@ -18,6 +14,7 @@ import { getCoverSrc } from "@/lib/cover-url";
 import type { CatalogListGame } from "@/lib/types";
 
 const MAX_RESULTS = 12;
+let catalogSearchGamesCache: CatalogListGame[] | null = null;
 
 type SearchResult = {
   id: string;
@@ -30,6 +27,13 @@ type SearchResult = {
   price: number | null;
   coverUrl: string | null;
 };
+
+function catalogSearchGames(): CatalogListGame[] {
+  if (!catalogSearchGamesCache) {
+    catalogSearchGamesCache = listedCatalog.map(toCatalogListGame);
+  }
+  return catalogSearchGamesCache;
+}
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
@@ -49,7 +53,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ items: [], total: 0 });
   }
 
-  const games = listedCatalog.map(toCatalogListGame);
+  const games = catalogSearchGames();
   const filters = {
     q,
     platform,
@@ -67,13 +71,10 @@ export async function GET(request: Request) {
   );
 
   if (mode === "browser") {
-    const taxonomyOptions = buildTaxonomyOptions(games, filters);
     const start = (page - 1) * CATALOG_PAGE_SIZE;
     return NextResponse.json({
       items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE),
       total: filtered.total,
-      regions: regionOptions(games),
-      taxonomyOptions,
     });
   }
 
@@ -100,32 +101,6 @@ export async function GET(request: Request) {
     items,
     total: filtered.total,
   });
-}
-
-function buildTaxonomyOptions(
-  games: CatalogListGame[],
-  filters: {
-    q: string;
-    platform: string;
-    region: string;
-    sort: CatalogSort;
-    priceFilter: CatalogPriceFilter;
-    genre: string;
-    subgenre: string;
-    facet: string;
-  },
-) {
-  return {
-    genres: genreFilterOptions(
-      filterCatalogGames(games, { ...filters, genre: "all" }, { platforms: true, regions: true }).items,
-    ),
-    subgenres: subgenreFilterOptions(
-      filterCatalogGames(games, { ...filters, subgenre: "all" }, { platforms: true, regions: true }).items,
-    ),
-    facets: facetFilterOptions(
-      filterCatalogGames(games, { ...filters, facet: "all" }, { platforms: true, regions: true }).items,
-    ),
-  };
 }
 
 function normalizeSearchValue(value: string | null | undefined): string {

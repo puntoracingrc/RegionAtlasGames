@@ -10,6 +10,7 @@ import {
 } from "@/lib/collection-store";
 import { listedCatalog, meta } from "@/lib/catalog";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
+import { publicRegionFilterOptions } from "@/lib/catalog-filters";
 import { formatEur } from "@/lib/price-format";
 import { indexStats } from "@/lib/indexes";
 import { listNewsForSection } from "@/lib/news-cache";
@@ -35,7 +36,7 @@ export default async function HomePage() {
     name: platform.name,
     shortName: platform.shortName,
   }));
-  const searchRegions = buildHomeRegionOptions();
+  const searchRegions = publicRegionFilterOptions();
   const platformRange =
     activePlatforms.length > 1
       ? `${activePlatforms[0].shortName} a ${activePlatforms.at(-1)?.shortName}`
@@ -128,22 +129,6 @@ export default async function HomePage() {
       </main>
     </>
   );
-}
-
-function buildHomeRegionOptions() {
-  const counts = new Map<string, number>();
-  for (const game of listedCatalog) {
-    const label = getRegionDisplay(game.region).label;
-    counts.set(label, (counts.get(label) ?? 0) + 1);
-  }
-
-  return [...counts.entries()]
-    .sort((a, b) => {
-      const rankDiff = regionSortRank(a[0]) - regionSortRank(b[0]);
-      if (rankDiff !== 0) return rankDiff;
-      return b[1] - a[1] || a[0].localeCompare(b[0], "es");
-    })
-    .map(([label, count]) => ({ value: label, label, count }));
 }
 
 function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {

@@ -14,7 +14,7 @@ type PlatformOption = {
 type RegionOption = {
   value: string;
   label: string;
-  count: number;
+  count?: number;
 };
 
 type SearchResult = {
@@ -135,7 +135,7 @@ export function HomeCatalogSearch({ platforms, regions }: Props) {
           <option value="all">Todas las regiones</option>
           {regions.map((item) => (
             <option key={item.value} value={item.value}>
-              {item.label} ({item.count.toLocaleString("es-ES")})
+              {item.label}
             </option>
           ))}
         </select>

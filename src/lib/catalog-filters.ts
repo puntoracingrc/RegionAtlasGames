@@ -1,5 +1,5 @@
 import { catalogSearchTokens } from "@/lib/catalog-search-normalize";
-import { findGameFacetEntityBySlug } from "@/lib/game-facets/taxonomy";
+import { findGameFacetEntityBySlug, getGameFacetsTaxonomy } from "@/lib/game-facets/taxonomy";
 import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { getRegionDisplay } from "@/lib/region-display";
@@ -195,13 +195,25 @@ export type CatalogFilterState = {
 export type CatalogTaxonomyFilterOption = {
   slug: string;
   name: string;
-  count: number;
+  count?: number;
 };
 
 export type CatalogCompanyFilterOption = {
   value: string;
   name: string;
-  count: number;
+  count?: number;
+};
+
+export type CatalogPlatformFilterOption = {
+  slug: string;
+  name: string;
+  count?: number;
+};
+
+export type CatalogRegionFilterOption = {
+  value: string;
+  label: string;
+  count?: number;
 };
 
 function matchesSlugFilter(slugs: string[] | undefined, selected: string | undefined): boolean {
@@ -286,6 +298,46 @@ export function platformOptions(games: CatalogListGame[]) {
       name: slug.toUpperCase(),
     }))
     .sort((a, b) => b.count - a.count);
+}
+
+const PUBLIC_REGION_LABELS = [
+  "PAL España",
+  "PAL Europa",
+  "NTSC USA",
+  "NTSC-J Japón",
+  "Australia",
+  "PAL UK",
+  "PAL Alemania",
+];
+
+export function publicRegionFilterOptions(): CatalogRegionFilterOption[] {
+  return PUBLIC_REGION_LABELS.map((label) => ({ value: label, label }));
+}
+
+function publicTaxonomyOptionsFor(type: "genre" | "subgenre" | "facet"): CatalogTaxonomyFilterOption[] {
+  const taxonomy = getGameFacetsTaxonomy();
+  const entities =
+    type === "genre"
+      ? taxonomy.genres
+      : type === "subgenre"
+        ? taxonomy.subgenres
+        : taxonomy.facets;
+  return entities
+    .filter((entity) => entity.status === "approved" && entity.publicEligible !== false)
+    .map((entity) => ({ slug: entity.slug, name: entity.name }))
+    .sort((a, b) => a.name.localeCompare(b.name, "es", { sensitivity: "base" }));
+}
+
+export function publicGenreFilterOptions(): CatalogTaxonomyFilterOption[] {
+  return publicTaxonomyOptionsFor("genre");
+}
+
+export function publicSubgenreFilterOptions(): CatalogTaxonomyFilterOption[] {
+  return publicTaxonomyOptionsFor("subgenre");
+}
+
+export function publicFacetFilterOptions(): CatalogTaxonomyFilterOption[] {
+  return publicTaxonomyOptionsFor("facet");
 }
 
 function taxonomyOptionsFor(games: CatalogListGame[], field: "genreSlugs" | "subgenreSlugs" | "facetSlugs"): CatalogTaxonomyFilterOption[] {

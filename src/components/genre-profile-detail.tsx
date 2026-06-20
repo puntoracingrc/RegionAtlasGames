@@ -4,15 +4,13 @@ import { GenrePlatformGames, GenreProfileHeader, GenreReferenceTop } from "@/com
 import { SiteNav } from "@/components/site-nav";
 import {
   CATALOG_PAGE_SIZE,
-  DEFAULT_SORT,
-  filterCatalogGames,
-  platformOptions,
-  regionOptions,
+  publicRegionFilterOptions,
 } from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { buildGenreIntro } from "@/lib/genre-seo";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { pickRecommendedGames } from "@/lib/game-facet-profile";
+import { publicPlatformFilterOptions } from "@/lib/public-catalog-filter-options";
 import type { GenreProfileView } from "@/lib/genre-profile";
 
 type Props = {
@@ -23,16 +21,13 @@ type Props = {
 };
 
 export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn, fromCatalogId }: Props) {
-  const allGames = view.games.map(toCatalogListGame);
   const ownedSet = new Set(ownedCatalogIds);
   const { originGame, recommendedGames } = pickRecommendedGames(view.games, fromCatalogId);
   const recommendedListGames = recommendedGames.map(toCatalogListGame);
-  const initialResult = filterCatalogGames(
-    allGames,
-    { q: "", region: "all", platform: "all", sort: DEFAULT_SORT, priceFilter: "all" },
-    { regions: true, platforms: true },
-  );
-  const initialGames = initialResult.items.slice(0, CATALOG_PAGE_SIZE);
+  const initialGames = [...view.games]
+    .sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }))
+    .slice(0, CATALOG_PAGE_SIZE)
+    .map(toCatalogListGame);
 
   return (
     <>
@@ -90,9 +85,9 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn, fromCata
             games={initialGames}
             contextName={view.name}
             source={{ kind: "genre", slug: view.slug }}
-            totalCount={initialResult.total}
-            regions={regionOptions(allGames)}
-            platforms={platformOptions(allGames)}
+            totalCount={view.games.length}
+            regions={publicRegionFilterOptions()}
+            platforms={publicPlatformFilterOptions()}
             showRegionFilter
             showPlatformFilter
             ownedCatalogIds={ownedCatalogIds}

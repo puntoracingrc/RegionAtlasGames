@@ -6,12 +6,11 @@ import { cn } from "@/lib/cn";
 
 type Props = {
   regions: RegionSlice[];
-  total: number;
   selectedRegion: string;
   onSelectRegion: (region: string) => void;
 };
 
-export function PlatformRegionBar({ regions, total, selectedRegion, onSelectRegion }: Props) {
+export function PlatformRegionBar({ regions, selectedRegion, onSelectRegion }: Props) {
   if (regions.length === 0) return null;
 
   const handleSelect = (label: string) => {
@@ -22,7 +21,6 @@ export function PlatformRegionBar({ regions, total, selectedRegion, onSelectRegi
     <div className="mt-6 space-y-2">
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[11px] text-muted">
         <span className="font-medium uppercase tracking-wider">Distribución por región</span>
-        <span>{total.toLocaleString("es-ES")} títulos en catálogo</span>
       </div>
 
       <div
@@ -38,8 +36,8 @@ export function PlatformRegionBar({ regions, total, selectedRegion, onSelectRegi
               type="button"
               onClick={() => handleSelect(region.label)}
               aria-pressed={active}
-              aria-label={`Filtrar por ${region.label}: ${region.count} títulos (${region.pct}%)`}
-              title={`${region.label}: ${region.count.toLocaleString("es-ES")} títulos en catálogo`}
+              aria-label={`Filtrar por ${region.label}`}
+              title={region.label}
               className={cn(
                 region.barColorClass,
                 "min-w-[4px] cursor-pointer border-0 p-0 transition-all hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1",
@@ -60,8 +58,8 @@ export function PlatformRegionBar({ regions, total, selectedRegion, onSelectRegi
               type="button"
               onClick={() => handleSelect(region.label)}
               aria-pressed={active}
-              aria-label={`Filtrar por ${region.label}: ${region.count} títulos (${region.pct}%)`}
-              title={`${region.label}: ${region.count.toLocaleString("es-ES")} títulos`}
+              aria-label={`Filtrar por ${region.label}`}
+              title={region.label}
               className={cn(
                 "inline-flex min-h-9 items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
                 active
@@ -74,9 +72,6 @@ export function PlatformRegionBar({ regions, total, selectedRegion, onSelectRegi
                 aria-hidden
               />
               <RegionFlag region={region.label} size="xs" showLabel labelMode="short" />
-              <span className={cn("tabular-nums text-muted", active && "text-accent")}>
-                {region.pct}%
-              </span>
             </button>
           );
         })}
