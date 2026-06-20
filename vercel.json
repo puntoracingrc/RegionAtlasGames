@@ -10,7 +10,7 @@
   "crons": [
     {
       "path": "/api/cron/price-rotation",
-      "schedule": "0 11 * * *"
+      "schedule": "32 3 * * *"
     },
     {
       "path": "/api/cron/enrich-catalog-staging",
