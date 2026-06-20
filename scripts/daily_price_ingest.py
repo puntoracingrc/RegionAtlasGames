@@ -99,13 +99,16 @@ def is_ci_daily() -> bool:
 
 
 def daily_skip_sources() -> set[str]:
-    skipped = {
+    skipped = {"todocoleccion", "vinted"}
+    skipped.update({
         part.strip()
         for part in os.environ.get("DAILY_SKIP_SOURCES", "").split(",")
         if part.strip()
-    }
-    if is_ci_daily() and os.environ.get("DAILY_SKIP_TODOCOLECCION", "1") != "0":
-        skipped.add("todocoleccion")
+    })
+    if os.environ.get("DAILY_ENABLE_TODOCOLECCION", "").strip().lower() in {"1", "true", "yes"}:
+        skipped.discard("todocoleccion")
+    if os.environ.get("DAILY_ENABLE_VINTED", "").strip().lower() in {"1", "true", "yes"}:
+        skipped.discard("vinted")
     return skipped
 
 

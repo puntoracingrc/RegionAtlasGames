@@ -9,7 +9,7 @@ from collectors.common import ROOT, load_json
 
 SOURCES_FILE = ROOT / "data" / "platform-sources.json"
 
-_P2P_GENERIC = ("wallapop", "vinted")
+_P2P_GENERIC = ("wallapop",)
 _cache: dict[str, Any] | None = None
 
 
@@ -175,8 +175,6 @@ def ps_platform_slugs() -> list[str]:
 def collectors_for_platform(platform_slug: str, *, ebay_configured: bool = True) -> list[str]:
     """Fuentes de precio planificables para daily_price_ingest (orden lógico)."""
     planned: list[str] = []
-    if tc_sources_for_platform(platform_slug):
-        planned.append("todocoleccion")
     planned.extend(p2p_sources_for_platform(platform_slug))
     if tcns_sources_for_platform(platform_slug):
         planned.append("todoconsolas")
