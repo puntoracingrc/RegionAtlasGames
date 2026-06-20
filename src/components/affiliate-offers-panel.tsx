@@ -1,10 +1,11 @@
 import { formatEur } from "@/lib/price-format";
-import { getEbayAffiliateImpressionPixelUrl, type AffiliateOffer } from "@/lib/affiliate-offers";
+import { getEbayAffiliateImpressionPixelUrl, type AffiliateFallbackCta, type AffiliateOffer } from "@/lib/affiliate-offers";
 import { AffiliateDisclosure } from "./affiliate/affiliate-disclosure";
 import { Badge, Panel, PanelTitle } from "./ui";
 
 type Props = {
   offers: AffiliateOffer[];
+  fallbackCta?: AffiliateFallbackCta | null;
   trackingId?: string | null;
 };
 
@@ -23,9 +24,10 @@ function priceLabel(offer: AffiliateOffer): string {
   return offer.price != null ? `${offer.price.toFixed(2)} ${offer.currency}` : "Ver precio";
 }
 
-export function AffiliateOffersPanel({ offers, trackingId }: Props) {
-  if (offers.length === 0) return null;
-  const ebayImpressionPixelUrl = offers.some((offer) => offer.provider === "ebay")
+export function AffiliateOffersPanel({ offers, fallbackCta, trackingId }: Props) {
+  if (offers.length === 0 && !fallbackCta) return null;
+  const hasEbayLink = offers.some((offer) => offer.provider === "ebay") || fallbackCta?.provider === "ebay";
+  const ebayImpressionPixelUrl = hasEbayLink
     ? getEbayAffiliateImpressionPixelUrl(trackingId ?? undefined)
     : null;
 
@@ -50,46 +52,64 @@ export function AffiliateOffersPanel({ offers, trackingId }: Props) {
       <div className="mb-4 mt-3">
         <AffiliateDisclosure />
       </div>
-      <p className="mb-4 text-sm leading-6 text-muted">
-        Ofertas activas encontradas automáticamente. Los precios externos pueden cambiar y deben confirmarse en la
-        tienda antes de comprar.
-      </p>
-      <div className="grid gap-3 sm:grid-cols-2">
-        {offers.map((offer) => (
+      {offers.length > 0 ? (
+        <>
+          <p className="mb-4 text-sm leading-6 text-muted">
+            Ofertas activas encontradas automáticamente. Los precios externos pueden cambiar y deben confirmarse en la
+            tienda antes de comprar.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {offers.map((offer) => (
+              <a
+                key={`${offer.provider}-${offer.id}`}
+                href={offer.url}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                className="group grid grid-cols-[72px_1fr] gap-3 rounded-2xl border border-border bg-background/45 p-3 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-card-hover"
+              >
+                <div className="flex h-[72px] w-[72px] items-center justify-center overflow-hidden rounded-xl border border-border bg-card">
+                  {offer.imageUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={offer.imageUrl} alt="" className="h-full w-full object-cover" loading="lazy" />
+                  ) : (
+                    <span className="text-xs text-muted">{providerLabel(offer.provider)}</span>
+                  )}
+                </div>
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge tone={offer.provider === "ebay" ? "violet" : "amber"}>
+                      {providerLabel(offer.provider)}
+                    </Badge>
+                    {offer.condition ? <span className="text-[11px] text-muted">{offer.condition}</span> : null}
+                  </div>
+                  <p className="mt-2 line-clamp-2 text-sm font-semibold leading-5 text-foreground group-hover:text-accent">
+                    {offer.title}
+                  </p>
+                  <p className="mt-2 text-base font-bold text-foreground">{priceLabel(offer)}</p>
+                  <p className="mt-1 text-[11px] text-muted">
+                    {offer.shippingPrice != null ? `Envío ${formatEur(offer.shippingPrice)}` : "Ver envío"}
+                    {offer.location ? ` · ${offer.location}` : ""}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </>
+      ) : fallbackCta ? (
+        <div className="rounded-2xl border border-border bg-background/45 p-4">
+          <p className="text-sm leading-6 text-muted">
+            No hay listings válidos de Browse API para mostrar ahora mismo.
+          </p>
           <a
-            key={`${offer.provider}-${offer.id}`}
-            href={offer.url}
+            href={fallbackCta.url}
             target="_blank"
             rel="sponsored nofollow noopener noreferrer"
-            className="group grid grid-cols-[72px_1fr] gap-3 rounded-2xl border border-border bg-background/45 p-3 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-card-hover"
+            className="mt-3 inline-flex rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-accent-fg transition hover:opacity-90"
           >
-            <div className="flex h-[72px] w-[72px] items-center justify-center overflow-hidden rounded-xl border border-border bg-card">
-              {offer.imageUrl ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={offer.imageUrl} alt="" className="h-full w-full object-cover" loading="lazy" />
-              ) : (
-                <span className="text-xs text-muted">{providerLabel(offer.provider)}</span>
-              )}
-            </div>
-            <div className="min-w-0">
-              <div className="flex flex-wrap items-center gap-2">
-                <Badge tone={offer.provider === "ebay" ? "violet" : "amber"}>
-                  {providerLabel(offer.provider)}
-                </Badge>
-                {offer.condition ? <span className="text-[11px] text-muted">{offer.condition}</span> : null}
-              </div>
-              <p className="mt-2 line-clamp-2 text-sm font-semibold leading-5 text-foreground group-hover:text-accent">
-                {offer.title}
-              </p>
-              <p className="mt-2 text-base font-bold text-foreground">{priceLabel(offer)}</p>
-              <p className="mt-1 text-[11px] text-muted">
-                {offer.shippingPrice != null ? `Envío ${formatEur(offer.shippingPrice)}` : "Ver envío"}
-                {offer.location ? ` · ${offer.location}` : ""}
-              </p>
-            </div>
+            {fallbackCta.label}
           </a>
-        ))}
-      </div>
+        </div>
+      ) : null}
     </Panel>
   );
 }

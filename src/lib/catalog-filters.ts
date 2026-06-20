@@ -1,4 +1,5 @@
 import { catalogSearchTokens } from "@/lib/catalog-search-normalize";
+import { findGameFacetEntityBySlug, getGameFacetsTaxonomy } from "@/lib/game-facets/taxonomy";
 import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { getRegionDisplay } from "@/lib/region-display";
@@ -91,6 +92,24 @@ export function matchesQuery(game: CatalogListGame, rawQuery: string): boolean {
   if (!tokens.length) return true;
 
   const haystack = buildSearchHaystack(game);
+  return matchesTokens(haystack, tokens);
+}
+
+function matchesScopedQuery(game: CatalogListGame, rawQuery: string, scope: CatalogFilterState["queryScope"]): boolean {
+  const tokens = catalogSearchTokens(rawQuery);
+  if (!tokens.length) return true;
+
+  const haystack = scope === "game" ? game.gameSearchText || buildSearchHaystack(game) : buildSearchHaystack(game);
+  return matchesTokens(haystack, tokens);
+}
+
+function matchesCompany(game: CatalogListGame, rawCompany: string | undefined): boolean {
+  const tokens = catalogSearchTokens(rawCompany ?? "");
+  if (!tokens.length || rawCompany === "all") return true;
+  return matchesTokens(game.companySearchText ?? "", tokens);
+}
+
+function matchesTokens(haystack: string, tokens: string[]): boolean {
   return tokens.every((token) => {
     if (haystack.includes(token)) return true;
     const compact = token.replace(/-/g, "");
@@ -166,11 +185,56 @@ export type CatalogFilterState = {
   platform: string;
   sort: CatalogSort;
   priceFilter: CatalogPriceFilter;
+  genre?: string;
+  subgenre?: string;
+  facet?: string;
+  company?: string;
+  queryScope?: "full" | "game";
 };
+
+export type CatalogTaxonomyFilterOption = {
+  slug: string;
+  name: string;
+  count?: number;
+};
+
+export type CatalogCompanyFilterOption = {
+  value: string;
+  name: string;
+  count?: number;
+};
+
+export type CatalogPlatformFilterOption = {
+  slug: string;
+  name: string;
+  count?: number;
+};
+
+export type CatalogRegionFilterOption = {
+  value: string;
+  label: string;
+  count?: number;
+};
+
+function matchesSlugFilter(slugs: string[] | undefined, selected: string | undefined): boolean {
+  if (!selected || selected === "all") return true;
+  return slugs?.includes(selected) ?? false;
+}
 
 export function filterCatalogGames(
   games: CatalogListGame[],
-  { q, region, platform, sort, priceFilter }: CatalogFilterState,
+  {
+    q,
+    region,
+    platform,
+    sort,
+    priceFilter,
+    genre = "all",
+    subgenre = "all",
+    facet = "all",
+    company = "",
+    queryScope = "full",
+  }: CatalogFilterState,
   options?: { regions?: boolean; platforms?: boolean },
 ): { items: CatalogListGame[]; total: number } {
   let list = games;
@@ -184,8 +248,20 @@ export function filterCatalogGames(
   if (priceFilter !== "all") {
     list = list.filter((g) => matchesPriceFilter(g, priceFilter));
   }
+  if (genre !== "all") {
+    list = list.filter((g) => matchesSlugFilter(g.genreSlugs, genre));
+  }
+  if (subgenre !== "all") {
+    list = list.filter((g) => matchesSlugFilter(g.subgenreSlugs, subgenre));
+  }
+  if (facet !== "all") {
+    list = list.filter((g) => matchesSlugFilter(g.facetSlugs, facet));
+  }
+  if (company.trim()) {
+    list = list.filter((g) => matchesCompany(g, company));
+  }
   if (q.trim()) {
-    list = list.filter((g) => matchesQuery(g, q));
+    list = list.filter((g) => matchesScopedQuery(g, q, queryScope));
   }
 
   list = sortCatalogListGames(list, sort);
@@ -222,4 +298,90 @@ export function platformOptions(games: CatalogListGame[]) {
       name: slug.toUpperCase(),
     }))
     .sort((a, b) => b.count - a.count);
+}
+
+const PUBLIC_REGION_LABELS = [
+  "PAL España",
+  "PAL Europa",
+  "NTSC USA",
+  "NTSC-J Japón",
+  "Australia",
+  "PAL UK",
+  "PAL Alemania",
+];
+
+export function publicRegionFilterOptions(): CatalogRegionFilterOption[] {
+  return PUBLIC_REGION_LABELS.map((label) => ({ value: label, label }));
+}
+
+function publicTaxonomyOptionsFor(type: "genre" | "subgenre" | "facet"): CatalogTaxonomyFilterOption[] {
+  const taxonomy = getGameFacetsTaxonomy();
+  const entities =
+    type === "genre"
+      ? taxonomy.genres
+      : type === "subgenre"
+        ? taxonomy.subgenres
+        : taxonomy.facets;
+  return entities
+    .filter((entity) => entity.status === "approved" && entity.publicEligible !== false)
+    .map((entity) => ({ slug: entity.slug, name: entity.name }))
+    .sort((a, b) => a.name.localeCompare(b.name, "es", { sensitivity: "base" }));
+}
+
+export function publicGenreFilterOptions(): CatalogTaxonomyFilterOption[] {
+  return publicTaxonomyOptionsFor("genre");
+}
+
+export function publicSubgenreFilterOptions(): CatalogTaxonomyFilterOption[] {
+  return publicTaxonomyOptionsFor("subgenre");
+}
+
+export function publicFacetFilterOptions(): CatalogTaxonomyFilterOption[] {
+  return publicTaxonomyOptionsFor("facet");
+}
+
+function taxonomyOptionsFor(games: CatalogListGame[], field: "genreSlugs" | "subgenreSlugs" | "facetSlugs"): CatalogTaxonomyFilterOption[] {
+  const counts = new Map<string, number>();
+  for (const game of games) {
+    for (const slug of game[field] ?? []) {
+      counts.set(slug, (counts.get(slug) ?? 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .map(([slug, count]) => ({
+      slug,
+      count,
+      name: findGameFacetEntityBySlug(slug)?.name ?? slug,
+    }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es", { sensitivity: "base" }));
+}
+
+export function genreFilterOptions(games: CatalogListGame[]): CatalogTaxonomyFilterOption[] {
+  return taxonomyOptionsFor(games, "genreSlugs");
+}
+
+export function subgenreFilterOptions(games: CatalogListGame[]): CatalogTaxonomyFilterOption[] {
+  return taxonomyOptionsFor(games, "subgenreSlugs");
+}
+
+export function facetFilterOptions(games: CatalogListGame[]): CatalogTaxonomyFilterOption[] {
+  return taxonomyOptionsFor(games, "facetSlugs");
+}
+
+export function companyFilterOptions(games: CatalogListGame[]): CatalogCompanyFilterOption[] {
+  const counts = new Map<string, { name: string; count: number }>();
+  for (const game of games) {
+    for (const company of game.companies ?? []) {
+      const name = company.trim();
+      if (!name) continue;
+      const key = name.toLowerCase();
+      const current = counts.get(key);
+      if (current) current.count += 1;
+      else counts.set(key, { name, count: 1 });
+    }
+  }
+
+  return [...counts.values()]
+    .map((entry) => ({ value: entry.name, name: entry.name, count: entry.count }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es", { sensitivity: "base" }));
 }

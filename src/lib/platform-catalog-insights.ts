@@ -1,5 +1,4 @@
 import { getRegionDisplay } from "@/lib/region-display";
-import type { CatalogListGame } from "@/lib/types";
 
 export type RegionSlice = {
   label: string;
@@ -82,7 +81,13 @@ export function regionBarColorForLabel(label: string, restIndex = 0): string {
   return FALLBACK_REGION_BAR_COLORS[restIndex % FALLBACK_REGION_BAR_COLORS.length];
 }
 
-export function buildPlatformCatalogInsights(games: CatalogListGame[]): PlatformCatalogInsights {
+type PlatformInsightGame = {
+  hasEsPrice?: boolean;
+  coverUrl?: string | null;
+  region: string;
+};
+
+export function buildPlatformCatalogInsights(games: PlatformInsightGame[]): PlatformCatalogInsights {
   const total = games.length;
   const withEsPrice = games.filter((g) => g.hasEsPrice).length;
   const withCover = games.filter((g) => Boolean(g.coverUrl)).length;

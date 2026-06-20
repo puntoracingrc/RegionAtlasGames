@@ -3,9 +3,7 @@ import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
   PRICE_FILTER_OPTIONS,
-  countByPriceFilter,
   filterCatalogGames,
-  regionOptions,
   type CatalogPriceFilter,
   type CatalogSort,
 } from "@/lib/catalog-filters";
@@ -15,8 +13,6 @@ import type { CatalogListGame } from "@/lib/types";
 
 type PlatformSearchCacheEntry = {
   games: CatalogListGame[];
-  regions: ReturnType<typeof regionOptions>;
-  priceCounts: ReturnType<typeof countByPriceFilter>;
   createdAt: number;
 };
 
@@ -33,8 +29,6 @@ async function getPlatformSearchData(slug: string): Promise<PlatformSearchCacheE
   const games = (await getCatalogByPlatformWithOverlay(slug)).map(toCatalogListGame);
   const entry = {
     games,
-    regions: regionOptions(games),
-    priceCounts: countByPriceFilter(games),
     createdAt: now,
   };
   platformSearchCache.set(slug, entry);
@@ -49,6 +43,10 @@ export async function GET(
   const url = new URL(request.url);
   const q = url.searchParams.get("q") ?? "";
   const region = url.searchParams.get("region") ?? "all";
+  const genre = url.searchParams.get("genre") ?? "all";
+  const subgenre = url.searchParams.get("subgenre") ?? "all";
+  const facet = url.searchParams.get("facet") ?? "all";
+  const company = url.searchParams.get("company") ?? "";
   const sort = (url.searchParams.get("sort") ?? DEFAULT_SORT) as CatalogSort;
   const priceFilterParam = url.searchParams.get("priceFilter") ?? "all";
   const priceFilter = PRICE_FILTER_OPTIONS.some((option) => option.value === priceFilterParam)
@@ -56,18 +54,15 @@ export async function GET(
     : "all";
   const page = Math.max(1, Number.parseInt(url.searchParams.get("page") ?? "1", 10) || 1);
 
-  const { games, regions, priceCounts } = await getPlatformSearchData(slug);
+  const { games } = await getPlatformSearchData(slug);
   const filtered = filterCatalogGames(
     games,
-    { q, region, platform: "all", sort, priceFilter },
+    { q, region, platform: "all", sort, priceFilter, genre, subgenre, facet, company, queryScope: "game" },
     { regions: true, platforms: false },
   );
   const start = (page - 1) * CATALOG_PAGE_SIZE;
-
   return NextResponse.json({
     items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE),
     total: filtered.total,
-    regions,
-    priceCounts,
   });
 }

@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, lstatSync, readFileSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -33,6 +33,7 @@ function walk(dir, acc = []) {
   for (const entry of readdirSync(dir)) {
     if (["node_modules", ".next", ".git", "data"].includes(entry)) continue;
     const full = path.join(dir, entry);
+    if (lstatSync(full).isSymbolicLink() && !existsSync(full)) continue;
     if (statSync(full).isDirectory()) walk(full, acc);
     else acc.push(full);
   }

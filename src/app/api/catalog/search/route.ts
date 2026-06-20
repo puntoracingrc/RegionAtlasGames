@@ -3,7 +3,6 @@ import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
   filterCatalogGames,
-  regionOptions,
   type CatalogPriceFilter,
   type CatalogSort,
 } from "@/lib/catalog-filters";
@@ -12,10 +11,10 @@ import { listedCatalog } from "@/lib/catalog";
 import { getPlatform } from "@/lib/catalog";
 import { catalogGamePath } from "@/lib/catalog-seo";
 import { getCoverSrc } from "@/lib/cover-url";
-import { gamesForIndex, getGenre } from "@/lib/indexes";
 import type { CatalogListGame } from "@/lib/types";
 
 const MAX_RESULTS = 12;
+let catalogSearchGamesCache: CatalogListGame[] | null = null;
 
 type SearchResult = {
   id: string;
@@ -29,6 +28,13 @@ type SearchResult = {
   coverUrl: string | null;
 };
 
+function catalogSearchGames(): CatalogListGame[] {
+  if (!catalogSearchGamesCache) {
+    catalogSearchGamesCache = listedCatalog.map(toCatalogListGame);
+  }
+  return catalogSearchGamesCache;
+}
+
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const q = url.searchParams.get("q") ?? "";
@@ -39,17 +45,28 @@ export async function GET(request: Request) {
   const page = Math.max(1, Number(url.searchParams.get("page") ?? "1") || 1);
   const mode = url.searchParams.get("mode") ?? "quick";
   const genreSlug = url.searchParams.get("genre") ?? "";
+  const subgenreSlug = url.searchParams.get("subgenre") ?? "";
+  const facetSlug = url.searchParams.get("facet") ?? "";
+  const hasTaxonomyFilter = Boolean(genreSlug || subgenreSlug || facetSlug);
 
-  if (q.trim().length < 2 && platform === "all" && region === "all" && mode !== "browser") {
+  if (q.trim().length < 2 && platform === "all" && region === "all" && !hasTaxonomyFilter && mode !== "browser") {
     return NextResponse.json({ items: [], total: 0 });
   }
 
-  const genreEntry = genreSlug ? getGenre(genreSlug) : undefined;
-  const sourceGames = genreSlug ? (genreEntry ? gamesForIndex(genreEntry) : []) : listedCatalog;
-  const games = sourceGames.map(toCatalogListGame);
+  const games = catalogSearchGames();
+  const filters = {
+    q,
+    platform,
+    region,
+    sort,
+    priceFilter,
+    genre: genreSlug || "all",
+    subgenre: subgenreSlug || "all",
+    facet: facetSlug || "all",
+  };
   const filtered = filterCatalogGames(
     games,
-    { q, platform, region, sort, priceFilter },
+    filters,
     { platforms: true, regions: true },
   );
 
@@ -58,7 +75,6 @@ export async function GET(request: Request) {
     return NextResponse.json({
       items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE),
       total: filtered.total,
-      regions: regionOptions(games),
     });
   }
 
@@ -84,7 +100,6 @@ export async function GET(request: Request) {
   return NextResponse.json({
     items,
     total: filtered.total,
-    regions: regionOptions(games),
   });
 }
 

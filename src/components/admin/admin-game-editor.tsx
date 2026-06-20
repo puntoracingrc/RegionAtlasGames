@@ -1145,7 +1145,6 @@ export function AdminGameEditor({
                 />
               }
             />
-
             <ControlledTaxonomySelector
               label="Géneros"
               helper="Busca y marca géneros del listado controlado; no admite texto libre nuevo."
@@ -1179,6 +1178,11 @@ export function AdminGameEditor({
                 />
               }
             />
+            {draft.subgenreNames.length > 0 ? (
+              <p className="text-xs leading-5 text-muted">
+                Seleccionados: {draft.subgenreNames.join(", ")}
+              </p>
+            ) : null}
 
             <ControlledTaxonomySelector
               label="Facetas / etiquetas controladas"
@@ -1196,6 +1200,11 @@ export function AdminGameEditor({
                 />
               }
             />
+            {draft.facetNames.length > 0 ? (
+              <p className="text-xs leading-5 text-muted">
+                Seleccionadas: {draft.facetNames.join(", ")}
+              </p>
+            ) : null}
 
             <label className="block space-y-1 sm:col-span-2">
               <span className="flex items-center justify-between gap-2">

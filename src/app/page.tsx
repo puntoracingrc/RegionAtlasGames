@@ -10,8 +10,9 @@ import {
 } from "@/lib/collection-store";
 import { listedCatalog, meta } from "@/lib/catalog";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
+import { publicRegionFilterOptions } from "@/lib/catalog-filters";
 import { formatEur } from "@/lib/price-format";
-import { getGameDetails, indexStats } from "@/lib/indexes";
+import { indexStats } from "@/lib/indexes";
 import { listNewsForSection } from "@/lib/news-cache";
 import { canViewCollectionValue } from "@/lib/plans";
 import { regionBarColorForLabel, regionSortRank } from "@/lib/platform-catalog-insights";
@@ -35,7 +36,7 @@ export default async function HomePage() {
     name: platform.name,
     shortName: platform.shortName,
   }));
-  const searchRegions = buildHomeRegionOptions();
+  const searchRegions = publicRegionFilterOptions();
   const platformRange =
     activePlatforms.length > 1
       ? `${activePlatforms[0].shortName} a ${activePlatforms.at(-1)?.shortName}`
@@ -79,9 +80,9 @@ export default async function HomePage() {
           </div>
         </header>
 
-        <HomeCatalogSearch platforms={searchPlatforms} regions={searchRegions} />
-
         <NewsStrip title="Actualidad del videojuego" items={homeNews} />
+
+        <HomeCatalogSearch platforms={searchPlatforms} regions={searchRegions} />
 
         <section className="mb-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <Stat label="Plataformas" value={String(activePlatforms.length)} hint="Consolas activas en catálogo" />
@@ -130,22 +131,6 @@ export default async function HomePage() {
   );
 }
 
-function buildHomeRegionOptions() {
-  const counts = new Map<string, number>();
-  for (const game of listedCatalog) {
-    const label = getRegionDisplay(game.region).label;
-    counts.set(label, (counts.get(label) ?? 0) + 1);
-  }
-
-  return [...counts.entries()]
-    .sort((a, b) => {
-      const rankDiff = regionSortRank(a[0]) - regionSortRank(b[0]);
-      if (rankDiff !== 0) return rankDiff;
-      return b[1] - a[1] || a[0].localeCompare(b[0], "es");
-    })
-    .map(([label, count]) => ({ value: label, label, count }));
-}
-
 function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <article className="rounded-lg border border-border/70 bg-card/70 px-4 py-3 shadow-sm shadow-slate-950/5 transition hover:-translate-y-0.5 hover:bg-card-hover">
@@ -176,17 +161,16 @@ type HeroAtlasStats = {
 
 function buildAtlasPanelStats(): HeroAtlasStats {
   const regionCounts = new Map<string, number>();
-  let detailCount = 0;
   let priceCount = 0;
 
   for (const game of listedCatalog) {
     const region = getRegionDisplay(game.region).label;
     regionCounts.set(region, (regionCounts.get(region) ?? 0) + 1);
-    if (getGameDetails(game.id)) detailCount += 1;
     if (game.hasEsPrice || game.recommendedPrice != null) priceCount += 1;
   }
 
   const total = listedCatalog.length;
+  const detailCount = meta.gamesWithDetails ?? 0;
   let restColorIndex = 0;
   const regions = [...regionCounts.entries()]
     .sort((a, b) => {

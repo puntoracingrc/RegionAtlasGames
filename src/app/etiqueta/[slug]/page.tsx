@@ -4,15 +4,19 @@ import { IndexEntityDetail } from "@/components/index-entity-detail";
 import { summarizeIndexSlug } from "@/lib/index-entity";
 import { findGameFacetProfileEntity } from "@/lib/game-facet-profile";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ from?: string }>;
+};
 
-export default async function TagDetailPage({ params }: Props) {
+export default async function TagDetailPage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const query = await searchParams;
+  if (findGameFacetProfileEntity(slug)) {
+    return <GameFacetProfileDetail slug={slug} fromCatalogId={query?.from} />;
+  }
   if (summarizeIndexSlug("tag", slug)) {
     return <IndexEntityDetail kind="tag" slug={slug} />;
-  }
-  if (findGameFacetProfileEntity(slug)) {
-    return <GameFacetProfileDetail slug={slug} />;
   }
   notFound();
 }
