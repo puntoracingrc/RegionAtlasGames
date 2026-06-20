@@ -45,7 +45,6 @@ import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getSellerOpenListing } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
-import { getAffiliateOfferBlock } from "@/lib/affiliate-offers";
 import { listPublicSeriesForGame } from "@/lib/admin-series-manager";
 import { findGameFacetEntityByNameOrAlias, findGameFacetEntityBySlug } from "@/lib/game-facets/taxonomy";
 import {
@@ -129,7 +128,6 @@ export default async function CatalogGamePage({ params }: Props) {
   const similar = getSimilarGames(game);
   const faqs = buildGameFaq(game, platform, details);
   const priceHistory = hasPriceHistory(game.id) ? getPriceHistory(game.id) : [];
-  const affiliateOffers = await getAffiliateOfferBlock(game, details ?? null);
   const publicSeries = await listPublicSeriesForGame(game.id);
   const youtubeVideos = (details?.videos ?? [])
     .filter((video) => video.provider === "youtube" && video.videoId)
@@ -206,11 +204,7 @@ export default async function CatalogGamePage({ params }: Props) {
 
             <CatalogMarketplacePanel catalogId={game.id} />
 
-            <AffiliateOffersPanel
-              offers={affiliateOffers.offers}
-              fallbackCta={affiliateOffers.fallbackCta}
-              trackingId={affiliateOffers.trackingId}
-            />
+            <AffiliateOffersPanel catalogId={game.id} />
           </div>
 
           <div className="min-w-0 space-y-5">

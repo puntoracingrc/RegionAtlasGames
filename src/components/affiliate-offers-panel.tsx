@@ -1,13 +1,28 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { formatEur } from "@/lib/price-format";
-import { getEbayAffiliateImpressionPixelUrl, type AffiliateFallbackCta, type AffiliateOffer } from "@/lib/affiliate-offers";
 import { AffiliateDisclosure } from "./affiliate/affiliate-disclosure";
 import { Badge, Panel, PanelTitle } from "./ui";
+import type { AffiliateFallbackCta, AffiliateOffer } from "@/lib/affiliate-offers";
+
+type AffiliateOffersResponse = {
+  enabled: boolean;
+  offers: AffiliateOffer[];
+  fallbackCta: AffiliateFallbackCta | null;
+  trackingId: string | null;
+  ebayImpressionPixelUrl: string | null;
+  error?: string;
+};
 
 type Props = {
-  offers: AffiliateOffer[];
-  fallbackCta?: AffiliateFallbackCta | null;
-  trackingId?: string | null;
+  catalogId: string;
 };
+
+type LoadState =
+  | { status: "loading" }
+  | { status: "ready"; data: AffiliateOffersResponse }
+  | { status: "error" };
 
 function providerLabel(provider: AffiliateOffer["provider"]): string {
   if (provider === "ebay") return "eBay";
@@ -24,12 +39,77 @@ function priceLabel(offer: AffiliateOffer): string {
   return offer.price != null ? `${offer.price.toFixed(2)} ${offer.currency}` : "Ver precio";
 }
 
-export function AffiliateOffersPanel({ offers, fallbackCta, trackingId }: Props) {
+export function AffiliateOffersPanel({ catalogId }: Props) {
+  const [state, setState] = useState<LoadState>({ status: "loading" });
+
+  useEffect(() => {
+    const controller = new AbortController();
+    setState({ status: "loading" });
+
+    fetch(`/api/catalog/offers/${encodeURIComponent(catalogId)}`, {
+      signal: controller.signal,
+      headers: { Accept: "application/json" },
+    })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return (await response.json()) as AffiliateOffersResponse;
+      })
+      .then((data) => {
+        setState({ status: "ready", data });
+      })
+      .catch((error) => {
+        if (controller.signal.aborted) return;
+        void error;
+        setState({ status: "error" });
+      });
+
+    return () => controller.abort();
+  }, [catalogId]);
+
+  if (state.status === "loading") {
+    return (
+      <Panel>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <PanelTitle eyebrow="Ofertas externas">Dónde comprar</PanelTitle>
+          <Badge tone="neutral">Cargando</Badge>
+        </div>
+        <p className="mt-3 text-sm leading-6 text-muted">
+          Buscando ofertas externas sin bloquear la ficha del juego…
+        </p>
+      </Panel>
+    );
+  }
+
+  if (state.status === "error") {
+    return (
+      <Panel>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <PanelTitle eyebrow="Ofertas externas">Dónde comprar</PanelTitle>
+          <Badge tone="neutral">No disponible</Badge>
+        </div>
+        <p className="mt-3 text-sm leading-6 text-muted">
+          No se han podido cargar ofertas externas ahora mismo. La ficha sigue disponible con normalidad.
+        </p>
+      </Panel>
+    );
+  }
+
+  const { offers, fallbackCta, ebayImpressionPixelUrl, error } = state.data;
+  if (offers.length === 0 && !fallbackCta && error) {
+    return (
+      <Panel>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <PanelTitle eyebrow="Ofertas externas">Dónde comprar</PanelTitle>
+          <Badge tone="neutral">No disponible</Badge>
+        </div>
+        <p className="mt-3 text-sm leading-6 text-muted">
+          No se han podido cargar ofertas externas ahora mismo. La ficha sigue disponible con normalidad.
+        </p>
+      </Panel>
+    );
+  }
+
   if (offers.length === 0 && !fallbackCta) return null;
-  const hasEbayLink = offers.some((offer) => offer.provider === "ebay") || fallbackCta?.provider === "ebay";
-  const ebayImpressionPixelUrl = hasEbayLink
-    ? getEbayAffiliateImpressionPixelUrl(trackingId ?? undefined)
-    : null;
 
   return (
     <Panel>

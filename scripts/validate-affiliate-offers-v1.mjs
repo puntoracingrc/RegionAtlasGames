@@ -29,6 +29,8 @@ function walk(dir, acc = []) {
 
 const disclosureComponent = "src/components/affiliate/affiliate-disclosure.tsx";
 const offersPanel = read("src/components/affiliate-offers-panel.tsx");
+const offersApi = read("src/app/api/catalog/offers/[catalogId]/route.ts");
+const catalogGamePage = read("src/app/catalogo/[slug]/page.tsx");
 const envExample = read(".env.example");
 const affiliateOffers = read("src/lib/affiliate-offers.ts");
 const disclosure = read("src/lib/affiliate/disclosure.ts");
@@ -44,7 +46,11 @@ assert(disclosure.includes("Disclosure:"), "El disclosure no empieza por Disclos
 assert(offersPanel.includes("<AffiliateDisclosure"), "AffiliateOffersPanel debe renderizar AffiliateDisclosure");
 assert(offersPanel.includes('rel="sponsored nofollow noopener noreferrer"'), "Los enlaces afiliados deben usar rel sponsored nofollow noopener noreferrer");
 assert(offersPanel.includes('target="_blank"'), "Los enlaces afiliados deben abrirse con target _blank tras click voluntario");
-assert(offersPanel.includes("getEbayAffiliateImpressionPixelUrl"), "El panel debe soportar píxel de impresión eBay");
+assert(
+  offersPanel.includes("getEbayAffiliateImpressionPixelUrl") ||
+    (offersPanel.includes("ebayImpressionPixelUrl") && offersApi.includes("getEbayAffiliateImpressionPixelUrl")),
+  "El panel debe soportar píxel de impresión eBay",
+);
 assert(offersPanel.includes("<img") && offersPanel.includes('aria-hidden="true"'), "El píxel eBay debe renderizarse como imagen no interactiva");
 assert(existsSync(file("src/app/affiliate-disclosure/page.tsx")), "Falta página /affiliate-disclosure/");
 assert(read("src/app/affiliate-disclosure/page.tsx").includes("no vende directamente"), "La página legal debe indicar que Region Atlas Games no vende directamente");
@@ -61,8 +67,21 @@ assert(!affiliateOffers.includes("item.itemAffiliateWebUrl ?? appendEbayTracking
 assert(affiliateOffers.includes("Buscar este juego en eBay"), "El CTA fallback debe llamarse Buscar este juego en eBay");
 assert(offersPanel.includes("fallbackCta") && offersPanel.includes("fallbackCta.label"), "El panel debe renderizar fallbackCta como CTA separado");
 assert(affiliateOffers.includes("trackingId"), "AffiliateOfferBlock debe devolver trackingId por ficha");
-assert(offersPanel.includes("trackingId") && read("src/app/catalogo/[slug]/page.tsx").includes("trackingId={affiliateOffers.trackingId}"), "El panel público debe recibir trackingId por ficha");
-assert(read("src/app/catalogo/[slug]/page.tsx").includes("fallbackCta={affiliateOffers.fallbackCta}"), "El panel público debe recibir fallbackCta por ficha");
+assert(
+  (offersPanel.includes("trackingId") && catalogGamePage.includes("trackingId={affiliateOffers.trackingId}")) ||
+    (offersApi.includes("trackingId") && offersPanel.includes("ebayImpressionPixelUrl")),
+  "El panel público debe recibir trackingId por ficha",
+);
+assert(
+  catalogGamePage.includes("fallbackCta={affiliateOffers.fallbackCta}") ||
+    (offersApi.includes("fallbackCta") && offersPanel.includes("fallbackCta")),
+  "El panel público debe recibir fallbackCta por ficha",
+);
+assert(!catalogGamePage.includes("await getAffiliateOfferBlock"), "La ficha pública no debe bloquearse esperando ofertas afiliadas");
+assert(
+  catalogGamePage.includes("catalogId={game.id}") && offersApi.includes("getAffiliateOfferBlock"),
+  "Las ofertas afiliadas deben cargarse bajo demanda por API pública",
+);
 assert(envExample.includes("# EBAY_AFFILIATE_IMPRESSION_PIXEL_URL="), "Falta documentar píxel de impresión eBay");
 assert(!/process\.env\.NEXT_PUBLIC_RAKUTEN_|NEXT_PUBLIC_RAKUTEN_[A-Z0-9_]+\s*=/.test(allSource), "No debe existir uso real de NEXT_PUBLIC_RAKUTEN_*");
 assert(!/<iframe[^>]+(?:ebay|rakuten|amazon|affiliate|adservice|marketingtracking)/i.test(allSource), "No debe haber iframes ocultos de afiliación");
