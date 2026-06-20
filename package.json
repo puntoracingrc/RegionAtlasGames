@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_OPTIONS=--max-old-space-size=6144 next build",
+    "build": "npm run details:by-id && NODE_OPTIONS=--max-old-space-size=6144 next build",
     "start": "next start",
     "lint": "eslint",
     "validate:affiliate-offers-v1": "node scripts/validate-affiliate-offers-v1.mjs",
@@ -44,6 +44,7 @@
     "details:wikidata": "PYTHONUNBUFFERED=1 python3 scripts/enrich_game_details.py --wikidata-only",
     "details:serialstation": "PYTHONUNBUFFERED=1 python3 scripts/enrich_serialstation.py",
     "details:indexes": "python3 scripts/enrich_game_details.py --indexes-only",
+    "details:by-id": "node scripts/generate-catalog-detail-by-id.mjs",
     "videos:youtube": "node scripts/enrich-youtube-videos.mjs",
     "news:enrich": "node scripts/enrich-news-cache.mjs",
     "news:upload": "node scripts/upload-news-cache-ftp.mjs",
