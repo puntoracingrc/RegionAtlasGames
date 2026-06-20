@@ -3,8 +3,8 @@
 
 Replica la búsqueda web:
   Tecnología → Gaming: consolas y videojuegos → Videojuegos y más → Videojuegos
-  Orden: más recientes · Filtro: últimos 30 días · Query: título + plataforma
-  Ej.: «Sonic the Hedgehog megadrive»
+  Orden: más recientes · Filtro: últimos 30 días · Query: solo título
+  Ej.: «Sonic the Hedgehog»
 
   python3 scripts/collect_wallapop.py --platform megadrive --limit 10 --dry-run
   python3 scripts/collect_wallapop.py --platform dreamcast

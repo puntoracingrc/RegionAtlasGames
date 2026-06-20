@@ -24,7 +24,7 @@ CONDITION_RANK = {"used": 1, "no_manual": 2, "cib": 3, "sealed": 4, "unknown": 5
 
 
 def build_kaoto_search_query(game: dict[str, Any]) -> str:
-    """Query del buscador: título + plataforma."""
+    """Query del buscador: solo título."""
     return build_search_query(game)
 
 

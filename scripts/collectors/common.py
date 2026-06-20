@@ -184,15 +184,8 @@ def platform_search_aliases(platform_slug: str) -> list[str]:
 
 
 def build_search_query(game: dict[str, Any], platform: dict[str, Any] | None = None) -> str:
-    """Título + plataforma. Ej.: «Batman Arkham Knight ps4», «Sonic megadrive»."""
-    parts = [str(game.get("title") or "").strip()]
-    platform_slug = str(game.get("platformSlug") or "").strip()
-    if not platform_slug and platform:
-        platform_slug = str(platform.get("slug") or "").strip()
-    platform_kw = platform_search_keyword(platform_slug)
-    if platform_kw:
-        parts.append(platform_kw)
-    return normalize_query(" ".join(p for p in parts if p))
+    """Título limpio del juego, sin añadir plataforma ni alias de consola."""
+    return normalize_query(str(game.get("title") or "").strip())
 
 
 def build_search_queries(
@@ -202,13 +195,8 @@ def build_search_queries(
     include_title_only: bool = True,
 ) -> list[str]:
     title = str(game.get("title") or "").strip()
-    platform_slug = str(game.get("platformSlug") or "").strip()
-    if not platform_slug and platform:
-        platform_slug = str(platform.get("slug") or "").strip()
 
     queries: list[str] = []
-    for alias in platform_search_aliases(platform_slug):
-        queries.append(normalize_query(" ".join(p for p in (title, alias) if p)))
     if include_title_only:
         queries.append(normalize_query(title))
 
@@ -224,17 +212,8 @@ def build_search_queries(
 
 
 def build_ebay_search_query(game: dict[str, Any], platform: dict[str, Any] | None = None) -> str:
-    """Título + keyword eBay (ebaySearchKeyword si existe en platform-sources.json)."""
-    from collectors.platform_sources import ebay_search_keyword
-
-    parts = [str(game.get("title") or "").strip()]
-    platform_slug = str(game.get("platformSlug") or "").strip()
-    if not platform_slug and platform:
-        platform_slug = str(platform.get("slug") or "").strip()
-    platform_kw = ebay_search_keyword(platform_slug)
-    if platform_kw:
-        parts.append(platform_kw)
-    return normalize_query(" ".join(p for p in parts if p))
+    """Título limpio del juego también para eBay; la plataforma se valida después."""
+    return build_search_query(game, platform)
 
 
 def to_ingest_listing(

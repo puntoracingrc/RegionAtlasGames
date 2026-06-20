@@ -21,7 +21,7 @@ DEFAULT_GAME_SEARCH_MAX_PAGES: int | None = None
 
 
 def build_jgo_search_query(game: dict[str, Any]) -> str:
-    """Query del buscador: título + plataforma."""
+    """Query del buscador: solo título."""
     return build_search_query(game)
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Ingest referencias retail desde japangameonline.com (WooCommerce).
 
-Búsqueda por juego vía el buscador de la home (título + plataforma, paginación).
+Búsqueda por juego vía el buscador de la home (solo título, paginación).
 Si JGO no tiene el juego, no hay resultados → siguiente.
 
   python3 scripts/collect_japangameonline.py --platform dreamcast --limit 5 --dry-run

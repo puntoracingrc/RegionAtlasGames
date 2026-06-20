@@ -45,7 +45,7 @@ class TodoColeccionBlockedError(RuntimeError):
 
 
 def build_tc_search_query(game: dict[str, Any]) -> str:
-    """Campo «con la frase exacta»: título + plataforma."""
+    """Campo «con la frase exacta»: solo título."""
     return build_search_query(game)
 
 

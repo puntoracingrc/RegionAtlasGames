@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Referencias retail CeX ES (Algolia) → data/price-ingest/{platform}-cex.json.
 
-Búsqueda por juego vía el buscador de la home (título + plataforma, paginación).
+Búsqueda por juego vía el buscador de la home (solo título, paginación).
 Si CeX no tiene el juego, no hay resultados → siguiente.
 
   python3 scripts/collect_cex.py --platform gamegear --limit 5 --dry-run

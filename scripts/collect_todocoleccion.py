@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Collector TodoColeccion ES → data/price-ingest/{platform}-todocoleccion.json.
 
-Búsqueda avanzada por juego (título + plataforma, paginación).
+Búsqueda avanzada por juego (solo título, paginación).
 Si TodoColeccion no tiene el juego, 0 resultados → siguiente.
 
   python3 scripts/collect_todocoleccion.py --platform gamegear --limit 5 --dry-run

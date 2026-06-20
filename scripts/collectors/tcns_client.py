@@ -66,7 +66,7 @@ def supported_platform_slugs() -> list[str]:
 
 
 def build_tcns_search_query(game: dict[str, Any]) -> str:
-    """Query del buscador: título + plataforma."""
+    """Query del buscador: solo título."""
     return build_search_query(game)
 
 

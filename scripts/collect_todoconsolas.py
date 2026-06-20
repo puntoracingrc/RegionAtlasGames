@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Ingest referencias retail desde todoconsolas.com (PrestaShop, segunda mano ES).
 
-Búsqueda avanzada por juego (título + plataforma, paginación).
+Búsqueda avanzada por juego (solo título, paginación).
 Si TodoConsolas no tiene el juego, no hay resultados → siguiente.
 
   python3 scripts/collect_todoconsolas.py --platform gamegear --limit 5 --dry-run

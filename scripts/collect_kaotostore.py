@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Ingest referencias retail desde kaotostore.myshopify.com (Shopify JSON).
 
-Búsqueda por juego vía el buscador de la home (título + plataforma, paginación).
+Búsqueda por juego vía el buscador de la home (solo título, paginación).
 Si Kaoto no tiene el juego, no hay resultados → siguiente.
 
   python3 scripts/collect_kaotostore.py --platform megadrive --limit 5 --dry-run

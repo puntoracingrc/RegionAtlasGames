@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Collector Vinted ES → data/price-ingest/{platform}-vinted.json.
 
-Búsqueda por juego (título + plataforma), orden «más recientes» y paginación al final.
+Búsqueda por juego (solo título), orden «más recientes» y paginación al final.
 
   python3 scripts/collect_vinted.py --platform gamegear --limit 10 --dry-run
   python3 scripts/collect_vinted.py --platform megadrive --sync
@@ -396,7 +396,7 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         "searchMode": "platform-sweep" if args.sweep_platform else "title",
         "notes": (
             f"Vinted ES — {'barrido por plataforma' if args.sweep_platform else 'búsqueda por juego'} "
-            "(título + plataforma). "
+            "(solo título). "
             "Orden: más recientes. Paginación numérica al final de resultados."
         ),
         "rateLimited": bool(stats.get("rate_limited")),
