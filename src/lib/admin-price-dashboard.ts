@@ -23,6 +23,9 @@ type PriceSyncPlatformStats = {
   source?: string;
   gamesTargeted?: number;
   gamesUpdated?: number;
+  wallapopGamesUpdated?: number;
+  ebayGamesUpdated?: number;
+  vintedGamesUpdated?: number;
   gamesSkippedNoData?: number;
   gamesRejectedOutliers?: number;
   gamesRejectedUnverifiedRegion?: number;
@@ -70,6 +73,15 @@ export type AdminPriceDashboard = {
   platformHealth: AdminPlatformPriceHealth[];
   manualJobs: AdminPriceJobMeta[];
   cronAttempts: AdminPriceCronAttempt[];
+  ebayStatus: AdminPriceEbayStatus;
+};
+
+export type AdminPriceEbayStatus = {
+  collectionReady: boolean;
+  affiliateReady: boolean;
+  label: string;
+  helper: string;
+  warnings: string[];
 };
 
 export type AdminRegionPriceHealth = {
@@ -228,7 +240,10 @@ function sourceUpdatesFromStats(
 ): AdminPriceSourceUpdate[] {
   if (!stats) return [];
   return [
-    ["P2P", stats.gamesUpdated],
+    ["P2P total", stats.gamesUpdated],
+    ["Wallapop", stats.wallapopGamesUpdated],
+    ["eBay", stats.ebayGamesUpdated],
+    ["Vinted", stats.vintedGamesUpdated],
     ["CeX", stats.cexGamesUpdated],
     ["JGO", stats.jgoGamesUpdated],
     ["Chollo", stats.cholloGamesUpdated],
@@ -241,6 +256,60 @@ function sourceUpdatesFromStats(
       value: Number(value ?? 0),
     }))
     .filter((item) => item.value > 0);
+}
+
+function boolEnv(name: string): boolean {
+  const value = process.env[name]?.trim().toLowerCase();
+  return value === "1" || value === "true" || value === "yes";
+}
+
+function buildEbayStatus(): AdminPriceEbayStatus {
+  const hasAppId = Boolean(process.env.EBAY_APP_ID?.trim());
+  const hasClientId = Boolean(process.env.EBAY_CLIENT_ID?.trim());
+  const hasClientSecret = Boolean(process.env.EBAY_CLIENT_SECRET?.trim());
+  const hasManualToken = Boolean(
+    process.env.EBAY_ACCESS_TOKEN?.trim() ||
+      process.env.EBAY_OAUTH_TOKEN?.trim(),
+  );
+  const affiliateEnabled =
+    boolEnv("AFFILIATE_OFFERS_ENABLED") || boolEnv("EBAY_AFFILIATE_ENABLED");
+  const hasCampaign = Boolean(
+    process.env.EBAY_CAMPAIGN_ID?.trim() ||
+      process.env.EBAY_AFFILIATE_CAMPAIGN_ID?.trim(),
+  );
+  const renewableBrowse = hasClientId && hasClientSecret;
+  const collectionReady = renewableBrowse || hasManualToken || hasAppId;
+  const affiliateReady = affiliateEnabled && renewableBrowse && hasCampaign;
+  const warnings: string[] = [];
+
+  if (!renewableBrowse) {
+    warnings.push(
+      "Falta EBAY_CLIENT_SECRET: no se puede renovar token Browse automáticamente.",
+    );
+  }
+  if (hasManualToken && !renewableBrowse) {
+    warnings.push("Hay token manual, pero puede caducar o ser inválido.");
+  }
+  if (!affiliateEnabled) warnings.push("Afiliación eBay desactivada en la web.");
+  if (!hasCampaign) warnings.push("Falta campaña de afiliación eBay.");
+
+  return {
+    collectionReady,
+    affiliateReady,
+    label: renewableBrowse
+      ? "eBay API renovable"
+      : hasManualToken
+        ? "eBay con token manual"
+        : hasAppId
+          ? "eBay legacy limitado"
+          : "eBay no configurado",
+    helper: affiliateReady
+      ? "Listo para recolectar precios y mostrar ofertas afiliadas."
+      : collectionReady
+        ? "Puede intentar recolección, pero falta completar afiliación o renovación estable."
+        : "No entrará en la rueda hasta configurar credenciales.",
+    warnings,
+  };
 }
 
 function platformHealth(state: PriceSyncState): AdminPlatformPriceHealth[] {
@@ -337,5 +406,6 @@ export async function getAdminPriceDashboard(
     platformHealth: platformHealth(activeState),
     manualJobs: await listAdminPriceJobs(limit),
     cronAttempts,
+    ebayStatus: buildEbayStatus(),
   };
 }

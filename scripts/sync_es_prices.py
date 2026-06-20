@@ -660,6 +660,9 @@ def main() -> None:
     by_id = {g["id"]: g for g in catalog}
 
     updated = 0
+    wallapop_updated = 0
+    ebay_updated = 0
+    vinted_updated = 0
     skipped = 0
     rejected_outliers = 0
     rejected_unverified = 0
@@ -712,6 +715,12 @@ def main() -> None:
                 game["hasEsPrice"] = True
                 game["priceRegionVerified"] = True
                 updated += 1
+                if "wallapop" in sources:
+                    wallapop_updated += 1
+                if "ebay-es" in sources:
+                    ebay_updated += 1
+                if "vinted-es" in sources:
+                    vinted_updated += 1
             else:
                 skipped += 1
         else:
@@ -821,6 +830,9 @@ def main() -> None:
     print(f"  Objetivo catálogo: {len(targets)} juegos")
     print(f"  P2P con ingest: {len(set(grouped) & target_ids)}")
     print(f"  Precio P2P actualizado: {updated}")
+    print(f"  Wallapop actualizado (P2P): {wallapop_updated}")
+    print(f"  eBay actualizado (P2P): {ebay_updated}")
+    print(f"  Vinted actualizado (P2P): {vinted_updated}")
     print(f"  CeX actualizado (retail aparte): {cex_updated}")
     print(f"  CeX rechazado (región): {cex_skipped}")
     print(f"  JGO actualizado (retail aparte): {jgo_updated}")
@@ -867,6 +879,9 @@ def main() -> None:
         "source": price_source_label({str(r.get("source", "other")).lower() for r in listings}),
         "gamesTargeted": len(targets),
         "gamesUpdated": updated,
+        "wallapopGamesUpdated": wallapop_updated,
+        "ebayGamesUpdated": ebay_updated,
+        "vintedGamesUpdated": vinted_updated,
         "gamesSkippedNoData": skipped,
         "gamesRejectedOutliers": rejected_outliers,
         "gamesRejectedUnverifiedRegion": rejected_unverified,
@@ -895,6 +910,9 @@ def main() -> None:
             "source": price_source_label({str(r.get("source", "other")).lower() for r in listings}),
             "gamesTargeted": len(targets),
             "gamesUpdated": updated,
+            "wallapopGamesUpdated": wallapop_updated,
+            "ebayGamesUpdated": ebay_updated,
+            "vintedGamesUpdated": vinted_updated,
             "coveragePct": coverage,
         }
     state["lastRunAt"] = now_iso()

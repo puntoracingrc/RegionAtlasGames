@@ -127,7 +127,10 @@ function jobProgress(job: AdminPriceJobMeta): { done: number; total: number; fai
 
 function updatedBySource(row: AdminPriceSyncRow): { label: string; value: number }[] {
   return [
-    ["P2P", row.gamesUpdated],
+    ["P2P total", row.gamesUpdated],
+    ["Wallapop", row.wallapopGamesUpdated],
+    ["eBay", row.ebayGamesUpdated],
+    ["Vinted", row.vintedGamesUpdated],
     ["CeX", row.cexGamesUpdated],
     ["JGO", row.jgoGamesUpdated],
     ["Chollo", row.cholloGamesUpdated],
@@ -174,6 +177,26 @@ export default async function AdminPricesPage({
           <p className="mt-3 text-xs text-muted">
             Este bloque solo cuenta llamadas reales de la rotación automática del hosting externo. Los lanzamientos manuales se ven abajo.
           </p>
+          <div className="mt-3 rounded-2xl border border-border bg-background/45 p-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted">eBay API / afiliación</p>
+                <p className="mt-1 text-sm font-semibold text-foreground">{dashboard.ebayStatus.label}</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <Badge tone={dashboard.ebayStatus.collectionReady ? "green" : "rose"}>recolección</Badge>
+                <Badge tone={dashboard.ebayStatus.affiliateReady ? "green" : "amber"}>afiliación</Badge>
+              </div>
+            </div>
+            <p className="mt-2 text-xs text-muted">{dashboard.ebayStatus.helper}</p>
+            {dashboard.ebayStatus.warnings.length > 0 ? (
+              <ul className="mt-2 space-y-1 text-xs text-amber-700 dark:text-amber-300">
+                {dashboard.ebayStatus.warnings.map((warning) => (
+                  <li key={warning}>• {warning}</li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
           {dashboard.nextStep.platforms.length > 1 && (
             <p className="mt-3 text-xs text-muted">
               Este lote incluye: {dashboard.nextStep.platforms.map((p) => p.name).join(", ")}.
