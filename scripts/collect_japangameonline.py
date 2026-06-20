@@ -33,6 +33,7 @@ from collectors.jgo_match import (  # noqa: E402
     infer_jgo_region_product,
     is_game_product,
     pick_best_product_rows,
+    product_platform_slug,
     product_to_ingest_row,
 )
 from collectors.listing_recency import search_per_game_pages  # noqa: E402
@@ -82,6 +83,12 @@ def collect_game_rows(
             return None
         return row
 
+    def is_target_platform_product(product: dict[str, Any]) -> bool:
+        if not is_game_product(product):
+            return False
+        detected_platform = product_platform_slug(product.get("categories") or [])
+        return not detected_platform or detected_platform == platform_slug
+
     stats = run_match_pipeline(
         products,
         [game],
@@ -90,7 +97,7 @@ def collect_game_rows(
         ref_to_ids=ref_to_ids,
         row_builder=row_builder,
         infer_listing_region=infer_jgo_region_product,
-        is_valid_product=is_game_product,
+        is_valid_product=is_target_platform_product,
         use_ai=use_ai,
         use_match_cache=use_match_cache,
         pick_best=pick_best_product_rows,

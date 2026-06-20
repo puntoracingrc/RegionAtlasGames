@@ -38,6 +38,7 @@ from collectors.kaoto_match import (  # noqa: E402
 from collectors.match_pipeline import run_match_pipeline  # noqa: E402
 from collectors.listing_recency import search_per_game_pages  # noqa: E402
 from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
+from collectors.platform_evidence import product_platform_is_compatible  # noqa: E402
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
 
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
@@ -100,6 +101,7 @@ def collect_game_rows(
         ref_to_ids=ref_to_ids,
         row_builder=row_builder,
         infer_listing_region=infer_kaoto_region_product,
+        is_valid_product=lambda product: product_platform_is_compatible(product, platform_slug),
         use_ai=use_ai,
         use_match_cache=use_match_cache,
         pick_best=pick_best_product_rows,
