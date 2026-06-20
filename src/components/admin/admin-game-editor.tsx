@@ -1106,20 +1106,12 @@ export function AdminGameEditor({
             <label className="block space-y-1 sm:col-span-2">
               <span className="flex items-center justify-between gap-2">
                 <span className="text-[10px] uppercase tracking-wider text-muted">Descripción</span>
-                <span className="flex gap-1">
-                  <AiMagicButton
-                    label="Generar solo descripción con IA"
-                    busy={aiTargetRunning === "description"}
-                    disabled={saving || aiRunning || locked || isContributor}
-                    onClick={() => void runAiFill(["description"], "descripción")}
-                  />
-                  <AiMagicButton
-                    label="Generar SEO con IA"
-                    busy={aiTargetRunning === "seo"}
-                    disabled={saving || aiRunning || locked || isContributor}
-                    onClick={() => void runAiFill(["seo"], "SEO")}
-                  />
-                </span>
+                <AiMagicButton
+                  label="Generar solo descripción con IA"
+                  busy={aiTargetRunning === "description"}
+                  disabled={saving || aiRunning || locked || isContributor}
+                  onClick={() => void runAiFill(["description"], "descripción")}
+                />
               </span>
               <textarea
                 rows={6}
