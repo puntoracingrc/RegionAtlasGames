@@ -13,6 +13,7 @@ import { listedCatalog, meta } from "@/lib/catalog";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
+import { getDefaultCatalogInitialPage } from "@/lib/public-catalog-initial-page";
 import { publicCompanyFilterOptions, publicPlatformFilterOptions } from "@/lib/public-catalog-filter-options";
 import { getCurrentUser } from "@/lib/users";
 
@@ -21,10 +22,6 @@ type Props = {
 };
 
 export const dynamic = "force-dynamic";
-
-function sortCatalogByTitle<T extends { title: string }>(games: T[]): T[] {
-  return [...games].sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }));
-}
 
 export default async function CatalogPage({ searchParams }: Props) {
   const params = await searchParams;
@@ -60,10 +57,7 @@ export default async function CatalogPage({ searchParams }: Props) {
         },
         { regions: true, platforms: true },
       )
-    : {
-        items: sortCatalogByTitle(listedCatalog).slice(0, CATALOG_PAGE_SIZE).map(toCatalogListGame),
-        total: meta.catalogListed,
-      };
+    : getDefaultCatalogInitialPage();
 
   return (
     <>
