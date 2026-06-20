@@ -226,6 +226,7 @@ export function AdminEntitiesPanel({
   const [companySuccessor, setCompanySuccessor] = useState("");
   const [companySeoTitle, setCompanySeoTitle] = useState("");
   const [companySeoDescription, setCompanySeoDescription] = useState("");
+  const [companyAutoAi, setCompanyAutoAi] = useState(false);
 
   const [genreName, setGenreName] = useState("");
   const [genreSlug, setGenreSlug] = useState("");
@@ -262,6 +263,26 @@ export function AdminEntitiesPanel({
     );
     if (!match || match.slug === currentSlug) return null;
     return { slug: match.slug, name: match.name };
+  }
+
+  function applyCompanyAiPatch(patch: Record<string, unknown>, targets?: CompanyAiTarget[]) {
+    if (typeof patch.history === "string") setEditCompanyHistory(patch.history);
+    if (typeof patch.logoUrl === "string") setEditCompanyLogoUrl(patch.logoUrl);
+    if (typeof patch.websiteUrl === "string") setEditCompanyWebsiteUrl(patch.websiteUrl);
+    if (typeof patch.foundedYear === "number") setEditCompanyFoundedYear(String(patch.foundedYear));
+    if (patch.foundedYear === null && targets?.includes("years")) setEditCompanyFoundedYear("");
+    if (typeof patch.closedYear === "number") setEditCompanyClosedYear(String(patch.closedYear));
+    if (patch.closedYear === null && targets?.includes("years")) setEditCompanyClosedYear("");
+    if (patch.status === "active" || patch.status === "defunct" || patch.status === "subsidiary" || patch.status === "unknown") {
+      setEditCompanyStatus(patch.status);
+    }
+    if (patch.parentCompany !== undefined) setEditParentCompany(relationInputValue(patch.parentCompany as CompanyRelation | null));
+    if (patch.acquiredByCompany !== undefined) setEditAcquiredByCompany(relationInputValue(patch.acquiredByCompany as CompanyRelation | null));
+    if (patch.mergedWithCompany !== undefined) setEditMergedWithCompany(relationInputValue(patch.mergedWithCompany as CompanyRelation | null));
+    if (patch.predecessorCompany !== undefined) setEditPredecessorCompany(relationInputValue(patch.predecessorCompany as CompanyRelation | null));
+    if (patch.successorCompany !== undefined) setEditSuccessorCompany(relationInputValue(patch.successorCompany as CompanyRelation | null));
+    if (typeof patch.seoTitle === "string") setEditCompanySeoTitle(patch.seoTitle);
+    if (typeof patch.seoDescription === "string") setEditCompanySeoDescription(patch.seoDescription);
   }
 
   const loadPlatforms = useCallback(async () => {
@@ -381,6 +402,33 @@ export function AdminEntitiesPanel({
         setError(data.error ?? "No se pudo crear la compañía.");
         return;
       }
+      const createdSlug = data.company.slug as string;
+      const createdName = data.company.name as string;
+      const createdStatus = companyStatus;
+      const createdParentCompany = relationFromInput(companyParent, createdSlug);
+      const createdAcquiredByCompany = relationFromInput(companyAcquiredBy, createdSlug);
+      const createdMergedWithCompany = relationFromInput(companyMergedWith, createdSlug);
+      const createdPredecessorCompany = relationFromInput(companyPredecessor, createdSlug);
+      const createdSuccessorCompany = relationFromInput(companySuccessor, createdSlug);
+
+      setEditingSlug(createdSlug);
+      setMergeSourceSlug(null);
+      setEditName(createdName);
+      setEditNewSlug(createdSlug);
+      setEditCompanyHistory(companyHistory);
+      setEditCompanyLogoUrl(companyLogoUrl);
+      setEditCompanyWebsiteUrl(companyWebsiteUrl);
+      setEditCompanyFoundedYear(companyFoundedYear);
+      setEditCompanyClosedYear(companyClosedYear);
+      setEditCompanyStatus(createdStatus);
+      setEditParentCompany(relationInputValue(createdParentCompany));
+      setEditAcquiredByCompany(relationInputValue(createdAcquiredByCompany));
+      setEditMergedWithCompany(relationInputValue(createdMergedWithCompany));
+      setEditPredecessorCompany(relationInputValue(createdPredecessorCompany));
+      setEditSuccessorCompany(relationInputValue(createdSuccessorCompany));
+      setEditCompanySeoTitle(companySeoTitle);
+      setEditCompanySeoDescription(companySeoDescription);
+
       setCompanyName("");
       setCompanySlug("");
       setCompanyHistory("");
@@ -396,12 +444,49 @@ export function AdminEntitiesPanel({
       setCompanySuccessor("");
       setCompanySeoTitle("");
       setCompanySeoDescription("");
-      setMessage(`Compañía «${data.company.name}» creada.`);
       await loadCompanies("");
       setSearch("");
+      if (companyAutoAi) {
+        setCompanyAiRunning("all");
+        setMessage(`Compañía «${createdName}» creada. IA completando huecos…`);
+        const aiRes = await fetch(
+          `/api/admin/entities/companies/${encodeURIComponent(createdSlug)}/ai-fill`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: createdName,
+              history: companyHistory,
+              logoUrl: companyLogoUrl,
+              websiteUrl: companyWebsiteUrl,
+              foundedYear: companyFoundedYear ? Number.parseInt(companyFoundedYear, 10) : null,
+              closedYear: companyClosedYear ? Number.parseInt(companyClosedYear, 10) : null,
+              status: createdStatus,
+              parentCompany: createdParentCompany,
+              acquiredByCompany: createdAcquiredByCompany,
+              mergedWithCompany: createdMergedWithCompany,
+              predecessorCompany: createdPredecessorCompany,
+              successorCompany: createdSuccessorCompany,
+              seoTitle: companySeoTitle,
+              seoDescription: companySeoDescription,
+            }),
+          },
+        );
+        const aiData = await aiRes.json();
+        if (!aiRes.ok) {
+          setError(aiData.error ?? "Compañía creada, pero la IA no pudo completar huecos.");
+          setMessage(`Compañía «${createdName}» creada. Revisa el editor abierto.`);
+          return;
+        }
+        applyCompanyAiPatch(aiData.patch ?? {});
+        setMessage(`Compañía «${createdName}» creada y completada con IA. Revisa y guarda.`);
+      } else {
+        setMessage(`Compañía «${createdName}» creada. Editor abierto para revisar.`);
+      }
     } catch {
       setError("Error de red.");
     } finally {
+      setCompanyAiRunning(null);
       setSaving(false);
     }
   }
@@ -632,23 +717,7 @@ export function AdminEntitiesPanel({
         return;
       }
       const patch = data.patch ?? {};
-      if (typeof patch.history === "string") setEditCompanyHistory(patch.history);
-      if (typeof patch.logoUrl === "string") setEditCompanyLogoUrl(patch.logoUrl);
-      if (typeof patch.websiteUrl === "string") setEditCompanyWebsiteUrl(patch.websiteUrl);
-      if (typeof patch.foundedYear === "number") setEditCompanyFoundedYear(String(patch.foundedYear));
-      if (patch.foundedYear === null && targets?.includes("years")) setEditCompanyFoundedYear("");
-      if (typeof patch.closedYear === "number") setEditCompanyClosedYear(String(patch.closedYear));
-      if (patch.closedYear === null && targets?.includes("years")) setEditCompanyClosedYear("");
-      if (patch.status === "active" || patch.status === "defunct" || patch.status === "subsidiary" || patch.status === "unknown") {
-        setEditCompanyStatus(patch.status);
-      }
-      if (patch.parentCompany !== undefined) setEditParentCompany(relationInputValue(patch.parentCompany));
-      if (patch.acquiredByCompany !== undefined) setEditAcquiredByCompany(relationInputValue(patch.acquiredByCompany));
-      if (patch.mergedWithCompany !== undefined) setEditMergedWithCompany(relationInputValue(patch.mergedWithCompany));
-      if (patch.predecessorCompany !== undefined) setEditPredecessorCompany(relationInputValue(patch.predecessorCompany));
-      if (patch.successorCompany !== undefined) setEditSuccessorCompany(relationInputValue(patch.successorCompany));
-      if (typeof patch.seoTitle === "string") setEditCompanySeoTitle(patch.seoTitle);
-      if (typeof patch.seoDescription === "string") setEditCompanySeoDescription(patch.seoDescription);
+      applyCompanyAiPatch(patch, targets);
       setMessage(`IA aplicada a ${label}. Revisa y guarda.`);
     } catch {
       setError("Error de red al completar la compañía con IA.");
@@ -1018,9 +1087,30 @@ export function AdminEntitiesPanel({
                 placeholder="Opcional"
               />
             </label>
+            <label className="flex items-center gap-3 rounded-xl border border-border bg-card/70 p-3 text-sm md:col-span-2">
+              <input
+                type="checkbox"
+                checked={companyAutoAi}
+                onChange={(e) => setCompanyAutoAi(e.target.checked)}
+              />
+              <span>
+                <span className="block font-medium text-foreground">
+                  Crear compañía y completar huecos con IA en el editor
+                </span>
+                <span className="text-xs text-muted">
+                  Respeta los campos que ya hayas rellenado y solo intenta completar lo que falte.
+                </span>
+              </span>
+            </label>
             <div className="md:col-span-2">
               <button type="submit" className="btn-primary" disabled={saving}>
-                {saving ? "Creando…" : "Crear compañía"}
+                {saving
+                  ? companyAiRunning === "all"
+                    ? "IA completando…"
+                    : "Creando…"
+                  : companyAutoAi
+                    ? "Crear compañía y completar huecos con IA en el editor"
+                    : "Crear compañía"}
               </button>
             </div>
           </form>

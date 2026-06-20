@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
+import { listAdminCompanies } from "@/lib/admin-entity-catalog";
 import { fillAdminCompanyWithAi, type AdminCompanyAiTarget } from "@/lib/admin-company-ai-fill";
-import { companies } from "@/lib/indexes";
 
 type RouteParams = { params: Promise<{ slug: string }> };
 
@@ -21,10 +21,12 @@ export async function POST(request: Request, { params }: RouteParams) {
   }
 
   const slug = decodeURIComponent((await params).slug);
-  const company = companies[slug];
+  const companyRows = await listAdminCompanies({ q: slug, limit: 500 });
+  const company = companyRows.find((row) => row.slug === slug);
   if (!company) {
     return NextResponse.json({ error: "Compañía no encontrada." }, { status: 404 });
   }
+  const companyCandidates = await listAdminCompanies({ limit: 500 });
 
   const body = (await request.json().catch(() => ({}))) as {
     name?: unknown;
@@ -64,7 +66,7 @@ export async function POST(request: Request, { params }: RouteParams) {
     successorCompany: body.successorCompany ?? null,
     seoTitle: typeof body.seoTitle === "string" ? body.seoTitle : null,
     seoDescription: typeof body.seoDescription === "string" ? body.seoDescription : null,
-    companyCandidates: Object.values(companies).map((candidate) => ({
+    companyCandidates: companyCandidates.map((candidate) => ({
       slug: candidate.slug,
       name: candidate.name,
     })),
