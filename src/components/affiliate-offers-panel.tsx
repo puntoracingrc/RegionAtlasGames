@@ -1,10 +1,11 @@
 import { formatEur } from "@/lib/price-format";
-import type { AffiliateOffer } from "@/lib/affiliate-offers";
+import { getEbayAffiliateImpressionPixelUrl, type AffiliateOffer } from "@/lib/affiliate-offers";
 import { AffiliateDisclosure } from "./affiliate/affiliate-disclosure";
 import { Badge, Panel, PanelTitle } from "./ui";
 
 type Props = {
   offers: AffiliateOffer[];
+  trackingId?: string | null;
 };
 
 function providerLabel(provider: AffiliateOffer["provider"]): string {
@@ -22,11 +23,26 @@ function priceLabel(offer: AffiliateOffer): string {
   return offer.price != null ? `${offer.price.toFixed(2)} ${offer.currency}` : "Ver precio";
 }
 
-export function AffiliateOffersPanel({ offers }: Props) {
+export function AffiliateOffersPanel({ offers, trackingId }: Props) {
   if (offers.length === 0) return null;
+  const ebayImpressionPixelUrl = offers.some((offer) => offer.provider === "ebay")
+    ? getEbayAffiliateImpressionPixelUrl(trackingId ?? undefined)
+    : null;
 
   return (
     <Panel>
+      {ebayImpressionPixelUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={ebayImpressionPixelUrl}
+          alt=""
+          aria-hidden="true"
+          width={1}
+          height={1}
+          className="pointer-events-none absolute h-px w-px opacity-0"
+          loading="eager"
+        />
+      ) : null}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <PanelTitle eyebrow="Ofertas externas">Dónde comprar</PanelTitle>
         <Badge tone="neutral">Enlaces afiliados</Badge>

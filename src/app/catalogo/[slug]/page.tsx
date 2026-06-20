@@ -205,7 +205,7 @@ export default async function CatalogGamePage({ params }: Props) {
 
             <CatalogMarketplacePanel catalogId={game.id} />
 
-            <AffiliateOffersPanel offers={affiliateOffers.offers} />
+            <AffiliateOffersPanel offers={affiliateOffers.offers} trackingId={affiliateOffers.trackingId} />
           </div>
 
           <div className="min-w-0 space-y-5">

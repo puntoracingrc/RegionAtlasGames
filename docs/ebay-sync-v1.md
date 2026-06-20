@@ -2,7 +2,7 @@
 
 ## 1. Objetivo
 
-Preparar una integración backend/local con eBay Browse API para buscar listings concretos de videojuegos, consolas y productos relacionados, normalizarlos al modelo común `AffiliateOffer` y dejarlos listos para una futura capa de ofertas externas.
+Preparar una integración backend con eBay Browse API para buscar listings concretos por ficha de juego, normalizarlos al modelo común `AffiliateOffer` y mostrarlos como bloque de ofertas externas cuando la afiliación esté activada.
 
 Region Atlas Games sigue siendo catálogo, base de datos y guía de videojuegos. No se convierte en tienda propia.
 
@@ -10,11 +10,10 @@ Region Atlas Games sigue siendo catálogo, base de datos y guía de videojuegos.
 
 Estado de esta fase:
 
-- Implementado backend/local.
-- Desactivado por defecto.
-- Sin ofertas públicas.
-- Sin variables eBay en Vercel.
-- Sin frontend público usando eBay.
+- Implementado backend y bloque público.
+- Desactivado por defecto mediante variables.
+- Ofertas públicas solo si `AFFILIATE_OFFERS_ENABLED=true` y `EBAY_AFFILIATE_ENABLED=true`.
+- Variables eBay configurables en Vercel / servidor.
 - Sin Product Search/Deep Links de Rakuten.
 - Sin Feed API, Feed Beta API ni Notification API.
 
@@ -35,9 +34,19 @@ EBAY_CAMPAIGN_ID=
 EBAY_CUSTOM_ID_PREFIX=rag
 EBAY_CONTEXTUAL_COUNTRY=ES
 EBAY_CONTEXTUAL_ZIP=
+EBAY_AFFILIATE_LIMIT=6
+EBAY_AFFILIATE_IMPRESSION_PIXEL_URL=
+EBAY_AFFILIATE_MPT=
+EBAY_AFFILIATE_MKCID=1
+EBAY_AFFILIATE_MKRID=1185-53479-19255-0
+EBAY_AFFILIATE_MKEVT=2
+EBAY_AFFILIATE_SITE_ID=186
+EBAY_AFFILIATE_AD_TYPE=0
+EBAY_AFFILIATE_TOOL_ID=20012
+EBAY_AFFILIATE_CUSTOM_ID=region-atlas-games
 ```
 
-`AFFILIATE_OFFERS_ENABLED` debe seguir en `false` hasta activar una fase pública con whitelist y revisión manual.
+`AFFILIATE_OFFERS_ENABLED` y `EBAY_AFFILIATE_ENABLED` controlan producción. Si no están activos, no se muestra el bloque eBay.
 
 ## 4. OAuth Application Access Token
 
@@ -65,11 +74,11 @@ GET /item_summary/search
 Ejemplos de búsqueda:
 
 ```txt
-Silent Hill 2 PS2 PAL
-Super Mario 64 Nintendo 64 PAL
-Metal Gear Solid PS1 PAL España
-Pokemon Game Boy PAL España
-Zelda Ocarina of Time Nintendo 64 PAL
+Silent Hill 2 PS2 PAL España PAL
+Super Mario 64 Nintendo 64 PAL España PAL
+Metal Gear Solid PS1 PAL España PAL
+Pokemon Game Boy NTSC USA USA
+Zelda Ocarina of Time Nintendo 64 Japanese Japan
 ```
 
 Headers:
@@ -79,7 +88,13 @@ Authorization: Bearer {access_token}
 X-EBAY-C-MARKETPLACE-ID: EBAY_ES
 ```
 
-Si existe `EBAY_CAMPAIGN_ID`, se prepara `X-EBAY-C-ENDUSERCTX` con `affiliateCampaignId` y `affiliateReferenceId`.
+Si existe `EBAY_CAMPAIGN_ID`, se prepara `X-EBAY-C-ENDUSERCTX` con `affiliateCampaignId` y `affiliateReferenceId`:
+
+```txt
+affiliateCampaignId=${EBAY_CAMPAIGN_ID},affiliateReferenceId=rag-game-{gameSlug}-{platformSlug}
+```
+
+Si no hay plataforma, el patrón queda `rag-game-{gameSlug}`.
 
 ## 6. Affiliate URL policy
 
@@ -87,9 +102,10 @@ Regla crítica:
 
 - `itemAffiliateWebUrl` se usa como `affiliateUrl`.
 - `itemWebUrl` se guarda solo como `rawProductUrl` / referencia cruda.
-- Si no hay `itemAffiliateWebUrl`, la oferta queda como `invalid_affiliate_url` y no puede mostrarse públicamente como afiliada.
+- Si no hay `itemAffiliateWebUrl`, la oferta normalizada queda como `invalid_affiliate_url`.
+- En el bloque público, si no hay resultados válidos de API, se muestra un fallback de búsqueda de eBay con `campid` y `customid` automáticos.
 
-No usar `itemWebUrl` como enlace comisionable.
+No generar enlaces manuales por juego.
 
 ## 7. Matching conservador
 
@@ -199,7 +215,7 @@ Prohibido:
 - scraping de eBay
 - checkout / carrito / pagos / pedidos
 
-Todo enlace afiliado público futuro deberá ir acompañado de disclosure y usar:
+Todo enlace afiliado público debe ir acompañado de disclosure y usar:
 
 ```html
 target="_blank"
@@ -253,7 +269,7 @@ npm run validate:all
 npx tsc --noEmit --pretty false
 ```
 
-El validador comprueba estructura, variables por defecto, ausencia de `NEXT_PUBLIC_EBAY`, ausencia de frontend público, uso de `itemAffiliateWebUrl`, `itemWebUrl` solo como `rawProductUrl`, soporte de marketplace/end-user context y que Feed/Notification sigan fuera del código V1.
+El validador comprueba estructura, variables por defecto, ausencia de `NEXT_PUBLIC_EBAY`, uso de `itemAffiliateWebUrl`, fallback de búsqueda con tracking, píxel de impresión, soporte de marketplace/end-user context y que Feed/Notification sigan fuera del código V1.
 
 ## 16. Future backlog
 
@@ -280,6 +296,6 @@ Para V1, la estrategia de refresh será simple:
 - Cache corto.
 - No guardar inventario masivo.
 - No crear jobs globales.
-- No mostrar ofertas públicas hasta activar whitelist y validar `itemAffiliateWebUrl`.
+- No mostrar ofertas públicas si `AFFILIATE_OFFERS_ENABLED` y `EBAY_AFFILIATE_ENABLED` no están activos.
 
 Regla: Browse API sigue siendo la única fuente eBay de V1.

@@ -7,7 +7,7 @@ process.env.EBAY_BROWSE_API_BASE = "https://api.ebay.com/buy/browse/v1";
 
 const { buildEbayBasicAuthHeader, clearEbayCachedToken, getEbayAccessToken } = await import("../src/lib/ebay/ebay-auth.ts");
 const { ebayFetch } = await import("../src/lib/ebay/ebay-client.ts");
-const { buildEbayEndUserContext } = await import("../src/lib/ebay/ebay-enduserctx.ts");
+const { buildEbayEndUserContext, buildEbayGameCustomId } = await import("../src/lib/ebay/ebay-enduserctx.ts");
 const { normalizeEbayItem, normalizeEbayCondition } = await import("../src/lib/ebay/ebay-normalize.ts");
 const { searchEbayOffers } = await import("../src/lib/ebay/ebay-search.ts");
 const { scoreOfferMatch } = await import("../src/lib/affiliate/matching/score-offer-match.ts");
@@ -37,7 +37,8 @@ function item(overrides = {}) {
 }
 
 assert.equal(buildEbayBasicAuthHeader("client", "secret"), `Basic ${Buffer.from("client:secret", "utf8").toString("base64")}`, "genera Basic auth");
-assert.equal(buildEbayEndUserContext({ campaignId: "camp123", customIdPrefix: "rag", gameId: "silent-hill" }), "affiliateCampaignId=camp123,affiliateReferenceId=rag-silent-hill", "genera enduserctx afiliado");
+assert.equal(buildEbayGameCustomId({ customIdPrefix: "rag", gameSlug: "silent-hill-2", platformSlug: "ps2" }), "rag-game-silent-hill-2-ps2", "genera customid por juego y plataforma");
+assert.equal(buildEbayEndUserContext({ campaignId: "camp123", customIdPrefix: "rag", gameSlug: "silent-hill-2", platformSlug: "ps2" }), "affiliateCampaignId=camp123,affiliateReferenceId=rag-game-silent-hill-2-ps2", "genera enduserctx afiliado por juego");
 
 process.env.EBAY_AFFILIATE_ENABLED = "true";
 process.env.EBAY_CLIENT_ID = "client";

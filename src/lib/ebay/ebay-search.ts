@@ -21,7 +21,11 @@ export async function searchEbayOffers(input: EbaySearchInput): Promise<Affiliat
   if (input.gtin) url.searchParams.set("gtin", input.gtin);
   url.searchParams.set("limit", String(maxResults));
 
-  const response = await ebayFetch<EbaySearchResponse>(url.toString(), {}, { marketplaceId: input.marketplaceId, gameId: input.gameId });
+  const response = await ebayFetch<EbaySearchResponse>(url.toString(), {}, {
+    marketplaceId: input.marketplaceId,
+    gameId: input.gameId,
+    platformSlug: input.platformSlug ?? input.platform,
+  });
   return (response.itemSummaries ?? [])
     .map((item) => normalizeEbayItem(input, item))
     .filter((offer): offer is AffiliateOffer => Boolean(offer))

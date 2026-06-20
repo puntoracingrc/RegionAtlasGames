@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, lstatSync, readFileSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -34,6 +34,7 @@ function walk(dir, acc = []) {
   for (const entry of readdirSync(dir)) {
     if (["node_modules", ".next", ".git", "data"].includes(entry)) continue;
     const full = path.join(dir, entry);
+    if (lstatSync(full).isSymbolicLink() && !existsSync(full)) continue;
     if (statSync(full).isDirectory()) walk(full, acc);
     else acc.push(full);
   }
@@ -86,6 +87,8 @@ if (!client.includes("clearEbayCachedToken")) fail("401 debe limpiar token");
 if (!client.includes('"X-EBAY-C-MARKETPLACE-ID"')) fail("Falta marketplace header");
 if (!client.includes("X-EBAY-C-ENDUSERCTX")) fail("Falta preparación de tracking afiliado eBay");
 if (!enduserctx.includes("affiliateCampaignId")) fail("Enduserctx debe soportar affiliateCampaignId");
+if (!enduserctx.includes("buildEbayGameCustomId")) fail("Falta customid automático por juego para eBay");
+if (!enduserctx.includes('"game"')) fail("El customid eBay debe incluir el segmento game");
 if (!search.includes("/item_summary/search")) fail("Falta Browse item_summary/search");
 if (!docs.includes("Inventory Discovery & Refresh decision")) fail("Falta decisión Inventory Discovery & Refresh en docs eBay");
 if (!docs.includes("Browse API sigue siendo la única fuente eBay de V1")) fail("Docs deben fijar Browse API como única fuente V1");

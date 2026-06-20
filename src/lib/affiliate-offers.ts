@@ -1,6 +1,8 @@
 import { existsSync, readFileSync } from "fs";
 import path from "path";
+import { buildEbayGameCustomId } from "./ebay/ebay-enduserctx";
 import { getPlatform } from "./catalog";
+import { getRegionDisplay } from "./region-display";
 import type { CatalogGame, GameDetails } from "./types";
 
 export type AffiliateProvider = "ebay" | "amazon" | "rakuten" | "mock" | "manual";
@@ -23,6 +25,7 @@ export type AffiliateOfferBlock = {
   enabled: boolean;
   offers: AffiliateOffer[];
   checkedAt: string | null;
+  trackingId: string | null;
 };
 
 type EbaySearchItem = {
@@ -155,22 +158,67 @@ function ebayCampaignId(): string | null {
   return configured(process.env.EBAY_CAMPAIGN_ID) ?? configured(process.env.EBAY_AFFILIATE_CAMPAIGN_ID);
 }
 
-function appendEbayCampaign(url: string): string {
+function ebayAffiliateEnabled(): boolean {
+  return process.env.EBAY_AFFILIATE_ENABLED === "1" || process.env.EBAY_AFFILIATE_ENABLED === "true";
+}
+
+function ebayPixelParam(name: string, fallback: string): string {
+  return configured(process.env[name]) ?? fallback;
+}
+
+export function getEbayAffiliateImpressionPixelUrl(customId = "region-atlas-games"): string | null {
+  const configuredPixel = configured(process.env.EBAY_AFFILIATE_IMPRESSION_PIXEL_URL);
+  const campaignId = ebayCampaignId();
+  if (configuredPixel) {
+    try {
+      const parsed = new URL(configuredPixel);
+      if (campaignId) parsed.searchParams.set("campid", campaignId);
+      parsed.searchParams.set("customid", customId);
+      return parsed.toString();
+    } catch {
+      return configuredPixel;
+    }
+  }
+
+  const mpt = configured(process.env.EBAY_AFFILIATE_MPT);
+  if (!campaignId || !mpt) return null;
+
+  const params = new URLSearchParams({
+    mpt,
+    mkcid: ebayPixelParam("EBAY_AFFILIATE_MKCID", "1"),
+    mkrid: ebayPixelParam("EBAY_AFFILIATE_MKRID", "1185-53479-19255-0"),
+    mkevt: ebayPixelParam("EBAY_AFFILIATE_MKEVT", "2"),
+    siteid: ebayPixelParam("EBAY_AFFILIATE_SITE_ID", "186"),
+    campid: campaignId,
+    ad_type: ebayPixelParam("EBAY_AFFILIATE_AD_TYPE", "0"),
+    toolid: ebayPixelParam("EBAY_AFFILIATE_TOOL_ID", "20012"),
+    customid: configured(process.env.EBAY_AFFILIATE_CUSTOM_ID) ?? customId,
+  });
+
+  return `https://www.ebayadservices.com/marketingtracking/v1/impression?${params.toString()}`;
+}
+
+function appendEbayTracking(url: string, customId: string): string {
   const campaignId = ebayCampaignId();
   if (!campaignId) return url;
   try {
     const parsed = new URL(url);
     parsed.searchParams.set("campid", campaignId);
+    parsed.searchParams.set("customid", customId);
     return parsed.toString();
   } catch {
     return url;
   }
 }
 
+function ebayGameCustomId(game: CatalogGame): string {
+  return buildEbayGameCustomId({ gameSlug: game.slug, platformSlug: game.platformSlug });
+}
+
 function ebayEndUserContext(game: CatalogGame): string | null {
   const campaignId = ebayCampaignId();
   if (!campaignId) return null;
-  return `affiliateCampaignId=${campaignId},affiliateReferenceId=${game.id}`;
+  return `affiliateCampaignId=${campaignId},affiliateReferenceId=${ebayGameCustomId(game)}`;
 }
 
 async function getEbayAccessToken(): Promise<string | null> {
@@ -206,16 +254,59 @@ async function getEbayAccessToken(): Promise<string | null> {
 }
 
 function ebayQuery(game: CatalogGame, details: GameDetails | null): string {
+  void details;
   const platform = getPlatform(game.platformSlug);
   const title = game.titlePc || game.title;
   const platformName = platform?.shortName ?? game.platformSlug;
-  return details?.ean ? details.ean : `${title} ${platformName}`;
+  const region = getRegionDisplay(game.region).label;
+  const normalizedRegion = region.toLowerCase();
+  const regionTerms = new Set<string>();
+
+  if (normalizedRegion.includes("pal")) {
+    regionTerms.add(region);
+    regionTerms.add("PAL");
+  }
+  if (normalizedRegion.includes("usa") || normalizedRegion.includes("ntsc usa")) {
+    regionTerms.add("NTSC USA");
+    regionTerms.add("USA");
+  }
+  if (normalizedRegion.includes("jap") || normalizedRegion.includes("ntsc-j")) {
+    regionTerms.add("Japanese");
+    regionTerms.add("Japan");
+  }
+
+  return [title, platformName, ...regionTerms].filter(Boolean).join(" ");
+}
+
+function ebayFallbackSearchOffer(game: CatalogGame, details: GameDetails | null): AffiliateOffer | null {
+  const campaignId = ebayCampaignId();
+  if (!campaignId) return null;
+  const query = ebayQuery(game, details);
+  const url = new URL("https://www.ebay.es/sch/i.html");
+  url.searchParams.set("_nkw", query);
+  url.searchParams.set("campid", campaignId);
+  url.searchParams.set("customid", ebayGameCustomId(game));
+  return {
+    provider: "ebay",
+    id: `${game.id}-ebay-search-fallback`,
+    title: `Buscar “${query}” en eBay`,
+    url: url.toString(),
+    imageUrl: null,
+    price: null,
+    currency: "EUR",
+    shippingPrice: null,
+    condition: null,
+    location: null,
+    confidence: 0.62,
+  };
 }
 
 async function getEbayOffers(game: CatalogGame, details: GameDetails | null): Promise<AffiliateOffer[]> {
-  if (!affiliateEnabled() || !ebayConfigured()) return [];
+  if (!affiliateEnabled() || !ebayAffiliateEnabled()) return [];
+  const fallback = ebayFallbackSearchOffer(game, details);
+  if (!ebayConfigured()) return fallback ? [fallback] : [];
   const token = await getEbayAccessToken();
-  if (!token) return [];
+  if (!token) return fallback ? [fallback] : [];
 
   const params = new URLSearchParams({
     q: ebayQuery(game, details),
@@ -245,7 +336,7 @@ async function getEbayOffers(game: CatalogGame, details: GameDetails | null): Pr
         provider: "ebay",
         id: item.itemId,
         title: item.title,
-        url: item.itemAffiliateWebUrl ?? appendEbayCampaign(item.itemWebUrl),
+        url: item.itemAffiliateWebUrl ?? appendEbayTracking(item.itemWebUrl, ebayGameCustomId(game)),
         imageUrl: item.image?.imageUrl ?? null,
         price: numberValue(item.price?.value),
         currency: item.price?.currency ?? "EUR",
@@ -258,7 +349,8 @@ async function getEbayOffers(game: CatalogGame, details: GameDetails | null): Pr
     .filter((offer): offer is AffiliateOffer => Boolean(offer))
     .sort((a, b) => b.confidence - a.confidence || (a.price ?? 999999) - (b.price ?? 999999));
 
-  return offers.slice(0, ebayLimit());
+  const sliced = offers.slice(0, ebayLimit());
+  return sliced.length > 0 ? sliced : fallback ? [fallback] : [];
 }
 
 async function getAmazonOffers(_game: CatalogGame, _details: GameDetails | null): Promise<AffiliateOffer[]> {
@@ -272,8 +364,9 @@ export async function getAffiliateOfferBlock(
   game: CatalogGame,
   details: GameDetails | null,
 ): Promise<AffiliateOfferBlock> {
-  if (!affiliateEnabled()) return { enabled: false, offers: [], checkedAt: null };
-  if (!affiliateGameWhitelisted(game)) return { enabled: true, offers: [], checkedAt: null };
+  const trackingId = ebayGameCustomId(game);
+  if (!affiliateEnabled()) return { enabled: false, offers: [], checkedAt: null, trackingId };
+  if (!affiliateGameWhitelisted(game)) return { enabled: true, offers: [], checkedAt: null, trackingId };
 
   const [ebayOffers, amazonOffers] = await Promise.all([
     getEbayOffers(game, details),
@@ -283,5 +376,6 @@ export async function getAffiliateOfferBlock(
     enabled: true,
     offers: [...ebayOffers, ...amazonOffers],
     checkedAt: new Date().toISOString(),
+    trackingId,
   };
 }

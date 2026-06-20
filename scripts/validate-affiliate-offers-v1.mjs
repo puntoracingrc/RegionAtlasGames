@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, lstatSync, readFileSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
@@ -20,6 +20,7 @@ function walk(dir, acc = []) {
   for (const entry of readdirSync(dir)) {
     if (["node_modules", ".next", ".git", "data"].includes(entry)) continue;
     const full = path.join(dir, entry);
+    if (lstatSync(full).isSymbolicLink() && !existsSync(full)) continue;
     if (statSync(full).isDirectory()) walk(full, acc);
     else acc.push(full);
   }
@@ -43,6 +44,8 @@ assert(disclosure.includes("Disclosure:"), "El disclosure no empieza por Disclos
 assert(offersPanel.includes("<AffiliateDisclosure"), "AffiliateOffersPanel debe renderizar AffiliateDisclosure");
 assert(offersPanel.includes('rel="sponsored nofollow noopener noreferrer"'), "Los enlaces afiliados deben usar rel sponsored nofollow noopener noreferrer");
 assert(offersPanel.includes('target="_blank"'), "Los enlaces afiliados deben abrirse con target _blank tras click voluntario");
+assert(offersPanel.includes("getEbayAffiliateImpressionPixelUrl"), "El panel debe soportar píxel de impresión eBay");
+assert(offersPanel.includes("<img") && offersPanel.includes('aria-hidden="true"'), "El píxel eBay debe renderizarse como imagen no interactiva");
 assert(existsSync(file("src/app/affiliate-disclosure/page.tsx")), "Falta página /affiliate-disclosure/");
 assert(read("src/app/affiliate-disclosure/page.tsx").includes("no vende directamente"), "La página legal debe indicar que Region Atlas Games no vende directamente");
 assert(envExample.includes("# AFFILIATE_OFFERS_ENABLED=false"), "AFFILIATE_OFFERS_ENABLED debe estar false por defecto");
@@ -50,8 +53,13 @@ assert(envExample.includes("# AFFILIATE_OFFERS_PRODUCTION_WHITELIST=true"), "Deb
 assert(existsSync(file("data/affiliate-offers-whitelist.json")), "Falta data/affiliate-offers-whitelist.json");
 assert(affiliateOffers.includes("affiliateGameWhitelisted"), "Falta control de whitelist en getAffiliateOfferBlock");
 assert(affiliateOffers.includes("affiliate-offers-whitelist.json"), "Affiliate offers debe leer data/affiliate-offers-whitelist.json");
+assert(affiliateOffers.includes("ebayFallbackSearchOffer"), "Falta fallback de búsqueda eBay sin resultados API");
+assert(affiliateOffers.includes("item.itemAffiliateWebUrl ?? appendEbayTracking"), "eBay debe priorizar itemAffiliateWebUrl y solo usar fallback trackeado si falta");
+assert(affiliateOffers.includes("trackingId"), "AffiliateOfferBlock debe devolver trackingId por ficha");
+assert(offersPanel.includes("trackingId") && read("src/app/catalogo/[slug]/page.tsx").includes("trackingId={affiliateOffers.trackingId}"), "El panel público debe recibir trackingId por ficha");
+assert(envExample.includes("# EBAY_AFFILIATE_IMPRESSION_PIXEL_URL="), "Falta documentar píxel de impresión eBay");
 assert(!/process\.env\.NEXT_PUBLIC_RAKUTEN_|NEXT_PUBLIC_RAKUTEN_[A-Z0-9_]+\s*=/.test(allSource), "No debe existir uso real de NEXT_PUBLIC_RAKUTEN_*");
-assert(!/<iframe[^>]+hidden|display:\s*none[^>]*iframe/i.test(allSource), "No debe haber iframes ocultos de afiliación");
+assert(!/<iframe[^>]+(?:ebay|rakuten|amazon|affiliate|adservice|marketingtracking)/i.test(allSource), "No debe haber iframes ocultos de afiliación");
 assert(!/auto.?click|cookie.?stuffing|window\.open\([^)]*\)/i.test(allSource), "No debe haber autoclick, cookie stuffing ni aperturas automáticas");
 assert(read("src/lib/affiliate/matching/score-offer-match.ts").includes("affiliateMinConfidenceRelated") === false, "El scoring no debe depender de UI");
 assert(read("src/lib/affiliate/providers/mock.provider.ts").includes("fetchedAt"), "Las ofertas mock deben tener fetchedAt");

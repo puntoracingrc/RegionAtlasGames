@@ -51,6 +51,7 @@ export interface EbaySearchInput extends Partial<AffiliateOfferSearchInput> {
   query: string;
   title?: string;
   platform?: string;
+  platformSlug?: string;
   region?: string;
   gtin?: string;
   marketplaceId?: string;
