@@ -9,8 +9,12 @@ import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
+  companyFilterOptions,
+  facetFilterOptions,
   filterCatalogGames,
+  genreFilterOptions,
   regionOptions,
+  subgenreFilterOptions,
 } from "@/lib/catalog-filters";
 import { buildPlatformCatalogInsights } from "@/lib/platform-catalog-insights";
 import { getOwnedCatalogIds, getUserCollectionViews } from "@/lib/collection-store";
@@ -85,6 +89,10 @@ export default async function PlatformPage({ params, searchParams }: Props) {
               totalGames={initialCatalog.total}
               insights={buildPlatformCatalogInsights(catalogListGames)}
               regions={regionOptions(catalogListGames)}
+              genres={genreFilterOptions(catalogListGames)}
+              subgenres={subgenreFilterOptions(catalogListGames)}
+              facets={facetFilterOptions(catalogListGames)}
+              companies={companyFilterOptions(catalogListGames)}
               ownedItems={owned}
               ownedCatalogIds={ownedCatalogIds}
               listingCounts={listingCounts}

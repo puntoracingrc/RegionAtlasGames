@@ -11,6 +11,8 @@ import {
 import { listedCatalog, meta } from "@/lib/catalog";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import { formatEur } from "@/lib/price-format";
+import { facetFilterOptions, genreFilterOptions, subgenreFilterOptions } from "@/lib/catalog-filters";
+import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { getGameDetails, indexStats } from "@/lib/indexes";
 import { listNewsForSection } from "@/lib/news-cache";
 import { canViewCollectionValue } from "@/lib/plans";
@@ -36,6 +38,12 @@ export default async function HomePage() {
     shortName: platform.shortName,
   }));
   const searchRegions = buildHomeRegionOptions();
+  const searchCatalogGames = listedCatalog.map(toCatalogListGame);
+  const searchTaxonomyOptions = {
+    genres: genreFilterOptions(searchCatalogGames),
+    subgenres: subgenreFilterOptions(searchCatalogGames),
+    facets: facetFilterOptions(searchCatalogGames),
+  };
   const platformRange =
     activePlatforms.length > 1
       ? `${activePlatforms[0].shortName} a ${activePlatforms.at(-1)?.shortName}`
@@ -79,9 +87,9 @@ export default async function HomePage() {
           </div>
         </header>
 
-        <HomeCatalogSearch platforms={searchPlatforms} regions={searchRegions} />
-
         <NewsStrip title="Actualidad del videojuego" items={homeNews} />
+
+        <HomeCatalogSearch platforms={searchPlatforms} regions={searchRegions} taxonomyOptions={searchTaxonomyOptions} />
 
         <section className="mb-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <Stat label="Plataformas" value={String(activePlatforms.length)} hint="Consolas activas en catálogo" />

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { RegionFlag } from "@/components/region-flag";
+import type { CatalogTaxonomyFilterOption } from "@/lib/catalog-filters";
 import { formatEur } from "@/lib/price-format";
 
 type PlatformOption = {
@@ -32,37 +33,61 @@ type SearchResult = {
 type SearchPayload = {
   items: SearchResult[];
   total: number;
+  taxonomyOptions?: TaxonomyOptions;
+};
+
+type TaxonomyOptions = {
+  genres: CatalogTaxonomyFilterOption[];
+  subgenres: CatalogTaxonomyFilterOption[];
+  facets: CatalogTaxonomyFilterOption[];
 };
 
 type Props = {
   platforms: PlatformOption[];
   regions: RegionOption[];
+  taxonomyOptions: TaxonomyOptions;
 };
 
-export function HomeCatalogSearch({ platforms, regions }: Props) {
+export function HomeCatalogSearch({ platforms, regions, taxonomyOptions: initialTaxonomyOptions }: Props) {
   const [q, setQ] = useState("");
   const [platform, setPlatform] = useState("all");
   const [region, setRegion] = useState("all");
+  const [genre, setGenre] = useState("all");
+  const [subgenre, setSubgenre] = useState("all");
+  const [facet, setFacet] = useState("all");
   const [payload, setPayload] = useState<SearchPayload>({ items: [], total: 0 });
   const [loading, setLoading] = useState(false);
+  const taxonomyOptions = payload.taxonomyOptions ?? initialTaxonomyOptions;
 
-  const hasSearch = q.trim().length >= 2 || platform !== "all" || region !== "all";
+  const hasSearch =
+    q.trim().length >= 2 ||
+    platform !== "all" ||
+    region !== "all" ||
+    genre !== "all" ||
+    subgenre !== "all" ||
+    facet !== "all";
   const allResultsHref = useMemo(() => {
     const params = new URLSearchParams();
     if (q.trim()) params.set("q", q.trim());
     if (platform !== "all") params.set("platform", platform);
     if (region !== "all") params.set("region", region);
+    if (genre !== "all") params.set("genre", genre);
+    if (subgenre !== "all") params.set("subgenre", subgenre);
+    if (facet !== "all") params.set("facet", facet);
     return `/catalogo${params.size ? `?${params}` : ""}`;
-  }, [platform, q, region]);
+  }, [facet, genre, platform, q, region, subgenre]);
 
   const platformResultsHref = useMemo(() => {
     if (platform !== "all") {
       const params = new URLSearchParams();
       if (q.trim()) params.set("q", q.trim());
       if (region !== "all") params.set("region", region);
+      if (genre !== "all") params.set("genre", genre);
+      if (subgenre !== "all") params.set("subgenre", subgenre);
+      if (facet !== "all") params.set("facet", facet);
       return `/plataforma/${platform}${params.size ? `?${params}` : ""}`;
     }
-  }, [platform, q, region]);
+  }, [facet, genre, platform, q, region, subgenre]);
 
   useEffect(() => {
     if (!hasSearch) {
@@ -75,7 +100,7 @@ export function HomeCatalogSearch({ platforms, regions }: Props) {
     const timeout = window.setTimeout(async () => {
       setLoading(true);
       try {
-        const params = new URLSearchParams({ q, platform, region });
+        const params = new URLSearchParams({ q, platform, region, genre, subgenre, facet });
         const response = await fetch(`/api/catalog/search?${params}`, { signal: controller.signal });
         if (!response.ok) return;
         setPayload((await response.json()) as SearchPayload);
@@ -90,7 +115,19 @@ export function HomeCatalogSearch({ platforms, regions }: Props) {
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [hasSearch, platform, q, region]);
+  }, [facet, genre, hasSearch, platform, q, region, subgenre]);
+
+  useEffect(() => {
+    if (genre !== "all" && !taxonomyOptions.genres.some((item) => item.slug === genre)) setGenre("all");
+  }, [genre, taxonomyOptions.genres]);
+
+  useEffect(() => {
+    if (subgenre !== "all" && !taxonomyOptions.subgenres.some((item) => item.slug === subgenre)) setSubgenre("all");
+  }, [subgenre, taxonomyOptions.subgenres]);
+
+  useEffect(() => {
+    if (facet !== "all" && !taxonomyOptions.facets.some((item) => item.slug === facet)) setFacet("all");
+  }, [facet, taxonomyOptions.facets]);
 
   return (
     <section className="mb-7 overflow-hidden rounded-2xl border border-border bg-card/80 p-4 shadow-lg shadow-slate-950/5 backdrop-blur dark:shadow-black/20 md:p-5">
@@ -98,7 +135,9 @@ export function HomeCatalogSearch({ platforms, regions }: Props) {
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">Buscar juego</p>
           <h2 className="mt-1 text-2xl font-black tracking-tight text-foreground">Encuentra una ficha al instante</h2>
-          <p className="mt-1 text-sm text-muted">Busca por título, SKU, compañía, género o filtra por plataforma y región.</p>
+          <p className="mt-1 text-sm text-muted">
+            Busca por título, SKU, compañía o cruza plataforma, región, género, subgénero y faceta.
+          </p>
         </div>
         {hasSearch && (
           <p className="text-sm font-medium text-muted">
@@ -107,13 +146,13 @@ export function HomeCatalogSearch({ platforms, regions }: Props) {
         )}
       </div>
 
-      <div className="mt-4 grid gap-2 lg:grid-cols-[minmax(0,1fr)_220px_220px]">
+      <div className="mt-4 grid gap-2 md:grid-cols-2 xl:grid-cols-[minmax(0,1fr)_210px_210px]">
         <input
           type="search"
           value={q}
           onChange={(event) => setQ(event.target.value)}
           placeholder="Ej. Akinofa, Zelda, CUSA, Erdem Sen…"
-          className="min-h-12 rounded-xl border border-border bg-input px-4 text-base outline-none ring-accent/25 placeholder:text-muted focus:ring-2"
+          className="min-h-12 rounded-xl border border-border bg-input px-4 text-base outline-none ring-accent/25 placeholder:text-muted focus:ring-2 md:col-span-2 xl:col-span-1"
         />
         <select
           value={platform}
@@ -136,6 +175,42 @@ export function HomeCatalogSearch({ platforms, regions }: Props) {
           {regions.map((item) => (
             <option key={item.value} value={item.value}>
               {item.label} ({item.count.toLocaleString("es-ES")})
+            </option>
+          ))}
+        </select>
+        <select
+          value={genre}
+          onChange={(event) => setGenre(event.target.value)}
+          className="min-h-12 rounded-xl border border-border bg-input px-3 text-sm outline-none ring-accent/25 focus:ring-2"
+        >
+          <option value="all">Todos los géneros</option>
+          {taxonomyOptions.genres.map((item) => (
+            <option key={item.slug} value={item.slug}>
+              {taxonomyOptionLabel(item)}
+            </option>
+          ))}
+        </select>
+        <select
+          value={subgenre}
+          onChange={(event) => setSubgenre(event.target.value)}
+          className="min-h-12 rounded-xl border border-border bg-input px-3 text-sm outline-none ring-accent/25 focus:ring-2"
+        >
+          <option value="all">Todos los subgéneros</option>
+          {taxonomyOptions.subgenres.map((item) => (
+            <option key={item.slug} value={item.slug}>
+              {taxonomyOptionLabel(item)}
+            </option>
+          ))}
+        </select>
+        <select
+          value={facet}
+          onChange={(event) => setFacet(event.target.value)}
+          className="min-h-12 rounded-xl border border-border bg-input px-3 text-sm outline-none ring-accent/25 focus:ring-2"
+        >
+          <option value="all">Todas las facetas</option>
+          {taxonomyOptions.facets.map((item) => (
+            <option key={item.slug} value={item.slug}>
+              {taxonomyOptionLabel(item)}
             </option>
           ))}
         </select>
@@ -195,4 +270,8 @@ export function HomeCatalogSearch({ platforms, regions }: Props) {
       )}
     </section>
   );
+}
+
+function taxonomyOptionLabel(item: CatalogTaxonomyFilterOption): string {
+  return `${item.name} (${item.count.toLocaleString("es-ES")})`;
 }

@@ -10,7 +10,7 @@ import { PlatformRegionBar } from "@/components/platform-region-bar";
 import { CatalogBrowser } from "@/components/catalog-browser";
 import { PlatformHeroArt } from "@/components/platform-card-art";
 import { formatEur } from "@/lib/price-format";
-import type { regionOptions } from "@/lib/catalog-filters";
+import type { CatalogCompanyFilterOption, CatalogTaxonomyFilterOption, regionOptions } from "@/lib/catalog-filters";
 
 const MANUFACTURER_STYLE = {
   nintendo: "from-red-500/15 via-red-500/5 to-transparent border-red-400/25",
@@ -25,6 +25,10 @@ type Props = {
   totalGames: number;
   insights: PlatformCatalogInsights;
   regions: ReturnType<typeof regionOptions>;
+  genres: CatalogTaxonomyFilterOption[];
+  subgenres: CatalogTaxonomyFilterOption[];
+  facets: CatalogTaxonomyFilterOption[];
+  companies: CatalogCompanyFilterOption[];
   ownedItems: CollectionView[];
   ownedCatalogIds: string[];
   listingCounts: Record<string, number>;
@@ -40,6 +44,10 @@ export function PlatformCatalogSection({
   totalGames,
   insights,
   regions,
+  genres,
+  subgenres,
+  facets,
+  companies,
   ownedItems,
   ownedCatalogIds,
   listingCounts,
@@ -111,11 +119,18 @@ export function PlatformCatalogSection({
         source={{ kind: "platform", slug: platform.slug }}
         totalCount={totalGames}
         regions={regions}
+        genres={genres}
+        subgenres={subgenres}
+        facets={facets}
+        companies={companies}
         showRegionFilter
+        showTaxonomyFilters
         ownedCatalogIds={ownedCatalogIds}
         listingCounts={listingCounts}
         isLoggedIn={isLoggedIn}
         compactLegends
+        showPriceLegend={false}
+        persistKey={`region-atlas:platform-catalog:${platform.slug}`}
         initialQuery={initialQuery}
         region={region}
         onRegionChange={setRegion}
