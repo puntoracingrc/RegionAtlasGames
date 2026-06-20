@@ -58,7 +58,7 @@ function priceSourceRows(prices: AdminPriceFields): PriceSourceRow[] {
     },
     {
       label: "eBay ES",
-      role: "P2P agregado",
+      role: "API directa / afiliación",
       status: sourceTextIncludes(prices, "eBay") ? "active" : "empty",
       value: p2pValue,
     },
@@ -158,7 +158,7 @@ function PriceSourcesMap({ prices }: { prices: AdminPriceFields }) {
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted">Mapa de fuentes</p>
           <p className="mt-1 text-sm text-muted">
-            {activeCount} fuentes con dato. Wallapop, eBay, Vinted y parte de TodoColeccion se usan para calcular el precio recomendado.
+            {activeCount} fuentes con dato. eBay entra por API directa; el resto por recolectores y retail configurado.
           </p>
         </div>
         {(prices.priceSource || prices.priceDataSources) && (
@@ -475,9 +475,8 @@ export function AdminGamePricesPanel({ catalogId, initialPrices, updatedAt }: Pr
       {error && <p className="mt-3 text-sm text-rose-600 dark:text-rose-400">{error}</p>}
 
       <p className="mt-4 text-xs text-muted">
-        La recolección lanza los collectors configurados para la plataforma (Wallapop, Vinted, retail,
-        etc.) solo para este juego y sincroniza el catálogo local. Requiere entorno de desarrollo con
-        Python y acceso a red.
+        La recolección lanza los collectors configurados para la plataforma. eBay queda fuera de la rueda:
+        sus precios entran por API directa/afiliación cuando estén disponibles.
       </p>
     </Panel>
   );

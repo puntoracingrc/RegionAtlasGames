@@ -324,10 +324,10 @@ function buildEbayStatus(): AdminPriceEbayStatus {
           ? "eBay legacy limitado"
           : "eBay no configurado",
     helper: affiliateReady
-      ? "Listo para recolectar precios y mostrar ofertas afiliadas."
+      ? "Listo para API directa, enlaces afiliados y precios eBay válidos fuera de la rueda."
       : collectionReady
-        ? "Puede intentar recolección, pero falta completar afiliación o renovación estable."
-        : "No entrará en la rueda hasta configurar credenciales.",
+        ? "La API puede responder, pero falta completar afiliación o renovación estable."
+        : "Sin API directa eBay hasta configurar credenciales.",
     warnings,
   };
 }

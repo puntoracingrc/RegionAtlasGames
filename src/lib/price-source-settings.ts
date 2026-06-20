@@ -48,9 +48,9 @@ const DEFAULT_SOURCES: Record<PriceCollectorSourceKey, PriceCollectorSourceSetti
     description: "P2P España. Ahora mismo es la fuente principal para precio de mercado.",
   },
   ebay: {
-    enabled: true,
+    enabled: false,
     label: "eBay",
-    description: "API de eBay. Depende de credenciales válidas y se usará también para afiliación.",
+    description: "API directa y afiliación. Fuera de la rueda automática; sus precios válidos pueden contar en la base.",
   },
   vinted: {
     enabled: false,

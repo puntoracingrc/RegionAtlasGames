@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from typing import Any
 
@@ -10,7 +11,7 @@ from collectors.common import ROOT, load_json
 SOURCES_FILE = ROOT / "data" / "platform-sources.json"
 
 _P2P_GENERIC = ("wallapop",)
-_DEFAULT_DISABLED_COLLECTORS = {"todocoleccion", "vinted"}
+_DEFAULT_DISABLED_COLLECTORS = {"ebay", "todocoleccion", "vinted"}
 _cache: dict[str, Any] | None = None
 
 
@@ -37,6 +38,8 @@ def _collector_settings() -> dict[str, dict[str, Any]]:
 def collector_enabled(source: str) -> bool:
     settings = _collector_settings()
     key = source.strip().lower()
+    if key == "ebay" and ebay_price_wheel_enabled():
+        return True
     if key in settings:
         return settings[key].get("enabled") is not False
     return key not in _DEFAULT_DISABLED_COLLECTORS
@@ -111,6 +114,11 @@ def ebay_enabled_for_platform(platform_slug: str) -> bool:
     if cfg.get("ebay") is False:
         return False
     return bool(search_keyword(platform_slug))
+
+
+def ebay_price_wheel_enabled() -> bool:
+    """eBay se usa como API directa/afiliación; no entra en la rueda salvo override técnico."""
+    return os.environ.get("ENABLE_EBAY_PRICE_WHEEL", "").strip().lower() in {"1", "true", "yes"}
 
 
 def p2p_sources_for_platform(platform_slug: str) -> list[str]:
@@ -218,7 +226,7 @@ def collectors_for_platform(platform_slug: str, *, ebay_configured: bool = True)
         planned.append("kaoto")
     if cex_sources_for_platform(platform_slug):
         planned.append("cex")
-    if ebay_configured and ebay_enabled_for_platform(platform_slug):
+    if ebay_price_wheel_enabled() and ebay_configured and ebay_enabled_for_platform(platform_slug):
         planned.append("ebay")
     return [source for source in planned if collector_enabled(source)]
 

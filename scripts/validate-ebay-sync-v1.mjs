@@ -53,6 +53,8 @@ const enduserctx = read("src/lib/ebay/ebay-enduserctx.ts");
 const search = read("src/lib/ebay/ebay-search.ts");
 const normalize = read("src/lib/ebay/ebay-normalize.ts");
 const docs = read("docs/ebay-sync-v1.md");
+const dailyPriceIngest = read("scripts/daily_price_ingest.py");
+const platformSources = read("scripts/collectors/platform_sources.py");
 const smoke = read("scripts/smoke-ebay-auth.mjs") + "\n" + read("scripts/smoke-ebay-search.mjs");
 const allSourceFiles = walk(root).filter((full) => /\.(ts|tsx|js|jsx|mjs)$/.test(full));
 const source = allSourceFiles
@@ -72,6 +74,7 @@ if (!packageJson.includes("validate:ebay-sync-v1")) fail("Falta script validate:
 const parsedPackage = JSON.parse(packageJson);
 if (!parsedPackage.scripts?.["validate:all"]?.includes("validate:ebay-sync-v1")) fail("validate:all debe incluir validate:ebay-sync-v1");
 if (!envExample.includes("# EBAY_AFFILIATE_ENABLED=false")) fail("EBAY_AFFILIATE_ENABLED debe estar false por defecto");
+if (!envExample.includes("# ENABLE_EBAY_PRICE_WHEEL=0")) fail("ENABLE_EBAY_PRICE_WHEEL debe estar documentado apagado por defecto");
 if (!envExample.includes("# EBAY_ENV=production")) fail("Falta EBAY_ENV documentado");
 if (!envExample.includes("# EBAY_OAUTH_TOKEN_ENDPOINT=https://api.ebay.com/identity/v1/oauth2/token")) fail("Falta endpoint OAuth eBay documentado");
 if (!envExample.includes("# EBAY_OAUTH_SCOPE=https://api.ebay.com/oauth/api_scope")) fail("Falta OAuth scope eBay documentado");
@@ -94,6 +97,9 @@ if (!docs.includes("Inventory Discovery & Refresh decision")) fail("Falta decisi
 if (!docs.includes("Browse API sigue siendo la única fuente eBay de V1")) fail("Docs deben fijar Browse API como única fuente V1");
 if (!docs.includes("Feed API queda fuera de V1")) fail("Docs deben dejar Feed API fuera de V1");
 if (!docs.includes("Notification API queda fuera de V1")) fail("Docs deben dejar Notification API fuera de V1");
+if (!docs.includes("Fuera de la rotación diaria por defecto")) fail("Docs deben dejar eBay fuera de la rotación por defecto");
+if (!dailyPriceIngest.includes('skipped = {"ebay", "todocoleccion", "vinted"}')) fail("daily_price_ingest debe omitir eBay por defecto");
+if (!platformSources.includes("ENABLE_EBAY_PRICE_WHEEL")) fail("platform_sources debe requerir override para meter eBay en rueda");
 if (/feed\.api|feed beta|notification api|webhook|webhooks|buy\/feed|commerce\/notification|getFeedTypes|getFiles|downloadFile|createSubscription|getTopics/i.test(ebayCode)) fail("EBAY_SYNC_V1 no debe implementar Feed API, Notification API ni webhooks");
 if (!normalize.includes("itemAffiliateWebUrl")) fail("affiliateUrl debe usar itemAffiliateWebUrl");
 if (!normalize.includes("itemWebUrl") || !normalize.includes("rawProductUrl")) fail("itemWebUrl solo debe guardarse como rawProductUrl/externalProductUrl");
@@ -110,7 +116,7 @@ if (/AlbertoI-RegionAt|PRD-[a-z0-9-]{20,}|35b4ee83|3094313c/i.test(source + envE
 if (envExample.includes("AFFILIATE_OFFERS_ENABLED=true")) fail("AFFILIATE_OFFERS_ENABLED no debe activarse por defecto");
 if (/AFFILIATE_OFFERS_ENABLED\s*=\s*["']?true/i.test(ebayCode)) fail("eBay no debe activar AFFILIATE_OFFERS_ENABLED");
 if (/EBAY_AFFILIATE_ENABLED\s*=\s*["']?true/i.test(ebayCode)) fail("Módulo eBay no debe activar EBAY_AFFILIATE_ENABLED");
-if (/from\s+["'][^"']*ebay|require\([^)]*ebay/i.test(frontendSource)) fail("No frontend público usando eBay todavía");
+if (/process\.env\.EBAY_|EBAY_CLIENT_SECRET|EBAY_ACCESS_TOKEN|EBAY_OAUTH_TOKEN/.test(frontendSource)) fail("Frontend público no debe leer secretos eBay");
 
 if (failures.length) {
   console.error("EBAY_SYNC_V1 no válido:");

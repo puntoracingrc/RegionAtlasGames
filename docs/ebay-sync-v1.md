@@ -6,6 +6,8 @@ Preparar una integración backend con eBay Browse API para buscar listings concr
 
 Region Atlas Games sigue siendo catálogo, base de datos y guía de videojuegos. No se convierte en tienda propia.
 
+eBay queda fuera de la rueda automática de recolección diaria. No se trata como Wallapop/CeX/JGO: entra por API directa y afiliación. Si una tarea técnica genera filas `ebay-es` válidas para precios, `sync_es_prices.py` puede seguir usándolas junto al resto de fuentes recolectadas para calcular precio recomendado.
+
 ## 2. Estado: implemented / disabled by default
 
 Estado de esta fase:
@@ -13,6 +15,7 @@ Estado de esta fase:
 - Implementado backend y bloque público.
 - Desactivado por defecto mediante variables.
 - Ofertas públicas solo si `AFFILIATE_OFFERS_ENABLED=true` y `EBAY_AFFILIATE_ENABLED=true`.
+- Fuera de la rotación diaria por defecto; solo se puede forzar técnicamente con `ENABLE_EBAY_PRICE_WHEEL=1`.
 - Variables eBay configurables en Vercel / servidor.
 - Sin Product Search/Deep Links de Rakuten.
 - Sin Feed API, Feed Beta API ni Notification API.
@@ -23,6 +26,7 @@ Solo para `.env.local` cuando existan credenciales reales:
 
 ```env
 EBAY_AFFILIATE_ENABLED=false
+ENABLE_EBAY_PRICE_WHEEL=0
 EBAY_ENV=production
 EBAY_CLIENT_ID=
 EBAY_CLIENT_SECRET=

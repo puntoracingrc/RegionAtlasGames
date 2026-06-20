@@ -101,7 +101,7 @@ def is_ci_daily() -> bool:
 
 
 def daily_skip_sources() -> set[str]:
-    skipped = {"todocoleccion", "vinted"}
+    skipped = {"ebay", "todocoleccion", "vinted"}
     skipped.update({
         part.strip()
         for part in os.environ.get("DAILY_SKIP_SOURCES", "").split(",")
@@ -111,6 +111,8 @@ def daily_skip_sources() -> set[str]:
         skipped.discard("todocoleccion")
     if os.environ.get("DAILY_ENABLE_VINTED", "").strip().lower() in {"1", "true", "yes"}:
         skipped.discard("vinted")
+    if os.environ.get("ENABLE_EBAY_PRICE_WHEEL", "").strip().lower() in {"1", "true", "yes"}:
+        skipped.discard("ebay")
     return skipped
 
 
@@ -457,6 +459,8 @@ def main() -> None:
         print(f"Plataforma: {platform_slugs[0]}")
     if not ebay_configured():
         print("eBay: omitido (sin EBAY_APP_ID ni EBAY_CLIENT_ID/SECRET en el entorno)")
+    elif "ebay" in daily_skip_sources():
+        print("eBay: fuera de la rueda; se usa por API directa/afiliación.")
     skipped = daily_skip_sources()
     if skipped:
         print(f"Fuentes omitidas: {', '.join(sorted(skipped))}")
@@ -464,7 +468,7 @@ def main() -> None:
         print(
             "Modo CI: "
             f"Vinted≤{vinted_game_limit()} · Wallapop≤{wallapop_game_limit()} · "
-            f"eBay≤{ebay_game_limit()} · retail≤{daily_retail_game_limit()} · "
+            f"retail≤{daily_retail_game_limit()} · "
             f"caché={'sí' if daily_use_cache() else 'no'}"
         )
 

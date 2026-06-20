@@ -222,7 +222,7 @@ export default async function AdminPricesPage({
                 <p className="mt-1 text-sm font-semibold text-foreground">{dashboard.ebayStatus.label}</p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Badge tone={dashboard.ebayStatus.collectionReady ? "green" : "rose"}>recolección</Badge>
+                <Badge tone={dashboard.ebayStatus.collectionReady ? "green" : "rose"}>API directa</Badge>
                 <Badge tone={dashboard.ebayStatus.affiliateReady ? "green" : "amber"}>afiliación</Badge>
               </div>
             </div>
