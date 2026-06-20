@@ -6,7 +6,7 @@ import { getPlatform, platforms } from "@/lib/catalog";
 import type { CatalogStagingGame } from "@/lib/catalog-staging-types";
 
 type Props = {
-  searchParams: Promise<{ status?: string; platform?: string; review?: string; source?: string }>;
+  searchParams: Promise<{ status?: string; platform?: string; review?: string; source?: string; page?: string }>;
 };
 
 type ReviewSource = "contributors" | "users" | "imports";
@@ -33,11 +33,13 @@ function buildQueueHref(input: {
   source?: ReviewSource;
   status?: string;
   platform?: string;
+  page?: number;
 }): string {
   const params = new URLSearchParams();
   if (input.source) params.set("source", input.source);
   if (input.status) params.set("status", input.status);
   if (input.platform) params.set("platform", input.platform);
+  if (input.page && input.page > 1) params.set("page", String(input.page));
   const query = params.toString();
   return query ? `/admin/cola?${query}` : "/admin/cola";
 }
@@ -56,7 +58,11 @@ function activeSource(params: { source?: string; review?: string }): ReviewSourc
 export default async function AdminQueuePage({ searchParams }: Props) {
   const params = await searchParams;
   const currentSource = activeSource(params);
-  const currentPlatform = typeof params.platform === "string" ? params.platform : undefined;
+  const currentPlatform =
+    typeof params.platform === "string" && params.platform.trim()
+      ? params.platform.trim()
+      : undefined;
+  const pageSize = 50;
   const allPendingGames = (await listCatalogStagingGames()).filter((g) => g.status !== "promoted");
   let games = allPendingGames;
   const sourceCounts = games.reduce(
@@ -117,12 +123,22 @@ export default async function AdminQueuePage({ searchParams }: Props) {
       b.userCount - a.userCount ||
       b.lastSeenAt.localeCompare(a.lastSeenAt),
   );
+  const totalFilteredGames = games.length;
+  const totalPages = Math.max(1, Math.ceil(totalFilteredGames / pageSize));
+  const requestedPage = Number.parseInt(params.page ?? "1", 10);
+  const currentPage = Math.min(
+    totalPages,
+    Math.max(1, Number.isFinite(requestedPage) ? requestedPage : 1),
+  );
+  const pageStart = (currentPage - 1) * pageSize;
+  const pageGames = games.slice(pageStart, pageStart + pageSize);
+  const pageEnd = pageStart + pageGames.length;
 
   return (
     <Panel className={adminToneClass("search")}>
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
-          <PanelTitle eyebrow="Trabajo pendiente">Revisión de fichas ({games.length})</PanelTitle>
+          <PanelTitle eyebrow="Trabajo pendiente">Revisión de fichas ({totalFilteredGames})</PanelTitle>
           <p className="max-w-3xl text-sm leading-6 text-muted">
             Importaciones de usuarios, entradas manuales y envíos de colaboradores. Completa portada,
             revisa datos y publica cuando esté listo.
@@ -237,7 +253,7 @@ export default async function AdminQueuePage({ searchParams }: Props) {
               </button>
               {currentPlatform ? (
                 <Link
-                  href={buildQueueHref({ source: currentSource, status: params.status })}
+                href={buildQueueHref({ source: currentSource, status: params.status })}
                   className="rounded-full border border-border px-3 py-2 text-xs font-semibold text-accent hover:bg-card-hover"
                 >
                   Quitar
@@ -251,8 +267,51 @@ export default async function AdminQueuePage({ searchParams }: Props) {
       {games.length === 0 ? (
         <p className="text-sm text-muted">No hay juegos en revisión con estos filtros.</p>
       ) : (
+        <>
+        <div className="mb-3 flex flex-col gap-2 rounded-2xl border border-border bg-background/35 p-3 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+          <span>
+            Mostrando {pageStart + 1}-{pageEnd} de {totalFilteredGames.toLocaleString("es-ES")} fichas.
+          </span>
+          <div className="flex flex-wrap items-center gap-2">
+            <Link
+              href={buildQueueHref({
+                source: currentSource,
+                status: params.status,
+                platform: currentPlatform,
+                page: currentPage - 1,
+              })}
+              aria-disabled={currentPage <= 1}
+              className={`rounded-full border px-3 py-1.5 font-semibold ${
+                currentPage <= 1
+                  ? "pointer-events-none border-border text-muted/40"
+                  : "border-border text-foreground hover:bg-card-hover"
+              }`}
+            >
+              ← Anterior
+            </Link>
+            <span className="px-2 font-semibold text-foreground">
+              Página {currentPage} / {totalPages}
+            </span>
+            <Link
+              href={buildQueueHref({
+                source: currentSource,
+                status: params.status,
+                platform: currentPlatform,
+                page: currentPage + 1,
+              })}
+              aria-disabled={currentPage >= totalPages}
+              className={`rounded-full border px-3 py-1.5 font-semibold ${
+                currentPage >= totalPages
+                  ? "pointer-events-none border-border text-muted/40"
+                  : "border-border text-foreground hover:bg-card-hover"
+              }`}
+            >
+              Siguiente →
+            </Link>
+          </div>
+        </div>
         <ul className="grid gap-3">
-          {games.map((game) => {
+          {pageGames.map((game) => {
             const platform = getPlatform(game.platformSlug);
             const source = reviewSource(game);
             return (
@@ -294,6 +353,7 @@ export default async function AdminQueuePage({ searchParams }: Props) {
             );
           })}
         </ul>
+        </>
       )}
     </Panel>
   );

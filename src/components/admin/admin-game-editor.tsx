@@ -695,7 +695,7 @@ export function AdminGameEditor({
         setError(data.error ?? "No se pudo eliminar la ficha.");
         return;
       }
-      window.location.href = data.redirect ?? (isPublished ? "/admin/juegos" : "/admin/cola");
+      window.location.replace(data.redirect ?? (isPublished ? "/admin/juegos" : "/admin/cola"));
     } catch {
       setError("Error al eliminar la ficha.");
     } finally {
