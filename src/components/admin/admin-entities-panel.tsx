@@ -158,6 +158,19 @@ function activeToggleLabel(active: boolean): string {
   return active ? "ON" : "OFF";
 }
 
+function companyRelationLabel(company: Pick<IndexRow, "name" | "slug">): string {
+  return `${company.name} (${company.slug})`;
+}
+
+function companyRelationBadge(company: IndexRow): string {
+  if (company.isParentCompany) return "MADRE";
+  if (company.parentCompany) return `HIJA DE ${company.parentCompany.name}`;
+  if (company.acquiredByCompany) return `COMPRADA POR ${company.acquiredByCompany.name}`;
+  if (company.mergedWithCompany) return `FUSIONADA CON ${company.mergedWithCompany.name}`;
+  if (company.successorCompany) return `SE CONVIRTIÓ EN ${company.successorCompany.name}`;
+  return "SIN RELACIÓN";
+}
+
 export function AdminEntitiesPanel({
   initialTab: initialTabOverride,
   mode = "edit",
@@ -318,14 +331,13 @@ export function AdminEntitiesPanel({
     if (res.ok) setPlatforms(data.platforms ?? []);
   }, []);
 
-  const loadCompanies = useCallback(async (q = search) => {
-    const params = new URLSearchParams({ limit: "500" });
-    if (q.trim()) params.set("q", q.trim());
+  const loadCompanies = useCallback(async () => {
+    const params = new URLSearchParams({ limit: "5000" });
     const res = await fetch(`/api/admin/entities/companies?${params}`);
     const data = await res.json();
     if (!res.ok) throw new Error(data.error ?? "No se pudieron cargar las compañías.");
     if (res.ok) setCompanies(data.companies ?? []);
-  }, [search]);
+  }, []);
 
   const loadGenres = useCallback(async (q = search) => {
     const params = new URLSearchParams({ limit: "150" });
@@ -474,7 +486,7 @@ export function AdminEntitiesPanel({
       setCompanySuccessor("");
       setCompanySeoTitle("");
       setCompanySeoDescription("");
-      await loadCompanies("");
+      await loadCompanies();
       setSearch("");
       if (companyAutoAi) {
         setCompanyAiRunning("all");
@@ -794,8 +806,85 @@ export function AdminEntitiesPanel({
     }
   }
 
-  async function mergeCompany(source: IndexRow) {
-    const targetSlug = mergeTargetSlug.trim();
+  async function patchCompanyRelation(
+    slug: string,
+    patch: {
+      isParentCompany?: boolean;
+      parentCompany?: CompanyRelation | null;
+      acquiredByCompany?: CompanyRelation | null;
+      mergedWithCompany?: CompanyRelation | null;
+      predecessorCompany?: CompanyRelation | null;
+      successorCompany?: CompanyRelation | null;
+      status?: "active" | "defunct" | "subsidiary" | "unknown";
+    },
+    successMessage: string,
+  ) {
+    const company = companies.find((item) => item.slug === slug);
+    setEditSaving(true);
+    setError(null);
+    setMessage(null);
+    try {
+      const res = await fetch(`/api/admin/entities/companies/${encodeURIComponent(slug)}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: company?.name,
+          ...patch,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo actualizar la relación corporativa.");
+        return;
+      }
+      setMessage(successMessage);
+      await loadCompanies();
+    } catch {
+      setError("Error de red al actualizar la relación corporativa.");
+    } finally {
+      setEditSaving(false);
+    }
+  }
+
+  async function linkCompanyAsChild(parent: IndexRow, child: IndexRow) {
+    if (
+      !confirm(
+        `¿Relacionar «${child.name}» como hija/subsidiaria de «${parent.name}»?\n\nEsto no mueve juegos ni elimina fichas: solo crea el árbol corporativo.`,
+      )
+    ) {
+      return;
+    }
+    if (!parent.isParentCompany) {
+      await patchCompanyRelation(
+        parent.slug,
+        { isParentCompany: true },
+        `«${parent.name}» marcada como empresa madre.`,
+      );
+      if (parent.slug === editingSlug) setEditCompanyIsParent(true);
+    }
+    await patchCompanyRelation(
+      child.slug,
+      { parentCompany: { slug: parent.slug, name: parent.name }, status: "subsidiary" },
+      `«${child.name}» vinculada como hija de «${parent.name}».`,
+    );
+  }
+
+  function recommendedMergeTarget(source: IndexRow, candidate: IndexRow): IndexRow {
+    if (source.isParentCompany && !candidate.isParentCompany) return source;
+    if (candidate.isParentCompany && !source.isParentCompany) return candidate;
+    const sourceParent = source.parentCompany
+      ? companies.find((company) => company.slug === source.parentCompany?.slug)
+      : null;
+    const candidateParent = candidate.parentCompany
+      ? companies.find((company) => company.slug === candidate.parentCompany?.slug)
+      : null;
+    if (sourceParent?.isParentCompany) return sourceParent;
+    if (candidateParent?.isParentCompany) return candidateParent;
+    return source;
+  }
+
+  async function mergeCompany(source: IndexRow, targetSlugOverride?: string) {
+    const targetSlug = (targetSlugOverride ?? mergeTargetSlug).trim();
     if (!targetSlug) {
       setError("Elige la compañía destino.");
       return;
@@ -843,7 +932,7 @@ export function AdminEntitiesPanel({
           ? `Fusión protegida: se conservó la ficha madre «${data.targetName ?? targetLabel}». Juegos actualizados: ${data.updatedGames ?? 0}.`
           : `«${source.name}» fusionada en «${data.targetName ?? targetLabel}». Juegos actualizados: ${data.updatedGames ?? 0}.`,
       );
-      await loadCompanies(search);
+      await loadCompanies();
     } catch {
       setError("Error de red al fusionar compañías.");
     } finally {
@@ -878,7 +967,7 @@ export function AdminEntitiesPanel({
       setMessage(
         `Fusión deshecha: «${data.sourceName}» vuelve a estar separada de «${data.targetName}». Fichas restauradas: ${data.restoredGames ?? 0}.`,
       );
-      await loadCompanies(search);
+      await loadCompanies();
     } catch {
       setError("Error de red al deshacer la fusión.");
     } finally {
@@ -1105,6 +1194,14 @@ export function AdminEntitiesPanel({
                 placeholder="Opcional"
               />
             </label>
+            <div className="rounded-2xl border border-emerald-400/35 bg-emerald-500/10 p-4 md:col-span-2">
+              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-emerald-800 dark:text-emerald-200">
+                Árbol corporativo
+              </p>
+              <p className="mt-1 text-sm text-muted">
+                Relaciona filiales, compras, fusiones o cambios de nombre sin mover juegos. La fusión real se hace desde edición.
+              </p>
+            </div>
             <label className="block space-y-1">
               <span className="text-[10px] uppercase tracking-wider text-muted">Pertenece a / empresa matriz</span>
               <input
@@ -1594,6 +1691,66 @@ export function AdminEntitiesPanel({
                           ))}
                       </datalist>
                     </label>
+                    <div className="rounded-2xl border border-emerald-400/35 bg-emerald-500/10 p-4 md:col-span-2">
+                      <div className="flex flex-wrap items-start justify-between gap-3">
+                        <div>
+                          <p className="text-[10px] font-black uppercase tracking-[0.22em] text-emerald-800 dark:text-emerald-200">
+                            Árbol corporativo
+                          </p>
+                          <p className="mt-1 text-sm text-muted">
+                            Relacionar no mueve juegos; fusionar sí mueve juegos y aliases. Las fichas madre quedan protegidas.
+                          </p>
+                        </div>
+                        {editCompanyIsParent || company.isParentCompany ? (
+                          <span className="rounded-full border border-amber-400/60 bg-amber-300/20 px-3 py-1 text-xs font-black uppercase tracking-wider text-amber-800 dark:text-amber-200">
+                            Madre protegida
+                          </span>
+                        ) : null}
+                      </div>
+                      <div className="mt-4 grid gap-2">
+                        {companies.filter((candidate) => candidate.parentCompany?.slug === company.slug).length ? (
+                          companies
+                            .filter((candidate) => candidate.parentCompany?.slug === company.slug)
+                            .map((child) => (
+                              <div
+                                key={child.slug}
+                                className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border bg-background/70 p-3"
+                              >
+                                <div>
+                                  <Link
+                                    href={`/compania/${child.slug}`}
+                                    className="font-semibold text-foreground hover:text-accent"
+                                    target="_blank"
+                                  >
+                                    {child.name}
+                                  </Link>
+                                  <p className="text-xs text-muted">
+                                    {child.slug} · {child.gameCount} juegos · hija/subsidiaria
+                                  </p>
+                                </div>
+                                <button
+                                  type="button"
+                                  className="rounded-xl border border-rose-400/40 px-3 py-2 text-xs font-semibold text-rose-700 transition hover:bg-rose-500/10 disabled:opacity-50 dark:text-rose-300"
+                                  disabled={editSaving}
+                                  onClick={() =>
+                                    void patchCompanyRelation(
+                                      child.slug,
+                                      { parentCompany: null },
+                                      `«${child.name}» ya no cuelga de «${company.name}».`,
+                                    )
+                                  }
+                                >
+                                  Quitar de esta madre
+                                </button>
+                              </div>
+                            ))
+                        ) : (
+                          <div className="rounded-xl border border-border bg-background/60 p-3 text-sm text-muted">
+                            Aún no hay hijas vinculadas a esta ficha. Usa el radar de duplicadas o el buscador de matriz para relacionarlas.
+                          </div>
+                        )}
+                      </div>
+                    </div>
                     <label className="block space-y-1">
                       <span className="flex items-center justify-between gap-2">
                         <span className="text-[10px] uppercase tracking-wider text-muted">Año fundación</span>
@@ -1692,54 +1849,102 @@ export function AdminEntitiesPanel({
                               No hay posibles duplicadas sin controlar para esta compañía.
                             </div>
                           ) : (
-                            companyDuplicateCandidates.map((candidate) => (
-                              <div
-                                key={candidate.slug}
-                                className="flex flex-wrap items-center gap-3 rounded-xl border border-border bg-background/70 p-3"
-                              >
-                                <div className="min-w-0 flex-1">
-                                  <div className="flex flex-wrap items-center gap-2">
-                                    <span className="font-semibold text-foreground">{candidate.name}</span>
-                                    {candidate.isParentCompany && (
-                                      <span className="rounded-full border border-amber-400/60 bg-amber-300/20 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-800 dark:text-amber-200">
-                                        Madre
+                            companyDuplicateCandidates.map((candidate) => {
+                              const candidateRow =
+                                companies.find((item) => item.slug === candidate.slug) ??
+                                ({
+                                  slug: candidate.slug,
+                                  name: candidate.name,
+                                  gameCount: candidate.gameCount,
+                                  active: candidate.active,
+                                  isParentCompany: candidate.isParentCompany,
+                                } satisfies IndexRow);
+                              const mergeTarget = recommendedMergeTarget(company, candidateRow);
+                              const mergeSource = mergeTarget.slug === company.slug ? candidateRow : company;
+                              return (
+                                <div
+                                  key={candidate.slug}
+                                  className="grid gap-3 rounded-xl border border-border bg-background/70 p-3 lg:grid-cols-[1fr_auto]"
+                                >
+                                  <div className="min-w-0">
+                                    <div className="flex flex-wrap items-center gap-2">
+                                      <span className="font-semibold text-foreground">{candidate.name}</span>
+                                      <span
+                                        className={`rounded-full border px-2 py-0.5 text-[10px] font-black uppercase tracking-wider ${
+                                          candidateRow.isParentCompany
+                                            ? "border-amber-400/60 bg-amber-300/20 text-amber-800 dark:text-amber-200"
+                                            : candidateRow.parentCompany
+                                              ? "border-emerald-400/50 bg-emerald-300/15 text-emerald-800 dark:text-emerald-200"
+                                              : "border-slate-400/40 bg-slate-300/10 text-muted"
+                                        }`}
+                                      >
+                                        {companyRelationBadge(candidateRow)}
                                       </span>
-                                    )}
-                                    <span className="rounded-full border border-sky-400/40 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-sky-700 dark:text-sky-200">
-                                      {candidate.confidence}
-                                    </span>
-                                  </div>
-                                  <p className="mt-1 text-xs text-muted">
-                                    {candidate.slug} · {candidate.gameCount} juegos · score {candidate.score}
-                                  </p>
-                                  {candidate.reasons.length > 0 && (
+                                      <span className="rounded-full border border-sky-400/40 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-sky-700 dark:text-sky-200">
+                                        {candidate.confidence}
+                                      </span>
+                                    </div>
                                     <p className="mt-1 text-xs text-muted">
-                                      {candidate.reasons.join(" · ")}
+                                      {candidate.slug} · {candidate.gameCount} juegos · score {candidate.score}
                                     </p>
-                                  )}
+                                    {candidate.reasons.length > 0 && (
+                                      <p className="mt-1 text-xs text-muted">
+                                        {candidate.reasons.join(" · ")}
+                                      </p>
+                                    )}
+                                    <p className="mt-2 text-xs text-muted">
+                                      Destino de fusión recomendado:{" "}
+                                      <strong className="text-foreground">{mergeTarget.name}</strong>
+                                      {mergeTarget.isParentCompany ? " · ficha madre protegida" : ""}
+                                    </p>
+                                  </div>
+                                  <div className="flex flex-wrap items-center gap-2 lg:justify-end">
+                                    <Link
+                                      href={`/compania/${candidate.slug}`}
+                                      className="btn-secondary px-3 py-2 text-xs"
+                                      target="_blank"
+                                    >
+                                      Ver ficha
+                                    </Link>
+                                    <button
+                                      type="button"
+                                      className="rounded-xl border border-emerald-400/40 px-3 py-2 text-xs font-semibold text-emerald-700 transition hover:bg-emerald-500/10 dark:text-emerald-300"
+                                      disabled={editSaving}
+                                      onClick={() => void linkCompanyAsChild(company, candidateRow)}
+                                    >
+                                      Relacionar hija
+                                    </button>
+                                    <button
+                                      type="button"
+                                      className="rounded-xl border border-amber-400/40 px-3 py-2 text-xs font-semibold text-amber-700 transition hover:bg-amber-500/10 dark:text-amber-300"
+                                      onClick={() => setEditParentCompany(companyRelationLabel(candidateRow))}
+                                    >
+                                      Usar como matriz
+                                    </button>
+                                    <button
+                                      type="button"
+                                      className="rounded-xl border border-violet-400/40 px-3 py-2 text-xs font-semibold text-violet-700 transition hover:bg-violet-500/10 dark:text-violet-300"
+                                      onClick={() => setEditMergedWithCompany(companyRelationLabel(candidateRow))}
+                                    >
+                                      Historia: fusionada
+                                    </button>
+                                    <button
+                                      type="button"
+                                      className="rounded-xl border border-sky-400/40 px-3 py-2 text-xs font-semibold text-sky-700 transition hover:bg-sky-500/10 disabled:opacity-50 dark:text-sky-300"
+                                      disabled={
+                                        mergingSlug === mergeSource.slug ||
+                                        (company.isParentCompany === true && candidateRow.isParentCompany === true)
+                                      }
+                                      onClick={() => void mergeCompany(mergeSource, mergeTarget.slug)}
+                                    >
+                                      {company.isParentCompany === true && candidateRow.isParentCompany === true
+                                        ? "Dos madres"
+                                        : `Fusionar en ${mergeTarget.name}`}
+                                    </button>
+                                  </div>
                                 </div>
-                                <Link
-                                  href={`/compania/${candidate.slug}`}
-                                  className="btn-secondary px-3 py-2 text-xs"
-                                  target="_blank"
-                                >
-                                  Ver ficha
-                                </Link>
-                                <button
-                                  type="button"
-                                  className="rounded-xl border border-sky-400/40 px-3 py-2 text-xs font-semibold text-sky-700 transition hover:bg-sky-500/10 dark:text-sky-300"
-                                  onClick={() => {
-                                    setEditingSlug(null);
-                                    setCompanyDuplicateSourceSlug(null);
-                                    setCompanyDuplicateCandidates([]);
-                                    setMergeSourceSlug(company.slug);
-                                    setMergeTargetSlug(candidate.slug);
-                                  }}
-                                >
-                                  Preparar fusión
-                                </button>
-                              </div>
-                            ))
+                              );
+                            })
                           )}
                         </div>
                       )}

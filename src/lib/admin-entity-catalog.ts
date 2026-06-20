@@ -1065,7 +1065,7 @@ export async function listAdminCompanies(input?: {
     ...overlay.companyProfiles,
   };
   const q = input?.q?.trim() ?? "";
-  const limit = Math.min(500, Math.max(20, input?.limit ?? 150));
+  const limit = Math.min(5000, Math.max(20, input?.limit ?? 150));
   const mergedEntries = new Map<string, AdminIndexRow>();
   for (const entry of Object.values(index).map(staticIndexRow)) {
     mergedEntries.set(entry.slug, entry);
