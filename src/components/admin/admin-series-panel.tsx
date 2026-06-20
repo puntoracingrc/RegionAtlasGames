@@ -13,6 +13,7 @@ import type {
   AdminSeriesRow,
   SeriesBackgroundReadability,
 } from "@/lib/admin-series-manager";
+import type { DetailEntity } from "@/lib/types";
 
 type LabelOption = {
   slug: string;
@@ -30,6 +31,8 @@ type SeriesTaxonomyOptions = {
 type BulkLabelOperation = "add" | "remove" | "replace";
 type LabelPickerKind = "genres" | "subgenres" | "facets";
 type SeriesPanelMode = "create" | "edit" | "delete";
+
+const NO_GENRE_FILTER = "__without_genre";
 
 const FAMILY_LABELS: Record<string, string> = {
   subgenre: "Subgéneros",
@@ -110,6 +113,26 @@ function mergeLabelOptions(...groups: LabelOption[][]): LabelOption[] {
     }
   }
   return [...map.values()].sort((left, right) => left.name.localeCompare(right.name, "es", { numeric: true }));
+}
+
+function countGameLabels(games: AdminSeriesGameRow[], options: LabelOption[], labelsForGame: (game: AdminSeriesGameRow) => DetailEntity[]): LabelOption[] {
+  const optionBySlug = new Map(options.map((option) => [option.slug, option]));
+  const counts = new Map<string, number>();
+  for (const game of games) {
+    const seen = new Set<string>();
+    for (const label of labelsForGame(game)) {
+      if (!optionBySlug.has(label.slug) || seen.has(label.slug)) continue;
+      seen.add(label.slug);
+      counts.set(label.slug, (counts.get(label.slug) ?? 0) + 1);
+    }
+  }
+  const countedOptions: LabelOption[] = [];
+  for (const [slug, count] of counts.entries()) {
+    const option = optionBySlug.get(slug);
+    if (option) countedOptions.push({ ...option, count });
+  }
+  return countedOptions
+    .sort((left, right) => (right.count ?? 0) - (left.count ?? 0) || left.name.localeCompare(right.name, "es", { numeric: true }));
 }
 
 function LabelAutocomplete({
@@ -372,6 +395,8 @@ export function AdminSeriesPanel({
   const [hiddenGameResultIds, setHiddenGameResultIds] = useState<Set<string>>(new Set());
   const [platformOptions, setPlatformOptions] = useState<AdminSeriesPlatformOption[]>([]);
   const [genreFilter, setGenreFilter] = useState("");
+  const [subgenreFilter, setSubgenreFilter] = useState("");
+  const [facetFilter, setFacetFilter] = useState("");
   const [newSeriesName, setNewSeriesName] = useState("");
   const [newSeriesSlug, setNewSeriesSlug] = useState("");
   const [newSeriesDescription, setNewSeriesDescription] = useState("");
@@ -404,11 +429,14 @@ export function AdminSeriesPanel({
 
   const filteredGames = useMemo(() => {
     if (!detail) return [];
-    if (!genreFilter) return detail.games;
-    return detail.games.filter((game) =>
-      game.genres.some((genre) => genre.slug === genreFilter),
-    );
-  }, [detail, genreFilter]);
+    return detail.games.filter((game) => {
+      if (genreFilter === NO_GENRE_FILTER && game.genres.length > 0) return false;
+      if (genreFilter && genreFilter !== NO_GENRE_FILTER && !game.genres.some((genre) => genre.slug === genreFilter)) return false;
+      if (subgenreFilter && !game.facets.some((facet) => facet.slug === subgenreFilter)) return false;
+      if (facetFilter && !game.facets.some((facet) => facet.slug === facetFilter)) return false;
+      return true;
+    });
+  }, [detail, facetFilter, genreFilter, subgenreFilter]);
 
   const visibleGameResults = useMemo(
     () => gameResults.filter((game) => !hiddenGameResultIds.has(game.id)),
@@ -429,6 +457,17 @@ export function AdminSeriesPanel({
       ),
     }),
     [taxonomyOptions.facets, taxonomyOptions.genres],
+  );
+  const gamesWithoutGenreCount = detail?.games.filter((game) => game.genres.length === 0).length ?? 0;
+  const seriesSubgenreOptions = useMemo(
+    () =>
+      countGameLabels(detail?.games ?? [], labelOptions.subgenres, (game) => game.facets),
+    [detail?.games, labelOptions.subgenres],
+  );
+  const seriesFacetOptions = useMemo(
+    () =>
+      countGameLabels(detail?.games ?? [], labelOptions.facets, (game) => game.facets),
+    [detail?.games, labelOptions.facets],
   );
   const bulkTargetCount = selectedGameIds.length || filteredGames.length;
   const hasBulkLabels = selectedGenres.length > 0 || selectedSubgenres.length > 0 || selectedFacets.length > 0;
@@ -580,6 +619,8 @@ export function AdminSeriesPanel({
       setSeriesBackgroundReadability(nextDetail.series.backgroundReadability ?? "normal");
       setSeriesBackgroundSourceUrl("");
       setGenreFilter("");
+      setSubgenreFilter("");
+      setFacetFilter("");
       setSelectedGameIds([]);
     } catch {
       setError("Error de red al cargar la saga.");
@@ -1280,25 +1321,70 @@ export function AdminSeriesPanel({
               </AdminFunctionCard>
 
               <AdminFunctionCard tone="neutral">
-                <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
+                <div className="mb-4">
                   <p className="text-sm font-semibold uppercase tracking-wider text-muted">
-                    Filtra por género
+                    Filtra por género, subgénero o faceta
                   </p>
-                  <select
-                    className="input w-full md:w-72"
-                    value={genreFilter}
-                    onChange={(e) => {
-                      setGenreFilter(e.target.value);
-                      setSelectedGameIds([]);
-                    }}
-                  >
-                    <option value="">Todos los géneros ({detail.games.length})</option>
-                    {detail.genreOptions.map((genre) => (
-                      <option key={genre.slug} value={genre.slug}>
-                        {genre.name} ({genre.count})
-                      </option>
-                    ))}
-                  </select>
+                  <p className="mt-1 text-xs text-muted">
+                    Los contadores son de los juegos incluidos en esta saga.
+                  </p>
+                </div>
+                <div className="mb-3 grid gap-3 md:grid-cols-3">
+                  <label className="block space-y-1">
+                    <span className="text-[10px] uppercase tracking-wider text-muted">Género</span>
+                    <select
+                      className="input"
+                      value={genreFilter}
+                      onChange={(e) => {
+                        setGenreFilter(e.target.value);
+                        setSelectedGameIds([]);
+                      }}
+                    >
+                      <option value="">Todos los géneros ({detail.games.length})</option>
+                      <option value={NO_GENRE_FILTER}>Sin género ({gamesWithoutGenreCount})</option>
+                      {detail.genreOptions.map((genre) => (
+                        <option key={genre.slug} value={genre.slug}>
+                          {genre.name} ({genre.count})
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="block space-y-1">
+                    <span className="text-[10px] uppercase tracking-wider text-muted">Subgénero</span>
+                    <select
+                      className="input"
+                      value={subgenreFilter}
+                      onChange={(e) => {
+                        setSubgenreFilter(e.target.value);
+                        setSelectedGameIds([]);
+                      }}
+                    >
+                      <option value="">Todos los subgéneros ({detail.games.length})</option>
+                      {seriesSubgenreOptions.map((subgenre) => (
+                        <option key={subgenre.slug} value={subgenre.slug}>
+                          {subgenre.name} ({subgenre.count ?? 0})
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="block space-y-1">
+                    <span className="text-[10px] uppercase tracking-wider text-muted">Faceta</span>
+                    <select
+                      className="input"
+                      value={facetFilter}
+                      onChange={(e) => {
+                        setFacetFilter(e.target.value);
+                        setSelectedGameIds([]);
+                      }}
+                    >
+                      <option value="">Todas las facetas ({detail.games.length})</option>
+                      {seriesFacetOptions.map((facet) => (
+                        <option key={facet.slug} value={facet.slug}>
+                          {facet.name} ({facet.count ?? 0})
+                        </option>
+                      ))}
+                    </select>
+                  </label>
                 </div>
 
                 <div ref={bulkEditorRef}>
@@ -1358,7 +1444,10 @@ export function AdminSeriesPanel({
                       void patchSeries({
                         action: "bulk-assign",
                         operation: bulkOperation,
-                        genreSlug: genreFilter || null,
+                        genreSlug: genreFilter && genreFilter !== NO_GENRE_FILTER ? genreFilter : null,
+                        withoutGenre: genreFilter === NO_GENRE_FILTER,
+                        subgenreSlug: subgenreFilter || null,
+                        facetSlug: facetFilter || null,
                         gameIds: selectedGameIds,
                         genres: selectedGenres,
                         tags: [],

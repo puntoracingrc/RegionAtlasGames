@@ -1102,6 +1102,9 @@ function mergeHiddenEntities(existing: DetailEntity[] | undefined, names: string
 export async function bulkAssignAdminSeriesFacets(input: {
   slug: string;
   genreSlug?: string | null;
+  withoutGenre?: boolean;
+  subgenreSlug?: string | null;
+  facetSlug?: string | null;
   gameIds?: string[];
   operation?: AdminSeriesLabelOperation;
   genres?: string[];
@@ -1121,11 +1124,18 @@ export async function bulkAssignAdminSeriesFacets(input: {
   if ("error" in series) return series;
 
   const genreSlug = input.genreSlug?.trim();
+  const subgenreSlug = input.subgenreSlug?.trim();
+  const facetSlug = input.facetSlug?.trim();
   const selectedGameIds = new Set(uniqueStrings(input.gameIds ?? []));
   const targetGames = series.games.filter(
-    (game) =>
-      (selectedGameIds.size === 0 || selectedGameIds.has(game.id)) &&
-      (!genreSlug || game.genres.some((genre) => genre.slug === genreSlug)),
+    (game) => {
+      if (selectedGameIds.size > 0 && !selectedGameIds.has(game.id)) return false;
+      if (input.withoutGenre && game.genres.length > 0) return false;
+      if (genreSlug && !game.genres.some((genre) => genre.slug === genreSlug)) return false;
+      if (subgenreSlug && !game.facets.some((facet) => facet.slug === subgenreSlug)) return false;
+      if (facetSlug && !game.facets.some((facet) => facet.slug === facetSlug)) return false;
+      return true;
+    },
   );
   if (targetGames.length === 0) return { error: "No hay juegos afectados con ese filtro." };
 
