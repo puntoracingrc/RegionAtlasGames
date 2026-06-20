@@ -64,14 +64,20 @@ type WorkerConfig = {
   publicBaseUrl: string;
 };
 
+const DEFAULT_PRICE_WORKER_PUBLIC_URL = "https://www.puntoracing.net/MEDIAREGIONATLAS/price-worker";
+
+function resolvePriceWorkerPublicBaseUrl(): string {
+  const coversUrl = process.env.NEXT_PUBLIC_COVERS_BASE_URL || "https://www.puntoracing.net/MEDIAREGIONATLAS/covers";
+  return (process.env.PRICE_WORKER_PUBLIC_URL || coversUrl.replace(/\/covers\/?$/, "/price-worker") || DEFAULT_PRICE_WORKER_PUBLIC_URL).replace(/\/$/, "");
+}
+
 function remoteWorkerConfig(): WorkerConfig | null {
   const host = process.env.PRICE_WORKER_SSH_HOST || process.env.COVERS_FTP_HOST;
   const username = process.env.PRICE_WORKER_SSH_USER || process.env.COVERS_FTP_USER;
   const password = process.env.PRICE_WORKER_SSH_PASSWORD || process.env.COVERS_FTP_PASSWORD;
   const coversRoot = process.env.COVERS_FTP_REMOTE_ROOT || "MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers";
   const remoteBase = coversRoot.replace(/\/covers\/?$/, "");
-  const coversUrl = process.env.NEXT_PUBLIC_COVERS_BASE_URL || "https://www.puntoracing.net/MEDIAREGIONATLAS/covers";
-  const publicBaseUrl = (process.env.PRICE_WORKER_PUBLIC_URL || coversUrl.replace(/\/covers\/?$/, "/price-worker")).replace(/\/$/, "");
+  const publicBaseUrl = resolvePriceWorkerPublicBaseUrl();
   if (!host || !username || !password || !publicBaseUrl) return null;
   return {
     host,
@@ -84,7 +90,7 @@ function remoteWorkerConfig(): WorkerConfig | null {
 }
 
 export function priceWorkerPublicBaseUrl(): string | null {
-  return remoteWorkerConfig()?.publicBaseUrl ?? null;
+  return resolvePriceWorkerPublicBaseUrl();
 }
 
 function useRemoteWorker(): boolean {
@@ -478,7 +484,7 @@ async function readRemotePriceJob(jobId: string): Promise<AdminPriceJobMeta | nu
     const logRes = await fetch(`${config.publicBaseUrl}/logs/${encodeURIComponent(jobId)}.log`, { cache: "no-store" }).catch(() => null);
     if (logRes?.ok) {
       const log = await logRes.text();
-      meta.logTail = log.slice(-4000);
+      meta.logTail = log.slice(-80000);
     }
     return inferRemoteJobErrorFromLog(meta, meta.logTail);
   } catch {
@@ -498,7 +504,7 @@ export async function readAdminPriceJob(jobId: string): Promise<AdminPriceJobMet
     const meta = JSON.parse(readFileSync(paths.status, "utf8")) as AdminPriceJobMeta;
     if (existsSync(paths.log)) {
       const log = readFileSync(paths.log, "utf8");
-      meta.logTail = log.slice(-4000);
+      meta.logTail = log.slice(-80000);
     }
     return inferRemoteJobErrorFromLog(meta, meta.logTail);
   } catch {

@@ -15,27 +15,28 @@ export function AdminPricePlatformActions({
   estimateLabel,
   canCollect,
   unavailableReason,
+  onJobUpdate,
 }: {
   platformSlug: string;
   platformName: string;
   estimateLabel?: string;
   canCollect: boolean;
   unavailableReason?: string;
+  onJobUpdate?: (job: JobState) => void;
 }) {
   const [job, setJob] = useState<JobState | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const pollRef = useRef<number | null>(null);
 
-  async function poll(jobId: string) {
-    if (pollRef.current != null) window.clearInterval(pollRef.current);
-    pollRef.current = window.setInterval(async () => {
+  async function readJob(jobId: string) {
       try {
         const res = await fetch(`/api/admin/price-jobs/${encodeURIComponent(jobId)}`);
         const data = await res.json();
         if (!res.ok) return;
         const next = data.job as JobState;
         setJob(next);
+        onJobUpdate?.(next);
         if (next.status === "done") {
           setMessage("Recolección terminada. Recarga la página para ver la cobertura actualizada.");
           if (pollRef.current != null) window.clearInterval(pollRef.current);
@@ -46,7 +47,12 @@ export function AdminPricePlatformActions({
       } catch {
         /* ignore transient polling errors */
       }
-    }, 4000);
+  }
+
+  async function poll(jobId: string) {
+    if (pollRef.current != null) window.clearInterval(pollRef.current);
+    await readJob(jobId);
+    pollRef.current = window.setInterval(() => void readJob(jobId), 4000);
   }
 
   async function start() {
@@ -58,7 +64,9 @@ export function AdminPricePlatformActions({
     if (!confirm(`¿Lanzar recolección de precios para ${platformName}? Puede tardar bastante.${estimateText}`)) return;
     setError(null);
     setMessage(null);
-    setJob({ jobId: "", status: "running" });
+    const pendingJob = { jobId: "", status: "running" } satisfies JobState;
+    setJob(pendingJob);
+    onJobUpdate?.(pendingJob);
     try {
       const res = await fetch(
         `/api/admin/entities/platforms/${encodeURIComponent(platformSlug)}/collect-prices`,
@@ -70,7 +78,9 @@ export function AdminPricePlatformActions({
         setJob(null);
         return;
       }
-      setJob({ jobId: data.jobId, status: "running" });
+      const startedJob = { jobId: data.jobId, status: "running" } satisfies JobState;
+      setJob(startedJob);
+      onJobUpdate?.(startedJob);
       setMessage("Recolección en curso…");
       void poll(data.jobId);
     } catch {

@@ -274,6 +274,7 @@ export default async function AdminPricesPage({
           initialSort={coverageSort}
           canCollect={canCollectPrices}
           unavailableReason={canCollectPrices ? undefined : adminPriceCollectUnavailableReason()}
+          manualJobs={dashboard.manualJobs}
         />
       </Panel>
 

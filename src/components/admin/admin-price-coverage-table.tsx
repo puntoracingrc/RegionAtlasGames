@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import type { AdminPlatformPriceHealth } from "@/lib/admin-price-dashboard";
+import type { AdminPriceJobMeta } from "@/lib/admin-price-collect";
 import { Badge } from "@/components/ui";
 import { AdminPricePlatformActions } from "./admin-price-platform-actions";
 
@@ -41,6 +42,8 @@ type JobState = {
   error?: string;
   appliedSummary?: string;
 };
+
+type PlatformJobMap = Record<string, JobState>;
 
 function formatDate(value: string | null | undefined): string {
   if (!value) return "—";
@@ -114,20 +117,76 @@ function jobProgress(job: JobState | null): { done: number; total: number; faile
   };
 }
 
+function jobMatchesPlatform(job: AdminPriceJobMeta | JobState, platformSlug: string): boolean {
+  if ("platformSlug" in job && job.platformSlug === platformSlug) return true;
+  return Boolean(job.targets?.some((target) => target.platformSlug === platformSlug));
+}
+
+function seedPlatformJobs(jobs: AdminPriceJobMeta[]): PlatformJobMap {
+  const seeded: PlatformJobMap = {};
+  for (const job of jobs) {
+    if (job.platformSlug && !seeded[job.platformSlug]) seeded[job.platformSlug] = job;
+    for (const target of job.targets ?? []) {
+      if (!seeded[target.platformSlug]) seeded[target.platformSlug] = job;
+    }
+  }
+  return seeded;
+}
+
+function PriceJobTerminal({ job, platformName }: { job: JobState; platformName: string }) {
+  const terminalRef = useRef<HTMLPreElement | null>(null);
+  const lines = job.logTail?.trim() || "Esperando salida del worker…";
+
+  useEffect(() => {
+    const terminal = terminalRef.current;
+    if (!terminal) return;
+    terminal.scrollTop = terminal.scrollHeight;
+  }, [lines]);
+
+  return (
+    <div className="rounded-2xl border border-emerald-500/30 bg-black/85 p-4 shadow-inner">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
+            Terminal de recolección · {platformName}
+          </p>
+          <p className="mt-1 text-[11px] text-emerald-100/70">
+            {job.jobId ? `Job ${job.jobId}` : "Preparando job"} · {job.status}
+            {job.startedAt ? ` · ${formatDate(job.startedAt)}` : ""}
+          </p>
+        </div>
+        <Badge tone={job.status === "done" ? "green" : job.status === "error" ? "rose" : "amber"}>
+          {job.status === "running" ? "en vivo" : job.status}
+        </Badge>
+      </div>
+      <pre
+        ref={terminalRef}
+        className="max-h-80 overflow-auto rounded-xl border border-emerald-500/20 bg-[#030507] p-3 font-mono text-[11px] leading-5 text-emerald-100 whitespace-pre-wrap"
+      >
+        {lines}
+      </pre>
+      {job.error ? <p className="mt-3 text-xs text-rose-300">{job.error}</p> : null}
+    </div>
+  );
+}
+
 export function AdminPriceCoverageTable({
   rows,
   initialSort,
   canCollect,
   unavailableReason,
+  manualJobs = [],
 }: {
   rows: AdminPlatformPriceHealth[];
   initialSort: CoverageSort;
   canCollect: boolean;
   unavailableReason?: string;
+  manualJobs?: AdminPriceJobMeta[];
 }) {
   const [sort, setSort] = useState<CoverageSort>(initialSort);
   const [selected, setSelected] = useState<Record<string, SelectedTarget>>({});
   const [job, setJob] = useState<JobState | null>(null);
+  const [platformJobs, setPlatformJobs] = useState<PlatformJobMap>(() => seedPlatformJobs(manualJobs));
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const pollRef = useRef<number | null>(null);
@@ -164,6 +223,11 @@ export function AdminPriceCoverageTable({
       const data = await res.json();
       const next = data.job as JobState;
       setJob(next);
+      setPlatformJobs((current) => {
+        const updated = { ...current };
+        for (const target of next.targets ?? []) updated[target.platformSlug] = next;
+        return updated;
+      });
       if (next.status === "done") {
         setMessage("Lote terminado. Recarga la página para ver la cobertura actualizada.");
         if (pollRef.current != null) window.clearInterval(pollRef.current);
@@ -209,7 +273,13 @@ export function AdminPriceCoverageTable({
       setJob(null);
       return;
     }
-    setJob({ jobId: data.jobId, status: "running", targets: selectedTargets, estimateMinutes: estimated });
+    const startedJob = { jobId: data.jobId, status: "running", targets: selectedTargets, estimateMinutes: estimated } satisfies JobState;
+    setJob(startedJob);
+    setPlatformJobs((current) => {
+      const updated = { ...current };
+      for (const target of selectedTargets) updated[target.platformSlug] = startedJob;
+      return updated;
+    });
     setMessage("Lote en marcha…");
     void poll(data.jobId);
   }
@@ -331,104 +401,124 @@ export function AdminPriceCoverageTable({
               const platformSelected = Boolean(selected[targetKey(row.platformSlug)]);
               const selectedRegionCount = row.regions.filter((region) => selected[targetKey(row.platformSlug, region.region)]).length;
               const partialRegionSelection = !platformSelected && selectedRegionCount > 0;
+              const platformJob =
+                platformJobs[row.platformSlug] ?? manualJobs.find((candidate) => jobMatchesPlatform(candidate, row.platformSlug));
               return (
-                <tr key={row.platformSlug} className="border-b border-border/60 align-top last:border-0">
-                  <td className="py-3 pr-4">
-                    <input
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-border accent-current"
-                      checked={platformSelected}
-                      ref={(element) => {
-                        if (element) element.indeterminate = partialRegionSelection;
-                      }}
-                      onChange={() =>
-                        toggle({
-                          platformSlug: row.platformSlug,
-                          platformName: row.platformName,
-                          games: row.totalGames,
-                        })
-                      }
-                      aria-label={`Seleccionar toda la plataforma ${row.platformName}`}
-                    />
-                  </td>
-                  <td className="py-3 pr-4">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="font-semibold text-foreground">{row.platformName}</span>
-                      {row.nextInRotation && <Badge tone="violet">siguiente</Badge>}
-                    </div>
-                    <p className="mt-1 text-xs text-muted">
-                      {row.platformSlug} · {row.totalGames.toLocaleString("es-ES")} juegos
-                    </p>
-                    {partialRegionSelection ? (
-                      <p className="mt-1 text-xs font-semibold text-accent">
-                        {selectedRegionCount} región{selectedRegionCount === 1 ? "" : "es"} seleccionada
-                        {selectedRegionCount === 1 ? "" : "s"}
+                <Fragment key={row.platformSlug}>
+                  <tr className="border-b border-border/60 align-top last:border-0">
+                    <td className="py-3 pr-4">
+                      <input
+                        type="checkbox"
+                        className="h-4 w-4 rounded border-border accent-current"
+                        checked={platformSelected}
+                        ref={(element) => {
+                          if (element) element.indeterminate = partialRegionSelection;
+                        }}
+                        onChange={() =>
+                          toggle({
+                            platformSlug: row.platformSlug,
+                            platformName: row.platformName,
+                            games: row.totalGames,
+                          })
+                        }
+                        aria-label={`Seleccionar toda la plataforma ${row.platformName}`}
+                      />
+                    </td>
+                    <td className="py-3 pr-4">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="font-semibold text-foreground">{row.platformName}</span>
+                        {row.nextInRotation && <Badge tone="violet">siguiente</Badge>}
+                        {platformJob ? (
+                          <Badge tone={platformJob.status === "running" ? "amber" : platformJob.status === "done" ? "green" : "rose"}>log</Badge>
+                        ) : null}
+                      </div>
+                      <p className="mt-1 text-xs text-muted">
+                        {row.platformSlug} · {row.totalGames.toLocaleString("es-ES")} juegos
                       </p>
-                    ) : null}
-                  </td>
-                  <td className="py-3 pr-4">
-                    <Badge tone={coverageTone(row.coveragePct)}>{row.coveragePct}%</Badge>
-                    <p className="mt-1 text-xs text-muted">
-                      {row.pricedGames.toLocaleString("es-ES")} con precio
-                    </p>
-                  </td>
-                  <td className="py-3 pr-4">
-                    <Badge tone={coverageTone(row.verifiedCoveragePct)}>{row.verifiedCoveragePct}%</Badge>
-                    <p className="mt-1 text-xs text-muted">
-                      {row.verifiedGames.toLocaleString("es-ES")} verificados
-                    </p>
-                  </td>
-                  <td className="py-3 pr-4 whitespace-nowrap">
-                    <p className="font-medium text-foreground">{ageLabel(row.lastSyncAt)}</p>
-                    <p className="mt-1 text-xs text-muted">{formatDate(row.lastSyncAt)}</p>
-                    {row.source && <p className="mt-1 max-w-[180px] text-xs text-muted">{row.source}</p>}
-                  </td>
-                  <td className="py-3 pr-4">
-                    <div className="grid min-w-[340px] gap-2">
-                      {row.regions.slice(0, 5).map((region) => {
-                        const key = targetKey(row.platformSlug, region.region);
-                        return (
-                          <label key={region.region} className="grid grid-cols-[18px_minmax(90px,1fr)_80px_80px] items-center gap-2 rounded-lg border border-border/70 bg-background/40 px-2 py-1.5 text-xs">
-                            <input
-                              type="checkbox"
-                              className="h-3.5 w-3.5 rounded border-border accent-current"
-                              checked={Boolean(selected[key])}
-                              onChange={() =>
-                                toggle({
-                                  platformSlug: row.platformSlug,
-                                  platformName: row.platformName,
-                                  region: region.region,
-                                  games: region.totalGames,
-                                })
-                              }
-                              aria-label={`Seleccionar ${row.platformName} ${region.region}`}
-                            />
-                            <span className="truncate font-medium text-foreground">{region.region}</span>
-                            <span className="text-muted">{region.coveragePct}% total</span>
-                            <span className="text-muted">{region.verifiedCoveragePct}% verif.</span>
-                            {region.lastSyncAt && (
-                              <span className="col-start-2 col-span-3 text-[10px] text-muted">
-                                Región actualizada: {ageLabel(region.lastSyncAt)}
-                              </span>
-                            )}
-                          </label>
-                        );
-                      })}
-                      {row.regions.length > 5 && (
-                        <p className="text-[11px] text-muted">+{row.regions.length - 5} regiones más</p>
-                      )}
-                    </div>
-                  </td>
-                  <td className="py-3 pr-4">
-                    <AdminPricePlatformActions
-                      platformSlug={row.platformSlug}
-                      platformName={row.platformName}
-                      estimateLabel={estimateLabel(estimateMinutes([{ platformSlug: row.platformSlug, platformName: row.platformName, games: row.totalGames }]))}
-                      canCollect={canCollect}
-                      unavailableReason={unavailableReason}
-                    />
-                  </td>
-                </tr>
+                      {partialRegionSelection ? (
+                        <p className="mt-1 text-xs font-semibold text-accent">
+                          {selectedRegionCount} región{selectedRegionCount === 1 ? "" : "es"} seleccionada
+                          {selectedRegionCount === 1 ? "" : "s"}
+                        </p>
+                      ) : null}
+                    </td>
+                    <td className="py-3 pr-4">
+                      <Badge tone={coverageTone(row.coveragePct)}>{row.coveragePct}%</Badge>
+                      <p className="mt-1 text-xs text-muted">
+                        {row.pricedGames.toLocaleString("es-ES")} con precio
+                      </p>
+                    </td>
+                    <td className="py-3 pr-4">
+                      <Badge tone={coverageTone(row.verifiedCoveragePct)}>{row.verifiedCoveragePct}%</Badge>
+                      <p className="mt-1 text-xs text-muted">
+                        {row.verifiedGames.toLocaleString("es-ES")} verificados
+                      </p>
+                    </td>
+                    <td className="py-3 pr-4 whitespace-nowrap">
+                      <p className="font-medium text-foreground">{ageLabel(row.lastSyncAt)}</p>
+                      <p className="mt-1 text-xs text-muted">{formatDate(row.lastSyncAt)}</p>
+                      {row.source && <p className="mt-1 max-w-[180px] text-xs text-muted">{row.source}</p>}
+                    </td>
+                    <td className="py-3 pr-4">
+                      <div className="grid min-w-[340px] gap-2">
+                        {row.regions.slice(0, 5).map((region) => {
+                          const key = targetKey(row.platformSlug, region.region);
+                          return (
+                            <label key={region.region} className="grid grid-cols-[18px_minmax(90px,1fr)_80px_80px] items-center gap-2 rounded-lg border border-border/70 bg-background/40 px-2 py-1.5 text-xs">
+                              <input
+                                type="checkbox"
+                                className="h-3.5 w-3.5 rounded border-border accent-current"
+                                checked={Boolean(selected[key])}
+                                onChange={() =>
+                                  toggle({
+                                    platformSlug: row.platformSlug,
+                                    platformName: row.platformName,
+                                    region: region.region,
+                                    games: region.totalGames,
+                                  })
+                                }
+                                aria-label={`Seleccionar ${row.platformName} ${region.region}`}
+                              />
+                              <span className="truncate font-medium text-foreground">{region.region}</span>
+                              <span className="text-muted">{region.coveragePct}% total</span>
+                              <span className="text-muted">{region.verifiedCoveragePct}% verif.</span>
+                              {region.lastSyncAt && (
+                                <span className="col-start-2 col-span-3 text-[10px] text-muted">
+                                  Región actualizada: {ageLabel(region.lastSyncAt)}
+                                </span>
+                              )}
+                            </label>
+                          );
+                        })}
+                        {row.regions.length > 5 && (
+                          <p className="text-[11px] text-muted">+{row.regions.length - 5} regiones más</p>
+                        )}
+                      </div>
+                    </td>
+                    <td className="py-3 pr-4">
+                      <AdminPricePlatformActions
+                        platformSlug={row.platformSlug}
+                        platformName={row.platformName}
+                        estimateLabel={estimateLabel(estimateMinutes([{ platformSlug: row.platformSlug, platformName: row.platformName, games: row.totalGames }]))}
+                        canCollect={canCollect}
+                        unavailableReason={unavailableReason}
+                        onJobUpdate={(nextJob) =>
+                          setPlatformJobs((current) => ({
+                            ...current,
+                            [row.platformSlug]: nextJob,
+                          }))
+                        }
+                      />
+                    </td>
+                  </tr>
+                  {platformJob ? (
+                    <tr className="border-b border-border/60">
+                      <td colSpan={7} className="pb-5 pt-1">
+                        <PriceJobTerminal job={platformJob} platformName={row.platformName} />
+                      </td>
+                    </tr>
+                  ) : null}
+                </Fragment>
               );
             })}
           </tbody>
