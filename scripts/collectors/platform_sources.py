@@ -10,6 +10,7 @@ from collectors.common import ROOT, load_json
 SOURCES_FILE = ROOT / "data" / "platform-sources.json"
 
 _P2P_GENERIC = ("wallapop",)
+_DEFAULT_DISABLED_COLLECTORS = {"todocoleccion", "vinted"}
 _cache: dict[str, Any] | None = None
 
 
@@ -23,6 +24,37 @@ def _document() -> dict[str, Any]:
 def _platforms() -> dict[str, dict[str, Any]]:
     raw = _document().get("platforms") or {}
     return {str(k): v for k, v in raw.items() if isinstance(v, dict)}
+
+
+def _collector_settings() -> dict[str, dict[str, Any]]:
+    raw = _document().get("collectorSettings") or {}
+    if not isinstance(raw, dict):
+        return {}
+    sources = raw.get("sources") or {}
+    return {str(k): v for k, v in sources.items() if isinstance(v, dict)}
+
+
+def collector_enabled(source: str) -> bool:
+    settings = _collector_settings()
+    key = source.strip().lower()
+    if key in settings:
+        return settings[key].get("enabled") is not False
+    return key not in _DEFAULT_DISABLED_COLLECTORS
+
+
+def disabled_collectors() -> set[str]:
+    known = {
+        "wallapop",
+        "ebay",
+        "vinted",
+        "cex",
+        "jgo",
+        "chollo",
+        "kaoto",
+        "todoconsolas",
+        "todocoleccion",
+    }
+    return {source for source in known if not collector_enabled(source)}
 
 
 def platform_config(platform_slug: str) -> dict[str, Any]:
@@ -188,7 +220,7 @@ def collectors_for_platform(platform_slug: str, *, ebay_configured: bool = True)
         planned.append("cex")
     if ebay_configured and ebay_enabled_for_platform(platform_slug):
         planned.append("ebay")
-    return planned
+    return [source for source in planned if collector_enabled(source)]
 
 
 # Retrocompat: dict views usados en tests / imports antiguos
@@ -275,6 +307,8 @@ __all__ = [
     "cex_category_ids",
     "cex_sources_for_platform",
     "chollo_category",
+    "collector_enabled",
+    "disabled_collectors",
     "chollo_sources_for_platform",
     "collectors_for_platform",
     "jgo_categories",

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AdminPriceCoverageTable } from "@/components/admin/admin-price-coverage-table";
+import { AdminPriceSourceSettingsPanel } from "@/components/admin/admin-price-source-settings-panel";
 import { AdminStatTile, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { getAdminPriceDashboard, type AdminPriceSyncRow } from "@/lib/admin-price-dashboard";
@@ -9,6 +10,7 @@ import {
   type AdminPriceJobMeta,
 } from "@/lib/admin-price-collect";
 import type { AdminPriceCronAttempt } from "@/lib/admin-price-cron-log";
+import { readPriceSourceSettings } from "@/lib/price-source-settings";
 
 export const dynamic = "force-dynamic";
 
@@ -188,7 +190,10 @@ export default async function AdminPricesPage({
 }) {
   const params = await searchParams;
   const coverageSort = normalizeCoverageSort(params?.coverageSort);
-  const dashboard = await getAdminPriceDashboard(20);
+  const [dashboard, priceSourceSettings] = await Promise.all([
+    getAdminPriceDashboard(20),
+    readPriceSourceSettings(),
+  ]);
   const canCollectPrices = isAdminPriceCollectAvailable();
   const freshRows = dashboard.recentSyncs.filter((row) => {
     return isTodayOrYesterday(row.lastSyncAt);
@@ -259,6 +264,8 @@ export default async function AdminPricesPage({
         </Panel>
       </div>
 
+      <AdminPriceSourceSettingsPanel initialSettings={priceSourceSettings} />
+
       <Panel className={adminToneClass("search")}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <PanelTitle eyebrow="Historial">Últimas plataformas sincronizadas</PanelTitle>
@@ -280,14 +287,15 @@ export default async function AdminPricesPage({
                 <th className="py-3 pr-4 font-semibold">Plataforma</th>
                 <th className="py-3 pr-4 font-semibold">Cuándo</th>
                 <th className="py-3 pr-4 font-semibold">Fuente</th>
-                <th className="py-3 pr-4 font-semibold">Actualizados</th>
-                <th className="py-3 pr-4 font-semibold">Cobertura</th>
+                <th className="py-3 pr-4 font-semibold">P2P verif.</th>
+                <th className="py-3 pr-4 font-semibold">Cobertura sync</th>
                 <th className="py-3 pr-4 font-semibold">Detalle</th>
               </tr>
             </thead>
             <tbody>
               {dashboard.recentSyncs.map((row) => {
                 const sourceUpdates = updatedBySource(row);
+                const realUpdates = sourceUpdates.filter((source) => source.label !== "P2P total");
                 const sources = realSourceLabels(row);
                 const label = dayLabel(row.lastSyncAt);
                 return (
@@ -301,7 +309,15 @@ export default async function AdminPricesPage({
                       <p className="mt-1 text-xs text-muted">{formatDate(row.lastSyncAt)}</p>
                     </td>
                     <td className="py-3 pr-4 max-w-[320px]">
-                      {sources.length > 0 ? (
+                      {realUpdates.length > 0 ? (
+                        <div className="flex flex-wrap gap-1.5">
+                          {realUpdates.map((source) => (
+                            <Badge key={source.label} tone="neutral">
+                              {source.label}: {source.value}
+                            </Badge>
+                          ))}
+                        </div>
+                      ) : sources.length > 0 ? (
                         <div className="flex flex-wrap gap-1.5">
                           {sources.map((source) => (
                             <Badge key={source} tone="neutral">
@@ -320,7 +336,9 @@ export default async function AdminPricesPage({
                       {row.coveragePct == null ? "—" : `${row.coveragePct}%`}
                     </td>
                     <td className="py-3 pr-4 text-xs text-muted">
-                      {sourceUpdates.length > 0 ? sourceUpdates.map((s) => `${s.label}: ${s.value}`).join(" · ") : "Sin fuentes con actualización"}
+                      {sourceUpdates.length > 0
+                        ? sourceUpdates.map((s) => `${s.label}: ${s.value}`).join(" · ")
+                        : "Sin fuentes con actualización"}
                     </td>
                   </tr>
                 );
@@ -328,6 +346,10 @@ export default async function AdminPricesPage({
             </tbody>
           </table>
         </div>
+        <p className="mt-3 text-xs leading-5 text-muted">
+          Cobertura sync = porcentaje de juegos objetivo que recibieron precio P2P verificado en esa sincronización concreta.
+          El detalle separa el P2P total de las fuentes reales que aportaron datos.
+        </p>
       </Panel>
 
       <Panel className={adminToneClass("bulk")}>

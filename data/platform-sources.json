@@ -359,5 +359,56 @@
       "kaoto": "playstation-4",
       "serialstationConsole": "PS4"
     }
+  },
+  "collectorSettings": {
+    "updatedAt": null,
+    "sources": {
+      "wallapop": {
+        "enabled": true,
+        "label": "Wallapop",
+        "description": "P2P España. Ahora mismo es la fuente principal para precio de mercado."
+      },
+      "ebay": {
+        "enabled": true,
+        "label": "eBay",
+        "description": "API de eBay. Depende de credenciales válidas y se usará también para afiliación."
+      },
+      "vinted": {
+        "enabled": false,
+        "label": "Vinted",
+        "description": "P2P secundario. Apagado por defecto hasta estabilizar resultados."
+      },
+      "cex": {
+        "enabled": true,
+        "label": "CeX",
+        "description": "Referencia retail con compra/venta; no entra igual que P2P."
+      },
+      "jgo": {
+        "enabled": true,
+        "label": "JGO",
+        "description": "Japan Game Online. Útil como referencia import/retro."
+      },
+      "chollo": {
+        "enabled": true,
+        "label": "Chollo Games",
+        "description": "Referencia retail/importación cuando hay categoría configurada."
+      },
+      "kaoto": {
+        "enabled": true,
+        "label": "Kaoto Store",
+        "description": "Referencia retail/importación, especialmente Japón."
+      },
+      "todoconsolas": {
+        "enabled": true,
+        "label": "TodoConsolas",
+        "description": "Referencia retail española cuando existe ruta de plataforma."
+      },
+      "todocoleccion": {
+        "enabled": false,
+        "label": "TodoColeccion",
+        "description": "Apagado por defecto: mete ruido y conviene activarlo solo cuando interese."
+      }
+    },
+    "customSources": []
   }
 }
