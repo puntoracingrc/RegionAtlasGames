@@ -2,19 +2,13 @@ import { NextResponse } from "next/server";
 import { getAdminPriceDashboard } from "@/lib/admin-price-dashboard";
 import { startAdminPriceCollectJob } from "@/lib/admin-price-collect";
 import { recordAdminPriceCronAttempt } from "@/lib/admin-price-cron-log";
+import { cronRequestAuthorized } from "@/lib/cron-auth";
 
 export const maxDuration = 60;
 
-function authorized(request: Request): boolean {
-  const secret = process.env.CRON_SECRET?.trim();
-  if (!secret) return process.env.NODE_ENV !== "production";
-  const header = request.headers.get("authorization");
-  return header === `Bearer ${secret}`;
-}
-
 export async function GET(request: Request) {
   const userAgent = request.headers.get("user-agent");
-  if (!authorized(request)) {
+  if (!cronRequestAuthorized(request)) {
     await recordAdminPriceCronAttempt({
       status: "blocked",
       message: "Intento no autorizado. Revisa CRON_SECRET en Vercel si el cron legítimo queda bloqueado.",
