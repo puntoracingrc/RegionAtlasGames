@@ -3,7 +3,6 @@ import path from "path";
 import { buildEbayGameCustomId } from "./ebay/ebay-enduserctx";
 import { getPlatform } from "./catalog";
 import { readCatalogOverlayGame } from "./catalog-runtime-overlay";
-import { getRegionDisplay } from "./region-display";
 import type { CatalogGame, GameDetails } from "./types";
 
 export type AffiliateProvider = "ebay" | "amazon" | "rakuten" | "mock" | "manual";
@@ -368,7 +367,19 @@ async function getEbayAccessToken(): Promise<string | null> {
     },
     body,
   });
-  if (!res.ok) return null;
+  if (!res.ok) {
+    let error = "";
+    try {
+      error = JSON.stringify(await res.json());
+    } catch {
+      error = await res.text();
+    }
+    console.warn("ebay_token_failed", {
+      status: res.status,
+      error: error.slice(0, 700),
+    });
+    return null;
+  }
   const data = (await res.json()) as { access_token?: string; expires_in?: number };
   if (!data.access_token) return null;
   const ttlMs = Math.max(60, data.expires_in ?? 7200) * 1000;
@@ -384,29 +395,11 @@ function ebayQuery(game: CatalogGame, details: GameDetails | null): string {
   const platform = getPlatform(game.platformSlug);
   const title = game.titlePc || game.title;
   const platformName = platform?.shortName ?? game.platformSlug;
-  const region = getRegionDisplay(game.region).label;
-  const normalizedRegion = region.toLowerCase();
-  const regionTerms = new Set<string>();
-
-  if (normalizedRegion.includes("pal")) {
-    regionTerms.add(region);
-    regionTerms.add("PAL");
-  }
-  if (normalizedRegion.includes("usa") || normalizedRegion.includes("ntsc usa")) {
-    regionTerms.add("NTSC USA");
-    regionTerms.add("USA");
-  }
-  if (normalizedRegion.includes("jap") || normalizedRegion.includes("ntsc-j")) {
-    regionTerms.add("Japanese");
-    regionTerms.add("Japan");
-  }
-
-  return [title, platformName, ...regionTerms].filter(Boolean).join(" ");
+  return [title, platformName].filter(Boolean).join(" ");
 }
 
 function amazonQuery(game: CatalogGame, details: GameDetails | null): string {
-  const base = ebayQuery(game, details);
-  return [base, "videojuego"].filter(Boolean).join(" ");
+  return ebayQuery(game, details);
 }
 
 async function getAmazonAccessToken(): Promise<string | null> {
@@ -582,10 +575,26 @@ async function getEbayOffers(
     headers,
     next: { revalidate: DEFAULT_CACHE_SECONDS },
   });
-  if (!res.ok) return { offers: [], fallbackCta };
+  if (!res.ok) {
+    let error = "";
+    try {
+      error = JSON.stringify(await res.json());
+    } catch {
+      error = await res.text();
+    }
+    console.warn("ebay_search_failed", {
+      status: res.status,
+      marketplace: ebayMarketplace(),
+      catalogId: game.id,
+      query: ebayQuery(game, details),
+      error: error.slice(0, 700),
+    });
+    return { offers: [], fallbackCta };
+  }
 
   const data = (await res.json()) as EbaySearchResponse;
-  const offers = (data.itemSummaries ?? [])
+  const rawItems = data.itemSummaries ?? [];
+  const offers = rawItems
     .map((item): AffiliateOffer | null => {
       if (!item.itemId || !item.title || !item.itemWebUrl || !item.itemAffiliateWebUrl) return null;
       const confidence = scoreOffer(game, details, item.title);
@@ -608,6 +617,17 @@ async function getEbayOffers(
     .sort((a, b) => b.confidence - a.confidence || (a.price ?? 999999) - (b.price ?? 999999));
 
   const sliced = offers.slice(0, ebayLimit());
+  if (rawItems.length > 0 && sliced.length === 0) {
+    console.warn("ebay_search_filtered_out", {
+      catalogId: game.id,
+      query: ebayQuery(game, details),
+      rawItems: rawItems.length,
+      firstTitles: rawItems
+        .map((item) => item.title)
+        .filter(Boolean)
+        .slice(0, 5),
+    });
+  }
   return {
     offers: sliced,
     fallbackCta: sliced.length > 0 ? null : fallbackCta,
