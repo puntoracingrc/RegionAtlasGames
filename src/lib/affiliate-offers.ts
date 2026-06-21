@@ -119,15 +119,25 @@ type AmazonSearchResponse = {
 type AmazonSearchPayload = {
   partnerTag: string;
   keywords: string;
+  marketplace: string;
   itemCount: number;
   resources: string[];
+  languagesOfPreference?: string[];
+  currencyOfPreference?: string;
   searchIndex?: string;
 };
 
 const EBAY_TOKEN_URL = "https://api.ebay.com/identity/v1/oauth2/token";
 const EBAY_BROWSE_SEARCH_URL = "https://api.ebay.com/buy/browse/v1/item_summary/search";
 const AMAZON_CREATORS_SEARCH_URL = "https://creatorsapi.amazon/catalog/v1/searchItems";
-const AMAZON_CREATORS_DEFAULT_TOKEN_URL = "https://api.amazon.co.uk/auth/o2/token";
+const AMAZON_CREATORS_TOKEN_URLS: Record<string, string> = {
+  "2.1": "https://creatorsapi.auth.us-east-1.amazoncognito.com/oauth2/token",
+  "2.2": "https://creatorsapi.auth.eu-south-2.amazoncognito.com/oauth2/token",
+  "2.3": "https://creatorsapi.auth.us-west-2.amazoncognito.com/oauth2/token",
+  "3.1": "https://api.amazon.com/auth/o2/token",
+  "3.2": "https://api.amazon.co.uk/auth/o2/token",
+  "3.3": "https://api.amazon.co.jp/auth/o2/token",
+};
 const DEFAULT_CACHE_SECONDS = 60 * 60 * 6;
 const EBAY_TOKEN_CACHE_KEY = "__regionAtlasEbayTokenCache";
 const AMAZON_TOKEN_CACHE_KEY = "__regionAtlasAmazonTokenCache";
@@ -264,11 +274,11 @@ function amazonAffiliateEnabled(): boolean {
 }
 
 function amazonCredentialId(): string | null {
-  return configured(process.env.AMAZON_CREATORS_CREDENTIAL_ID) ?? configured(process.env.AMAZON_ACCESS_KEY);
+  return configured(process.env.AMAZON_CREATORS_CREDENTIAL_ID);
 }
 
 function amazonCredentialSecret(): string | null {
-  return configured(process.env.AMAZON_CREATORS_CREDENTIAL_SECRET) ?? configured(process.env.AMAZON_SECRET_KEY);
+  return configured(process.env.AMAZON_CREATORS_CREDENTIAL_SECRET);
 }
 
 function amazonConfigured(): boolean {
@@ -279,8 +289,28 @@ function amazonCredentialVersion(): string {
   return (configured(process.env.AMAZON_CREATORS_CREDENTIAL_VERSION) ?? "3.2").replace(/^v/i, "");
 }
 
+function amazonUsesV2Credentials(): boolean {
+  return amazonCredentialVersion().startsWith("2.");
+}
+
 function amazonMarketplace(): string {
   return configured(process.env.AMAZON_MARKETPLACE) ?? "www.amazon.es";
+}
+
+function amazonLanguagesOfPreference(): string[] {
+  const configuredLanguages = configured(process.env.AMAZON_LANGUAGES_OF_PREFERENCE);
+  if (configuredLanguages) {
+    return configuredLanguages
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean)
+      .slice(0, 1);
+  }
+  return amazonMarketplace() === "www.amazon.es" ? ["es_ES"] : [];
+}
+
+function amazonCurrencyOfPreference(): string | null {
+  return configured(process.env.AMAZON_CURRENCY_OF_PREFERENCE) ?? (amazonMarketplace() === "www.amazon.es" ? "EUR" : null);
 }
 
 function amazonSearchIndex(): string | null {
@@ -296,8 +326,7 @@ function amazonTokenUrl(): string {
   const configuredUrl = configured(process.env.AMAZON_CREATORS_TOKEN_URL);
   if (configuredUrl) return configuredUrl;
   const version = amazonCredentialVersion();
-  if (version.startsWith("3.")) return AMAZON_CREATORS_DEFAULT_TOKEN_URL;
-  return AMAZON_CREATORS_DEFAULT_TOKEN_URL;
+  return AMAZON_CREATORS_TOKEN_URLS[version] ?? AMAZON_CREATORS_TOKEN_URLS["3.2"];
 }
 
 function ebayPixelParam(name: string, fallback: string): string {
@@ -409,17 +438,24 @@ async function getAmazonAccessToken(): Promise<string | null> {
   const cached = globalThis[AMAZON_TOKEN_CACHE_KEY];
   if (cached && cached.expiresAt > Date.now() + 60_000) return cached.token;
 
+  const v2Body = new URLSearchParams({
+    grant_type: "client_credentials",
+    client_id: credentialId,
+    client_secret: credentialSecret,
+    scope: "creatorsapi/default",
+  });
+  const v3Body = JSON.stringify({
+    grant_type: "client_credentials",
+    client_id: credentialId,
+    client_secret: credentialSecret,
+    scope: "creatorsapi::default",
+  });
   const res = await fetch(amazonTokenUrl(), {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": amazonUsesV2Credentials() ? "application/x-www-form-urlencoded" : "application/json",
     },
-    body: JSON.stringify({
-      grant_type: "client_credentials",
-      client_id: credentialId,
-      client_secret: credentialSecret,
-      scope: "creatorsapi::default",
-    }),
+    body: amazonUsesV2Credentials() ? v2Body : v3Body,
   });
   if (!res.ok) {
     let error = "";
@@ -459,17 +495,26 @@ function amazonResources(): string[] {
   ];
 }
 
+function amazonAuthorizationHeader(token: string): string {
+  return amazonUsesV2Credentials() ? `Bearer ${token}, Version ${amazonCredentialVersion()}` : `Bearer ${token}`;
+}
+
 function amazonSearchPayload(
   game: CatalogGame,
   details: GameDetails | null,
   associateTag: string,
   searchIndex: string | null,
 ): AmazonSearchPayload {
+  const languagesOfPreference = amazonLanguagesOfPreference();
+  const currencyOfPreference = amazonCurrencyOfPreference();
   return {
     partnerTag: associateTag,
     keywords: amazonQuery(game, details),
+    marketplace: amazonMarketplace(),
     ...(searchIndex ? { searchIndex } : {}),
-    itemCount: amazonLimit() * 2,
+    ...(languagesOfPreference.length > 0 ? { languagesOfPreference } : {}),
+    ...(currencyOfPreference ? { currencyOfPreference } : {}),
+    itemCount: Math.min(10, amazonLimit() * 2),
     resources: amazonResources(),
   };
 }
@@ -481,7 +526,7 @@ async function fetchAmazonSearch(
   const res = await fetch(AMAZON_CREATORS_SEARCH_URL, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: amazonAuthorizationHeader(token),
       Accept: "application/json",
       "Content-Type": "application/json; charset=utf-8",
       "x-marketplace": amazonMarketplace(),
