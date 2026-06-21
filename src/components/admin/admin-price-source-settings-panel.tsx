@@ -66,7 +66,7 @@ const strategyOptions: Array<{ value: PriceSourceStrategy; label: string }> = [
 
 const statusOptions: Array<{ value: PriceSourceStatus; label: string }> = [
   { value: "active", label: "Activa en rueda" },
-  { value: "candidate", label: "Candidata sin collector" },
+  { value: "candidate", label: "Candidata / pendiente" },
   { value: "needs_review", label: "Necesita revisión" },
   { value: "blocked_403", label: "Bloqueada 403" },
   { value: "blocked_429", label: "Bloqueada 429" },
@@ -115,6 +115,17 @@ function strategyUsesNormalizations(strategy: PriceSourceStrategy | undefined): 
 
 function strategyUsesPlatformRoutes(strategy: PriceSourceStrategy | undefined): boolean {
   return strategy === "platform_routes";
+}
+
+function customSourceCanUseGenericCollector(source: PriceCustomSourceSetting): boolean {
+  if (!source.enabled) return false;
+  const status = source.status ?? "candidate";
+  if (status === "disabled" || status === "blocked_403" || status === "blocked_429") return false;
+  const strategy = source.strategy ?? "manual_candidate";
+  if (strategy === "platform_routes") return Object.keys(source.platformRoutes ?? {}).length > 0;
+  if (strategy === "internal_search" || strategy === "sequence") return Boolean(source.urlTemplate?.trim());
+  if (strategy === "catalog_crawl" || strategy === "base_url") return Boolean(source.url?.trim());
+  return false;
 }
 
 function toggleListValue(current: string[] | undefined, value: string, enabled: boolean): string[] | undefined {
@@ -271,7 +282,9 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
   const [message, setMessage] = useState("");
 
   const activeCount = useMemo(
-    () => priceCollectorSourceOrder.filter((key) => settings.sources[key].enabled).length,
+    () =>
+      priceCollectorSourceOrder.filter((key) => settings.sources[key].enabled).length
+      + settings.customSources.filter(customSourceCanUseGenericCollector).length,
     [settings],
   );
 
@@ -453,7 +466,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-700 dark:text-emerald-300">Fuentes</p>
           <h2 className="mt-2 text-2xl font-black tracking-tight text-foreground">Fuentes de recolección de precios</h2>
           <p className="mt-2 max-w-4xl text-sm leading-6 text-muted">
-            Activa o apaga collectors reales. Las webs candidatas quedan guardadas como rutas de apoyo: sirven para documentar dónde buscar, pero necesitan collector propio antes de entrar en la rueda automática.
+            Activa o apaga collectors. Las fuentes configuradas con datos suficientes entran por el collector genérico; si faltan rutas o buscador quedan guardadas como pendientes.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -611,6 +624,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
         })}
         {settings.customSources.map((source) => {
           const strategy = source.strategy ?? "manual_candidate";
+          const hasGenericCollector = customSourceCanUseGenericCollector(source);
           return (
             <div key={`custom-${source.id}`} className="rounded-2xl border border-amber-300/70 bg-amber-50/60 p-4 dark:border-amber-400/30 dark:bg-amber-950/20">
               <label className="flex cursor-pointer items-start justify-between gap-3">
@@ -627,7 +641,9 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
               </label>
               <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
-                  Ficha candidata · no entra en la rueda hasta tener collector real
+                  {hasGenericCollector
+                    ? "Ficha configurable · entra por collector genérico si plataforma/región encajan"
+                    : "Ficha candidata · faltan datos ejecutables para entrar en la rueda"}
                 </p>
                 <button type="button" onClick={() => removeCustomSource(source.id)} className="text-xs font-semibold text-rose-600 dark:text-rose-300">
                   Quitar
@@ -768,7 +784,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
       <div className="mt-5 rounded-2xl border border-border bg-background/70 p-4">
         <h3 className="text-lg font-bold text-foreground">Añadir web candidata</h3>
         <p className="mt-1 text-xs leading-5 text-muted">
-          Esto no scrapea solo por arte de magia —ojalá—, pero deja la web registrada para convertirla después en collector real.
+          Si añades rutas por plataforma o un buscador válido, la fuente podrá probarse con el collector genérico. Si faltan datos, queda guardada como pendiente.
         </p>
         <div className="mt-4 grid gap-3 lg:grid-cols-[1fr_1.4fr_1fr_auto]">
           <input
@@ -849,7 +865,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
         ) : null}
         {settings.customSources.length > 0 ? (
           <p className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-800 dark:border-amber-400/30 dark:bg-amber-950/30 dark:text-amber-200">
-            Las webs candidatas añadidas aparecen como fichas editables en el listado principal de arriba. Siguen marcadas como candidatas hasta que exista un collector real.
+            Las webs candidatas añadidas aparecen como fichas editables en el listado principal de arriba. Si tienen configuración suficiente, el worker las ejecuta mediante el collector genérico.
           </p>
         ) : null}
       </div>

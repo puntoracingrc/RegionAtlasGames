@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import os
+import json
+import urllib.request
 from pathlib import Path
 from typing import Any
 
@@ -12,14 +14,59 @@ SOURCES_FILE = ROOT / "data" / "platform-sources.json"
 
 _P2P_GENERIC = ("wallapop",)
 _DEFAULT_DISABLED_COLLECTORS = {"ebay", "todocoleccion", "vinted"}
+_GENERIC_DISABLED_STATUSES = {"disabled", "blocked_403", "blocked_429"}
+_GENERIC_SUPPORTED_STRATEGIES = {"platform_routes", "internal_search", "catalog_crawl", "base_url", "sequence"}
 _cache: dict[str, Any] | None = None
 
 
 def _document() -> dict[str, Any]:
     global _cache
     if _cache is None:
-        _cache = load_json(SOURCES_FILE, {})
+        local = load_json(SOURCES_FILE, {})
+        remote = _remote_document()
+        _cache = _newest_document(local, remote)
     return _cache
+
+
+def _worker_public_base_url() -> str:
+    explicit = os.environ.get("PRICE_WORKER_PUBLIC_URL", "").strip()
+    if explicit:
+        return explicit.rstrip("/")
+    covers_base = os.environ.get("NEXT_PUBLIC_COVERS_BASE_URL", "").strip()
+    if covers_base:
+        return covers_base.rstrip("/").removesuffix("/covers") + "/price-worker"
+    return "https://www.puntoracing.net/MEDIAREGIONATLAS/price-worker"
+
+
+def _remote_document() -> dict[str, Any] | None:
+    if os.environ.get("PRICE_SOURCES_DISABLE_REMOTE_READ", "").strip().lower() in {"1", "true", "yes"}:
+        return None
+    url = f"{_worker_public_base_url()}/app/data/platform-sources.json"
+    try:
+        request = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "RegionAtlasGames/1.0"})
+        with urllib.request.urlopen(request, timeout=8) as response:
+            if getattr(response, "status", 200) != 200:
+                return None
+            payload = response.read().decode("utf-8", errors="ignore")
+            data = json.loads(payload)
+            return data if isinstance(data, dict) else None
+    except Exception:
+        return None
+
+
+def _collector_settings_updated_at(document: dict[str, Any] | None) -> str:
+    settings = (document or {}).get("collectorSettings")
+    if not isinstance(settings, dict):
+        return ""
+    return str(settings.get("updatedAt") or "")
+
+
+def _newest_document(local: dict[str, Any], remote: dict[str, Any] | None) -> dict[str, Any]:
+    if not remote:
+        return local
+    if _collector_settings_updated_at(remote) > _collector_settings_updated_at(local):
+        return remote
+    return local
 
 
 def _platforms() -> dict[str, dict[str, Any]]:
@@ -33,6 +80,23 @@ def _collector_settings() -> dict[str, dict[str, Any]]:
         return {}
     sources = raw.get("sources") or {}
     return {str(k): v for k, v in sources.items() if isinstance(v, dict)}
+
+
+def _custom_source_settings() -> dict[str, dict[str, Any]]:
+    raw = _document().get("collectorSettings") or {}
+    if not isinstance(raw, dict):
+        return {}
+    custom_sources = raw.get("customSources") or []
+    if not isinstance(custom_sources, list):
+        return {}
+    out: dict[str, dict[str, Any]] = {}
+    for item in custom_sources:
+        if not isinstance(item, dict):
+            continue
+        source_id = str(item.get("id") or "").strip().lower()
+        if source_id:
+            out[source_id] = item
+    return out
 
 
 def collector_enabled(source: str) -> bool:
@@ -76,6 +140,58 @@ def collector_enabled_for_region(source: str, region: str) -> bool:
     if any(item.strip().lower() in normalized_region for item in _as_list(cfg.get("disabledRegions"))):
         return False
     return True
+
+
+def _scope_allows(cfg: dict[str, Any], key: str, value: str) -> bool:
+    needle = value.strip().lower()
+    if not needle:
+        return True
+    enabled = _as_list(cfg.get(f"enabled{key}s"))
+    if enabled and not any(item.strip().lower() == needle or item.strip().lower() in needle for item in enabled):
+        return False
+    if any(item.strip().lower() == needle or item.strip().lower() in needle for item in _as_list(cfg.get(f"disabled{key}s"))):
+        return False
+    return True
+
+
+def generic_source_config(source_slug: str) -> dict[str, Any] | None:
+    return _custom_source_settings().get(source_slug.strip().lower())
+
+
+def generic_source_enabled(source_slug: str, platform_slug: str, *, region: str | None = None) -> bool:
+    cfg = generic_source_config(source_slug)
+    if not cfg:
+        return False
+    if cfg.get("enabled") is False:
+        return False
+    status = str(cfg.get("status") or "").strip().lower()
+    if status in _GENERIC_DISABLED_STATUSES:
+        return False
+    strategy = str(cfg.get("strategy") or "manual_candidate").strip().lower()
+    if strategy not in _GENERIC_SUPPORTED_STRATEGIES:
+        return False
+    if not _scope_allows(cfg, "Platform", platform_slug):
+        return False
+    if region and not _scope_allows(cfg, "Region", region):
+        return False
+    if strategy == "platform_routes":
+        routes = cfg.get("platformRoutes") or {}
+        if not isinstance(routes, dict):
+            return False
+        return bool(str(routes.get(platform_slug) or routes.get(platform_slug.strip().lower()) or "").strip())
+    if strategy in {"internal_search", "sequence"}:
+        return bool(str(cfg.get("urlTemplate") or "").strip())
+    if strategy in {"catalog_crawl", "base_url"}:
+        return bool(str(cfg.get("url") or cfg.get("supportUrl") or "").strip())
+    return False
+
+
+def generic_sources_for_platform(platform_slug: str, *, region: str | None = None) -> list[str]:
+    return [
+        source_slug
+        for source_slug in sorted(_custom_source_settings())
+        if generic_source_enabled(source_slug, platform_slug, region=region)
+    ]
 
 
 def disabled_collectors() -> set[str]:
@@ -261,6 +377,7 @@ def collectors_for_platform(platform_slug: str, *, ebay_configured: bool = True)
         planned.append("cex")
     if ebay_price_wheel_enabled() and ebay_configured and ebay_enabled_for_platform(platform_slug):
         planned.append("ebay")
+    planned.extend(f"generic:{source}" for source in generic_sources_for_platform(platform_slug, region=os.environ.get("PRICE_COLLECT_REGION", "").strip() or None))
     return [source for source in planned if collector_enabled_for_platform(source, platform_slug)]
 
 
@@ -354,6 +471,9 @@ __all__ = [
     "disabled_collectors",
     "chollo_sources_for_platform",
     "collectors_for_platform",
+    "generic_source_config",
+    "generic_source_enabled",
+    "generic_sources_for_platform",
     "jgo_categories",
     "jgo_sources_for_platform",
     "kaoto_collection",

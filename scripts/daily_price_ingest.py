@@ -189,8 +189,9 @@ def collector_timeout_seconds(source: str) -> int:
         "jgo": 35 * 60,
         "kaoto": 35 * 60,
         "cex": 25 * 60,
+        "generic": 20 * 60,
     }
-    return defaults.get(source, 30 * 60)
+    return defaults.get(source.split(":", 1)[0], 30 * 60)
 
 
 def planned_sources(platform_slug: str) -> list[tuple[str, Path]]:
@@ -211,7 +212,11 @@ def planned_sources(platform_slug: str) -> list[tuple[str, Path]]:
     }
     planned: list[tuple[str, Path]] = []
     for source in ps.collectors_for_platform(platform_slug, ebay_configured=ebay_configured()):
-        path = source_paths.get(source)
+        if source.startswith("generic:"):
+            safe_source = re.sub(r"[^a-zA-Z0-9_-]+", "-", source.split(":", 1)[1]).strip("-").lower()
+            path = INGEST_DIR / f"{platform_slug}{suffix}-{safe_source}.json"
+        else:
+            path = source_paths.get(source)
         if path is not None:
             planned.append((source, path))
     return planned
@@ -228,6 +233,31 @@ def collector_match_args() -> list[str]:
 
 def collector_command(source: str, platform_slug: str, output: Path) -> list[str]:
     scripts = ROOT / "scripts"
+    if source.startswith("generic:"):
+        source_slug = source.split(":", 1)[1].strip()
+        if not source_slug:
+            raise ValueError("Fuente genérica sin slug")
+        cmd = [
+            PYTHON,
+            str(scripts / "collect_generic_source.py"),
+            "--source",
+            source_slug,
+            "--platform",
+            platform_slug,
+            "--output",
+            str(output),
+        ]
+        retail_limit = daily_retail_game_limit()
+        if retail_limit:
+            cmd.extend(["--limit", str(retail_limit)])
+        if daily_use_cache():
+            cmd.append("--use-cache")
+        cmd.extend(collector_match_args())
+        region = os.environ.get("PRICE_COLLECT_REGION", "").strip()
+        if region:
+            cmd.extend(["--region", region])
+        return cmd
+
     script_map = {
         "todocoleccion": scripts / "collect_todocoleccion.py",
         "wallapop": scripts / "collect_wallapop.py",
