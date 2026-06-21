@@ -58,8 +58,118 @@ export type CreateLocalGameRunnerJobInput = {
   skipRecentDays?: number;
 };
 
+export type GamePastePreviewProduct = {
+  title: string;
+  priceEur: number;
+};
+
+export type GamePastePreview = {
+  products: GamePastePreviewProduct[];
+  skipped: Array<GamePastePreviewProduct & { reason: string }>;
+  stats: {
+    pastedLines: number;
+    parsedProducts: number;
+    skippedLikelyNonGames: number;
+    duplicateSkipped: number;
+    strayPrices: number;
+    unmatchedLines: number;
+  };
+};
+
+export type ImportGamePasteInput = {
+  platformSlug?: string;
+  offerType?: string;
+  pastedText?: string;
+};
+
+const GAME_PASTE_PRICE_RE = /(\d{1,5})\s*['’]\s*(\d{2})\s*€/;
+const GAME_PASTE_BUY_WORDS = new Set(["comprar", "añadir", "anadir"]);
+const GAME_PASTE_NON_GAME_RE =
+  /\b(figura|figurine|funko|amiibo|peluche|camiseta|poster|póster|merchandising|mando|controller|consola|auriculares|headset|accesorio|accesorios|cargador|cable|funda|soporte|volante|teclado|rat[oó]n|alfombrilla|skin|pack consola)\b/i;
+
 function emptyQueue(): LocalGameRunnerQueue {
   return { schemaVersion: 1, updatedAt: new Date().toISOString(), jobs: [] };
+}
+
+function cleanGamePasteLine(value: string): string {
+  return value.replace(/\u00a0/g, " ").trim().replace(/\s+/g, " ");
+}
+
+function parseGamePastePrice(value: string): number | null {
+  const match = GAME_PASTE_PRICE_RE.exec(value);
+  if (!match) return null;
+  return Number(`${match[1]}.${match[2]}`);
+}
+
+function isGamePasteBuyLine(value: string): boolean {
+  return GAME_PASTE_BUY_WORDS.has(cleanGamePasteLine(value).toLowerCase());
+}
+
+export function previewGamePasteText(text: string): GamePastePreview {
+  const lines = text
+    .split(/\r?\n/)
+    .map(cleanGamePasteLine)
+    .filter(Boolean);
+  const products: GamePastePreviewProduct[] = [];
+  const skipped: Array<GamePastePreviewProduct & { reason: string }> = [];
+  const seen = new Set<string>();
+  let duplicateSkipped = 0;
+  let strayPrices = 0;
+  let unmatchedLines = 0;
+  let index = 0;
+
+  while (index < lines.length) {
+    const line = lines[index] ?? "";
+    if (parseGamePastePrice(line) !== null) {
+      strayPrices += 1;
+      index += 1;
+      continue;
+    }
+    if (isGamePasteBuyLine(line)) {
+      unmatchedLines += 1;
+      index += 1;
+      continue;
+    }
+
+    const title = line.replace(/^[\s\-·]+|[\s\-·]+$/g, "");
+    let nextIndex = index + 1;
+    if ((lines[nextIndex] ?? "").toLowerCase() === line.toLowerCase()) nextIndex += 1;
+    if (isGamePasteBuyLine(lines[nextIndex] ?? "")) nextIndex += 1;
+    const price = parseGamePastePrice(lines[nextIndex] ?? "");
+    if (price === null) {
+      unmatchedLines += 1;
+      index += 1;
+      continue;
+    }
+
+    const key = `${title.toLowerCase()}|${price.toFixed(2)}`;
+    if (seen.has(key)) {
+      duplicateSkipped += 1;
+      index = nextIndex + 1;
+      continue;
+    }
+    seen.add(key);
+    if (GAME_PASTE_NON_GAME_RE.test(title)) {
+      skipped.push({ title, priceEur: price, reason: "Parece accesorio/merchandising" });
+      index = nextIndex + 1;
+      continue;
+    }
+    products.push({ title, priceEur: price });
+    index = nextIndex + 1;
+  }
+
+  return {
+    products,
+    skipped,
+    stats: {
+      pastedLines: lines.length,
+      parsedProducts: products.length,
+      skippedLikelyNonGames: skipped.length,
+      duplicateSkipped,
+      strayPrices,
+      unmatchedLines,
+    },
+  };
 }
 
 function normalizeJob(input: unknown): LocalGameRunnerJob | null {
@@ -397,4 +507,62 @@ export async function importLocalGameRunnerJob(jobId: string): Promise<{ ok: tru
   if ("error" in written) return written;
   if ("error" in result) return { error: result.error };
   return { ok: true, job };
+}
+
+export async function importGamePasteText(
+  input: ImportGamePasteInput,
+): Promise<
+  | {
+      ok: true;
+      importId: string;
+      resultPath: string;
+      preview: GamePastePreview;
+      importLogTail: string | null;
+    }
+  | { error: string; preview?: GamePastePreview }
+> {
+  const platformSlug = input.platformSlug === "ps5" ? "ps5" : input.platformSlug === "ps4" ? "ps4" : null;
+  const offerType = input.offerType === "new" ? "new" : input.offerType === "preowned" ? "preowned" : null;
+  if (!platformSlug || !offerType) return { error: "Elige plataforma PS4/PS5 y tipo nuevo/seminuevo." };
+  const pastedText = String(input.pastedText ?? "").trim();
+  if (pastedText.length < 20) return { error: "Pega el bloque de productos de GAME antes de importar." };
+  const preview = previewGamePasteText(pastedText);
+  if (preview.stats.parsedProducts <= 0) return { error: "No he detectado productos GAME en ese texto.", preview };
+
+  const importId = `game-paste-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+  const textPath = `app/data/price-ingest/local-game-paste/${importId}.txt`;
+  const outputPath = `data/price-ingest/local-game/${importId}.json`;
+  const resultPath = `app/${outputPath}`;
+  const written = await writeWorkerFile(textPath, Buffer.from(`${pastedText}\n`, "utf8"));
+  if ("error" in written) return { error: written.error, preview };
+
+  const appRoot = path.posix.join(priceWorkerRemoteRoot(), "app");
+  const command = [
+    `cd ${shellQuote(appRoot)}`,
+    "&&",
+    "python3",
+    "scripts/import_game_paste.py",
+    "--platform",
+    shellQuote(platformSlug),
+    "--offer-type",
+    shellQuote(offerType),
+    "--input",
+    shellQuote(textPath.replace(/^app\//, "")),
+    "--output",
+    shellQuote(outputPath),
+    "--no-vision",
+    "&&",
+    "python3",
+    "scripts/sync_es_prices.py",
+    "--platform",
+    shellQuote(platformSlug),
+    "--input",
+    shellQuote(outputPath),
+    "--no-advance-rotation",
+    "--no-vision",
+  ].join(" ");
+  const result = await execWorkerCommand(command);
+  const importLogTail = String(result.output ?? "").slice(-12000) || null;
+  if ("error" in result) return { error: result.error, preview };
+  return { ok: true, importId, resultPath, preview, importLogTail };
 }

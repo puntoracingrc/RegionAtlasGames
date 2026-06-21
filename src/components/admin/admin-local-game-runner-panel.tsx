@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { LocalGameRunnerJob, LocalGameRunnerOfferType } from "@/lib/local-game-runner-jobs";
+import type { GamePastePreview, LocalGameRunnerJob, LocalGameRunnerOfferType } from "@/lib/local-game-runner-jobs";
 
 type Props = {
   initialJobs: LocalGameRunnerJob[];
@@ -36,6 +36,11 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
   const [state, setState] = useState<"idle" | "saving" | "error" | "saved">("idle");
   const [importingJobId, setImportingJobId] = useState<string | null>(null);
   const [message, setMessage] = useState("");
+  const [pasteText, setPasteText] = useState("");
+  const [pastePreview, setPastePreview] = useState<GamePastePreview | null>(null);
+  const [pasteState, setPasteState] = useState<"idle" | "previewing" | "importing" | "error" | "done">("idle");
+  const [pasteMessage, setPasteMessage] = useState("");
+  const [pasteLog, setPasteLog] = useState("");
 
   async function refreshJobs() {
     const response = await fetch("/api/admin/price-local-game-jobs", { cache: "no-store" });
@@ -76,6 +81,53 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
     setJobs((current) => current.map((job) => (job.id === jobId ? data.job! : job)));
     setState("saved");
     setMessage("Resultado GAME importado al flujo del worker. Los dudosos quedan en Precios a revisar.");
+  }
+
+  async function previewPaste() {
+    setPasteState("previewing");
+    setPasteMessage("");
+    setPasteLog("");
+    const response = await fetch("/api/admin/price-game-paste/preview", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pastedText: pasteText }),
+    });
+    const data = await response.json().catch(() => null) as { ok?: boolean; preview?: GamePastePreview; error?: string } | null;
+    if (!response.ok || !data?.ok || !data.preview) {
+      setPasteState("error");
+      setPasteMessage(data?.error ?? "No se pudo previsualizar el pegado de GAME.");
+      return;
+    }
+    setPastePreview(data.preview);
+    setPasteState("idle");
+    setPasteMessage(`Detectados ${data.preview.stats.parsedProducts} productos. Revisa y confirma si quieres importarlos.`);
+  }
+
+  async function importPaste() {
+    setPasteState("importing");
+    setPasteMessage("");
+    setPasteLog("");
+    const response = await fetch("/api/admin/price-game-paste/import", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ platformSlug, offerType, pastedText: pasteText }),
+    });
+    const data = await response.json().catch(() => null) as {
+      ok?: boolean;
+      preview?: GamePastePreview;
+      resultPath?: string;
+      importLogTail?: string | null;
+      error?: string;
+    } | null;
+    if (data?.preview) setPastePreview(data.preview);
+    if (!response.ok || !data?.ok) {
+      setPasteState("error");
+      setPasteMessage(data?.error ?? "No se pudo importar el pegado de GAME.");
+      return;
+    }
+    setPasteState("done");
+    setPasteLog(data.importLogTail ?? "");
+    setPasteMessage(`Importado al worker: ${data.resultPath}. Los seguros se aplican; los dudosos quedan en Precios a revisar.`);
   }
 
   return (
@@ -140,6 +192,116 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
           {message}
         </p>
       ) : null}
+
+      <div className="mt-6 rounded-3xl border border-amber-300/70 bg-amber-50/70 p-4 dark:border-amber-400/30 dark:bg-amber-950/20">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-700 dark:text-amber-300">GAME pegado manual</p>
+            <h3 className="mt-1 text-xl font-black tracking-tight text-foreground">Pegar catálogo seminuevo de GAME</h3>
+            <p className="mt-2 max-w-4xl text-sm leading-6 text-muted">
+              Pega el texto tal cual desde GAME. Primero lo previsualizas; al confirmar se genera un JSON en el worker y pasa por el mismo flujo de precios/revisión.
+            </p>
+          </div>
+          <span className="rounded-full border border-amber-300 bg-amber-100 px-3 py-1 text-[11px] font-bold text-amber-800 dark:border-amber-400/30 dark:bg-amber-900/30 dark:text-amber-100">
+            No toca la rueda Ionos
+          </span>
+        </div>
+        <div className="mt-4 grid gap-3 lg:grid-cols-[280px_1fr]">
+          <div className="space-y-3">
+            <label className="block text-xs font-semibold text-muted">
+              Plataforma destino
+              <select value={platformSlug} onChange={(event) => setPlatformSlug(event.target.value as "ps4" | "ps5")} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground">
+                <option value="ps4">PS4</option>
+                <option value="ps5">PS5</option>
+              </select>
+            </label>
+            <label className="block text-xs font-semibold text-muted">
+              Tipo de precio
+              <select value={offerType} onChange={(event) => setOfferType(event.target.value as LocalGameRunnerOfferType)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground">
+                <option value="preowned">Seminuevo GAME</option>
+                <option value="new">Nuevo GAME</option>
+              </select>
+            </label>
+            <div className="rounded-2xl border border-border bg-background/55 p-3 text-xs leading-5 text-muted">
+              Recomendado ahora: <strong className="text-foreground">PS4 · Seminuevo</strong>. Lo seguro puede autoaceptarse; lo dudoso va a revisión.
+            </div>
+          </div>
+          <label className="block text-xs font-semibold text-muted">
+            Texto copiado de GAME
+            <textarea
+              value={pasteText}
+              onChange={(event) => setPasteText(event.target.value)}
+              rows={10}
+              placeholder={"EA Sports FC 25 - Seminuevo\\nEA Sports FC 25 - Seminuevo\\n\\nComprar\\n24 '99 €"}
+              className="mt-1 w-full rounded-2xl border border-border bg-background px-3 py-2 font-mono text-xs leading-5 text-foreground"
+            />
+          </label>
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <button type="button" onClick={previewPaste} disabled={pasteState === "previewing" || pasteState === "importing"} className="btn-secondary text-sm">
+            {pasteState === "previewing" ? "Previsualizando..." : "Previsualizar"}
+          </button>
+          <button
+            type="button"
+            onClick={importPaste}
+            disabled={pasteState === "importing" || !pastePreview || pastePreview.stats.parsedProducts <= 0}
+            className="btn-primary text-sm"
+          >
+            {pasteState === "importing" ? "Importando..." : "Confirmar e importar"}
+          </button>
+        </div>
+        {pasteMessage ? (
+          <p className={`mt-3 rounded-2xl border px-4 py-3 text-sm ${pasteState === "error" ? "border-red-200 bg-red-50 text-red-700" : "border-amber-200 bg-amber-50 text-amber-800"}`}>
+            {pasteMessage}
+          </p>
+        ) : null}
+        {pastePreview ? (
+          <div className="mt-4 grid gap-3 lg:grid-cols-4">
+            <div className="rounded-xl border border-border bg-background/55 p-3">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Productos</p>
+              <p className="mt-1 text-2xl font-black text-foreground">{pastePreview.stats.parsedProducts}</p>
+            </div>
+            <div className="rounded-xl border border-border bg-background/55 p-3">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Descartes obvios</p>
+              <p className="mt-1 text-2xl font-black text-foreground">{pastePreview.stats.skippedLikelyNonGames}</p>
+            </div>
+            <div className="rounded-xl border border-border bg-background/55 p-3">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Duplicados</p>
+              <p className="mt-1 text-2xl font-black text-foreground">{pastePreview.stats.duplicateSkipped}</p>
+            </div>
+            <div className="rounded-xl border border-border bg-background/55 p-3">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Líneas sueltas</p>
+              <p className="mt-1 text-2xl font-black text-foreground">{pastePreview.stats.unmatchedLines + pastePreview.stats.strayPrices}</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-background/55 p-3 lg:col-span-2">
+              <p className="text-xs font-bold text-foreground">Primeros productos detectados</p>
+              <ul className="mt-2 space-y-1 text-xs text-muted">
+                {pastePreview.products.slice(0, 8).map((product) => (
+                  <li key={`${product.title}-${product.priceEur}`}>• {product.title} — {product.priceEur.toLocaleString("es-ES", { style: "currency", currency: "EUR" })}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-border bg-background/55 p-3 lg:col-span-2">
+              <p className="text-xs font-bold text-foreground">Descartes revisables</p>
+              {pastePreview.skipped.length ? (
+                <ul className="mt-2 space-y-1 text-xs text-muted">
+                  {pastePreview.skipped.slice(0, 8).map((product) => (
+                    <li key={`${product.title}-${product.priceEur}`}>• {product.title} — {product.reason}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="mt-2 text-xs text-muted">No he visto accesorios/merchandising obvio.</p>
+              )}
+            </div>
+          </div>
+        ) : null}
+        {pasteLog ? (
+          <details className="mt-4 rounded-xl border border-emerald-400/25 bg-slate-950 p-3">
+            <summary className="cursor-pointer list-none text-xs font-semibold text-emerald-200">Log de importación del pegado</summary>
+            <pre className="mt-3 max-h-56 overflow-auto whitespace-pre-wrap rounded-lg border border-emerald-400/15 bg-black/70 p-3 font-mono text-[11px] leading-5 text-emerald-100">{pasteLog}</pre>
+          </details>
+        ) : null}
+      </div>
 
       <div className="mt-5 grid gap-3 md:grid-cols-2">
         {jobs.length ? jobs.map((job) => (
