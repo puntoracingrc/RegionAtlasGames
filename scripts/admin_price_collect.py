@@ -50,6 +50,17 @@ def write_status(path: Path | None, payload: dict[str, Any]) -> None:
     save_json(path, {**previous, **clean_payload})
 
 
+def status_job_id(path: Path | None) -> str | None:
+    if path is None:
+        return None
+    return path.stem or None
+
+
+def collect_trigger() -> str:
+    trigger = os.environ.get("PRICE_COLLECT_TRIGGER", "manual").strip().lower()
+    return "automatic" if trigger == "automatic" else "manual"
+
+
 def find_game(catalog_id: str) -> dict[str, Any]:
     catalog = load_json(CATALOG_FILE, [])
     game = next((g for g in catalog if str(g.get("id")) == catalog_id), None)
@@ -93,9 +104,11 @@ def collect_platform(
         status_file,
         {
             "status": "done" if result.returncode == 0 else "error",
+            "jobId": status_job_id(status_file),
             "exitCode": result.returncode,
             "platformSlug": platform_slug,
             "region": clean_region or None,
+            "trigger": collect_trigger(),
             "finishedAt": now_iso(),
         },
     )
@@ -123,6 +136,8 @@ def collect_targets(targets: list[dict[str, Any]], *, status_file: Path | None) 
             status_file,
             {
                 "status": "running" if index < len(targets) else ("error" if failed else "done"),
+                "jobId": status_job_id(status_file),
+                "trigger": collect_trigger(),
                 "targets": targets,
                 "completedTargets": completed,
                 "failedTargets": failed,
@@ -146,8 +161,10 @@ def collect_game(catalog_id: str, *, status_file: Path | None) -> int:
             status_file,
             {
                 "status": "error",
+                "jobId": status_job_id(status_file),
                 "error": f"Sin collectors configurados para {platform_slug}",
                 "catalogId": catalog_id,
+                "trigger": collect_trigger(),
                 "finishedAt": now_iso(),
             },
         )
@@ -177,9 +194,11 @@ def collect_game(catalog_id: str, *, status_file: Path | None) -> int:
             status_file,
             {
                 "status": "error",
+                "jobId": status_job_id(status_file),
                 "error": "Ninguna fuente produjo datos para este juego",
                 "catalogId": catalog_id,
                 "platformSlug": platform_slug,
+                "trigger": collect_trigger(),
                 "finishedAt": now_iso(),
             },
         )
@@ -209,10 +228,12 @@ def collect_game(catalog_id: str, *, status_file: Path | None) -> int:
         status_file,
         {
             "status": "done" if result.returncode == 0 else "error",
+            "jobId": status_job_id(status_file),
             "exitCode": result.returncode,
             "catalogId": catalog_id,
             "platformSlug": platform_slug,
             "sources": sources_ok,
+            "trigger": collect_trigger(),
             "ingestPath": str(merged_path.relative_to(ROOT)),
             "finishedAt": now_iso(),
         },
@@ -246,10 +267,12 @@ def main() -> None:
         args.status_file,
         {
             "status": "running",
+            "jobId": status_job_id(args.status_file),
             "platformSlug": args.platform,
             "region": args.region,
             "catalogId": args.catalog_id,
             "targets": json.loads(args.targets_json) if args.targets_json else None,
+            "trigger": collect_trigger(),
             "startedAt": now_iso(),
         },
     )
@@ -275,10 +298,12 @@ def main() -> None:
                 args.status_file,
                 {
                     "status": "error",
+                    "jobId": status_job_id(args.status_file),
                     "platformSlug": args.platform,
                     "region": args.region,
                     "catalogId": args.catalog_id,
                     "targets": json.loads(args.targets_json) if args.targets_json else None,
+                    "trigger": collect_trigger(),
                     "error": str(exc),
                     "finishedAt": now_iso(),
                 },
@@ -290,10 +315,12 @@ def main() -> None:
                 args.status_file,
                 {
                     "status": "error",
+                    "jobId": status_job_id(args.status_file),
                     "platformSlug": args.platform,
                     "region": args.region,
                     "catalogId": args.catalog_id,
                     "targets": json.loads(args.targets_json) if args.targets_json else None,
+                    "trigger": collect_trigger(),
                     "error": str(exc),
                     "finishedAt": now_iso(),
                 },

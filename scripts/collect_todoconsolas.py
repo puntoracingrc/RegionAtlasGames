@@ -112,7 +112,11 @@ def collect_platform(platform_slug: str, args: argparse.Namespace) -> tuple[list
     if not tcns_sources_for_platform(platform_slug):
         raise SystemExit(f"Plataforma sin soporte TodoConsolas: {platform_slug}")
 
-    games = prioritize_catalog_games(platform_catalog_games(platform_slug), args.limit)
+    games = prioritize_catalog_games(
+        platform_catalog_games(platform_slug),
+        args.limit,
+        rotation_key=f"todoconsolas:{platform_slug}:all",
+    )
 
     _, ref_to_ids = build_platform_reference_index(platform_slug)
     match_opts = match_kwargs(args)

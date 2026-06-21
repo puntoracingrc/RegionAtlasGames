@@ -140,7 +140,11 @@ def collect_platform(
     if not cex_sources_for_platform(platform_slug):
         raise SystemExit(f"Plataforma sin soporte CeX: {platform_slug}")
 
-    games = prioritize_catalog_games(platform_catalog_games(platform_slug), args.limit)
+    games = prioritize_catalog_games(
+        platform_catalog_games(platform_slug),
+        args.limit,
+        rotation_key=f"cex:{platform_slug}:all",
+    )
 
     _, ref_to_ids = build_platform_reference_index(platform_slug)
     match_opts = match_kwargs(args)

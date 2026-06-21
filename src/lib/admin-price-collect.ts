@@ -22,6 +22,7 @@ export type AdminPriceJobMeta = {
   error?: string;
   sources?: string[];
   logTail?: string;
+  trigger?: "manual" | "automatic";
   autoApplied?: boolean;
   autoApplySummary?: string;
   autoApplyError?: string;
@@ -95,7 +96,7 @@ export function priceWorkerPublicBaseUrl(): string | null {
   return resolvePriceWorkerPublicBaseUrl();
 }
 
-function useRemoteWorker(): boolean {
+function shouldUseRemoteWorker(): boolean {
   return Boolean(remoteWorkerConfig() && (process.env.VERCEL || process.env.PRICE_WORKER_FORCE_REMOTE === "1"));
 }
 
@@ -299,7 +300,19 @@ function shellQuote(value: string): string {
 }
 
 async function execSsh(config: WorkerConfig, command: string): Promise<string> {
-  const mod = (await import("ssh2")) as unknown as { Client: new () => any };
+  type SshStream = {
+    on(event: "close", listener: (code: number) => void): SshStream;
+    on(event: "data", listener: (data: Buffer) => void): SshStream;
+    stderr: { on(event: "data", listener: (data: Buffer) => void): void };
+  };
+  type SshConnection = {
+    on(event: "ready", listener: () => void): SshConnection;
+    on(event: "error", listener: (error: Error) => void): SshConnection;
+    exec(command: string, callback: (error: Error | undefined, stream: SshStream) => void): void;
+    connect(config: Record<string, unknown>): void;
+    end(): void;
+  };
+  const mod = (await import("ssh2")) as unknown as { Client: new () => SshConnection };
   const conn = new mod.Client();
   return await new Promise((resolve, reject) => {
     const timer = setTimeout(() => {
@@ -308,7 +321,7 @@ async function execSsh(config: WorkerConfig, command: string): Promise<string> {
     }, 20000);
     conn
       .on("ready", () => {
-        conn.exec(command, (error: Error | undefined, stream: any) => {
+        conn.exec(command, (error, stream) => {
           if (error) {
             clearTimeout(timer);
             conn.end();
@@ -378,11 +391,19 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
       ].join("; ")
     : args.join(" ");
 
+  const workerEnv = [
+    "PYTHONUNBUFFERED=1",
+    `PRICE_COLLECT_TRIGGER=${input.advanceRotation ? "automatic" : "manual"}`,
+    input.advanceRotation ? "PRICE_WORKER_DAILY=1" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   const command = [
     "set -e",
     `cd "$HOME"/${remoteDir}`,
     "mkdir -p jobs logs",
-    `nohup sh -c ${shellQuote(`PYTHONUNBUFFERED=1 app/venv/bin/python -u ${runCommand}`)} > logs/${jobId}.log 2>&1 &`,
+    `nohup sh -c ${shellQuote(`${workerEnv} app/venv/bin/python -u ${runCommand}`)} > logs/${jobId}.log 2>&1 &`,
     `echo $! > ${pidFile}`,
     `echo ${shellQuote(jobId)}`,
   ].join("\n");
@@ -397,6 +418,7 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
       region: input.region,
       targets: targets.length > 0 ? targets : undefined,
       estimateMinutes: input.estimateMinutes,
+      trigger: input.advanceRotation ? "automatic" : "manual",
       startedAt,
     });
     return { jobId };
@@ -416,7 +438,7 @@ export async function startAdminPriceCollectJob(input: PriceJobStartInput): Prom
   if ("error" in validation) return validation;
   const { targets } = validation;
 
-  if (useRemoteWorker()) {
+  if (shouldUseRemoteWorker()) {
     return startRemotePriceCollectJob(input, targets);
   }
 
@@ -447,6 +469,7 @@ export async function startAdminPriceCollectJob(input: PriceJobStartInput): Prom
     region: input.region,
     targets: targets.length > 0 ? targets : undefined,
     estimateMinutes: input.estimateMinutes,
+    trigger: input.advanceRotation ? "automatic" : "manual",
     startedAt,
   } satisfies AdminPriceJobMeta;
   writeFileSync(
@@ -551,7 +574,7 @@ export async function stopAdminPriceJob(jobId: string): Promise<AdminPriceJobMet
   const job = await readAdminPriceJob(jobId);
   if (!job) return { error: "Job no encontrado." };
   if (job.status !== "running") return { error: "El job ya no está en marcha." };
-  return useRemoteWorker() ? stopRemotePriceJob(job) : stopLocalPriceJob(job);
+  return shouldUseRemoteWorker() ? stopRemotePriceJob(job) : stopLocalPriceJob(job);
 }
 
 async function readRemotePriceJob(jobId: string): Promise<AdminPriceJobMeta | null> {
@@ -575,7 +598,7 @@ async function readRemotePriceJob(jobId: string): Promise<AdminPriceJobMeta | nu
 
 export async function readAdminPriceJob(jobId: string): Promise<AdminPriceJobMeta | null> {
   if (!/^[a-zA-Z0-9-]+$/.test(jobId)) return null;
-  if (useRemoteWorker()) {
+  if (shouldUseRemoteWorker()) {
     return readRemotePriceJob(jobId);
   }
   const paths = jobPaths(jobId);

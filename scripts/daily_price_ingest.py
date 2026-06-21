@@ -130,6 +130,11 @@ def daily_retail_game_limit() -> int | None:
             return max(1, int(raw))
         except ValueError:
             pass
+    if os.environ.get("PRICE_WORKER_DAILY", "").strip().lower() in {"1", "true", "yes"}:
+        try:
+            return max(1, int(os.environ.get("PRICE_WORKER_DAILY_RETAIL_GAME_LIMIT", "120")))
+        except ValueError:
+            return 120
     if is_ci_daily():
         try:
             return max(1, int(os.environ.get("DAILY_CI_RETAIL_GAME_LIMIT", "120")))
@@ -163,6 +168,28 @@ def wallapop_game_limit() -> int:
     from collectors.wallapop_client import wallapop_game_limit as _default_limit
 
     return _default_limit()
+
+
+def collector_timeout_seconds(source: str) -> int:
+    specific = os.environ.get(f"DAILY_{source.upper()}_TIMEOUT_SEC", "").strip()
+    raw = specific or os.environ.get("DAILY_COLLECTOR_TIMEOUT_SEC", "").strip()
+    if raw:
+        try:
+            return max(60, int(raw))
+        except ValueError:
+            pass
+    defaults = {
+        "wallapop": 30 * 60,
+        "vinted": 20 * 60,
+        "ebay": 20 * 60,
+        "todocoleccion": 20 * 60,
+        "todoconsolas": 25 * 60,
+        "chollo": 25 * 60,
+        "jgo": 35 * 60,
+        "kaoto": 35 * 60,
+        "cex": 25 * 60,
+    }
+    return defaults.get(source, 30 * 60)
 
 
 def planned_sources(platform_slug: str) -> list[tuple[str, Path]]:
@@ -295,7 +322,12 @@ def run_collector(source: str, platform_slug: str, output: Path, *, dry_run: boo
         return True
 
     print(f"\n--- Collector: {source} ---")
-    result = subprocess.run(cmd, cwd=ROOT)
+    timeout = collector_timeout_seconds(source)
+    try:
+        result = subprocess.run(cmd, cwd=ROOT, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        print(f"  AVISO: {source} excedió {timeout}s y se cortó para no bloquear la rueda.")
+        return False
     if result.returncode != 0:
         print(f"  AVISO: {source} terminó con código {result.returncode}")
         return False
@@ -470,6 +502,12 @@ def main() -> None:
             f"Vinted≤{vinted_game_limit()} · Wallapop≤{wallapop_game_limit()} · "
             f"retail≤{daily_retail_game_limit()} · "
             f"caché={'sí' if daily_use_cache() else 'no'}"
+        )
+    elif os.environ.get("PRICE_WORKER_DAILY", "").strip().lower() in {"1", "true", "yes"}:
+        print(
+            "Modo hosting: "
+            f"Wallapop≤{wallapop_game_limit()} · retail≤{daily_retail_game_limit()} · "
+            f"timeout collector={collector_timeout_seconds('jgo')}s máx aprox."
         )
 
     synced = 0

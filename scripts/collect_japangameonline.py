@@ -12,6 +12,7 @@ Si JGO no tiene el juego, no hay resultados → siguiente.
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import sys
 import time
@@ -124,7 +125,12 @@ def collect_platform(
     if not jgo_sources_for_platform(platform_slug):
         raise SystemExit(f"Plataforma sin soporte JGO: {platform_slug}")
 
-    games = prioritize_catalog_games(platform_catalog_games(platform_slug), args.limit)
+    region_key = os.environ.get("PRICE_COLLECT_REGION", "").strip() or "all"
+    games = prioritize_catalog_games(
+        platform_catalog_games(platform_slug),
+        args.limit,
+        rotation_key=f"jgo:{platform_slug}:{region_key}",
+    )
 
     _, ref_to_ids = build_platform_reference_index(platform_slug)
     match_opts = match_kwargs(args)

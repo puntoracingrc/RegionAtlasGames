@@ -12,6 +12,7 @@ Si Kaoto no tiene el juego, no hay resultados → siguiente.
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import sys
 import time
@@ -133,7 +134,12 @@ def collect_platform(
         region=getattr(args, "region", None),
         all_regions=getattr(args, "all_regions", False),
     )
-    games = prioritize_catalog_games(games, args.limit)
+    region_key = getattr(args, "region", None) or os.environ.get("PRICE_COLLECT_REGION", "").strip() or "all"
+    games = prioritize_catalog_games(
+        games,
+        args.limit,
+        rotation_key=f"kaoto:{platform_slug}:{region_key}",
+    )
 
     _, ref_to_ids = build_platform_reference_index(platform_slug)
     match_opts = match_kwargs(args)

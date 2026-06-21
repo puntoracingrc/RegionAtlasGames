@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "fs";
+import { existsSync, readdirSync, readFileSync } from "fs";
 import path from "path";
 
 type SyncFile = {
@@ -13,15 +13,26 @@ export type PriceWorkerSyncResult = {
   uploadedAt: string;
 };
 
-const WORKER_SYNC_FILES: SyncFile[] = [
+const BASE_WORKER_SYNC_FILES: SyncFile[] = [
   { local: "data/platform-sources.json", remote: "app/data/platform-sources.json" },
-  { local: "scripts/admin_price_collect.py", remote: "app/scripts/admin_price_collect.py" },
-  { local: "scripts/daily_price_ingest.py", remote: "app/scripts/daily_price_ingest.py" },
-  { local: "scripts/sync_es_prices.py", remote: "app/scripts/sync_es_prices.py" },
-  { local: "scripts/collect_todocoleccion.py", remote: "app/scripts/collect_todocoleccion.py" },
-  { local: "scripts/collectors/platform_sources.py", remote: "app/scripts/collectors/platform_sources.py" },
-  { local: "scripts/collectors/tc_client.py", remote: "app/scripts/collectors/tc_client.py" },
+  { local: "data/ingest-recency.json", remote: "app/data/ingest-recency.json" },
+  { local: "data/region-evidence-rules.json", remote: "app/data/region-evidence-rules.json" },
+  { local: "scripts/remote_price_rotation.sh", remote: "cron/price_rotation.sh" },
+  { local: "scripts/remote_price_rotation.sh", remote: "../../../.region-atlas-cron/price_rotation.sh" },
 ];
+
+function workerSyncFiles(): SyncFile[] {
+  const files = [...BASE_WORKER_SYNC_FILES];
+  const scriptsDir = path.join(process.cwd(), "scripts");
+  for (const name of readdirSync(scriptsDir).filter((file) => file.endsWith(".py")).sort()) {
+    files.push({ local: `scripts/${name}`, remote: `app/scripts/${name}` });
+  }
+  const collectorsDir = path.join(scriptsDir, "collectors");
+  for (const name of readdirSync(collectorsDir).filter((file) => file.endsWith(".py")).sort()) {
+    files.push({ local: `scripts/collectors/${name}`, remote: `app/scripts/collectors/${name}` });
+  }
+  return files;
+}
 
 function priceWorkerRemoteRoot(): string {
   const explicit = process.env.PRICE_WORKER_REMOTE_DIR?.trim();
@@ -48,7 +59,8 @@ export async function syncPriceWorkerCode(): Promise<PriceWorkerSyncResult | { e
   const protocol = process.env.COVERS_FTP_PROTOCOL?.trim().toLowerCase() || (config.port === 22 ? "sftp" : "ftp");
   if (protocol !== "sftp") return { error: "La sincronización del worker solo soporta SFTP." };
 
-  for (const file of WORKER_SYNC_FILES) {
+  const syncFiles = workerSyncFiles();
+  for (const file of syncFiles) {
     if (!existsSync(path.join(process.cwd(), file.local))) {
       return { error: `Falta archivo local: ${file.local}` };
     }
@@ -59,6 +71,7 @@ export async function syncPriceWorkerCode(): Promise<PriceWorkerSyncResult | { e
       connect(config: Record<string, unknown>): Promise<void>;
       mkdir(remotePath: string, recursive?: boolean): Promise<void>;
       put(input: Buffer | string, remotePath: string): Promise<void>;
+      chmod(remotePath: string, mode: number | string): Promise<void>;
       end(): Promise<void>;
     };
   };
@@ -68,10 +81,13 @@ export async function syncPriceWorkerCode(): Promise<PriceWorkerSyncResult | { e
 
   try {
     await client.connect({ ...config, readyTimeout: 60_000, retries: 1 });
-    for (const file of WORKER_SYNC_FILES) {
+    for (const file of syncFiles) {
       const remotePath = path.posix.join(remoteRoot, file.remote);
       await client.mkdir(path.posix.dirname(remotePath), true);
       await client.put(readFileSync(path.join(process.cwd(), file.local)), remotePath);
+      if (file.remote.endsWith(".sh")) {
+        await client.chmod(remotePath, 0o755).catch(() => undefined);
+      }
       uploaded.push(file);
     }
   } finally {
