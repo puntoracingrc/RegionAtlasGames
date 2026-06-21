@@ -428,7 +428,20 @@ async function getAmazonAccessToken(): Promise<string | null> {
       scope: "creatorsapi::default",
     }),
   });
-  if (!res.ok) return null;
+  if (!res.ok) {
+    let error = "";
+    try {
+      error = JSON.stringify(await res.json());
+    } catch {
+      error = await res.text();
+    }
+    console.warn("amazon_creators_token_failed", {
+      status: res.status,
+      version: amazonCredentialVersion(),
+      error: error.slice(0, 700),
+    });
+    return null;
+  }
   const data = (await res.json()) as { access_token?: string; expires_in?: number };
   if (!data.access_token) return null;
   const ttlMs = Math.max(60, data.expires_in ?? 3600) * 1000;
