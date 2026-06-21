@@ -418,6 +418,7 @@ export default async function AdminPricesPage({
                       <th className="py-2 pr-3 font-semibold">Fuente</th>
                       <th className="py-2 pr-3 font-semibold">Usó IA</th>
                       <th className="py-2 pr-3 font-semibold">Resueltos</th>
+                      <th className="py-2 pr-3 font-semibold">Rechazados</th>
                       <th className="py-2 pr-3 font-semibold">Revisión</th>
                     </tr>
                   </thead>
@@ -427,6 +428,7 @@ export default async function AdminPricesPage({
                         <td className="py-2 pr-3 font-semibold text-foreground">{source.source}</td>
                         <td className="py-2 pr-3 text-muted">{source.aiRows ?? 0}</td>
                         <td className="py-2 pr-3 text-emerald-700 dark:text-emerald-300">{source.resolved ?? 0}</td>
+                        <td className="py-2 pr-3 text-rose-700 dark:text-rose-300">{source.rejected ?? 0}</td>
                         <td className="py-2 pr-3 text-amber-700 dark:text-amber-300">{source.review ?? 0}</td>
                       </tr>
                     ))}

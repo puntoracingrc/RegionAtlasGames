@@ -168,7 +168,7 @@ def build_ai_summary(ingest: dict[str, Any], *, condition_vision_stats: dict[str
     for fallback, rows in source_rows:
         for row in rows:
             source = source_key(row, fallback)
-            stats = buckets.setdefault(source, {"aiRows": 0, "resolved": 0, "review": 0})
+            stats = buckets.setdefault(source, {"aiRows": 0, "resolved": 0, "review": 0, "rejected": 0})
             if row_ai_used(row):
                 stats["aiRows"] += 1
                 if row.get("regionVerified") is True:
@@ -177,12 +177,22 @@ def build_ai_summary(ingest: dict[str, Any], *, condition_vision_stats: dict[str
                     stats["review"] += 1
             elif row.get("regionReviewNeeded") or row.get("regionVerified") is not True:
                 stats["review"] += 1
+    source_stats = ingest.get("sourceStats")
+    if not isinstance(source_stats, dict) and isinstance(ingest.get("stats"), dict):
+        source_stats = {str(ingest.get("source") or "unknown"): ingest["stats"]}
+    if isinstance(source_stats, dict):
+        for source, raw_stats in source_stats.items():
+            if not isinstance(raw_stats, dict):
+                continue
+            stats = buckets.setdefault(str(source).strip().lower() or "unknown", {"aiRows": 0, "resolved": 0, "review": 0, "rejected": 0})
+            stats["rejected"] += int(raw_stats.get("ai_rejected") or 0)
+            stats["rejected"] += int(raw_stats.get("ai_regex_rejected") or 0)
     return {
         "openAiConfigured": price_collectors_use_ai(),
         "sources": [
             {"source": source, **stats}
             for source, stats in sorted(buckets.items())
-            if stats["aiRows"] or stats["review"]
+            if stats["aiRows"] or stats["review"] or stats["rejected"]
         ],
         "conditionVision": condition_vision_stats or {},
     }

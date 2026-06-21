@@ -430,6 +430,7 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
             "(re-analiza si cambia título o precio). Desactivar: --no-ai."
         ),
         "searchMode": "platform-sweep" if args.sweep_platform else "title",
+        "stats": stats,
         "listings": listing_rows,
         "cex": [],
         "jgo": [],
@@ -505,6 +506,8 @@ def main() -> None:
     parser.add_argument("--sync", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
+    if args.no_ai:
+        os.environ["PRICE_AI_DISABLED"] = "1"
     _ = match_kwargs(args)
 
     slugs = platform_slugs_to_run(args)

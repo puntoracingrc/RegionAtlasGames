@@ -142,7 +142,10 @@ def attach_match_metadata(row: dict[str, Any], result: CatalogMatchResult) -> No
 
 
 def print_match_stats(stats: MatchPipelineStats, *, label: str) -> None:
+    ai_on = price_collectors_use_ai()
+    ai_reviewed = stats.matched_by_ai + stats.ambiguous_skipped + stats.cover_vision_used
     print(f"  Productos {label}: {stats.products}")
+    print(f"  IA precios: {'activa' if ai_on else 'apagada'}")
     print(f"  Sin match catálogo: {stats.unmatched}")
     print(f"  No-juego / accesorio: {stats.non_games}")
     print(f"  Match por referencia: {stats.matched_by_ref}")
@@ -151,6 +154,13 @@ def print_match_stats(stats: MatchPipelineStats, *, label: str) -> None:
     print(f"  Ambiguos omitidos: {stats.ambiguous_skipped}")
     print(f"  Región rechazada (sin prueba): {stats.region_rejected}")
     print(f"  Visión carátula aplicada: {stats.cover_vision_used}")
+    print(
+        "  IA juez: "
+        f"revisados {ai_reviewed} · "
+        f"resueltos {stats.matched_by_ai + stats.cover_vision_used} · "
+        f"rechazados {stats.ambiguous_skipped + stats.region_rejected} · "
+        f"revisión {sum(1 for row in stats.rows if row.get('regionReviewNeeded'))}"
+    )
     if stats.ambiguous_skipped and not price_collectors_use_ai():
         print("  (IA de precios desactivada o OPENAI_API_KEY ausente — ambiguos no resueltos)")
     if stats.region_rejected and not price_collectors_use_ai():

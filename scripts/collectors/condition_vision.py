@@ -26,7 +26,9 @@ MAX_IMAGES = max(1, min(3, int(os.environ.get("VISION_MAX_IMAGES", "1"))))
 
 
 def vision_available() -> bool:
-    return bool(os.environ.get("OPENAI_API_KEY", "").strip())
+    from collectors.price_ai_policy import price_collectors_use_ai
+
+    return price_collectors_use_ai()
 
 
 def _cache_file(cache_key: str) -> Path:

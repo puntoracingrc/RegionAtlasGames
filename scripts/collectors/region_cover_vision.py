@@ -83,10 +83,9 @@ class RegionCoverVisionResult:
 def region_cover_vision_available() -> bool:
     if os.environ.get("REGION_VISION_DISABLED", "").strip().lower() in ("1", "true", "yes"):
         return False
-    from collectors.common import load_local_env
+    from collectors.price_ai_policy import price_collectors_use_ai
 
-    load_local_env()
-    return bool(os.environ.get("OPENAI_API_KEY", "").strip())
+    return price_collectors_use_ai()
 
 
 def _cache_file(cache_key: str) -> Path:

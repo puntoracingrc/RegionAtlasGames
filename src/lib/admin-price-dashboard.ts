@@ -100,6 +100,7 @@ export type AdminPriceAiSourceUsage = {
   aiRows?: number;
   resolved?: number;
   review?: number;
+  rejected?: number;
 };
 
 export type AdminPriceAiSummary = {

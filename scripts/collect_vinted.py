@@ -366,6 +366,7 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
     out = args.output or ROOT / "data" / "price-ingest" / f"{platform_slug}-vinted.json"
 
     print(f"=== Vinted ES · {platform_slug} (búsqueda por título, más recientes) ===")
+    print(f"  IA precios: {'activa' if match_kwargs(args)['use_ai'] else 'apagada'}")
     session = VintedSession()
     session.warm()
     if args.sweep_platform:
@@ -401,6 +402,7 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         ),
         "rateLimited": bool(stats.get("rate_limited")),
         "stoppedAt": stats.get("stopped_at") or None,
+        "stats": stats,
         "listings": listing_rows,
         "cex": [],
         "jgo": [],
@@ -463,6 +465,8 @@ def main() -> None:
     parser.add_argument("--sync", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
+    if args.no_ai:
+        os.environ["PRICE_AI_DISABLED"] = "1"
 
     slugs = platform_slugs_to_run(args)
     failures = 0

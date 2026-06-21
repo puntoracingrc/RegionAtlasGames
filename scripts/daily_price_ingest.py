@@ -31,6 +31,7 @@ load_local_env()
 
 from collectors.common import load_json, now_iso, save_json  # noqa: E402
 from collectors import platform_sources as ps  # noqa: E402
+from collectors.price_ai_policy import openai_key_present, price_collectors_use_ai  # noqa: E402
 
 STATE_FILE = ROOT / "data" / "price-sync-state.json"
 BATCHES_FILE = ROOT / "data" / "price-sync-batches.json"
@@ -293,6 +294,7 @@ def collector_command(source: str, platform_slug: str, output: Path) -> list[str
             cmd.extend(["--limit", str(limit)])
         if daily_use_cache():
             cmd.append("--use-cache")
+        cmd.extend(collector_match_args())
         return cmd
 
     cmd = [
@@ -355,6 +357,7 @@ def merge_platform_ingest(platform_slug: str, partial_paths: list[Path], sources
         merged["region"] = region
     for key in LIST_KEYS:
         merged[key] = []
+    merged["sourceStats"] = {}
 
     for path in partial_paths:
         if not path.exists():
@@ -365,6 +368,10 @@ def merge_platform_ingest(platform_slug: str, partial_paths: list[Path], sources
             continue
         for key in LIST_KEYS:
             merged[key].extend(partial.get(key) or [])
+        source = str(partial.get("source") or path.stem).strip()
+        stats = partial.get("stats")
+        if source and isinstance(stats, dict):
+            merged["sourceStats"][source] = stats
 
     return merged
 
@@ -496,6 +503,14 @@ def main() -> None:
     skipped = daily_skip_sources()
     if skipped:
         print(f"Fuentes omitidas: {', '.join(sorted(skipped))}")
+    ai_on = price_collectors_use_ai()
+    key_present = openai_key_present()
+    print(
+        "IA precios: "
+        f"{'activa' if ai_on else 'apagada'} "
+        f"({'OPENAI_API_KEY presente' if key_present else 'sin OPENAI_API_KEY'}; "
+        "DAILY_NO_AI no la desactiva; usar PRICE_AI_DISABLED=1 si hace falta)"
+    )
     if is_ci_daily():
         print(
             "Modo CI: "
