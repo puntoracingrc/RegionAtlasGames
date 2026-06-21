@@ -14,6 +14,7 @@ from collectors.common import build_ebay_search_query, build_search_queries, bui
 from collectors.jgo_client import build_jgo_search_query  # noqa: E402
 from collectors.kaoto_client import build_kaoto_search_query  # noqa: E402
 from collectors.tcns_client import build_tcns_search_query  # noqa: E402
+from collectors.tc_client import build_tc_search_query  # noqa: E402
 from collectors.vinted_client import build_vinted_search_query  # noqa: E402
 from collectors.wallapop_client import build_wallapop_query  # noqa: E402
 
@@ -52,6 +53,12 @@ def main() -> None:
         queries = build_search_queries(game)
         if queries != [expected]:
             raise AssertionError(f"build_search_queries/{title}: esperado {[expected]!r}, recibido {queries!r}")
+    html_game = {"title": "Professor Layton and Pandora&amp;#39;s Box", "platformSlug": "ds", "platform": "Nintendo DS"}
+    html_expected = "Professor Layton and Pandora's Box"
+    for label, builder in [*builders, ("todocoleccion", build_tc_search_query)]:
+        assert_query(f"{label}/html-entities", builder(html_game), html_expected)
+    double_html_game = {"title": "Professor Layton and Pandora&amp;amp;#39;s Box", "platformSlug": "ds", "platform": "Nintendo DS"}
+    assert_query("common/double-html-entities", build_search_query(double_html_game), html_expected)
     print("OK: queries NGPC limpias sin sufijos automáticos")
 
 

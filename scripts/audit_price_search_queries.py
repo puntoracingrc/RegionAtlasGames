@@ -291,16 +291,6 @@ def audit(platform_slugs: list[str], samples_per_platform: int) -> dict[str, Any
 
     for platform_block in report["platforms"]:
         for sample in platform_block.get("samples", []):
-            raw_title = str(sample.get("rawTitle") or sample.get("title") or "")
-            if raw_title != unescape(raw_title):
-                report["recommendedCorrections"].append(
-                    {
-                        "source": "common",
-                        "catalogId": sample.get("catalogId"),
-                        "query": raw_title,
-                        "recommendation": "Decodificar entidades HTML del título antes de normalizar la query.",
-                    }
-                )
             for row in sample.get("sources", []):
                 query = str(row.get("query") or "").lower()
                 if query.endswith((" ngpc", " ps2", " ps4", " ps5", " megadrive", " 32x")):
@@ -310,6 +300,15 @@ def audit(platform_slugs: list[str], samples_per_platform: int) -> dict[str, Any
                             "catalogId": sample.get("catalogId"),
                             "query": row.get("query"),
                             "recommendation": "Revisar sufijo automático de plataforma.",
+                        }
+                    )
+                if "&" in query or "#39" in query or "quot" in query:
+                    report["recommendedCorrections"].append(
+                        {
+                            "source": row.get("source"),
+                            "catalogId": sample.get("catalogId"),
+                            "query": row.get("query"),
+                            "recommendation": "Decodificar entidades HTML del título antes de normalizar la query.",
                         }
                     )
     return report

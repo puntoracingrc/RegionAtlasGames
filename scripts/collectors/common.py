@@ -160,12 +160,20 @@ def es_market_games(platform_slug: str, region: str | None = None) -> list[dict[
 
 
 def normalize_query(text: str) -> str:
+    import html
     import re
     import unicodedata
 
-    t = unicodedata.normalize("NFKD", text)
+    t = str(text or "")
+    for _ in range(5):
+        decoded = html.unescape(t)
+        if decoded == t:
+            break
+        t = decoded
+    t = t.replace("’", "'").replace("`", "'").replace("´", "'")
+    t = unicodedata.normalize("NFKD", t)
     t = t.encode("ascii", "ignore").decode("ascii")
-    t = re.sub(r"[^\w\s-]", " ", t)
+    t = re.sub(r"[^\w\s'-]", " ", t)
     return re.sub(r"\s+", " ", t).strip()
 
 
