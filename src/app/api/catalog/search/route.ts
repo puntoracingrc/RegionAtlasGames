@@ -6,6 +6,7 @@ import {
   publicFacetFilterOptions,
   publicSubgenreFilterOptions,
   type CatalogPriceFilter,
+  type CatalogPriceType,
   type CatalogSort,
   type CatalogTaxonomyFilterOption,
 } from "@/lib/catalog-filters";
@@ -46,6 +47,7 @@ export async function GET(request: Request) {
   const platform = url.searchParams.get("platform") ?? "all";
   const region = url.searchParams.get("region") ?? "all";
   const sort = (url.searchParams.get("sort") ?? DEFAULT_SORT) as CatalogSort;
+  const priceType = (url.searchParams.get("priceType") ?? "recommended") as CatalogPriceType;
   const priceFilter = (url.searchParams.get("priceFilter") ?? "all") as CatalogPriceFilter;
   const page = Math.max(1, Number(url.searchParams.get("page") ?? "1") || 1);
   const mode = url.searchParams.get("mode") ?? "quick";
@@ -71,6 +73,7 @@ export async function GET(request: Request) {
     platform,
     region,
     sort,
+    priceType,
     priceFilter,
     genre: genreSlug || "all",
     subgenre: subgenreSlug || "all",

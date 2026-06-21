@@ -37,6 +37,15 @@ export const SORT_OPTIONS: { value: CatalogSort; label: string }[] = [
 export const DEFAULT_SORT: CatalogSort = "title-asc";
 export const CATALOG_PAGE_SIZE = 120;
 
+export type CatalogPriceType = "recommended" | "complete" | "gameManual" | "loose";
+
+export const PRICE_TYPE_OPTIONS: { value: CatalogPriceType; label: string }[] = [
+  { value: "recommended", label: "Precio recomendado" },
+  { value: "complete", label: "Completo" },
+  { value: "gameManual", label: "Juego + manual" },
+  { value: "loose", label: "Suelto" },
+];
+
 export type CatalogPriceFilter = "all" | "verified" | "unverified" | "pending";
 
 export const PRICE_FILTER_OPTIONS: { value: CatalogPriceFilter; label: string }[] = [
@@ -130,7 +139,10 @@ function yearKey(game: CatalogListGame): number | null {
   return null;
 }
 
-function priceKey(game: CatalogListGame): number | null {
+function priceKey(game: CatalogListGame, priceType: CatalogPriceType): number | null {
+  if (priceType === "complete") return game.estimatedPriceComplete ?? null;
+  if (priceType === "gameManual") return game.estimatedPriceGameManual ?? null;
+  if (priceType === "loose") return game.estimatedPriceLoose ?? null;
   if (hasVerifiedEsPrice(game) && game.recommendedPrice != null) {
     return game.recommendedPrice;
   }
@@ -144,7 +156,11 @@ function compareNullsLast(a: number | null, b: number | null, asc: boolean): num
   return asc ? a - b : b - a;
 }
 
-export function sortCatalogListGames(games: CatalogListGame[], sort: CatalogSort): CatalogListGame[] {
+export function sortCatalogListGames(
+  games: CatalogListGame[],
+  sort: CatalogSort,
+  priceType: CatalogPriceType = "recommended",
+): CatalogListGame[] {
   const sorted = [...games];
   sorted.sort((a, b) => {
     switch (sort) {
@@ -157,9 +173,9 @@ export function sortCatalogListGames(games: CatalogListGame[], sort: CatalogSort
       case "year-desc":
         return compareNullsLast(yearKey(a), yearKey(b), false);
       case "price-asc":
-        return compareNullsLast(priceKey(a), priceKey(b), true);
+        return compareNullsLast(priceKey(a, priceType), priceKey(b, priceType), true);
       case "price-desc":
-        return compareNullsLast(priceKey(a), priceKey(b), false);
+        return compareNullsLast(priceKey(a, priceType), priceKey(b, priceType), false);
       case "reference-asc":
         return referenceKey(a).localeCompare(referenceKey(b), "es", { sensitivity: "base" });
       case "reference-desc":
@@ -184,6 +200,7 @@ export type CatalogFilterState = {
   region: string;
   platform: string;
   sort: CatalogSort;
+  priceType?: CatalogPriceType;
   priceFilter: CatalogPriceFilter;
   genre?: string;
   subgenre?: string;
@@ -228,6 +245,7 @@ export function filterCatalogGames(
     region,
     platform,
     sort,
+    priceType = "recommended",
     priceFilter,
     genre = "all",
     subgenre = "all",
@@ -264,7 +282,7 @@ export function filterCatalogGames(
     list = list.filter((g) => matchesScopedQuery(g, q, queryScope));
   }
 
-  list = sortCatalogListGames(list, sort);
+  list = sortCatalogListGames(list, sort, priceType);
 
   return {
     items: list,

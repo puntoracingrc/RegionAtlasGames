@@ -5,6 +5,7 @@ import {
   PRICE_FILTER_OPTIONS,
   filterCatalogGames,
   type CatalogPriceFilter,
+  type CatalogPriceType,
   type CatalogSort,
 } from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
@@ -48,6 +49,7 @@ export async function GET(
   const facet = url.searchParams.get("facet") ?? "all";
   const company = url.searchParams.get("company") ?? "";
   const sort = (url.searchParams.get("sort") ?? DEFAULT_SORT) as CatalogSort;
+  const priceType = (url.searchParams.get("priceType") ?? "recommended") as CatalogPriceType;
   const priceFilterParam = url.searchParams.get("priceFilter") ?? "all";
   const priceFilter = PRICE_FILTER_OPTIONS.some((option) => option.value === priceFilterParam)
     ? (priceFilterParam as CatalogPriceFilter)
@@ -57,7 +59,7 @@ export async function GET(
   const { games } = await getPlatformSearchData(slug);
   const filtered = filterCatalogGames(
     games,
-    { q, region, platform: "all", sort, priceFilter, genre, subgenre, facet, company, queryScope: "game" },
+    { q, region, platform: "all", sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "game" },
     { regions: true, platforms: false },
   );
   const start = (page - 1) * CATALOG_PAGE_SIZE;

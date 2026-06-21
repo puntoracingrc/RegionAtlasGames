@@ -70,12 +70,18 @@ export function CatalogGameCard({
   isLoggedIn = false,
   onOwnedChange,
   listingsForSale = 0,
+  priceLabel,
+  priceVerified,
+  priceUnverified,
 }: {
   game: CatalogListGame;
   owned?: boolean;
   isLoggedIn?: boolean;
   onOwnedChange?: (catalogId: string, owned: boolean, ownedCatalogIds?: string[]) => void;
   listingsForSale?: number;
+  priceLabel?: string;
+  priceVerified?: boolean;
+  priceUnverified?: boolean;
 }) {
   const { grail, topSegment } = gameHighlights(game);
 
@@ -96,9 +102,9 @@ export function CatalogGameCard({
           platform={game.displayPlatform}
           region={game.region}
           year={game.displayYear}
-          price={formatEsPriceForCard(game, formatEur)}
-          priceVerified={game.priceRegionVerified === true}
-          priceUnverified={game.hasEsPrice && game.priceRegionVerified !== true}
+          price={priceLabel ?? formatEsPriceForCard(game, formatEur)}
+          priceVerified={priceVerified ?? (game.priceRegionVerified === true)}
+          priceUnverified={priceUnverified ?? (game.hasEsPrice && game.priceRegionVerified !== true)}
           grail={grail}
           topSegment={topSegment}
           listingsForSale={listingsForSale}

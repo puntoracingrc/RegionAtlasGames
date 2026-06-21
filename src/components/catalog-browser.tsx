@@ -9,6 +9,7 @@ import { RegionFilterChips } from "@/components/region-filter-chips";
 import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
+  PRICE_TYPE_OPTIONS,
   filterCatalogGames,
   platformOptions,
   publicFacetFilterOptions,
@@ -19,12 +20,14 @@ import {
   SORT_OPTIONS,
   type CatalogCompanyFilterOption,
   type CatalogPlatformFilterOption,
+  type CatalogPriceType,
   type CatalogRegionFilterOption,
   type CatalogSort,
   type CatalogTaxonomyFilterOption,
 } from "@/lib/catalog-filters";
 import type { CatalogListGame } from "@/lib/types";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
+import { formatEur } from "@/lib/price-format";
 
 const selectClass =
   "h-10 w-full rounded-lg border border-border bg-input px-3 text-sm outline-none ring-accent/25 transition focus:border-accent/50 focus:ring-2";
@@ -40,6 +43,21 @@ function FilterField({ label, children }: { label: string; children: ReactNode }
       {children}
     </label>
   );
+}
+
+function selectedPrice(game: CatalogListGame, priceType: CatalogPriceType): number | null {
+  if (priceType === "complete") return game.estimatedPriceComplete ?? null;
+  if (priceType === "gameManual") return game.estimatedPriceGameManual ?? null;
+  if (priceType === "loose") return game.estimatedPriceLoose ?? null;
+  return null;
+}
+
+function selectedPriceLabel(game: CatalogListGame, priceType: CatalogPriceType): string | undefined {
+  if (priceType === "recommended") return undefined;
+  const option = PRICE_TYPE_OPTIONS.find((item) => item.value === priceType);
+  const label = option?.label ?? "Estado";
+  const price = selectedPrice(game, priceType);
+  return `${label} · ${price != null ? formatEur(price) : "Sin dato"}`;
 }
 
 type Props = {
@@ -72,6 +90,7 @@ type Props = {
   initialGenre?: string;
   initialSubgenre?: string;
   initialFacet?: string;
+  initialPriceType?: CatalogPriceType;
   /** Filtro de región controlado (p. ej. desde la barra del hero) */
   region?: string;
   onRegionChange?: (region: string) => void;
@@ -103,6 +122,7 @@ export function CatalogBrowser({
   initialGenre = "all",
   initialSubgenre = "all",
   initialFacet = "all",
+  initialPriceType = "recommended",
   region: controlledRegion,
   onRegionChange,
 }: Props) {
@@ -125,7 +145,8 @@ export function CatalogBrowser({
   const [facet, setFacet] = useState(initialFacet);
   const [company, setCompany] = useState("");
   const [companyFocused, setCompanyFocused] = useState(false);
-  const [sort, setSort] = useState<CatalogSort>(DEFAULT_SORT);
+  const [priceType, setPriceType] = useState<CatalogPriceType>(initialPriceType);
+  const [sort, setSort] = useState<CatalogSort>(initialPriceType === "recommended" ? DEFAULT_SORT : "price-desc");
   const priceFilter = "all";
   const [page, setPage] = useState(1);
   const [serverItems, setServerItems] = useState(games);
@@ -172,6 +193,7 @@ export function CatalogBrowser({
           subgenre?: string;
           facet?: string;
           company?: string;
+          priceType?: CatalogPriceType;
           sort?: CatalogSort;
           page?: number;
         };
@@ -186,6 +208,7 @@ export function CatalogBrowser({
         if (typeof saved.subgenre === "string") setSubgenre(saved.subgenre);
         if (typeof saved.facet === "string") setFacet(saved.facet);
         if (typeof saved.company === "string") setCompany(saved.company);
+        if (saved.priceType && PRICE_TYPE_OPTIONS.some((option) => option.value === saved.priceType)) setPriceType(saved.priceType);
         if (saved.sort && SORT_OPTIONS.some((option) => option.value === saved.sort)) setSort(saved.sort);
         if (typeof saved.page === "number" && Number.isFinite(saved.page)) setPage(Math.max(1, saved.page));
       }
@@ -200,9 +223,9 @@ export function CatalogBrowser({
     if (!persistKey || !savedStateLoaded) return;
     window.localStorage.setItem(
       persistKey,
-      JSON.stringify({ q: draftQ, region, platform, genre, subgenre, facet, company, sort, page }),
+      JSON.stringify({ q: draftQ, region, platform, genre, subgenre, facet, company, priceType, sort, page }),
     );
-  }, [company, draftQ, facet, genre, page, persistKey, platform, region, savedStateLoaded, sort, subgenre]);
+  }, [company, draftQ, facet, genre, page, persistKey, platform, priceType, region, savedStateLoaded, sort, subgenre]);
 
   useEffect(() => {
     const timeout = window.setTimeout(
@@ -219,13 +242,13 @@ export function CatalogBrowser({
     if (source) return { items: serverItems, total: serverTotal };
     return filterCatalogGames(
       games,
-      { q, region, platform, sort, priceFilter, genre, subgenre, facet, company, queryScope: "full" },
+      { q, region, platform, sort, priceType, priceFilter, genre, subgenre, facet, company, queryScope: "full" },
       {
         regions: showRegionFilter,
         platforms: showPlatformFilter,
       },
     );
-  }, [company, facet, games, genre, platform, q, region, serverItems, serverTotal, showPlatformFilter, showRegionFilter, sort, source, subgenre]);
+  }, [company, facet, games, genre, platform, priceType, q, region, serverItems, serverTotal, showPlatformFilter, showRegionFilter, sort, source, subgenre]);
   const filteredItems = source ? serverItems : localResult.items;
   const total = source ? serverTotal : localResult.total;
 
@@ -239,7 +262,7 @@ export function CatalogBrowser({
       return;
     }
     setPage(1);
-  }, [company, q, region, platform, sort, genre, subgenre, facet, savedStateLoaded]);
+  }, [company, q, region, platform, priceType, sort, genre, subgenre, facet, savedStateLoaded]);
 
   useEffect(() => {
     if (page > totalPages) {
@@ -257,6 +280,7 @@ export function CatalogBrowser({
       subgenre === "all" &&
       facet === "all" &&
       company.trim() === "" &&
+      priceType === "recommended" &&
       sort === DEFAULT_SORT &&
       page === 1 &&
       (source.kind === "platform" || platform === "all");
@@ -281,6 +305,7 @@ export function CatalogBrowser({
           q,
           region,
           sort,
+          priceType,
           priceFilter: "all",
           page: String(page),
         });
@@ -322,7 +347,7 @@ export function CatalogBrowser({
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [companies, company, facet, facets, games, genre, genres, page, platform, q, region, regions, sort, source, subgenre, subgenres, totalCount]);
+  }, [companies, company, facet, facets, games, genre, genres, page, platform, priceType, q, region, regions, sort, source, subgenre, subgenres, totalCount]);
 
   const pageItems = useMemo(() => {
     if (source) return filteredItems;
@@ -338,6 +363,7 @@ export function CatalogBrowser({
     genre !== "all" ||
     subgenre !== "all" ||
     facet !== "all" ||
+    priceType !== "recommended" ||
     sort !== DEFAULT_SORT;
 
   const companySuggestions = useMemo(() => {
@@ -354,6 +380,13 @@ export function CatalogBrowser({
   function goToPage(nextPage: number) {
     setPage(nextPage);
     gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function handlePriceTypeChange(nextPriceType: CatalogPriceType) {
+    setPriceType(nextPriceType);
+    if (nextPriceType !== "recommended" && sort !== "price-asc" && sort !== "price-desc") {
+      setSort("price-desc");
+    }
   }
 
   const handleOwnedChange = useCallback(function handleOwnedChange(
@@ -381,11 +414,14 @@ export function CatalogBrowser({
             isLoggedIn={isLoggedIn}
             onOwnedChange={handleOwnedChange}
             listingsForSale={listingCounts[game.id] ?? 0}
+            priceLabel={selectedPriceLabel(game, priceType)}
+            priceVerified={priceType === "recommended" ? undefined : selectedPrice(game, priceType) != null}
+            priceUnverified={priceType === "recommended" ? undefined : false}
           />
         ))}
       </section>
     ),
-    [handleOwnedChange, isLoggedIn, listingCounts, ownedSet, pageItems],
+    [handleOwnedChange, isLoggedIn, listingCounts, ownedSet, pageItems, priceType],
   );
 
   return (
@@ -430,7 +466,7 @@ export function CatalogBrowser({
               </div>
             )}
 
-            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7">
             {showPlatformFilter && platforms.length > 1 && (
               <FilterField label="Plataforma">
                 <select value={platform} onChange={(e) => setPlatform(e.target.value)} className={selectClass}>
@@ -513,6 +549,20 @@ export function CatalogBrowser({
                 </div>
               </FilterField>
             )}
+
+            <FilterField label="Estado">
+              <select
+                value={priceType}
+                onChange={(e) => handlePriceTypeChange(e.target.value as CatalogPriceType)}
+                className={selectClass}
+              >
+                {PRICE_TYPE_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </FilterField>
 
             <FilterField label="Orden">
               <select value={sort} onChange={(e) => setSort(e.target.value as CatalogSort)} className={selectClass}>

@@ -8,6 +8,7 @@ import {
   publicGenreFilterOptions,
   publicRegionFilterOptions,
   publicSubgenreFilterOptions,
+  type CatalogPriceType,
 } from "@/lib/catalog-filters";
 import { listedCatalog, meta } from "@/lib/catalog";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
@@ -18,7 +19,15 @@ import { publicCompanyFilterOptions, publicPlatformFilterOptions } from "@/lib/p
 import { getCurrentUser } from "@/lib/users";
 
 type Props = {
-  searchParams?: Promise<{ q?: string; platform?: string; region?: string; genre?: string; subgenre?: string; facet?: string }>;
+  searchParams?: Promise<{
+    q?: string;
+    platform?: string;
+    region?: string;
+    genre?: string;
+    subgenre?: string;
+    facet?: string;
+    priceType?: string;
+  }>;
 };
 
 export const dynamic = "force-dynamic";
@@ -31,6 +40,8 @@ export default async function CatalogPage({ searchParams }: Props) {
   const initialGenre = typeof params?.genre === "string" ? params.genre : "all";
   const initialSubgenre = typeof params?.subgenre === "string" ? params.subgenre : "all";
   const initialFacet = typeof params?.facet === "string" ? params.facet : "all";
+  const initialPriceType = parsePriceType(params?.priceType);
+  const initialSort = initialPriceType === "recommended" ? DEFAULT_SORT : "price-desc";
 
   const user = await getCurrentUser();
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
@@ -41,7 +52,8 @@ export default async function CatalogPage({ searchParams }: Props) {
     initialRegion !== "all" ||
     initialGenre !== "all" ||
     initialSubgenre !== "all" ||
-    initialFacet !== "all";
+    initialFacet !== "all" ||
+    initialPriceType !== "recommended";
   const initialCatalog = hasInitialFilters
     ? filterCatalogGames(
         listedCatalog.map(toCatalogListGame),
@@ -49,7 +61,8 @@ export default async function CatalogPage({ searchParams }: Props) {
           q: initialQuery,
           platform: initialPlatform,
           region: initialRegion,
-          sort: DEFAULT_SORT,
+          sort: initialSort,
+          priceType: initialPriceType,
           priceFilter: "all",
           genre: initialGenre,
           subgenre: initialSubgenre,
@@ -97,8 +110,14 @@ export default async function CatalogPage({ searchParams }: Props) {
           initialGenre={initialGenre}
           initialSubgenre={initialSubgenre}
           initialFacet={initialFacet}
+          initialPriceType={initialPriceType}
         />
       </main>
     </>
   );
+}
+
+function parsePriceType(value: string | undefined): CatalogPriceType {
+  if (value === "complete" || value === "gameManual" || value === "loose") return value;
+  return "recommended";
 }
