@@ -35,6 +35,13 @@ USER_AGENT = "RegionAtlasGames/1.0 (+xtralife-price-source)"
 URLS_BY_PLATFORM = {
     "ps4": "https://www.xtralife.com/seleccion/novedades-en-stock-ps4/8159",
     "ps5": "https://www.xtralife.com/seleccion/ps5-todos-los-juegos/1625",
+    "switch2": "https://www.xtralife.com/seleccion/todos-los-juegos-para-switch-2/8176",
+    "megadrive": "https://www.xtralife.com/seleccion/sega-megadrive/8220",
+    "ds": "https://www.xtralife.com/seleccion/nintendo-ds/700",
+    "3ds": "https://www.xtralife.com/seleccion/nintendo-ds/700",
+    "wii": "https://www.xtralife.com/seleccion/wii-videojuegos/733",
+    "xbox360": "https://www.xtralife.com/seleccion/todo-xbox-360/726",
+    "ps3": "https://www.xtralife.com/seleccion/ps3-videojuegos/725",
 }
 PRICE_RE = re.compile(r"\d{1,5}(?:[.,]\d{1,2})?")
 SCRIPT_RE = re.compile(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', re.I | re.S)
