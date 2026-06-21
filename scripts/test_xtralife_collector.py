@@ -33,6 +33,11 @@ def main() -> None:
     assert products[0]["listingRegion"] == "USA"
     assert products[0]["regionVerified"] is False
     assert products[0]["regionEvidence"] == ["xtralife_title_import_usa"]
+    assert products[0]["sourceType"] == "retail_es_current"
+    assert products[0]["condition"] == "sealed"
+    preowned_products, _ = parse_products(html, page_url="https://www.xtralife.com/test", platform_slug="ps3")
+    assert preowned_products[0]["sourceType"] == "retail_es_preowned_complete"
+    assert preowned_products[0]["condition"] == "complete"
     assert infer_region("Dragon Quest Heroes 2 - Imp UK")[0] == "PAL España"
     assert infer_edition("Autobahn Police Simulator 3 - Complete Edition", ["PS4"]) == "complete"
     print("OK XtraLife collector parser")

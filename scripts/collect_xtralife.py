@@ -30,7 +30,7 @@ from collectors.match_pipeline import print_match_stats, run_match_pipeline  # n
 from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
 
-SOURCE = "xtralife-es-new"
+SOURCE = "xtralife-es"
 USER_AGENT = "RegionAtlasGames/1.0 (+xtralife-price-source)"
 URLS_BY_PLATFORM = {
     "ps4": "https://www.xtralife.com/seleccion/novedades-en-stock-ps4/8159",
@@ -43,6 +43,7 @@ URLS_BY_PLATFORM = {
     "xbox360": "https://www.xtralife.com/seleccion/todo-xbox-360/726",
     "ps3": "https://www.xtralife.com/seleccion/ps3-videojuegos/725",
 }
+NEW_RETAIL_PLATFORMS = {"ps4", "ps5", "switch2"}
 PRICE_RE = re.compile(r"\d{1,5}(?:[.,]\d{1,2})?")
 SCRIPT_RE = re.compile(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', re.I | re.S)
 TAG_RE = re.compile(r"<[^>]+>")
@@ -126,6 +127,24 @@ def infer_edition(title: str, category: Any) -> str:
     return "standard"
 
 
+def platform_profile(platform_slug: str) -> dict[str, str]:
+    if platform_slug in NEW_RETAIL_PLATFORMS:
+        return {
+            "sourceType": "retail_es_current",
+            "offerType": "new",
+            "condition": "sealed",
+            "conditionRaw": "new",
+            "label": "nuevo retail/importación",
+        }
+    return {
+        "sourceType": "retail_es_preowned_complete",
+        "offerType": "preowned_complete",
+        "condition": "complete",
+        "conditionRaw": "preowned_complete",
+        "label": "segunda mano completo tienda",
+    }
+
+
 def product_from_json_ld(node: dict[str, Any], *, page_url: str, platform_slug: str) -> dict[str, Any] | None:
     if not is_product_node(node):
         return None
@@ -137,6 +156,7 @@ def product_from_json_ld(node: dict[str, Any], *, page_url: str, platform_slug: 
         return None
     if not availability.lower().endswith("/instock"):
         return None
+    profile = platform_profile(platform_slug)
     image = node.get("image")
     image_url = str(image[0] if isinstance(image, list) and image else image or "").strip() or None
     listing_region, region_evidence, ai_confidence, region_verified = infer_region(title)
@@ -148,8 +168,10 @@ def product_from_json_ld(node: dict[str, Any], *, page_url: str, platform_slug: 
         "productUrl": product_url,
         "listingUrl": page_url,
         "imageUrl": image_url,
-        "conditionRaw": "new",
-        "condition": "sealed",
+        "conditionRaw": profile["conditionRaw"],
+        "condition": profile["condition"],
+        "sourceType": profile["sourceType"],
+        "offerType": profile["offerType"],
         "sourceSku": clean_text(node.get("sku") or node.get("gtin13")),
         "platformSlug": platform_slug,
         "listingRegion": listing_region,
@@ -223,8 +245,8 @@ def row_from_product(product: dict[str, Any], matched_game: dict[str, Any], resu
     row = {
         "catalogId": str(matched_game["id"]),
         "source": SOURCE,
-        "sourceType": "retail_es_current",
-        "offerType": "new",
+        "sourceType": product.get("sourceType") or "retail_es_current",
+        "offerType": product.get("offerType") or "new",
         "title": product["title"],
         "priceEur": price,
         "retailPriceEur": price,
@@ -232,7 +254,7 @@ def row_from_product(product: dict[str, Any], matched_game: dict[str, Any], resu
         "productUrl": product["productUrl"],
         "listingUrl": product["listingUrl"],
         "imageUrl": product.get("imageUrl"),
-        "condition": "sealed",
+        "condition": product.get("condition") or "sealed",
         "conditionRaw": product.get("conditionRaw"),
         "inStock": True,
         "collectedAt": now_iso(),
@@ -265,7 +287,8 @@ def run_platform(args: argparse.Namespace) -> int:
         known = ", ".join(sorted(URLS_BY_PLATFORM))
         raise SystemExit(f"Plataforma no soportada por XtraLife piloto: {args.platform}. Opciones: {known}")
 
-    print(f"=== XtraLife · {args.platform} · nuevo retail/importación ===")
+    profile = platform_profile(args.platform)
+    print(f"=== XtraLife · {args.platform} · {profile['label']} ===")
     print(f"  URL listado: {url}")
     html_text = fetch_listing(url)
     products, source_stats = parse_products(html_text, page_url=url, platform_slug=args.platform)
@@ -308,7 +331,8 @@ def run_platform(args: argparse.Namespace) -> int:
         "collectedAt": now_iso(),
         "source": SOURCE,
         "searchMode": "json_ld_listing",
-        "sourceType": "retail_es_current",
+        "sourceType": profile["sourceType"],
+        "offerType": profile["offerType"],
         "listings": stats.rows,
         "cex": [],
         "jgo": [],
@@ -335,11 +359,11 @@ def run_platform(args: argparse.Namespace) -> int:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Collect XtraLife retail/import new pilot")
+    parser = argparse.ArgumentParser(description="Collect XtraLife retail/import pilot")
     parser.add_argument("--platform", required=True, choices=sorted(URLS_BY_PLATFORM))
     parser.add_argument("--region", help="Región exacta del catálogo")
     parser.add_argument("--limit", type=int, default=24)
-    parser.add_argument("--output", type=Path, default=ROOT / "data" / "price-ingest" / "xtralife-es-new.json")
+    parser.add_argument("--output", type=Path, default=ROOT / "data" / "price-ingest" / "xtralife-es.json")
     parser.add_argument("--dry-run", action="store_true")
     add_match_flags(parser)
     args = parser.parse_args()
