@@ -1,5 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from "fs";
 import path from "path";
+import { readEffectivePlatformSourcesDocument } from "./price-source-settings";
 
 type SyncFile = {
   local: string;
@@ -78,13 +79,18 @@ export async function syncPriceWorkerCode(): Promise<PriceWorkerSyncResult | { e
   const client = new mod.default();
   const remoteRoot = priceWorkerRemoteRoot();
   const uploaded: SyncFile[] = [];
+  const platformSourcesDocument = await readEffectivePlatformSourcesDocument();
 
   try {
     await client.connect({ ...config, readyTimeout: 60_000, retries: 1 });
     for (const file of syncFiles) {
       const remotePath = path.posix.join(remoteRoot, file.remote);
       await client.mkdir(path.posix.dirname(remotePath), true);
-      await client.put(readFileSync(path.join(process.cwd(), file.local)), remotePath);
+      const payload =
+        file.local === "data/platform-sources.json"
+          ? Buffer.from(`${JSON.stringify(platformSourcesDocument, null, 2)}\n`, "utf8")
+          : readFileSync(path.join(process.cwd(), file.local));
+      await client.put(payload, remotePath);
       if (file.remote.endsWith(".sh")) {
         await client.chmod(remotePath, 0o755).catch(() => undefined);
       }

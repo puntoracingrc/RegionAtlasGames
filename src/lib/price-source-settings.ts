@@ -1,8 +1,11 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
+import { get, put } from "@vercel/blob";
 import { canWriteCatalogFiles } from "./admin-auth";
+import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 
 const PLATFORM_SOURCES_FILE = path.join(process.cwd(), "data", "platform-sources.json");
+const PLATFORM_SOURCES_BLOB_PATH = "region-atlas/admin/price-sources/platform-sources.json";
 
 export type PriceCollectorSourceKey =
   | "wallapop"
@@ -114,12 +117,72 @@ function slugify(value: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-function readPlatformSourcesDocument(): PlatformSourcesDocument {
+function readPlatformSourcesDocumentFromDisk(): PlatformSourcesDocument {
   try {
     return JSON.parse(readFileSync(PLATFORM_SOURCES_FILE, "utf8")) as PlatformSourcesDocument;
   } catch {
     return { schemaVersion: 1, platforms: {} };
   }
+}
+
+function shouldUseBlobStorage(): boolean {
+  if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
+  return blobAuthConfigured();
+}
+
+async function readPlatformSourcesDocumentFromBlob(): Promise<PlatformSourcesDocument | null> {
+  if (!shouldUseBlobStorage()) return null;
+  try {
+    const auth = await blobAuthOptions("private");
+    const result = await get(PLATFORM_SOURCES_BLOB_PATH, { ...auth, useCache: false });
+    if (!result?.stream || result.statusCode !== 200) return null;
+    return JSON.parse(await new Response(result.stream).text()) as PlatformSourcesDocument;
+  } catch {
+    return null;
+  }
+}
+
+async function writePlatformSourcesDocumentToBlob(document: PlatformSourcesDocument): Promise<void> {
+  if (!shouldUseBlobStorage()) return;
+  const auth = await blobAuthOptions("private");
+  await put(PLATFORM_SOURCES_BLOB_PATH, JSON.stringify(document, null, 2), {
+    ...auth,
+    contentType: "application/json",
+    addRandomSuffix: false,
+    allowOverwrite: true,
+    cacheControlMaxAge: 30,
+  });
+}
+
+function priceWorkerPublicBaseUrl(): string | null {
+  const explicit = process.env.PRICE_WORKER_PUBLIC_URL?.trim();
+  if (explicit) return explicit.replace(/\/$/, "");
+  const coversBase = process.env.NEXT_PUBLIC_COVERS_BASE_URL?.trim();
+  if (!coversBase) return "https://www.puntoracing.net/MEDIAREGIONATLAS/price-worker";
+  return coversBase.replace(/\/covers\/?$/i, "/price-worker").replace(/\/$/, "");
+}
+
+async function readPlatformSourcesDocumentFromWorker(): Promise<PlatformSourcesDocument | null> {
+  const base = priceWorkerPublicBaseUrl();
+  if (!base) return null;
+  try {
+    const response = await fetch(`${base}/app/data/platform-sources.json`, {
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+    });
+    if (!response.ok) return null;
+    return (await response.json()) as PlatformSourcesDocument;
+  } catch {
+    return null;
+  }
+}
+
+export async function readEffectivePlatformSourcesDocument(): Promise<PlatformSourcesDocument> {
+  return (
+    (await readPlatformSourcesDocumentFromBlob()) ??
+    (await readPlatformSourcesDocumentFromWorker()) ??
+    readPlatformSourcesDocumentFromDisk()
+  );
 }
 
 function normalizeCustomSource(input: unknown): PriceCustomSourceSetting | null {
@@ -170,7 +233,7 @@ export function normalizePriceSourceSettings(input: unknown): PriceSourceSetting
 }
 
 export async function readPriceSourceSettings(): Promise<PriceSourceSettings> {
-  const document = readPlatformSourcesDocument();
+  const document = await readEffectivePlatformSourcesDocument();
   return normalizePriceSourceSettings(document.collectorSettings);
 }
 
@@ -231,7 +294,7 @@ export async function writePriceSourceSettings(input: unknown): Promise<PriceSou
     ...(input && typeof input === "object" ? input : {}),
     updatedAt: new Date().toISOString(),
   });
-  const document = readPlatformSourcesDocument();
+  const document = await readEffectivePlatformSourcesDocument();
   const nextDocument = { ...document, collectorSettings: settings };
 
   if (canWriteCatalogFiles() || !process.env.VERCEL) {
@@ -239,6 +302,7 @@ export async function writePriceSourceSettings(input: unknown): Promise<PriceSou
     if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
     writeFileSync(PLATFORM_SOURCES_FILE, `${JSON.stringify(nextDocument, null, 2)}\n`, "utf8");
   }
+  await writePlatformSourcesDocumentToBlob(nextDocument);
   await uploadPlatformSourcesToWorker(nextDocument);
   return settings;
 }

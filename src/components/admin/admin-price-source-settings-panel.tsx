@@ -105,7 +105,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
     }
     setSettings(data.settings);
     setSaveState("saved");
-    setMessage("Fuentes guardadas. La próxima recolección usará estos interruptores en el worker.");
+    setMessage("Fuentes guardadas en la web y en el worker. La próxima rueda usará estos collectors reales.");
   }
 
   async function syncWorker() {
@@ -172,6 +172,9 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
                   className="mt-1 h-5 w-5 accent-[var(--accent)]"
                 />
               </label>
+              <p className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-muted">
+                Collector real · {source.enabled ? "entra en la rueda si la plataforma lo soporta" : "apagado para la rueda"}
+              </p>
               <input
                 value={source.routeHint ?? ""}
                 onChange={(event) => updateSourceHint(key, event.target.value)}
