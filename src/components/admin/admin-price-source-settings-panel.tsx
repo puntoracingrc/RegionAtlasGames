@@ -98,6 +98,7 @@ const queryTemplatePresets = [
 const crawlModeOptions: Array<{ value: PriceSourceCrawlMode; label: string; helper: string }> = [
   { value: "static_catalog", label: "Catálogo completo en una página", helper: "Lee solo el HTML inicial." },
   { value: "pagination", label: "Paginación normal", helper: "Recorre páginas 1, 2, 3…" },
+  { value: "pagination_url", label: "Paginación por URL (?page=2)", helper: "Para webs que cargan más al bajar pero exponen páginas reales por URL." },
   { value: "infinite_scroll", label: "Scroll infinito / carga al bajar", helper: "Acumula productos hasta que no aparecen más." },
   { value: "load_more_button", label: "Botón cargar más", helper: "Intenta avanzar como carga progresiva con límites." },
   { value: "internal_search", label: "Buscador interno", helper: "Usa la URL de búsqueda y el nombre del juego." },
@@ -256,15 +257,18 @@ function CrawlModeEditor({
         </select>
       </label>
       <p className="mt-1 text-[11px] leading-4 text-muted">{selected?.helper}</p>
-      {mode === "pagination" ? (
+      {mode === "pagination" || mode === "pagination_url" ? (
         <label className="mt-3 block text-xs font-semibold text-muted">
-          Plantilla de paginación
+          Plantilla de página
           <input
             value={paginationTemplate ?? ""}
             onChange={(event) => onChange({ paginationTemplate: event.target.value })}
-            placeholder="{url}?page={page}"
+            placeholder={mode === "pagination_url" ? "?page={page}" : "{url}?page={page}"}
             className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
           />
+          <span className="mt-1 block text-[11px] font-normal leading-4 text-muted">
+            Usa {"{page}"} como número. Puedes poner solo <code>?page={"{page}"}</code> o una URL completa con {"{url}"}.
+          </span>
         </label>
       ) : null}
       <div className="mt-3 grid gap-2 md:grid-cols-4">

@@ -116,6 +116,7 @@ export type PriceSourceNormalization =
 export type PriceSourceCrawlMode =
   | "static_catalog"
   | "pagination"
+  | "pagination_url"
   | "infinite_scroll"
   | "load_more_button"
   | "internal_search";
@@ -240,6 +241,7 @@ const SOURCE_NORMALIZATIONS: PriceSourceNormalization[] = [
 const SOURCE_CRAWL_MODES: PriceSourceCrawlMode[] = [
   "static_catalog",
   "pagination",
+  "pagination_url",
   "infinite_scroll",
   "load_more_button",
   "internal_search",
