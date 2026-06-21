@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { readFileSync } from "fs";
 import path from "path";
+import { AdminLocalGameRunnerPanel } from "@/components/admin/admin-local-game-runner-panel";
 import { AdminPriceCoverageTable } from "@/components/admin/admin-price-coverage-table";
 import { AdminPriceReviewPanel } from "@/components/admin/admin-price-review-panel";
 import { AdminPriceSourceSettingsPanel } from "@/components/admin/admin-price-source-settings-panel";
@@ -14,6 +15,7 @@ import {
 } from "@/lib/admin-price-collect";
 import type { AdminPriceCronAttempt } from "@/lib/admin-price-cron-log";
 import { listPriceReviewItems } from "@/lib/admin-price-review";
+import { listLocalGameRunnerJobs, localGameRunnerTokenConfigured } from "@/lib/local-game-runner-jobs";
 import { readPriceSourceSettings } from "@/lib/price-source-settings";
 
 export const dynamic = "force-dynamic";
@@ -334,10 +336,11 @@ export default async function AdminPricesPage({
 }) {
   const params = await searchParams;
   const coverageSort = normalizeCoverageSort(params?.coverageSort);
-  const [dashboard, priceSourceSettings, priceReviewItems] = await Promise.all([
+  const [dashboard, priceSourceSettings, priceReviewItems, localGameJobs] = await Promise.all([
     getAdminPriceDashboard(20),
     readPriceSourceSettings(),
     listPriceReviewItems(40),
+    listLocalGameRunnerJobs(20),
   ]);
   const platformOptions = readPriceSourcePlatformOptions();
   const regionOptions = readPriceSourceRegionOptions();
@@ -477,6 +480,11 @@ export default async function AdminPricesPage({
         initialSettings={priceSourceSettings}
         platformOptions={platformOptions}
         regionOptions={regionOptions}
+      />
+
+      <AdminLocalGameRunnerPanel
+        initialJobs={localGameJobs}
+        tokenConfigured={localGameRunnerTokenConfigured()}
       />
 
       <AdminPriceReviewPanel initialItems={priceReviewItems} />
