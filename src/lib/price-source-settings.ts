@@ -179,8 +179,8 @@ async function readPlatformSourcesDocumentFromWorker(): Promise<PlatformSourcesD
 
 export async function readEffectivePlatformSourcesDocument(): Promise<PlatformSourcesDocument> {
   return (
-    (await readPlatformSourcesDocumentFromBlob()) ??
     (await readPlatformSourcesDocumentFromWorker()) ??
+    (await readPlatformSourcesDocumentFromBlob()) ??
     readPlatformSourcesDocumentFromDisk()
   );
 }
