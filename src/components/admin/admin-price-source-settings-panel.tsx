@@ -1,7 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { PriceCustomSourceSetting, PriceSourceSettings } from "@/lib/price-source-settings";
+import type {
+  PriceCustomSourceSetting,
+  PriceSourceNormalization,
+  PriceSourceSettings,
+  PriceSourceStatus,
+  PriceSourceStrategy,
+} from "@/lib/price-source-settings";
 
 type Props = {
   initialSettings: PriceSourceSettings;
@@ -29,7 +35,74 @@ const emptyCustomSource: PriceCustomSourceSetting = {
   routeHint: "",
   enabled: true,
   notes: "",
+  strategy: "manual_candidate",
+  status: "candidate",
+  queryTemplate: "{title}",
+  urlTemplate: "",
+  normalizations: ["decode_html_entities", "title_only"],
+  enabledPlatforms: [],
+  disabledPlatforms: [],
+  enabledRegions: [],
+  disabledRegions: [],
+  platformRoutes: {},
 };
+
+const strategyOptions: Array<{ value: PriceSourceStrategy; label: string }> = [
+  { value: "internal_search", label: "Buscador interno" },
+  { value: "catalog_crawl", label: "Rastreo catálogo/listado" },
+  { value: "base_url", label: "Ruta directa/base URL" },
+  { value: "platform_routes", label: "Rutas por plataforma" },
+  { value: "sequence", label: "Secuencia ruta → filtro → resultados" },
+  { value: "api", label: "API" },
+  { value: "manual_candidate", label: "Manual/candidata" },
+];
+
+const statusOptions: Array<{ value: PriceSourceStatus; label: string }> = [
+  { value: "active", label: "Activa en rueda" },
+  { value: "candidate", label: "Candidata sin collector" },
+  { value: "needs_review", label: "Necesita revisión" },
+  { value: "blocked_403", label: "Bloqueada 403" },
+  { value: "blocked_429", label: "Bloqueada 429" },
+  { value: "disabled", label: "Apagada" },
+];
+
+const normalizationOptions: Array<{ value: PriceSourceNormalization; label: string }> = [
+  { value: "decode_html_entities", label: "Limpiar HTML entities" },
+  { value: "strip_region", label: "Quitar región" },
+  { value: "strip_platform", label: "Quitar plataforma" },
+  { value: "trim_edition", label: "Recortar edición" },
+  { value: "title_only", label: "Solo título limpio" },
+  { value: "keep_title_color_word", label: "Mantener Color si va en título" },
+];
+
+function listToText(value: string[] | undefined): string {
+  return (value ?? []).join(", ");
+}
+
+function textToList(value: string): string[] | undefined {
+  const items = value
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+  return items.length > 0 ? items : undefined;
+}
+
+function routesToText(value: Record<string, string> | undefined): string {
+  return Object.entries(value ?? {})
+    .map(([platform, route]) => `${platform}: ${route}`)
+    .join("\n");
+}
+
+function textToRoutes(value: string): Record<string, string> | undefined {
+  const routes: Record<string, string> = {};
+  for (const line of value.split("\n")) {
+    const [rawPlatform, ...rawRoute] = line.split(":");
+    const platform = rawPlatform?.trim().toLowerCase();
+    const route = rawRoute.join(":").trim();
+    if (platform && route) routes[platform] = route;
+  }
+  return Object.keys(routes).length > 0 ? routes : undefined;
+}
 
 export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
   const [settings, setSettings] = useState(initialSettings);
@@ -63,6 +136,36 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
     }));
   }
 
+  function updateSourceField<K extends keyof PriceSourceSettings["sources"][keyof PriceSourceSettings["sources"]]>(
+    key: keyof PriceSourceSettings["sources"],
+    field: K,
+    value: PriceSourceSettings["sources"][keyof PriceSourceSettings["sources"]][K],
+  ) {
+    setSettings((current) => ({
+      ...current,
+      sources: {
+        ...current.sources,
+        [key]: { ...current.sources[key], [field]: value },
+      },
+    }));
+  }
+
+  function toggleSourceNormalization(key: keyof PriceSourceSettings["sources"], value: PriceSourceNormalization, enabled: boolean) {
+    setSettings((current) => {
+      const currentList = current.sources[key].normalizations ?? [];
+      const nextList = enabled
+        ? Array.from(new Set([...currentList, value]))
+        : currentList.filter((item) => item !== value);
+      return {
+        ...current,
+        sources: {
+          ...current.sources,
+          [key]: { ...current.sources[key], normalizations: nextList },
+        },
+      };
+    });
+  }
+
   function addCustomSource() {
     if (!draftCustom.label.trim() || !draftCustom.url.trim()) {
       setSaveState("error");
@@ -74,7 +177,20 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
       ...current,
       customSources: [
         ...current.customSources.filter((item) => item.id !== id),
-        { ...draftCustom, id, label: draftCustom.label.trim(), url: draftCustom.url.trim(), routeHint: draftCustom.routeHint?.trim(), notes: draftCustom.notes?.trim() },
+        {
+          ...draftCustom,
+          id,
+          label: draftCustom.label.trim(),
+          url: draftCustom.url.trim(),
+          routeHint: draftCustom.routeHint?.trim(),
+          notes: draftCustom.notes?.trim(),
+          queryTemplate: draftCustom.queryTemplate?.trim(),
+          urlTemplate: draftCustom.urlTemplate?.trim(),
+          enabledPlatforms: draftCustom.enabledPlatforms?.filter(Boolean),
+          disabledPlatforms: draftCustom.disabledPlatforms?.filter(Boolean),
+          enabledRegions: draftCustom.enabledRegions?.filter(Boolean),
+          disabledRegions: draftCustom.disabledRegions?.filter(Boolean),
+        },
       ],
     }));
     setDraftCustom(emptyCustomSource);
@@ -155,7 +271,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
         </p>
       ) : null}
 
-      <div className="mt-5 grid gap-3 lg:grid-cols-3">
+      <div className="mt-5 grid gap-4 xl:grid-cols-2">
         {priceCollectorSourceOrder.map((key) => {
           const source = settings.sources[key];
           return (
@@ -173,14 +289,121 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
                 />
               </label>
               <p className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-muted">
-                Collector real · {source.enabled ? "entra en la rueda si la plataforma lo soporta" : "apagado para la rueda"}
+                Ficha de fuente · {source.enabled ? "puede entrar en la rueda si la plataforma/región lo permite" : "apagada para la rueda"}
               </p>
-              <input
-                value={source.routeHint ?? ""}
-                onChange={(event) => updateSourceHint(key, event.target.value)}
-                placeholder="Ruta o pista opcional para esta fuente"
-                className="mt-3 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+              <div className="mt-3 grid gap-3 md:grid-cols-2">
+                <label className="text-xs font-semibold text-muted">
+                  Estrategia
+                  <select
+                    value={source.strategy ?? "internal_search"}
+                    onChange={(event) => updateSourceField(key, "strategy", event.target.value as PriceSourceStrategy)}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  >
+                    {strategyOptions.map((option) => (
+                      <option key={option.value} value={option.value}>{option.label}</option>
+                    ))}
+                  </select>
+                </label>
+                <label className="text-xs font-semibold text-muted">
+                  Estado real
+                  <select
+                    value={source.status ?? (source.enabled ? "active" : "disabled")}
+                    onChange={(event) => updateSourceField(key, "status", event.target.value as PriceSourceStatus)}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  >
+                    {statusOptions.map((option) => (
+                      <option key={option.value} value={option.value}>{option.label}</option>
+                    ))}
+                  </select>
+                </label>
+                <label className="text-xs font-semibold text-muted">
+                  Query template
+                  <input
+                    value={source.queryTemplate ?? "{title}"}
+                    onChange={(event) => updateSourceField(key, "queryTemplate", event.target.value)}
+                    placeholder="{title}"
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                </label>
+                <label className="text-xs font-semibold text-muted">
+                  URL template
+                  <input
+                    value={source.urlTemplate ?? ""}
+                    onChange={(event) => updateSourceField(key, "urlTemplate", event.target.value)}
+                    placeholder="/buscar?q={title}"
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                </label>
+                <label className="text-xs font-semibold text-muted">
+                  Solo estas plataformas
+                  <input
+                    value={listToText(source.enabledPlatforms)}
+                    onChange={(event) => updateSourceField(key, "enabledPlatforms", textToList(event.target.value))}
+                    placeholder="ps4, ps5"
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                </label>
+                <label className="text-xs font-semibold text-muted">
+                  Apagar en plataformas
+                  <input
+                    value={listToText(source.disabledPlatforms)}
+                    onChange={(event) => updateSourceField(key, "disabledPlatforms", textToList(event.target.value))}
+                    placeholder="nes, neogeo"
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                </label>
+                <label className="text-xs font-semibold text-muted">
+                  Solo regiones
+                  <input
+                    value={listToText(source.enabledRegions)}
+                    onChange={(event) => updateSourceField(key, "enabledRegions", textToList(event.target.value))}
+                    placeholder="PAL España, Japón"
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                </label>
+                <label className="text-xs font-semibold text-muted">
+                  Apagar en regiones
+                  <input
+                    value={listToText(source.disabledRegions)}
+                    onChange={(event) => updateSourceField(key, "disabledRegions", textToList(event.target.value))}
+                    placeholder="USA"
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                </label>
+              </div>
+              <div className="mt-3 grid gap-3 md:grid-cols-2">
+                <input
+                  value={source.routeHint ?? ""}
+                  onChange={(event) => updateSourceHint(key, event.target.value)}
+                  placeholder="Ruta o pista opcional para esta fuente"
+                  className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                />
+                <input
+                  value={source.supportUrl ?? ""}
+                  onChange={(event) => updateSourceField(key, "supportUrl", event.target.value)}
+                  placeholder="URL general de apoyo"
+                  className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                />
+              </div>
+              <textarea
+                value={routesToText(source.platformRoutes)}
+                onChange={(event) => updateSourceField(key, "platformRoutes", textToRoutes(event.target.value))}
+                placeholder={"Rutas por plataforma, una por línea:\nps4: /juegos-ps4\nps5: /juegos-ps5"}
+                className="mt-3 min-h-20 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
               />
+              <div className="mt-3 flex flex-wrap gap-2">
+                {normalizationOptions.map((option) => (
+                  <label key={option.value} className="rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] font-semibold text-muted">
+                    <input
+                      type="checkbox"
+                      checked={(source.normalizations ?? []).includes(option.value)}
+                      onChange={(event) => toggleSourceNormalization(key, option.value, event.target.checked)}
+                      className="mr-1 accent-[var(--accent)]"
+                    />
+                    {option.label}
+                  </label>
+                ))}
+              </div>
             </div>
           );
         })}
@@ -212,6 +435,47 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
           />
           <button type="button" onClick={addCustomSource} className="btn-secondary whitespace-nowrap">Añadir</button>
         </div>
+        <div className="mt-3 grid gap-3 md:grid-cols-3">
+          <select
+            value={draftCustom.strategy ?? "manual_candidate"}
+            onChange={(event) => setDraftCustom((current) => ({ ...current, strategy: event.target.value as PriceSourceStrategy }))}
+            className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
+          >
+            {strategyOptions.map((option) => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
+          </select>
+          <input
+            value={draftCustom.queryTemplate ?? ""}
+            onChange={(event) => setDraftCustom((current) => ({ ...current, queryTemplate: event.target.value }))}
+            placeholder="Query template: {title}"
+            className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
+          />
+          <input
+            value={draftCustom.urlTemplate ?? ""}
+            onChange={(event) => setDraftCustom((current) => ({ ...current, urlTemplate: event.target.value }))}
+            placeholder="URL template: /buscar?q={title}"
+            className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
+          />
+          <input
+            value={listToText(draftCustom.enabledPlatforms)}
+            onChange={(event) => setDraftCustom((current) => ({ ...current, enabledPlatforms: textToList(event.target.value) }))}
+            placeholder="Solo plataformas: ps4, ps5"
+            className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
+          />
+          <input
+            value={listToText(draftCustom.disabledPlatforms)}
+            onChange={(event) => setDraftCustom((current) => ({ ...current, disabledPlatforms: textToList(event.target.value) }))}
+            placeholder="Apagar plataformas: nes, neogeo"
+            className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
+          />
+          <input
+            value={listToText(draftCustom.enabledRegions)}
+            onChange={(event) => setDraftCustom((current) => ({ ...current, enabledRegions: textToList(event.target.value) }))}
+            placeholder="Regiones útiles: PAL España"
+            className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
+          />
+        </div>
         {settings.customSources.length > 0 ? (
           <div className="mt-4 grid gap-2 md:grid-cols-2">
             {settings.customSources.map((source) => (
@@ -220,6 +484,12 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
                   <div>
                     <p className="font-semibold text-foreground">{source.label}</p>
                     <p className="break-all text-xs text-muted">{source.url}</p>
+                    <p className="mt-1 text-xs text-muted">
+                      Estrategia: {strategyOptions.find((option) => option.value === source.strategy)?.label ?? "Manual/candidata"}
+                    </p>
+                    {source.queryTemplate ? <p className="mt-1 text-xs text-muted">Query: {source.queryTemplate}</p> : null}
+                    {source.urlTemplate ? <p className="mt-1 text-xs text-muted">URL: {source.urlTemplate}</p> : null}
+                    {source.enabledPlatforms?.length ? <p className="mt-1 text-xs text-muted">Solo plataformas: {source.enabledPlatforms.join(", ")}</p> : null}
                     {source.routeHint ? <p className="mt-1 text-xs text-muted">Ruta: {source.routeHint}</p> : null}
                   </div>
                   <button type="button" onClick={() => removeCustomSource(source.id)} className="text-xs font-semibold text-rose-600 dark:text-rose-300">Quitar</button>

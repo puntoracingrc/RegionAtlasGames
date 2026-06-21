@@ -45,6 +45,39 @@ def collector_enabled(source: str) -> bool:
     return key not in _DEFAULT_DISABLED_COLLECTORS
 
 
+def _matches_scope(value: Any, needle: str) -> bool:
+    target = needle.strip().lower()
+    return any(item.strip().lower() == target for item in _as_list(value))
+
+
+def collector_enabled_for_platform(source: str, platform_slug: str) -> bool:
+    if not collector_enabled(source):
+        return False
+    settings = _collector_settings()
+    cfg = settings.get(source.strip().lower()) or {}
+    slug = platform_slug.strip().lower()
+    enabled_platforms = _as_list(cfg.get("enabledPlatforms"))
+    if enabled_platforms and not _matches_scope(enabled_platforms, slug):
+        return False
+    if _matches_scope(cfg.get("disabledPlatforms"), slug):
+        return False
+    return True
+
+
+def collector_enabled_for_region(source: str, region: str) -> bool:
+    if not collector_enabled(source):
+        return False
+    settings = _collector_settings()
+    cfg = settings.get(source.strip().lower()) or {}
+    normalized_region = region.strip().lower()
+    enabled_regions = _as_list(cfg.get("enabledRegions"))
+    if enabled_regions and not any(item.strip().lower() in normalized_region for item in enabled_regions):
+        return False
+    if any(item.strip().lower() in normalized_region for item in _as_list(cfg.get("disabledRegions"))):
+        return False
+    return True
+
+
 def disabled_collectors() -> set[str]:
     known = {
         "wallapop",
@@ -228,7 +261,7 @@ def collectors_for_platform(platform_slug: str, *, ebay_configured: bool = True)
         planned.append("cex")
     if ebay_price_wheel_enabled() and ebay_configured and ebay_enabled_for_platform(platform_slug):
         planned.append("ebay")
-    return [source for source in planned if collector_enabled(source)]
+    return [source for source in planned if collector_enabled_for_platform(source, platform_slug)]
 
 
 # Retrocompat: dict views usados en tests / imports antiguos
@@ -316,6 +349,8 @@ __all__ = [
     "cex_sources_for_platform",
     "chollo_category",
     "collector_enabled",
+    "collector_enabled_for_platform",
+    "collector_enabled_for_region",
     "disabled_collectors",
     "chollo_sources_for_platform",
     "collectors_for_platform",

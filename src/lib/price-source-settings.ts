@@ -23,6 +23,18 @@ export type PriceCollectorSourceSetting = {
   label: string;
   description: string;
   routeHint?: string;
+  strategy?: PriceSourceStrategy;
+  status?: PriceSourceStatus;
+  queryTemplate?: string;
+  urlTemplate?: string;
+  normalizations?: PriceSourceNormalization[];
+  enabledPlatforms?: string[];
+  disabledPlatforms?: string[];
+  enabledRegions?: string[];
+  disabledRegions?: string[];
+  supportUrl?: string;
+  platformRoutes?: Record<string, string>;
+  notes?: string;
 };
 
 export type PriceCustomSourceSetting = {
@@ -32,6 +44,16 @@ export type PriceCustomSourceSetting = {
   routeHint?: string;
   enabled: boolean;
   notes?: string;
+  strategy?: PriceSourceStrategy;
+  status?: PriceSourceStatus;
+  queryTemplate?: string;
+  urlTemplate?: string;
+  normalizations?: PriceSourceNormalization[];
+  enabledPlatforms?: string[];
+  disabledPlatforms?: string[];
+  enabledRegions?: string[];
+  disabledRegions?: string[];
+  platformRoutes?: Record<string, string>;
 };
 
 export type PriceSourceSettings = {
@@ -43,6 +65,31 @@ export type PriceSourceSettings = {
 type PlatformSourcesDocument = Record<string, unknown> & {
   collectorSettings?: Partial<PriceSourceSettings>;
 };
+
+export type PriceSourceStrategy =
+  | "catalog_crawl"
+  | "base_url"
+  | "platform_routes"
+  | "internal_search"
+  | "sequence"
+  | "api"
+  | "manual_candidate";
+
+export type PriceSourceStatus =
+  | "active"
+  | "candidate"
+  | "needs_review"
+  | "blocked_403"
+  | "blocked_429"
+  | "disabled";
+
+export type PriceSourceNormalization =
+  | "decode_html_entities"
+  | "strip_region"
+  | "strip_platform"
+  | "trim_edition"
+  | "title_only"
+  | "keep_title_color_word";
 
 const DEFAULT_SOURCES: Record<PriceCollectorSourceKey, PriceCollectorSourceSetting> = {
   wallapop: {
@@ -106,6 +153,101 @@ const SOURCE_ORDER: PriceCollectorSourceKey[] = [
 
 function cleanText(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
+}
+
+function cleanTextList(value: unknown): string[] {
+  const raw = Array.isArray(value) ? value : typeof value === "string" ? value.split(",") : [];
+  const clean: string[] = [];
+  const seen = new Set<string>();
+  for (const item of raw) {
+    const text = cleanText(item);
+    const key = text.toLowerCase();
+    if (!text || seen.has(key)) continue;
+    seen.add(key);
+    clean.push(text);
+  }
+  return clean;
+}
+
+function cleanStringRecord(value: unknown): Record<string, string> | undefined {
+  if (!value || typeof value !== "object") return undefined;
+  const out: Record<string, string> = {};
+  for (const [key, rawValue] of Object.entries(value as Record<string, unknown>)) {
+    const cleanKey = cleanText(key).toLowerCase();
+    const cleanValue = cleanText(rawValue);
+    if (cleanKey && cleanValue) out[cleanKey] = cleanValue;
+  }
+  return Object.keys(out).length > 0 ? out : undefined;
+}
+
+const SOURCE_STRATEGIES: PriceSourceStrategy[] = [
+  "catalog_crawl",
+  "base_url",
+  "platform_routes",
+  "internal_search",
+  "sequence",
+  "api",
+  "manual_candidate",
+];
+
+const SOURCE_STATUSES: PriceSourceStatus[] = [
+  "active",
+  "candidate",
+  "needs_review",
+  "blocked_403",
+  "blocked_429",
+  "disabled",
+];
+
+const SOURCE_NORMALIZATIONS: PriceSourceNormalization[] = [
+  "decode_html_entities",
+  "strip_region",
+  "strip_platform",
+  "trim_edition",
+  "title_only",
+  "keep_title_color_word",
+];
+
+function cleanStrategy(value: unknown, fallback: PriceSourceStrategy): PriceSourceStrategy {
+  return SOURCE_STRATEGIES.includes(value as PriceSourceStrategy) ? (value as PriceSourceStrategy) : fallback;
+}
+
+function cleanStatus(value: unknown, fallback: PriceSourceStatus): PriceSourceStatus {
+  return SOURCE_STATUSES.includes(value as PriceSourceStatus) ? (value as PriceSourceStatus) : fallback;
+}
+
+function cleanNormalizations(value: unknown, fallback: PriceSourceNormalization[]): PriceSourceNormalization[] {
+  const raw = cleanTextList(value);
+  const clean = raw.filter((item): item is PriceSourceNormalization =>
+    SOURCE_NORMALIZATIONS.includes(item as PriceSourceNormalization),
+  );
+  return clean.length > 0 ? clean : fallback;
+}
+
+function normalizeSourceDetails<T extends PriceCollectorSourceSetting | PriceCustomSourceSetting>(
+  raw: Partial<T>,
+  fallback: {
+    strategy: PriceSourceStrategy;
+    status: PriceSourceStatus;
+    normalizations: PriceSourceNormalization[];
+  },
+) {
+  const enabledPlatforms = cleanTextList(raw.enabledPlatforms);
+  const disabledPlatforms = cleanTextList(raw.disabledPlatforms);
+  const enabledRegions = cleanTextList(raw.enabledRegions);
+  const disabledRegions = cleanTextList(raw.disabledRegions);
+  return {
+    strategy: cleanStrategy(raw.strategy, fallback.strategy),
+    status: cleanStatus(raw.status, fallback.status),
+    queryTemplate: cleanText(raw.queryTemplate) || undefined,
+    urlTemplate: cleanText(raw.urlTemplate) || undefined,
+    normalizations: cleanNormalizations(raw.normalizations, fallback.normalizations),
+    enabledPlatforms: enabledPlatforms.length > 0 ? enabledPlatforms : undefined,
+    disabledPlatforms: disabledPlatforms.length > 0 ? disabledPlatforms : undefined,
+    enabledRegions: enabledRegions.length > 0 ? enabledRegions : undefined,
+    disabledRegions: disabledRegions.length > 0 ? disabledRegions : undefined,
+    platformRoutes: cleanStringRecord(raw.platformRoutes),
+  };
 }
 
 function slugify(value: string): string {
@@ -200,6 +342,11 @@ function normalizeCustomSource(input: unknown): PriceCustomSourceSetting | null 
     routeHint: cleanText(raw.routeHint) || undefined,
     enabled: raw.enabled !== false,
     notes: cleanText(raw.notes) || undefined,
+    ...normalizeSourceDetails(raw, {
+      strategy: "manual_candidate",
+      status: raw.enabled === false ? "disabled" : "candidate",
+      normalizations: ["decode_html_entities", "title_only"],
+    }),
   };
 }
 
@@ -217,6 +364,13 @@ export function normalizePriceSourceSettings(input: unknown): PriceSourceSetting
       label: cleanText(current?.label) || DEFAULT_SOURCES[key].label,
       description: cleanText(current?.description) || DEFAULT_SOURCES[key].description,
       routeHint: cleanText(current?.routeHint) || undefined,
+      supportUrl: cleanText(current?.supportUrl) || undefined,
+      notes: cleanText(current?.notes) || undefined,
+      ...normalizeSourceDetails(current ?? {}, {
+        strategy: key === "ebay" ? "api" : key === "chollo" ? "catalog_crawl" : "internal_search",
+        status: current?.enabled === false ? "disabled" : "active",
+        normalizations: ["decode_html_entities", "title_only"],
+      }),
     };
     return acc;
   }, {} as Record<PriceCollectorSourceKey, PriceCollectorSourceSetting>);
