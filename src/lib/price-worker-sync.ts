@@ -18,6 +18,7 @@ const BASE_WORKER_SYNC_FILES: SyncFile[] = [
   { local: "data/platform-sources.json", remote: "app/data/platform-sources.json" },
   { local: "data/ingest-recency.json", remote: "app/data/ingest-recency.json" },
   { local: "data/region-evidence-rules.json", remote: "app/data/region-evidence-rules.json" },
+  { local: "data/price-source-weights.json", remote: "app/data/price-source-weights.json" },
   { local: "scripts/remote_price_rotation.sh", remote: "cron/price_rotation.sh" },
   { local: "scripts/remote_price_rotation.sh", remote: "../../../.region-atlas-cron/price_rotation.sh" },
 ];

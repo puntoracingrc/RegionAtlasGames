@@ -187,6 +187,7 @@ SOURCE_LABELS: dict[str, str] = {
     "todocoleccion": "TodoColeccion",
     "todoconsolas": "TodoConsolas",
     "cex": "CeX",
+    "game-es-preowned": "GAME seminuevo",
     "jgo": "Japan Game Online",
     "japangameonline": "Japan Game Online",
     "chollo": "Chollo Games",

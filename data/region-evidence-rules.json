@@ -198,6 +198,7 @@
     "barcode_regional": "Código de barras regional",
     "seller_states_region": "Vendedor indica región en texto",
     "listing_title_region": "Región explícita en título",
-    "photo_region_mark": "PEGI / rating / sello regional en foto"
+    "photo_region_mark": "PEGI / rating / sello regional en foto",
+    "game_es_preowned_trusted_source": "GAME España seminuevo: fuente retail ES con match alto y sin marca de importación"
   }
 }

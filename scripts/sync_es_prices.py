@@ -36,6 +36,7 @@ from collectors.listing_recency import (  # noqa: E402
     tc_max_pages,
 )
 from collectors.region_inference import normalize_region, regions_match as catalog_regions_match  # noqa: E402
+from collectors.region_inference import title_conflicts_region  # noqa: E402
 from collectors.condition_buckets import (  # noqa: E402
     DISPLAY_BUCKETS,
     format_data_sources,
@@ -57,6 +58,23 @@ MIN_VS_PC_REF = 0.25
 IQR_MULTIPLIER = 1.5
 
 ES_MARKET_FOCUS = {"pal españa", "españa", "pal europa"}
+GAME_PREOWNED_AUTO_MATCH_SCORE = 0.8
+GAME_PREOWNED_AUTO_MATCH_MARGIN = 0.15
+GAME_PREOWNED_AUTO_REGIONS = {"pal españa", "españa"}
+GAME_IMPORT_MARKERS = (
+    " import ",
+    " imp ",
+    " usa",
+    " ntsc",
+    " japan",
+    " japón",
+    " japon",
+    " asia",
+    " uk",
+    " alemán",
+    " aleman",
+    " german",
+)
 
 
 def is_price_tracked_game(game: dict[str, Any]) -> bool:
@@ -103,6 +121,72 @@ def is_listing_region_verified(row: dict[str, Any]) -> bool:
     return isinstance(evidence, list) and len(evidence) > 0
 
 
+def is_game_preowned_auto_verified(row: dict[str, Any], catalog_region: str) -> bool:
+    source = str(row.get("source") or "").strip().lower()
+    if source != "game-es-preowned":
+        return False
+    if str(row.get("offerType") or "").strip().lower() != "preowned":
+        return False
+    if str(row.get("sourceType") or "").strip().lower() != "retail_es_preowned":
+        return False
+    if str(row.get("condition") or "").strip().lower() != "complete":
+        return False
+    if normalize_region(catalog_region) not in GAME_PREOWNED_AUTO_REGIONS:
+        return False
+    title = f" {str(row.get('title') or '').strip().lower()} "
+    if any(marker in title for marker in GAME_IMPORT_MARKERS):
+        return False
+    if title_conflicts_region(str(row.get("title") or ""), catalog_region):
+        return False
+    try:
+        match_score = float(row.get("matchScore") or 0)
+    except (TypeError, ValueError):
+        return False
+    if match_score < GAME_PREOWNED_AUTO_MATCH_SCORE:
+        return False
+    match_method = str(row.get("matchMethod") or "").strip().lower()
+    if match_method == "reference":
+        return True
+    try:
+        match_margin = float(row.get("matchMargin") or 0)
+    except (TypeError, ValueError):
+        match_margin = 0
+    return match_margin >= GAME_PREOWNED_AUTO_MATCH_MARGIN
+
+
+def apply_game_preowned_auto_region_policy(
+    ingest: dict[str, Any],
+    catalog_by_id: dict[str, dict[str, Any]],
+) -> int:
+    applied = 0
+    rows = ingest.get("listings") or []
+    if not isinstance(rows, list):
+        return 0
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        catalog_id = str(row.get("catalogId") or "")
+        catalog_region = str((catalog_by_id.get(catalog_id) or {}).get("region") or "")
+        if not is_game_preowned_auto_verified(row, catalog_region):
+            continue
+        row["catalogRegion"] = catalog_region
+        row["listingRegion"] = "PAL España"
+        row["regionVerified"] = True
+        row["regionEvidence"] = ["game_es_preowned_trusted_source"]
+        try:
+            current_confidence = float(row.get("aiConfidence") or 0)
+        except (TypeError, ValueError):
+            current_confidence = 0
+        row["aiConfidence"] = max(current_confidence, 0.9)
+        row["regionReviewNeeded"] = False
+        row["reviewReason"] = "game_es_preowned_auto_pal_es"
+        notes = [str(item) for item in (row.get("regionReviewNotes") or []) if str(item).strip()]
+        notes.append("Autoaceptado GAME seminuevo: match alto, sin marca de importación y catálogo PAL España.")
+        row["regionReviewNotes"] = notes
+        applied += 1
+    return applied
+
+
 def filter_verified_listings(
     platform_slug: str,
     catalog_region: str,
@@ -115,6 +199,12 @@ def filter_verified_listings(
     stale = 0
 
     for row in rows:
+        if is_game_preowned_auto_verified(row, catalog_region):
+            if not is_recent_listing(row):
+                stale += 1
+                continue
+            usable.append(row)
+            continue
         if not is_listing_region_verified(row):
             unverified += 1
             continue
@@ -507,6 +597,12 @@ def _row_observation(
     use_vision: bool = True,
 ) -> tuple[float, str, str] | None:
     if require_p2p_rules:
+        if is_game_preowned_auto_verified(row, catalog_region):
+            return observation_from_row(
+                row,
+                platform_slug=platform_slug,
+                use_vision=use_vision,
+            )
         if not is_listing_region_verified(row):
             return None
         listing_region = str(row.get("listingRegion") or "").strip()
@@ -723,6 +819,10 @@ def main() -> None:
 
     ingest = load_json(args.input)
     synced_at = ingest.get("collectedAt") or now_iso()
+    catalog_by_id = {str(game.get("id")): game for game in catalog if game.get("id")}
+    game_auto_verified = apply_game_preowned_auto_region_policy(ingest, catalog_by_id)
+    if game_auto_verified:
+        print(f"  GAME seminuevo autoaceptado PAL España: {game_auto_verified} filas")
     try:
         review_stats = record_price_review_candidates(ingest, platform_slug)
         if review_stats.get("added") or review_stats.get("updated"):

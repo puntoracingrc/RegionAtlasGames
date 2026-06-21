@@ -118,7 +118,20 @@ def record_price_review_candidates(ingest: dict[str, Any], platform_slug: str) -
                 continue
             source = _source_for_key(row, key)
             item = _row_to_item(row, source, platform_slug, ingest)
-            if not item or item["id"] in decided:
+            if not item:
+                resolved_id = _item_id(row, source, platform_slug)
+                previous = existing.get(resolved_id)
+                if previous and previous.get("status") == "pending":
+                    existing[resolved_id] = {
+                        **previous,
+                        "status": "accepted",
+                        "decision": "auto_resolved",
+                        "decisionReason": row.get("reviewReason") or "resolved_by_import",
+                        "updatedAt": now_iso(),
+                    }
+                    updated += 1
+                continue
+            if item["id"] in decided:
                 continue
             previous = existing.get(item["id"])
             if previous:
