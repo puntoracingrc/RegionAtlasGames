@@ -42,6 +42,8 @@ const emptyCustomSource: PriceCustomSourceSetting = {
   url: "",
   routeHint: "",
   enabled: true,
+  enabledManual: true,
+  enabledRotation: false,
   notes: "",
   strategy: "manual_candidate",
   status: "candidate",
@@ -72,7 +74,7 @@ const strategyOptions: Array<{ value: PriceSourceStrategy; label: string }> = [
 ];
 
 const statusOptions: Array<{ value: PriceSourceStatus; label: string }> = [
-  { value: "active", label: "Activa en rueda" },
+  { value: "active", label: "Activa / lista" },
   { value: "candidate", label: "Candidata / pendiente" },
   { value: "needs_review", label: "Necesita revisión" },
   { value: "blocked_403", label: "Bloqueada 403" },
@@ -139,7 +141,7 @@ function strategyUsesCrawlMode(strategy: PriceSourceStrategy | undefined): boole
 }
 
 function customSourceCanUseGenericCollector(source: PriceCustomSourceSetting): boolean {
-  if (!source.enabled) return false;
+  if (!sourceModeEnabled(source, "manual") && !sourceModeEnabled(source, "rotation")) return false;
   const status = source.status ?? "candidate";
   if (status === "disabled" || status === "blocked_403" || status === "blocked_429") return false;
   const strategy = source.strategy ?? "manual_candidate";
@@ -147,6 +149,26 @@ function customSourceCanUseGenericCollector(source: PriceCustomSourceSetting): b
   if (strategy === "internal_search" || strategy === "sequence") return Boolean(source.urlTemplate?.trim());
   if (strategy === "catalog_crawl" || strategy === "base_url") return Boolean(source.url?.trim());
   return false;
+}
+
+type SourceWithModes = {
+  enabled: boolean;
+  enabledManual?: boolean;
+  enabledRotation?: boolean;
+};
+
+function sourceModeEnabled(source: SourceWithModes, mode: "manual" | "rotation"): boolean {
+  if (mode === "manual") return source.enabledManual ?? source.enabled;
+  return source.enabledRotation ?? source.enabled;
+}
+
+function sourceModeSummary(source: SourceWithModes): string {
+  const manual = sourceModeEnabled(source, "manual");
+  const rotation = sourceModeEnabled(source, "rotation");
+  if (manual && rotation) return "Manual y rueda";
+  if (manual) return "Solo manual";
+  if (rotation) return "Solo rueda";
+  return "Apagada";
 }
 
 function toggleListValue(current: string[] | undefined, value: string, enabled: boolean): string[] | undefined {
@@ -449,22 +471,19 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
   const [workerSyncState, setWorkerSyncState] = useState<WorkerSyncState>("idle");
   const [message, setMessage] = useState("");
 
-  const activeCount = useMemo(
+  const manualActiveCount = useMemo(
     () =>
-      priceCollectorSourceOrder.filter((key) => settings.sources[key].enabled).length
-      + settings.customSources.filter(customSourceCanUseGenericCollector).length,
+      priceCollectorSourceOrder.filter((key) => sourceModeEnabled(settings.sources[key], "manual")).length
+      + settings.customSources.filter((source) => customSourceCanUseGenericCollector(source) && sourceModeEnabled(source, "manual")).length,
     [settings],
   );
 
-  function toggleSource(key: keyof PriceSourceSettings["sources"], enabled: boolean) {
-    setSettings((current) => ({
-      ...current,
-      sources: {
-        ...current.sources,
-        [key]: { ...current.sources[key], enabled },
-      },
-    }));
-  }
+  const rotationActiveCount = useMemo(
+    () =>
+      priceCollectorSourceOrder.filter((key) => sourceModeEnabled(settings.sources[key], "rotation")).length
+      + settings.customSources.filter((source) => customSourceCanUseGenericCollector(source) && sourceModeEnabled(source, "rotation")).length,
+    [settings],
+  );
 
   function updateSourceHint(key: keyof PriceSourceSettings["sources"], routeHint: string) {
     setSettings((current) => ({
@@ -520,6 +539,26 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
     }));
   }
 
+  function updateSourceMode(key: keyof PriceSourceSettings["sources"], mode: "manual" | "rotation", enabled: boolean) {
+    setSettings((current) => {
+      const source = current.sources[key];
+      const nextManual = mode === "manual" ? enabled : sourceModeEnabled(source, "manual");
+      const nextRotation = mode === "rotation" ? enabled : sourceModeEnabled(source, "rotation");
+      return {
+        ...current,
+        sources: {
+          ...current.sources,
+          [key]: {
+            ...source,
+            enabled: nextManual || nextRotation,
+            enabledManual: nextManual,
+            enabledRotation: nextRotation,
+          },
+        },
+      };
+    });
+  }
+
   function updateCustomSourceField<K extends keyof PriceCustomSourceSetting>(
     id: string,
     field: K,
@@ -557,6 +596,23 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
       customSources: current.customSources.map((source) =>
         source.id === id ? { ...source, ...patch } : source,
       ),
+    }));
+  }
+
+  function updateCustomSourceMode(id: string, mode: "manual" | "rotation", enabled: boolean) {
+    setSettings((current) => ({
+      ...current,
+      customSources: current.customSources.map((source) => {
+        if (source.id !== id) return source;
+        const nextManual = mode === "manual" ? enabled : sourceModeEnabled(source, "manual");
+        const nextRotation = mode === "rotation" ? enabled : sourceModeEnabled(source, "rotation");
+        return {
+          ...source,
+          enabled: nextManual || nextRotation,
+          enabledManual: nextManual,
+          enabledRotation: nextRotation,
+        };
+      }),
     }));
   }
 
@@ -658,7 +714,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
         </div>
         <div className="flex flex-wrap gap-2">
           <button type="button" onClick={saveSettings} disabled={saveState === "saving"} className="btn-primary">
-            {saveState === "saving" ? "Guardando..." : `Guardar fuentes (${activeCount} activas)`}
+            {saveState === "saving" ? "Guardando..." : `Guardar fuentes (manual ${manualActiveCount} · rueda ${rotationActiveCount})`}
           </button>
           <button
             type="button"
@@ -683,20 +739,37 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
           const strategy = source.strategy ?? "internal_search";
           return (
             <div key={key} className="rounded-2xl border border-border bg-background/70 p-4">
-              <label className="flex cursor-pointer items-start justify-between gap-3">
+              <div className="flex items-start justify-between gap-3">
                 <span>
                   <span className="block font-bold text-foreground">{source.label}</span>
                   <span className="mt-1 block text-xs leading-5 text-muted">{source.description}</span>
                 </span>
-                <input
-                  type="checkbox"
-                  checked={source.enabled}
-                  onChange={(event) => toggleSource(key, event.target.checked)}
-                  className="mt-1 h-5 w-5 accent-[var(--accent)]"
-                />
-              </label>
+                <span className="rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] font-bold text-muted">
+                  {sourceModeSummary(source)}
+                </span>
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <label className="rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] font-semibold text-muted">
+                  <input
+                    type="checkbox"
+                    checked={sourceModeEnabled(source, "manual")}
+                    onChange={(event) => updateSourceMode(key, "manual", event.target.checked)}
+                    className="mr-1 accent-[var(--accent)]"
+                  />
+                  Manual
+                </label>
+                <label className="rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] font-semibold text-muted">
+                  <input
+                    type="checkbox"
+                    checked={sourceModeEnabled(source, "rotation")}
+                    onChange={(event) => updateSourceMode(key, "rotation", event.target.checked)}
+                    className="mr-1 accent-[var(--accent)]"
+                  />
+                  Rueda automática
+                </label>
+              </div>
               <p className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-muted">
-                Ficha de fuente · {source.enabled ? "puede entrar en la rueda si la plataforma/región lo permite" : "apagada para la rueda"}
+                Ficha de fuente · {sourceModeSummary(source).toLowerCase()} · respeta plataforma/región configuradas
               </p>
               <div className="mt-3 grid gap-3 md:grid-cols-2">
                 <label className="text-xs font-semibold text-muted">
@@ -831,18 +904,35 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
           const hasGenericCollector = customSourceCanUseGenericCollector(source);
           return (
             <div key={`custom-${source.id}`} className="rounded-2xl border border-amber-300/70 bg-amber-50/60 p-4 dark:border-amber-400/30 dark:bg-amber-950/20">
-              <label className="flex cursor-pointer items-start justify-between gap-3">
+              <div className="flex items-start justify-between gap-3">
                 <span>
                   <span className="block font-bold text-foreground">{source.label}</span>
                   <span className="mt-1 block break-all text-xs leading-5 text-muted">{source.url}</span>
                 </span>
-                <input
-                  type="checkbox"
-                  checked={source.enabled}
-                  onChange={(event) => updateCustomSourceField(source.id, "enabled", event.target.checked)}
-                  className="mt-1 h-5 w-5 accent-[var(--accent)]"
-                />
-              </label>
+                <span className="rounded-full border border-amber-200 bg-amber-100/70 px-3 py-1 text-[11px] font-bold text-amber-800 dark:border-amber-400/30 dark:bg-amber-900/30 dark:text-amber-200">
+                  {sourceModeSummary(source)}
+                </span>
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <label className="rounded-full border border-amber-200 bg-amber-100/70 px-3 py-1 text-[11px] font-semibold text-amber-800 dark:border-amber-400/30 dark:bg-amber-900/30 dark:text-amber-200">
+                  <input
+                    type="checkbox"
+                    checked={sourceModeEnabled(source, "manual")}
+                    onChange={(event) => updateCustomSourceMode(source.id, "manual", event.target.checked)}
+                    className="mr-1 accent-[var(--accent)]"
+                  />
+                  Manual
+                </label>
+                <label className="rounded-full border border-amber-200 bg-amber-100/70 px-3 py-1 text-[11px] font-semibold text-amber-800 dark:border-amber-400/30 dark:bg-amber-900/30 dark:text-amber-200">
+                  <input
+                    type="checkbox"
+                    checked={sourceModeEnabled(source, "rotation")}
+                    onChange={(event) => updateCustomSourceMode(source.id, "rotation", event.target.checked)}
+                    className="mr-1 accent-[var(--accent)]"
+                  />
+                  Rueda automática
+                </label>
+              </div>
               <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
                   {hasGenericCollector

@@ -20,6 +20,8 @@ export type PriceCollectorSourceKey =
 
 export type PriceCollectorSourceSetting = {
   enabled: boolean;
+  enabledManual?: boolean;
+  enabledRotation?: boolean;
   label: string;
   description: string;
   routeHint?: string;
@@ -58,6 +60,8 @@ export type PriceCustomSourceSetting = {
   url: string;
   routeHint?: string;
   enabled: boolean;
+  enabledManual?: boolean;
+  enabledRotation?: boolean;
   notes?: string;
   strategy?: PriceSourceStrategy;
   status?: PriceSourceStatus;
@@ -293,6 +297,10 @@ function cleanPositiveInt(value: unknown): number | undefined {
   return Math.floor(numberValue);
 }
 
+function cleanBoolean(value: unknown, fallback: boolean): boolean {
+  return typeof value === "boolean" ? value : fallback;
+}
+
 function normalizeSourceDetails<T extends PriceCollectorSourceSetting | PriceCustomSourceSetting>(
   raw: Partial<T>,
   fallback: {
@@ -434,12 +442,15 @@ function normalizeCustomSource(input: unknown): PriceCustomSourceSetting | null 
   if (!label || !url) return null;
   const id = cleanText(raw.id) || slugify(label);
   if (!id) return null;
+  const legacyEnabled = raw.enabled !== false;
   return {
     id,
     label,
     url,
     routeHint: cleanText(raw.routeHint) || undefined,
-    enabled: raw.enabled !== false,
+    enabled: legacyEnabled,
+    enabledManual: cleanBoolean(raw.enabledManual, legacyEnabled),
+    enabledRotation: cleanBoolean(raw.enabledRotation, legacyEnabled),
     notes: cleanText(raw.notes) || undefined,
     ...normalizeSourceDetails(raw, {
       strategy: "manual_candidate",
@@ -457,9 +468,12 @@ export function normalizePriceSourceSettings(input: unknown): PriceSourceSetting
       : {};
   const sources = SOURCE_ORDER.reduce((acc, key) => {
     const current = rawSources[key];
+    const legacyEnabled = current?.enabled ?? DEFAULT_SOURCES[key].enabled;
     acc[key] = {
       ...DEFAULT_SOURCES[key],
-      enabled: current?.enabled ?? DEFAULT_SOURCES[key].enabled,
+      enabled: legacyEnabled,
+      enabledManual: cleanBoolean(current?.enabledManual, legacyEnabled),
+      enabledRotation: cleanBoolean(current?.enabledRotation, legacyEnabled),
       label: cleanText(current?.label) || DEFAULT_SOURCES[key].label,
       description: cleanText(current?.description) || DEFAULT_SOURCES[key].description,
       routeHint: cleanText(current?.routeHint) || undefined,

@@ -99,13 +99,26 @@ def _custom_source_settings() -> dict[str, dict[str, Any]]:
     return out
 
 
-def collector_enabled(source: str) -> bool:
+def _collection_mode(mode: str | None = None) -> str:
+    raw = (mode or os.environ.get("PRICE_COLLECT_TRIGGER") or "manual").strip().lower()
+    if raw in {"automatic", "rotation", "cron"}:
+        return "rotation"
+    return "manual"
+
+
+def _enabled_for_mode(cfg: dict[str, Any], *, mode: str | None = None, fallback: bool = True) -> bool:
+    legacy = cfg.get("enabled") is not False if "enabled" in cfg else fallback
+    key = "enabledRotation" if _collection_mode(mode) == "rotation" else "enabledManual"
+    return bool(cfg.get(key, legacy))
+
+
+def collector_enabled(source: str, *, mode: str | None = None) -> bool:
     settings = _collector_settings()
     key = source.strip().lower()
     if key == "ebay" and ebay_price_wheel_enabled():
         return True
     if key in settings:
-        return settings[key].get("enabled") is not False
+        return _enabled_for_mode(settings[key], mode=mode)
     return key not in _DEFAULT_DISABLED_COLLECTORS
 
 
@@ -114,8 +127,8 @@ def _matches_scope(value: Any, needle: str) -> bool:
     return any(item.strip().lower() == target for item in _as_list(value))
 
 
-def collector_enabled_for_platform(source: str, platform_slug: str) -> bool:
-    if not collector_enabled(source):
+def collector_enabled_for_platform(source: str, platform_slug: str, *, mode: str | None = None) -> bool:
+    if not collector_enabled(source, mode=mode):
         return False
     settings = _collector_settings()
     cfg = settings.get(source.strip().lower()) or {}
@@ -128,8 +141,8 @@ def collector_enabled_for_platform(source: str, platform_slug: str) -> bool:
     return True
 
 
-def collector_enabled_for_region(source: str, region: str) -> bool:
-    if not collector_enabled(source):
+def collector_enabled_for_region(source: str, region: str, *, mode: str | None = None) -> bool:
+    if not collector_enabled(source, mode=mode):
         return False
     settings = _collector_settings()
     cfg = settings.get(source.strip().lower()) or {}
@@ -158,11 +171,11 @@ def generic_source_config(source_slug: str) -> dict[str, Any] | None:
     return _custom_source_settings().get(source_slug.strip().lower())
 
 
-def generic_source_enabled(source_slug: str, platform_slug: str, *, region: str | None = None) -> bool:
+def generic_source_enabled(source_slug: str, platform_slug: str, *, region: str | None = None, mode: str | None = None) -> bool:
     cfg = generic_source_config(source_slug)
     if not cfg:
         return False
-    if cfg.get("enabled") is False:
+    if not _enabled_for_mode(cfg, mode=mode):
         return False
     status = str(cfg.get("status") or "").strip().lower()
     if status in _GENERIC_DISABLED_STATUSES:
@@ -186,11 +199,11 @@ def generic_source_enabled(source_slug: str, platform_slug: str, *, region: str 
     return False
 
 
-def generic_sources_for_platform(platform_slug: str, *, region: str | None = None) -> list[str]:
+def generic_sources_for_platform(platform_slug: str, *, region: str | None = None, mode: str | None = None) -> list[str]:
     return [
         source_slug
         for source_slug in sorted(_custom_source_settings())
-        if generic_source_enabled(source_slug, platform_slug, region=region)
+        if generic_source_enabled(source_slug, platform_slug, region=region, mode=mode)
     ]
 
 
@@ -361,8 +374,9 @@ def ps_platform_slugs() -> list[str]:
     )
 
 
-def collectors_for_platform(platform_slug: str, *, ebay_configured: bool = True) -> list[str]:
+def collectors_for_platform(platform_slug: str, *, ebay_configured: bool = True, mode: str | None = None) -> list[str]:
     """Fuentes de precio planificables para daily_price_ingest (orden lógico)."""
+    collection_mode = _collection_mode(mode)
     planned: list[str] = []
     planned.extend(p2p_sources_for_platform(platform_slug))
     if tcns_sources_for_platform(platform_slug):
@@ -377,8 +391,15 @@ def collectors_for_platform(platform_slug: str, *, ebay_configured: bool = True)
         planned.append("cex")
     if ebay_price_wheel_enabled() and ebay_configured and ebay_enabled_for_platform(platform_slug):
         planned.append("ebay")
-    planned.extend(f"generic:{source}" for source in generic_sources_for_platform(platform_slug, region=os.environ.get("PRICE_COLLECT_REGION", "").strip() or None))
-    return [source for source in planned if collector_enabled_for_platform(source, platform_slug)]
+    planned.extend(
+        f"generic:{source}"
+        for source in generic_sources_for_platform(
+            platform_slug,
+            region=os.environ.get("PRICE_COLLECT_REGION", "").strip() or None,
+            mode=collection_mode,
+        )
+    )
+    return [source for source in planned if collector_enabled_for_platform(source, platform_slug, mode=collection_mode)]
 
 
 # Retrocompat: dict views usados en tests / imports antiguos
