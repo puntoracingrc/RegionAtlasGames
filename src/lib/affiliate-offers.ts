@@ -58,6 +58,11 @@ type EbayTokenCache = {
   expiresAt: number;
 };
 
+type EbayBackoffCache = {
+  expiresAt: number;
+  status: number;
+};
+
 type AmazonTokenCache = {
   token: string;
   expiresAt: number;
@@ -139,12 +144,16 @@ const AMAZON_CREATORS_TOKEN_URLS: Record<string, string> = {
   "3.3": "https://api.amazon.co.jp/auth/o2/token",
 };
 const DEFAULT_CACHE_SECONDS = 60 * 60 * 6;
+const DEFAULT_EBAY_BACKOFF_SECONDS = 60;
+const MAX_EBAY_BACKOFF_SECONDS = 15 * 60;
 const EBAY_TOKEN_CACHE_KEY = "__regionAtlasEbayTokenCache";
+const EBAY_BACKOFF_CACHE_KEY = "__regionAtlasEbayBackoffCache";
 const AMAZON_TOKEN_CACHE_KEY = "__regionAtlasAmazonTokenCache";
 const AFFILIATE_WHITELIST_FILE = path.join(process.cwd(), "data", "affiliate-offers-whitelist.json");
 
 declare global {
   var __regionAtlasEbayTokenCache: EbayTokenCache | undefined;
+  var __regionAtlasEbayBackoffCache: EbayBackoffCache | undefined;
   var __regionAtlasAmazonTokenCache: AmazonTokenCache | undefined;
 }
 
@@ -375,6 +384,28 @@ function ebayEndUserContext(game: CatalogGame): string | null {
   return `affiliateCampaignId=${campaignId},affiliateReferenceId=${ebayGameCustomId(game)}`;
 }
 
+function ebayBackoffActive(): boolean {
+  const backoff = globalThis[EBAY_BACKOFF_CACHE_KEY];
+  return Boolean(backoff && backoff.expiresAt > Date.now());
+}
+
+function retryAfterSeconds(value: string | null): number {
+  if (!value) return DEFAULT_EBAY_BACKOFF_SECONDS;
+  const numeric = Number.parseInt(value, 10);
+  if (Number.isFinite(numeric)) return numeric;
+  const dateMs = Date.parse(value);
+  if (Number.isFinite(dateMs)) return Math.ceil((dateMs - Date.now()) / 1000);
+  return DEFAULT_EBAY_BACKOFF_SECONDS;
+}
+
+function setEbayBackoff(status: number, retryAfter: string | null): void {
+  const seconds = Math.max(5, Math.min(MAX_EBAY_BACKOFF_SECONDS, retryAfterSeconds(retryAfter)));
+  globalThis[EBAY_BACKOFF_CACHE_KEY] = {
+    status,
+    expiresAt: Date.now() + seconds * 1000,
+  };
+}
+
 async function getEbayAccessToken(): Promise<string | null> {
   const clientId = configured(process.env.EBAY_CLIENT_ID);
   const clientSecret = configured(process.env.EBAY_CLIENT_SECRET);
@@ -601,6 +632,7 @@ async function getEbayOffers(
   if (!affiliateEnabled() || !ebayAffiliateEnabled()) return { offers: [], fallbackCta: null };
   const fallbackCta = ebayFallbackSearchCta(game, details);
   if (!ebayConfigured()) return { offers: [], fallbackCta };
+  if (ebayBackoffActive()) return { offers: [], fallbackCta };
   const token = await getEbayAccessToken();
   if (!token) return { offers: [], fallbackCta };
 
@@ -634,6 +666,7 @@ async function getEbayOffers(
       query: ebayQuery(game, details),
       error: error.slice(0, 700),
     });
+    if (res.status === 429) setEbayBackoff(res.status, res.headers.get("retry-after"));
     return { offers: [], fallbackCta };
   }
 
