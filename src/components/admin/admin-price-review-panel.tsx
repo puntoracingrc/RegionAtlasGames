@@ -29,6 +29,21 @@ const commonRegionOptions = [
   "Australia",
 ];
 
+const sourceLabels: Record<string, string> = {
+  "game-es-preowned": "GAME España · Seminuevo",
+  "game-es-new": "GAME España · Nuevo",
+  "xtralife-es": "XtraLife España",
+  "on-digital-es": "On Digital España",
+  "cashconverters-es": "Cash Converters España",
+};
+
+const reasonLabels: Record<string, string> = {
+  region_no_confirmada: "Región no confirmada",
+  sin_prueba_region: "Sin prueba de región",
+  match_ambiguo: "Match ambiguo",
+  estado_desconocido: "Estado desconocido",
+};
+
 function uniqueOptions(values: Array<string | null | undefined>): string[] {
   const seen = new Set<string>();
   const out: string[] = [];
@@ -57,6 +72,7 @@ function formatPrice(value: number | string | null | undefined): string {
 }
 
 function sourceLabel(value: string): string {
+  if (sourceLabels[value]) return sourceLabels[value];
   return value
     .split(/[-_]/g)
     .filter(Boolean)
@@ -65,6 +81,7 @@ function sourceLabel(value: string): string {
 }
 
 function reasonLabel(value: string): string {
+  if (reasonLabels[value]) return reasonLabels[value];
   return value
     .replace(/_/g, " ")
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
@@ -85,6 +102,12 @@ function ReviewCard({
   const [message, setMessage] = useState("");
   const alternatives = item.evidence?.matchAlternatives ?? [];
   const imageUrl = item.evidence?.imageUrl || item.evidence?.imageUrls?.[0] || null;
+  const catalogOptions = uniqueOptions([
+    item.catalogId,
+    item.candidateCatalogId,
+    ...alternatives.map((alt) => alt.catalogId),
+    catalogId,
+  ]);
   const regionOptions = uniqueOptions([
     item.targetRegion,
     item.detectedRegion,
@@ -163,7 +186,10 @@ function ReviewCard({
               <button
                 key={`${alt.catalogId}-${alt.region}`}
                 type="button"
-                onClick={() => setCatalogId(alt.catalogId ?? catalogId)}
+                onClick={() => {
+                  setCatalogId(alt.catalogId ?? catalogId);
+                  if (alt.region) setRegion(alt.region);
+                }}
                 className="rounded-full border border-border px-3 py-1 text-left font-semibold text-muted hover:border-accent hover:text-foreground"
               >
                 {alt.catalogId} · {alt.region} · {alt.score}
@@ -176,7 +202,13 @@ function ReviewCard({
       <div className="mt-3 grid gap-2 md:grid-cols-4">
         <label className="text-xs font-semibold text-muted">
           Juego destino
-          <input value={catalogId} onChange={(event) => setCatalogId(event.target.value)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent" />
+          <select value={catalogId} onChange={(event) => setCatalogId(event.target.value)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
+            <option value="">Selecciona juego</option>
+            {catalogOptions.map((value) => (
+              <option key={value} value={value}>{value}</option>
+            ))}
+          </select>
+          <span className="mt-1 block text-[11px] font-normal leading-4 text-muted">Usa las alternativas detectadas si el candidato no es correcto.</span>
         </label>
         <label className="text-xs font-semibold text-muted">
           Región
