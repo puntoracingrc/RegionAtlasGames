@@ -78,7 +78,7 @@ def supported_platform_slugs() -> list[str]:
 
 
 def build_wallapop_query(game: dict[str, Any]) -> str:
-    """Título + plataforma. Ej.: «Sonic the Hedgehog megadrive»."""
+    """Query del buscador: solo título."""
     return build_search_query(game)
 
 
