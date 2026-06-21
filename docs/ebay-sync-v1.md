@@ -109,6 +109,7 @@ Regla crítica:
 - Si no hay `itemAffiliateWebUrl`, la oferta normalizada queda como `invalid_affiliate_url`.
 - En el bloque público, si no hay resultados válidos de API, se muestra un CTA separado: `Buscar este juego en eBay`.
 - Ese CTA conserva `campid` y `customid`, pero no se renderiza como oferta ni se mezcla con cards de listings.
+- Si Browse API responde `429 Too Many Requests`, el bloque público conserva el fallback y activa un backoff temporal en memoria, respetando `Retry-After` cuando eBay lo envía.
 
 No generar enlaces manuales por juego.
 

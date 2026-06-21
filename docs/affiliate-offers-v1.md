@@ -45,8 +45,17 @@ AMAZON_CREATORS_CREDENTIAL_ID=...
 AMAZON_CREATORS_CREDENTIAL_SECRET=...
 AMAZON_CREATORS_CREDENTIAL_VERSION=3.2
 AMAZON_MARKETPLACE=www.amazon.es
+AMAZON_LANGUAGES_OF_PREFERENCE=es_ES
+AMAZON_CURRENCY_OF_PREFERENCE=EUR
 AMAZON_SEARCH_INDEX=VideoGames
 AMAZON_AFFILIATE_LIMIT=4
 ```
 
 La ficha pública no espera a Amazon durante el render inicial. El bloque de ofertas consulta `/api/catalog/offers/[catalogId]` bajo demanda y cachea la respuesta corta. Si Amazon falla, no rompe la ficha: eBay y el fallback siguen funcionando.
+
+Notas de cumplimiento:
+
+- La integración runtime usa Creators API (`https://creatorsapi.amazon/catalog/v1/...`), no PA-API (`webservices.amazon.es`).
+- `AMAZON_ACCESS_KEY` y `AMAZON_SECRET_KEY` no son credenciales válidas para Creators API. Creators requiere `Credential ID`, `Credential Secret` y `Version`.
+- Si Amazon devuelve `AssociateNotEligible` o no permite crear credenciales, no se fuerza ningún workaround: se deja el fallback de búsqueda afiliado con `AMAZON_ASSOCIATE_TAG`.
+- Para Amazon España, el payload mantiene `marketplace=www.amazon.es`, `es_ES` y `EUR`.
