@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 
-from collect_generic_source import detected_page_count, estimated_page_count, expected_product_count, page_url
+from collect_generic_source import detected_page_count, estimated_page_count, expected_product_count, offset_update_url, page_url, parse_products
 
 
 def test_relative_query_template() -> None:
@@ -29,9 +29,42 @@ def test_missing_total_does_not_invent_single_page() -> None:
     assert detected_page_count(html, 30) is None
 
 
+def test_offset_update_url() -> None:
+    url = offset_update_url(
+        "https://www.cashconverters.es/es/es/comprar/videojuegos-y-consolas/",
+        {
+            "offsetEndpoint": "/on/demandware.store/Sites-CashConvertersSpain-Site/es/Search-UpdateGrid",
+            "categoryParam": "cgid",
+            "categoryValue": "1103",
+            "offsetParam": "start",
+            "pageSizeParam": "sz",
+        },
+        24,
+        24,
+    )
+    assert url == "https://www.cashconverters.es/on/demandware.store/Sites-CashConvertersSpain-Site/es/Search-UpdateGrid?cgid=1103&start=24&sz=24"
+
+
+def test_parse_demandware_tile() -> None:
+    html = """
+    <div class="product-tile" data-product-datalayer="{&quot;id&quot;:&quot;CC001&quot;,&quot;name&quot;:&quot;grand theft auto v ps4&quot;,&quot;category&quot;:&quot;Videojuegos y consolas/Videojuegos/Juego PS4&quot;,&quot;price&quot;:21.94,&quot;variant&quot;:&quot;Bueno&quot;}">
+      <a class="link" href="/es/es/comprar/videojuegos-y-consolas/videojuegos/juego-ps4/grand-theft-auto-v-ps4/" title="grand theft auto v ps4">grand theft auto v ps4</a>
+      <img class="tile-image" src="https://images.cashconverters.es/productslive/grand-theft-auto-v.jpg" />
+      <div class="status">Bueno</div>
+    </div>
+    """
+    products = parse_products(html, "https://www.cashconverters.es/es/es/comprar/videojuegos-y-consolas/")
+    assert len(products) == 1
+    assert products[0]["title"] == "grand theft auto v ps4"
+    assert products[0]["priceEur"] == 21.94
+    assert "/videojuegos/" in products[0]["productUrl"]
+
+
 if __name__ == "__main__":
     test_relative_query_template()
     test_url_template_with_base_placeholder()
     test_detect_total_from_prestashop_text()
     test_missing_total_does_not_invent_single_page()
+    test_offset_update_url()
+    test_parse_demandware_tile()
     print("OK")

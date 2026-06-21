@@ -99,6 +99,7 @@ const crawlModeOptions: Array<{ value: PriceSourceCrawlMode; label: string; help
   { value: "static_catalog", label: "Catálogo completo en una página", helper: "Lee solo el HTML inicial." },
   { value: "pagination", label: "Paginación normal", helper: "Recorre páginas 1, 2, 3…" },
   { value: "pagination_url", label: "Paginación por URL (?page=2)", helper: "Usa el total si la web lo muestra; si no, explora hasta que no haya productos nuevos." },
+  { value: "offset_pagination", label: "Paginación por offset / botón Ver más", helper: "Carga una URL inicial y después un endpoint con start=24, start=48… manteniendo sesión." },
   { value: "infinite_scroll", label: "Scroll infinito / carga al bajar", helper: "Acumula productos hasta que no aparecen más." },
   { value: "load_more_button", label: "Botón cargar más", helper: "Intenta avanzar como carga progresiva con límites." },
   { value: "internal_search", label: "Buscador interno", helper: "Usa la URL de búsqueda y el nombre del juego." },
@@ -223,6 +224,12 @@ function CrawlModeEditor({
   maxScrolls,
   maxProducts,
   timeoutSeconds,
+  offsetEndpoint,
+  categoryParam,
+  categoryValue,
+  offsetParam,
+  pageSizeParam,
+  pageSize,
   onChange,
 }: {
   value: PriceSourceCrawlMode | undefined;
@@ -231,9 +238,21 @@ function CrawlModeEditor({
   maxScrolls?: number;
   maxProducts?: number;
   timeoutSeconds?: number;
+  offsetEndpoint?: string;
+  categoryParam?: string;
+  categoryValue?: string;
+  offsetParam?: string;
+  pageSizeParam?: string;
+  pageSize?: number;
   onChange: (patch: {
     crawlMode?: PriceSourceCrawlMode;
     paginationTemplate?: string;
+    offsetEndpoint?: string;
+    categoryParam?: string;
+    categoryValue?: string;
+    offsetParam?: string;
+    pageSizeParam?: string;
+    pageSize?: number;
     maxPages?: number;
     maxScrolls?: number;
     maxProducts?: number;
@@ -270,6 +289,19 @@ function CrawlModeEditor({
             Usa {"{page}"} como número. Puedes poner solo <code>?page={"{page}"}</code> o una URL completa con {"{url}"}.
           </span>
         </label>
+      ) : null}
+      {mode === "offset_pagination" ? (
+        <div className="mt-3 grid gap-2 md:grid-cols-2">
+          <input value={offsetEndpoint ?? ""} onChange={(event) => onChange({ offsetEndpoint: event.target.value })} placeholder="/on/demandware.../Search-UpdateGrid" className="rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent" />
+          <input value={categoryValue ?? ""} onChange={(event) => onChange({ categoryValue: event.target.value })} placeholder="Categoría: 1103" className="rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent" />
+          <input value={offsetParam ?? ""} onChange={(event) => onChange({ offsetParam: event.target.value })} placeholder="Parámetro offset: start" className="rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent" />
+          <input value={pageSizeParam ?? ""} onChange={(event) => onChange({ pageSizeParam: event.target.value })} placeholder="Parámetro tamaño: sz" className="rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent" />
+          <input type="number" min={1} value={positiveNumberValue(pageSize)} onChange={(event) => onChange({ pageSize: parsePositiveNumber(event.target.value) })} placeholder="Tamaño página: 24" className="rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent" />
+          <input value={categoryParam ?? ""} onChange={(event) => onChange({ categoryParam: event.target.value })} placeholder="Parámetro categoría: cgid" className="rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent" />
+          <p className="md:col-span-2 text-[11px] leading-4 text-muted">
+            Mantiene cookies de la URL inicial y envía Referer + X-Requested-With para botones “Ver más”.
+          </p>
+        </div>
       ) : null}
       <div className="mt-3 grid gap-2 md:grid-cols-4">
         <label className="text-xs font-semibold text-muted">
@@ -700,6 +732,12 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
                   maxScrolls={source.maxScrolls}
                   maxProducts={source.maxProducts}
                   timeoutSeconds={source.timeoutSeconds}
+                  offsetEndpoint={source.offsetEndpoint}
+                  categoryParam={source.categoryParam}
+                  categoryValue={source.categoryValue}
+                  offsetParam={source.offsetParam}
+                  pageSizeParam={source.pageSizeParam}
+                  pageSize={source.pageSize}
                   onChange={(patch) => updateSourceFields(key, patch)}
                 />
               ) : null}
@@ -867,6 +905,12 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
                   maxScrolls={source.maxScrolls}
                   maxProducts={source.maxProducts}
                   timeoutSeconds={source.timeoutSeconds}
+                  offsetEndpoint={source.offsetEndpoint}
+                  categoryParam={source.categoryParam}
+                  categoryValue={source.categoryValue}
+                  offsetParam={source.offsetParam}
+                  pageSizeParam={source.pageSizeParam}
+                  pageSize={source.pageSize}
                   onChange={(patch) => updateCustomSourceFields(source.id, patch)}
                 />
               ) : null}
@@ -1003,6 +1047,12 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
             maxScrolls={draftCustom.maxScrolls}
             maxProducts={draftCustom.maxProducts}
             timeoutSeconds={draftCustom.timeoutSeconds}
+            offsetEndpoint={draftCustom.offsetEndpoint}
+            categoryParam={draftCustom.categoryParam}
+            categoryValue={draftCustom.categoryValue}
+            offsetParam={draftCustom.offsetParam}
+            pageSizeParam={draftCustom.pageSizeParam}
+            pageSize={draftCustom.pageSize}
             onChange={(patch) => setDraftCustom((current) => ({ ...current, ...patch }))}
           />
         ) : null}

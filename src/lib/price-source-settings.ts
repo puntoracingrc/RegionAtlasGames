@@ -36,6 +36,15 @@ export type PriceCollectorSourceSetting = {
   platformRoutes?: Record<string, string>;
   crawlMode?: PriceSourceCrawlMode;
   paginationTemplate?: string;
+  offsetEndpoint?: string;
+  categoryParam?: string;
+  categoryValue?: string;
+  offsetParam?: string;
+  pageSizeParam?: string;
+  pageSize?: number;
+  requestHeaders?: Record<string, string>;
+  productUrlIncludePatterns?: string[];
+  productUrlExcludePatterns?: string[];
   maxPages?: number;
   maxScrolls?: number;
   maxProducts?: number;
@@ -62,6 +71,15 @@ export type PriceCustomSourceSetting = {
   platformRoutes?: Record<string, string>;
   crawlMode?: PriceSourceCrawlMode;
   paginationTemplate?: string;
+  offsetEndpoint?: string;
+  categoryParam?: string;
+  categoryValue?: string;
+  offsetParam?: string;
+  pageSizeParam?: string;
+  pageSize?: number;
+  requestHeaders?: Record<string, string>;
+  productUrlIncludePatterns?: string[];
+  productUrlExcludePatterns?: string[];
   maxPages?: number;
   maxScrolls?: number;
   maxProducts?: number;
@@ -117,6 +135,7 @@ export type PriceSourceCrawlMode =
   | "static_catalog"
   | "pagination"
   | "pagination_url"
+  | "offset_pagination"
   | "infinite_scroll"
   | "load_more_button"
   | "internal_search";
@@ -242,6 +261,7 @@ const SOURCE_CRAWL_MODES: PriceSourceCrawlMode[] = [
   "static_catalog",
   "pagination",
   "pagination_url",
+  "offset_pagination",
   "infinite_scroll",
   "load_more_button",
   "internal_search",
@@ -292,6 +312,12 @@ function normalizeSourceDetails<T extends PriceCollectorSourceSetting | PriceCus
     urlTemplate: cleanText(raw.urlTemplate) || undefined,
     crawlMode: cleanCrawlMode(raw.crawlMode, raw.strategy === "internal_search" ? "internal_search" : "static_catalog"),
     paginationTemplate: cleanText(raw.paginationTemplate) || undefined,
+    offsetEndpoint: cleanText(raw.offsetEndpoint) || undefined,
+    categoryParam: cleanText(raw.categoryParam) || undefined,
+    categoryValue: cleanText(raw.categoryValue) || undefined,
+    offsetParam: cleanText(raw.offsetParam) || undefined,
+    pageSizeParam: cleanText(raw.pageSizeParam) || undefined,
+    pageSize: cleanPositiveInt(raw.pageSize),
     maxPages: cleanPositiveInt(raw.maxPages),
     maxScrolls: cleanPositiveInt(raw.maxScrolls),
     maxProducts: cleanPositiveInt(raw.maxProducts),
@@ -302,6 +328,9 @@ function normalizeSourceDetails<T extends PriceCollectorSourceSetting | PriceCus
     enabledRegions: enabledRegions.length > 0 ? enabledRegions : undefined,
     disabledRegions: disabledRegions.length > 0 ? disabledRegions : undefined,
     platformRoutes: cleanStringRecord(raw.platformRoutes),
+    requestHeaders: cleanStringRecord(raw.requestHeaders),
+    productUrlIncludePatterns: cleanTextList(raw.productUrlIncludePatterns),
+    productUrlExcludePatterns: cleanTextList(raw.productUrlExcludePatterns),
   };
 }
 

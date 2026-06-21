@@ -18,6 +18,7 @@ import os
 import re
 import sys
 import time
+import http.cookiejar
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -56,6 +57,7 @@ ARTICLE_RE = re.compile(
 )
 ANCHOR_RE = re.compile(r"<a[^>]+href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>", re.I | re.S)
 IMG_RE = re.compile(r"(?:data-full-size-image-url|data-src|src)=[\"']([^\"']+\.(?:jpg|jpeg|png|webp)(?:\?[^\"']*)?)[\"']", re.I)
+DATALAYER_RE = re.compile(r'data-product-datalayer=["\']([^"\']+)["\']', re.I)
 PAGE_RE = re.compile(r"[?&]page=(\d+)|/page/(\d+)/?", re.I)
 PRODUCT_TOTAL_RE = re.compile(r"(\d{1,6})\s+productos?", re.I)
 SHOWING_RANGE_RE = re.compile(
@@ -78,10 +80,21 @@ def absolute_url(url: str, base_url: str) -> str:
     return urllib.parse.urljoin(base_url, html.unescape(url).strip())
 
 
-def fetch_html(url: str) -> str:
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml"})
+def default_headers(extra: dict[str, str] | None = None) -> dict[str, str]:
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "text/html,application/xhtml+xml",
+        "Accept-Language": "es-ES,es;q=0.9,en;q=0.6",
+    }
+    headers.update(extra or {})
+    return headers
+
+
+def fetch_html(url: str, *, opener: urllib.request.OpenerDirector | None = None, headers: dict[str, str] | None = None) -> str:
+    request = urllib.request.Request(url, headers=default_headers(headers))
+    urlopen = opener.open if opener else urllib.request.urlopen
     try:
-        with urllib.request.urlopen(request, timeout=45) as response:
+        with urlopen(request, timeout=45) as response:
             status = getattr(response, "status", 200)
             if status in {403, 429}:
                 raise GenericSourceError(f"fuente bloqueada por HTTP {status}")
@@ -202,10 +215,44 @@ def parse_card_products(html_text: str, page_url: str) -> list[dict[str, Any]]:
     return products
 
 
+def parse_demandware_products(html_text: str, page_url: str) -> list[dict[str, Any]]:
+    products: list[dict[str, Any]] = []
+    for match in DATALAYER_RE.finditer(html_text):
+        raw = html.unescape(match.group(1)).strip()
+        try:
+            data = json.loads(raw)
+        except json.JSONDecodeError:
+            continue
+        title = clean_html_text(str(data.get("name") or ""))
+        price = parse_price(str(data.get("price") or ""))
+        if not title or price is None:
+            continue
+        block = html_text[max(0, match.start() - 1500): min(len(html_text), match.end() + 3500)]
+        url_match = re.search(
+            r'<a[^>]+href=["\']([^"\']+)["\'][^>]*(?:class=["\'][^"\']*(?:image-link|link)[^"\']*["\']|title=)',
+            block,
+            re.I,
+        )
+        image_match = IMG_RE.search(block)
+        condition_match = re.search(r'<div[^>]+class=["\'][^"\']*status[^"\']*["\'][^>]*>(.*?)</div>', block, re.I | re.S)
+        products.append(
+            {
+                "title": title,
+                "priceEur": price,
+                "productUrl": absolute_url(url_match.group(1), page_url) if url_match else page_url,
+                "imageUrl": absolute_url(image_match.group(1), page_url) if image_match else None,
+                "conditionRaw": clean_html_text(condition_match.group(1)) if condition_match else clean_html_text(str(data.get("variant") or "")),
+                "categoryRaw": clean_html_text(str(data.get("category") or "")),
+                "sourceSku": clean_html_text(str(data.get("id") or "")),
+            }
+        )
+    return products
+
+
 def parse_products(html_text: str, page_url: str) -> list[dict[str, Any]]:
     seen: set[str] = set()
     products: list[dict[str, Any]] = []
-    for product in [*parse_json_ld_products(html_text, page_url), *parse_card_products(html_text, page_url)]:
+    for product in [*parse_json_ld_products(html_text, page_url), *parse_card_products(html_text, page_url), *parse_demandware_products(html_text, page_url)]:
         key = str(product.get("productUrl") or product.get("title") or "").strip()
         if not key or key in seen:
             continue
@@ -274,6 +321,96 @@ def configured_int(config: dict[str, Any], key: str, fallback: int) -> int:
     except (TypeError, ValueError):
         value = 0
     return max(1, value or fallback)
+
+
+def configured_string_list(config: dict[str, Any], key: str) -> list[str]:
+    value = config.get(key)
+    if isinstance(value, list):
+        return [str(item).strip() for item in value if str(item).strip()]
+    if isinstance(value, str):
+        return [item.strip() for item in value.split(",") if item.strip()]
+    return []
+
+
+def product_allowed_by_patterns(product: dict[str, Any], config: dict[str, Any]) -> bool:
+    text = " ".join(str(product.get(key) or "").lower() for key in ("productUrl", "categoryRaw", "title"))
+    include = [item.lower() for item in configured_string_list(config, "productUrlIncludePatterns")]
+    exclude = [item.lower() for item in configured_string_list(config, "productUrlExcludePatterns")]
+    if include and not any(item in text for item in include):
+        return False
+    if exclude and any(item in text for item in exclude):
+        return False
+    return True
+
+
+def offset_update_url(base_url: str, config: dict[str, Any], offset: int, page_size: int) -> str:
+    endpoint = str(config.get("offsetEndpoint") or "").strip()
+    if not endpoint:
+        raise GenericSourceError("offset_pagination requiere offsetEndpoint")
+    url = absolute_url(endpoint, base_url)
+    parsed = urllib.parse.urlsplit(url)
+    query = dict(urllib.parse.parse_qsl(parsed.query, keep_blank_values=True))
+    category_param = str(config.get("categoryParam") or "cgid").strip()
+    category_value = str(config.get("categoryValue") or "").strip()
+    if category_param and category_value:
+        query[category_param] = category_value
+    query[str(config.get("offsetParam") or "start").strip() or "start"] = str(offset)
+    query[str(config.get("pageSizeParam") or "sz").strip() or "sz"] = str(page_size)
+    return urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, urllib.parse.urlencode(query), parsed.fragment))
+
+
+def fetch_offset_products(
+    url: str,
+    *,
+    config: dict[str, Any],
+    max_pages: int,
+    delay: float,
+    product_limit: int | None,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], str, dict[str, Any]]:
+    cookie_jar = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookie_jar))
+    page_size = configured_int(config, "pageSize", 24)
+    request_headers = config.get("requestHeaders") if isinstance(config.get("requestHeaders"), dict) else {}
+    products: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    iterations: list[dict[str, Any]] = []
+    stop_reason = "completed"
+
+    for page in range(1, max_pages + 1):
+        offset = (page - 1) * page_size
+        current_url = url if page == 1 else offset_update_url(url, config, offset, page_size)
+        headers = {str(key): str(value) for key, value in request_headers.items()}
+        if page > 1:
+            headers = {"Referer": url, "X-Requested-With": "XMLHttpRequest", **headers}
+        html_text = fetch_html(current_url, opener=opener, headers=headers)
+        before = len(products)
+        raw_products = 0
+        filtered_products = 0
+        for product in parse_products(html_text, current_url):
+            raw_products += 1
+            if not product_allowed_by_patterns(product, config):
+                filtered_products += 1
+                continue
+            key = str(product.get("productUrl") or product.get("title") or "").strip()
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            product["sourcePageUrl"] = current_url
+            products.append(product)
+            if product_limit and len(products) >= product_limit:
+                iterations.append({"step": page, "url": current_url, "offset": offset, "rawProducts": raw_products, "filteredProducts": filtered_products, "newProducts": len(products) - before, "totalProducts": len(products)})
+                return products, iterations, "max_products", {"pageSize": page_size}
+        new_products = len(products) - before
+        iterations.append({"step": page, "url": current_url, "offset": offset, "rawProducts": raw_products, "filteredProducts": filtered_products, "newProducts": new_products, "totalProducts": len(products)})
+        print(f"  Carga offset paso {page}/{max_pages}: {current_url} · +{new_products} productos · filtrados {filtered_products} · total {len(products)}")
+        if page > 1 and new_products <= 0:
+            stop_reason = "no_new_products"
+            break
+        if page < max_pages:
+            time.sleep(delay)
+    if len(iterations) >= max_pages and stop_reason == "completed":
+        stop_reason = "safety_limit_reached"
+    return products, iterations, stop_reason, {"pageSize": page_size}
 
 
 def fetch_listing_products(
@@ -366,7 +503,7 @@ def collect_products(config: dict[str, Any], platform_slug: str, args: argparse.
     strategy = str(config.get("strategy") or "manual_candidate").strip()
     delay = max(0.0, float(args.delay))
     crawl_mode = str(config.get("crawlMode") or ("internal_search" if strategy in {"internal_search", "sequence"} else "static_catalog")).strip()
-    if crawl_mode not in {"static_catalog", "pagination", "pagination_url", "infinite_scroll", "load_more_button", "internal_search"}:
+    if crawl_mode not in {"static_catalog", "pagination", "pagination_url", "offset_pagination", "infinite_scroll", "load_more_button", "internal_search"}:
         crawl_mode = "static_catalog"
     default_max_pages = 80 if str(config.get("crawlMode") or "").strip() == "pagination_url" else max(1, int(args.max_pages))
     max_pages = configured_int(config, "maxPages", default_max_pages)
@@ -407,15 +544,24 @@ def collect_products(config: dict[str, Any], platform_slug: str, args: argparse.
         if not url:
             raise GenericSourceError(f"sin URL por plataforma para {platform_slug}")
         stats["urls"].append(url)
-        products, iterations, stop_reason, listing_meta = fetch_listing_products(
-            url,
-            crawl_mode=crawl_mode,
-            max_pages=max_pages,
-            max_scrolls=max_scrolls,
-            delay=delay,
-            product_limit=product_limit,
-            pagination_template=pagination_template,
-        )
+        if crawl_mode == "offset_pagination":
+            products, iterations, stop_reason, listing_meta = fetch_offset_products(
+                url,
+                config=config,
+                max_pages=max_pages,
+                delay=delay,
+                product_limit=product_limit,
+            )
+        else:
+            products, iterations, stop_reason, listing_meta = fetch_listing_products(
+                url,
+                crawl_mode=crawl_mode,
+                max_pages=max_pages,
+                max_scrolls=max_scrolls,
+                delay=delay,
+                product_limit=product_limit,
+                pagination_template=pagination_template,
+            )
         stats["iterations"] = iterations
         stats["stopReason"] = stop_reason
         stats.update(listing_meta)
@@ -424,15 +570,24 @@ def collect_products(config: dict[str, Any], platform_slug: str, args: argparse.
         if not url:
             raise GenericSourceError("sin URL general/supportUrl para rastreo")
         stats["urls"].append(url)
-        products, iterations, stop_reason, listing_meta = fetch_listing_products(
-            url,
-            crawl_mode=crawl_mode,
-            max_pages=max_pages,
-            max_scrolls=max_scrolls,
-            delay=delay,
-            product_limit=product_limit,
-            pagination_template=pagination_template,
-        )
+        if crawl_mode == "offset_pagination":
+            products, iterations, stop_reason, listing_meta = fetch_offset_products(
+                url,
+                config=config,
+                max_pages=max_pages,
+                delay=delay,
+                product_limit=product_limit,
+            )
+        else:
+            products, iterations, stop_reason, listing_meta = fetch_listing_products(
+                url,
+                crawl_mode=crawl_mode,
+                max_pages=max_pages,
+                max_scrolls=max_scrolls,
+                delay=delay,
+                product_limit=product_limit,
+                pagination_template=pagination_template,
+            )
         stats["iterations"] = iterations
         stats["stopReason"] = stop_reason
         stats.update(listing_meta)
