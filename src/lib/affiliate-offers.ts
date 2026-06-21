@@ -23,7 +23,7 @@ export type AffiliateOffer = {
 };
 
 export type AffiliateFallbackCta = {
-  provider: Extract<AffiliateProvider, "ebay">;
+  provider: Extract<AffiliateProvider, "ebay" | "amazon">;
   id: string;
   label: string;
   url: string;
@@ -33,6 +33,7 @@ export type AffiliateOfferBlock = {
   enabled: boolean;
   offers: AffiliateOffer[];
   fallbackCta: AffiliateFallbackCta | null;
+  fallbackCtas?: AffiliateFallbackCta[];
   checkedAt: string | null;
   trackingId: string | null;
 };
@@ -276,7 +277,7 @@ function amazonConfigured(): boolean {
 }
 
 function amazonCredentialVersion(): string {
-  return configured(process.env.AMAZON_CREATORS_CREDENTIAL_VERSION) ?? "3.2";
+  return (configured(process.env.AMAZON_CREATORS_CREDENTIAL_VERSION) ?? "3.2").replace(/^v/i, "");
 }
 
 function amazonMarketplace(): string {
@@ -470,7 +471,7 @@ function amazonSearchPayload(
 async function fetchAmazonSearch(
   token: string,
   payload: AmazonSearchPayload,
-): Promise<{ ok: true; data: AmazonSearchResponse } | { ok: false; status: number }> {
+): Promise<{ ok: true; data: AmazonSearchResponse } | { ok: false; status: number; error: string }> {
   const res = await fetch(AMAZON_CREATORS_SEARCH_URL, {
     method: "POST",
     headers: {
@@ -482,7 +483,15 @@ async function fetchAmazonSearch(
     body: JSON.stringify(payload),
     next: { revalidate: DEFAULT_CACHE_SECONDS },
   });
-  if (!res.ok) return { ok: false, status: res.status };
+  if (!res.ok) {
+    let error = "";
+    try {
+      error = JSON.stringify(await res.json());
+    } catch {
+      error = await res.text();
+    }
+    return { ok: false, status: res.status, error: error.slice(0, 700) };
+  }
   return { ok: true, data: (await res.json()) as AmazonSearchResponse };
 }
 
@@ -509,6 +518,27 @@ function ebayFallbackSearchCta(game: CatalogGame, details: GameDetails | null): 
     provider: "ebay",
     id: `${game.id}-ebay-search-fallback`,
     label: "Buscar este juego en eBay",
+    url: url.toString(),
+  };
+}
+
+function amazonGameCustomId(game: CatalogGame): string {
+  return `rag-game-${game.slug}-${game.platformSlug}`.replace(/[^a-z0-9-]+/gi, "-").toLowerCase();
+}
+
+function amazonFallbackSearchCta(game: CatalogGame, details: GameDetails | null): AffiliateFallbackCta | null {
+  const associateTag = configured(process.env.AMAZON_ASSOCIATE_TAG);
+  if (!associateTag || !amazonAffiliateEnabled()) return null;
+  const marketplace = amazonMarketplace().replace(/^https?:\/\//, "").replace(/\/+$/, "");
+  const query = amazonQuery(game, details);
+  const url = new URL(`https://${marketplace}/s`);
+  url.searchParams.set("k", query);
+  url.searchParams.set("tag", associateTag);
+  url.searchParams.set("ascsubtag", amazonGameCustomId(game));
+  return {
+    provider: "amazon",
+    id: `${game.id}-amazon-search-fallback`,
+    label: "Buscar este juego en Amazon",
     url: url.toString(),
   };
 }
@@ -586,7 +616,16 @@ async function getAmazonOffers(game: CatalogGame, details: GameDetails | null): 
     if (!search.ok && configuredSearchIndex && search.status === 400) {
       search = await fetchAmazonSearch(token, amazonSearchPayload(game, details, associateTag, null));
     }
-    if (!search.ok) return [];
+    if (!search.ok) {
+      console.warn("amazon_creators_search_failed", {
+        status: search.status,
+        marketplace: amazonMarketplace(),
+        searchIndex: configuredSearchIndex ? "configured" : "none",
+        catalogId: game.id,
+        error: search.error,
+      });
+      return [];
+    }
 
     const data = search.data;
     return (data.searchResult?.items ?? [])
@@ -619,7 +658,11 @@ async function getAmazonOffers(game: CatalogGame, details: GameDetails | null): 
       .filter((offer): offer is AffiliateOffer => Boolean(offer))
       .sort((a, b) => b.confidence - a.confidence || (a.price ?? 999999) - (b.price ?? 999999))
       .slice(0, amazonLimit());
-  } catch {
+  } catch (error) {
+    console.warn("amazon_creators_unavailable", {
+      catalogId: game.id,
+      message: error instanceof Error ? error.message : "unknown_error",
+    });
     return [];
   }
 }
@@ -636,10 +679,15 @@ export async function getAffiliateOfferBlock(
     getEbayOffers(game, details),
     getAmazonOffers(game, details),
   ]);
+  const amazonFallback = amazonFallbackSearchCta(game, details);
+  const fallbackCtas = [...(amazonOffers.length > 0 ? [] : [amazonFallback]), ebayResult.fallbackCta].filter(
+    (fallback): fallback is AffiliateFallbackCta => Boolean(fallback),
+  );
   return {
     enabled: true,
     offers: [...ebayResult.offers, ...amazonOffers],
-    fallbackCta: amazonOffers.length > 0 ? null : ebayResult.fallbackCta,
+    fallbackCta: fallbackCtas[0] ?? null,
+    fallbackCtas,
     checkedAt: new Date().toISOString(),
     trackingId,
   };

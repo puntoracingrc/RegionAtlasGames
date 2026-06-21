@@ -10,6 +10,7 @@ type AffiliateOffersResponse = {
   enabled: boolean;
   offers: AffiliateOffer[];
   fallbackCta: AffiliateFallbackCta | null;
+  fallbackCtas?: AffiliateFallbackCta[];
   trackingId: string | null;
   ebayImpressionPixelUrl: string | null;
   error?: string;
@@ -30,6 +31,11 @@ function providerLabel(provider: AffiliateOffer["provider"]): string {
   if (provider === "rakuten") return "Rakuten";
   if (provider === "mock") return "Mock";
   return "Oferta";
+}
+
+function fallbackProviderLabel(provider: AffiliateFallbackCta["provider"]): string {
+  if (provider === "amazon") return "Amazon";
+  return "eBay";
 }
 
 function priceLabel(offer: AffiliateOffer): string {
@@ -94,8 +100,10 @@ export function AffiliateOffersPanel({ catalogId }: Props) {
     );
   }
 
-  const { offers, fallbackCta, ebayImpressionPixelUrl, error } = state.data;
-  if (offers.length === 0 && !fallbackCta && error) {
+  const { offers, fallbackCta, fallbackCtas, ebayImpressionPixelUrl, error } = state.data;
+  const searchFallbacks = fallbackCtas?.length ? fallbackCtas : fallbackCta ? [fallbackCta] : [];
+  const primaryFallbackLabel = fallbackCta ? fallbackCta.label : null;
+  if (offers.length === 0 && searchFallbacks.length === 0 && error) {
     return (
       <Panel>
         <div className="flex flex-wrap items-start justify-between gap-3">
@@ -109,7 +117,7 @@ export function AffiliateOffersPanel({ catalogId }: Props) {
     );
   }
 
-  if (offers.length === 0 && !fallbackCta) return null;
+  if (offers.length === 0 && searchFallbacks.length === 0) return null;
 
   return (
     <Panel>
@@ -175,19 +183,24 @@ export function AffiliateOffersPanel({ catalogId }: Props) {
             ))}
           </div>
         </>
-      ) : fallbackCta ? (
+      ) : searchFallbacks.length > 0 ? (
         <div className="rounded-2xl border border-border bg-background/45 p-4">
           <p className="text-sm leading-6 text-muted">
-            No hay listings válidos de Browse API para mostrar ahora mismo.
+            No hay listings válidos para mostrar ahora mismo. Puedes abrir una búsqueda afiliada en una tienda externa.
           </p>
-          <a
-            href={fallbackCta.url}
-            target="_blank"
-            rel="sponsored nofollow noopener noreferrer"
-            className="mt-3 inline-flex rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-accent-fg transition hover:opacity-90"
-          >
-            {fallbackCta.label}
-          </a>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {searchFallbacks.map((fallback) => (
+              <a
+                key={fallback.id}
+                href={fallback.url}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                className="inline-flex rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-accent-fg transition hover:opacity-90"
+              >
+                {fallback.label || primaryFallbackLabel || `Buscar en ${fallbackProviderLabel(fallback.provider)}`}
+              </a>
+            ))}
+          </div>
         </div>
       ) : null}
     </Panel>

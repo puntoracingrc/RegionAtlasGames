@@ -50,7 +50,9 @@ function withHeaders(payload: AffiliateOfferApiPayload, status = 200): NextRespo
 
 function withPixel(payload: AffiliateOfferBlock): AffiliateOfferApiPayload {
   const hasEbayLink =
-    payload.offers.some((offer) => offer.provider === "ebay") || payload.fallbackCta?.provider === "ebay";
+    payload.offers.some((offer) => offer.provider === "ebay") ||
+    payload.fallbackCta?.provider === "ebay" ||
+    payload.fallbackCtas?.some((fallback) => fallback.provider === "ebay");
   return {
     ...payload,
     ebayImpressionPixelUrl: hasEbayLink
