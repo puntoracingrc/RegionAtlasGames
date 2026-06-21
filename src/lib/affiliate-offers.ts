@@ -116,6 +116,14 @@ type AmazonSearchResponse = {
   };
 };
 
+type AmazonSearchPayload = {
+  partnerTag: string;
+  keywords: string;
+  itemCount: number;
+  resources: string[];
+  searchIndex?: string;
+};
+
 const EBAY_TOKEN_URL = "https://api.ebay.com/identity/v1/oauth2/token";
 const EBAY_BROWSE_SEARCH_URL = "https://api.ebay.com/buy/browse/v1/item_summary/search";
 const AMAZON_CREATORS_SEARCH_URL = "https://creatorsapi.amazon/catalog/v1/searchItems";
@@ -275,8 +283,8 @@ function amazonMarketplace(): string {
   return configured(process.env.AMAZON_MARKETPLACE) ?? "www.amazon.es";
 }
 
-function amazonSearchIndex(): string {
-  return configured(process.env.AMAZON_SEARCH_INDEX) ?? "VideoGames";
+function amazonSearchIndex(): string | null {
+  return configured(process.env.AMAZON_SEARCH_INDEX);
 }
 
 function amazonLimit(): number {
@@ -444,6 +452,40 @@ function amazonResources(): string[] {
   ];
 }
 
+function amazonSearchPayload(
+  game: CatalogGame,
+  details: GameDetails | null,
+  associateTag: string,
+  searchIndex: string | null,
+): AmazonSearchPayload {
+  return {
+    partnerTag: associateTag,
+    keywords: amazonQuery(game, details),
+    ...(searchIndex ? { searchIndex } : {}),
+    itemCount: amazonLimit() * 2,
+    resources: amazonResources(),
+  };
+}
+
+async function fetchAmazonSearch(
+  token: string,
+  payload: AmazonSearchPayload,
+): Promise<{ ok: true; data: AmazonSearchResponse } | { ok: false; status: number }> {
+  const res = await fetch(AMAZON_CREATORS_SEARCH_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/json",
+      "Content-Type": "application/json; charset=utf-8",
+      "x-marketplace": amazonMarketplace(),
+    },
+    body: JSON.stringify(payload),
+    next: { revalidate: DEFAULT_CACHE_SECONDS },
+  });
+  if (!res.ok) return { ok: false, status: res.status };
+  return { ok: true, data: (await res.json()) as AmazonSearchResponse };
+}
+
 function bestAmazonListing(listings: AmazonOfferListing[] | undefined): AmazonOfferListing | null {
   const validListings = (listings ?? []).filter((listing) => listing.price?.money);
   if (validListings.length === 0) return null;
@@ -536,25 +578,17 @@ async function getAmazonOffers(game: CatalogGame, details: GameDetails | null): 
     const associateTag = configured(process.env.AMAZON_ASSOCIATE_TAG);
     if (!token || !associateTag) return [];
 
-    const res = await fetch(AMAZON_CREATORS_SEARCH_URL, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-        "x-marketplace": amazonMarketplace(),
-      },
-      body: JSON.stringify({
-        partnerTag: associateTag,
-        keywords: amazonQuery(game, details),
-        searchIndex: amazonSearchIndex(),
-        itemCount: amazonLimit() * 2,
-        resources: amazonResources(),
-      }),
-      next: { revalidate: DEFAULT_CACHE_SECONDS },
-    });
-    if (!res.ok) return [];
+    const configuredSearchIndex = amazonSearchIndex();
+    let search = await fetchAmazonSearch(
+      token,
+      amazonSearchPayload(game, details, associateTag, configuredSearchIndex),
+    );
+    if (!search.ok && configuredSearchIndex && search.status === 400) {
+      search = await fetchAmazonSearch(token, amazonSearchPayload(game, details, associateTag, null));
+    }
+    if (!search.ok) return [];
 
-    const data = (await res.json()) as AmazonSearchResponse;
+    const data = search.data;
     return (data.searchResult?.items ?? [])
       .map((item): AffiliateOffer | null => {
         const title = item.itemInfo?.title?.displayValue;
