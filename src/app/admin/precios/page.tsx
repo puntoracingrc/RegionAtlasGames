@@ -144,6 +144,12 @@ function cronStatusLabel(status: "started" | "done" | "blocked" | "skipped" | "e
   return "error";
 }
 
+function aiStatusTone(enabled: boolean | null): "green" | "amber" | "rose" {
+  if (enabled === true) return "green";
+  if (enabled === false) return "rose";
+  return "amber";
+}
+
 function isHostingRotationAttempt(attempt: AdminPriceCronAttempt): boolean {
   return attempt.userAgent === "1and1-hosting-cron" || attempt.id.startsWith("hosting-");
 }
@@ -385,6 +391,53 @@ export default async function AdminPricesPage({
                 ))}
               </ul>
             ) : null}
+          </div>
+          <div className="mt-3 rounded-2xl border border-border bg-background/45 p-3">
+            <div className="flex flex-wrap items-start justify-between gap-2">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted">IA recolectores</p>
+                <p className="mt-1 text-sm font-semibold text-foreground">{dashboard.aiStatus.label}</p>
+                <p className="mt-1 text-xs text-muted">{dashboard.aiStatus.helper}</p>
+                {dashboard.aiStatus.checkedAt ? (
+                  <p className="mt-1 text-[11px] text-muted">Comprobado: {formatDate(dashboard.aiStatus.checkedAt)}</p>
+                ) : null}
+              </div>
+              <Badge tone={aiStatusTone(dashboard.aiStatus.workerOpenAiConfigured)}>
+                {dashboard.aiStatus.workerOpenAiConfigured === true
+                  ? "IA activa"
+                  : dashboard.aiStatus.workerOpenAiConfigured === false
+                    ? "IA apagada"
+                    : "sin confirmar"}
+              </Badge>
+            </div>
+            {dashboard.aiStatus.sourceUsage.length > 0 ? (
+              <div className="mt-3 overflow-x-auto">
+                <table className="min-w-full text-left text-xs">
+                  <thead className="uppercase tracking-wider text-muted">
+                    <tr className="border-b border-border">
+                      <th className="py-2 pr-3 font-semibold">Fuente</th>
+                      <th className="py-2 pr-3 font-semibold">Usó IA</th>
+                      <th className="py-2 pr-3 font-semibold">Resueltos</th>
+                      <th className="py-2 pr-3 font-semibold">Revisión</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {dashboard.aiStatus.sourceUsage.map((source) => (
+                      <tr key={source.source} className="border-b border-border/60 last:border-0">
+                        <td className="py-2 pr-3 font-semibold text-foreground">{source.source}</td>
+                        <td className="py-2 pr-3 text-muted">{source.aiRows ?? 0}</td>
+                        <td className="py-2 pr-3 text-emerald-700 dark:text-emerald-300">{source.resolved ?? 0}</td>
+                        <td className="py-2 pr-3 text-amber-700 dark:text-amber-300">{source.review ?? 0}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p className="mt-3 rounded-xl border border-border bg-background/45 p-3 text-xs leading-5 text-muted">
+                Aún no hay resumen por fuente en el último estado del worker. Se rellenará en la próxima sincronización de precios.
+              </p>
+            )}
           </div>
           {dashboard.nextStep.platforms.length > 1 && (
             <p className="mt-3 text-xs text-muted">

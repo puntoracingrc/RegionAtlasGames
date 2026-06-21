@@ -43,6 +43,7 @@ from collectors.condition_buckets import (  # noqa: E402
     observation_from_row,
 )
 from collectors.price_history import record_platform_snapshots  # noqa: E402
+from collectors.price_ai_policy import price_collectors_use_ai  # noqa: E402
 
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 STATE_FILE = ROOT / "data" / "price-sync-state.json"
@@ -135,6 +136,56 @@ def filter_verified_listings(
         usable.append(row)
 
     return usable, unverified, mismatch, insufficient, stale
+
+
+def row_ai_used(row: dict[str, Any]) -> bool:
+    evidence = [str(item) for item in (row.get("regionEvidence") or [])]
+    return bool(
+        row.get("aiConfidence") is not None
+        or row.get("matchMethod") == "ai"
+        or row.get("conditionResolvedBy") == "vision"
+        or "listing_ai_region" in evidence
+        or "listing_ai_region_mismatch" in evidence
+        or "cover_vision" in evidence
+    )
+
+
+def source_key(row: dict[str, Any], fallback: str) -> str:
+    return str(row.get("source") or fallback).strip().lower() or fallback
+
+
+def build_ai_summary(ingest: dict[str, Any], *, condition_vision_stats: dict[str, int] | None = None) -> dict[str, Any]:
+    buckets: dict[str, dict[str, int]] = {}
+    source_rows = [
+        ("wallapop", ingest.get("listings") or []),
+        ("cex", ingest.get("cex") or []),
+        ("jgo", ingest.get("jgo") or []),
+        ("chollo", ingest.get("chollo") or []),
+        ("kaoto", ingest.get("kaoto") or []),
+        ("todoconsolas", ingest.get("tcns") or []),
+        ("todocoleccion", ingest.get("tc") or []),
+    ]
+    for fallback, rows in source_rows:
+        for row in rows:
+            source = source_key(row, fallback)
+            stats = buckets.setdefault(source, {"aiRows": 0, "resolved": 0, "review": 0})
+            if row_ai_used(row):
+                stats["aiRows"] += 1
+                if row.get("regionVerified") is True:
+                    stats["resolved"] += 1
+                else:
+                    stats["review"] += 1
+            elif row.get("regionReviewNeeded") or row.get("regionVerified") is not True:
+                stats["review"] += 1
+    return {
+        "openAiConfigured": price_collectors_use_ai(),
+        "sources": [
+            {"source": source, **stats}
+            for source, stats in sorted(buckets.items())
+            if stats["aiRows"] or stats["review"]
+        ],
+        "conditionVision": condition_vision_stats or {},
+    }
 
 
 def now_iso() -> str:
@@ -885,6 +936,7 @@ def main() -> None:
     print(f"  TodoColeccion rechazado (región): {tc_skipped}")
     print(f"  Precios por estado (suelto/completo/precintado): {condition_updated}")
     vstats = vision_stats()
+    ai_summary = build_ai_summary(ingest, condition_vision_stats=vstats)
     if use_vision:
         print(
             "  IA visión condición: "
@@ -953,6 +1005,7 @@ def main() -> None:
         "priceListCoverageAfterPct": price_list_coverage_after,
         "priceListCoverageDeltaPct": price_list_coverage_delta,
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
+        "aiSummary": ai_summary,
     }
     if args.region:
         regions_state = state.setdefault("regions", {})
@@ -973,6 +1026,7 @@ def main() -> None:
             "priceListCoverageBeforePct": price_list_coverage_before,
             "priceListCoverageAfterPct": price_list_coverage_after,
             "priceListCoverageDeltaPct": price_list_coverage_delta,
+            "aiSummary": ai_summary,
         }
     state["lastRunAt"] = now_iso()
     rotation_step = args.rotation_step or platform_slug

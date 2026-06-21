@@ -2,6 +2,7 @@ import catalogData from "../../data/catalog.json";
 import platformsData from "../../data/platforms.json";
 import batchesData from "../../data/price-sync-batches.json";
 import priceSyncStateData from "../../data/price-sync-state.json";
+import path from "path";
 import {
   listAdminPriceJobs,
   priceWorkerPublicBaseUrl,
@@ -43,6 +44,7 @@ type PriceSyncPlatformStats = {
   priceListCoverageBeforePct?: number;
   priceListCoverageAfterPct?: number;
   priceListCoverageDeltaPct?: number;
+  aiSummary?: AdminPriceAiSummary;
 };
 
 type PriceSyncState = {
@@ -82,6 +84,7 @@ export type AdminPriceDashboard = {
   manualJobs: AdminPriceJobMeta[];
   cronAttempts: AdminPriceCronAttempt[];
   ebayStatus: AdminPriceEbayStatus;
+  aiStatus: AdminPriceAiStatus;
 };
 
 export type AdminPriceEbayStatus = {
@@ -90,6 +93,28 @@ export type AdminPriceEbayStatus = {
   label: string;
   helper: string;
   warnings: string[];
+};
+
+export type AdminPriceAiSourceUsage = {
+  source: string;
+  aiRows?: number;
+  resolved?: number;
+  review?: number;
+};
+
+export type AdminPriceAiSummary = {
+  openAiConfigured?: boolean;
+  sources?: AdminPriceAiSourceUsage[];
+  conditionVision?: Record<string, number>;
+};
+
+export type AdminPriceAiStatus = {
+  workerOpenAiConfigured: boolean | null;
+  checkedAt: string | null;
+  label: string;
+  helper: string;
+  sourceUsage: AdminPriceAiSourceUsage[];
+  conditionVision: Record<string, number>;
 };
 
 export type AdminRegionPriceHealth = {
@@ -253,6 +278,126 @@ async function loadHostingPriceCronLogTail(): Promise<string | null> {
   }
 }
 
+function priceWorkerRemoteRoot(): string {
+  const explicit = process.env.PRICE_WORKER_REMOTE_DIR?.trim();
+  if (explicit) return explicit.replace(/^\/+|\/+$/g, "");
+  const coversRoot = (
+    process.env.COVERS_FTP_REMOTE_ROOT?.trim() ||
+    "MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers"
+  ).replace(/^\/+|\/+$/g, "");
+  if (/\/covers$/i.test(coversRoot)) return coversRoot.replace(/\/covers$/i, "/price-worker");
+  return `${coversRoot}/price-worker`;
+}
+
+function workerSftpConfig(): { host: string; port: number; username: string; password: string } | null {
+  const host = process.env.PRICE_WORKER_SSH_HOST?.trim() || process.env.COVERS_FTP_HOST?.trim();
+  const username = process.env.PRICE_WORKER_SSH_USER?.trim() || process.env.COVERS_FTP_USER?.trim();
+  const password = process.env.PRICE_WORKER_SSH_PASSWORD?.trim() || process.env.COVERS_FTP_PASSWORD?.trim();
+  if (!host || !username || !password) return null;
+  const portRaw = process.env.PRICE_WORKER_SSH_PORT?.trim() || process.env.COVERS_FTP_PORT?.trim();
+  const port = portRaw && Number.isFinite(Number(portRaw)) ? Number(portRaw) : 22;
+  return { host, port, username, password };
+}
+
+function envHasOpenAiKey(text: string): boolean {
+  return /^\s*OPENAI_API_KEY\s*=\s*\S+/m.test(text);
+}
+
+async function loadWorkerOpenAiConfigured(): Promise<{ configured: boolean | null; checkedAt: string | null }> {
+  const config = workerSftpConfig();
+  if (!config) return { configured: null, checkedAt: null };
+
+  const remoteRoot = priceWorkerRemoteRoot();
+  const candidates = [
+    path.posix.join(remoteRoot, "app", ".env.local"),
+    path.posix.join(remoteRoot, "app", ".env"),
+    path.posix.join(remoteRoot, ".env"),
+    path.posix.join(remoteRoot, "cron", "price_rotation.sh"),
+    ".region-atlas-cron/price_rotation.sh",
+  ];
+  let client:
+    | {
+        connect(config: Record<string, unknown>): Promise<void>;
+        exists(remotePath: string): Promise<boolean | "d" | "-" | "l">;
+        get(remotePath: string): Promise<Buffer | string>;
+        end(): Promise<void>;
+      }
+    | null = null;
+
+  try {
+    const mod = (await import("ssh2-sftp-client")) as unknown as {
+      default: new () => NonNullable<typeof client>;
+    };
+    client = new mod.default();
+    await client.connect({ ...config, readyTimeout: 20_000, retries: 1 });
+    for (const candidate of candidates) {
+      const exists = await client.exists(candidate).catch(() => false);
+      if (!exists) continue;
+      const payload = await client.get(candidate);
+      const text = Buffer.isBuffer(payload) ? payload.toString("utf8") : String(payload);
+      if (envHasOpenAiKey(text)) {
+        return { configured: true, checkedAt: new Date().toISOString() };
+      }
+    }
+    return { configured: false, checkedAt: new Date().toISOString() };
+  } catch {
+    return { configured: null, checkedAt: new Date().toISOString() };
+  } finally {
+    await client?.end().catch(() => undefined);
+  }
+}
+
+function latestAiSummary(state: PriceSyncState): AdminPriceAiSummary | null {
+  return (
+    Object.values(state.platforms ?? {})
+      .filter((stats) => Boolean(stats.aiSummary))
+      .sort(
+        (a, b) =>
+          Date.parse(b.lastSyncAt ?? "") - Date.parse(a.lastSyncAt ?? ""),
+      )[0]?.aiSummary ?? null
+  );
+}
+
+function buildAiStatus(
+  workerOpenAi: { configured: boolean | null; checkedAt: string | null },
+  summary: AdminPriceAiSummary | null,
+): AdminPriceAiStatus {
+  const sourceUsage = (summary?.sources ?? []).filter((source) =>
+    Boolean(source.source),
+  );
+  if (workerOpenAi.configured === true) {
+    return {
+      workerOpenAiConfigured: true,
+      checkedAt: workerOpenAi.checkedAt,
+      label: "IA activa en worker",
+      helper:
+        "El hosting externo tiene OPENAI_API_KEY cargada. El detalle por fuente aparecerá tras cada sync.",
+      sourceUsage,
+      conditionVision: summary?.conditionVision ?? {},
+    };
+  }
+  if (workerOpenAi.configured === false) {
+    return {
+      workerOpenAiConfigured: false,
+      checkedAt: workerOpenAi.checkedAt,
+      label: "IA apagada en worker",
+      helper:
+        "No se ha encontrado OPENAI_API_KEY en el worker externo; los collectors deben resolver sin IA.",
+      sourceUsage,
+      conditionVision: summary?.conditionVision ?? {},
+    };
+  }
+  return {
+    workerOpenAiConfigured: null,
+    checkedAt: workerOpenAi.checkedAt,
+    label: summary?.openAiConfigured ? "IA activa en sync" : "IA no comprobada",
+    helper:
+      "No se pudo confirmar la variable del worker por SFTP. Se muestra el último resumen guardado si existe.",
+    sourceUsage,
+    conditionVision: summary?.conditionVision ?? {},
+  };
+}
+
 function pct(part: number, total: number): number {
   if (total <= 0) return 0;
   return Math.round((part / total) * 1000) / 10;
@@ -403,7 +548,10 @@ function platformHealth(state: PriceSyncState): AdminPlatformPriceHealth[] {
 export async function getAdminPriceDashboard(
   limit = 18,
 ): Promise<AdminPriceDashboard> {
-  const workerState = await loadWorkerPriceSyncState();
+  const [workerState, workerOpenAi] = await Promise.all([
+    loadWorkerPriceSyncState(),
+    loadWorkerOpenAiConfigured(),
+  ]);
   const activeState = workerState ?? priceSyncState;
   const recentSyncs = Object.entries(activeState.platforms ?? {})
     .map(([platformSlug, stats]) => ({
@@ -435,5 +583,6 @@ export async function getAdminPriceDashboard(
     manualJobs: await listAdminPriceJobs(limit),
     cronAttempts,
     ebayStatus: buildEbayStatus(),
+    aiStatus: buildAiStatus(workerOpenAi, latestAiSummary(activeState)),
   };
 }
