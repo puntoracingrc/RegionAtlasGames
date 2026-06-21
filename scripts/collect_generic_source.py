@@ -247,6 +247,13 @@ def estimated_page_count(html_text: str, cap: int) -> int:
     return min(max(1, pages), cap)
 
 
+def detected_page_count(html_text: str, cap: int) -> int | None:
+    by_range = estimated_page_count(html_text, cap)
+    by_link = max_page_number(html_text, cap)
+    detected = max(by_range, by_link)
+    return detected if detected > 1 else None
+
+
 def page_url(base_url: str, page: int, template: str | None = None) -> str:
     if page <= 1:
         return base_url
@@ -281,10 +288,13 @@ def fetch_listing_products(
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], str, dict[str, Any]]:
     first_html = fetch_html(url)
     expected_total = expected_product_count(first_html)
+    detected_pages = detected_page_count(first_html, max_pages)
     if crawl_mode == "static_catalog":
         total_pages = 1
-    elif crawl_mode in {"pagination", "pagination_url"}:
-        total_pages = estimated_page_count(first_html, max_pages)
+    elif crawl_mode == "pagination":
+        total_pages = detected_pages or 1
+    elif crawl_mode == "pagination_url":
+        total_pages = detected_pages or max_pages
     elif crawl_mode in {"infinite_scroll", "load_more_button"}:
         total_pages = max(1, min(max_pages, max_scrolls))
     else:
@@ -293,6 +303,7 @@ def fetch_listing_products(
     seen: set[str] = set()
     iterations: list[dict[str, Any]] = []
     stop_reason = "completed"
+    empty_page_streak = 0
 
     for page in range(1, total_pages + 1):
         current_url = url if page == 1 else page_url(url, page, pagination_template)
@@ -324,7 +335,11 @@ def fetch_listing_products(
         })
         expected_label = f" / esperado {expected_total}" if expected_total else ""
         print(f"  Carga {crawl_mode} paso {page}/{total_pages}: {current_url} · +{new_products} productos · total {len(products)}{expected_label}")
-        if page > 1 and crawl_mode in {"pagination_url", "infinite_scroll", "load_more_button"} and new_products <= 0:
+        if new_products <= 0:
+            empty_page_streak += 1
+        else:
+            empty_page_streak = 0
+        if page > 1 and crawl_mode in {"pagination_url", "infinite_scroll", "load_more_button"} and empty_page_streak >= 1:
             stop_reason = "no_new_products"
             break
         if expected_total and len(products) >= expected_total:
@@ -353,7 +368,8 @@ def collect_products(config: dict[str, Any], platform_slug: str, args: argparse.
     crawl_mode = str(config.get("crawlMode") or ("internal_search" if strategy in {"internal_search", "sequence"} else "static_catalog")).strip()
     if crawl_mode not in {"static_catalog", "pagination", "pagination_url", "infinite_scroll", "load_more_button", "internal_search"}:
         crawl_mode = "static_catalog"
-    max_pages = configured_int(config, "maxPages", max(1, int(args.max_pages)))
+    default_max_pages = 80 if str(config.get("crawlMode") or "").strip() == "pagination_url" else max(1, int(args.max_pages))
+    max_pages = configured_int(config, "maxPages", default_max_pages)
     max_scrolls = configured_int(config, "maxScrolls", max_pages)
     max_products = configured_int(config, "maxProducts", max(1, int(args.limit))) if args.limit else configured_int(config, "maxProducts", 120)
     product_limit = min(max_products, int(args.limit)) if args.limit else max_products

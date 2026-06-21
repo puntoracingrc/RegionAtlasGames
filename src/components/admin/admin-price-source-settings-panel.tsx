@@ -98,7 +98,7 @@ const queryTemplatePresets = [
 const crawlModeOptions: Array<{ value: PriceSourceCrawlMode; label: string; helper: string }> = [
   { value: "static_catalog", label: "Catálogo completo en una página", helper: "Lee solo el HTML inicial." },
   { value: "pagination", label: "Paginación normal", helper: "Recorre páginas 1, 2, 3…" },
-  { value: "pagination_url", label: "Paginación por URL (?page=2)", helper: "Para webs que cargan más al bajar pero exponen páginas reales por URL." },
+  { value: "pagination_url", label: "Paginación por URL (?page=2)", helper: "Usa el total si la web lo muestra; si no, explora hasta que no haya productos nuevos." },
   { value: "infinite_scroll", label: "Scroll infinito / carga al bajar", helper: "Acumula productos hasta que no aparecen más." },
   { value: "load_more_button", label: "Botón cargar más", helper: "Intenta avanzar como carga progresiva con límites." },
   { value: "internal_search", label: "Buscador interno", helper: "Usa la URL de búsqueda y el nombre del juego." },
@@ -273,7 +273,7 @@ function CrawlModeEditor({
       ) : null}
       <div className="mt-3 grid gap-2 md:grid-cols-4">
         <label className="text-xs font-semibold text-muted">
-          Máx. páginas
+          Límite de seguridad
           <input
             type="number"
             min={1}
@@ -281,6 +281,9 @@ function CrawlModeEditor({
             onChange={(event) => onChange({ maxPages: parsePositiveNumber(event.target.value) })}
             className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
           />
+          <span className="mt-1 block text-[11px] font-normal leading-4 text-muted">
+            No es el corte normal: protege frente a bucles si la web no indica final.
+          </span>
         </label>
         <label className="text-xs font-semibold text-muted">
           Máx. scrolls
