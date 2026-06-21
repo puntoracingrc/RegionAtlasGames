@@ -119,6 +119,10 @@ function jobTitle(job: AdminPriceJobMeta): string {
   return `Juego ${job.catalogId ?? "—"}`;
 }
 
+function jobTriggerLabel(job: AdminPriceJobMeta): string {
+  return job.trigger === "automatic" ? "automático" : "manual";
+}
+
 function jobProgress(job: AdminPriceJobMeta): { done: number; total: number; failed: number; pct: number } | null {
   if (!job.targets?.length) return null;
   const total = job.targets.length;
@@ -572,7 +576,7 @@ export default async function AdminPricesPage({
       </Panel>
 
       <Panel className={adminToneClass("status")}>
-        <PanelTitle eyebrow="Trabajos manuales">Lanzados desde el admin</PanelTitle>
+        <PanelTitle eyebrow="Trabajos">Lanzamientos manuales y automáticos</PanelTitle>
         {dashboard.manualJobs.length > 0 ? (
           <div className="grid gap-3 md:grid-cols-2">
             {dashboard.manualJobs.map((job) => (
@@ -586,6 +590,10 @@ export default async function AdminPricesPage({
                   </div>
                   <Badge tone={statusTone(job.status)}>{job.status}</Badge>
                 </div>
+                <p className="mt-2 text-xs text-muted">
+                  Origen: {jobTriggerLabel(job)}
+                  {job.trigger === "automatic" ? " · cron/rotación" : " · admin"}
+                </p>
                 {(() => {
                   const progress = jobProgress(job);
                   if (!progress) return null;
