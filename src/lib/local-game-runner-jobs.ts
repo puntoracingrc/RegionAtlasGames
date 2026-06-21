@@ -27,6 +27,10 @@ export type LocalGameRunnerJob = {
   finishedAt?: string | null;
   runnerId?: string | null;
   resultPath?: string | null;
+  importedAt?: string | null;
+  importStatus?: "not_imported" | "imported" | "error" | null;
+  importLogTail?: string | null;
+  importError?: string | null;
   resultSummary?: {
     productsDetected?: number | null;
     rows?: number | null;
@@ -78,6 +82,10 @@ function normalizeJob(input: unknown): LocalGameRunnerJob | null {
     finishedAt: raw.finishedAt ?? null,
     runnerId: raw.runnerId ?? null,
     resultPath: raw.resultPath ?? null,
+    importedAt: raw.importedAt ?? null,
+    importStatus: raw.importStatus ?? null,
+    importLogTail: raw.importLogTail ?? null,
+    importError: raw.importError ?? null,
     resultSummary: raw.resultSummary ?? null,
     logTail: raw.logTail ?? null,
     error: raw.error ?? null,
@@ -155,6 +163,67 @@ async function writeWorkerFile(remote: string, payload: Buffer): Promise<{ ok: t
   } finally {
     await client.end().catch(() => undefined);
   }
+}
+
+function shellQuote(value: string): string {
+  return `'${value.replace(/'/g, `'\\''`)}'`;
+}
+
+async function execWorkerCommand(command: string): Promise<{ ok: true; output: string } | { error: string; output?: string }> {
+  const config = workerSftpConfig();
+  if (!config) return { error: "SFTP/SSH del worker no configurado." };
+  type SshStream = {
+    on(event: "close", listener: (code: number) => void): SshStream;
+    on(event: "data", listener: (data: Buffer) => void): SshStream;
+    stderr: { on(event: "data", listener: (data: Buffer) => void): void };
+  };
+  type SshConnection = {
+    on(event: "ready", listener: () => void): SshConnection;
+    on(event: "error", listener: (error: Error) => void): SshConnection;
+    exec(command: string, callback: (error: Error | undefined, stream: SshStream) => void): void;
+    connect(config: Record<string, unknown>): void;
+    end(): void;
+  };
+  const mod = (await import("ssh2")) as unknown as {
+    Client: new () => SshConnection;
+  };
+  const conn = new mod.Client();
+  return await new Promise((resolve) => {
+    const timer = setTimeout(() => {
+      conn.end();
+      resolve({ error: "Timeout ejecutando importación en worker." });
+    }, 120_000);
+    conn
+      .on("ready", () => {
+        conn.exec(command, (error, stream) => {
+          if (error) {
+            clearTimeout(timer);
+            conn.end();
+            resolve({ error: error.message });
+            return;
+          }
+          let output = "";
+          stream
+            .on("data", (data) => {
+              output += data.toString();
+            })
+            .on("close", (code) => {
+              clearTimeout(timer);
+              conn.end();
+              if (code === 0) resolve({ ok: true, output });
+              else resolve({ error: `El importador terminó con código ${code}.`, output });
+            });
+          stream.stderr.on("data", (data) => {
+            output += data.toString();
+          });
+        });
+      })
+      .on("error", (error) => {
+        clearTimeout(timer);
+        resolve({ error: error.message });
+      })
+      .connect({ ...config, readyTimeout: 60_000 });
+  });
 }
 
 async function writeQueue(queue: LocalGameRunnerQueue): Promise<{ ok: true } | { error: string }> {
@@ -279,5 +348,43 @@ export async function completeLocalGameRunnerJob(input: {
   }
   const written = await writeQueue(queue);
   if ("error" in written) return written;
+  return { ok: true, job };
+}
+
+export async function importLocalGameRunnerJob(jobId: string): Promise<{ ok: true; job: LocalGameRunnerJob } | { error: string }> {
+  const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
+  const job = queue.jobs.find((item) => item.id === jobId);
+  if (!job) return { error: "Job local no encontrado." };
+  if (job.status !== "done") return { error: "Solo se pueden importar jobs completados." };
+  if (!job.resultPath) return { error: "El job no tiene JSON de resultado en el worker." };
+
+  const inputPath = job.resultPath.replace(/^app\//, "");
+  const command = [
+    `cd ${shellQuote(path.posix.join(priceWorkerRemoteRoot(), "app"))}`,
+    "&&",
+    "python3",
+    "scripts/sync_es_prices.py",
+    "--platform",
+    shellQuote(job.platformSlug),
+    "--input",
+    shellQuote(inputPath),
+    "--no-advance-rotation",
+    "--no-vision",
+  ].join(" ");
+  const result = await execWorkerCommand(command);
+  const now = new Date().toISOString();
+  job.updatedAt = now;
+  job.importedAt = now;
+  job.importLogTail = String(result.output ?? "").slice(-12000) || null;
+  if ("error" in result) {
+    job.importStatus = "error";
+    job.importError = result.error;
+  } else {
+    job.importStatus = "imported";
+    job.importError = null;
+  }
+  const written = await writeQueue(queue);
+  if ("error" in written) return written;
+  if ("error" in result) return { error: result.error };
   return { ok: true, job };
 }

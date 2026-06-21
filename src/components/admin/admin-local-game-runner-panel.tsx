@@ -31,6 +31,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
   const [offerType, setOfferType] = useState<LocalGameRunnerOfferType>("preowned");
   const [limit, setLimit] = useState(20);
   const [state, setState] = useState<"idle" | "saving" | "error" | "saved">("idle");
+  const [importingJobId, setImportingJobId] = useState<string | null>(null);
   const [message, setMessage] = useState("");
 
   async function refreshJobs() {
@@ -56,6 +57,22 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
     setJobs((current) => [data.job!, ...current].slice(0, 30));
     setState("saved");
     setMessage("Job GAME creado. Si tu Mac tiene el runner encendido, lo recogerá solo.");
+  }
+
+  async function importJob(jobId: string) {
+    setImportingJobId(jobId);
+    setMessage("");
+    const response = await fetch(`/api/admin/price-local-game-jobs/${encodeURIComponent(jobId)}/import`, { method: "POST" });
+    const data = await response.json().catch(() => null) as { ok?: boolean; job?: LocalGameRunnerJob; error?: string } | null;
+    setImportingJobId(null);
+    if (!response.ok || !data?.ok || !data.job) {
+      setState("error");
+      setMessage(data?.error ?? "No se pudo importar el resultado GAME local.");
+      return;
+    }
+    setJobs((current) => current.map((job) => (job.id === jobId ? data.job! : job)));
+    setState("saved");
+    setMessage("Resultado GAME importado al flujo del worker. Los dudosos quedan en Precios a revisar.");
   }
 
   return (
@@ -124,6 +141,36 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
             ) : null}
             {job.error ? <p className="mt-3 text-xs text-rose-600 dark:text-rose-300">{job.error}</p> : null}
             {job.resultPath ? <p className="mt-2 break-all text-xs text-muted">Resultado worker: {job.resultPath}</p> : null}
+            {job.status === "done" && job.resultPath ? (
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => importJob(job.id)}
+                  disabled={importingJobId === job.id}
+                  className="btn-secondary text-xs"
+                >
+                  {importingJobId === job.id
+                    ? "Importando..."
+                    : job.importStatus === "imported"
+                      ? "Reimportar resultado"
+                      : "Importar al flujo"}
+                </button>
+                <span className="text-xs text-muted">
+                  {job.importStatus === "imported"
+                    ? `Importado: ${formatDate(job.importedAt)}`
+                    : job.importStatus === "error"
+                      ? "Importación con error"
+                      : "No importado todavía"}
+                </span>
+              </div>
+            ) : null}
+            {job.importError ? <p className="mt-2 text-xs text-rose-600 dark:text-rose-300">Importación: {job.importError}</p> : null}
+            {job.importLogTail ? (
+              <details className="mt-3 rounded-xl border border-emerald-400/25 bg-slate-950 p-3">
+                <summary className="cursor-pointer list-none text-xs font-semibold text-emerald-200">Log de importación</summary>
+                <pre className="mt-3 max-h-48 overflow-auto whitespace-pre-wrap rounded-lg border border-emerald-400/15 bg-black/70 p-3 font-mono text-[11px] leading-5 text-emerald-100">{job.importLogTail}</pre>
+              </details>
+            ) : null}
             {job.logTail ? (
               <details className="mt-3 rounded-xl border border-blue-400/25 bg-slate-950 p-3">
                 <summary className="cursor-pointer list-none text-xs font-semibold text-blue-200">Log del Mac</summary>
