@@ -82,6 +82,41 @@ const normalizationOptions: Array<{ value: PriceSourceNormalization; label: stri
   { value: "keep_title_color_word", label: "Mantener Color si va en título" },
 ];
 
+const queryTemplatePresets = [
+  { value: "{title}", label: "Solo título" },
+  { value: "{title} {platform}", label: "Título + plataforma" },
+  { value: "{title} {region}", label: "Título + región" },
+] as const;
+
+function queryTemplateMode(value: string | undefined): string {
+  const template = value?.trim() || "{title}";
+  return queryTemplatePresets.some((preset) => preset.value === template) ? template : "custom";
+}
+
+function strategyUsesQuery(strategy: PriceSourceStrategy | undefined): boolean {
+  return strategy === "internal_search" || strategy === "sequence";
+}
+
+function strategyUsesSearchUrl(strategy: PriceSourceStrategy | undefined): boolean {
+  return strategy === "internal_search" || strategy === "sequence";
+}
+
+function strategyUsesScope(strategy: PriceSourceStrategy | undefined): boolean {
+  return strategy !== "manual_candidate";
+}
+
+function strategyUsesSupport(strategy: PriceSourceStrategy | undefined): boolean {
+  return strategy === "catalog_crawl" || strategy === "base_url" || strategy === "sequence" || strategy === "manual_candidate";
+}
+
+function strategyUsesNormalizations(strategy: PriceSourceStrategy | undefined): boolean {
+  return strategy === "internal_search" || strategy === "sequence" || strategy === "api";
+}
+
+function strategyUsesPlatformRoutes(strategy: PriceSourceStrategy | undefined): boolean {
+  return strategy === "platform_routes";
+}
+
 function toggleListValue(current: string[] | undefined, value: string, enabled: boolean): string[] | undefined {
   const currentSet = new Set(current ?? []);
   if (enabled) {
@@ -90,6 +125,44 @@ function toggleListValue(current: string[] | undefined, value: string, enabled: 
     currentSet.delete(value);
   }
   return currentSet.size > 0 ? Array.from(currentSet) : undefined;
+}
+
+function QueryTemplatePicker({
+  value,
+  onChange,
+}: {
+  value: string | undefined;
+  onChange: (next: string) => void;
+}) {
+  const mode = queryTemplateMode(value);
+  return (
+    <div className="rounded-2xl border border-border bg-card/40 p-3">
+      <label className="text-xs font-semibold text-muted">
+        Cómo buscar el juego
+        <select
+          value={mode}
+          onChange={(event) => {
+            const next = event.target.value;
+            if (next !== "custom") onChange(next);
+          }}
+          className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+        >
+          {queryTemplatePresets.map((preset) => (
+            <option key={preset.value} value={preset.value}>{preset.label}</option>
+          ))}
+          <option value="custom">Personalizada</option>
+        </select>
+      </label>
+      {mode === "custom" ? (
+        <input
+          value={value ?? ""}
+          onChange={(event) => onChange(event.target.value)}
+          placeholder="{title}"
+          className="mt-2 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+        />
+      ) : null}
+    </div>
+  );
 }
 
 function updateRouteMap(current: Record<string, string> | undefined, platform: string, url: string): Record<string, string> | undefined {
@@ -362,6 +435,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
       <div className="mt-5 grid gap-4 xl:grid-cols-2">
         {priceCollectorSourceOrder.map((key) => {
           const source = settings.sources[key];
+          const strategy = source.strategy ?? "internal_search";
           return (
             <div key={key} className="rounded-2xl border border-border bg-background/70 p-4">
               <label className="flex cursor-pointer items-start justify-between gap-3">
@@ -404,58 +478,64 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
                     ))}
                   </select>
                 </label>
-                <label className="text-xs font-semibold text-muted">
-                  Query template
-                  <input
-                    value={source.queryTemplate ?? "{title}"}
-                    onChange={(event) => updateSourceField(key, "queryTemplate", event.target.value)}
-                    placeholder="{title}"
-                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+              </div>
+              {strategyUsesQuery(strategy) ? (
+                <div className="mt-3 grid gap-3 md:grid-cols-2">
+                  <QueryTemplatePicker
+                    value={source.queryTemplate}
+                    onChange={(next) => updateSourceField(key, "queryTemplate", next)}
                   />
-                </label>
-                <label className="text-xs font-semibold text-muted">
-                  URL template
-                  <input
-                    value={source.urlTemplate ?? ""}
-                    onChange={(event) => updateSourceField(key, "urlTemplate", event.target.value)}
-                    placeholder="/buscar?q={title}"
-                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  {strategyUsesSearchUrl(strategy) ? (
+                    <label className="rounded-2xl border border-border bg-card/40 p-3 text-xs font-semibold text-muted">
+                      URL de búsqueda
+                      <input
+                        value={source.urlTemplate ?? ""}
+                        onChange={(event) => updateSourceField(key, "urlTemplate", event.target.value)}
+                        placeholder="https://tienda.com/search?q={title}"
+                        className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                      />
+                      <span className="mt-1 block text-[11px] font-normal leading-4">Usa {"{title}"} donde va el nombre del juego.</span>
+                    </label>
+                  ) : null}
+                </div>
+              ) : null}
+              {strategyUsesScope(strategy) ? (
+                <div className="mt-3 grid gap-3 lg:grid-cols-2">
+                  <IncludedChecklist
+                    title="Plataformas incluidas"
+                    helper="Vacío = todas las plataformas. Marca solo las incluidas si quieres restringir esta fuente."
+                    options={platformOptions}
+                    selected={source.enabledPlatforms}
+                    legacyExcluded={source.disabledPlatforms}
+                    onChange={(next) => updateSourceField(key, "enabledPlatforms", next)}
                   />
-                </label>
-              </div>
-              <div className="mt-3 grid gap-3 lg:grid-cols-2">
-                <IncludedChecklist
-                  title="Plataformas incluidas"
-                  helper="Vacío = todas las plataformas. Marca solo las incluidas si quieres restringir esta fuente."
-                  options={platformOptions}
-                  selected={source.enabledPlatforms}
-                  legacyExcluded={source.disabledPlatforms}
-                  onChange={(next) => updateSourceField(key, "enabledPlatforms", next)}
-                />
-                <IncludedChecklist
-                  title="Regiones incluidas"
-                  helper="Vacío = todas las regiones. Marca solo las incluidas si esta fuente solo sirve para algunas."
-                  options={regionOptions}
-                  selected={source.enabledRegions}
-                  legacyExcluded={source.disabledRegions}
-                  onChange={(next) => updateSourceField(key, "enabledRegions", next)}
-                />
-              </div>
-              <div className="mt-3 grid gap-3 md:grid-cols-2">
-                <input
-                  value={source.routeHint ?? ""}
-                  onChange={(event) => updateSourceHint(key, event.target.value)}
-                  placeholder="Ruta o pista opcional para esta fuente"
-                  className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
-                />
-                <input
-                  value={source.supportUrl ?? ""}
-                  onChange={(event) => updateSourceField(key, "supportUrl", event.target.value)}
-                  placeholder="URL general de apoyo"
-                  className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
-                />
-              </div>
-              {source.strategy === "platform_routes" ? (
+                  <IncludedChecklist
+                    title="Regiones incluidas"
+                    helper="Vacío = todas las regiones. Marca solo las incluidas si esta fuente solo sirve para algunas."
+                    options={regionOptions}
+                    selected={source.enabledRegions}
+                    legacyExcluded={source.disabledRegions}
+                    onChange={(next) => updateSourceField(key, "enabledRegions", next)}
+                  />
+                </div>
+              ) : null}
+              {strategyUsesSupport(strategy) ? (
+                <div className="mt-3 grid gap-3 md:grid-cols-2">
+                  <input
+                    value={source.routeHint ?? ""}
+                    onChange={(event) => updateSourceHint(key, event.target.value)}
+                    placeholder="Pista interna o pasos de búsqueda"
+                    className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                  <input
+                    value={source.supportUrl ?? ""}
+                    onChange={(event) => updateSourceField(key, "supportUrl", event.target.value)}
+                    placeholder="URL general o catálogo"
+                    className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                </div>
+              ) : null}
+              {strategyUsesPlatformRoutes(strategy) ? (
                 <PlatformRoutesEditor
                   options={platformOptions}
                   routes={source.platformRoutes}
@@ -466,19 +546,21 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
                   Hay URLs por plataforma guardadas. Cambia la estrategia a “Rutas por plataforma” para editarlas; no se borran al usar otra estrategia.
                 </p>
               ) : null}
-              <div className="mt-3 flex flex-wrap gap-2">
-                {normalizationOptions.map((option) => (
-                  <label key={option.value} className="rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] font-semibold text-muted">
-                    <input
-                      type="checkbox"
-                      checked={(source.normalizations ?? []).includes(option.value)}
-                      onChange={(event) => toggleSourceNormalization(key, option.value, event.target.checked)}
-                      className="mr-1 accent-[var(--accent)]"
-                    />
-                    {option.label}
-                  </label>
-                ))}
-              </div>
+              {strategyUsesNormalizations(strategy) ? (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {normalizationOptions.map((option) => (
+                    <label key={option.value} className="rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] font-semibold text-muted">
+                      <input
+                        type="checkbox"
+                        checked={(source.normalizations ?? []).includes(option.value)}
+                        onChange={(event) => toggleSourceNormalization(key, option.value, event.target.checked)}
+                        className="mr-1 accent-[var(--accent)]"
+                      />
+                      {option.label}
+                    </label>
+                  ))}
+                </div>
+              ) : null}
             </div>
           );
         })}
@@ -520,36 +602,46 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
               <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
-          <input
-            value={draftCustom.queryTemplate ?? ""}
-            onChange={(event) => setDraftCustom((current) => ({ ...current, queryTemplate: event.target.value }))}
-            placeholder="Query template: {title}"
-            className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
-          />
-          <input
-            value={draftCustom.urlTemplate ?? ""}
-            onChange={(event) => setDraftCustom((current) => ({ ...current, urlTemplate: event.target.value }))}
-            placeholder="URL template: /buscar?q={title}"
-            className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
-          />
         </div>
-        <div className="mt-3 grid gap-3 lg:grid-cols-2">
-          <IncludedChecklist
-            title="Plataformas incluidas"
-            helper="Vacío = todas las plataformas. Para una candidata actual, marca por ejemplo PS4/PS5."
-            options={platformOptions}
-            selected={draftCustom.enabledPlatforms}
-            onChange={(next) => setDraftCustom((current) => ({ ...current, enabledPlatforms: next }))}
-          />
-          <IncludedChecklist
-            title="Regiones incluidas"
-            helper="Vacío = todas las regiones. Marca solo si la fuente sirve para regiones concretas."
-            options={regionOptions}
-            selected={draftCustom.enabledRegions}
-            onChange={(next) => setDraftCustom((current) => ({ ...current, enabledRegions: next }))}
-          />
-        </div>
-        {draftCustom.strategy === "platform_routes" ? (
+        {strategyUsesQuery(draftCustom.strategy) ? (
+          <div className="mt-3 grid gap-3 md:grid-cols-2">
+            <QueryTemplatePicker
+              value={draftCustom.queryTemplate}
+              onChange={(next) => setDraftCustom((current) => ({ ...current, queryTemplate: next }))}
+            />
+            {strategyUsesSearchUrl(draftCustom.strategy) ? (
+              <label className="rounded-2xl border border-border bg-card/40 p-3 text-xs font-semibold text-muted">
+                URL de búsqueda
+                <input
+                  value={draftCustom.urlTemplate ?? ""}
+                  onChange={(event) => setDraftCustom((current) => ({ ...current, urlTemplate: event.target.value }))}
+                  placeholder="https://tienda.com/search?q={title}"
+                  className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
+                />
+                <span className="mt-1 block text-[11px] font-normal leading-4">Usa {"{title}"} donde va el nombre del juego.</span>
+              </label>
+            ) : null}
+          </div>
+        ) : null}
+        {strategyUsesScope(draftCustom.strategy) ? (
+          <div className="mt-3 grid gap-3 lg:grid-cols-2">
+            <IncludedChecklist
+              title="Plataformas incluidas"
+              helper="Vacío = todas las plataformas. Para una candidata actual, marca por ejemplo PS4/PS5."
+              options={platformOptions}
+              selected={draftCustom.enabledPlatforms}
+              onChange={(next) => setDraftCustom((current) => ({ ...current, enabledPlatforms: next }))}
+            />
+            <IncludedChecklist
+              title="Regiones incluidas"
+              helper="Vacío = todas las regiones. Marca solo si la fuente sirve para regiones concretas."
+              options={regionOptions}
+              selected={draftCustom.enabledRegions}
+              onChange={(next) => setDraftCustom((current) => ({ ...current, enabledRegions: next }))}
+            />
+          </div>
+        ) : null}
+        {strategyUsesPlatformRoutes(draftCustom.strategy) ? (
           <PlatformRoutesEditor
             options={platformOptions}
             routes={draftCustom.platformRoutes}
