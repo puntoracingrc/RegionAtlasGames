@@ -17,6 +17,30 @@ const conditionLabels: Record<string, string> = {
   unknown: "Desconocido",
 };
 
+const commonRegionOptions = [
+  "PAL España",
+  "España",
+  "PAL Europa",
+  "PAL UK/ENG",
+  "PAL Alemania",
+  "USA",
+  "Japón",
+  "Asia",
+  "Australia",
+];
+
+function uniqueOptions(values: Array<string | null | undefined>): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const value of values) {
+    const clean = value?.trim();
+    if (!clean || seen.has(clean)) continue;
+    seen.add(clean);
+    out.push(clean);
+  }
+  return out;
+}
+
 function formatDate(value: string | null | undefined): string {
   if (!value) return "—";
   return new Intl.DateTimeFormat("es-ES", {
@@ -61,6 +85,13 @@ function ReviewCard({
   const [message, setMessage] = useState("");
   const alternatives = item.evidence?.matchAlternatives ?? [];
   const imageUrl = item.evidence?.imageUrl || item.evidence?.imageUrls?.[0] || null;
+  const regionOptions = uniqueOptions([
+    item.targetRegion,
+    item.detectedRegion,
+    ...alternatives.map((alt) => alt.region),
+    ...commonRegionOptions,
+    region,
+  ]);
 
   async function decide(action: "accept" | "reject") {
     setState("saving");
@@ -149,7 +180,12 @@ function ReviewCard({
         </label>
         <label className="text-xs font-semibold text-muted">
           Región
-          <input value={region} onChange={(event) => setRegion(event.target.value)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent" />
+          <select value={region} onChange={(event) => setRegion(event.target.value)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
+            <option value="">Selecciona región</option>
+            {regionOptions.map((value) => (
+              <option key={value} value={value}>{value}</option>
+            ))}
+          </select>
         </label>
         <label className="text-xs font-semibold text-muted">
           Estado
