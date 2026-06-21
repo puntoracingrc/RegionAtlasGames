@@ -82,23 +82,6 @@ const normalizationOptions: Array<{ value: PriceSourceNormalization; label: stri
   { value: "keep_title_color_word", label: "Mantener Color si va en título" },
 ];
 
-function routesToText(value: Record<string, string> | undefined): string {
-  return Object.entries(value ?? {})
-    .map(([platform, route]) => `${platform}: ${route}`)
-    .join("\n");
-}
-
-function textToRoutes(value: string): Record<string, string> | undefined {
-  const routes: Record<string, string> = {};
-  for (const line of value.split("\n")) {
-    const [rawPlatform, ...rawRoute] = line.split(":");
-    const platform = rawPlatform?.trim().toLowerCase();
-    const route = rawRoute.join(":").trim();
-    if (platform && route) routes[platform] = route;
-  }
-  return Object.keys(routes).length > 0 ? routes : undefined;
-}
-
 function toggleListValue(current: string[] | undefined, value: string, enabled: boolean): string[] | undefined {
   const currentSet = new Set(current ?? []);
   if (enabled) {
@@ -107,6 +90,17 @@ function toggleListValue(current: string[] | undefined, value: string, enabled: 
     currentSet.delete(value);
   }
   return currentSet.size > 0 ? Array.from(currentSet) : undefined;
+}
+
+function updateRouteMap(current: Record<string, string> | undefined, platform: string, url: string): Record<string, string> | undefined {
+  const next = { ...(current ?? {}) };
+  const cleanUrl = url.trim();
+  if (cleanUrl) {
+    next[platform] = cleanUrl;
+  } else {
+    delete next[platform];
+  }
+  return Object.keys(next).length > 0 ? next : undefined;
 }
 
 function IncludedChecklist({
@@ -156,6 +150,39 @@ function IncludedChecklist({
               <span className="block font-semibold text-foreground">{option.label}</span>
               <span className="block text-[11px] text-muted">{option.helper ? `${option.value} · ${option.helper}` : option.value}</span>
             </span>
+          </label>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PlatformRoutesEditor({
+  options,
+  routes,
+  onChange,
+}: {
+  options: PriceSourceFilterOption[];
+  routes: Record<string, string> | undefined;
+  onChange: (next: Record<string, string> | undefined) => void;
+}) {
+  return (
+    <div className="mt-3 rounded-2xl border border-border bg-card/40 p-3">
+      <p className="text-xs font-bold text-foreground">URLs por plataforma</p>
+      <p className="mt-1 text-[11px] leading-4 text-muted">
+        Solo aparece para estrategia “Rutas por plataforma”. Si una plataforma no tiene URL, esa fuente no debe buscarla por ruta directa.
+      </p>
+      <div className="mt-3 grid max-h-72 gap-2 overflow-auto pr-1 md:grid-cols-2">
+        {options.map((option) => (
+          <label key={option.value} className="rounded-xl border border-border bg-background/70 p-3 text-xs">
+            <span className="block font-semibold text-foreground">{option.label}</span>
+            <span className="block text-[11px] text-muted">{option.helper ? `${option.value} · ${option.helper}` : option.value}</span>
+            <input
+              value={routes?.[option.value] ?? ""}
+              onChange={(event) => onChange(updateRouteMap(routes, option.value, event.target.value))}
+              placeholder="https://tienda.example/ruta-plataforma"
+              className="mt-2 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+            />
           </label>
         ))}
       </div>
@@ -223,6 +250,10 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
         },
       };
     });
+  }
+
+  function updateSourcePlatformRoutes(key: keyof PriceSourceSettings["sources"], routes: Record<string, string> | undefined) {
+    updateSourceField(key, "platformRoutes", routes);
   }
 
   function addCustomSource() {
@@ -424,12 +455,17 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
                   className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
                 />
               </div>
-              <textarea
-                value={routesToText(source.platformRoutes)}
-                onChange={(event) => updateSourceField(key, "platformRoutes", textToRoutes(event.target.value))}
-                placeholder={"Rutas por plataforma, una por línea:\nps4: /juegos-ps4\nps5: /juegos-ps5"}
-                className="mt-3 min-h-20 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
-              />
+              {source.strategy === "platform_routes" ? (
+                <PlatformRoutesEditor
+                  options={platformOptions}
+                  routes={source.platformRoutes}
+                  onChange={(next) => updateSourcePlatformRoutes(key, next)}
+                />
+              ) : source.platformRoutes && Object.keys(source.platformRoutes).length > 0 ? (
+                <p className="mt-3 rounded-xl border border-border bg-card/50 px-3 py-2 text-[11px] leading-4 text-muted">
+                  Hay URLs por plataforma guardadas. Cambia la estrategia a “Rutas por plataforma” para editarlas; no se borran al usar otra estrategia.
+                </p>
+              ) : null}
               <div className="mt-3 flex flex-wrap gap-2">
                 {normalizationOptions.map((option) => (
                   <label key={option.value} className="rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] font-semibold text-muted">
@@ -513,6 +549,13 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
             onChange={(next) => setDraftCustom((current) => ({ ...current, enabledRegions: next }))}
           />
         </div>
+        {draftCustom.strategy === "platform_routes" ? (
+          <PlatformRoutesEditor
+            options={platformOptions}
+            routes={draftCustom.platformRoutes}
+            onChange={(next) => setDraftCustom((current) => ({ ...current, platformRoutes: next }))}
+          />
+        ) : null}
         {settings.customSources.length > 0 ? (
           <div className="mt-4 grid gap-2 md:grid-cols-2">
             {settings.customSources.map((source) => (
