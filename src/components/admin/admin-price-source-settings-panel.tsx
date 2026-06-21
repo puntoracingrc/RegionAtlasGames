@@ -329,6 +329,37 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
     updateSourceField(key, "platformRoutes", routes);
   }
 
+  function updateCustomSourceField<K extends keyof PriceCustomSourceSetting>(
+    id: string,
+    field: K,
+    value: PriceCustomSourceSetting[K],
+  ) {
+    setSettings((current) => ({
+      ...current,
+      customSources: current.customSources.map((source) =>
+        source.id === id ? { ...source, [field]: value } : source,
+      ),
+    }));
+  }
+
+  function toggleCustomSourceNormalization(id: string, value: PriceSourceNormalization, enabled: boolean) {
+    setSettings((current) => ({
+      ...current,
+      customSources: current.customSources.map((source) => {
+        if (source.id !== id) return source;
+        const currentList = source.normalizations ?? [];
+        const nextList = enabled
+          ? Array.from(new Set([...currentList, value]))
+          : currentList.filter((item) => item !== value);
+        return { ...source, normalizations: nextList };
+      }),
+    }));
+  }
+
+  function updateCustomSourcePlatformRoutes(id: string, routes: Record<string, string> | undefined) {
+    updateCustomSourceField(id, "platformRoutes", routes);
+  }
+
   function addCustomSource() {
     if (!draftCustom.label.trim() || !draftCustom.url.trim()) {
       setSaveState("error");
@@ -564,6 +595,160 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
             </div>
           );
         })}
+        {settings.customSources.map((source) => {
+          const strategy = source.strategy ?? "manual_candidate";
+          return (
+            <div key={`custom-${source.id}`} className="rounded-2xl border border-amber-300/70 bg-amber-50/60 p-4 dark:border-amber-400/30 dark:bg-amber-950/20">
+              <label className="flex cursor-pointer items-start justify-between gap-3">
+                <span>
+                  <span className="block font-bold text-foreground">{source.label}</span>
+                  <span className="mt-1 block break-all text-xs leading-5 text-muted">{source.url}</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={source.enabled}
+                  onChange={(event) => updateCustomSourceField(source.id, "enabled", event.target.checked)}
+                  className="mt-1 h-5 w-5 accent-[var(--accent)]"
+                />
+              </label>
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
+                  Ficha candidata · no entra en la rueda hasta tener collector real
+                </p>
+                <button type="button" onClick={() => removeCustomSource(source.id)} className="text-xs font-semibold text-rose-600 dark:text-rose-300">
+                  Quitar
+                </button>
+              </div>
+              <div className="mt-3 grid gap-3 md:grid-cols-2">
+                <label className="text-xs font-semibold text-muted">
+                  Nombre
+                  <input
+                    value={source.label}
+                    onChange={(event) => updateCustomSourceField(source.id, "label", event.target.value)}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                </label>
+                <label className="text-xs font-semibold text-muted">
+                  URL general
+                  <input
+                    value={source.url}
+                    onChange={(event) => updateCustomSourceField(source.id, "url", event.target.value)}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                </label>
+              </div>
+              <div className="mt-3 grid gap-3 md:grid-cols-2">
+                <label className="text-xs font-semibold text-muted">
+                  Estrategia
+                  <select
+                    value={strategy}
+                    onChange={(event) => updateCustomSourceField(source.id, "strategy", event.target.value as PriceSourceStrategy)}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  >
+                    {strategyOptions.map((option) => (
+                      <option key={option.value} value={option.value}>{option.label}</option>
+                    ))}
+                  </select>
+                </label>
+                <label className="text-xs font-semibold text-muted">
+                  Estado real
+                  <select
+                    value={source.status ?? (source.enabled ? "candidate" : "disabled")}
+                    onChange={(event) => updateCustomSourceField(source.id, "status", event.target.value as PriceSourceStatus)}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  >
+                    {statusOptions.map((option) => (
+                      <option key={option.value} value={option.value}>{option.label}</option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+              {strategyUsesQuery(strategy) ? (
+                <div className="mt-3 grid gap-3 md:grid-cols-2">
+                  <QueryTemplatePicker
+                    value={source.queryTemplate}
+                    onChange={(next) => updateCustomSourceField(source.id, "queryTemplate", next)}
+                  />
+                  {strategyUsesSearchUrl(strategy) ? (
+                    <label className="rounded-2xl border border-border bg-card/40 p-3 text-xs font-semibold text-muted">
+                      URL de búsqueda
+                      <input
+                        value={source.urlTemplate ?? ""}
+                        onChange={(event) => updateCustomSourceField(source.id, "urlTemplate", event.target.value)}
+                        placeholder="https://tienda.com/search?q={title}"
+                        className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                      />
+                      <span className="mt-1 block text-[11px] font-normal leading-4">Usa {"{title}"} donde va el nombre del juego.</span>
+                    </label>
+                  ) : null}
+                </div>
+              ) : null}
+              {strategyUsesScope(strategy) ? (
+                <div className="mt-3 grid gap-3 lg:grid-cols-2">
+                  <IncludedChecklist
+                    title="Plataformas incluidas"
+                    helper="Vacío = todas las plataformas. Marca solo las incluidas si quieres restringir esta fuente."
+                    options={platformOptions}
+                    selected={source.enabledPlatforms}
+                    legacyExcluded={source.disabledPlatforms}
+                    onChange={(next) => updateCustomSourceField(source.id, "enabledPlatforms", next)}
+                  />
+                  <IncludedChecklist
+                    title="Regiones incluidas"
+                    helper="Vacío = todas las regiones. Marca solo las incluidas si esta fuente solo sirve para algunas."
+                    options={regionOptions}
+                    selected={source.enabledRegions}
+                    legacyExcluded={source.disabledRegions}
+                    onChange={(next) => updateCustomSourceField(source.id, "enabledRegions", next)}
+                  />
+                </div>
+              ) : null}
+              {strategyUsesSupport(strategy) ? (
+                <div className="mt-3 grid gap-3 md:grid-cols-2">
+                  <input
+                    value={source.routeHint ?? ""}
+                    onChange={(event) => updateCustomSourceField(source.id, "routeHint", event.target.value)}
+                    placeholder="Pista interna o pasos de búsqueda"
+                    className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                  <textarea
+                    value={source.notes ?? ""}
+                    onChange={(event) => updateCustomSourceField(source.id, "notes", event.target.value)}
+                    placeholder="Notas internas"
+                    rows={2}
+                    className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+                  />
+                </div>
+              ) : null}
+              {strategyUsesPlatformRoutes(strategy) ? (
+                <PlatformRoutesEditor
+                  options={platformOptions}
+                  routes={source.platformRoutes}
+                  onChange={(next) => updateCustomSourcePlatformRoutes(source.id, next)}
+                />
+              ) : source.platformRoutes && Object.keys(source.platformRoutes).length > 0 ? (
+                <p className="mt-3 rounded-xl border border-border bg-card/50 px-3 py-2 text-[11px] leading-4 text-muted">
+                  Hay URLs por plataforma guardadas. Cambia la estrategia a “Rutas por plataforma” para editarlas; no se borran al usar otra estrategia.
+                </p>
+              ) : null}
+              {strategyUsesNormalizations(strategy) ? (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {normalizationOptions.map((option) => (
+                    <label key={option.value} className="rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] font-semibold text-muted">
+                      <input
+                        type="checkbox"
+                        checked={(source.normalizations ?? []).includes(option.value)}
+                        onChange={(event) => toggleCustomSourceNormalization(source.id, option.value, event.target.checked)}
+                        className="mr-1 accent-[var(--accent)]"
+                      />
+                      {option.label}
+                    </label>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          );
+        })}
       </div>
 
       <div className="mt-5 rounded-2xl border border-border bg-background/70 p-4">
@@ -649,27 +834,9 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
           />
         ) : null}
         {settings.customSources.length > 0 ? (
-          <div className="mt-4 grid gap-2 md:grid-cols-2">
-            {settings.customSources.map((source) => (
-              <div key={source.id} className="rounded-xl border border-border bg-card/70 p-3 text-sm">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="font-semibold text-foreground">{source.label}</p>
-                    <p className="break-all text-xs text-muted">{source.url}</p>
-                    <p className="mt-1 text-xs text-muted">
-                      Estrategia: {strategyOptions.find((option) => option.value === source.strategy)?.label ?? "Manual/candidata"}
-                    </p>
-                    {source.queryTemplate ? <p className="mt-1 text-xs text-muted">Query: {source.queryTemplate}</p> : null}
-                    {source.urlTemplate ? <p className="mt-1 text-xs text-muted">URL: {source.urlTemplate}</p> : null}
-                    {source.enabledPlatforms?.length ? <p className="mt-1 text-xs text-muted">Plataformas incluidas: {source.enabledPlatforms.join(", ")}</p> : null}
-                    {source.enabledRegions?.length ? <p className="mt-1 text-xs text-muted">Regiones incluidas: {source.enabledRegions.join(", ")}</p> : null}
-                    {source.routeHint ? <p className="mt-1 text-xs text-muted">Ruta: {source.routeHint}</p> : null}
-                  </div>
-                  <button type="button" onClick={() => removeCustomSource(source.id)} className="text-xs font-semibold text-rose-600 dark:text-rose-300">Quitar</button>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-800 dark:border-amber-400/30 dark:bg-amber-950/30 dark:text-amber-200">
+            Las webs candidatas añadidas aparecen como fichas editables en el listado principal de arriba. Siguen marcadas como candidatas hasta que exista un collector real.
+          </p>
         ) : null}
       </div>
     </section>
