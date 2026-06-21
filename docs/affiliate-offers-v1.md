@@ -11,6 +11,9 @@ Principios:
 - Matching conservador: mejor mostrar menos ofertas que mostrar una incorrecta.
 - eBay solo renderiza cards cuando Browse API devuelve `itemAffiliateWebUrl`.
 - Si eBay no devuelve ofertas válidas, el fallback trackeado se muestra como CTA separado, no como oferta.
+- Amazon solo renderiza cards cuando Creators API devuelve productos con `detailPageURL`.
+- Amazon queda apagado salvo que `AMAZON_AFFILIATE_ENABLED=true` y existan credenciales Creators API.
+- Amazon usa `AMAZON_ASSOCIATE_TAG` como partner tag global y no genera enlaces manuales por juego.
 - Rakuten queda preparado pero desactivado por defecto.
 - GamersGate queda en backlog/review para PC digital games, sin implementación pública.
 
@@ -30,3 +33,20 @@ target="_blank"
 ## Backlog / Review
 
 - `GAMERSGATE_AFFILIATE_REVIEW_V1`: investigación/documentación para valorar GamersGate como proveedor potencial de juegos digitales PC/Mac/Linux. No implementa runtime, frontend, provider ni enlaces públicos. No forma parte de `EBAY_SYNC_V1`.
+
+## Amazon Creators API
+
+Variables esperadas en Production:
+
+```txt
+AMAZON_AFFILIATE_ENABLED=true
+AMAZON_ASSOCIATE_TAG=punto04-21
+AMAZON_CREATORS_CREDENTIAL_ID=...
+AMAZON_CREATORS_CREDENTIAL_SECRET=...
+AMAZON_CREATORS_CREDENTIAL_VERSION=3.2
+AMAZON_MARKETPLACE=www.amazon.es
+AMAZON_SEARCH_INDEX=VideoGames
+AMAZON_AFFILIATE_LIMIT=4
+```
+
+La ficha pública no espera a Amazon durante el render inicial. El bloque de ofertas consulta `/api/catalog/offers/[catalogId]` bajo demanda y cachea la respuesta corta. Si Amazon falla, no rompe la ficha: eBay y el fallback siguen funcionando.

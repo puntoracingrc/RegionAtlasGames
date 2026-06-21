@@ -58,14 +58,76 @@ type EbayTokenCache = {
   expiresAt: number;
 };
 
+type AmazonTokenCache = {
+  token: string;
+  expiresAt: number;
+};
+
+type AmazonMoney = {
+  amount?: number;
+  currency?: string;
+  displayAmount?: string;
+};
+
+type AmazonOfferListing = {
+  isBuyBoxWinner?: boolean;
+  condition?: {
+    value?: string;
+    subCondition?: string;
+    conditionNote?: string;
+  };
+  merchantInfo?: {
+    name?: string;
+    id?: string;
+  };
+  price?: {
+    money?: AmazonMoney;
+  };
+  type?: string;
+};
+
+type AmazonSearchItem = {
+  asin?: string;
+  detailPageURL?: string;
+  images?: {
+    primary?: {
+      small?: { url?: string };
+      medium?: { url?: string };
+      large?: { url?: string };
+      hiRes?: { url?: string };
+    };
+  };
+  itemInfo?: {
+    title?: {
+      displayValue?: string;
+    };
+  };
+  offersV2?: {
+    listings?: AmazonOfferListing[];
+  };
+  score?: number;
+};
+
+type AmazonSearchResponse = {
+  searchResult?: {
+    items?: AmazonSearchItem[];
+    totalResultCount?: number;
+    searchURL?: string;
+  };
+};
+
 const EBAY_TOKEN_URL = "https://api.ebay.com/identity/v1/oauth2/token";
 const EBAY_BROWSE_SEARCH_URL = "https://api.ebay.com/buy/browse/v1/item_summary/search";
+const AMAZON_CREATORS_SEARCH_URL = "https://creatorsapi.amazon/catalog/v1/searchItems";
+const AMAZON_CREATORS_DEFAULT_TOKEN_URL = "https://api.amazon.co.uk/auth/o2/token";
 const DEFAULT_CACHE_SECONDS = 60 * 60 * 6;
 const EBAY_TOKEN_CACHE_KEY = "__regionAtlasEbayTokenCache";
+const AMAZON_TOKEN_CACHE_KEY = "__regionAtlasAmazonTokenCache";
 const AFFILIATE_WHITELIST_FILE = path.join(process.cwd(), "data", "affiliate-offers-whitelist.json");
 
 declare global {
   var __regionAtlasEbayTokenCache: EbayTokenCache | undefined;
+  var __regionAtlasAmazonTokenCache: AmazonTokenCache | undefined;
 }
 
 function configured(value: string | undefined): string | null {
@@ -118,18 +180,15 @@ function ebayConfigured(): boolean {
   return Boolean(configured(process.env.EBAY_CLIENT_ID) && configured(process.env.EBAY_CLIENT_SECRET));
 }
 
-function amazonConfigured(): boolean {
-  return Boolean(
-    configured(process.env.AMAZON_ASSOCIATE_TAG) &&
-      configured(process.env.AMAZON_ACCESS_KEY) &&
-      configured(process.env.AMAZON_SECRET_KEY),
-  );
-}
-
 function numberValue(value: string | undefined): number | null {
   if (!value) return null;
   const parsed = Number(value);
   return Number.isFinite(parsed) ? Math.round(parsed * 100) / 100 : null;
+}
+
+function moneyNumberValue(value: number | undefined): number | null {
+  if (!Number.isFinite(value)) return null;
+  return Math.round(Number(value) * 100) / 100;
 }
 
 function normalize(text: string): string {
@@ -190,6 +249,47 @@ function ebayCampaignId(): string | null {
 
 function ebayAffiliateEnabled(): boolean {
   return process.env.EBAY_AFFILIATE_ENABLED === "1" || process.env.EBAY_AFFILIATE_ENABLED === "true";
+}
+
+function amazonAffiliateEnabled(): boolean {
+  return process.env.AMAZON_AFFILIATE_ENABLED === "1" || process.env.AMAZON_AFFILIATE_ENABLED === "true";
+}
+
+function amazonCredentialId(): string | null {
+  return configured(process.env.AMAZON_CREATORS_CREDENTIAL_ID) ?? configured(process.env.AMAZON_ACCESS_KEY);
+}
+
+function amazonCredentialSecret(): string | null {
+  return configured(process.env.AMAZON_CREATORS_CREDENTIAL_SECRET) ?? configured(process.env.AMAZON_SECRET_KEY);
+}
+
+function amazonConfigured(): boolean {
+  return Boolean(configured(process.env.AMAZON_ASSOCIATE_TAG) && amazonCredentialId() && amazonCredentialSecret());
+}
+
+function amazonCredentialVersion(): string {
+  return configured(process.env.AMAZON_CREATORS_CREDENTIAL_VERSION) ?? "3.2";
+}
+
+function amazonMarketplace(): string {
+  return configured(process.env.AMAZON_MARKETPLACE) ?? "www.amazon.es";
+}
+
+function amazonSearchIndex(): string {
+  return configured(process.env.AMAZON_SEARCH_INDEX) ?? "VideoGames";
+}
+
+function amazonLimit(): number {
+  const limit = Number.parseInt(process.env.AMAZON_AFFILIATE_LIMIT ?? "4", 10);
+  return Number.isFinite(limit) ? Math.max(1, Math.min(8, limit)) : 4;
+}
+
+function amazonTokenUrl(): string {
+  const configuredUrl = configured(process.env.AMAZON_CREATORS_TOKEN_URL);
+  if (configuredUrl) return configuredUrl;
+  const version = amazonCredentialVersion();
+  if (version.startsWith("3.")) return AMAZON_CREATORS_DEFAULT_TOKEN_URL;
+  return AMAZON_CREATORS_DEFAULT_TOKEN_URL;
 }
 
 function ebayPixelParam(name: string, fallback: string): string {
@@ -295,6 +395,66 @@ function ebayQuery(game: CatalogGame, details: GameDetails | null): string {
   return [title, platformName, ...regionTerms].filter(Boolean).join(" ");
 }
 
+function amazonQuery(game: CatalogGame, details: GameDetails | null): string {
+  const base = ebayQuery(game, details);
+  return [base, "videojuego"].filter(Boolean).join(" ");
+}
+
+async function getAmazonAccessToken(): Promise<string | null> {
+  const credentialId = amazonCredentialId();
+  const credentialSecret = amazonCredentialSecret();
+  if (!credentialId || !credentialSecret) return null;
+  const cached = globalThis[AMAZON_TOKEN_CACHE_KEY];
+  if (cached && cached.expiresAt > Date.now() + 60_000) return cached.token;
+
+  const res = await fetch(amazonTokenUrl(), {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      grant_type: "client_credentials",
+      client_id: credentialId,
+      client_secret: credentialSecret,
+      scope: "creatorsapi::default",
+    }),
+  });
+  if (!res.ok) return null;
+  const data = (await res.json()) as { access_token?: string; expires_in?: number };
+  if (!data.access_token) return null;
+  const ttlMs = Math.max(60, data.expires_in ?? 3600) * 1000;
+  globalThis[AMAZON_TOKEN_CACHE_KEY] = {
+    token: data.access_token,
+    expiresAt: Date.now() + ttlMs,
+  };
+  return data.access_token;
+}
+
+function amazonResources(): string[] {
+  return [
+    "images.primary.medium",
+    "images.primary.large",
+    "itemInfo.title",
+    "offersV2.listings.availability",
+    "offersV2.listings.condition",
+    "offersV2.listings.isBuyBoxWinner",
+    "offersV2.listings.merchantInfo",
+    "offersV2.listings.price",
+    "offersV2.listings.type",
+  ];
+}
+
+function bestAmazonListing(listings: AmazonOfferListing[] | undefined): AmazonOfferListing | null {
+  const validListings = (listings ?? []).filter((listing) => listing.price?.money);
+  if (validListings.length === 0) return null;
+  return validListings.find((listing) => listing.isBuyBoxWinner) ?? validListings[0] ?? null;
+}
+
+function amazonCondition(listing: AmazonOfferListing | null): string | null {
+  const parts = [listing?.condition?.value, listing?.condition?.subCondition].filter(Boolean);
+  return parts.length > 0 ? parts.join(" · ") : null;
+}
+
 function ebayFallbackSearchCta(game: CatalogGame, details: GameDetails | null): AffiliateFallbackCta | null {
   const campaignId = ebayCampaignId();
   if (!campaignId) return null;
@@ -369,11 +529,65 @@ async function getEbayOffers(
   };
 }
 
-async function getAmazonOffers(_game: CatalogGame, _details: GameDetails | null): Promise<AffiliateOffer[]> {
-  void _game;
-  void _details;
-  if (!affiliateEnabled() || !amazonConfigured()) return [];
-  return [];
+async function getAmazonOffers(game: CatalogGame, details: GameDetails | null): Promise<AffiliateOffer[]> {
+  if (!affiliateEnabled() || !amazonAffiliateEnabled() || !amazonConfigured()) return [];
+  try {
+    const token = await getAmazonAccessToken();
+    const associateTag = configured(process.env.AMAZON_ASSOCIATE_TAG);
+    if (!token || !associateTag) return [];
+
+    const res = await fetch(AMAZON_CREATORS_SEARCH_URL, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        "x-marketplace": amazonMarketplace(),
+      },
+      body: JSON.stringify({
+        partnerTag: associateTag,
+        keywords: amazonQuery(game, details),
+        searchIndex: amazonSearchIndex(),
+        itemCount: amazonLimit() * 2,
+        resources: amazonResources(),
+      }),
+      next: { revalidate: DEFAULT_CACHE_SECONDS },
+    });
+    if (!res.ok) return [];
+
+    const data = (await res.json()) as AmazonSearchResponse;
+    return (data.searchResult?.items ?? [])
+      .map((item): AffiliateOffer | null => {
+        const title = item.itemInfo?.title?.displayValue;
+        const listing = bestAmazonListing(item.offersV2?.listings);
+        const money = listing?.price?.money;
+        if (!item.asin || !title || !item.detailPageURL) return null;
+        const confidence = scoreOffer(game, details, title);
+        if (confidence < 0.58) return null;
+        return {
+          provider: "amazon",
+          id: item.asin,
+          title,
+          url: item.detailPageURL,
+          imageUrl:
+            item.images?.primary?.medium?.url ??
+            item.images?.primary?.large?.url ??
+            item.images?.primary?.hiRes?.url ??
+            item.images?.primary?.small?.url ??
+            null,
+          price: moneyNumberValue(money?.amount),
+          currency: money?.currency ?? "EUR",
+          shippingPrice: null,
+          condition: amazonCondition(listing),
+          location: listing?.merchantInfo?.name ?? "Amazon",
+          confidence,
+        };
+      })
+      .filter((offer): offer is AffiliateOffer => Boolean(offer))
+      .sort((a, b) => b.confidence - a.confidence || (a.price ?? 999999) - (b.price ?? 999999))
+      .slice(0, amazonLimit());
+  } catch {
+    return [];
+  }
 }
 
 export async function getAffiliateOfferBlock(

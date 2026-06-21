@@ -73,6 +73,7 @@
     "test:ebay-sync-v1": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/test-ebay-sync-v1.mjs",
     "smoke:ebay-auth": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/smoke-ebay-auth.mjs",
     "smoke:ebay-search": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/smoke-ebay-search.mjs",
+    "smoke:amazon-creators": "node scripts/smoke-amazon-creators-search.mjs",
     "analyze:game-facets-coverage": "node scripts/analyze-game-facets-coverage.mjs",
     "validate:game-facets-taxonomy-audit-v1": "node scripts/validate-game-facets-taxonomy-audit-v1.mjs",
     "analyze:game-genre-quality": "node scripts/analyze-game-genre-quality.mjs",

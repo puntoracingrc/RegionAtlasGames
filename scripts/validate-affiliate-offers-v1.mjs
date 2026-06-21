@@ -83,6 +83,14 @@ assert(
   "Las ofertas afiliadas deben cargarse bajo demanda por API pública",
 );
 assert(envExample.includes("# EBAY_AFFILIATE_IMPRESSION_PIXEL_URL="), "Falta documentar píxel de impresión eBay");
+assert(envExample.includes("# AMAZON_AFFILIATE_ENABLED=false"), "Falta documentar AMAZON_AFFILIATE_ENABLED=false");
+assert(envExample.includes("# AMAZON_CREATORS_CREDENTIAL_ID="), "Falta documentar AMAZON_CREATORS_CREDENTIAL_ID");
+assert(envExample.includes("# AMAZON_CREATORS_CREDENTIAL_SECRET="), "Falta documentar AMAZON_CREATORS_CREDENTIAL_SECRET");
+assert(envExample.includes("# AMAZON_MARKETPLACE=www.amazon.es"), "Falta documentar marketplace Amazon España");
+assert(affiliateOffers.includes("AMAZON_CREATORS_SEARCH_URL"), "Falta integración runtime con Amazon Creators API");
+assert(affiliateOffers.includes("getAmazonAccessToken"), "Falta autenticación Amazon Creators API");
+assert(affiliateOffers.includes("offersV2.listings.price"), "Amazon debe solicitar precio de ofertas");
+assert(!/async function getAmazonOffers[\\s\\S]*?return \\[\\];\\s*}/.test(affiliateOffers), "Amazon no debe quedar como stub vacío");
 assert(!/process\.env\.NEXT_PUBLIC_RAKUTEN_|NEXT_PUBLIC_RAKUTEN_[A-Z0-9_]+\s*=/.test(allSource), "No debe existir uso real de NEXT_PUBLIC_RAKUTEN_*");
 assert(!/<iframe[^>]+(?:ebay|rakuten|amazon|affiliate|adservice|marketingtracking)/i.test(allSource), "No debe haber iframes ocultos de afiliación");
 assert(!/auto.?click|cookie.?stuffing|window\.open\([^)]*\)/i.test(allSource), "No debe haber autoclick, cookie stuffing ni aperturas automáticas");
