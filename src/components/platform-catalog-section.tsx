@@ -40,6 +40,9 @@ type Props = {
   canViewCollectionValue: boolean;
   initialQuery?: string;
   initialRegion?: string;
+  initialGenre?: string;
+  initialSubgenre?: string;
+  initialFacet?: string;
 };
 
 export function PlatformCatalogSection({
@@ -59,6 +62,9 @@ export function PlatformCatalogSection({
   canViewCollectionValue,
   initialQuery = "",
   initialRegion = "all",
+  initialGenre = "all",
+  initialSubgenre = "all",
+  initialFacet = "all",
 }: Props) {
   const [region, setRegion] = useState(initialRegion);
   const ownedOnPlatform = ownedItems.filter((c) => c.platformSlug === platform.slug);
@@ -135,6 +141,9 @@ export function PlatformCatalogSection({
         showPriceLegend={false}
         persistKey={`region-atlas:platform-catalog:${platform.slug}`}
         initialQuery={initialQuery}
+        initialGenre={initialGenre}
+        initialSubgenre={initialSubgenre}
+        initialFacet={initialFacet}
         region={region}
         onRegionChange={setRegion}
       />

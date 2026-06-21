@@ -26,7 +26,7 @@ import { getCurrentUser } from "@/lib/users";
 
 type Props = {
   params: Promise<{ slug: string }>;
-  searchParams?: Promise<{ q?: string; region?: string }>;
+  searchParams?: Promise<{ q?: string; region?: string; genre?: string; subgenre?: string; facet?: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -97,6 +97,9 @@ export default async function PlatformPage({ params, searchParams }: Props) {
               canViewCollectionValue={user ? canViewCollectionValue(user.plan) : false}
               initialQuery={typeof query?.q === "string" ? query.q : ""}
               initialRegion={typeof query?.region === "string" ? query.region : "all"}
+              initialGenre={typeof query?.genre === "string" ? query.genre : "all"}
+              initialSubgenre={typeof query?.subgenre === "string" ? query.subgenre : "all"}
+              initialFacet={typeof query?.facet === "string" ? query.facet : "all"}
             />
           </>
         )}

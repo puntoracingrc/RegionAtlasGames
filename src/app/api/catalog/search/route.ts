@@ -3,9 +3,13 @@ import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
   filterCatalogGames,
+  publicFacetFilterOptions,
+  publicSubgenreFilterOptions,
   type CatalogPriceFilter,
   type CatalogSort,
+  type CatalogTaxonomyFilterOption,
 } from "@/lib/catalog-filters";
+import { normalizeCatalogSearchText } from "@/lib/catalog-search-normalize";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { listedCatalog } from "@/lib/catalog";
 import { getPlatform } from "@/lib/catalog";
@@ -14,6 +18,7 @@ import { getCoverSrc } from "@/lib/cover-url";
 import type { CatalogListGame } from "@/lib/types";
 
 const MAX_RESULTS = 12;
+const MAX_TAXONOMY_OPTIONS = 16;
 let catalogSearchGamesCache: CatalogListGame[] | null = null;
 
 type SearchResult = {
@@ -44,10 +49,17 @@ export async function GET(request: Request) {
   const priceFilter = (url.searchParams.get("priceFilter") ?? "all") as CatalogPriceFilter;
   const page = Math.max(1, Number(url.searchParams.get("page") ?? "1") || 1);
   const mode = url.searchParams.get("mode") ?? "quick";
+  const taxonomyOptionsType = url.searchParams.get("type");
   const genreSlug = url.searchParams.get("genre") ?? "";
   const subgenreSlug = url.searchParams.get("subgenre") ?? "";
   const facetSlug = url.searchParams.get("facet") ?? "";
   const hasTaxonomyFilter = Boolean(genreSlug || subgenreSlug || facetSlug);
+
+  if (mode === "taxonomy-options") {
+    return NextResponse.json({
+      items: taxonomyOptions(taxonomyOptionsType, q),
+    });
+  }
 
   if (q.trim().length < 2 && platform === "all" && region === "all" && !hasTaxonomyFilter && mode !== "browser") {
     return NextResponse.json({ items: [], total: 0 });
@@ -101,6 +113,22 @@ export async function GET(request: Request) {
     items,
     total: filtered.total,
   });
+}
+
+function taxonomyOptions(type: string | null, rawQuery: string): CatalogTaxonomyFilterOption[] {
+  if (type !== "subgenre" && type !== "facet") return [];
+
+  const query = normalizeCatalogSearchText(rawQuery);
+  const options = type === "subgenre" ? publicSubgenreFilterOptions() : publicFacetFilterOptions();
+  const filtered = query
+    ? options.filter((option) => {
+        const name = normalizeCatalogSearchText(option.name);
+        const slug = normalizeCatalogSearchText(option.slug);
+        return name.includes(query) || slug.includes(query);
+      })
+    : options;
+
+  return filtered.slice(0, MAX_TAXONOMY_OPTIONS);
 }
 
 function normalizeSearchValue(value: string | null | undefined): string {

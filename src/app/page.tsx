@@ -10,7 +10,7 @@ import {
 } from "@/lib/collection-store";
 import { listedCatalog, meta } from "@/lib/catalog";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
-import { publicRegionFilterOptions } from "@/lib/catalog-filters";
+import { publicGenreFilterOptions, publicRegionFilterOptions } from "@/lib/catalog-filters";
 import { formatEur } from "@/lib/price-format";
 import { indexStats } from "@/lib/indexes";
 import { listNewsForSection } from "@/lib/news-cache";
@@ -37,6 +37,7 @@ export default async function HomePage() {
     shortName: platform.shortName,
   }));
   const searchRegions = publicRegionFilterOptions();
+  const searchGenres = publicGenreFilterOptions();
   const platformRange =
     activePlatforms.length > 1
       ? `${activePlatforms[0].shortName} a ${activePlatforms.at(-1)?.shortName}`
@@ -80,9 +81,9 @@ export default async function HomePage() {
           </div>
         </header>
 
-        <NewsStrip title="Actualidad del videojuego" items={homeNews} />
+        <HomeCatalogSearch platforms={searchPlatforms} regions={searchRegions} genres={searchGenres} />
 
-        <HomeCatalogSearch platforms={searchPlatforms} regions={searchRegions} />
+        <NewsStrip title="Actualidad del videojuego" items={homeNews} />
 
         <section className="mb-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <Stat label="Plataformas" value={String(activePlatforms.length)} hint="Consolas activas en catálogo" />
