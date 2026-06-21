@@ -11,6 +11,13 @@ import type {
 
 type Props = {
   initialSettings: PriceSourceSettings;
+  platformOptions: PriceSourceFilterOption[];
+  regionOptions: PriceSourceFilterOption[];
+};
+type PriceSourceFilterOption = {
+  value: string;
+  label: string;
+  helper?: string;
 };
 
 type SaveState = "idle" | "saving" | "saved" | "error";
@@ -75,18 +82,6 @@ const normalizationOptions: Array<{ value: PriceSourceNormalization; label: stri
   { value: "keep_title_color_word", label: "Mantener Color si va en título" },
 ];
 
-function listToText(value: string[] | undefined): string {
-  return (value ?? []).join(", ");
-}
-
-function textToList(value: string): string[] | undefined {
-  const items = value
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-  return items.length > 0 ? items : undefined;
-}
-
 function routesToText(value: Record<string, string> | undefined): string {
   return Object.entries(value ?? {})
     .map(([platform, route]) => `${platform}: ${route}`)
@@ -104,7 +99,71 @@ function textToRoutes(value: string): Record<string, string> | undefined {
   return Object.keys(routes).length > 0 ? routes : undefined;
 }
 
-export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
+function toggleListValue(current: string[] | undefined, value: string, enabled: boolean): string[] | undefined {
+  const currentSet = new Set(current ?? []);
+  if (enabled) {
+    currentSet.add(value);
+  } else {
+    currentSet.delete(value);
+  }
+  return currentSet.size > 0 ? Array.from(currentSet) : undefined;
+}
+
+function IncludedChecklist({
+  title,
+  helper,
+  options,
+  selected,
+  legacyExcluded,
+  onChange,
+}: {
+  title: string;
+  helper: string;
+  options: PriceSourceFilterOption[];
+  selected: string[] | undefined;
+  legacyExcluded?: string[];
+  onChange: (next: string[] | undefined) => void;
+}) {
+  const selectedSet = new Set(selected ?? []);
+  return (
+    <div className="rounded-2xl border border-border bg-card/40 p-3">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <p className="text-xs font-bold text-foreground">{title}</p>
+          <p className="mt-1 text-[11px] leading-4 text-muted">{helper}</p>
+        </div>
+        {selectedSet.size > 0 ? (
+          <button type="button" onClick={() => onChange(undefined)} className="text-[11px] font-semibold text-accent">
+            Vaciar = todas
+          </button>
+        ) : null}
+      </div>
+      {legacyExcluded?.length ? (
+        <p className="mt-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-[11px] leading-4 text-amber-800 dark:border-amber-400/30 dark:bg-amber-950/30 dark:text-amber-200">
+          Hay exclusiones antiguas guardadas ({legacyExcluded.join(", ")}). Se mantienen por compatibilidad, pero esta ficha usa inclusiones positivas.
+        </p>
+      ) : null}
+      <div className="mt-3 grid max-h-48 gap-2 overflow-auto pr-1 sm:grid-cols-2">
+        {options.map((option) => (
+          <label key={option.value} className="flex items-start gap-2 rounded-xl border border-border bg-background/70 px-3 py-2 text-xs">
+            <input
+              type="checkbox"
+              checked={selectedSet.has(option.value)}
+              onChange={(event) => onChange(toggleListValue(selected, option.value, event.target.checked))}
+              className="mt-0.5 accent-[var(--accent)]"
+            />
+            <span>
+              <span className="block font-semibold text-foreground">{option.label}</span>
+              <span className="block text-[11px] text-muted">{option.helper ? `${option.value} · ${option.helper}` : option.value}</span>
+            </span>
+          </label>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions, regionOptions }: Props) {
   const [settings, setSettings] = useState(initialSettings);
   const [draftCustom, setDraftCustom] = useState<PriceCustomSourceSetting>(emptyCustomSource);
   const [saveState, setSaveState] = useState<SaveState>("idle");
@@ -187,9 +246,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
           queryTemplate: draftCustom.queryTemplate?.trim(),
           urlTemplate: draftCustom.urlTemplate?.trim(),
           enabledPlatforms: draftCustom.enabledPlatforms?.filter(Boolean),
-          disabledPlatforms: draftCustom.disabledPlatforms?.filter(Boolean),
           enabledRegions: draftCustom.enabledRegions?.filter(Boolean),
-          disabledRegions: draftCustom.disabledRegions?.filter(Boolean),
         },
       ],
     }));
@@ -334,42 +391,24 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
                     className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
                   />
                 </label>
-                <label className="text-xs font-semibold text-muted">
-                  Solo estas plataformas
-                  <input
-                    value={listToText(source.enabledPlatforms)}
-                    onChange={(event) => updateSourceField(key, "enabledPlatforms", textToList(event.target.value))}
-                    placeholder="ps4, ps5"
-                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
-                  />
-                </label>
-                <label className="text-xs font-semibold text-muted">
-                  Apagar en plataformas
-                  <input
-                    value={listToText(source.disabledPlatforms)}
-                    onChange={(event) => updateSourceField(key, "disabledPlatforms", textToList(event.target.value))}
-                    placeholder="nes, neogeo"
-                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
-                  />
-                </label>
-                <label className="text-xs font-semibold text-muted">
-                  Solo regiones
-                  <input
-                    value={listToText(source.enabledRegions)}
-                    onChange={(event) => updateSourceField(key, "enabledRegions", textToList(event.target.value))}
-                    placeholder="PAL España, Japón"
-                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
-                  />
-                </label>
-                <label className="text-xs font-semibold text-muted">
-                  Apagar en regiones
-                  <input
-                    value={listToText(source.disabledRegions)}
-                    onChange={(event) => updateSourceField(key, "disabledRegions", textToList(event.target.value))}
-                    placeholder="USA"
-                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
-                  />
-                </label>
+              </div>
+              <div className="mt-3 grid gap-3 lg:grid-cols-2">
+                <IncludedChecklist
+                  title="Plataformas incluidas"
+                  helper="Vacío = todas las plataformas. Marca solo las incluidas si quieres restringir esta fuente."
+                  options={platformOptions}
+                  selected={source.enabledPlatforms}
+                  legacyExcluded={source.disabledPlatforms}
+                  onChange={(next) => updateSourceField(key, "enabledPlatforms", next)}
+                />
+                <IncludedChecklist
+                  title="Regiones incluidas"
+                  helper="Vacío = todas las regiones. Marca solo las incluidas si esta fuente solo sirve para algunas."
+                  options={regionOptions}
+                  selected={source.enabledRegions}
+                  legacyExcluded={source.disabledRegions}
+                  onChange={(next) => updateSourceField(key, "enabledRegions", next)}
+                />
               </div>
               <div className="mt-3 grid gap-3 md:grid-cols-2">
                 <input
@@ -457,23 +496,21 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
             placeholder="URL template: /buscar?q={title}"
             className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
           />
-          <input
-            value={listToText(draftCustom.enabledPlatforms)}
-            onChange={(event) => setDraftCustom((current) => ({ ...current, enabledPlatforms: textToList(event.target.value) }))}
-            placeholder="Solo plataformas: ps4, ps5"
-            className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
+        </div>
+        <div className="mt-3 grid gap-3 lg:grid-cols-2">
+          <IncludedChecklist
+            title="Plataformas incluidas"
+            helper="Vacío = todas las plataformas. Para una candidata actual, marca por ejemplo PS4/PS5."
+            options={platformOptions}
+            selected={draftCustom.enabledPlatforms}
+            onChange={(next) => setDraftCustom((current) => ({ ...current, enabledPlatforms: next }))}
           />
-          <input
-            value={listToText(draftCustom.disabledPlatforms)}
-            onChange={(event) => setDraftCustom((current) => ({ ...current, disabledPlatforms: textToList(event.target.value) }))}
-            placeholder="Apagar plataformas: nes, neogeo"
-            className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
-          />
-          <input
-            value={listToText(draftCustom.enabledRegions)}
-            onChange={(event) => setDraftCustom((current) => ({ ...current, enabledRegions: textToList(event.target.value) }))}
-            placeholder="Regiones útiles: PAL España"
-            className="rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-accent"
+          <IncludedChecklist
+            title="Regiones incluidas"
+            helper="Vacío = todas las regiones. Marca solo si la fuente sirve para regiones concretas."
+            options={regionOptions}
+            selected={draftCustom.enabledRegions}
+            onChange={(next) => setDraftCustom((current) => ({ ...current, enabledRegions: next }))}
           />
         </div>
         {settings.customSources.length > 0 ? (
@@ -489,7 +526,8 @@ export function AdminPriceSourceSettingsPanel({ initialSettings }: Props) {
                     </p>
                     {source.queryTemplate ? <p className="mt-1 text-xs text-muted">Query: {source.queryTemplate}</p> : null}
                     {source.urlTemplate ? <p className="mt-1 text-xs text-muted">URL: {source.urlTemplate}</p> : null}
-                    {source.enabledPlatforms?.length ? <p className="mt-1 text-xs text-muted">Solo plataformas: {source.enabledPlatforms.join(", ")}</p> : null}
+                    {source.enabledPlatforms?.length ? <p className="mt-1 text-xs text-muted">Plataformas incluidas: {source.enabledPlatforms.join(", ")}</p> : null}
+                    {source.enabledRegions?.length ? <p className="mt-1 text-xs text-muted">Regiones incluidas: {source.enabledRegions.join(", ")}</p> : null}
                     {source.routeHint ? <p className="mt-1 text-xs text-muted">Ruta: {source.routeHint}</p> : null}
                   </div>
                   <button type="button" onClick={() => removeCustomSource(source.id)} className="text-xs font-semibold text-rose-600 dark:text-rose-300">Quitar</button>

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { readFileSync } from "fs";
+import path from "path";
 import { AdminPriceCoverageTable } from "@/components/admin/admin-price-coverage-table";
 import { AdminPriceSourceSettingsPanel } from "@/components/admin/admin-price-source-settings-panel";
 import { AdminStatTile, adminToneClass } from "@/components/admin/admin-visual";
@@ -21,6 +23,44 @@ type PriceSyncHealth = {
   tone: "green" | "amber" | "rose" | "neutral";
   helper: string;
 };
+type PriceSourceOption = {
+  value: string;
+  label: string;
+  helper?: string;
+};
+
+function readPriceSourcePlatformOptions(): PriceSourceOption[] {
+  try {
+    const platforms = JSON.parse(readFileSync(path.join(process.cwd(), "data", "platforms.json"), "utf8")) as Array<{
+      slug?: string;
+      name?: string;
+      shortName?: string;
+    }>;
+    return platforms
+      .filter((platform) => platform.slug && platform.name)
+      .map((platform) => ({
+        value: String(platform.slug),
+        label: String(platform.name),
+        helper: platform.shortName && platform.shortName !== platform.name ? String(platform.shortName) : undefined,
+      }));
+  } catch {
+    return [];
+  }
+}
+
+function readPriceSourceRegionOptions(): PriceSourceOption[] {
+  try {
+    const catalog = JSON.parse(readFileSync(path.join(process.cwd(), "data", "catalog.json"), "utf8")) as Array<{
+      region?: string;
+    }>;
+    const regions = Array.from(
+      new Set(catalog.map((game) => String(game.region ?? "").trim()).filter(Boolean)),
+    ).sort((a, b) => a.localeCompare(b, "es"));
+    return regions.map((region) => ({ value: region, label: region }));
+  } catch {
+    return [];
+  }
+}
 
 function formatDate(value: string | null | undefined): string {
   if (!value) return "—";
@@ -290,6 +330,8 @@ export default async function AdminPricesPage({
     getAdminPriceDashboard(20),
     readPriceSourceSettings(),
   ]);
+  const platformOptions = readPriceSourcePlatformOptions();
+  const regionOptions = readPriceSourceRegionOptions();
   const canCollectPrices = isAdminPriceCollectAvailable();
   const freshRows = dashboard.recentSyncs.filter((row) => {
     return isTodayOrYesterday(row.lastSyncAt);
@@ -373,7 +415,11 @@ export default async function AdminPricesPage({
         </Panel>
       </div>
 
-      <AdminPriceSourceSettingsPanel initialSettings={priceSourceSettings} />
+      <AdminPriceSourceSettingsPanel
+        initialSettings={priceSourceSettings}
+        platformOptions={platformOptions}
+        regionOptions={regionOptions}
+      />
 
       <Panel className={adminToneClass("search")}>
         <div className="flex flex-wrap items-center justify-between gap-3">
