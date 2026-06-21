@@ -24,6 +24,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_BASE_URL = "https://www.regionatlas.games"
+DEFAULT_WORKER_PUBLIC_URL = "https://www.puntoracing.net/MEDIAREGIONATLAS/price-worker"
 
 
 def load_local_env() -> None:
@@ -55,9 +56,58 @@ def request_json(base_url: str, path: str, token: str, payload: dict[str, Any], 
         return json.loads(response.read().decode("utf-8", errors="ignore"))
 
 
+def fetch_public_json(url: str, *, timeout: int = 30) -> dict[str, Any] | None:
+    request = urllib.request.Request(
+        url,
+        headers={
+            "Accept": "application/json",
+            "User-Agent": "RegionAtlasGamesLocalGameRunner/1.0",
+        },
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            return json.loads(response.read().decode("utf-8", errors="ignore"))
+    except (urllib.error.URLError, json.JSONDecodeError):
+        return None
+
+
+def download_recent_results(job: dict[str, Any], recent_dir: Path) -> int:
+    skip_days = int(job.get("skipRecentDays") or 0)
+    if skip_days <= 0:
+        return 0
+    worker_base = os.environ.get("PRICE_WORKER_PUBLIC_URL", DEFAULT_WORKER_PUBLIC_URL).rstrip("/")
+    queue = fetch_public_json(f"{worker_base}/app/data/admin/local-game-runner-jobs.json")
+    jobs = queue.get("jobs") if isinstance(queue, dict) else []
+    if not isinstance(jobs, list):
+        return 0
+
+    recent_dir.mkdir(parents=True, exist_ok=True)
+    downloaded = 0
+    current_id = str(job.get("id") or "")
+    for item in jobs[:80]:
+        if not isinstance(item, dict) or str(item.get("id") or "") == current_id:
+            continue
+        if item.get("status") != "done" or not item.get("resultPath"):
+            continue
+        if item.get("platformSlug") != job.get("platformSlug") or item.get("offerType") != job.get("offerType"):
+            continue
+        result_path = str(item["resultPath"]).lstrip("/")
+        url = f"{worker_base}/{result_path}"
+        payload = fetch_public_json(url)
+        if not payload:
+            continue
+        out = recent_dir / f"{item.get('id') or downloaded}.json"
+        out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        downloaded += 1
+    return downloaded
+
+
 def collect_game(job: dict[str, Any]) -> tuple[bool, dict[str, Any] | None, str, str | None]:
     with tempfile.TemporaryDirectory(prefix="region-atlas-game-") as tmp:
-        output = Path(tmp) / f"{job['id']}.json"
+        tmp_path = Path(tmp)
+        output = tmp_path / f"{job['id']}.json"
+        recent_dir = tmp_path / "recent"
+        recent_downloaded = download_recent_results(job, recent_dir)
         cmd = [
             sys.executable,
             str(ROOT / "scripts" / "collect_game_es.py"),
@@ -67,8 +117,14 @@ def collect_game(job: dict[str, Any]) -> tuple[bool, dict[str, Any] | None, str,
             str(job["offerType"]),
             "--limit",
             str(int(job.get("limit") or 20)),
+            "--start-page",
+            str(int(job.get("startPage") or 0)),
             "--max-pages",
             str(int(job.get("maxPages") or 1)),
+            "--skip-recent-days",
+            str(int(job.get("skipRecentDays") or 0)),
+            "--recent-dir",
+            str(recent_dir),
             "--output",
             str(output),
             "--no-ai",
@@ -76,12 +132,17 @@ def collect_game(job: dict[str, Any]) -> tuple[bool, dict[str, Any] | None, str,
         env = os.environ.copy()
         env.setdefault("REGION_VISION_DISABLED", "1")
         proc = subprocess.run(cmd, cwd=ROOT, env=env, text=True, capture_output=True, timeout=180)
-        log = "\n".join(part for part in [proc.stdout, proc.stderr] if part).strip()
+        prefix = f"Resultados recientes descargados para evitar repetidos: {recent_downloaded}\n" if int(job.get("skipRecentDays") or 0) > 0 else ""
+        log = "\n".join(part for part in [prefix + proc.stdout, proc.stderr] if part).strip()
         if proc.returncode != 0:
             return False, None, log, f"collect_game_es terminó con código {proc.returncode}"
         if not output.exists():
             return False, None, log, "collect_game_es no generó archivo de resultado"
-        return True, json.loads(output.read_text()), log, None
+        result = json.loads(output.read_text())
+        local_copy_dir = ROOT / "data" / "price-ingest" / "local-game"
+        local_copy_dir.mkdir(parents=True, exist_ok=True)
+        (local_copy_dir / f"{job['id']}.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        return True, result, log, None
 
 
 def run_once(base_url: str, token: str, runner_id: str) -> bool:

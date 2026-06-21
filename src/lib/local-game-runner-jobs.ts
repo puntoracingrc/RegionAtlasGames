@@ -20,7 +20,9 @@ export type LocalGameRunnerJob = {
   platformSlug: "ps4" | "ps5";
   offerType: LocalGameRunnerOfferType;
   limit: number;
+  startPage: number;
   maxPages: number;
+  skipRecentDays: number;
   createdAt: string;
   updatedAt: string;
   claimedAt?: string | null;
@@ -51,7 +53,9 @@ export type CreateLocalGameRunnerJobInput = {
   platformSlug?: string;
   offerType?: string;
   limit?: number;
+  startPage?: number;
   maxPages?: number;
+  skipRecentDays?: number;
 };
 
 function emptyQueue(): LocalGameRunnerQueue {
@@ -75,7 +79,9 @@ function normalizeJob(input: unknown): LocalGameRunnerJob | null {
     platformSlug,
     offerType,
     limit: Math.max(1, Math.min(60, Number(raw.limit) || 20)),
-    maxPages: Math.max(1, Math.min(2, Number(raw.maxPages) || 1)),
+    startPage: Math.max(0, Math.min(20, Number(raw.startPage) || 0)),
+    maxPages: Math.max(1, Math.min(8, Number(raw.maxPages) || 1)),
+    skipRecentDays: Math.max(0, Math.min(30, Number(raw.skipRecentDays) || 0)),
     createdAt: typeof raw.createdAt === "string" ? raw.createdAt : new Date().toISOString(),
     updatedAt: typeof raw.updatedAt === "string" ? raw.updatedAt : new Date().toISOString(),
     claimedAt: raw.claimedAt ?? null,
@@ -258,7 +264,9 @@ export async function createLocalGameRunnerJob(
   const offerType = input.offerType === "new" ? "new" : input.offerType === "preowned" ? "preowned" : null;
   if (!platformSlug || !offerType) return { error: "Elige plataforma PS4/PS5 y tipo nuevo/seminuevo." };
   const limit = Math.max(1, Math.min(60, Number(input.limit) || 20));
-  const maxPages = Math.max(1, Math.min(2, Number(input.maxPages) || 1));
+  const startPage = Math.max(0, Math.min(20, Number(input.startPage) || 0));
+  const maxPages = Math.max(1, Math.min(8, Number(input.maxPages) || 1));
+  const skipRecentDays = Math.max(0, Math.min(30, Number(input.skipRecentDays) || 0));
   const now = new Date().toISOString();
   const job: LocalGameRunnerJob = {
     id: `local-game-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
@@ -267,7 +275,9 @@ export async function createLocalGameRunnerJob(
     platformSlug,
     offerType,
     limit,
+    startPage,
     maxPages,
+    skipRecentDays,
     createdAt: now,
     updatedAt: now,
   };

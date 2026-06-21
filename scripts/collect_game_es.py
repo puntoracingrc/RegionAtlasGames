@@ -17,6 +17,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -135,11 +136,83 @@ def product_to_candidate(product: dict[str, Any], offer_type: str) -> dict[str, 
     }
 
 
-def collect_products(platform_slug: str, offer_type: str, *, max_pages: int, limit: int, delay: float) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+def product_seen_key(product: dict[str, Any]) -> str:
+    sku = str(product.get("sourceSku") or "").strip().lower()
+    if sku:
+        return f"sku:{sku}"
+    url = str(product.get("productUrl") or "").strip().lower()
+    if url:
+        return f"url:{url}"
+    return f"title:{str(product.get('title') or '').strip().lower()}|{product.get('priceEur')}"
+
+
+def parse_iso(value: str | None) -> datetime | None:
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def load_recent_seen_products(
+    *,
+    recent_dir: Path,
+    platform_slug: str,
+    source: str,
+    skip_recent_days: int,
+) -> set[str]:
+    if skip_recent_days <= 0 or not recent_dir.exists():
+        return set()
+    cutoff = datetime.now(timezone.utc) - timedelta(days=skip_recent_days)
+    seen: set[str] = set()
+    for path in sorted(recent_dir.glob("*.json")):
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if str(payload.get("platformSlug") or "") != platform_slug:
+            continue
+        if str(payload.get("source") or "") != source:
+            continue
+        collected_at = parse_iso(str(payload.get("collectedAt") or ""))
+        if collected_at and collected_at < cutoff:
+            continue
+        for key in ("products", "rawProducts"):
+            rows = payload.get(key) or []
+            if isinstance(rows, list):
+                for product in rows:
+                    if isinstance(product, dict):
+                        seen.add(product_seen_key(product))
+        for row in payload.get("listings") or []:
+            if isinstance(row, dict):
+                seen.add(product_seen_key(row))
+    return seen
+
+
+def collect_products(
+    platform_slug: str,
+    offer_type: str,
+    *,
+    start_page: int,
+    max_pages: int,
+    limit: int,
+    delay: float,
+    skip_seen: set[str] | None = None,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     products: list[dict[str, Any]] = []
     seen: set[str] = set()
-    stats: dict[str, Any] = {"pages": 0, "totalResults": None, "totalPages": None, "rawProducts": 0, "products": 0}
-    for page in range(max_pages):
+    skip_seen = skip_seen or set()
+    stats: dict[str, Any] = {
+        "startPage": start_page,
+        "pages": 0,
+        "totalResults": None,
+        "totalPages": None,
+        "rawProducts": 0,
+        "products": 0,
+        "skippedRecent": 0,
+    }
+    for page in range(start_page, start_page + max_pages):
         data = fetch_search_page(platform_slug, offer_type, page)
         stats["pages"] += 1
         stats["totalResults"] = data.get("TotalResults")
@@ -151,24 +224,33 @@ def collect_products(platform_slug: str, offer_type: str, *, max_pages: int, lim
             product = product_to_candidate(raw_product, offer_type)
             if not product:
                 continue
-            key = product["productUrl"]
+            key = product_seen_key(product)
             if key in seen:
                 continue
             seen.add(key)
+            if key in skip_seen:
+                stats["skippedRecent"] += 1
+                continue
             products.append(product)
             new_count += 1
             if len(products) >= limit:
                 stats["products"] = len(products)
                 stats["stopReason"] = "max_products"
                 return products, stats
-        print(f"  GAME {offer_type} página {page + 1}: raw {len(raw_products)} · nuevos {new_count} · total {len(products)}")
-        if not raw_products or new_count == 0:
+        print(
+            f"  GAME {offer_type} página {page + 1}: raw {len(raw_products)} · "
+            f"nuevos {new_count} · recientes saltados {stats['skippedRecent']} · total {len(products)}"
+        )
+        if not raw_products:
+            stats["stopReason"] = "no_products"
+            break
+        if new_count == 0 and not skip_seen:
             stats["stopReason"] = "no_new_products"
             break
         if stats["totalPages"] is not None and page + 1 >= int(stats["totalPages"]):
             stats["stopReason"] = "last_page"
             break
-        if page + 1 < max_pages:
+        if page + 1 < start_page + max_pages:
             time.sleep(delay)
     stats["products"] = len(products)
     stats.setdefault("stopReason", "safety_limit_reached")
@@ -215,12 +297,22 @@ def row_from_product(product: dict[str, Any], matched_game: dict[str, Any], resu
 def run_platform(args: argparse.Namespace) -> int:
     source = OFFER_TYPES[args.offer_type]["source"]
     print(f"=== GAME España · {args.platform} · {args.offer_type} ===")
+    skip_seen = load_recent_seen_products(
+        recent_dir=args.recent_dir,
+        platform_slug=args.platform,
+        source=source,
+        skip_recent_days=max(0, args.skip_recent_days),
+    )
+    if skip_seen:
+        print(f"  Productos GAME vistos recientemente que se saltarán: {len(skip_seen)}")
     products, source_stats = collect_products(
         args.platform,
         args.offer_type,
+        start_page=max(0, args.start_page),
         max_pages=max(1, args.max_pages),
         limit=max(1, args.limit),
         delay=max(0.0, args.delay),
+        skip_seen=skip_seen,
     )
     print(f"  Productos detectados: {len(products)} · total API: {source_stats.get('totalResults')} · páginas API: {source_stats.get('totalPages')}")
 
@@ -259,6 +351,7 @@ def run_platform(args: argparse.Namespace) -> int:
         "source": source,
         "searchMode": "api",
         "offerType": args.offer_type,
+        "products": products,
         "listings": stats.rows,
         "cex": [],
         "jgo": [],
@@ -285,8 +378,11 @@ def main() -> None:
     parser.add_argument("--offer-type", required=True, choices=sorted(OFFER_TYPES))
     parser.add_argument("--region", help="Región exacta del catálogo")
     parser.add_argument("--limit", type=int, default=60)
+    parser.add_argument("--start-page", type=int, default=0)
     parser.add_argument("--max-pages", type=int, default=1)
     parser.add_argument("--delay", type=float, default=0.8)
+    parser.add_argument("--skip-recent-days", type=int, default=0)
+    parser.add_argument("--recent-dir", type=Path, default=ROOT / "data" / "price-ingest" / "local-game")
     parser.add_argument("--output", type=Path, default=ROOT / "data" / "price-ingest" / "game-es.json")
     parser.add_argument("--dry-run", action="store_true")
     add_match_flags(parser)

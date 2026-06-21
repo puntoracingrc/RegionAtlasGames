@@ -18,7 +18,9 @@ export async function POST(request: Request) {
     platformSlug: body?.platformSlug,
     offerType: body?.offerType,
     limit: Number(body?.limit ?? 20),
+    startPage: Number(body?.startPage ?? 0),
     maxPages: Number(body?.maxPages ?? 1),
+    skipRecentDays: Number(body?.skipRecentDays ?? 0),
   });
   if ("error" in result) {
     return NextResponse.json({ ok: false, error: result.error }, { status: 400 });

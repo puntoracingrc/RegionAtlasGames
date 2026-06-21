@@ -30,6 +30,9 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
   const [platformSlug, setPlatformSlug] = useState<"ps4" | "ps5">("ps4");
   const [offerType, setOfferType] = useState<LocalGameRunnerOfferType>("preowned");
   const [limit, setLimit] = useState(20);
+  const [startPage, setStartPage] = useState(0);
+  const [maxPages, setMaxPages] = useState(2);
+  const [skipRecentDays, setSkipRecentDays] = useState(7);
   const [state, setState] = useState<"idle" | "saving" | "error" | "saved">("idle");
   const [importingJobId, setImportingJobId] = useState<string | null>(null);
   const [message, setMessage] = useState("");
@@ -46,7 +49,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
     const response = await fetch("/api/admin/price-local-game-jobs", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ platformSlug, offerType, limit, maxPages: 1 }),
+      body: JSON.stringify({ platformSlug, offerType, limit, startPage, maxPages, skipRecentDays }),
     });
     const data = await response.json().catch(() => null) as { ok?: boolean; job?: LocalGameRunnerJob; error?: string } | null;
     if (!response.ok || !data?.ok || !data.job) {
@@ -93,7 +96,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
         <button type="button" onClick={refreshJobs} className="btn-secondary text-sm">Actualizar estado</button>
       </div>
 
-      <div className="mt-5 grid gap-3 md:grid-cols-[1fr_1fr_1fr_auto]">
+      <div className="mt-5 grid gap-3 md:grid-cols-[1fr_1fr_1fr_1fr_auto]">
         <label className="text-xs font-semibold text-muted">
           Plataforma
           <select value={platformSlug} onChange={(event) => setPlatformSlug(event.target.value as "ps4" | "ps5")} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground">
@@ -112,9 +115,24 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
           Límite prudente
           <input type="number" min={1} max={60} value={limit} onChange={(event) => setLimit(Number(event.target.value) || 20)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground" />
         </label>
+        <label className="text-xs font-semibold text-muted">
+          Páginas a explorar
+          <input type="number" min={1} max={8} value={maxPages} onChange={(event) => setMaxPages(Number(event.target.value) || 1)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground" />
+        </label>
         <button type="button" onClick={createJob} disabled={state === "saving"} className="btn-primary self-end">
           {state === "saving" ? "Creando..." : "Lanzar GAME desde Mac"}
         </button>
+      </div>
+      <div className="mt-3 grid gap-3 md:grid-cols-2">
+        <label className="text-xs font-semibold text-muted">
+          Empezar en página
+          <input type="number" min={0} max={20} value={startPage} onChange={(event) => setStartPage(Number(event.target.value) || 0)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground" />
+        </label>
+        <label className="text-xs font-semibold text-muted">
+          Evitar repetidos de los últimos días
+          <input type="number" min={0} max={30} value={skipRecentDays} onChange={(event) => setSkipRecentDays(Number(event.target.value) || 0)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground" />
+          <span className="mt-1 block text-[11px] font-normal leading-4 text-muted">0 = no filtrar. Recomendado: 7 días para seguir con productos nuevos.</span>
+        </label>
       </div>
 
       {message ? (
@@ -130,6 +148,9 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
               <div>
                 <p className="font-bold text-foreground">{job.platformSlug.toUpperCase()} · {job.offerType === "preowned" ? "Seminuevo" : "Nuevo"}</p>
                 <p className="mt-1 text-xs text-muted">Creado: {formatDate(job.createdAt)} · Actualizado: {formatDate(job.updatedAt)}</p>
+                <p className="text-xs text-muted">
+                  Límite {job.limit} · desde página {(job.startPage ?? 0) + 1} · páginas {job.maxPages ?? 1} · evita {job.skipRecentDays ?? 0} días
+                </p>
                 {job.runnerId ? <p className="text-xs text-muted">Runner: {job.runnerId}</p> : null}
               </div>
               <span className="rounded-full border border-border bg-card/70 px-3 py-1 text-[11px] font-bold text-muted">{statusLabel(job.status)}</span>
