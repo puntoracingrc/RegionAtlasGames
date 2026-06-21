@@ -44,6 +44,7 @@ from collectors.condition_buckets import (  # noqa: E402
 )
 from collectors.price_history import record_platform_snapshots  # noqa: E402
 from collectors.price_ai_policy import price_collectors_use_ai  # noqa: E402
+from collectors.price_review_queue import record_price_review_candidates  # noqa: E402
 
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 STATE_FILE = ROOT / "data" / "price-sync-state.json"
@@ -722,6 +723,17 @@ def main() -> None:
 
     ingest = load_json(args.input)
     synced_at = ingest.get("collectedAt") or now_iso()
+    try:
+        review_stats = record_price_review_candidates(ingest, platform_slug)
+        if review_stats.get("added") or review_stats.get("updated"):
+            print(
+                "  Precios a revisar: "
+                f"+{review_stats.get('added', 0)} nuevos · "
+                f"{review_stats.get('updated', 0)} actualizados · "
+                f"{review_stats.get('pending', 0)} pendientes"
+            )
+    except Exception as exc:  # noqa: BLE001
+        print(f"  AVISO: no se pudo actualizar la cola de precios a revisar: {exc}")
     listings = ingest.get("listings") or []
     cex_rows = ingest.get("cex") or []
     jgo_rows = ingest.get("jgo") or []

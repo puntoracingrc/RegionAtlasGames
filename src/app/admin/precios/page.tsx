@@ -2,6 +2,7 @@ import Link from "next/link";
 import { readFileSync } from "fs";
 import path from "path";
 import { AdminPriceCoverageTable } from "@/components/admin/admin-price-coverage-table";
+import { AdminPriceReviewPanel } from "@/components/admin/admin-price-review-panel";
 import { AdminPriceSourceSettingsPanel } from "@/components/admin/admin-price-source-settings-panel";
 import { AdminStatTile, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
@@ -12,6 +13,7 @@ import {
   type AdminPriceJobMeta,
 } from "@/lib/admin-price-collect";
 import type { AdminPriceCronAttempt } from "@/lib/admin-price-cron-log";
+import { listPriceReviewItems } from "@/lib/admin-price-review";
 import { readPriceSourceSettings } from "@/lib/price-source-settings";
 
 export const dynamic = "force-dynamic";
@@ -332,9 +334,10 @@ export default async function AdminPricesPage({
 }) {
   const params = await searchParams;
   const coverageSort = normalizeCoverageSort(params?.coverageSort);
-  const [dashboard, priceSourceSettings] = await Promise.all([
+  const [dashboard, priceSourceSettings, priceReviewItems] = await Promise.all([
     getAdminPriceDashboard(20),
     readPriceSourceSettings(),
+    listPriceReviewItems(40),
   ]);
   const platformOptions = readPriceSourcePlatformOptions();
   const regionOptions = readPriceSourceRegionOptions();
@@ -475,6 +478,8 @@ export default async function AdminPricesPage({
         platformOptions={platformOptions}
         regionOptions={regionOptions}
       />
+
+      <AdminPriceReviewPanel initialItems={priceReviewItems} />
 
       <Panel className={adminToneClass("search")}>
         <div className="flex flex-wrap items-center justify-between gap-3">
