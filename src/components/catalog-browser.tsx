@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { CatalogGameCard } from "@/components/game-card";
 import { CatalogPagination } from "@/components/catalog-pagination";
 import { HighlightLegend } from "@/components/highlight-legend";
@@ -25,13 +25,21 @@ import {
 } from "@/lib/catalog-filters";
 import type { CatalogListGame } from "@/lib/types";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
-import { cn } from "@/lib/cn";
 
 const selectClass =
-  "rounded-lg border border-border bg-input px-3 py-2 text-sm outline-none ring-accent/25 focus:ring-2";
+  "h-10 w-full rounded-lg border border-border bg-input px-3 text-sm outline-none ring-accent/25 transition focus:border-accent/50 focus:ring-2";
 
 function filterOptionLabel(label: string, _count?: number): string {
   return label;
+}
+
+function FilterField({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <label className="min-w-0 space-y-1">
+      <span className="block text-[10px] font-black uppercase tracking-[0.18em] text-muted">{label}</span>
+      {children}
+    </label>
+  );
 }
 
 type Props = {
@@ -394,112 +402,128 @@ export function CatalogBrowser({
         </div>
 
         <div className="space-y-3">
-          <input
-            type="search"
-            placeholder="Nombre del juego, referencia o SKU…"
-            value={draftQ}
-            onChange={(e) => setDraftQ(e.target.value)}
-            autoComplete="off"
-            autoCorrect="off"
-            spellCheck={false}
-            className="w-full rounded-2xl border border-sky-600/20 bg-white px-4 py-3 text-sm shadow-inner outline-none ring-accent/25 placeholder:text-muted focus:border-accent/50 focus:ring-2 dark:border-white/10 dark:bg-black/35"
-          />
+          <label className="block space-y-1">
+            <span className="block text-[10px] font-black uppercase tracking-[0.18em] text-muted">Buscador</span>
+            <input
+              type="search"
+              placeholder="Nombre del juego, referencia o SKU…"
+              value={draftQ}
+              onChange={(e) => setDraftQ(e.target.value)}
+              autoComplete="off"
+              autoCorrect="off"
+              spellCheck={false}
+              className="h-12 w-full rounded-2xl border border-sky-600/20 bg-white px-4 text-sm shadow-inner outline-none ring-accent/25 transition placeholder:text-muted focus:border-accent/50 focus:ring-2 dark:border-white/10 dark:bg-black/35"
+            />
+          </label>
 
-          <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+          <div className="space-y-3">
             {showRegionFilter && activeRegions.length > 1 && (
-              <RegionFilterChips
-                value={region}
-                onChange={setRegion}
-                allLabel="Todas las regiones"
-                options={activeRegions}
-                className="w-full sm:flex-1"
-              />
-            )}
-
-            {showPlatformFilter && platforms.length > 1 && (
-              <select value={platform} onChange={(e) => setPlatform(e.target.value)} className={selectClass}>
-                <option value="all">Todas las plataformas</option>
-                {platforms.map((p) => (
-                  <option key={p.slug} value={p.slug}>
-                    {filterOptionLabel(p.name, p.count)}
-                  </option>
-                ))}
-              </select>
-            )}
-
-            {showTaxonomyFilters && activeGenres.length > 1 && (
-              <select value={genre} onChange={(e) => setGenre(e.target.value)} className={selectClass}>
-                <option value="all">Todos los géneros</option>
-                {activeGenres.map((option) => (
-                  <option key={option.slug} value={option.slug}>
-                    {filterOptionLabel(option.name, option.count)}
-                  </option>
-                ))}
-              </select>
-            )}
-
-            {showTaxonomyFilters && activeSubgenres.length > 1 && (
-              <select value={subgenre} onChange={(e) => setSubgenre(e.target.value)} className={selectClass}>
-                <option value="all">Todos los subgéneros</option>
-                {activeSubgenres.map((option) => (
-                  <option key={option.slug} value={option.slug}>
-                    {filterOptionLabel(option.name, option.count)}
-                  </option>
-                ))}
-              </select>
-            )}
-
-            {showTaxonomyFilters && activeFacets.length > 1 && (
-              <select value={facet} onChange={(e) => setFacet(e.target.value)} className={selectClass}>
-                <option value="all">Todas las facetas</option>
-                {activeFacets.map((option) => (
-                  <option key={option.slug} value={option.slug}>
-                    {filterOptionLabel(option.name, option.count)}
-                  </option>
-                ))}
-              </select>
-            )}
-
-            {showTaxonomyFilters && (
-              <div className="relative min-w-[220px] flex-1 sm:flex-none">
-                <input
-                  type="search"
-                  value={company}
-                  onChange={(e) => setCompany(e.target.value)}
-                  onFocus={() => setCompanyFocused(true)}
-                  onBlur={() => window.setTimeout(() => setCompanyFocused(false), 120)}
-                  placeholder="Filtrar por compañía…"
-                  className={cn(selectClass, "w-full")}
+              <div className="rounded-2xl border border-sky-600/15 bg-white/60 p-2 dark:border-white/10 dark:bg-white/5">
+                <p className="mb-2 px-1 text-[10px] font-black uppercase tracking-[0.18em] text-muted">Región</p>
+                <RegionFilterChips
+                  value={region}
+                  onChange={setRegion}
+                  allLabel="Todas las regiones"
+                  options={activeRegions}
+                  className="gap-1.5"
                 />
-                {companyFocused && companySuggestions.length > 0 && (
-                  <div className="absolute left-0 right-0 top-full z-20 mt-1 max-h-64 overflow-auto rounded-xl border border-border bg-card p-1 shadow-xl">
-                    {companySuggestions.map((option) => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onMouseDown={(event) => event.preventDefault()}
-                        onClick={() => setCompany(option.name)}
-                        className="flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2 text-left text-sm hover:bg-card-hover"
-                      >
-                        <span className="truncate font-medium text-foreground">{option.name}</span>
-                      </button>
-                    ))}
-                  </div>
-                )}
               </div>
             )}
 
-            <select
-              value={sort}
-              onChange={(e) => setSort(e.target.value as CatalogSort)}
-              className={cn(selectClass, "sm:min-w-[220px]")}
-            >
-              {SORT_OPTIONS.map((opt) => (
-                <option key={opt.value} value={opt.value}>
-                  {opt.label}
-                </option>
-              ))}
-            </select>
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            {showPlatformFilter && platforms.length > 1 && (
+              <FilterField label="Plataforma">
+                <select value={platform} onChange={(e) => setPlatform(e.target.value)} className={selectClass}>
+                  <option value="all">Todas las plataformas</option>
+                  {platforms.map((p) => (
+                    <option key={p.slug} value={p.slug}>
+                      {filterOptionLabel(p.name, p.count)}
+                    </option>
+                  ))}
+                </select>
+              </FilterField>
+            )}
+
+            {showTaxonomyFilters && activeGenres.length > 1 && (
+              <FilterField label="Género">
+                <select value={genre} onChange={(e) => setGenre(e.target.value)} className={selectClass}>
+                  <option value="all">Todos los géneros</option>
+                  {activeGenres.map((option) => (
+                    <option key={option.slug} value={option.slug}>
+                      {filterOptionLabel(option.name, option.count)}
+                    </option>
+                  ))}
+                </select>
+              </FilterField>
+            )}
+
+            {showTaxonomyFilters && activeSubgenres.length > 1 && (
+              <FilterField label="Subgénero">
+                <select value={subgenre} onChange={(e) => setSubgenre(e.target.value)} className={selectClass}>
+                  <option value="all">Todos los subgéneros</option>
+                  {activeSubgenres.map((option) => (
+                    <option key={option.slug} value={option.slug}>
+                      {filterOptionLabel(option.name, option.count)}
+                    </option>
+                  ))}
+                </select>
+              </FilterField>
+            )}
+
+            {showTaxonomyFilters && activeFacets.length > 1 && (
+              <FilterField label="Faceta">
+                <select value={facet} onChange={(e) => setFacet(e.target.value)} className={selectClass}>
+                  <option value="all">Todas las facetas</option>
+                  {activeFacets.map((option) => (
+                    <option key={option.slug} value={option.slug}>
+                      {filterOptionLabel(option.name, option.count)}
+                    </option>
+                  ))}
+                </select>
+              </FilterField>
+            )}
+
+            {showTaxonomyFilters && (
+              <FilterField label="Compañía">
+                <div className="relative">
+                  <input
+                    type="search"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    onFocus={() => setCompanyFocused(true)}
+                    onBlur={() => window.setTimeout(() => setCompanyFocused(false), 120)}
+                    placeholder="Filtrar por compañía…"
+                    className={selectClass}
+                  />
+                  {companyFocused && companySuggestions.length > 0 && (
+                    <div className="absolute left-0 right-0 top-full z-20 mt-1 max-h-64 overflow-auto rounded-xl border border-border bg-card p-1 shadow-xl">
+                      {companySuggestions.map((option) => (
+                        <button
+                          key={option.value}
+                          type="button"
+                          onMouseDown={(event) => event.preventDefault()}
+                          onClick={() => setCompany(option.name)}
+                          className="flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2 text-left text-sm hover:bg-card-hover"
+                        >
+                          <span className="truncate font-medium text-foreground">{option.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </FilterField>
+            )}
+
+            <FilterField label="Orden">
+              <select value={sort} onChange={(e) => setSort(e.target.value as CatalogSort)} className={selectClass}>
+                {SORT_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </FilterField>
+            </div>
           </div>
 
           <div className="flex flex-col gap-2 rounded-2xl border border-sky-600/15 bg-white/65 p-3 dark:border-white/10 dark:bg-white/5 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
