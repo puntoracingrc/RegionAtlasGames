@@ -1,12 +1,16 @@
 import { CatalogBrowser } from "@/components/catalog-browser";
 import { CatalogGameCard } from "@/components/game-card";
 import { SiteNav } from "@/components/site-nav";
-import { CATALOG_PAGE_SIZE, publicRegionFilterOptions } from "@/lib/catalog-filters";
+import { CATALOG_PAGE_SIZE } from "@/lib/catalog-filters";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { buildGameFacetProfileView } from "@/lib/game-facet-profile";
-import { publicPlatformFilterOptions } from "@/lib/public-catalog-filter-options";
+import {
+  publicCatalogRegionFilterOptions,
+  publicCatalogRegionFilterOptionsByPlatform,
+  publicPlatformFilterOptions,
+} from "@/lib/public-catalog-filter-options";
 import { getCurrentUser } from "@/lib/users";
 
 function entityTypeLabel(type: "genre" | "subgenre" | "facet"): string {
@@ -94,7 +98,8 @@ export async function GameFacetProfileDetail({
             contextName={view.title}
             source={{ kind: "taxonomy", filter: view.entity.type, slug: view.entity.slug }}
             totalCount={view.games.length}
-            regions={publicRegionFilterOptions()}
+            regions={publicCatalogRegionFilterOptions()}
+            regionsByPlatform={publicCatalogRegionFilterOptionsByPlatform()}
             platforms={publicPlatformFilterOptions()}
             showRegionFilter
             showPlatformFilter

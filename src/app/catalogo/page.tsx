@@ -6,7 +6,6 @@ import {
   filterCatalogGames,
   publicFacetFilterOptions,
   publicGenreFilterOptions,
-  publicRegionFilterOptions,
   publicSubgenreFilterOptions,
   type CatalogPriceType,
 } from "@/lib/catalog-filters";
@@ -15,7 +14,12 @@ import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { getDefaultCatalogInitialPage } from "@/lib/public-catalog-initial-page";
-import { publicCompanyFilterOptions, publicPlatformFilterOptions } from "@/lib/public-catalog-filter-options";
+import {
+  publicCatalogRegionFilterOptions,
+  publicCatalogRegionFilterOptionsByPlatform,
+  publicCompanyFilterOptions,
+  publicPlatformFilterOptions,
+} from "@/lib/public-catalog-filter-options";
 import { getCurrentUser } from "@/lib/users";
 
 type Props = {
@@ -92,7 +96,8 @@ export default async function CatalogPage({ searchParams }: Props) {
           contextName="todo el catálogo"
           source={{ kind: "catalog" }}
           totalCount={initialCatalog.total}
-          regions={publicRegionFilterOptions()}
+          regions={publicCatalogRegionFilterOptions()}
+          regionsByPlatform={publicCatalogRegionFilterOptionsByPlatform()}
           platforms={publicPlatformFilterOptions()}
           genres={publicGenreFilterOptions()}
           subgenres={publicSubgenreFilterOptions()}

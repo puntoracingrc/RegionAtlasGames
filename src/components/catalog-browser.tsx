@@ -70,6 +70,7 @@ type Props = {
     | { kind: "taxonomy"; filter: "genre" | "subgenre" | "facet"; slug: string };
   totalCount?: number;
   regions?: CatalogRegionFilterOption[];
+  regionsByPlatform?: Record<string, CatalogRegionFilterOption[]>;
   platforms?: CatalogPlatformFilterOption[];
   genres?: CatalogTaxonomyFilterOption[];
   subgenres?: CatalogTaxonomyFilterOption[];
@@ -102,6 +103,7 @@ export function CatalogBrowser({
   source,
   totalCount,
   regions: initialRegions,
+  regionsByPlatform,
   platforms: initialPlatforms,
   genres: initialGenres,
   subgenres: initialSubgenres,
@@ -172,6 +174,13 @@ export function CatalogBrowser({
   const [activeFacets, setActiveFacets] = useState(facets);
   const [activeCompanies, setActiveCompanies] = useState(companies);
 
+  const visibleRegions = useMemo(() => {
+    if (showPlatformFilter && platform !== "all") {
+      return regionsByPlatform?.[platform] ?? [];
+    }
+    return activeRegions;
+  }, [activeRegions, platform, regionsByPlatform, showPlatformFilter]);
+
   useEffect(() => {
     setActiveRegions(regions);
     setActiveGenres(genres);
@@ -179,6 +188,12 @@ export function CatalogBrowser({
     setActiveFacets(facets);
     setActiveCompanies(companies);
   }, [companies, facets, genres, regions, subgenres]);
+
+  useEffect(() => {
+    if (region === "all") return;
+    if (visibleRegions.some((option) => option.value === region)) return;
+    setRegion("all");
+  }, [region, setRegion, visibleRegions]);
 
   useEffect(() => {
     if (!persistKey) return;
@@ -453,14 +468,14 @@ export function CatalogBrowser({
           </label>
 
           <div className="space-y-3">
-            {showRegionFilter && activeRegions.length > 1 && (
+            {showRegionFilter && visibleRegions.length > 1 && (
               <div className="rounded-2xl border border-sky-600/15 bg-white/60 p-2 dark:border-white/10 dark:bg-white/5">
                 <p className="mb-2 px-1 text-[10px] font-black uppercase tracking-[0.18em] text-muted">Región</p>
                 <RegionFilterChips
                   value={region}
                   onChange={setRegion}
                   allLabel="Todas las regiones"
-                  options={activeRegions}
+                  options={visibleRegions}
                   className="gap-1.5"
                 />
               </div>

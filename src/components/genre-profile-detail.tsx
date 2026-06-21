@@ -2,15 +2,16 @@ import { CatalogBrowser } from "@/components/catalog-browser";
 import { CatalogGameCard } from "@/components/game-card";
 import { GenrePlatformGames, GenreProfileHeader, GenreReferenceTop } from "@/components/genre-profile-sections";
 import { SiteNav } from "@/components/site-nav";
-import {
-  CATALOG_PAGE_SIZE,
-  publicRegionFilterOptions,
-} from "@/lib/catalog-filters";
+import { CATALOG_PAGE_SIZE } from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { buildGenreIntro } from "@/lib/genre-seo";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { pickRecommendedGames } from "@/lib/game-facet-profile";
-import { publicPlatformFilterOptions } from "@/lib/public-catalog-filter-options";
+import {
+  publicCatalogRegionFilterOptions,
+  publicCatalogRegionFilterOptionsByPlatform,
+  publicPlatformFilterOptions,
+} from "@/lib/public-catalog-filter-options";
 import type { GenreProfileView } from "@/lib/genre-profile";
 
 type Props = {
@@ -86,7 +87,8 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn, fromCata
             contextName={view.name}
             source={{ kind: "genre", slug: view.slug }}
             totalCount={view.games.length}
-            regions={publicRegionFilterOptions()}
+            regions={publicCatalogRegionFilterOptions()}
+            regionsByPlatform={publicCatalogRegionFilterOptionsByPlatform()}
             platforms={publicPlatformFilterOptions()}
             showRegionFilter
             showPlatformFilter

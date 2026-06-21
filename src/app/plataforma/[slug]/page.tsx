@@ -10,7 +10,6 @@ import {
   CATALOG_PAGE_SIZE,
   publicFacetFilterOptions,
   publicGenreFilterOptions,
-  publicRegionFilterOptions,
   publicSubgenreFilterOptions,
 } from "@/lib/catalog-filters";
 import { buildPlatformCatalogInsights } from "@/lib/platform-catalog-insights";
@@ -18,7 +17,7 @@ import { getOwnedCatalogIds, getUserCollectionViews } from "@/lib/collection-sto
 import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { getAdminPlatform } from "@/lib/admin-entity-catalog";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
-import { publicCompanyFilterOptions } from "@/lib/public-catalog-filter-options";
+import { publicCatalogRegionFilterOptionsForPlatform, publicCompanyFilterOptions } from "@/lib/public-catalog-filter-options";
 import { listNewsForSection } from "@/lib/news-cache";
 import { platformNewsTopicForSlug } from "@/lib/news-platform-topics";
 import { canViewCollectionValue } from "@/lib/plans";
@@ -85,7 +84,7 @@ export default async function PlatformPage({ params, searchParams }: Props) {
               games={initialGames}
               totalGames={catalogGames.length}
               insights={buildPlatformCatalogInsights(catalogGames)}
-              regions={publicRegionFilterOptions()}
+              regions={publicCatalogRegionFilterOptionsForPlatform(platform.slug)}
               genres={publicGenreFilterOptions()}
               subgenres={publicSubgenreFilterOptions()}
               facets={publicFacetFilterOptions()}
