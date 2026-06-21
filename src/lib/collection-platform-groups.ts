@@ -16,9 +16,10 @@ const EXTENDED_PLATFORMS: Record<
   { shortName: string; manufacturer: Platform["manufacturer"] | "other"; sortOrder: number }
 > = {
   ps5: { shortName: "PS5", manufacturer: "sony", sortOrder: 23 },
-  xbox360: { shortName: "Xbox 360", manufacturer: "other", sortOrder: 24 },
-  xboxone: { shortName: "Xbox One", manufacturer: "other", sortOrder: 25 },
-  xboxseriesx: { shortName: "Xbox Series X|S", manufacturer: "other", sortOrder: 26 },
+  xbox360: { shortName: "Xbox 360", manufacturer: "microsoft", sortOrder: 24 },
+  xboxone: { shortName: "Xbox One", manufacturer: "microsoft", sortOrder: 25 },
+  xboxseries: { shortName: "Xbox Series", manufacturer: "microsoft", sortOrder: 26 },
+  xboxseriesx: { shortName: "Xbox Series", manufacturer: "microsoft", sortOrder: 26 },
   switch: { shortName: "Switch", manufacturer: "nintendo", sortOrder: 27 },
   switch2: { shortName: "Switch 2", manufacturer: "nintendo", sortOrder: 28 },
   gameboycolor: { shortName: "Game Boy Color", manufacturer: "nintendo", sortOrder: 29 },
@@ -37,6 +38,7 @@ export const MANUFACTURER_PANEL_STYLE: Record<
 > = {
   nintendo: "from-red-500/15 to-red-500/5 border-red-400/25",
   sony: "from-blue-500/15 to-blue-500/5 border-blue-400/25",
+  microsoft: "from-emerald-500/15 to-emerald-500/5 border-emerald-400/25",
   sega: "from-indigo-500/15 to-indigo-500/5 border-indigo-400/25",
   snk: "from-cyan-500/15 to-cyan-500/5 border-cyan-400/25",
   other: "from-zinc-500/15 to-zinc-500/5 border-zinc-400/25",

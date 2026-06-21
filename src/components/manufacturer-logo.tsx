@@ -2,9 +2,10 @@ import type { Platform } from "@/lib/types";
 import { cn } from "@/lib/cn";
 
 type Manufacturer = Platform["manufacturer"] | "other";
+type LogoManufacturer = Exclude<Platform["manufacturer"], "microsoft">;
 
 const LOGOS: Record<
-  Platform["manufacturer"],
+  LogoManufacturer,
   { src: string; alt: string; width: number; height: number }
 > = {
   nintendo: {
@@ -33,7 +34,7 @@ const LOGOS: Record<
   },
 };
 
-const LOGO_CLASS: Record<Platform["manufacturer"], string> = {
+const LOGO_CLASS: Record<LogoManufacturer, string> = {
   nintendo: "h-3.5 w-auto max-w-[76px] object-contain object-left opacity-95",
   sony: "h-3.5 w-auto max-w-[56px] object-contain object-left opacity-80 brightness-0 invert",
   sega: "h-3.5 w-auto max-w-[52px] object-contain object-left",
@@ -57,6 +58,19 @@ export function ManufacturerLogo({
         )}
       >
         Otras
+      </span>
+    );
+  }
+
+  if (manufacturer === "microsoft") {
+    return (
+      <span
+        className={cn(
+          "inline-flex h-4 items-center text-[10px] font-semibold uppercase tracking-wider text-emerald-300",
+          className,
+        )}
+      >
+        Microsoft
       </span>
     );
   }

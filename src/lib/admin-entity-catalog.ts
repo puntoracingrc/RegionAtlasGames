@@ -329,7 +329,7 @@ async function createOverlayPlatform(
     return { error: `Ya existe la plataforma «${slug}».` };
   }
   const manufacturer = input.manufacturer ?? "nintendo";
-  if (!["nintendo", "sony", "sega", "snk"].includes(manufacturer)) {
+  if (!["nintendo", "sony", "sega", "snk", "microsoft"].includes(manufacturer)) {
     return { error: "Fabricante no válido." };
   }
   const status = input.status ?? "closed";
@@ -506,7 +506,7 @@ export async function createAdminPlatform(input: {
   }
 
   const manufacturer = input.manufacturer ?? "nintendo";
-  if (!["nintendo", "sony", "sega", "snk"].includes(manufacturer)) {
+  if (!["nintendo", "sony", "sega", "snk", "microsoft"].includes(manufacturer)) {
     return { error: "Fabricante no válido." };
   }
 

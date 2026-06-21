@@ -18,7 +18,7 @@ export async function PATCH(request: Request, { params }: RouteParams) {
   const body = (await request.json()) as {
     name?: string;
     shortName?: string;
-    manufacturer?: "nintendo" | "sony" | "sega" | "snk";
+    manufacturer?: "nintendo" | "sony" | "sega" | "snk" | "microsoft";
     status?: "closed" | "semi-closed";
     description?: string;
     sortOrder?: number;

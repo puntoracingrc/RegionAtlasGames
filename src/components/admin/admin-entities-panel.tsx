@@ -1050,6 +1050,7 @@ export function AdminEntitiesPanel({
               >
                 <option value="nintendo">Nintendo</option>
                 <option value="sony">Sony</option>
+                <option value="microsoft">Microsoft</option>
                 <option value="sega">Sega</option>
                 <option value="snk">SNK</option>
               </select>
@@ -1422,6 +1423,7 @@ export function AdminEntitiesPanel({
                       >
                         <option value="nintendo">Nintendo</option>
                         <option value="sony">Sony</option>
+                        <option value="microsoft">Microsoft</option>
                         <option value="sega">Sega</option>
                         <option value="snk">SNK</option>
                       </select>

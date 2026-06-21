@@ -176,7 +176,7 @@ export type Platform = {
   slug: string;
   name: string;
   shortName: string;
-  manufacturer: "nintendo" | "sony" | "sega" | "snk";
+  manufacturer: "nintendo" | "sony" | "sega" | "snk" | "microsoft";
   status: PlatformStatus;
   estimatedCatalogSize: number;
   sortOrder: number;

@@ -11,6 +11,7 @@ const HOVER_LIFT =
 const MANUFACTURER_STYLE = {
   nintendo: "from-red-500/20 to-red-500/5 border-red-400/20",
   sony: "from-blue-500/20 to-blue-500/5 border-blue-400/20",
+  microsoft: "from-emerald-500/20 to-emerald-500/5 border-emerald-400/20",
   sega: "from-indigo-500/20 to-indigo-500/5 border-indigo-400/20",
   snk: "from-cyan-500/20 to-cyan-500/5 border-cyan-400/20",
 };

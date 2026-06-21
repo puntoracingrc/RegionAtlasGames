@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     slug?: string;
     name?: string;
     shortName?: string;
-    manufacturer?: "nintendo" | "sony" | "sega" | "snk";
+    manufacturer?: "nintendo" | "sony" | "sega" | "snk" | "microsoft";
     status?: "closed" | "semi-closed";
     description?: string;
     sortOrder?: number;
