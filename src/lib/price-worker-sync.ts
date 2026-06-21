@@ -1,6 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from "fs";
 import path from "path";
-import { readEffectivePlatformSourcesDocument } from "./price-source-settings";
+import { readBestPlatformSourcesDocument } from "./price-source-settings";
 
 type SyncFile = {
   local: string;
@@ -79,7 +79,7 @@ export async function syncPriceWorkerCode(): Promise<PriceWorkerSyncResult | { e
   const client = new mod.default();
   const remoteRoot = priceWorkerRemoteRoot();
   const uploaded: SyncFile[] = [];
-  const platformSourcesDocument = await readEffectivePlatformSourcesDocument();
+  const platformSourcesDocument = await readBestPlatformSourcesDocument();
 
   try {
     await client.connect({ ...config, readyTimeout: 60_000, retries: 1 });

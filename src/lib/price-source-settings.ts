@@ -66,6 +66,16 @@ type PlatformSourcesDocument = Record<string, unknown> & {
   collectorSettings?: Partial<PriceSourceSettings>;
 };
 
+export type PriceSourceWorkerSyncStatus =
+  | { ok: true; remotePath: string; uploadedAt: string }
+  | { ok: false; skipped: true; reason: string }
+  | { ok: false; skipped?: false; reason: string };
+
+export type PriceSourceSettingsWriteResult = {
+  settings: PriceSourceSettings;
+  worker: PriceSourceWorkerSyncStatus;
+};
+
 export type PriceSourceStrategy =
   | "catalog_crawl"
   | "base_url"
@@ -320,11 +330,26 @@ async function readPlatformSourcesDocumentFromWorker(): Promise<PlatformSourcesD
 }
 
 export async function readEffectivePlatformSourcesDocument(): Promise<PlatformSourcesDocument> {
-  return (
-    (await readPlatformSourcesDocumentFromWorker()) ??
-    (await readPlatformSourcesDocumentFromBlob()) ??
-    readPlatformSourcesDocumentFromDisk()
-  );
+  return readBestPlatformSourcesDocument();
+}
+
+function collectorSettingsUpdatedAt(document: PlatformSourcesDocument | null): number {
+  const raw = document?.collectorSettings;
+  if (!raw || typeof raw !== "object") return 0;
+  const value = cleanText((raw as Partial<PriceSourceSettings>).updatedAt);
+  const parsed = Date.parse(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+export async function readBestPlatformSourcesDocument(): Promise<PlatformSourcesDocument> {
+  const worker = await readPlatformSourcesDocumentFromWorker();
+  const blob = await readPlatformSourcesDocumentFromBlob();
+  const disk = readPlatformSourcesDocumentFromDisk();
+  const candidates = [worker, blob, disk].filter((item): item is PlatformSourcesDocument => Boolean(item));
+  const dated = candidates
+    .map((document, index) => ({ document, index, updatedAt: collectorSettingsUpdatedAt(document) }))
+    .sort((a, b) => b.updatedAt - a.updatedAt || a.index - b.index);
+  return dated[0]?.document ?? disk;
 }
 
 function normalizeCustomSource(input: unknown): PriceCustomSourceSetting | null {
@@ -402,19 +427,21 @@ function priceWorkerRemoteRoot(): string {
 
 function priceWorkerFtpConfigured(): boolean {
   return Boolean(
-    process.env.COVERS_FTP_HOST?.trim() &&
-      process.env.COVERS_FTP_USER?.trim() &&
-      process.env.COVERS_FTP_PASSWORD?.trim(),
+    (process.env.PRICE_WORKER_SSH_HOST?.trim() || process.env.COVERS_FTP_HOST?.trim()) &&
+      (process.env.PRICE_WORKER_SSH_USER?.trim() || process.env.COVERS_FTP_USER?.trim()) &&
+      (process.env.PRICE_WORKER_SSH_PASSWORD?.trim() || process.env.COVERS_FTP_PASSWORD?.trim()),
   );
 }
 
-async function uploadPlatformSourcesToWorker(document: PlatformSourcesDocument): Promise<void> {
-  if (!priceWorkerFtpConfigured()) return;
+async function uploadPlatformSourcesToWorker(document: PlatformSourcesDocument): Promise<PriceSourceWorkerSyncStatus> {
+  if (!priceWorkerFtpConfigured()) {
+    return { ok: false, skipped: true, reason: "FTP/SFTP del worker externo no configurado." };
+  }
   const portRaw = process.env.PRICE_WORKER_SSH_PORT?.trim() || process.env.COVERS_FTP_PORT?.trim();
   const port = portRaw && Number.isFinite(Number(portRaw)) ? Number(portRaw) : 22;
   const protocol = process.env.COVERS_FTP_PROTOCOL?.trim().toLowerCase() || (port === 22 ? "sftp" : "ftp");
   if (protocol !== "sftp") {
-    throw new Error("La subida remota de fuentes de precios solo soporta SFTP por ahora.");
+    return { ok: false, reason: "La subida remota de fuentes de precios solo soporta SFTP por ahora." };
   }
 
   const mod = (await import("ssh2-sftp-client")) as unknown as { default: new () => {
@@ -438,17 +465,20 @@ async function uploadPlatformSourcesToWorker(document: PlatformSourcesDocument):
     });
     await client.mkdir(remoteDataRoot, true);
     await client.put(Buffer.from(`${JSON.stringify(document, null, 2)}\n`, "utf8"), remotePath);
+    return { ok: true, remotePath, uploadedAt: new Date().toISOString() };
+  } catch (error) {
+    return { ok: false, reason: error instanceof Error ? error.message : "No se pudo sincronizar el worker externo." };
   } finally {
     await client.end().catch(() => undefined);
   }
 }
 
-export async function writePriceSourceSettings(input: unknown): Promise<PriceSourceSettings> {
+export async function writePriceSourceSettings(input: unknown): Promise<PriceSourceSettingsWriteResult> {
   const settings = normalizePriceSourceSettings({
     ...(input && typeof input === "object" ? input : {}),
     updatedAt: new Date().toISOString(),
   });
-  const document = await readEffectivePlatformSourcesDocument();
+  const document = await readBestPlatformSourcesDocument();
   const nextDocument = { ...document, collectorSettings: settings };
 
   if (canWriteCatalogFiles() || !process.env.VERCEL) {
@@ -457,8 +487,8 @@ export async function writePriceSourceSettings(input: unknown): Promise<PriceSou
     writeFileSync(PLATFORM_SOURCES_FILE, `${JSON.stringify(nextDocument, null, 2)}\n`, "utf8");
   }
   await writePlatformSourcesDocumentToBlob(nextDocument);
-  await uploadPlatformSourcesToWorker(nextDocument);
-  return settings;
+  const worker = await uploadPlatformSourcesToWorker(nextDocument);
+  return { settings, worker };
 }
 
 export const priceCollectorSourceOrder = SOURCE_ORDER;

@@ -20,10 +20,10 @@ export async function PUT(request: Request) {
 
   try {
     const payload = await request.json();
-    const settings = await writePriceSourceSettings(payload);
+    const result = await writePriceSourceSettings(payload);
     revalidatePath("/admin/precios");
     return NextResponse.json(
-      { ok: true, settings },
+      { ok: true, settings: result.settings, worker: result.worker },
       { headers: { "Cache-Control": "no-store" } },
     );
   } catch (error) {

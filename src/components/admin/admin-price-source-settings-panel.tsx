@@ -405,15 +405,29 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(settings),
     });
-    const data = await response.json().catch(() => null) as { ok?: boolean; settings?: PriceSourceSettings; error?: string } | null;
+    const data = await response.json().catch(() => null) as {
+      ok?: boolean;
+      settings?: PriceSourceSettings;
+      worker?: { ok?: boolean; skipped?: boolean; reason?: string };
+      error?: string;
+    } | null;
     if (!response.ok || !data?.ok || !data.settings) {
       setSaveState("error");
       setMessage(data?.error ?? "No se pudieron guardar las fuentes.");
       return;
     }
     setSettings(data.settings);
-    setSaveState("saved");
-    setMessage("Fuentes guardadas en la web y en el worker. La próxima rueda usará estos collectors reales.");
+    if (data.worker?.ok) {
+      setSaveState("saved");
+      setMessage("Fuentes guardadas y sincronizadas con el worker externo. La próxima rueda usará este estado.");
+    } else {
+      setSaveState("error");
+      setMessage(
+        data.worker?.reason
+          ? `Fuentes guardadas en la web, pero NO sincronizadas con el worker externo: ${data.worker.reason}`
+          : "Fuentes guardadas en la web, pero NO se pudo confirmar la sincronización con el worker externo.",
+      );
+    }
   }
 
   async function syncWorker() {
