@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type {
   PriceCustomSourceSetting,
+  PriceSourceCrawlMode,
   PriceSourceNormalization,
   PriceSourceSettings,
   PriceSourceStatus,
@@ -52,6 +53,12 @@ const emptyCustomSource: PriceCustomSourceSetting = {
   enabledRegions: [],
   disabledRegions: [],
   platformRoutes: {},
+  crawlMode: "static_catalog",
+  paginationTemplate: "",
+  maxPages: 2,
+  maxScrolls: 8,
+  maxProducts: 120,
+  timeoutSeconds: 45,
 };
 
 const strategyOptions: Array<{ value: PriceSourceStrategy; label: string }> = [
@@ -88,6 +95,14 @@ const queryTemplatePresets = [
   { value: "{title} {region}", label: "Título + región" },
 ] as const;
 
+const crawlModeOptions: Array<{ value: PriceSourceCrawlMode; label: string; helper: string }> = [
+  { value: "static_catalog", label: "Catálogo completo en una página", helper: "Lee solo el HTML inicial." },
+  { value: "pagination", label: "Paginación normal", helper: "Recorre páginas 1, 2, 3…" },
+  { value: "infinite_scroll", label: "Scroll infinito / carga al bajar", helper: "Acumula productos hasta que no aparecen más." },
+  { value: "load_more_button", label: "Botón cargar más", helper: "Intenta avanzar como carga progresiva con límites." },
+  { value: "internal_search", label: "Buscador interno", helper: "Usa la URL de búsqueda y el nombre del juego." },
+];
+
 function queryTemplateMode(value: string | undefined): string {
   const template = value?.trim() || "{title}";
   return queryTemplatePresets.some((preset) => preset.value === template) ? template : "custom";
@@ -115,6 +130,10 @@ function strategyUsesNormalizations(strategy: PriceSourceStrategy | undefined): 
 
 function strategyUsesPlatformRoutes(strategy: PriceSourceStrategy | undefined): boolean {
   return strategy === "platform_routes";
+}
+
+function strategyUsesCrawlMode(strategy: PriceSourceStrategy | undefined): boolean {
+  return strategy === "platform_routes" || strategy === "catalog_crawl" || strategy === "base_url" || strategy === "sequence";
 }
 
 function customSourceCanUseGenericCollector(source: PriceCustomSourceSetting): boolean {
@@ -185,6 +204,116 @@ function updateRouteMap(current: Record<string, string> | undefined, platform: s
     delete next[platform];
   }
   return Object.keys(next).length > 0 ? next : undefined;
+}
+
+function positiveNumberValue(value: number | undefined): string {
+  return value ? String(value) : "";
+}
+
+function parsePositiveNumber(value: string): number | undefined {
+  const parsed = Number.parseInt(value, 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : undefined;
+}
+
+function CrawlModeEditor({
+  value,
+  paginationTemplate,
+  maxPages,
+  maxScrolls,
+  maxProducts,
+  timeoutSeconds,
+  onChange,
+}: {
+  value: PriceSourceCrawlMode | undefined;
+  paginationTemplate?: string;
+  maxPages?: number;
+  maxScrolls?: number;
+  maxProducts?: number;
+  timeoutSeconds?: number;
+  onChange: (patch: {
+    crawlMode?: PriceSourceCrawlMode;
+    paginationTemplate?: string;
+    maxPages?: number;
+    maxScrolls?: number;
+    maxProducts?: number;
+    timeoutSeconds?: number;
+  }) => void;
+}) {
+  const mode = value ?? "static_catalog";
+  const selected = crawlModeOptions.find((option) => option.value === mode);
+  return (
+    <div className="mt-3 rounded-2xl border border-border bg-card/40 p-3">
+      <label className="text-xs font-semibold text-muted">
+        Tipo de página/carga
+        <select
+          value={mode}
+          onChange={(event) => onChange({ crawlMode: event.target.value as PriceSourceCrawlMode })}
+          className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+        >
+          {crawlModeOptions.map((option) => (
+            <option key={option.value} value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </label>
+      <p className="mt-1 text-[11px] leading-4 text-muted">{selected?.helper}</p>
+      {mode === "pagination" ? (
+        <label className="mt-3 block text-xs font-semibold text-muted">
+          Plantilla de paginación
+          <input
+            value={paginationTemplate ?? ""}
+            onChange={(event) => onChange({ paginationTemplate: event.target.value })}
+            placeholder="{url}?page={page}"
+            className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+          />
+        </label>
+      ) : null}
+      <div className="mt-3 grid gap-2 md:grid-cols-4">
+        <label className="text-xs font-semibold text-muted">
+          Máx. páginas
+          <input
+            type="number"
+            min={1}
+            value={positiveNumberValue(maxPages)}
+            onChange={(event) => onChange({ maxPages: parsePositiveNumber(event.target.value) })}
+            className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+          />
+        </label>
+        <label className="text-xs font-semibold text-muted">
+          Máx. scrolls
+          <input
+            type="number"
+            min={1}
+            value={positiveNumberValue(maxScrolls)}
+            onChange={(event) => onChange({ maxScrolls: parsePositiveNumber(event.target.value) })}
+            className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+          />
+        </label>
+        <label className="text-xs font-semibold text-muted">
+          Máx. productos
+          <input
+            type="number"
+            min={1}
+            value={positiveNumberValue(maxProducts)}
+            onChange={(event) => onChange({ maxProducts: parsePositiveNumber(event.target.value) })}
+            className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+          />
+        </label>
+        <label className="text-xs font-semibold text-muted">
+          Timeout seg.
+          <input
+            type="number"
+            min={5}
+            value={positiveNumberValue(timeoutSeconds)}
+            onChange={(event) => onChange({ timeoutSeconds: parsePositiveNumber(event.target.value) })}
+            className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
+          />
+        </label>
+      </div>
+      <p className="mt-2 text-[11px] leading-4 text-muted">
+        En “Rutas por plataforma”, este modo es global para la fuente y las URLs por plataforma lo heredan.
+      </p>
+    </div>
+  );
 }
 
 function IncludedChecklist({
@@ -342,6 +471,16 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
     updateSourceField(key, "platformRoutes", routes);
   }
 
+  function updateSourceFields(key: keyof PriceSourceSettings["sources"], patch: Partial<PriceSourceSettings["sources"][keyof PriceSourceSettings["sources"]]>) {
+    setSettings((current) => ({
+      ...current,
+      sources: {
+        ...current.sources,
+        [key]: { ...current.sources[key], ...patch },
+      },
+    }));
+  }
+
   function updateCustomSourceField<K extends keyof PriceCustomSourceSetting>(
     id: string,
     field: K,
@@ -371,6 +510,15 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
 
   function updateCustomSourcePlatformRoutes(id: string, routes: Record<string, string> | undefined) {
     updateCustomSourceField(id, "platformRoutes", routes);
+  }
+
+  function updateCustomSourceFields(id: string, patch: Partial<PriceCustomSourceSetting>) {
+    setSettings((current) => ({
+      ...current,
+      customSources: current.customSources.map((source) =>
+        source.id === id ? { ...source, ...patch } : source,
+      ),
+    }));
   }
 
   function addCustomSource() {
@@ -537,6 +685,17 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
                   </select>
                 </label>
               </div>
+              {strategyUsesCrawlMode(strategy) ? (
+                <CrawlModeEditor
+                  value={source.crawlMode}
+                  paginationTemplate={source.paginationTemplate}
+                  maxPages={source.maxPages}
+                  maxScrolls={source.maxScrolls}
+                  maxProducts={source.maxProducts}
+                  timeoutSeconds={source.timeoutSeconds}
+                  onChange={(patch) => updateSourceFields(key, patch)}
+                />
+              ) : null}
               {strategyUsesQuery(strategy) ? (
                 <div className="mt-3 grid gap-3 md:grid-cols-2">
                   <QueryTemplatePicker
@@ -693,6 +852,17 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
                   </select>
                 </label>
               </div>
+              {strategyUsesCrawlMode(strategy) ? (
+                <CrawlModeEditor
+                  value={source.crawlMode}
+                  paginationTemplate={source.paginationTemplate}
+                  maxPages={source.maxPages}
+                  maxScrolls={source.maxScrolls}
+                  maxProducts={source.maxProducts}
+                  timeoutSeconds={source.timeoutSeconds}
+                  onChange={(patch) => updateCustomSourceFields(source.id, patch)}
+                />
+              ) : null}
               {strategyUsesQuery(strategy) ? (
                 <div className="mt-3 grid gap-3 md:grid-cols-2">
                   <QueryTemplatePicker
@@ -818,6 +988,17 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
             ))}
           </select>
         </div>
+        {strategyUsesCrawlMode(draftCustom.strategy) ? (
+          <CrawlModeEditor
+            value={draftCustom.crawlMode}
+            paginationTemplate={draftCustom.paginationTemplate}
+            maxPages={draftCustom.maxPages}
+            maxScrolls={draftCustom.maxScrolls}
+            maxProducts={draftCustom.maxProducts}
+            timeoutSeconds={draftCustom.timeoutSeconds}
+            onChange={(patch) => setDraftCustom((current) => ({ ...current, ...patch }))}
+          />
+        ) : null}
         {strategyUsesQuery(draftCustom.strategy) ? (
           <div className="mt-3 grid gap-3 md:grid-cols-2">
             <QueryTemplatePicker

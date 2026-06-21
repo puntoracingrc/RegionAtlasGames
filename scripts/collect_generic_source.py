@@ -218,21 +218,51 @@ def max_page_number(html_text: str, cap: int) -> int:
     return min(max(pages) if pages else 1, cap)
 
 
-def page_url(base_url: str, page: int) -> str:
+def page_url(base_url: str, page: int, template: str | None = None) -> str:
     if page <= 1:
         return base_url
+    if template:
+        return template.replace("{url}", base_url.rstrip("/")).replace("{page}", str(page))
     separator = "&" if "?" in base_url else "?"
     return f"{base_url}{separator}page={page}"
 
 
-def fetch_listing_products(url: str, *, max_pages: int, delay: float, product_limit: int | None) -> list[dict[str, Any]]:
+def configured_int(config: dict[str, Any], key: str, fallback: int) -> int:
+    try:
+        value = int(config.get(key) or 0)
+    except (TypeError, ValueError):
+        value = 0
+    return max(1, value or fallback)
+
+
+def fetch_listing_products(
+    url: str,
+    *,
+    crawl_mode: str,
+    max_pages: int,
+    max_scrolls: int,
+    delay: float,
+    product_limit: int | None,
+    pagination_template: str | None = None,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], str]:
     first_html = fetch_html(url)
-    total_pages = max_page_number(first_html, max_pages)
+    if crawl_mode == "static_catalog":
+        total_pages = 1
+    elif crawl_mode == "pagination":
+        total_pages = max_page_number(first_html, max_pages)
+    elif crawl_mode in {"infinite_scroll", "load_more_button"}:
+        total_pages = max(1, min(max_pages, max_scrolls))
+    else:
+        total_pages = max_page_number(first_html, max_pages)
     products: list[dict[str, Any]] = []
     seen: set[str] = set()
+    iterations: list[dict[str, Any]] = []
+    stop_reason = "completed"
+
     for page in range(1, total_pages + 1):
-        current_url = url if page == 1 else page_url(url, page)
+        current_url = url if page == 1 else page_url(url, page, pagination_template)
         html_text = first_html if page == 1 else fetch_html(current_url)
+        before = len(products)
         for product in parse_products(html_text, current_url):
             key = str(product.get("productUrl") or product.get("title") or "").strip()
             if not key or key in seen:
@@ -241,10 +271,19 @@ def fetch_listing_products(url: str, *, max_pages: int, delay: float, product_li
             product["sourcePageUrl"] = current_url
             products.append(product)
             if product_limit and len(products) >= product_limit:
-                return products
+                iterations.append({"step": page, "url": current_url, "newProducts": len(products) - before, "totalProducts": len(products)})
+                return products, iterations, "max_products"
+        new_products = len(products) - before
+        iterations.append({"step": page, "url": current_url, "newProducts": new_products, "totalProducts": len(products)})
+        print(f"  Carga {crawl_mode} paso {page}: +{new_products} productos · total {len(products)}")
+        if page > 1 and crawl_mode in {"infinite_scroll", "load_more_button"} and new_products <= 0:
+            stop_reason = "no_new_products"
+            break
         if page < total_pages:
             time.sleep(delay)
-    return products
+    if len(iterations) >= total_pages and stop_reason == "completed":
+        stop_reason = "limit_reached" if crawl_mode in {"infinite_scroll", "load_more_button"} else "last_page"
+    return products, iterations, stop_reason
 
 
 def render_template(template: str, game: dict[str, Any], platform_slug: str, region: str | None) -> str:
@@ -260,16 +299,31 @@ def source_base_url(config: dict[str, Any]) -> str:
 def collect_products(config: dict[str, Any], platform_slug: str, args: argparse.Namespace) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     strategy = str(config.get("strategy") or "manual_candidate").strip()
     delay = max(0.0, float(args.delay))
-    max_pages = max(1, int(args.max_pages))
+    crawl_mode = str(config.get("crawlMode") or ("internal_search" if strategy in {"internal_search", "sequence"} else "static_catalog")).strip()
+    if crawl_mode not in {"static_catalog", "pagination", "infinite_scroll", "load_more_button", "internal_search"}:
+        crawl_mode = "static_catalog"
+    max_pages = configured_int(config, "maxPages", max(1, int(args.max_pages)))
+    max_scrolls = configured_int(config, "maxScrolls", max_pages)
+    max_products = configured_int(config, "maxProducts", max(1, int(args.limit))) if args.limit else configured_int(config, "maxProducts", 120)
+    product_limit = min(max_products, int(args.limit)) if args.limit else max_products
+    pagination_template = str(config.get("paginationTemplate") or "").strip() or None
     stats: dict[str, Any] = {
         "strategy": strategy,
+        "crawlMode": crawl_mode,
         "urls": [],
         "queries": [],
+        "iterations": [],
+        "stopReason": None,
+        "limits": {
+            "maxPages": max_pages,
+            "maxScrolls": max_scrolls,
+            "maxProducts": product_limit,
+        },
         "products_detected": 0,
         "structureRecognized": False,
     }
 
-    cache_file = CACHE_DIR / str(config.get("id") or args.source) / f"{platform_slug}-{strategy}.json"
+    cache_file = CACHE_DIR / str(config.get("id") or args.source) / f"{platform_slug}-{strategy}-{crawl_mode}.json"
     if args.use_cache and cache_file.exists():
         cached = load_json(cache_file, {})
         products = list(cached.get("products") or [])
@@ -286,13 +340,33 @@ def collect_products(config: dict[str, Any], platform_slug: str, args: argparse.
         if not url:
             raise GenericSourceError(f"sin URL por plataforma para {platform_slug}")
         stats["urls"].append(url)
-        products = fetch_listing_products(url, max_pages=max_pages, delay=delay, product_limit=args.limit)
+        products, iterations, stop_reason = fetch_listing_products(
+            url,
+            crawl_mode=crawl_mode,
+            max_pages=max_pages,
+            max_scrolls=max_scrolls,
+            delay=delay,
+            product_limit=product_limit,
+            pagination_template=pagination_template,
+        )
+        stats["iterations"] = iterations
+        stats["stopReason"] = stop_reason
     elif strategy in {"catalog_crawl", "base_url"}:
         url = source_base_url(config)
         if not url:
             raise GenericSourceError("sin URL general/supportUrl para rastreo")
         stats["urls"].append(url)
-        products = fetch_listing_products(url, max_pages=max_pages, delay=delay, product_limit=args.limit)
+        products, iterations, stop_reason = fetch_listing_products(
+            url,
+            crawl_mode=crawl_mode,
+            max_pages=max_pages,
+            max_scrolls=max_scrolls,
+            delay=delay,
+            product_limit=product_limit,
+            pagination_template=pagination_template,
+        )
+        stats["iterations"] = iterations
+        stats["stopReason"] = stop_reason
     elif strategy in {"internal_search", "sequence"}:
         url_template = str(config.get("urlTemplate") or "").strip()
         if not url_template:
@@ -309,8 +383,22 @@ def collect_products(config: dict[str, Any], platform_slug: str, args: argparse.
             url = absolute_url(url, base) if base else url
             stats["queries"].append(query)
             stats["urls"].append(url)
-            products.extend(fetch_listing_products(url, max_pages=max_pages, delay=delay, product_limit=None))
+            rows, iterations, stop_reason = fetch_listing_products(
+                url,
+                crawl_mode="static_catalog" if crawl_mode == "internal_search" else crawl_mode,
+                max_pages=max_pages,
+                max_scrolls=max_scrolls,
+                delay=delay,
+                product_limit=product_limit,
+                pagination_template=pagination_template,
+            )
+            products.extend(rows)
+            stats["iterations"].extend({"query": query, **iteration} for iteration in iterations)
+            stats["stopReason"] = stop_reason
             print(f"  [{index}/{len(games)}] «{query}» → {len(products)} productos acumulados")
+            if product_limit and len(products) >= product_limit:
+                stats["stopReason"] = "max_products"
+                break
             if index < len(games):
                 time.sleep(delay)
     else:

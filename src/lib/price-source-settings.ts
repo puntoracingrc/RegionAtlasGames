@@ -34,6 +34,12 @@ export type PriceCollectorSourceSetting = {
   disabledRegions?: string[];
   supportUrl?: string;
   platformRoutes?: Record<string, string>;
+  crawlMode?: PriceSourceCrawlMode;
+  paginationTemplate?: string;
+  maxPages?: number;
+  maxScrolls?: number;
+  maxProducts?: number;
+  timeoutSeconds?: number;
   notes?: string;
 };
 
@@ -54,6 +60,12 @@ export type PriceCustomSourceSetting = {
   enabledRegions?: string[];
   disabledRegions?: string[];
   platformRoutes?: Record<string, string>;
+  crawlMode?: PriceSourceCrawlMode;
+  paginationTemplate?: string;
+  maxPages?: number;
+  maxScrolls?: number;
+  maxProducts?: number;
+  timeoutSeconds?: number;
 };
 
 export type PriceSourceSettings = {
@@ -100,6 +112,13 @@ export type PriceSourceNormalization =
   | "trim_edition"
   | "title_only"
   | "keep_title_color_word";
+
+export type PriceSourceCrawlMode =
+  | "static_catalog"
+  | "pagination"
+  | "infinite_scroll"
+  | "load_more_button"
+  | "internal_search";
 
 const DEFAULT_SOURCES: Record<PriceCollectorSourceKey, PriceCollectorSourceSetting> = {
   wallapop: {
@@ -218,6 +237,14 @@ const SOURCE_NORMALIZATIONS: PriceSourceNormalization[] = [
   "keep_title_color_word",
 ];
 
+const SOURCE_CRAWL_MODES: PriceSourceCrawlMode[] = [
+  "static_catalog",
+  "pagination",
+  "infinite_scroll",
+  "load_more_button",
+  "internal_search",
+];
+
 function cleanStrategy(value: unknown, fallback: PriceSourceStrategy): PriceSourceStrategy {
   return SOURCE_STRATEGIES.includes(value as PriceSourceStrategy) ? (value as PriceSourceStrategy) : fallback;
 }
@@ -232,6 +259,16 @@ function cleanNormalizations(value: unknown, fallback: PriceSourceNormalization[
     SOURCE_NORMALIZATIONS.includes(item as PriceSourceNormalization),
   );
   return clean.length > 0 ? clean : fallback;
+}
+
+function cleanCrawlMode(value: unknown, fallback: PriceSourceCrawlMode): PriceSourceCrawlMode {
+  return SOURCE_CRAWL_MODES.includes(value as PriceSourceCrawlMode) ? (value as PriceSourceCrawlMode) : fallback;
+}
+
+function cleanPositiveInt(value: unknown): number | undefined {
+  const numberValue = typeof value === "number" ? value : Number.parseInt(String(value ?? ""), 10);
+  if (!Number.isFinite(numberValue) || numberValue <= 0) return undefined;
+  return Math.floor(numberValue);
 }
 
 function normalizeSourceDetails<T extends PriceCollectorSourceSetting | PriceCustomSourceSetting>(
@@ -251,6 +288,12 @@ function normalizeSourceDetails<T extends PriceCollectorSourceSetting | PriceCus
     status: cleanStatus(raw.status, fallback.status),
     queryTemplate: cleanText(raw.queryTemplate) || undefined,
     urlTemplate: cleanText(raw.urlTemplate) || undefined,
+    crawlMode: cleanCrawlMode(raw.crawlMode, raw.strategy === "internal_search" ? "internal_search" : "static_catalog"),
+    paginationTemplate: cleanText(raw.paginationTemplate) || undefined,
+    maxPages: cleanPositiveInt(raw.maxPages),
+    maxScrolls: cleanPositiveInt(raw.maxScrolls),
+    maxProducts: cleanPositiveInt(raw.maxProducts),
+    timeoutSeconds: cleanPositiveInt(raw.timeoutSeconds),
     normalizations: cleanNormalizations(raw.normalizations, fallback.normalizations),
     enabledPlatforms: enabledPlatforms.length > 0 ? enabledPlatforms : undefined,
     disabledPlatforms: disabledPlatforms.length > 0 ? disabledPlatforms : undefined,
