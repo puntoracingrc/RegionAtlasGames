@@ -361,7 +361,7 @@
     }
   },
   "collectorSettings": {
-    "updatedAt": null,
+    "updatedAt": "2026-06-21T22:24:41.763452Z",
     "sources": {
       "wallapop": {
         "enabled": true,
@@ -409,6 +409,317 @@
         "description": "Apagado por defecto: mete ruido y conviene activarlo solo cuando interese."
       }
     },
-    "customSources": []
+    "customSources": [
+      {
+        "id": "retroplayzone",
+        "label": "RetroPlayZone",
+        "url": "https://retroplayzone.com/",
+        "enabled": true,
+        "strategy": "platform_routes",
+        "status": "active",
+        "queryTemplate": "{title}",
+        "crawlMode": "pagination_url",
+        "paginationTemplate": "?page={page}",
+        "maxPages": 80,
+        "maxScrolls": 4,
+        "maxProducts": 1200,
+        "timeoutSeconds": 45,
+        "normalizations": [
+          "decode_html_entities",
+          "title_only"
+        ],
+        "enabledPlatforms": [
+          "megadrive",
+          "mastersystem",
+          "ps1",
+          "ps2",
+          "ps3",
+          "ps4",
+          "ps5",
+          "neogeo",
+          "gamegear",
+          "saturn",
+          "dreamcast",
+          "n64",
+          "gameboy",
+          "wii",
+          "snes",
+          "nes",
+          "gamecube",
+          "ds",
+          "3ds"
+        ],
+        "platformRoutes": {
+          "megadrive": "https://retroplayzone.com/30-videojuegos-sega-mega-drive/",
+          "mastersystem": "https://retroplayzone.com/31-videojuegos-sega-master-system/",
+          "ps1": "https://retroplayzone.com/26-ps1/",
+          "ps2": "https://retroplayzone.com/7-ps2/",
+          "ps3": "https://retroplayzone.com/13-ps3/",
+          "ps4": "https://retroplayzone.com/20-ps4/",
+          "ps5": "https://retroplayzone.com/56-ps5/",
+          "neogeo": "https://retroplayzone.com/87-neo-geo/",
+          "gamegear": "https://retroplayzone.com/29-gamegear/",
+          "saturn": "https://retroplayzone.com/37-strn/",
+          "dreamcast": "https://retroplayzone.com/27-dream/",
+          "n64": "https://retroplayzone.com/34-n64/",
+          "gameboy": "https://retroplayzone.com/28-gameboy/",
+          "wii": "https://retroplayzone.com/15-wii/",
+          "snes": "https://retroplayzone.com/33-juegos-super-nintendo-snes/",
+          "nes": "https://retroplayzone.com/35-nes/",
+          "gamecube": "https://retroplayzone.com/9-gc/",
+          "ds": "https://retroplayzone.com/10-nds/",
+          "3ds": "https://retroplayzone.com/16-3ds/"
+        },
+        "productUrlIncludePatterns": [],
+        "productUrlExcludePatterns": []
+      },
+      {
+        "id": "cashconverters-es",
+        "label": "Cash Converters España",
+        "url": "https://www.cashconverters.es/es/es/comprar/videojuegos-y-consolas/",
+        "enabled": false,
+        "notes": "Piloto apagado. Fuente retail segunda mano España. Demandware: GET inicial + Search-UpdateGrid con start/sz usando cookies y Referer. Filtrar hardware/accesorios.",
+        "strategy": "base_url",
+        "status": "candidate",
+        "crawlMode": "offset_pagination",
+        "offsetEndpoint": "/on/demandware.store/Sites-CashConvertersSpain-Site/es/Search-UpdateGrid",
+        "categoryParam": "cgid",
+        "categoryValue": "1103",
+        "offsetParam": "start",
+        "pageSizeParam": "sz",
+        "pageSize": 24,
+        "maxPages": 3,
+        "maxProducts": 48,
+        "timeoutSeconds": 45,
+        "normalizations": [
+          "decode_html_entities",
+          "title_only"
+        ],
+        "enabledRegions": [
+          "España",
+          "PAL España"
+        ],
+        "requestHeaders": {
+          "x-requested-with": "XMLHttpRequest"
+        },
+        "productUrlIncludePatterns": [
+          "/videojuegos/",
+          "videojuegos/juego"
+        ],
+        "productUrlExcludePatterns": [
+          "/consolas/",
+          "/mandos/",
+          "/accesorios/",
+          "/realidad-virtual/"
+        ]
+      },
+      {
+        "id": "game-es-new",
+        "label": "GAME España · Nuevo",
+        "url": "https://www.game.es/",
+        "enabled": false,
+        "notes": "Diagnóstico 2026-06-21: DNS Ionos OK a 212.170.159.195; TCP/TLS timeout; POST /api/search timeout 20/45/70s. Local mismo endpoint OK en ~2.2s. No activar manual ni rueda.",
+        "strategy": "api",
+        "status": "needs_review",
+        "queryTemplate": "{title}",
+        "crawlMode": "static_catalog",
+        "normalizations": [
+          "decode_html_entities",
+          "title_only"
+        ],
+        "enabledPlatforms": [
+          "ps4",
+          "ps5"
+        ],
+        "enabledRegions": [
+          "España",
+          "PAL España"
+        ],
+        "productUrlIncludePatterns": [],
+        "productUrlExcludePatterns": [],
+        "enabledManual": false,
+        "enabledRotation": false,
+        "routeHint": "GAME API funciona localmente, pero desde Ionos/worker no completa TCP/TLS contra www.game.es:443 (timeout incluso con curl GET). Mantener apagada hasta resolver red/bloqueo/geofiltro."
+      },
+      {
+        "id": "game-es-preowned",
+        "label": "GAME España · Seminuevo",
+        "url": "https://www.game.es/",
+        "enabled": false,
+        "notes": "Diagnóstico 2026-06-21: DNS Ionos OK a 212.170.159.195; TCP/TLS timeout; POST /api/search timeout 20/45/70s. Local mismo endpoint OK en ~2.2s. No activar manual ni rueda.",
+        "strategy": "api",
+        "status": "needs_review",
+        "queryTemplate": "{title}",
+        "crawlMode": "static_catalog",
+        "normalizations": [
+          "decode_html_entities",
+          "title_only"
+        ],
+        "enabledPlatforms": [
+          "ps4",
+          "ps5"
+        ],
+        "enabledRegions": [
+          "España",
+          "PAL España"
+        ],
+        "productUrlIncludePatterns": [],
+        "productUrlExcludePatterns": [],
+        "enabledManual": false,
+        "enabledRotation": false,
+        "routeHint": "GAME API funciona localmente, pero desde Ionos/worker no completa TCP/TLS contra www.game.es:443 (timeout incluso con curl GET). Mantener apagada hasta resolver red/bloqueo/geofiltro."
+      },
+      {
+        "id": "xtralife-es",
+        "label": "XtraLife España",
+        "url": "https://www.xtralife.com/seleccion/novedades-en-stock-ps4/8159",
+        "routeHint": "Piloto tienda España. Lee JSON-LD SSR del listado/parrilla; no entra a ficha. PS4/PS5/Switch2 = nuevo retail/importación. Mega Drive/DS/3DS/Wii/Xbox360/PS3 = segunda mano completo de tienda. Ignora reservas, agotados y productos sin precio/InStock.",
+        "enabled": false,
+        "enabledManual": false,
+        "enabledRotation": false,
+        "status": "candidate",
+        "strategy": "catalog_crawl",
+        "crawlMode": "static_catalog",
+        "normalizations": [
+          "decode_html_entities",
+          "title_only"
+        ],
+        "enabledPlatforms": [
+          "ps4",
+          "ps5",
+          "switch2",
+          "megadrive",
+          "ds",
+          "3ds",
+          "wii",
+          "xbox360",
+          "ps3"
+        ],
+        "enabledRegions": [
+          "España",
+          "PAL España",
+          "USA",
+          "Japón",
+          "Asia"
+        ],
+        "platformRoutes": {
+          "ps4": "https://www.xtralife.com/seleccion/novedades-en-stock-ps4/8159",
+          "ps5": "https://www.xtralife.com/seleccion/ps5-todos-los-juegos/1625",
+          "switch2": "https://www.xtralife.com/seleccion/todos-los-juegos-para-switch-2/8176",
+          "megadrive": "https://www.xtralife.com/seleccion/sega-megadrive/8220",
+          "ds": "https://www.xtralife.com/seleccion/nintendo-ds/700",
+          "3ds": "https://www.xtralife.com/seleccion/nintendo-ds/700",
+          "wii": "https://www.xtralife.com/seleccion/wii-videojuegos/733",
+          "xbox360": "https://www.xtralife.com/seleccion/todo-xbox-360/726",
+          "ps3": "https://www.xtralife.com/seleccion/ps3-videojuegos/725"
+        },
+        "maxPages": 1,
+        "maxProducts": 24,
+        "timeoutSeconds": 30,
+        "notes": "Collector piloto real: scripts/collect_xtralife.py. Fuente apagada: no manual ni rueda hasta confirmación. Paginación XtraLife no expone URL simple en SSR; fase actual lee primera parrilla JSON-LD con límite bajo."
+      },
+      {
+        "id": "on-digital-es",
+        "label": "On Digital España",
+        "url": "https://www.on-digital.es/",
+        "routeHint": "Candidata apagada. PrestaShop con HTML usable: article.js-product-miniature por plataforma. Usar rutas limpias por plataforma, filtro base ?q=Disponibilidad-En+stock y paginación &page={page}. No usar /57-videojuegos ni resultsPerPage=99999.",
+        "enabled": false,
+        "enabledManual": false,
+        "enabledRotation": false,
+        "status": "candidate",
+        "strategy": "platform_routes",
+        "queryTemplate": "{title}",
+        "urlTemplate": "{route}?q=Disponibilidad-En+stock",
+        "crawlMode": "pagination_url",
+        "paginationTemplate": "&page={page}",
+        "normalizations": [
+          "decode_html_entities",
+          "title_only"
+        ],
+        "enabledPlatforms": [
+          "switch2",
+          "switch",
+          "ps5",
+          "ps4",
+          "xboxseries",
+          "xboxone",
+          "xbox360",
+          "wiiu",
+          "wii",
+          "ps3",
+          "psvita",
+          "psp",
+          "3ds",
+          "nes",
+          "gameboy",
+          "snes",
+          "n64",
+          "gamecube",
+          "gba",
+          "ds",
+          "ps1",
+          "ps2",
+          "mastersystem",
+          "megadrive",
+          "gamegear",
+          "saturn",
+          "dreamcast",
+          "xbox"
+        ],
+        "enabledRegions": [
+          "España",
+          "PAL España",
+          "PAL Europa",
+          "PAL UK/ENG",
+          "USA",
+          "Japón",
+          "Asia"
+        ],
+        "platformRoutes": {
+          "switch2": "https://www.on-digital.es/313-juegos-switch-2",
+          "switch": "https://www.on-digital.es/184-juegos-switch",
+          "ps5": "https://www.on-digital.es/187-juegos-ps5",
+          "ps4": "https://www.on-digital.es/190-juegos-ps4",
+          "xboxseries": "https://www.on-digital.es/201-juegos-xbox-series",
+          "xboxone": "https://www.on-digital.es/193-juegos-xbox-one",
+          "xbox360": "https://www.on-digital.es/230-juegos-xbox-360",
+          "wiiu": "https://www.on-digital.es/183-juegos-wii-u",
+          "wii": "https://www.on-digital.es/206-juegos-wii",
+          "ps3": "https://www.on-digital.es/224-juegos-ps3",
+          "psvita": "https://www.on-digital.es/210-juegos-psvita",
+          "psp": "https://www.on-digital.es/227-juegos-psp",
+          "3ds": "https://www.on-digital.es/221-juegos-nintendo-3ds",
+          "nes": "https://www.on-digital.es/174-juegos-nes",
+          "gameboy": "https://www.on-digital.es/175-juegos-game-boy",
+          "snes": "https://www.on-digital.es/176-juegos-super-nintendo",
+          "n64": "https://www.on-digital.es/177-juegos-nintendo-64",
+          "gamecube": "https://www.on-digital.es/250-juegos-gamecube",
+          "gba": "https://www.on-digital.es/260-juegos-gba",
+          "ds": "https://www.on-digital.es/263-juegos-nintendo-ds",
+          "ps1": "https://www.on-digital.es/266-juegos-ps1",
+          "ps2": "https://www.on-digital.es/269-juegos-ps2",
+          "mastersystem": "https://www.on-digital.es/272-juegos-master-system",
+          "megadrive": "https://www.on-digital.es/275-juegos-mega-drive",
+          "gamegear": "https://www.on-digital.es/278-juegos-game-gear",
+          "saturn": "https://www.on-digital.es/280-juegos-sega-saturn",
+          "dreamcast": "https://www.on-digital.es/283-juegos-dreamcast",
+          "xbox": "https://www.on-digital.es/286-juegos-xbox-classic"
+        },
+        "productUrlIncludePatterns": [
+          "/juegos-"
+        ],
+        "productUrlExcludePatterns": [
+          "/consolas/",
+          "/mandos/",
+          "/accesorios/",
+          "/figuras/",
+          "/merchandising/"
+        ],
+        "maxPages": 2,
+        "maxProducts": 60,
+        "timeoutSeconds": 30,
+        "notes": "Fuente candidata real, apagada. Separar nuevo (?q=Disponibilidad-En+stock/Estado-Nuevo => sealed/retail nuevo) y seminuevo (?q=Disponibilidad-En+stock/Estado-Seminuevo => segunda mano; no asumir completo). Región por señales del título: PAL ESP, PAL UK, UK, USA, Imp USA, Japón/JAP, Asia. Sin prueba clara, enviar a revisión. Primeras pruebas recomendadas: PS5/PS4/PS3/Switch/Xbox360 con límite bajo antes de activar manual o rueda."
+      }
+    ]
   }
 }
