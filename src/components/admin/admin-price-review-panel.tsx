@@ -439,6 +439,8 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
   const [items, setItems] = useState(initialItems);
   const [autoState, setAutoState] = useState<"idle" | "previewing" | "applying" | "error" | "done">("idle");
   const [autoResult, setAutoResult] = useState<AutoRetroplayzoneResponse | null>(null);
+  const [pcVisionState, setPcVisionState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [pcVisionMessage, setPcVisionMessage] = useState("");
   const [platformFilter, setPlatformFilter] = useState("all");
   const [sourceFilter, setSourceFilter] = useState("all");
   const [query, setQuery] = useState("");
@@ -491,6 +493,8 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
   function resetAutoPreview() {
     setAutoResult(null);
     setAutoState("idle");
+    setPcVisionState("idle");
+    setPcVisionMessage("");
   }
 
   function updatePlatformFilter(value: string) {
@@ -597,6 +601,37 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
       setItems((current) => current.filter((item) => !acceptedIds.has(item.id)));
       await refreshItems();
     }
+  }
+
+  async function sendPcVisionJob() {
+    setPcVisionState("sending");
+    setPcVisionMessage("");
+    const response = await fetch("/api/admin/price-reviews/pc-vision", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        platformSlug: platformFilter === "all" ? undefined : platformFilter,
+        source: sourceFilter === "all" ? undefined : sourceFilter,
+        query: query.trim() || undefined,
+        assumedRegion: assumedRegion || undefined,
+        assumedCondition,
+        visionLimit,
+      }),
+    });
+    const rawText = await response.text().catch(() => "");
+    let data: { ok?: boolean; jobId?: string; message?: string; error?: string } | null = null;
+    try {
+      data = rawText ? JSON.parse(rawText) as { ok?: boolean; jobId?: string; message?: string; error?: string } : null;
+    } catch {
+      data = null;
+    }
+    if (!response.ok || !data?.ok) {
+      setPcVisionState("error");
+      setPcVisionMessage(data?.error ?? rawText.slice(0, 500).trim() ?? `HTTP ${response.status}`);
+      return;
+    }
+    setPcVisionState("sent");
+    setPcVisionMessage(`${data.message ?? "Job enviado al PC."}${data.jobId ? ` ID: ${data.jobId}` : ""}`);
   }
 
   return (
@@ -740,6 +775,14 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
           <div className="flex flex-wrap content-start gap-2 lg:justify-end">
             <button
               type="button"
+              disabled={pcVisionState === "sending" || filteredItems.length === 0}
+              onClick={sendPcVisionJob}
+              className="btn-secondary text-xs"
+            >
+              {pcVisionState === "sending" ? "Enviando al PC..." : "Enviar IA al PC"}
+            </button>
+            <button
+              type="button"
               disabled={autoState === "previewing" || autoState === "applying" || filteredItems.length === 0}
               onClick={() => runAutoRetroplayzone(false)}
               className="btn-secondary text-xs"
@@ -756,6 +799,11 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
             </button>
           </div>
         </div>
+        {pcVisionMessage ? (
+          <div className={`mt-3 rounded-xl border px-3 py-2 text-xs ${pcVisionState === "error" ? "border-red-200 bg-red-50 text-red-700" : "border-sky-200 bg-sky-50 text-sky-700"}`}>
+            <p className="font-semibold">{pcVisionMessage}</p>
+          </div>
+        ) : null}
         {autoResult ? (
           <div className={`mt-3 rounded-xl border px-3 py-2 text-xs ${autoState === "error" ? "border-red-200 bg-red-50 text-red-700" : "border-emerald-200 bg-emerald-50 text-emerald-700"}`}>
             {autoState === "error" ? (

@@ -352,6 +352,88 @@ def process_import_request(queue: SftpQueue, request_name: str) -> bool:
     return True
 
 
+def process_review_request(queue: SftpQueue, request_name: str) -> bool:
+    request_path = queue.remote("jobs", "review-requests", request_name)
+    review_id = request_name.removesuffix(".json")
+    running_path = queue.remote("jobs", "review-running", request_name)
+    done_path = queue.remote("jobs", "review-done", request_name)
+    status_remote = queue.remote("jobs", f"review-{review_id}.json")
+    log_remote = queue.remote("logs", f"review-{review_id}.log")
+    if not queue.rename(request_path, running_path):
+        return False
+
+    local_dir = RESULTS_DIR / "review-vision" / review_id
+    local_request = local_dir / "request.json"
+    local_queue = ROOT / "data" / "admin" / "price-review-queue.json"
+    status_file = STATUS_DIR / f"review-{review_id}.json"
+    log_file = LOG_DIR / f"review-{review_id}.log"
+    local_dir.mkdir(parents=True, exist_ok=True)
+    queue.download(running_path, local_request)
+    try:
+        queue.download(queue.remote("app", "data", "admin", "price-review-queue.json"), local_queue)
+    except OSError:
+        local_queue.parent.mkdir(parents=True, exist_ok=True)
+        if not local_queue.exists():
+            local_queue.write_text('{"schemaVersion":1,"updatedAt":"","items":[],"decisions":[]}\n', encoding="utf-8")
+
+    request = json.loads(local_request.read_text(encoding="utf-8"))
+    status = {
+        "jobId": review_id,
+        "status": "running",
+        "jobType": "price_review_vision",
+        "platformSlug": request.get("platformSlug"),
+        "source": request.get("source"),
+        "query": request.get("query"),
+        "visionLimit": request.get("visionLimit"),
+        "startedAt": now_iso(),
+        "updatedAt": now_iso(),
+        "runnerId": queue.config.runner_id,
+    }
+    status_file.write_text(json_text(status), encoding="utf-8")
+    queue.upload_bytes(status_remote, json_bytes(status))
+
+    env = command_base_env()
+    code = run_logged(
+        [
+            sys.executable,
+            str(ROOT / "scripts" / "auto_price_review_vision.py"),
+            "--request",
+            str(local_request),
+            "--queue",
+            str(local_queue),
+            "--status-file",
+            str(status_file),
+        ],
+        log_file,
+        env,
+        timeout=7200,
+    )
+    try:
+        final_status = json.loads(status_file.read_text(encoding="utf-8"))
+    except Exception:
+        final_status = status
+    final_status.update(
+        {
+            "jobId": review_id,
+            "jobType": "price_review_vision",
+            "status": "done" if code == 0 else "error",
+            "exitCode": code,
+            "finishedAt": final_status.get("finishedAt") or now_iso(),
+            "updatedAt": now_iso(),
+            "runnerId": queue.config.runner_id,
+            "logTail": tail(log_file, 12000),
+        }
+    )
+    if code != 0 and not final_status.get("error"):
+        final_status["error"] = f"Auto-revisión IA PC terminó con código {code}."
+    status_file.write_text(json_text(final_status), encoding="utf-8")
+    upload_price_review_queue(queue)
+    queue.upload_bytes(status_remote, json_bytes(final_status))
+    queue.upload_file(log_remote, log_file)
+    queue.rename(running_path, done_path)
+    return True
+
+
 def upload_price_review_queue(queue: SftpQueue) -> None:
     review_file = ROOT / "data" / "admin" / "price-review-queue.json"
     if not review_file.exists():
@@ -497,6 +579,8 @@ def dry_run_list(config: WorkerConfig) -> int:
         import_dir = queue.remote("jobs", "import-requests")
         request_dir = queue.remote("jobs", "requests")
         import_requests = queue.list_json(import_dir)
+        review_dir = queue.remote("jobs", "review-requests")
+        review_requests = queue.list_json(review_dir)
         price_requests = queue.list_json(request_dir)
 
         print(f"Import requests pending: {len(import_requests)}")
@@ -505,6 +589,13 @@ def dry_run_list(config: WorkerConfig) -> int:
                 print(f"  would import: {summarize_request(name, queue.read_json(posixpath.join(import_dir, name)))}")
             except Exception as exc:
                 print(f"  would import: {name} · unreadable={exc}")
+
+        print(f"Review requests pending: {len(review_requests)}")
+        for name in review_requests:
+            try:
+                print(f"  would review: {summarize_request(name, queue.read_json(posixpath.join(review_dir, name)))}")
+            except Exception as exc:
+                print(f"  would review: {name} · unreadable={exc}")
 
         print(f"Price requests pending: {len(price_requests)}")
         for name in price_requests:
@@ -588,6 +679,10 @@ def run_once(config: WorkerConfig, *, daily: bool) -> int:
                 import_requests = queue.list_json(queue.remote("jobs", "import-requests"))
                 if import_requests:
                     process_import_request(queue, import_requests[0])
+                    return 1
+                review_requests = queue.list_json(queue.remote("jobs", "review-requests"))
+                if review_requests:
+                    process_review_request(queue, review_requests[0])
                     return 1
                 requests = queue.list_json(queue.remote("jobs", "requests"))
                 if requests:

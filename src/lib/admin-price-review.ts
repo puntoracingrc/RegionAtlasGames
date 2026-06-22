@@ -39,6 +39,7 @@ export type PriceReviewItem = {
     aiConfidence?: number | null;
     reviewNotes?: string[];
     conditionRaw?: string | null;
+    coverVision?: Record<string, unknown> | null;
   };
   jobId?: string | null;
   collectedAt?: string | null;
@@ -120,6 +121,12 @@ export type PriceReviewAutoRetroplayzoneResult = {
   workerSynced: boolean;
   workerSyncError?: string;
   candidates: PriceReviewAutoRetroplayzoneCandidate[];
+};
+
+export type PriceReviewPcVisionJobResult = {
+  ok: true;
+  jobId: string;
+  message: string;
 };
 
 function emptyQueue(): PriceReviewQueue {
@@ -210,6 +217,68 @@ async function writeQueue(queue: PriceReviewQueue): Promise<{ workerSynced: bool
   } finally {
     await client.end().catch(() => undefined);
   }
+}
+
+async function writeWorkerFile(remote: string, payload: Buffer): Promise<{ ok: true } | { error: string }> {
+  const config = workerSftpConfig();
+  if (!config) return { error: "SFTP del worker no configurado." };
+  const mod = (await import("ssh2-sftp-client")) as unknown as {
+    default: new () => {
+      connect(config: Record<string, unknown>): Promise<void>;
+      mkdir(remotePath: string, recursive?: boolean): Promise<void>;
+      put(input: Buffer | string, remotePath: string): Promise<void>;
+      end(): Promise<void>;
+    };
+  };
+  const client = new mod.default();
+  const remotePath = path.posix.join(priceWorkerRemoteRoot(), remote);
+  try {
+    await client.connect({ ...config, readyTimeout: 60_000, retries: 1 });
+    await client.mkdir(path.posix.dirname(remotePath), true);
+    await client.put(payload, remotePath);
+    return { ok: true };
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo escribir en el worker por SFTP." };
+  } finally {
+    await client.end().catch(() => undefined);
+  }
+}
+
+export async function startPriceReviewPcVisionJob(
+  input: PriceReviewAutoRetroplayzoneInput = {},
+): Promise<PriceReviewPcVisionJobResult | { error: string }> {
+  const jobId = `review-vision-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+  const now = new Date().toISOString();
+  const visionLimit = normalizeVisionLimit({ ...input, visionLimit: input.visionLimit ?? 25 });
+  const request = {
+    jobId,
+    jobType: "price_review_vision",
+    platformSlug: input.platformSlug,
+    source: input.source,
+    query: input.query,
+    assumedRegion: input.assumedRegion,
+    assumedCondition: input.assumedCondition ?? "none",
+    visionLimit,
+    requestedAt: now,
+    runner: "pc_sftp_worker",
+  };
+  const status = {
+    jobId,
+    jobType: "price_review_vision",
+    status: "pending",
+    platformSlug: input.platformSlug,
+    source: input.source,
+    query: input.query,
+    visionLimit,
+    startedAt: now,
+    updatedAt: now,
+    logTail: "Job de IA de portadas enviado al PC worker por SFTP.",
+  };
+  const statusWritten = await writeWorkerFile(`jobs/review-${jobId}.json`, Buffer.from(`${JSON.stringify(status, null, 2)}\n`, "utf8"));
+  if ("error" in statusWritten) return statusWritten;
+  const requestWritten = await writeWorkerFile(`jobs/review-requests/${jobId}.json`, Buffer.from(`${JSON.stringify(request, null, 2)}\n`, "utf8"));
+  if ("error" in requestWritten) return requestWritten;
+  return { ok: true, jobId, message: "Job de IA de portadas enviado al PC. Refresca estado cuando termine." };
 }
 
 function conditionPatchField(condition: string | null | undefined): string {
