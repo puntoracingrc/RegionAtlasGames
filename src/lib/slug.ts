@@ -1,5 +1,7 @@
+import { decodeHtmlEntities } from "./decode-html-entities";
+
 export function slugify(text: string): string {
-  return text
+  return decodeHtmlEntities(text)
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()

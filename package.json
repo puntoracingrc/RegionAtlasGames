@@ -57,6 +57,7 @@
     "companies:enrich:batch": "bash scripts/run_company_enrich_batches.sh",
     "genres:tops": "python3 scripts/build_genre_tops.py",
     "catalog:fix-pc-paths": "python3 scripts/fix_catalog_pc_paths.py",
+    "catalog:audit-entities": "python3 scripts/audit_catalog_html_entities.py",
     "descriptions:generate": "PYTHONUNBUFFERED=1 python3 scripts/generate_game_descriptions.py",
     "descriptions:pipeline": "bash scripts/run_descriptions_pipeline.sh",
     "catalog:phase3": "bash scripts/run_phase3_catalog.sh",
