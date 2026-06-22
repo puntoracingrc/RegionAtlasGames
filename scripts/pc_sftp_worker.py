@@ -221,6 +221,9 @@ def tail(path: Path, limit: int = 80000) -> str:
 def command_base_env() -> dict[str, str]:
     env = os.environ.copy()
     env.setdefault("PYTHONUNBUFFERED", "1")
+    env.setdefault("PYTHONUTF8", "1")
+    env.setdefault("PYTHONIOENCODING", "utf-8")
+    env.setdefault("PYTHONLEGACYWINDOWSSTDIO", "0")
     env.setdefault("PRICE_WORKER_DAILY", "1")
     env.setdefault("REGION_VISION_DISABLED", "1")
     return env

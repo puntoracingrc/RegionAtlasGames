@@ -7,4 +7,8 @@ if (!(Test-Path $Python)) {
 }
 
 Set-Location $Repo
+$env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
+$env:PYTHONLEGACYWINDOWSSTDIO = "0"
+$env:PYTHONUNBUFFERED = "1"
 & $Python "scripts\pc_sftp_worker.py" --daemon --daily --interval 120
