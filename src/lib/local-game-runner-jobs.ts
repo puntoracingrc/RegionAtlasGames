@@ -15,6 +15,7 @@ export type LocalGameRunnerStatus = "pending" | "running" | "done" | "error" | "
 
 export type LocalGameRunnerJob = {
   id: string;
+  jobType?: "api_collect" | "manual_paste";
   status: LocalGameRunnerStatus;
   source: "game-es";
   platformSlug: "ps4" | "ps5";
@@ -29,6 +30,7 @@ export type LocalGameRunnerJob = {
   finishedAt?: string | null;
   runnerId?: string | null;
   resultPath?: string | null;
+  pastedTextPath?: string | null;
   importedAt?: string | null;
   importStatus?: "not_imported" | "imported" | "error" | null;
   importLogTail?: string | null;
@@ -182,13 +184,15 @@ function normalizeJob(input: unknown): LocalGameRunnerJob | null {
     raw.status === "running" || raw.status === "done" || raw.status === "error" || raw.status === "cancelled"
       ? raw.status
       : "pending";
+  const jobType = raw.jobType === "manual_paste" ? "manual_paste" : "api_collect";
   return {
     id: String(raw.id),
     status,
+    jobType,
     source: "game-es",
     platformSlug,
     offerType,
-    limit: Math.max(1, Math.min(60, Number(raw.limit) || 20)),
+    limit: Math.max(1, Math.min(jobType === "manual_paste" ? 5000 : 60, Number(raw.limit) || 20)),
     startPage: Math.max(0, Math.min(20, Number(raw.startPage) || 0)),
     maxPages: Math.max(1, Math.min(8, Number(raw.maxPages) || 1)),
     skipRecentDays: Math.max(0, Math.min(30, Number(raw.skipRecentDays) || 0)),
@@ -198,6 +202,7 @@ function normalizeJob(input: unknown): LocalGameRunnerJob | null {
     finishedAt: raw.finishedAt ?? null,
     runnerId: raw.runnerId ?? null,
     resultPath: raw.resultPath ?? null,
+    pastedTextPath: raw.pastedTextPath ?? null,
     importedAt: raw.importedAt ?? null,
     importStatus: raw.importStatus ?? null,
     importLogTail: raw.importLogTail ?? null,
@@ -380,6 +385,7 @@ export async function createLocalGameRunnerJob(
   const now = new Date().toISOString();
   const job: LocalGameRunnerJob = {
     id: `local-game-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
+    jobType: "api_collect",
     status: "pending",
     source: "game-es",
     platformSlug,
@@ -515,11 +521,10 @@ export async function importGamePasteText(
   | {
       ok: true;
       importId: string;
-      resultPath: string;
+      job: LocalGameRunnerJob;
       preview: GamePastePreview;
-      importLogTail: string | null;
     }
-  | { error: string; preview?: GamePastePreview; importLogTail?: string | null }
+  | { error: string; preview?: GamePastePreview }
 > {
   const platformSlug = input.platformSlug === "ps5" ? "ps5" : input.platformSlug === "ps4" ? "ps4" : null;
   const offerType = input.offerType === "new" ? "new" : input.offerType === "preowned" ? "preowned" : null;
@@ -531,38 +536,28 @@ export async function importGamePasteText(
 
   const importId = `game-paste-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
   const textPath = `app/data/price-ingest/local-game-paste/${importId}.txt`;
-  const outputPath = `data/price-ingest/local-game/${importId}.json`;
-  const resultPath = `app/${outputPath}`;
   const written = await writeWorkerFile(textPath, Buffer.from(`${pastedText}\n`, "utf8"));
   if ("error" in written) return { error: written.error, preview };
 
-  const appRoot = path.posix.join(priceWorkerRemoteRoot(), "app");
-  const command = [
-    `cd ${shellQuote(appRoot)}`,
-    "&&",
-    "python3",
-    "scripts/import_game_paste.py",
-    "--platform",
-    shellQuote(platformSlug),
-    "--offer-type",
-    shellQuote(offerType),
-    "--input",
-    shellQuote(textPath.replace(/^app\//, "")),
-    "--output",
-    shellQuote(outputPath),
-    "--no-ai",
-    "&&",
-    "python3",
-    "scripts/sync_es_prices.py",
-    "--platform",
-    shellQuote(platformSlug),
-    "--input",
-    shellQuote(outputPath),
-    "--no-advance-rotation",
-    "--no-vision",
-  ].join(" ");
-  const result = await execWorkerCommand(command);
-  const importLogTail = String(result.output ?? "").slice(-12000) || null;
-  if ("error" in result) return { error: result.error, preview, importLogTail };
-  return { ok: true, importId, resultPath, preview, importLogTail };
+  const now = new Date().toISOString();
+  const job: LocalGameRunnerJob = {
+    id: importId,
+    jobType: "manual_paste",
+    status: "pending",
+    source: "game-es",
+    platformSlug,
+    offerType,
+    limit: preview.stats.parsedProducts,
+    startPage: 0,
+    maxPages: 1,
+    skipRecentDays: 0,
+    createdAt: now,
+    updatedAt: now,
+    pastedTextPath: textPath,
+  };
+  const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
+  queue.jobs.unshift(job);
+  const queued = await writeQueue(queue);
+  if ("error" in queued) return { error: queued.error, preview };
+  return { ok: true, importId, job, preview };
 }

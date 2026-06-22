@@ -116,24 +116,22 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
     const data = await response.json().catch(() => null) as {
       ok?: boolean;
       preview?: GamePastePreview;
-      resultPath?: string;
-      importLogTail?: string | null;
+      job?: LocalGameRunnerJob;
       error?: string;
     } | null;
     if (data?.preview) setPastePreview(data.preview);
-    if (data?.importLogTail) setPasteLog(data.importLogTail);
-    if (!response.ok || !data?.ok) {
+    if (!response.ok || !data?.ok || !data.job) {
       setPasteState("error");
       const rawError = responseText.trim().slice(0, 1200);
       const fallback = rawError
         ? `Error HTTP ${response.status}: ${rawError}`
         : `Error HTTP ${response.status || "desconocido"} sin detalle devuelto por el servidor.`;
-      setPasteMessage(`${data?.error ?? fallback}${data?.importLogTail ? " Revisa el log de abajo para ver la causa real." : ""}`);
+      setPasteMessage(data?.error ?? fallback);
       return;
     }
     setPasteState("done");
-    setPasteLog(data.importLogTail ?? "");
-    setPasteMessage(`Importado al worker: ${data.resultPath}. Los seguros se aplican; los dudosos quedan en Precios a revisar.`);
+    setJobs((current) => [data.job!, ...current.filter((job) => job.id !== data.job!.id)].slice(0, 30));
+    setPasteMessage("Pegado guardado como job. Arranca el runner del Mac y luego pulsa ‘Importar al flujo’ cuando aparezca completado.");
   }
 
   return (
@@ -205,7 +203,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-700 dark:text-amber-300">GAME pegado manual</p>
             <h3 className="mt-1 text-xl font-black tracking-tight text-foreground">Pegar catálogo seminuevo de GAME</h3>
             <p className="mt-2 max-w-4xl text-sm leading-6 text-muted">
-              Pega el texto tal cual desde GAME. Primero lo previsualizas; al confirmar se genera un JSON en el worker y pasa por el mismo flujo de precios/revisión.
+              Pega el texto tal cual desde GAME. Primero lo previsualizas; al confirmar se crea un job para que lo procese tu Mac sin límite de Vercel.
             </p>
           </div>
           <span className="rounded-full border border-amber-300 bg-amber-100 px-3 py-1 text-[11px] font-bold text-amber-800 dark:border-amber-400/30 dark:bg-amber-900/30 dark:text-amber-100">
@@ -253,7 +251,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
             disabled={pasteState === "importing" || !pastePreview || pastePreview.stats.parsedProducts <= 0}
             className="btn-primary text-sm"
           >
-            {pasteState === "importing" ? "Importando..." : "Confirmar e importar"}
+            {pasteState === "importing" ? "Creando job..." : "Confirmar y crear job"}
           </button>
         </div>
         {pasteMessage ? (
@@ -314,7 +312,10 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
           <article key={job.id} className="rounded-2xl border border-border bg-background/60 p-4">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="font-bold text-foreground">{job.platformSlug.toUpperCase()} · {job.offerType === "preowned" ? "Seminuevo" : "Nuevo"}</p>
+                <p className="font-bold text-foreground">
+                  {job.platformSlug.toUpperCase()} · {job.offerType === "preowned" ? "Seminuevo" : "Nuevo"}
+                  {job.jobType === "manual_paste" ? " · Pegado manual" : ""}
+                </p>
                 <p className="mt-1 text-xs text-muted">Creado: {formatDate(job.createdAt)} · Actualizado: {formatDate(job.updatedAt)}</p>
                 <p className="text-xs text-muted">
                   Límite {job.limit} · desde página {(job.startPage ?? 0) + 1} · páginas {job.maxPages ?? 1} · evita {job.skipRecentDays ?? 0} días

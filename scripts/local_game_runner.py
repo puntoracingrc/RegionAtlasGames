@@ -71,6 +71,21 @@ def fetch_public_json(url: str, *, timeout: int = 30) -> dict[str, Any] | None:
         return None
 
 
+def fetch_public_text(url: str, *, timeout: int = 30) -> str | None:
+    request = urllib.request.Request(
+        url,
+        headers={
+            "Accept": "text/plain,*/*",
+            "User-Agent": "RegionAtlasGamesLocalGameRunner/1.0",
+        },
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            return response.read().decode("utf-8", errors="ignore")
+    except urllib.error.URLError:
+        return None
+
+
 def download_recent_results(job: dict[str, Any], recent_dir: Path) -> int:
     skip_days = int(job.get("skipRecentDays") or 0)
     if skip_days <= 0:
@@ -145,6 +160,48 @@ def collect_game(job: dict[str, Any]) -> tuple[bool, dict[str, Any] | None, str,
         return True, result, log, None
 
 
+def import_game_paste(job: dict[str, Any]) -> tuple[bool, dict[str, Any] | None, str, str | None]:
+    pasted_text_path = str(job.get("pastedTextPath") or "").lstrip("/")
+    if not pasted_text_path:
+        return False, None, "", "El job de pegado no tiene archivo de texto asociado"
+    worker_base = os.environ.get("PRICE_WORKER_PUBLIC_URL", DEFAULT_WORKER_PUBLIC_URL).rstrip("/")
+    pasted_text = fetch_public_text(f"{worker_base}/{pasted_text_path}", timeout=60)
+    if not pasted_text:
+        return False, None, "", "No se pudo descargar el texto pegado desde el worker"
+
+    with tempfile.TemporaryDirectory(prefix="region-atlas-game-paste-") as tmp:
+        tmp_path = Path(tmp)
+        input_file = tmp_path / f"{job['id']}.txt"
+        output = tmp_path / f"{job['id']}.json"
+        input_file.write_text(pasted_text, encoding="utf-8")
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "import_game_paste.py"),
+            "--platform",
+            str(job["platformSlug"]),
+            "--offer-type",
+            str(job["offerType"]),
+            "--input",
+            str(input_file),
+            "--output",
+            str(output),
+            "--no-ai",
+        ]
+        env = os.environ.copy()
+        env.setdefault("REGION_VISION_DISABLED", "1")
+        proc = subprocess.run(cmd, cwd=ROOT, env=env, text=True, capture_output=True, timeout=600)
+        log = "\n".join(part for part in [proc.stdout, proc.stderr] if part).strip()
+        if proc.returncode != 0:
+            return False, None, log, f"import_game_paste terminó con código {proc.returncode}"
+        if not output.exists():
+            return False, None, log, "import_game_paste no generó archivo de resultado"
+        result = json.loads(output.read_text())
+        local_copy_dir = ROOT / "data" / "price-ingest" / "local-game"
+        local_copy_dir.mkdir(parents=True, exist_ok=True)
+        (local_copy_dir / f"{job['id']}.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        return True, result, log, None
+
+
 def run_once(base_url: str, token: str, runner_id: str) -> bool:
     next_job = request_json(base_url, "/api/price-local-runner/next", token, {"runnerId": runner_id})
     if not next_job.get("ok"):
@@ -154,8 +211,12 @@ def run_once(base_url: str, token: str, runner_id: str) -> bool:
         print("Sin jobs GAME pendientes.")
         return False
 
-    print(f"Job recibido: {job['id']} · {job['platformSlug']} · {job['offerType']} · límite {job.get('limit')}")
-    ok, result, log, error = collect_game(job)
+    job_type = str(job.get("jobType") or "api_collect")
+    print(f"Job recibido: {job['id']} · {job['platformSlug']} · {job['offerType']} · {job_type} · límite {job.get('limit')}")
+    if job_type == "manual_paste":
+        ok, result, log, error = import_game_paste(job)
+    else:
+        ok, result, log, error = collect_game(job)
     complete = request_json(
         base_url,
         "/api/price-local-runner/complete",
