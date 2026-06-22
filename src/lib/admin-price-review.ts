@@ -78,6 +78,32 @@ export type PriceReviewMergeCatalogInput = {
   catalogIds?: string[];
 };
 
+export type PriceReviewAutoRetroplayzoneInput = {
+  apply?: boolean;
+};
+
+export type PriceReviewAutoRetroplayzoneCandidate = {
+  id: string;
+  listingTitle: string;
+  catalogId: string | null;
+  region: string | null;
+  condition: PriceReviewCondition | null;
+  priceEur: number;
+  decision: "accept" | "skip";
+  reason: string;
+};
+
+export type PriceReviewAutoRetroplayzoneResult = {
+  ok: true;
+  mode: "preview" | "apply";
+  totalRetroplayzonePending: number;
+  accepted: number;
+  skipped: number;
+  workerSynced: boolean;
+  workerSyncError?: string;
+  candidates: PriceReviewAutoRetroplayzoneCandidate[];
+};
+
 function emptyQueue(): PriceReviewQueue {
   return { schemaVersion: 1, updatedAt: new Date().toISOString(), items: [], decisions: [] };
 }
@@ -209,6 +235,194 @@ export async function listPriceReviewItems(limit = 40): Promise<PriceReviewItem[
     .filter((item) => item.status === "pending")
     .sort((a, b) => Date.parse(b.updatedAt ?? b.createdAt ?? "") - Date.parse(a.updatedAt ?? a.createdAt ?? ""))
     .slice(0, limit);
+}
+
+function normalizedText(value: string | null | undefined): string {
+  return (value ?? "")
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase();
+}
+
+function hasAny(text: string, values: string[]): boolean {
+  return values.some((value) => text.includes(value));
+}
+
+function titleSuggestsHardwareOrLot(title: string): boolean {
+  const text = normalizedText(title);
+  return hasAny(text, [
+    " lote ",
+    " pack ",
+    " consola",
+    " mando",
+    " cable",
+    " cargador",
+    " adaptador",
+    " carcasa",
+    " figura",
+    " amiibo",
+    " box only",
+    " solo caja",
+    " solo manual",
+  ]);
+}
+
+function retroplayzoneRegionFromTitle(title: string): string | null {
+  const text = normalizedText(title);
+  if (/\b(esp|espana|spanish|castellano)\b/.test(text)) return "PAL España";
+  if (/\b(eur|europe|europa|pal)\b/.test(text)) return "PAL Europa";
+  if (/\b(usa|ntsc u|ntsc-?u)\b/.test(text)) return "USA";
+  if (/\b(japan|japon|jpn|ntsc j|ntsc-?j)\b/.test(text)) return "Japón";
+  if (/\b(asia|asian)\b/.test(text)) return "Asia";
+  return null;
+}
+
+function retroplayzoneConditionFromTitle(title: string): PriceReviewCondition | null {
+  const text = normalizedText(title);
+  if (hasAny(text, [" precintado", " sealed", " nuevo"])) return "sealed";
+  if (hasAny(text, [" completo", " cib", " con caja", " caja y manual"])) return "complete";
+  if (hasAny(text, [" juego y manual", " con manual", " manual incluido"])) return "game_manual";
+  if (hasAny(text, [" cartucho", " cartridge", " solo cartucho", " disco", " solo disco", " cd "])) return "loose";
+  return null;
+}
+
+function hasUsefulRegionEvidence(item: PriceReviewItem, inferredRegion: string | null): boolean {
+  const evidence = item.evidence?.regionEvidence ?? [];
+  if (evidence.some((value) => !/sin prueba|no proof/i.test(value))) return true;
+  return Boolean(inferredRegion);
+}
+
+function isSafeRetroplayzoneAutoAccept(item: PriceReviewItem): PriceReviewAutoRetroplayzoneCandidate {
+  const catalogId = item.catalogId || item.candidateCatalogId || null;
+  const inferredRegion = item.detectedRegion || item.targetRegion || retroplayzoneRegionFromTitle(item.listingTitle);
+  const inferredCondition = (item.condition && item.condition !== "unknown"
+    ? item.condition
+    : retroplayzoneConditionFromTitle(item.listingTitle)) as PriceReviewCondition | null;
+  const score = Number(item.evidence?.matchScore ?? 0);
+  const aiConfidence = Number(item.evidence?.aiConfidence ?? 0);
+  const method = normalizedText(item.evidence?.matchMethod);
+  const title = normalizedText(item.listingTitle);
+  const platformSlug = normalizedText(item.platformSlug);
+  const platformWords = normalizedText(item.platformSlug.replace(/-/g, " "));
+  const platformClear = !item.platformSlug || title.includes(platformSlug) || title.includes(platformWords) || Boolean(catalogId?.startsWith(`${item.platformSlug}-`));
+  const matchClear = score >= 0.78 || aiConfidence >= 0.9 || (score >= 0.5 && hasUsefulRegionEvidence(item, inferredRegion) && Boolean(inferredCondition));
+
+  if (!catalogId) {
+    return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: "sin ficha destino" };
+  }
+  if (!Number.isFinite(Number(item.priceEur)) || Number(item.priceEur) <= 0) {
+    return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: "sin precio válido" };
+  }
+  if (titleSuggestsHardwareOrLot(item.listingTitle)) {
+    return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: "posible lote/accesorio/hardware" };
+  }
+  if (!platformClear) {
+    return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: "plataforma no clara" };
+  }
+  if (!hasUsefulRegionEvidence(item, inferredRegion)) {
+    return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: "región sin prueba" };
+  }
+  if (!inferredCondition || inferredCondition === "unknown") {
+    return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: "estado no claro" };
+  }
+  if (!matchClear) {
+    return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: `match insuficiente${method ? ` (${method})` : ""}` };
+  }
+  return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "accept", reason: "región, estado y match claros" };
+}
+
+export async function autoReviewRetroplayzonePrices(
+  input: PriceReviewAutoRetroplayzoneInput = {},
+): Promise<PriceReviewAutoRetroplayzoneResult | { error: string }> {
+  const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
+  const retroItems = queue.items.filter((item) => item.status === "pending" && normalizedText(item.source).includes("retroplayzone"));
+  const candidates = retroItems.map(isSafeRetroplayzoneAutoAccept);
+  const acceptedCandidates = candidates.filter((candidate) => candidate.decision === "accept");
+
+  if (!input.apply) {
+    return {
+      ok: true,
+      mode: "preview",
+      totalRetroplayzonePending: retroItems.length,
+      accepted: acceptedCandidates.length,
+      skipped: candidates.length - acceptedCandidates.length,
+      workerSynced: false,
+      candidates,
+    };
+  }
+
+  const now = new Date().toISOString();
+  const acceptedById = new Map(acceptedCandidates.map((candidate) => [candidate.id, candidate]));
+  const errors: string[] = [];
+  for (const item of retroItems) {
+    const candidate = acceptedById.get(item.id);
+    if (!candidate?.catalogId || !candidate.condition) continue;
+    const patch = patchFromReview(item, {
+      action: "accept",
+      catalogId: candidate.catalogId,
+      region: candidate.region ?? undefined,
+      condition: candidate.condition,
+      note: "Autoaceptado RetroPlayZone: región, estado y match claros.",
+    });
+    const result = await updatePublishedCatalogPrices(candidate.catalogId, patch);
+    if ("error" in result) {
+      errors.push(`${item.id}: ${result.error}`);
+      acceptedById.delete(item.id);
+    }
+  }
+  if (errors.length) return { error: `No se pudieron aplicar todos los precios: ${errors.slice(0, 3).join(" · ")}` };
+
+  queue.items = queue.items.map((item) => {
+    const candidate = acceptedById.get(item.id);
+    if (!candidate) return item;
+    return {
+      ...item,
+      status: "accepted",
+      catalogId: candidate.catalogId,
+      candidateCatalogId: candidate.catalogId,
+      targetRegion: candidate.region ?? item.targetRegion ?? item.detectedRegion ?? null,
+      condition: candidate.condition,
+      decidedAt: now,
+      updatedAt: now,
+      decision: {
+        action: "accept",
+        catalogId: candidate.catalogId,
+        region: candidate.region,
+        condition: candidate.condition,
+        note: "Autoaceptado RetroPlayZone: región, estado y match claros.",
+      },
+      evidence: {
+        ...(item.evidence ?? {}),
+        reviewNotes: [
+          ...(item.evidence?.reviewNotes ?? []),
+          "Autoaceptado RetroPlayZone: región, estado y match claros.",
+        ],
+      },
+    };
+  });
+  queue.decisions = [
+    ...[...acceptedById.values()].map((candidate) => ({
+      id: candidate.id,
+      at: now,
+      action: "accept",
+      catalogId: candidate.catalogId,
+      region: candidate.region,
+      condition: candidate.condition,
+      note: "Autoaceptado RetroPlayZone: región, estado y match claros.",
+    })),
+    ...queue.decisions,
+  ].slice(0, 1000);
+  const write = await writeQueue(queue);
+  return {
+    ok: true,
+    mode: "apply",
+    totalRetroplayzonePending: retroItems.length,
+    accepted: acceptedById.size,
+    skipped: candidates.length - acceptedById.size,
+    workerSynced: write.workerSynced,
+    workerSyncError: write.error,
+    candidates: candidates.map((candidate) => acceptedById.has(candidate.id) ? candidate : { ...candidate, decision: candidate.decision === "accept" ? "skip" : candidate.decision }),
+  };
 }
 
 export async function decidePriceReviewItem(

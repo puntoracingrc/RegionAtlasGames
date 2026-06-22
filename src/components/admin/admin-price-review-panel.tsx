@@ -9,6 +9,29 @@ type Props = {
   initialItems: PriceReviewItem[];
 };
 
+type AutoRetroplayzoneCandidate = {
+  id: string;
+  listingTitle: string;
+  catalogId: string | null;
+  region: string | null;
+  condition: PriceReviewCondition | null;
+  priceEur: number;
+  decision: "accept" | "skip";
+  reason: string;
+};
+
+type AutoRetroplayzoneResponse = {
+  ok?: boolean;
+  mode?: "preview" | "apply";
+  totalRetroplayzonePending?: number;
+  accepted?: number;
+  skipped?: number;
+  workerSynced?: boolean;
+  workerSyncError?: string;
+  candidates?: AutoRetroplayzoneCandidate[];
+  error?: string;
+};
+
 const conditionLabels: Record<string, string> = {
   loose: "Suelto/cartucho/CD",
   game_manual: "Juego + manual",
@@ -388,6 +411,30 @@ function ReviewCard({
 
 export function AdminPriceReviewPanel({ initialItems }: Props) {
   const [items, setItems] = useState(initialItems);
+  const [autoState, setAutoState] = useState<"idle" | "previewing" | "applying" | "error" | "done">("idle");
+  const [autoResult, setAutoResult] = useState<AutoRetroplayzoneResponse | null>(null);
+
+  async function runAutoRetroplayzone(apply: boolean) {
+    setAutoState(apply ? "applying" : "previewing");
+    const response = await fetch("/api/admin/price-reviews/auto-retroplayzone", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ apply }),
+    });
+    const data = await response.json().catch(() => null) as AutoRetroplayzoneResponse | null;
+    if (!response.ok || !data?.ok) {
+      setAutoResult(data ?? { error: "No se pudo revisar RetroPlayZone automáticamente." });
+      setAutoState("error");
+      return;
+    }
+    setAutoResult(data);
+    setAutoState("done");
+    if (apply) {
+      const acceptedIds = new Set((data.candidates ?? []).filter((candidate) => candidate.decision === "accept").map((candidate) => candidate.id));
+      setItems((current) => current.filter((item) => !acceptedIds.has(item.id)));
+    }
+  }
+
   return (
     <Panel className={adminToneClass("edit")}>
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -398,6 +445,61 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
           </p>
         </div>
         <Badge tone={items.length > 0 ? "amber" : "green"}>{items.length} pendientes</Badge>
+      </div>
+      <div className="mt-4 rounded-2xl border border-border bg-background/50 p-3">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className="text-sm font-black text-foreground">Auto-revisar RetroPlayZone</p>
+            <p className="mt-1 text-xs leading-5 text-muted">
+              Primero hace una vista previa. Solo acepta automáticamente si región, estado y juego están claros; lo dudoso se queda aquí.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              disabled={autoState === "previewing" || autoState === "applying"}
+              onClick={() => runAutoRetroplayzone(false)}
+              className="btn-secondary text-xs"
+            >
+              {autoState === "previewing" ? "Revisando..." : "Vista previa"}
+            </button>
+            <button
+              type="button"
+              disabled={autoState === "previewing" || autoState === "applying" || !autoResult?.accepted}
+              onClick={() => runAutoRetroplayzone(true)}
+              className="btn-primary text-xs"
+            >
+              {autoState === "applying" ? "Aplicando..." : "Aplicar seguros"}
+            </button>
+          </div>
+        </div>
+        {autoResult ? (
+          <div className={`mt-3 rounded-xl border px-3 py-2 text-xs ${autoState === "error" ? "border-red-200 bg-red-50 text-red-700" : "border-emerald-200 bg-emerald-50 text-emerald-700"}`}>
+            {autoState === "error" ? (
+              <p className="font-semibold">{autoResult.error ?? "No se pudo revisar RetroPlayZone automáticamente."}</p>
+            ) : (
+              <>
+                <p className="font-semibold">
+                  RetroPlayZone: {autoResult.totalRetroplayzonePending ?? 0} pendientes · {autoResult.accepted ?? 0} seguros · {autoResult.skipped ?? 0} siguen en revisión.
+                </p>
+                {autoResult.mode === "apply" ? (
+                  <p className="mt-1">
+                    Aplicado. Worker externo: {autoResult.workerSynced ? "sincronizado" : `pendiente/no sincronizado${autoResult.workerSyncError ? ` (${autoResult.workerSyncError})` : ""}`}.
+                  </p>
+                ) : null}
+                {autoResult.candidates?.length ? (
+                  <div className="mt-2 grid gap-1 text-[11px]">
+                    {autoResult.candidates.slice(0, 8).map((candidate) => (
+                      <p key={candidate.id}>
+                        <strong>{candidate.decision === "accept" ? "Aceptaría" : "Deja"}:</strong> {candidate.listingTitle} · {candidate.region || "sin región"} · {conditionLabels[String(candidate.condition || "unknown")] ?? "estado desconocido"} · {candidate.reason}
+                      </p>
+                    ))}
+                  </div>
+                ) : null}
+              </>
+            )}
+          </div>
+        ) : null}
       </div>
       {items.length > 0 ? (
         <div className="mt-4 grid gap-3">
