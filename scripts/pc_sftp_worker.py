@@ -345,10 +345,18 @@ def process_import_request(queue: SftpQueue, request_name: str) -> bool:
         env,
         timeout=3600,
     )
+    upload_price_review_queue(queue)
     update_local_game_queue_import(queue, import_id, code, tail(log_file, 12000))
     queue.upload_file(queue.remote("logs", f"import-{import_id}.log"), log_file)
     queue.rename(running_path, done_path)
     return True
+
+
+def upload_price_review_queue(queue: SftpQueue) -> None:
+    review_file = ROOT / "data" / "admin" / "price-review-queue.json"
+    if not review_file.exists():
+        return
+    queue.upload_file(queue.remote("app", "data", "admin", "price-review-queue.json"), review_file)
 
 
 def update_local_game_queue_import(queue: SftpQueue, import_id: str, code: int, log_tail: str) -> None:
