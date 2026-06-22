@@ -81,6 +81,22 @@ function catalogCandidates(): BatchCandidate[] {
     }));
 }
 
+const catalogGameById = new Map(listedCatalog.map((game) => [game.id, game]));
+
+function catalogCandidateNeedsMissingFill(candidate: BatchCandidate): boolean {
+  if (!candidate.catalogId) return false;
+  const game = catalogGameById.get(candidate.catalogId);
+  if (!game) return false;
+  const details = getGameDetails(game.id);
+  return !(
+    details?.description &&
+    details.seoMeta?.seoDescription &&
+    details.developer &&
+    details.publisher &&
+    (details.genres?.length ?? 0) > 0
+  );
+}
+
 async function stagingCandidates(): Promise<BatchCandidate[]> {
   const games = await listCatalogStagingGames();
   return games
@@ -197,9 +213,16 @@ export async function GET(request: Request) {
   if (requestMode === "summary") {
     const batchMode: BatchMode = searchParams.get("batchMode") === "force" ? "force" : "missing";
     let needsFill = 0;
-    for (const candidate of filteredCandidates) {
-      const draft = await resolveCandidateDraft(candidate);
-      if (draft && (batchMode === "force" || needsMissingFill(draft))) needsFill += 1;
+    if (source === "catalog") {
+      needsFill =
+        batchMode === "force"
+          ? filteredCandidates.length
+          : filteredCandidates.filter(catalogCandidateNeedsMissingFill).length;
+    } else {
+      for (const candidate of filteredCandidates) {
+        const draft = await resolveCandidateDraft(candidate);
+        if (draft && (batchMode === "force" || needsMissingFill(draft))) needsFill += 1;
+      }
     }
 
     const summary: BatchSummary = {
@@ -329,6 +352,10 @@ export async function POST(request: Request) {
     .filter((game) => region === "all" || game.region === region)
     .filter((game) => source === "catalog" || status === "all" || game.status === status)
     .sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt) || a.title.localeCompare(b.title, "es"));
+  const candidatesToInspect =
+    source === "catalog" && mode === "missing" && !requestedItemIds && !requestedPcIds
+      ? candidates.filter(catalogCandidateNeedsMissingFill).slice(0, limit)
+      : candidates;
 
   const report = {
     scanned: candidates.length,
@@ -350,7 +377,7 @@ export async function POST(request: Request) {
     items: [] as BatchItem[],
   };
 
-  for (const candidate of candidates) {
+  for (const candidate of candidatesToInspect) {
     if (report.selected >= limit) break;
     const draft = await resolveCandidateDraft(candidate);
     if (!draft) {
