@@ -22,6 +22,13 @@ const quickActions = [
     tone: "edit",
   },
   {
+    href: "/admin/higiene",
+    title: "Higiene catálogo",
+    description: "Escaneos técnicos del catálogo ejecutados por el PC.",
+    icon: "⌁",
+    tone: "status",
+  },
+  {
     href: "/admin/ia",
     title: "Completar con IA",
     description: "Rellena huecos por ficha o por lote seguro.",

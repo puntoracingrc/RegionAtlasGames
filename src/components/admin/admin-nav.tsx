@@ -7,6 +7,7 @@ const links = [
   { href: "/admin", label: "Resumen", icon: "⌁" },
   { href: "/admin/cola", label: "Revisión", icon: "✓" },
   { href: "/admin/gestion", label: "Gestión", icon: "▦" },
+  { href: "/admin/higiene", label: "Higiene", icon: "⌁" },
   { href: "/admin/ia", label: "IA", icon: "✦" },
   { href: "/admin/noticias", label: "Noticias", icon: "◫" },
   { href: "/admin/precios", label: "Recolección", icon: "€" },
@@ -31,6 +32,8 @@ export function AdminNav({ pendingReviewCount = 0 }: { pendingReviewCount?: numb
                 pathname.startsWith("/admin/colaboradores") ||
                 pathname.startsWith("/admin/entidades") ||
                 pathname.startsWith("/admin/taxonomia")
+            : link.href === "/admin/higiene"
+              ? pathname === "/admin/higiene"
             : link.href === "/admin/juegos"
               ? pathname === "/admin/juegos" || /^\/admin\/juegos\/[^/]+$/.test(pathname)
               : pathname.startsWith(link.href);
