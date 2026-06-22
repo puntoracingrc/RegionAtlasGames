@@ -19,7 +19,7 @@ export async function PATCH(request: Request, { params }: RouteParams) {
     name?: string;
     shortName?: string;
     manufacturer?: "nintendo" | "sony" | "sega" | "snk" | "microsoft";
-    status?: "closed" | "semi-closed";
+    status?: "closed" | "semi-closed" | "open";
     description?: string;
     sortOrder?: number;
     newSlug?: string;

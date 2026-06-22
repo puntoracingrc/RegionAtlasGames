@@ -103,6 +103,7 @@ export function formatDelta(value: number | null | undefined): string {
 }
 
 export function statusLabel(status: Platform["status"]): string {
+  if (status === "open") return "Abierta";
   return status === "semi-closed" ? "Semi-cerrada" : "Cerrada";
 }
 

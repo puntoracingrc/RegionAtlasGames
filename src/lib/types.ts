@@ -170,7 +170,7 @@ export type CompanyProfile = {
   method?: "ai" | "template" | "wikidata" | null;
 };
 
-export type PlatformStatus = "closed" | "semi-closed";
+export type PlatformStatus = "closed" | "semi-closed" | "open";
 
 export type Platform = {
   slug: string;

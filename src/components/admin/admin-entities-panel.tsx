@@ -1064,6 +1064,7 @@ export function AdminEntitiesPanel({
               >
                 <option value="closed">Cerrada</option>
                 <option value="semi-closed">Semi-cerrada</option>
+                <option value="open">Abierta</option>
               </select>
             </label>
             <label className="block space-y-1">
@@ -1437,6 +1438,7 @@ export function AdminEntitiesPanel({
                       >
                         <option value="closed">Cerrada</option>
                         <option value="semi-closed">Semi-cerrada</option>
+                        <option value="open">Abierta</option>
                       </select>
                     </label>
                     <div className="flex flex-wrap gap-2 md:col-span-2">

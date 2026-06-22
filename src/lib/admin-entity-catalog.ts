@@ -333,7 +333,7 @@ async function createOverlayPlatform(
     return { error: "Fabricante no válido." };
   }
   const status = input.status ?? "closed";
-  if (!["closed", "semi-closed"].includes(status)) {
+  if (!["closed", "semi-closed", "open"].includes(status)) {
     return { error: "Estado no válido." };
   }
   const maxSortOrder = Math.max(
@@ -511,7 +511,7 @@ export async function createAdminPlatform(input: {
   }
 
   const status = input.status ?? "closed";
-  if (!["closed", "semi-closed"].includes(status)) {
+  if (!["closed", "semi-closed", "open"].includes(status)) {
     return { error: "Estado no válido." };
   }
 

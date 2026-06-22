@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     name?: string;
     shortName?: string;
     manufacturer?: "nintendo" | "sony" | "sega" | "snk" | "microsoft";
-    status?: "closed" | "semi-closed";
+    status?: "closed" | "semi-closed" | "open";
     description?: string;
     sortOrder?: number;
     newsEnabled?: boolean;
