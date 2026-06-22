@@ -44,9 +44,38 @@ export function AdminCatalogHygienePanel() {
   const [loading, setLoading] = useState(true);
   const [starting, setStarting] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [severityFilter, setSeverityFilter] = useState("all");
+  const [sourceFilter, setSourceFilter] = useState("all");
+  const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
 
   const active = state?.status?.status === "pending" || state?.status?.status === "running";
-  const examples = useMemo(() => state?.report?.examples?.slice(0, 8) ?? [], [state?.report]);
+  const allIssues = useMemo(() => state?.report?.issues ?? state?.report?.examples ?? [], [state?.report]);
+  const filteredIssues = useMemo(() => {
+    const cleanQuery = query.trim().toLowerCase();
+    return allIssues.filter((issue) => {
+      if (severityFilter !== "all" && issue.severity !== severityFilter) return false;
+      if (sourceFilter !== "all" && issue.source !== sourceFilter) return false;
+      if (!cleanQuery) return true;
+      return [
+        issue.recordId,
+        issue.field,
+        issue.value,
+        issue.decodedValue,
+        issue.title,
+        issue.suggestedId,
+        issue.source,
+        issue.kind,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase()
+        .includes(cleanQuery);
+    });
+  }, [allIssues, query, severityFilter, sourceFilter]);
+  const pageSize = 50;
+  const totalPages = Math.max(1, Math.ceil(filteredIssues.length / pageSize));
+  const visibleIssues = filteredIssues.slice((page - 1) * pageSize, page * pageSize);
 
   const loadState = useCallback(async () => {
     setLoading(true);
@@ -58,6 +87,7 @@ export function AdminCatalogHygienePanel() {
         return;
       }
       setState(data);
+      setPage(1);
     } finally {
       setLoading(false);
     }
@@ -141,23 +171,105 @@ export function AdminCatalogHygienePanel() {
         </div>
       ) : null}
 
-      {examples.length ? (
-        <div className="mt-5 overflow-hidden rounded-2xl border border-border">
+      {allIssues.length ? (
+        <div className="mt-5 space-y-4">
+          <div className="grid gap-3 rounded-2xl border border-border bg-background/55 p-4 lg:grid-cols-[180px_180px_1fr_auto]">
+            <label className="space-y-1 text-xs font-bold text-muted">
+              <span className="block uppercase tracking-[0.16em]">Tipo</span>
+              <select
+                className="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground"
+                value={severityFilter}
+                onChange={(event) => {
+                  setSeverityFilter(event.target.value);
+                  setPage(1);
+                }}
+              >
+                <option value="all">Todos</option>
+                <option value="critical">Críticos</option>
+                <option value="warning">Avisos</option>
+                <option value="text">Texto</option>
+              </select>
+            </label>
+            <label className="space-y-1 text-xs font-bold text-muted">
+              <span className="block uppercase tracking-[0.16em]">Origen</span>
+              <select
+                className="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground"
+                value={sourceFilter}
+                onChange={(event) => {
+                  setSourceFilter(event.target.value);
+                  setPage(1);
+                }}
+              >
+                <option value="all">Todos</option>
+                <option value="catalog">Catálogo</option>
+                <option value="game-details">Detalles</option>
+                <option value="price-review-queue">Precios revisión</option>
+              </select>
+            </label>
+            <label className="space-y-1 text-xs font-bold text-muted">
+              <span className="block uppercase tracking-[0.16em]">Buscar</span>
+              <input
+                className="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground"
+                value={query}
+                onChange={(event) => {
+                  setQuery(event.target.value);
+                  setPage(1);
+                }}
+                placeholder="Asterix, &amp;, ps4..."
+              />
+            </label>
+            <div className="flex items-end">
+              <button
+                type="button"
+                className="btn-secondary w-full"
+                onClick={() => {
+                  setSeverityFilter("all");
+                  setSourceFilter("all");
+                  setQuery("");
+                  setPage(1);
+                }}
+              >
+                Limpiar
+              </button>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3 text-sm text-muted md:flex-row md:items-center md:justify-between">
+            <p>
+              Mostrando {numberLabel(visibleIssues.length)} de {numberLabel(filteredIssues.length)} filtradas.
+              Total informe: {numberLabel(allIssues.length)}.
+            </p>
+            <div className="flex items-center gap-2">
+              <button type="button" className="btn-secondary" disabled={page <= 1} onClick={() => setPage((value) => Math.max(1, value - 1))}>
+                Anterior
+              </button>
+              <span className="text-xs font-bold uppercase tracking-[0.14em]">
+                {page} / {totalPages}
+              </span>
+              <button type="button" className="btn-secondary" disabled={page >= totalPages} onClick={() => setPage((value) => Math.min(totalPages, value + 1))}>
+                Siguiente
+              </button>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-border">
           <div className="grid grid-cols-[110px_1fr_1fr] gap-3 border-b border-border bg-background/70 px-4 py-3 text-xs font-black text-muted">
             <span>Tipo</span>
             <span>Actual</span>
             <span>Sugerencia</span>
           </div>
-          {examples.map((issue, index) => (
+            {visibleIssues.map((issue, index) => (
             <div key={`${issue.recordId}-${issue.field}-${index}`} className="grid grid-cols-[110px_1fr_1fr] gap-3 border-b border-border px-4 py-3 text-xs last:border-b-0">
               <span className="font-black">{severityLabel(issue.severity)}</span>
               <span className="min-w-0">
                 <span className="block font-semibold">{issueLabel(issue)}</span>
+                {issue.recordId ? <span className="block break-all text-muted">{issue.recordId}</span> : null}
                 <span className="block break-all text-muted">{issue.value}</span>
               </span>
               <span className="break-all text-emerald-700">{issue.suggestedId ?? issue.decodedValue ?? "-"}</span>
             </div>
           ))}
+          </div>
         </div>
       ) : (
         <div className="mt-5">

@@ -26,6 +26,7 @@ export type CatalogEntityAuditReport = {
   schemaVersion?: number;
   summary?: CatalogEntityAuditSummary;
   examples?: CatalogEntityAuditIssue[];
+  issues?: CatalogEntityAuditIssue[];
 };
 
 export type CatalogEntityAuditStatus = {
