@@ -3,11 +3,18 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Panel, PanelTitle } from "@/components/ui";
-import type { CatalogEntityAuditIssue, CatalogEntityAuditReport, CatalogEntityAuditStatus } from "@/lib/admin-catalog-hygiene";
+import type {
+  CatalogEntityAuditIssue,
+  CatalogEntityAuditReport,
+  CatalogEntityAuditStatus,
+  CatalogEntityMigrationPlan,
+} from "@/lib/admin-catalog-hygiene";
 
 type AuditState = {
   status: CatalogEntityAuditStatus | null;
   report: CatalogEntityAuditReport | null;
+  migrationPlanStatus: CatalogEntityAuditStatus | null;
+  migrationPlan: CatalogEntityMigrationPlan | null;
   workerBaseUrl: string | null;
 };
 
@@ -44,12 +51,14 @@ export function AdminCatalogHygienePanel() {
   const [loading, setLoading] = useState(true);
   const [starting, setStarting] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [planning, setPlanning] = useState(false);
   const [severityFilter, setSeverityFilter] = useState("all");
   const [sourceFilter, setSourceFilter] = useState("all");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
 
   const active = state?.status?.status === "pending" || state?.status?.status === "running";
+  const planActive = state?.migrationPlanStatus?.status === "pending" || state?.migrationPlanStatus?.status === "running";
   const allIssues = useMemo(() => state?.report?.issues ?? state?.report?.examples ?? [], [state?.report]);
   const filteredIssues = useMemo(() => {
     const cleanQuery = query.trim().toLowerCase();
@@ -110,16 +119,37 @@ export function AdminCatalogHygienePanel() {
     }
   }
 
+  async function startMigrationPlan() {
+    setPlanning(true);
+    setMessage(null);
+    try {
+      const response = await fetch("/api/admin/catalog-hygiene", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "migration-plan", target: "percent27" }),
+      });
+      const data = (await response.json().catch(() => null)) as { message?: string; error?: string } | null;
+      if (!response.ok || data?.error) {
+        setMessage(data?.error ?? "No se pudo enviar el plan al PC.");
+        return;
+      }
+      setMessage(data?.message ?? "Plan enviado al PC.");
+      await loadState();
+    } finally {
+      setPlanning(false);
+    }
+  }
+
   useEffect(() => {
     const timer = window.setTimeout(() => void loadState(), 0);
     return () => window.clearTimeout(timer);
   }, [loadState]);
 
   useEffect(() => {
-    if (!active) return;
+    if (!active && !planActive) return;
     const timer = window.setInterval(() => void loadState(), 10000);
     return () => window.clearInterval(timer);
-  }, [active, loadState]);
+  }, [active, planActive, loadState]);
 
   return (
     <Panel className={adminToneClass("status")}>
@@ -136,6 +166,9 @@ export function AdminCatalogHygienePanel() {
           </button>
           <button type="button" className="btn-primary" onClick={() => void startAudit()} disabled={starting || active}>
             {starting ? "Enviando..." : active ? statusLabel(state?.status?.status) : "Escanear en PC"}
+          </button>
+          <button type="button" className="btn-secondary" onClick={() => void startMigrationPlan()} disabled={planning || planActive}>
+            {planning ? "Enviando..." : planActive ? statusLabel(state?.migrationPlanStatus?.status) : "Preparar limpieza %27"}
           </button>
         </div>
       </div>
@@ -168,6 +201,59 @@ export function AdminCatalogHygienePanel() {
       {state?.status?.error ? (
         <div className="mt-4">
           <AdminNotice tone="danger">{state.status.error}</AdminNotice>
+        </div>
+      ) : null}
+
+      {state?.migrationPlan ? (
+        <div className="mt-5 rounded-2xl border border-border bg-background/45 p-4">
+          <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted">Plan de limpieza %27</p>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                Previsualiza la migración. No aplica cambios al catálogo.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-2 text-sm md:grid-cols-4">
+              <span className="rounded-xl border border-border bg-card px-3 py-2">
+                Total <b>{numberLabel(state.migrationPlan.summary?.totalItems)}</b>
+              </span>
+              <span className="rounded-xl border border-border bg-card px-3 py-2">
+                Seguros <b>{numberLabel(state.migrationPlan.summary?.safeToApply)}</b>
+              </span>
+              <span className="rounded-xl border border-border bg-card px-3 py-2">
+                Conflictos <b>{numberLabel(state.migrationPlan.summary?.conflicts)}</b>
+              </span>
+              <span className="rounded-xl border border-border bg-card px-3 py-2">
+                Cambios <b>{numberLabel(state.migrationPlan.summary?.totalChanges)}</b>
+              </span>
+            </div>
+          </div>
+          <div className="mt-4 overflow-hidden rounded-2xl border border-border">
+            <div className="grid grid-cols-[90px_1fr_1fr_80px] gap-3 border-b border-border bg-background/70 px-4 py-3 text-xs font-black text-muted">
+              <span>Estado</span>
+              <span>Actual</span>
+              <span>Nuevo</span>
+              <span>Cambios</span>
+            </div>
+            {(state.migrationPlan.items ?? []).slice(0, 20).map((item) => (
+              <div key={item.oldId} className="grid grid-cols-[90px_1fr_1fr_80px] gap-3 border-b border-border px-4 py-3 text-xs last:border-b-0">
+                <span className={item.conflict ? "font-black text-red-700" : "font-black text-emerald-700"}>
+                  {item.conflict ? "Conflicto" : "Seguro"}
+                </span>
+                <span className="min-w-0">
+                  <span className="block break-all font-semibold">{item.oldId}</span>
+                  <span className="block text-muted">{item.title}</span>
+                </span>
+                <span className="break-all text-emerald-700">{item.newId}</span>
+                <span>{numberLabel(item.changeCount)}</span>
+              </div>
+            ))}
+          </div>
+          {state.workerBaseUrl ? (
+            <p className="mt-3 break-all text-xs text-muted">
+              Plan worker: {state.workerBaseUrl}/app/data/admin/catalog-entity-migration-plan.json
+            </p>
+          ) : null}
         </div>
       ) : null}
 

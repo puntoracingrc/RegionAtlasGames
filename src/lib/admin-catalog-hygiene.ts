@@ -45,9 +45,39 @@ export type CatalogEntityAuditStatus = {
   logTail?: string;
 };
 
+export type CatalogEntityMigrationPlanSummary = {
+  target?: string;
+  totalItems?: number;
+  safeToApply?: number;
+  conflicts?: number;
+  totalChanges?: number;
+};
+
+export type CatalogEntityMigrationPlanItem = {
+  oldId?: string;
+  newId?: string;
+  oldSlug?: string;
+  newSlug?: string;
+  platformSlug?: string;
+  title?: string;
+  region?: string;
+  conflict?: boolean;
+  safeToApply?: boolean;
+  changeCount?: number;
+};
+
+export type CatalogEntityMigrationPlan = {
+  schemaVersion?: number;
+  generatedAt?: string;
+  summary?: CatalogEntityMigrationPlanSummary;
+  items?: CatalogEntityMigrationPlanItem[];
+};
+
 export type CatalogEntityAuditState = {
   status: CatalogEntityAuditStatus | null;
   report: CatalogEntityAuditReport | null;
+  migrationPlanStatus: CatalogEntityAuditStatus | null;
+  migrationPlan: CatalogEntityMigrationPlan | null;
   workerBaseUrl: string | null;
 };
 
@@ -112,13 +142,17 @@ async function writeWorkerFile(remote: string, payload: Buffer): Promise<{ ok: t
 }
 
 export async function readCatalogEntityAuditState(): Promise<CatalogEntityAuditState> {
-  const [status, report] = await Promise.all([
+  const [status, report, migrationPlanStatus, migrationPlan] = await Promise.all([
     fetchWorkerJson<CatalogEntityAuditStatus>("app/data/admin/catalog-html-entity-audit-status.json"),
     fetchWorkerJson<CatalogEntityAuditReport>("app/data/admin/catalog-html-entity-audit.json"),
+    fetchWorkerJson<CatalogEntityAuditStatus>("app/data/admin/catalog-entity-migration-plan-status.json"),
+    fetchWorkerJson<CatalogEntityMigrationPlan>("app/data/admin/catalog-entity-migration-plan.json"),
   ]);
   return {
     status,
     report,
+    migrationPlanStatus,
+    migrationPlan,
     workerBaseUrl: priceWorkerPublicBaseUrl() || null,
   };
 }
@@ -154,4 +188,40 @@ export async function startCatalogEntityAuditPcJob(): Promise<{ ok: true; jobId:
   if ("error" in requestWritten) return requestWritten;
 
   return { ok: true, jobId, message: "Auditoría enviada al PC. Actualiza estado cuando termine." };
+}
+
+export async function startCatalogEntityMigrationPlanPcJob(
+  target: "percent27" | "html_amp" | "all" = "percent27",
+): Promise<{ ok: true; jobId: string; message: string } | { error: string }> {
+  const jobId = `catalog-plan-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+  const now = new Date().toISOString();
+  const request = {
+    jobId,
+    jobType: "catalog_entity_migration_plan",
+    target,
+    requestedAt: now,
+    runner: "pc_sftp_worker",
+  };
+  const status: CatalogEntityAuditStatus = {
+    jobId,
+    jobType: "catalog_entity_migration_plan",
+    status: "pending",
+    requestedAt: now,
+    updatedAt: now,
+    message: "Plan de limpieza enviado al PC worker.",
+  };
+
+  const fixedStatus = await writeWorkerFile(
+    "app/data/admin/catalog-entity-migration-plan-status.json",
+    Buffer.from(`${JSON.stringify(status, null, 2)}\n`, "utf8"),
+  );
+  if ("error" in fixedStatus) return fixedStatus;
+
+  const jobStatus = await writeWorkerFile(`jobs/review-${jobId}.json`, Buffer.from(`${JSON.stringify(status, null, 2)}\n`, "utf8"));
+  if ("error" in jobStatus) return jobStatus;
+
+  const requestWritten = await writeWorkerFile(`jobs/review-requests/${jobId}.json`, Buffer.from(`${JSON.stringify(request, null, 2)}\n`, "utf8"));
+  if ("error" in requestWritten) return requestWritten;
+
+  return { ok: true, jobId, message: "Plan de limpieza enviado al PC. Actualiza estado cuando termine." };
 }

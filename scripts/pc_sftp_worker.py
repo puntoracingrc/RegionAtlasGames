@@ -451,6 +451,108 @@ def process_catalog_entity_audit_request(
     return True
 
 
+def process_catalog_entity_migration_plan_request(
+    queue: SftpQueue,
+    review_id: str,
+    running_path: str,
+    done_path: str,
+    status_remote: str,
+    log_remote: str,
+    request: dict[str, Any],
+) -> bool:
+    local_dir = RESULTS_DIR / "catalog-entity-plan" / review_id
+    input_dir = local_dir / "input"
+    output_file = local_dir / "catalog-entity-migration-plan.json"
+    status_file = STATUS_DIR / f"review-{review_id}.json"
+    log_file = LOG_DIR / f"review-{review_id}.log"
+    local_dir.mkdir(parents=True, exist_ok=True)
+    input_dir.mkdir(parents=True, exist_ok=True)
+
+    status = {
+        "jobId": review_id,
+        "jobType": "catalog_entity_migration_plan",
+        "status": "running",
+        "startedAt": now_iso(),
+        "updatedAt": now_iso(),
+        "runnerId": queue.config.runner_id,
+        "message": "Plan de limpieza del catálogo ejecutándose en PC.",
+    }
+    status_file.write_text(json_text(status), encoding="utf-8")
+    queue.upload_bytes(status_remote, json_bytes(status))
+    queue.upload_bytes(queue.remote("app", "data", "admin", "catalog-entity-migration-plan-status.json"), json_bytes(status))
+
+    downloads = [
+        ("catalog.json", queue.remote("app", "data", "catalog.json"), ROOT / "data" / "catalog.json"),
+        ("game-details.json", queue.remote("app", "data", "game-details.json"), ROOT / "data" / "game-details.json"),
+        (
+            "price-review-queue.json",
+            queue.remote("app", "data", "admin", "price-review-queue.json"),
+            ROOT / "data" / "admin" / "price-review-queue.json",
+        ),
+    ]
+    for filename, remote_path, fallback_path in downloads:
+        target = input_dir / filename
+        try:
+            queue.download(remote_path, target)
+        except OSError:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if fallback_path.exists():
+                target.write_bytes(fallback_path.read_bytes())
+            elif filename == "price-review-queue.json":
+                target.write_text('{"schemaVersion":1,"updatedAt":"","items":[],"decisions":[]}\n', encoding="utf-8")
+            else:
+                target.write_text("{}\n" if filename == "game-details.json" else "[]\n", encoding="utf-8")
+
+    env = command_base_env()
+    target = str(request.get("target") or "percent27")
+    code = run_logged(
+        [
+            sys.executable,
+            str(ROOT / "scripts" / "plan_catalog_entity_migration.py"),
+            "--catalog",
+            str(input_dir / "catalog.json"),
+            "--details",
+            str(input_dir / "game-details.json"),
+            "--price-review",
+            str(input_dir / "price-review-queue.json"),
+            "--output",
+            str(output_file),
+            "--target",
+            target,
+        ],
+        log_file,
+        env,
+        timeout=1800,
+    )
+    summary: dict[str, Any] = {}
+    if output_file.exists():
+        try:
+            summary = json.loads(output_file.read_text(encoding="utf-8")).get("summary") or {}
+        except Exception:
+            summary = {}
+        queue.upload_file(queue.remote("app", "data", "admin", "catalog-entity-migration-plan.json"), output_file)
+
+    final_status = {
+        **status,
+        "status": "done" if code == 0 else "error",
+        "exitCode": code,
+        "finishedAt": now_iso(),
+        "updatedAt": now_iso(),
+        "summary": summary,
+        "requestedAt": request.get("requestedAt"),
+        "logTail": tail(log_file, 12000),
+        "reportPath": "app/data/admin/catalog-entity-migration-plan.json",
+    }
+    if code != 0:
+        final_status["error"] = "Plan de limpieza del catálogo terminó con error."
+    status_file.write_text(json_text(final_status), encoding="utf-8")
+    queue.upload_bytes(status_remote, json_bytes(final_status))
+    queue.upload_bytes(queue.remote("app", "data", "admin", "catalog-entity-migration-plan-status.json"), json_bytes(final_status))
+    queue.upload_file(log_remote, log_file)
+    queue.rename(running_path, done_path)
+    return True
+
+
 def process_review_request(queue: SftpQueue, request_name: str) -> bool:
     request_path = queue.remote("jobs", "review-requests", request_name)
     review_id = request_name.removesuffix(".json")
@@ -471,6 +573,16 @@ def process_review_request(queue: SftpQueue, request_name: str) -> bool:
     request = json.loads(local_request.read_text(encoding="utf-8"))
     if request.get("jobType") == "catalog_entity_audit":
         return process_catalog_entity_audit_request(
+            queue,
+            review_id,
+            running_path,
+            done_path,
+            status_remote,
+            log_remote,
+            request,
+        )
+    if request.get("jobType") == "catalog_entity_migration_plan":
+        return process_catalog_entity_migration_plan_request(
             queue,
             review_id,
             running_path,
