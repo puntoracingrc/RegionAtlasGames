@@ -38,7 +38,7 @@ type ImportResult = {
   };
   samples: {
     queued: Array<{ title: string; pcId: number | null }>;
-    published: Array<{ title: string; pcId: number | null }>;
+    published: Array<{ title: string; pcId: number | null; catalogId?: string; reason?: string }>;
     alreadyQueued: Array<{ title: string; pcId: number | null }>;
     noPcId: Array<{ title: string }>;
   };
@@ -64,7 +64,7 @@ function SampleList({
   items,
 }: {
   title: string;
-  items: Array<{ title: string; pcId?: number | null }>;
+  items: Array<{ title: string; pcId?: number | null; catalogId?: string; reason?: string }>;
 }) {
   if (items.length === 0) return null;
   return (
@@ -75,6 +75,8 @@ function SampleList({
           <li key={`${item.pcId ?? "noid"}-${item.title}`} className="truncate">
             {item.title}
             {item.pcId ? <span className="font-mono text-[11px]"> · {item.pcId}</span> : null}
+            {item.catalogId ? <span className="font-mono text-[11px]"> · {item.catalogId}</span> : null}
+            {item.reason ? <span className="text-[11px]"> · {item.reason}</span> : null}
           </li>
         ))}
       </ul>

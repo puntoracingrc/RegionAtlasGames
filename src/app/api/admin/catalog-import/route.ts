@@ -4,9 +4,10 @@ import { REGION_OPTIONS } from "@/lib/admin-draft-storage";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import { upsertCatalogStagingFromImport } from "@/lib/catalog-staging";
 import { readCatalogStagingIndex } from "@/lib/catalog-staging-storage";
-import { catalogIdExistsInCatalog } from "@/lib/catalog-runtime-overlay";
+import { catalogIdExistsInCatalog, getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { importSpreadsheet } from "@/lib/import-collection";
 import { catalogIdFromStaging, guessPcPath } from "@/lib/pc-path-guess";
+import { slugify } from "@/lib/slug";
 import type { CollectionItem } from "@/lib/types";
 
 export const maxDuration = 300;
@@ -48,23 +49,84 @@ function parseInitialFilter(value: FormDataEntryValue | null): Set<string> | nul
   return letters.size > 0 ? letters : null;
 }
 
+type PublishedMatch = {
+  published: boolean;
+  catalogId?: string;
+  reason?: string;
+};
+
 function matchesInitialFilter(item: CollectionItem, filter: Set<string> | null): boolean {
   if (!filter) return true;
   const initial = normalizeInitial(item.title);
   return Boolean(initial && filter.has(initial));
 }
 
-async function isPublished(item: CollectionItem, region: string): Promise<boolean> {
-  if (item.catalogMatched && item.catalogId) return true;
+function normalizeRegionForDuplicate(value: string | null | undefined): string {
+  return (value ?? "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
+function sameImportRegion(a: string | null | undefined, b: string | null | undefined): boolean {
+  const left = normalizeRegionForDuplicate(a);
+  const right = normalizeRegionForDuplicate(b);
+  if (!left || !right) return false;
+  if (left === right) return true;
+  return left.includes("espana") && right.includes("espana");
+}
+
+function normalizeDuplicateTitle(value: string | null | undefined): string {
+  let clean = slugify(value ?? "");
+  let previous = "";
+  while (clean && clean !== previous) {
+    previous = clean;
+    clean = clean.replace(
+      /-(?:pal|espana|spain|eur|europa|usa|ntsc|japan|japon|jp|ps5|ps4|ps3|ps2|ps1|switch-2|switch|xbox-one|xbox-series|xbox-series-x|xbox-classic)$/i,
+      "",
+    );
+  }
+  return clean;
+}
+
+async function publishedMatch(item: CollectionItem, region: string): Promise<PublishedMatch> {
+  if (item.catalogMatched && item.catalogId) {
+    return { published: true, catalogId: item.catalogId, reason: "enlazado en el archivo" };
+  }
   const guess = guessPcPath({
     platformSlug: item.platformSlug,
     region,
     title: item.title,
     titlePc: item.titlePc ?? item.title,
   });
-  if (!guess.slug) return false;
+  if (!guess.slug) return { published: false };
+
   const catalogId = catalogIdFromStaging({ platformSlug: item.platformSlug, slug: guess.slug, region });
-  return catalogIdExistsInCatalog(catalogId);
+  if (await catalogIdExistsInCatalog(catalogId)) {
+    return { published: true, catalogId, reason: "id exacto" };
+  }
+
+  const importTitleKeys = new Set(
+    [item.title, item.titlePc, guess.slug]
+      .map(normalizeDuplicateTitle)
+      .filter(Boolean),
+  );
+  if (importTitleKeys.size === 0) return { published: false };
+
+  const platformGames = await getCatalogByPlatformWithOverlay(item.platformSlug);
+  const match = platformGames.find((game) => {
+    if (!sameImportRegion(game.region, region)) return false;
+    const gameTitleKeys = [
+      game.title,
+      game.titlePc,
+      game.slug,
+    ].map(normalizeDuplicateTitle).filter(Boolean);
+    return gameTitleKeys.some((key) => importTitleKeys.has(key));
+  });
+
+  if (!match) return { published: false };
+  return { published: true, catalogId: match.id, reason: "título igual" };
 }
 
 export async function POST(request: Request) {
@@ -111,7 +173,7 @@ export async function POST(request: Request) {
   const initialItems = platformItems.filter((item) => matchesInitialFilter(item, initialFilter));
 
   const queuedItems: CollectionItem[] = [];
-  const skippedPublished: Array<{ title: string; pcId: number | null }> = [];
+  const skippedPublished: Array<{ title: string; pcId: number | null; catalogId?: string; reason?: string }> = [];
   const skippedQueued: Array<{ title: string; pcId: number | null }> = [];
   const skippedNoPcId: Array<{ title: string }> = [];
 
@@ -134,8 +196,14 @@ export async function POST(request: Request) {
       catalogId: null,
       priceRegionVerified: false,
     };
-    if (await isPublished(normalized, region)) {
-      skippedPublished.push({ title: item.title, pcId: item.pcImportId });
+    const published = await publishedMatch(normalized, region);
+    if (published.published) {
+      skippedPublished.push({
+        title: item.title,
+        pcId: item.pcImportId,
+        catalogId: published.catalogId,
+        reason: published.reason,
+      });
       continue;
     }
     if (stagedPcIds.has(item.pcImportId)) {
