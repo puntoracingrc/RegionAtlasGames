@@ -575,9 +575,18 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
         visionLimit,
       }),
     });
-    const data = await response.json().catch(() => null) as AutoRetroplayzoneResponse | null;
+    const rawText = await response.text().catch(() => "");
+    let data: AutoRetroplayzoneResponse | null = null;
+    try {
+      data = rawText ? JSON.parse(rawText) as AutoRetroplayzoneResponse : null;
+    } catch {
+      data = null;
+    }
     if (!response.ok || !data?.ok) {
-      setAutoResult(data ?? { error: "No se pudo revisar automáticamente." });
+      const detail = data?.error
+        ?? rawText.slice(0, 500).trim()
+        ?? `HTTP ${response.status}`;
+      setAutoResult({ error: `No se pudo revisar automáticamente. ${detail}` });
       setAutoState("error");
       return;
     }

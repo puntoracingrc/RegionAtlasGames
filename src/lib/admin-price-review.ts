@@ -354,6 +354,22 @@ function reviewImageUrls(item: PriceReviewItem): string[] {
     .slice(0, 2);
 }
 
+function isUsefulListingPageUrl(pageUrl: string | null | undefined): boolean {
+  const clean = pageUrl?.trim();
+  if (!clean || !/^https?:\/\//i.test(clean)) return false;
+  try {
+    const url = new URL(clean);
+    const path = url.pathname.replace(/\/+$/g, "");
+    return path.length > 0 && path !== "/";
+  } catch {
+    return false;
+  }
+}
+
+function hasReviewImageSource(item: PriceReviewItem): boolean {
+  return reviewImageUrls(item).length > 0 || isUsefulListingPageUrl(item.evidence?.url);
+}
+
 function absoluteImageUrl(rawUrl: string, pageUrl: string): string | null {
   const clean = rawUrl.trim().replace(/&amp;/g, "&");
   if (!clean || clean.startsWith("data:")) return null;
@@ -400,7 +416,7 @@ function extractImageUrlsFromHtml(html: string, pageUrl: string): string[] {
 
 async function fetchListingImageUrls(item: PriceReviewItem): Promise<string[]> {
   const pageUrl = item.evidence?.url?.trim();
-  if (!pageUrl || !/^https?:\/\//i.test(pageUrl)) return [];
+  if (!pageUrl || !isUsefulListingPageUrl(pageUrl)) return [];
   try {
     const response = await fetch(pageUrl, {
       cache: "no-store",
@@ -500,6 +516,7 @@ function isSafeAutoAccept(
   item: PriceReviewItem,
   input: PriceReviewAutoRetroplayzoneInput,
   vision: CoverVisionResult | null = null,
+  visionUnavailableReason?: string,
 ): PriceReviewAutoRetroplayzoneCandidate {
   const catalogId = item.catalogId || item.candidateCatalogId || null;
   const assumedRegion = input.assumedRegion?.trim();
@@ -530,6 +547,9 @@ function isSafeAutoAccept(
   }
   if (!platformClear) {
     return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: "plataforma no clara" };
+  }
+  if (input.useVision && !vision && visionUnavailableReason) {
+    return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: visionUnavailableReason };
   }
   if (vision && vision.confidence >= 0.7 && !vision.isTargetGame) {
     return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: `visión portada: no parece el juego (${vision.reason || "sin detalle"})` };
@@ -599,6 +619,9 @@ async function buildAutoReviewCandidates(
   input: PriceReviewAutoRetroplayzoneInput,
 ): Promise<PriceReviewAutoRetroplayzoneCandidate[]> {
   if (!input.useVision) return items.map((item) => isSafeAutoAccept(item, input));
+  if (!process.env.OPENAI_API_KEY?.trim()) {
+    return items.map((item) => isSafeAutoAccept(item, input, null, "IA de portadas no configurada"));
+  }
 
   const candidates: PriceReviewAutoRetroplayzoneCandidate[] = [];
   const visionLimit = normalizeVisionLimit(input);
@@ -606,11 +629,17 @@ async function buildAutoReviewCandidates(
 
   for (const item of items) {
     let vision: CoverVisionResult | null = null;
-    if (visionAttempts < visionLimit && (reviewImageUrls(item).length || item.evidence?.url)) {
+    let visionUnavailableReason: string | undefined;
+    if (!hasReviewImageSource(item)) {
+      visionUnavailableReason = "sin URL de portada o ficha para IA";
+    } else if (visionAttempts >= visionLimit) {
+      visionUnavailableReason = `fuera del límite IA (${visionLimit})`;
+    } else {
       visionAttempts += 1;
       vision = await analyzeReviewCoverVision(item);
+      if (!vision) visionUnavailableReason = "IA de portada sin resultado";
     }
-    candidates.push(isSafeAutoAccept(item, input, vision));
+    candidates.push(isSafeAutoAccept(item, input, vision, visionUnavailableReason));
   }
 
   return candidates;
