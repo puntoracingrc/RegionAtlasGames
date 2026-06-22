@@ -6,6 +6,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import argparse
 import unicodedata
 from collections import Counter
 from pathlib import Path
@@ -270,9 +271,21 @@ def scan_price_reviews(queue: dict[str, Any], catalog_ids: set[str]) -> list[dic
 
 
 def main() -> None:
-    catalog = load_json(CATALOG_FILE, [])
-    details = load_json(DETAILS_FILE, {})
-    queue = load_json(PRICE_REVIEW_FILE, {})
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--catalog", default=str(CATALOG_FILE), help="Ruta de catalog.json a auditar")
+    parser.add_argument("--details", default=str(DETAILS_FILE), help="Ruta de game-details.json a auditar")
+    parser.add_argument("--price-review", default=str(PRICE_REVIEW_FILE), help="Ruta de price-review-queue.json")
+    parser.add_argument("--output", default=str(REPORT_FILE), help="Ruta donde escribir el informe JSON")
+    args = parser.parse_args()
+
+    catalog_path = Path(args.catalog)
+    details_path = Path(args.details)
+    price_review_path = Path(args.price_review)
+    report_path = Path(args.output)
+
+    catalog = load_json(catalog_path, [])
+    details = load_json(details_path, {})
+    queue = load_json(price_review_path, {})
     catalog_ids = {str(game.get("id")) for game in catalog if isinstance(game, dict) and game.get("id")}
 
     issues = []
@@ -297,10 +310,14 @@ def main() -> None:
         "examples": issues[:50],
         "issues": issues,
     }
-    REPORT_FILE.parent.mkdir(parents=True, exist_ok=True)
-    REPORT_FILE.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    print(f"Informe escrito: {REPORT_FILE.relative_to(ROOT)}")
+    try:
+        report_label = str(report_path.relative_to(ROOT))
+    except ValueError:
+        report_label = str(report_path)
+    print(f"Informe escrito: {report_label}")
     print(f"Total incidencias: {len(issues)}")
     for source, count in sorted(by_source.items()):
         print(f"- {source}: {count}")

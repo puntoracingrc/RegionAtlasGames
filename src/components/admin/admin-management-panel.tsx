@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { AdminCatalogSearchPanel } from "@/components/admin/admin-catalog-search-panel";
+import { AdminCatalogHygienePanel } from "@/components/admin/admin-catalog-hygiene-panel";
 import { AdminContributorsPanel } from "@/components/admin/admin-contributors-panel";
 import { AdminEntitiesPanel } from "@/components/admin/admin-entities-panel";
 import type { CompanyOption } from "@/components/admin/admin-game-editor";
@@ -14,7 +15,7 @@ import type { AdminGameEditorTaxonomyOption } from "@/lib/admin-game-editor-opti
 
 type PlatformOption = { slug: string; name: string };
 
-type EntityKey = "games" | "series" | "platforms" | "companies" | "taxonomy" | "contributors";
+type EntityKey = "games" | "series" | "platforms" | "companies" | "taxonomy" | "contributors" | "hygiene";
 type ActionKey = "create" | "edit" | "delete";
 
 type Props = {
@@ -34,6 +35,7 @@ const entities: { id: EntityKey; label: string; helper: string }[] = [
   { id: "platforms", label: "Plataformas", helper: "Consolas y familias." },
   { id: "companies", label: "Compañías", helper: "Desarrolladoras y editoras." },
   { id: "taxonomy", label: "Taxonomías", helper: "Géneros, subgéneros y facetas." },
+  { id: "hygiene", label: "Higiene", helper: "Errores técnicos del catálogo." },
   { id: "contributors", label: "Colaboradores", helper: "Accesos del equipo." },
 ];
 
@@ -128,6 +130,10 @@ export function AdminManagementPanel({ platforms, regions, companies, taxonomyOp
       return <AdminContributorsPanel />;
     }
 
+    if (entity === "hygiene") {
+      return <AdminCatalogHygienePanel />;
+    }
+
     return null;
   }
 
@@ -143,7 +149,7 @@ export function AdminManagementPanel({ platforms, regions, companies, taxonomyOp
         <div className="space-y-5">
           <section className="space-y-3">
             <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">1. Selecciona sección</p>
-            <div className="grid gap-3 md:grid-cols-3 xl:grid-cols-6">
+            <div className="grid gap-3 md:grid-cols-3 xl:grid-cols-7">
               {entities.map((item) => (
                 <button
                   key={item.id}
