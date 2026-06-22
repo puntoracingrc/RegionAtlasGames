@@ -3,7 +3,17 @@
 
 from __future__ import annotations
 
-from collect_generic_source import detected_page_count, estimated_page_count, expected_product_count, offset_update_url, page_url, parse_products
+from types import SimpleNamespace
+
+from collect_generic_source import (
+    detected_page_count,
+    estimated_page_count,
+    expected_product_count,
+    offset_update_url,
+    page_url,
+    parse_products,
+    row_from_product,
+)
 
 
 def test_relative_query_template() -> None:
@@ -60,6 +70,35 @@ def test_parse_demandware_tile() -> None:
     assert "/videojuegos/" in products[0]["productUrl"]
 
 
+def test_generic_row_infers_eur_cartucho_nes() -> None:
+    row = row_from_product(
+        {
+            "title": "Gauntlet II (EUR) (cartucho) - Nintendo NES",
+            "priceEur": 19.99,
+            "productUrl": "https://retroplayzone.com/gauntlet-ii/",
+        },
+        {
+            "id": "nes-pal-gauntlet-ii",
+            "title": "Gauntlet II",
+            "region": "PAL Europa",
+        },
+        SimpleNamespace(
+            matched_reference=None,
+            match_method="title",
+            match_score=0.9,
+            margin=0.3,
+            alternatives=[],
+            ai_confidence=None,
+        ),
+        source_slug="retroplayzone",
+    )
+    assert row is not None
+    assert row["listingRegion"] == "PAL Europa"
+    assert "cover_pal_eu" in row["regionEvidence"]
+    assert row["regionVerified"] is True
+    assert row["condition"] == "loose"
+
+
 if __name__ == "__main__":
     test_relative_query_template()
     test_url_template_with_base_placeholder()
@@ -67,4 +106,5 @@ if __name__ == "__main__":
     test_missing_total_does_not_invent_single_page()
     test_offset_update_url()
     test_parse_demandware_tile()
+    test_generic_row_infers_eur_cartucho_nes()
     print("OK")

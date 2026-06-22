@@ -59,7 +59,8 @@ GAME_MANUAL_RE = re.compile(
 LOOSE_RE = re.compile(
     r"\b("
     r"solo cartucho|solo juego|solo disco|only cart|only disc|"
-    r"loose|suelto|usado\b|used\b|cartucho nudo|solo el juego"
+    r"loose|suelto|usado\b|used\b|cartucho nudo|solo el juego|"
+    r"cartucho|cartridge"
     r")\b",
     re.I,
 )

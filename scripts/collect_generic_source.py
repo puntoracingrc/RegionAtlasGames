@@ -46,6 +46,8 @@ from collectors.match_pipeline import print_match_stats, run_match_pipeline  # n
 from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
 from collectors.platform_sources import generic_source_config, generic_source_enabled  # noqa: E402
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
+from collectors.condition_buckets import infer_condition_bucket  # noqa: E402
+from collectors.region_inference import infer_listing_evidence, regions_match  # noqa: E402
 
 USER_AGENT = "RegionAtlasGames/1.0 (+generic-price-source)"
 CACHE_DIR = ROOT / "data" / "price-ingest" / "cache" / "generic"
@@ -642,17 +644,33 @@ def row_from_product(product: dict[str, Any], matched_game: dict[str, Any], resu
     if price is None:
         return None
     match_meta = match_row_kwargs(result)
+    title = str(product.get("title") or "").strip()
+    catalog_region = str(matched_game.get("region") or "").strip()
+    listing_region, region_evidence, ai_confidence = infer_listing_evidence(
+        title,
+        catalog_region,
+        matched_reference=match_meta.get("matched_reference"),
+    )
+    region_verified = bool(catalog_region and regions_match(catalog_region, listing_region) and region_evidence)
+    condition = infer_condition_bucket(
+        title,
+        condition_raw=str(product.get("conditionRaw") or ""),
+    ) or "unknown"
     row = {
         "catalogId": str(matched_game["id"]),
         "source": source_slug,
-        "title": str(product.get("title") or "").strip(),
+        "title": title,
         "priceEur": price,
         "currency": "EUR",
         "productUrl": str(product.get("productUrl") or product.get("sourcePageUrl") or "").strip(),
         "listingUrl": str(product.get("productUrl") or product.get("sourcePageUrl") or "").strip(),
         "imageUrl": product.get("imageUrl"),
-        "condition": "unknown",
+        "condition": condition,
         "conditionRaw": str(product.get("conditionRaw") or "").strip(),
+        "listingRegion": listing_region,
+        "regionEvidence": region_evidence,
+        "aiConfidence": ai_confidence,
+        "regionVerified": region_verified,
         "inStock": True,
         "collectedAt": now_iso(),
         "matchMethod": match_meta.get("match_method") or "title",
