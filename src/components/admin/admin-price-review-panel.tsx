@@ -447,6 +447,8 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
   const [refreshMessage, setRefreshMessage] = useState("");
   const [assumedRegion, setAssumedRegion] = useState("");
   const [assumedCondition, setAssumedCondition] = useState<PriceReviewCondition | "none">("none");
+  const [useVision, setUseVision] = useState(false);
+  const [visionLimit, setVisionLimit] = useState(10);
 
   const platformOptions = useMemo(
     () => optionCounts(items, (item) => item.platformSlug, (value) => value.toUpperCase()),
@@ -483,6 +485,7 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
     query.trim() ? `Busqueda: ${query.trim()}` : null,
     assumedRegion ? `Region: ${assumedRegion}` : null,
     assumedCondition !== "none" ? `Estado: ${conditionLabels[assumedCondition]}` : null,
+    useVision ? `IA portadas: ${visionLimit}` : null,
   ].filter(Boolean).join(" · ") || "Toda la cola cargada";
 
   function resetAutoPreview() {
@@ -515,6 +518,8 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
     setVisibleLimit(40);
     setAssumedRegion("");
     setAssumedCondition("none");
+    setUseVision(false);
+    setVisionLimit(10);
     resetAutoPreview();
   }
 
@@ -525,6 +530,16 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
 
   function updateAssumedCondition(value: PriceReviewCondition | "none") {
     setAssumedCondition(value);
+    resetAutoPreview();
+  }
+
+  function updateUseVision(value: boolean) {
+    setUseVision(value);
+    resetAutoPreview();
+  }
+
+  function updateVisionLimit(value: number) {
+    setVisionLimit(value);
     resetAutoPreview();
   }
 
@@ -556,6 +571,8 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
         query: query.trim() || undefined,
         assumedRegion: assumedRegion || undefined,
         assumedCondition,
+        useVision,
+        visionLimit,
       }),
     });
     const data = await response.json().catch(() => null) as AutoRetroplayzoneResponse | null;
@@ -656,7 +673,7 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
             <p className="mt-1 text-xs leading-5 text-muted">
               Objetivo actual: {activeReviewLabel}. Primero hace una vista previa; solo acepta automáticamente si región, estado y juego están claros.
             </p>
-            <div className="mt-3 grid gap-2 md:grid-cols-2">
+            <div className="mt-3 grid gap-2 md:grid-cols-3">
               <label className="text-xs font-semibold text-muted">
                 Asumir región
                 <select
@@ -682,9 +699,33 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
                     .filter(([value]) => value !== "unknown")
                     .map(([value, label]) => (
                       <option key={value} value={value}>{label}</option>
-                    ))}
+                  ))}
                 </select>
               </label>
+              <div className="rounded-xl border border-border bg-background px-3 py-2">
+                <label className="flex items-center gap-2 text-xs font-semibold text-foreground">
+                  <input
+                    type="checkbox"
+                    checked={useVision}
+                    onChange={(event) => updateUseVision(event.target.checked)}
+                    className="size-4 accent-[var(--accent)]"
+                  />
+                  Usar IA de portadas
+                </label>
+                <label className="mt-2 block text-xs font-semibold text-muted">
+                  Máx. portadas
+                  <select
+                    value={visionLimit}
+                    disabled={!useVision}
+                    onChange={(event) => updateVisionLimit(Number(event.target.value))}
+                    className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent disabled:opacity-50"
+                  >
+                    {[5, 10, 15, 25].map((value) => (
+                      <option key={value} value={value}>{value}</option>
+                    ))}
+                  </select>
+                </label>
+              </div>
             </div>
           </div>
           <div className="flex flex-wrap content-start gap-2 lg:justify-end">

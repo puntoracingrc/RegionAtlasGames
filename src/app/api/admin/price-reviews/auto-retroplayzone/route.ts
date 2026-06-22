@@ -14,6 +14,8 @@ export async function POST(request: Request) {
     query?: string;
     assumedRegion?: string;
     assumedCondition?: string;
+    useVision?: boolean;
+    visionLimit?: number;
   } | null;
   const result = await autoReviewRetroplayzonePrices({
     apply: Boolean(body?.apply),
@@ -22,6 +24,8 @@ export async function POST(request: Request) {
     query: body?.query,
     assumedRegion: body?.assumedRegion,
     assumedCondition: body?.assumedCondition === "none" ? "none" : body?.assumedCondition as PriceReviewCondition | undefined,
+    useVision: Boolean(body?.useVision),
+    visionLimit: body?.visionLimit,
   });
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 400 });

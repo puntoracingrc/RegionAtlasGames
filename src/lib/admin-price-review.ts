@@ -61,6 +61,15 @@ type PriceReviewQueue = {
   decisions: Array<Record<string, unknown>>;
 };
 
+type CoverVisionResult = {
+  isTargetGame: boolean;
+  region: string | null;
+  condition: PriceReviewCondition | null;
+  confidence: number;
+  evidence: string[];
+  reason: string;
+};
+
 export type PriceReviewDecisionInput = {
   action: "accept" | "reject";
   catalogId?: string;
@@ -85,6 +94,8 @@ export type PriceReviewAutoRetroplayzoneInput = {
   query?: string;
   assumedRegion?: string;
   assumedCondition?: PriceReviewCondition | "none";
+  useVision?: boolean;
+  visionLimit?: number;
 };
 
 export type PriceReviewAutoRetroplayzoneCandidate = {
@@ -293,20 +304,146 @@ function conditionFromTitle(title: string): PriceReviewCondition | null {
   return null;
 }
 
+function extractJsonObject(text: string): Record<string, unknown> | null {
+  const direct = text.trim();
+  for (const candidate of [direct, direct.match(/\{[\s\S]*\}/)?.[0] ?? ""]) {
+    if (!candidate) continue;
+    try {
+      const parsed = JSON.parse(candidate) as unknown;
+      return parsed && typeof parsed === "object" ? parsed as Record<string, unknown> : null;
+    } catch {
+      // try next candidate
+    }
+  }
+  return null;
+}
+
+function clampScore(value: unknown): number {
+  const num = Number(value);
+  if (!Number.isFinite(num)) return 0;
+  return Math.max(0, Math.min(1, num));
+}
+
+function mapVisionRegion(value: unknown): string | null {
+  const text = normalizedText(String(value ?? ""));
+  if (!text || text === "unknown") return null;
+  if (text.includes("espana") || text.includes("spain") || text.includes("spanish")) return "PAL España";
+  if (text.includes("pal") || text.includes("euro") || text.includes("pegi")) return "PAL Europa";
+  if (text.includes("usa") || text.includes("esrb") || text.includes("ntsc u")) return "USA";
+  if (text.includes("japon") || text.includes("japan") || text.includes("ntsc j")) return "Japón";
+  if (text.includes("asia")) return "Asia";
+  return null;
+}
+
+function mapVisionCondition(value: unknown): PriceReviewCondition | null {
+  const text = normalizedText(String(value ?? ""));
+  if (!text || text === "null" || text === "unknown") return null;
+  if (text.includes("sealed") || text.includes("precint")) return "sealed";
+  if (text.includes("game_manual") || text.includes("manual")) return "game_manual";
+  if (text.includes("complete") || text.includes("completo") || text.includes("case") || text.includes("caja")) return "complete";
+  if (text.includes("loose") || text.includes("suelto") || text.includes("cartucho") || text.includes("disco")) return "loose";
+  return null;
+}
+
+function reviewImageUrls(item: PriceReviewItem): string[] {
+  return [...new Set([
+    item.evidence?.imageUrl,
+    ...(item.evidence?.imageUrls ?? []),
+  ].map((url) => url?.trim()).filter((url): url is string => Boolean(url)))]
+    .filter((url) => /^https?:\/\//i.test(url))
+    .slice(0, 2);
+}
+
+function regionsCompatible(a: string | null | undefined, b: string | null | undefined): boolean {
+  if (!a || !b) return true;
+  if (a === b) return true;
+  const pair = new Set([a, b]);
+  return pair.has("PAL España") && pair.has("PAL Europa");
+}
+
+async function analyzeReviewCoverVision(item: PriceReviewItem): Promise<CoverVisionResult | null> {
+  const apiKey = process.env.OPENAI_API_KEY?.trim();
+  if (!apiKey) return null;
+  const images = reviewImageUrls(item);
+  if (!images.length) return null;
+
+  const content = [
+    {
+      type: "input_text",
+      text:
+        "Analiza la portada/foto de un videojuego físico para revisar precio en Region Atlas. " +
+        "Accede a la URL de imagen y mira señales visibles: PEGI, ESRB, NTSC, textos en español, japonés, caja, manual o disco/cartucho. " +
+        "Responde SOLO JSON válido con estas claves: " +
+        '{"isTargetGame":boolean,"listingRegion":"PAL Europa|PAL España|USA|Japón|Asia|unknown",' +
+        '"condition":"loose|game_manual|complete|sealed|null","confidence":0-1,' +
+        '"evidence":["cover_pal_eu"|"cover_spain"|"cover_usa"|"cover_japan"|"photo_region_mark"],"reason":"texto breve"}. ' +
+        `Juego candidato: ${item.catalogId || item.candidateCatalogId || "sin ficha"}. ` +
+        `Título anuncio: ${item.listingTitle}. Plataforma: ${item.platformSlug}. ` +
+        "Reglas: PEGI indica PAL Europa; PEGI con textos claramente españoles puede ser PAL España; ESRB/NTSC-U indica USA; kanji/kana o CERO/JPN indica Japón. " +
+        "isTargetGame=false si la portada no parece corresponder al título/plataforma.",
+    },
+    ...images.map((imageUrl) => ({ type: "input_image", image_url: imageUrl })),
+  ];
+
+  try {
+    const response = await fetch("https://api.openai.com/v1/responses", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: process.env.OPENAI_VISION_MODEL?.trim() || "gpt-4o-mini",
+        input: [{ role: "user", content }],
+        max_output_tokens: 450,
+      }),
+    });
+    if (!response.ok) return null;
+    const data = await response.json() as {
+      output_text?: string;
+      output?: Array<{ content?: Array<{ text?: string }> }>;
+    };
+    const text = data.output_text
+      ?? data.output?.flatMap((entry) => entry.content ?? []).map((entry) => entry.text ?? "").join("\n")
+      ?? "";
+    const parsed = extractJsonObject(text);
+    if (!parsed) return null;
+    const evidence = Array.isArray(parsed.evidence)
+      ? parsed.evidence.map(String).filter(Boolean).slice(0, 6)
+      : [];
+    const region = mapVisionRegion(parsed.listingRegion);
+    return {
+      isTargetGame: parsed.isTargetGame === true,
+      region,
+      condition: mapVisionCondition(parsed.condition),
+      confidence: clampScore(parsed.confidence),
+      evidence: evidence.length ? evidence : region ? ["photo_region_mark"] : [],
+      reason: String(parsed.reason ?? "").slice(0, 240),
+    };
+  } catch {
+    return null;
+  }
+}
+
 function hasUsefulRegionEvidence(item: PriceReviewItem, inferredRegion: string | null): boolean {
   const evidence = item.evidence?.regionEvidence ?? [];
   if (evidence.some((value) => !/sin prueba|no proof/i.test(value))) return true;
   return Boolean(inferredRegion);
 }
 
-function isSafeAutoAccept(item: PriceReviewItem, input: PriceReviewAutoRetroplayzoneInput): PriceReviewAutoRetroplayzoneCandidate {
+function isSafeAutoAccept(
+  item: PriceReviewItem,
+  input: PriceReviewAutoRetroplayzoneInput,
+  vision: CoverVisionResult | null = null,
+): PriceReviewAutoRetroplayzoneCandidate {
   const catalogId = item.catalogId || item.candidateCatalogId || null;
   const assumedRegion = input.assumedRegion?.trim();
   const assumedCondition = input.assumedCondition && input.assumedCondition !== "none" ? input.assumedCondition : null;
   const titleRegion = regionFromTitle(item.listingTitle);
-  const inferredRegion = item.detectedRegion || item.targetRegion || assumedRegion || titleRegion;
+  const visionRegion = vision?.isTargetGame && vision.confidence >= 0.65 ? vision.region : null;
+  const inferredRegion = item.detectedRegion || item.targetRegion || assumedRegion || visionRegion || titleRegion;
   const existingCondition = item.condition && item.condition !== "unknown" ? item.condition : null;
-  const inferredCondition = (existingCondition || assumedCondition || conditionFromTitle(item.listingTitle)) as PriceReviewCondition | null;
+  const inferredCondition = (existingCondition || assumedCondition || vision?.condition || conditionFromTitle(item.listingTitle)) as PriceReviewCondition | null;
   const score = Number(item.evidence?.matchScore ?? 0);
   const aiConfidence = Number(item.evidence?.aiConfidence ?? 0);
   const method = normalizedText(item.evidence?.matchMethod);
@@ -314,7 +451,8 @@ function isSafeAutoAccept(item: PriceReviewItem, input: PriceReviewAutoRetroplay
   const platformSlug = normalizedText(item.platformSlug);
   const platformWords = normalizedText(item.platformSlug.replace(/-/g, " "));
   const platformClear = !item.platformSlug || title.includes(platformSlug) || title.includes(platformWords) || Boolean(catalogId?.startsWith(`${item.platformSlug}-`));
-  const matchClear = score >= 0.78 || aiConfidence >= 0.9 || (score >= 0.5 && hasUsefulRegionEvidence(item, inferredRegion) && Boolean(inferredCondition));
+  const hasRegionProof = hasUsefulRegionEvidence(item, inferredRegion) || Boolean(visionRegion);
+  const matchClear = score >= 0.78 || aiConfidence >= 0.9 || (vision?.isTargetGame && vision.confidence >= 0.75) || (score >= 0.5 && hasRegionProof && Boolean(inferredCondition));
 
   if (!catalogId) {
     return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: "sin ficha destino" };
@@ -328,7 +466,13 @@ function isSafeAutoAccept(item: PriceReviewItem, input: PriceReviewAutoRetroplay
   if (!platformClear) {
     return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: "plataforma no clara" };
   }
-  if (assumedRegion && titleRegion && titleRegion !== assumedRegion) {
+  if (vision && vision.confidence >= 0.7 && !vision.isTargetGame) {
+    return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: `visión portada: no parece el juego (${vision.reason || "sin detalle"})` };
+  }
+  if (visionRegion && inferredRegion && !regionsCompatible(visionRegion, inferredRegion)) {
+    return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: `visión portada incompatible (${visionRegion})` };
+  }
+  if (assumedRegion && titleRegion && !regionsCompatible(titleRegion, assumedRegion)) {
     return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: `señal de región incompatible (${titleRegion})` };
   }
   if (!hasUsefulRegionEvidence(item, inferredRegion)) {
@@ -340,7 +484,10 @@ function isSafeAutoAccept(item: PriceReviewItem, input: PriceReviewAutoRetroplay
   if (!matchClear) {
     return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: `match insuficiente${method ? ` (${method})` : ""}` };
   }
-  return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "accept", reason: "región, estado y match claros" };
+  const reason = visionRegion
+    ? `región, estado y match claros · visión portada ${visionRegion}${vision?.reason ? ` (${vision.reason})` : ""}`
+    : "región, estado y match claros";
+  return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "accept", reason };
 }
 
 function itemMatchesAutoReviewInput(item: PriceReviewItem, input: PriceReviewAutoRetroplayzoneInput): boolean {
@@ -364,14 +511,44 @@ function itemMatchesAutoReviewInput(item: PriceReviewItem, input: PriceReviewAut
 }
 
 function autoReviewLabel(input: PriceReviewAutoRetroplayzoneInput): string {
+  const visionLimit = normalizeVisionLimit(input);
   const parts = [
     input.platformSlug && input.platformSlug !== "all" ? input.platformSlug.toUpperCase() : null,
     input.source && input.source !== "all" ? input.source : null,
     input.query?.trim() ? `busqueda "${input.query.trim()}"` : null,
     input.assumedRegion?.trim() ? `region ${input.assumedRegion.trim()}` : null,
     input.assumedCondition && input.assumedCondition !== "none" ? `estado ${input.assumedCondition}` : null,
+    input.useVision ? `IA portadas max ${visionLimit}` : null,
   ].filter(Boolean);
   return parts.length ? parts.join(" · ") : "toda la cola";
+}
+
+function normalizeVisionLimit(input: PriceReviewAutoRetroplayzoneInput): number {
+  const raw = Number(input.visionLimit ?? 10);
+  if (!Number.isFinite(raw)) return 10;
+  return Math.max(1, Math.min(25, Math.round(raw)));
+}
+
+async function buildAutoReviewCandidates(
+  items: PriceReviewItem[],
+  input: PriceReviewAutoRetroplayzoneInput,
+): Promise<PriceReviewAutoRetroplayzoneCandidate[]> {
+  if (!input.useVision) return items.map((item) => isSafeAutoAccept(item, input));
+
+  const candidates: PriceReviewAutoRetroplayzoneCandidate[] = [];
+  const visionLimit = normalizeVisionLimit(input);
+  let visionAttempts = 0;
+
+  for (const item of items) {
+    let vision: CoverVisionResult | null = null;
+    if (visionAttempts < visionLimit && reviewImageUrls(item).length) {
+      visionAttempts += 1;
+      vision = await analyzeReviewCoverVision(item);
+    }
+    candidates.push(isSafeAutoAccept(item, input, vision));
+  }
+
+  return candidates;
 }
 
 export async function autoReviewRetroplayzonePrices(
@@ -379,7 +556,7 @@ export async function autoReviewRetroplayzonePrices(
 ): Promise<PriceReviewAutoRetroplayzoneResult | { error: string }> {
   const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
   const targetItems = queue.items.filter((item) => itemMatchesAutoReviewInput(item, input));
-  const candidates = targetItems.map((item) => isSafeAutoAccept(item, input));
+  const candidates = await buildAutoReviewCandidates(targetItems, input);
   const acceptedCandidates = candidates.filter((candidate) => candidate.decision === "accept");
   const label = autoReviewLabel(input);
 
