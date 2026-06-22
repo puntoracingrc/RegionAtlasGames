@@ -445,6 +445,8 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
   const [visibleLimit, setVisibleLimit] = useState(40);
   const [refreshState, setRefreshState] = useState<"idle" | "loading" | "error">("idle");
   const [refreshMessage, setRefreshMessage] = useState("");
+  const [assumedRegion, setAssumedRegion] = useState("");
+  const [assumedCondition, setAssumedCondition] = useState<PriceReviewCondition | "none">("none");
 
   const platformOptions = useMemo(
     () => optionCounts(items, (item) => item.platformSlug, (value) => value.toUpperCase()),
@@ -479,27 +481,31 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
     platformFilter !== "all" ? platformFilter.toUpperCase() : null,
     sourceFilter !== "all" ? sourceLabel(sourceFilter) : null,
     query.trim() ? `Busqueda: ${query.trim()}` : null,
+    assumedRegion ? `Region: ${assumedRegion}` : null,
+    assumedCondition !== "none" ? `Estado: ${conditionLabels[assumedCondition]}` : null,
   ].filter(Boolean).join(" · ") || "Toda la cola cargada";
+
+  function resetAutoPreview() {
+    setAutoResult(null);
+    setAutoState("idle");
+  }
 
   function updatePlatformFilter(value: string) {
     setPlatformFilter(value);
     setVisibleLimit(40);
-    setAutoResult(null);
-    setAutoState("idle");
+    resetAutoPreview();
   }
 
   function updateSourceFilter(value: string) {
     setSourceFilter(value);
     setVisibleLimit(40);
-    setAutoResult(null);
-    setAutoState("idle");
+    resetAutoPreview();
   }
 
   function updateQuery(value: string) {
     setQuery(value);
     setVisibleLimit(40);
-    setAutoResult(null);
-    setAutoState("idle");
+    resetAutoPreview();
   }
 
   function clearFilters() {
@@ -507,8 +513,19 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
     setSourceFilter("all");
     setQuery("");
     setVisibleLimit(40);
-    setAutoResult(null);
-    setAutoState("idle");
+    setAssumedRegion("");
+    setAssumedCondition("none");
+    resetAutoPreview();
+  }
+
+  function updateAssumedRegion(value: string) {
+    setAssumedRegion(value);
+    resetAutoPreview();
+  }
+
+  function updateAssumedCondition(value: PriceReviewCondition | "none") {
+    setAssumedCondition(value);
+    resetAutoPreview();
   }
 
   async function refreshItems() {
@@ -524,8 +541,7 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
     setItems(data.items);
     setRefreshState("idle");
     setRefreshMessage(`${data.items.length} pendientes cargados.`);
-    setAutoResult(null);
-    setAutoState("idle");
+    resetAutoPreview();
   }
 
   async function runAutoRetroplayzone(apply: boolean) {
@@ -538,6 +554,8 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
         platformSlug: platformFilter === "all" ? undefined : platformFilter,
         source: sourceFilter === "all" ? undefined : sourceFilter,
         query: query.trim() || undefined,
+        assumedRegion: assumedRegion || undefined,
+        assumedCondition,
       }),
     });
     const data = await response.json().catch(() => null) as AutoRetroplayzoneResponse | null;
@@ -632,14 +650,44 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
         </div>
       </div>
       <div className="mt-4 rounded-2xl border border-border bg-background/50 p-3">
-        <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="grid gap-3 lg:grid-cols-[1fr_auto]">
           <div>
             <p className="text-sm font-black text-foreground">Auto-revisar cola filtrada</p>
             <p className="mt-1 text-xs leading-5 text-muted">
               Objetivo actual: {activeReviewLabel}. Primero hace una vista previa; solo acepta automáticamente si región, estado y juego están claros.
             </p>
+            <div className="mt-3 grid gap-2 md:grid-cols-2">
+              <label className="text-xs font-semibold text-muted">
+                Asumir región
+                <select
+                  value={assumedRegion}
+                  onChange={(event) => updateAssumedRegion(event.target.value)}
+                  className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
+                >
+                  <option value="">No asumir</option>
+                  {commonRegionOptions.map((value) => (
+                    <option key={value} value={value}>{value}</option>
+                  ))}
+                </select>
+              </label>
+              <label className="text-xs font-semibold text-muted">
+                Asumir estado
+                <select
+                  value={assumedCondition}
+                  onChange={(event) => updateAssumedCondition(event.target.value as PriceReviewCondition | "none")}
+                  className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
+                >
+                  <option value="none">No asumir</option>
+                  {Object.entries(conditionLabels)
+                    .filter(([value]) => value !== "unknown")
+                    .map(([value, label]) => (
+                      <option key={value} value={value}>{label}</option>
+                    ))}
+                </select>
+              </label>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap content-start gap-2 lg:justify-end">
             <button
               type="button"
               disabled={autoState === "previewing" || autoState === "applying" || filteredItems.length === 0}

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
+import type { PriceReviewCondition } from "@/lib/admin-price-review";
 import { autoReviewRetroplayzonePrices } from "@/lib/admin-price-review";
 
 export async function POST(request: Request) {
@@ -11,12 +12,16 @@ export async function POST(request: Request) {
     platformSlug?: string;
     source?: string;
     query?: string;
+    assumedRegion?: string;
+    assumedCondition?: string;
   } | null;
   const result = await autoReviewRetroplayzonePrices({
     apply: Boolean(body?.apply),
     platformSlug: body?.platformSlug,
     source: body?.source,
     query: body?.query,
+    assumedRegion: body?.assumedRegion,
+    assumedCondition: body?.assumedCondition === "none" ? "none" : body?.assumedCondition as PriceReviewCondition | undefined,
   });
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 400 });

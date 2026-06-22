@@ -83,6 +83,8 @@ export type PriceReviewAutoRetroplayzoneInput = {
   platformSlug?: string;
   source?: string;
   query?: string;
+  assumedRegion?: string;
+  assumedCondition?: PriceReviewCondition | "none";
 };
 
 export type PriceReviewAutoRetroplayzoneCandidate = {
@@ -297,12 +299,14 @@ function hasUsefulRegionEvidence(item: PriceReviewItem, inferredRegion: string |
   return Boolean(inferredRegion);
 }
 
-function isSafeAutoAccept(item: PriceReviewItem): PriceReviewAutoRetroplayzoneCandidate {
+function isSafeAutoAccept(item: PriceReviewItem, input: PriceReviewAutoRetroplayzoneInput): PriceReviewAutoRetroplayzoneCandidate {
   const catalogId = item.catalogId || item.candidateCatalogId || null;
-  const inferredRegion = item.detectedRegion || item.targetRegion || regionFromTitle(item.listingTitle);
-  const inferredCondition = (item.condition && item.condition !== "unknown"
-    ? item.condition
-    : conditionFromTitle(item.listingTitle)) as PriceReviewCondition | null;
+  const assumedRegion = input.assumedRegion?.trim();
+  const assumedCondition = input.assumedCondition && input.assumedCondition !== "none" ? input.assumedCondition : null;
+  const titleRegion = regionFromTitle(item.listingTitle);
+  const inferredRegion = item.detectedRegion || item.targetRegion || assumedRegion || titleRegion;
+  const existingCondition = item.condition && item.condition !== "unknown" ? item.condition : null;
+  const inferredCondition = (existingCondition || assumedCondition || conditionFromTitle(item.listingTitle)) as PriceReviewCondition | null;
   const score = Number(item.evidence?.matchScore ?? 0);
   const aiConfidence = Number(item.evidence?.aiConfidence ?? 0);
   const method = normalizedText(item.evidence?.matchMethod);
@@ -323,6 +327,9 @@ function isSafeAutoAccept(item: PriceReviewItem): PriceReviewAutoRetroplayzoneCa
   }
   if (!platformClear) {
     return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: "plataforma no clara" };
+  }
+  if (assumedRegion && titleRegion && titleRegion !== assumedRegion) {
+    return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: `señal de región incompatible (${titleRegion})` };
   }
   if (!hasUsefulRegionEvidence(item, inferredRegion)) {
     return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "skip", reason: "región sin prueba" };
@@ -361,6 +368,8 @@ function autoReviewLabel(input: PriceReviewAutoRetroplayzoneInput): string {
     input.platformSlug && input.platformSlug !== "all" ? input.platformSlug.toUpperCase() : null,
     input.source && input.source !== "all" ? input.source : null,
     input.query?.trim() ? `busqueda "${input.query.trim()}"` : null,
+    input.assumedRegion?.trim() ? `region ${input.assumedRegion.trim()}` : null,
+    input.assumedCondition && input.assumedCondition !== "none" ? `estado ${input.assumedCondition}` : null,
   ].filter(Boolean);
   return parts.length ? parts.join(" · ") : "toda la cola";
 }
@@ -370,7 +379,7 @@ export async function autoReviewRetroplayzonePrices(
 ): Promise<PriceReviewAutoRetroplayzoneResult | { error: string }> {
   const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
   const targetItems = queue.items.filter((item) => itemMatchesAutoReviewInput(item, input));
-  const candidates = targetItems.map(isSafeAutoAccept);
+  const candidates = targetItems.map((item) => isSafeAutoAccept(item, input));
   const acceptedCandidates = candidates.filter((candidate) => candidate.decision === "accept");
   const label = autoReviewLabel(input);
 
