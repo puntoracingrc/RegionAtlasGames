@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/.venv
 /.pnp
 .pnp.*
 .yarn/*
@@ -12,6 +13,7 @@
 
 # testing
 /coverage
+__pycache__/
 
 # next.js
 /.next/
@@ -33,6 +35,7 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 !.env.example
+!.env.worker.example
 
 # vercel
 .vercel
@@ -78,6 +81,7 @@ public/covers
 # logs de cron / scripts
 /logs/
 /data/logs/
+/data/worker-runtime/
 
 # ingest eBay (token + caché local — resto de price-ingest en disco externo)
 /data/price-ingest/ebay-token-cache.json

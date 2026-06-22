@@ -20,6 +20,7 @@ IMPORT_DONE_DIR="$JOBS_DIR/import-done"
 LOG_DIR="$PUBLIC/logs"
 LOCK="$JOBS_DIR/queue.lock"
 WORKER_USER="${USER:-$(id -un)}"
+LOCK_TTL_SECONDS="${PRICE_WORKER_QUEUE_LOCK_TTL_SECONDS:-21600}"
 
 mkdir -p "$REQUESTS_DIR" "$IMPORT_REQUESTS_DIR" "$RUNNING_DIR" "$DONE_DIR" "$IMPORT_DONE_DIR" "$LOG_DIR"
 cd "$APP" || exit 1
@@ -33,11 +34,78 @@ if [ -n "$(active_price_pids)" ]; then
   exit 0
 fi
 
-exec 8>"$LOCK"
+exec 8>>"$LOCK"
 if ! flock -n 8; then
   echo "Otro runner de jobs está revisando la cola."
   exit 0
 fi
+
+claim_queue_lock() {
+  LOCK_PATH="$LOCK" LOCK_TTL_SECONDS="$LOCK_TTL_SECONDS" RUNNER_ID="hosting-price-worker" python3 - <<'PY'
+import datetime, json, os, pathlib, socket, sys, uuid
+
+path = pathlib.Path(os.environ["LOCK_PATH"])
+ttl = int(os.environ.get("LOCK_TTL_SECONDS") or "21600")
+runner_id = os.environ.get("RUNNER_ID") or "hosting-price-worker"
+now = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
+
+try:
+    current = json.loads(path.read_text(encoding="utf-8")) if path.exists() and path.stat().st_size else {}
+except Exception:
+    current = {}
+
+expires_raw = str(current.get("expiresAt") or "")
+try:
+    expires_at = datetime.datetime.fromisoformat(expires_raw.replace("Z", "+00:00")) if expires_raw else None
+except ValueError:
+    expires_at = None
+
+if expires_at and expires_at > now:
+    print(f"Cola bloqueada por {current.get('runnerId') or 'otro runner'} hasta {current.get('expiresAt')}.")
+    sys.exit(2)
+
+payload = {
+    "lockId": uuid.uuid4().hex,
+    "runnerId": runner_id,
+    "hostname": socket.gethostname(),
+    "startedAt": now.isoformat().replace("+00:00", "Z"),
+    "expiresAt": (now + datetime.timedelta(seconds=ttl)).isoformat().replace("+00:00", "Z"),
+}
+path.parent.mkdir(parents=True, exist_ok=True)
+path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print(payload["lockId"])
+PY
+}
+
+release_queue_lock() {
+  LOCK_PATH="$LOCK" LOCK_ID="$QUEUE_LOCK_ID" python3 - <<'PY'
+import datetime, json, os, pathlib, re, shutil, sys
+
+path = pathlib.Path(os.environ["LOCK_PATH"])
+lock_id = os.environ.get("LOCK_ID") or ""
+try:
+    current = json.loads(path.read_text(encoding="utf-8"))
+except Exception:
+    sys.exit(0)
+if current.get("lockId") != lock_id:
+    sys.exit(0)
+stamp = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+safe_stamp = re.sub(r"[^0-9TZ]", "", stamp)
+runner = re.sub(r"[^A-Za-z0-9_.-]+", "-", str(current.get("runnerId") or "unknown"))
+target = path.parent / "locks" / "released" / f"{safe_stamp}-{runner}.json"
+target.parent.mkdir(parents=True, exist_ok=True)
+shutil.move(str(path), str(target))
+PY
+}
+
+QUEUE_LOCK_OUTPUT="$(claim_queue_lock)"
+claim_code=$?
+if [ "$claim_code" -ne 0 ]; then
+  echo "$QUEUE_LOCK_OUTPUT"
+  exit 0
+fi
+QUEUE_LOCK_ID="$QUEUE_LOCK_OUTPUT"
+trap release_queue_lock EXIT
 
 import_request="$(find "$IMPORT_REQUESTS_DIR" -maxdepth 1 -type f -name '*.json' | sort | head -n 1)"
 if [ -n "$import_request" ]; then
