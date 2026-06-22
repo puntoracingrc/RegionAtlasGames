@@ -100,6 +100,10 @@ function ReviewCard({
   const [note, setNote] = useState("");
   const [state, setState] = useState<"idle" | "saving" | "error">("idle");
   const [message, setMessage] = useState("");
+  const [cloneBaseCatalogId, setCloneBaseCatalogId] = useState(item.catalogId ?? item.candidateCatalogId ?? "");
+  const [cloneRegion, setCloneRegion] = useState(item.targetRegion ?? item.detectedRegion ?? "PAL España");
+  const [cloneState, setCloneState] = useState<"idle" | "saving" | "error" | "done">("idle");
+  const [cloneMessage, setCloneMessage] = useState("");
   const alternatives = item.evidence?.matchAlternatives ?? [];
   const imageUrl = item.evidence?.imageUrl || item.evidence?.imageUrls?.[0] || null;
   const catalogOptions = uniqueOptions([
@@ -114,6 +118,7 @@ function ReviewCard({
     ...alternatives.map((alt) => alt.region),
     ...commonRegionOptions,
     region,
+    cloneRegion,
   ]);
 
   async function decide(action: "accept" | "reject") {
@@ -131,6 +136,28 @@ function ReviewCard({
       return;
     }
     onDone(item.id);
+  }
+
+  async function cloneRegionCatalog() {
+    setCloneState("saving");
+    setCloneMessage("");
+    setMessage("");
+    const response = await fetch(`/api/admin/price-reviews/${encodeURIComponent(item.id)}/clone-region`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sourceCatalogId: cloneBaseCatalogId, region: cloneRegion }),
+    });
+    const data = await response.json().catch(() => null) as { error?: string; catalogId?: string; region?: string; url?: string } | null;
+    if (!response.ok || !data?.catalogId) {
+      setCloneState("error");
+      setCloneMessage(data?.error ?? "No se pudo crear la ficha regional.");
+      return;
+    }
+    setCatalogId(data.catalogId);
+    setCloneBaseCatalogId(data.catalogId);
+    setRegion(data.region ?? cloneRegion);
+    setCloneState("done");
+    setCloneMessage(`Ficha creada: ${data.catalogId}. Ahora puedes aceptar el precio sobre esa ficha.`);
   }
 
   return (
@@ -231,6 +258,57 @@ function ReviewCard({
           Nota
           <input value={note} onChange={(event) => setNote(event.target.value)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent" />
         </label>
+      </div>
+      <div className="mt-3 rounded-2xl border border-amber-300/60 bg-amber-50/70 p-3 dark:border-amber-400/30 dark:bg-amber-950/20">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <p className="text-xs font-bold text-foreground">Crear ficha para otra región</p>
+            <p className="mt-1 text-xs leading-5 text-muted">
+              Úsalo cuando el anuncio sea español pero solo tengamos la ficha USA/Japón/etc. Copia los datos de la ficha base y crea una variante regional nueva.
+            </p>
+          </div>
+        </div>
+        <div className="mt-3 grid gap-2 md:grid-cols-[1fr_1fr_auto]">
+          <label className="text-xs font-semibold text-muted">
+            Ficha base a copiar
+            <select
+              value={cloneBaseCatalogId}
+              onChange={(event) => setCloneBaseCatalogId(event.target.value)}
+              className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
+            >
+              <option value="">Selecciona ficha base</option>
+              {catalogOptions.map((value) => (
+                <option key={value} value={value}>{value}</option>
+              ))}
+            </select>
+          </label>
+          <label className="text-xs font-semibold text-muted">
+            Nueva región
+            <select
+              value={cloneRegion}
+              onChange={(event) => setCloneRegion(event.target.value)}
+              className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
+            >
+              <option value="">Selecciona región</option>
+              {regionOptions.map((value) => (
+                <option key={value} value={value}>{value}</option>
+              ))}
+            </select>
+          </label>
+          <button
+            type="button"
+            disabled={cloneState === "saving" || !cloneBaseCatalogId || !cloneRegion}
+            onClick={cloneRegionCatalog}
+            className="btn-secondary self-end text-xs"
+          >
+            {cloneState === "saving" ? "Creando..." : "Crear ficha"}
+          </button>
+        </div>
+        {cloneMessage ? (
+          <p className={`mt-3 rounded-xl border px-3 py-2 text-xs ${cloneState === "error" ? "border-red-200 bg-red-50 text-red-700" : "border-emerald-200 bg-emerald-50 text-emerald-700"}`}>
+            {cloneMessage}
+          </p>
+        ) : null}
       </div>
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <button type="button" disabled={state === "saving"} onClick={() => decide("accept")} className="btn-primary text-xs">

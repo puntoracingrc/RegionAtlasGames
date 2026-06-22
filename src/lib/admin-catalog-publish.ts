@@ -23,7 +23,7 @@ import {
 } from "./catalog-runtime-overlay";
 import { buildCatalogSeoSlug } from "./catalog-url";
 import { getCatalogGame, listedCatalog } from "./catalog";
-import { guessPcPath } from "./pc-path-guess";
+import { catalogIdFromStaging, guessPcPath } from "./pc-path-guess";
 import { slugify } from "./slug";
 import { applyDraftPatch, draftFromCatalogGame, recomputeCatalogId } from "./admin-draft-patch";
 import { applyPricePatch, priceFieldsFromGame, type AdminPriceFields } from "./admin-price-patch";
@@ -345,6 +345,143 @@ export async function getPublishedGameForAdmin(
 }
 
 export { draftFromCatalogGame, applyDraftPatch, recomputeCatalogId };
+
+function emptyDetailsForClone(): GameDetails {
+  return {
+    year: null,
+    releaseDate: null,
+    reference: null,
+    players: null,
+    support: null,
+    developer: null,
+    publisher: null,
+    genres: [],
+    subgenres: [],
+    facets: [],
+    tags: [],
+    series: null,
+    museumPath: null,
+    pcProductId: null,
+    ean: null,
+    sources: {},
+    fetchedAt: new Date().toISOString().slice(0, 19),
+    fieldSources: {},
+    description: null,
+    seoMeta: null,
+    videos: [],
+  };
+}
+
+export type CloneCatalogGameRegionResult =
+  | {
+      ok: true;
+      sourceCatalogId: string;
+      catalogId: string;
+      region: string;
+      url: string;
+      mode: "overlay" | "disk" | "both";
+      deployHook?: { triggered: boolean; detail?: string };
+    }
+  | { error: string };
+
+export async function clonePublishedCatalogGameToRegion(input: {
+  sourceCatalogId: string;
+  region: string;
+}): Promise<CloneCatalogGameRegionResult> {
+  const sourceCatalogId = input.sourceCatalogId.trim();
+  const region = input.region.trim();
+  if (!sourceCatalogId) return { error: "Elige una ficha base para clonar." };
+  if (!region) return { error: "Elige la región nueva de la ficha." };
+
+  const resolved = await getPublishedGameForAdmin(sourceCatalogId);
+  if (!resolved) return { error: "No encuentro la ficha base para clonar." };
+
+  const nextCatalogId = catalogIdFromStaging({
+    platformSlug: resolved.game.platformSlug,
+    slug: resolved.game.slug,
+    region,
+  });
+  if (nextCatalogId === sourceCatalogId) {
+    return { error: "La ficha base ya corresponde a esa región." };
+  }
+  if (await catalogIdExistsInCatalog(nextCatalogId)) {
+    return { error: `Ya existe una ficha para esa región: ${nextCatalogId}` };
+  }
+
+  const guess = guessPcPath({
+    platformSlug: resolved.game.platformSlug,
+    region,
+    title: resolved.game.title,
+    titlePc: resolved.game.titlePc,
+  });
+  const entry: CatalogGame = {
+    ...resolved.game,
+    id: nextCatalogId,
+    region,
+    pcId: null,
+    pcPath: guess.pcPath,
+    pcRegion: guess.pcRegion,
+    pcCondition: null,
+    matchConfidence: "REGION_CLONE_ADMIN",
+    marketMin: null,
+    marketMax: null,
+    recommendedPrice: null,
+    estimatedPriceLoose: null,
+    estimatedPriceGameManual: null,
+    estimatedPriceComplete: null,
+    estimatedPriceSealed: null,
+    priceDataSources: null,
+    pcRefPrice: null,
+    deltaEsVsPc: null,
+    priceSource: null,
+    updatedAt: new Date().toISOString().slice(0, 10),
+    hasEsPrice: false,
+    priceRegionVerified: false,
+  };
+  const details: GameDetails = resolved.details ? { ...resolved.details } : emptyDetailsForClone();
+  const seoSlug = buildCatalogSeoSlug(entry);
+  const url = `/catalogo/${seoSlug}`;
+
+  let mode: "overlay" | "disk" | "both" = "overlay";
+  const overlaySaved = await writeCatalogOverlay({ game: entry, details });
+  if ("error" in overlaySaved && !canWriteCatalogFiles()) {
+    return { error: overlaySaved.error };
+  }
+
+  if (canWriteCatalogFiles()) {
+    const catalog = loadJson<CatalogGame[]>(CATALOG_FILE, []);
+    catalog.push(entry);
+    saveJson(CATALOG_FILE, catalog);
+
+    const allDetails = loadJson<Record<string, GameDetails>>(DETAILS_FILE, {});
+    allDetails[nextCatalogId] = details;
+    saveJson(DETAILS_FILE, allDetails);
+
+    const meta = loadJson<{
+      listedByPlatform?: Record<string, number>;
+      catalogListed?: number;
+      gamesWithDetails?: number;
+    }>(META_FILE, {});
+    if (meta.listedByPlatform) {
+      meta.listedByPlatform[entry.platformSlug] = (meta.listedByPlatform[entry.platformSlug] ?? 0) + 1;
+    }
+    if (typeof meta.catalogListed === "number") meta.catalogListed += 1;
+    if (typeof meta.gamesWithDetails === "number" && resolved.details) meta.gamesWithDetails += 1;
+    saveJson(META_FILE, meta);
+    mode = "error" in overlaySaved ? "disk" : "both";
+  }
+
+  const deployHook = await triggerCatalogDeployHook();
+  return {
+    ok: true,
+    sourceCatalogId,
+    catalogId: nextCatalogId,
+    region,
+    url,
+    mode,
+    deployHook,
+  };
+}
 
 export type UpdatePublishedResult =
   | {

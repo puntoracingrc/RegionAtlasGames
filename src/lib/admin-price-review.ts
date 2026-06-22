@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
 import { appDataDir } from "./app-data-dir";
 import { canWriteCatalogFiles } from "./admin-auth";
-import { updatePublishedCatalogPrices } from "./admin-catalog-publish";
+import { clonePublishedCatalogGameToRegion, updatePublishedCatalogPrices } from "./admin-catalog-publish";
 import { priceWorkerPublicBaseUrl } from "./admin-price-collect";
 
 const REVIEW_FILE =
@@ -67,6 +67,11 @@ export type PriceReviewDecisionInput = {
   region?: string;
   condition?: PriceReviewCondition;
   note?: string;
+};
+
+export type PriceReviewCloneRegionInput = {
+  sourceCatalogId?: string;
+  region?: string;
 };
 
 function emptyQueue(): PriceReviewQueue {
@@ -244,3 +249,61 @@ export async function decidePriceReviewItem(
   return { ok: true, item: nextItem, workerSynced: write.workerSynced, apply };
 }
 
+export async function clonePriceReviewCatalogRegion(
+  id: string,
+  input: PriceReviewCloneRegionInput,
+): Promise<
+  | {
+      ok: true;
+      item: PriceReviewItem;
+      catalogId: string;
+      region: string;
+      url: string;
+      workerSynced: boolean;
+      clone: unknown;
+    }
+  | { error: string }
+> {
+  const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
+  const index = queue.items.findIndex((item) => item.id === id);
+  if (index < 0) return { error: "Pendiente no encontrado." };
+  const item = queue.items[index];
+  const sourceCatalogId = input.sourceCatalogId?.trim() || item.catalogId || item.candidateCatalogId || "";
+  const region = input.region?.trim() || item.targetRegion || item.detectedRegion || "";
+  if (!sourceCatalogId) return { error: "Elige la ficha base para clonar." };
+  if (!region) return { error: "Elige la región nueva." };
+
+  const clone = await clonePublishedCatalogGameToRegion({ sourceCatalogId, region });
+  if ("error" in clone) return clone;
+
+  const now = new Date().toISOString();
+  const nextItem: PriceReviewItem = {
+    ...item,
+    catalogId: clone.catalogId,
+    candidateCatalogId: clone.catalogId,
+    targetRegion: region,
+    updatedAt: now,
+    evidence: {
+      ...(item.evidence ?? {}),
+      reviewNotes: [
+        ...(item.evidence?.reviewNotes ?? []),
+        `Ficha creada desde ${sourceCatalogId} para región ${region}`,
+      ],
+      matchAlternatives: [
+        { catalogId: clone.catalogId, title: item.listingTitle, region, score: 1 },
+        ...(item.evidence?.matchAlternatives ?? []),
+      ],
+    },
+  };
+  queue.items[index] = nextItem;
+  const write = await writeQueue(queue);
+  return {
+    ok: true,
+    item: nextItem,
+    catalogId: clone.catalogId,
+    region,
+    url: clone.url,
+    workerSynced: write.workerSynced,
+    clone,
+  };
+}
