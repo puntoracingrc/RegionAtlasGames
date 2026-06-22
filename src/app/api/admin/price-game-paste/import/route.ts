@@ -6,14 +6,24 @@ export async function POST(request: Request) {
   if (!(await assertAdminApi())) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
-  const body = await request.json().catch(() => null);
-  const result = await importGamePasteText({
-    platformSlug: body?.platformSlug,
-    offerType: body?.offerType,
-    pastedText: body?.pastedText,
-  });
-  if ("error" in result) {
-    return NextResponse.json({ ok: false, ...result }, { status: 400 });
+  try {
+    const body = await request.json().catch(() => null);
+    const result = await importGamePasteText({
+      platformSlug: body?.platformSlug,
+      offerType: body?.offerType,
+      pastedText: body?.pastedText,
+    });
+    if ("error" in result) {
+      return NextResponse.json({ ok: false, ...result }, { status: 400 });
+    }
+    return NextResponse.json(result);
+  } catch (error) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error: error instanceof Error ? error.message : "Error inesperado importando el pegado de GAME.",
+      },
+      { status: 500 },
+    );
   }
-  return NextResponse.json(result);
 }

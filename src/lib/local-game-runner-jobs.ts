@@ -519,7 +519,7 @@ export async function importGamePasteText(
       preview: GamePastePreview;
       importLogTail: string | null;
     }
-  | { error: string; preview?: GamePastePreview }
+  | { error: string; preview?: GamePastePreview; importLogTail?: string | null }
 > {
   const platformSlug = input.platformSlug === "ps5" ? "ps5" : input.platformSlug === "ps4" ? "ps4" : null;
   const offerType = input.offerType === "new" ? "new" : input.offerType === "preowned" ? "preowned" : null;

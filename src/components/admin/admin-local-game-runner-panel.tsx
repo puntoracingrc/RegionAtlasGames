@@ -112,6 +112,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ platformSlug, offerType, pastedText: pasteText }),
     });
+    const responseText = await response.clone().text().catch(() => "");
     const data = await response.json().catch(() => null) as {
       ok?: boolean;
       preview?: GamePastePreview;
@@ -123,7 +124,11 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
     if (data?.importLogTail) setPasteLog(data.importLogTail);
     if (!response.ok || !data?.ok) {
       setPasteState("error");
-      setPasteMessage(`${data?.error ?? "No se pudo importar el pegado de GAME."}${data?.importLogTail ? " Revisa el log de abajo para ver la causa real." : ""}`);
+      const rawError = responseText.trim().slice(0, 1200);
+      const fallback = rawError
+        ? `Error HTTP ${response.status}: ${rawError}`
+        : `Error HTTP ${response.status || "desconocido"} sin detalle devuelto por el servidor.`;
+      setPasteMessage(`${data?.error ?? fallback}${data?.importLogTail ? " Revisa el log de abajo para ver la causa real." : ""}`);
       return;
     }
     setPasteState("done");

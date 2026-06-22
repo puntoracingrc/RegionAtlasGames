@@ -63,6 +63,7 @@ def is_likely_non_game(title: str) -> bool:
 
 def normalize_source_title(title: str) -> str:
     title = clean_line(title)
+    title = re.sub(r"\s*[-–—]\s*(seminuevo|nuevo)\s*$", "", title, flags=re.IGNORECASE)
     return title.strip(" -·")
 
 

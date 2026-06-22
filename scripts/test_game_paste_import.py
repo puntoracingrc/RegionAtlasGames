@@ -32,7 +32,7 @@ Comprar
 39 '99 €
 """
     products, skipped, stats = parse_game_paste(pasted, offer_type="preowned")
-    assert [product["title"] for product in products] == ["EA Sports FC 25 - Seminuevo", "Resident Evil 4 Remake - Seminuevo"]
+    assert [product["title"] for product in products] == ["EA Sports FC 25", "Resident Evil 4 Remake"]
     assert [product["priceEur"] for product in products] == [24.99, 39.99]
     assert skipped[0]["title"] == "Figura Sonic 20cm"
     assert stats["skippedLikelyNonGames"] == 1
