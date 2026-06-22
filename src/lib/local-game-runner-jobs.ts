@@ -88,6 +88,7 @@ const GAME_PASTE_PRICE_RE = /(\d{1,5})\s*['’]\s*(\d{2})\s*€/;
 const GAME_PASTE_BUY_WORDS = new Set(["comprar", "añadir", "anadir"]);
 const GAME_PASTE_NON_GAME_RE =
   /\b(figura|figurine|funko|amiibo|peluche|camiseta|poster|póster|merchandising|mando|controller|consola|auriculares|headset|accesorio|accesorios|cargador|cable|funda|soporte|volante|teclado|rat[oó]n|alfombrilla|skin|pack consola)\b/i;
+const STALE_RUNNING_JOB_MS = 45 * 60 * 1000;
 
 function emptyQueue(): LocalGameRunnerQueue {
   return { schemaVersion: 1, updatedAt: new Date().toISOString(), jobs: [] };
@@ -304,8 +305,38 @@ function queueWithRecentJobs(queue: LocalGameRunnerQueue): LocalGameRunnerQueue 
   };
 }
 
+function markStaleRunningJobs(queue: LocalGameRunnerQueue): boolean {
+  const nowMs = Date.now();
+  let changed = false;
+  for (const job of queue.jobs) {
+    if (job.status !== "running") continue;
+    const startedAtMs = Date.parse(job.claimedAt || job.updatedAt || job.createdAt);
+    if (!Number.isFinite(startedAtMs) || nowMs - startedAtMs < STALE_RUNNING_JOB_MS) continue;
+    const now = new Date().toISOString();
+    job.status = "error";
+    job.updatedAt = now;
+    job.finishedAt = now;
+    job.error =
+      "El runner del Mac dejó este job en ejecución demasiado tiempo. Puede reintentarse creando otro job; no se han aplicado precios automáticamente.";
+    job.logTail = [job.logTail, "Job marcado como error por autocuración: ejecución local caducada."]
+      .filter(Boolean)
+      .join("\n")
+      .slice(-12000);
+    changed = true;
+  }
+  return changed;
+}
+
+async function readQueueWithStaleRecovery(): Promise<LocalGameRunnerQueue> {
+  const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
+  if (markStaleRunningJobs(queue)) {
+    await writeQueue(queue);
+  }
+  return queue;
+}
+
 export async function listLocalGameRunnerJobs(limit = 20): Promise<LocalGameRunnerJob[]> {
-  const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
+  const queue = await readQueueWithStaleRecovery();
   return [...queue.jobs]
     .sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt))
     .slice(0, Math.max(1, Math.min(80, limit)));
@@ -358,7 +389,7 @@ export function assertLocalGameRunnerToken(request: Request): boolean {
 export async function claimNextLocalGameRunnerJob(
   runnerId: string,
 ): Promise<{ ok: true; job: LocalGameRunnerJob | null } | { error: string }> {
-  const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
+  const queue = await readQueueWithStaleRecovery();
   const job = queue.jobs
     .sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt))
     .find((item) => item.status === "pending");
