@@ -354,6 +354,70 @@ function reviewImageUrls(item: PriceReviewItem): string[] {
     .slice(0, 2);
 }
 
+function absoluteImageUrl(rawUrl: string, pageUrl: string): string | null {
+  const clean = rawUrl.trim().replace(/&amp;/g, "&");
+  if (!clean || clean.startsWith("data:")) return null;
+  try {
+    return new URL(clean, pageUrl).toString();
+  } catch {
+    return null;
+  }
+}
+
+function imageUrlLooksUseful(url: string): boolean {
+  const text = normalizedText(url);
+  if (!/^https?:\/\//i.test(url)) return false;
+  if (/\.(svg|ico)(\?|$)/i.test(url)) return false;
+  return !hasAny(text, ["logo", "sprite", "placeholder", "favicon", "payment", "banner", "icon"]);
+}
+
+function pushImageCandidate(out: string[], value: string | undefined, pageUrl: string): void {
+  if (!value) return;
+  const firstSrcSetUrl = value.split(",")[0]?.trim().split(/\s+/)[0] ?? value;
+  const imageUrl = absoluteImageUrl(firstSrcSetUrl, pageUrl);
+  if (!imageUrl || !imageUrlLooksUseful(imageUrl) || out.includes(imageUrl)) return;
+  out.push(imageUrl);
+}
+
+function extractImageUrlsFromHtml(html: string, pageUrl: string): string[] {
+  const out: string[] = [];
+  const metaRegex = /<meta[^>]+(?:property|name)=["'](?:og:image|twitter:image|image)["'][^>]+content=["']([^"']+)["'][^>]*>/gi;
+  for (const match of html.matchAll(metaRegex)) pushImageCandidate(out, match[1], pageUrl);
+
+  const imageJsonRegex = /"image"\s*:\s*(?:"([^"]+)"|\[\s*"([^"]+)")/gi;
+  for (const match of html.matchAll(imageJsonRegex)) pushImageCandidate(out, match[1] ?? match[2], pageUrl);
+
+  const imgRegex = /<img\b[^>]+>/gi;
+  for (const tagMatch of html.matchAll(imgRegex)) {
+    const tag = tagMatch[0];
+    const attr = tag.match(/\b(?:data-full-size-image-url|data-src|src|srcset)=["']([^"']+)["']/i)?.[1];
+    pushImageCandidate(out, attr, pageUrl);
+    if (out.length >= 3) break;
+  }
+
+  return out.slice(0, 2);
+}
+
+async function fetchListingImageUrls(item: PriceReviewItem): Promise<string[]> {
+  const pageUrl = item.evidence?.url?.trim();
+  if (!pageUrl || !/^https?:\/\//i.test(pageUrl)) return [];
+  try {
+    const response = await fetch(pageUrl, {
+      cache: "no-store",
+      signal: AbortSignal.timeout(8_000),
+      headers: {
+        Accept: "text/html,application/xhtml+xml",
+        "User-Agent": "RegionAtlasGamesBot/1.0 (+https://www.regionatlas.games)",
+      },
+    });
+    if (!response.ok) return [];
+    const html = await response.text();
+    return extractImageUrlsFromHtml(html.slice(0, 500_000), pageUrl);
+  } catch {
+    return [];
+  }
+}
+
 function regionsCompatible(a: string | null | undefined, b: string | null | undefined): boolean {
   if (!a || !b) return true;
   if (a === b) return true;
@@ -365,6 +429,7 @@ async function analyzeReviewCoverVision(item: PriceReviewItem): Promise<CoverVis
   const apiKey = process.env.OPENAI_API_KEY?.trim();
   if (!apiKey) return null;
   const images = reviewImageUrls(item);
+  if (!images.length) images.push(...await fetchListingImageUrls(item));
   if (!images.length) return null;
 
   const content = [
@@ -541,7 +606,7 @@ async function buildAutoReviewCandidates(
 
   for (const item of items) {
     let vision: CoverVisionResult | null = null;
-    if (visionAttempts < visionLimit && reviewImageUrls(item).length) {
+    if (visionAttempts < visionLimit && (reviewImageUrls(item).length || item.evidence?.url)) {
       visionAttempts += 1;
       vision = await analyzeReviewCoverVision(item);
     }
