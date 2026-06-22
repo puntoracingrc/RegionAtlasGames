@@ -2,6 +2,7 @@ export function cronRequestAuthorized(request: Request): boolean {
   const secret = process.env.CRON_SECRET?.trim();
   const header = request.headers.get("authorization");
   if (secret && header === `Bearer ${secret}`) return true;
+  if (secret) return false;
 
   const userAgent = request.headers.get("user-agent")?.toLowerCase() ?? "";
   const vercelCronHeader = request.headers.get("x-vercel-cron")?.toLowerCase() ?? "";
@@ -11,7 +12,7 @@ export function cronRequestAuthorized(request: Request): boolean {
     vercelCronHeader === "1" ||
     vercelCronHeader === "true";
 
-  if (process.env.VERCEL && looksLikeVercelCron && vercelId) return true;
+  if (process.env.VERCEL && process.env.ALLOW_UNSIGNED_VERCEL_CRON === "1" && looksLikeVercelCron && vercelId) return true;
   if (!secret && process.env.NODE_ENV !== "production") return true;
 
   return false;
