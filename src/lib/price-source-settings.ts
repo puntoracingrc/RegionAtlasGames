@@ -50,6 +50,7 @@ export type PriceCollectorSourceSetting = {
   maxPages?: number;
   maxScrolls?: number;
   maxProducts?: number;
+  unlimitedProducts?: boolean;
   timeoutSeconds?: number;
   notes?: string;
 };
@@ -87,6 +88,7 @@ export type PriceCustomSourceSetting = {
   maxPages?: number;
   maxScrolls?: number;
   maxProducts?: number;
+  unlimitedProducts?: boolean;
   timeoutSeconds?: number;
 };
 
@@ -329,6 +331,7 @@ function normalizeSourceDetails<T extends PriceCollectorSourceSetting | PriceCus
     maxPages: cleanPositiveInt(raw.maxPages),
     maxScrolls: cleanPositiveInt(raw.maxScrolls),
     maxProducts: cleanPositiveInt(raw.maxProducts),
+    unlimitedProducts: cleanBoolean(raw.unlimitedProducts, false),
     timeoutSeconds: cleanPositiveInt(raw.timeoutSeconds),
     normalizations: cleanNormalizations(raw.normalizations, fallback.normalizations),
     enabledPlatforms: enabledPlatforms.length > 0 ? enabledPlatforms : undefined,

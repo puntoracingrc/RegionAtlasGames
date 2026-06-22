@@ -60,6 +60,7 @@ const emptyCustomSource: PriceCustomSourceSetting = {
   maxPages: 2,
   maxScrolls: 8,
   maxProducts: 120,
+  unlimitedProducts: false,
   timeoutSeconds: 45,
 };
 
@@ -245,6 +246,7 @@ function CrawlModeEditor({
   maxPages,
   maxScrolls,
   maxProducts,
+  unlimitedProducts,
   timeoutSeconds,
   offsetEndpoint,
   categoryParam,
@@ -259,6 +261,7 @@ function CrawlModeEditor({
   maxPages?: number;
   maxScrolls?: number;
   maxProducts?: number;
+  unlimitedProducts?: boolean;
   timeoutSeconds?: number;
   offsetEndpoint?: string;
   categoryParam?: string;
@@ -278,6 +281,7 @@ function CrawlModeEditor({
     maxPages?: number;
     maxScrolls?: number;
     maxProducts?: number;
+    unlimitedProducts?: boolean;
     timeoutSeconds?: number;
   }) => void;
 }) {
@@ -356,6 +360,7 @@ function CrawlModeEditor({
             min={1}
             value={positiveNumberValue(maxProducts)}
             onChange={(event) => onChange({ maxProducts: parsePositiveNumber(event.target.value) })}
+            disabled={Boolean(unlimitedProducts)}
             className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none transition focus:border-accent"
           />
         </label>
@@ -370,6 +375,20 @@ function CrawlModeEditor({
           />
         </label>
       </div>
+      <label className="mt-3 flex items-start gap-2 rounded-xl border border-border bg-background/55 px-3 py-2 text-xs font-semibold text-foreground">
+        <input
+          type="checkbox"
+          checked={Boolean(unlimitedProducts)}
+          onChange={(event) => onChange({ unlimitedProducts: event.target.checked })}
+          className="mt-0.5 accent-[var(--accent)]"
+        />
+        <span>
+          Sin límite de productos
+          <span className="mt-1 block text-[11px] font-normal leading-4 text-muted">
+            El collector intentará leer todo lo que encuentre. El límite de seguridad de páginas/scrolls sigue activo para evitar bucles infinitos.
+          </span>
+        </span>
+      </label>
       <p className="mt-2 text-[11px] leading-4 text-muted">
         En “Rutas por plataforma”, este modo es global para la fuente y las URLs por plataforma lo heredan.
       </p>
@@ -804,6 +823,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
                   maxPages={source.maxPages}
                   maxScrolls={source.maxScrolls}
                   maxProducts={source.maxProducts}
+                  unlimitedProducts={source.unlimitedProducts}
                   timeoutSeconds={source.timeoutSeconds}
                   offsetEndpoint={source.offsetEndpoint}
                   categoryParam={source.categoryParam}
@@ -994,6 +1014,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
                   maxPages={source.maxPages}
                   maxScrolls={source.maxScrolls}
                   maxProducts={source.maxProducts}
+                  unlimitedProducts={source.unlimitedProducts}
                   timeoutSeconds={source.timeoutSeconds}
                   offsetEndpoint={source.offsetEndpoint}
                   categoryParam={source.categoryParam}
@@ -1136,6 +1157,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
             maxPages={draftCustom.maxPages}
             maxScrolls={draftCustom.maxScrolls}
             maxProducts={draftCustom.maxProducts}
+            unlimitedProducts={draftCustom.unlimitedProducts}
             timeoutSeconds={draftCustom.timeoutSeconds}
             offsetEndpoint={draftCustom.offsetEndpoint}
             categoryParam={draftCustom.categoryParam}

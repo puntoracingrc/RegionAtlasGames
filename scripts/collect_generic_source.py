@@ -510,8 +510,9 @@ def collect_products(config: dict[str, Any], platform_slug: str, args: argparse.
     default_max_pages = 80 if str(config.get("crawlMode") or "").strip() == "pagination_url" else max(1, int(args.max_pages))
     max_pages = configured_int(config, "maxPages", default_max_pages)
     max_scrolls = configured_int(config, "maxScrolls", max_pages)
+    unlimited_products = bool(config.get("unlimitedProducts"))
     max_products = configured_int(config, "maxProducts", max(1, int(args.limit))) if args.limit else configured_int(config, "maxProducts", 120)
-    product_limit = min(max_products, int(args.limit)) if args.limit else max_products
+    product_limit = None if unlimited_products else (min(max_products, int(args.limit)) if args.limit else max_products)
     pagination_template = str(config.get("paginationTemplate") or "").strip() or None
     stats: dict[str, Any] = {
         "strategy": strategy,
@@ -524,6 +525,7 @@ def collect_products(config: dict[str, Any], platform_slug: str, args: argparse.
             "maxPages": max_pages,
             "maxScrolls": max_scrolls,
             "maxProducts": product_limit,
+            "unlimitedProducts": unlimited_products,
         },
         "products_detected": 0,
         "structureRecognized": False,
