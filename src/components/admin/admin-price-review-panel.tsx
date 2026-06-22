@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { PriceReviewCondition, PriceReviewItem } from "@/lib/admin-price-review";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { adminToneClass } from "./admin-visual";
@@ -108,6 +108,30 @@ function reasonLabel(value: string): string {
   return value
     .replace(/_/g, " ")
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function normalizedText(value: string | null | undefined): string {
+  return (value ?? "")
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .trim();
+}
+
+function optionCounts<T extends string>(
+  items: PriceReviewItem[],
+  valueForItem: (item: PriceReviewItem) => T | null | undefined,
+  labelForValue: (value: T) => string = (value) => value,
+): Array<{ value: T; label: string; count: number }> {
+  const counts = new Map<T, number>();
+  for (const item of items) {
+    const value = valueForItem(item);
+    if (!value) continue;
+    counts.set(value, (counts.get(value) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .map(([value, count]) => ({ value, label: labelForValue(value), count }))
+    .sort((a, b) => a.label.localeCompare(b.label, "es"));
 }
 
 function ReviewCard({
@@ -413,6 +437,79 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
   const [items, setItems] = useState(initialItems);
   const [autoState, setAutoState] = useState<"idle" | "previewing" | "applying" | "error" | "done">("idle");
   const [autoResult, setAutoResult] = useState<AutoRetroplayzoneResponse | null>(null);
+  const [platformFilter, setPlatformFilter] = useState("all");
+  const [sourceFilter, setSourceFilter] = useState("all");
+  const [query, setQuery] = useState("");
+  const [visibleLimit, setVisibleLimit] = useState(40);
+  const [refreshState, setRefreshState] = useState<"idle" | "loading" | "error">("idle");
+  const [refreshMessage, setRefreshMessage] = useState("");
+
+  const platformOptions = useMemo(
+    () => optionCounts(items, (item) => item.platformSlug, (value) => value.toUpperCase()),
+    [items],
+  );
+  const sourceOptions = useMemo(
+    () => optionCounts(items, (item) => item.source, sourceLabel),
+    [items],
+  );
+  const filteredItems = useMemo(() => {
+    const cleanQuery = normalizedText(query);
+    return items.filter((item) => {
+      if (platformFilter !== "all" && item.platformSlug !== platformFilter) return false;
+      if (sourceFilter !== "all" && item.source !== sourceFilter) return false;
+      if (!cleanQuery) return true;
+      const haystack = normalizedText([
+        item.listingTitle,
+        item.catalogId,
+        item.candidateCatalogId,
+        item.targetRegion,
+        item.detectedRegion,
+        item.reason,
+        item.source,
+        item.platformSlug,
+      ].filter(Boolean).join(" "));
+      return haystack.includes(cleanQuery);
+    });
+  }, [items, platformFilter, query, sourceFilter]);
+  const visibleItems = filteredItems.slice(0, visibleLimit);
+  const gamePs4Pending = items.filter((item) => item.platformSlug === "ps4" && item.source.startsWith("game-es")).length;
+
+  function updatePlatformFilter(value: string) {
+    setPlatformFilter(value);
+    setVisibleLimit(40);
+  }
+
+  function updateSourceFilter(value: string) {
+    setSourceFilter(value);
+    setVisibleLimit(40);
+  }
+
+  function updateQuery(value: string) {
+    setQuery(value);
+    setVisibleLimit(40);
+  }
+
+  function clearFilters() {
+    setPlatformFilter("all");
+    setSourceFilter("all");
+    setQuery("");
+    setVisibleLimit(40);
+  }
+
+  async function refreshItems() {
+    setRefreshState("loading");
+    setRefreshMessage("");
+    const response = await fetch("/api/admin/price-reviews?limit=500", { cache: "no-store" });
+    const data = await response.json().catch(() => null) as { ok?: boolean; items?: PriceReviewItem[]; error?: string } | null;
+    if (!response.ok || !data?.ok || !Array.isArray(data.items)) {
+      setRefreshState("error");
+      setRefreshMessage(data?.error ?? "No se pudo actualizar la cola.");
+      return;
+    }
+    setItems(data.items);
+    setRefreshState("idle");
+    setRefreshMessage(`${data.items.length} pendientes cargados.`);
+  }
 
   async function runAutoRetroplayzone(apply: boolean) {
     setAutoState(apply ? "applying" : "previewing");
@@ -444,7 +541,10 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
             Esta cola es solo de precios recolectados. No se mezcla con la revisión de fichas del catálogo.
           </p>
         </div>
-        <Badge tone={items.length > 0 ? "amber" : "green"}>{items.length} pendientes</Badge>
+        <div className="flex flex-wrap gap-2">
+          {gamePs4Pending > 0 ? <Badge tone="amber">GAME PS4: {gamePs4Pending}</Badge> : null}
+          <Badge tone={items.length > 0 ? "amber" : "green"}>{items.length} pendientes cargados</Badge>
+        </div>
       </div>
       <div className="mt-4 rounded-2xl border border-border bg-background/50 p-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -501,15 +601,82 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
           </div>
         ) : null}
       </div>
-      {items.length > 0 ? (
+      <div className="mt-4 rounded-2xl border border-border bg-background/50 p-3">
+        <div className="grid gap-3 md:grid-cols-[1fr_1fr_1.4fr_auto]">
+          <label className="text-xs font-semibold text-muted">
+            Plataforma
+            <select
+              value={platformFilter}
+              onChange={(event) => updatePlatformFilter(event.target.value)}
+              className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
+            >
+              <option value="all">Todas ({items.length})</option>
+              {platformOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label} ({option.count})
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="text-xs font-semibold text-muted">
+            Fuente
+            <select
+              value={sourceFilter}
+              onChange={(event) => updateSourceFilter(event.target.value)}
+              className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
+            >
+              <option value="all">Todas ({items.length})</option>
+              {sourceOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label} ({option.count})
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="text-xs font-semibold text-muted">
+            Buscar
+            <input
+              value={query}
+              onChange={(event) => updateQuery(event.target.value)}
+              placeholder="Título, ficha, región..."
+              className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
+            />
+          </label>
+          <div className="flex items-end gap-2">
+            <button type="button" onClick={clearFilters} className="btn-secondary text-xs">
+              Limpiar
+            </button>
+            <button type="button" disabled={refreshState === "loading"} onClick={refreshItems} className="btn-secondary text-xs">
+              {refreshState === "loading" ? "Actualizando..." : "Actualizar"}
+            </button>
+          </div>
+        </div>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-muted">
+          <span>
+            Mostrando {visibleItems.length} de {filteredItems.length} filtrados.
+            {items.length >= 500 ? " La cola puede tener más de 500; usa filtros para afinar." : ""}
+          </span>
+          {refreshMessage ? (
+            <span className={refreshState === "error" ? "font-semibold text-rose-600 dark:text-rose-300" : "font-semibold text-emerald-600 dark:text-emerald-300"}>
+              {refreshMessage}
+            </span>
+          ) : null}
+        </div>
+      </div>
+      {filteredItems.length > 0 ? (
         <div className="mt-4 grid gap-3">
-          {items.map((item) => (
+          {visibleItems.map((item) => (
             <ReviewCard key={item.id} item={item} onDone={(id) => setItems((current) => current.filter((entry) => entry.id !== id))} />
           ))}
+          {visibleItems.length < filteredItems.length ? (
+            <button type="button" onClick={() => setVisibleLimit((current) => current + 40)} className="btn-secondary justify-self-center text-xs">
+              Ver 40 más
+            </button>
+          ) : null}
         </div>
       ) : (
         <p className="mt-4 rounded-xl border border-border bg-background/45 p-3 text-sm text-muted">
-          No hay precios pendientes de revisión. Cuando un collector marque región, match o estado como dudoso aparecerá aquí.
+          No hay precios pendientes con esos filtros. Cuando un collector marque región, match o estado como dudoso aparecerá aquí.
         </p>
       )}
     </Panel>

@@ -339,7 +339,7 @@ export default async function AdminPricesPage({
   const [dashboard, priceSourceSettings, priceReviewItems, localGameJobs] = await Promise.all([
     getAdminPriceDashboard(20),
     readPriceSourceSettings(),
-    listPriceReviewItems(40),
+    listPriceReviewItems(500),
     listLocalGameRunnerJobs(20),
   ]);
   const platformOptions = readPriceSourcePlatformOptions();
