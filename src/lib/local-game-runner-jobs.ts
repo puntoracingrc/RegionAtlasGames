@@ -32,7 +32,7 @@ export type LocalGameRunnerJob = {
   resultPath?: string | null;
   pastedTextPath?: string | null;
   importedAt?: string | null;
-  importStatus?: "not_imported" | "imported" | "error" | null;
+  importStatus?: "not_imported" | "importing" | "imported" | "error" | null;
   importLogTail?: string | null;
   importError?: string | null;
   resultSummary?: {
@@ -232,11 +232,11 @@ function priceWorkerRemoteRoot(): string {
 }
 
 function workerSftpConfig(): { host: string; port: number; username: string; password: string } | null {
-  const host = process.env.PRICE_WORKER_SSH_HOST?.trim() || process.env.COVERS_FTP_HOST?.trim();
-  const username = process.env.PRICE_WORKER_SSH_USER?.trim() || process.env.COVERS_FTP_USER?.trim();
-  const password = process.env.PRICE_WORKER_SSH_PASSWORD?.trim() || process.env.COVERS_FTP_PASSWORD?.trim();
+  const host = process.env.PRICE_WORKER_SFTP_HOST?.trim() || process.env.COVERS_FTP_HOST?.trim() || process.env.PRICE_WORKER_SSH_HOST?.trim();
+  const username = process.env.PRICE_WORKER_SFTP_USER?.trim() || process.env.COVERS_FTP_USER?.trim() || process.env.PRICE_WORKER_SSH_USER?.trim();
+  const password = process.env.PRICE_WORKER_SFTP_PASSWORD?.trim() || process.env.COVERS_FTP_PASSWORD?.trim() || process.env.PRICE_WORKER_SSH_PASSWORD?.trim();
   if (!host || !username || !password) return null;
-  const portRaw = process.env.PRICE_WORKER_SSH_PORT?.trim() || process.env.COVERS_FTP_PORT?.trim();
+  const portRaw = process.env.PRICE_WORKER_SFTP_PORT?.trim() || process.env.COVERS_FTP_PORT?.trim() || process.env.PRICE_WORKER_SSH_PORT?.trim();
   return { host, port: portRaw ? Number(portRaw) : 22, username, password };
 }
 
@@ -284,67 +284,6 @@ async function writeWorkerFile(remote: string, payload: Buffer): Promise<{ ok: t
   } finally {
     await client.end().catch(() => undefined);
   }
-}
-
-function shellQuote(value: string): string {
-  return `'${value.replace(/'/g, `'\\''`)}'`;
-}
-
-async function execWorkerCommand(command: string): Promise<{ ok: true; output: string } | { error: string; output?: string }> {
-  const config = workerSftpConfig();
-  if (!config) return { error: "SFTP/SSH del worker no configurado." };
-  type SshStream = {
-    on(event: "close", listener: (code: number) => void): SshStream;
-    on(event: "data", listener: (data: Buffer) => void): SshStream;
-    stderr: { on(event: "data", listener: (data: Buffer) => void): void };
-  };
-  type SshConnection = {
-    on(event: "ready", listener: () => void): SshConnection;
-    on(event: "error", listener: (error: Error) => void): SshConnection;
-    exec(command: string, callback: (error: Error | undefined, stream: SshStream) => void): void;
-    connect(config: Record<string, unknown>): void;
-    end(): void;
-  };
-  const mod = (await import("ssh2")) as unknown as {
-    Client: new () => SshConnection;
-  };
-  const conn = new mod.Client();
-  return await new Promise((resolve) => {
-    const timer = setTimeout(() => {
-      conn.end();
-      resolve({ error: "Timeout ejecutando importación en worker." });
-    }, 120_000);
-    conn
-      .on("ready", () => {
-        conn.exec(command, (error, stream) => {
-          if (error) {
-            clearTimeout(timer);
-            conn.end();
-            resolve({ error: error.message });
-            return;
-          }
-          let output = "";
-          stream
-            .on("data", (data) => {
-              output += data.toString();
-            })
-            .on("close", (code) => {
-              clearTimeout(timer);
-              conn.end();
-              if (code === 0) resolve({ ok: true, output });
-              else resolve({ error: `El importador terminó con código ${code}.`, output });
-            });
-          stream.stderr.on("data", (data) => {
-            output += data.toString();
-          });
-        });
-      })
-      .on("error", (error) => {
-        clearTimeout(timer);
-        resolve({ error: error.message });
-      })
-      .connect({ ...config, readyTimeout: 60_000 });
-  });
 }
 
 async function writeQueue(queue: LocalGameRunnerQueue): Promise<{ ok: true } | { error: string }> {
@@ -484,34 +423,24 @@ export async function importLocalGameRunnerJob(jobId: string): Promise<{ ok: tru
   if (job.status !== "done") return { error: "Solo se pueden importar jobs completados." };
   if (!job.resultPath) return { error: "El job no tiene JSON de resultado en el worker." };
 
-  const inputPath = job.resultPath.replace(/^app\//, "");
-  const command = [
-    `cd ${shellQuote(path.posix.join(priceWorkerRemoteRoot(), "app"))}`,
-    "&&",
-    "python3",
-    "scripts/sync_es_prices.py",
-    "--platform",
-    shellQuote(job.platformSlug),
-    "--input",
-    shellQuote(inputPath),
-    "--no-advance-rotation",
-    "--no-vision",
-  ].join(" ");
-  const result = await execWorkerCommand(command);
   const now = new Date().toISOString();
   job.updatedAt = now;
-  job.importedAt = now;
-  job.importLogTail = String(result.output ?? "").slice(-12000) || null;
-  if ("error" in result) {
-    job.importStatus = "error";
-    job.importError = result.error;
-  } else {
-    job.importStatus = "imported";
-    job.importError = null;
-  }
+  job.importStatus = "importing";
+  job.importError = null;
+  job.importLogTail = "Importación solicitada por SFTP. El cron del hosting la aplicará sin SSH.";
+  const request = {
+    jobId: job.id,
+    platformSlug: job.platformSlug,
+    resultPath: job.resultPath,
+    requestedAt: now,
+  };
+  const requestWritten = await writeWorkerFile(
+    `jobs/import-requests/${job.id}.json`,
+    Buffer.from(`${JSON.stringify(request, null, 2)}\n`, "utf8"),
+  );
+  if ("error" in requestWritten) return requestWritten;
   const written = await writeQueue(queue);
   if ("error" in written) return written;
-  if ("error" in result) return { error: result.error };
   return { ok: true, job };
 }
 

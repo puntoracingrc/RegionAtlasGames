@@ -518,9 +518,9 @@ function priceWorkerRemoteRoot(): string {
 
 function priceWorkerFtpConfigured(): boolean {
   return Boolean(
-    (process.env.PRICE_WORKER_SSH_HOST?.trim() || process.env.COVERS_FTP_HOST?.trim()) &&
-      (process.env.PRICE_WORKER_SSH_USER?.trim() || process.env.COVERS_FTP_USER?.trim()) &&
-      (process.env.PRICE_WORKER_SSH_PASSWORD?.trim() || process.env.COVERS_FTP_PASSWORD?.trim()),
+    (process.env.PRICE_WORKER_SFTP_HOST?.trim() || process.env.COVERS_FTP_HOST?.trim() || process.env.PRICE_WORKER_SSH_HOST?.trim()) &&
+      (process.env.PRICE_WORKER_SFTP_USER?.trim() || process.env.COVERS_FTP_USER?.trim() || process.env.PRICE_WORKER_SSH_USER?.trim()) &&
+      (process.env.PRICE_WORKER_SFTP_PASSWORD?.trim() || process.env.COVERS_FTP_PASSWORD?.trim() || process.env.PRICE_WORKER_SSH_PASSWORD?.trim()),
   );
 }
 
@@ -528,7 +528,7 @@ async function uploadPlatformSourcesToWorker(document: PlatformSourcesDocument):
   if (!priceWorkerFtpConfigured()) {
     return { ok: false, skipped: true, reason: "FTP/SFTP del worker externo no configurado." };
   }
-  const portRaw = process.env.PRICE_WORKER_SSH_PORT?.trim() || process.env.COVERS_FTP_PORT?.trim();
+  const portRaw = process.env.PRICE_WORKER_SFTP_PORT?.trim() || process.env.COVERS_FTP_PORT?.trim() || process.env.PRICE_WORKER_SSH_PORT?.trim();
   const port = portRaw && Number.isFinite(Number(portRaw)) ? Number(portRaw) : 22;
   const protocol = process.env.COVERS_FTP_PROTOCOL?.trim().toLowerCase() || (port === 22 ? "sftp" : "ftp");
   if (protocol !== "sftp") {
@@ -547,10 +547,10 @@ async function uploadPlatformSourcesToWorker(document: PlatformSourcesDocument):
   const remotePath = path.posix.join(remoteDataRoot, "platform-sources.json");
   try {
     await client.connect({
-      host: process.env.PRICE_WORKER_SSH_HOST?.trim() || process.env.COVERS_FTP_HOST?.trim(),
+      host: process.env.PRICE_WORKER_SFTP_HOST?.trim() || process.env.COVERS_FTP_HOST?.trim() || process.env.PRICE_WORKER_SSH_HOST?.trim(),
       port,
-      username: process.env.PRICE_WORKER_SSH_USER?.trim() || process.env.COVERS_FTP_USER?.trim(),
-      password: process.env.PRICE_WORKER_SSH_PASSWORD?.trim() || process.env.COVERS_FTP_PASSWORD?.trim(),
+      username: process.env.PRICE_WORKER_SFTP_USER?.trim() || process.env.COVERS_FTP_USER?.trim() || process.env.PRICE_WORKER_SSH_USER?.trim(),
+      password: process.env.PRICE_WORKER_SFTP_PASSWORD?.trim() || process.env.COVERS_FTP_PASSWORD?.trim() || process.env.PRICE_WORKER_SSH_PASSWORD?.trim(),
       readyTimeout: 60_000,
       retries: 1,
     });

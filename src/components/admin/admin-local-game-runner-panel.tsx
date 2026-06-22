@@ -358,6 +358,8 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
                 >
                   {importingJobId === job.id
                     ? "Importando..."
+                    : job.importStatus === "importing"
+                      ? "Importación pendiente"
                     : job.importStatus === "imported"
                       ? "Reimportar resultado"
                       : "Importar al flujo"}
@@ -365,6 +367,8 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
                 <span className="text-xs text-muted">
                   {job.importStatus === "imported"
                     ? `Importado: ${formatDate(job.importedAt)}`
+                    : job.importStatus === "importing"
+                      ? "Pendiente de aplicar por el cron SFTP"
                     : job.importStatus === "error"
                       ? "Importación con error"
                       : "No importado todavía"}

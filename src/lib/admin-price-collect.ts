@@ -4,7 +4,6 @@ import path from "path";
 import { get, put } from "@vercel/blob";
 import { appDataDir } from "./app-data-dir";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
-import { getSiteUrl } from "./site-url";
 
 export type AdminPriceJobMeta = {
   jobId: string;
@@ -67,6 +66,22 @@ type WorkerConfig = {
   publicBaseUrl: string;
 };
 
+type RemotePriceCollectRequest = {
+  jobId: string;
+  status: "pending";
+  mode: "catalog" | "platform" | "targets";
+  catalogId?: string;
+  platformSlug?: string;
+  region?: string;
+  targets?: AdminPriceCollectTarget[];
+  estimateMinutes?: number;
+  advanceRotation: boolean;
+  trigger: "manual" | "automatic";
+  startedAt: string;
+  updatedAt: string;
+  runner: "sftp_queue";
+};
+
 const DEFAULT_PRICE_WORKER_PUBLIC_URL = "https://www.puntoracing.net/MEDIAREGIONATLAS/price-worker";
 
 function resolvePriceWorkerPublicBaseUrl(): string {
@@ -75,16 +90,16 @@ function resolvePriceWorkerPublicBaseUrl(): string {
 }
 
 function remoteWorkerConfig(): WorkerConfig | null {
-  const host = process.env.PRICE_WORKER_SSH_HOST || process.env.COVERS_FTP_HOST;
-  const username = process.env.PRICE_WORKER_SSH_USER || process.env.COVERS_FTP_USER;
-  const password = process.env.PRICE_WORKER_SSH_PASSWORD || process.env.COVERS_FTP_PASSWORD;
+  const host = process.env.PRICE_WORKER_SFTP_HOST || process.env.COVERS_FTP_HOST || process.env.PRICE_WORKER_SSH_HOST;
+  const username = process.env.PRICE_WORKER_SFTP_USER || process.env.COVERS_FTP_USER || process.env.PRICE_WORKER_SSH_USER;
+  const password = process.env.PRICE_WORKER_SFTP_PASSWORD || process.env.COVERS_FTP_PASSWORD || process.env.PRICE_WORKER_SSH_PASSWORD;
   const coversRoot = process.env.COVERS_FTP_REMOTE_ROOT || "MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers";
   const remoteBase = coversRoot.replace(/\/covers\/?$/, "");
   const publicBaseUrl = resolvePriceWorkerPublicBaseUrl();
   if (!host || !username || !password || !publicBaseUrl) return null;
   return {
     host,
-    port: Number(process.env.PRICE_WORKER_SSH_PORT || process.env.COVERS_FTP_PORT || 22),
+    port: Number(process.env.PRICE_WORKER_SFTP_PORT || process.env.COVERS_FTP_PORT || process.env.PRICE_WORKER_SSH_PORT || 22),
     username,
     password,
     remoteDir: process.env.PRICE_WORKER_REMOTE_DIR || `${remoteBase}/price-worker`,
@@ -295,68 +310,34 @@ function validateInput(input: PriceJobStartInput): { targets: AdminPriceCollectT
   return { targets };
 }
 
-function shellQuote(value: string): string {
-  return `'${value.replace(/'/g, `'\\''`)}'`;
-}
-
-async function execSsh(config: WorkerConfig, command: string): Promise<string> {
-  type SshStream = {
-    on(event: "close", listener: (code: number) => void): SshStream;
-    on(event: "data", listener: (data: Buffer) => void): SshStream;
-    stderr: { on(event: "data", listener: (data: Buffer) => void): void };
+async function writeRemoteWorkerFile(config: WorkerConfig, remote: string, payload: Buffer): Promise<{ ok: true } | { error: string }> {
+  const mod = (await import("ssh2-sftp-client")) as unknown as {
+    default: new () => {
+      connect(config: Record<string, unknown>): Promise<void>;
+      mkdir(remotePath: string, recursive?: boolean): Promise<void>;
+      put(input: Buffer | string, remotePath: string): Promise<void>;
+      end(): Promise<void>;
+    };
   };
-  type SshConnection = {
-    on(event: "ready", listener: () => void): SshConnection;
-    on(event: "error", listener: (error: Error) => void): SshConnection;
-    exec(command: string, callback: (error: Error | undefined, stream: SshStream) => void): void;
-    connect(config: Record<string, unknown>): void;
-    end(): void;
-  };
-  const mod = (await import("ssh2")) as unknown as { Client: new () => SshConnection };
-  const conn = new mod.Client();
-  return await new Promise((resolve, reject) => {
-    const timer = setTimeout(() => {
-      conn.end();
-      reject(new Error("Timeout conectando con el worker de precios."));
-    }, 20000);
-    conn
-      .on("ready", () => {
-        conn.exec(command, (error, stream) => {
-          if (error) {
-            clearTimeout(timer);
-            conn.end();
-            reject(error);
-            return;
-          }
-          let stdout = "";
-          let stderr = "";
-          stream
-            .on("close", (code: number) => {
-              clearTimeout(timer);
-              conn.end();
-              if (code === 0) resolve(stdout);
-              else reject(new Error(stderr.trim() || stdout.trim() || `Worker remoto terminó con código ${code}.`));
-            })
-            .on("data", (data: Buffer) => {
-              stdout += data.toString();
-            });
-          stream.stderr.on("data", (data: Buffer) => {
-            stderr += data.toString();
-          });
-        });
-      })
-      .on("error", (error: Error) => {
-        clearTimeout(timer);
-        reject(error);
-      })
-      .connect({
-        host: config.host,
-        port: config.port,
-        username: config.username,
-        password: config.password,
-        readyTimeout: 15000,
-      });
-  });
+  const client = new mod.default();
+  const remotePath = path.posix.join(config.remoteDir.replace(/^\/+|\/+$/g, ""), remote);
+  try {
+    await client.connect({
+      host: config.host,
+      port: config.port,
+      username: config.username,
+      password: config.password,
+      readyTimeout: 60_000,
+      retries: 1,
+    });
+    await client.mkdir(path.posix.dirname(remotePath), true);
+    await client.put(payload, remotePath);
+    return { ok: true };
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo escribir en el worker por SFTP." };
+  } finally {
+    await client.end().catch(() => undefined);
+  }
 }
 
 async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: AdminPriceCollectTarget[]): Promise<{ jobId: string } | { error: string }> {
@@ -364,73 +345,42 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
   if (!config) return { error: adminPriceCollectUnavailableReason() };
   const jobId = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   const startedAt = new Date().toISOString();
-  const remoteDir = shellQuote(config.remoteDir);
-  const statusFile = `"$(pwd)/jobs/${jobId}.json"`;
-  const pidFile = `"$(pwd)/jobs/${jobId}.pid"`;
-  const args = ["app/scripts/admin_price_collect.py", "--status-file", statusFile];
-  if (input.catalogId) args.push("--catalog-id", shellQuote(input.catalogId));
-  else if (input.platformSlug) {
-    args.push("--platform", shellQuote(input.platformSlug));
-    if (input.region?.trim()) args.push("--region", shellQuote(input.region.trim()));
-    if (input.advanceRotation) args.push("--advance-rotation");
-  } else {
-    args.push("--targets-json", shellQuote(JSON.stringify(targets)));
-  }
+  const mode = input.catalogId ? "catalog" : input.platformSlug ? "platform" : "targets";
+  const job = {
+    jobId,
+    status: "pending",
+    mode,
+    catalogId: input.catalogId,
+    platformSlug: input.platformSlug,
+    region: input.region,
+    targets: targets.length > 0 ? targets : undefined,
+    estimateMinutes: input.estimateMinutes,
+    advanceRotation: Boolean(input.advanceRotation),
+    trigger: input.advanceRotation ? "automatic" : "manual",
+    startedAt,
+    updatedAt: startedAt,
+    runner: "sftp_queue",
+  } satisfies RemotePriceCollectRequest;
+  const runningMeta = {
+    jobId,
+    status: "running",
+    catalogId: input.catalogId,
+    platformSlug: input.platformSlug,
+    region: input.region,
+    targets: targets.length > 0 ? targets : undefined,
+    estimateMinutes: input.estimateMinutes,
+    trigger: input.advanceRotation ? "automatic" : "manual",
+    startedAt,
+    logTail: "Job enviado por SFTP. El cron del hosting lo recogerá sin usar SSH.",
+  } satisfies AdminPriceJobMeta;
 
-  const callbackSecret = process.env.CRON_SECRET?.trim();
-  const callbackUrl =
-    input.catalogId && callbackSecret
-      ? `${getSiteUrl()}/api/cron/price-job-apply?jobId=${encodeURIComponent(jobId)}`
-      : null;
-  const runCommand = callbackUrl
-    ? [
-        `${args.join(" ")}`,
-        "code=$?",
-        `if [ "$code" -eq 0 ]; then curl -fsS -X POST -H ${shellQuote(`Authorization: Bearer ${callbackSecret}`)} ${shellQuote(callbackUrl)} || true; fi`,
-        "exit $code",
-      ].join("; ")
-    : args.join(" ");
-
-  const workerEnv = [
-    "PYTHONUNBUFFERED=1",
-    `PRICE_COLLECT_TRIGGER=${input.advanceRotation ? "automatic" : "manual"}`,
-    input.advanceRotation ? "PRICE_WORKER_DAILY=1" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  const command = [
-    "set -e",
-    `cd "$HOME"/${remoteDir}`,
-    "mkdir -p jobs logs",
-    `nohup sh -c ${shellQuote(`${workerEnv} app/venv/bin/python -u ${runCommand}`)} > logs/${jobId}.log 2>&1 &`,
-    `echo $! > ${pidFile}`,
-    `echo ${shellQuote(jobId)}`,
-  ].join("\n");
-
-  try {
-    await execSsh(config, command);
-    await rememberAdminPriceJob({
-      jobId,
-      status: "running",
-      catalogId: input.catalogId,
-      platformSlug: input.platformSlug,
-      region: input.region,
-      targets: targets.length > 0 ? targets : undefined,
-      estimateMinutes: input.estimateMinutes,
-      trigger: input.advanceRotation ? "automatic" : "manual",
-      startedAt,
-    });
-    return { jobId };
-  } catch (error) {
-    const message = error instanceof Error ? error.message : "No se pudo iniciar el worker remoto.";
-    if (/All configured authentication methods failed|authentication/i.test(message)) {
-      return {
-        error: `No se pudo autenticar con el worker de precios (${config.username}@${config.host}). Revisa PRICE_WORKER_SSH_* / COVERS_FTP_* en Vercel.`,
-      };
-    }
-    return { error: message };
-  }
+  const payload = Buffer.from(`${JSON.stringify(job, null, 2)}\n`, "utf8");
+  const statusWritten = await writeRemoteWorkerFile(config, `jobs/${jobId}.json`, Buffer.from(`${JSON.stringify(runningMeta, null, 2)}\n`, "utf8"));
+  if ("error" in statusWritten) return statusWritten;
+  const requestWritten = await writeRemoteWorkerFile(config, `jobs/requests/${jobId}.json`, payload);
+  if ("error" in requestWritten) return requestWritten;
+  await rememberAdminPriceJob(runningMeta);
+  return { jobId };
 }
 
 export async function startAdminPriceCollectJob(input: PriceJobStartInput): Promise<{ jobId: string } | { error: string }> {
@@ -518,34 +468,27 @@ export async function startAdminPriceCollectJob(input: PriceJobStartInput): Prom
 async function stopRemotePriceJob(job: AdminPriceJobMeta): Promise<AdminPriceJobMeta | { error: string }> {
   const config = remoteWorkerConfig();
   if (!config) return { error: adminPriceCollectUnavailableReason() };
-  const remoteDir = shellQuote(config.remoteDir);
   const stoppedAt = new Date().toISOString();
-  const statusJson = JSON.stringify({
+  const stoppedJob = {
     ...job,
     status: "error",
     stopRequestedAt: stoppedAt,
     finishedAt: stoppedAt,
-    error: "Cancelado manualmente desde el admin.",
-  });
-  const command = [
-    "set +e",
-    `cd "$HOME"/${remoteDir}`,
-    `if [ -f jobs/${shellQuote(job.jobId)}.pid ]; then kill -TERM "$(cat jobs/${shellQuote(job.jobId)}.pid)" 2>/dev/null || true; fi`,
-    `pkill -TERM -f ${shellQuote(job.jobId)} 2>/dev/null || true`,
-    `python3 - <<'PY'\nimport json, pathlib\npath = pathlib.Path(${JSON.stringify(`jobs/${job.jobId}.json`)})\npath.parent.mkdir(parents=True, exist_ok=True)\npath.write_text(${JSON.stringify(statusJson)} + "\\n", encoding="utf-8")\nPY`,
-  ].join("\n");
-  try {
-    await execSsh(config, command);
-  } catch (error) {
-    return { error: error instanceof Error ? error.message : "No se pudo parar el job remoto." };
-  }
-  return markAdminPriceJob({
-    ...job,
-    status: "error",
-    stopRequestedAt: stoppedAt,
-    finishedAt: stoppedAt,
-    error: "Cancelado manualmente desde el admin.",
-  });
+    error: "Cancelación solicitada desde el admin. Sin SSH, el proceso activo no se puede matar al instante; el runner/cron verá esta marca.",
+  } satisfies AdminPriceJobMeta;
+  const cancelWritten = await writeRemoteWorkerFile(
+    config,
+    `jobs/${job.jobId}.cancel.json`,
+    Buffer.from(`${JSON.stringify({ jobId: job.jobId, cancelledAt: stoppedAt }, null, 2)}\n`, "utf8"),
+  );
+  if ("error" in cancelWritten) return cancelWritten;
+  const statusWritten = await writeRemoteWorkerFile(
+    config,
+    `jobs/${job.jobId}.json`,
+    Buffer.from(`${JSON.stringify(stoppedJob, null, 2)}\n`, "utf8"),
+  );
+  if ("error" in statusWritten) return statusWritten;
+  return markAdminPriceJob(stoppedJob);
 }
 
 async function stopLocalPriceJob(job: AdminPriceJobMeta): Promise<AdminPriceJobMeta | { error: string }> {

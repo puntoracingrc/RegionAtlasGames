@@ -1,8 +1,13 @@
 #!/bin/bash
 set -u
 
-BASE="${REGION_ATLAS_HOSTING_BASE:-/homepages/43/d424401959/htdocs}"
-PUBLIC="$BASE/MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/price-worker"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+if [ -d "$SCRIPT_DIR/../app" ]; then
+  PUBLIC="$(cd "$SCRIPT_DIR/.." && pwd)"
+else
+  BASE="${REGION_ATLAS_HOSTING_BASE:-/homepages/43/d424401959/htdocs}"
+  PUBLIC="$BASE/MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/price-worker"
+fi
 APP="$PUBLIC/app"
 CRON_DIR="$PUBLIC/cron"
 LOG="$CRON_DIR/price-rotation.log"
@@ -85,6 +90,10 @@ clear_stale_price_processes() {
   echo ""
   echo "=== Price rotation hosting $(date -u +%Y-%m-%dT%H:%M:%SZ) ==="
 } >> "$LOG"
+
+if [ -x "$CRON_DIR/price_job_runner.sh" ]; then
+  "$CRON_DIR/price_job_runner.sh" >> "$LOG" 2>&1 || true
+fi
 
 exec 9>"$LOCK"
 if ! flock -n 9; then
