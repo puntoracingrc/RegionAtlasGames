@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { GamePastePreview, LocalGameRunnerJob, LocalGameRunnerOfferType } from "@/lib/local-game-runner-jobs";
 
 type Props = {
@@ -41,12 +41,24 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
   const [pasteState, setPasteState] = useState<"idle" | "previewing" | "importing" | "error" | "done">("idle");
   const [pasteMessage, setPasteMessage] = useState("");
   const [pasteLog, setPasteLog] = useState("");
+  const hasActiveJobs = useMemo(
+    () => jobs.some((job) => job.status === "pending" || job.status === "running" || importingJobId === job.id),
+    [importingJobId, jobs],
+  );
 
   async function refreshJobs() {
     const response = await fetch("/api/admin/price-local-game-jobs", { cache: "no-store" });
     const data = await response.json().catch(() => null) as { ok?: boolean; jobs?: LocalGameRunnerJob[]; error?: string } | null;
     if (data?.ok && data.jobs) setJobs(data.jobs);
   }
+
+  useEffect(() => {
+    if (!hasActiveJobs) return;
+    const timer = window.setInterval(() => {
+      void refreshJobs();
+    }, 10_000);
+    return () => window.clearInterval(timer);
+  }, [hasActiveJobs]);
 
   async function createJob() {
     setState("saving");
@@ -149,7 +161,12 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
             </p>
           ) : null}
         </div>
-        <button type="button" onClick={refreshJobs} className="btn-secondary text-sm">Actualizar estado</button>
+        <div className="flex flex-col items-end gap-2">
+          <button type="button" onClick={refreshJobs} className="btn-secondary text-sm">Actualizar estado</button>
+          <span className="text-xs text-muted">
+            {hasActiveJobs ? "Actualizando solo cada 10 s" : "Estado estable"}
+          </span>
+        </div>
       </div>
 
       <div className="mt-5 grid gap-3 md:grid-cols-[1fr_1fr_1fr_1fr_auto]">
