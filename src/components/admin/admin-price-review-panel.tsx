@@ -104,6 +104,9 @@ function ReviewCard({
   const [cloneRegion, setCloneRegion] = useState(item.targetRegion ?? item.detectedRegion ?? "PAL España");
   const [cloneState, setCloneState] = useState<"idle" | "saving" | "error" | "done">("idle");
   const [cloneMessage, setCloneMessage] = useState("");
+  const [mergeIds, setMergeIds] = useState<string[]>([]);
+  const [mergeState, setMergeState] = useState<"idle" | "saving" | "error" | "done">("idle");
+  const [mergeMessage, setMergeMessage] = useState("");
   const alternatives = item.evidence?.matchAlternatives ?? [];
   const imageUrl = item.evidence?.imageUrl || item.evidence?.imageUrls?.[0] || null;
   const catalogOptions = uniqueOptions([
@@ -160,6 +163,38 @@ function ReviewCard({
     setCloneMessage(`Ficha creada: ${data.catalogId}. Ahora puedes aceptar el precio sobre esa ficha.`);
   }
 
+  function toggleMergeId(value: string | null | undefined) {
+    const clean = value?.trim();
+    if (!clean) return;
+    setMergeIds((current) => (current.includes(clean) ? current.filter((id) => id !== clean) : [...current, clean]));
+  }
+
+  async function mergeCatalogGames() {
+    setMergeState("saving");
+    setMergeMessage("");
+    setMessage("");
+    const response = await fetch(`/api/admin/price-reviews/${encodeURIComponent(item.id)}/merge-catalog`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ catalogIds: mergeIds }),
+    });
+    const data = await response.json().catch(() => null) as {
+      error?: string;
+      targetCatalogId?: string;
+      mergedCatalogIds?: string[];
+    } | null;
+    if (!response.ok || !data?.targetCatalogId) {
+      setMergeState("error");
+      setMergeMessage(data?.error ?? "No se pudieron fusionar las fichas.");
+      return;
+    }
+    setCatalogId(data.targetCatalogId);
+    setCloneBaseCatalogId(data.targetCatalogId);
+    setMergeIds([data.targetCatalogId]);
+    setMergeState("done");
+    setMergeMessage(`Fusionadas en ${data.targetCatalogId}. Absorbidas: ${(data.mergedCatalogIds ?? []).join(", ") || "—"}.`);
+  }
+
   return (
     <article className="rounded-2xl border border-border bg-background/55 p-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -210,19 +245,47 @@ function ReviewCard({
           <p className="font-semibold text-foreground">Alternativas detectadas</p>
           <div className="mt-2 flex flex-wrap gap-2">
             {alternatives.slice(0, 5).map((alt) => (
-              <button
+              <label
                 key={`${alt.catalogId}-${alt.region}`}
-                type="button"
-                onClick={() => {
-                  setCatalogId(alt.catalogId ?? catalogId);
-                  if (alt.region) setRegion(alt.region);
-                }}
-                className="rounded-full border border-border px-3 py-1 text-left font-semibold text-muted hover:border-accent hover:text-foreground"
+                className="flex items-center gap-2 rounded-full border border-border px-3 py-1 text-left font-semibold text-muted hover:border-accent hover:text-foreground"
               >
-                {alt.catalogId} · {alt.region} · {alt.score}
-              </button>
+                <input
+                  type="checkbox"
+                  checked={Boolean(alt.catalogId && mergeIds.includes(alt.catalogId))}
+                  onChange={() => toggleMergeId(alt.catalogId)}
+                  className="h-3.5 w-3.5 accent-amber-500"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCatalogId(alt.catalogId ?? catalogId);
+                    if (alt.region) setRegion(alt.region);
+                  }}
+                  className="text-left"
+                >
+                  {alt.catalogId} · {alt.region} · {alt.score}
+                </button>
+              </label>
             ))}
           </div>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              disabled={mergeState === "saving" || mergeIds.length < 2}
+              onClick={mergeCatalogGames}
+              className="btn-secondary text-xs"
+            >
+              {mergeState === "saving" ? "Fusionando..." : "Fusionar fichas marcadas"}
+            </button>
+            <span className="text-[11px] text-muted">
+              Marca 2 o más. La ficha madre será la más completa/con mejores precios.
+            </span>
+          </div>
+          {mergeMessage ? (
+            <p className={`mt-2 rounded-xl border px-3 py-2 text-xs ${mergeState === "error" ? "border-red-200 bg-red-50 text-red-700" : "border-emerald-200 bg-emerald-50 text-emerald-700"}`}>
+              {mergeMessage}
+            </p>
+          ) : null}
         </div>
       ) : null}
 

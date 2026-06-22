@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
 import { appDataDir } from "./app-data-dir";
 import { canWriteCatalogFiles } from "./admin-auth";
-import { clonePublishedCatalogGameToRegion, updatePublishedCatalogPrices } from "./admin-catalog-publish";
+import { clonePublishedCatalogGameToRegion, mergePublishedCatalogGames, updatePublishedCatalogPrices } from "./admin-catalog-publish";
 import { priceWorkerPublicBaseUrl } from "./admin-price-collect";
 
 const REVIEW_FILE =
@@ -72,6 +72,10 @@ export type PriceReviewDecisionInput = {
 export type PriceReviewCloneRegionInput = {
   sourceCatalogId?: string;
   region?: string;
+};
+
+export type PriceReviewMergeCatalogInput = {
+  catalogIds?: string[];
 };
 
 function emptyQueue(): PriceReviewQueue {
@@ -305,5 +309,65 @@ export async function clonePriceReviewCatalogRegion(
     url: clone.url,
     workerSynced: write.workerSynced,
     clone,
+  };
+}
+
+export async function mergePriceReviewCatalogGames(
+  id: string,
+  input: PriceReviewMergeCatalogInput,
+): Promise<
+  | {
+      ok: true;
+      item: PriceReviewItem;
+      targetCatalogId: string;
+      mergedCatalogIds: string[];
+      url: string;
+      workerSynced: boolean;
+      merge: unknown;
+    }
+  | { error: string }
+> {
+  const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
+  const index = queue.items.findIndex((item) => item.id === id);
+  if (index < 0) return { error: "Pendiente no encontrado." };
+  const item = queue.items[index];
+  const catalogIds = [...new Set((input.catalogIds ?? []).map((value) => value.trim()).filter(Boolean))];
+  if (catalogIds.length < 2) return { error: "Selecciona al menos dos fichas para fusionar." };
+
+  const merge = await mergePublishedCatalogGames({ catalogIds });
+  if ("error" in merge) return merge;
+
+  const now = new Date().toISOString();
+  const mergedSet = new Set(merge.mergedCatalogIds);
+  const alternatives = (item.evidence?.matchAlternatives ?? [])
+    .filter((alt) => !alt.catalogId || !mergedSet.has(alt.catalogId))
+    .map((alt) => (alt.catalogId && alt.catalogId !== merge.targetCatalogId ? alt : { ...alt, catalogId: merge.targetCatalogId, score: 1 }));
+  if (!alternatives.some((alt) => alt.catalogId === merge.targetCatalogId)) {
+    alternatives.unshift({ catalogId: merge.targetCatalogId, title: item.listingTitle, region: item.targetRegion ?? undefined, score: 1 });
+  }
+  const nextItem: PriceReviewItem = {
+    ...item,
+    catalogId: merge.targetCatalogId,
+    candidateCatalogId: merge.targetCatalogId,
+    updatedAt: now,
+    evidence: {
+      ...(item.evidence ?? {}),
+      matchAlternatives: alternatives,
+      reviewNotes: [
+        ...(item.evidence?.reviewNotes ?? []),
+        `Fichas fusionadas en ${merge.targetCatalogId}: ${merge.mergedCatalogIds.join(", ")}`,
+      ],
+    },
+  };
+  queue.items[index] = nextItem;
+  const write = await writeQueue(queue);
+  return {
+    ok: true,
+    item: nextItem,
+    targetCatalogId: merge.targetCatalogId,
+    mergedCatalogIds: merge.mergedCatalogIds,
+    url: merge.url,
+    workerSynced: write.workerSynced,
+    merge,
   };
 }

@@ -483,6 +483,182 @@ export async function clonePublishedCatalogGameToRegion(input: {
   };
 }
 
+const PRICE_MERGE_FIELDS: (keyof CatalogGame)[] = [
+  "recommendedPrice",
+  "estimatedPriceLoose",
+  "estimatedPriceGameManual",
+  "estimatedPriceComplete",
+  "estimatedPriceSealed",
+  "marketMin",
+  "marketMax",
+  "pcRefPrice",
+  "deltaEsVsPc",
+  "priceSource",
+  "priceDataSources",
+  "priceRegionVerified",
+  "cexSellPrice",
+  "cexCashPrice",
+  "cexProductUrl",
+  "jgoRetailPrice",
+  "jgoProductUrl",
+  "cholloRetailPrice",
+  "cholloProductUrl",
+  "kaotoRetailPrice",
+  "kaotoProductUrl",
+  "tcListingPrice",
+  "tcProductUrl",
+  "tcnsRetailPrice",
+  "tcnsProductUrl",
+];
+
+function usefulCount(value: unknown): number {
+  if (value == null || value === "" || value === false) return 0;
+  if (Array.isArray(value)) return value.length;
+  if (typeof value === "object") return Object.keys(value).length;
+  return 1;
+}
+
+function catalogMergeScore(game: CatalogGame, details: GameDetails | null, index: number): number {
+  const priceScore = PRICE_MERGE_FIELDS.reduce((sum, key) => sum + usefulCount(game[key]), 0);
+  const detailScore = details
+    ? usefulCount(details.description) +
+      usefulCount(details.developer) +
+      usefulCount(details.publisher) +
+      usefulCount(details.genres) +
+      usefulCount(details.subgenres) +
+      usefulCount(details.facets) +
+      usefulCount(details.videos) +
+      usefulCount(details.year) +
+      usefulCount(details.releaseDate)
+    : 0;
+  const coverScore = usefulCount(game.coverUrl) * 3;
+  const verifiedScore = game.priceRegionVerified ? 8 : 0;
+  const staticCatalogBonus = getCatalogGame(game.id) ? 2 : 0;
+  return verifiedScore + priceScore * 2 + detailScore + coverScore + staticCatalogBonus - index / 1000;
+}
+
+function mergeCatalogGameData(target: CatalogGame, source: CatalogGame): CatalogGame {
+  const merged: CatalogGame = { ...target };
+  for (const key of PRICE_MERGE_FIELDS) {
+    if (usefulCount(merged[key]) === 0 && usefulCount(source[key]) > 0) {
+      (merged as Record<string, unknown>)[key] = source[key];
+    }
+  }
+  merged.hasEsPrice = Boolean(merged.hasEsPrice || source.hasEsPrice);
+  merged.coverUrl = merged.coverUrl || source.coverUrl;
+  merged.titlePc = merged.titlePc || source.titlePc;
+  merged.pcId = merged.pcId ?? source.pcId;
+  merged.pcPath = merged.pcPath ?? source.pcPath;
+  merged.pcRegion = merged.pcRegion ?? source.pcRegion;
+  merged.pcCondition = merged.pcCondition ?? source.pcCondition;
+  merged.matchConfidence = merged.matchConfidence || source.matchConfidence || "MERGED_ADMIN";
+  merged.updatedAt = new Date().toISOString().slice(0, 10);
+  return merged;
+}
+
+function mergeDetailEntities<T extends { slug?: string | null; name?: string | null }>(left: T[] | undefined, right: T[] | undefined): T[] {
+  const seen = new Set<string>();
+  const out: T[] = [];
+  for (const entity of [...(left ?? []), ...(right ?? [])]) {
+    const key = String(entity.slug || entity.name || "").trim().toLowerCase();
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(entity);
+  }
+  return out;
+}
+
+function mergeCatalogDetails(target: GameDetails | null, source: GameDetails | null): GameDetails {
+  const base = target ?? emptyDetailsForClone();
+  if (!source) return base;
+  return {
+    ...base,
+    year: base.year ?? source.year,
+    releaseDate: base.releaseDate ?? source.releaseDate,
+    reference: base.reference ?? source.reference,
+    players: base.players ?? source.players,
+    support: base.support ?? source.support,
+    developer: base.developer ?? source.developer,
+    publisher: base.publisher ?? source.publisher,
+    genres: mergeDetailEntities(base.genres, source.genres),
+    subgenres: mergeDetailEntities(base.subgenres, source.subgenres),
+    facets: mergeDetailEntities(base.facets, source.facets),
+    tags: mergeDetailEntities(base.tags, source.tags),
+    series: base.series ?? source.series,
+    museumPath: base.museumPath ?? source.museumPath,
+    pcProductId: base.pcProductId ?? source.pcProductId,
+    ean: base.ean ?? source.ean,
+    sources: { ...(source.sources ?? {}), ...(base.sources ?? {}) },
+    fieldSources: { ...(source.fieldSources ?? {}), ...(base.fieldSources ?? {}) },
+    description: base.description ?? source.description ?? null,
+    descriptionMeta: base.descriptionMeta ?? source.descriptionMeta,
+    seoMeta: base.seoMeta ?? source.seoMeta,
+    videos: base.videos?.length ? base.videos : source.videos ?? [],
+    mergedAt: new Date().toISOString().slice(0, 19),
+  };
+}
+
+export async function mergePublishedCatalogGames(input: {
+  catalogIds: string[];
+}): Promise<
+  | {
+      ok: true;
+      targetCatalogId: string;
+      mergedCatalogIds: string[];
+      url: string;
+      mode: "overlay" | "disk" | "both";
+      deployHook?: { triggered: boolean; detail?: string };
+    }
+  | { error: string }
+> {
+  const catalogIds = [...new Set(input.catalogIds.map((id) => id.trim()).filter(Boolean))];
+  if (catalogIds.length < 2) return { error: "Selecciona al menos dos fichas para fusionar." };
+  const resolved = await Promise.all(catalogIds.map((catalogId) => getPublishedGameForAdmin(catalogId)));
+  if (resolved.some((item) => !item)) return { error: "Alguna ficha seleccionada ya no existe." };
+  const games = resolved.map((item, index) => ({ ...(item as NonNullable<typeof item>), index }));
+  const platforms = new Set(games.map((item) => item.game.platformSlug));
+  const regions = new Set(games.map((item) => item.game.region));
+  if (platforms.size !== 1) return { error: "Solo se pueden fusionar fichas de la misma plataforma." };
+  if (regions.size !== 1) return { error: "Solo se pueden fusionar fichas de la misma región." };
+
+  const target = [...games].sort((a, b) => catalogMergeScore(b.game, b.details, b.index) - catalogMergeScore(a.game, a.details, a.index))[0];
+  let mergedGame = target.game;
+  let mergedDetails = target.details ?? emptyDetailsForClone();
+  for (const item of games) {
+    if (item.game.id === target.game.id) continue;
+    mergedGame = mergeCatalogGameData(mergedGame, item.game);
+    mergedDetails = mergeCatalogDetails(mergedDetails, item.details);
+  }
+  const mergedCatalogIds = games.map((item) => item.game.id).filter((id) => id !== target.game.id);
+  const url = `/catalogo/${buildCatalogSeoSlug(mergedGame)}`;
+
+  let mode: "overlay" | "disk" | "both" = "overlay";
+  const overlaySaved = await writeCatalogOverlay({ game: mergedGame, details: mergedDetails });
+  if ("error" in overlaySaved && !canWriteCatalogFiles()) {
+    return { error: overlaySaved.error };
+  }
+  for (const catalogId of mergedCatalogIds) {
+    await deleteCatalogOverlayGame(catalogId);
+  }
+
+  if (canWriteCatalogFiles()) {
+    let catalog = loadJson<CatalogGame[]>(CATALOG_FILE, []);
+    const allDetails = loadJson<Record<string, GameDetails>>(DETAILS_FILE, {});
+    catalog = catalog.filter((game) => !mergedCatalogIds.includes(game.id));
+    const idx = catalog.findIndex((game) => game.id === mergedGame.id);
+    if (idx >= 0) catalog[idx] = mergedGame;
+    else catalog.push(mergedGame);
+    for (const catalogId of mergedCatalogIds) delete allDetails[catalogId];
+    allDetails[mergedGame.id] = mergedDetails;
+    saveJson(CATALOG_FILE, catalog);
+    saveJson(DETAILS_FILE, allDetails);
+    mode = "error" in overlaySaved ? "disk" : "both";
+  }
+
+  const deployHook = await triggerCatalogDeployHook();
+  return { ok: true, targetCatalogId: mergedGame.id, mergedCatalogIds, url, mode, deployHook };
+}
+
 export type UpdatePublishedResult =
   | {
       ok: true;
