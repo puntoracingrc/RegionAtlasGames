@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getCatalogGame } from "@/lib/catalog";
+import { getCatalogGame, isPublicCatalogGame } from "@/lib/catalog";
 import {
   getAffiliateOfferBlock,
   getEbayAffiliateImpressionPixelUrl,
@@ -86,7 +86,7 @@ export async function GET(_request: Request, { params }: RouteParams) {
   }
 
   const game = getCatalogGame(catalogId) ?? (await readCatalogOverlayGame(catalogId));
-  if (!game) {
+  if (!game || !isPublicCatalogGame(game)) {
     return withHeaders(disabledPayload(catalogId, "game_not_found"), 404);
   }
 

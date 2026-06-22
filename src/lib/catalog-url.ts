@@ -1,5 +1,5 @@
 import type { CatalogGame } from "./types";
-import { getCatalogGame, listedCatalog } from "./catalog";
+import { getCatalogGame, publicListedCatalog } from "./catalog";
 export { buildCatalogSeoSlug, catalogGamePath } from "./catalog-path";
 import { buildCatalogSeoSlug, cleanCatalogSlug } from "./catalog-path";
 
@@ -7,7 +7,7 @@ const catalogBySeoSlug = new Map<string, CatalogGame>();
 
 function ensureCatalogSeoSlugIndex(): void {
   if (catalogBySeoSlug.size > 0) return;
-  for (const game of listedCatalog) {
+  for (const game of publicListedCatalog) {
     const seoSlug = buildCatalogSeoSlug(game);
     catalogBySeoSlug.set(seoSlug, game);
     catalogBySeoSlug.set(cleanCatalogSlug(seoSlug), game);
@@ -25,5 +25,5 @@ export function resolveCatalogGameParam(param: string): CatalogGame | undefined 
 }
 
 export function getListedGamesWithEsPrice(): CatalogGame[] {
-  return listedCatalog.filter((g) => g.hasEsPrice);
+  return publicListedCatalog.filter((g) => g.hasEsPrice);
 }

@@ -1,4 +1,4 @@
-import { listedCatalog } from "./catalog";
+import { publicListedCatalog } from "./catalog";
 import type { CatalogGame, CollectionView } from "./types";
 import { getCatalogGame } from "./catalog";
 
@@ -42,7 +42,7 @@ export function getEffectivePrice(
 function buildTopSegmentIds(): Set<string> {
   const segments = new Map<string, { id: string; price: number }[]>();
 
-  for (const game of listedCatalog) {
+  for (const game of publicListedCatalog) {
     const price = getEffectivePrice(game);
     if (price == null || price <= 0) continue;
     const key = `${game.platformSlug}\0${game.region}`;

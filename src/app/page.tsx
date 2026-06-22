@@ -8,7 +8,7 @@ import {
   readUserCollection,
   summarizeCollectionForPlan,
 } from "@/lib/collection-store";
-import { listedCatalog, meta } from "@/lib/catalog";
+import { meta, publicListedCatalog } from "@/lib/catalog";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import { publicGenreFilterOptions, publicRegionFilterOptions } from "@/lib/catalog-filters";
 import { formatEur } from "@/lib/price-format";
@@ -74,7 +74,7 @@ export default async function HomePage() {
               </div>
               <p className="text-sm font-medium text-muted/90">
                 {platformRange} · PAL, NTSC USA y NTSC-J Japón ·{" "}
-                {meta.catalogListed.toLocaleString("es-ES")} juegos indexados
+                {publicListedCatalog.length.toLocaleString("es-ES")} juegos indexados
               </p>
             </div>
             <HeroAtlasPanel stats={atlasStats} />
@@ -89,7 +89,7 @@ export default async function HomePage() {
           <Stat label="Plataformas" value={String(activePlatforms.length)} hint="Consolas activas en catálogo" />
           <Stat
             label="Juegos en catálogo"
-            value={meta.catalogListed.toLocaleString("es-ES")}
+            value={publicListedCatalog.length.toLocaleString("es-ES")}
             hint="Títulos indexados por plataforma y región"
           />
           <Stat
@@ -164,13 +164,13 @@ function buildAtlasPanelStats(): HeroAtlasStats {
   const regionCounts = new Map<string, number>();
   let priceCount = 0;
 
-  for (const game of listedCatalog) {
+  for (const game of publicListedCatalog) {
     const region = getRegionDisplay(game.region).label;
     regionCounts.set(region, (regionCounts.get(region) ?? 0) + 1);
     if (game.hasEsPrice || game.recommendedPrice != null) priceCount += 1;
   }
 
-  const total = listedCatalog.length;
+  const total = publicListedCatalog.length;
   const detailCount = meta.gamesWithDetails ?? 0;
   let restColorIndex = 0;
   const regions = [...regionCounts.entries()]

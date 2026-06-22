@@ -1,4 +1,4 @@
-import { listedCatalog, platforms } from "@/lib/catalog";
+import { platforms, publicListedCatalog } from "@/lib/catalog";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCompanies } from "@/lib/indexes";
@@ -40,7 +40,7 @@ function buildRegionOptionsIndex(): RegionOptionsIndex {
   const labels = new Set<string>();
   const labelsByPlatform = new Map<string, Set<string>>();
 
-  for (const game of listedCatalog) {
+  for (const game of publicListedCatalog) {
     const label = getRegionDisplay(game.region).label;
     labels.add(label);
 

@@ -1,5 +1,5 @@
 import { CATALOG_PAGE_SIZE } from "@/lib/catalog-filters";
-import { listedCatalog, meta } from "@/lib/catalog";
+import { publicListedCatalog } from "@/lib/catalog";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import type { CatalogListGame } from "@/lib/types";
 
@@ -18,8 +18,8 @@ export function getDefaultCatalogInitialPage(): InitialCatalogPage {
   if (defaultCatalogPageCache) return defaultCatalogPageCache;
 
   defaultCatalogPageCache = {
-    items: sortCatalogByTitle(listedCatalog).slice(0, CATALOG_PAGE_SIZE).map(toCatalogListGame),
-    total: meta.catalogListed,
+    items: sortCatalogByTitle(publicListedCatalog).slice(0, CATALOG_PAGE_SIZE).map(toCatalogListGame),
+    total: publicListedCatalog.length,
   };
   return defaultCatalogPageCache;
 }

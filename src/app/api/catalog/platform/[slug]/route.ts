@@ -10,6 +10,7 @@ import {
 } from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
+import { isPublicPlatformSlug } from "@/lib/catalog";
 import type { CatalogListGame } from "@/lib/types";
 
 type PlatformSearchCacheEntry = {
@@ -41,6 +42,10 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
+  if (!isPublicPlatformSlug(slug)) {
+    return NextResponse.json({ items: [], total: 0 }, { status: 404 });
+  }
+
   const url = new URL(request.url);
   const q = url.searchParams.get("q") ?? "";
   const region = url.searchParams.get("region") ?? "all";

@@ -12,8 +12,7 @@ import {
 } from "@/lib/catalog-filters";
 import { normalizeCatalogSearchText } from "@/lib/catalog-search-normalize";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
-import { listedCatalog } from "@/lib/catalog";
-import { getPlatform } from "@/lib/catalog";
+import { getPlatform, publicListedCatalog } from "@/lib/catalog";
 import { catalogGamePath } from "@/lib/catalog-seo";
 import { getCoverSrc } from "@/lib/cover-url";
 import type { CatalogListGame } from "@/lib/types";
@@ -36,7 +35,7 @@ type SearchResult = {
 
 function catalogSearchGames(): CatalogListGame[] {
   if (!catalogSearchGamesCache) {
-    catalogSearchGamesCache = listedCatalog.map(toCatalogListGame);
+    catalogSearchGamesCache = publicListedCatalog.map(toCatalogListGame);
   }
   return catalogSearchGamesCache;
 }

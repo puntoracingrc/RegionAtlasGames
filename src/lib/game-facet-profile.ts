@@ -1,4 +1,4 @@
-import { listedCatalog } from "@/lib/catalog";
+import { publicListedCatalog } from "@/lib/catalog";
 import { normalizeCatalogSearchSlug, normalizeCatalogSearchText } from "@/lib/catalog-search-normalize";
 import { resolveCanonicalGenreEntity } from "@/lib/genre-canonical";
 import { getGameDetails } from "@/lib/indexes";
@@ -117,7 +117,7 @@ export function pickRecommendedGames(games: CatalogGame[], fromCatalogId?: strin
   originGame?: CatalogGame;
   recommendedGames: CatalogGame[];
 } {
-  const originGame = fromCatalogId ? listedCatalog.find((game) => game.id === fromCatalogId) : undefined;
+  const originGame = fromCatalogId ? publicListedCatalog.find((game) => game.id === fromCatalogId) : undefined;
 
   if (!originGame) {
     return {
@@ -154,7 +154,7 @@ export async function buildGameFacetProfileView(
   if (!entity) return null;
 
   const assignments = await readAdminSeriesAssignmentsForPublic();
-  const games = listedCatalog.filter((game) => matchesGameFacet(game, entity, assignments[game.id]));
+  const games = publicListedCatalog.filter((game) => matchesGameFacet(game, entity, assignments[game.id]));
   const { originGame, recommendedGames } = pickRecommendedGames(games, options.fromCatalogId);
 
   return {
@@ -174,7 +174,7 @@ export async function buildGameFacetCounts(): Promise<Record<string, number>> {
 
   for (const entity of entities) counts[entity.slug] = 0;
 
-  for (const game of listedCatalog) {
+  for (const game of publicListedCatalog) {
     const details = getGameDetails(game.id);
     const matchedSlugs = new Set<string>();
     const canonicalGenres = (details?.genres ?? []).map(resolveCanonicalGenreEntity);

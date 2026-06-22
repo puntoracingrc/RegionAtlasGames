@@ -20,12 +20,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/saga`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 
-  const platformRoutes: MetadataRoute.Sitemap = platforms.map((p) => ({
-    url: `${base}/plataforma/${p.slug}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.8,
-  }));
+  const platformRoutes: MetadataRoute.Sitemap = platforms
+    .filter((p) => p.active !== false)
+    .map((p) => ({
+      url: `${base}/plataforma/${p.slug}`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    }));
 
   const gameRoutes: MetadataRoute.Sitemap = getListedGamesWithEsPrice().map((game) => ({
     url: `${base}${catalogGamePath(game)}`,

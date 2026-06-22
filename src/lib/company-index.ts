@@ -1,5 +1,5 @@
 import { formatCompanyAliases, getCompanyEntity } from "./company-canonical";
-import { getCatalogGame, getPlatform } from "./catalog";
+import { getCatalogGame, getPlatform, isPublicCatalogGame } from "./catalog";
 import { resolveCanonicalGenreEntity } from "./genre-canonical";
 import { getStoredCompanyProfile } from "./company-profile";
 import { getEffectivePrice, isGrailGame } from "./game-highlight";
@@ -134,17 +134,27 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
   const aliases = formatCompanyAliases(entity);
 
   const genreSlugs = new Set<string>();
+  const platformCounts = new Map<string, number>();
   let marketScore = 0;
   let grailCount = 0;
   let pricedCount = 0;
+  let developerCount = 0;
+  let publisherCount = 0;
+  const developerIds = new Set(summary.entry.asDeveloper ?? []);
+  const publisherIds = new Set(summary.entry.asPublisher ?? []);
 
   for (const gameId of summary.entry.gameIds) {
+    const game = getCatalogGame(gameId);
+    if (!game || !isPublicCatalogGame(game)) continue;
+
+    platformCounts.set(game.platformSlug, (platformCounts.get(game.platformSlug) ?? 0) + 1);
+    if (developerIds.has(gameId)) developerCount += 1;
+    if (publisherIds.has(gameId)) publisherCount += 1;
+
     const details = getGameDetails(gameId);
     for (const genre of details?.genres ?? []) {
       genreSlugs.add(resolveCanonicalGenreEntity(genre).slug);
     }
-    const game = getCatalogGame(gameId);
-    if (!game) continue;
     const price = getEffectivePrice(game);
     if (price != null && price > 0) {
       marketScore += price;
@@ -153,7 +163,15 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
     if (isGrailGame(game)) grailCount += 1;
   }
 
-  const platformPreview = summary.platforms
+  const platforms = [...platformCounts.entries()]
+    .map(([slug, count]) => ({
+      slug,
+      count,
+      name: getPlatform(slug)?.shortName ?? slug,
+    }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"));
+  const gameCount = [...platformCounts.values()].reduce((total, count) => total + count, 0);
+  const platformPreview = platforms
     .slice(0, PLATFORM_PREVIEW)
     .map((platform) => `${platform.name} (${platform.count})`)
     .join(" · ");
@@ -161,11 +179,11 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
   return {
     slug: summary.slug,
     name: summary.name,
-    gameCount: summary.gameCount,
-    developerCount: summary.developerCount,
-    publisherCount: summary.publisherCount,
-    roleKind: classifyRole(summary.developerCount, summary.publisherCount),
-    platformSlugs: summary.platforms.map((platform) => platform.slug),
+    gameCount,
+    developerCount,
+    publisherCount,
+    roleKind: classifyRole(developerCount, publisherCount),
+    platformSlugs: platforms.map((platform) => platform.slug),
     platformPreview,
     genreSlugs: [...genreSlugs],
     marketScore,
@@ -195,7 +213,7 @@ function buildFilterOptions(
 export function getCompanyExplorerData(): CompanyExplorerData {
   if (explorerCache) return explorerCache;
 
-  const companies = getCompanies().map(enrichCompany);
+  const companies = getCompanies().map(enrichCompany).filter((company) => company.gameCount > 0);
   const statsMeta = indexStats();
 
   explorerCache = {

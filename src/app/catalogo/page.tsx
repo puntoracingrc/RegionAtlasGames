@@ -9,7 +9,7 @@ import {
   publicSubgenreFilterOptions,
   type CatalogPriceType,
 } from "@/lib/catalog-filters";
-import { listedCatalog, meta } from "@/lib/catalog";
+import { publicListedCatalog } from "@/lib/catalog";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
@@ -60,7 +60,7 @@ export default async function CatalogPage({ searchParams }: Props) {
     initialPriceType !== "recommended";
   const initialCatalog = hasInitialFilters
     ? filterCatalogGames(
-        listedCatalog.map(toCatalogListGame),
+        publicListedCatalog.map(toCatalogListGame),
         {
           q: initialQuery,
           platform: initialPlatform,
@@ -86,7 +86,7 @@ export default async function CatalogPage({ searchParams }: Props) {
           </p>
           <h1 className="text-3xl font-bold text-foreground">Buscar en todo Region Atlas</h1>
           <p className="max-w-3xl text-muted">
-            Explora {meta.catalogListed.toLocaleString("es-ES")} juegos por título, compañía,
+            Explora {publicListedCatalog.length.toLocaleString("es-ES")} juegos por título, compañía,
             género, saga, referencia, plataforma o región.
           </p>
         </header>

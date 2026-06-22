@@ -30,6 +30,16 @@ export function getPlatform(slug: string): Platform | undefined {
   return platformBySlug.get(slug);
 }
 
+export function isPublicPlatformSlug(slug: string): boolean {
+  return getPlatform(slug)?.active !== false;
+}
+
+export function isPublicCatalogGame(game: CatalogGame): boolean {
+  return isPublicPlatformSlug(game.platformSlug);
+}
+
+export const publicListedCatalog = listedCatalog.filter(isPublicCatalogGame);
+
 export function getCatalogGame(id: string): CatalogGame | undefined {
   return catalogById.get(id);
 }

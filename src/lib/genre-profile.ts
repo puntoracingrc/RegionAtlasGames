@@ -1,5 +1,5 @@
 import { catalogGamePath } from "./catalog-url";
-import { getPlatform } from "./catalog";
+import { getPlatform, isPublicCatalogGame } from "./catalog";
 import {
   formatGenreAliases,
   getGenreEntity,
@@ -47,11 +47,11 @@ export function buildGenreProfileView(slug: string): GenreProfileView | undefine
   const entry = getGenre(slug);
   if (!entry) return undefined;
   const entity = getGenreEntity(entry.slug);
-  const games = gamesForIndex(entry);
+  const games = gamesForIndex(entry).filter(isPublicCatalogGame);
   return {
     slug: entry.slug,
     name: entry.name,
-    gameCount: entry.gameCount,
+    gameCount: games.length,
     alsoKnownAs: formatGenreAliases(entity),
     platforms: groupGamesByPlatform(games),
     referenceTops: getGenreReferenceTops(entry.slug),

@@ -37,7 +37,7 @@ import {
 import { resolveCatalogGameWithOverlay, getGameDetailsWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
-import { getPlatform } from "@/lib/catalog";
+import { getPlatform, isPublicCatalogGame } from "@/lib/catalog";
 import { grailLabel, isGrailGame, isTopInSegment, topSegmentLabel } from "@/lib/game-highlight";
 import { esPriceDisplayLabel } from "@/lib/price-display";
 import { resolveGameEntityLinks } from "@/lib/entity-links";
@@ -97,7 +97,7 @@ function getYoutubeWatchUrl(video: GameVideo) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const game = await resolveCatalogGameWithOverlay(slug);
-  if (!game) return { title: "Juego no encontrado" };
+  if (!game || !isPublicCatalogGame(game)) return { title: "Juego no encontrado" };
   const details = await getGameDetailsWithOverlay(game.id);
   return buildGameMetadata(game, details);
 }
@@ -105,7 +105,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CatalogGamePage({ params }: Props) {
   const { slug } = await params;
   const game = await resolveCatalogGameWithOverlay(slug);
-  if (!game) notFound();
+  if (!game || !isPublicCatalogGame(game)) notFound();
 
   const canonicalSlug = buildCatalogSeoSlug(game);
   if (slug !== canonicalSlug) {

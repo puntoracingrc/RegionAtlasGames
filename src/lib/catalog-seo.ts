@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { CatalogGame, GameDetails, Platform } from "./types";
-import { getCatalogGame, getPlatform, listedCatalog } from "./catalog";
+import { getPlatform, publicListedCatalog } from "./catalog";
 import { formatEur } from "./price-format";
 import { getGameDetails } from "./indexes";
 import { companyEntityLink, resolveGameEntityLinks } from "./entity-links";
@@ -12,7 +12,6 @@ import {
   getListedGamesWithEsPrice,
   resolveCatalogGameParam,
 } from "./catalog-url";
-import { slugify } from "./slug";
 import { getRegionDisplay } from "./region-display";
 import { SITE_LOGO } from "./site-brand";
 import { getCoverSrc } from "./cover-url";
@@ -35,7 +34,7 @@ export function getSimilarGames(game: CatalogGame, limit = 4): CatalogGame[] {
       resolveCanonicalGenreSlug(g.slug, { name: g.name, museumPath: g.museumPath }),
     ),
   );
-  const candidates = listedCatalog.filter(
+  const candidates = publicListedCatalog.filter(
     (g) =>
       g.id !== game.id &&
       g.platformSlug === game.platformSlug &&

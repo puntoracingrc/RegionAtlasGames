@@ -1,6 +1,6 @@
 import genreTopsData from "../../data/genre-tops.json";
 import { catalogGamePath } from "./catalog-url";
-import { getCatalogGame, getPlatform } from "./catalog";
+import { getCatalogGame, getPlatform, isPublicCatalogGame } from "./catalog";
 
 type GenreTopRaw = { id: string; year?: number | null };
 type GenreTopsFile = {
@@ -35,7 +35,7 @@ export function getGenreReferenceTops(genreSlug: string): GenrePlatformReference
     const games: GenreReferenceGame[] = [];
     for (const entry of entries) {
       const game = getCatalogGame(entry.id);
-      if (!game) continue;
+      if (!game || !isPublicCatalogGame(game)) continue;
       games.push({
         id: game.id,
         title: game.title,

@@ -1,7 +1,7 @@
 import companyProfilesData from "../../data/company-profiles.json";
 import { readAdminCompanyProfilesOverlay } from "./admin-entity-catalog";
 import { catalogGamePath } from "./catalog-url";
-import { getPlatform } from "./catalog";
+import { getPlatform, isPublicCatalogGame } from "./catalog";
 import {
   formatCompanyAliases,
   getCompanyEntity,
@@ -80,7 +80,7 @@ function inferStatus(
 
 function collectCollaborators(entry: IndexEntry, selfSlug: string): CompanyCollaborator[] {
   const counts = new Map<string, CompanyCollaborator>();
-  const games = gamesForIndex(entry);
+  const games = gamesForIndex(entry).filter(isPublicCatalogGame);
 
   for (const game of games) {
     const details = getGameDetails(game.id);
@@ -139,16 +139,17 @@ function buildCompanyProfileViewFromProfile(
   if (!entry) return undefined;
 
   const entity = getCompanyEntity(entry.slug);
-  const games = gamesForIndex(entry);
+  const games = gamesForIndex(entry).filter(isPublicCatalogGame);
+  const gameIds = new Set(games.map((game) => game.id));
   const foundedYear = stored?.foundedYear ?? null;
   const closedYear = stored?.closedYear ?? null;
 
   return {
     slug: entry.slug,
     name: stored?.name ?? entry.name,
-    gameCount: entry.gameCount,
-    developerCount: entry.asDeveloper?.length ?? 0,
-    publisherCount: entry.asPublisher?.length ?? 0,
+    gameCount: games.length,
+    developerCount: entry.asDeveloper?.filter((id) => gameIds.has(id)).length ?? 0,
+    publisherCount: entry.asPublisher?.filter((id) => gameIds.has(id)).length ?? 0,
     alsoKnownAs: formatCompanyAliases(entity),
     wikidataId: stored?.wikidataId ?? entry.wikidataId ?? entity?.wikidataIds?.[0] ?? null,
     foundedYear,
