@@ -550,7 +550,7 @@ export async function importGamePasteText(
     shellQuote(textPath.replace(/^app\//, "")),
     "--output",
     shellQuote(outputPath),
-    "--no-vision",
+    "--no-ai",
     "&&",
     "python3",
     "scripts/sync_es_prices.py",
