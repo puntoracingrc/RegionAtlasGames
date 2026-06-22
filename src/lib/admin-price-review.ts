@@ -80,6 +80,9 @@ export type PriceReviewMergeCatalogInput = {
 
 export type PriceReviewAutoRetroplayzoneInput = {
   apply?: boolean;
+  platformSlug?: string;
+  source?: string;
+  query?: string;
 };
 
 export type PriceReviewAutoRetroplayzoneCandidate = {
@@ -96,6 +99,8 @@ export type PriceReviewAutoRetroplayzoneCandidate = {
 export type PriceReviewAutoRetroplayzoneResult = {
   ok: true;
   mode: "preview" | "apply";
+  label: string;
+  totalPending: number;
   totalRetroplayzonePending: number;
   accepted: number;
   skipped: number;
@@ -267,7 +272,7 @@ function titleSuggestsHardwareOrLot(title: string): boolean {
   ]);
 }
 
-function retroplayzoneRegionFromTitle(title: string): string | null {
+function regionFromTitle(title: string): string | null {
   const text = normalizedText(title);
   if (/\b(esp|espana|spanish|castellano)\b/.test(text)) return "PAL España";
   if (/\b(eur|europe|europa|pal)\b/.test(text)) return "PAL Europa";
@@ -277,7 +282,7 @@ function retroplayzoneRegionFromTitle(title: string): string | null {
   return null;
 }
 
-function retroplayzoneConditionFromTitle(title: string): PriceReviewCondition | null {
+function conditionFromTitle(title: string): PriceReviewCondition | null {
   const text = normalizedText(title);
   if (hasAny(text, [" precintado", " sealed", " nuevo"])) return "sealed";
   if (hasAny(text, [" completo", " cib", " con caja", " caja y manual"])) return "complete";
@@ -292,12 +297,12 @@ function hasUsefulRegionEvidence(item: PriceReviewItem, inferredRegion: string |
   return Boolean(inferredRegion);
 }
 
-function isSafeRetroplayzoneAutoAccept(item: PriceReviewItem): PriceReviewAutoRetroplayzoneCandidate {
+function isSafeAutoAccept(item: PriceReviewItem): PriceReviewAutoRetroplayzoneCandidate {
   const catalogId = item.catalogId || item.candidateCatalogId || null;
-  const inferredRegion = item.detectedRegion || item.targetRegion || retroplayzoneRegionFromTitle(item.listingTitle);
+  const inferredRegion = item.detectedRegion || item.targetRegion || regionFromTitle(item.listingTitle);
   const inferredCondition = (item.condition && item.condition !== "unknown"
     ? item.condition
-    : retroplayzoneConditionFromTitle(item.listingTitle)) as PriceReviewCondition | null;
+    : conditionFromTitle(item.listingTitle)) as PriceReviewCondition | null;
   const score = Number(item.evidence?.matchScore ?? 0);
   const aiConfidence = Number(item.evidence?.aiConfidence ?? 0);
   const method = normalizedText(item.evidence?.matchMethod);
@@ -331,19 +336,51 @@ function isSafeRetroplayzoneAutoAccept(item: PriceReviewItem): PriceReviewAutoRe
   return { id: item.id, listingTitle: item.listingTitle, catalogId, region: inferredRegion, condition: inferredCondition, priceEur: item.priceEur, decision: "accept", reason: "región, estado y match claros" };
 }
 
+function itemMatchesAutoReviewInput(item: PriceReviewItem, input: PriceReviewAutoRetroplayzoneInput): boolean {
+  if (item.status !== "pending") return false;
+  const platformSlug = input.platformSlug?.trim();
+  if (platformSlug && platformSlug !== "all" && item.platformSlug !== platformSlug) return false;
+  const source = input.source?.trim();
+  if (source && source !== "all" && item.source !== source) return false;
+  const query = normalizedText(input.query);
+  if (!query) return true;
+  return normalizedText([
+    item.listingTitle,
+    item.catalogId,
+    item.candidateCatalogId,
+    item.targetRegion,
+    item.detectedRegion,
+    item.reason,
+    item.source,
+    item.platformSlug,
+  ].filter(Boolean).join(" ")).includes(query);
+}
+
+function autoReviewLabel(input: PriceReviewAutoRetroplayzoneInput): string {
+  const parts = [
+    input.platformSlug && input.platformSlug !== "all" ? input.platformSlug.toUpperCase() : null,
+    input.source && input.source !== "all" ? input.source : null,
+    input.query?.trim() ? `busqueda "${input.query.trim()}"` : null,
+  ].filter(Boolean);
+  return parts.length ? parts.join(" · ") : "toda la cola";
+}
+
 export async function autoReviewRetroplayzonePrices(
   input: PriceReviewAutoRetroplayzoneInput = {},
 ): Promise<PriceReviewAutoRetroplayzoneResult | { error: string }> {
   const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
-  const retroItems = queue.items.filter((item) => item.status === "pending" && normalizedText(item.source).includes("retroplayzone"));
-  const candidates = retroItems.map(isSafeRetroplayzoneAutoAccept);
+  const targetItems = queue.items.filter((item) => itemMatchesAutoReviewInput(item, input));
+  const candidates = targetItems.map(isSafeAutoAccept);
   const acceptedCandidates = candidates.filter((candidate) => candidate.decision === "accept");
+  const label = autoReviewLabel(input);
 
   if (!input.apply) {
     return {
       ok: true,
       mode: "preview",
-      totalRetroplayzonePending: retroItems.length,
+      label,
+      totalPending: targetItems.length,
+      totalRetroplayzonePending: targetItems.length,
       accepted: acceptedCandidates.length,
       skipped: candidates.length - acceptedCandidates.length,
       workerSynced: false,
@@ -354,7 +391,7 @@ export async function autoReviewRetroplayzonePrices(
   const now = new Date().toISOString();
   const acceptedById = new Map(acceptedCandidates.map((candidate) => [candidate.id, candidate]));
   const errors: string[] = [];
-  for (const item of retroItems) {
+  for (const item of targetItems) {
     const candidate = acceptedById.get(item.id);
     if (!candidate?.catalogId || !candidate.condition) continue;
     const patch = patchFromReview(item, {
@@ -362,7 +399,7 @@ export async function autoReviewRetroplayzonePrices(
       catalogId: candidate.catalogId,
       region: candidate.region ?? undefined,
       condition: candidate.condition,
-      note: "Autoaceptado RetroPlayZone: región, estado y match claros.",
+      note: `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
     });
     const result = await updatePublishedCatalogPrices(candidate.catalogId, patch);
     if ("error" in result) {
@@ -389,13 +426,13 @@ export async function autoReviewRetroplayzonePrices(
         catalogId: candidate.catalogId,
         region: candidate.region,
         condition: candidate.condition,
-        note: "Autoaceptado RetroPlayZone: región, estado y match claros.",
+        note: `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
       },
       evidence: {
         ...(item.evidence ?? {}),
         reviewNotes: [
           ...(item.evidence?.reviewNotes ?? []),
-          "Autoaceptado RetroPlayZone: región, estado y match claros.",
+          `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
         ],
       },
     };
@@ -408,7 +445,7 @@ export async function autoReviewRetroplayzonePrices(
       catalogId: candidate.catalogId,
       region: candidate.region,
       condition: candidate.condition,
-      note: "Autoaceptado RetroPlayZone: región, estado y match claros.",
+      note: `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
     })),
     ...queue.decisions,
   ].slice(0, 1000);
@@ -416,7 +453,9 @@ export async function autoReviewRetroplayzonePrices(
   return {
     ok: true,
     mode: "apply",
-    totalRetroplayzonePending: retroItems.length,
+    label,
+    totalPending: targetItems.length,
+    totalRetroplayzonePending: targetItems.length,
     accepted: acceptedById.size,
     skipped: candidates.length - acceptedById.size,
     workerSynced: write.workerSynced,
