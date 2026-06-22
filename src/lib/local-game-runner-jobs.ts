@@ -563,6 +563,6 @@ export async function importGamePasteText(
   ].join(" ");
   const result = await execWorkerCommand(command);
   const importLogTail = String(result.output ?? "").slice(-12000) || null;
-  if ("error" in result) return { error: result.error, preview };
+  if ("error" in result) return { error: result.error, preview, importLogTail };
   return { ok: true, importId, resultPath, preview, importLogTail };
 }

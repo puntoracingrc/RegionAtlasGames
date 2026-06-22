@@ -120,9 +120,10 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
       error?: string;
     } | null;
     if (data?.preview) setPastePreview(data.preview);
+    if (data?.importLogTail) setPasteLog(data.importLogTail);
     if (!response.ok || !data?.ok) {
       setPasteState("error");
-      setPasteMessage(data?.error ?? "No se pudo importar el pegado de GAME.");
+      setPasteMessage(`${data?.error ?? "No se pudo importar el pegado de GAME."}${data?.importLogTail ? " Revisa el log de abajo para ver la causa real." : ""}`);
       return;
     }
     setPasteState("done");
