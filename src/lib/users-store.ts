@@ -1,8 +1,13 @@
-import { readFileSync, writeFileSync } from "fs";
 import path from "path";
-import { get, put } from "@vercel/blob";
-import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
-import { appDataFile, ensureAppDataDir } from "./app-data-dir";
+import { assertDurableBlobConfigured, blobAuthConfigured } from "./blob-auth";
+import { appDataFile } from "./app-data-dir";
+import {
+  mutateBlobJsonDocument,
+  mutateDiskJsonDocument,
+  readBlobJsonDocument,
+  readDiskJsonDocument,
+  type JsonMutation,
+} from "./json-document-store";
 
 export type StoredUserRecord = {
   id: string;
@@ -19,108 +24,75 @@ export type StoredUserRecord = {
 const BLOB_PATH = "region-atlas/auth/users.json";
 
 function shouldUseBlobStorage(): boolean {
+  assertDurableBlobConfigured();
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
   return blobAuthConfigured();
 }
 
 function parseUsers(raw: string): StoredUserRecord[] {
-  try {
-    const parsed = JSON.parse(raw) as StoredUserRecord[];
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
+  const parsed = JSON.parse(raw) as unknown;
+  if (!Array.isArray(parsed)) throw new Error("El documento de usuarios no es válido.");
+  return parsed as StoredUserRecord[];
 }
 
-function readUsersFromDisk(): StoredUserRecord[] {
-  const candidates = [appDataFile("users.json"), path.join(process.cwd(), "data", "users.json")];
-  for (const file of candidates) {
-    try {
-      return parseUsers(readFileSync(file, "utf-8"));
-    } catch {
-      continue;
-    }
-  }
-  return [];
+function blobOptions() {
+  return {
+    pathname: BLOB_PATH,
+    empty: (): StoredUserRecord[] => [],
+    parse: parseUsers,
+    maximumSizeInBytes: 16 * 1024 * 1024,
+    cacheControlMaxAge: 30,
+  };
 }
 
-async function readUsersFromBlob(): Promise<StoredUserRecord[]> {
-  try {
-    const auth = await blobAuthOptions("private");
-    const result = await get(BLOB_PATH, { ...auth, useCache: false });
-    if (!result || result.statusCode !== 200 || !result.stream) return [];
-    const text = await new Response(result.stream).text();
-    return parseUsers(text);
-  } catch (error) {
-    console.error("[users-store] blob read failed", error);
-    return [];
-  }
+function diskOptions() {
+  return {
+    pathname: appDataFile("users.json"),
+    readCandidates: [path.join(process.cwd(), "data", "users.json")],
+    empty: (): StoredUserRecord[] => [],
+    parse: parseUsers,
+  };
 }
 
-function writeUsersToDisk(users: StoredUserRecord[]): { ok: true } | { error: string } {
-  try {
-    ensureAppDataDir();
-    writeFileSync(appDataFile("users.json"), JSON.stringify(users, null, 2), "utf-8");
-    return { ok: true };
-  } catch {
-    return {
-      error:
-        "No se pudo guardar la cuenta en disco. En Vercel conecta Vercel Blob al proyecto.",
-    };
-  }
-}
-
-async function writeUsersToBlob(
-  users: StoredUserRecord[],
-): Promise<{ ok: true } | { error: string }> {
-  try {
-    const auth = await blobAuthOptions("private");
-    await put(BLOB_PATH, JSON.stringify(users, null, 2), {
-      ...auth,
-      contentType: "application/json",
-      addRandomSuffix: false,
-      allowOverwrite: true,
-      cacheControlMaxAge: 60,
-    });
-    return { ok: true };
-  } catch (error) {
-    console.error("[users-store] blob write failed", error);
-    const detail = error instanceof Error ? error.message : String(error);
-    if (detail.includes("No blob credentials") || detail.includes("OIDC token")) {
-      return {
-        error:
-          "No se pudo guardar la cuenta. Falta autenticación con Vercel Blob (BLOB_STORE_ID o BLOB_READ_WRITE_TOKEN).",
-      };
-    }
-    return {
-      error:
-        "No se pudo guardar la cuenta. Revisa que Vercel Blob esté conectado al proyecto.",
-    };
-  }
+async function storageError(operation: string, error: unknown): Promise<never> {
+  console.error(`[users-store] ${operation} failed`, error);
+  throw new Error(
+    "No se pudo acceder al almacenamiento de cuentas. Inténtalo de nuevo en unos minutos.",
+  );
 }
 
 /** Carga usuarios: Blob en Vercel, disco en local. */
 export async function loadUsers(): Promise<StoredUserRecord[]> {
-  if (shouldUseBlobStorage()) {
-    const blobUsers = await readUsersFromBlob();
-    if (blobUsers.length > 0) return blobUsers;
-    const localUsers = readUsersFromDisk();
-    if (localUsers.length > 0) {
-      await writeUsersToBlob(localUsers);
-      return localUsers;
-    }
-    return [];
+  if (!shouldUseBlobStorage()) {
+    return readDiskJsonDocument(diskOptions()).catch((error) => storageError("disk read", error));
   }
-  return readUsersFromDisk();
+
+  try {
+    const blobUsers = await readBlobJsonDocument(blobOptions());
+    if (blobUsers.length > 0) return blobUsers;
+
+    const localUsers = await readDiskJsonDocument(diskOptions());
+    if (localUsers.length === 0) return blobUsers;
+
+    return mutateBlobJsonDocument(blobOptions(), (current) =>
+      current.length > 0
+        ? { next: current, result: current, changed: false }
+        : { next: localUsers, result: localUsers },
+    );
+  } catch (error) {
+    return storageError("blob read", error);
+  }
 }
 
-export async function saveUsers(
-  users: StoredUserRecord[],
-): Promise<{ ok: true } | { error: string }> {
-  if (shouldUseBlobStorage()) {
-    return writeUsersToBlob(users);
+export async function mutateUsers<R>(mutation: JsonMutation<StoredUserRecord[], R>): Promise<R> {
+  try {
+    if (shouldUseBlobStorage()) {
+      return await mutateBlobJsonDocument(blobOptions(), mutation);
+    }
+    return await mutateDiskJsonDocument(diskOptions(), mutation);
+  } catch (error) {
+    return storageError("mutation", error);
   }
-  return writeUsersToDisk(users);
 }
 
 export function usersStorageBackend(): "blob" | "disk" {

@@ -3,7 +3,7 @@ import path from "path";
 import { NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 import { blobAuthConfigured, blobAuthOptions } from "@/lib/blob-auth";
-import { getListing, updateListing } from "@/lib/listings";
+import { getListing, upsertListingPhoto } from "@/lib/listings";
 import {
   normalizeListingPhoto,
   validateListingPhoto,
@@ -82,20 +82,22 @@ export async function POST(request: Request, { params }: Params) {
 
   const normalized = await normalizeListingPhoto(buffer);
   const url = await saveListingPhoto(id, slot, normalized);
-  const photos = listing.photos.filter((p) => p.slot !== slot);
-  photos.push({
+  const photo = {
     slot,
     url,
     width: check.width,
     height: check.height,
     bytes: normalized.length,
     uploadedAt: new Date().toISOString(),
-  });
+  };
 
-  await updateListing(id, { photos, status: listing.status === "active" ? "draft" : listing.status });
+  const updated = await upsertListingPhoto(id, user.id, photo);
+  if ("error" in updated) {
+    return NextResponse.json({ error: updated.error }, { status: 409 });
+  }
 
   return NextResponse.json({
-    photo: photos.find((p) => p.slot === slot),
+    photo: updated.photo,
     required: REQUIRED_PHOTO_SLOTS,
   });
 }

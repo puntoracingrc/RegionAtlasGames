@@ -4,7 +4,7 @@ import {
   formatCatalogGapReportHtml,
   formatCatalogGapReportText,
 } from "@/lib/catalog-gap-report";
-import { readUserCollection, writeUserCollection } from "@/lib/collection-store";
+import { readUserCollection, updateUserCollection } from "@/lib/collection-store";
 import {
   catalogRequestRecipient,
   isCatalogRequestConfigured,
@@ -80,10 +80,10 @@ export async function POST() {
   }
 
   const sentAt = new Date().toISOString();
-  await writeUserCollection({
-    ...file,
-    catalogGapReportSentAt: sentAt,
-  });
+  await updateUserCollection(user.id, (current) => ({
+    next: { ...current, catalogGapReportSentAt: sentAt },
+    result: undefined,
+  }));
 
   return NextResponse.json({
     ok: true,
