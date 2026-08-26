@@ -8,9 +8,11 @@ import { PLAN_LIMITS, planLabel } from "@/lib/plans";
 export function PlanPanel({
   plan,
   aiQuotaRemaining,
+  allowDemoUpgrade = false,
 }: {
   plan: UserPlan;
   aiQuotaRemaining?: number;
+  allowDemoUpgrade?: boolean;
 }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -61,10 +63,13 @@ export function PlanPanel({
           </a>
         </div>
       )}
-      {plan === "free" && (
+      {plan === "free" && allowDemoUpgrade && (
         <button type="button" className="btn-primary mt-2" disabled={loading} onClick={upgrade}>
           {loading ? "Activando…" : "Activar Pro (demo)"}
         </button>
+      )}
+      {plan === "free" && !allowDemoUpgrade && (
+        <p className="pt-2 text-sm text-muted">El plan Pro estará disponible próximamente.</p>
       )}
     </dl>
   );

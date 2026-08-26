@@ -10,6 +10,7 @@ import {
 } from "@/lib/listing-photo-sharp";
 import type { ListingPhotoSlot } from "@/lib/marketplace-types";
 import { PHOTO_SLOT_LABELS, REQUIRED_PHOTO_SLOTS } from "@/lib/marketplace-types";
+import { MAX_PHOTO_BYTES } from "@/lib/listing-photos";
 import { canUseMarketplace } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
@@ -65,6 +66,12 @@ export async function POST(request: Request, { params }: Params) {
   }
   if (!(file instanceof File)) {
     return NextResponse.json({ error: "Falta archivo." }, { status: 400 });
+  }
+  if (file.size > MAX_PHOTO_BYTES) {
+    return NextResponse.json({ error: "La imagen supera el límite de 12 MB." }, { status: 413 });
+  }
+  if (file.type && !file.type.startsWith("image/")) {
+    return NextResponse.json({ error: "El archivo debe ser una imagen." }, { status: 415 });
   }
 
   const buffer = Buffer.from(await file.arrayBuffer());

@@ -2,7 +2,9 @@ import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
 import {
   downloadAndUploadSagaBackgroundToCdn,
+  MAX_SAGA_BACKGROUND_UPLOAD_BYTES,
   uploadSagaBackgroundToCdn,
+  validateImageUploadEnvelope,
 } from "@/lib/covers-upload";
 import {
   DEFAULT_SERIES_BACKGROUND_OPACITY,
@@ -28,6 +30,16 @@ export async function POST(req: Request, { params }: Props) {
     const file = form.get("file");
     if (!(file instanceof File)) {
       return NextResponse.json({ error: "Falta la imagen." }, { status: 400 });
+    }
+    const envelopeError = validateImageUploadEnvelope(
+      file,
+      MAX_SAGA_BACKGROUND_UPLOAD_BYTES,
+    );
+    if (envelopeError) {
+      return NextResponse.json(
+        { error: envelopeError },
+        { status: file.size > MAX_SAGA_BACKGROUND_UPLOAD_BYTES ? 413 : 415 },
+      );
     }
     const arrayBuffer = await file.arrayBuffer();
     uploaded = await uploadSagaBackgroundToCdn({

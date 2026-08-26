@@ -4,6 +4,8 @@ import { OPTIONAL_PHOTO_SLOTS, REQUIRED_PHOTO_SLOTS } from "./marketplace-types"
 export const MIN_PHOTO_WIDTH = 800;
 export const MIN_PHOTO_HEIGHT = 600;
 export const MIN_PHOTO_BYTES = 40_000;
+export const MAX_PHOTO_BYTES = 12 * 1024 * 1024;
+export const MAX_PHOTO_INPUT_PIXELS = 40_000_000;
 
 export function missingRequiredPhotos(photos: ListingPhoto[]): ListingPhotoSlot[] {
   const uploaded = new Set(photos.map((p) => p.slot));

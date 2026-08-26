@@ -36,7 +36,11 @@ export default async function SettingsPage() {
                 Pro incluye valor total de tu colección (global y por plataforma), mercado entre
                 usuarios y análisis IA de fotos.
               </p>
-              <PlanPanel plan={user.plan} aiQuotaRemaining={await aiQuotaRemaining(user.id, user.plan)} />
+              <PlanPanel
+                plan={user.plan}
+                aiQuotaRemaining={await aiQuotaRemaining(user.id, user.plan)}
+                allowDemoUpgrade={process.env.DEMO_PLAN_UPGRADE_ENABLED === "1"}
+              />
             </Panel>
           )}
 

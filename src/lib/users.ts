@@ -9,6 +9,7 @@ import {
   type ThemePreference,
 } from "./session";
 import type { UserPlan } from "./marketplace-types";
+import { getSessionSecret } from "./server-env";
 import { loadUsers, saveUsers, type StoredUserRecord } from "./users-store";
 
 type StoredUser = StoredUserRecord;
@@ -33,13 +34,8 @@ export function toPublicUser(user: StoredUser): PublicUser {
   };
 }
 
-function sessionSecret(): string {
-  const secret = process.env.SESSION_SECRET?.trim();
-  return secret && secret !== "\"\"" ? secret : "dev-only-secret-min-32-chars-long!!";
-}
-
 function signSession(payload: string): string {
-  return createHmac("sha256", sessionSecret()).update(payload).digest("base64url");
+  return createHmac("sha256", getSessionSecret()).update(payload).digest("base64url");
 }
 
 function encodeSession(data: SessionData): string {
@@ -115,9 +111,15 @@ export async function registerUser(input: {
   const city = input.city?.trim() ?? "";
 
   if (!name || name.length < 2) return { error: "Nombre demasiado corto." };
+  if (name.length > 80) return { error: "El nombre es demasiado largo." };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: "Email no válido." };
-  if (password.length < 8) return { error: "La contraseña debe tener al menos 8 caracteres." };
+  if (email.length > 254) return { error: "Email no válido." };
+  if (password.length < 10) return { error: "La contraseña debe tener al menos 10 caracteres." };
+  if (Buffer.byteLength(password, "utf8") > 72) {
+    return { error: "La contraseña no puede superar 72 bytes." };
+  }
   if (city && city.length < 2) return { error: "Ciudad demasiado corta." };
+  if (city.length > 100) return { error: "La ciudad es demasiado larga." };
 
   const users = await readUsers();
   if (users.some((u) => u.email === email)) {
@@ -164,6 +166,9 @@ export async function loginUser(
   password: string,
 ): Promise<{ user: PublicUser } | { error: string }> {
   const normalized = email.trim().toLowerCase();
+  if (normalized.length > 254 || Buffer.byteLength(password, "utf8") > 72) {
+    return { error: "Email o contraseña incorrectos." };
+  }
   const users = await readUsers();
   const user = users.find((u) => u.email === normalized);
   if (!user) return { error: "Email o contraseña incorrectos." };

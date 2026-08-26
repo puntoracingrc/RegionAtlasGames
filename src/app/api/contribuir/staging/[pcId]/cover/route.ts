@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
-import { uploadCoverToCdn } from "@/lib/covers-upload";
+import {
+  MAX_COVER_UPLOAD_BYTES,
+  uploadCoverToCdn,
+  validateImageUploadEnvelope,
+} from "@/lib/covers-upload";
 import {
   draftFromStaging,
   readAdminGameDraft,
@@ -42,6 +46,13 @@ export async function POST(request: Request, { params }: RouteParams) {
     const file = form.get("file");
     if (!(file instanceof File)) {
       return NextResponse.json({ error: "Falta el archivo de portada." }, { status: 400 });
+    }
+    const envelopeError = validateImageUploadEnvelope(file, MAX_COVER_UPLOAD_BYTES);
+    if (envelopeError) {
+      return NextResponse.json(
+        { error: envelopeError },
+        { status: file.size > MAX_COVER_UPLOAD_BYTES ? 413 : 415 },
+      );
     }
 
     const existing = loaded.draft ?? (await readAdminGameDraft(pcId));
