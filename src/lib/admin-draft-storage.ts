@@ -17,7 +17,7 @@ const emptyTaxonomyFields = {
   facetNames: [],
 };
 
-function useBlobStorage(): boolean {
+function shouldUseBlobStorage(): boolean {
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
   return blobAuthConfigured();
 }
@@ -46,7 +46,7 @@ function parseDraft(raw: string, pcId: number): AdminGameDraft | null {
 }
 
 export async function readAdminGameDraft(pcId: number): Promise<AdminGameDraft | null> {
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     try {
       const auth = await blobAuthOptions("private");
       const result = await get(draftBlobPath(pcId), auth);
@@ -100,7 +100,7 @@ export async function writeAdminGameDraft(
   const payload: AdminGameDraft = { ...draft, updatedAt: new Date().toISOString() };
   const diskResult = writeDraftToDisk(payload);
 
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     const blobResult = await writeDraftToBlob(payload);
     if ("ok" in blobResult) return { ok: true };
     if ("error" in diskResult) return blobResult;
@@ -286,7 +286,7 @@ export async function deleteAdminGameDraft(pcId: number): Promise<{ ok: true }> 
     /* missing on disk */
   }
 
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     try {
       const auth = await blobAuthOptions("private");
       await del(draftBlobPath(pcId), auth);

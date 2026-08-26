@@ -18,7 +18,7 @@ const SALES_FILE = path.join(MARKET_DIR, "recorded-sales.json");
 const LISTINGS_BLOB_PATH = "region-atlas/marketplace/listings.json";
 const SALES_BLOB_PATH = "region-atlas/marketplace/recorded-sales.json";
 
-function useBlobStorage(): boolean {
+function shouldUseBlobStorage(): boolean {
   if (process.env.VERCEL) return blobAuthConfigured();
   return Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim());
 }
@@ -68,22 +68,22 @@ async function writeBlobJson(blobPath: string, data: unknown) {
 }
 
 async function readListings(): Promise<MarketplaceListing[]> {
-  if (useBlobStorage()) return readBlobJson(LISTINGS_BLOB_PATH, []);
+  if (shouldUseBlobStorage()) return readBlobJson(LISTINGS_BLOB_PATH, []);
   return readLocalJson(LISTINGS_FILE, []);
 }
 
 async function writeListings(listings: MarketplaceListing[]) {
-  if (useBlobStorage()) return writeBlobJson(LISTINGS_BLOB_PATH, listings);
+  if (shouldUseBlobStorage()) return writeBlobJson(LISTINGS_BLOB_PATH, listings);
   writeLocalJson(LISTINGS_FILE, listings);
 }
 
 async function readSales(): Promise<RecordedPrivateSale[]> {
-  if (useBlobStorage()) return readBlobJson(SALES_BLOB_PATH, []);
+  if (shouldUseBlobStorage()) return readBlobJson(SALES_BLOB_PATH, []);
   return readLocalJson(SALES_FILE, []);
 }
 
 async function writeSales(sales: RecordedPrivateSale[]) {
-  if (useBlobStorage()) return writeBlobJson(SALES_BLOB_PATH, sales);
+  if (shouldUseBlobStorage()) return writeBlobJson(SALES_BLOB_PATH, sales);
   writeLocalJson(SALES_FILE, sales);
 }
 

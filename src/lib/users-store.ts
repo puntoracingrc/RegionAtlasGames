@@ -18,7 +18,7 @@ export type StoredUserRecord = {
 
 const BLOB_PATH = "region-atlas/auth/users.json";
 
-function useBlobStorage(): boolean {
+function shouldUseBlobStorage(): boolean {
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
   return blobAuthConfigured();
 }
@@ -101,7 +101,7 @@ async function writeUsersToBlob(
 
 /** Carga usuarios: Blob en Vercel, disco en local. */
 export async function loadUsers(): Promise<StoredUserRecord[]> {
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     const blobUsers = await readUsersFromBlob();
     if (blobUsers.length > 0) return blobUsers;
     const localUsers = readUsersFromDisk();
@@ -117,12 +117,12 @@ export async function loadUsers(): Promise<StoredUserRecord[]> {
 export async function saveUsers(
   users: StoredUserRecord[],
 ): Promise<{ ok: true } | { error: string }> {
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     return writeUsersToBlob(users);
   }
   return writeUsersToDisk(users);
 }
 
 export function usersStorageBackend(): "blob" | "disk" {
-  return useBlobStorage() ? "blob" : "disk";
+  return shouldUseBlobStorage() ? "blob" : "disk";
 }

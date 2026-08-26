@@ -11,7 +11,7 @@ const BLOCKS_FILE = path.join(process.cwd(), "data", "marketplace", "blocks.json
 const CONV_BLOB_PATH = "region-atlas/marketplace/conversations.json";
 const BLOCKS_BLOB_PATH = "region-atlas/marketplace/blocks.json";
 
-function useBlobStorage(): boolean {
+function shouldUseBlobStorage(): boolean {
   if (process.env.VERCEL) return blobAuthConfigured();
   return Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim());
 }
@@ -58,22 +58,22 @@ async function writeBlobJson(blobPath: string, data: unknown) {
 }
 
 async function readConversations(): Promise<MarketplaceConversation[]> {
-  if (useBlobStorage()) return readBlobJson(CONV_BLOB_PATH, []);
+  if (shouldUseBlobStorage()) return readBlobJson(CONV_BLOB_PATH, []);
   return readLocalJson(CONV_FILE, []);
 }
 
 async function writeConversations(conversations: MarketplaceConversation[]) {
-  if (useBlobStorage()) return writeBlobJson(CONV_BLOB_PATH, conversations);
+  if (shouldUseBlobStorage()) return writeBlobJson(CONV_BLOB_PATH, conversations);
   writeLocalJson(CONV_FILE, conversations);
 }
 
 async function readBlocks(): Promise<MarketplaceBlock[]> {
-  if (useBlobStorage()) return readBlobJson(BLOCKS_BLOB_PATH, []);
+  if (shouldUseBlobStorage()) return readBlobJson(BLOCKS_BLOB_PATH, []);
   return readLocalJson(BLOCKS_FILE, []);
 }
 
 async function writeBlocks(blocks: MarketplaceBlock[]) {
-  if (useBlobStorage()) return writeBlobJson(BLOCKS_BLOB_PATH, blocks);
+  if (shouldUseBlobStorage()) return writeBlobJson(BLOCKS_BLOB_PATH, blocks);
   writeLocalJson(BLOCKS_FILE, blocks);
 }
 

@@ -43,13 +43,13 @@ function normalizeEmail(email: string): string {
   return email.trim().toLowerCase();
 }
 
-function useBlobContributors(): boolean {
+function shouldUseBlobContributors(): boolean {
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
   return blobAuthConfigured();
 }
 
 async function loadBlobContributorsFile(): Promise<ContributorsFile> {
-  if (!useBlobContributors()) return { updatedAt: null, contributors: [] };
+  if (!shouldUseBlobContributors()) return { updatedAt: null, contributors: [] };
   try {
     const auth = await blobAuthOptions("private");
     const result = await get(CONTRIBUTORS_BLOB_PATH, { ...auth, useCache: false });
@@ -68,7 +68,7 @@ async function loadBlobContributorsFile(): Promise<ContributorsFile> {
 }
 
 async function saveBlobContributorsFile(file: ContributorsFile): Promise<void> {
-  if (!useBlobContributors()) return;
+  if (!shouldUseBlobContributors()) return;
   const auth = await blobAuthOptions("private");
   await put(
     CONTRIBUTORS_BLOB_PATH,

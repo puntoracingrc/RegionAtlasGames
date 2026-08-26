@@ -14,7 +14,7 @@ export type UserCollectionFile = {
   catalogGapReportSentAt?: string | null;
 };
 
-function useBlobStorage(): boolean {
+function shouldUseBlobStorage(): boolean {
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
   return blobAuthConfigured();
 }
@@ -108,7 +108,7 @@ async function writeCollectionToBlob(
 export async function loadUserCollection(userId: string): Promise<UserCollectionFile> {
   let data: UserCollectionFile;
 
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     const blobData = await readCollectionFromBlob(userId);
     if (blobData.items.length > 0 || blobData.importedAt) {
       data = blobData;
@@ -142,7 +142,7 @@ export async function loadUserCollection(userId: string): Promise<UserCollection
 export async function saveUserCollectionFile(
   data: UserCollectionFile,
 ): Promise<{ ok: true } | { error: string }> {
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     const blobResult = await writeCollectionToBlob(data);
     if ("error" in blobResult) return blobResult;
     // Copia local best-effort (dev / respaldo); la fuente de verdad en prod es Blob.
@@ -153,5 +153,5 @@ export async function saveUserCollectionFile(
 }
 
 export function collectionsStorageBackend(): "blob" | "disk" {
-  return useBlobStorage() ? "blob" : "disk";
+  return shouldUseBlobStorage() ? "blob" : "disk";
 }

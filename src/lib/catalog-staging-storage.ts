@@ -10,7 +10,7 @@ const STAGING_BLOB_PREFIX = "region-atlas/staging";
 const STAGING_CACHE_TAG = "catalog-staging";
 const MAX_TRACKED_USERS = 200;
 
-function useBlobStorage(): boolean {
+function shouldUseBlobStorage(): boolean {
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
   return blobAuthConfigured();
 }
@@ -97,7 +97,7 @@ async function readIndexFromBlob(options?: { fresh?: boolean }): Promise<Catalog
 }
 
 export async function readCatalogStagingIndex(): Promise<CatalogStagingIndex> {
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     const blobIndex = await readIndexFromBlob();
     if (blobIndex.pcIds.length > 0) return blobIndex;
     const diskIndex = readIndexFromDisk();
@@ -146,7 +146,7 @@ export async function writeCatalogStagingIndex(
 ): Promise<{ ok: true } | { error: string }> {
   const payload = { ...index, updatedAt: new Date().toISOString() };
   const diskResult = writeIndexToDisk(payload);
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     const blobResult = await writeIndexToBlob(payload);
     if ("ok" in blobResult) return { ok: true };
     if ("error" in diskResult) return blobResult;
@@ -188,7 +188,7 @@ async function readGameFromBlob(pcId: number, options?: { fresh?: boolean }): Pr
 }
 
 export async function readCatalogStagingGame(pcId: number): Promise<CatalogStagingGame | null> {
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     const blobGame = await readGameFromBlob(pcId);
     if (blobGame) return blobGame;
     return readGameFromDisk(pcId);
@@ -229,7 +229,7 @@ export async function writeCatalogStagingGame(
   game: CatalogStagingGame,
 ): Promise<{ ok: true } | { error: string }> {
   const diskResult = writeGameToDisk(game);
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     const blobResult = await writeGameToBlob(game);
     if ("ok" in blobResult) return { ok: true };
     if ("error" in diskResult) return blobResult;
@@ -263,7 +263,7 @@ export async function deleteCatalogStagingGame(
     /* missing on disk */
   }
 
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     try {
       const auth = await blobAuthOptions("private");
       await del(stagingGameBlobPath(pcId), auth);
@@ -311,12 +311,12 @@ export async function listCatalogStagingGames(limit = 5000): Promise<CatalogStag
 }
 
 export function catalogStagingStorageBackend(): "blob" | "disk" {
-  return useBlobStorage() ? "blob" : "disk";
+  return shouldUseBlobStorage() ? "blob" : "disk";
 }
 
 /** Sincroniza disco → blob cuando hay token (util para scripts locales). */
 export async function syncStagingDiskToBlob(): Promise<{ synced: number } | { error: string }> {
-  if (!useBlobStorage()) return { error: "Blob no configurado." };
+  if (!shouldUseBlobStorage()) return { error: "Blob no configurado." };
   const gamesDir = stagingGamesDir();
   if (!existsSync(gamesDir)) return { synced: 0 };
   const files = readdirSync(gamesDir).filter((name) => name.endsWith(".json"));

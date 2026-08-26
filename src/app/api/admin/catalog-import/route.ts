@@ -5,7 +5,11 @@ import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import { upsertCatalogStagingFromImport } from "@/lib/catalog-staging";
 import { readCatalogStagingIndex } from "@/lib/catalog-staging-storage";
 import { catalogIdExistsInCatalog, getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
-import { importSpreadsheet } from "@/lib/import-collection";
+import {
+  importSpreadsheet,
+  isSupportedSpreadsheetFilename,
+  MAX_SPREADSHEET_IMPORT_BYTES,
+} from "@/lib/import-collection";
 import { catalogIdFromStaging, guessPcPath } from "@/lib/pc-path-guess";
 import { slugify } from "@/lib/slug";
 import type { CollectionItem } from "@/lib/types";
@@ -157,13 +161,24 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Plataforma no encontrada." }, { status: 400 });
   }
 
-  const name = file.name.toLowerCase();
-  if (!name.endsWith(".xlsx") && !name.endsWith(".xls") && !name.endsWith(".csv")) {
-    return NextResponse.json({ error: "Formato no soportado. Usa .csv, .xlsx o .xls." }, { status: 400 });
+  if (!isSupportedSpreadsheetFilename(file.name)) {
+    return NextResponse.json({ error: "Formato no soportado. Usa .csv o .xlsx." }, { status: 400 });
+  }
+  if (file.size > MAX_SPREADSHEET_IMPORT_BYTES) {
+    return NextResponse.json({ error: "El archivo supera el límite de 10 MB." }, { status: 413 });
   }
 
   const buffer = Buffer.from(await file.arrayBuffer());
-  const { items, stats } = importSpreadsheet(buffer, file.name);
+  let imported: Awaited<ReturnType<typeof importSpreadsheet>>;
+  try {
+    imported = await importSpreadsheet(buffer, file.name);
+  } catch {
+    return NextResponse.json(
+      { error: "No se pudo leer el archivo. Comprueba que sea un XLSX o CSV válido." },
+      { status: 400 },
+    );
+  }
+  const { items, stats } = imported;
   const stagingIndex = await readCatalogStagingIndex();
   const stagedPcIds = new Set(stagingIndex.pcIds);
   const platformItems =

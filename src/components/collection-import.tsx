@@ -72,7 +72,7 @@ export function CollectionImport({ hasItems, canViewCollectionValue }: Props) {
           <input
             ref={inputRef}
             type="file"
-            accept=".xlsx,.xls,.csv"
+            accept=".xlsx,.csv"
             className="hidden"
             disabled={loading}
             onChange={onFileChange}

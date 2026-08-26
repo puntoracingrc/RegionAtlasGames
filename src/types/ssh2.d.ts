@@ -1,7 +1,7 @@
 declare module "ssh2" {
   export class Client {
-    on(event: string, listener: (...args: any[]) => void): this;
-    exec(command: string, callback: (error: Error | undefined, stream: any) => void): void;
+    on(event: string, listener: (...args: unknown[]) => void): this;
+    exec(command: string, callback: (error: Error | undefined, stream: unknown) => void): void;
     connect(config: Record<string, unknown>): this;
     end(): void;
   }

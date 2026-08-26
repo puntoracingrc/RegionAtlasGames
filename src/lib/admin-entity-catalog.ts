@@ -153,7 +153,7 @@ function emptyOverlay(): AdminEntitiesOverlay {
   };
 }
 
-function useAdminEntityOverlayStorage(): boolean {
+function shouldUseAdminEntityOverlayStorage(): boolean {
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
   return blobAuthConfigured();
 }
@@ -182,7 +182,7 @@ function parseOverlay(raw: string): AdminEntitiesOverlay {
 }
 
 async function readAdminEntitiesOverlay(): Promise<AdminEntitiesOverlay> {
-  if (!useAdminEntityOverlayStorage()) return emptyOverlay();
+  if (!shouldUseAdminEntityOverlayStorage()) return emptyOverlay();
   try {
     const auth = await blobAuthOptions("private");
     const result = await get(ADMIN_ENTITIES_OVERLAY_PATH, { ...auth, useCache: false });
@@ -200,7 +200,7 @@ export async function readAdminCompanyProfilesOverlay(): Promise<Record<string, 
 }
 
 async function writeAdminEntitiesOverlay(overlay: AdminEntitiesOverlay): Promise<void> {
-  if (!useAdminEntityOverlayStorage()) return;
+  if (!shouldUseAdminEntityOverlayStorage()) return;
   const auth = await blobAuthOptions("private");
   await put(
     ADMIN_ENTITIES_OVERLAY_PATH,

@@ -16,13 +16,13 @@ function monthKey(d = new Date()): string {
   return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
 }
 
-function useBlobStorage(): boolean {
+function shouldUseBlobStorage(): boolean {
   if (process.env.VERCEL) return blobAuthConfigured();
   return Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim());
 }
 
 async function readUsage(): Promise<UsageRow[]> {
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     try {
       const auth = await blobAuthOptions("private");
       const result = await get(USAGE_BLOB_PATH, { ...auth, useCache: false });
@@ -40,7 +40,7 @@ async function readUsage(): Promise<UsageRow[]> {
 }
 
 async function writeUsage(rows: UsageRow[]) {
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     const auth = await blobAuthOptions("private");
     await put(USAGE_BLOB_PATH, JSON.stringify(rows, null, 2), {
       ...auth,
@@ -95,7 +95,7 @@ function listingPhotoBlobPath(listingId: string, slot: string): string {
 }
 
 async function privateBlobPhotoDataUrl(listingId: string, slot: string): Promise<string | null> {
-  if (!useBlobStorage()) return null;
+  if (!shouldUseBlobStorage()) return null;
   try {
     const auth = await blobAuthOptions("private");
     const result = await get(listingPhotoBlobPath(listingId, slot), { ...auth, useCache: false });

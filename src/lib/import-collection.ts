@@ -1,4 +1,5 @@
-import * as XLSX from "xlsx";
+import { parse as parseCsv } from "csv-parse/sync";
+import readExcelFile from "read-excel-file/node";
 import { normalizeImportedPlatformSlug } from "./collection-platform-slugs";
 import { slugify } from "./slug";
 import { catalog, platforms } from "./catalog";
@@ -37,6 +38,13 @@ const EXCEL_TO_SLUG: Record<string, string> = {
   "NEO GEO POCKET": "neogeopocket",
   "NEO GEO POCKET COLOR": "neogeopocket",
 };
+
+export const MAX_SPREADSHEET_IMPORT_BYTES = 10 * 1024 * 1024;
+
+export function isSupportedSpreadsheetFilename(filename: string): boolean {
+  const normalized = filename.trim().toLowerCase();
+  return normalized.endsWith(".xlsx") || normalized.endsWith(".csv");
+}
 
 /** Nombres de consola PriceCharting → slug interno */
 const PC_CONSOLE_TO_SLUG: Record<string, string> = {
@@ -341,23 +349,30 @@ function findHeaderRowIndex(rows: unknown[][]): number {
   return 0;
 }
 
-export function parseSpreadsheet(buffer: Buffer): unknown[][] {
-  const workbook = XLSX.read(buffer, {
-    type: "buffer",
-    cellDates: true,
-    codepage: 65001,
-  });
-  const sheetName =
-    workbook.SheetNames.find((n) => n.toUpperCase() === "TODO") ??
-    workbook.SheetNames[0];
-  if (!sheetName) return [];
+export async function parseSpreadsheet(buffer: Buffer, filename: string): Promise<unknown[][]> {
+  const normalized = filename.trim().toLowerCase();
 
-  const sheet = workbook.Sheets[sheetName];
-  return XLSX.utils.sheet_to_json<unknown[]>(sheet, {
-    header: 1,
-    defval: null,
-    raw: false,
-  }) as unknown[][];
+  if (normalized.endsWith(".csv")) {
+    return parseCsv(buffer, {
+      bom: true,
+      delimiter: [",", ";", "\t"],
+      relax_column_count: true,
+      relax_quotes: true,
+      skip_empty_lines: false,
+    }) as unknown[][];
+  }
+
+  if (!normalized.endsWith(".xlsx")) {
+    throw new Error("Formato no soportado. Usa .xlsx o .csv.");
+  }
+
+  const sheets = await readExcelFile(buffer);
+  const selected = sheets.find((sheet) => sheet.sheet.trim().toUpperCase() === "TODO") ?? sheets[0];
+  if (!selected) return [];
+
+  return selected.data.map((row) =>
+    row.map((value) => (value instanceof Date ? value.toISOString() : value)),
+  );
 }
 
 function slugKey(text: string): string {
@@ -657,9 +672,8 @@ export function importRowsToCollection(rows: unknown[][]): {
   return { items, stats };
 }
 
-export function importSpreadsheet(buffer: Buffer, filename: string) {
-  void filename;
-  const rows = parseSpreadsheet(buffer);
+export async function importSpreadsheet(buffer: Buffer, filename: string) {
+  const rows = await parseSpreadsheet(buffer, filename);
   return importRowsToCollection(rows);
 }
 
