@@ -48,6 +48,15 @@ jobs:
           ARGS=(--batch-size "$BATCH_SIZE" --per-game 8 --delay 0.5)
           if [[ "${{ inputs.dry_run }}" == "true" ]]; then
             ARGS+=(--dry-run)
+          else
+            [[ -n "$EBAY_CLIENT_ID" && -n "$EBAY_CLIENT_SECRET" ]] || {
+              echo "Faltan EBAY_CLIENT_ID o EBAY_CLIENT_SECRET." >&2
+              exit 1
+            }
+            [[ -n "$OPENAI_API_KEY" ]] || {
+              echo "Falta OPENAI_API_KEY; PS4 exige validar evidencia visual antes de publicar precios." >&2
+              exit 1
+            }
           fi
           python3 scripts/run_ebay_regional_campaign.py "${ARGS[@]}"
 

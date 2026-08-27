@@ -28,6 +28,20 @@ REGION_ORDER = (
 )
 
 
+def validate_runtime_environment() -> None:
+    has_ebay_token = bool(os.environ.get("EBAY_ACCESS_TOKEN", "").strip())
+    has_ebay_credentials = bool(
+        os.environ.get("EBAY_CLIENT_ID", "").strip()
+        and os.environ.get("EBAY_CLIENT_SECRET", "").strip()
+    )
+    if not has_ebay_token and not has_ebay_credentials:
+        raise RuntimeError("Faltan credenciales eBay para ejecutar la campaña.")
+    if not os.environ.get("OPENAI_API_KEY", "").strip():
+        raise RuntimeError(
+            "Falta OPENAI_API_KEY; PS4 exige validar evidencia visual antes de publicar precios."
+        )
+
+
 def campaign_games(catalog: list[dict[str, Any]], catalog_region: str) -> list[dict[str, Any]]:
     games = [
         game
@@ -256,6 +270,8 @@ def main() -> None:
         if len(selected) > 20:
             print(f"  ... y {len(selected) - 20} más")
         return
+
+    validate_runtime_environment()
 
     with tempfile.TemporaryDirectory(prefix="region-atlas-ebay-ps4-") as temp_dir:
         temp = Path(temp_dir)
