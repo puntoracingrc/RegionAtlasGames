@@ -116,24 +116,32 @@ function shouldUseRemoteWorker(): boolean {
 }
 
 export function inferRemoteJobErrorFromLog(meta: AdminPriceJobMeta, logTail?: string): AdminPriceJobMeta {
-  if (meta.status !== "running" || !logTail) return meta;
-  const notFound = logTail.match(/(?:^|\n)\s*Juego no encontrado:\s*([^\n]+)/i);
+  const normalizedLogTail = (logTail ?? meta.logTail)?.replace(/\r\n?/g, "\n");
+  const normalizedMeta = normalizedLogTail === meta.logTail
+    ? meta
+    : {
+        ...meta,
+        ...(normalizedLogTail === undefined ? {} : { logTail: normalizedLogTail }),
+      };
+
+  if (normalizedMeta.status !== "running" || !normalizedLogTail) return normalizedMeta;
+  const notFound = normalizedLogTail.match(/(?:^|\n)\s*Juego no encontrado:\s*([^\n]+)/i);
   if (notFound) {
     return {
-      ...meta,
+      ...normalizedMeta,
       status: "error",
       error: `Juego no encontrado en el worker: ${notFound[1].trim()}`,
     };
   }
-  const fatal = logTail.match(/(?:^|\n)\s*(Ninguna fuente produjo datos\.|Traceback .*|ModuleNotFoundError:[^\n]+|RuntimeError:[^\n]+)/i);
+  const fatal = normalizedLogTail.match(/(?:^|\n)\s*(Ninguna fuente produjo datos\.|Traceback .*|ModuleNotFoundError:[^\n]+|RuntimeError:[^\n]+)/i);
   if (fatal) {
     return {
-      ...meta,
+      ...normalizedMeta,
       status: "error",
       error: fatal[1].trim(),
     };
   }
-  return meta;
+  return normalizedMeta;
 }
 
 export function isAdminPriceCollectAvailable(): boolean {
@@ -286,7 +294,8 @@ export async function listAdminPriceJobs(limit = 20): Promise<AdminPriceJobMeta[
   const refreshed = await Promise.all(
     jobs.map(async (job) => {
       const live = await readAdminPriceJob(job.jobId);
-      return live ? { ...job, ...live } : job;
+      const merged = live ? { ...job, ...live } : job;
+      return inferRemoteJobErrorFromLog(merged, merged.logTail);
     }),
   );
   return refreshed.sort((a, b) => Date.parse(b.startedAt) - Date.parse(a.startedAt)).slice(0, limit);

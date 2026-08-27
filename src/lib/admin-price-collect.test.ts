@@ -41,3 +41,13 @@ test("preserves a real finish timestamp when enriching a failed job", () => {
   assert.equal(inferred.finishedAt, "2026-06-20T04:01:00.000Z");
   assert.equal(inferred.error, "RuntimeError: collector failed");
 });
+
+test("normalizes Windows line endings before rendering a worker log", () => {
+  const normalized = inferRemoteJobErrorFromLog({
+    ...runningJob(),
+    status: "done",
+    logTail: "Primera linea\r\nSegunda linea\rUltima linea",
+  });
+
+  assert.equal(normalized.logTail, "Primera linea\nSegunda linea\nUltima linea");
+});
