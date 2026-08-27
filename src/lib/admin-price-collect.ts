@@ -115,14 +115,13 @@ function shouldUseRemoteWorker(): boolean {
   return Boolean(remoteWorkerConfig() && (process.env.VERCEL || process.env.PRICE_WORKER_FORCE_REMOTE === "1"));
 }
 
-function inferRemoteJobErrorFromLog(meta: AdminPriceJobMeta, logTail?: string): AdminPriceJobMeta {
+export function inferRemoteJobErrorFromLog(meta: AdminPriceJobMeta, logTail?: string): AdminPriceJobMeta {
   if (meta.status !== "running" || !logTail) return meta;
   const notFound = logTail.match(/(?:^|\n)\s*Juego no encontrado:\s*([^\n]+)/i);
   if (notFound) {
     return {
       ...meta,
       status: "error",
-      finishedAt: meta.finishedAt ?? new Date().toISOString(),
       error: `Juego no encontrado en el worker: ${notFound[1].trim()}`,
     };
   }
@@ -131,7 +130,6 @@ function inferRemoteJobErrorFromLog(meta: AdminPriceJobMeta, logTail?: string): 
     return {
       ...meta,
       status: "error",
-      finishedAt: meta.finishedAt ?? new Date().toISOString(),
       error: fatal[1].trim(),
     };
   }
