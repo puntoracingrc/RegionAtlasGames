@@ -830,8 +830,17 @@ def apply_ebay_delivery_estimates(
         total_values = total_by_bucket[bucket]
         if len(shipping_values) < MIN_ESTIMATE_OBSERVATIONS or len(total_values) < MIN_ESTIMATE_OBSERVATIONS:
             continue
-        game[SHIPPING_TO_SPAIN_FIELDS[bucket]] = round(median(shipping_values), 2)
-        game[TOTAL_TO_SPAIN_FIELDS[bucket]] = round(median(total_values), 2)
+        shipping_estimate = round(median(shipping_values), 2)
+        game[SHIPPING_TO_SPAIN_FIELDS[bucket]] = shipping_estimate
+
+        item_price = game.get(CONDITION_PRICE_FIELDS[bucket])
+        if isinstance(item_price, (int, float)) and item_price > 0:
+            # El total mostrado debe corresponder a las dos cifras visibles:
+            # precio principal del articulo + transporte estimado a Espana.
+            total_estimate = round(float(item_price) + shipping_estimate, 2)
+        else:
+            total_estimate = round(median(total_values), 2)
+        game[TOTAL_TO_SPAIN_FIELDS[bucket]] = total_estimate
         changed = True
     return changed
 
