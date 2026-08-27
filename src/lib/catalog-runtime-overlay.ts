@@ -2,6 +2,10 @@ import { del, get, put } from "@vercel/blob";
 import { revalidateTag, unstable_cache } from "next/cache";
 import { buildCatalogSeoSlug } from "./catalog-url";
 import { getCatalogGame, listedCatalog } from "./catalog";
+import {
+  mergeCatalogPlatformGames,
+  resolveCatalogOverlayCandidate,
+} from "./catalog-overlay-merge";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { getStaticGameDetails } from "./static-game-details";
 import type { CatalogGame, GameDetails } from "./types";
@@ -233,12 +237,18 @@ export async function resolveCatalogGameWithOverlay(
 ): Promise<CatalogGame | undefined> {
   const staticGame =
     listedCatalog.find((g) => buildCatalogSeoSlug(g) === param) ?? getCatalogGame(param);
-  if (staticGame) return staticGame;
-
   const index = await loadCatalogOverlayIndex();
-  const catalogId = index.seoSlugs[param];
-  if (!catalogId) return undefined;
-  return (await readCatalogOverlayGame(catalogId)) ?? undefined;
+  const overlayId = resolveCatalogOverlayCandidate(
+    param,
+    staticGame,
+    index.ids,
+    index.seoSlugs,
+  );
+  if (overlayId) {
+    const overlayGame = await readCatalogOverlayGame(overlayId);
+    if (overlayGame) return overlayGame;
+  }
+  return staticGame;
 }
 
 export async function getGameDetailsWithOverlay(id: string): Promise<GameDetails | undefined> {
@@ -268,14 +278,11 @@ export async function getCatalogByPlatformWithOverlay(platformSlug: string): Pro
   const overlayIds = index.byPlatform[platformSlug] ?? [];
   if (overlayIds.length === 0) return staticGames;
 
-  const staticIds = new Set(staticGames.map((g) => g.id));
   const overlayGames = (
     await Promise.all(overlayIds.map((id) => readCatalogOverlayGame(id)))
-  ).filter((g): g is CatalogGame => g != null && !staticIds.has(g.id));
+  ).filter((g): g is CatalogGame => g != null);
 
-  return [...staticGames, ...overlayGames].sort((a, b) =>
-    a.title.localeCompare(b.title, "es"),
-  );
+  return mergeCatalogPlatformGames(platformSlug, staticGames, overlayGames);
 }
 
 export async function triggerCatalogDeployHook(): Promise<{ triggered: boolean; detail?: string }> {

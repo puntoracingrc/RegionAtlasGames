@@ -305,6 +305,10 @@ def median(values: list[float]) -> float:
     return statistics.median(values)
 
 
+MIN_ESTIMATE_OBSERVATIONS = 2
+MIN_VERIFIED_OBSERVATIONS = 3
+
+
 def quartiles(values: list[float]) -> tuple[float, float]:
     sorted_v = sorted(values)
     mid = len(sorted_v) // 2
@@ -356,20 +360,22 @@ def estimate_price(
     prices: list[float],
     previous: float | None,
     pc_ref: float | None,
-) -> tuple[float | None, float | None, float | None, str | None, int]:
+) -> tuple[float | None, float | None, float | None, str | None, int, int]:
     """Mediana + rango (min/máx) sobre anuncios aceptados tras filtrar outliers."""
     accepted, rejected = filter_prices(prices, previous, pc_ref)
     if not prices:
-        return None, None, None, "no_listings", 0
+        return None, None, None, "no_listings", 0, 0
     if not accepted:
-        return None, None, None, "all_rejected", len(rejected)
+        return None, None, None, "all_rejected", len(rejected), 0
+    if len(accepted) < MIN_ESTIMATE_OBSERVATIONS:
+        return None, None, None, "insufficient_observations", len(rejected), len(accepted)
 
     est = round(median(accepted), 2)
     market_min = round(min(accepted), 2)
     market_max = round(max(accepted), 2)
     if previous and previous > 10 and est < previous * MAX_DROP_RATIO:
-        return None, None, None, "drop_too_steep", len(rejected)
-    return est, market_min, market_max, None, len(rejected)
+        return None, None, None, "drop_too_steep", len(rejected), len(accepted)
+    return est, market_min, market_max, None, len(rejected), len(accepted)
 
 
 def clear_unverified_market_ranges(catalog: list[dict[str, Any]]) -> int:
@@ -720,7 +726,16 @@ def apply_condition_price_estimates(
     synced_at: str,
     pc_ref: float | None,
 ) -> bool:
-    estimates, sources = mean_by_bucket(observations)
+    bucket_counts = {
+        bucket: sum(1 for _, observed_bucket, _ in observations if observed_bucket == bucket)
+        for bucket in DISPLAY_BUCKETS
+    }
+    eligible_observations = [
+        observation
+        for observation in observations
+        if bucket_counts.get(observation[1], 0) >= MIN_ESTIMATE_OBSERVATIONS
+    ]
+    estimates, sources = mean_by_bucket(eligible_observations)
     has_new_estimate = any(estimates.get(b) is not None for b in DISPLAY_BUCKETS)
     if not has_new_estimate:
         return False
@@ -732,14 +747,19 @@ def apply_condition_price_estimates(
 
     game["priceDataSources"] = _merge_price_source_labels(game.get("priceDataSources"), sources)
     game["hasEsPrice"] = True
-    game["priceRegionVerified"] = True
     game["updatedAt"] = synced_at
 
-    primary = (
-        game.get("estimatedPriceComplete")
-        or game.get("estimatedPriceGameManual")
-        or game.get("estimatedPriceLoose")
-        or game.get("estimatedPriceSealed")
+    primary_bucket = next(
+        (
+            bucket
+            for bucket in ("complete", "game_manual", "loose", "sealed")
+            if estimates.get(bucket) is not None
+        ),
+        None,
+    )
+    primary = game.get(CONDITION_PRICE_FIELDS[primary_bucket]) if primary_bucket else None
+    game["priceRegionVerified"] = bool(
+        primary_bucket and bucket_counts.get(primary_bucket, 0) >= MIN_VERIFIED_OBSERVATIONS
     )
     game["recommendedPrice"] = primary
     game["deltaEsVsPc"] = delta_es_vs_pc(primary, pc_ref)
@@ -901,7 +921,7 @@ def main() -> None:
             previous = game.get("recommendedPrice")
             pc_ref = game.get("pcRefPrice")
 
-            est, market_min, market_max, _, rej = estimate_price(prices, previous, pc_ref)
+            est, market_min, market_max, _, rej, accepted_count = estimate_price(prices, previous, pc_ref)
             rejected_outliers += rej
 
             if est is not None and market_min is not None and market_max is not None:
@@ -912,7 +932,7 @@ def main() -> None:
                 game["deltaEsVsPc"] = delta_es_vs_pc(est, pc_ref)
                 game["updatedAt"] = synced_at
                 game["hasEsPrice"] = True
-                game["priceRegionVerified"] = True
+                game["priceRegionVerified"] = accepted_count >= MIN_VERIFIED_OBSERVATIONS
                 updated += 1
                 if "wallapop" in sources:
                     wallapop_updated += 1

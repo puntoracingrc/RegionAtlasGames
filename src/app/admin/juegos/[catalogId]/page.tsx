@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AdminGameEditor } from "@/components/admin/admin-game-editor";
 import { AdminGamePricesPanel } from "@/components/admin/admin-game-prices-panel";
+import { AdminMarketResearchPanel } from "@/components/admin/admin-market-research-panel";
 import {
   draftFromCatalogGame,
   getPublishedGameForAdmin,
@@ -37,6 +38,9 @@ export default async function AdminEditPublishedGamePage({ params }: Props) {
         mode="published"
         catalogId={catalogId}
       />
+      <div className="mt-8">
+        <AdminMarketResearchPanel catalogId={catalogId} />
+      </div>
       <div className="mt-8">
         <AdminGamePricesPanel
           catalogId={catalogId}

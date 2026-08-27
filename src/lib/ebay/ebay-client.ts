@@ -30,6 +30,10 @@ export function ebayBrowseApiBase(): string {
   return process.env.EBAY_BROWSE_API_BASE?.trim() || "https://api.ebay.com/buy/browse/v1";
 }
 
+export function ebayCatalogApiBase(): string {
+  return process.env.EBAY_CATALOG_API_BASE?.trim() || "https://api.ebay.com/commerce/catalog/v1_beta";
+}
+
 export async function ebayFetch<T>(
   pathOrUrl: string,
   options: RequestInit = {},
