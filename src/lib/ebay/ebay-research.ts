@@ -1,5 +1,5 @@
 import type { CatalogGame, GameDetails } from "../types.ts";
-import { ebayBrowseApiBase, ebayCatalogApiBase, ebayFetch, ebayMarketplaceId } from "./ebay-client.ts";
+import { ebayBrowseApiBase, ebayCatalogApiBase, ebayFetch } from "./ebay-client.ts";
 import {
   evaluateEbayResearchMatch,
   parseGameGtins,
@@ -16,6 +16,11 @@ import type {
   EbayItemSummary,
   EbaySearchResponse,
 } from "./ebay.types.ts";
+import {
+  ebayRegionalSearchFilters,
+  ebayRegionalSearchPolicy,
+  type EbayRegionalSearchPolicy,
+} from "./ebay-regional-policy.ts";
 
 const MAX_GTIN_STRATEGIES = 2;
 const MAX_EPID_STRATEGIES = 3;
@@ -44,9 +49,13 @@ export type EbayResearchListing = {
   affiliateUrl: string | null;
   imageUrls: string[];
   price: number | null;
+  originalPrice: number | null;
+  originalCurrency: string | null;
   shippingPrice: number | null;
   totalPrice: number | null;
   currency: string | null;
+  originLabel: string;
+  importCostsMayApply: boolean;
   sellerCountry: string | null;
   itemEndDate: string | null;
   condition: string | null;
@@ -71,6 +80,10 @@ export type EbayConditionEstimate = {
   minimum: number;
   median: number;
   maximum: number;
+  shippingObservations: number;
+  shippingMedian: number | null;
+  totalToSpainMedian: number | null;
+  importCostsMayApply: boolean;
   verified: boolean;
   label: "indicative" | "estimated" | "verified";
 };
@@ -85,6 +98,7 @@ export type EbayResearchReport = {
     gtins: string[];
     reference: string | null;
     exactEpids: string[];
+    regionalPolicy: EbayRegionalSearchPolicy;
   };
   catalogCandidates: EbayCatalogCandidate[];
   listings: EbayResearchListing[];
@@ -142,8 +156,15 @@ function shippingPrice(item: EbayItemSummary): number | null {
 function totalPrice(item: EbayItemSummary): { price: number | null; shipping: number | null; total: number | null } {
   const price = parseMoney(item.price?.value);
   const shipping = shippingPrice(item);
-  if (price === null) return { price, shipping, total: null };
-  return { price, shipping, total: Math.round((price + (shipping ?? 0)) * 100) / 100 };
+  if (price === null || shipping === null) return { price, shipping, total: null };
+  return { price, shipping, total: Math.round((price + shipping) * 100) / 100 };
+}
+
+function originalPrice(item: EbayItemSummary): { value: number | null; currency: string | null } {
+  return {
+    value: parseMoney(item.price?.convertedFromValue),
+    currency: item.price?.convertedFromCurrency?.trim() || null,
+  };
 }
 
 function median(values: number[]): number {
@@ -154,28 +175,49 @@ function median(values: number[]): number {
 }
 
 export function aggregateEbayListings(listings: EbayResearchListing[]): EbayConditionEstimate[] {
-  const groups = new Map<string, { condition: Exclude<EbayConditionBucket, "unknown">; currency: string; values: number[] }>();
+  const groups = new Map<string, {
+    condition: Exclude<EbayConditionBucket, "unknown">;
+    currency: string;
+    values: number[];
+    shippingValues: number[];
+    totalValues: number[];
+    importCostsMayApply: boolean;
+  }>();
   for (const listing of listings) {
     if (listing.decision !== "accept" || listing.conditionBucket === "unknown") continue;
-    if (!listing.currency || listing.totalPrice === null || listing.totalPrice <= 0) continue;
+    if (!listing.currency || listing.price === null || listing.price <= 0) continue;
     const key = `${listing.conditionBucket}:${listing.currency}`;
     const group = groups.get(key) ?? {
       condition: listing.conditionBucket,
       currency: listing.currency,
       values: [],
+      shippingValues: [],
+      totalValues: [],
+      importCostsMayApply: false,
     };
-    group.values.push(listing.totalPrice);
+    group.values.push(listing.price);
+    if (listing.shippingPrice !== null && listing.shippingPrice >= 0) {
+      group.shippingValues.push(listing.shippingPrice);
+    }
+    if (listing.totalPrice !== null && listing.totalPrice > 0) {
+      group.totalValues.push(listing.totalPrice);
+    }
+    group.importCostsMayApply ||= listing.importCostsMayApply;
     groups.set(key, group);
   }
 
   return [...groups.values()]
-    .map(({ condition, currency, values }) => ({
+    .map(({ condition, currency, values, shippingValues, totalValues, importCostsMayApply }) => ({
       condition,
       currency,
       observations: values.length,
       minimum: Math.min(...values),
       median: median(values),
       maximum: Math.max(...values),
+      shippingObservations: shippingValues.length,
+      shippingMedian: shippingValues.length > 0 ? median(shippingValues) : null,
+      totalToSpainMedian: totalValues.length > 0 ? median(totalValues) : null,
+      importCostsMayApply,
       verified: values.length >= 3,
       label: values.length >= 3 ? "verified" as const : values.length >= 2 ? "estimated" as const : "indicative" as const,
     }))
@@ -237,16 +279,22 @@ async function catalogSearch(basis: EbaySearchBasis): Promise<EbayCatalogProduct
   return response.productSummaries ?? [];
 }
 
-async function browseSearch(basis: EbaySearchBasis, context: { gameId: string; platformSlug: string }): Promise<EbayItemSummary[]> {
+async function browseSearch(
+  basis: EbaySearchBasis,
+  context: { gameId: string; platformSlug: string; policy: EbayRegionalSearchPolicy },
+): Promise<EbayItemSummary[]> {
   const url = new URL(`${ebayBrowseApiBase()}/item_summary/search`);
   if (basis.kind === "gtin") url.searchParams.set("gtin", basis.value);
   if (basis.kind === "epid") url.searchParams.set("epid", basis.value);
   if (basis.kind === "keyword") url.searchParams.set("q", basis.value);
-  url.searchParams.set("filter", "buyingOptions:{FIXED_PRICE}");
+  url.searchParams.set("filter", ebayRegionalSearchFilters(context.policy).join(","));
   url.searchParams.set("limit", "20");
   const response = await ebayFetch<EbaySearchResponse>(url.toString(), requestOptions(), {
+    marketplaceId: context.policy.marketplaceId,
     gameId: context.gameId,
     platformSlug: context.platformSlug,
+    country: context.policy.destinationCountry,
+    zip: context.policy.destinationPostalCode,
   });
   return response.itemSummaries ?? [];
 }
@@ -292,6 +340,7 @@ function listingFromItem(
   item: EbayItem,
   bases: EbaySearchBasis[],
   target: EbayResearchTarget,
+  policy: EbayRegionalSearchPolicy,
 ): EbayResearchListing | null {
   const itemId = item.itemId?.trim();
   const title = item.title?.trim();
@@ -311,17 +360,22 @@ function listingFromItem(
     searchBasis: strongestBasis,
   });
   const money = totalPrice(item);
+  const sourceMoney = originalPrice(item);
   return {
     itemId,
-    marketplaceId: ebayMarketplaceId(),
+    marketplaceId: policy.marketplaceId,
     title,
     url: safeHttpUrl(item.itemWebUrl),
     affiliateUrl: safeHttpUrl(item.itemAffiliateWebUrl),
     imageUrls: uniqueImageUrls(item),
     price: money.price,
+    originalPrice: sourceMoney.value,
+    originalCurrency: sourceMoney.currency,
     shippingPrice: money.shipping,
     totalPrice: money.total,
     currency: item.price?.currency?.trim() || null,
+    originLabel: policy.originLabel,
+    importCostsMayApply: policy.importCostsMayApply,
     sellerCountry: item.itemLocation?.country?.trim() || null,
     itemEndDate: item.itemEndDate?.trim() || null,
     condition: item.condition?.trim() || null,
@@ -349,6 +403,7 @@ export async function researchEbayMarket(
   details: GameDetails | null,
 ): Promise<EbayResearchReport> {
   const warnings: string[] = [];
+  const regionalPolicy = ebayRegionalSearchPolicy(game.region);
   const baseTarget = researchTarget(game, details);
   const catalogWithBasis: CatalogCandidateWithBasis[] = [];
 
@@ -404,7 +459,15 @@ export async function researchEbayMarket(
   const browseResults = await Promise.all(
     browseBases.map(async (basis) => {
       try {
-        return { basis, items: await browseSearch(basis, { gameId: game.id, platformSlug: game.platformSlug }), error: null as unknown };
+        return {
+          basis,
+          items: await browseSearch(basis, {
+            gameId: game.id,
+            platformSlug: game.platformSlug,
+            policy: regionalPolicy,
+          }),
+          error: null as unknown,
+        };
       } catch (error) {
         return { basis, items: [] as EbayItemSummary[], error };
       }
@@ -430,7 +493,7 @@ export async function researchEbayMarket(
   const rankedCandidates = [...candidates.values()]
     .map((candidate) => ({
       candidate,
-      preview: listingFromItem(candidate.summary, candidate.bases, target),
+      preview: listingFromItem(candidate.summary, candidate.bases, target, regionalPolicy),
     }))
     .sort((a, b) => {
       if (!a.preview) return 1;
@@ -447,7 +510,13 @@ export async function researchEbayMarket(
         const item = await ebayFetch<EbayItem>(
           `${ebayBrowseApiBase()}/item/${encodeURIComponent(itemId)}`,
           requestOptions(),
-          { gameId: game.id, platformSlug: game.platformSlug },
+          {
+            marketplaceId: regionalPolicy.marketplaceId,
+            gameId: game.id,
+            platformSlug: game.platformSlug,
+            country: regionalPolicy.destinationCountry,
+            zip: regionalPolicy.destinationPostalCode,
+          },
         );
         return { item: { ...candidate.summary, ...item }, bases: candidate.bases };
       } catch (error) {
@@ -458,7 +527,7 @@ export async function researchEbayMarket(
   );
 
   const listings = detailed
-    .map(({ item, bases }) => listingFromItem(item, bases, target))
+    .map(({ item, bases }) => listingFromItem(item, bases, target, regionalPolicy))
     .filter((listing): listing is EbayResearchListing => Boolean(listing))
     .sort((a, b) => decisionRank(b.decision) - decisionRank(a.decision) || b.confidence - a.confidence);
   const counts: Record<EbayResearchDecision, number> = { accept: 0, review: 0, other_variant: 0, reject: 0 };
@@ -482,6 +551,7 @@ export async function researchEbayMarket(
       gtins: target.gtins,
       reference: target.reference ?? null,
       exactEpids,
+      regionalPolicy,
     },
     catalogCandidates,
     listings,

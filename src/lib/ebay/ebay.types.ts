@@ -15,6 +15,8 @@ export type EbayTokenResponse = {
 export type EbayMoney = {
   value?: string;
   currency?: string;
+  convertedFromValue?: string;
+  convertedFromCurrency?: string;
 };
 
 export type EbayImage = {

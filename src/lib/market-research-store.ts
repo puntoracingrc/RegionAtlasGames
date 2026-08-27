@@ -142,8 +142,8 @@ function median(values: number[]): number {
   return Math.round(value * 100) / 100;
 }
 
-function withoutOutliers(values: number[]): { accepted: number[]; outliers: number } {
-  const aboveFloor = values.filter((value) => Number.isFinite(value) && value >= 3);
+function withoutOutliers(values: number[], floor = 3): { accepted: number[]; outliers: number } {
+  const aboveFloor = values.filter((value) => Number.isFinite(value) && value >= floor);
   let outliers = values.length - aboveFloor.length;
   if (aboveFloor.length < 4) return { accepted: aboveFloor, outliers };
 
@@ -169,19 +169,32 @@ export function calculateStoredMarketEstimates(
     condition: Exclude<MarketObservation["conditionBucket"], "unknown">;
     currency: string;
     values: number[];
+    shippingValues: number[];
+    totalValues: number[];
+    importCostsMayApply: boolean;
   }>();
 
   for (const observation of observations) {
     if (observation.reviewStatus !== "accepted" || !isCurrentMarketObservation(observation, now)) continue;
-    if (observation.conditionBucket === "unknown" || observation.totalPrice == null || observation.totalPrice <= 0) continue;
+    if (observation.conditionBucket === "unknown" || observation.price == null || observation.price <= 0) continue;
     if (!observation.currency) continue;
     const key = `${observation.conditionBucket}:${observation.currency}`;
     const group = groups.get(key) ?? {
       condition: observation.conditionBucket,
       currency: observation.currency,
       values: [],
+      shippingValues: [],
+      totalValues: [],
+      importCostsMayApply: false,
     };
-    group.values.push(observation.totalPrice);
+    group.values.push(observation.price);
+    if (observation.shippingPrice != null && observation.shippingPrice >= 0) {
+      group.shippingValues.push(observation.shippingPrice);
+    }
+    if (observation.totalPrice != null && observation.totalPrice > 0) {
+      group.totalValues.push(observation.totalPrice);
+    }
+    group.importCostsMayApply ||= observation.importCostsMayApply;
     groups.set(key, group);
   }
 
@@ -189,6 +202,8 @@ export function calculateStoredMarketEstimates(
     const filtered = withoutOutliers(group.values);
     if (filtered.accepted.length === 0) return [];
     const observationsCount = filtered.accepted.length;
+    const shipping = withoutOutliers(group.shippingValues, 0);
+    const totals = withoutOutliers(group.totalValues);
     return [{
       condition: group.condition,
       currency: group.currency,
@@ -198,6 +213,10 @@ export function calculateStoredMarketEstimates(
       minimum: Math.min(...filtered.accepted),
       median: median(filtered.accepted),
       maximum: Math.max(...filtered.accepted),
+      shippingObservations: shipping.accepted.length,
+      shippingMedian: shipping.accepted.length > 0 ? median(shipping.accepted) : null,
+      totalToSpainMedian: totals.accepted.length > 0 ? median(totals.accepted) : null,
+      importCostsMayApply: group.importCostsMayApply,
       verified: observationsCount >= 3,
       publishable: group.currency === "EUR" && observationsCount >= 3,
       label: observationsCount >= 3 ? "verified" as const : observationsCount >= 2 ? "estimated" as const : "indicative" as const,

@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 from collectors.common import load_json, save_json
+from collectors.ebay_region_policy import browse_filters, ebay_regional_policy, end_user_context
 from collectors.listing_recency import listing_cutoff
 
 USER_AGENT = "PAL-ES-Market/1.0 (+price-ingest; contact=local)"
@@ -23,7 +24,6 @@ OAUTH_URL = "https://api.ebay.com/identity/v1/oauth2/token"
 TOKEN_CACHE = Path(__file__).resolve().parents[2] / "data" / "price-ingest" / "ebay-token-cache.json"
 
 GLOBAL_ID_ES = "EBAY-ES"
-MARKETPLACE_ES = "EBAY_ES"
 
 
 def _fetch(url: str, headers: dict[str, str] | None = None, data: bytes | None = None, method: str = "GET") -> tuple[int, str]:
@@ -212,16 +212,19 @@ def browse_search(
     client_secret: str,
     keywords: str,
     *,
+    catalog_region: str,
+    destination_postal_code: str = "",
     max_results: int = 20,
     access_token: str = "",
 ) -> list[dict[str, Any]]:
     token = access_token.strip() or get_browse_token(client_id, client_secret)
+    policy = ebay_regional_policy(catalog_region, destination_postal_code or None)
     params = urllib.parse.urlencode(
         {
             "q": keywords,
             "limit": str(min(max_results, 50)),
             # Solo compra inmediata; excluir subastas activas (precios de puja irreales).
-            "filter": "buyingOptions:{FIXED_PRICE}",
+            "filter": ",".join(browse_filters(policy)),
         }
     )
     url = f"{BROWSE_SEARCH_URL}?{params}"
@@ -229,7 +232,8 @@ def browse_search(
         url,
         headers={
             "Authorization": f"Bearer {token}",
-            "X-EBAY-C-MARKETPLACE-ID": MARKETPLACE_ES,
+            "X-EBAY-C-MARKETPLACE-ID": policy.marketplace_id,
+            "X-EBAY-C-ENDUSERCTX": end_user_context(policy),
             "Accept": "application/json",
         },
     )
@@ -242,10 +246,29 @@ def browse_search(
         buying_options = item.get("buyingOptions") or []
         if "AUCTION" in buying_options:
             continue
+        price_block = item.get("price") or {}
+        currency = str(price_block.get("currency") or "").upper()
+        if currency != "EUR":
+            continue
         try:
-            price = float(item.get("price", {}).get("value", 0))
+            price = float(price_block.get("value", 0))
         except (TypeError, ValueError):
             continue
+        shipping_block = next(
+            (
+                option.get("shippingCost")
+                for option in (item.get("shippingOptions") or [])
+                if isinstance(option, dict) and isinstance(option.get("shippingCost"), dict)
+            ),
+            None,
+        )
+        shipping_eur: float | None = None
+        if shipping_block and str(shipping_block.get("currency") or "").upper() == "EUR":
+            try:
+                shipping_eur = round(float(shipping_block.get("value")), 2)
+            except (TypeError, ValueError):
+                shipping_eur = None
+        total_to_spain = round(price + shipping_eur, 2) if shipping_eur is not None else None
         thumb = item.get("thumbnailImages") or []
         image_url = (item.get("image") or {}).get("imageUrl") or (
             thumb[0].get("imageUrl") if thumb and isinstance(thumb[0], dict) else None
@@ -253,12 +276,23 @@ def browse_search(
         parsed.append(
             {
                 "title": item.get("title", ""),
-                "priceEur": price,
-                "currency": item.get("price", {}).get("currency", "EUR"),
+                "priceEur": round(price, 2),
+                "currency": currency,
+                "originalPrice": price_block.get("convertedFromValue"),
+                "originalCurrency": price_block.get("convertedFromCurrency"),
+                "shippingEur": shipping_eur,
+                "estimatedTotalToSpainEur": total_to_spain,
                 "itemId": item.get("itemId", ""),
                 "url": item.get("itemWebUrl", ""),
                 "imageUrl": image_url,
                 "buyingOptions": buying_options,
+                "marketplaceId": policy.marketplace_id,
+                "originCountry": (item.get("itemLocation") or {}).get("country"),
+                "originLabel": policy.origin_label,
+                "destinationCountry": policy.destination_country,
+                "destinationPostalCode": policy.destination_postal_code,
+                "importCostsMayApply": policy.import_costs_may_apply,
+                "regionRestricted": policy.region_restricted,
             }
         )
     return parsed
@@ -267,6 +301,8 @@ def browse_search(
 def search_ebay_es(
     keywords: str,
     *,
+    catalog_region: str = "",
+    destination_postal_code: str = "",
     sold: bool = False,
     max_results: int = 20,
 ) -> tuple[list[dict[str, Any]], str]:
@@ -304,6 +340,8 @@ def search_ebay_es(
             client_id,
             client_secret,
             keywords,
+            catalog_region=catalog_region,
+            destination_postal_code=destination_postal_code,
             max_results=max_results,
             access_token=access_token,
         )

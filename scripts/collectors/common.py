@@ -238,6 +238,16 @@ def to_ingest_listing(
     product_url: str | None = None,
     image_url: str | None = None,
     game_title: str | None = None,
+    shipping_eur: float | None = None,
+    total_to_spain_eur: float | None = None,
+    original_price: float | str | None = None,
+    original_currency: str | None = None,
+    origin_country: str | None = None,
+    origin_label: str | None = None,
+    destination_country: str | None = None,
+    destination_postal_code: str | None = None,
+    marketplace_id: str | None = None,
+    import_costs_may_apply: bool | None = None,
 ) -> dict[str, Any] | None:
     if price_eur <= 0:
         return None
@@ -326,6 +336,37 @@ def to_ingest_listing(
         row["imageUrl"] = image_scratch.get("imageUrl")
     elif image_url:
         row["imageUrl"] = image_url
+    try:
+        parsed_shipping = float(shipping_eur) if shipping_eur is not None else None
+    except (TypeError, ValueError):
+        parsed_shipping = None
+    if parsed_shipping is not None and parsed_shipping >= 0:
+        row["shippingEur"] = round(parsed_shipping, 2)
+    try:
+        parsed_total = float(total_to_spain_eur) if total_to_spain_eur is not None else None
+    except (TypeError, ValueError):
+        parsed_total = None
+    if parsed_total is not None and parsed_total > 0:
+        row["estimatedTotalToSpainEur"] = round(parsed_total, 2)
+    if original_price is not None:
+        try:
+            row["originalPrice"] = round(float(original_price), 2)
+        except (TypeError, ValueError):
+            pass
+    if original_currency:
+        row["originalCurrency"] = str(original_currency).upper()
+    if origin_country:
+        row["originCountry"] = str(origin_country).upper()
+    if origin_label:
+        row["originLabel"] = str(origin_label)
+    if destination_country:
+        row["destinationCountry"] = str(destination_country).upper()
+    if destination_postal_code:
+        row["destinationPostalCode"] = str(destination_postal_code)
+    if marketplace_id:
+        row["marketplaceId"] = str(marketplace_id)
+    if import_costs_may_apply is not None:
+        row["importCostsMayApply"] = bool(import_costs_may_apply)
     return row
 
 

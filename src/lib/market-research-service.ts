@@ -108,9 +108,13 @@ function observationFromListing(input: {
     affiliateUrl: listing.affiliateUrl,
     imageUrls: listing.imageUrls,
     price: listing.price,
+    originalPrice: listing.originalPrice,
+    originalCurrency: listing.originalCurrency,
     shippingPrice: listing.shippingPrice,
     totalPrice: listing.totalPrice,
     currency: listing.currency,
+    originLabel: listing.originLabel,
+    importCostsMayApply: listing.importCostsMayApply,
     condition: listing.condition,
     conditionBucket: listing.conditionBucket,
     confidence: listing.confidence,
@@ -277,6 +281,20 @@ function conditionField(condition: Exclude<MarketObservation["conditionBucket"],
   return "estimatedPriceComplete";
 }
 
+function shippingConditionField(condition: Exclude<MarketObservation["conditionBucket"], "unknown">): string {
+  if (condition === "loose") return "estimatedShippingToSpainLoose";
+  if (condition === "game_manual") return "estimatedShippingToSpainGameManual";
+  if (condition === "sealed") return "estimatedShippingToSpainSealed";
+  return "estimatedShippingToSpainComplete";
+}
+
+function totalToSpainConditionField(condition: Exclude<MarketObservation["conditionBucket"], "unknown">): string {
+  if (condition === "loose") return "estimatedTotalToSpainLoose";
+  if (condition === "game_manual") return "estimatedTotalToSpainGameManual";
+  if (condition === "sealed") return "estimatedTotalToSpainSealed";
+  return "estimatedTotalToSpainComplete";
+}
+
 export async function publishStoredMarketEstimates(input: {
   catalogId: string;
   condition?: Exclude<MarketObservation["conditionBucket"], "unknown">;
@@ -295,9 +313,19 @@ export async function publishStoredMarketEstimates(input: {
 
   const patch: Record<string, unknown> = {};
   const prices: MarketResearchPublication["prices"] = {};
+  const shippingToSpain: NonNullable<MarketResearchPublication["shippingToSpain"]> = {};
+  const totalsToSpain: NonNullable<MarketResearchPublication["totalsToSpain"]> = {};
   for (const estimate of publishable) {
     patch[conditionField(estimate.condition)] = estimate.median;
     prices[estimate.condition] = estimate.median;
+    if (estimate.shippingMedian !== null && estimate.shippingObservations >= 2) {
+      patch[shippingConditionField(estimate.condition)] = estimate.shippingMedian;
+      shippingToSpain[estimate.condition] = estimate.shippingMedian;
+    }
+    if (estimate.totalToSpainMedian !== null && estimate.shippingObservations >= 2) {
+      patch[totalToSpainConditionField(estimate.condition)] = estimate.totalToSpainMedian;
+      totalsToSpain[estimate.condition] = estimate.totalToSpainMedian;
+    }
     if (estimate.condition === "complete") patch.recommendedPrice = estimate.median;
   }
   const allVerifiedEur = stored.estimates.filter((estimate) => estimate.publishable && estimate.currency === "EUR");
@@ -317,6 +345,8 @@ export async function publishStoredMarketEstimates(input: {
     publishedBy: input.publishedBy,
     conditions: publishable.map((estimate) => estimate.condition),
     prices,
+    shippingToSpain,
+    totalsToSpain,
   };
   const nextStored = await recordMarketPublication({ identity, publication });
   return { ok: true, stored: nextStored, prices: result.prices as unknown as Record<string, unknown> };

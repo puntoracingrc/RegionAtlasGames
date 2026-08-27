@@ -698,6 +698,20 @@ CONDITION_PRICE_FIELDS = {
     "sealed": "estimatedPriceSealed",
 }
 
+SHIPPING_TO_SPAIN_FIELDS = {
+    "loose": "estimatedShippingToSpainLoose",
+    "game_manual": "estimatedShippingToSpainGameManual",
+    "complete": "estimatedShippingToSpainComplete",
+    "sealed": "estimatedShippingToSpainSealed",
+}
+
+TOTAL_TO_SPAIN_FIELDS = {
+    "loose": "estimatedTotalToSpainLoose",
+    "game_manual": "estimatedTotalToSpainGameManual",
+    "complete": "estimatedTotalToSpainComplete",
+    "sealed": "estimatedTotalToSpainSealed",
+}
+
 
 def _merge_price_source_labels(previous: str | None, sources: set[str]) -> str | None:
     labels: list[str] = []
@@ -775,6 +789,53 @@ def apply_condition_price_estimates(
     return True
 
 
+def apply_ebay_delivery_estimates(
+    game: dict[str, Any],
+    rows: list[dict[str, Any]],
+    *,
+    catalog_region: str,
+    platform_slug: str,
+) -> bool:
+    """Publica transporte por separado; nunca lo mezcla en el precio principal."""
+    usable, *_ = filter_verified_listings(platform_slug, catalog_region, rows)
+    shipping_by_bucket: dict[str, list[float]] = {bucket: [] for bucket in DISPLAY_BUCKETS}
+    total_by_bucket: dict[str, list[float]] = {bucket: [] for bucket in DISPLAY_BUCKETS}
+
+    from collectors.condition_resolve import resolve_condition_bucket
+
+    for row in usable:
+        if str(row.get("source") or "").lower() not in {"ebay", "ebay-es"}:
+            continue
+        bucket, _ = resolve_condition_bucket(
+            row,
+            platform_slug=platform_slug,
+            use_vision=False,
+            fetch_images=False,
+        )
+        if bucket not in DISPLAY_BUCKETS:
+            continue
+        try:
+            shipping = float(row["shippingEur"])
+            total = float(row["estimatedTotalToSpainEur"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        if shipping < 0 or total <= 0:
+            continue
+        shipping_by_bucket[bucket].append(shipping)
+        total_by_bucket[bucket].append(total)
+
+    changed = False
+    for bucket in DISPLAY_BUCKETS:
+        shipping_values = shipping_by_bucket[bucket]
+        total_values = total_by_bucket[bucket]
+        if len(shipping_values) < MIN_ESTIMATE_OBSERVATIONS or len(total_values) < MIN_ESTIMATE_OBSERVATIONS:
+            continue
+        game[SHIPPING_TO_SPAIN_FIELDS[bucket]] = round(median(shipping_values), 2)
+        game[TOTAL_TO_SPAIN_FIELDS[bucket]] = round(median(total_values), 2)
+        changed = True
+    return changed
+
+
 def pick_best_tc_rows(grouped: dict[str, list[dict[str, Any]]]) -> dict[str, dict[str, Any]]:
     best: dict[str, dict[str, Any]] = {}
     for gid, rows in grouped.items():
@@ -797,6 +858,7 @@ def main() -> None:
     parser.add_argument("--platform", help="Plataforma concreta (slug)")
     parser.add_argument("--region", help="Filtrar región de catálogo (p. ej. PAL España)")
     parser.add_argument("--input", type=Path, help="JSON de anuncios ingestados")
+    parser.add_argument("--catalog-ids-file", type=Path, help="Limitar escritura a estos IDs")
     parser.add_argument(
         "--rotation-step",
         help="Entrada en rotationOrder (p. ej. batch:mini-neo-sega); default: --platform",
@@ -838,6 +900,14 @@ def main() -> None:
         raise SystemExit(f"Falta --input con anuncios para {platform_slug}.")
 
     ingest = load_json(args.input)
+    selected_catalog_ids: set[str] | None = None
+    if args.catalog_ids_file:
+        selected_raw = load_json(args.catalog_ids_file)
+        if isinstance(selected_raw, dict):
+            selected_raw = selected_raw.get("catalogIds") or []
+        if not isinstance(selected_raw, list):
+            raise SystemExit("--catalog-ids-file debe contener una lista JSON o {catalogIds: [...]}.")
+        selected_catalog_ids = {str(value).strip() for value in selected_raw if str(value).strip()}
     synced_at = ingest.get("collectedAt") or now_iso()
     catalog_by_id = {str(game.get("id")): game for game in catalog if game.get("id")}
     game_auto_verified = apply_game_preowned_auto_region_policy(ingest, catalog_by_id)
@@ -873,6 +943,7 @@ def main() -> None:
         if g.get("platformSlug") == platform_slug
         and is_price_tracked_game(g)
         and (not args.region or g.get("region") == args.region)
+        and (selected_catalog_ids is None or str(g.get("id")) in selected_catalog_ids)
     ]
     target_ids = {g["id"] for g in targets}
     by_id = {g["id"]: g for g in catalog}
@@ -959,6 +1030,7 @@ def main() -> None:
         for g in catalog
         if g.get("platformSlug") == platform_slug and g.get("listingStatus") != "excluded"
         and (not args.region or g.get("region") == args.region)
+        and (selected_catalog_ids is None or str(g.get("id")) in selected_catalog_ids)
     ]
     for game in platform_games:
         gid = game["id"]
@@ -1016,6 +1088,7 @@ def main() -> None:
         by_id[gid] = game
 
     condition_updated = 0
+    delivery_updated = 0
     for game in platform_games:
         gid = game["id"]
         catalog_region = str(game.get("region") or "")
@@ -1039,6 +1112,13 @@ def main() -> None:
             pc_ref=game.get("pcRefPrice"),
         ):
             condition_updated += 1
+        if apply_ebay_delivery_estimates(
+            game,
+            grouped.get(gid, []),
+            catalog_region=catalog_region,
+            platform_slug=platform_slug,
+        ):
+            delivery_updated += 1
         by_id[gid] = game
 
     coverage = round((updated / len(targets)) * 100, 1) if targets else 0.0
@@ -1077,6 +1157,7 @@ def main() -> None:
     print(f"  TodoColeccion actualizado (referencia P2P ES): {tc_updated}")
     print(f"  TodoColeccion rechazado (región): {tc_skipped}")
     print(f"  Precios por estado (suelto/completo/precintado): {condition_updated}")
+    print(f"  Transporte eBay a España separado: {delivery_updated}")
     vstats = vision_stats()
     ai_summary = build_ai_summary(ingest, condition_vision_stats=vstats)
     if use_vision:
@@ -1146,6 +1227,7 @@ def main() -> None:
         "priceListCoverageBeforePct": price_list_coverage_before,
         "priceListCoverageAfterPct": price_list_coverage_after,
         "priceListCoverageDeltaPct": price_list_coverage_delta,
+        "ebayDeliveryGamesUpdated": delivery_updated,
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
         "aiSummary": ai_summary,
     }

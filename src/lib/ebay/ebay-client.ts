@@ -12,6 +12,8 @@ function mergeHeaders(
   marketplaceId?: string,
   gameId?: string,
   platformSlug?: string,
+  country?: string,
+  zip?: string,
 ): HeadersInit {
   const headers: Record<string, string> = {
     ...(existing as Record<string, string> | undefined),
@@ -20,7 +22,7 @@ function mergeHeaders(
     "X-EBAY-C-MARKETPLACE-ID": ebayMarketplaceId(marketplaceId),
   };
 
-  const endUserContext = buildEbayEndUserContext({ gameId, platformSlug });
+  const endUserContext = buildEbayEndUserContext({ gameId, platformSlug, country, zip });
   if (endUserContext) headers["X-EBAY-C-ENDUSERCTX"] = endUserContext;
 
   return headers;
@@ -37,12 +39,26 @@ export function ebayCatalogApiBase(): string {
 export async function ebayFetch<T>(
   pathOrUrl: string,
   options: RequestInit = {},
-  context: { marketplaceId?: string; gameId?: string; platformSlug?: string } = {},
+  context: {
+    marketplaceId?: string;
+    gameId?: string;
+    platformSlug?: string;
+    country?: string;
+    zip?: string;
+  } = {},
 ): Promise<T> {
   const accessToken = await getEbayAccessToken();
   const response = await fetch(pathOrUrl, {
     ...options,
-    headers: mergeHeaders(options.headers, accessToken, context.marketplaceId, context.gameId, context.platformSlug),
+    headers: mergeHeaders(
+      options.headers,
+      accessToken,
+      context.marketplaceId,
+      context.gameId,
+      context.platformSlug,
+      context.country,
+      context.zip,
+    ),
   });
 
   if (response.status === 401) {
@@ -50,7 +66,15 @@ export async function ebayFetch<T>(
     const retryToken = await getEbayAccessToken();
     const retry = await fetch(pathOrUrl, {
       ...options,
-      headers: mergeHeaders(options.headers, retryToken, context.marketplaceId, context.gameId, context.platformSlug),
+      headers: mergeHeaders(
+        options.headers,
+        retryToken,
+        context.marketplaceId,
+        context.gameId,
+        context.platformSlug,
+        context.country,
+        context.zip,
+      ),
     });
     if (!retry.ok) throw new EbayApiError("ebay_api_retry_failed", { status: retry.status });
     return retry.json() as Promise<T>;

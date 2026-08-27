@@ -34,6 +34,39 @@ type PriceSourceOption = {
   label: string;
   helper?: string;
 };
+type EbayPs4Campaign = {
+  status?: string;
+  currentRegion?: string | null;
+  updatedAt?: string | null;
+  totals?: {
+    catalogGames?: number;
+    completed?: number;
+    matched?: number;
+    noMatch?: number;
+    deferred?: number;
+    pending?: number;
+  };
+  regions?: Record<string, {
+    label?: string;
+    catalogRegion?: string;
+    total?: number;
+    completed?: number;
+    matched?: number;
+    deferred?: number;
+    pending?: number;
+  }>;
+  log?: Array<{ at?: string; level?: string; message?: string; region?: string }>;
+};
+
+function readEbayPs4Campaign(): EbayPs4Campaign {
+  try {
+    return JSON.parse(
+      readFileSync(path.join(process.cwd(), "data", "ebay-regional-campaigns", "ps4.json"), "utf8"),
+    ) as EbayPs4Campaign;
+  } catch {
+    return {};
+  }
+}
 
 function readPriceSourcePlatformOptions(): PriceSourceOption[] {
   try {
@@ -348,6 +381,11 @@ export default async function AdminPricesPage({
   const platformOptions = readPriceSourcePlatformOptions();
   const regionOptions = readPriceSourceRegionOptions();
   const canCollectPrices = isAdminPriceCollectAvailable();
+  const ebayPs4Campaign = readEbayPs4Campaign();
+  const ebayPs4Totals = ebayPs4Campaign.totals ?? {};
+  const ebayPs4Total = ebayPs4Totals.catalogGames ?? 0;
+  const ebayPs4Completed = ebayPs4Totals.completed ?? 0;
+  const ebayPs4Progress = ebayPs4Total > 0 ? Math.round((ebayPs4Completed / ebayPs4Total) * 1000) / 10 : 0;
   const freshRows = dashboard.recentSyncs.filter((row) => {
     return isTodayOrYesterday(row.lastSyncAt);
   });
@@ -478,6 +516,62 @@ export default async function AdminPricesPage({
           </p>
         </Panel>
       </div>
+
+      <Panel className={adminToneClass("status")}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <PanelTitle eyebrow="eBay España">Campaña regional PlayStation 4</PanelTitle>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              Consulta primero PAL España y continúa con UK, USA y Japón. El valor del artículo se
+              guarda separado del transporte estimado a España.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Badge tone={ebayPs4Campaign.status === "blocked" ? "rose" : ebayPs4Totals.deferred ? "amber" : "green"}>
+              {ebayPs4Campaign.status ?? "sin estado"}
+            </Badge>
+            <a
+              href="https://github.com/puntoracingrc/RegionAtlasGames/actions/workflows/ebay-ps4-regional-campaign.yml"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-secondary text-xs"
+            >
+              Abrir campaña
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <AdminStatTile tone="status" label="Consultados" value={`${ebayPs4Completed}/${ebayPs4Total || "—"}`} helper={`${ebayPs4Progress}% del catálogo PS4 activo`} />
+          <AdminStatTile tone="status" label="Con evidencias" value={ebayPs4Totals.matched ?? 0} helper="al menos un anuncio aceptado" />
+          <AdminStatTile tone="status" label="Siguiente región" value={ebayPs4Campaign.currentRegion ?? "Finalizada"} helper="siempre desde eBay España" />
+          <AdminStatTile tone="status" label="Pendientes / aplazados" value={`${ebayPs4Totals.pending ?? 0} / ${ebayPs4Totals.deferred ?? 0}`} helper={formatDate(ebayPs4Campaign.updatedAt)} />
+        </div>
+        <div className="mt-4 h-2 overflow-hidden rounded-full bg-border" aria-label={`Campaña PS4 al ${ebayPs4Progress}%`}>
+          <div className="h-full rounded-full bg-accent" style={{ width: `${Math.min(100, ebayPs4Progress)}%` }} />
+        </div>
+
+        {Object.keys(ebayPs4Campaign.regions ?? {}).length > 0 && (
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+            {Object.values(ebayPs4Campaign.regions ?? {}).map((region) => (
+              <div key={region.catalogRegion ?? region.label} className="border-l-2 border-border px-3">
+                <p className="text-xs font-semibold text-foreground">{region.label ?? region.catalogRegion}</p>
+                <p className="mt-1 text-lg font-black text-foreground">{region.completed ?? 0}/{region.total ?? 0}</p>
+                <p className="text-[11px] text-muted">{region.matched ?? 0} con datos · {region.deferred ?? 0} aplazados</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <details className="group mt-5 rounded-lg border border-border bg-background/45 p-4">
+          <summary className="cursor-pointer list-none text-sm font-semibold text-foreground">
+            Ver registro copiable de la campaña
+          </summary>
+          <pre className="mt-3 max-h-72 overflow-auto whitespace-pre-wrap rounded-lg bg-slate-950 p-4 font-mono text-[11px] leading-5 text-emerald-100">
+            {(ebayPs4Campaign.log ?? []).map((entry) => `${entry.at ?? "—"} | ${entry.level ?? "info"} | ${entry.region ?? "—"} | ${entry.message ?? ""}`).join("\n") || "Todavía no se ha ejecutado el primer lote."}
+          </pre>
+        </details>
+      </Panel>
 
       <AdminMarketCollectionPanel
         initialBatches={marketBatches}

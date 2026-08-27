@@ -20,9 +20,13 @@ export type MarketObservation = {
   affiliateUrl: string | null;
   imageUrls: string[];
   price: number | null;
+  originalPrice: number | null;
+  originalCurrency: string | null;
   shippingPrice: number | null;
   totalPrice: number | null;
   currency: string | null;
+  originLabel: string;
+  importCostsMayApply: boolean;
   condition: string | null;
   conditionBucket: "loose" | "game_manual" | "complete" | "sealed" | "unknown";
   confidence: number;
@@ -72,6 +76,8 @@ export type MarketResearchPublication = {
   publishedBy: string;
   conditions: Array<Exclude<MarketObservation["conditionBucket"], "unknown">>;
   prices: Partial<Record<Exclude<MarketObservation["conditionBucket"], "unknown">, number>>;
+  shippingToSpain?: Partial<Record<Exclude<MarketObservation["conditionBucket"], "unknown">, number>>;
+  totalsToSpain?: Partial<Record<Exclude<MarketObservation["conditionBucket"], "unknown">, number>>;
 };
 
 export type MarketResearchEstimate = EbayConditionEstimate & {

@@ -7,6 +7,14 @@ export type AdminPriceFields = Pick<
   | "estimatedPriceGameManual"
   | "estimatedPriceComplete"
   | "estimatedPriceSealed"
+  | "estimatedShippingToSpainLoose"
+  | "estimatedShippingToSpainGameManual"
+  | "estimatedShippingToSpainComplete"
+  | "estimatedShippingToSpainSealed"
+  | "estimatedTotalToSpainLoose"
+  | "estimatedTotalToSpainGameManual"
+  | "estimatedTotalToSpainComplete"
+  | "estimatedTotalToSpainSealed"
   | "marketMin"
   | "marketMax"
   | "pcRefPrice"
@@ -36,6 +44,14 @@ const PRICE_KEYS: (keyof AdminPriceFields)[] = [
   "estimatedPriceGameManual",
   "estimatedPriceComplete",
   "estimatedPriceSealed",
+  "estimatedShippingToSpainLoose",
+  "estimatedShippingToSpainGameManual",
+  "estimatedShippingToSpainComplete",
+  "estimatedShippingToSpainSealed",
+  "estimatedTotalToSpainLoose",
+  "estimatedTotalToSpainGameManual",
+  "estimatedTotalToSpainComplete",
+  "estimatedTotalToSpainSealed",
   "marketMin",
   "marketMax",
   "pcRefPrice",
@@ -94,6 +110,14 @@ export function priceFieldsFromGame(game: CatalogGame): AdminPriceFields {
     estimatedPriceGameManual: game.estimatedPriceGameManual ?? null,
     estimatedPriceComplete: game.estimatedPriceComplete ?? null,
     estimatedPriceSealed: game.estimatedPriceSealed ?? null,
+    estimatedShippingToSpainLoose: game.estimatedShippingToSpainLoose ?? null,
+    estimatedShippingToSpainGameManual: game.estimatedShippingToSpainGameManual ?? null,
+    estimatedShippingToSpainComplete: game.estimatedShippingToSpainComplete ?? null,
+    estimatedShippingToSpainSealed: game.estimatedShippingToSpainSealed ?? null,
+    estimatedTotalToSpainLoose: game.estimatedTotalToSpainLoose ?? null,
+    estimatedTotalToSpainGameManual: game.estimatedTotalToSpainGameManual ?? null,
+    estimatedTotalToSpainComplete: game.estimatedTotalToSpainComplete ?? null,
+    estimatedTotalToSpainSealed: game.estimatedTotalToSpainSealed ?? null,
     marketMin: game.marketMin ?? null,
     marketMax: game.marketMax ?? null,
     pcRefPrice: game.pcRefPrice ?? null,

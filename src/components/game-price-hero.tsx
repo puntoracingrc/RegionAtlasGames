@@ -8,6 +8,7 @@ import {
   primaryConditionPriceEntry,
 } from "@/lib/condition-prices";
 import { esPriceDisplayLabel, hasVerifiedEsPrice } from "@/lib/price-display";
+import { ebayRegionalSearchPolicy } from "@/lib/ebay/ebay-regional-policy";
 import {
   bestJapanRetailPrice,
   bestJapanRetailSource,
@@ -24,6 +25,8 @@ export function GamePriceHero({ game }: Props) {
   const conditionPrices = conditionPriceEntries(game);
   const primaryCondition = primaryConditionPriceEntry(game);
   const hasEstimate = hasAnyConditionEstimate(game) || hasVerifiedEsPrice(game);
+  const regionalPolicy = ebayRegionalSearchPolicy(game.region);
+  const hasDeliveryEstimate = conditionPrices.some((entry) => entry.totalToSpain != null);
 
   const updatedLabel = game.updatedAt
     ? new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(game.updatedAt))
@@ -78,7 +81,12 @@ export function GamePriceHero({ game }: Props) {
           <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
             Valor de reventa · {regionLabel}
           </p>
-          <p className="mt-1 text-xs text-muted">Mercado español · precios por estado</p>
+          <p className="mt-1 text-xs text-muted">
+            Importe convertido a EUR · precios por estado
+          </p>
+          <p className="mt-1 text-xs text-muted">
+            Artículo en {regionalPolicy.originLabel} · entrega calculada para España
+          </p>
         </div>
         <Badge tone={status === "verified" ? "amber" : "rose"}>
           {status === "verified" ? "Precio verificado" : "Precio orientativo"}
@@ -117,6 +125,21 @@ export function GamePriceHero({ game }: Props) {
                 <p className="mt-5 break-words text-2xl font-black tracking-tight text-foreground sm:text-3xl">
                   {formatEur(entry.price)}
                 </p>
+                <p className="mt-1 text-[11px] font-semibold uppercase text-muted">Solo artículo</p>
+                {entry.totalToSpain != null && (
+                  <div className="mt-4 border-t border-border/70 pt-3 text-xs text-muted">
+                    <div className="flex items-center justify-between gap-3">
+                      <span>Transporte estimado</span>
+                      <span className="font-semibold text-foreground">
+                        {entry.shippingToSpain != null ? `+ ${formatEur(entry.shippingToSpain)}` : "Incluido"}
+                      </span>
+                    </div>
+                    <div className="mt-1 flex items-center justify-between gap-3">
+                      <span>Artículo + transporte</span>
+                      <span className="font-bold text-foreground">{formatEur(entry.totalToSpain)}</span>
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -130,13 +153,21 @@ export function GamePriceHero({ game }: Props) {
       )}
 
       <p className="mt-5 text-sm leading-relaxed text-muted">
-        Estimación basada en observaciones verificadas en España, separadas por estado para evitar
-        mezclar copias sueltas, juego + manual, completas y precintadas.
+        El valor principal es solo el artículo. Se calcula con anuncios de la variante regional
+        indicada y se separa de los costes para recibirlo en España.
       </p>
 
       {conditionPrices.length > 0 && (
         <p className="mt-2 text-xs text-muted/80">
           La etiqueta principal indica qué precio se usa como referencia rápida en el catálogo.
+        </p>
+      )}
+
+      {hasDeliveryEstimate && regionalPolicy.importCostsMayApply && (
+        <p className="mt-3 rounded-lg border border-amber-400/35 bg-amber-500/10 p-3 text-xs leading-5 text-amber-900 dark:text-amber-100">
+          El total mostrado suma artículo y transporte estimado. IVA de importación, gestión o
+          aduanas pueden añadirse si eBay no los anticipa en el anuncio; el checkout es el importe
+          definitivo.
         </p>
       )}
 

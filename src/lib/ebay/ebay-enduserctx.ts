@@ -35,10 +35,12 @@ export function buildEbayEndUserContext(input: EbayEndUserContextInput = {}): st
   }
 
   const country = input.country?.trim() || process.env.EBAY_CONTEXTUAL_COUNTRY?.trim();
-  if (country) parts.push(`contextualLocation=country%3D${encodeURIComponent(country)}`);
-
   const zip = input.zip?.trim() || process.env.EBAY_CONTEXTUAL_ZIP?.trim();
-  if (zip) parts.push(`zip=${encodeURIComponent(zip)}`);
+  const location = [
+    country ? `country=${country}` : "",
+    zip ? `zip=${zip}` : "",
+  ].filter(Boolean).join(",");
+  if (location) parts.push(`contextualLocation=${encodeURIComponent(location)}`);
 
   return parts.length > 0 ? parts.join(",") : null;
 }
