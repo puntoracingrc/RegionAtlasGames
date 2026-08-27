@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 
-from run_ebay_regional_campaign import default_state, reconcile_state, record_result, select_batch
+import os
+from unittest.mock import patch
+
+from run_ebay_regional_campaign import (
+    default_state,
+    reconcile_state,
+    record_result,
+    select_batch,
+    validate_runtime_environment,
+)
 
 
 def game(catalog_id: str, region: str, priced: bool = False) -> dict:
@@ -15,6 +24,24 @@ def game(catalog_id: str, region: str, priced: bool = False) -> dict:
 
 
 def main() -> None:
+    with patch.dict(os.environ, {}, clear=True):
+        try:
+            validate_runtime_environment()
+        except RuntimeError as exc:
+            assert "credenciales eBay" in str(exc)
+        else:
+            raise AssertionError("La campaña debe fallar si faltan secretos")
+    with patch.dict(
+        os.environ,
+        {
+            "EBAY_CLIENT_ID": "client",
+            "EBAY_CLIENT_SECRET": "secret",
+            "OPENAI_API_KEY": "openai",
+        },
+        clear=True,
+    ):
+        validate_runtime_environment()
+
     catalog = [
         game("es-priced", "PAL España", True),
         game("es-missing", "PAL España"),
