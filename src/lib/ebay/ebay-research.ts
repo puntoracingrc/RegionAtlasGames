@@ -1,5 +1,5 @@
 import type { CatalogGame, GameDetails } from "../types.ts";
-import { ebayBrowseApiBase, ebayCatalogApiBase, ebayFetch } from "./ebay-client.ts";
+import { ebayBrowseApiBase, ebayCatalogApiBase, ebayFetch, ebayMarketplaceId } from "./ebay-client.ts";
 import {
   evaluateEbayResearchMatch,
   parseGameGtins,
@@ -38,6 +38,7 @@ export type EbayCatalogCandidate = {
 
 export type EbayResearchListing = {
   itemId: string;
+  marketplaceId: string;
   title: string;
   url: string | null;
   affiliateUrl: string | null;
@@ -46,6 +47,8 @@ export type EbayResearchListing = {
   shippingPrice: number | null;
   totalPrice: number | null;
   currency: string | null;
+  sellerCountry: string | null;
+  itemEndDate: string | null;
   condition: string | null;
   conditionBucket: EbayConditionBucket;
   decision: EbayResearchDecision;
@@ -310,6 +313,7 @@ function listingFromItem(
   const money = totalPrice(item);
   return {
     itemId,
+    marketplaceId: ebayMarketplaceId(),
     title,
     url: safeHttpUrl(item.itemWebUrl),
     affiliateUrl: safeHttpUrl(item.itemAffiliateWebUrl),
@@ -318,6 +322,8 @@ function listingFromItem(
     shippingPrice: money.shipping,
     totalPrice: money.total,
     currency: item.price?.currency?.trim() || null,
+    sellerCountry: item.itemLocation?.country?.trim() || null,
+    itemEndDate: item.itemEndDate?.trim() || null,
     condition: item.condition?.trim() || null,
     conditionBucket: match.conditionBucket,
     decision: match.decision,

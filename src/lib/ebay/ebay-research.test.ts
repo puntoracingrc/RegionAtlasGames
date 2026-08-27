@@ -5,6 +5,7 @@ import { aggregateEbayListings, type EbayResearchListing } from "./ebay-research
 function listing(overrides: Partial<EbayResearchListing> = {}): EbayResearchListing {
   return {
     itemId: "item-1",
+    marketplaceId: "EBAY_ES",
     title: "Game",
     url: null,
     affiliateUrl: null,
@@ -13,6 +14,8 @@ function listing(overrides: Partial<EbayResearchListing> = {}): EbayResearchList
     shippingPrice: 2,
     totalPrice: 22,
     currency: "EUR",
+    sellerCountry: "ES",
+    itemEndDate: null,
     condition: "Used",
     conditionBucket: "complete",
     decision: "accept",

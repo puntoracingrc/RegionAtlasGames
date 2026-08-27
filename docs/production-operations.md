@@ -30,6 +30,15 @@ En Vercel, una escritura persistente debe usar Blob. La aplicación rechaza la o
 
 En local se usa `APP_DATA_DIR` o `data/`, con escrituras atómicas y permisos privados para los documentos de cuenta. Los ficheros de QA deben vivir fuera del repositorio y eliminarse al terminar.
 
+### Investigación de mercado
+
+- Las evidencias eBay se guardan en Blob privado, fragmentadas por ficha regional.
+- Un anuncio de otra región se enruta a la variante existente; no se rechaza por ser USA, Japón, España u otra edición válida.
+- Solo tres anuncios EUR recientes, distintos y no atípicos permiten publicar una mediana verificada.
+- Los lotes viven en `region-atlas/market-research/batches.json` y procesan una ficha por petición para poder pausarse y reanudarse.
+- Las fotos de anuncios eBay son temporales. Solo una imagen marcada para revisión puede copiarse al CDN mediante una acción expresa del administrador.
+- `EBAY_CATALOG_API_ENABLED` permanece en `false` mientras la cuenta no tenga permiso para Catalog API; Browse API permite iniciar la recopilación.
+
 ## Cron de staging
 
 `/api/cron/enrich-catalog-staging` tiene un máximo de 60 segundos y trabaja con un presupuesto interno de 45 segundos.

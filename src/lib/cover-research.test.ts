@@ -33,6 +33,7 @@ test("keeps eBay images temporary and preserves other-region evidence", () => {
     catalogCandidates: [],
     listings: [{
       itemId: "us",
+      marketplaceId: "EBAY_ES",
       title: "Game PS2 NTSC USA",
       url: "https://www.ebay.es/itm/us",
       affiliateUrl: null,
@@ -41,6 +42,8 @@ test("keeps eBay images temporary and preserves other-region evidence", () => {
       shippingPrice: 0,
       totalPrice: 30,
       currency: "EUR",
+      sellerCountry: "ES",
+      itemEndDate: null,
       condition: "Used",
       conditionBucket: "complete",
       decision: "other_variant",
