@@ -2,8 +2,10 @@ import { randomUUID } from "crypto";
 import { mkdir, readFile, rename, unlink, writeFile } from "fs/promises";
 import path from "path";
 import {
+  BlobNotFoundError,
   BlobPreconditionFailedError,
   get,
+  head,
   put,
 } from "@vercel/blob";
 import { blobAuthOptions } from "./blob-auth";
@@ -33,55 +35,131 @@ type VersionedBlobDocument<T> = {
   exists: boolean;
 };
 
+type BlobDocumentDependencies = {
+  get: typeof get;
+  head: typeof head;
+  put: typeof put;
+  wait: (milliseconds: number) => Promise<void>;
+};
+
+class BlobDocumentVersionConflictError extends Error {
+  constructor() {
+    super("La lectura de Blob cambió mientras se comprobaba su versión.");
+    this.name = "BlobDocumentVersionConflictError";
+  }
+}
+
+const defaultBlobDependencies: BlobDocumentDependencies = {
+  get,
+  head,
+  put,
+  wait: (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)),
+};
+
 const diskQueues = new Map<string, Promise<void>>();
 
 function isConflict(error: unknown): boolean {
   return (
+    error instanceof BlobDocumentVersionConflictError ||
     error instanceof BlobPreconditionFailedError ||
-    (error instanceof Error && error.name === "BlobPreconditionFailedError")
+    (error instanceof Error && (
+      error.name === "BlobDocumentVersionConflictError" ||
+      error.name === "BlobPreconditionFailedError"
+    ))
   );
+}
+
+function normalizedEtag(value: string): string {
+  return value.trim().replace(/^W\//i, "").replace(/^"(.*)"$/, "$1");
+}
+
+function retryDelay(attempt: number): number {
+  return Math.min(1_000, 50 * (2 ** attempt));
+}
+
+async function readBlobMetadata(
+  pathname: string,
+  auth: Awaited<ReturnType<typeof blobAuthOptions>>,
+  dependencies: BlobDocumentDependencies,
+) {
+  try {
+    return await dependencies.head(pathname, auth);
+  } catch (error) {
+    if (
+      error instanceof BlobNotFoundError ||
+      (error instanceof Error && error.name === "BlobNotFoundError")
+    ) {
+      return null;
+    }
+    throw error;
+  }
 }
 
 async function readVersionedBlobDocument<T>(
   options: BlobDocumentOptions<T>,
+  dependencies: BlobDocumentDependencies = defaultBlobDependencies,
 ): Promise<VersionedBlobDocument<T>> {
   const auth = await blobAuthOptions("private");
-  const response = await get(options.pathname, { ...auth, useCache: false });
+  const response = await dependencies.get(options.pathname, { ...auth, useCache: false });
+  const metadata = await readBlobMetadata(options.pathname, auth, dependencies);
   if (!response) {
+    if (metadata) throw new BlobDocumentVersionConflictError();
     return { value: options.empty(), etag: null, exists: false };
   }
   if (response.statusCode !== 200 || !response.stream) {
     throw new Error(`No se pudo leer ${options.pathname} (HTTP ${response.statusCode}).`);
   }
+  if (
+    !metadata?.etag ||
+    normalizedEtag(response.blob.etag) !== normalizedEtag(metadata.etag)
+  ) {
+    throw new BlobDocumentVersionConflictError();
+  }
   return {
     value: options.parse(await new Response(response.stream).text()),
-    etag: response.blob.etag,
+    etag: metadata.etag,
     exists: true,
   };
 }
 
 export async function readBlobJsonDocument<T>(options: BlobDocumentOptions<T>): Promise<T> {
-  return (await readVersionedBlobDocument(options)).value;
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    try {
+      return (await readVersionedBlobDocument(options)).value;
+    } catch (error) {
+      if (!isConflict(error) || attempt === 3) throw error;
+      await defaultBlobDependencies.wait(retryDelay(attempt));
+    }
+  }
+  throw new Error(`No se pudo leer una versión estable de ${options.pathname}.`);
 }
 
 export async function mutateBlobJsonDocument<T, R>(
   options: BlobDocumentOptions<T>,
   mutation: JsonMutation<T, R>,
   maxAttempts = 8,
+  dependencies: BlobDocumentDependencies = defaultBlobDependencies,
 ): Promise<R> {
   const auth = await blobAuthOptions("private");
 
   for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
-    const current = await readVersionedBlobDocument(options);
+    let current: VersionedBlobDocument<T>;
+    try {
+      current = await readVersionedBlobDocument(options, dependencies);
+    } catch (error) {
+      if (!isConflict(error)) throw error;
+      if (attempt + 1 < maxAttempts) await dependencies.wait(retryDelay(attempt));
+      continue;
+    }
     const outcome = await mutation(current.value);
     if (outcome.changed === false) return outcome.result;
 
     try {
-      await put(options.pathname, `${JSON.stringify(outcome.next, null, 2)}\n`, {
+      await dependencies.put(options.pathname, `${JSON.stringify(outcome.next, null, 2)}\n`, {
         ...auth,
         contentType: "application/json",
         addRandomSuffix: false,
-        cacheControlMaxAge: options.cacheControlMaxAge ?? 30,
+        cacheControlMaxAge: Math.max(60, options.cacheControlMaxAge ?? 60),
         maximumSizeInBytes: options.maximumSizeInBytes,
         ...(current.exists && current.etag
           ? { ifMatch: current.etag }
@@ -89,7 +167,10 @@ export async function mutateBlobJsonDocument<T, R>(
       });
       return outcome.result;
     } catch (error) {
-      if (isConflict(error)) continue;
+      if (isConflict(error)) {
+        if (attempt + 1 < maxAttempts) await dependencies.wait(retryDelay(attempt));
+        continue;
+      }
       throw error;
     }
   }
