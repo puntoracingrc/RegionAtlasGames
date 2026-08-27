@@ -5,19 +5,28 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { PublicUser } from "@/lib/session";
 
-export function AuthNav() {
+export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [user, setUser] = useState<PublicUser | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<PublicUser | null>(initialUser ?? null);
+  const [loading, setLoading] = useState(initialUser === undefined);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    if (initialUser !== undefined) return;
+    let cancelled = false;
     fetch("/api/auth/me")
       .then((r) => r.json())
-      .then((data) => setUser(data.user ?? null))
-      .finally(() => setLoading(false));
-  }, []);
+      .then((data) => {
+        if (!cancelled) setUser(data.user ?? null);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [initialUser]);
 
   async function logout() {
     await fetch("/api/auth/logout", { method: "POST" });
