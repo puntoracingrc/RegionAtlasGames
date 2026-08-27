@@ -29,7 +29,7 @@ const JOBS_DIR =
     : path.join(process.cwd(), "data", "admin", "publish-jobs"));
 const JOBS_BLOB_PREFIX = "region-atlas/admin/publish-jobs";
 
-function useBlobStorage(): boolean {
+function shouldUseBlobStorage(): boolean {
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
   return blobAuthConfigured();
 }
@@ -39,7 +39,7 @@ function safeJobId(value: string): string {
 }
 
 function jobDiskPath(jobId: string): string {
-  return path.join(JOBS_DIR, `${safeJobId(jobId)}.json`);
+  return path.join(/* turbopackIgnore: true */ JOBS_DIR, `${safeJobId(jobId)}.json`);
 }
 
 function jobBlobPath(jobId: string): string {
@@ -72,7 +72,7 @@ function writeJobToDisk(job: AdminPublishJob): void {
 }
 
 async function writeJobToBlob(job: AdminPublishJob): Promise<void> {
-  if (!useBlobStorage()) return;
+  if (!shouldUseBlobStorage()) return;
   const auth = await blobAuthOptions("private");
   await put(jobBlobPath(job.jobId), JSON.stringify(job, null, 2), {
     ...auth,
@@ -96,7 +96,7 @@ export async function readAdminPublishJob(jobId: string): Promise<AdminPublishJo
   const safe = safeJobId(jobId);
   if (!safe) return null;
 
-  if (useBlobStorage()) {
+  if (shouldUseBlobStorage()) {
     try {
       const auth = await blobAuthOptions("private");
       const result = await get(jobBlobPath(safe), { ...auth, useCache: false });
@@ -110,8 +110,9 @@ export async function readAdminPublishJob(jobId: string): Promise<AdminPublishJo
   }
 
   try {
-    if (!existsSync(jobDiskPath(safe))) return null;
-    return parseJob(readFileSync(jobDiskPath(safe), "utf8"));
+    const diskPath = jobDiskPath(safe);
+    if (!existsSync(/* turbopackIgnore: true */ diskPath)) return null;
+    return parseJob(readFileSync(/* turbopackIgnore: true */ diskPath, "utf8"));
   } catch {
     return null;
   }

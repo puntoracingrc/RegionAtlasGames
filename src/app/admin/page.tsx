@@ -56,10 +56,17 @@ const quickActions = [
     icon: "⇪",
     tone: "bulk",
   },
+  {
+    href: "/admin/sistema",
+    title: "Sistema",
+    description: "Almacenamiento, cron, recolectores y diagnóstico.",
+    icon: "●",
+    tone: "status",
+  },
 ] satisfies AdminQuickAction[];
 
 export default async function AdminDashboardPage() {
-  const summary = await getCatalogStagingSummary(8);
+  const summary = await getCatalogStagingSummary(0);
   const hasPendingReview = summary.totalGames > 0;
 
   return (

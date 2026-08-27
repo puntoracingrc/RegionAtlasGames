@@ -3,7 +3,12 @@ import { enrichCollectionItem, getCatalogGame } from "./catalog";
 import type { UserPlan } from "./marketplace-types";
 import { canViewCollectionValue } from "./plans";
 import { slugify } from "./slug";
-import { loadUserCollection, saveUserCollectionFile, type UserCollectionFile } from "./collection-storage";
+import {
+  loadUserCollection,
+  mutateUserCollection,
+  saveUserCollectionFile,
+  type UserCollectionFile,
+} from "./collection-storage";
 import { findAvailableCatalogLink } from "./import-collection";
 
 export type { UserCollectionFile } from "./collection-storage";
@@ -24,9 +29,11 @@ export async function readUserCollection(userId: string): Promise<UserCollection
   return loadUserCollection(userId);
 }
 
-export async function writeUserCollection(data: UserCollectionFile): Promise<void> {
-  const saved = await saveUserCollectionFile(data);
-  if ("error" in saved) throw new Error(saved.error);
+export async function updateUserCollection<R>(
+  userId: string,
+  mutation: (current: UserCollectionFile) => { next: UserCollectionFile; result: R; changed?: boolean },
+): Promise<R> {
+  return mutateUserCollection(userId, mutation);
 }
 
 export async function getUserCollectionViews(userId: string): Promise<CollectionView[]> {
@@ -218,33 +225,39 @@ export async function addCatalogGameToCollection(
     return { error: "Juego no encontrado en el catálogo." };
   }
 
-  const file = await readUserCollection(userId);
-  const item = catalogGameToCollectionItem(game, file.items);
-  file.items.push(item);
-
   try {
-    await writeUserCollection(file);
+    return await mutateUserCollection<{ item: CollectionItem }>(userId, (file) => {
+      const item = catalogGameToCollectionItem(game, file.items);
+      file.items.push(item);
+      return { next: file, result: { item } };
+    });
   } catch (error) {
     console.error("[collection-store] add failed", error);
     const detail = error instanceof Error ? error.message : String(error);
     return { error: detail || "No se pudo guardar en tu colección. Inténtalo de nuevo." };
   }
-
-  return { item };
 }
 
 export async function removeCatalogGameFromCollection(
   userId: string,
   catalogId: string,
 ): Promise<{ removed: number } | { error: string }> {
-  const file = await readUserCollection(userId);
-  const before = file.items.length;
-  file.items = file.items.filter((i) => i.catalogId !== catalogId);
-  if (file.items.length === before) {
-    return { error: "No está en tu colección." };
+  try {
+    return await mutateUserCollection<{ removed: number } | { error: string }>(userId, (file) => {
+      const before = file.items.length;
+      file.items = file.items.filter((item) => item.catalogId !== catalogId);
+      if (file.items.length === before) {
+        return {
+          next: file,
+          result: { error: "No está en tu colección." } as const,
+          changed: false,
+        };
+      }
+      return { next: file, result: { removed: before - file.items.length } };
+    });
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo actualizar la colección." };
   }
-  await writeUserCollection(file);
-  return { removed: before - file.items.length };
 }
 
 export async function removeOneCatalogGameFromCollection(
@@ -253,88 +266,121 @@ export async function removeOneCatalogGameFromCollection(
   protectedItemIds: string[] = [],
 ): Promise<{ removed: number; remaining: number } | { error: string }> {
   const protectedIds = new Set(protectedItemIds);
-  const file = await readUserCollection(userId);
-  const matchingIndexes = file.items
-    .map((item, index) => ({ item, index }))
-    .filter(({ item }) => item.catalogId === catalogId);
+  try {
+    return await mutateUserCollection<
+      { removed: number; remaining: number } | { error: string }
+    >(userId, (file) => {
+      const matchingIndexes = file.items
+        .map((item, index) => ({ item, index }))
+        .filter(({ item }) => item.catalogId === catalogId);
 
-  if (matchingIndexes.length === 0) {
-    return { error: "No está en tu colección." };
+      if (matchingIndexes.length === 0) {
+        return {
+          next: file,
+          result: { error: "No está en tu colección." } as const,
+          changed: false,
+        };
+      }
+
+      const removable = matchingIndexes.filter(({ item }) => !protectedIds.has(item.id));
+      if (removable.length === 0) {
+        return {
+          next: file,
+          result: {
+            error: "No puedes quitar esta copia mientras tenga un anuncio abierto.",
+          } as const,
+          changed: false,
+        };
+      }
+
+      const target = removable.sort((a, b) => {
+        const aTime = Date.parse(a.item.addedAt ?? "");
+        const bTime = Date.parse(b.item.addedAt ?? "");
+        return (Number.isFinite(bTime) ? bTime : 0) - (Number.isFinite(aTime) ? aTime : 0);
+      })[0];
+
+      if (target.item.quantity > 1) {
+        target.item.quantity -= 1;
+        if (target.item.recommendedPrice != null) {
+          target.item.totalValue =
+            Math.round(target.item.recommendedPrice * target.item.quantity * 100) / 100;
+        }
+      } else {
+        file.items.splice(target.index, 1);
+      }
+
+      const remaining = file.items
+        .filter((item) => item.catalogId === catalogId)
+        .reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
+      return { next: file, result: { removed: 1, remaining } };
+    });
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo actualizar la colección." };
   }
-
-  const removable = matchingIndexes.filter(({ item }) => !protectedIds.has(item.id));
-  if (removable.length === 0) {
-    return { error: "No puedes quitar esta copia mientras tenga un anuncio abierto." };
-  }
-
-  const target = removable.sort((a, b) => {
-    const aTime = Date.parse(a.item.addedAt ?? "");
-    const bTime = Date.parse(b.item.addedAt ?? "");
-    return (Number.isFinite(bTime) ? bTime : 0) - (Number.isFinite(aTime) ? aTime : 0);
-  })[0];
-
-  if (target.item.quantity > 1) {
-    target.item.quantity -= 1;
-    if (target.item.recommendedPrice != null) {
-      target.item.totalValue = Math.round(target.item.recommendedPrice * target.item.quantity * 100) / 100;
-    }
-  } else {
-    file.items.splice(target.index, 1);
-  }
-
-  await writeUserCollection(file);
-  const remaining = file.items
-    .filter((item) => item.catalogId === catalogId)
-    .reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
-  return { removed: 1, remaining };
 }
 
 export async function linkCollectionItemToCatalog(
   userId: string,
   collectionItemId: string,
 ): Promise<{ item: CollectionItem } | { error: string }> {
-  const file = await readUserCollection(userId);
-  const index = file.items.findIndex((i) => i.id === collectionItemId);
-  if (index < 0) {
-    return { error: "Juego no encontrado en tu colección." };
+  try {
+    return await mutateUserCollection<{ item: CollectionItem } | { error: string }>(userId, (file) => {
+      const index = file.items.findIndex((item) => item.id === collectionItemId);
+      if (index < 0) {
+        return {
+          next: file,
+          result: { error: "Juego no encontrado en tu colección." } as const,
+          changed: false,
+        };
+      }
+
+      const current = file.items[index];
+      if (current.catalogMatched && current.catalogId) {
+        return {
+          next: file,
+          result: { error: "Este juego ya está enlazado al catálogo." } as const,
+          changed: false,
+        };
+      }
+
+      const match = findAvailableCatalogLink(current);
+      if (!match) {
+        return {
+          next: file,
+          result: { error: "Este juego aún no tiene ficha disponible en el catálogo." } as const,
+          changed: false,
+        };
+      }
+
+      const others = file.items.filter((_, itemIndex) => itemIndex !== index);
+      const fromCatalog = catalogGameToCollectionItem(match, others);
+      const recommendedPrice = current.recommendedPrice ?? fromCatalog.recommendedPrice;
+      const totalValue =
+        current.totalValue ??
+        (recommendedPrice != null
+          ? Math.round(recommendedPrice * current.quantity * 100) / 100
+          : null);
+
+      file.items[index] = {
+        ...fromCatalog,
+        id: current.id,
+        quantity: current.quantity,
+        buyPrice: current.buyPrice ?? fromCatalog.buyPrice,
+        previousSalePrice: current.previousSalePrice ?? fromCatalog.previousSalePrice,
+        notes: current.notes ?? fromCatalog.notes,
+        sealed: current.sealed,
+        quantityPc: current.quantityPc ?? fromCatalog.quantityPc,
+        recommendedPrice,
+        totalValue,
+        hasEsPrice: fromCatalog.hasEsPrice || current.hasEsPrice,
+        priceSource: current.priceSource ?? fromCatalog.priceSource,
+        pcRefPrice: current.pcRefPrice ?? fromCatalog.pcRefPrice,
+        addedAt: current.addedAt ?? new Date().toISOString(),
+      };
+
+      return { next: file, result: { item: file.items[index] } };
+    });
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo actualizar la colección." };
   }
-
-  const current = file.items[index];
-  if (current.catalogMatched && current.catalogId) {
-    return { error: "Este juego ya está enlazado al catálogo." };
-  }
-
-  const match = findAvailableCatalogLink(current);
-  if (!match) {
-    return { error: "Este juego aún no tiene ficha disponible en el catálogo." };
-  }
-
-  const others = file.items.filter((_, itemIndex) => itemIndex !== index);
-  const fromCatalog = catalogGameToCollectionItem(match, others);
-  const recommendedPrice = current.recommendedPrice ?? fromCatalog.recommendedPrice;
-  const totalValue =
-    current.totalValue ??
-    (recommendedPrice != null
-      ? Math.round(recommendedPrice * current.quantity * 100) / 100
-      : null);
-
-  file.items[index] = {
-    ...fromCatalog,
-    id: current.id,
-    quantity: current.quantity,
-    buyPrice: current.buyPrice ?? fromCatalog.buyPrice,
-    previousSalePrice: current.previousSalePrice ?? fromCatalog.previousSalePrice,
-    notes: current.notes ?? fromCatalog.notes,
-    sealed: current.sealed,
-    quantityPc: current.quantityPc ?? fromCatalog.quantityPc,
-    recommendedPrice,
-    totalValue,
-    hasEsPrice: fromCatalog.hasEsPrice || current.hasEsPrice,
-    priceSource: current.priceSource ?? fromCatalog.priceSource,
-    pcRefPrice: current.pcRefPrice ?? fromCatalog.pcRefPrice,
-    addedAt: current.addedAt ?? new Date().toISOString(),
-  };
-
-  await writeUserCollection(file);
-  return { item: file.items[index] };
 }

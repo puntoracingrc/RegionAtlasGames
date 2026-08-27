@@ -1,5 +1,6 @@
 import type { SessionOptions } from "iron-session";
 import type { UserPlan } from "./marketplace-types";
+import { DEV_SESSION_SECRET } from "./server-env";
 
 export type ThemePreference = "light" | "dark" | "system";
 
@@ -17,7 +18,7 @@ export const defaultSession: SessionData = {
 export const sessionOptions: SessionOptions = {
   password:
     process.env.SESSION_SECRET ??
-    "dev-only-secret-min-32-chars-long!!",
+    DEV_SESSION_SECRET,
   cookieName: "pal-es-session",
   cookieOptions: {
     secure: process.env.NODE_ENV === "production",

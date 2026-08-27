@@ -4,22 +4,31 @@ import {
   DEFAULT_SORT,
   filterCatalogGames,
   publicFacetFilterOptions,
+  publicGenreFilterOptions,
   publicSubgenreFilterOptions,
   type CatalogPriceFilter,
   type CatalogPriceType,
   type CatalogSort,
   type CatalogTaxonomyFilterOption,
 } from "@/lib/catalog-filters";
-import { normalizeCatalogSearchText } from "@/lib/catalog-search-normalize";
-import { toCatalogListGame } from "@/lib/catalog-list-game";
+import {
+  normalizeCatalogSearchParts,
+  normalizeCatalogSearchText,
+} from "@/lib/catalog-search-normalize";
 import { getPlatform, publicListedCatalog } from "@/lib/catalog";
 import { catalogGamePath } from "@/lib/catalog-seo";
 import { getCoverSrc } from "@/lib/cover-url";
-import type { CatalogListGame } from "@/lib/types";
+import { decodeHtmlEntities } from "@/lib/decode-html-entities";
+import type { CatalogGame, CatalogListGame } from "@/lib/types";
 
 const MAX_RESULTS = 12;
 const MAX_TAXONOMY_OPTIONS = 16;
-let catalogSearchGamesCache: CatalogListGame[] | null = null;
+const PUBLIC_CACHE_HEADERS = {
+  "Cache-Control": "public, s-maxage=300, stale-while-revalidate=3600",
+};
+let quickSearchGamesCache: CatalogListGame[] | null = null;
+let fullSearchGamesCache: Promise<CatalogListGame[]> | null = null;
+let taxonomyQueryCache: Set<string> | null = null;
 
 type SearchResult = {
   id: string;
@@ -33,11 +42,89 @@ type SearchResult = {
   coverUrl: string | null;
 };
 
-function catalogSearchGames(): CatalogListGame[] {
-  if (!catalogSearchGamesCache) {
-    catalogSearchGamesCache = publicListedCatalog.map(toCatalogListGame);
+function toQuickSearchGame(game: CatalogGame): CatalogListGame {
+  const platform = getPlatform(game.platformSlug);
+  const searchText = normalizeCatalogSearchParts([
+    game.title,
+    game.titlePc,
+    game.slug,
+    game.id,
+    game.region,
+    game.edition,
+    game.museumSlug,
+    game.museumRegion,
+    game.pcPath,
+    game.pcRegion,
+    game.pcCondition,
+    game.pcId,
+    platform?.name,
+    platform?.shortName,
+    game.platformSlug,
+  ]);
+  return {
+    id: game.id,
+    slug: game.slug,
+    title: game.title,
+    platformSlug: game.platformSlug,
+    region: game.region,
+    physicalVariant: game.physicalVariant,
+    coverUrl: game.coverUrl,
+    recommendedPrice: game.recommendedPrice,
+    estimatedPriceLoose: game.estimatedPriceLoose,
+    estimatedPriceGameManual: game.estimatedPriceGameManual,
+    estimatedPriceComplete: game.estimatedPriceComplete,
+    estimatedPriceSealed: game.estimatedPriceSealed,
+    pcRefPrice: game.pcRefPrice,
+    hasEsPrice: game.hasEsPrice,
+    priceRegionVerified: game.priceRegionVerified,
+    displayPlatform: platform?.shortName ?? game.platformSlug.toUpperCase(),
+    displayYear: null,
+    searchText,
+    gameSearchText: searchText,
+    companySearchText: "",
+    companies: [],
+    sortGenre: "\uffff",
+    sortReference: game.slug || game.id,
+    genreSlugs: [],
+    subgenreSlugs: [],
+    facetSlugs: [],
+    isGrail: false,
+    isTopSegment: false,
+  };
+}
+
+function quickSearchGames(): CatalogListGame[] {
+  if (!quickSearchGamesCache) {
+    quickSearchGamesCache = publicListedCatalog.map(toQuickSearchGame);
   }
-  return catalogSearchGamesCache;
+  return quickSearchGamesCache;
+}
+
+async function fullSearchGames(): Promise<CatalogListGame[]> {
+  if (!fullSearchGamesCache) {
+    fullSearchGamesCache = import("@/lib/catalog-list-game").then(({ toCatalogListGame }) =>
+      publicListedCatalog.map(toCatalogListGame),
+    );
+  }
+  return fullSearchGamesCache;
+}
+
+function isKnownTaxonomyQuery(rawQuery: string): boolean {
+  const query = normalizeCatalogSearchText(rawQuery);
+  if (!query) return false;
+  if (!taxonomyQueryCache) {
+    taxonomyQueryCache = new Set(
+      [
+        ...publicGenreFilterOptions(),
+        ...publicSubgenreFilterOptions(),
+        ...publicFacetFilterOptions(),
+      ].flatMap((option) => [
+        normalizeCatalogSearchText(option.name),
+        normalizeCatalogSearchText(option.slug),
+      ]),
+    );
+  }
+  return taxonomyQueryCache.has(query);
 }
 
 export async function GET(request: Request) {
@@ -59,14 +146,21 @@ export async function GET(request: Request) {
   if (mode === "taxonomy-options") {
     return NextResponse.json({
       items: taxonomyOptions(taxonomyOptionsType, q),
-    });
+    }, { headers: PUBLIC_CACHE_HEADERS });
   }
 
   if (q.trim().length < 2 && platform === "all" && region === "all" && !hasTaxonomyFilter && mode !== "browser") {
-    return NextResponse.json({ items: [], total: 0 });
+    return NextResponse.json({ items: [], total: 0 }, { headers: PUBLIC_CACHE_HEADERS });
   }
 
-  const games = catalogSearchGames();
+  const needsFullIndex =
+    mode === "browser" ||
+    hasTaxonomyFilter ||
+    isKnownTaxonomyQuery(q) ||
+    sort.startsWith("year-") ||
+    sort.startsWith("reference-") ||
+    sort.startsWith("genre-");
+  let games = needsFullIndex ? await fullSearchGames() : quickSearchGames();
   const filters = {
     q,
     platform,
@@ -78,18 +172,26 @@ export async function GET(request: Request) {
     subgenre: subgenreSlug || "all",
     facet: facetSlug || "all",
   };
-  const filtered = filterCatalogGames(
+  let filtered = filterCatalogGames(
     games,
     filters,
     { platforms: true, regions: true },
   );
 
+  if (!needsFullIndex && q.trim() && filtered.total < MAX_RESULTS) {
+    games = await fullSearchGames();
+    filtered = filterCatalogGames(games, filters, { platforms: true, regions: true });
+  }
+
   if (mode === "browser") {
     const start = (page - 1) * CATALOG_PAGE_SIZE;
-    return NextResponse.json({
-      items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE),
-      total: filtered.total,
-    });
+    return NextResponse.json(
+      {
+        items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE),
+        total: filtered.total,
+      },
+      { headers: PUBLIC_CACHE_HEADERS },
+    );
   }
 
   const rankedItems = q.trim()
@@ -100,7 +202,7 @@ export async function GET(request: Request) {
     const platformData = getPlatform(game.platformSlug);
     return {
       id: game.id,
-      title: game.title,
+      title: decodeHtmlEntities(game.title),
       href: catalogGamePath(game),
       platform: platformData?.shortName ?? game.displayPlatform,
       platformSlug: game.platformSlug,
@@ -111,10 +213,13 @@ export async function GET(request: Request) {
     };
   });
 
-  return NextResponse.json({
-    items,
-    total: filtered.total,
-  });
+  return NextResponse.json(
+    {
+      items,
+      total: filtered.total,
+    },
+    { headers: PUBLIC_CACHE_HEADERS },
+  );
 }
 
 function taxonomyOptions(type: string | null, rawQuery: string): CatalogTaxonomyFilterOption[] {

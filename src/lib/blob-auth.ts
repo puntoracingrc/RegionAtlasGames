@@ -30,3 +30,11 @@ export function blobAuthConfigured(): boolean {
   if (process.env.BLOB_STORE_ID?.trim() && process.env.VERCEL) return true;
   return false;
 }
+
+export function assertDurableBlobConfigured(): void {
+  if (process.env.VERCEL && !blobAuthConfigured()) {
+    throw new Error(
+      "Vercel Blob no está configurado; se rechaza la escritura para evitar datos efímeros.",
+    );
+  }
+}

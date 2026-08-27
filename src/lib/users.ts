@@ -9,7 +9,8 @@ import {
   type ThemePreference,
 } from "./session";
 import type { UserPlan } from "./marketplace-types";
-import { loadUsers, saveUsers, type StoredUserRecord } from "./users-store";
+import { getSessionSecret } from "./server-env";
+import { loadUsers, mutateUsers, type StoredUserRecord } from "./users-store";
 
 type StoredUser = StoredUserRecord;
 type MutableSession = SessionData & {
@@ -33,13 +34,8 @@ export function toPublicUser(user: StoredUser): PublicUser {
   };
 }
 
-function sessionSecret(): string {
-  const secret = process.env.SESSION_SECRET?.trim();
-  return secret && secret !== "\"\"" ? secret : "dev-only-secret-min-32-chars-long!!";
-}
-
 function signSession(payload: string): string {
-  return createHmac("sha256", sessionSecret()).update(payload).digest("base64url");
+  return createHmac("sha256", getSessionSecret()).update(payload).digest("base64url");
 }
 
 function encodeSession(data: SessionData): string {
@@ -115,14 +111,15 @@ export async function registerUser(input: {
   const city = input.city?.trim() ?? "";
 
   if (!name || name.length < 2) return { error: "Nombre demasiado corto." };
+  if (name.length > 80) return { error: "El nombre es demasiado largo." };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: "Email no válido." };
-  if (password.length < 8) return { error: "La contraseña debe tener al menos 8 caracteres." };
-  if (city && city.length < 2) return { error: "Ciudad demasiado corta." };
-
-  const users = await readUsers();
-  if (users.some((u) => u.email === email)) {
-    return { error: "Ya existe una cuenta con ese email." };
+  if (email.length > 254) return { error: "Email no válido." };
+  if (password.length < 10) return { error: "La contraseña debe tener al menos 10 caracteres." };
+  if (Buffer.byteLength(password, "utf8") > 72) {
+    return { error: "La contraseña no puede superar 72 bytes." };
   }
+  if (city && city.length < 2) return { error: "Ciudad demasiado corta." };
+  if (city.length > 100) return { error: "La ciudad es demasiado larga." };
 
   const user: StoredUser = {
     id: randomUUID(),
@@ -134,29 +131,49 @@ export async function registerUser(input: {
     plan: "free",
     createdAt: new Date().toISOString(),
   };
-  users.push(user);
-  const saved = await saveUsers(users);
-  if ("error" in saved) return saved;
-  return { user: toPublicUser(user) };
+  try {
+    return await mutateUsers<{ user: PublicUser } | { error: string }>((users) => {
+      if (users.some((stored) => stored.email === email)) {
+        return {
+          next: users,
+          result: { error: "Ya existe una cuenta con ese email." } as const,
+          changed: false,
+        };
+      }
+      users.push(user);
+      return { next: users, result: { user: toPublicUser(user) } };
+    });
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo crear la cuenta." };
+  }
 }
 
 export async function updateUserProfile(
   userId: string,
   input: { city?: string | null },
 ): Promise<PublicUser | { error: string }> {
-  const users = await readUsers();
-  const idx = users.findIndex((u) => u.id === userId);
-  if (idx === -1) return { error: "Usuario no encontrado." };
-
+  const city = input.city?.trim() ?? "";
   if (input.city !== undefined) {
-    const city = input.city?.trim() ?? "";
     if (city && city.length < 2) return { error: "Ciudad demasiado corta." };
-    users[idx].city = city || null;
+    if (city.length > 100) return { error: "La ciudad es demasiado larga." };
   }
 
-  const saved = await saveUsers(users);
-  if ("error" in saved) return saved;
-  return toPublicUser(users[idx]);
+  try {
+    return await mutateUsers<PublicUser | { error: string }>((users) => {
+      const idx = users.findIndex((user) => user.id === userId);
+      if (idx === -1) {
+        return {
+          next: users,
+          result: { error: "Usuario no encontrado." } as const,
+          changed: false,
+        };
+      }
+      if (input.city !== undefined) users[idx].city = city || null;
+      return { next: users, result: toPublicUser(users[idx]) };
+    });
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo actualizar el perfil." };
+  }
 }
 
 export async function loginUser(
@@ -164,6 +181,9 @@ export async function loginUser(
   password: string,
 ): Promise<{ user: PublicUser } | { error: string }> {
   const normalized = email.trim().toLowerCase();
+  if (normalized.length > 254 || Buffer.byteLength(password, "utf8") > 72) {
+    return { error: "Email o contraseña incorrectos." };
+  }
   const users = await readUsers();
   const user = users.find((u) => u.email === normalized);
   if (!user) return { error: "Email o contraseña incorrectos." };
@@ -190,23 +210,27 @@ export async function loginOrRegisterWithGoogle(profile: {
   name: string;
 }): Promise<{ user: PublicUser } | { error: string }> {
   const email = profile.email.trim().toLowerCase();
-  const name = profile.name.trim() || email.split("@")[0] || "Usuario";
+  const name = (profile.name.trim() || email.split("@")[0] || "Usuario").slice(0, 80);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { error: "Google no devolvió un email válido." };
   }
 
-  const users = await readUsers();
-  let user = users.find((u) => u.googleId === profile.googleId);
-  let needsSave = false;
+  let user: StoredUser;
+  try {
+    user = await mutateUsers((users) => {
+      const byGoogle = users.find((stored) => stored.googleId === profile.googleId);
+      if (byGoogle) {
+        return { next: users, result: byGoogle, changed: false };
+      }
 
-  if (!user) {
-    user = users.find((u) => u.email === email);
-    if (user) {
-      user.googleId = profile.googleId;
-      if (name.length >= 2 && user.name.length < 2) user.name = name;
-      needsSave = true;
-    } else {
-      user = {
+      const byEmail = users.find((stored) => stored.email === email);
+      if (byEmail) {
+        byEmail.googleId = profile.googleId;
+        if (name.length >= 2 && byEmail.name.length < 2) byEmail.name = name;
+        return { next: users, result: byEmail };
+      }
+
+      const created: StoredUser = {
         id: randomUUID(),
         email,
         name: name.length >= 2 ? name : "Usuario",
@@ -215,14 +239,11 @@ export async function loginOrRegisterWithGoogle(profile: {
         plan: "free",
         createdAt: new Date().toISOString(),
       };
-      users.push(user);
-      needsSave = true;
-    }
-  }
-
-  if (needsSave) {
-    const saved = await saveUsers(users);
-    if ("error" in saved) return saved;
+      users.push(created);
+      return { next: users, result: created };
+    });
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo completar el acceso." };
   }
 
   const session = await getSession();
@@ -259,13 +280,16 @@ export async function logoutUser() {
 }
 
 export async function setUserPlan(userId: string, plan: UserPlan): Promise<PublicUser | null> {
-  const users = await readUsers();
-  const idx = users.findIndex((u) => u.id === userId);
-  if (idx === -1) return null;
-  users[idx].plan = plan;
-  const saved = await saveUsers(users);
-  if ("error" in saved) return null;
-  return toPublicUser(users[idx]);
+  try {
+    return await mutateUsers((users) => {
+      const idx = users.findIndex((user) => user.id === userId);
+      if (idx === -1) return { next: users, result: null, changed: false };
+      users[idx].plan = plan;
+      return { next: users, result: toPublicUser(users[idx]) };
+    });
+  } catch {
+    return null;
+  }
 }
 
 export async function getUserById(userId: string): Promise<PublicUser | null> {
@@ -278,11 +302,14 @@ export async function updateUserTheme(
   userId: string,
   theme: ThemePreference,
 ): Promise<PublicUser | null> {
-  const users = await readUsers();
-  const idx = users.findIndex((u) => u.id === userId);
-  if (idx === -1) return null;
-  users[idx].theme = theme;
-  const saved = await saveUsers(users);
-  if ("error" in saved) return null;
-  return toPublicUser(users[idx]);
+  try {
+    return await mutateUsers((users) => {
+      const idx = users.findIndex((user) => user.id === userId);
+      if (idx === -1) return { next: users, result: null, changed: false };
+      users[idx].theme = theme;
+      return { next: users, result: toPublicUser(users[idx]) };
+    });
+  } catch {
+    return null;
+  }
 }

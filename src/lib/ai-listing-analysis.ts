@@ -1,14 +1,21 @@
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
+import { readFileSync } from "fs";
 import path from "path";
-import { get, put } from "@vercel/blob";
-import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
+import { get } from "@vercel/blob";
+import {
+  assertDurableBlobConfigured,
+  blobAuthConfigured,
+  blobAuthOptions,
+} from "./blob-auth";
 import { getCatalogGame } from "./catalog";
+import {
+  mutateMarketplaceDocument,
+  readMarketplaceDocument,
+} from "./marketplace-document-store";
 import type { AiListingAnalysis, MarketplaceListing } from "./marketplace-types";
 import { aiQuotaForPlan } from "./plans";
 import type { UserPlan } from "./marketplace-types";
 
-const USAGE_FILE = path.join(process.cwd(), "data", "marketplace", "ai-usage.json");
-const USAGE_BLOB_PATH = "region-atlas/marketplace/ai-usage.json";
+const USAGE_DOCUMENT = "ai-usage.json";
 
 type UsageRow = { userId: string; month: string; count: number };
 
@@ -16,44 +23,14 @@ function monthKey(d = new Date()): string {
   return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
 }
 
-function useBlobStorage(): boolean {
+function shouldUseBlobStorage(): boolean {
+  assertDurableBlobConfigured();
   if (process.env.VERCEL) return blobAuthConfigured();
   return Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim());
 }
 
 async function readUsage(): Promise<UsageRow[]> {
-  if (useBlobStorage()) {
-    try {
-      const auth = await blobAuthOptions("private");
-      const result = await get(USAGE_BLOB_PATH, { ...auth, useCache: false });
-      if (!result || result.statusCode !== 200 || !result.stream) return [];
-      return JSON.parse(await new Response(result.stream).text()) as UsageRow[];
-    } catch {
-      return [];
-    }
-  }
-  try {
-    return JSON.parse(readFileSync(USAGE_FILE, "utf-8")) as UsageRow[];
-  } catch {
-    return [];
-  }
-}
-
-async function writeUsage(rows: UsageRow[]) {
-  if (useBlobStorage()) {
-    const auth = await blobAuthOptions("private");
-    await put(USAGE_BLOB_PATH, JSON.stringify(rows, null, 2), {
-      ...auth,
-      contentType: "application/json",
-      addRandomSuffix: false,
-      allowOverwrite: true,
-      cacheControlMaxAge: 30,
-    });
-    return;
-  }
-  const dir = path.dirname(USAGE_FILE);
-  if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-  writeFileSync(USAGE_FILE, JSON.stringify(rows, null, 2), "utf-8");
+  return readMarketplaceDocument<UsageRow>(USAGE_DOCUMENT);
 }
 
 export async function getAiUsageCount(userId: string): Promise<number> {
@@ -61,17 +38,33 @@ export async function getAiUsageCount(userId: string): Promise<number> {
   return (await readUsage()).find((r) => r.userId === userId && r.month === key)?.count ?? 0;
 }
 
-export async function incrementAiUsage(userId: string): Promise<number> {
+export async function consumeAiQuota(
+  userId: string,
+  plan: UserPlan,
+): Promise<{ allowed: boolean; count: number; remaining: number }> {
   const key = monthKey();
-  const rows = await readUsage();
-  const idx = rows.findIndex((r) => r.userId === userId && r.month === key);
-  if (idx === -1) {
-    rows.push({ userId, month: key, count: 1 });
-  } else {
-    rows[idx].count += 1;
-  }
-  await writeUsage(rows);
-  return rows.find((r) => r.userId === userId && r.month === key)!.count;
+  const limit = aiQuotaForPlan(plan);
+  return mutateMarketplaceDocument<UsageRow, { allowed: boolean; count: number; remaining: number }>(
+    USAGE_DOCUMENT,
+    (rows) => {
+      const idx = rows.findIndex((row) => row.userId === userId && row.month === key);
+      const count = idx === -1 ? 0 : rows[idx].count;
+      if (count >= limit) {
+        return {
+          next: rows,
+          result: { allowed: false, count, remaining: 0 },
+          changed: false,
+        };
+      }
+      const nextCount = count + 1;
+      if (idx === -1) rows.push({ userId, month: key, count: nextCount });
+      else rows[idx].count = nextCount;
+      return {
+        next: rows,
+        result: { allowed: true, count: nextCount, remaining: Math.max(0, limit - nextCount) },
+      };
+    },
+  );
 }
 
 export async function aiQuotaRemaining(userId: string, plan: UserPlan): Promise<number> {
@@ -95,7 +88,7 @@ function listingPhotoBlobPath(listingId: string, slot: string): string {
 }
 
 async function privateBlobPhotoDataUrl(listingId: string, slot: string): Promise<string | null> {
-  if (!useBlobStorage()) return null;
+  if (!shouldUseBlobStorage()) return null;
   try {
     const auth = await blobAuthOptions("private");
     const result = await get(listingPhotoBlobPath(listingId, slot), { ...auth, useCache: false });
@@ -114,8 +107,12 @@ async function photoInputUrl(listing: MarketplaceListing, url: string): Promise<
     return privateBlobPhotoDataUrl(apiPhotoMatch[1] || listing.id, apiPhotoMatch[2]);
   }
   if (!url.startsWith("/listing-photos/")) return null;
+  if (process.env.VERCEL) return null;
   try {
-    const buffer = readFileSync(path.join(process.cwd(), "public", url));
+    const photosRoot = path.resolve(process.cwd(), "public", "listing-photos");
+    const localPath = path.resolve(photosRoot, url.slice("/listing-photos/".length));
+    if (!localPath.startsWith(`${photosRoot}${path.sep}`)) return null;
+    const buffer = readFileSync(/* turbopackIgnore: true */ localPath);
     return `data:image/jpeg;base64,${buffer.toString("base64")}`;
   } catch {
     return null;
@@ -227,13 +224,12 @@ export async function analyzeListingPhotos(
   plan: UserPlan,
   userId: string,
 ): Promise<AiListingAnalysis | { error: string }> {
-  if ((await aiQuotaRemaining(userId, plan)) <= 0) {
-    return { error: "Has agotado los análisis IA de tu plan este mes." };
-  }
-
   if (listing.photos.length < 4) {
     return { error: "Sube al menos las 4 fotos obligatorias antes del análisis." };
   }
+
+  const quota = await consumeAiQuota(userId, plan);
+  if (!quota.allowed) return { error: "Has agotado los análisis IA de tu plan este mes." };
 
   const game = getCatalogGame(listing.catalogId);
   const ref = game?.recommendedPrice ?? game?.pcRefPrice ?? listing.recordedSalePriceEur;
@@ -241,7 +237,6 @@ export async function analyzeListingPhotos(
 
   const vision = await analyzeWithOpenAiVision(listing, base);
   if (vision) {
-    await incrementAiUsage(userId);
     return vision;
   }
 
@@ -261,8 +256,6 @@ export async function analyzeListingPhotos(
         "Revisar bordes de caja y portada con las fotos reales.",
         "Comprobar arañazos del disco/cartucho antes de cerrar la compra.",
       ];
-
-  await incrementAiUsage(userId);
 
   return {
     conditionVerdict: verdict,

@@ -155,7 +155,7 @@ export function AdminCatalogImportPanel({ platforms, regions }: Props) {
               <span className="text-[10px] uppercase tracking-wider text-muted">Archivo</span>
               <input
                 type="file"
-                accept=".csv,.xlsx,.xls"
+                accept=".csv,.xlsx"
                 className="input"
                 onChange={(e) => setFile(e.target.files?.[0] ?? null)}
               />

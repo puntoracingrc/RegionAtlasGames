@@ -61,6 +61,7 @@ export default function RegisterPage() {
                 type="text"
                 required
                 minLength={2}
+                maxLength={80}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="input"
@@ -71,6 +72,7 @@ export default function RegisterPage() {
               <input
                 type="email"
                 required
+                maxLength={254}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="input"
@@ -80,6 +82,7 @@ export default function RegisterPage() {
             <Field label="Ciudad">
               <input
                 type="text"
+                maxLength={100}
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 className="input"
@@ -87,12 +90,13 @@ export default function RegisterPage() {
                 placeholder="Ej. Madrid"
               />
             </Field>
-            <Field label="Contraseña (mín. 8 caracteres)">
+            <Field label="Contraseña (mín. 10 caracteres)">
               <div className="flex gap-2">
                 <input
                   type={showPassword ? "text" : "password"}
                   required
-                  minLength={8}
+                  minLength={10}
+                  maxLength={72}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="input"

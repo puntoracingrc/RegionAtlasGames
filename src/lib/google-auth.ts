@@ -1,5 +1,6 @@
 import { createHmac, randomBytes, timingSafeEqual } from "crypto";
 import { getSiteUrl } from "./site-url";
+import { getSessionSecret, sessionConfigError } from "./server-env";
 
 const GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token";
@@ -15,15 +16,11 @@ export type GoogleProfile = {
   name: string;
 };
 
-function sessionSecret(): string {
-  return (
-    process.env.SESSION_SECRET?.trim() ?? "dev-only-secret-min-32-chars-long!!"
-  );
-}
-
 export function isGoogleAuthConfigured(): boolean {
   return Boolean(
-    process.env.GOOGLE_CLIENT_ID?.trim() && process.env.GOOGLE_CLIENT_SECRET?.trim(),
+    process.env.GOOGLE_CLIENT_ID?.trim() &&
+      process.env.GOOGLE_CLIENT_SECRET?.trim() &&
+      !sessionConfigError(),
   );
 }
 
@@ -39,7 +36,7 @@ export function sanitizeNextPath(next: string | null | undefined): string {
 
 export function createOAuthState(): string {
   const nonce = randomBytes(24).toString("hex");
-  const signature = createHmac("sha256", sessionSecret()).update(nonce).digest("hex");
+  const signature = createHmac("sha256", getSessionSecret()).update(nonce).digest("hex");
   return `${nonce}.${signature}`;
 }
 
@@ -47,7 +44,7 @@ export function verifyOAuthState(state: string | null | undefined): boolean {
   if (!state) return false;
   const [nonce, signature] = state.split(".");
   if (!nonce || !signature || nonce.length < 16) return false;
-  const expected = createHmac("sha256", sessionSecret()).update(nonce).digest("hex");
+  const expected = createHmac("sha256", getSessionSecret()).update(nonce).digest("hex");
   try {
     return timingSafeEqual(Buffer.from(signature, "hex"), Buffer.from(expected, "hex"));
   } catch {

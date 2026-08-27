@@ -1,10 +1,15 @@
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import path from "path";
-import { get, put } from "@vercel/blob";
-import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
-import { ensureAppDataDir } from "./app-data-dir";
-import type { CollectionItem } from "./types";
+import { appDataFile } from "./app-data-dir";
+import { assertDurableBlobConfigured, blobAuthConfigured } from "./blob-auth";
 import { repairCollectionPlatform } from "./import-collection";
+import {
+  mutateBlobJsonDocument,
+  mutateDiskJsonDocument,
+  readBlobJsonDocument,
+  readDiskJsonDocument,
+  type JsonMutation,
+} from "./json-document-store";
+import type { CollectionItem } from "./types";
 
 export type UserCollectionFile = {
   userId: string;
@@ -14,21 +19,25 @@ export type UserCollectionFile = {
   catalogGapReportSentAt?: string | null;
 };
 
-function useBlobStorage(): boolean {
+function shouldUseBlobStorage(): boolean {
+  assertDurableBlobConfigured();
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
   return blobAuthConfigured();
 }
 
-function collectionsDir(): string {
-  return path.join(ensureAppDataDir(), "collections");
+function safeUserId(userId: string): string {
+  if (!/^[a-zA-Z0-9_-]{1,100}$/.test(userId)) {
+    throw new Error("Identificador de usuario no válido.");
+  }
+  return userId;
 }
 
 function collectionDiskPath(userId: string): string {
-  return path.join(collectionsDir(), `${userId}.json`);
+  return appDataFile(path.join("collections", `${safeUserId(userId)}.json`));
 }
 
 function collectionBlobPath(userId: string): string {
-  return `region-atlas/collections/${userId}.json`;
+  return `region-atlas/collections/${safeUserId(userId)}.json`;
 }
 
 function emptyCollection(userId: string): UserCollectionFile {
@@ -36,122 +45,111 @@ function emptyCollection(userId: string): UserCollectionFile {
 }
 
 function parseCollection(raw: string, userId: string): UserCollectionFile {
+  const parsed = JSON.parse(raw) as Partial<UserCollectionFile>;
+  if (!parsed || parsed.userId !== userId || !Array.isArray(parsed.items)) {
+    throw new Error("El documento de colección no es válido.");
+  }
+  return parsed as UserCollectionFile;
+}
+
+function blobOptions(userId: string) {
+  return {
+    pathname: collectionBlobPath(userId),
+    empty: () => emptyCollection(userId),
+    parse: (raw: string) => parseCollection(raw, userId),
+    maximumSizeInBytes: 32 * 1024 * 1024,
+    cacheControlMaxAge: 30,
+  };
+}
+
+function diskOptions(userId: string) {
+  const safe = safeUserId(userId);
+  return {
+    pathname: collectionDiskPath(safe),
+    readCandidates: [path.join(process.cwd(), "data", "collections", `${safe}.json`)],
+    empty: () => emptyCollection(userId),
+    parse: (raw: string) => parseCollection(raw, userId),
+  };
+}
+
+function hasCollectionData(data: UserCollectionFile): boolean {
+  return data.items.length > 0 || Boolean(data.importedAt) || Boolean(data.catalogGapReportSentAt);
+}
+
+function repairCollection(data: UserCollectionFile): {
+  data: UserCollectionFile;
+  changed: boolean;
+} {
+  const items = data.items.map(repairCollectionPlatform);
+  const changed = items.some(
+    (item, index) =>
+      item.platformSlug !== data.items[index]?.platformSlug ||
+      item.inRetroCatalog !== data.items[index]?.inRetroCatalog,
+  );
+  return { data: changed ? { ...data, items } : data, changed };
+}
+
+export async function mutateUserCollection<R>(
+  userId: string,
+  mutation: JsonMutation<UserCollectionFile, R>,
+): Promise<R> {
   try {
-    const parsed = JSON.parse(raw) as UserCollectionFile;
-    if (!parsed || parsed.userId !== userId || !Array.isArray(parsed.items)) {
-      return emptyCollection(userId);
+    if (shouldUseBlobStorage()) {
+      return await mutateBlobJsonDocument(blobOptions(userId), mutation);
     }
-    return parsed;
-  } catch {
-    return emptyCollection(userId);
-  }
-}
-
-function readCollectionFromDisk(userId: string): UserCollectionFile {
-  const candidates = [
-    collectionDiskPath(userId),
-    path.join(process.cwd(), "data", "collections", `${userId}.json`),
-  ];
-  for (const file of candidates) {
-    try {
-      return parseCollection(readFileSync(file, "utf-8"), userId);
-    } catch {
-      continue;
-    }
-  }
-  return emptyCollection(userId);
-}
-
-async function readCollectionFromBlob(userId: string): Promise<UserCollectionFile> {
-  try {
-    const auth = await blobAuthOptions("private");
-    const result = await get(collectionBlobPath(userId), { ...auth, useCache: false });
-    if (!result || result.statusCode !== 200 || !result.stream) return emptyCollection(userId);
-    const text = await new Response(result.stream).text();
-    return parseCollection(text, userId);
-  } catch {
-    return emptyCollection(userId);
-  }
-}
-
-function writeCollectionToDisk(data: UserCollectionFile): { ok: true } | { error: string } {
-  try {
-    const dir = collectionsDir();
-    if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-    writeFileSync(collectionDiskPath(data.userId), JSON.stringify(data, null, 2), "utf-8");
-    return { ok: true };
-  } catch {
-    return { error: "No se pudo guardar la colección en disco." };
-  }
-}
-
-async function writeCollectionToBlob(
-  data: UserCollectionFile,
-): Promise<{ ok: true } | { error: string }> {
-  try {
-    const auth = await blobAuthOptions("private");
-    await put(collectionBlobPath(data.userId), JSON.stringify(data, null, 2), {
-      ...auth,
-      contentType: "application/json",
-      addRandomSuffix: false,
-      allowOverwrite: true,
-      cacheControlMaxAge: 60,
-    });
-    return { ok: true };
+    return await mutateDiskJsonDocument(diskOptions(userId), mutation);
   } catch (error) {
-    console.error("[collection-storage] blob write failed", error);
-    const detail = error instanceof Error ? error.message : String(error);
-    return { error: `No se pudo guardar la colección en Vercel Blob: ${detail}` };
+    console.error("[collection-storage] mutation failed", error);
+    throw new Error("No se pudo guardar la colección. Inténtalo de nuevo en unos minutos.");
   }
 }
 
 export async function loadUserCollection(userId: string): Promise<UserCollectionFile> {
   let data: UserCollectionFile;
 
-  if (useBlobStorage()) {
-    const blobData = await readCollectionFromBlob(userId);
-    if (blobData.items.length > 0 || blobData.importedAt) {
-      data = blobData;
-    } else {
-      const localData = readCollectionFromDisk(userId);
-      if (localData.items.length > 0 || localData.importedAt) {
-        await writeCollectionToBlob(localData);
-        data = localData;
-      } else {
+  try {
+    if (shouldUseBlobStorage()) {
+      const blobData = await readBlobJsonDocument(blobOptions(userId));
+      if (hasCollectionData(blobData)) {
         data = blobData;
+      } else {
+        const localData = await readDiskJsonDocument(diskOptions(userId));
+        data = hasCollectionData(localData)
+          ? await mutateBlobJsonDocument(blobOptions(userId), (current) =>
+              hasCollectionData(current)
+                ? { next: current, result: current, changed: false }
+                : { next: localData, result: localData },
+            )
+          : blobData;
       }
+    } else {
+      data = await readDiskJsonDocument(diskOptions(userId));
     }
-  } else {
-    data = readCollectionFromDisk(userId);
+  } catch (error) {
+    console.error("[collection-storage] read failed", error);
+    throw new Error("No se pudo leer la colección. Inténtalo de nuevo en unos minutos.");
   }
 
-  const repairedItems = data.items.map(repairCollectionPlatform);
-  const needsSave = repairedItems.some(
-    (item, index) =>
-      item.platformSlug !== data.items[index]?.platformSlug ||
-      item.inRetroCatalog !== data.items[index]?.inRetroCatalog,
-  );
+  const repaired = repairCollection(data);
+  if (!repaired.changed) return data;
 
-  if (!needsSave) return data;
-
-  const repaired: UserCollectionFile = { ...data, items: repairedItems };
-  await saveUserCollectionFile(repaired);
-  return repaired;
+  return mutateUserCollection(userId, (current) => {
+    const latest = repairCollection(current);
+    return { next: latest.data, result: latest.data, changed: latest.changed };
+  });
 }
 
 export async function saveUserCollectionFile(
   data: UserCollectionFile,
 ): Promise<{ ok: true } | { error: string }> {
-  if (useBlobStorage()) {
-    const blobResult = await writeCollectionToBlob(data);
-    if ("error" in blobResult) return blobResult;
-    // Copia local best-effort (dev / respaldo); la fuente de verdad en prod es Blob.
-    writeCollectionToDisk(data);
+  try {
+    await mutateUserCollection(data.userId, () => ({ next: data, result: undefined }));
     return { ok: true };
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo guardar la colección." };
   }
-  return writeCollectionToDisk(data);
 }
 
 export function collectionsStorageBackend(): "blob" | "disk" {
-  return useBlobStorage() ? "blob" : "disk";
+  return shouldUseBlobStorage() ? "blob" : "disk";
 }

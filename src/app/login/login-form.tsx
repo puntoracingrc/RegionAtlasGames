@@ -135,6 +135,7 @@ export function LoginForm() {
                 <input
                   type="email"
                   required
+                  maxLength={254}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="input"
@@ -146,6 +147,7 @@ export function LoginForm() {
                   <input
                     type={showPassword ? "text" : "password"}
                     required
+                    maxLength={72}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="input pr-24"
@@ -172,6 +174,7 @@ export function LoginForm() {
                 <input
                   type="email"
                   required
+                  maxLength={254}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="input"

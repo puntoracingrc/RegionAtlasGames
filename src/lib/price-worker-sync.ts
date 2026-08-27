@@ -5,6 +5,7 @@ import { readBestPlatformSourcesDocument } from "./price-source-settings";
 type SyncFile = {
   local: string;
   remote: string;
+  optional?: boolean;
 };
 
 export type PriceWorkerSyncResult = {
@@ -16,7 +17,7 @@ export type PriceWorkerSyncResult = {
 
 const BASE_WORKER_SYNC_FILES: SyncFile[] = [
   { local: "data/platform-sources.json", remote: "app/data/platform-sources.json" },
-  { local: "data/ingest-recency.json", remote: "app/data/ingest-recency.json" },
+  { local: "data/ingest-recency.json", remote: "app/data/ingest-recency.json", optional: true },
   { local: "data/region-evidence-rules.json", remote: "app/data/region-evidence-rules.json" },
   { local: "data/price-source-weights.json", remote: "app/data/price-source-weights.json" },
   { local: "scripts/remote_price_rotation.sh", remote: "cron/price_rotation.sh" },
@@ -65,7 +66,9 @@ export async function syncPriceWorkerCode(): Promise<PriceWorkerSyncResult | { e
 
   const syncFiles = workerSyncFiles();
   for (const file of syncFiles) {
-    if (!existsSync(path.join(process.cwd(), file.local))) {
+    const localPath = path.join(/* turbopackIgnore: true */ process.cwd(), file.local);
+    if (!existsSync(/* turbopackIgnore: true */ localPath)) {
+      if (file.optional) continue;
       return { error: `Falta archivo local: ${file.local}` };
     }
   }
@@ -87,12 +90,14 @@ export async function syncPriceWorkerCode(): Promise<PriceWorkerSyncResult | { e
   try {
     await client.connect({ ...config, readyTimeout: 60_000, retries: 1 });
     for (const file of syncFiles) {
+      const localPath = path.join(/* turbopackIgnore: true */ process.cwd(), file.local);
+      if (file.optional && !existsSync(/* turbopackIgnore: true */ localPath)) continue;
       const remotePath = path.posix.join(remoteRoot, file.remote);
       await client.mkdir(path.posix.dirname(remotePath), true);
       const payload =
         file.local === "data/platform-sources.json"
           ? Buffer.from(`${JSON.stringify(platformSourcesDocument, null, 2)}\n`, "utf8")
-          : readFileSync(path.join(process.cwd(), file.local));
+          : readFileSync(/* turbopackIgnore: true */ localPath);
       await client.put(payload, remotePath);
       if (file.remote.endsWith(".sh")) {
         await client.chmod(remotePath, 0o755).catch(() => undefined);

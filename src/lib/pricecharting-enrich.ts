@@ -42,12 +42,20 @@ export function parsePriceChartingGamePage(html: string): PriceChartingPageData 
   };
 }
 
-export async function fetchPriceChartingGamePage(pcPath: string): Promise<string | null> {
+export async function fetchPriceChartingGamePage(
+  pcPath: string,
+  options?: { timeoutMs?: number; deadlineMs?: number },
+): Promise<string | null> {
   const url = `${PC_BASE}${pcPath.startsWith("/") ? pcPath : `/${pcPath}`}`;
+  const remainingMs = options?.deadlineMs
+    ? Math.max(0, options.deadlineMs - Date.now())
+    : Number.POSITIVE_INFINITY;
+  const timeoutMs = Math.min(options?.timeoutMs ?? 8_000, remainingMs);
+  if (timeoutMs <= 0) return null;
   try {
     const response = await fetch(url, {
       headers: { "User-Agent": USER_AGENT },
-      signal: AbortSignal.timeout(25_000),
+      signal: AbortSignal.timeout(timeoutMs),
     });
     if (!response.ok) return null;
     return await response.text();
@@ -58,13 +66,15 @@ export async function fetchPriceChartingGamePage(pcPath: string): Promise<string
 
 export async function enrichStagingGameFromPriceCharting(
   game: CatalogStagingGame,
+  options?: { timeoutMs?: number; deadlineMs?: number },
 ): Promise<CatalogStagingGame> {
   const candidates = [game.pcPath, game.pcPathGuess].filter(
     (path): path is string => Boolean(path?.startsWith("/game/")),
   );
 
   for (const pcPath of candidates) {
-    const html = await fetchPriceChartingGamePage(pcPath);
+    if (options?.deadlineMs && Date.now() >= options.deadlineMs) break;
+    const html = await fetchPriceChartingGamePage(pcPath, options);
     if (!html) continue;
 
     const parsed = parsePriceChartingGamePage(html);

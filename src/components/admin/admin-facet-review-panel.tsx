@@ -125,7 +125,7 @@ export function AdminFacetReviewPanel() {
     setSelection((current) => current.filter((game) => game.id !== gameId));
   }
 
-  function useSuggestions(game: AdminFacetReviewGame) {
+  function applySuggestions(game: AdminFacetReviewGame) {
     setSubgenresInput(game.suggestedSubgenres.map((entity) => entity.name).join(", "));
     setFacetsInput(game.suggestedFacets.map((entity) => entity.name).join(", "));
     addToSelection([game]);
@@ -294,7 +294,7 @@ export function AdminFacetReviewPanel() {
                   </div>
                   <div className="flex shrink-0 flex-wrap gap-2">
                     {(game.suggestedSubgenres.length > 0 || game.suggestedFacets.length > 0) && (
-                      <button type="button" className="btn-secondary" onClick={() => useSuggestions(game)}>
+                      <button type="button" className="btn-secondary" onClick={() => applySuggestions(game)}>
                         Usar sugerencias
                       </button>
                     )}

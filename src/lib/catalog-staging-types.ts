@@ -51,6 +51,17 @@ export type CatalogStagingIndex = {
   updatedAt: string;
   pcIds: number[];
   byPlatform: Record<string, CatalogStagingPlatformStats>;
+  enrichmentCursor?: number;
+  lastEnrichmentRun?: {
+    startedAt: string;
+    completedAt: string;
+    elapsedMs: number;
+    scanned: number;
+    attempted: number;
+    enriched: number;
+    failed: number;
+    stoppedByBudget: boolean;
+  };
 };
 
 export type CatalogStagingUpsertResult = {

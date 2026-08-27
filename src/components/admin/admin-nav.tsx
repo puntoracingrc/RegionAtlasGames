@@ -12,6 +12,7 @@ const links = [
   { href: "/admin/noticias", label: "Noticias", icon: "◫" },
   { href: "/admin/precios", label: "Recolección", icon: "€" },
   { href: "/admin/importacion", label: "Importar", icon: "⇪" },
+  { href: "/admin/sistema", label: "Sistema", icon: "●" },
 ];
 
 export function AdminNav({ pendingReviewCount = 0 }: { pendingReviewCount?: number }) {

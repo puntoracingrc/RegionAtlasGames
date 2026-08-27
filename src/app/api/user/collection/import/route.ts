@@ -5,7 +5,11 @@ import {
   saveUserCollectionItems,
   summarizeCollectionForPlan,
 } from "@/lib/collection-store";
-import { importSpreadsheet } from "@/lib/import-collection";
+import {
+  importSpreadsheet,
+  isSupportedSpreadsheetFilename,
+  MAX_SPREADSHEET_IMPORT_BYTES,
+} from "@/lib/import-collection";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import { upsertCatalogStagingFromImport } from "@/lib/catalog-staging";
 import { canViewCollectionValue } from "@/lib/plans";
@@ -24,16 +28,31 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Sube un archivo Excel (.xlsx) o CSV." }, { status: 400 });
   }
 
-  const name = file.name.toLowerCase();
-  if (!name.endsWith(".xlsx") && !name.endsWith(".xls") && !name.endsWith(".csv")) {
+  if (!isSupportedSpreadsheetFilename(file.name)) {
     return NextResponse.json(
-      { error: "Formato no soportado. Usa .xlsx, .xls o .csv." },
+      { error: "Formato no soportado. Usa .xlsx o .csv." },
       { status: 400 },
     );
   }
 
+  if (file.size > MAX_SPREADSHEET_IMPORT_BYTES) {
+    return NextResponse.json(
+      { error: "El archivo supera el límite de 10 MB." },
+      { status: 413 },
+    );
+  }
+
   const buffer = Buffer.from(await file.arrayBuffer());
-  const { items, stats } = importSpreadsheet(buffer, file.name);
+  let imported: Awaited<ReturnType<typeof importSpreadsheet>>;
+  try {
+    imported = await importSpreadsheet(buffer, file.name);
+  } catch {
+    return NextResponse.json(
+      { error: "No se pudo leer el archivo. Comprueba que sea un XLSX o CSV válido." },
+      { status: 400 },
+    );
+  }
+  const { items, stats } = imported;
   const knownPlatformSlugs = new Set((await listAdminPlatforms()).map((platform) => platform.slug));
   for (const item of items) {
     if (knownPlatformSlugs.has(item.platformSlug)) {

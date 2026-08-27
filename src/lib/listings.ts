@@ -1,90 +1,35 @@
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
-import path from "path";
 import { randomUUID } from "crypto";
-import { get, put } from "@vercel/blob";
-import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { getCatalogGame } from "./catalog";
 import { getUserCollectionItem } from "./collection-store";
+import {
+  mutateMarketplaceDocument,
+  readMarketplaceDocument,
+} from "./marketplace-document-store";
 import type {
   AiListingAnalysis,
+  ListingPhoto,
   MarketplaceListing,
   RecordedPrivateSale,
 } from "./marketplace-types";
 import { photosReadyForPublish } from "./listing-photos";
 
-const MARKET_DIR = path.join(process.cwd(), "data", "marketplace");
-const LISTINGS_FILE = path.join(MARKET_DIR, "listings.json");
-const SALES_FILE = path.join(MARKET_DIR, "recorded-sales.json");
-const LISTINGS_BLOB_PATH = "region-atlas/marketplace/listings.json";
-const SALES_BLOB_PATH = "region-atlas/marketplace/recorded-sales.json";
-
-function useBlobStorage(): boolean {
-  if (process.env.VERCEL) return blobAuthConfigured();
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim());
-}
-
-function ensureDir() {
-  try {
-    if (!existsSync(MARKET_DIR)) mkdirSync(MARKET_DIR, { recursive: true });
-  } catch {
-    // Vercel: filesystem de solo lectura salvo /tmp
-  }
-}
-
-function readLocalJson<T>(file: string, fallback: T): T {
-  ensureDir();
-  try {
-    return JSON.parse(readFileSync(file, "utf-8")) as T;
-  } catch {
-    return fallback;
-  }
-}
-
-function writeLocalJson(file: string, data: unknown) {
-  ensureDir();
-  writeFileSync(file, JSON.stringify(data, null, 2), "utf-8");
-}
-
-async function readBlobJson<T>(blobPath: string, fallback: T): Promise<T> {
-  try {
-    const auth = await blobAuthOptions("private");
-    const result = await get(blobPath, { ...auth, useCache: false });
-    if (!result || result.statusCode !== 200 || !result.stream) return fallback;
-    return JSON.parse(await new Response(result.stream).text()) as T;
-  } catch {
-    return fallback;
-  }
-}
-
-async function writeBlobJson(blobPath: string, data: unknown) {
-  const auth = await blobAuthOptions("private");
-  await put(blobPath, JSON.stringify(data, null, 2), {
-    ...auth,
-    contentType: "application/json",
-    addRandomSuffix: false,
-    allowOverwrite: true,
-    cacheControlMaxAge: 30,
-  });
-}
+const LISTINGS_DOCUMENT = "listings.json";
+const SALES_DOCUMENT = "recorded-sales.json";
 
 async function readListings(): Promise<MarketplaceListing[]> {
-  if (useBlobStorage()) return readBlobJson(LISTINGS_BLOB_PATH, []);
-  return readLocalJson(LISTINGS_FILE, []);
+  return readMarketplaceDocument<MarketplaceListing>(LISTINGS_DOCUMENT);
 }
 
-async function writeListings(listings: MarketplaceListing[]) {
-  if (useBlobStorage()) return writeBlobJson(LISTINGS_BLOB_PATH, listings);
-  writeLocalJson(LISTINGS_FILE, listings);
+async function mutateListings<R>(
+  mutation: Parameters<typeof mutateMarketplaceDocument<MarketplaceListing, R>>[1],
+): Promise<R> {
+  return mutateMarketplaceDocument<MarketplaceListing, R>(LISTINGS_DOCUMENT, mutation);
 }
 
-async function readSales(): Promise<RecordedPrivateSale[]> {
-  if (useBlobStorage()) return readBlobJson(SALES_BLOB_PATH, []);
-  return readLocalJson(SALES_FILE, []);
-}
-
-async function writeSales(sales: RecordedPrivateSale[]) {
-  if (useBlobStorage()) return writeBlobJson(SALES_BLOB_PATH, sales);
-  writeLocalJson(SALES_FILE, sales);
+async function mutateSales<R>(
+  mutation: Parameters<typeof mutateMarketplaceDocument<RecordedPrivateSale, R>>[1],
+): Promise<R> {
+  return mutateMarketplaceDocument<RecordedPrivateSale, R>(SALES_DOCUMENT, mutation);
 }
 
 export async function getListing(id: string): Promise<MarketplaceListing | undefined> {
@@ -152,14 +97,6 @@ export async function createListingDraft(input: {
     return { error: "Solo puedes vender juegos enlazados al catálogo." };
   }
 
-  const existing = await getSellerOpenListing(input.sellerId, item.catalogId);
-  if (existing) {
-    return {
-      error: "Ya tienes un anuncio abierto para este juego (máx. 1 unidad).",
-      existingListingId: existing.id,
-    };
-  }
-
   const game = getCatalogGame(item.catalogId);
   const now = new Date().toISOString();
   const listing: MarketplaceListing = {
@@ -192,43 +129,126 @@ export async function createListingDraft(input: {
     recordedSalePriceEur: game?.recommendedPrice ?? item.recommendedPrice ?? null,
   };
 
-  const listings = await readListings();
-  listings.push(listing);
-  await writeListings(listings);
-  return listing;
+  return mutateListings<
+    MarketplaceListing | { error: string; existingListingId?: string }
+  >((listings) => {
+    const existing = listings.find(
+      (stored) =>
+        stored.sellerId === input.sellerId &&
+        stored.catalogId === item.catalogId &&
+        (stored.status === "active" || stored.status === "draft"),
+    );
+    if (existing) {
+      return {
+        next: listings,
+        result: {
+          error: "Ya tienes un anuncio abierto para este juego (máx. 1 unidad).",
+          existingListingId: existing.id,
+        },
+        changed: false,
+      };
+    }
+    listings.push(listing);
+    return { next: listings, result: listing };
+  });
 }
 
 export async function updateListing(
   id: string,
   patch: Partial<MarketplaceListing>,
 ): Promise<MarketplaceListing | null> {
-  const listings = await readListings();
-  const idx = listings.findIndex((l) => l.id === id);
-  if (idx === -1) return null;
-  listings[idx] = { ...listings[idx], ...patch, updatedAt: new Date().toISOString() };
-  await writeListings(listings);
-  return listings[idx];
+  return mutateListings<MarketplaceListing | null>((listings) => {
+    const idx = listings.findIndex((listing) => listing.id === id);
+    if (idx === -1) return { next: listings, result: null, changed: false };
+    listings[idx] = { ...listings[idx], ...patch, updatedAt: new Date().toISOString() };
+    return { next: listings, result: listings[idx] };
+  });
+}
+
+export async function upsertListingPhoto(
+  id: string,
+  sellerId: string,
+  photo: ListingPhoto,
+): Promise<{ photo: ListingPhoto } | { error: string }> {
+  return mutateListings<{ photo: ListingPhoto } | { error: string }>((listings) => {
+    const idx = listings.findIndex((listing) => listing.id === id);
+    const listing = listings[idx];
+    if (!listing || listing.sellerId !== sellerId) {
+      return {
+        next: listings,
+        result: { error: "Anuncio no encontrado." } as const,
+        changed: false,
+      };
+    }
+    if (listing.status === "sold" || listing.status === "cancelled") {
+      return {
+        next: listings,
+        result: { error: "Anuncio cerrado." } as const,
+        changed: false,
+      };
+    }
+
+    const photos = listing.photos.filter((stored) => stored.slot !== photo.slot);
+    photos.push(photo);
+    listings[idx] = {
+      ...listing,
+      photos,
+      status: listing.status === "active" ? "draft" : listing.status,
+      updatedAt: new Date().toISOString(),
+    };
+    return { next: listings, result: { photo } };
+  });
 }
 
 export async function publishListing(id: string, sellerId: string): Promise<{ ok: true } | { error: string }> {
-  const listing = await getListing(id);
-  if (!listing || listing.sellerId !== sellerId) return { error: "Anuncio no encontrado." };
-  if (!photosReadyForPublish(listing.photos)) {
-    return { error: "Sube todas las fotos obligatorias antes de publicar." };
-  }
-  if (!listing.aiAnalysis) {
-    return { error: "Ejecuta el análisis IA antes de publicar." };
-  }
-  await updateListing(id, { status: "active", publishedAt: new Date().toISOString() });
-  return { ok: true };
+  return mutateListings<{ ok: true } | { error: string }>((listings) => {
+    const idx = listings.findIndex((listing) => listing.id === id);
+    const listing = listings[idx];
+    if (!listing || listing.sellerId !== sellerId) {
+      return {
+        next: listings,
+        result: { error: "Anuncio no encontrado." } as const,
+        changed: false,
+      };
+    }
+    if (!photosReadyForPublish(listing.photos)) {
+      return {
+        next: listings,
+        result: { error: "Sube todas las fotos obligatorias antes de publicar." } as const,
+        changed: false,
+      };
+    }
+    if (!listing.aiAnalysis) {
+      return {
+        next: listings,
+        result: { error: "Ejecuta el análisis IA antes de publicar." } as const,
+        changed: false,
+      };
+    }
+    listings[idx] = {
+      ...listing,
+      status: "active",
+      publishedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+    return { next: listings, result: { ok: true } as const };
+  });
 }
 
 export async function cancelListing(id: string, sellerId: string): Promise<boolean> {
-  const listing = await getListing(id);
-  if (!listing || listing.sellerId !== sellerId) return false;
-  if (listing.status === "sold") return false;
-  await updateListing(id, { status: "cancelled" });
-  return true;
+  return mutateListings<boolean>((listings) => {
+    const idx = listings.findIndex((listing) => listing.id === id);
+    const listing = listings[idx];
+    if (!listing || listing.sellerId !== sellerId || listing.status === "sold") {
+      return { next: listings, result: false, changed: false };
+    }
+    listings[idx] = {
+      ...listing,
+      status: "cancelled",
+      updatedAt: new Date().toISOString(),
+    };
+    return { next: listings, result: true };
+  });
 }
 
 export async function markListingSold(input: {
@@ -238,71 +258,96 @@ export async function markListingSold(input: {
   buyerName: string;
   priceEur: number;
 }): Promise<{ ok: true } | { error: string }> {
-  const listing = await getListing(input.listingId);
-  if (!listing || listing.sellerId !== input.sellerId) return { error: "Anuncio no encontrado." };
-  if (listing.status !== "active") return { error: "El anuncio no está activo." };
   if (!input.buyerId.trim()) return { error: "Comprador no válido." };
   if (!Number.isFinite(input.priceEur) || input.priceEur <= 0) {
     return { error: "Indica un precio final válido (mayor que 0 €)." };
   }
 
-  await updateListing(input.listingId, {
-    status: "sold",
-    soldToUserId: input.buyerId,
-    soldToUserName: input.buyerName,
-    sellerConfirmedAt: new Date().toISOString(),
-    recordedSalePriceEur: Math.round(input.priceEur * 100) / 100,
+  return mutateListings<{ ok: true } | { error: string }>((listings) => {
+    const idx = listings.findIndex((listing) => listing.id === input.listingId);
+    const listing = listings[idx];
+    if (!listing || listing.sellerId !== input.sellerId) {
+      return {
+        next: listings,
+        result: { error: "Anuncio no encontrado." } as const,
+        changed: false,
+      };
+    }
+    if (listing.status !== "active") {
+      return {
+        next: listings,
+        result: { error: "El anuncio no está activo." } as const,
+        changed: false,
+      };
+    }
+    listings[idx] = {
+      ...listing,
+      status: "sold",
+      soldToUserId: input.buyerId,
+      soldToUserName: input.buyerName,
+      sellerConfirmedAt: new Date().toISOString(),
+      recordedSalePriceEur: Math.round(input.priceEur * 100) / 100,
+      updatedAt: new Date().toISOString(),
+    };
+    return { next: listings, result: { ok: true } as const };
   });
-  return { ok: true };
 }
 
 export async function confirmBuyerReceipt(input: {
   listingId: string;
   buyerId: string;
 }): Promise<{ ok: true; recorded: boolean } | { error: string }> {
-  const listing = await getListing(input.listingId);
-  if (!listing || listing.soldToUserId !== input.buyerId) {
-    return { error: "No puedes confirmar esta venta." };
-  }
-  if (!listing.sellerConfirmedAt) {
-    return { error: "El vendedor aún no ha marcado la venta." };
-  }
-  if (listing.buyerConfirmedAt) {
+  const confirmed = await mutateListings<
+    { listing: MarketplaceListing } | { error: string }
+  >((listings) => {
+    const idx = listings.findIndex((listing) => listing.id === input.listingId);
+    const listing = listings[idx];
+    if (!listing || listing.soldToUserId !== input.buyerId) {
+      return {
+        next: listings,
+        result: { error: "No puedes confirmar esta venta." } as const,
+        changed: false,
+      };
+    }
+    if (!listing.sellerConfirmedAt) {
+      return {
+        next: listings,
+        result: { error: "El vendedor aún no ha marcado la venta." } as const,
+        changed: false,
+      };
+    }
+    if (listing.buyerConfirmedAt) {
+      return { next: listings, result: { listing }, changed: false };
+    }
+    const updated = {
+      ...listing,
+      buyerConfirmedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+    listings[idx] = updated;
+    return { next: listings, result: { listing: updated } };
+  });
+
+  if ("error" in confirmed) return confirmed;
+  const listing = confirmed.listing;
+  if (!listing.buyerConfirmedAt || listing.recordedSalePriceEur == null) {
     return { ok: true, recorded: false };
   }
 
-  await updateListing(input.listingId, {
-    buyerConfirmedAt: new Date().toISOString(),
-  });
-
-  const refreshed = (await getListing(input.listingId))!;
-  let recorded = false;
-  if (
-    refreshed.sellerConfirmedAt &&
-    refreshed.buyerConfirmedAt &&
-    refreshed.recordedSalePriceEur != null
-  ) {
-    const sales = await readSales();
-    const alreadyRecorded = sales.some(
-      (s) =>
-        s.catalogId === refreshed.catalogId &&
-        s.priceEur === refreshed.recordedSalePriceEur &&
-        Math.abs(new Date(s.completedAt).getTime() - new Date(refreshed.buyerConfirmedAt!).getTime()) <
-          60_000,
-    );
-    if (!alreadyRecorded) {
-      sales.push({
-        id: randomUUID(),
-        catalogId: refreshed.catalogId,
-        priceEur: refreshed.recordedSalePriceEur,
-        conditionScore: refreshed.aiAnalysis?.conditionScore ?? null,
-        sealed: refreshed.sealed,
-        completedAt: new Date().toISOString(),
-      });
-      await writeSales(sales);
-      recorded = true;
+  const recorded = await mutateSales((sales) => {
+    if (sales.some((sale) => sale.id === listing.id)) {
+      return { next: sales, result: false, changed: false };
     }
-  }
+    sales.push({
+      id: listing.id,
+      catalogId: listing.catalogId,
+      priceEur: listing.recordedSalePriceEur!,
+      conditionScore: listing.aiAnalysis?.conditionScore ?? null,
+      sealed: listing.sealed,
+      completedAt: listing.buyerConfirmedAt!,
+    });
+    return { next: sales, result: true };
+  });
 
   return { ok: true, recorded };
 }

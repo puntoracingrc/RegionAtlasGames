@@ -4,8 +4,8 @@ import { Panel, PanelTitle } from "@/components/ui";
 
 type Props = { catalogId: string };
 
-export function RecordedProSalesPanel({ catalogId }: Props) {
-  const { count, medianEur, latestAt } = recordedSalesSummary(catalogId);
+export async function RecordedProSalesPanel({ catalogId }: Props) {
+  const { count, medianEur, latestAt } = await recordedSalesSummary(catalogId);
   if (count === 0) return null;
 
   return (

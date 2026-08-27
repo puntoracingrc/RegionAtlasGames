@@ -14,7 +14,9 @@ export function appDataDir(): string {
 export function ensureAppDataDir(): string {
   const dir = appDataDir();
   try {
-    if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
+    if (!existsSync(/* turbopackIgnore: true */ dir)) {
+      mkdirSync(/* turbopackIgnore: true */ dir, { recursive: true });
+    }
   } catch {
     // noop — el write posterior reportará el fallo
   }

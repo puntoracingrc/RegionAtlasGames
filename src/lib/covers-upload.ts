@@ -4,12 +4,15 @@ import os from "os";
 import path from "path";
 import { promisify } from "util";
 import sharp from "sharp";
+import { safeRemoteFetch } from "./remote-fetch";
 import { COVERS_PUBLIC_BASE_URL } from "./site-brand";
 import { slugify } from "./slug";
 
 const execFileAsync = promisify(execFile);
-const MAX_REMOTE_COVER_BYTES = 12 * 1024 * 1024;
-const MAX_REMOTE_SAGA_BACKGROUND_BYTES = 16 * 1024 * 1024;
+export const MAX_COVER_UPLOAD_BYTES = 12 * 1024 * 1024;
+export const MAX_SAGA_BACKGROUND_UPLOAD_BYTES = 16 * 1024 * 1024;
+const MAX_IMAGE_INPUT_PIXELS = 50_000_000;
+const ALLOWED_IMAGE_FORMATS = new Set(["jpeg", "png", "webp", "avif", "heif"]);
 
 type SftpClient = {
   connect(config: Record<string, unknown>): Promise<void>;
@@ -75,6 +78,54 @@ function buildSagaBackgroundPublicUrl(slug: string): string {
   return `${sagaBackgroundPublicBaseUrl()}/${slug}.webp`;
 }
 
+export function validateImageUploadEnvelope(
+  file: Pick<File, "size" | "type">,
+  maxBytes: number,
+): string | null {
+  if (file.size < 512) return "La imagen es demasiado pequeña o está vacía.";
+  if (file.size > maxBytes) {
+    return `La imagen supera el límite de ${Math.round(maxBytes / 1024 / 1024)} MB.`;
+  }
+  if (file.type && !file.type.startsWith("image/")) {
+    return "El archivo debe ser una imagen.";
+  }
+  return null;
+}
+
+async function validateImageBuffer(
+  buffer: Buffer,
+  maxBytes: number,
+  mimeType?: string,
+): Promise<string | null> {
+  if (buffer.length < 512) return "La imagen es demasiado pequeña o está vacía.";
+  if (buffer.length > maxBytes) {
+    return `La imagen supera el límite de ${Math.round(maxBytes / 1024 / 1024)} MB.`;
+  }
+  if (mimeType && !mimeType.toLowerCase().startsWith("image/")) {
+    return "El recurso recibido no es una imagen.";
+  }
+
+  try {
+    const metadata = await sharp(buffer, {
+      limitInputPixels: MAX_IMAGE_INPUT_PIXELS,
+      sequentialRead: true,
+      failOn: "error",
+    }).metadata();
+    const width = metadata.width ?? 0;
+    const height = metadata.height ?? 0;
+    if (!metadata.format || !ALLOWED_IMAGE_FORMATS.has(metadata.format)) {
+      return "Formato de imagen no permitido.";
+    }
+    if ((metadata.pages ?? 1) > 1 || width * height > MAX_IMAGE_INPUT_PIXELS) {
+      return "La imagen tiene demasiados píxeles para procesarla.";
+    }
+    if (width === 0 || height === 0) return "No se pudo leer el tamaño de la imagen.";
+    return null;
+  } catch {
+    return "Archivo de imagen no válido o demasiado grande.";
+  }
+}
+
 async function uploadSftp(localFile: string, remoteRel: string, remoteRoot?: string) {
   const cfg = coverUploadConfig();
   const mod = (await import("ssh2-sftp-client")) as unknown as { default: new () => SftpClient };
@@ -109,6 +160,12 @@ export async function uploadSagaBackgroundToCdn(input: {
 
   const slug = slugify(input.slug);
   if (!slug) return { error: "Slug de saga inválido." };
+  const validationError = await validateImageBuffer(
+    input.fileBuffer,
+    MAX_SAGA_BACKGROUND_UPLOAD_BYTES,
+    input.mimeType,
+  );
+  if (validationError) return { error: validationError };
 
   const cfg = coverUploadConfig();
   if (cfg.protocol !== "sftp") {
@@ -120,7 +177,11 @@ export async function uploadSagaBackgroundToCdn(input: {
 
   try {
     if (!existsSync(tmpDir)) mkdirSync(tmpDir, { recursive: true });
-    await sharp(input.fileBuffer)
+    await sharp(input.fileBuffer, {
+      limitInputPixels: MAX_IMAGE_INPUT_PIXELS,
+      sequentialRead: true,
+      failOn: "error",
+    })
       .rotate()
       .resize({ width: 1800, withoutEnlargement: true })
       .webp({ quality: 82 })
@@ -158,12 +219,11 @@ export async function downloadAndUploadSagaBackgroundToCdn(input: {
   }
 
   try {
-    const response = await fetch(sourceUrl, {
+    const response = await safeRemoteFetch(sourceUrl, {
       headers: {
         Accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
         "User-Agent": "RegionAtlasGames/1.0 (+https://www.regionatlas.games)",
       },
-      redirect: "follow",
       signal: AbortSignal.timeout(45_000),
     });
 
@@ -172,12 +232,12 @@ export async function downloadAndUploadSagaBackgroundToCdn(input: {
     }
 
     const contentLength = Number(response.headers.get("content-length") ?? "0");
-    if (contentLength > MAX_REMOTE_SAGA_BACKGROUND_BYTES) {
+    if (contentLength > MAX_SAGA_BACKGROUND_UPLOAD_BYTES) {
       return { error: "La imagen remota es demasiado grande para importarla." };
     }
 
     const arrayBuffer = await response.arrayBuffer();
-    if (arrayBuffer.byteLength > MAX_REMOTE_SAGA_BACKGROUND_BYTES) {
+    if (arrayBuffer.byteLength > MAX_SAGA_BACKGROUND_UPLOAD_BYTES) {
       return { error: "La imagen remota es demasiado grande para importarla." };
     }
     if (arrayBuffer.byteLength < 512) {
@@ -211,14 +271,25 @@ export async function uploadCoverToCdn(input: {
   if (!slug || !platformSlug) {
     return { error: "Plataforma o slug inválidos." };
   }
+  const validationError = await validateImageBuffer(
+    input.fileBuffer,
+    MAX_COVER_UPLOAD_BYTES,
+    input.mimeType,
+  );
+  if (validationError) return { error: validationError };
 
   const tmpDir = path.join(os.tmpdir(), "region-atlas-cover-uploads");
   const tmpFile = path.join(tmpDir, `${platformSlug}-${slug}-${Date.now()}.jpg`);
 
   try {
     if (!existsSync(tmpDir)) mkdirSync(tmpDir, { recursive: true });
-    await sharp(input.fileBuffer)
+    await sharp(input.fileBuffer, {
+      limitInputPixels: MAX_IMAGE_INPUT_PIXELS,
+      sequentialRead: true,
+      failOn: "error",
+    })
       .rotate()
+      .resize({ width: 1600, height: 2400, fit: "inside", withoutEnlargement: true })
       .jpeg({ quality: 88, mozjpeg: true })
       .toFile(tmpFile);
 
@@ -271,12 +342,11 @@ export async function downloadAndUploadCoverToCdn(input: {
   }
 
   try {
-    const response = await fetch(downloadUrl, {
+    const response = await safeRemoteFetch(downloadUrl, {
       headers: {
         Accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
         "User-Agent": "RegionAtlasGames/1.0 (+https://www.regionatlas.games)",
       },
-      redirect: "follow",
       signal: AbortSignal.timeout(45_000),
     });
 
@@ -285,12 +355,12 @@ export async function downloadAndUploadCoverToCdn(input: {
     }
 
     const contentLength = Number(response.headers.get("content-length") ?? "0");
-    if (contentLength > MAX_REMOTE_COVER_BYTES) {
+    if (contentLength > MAX_COVER_UPLOAD_BYTES) {
       return { error: "La portada remota es demasiado grande para importarla." };
     }
 
     const arrayBuffer = await response.arrayBuffer();
-    if (arrayBuffer.byteLength > MAX_REMOTE_COVER_BYTES) {
+    if (arrayBuffer.byteLength > MAX_COVER_UPLOAD_BYTES) {
       return { error: "La portada remota es demasiado grande para importarla." };
     }
     if (arrayBuffer.byteLength < 512) {

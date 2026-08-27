@@ -1,80 +1,32 @@
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
-import path from "path";
 import { randomUUID } from "crypto";
-import { get, put } from "@vercel/blob";
-import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import type { ChatMessage, MarketplaceBlock, MarketplaceConversation } from "./marketplace-types";
+import {
+  mutateMarketplaceDocument,
+  readMarketplaceDocument,
+} from "./marketplace-document-store";
 import { getListing } from "./listings";
 
-const CONV_FILE = path.join(process.cwd(), "data", "marketplace", "conversations.json");
-const BLOCKS_FILE = path.join(process.cwd(), "data", "marketplace", "blocks.json");
-const CONV_BLOB_PATH = "region-atlas/marketplace/conversations.json";
-const BLOCKS_BLOB_PATH = "region-atlas/marketplace/blocks.json";
-
-function useBlobStorage(): boolean {
-  if (process.env.VERCEL) return blobAuthConfigured();
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim());
-}
-
-function ensureDir() {
-  const dir = path.dirname(CONV_FILE);
-  if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-}
-
-function readLocalJson<T>(file: string, fallback: T): T {
-  ensureDir();
-  try {
-    return JSON.parse(readFileSync(file, "utf-8")) as T;
-  } catch {
-    return fallback;
-  }
-}
-
-function writeLocalJson(file: string, data: unknown) {
-  ensureDir();
-  writeFileSync(file, JSON.stringify(data, null, 2), "utf-8");
-}
-
-async function readBlobJson<T>(blobPath: string, fallback: T): Promise<T> {
-  try {
-    const auth = await blobAuthOptions("private");
-    const result = await get(blobPath, { ...auth, useCache: false });
-    if (!result || result.statusCode !== 200 || !result.stream) return fallback;
-    return JSON.parse(await new Response(result.stream).text()) as T;
-  } catch {
-    return fallback;
-  }
-}
-
-async function writeBlobJson(blobPath: string, data: unknown) {
-  const auth = await blobAuthOptions("private");
-  await put(blobPath, JSON.stringify(data, null, 2), {
-    ...auth,
-    contentType: "application/json",
-    addRandomSuffix: false,
-    allowOverwrite: true,
-    cacheControlMaxAge: 30,
-  });
-}
+const CONVERSATIONS_DOCUMENT = "conversations.json";
+const BLOCKS_DOCUMENT = "blocks.json";
 
 async function readConversations(): Promise<MarketplaceConversation[]> {
-  if (useBlobStorage()) return readBlobJson(CONV_BLOB_PATH, []);
-  return readLocalJson(CONV_FILE, []);
+  return readMarketplaceDocument<MarketplaceConversation>(CONVERSATIONS_DOCUMENT);
 }
 
-async function writeConversations(conversations: MarketplaceConversation[]) {
-  if (useBlobStorage()) return writeBlobJson(CONV_BLOB_PATH, conversations);
-  writeLocalJson(CONV_FILE, conversations);
+async function mutateConversations<R>(
+  mutation: Parameters<typeof mutateMarketplaceDocument<MarketplaceConversation, R>>[1],
+): Promise<R> {
+  return mutateMarketplaceDocument<MarketplaceConversation, R>(CONVERSATIONS_DOCUMENT, mutation);
 }
 
 async function readBlocks(): Promise<MarketplaceBlock[]> {
-  if (useBlobStorage()) return readBlobJson(BLOCKS_BLOB_PATH, []);
-  return readLocalJson(BLOCKS_FILE, []);
+  return readMarketplaceDocument<MarketplaceBlock>(BLOCKS_DOCUMENT);
 }
 
-async function writeBlocks(blocks: MarketplaceBlock[]) {
-  if (useBlobStorage()) return writeBlobJson(BLOCKS_BLOB_PATH, blocks);
-  writeLocalJson(BLOCKS_FILE, blocks);
+async function mutateBlocks<R>(
+  mutation: Parameters<typeof mutateMarketplaceDocument<MarketplaceBlock, R>>[1],
+): Promise<R> {
+  return mutateMarketplaceDocument<MarketplaceBlock, R>(BLOCKS_DOCUMENT, mutation);
 }
 
 export async function isUserBlockedBetween(a: string, b: string): Promise<boolean> {
@@ -89,18 +41,17 @@ export async function blockConversation(input: {
   conversationId: string;
   blockerId: string;
 }): Promise<{ ok: true } | { error: string }> {
-  const all = await readConversations();
-  const idx = all.findIndex((c) => c.id === input.conversationId);
-  if (idx === -1) return { error: "Conversación no encontrada." };
-
-  const conv = all[idx];
+  const conv = await getConversation(input.conversationId);
+  if (!conv) return { error: "Conversación no encontrada." };
   if (conv.buyerId !== input.blockerId && conv.sellerId !== input.blockerId) {
     return { error: "No autorizado." };
   }
 
   const blockedId = conv.buyerId === input.blockerId ? conv.sellerId : conv.buyerId;
-  const blocks = await readBlocks();
-  if (!blocks.some((b) => b.blockerId === input.blockerId && b.blockedId === blockedId)) {
+  await mutateBlocks((blocks) => {
+    if (blocks.some((block) => block.blockerId === input.blockerId && block.blockedId === blockedId)) {
+      return { next: blocks, result: undefined, changed: false };
+    }
     blocks.push({
       id: randomUUID(),
       blockerId: input.blockerId,
@@ -108,13 +59,20 @@ export async function blockConversation(input: {
       conversationId: input.conversationId,
       createdAt: new Date().toISOString(),
     });
-    await writeBlocks(blocks);
-  }
+    return { next: blocks, result: undefined };
+  });
 
-  conv.blockedByUserIds = Array.from(new Set([...(conv.blockedByUserIds ?? []), input.blockerId]));
-  conv.updatedAt = new Date().toISOString();
-  all[idx] = conv;
-  await writeConversations(all);
+  await mutateConversations((conversations) => {
+    const idx = conversations.findIndex((stored) => stored.id === input.conversationId);
+    if (idx === -1) return { next: conversations, result: undefined, changed: false };
+    const stored = conversations[idx];
+    stored.blockedByUserIds = Array.from(
+      new Set([...(stored.blockedByUserIds ?? []), input.blockerId]),
+    );
+    stored.updatedAt = new Date().toISOString();
+    conversations[idx] = stored;
+    return { next: conversations, result: undefined };
+  });
   return { ok: true };
 }
 
@@ -148,9 +106,6 @@ export async function startConversation(input: {
     return { error: "No se puede iniciar chat con este usuario." };
   }
 
-  const existing = await findConversation(input.listingId, input.buyerId);
-  if (existing) return existing;
-
   const now = new Date().toISOString();
   const conversation: MarketplaceConversation = {
     id: randomUUID(),
@@ -165,10 +120,14 @@ export async function startConversation(input: {
     updatedAt: now,
   };
 
-  const all = await readConversations();
-  all.push(conversation);
-  await writeConversations(all);
-  return conversation;
+  return mutateConversations<MarketplaceConversation>((conversations) => {
+    const existing = conversations.find(
+      (stored) => stored.listingId === input.listingId && stored.buyerId === input.buyerId,
+    );
+    if (existing) return { next: conversations, result: existing, changed: false };
+    conversations.push(conversation);
+    return { next: conversations, result: conversation };
+  });
 }
 
 export async function addMessage(input: {
@@ -179,16 +138,11 @@ export async function addMessage(input: {
 }): Promise<ChatMessage | { error: string }> {
   const body = input.body.trim();
   if (!body) return { error: "Mensaje vacío." };
+  if (body.length > 2_000) return { error: "El mensaje no puede superar 2.000 caracteres." };
 
-  const all = await readConversations();
-  const idx = all.findIndex((c) => c.id === input.conversationId);
-  if (idx === -1) return { error: "Conversación no encontrada." };
-
-  const conv = all[idx];
-  if (conv.buyerId !== input.senderId && conv.sellerId !== input.senderId) {
-    return { error: "No autorizado." };
-  }
-  if (conv.blockedByUserIds?.length || await isUserBlockedBetween(conv.buyerId, conv.sellerId)) {
+  const current = await getConversation(input.conversationId);
+  if (!current) return { error: "Conversación no encontrada." };
+  if (await isUserBlockedBetween(current.buyerId, current.sellerId)) {
     return { error: "Esta conversación está bloqueada." };
   }
 
@@ -201,9 +155,34 @@ export async function addMessage(input: {
     status: "sent",
   };
 
-  conv.messages.push(message);
-  conv.updatedAt = message.createdAt;
-  all[idx] = conv;
-  await writeConversations(all);
-  return message;
+  return mutateConversations<ChatMessage | { error: string }>((conversations) => {
+    const idx = conversations.findIndex((stored) => stored.id === input.conversationId);
+    const conversation = conversations[idx];
+    if (!conversation) {
+      return {
+        next: conversations,
+        result: { error: "Conversación no encontrada." } as const,
+        changed: false,
+      };
+    }
+    if (conversation.buyerId !== input.senderId && conversation.sellerId !== input.senderId) {
+      return {
+        next: conversations,
+        result: { error: "No autorizado." } as const,
+        changed: false,
+      };
+    }
+    if (conversation.blockedByUserIds?.length) {
+      return {
+        next: conversations,
+        result: { error: "Esta conversación está bloqueada." } as const,
+        changed: false,
+      };
+    }
+
+    conversation.messages.push(message);
+    conversation.updatedAt = message.createdAt;
+    conversations[idx] = conversation;
+    return { next: conversations, result: message };
+  });
 }

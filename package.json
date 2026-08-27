@@ -7,6 +7,9 @@
     "build": "npm run details:by-id && NODE_OPTIONS=--max-old-space-size=6144 next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "tsx --test src/lib/ai-usage.test.ts src/lib/catalog-staging-enrich.test.ts src/lib/import-collection.test.ts src/lib/json-document-store.test.ts src/lib/magic-link.test.ts src/lib/request-security.test.ts",
+    "test:collector-controls": "python3 scripts/test_price_source_modes.py && python3 scripts/test_generic_source_pagination.py",
     "validate:affiliate-offers-v1": "node scripts/validate-affiliate-offers-v1.mjs",
     "validate:rakuten-auth-v1": "node scripts/validate-rakuten-auth-v1.mjs",
     "validate:rakuten-advertiser-discovery-v1": "node scripts/validate-rakuten-advertiser-discovery-v1.mjs",
@@ -95,19 +98,20 @@
     "validate:facet-public-tag-index-v1": "node scripts/validate-facet-public-tag-index-v1.mjs"
   },
   "dependencies": {
-    "@vercel/blob": "^2.4.0",
+    "@vercel/blob": "^2.8.0",
     "@vercel/functions": "^3.7.1",
     "bcryptjs": "^3.0.3",
     "country-flag-icons": "^1.6.17",
+    "csv-parse": "^7.0.2",
     "iron-session": "^8.0.4",
-    "next": "16.2.9",
+    "next": "16.3.3",
     "next-themes": "^0.4.6",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "read-excel-file": "^9.3.10",
     "resend": "^4.8.0",
-    "sharp": "^0.34.5",
-    "ssh2-sftp-client": "^12.1.1",
-    "xlsx": "^0.18.5"
+    "sharp": "^0.35.4",
+    "ssh2-sftp-client": "^12.1.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -116,8 +120,10 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.9",
+    "eslint-config-next": "16.3.3",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.12",
+    "typescript": "^5",
+    "write-excel-file": "^4.1.1"
   }
 }

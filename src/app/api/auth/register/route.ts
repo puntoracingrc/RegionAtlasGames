@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
 import { authConfigErrors } from "@/lib/server-env";
+import {
+  checkRequestRateLimit,
+  rateLimitHeaders,
+  readJsonBody,
+} from "@/lib/request-security";
 import { getSession } from "@/lib/users";
 import { registerUser } from "@/lib/users";
 
@@ -13,13 +18,37 @@ export async function POST(request: Request) {
     );
   }
 
+  const limit = await checkRequestRateLimit(request, {
+    namespace: "auth-register",
+    limit: 6,
+    windowMs: 60 * 60 * 1000,
+  });
+  if (!limit.allowed) {
+    return NextResponse.json(
+      { error: "Demasiados registros desde esta conexión. Inténtalo más tarde." },
+      { status: 429, headers: rateLimitHeaders(limit) },
+    );
+  }
+
   try {
-    const body = await request.json();
+    const parsed = await readJsonBody<{
+      name?: unknown;
+      email?: unknown;
+      password?: unknown;
+      city?: unknown;
+    }>(request);
+    if (!parsed.ok) {
+      return NextResponse.json(
+        { error: parsed.error },
+        { status: parsed.status, headers: { "Cache-Control": "no-store" } },
+      );
+    }
+    const body = parsed.data;
     const result = await registerUser({
-      name: body.name ?? "",
-      email: body.email ?? "",
-      password: body.password ?? "",
-      city: body.city ?? "",
+      name: typeof body.name === "string" ? body.name : "",
+      email: typeof body.email === "string" ? body.email : "",
+      password: typeof body.password === "string" ? body.password : "",
+      city: typeof body.city === "string" ? body.city : "",
     });
 
     if ("error" in result) {
@@ -33,7 +62,10 @@ export async function POST(request: Request) {
     session.isLoggedIn = true;
     await session.save();
 
-    return NextResponse.json({ user: result.user });
+    return NextResponse.json(
+      { user: result.user },
+      { headers: { "Cache-Control": "no-store" } },
+    );
   } catch {
     return NextResponse.json(
       { error: "Error interno al crear la cuenta. Inténtalo de nuevo." },

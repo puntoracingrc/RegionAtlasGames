@@ -17,7 +17,7 @@ export type CatalogOverlayIndex = {
   seoSlugs: Record<string, string>;
 };
 
-function useBlobStorage(): boolean {
+function shouldUseBlobStorage(): boolean {
   if (process.env.CATALOG_RUNTIME_OVERLAY_ENABLED !== "1") return false;
   if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) return true;
   return blobAuthConfigured();
@@ -43,7 +43,7 @@ function parseIndex(raw: string): CatalogOverlayIndex {
 }
 
 async function readIndexFromBlobFresh(): Promise<CatalogOverlayIndex> {
-  if (!useBlobStorage()) return emptyIndex();
+  if (!shouldUseBlobStorage()) return emptyIndex();
   try {
     const auth = await blobAuthOptions("private");
     const result = await get(INDEX_PATH, { ...auth, useCache: false });
@@ -66,7 +66,7 @@ async function readIndexFromBlob(options?: { fresh?: boolean }): Promise<Catalog
 }
 
 async function writeIndexToBlob(index: CatalogOverlayIndex): Promise<void> {
-  if (!useBlobStorage()) return;
+  if (!shouldUseBlobStorage()) return;
   const auth = await blobAuthOptions("private");
   await put(INDEX_PATH, JSON.stringify({ ...index, updatedAt: new Date().toISOString() }, null, 2), {
     ...auth,
@@ -91,7 +91,7 @@ export async function loadCatalogOverlayIndex(): Promise<CatalogOverlayIndex> {
 }
 
 async function readCatalogOverlayGameFresh(catalogId: string): Promise<CatalogGame | null> {
-  if (!useBlobStorage()) return null;
+  if (!shouldUseBlobStorage()) return null;
   try {
     const auth = await blobAuthOptions("private");
     const result = await get(gameBlobPath(catalogId), { ...auth, useCache: false });
@@ -114,7 +114,7 @@ export async function readCatalogOverlayGame(catalogId: string): Promise<Catalog
 }
 
 async function readCatalogOverlayDetailsFresh(catalogId: string): Promise<GameDetails | null> {
-  if (!useBlobStorage()) return null;
+  if (!shouldUseBlobStorage()) return null;
   try {
     const auth = await blobAuthOptions("private");
     const result = await get(detailsBlobPath(catalogId), { ...auth, useCache: false });
@@ -140,7 +140,7 @@ export async function writeCatalogOverlay(input: {
   game: CatalogGame;
   details: GameDetails;
 }): Promise<{ ok: true } | { error: string }> {
-  if (!useBlobStorage()) {
+  if (!shouldUseBlobStorage()) {
     return { error: "Blob no configurado; no se puede publicar en caliente." };
   }
 
@@ -182,7 +182,7 @@ export async function writeCatalogOverlay(input: {
 export async function deleteCatalogOverlayGame(
   catalogId: string,
 ): Promise<{ ok: true; removed: boolean } | { error: string }> {
-  if (!useBlobStorage()) {
+  if (!shouldUseBlobStorage()) {
     return { ok: true, removed: false };
   }
 
@@ -306,5 +306,5 @@ export async function triggerCatalogDeployHook(): Promise<{ triggered: boolean; 
 }
 
 export function catalogOverlayEnabled(): boolean {
-  return useBlobStorage();
+  return shouldUseBlobStorage();
 }
