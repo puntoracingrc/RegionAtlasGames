@@ -17,6 +17,7 @@ import type {
   EbaySearchResponse,
 } from "./ebay.types.ts";
 import {
+  ebayImportCostsMayApply,
   ebayRegionalSearchFilters,
   ebayRegionalSearchPolicy,
   type EbayRegionalSearchPolicy,
@@ -375,7 +376,7 @@ function listingFromItem(
     totalPrice: money.total,
     currency: item.price?.currency?.trim() || null,
     originLabel: policy.originLabel,
-    importCostsMayApply: policy.importCostsMayApply,
+    importCostsMayApply: ebayImportCostsMayApply(policy, item.itemLocation?.country),
     sellerCountry: item.itemLocation?.country?.trim() || null,
     itemEndDate: item.itemEndDate?.trim() || null,
     condition: item.condition?.trim() || null,
