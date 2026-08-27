@@ -4,9 +4,11 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import {
+  mutateBlobJsonDocument,
   mutateDiskJsonDocument,
   readDiskJsonDocument,
 } from "./json-document-store";
+import type { get, head, put } from "@vercel/blob";
 
 type CounterDocument = { count: number };
 
@@ -17,6 +19,107 @@ function parseCounter(raw: string): CounterDocument {
   }
   return { count: Number(parsed.count) };
 }
+
+function blobGetResult(value: CounterDocument, etag: string) {
+  return {
+    statusCode: 200 as const,
+    stream: new Response(JSON.stringify(value)).body!,
+    headers: new Headers(),
+    blob: {
+      url: "https://example.private.blob.vercel-storage.com/counter.json",
+      downloadUrl: "https://example.private.blob.vercel-storage.com/counter.json?download=1",
+      pathname: "counter.json",
+      contentType: "application/json",
+      contentDisposition: "",
+      cacheControl: "private, max-age=0",
+      size: 12,
+      uploadedAt: new Date(0),
+      etag,
+    },
+  };
+}
+
+function blobHeadResult(etag: string) {
+  return {
+    url: "https://example.private.blob.vercel-storage.com/counter.json",
+    downloadUrl: "https://example.private.blob.vercel-storage.com/counter.json?download=1",
+    pathname: "counter.json",
+    size: 12,
+    uploadedAt: new Date(0),
+    contentType: "application/json",
+    contentDisposition: "",
+    cacheControl: "private, max-age=0",
+    etag,
+  };
+}
+
+test("retries a stale Blob read and writes with the authoritative ETag", async () => {
+  let reads = 0;
+  let writes = 0;
+  const waits: number[] = [];
+  const dependencies = {
+    get: (async () => {
+      reads += 1;
+      return reads === 1
+        ? blobGetResult({ count: 1 }, '"stale"')
+        : blobGetResult({ count: 2 }, '"current"');
+    }) as typeof get,
+    head: (async () => blobHeadResult("current")) as typeof head,
+    put: (async (_pathname, body, options) => {
+      writes += 1;
+      assert.equal(options.ifMatch, "current");
+      assert.match(String(body), /"count": 3/);
+      return blobHeadResult("next");
+    }) as typeof put,
+    wait: async (milliseconds: number) => {
+      waits.push(milliseconds);
+    },
+  };
+
+  const result = await mutateBlobJsonDocument(
+    {
+      pathname: "counter.json",
+      empty: (): CounterDocument => ({ count: 0 }),
+      parse: parseCounter,
+    },
+    (current) => {
+      const next = { count: current.count + 1 };
+      return { next, result: next.count };
+    },
+    3,
+    dependencies,
+  );
+
+  assert.equal(result, 3);
+  assert.equal(reads, 2);
+  assert.equal(writes, 1);
+  assert.deepEqual(waits, [50]);
+});
+
+test("accepts equivalent quoted and unquoted Blob ETags", async () => {
+  const dependencies = {
+    get: (async () => blobGetResult({ count: 4 }, 'W/"same"')) as typeof get,
+    head: (async () => blobHeadResult("same")) as typeof head,
+    put: (async (_pathname, _body, options) => {
+      assert.equal(options.ifMatch, "same");
+      return blobHeadResult("next");
+    }) as typeof put,
+    wait: async () => undefined,
+  };
+
+  const result = await mutateBlobJsonDocument(
+    {
+      pathname: "counter.json",
+      empty: (): CounterDocument => ({ count: 0 }),
+      parse: parseCounter,
+    },
+    (current) => ({ next: { count: current.count + 1 }, result: current.count + 1 }),
+    2,
+    dependencies,
+  );
+
+  assert.equal(result, 5);
+});
 
 test("serializes concurrent disk mutations without losing updates", async () => {
   const directory = await mkdtemp(path.join(os.tmpdir(), "region-atlas-json-store-"));
