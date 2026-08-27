@@ -114,7 +114,7 @@ function PriceResults({
       {estimates.map((estimate) => {
         const stored = "publishable" in estimate;
         return (
-          <div key={`${estimate.condition}-${estimate.currency}`} className="grid gap-3 py-4 sm:grid-cols-[1fr_auto_auto] sm:items-center">
+          <div key={`${estimate.condition}-${estimate.currency}`} className="grid gap-3 py-4 sm:grid-cols-[1fr_auto_auto_auto] sm:items-center">
             <div>
               <p className="font-semibold text-foreground">{CONDITION_LABELS[estimate.condition]}</p>
               <p className="mt-1 text-xs text-muted">
@@ -123,6 +123,17 @@ function PriceResults({
               </p>
             </div>
             <p className="text-lg font-bold text-foreground">{money(estimate.median, estimate.currency)}</p>
+            <div className="text-xs text-muted sm:text-right">
+              <p>Artículo</p>
+              {estimate.shippingMedian != null && (
+                <p>Envío: {money(estimate.shippingMedian, estimate.currency)}</p>
+              )}
+              {estimate.totalToSpainMedian != null && (
+                <p className="font-semibold text-foreground">
+                  A España: {money(estimate.totalToSpainMedian, estimate.currency)}
+                </p>
+              )}
+            </div>
             <div className="flex flex-wrap items-center gap-2 sm:justify-end">
               <span className={`w-fit rounded-full px-2.5 py-1 text-xs font-bold ${
                 estimate.verified
@@ -218,7 +229,9 @@ function LiveListingResults({ listings }: { listings: EbayResearchListing[] }) {
             {listing.decision === "other_variant" && <p className="mt-1 text-xs font-semibold text-sky-700 dark:text-sky-300">Asignable a {listing.suggestedRegion ?? "otra variante regional"}</p>}
           </div>
           <div className="flex flex-wrap items-center gap-2 sm:flex-col sm:items-end">
-            {listing.totalPrice != null && listing.currency && <p className="font-bold text-foreground">{money(listing.totalPrice, listing.currency)}</p>}
+            {listing.price != null && listing.currency && <p className="font-bold text-foreground">Artículo: {money(listing.price, listing.currency)}</p>}
+            {listing.shippingPrice != null && listing.currency && <p className="text-xs text-muted">Envío: {money(listing.shippingPrice, listing.currency)}</p>}
+            {listing.totalPrice != null && listing.currency && <p className="text-xs font-semibold text-foreground">A España: {money(listing.totalPrice, listing.currency)}</p>}
             <span className={`rounded-full border px-2.5 py-1 text-xs font-bold ${decisionClass(listing.decision)}`}>{DECISION_LABELS[listing.decision]}</span>
             {listing.url && <a href={listing.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs font-semibold text-accent">Ver anuncio <ExternalLink size={13} aria-hidden="true" /></a>}
           </div>
@@ -253,7 +266,9 @@ function StoredListingResults({
             {observation.originCatalogId !== catalogId && <p className="mt-1 text-xs font-semibold text-sky-700 dark:text-sky-300">Redirigida desde {observation.originCatalogId}</p>}
           </div>
           <div className="flex flex-wrap items-center gap-2 sm:max-w-56 sm:justify-end">
-            {observation.totalPrice != null && observation.currency && <p className="w-full text-right font-bold text-foreground">{money(observation.totalPrice, observation.currency)}</p>}
+            {observation.price != null && observation.currency && <p className="w-full text-right font-bold text-foreground">Artículo: {money(observation.price, observation.currency)}</p>}
+            {observation.shippingPrice != null && observation.currency && <p className="w-full text-right text-xs text-muted">Envío: {money(observation.shippingPrice, observation.currency)}</p>}
+            {observation.totalPrice != null && observation.currency && <p className="w-full text-right text-xs font-semibold text-foreground">A España: {money(observation.totalPrice, observation.currency)}</p>}
             <span className={`rounded-full px-2 py-1 text-xs font-bold ${observation.reviewStatus === "accepted" ? "bg-emerald-500/15 text-emerald-800 dark:text-emerald-200" : observation.reviewStatus === "pending" ? "bg-amber-500/15 text-amber-800 dark:text-amber-200" : "bg-red-500/10 text-red-800 dark:text-red-200"}`}>
               {observation.reviewStatus === "accepted" ? "Aceptado" : observation.reviewStatus === "pending" ? "Pendiente" : "Descartado"}
             </span>

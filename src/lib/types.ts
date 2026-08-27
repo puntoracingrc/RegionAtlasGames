@@ -231,6 +231,16 @@ export type CatalogGame = {
   estimatedPriceGameManual?: number | null;
   estimatedPriceComplete?: number | null;
   estimatedPriceSealed?: number | null;
+  /** Transporte estimado a España, separado del valor del artículo */
+  estimatedShippingToSpainLoose?: number | null;
+  estimatedShippingToSpainGameManual?: number | null;
+  estimatedShippingToSpainComplete?: number | null;
+  estimatedShippingToSpainSealed?: number | null;
+  /** Artículo + transporte estimado a España; aduanas solo si eBay las incluye */
+  estimatedTotalToSpainLoose?: number | null;
+  estimatedTotalToSpainGameManual?: number | null;
+  estimatedTotalToSpainComplete?: number | null;
+  estimatedTotalToSpainSealed?: number | null;
   /** Origen de datos agregados (TodoColeccion, CeX, …) */
   priceDataSources?: string | null;
   pcRefPrice: number | null;
@@ -334,6 +344,14 @@ export type CollectionItem = {
   estimatedPriceGameManual?: number | null;
   estimatedPriceComplete?: number | null;
   estimatedPriceSealed?: number | null;
+  estimatedShippingToSpainLoose?: number | null;
+  estimatedShippingToSpainGameManual?: number | null;
+  estimatedShippingToSpainComplete?: number | null;
+  estimatedShippingToSpainSealed?: number | null;
+  estimatedTotalToSpainLoose?: number | null;
+  estimatedTotalToSpainGameManual?: number | null;
+  estimatedTotalToSpainComplete?: number | null;
+  estimatedTotalToSpainSealed?: number | null;
   priceDataSources?: string | null;
   pcRefPrice: number | null;
   deltaEsVsPc: number | null;

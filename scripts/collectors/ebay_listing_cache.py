@@ -12,21 +12,35 @@ from collectors.common import load_json, now_iso, save_json
 from collectors.storage_paths import ingest_dir
 
 LISTING_CACHE_ROOT = ingest_dir() / "cache" / "ebay-listings"
+EBAY_LISTING_CACHE_VERSION = 2
 
 
-def item_snapshot(item: dict[str, Any]) -> tuple[str, float, str]:
+def _optional_money(value: Any) -> float | None:
+    try:
+        return round(float(value), 2) if value is not None else None
+    except (TypeError, ValueError):
+        return None
+
+
+def item_snapshot(item: dict[str, Any]) -> tuple[str, float, str, float | None, float | None, str]:
     title = str(item.get("title") or "").strip()
     price = round(float(item.get("priceEur") or 0), 2)
     listing_type = "sold" if item.get("_listingType") == "sold" else str(item.get("listingType") or "active")
-    return title, price, listing_type
+    shipping = _optional_money(item.get("shippingEur"))
+    total_to_spain = _optional_money(item.get("estimatedTotalToSpainEur"))
+    origin_country = str(item.get("originCountry") or "").strip().upper()
+    return title, price, listing_type, shipping, total_to_spain, origin_country
 
 
 def cache_is_fresh(cached: dict[str, Any], item: dict[str, Any]) -> bool:
-    title, price, listing_type = item_snapshot(item)
+    title, price, listing_type, shipping, total_to_spain, origin_country = item_snapshot(item)
     return (
         str(cached.get("title") or "") == title
         and round(float(cached.get("priceEur") or 0), 2) == price
         and str(cached.get("listingType") or "active") == listing_type
+        and _optional_money(cached.get("shippingEur")) == shipping
+        and _optional_money(cached.get("estimatedTotalToSpainEur")) == total_to_spain
+        and str(cached.get("originCountry") or "").strip().upper() == origin_country
     )
 
 
@@ -50,6 +64,8 @@ def read_listing_cache(
     cached = load_json(path, {})
     if not cache_policy_matches(cached):
         return None
+    if int(cached.get("ebayListingCacheVersion") or 0) != EBAY_LISTING_CACHE_VERSION:
+        return None
     if not cache_is_fresh(cached, item):
         return None
     return cached
@@ -67,12 +83,16 @@ def write_listing_cache(
     cache_key = product_cache_key(item, "ebay-es")
     if not cache_key:
         return
-    title, price, listing_type = item_snapshot(item)
+    title, price, listing_type, shipping, total_to_spain, origin_country = item_snapshot(item)
     payload: dict[str, Any] = {
         "itemId": str(item.get("itemId") or ""),
         "title": title,
         "priceEur": price,
         "listingType": listing_type,
+        "shippingEur": shipping,
+        "estimatedTotalToSpainEur": total_to_spain,
+        "originCountry": origin_country,
+        "ebayListingCacheVersion": EBAY_LISTING_CACHE_VERSION,
         "accepted": accepted,
         "skipReason": skip_reason,
         "resolvedAt": now_iso(),

@@ -1,0 +1,75 @@
+name: eBay PS4 regional campaign
+
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: "Juegos a consultar (1-250)"
+        required: false
+        default: "25"
+        type: string
+      dry_run:
+        description: "Solo mostrar el siguiente lote"
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: price-data-writes
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run resumable PS4 campaign
+        id: campaign
+        env:
+          EBAY_APP_ID: ${{ secrets.EBAY_APP_ID }}
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          BATCH_SIZE="${{ inputs.batch_size || '100' }}"
+          ARGS=(--batch-size "$BATCH_SIZE" --per-game 8 --delay 0.5)
+          if [[ "${{ inputs.dry_run }}" == "true" ]]; then
+            ARGS+=(--dry-run)
+          fi
+          python3 scripts/run_ebay_regional_campaign.py "${ARGS[@]}"
+
+      - name: Commit campaign progress
+        if: inputs.dry_run != true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/catalog.json \
+            data/ebay-regional-campaigns/ps4.json \
+            data/meta.json \
+            data/price-history.json \
+            data/price-sync-state.json
+          if git diff --staged --quiet; then
+            echo "Sin cambios de campaña."
+            exit 0
+          fi
+          git fetch origin main
+          if [[ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]]; then
+            echo "main cambió durante el lote; no se fuerza una mezcla de datos." >&2
+            exit 1
+          fi
+          git commit -m "chore(prices): advance PS4 eBay regional campaign"
+          git push origin HEAD:main

@@ -31,7 +31,23 @@ type GameWithConditionPrices = Pick<
   | "estimatedPriceGameManual"
   | "estimatedPriceComplete"
   | "estimatedPriceSealed"
+  | "estimatedShippingToSpainLoose"
+  | "estimatedShippingToSpainGameManual"
+  | "estimatedShippingToSpainComplete"
+  | "estimatedShippingToSpainSealed"
+  | "estimatedTotalToSpainLoose"
+  | "estimatedTotalToSpainGameManual"
+  | "estimatedTotalToSpainComplete"
+  | "estimatedTotalToSpainSealed"
 >;
+
+export type ConditionPriceEntry = {
+  bucket: ConditionBucket;
+  label: string;
+  price: number;
+  shippingToSpain: number | null;
+  totalToSpain: number | null;
+};
 
 export function hasAnyConditionEstimate(game: GameWithConditionPrices): boolean {
   return (
@@ -44,13 +60,15 @@ export function hasAnyConditionEstimate(game: GameWithConditionPrices): boolean 
 
 export function conditionPriceEntries(
   game: GameWithConditionPrices,
-): { bucket: ConditionBucket; label: string; price: number }[] {
-  const entries: { bucket: ConditionBucket; label: string; price: number }[] = [];
+): ConditionPriceEntry[] {
+  const entries: ConditionPriceEntry[] = [];
   if (game.estimatedPriceLoose != null) {
     entries.push({
       bucket: "loose",
       label: CONDITION_PRICE_LABELS.loose,
       price: game.estimatedPriceLoose,
+      shippingToSpain: game.estimatedShippingToSpainLoose ?? null,
+      totalToSpain: game.estimatedTotalToSpainLoose ?? null,
     });
   }
   if (game.estimatedPriceGameManual != null) {
@@ -58,6 +76,8 @@ export function conditionPriceEntries(
       bucket: "gameManual",
       label: CONDITION_PRICE_LABELS.gameManual,
       price: game.estimatedPriceGameManual,
+      shippingToSpain: game.estimatedShippingToSpainGameManual ?? null,
+      totalToSpain: game.estimatedTotalToSpainGameManual ?? null,
     });
   }
   if (game.estimatedPriceComplete != null) {
@@ -65,6 +85,8 @@ export function conditionPriceEntries(
       bucket: "complete",
       label: CONDITION_PRICE_LABELS.complete,
       price: game.estimatedPriceComplete,
+      shippingToSpain: game.estimatedShippingToSpainComplete ?? null,
+      totalToSpain: game.estimatedTotalToSpainComplete ?? null,
     });
   }
   if (game.estimatedPriceSealed != null) {
@@ -72,6 +94,8 @@ export function conditionPriceEntries(
       bucket: "sealed",
       label: CONDITION_PRICE_LABELS.sealed,
       price: game.estimatedPriceSealed,
+      shippingToSpain: game.estimatedShippingToSpainSealed ?? null,
+      totalToSpain: game.estimatedTotalToSpainSealed ?? null,
     });
   }
   return entries.sort(

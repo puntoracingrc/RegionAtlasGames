@@ -24,9 +24,13 @@ function observation(overrides: Partial<MarketObservation> = {}): MarketObservat
     affiliateUrl: null,
     imageUrls: [],
     price: 20,
+    originalPrice: null,
+    originalCurrency: null,
     shippingPrice: 2,
     totalPrice: 22,
     currency: "EUR",
+    originLabel: "España",
+    importCostsMayApply: false,
     condition: "Used",
     conditionBucket: "complete",
     confidence: 0.9,
@@ -85,7 +89,8 @@ test("requires three distinct current observations and removes strong outliers",
   const estimates = calculateStoredMarketEstimates(values.map((value, index) => observation({
     id: `ebay:EBAY_ES:item-${index}`,
     listingId: `item-${index}`,
-    totalPrice: value,
+    price: value,
+    totalPrice: value + 2,
   })), Date.parse(NOW));
   assert.equal(estimates.length, 1);
   assert.equal(estimates[0].verified, true);
@@ -93,6 +98,8 @@ test("requires three distinct current observations and removes strong outliers",
   assert.equal(estimates[0].observations, 5);
   assert.equal(estimates[0].outliers, 1);
   assert.equal(estimates[0].median, 22);
+  assert.equal(estimates[0].shippingMedian, 2);
+  assert.equal(estimates[0].totalToSpainMedian, 24);
 });
 
 test("does not publish expired, rejected or non-EUR evidence", () => {
@@ -115,7 +122,7 @@ test("deduplicates an eBay item and preserves an explicit admin rejection", () =
     reviewedAt: "2026-08-27T11:00:00.000Z",
     reviewedBy: "admin@example.test",
   });
-  const incoming = observation({ totalPrice: 25, seenCount: 0 });
+  const incoming = observation({ price: 23, totalPrice: 25, seenCount: 0 });
   const merged = mergeMarketResearchDocument(document([existing]), {
     identity: { catalogId: "ps2-game", title: "Game", platformSlug: "ps2", region: "PAL España" },
     observations: [incoming],
@@ -124,6 +131,7 @@ test("deduplicates an eBay item and preserves an explicit admin rejection", () =
   });
   assert.equal(merged.observations.length, 1);
   assert.equal(merged.observations[0].totalPrice, 25);
+  assert.equal(merged.observations[0].price, 23);
   assert.equal(merged.observations[0].seenCount, 2);
   assert.equal(merged.observations[0].reviewStatus, "rejected");
   assert.equal(merged.observations[0].reviewedBy, "admin@example.test");

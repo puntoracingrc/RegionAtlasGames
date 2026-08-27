@@ -47,6 +47,31 @@ from region_evidence_rules import check_listing_evidence_meets_rules  # noqa: E4
 REQUEST_DELAY = 1.0
 
 
+def requested_catalog_ids(path: Path) -> list[str]:
+    raw = path.read_text(encoding="utf-8")
+    try:
+        payload = load_json(path, [])
+    except ValueError:
+        payload = None
+    if isinstance(payload, dict):
+        payload = payload.get("catalogIds") or []
+    if isinstance(payload, list):
+        return [str(value).strip() for value in payload if str(value).strip()]
+    return [line.strip() for line in raw.splitlines() if line.strip() and not line.startswith("#")]
+
+
+def select_games(platform_slug: str, region: str | None, limit: int, ids_file: Path | None) -> list[dict[str, Any]]:
+    games = es_market_games(platform_slug, region)
+    if not ids_file:
+        return games[:limit]
+    requested = requested_catalog_ids(ids_file)
+    by_id = {str(game.get("id")): game for game in games}
+    missing = [catalog_id for catalog_id in requested if catalog_id not in by_id]
+    if missing:
+        raise SystemExit(f"IDs fuera de la plataforma/región: {', '.join(missing[:10])}")
+    return [by_id[catalog_id] for catalog_id in requested[:limit]]
+
+
 def passes_rules(platform_slug: str, catalog_region: str, row: dict) -> bool:
     if not row.get("regionVerified"):
         return False
@@ -135,6 +160,16 @@ def process_ebay_item(
         product_url=str(item.get("url") or ""),
         image_url=str(item.get("imageUrl") or "") or None,
         game_title=str(game.get("title") or ""),
+        shipping_eur=item.get("shippingEur"),
+        total_to_spain_eur=item.get("estimatedTotalToSpainEur"),
+        original_price=item.get("originalPrice"),
+        original_currency=item.get("originalCurrency"),
+        origin_country=item.get("originCountry"),
+        origin_label=item.get("originLabel"),
+        destination_country=item.get("destinationCountry"),
+        destination_postal_code=item.get("destinationPostalCode"),
+        marketplace_id=item.get("marketplaceId"),
+        import_costs_may_apply=item.get("importCostsMayApply"),
     )
     if not row:
         report["skippedTitle"] += 1
@@ -180,6 +215,7 @@ def main() -> None:
     parser.add_argument("--platform", required=True, help="Slug plataforma (ps2, ps4, dreamcast…)")
     parser.add_argument("--region", help="Filtrar región catálogo (p. ej. PAL España)")
     parser.add_argument("--limit", type=int, default=10, help="Máximo juegos a procesar")
+    parser.add_argument("--catalog-ids-file", type=Path, help="JSON o TXT con IDs exactos, en orden")
     parser.add_argument("--per-game", type=int, default=8, help="Anuncios eBay por juego")
     parser.add_argument(
         "--sold",
@@ -188,6 +224,8 @@ def main() -> None:
     )
     parser.add_argument("--active", action="store_true", help="Solo activos/precio fijo (Browse API)")
     parser.add_argument("--output", type=Path, help="JSON destino (default: data/price-ingest/{platform}-ebay.json)")
+    parser.add_argument("--report-output", type=Path, help="Informe JSON destino")
+    parser.add_argument("--destination-postal-code", default="", help="Código postal español para estimar envío")
     parser.add_argument("--merge", action="store_true", help="Fusionar con JSON existente")
     parser.add_argument(
         "--use-cache",
@@ -212,7 +250,7 @@ def main() -> None:
     if args.platform not in platforms:
         raise SystemExit(f"Plataforma desconocida: {args.platform}")
 
-    games = es_market_games(args.platform, args.region)[: args.limit]
+    games = select_games(args.platform, args.region, args.limit, args.catalog_ids_file)
     out = args.output or INGEST_DIR / f"{args.platform}-ebay.json"
     _, ref_to_ids = build_platform_reference_index(args.platform)
     use_listing_cache = not args.no_listing_cache and not args.dry_run
@@ -225,6 +263,8 @@ def main() -> None:
         "Activos: Browse API oficial, solo precio fijo (sin subastas en curso). "
         "Vendidos: Finding API legacy; requiere EBAY_ALLOW_LEGACY_SOLD=1 y puede no estar disponible. "
         "Búsqueda por título del juego; región y consola filtradas post-fetch. "
+        "Marketplace EBAY_ES, entrega a España y ubicación del artículo limitada por región. "
+        "priceEur es solo artículo; shippingEur y estimatedTotalToSpainEur van separados. "
         "Caché listing por itemId (invalida si cambia título/precio)."
     )
 
@@ -245,6 +285,11 @@ def main() -> None:
         "matchedReference": 0,
         "errors": [],
         "backend": None,
+        "catalogIdsRequested": [str(game["id"]) for game in games],
+        "catalogIdsProcessed": [],
+        "catalogIdsWithListings": [],
+        "catalogIdsNoListings": [],
+        "catalogIdsFailed": [],
     }
 
     print(
@@ -280,7 +325,13 @@ def main() -> None:
             if not raw_items:
                 for mode_idx, (is_sold, label) in enumerate(modes):
                     try:
-                        items, backend = search_ebay_es(query, sold=is_sold, max_results=args.per_game)
+                        items, backend = search_ebay_es(
+                            query,
+                            catalog_region=catalog_region,
+                            destination_postal_code=args.destination_postal_code,
+                            sold=is_sold,
+                            max_results=args.per_game,
+                        )
                     except RuntimeError as exc:
                         report["errors"].append(
                             {
@@ -331,12 +382,16 @@ def main() -> None:
                 report["gamesWithListings"] += 1
                 report["listingsAdded"] += added_for_game
                 payload["listings"].extend(game_listings)
+                report["catalogIdsWithListings"].append(catalog_id)
                 print(f"  [{idx}/{len(games)}] {game['title'][:40]} → +{added_for_game} ({query})")
             else:
+                report["catalogIdsNoListings"].append(catalog_id)
                 print(f"  [{idx}/{len(games)}] {game['title'][:40]} → 0 ({query})")
+            report["catalogIdsProcessed"].append(catalog_id)
 
         except Exception as exc:  # noqa: BLE001
             report["errors"].append({"catalogId": catalog_id, "error": str(exc)})
+            report["catalogIdsFailed"].append(catalog_id)
             print(f"  [{idx}/{len(games)}] ERROR {catalog_id}: {exc}")
 
         if not used_game_cache and idx < len(games):
@@ -358,7 +413,7 @@ def main() -> None:
         return
 
     save_json(out, payload)
-    report_path = INGEST_DIR / "reports" / f"ebay-{args.platform}-{now_iso()[:10]}.json"
+    report_path = args.report_output or INGEST_DIR / "reports" / f"ebay-{args.platform}-{now_iso()[:10]}.json"
     save_json(report_path, report)
     print(f"Escrito: {out}")
     print(f"Informe: {report_path}")
