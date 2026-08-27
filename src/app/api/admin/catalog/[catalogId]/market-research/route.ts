@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
-import { getPublishedGameForAdmin } from "@/lib/admin-catalog-publish";
-import { researchCoverCandidates } from "@/lib/cover-research";
 import { EbayApiError, EbayAuthError } from "@/lib/ebay/ebay-errors";
-import { researchEbayMarket } from "@/lib/ebay/ebay-research";
+import {
+  getStoredMarketResearch,
+  runMarketResearchForCatalog,
+} from "@/lib/market-research-service";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -31,17 +32,15 @@ export async function POST(_request: Request, { params }: RouteParams) {
   if (!(await assertAdminApi())) return response({ error: "No autorizado." }, 401);
 
   const catalogId = decodeURIComponent((await params).catalogId);
-  const resolved = await getPublishedGameForAdmin(catalogId);
-  if (!resolved) return response({ error: "Juego no encontrado." }, 404);
 
   try {
-    const ebay = await researchEbayMarket(resolved.game, resolved.details);
-    const covers = await researchCoverCandidates(resolved.game, resolved.details, ebay);
+    const result = await runMarketResearchForCatalog(catalogId);
+    if ("error" in result) return response({ error: result.error, readOnly: true }, 404);
     return response({
       ok: true,
       readOnly: true,
-      ebay,
-      covers,
+      ebay: result.ebay,
+      covers: result.covers,
     });
   } catch (error) {
     if (error instanceof EbayAuthError || error instanceof EbayApiError) {
@@ -49,9 +48,25 @@ export async function POST(_request: Request, { params }: RouteParams) {
       return response({ error: safe.message, readOnly: true }, safe.status);
     }
     console.error("[admin-market-research] request failed", {
-      catalogId: resolved.game.id,
+      catalogId,
       error: error instanceof Error ? error.message : "unknown",
     });
     return response({ error: "El análisis no ha podido terminar. No se ha modificado ningún dato.", readOnly: true }, 500);
+  }
+}
+
+export async function GET(_request: Request, { params }: RouteParams) {
+  if (!(await assertAdminApi())) return response({ error: "No autorizado." }, 401);
+  const catalogId = decodeURIComponent((await params).catalogId);
+  try {
+    const stored = await getStoredMarketResearch(catalogId);
+    if (!stored) return response({ error: "Juego no encontrado." }, 404);
+    return response({ ok: true, stored });
+  } catch (error) {
+    console.error("[admin-market-research] stored read failed", {
+      catalogId,
+      error: error instanceof Error ? error.message : "unknown",
+    });
+    return response({ error: "No se pudo leer el historial de mercado." }, 500);
   }
 }

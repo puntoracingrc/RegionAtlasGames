@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test:unit": "tsx --test src/lib/ai-usage.test.ts src/lib/catalog-staging-enrich.test.ts src/lib/import-collection.test.ts src/lib/json-document-store.test.ts src/lib/magic-link.test.ts src/lib/request-security.test.ts",
     "test:collector-controls": "python3 scripts/test_price_source_modes.py && python3 scripts/test_generic_source_pagination.py",
-    "test:market-enrichment": "tsx --test src/lib/catalog-overlay-merge.test.ts src/lib/ebay/ebay-research-match.test.ts src/lib/ebay/ebay-research.test.ts src/lib/cover-research.test.ts && python3 scripts/test_price_confidence.py",
+    "test:market-enrichment": "tsx --test src/lib/catalog-overlay-merge.test.ts src/lib/ebay/ebay-research-match.test.ts src/lib/ebay/ebay-research.test.ts src/lib/cover-research.test.ts src/lib/market-research-store.test.ts src/lib/market-research-service.test.ts src/lib/market-research-batches.test.ts && python3 scripts/test_price_confidence.py",
     "validate:affiliate-offers-v1": "node scripts/validate-affiliate-offers-v1.mjs",
     "validate:rakuten-auth-v1": "node scripts/validate-rakuten-auth-v1.mjs",
     "validate:rakuten-advertiser-discovery-v1": "node scripts/validate-rakuten-advertiser-discovery-v1.mjs",

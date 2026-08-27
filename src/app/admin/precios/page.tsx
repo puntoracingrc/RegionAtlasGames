@@ -2,6 +2,7 @@ import Link from "next/link";
 import { readFileSync } from "fs";
 import path from "path";
 import { AdminLocalGameRunnerPanel } from "@/components/admin/admin-local-game-runner-panel";
+import { AdminMarketCollectionPanel } from "@/components/admin/admin-market-collection-panel";
 import { AdminPriceCoverageTable } from "@/components/admin/admin-price-coverage-table";
 import { AdminPriceReviewPanel } from "@/components/admin/admin-price-review-panel";
 import { AdminPriceSourceSettingsPanel } from "@/components/admin/admin-price-source-settings-panel";
@@ -16,6 +17,7 @@ import {
 import type { AdminPriceCronAttempt } from "@/lib/admin-price-cron-log";
 import { listPriceReviewItems } from "@/lib/admin-price-review";
 import { listLocalGameRunnerJobs, localGameRunnerTokenConfigured } from "@/lib/local-game-runner-jobs";
+import { listMarketResearchBatches } from "@/lib/market-research-batches";
 import { readPriceSourceSettings } from "@/lib/price-source-settings";
 
 export const dynamic = "force-dynamic";
@@ -336,11 +338,12 @@ export default async function AdminPricesPage({
 }) {
   const params = await searchParams;
   const coverageSort = normalizeCoverageSort(params?.coverageSort);
-  const [dashboard, priceSourceSettings, priceReviewItems, localGameJobs] = await Promise.all([
+  const [dashboard, priceSourceSettings, priceReviewItems, localGameJobs, marketBatches] = await Promise.all([
     getAdminPriceDashboard(20),
     readPriceSourceSettings(),
     listPriceReviewItems(500),
     listLocalGameRunnerJobs(20),
+    listMarketResearchBatches(12),
   ]);
   const platformOptions = readPriceSourcePlatformOptions();
   const regionOptions = readPriceSourceRegionOptions();
@@ -475,6 +478,12 @@ export default async function AdminPricesPage({
           </p>
         </Panel>
       </div>
+
+      <AdminMarketCollectionPanel
+        initialBatches={marketBatches}
+        platformOptions={platformOptions}
+        regionOptions={regionOptions}
+      />
 
       <AdminPriceSourceSettingsPanel
         initialSettings={priceSourceSettings}

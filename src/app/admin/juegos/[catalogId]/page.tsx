@@ -10,6 +10,7 @@ import {
 } from "@/lib/admin-catalog-publish";
 import { companies } from "@/lib/indexes";
 import { getAdminGameEditorTaxonomyOptions } from "@/lib/admin-game-editor-options";
+import { getStoredMarketResearch } from "@/lib/market-research-service";
 
 type Props = { params: Promise<{ catalogId: string }> };
 
@@ -24,6 +25,8 @@ export default async function AdminEditPublishedGamePage({ params }: Props) {
     .slice(0, 400)
     .map((c) => ({ name: c.name, slug: c.slug }));
   const taxonomyOptions = getAdminGameEditorTaxonomyOptions();
+  const storedMarketResearch = await getStoredMarketResearch(resolved.game.id);
+  if (!storedMarketResearch) notFound();
 
   return (
     <div>
@@ -39,7 +42,7 @@ export default async function AdminEditPublishedGamePage({ params }: Props) {
         catalogId={catalogId}
       />
       <div className="mt-8">
-        <AdminMarketResearchPanel catalogId={catalogId} />
+        <AdminMarketResearchPanel catalogId={catalogId} initialStored={storedMarketResearch} />
       </div>
       <div className="mt-8">
         <AdminGamePricesPanel
