@@ -32,6 +32,17 @@ def main() -> None:
     assert game["estimatedShippingToSpainComplete"] == 5
     assert game["estimatedTotalToSpainComplete"] == 30
     assert "estimatedPriceComplete" not in game
+
+    priced_game = {"estimatedPriceComplete": 30}
+    changed = apply_ebay_delivery_estimates(
+        priced_game,
+        [listing("one", 20, 4), listing("two", 30, 6)],
+        catalog_region="PAL España",
+        platform_slug="ps4",
+    )
+    assert changed is True
+    assert priced_game["estimatedShippingToSpainComplete"] == 5
+    assert priced_game["estimatedTotalToSpainComplete"] == 35
     print("OK: eBay delivery estimates stay separate from item price")
 
 
