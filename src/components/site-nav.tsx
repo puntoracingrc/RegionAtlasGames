@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { AuthNav } from "@/components/auth-nav";
 import { SiteLogo } from "@/components/site-logo";
 import { cn } from "@/lib/cn";
+import type { PublicUser } from "@/lib/session";
 
 const LINKS = [
   { href: "/", label: "Inicio" },
@@ -20,6 +21,7 @@ const LINKS = [
 
 const ADMIN_LINK = { href: "/admin", label: "Admin" };
 const CONTRIBUTOR_LINK = { href: "/contribuir", label: "Contribuir" };
+type StaffRole = "admin" | "contributor" | null;
 
 function MenuIcon({ open }: { open: boolean }) {
   return (
@@ -45,12 +47,19 @@ function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
-export function SiteNav() {
+export function SiteNav({
+  initialStaffRole,
+  initialUser,
+}: {
+  initialStaffRole?: StaffRole;
+  initialUser?: PublicUser | null;
+} = {}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [staffRole, setStaffRole] = useState<"admin" | "contributor" | null>(null);
+  const [staffRole, setStaffRole] = useState<StaffRole>(initialStaffRole ?? null);
 
   useEffect(() => {
+    if (initialStaffRole !== undefined) return;
     let cancelled = false;
     fetch("/api/admin/me")
       .then((res) => (res.ok ? res.json() : null))
@@ -63,7 +72,7 @@ export function SiteNav() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [initialStaffRole]);
 
   const navLinks =
     staffRole === "admin"
@@ -118,7 +127,7 @@ export function SiteNav() {
             </Link>
           )}
 
-          <AuthNav />
+          <AuthNav initialUser={initialUser} />
 
           <button
             type="button"

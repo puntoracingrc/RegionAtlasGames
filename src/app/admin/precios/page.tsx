@@ -555,9 +555,6 @@ export default async function AdminPricesPage({
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted">IA recolectores</p>
                 <p className="mt-1 text-sm font-semibold text-foreground">{dashboard.aiStatus.label}</p>
                 <p className="mt-1 text-xs text-muted">{dashboard.aiStatus.helper}</p>
-                {dashboard.aiStatus.checkedAt ? (
-                  <p className="mt-1 text-[11px] text-muted">Comprobado: {formatDate(dashboard.aiStatus.checkedAt)}</p>
-                ) : null}
               </div>
               <Badge tone={aiStatusTone(dashboard.aiStatus.workerOpenAiConfigured)}>
                 {dashboard.aiStatus.workerOpenAiConfigured === true

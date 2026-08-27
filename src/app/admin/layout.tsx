@@ -1,18 +1,17 @@
-import { Suspense } from "react";
 import { SiteNav } from "@/components/site-nav";
 import { AdminNav } from "@/components/admin/admin-nav";
 import { requireAdminUser } from "@/lib/admin-auth";
 import { getCatalogStagingSummary } from "@/lib/catalog-staging";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  await requireAdminUser();
+  const user = await requireAdminUser();
   const pendingReviewCount = await getCatalogStagingSummary(0)
     .then((summary) => summary.totalGames)
     .catch(() => 0);
 
   return (
     <>
-      <SiteNav />
+      <SiteNav initialStaffRole="admin" initialUser={user} />
       <main className="mx-auto max-w-7xl px-4 py-6 md:px-6 md:py-8">
         <header className="mb-5 overflow-hidden rounded-3xl border border-border/80 bg-card/80 p-5 shadow-sm shadow-black/5 backdrop-blur md:p-7 dark:shadow-black/20">
           <div className="max-w-3xl">
@@ -28,9 +27,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             </p>
           </div>
         </header>
-        <Suspense fallback={null}>
-          <AdminNav pendingReviewCount={pendingReviewCount} />
-        </Suspense>
+        <AdminNav pendingReviewCount={pendingReviewCount} />
         {children}
       </main>
     </>
