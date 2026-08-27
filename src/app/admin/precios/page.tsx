@@ -24,6 +24,7 @@ export const dynamic = "force-dynamic";
 
 type RecentLabel = "hoy" | "ayer" | "reciente" | "antiguo";
 type CoverageSort = "updated-desc" | "updated-asc" | "coverage-desc" | "coverage-asc";
+type HydrationSection = "empty" | "top" | "campaign" | "history" | "coverage" | "cron" | "jobs";
 type PriceSyncHealth = {
   label: string;
   tone: "green" | "amber" | "rose" | "neutral";
@@ -472,6 +473,22 @@ function normalizeCoverageSort(value: string | string[] | undefined): CoverageSo
   return "updated-desc";
 }
 
+function normalizeHydrationSection(value: string | string[] | undefined): HydrationSection | null {
+  const current = Array.isArray(value) ? value[0] : value;
+  if (
+    current === "empty" ||
+    current === "top" ||
+    current === "campaign" ||
+    current === "history" ||
+    current === "coverage" ||
+    current === "cron" ||
+    current === "jobs"
+  ) {
+    return current;
+  }
+  return null;
+}
+
 export default async function AdminPricesPage({
   searchParams,
 }: {
@@ -479,6 +496,9 @@ export default async function AdminPricesPage({
 }) {
   const params = await searchParams;
   const coverageSort = normalizeCoverageSort(params?.coverageSort);
+  const hydrationSection = normalizeHydrationSection(params?.hydrationSection);
+  const showSection = (section: Exclude<HydrationSection, "empty">) =>
+    hydrationSection == null || hydrationSection === section;
   const [dashboard, priceSourceSettings, priceReviewItems, localGameJobs, marketBatches] = await Promise.all([
     getAdminPriceDashboard(20),
     readPriceSourceSettings(),
@@ -507,7 +527,7 @@ export default async function AdminPricesPage({
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-4 lg:grid-cols-3">
+      {showSection("top") ? <div className="grid gap-4 lg:grid-cols-3">
         <Panel className={`${adminToneClass("status")} min-w-0 lg:col-span-2`}>
           <PanelTitle eyebrow="Rotación automática">Estado de recopilación</PanelTitle>
           <div className="grid gap-3 sm:grid-cols-3">
@@ -622,9 +642,9 @@ export default async function AdminPricesPage({
             Fuente de datos: {dashboard.syncStateSource === "worker" ? "worker externo" : "copia local"}.
           </p>
         </Panel>
-      </div>
+      </div> : null}
 
-      <Panel className={adminToneClass("status")}>
+      {showSection("campaign") ? <Panel className={adminToneClass("status")}>
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <PanelTitle eyebrow="eBay España · cada 6 horas">Campaña regional global</PanelTitle>
@@ -744,28 +764,32 @@ export default async function AdminPricesPage({
             {(ebayCampaign.log ?? []).map((entry) => `${entry.at ?? "—"} | ${entry.level ?? "info"} | ${entry.platformSlug ?? "ps4"} | ${entry.region ?? "—"} | ${entry.message ?? ""}`).join("\n") || "Todavía no se ha ejecutado el primer lote."}
           </pre>
         </details>
-      </Panel>
+      </Panel> : null}
 
-      <AdminMarketCollectionPanel
-        initialBatches={marketBatches}
-        platformOptions={platformOptions}
-        regionOptions={regionOptions}
-      />
+      {hydrationSection == null ? (
+        <>
+          <AdminMarketCollectionPanel
+            initialBatches={marketBatches}
+            platformOptions={platformOptions}
+            regionOptions={regionOptions}
+          />
 
-      <AdminPriceSourceSettingsPanel
-        initialSettings={priceSourceSettings}
-        platformOptions={platformOptions}
-        regionOptions={regionOptions}
-      />
+          <AdminPriceSourceSettingsPanel
+            initialSettings={priceSourceSettings}
+            platformOptions={platformOptions}
+            regionOptions={regionOptions}
+          />
 
-      <AdminLocalGameRunnerPanel
-        initialJobs={localGameJobs}
-        tokenConfigured={localGameRunnerTokenConfigured()}
-      />
+          <AdminLocalGameRunnerPanel
+            initialJobs={localGameJobs}
+            tokenConfigured={localGameRunnerTokenConfigured()}
+          />
 
-      <AdminPriceReviewPanel initialItems={priceReviewItems} />
+          <AdminPriceReviewPanel initialItems={priceReviewItems} />
+        </>
+      ) : null}
 
-      <Panel className={adminToneClass("search")}>
+      {showSection("history") ? <Panel className={adminToneClass("search")}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <PanelTitle eyebrow="Historial">Últimas plataformas sincronizadas</PanelTitle>
           <div className="flex flex-wrap gap-2">
@@ -875,9 +899,9 @@ export default async function AdminPricesPage({
           Cobertura sync = porcentaje de juegos objetivo que recibieron precio P2P verificado en esa sincronización concreta.
           El detalle separa el P2P total de las fuentes reales que aportaron datos.
         </p>
-      </Panel>
+      </Panel> : null}
 
-      <Panel className={adminToneClass("bulk")}>
+      {showSection("coverage") ? <Panel className={adminToneClass("bulk")}>
         <div className="mb-4">
           <PanelTitle eyebrow="Cobertura">Estado de precios por plataforma y región</PanelTitle>
           <p className="mt-2 text-sm leading-6 text-muted">
@@ -892,9 +916,9 @@ export default async function AdminPricesPage({
           unavailableReason={canCollectPrices ? undefined : adminPriceCollectUnavailableReason()}
           manualJobs={dashboard.manualJobs}
         />
-      </Panel>
+      </Panel> : null}
 
-      <Panel className={adminToneClass("status")}>
+      {showSection("cron") ? <Panel className={adminToneClass("status")}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <PanelTitle eyebrow="Cron automático">Últimos intentos reales de la rueda</PanelTitle>
           <div className="flex flex-wrap gap-2">
@@ -963,9 +987,9 @@ export default async function AdminPricesPage({
             {dashboard.cronLogTail || "Sin log del cron disponible todavía."}
           </pre>
         </details>
-      </Panel>
+      </Panel> : null}
 
-      <Panel className={adminToneClass("status")}>
+      {showSection("jobs") ? <Panel className={adminToneClass("status")}>
         <PanelTitle eyebrow="Trabajos">Lanzamientos manuales y automáticos</PanelTitle>
         {dashboard.manualJobs.length > 0 ? (
           <div className="grid gap-3 md:grid-cols-2">
@@ -1037,7 +1061,7 @@ export default async function AdminPricesPage({
             Todavía no hay trabajos manuales guardados en esta instalación.
           </p>
         )}
-      </Panel>
+      </Panel> : null}
     </div>
   );
 }
