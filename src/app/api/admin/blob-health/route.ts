@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
 import { blobAuthOptions } from "@/lib/blob-auth";
 
-export async function GET() {
+export async function POST() {
   const admin = await assertAdminApi();
   if (!admin) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });

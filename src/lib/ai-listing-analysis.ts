@@ -107,8 +107,12 @@ async function photoInputUrl(listing: MarketplaceListing, url: string): Promise<
     return privateBlobPhotoDataUrl(apiPhotoMatch[1] || listing.id, apiPhotoMatch[2]);
   }
   if (!url.startsWith("/listing-photos/")) return null;
+  if (process.env.VERCEL) return null;
   try {
-    const buffer = readFileSync(path.join(process.cwd(), "public", url));
+    const photosRoot = path.resolve(process.cwd(), "public", "listing-photos");
+    const localPath = path.resolve(photosRoot, url.slice("/listing-photos/".length));
+    if (!localPath.startsWith(`${photosRoot}${path.sep}`)) return null;
+    const buffer = readFileSync(/* turbopackIgnore: true */ localPath);
     return `data:image/jpeg;base64,${buffer.toString("base64")}`;
   } catch {
     return null;

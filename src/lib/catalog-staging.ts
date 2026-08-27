@@ -6,9 +6,9 @@ import type {
   StagingImportCandidate,
 } from "./catalog-staging-types";
 import {
+  applyCatalogStagingGameTransition,
   readCatalogStagingGame,
   readCatalogStagingIndex,
-  rebuildPlatformStats,
   trackUserId,
   writeCatalogStagingGame,
   writeCatalogStagingIndex,
@@ -136,33 +136,39 @@ export async function upsertCatalogStagingFromImport(input: {
     return result;
   }
 
-  let index = await readCatalogStagingIndex();
-  const touched: CatalogStagingGame[] = [];
+  let index = await readCatalogStagingIndex({ fresh: true });
+  const transitions: Array<{
+    before: CatalogStagingGame | null;
+    after: CatalogStagingGame;
+  }> = [];
 
   for (const candidate of candidates) {
-    const existing = await readCatalogStagingGame(candidate.pcImportId);
+    const existing = await readCatalogStagingGame(candidate.pcImportId, { fresh: true });
     const merged = mergeGame(existing, candidate, input.userId, importedAt);
     const saved = await writeCatalogStagingGame(merged);
     if ("error" in saved) continue;
 
     index = upsertIndexPcId(index, merged.pcId);
-    touched.push(merged);
+    transitions.push({ before: existing, after: merged });
     result.upserted += 1;
     if (existing) result.updated += 1;
     else result.created += 1;
   }
 
-  const allGames = await Promise.all(index.pcIds.map((pcId) => readCatalogStagingGame(pcId)));
-  const games = allGames.filter((game): game is CatalogStagingGame => Boolean(game));
-  index.byPlatform = rebuildPlatformStats(games.length > 0 ? games : touched);
-  await writeCatalogStagingIndex(index);
+  for (const transition of transitions) {
+    applyCatalogStagingGameTransition(index, transition.before, transition.after);
+  }
+  const indexSaved = await writeCatalogStagingIndex(index);
+  if ("error" in indexSaved) throw new Error(indexSaved.error);
   result.totalQueued = index.pcIds.length;
   return result;
 }
 
 export async function getCatalogStagingSummary(limit = 12) {
   const index = await readCatalogStagingIndex();
-  const games = await Promise.all(index.pcIds.map((pcId) => readCatalogStagingGame(pcId)));
+  const games = limit > 0
+    ? await Promise.all(index.pcIds.map((pcId) => readCatalogStagingGame(pcId)))
+    : [];
   const valid = games.filter((game): game is CatalogStagingGame => Boolean(game));
   const topByUnits = [...valid]
     .sort((a, b) => b.unitCount - a.unitCount || b.userCount - a.userCount)

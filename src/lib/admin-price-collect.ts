@@ -148,8 +148,8 @@ export function adminPriceCollectUnavailableReason(): string {
 
 function jobPaths(jobId: string) {
   return {
-    log: path.join(JOBS_DIR, `${jobId}.log`),
-    status: path.join(JOBS_DIR, `${jobId}.json`),
+    log: path.join(/* turbopackIgnore: true */ JOBS_DIR, `${jobId}.log`),
+    status: path.join(/* turbopackIgnore: true */ JOBS_DIR, `${jobId}.json`),
   };
 }
 
@@ -428,7 +428,7 @@ export async function startAdminPriceCollectJob(input: PriceJobStartInput): Prom
   );
   await rememberAdminPriceJob(initialMeta);
 
-  const logFd = openSync(paths.log, "a");
+  const logFd = openSync(/* turbopackIgnore: true */ paths.log, "a");
   const child = spawn("python3", args, {
     cwd: process.cwd(),
     env: process.env,
@@ -545,12 +545,14 @@ export async function readAdminPriceJob(jobId: string): Promise<AdminPriceJobMet
     return readRemotePriceJob(jobId);
   }
   const paths = jobPaths(jobId);
-  if (!existsSync(paths.status)) return null;
+  if (!existsSync(/* turbopackIgnore: true */ paths.status)) return null;
 
   try {
-    const meta = JSON.parse(readFileSync(paths.status, "utf8")) as AdminPriceJobMeta;
-    if (existsSync(paths.log)) {
-      const log = readFileSync(paths.log, "utf8");
+    const meta = JSON.parse(
+      readFileSync(/* turbopackIgnore: true */ paths.status, "utf8"),
+    ) as AdminPriceJobMeta;
+    if (existsSync(/* turbopackIgnore: true */ paths.log)) {
+      const log = readFileSync(/* turbopackIgnore: true */ paths.log, "utf8");
       meta.logTail = log.slice(-80000);
     }
     return inferRemoteJobErrorFromLog(meta, meta.logTail);

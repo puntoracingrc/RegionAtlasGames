@@ -6,7 +6,9 @@ import { getCatalogStagingSummary } from "@/lib/catalog-staging";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   await requireAdminUser();
-  const summary = await getCatalogStagingSummary(0);
+  const pendingReviewCount = await getCatalogStagingSummary(0)
+    .then((summary) => summary.totalGames)
+    .catch(() => 0);
 
   return (
     <>
@@ -27,7 +29,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           </div>
         </header>
         <Suspense fallback={null}>
-          <AdminNav pendingReviewCount={summary.totalGames} />
+          <AdminNav pendingReviewCount={pendingReviewCount} />
         </Suspense>
         {children}
       </main>

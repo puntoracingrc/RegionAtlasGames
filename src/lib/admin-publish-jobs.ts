@@ -39,7 +39,7 @@ function safeJobId(value: string): string {
 }
 
 function jobDiskPath(jobId: string): string {
-  return path.join(JOBS_DIR, `${safeJobId(jobId)}.json`);
+  return path.join(/* turbopackIgnore: true */ JOBS_DIR, `${safeJobId(jobId)}.json`);
 }
 
 function jobBlobPath(jobId: string): string {
@@ -110,8 +110,9 @@ export async function readAdminPublishJob(jobId: string): Promise<AdminPublishJo
   }
 
   try {
-    if (!existsSync(jobDiskPath(safe))) return null;
-    return parseJob(readFileSync(jobDiskPath(safe), "utf8"));
+    const diskPath = jobDiskPath(safe);
+    if (!existsSync(/* turbopackIgnore: true */ diskPath)) return null;
+    return parseJob(readFileSync(/* turbopackIgnore: true */ diskPath, "utf8"));
   } catch {
     return null;
   }

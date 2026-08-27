@@ -88,6 +88,17 @@ const nextConfig: NextConfig = {
       "public/platform-consoles/**",
     ],
   },
+  outputFileTracingIncludes: {
+    "/api/admin/price-worker/sync": [
+      "./data/platform-sources.json",
+      "./data/region-evidence-rules.json",
+      "./data/price-source-weights.json",
+      "./scripts/*.py",
+      "./scripts/collectors/*.py",
+      "./scripts/remote_price_rotation.sh",
+      "./scripts/remote_price_job_runner.sh",
+    ],
+  },
   experimental: {
     serverSourceMaps: false,
     turbopackInputSourceMaps: false,
