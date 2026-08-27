@@ -1,4 +1,4 @@
-name: eBay PS4 regional campaign
+name: eBay global regional campaign
 
 on:
   schedule:
@@ -36,7 +36,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Run resumable PS4 campaign
+      - name: Run resumable global campaign
         id: campaign
         env:
           EBAY_APP_ID: ${{ secrets.EBAY_APP_ID }}
@@ -44,7 +44,7 @@ jobs:
           EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          BATCH_SIZE="${{ inputs.batch_size || '100' }}"
+          BATCH_SIZE="${{ inputs.batch_size || '50' }}"
           ARGS=(--batch-size "$BATCH_SIZE" --per-game 8 --delay 0.5)
           if [[ "${{ inputs.dry_run }}" == "true" ]]; then
             ARGS+=(--dry-run)
@@ -54,11 +54,17 @@ jobs:
               exit 1
             }
             [[ -n "$OPENAI_API_KEY" ]] || {
-              echo "Falta OPENAI_API_KEY; PS4 exige validar evidencia visual antes de publicar precios." >&2
+              echo "Falta OPENAI_API_KEY; la campaña exige validar la edición antes de publicar precios." >&2
               exit 1
             }
           fi
           python3 scripts/run_ebay_regional_campaign.py "${ARGS[@]}"
+
+      - name: Validate campaign state and regional policy
+        if: inputs.dry_run != true
+        run: |
+          python3 scripts/test_ebay_region_policy.py
+          python3 scripts/test_ebay_regional_campaign.py
 
       - name: Commit campaign progress
         if: inputs.dry_run != true
@@ -67,7 +73,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
             data/catalog.json \
-            data/ebay-regional-campaigns/ps4.json \
+            data/ebay-regional-campaigns \
             data/meta.json \
             data/price-history.json \
             data/price-sync-state.json
@@ -80,5 +86,5 @@ jobs:
             echo "main cambió durante el lote; no se fuerza una mezcla de datos." >&2
             exit 1
           fi
-          git commit -m "chore(prices): advance PS4 eBay regional campaign"
+          git commit -m "chore(prices): advance global eBay regional campaign"
           git push origin HEAD:main

@@ -14,7 +14,12 @@ from pathlib import Path
 from typing import Any
 
 from collectors.common import load_json, save_json
-from collectors.ebay_region_policy import browse_filters, ebay_regional_policy, end_user_context
+from collectors.ebay_region_policy import (
+    browse_filters,
+    ebay_regional_policy,
+    end_user_context,
+    import_costs_may_apply,
+)
 from collectors.listing_recency import listing_cutoff
 
 USER_AGENT = "PAL-ES-Market/1.0 (+price-ingest; contact=local)"
@@ -273,6 +278,7 @@ def browse_search(
         image_url = (item.get("image") or {}).get("imageUrl") or (
             thumb[0].get("imageUrl") if thumb and isinstance(thumb[0], dict) else None
         )
+        origin_country = (item.get("itemLocation") or {}).get("country")
         parsed.append(
             {
                 "title": item.get("title", ""),
@@ -287,11 +293,11 @@ def browse_search(
                 "imageUrl": image_url,
                 "buyingOptions": buying_options,
                 "marketplaceId": policy.marketplace_id,
-                "originCountry": (item.get("itemLocation") or {}).get("country"),
+                "originCountry": origin_country,
                 "originLabel": policy.origin_label,
                 "destinationCountry": policy.destination_country,
                 "destinationPostalCode": policy.destination_postal_code,
-                "importCostsMayApply": policy.import_costs_may_apply,
+                "importCostsMayApply": import_costs_may_apply(policy, origin_country),
                 "regionRestricted": policy.region_restricted,
             }
         )

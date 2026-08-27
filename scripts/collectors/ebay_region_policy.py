@@ -21,6 +21,51 @@ class EbayRegionalPolicy:
     region_restricted: bool
 
 
+EU_COUNTRIES = {
+    "AT",
+    "BE",
+    "BG",
+    "HR",
+    "CY",
+    "CZ",
+    "DE",
+    "DK",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "HU",
+    "IE",
+    "IT",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "PL",
+    "PT",
+    "RO",
+    "SE",
+    "SI",
+    "SK",
+}
+
+COUNTRY_MARKERS = (
+    ("espana", "ES"),
+    ("spain", "ES"),
+    ("italia", "IT"),
+    ("italy", "IT"),
+    ("francia", "FR"),
+    ("france", "FR"),
+    ("reino unido", "GB"),
+    ("uk", "GB"),
+    ("eng", "GB"),
+    ("alemania", "DE"),
+    ("germany", "DE"),
+)
+
+
 def _normalize(value: str) -> str:
     text = unicodedata.normalize("NFD", str(value or ""))
     text = "".join(char for char in text if unicodedata.category(char) != "Mn")
@@ -32,6 +77,13 @@ def _postal_code(value: str | None = None) -> str:
     return clean or "28001"
 
 
+def _is_multi_region(region: str) -> bool:
+    if any(marker in region for marker in ("multi region", "multiregion", "multi pal", "pal europa", "pal europe")):
+        return True
+    countries = {country for marker, country in COUNTRY_MARKERS if marker in region}
+    return len(countries) >= 2
+
+
 def ebay_regional_policy(catalog_region: str, destination_postal_code: str | None = None) -> EbayRegionalPolicy:
     region = _normalize(catalog_region)
     base = {
@@ -39,6 +91,18 @@ def ebay_regional_policy(catalog_region: str, destination_postal_code: str | Non
         "destination_country": "ES",
         "destination_postal_code": _postal_code(destination_postal_code),
     }
+
+    # Una misma edición Multi-PAL puede venderse desde varios países. eBay solo
+    # permite un filtro de ubicación; CONTINENTAL_EUROPE evita duplicar la ficha.
+    if _is_multi_region(region) or region in {"europa", "europe"}:
+        return EbayRegionalPolicy(
+            **base,
+            item_location_country=None,
+            item_location_region="CONTINENTAL_EUROPE",
+            origin_label="Europa multirregión",
+            import_costs_may_apply=True,
+            region_restricted=True,
+        )
 
     mappings = (
         (("espana",), "ES", "España", False),
@@ -81,6 +145,13 @@ def ebay_regional_policy(catalog_region: str, destination_postal_code: str | Non
     )
 
 
+def import_costs_may_apply(policy: EbayRegionalPolicy, origin_country: str | None) -> bool:
+    country = str(origin_country or "").strip().upper()
+    if country:
+        return country not in EU_COUNTRIES
+    return policy.import_costs_may_apply
+
+
 def browse_filters(policy: EbayRegionalPolicy) -> list[str]:
     filters = [
         "buyingOptions:{FIXED_PRICE}",
@@ -104,4 +175,5 @@ __all__ = [
     "browse_filters",
     "ebay_regional_policy",
     "end_user_context",
+    "import_costs_may_apply",
 ]

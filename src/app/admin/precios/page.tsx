@@ -34,37 +34,145 @@ type PriceSourceOption = {
   label: string;
   helper?: string;
 };
-type EbayPs4Campaign = {
+type EbayCampaignTotals = {
+  catalogGames?: number;
+  completed?: number;
+  matched?: number;
+  noMatch?: number;
+  deferred?: number;
+  pending?: number;
+};
+type EbayCampaignRegion = {
+  key?: string;
+  label?: string;
+  catalogRegion?: string;
+  marketScope?: string;
+  originLabel?: string;
+  total?: number;
+  completed?: number;
+  matched?: number;
+  deferred?: number;
+  pending?: number;
+};
+type EbayCampaignPlatform = {
+  platformSlug?: string;
+  platformName?: string;
   status?: string;
   currentRegion?: string | null;
   updatedAt?: string | null;
-  totals?: {
-    catalogGames?: number;
-    completed?: number;
-    matched?: number;
-    noMatch?: number;
-    deferred?: number;
-    pending?: number;
-  };
-  regions?: Record<string, {
-    label?: string;
-    catalogRegion?: string;
-    total?: number;
-    completed?: number;
-    matched?: number;
-    deferred?: number;
-    pending?: number;
-  }>;
-  log?: Array<{ at?: string; level?: string; message?: string; region?: string }>;
+  totals?: EbayCampaignTotals;
+  regions?: EbayCampaignRegion[];
+};
+type EbayGlobalCampaign = {
+  status?: string;
+  currentPlatform?: string | null;
+  currentPlatformName?: string | null;
+  currentRegion?: string | null;
+  updatedAt?: string | null;
+  totals?: EbayCampaignTotals;
+  estimatedRunsRemaining?: number;
+  estimatedDaysRemaining?: number;
+  platforms?: EbayCampaignPlatform[];
+  coverCandidates?: { games?: number; images?: number; platforms?: number };
+  log?: Array<{ at?: string; level?: string; message?: string; platformSlug?: string; region?: string }>;
 };
 
-function readEbayPs4Campaign(): EbayPs4Campaign {
+type EbayCoverQueueGame = {
+  catalogId?: string;
+  title?: string;
+  platformSlug?: string;
+  region?: string;
+  lastSeenAt?: string;
+  candidates?: Array<{
+    id?: string;
+    imageUrl?: string;
+    productUrl?: string | null;
+    confidence?: number | null;
+  }>;
+};
+
+function readEbayGlobalCampaign(): EbayGlobalCampaign {
   try {
     return JSON.parse(
-      readFileSync(path.join(process.cwd(), "data", "ebay-regional-campaigns", "ps4.json"), "utf8"),
-    ) as EbayPs4Campaign;
+      readFileSync(path.join(process.cwd(), "data", "ebay-regional-campaigns", "global.json"), "utf8"),
+    ) as EbayGlobalCampaign;
   } catch {
-    return {};
+    try {
+      const catalog = JSON.parse(readFileSync(path.join(process.cwd(), "data", "catalog.json"), "utf8")) as Array<{
+        platformSlug?: string;
+        region?: string;
+        listingStatus?: string;
+      }>;
+      const platformDefinitions = JSON.parse(
+        readFileSync(path.join(process.cwd(), "data", "platforms.json"), "utf8"),
+      ) as Array<{ slug?: string; name?: string }>;
+      const ps4 = JSON.parse(
+        readFileSync(path.join(process.cwd(), "data", "ebay-regional-campaigns", "ps4.json"), "utf8"),
+      ) as { status?: string; currentRegion?: string | null; updatedAt?: string | null; totals?: EbayCampaignTotals; regions?: Record<string, EbayCampaignRegion>; log?: EbayGlobalCampaign["log"] };
+      const active = catalog.filter((game) => game.platformSlug && game.listingStatus !== "excluded");
+      const names = new Map(platformDefinitions.map((platform) => [platform.slug, platform.name]));
+      const slugs = [...new Set(active.map((game) => String(game.platformSlug)))];
+      const platforms = slugs.map((slug) => {
+        const games = active.filter((game) => game.platformSlug === slug);
+        const ps4Totals = slug === "ps4" ? ps4.totals ?? {} : {};
+        const completed = ps4Totals.completed ?? 0;
+        const deferred = ps4Totals.deferred ?? 0;
+        return {
+          platformSlug: slug,
+          platformName: names.get(slug) ?? slug,
+          status: slug === "ps4" ? ps4.status : "ready",
+          currentRegion: slug === "ps4" ? ps4.currentRegion : null,
+          updatedAt: slug === "ps4" ? ps4.updatedAt : null,
+          totals: {
+            catalogGames: games.length,
+            completed,
+            matched: ps4Totals.matched ?? 0,
+            noMatch: ps4Totals.noMatch ?? 0,
+            deferred,
+            pending: games.length - completed - deferred,
+          },
+          regions: slug === "ps4" ? Object.values(ps4.regions ?? {}) : [],
+        } satisfies EbayCampaignPlatform;
+      });
+      const completed = ps4.totals?.completed ?? 0;
+      const deferred = ps4.totals?.deferred ?? 0;
+      const pending = active.length - completed - deferred;
+      return {
+        status: ps4.status ?? "ready",
+        currentPlatform: "ps4",
+        currentPlatformName: names.get("ps4") ?? "PlayStation 4",
+        currentRegion: ps4.currentRegion,
+        updatedAt: ps4.updatedAt,
+        totals: {
+          catalogGames: active.length,
+          completed,
+          matched: ps4.totals?.matched ?? 0,
+          noMatch: ps4.totals?.noMatch ?? 0,
+          deferred,
+          pending,
+        },
+        estimatedRunsRemaining: Math.ceil(pending / 50),
+        estimatedDaysRemaining: Math.ceil(pending / 200),
+        platforms,
+        log: ps4.log ?? [],
+      };
+    } catch {
+      return {};
+    }
+  }
+}
+
+function readEbayCoverQueue(): { totals: { games?: number; images?: number; platforms?: number }; games: EbayCoverQueueGame[] } {
+  try {
+    const queue = JSON.parse(
+      readFileSync(path.join(process.cwd(), "data", "ebay-regional-campaigns", "cover-candidates.json"), "utf8"),
+    ) as { totals?: { games?: number; images?: number; platforms?: number }; games?: Record<string, EbayCoverQueueGame> };
+    return {
+      totals: queue.totals ?? {},
+      games: Object.values(queue.games ?? {}).sort((a, b) => String(b.lastSeenAt ?? "").localeCompare(String(a.lastSeenAt ?? ""))),
+    };
+  } catch {
+    return { totals: {}, games: [] };
   }
 }
 
@@ -381,11 +489,13 @@ export default async function AdminPricesPage({
   const platformOptions = readPriceSourcePlatformOptions();
   const regionOptions = readPriceSourceRegionOptions();
   const canCollectPrices = isAdminPriceCollectAvailable();
-  const ebayPs4Campaign = readEbayPs4Campaign();
-  const ebayPs4Totals = ebayPs4Campaign.totals ?? {};
-  const ebayPs4Total = ebayPs4Totals.catalogGames ?? 0;
-  const ebayPs4Completed = ebayPs4Totals.completed ?? 0;
-  const ebayPs4Progress = ebayPs4Total > 0 ? Math.round((ebayPs4Completed / ebayPs4Total) * 1000) / 10 : 0;
+  const ebayCampaign = readEbayGlobalCampaign();
+  const ebayCoverQueue = readEbayCoverQueue();
+  const ebayTotals = ebayCampaign.totals ?? {};
+  const ebayTotal = ebayTotals.catalogGames ?? 0;
+  const ebayCompleted = ebayTotals.completed ?? 0;
+  const ebayProgress = ebayTotal > 0 ? Math.round((ebayCompleted / ebayTotal) * 1000) / 10 : 0;
+  const currentEbayPlatform = ebayCampaign.platforms?.find((platform) => platform.platformSlug === ebayCampaign.currentPlatform);
   const freshRows = dashboard.recentSyncs.filter((row) => {
     return isTodayOrYesterday(row.lastSyncAt);
   });
@@ -398,7 +508,7 @@ export default async function AdminPricesPage({
   return (
     <div className="space-y-6">
       <div className="grid gap-4 lg:grid-cols-3">
-        <Panel className={`${adminToneClass("status")} lg:col-span-2`}>
+        <Panel className={`${adminToneClass("status")} min-w-0 lg:col-span-2`}>
           <PanelTitle eyebrow="Rotación automática">Estado de recopilación</PanelTitle>
           <div className="grid gap-3 sm:grid-cols-3">
             <AdminStatTile tone="status" label="Última rotación OK" value={formatDate(lastRotationDone?.at)} />
@@ -495,7 +605,7 @@ export default async function AdminPricesPage({
           )}
         </Panel>
 
-        <Panel className={adminToneClass("search")}>
+        <Panel className={`${adminToneClass("search")} min-w-0`}>
           <PanelTitle eyebrow="Lectura rápida">Sincronizaciones recientes</PanelTitle>
           {freshRows.length > 0 ? (
             <div className="space-y-2 text-sm">
@@ -520,15 +630,15 @@ export default async function AdminPricesPage({
       <Panel className={adminToneClass("status")}>
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <PanelTitle eyebrow="eBay España">Campaña regional PlayStation 4</PanelTitle>
+            <PanelTitle eyebrow="eBay España · cada 6 horas">Campaña regional global</PanelTitle>
             <p className="mt-2 text-sm leading-6 text-muted">
-              Consulta primero PAL España y continúa con UK, USA y Japón. El valor del artículo se
-              guarda separado del transporte estimado a España.
+              Recorre todas las plataformas y ediciones del catálogo. Multi-PAL se consulta como una
+              misma edición europea; artículo, transporte y coste estimado en España permanecen separados.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Badge tone={ebayPs4Campaign.status === "blocked" ? "rose" : ebayPs4Totals.deferred ? "amber" : "green"}>
-              {ebayPs4Campaign.status ?? "sin estado"}
+            <Badge tone={ebayCampaign.status === "blocked" ? "rose" : ebayTotals.deferred ? "amber" : "green"}>
+              {ebayCampaign.status ?? "sin estado"}
             </Badge>
             <a
               href="https://github.com/puntoracingrc/RegionAtlasGames/actions/workflows/ebay-ps4-regional-campaign.yml"
@@ -541,34 +651,100 @@ export default async function AdminPricesPage({
           </div>
         </div>
 
-        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <AdminStatTile tone="status" label="Consultados" value={`${ebayPs4Completed}/${ebayPs4Total || "—"}`} helper={`${ebayPs4Progress}% del catálogo PS4 activo`} />
-          <AdminStatTile tone="status" label="Con evidencias" value={ebayPs4Totals.matched ?? 0} helper="al menos un anuncio aceptado" />
-          <AdminStatTile tone="status" label="Siguiente región" value={ebayPs4Campaign.currentRegion ?? "Finalizada"} helper="siempre desde eBay España" />
-          <AdminStatTile tone="status" label="Pendientes / aplazados" value={`${ebayPs4Totals.pending ?? 0} / ${ebayPs4Totals.deferred ?? 0}`} helper={formatDate(ebayPs4Campaign.updatedAt)} />
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+          <AdminStatTile tone="status" label="Consultados" value={`${ebayCompleted}/${ebayTotal || "—"}`} helper={`${ebayProgress}% del catálogo activo`} />
+          <AdminStatTile tone="status" label="Con evidencias" value={ebayTotals.matched ?? 0} helper="al menos un anuncio aceptado" />
+          <AdminStatTile tone="status" label="Plataforma actual" value={ebayCampaign.currentPlatformName ?? "Finalizada"} helper={ebayCampaign.currentRegion ?? "sin región pendiente"} />
+          <AdminStatTile tone="status" label="Pendientes / aplazados" value={`${ebayTotals.pending ?? 0} / ${ebayTotals.deferred ?? 0}`} helper={formatDate(ebayCampaign.updatedAt)} />
+          <AdminStatTile tone="status" label="Primera vuelta" value={ebayCampaign.estimatedDaysRemaining ? `~${ebayCampaign.estimatedDaysRemaining} días` : "Finalizada"} helper={`${ebayCampaign.estimatedRunsRemaining ?? 0} lotes restantes`} />
         </div>
-        <div className="mt-4 h-2 overflow-hidden rounded-full bg-border" aria-label={`Campaña PS4 al ${ebayPs4Progress}%`}>
-          <div className="h-full rounded-full bg-accent" style={{ width: `${Math.min(100, ebayPs4Progress)}%` }} />
+        <div className="mt-4 h-2 overflow-hidden rounded-full bg-border" aria-label={`Campaña global al ${ebayProgress}%`}>
+          <div className="h-full rounded-full bg-accent" style={{ width: `${Math.min(100, ebayProgress)}%` }} />
         </div>
 
-        {Object.keys(ebayPs4Campaign.regions ?? {}).length > 0 && (
+        {(currentEbayPlatform?.regions?.length ?? 0) > 0 && (
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
-            {Object.values(ebayPs4Campaign.regions ?? {}).map((region) => (
+            {currentEbayPlatform?.regions?.map((region) => (
               <div key={region.catalogRegion ?? region.label} className="border-l-2 border-border px-3">
                 <p className="text-xs font-semibold text-foreground">{region.label ?? region.catalogRegion}</p>
                 <p className="mt-1 text-lg font-black text-foreground">{region.completed ?? 0}/{region.total ?? 0}</p>
-                <p className="text-[11px] text-muted">{region.matched ?? 0} con datos · {region.deferred ?? 0} aplazados</p>
+                <p className="text-[11px] text-muted">
+                  {region.matched ?? 0} con datos · {region.marketScope === "multi_region" ? "edición multirregión" : region.originLabel ?? "origen regional"}
+                </p>
               </div>
             ))}
           </div>
         )}
+
+        <details className="group mt-5 border-t border-border pt-4">
+          <summary className="cursor-pointer list-none text-sm font-semibold text-foreground">
+            Ver avance de las {ebayCampaign.platforms?.length ?? 0} plataformas
+          </summary>
+          <div className="mt-3 overflow-x-auto">
+            <table className="min-w-full text-left text-xs">
+              <thead className="text-[10px] uppercase tracking-wider text-muted">
+                <tr className="border-b border-border">
+                  <th className="py-2 pr-4 font-semibold">Plataforma</th>
+                  <th className="py-2 pr-4 font-semibold">Consultados</th>
+                  <th className="py-2 pr-4 font-semibold">Con datos</th>
+                  <th className="py-2 pr-4 font-semibold">Pendientes</th>
+                  <th className="py-2 font-semibold">Siguiente región</th>
+                </tr>
+              </thead>
+              <tbody>
+                {(ebayCampaign.platforms ?? []).map((platform) => (
+                  <tr key={platform.platformSlug} className="border-b border-border/60 last:border-0">
+                    <td className="py-2 pr-4 font-semibold text-foreground">{platform.platformName ?? platform.platformSlug}</td>
+                    <td className="py-2 pr-4 text-muted">{platform.totals?.completed ?? 0}/{platform.totals?.catalogGames ?? 0}</td>
+                    <td className="py-2 pr-4 text-muted">{platform.totals?.matched ?? 0}</td>
+                    <td className="py-2 pr-4 text-muted">{platform.totals?.pending ?? 0}</td>
+                    <td className="py-2 text-muted">{platform.currentRegion ?? "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details className="group mt-5 border-t border-border pt-4">
+          <summary className="cursor-pointer list-none text-sm font-semibold text-foreground">
+            Portadas encontradas · {ebayCoverQueue.totals.games ?? ebayCampaign.coverCandidates?.games ?? 0} fichas pendientes de revisar
+          </summary>
+          {ebayCoverQueue.games.length > 0 ? (
+            <div className="mt-3 divide-y divide-border">
+              {ebayCoverQueue.games.slice(0, 12).map((game) => {
+                const candidate = game.candidates?.[0];
+                return (
+                  <div key={game.catalogId} className="flex items-center gap-3 py-3">
+                    <div className="h-16 w-12 shrink-0 overflow-hidden rounded border border-border bg-background">
+                      {candidate?.imageUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element -- external evidence must not enter the public image cache
+                        <img src={candidate.imageUrl} alt="" className="h-full w-full object-contain" loading="lazy" />
+                      ) : null}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-semibold text-foreground">{game.title ?? game.catalogId}</p>
+                      <p className="text-xs text-muted">{game.platformSlug} · {game.region} · confianza {candidate?.confidence == null ? "—" : `${Math.round(candidate.confidence * 100)}%`}</p>
+                    </div>
+                    <div className="flex shrink-0 gap-2">
+                      {candidate?.productUrl ? <a href={candidate.productUrl} target="_blank" rel="noreferrer" className="btn-secondary text-xs">eBay</a> : null}
+                      {game.catalogId ? <Link href={`/admin/juegos/${encodeURIComponent(game.catalogId)}`} className="btn-secondary text-xs">Ficha</Link> : null}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="mt-3 text-sm text-muted">La cola se irá llenando únicamente cuando una ficha sin portada tenga una coincidencia regional fiable.</p>
+          )}
+        </details>
 
         <details className="group mt-5 rounded-lg border border-border bg-background/45 p-4">
           <summary className="cursor-pointer list-none text-sm font-semibold text-foreground">
             Ver registro copiable de la campaña
           </summary>
           <pre className="mt-3 max-h-72 overflow-auto whitespace-pre-wrap rounded-lg bg-slate-950 p-4 font-mono text-[11px] leading-5 text-emerald-100">
-            {(ebayPs4Campaign.log ?? []).map((entry) => `${entry.at ?? "—"} | ${entry.level ?? "info"} | ${entry.region ?? "—"} | ${entry.message ?? ""}`).join("\n") || "Todavía no se ha ejecutado el primer lote."}
+            {(ebayCampaign.log ?? []).map((entry) => `${entry.at ?? "—"} | ${entry.level ?? "info"} | ${entry.platformSlug ?? "ps4"} | ${entry.region ?? "—"} | ${entry.message ?? ""}`).join("\n") || "Todavía no se ha ejecutado el primer lote."}
           </pre>
         </details>
       </Panel>

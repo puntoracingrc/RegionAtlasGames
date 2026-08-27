@@ -11,6 +11,25 @@ export type EbayRegionalSearchPolicy = {
   regionRestricted: boolean;
 };
 
+const EU_COUNTRIES = new Set([
+  "AT", "BE", "BG", "HR", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GR",
+  "HU", "IE", "IT", "LT", "LU", "LV", "MT", "NL", "PL", "PT", "RO", "SE", "SI", "SK",
+]);
+
+const COUNTRY_MARKERS: Array<[string, string]> = [
+  ["espana", "ES"],
+  ["spain", "ES"],
+  ["italia", "IT"],
+  ["italy", "IT"],
+  ["francia", "FR"],
+  ["france", "FR"],
+  ["reino unido", "GB"],
+  ["uk", "GB"],
+  ["eng", "GB"],
+  ["alemania", "DE"],
+  ["germany", "DE"],
+];
+
 function normalizeRegion(value: string): string {
   return value
     .normalize("NFD")
@@ -23,6 +42,13 @@ function normalizeRegion(value: string): string {
 function postalCode(value = process.env.EBAY_CONTEXTUAL_ZIP): string {
   const clean = value?.trim().replace(/[^0-9A-Za-z -]/g, "");
   return clean || "28001";
+}
+
+function isMultiRegion(region: string): boolean {
+  if (["multi region", "multiregion", "multi pal", "pal europa", "pal europe"].some((marker) => region.includes(marker))) {
+    return true;
+  }
+  return new Set(COUNTRY_MARKERS.filter(([marker]) => region.includes(marker)).map(([, country]) => country)).size >= 2;
 }
 
 export function ebayContextualLocation(policy: EbayRegionalSearchPolicy): string {
@@ -39,6 +65,17 @@ export function ebayRegionalSearchPolicy(
     destinationCountry: "ES" as const,
     destinationPostalCode: postalCode(destinationPostalCode),
   };
+
+  if (isMultiRegion(region) || region === "europa" || region === "europe") {
+    return {
+      ...base,
+      itemLocationCountry: null,
+      itemLocationRegion: "CONTINENTAL_EUROPE",
+      originLabel: "Europa multirregion",
+      importCostsMayApply: true,
+      regionRestricted: true,
+    };
+  }
 
   if (region.includes("espana")) {
     return {
@@ -150,4 +187,13 @@ export function ebayRegionalSearchFilters(policy: EbayRegionalSearchPolicy): str
   if (policy.itemLocationCountry) filters.push(`itemLocationCountry:${policy.itemLocationCountry}`);
   if (policy.itemLocationRegion) filters.push(`itemLocationRegion:${policy.itemLocationRegion}`);
   return filters;
+}
+
+export function ebayImportCostsMayApply(
+  policy: EbayRegionalSearchPolicy,
+  sellerCountry: string | null | undefined,
+): boolean {
+  const country = sellerCountry?.trim().toUpperCase();
+  if (country) return !EU_COUNTRIES.has(country);
+  return policy.importCostsMayApply;
 }

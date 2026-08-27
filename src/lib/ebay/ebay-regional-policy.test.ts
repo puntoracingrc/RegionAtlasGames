@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  ebayImportCostsMayApply,
   ebayRegionalSearchFilters,
   ebayRegionalSearchPolicy,
 } from "./ebay-regional-policy";
@@ -26,9 +27,16 @@ test("maps the PS4 catalog regions to the intended seller origin", () => {
   assert.equal(ebayRegionalSearchPolicy("JAPAN").itemLocationCountry, "JP");
 });
 
-test("uses the European Union only for a generic PAL Europe edition", () => {
+test("uses continental Europe for a generic Multi-PAL edition", () => {
   const policy = ebayRegionalSearchPolicy("PAL Europa");
   assert.equal(policy.itemLocationCountry, null);
-  assert.equal(policy.itemLocationRegion, "EUROPEAN_UNION");
-  assert.equal(policy.importCostsMayApply, false);
+  assert.equal(policy.itemLocationRegion, "CONTINENTAL_EUROPE");
+  assert.equal(ebayImportCostsMayApply(policy, "FR"), false);
+  assert.equal(ebayImportCostsMayApply(policy, "GB"), true);
+});
+
+test("does not collapse a named multi-country edition to Spain", () => {
+  const policy = ebayRegionalSearchPolicy("Multi-PAL España / Italia / Francia / UK");
+  assert.equal(policy.itemLocationCountry, null);
+  assert.equal(policy.itemLocationRegion, "CONTINENTAL_EUROPE");
 });
