@@ -24,7 +24,6 @@ export const dynamic = "force-dynamic";
 
 type RecentLabel = "hoy" | "ayer" | "reciente" | "antiguo";
 type CoverageSort = "updated-desc" | "updated-asc" | "coverage-desc" | "coverage-asc";
-type HydrationProbe = "none" | "market" | "sources" | "jobs" | "reviews" | "coverage";
 type PriceSyncHealth = {
   label: string;
   tone: "green" | "amber" | "rose" | "neutral";
@@ -473,21 +472,6 @@ function normalizeCoverageSort(value: string | string[] | undefined): CoverageSo
   return "updated-desc";
 }
 
-function normalizeHydrationProbe(value: string | string[] | undefined): HydrationProbe | null {
-  const current = Array.isArray(value) ? value[0] : value;
-  if (
-    current === "none" ||
-    current === "market" ||
-    current === "sources" ||
-    current === "jobs" ||
-    current === "reviews" ||
-    current === "coverage"
-  ) {
-    return current;
-  }
-  return null;
-}
-
 export default async function AdminPricesPage({
   searchParams,
 }: {
@@ -495,9 +479,6 @@ export default async function AdminPricesPage({
 }) {
   const params = await searchParams;
   const coverageSort = normalizeCoverageSort(params?.coverageSort);
-  const hydrationProbe = normalizeHydrationProbe(params?.hydrationProbe);
-  const showClientPanel = (panel: Exclude<HydrationProbe, "none">) =>
-    hydrationProbe == null || hydrationProbe === panel;
   const [dashboard, priceSourceSettings, priceReviewItems, localGameJobs, marketBatches] = await Promise.all([
     getAdminPriceDashboard(20),
     readPriceSourceSettings(),
@@ -768,30 +749,24 @@ export default async function AdminPricesPage({
         </details>
       </Panel>
 
-      {showClientPanel("market") ? (
-        <AdminMarketCollectionPanel
-          initialBatches={marketBatches}
-          platformOptions={platformOptions}
-          regionOptions={regionOptions}
-        />
-      ) : null}
+      <AdminMarketCollectionPanel
+        initialBatches={marketBatches}
+        platformOptions={platformOptions}
+        regionOptions={regionOptions}
+      />
 
-      {showClientPanel("sources") ? (
-        <AdminPriceSourceSettingsPanel
-          initialSettings={priceSourceSettings}
-          platformOptions={platformOptions}
-          regionOptions={regionOptions}
-        />
-      ) : null}
+      <AdminPriceSourceSettingsPanel
+        initialSettings={priceSourceSettings}
+        platformOptions={platformOptions}
+        regionOptions={regionOptions}
+      />
 
-      {showClientPanel("jobs") ? (
-        <AdminLocalGameRunnerPanel
-          initialJobs={localGameJobs}
-          tokenConfigured={localGameRunnerTokenConfigured()}
-        />
-      ) : null}
+      <AdminLocalGameRunnerPanel
+        initialJobs={localGameJobs}
+        tokenConfigured={localGameRunnerTokenConfigured()}
+      />
 
-      {showClientPanel("reviews") ? <AdminPriceReviewPanel initialItems={priceReviewItems} /> : null}
+      <AdminPriceReviewPanel initialItems={priceReviewItems} />
 
       <Panel className={adminToneClass("search")}>
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -913,15 +888,13 @@ export default async function AdminPricesPage({
             selección en un solo job. El desglose por región te indica dónde falta cobertura.
           </p>
         </div>
-        {showClientPanel("coverage") ? (
-          <AdminPriceCoverageTable
-            rows={dashboard.platformHealth}
-            initialSort={coverageSort}
-            canCollect={canCollectPrices}
-            unavailableReason={canCollectPrices ? undefined : adminPriceCollectUnavailableReason()}
-            manualJobs={dashboard.manualJobs}
-          />
-        ) : null}
+        <AdminPriceCoverageTable
+          rows={dashboard.platformHealth}
+          initialSort={coverageSort}
+          canCollect={canCollectPrices}
+          unavailableReason={canCollectPrices ? undefined : adminPriceCollectUnavailableReason()}
+          manualJobs={dashboard.manualJobs}
+        />
       </Panel>
 
       <Panel className={adminToneClass("status")}>
