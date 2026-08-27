@@ -18,6 +18,7 @@ import {
   loadCatalogOverlayIndex,
   readCatalogOverlayDetails,
   readCatalogOverlayGame,
+  resolveCatalogGameWithOverlay,
   triggerCatalogDeployHook,
   writeCatalogOverlay,
 } from "./catalog-runtime-overlay";
@@ -329,17 +330,13 @@ export async function getPublishedGameForAdmin(
   catalogId: string,
 ): Promise<{ game: CatalogGame; details: GameDetails | null } | null> {
   const trimmed = catalogId.trim();
-  let game = getCatalogGame(trimmed) ?? null;
-  if (!game) {
-    game = (await readCatalogOverlayGame(trimmed)) ?? null;
-  }
+  const game = (await resolveCatalogGameWithOverlay(trimmed)) ?? null;
   if (!game) return null;
 
-  let details: GameDetails | null =
-    loadJson<Record<string, GameDetails>>(DETAILS_FILE, {})[trimmed] ?? null;
-  if (!details) {
-    details = (await readCatalogOverlayDetails(trimmed)) ?? null;
-  }
+  const details: GameDetails | null =
+    (await readCatalogOverlayDetails(game.id)) ??
+    loadJson<Record<string, GameDetails>>(DETAILS_FILE, {})[game.id] ??
+    null;
 
   return { game, details };
 }
