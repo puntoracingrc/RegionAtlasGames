@@ -61,9 +61,13 @@ function formatDate(value: string | null | undefined): string {
   }).format(new Date(value));
 }
 
-function ageLabel(value: string | null | undefined): string {
+function ageLabel(
+  value: string | null | undefined,
+  nowMs: number | null,
+): string {
   if (!value) return "Nunca";
-  const ageMs = Date.now() - new Date(value).getTime();
+  if (nowMs == null) return "Registrada";
+  const ageMs = nowMs - new Date(value).getTime();
   const days = Math.max(0, Math.floor(ageMs / (1000 * 60 * 60 * 24)));
   if (days === 0) return "Hoy";
   if (days === 1) return "Ayer";
@@ -317,7 +321,17 @@ export function AdminPriceCoverageTable({
   );
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [nowMs, setNowMs] = useState<number | null>(null);
   const pollRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const initialTimer = window.setTimeout(() => setNowMs(Date.now()), 0);
+    const timer = window.setInterval(() => setNowMs(Date.now()), 5 * 60 * 1000);
+    return () => {
+      window.clearTimeout(initialTimer);
+      window.clearInterval(timer);
+    };
+  }, []);
 
   const sortedRows = useMemo(() => sortRows(rows, sort), [rows, sort]);
   const selectedTargets = useMemo(() => Object.values(selected), [selected]);
@@ -734,7 +748,7 @@ export function AdminPriceCoverageTable({
                     </td>
                     <td className="py-3 pr-4 whitespace-nowrap">
                       <p className="font-medium text-foreground">
-                        {ageLabel(row.lastSyncAt)}
+                        {ageLabel(row.lastSyncAt, nowMs)}
                       </p>
                       <p className="mt-1 text-xs text-muted">
                         {formatDate(row.lastSyncAt)}
@@ -780,7 +794,7 @@ export function AdminPriceCoverageTable({
                               {region.lastSyncAt && (
                                 <span className="col-start-2 col-span-2 text-[10px] text-muted">
                                   Región actualizada:{" "}
-                                  {ageLabel(region.lastSyncAt)}
+                                  {ageLabel(region.lastSyncAt, nowMs)}
                                 </span>
                               )}
                             </label>
