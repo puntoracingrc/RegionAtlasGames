@@ -1,0 +1,1189 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "ebay-global-regional-v1",
+  "marketplaceId": "EBAY_ES",
+  "destinationCountry": "ES",
+  "schedule": {
+    "hours": 6,
+    "runsPerDay": 4,
+    "batchSize": 50
+  },
+  "status": "running",
+  "currentPlatform": "ps4",
+  "currentPlatformName": "PlayStation 4",
+  "currentRegion": "PAL España",
+  "updatedAt": "2026-08-27T19:47:35Z",
+  "lastRun": {
+    "at": "2026-08-27T19:47:35Z",
+    "platformSlug": "ps4",
+    "platformName": "PlayStation 4",
+    "region": "PAL España",
+    "selected": 50,
+    "processed": 50,
+    "matched": 24,
+    "listingsAdded": 58,
+    "failed": 0,
+    "systemicError": null,
+    "coverCandidatesAdded": 0
+  },
+  "totals": {
+    "catalogGames": 31702,
+    "completed": 75,
+    "matched": 36,
+    "noMatch": 39,
+    "deferred": 0,
+    "pending": 31627
+  },
+  "estimatedRunsRemaining": 633,
+  "estimatedDaysRemaining": 159,
+  "platforms": [
+    {
+      "platformSlug": "ps4",
+      "platformName": "PlayStation 4",
+      "status": "running",
+      "currentRegion": "PAL España",
+      "updatedAt": "2026-08-27T19:47:35Z",
+      "totals": {
+        "catalogGames": 8444,
+        "completed": 75,
+        "matched": 36,
+        "noMatch": 39,
+        "deferred": 0,
+        "pending": 8369
+      },
+      "regions": [
+        {
+          "key": "pal_es",
+          "label": "PAL España",
+          "catalogRegion": "PAL España",
+          "marketScope": "country",
+          "originLabel": "España",
+          "total": 3016,
+          "completed": 75,
+          "matched": 36,
+          "noMatch": 39,
+          "deferred": 0,
+          "pending": 2941
+        },
+        {
+          "key": "pal_uk",
+          "label": "PAL UK/ENG",
+          "catalogRegion": "PAL UK/ENG",
+          "marketScope": "country",
+          "originLabel": "Reino Unido",
+          "total": 2,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 2
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 4473,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 4473
+        },
+        {
+          "key": "japan_alias",
+          "label": "JAPAN",
+          "catalogRegion": "JAPAN",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 2,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 2
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 951,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 951
+        }
+      ]
+    },
+    {
+      "platformSlug": "nes",
+      "platformName": "Nintendo Entertainment System",
+      "status": "ready",
+      "currentRegion": "PAL Europa",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 2166,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 2166
+      },
+      "regions": [
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 333,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 333
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 778,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 778
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 1055,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 1055
+        }
+      ]
+    },
+    {
+      "platformSlug": "snes",
+      "platformName": "Super Nintendo",
+      "status": "ready",
+      "currentRegion": "España",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 2761,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 2761
+      },
+      "regions": [
+        {
+          "key": "espana",
+          "label": "España",
+          "catalogRegion": "España",
+          "marketScope": "country",
+          "originLabel": "España",
+          "total": 3,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 3
+        },
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 538,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 538
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 723,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 723
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 1497,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 1497
+        }
+      ]
+    },
+    {
+      "platformSlug": "n64",
+      "platformName": "Nintendo 64",
+      "status": "ready",
+      "currentRegion": "España",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 776,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 776
+      },
+      "regions": [
+        {
+          "key": "espana",
+          "label": "España",
+          "catalogRegion": "España",
+          "marketScope": "country",
+          "originLabel": "España",
+          "total": 9,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 9
+        },
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 237,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 237
+        },
+        {
+          "key": "australia",
+          "label": "Australia",
+          "catalogRegion": "Australia",
+          "marketScope": "country",
+          "originLabel": "Australia",
+          "total": 5,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 5
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 317,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 317
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 208,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 208
+        }
+      ]
+    },
+    {
+      "platformSlug": "gameboy",
+      "platformName": "Nintendo Game Boy",
+      "status": "ready",
+      "currentRegion": "PAL Europa",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 1788,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 1788
+      },
+      "regions": [
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 470,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 470
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 506,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 506
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 812,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 812
+        }
+      ]
+    },
+    {
+      "platformSlug": "gamecube",
+      "platformName": "Nintendo GameCube",
+      "status": "ready",
+      "currentRegion": "PAL España",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 483,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 483
+      },
+      "regions": [
+        {
+          "key": "pal_es",
+          "label": "PAL España",
+          "catalogRegion": "PAL España",
+          "marketScope": "country",
+          "originLabel": "España",
+          "total": 483,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 483
+        }
+      ]
+    },
+    {
+      "platformSlug": "wii",
+      "platformName": "Nintendo Wii",
+      "status": "ready",
+      "currentRegion": "PAL España",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 1294,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 1294
+      },
+      "regions": [
+        {
+          "key": "pal_es",
+          "label": "PAL España",
+          "catalogRegion": "PAL España",
+          "marketScope": "country",
+          "originLabel": "España",
+          "total": 1294,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 1294
+        }
+      ]
+    },
+    {
+      "platformSlug": "ds",
+      "platformName": "Nintendo DS",
+      "status": "ready",
+      "currentRegion": "PAL España",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 1740,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 1740
+      },
+      "regions": [
+        {
+          "key": "pal_es",
+          "label": "PAL España",
+          "catalogRegion": "PAL España",
+          "marketScope": "country",
+          "originLabel": "España",
+          "total": 1740,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 1740
+        }
+      ]
+    },
+    {
+      "platformSlug": "3ds",
+      "platformName": "Nintendo 3DS",
+      "status": "ready",
+      "currentRegion": "PAL España",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 483,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 483
+      },
+      "regions": [
+        {
+          "key": "pal_es",
+          "label": "PAL España",
+          "catalogRegion": "PAL España",
+          "marketScope": "country",
+          "originLabel": "España",
+          "total": 483,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 483
+        }
+      ]
+    },
+    {
+      "platformSlug": "mastersystem",
+      "platformName": "Sega Master System",
+      "status": "ready",
+      "currentRegion": "PAL Europa",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 500,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 500
+      },
+      "regions": [
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 300,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 300
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 116,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 116
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 84,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 84
+        }
+      ]
+    },
+    {
+      "platformSlug": "megadrive",
+      "platformName": "Sega Mega Drive",
+      "status": "ready",
+      "currentRegion": "PAL Europa",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 1679,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 1679
+      },
+      "regions": [
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 537,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 537
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 713,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 713
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 429,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 429
+        }
+      ]
+    },
+    {
+      "platformSlug": "sega32x",
+      "platformName": "Sega 32X",
+      "status": "ready",
+      "currentRegion": "PAL Europa",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 82,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 82
+      },
+      "regions": [
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 27,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 27
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 36,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 36
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 19,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 19
+        }
+      ]
+    },
+    {
+      "platformSlug": "megacd",
+      "platformName": "Sega Mega CD",
+      "status": "ready",
+      "currentRegion": "PAL Europa",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 372,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 372
+      },
+      "regions": [
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 95,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 95
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 160,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 160
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 117,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 117
+        }
+      ]
+    },
+    {
+      "platformSlug": "saturn",
+      "platformName": "Sega Saturn",
+      "status": "ready",
+      "currentRegion": "PAL Europa",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 1597,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 1597
+      },
+      "regions": [
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 239,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 239
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 248,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 248
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 1110,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 1110
+        }
+      ]
+    },
+    {
+      "platformSlug": "dreamcast",
+      "platformName": "Sega Dreamcast",
+      "status": "ready",
+      "currentRegion": "PAL Europa",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 950,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 950
+      },
+      "regions": [
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 216,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 216
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 251,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 251
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 483,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 483
+        }
+      ]
+    },
+    {
+      "platformSlug": "gamegear",
+      "platformName": "Sega Game Gear",
+      "status": "ready",
+      "currentRegion": "España",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 637,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 637
+      },
+      "regions": [
+        {
+          "key": "espana",
+          "label": "España",
+          "catalogRegion": "España",
+          "marketScope": "country",
+          "originLabel": "España",
+          "total": 4,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 4
+        },
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 200,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 200
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 233,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 233
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 200,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 200
+        }
+      ]
+    },
+    {
+      "platformSlug": "neogeo",
+      "platformName": "Neo Geo AES",
+      "status": "ready",
+      "currentRegion": "USA",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 212,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 212
+      },
+      "regions": [
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 94,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 94
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 118,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 118
+        }
+      ]
+    },
+    {
+      "platformSlug": "neogeocd",
+      "platformName": "Neo Geo CD",
+      "status": "ready",
+      "currentRegion": "USA",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 161,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 161
+      },
+      "regions": [
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 64,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 64
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 97,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 97
+        }
+      ]
+    },
+    {
+      "platformSlug": "neogeopocket",
+      "platformName": "Neo Geo Pocket Color",
+      "status": "ready",
+      "currentRegion": "PAL Europa",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 165,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 165
+      },
+      "regions": [
+        {
+          "key": "pal_europa",
+          "label": "PAL Europa",
+          "catalogRegion": "PAL Europa",
+          "marketScope": "multi_region",
+          "originLabel": "Europa multirregión",
+          "total": 41,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 41
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 32,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 32
+        },
+        {
+          "key": "japon",
+          "label": "Japón",
+          "catalogRegion": "Japón",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 92,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 92
+        }
+      ]
+    },
+    {
+      "platformSlug": "ps1",
+      "platformName": "PlayStation",
+      "status": "ready",
+      "currentRegion": "PAL España",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 1542,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 1542
+      },
+      "regions": [
+        {
+          "key": "pal_es",
+          "label": "PAL España",
+          "catalogRegion": "PAL España",
+          "marketScope": "country",
+          "originLabel": "España",
+          "total": 1542,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 1542
+        }
+      ]
+    },
+    {
+      "platformSlug": "ps2",
+      "platformName": "PlayStation 2",
+      "status": "ready",
+      "currentRegion": "PAL España",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 2508,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 2508
+      },
+      "regions": [
+        {
+          "key": "pal_es",
+          "label": "PAL España",
+          "catalogRegion": "PAL España",
+          "marketScope": "country",
+          "originLabel": "España",
+          "total": 2508,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 2508
+        }
+      ]
+    },
+    {
+      "platformSlug": "ps3",
+      "platformName": "PlayStation 3",
+      "status": "ready",
+      "currentRegion": "PAL España",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 1362,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 1362
+      },
+      "regions": [
+        {
+          "key": "pal_es",
+          "label": "PAL España",
+          "catalogRegion": "PAL España",
+          "marketScope": "country",
+          "originLabel": "España",
+          "total": 1361,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 1361
+        },
+        {
+          "key": "pal_alemania",
+          "label": "PAL Alemania",
+          "catalogRegion": "PAL Alemania",
+          "marketScope": "country",
+          "originLabel": "Alemania",
+          "total": 1,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 1
+        }
+      ]
+    }
+  ],
+  "coverCandidates": {
+    "games": 0,
+    "images": 0,
+    "platforms": 0
+  },
+  "log": [
+    {
+      "at": "2026-08-27T15:26:23Z",
+      "level": "info",
+      "message": "PAL España: 25/25 consultados, 0 con evidencias, 0 anuncios aceptados, 0 fallos, 0 aplazados.",
+      "region": "PAL España"
+    },
+    {
+      "at": "2026-08-27T15:32:25Z",
+      "level": "warning",
+      "message": "Lote reabierto: faltaba OPENAI_API_KEY y las reglas PS4 descartaron la evidencia visual. Ningún juego queda marcado como completado.",
+      "region": "PAL España"
+    },
+    {
+      "at": "2026-08-27T15:55:27Z",
+      "level": "info",
+      "message": "PAL España: 25/25 consultados, 12 con evidencias, 43 anuncios aceptados, 0 fallos, 0 aplazados.",
+      "region": "PAL España"
+    },
+    {
+      "at": "2026-08-27T19:47:35Z",
+      "level": "info",
+      "message": "PlayStation 4 · PAL España: 50/50 consultados, 24 con evidencias, 58 anuncios aceptados, 0 fallos, 0 aplazados.",
+      "platformSlug": "ps4",
+      "region": "PAL España",
+      "coverCandidatesAdded": 0
+    }
+  ]
+}
