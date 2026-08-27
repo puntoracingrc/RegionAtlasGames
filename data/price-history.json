@@ -8432,6 +8432,87 @@
         "complete": 27.5,
         "sealed": null
       }
+    ],
+    "ps4-hack-gu-last-recode": [
+      {
+        "at": "2026-08-27T15:50:42Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 75.0,
+        "sealed": null
+      }
+    ],
+    "ps4-13-sentinels-aegis-rim": [
+      {
+        "at": "2026-08-27T15:50:42Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 33.95
+      }
+    ],
+    "ps4-2dark-limited-edition": [
+      {
+        "at": "2026-08-27T15:50:42Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 41.32,
+        "sealed": 134.95
+      }
+    ],
+    "ps4-8-to-glory": [
+      {
+        "at": "2026-08-27T15:50:42Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.27,
+        "sealed": null
+      }
+    ],
+    "ps4-8-bit-armies": [
+      {
+        "at": "2026-08-27T15:50:42Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.52,
+        "sealed": null
+      }
+    ],
+    "ps4-8-bit-hordes": [
+      {
+        "at": "2026-08-27T15:50:42Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 33.2,
+        "sealed": null
+      }
+    ],
+    "ps4-a-hat-in-time": [
+      {
+        "at": "2026-08-27T15:50:42Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 41.46
+      }
+    ],
+    "ps4-a-space-for-the-unbound": [
+      {
+        "at": "2026-08-27T15:50:42Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 48.95
+      }
+    ],
+    "ps4-a-way-out": [
+      {
+        "at": "2026-08-27T15:50:42Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 90.0,
+        "sealed": null
+      }
     ]
   }
 }

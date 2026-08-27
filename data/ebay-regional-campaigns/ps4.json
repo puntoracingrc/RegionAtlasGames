@@ -4,18 +4,18 @@
   "platformSlug": "ps4",
   "marketplaceId": "EBAY_ES",
   "destinationCountry": "ES",
-  "status": "ready",
+  "status": "running",
   "currentRegion": "PAL España",
-  "updatedAt": "2026-08-27T15:32:25Z",
+  "updatedAt": "2026-08-27T15:55:27Z",
   "lastRun": {
-    "at": "2026-08-27T15:32:25Z",
+    "at": "2026-08-27T15:55:27Z",
     "region": "PAL España",
     "selected": 25,
-    "processed": 0,
-    "matched": 0,
-    "listingsAdded": 0,
-    "failed": 25,
-    "systemicError": "Lote reabierto: el runner no tenía OPENAI_API_KEY y descartó la evidencia visual requerida."
+    "processed": 25,
+    "matched": 12,
+    "listingsAdded": 43,
+    "failed": 0,
+    "systemicError": null
   },
   "regions": {
     "pal_es": {
@@ -23,14 +23,67 @@
       "label": "PAL España",
       "catalogRegion": "PAL España",
       "total": 3016,
-      "completed": 0,
-      "matched": 0,
-      "noMatch": 0,
+      "completed": 25,
+      "matched": 12,
+      "noMatch": 13,
       "deferred": 0,
-      "pending": 3016,
-      "completedCatalogIds": [],
-      "matchedCatalogIds": [],
-      "noMatchCatalogIds": [],
+      "pending": 2991,
+      "completedCatalogIds": [
+        "ps4-hack-gu-last-recode",
+        "ps4-11-11-memories-retold",
+        "ps4-112th-seed",
+        "ps4-13-sentinels-aegis-rim",
+        "ps4-2dark-limited-edition",
+        "ps4-30-nights-pine-view-drive-&amp;-joe%27s-diner",
+        "ps4-3d-mini-golf",
+        "ps4-3drudder-for-playstation-vr",
+        "ps4-41-hours",
+        "ps4-7-days-to-die",
+        "ps4-7th-sector",
+        "ps4-8-to-glory",
+        "ps4-8-bit-armies",
+        "ps4-8-bit-hordes",
+        "ps4-8-bit-invaders",
+        "ps4-88-heroes",
+        "ps4-8doors-arum%27s-afterlife-adventure",
+        "ps4-9-monkeys-of-shaolin",
+        "ps4-99-vidas",
+        "ps4-a-hat-in-time",
+        "ps4-a-plague-tale-innocence",
+        "ps4-a-short-hike",
+        "ps4-a-space-for-the-unbound",
+        "ps4-a-way-out",
+        "ps4-acalesia"
+      ],
+      "matchedCatalogIds": [
+        "ps4-hack-gu-last-recode",
+        "ps4-13-sentinels-aegis-rim",
+        "ps4-2dark-limited-edition",
+        "ps4-7-days-to-die",
+        "ps4-8-to-glory",
+        "ps4-8-bit-armies",
+        "ps4-8-bit-hordes",
+        "ps4-88-heroes",
+        "ps4-a-hat-in-time",
+        "ps4-a-plague-tale-innocence",
+        "ps4-a-space-for-the-unbound",
+        "ps4-a-way-out"
+      ],
+      "noMatchCatalogIds": [
+        "ps4-11-11-memories-retold",
+        "ps4-112th-seed",
+        "ps4-30-nights-pine-view-drive-&amp;-joe%27s-diner",
+        "ps4-3d-mini-golf",
+        "ps4-3drudder-for-playstation-vr",
+        "ps4-41-hours",
+        "ps4-7th-sector",
+        "ps4-8-bit-invaders",
+        "ps4-8doors-arum%27s-afterlife-adventure",
+        "ps4-9-monkeys-of-shaolin",
+        "ps4-99-vidas",
+        "ps4-a-short-hike",
+        "ps4-acalesia"
+      ],
       "deferredCatalogIds": [],
       "failureAttempts": {}
     },
@@ -101,11 +154,11 @@
   },
   "totals": {
     "catalogGames": 8444,
-    "completed": 0,
-    "matched": 0,
-    "noMatch": 0,
+    "completed": 25,
+    "matched": 12,
+    "noMatch": 13,
     "deferred": 0,
-    "pending": 8444
+    "pending": 8419
   },
   "log": [
     {
@@ -118,6 +171,12 @@
       "at": "2026-08-27T15:32:25Z",
       "level": "warning",
       "message": "Lote reabierto: faltaba OPENAI_API_KEY y las reglas PS4 descartaron la evidencia visual. Ningún juego queda marcado como completado.",
+      "region": "PAL España"
+    },
+    {
+      "at": "2026-08-27T15:55:27Z",
+      "level": "info",
+      "message": "PAL España: 25/25 consultados, 12 con evidencias, 43 anuncios aceptados, 0 fallos, 0 aplazados.",
       "region": "PAL España"
     }
   ]
