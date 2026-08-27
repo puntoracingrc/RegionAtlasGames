@@ -47,6 +47,13 @@ function statusTone(status: MarketResearchBatch["status"]): "green" | "amber" | 
   return "neutral";
 }
 
+function formatBatchDate(value: string): string {
+  return new Intl.DateTimeFormat("es-ES", {
+    dateStyle: "short",
+    timeZone: "Europe/Madrid",
+  }).format(new Date(value));
+}
+
 function batchProgress(batch: MarketResearchBatch) {
   const completed = batch.targets.filter((target) => target.status === "completed").length;
   const failed = batch.targets.filter((target) => target.status === "failed").length;
@@ -291,7 +298,7 @@ export function AdminMarketCollectionPanel({ initialBatches, platformOptions, re
         <div className="mt-5 flex flex-wrap gap-2 border-t border-border pt-4">
           {batches.slice(0, 6).map((batch) => (
             <button key={batch.id} type="button" onClick={() => setSelectedId(batch.id)} className={`min-h-9 rounded-lg border px-3 text-xs font-semibold ${batch.id === selected?.id ? "border-accent bg-accent/10 text-foreground" : "border-border text-muted"}`}>
-              {batch.platformSlug.toUpperCase()} · {new Date(batch.createdAt).toLocaleDateString("es-ES")}
+              {batch.platformSlug.toUpperCase()} · {formatBatchDate(batch.createdAt)}
             </button>
           ))}
         </div>
