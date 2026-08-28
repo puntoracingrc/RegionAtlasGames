@@ -4,7 +4,11 @@ import {
   assessCrossPlatformSteamIdentity,
   assessCatalogEditorialStyle,
   assessDescriptionOriginality,
+  findNintendoOfficialProductUrl,
   isCrossPlatformSteamTitleMatch,
+  parseNintendoOfficialPage,
+  parsePlayStationOfficialPage,
+  selectWikipediaSearchTitle,
   type AdminAiFillRunResult,
 } from "./admin-ai-fill";
 import type { AdminGameDraft } from "./admin-draft-types";
@@ -160,6 +164,75 @@ test("accepts a cross-platform Steam reference corroborated by publisher", () =>
     releaseDate: "12 octubre 2022",
   });
   assert.equal(identity.passed, true);
+});
+
+test("selects an exact Nintendo product instead of a similarly named edition", () => {
+  const indexHtml = `
+    <a href="/es-es/Juegos/Juegos-de-Nintendo-Switch-2/Mario-Kart-World-Deluxe-1.html" title="Mario Kart World Deluxe">Ver</a>
+    <a href="/es-es/Juegos/Juegos-de-Nintendo-Switch-2/Mario-Kart-World-2.html" title="Mario Kart World">Ver</a>
+  `;
+  assert.equal(
+    findNintendoOfficialProductUrl(
+      indexHtml,
+      "Mario Kart World",
+      "https://www.nintendo.com/es-es/Juegos/Juegos-de-Nintendo-Switch-2/Indice.html",
+    ),
+    "https://www.nintendo.com/es-es/Juegos/Juegos-de-Nintendo-Switch-2/Mario-Kart-World-2.html",
+  );
+});
+
+test("parses useful facts from a Nintendo España product page", () => {
+  const html = `
+    <html><head>
+      <title>Mario Kart World | Juegos de Nintendo Switch 2 | Nintendo ES</title>
+      <meta name="description" content="&iexcl;Carreras en un mundo conectado!">
+      <meta property="og:image" content="https://www.nintendo.com/cover.png">
+    </head><body>
+      <span>Consola: <a>Nintendo Switch 2</a></span>
+      <span>Fecha de lanzamiento: 05-06-2025</span>
+      <p class="game_info_title">Categorías</p><p class="game_info_text">Fiesta, Carreras</p>
+      <p class="game_info_title">Jugadores</p><p class="game_info_text">Una sola consola (1-4), En línea (2-24)</p>
+      <p class="game_info_title">Distribuidor</p><p class="game_info_text">Nintendo</p>
+    </body></html>
+  `;
+  const reference = parseNintendoOfficialPage(html, "https://www.nintendo.com/es-es/juego.html");
+  assert.equal(reference?.title, "Mario Kart World");
+  assert.equal(reference?.releaseDate, "2025-06-05");
+  assert.equal(reference?.publisherName, "Nintendo");
+  assert.deepEqual(reference?.genres, ["Fiesta", "Carreras"]);
+  assert.equal(reference?.players, 4);
+  assert.deepEqual(reference?.platforms, ["Nintendo Switch 2"]);
+  assert.match(reference?.text ?? "", /¡Carreras/);
+});
+
+test("parses useful facts from a historical PlayStation España page", () => {
+  const html = `
+    <html><head>
+      <meta name="description" content="Una misión de plataformas para PS VR.">
+      <meta property="og:image" content="https://gmedia.playstation.com/cover.png">
+    </head><body>
+      <h1>ASTRO BOT Rescue Mission</h1>
+      <script>{"type":"NO_OF_PLAYERS","value":"1"}</script>
+      <dt>Plataforma:</dt><dd data-qa="gameInfo#releaseInformation#platform-value">PS4</dd>
+      <dt>Lanzamiento:</dt><dd data-qa="gameInfo#releaseInformation#releaseDate-value">2/10/2018</dd>
+      <dt>Editor:</dt><dd data-qa="gameInfo#releaseInformation#publisher-value">Sony Interactive Entertainment</dd>
+      <dt>Géneros:</dt><dd data-qa="gameInfo#releaseInformation#genre-value"><span>Acción</span></dd>
+    </body></html>
+  `;
+  const reference = parsePlayStationOfficialPage(html, "https://www.playstation.com/es-es/games/astro-bot-rescue-mission/");
+  assert.equal(reference?.title, "ASTRO BOT Rescue Mission");
+  assert.equal(reference?.releaseDate, "2018-10-02");
+  assert.equal(reference?.publisherName, "Sony Interactive Entertainment");
+  assert.deepEqual(reference?.genres, ["Acción"]);
+  assert.equal(reference?.players, 1);
+  assert.deepEqual(reference?.platforms, ["PS4"]);
+});
+
+test("chooses the exact Wikipedia title even when it is not the first result", () => {
+  assert.equal(
+    selectWikipediaSearchTitle("Mario Kart World", ["Mario Kart Live: Home Circuit", "Mario Kart World"]),
+    "Mario Kart World",
+  );
 });
 
 test("marks a sourced complete proposal ready", () => {

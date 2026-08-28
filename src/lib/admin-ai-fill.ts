@@ -84,6 +84,8 @@ const PLATFORM_WIKI_HINT: Record<string, string> = {
   ps3: "PlayStation 3",
   ps4: "PlayStation 4",
   ps5: "PlayStation 5",
+  switch: "Nintendo Switch",
+  switch2: "Nintendo Switch 2",
 };
 
 const USER_AGENT = "RegionAtlasGames/1.0 (admin ai fill)";
@@ -176,9 +178,10 @@ const PLAYSTATION_OFFICIAL_INDEX: Record<string, string> = {
 };
 
 const NINTENDO_OFFICIAL_INDEX: Record<string, string> = {
-  switch: "https://store.nintendo.com/es-es/games/view-all-games/shop-by-console/nintendo-switch-games",
-  switch2: "https://store.nintendo.com/es-es/games/nintendo-switch-2-games",
+  switch: "https://www.nintendo.com/es-es/Hardware/Juegos/Juegos-de-Nintendo-Switch-1178441.html",
+  switch2: "https://www.nintendo.com/es-es/Juegos/Juegos-de-Nintendo-Switch-2/Nintendo-Switch-2-Juegos-2790010.html",
 };
+const NINTENDO_GENERAL_INDEX = "https://www.nintendo.com/es-es/Juegos/Juegos-347085.html";
 
 const XBOX_OFFICIAL_INDEX = "https://www.xbox.com/es-es/games";
 const STEAM_SEARCH_SUGGEST_URL = "https://store.steampowered.com/search/suggest";
@@ -213,6 +216,7 @@ type TrustedSourceDefinition = {
 
 const TRUSTED_SOURCE_PRIORITY: TrustedSourceDefinition[] = [
   { domain: "store.playstation.com", label: "PlayStation Store", tier: "official", platformPrefixes: ["ps"], score: 100 },
+  { domain: "playstation.com", label: "PlayStation oficial", tier: "official", platformPrefixes: ["ps"], score: 98 },
   { domain: "xbox.com", label: "Xbox Store", tier: "official", platformPrefixes: ["xbox"], score: 95 },
   { domain: "microsoft.com", label: "Microsoft Store", tier: "official", platformPrefixes: ["xbox"], score: 90 },
   { domain: "store.nintendo.com", label: "Nintendo Store", tier: "official", platformPrefixes: ["switch"], score: 100 },
@@ -498,6 +502,15 @@ function decodeHtmlEntities(value: string): string {
   return value
     .replace(/&nbsp;/gi, " ")
     .replace(/&amp;/gi, "&")
+    .replace(/&iexcl;/gi, "¡")
+    .replace(/&iquest;/gi, "¿")
+    .replace(/&aacute;/gi, "á")
+    .replace(/&eacute;/gi, "é")
+    .replace(/&iacute;/gi, "í")
+    .replace(/&oacute;/gi, "ó")
+    .replace(/&uacute;/gi, "ú")
+    .replace(/&ntilde;/gi, "ñ")
+    .replace(/&uuml;/gi, "ü")
     .replace(/&quot;/gi, "\"")
     .replace(/&#39;/g, "'")
     .replace(/&apos;/gi, "'")
@@ -514,6 +527,168 @@ function metaContent(html: string, name: string): string | null {
     "i",
   );
   return html.match(pattern)?.[1]?.trim() ?? null;
+}
+
+function htmlAttribute(tag: string, name: string): string | null {
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return tag.match(new RegExp(`\\b${escaped}=["']([^"']+)["']`, "i"))?.[1]?.trim() ?? null;
+}
+
+export function findNintendoOfficialProductUrl(
+  indexHtml: string,
+  title: string,
+  indexUrl: string,
+): string | null {
+  const candidates = Array.from(indexHtml.matchAll(/<a\b[^>]*>/gi))
+    .map((match) => {
+      const href = htmlAttribute(match[0], "href");
+      const candidateTitle = htmlAttribute(match[0], "title");
+      return href && candidateTitle ? { href: decodeHtmlEntities(href), title: decodeHtmlEntities(candidateTitle) } : null;
+    })
+    .filter((candidate): candidate is { href: string; title: string } => Boolean(candidate))
+    .filter((candidate) => /\/es-es\/Juegos\//i.test(candidate.href));
+
+  const expected = normalizeMatchText(title);
+  const exact = candidates.find((candidate) => normalizeMatchText(candidate.title) === expected);
+  const compatible = exact ?? candidates.find((candidate) => isSameGameTitle(title, candidate.title));
+  if (!compatible) return null;
+
+  try {
+    const productUrl = new URL(compatible.href, indexUrl);
+    if (productUrl.protocol !== "https:" || !productUrl.hostname.endsWith("nintendo.com")) return null;
+    productUrl.search = "";
+    productUrl.hash = "";
+    return productUrl.toString();
+  } catch {
+    return null;
+  }
+}
+
+function nintendoInfoValue(html: string, label: string): string | null {
+  const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = html.match(
+    new RegExp(
+      `<p[^>]*class=["'][^"']*game_info_title[^"']*["'][^>]*>\\s*${escaped}\\s*<\\/p>\\s*` +
+        `<p[^>]*class=["'][^"']*game_info_text[^"']*["'][^>]*>([\\s\\S]*?)<\\/p>`,
+      "i",
+    ),
+  );
+  return match ? stripHtmlToText(match[1]) : null;
+}
+
+function nintendoReleaseDate(html: string): string | null {
+  const match = stripHtmlToText(html).match(/Fecha de lanzamiento:\s*(\d{2})-(\d{2})-(\d{4})/i);
+  return match ? `${match[3]}-${match[2]}-${match[1]}` : null;
+}
+
+function nintendoLocalPlayers(value: string | null): number | null {
+  if (!value) return null;
+  const local = value.match(/Una sola consola\s*\(\s*(\d+)\s*(?:-\s*(\d+))?\s*\)/i);
+  if (local) return Number.parseInt(local[2] ?? local[1], 10);
+  return parsePlayerCount(value);
+}
+
+export function parseNintendoOfficialPage(html: string, url: string): ReferenceSource | null {
+  const pageTitle = stripHtmlToText(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "")
+    .split("|")[0]
+    .trim();
+  if (!pageTitle) return null;
+
+  const description = decodeHtmlEntities(metaContent(html, "description") ?? metaContent(html, "og:description") ?? "");
+  const coverUrl = decodeHtmlEntities(metaContent(html, "og:image") ?? "") || null;
+  const platform = stripHtmlToText(
+    html.match(/Consola:\s*<a\b[^>]*>([\s\S]*?)<\/a>/i)?.[1] ?? "",
+  ) || null;
+  const releaseDate = nintendoReleaseDate(html);
+  const genres = (nintendoInfoValue(html, "Categorías") ?? "")
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+  const playersText = nintendoInfoValue(html, "Jugadores");
+  const publisherName = nintendoInfoValue(html, "Distribuidor");
+  const facts = [
+    "Fuente oficial: Nintendo España.",
+    `Título indicado por Nintendo: ${pageTitle}.`,
+    platform ? `Consola indicada por Nintendo: ${platform}.` : null,
+    releaseDate ? `Fecha indicada por Nintendo: ${releaseDate}.` : null,
+    publisherName ? `Distribuidor indicado por Nintendo: ${publisherName}.` : null,
+    genres.length ? `Categorías indicadas por Nintendo: ${genres.join(", ")}.` : null,
+    playersText ? `Jugadores indicados por Nintendo: ${playersText}.` : null,
+    description ? `Descripción oficial para contexto: ${description}` : null,
+  ].filter(Boolean);
+
+  return {
+    label: "Nintendo oficial",
+    url,
+    title: pageTitle,
+    text: facts.join("\n"),
+    coverUrl,
+    platforms: platform ? [platform] : [],
+    publisherName,
+    releaseDate,
+    genres,
+    players: nintendoLocalPlayers(playersText),
+  };
+}
+
+function playStationInfoValue(html: string, field: string): string | null {
+  const escaped = field.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = html.match(
+    new RegExp(
+      `<dd[^>]*data-qa=["']gameInfo#releaseInformation#${escaped}-value["'][^>]*>([\\s\\S]*?)<\\/dd>`,
+      "i",
+    ),
+  );
+  return match ? stripHtmlToText(match[1]) : null;
+}
+
+function playStationReleaseDate(value: string | null): string | null {
+  const match = value?.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (!match) return null;
+  return `${match[3]}-${match[2].padStart(2, "0")}-${match[1].padStart(2, "0")}`;
+}
+
+export function parsePlayStationOfficialPage(html: string, url: string): ReferenceSource | null {
+  const title = stripHtmlToText(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "");
+  if (!title) return null;
+
+  const platform = playStationInfoValue(html, "platform");
+  const releaseDate = playStationReleaseDate(playStationInfoValue(html, "releaseDate"));
+  const publisherName = playStationInfoValue(html, "publisher");
+  const genres = (playStationInfoValue(html, "genre") ?? "")
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+  const players = parsePlayerCount(
+    html.match(/["']type["']\s*:\s*["']NO_OF_PLAYERS["'][\s\S]{0,160}?["']value["']\s*:\s*["'](\d+)["']/i)?.[1] ??
+      stripHtmlToText(html).match(/\b(\d+)\s+jugador(?:es)?\b/i)?.[1] ??
+      null,
+  );
+  const description = decodeHtmlEntities(metaContent(html, "description") ?? metaContent(html, "og:description") ?? "");
+  const coverUrl = decodeHtmlEntities(metaContent(html, "og:image") ?? "") || null;
+  const facts = [
+    "Fuente oficial: PlayStation España.",
+    `Título indicado por PlayStation: ${title}.`,
+    platform ? `Plataforma indicada por PlayStation: ${platform}.` : null,
+    releaseDate ? `Fecha indicada por PlayStation: ${releaseDate}.` : null,
+    publisherName ? `Editor indicado por PlayStation: ${publisherName}.` : null,
+    genres.length ? `Géneros indicados por PlayStation: ${genres.join(", ")}.` : null,
+    players ? `Jugadores indicados por PlayStation: ${players}.` : null,
+    description ? `Descripción oficial para contexto: ${description}` : null,
+  ].filter(Boolean);
+
+  return {
+    label: "PlayStation oficial",
+    url,
+    title,
+    text: facts.join("\n"),
+    coverUrl,
+    platforms: platform ? [platform] : [],
+    publisherName,
+    releaseDate,
+    genres,
+    players,
+  };
 }
 
 function normalizeSteamComparableTitle(value: string): string {
@@ -964,6 +1139,87 @@ async function searchPlayStationStore(draft: AdminGameDraft): Promise<ReferenceS
   return product && isSameGameTitle(draft.title, product.title) ? product : null;
 }
 
+function playStationReferenceMatchesPlatform(
+  platformSlug: string,
+  reference: Pick<ReferenceSource, "platforms">,
+): boolean {
+  const expected = PLAYSTATION_STORE_PLATFORM[platformSlug];
+  const platforms = reference.platforms?.map((platform) => platform.toUpperCase()) ?? [];
+  return !expected || platforms.length === 0 || platforms.includes(expected);
+}
+
+async function searchPlayStationOfficialPage(draft: AdminGameDraft): Promise<ReferenceSource | null> {
+  if (!draft.platformSlug.startsWith("ps")) return null;
+  if (draft.edition !== "standard" || /\[[^\]]+\]/.test(draft.title)) return null;
+
+  const candidateSlugs = Array.from(new Set([draft.slug, slugify(draft.title)]))
+    .map((value) => value.trim().toLowerCase())
+    .filter((value) => /^[a-z0-9%-]+$/.test(value));
+  for (const candidateSlug of candidateSlugs) {
+    const url = `https://www.playstation.com/es-es/games/${candidateSlug}/`;
+    const response = await fetch(url, { headers: { "User-Agent": USER_AGENT } });
+    if (!response.ok) continue;
+    const reference = parsePlayStationOfficialPage(await response.text(), url);
+    if (
+      reference &&
+      normalizeMatchText(reference.title ?? "") === normalizeMatchText(draft.title) &&
+      playStationReferenceMatchesPlatform(draft.platformSlug, reference)
+    ) {
+      return reference;
+    }
+  }
+  return null;
+}
+
+function nintendoReferenceMatchesPlatform(
+  platformSlug: string,
+  reference: Pick<ReferenceSource, "platforms">,
+): boolean {
+  const platforms = reference.platforms?.map(normalizeMatchText) ?? [];
+  if (platforms.length === 0) return true;
+  if (platformSlug === "switch2") return platforms.some((platform) => platform.includes("nintendo switch 2"));
+  if (platformSlug === "switch") {
+    return platforms.some((platform) => platform.includes("nintendo switch") && !platform.includes("switch 2"));
+  }
+  return false;
+}
+
+async function fetchNintendoOfficialProduct(url: string): Promise<ReferenceSource | null> {
+  const response = await fetch(url, { headers: { "User-Agent": USER_AGENT } });
+  if (!response.ok) return null;
+  return parseNintendoOfficialPage(await response.text(), url);
+}
+
+async function searchNintendoOfficial(draft: AdminGameDraft): Promise<ReferenceSource | null> {
+  if (draft.platformSlug !== "switch" && draft.platformSlug !== "switch2") return null;
+
+  const directReference = draft.reference?.trim();
+  if (/^https:\/\/(?:www\.)?nintendo\.com\//i.test(directReference ?? "")) {
+    const direct = await fetchNintendoOfficialProduct(directReference as string);
+    return direct && isSameGameTitle(draft.title, direct.title) && nintendoReferenceMatchesPlatform(draft.platformSlug, direct)
+      ? direct
+      : null;
+  }
+
+  const indexUrls = [NINTENDO_OFFICIAL_INDEX[draft.platformSlug], NINTENDO_GENERAL_INDEX].filter(Boolean);
+  for (const indexUrl of indexUrls) {
+    const response = await fetch(indexUrl, { headers: { "User-Agent": USER_AGENT } });
+    if (!response.ok) continue;
+    const productUrl = findNintendoOfficialProductUrl(await response.text(), draft.title, indexUrl);
+    if (!productUrl) continue;
+    const product = await fetchNintendoOfficialProduct(productUrl);
+    if (
+      product &&
+      isSameGameTitle(draft.title, product.title) &&
+      nintendoReferenceMatchesPlatform(draft.platformSlug, product)
+    ) {
+      return product;
+    }
+  }
+
+  return null;
+}
+
 async function googleTrustedSearch(query: string, platformSlug: string): Promise<TrustedSearchResult[]> {
   const apiKey = process.env.GOOGLE_SEARCH_API_KEY?.trim();
   const cx = process.env.GOOGLE_SEARCH_CX?.trim();
@@ -1147,6 +1403,15 @@ function normalizeCompanyDisplayName(value: string): string {
   return trimmed;
 }
 
+export function selectWikipediaSearchTitle(title: string, candidates: string[]): string | null {
+  const expected = normalizeMatchText(title);
+  return (
+    candidates.find((candidate) => normalizeMatchText(candidate) === expected) ??
+    candidates.find((candidate) => isSameGameTitle(title, candidate)) ??
+    null
+  );
+}
+
 async function searchWikipedia(title: string, platformSlug: string, lang: string) {
   const hint = PLATFORM_WIKI_HINT[platformSlug] ?? platformSlug;
   const params = new URLSearchParams({
@@ -1164,7 +1429,7 @@ async function searchWikipedia(title: string, platformSlug: string, lang: string
   const data = (await res.json()) as {
     query?: { search?: Array<{ title: string }> };
   };
-  return data.query?.search?.[0]?.title ?? null;
+  return selectWikipediaSearchTitle(title, data.query?.search?.map((result) => result.title) ?? []);
 }
 
 async function fetchWikiExtract(title: string, lang: string) {
@@ -1624,6 +1889,147 @@ export async function* streamAdminAiFill(
     }
   }
 
+  if (
+    draft.platformSlug.startsWith("ps") &&
+    !referenceSources.some((source) => /^PlayStation (Store|oficial)$/i.test(source.label))
+  ) {
+    yield { type: "log", message: "Buscando ficha histórica en PlayStation España…" };
+    try {
+      const playStationReference = await searchPlayStationOfficialPage(draft);
+      if (playStationReference) {
+        addReferenceSource(playStationReference);
+        yield { type: "log", message: `Fuente oficial encontrada: ${playStationReference.label}` };
+        yield { type: "log", message: `URL consultada: ${playStationReference.url}` };
+
+        if (includeCover && playStationReference.coverUrl && (!options.onlyMissing || !draft.coverUrl)) {
+          draft.coverUrl = playStationReference.coverUrl;
+          yield { type: "field", field: "coverUrl", value: draft.coverUrl };
+        }
+        if (wants("release") && playStationReference.releaseDate && (!options.onlyMissing || !draft.releaseDate)) {
+          draft.releaseDate = playStationReference.releaseDate;
+          yield { type: "field", field: "releaseDate", value: draft.releaseDate };
+        }
+        const releaseYear = yearFromIsoDate(playStationReference.releaseDate);
+        if (wants("release") && releaseYear && (!options.onlyMissing || draft.year == null)) {
+          draft.year = releaseYear;
+          yield { type: "field", field: "year", value: draft.year };
+        } else if (wants("release") && releaseYear && draft.releaseDate) {
+          draft.year = releaseYear;
+          yield { type: "field", field: "year", value: draft.year };
+        }
+        if (
+          wants("companies") &&
+          playStationReference.publisherName &&
+          (!options.onlyMissing || !draft.publisherName)
+        ) {
+          draft.publisherName = normalizeCompanyDisplayName(playStationReference.publisherName);
+          draft.publisherSlug = slugify(draft.publisherName);
+          publisherFromDirectSource = true;
+          yield { type: "log", message: `Editor leído de PlayStation: ${draft.publisherName}` };
+          yield { type: "field", field: "publisherName", value: draft.publisherName };
+          yield { type: "field", field: "publisherSlug", value: draft.publisherSlug };
+        }
+        if (wants("taxonomy") && playStationReference.genres?.length) {
+          const buckets = classifyControlledTaxonomyNames(playStationReference.genres);
+          for (const update of applyControlledTaxonomyBuckets(draft, buckets, options)) {
+            yield { type: "field", field: update.field, value: update.value };
+          }
+          if (buckets.rejected.length) {
+            yield {
+              type: "log",
+              message: `Géneros de PlayStation ignorados por no estar en taxonomía controlada: ${buckets.rejected.join(", ")}`,
+            };
+          }
+        }
+        if (wants("players") && playStationReference.players && (!options.onlyMissing || draft.players == null)) {
+          draft.players = playStationReference.players;
+          yield { type: "field", field: "players", value: draft.players };
+        }
+        const platformSupport = defaultSupportForPlatform(draft.platformSlug);
+        if (wants("support") && platformSupport && (!options.onlyMissing || !draft.support)) {
+          draft.support = platformSupport;
+          yield { type: "field", field: "support", value: draft.support };
+        }
+      } else {
+        yield { type: "log", message: "PlayStation España no encontró una ficha histórica exacta para esta edición." };
+      }
+    } catch (error) {
+      yield {
+        type: "log",
+        message: `PlayStation España no pudo consultarse: ${error instanceof Error ? error.message : "error"}`,
+      };
+    }
+  }
+
+  if (draft.platformSlug === "switch" || draft.platformSlug === "switch2") {
+    yield { type: "log", message: "Buscando fuente oficial en Nintendo España…" };
+    try {
+      const nintendoReference = await searchNintendoOfficial(draft);
+      if (nintendoReference) {
+        addReferenceSource(nintendoReference);
+        yield { type: "log", message: `Fuente oficial encontrada: ${nintendoReference.label}` };
+        yield { type: "log", message: `URL consultada: ${nintendoReference.url}` };
+
+        if (includeCover && nintendoReference.coverUrl && (!options.onlyMissing || !draft.coverUrl)) {
+          draft.coverUrl = nintendoReference.coverUrl;
+          yield { type: "field", field: "coverUrl", value: draft.coverUrl };
+        }
+        if (wants("release") && nintendoReference.releaseDate && (!options.onlyMissing || !draft.releaseDate)) {
+          draft.releaseDate = nintendoReference.releaseDate;
+          yield { type: "field", field: "releaseDate", value: draft.releaseDate };
+        }
+        const releaseYear = yearFromIsoDate(nintendoReference.releaseDate);
+        if (wants("release") && releaseYear && (!options.onlyMissing || draft.year == null)) {
+          draft.year = releaseYear;
+          yield { type: "field", field: "year", value: draft.year };
+        } else if (wants("release") && releaseYear && draft.releaseDate) {
+          draft.year = releaseYear;
+          yield { type: "field", field: "year", value: draft.year };
+        }
+        if (
+          wants("companies") &&
+          nintendoReference.publisherName &&
+          (!options.onlyMissing || !draft.publisherName)
+        ) {
+          draft.publisherName = normalizeCompanyDisplayName(nintendoReference.publisherName);
+          draft.publisherSlug = slugify(draft.publisherName);
+          publisherFromDirectSource = true;
+          yield { type: "log", message: `Editor leído de Nintendo: ${draft.publisherName}` };
+          yield { type: "field", field: "publisherName", value: draft.publisherName };
+          yield { type: "field", field: "publisherSlug", value: draft.publisherSlug };
+        }
+        if (wants("taxonomy") && nintendoReference.genres?.length) {
+          const buckets = classifyControlledTaxonomyNames(nintendoReference.genres);
+          for (const update of applyControlledTaxonomyBuckets(draft, buckets, options)) {
+            yield { type: "field", field: update.field, value: update.value };
+          }
+          if (buckets.rejected.length) {
+            yield {
+              type: "log",
+              message: `Categorías de Nintendo ignoradas por no estar en taxonomía controlada: ${buckets.rejected.join(", ")}`,
+            };
+          }
+        }
+        if (wants("players") && nintendoReference.players && (!options.onlyMissing || draft.players == null)) {
+          draft.players = nintendoReference.players;
+          yield { type: "field", field: "players", value: draft.players };
+        }
+        const platformSupport = defaultSupportForPlatform(draft.platformSlug);
+        if (wants("support") && platformSupport && (!options.onlyMissing || !draft.support)) {
+          draft.support = platformSupport;
+          yield { type: "field", field: "support", value: draft.support };
+        }
+      } else {
+        yield { type: "log", message: "Nintendo España no encontró una ficha exacta para esta variante." };
+      }
+    } catch (error) {
+      yield {
+        type: "log",
+        message: `Nintendo España no pudo consultarse: ${error instanceof Error ? error.message : "error"}`,
+      };
+    }
+  }
+
   let steamExperimentalTags: string[] = [];
   let steamExperimentalUrl: string | null = null;
   try {
@@ -1733,7 +2139,11 @@ export async function* streamAdminAiFill(
     };
   }
 
-  if (!referenceText || referenceSources.length < 2) {
+  const needsKnowledgeReference =
+    !referenceText ||
+    referenceSources.length < 2 ||
+    (wants("companies") && (!draft.developerName || !draft.publisherName));
+  if (needsKnowledgeReference) {
     yield { type: "log", message: "Buscando referencia en Wikipedia (es)…" };
 
     for (const lang of ["es", "en"] as const) {
@@ -2002,7 +2412,7 @@ export async function* streamAdminAiFill(
       throw new Error("La descripción seguía demasiado cerca de una fuente tras el segundo intento; se deja para revisión sin guardar.");
     }
     if (wants("description") && description.length >= 40 && (!options.onlyMissing || !draft.description)) {
-      draft.description = description.slice(0, 900);
+      draft.description = clip(description, 900);
       yield { type: "field", field: "description", value: draft.description };
     }
 
