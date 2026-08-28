@@ -92,6 +92,13 @@ export async function POST(request: Request) {
       productUrl: candidate.productUrl,
       imageUrl: candidate.imageUrl,
       fetchedAt: discovery.result.collectedAt || new Date().toISOString(),
+      preowned: candidate.preownedSourceSku && candidate.preownedProductUrl
+        ? {
+            sku: candidate.preownedSourceSku,
+            productUrl: candidate.preownedProductUrl,
+            fetchedAt: discovery.result.collectedAt || new Date().toISOString(),
+          }
+        : null,
     };
     discoveryContext = { jobId, sourceSku };
   }

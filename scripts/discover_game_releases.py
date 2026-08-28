@@ -13,9 +13,13 @@ import re
 import sys
 import time
 import unicodedata
+import urllib.error
+import urllib.request
 from datetime import date, datetime
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
+from urllib.parse import urljoin, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -37,6 +41,26 @@ PLATFORM_RULES = {
     },
 }
 BUY_BUTTONS = {"comprar", "anadir", "añadir"}
+GAME_PRODUCT_HOSTS = {"game.es", "www.game.es"}
+
+
+class GameProductPageParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.links: list[str] = []
+        self.text: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() != "a":
+            return
+        href = dict(attrs).get("href")
+        if href:
+            self.links.append(href)
+
+    def handle_data(self, data: str) -> None:
+        cleaned = data.strip()
+        if cleaned:
+            self.text.append(cleaned)
 
 
 def normalize_text(value: str) -> str:
@@ -76,6 +100,10 @@ def product_title_key(product: dict[str, Any]) -> str:
     return f"title:{canonical_title(str(product.get('title') or product.get('Name') or ''))}"
 
 
+def strip_preowned_suffix(value: str) -> str:
+    return re.sub(r"\s*[-–—]\s*(seminuevo|reacondicionado)\s*$", "", value, flags=re.IGNORECASE).strip()
+
+
 def load_seen_discoveries(recent_dir: Path, platform_slug: str) -> set[str]:
     if not recent_dir.exists():
         return set()
@@ -112,14 +140,91 @@ def best_available_new_offer(product: dict[str, Any]) -> dict[str, Any] | None:
     return None
 
 
+def best_available_preowned_offer(product: dict[str, Any]) -> dict[str, Any] | None:
+    for offer in product.get("Offers") or []:
+        if str(offer.get("BasketCode") or "").upper() != "PREOWNED":
+            continue
+        if offer.get("IsPreowned") is not True:
+            continue
+        if normalize_text(str(offer.get("ButtonText") or "")) not in BUY_BUTTONS:
+            continue
+        if offer.get("PaintButton") is False:
+            continue
+        return offer
+    return None
+
+
+def trusted_game_product_url(value: str, platform_slug: str, *, preowned: bool = False) -> str | None:
+    try:
+        url = urlparse(value)
+    except ValueError:
+        return None
+    path = url.path.lower()
+    rules = PLATFORM_RULES[platform_slug]
+    if (
+        url.scheme != "https"
+        or (url.hostname or "").lower() not in GAME_PRODUCT_HOSTS
+        or not path.startswith("/videojuegos/")
+        or rules["navigationSegment"] not in f"{path}/"
+        or (preowned and "seminuevo" not in path)
+        or not path.rstrip("/").rsplit("/", 1)[-1].isdigit()
+    ):
+        return None
+    return value
+
+
+def fetch_game_product_page(url: str) -> str:
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "RegionAtlasGames/1.0 (+catalog-discovery)"},
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            return response.read(2_500_001).decode("utf-8", errors="ignore")
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as exc:
+        raise GameEsError(f"No se pudo leer la ficha GAME: {type(exc).__name__}") from exc
+
+
+def inspect_game_product_page(html: str) -> GameProductPageParser:
+    parser = GameProductPageParser()
+    parser.feed(html)
+    return parser
+
+
+def discover_preowned_source(product_url: str, platform_slug: str) -> tuple[dict[str, str] | None, str | None]:
+    try:
+        page = inspect_game_product_page(fetch_game_product_page(product_url))
+    except GameEsError as exc:
+        return None, str(exc)
+
+    for href in page.links:
+        absolute = urljoin("https://www.game.es/", href)
+        trusted = trusted_game_product_url(absolute, platform_slug, preowned=True)
+        if not trusted:
+            continue
+        try:
+            preowned_page = inspect_game_product_page(fetch_game_product_page(trusted))
+        except GameEsError as exc:
+            return None, str(exc)
+        visible_text = normalize_text(" ".join(preowned_page.text))
+        if "seminuevo" not in visible_text or "anadir a la cesta" not in visible_text:
+            continue
+        sku = urlparse(trusted).path.rstrip("/").rsplit("/", 1)[-1]
+        return {"sourceSku": sku, "productUrl": trusted}, None
+    return None, None
+
+
 def candidate_from_product(
     product: dict[str, Any],
     platform_slug: str,
     *,
     as_of: date,
+    offer_type: str = "new",
 ) -> tuple[dict[str, Any] | None, str | None]:
     rules = PLATFORM_RULES[platform_slug]
     title = str(product.get("Name") or "").strip()
+    if offer_type == "preowned":
+        title = strip_preowned_suffix(title)
     navigation = str(product.get("Navigation") or "").strip()
     if not title:
         return None, "missing_title"
@@ -136,7 +241,8 @@ def candidate_from_product(
         return None, "future_release"
     if product.get("IsAvailable") is not True:
         return None, "not_available"
-    if best_available_new_offer(product) is None:
+    offer = best_available_new_offer(product) if offer_type == "new" else best_available_preowned_offer(product)
+    if offer is None:
         return None, "not_for_sale"
     image_url = str(product.get("ImageUrl") or "").strip()
     if not image_url:
@@ -151,7 +257,7 @@ def candidate_from_product(
         pegi = None
     if pegi not in {3, 7, 12, 16, 18}:
         pegi = None
-    return {
+    candidate = {
         "title": title,
         "platformSlug": platform_slug,
         "region": REGION,
@@ -164,8 +270,13 @@ def candidate_from_product(
         "genres": genres,
         "pegi": pegi,
         "availability": "available",
+        "availabilityModes": [offer_type],
         "regionEvidence": "game_es_retail_catalog",
-    }, None
+    }
+    if offer_type == "preowned":
+        candidate["preownedSourceSku"] = candidate["sourceSku"]
+        candidate["preownedProductUrl"] = candidate["productUrl"]
+    return candidate, None
 
 
 def exact_catalog_index(games: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
@@ -184,13 +295,21 @@ def exact_catalog_index(games: list[dict[str, Any]]) -> dict[str, list[dict[str,
 def source_catalog_index(games: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
     index: dict[str, dict[str, Any]] = {}
     for game in games:
-        sku = str(game.get("gameEsSku") or "").strip().lower()
-        product_url = str(game.get("gameEsProductUrl") or "").strip().lower()
-        if sku:
-            index[f"sku:{sku}"] = game
-        if product_url:
-            index[f"url:{product_url}"] = game
+        for field in ("gameEsSku", "gameEsPreownedSku"):
+            sku = str(game.get(field) or "").strip().lower()
+            if sku:
+                index[f"sku:{sku}"] = game
+        for field in ("gameEsProductUrl", "gameEsPreownedProductUrl"):
+            product_url = str(game.get(field) or "").strip().lower()
+            if product_url:
+                index[f"url:{product_url}"] = game
     return index
+
+
+def attach_preowned_source(candidate: dict[str, Any], source: dict[str, str]) -> None:
+    candidate["preownedSourceSku"] = source["sourceSku"]
+    candidate["preownedProductUrl"] = source["productUrl"]
+    candidate["availabilityModes"] = sorted(set(candidate.get("availabilityModes") or []) | {"preowned"})
 
 
 def compact_match(game: dict[str, Any], score: float = 1.0) -> dict[str, Any]:
@@ -237,6 +356,7 @@ def collect_release_candidates(
     delay: float,
     as_of: date,
     recent_dir: Path,
+    include_preowned: bool = False,
 ) -> dict[str, Any]:
     games = platform_catalog_games(platform_slug, REGION)
     exact_index = exact_catalog_index(games)
@@ -253,6 +373,11 @@ def collect_release_candidates(
     raw_products = 0
     total_results: int | None = None
     total_pages: int | None = None
+    preowned_pages = 0
+    preowned_raw_products = 0
+    preowned_linked = 0
+    preowned_only_candidates = 0
+    preowned_failures = 0
 
     for page in range(max(1, max_pages)):
         payload = fetch_search_page(platform_slug, "new", page, order=0)
@@ -317,6 +442,67 @@ def collect_release_candidates(
         if page + 1 < max_pages:
             time.sleep(max(0.0, delay))
 
+    if include_preowned:
+        candidates_by_title = {canonical_title(row["title"]): row for row in candidates}
+        existing_by_title = {canonical_title(row["title"]): row for row in existing_products}
+
+        for candidate in [*candidates, *existing_products]:
+            source, error = discover_preowned_source(candidate["productUrl"], platform_slug)
+            if error:
+                preowned_failures += 1
+            elif source:
+                attach_preowned_source(candidate, source)
+                preowned_linked += 1
+            time.sleep(min(max(0.0, delay), 0.25))
+
+        for page in range(max(1, max_pages)):
+            payload = fetch_search_page(platform_slug, "preowned", page, order=0)
+            preowned_pages += 1
+            rows = payload.get("Products") or []
+            preowned_raw_products += len(rows)
+            if not rows:
+                break
+            for raw in rows:
+                preowned_candidate, reason = candidate_from_product(
+                    raw,
+                    platform_slug,
+                    as_of=as_of,
+                    offer_type="preowned",
+                )
+                if preowned_candidate is None:
+                    key = f"preowned_{reason or 'invalid'}"
+                    rejected_counts[key] = rejected_counts.get(key, 0) + 1
+                    continue
+                title_key = canonical_title(preowned_candidate["title"])
+                current = candidates_by_title.get(title_key) or existing_by_title.get(title_key)
+                if current:
+                    attach_preowned_source(
+                        current,
+                        {
+                            "sourceSku": preowned_candidate["preownedSourceSku"],
+                            "productUrl": preowned_candidate["preownedProductUrl"],
+                        },
+                    )
+                    continue
+                status, matches = classify_catalog_candidate(
+                    preowned_candidate,
+                    games,
+                    exact_index,
+                    source_index,
+                )
+                if status == "existing":
+                    existing_products.append({**preowned_candidate, "catalogStatus": status, "matches": matches})
+                    existing_by_title[title_key] = existing_products[-1]
+                elif len(candidates) < max(1, limit):
+                    candidates.append({**preowned_candidate, "catalogStatus": status, "matches": matches})
+                    candidates_by_title[title_key] = candidates[-1]
+                    preowned_only_candidates += 1
+            total_preowned_pages = payload.get("TotalPages")
+            if total_preowned_pages is not None and page >= int(total_preowned_pages):
+                break
+            if page + 1 < max_pages:
+                time.sleep(max(0.0, delay))
+
     return {
         "source": SOURCE,
         "mode": "released_catalog_candidates",
@@ -330,7 +516,13 @@ def collect_release_candidates(
         "rejectedSamples": rejected_samples,
         "stats": {
             "pages": pages_scanned,
-            "rawProducts": raw_products,
+            "rawProducts": raw_products + preowned_raw_products,
+            "newRawProducts": raw_products,
+            "preownedRawProducts": preowned_raw_products,
+            "preownedPages": preowned_pages,
+            "preownedLinked": preowned_linked,
+            "preownedOnlyCandidates": preowned_only_candidates,
+            "preownedFailures": preowned_failures,
             "totalResults": total_results,
             "totalPages": total_pages,
             "catalogGames": len(games),
@@ -359,6 +551,7 @@ def run(args: argparse.Namespace) -> int:
         delay=max(0.0, args.delay),
         as_of=as_of,
         recent_dir=args.recent_dir,
+        include_preowned=not args.skip_preowned,
     )
     stats = result["stats"]
     print(
@@ -385,6 +578,7 @@ def main() -> None:
     parser.add_argument("--recent-dir", type=Path, default=ROOT / "data" / "catalog-discovery" / "game-es")
     parser.add_argument("--output", type=Path, default=ROOT / "data" / "catalog-discovery" / "game-es.json")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--skip-preowned", action="store_true", help="No inspeccionar modalidades seminuevas.")
     args = parser.parse_args()
     try:
         raise SystemExit(run(args))

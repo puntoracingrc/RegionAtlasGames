@@ -260,12 +260,12 @@
     "name": "Nintendo Switch 2",
     "shortName": "Switch 2",
     "manufacturer": "nintendo",
-    "status": "semi-closed",
-    "estimatedCatalogSize": 0,
+    "status": "open",
+    "estimatedCatalogSize": 76,
     "sortOrder": 26,
-    "active": false,
-    "newsEnabled": false,
-    "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
+    "active": true,
+    "newsEnabled": true,
+    "description": "Catálogo abierto de Nintendo Switch 2, iniciado con lanzamientos físicos disponibles en GAME España y ampliado mediante revisión administrativa."
   },
   {
     "slug": "switch",

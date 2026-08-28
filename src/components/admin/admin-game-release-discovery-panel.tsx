@@ -274,8 +274,8 @@ export function AdminGameReleaseDiscoveryPanel({ initialJobs, tokenConfigured }:
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase text-emerald-700 dark:text-emerald-300">Catálogo · GAME España</p>
-          <h2 className="mt-1 text-2xl font-black text-foreground">Nuevos lanzamientos PS5 y Switch 2</h2>
-          <p className="mt-2 text-sm text-muted">Solo disponibles, con fecha ya cumplida y portada. Sin precios ni publicación automática.</p>
+          <h2 className="mt-1 text-2xl font-black text-foreground">Juegos físicos PS5 y Switch 2</h2>
+          <p className="mt-2 text-sm text-muted">Nuevo y seminuevo disponibles, con fecha ya cumplida y portada. Sin precios ni publicación automática.</p>
         </div>
         <button type="button" onClick={() => void refreshJobs()} className="btn-secondary inline-flex items-center gap-2 text-sm">
           <RefreshCw size={16} aria-hidden="true" />
@@ -380,6 +380,14 @@ export function AdminGameReleaseDiscoveryPanel({ initialJobs, tokenConfigured }:
                           Lanzamiento {candidate.releaseDate} · SKU {candidate.sourceSku}
                           {candidate.pegi ? ` · PEGI ${candidate.pegi}` : ""}
                         </p>
+                        <div className="mt-2 flex flex-wrap gap-1.5">
+                          {candidate.availabilityModes.includes("new") ? (
+                            <span className="rounded border border-blue-300 px-2 py-0.5 text-[10px] font-bold uppercase text-blue-800 dark:border-blue-400/40 dark:text-blue-200">Nuevo</span>
+                          ) : null}
+                          {candidate.availabilityModes.includes("preowned") ? (
+                            <span className="rounded border border-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase text-amber-800 dark:border-amber-400/40 dark:text-amber-200">Seminuevo</span>
+                          ) : null}
+                        </div>
                       </div>
                       <span className={`rounded border px-2 py-1 text-[10px] font-bold uppercase ${candidate.catalogStatus === "possible_duplicate" ? "border-amber-300 text-amber-800 dark:text-amber-200" : "border-emerald-300 text-emerald-800 dark:text-emerald-200"}`}>
                         {candidate.catalogStatus === "possible_duplicate" ? "Parecido" : "Nuevo"}
@@ -391,10 +399,18 @@ export function AdminGameReleaseDiscoveryPanel({ initialJobs, tokenConfigured }:
                       </p>
                     ) : null}
                     <div className="mt-3 flex flex-wrap gap-2">
-                      <a href={candidate.productUrl} target="_blank" rel="noreferrer" className="btn-secondary inline-flex items-center gap-2 text-xs">
-                        <ExternalLink size={14} aria-hidden="true" />
-                        GAME
-                      </a>
+                      {candidate.availabilityModes.includes("new") ? (
+                        <a href={candidate.productUrl} target="_blank" rel="noreferrer" className="btn-secondary inline-flex items-center gap-2 text-xs">
+                          <ExternalLink size={14} aria-hidden="true" />
+                          GAME nuevo
+                        </a>
+                      ) : null}
+                      {candidate.preownedProductUrl ? (
+                        <a href={candidate.preownedProductUrl} target="_blank" rel="noreferrer" className="btn-secondary inline-flex items-center gap-2 text-xs">
+                          <ExternalLink size={14} aria-hidden="true" />
+                          GAME seminuevo
+                        </a>
+                      ) : null}
                       {!review ? (
                         <>
                           <button type="button" onClick={() => void createDraft(candidate)} disabled={busySku === candidate.sourceSku} className="btn-primary inline-flex items-center gap-2 text-xs">

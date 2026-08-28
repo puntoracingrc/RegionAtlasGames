@@ -5,6 +5,7 @@ export type AdminGameEsSource = {
   productUrl: string;
   imageUrl: string | null;
   fetchedAt: string;
+  preowned?: { sku: string; productUrl: string; fetchedAt: string } | null;
 };
 
 export type ContributorReviewStatus =

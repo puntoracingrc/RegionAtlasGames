@@ -26,7 +26,13 @@ export type GameDetailsSources = {
     fetchedAt: string;
   };
   wikidata?: { wikidataId: string; fetchedAt: string; matchScore?: number | null };
-  gameEs?: { sku: string; productUrl: string; imageUrl?: string | null; fetchedAt: string };
+  gameEs?: {
+    sku: string;
+    productUrl: string;
+    imageUrl?: string | null;
+    fetchedAt: string;
+    preowned?: { sku: string; productUrl: string; fetchedAt: string } | null;
+  };
 };
 
 export type GameDetailsSeoFaq = { question: string; answer: string };
@@ -256,6 +262,8 @@ export type CatalogGame = {
   gameEsSku?: string | null;
   gameEsProductUrl?: string | null;
   gameEsImageUrl?: string | null;
+  gameEsPreownedSku?: string | null;
+  gameEsPreownedProductUrl?: string | null;
   /** true solo si el precio ES proviene de anuncios con región verificada */
   priceRegionVerified?: boolean;
   /** Referencia retail CeX (no mezclada con mercado P2P) */
