@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
 import { draftFromStaging, readAdminGameDraft, writeAdminGameDraft } from "@/lib/admin-draft-storage";
-import { streamAdminAiFill, type AdminAiFillOptions } from "@/lib/admin-ai-fill";
+import { runAdminAiFill, type AdminAiFillOptions } from "@/lib/admin-ai-fill";
 import { draftFromCatalogGame, updatePublishedCatalogGame } from "@/lib/admin-catalog-publish";
 import { listedCatalog } from "@/lib/catalog";
 import { getGameDetails } from "@/lib/indexes";
@@ -150,38 +150,6 @@ function normalizeLimit(value: unknown): number {
   return Math.max(1, Math.min(50, parsed));
 }
 
-function uniqueStrings(values: string[]): string[] {
-  return Array.from(new Set(values.map((value) => value.trim()).filter(Boolean)));
-}
-
-function extractUrlsFromLog(message: string): string[] {
-  const matches = message.match(/https?:\/\/[^\s·]+/g) ?? [];
-  return matches.map((url) => url.replace(/[),.;]+$/, ""));
-}
-
-function extractSourceFromLog(message: string): string | null {
-  if (message.includes("Steam")) return "Steam";
-  if (message.includes("PlayStation")) return "PlayStation";
-  if (message.includes("Nintendo")) return "Nintendo";
-  if (message.includes("Xbox") || message.includes("Microsoft")) return "Xbox/Microsoft";
-  if (message.includes("Wikipedia")) return "Wikipedia";
-  if (message.includes("Wikidata")) return "Wikidata";
-  if (message.includes("fuente externa clara") || message.includes("metadatos ya existentes")) return "Datos existentes";
-  if (message.includes("fuentes fiables") || message.includes("Fuente fiable")) return "Fuentes fiables";
-  return null;
-}
-
-function extractSteamTagsFromLog(message: string): string[] {
-  const prefix = "Etiquetas Steam detectadas:";
-  const index = message.indexOf(prefix);
-  if (index < 0) return [];
-  return message
-    .slice(index + prefix.length)
-    .split(",")
-    .map((tag) => tag.trim())
-    .filter(Boolean);
-}
-
 function normalizeSearch(value: string): string {
   return value
     .trim()
@@ -263,46 +231,6 @@ export async function GET(request: Request) {
     }));
 
   return NextResponse.json({ ok: true, games });
-}
-
-async function runAiForDraft(
-  draft: AdminGameDraft,
-  options: AdminAiFillOptions,
-): Promise<{
-  finalDraft: AdminGameDraft | null;
-  lastError: string | null;
-  fieldsUpdated: string[];
-  sources: string[];
-  urls: string[];
-  steamTags: string[];
-}> {
-  let finalDraft: AdminGameDraft | null = null;
-  let lastError: string | null = null;
-  const fieldsUpdated: string[] = [];
-  const sources: string[] = [];
-  const urls: string[] = [];
-  const steamTags: string[] = [];
-
-  for await (const event of streamAdminAiFill(draft, options)) {
-    if (event.type === "done") finalDraft = event.draft;
-    if (event.type === "error") lastError = event.message;
-    if (event.type === "field") fieldsUpdated.push(String(event.field));
-    if (event.type === "log") {
-      const source = extractSourceFromLog(event.message);
-      if (source) sources.push(source);
-      urls.push(...extractUrlsFromLog(event.message));
-      steamTags.push(...extractSteamTagsFromLog(event.message));
-    }
-  }
-
-  return {
-    finalDraft,
-    lastError,
-    fieldsUpdated: uniqueStrings(fieldsUpdated),
-    sources: uniqueStrings(sources),
-    urls: uniqueStrings(urls),
-    steamTags: uniqueStrings(steamTags),
-  };
 }
 
 export async function POST(request: Request) {
@@ -425,8 +353,8 @@ export async function POST(request: Request) {
     report.selected += 1;
 
     try {
-      const aiResult = await runAiForDraft(draft, options);
-      const { finalDraft, lastError } = aiResult;
+      const aiResult = await runAdminAiFill(draft, options);
+      const { finalDraft, error: lastError } = aiResult;
 
       if (!finalDraft || lastError) {
         report.errors += 1;

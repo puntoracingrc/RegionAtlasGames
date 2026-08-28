@@ -8,6 +8,11 @@ import {
   type GameReleaseDiscoveryPlatform,
   type GameReleaseDiscoveryResult,
 } from "./game-release-discovery";
+import {
+  normalizeCatalogAiEnrichmentResult,
+  type CatalogAiEnrichmentMode,
+  type CatalogAiEnrichmentResult,
+} from "./catalog-ai-enrichment-campaign";
 
 const JOBS_FILE =
   process.env.LOCAL_GAME_RUNNER_JOBS_FILE ??
@@ -17,7 +22,7 @@ const JOBS_FILE =
 
 export type LocalGameRunnerOfferType = "new" | "preowned";
 export type LocalGameRunnerStatus = "pending" | "running" | "done" | "error" | "cancelled";
-export type LocalGameRunnerJobType = "api_collect" | "manual_paste" | "catalog_discovery";
+export type LocalGameRunnerJobType = "api_collect" | "manual_paste" | "catalog_discovery" | "catalog_enrichment";
 export type LocalGameRunnerPlatform = "ps4" | "ps5" | "switch2";
 export type CatalogDiscoveryReview = {
   status: "draft_created" | "dismissed";
@@ -30,7 +35,7 @@ export type LocalGameRunnerJob = {
   id: string;
   jobType?: LocalGameRunnerJobType;
   status: LocalGameRunnerStatus;
-  source: "game-es";
+  source: "game-es" | "catalog-ai";
   platformSlug: LocalGameRunnerPlatform;
   offerType: LocalGameRunnerOfferType;
   limit: number;
@@ -38,6 +43,8 @@ export type LocalGameRunnerJob = {
   maxPages: number;
   skipRecentDays: number;
   repeatStopCount?: number;
+  enrichmentMode?: CatalogAiEnrichmentMode;
+  startAfterCatalogId?: string | null;
   createdAt: string;
   updatedAt: string;
   claimedAt?: string | null;
@@ -57,6 +64,8 @@ export type LocalGameRunnerJob = {
     candidates?: number | null;
     existing?: number | null;
     seenBefore?: number | null;
+    ready?: number | null;
+    errors?: number | null;
   } | null;
   catalogDiscoveryReviews?: Record<string, CatalogDiscoveryReview>;
   logTail?: string | null;
@@ -78,6 +87,8 @@ export type CreateLocalGameRunnerJobInput = {
   maxPages?: number;
   skipRecentDays?: number;
   repeatStopCount?: number;
+  enrichmentMode?: string;
+  startAfterCatalogId?: string;
 };
 
 export type GamePastePreviewProduct = {
@@ -227,34 +238,44 @@ function normalizeJob(input: unknown): LocalGameRunnerJob | null {
         : raw.platformSlug === "ps4"
           ? "ps4"
           : null;
-  const offerType = raw.offerType === "new" ? "new" : raw.offerType === "preowned" ? "preowned" : null;
-  if (!raw.id || !platformSlug || !offerType) return null;
+  const offerType = raw.offerType === "preowned" ? "preowned" : "new";
+  if (!raw.id || !platformSlug) return null;
   const status: LocalGameRunnerStatus =
     raw.status === "running" || raw.status === "done" || raw.status === "error" || raw.status === "cancelled"
       ? raw.status
       : "pending";
   const jobType: LocalGameRunnerJobType =
-    raw.jobType === "catalog_discovery"
+    raw.jobType === "catalog_enrichment"
+      ? "catalog_enrichment"
+      : raw.jobType === "catalog_discovery"
       ? "catalog_discovery"
       : raw.jobType === "manual_paste"
         ? "manual_paste"
         : "api_collect";
-  if (jobType !== "catalog_discovery" && platformSlug === "switch2") return null;
+  if (jobType !== "catalog_discovery" && jobType !== "catalog_enrichment" && platformSlug === "switch2") return null;
   return {
     id: String(raw.id),
     status,
     jobType,
-    source: "game-es",
+    source: jobType === "catalog_enrichment" ? "catalog-ai" : "game-es",
     platformSlug,
     offerType,
     limit: Math.max(
       1,
-      Math.min(jobType === "manual_paste" ? 5000 : jobType === "catalog_discovery" ? 200 : 60, Number(raw.limit) || 20),
+      Math.min(
+        jobType === "manual_paste" ? 5000 : jobType === "catalog_discovery" ? 200 : jobType === "catalog_enrichment" ? 20 : 60,
+        Number(raw.limit) || (jobType === "catalog_enrichment" ? 5 : 20),
+      ),
     ),
     startPage: Math.max(0, Math.min(20, Number(raw.startPage) || 0)),
     maxPages: Math.max(1, Math.min(jobType === "catalog_discovery" ? 10 : 8, Number(raw.maxPages) || 1)),
     skipRecentDays: Math.max(0, Math.min(jobType === "catalog_discovery" ? 365 : 30, Number(raw.skipRecentDays) || 0)),
     repeatStopCount: jobType === "catalog_discovery" ? Math.max(0, Math.min(10, Number(raw.repeatStopCount) || 3)) : undefined,
+    enrichmentMode: jobType === "catalog_enrichment" && raw.enrichmentMode === "force" ? "force" : jobType === "catalog_enrichment" ? "missing" : undefined,
+    startAfterCatalogId:
+      jobType === "catalog_enrichment" && typeof raw.startAfterCatalogId === "string"
+        ? raw.startAfterCatalogId.trim().slice(0, 240) || null
+        : null,
     createdAt: typeof raw.createdAt === "string" ? raw.createdAt : new Date().toISOString(),
     updatedAt: typeof raw.updatedAt === "string" ? raw.updatedAt : new Date().toISOString(),
     claimedAt: raw.claimedAt ?? null,
@@ -376,8 +397,9 @@ function markStaleRunningJobs(queue: LocalGameRunnerQueue): boolean {
     job.status = "error";
     job.updatedAt = now;
     job.finishedAt = now;
-    job.error =
-      "El runner del Mac dejó este job en ejecución demasiado tiempo. Puede reintentarse creando otro job; no se han aplicado precios automáticamente.";
+    job.error = job.jobType === "catalog_enrichment"
+      ? "El runner del Mac dejó esta propuesta IA en ejecución demasiado tiempo. Puede reintentarse; no se ha modificado ninguna ficha."
+      : "El runner del Mac dejó este job en ejecución demasiado tiempo. Puede reintentarse creando otro job; no se han aplicado precios automáticamente.";
     job.logTail = [job.logTail, "Job marcado como error por autocuración: ejecución local caducada."]
       .filter(Boolean)
       .join("\n")
@@ -405,7 +427,51 @@ export async function listLocalGameRunnerJobs(limit = 20): Promise<LocalGameRunn
 export async function createLocalGameRunnerJob(
   input: CreateLocalGameRunnerJobInput,
 ): Promise<{ ok: true; job: LocalGameRunnerJob } | { error: string }> {
-  const jobType: LocalGameRunnerJobType = input.jobType === "catalog_discovery" ? "catalog_discovery" : "api_collect";
+  const jobType: LocalGameRunnerJobType = input.jobType === "catalog_enrichment"
+    ? "catalog_enrichment"
+    : input.jobType === "catalog_discovery"
+      ? "catalog_discovery"
+      : "api_collect";
+  if (jobType === "catalog_enrichment") {
+    const platformSlug = input.platformSlug === "switch2"
+      ? "switch2"
+      : input.platformSlug === "ps4"
+        ? "ps4"
+        : input.platformSlug === "ps5"
+          ? "ps5"
+          : null;
+    if (!platformSlug) return { error: "Elige PS4, PS5 o Switch 2 para completar fichas." };
+    const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
+    const active = queue.jobs.find(
+      (job) =>
+        job.jobType === "catalog_enrichment" &&
+        job.platformSlug === platformSlug &&
+        (job.status === "pending" || job.status === "running"),
+    );
+    if (active) return { error: `Ya hay una campaña IA de ${platformSlug.toUpperCase()} esperando o en marcha.` };
+
+    const now = new Date().toISOString();
+    const job: LocalGameRunnerJob = {
+      id: `local-catalog-ai-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
+      jobType,
+      status: "pending",
+      source: "catalog-ai",
+      platformSlug,
+      offerType: "new",
+      limit: Math.max(1, Math.min(20, Number(input.limit) || 5)),
+      startPage: 0,
+      maxPages: 1,
+      skipRecentDays: 0,
+      enrichmentMode: input.enrichmentMode === "force" ? "force" : "missing",
+      startAfterCatalogId: input.startAfterCatalogId?.trim().slice(0, 240) || null,
+      createdAt: now,
+      updatedAt: now,
+    };
+    queue.jobs.unshift(job);
+    const written = await writeQueue(queue);
+    if ("error" in written) return written;
+    return { ok: true, job };
+  }
   if (jobType === "catalog_discovery") {
     const platformSlug = input.platformSlug === "switch2"
       ? "switch2"
@@ -568,6 +634,7 @@ function summarizeResult(result: unknown): LocalGameRunnerJob["resultSummary"] {
   const raw = result && typeof result === "object" ? (result as Record<string, unknown>) : {};
   const listings = Array.isArray(raw.listings) ? raw.listings : [];
   const candidates = Array.isArray(raw.candidates) ? raw.candidates : [];
+  const proposals = Array.isArray(raw.proposals) ? raw.proposals : [];
   const stats = raw.stats && typeof raw.stats === "object" ? (raw.stats as Record<string, unknown>) : {};
   return {
     productsDetected: Number(stats.products ?? stats.products_matched ?? stats.rawProducts ?? listings.length) || null,
@@ -577,7 +644,23 @@ function summarizeResult(result: unknown): LocalGameRunnerJob["resultSummary"] {
     candidates: candidates.length,
     existing: Number(stats.existing ?? 0) || 0,
     seenBefore: Number(stats.seenBefore ?? 0) || 0,
+    ready: Number(stats.ready ?? proposals.filter((proposal) => proposal && typeof proposal === "object" && (proposal as Record<string, unknown>).status === "ready").length) || 0,
+    errors: Number(stats.errors ?? proposals.filter((proposal) => proposal && typeof proposal === "object" && (proposal as Record<string, unknown>).status === "error").length) || 0,
   };
+}
+
+function catalogAiResultMatchesJob(
+  job: LocalGameRunnerJob,
+  result: CatalogAiEnrichmentResult,
+): boolean {
+  return (
+    job.jobType === "catalog_enrichment" &&
+    result.platformSlug === job.platformSlug &&
+    result.enrichmentMode === (job.enrichmentMode ?? "missing") &&
+    result.cursor.startAfterCatalogId === (job.startAfterCatalogId ?? null) &&
+    result.stats.selected <= job.limit &&
+    result.proposals.length <= job.limit
+  );
 }
 
 export async function completeLocalGameRunnerJob(input: {
@@ -594,24 +677,35 @@ export async function completeLocalGameRunnerJob(input: {
   const discoveryResult = job.jobType === "catalog_discovery" && input.ok
     ? normalizeGameReleaseDiscoveryResult(input.result)
     : null;
+  const enrichmentResult = job.jobType === "catalog_enrichment" && input.ok
+    ? normalizeCatalogAiEnrichmentResult(input.result)
+    : null;
   const incompatibleDiscoveryResult = job.jobType === "catalog_discovery" && input.ok && !discoveryResult;
+  const incompatibleEnrichmentResult =
+    job.jobType === "catalog_enrichment" &&
+    input.ok &&
+    (!enrichmentResult || !catalogAiResultMatchesJob(job, enrichmentResult));
   const now = new Date().toISOString();
   const logTail = String(input.log ?? "").slice(-12000);
-  job.status = input.ok && !incompatibleDiscoveryResult ? "done" : "error";
+  job.status = input.ok && !incompatibleDiscoveryResult && !incompatibleEnrichmentResult ? "done" : "error";
   job.finishedAt = now;
   job.updatedAt = now;
   job.runnerId = input.runnerId || job.runnerId || "mac-local";
   job.logTail = logTail || null;
   job.error = incompatibleDiscoveryResult
     ? "El runner devolvió un formato antiguo o con precios. Actualiza el código del runner antes de reintentar; no se ha importado ningún dato."
+    : incompatibleEnrichmentResult
+      ? "El runner devolvió una propuesta IA incompatible o insegura. No se ha modificado ninguna ficha."
     : input.ok
       ? null
       : String(input.error || "El runner local informó error.");
-  if (input.ok && !incompatibleDiscoveryResult && input.result) {
+  if (input.ok && !incompatibleDiscoveryResult && !incompatibleEnrichmentResult && input.result) {
     const resultPath = job.jobType === "catalog_discovery"
       ? `app/data/catalog-discovery/local-game/${job.id}.json`
-      : `app/data/price-ingest/local-game/${job.id}.json`;
-    const safeResult = discoveryResult ?? input.result;
+      : job.jobType === "catalog_enrichment"
+        ? `app/data/catalog-enrichment/local-ai/${job.id}.json`
+        : `app/data/price-ingest/local-game/${job.id}.json`;
+    const safeResult = discoveryResult ?? enrichmentResult ?? input.result;
     const resultWritten = await writeWorkerFile(resultPath, Buffer.from(`${JSON.stringify(safeResult, null, 2)}\n`, "utf8"));
     if ("error" in resultWritten) return resultWritten;
     job.resultPath = resultPath;
@@ -628,6 +722,9 @@ export async function importLocalGameRunnerJob(jobId: string): Promise<{ ok: tru
   if (!job) return { error: "Job local no encontrado." };
   if (job.jobType === "catalog_discovery") {
     return { error: "Los lanzamientos se revisan como fichas de catálogo; no se importan al flujo de precios." };
+  }
+  if (job.jobType === "catalog_enrichment") {
+    return { error: "Las propuestas IA se revisan y se incorporan por Git; no se importan al flujo de precios." };
   }
   if (job.status !== "done") return { error: "Solo se pueden importar jobs completados." };
   if (!job.resultPath) return { error: "El job no tiene JSON de resultado en el worker." };
@@ -675,6 +772,31 @@ export async function readGameReleaseDiscoveryResult(
     return { ok: true, job, result };
   } catch (error) {
     return { error: error instanceof Error ? error.message : "No se pudo leer el resultado GAME." };
+  }
+}
+
+export async function readCatalogAiEnrichmentResult(
+  jobId: string,
+): Promise<{ ok: true; job: LocalGameRunnerJob; result: CatalogAiEnrichmentResult } | { error: string }> {
+  const queue = await readQueueWithStaleRecovery();
+  const job = queue.jobs.find((item) => item.id === jobId);
+  if (!job || job.jobType !== "catalog_enrichment") return { error: "Campaña IA de catálogo no encontrada." };
+  if (job.status !== "done" || !job.resultPath) return { error: "La campaña todavía no tiene propuestas revisables." };
+  if (!job.resultPath.startsWith("app/data/catalog-enrichment/local-ai/")) return { error: "Ruta de resultado IA no válida." };
+  const publicBaseUrl = priceWorkerPublicBaseUrl();
+  if (!publicBaseUrl) return { error: "URL pública del worker no configurada." };
+  try {
+    const response = await fetch(`${publicBaseUrl}/${job.resultPath.replace(/^\/+/, "")}`, {
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+    });
+    if (!response.ok) return { error: `El worker devolvió HTTP ${response.status} al leer propuestas IA.` };
+    const result = normalizeCatalogAiEnrichmentResult(await response.json());
+    if (!result) return { error: "El resultado IA no tiene el formato seguro esperado." };
+    if (!catalogAiResultMatchesJob(job, result)) return { error: "El resultado IA no coincide con la campaña solicitada." };
+    return { ok: true, job, result };
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo leer el resultado IA." };
   }
 }
 

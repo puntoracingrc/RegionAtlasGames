@@ -58,5 +58,12 @@ export type AdminGameDraft = {
 export type AdminAiFillEvent =
   | { type: "log"; message: string }
   | { type: "field"; field: keyof AdminGameDraft | "genres"; value: unknown }
+  | {
+      type: "quality";
+      metric: "description-originality" | "editorial-style";
+      score: number;
+      passed: boolean;
+      detail: string;
+    }
   | { type: "error"; message: string }
   | { type: "done"; draft: AdminGameDraft };

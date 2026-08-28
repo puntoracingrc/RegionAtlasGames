@@ -65,12 +65,25 @@ def fake_discover_game_releases(job):
     }, "fake discovery log", None
 
 
+def fake_catalog_ai_enrichment(job):
+    return True, {
+        "schemaVersion": 1,
+        "source": "region-atlas-catalog-ai",
+        "mode": "proposal-only",
+        "containsWrites": False,
+        "platformSlug": "ps5",
+        "proposals": [{"catalogId": "ps5-test", "status": "ready", "qualityScore": 92}],
+        "stats": {"ready": 1, "review": 0, "errors": 0},
+    }, "fake ai log", None
+
+
 def main() -> None:
     server = HTTPServer(("127.0.0.1", 0), Handler)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
     local_game_runner.collect_game = fake_collect_game
     local_game_runner.discover_game_releases = fake_discover_game_releases
+    local_game_runner.run_catalog_ai_enrichment = fake_catalog_ai_enrichment
     try:
         did_work = local_game_runner.run_once(f"http://127.0.0.1:{server.server_port}", "test-token", "test-runner")
         assert did_work is True
@@ -91,14 +104,31 @@ def main() -> None:
             "test-token",
             "test-runner",
         )
+        assert did_discovery is True
+        assert Handler.completed is not None
+        assert Handler.completed["result"]["source"] == "game-es-release-discovery"
+
+        Handler.next_job = {
+            "id": "local-catalog-ai-test",
+            "jobType": "catalog_enrichment",
+            "platformSlug": "ps5",
+            "offerType": "new",
+            "limit": 5,
+            "enrichmentMode": "missing",
+        }
+        did_ai = local_game_runner.run_once(
+            f"http://127.0.0.1:{server.server_port}",
+            "test-token",
+            "test-runner",
+        )
     finally:
         server.shutdown()
-    assert did_discovery is True
+    assert did_ai is True
     assert Handler.completed is not None
-    assert Handler.completed["jobId"] == "local-game-release-test"
+    assert Handler.completed["jobId"] == "local-catalog-ai-test"
     assert Handler.completed["runnerId"] == "test-runner"
     assert Handler.completed["ok"] is True
-    assert Handler.completed["result"]["source"] == "game-es-release-discovery"
+    assert Handler.completed["result"]["source"] == "region-atlas-catalog-ai"
     print("OK local GAME runner flow")
 
 

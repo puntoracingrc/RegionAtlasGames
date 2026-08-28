@@ -24,6 +24,42 @@ export type AdminAiFillTarget =
   | "description"
   | "seo";
 
+export type AdminAiFillQualitySignal = {
+  metric: "description-originality" | "editorial-style";
+  score: number;
+  passed: boolean;
+  detail: string;
+};
+
+export type AdminAiFillRunResult = {
+  finalDraft: AdminGameDraft | null;
+  error: string | null;
+  fieldsUpdated: string[];
+  sources: string[];
+  urls: string[];
+  steamTags: string[];
+  logs: string[];
+  qualitySignals: AdminAiFillQualitySignal[];
+};
+
+export type DescriptionOriginalityAssessment = {
+  score: number;
+  passed: boolean;
+  sharedShingleRatio: number;
+  longestSharedRun: number;
+};
+
+export type SteamReferenceIdentityAssessment = {
+  passed: boolean;
+  detail: string;
+};
+
+export type CatalogEditorialStyleAssessment = {
+  score: number;
+  passed: boolean;
+  violations: string[];
+};
+
 const PLATFORM_WIKI_HINT: Record<string, string> = {
   nes: "NES",
   snes: "Super Nintendo",
@@ -480,17 +516,29 @@ function metaContent(html: string, name: string): string | null {
   return html.match(pattern)?.[1]?.trim() ?? null;
 }
 
+function normalizeSteamComparableTitle(value: string): string {
+  return normalizeMatchText(value)
+    .replace(
+      /\b(game of the year|console edition|standard edition|complete edition|definitive edition|deluxe edition|ultimate edition|gold edition|remastered|remaster|goty|ps4|ps5)\b/g,
+      " ",
+    )
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export function isCrossPlatformSteamTitleMatch(expectedTitle: string, foundTitle: string): boolean {
+  const expected = normalizeSteamComparableTitle(expectedTitle);
+  const found = normalizeSteamComparableTitle(foundTitle);
+  return Boolean(expected && found && expected === found);
+}
+
 function extractSteamAppIdFromSuggest(html: string, title: string): string | null {
-  const wanted = normalizeMatchText(title);
   const matches = html.matchAll(/<a\b[^>]*data-ds-appid="(\d+)"[^>]*>([\s\S]*?)<\/a>/g);
   for (const match of matches) {
     const appId = match[1];
     const name = stripHtmlToText(match[2].match(/<div class="match_name">([\s\S]*?)<\/div>/)?.[1] ?? "");
     if (!appId || !name) continue;
-    const normalizedName = normalizeMatchText(name);
-    if (normalizedName === wanted || normalizedName.includes(wanted) || wanted.includes(normalizedName)) {
-      return appId;
-    }
+    if (isCrossPlatformSteamTitleMatch(title, name)) return appId;
   }
   return null;
 }
@@ -578,7 +626,7 @@ async function searchSteamStoreExperimental(draft: AdminGameDraft): Promise<Refe
 
   const html = await appRes.text();
   const title = stripHtmlToText(html.match(/<div id="appHubAppName"[^>]*>([\s\S]*?)<\/div>/i)?.[1] ?? "");
-  if (!isSameGameTitle(draft.title, title)) return null;
+  if (!isCrossPlatformSteamTitleMatch(draft.title, title)) return null;
 
   const developerName = extractSteamField(html, "Desarrollador");
   const publisherName = extractSteamField(html, "Editor");
@@ -608,9 +656,102 @@ async function searchSteamStoreExperimental(draft: AdminGameDraft): Promise<Refe
     text: facts.join("\n"),
     developerName,
     publisherName,
+    releaseDate,
     coverUrl,
     steamTags,
   };
+}
+
+function companyIdentityTokens(value: string): Set<string> {
+  const generic = new Set([
+    "company",
+    "corp",
+    "corporation",
+    "desarrollador",
+    "desarrolladora",
+    "digital",
+    "editor",
+    "editora",
+    "entertainment",
+    "estudio",
+    "game",
+    "games",
+    "gmbh",
+    "inc",
+    "interactive",
+    "juegos",
+    "limited",
+    "llc",
+    "ltd",
+    "publishing",
+    "software",
+    "studio",
+    "studios",
+  ]);
+  return new Set(
+    normalizeMatchText(value)
+      .split(/\s+/)
+      .filter((token) => token.length >= 3 && !generic.has(token)),
+  );
+}
+
+function companyIdentityMatches(expected: string, candidate: string): boolean {
+  const expectedNormalized = normalizeMatchText(expected);
+  const candidateNormalized = normalizeMatchText(candidate);
+  if (!expectedNormalized || !candidateNormalized) return false;
+  if (
+    expectedNormalized === candidateNormalized ||
+    expectedNormalized.includes(candidateNormalized) ||
+    candidateNormalized.includes(expectedNormalized)
+  ) {
+    return true;
+  }
+  const expectedTokens = companyIdentityTokens(expected);
+  const candidateTokens = companyIdentityTokens(candidate);
+  return Array.from(expectedTokens).some((token) => candidateTokens.has(token));
+}
+
+function yearFromLooseDate(value: string | null | undefined): number | null {
+  const match = value?.match(/\b(19|20)\d{2}\b/);
+  if (!match) return null;
+  const year = Number.parseInt(match[0], 10);
+  return Number.isFinite(year) ? year : null;
+}
+
+export function assessCrossPlatformSteamIdentity(
+  draft: Pick<AdminGameDraft, "platformSlug" | "year" | "releaseDate" | "developerName" | "publisherName">,
+  reference: Pick<ReferenceSource, "developerName" | "publisherName" | "releaseDate">,
+): SteamReferenceIdentityAssessment {
+  if (draft.platformSlug === "pc") return { passed: true, detail: "La ficha pertenece a PC." };
+
+  const companyPairs = [
+    [draft.developerName, reference.developerName],
+    [draft.publisherName, reference.publisherName],
+  ] as const;
+  const comparableCompanies = companyPairs.filter(
+    (pair): pair is readonly [string, string] => Boolean(pair[0]?.trim() && pair[1]?.trim()),
+  );
+  const matchingCompanies = comparableCompanies.filter(([expected, candidate]) =>
+    companyIdentityMatches(expected, candidate),
+  );
+  if (matchingCompanies.length > 0) {
+    return { passed: true, detail: "Coincide al menos una compañía conocida." };
+  }
+
+  const expectedYear = draft.year ?? yearFromLooseDate(draft.releaseDate);
+  const candidateYear = yearFromLooseDate(reference.releaseDate);
+  const yearMatches = Boolean(expectedYear && candidateYear && Math.abs(expectedYear - candidateYear) <= 1);
+  if (yearMatches && comparableCompanies.length < 2) {
+    return { passed: true, detail: "Coincide el año y no hay dos compañías contradictorias." };
+  }
+
+  if (comparableCompanies.length > 0) {
+    return { passed: false, detail: "Las compañías de Steam no coinciden con la ficha." };
+  }
+  if (expectedYear && candidateYear) {
+    return { passed: false, detail: `El año de Steam (${candidateYear}) no coincide con la ficha (${expectedYear}).` };
+  }
+  return { passed: false, detail: "El título coincide, pero falta una segunda señal de identidad." };
 }
 
 async function fetchManualReference(url: string): Promise<ReferenceSource | null> {
@@ -1093,6 +1234,85 @@ function clip(text: string, max: number): string {
   return (lastSpace > max / 2 ? clipped.slice(0, lastSpace) : clipped).replace(/[.,;:]$/, "") + "…";
 }
 
+function originalityWords(value: string): string[] {
+  return normalizeMatchText(value)
+    .split(/\s+/)
+    .filter((word) => word.length > 1);
+}
+
+export function assessDescriptionOriginality(
+  description: string,
+  referenceText: string | null,
+): DescriptionOriginalityAssessment {
+  if (!referenceText?.trim()) {
+    return { score: 100, passed: true, sharedShingleRatio: 0, longestSharedRun: 0 };
+  }
+
+  const descriptionWords = originalityWords(description);
+  const referenceWords = originalityWords(referenceText);
+  if (descriptionWords.length < 8 || referenceWords.length < 8) {
+    return { score: 100, passed: true, sharedShingleRatio: 0, longestSharedRun: 0 };
+  }
+
+  const shingleSize = 8;
+  const referenceShingles = new Set<string>();
+  for (let index = 0; index <= referenceWords.length - shingleSize; index += 1) {
+    referenceShingles.add(referenceWords.slice(index, index + shingleSize).join(" "));
+  }
+
+  let sharedShingles = 0;
+  const descriptionShingleCount = Math.max(1, descriptionWords.length - shingleSize + 1);
+  for (let index = 0; index <= descriptionWords.length - shingleSize; index += 1) {
+    if (referenceShingles.has(descriptionWords.slice(index, index + shingleSize).join(" "))) {
+      sharedShingles += 1;
+    }
+  }
+
+  const positions = new Map<string, number[]>();
+  referenceWords.forEach((word, index) => {
+    const matches = positions.get(word) ?? [];
+    matches.push(index);
+    positions.set(word, matches);
+  });
+  let longestSharedRun = 0;
+  for (let descriptionIndex = 0; descriptionIndex < descriptionWords.length; descriptionIndex += 1) {
+    for (const referenceIndex of positions.get(descriptionWords[descriptionIndex]) ?? []) {
+      let run = 0;
+      while (
+        descriptionIndex + run < descriptionWords.length &&
+        referenceIndex + run < referenceWords.length &&
+        descriptionWords[descriptionIndex + run] === referenceWords[referenceIndex + run]
+      ) {
+        run += 1;
+      }
+      longestSharedRun = Math.max(longestSharedRun, run);
+    }
+  }
+
+  const sharedShingleRatio = sharedShingles / descriptionShingleCount;
+  const overlapPenalty = Math.max(sharedShingleRatio, Math.min(1, longestSharedRun / 28));
+  const score = Math.max(0, Math.round((1 - overlapPenalty) * 100));
+  const passed = sharedShingleRatio <= 0.22 && longestSharedRun < 14;
+  return { score, passed, sharedShingleRatio, longestSharedRun };
+}
+
+export function assessCatalogEditorialStyle(text: string): CatalogEditorialStyleAssessment {
+  const checks = [
+    { label: "recepción crítica", pattern: /\b(aclamad[oa]s?|bien recibid[oa]s?|recepci[oó]n cr[ií]tica|cr[ií]tica[s]? positiva[s]?)\b/i },
+    { label: "ventas", pattern: /\b(vendi[oó]|vendidos?|ventas|millones? de unidades)\b/i },
+    { label: "premios", pattern: /\b(premiad[oa]s?|premios?|galardones?|juego del a[nñ]o)\b/i },
+    { label: "comparación promocional", pattern: /\b(comparad[oa]s?|comparaciones? favorables?)\b/i },
+    { label: "imperativo comercial", pattern: /\b(conoce|descubre|sum[eé]rgete|l[aá]nzate|ad[eé]ntrate|vive la aventura)\b/i },
+    { label: "elogio vacío", pattern: /\b(imprescindible|ic[oó]nic[oa]|emblem[aá]tic[oa]|inolvidable|espectacular|innovador(?:a|es)?|se destaca|al m[aá]ximo)\b/i },
+  ];
+  const violations = checks.filter((check) => check.pattern.test(text)).map((check) => check.label);
+  return {
+    score: Math.max(0, 100 - violations.length * 20),
+    passed: violations.length === 0,
+    violations,
+  };
+}
+
 function sanitizeGeneratedCatalogText(text: string, draft: AdminGameDraft): string {
   let clean = text.replace(/\s+/g, " ").trim();
   if (hasReleaseDatePassed(draft.releaseDate)) {
@@ -1302,6 +1522,33 @@ export async function* streamAdminAiFill(
     }
   }
 
+  const gameEsUrl = draft.gameEsSource?.productUrl?.trim();
+  if (gameEsUrl) {
+    yield { type: "log", message: "Consultando la ficha comercial de GAME España…" };
+    try {
+      const gameEsReference = await fetchManualReference(gameEsUrl);
+      if (gameEsReference && isSameGameTitle(draft.title, gameEsReference.title)) {
+        addReferenceSource({
+          ...gameEsReference,
+          label: "GAME España",
+          text: gameEsReference.text.replace(
+            /^URL aportada manualmente por admin:/,
+            "Fuente comercial GAME España:",
+          ),
+        });
+        yield { type: "log", message: "Fuente comercial encontrada: GAME España" };
+        yield { type: "log", message: `URL consultada: ${gameEsUrl}` };
+      } else {
+        yield { type: "log", message: "La ficha de GAME España no coincidió claramente con el título." };
+      }
+    } catch (error) {
+      yield {
+        type: "log",
+        message: `GAME España no pudo consultarse: ${error instanceof Error ? error.message : "error"}`,
+      };
+    }
+  }
+
   if (draft.platformSlug.startsWith("ps")) {
     yield { type: "log", message: "Buscando fuente oficial en PlayStation Store…" };
 
@@ -1382,7 +1629,10 @@ export async function* streamAdminAiFill(
   try {
     yield { type: "log", message: "Buscando referencia experimental en Steam…" };
     const steamReference = await searchSteamStoreExperimental(draft);
-    if (steamReference) {
+    const steamIdentity = steamReference
+      ? assessCrossPlatformSteamIdentity(draft, steamReference)
+      : null;
+    if (steamReference && steamIdentity?.passed) {
       steamExperimentalTags = steamReference.steamTags ?? [];
       steamExperimentalUrl = steamReference.url;
       addReferenceSource(steamReference);
@@ -1439,6 +1689,11 @@ export async function* streamAdminAiFill(
         yield { type: "field", field: "publisherName", value: draft.publisherName };
         yield { type: "field", field: "publisherSlug", value: draft.publisherSlug };
       }
+    } else if (steamReference && steamIdentity) {
+      yield {
+        type: "log",
+        message: `Steam encontró un título homónimo, pero se descartó: ${steamIdentity.detail}`,
+      };
     } else {
       yield { type: "log", message: "Steam experimental no encontró coincidencia clara." };
     }
@@ -1673,6 +1928,8 @@ export async function* streamAdminAiFill(
     "No uses elogios vacíos o promocionales como 'líder', 'destacado', 'icónico', 'aclamado', 'reconocido', 'emblemático', 'famoso' o 'influyente'; describe hechos concretos con tono editorial neutral. " +
     "Escribe solo con hechos presentes en HECHOS y REFERENCIA. " +
     "No menciones precios de tienda, descuentos ni disponibilidad comercial actual; Region Atlas separa descripción y precios. " +
+    "No incluyas cifras de ventas, premios, recepción crítica, notas, comparaciones laudatorias ni éxito comercial; céntrate en jugabilidad, modos, argumento y contexto verificable. " +
+    "No uses imperativos promocionales como 'conoce', 'descubre', 'sumérgete', 'lánzate' o 'vive la aventura', tampoco en SEO. " +
     "Si la fecha de lanzamiento ya pasó respecto a FECHA_ACTUAL, usa pasado ('se lanzó'), nunca futuro ('se lanzará'). " +
     "Si el juego aún no ha salido, usa futuro de forma prudente. " +
     "Si faltan desarrolladora, editora, año o características, omítelos; no los rellenes con frases genéricas. " +
@@ -1706,8 +1963,44 @@ export async function* streamAdminAiFill(
     : descUser;
 
   try {
-    const parsed = await openAiJson(descSystem, descUserWithInstructions);
-    const description = sanitizeGeneratedCatalogText(String(parsed.description ?? ""), draft);
+    let parsed = await openAiJson(descSystem, descUserWithInstructions);
+    let description = sanitizeGeneratedCatalogText(String(parsed.description ?? ""), draft);
+    let originality = assessDescriptionOriginality(description, referenceText);
+    let editorialStyle = assessCatalogEditorialStyle(
+      [description, parsed.seoTitle, parsed.seoDescription, parsed.jsonLdDescription].map(String).join(" "),
+    );
+    if (description.length >= 40 && (!originality.passed || !editorialStyle.passed)) {
+      yield {
+        type: "log",
+        message: `La primera redacción no superó todos los controles (originalidad ${originality.score}/100; estilo ${editorialStyle.score}/100). Generando una versión nueva desde los hechos.`,
+      };
+      parsed = await openAiJson(
+        `${descSystem} SEGUNDO INTENTO OBLIGATORIO: cambia por completo estructura, orden y vocabulario. No conserves secuencias de la primera versión ni de las fuentes. Elimina además ventas, premios, recepción crítica, comparaciones promocionales e imperativos comerciales.`,
+        `${descUserWithInstructions}\n\nPRIMERA VERSIÓN RECHAZADA POR LOS CONTROLES:\n${description}`,
+      );
+      description = sanitizeGeneratedCatalogText(String(parsed.description ?? ""), draft);
+      originality = assessDescriptionOriginality(description, referenceText);
+      editorialStyle = assessCatalogEditorialStyle(
+        [description, parsed.seoTitle, parsed.seoDescription, parsed.jsonLdDescription].map(String).join(" "),
+      );
+    }
+    yield {
+      type: "quality",
+      metric: "description-originality",
+      score: originality.score,
+      passed: originality.passed,
+      detail: `solapamiento=${Math.round(originality.sharedShingleRatio * 100)}% · secuencia=${originality.longestSharedRun} palabras`,
+    };
+    yield {
+      type: "quality",
+      metric: "editorial-style",
+      score: editorialStyle.score,
+      passed: editorialStyle.passed,
+      detail: editorialStyle.violations.length ? editorialStyle.violations.join(", ") : "tono editorial limpio",
+    };
+    if (description.length >= 40 && !originality.passed) {
+      throw new Error("La descripción seguía demasiado cerca de una fuente tras el segundo intento; se deja para revisión sin guardar.");
+    }
     if (wants("description") && description.length >= 40 && (!options.onlyMissing || !draft.description)) {
       draft.description = description.slice(0, 900);
       yield { type: "field", field: "description", value: draft.description };
@@ -1773,6 +2066,107 @@ export async function* streamAdminAiFill(
       message: error instanceof Error ? error.message : "Error al generar descripción",
     };
   }
+}
+
+function uniqueRunStrings(values: string[]): string[] {
+  return Array.from(new Set(values.map((value) => value.trim()).filter(Boolean)));
+}
+
+function urlsFromAiLog(message: string): string[] {
+  return (message.match(/https?:\/\/[^\s·]+/g) ?? []).map((url) => url.replace(/[),.;]+$/, ""));
+}
+
+function sourceFromAiUrl(url: string, platformSlug: string): string | null {
+  const trusted = trustedSourceForUrl(url, platformSlug);
+  if (trusted) return trusted.label;
+  try {
+    const hostname = new URL(url).hostname.replace(/^www\./, "");
+    if (hostname === "store.steampowered.com") return "Steam";
+    if (hostname === "game.es" || hostname.endsWith(".game.es")) return "GAME España";
+    if (hostname.endsWith("wikipedia.org")) return "Wikipedia";
+    if (hostname.endsWith("wikidata.org")) return "Wikidata";
+  } catch {}
+  return null;
+}
+
+function sourcesFromAiLog(message: string, platformSlug: string): string[] {
+  const sources: string[] = [];
+  const officialPrefix = "Fuente oficial encontrada:";
+  const experimentalPrefix = "Fuente experimental encontrada:";
+  const trustedPrefix = "Fuentes fiables encontradas:";
+
+  if (message.startsWith(officialPrefix)) {
+    sources.push(message.slice(officialPrefix.length).trim());
+  }
+  if (message.startsWith(experimentalPrefix)) {
+    sources.push(message.slice(experimentalPrefix.length).split("·")[0].trim());
+  }
+  if (message.startsWith(trustedPrefix)) {
+    sources.push(
+      ...message
+        .slice(trustedPrefix.length)
+        .split(",")
+        .map((source) => source.trim())
+        .filter(Boolean),
+    );
+  }
+  if (message.startsWith("Referencia encontrada:")) sources.push("Wikipedia");
+  if (message.startsWith("Sin fuente externa clara;")) sources.push("Datos existentes");
+  for (const url of urlsFromAiLog(message)) {
+    const source = sourceFromAiUrl(url, platformSlug);
+    if (source) sources.push(source);
+  }
+  return uniqueRunStrings(sources);
+}
+
+function steamTagsFromAiLog(message: string): string[] {
+  const prefix = "Etiquetas Steam detectadas:";
+  const index = message.indexOf(prefix);
+  if (index < 0) return [];
+  return message
+    .slice(index + prefix.length)
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+}
+
+export async function runAdminAiFill(
+  draft: AdminGameDraft,
+  options: AdminAiFillOptions = {},
+): Promise<AdminAiFillRunResult> {
+  let finalDraft: AdminGameDraft | null = null;
+  let error: string | null = null;
+  const fieldsUpdated: string[] = [];
+  const sources: string[] = [];
+  const urls: string[] = [];
+  const steamTags: string[] = [];
+  const logs: string[] = [];
+  const qualitySignals: AdminAiFillQualitySignal[] = [];
+
+  for await (const event of streamAdminAiFill(draft, options)) {
+    if (event.type === "done") finalDraft = event.draft;
+    if (event.type === "error") error = event.message;
+    if (event.type === "field") fieldsUpdated.push(String(event.field));
+    if (event.type === "quality") qualitySignals.push(event);
+    if (event.type === "log") {
+      logs.push(event.message);
+      const eventUrls = urlsFromAiLog(event.message);
+      sources.push(...sourcesFromAiLog(event.message, draft.platformSlug));
+      urls.push(...eventUrls);
+      steamTags.push(...steamTagsFromAiLog(event.message));
+    }
+  }
+
+  return {
+    finalDraft,
+    error,
+    fieldsUpdated: uniqueRunStrings(fieldsUpdated),
+    sources: uniqueRunStrings(sources),
+    urls: uniqueRunStrings(urls),
+    steamTags: uniqueRunStrings(steamTags),
+    logs,
+    qualitySignals,
+  };
 }
 
 export function sseEncode(event: AdminAiFillEvent): string {
