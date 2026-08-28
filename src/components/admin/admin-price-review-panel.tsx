@@ -67,6 +67,11 @@ const reasonLabels: Record<string, string> = {
   sin_prueba_region: "Sin prueba de región",
   match_ambiguo: "Match ambiguo",
   estado_desconocido: "Estado desconocido",
+  regional_variant_missing: "Falta la ficha de esa región",
+  regional_variant_ambiguous: "Varias fichas regionales posibles",
+  regional_signal_conflict: "Las pruebas regionales se contradicen",
+  regional_confirmation_missing: "Falta confirmar la región",
+  seller_origin_hint_only: "Ubicación del vendedor: solo una pista",
 };
 
 function uniqueOptions(values: Array<string | null | undefined>): string[] {
@@ -144,13 +149,15 @@ function ReviewCard({
   onDone: (id: string) => void;
 }) {
   const [catalogId, setCatalogId] = useState(item.catalogId ?? item.candidateCatalogId ?? "");
-  const [region, setRegion] = useState(item.targetRegion ?? item.detectedRegion ?? "");
+  const [region, setRegion] = useState(item.detectedRegion ?? item.targetRegion ?? "");
   const [condition, setCondition] = useState<PriceReviewCondition>((item.condition as PriceReviewCondition) || "unknown");
   const [note, setNote] = useState("");
   const [state, setState] = useState<"idle" | "saving" | "error">("idle");
   const [message, setMessage] = useState("");
-  const [cloneBaseCatalogId, setCloneBaseCatalogId] = useState(item.catalogId ?? item.candidateCatalogId ?? "");
-  const [cloneRegion, setCloneRegion] = useState(item.targetRegion ?? item.detectedRegion ?? "PAL España");
+  const [cloneBaseCatalogId, setCloneBaseCatalogId] = useState(
+    item.catalogId ?? item.candidateCatalogId ?? item.evidence?.searchedCatalogId ?? "",
+  );
+  const [cloneRegion, setCloneRegion] = useState(item.detectedRegion ?? item.targetRegion ?? "PAL España");
   const [cloneState, setCloneState] = useState<"idle" | "saving" | "error" | "done">("idle");
   const [cloneMessage, setCloneMessage] = useState("");
   const [mergeIds, setMergeIds] = useState<string[]>([]);
@@ -163,6 +170,11 @@ function ReviewCard({
     item.candidateCatalogId,
     ...alternatives.map((alt) => alt.catalogId),
     catalogId,
+  ]);
+  const cloneBaseOptions = uniqueOptions([
+    ...catalogOptions,
+    item.evidence?.searchedCatalogId,
+    cloneBaseCatalogId,
   ]);
   const regionOptions = uniqueOptions([
     item.targetRegion,
@@ -271,6 +283,7 @@ function ReviewCard({
         )}
         <div className="grid gap-2 text-xs text-muted md:grid-cols-2">
           <p><strong className="text-foreground">Juego candidato:</strong> {item.candidateCatalogId || item.catalogId || "—"}</p>
+          <p><strong className="text-foreground">Ficha buscada:</strong> {item.evidence?.searchedCatalogId || "—"}</p>
           <p><strong className="text-foreground">Estado sugerido:</strong> {conditionLabels[String(item.condition || "unknown")] ?? item.condition}</p>
           <p><strong className="text-foreground">Match:</strong> {item.evidence?.matchMethod || "—"} {item.evidence?.matchScore != null ? `· score ${item.evidence.matchScore}` : ""}</p>
           <p><strong className="text-foreground">IA:</strong> {item.evidence?.aiConfidence != null ? `confianza ${item.evidence.aiConfidence}` : "no usada / sin dato"}</p>
@@ -278,6 +291,13 @@ function ReviewCard({
             <strong className="text-foreground">Evidencia región:</strong>{" "}
             {(item.evidence?.regionEvidence ?? []).join(", ") || "sin prueba"}
           </p>
+          {item.evidence?.originRegionHint ? (
+            <p className="md:col-span-2">
+              <strong className="text-foreground">Pista del vendedor:</strong>{" "}
+              {item.evidence.originRegionHint}
+              {item.evidence.originCountry ? ` (${item.evidence.originCountry})` : ""}. No confirma la edición.
+            </p>
+          ) : null}
           {item.evidence?.reviewNotes?.length ? (
             <p className="md:col-span-2"><strong className="text-foreground">Mini log:</strong> {item.evidence.reviewNotes.join(" · ")}</p>
           ) : null}
@@ -376,7 +396,7 @@ function ReviewCard({
           <div>
             <p className="text-xs font-bold text-foreground">Crear ficha para otra región</p>
             <p className="mt-1 text-xs leading-5 text-muted">
-              Úsalo cuando el anuncio sea español pero solo tengamos la ficha USA/Japón/etc. Copia los datos de la ficha base y crea una variante regional nueva.
+              Úsalo cuando el anuncio pertenezca a una región para la que aún no exista ficha. Copia los datos de la ficha buscada y crea la variante regional nueva.
             </p>
           </div>
         </div>
@@ -389,7 +409,7 @@ function ReviewCard({
               className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
             >
               <option value="">Selecciona ficha base</option>
-              {catalogOptions.map((value) => (
+              {cloneBaseOptions.map((value) => (
                 <option key={value} value={value}>{value}</option>
               ))}
             </select>

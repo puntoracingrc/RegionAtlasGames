@@ -279,6 +279,11 @@ def _append_unique(target: list[str], values: list[str]) -> list[str]:
     return target
 
 
+def sync_catalog_ids(selected: list[str], routed: list[str]) -> list[str]:
+    """Allowlist exacta para sync: lote buscado más destinos regionales confirmados."""
+    return list(dict.fromkeys([*selected, *routed]))
+
+
 def record_result(
     state: dict[str, Any],
     region_key_value: str,
@@ -289,6 +294,8 @@ def record_result(
     failed: list[str],
     listings_added: int,
     retry_limit: int,
+    regional_reroutes: int = 0,
+    regional_reviews: int = 0,
     systemic_error: str | None = None,
 ) -> dict[str, Any]:
     at = now_iso()
@@ -316,6 +323,7 @@ def record_result(
     message = systemic_error or (
         f"{state['platformName']} · {region['label']}: {len(processed)}/{len(selected)} consultados, "
         f"{len(matched)} con evidencias, {listings_added} anuncios aceptados, "
+        f"{regional_reroutes} aprovechados en otra región, {regional_reviews} a revisión, "
         f"{len(failed)} fallos, {len(deferred_now)} aplazados."
     )
     log = state.get("log") if isinstance(state.get("log"), list) else []
@@ -336,6 +344,8 @@ def record_result(
         "processed": len(processed),
         "matched": len(matched),
         "listingsAdded": listings_added,
+        "regionalReroutes": regional_reroutes,
+        "regionalReviews": regional_reviews,
         "failed": len(failed),
         "systemicError": systemic_error,
     }
@@ -580,6 +590,7 @@ def main() -> None:
     with tempfile.TemporaryDirectory(prefix=f"region-atlas-ebay-{platform_slug}-") as temp_dir:
         temp = Path(temp_dir)
         ids_file = temp / "catalog-ids.json"
+        sync_ids_file = temp / "sync-catalog-ids.json"
         ingest_file = temp / "ingest.json"
         report_file = temp / "report.json"
         save_json(ids_file, selected)
@@ -604,6 +615,13 @@ def main() -> None:
         failed = [str(value) for value in report.get("catalogIdsFailed") or []]
         matched = [str(value) for value in report.get("catalogIdsWithListings") or []]
         listings_added = int(report.get("listingsAdded") or 0)
+        regional_reroutes = int(report.get("regionalReroutes") or 0)
+        regional_reviews = int(report.get("regionalReviewCandidates") or 0)
+        routed_catalog_ids = [
+            str(value)
+            for value in report.get("regionalRoutedCatalogIds") or []
+            if str(value).strip()
+        ]
 
         systemic_error: str | None = None
         if collector_code != 0:
@@ -611,14 +629,21 @@ def main() -> None:
         elif not processed and failed and len(failed) >= len(selected):
             systemic_error = "Todas las consultas del lote fallaron; se conserva el mismo lote para reintentar."
 
-        if not systemic_error and ingest_file.exists() and listings_added > 0:
+        if (
+            not systemic_error
+            and ingest_file.exists()
+            and (listings_added > 0 or regional_reviews > 0)
+        ):
+            write_catalog_ids = sync_catalog_ids(selected, routed_catalog_ids)
+            save_json(sync_ids_file, write_catalog_ids)
             sync_command = [
                 sys.executable,
                 str(ROOT / "scripts" / "sync_es_prices.py"),
                 "--platform", platform_slug,
                 "--region", region["catalogRegion"],
                 "--input", str(ingest_file),
-                "--catalog-ids-file", str(ids_file),
+                "--catalog-ids-file", str(sync_ids_file),
+                "--allow-cross-region-catalog-ids",
                 "--no-advance-rotation",
             ]
             sync_code = run_command(sync_command)
@@ -639,6 +664,8 @@ def main() -> None:
             failed=failed,
             listings_added=listings_added,
             retry_limit=max(1, args.retry_limit),
+            regional_reroutes=regional_reroutes,
+            regional_reviews=regional_reviews,
             systemic_error=systemic_error,
         )
         last_entry = platform_state["log"][-1]

@@ -112,6 +112,24 @@ def price_coverage_snapshot(
     }
 
 
+def catalog_game_in_write_scope(
+    game: dict[str, Any],
+    *,
+    platform_slug: str,
+    region: str | None,
+    selected_catalog_ids: set[str] | None,
+    allow_cross_region_catalog_ids: bool,
+) -> bool:
+    if game.get("platformSlug") != platform_slug or not is_price_tracked_game(game):
+        return False
+    catalog_id = str(game.get("id") or "")
+    if selected_catalog_ids is not None and catalog_id not in selected_catalog_ids:
+        return False
+    if not region or game.get("region") == region:
+        return True
+    return bool(allow_cross_region_catalog_ids and selected_catalog_ids is not None)
+
+
 def is_listing_region_verified(row: dict[str, Any]) -> bool:
     if row.get("regionVerified") is not True:
         return False
@@ -869,6 +887,11 @@ def main() -> None:
     parser.add_argument("--input", type=Path, help="JSON de anuncios ingestados")
     parser.add_argument("--catalog-ids-file", type=Path, help="Limitar escritura a estos IDs")
     parser.add_argument(
+        "--allow-cross-region-catalog-ids",
+        action="store_true",
+        help="Permite IDs de otras regiones solo si figuran en --catalog-ids-file",
+    )
+    parser.add_argument(
         "--rotation-step",
         help="Entrada en rotationOrder (p. ej. batch:mini-neo-sega); default: --platform",
     )
@@ -917,6 +940,10 @@ def main() -> None:
         if not isinstance(selected_raw, list):
             raise SystemExit("--catalog-ids-file debe contener una lista JSON o {catalogIds: [...]}.")
         selected_catalog_ids = {str(value).strip() for value in selected_raw if str(value).strip()}
+    if args.allow_cross_region_catalog_ids and selected_catalog_ids is None:
+        raise SystemExit(
+            "--allow-cross-region-catalog-ids exige --catalog-ids-file para limitar la escritura."
+        )
     synced_at = ingest.get("collectedAt") or now_iso()
     catalog_by_id = {str(game.get("id")): game for game in catalog if game.get("id")}
     game_auto_verified = apply_game_preowned_auto_region_policy(ingest, catalog_by_id)
@@ -949,10 +976,13 @@ def main() -> None:
     targets = [
         g
         for g in catalog
-        if g.get("platformSlug") == platform_slug
-        and is_price_tracked_game(g)
-        and (not args.region or g.get("region") == args.region)
-        and (selected_catalog_ids is None or str(g.get("id")) in selected_catalog_ids)
+        if catalog_game_in_write_scope(
+            g,
+            platform_slug=platform_slug,
+            region=args.region,
+            selected_catalog_ids=selected_catalog_ids,
+            allow_cross_region_catalog_ids=args.allow_cross_region_catalog_ids,
+        )
     ]
     target_ids = {g["id"] for g in targets}
     by_id = {g["id"]: g for g in catalog}
@@ -1037,9 +1067,13 @@ def main() -> None:
     platform_games = [
         g
         for g in catalog
-        if g.get("platformSlug") == platform_slug and g.get("listingStatus") != "excluded"
-        and (not args.region or g.get("region") == args.region)
-        and (selected_catalog_ids is None or str(g.get("id")) in selected_catalog_ids)
+        if catalog_game_in_write_scope(
+            g,
+            platform_slug=platform_slug,
+            region=args.region,
+            selected_catalog_ids=selected_catalog_ids,
+            allow_cross_region_catalog_ids=args.allow_cross_region_catalog_ids,
+        )
     ]
     for game in platform_games:
         gid = game["id"]

@@ -248,6 +248,8 @@ def to_ingest_listing(
     destination_postal_code: str | None = None,
     marketplace_id: str | None = None,
     import_costs_may_apply: bool | None = None,
+    force_cover_vision: bool = False,
+    keep_unverified: bool = False,
 ) -> dict[str, Any] | None:
     if price_eur <= 0:
         return None
@@ -283,7 +285,7 @@ def to_ingest_listing(
             region_needs_cover_vision,
         )
 
-        if region_needs_cover_vision(
+        if force_cover_vision or region_needs_cover_vision(
             platform_slug=platform_slug,
             catalog_region=catalog_region,
             listing_region=listing_region,
@@ -305,11 +307,12 @@ def to_ingest_listing(
                     product=product_payload,
                     row=image_scratch,
                     external_id=external_id,
+                    force_weak_evidence=force_cover_vision,
                 )
             )
         else:
             verified = _verified
-        if not verified:
+        if not verified and not keep_unverified:
             return None
 
     row: dict[str, Any] = {

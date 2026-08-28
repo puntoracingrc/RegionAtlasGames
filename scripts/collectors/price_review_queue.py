@@ -9,7 +9,16 @@ from typing import Any
 from collectors.common import ROOT, load_json, now_iso, save_json
 
 QUEUE_FILE = ROOT / "data" / "admin" / "price-review-queue.json"
-REVIEW_KEYS = ("listings", "cex", "jgo", "chollo", "kaoto", "tcns", "tc")
+REVIEW_KEYS = (
+    "listings",
+    "regionalCandidates",
+    "cex",
+    "jgo",
+    "chollo",
+    "kaoto",
+    "tcns",
+    "tc",
+)
 
 
 def _item_id(row: dict[str, Any], source: str, platform_slug: str) -> str:
@@ -17,7 +26,7 @@ def _item_id(row: dict[str, Any], source: str, platform_slug: str) -> str:
         [
             source,
             platform_slug,
-            str(row.get("catalogId") or ""),
+            str(row.get("candidateCatalogId") or row.get("catalogId") or ""),
             str(row.get("productUrl") or row.get("listingUrl") or ""),
             str(row.get("title") or ""),
             str(row.get("priceEur") or row.get("retailPriceEur") or ""),
@@ -29,7 +38,7 @@ def _item_id(row: dict[str, Any], source: str, platform_slug: str) -> str:
 def _reason(row: dict[str, Any]) -> str | None:
     notes = [str(item) for item in (row.get("regionReviewNotes") or []) if str(item).strip()]
     if row.get("regionReviewNeeded"):
-        return "; ".join(notes) or "region_no_confirmada"
+        return str(row.get("regionReviewReason") or "").strip() or "; ".join(notes) or "region_no_confirmada"
     if row.get("regionVerified") is not True:
         return "sin_prueba_region"
     alternatives = row.get("matchAlternatives") or []
@@ -49,6 +58,7 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
     if not reason:
         return None
     catalog_id = str(row.get("catalogId") or "").strip()
+    candidate_catalog_id = str(row.get("candidateCatalogId") or catalog_id).strip()
     title = str(row.get("title") or "").strip()
     price = row.get("priceEur") if row.get("priceEur") is not None else row.get("retailPriceEur")
     if not title or price is None:
@@ -58,10 +68,10 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
         "status": "pending",
         "source": source,
         "platformSlug": platform_slug,
-        "targetRegion": ingest.get("region") or row.get("catalogRegion"),
+        "targetRegion": row.get("searchedCatalogRegion") or ingest.get("region") or row.get("catalogRegion"),
         "detectedRegion": row.get("listingRegion"),
         "catalogId": catalog_id or None,
-        "candidateCatalogId": catalog_id or None,
+        "candidateCatalogId": candidate_catalog_id or None,
         "listingTitle": title,
         "priceEur": price,
         "condition": row.get("condition") or "unknown",
@@ -78,6 +88,10 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
             "aiConfidence": row.get("aiConfidence"),
             "reviewNotes": row.get("regionReviewNotes") or [],
             "conditionRaw": row.get("conditionRaw"),
+            "searchedCatalogId": row.get("searchedCatalogId"),
+            "originCountry": row.get("originCountry"),
+            "originRegionHint": row.get("originRegionHint"),
+            "routingReason": row.get("regionalRoutingReason") or row.get("regionReviewReason"),
         },
         "jobId": ingest.get("jobId"),
         "collectedAt": row.get("collectedAt") or ingest.get("collectedAt") or now_iso(),

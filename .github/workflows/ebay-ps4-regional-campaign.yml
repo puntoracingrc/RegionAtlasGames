@@ -64,6 +64,7 @@ jobs:
         if: inputs.dry_run != true
         run: |
           python3 scripts/test_ebay_region_policy.py
+          python3 scripts/test_ebay_regional_routing.py
           python3 scripts/test_ebay_regional_campaign.py
 
       - name: Commit campaign progress

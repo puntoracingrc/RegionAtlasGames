@@ -73,6 +73,13 @@ type EbayGlobalCampaign = {
   totals?: EbayCampaignTotals;
   estimatedRunsRemaining?: number;
   estimatedDaysRemaining?: number;
+  lastRun?: {
+    at?: string;
+    platformName?: string;
+    region?: string;
+    regionalReroutes?: number;
+    regionalReviews?: number;
+  };
   platforms?: EbayCampaignPlatform[];
   coverCandidates?: { games?: number; images?: number; platforms?: number };
   log?: Array<{ at?: string; level?: string; message?: string; platformSlug?: string; region?: string }>;
@@ -656,6 +663,14 @@ export default async function AdminPricesPage({
           <AdminStatTile tone="status" label="Pendientes / aplazados" value={`${ebayTotals.pending ?? 0} / ${ebayTotals.deferred ?? 0}`} helper={formatDate(ebayCampaign.updatedAt)} />
           <AdminStatTile tone="status" label="Primera vuelta" value={ebayCampaign.estimatedDaysRemaining ? `~${ebayCampaign.estimatedDaysRemaining} días` : "Finalizada"} helper={`${ebayCampaign.estimatedRunsRemaining ?? 0} lotes restantes`} />
         </div>
+        {ebayCampaign.lastRun && (
+          <p className="mt-3 text-xs leading-5 text-muted">
+            Último lote: {ebayCampaign.lastRun.platformName ?? ebayCampaign.currentPlatformName ?? "plataforma"}
+            {ebayCampaign.lastRun.region ? ` · ${ebayCampaign.lastRun.region}` : ""} ·{" "}
+            <strong className="text-foreground">{ebayCampaign.lastRun.regionalReroutes ?? 0}</strong> anuncios aprovechados en otra región ·{" "}
+            <strong className="text-foreground">{ebayCampaign.lastRun.regionalReviews ?? 0}</strong> enviados a revisión.
+          </p>
+        )}
         <div className="mt-4 h-2 overflow-hidden rounded-full bg-border" aria-label={`Campaña global al ${ebayProgress}%`}>
           <div className="h-full rounded-full bg-accent" style={{ width: `${Math.min(100, ebayProgress)}%` }} />
         </div>

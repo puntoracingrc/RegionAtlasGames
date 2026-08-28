@@ -21,6 +21,16 @@ Completar y refrescar precios del catálogo físico desde eBay España sin ejecu
 - Ediciones distintas del mismo título mantienen precio independiente.
 - Una región futura sin política explícita debe revisarse antes de permitir que publique datos.
 
+### Hallazgos de otra región
+
+- Si una búsqueda de España encuentra una edición japonesa, USA u otra región explícita, esa fila no entra en el precio español.
+- Una referencia regional exacta o la visión de la carátula deben confirmar la edición antes de publicar el precio en otra variante.
+- Si existe una única ficha del mismo juego, edición y formato físico para la región confirmada, el anuncio se reasigna a esa ficha.
+- Si falta la ficha, hay varias candidatas o las señales se contradicen, el anuncio entra en la cola de `/admin/precios` y no modifica precios.
+- El país del vendedor solo es una pista para solicitar comprobación visual. Nunca confirma por sí solo que el juego sea japonés, americano o europeo.
+- El sync cruzado requiere `--catalog-ids-file` y solo permite los IDs exactos buscados o confirmados por el collector.
+- Encontrar otra región no marca la ficha buscada como resuelta: España sigue sin coincidencia hasta obtener evidencia española propia.
+
 El filtro de eBay mantiene `EBAY_ES` y entrega al código postal español configurado. El precio del artículo, el transporte y el total estimado a España se guardan por separado. Los posibles costes de importación se calculan con el país real del anuncio cuando está disponible.
 
 ## Portadas
