@@ -12,44 +12,44 @@
   "currentPlatform": "ps4",
   "currentPlatformName": "PlayStation 4",
   "currentRegion": "PAL España",
-  "updatedAt": "2026-08-27T19:47:35Z",
+  "updatedAt": "2026-08-28T02:22:21Z",
   "lastRun": {
-    "at": "2026-08-27T19:47:35Z",
+    "at": "2026-08-28T02:22:21Z",
     "platformSlug": "ps4",
     "platformName": "PlayStation 4",
     "region": "PAL España",
     "selected": 50,
     "processed": 50,
-    "matched": 24,
-    "listingsAdded": 58,
+    "matched": 30,
+    "listingsAdded": 52,
     "failed": 0,
     "systemicError": null,
     "coverCandidatesAdded": 0
   },
   "totals": {
     "catalogGames": 31702,
-    "completed": 75,
-    "matched": 36,
-    "noMatch": 39,
+    "completed": 125,
+    "matched": 66,
+    "noMatch": 59,
     "deferred": 0,
-    "pending": 31627
+    "pending": 31577
   },
-  "estimatedRunsRemaining": 633,
-  "estimatedDaysRemaining": 159,
+  "estimatedRunsRemaining": 632,
+  "estimatedDaysRemaining": 158,
   "platforms": [
     {
       "platformSlug": "ps4",
       "platformName": "PlayStation 4",
       "status": "running",
       "currentRegion": "PAL España",
-      "updatedAt": "2026-08-27T19:47:35Z",
+      "updatedAt": "2026-08-28T02:22:21Z",
       "totals": {
         "catalogGames": 8444,
-        "completed": 75,
-        "matched": 36,
-        "noMatch": 39,
+        "completed": 125,
+        "matched": 66,
+        "noMatch": 59,
         "deferred": 0,
-        "pending": 8369
+        "pending": 8319
       },
       "regions": [
         {
@@ -59,11 +59,11 @@
           "marketScope": "country",
           "originLabel": "España",
           "total": 3016,
-          "completed": 75,
-          "matched": 36,
-          "noMatch": 39,
+          "completed": 125,
+          "matched": 66,
+          "noMatch": 59,
           "deferred": 0,
-          "pending": 2941
+          "pending": 2891
         },
         {
           "key": "pal_uk",
@@ -1181,6 +1181,14 @@
       "at": "2026-08-27T19:47:35Z",
       "level": "info",
       "message": "PlayStation 4 · PAL España: 50/50 consultados, 24 con evidencias, 58 anuncios aceptados, 0 fallos, 0 aplazados.",
+      "platformSlug": "ps4",
+      "region": "PAL España",
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-08-28T02:22:21Z",
+      "level": "info",
+      "message": "PlayStation 4 · PAL España: 50/50 consultados, 30 con evidencias, 52 anuncios aceptados, 0 fallos, 0 aplazados.",
       "platformSlug": "ps4",
       "region": "PAL España",
       "coverCandidatesAdded": 0
