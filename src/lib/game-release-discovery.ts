@@ -19,6 +19,7 @@ export type GameReleaseDiscoveryCandidate = {
   imageUrl: string | null;
   publisher: string | null;
   genres: string[];
+  pegi: number | null;
   catalogStatus: GameReleaseCatalogStatus;
   matches: GameReleaseDiscoveryMatch[];
 };
@@ -49,6 +50,100 @@ export type GameReleaseDiscoveryResult = {
     stopReason: string;
   };
 };
+
+type GameReleaseCatalogEntity = { name: string; slug: string };
+
+const GAME_GENRES: Record<string, GameReleaseCatalogEntity[]> = {
+  ACCION: [{ name: "Acción", slug: "action" }],
+  AVENTURA: [{ name: "Aventura", slug: "adventure" }],
+  ROL: [{ name: "RPG", slug: "rpg" }],
+  SIMULADOR: [{ name: "Simulación", slug: "simulation" }],
+  CONDUCCION: [{ name: "Carreras", slug: "racing" }],
+  "SURVIVA-HORROR": [{ name: "Terror", slug: "horror" }],
+  ARCADE: [{ name: "Arcade", slug: "arcade" }],
+  LUCHA: [{ name: "Lucha", slug: "fighting" }],
+  ESTRATEGIA: [{ name: "Estrategia", slug: "strategy" }],
+  SHOOTER: [{ name: "Shooter", slug: "shooter" }],
+  DEPORTES: [{ name: "Deportes", slug: "sports" }],
+  "AVENTURA-GRAFICA": [{ name: "Aventura", slug: "adventure" }],
+  MUSICA: [{ name: "Música", slug: "music" }],
+  PLATAFORMAS: [{ name: "Plataformas", slug: "platformer" }],
+  "ACCION-ESTRATEGIA": [
+    { name: "Acción", slug: "action" },
+    { name: "Estrategia", slug: "strategy" },
+  ],
+  "PLATAFORMA-AVENTURA": [
+    { name: "Plataformas", slug: "platformer" },
+    { name: "Aventura", slug: "adventure" },
+  ],
+  INFANTIL: [{ name: "Niños", slug: "ninos" }],
+  PUZZLE: [{ name: "Puzzle", slug: "puzzle" }],
+  SANDBOX: [{ name: "Aventura", slug: "adventure" }],
+  HABILIDAD: [{ name: "Habilidad", slug: "habilidad" }],
+  "MINI-JUEGOS": [{ name: "Party", slug: "party" }],
+  UTILIDAD: [{ name: "Varios", slug: "other" }],
+};
+
+const GAME_PUBLISHER_ALIASES: Record<string, GameReleaseCatalogEntity> = {
+  bnee: { name: "Bandai Namco Entertainment", slug: "bandai-namco-entertainment" },
+  "bolt-production": { name: "Bolt Production", slug: "bolt-production" },
+  "cd-projekt": { name: "CD Projekt RED", slug: "cd-projekt-red" },
+  "coffe-stain": { name: "Coffee Stain Publishing", slug: "coffee-stain-publishing" },
+  creative: { name: "Creative", slug: "creative" },
+  curveball: { name: "Curveball", slug: "curveball" },
+  "elec-arts": { name: "Electronic Arts", slug: "electronic-arts" },
+  "far-out": { name: "Far Out", slug: "far-out" },
+  flashpoint: { name: "Flashpoint", slug: "flashpoint" },
+  "focus-home-int": { name: "Focus Home Interactive", slug: "focus-home-interactive" },
+  funboxmedia: { name: "Funbox Media", slug: "funbox-media" },
+  giants: { name: "GIANTS Software", slug: "giants-software" },
+  meridiem: { name: "Meridiem Games", slug: "meridiem-games" },
+  nejcraft: { name: "NEJCRAFT", slug: "nejcraft" },
+  nighthawk: { name: "Nighthawk Interactive", slug: "nighthawk-interactive" },
+  numskull: { name: "Numskull Games Ltd.", slug: "numskull-games" },
+  outright: { name: "Outright Games LTD", slug: "outright-games" },
+  paradox: { name: "Paradox Interactive", slug: "paradox-interactive" },
+  "pix-n-love-games": { name: "Pix 'n Love Games", slug: "pix-39-n-love-games" },
+  "red-art": { name: "Red Art Games", slug: "red-art-games" },
+  selecta: { name: "Selecta Play", slug: "selecta-play" },
+  "silver-lining": { name: "Silver Lining", slug: "silver-lining" },
+  "straight4-studios": { name: "Straight4 Studios", slug: "straight4-studios" },
+  strictly: { name: "Strictly Limited Games", slug: "strictly-limited-games" },
+  sunblink: { name: "Sunblink", slug: "sunblink" },
+  tripwire: { name: "Tripwire Interactive", slug: "tripwire-interactive" },
+  "vea-games": { name: "VEA Games", slug: "vea-games" },
+};
+
+function sourceSlug(value: string): string {
+  return value
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export function gameReleaseGenres(values: string[]): GameReleaseCatalogEntity[] {
+  const unique = new Map<string, GameReleaseCatalogEntity>();
+  for (const entity of values.flatMap((value) => GAME_GENRES[value.trim().toUpperCase()] ?? [])) {
+    unique.set(entity.slug, entity);
+  }
+  return [...unique.values()];
+}
+
+export function gameReleaseGenreNames(values: string[]): string[] {
+  return gameReleaseGenres(values).map((entity) => entity.name);
+}
+
+export function gameReleaseGenreSlug(name: string): string | null {
+  return Object.values(GAME_GENRES).flat().find((entity) => entity.name === name)?.slug ?? null;
+}
+
+export function gameReleasePublisher(value: string | null): GameReleaseCatalogEntity | null {
+  const name = value?.trim();
+  if (!name) return null;
+  return GAME_PUBLISHER_ALIASES[sourceSlug(name)] ?? { name, slug: sourceSlug(name) };
+}
 
 function cleanString(value: unknown, maxLength: number): string {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
@@ -118,6 +213,7 @@ function normalizeCandidate(
     genres: Array.isArray(raw.genres)
       ? raw.genres.map((genre) => cleanString(genre, 80)).filter(Boolean).slice(0, 12)
       : [],
+    pegi: [3, 7, 12, 16, 18].includes(Number(raw.pegi)) ? Number(raw.pegi) : null,
     catalogStatus,
     matches,
   };

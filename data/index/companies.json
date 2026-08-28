@@ -2198,7 +2198,13 @@
       "megacd-usa-sol-feace",
       "dreamcast-usa-world-series-baseball-2k1",
       "ps4-usa-fist-of-the-north-star-lost-paradise-playstation-hits",
-      "mastersystem-tom-and-jerry-movie"
+      "mastersystem-tom-and-jerry-movie",
+      "ps5-judgment",
+      "ps5-puyo-puyo-tetris-2",
+      "ps5-two-point-campus-enrolment-edition",
+      "ps5-two-point-museum-explorer-edition",
+      "ps5-yakuza-0-director-s-cut",
+      "ps5-yakuza-kiwami-3-dark-ties"
     ],
     "byPlatform": {
       "3ds": 5,
@@ -2219,7 +2225,8 @@
       "saturn": 301,
       "sega32x": 22,
       "snes": 1,
-      "wii": 31
+      "wii": 31,
+      "ps5": 6
     },
     "asDeveloper": [
       "mastersystem-japon-great-football",
@@ -4997,9 +5004,15 @@
       "megacd-usa-sol-feace",
       "dreamcast-usa-world-series-baseball-2k1",
       "ps4-usa-fist-of-the-north-star-lost-paradise-playstation-hits",
-      "mastersystem-tom-and-jerry-movie"
+      "mastersystem-tom-and-jerry-movie",
+      "ps5-judgment",
+      "ps5-puyo-puyo-tetris-2",
+      "ps5-two-point-campus-enrolment-edition",
+      "ps5-two-point-museum-explorer-edition",
+      "ps5-yakuza-0-director-s-cut",
+      "ps5-yakuza-kiwami-3-dark-ties"
     ],
-    "gameCount": 2195
+    "gameCount": 2201
   },
   "nintendo": {
     "name": "Nintendo",
@@ -7690,7 +7703,27 @@
       "ps1-time-crisis-project-titan",
       "ps4-usa-playstation-vr-headset",
       "ps4-usa-god-of-war-ragnarok",
-      "ps2-singstar-svenska-stjarnor"
+      "ps2-singstar-svenska-stjarnor",
+      "ps5-astro-bot",
+      "ps5-death-stranding-2-on-the-beach",
+      "ps5-demon-s-souls",
+      "ps5-ghost-of-tsushima-director-s-cut",
+      "ps5-god-of-war-ragnarok",
+      "ps5-gran-turismo-7",
+      "ps5-helldivers-ii",
+      "ps5-horizon-forbidden-west",
+      "ps5-horizon-forbidden-west-complete-edition",
+      "ps5-lego-horizon-adventures",
+      "ps5-marvel-s-spider-man-miles-morales",
+      "ps5-marvel-tokon-fighting-souls",
+      "ps5-ratchet-clank-una-dimension-aparte",
+      "ps5-rise-of-the-ronin",
+      "ps5-sackboy-a-big-adventure",
+      "ps5-saros",
+      "ps5-stellar-blade",
+      "ps5-the-last-of-us-parte-i",
+      "ps5-uncharted-coleccion-legado-de-los-ladrones",
+      "ps5-until-dawn"
     ],
     "byPlatform": {
       "gameboy": 16,
@@ -7703,7 +7736,8 @@
       "ps2": 163,
       "ps3": 101,
       "ps4": 362,
-      "snes": 1
+      "snes": 1,
+      "ps5": 20
     },
     "asDeveloper": [
       "ps2-arc-the-lad-twilight-of-the-spirits",
@@ -8558,9 +8592,29 @@
       "ps1-time-crisis-project-titan",
       "ps4-usa-playstation-vr-headset",
       "ps4-usa-god-of-war-ragnarok",
-      "ps2-singstar-svenska-stjarnor"
+      "ps2-singstar-svenska-stjarnor",
+      "ps5-astro-bot",
+      "ps5-death-stranding-2-on-the-beach",
+      "ps5-demon-s-souls",
+      "ps5-ghost-of-tsushima-director-s-cut",
+      "ps5-god-of-war-ragnarok",
+      "ps5-gran-turismo-7",
+      "ps5-helldivers-ii",
+      "ps5-horizon-forbidden-west",
+      "ps5-horizon-forbidden-west-complete-edition",
+      "ps5-lego-horizon-adventures",
+      "ps5-marvel-s-spider-man-miles-morales",
+      "ps5-marvel-tokon-fighting-souls",
+      "ps5-ratchet-clank-una-dimension-aparte",
+      "ps5-rise-of-the-ronin",
+      "ps5-sackboy-a-big-adventure",
+      "ps5-saros",
+      "ps5-stellar-blade",
+      "ps5-the-last-of-us-parte-i",
+      "ps5-uncharted-coleccion-legado-de-los-ladrones",
+      "ps5-until-dawn"
     ],
-    "gameCount": 788
+    "gameCount": 808
   },
   "electronic-arts": {
     "name": "Electronic Arts",
@@ -9295,7 +9349,8 @@
       "megadrive-usa-road-rash-3",
       "megadrive-shaq-fu",
       "ps4-japon-battlefield-4",
-      "megadrive-madden-nfl-%2796"
+      "megadrive-madden-nfl-%2796",
+      "ps5-dragon-age-the-veilguard-vyrantium-edition"
     ],
     "byPlatform": {
       "3ds": 4,
@@ -9312,7 +9367,8 @@
       "ps3": 58,
       "ps4": 112,
       "saturn": 58,
-      "wii": 72
+      "wii": 72,
+      "ps5": 1
     },
     "asDeveloper": [
       "megadrive-f-22-interceptor",
@@ -10130,9 +10186,10 @@
       "megadrive-usa-road-rash-3",
       "megadrive-shaq-fu",
       "ps4-japon-battlefield-4",
-      "megadrive-madden-nfl-%2796"
+      "megadrive-madden-nfl-%2796",
+      "ps5-dragon-age-the-veilguard-vyrantium-edition"
     ],
-    "gameCount": 729
+    "gameCount": 730
   },
   "konami": {
     "name": "Konami",
@@ -10791,7 +10848,11 @@
       "n64-nba-in-the-zone-2000",
       "ps4-pro-evolution-soccer-2015",
       "megadrive-rocket-knight-adventures",
-      "ps4-usa-castlevania-requiem-limited-run-sdcc"
+      "ps4-usa-castlevania-requiem-limited-run-sdcc",
+      "ps5-five-nights-at-freddys-secret-of-the-mimic",
+      "ps5-metal-gear-solid-delta-snake-eater-day-one-edition",
+      "ps5-metal-gear-solid-master-collection-vol-2",
+      "ps5-silent-hill-2"
     ],
     "byPlatform": {
       "3ds": 6,
@@ -10809,7 +10870,8 @@
       "ps4": 85,
       "saturn": 27,
       "snes": 10,
-      "wii": 36
+      "wii": 36,
+      "ps5": 4
     },
     "asDeveloper": [
       "nes-road-fighter",
@@ -11780,9 +11842,13 @@
       "gameboy-usa-skate-or-die-bad-n-rad",
       "n64-nba-in-the-zone-2000",
       "ps4-pro-evolution-soccer-2015",
-      "megadrive-rocket-knight-adventures"
+      "megadrive-rocket-knight-adventures",
+      "ps5-five-nights-at-freddys-secret-of-the-mimic",
+      "ps5-metal-gear-solid-delta-snake-eater-day-one-edition",
+      "ps5-metal-gear-solid-master-collection-vol-2",
+      "ps5-silent-hill-2"
     ],
-    "gameCount": 653
+    "gameCount": 657
   },
   "limited-run-games": {
     "name": "Limited Run Games",
@@ -12372,11 +12438,13 @@
       "ps4-usa-jak-and-daxter-the-precursor-legacy-collector%27s-edition",
       "ps4-usa-neon-city-riders",
       "ps4-usa-mercenaries-wings-the-false-phoenix-special-edition",
-      "ps4-usa-king-of-fighters-%2798-ultimate-match"
+      "ps4-usa-king-of-fighters-%2798-ultimate-match",
+      "ps5-rugrats-adventures-in-gameland"
     ],
     "byPlatform": {
       "ps2": 1,
-      "ps4": 583
+      "ps4": 583,
+      "ps5": 1
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -12963,9 +13031,10 @@
       "ps4-usa-jak-and-daxter-the-precursor-legacy-collector%27s-edition",
       "ps4-usa-neon-city-riders",
       "ps4-usa-mercenaries-wings-the-false-phoenix-special-edition",
-      "ps4-usa-king-of-fighters-%2798-ultimate-match"
+      "ps4-usa-king-of-fighters-%2798-ultimate-match",
+      "ps5-rugrats-adventures-in-gameland"
     ],
-    "gameCount": 584
+    "gameCount": 585
   },
   "capcom": {
     "name": "Capcom",
@@ -13554,7 +13623,13 @@
       "ps3-dragon%27s-dogma-dark-arisen",
       "dreamcast-japon-eldorado-gate-volume-3",
       "ps4-japon-biohazard-re2",
-      "3ds-super-street-fighter-iv-3d-edition"
+      "3ds-super-street-fighter-iv-3d-edition",
+      "ps5-dragon-s-dogma-2",
+      "ps5-pragmata",
+      "ps5-resident-evil-2",
+      "ps5-resident-evil-3",
+      "ps5-resident-evil-7-gold-edition",
+      "ps5-resident-evil-village-gold-edition"
     ],
     "byPlatform": {
       "3ds": 5,
@@ -13574,7 +13649,8 @@
       "ps4": 141,
       "saturn": 50,
       "snes": 15,
-      "wii": 15
+      "wii": 15,
+      "ps5": 6
     },
     "asDeveloper": [
       "ps4-usa-resident-evil-7-biohazard",
@@ -14462,9 +14538,15 @@
       "ps3-dragon%27s-dogma-dark-arisen",
       "dreamcast-japon-eldorado-gate-volume-3",
       "ps4-japon-biohazard-re2",
-      "3ds-super-street-fighter-iv-3d-edition"
+      "3ds-super-street-fighter-iv-3d-edition",
+      "ps5-dragon-s-dogma-2",
+      "ps5-pragmata",
+      "ps5-resident-evil-2",
+      "ps5-resident-evil-3",
+      "ps5-resident-evil-7-gold-edition",
+      "ps5-resident-evil-village-gold-edition"
     ],
-    "gameCount": 583
+    "gameCount": 589
   },
   "snk": {
     "name": "SNK Corporation",
@@ -16423,7 +16505,17 @@
       "ps4-usa-code-vein",
       "nes-japon-crayon-shin-chan-orato-poi-poi",
       "ps4-japon-kamen-rider-climax-fighters",
-      "ps3-dark-souls-ii-scholar-of-the-first-sin"
+      "ps3-dark-souls-ii-scholar-of-the-first-sin",
+      "ps5-bleach-rebirth-of-souls",
+      "ps5-dragon-ball-fighterz",
+      "ps5-dragon-ball-sparking-zero",
+      "ps5-dragon-ball-xenoverse-2",
+      "ps5-echoes-of-aincrad",
+      "ps5-elden-ring-nightreign-seekers-edition",
+      "ps5-once-upon-a-katamari",
+      "ps5-one-piece-odyssey",
+      "ps5-shadow-labyrinth",
+      "ps5-tekken-8"
     ],
     "byPlatform": {
       "3ds": 13,
@@ -16441,7 +16533,8 @@
       "ps4": 228,
       "saturn": 25,
       "snes": 25,
-      "wii": 23
+      "wii": 23,
+      "ps5": 10
     },
     "asDeveloper": [
       "nes-usa-frankenstein-monster-returns",
@@ -17046,9 +17139,19 @@
       "ps4-usa-code-vein",
       "nes-japon-crayon-shin-chan-orato-poi-poi",
       "ps4-japon-kamen-rider-climax-fighters",
-      "ps3-dark-souls-ii-scholar-of-the-first-sin"
+      "ps3-dark-souls-ii-scholar-of-the-first-sin",
+      "ps5-bleach-rebirth-of-souls",
+      "ps5-dragon-ball-fighterz",
+      "ps5-dragon-ball-sparking-zero",
+      "ps5-dragon-ball-xenoverse-2",
+      "ps5-echoes-of-aincrad",
+      "ps5-elden-ring-nightreign-seekers-edition",
+      "ps5-once-upon-a-katamari",
+      "ps5-one-piece-odyssey",
+      "ps5-shadow-labyrinth",
+      "ps5-tekken-8"
     ],
-    "gameCount": 520
+    "gameCount": 530
   },
   "ubisoft": {
     "name": "Ubisoft",
@@ -17549,7 +17652,15 @@
       "ps1-sesame-street-elmo%27s-letter-adventure",
       "ps2-batman-rise-of-sin-tzu",
       "wii-just-dance-kids-2014",
-      "ps2-catz"
+      "ps2-catz",
+      "ps5-assassin-s-creed-black-flag-resynced-standard-edition",
+      "ps5-assassin-s-creed-mirage",
+      "ps5-assassin-s-creed-valhalla",
+      "ps5-far-cry-6",
+      "ps5-monopoly-star-wars",
+      "ps5-prince-of-persia-the-lost-crown",
+      "ps5-skull-and-bones-special-edition",
+      "ps5-the-rogue-prince-of-persia"
     ],
     "byPlatform": {
       "3ds": 14,
@@ -17564,7 +17675,8 @@
       "ps3": 46,
       "ps4": 192,
       "saturn": 2,
-      "wii": 109
+      "wii": 109,
+      "ps5": 8
     },
     "asDeveloper": [
       "ps4-usa-riders-republic",
@@ -18146,9 +18258,17 @@
       "ps1-sesame-street-elmo%27s-letter-adventure",
       "ps2-batman-rise-of-sin-tzu",
       "wii-just-dance-kids-2014",
-      "ps2-catz"
+      "ps2-catz",
+      "ps5-assassin-s-creed-black-flag-resynced-standard-edition",
+      "ps5-assassin-s-creed-mirage",
+      "ps5-assassin-s-creed-valhalla",
+      "ps5-far-cry-6",
+      "ps5-monopoly-star-wars",
+      "ps5-prince-of-persia-the-lost-crown",
+      "ps5-skull-and-bones-special-edition",
+      "ps5-the-rogue-prince-of-persia"
     ],
-    "gameCount": 495
+    "gameCount": 503
   },
   "activision": {
     "name": "Activision",
@@ -18638,7 +18758,8 @@
       "3ds-spongebob-heropants",
       "ps4-skylanders-trap-team",
       "ps2-return-to-castle-wolfenstein-operation-resurrection",
-      "ps2-madagascar"
+      "ps2-madagascar",
+      "ps5-crash-team-rumble-deluxe-edition"
     ],
     "byPlatform": {
       "3ds": 16,
@@ -18657,7 +18778,8 @@
       "ps4": 101,
       "saturn": 7,
       "snes": 3,
-      "wii": 117
+      "wii": 117,
+      "ps5": 1
     },
     "asDeveloper": [
       "wii-barbie-and-the-three-musketeers",
@@ -19166,9 +19288,10 @@
       "3ds-spongebob-heropants",
       "ps4-skylanders-trap-team",
       "ps2-return-to-castle-wolfenstein-operation-resurrection",
-      "ps2-madagascar"
+      "ps2-madagascar",
+      "ps5-crash-team-rumble-deluxe-edition"
     ],
-    "gameCount": 484
+    "gameCount": 485
   },
   "square-enix": {
     "name": "Square Enix",
@@ -19501,7 +19624,14 @@
       "ps4-usa-life-is-strange",
       "ps4-japon-rise-of-the-tomb-raider",
       "ps4-usa-world-of-final-fantasy-limited-edition",
-      "ps4-japon-final-fantasy-xv-film-collections-box"
+      "ps4-japon-final-fantasy-xv-film-collections-box",
+      "ps5-dragon-quest-vii-reimagined",
+      "ps5-final-fantasy-vii-remake-intergrade-rebirth-twin-pack-physical-edition",
+      "ps5-final-fantasy-xvi",
+      "ps5-life-is-strange-reunion",
+      "ps5-life-is-strange-true-colors",
+      "ps5-octopath-traveler-0",
+      "ps5-the-adventures-of-elliot-the-millennium-tales"
     ],
     "byPlatform": {
       "3ds": 9,
@@ -19513,7 +19643,8 @@
       "ps3": 30,
       "ps4": 231,
       "snes": 3,
-      "wii": 6
+      "wii": 6,
+      "ps5": 7
     },
     "asDeveloper": [
       "ps4-final-fantasy-xiv-online-starter-edition",
@@ -19950,9 +20081,16 @@
       "ps4-usa-life-is-strange",
       "ps4-japon-rise-of-the-tomb-raider",
       "ps4-usa-world-of-final-fantasy-limited-edition",
-      "ps4-japon-final-fantasy-xv-film-collections-box"
+      "ps4-japon-final-fantasy-xv-film-collections-box",
+      "ps5-dragon-quest-vii-reimagined",
+      "ps5-final-fantasy-vii-remake-intergrade-rebirth-twin-pack-physical-edition",
+      "ps5-final-fantasy-xvi",
+      "ps5-life-is-strange-reunion",
+      "ps5-life-is-strange-true-colors",
+      "ps5-octopath-traveler-0",
+      "ps5-the-adventures-of-elliot-the-millennium-tales"
     ],
-    "gameCount": 327
+    "gameCount": 334
   },
   "ea-sports": {
     "name": "EA Sports",
@@ -24451,7 +24589,8 @@
       "ps4-usa-lego-star-wars-the-skywalker-saga-deluxe-edition",
       "ps2-lego-batman-the-video-game",
       "saturn-japon-tama-adventurous-ball-giddy-labyrinth",
-      "ps4-usa-hogwarts-legacy"
+      "ps4-usa-hogwarts-legacy",
+      "ps5-hogwarts-legacy-standard"
     ],
     "byPlatform": {
       "3ds": 8,
@@ -24467,7 +24606,8 @@
       "saturn": 6,
       "sega32x": 1,
       "snes": 1,
-      "wii": 23
+      "wii": 23,
+      "ps5": 1
     },
     "asDeveloper": [
       "megadrive-wayne-gretzky-and-the-nhlpa-all-stars",
@@ -24656,9 +24796,10 @@
       "ps4-usa-lego-star-wars-the-skywalker-saga-deluxe-edition",
       "ps2-lego-batman-the-video-game",
       "saturn-japon-tama-adventurous-ball-giddy-labyrinth",
-      "ps4-usa-hogwarts-legacy"
+      "ps4-usa-hogwarts-legacy",
+      "ps5-hogwarts-legacy-standard"
     ],
-    "gameCount": 177
+    "gameCount": 178
   },
   "hudson-soft": {
     "name": "Hudson Soft",
@@ -25630,7 +25771,10 @@
       "ps1-hellnight",
       "ps4-persona-5-take-your-heart-premium-edition",
       "ps4-japon-odin-sphere-leiftrasir",
-      "ps2-shin-megami-tensei-persona-3"
+      "ps2-shin-megami-tensei-persona-3",
+      "ps5-persona-5-tactica",
+      "ps5-soul-hackers-2",
+      "ps5-unicorn-overlord"
     ],
     "byPlatform": {
       "3ds": 13,
@@ -25647,7 +25791,8 @@
       "ps4": 64,
       "saturn": 22,
       "snes": 2,
-      "wii": 4
+      "wii": 4,
+      "ps5": 3
     },
     "asDeveloper": [
       "ps4-usa-soul-hackers-2-collector%27s-edition",
@@ -25851,9 +25996,12 @@
       "ps4-usa-persona-5-royal-steelbook-edition",
       "ps4-usa-persona-5",
       "ps4-persona-5-take-your-heart-premium-edition",
-      "ps4-japon-odin-sphere-leiftrasir"
+      "ps4-japon-odin-sphere-leiftrasir",
+      "ps5-persona-5-tactica",
+      "ps5-soul-hackers-2",
+      "ps5-unicorn-overlord"
     ],
-    "gameCount": 153
+    "gameCount": 156
   },
   "data-east": {
     "name": "Data East",
@@ -29248,10 +29396,24 @@
       "ps4-skautfold-shrouded-in-sanity",
       "ps4-usa-jackquest-tale-of-the-sword",
       "ps4-spacewing-war",
-      "ps4-skautfold-usurper"
+      "ps4-skautfold-usurper",
+      "ps5-7th-domain-tree-of-chaos",
+      "ps5-hood-story-kaito-yamazaki",
+      "ps5-inspector-waffles-early-days",
+      "ps5-koira",
+      "ps5-lost-ruins",
+      "ps5-macross-shooting-insight",
+      "ps5-mythwrecked-ambrosia-island",
+      "ps5-pools",
+      "ps5-psyvariar-3",
+      "ps5-skautfold-moonless-knight",
+      "ps5-sonic-wings-reunion",
+      "ps5-sonic-wings-reunion-collector-edition",
+      "ps5-suicide-guy-vr-deluxe"
     ],
     "byPlatform": {
-      "ps4": 109
+      "ps4": 109,
+      "ps5": 13
     },
     "asDeveloper": [
       "ps4-wartech-fighters",
@@ -29365,9 +29527,22 @@
       "ps4-skautfold-shrouded-in-sanity",
       "ps4-usa-jackquest-tale-of-the-sword",
       "ps4-spacewing-war",
-      "ps4-skautfold-usurper"
+      "ps4-skautfold-usurper",
+      "ps5-7th-domain-tree-of-chaos",
+      "ps5-hood-story-kaito-yamazaki",
+      "ps5-inspector-waffles-early-days",
+      "ps5-koira",
+      "ps5-lost-ruins",
+      "ps5-macross-shooting-insight",
+      "ps5-mythwrecked-ambrosia-island",
+      "ps5-pools",
+      "ps5-psyvariar-3",
+      "ps5-skautfold-moonless-knight",
+      "ps5-sonic-wings-reunion",
+      "ps5-sonic-wings-reunion-collector-edition",
+      "ps5-suicide-guy-vr-deluxe"
     ],
-    "gameCount": 109
+    "gameCount": 122
   },
   "thq-nordic": {
     "name": "THQ Nordic GmbH",
@@ -29478,10 +29653,16 @@
       "ps4-pillars-of-eternity-ii-deadfire-ultimate-collector%27s-edition",
       "ps4-town-of-light",
       "ps4-usa-red-faction-guerrilla-re-mars-tered",
-      "ps4-usa-we-sing"
+      "ps4-usa-we-sing",
+      "ps5-darksiders-warmastered",
+      "ps5-outcast-a-new-beginning",
+      "ps5-reanimal-deluxe-edition",
+      "ps5-sacred-2-remaster",
+      "ps5-townsmen-vr"
     ],
     "byPlatform": {
-      "ps4": 105
+      "ps4": 105,
+      "ps5": 5
     },
     "asDeveloper": [
       "ps4-usa-we-sing-pop",
@@ -29594,9 +29775,14 @@
       "ps4-pillars-of-eternity-ii-deadfire-ultimate-collector%27s-edition",
       "ps4-town-of-light",
       "ps4-usa-red-faction-guerrilla-re-mars-tered",
-      "ps4-usa-we-sing"
+      "ps4-usa-we-sing",
+      "ps5-darksiders-warmastered",
+      "ps5-outcast-a-new-beginning",
+      "ps5-reanimal-deluxe-edition",
+      "ps5-sacred-2-remaster",
+      "ps5-townsmen-vr"
     ],
-    "gameCount": 105
+    "gameCount": 110
   },
   "beam-software": {
     "name": "Beam Software",
@@ -29934,14 +30120,16 @@
       "ps4-japon-death-match-love-comedy",
       "nes-usa-ghost-lion",
       "ps4-usa-legend-of-ixtona",
-      "ps4-usa-seek-hearts"
+      "ps4-usa-seek-hearts",
+      "ps5-kemco-rpg-selection-vol-1"
     ],
     "byPlatform": {
       "gameboy": 17,
       "n64": 22,
       "nes": 39,
       "ps4": 25,
-      "snes": 1
+      "snes": 1,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-usa-asdivine-hearts",
@@ -30084,9 +30272,10 @@
       "ps4-japon-citizens-unite-earth-x-space",
       "nes-usa-desert-commander",
       "ps4-japon-death-match-love-comedy",
-      "nes-usa-ghost-lion"
+      "nes-usa-ghost-lion",
+      "ps5-kemco-rpg-selection-vol-1"
     ],
-    "gameCount": 104
+    "gameCount": 105
   },
   "infogrames": {
     "name": "Infogrames",
@@ -30436,7 +30625,9 @@
       "ds-astrologie-ds",
       "ps4-king-of-fighters-xiv-ultimate-edition",
       "ps4-saints-row-the-third-remastered",
-      "ps4-usa-f1-2019-legends-edition"
+      "ps4-usa-f1-2019-legends-edition",
+      "ps5-kingdom-come-deliverance-royal-edition",
+      "ps5-metro-exodus-complete-collection"
     ],
     "byPlatform": {
       "3ds": 4,
@@ -30444,7 +30635,8 @@
       "ps2": 1,
       "ps3": 7,
       "ps4": 65,
-      "wii": 15
+      "wii": 15,
+      "ps5": 2
     },
     "asDeveloper": [
       "wii-my-animal-centre",
@@ -30549,9 +30741,11 @@
       "ds-astrologie-ds",
       "ps4-king-of-fighters-xiv-ultimate-edition",
       "ps4-saints-row-the-third-remastered",
-      "ps4-usa-f1-2019-legends-edition"
+      "ps4-usa-f1-2019-legends-edition",
+      "ps5-kingdom-come-deliverance-royal-edition",
+      "ps5-metro-exodus-complete-collection"
     ],
-    "gameCount": 99
+    "gameCount": 101
   },
   "tt-games": {
     "name": "TT Games Ltd",
@@ -31616,14 +31810,21 @@
       "ps4-usa-supermarket-shriek",
       "ps4-usa-island-flight-simulator",
       "ps4-shantae-half-genie-hero-ultimate-edition",
-      "ps4-labyrinth-of-zangetsu"
+      "ps4-labyrinth-of-zangetsu",
+      "ps5-aggelos-2",
+      "ps5-kusan-city-of-wolves",
+      "ps5-necrophosis",
+      "ps5-new-super-lucky-s-tale",
+      "ps5-panzer-knights-commanders-edition",
+      "ps5-republic-of-pirates"
     ],
     "byPlatform": {
       "ds": 1,
       "ps2": 1,
       "ps3": 4,
       "ps4": 77,
-      "wii": 1
+      "wii": 1,
+      "ps5": 6
     },
     "asDeveloper": [
       "ps4-usa-song-of-memories"
@@ -31712,9 +31913,15 @@
       "ps4-usa-supermarket-shriek",
       "ps4-usa-island-flight-simulator",
       "ps4-shantae-half-genie-hero-ultimate-edition",
-      "ps4-labyrinth-of-zangetsu"
+      "ps4-labyrinth-of-zangetsu",
+      "ps5-aggelos-2",
+      "ps5-kusan-city-of-wolves",
+      "ps5-necrophosis",
+      "ps5-new-super-lucky-s-tale",
+      "ps5-panzer-knights-commanders-edition",
+      "ps5-republic-of-pirates"
     ],
-    "gameCount": 84
+    "gameCount": 90
   },
   "tecmo": {
     "name": "Tecmo",
@@ -32252,13 +32459,15 @@
       "ps4-usa-atelier-marie-remake-the-alchemist-of-salburg",
       "ps4-deception-iv-the-nightmare-princess",
       "ps4-usa-romance-of-the-three-kingdoms-xiii",
-      "ps4-usa-wo-long-fallen-dynasty"
+      "ps4-usa-wo-long-fallen-dynasty",
+      "ps5-nioh-3-launch-edition"
     ],
     "byPlatform": {
       "3ds": 1,
       "ps2": 1,
       "ps3": 1,
-      "ps4": 79
+      "ps4": 79,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-usa-atelier-sophie-the-alchemist-of-the-mysterious-book",
@@ -32353,9 +32562,10 @@
       "ps4-usa-atelier-marie-remake-the-alchemist-of-salburg",
       "ps4-deception-iv-the-nightmare-princess",
       "ps4-usa-romance-of-the-three-kingdoms-xiii",
-      "ps4-usa-wo-long-fallen-dynasty"
+      "ps4-usa-wo-long-fallen-dynasty",
+      "ps5-nioh-3-launch-edition"
     ],
-    "gameCount": 82
+    "gameCount": 83
   },
   "natsume": {
     "name": "Natsume",
@@ -33375,12 +33585,26 @@
       "ps4-usa-rugby-18",
       "ds-junior-brain-trainer-maths-edition",
       "ps4-alekhine%27s-gun",
-      "ps4-usa-call-of-cthulhu"
+      "ps4-usa-call-of-cthulhu",
+      "ps5-among-us-crewmate-edition",
+      "ps5-among-us-ejected-edition",
+      "ps5-among-us-impostor-edition",
+      "ps5-bye-sweet-carole",
+      "ps5-murky-divers-pharmacorps-edition",
+      "ps5-poppy-playtime-triple-pack",
+      "ps5-redout-2-deluxe-edition",
+      "ps5-revenge-of-the-savage-planet-day-one-edition",
+      "ps5-samurai-academy-paws-of-fury",
+      "ps5-starship-troopers-ultimate-bug-war",
+      "ps5-the-walking-dead-saints-and-sinners-chapter-2-retribution-payback-edition",
+      "ps5-them-s-fightin-herds-deluxe-edition",
+      "ps5-train-sim-world-6"
     ],
     "byPlatform": {
       "ds": 1,
       "ps3": 2,
-      "ps4": 74
+      "ps4": 74,
+      "ps5": 13
     },
     "asDeveloper": [
       "ps4-usa-five-nights-at-freddy%27s-help-wanted",
@@ -33462,9 +33686,22 @@
       "ps4-usa-rugby-18",
       "ds-junior-brain-trainer-maths-edition",
       "ps4-alekhine%27s-gun",
-      "ps4-usa-call-of-cthulhu"
+      "ps4-usa-call-of-cthulhu",
+      "ps5-among-us-crewmate-edition",
+      "ps5-among-us-ejected-edition",
+      "ps5-among-us-impostor-edition",
+      "ps5-bye-sweet-carole",
+      "ps5-murky-divers-pharmacorps-edition",
+      "ps5-poppy-playtime-triple-pack",
+      "ps5-redout-2-deluxe-edition",
+      "ps5-revenge-of-the-savage-planet-day-one-edition",
+      "ps5-samurai-academy-paws-of-fury",
+      "ps5-starship-troopers-ultimate-bug-war",
+      "ps5-the-walking-dead-saints-and-sinners-chapter-2-retribution-payback-edition",
+      "ps5-them-s-fightin-herds-deluxe-edition",
+      "ps5-train-sim-world-6"
     ],
-    "gameCount": 77
+    "gameCount": 90
   },
   "2k-games": {
     "name": "2K Games",
@@ -33546,13 +33783,16 @@
       "ps4-mafia-iii",
       "ps4-usa-wwe-2k19-deluxe-edition",
       "ps4-usa-nba-2k20",
-      "ps4-usa-marvel-midnight-suns-legendary-edition"
+      "ps4-usa-marvel-midnight-suns-legendary-edition",
+      "ps5-new-tales-from-the-borderlands-deluxe-edition",
+      "ps5-topspin-2k25"
     ],
     "byPlatform": {
       "ps2": 2,
       "ps3": 14,
       "ps4": 58,
-      "wii": 2
+      "wii": 2,
+      "ps5": 2
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -33631,9 +33871,11 @@
       "ps4-mafia-iii",
       "ps4-usa-wwe-2k19-deluxe-edition",
       "ps4-usa-nba-2k20",
-      "ps4-usa-marvel-midnight-suns-legendary-edition"
+      "ps4-usa-marvel-midnight-suns-legendary-edition",
+      "ps5-new-tales-from-the-borderlands-deluxe-edition",
+      "ps5-topspin-2k25"
     ],
-    "gameCount": 76
+    "gameCount": 78
   },
   "ubi-soft": {
     "name": "Ubi Soft",
@@ -36910,10 +37152,15 @@
       "ps4-usa-time-on-frog-island",
       "ps4-hellpoint",
       "ps4-bramble-the-mountain-king",
-      "ps4-the-long-reach"
+      "ps4-the-long-reach",
+      "ps5-cloudpunk",
+      "ps5-indika",
+      "ps5-medieval-dynasty",
+      "ps5-yonder-the-cloud-catcher-chronicles-signature-edition"
     ],
     "byPlatform": {
-      "ps4": 60
+      "ps4": 60,
+      "ps5": 4
     },
     "asDeveloper": [
       "ps4-unbox-newbie%27s-adventure",
@@ -36980,9 +37227,13 @@
       "ps4-usa-time-on-frog-island",
       "ps4-hellpoint",
       "ps4-bramble-the-mountain-king",
-      "ps4-the-long-reach"
+      "ps4-the-long-reach",
+      "ps5-cloudpunk",
+      "ps5-indika",
+      "ps5-medieval-dynasty",
+      "ps5-yonder-the-cloud-catcher-chronicles-signature-edition"
     ],
-    "gameCount": 60
+    "gameCount": 64
   },
   "realtime-associates": {
     "name": "Realtime Associates",
@@ -37331,12 +37582,15 @@
       "ps4-usa-cannon-dancer",
       "ps4-jajamaru-legendary-ninja-collection",
       "ps4-the-king%27s-bird-special-limited-edition",
-      "ps4-infinite-beyond-the-mind-olga-edition"
+      "ps4-infinite-beyond-the-mind-olga-edition",
+      "ps5-shadow-gambit-the-cursed-crew-complete-edition-deluxe-edition",
+      "ps5-shadow-gambit-the-cursed-crew-complete-edition-limited-edition"
     ],
     "byPlatform": {
       "megadrive": 1,
       "ps4": 58,
-      "snes": 1
+      "snes": 1,
+      "ps5": 2
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -37399,9 +37653,11 @@
       "ps4-usa-cannon-dancer",
       "ps4-jajamaru-legendary-ninja-collection",
       "ps4-the-king%27s-bird-special-limited-edition",
-      "ps4-infinite-beyond-the-mind-olga-edition"
+      "ps4-infinite-beyond-the-mind-olga-edition",
+      "ps5-shadow-gambit-the-cursed-crew-complete-edition-deluxe-edition",
+      "ps5-shadow-gambit-the-cursed-crew-complete-edition-limited-edition"
     ],
-    "gameCount": 60
+    "gameCount": 62
   },
   "adk": {
     "name": "ADK",
@@ -38904,10 +39160,13 @@
       "ps4-usa-ziggurat",
       "ps4-usa-desolatium",
       "ps4-usa-pharaonic-deluxe-edition",
-      "ps4-usa-awesomenauts-assemble"
+      "ps4-usa-awesomenauts-assemble",
+      "ps5-petit-island",
+      "ps5-real-farm-premium-edition"
     ],
     "byPlatform": {
-      "ps4": 55
+      "ps4": 55,
+      "ps5": 2
     },
     "asDeveloper": [
       "ps4-usa-the-last-tinker-city-of-colors"
@@ -38966,9 +39225,11 @@
       "ps4-usa-ziggurat",
       "ps4-usa-desolatium",
       "ps4-usa-pharaonic-deluxe-edition",
-      "ps4-usa-awesomenauts-assemble"
+      "ps4-usa-awesomenauts-assemble",
+      "ps5-petit-island",
+      "ps5-real-farm-premium-edition"
     ],
-    "gameCount": 55
+    "gameCount": 57
   },
   "vic-tokai": {
     "name": "VIC Tokai",
@@ -39566,10 +39827,18 @@
       "ps4-usa-apsulov-end-of-gods",
       "ps4-usa-maid-of-sker",
       "ps4-headmaster-extra-time-edition",
-      "ps4-madison-possessed-edition"
+      "ps4-madison-possessed-edition",
+      "ps5-eriksholm-the-stolen-dream",
+      "ps5-kiborg",
+      "ps5-project-tower",
+      "ps5-two-strikes",
+      "ps5-undead-citadel",
+      "ps5-underdogs",
+      "ps5-wanderer-the-fragments-of-fate"
     ],
     "byPlatform": {
-      "ps4": 53
+      "ps4": 53,
+      "ps5": 7
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -39625,9 +39894,16 @@
       "ps4-usa-apsulov-end-of-gods",
       "ps4-usa-maid-of-sker",
       "ps4-headmaster-extra-time-edition",
-      "ps4-madison-possessed-edition"
+      "ps4-madison-possessed-edition",
+      "ps5-eriksholm-the-stolen-dream",
+      "ps5-kiborg",
+      "ps5-project-tower",
+      "ps5-two-strikes",
+      "ps5-undead-citadel",
+      "ps5-underdogs",
+      "ps5-wanderer-the-fragments-of-fate"
     ],
-    "gameCount": 53
+    "gameCount": 60
   },
   "tose-software": {
     "name": "Tose Software",
@@ -40796,7 +41072,11 @@
       "ps4-akka-arrh-special-edition",
       "wii-pajama-sam-no-need-to-hide-when-it%27s-dark-outside",
       "megadrive-pal-arcade-classics",
-      "wii-my-horse-and-me-2"
+      "wii-my-horse-and-me-2",
+      "ps5-golden-tee-arcade-classics",
+      "ps5-mortal-kombat-legacy-kollection-deluxe-edition",
+      "ps5-star-wars-dark-forces-remaster",
+      "ps5-totally-reliable-delivery-service-definitive-edition"
     ],
     "byPlatform": {
       "dreamcast": 2,
@@ -40808,7 +41088,8 @@
       "nes": 2,
       "ps2": 8,
       "ps4": 11,
-      "wii": 14
+      "wii": 14,
+      "ps5": 4
     },
     "asDeveloper": [
       "mastersystem-klax",
@@ -40858,9 +41139,13 @@
       "ds-titeuf-megafunland",
       "ps4-akka-arrh-special-edition",
       "wii-pajama-sam-no-need-to-hide-when-it%27s-dark-outside",
-      "wii-my-horse-and-me-2"
+      "wii-my-horse-and-me-2",
+      "ps5-golden-tee-arcade-classics",
+      "ps5-mortal-kombat-legacy-kollection-deluxe-edition",
+      "ps5-star-wars-dark-forces-remaster",
+      "ps5-totally-reliable-delivery-service-definitive-edition"
     ],
-    "gameCount": 46
+    "gameCount": 50
   },
   "digital-pictures": {
     "name": "Digital Pictures",
@@ -41521,10 +41806,20 @@
       "ps4-smurfs-missao-florrorosa-smurftastic-edition",
       "ps4-usa-agatha-christie-hercule-poirot-the-first-cases",
       "ps4-usa-agatha-christie-murder-on-the-orient-express",
-      "ps4-the-house-of-the-dead-remake-limidead-edition"
+      "ps4-the-house-of-the-dead-remake-limidead-edition",
+      "ps5-amerzone-the-explorer-s-legacy-limited-editon",
+      "ps5-bus-bound",
+      "ps5-double-dragon-revive-limited-edition",
+      "ps5-formula-legends-legacy-edition",
+      "ps5-house-of-the-dead-2-remake-infect-edition",
+      "ps5-kaku-ancient-seal",
+      "ps5-king-of-tokyo-limited-edition",
+      "ps5-shredders-full-ride-edition",
+      "ps5-sifu"
     ],
     "byPlatform": {
-      "ps4": 45
+      "ps4": 45,
+      "ps5": 9
     },
     "asDeveloper": [
       "ps4-usa-the-house-of-the-dead-remake-limidead-edition",
@@ -41574,9 +41869,18 @@
       "ps4-smurfs-missao-florrorosa-smurftastic-edition",
       "ps4-usa-agatha-christie-hercule-poirot-the-first-cases",
       "ps4-usa-agatha-christie-murder-on-the-orient-express",
-      "ps4-the-house-of-the-dead-remake-limidead-edition"
+      "ps4-the-house-of-the-dead-remake-limidead-edition",
+      "ps5-amerzone-the-explorer-s-legacy-limited-editon",
+      "ps5-bus-bound",
+      "ps5-double-dragon-revive-limited-edition",
+      "ps5-formula-legends-legacy-edition",
+      "ps5-house-of-the-dead-2-remake-infect-edition",
+      "ps5-kaku-ancient-seal",
+      "ps5-king-of-tokyo-limited-edition",
+      "ps5-shredders-full-ride-edition",
+      "ps5-sifu"
     ],
-    "gameCount": 45
+    "gameCount": 54
   },
   "midway-games": {
     "name": "Midway Games",
@@ -43782,10 +44086,20 @@
       "ps4-usa-pj-masks-heroes-of-the-night",
       "ps4-usa-matchbox-driving-adventures",
       "ps4-usa-paw-patrol-on-a-roll",
-      "ps4-usa-crayola-scoot"
+      "ps4-usa-crayola-scoot",
+      "ps5-barbie-rutas-a-caballo",
+      "ps5-bluey-el-videojuego",
+      "ps5-chicken-run-eggstraction",
+      "ps5-dreamworks-la-casa-de-munecas-de-gabby-listos-para-la-fiesta",
+      "ps5-matchbox-driving-adventures",
+      "ps5-monster-high-skulltimate-secrets",
+      "ps5-my-little-pony-misterio-en-los-altos-de-cefiro",
+      "ps5-paw-patrol-mundo-dino",
+      "ps5-the-grinch-christmas-adventures-complete-edition"
     ],
     "byPlatform": {
-      "ps4": 37
+      "ps4": 37,
+      "ps5": 9
     },
     "asDeveloper": [
       "ps4-ben-10-power-trip",
@@ -43828,9 +44142,18 @@
       "ps4-usa-pj-masks-heroes-of-the-night",
       "ps4-usa-matchbox-driving-adventures",
       "ps4-usa-paw-patrol-on-a-roll",
-      "ps4-usa-crayola-scoot"
+      "ps4-usa-crayola-scoot",
+      "ps5-barbie-rutas-a-caballo",
+      "ps5-bluey-el-videojuego",
+      "ps5-chicken-run-eggstraction",
+      "ps5-dreamworks-la-casa-de-munecas-de-gabby-listos-para-la-fiesta",
+      "ps5-matchbox-driving-adventures",
+      "ps5-monster-high-skulltimate-secrets",
+      "ps5-my-little-pony-misterio-en-los-altos-de-cefiro",
+      "ps5-paw-patrol-mundo-dino",
+      "ps5-the-grinch-christmas-adventures-complete-edition"
     ],
-    "gameCount": 37
+    "gameCount": 46
   },
   "seta": {
     "name": "SETA Corporation",
@@ -44172,12 +44495,16 @@
       "ps4-senran-kagura-estival",
       "ps4-japon-nitroplus-blasterz-heroines-infinite-duel",
       "ps4-usa-no-more-heroes-3-day-1-edition",
-      "ps4-japon-senran-kagura-burst-renewal"
+      "ps4-japon-senran-kagura-burst-renewal",
+      "ps5-daemon-x-machina-titanic-scion",
+      "ps5-story-of-seasons-grand-bazaar",
+      "ps5-ys-memoire-the-oath-in-felghana"
     ],
     "byPlatform": {
       "3ds": 3,
       "ds": 1,
-      "ps4": 32
+      "ps4": 32,
+      "ps5": 3
     },
     "asDeveloper": [
       "3ds-senran-kagura-burst",
@@ -44224,9 +44551,12 @@
       "ps4-senran-kagura-estival",
       "ps4-japon-nitroplus-blasterz-heroines-infinite-duel",
       "ps4-usa-no-more-heroes-3-day-1-edition",
-      "ps4-japon-senran-kagura-burst-renewal"
+      "ps4-japon-senran-kagura-burst-renewal",
+      "ps5-daemon-x-machina-titanic-scion",
+      "ps5-story-of-seasons-grand-bazaar",
+      "ps5-ys-memoire-the-oath-in-felghana"
     ],
-    "gameCount": 36
+    "gameCount": 39
   },
   "ryu-ga-gotoku-studio": {
     "name": "Ryu Ga Gotoku Studio",
@@ -46062,10 +46392,16 @@
       "ps4-usa-rez-infinite",
       "ps4-usa-bomb-rush-cyberfunk",
       "ps4-usa-cuphead",
-      "ps4-usa-sea-of-stars"
+      "ps4-usa-sea-of-stars",
+      "ps5-lego-party",
+      "ps5-monument-valley-the-trilogy",
+      "ps5-outer-wilds-archaeologist-edition",
+      "ps5-scott-pilgrim-ex",
+      "ps5-tales-of-the-shire-a-the-lord-of-the-rings-game"
     ],
     "byPlatform": {
-      "ps4": 32
+      "ps4": 32,
+      "ps5": 5
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -46100,9 +46436,14 @@
       "ps4-usa-rez-infinite",
       "ps4-usa-bomb-rush-cyberfunk",
       "ps4-usa-cuphead",
-      "ps4-usa-sea-of-stars"
+      "ps4-usa-sea-of-stars",
+      "ps5-lego-party",
+      "ps5-monument-valley-the-trilogy",
+      "ps5-outer-wilds-archaeologist-edition",
+      "ps5-scott-pilgrim-ex",
+      "ps5-tales-of-the-shire-a-the-lord-of-the-rings-game"
     ],
-    "gameCount": 32
+    "gameCount": 37
   },
   "london-studio": {
     "name": "London Studio",
@@ -46647,14 +46988,16 @@
       "ps4-batman-the-enemy-within",
       "ps4-usa-the-walking-dead-collection",
       "wii-csi-hard-evidence",
-      "ps4-game-of-thrones-a-telltale-games-series"
+      "ps4-game-of-thrones-a-telltale-games-series",
+      "ps5-7-days-to-die-console-edition"
     ],
     "byPlatform": {
       "ds": 1,
       "ps2": 1,
       "ps3": 3,
       "ps4": 22,
-      "wii": 4
+      "wii": 4,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-batman-the-telltale-series",
@@ -46701,9 +47044,10 @@
       "ps3-the-walking-dead-season-two",
       "ps4-batman-the-enemy-within",
       "ps4-usa-the-walking-dead-collection",
-      "ps4-game-of-thrones-a-telltale-games-series"
+      "ps4-game-of-thrones-a-telltale-games-series",
+      "ps5-7-days-to-die-console-edition"
     ],
-    "gameCount": 31
+    "gameCount": 32
   },
   "toys-for-bob": {
     "name": "Toys For Bob",
@@ -47169,7 +47513,8 @@
       "dreamcast-usa-midways-greatest-arcade-hits-volume-1",
       "ps1-arcade%27s-greatest-hits-midway-collection-2",
       "dreamcast-usa-midways-greatest-arcade-hits-volume-2",
-      "ps3-midway-arcade-origins"
+      "ps3-midway-arcade-origins",
+      "ps5-atari-50-the-anniversary-celebration-expanded-edition"
     ],
     "byPlatform": {
       "dreamcast": 3,
@@ -47179,7 +47524,8 @@
       "ps2": 5,
       "ps3": 1,
       "ps4": 8,
-      "saturn": 3
+      "saturn": 3,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps2-midway-arcade-treasures-2",
@@ -47212,8 +47558,10 @@
       "dreamcast-usa-midways-greatest-arcade-hits-volume-2",
       "ps3-midway-arcade-origins"
     ],
-    "asPublisher": [],
-    "gameCount": 29
+    "asPublisher": [
+      "ps5-atari-50-the-anniversary-celebration-expanded-edition"
+    ],
+    "gameCount": 30
   },
   "fci-inc": {
     "name": "FCI Inc",
@@ -48234,13 +48582,15 @@
       "ps4-greedfall",
       "ps4-the-surge-2",
       "ps4-usa-the-surge-2",
-      "ps4-usa-othercide"
+      "ps4-usa-othercide",
+      "ps5-aliens-fireteam-elite"
     ],
     "byPlatform": {
       "ds": 2,
       "ps3": 2,
       "ps4": 20,
-      "wii": 3
+      "wii": 3,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-usa-farming-simulator-19-platinum-edition",
@@ -48271,9 +48621,10 @@
       "ps4-greedfall",
       "ps4-the-surge-2",
       "ps4-usa-the-surge-2",
-      "ps4-usa-othercide"
+      "ps4-usa-othercide",
+      "ps5-aliens-fireteam-elite"
     ],
-    "gameCount": 27
+    "gameCount": 28
   },
   "nec-interchannel": {
     "name": "NEC Interchannel",
@@ -54797,11 +55148,44 @@
       "ps4-usa-wrc-generations",
       "ps4-usa-chef-life-a-restaurant-simulator-al-forno-edition",
       "ps4-ravenswatch-legendary-edition",
-      "ps4-usa-train-life-a-railway-simulator"
+      "ps4-usa-train-life-a-railway-simulator",
+      "ps5-ambulance-life-a-paramedic-simulator",
+      "ps5-animal-hospital",
+      "ps5-asterix-and-obelix-heroes",
+      "ps5-chef-life",
+      "ps5-clash-artifacts-of-chaos",
+      "ps5-crown-wars-the-black-prince",
+      "ps5-cthulhu-the-cosmic-abyss",
+      "ps5-garden-life",
+      "ps5-greedfall-the-dying-world",
+      "ps5-greedfall-the-dying-world-deluxe-edition",
+      "ps5-hunting-simulator-2",
+      "ps5-monster-truck-championship",
+      "ps5-overpass-2",
+      "ps5-ravenswatch",
+      "ps5-rennsport",
+      "ps5-robocop-rogue-city",
+      "ps5-robocop-rogue-city-unfinished-business",
+      "ps5-session-skate-sim",
+      "ps5-star-trek-voyager-across-the-unknown-deluxe-edition",
+      "ps5-steelrising",
+      "ps5-styx-blades-of-greed",
+      "ps5-taxi-life",
+      "ps5-tennis-world-tour-2",
+      "ps5-the-lord-of-the-rings-gollum",
+      "ps5-the-mound-omen-of-cthulhu-deluxe-edition",
+      "ps5-tour-de-france-2026",
+      "ps5-transport-fever-2",
+      "ps5-tt-isle-of-man-ride-on-the-edge-3",
+      "ps5-war-hospital",
+      "ps5-welcome-to-paradize",
+      "ps5-wrc-10",
+      "ps5-wrc-generations"
     ],
     "byPlatform": {
       "ps3": 1,
-      "ps4": 16
+      "ps4": 16,
+      "ps5": 32
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -54821,9 +55205,41 @@
       "ps4-usa-wrc-generations",
       "ps4-usa-chef-life-a-restaurant-simulator-al-forno-edition",
       "ps4-ravenswatch-legendary-edition",
-      "ps4-usa-train-life-a-railway-simulator"
+      "ps4-usa-train-life-a-railway-simulator",
+      "ps5-ambulance-life-a-paramedic-simulator",
+      "ps5-animal-hospital",
+      "ps5-asterix-and-obelix-heroes",
+      "ps5-chef-life",
+      "ps5-clash-artifacts-of-chaos",
+      "ps5-crown-wars-the-black-prince",
+      "ps5-cthulhu-the-cosmic-abyss",
+      "ps5-garden-life",
+      "ps5-greedfall-the-dying-world",
+      "ps5-greedfall-the-dying-world-deluxe-edition",
+      "ps5-hunting-simulator-2",
+      "ps5-monster-truck-championship",
+      "ps5-overpass-2",
+      "ps5-ravenswatch",
+      "ps5-rennsport",
+      "ps5-robocop-rogue-city",
+      "ps5-robocop-rogue-city-unfinished-business",
+      "ps5-session-skate-sim",
+      "ps5-star-trek-voyager-across-the-unknown-deluxe-edition",
+      "ps5-steelrising",
+      "ps5-styx-blades-of-greed",
+      "ps5-taxi-life",
+      "ps5-tennis-world-tour-2",
+      "ps5-the-lord-of-the-rings-gollum",
+      "ps5-the-mound-omen-of-cthulhu-deluxe-edition",
+      "ps5-tour-de-france-2026",
+      "ps5-transport-fever-2",
+      "ps5-tt-isle-of-man-ride-on-the-edge-3",
+      "ps5-war-hospital",
+      "ps5-welcome-to-paradize",
+      "ps5-wrc-10",
+      "ps5-wrc-generations"
     ],
-    "gameCount": 17
+    "gameCount": 49
   },
   "nichibutsu": {
     "name": "Nichibutsu",
@@ -54901,10 +55317,15 @@
       "ps4-usa-rick-and-morty-virtual-rick-ality",
       "ps4-usa-teenage-mutant-ninja-turtles-splintered-fate-deluxe-edition",
       "ps4-usa-marvel-pinball-epic-collection-vol-1",
-      "ps4-usa-tempest-4000"
+      "ps4-usa-tempest-4000",
+      "ps5-disney-dreamlight-valley-cozy-edition",
+      "ps5-hotel-barcelona",
+      "ps5-nickelodeon-extreme-tennis-next",
+      "ps5-teenage-mutant-ninja-turtles-splintered-fate-deluxe-edition"
     ],
     "byPlatform": {
-      "ps4": 17
+      "ps4": 17,
+      "ps5": 4
     },
     "asDeveloper": [
       "ps4-marvel-pinball-epic-collection-vol-1",
@@ -54925,9 +55346,13 @@
       "ps4-usa-rick-and-morty-virtual-rick-ality",
       "ps4-usa-teenage-mutant-ninja-turtles-splintered-fate-deluxe-edition",
       "ps4-usa-marvel-pinball-epic-collection-vol-1",
-      "ps4-usa-tempest-4000"
+      "ps4-usa-tempest-4000",
+      "ps5-disney-dreamlight-valley-cozy-edition",
+      "ps5-hotel-barcelona",
+      "ps5-nickelodeon-extreme-tennis-next",
+      "ps5-teenage-mutant-ninja-turtles-splintered-fate-deluxe-edition"
     ],
-    "gameCount": 17
+    "gameCount": 21
   },
   "nihon-bussan": {
     "name": "Nihon Bussan",
@@ -55201,10 +55626,12 @@
       "ps4-usa-overcooked-all-you-can-eat",
       "ps4-usa-moving-out-2",
       "ps4-usa-worms-rumble-fully-loaded-edition",
-      "ps4-usa-blasphemous-deluxe-edition"
+      "ps4-usa-blasphemous-deluxe-edition",
+      "ps5-hell-let-loose-vietnam"
     ],
     "byPlatform": {
-      "ps4": 17
+      "ps4": 17,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-usa-epic-chef",
@@ -55227,9 +55654,10 @@
       "ps4-usa-yooka-laylee-and-the-impossible-lair",
       "ps4-usa-moving-out-2",
       "ps4-usa-worms-rumble-fully-loaded-edition",
-      "ps4-usa-blasphemous-deluxe-edition"
+      "ps4-usa-blasphemous-deluxe-edition",
+      "ps5-hell-let-loose-vietnam"
     ],
-    "gameCount": 17
+    "gameCount": 18
   },
   "tokuma-shoten": {
     "name": "Tokuma Shoten",
@@ -56175,10 +56603,15 @@
       "ps4-usa-my-time-at-sandrock",
       "ps4-usa-bladed-fury",
       "ps4-usa-my-time-at-sandrock-collector%27s-edition",
-      "ps4-usa-mercenaries-rebirth-call-of-the-wild-lynx"
+      "ps4-usa-mercenaries-rebirth-call-of-the-wild-lynx",
+      "ps5-blazblue-entropy-effect-x-deluxe-edition",
+      "ps5-bluey-s-quest-for-the-gold-pen",
+      "ps5-chromagun-2-dye-hard",
+      "ps5-slime-rancher-2"
     ],
     "byPlatform": {
-      "ps4": 16
+      "ps4": 16,
+      "ps5": 4
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -56197,9 +56630,13 @@
       "ps4-usa-my-time-at-sandrock",
       "ps4-usa-bladed-fury",
       "ps4-usa-my-time-at-sandrock-collector%27s-edition",
-      "ps4-usa-mercenaries-rebirth-call-of-the-wild-lynx"
+      "ps4-usa-mercenaries-rebirth-call-of-the-wild-lynx",
+      "ps5-blazblue-entropy-effect-x-deluxe-edition",
+      "ps5-bluey-s-quest-for-the-gold-pen",
+      "ps5-chromagun-2-dye-hard",
+      "ps5-slime-rancher-2"
     ],
-    "gameCount": 16
+    "gameCount": 20
   },
   "riot-nihon-telenet": {
     "name": "Riot (Nihon Telenet)",
@@ -56279,10 +56716,12 @@
       "ps4-usa-coffee-talk",
       "ps4-usa-sword-and-fairy-together-forever",
       "ps4-the-king%27s-bird-special-limited-edition",
-      "ps4-a-space-for-the-unbound"
+      "ps4-a-space-for-the-unbound",
+      "ps5-lisa-decade-of-joy-collection"
     ],
     "byPlatform": {
-      "ps4": 16
+      "ps4": 16,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-the-king%27s-bird",
@@ -56302,9 +56741,10 @@
       "ps4-coffee-talk-2-in-1-double-pack",
       "ps4-usa-coffee-talk",
       "ps4-usa-sword-and-fairy-together-forever",
-      "ps4-a-space-for-the-unbound"
+      "ps4-a-space-for-the-unbound",
+      "ps5-lisa-decade-of-joy-collection"
     ],
-    "gameCount": 16
+    "gameCount": 17
   },
   "sofel": {
     "name": "Sofel",
@@ -56874,13 +57314,23 @@
       "ps4-usa-star-wars-jedi-fallen-order-deluxe-edition",
       "ds-my-perfect-prom-charm-girls-club",
       "wii-rango",
-      "ps4-usa-star-wars-battlefront-ii-not-for-resale"
+      "ps4-usa-star-wars-battlefront-ii-not-for-resale",
+      "ps5-battlefield-6",
+      "ps5-dead-space-remake",
+      "ps5-dragon-age-the-veilguard",
+      "ps5-ea-sports-f1-25",
+      "ps5-ea-sports-fc-26",
+      "ps5-ea-sports-ufc-5",
+      "ps5-ea-sports-ufc-6",
+      "ps5-mysims-coleccion-sofa-y-mantita",
+      "ps5-star-wars-zero-company"
     ],
     "byPlatform": {
       "ds": 2,
       "ps2": 3,
       "ps4": 9,
-      "wii": 1
+      "wii": 1,
+      "ps5": 9
     },
     "asDeveloper": [
       "ps4-japon-apex-legends-bloodhound-edition",
@@ -56900,9 +57350,18 @@
       "ps4-usa-need-for-speed-rivals-playstation-hits",
       "ps4-usa-star-wars-jedi-fallen-order-deluxe-edition",
       "wii-rango",
-      "ps4-usa-star-wars-battlefront-ii-not-for-resale"
+      "ps4-usa-star-wars-battlefront-ii-not-for-resale",
+      "ps5-battlefield-6",
+      "ps5-dead-space-remake",
+      "ps5-dragon-age-the-veilguard",
+      "ps5-ea-sports-f1-25",
+      "ps5-ea-sports-fc-26",
+      "ps5-ea-sports-ufc-5",
+      "ps5-ea-sports-ufc-6",
+      "ps5-mysims-coleccion-sofa-y-mantita",
+      "ps5-star-wars-zero-company"
     ],
-    "gameCount": 15
+    "gameCount": 24
   },
   "ea-sports-big": {
     "name": "EA Sports BIG",
@@ -56969,10 +57428,12 @@
       "ps4-celeste",
       "ps4-usa-omori",
       "ps4-japon-hollow-knight",
-      "ps4-usa-celeste-deluxe-edition"
+      "ps4-usa-celeste-deluxe-edition",
+      "ps5-nine-sols"
     ],
     "byPlatform": {
-      "ps4": 15
+      "ps4": 15,
+      "ps5": 1
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -56990,9 +57451,10 @@
       "ps4-celeste",
       "ps4-usa-omori",
       "ps4-japon-hollow-knight",
-      "ps4-usa-celeste-deluxe-edition"
+      "ps4-usa-celeste-deluxe-edition",
+      "ps5-nine-sols"
     ],
-    "gameCount": 15
+    "gameCount": 16
   },
   "furyu": {
     "name": "FURYU Corporation",
@@ -57498,10 +57960,20 @@
       "ps4-usa-ai-the-somnium-files",
       "ps4-usa-battle-axe-badge-edition",
       "ps4-usa-gear-shifters-collector%27s-edition",
-      "ps4-battle-axe"
+      "ps4-battle-axe",
+      "ps5-bitmap-bureau-collection",
+      "ps5-blazing-strike",
+      "ps5-goodbye-world",
+      "ps5-let-s-school",
+      "ps5-mr-run-jump-kombinera-adrenaline",
+      "ps5-neon-apex-beyond-the-limit",
+      "ps5-read-only-memories-neurodiver",
+      "ps5-tevi",
+      "ps5-this-is-fine-maximum-cope"
     ],
     "byPlatform": {
-      "ps4": 15
+      "ps4": 15,
+      "ps5": 9
     },
     "asDeveloper": [
       "ps4-usa-final-vendetta-collector%27s-edition",
@@ -57520,9 +57992,18 @@
       "ps4-usa-battle-axe",
       "ps4-usa-ai-the-somnium-files",
       "ps4-usa-battle-axe-badge-edition",
-      "ps4-battle-axe"
+      "ps4-battle-axe",
+      "ps5-bitmap-bureau-collection",
+      "ps5-blazing-strike",
+      "ps5-goodbye-world",
+      "ps5-let-s-school",
+      "ps5-mr-run-jump-kombinera-adrenaline",
+      "ps5-neon-apex-beyond-the-limit",
+      "ps5-read-only-memories-neurodiver",
+      "ps5-tevi",
+      "ps5-this-is-fine-maximum-cope"
     ],
-    "gameCount": 15
+    "gameCount": 24
   },
   "rockstar-north": {
     "name": "Rockstar North",
@@ -58107,12 +58588,22 @@
       "ps4-chicken-range",
       "ps4-crash-dummy",
       "ps4-willy-morgan-and-the-curse-of-bone-town",
-      "wii-glacier-3-the-meltdown"
+      "wii-glacier-3-the-meltdown",
+      "ps5-3d-minigolf",
+      "ps5-battle-of-rebels",
+      "ps5-crazy-chicken-shooter-edition",
+      "ps5-dead-of-darkness",
+      "ps5-please-be-happy",
+      "ps5-sengoku-dynasty-ultimate-edition",
+      "ps5-warplanes-double-pack",
+      "ps5-wwi-tannenberg-eastern-front",
+      "ps5-wwi-verdun-western-front"
     ],
     "byPlatform": {
       "3ds": 1,
       "ps4": 10,
-      "wii": 3
+      "wii": 3,
+      "ps5": 9
     },
     "asDeveloper": [
       "wii-the-cube",
@@ -58132,9 +58623,18 @@
       "ps4-chicken-range",
       "ps4-crash-dummy",
       "ps4-willy-morgan-and-the-curse-of-bone-town",
-      "wii-glacier-3-the-meltdown"
+      "wii-glacier-3-the-meltdown",
+      "ps5-3d-minigolf",
+      "ps5-battle-of-rebels",
+      "ps5-crazy-chicken-shooter-edition",
+      "ps5-dead-of-darkness",
+      "ps5-please-be-happy",
+      "ps5-sengoku-dynasty-ultimate-edition",
+      "ps5-warplanes-double-pack",
+      "ps5-wwi-tannenberg-eastern-front",
+      "ps5-wwi-verdun-western-front"
     ],
-    "gameCount": 14
+    "gameCount": 23
   },
   "gearbox-publishing": {
     "name": "Gearbox Publishing",
@@ -58991,10 +59491,14 @@
       "ps4-star-wars-jedi-knight-collection",
       "ps4-observer-system-redux-day-one-edition",
       "ps4-star-wars-racer-and-commando-combo",
-      "ps4-torn"
+      "ps4-torn",
+      "ps5-legacy-of-kain-soul-reaver-1-y-2-remastered",
+      "ps5-tomb-raider-i-ii-iii-remastered",
+      "ps5-tomb-raider-iv-vi-remastered-starring-lara-croft"
     ],
     "byPlatform": {
-      "ps4": 13
+      "ps4": 13,
+      "ps5": 3
     },
     "asDeveloper": [
       "ps4-tomb-raider-iv-vi-remastered",
@@ -59014,9 +59518,12 @@
       "ps4-usa-star-wars-jedi-knight-jedi-academy-premium-edition",
       "ps4-usa-tomb-raider-i-iii-remastered",
       "ps4-observer-system-redux-day-one-edition",
-      "ps4-torn"
+      "ps4-torn",
+      "ps5-legacy-of-kain-soul-reaver-1-y-2-remastered",
+      "ps5-tomb-raider-i-ii-iii-remastered",
+      "ps5-tomb-raider-iv-vi-remastered-starring-lara-croft"
     ],
-    "gameCount": 13
+    "gameCount": 16
   },
   "bandai-namco-studios": {
     "name": "Bandai Namco Studios",
@@ -59513,14 +60020,23 @@
       "ps4-usa-monster-energy-supercross-2",
       "dreamcast-japon-chaos-field",
       "ps4-usa-monster-energy-supercross-4",
-      "nes-pal-wizards-warriors-iii-kuros-visions-power"
+      "nes-pal-wizards-warriors-iii-kuros-visions-power",
+      "ps5-hot-wheels-unleashed-challenge-accepted-edition",
+      "ps5-monster-energy-supercross-the-official-videogame-4",
+      "ps5-monster-jam-showdown-day-one-edition",
+      "ps5-motogp-26",
+      "ps5-ride-6",
+      "ps5-screamer",
+      "ps5-screamer-collector-s-edition",
+      "ps5-screamer-echo-edition"
     ],
     "byPlatform": {
       "dreamcast": 3,
       "nes": 1,
       "ps2": 1,
       "ps4": 7,
-      "wii": 1
+      "wii": 1,
+      "ps5": 8
     },
     "asDeveloper": [
       "ps4-monster-energy-supercross-5",
@@ -59542,9 +60058,17 @@
       "ps4-usa-monster-energy-supercross",
       "ps4-usa-monster-energy-supercross-2",
       "dreamcast-japon-chaos-field",
-      "ps4-usa-monster-energy-supercross-4"
+      "ps4-usa-monster-energy-supercross-4",
+      "ps5-hot-wheels-unleashed-challenge-accepted-edition",
+      "ps5-monster-energy-supercross-the-official-videogame-4",
+      "ps5-monster-jam-showdown-day-one-edition",
+      "ps5-motogp-26",
+      "ps5-ride-6",
+      "ps5-screamer",
+      "ps5-screamer-collector-s-edition",
+      "ps5-screamer-echo-edition"
     ],
-    "gameCount": 13
+    "gameCount": 21
   },
   "nippon-ichi-software-inc": {
     "name": "Nippon Ichi Software, Inc.",
@@ -60394,10 +60918,15 @@
       "ps4-enter-exit-the-gungeon",
       "ps4-shadow-warrior-3-definitive-edition",
       "ps4-usa-trek-to-yomi-deluxe-edition",
-      "ps4-usa-enter-the-gungeon-ammonomicon-bundle-special-reserve"
+      "ps4-usa-enter-the-gungeon-ammonomicon-bundle-special-reserve",
+      "ps5-ball-x-pit",
+      "ps5-cult-of-the-lamb-definitive-edition",
+      "ps5-pepper-grinder",
+      "ps5-the-messenger"
     ],
     "byPlatform": {
-      "ps4": 12
+      "ps4": 12,
+      "ps5": 4
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -60412,9 +60941,13 @@
       "ps4-enter-exit-the-gungeon",
       "ps4-shadow-warrior-3-definitive-edition",
       "ps4-usa-trek-to-yomi-deluxe-edition",
-      "ps4-usa-enter-the-gungeon-ammonomicon-bundle-special-reserve"
+      "ps4-usa-enter-the-gungeon-ammonomicon-bundle-special-reserve",
+      "ps5-ball-x-pit",
+      "ps5-cult-of-the-lamb-definitive-edition",
+      "ps5-pepper-grinder",
+      "ps5-the-messenger"
     ],
-    "gameCount": 12
+    "gameCount": 16
   },
   "disney": {
     "name": "Disney",
@@ -62334,10 +62867,12 @@
       "ps4-the-witcher-3-wild-hunt-expansion-pack-hearts-of-stone",
       "ps4-usa-cyberpunk-2077-with-extras",
       "ps4-usa-witcher-3-wild-hunt-with-bonus-content",
-      "ps4-usa-witcher-3-wild-hunt-complete-edition"
+      "ps4-usa-witcher-3-wild-hunt-complete-edition",
+      "ps5-cyberpunk-2077-ultimate-edition"
     ],
     "byPlatform": {
-      "ps4": 11
+      "ps4": 11,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-witcher-3-blood-and-wine",
@@ -62354,9 +62889,10 @@
     ],
     "asPublisher": [
       "ps4-the-witcher-3-wild-hunt-expansion-pack-hearts-of-stone",
-      "ps4-usa-cyberpunk-2077-with-extras"
+      "ps4-usa-cyberpunk-2077-with-extras",
+      "ps5-cyberpunk-2077-ultimate-edition"
     ],
-    "gameCount": 11
+    "gameCount": 12
   },
   "condor": {
     "name": "Condor",
@@ -63299,13 +63835,16 @@
       "ps4-usa-terminator-2d-no-fate-day-one-edition",
       "wii-sniper-elite",
       "ps4-terminator-resistance",
-      "wii-rogue-trooper-quartz-zone-massacre"
+      "wii-rogue-trooper-quartz-zone-massacre",
+      "ps5-terminator-2d-no-fate-standard-edition",
+      "ps5-xeno-crisis"
     ],
     "byPlatform": {
       "3ds": 1,
       "ps3": 1,
       "ps4": 6,
-      "wii": 3
+      "wii": 3,
+      "ps5": 2
     },
     "asDeveloper": [
       "wii-sniper-elite"
@@ -63321,9 +63860,11 @@
       "ps4-usa-terminator-2d-no-fate-day-one-edition",
       "wii-sniper-elite",
       "ps4-terminator-resistance",
-      "wii-rogue-trooper-quartz-zone-massacre"
+      "wii-rogue-trooper-quartz-zone-massacre",
+      "ps5-terminator-2d-no-fate-standard-edition",
+      "ps5-xeno-crisis"
     ],
-    "gameCount": 11
+    "gameCount": 13
   },
   "riverhill-soft": {
     "name": "Riverhill Soft",
@@ -64532,11 +65073,14 @@
       "ps4-usa-grand-ages-medieval",
       "ps4-port-royale-4",
       "ps4-grand-ages-medieval",
-      "ps4-my-riding-stables-life-with-horses"
+      "ps4-my-riding-stables-life-with-horses",
+      "ps5-disciples-domination",
+      "ps5-sudden-strike-5-deluxe-edition"
     ],
     "byPlatform": {
       "ps3": 1,
-      "ps4": 9
+      "ps4": 9,
+      "ps5": 2
     },
     "asDeveloper": [
       "ps3-port-royale-3-gold-edition"
@@ -64551,9 +65095,11 @@
       "ps4-usa-grand-ages-medieval",
       "ps4-port-royale-4",
       "ps4-grand-ages-medieval",
-      "ps4-my-riding-stables-life-with-horses"
+      "ps4-my-riding-stables-life-with-horses",
+      "ps5-disciples-domination",
+      "ps5-sudden-strike-5-deluxe-edition"
     ],
-    "gameCount": 10
+    "gameCount": 12
   },
   "kcek": {
     "name": "KCEK",
@@ -65821,14 +66367,16 @@
       "wii-remington-great-american-bird-hunt",
       "ps4-2dark-limited-edition",
       "ps2-all-music-dance",
-      "ps3-rugby-15"
+      "ps3-rugby-15",
+      "ps5-warhammer-chaosbane-slayer-edition"
     ],
     "byPlatform": {
       "3ds": 2,
       "ps2": 2,
       "ps3": 2,
       "ps4": 2,
-      "wii": 1
+      "wii": 1,
+      "ps5": 1
     },
     "asDeveloper": [
       "3ds-i-love-my-pets",
@@ -65842,9 +66390,10 @@
       "wii-remington-great-american-bird-hunt",
       "ps4-2dark-limited-edition",
       "ps2-all-music-dance",
-      "ps3-rugby-15"
+      "ps3-rugby-15",
+      "ps5-warhammer-chaosbane-slayer-edition"
     ],
-    "gameCount": 9
+    "gameCount": 10
   },
   "bottom": {
     "name": "Bottom Up",
@@ -65971,10 +66520,30 @@
       "ps4-gimmick-special-edition",
       "ps4-ys-origin",
       "ps4-ender-lilies-quietus-of-the-knights",
-      "ps4-usa-batsugun-saturn-tribute-boosted"
+      "ps4-usa-batsugun-saturn-tribute-boosted",
+      "ps5-breakout-beyond",
+      "ps5-clock-tower-rewind",
+      "ps5-earthion-deluxe-edition",
+      "ps5-formation-z",
+      "ps5-formation-z-deluxe-edition",
+      "ps5-frogun-deluxe-edition",
+      "ps5-high-on-life-game-of-the-year",
+      "ps5-hunter-x-hunter-nen-x-impact",
+      "ps5-mamorukun-recurse",
+      "ps5-mamorukun-recurse-underworld-edition",
+      "ps5-r-type-delta-hd-boosted",
+      "ps5-rushing-beat-x-return-of-the-brawl-brothers",
+      "ps5-snow-bros-wonderland",
+      "ps5-system-shock-2-25th-anniversary-edition",
+      "ps5-system-shock-2-remastered",
+      "ps5-toaplan-arcade-collection-vol-1",
+      "ps5-toaplan-arcade-collection-vol-2",
+      "ps5-truxton-extreme",
+      "ps5-wizman-s-world-retry"
     ],
     "byPlatform": {
-      "ps4": 9
+      "ps4": 9,
+      "ps5": 19
     },
     "asDeveloper": [
       "ps4-usa-alwa%27s-collection-limited-edition"
@@ -65987,9 +66556,28 @@
       "ps4-gimmick-special-edition",
       "ps4-ys-origin",
       "ps4-ender-lilies-quietus-of-the-knights",
-      "ps4-usa-batsugun-saturn-tribute-boosted"
+      "ps4-usa-batsugun-saturn-tribute-boosted",
+      "ps5-breakout-beyond",
+      "ps5-clock-tower-rewind",
+      "ps5-earthion-deluxe-edition",
+      "ps5-formation-z",
+      "ps5-formation-z-deluxe-edition",
+      "ps5-frogun-deluxe-edition",
+      "ps5-high-on-life-game-of-the-year",
+      "ps5-hunter-x-hunter-nen-x-impact",
+      "ps5-mamorukun-recurse",
+      "ps5-mamorukun-recurse-underworld-edition",
+      "ps5-r-type-delta-hd-boosted",
+      "ps5-rushing-beat-x-return-of-the-brawl-brothers",
+      "ps5-snow-bros-wonderland",
+      "ps5-system-shock-2-25th-anniversary-edition",
+      "ps5-system-shock-2-remastered",
+      "ps5-toaplan-arcade-collection-vol-1",
+      "ps5-toaplan-arcade-collection-vol-2",
+      "ps5-truxton-extreme",
+      "ps5-wizman-s-world-retry"
     ],
-    "gameCount": 9
+    "gameCount": 28
   },
   "copya-systems": {
     "name": "Copya Systems",
@@ -69576,10 +70164,35 @@
       "ps4-the-last-door-complete-edition",
       "ps4-yuppie-psycho-collector%27s-edition",
       "ps4-zapling-bygone",
-      "ps4-gylt"
+      "ps4-gylt",
+      "ps5-a-red-walking-robot",
+      "ps5-as-dusk-falls-special-edition",
+      "ps5-aureole-wings-of-hope-celestian-edition",
+      "ps5-cabernet",
+      "ps5-cabernet-collector-s-edition",
+      "ps5-detective-collection-vol-ii",
+      "ps5-everdark-undead-apocalypse",
+      "ps5-kemono-heroes-collector-s-edition",
+      "ps5-kinnikuneko-super-muscle-cat",
+      "ps5-kinnikuneko-super-muscle-cat-purrrrfect-edition",
+      "ps5-koa-and-the-five-pirates-of-mara-edicion-coleccionista",
+      "ps5-long-gone-days",
+      "ps5-long-gone-days-collector-s-edition",
+      "ps5-outbound",
+      "ps5-outbound-collector-s-edition",
+      "ps5-oxide-room-208",
+      "ps5-pampas-selene",
+      "ps5-slay-the-princess-the-pristine-cut-special-edition",
+      "ps5-spirit-mancer-collector-s-edition",
+      "ps5-sword-of-the-necromancer-collection",
+      "ps5-sword-of-the-necromancer-collection-special-edition",
+      "ps5-the-inheritance-of-crimson-manor-victorian-edition",
+      "ps5-wings-of-endless-deluxe-edition",
+      "ps5-zapling-bygone-deluxe-edition"
     ],
     "byPlatform": {
-      "ps4": 8
+      "ps4": 8,
+      "ps5": 24
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -69590,9 +70203,33 @@
       "ps4-the-last-door-complete-edition",
       "ps4-yuppie-psycho-collector%27s-edition",
       "ps4-zapling-bygone",
-      "ps4-gylt"
+      "ps4-gylt",
+      "ps5-a-red-walking-robot",
+      "ps5-as-dusk-falls-special-edition",
+      "ps5-aureole-wings-of-hope-celestian-edition",
+      "ps5-cabernet",
+      "ps5-cabernet-collector-s-edition",
+      "ps5-detective-collection-vol-ii",
+      "ps5-everdark-undead-apocalypse",
+      "ps5-kemono-heroes-collector-s-edition",
+      "ps5-kinnikuneko-super-muscle-cat",
+      "ps5-kinnikuneko-super-muscle-cat-purrrrfect-edition",
+      "ps5-koa-and-the-five-pirates-of-mara-edicion-coleccionista",
+      "ps5-long-gone-days",
+      "ps5-long-gone-days-collector-s-edition",
+      "ps5-outbound",
+      "ps5-outbound-collector-s-edition",
+      "ps5-oxide-room-208",
+      "ps5-pampas-selene",
+      "ps5-slay-the-princess-the-pristine-cut-special-edition",
+      "ps5-spirit-mancer-collector-s-edition",
+      "ps5-sword-of-the-necromancer-collection",
+      "ps5-sword-of-the-necromancer-collection-special-edition",
+      "ps5-the-inheritance-of-crimson-manor-victorian-edition",
+      "ps5-wings-of-endless-deluxe-edition",
+      "ps5-zapling-bygone-deluxe-edition"
     ],
-    "gameCount": 8
+    "gameCount": 32
   },
   "tgl": {
     "name": "TGL",
@@ -73649,11 +74286,14 @@
       "ps4-usa-psychonauts-2-motherlobe-edition",
       "ps2-top-spin",
       "ps4-usa-minecraft-starter-collection",
-      "ps4-usa-minecraft-dungeons-ultimate-edition"
+      "ps4-usa-minecraft-dungeons-ultimate-edition",
+      "ps5-halo-campaign-evolved",
+      "ps5-minecraft"
     ],
     "byPlatform": {
       "ps2": 1,
-      "ps4": 5
+      "ps4": 5,
+      "ps5": 2
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -73662,9 +74302,11 @@
       "ps4-usa-psychonauts-2-motherlobe-edition",
       "ps2-top-spin",
       "ps4-usa-minecraft-starter-collection",
-      "ps4-usa-minecraft-dungeons-ultimate-edition"
+      "ps4-usa-minecraft-dungeons-ultimate-edition",
+      "ps5-halo-campaign-evolved",
+      "ps5-minecraft"
     ],
-    "gameCount": 6
+    "gameCount": 8
   },
   "mojang-ab": {
     "name": "Mojang AB",
@@ -75799,10 +76441,12 @@
       "ps4-usa-windjammers-2-collector%27s-edition",
       "ps4-usa-metal-slug-tactics-commanding-officer-edition",
       "ps4-usa-metal-slug-tactics",
-      "ps4-usa-teenage-mutant-ninja-turtles-shredder%27s-revenge"
+      "ps4-usa-teenage-mutant-ninja-turtles-shredder%27s-revenge",
+      "ps5-marvel-cosmic-invasion"
     ],
     "byPlatform": {
-      "ps4": 5
+      "ps4": 5,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-usa-windjammers-collector%27s-edition",
@@ -75811,9 +76455,10 @@
     ],
     "asPublisher": [
       "ps4-usa-metal-slug-tactics",
-      "ps4-usa-teenage-mutant-ninja-turtles-shredder%27s-revenge"
+      "ps4-usa-teenage-mutant-ninja-turtles-shredder%27s-revenge",
+      "ps5-marvel-cosmic-invasion"
     ],
-    "gameCount": 5
+    "gameCount": 6
   },
   "double-diamond-sports": {
     "name": "Double Diamond Sports",
@@ -81457,19 +82102,44 @@
       "ps4-daymare-1998",
       "ps4-fury-unleashed-bang-edition",
       "ps4-encodya-neon-edition",
-      "ps4-song-of-horror-deluxe-edition"
+      "ps4-song-of-horror-deluxe-edition",
+      "ps5-1348-ex-voto-limited-edition",
+      "ps5-centum-premium-edition",
+      "ps5-cooking-companions-premium-edition",
+      "ps5-drive-rally-special-edition",
+      "ps5-dunjungle-premium-edition",
+      "ps5-elsie-magitek-edition",
+      "ps5-frostpunk-2-whiteout-edition",
+      "ps5-naiad",
+      "ps5-old-school-rally-special-edition",
+      "ps5-super-meat-boy-3d",
+      "ps5-super-meat-boy-3d-special-edition",
+      "ps5-the-nightmare-box-vol-2"
     ],
     "byPlatform": {
-      "ps4": 4
+      "ps4": 4,
+      "ps5": 12
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps4-daymare-1998",
       "ps4-fury-unleashed-bang-edition",
       "ps4-encodya-neon-edition",
-      "ps4-song-of-horror-deluxe-edition"
+      "ps4-song-of-horror-deluxe-edition",
+      "ps5-1348-ex-voto-limited-edition",
+      "ps5-centum-premium-edition",
+      "ps5-cooking-companions-premium-edition",
+      "ps5-drive-rally-special-edition",
+      "ps5-dunjungle-premium-edition",
+      "ps5-elsie-magitek-edition",
+      "ps5-frostpunk-2-whiteout-edition",
+      "ps5-naiad",
+      "ps5-old-school-rally-special-edition",
+      "ps5-super-meat-boy-3d",
+      "ps5-super-meat-boy-3d-special-edition",
+      "ps5-the-nightmare-box-vol-2"
     ],
-    "gameCount": 4
+    "gameCount": 16
   },
   "microsmiths": {
     "name": "Microsmiths",
@@ -81574,10 +82244,12 @@
       "ps4-usa-minecraft-psvr-edition",
       "ps4-usa-minecraft-starter-collection",
       "ps4-usa-minecraft-with-vr",
-      "ps4-usa-minecraft-dungeons-ultimate-edition"
+      "ps4-usa-minecraft-dungeons-ultimate-edition",
+      "ps5-minecraft-legends-deluxe-edition"
     ],
     "byPlatform": {
-      "ps4": 4
+      "ps4": 4,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-usa-minecraft-psvr-edition",
@@ -81585,9 +82257,10 @@
       "ps4-usa-minecraft-dungeons-ultimate-edition"
     ],
     "asPublisher": [
-      "ps4-usa-minecraft-with-vr"
+      "ps4-usa-minecraft-with-vr",
+      "ps5-minecraft-legends-deluxe-edition"
     ],
-    "gameCount": 4
+    "gameCount": 5
   },
   "mydearest": {
     "name": "MyDearest Inc.",
@@ -81950,19 +82623,22 @@
       "ps4-usa-cities-skylines-parklife-edition",
       "ps4-japon-stellaris-console-edition-the-royal",
       "ps4-usa-surviving-the-aftermath",
-      "ps4-age-of-wonders-planetfall"
+      "ps4-age-of-wonders-planetfall",
+      "ps5-vampire-the-masquerade-bloodlines-2-day-one-edition"
     ],
     "byPlatform": {
-      "ps4": 4
+      "ps4": 4,
+      "ps5": 1
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps4-usa-cities-skylines-parklife-edition",
       "ps4-japon-stellaris-console-edition-the-royal",
       "ps4-usa-surviving-the-aftermath",
-      "ps4-age-of-wonders-planetfall"
+      "ps4-age-of-wonders-planetfall",
+      "ps5-vampire-the-masquerade-bloodlines-2-day-one-edition"
     ],
-    "gameCount": 4
+    "gameCount": 5
   },
   "phoenix": {
     "name": "Phoenix",
@@ -82412,11 +83088,13 @@
       "ps4-usa-control-deluxe-edition",
       "ps2-max-payne",
       "ps4-control-ultimate-edition",
-      "ps2-max-payne-2-fall-of-max-payne"
+      "ps2-max-payne-2-fall-of-max-payne",
+      "ps5-alan-wake-2-deluxe-edition"
     ],
     "byPlatform": {
       "ps2": 2,
-      "ps4": 2
+      "ps4": 2,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-usa-control-deluxe-edition",
@@ -82424,8 +83102,10 @@
       "ps4-control-ultimate-edition",
       "ps2-max-payne-2-fall-of-max-payne"
     ],
-    "asPublisher": [],
-    "gameCount": 4
+    "asPublisher": [
+      "ps5-alan-wake-2-deluxe-edition"
+    ],
+    "gameCount": 5
   },
   "renegade-kid": {
     "name": "Renegade Kid",
@@ -82482,10 +83162,12 @@
       "ps4-usa-red-dead-redemption-2-special-edition",
       "ps4-usa-red-dead-redemption-2-steelbook-edition",
       "ps4-usa-grand-theft-auto-v-not-for-resale",
-      "ps4-usa-grand-theft-auto-the-trilogy-definitive-edition"
+      "ps4-usa-grand-theft-auto-the-trilogy-definitive-edition",
+      "ps5-grand-theft-auto-v"
     ],
     "byPlatform": {
-      "ps4": 4
+      "ps4": 4,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-usa-grand-theft-auto-v-not-for-resale"
@@ -82493,9 +83175,10 @@
     "asPublisher": [
       "ps4-usa-red-dead-redemption-2-special-edition",
       "ps4-usa-red-dead-redemption-2-steelbook-edition",
-      "ps4-usa-grand-theft-auto-the-trilogy-definitive-edition"
+      "ps4-usa-grand-theft-auto-the-trilogy-definitive-edition",
+      "ps5-grand-theft-auto-v"
     ],
-    "gameCount": 4
+    "gameCount": 5
   },
   "rsp": {
     "name": "RSP",
@@ -82736,10 +83419,22 @@
       "ps4-fighting-legends-digipack-edition",
       "ps4-malnazidos",
       "ps4-usa-farm-together-deluxe-edition",
-      "ps4-blasphemous"
+      "ps4-blasphemous",
+      "ps5-dark-atlas",
+      "ps5-ereban-shadow-legacy",
+      "ps5-ereban-shadow-legacy-limited-collector-s-edition",
+      "ps5-lumo-2",
+      "ps5-lumo-2-collector-s-edition",
+      "ps5-masterchef-el-videojuego-oficial",
+      "ps5-shotgun-king",
+      "ps5-spellcaster-university",
+      "ps5-tadeo-jones-3-la-tabla-esmeralda-el-legado-del-sol-de-occidente",
+      "ps5-voidwrought",
+      "ps5-ziggurat-ii"
     ],
     "byPlatform": {
-      "ps4": 4
+      "ps4": 4,
+      "ps5": 11
     },
     "asDeveloper": [
       "ps4-malnazidos"
@@ -82747,9 +83442,20 @@
     "asPublisher": [
       "ps4-fighting-legends-digipack-edition",
       "ps4-usa-farm-together-deluxe-edition",
-      "ps4-blasphemous"
+      "ps4-blasphemous",
+      "ps5-dark-atlas",
+      "ps5-ereban-shadow-legacy",
+      "ps5-ereban-shadow-legacy-limited-collector-s-edition",
+      "ps5-lumo-2",
+      "ps5-lumo-2-collector-s-edition",
+      "ps5-masterchef-el-videojuego-oficial",
+      "ps5-shotgun-king",
+      "ps5-spellcaster-university",
+      "ps5-tadeo-jones-3-la-tabla-esmeralda-el-legado-del-sol-de-occidente",
+      "ps5-voidwrought",
+      "ps5-ziggurat-ii"
     ],
-    "gameCount": 4
+    "gameCount": 15
   },
   "sensory-sweep-studios": {
     "name": "Sensory Sweep Studios",
@@ -83343,19 +84049,22 @@
       "ps4-killing-floor-2",
       "ps4-maneater",
       "ps4-usa-maneater",
-      "ps4-usa-road-redemption"
+      "ps4-usa-road-redemption",
+      "ps5-killing-floor-3-day-one-edition"
     ],
     "byPlatform": {
-      "ps4": 4
+      "ps4": 4,
+      "ps5": 1
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps4-killing-floor-2",
       "ps4-maneater",
       "ps4-usa-maneater",
-      "ps4-usa-road-redemption"
+      "ps4-usa-road-redemption",
+      "ps5-killing-floor-3-day-one-edition"
     ],
-    "gameCount": 4
+    "gameCount": 5
   },
   "ubisoft-reflections": {
     "name": "Ubisoft Reflections",
@@ -84934,18 +85643,21 @@
     "gameIds": [
       "ps4-huntdown",
       "ps4-usa-huntdown-premium-edition-with-pin-set",
-      "ps4-usa-huntdown-collector%27s-edition"
+      "ps4-usa-huntdown-collector%27s-edition",
+      "ps5-goat-simulator-3-goat-overload-edition"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 3,
+      "ps5": 1
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps4-huntdown",
       "ps4-usa-huntdown-premium-edition-with-pin-set",
-      "ps4-usa-huntdown-collector%27s-edition"
+      "ps4-usa-huntdown-collector%27s-edition",
+      "ps5-goat-simulator-3-goat-overload-edition"
     ],
-    "gameCount": 3
+    "gameCount": 4
   },
   "coyote-console": {
     "name": "Coyote Console",
@@ -85714,18 +86426,21 @@
     "gameIds": [
       "ps4-usa-street-outlaws-the-list",
       "ps4-usa-american-ninja-warrior",
-      "ps4-usa-srx-the-game"
+      "ps4-usa-srx-the-game",
+      "ps5-hot-wheels-lets-race"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 3,
+      "ps5": 1
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps4-usa-street-outlaws-the-list",
       "ps4-usa-american-ninja-warrior",
-      "ps4-usa-srx-the-game"
+      "ps4-usa-srx-the-game",
+      "ps5-hot-wheels-lets-race"
     ],
-    "gameCount": 3
+    "gameCount": 4
   },
   "giga": {
     "name": "Giga",
@@ -86980,18 +87695,22 @@
     "gameIds": [
       "ps4-usa-bite-the-bullet-collector%27s-edition",
       "ps4-coffee-crisis-special-edition",
-      "ps4-usa-bite-the-bullet"
+      "ps4-usa-bite-the-bullet",
+      "ps5-five-nights-at-freddys-into-the-pit"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 3,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-usa-bite-the-bullet-collector%27s-edition",
       "ps4-coffee-crisis-special-edition",
       "ps4-usa-bite-the-bullet"
     ],
-    "asPublisher": [],
-    "gameCount": 3
+    "asPublisher": [
+      "ps5-five-nights-at-freddys-into-the-pit"
+    ],
+    "gameCount": 4
   },
   "mentrix-software": {
     "name": "Mentrix Software",
@@ -87979,18 +88698,23 @@
     "gameIds": [
       "ps4-usa-scourge-bringer",
       "ps4-souldiers",
-      "ps4-unruly-heroes"
+      "ps4-unruly-heroes",
+      "ps5-overthrown",
+      "ps5-silt"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 3,
+      "ps5": 2
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps4-usa-scourge-bringer",
       "ps4-souldiers",
-      "ps4-unruly-heroes"
+      "ps4-unruly-heroes",
+      "ps5-overthrown",
+      "ps5-silt"
     ],
-    "gameCount": 3
+    "gameCount": 5
   },
   "playlogic-entertainment": {
     "name": "Playlogic Entertainment",
@@ -88208,18 +88932,31 @@
     "gameIds": [
       "ps4-let%27s-sing-queen-double-mic-bundle",
       "ps4-car-mechanic-simulator",
-      "ps4-ash-of-gods-redemption"
+      "ps4-ash-of-gods-redemption",
+      "ps5-let-s-sing-2022",
+      "ps5-let-s-sing-2023",
+      "ps5-let-s-sing-2023-2-microfonos",
+      "ps5-let-s-sing-2024",
+      "ps5-let-s-sing-2024-2-microfonos",
+      "ps5-let-s-sing-2025"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 3,
+      "ps5": 6
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps4-let%27s-sing-queen-double-mic-bundle",
       "ps4-car-mechanic-simulator",
-      "ps4-ash-of-gods-redemption"
+      "ps4-ash-of-gods-redemption",
+      "ps5-let-s-sing-2022",
+      "ps5-let-s-sing-2023",
+      "ps5-let-s-sing-2023-2-microfonos",
+      "ps5-let-s-sing-2024",
+      "ps5-let-s-sing-2024-2-microfonos",
+      "ps5-let-s-sing-2025"
     ],
-    "gameCount": 3
+    "gameCount": 9
   },
   "raw-fury": {
     "name": "Raw Fury",
@@ -90105,19 +90842,22 @@
     "gameIds": [
       "ps4-eldrador-creatures",
       "ps4-big-bobby-car-the-big-race",
-      "ps4-usa-horse-club-adventures"
+      "ps4-usa-horse-club-adventures",
+      "ps5-eldrador-creatures-shadowfall"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 3,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-usa-horse-club-adventures"
     ],
     "asPublisher": [
       "ps4-eldrador-creatures",
-      "ps4-big-bobby-car-the-big-race"
+      "ps4-big-bobby-car-the-big-race",
+      "ps5-eldrador-creatures-shadowfall"
     ],
-    "gameCount": 3
+    "gameCount": 4
   },
   "williams": {
     "name": "Williams",
@@ -93479,17 +94219,22 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-you-suck-at-parking",
-      "ps4-usa-f1-manager-22"
+      "ps4-usa-f1-manager-22",
+      "ps5-against-the-storm",
+      "ps5-shadows-of-doubt"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 2,
+      "ps5": 2
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps4-usa-you-suck-at-parking",
-      "ps4-usa-f1-manager-22"
+      "ps4-usa-f1-manager-22",
+      "ps5-against-the-storm",
+      "ps5-shadows-of-doubt"
     ],
-    "gameCount": 2
+    "gameCount": 4
   },
   "firesprite": {
     "name": "Firesprite",
@@ -97260,17 +98005,34 @@
     "museumPath": "",
     "gameIds": [
       "ps4-snk-heroines-tag-team-frenzy-diamond-dream-edition",
-      "ps4-republique"
+      "ps4-republique",
+      "ps5-disgaea-mayhem-deluxe-edition",
+      "ps5-etrange-overlord-deluxe-edition",
+      "ps5-labyrinth-of-galleria-the-moon-society",
+      "ps5-phantom-brave-the-lost-hero-deluxe-edition",
+      "ps5-r-type-tactics-i-ii-cosmos",
+      "ps5-raiden-iii-x-mikado-maniax-deluxe-edition",
+      "ps5-rpg-maker-with",
+      "ps5-the-legend-of-heroes-trails-beyond-the-horizon-deluxe-edition"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 2,
+      "ps5": 8
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps4-snk-heroines-tag-team-frenzy-diamond-dream-edition",
-      "ps4-republique"
+      "ps4-republique",
+      "ps5-disgaea-mayhem-deluxe-edition",
+      "ps5-etrange-overlord-deluxe-edition",
+      "ps5-labyrinth-of-galleria-the-moon-society",
+      "ps5-phantom-brave-the-lost-hero-deluxe-edition",
+      "ps5-r-type-tactics-i-ii-cosmos",
+      "ps5-raiden-iii-x-mikado-maniax-deluxe-edition",
+      "ps5-rpg-maker-with",
+      "ps5-the-legend-of-heroes-trails-beyond-the-horizon-deluxe-edition"
     ],
-    "gameCount": 2
+    "gameCount": 10
   },
   "nixxes-software": {
     "name": "Nixxes Software",
@@ -99442,17 +100204,20 @@
     "museumPath": "",
     "gameIds": [
       "ps4-the-walking-dead-the-telltale-definitive-series",
-      "ps4-usa-spiritfarer"
+      "ps4-usa-spiritfarer",
+      "ps5-invincible-vs"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 2,
+      "ps5": 1
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps4-the-walking-dead-the-telltale-definitive-series",
-      "ps4-usa-spiritfarer"
+      "ps4-usa-spiritfarer",
+      "ps5-invincible-vs"
     ],
-    "gameCount": 2
+    "gameCount": 3
   },
   "slam-productions-ltd": {
     "name": "Slam Productions Ltd",
@@ -104452,16 +105217,21 @@
     "slug": "astragon",
     "museumPath": "",
     "gameIds": [
-      "ps4-bus-simulator-21"
+      "ps4-bus-simulator-21",
+      "ps5-date-everything",
+      "ps5-sworn-deluxe-edition"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 1,
+      "ps5": 2
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-bus-simulator-21"
+      "ps4-bus-simulator-21",
+      "ps5-date-everything",
+      "ps5-sworn-deluxe-edition"
     ],
-    "gameCount": 1
+    "gameCount": 3
   },
   "asuka-technologies": {
     "name": "Asuka Technologies",
@@ -112294,16 +113064,21 @@
     "slug": "focus",
     "museumPath": "",
     "gameIds": [
-      "ps4-necromunda-hired-gun"
+      "ps4-necromunda-hired-gun",
+      "ps5-john-carpenter-s-toxic-commando",
+      "ps5-resonance-a-plague-tale-legacy"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 1,
+      "ps5": 2
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-necromunda-hired-gun"
+      "ps4-necromunda-hired-gun",
+      "ps5-john-carpenter-s-toxic-commando",
+      "ps5-resonance-a-plague-tale-legacy"
     ],
-    "gameCount": 1
+    "gameCount": 3
   },
   "focus-entertainment-4divinity": {
     "name": "Focus Entertainment, 4Divinity",
@@ -113580,16 +114355,20 @@
     "slug": "giants-software",
     "museumPath": "",
     "gameIds": [
-      "ps4-usa-farming-simulator-17-ambassador-edition"
+      "ps4-usa-farming-simulator-17-ambassador-edition",
+      "ps5-farming-simulator-25"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 1,
+      "ps5": 1
     },
     "asDeveloper": [
       "ps4-usa-farming-simulator-17-ambassador-edition"
     ],
-    "asPublisher": [],
-    "gameCount": 1
+    "asPublisher": [
+      "ps5-farming-simulator-25"
+    ],
+    "gameCount": 2
   },
   "gig-electronics": {
     "name": "GIG Electronics",
@@ -121816,16 +122595,19 @@
     "slug": "neowiz",
     "museumPath": "",
     "gameIds": [
-      "ps4-japon-djmax-respect"
+      "ps4-japon-djmax-respect",
+      "ps5-lies-of-p"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 1,
+      "ps5": 1
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-japon-djmax-respect"
+      "ps4-japon-djmax-respect",
+      "ps5-lies-of-p"
     ],
-    "gameCount": 1
+    "gameCount": 2
   },
   "nerd-game-studio": {
     "name": "Nerd Game Studio",
@@ -124684,16 +125466,19 @@
     "slug": "pixn-love-games",
     "museumPath": "",
     "gameIds": [
-      "ps4-baldo-the-guardian-owls"
+      "ps4-baldo-the-guardian-owls",
+      "ps5-baki-hanma-blood-arena"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 1,
+      "ps5": 1
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-baldo-the-guardian-owls"
+      "ps4-baldo-the-guardian-owls",
+      "ps5-baki-hanma-blood-arena"
     ],
-    "gameCount": 1
+    "gameCount": 2
   },
   "pixonauts": {
     "name": "Pixonauts",
@@ -124716,16 +125501,21 @@
     "slug": "plaion",
     "museumPath": "",
     "gameIds": [
-      "ps4-usa-hunt-showdown-limited-bounty-hunter-edition"
+      "ps4-usa-hunt-showdown-limited-bounty-hunter-edition",
+      "ps5-crimson-desert-day-1-edition",
+      "ps5-let-s-sing-2026"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 1,
+      "ps5": 2
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-usa-hunt-showdown-limited-bounty-hunter-edition"
+      "ps4-usa-hunt-showdown-limited-bounty-hunter-edition",
+      "ps5-crimson-desert-day-1-edition",
+      "ps5-let-s-sing-2026"
     ],
-    "gameCount": 1
+    "gameCount": 3
   },
   "plato": {
     "name": "Plato",
@@ -131130,16 +131920,19 @@
     "slug": "tesura",
     "museumPath": "",
     "gameIds": [
-      "ps4-yuppie-psycho-executive-edition"
+      "ps4-yuppie-psycho-executive-edition",
+      "ps5-evil-inside"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 1,
+      "ps5": 1
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-yuppie-psycho-executive-edition"
+      "ps4-yuppie-psycho-executive-edition",
+      "ps5-evil-inside"
     ],
-    "gameCount": 1
+    "gameCount": 2
   },
   "tetris-online": {
     "name": "Tetris Online",
@@ -134110,16 +134903,19 @@
     "slug": "warner",
     "museumPath": "",
     "gameIds": [
-      "ps4-usa-hitman-definitive-edition"
+      "ps4-usa-hitman-definitive-edition",
+      "ps5-harry-potter-campeones-de-quidditch-deluxe-edition"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 1,
+      "ps5": 1
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-usa-hitman-definitive-edition"
+      "ps4-usa-hitman-definitive-edition",
+      "ps5-harry-potter-campeones-de-quidditch-deluxe-edition"
     ],
-    "gameCount": 1
+    "gameCount": 2
   },
   "warner-bros-games-dc": {
     "name": "Warner Bros. Games/DC",
@@ -135365,6 +136161,188 @@
       "ds-mahjong-ds"
     ],
     "asPublisher": [],
+    "gameCount": 1
+  },
+  "silver-lining": {
+    "name": "Silver Lining",
+    "slug": "silver-lining",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-abyssus",
+      "ps5-bendy-double-pack",
+      "ps5-cattle-country",
+      "ps5-death-howl",
+      "ps5-lil-gator-game-gator-of-the-year-edition",
+      "ps5-momento",
+      "ps5-nice-day-for-fishing",
+      "ps5-sugardew-island",
+      "ps5-tiny-bookshop"
+    ],
+    "byPlatform": {
+      "ps5": 9
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps5-abyssus",
+      "ps5-bendy-double-pack",
+      "ps5-cattle-country",
+      "ps5-death-howl",
+      "ps5-lil-gator-game-gator-of-the-year-edition",
+      "ps5-momento",
+      "ps5-nice-day-for-fishing",
+      "ps5-sugardew-island",
+      "ps5-tiny-bookshop"
+    ],
+    "gameCount": 9
+  },
+  "creative": {
+    "name": "Creative",
+    "slug": "creative",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-ariana-and-the-elder-codex"
+    ],
+    "byPlatform": {
+      "ps5": 1
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps5-ariana-and-the-elder-codex"
+    ],
+    "gameCount": 1
+  },
+  "far-out": {
+    "name": "Far Out",
+    "slug": "far-out",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-deliver-at-all-costs"
+    ],
+    "byPlatform": {
+      "ps5": 1
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps5-deliver-at-all-costs"
+    ],
+    "gameCount": 1
+  },
+  "sunblink": {
+    "name": "Sunblink",
+    "slug": "sunblink",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-hello-kitty-island-adventure-edicion-standard"
+    ],
+    "byPlatform": {
+      "ps5": 1
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps5-hello-kitty-island-adventure-edicion-standard"
+    ],
+    "gameCount": 1
+  },
+  "curveball": {
+    "name": "Curveball",
+    "slug": "curveball",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-into-the-restless-ruins",
+      "ps5-taxi-chaos-2"
+    ],
+    "byPlatform": {
+      "ps5": 2
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps5-into-the-restless-ruins",
+      "ps5-taxi-chaos-2"
+    ],
+    "gameCount": 2
+  },
+  "nejcraft": {
+    "name": "NEJCRAFT",
+    "slug": "nejcraft",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-laysara-summit-kingdom",
+      "ps5-laysara-summit-kingdom-collector-s-edition"
+    ],
+    "byPlatform": {
+      "ps5": 2
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps5-laysara-summit-kingdom",
+      "ps5-laysara-summit-kingdom-collector-s-edition"
+    ],
+    "gameCount": 2
+  },
+  "bolt-production": {
+    "name": "Bolt Production",
+    "slug": "bolt-production",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-neopets-mega-mini-games-collection-the-neopian-arcade-odyssey-day-1-edition"
+    ],
+    "byPlatform": {
+      "ps5": 1
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps5-neopets-mega-mini-games-collection-the-neopian-arcade-odyssey-day-1-edition"
+    ],
+    "gameCount": 1
+  },
+  "vea-games": {
+    "name": "VEA Games",
+    "slug": "vea-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-nikoderiko-the-magical-world-directors-cut",
+      "ps5-nikoderiko-the-magical-world-directors-cut-collector-s-edition"
+    ],
+    "byPlatform": {
+      "ps5": 2
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps5-nikoderiko-the-magical-world-directors-cut",
+      "ps5-nikoderiko-the-magical-world-directors-cut-collector-s-edition"
+    ],
+    "gameCount": 2
+  },
+  "straight4-studios": {
+    "name": "Straight4 Studios",
+    "slug": "straight4-studios",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-project-motor-racing"
+    ],
+    "byPlatform": {
+      "ps5": 1
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps5-project-motor-racing"
+    ],
+    "gameCount": 1
+  },
+  "flashpoint": {
+    "name": "Flashpoint",
+    "slug": "flashpoint",
+    "museumPath": "",
+    "gameIds": [
+      "ps5-wildermyth"
+    ],
+    "byPlatform": {
+      "ps5": 1
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps5-wildermyth"
+    ],
     "gameCount": 1
   }
 }

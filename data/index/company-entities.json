@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-19T09:15:01Z",
+  "generatedAt": "2026-08-28T10:08:28Z",
   "stats": {
-    "entities": 4232,
+    "entities": 4242,
     "aliases": 246,
     "autoNormalized": 150,
     "autoWikidata": 0,
@@ -41878,6 +41878,96 @@
       "museumPaths": [
         "/desarrolladoras-de-software/zyrinx"
       ]
+    },
+    "silver-lining": {
+      "slug": "silver-lining",
+      "name": "Silver Lining",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "creative": {
+      "slug": "creative",
+      "name": "Creative",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "far-out": {
+      "slug": "far-out",
+      "name": "Far Out",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "sunblink": {
+      "slug": "sunblink",
+      "name": "Sunblink",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "curveball": {
+      "slug": "curveball",
+      "name": "Curveball",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "nejcraft": {
+      "slug": "nejcraft",
+      "name": "NEJCRAFT",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "bolt-production": {
+      "slug": "bolt-production",
+      "name": "Bolt Production",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "vea-games": {
+      "slug": "vea-games",
+      "name": "VEA Games",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "straight4-studios": {
+      "slug": "straight4-studios",
+      "name": "Straight4 Studios",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "flashpoint": {
+      "slug": "flashpoint",
+      "name": "Flashpoint",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
     }
   },
   "slugToCanonical": {

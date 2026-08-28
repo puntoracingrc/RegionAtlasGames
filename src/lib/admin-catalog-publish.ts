@@ -31,6 +31,7 @@ import { applyPricePatch, priceFieldsFromGame, type AdminPriceFields } from "./a
 import { createAdminCompany } from "./admin-entity-catalog";
 import { addAffiliateOfferWhitelistGame } from "./affiliate-offers";
 import { isInvalidGenreEntity } from "./genre-normalize";
+import { gameReleaseGenreSlug } from "./game-release-discovery";
 import {
   buildCoverCatalogPath,
   downloadAndUploadCoverToCdn,
@@ -59,7 +60,7 @@ function saveJson(filePath: string, data: unknown) {
 function entityDraft(
   name: string | null,
   slug: string | null,
-  source: "wikidata" | "merged" = "wikidata",
+  source: "wikidata" | "game-es" | "merged" = "wikidata",
 ) {
   if (!name?.trim()) return null;
   const s = slug?.trim() || slugify(name);
@@ -120,7 +121,7 @@ function applyLocalizedDraftCover(target: AdminGameDraft, localized: AdminGameDr
   target.coverUrl = localized.coverUrl;
 }
 
-function buildCatalogEntry(draft: AdminGameDraft, staging: CatalogStagingGame | null): CatalogGame {
+export function buildCatalogEntry(draft: AdminGameDraft, staging: CatalogStagingGame | null): CatalogGame {
   const guess = guessPcPath({
     platformSlug: draft.platformSlug,
     region: draft.region,
@@ -143,7 +144,7 @@ function buildCatalogEntry(draft: AdminGameDraft, staging: CatalogStagingGame | 
     pcPath: staging?.pcPath ?? staging?.pcPathGuess ?? guess.pcPath,
     pcRegion: staging?.pcRegion ?? guess.pcRegion,
     pcCondition: null,
-    matchConfidence: staging ? "STAGING_ADMIN" : "ADMIN_MANUAL",
+    matchConfidence: draft.gameEsSource ? "GAME_ES_ADMIN" : staging ? "STAGING_ADMIN" : "ADMIN_MANUAL",
     marketMin: staging?.marketMin ?? null,
     marketMax: staging?.marketMax ?? null,
     recommendedPrice: staging?.recommendedPrice ?? null,
@@ -152,15 +153,27 @@ function buildCatalogEntry(draft: AdminGameDraft, staging: CatalogStagingGame | 
     priceSource: null,
     updatedAt: new Date().toISOString().slice(0, 10),
     hasEsPrice: false,
+    priceRegionVerified: false,
+    seedSource: draft.gameEsSource ? "game-es-release-discovery" : undefined,
+    regionEvidence: draft.gameEsSource ? ["game_es_retail_catalog"] : undefined,
+    regionVerified: draft.gameEsSource ? false : undefined,
+    gameEsSku: draft.gameEsSource?.sku ?? null,
+    gameEsProductUrl: draft.gameEsSource?.productUrl ?? null,
+    gameEsImageUrl: draft.gameEsSource?.imageUrl ?? null,
   };
 }
 
-function buildDetailsEntry(draft: AdminGameDraft): GameDetails {
+export function buildDetailsEntry(draft: AdminGameDraft): GameDetails {
   const now = new Date().toISOString().slice(0, 19);
+  const detailSource = draft.gameEsSource ? "game-es" : "wikidata";
   const developer = entityDraft(draft.developerName, draft.developerSlug);
-  const publisher = entityDraft(draft.publisherName, draft.publisherSlug);
+  const publisher = entityDraft(draft.publisherName, draft.publisherSlug, detailSource);
   const genres = draft.genreNames
-    .map((name) => entityDraft(name, slugify(name)))
+    .map((name) => entityDraft(
+      name,
+      draft.gameEsSource ? gameReleaseGenreSlug(name) ?? slugify(name) : slugify(name),
+      detailSource,
+    ))
     .filter((genre) => !genre || !isInvalidGenreEntity(genre))
     .filter((g): g is NonNullable<typeof g> => Boolean(g));
   const subgenres = (draft.subgenreNames ?? [])
@@ -182,24 +195,28 @@ function buildDetailsEntry(draft: AdminGameDraft): GameDetails {
     subgenres,
     facets,
     series: null,
+    sources: draft.gameEsSource ? { gameEs: draft.gameEsSource } : {},
     fetchedAt: now,
     mergedAt: now,
     description: draft.description,
     descriptionMeta: draft.descriptionMeta ?? undefined,
     seoMeta: draft.seoMeta,
+    pegi: draft.pegi ?? null,
     fieldSources: {
       developer: developer ? "wikidata" : undefined,
-      publisher: publisher ? "wikidata" : undefined,
-      genres: genres.length ? "wikidata" : undefined,
+      publisher: publisher ? detailSource : undefined,
+      genres: genres.length ? detailSource : undefined,
       subgenres: subgenres.length ? "wikidata" : undefined,
       facets: facets.length ? "wikidata" : undefined,
-      year: draft.year ? "wikidata" : undefined,
+      year: draft.year ? detailSource : undefined,
+      releaseDate: draft.releaseDate ? detailSource : undefined,
+      support: draft.support ? detailSource : undefined,
       reference: draft.reference ? "serialstation" : undefined,
     },
   };
 }
 
-function mergeCatalogFromDraft(existing: CatalogGame, draft: AdminGameDraft): CatalogGame {
+export function mergeCatalogFromDraft(existing: CatalogGame, draft: AdminGameDraft): CatalogGame {
   const guess = guessPcPath({
     platformSlug: draft.platformSlug,
     region: draft.region,
@@ -221,12 +238,25 @@ function mergeCatalogFromDraft(existing: CatalogGame, draft: AdminGameDraft): Ca
     pcPath: existing.pcPath ?? guess.pcPath,
     pcRegion: existing.pcRegion ?? guess.pcRegion,
     updatedAt: new Date().toISOString().slice(0, 10),
+    ...(draft.gameEsSource
+      ? {
+          seedSource: "game-es-release-discovery",
+          regionEvidence: [...new Set([...(existing.regionEvidence ?? []), "game_es_retail_catalog"])],
+          regionVerified: existing.regionVerified ?? false,
+          gameEsSku: draft.gameEsSource.sku,
+          gameEsProductUrl: draft.gameEsSource.productUrl,
+          gameEsImageUrl: draft.gameEsSource.imageUrl,
+        }
+      : {}),
   };
 }
 
-function mergeDetailsFromDraft(existing: GameDetails | null, draft: AdminGameDraft): GameDetails {
+export function mergeDetailsFromDraft(existing: GameDetails | null, draft: AdminGameDraft): GameDetails {
   const built = buildDetailsEntry(draft);
   if (!existing) return built;
+  const builtFieldSources = Object.fromEntries(
+    Object.entries(built.fieldSources ?? {}).filter(([, source]) => source !== undefined),
+  ) as NonNullable<GameDetails["fieldSources"]>;
   return {
     ...existing,
     year: built.year,
@@ -242,6 +272,9 @@ function mergeDetailsFromDraft(existing: GameDetails | null, draft: AdminGameDra
     description: built.description,
     descriptionMeta: built.descriptionMeta ?? existing.descriptionMeta,
     seoMeta: built.seoMeta ?? existing.seoMeta,
+    sources: { ...(existing.sources ?? {}), ...(built.sources ?? {}) },
+    fieldSources: { ...builtFieldSources, ...(existing.fieldSources ?? {}) },
+    pegi: built.pegi ?? existing.pegi ?? null,
     mergedAt: built.mergedAt,
   };
 }

@@ -13,6 +13,12 @@ import { catalogIdExistsInCatalog } from "@/lib/catalog-runtime-overlay";
 import { findSimilarCatalogGames } from "@/lib/admin-title-similarity";
 import { REGION_OPTIONS } from "@/lib/admin-draft-storage";
 import {
+  gameReleaseGenreNames,
+  gameReleasePublisher,
+  type GameReleaseDiscoveryCandidate,
+} from "@/lib/game-release-discovery";
+import type { AdminGameEsSource } from "@/lib/admin-draft-types";
+import {
   readGameReleaseDiscoveryResult,
   recordGameReleaseDiscoveryReview,
 } from "@/lib/local-game-runner-jobs";
@@ -50,6 +56,8 @@ export async function POST(request: Request) {
   };
 
   let discoveryContext: { jobId: string; sourceSku: string } | null = null;
+  let gameEsSource: AdminGameEsSource | null = null;
+  let gameEsPegi: GameReleaseDiscoveryCandidate["pegi"] = null;
   if (body.discoveryJobId || body.discoverySourceSku) {
     const jobId = body.discoveryJobId?.trim() ?? "";
     const sourceSku = body.discoverySourceSku?.trim() ?? "";
@@ -73,7 +81,18 @@ export async function POST(request: Request) {
     body.coverUrl = candidate.imageUrl;
     body.releaseDate = candidate.releaseDate;
     body.year = candidate.year;
-    body.publisherName = candidate.publisher;
+    const publisher = gameReleasePublisher(candidate.publisher);
+    body.publisherName = publisher?.name ?? null;
+    body.publisherSlug = publisher?.slug ?? null;
+    body.genreNames = gameReleaseGenreNames(candidate.genres);
+    body.support = candidate.platformSlug === "ps5" ? "Disco Blu-ray" : "Cartucho";
+    gameEsPegi = candidate.pegi;
+    gameEsSource = {
+      sku: candidate.sourceSku,
+      productUrl: candidate.productUrl,
+      imageUrl: candidate.imageUrl,
+      fetchedAt: discovery.result.collectedAt || new Date().toISOString(),
+    };
     discoveryContext = { jobId, sourceSku };
   }
 
@@ -119,6 +138,7 @@ export async function POST(request: Request) {
     coverUrl: body.coverUrl ?? null,
     year,
     releaseDate: body.releaseDate ?? null,
+    pegi: gameEsPegi,
     players,
     support: body.support ?? null,
     developerName: body.developerName ?? null,
@@ -129,6 +149,7 @@ export async function POST(request: Request) {
     subgenreNames: cleanList(body.subgenreNames),
     facetNames: cleanList(body.facetNames),
     description: body.description ?? null,
+    gameEsSource,
     pcId,
   });
 

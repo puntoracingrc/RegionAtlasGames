@@ -144,6 +144,13 @@ def candidate_from_product(
 
     product_url = f"https://www.game.es/{navigation.lstrip('/')}"
     genres = [str(value).strip() for value in (product.get("Genres") or []) if str(value).strip()]
+    pegi_raw = product.get("Pegi")
+    try:
+        pegi = int(pegi_raw) if pegi_raw is not None else None
+    except (TypeError, ValueError):
+        pegi = None
+    if pegi not in {3, 7, 12, 16, 18}:
+        pegi = None
     return {
         "title": title,
         "platformSlug": platform_slug,
@@ -155,6 +162,7 @@ def candidate_from_product(
         "imageUrl": image_url,
         "publisher": str(product.get("Publisher") or "").strip() or None,
         "genres": genres,
+        "pegi": pegi,
         "availability": "available",
         "regionEvidence": "game_es_retail_catalog",
     }, None
@@ -173,6 +181,18 @@ def exact_catalog_index(games: list[dict[str, Any]]) -> dict[str, list[dict[str,
     return index
 
 
+def source_catalog_index(games: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    index: dict[str, dict[str, Any]] = {}
+    for game in games:
+        sku = str(game.get("gameEsSku") or "").strip().lower()
+        product_url = str(game.get("gameEsProductUrl") or "").strip().lower()
+        if sku:
+            index[f"sku:{sku}"] = game
+        if product_url:
+            index[f"url:{product_url}"] = game
+    return index
+
+
 def compact_match(game: dict[str, Any], score: float = 1.0) -> dict[str, Any]:
     return {
         "catalogId": str(game.get("id") or ""),
@@ -186,7 +206,11 @@ def classify_catalog_candidate(
     candidate: dict[str, Any],
     games: list[dict[str, Any]],
     exact_index: dict[str, list[dict[str, Any]]],
+    source_index: dict[str, dict[str, Any]],
 ) -> tuple[str, list[dict[str, Any]]]:
+    source_match = source_index.get(product_seen_key(candidate))
+    if source_match:
+        return "existing", [compact_match(source_match)]
     exact = exact_index.get(canonical_title(candidate["title"]), [])
     if exact:
         return "existing", [compact_match(game) for game in exact[:3]]
@@ -216,6 +240,7 @@ def collect_release_candidates(
 ) -> dict[str, Any]:
     games = platform_catalog_games(platform_slug, REGION)
     exact_index = exact_catalog_index(games)
+    source_index = source_catalog_index(games)
     seen_previous = load_seen_discoveries(recent_dir, platform_slug)
     seen_run: set[str] = set()
     candidates: list[dict[str, Any]] = []
@@ -264,7 +289,12 @@ def collect_release_candidates(
                 consecutive_known += 1
                 existing_products.append({**candidate, "catalogStatus": "seen_before", "matches": []})
             else:
-                status, matches = classify_catalog_candidate(candidate, games, exact_index)
+                status, matches = classify_catalog_candidate(
+                    candidate,
+                    games,
+                    exact_index,
+                    source_index,
+                )
                 if status == "existing":
                     consecutive_known += 1
                     existing_products.append({**candidate, "catalogStatus": status, "matches": matches})

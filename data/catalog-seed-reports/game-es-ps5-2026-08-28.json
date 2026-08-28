@@ -1,0 +1,22 @@
+{
+  "platformSlug": "ps5",
+  "asOf": "2026-08-28",
+  "sourceCandidates": 390,
+  "validCandidates": 390,
+  "added": 390,
+  "updated": 0,
+  "unchanged": 0,
+  "listedPlatform": 390,
+  "linkedCollectionRows": 9,
+  "indexStats": {
+    "indexedGames": 390,
+    "companies": 4242,
+    "genres": 121
+  },
+  "skippedMissingCover": 0,
+  "collisions": [],
+  "coverDownloaded": 390,
+  "coverFailures": {},
+  "inputSha256": "6898a55ac476efee43a805f1a1c52d2df52532dbb1db49f63e80b3c904f834b3",
+  "collectedAt": "2026-08-28T10:08:28Z"
+}
