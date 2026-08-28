@@ -84,7 +84,7 @@ export function catalogAiBeforeFingerprint(game: CatalogGame, details: GameDetai
 
 function hasPlatformOfficialSource(run: AdminAiFillRunResult, platformSlug: string): boolean {
   if (platformSlug.startsWith("ps")) {
-    return run.sources.some((source) => /playstation store/i.test(source));
+    return run.sources.some((source) => /playstation (store|oficial)/i.test(source));
   }
   if (platformSlug.startsWith("switch")) {
     return run.sources.some((source) => /nintendo (store|oficial)/i.test(source));
