@@ -23,6 +23,8 @@ export async function POST(request: Request) {
     maxPages: Number(body?.maxPages ?? 1),
     skipRecentDays: Number(body?.skipRecentDays ?? 0),
     repeatStopCount: Number(body?.repeatStopCount ?? 3),
+    enrichmentMode: body?.enrichmentMode,
+    startAfterCatalogId: body?.startAfterCatalogId,
   });
   if ("error" in result) {
     return NextResponse.json({ ok: false, error: result.error }, { status: 400 });

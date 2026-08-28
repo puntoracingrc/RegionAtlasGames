@@ -210,6 +210,47 @@ def discover_game_releases(job: dict[str, Any]) -> tuple[bool, dict[str, Any] | 
         return True, result, log, None
 
 
+def run_catalog_ai_enrichment(job: dict[str, Any]) -> tuple[bool, dict[str, Any] | None, str, str | None]:
+    tsx_bin = ROOT / "node_modules" / ".bin" / "tsx"
+    if not tsx_bin.exists():
+        return False, None, "", "Falta node_modules/.bin/tsx; ejecuta npm ci en el PC del runner"
+
+    with tempfile.TemporaryDirectory(prefix="region-atlas-catalog-ai-") as tmp:
+        output = Path(tmp) / f"{job['id']}.json"
+        cmd = [
+            str(tsx_bin),
+            str(ROOT / "scripts" / "run_catalog_ai_enrichment.ts"),
+            "--platform",
+            str(job["platformSlug"]),
+            "--mode",
+            str(job.get("enrichmentMode") or "missing"),
+            "--limit",
+            str(int(job.get("limit") or 5)),
+            "--output",
+            str(output),
+        ]
+        start_after = str(job.get("startAfterCatalogId") or "").strip()
+        if start_after:
+            cmd.extend(["--after", start_after])
+
+        timeout = max(600, int(job.get("limit") or 5) * 240)
+        proc = subprocess.run(cmd, cwd=ROOT, env=os.environ.copy(), text=True, capture_output=True, timeout=timeout)
+        log = "\n".join(part for part in [proc.stdout, proc.stderr] if part).strip()
+        if proc.returncode != 0:
+            return False, None, log, f"run_catalog_ai_enrichment terminó con código {proc.returncode}"
+        if not output.exists():
+            return False, None, log, "El enriquecedor IA no generó el informe de propuestas"
+
+        result = json.loads(output.read_text())
+        local_copy_dir = ROOT / "data" / "worker-runtime" / "catalog-ai"
+        local_copy_dir.mkdir(parents=True, exist_ok=True)
+        (local_copy_dir / f"{job['id']}.json").write_text(
+            json.dumps(result, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        return True, result, log, None
+
+
 def import_game_paste(job: dict[str, Any]) -> tuple[bool, dict[str, Any] | None, str, str | None]:
     pasted_text_path = str(job.get("pastedTextPath") or "").lstrip("/")
     if not pasted_text_path:
@@ -263,7 +304,9 @@ def run_once(base_url: str, token: str, runner_id: str) -> bool:
 
     job_type = str(job.get("jobType") or "api_collect")
     print(f"Job recibido: {job['id']} · {job['platformSlug']} · {job['offerType']} · {job_type} · límite {job.get('limit')}")
-    if job_type == "manual_paste":
+    if job_type == "catalog_enrichment":
+        ok, result, log, error = run_catalog_ai_enrichment(job)
+    elif job_type == "manual_paste":
         ok, result, log, error = import_game_paste(job)
     elif job_type == "catalog_discovery":
         ok, result, log, error = discover_game_releases(job)
