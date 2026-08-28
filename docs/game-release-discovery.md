@@ -2,7 +2,7 @@
 
 ## Alcance
 
-El flujo descubre juegos físicos nuevos y seminuevos de PlayStation 5 y Nintendo Switch 2 publicados en GAME España para preparar nuevas fichas de Region Atlas.
+El flujo descubre juegos físicos nuevos y seminuevos de PlayStation 4, PlayStation 5 y Nintendo Switch 2 publicados en GAME España para preparar nuevas fichas de Region Atlas.
 
 - No captura ni importa precios.
 - Unifica la modalidad nueva y seminueva en una sola ficha de juego y conserva por separado sus SKU y URL de procedencia.
@@ -37,9 +37,9 @@ El recorrido está ordenado por fecha de lanzamiento descendente. Termina al enc
 
 ## Operación
 
-- Admin: `/admin/precios`, bloque `Nuevos lanzamientos PS5 y Switch 2`.
+- Admin: `/admin/precios`, bloque `Juegos físicos PS4, PS5 y Switch 2`.
 - Manual: elegir plataforma y pulsar `Buscar lanzamientos`.
-- Automático: cada lunes a las `06:15 UTC`, Vercel encola PS5 y Switch 2.
+- Automático: cada lunes a las `06:15 UTC`, Vercel encola PS4, PS5 y Switch 2.
 - Ejecución: el runner local recoge el job cuando está encendido; el Mac no abre puertos.
 - Revisión: cada candidato puede abrirse en GAME, convertirse en borrador o descartarse.
 - Publicación: continúa en la cola normal de catálogo y conserva su revisión final habitual.

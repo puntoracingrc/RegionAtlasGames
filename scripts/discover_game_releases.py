@@ -16,28 +16,36 @@ import unicodedata
 import urllib.error
 import urllib.request
 from datetime import date, datetime
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
-from urllib.parse import urljoin, urlparse
+from urllib.parse import quote, urljoin, urlparse, urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from collect_game_es import GameEsError, fetch_search_page  # noqa: E402
-from collectors.catalog_match import rank_catalog_candidates  # noqa: E402
-from collectors.common import now_iso, platform_catalog_games, save_json  # noqa: E402
+from collect_game_es import GameEsError, USER_AGENT, fetch_search_page  # noqa: E402
+from collectors.catalog_match import is_likely_game_product, rank_catalog_candidates  # noqa: E402
+from collectors.common import CATALOG_FILE, load_json, now_iso, platform_catalog_games, save_json  # noqa: E402
 
 SOURCE = "game-es-release-discovery"
 REGION = "PAL España"
 PLATFORM_RULES = {
+    "ps4": {
+        "family": "PS4",
+        "navigationSegment": "/playstation-4/",
+        "scanPreownedProductLinks": False,
+    },
     "ps5": {
         "family": "PS5",
         "navigationSegment": "/playstation-5/",
+        "scanPreownedProductLinks": True,
     },
     "switch2": {
         "family": "NSW2",
         "navigationSegment": "/nintendo-switch-2/",
+        "scanPreownedProductLinks": True,
     },
 }
 BUY_BUTTONS = {"comprar", "anadir", "añadir"}
@@ -71,7 +79,40 @@ def normalize_text(value: str) -> str:
 
 
 def canonical_title(value: str) -> str:
-    return normalize_text(value)
+    return normalize_text(unescape(value))
+
+
+IDENTITY_TOKEN_ALIASES = {
+    "coleccionista": "collector",
+    "definitiva": "definitive",
+    "edicion": "edition",
+    "especial": "special",
+    "limitada": "limited",
+    "remasterizado": "remastered",
+    "remasterizada": "remastered",
+    "i": "1",
+    "ii": "2",
+    "iii": "3",
+    "iv": "4",
+    "v": "5",
+    "vi": "6",
+}
+
+
+def catalog_identity_title(value: str) -> str:
+    normalized = canonical_title(unescape(value).replace("&", " and "))
+    normalized = re.sub(r"\bps hits\b", "playstation hits", normalized)
+    tokens = [IDENTITY_TOKEN_ALIASES.get(token, token) for token in normalized.split()]
+    return " ".join(sorted(tokens))
+
+
+def all_platform_catalog_games(platform_slug: str, region: str) -> list[dict[str, Any]]:
+    rows = load_json(CATALOG_FILE, [])
+    return [
+        row
+        for row in rows
+        if row.get("platformSlug") == platform_slug and row.get("region") == region
+    ]
 
 
 def parse_game_release_date(value: object) -> date | None:
@@ -101,7 +142,12 @@ def product_title_key(product: dict[str, Any]) -> str:
 
 
 def strip_preowned_suffix(value: str) -> str:
-    return re.sub(r"\s*[-–—]\s*(seminuevo|reacondicionado)\s*$", "", value, flags=re.IGNORECASE).strip()
+    return re.sub(
+        r"\s*(?:[-–—]\s*)?(?:\((?:seminuevo|reacondicionado)\)|(?:seminuevo|reacondicionado))\s*$",
+        "",
+        value,
+        flags=re.IGNORECASE,
+    ).strip()
 
 
 def load_seen_discoveries(recent_dir: Path, platform_slug: str) -> set[str]:
@@ -174,9 +220,11 @@ def trusted_game_product_url(value: str, platform_slug: str, *, preowned: bool =
 
 
 def fetch_game_product_page(url: str) -> str:
+    parts = urlsplit(url)
+    safe_url = urlunsplit((parts.scheme, parts.netloc, quote(parts.path, safe="/%"), parts.query, parts.fragment))
     request = urllib.request.Request(
-        url,
-        headers={"User-Agent": "RegionAtlasGames/1.0 (+catalog-discovery)"},
+        safe_url,
+        headers={"User-Agent": USER_AGENT},
     )
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
@@ -223,11 +271,16 @@ def candidate_from_product(
 ) -> tuple[dict[str, Any] | None, str | None]:
     rules = PLATFORM_RULES[platform_slug]
     title = str(product.get("Name") or "").strip()
+    source_title_is_preowned = strip_preowned_suffix(title) != title
+    if offer_type == "new" and source_title_is_preowned:
+        return None, "preowned_in_new_feed"
     if offer_type == "preowned":
         title = strip_preowned_suffix(title)
     navigation = str(product.get("Navigation") or "").strip()
     if not title:
         return None, "missing_title"
+    if not is_likely_game_product({"title": title}):
+        return None, "not_a_game"
     if not navigation.startswith("videojuegos/"):
         return None, "not_a_game"
     if rules["navigationSegment"] not in f"/{navigation.lower()}/":
@@ -283,7 +336,7 @@ def exact_catalog_index(games: list[dict[str, Any]]) -> dict[str, list[dict[str,
     index: dict[str, list[dict[str, Any]]] = {}
     for game in games:
         for value in (game.get("title"), game.get("titlePc")):
-            key = canonical_title(str(value or ""))
+            key = catalog_identity_title(str(value or ""))
             if not key:
                 continue
             bucket = index.setdefault(key, [])
@@ -325,14 +378,20 @@ def classify_catalog_candidate(
     candidate: dict[str, Any],
     games: list[dict[str, Any]],
     exact_index: dict[str, list[dict[str, Any]]],
+    excluded_exact_index: dict[str, list[dict[str, Any]]],
     source_index: dict[str, dict[str, Any]],
 ) -> tuple[str, list[dict[str, Any]]]:
     source_match = source_index.get(product_seen_key(candidate))
     if source_match:
-        return "existing", [compact_match(source_match)]
-    exact = exact_index.get(canonical_title(candidate["title"]), [])
+        status = "excluded" if source_match.get("listingStatus") == "excluded" else "existing"
+        return status, [compact_match(source_match)]
+    identity_title = catalog_identity_title(candidate["title"])
+    exact = exact_index.get(identity_title, [])
     if exact:
         return "existing", [compact_match(game) for game in exact[:3]]
+    excluded_exact = excluded_exact_index.get(identity_title, [])
+    if excluded_exact:
+        return "excluded", [compact_match(game) for game in excluded_exact[:3]]
 
     ranked = rank_catalog_candidates(
         {"title": candidate["title"]},
@@ -359,8 +418,11 @@ def collect_release_candidates(
     include_preowned: bool = False,
 ) -> dict[str, Any]:
     games = platform_catalog_games(platform_slug, REGION)
+    all_games = all_platform_catalog_games(platform_slug, REGION)
+    excluded_games = [game for game in all_games if game.get("listingStatus") == "excluded"]
     exact_index = exact_catalog_index(games)
-    source_index = source_catalog_index(games)
+    excluded_exact_index = exact_catalog_index(excluded_games)
+    source_index = source_catalog_index([*games, *excluded_games])
     seen_previous = load_seen_discoveries(recent_dir, platform_slug)
     seen_run: set[str] = set()
     candidates: list[dict[str, Any]] = []
@@ -418,9 +480,10 @@ def collect_release_candidates(
                     candidate,
                     games,
                     exact_index,
+                    excluded_exact_index,
                     source_index,
                 )
-                if status == "existing":
+                if status in {"existing", "excluded"}:
                     consecutive_known += 1
                     existing_products.append({**candidate, "catalogStatus": status, "matches": matches})
                 else:
@@ -446,14 +509,15 @@ def collect_release_candidates(
         candidates_by_title = {canonical_title(row["title"]): row for row in candidates}
         existing_by_title = {canonical_title(row["title"]): row for row in existing_products}
 
-        for candidate in [*candidates, *existing_products]:
-            source, error = discover_preowned_source(candidate["productUrl"], platform_slug)
-            if error:
-                preowned_failures += 1
-            elif source:
-                attach_preowned_source(candidate, source)
-                preowned_linked += 1
-            time.sleep(min(max(0.0, delay), 0.25))
+        if PLATFORM_RULES[platform_slug]["scanPreownedProductLinks"]:
+            for candidate in [*candidates, *existing_products]:
+                source, error = discover_preowned_source(candidate["productUrl"], platform_slug)
+                if error:
+                    preowned_failures += 1
+                elif source:
+                    attach_preowned_source(candidate, source)
+                    preowned_linked += 1
+                time.sleep(min(max(0.0, delay), 0.25))
 
         for page in range(max(1, max_pages)):
             payload = fetch_search_page(platform_slug, "preowned", page, order=0)
@@ -484,13 +548,24 @@ def collect_release_candidates(
                         },
                     )
                     continue
+                source_key = product_seen_key(preowned_candidate)
+                seen_title_key = product_title_key(preowned_candidate)
+                if source_key in seen_previous or seen_title_key in seen_previous:
+                    existing_products.append({
+                        **preowned_candidate,
+                        "catalogStatus": "seen_before",
+                        "matches": [],
+                    })
+                    existing_by_title[title_key] = existing_products[-1]
+                    continue
                 status, matches = classify_catalog_candidate(
                     preowned_candidate,
                     games,
                     exact_index,
+                    excluded_exact_index,
                     source_index,
                 )
-                if status == "existing":
+                if status in {"existing", "excluded"}:
                     existing_products.append({**preowned_candidate, "catalogStatus": status, "matches": matches})
                     existing_by_title[title_key] = existing_products[-1]
                 elif len(candidates) < max(1, limit):
@@ -530,6 +605,9 @@ def collect_release_candidates(
             "candidates": len(candidates),
             "possibleDuplicates": sum(1 for row in candidates if row["catalogStatus"] == "possible_duplicate"),
             "existing": sum(1 for row in existing_products if row["catalogStatus"] == "existing"),
+            "excludedCatalogMatches": sum(
+                1 for row in existing_products if row["catalogStatus"] == "excluded"
+            ),
             "seenBefore": sum(1 for row in existing_products if row["catalogStatus"] == "seen_before"),
             "rejected": sum(rejected_counts.values()),
             "rejectedByReason": rejected_counts,
@@ -568,7 +646,7 @@ def run(args: argparse.Namespace) -> int:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Discover released PS5/Switch 2 games from GAME España")
+    parser = argparse.ArgumentParser(description="Discover released PS4/PS5/Switch 2 games from GAME España")
     parser.add_argument("--platform", required=True, choices=sorted(PLATFORM_RULES))
     parser.add_argument("--limit", type=int, default=80)
     parser.add_argument("--max-pages", type=int, default=4)

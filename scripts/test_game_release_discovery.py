@@ -76,6 +76,168 @@ def test_release_filters() -> None:
     )
     assert accessory is None and reason == "not_a_game"
 
+    ps4_released, reason = discovery.candidate_from_product(
+        product(
+            "Juego PS4 publicado",
+            "100005",
+            family="PS4",
+            navigation="videojuegos/accion/playstation-4/juego-ps4-publicado/100005",
+        ),
+        "ps4",
+        as_of=date(2026, 8, 28),
+    )
+    assert reason is None
+    assert ps4_released is not None
+    assert ps4_released["platformSlug"] == "ps4"
+
+    merchandise, reason = discovery.candidate_from_product(
+        product("Destiny 2 Stranger Edition - Figura", "100006"),
+        "ps5",
+        as_of=date(2026, 8, 28),
+    )
+    assert merchandise is None and reason == "not_a_game"
+
+
+def test_html_entities_and_excluded_variants_are_not_new_candidates() -> None:
+    listed = {
+        "id": "ps4-farmers-dynasty",
+        "title": "Farmer&#39;s Dynasty",
+        "titlePc": None,
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+    }
+    excluded = {
+        "id": "ps4-zapling-bygone-deluxe-edition",
+        "title": "Zapling Bygone Deluxe Edition",
+        "titlePc": None,
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+    }
+    games = [listed]
+    excluded_games = [excluded]
+    source_index = discovery.source_catalog_index([listed, excluded])
+
+    status, matches = discovery.classify_catalog_candidate(
+        {"title": "Farmer´s Dynasty", "platformSlug": "ps4", "region": "PAL España"},
+        games,
+        discovery.exact_catalog_index(games),
+        discovery.exact_catalog_index(excluded_games),
+        source_index,
+    )
+    assert status == "existing"
+    assert matches[0]["catalogId"] == listed["id"]
+
+    status, matches = discovery.classify_catalog_candidate(
+        {"title": "Zapling Bygone Deluxe Edition", "platformSlug": "ps4", "region": "PAL España"},
+        games,
+        discovery.exact_catalog_index(games),
+        discovery.exact_catalog_index(excluded_games),
+        source_index,
+    )
+    assert status == "excluded"
+    assert matches[0]["catalogId"] == excluded["id"]
+
+    ps_hits = {
+        "id": "ps4-mad-max-playstation-hits",
+        "title": "Mad Max [PlayStation Hits]",
+        "titlePc": None,
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+    }
+    status, matches = discovery.classify_catalog_candidate(
+        {"title": "Mad Max PS Hits", "platformSlug": "ps4", "region": "PAL España"},
+        games,
+        discovery.exact_catalog_index(games),
+        discovery.exact_catalog_index([ps_hits]),
+        discovery.source_catalog_index([*games, ps_hits]),
+    )
+    assert status == "excluded"
+    assert matches[0]["catalogId"] == ps_hits["id"]
+
+
+def test_preowned_noise_is_not_treated_as_a_new_release() -> None:
+    mixed_feed = product("Dolmen Day One Edition - Seminuevo", "100007")
+    candidate, reason = discovery.candidate_from_product(
+        mixed_feed,
+        "ps5",
+        as_of=date(2026, 8, 28),
+    )
+    assert candidate is None and reason == "preowned_in_new_feed"
+
+    mixed_feed["Offers"] = [{
+        "BasketCode": "PREOWNED",
+        "IsPreowned": True,
+        "ButtonText": "Comprar",
+        "PaintButton": True,
+    }]
+    candidate, reason = discovery.candidate_from_product(
+        mixed_feed,
+        "ps5",
+        as_of=date(2026, 8, 28),
+        offer_type="preowned",
+    )
+    assert reason is None
+    assert candidate is not None
+    assert candidate["title"] == "Dolmen Day One Edition"
+
+
+def test_ps4_uses_direct_preowned_feed_without_product_page_scraping() -> None:
+    original_catalog = discovery.platform_catalog_games
+    original_search = discovery.fetch_search_page
+    original_product_page = discovery.fetch_game_product_page
+    new_row = product(
+        "Juego PS4",
+        "110001",
+        family="PS4",
+        navigation="videojuegos/accion/playstation-4/juego-ps4/110001",
+    )
+    preowned_row = product(
+        "Juego PS4 - Seminuevo",
+        "110002",
+        family="PS4",
+        navigation="videojuegos/accion/playstation-4/juego-ps4-seminuevo/110002",
+    )
+    preowned_row["Offers"] = [{
+        "BasketCode": "PREOWNED",
+        "IsPreowned": True,
+        "ButtonText": "Comprar",
+        "PaintButton": True,
+    }]
+
+    discovery.platform_catalog_games = lambda *_args, **_kwargs: []
+    discovery.fetch_search_page = lambda _platform, offer, *_args, **_kwargs: {
+        "Products": [new_row if offer == "new" else preowned_row],
+        "TotalResults": 1,
+        "TotalPages": 0,
+    }
+    discovery.fetch_game_product_page = lambda *_args, **_kwargs: (_ for _ in ()).throw(
+        AssertionError("PS4 no debe inspeccionar fichas si el feed seminuevo es suficiente")
+    )
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            result = discovery.collect_release_candidates(
+                "ps4",
+                limit=80,
+                max_pages=1,
+                repeat_stop_count=0,
+                delay=0,
+                as_of=date(2026, 8, 28),
+                recent_dir=Path(tmp),
+                include_preowned=True,
+            )
+    finally:
+        discovery.platform_catalog_games = original_catalog
+        discovery.fetch_search_page = original_search
+        discovery.fetch_game_product_page = original_product_page
+
+    assert len(result["candidates"]) == 1
+    assert result["candidates"][0]["availabilityModes"] == ["new", "preowned"]
+    assert result["candidates"][0]["preownedSourceSku"] == "110002"
+    assert result["stats"]["preownedLinked"] == 0
+
 
 def test_preowned_source_is_verified_without_prices() -> None:
     original_fetch_page = discovery.fetch_game_product_page
@@ -213,6 +375,9 @@ def test_game_sku_remains_identity_when_title_changes() -> None:
 
 def main() -> None:
     test_release_filters()
+    test_html_entities_and_excluded_variants_are_not_new_candidates()
+    test_preowned_noise_is_not_treated_as_a_new_release()
+    test_ps4_uses_direct_preowned_feed_without_product_page_scraping()
     test_preowned_source_is_verified_without_prices()
     test_known_streak_and_no_prices()
     test_game_price_collector_reads_last_page()

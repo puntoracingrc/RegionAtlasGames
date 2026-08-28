@@ -31,7 +31,9 @@ from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
 
 API_URL = "https://www.game.es/api/search"
-USER_AGENT = "RegionAtlasGames/1.0 (+game-es-price-source)"
+USER_AGENT = os.environ.get("GAME_ES_USER_AGENT", "").strip() or (
+    "Mozilla/5.0 (compatible; RegionAtlasGames/1.0; +https://regionatlas.games)"
+)
 HEADS_BY_PLATFORM = {
     "ps4": "juegos-ps4",
     "ps5": "software-ps5",
@@ -96,7 +98,10 @@ def fetch_search_page(
         with urllib.request.urlopen(request, timeout=35) as response:
             if getattr(response, "status", 200) in {403, 429}:
                 raise GameEsError(f"GAME bloqueó la API con HTTP {response.status}")
-            return json.loads(response.read().decode("utf-8", errors="ignore"))
+            payload = json.loads(response.read().decode("utf-8", errors="ignore"))
+            if not isinstance(payload, dict):
+                raise GameEsError("GAME devolvió una respuesta vacía o incompatible.")
+            return payload
     except urllib.error.HTTPError as exc:
         if exc.code in {403, 429}:
             raise GameEsError(f"GAME bloqueó la API con HTTP {exc.code}") from exc

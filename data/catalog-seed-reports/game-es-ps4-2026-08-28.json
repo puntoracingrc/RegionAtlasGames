@@ -1,0 +1,248 @@
+{
+  "platformSlug": "ps4",
+  "asOf": "2026-08-28",
+  "sourceCandidates": 26,
+  "validCandidates": 26,
+  "added": 26,
+  "updated": 0,
+  "unchanged": 0,
+  "listedPlatform": 8470,
+  "linkedCollectionRows": 0,
+  "indexStats": {
+    "indexedGames": 26,
+    "companies": 4247,
+    "genres": 121
+  },
+  "skippedMissingCover": 0,
+  "collisions": [],
+  "coverDownloaded": 26,
+  "coverFailures": {},
+  "inputSha256": "2fb2267dd7c16b6a633c31c3834f79ca5d3102ff6c4c67fc93cf86bf580ae60e",
+  "collectedAt": "2026-08-28T18:57:37Z",
+  "review": {
+    "method": "conservative_manual_review",
+    "rawProducts": 740,
+    "newRawProducts": 448,
+    "preownedRawProducts": 292,
+    "sourceCandidates": 127,
+    "approvedCandidates": 26,
+    "deferredCandidates": 101,
+    "knownCatalogMatches": 235,
+    "excludedCatalogMatches": 23,
+    "rule": "Only confirmed missing PS4 PAL Spain games or distinct physical editions; prices excluded."
+  },
+  "games": [
+    {
+      "catalogId": "ps4-autobahn-police-sim-3-complete-edition",
+      "title": "Autobahn Police Sim 3  Complete Edition",
+      "gameEsSku": "260909",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-r-type-tactics-i-ii-cosmos",
+      "title": "R-Type Tactics I  II Cosmos",
+      "gameEsSku": "212150",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-bluey-s-quest-for-the-gold-pen",
+      "title": "Bluey´s Quest for the Gold Pen",
+      "gameEsSku": "253071",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-ion-fury-double-shot-edition",
+      "title": "Ion Fury: Double Shot Edition",
+      "gameEsSku": "255272",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-calamity-angels-special-delivery",
+      "title": "Calamity Angels: Special Delivery",
+      "gameEsSku": "257961",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-ender-magnolia-deluxe-edition",
+      "title": "Ender Magnolia - Deluxe Edition",
+      "gameEsSku": "247386",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-batsugun-saturn-tribute-boosted-edicion-deluxe",
+      "title": "BATSUGUN Saturn Tribute Boosted - Edición Deluxe",
+      "gameEsSku": "244298",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-minabo-a-walk-through-life-day-one-edition",
+      "title": "Minabo A Walk Through Life Day One Edition",
+      "gameEsSku": "221203",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-crash-team-rumble-deluxe-edition",
+      "title": "Crash Team Rumble Deluxe Edition",
+      "gameEsSku": "217024",
+      "availabilityModes": [
+        "new",
+        "preowned"
+      ]
+    },
+    {
+      "catalogId": "ps4-street-fighter-6-lenticular-edition",
+      "title": "Street Fighter 6 Lenticular Edition",
+      "gameEsSku": "217230",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-masterchef-el-videojuego-oficial",
+      "title": "Masterchef El Videojuego Oficial",
+      "gameEsSku": "216571",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-void-trrlm2-void-terrarium-2-deluxe-edition",
+      "title": "void* tRrLM2(); //Void Terrarium 2 - Deluxe Edition",
+      "gameEsSku": "209603",
+      "availabilityModes": [
+        "new",
+        "preowned"
+      ]
+    },
+    {
+      "catalogId": "ps4-chef-life",
+      "title": "Chef Life",
+      "gameEsSku": "212724",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-matchpoint-tennis-championships",
+      "title": "Matchpoint Tennis Championships",
+      "gameEsSku": "199977",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-rico-london-standard-edition",
+      "title": "RICO London - Standard Edition",
+      "gameEsSku": "189196",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-disciples-liberation",
+      "title": "Disciples Liberation",
+      "gameEsSku": "193246",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-king-s-bounty-2-day-one-edition",
+      "title": "King´s Bounty 2 Day One Edition",
+      "gameEsSku": "188975",
+      "availabilityModes": [
+        "new"
+      ]
+    },
+    {
+      "catalogId": "ps4-dcl-drone-championship-league-the-game",
+      "title": "DCL Drone Championship League - The Game",
+      "gameEsSku": "176124",
+      "availabilityModes": [
+        "new",
+        "preowned"
+      ]
+    },
+    {
+      "catalogId": "ps4-avicii-invector",
+      "title": "Avicii Invector",
+      "gameEsSku": "173704",
+      "availabilityModes": [
+        "new",
+        "preowned"
+      ]
+    },
+    {
+      "catalogId": "ps4-fairy-tail-2",
+      "title": "Fairy Tail 2",
+      "gameEsSku": "241936",
+      "availabilityModes": [
+        "preowned"
+      ]
+    },
+    {
+      "catalogId": "ps4-tintin-reportero-los-cigarros-del-faraon",
+      "title": "Tintín reportero: Los cigarros del faraón",
+      "gameEsSku": "244443",
+      "availabilityModes": [
+        "preowned"
+      ]
+    },
+    {
+      "catalogId": "ps4-grimgrimoire-oncemore",
+      "title": "GrimGrimoire OnceMore",
+      "gameEsSku": "230143",
+      "availabilityModes": [
+        "preowned"
+      ]
+    },
+    {
+      "catalogId": "ps4-harvest-life",
+      "title": "Harvest Life",
+      "gameEsSku": "201964",
+      "availabilityModes": [
+        "preowned"
+      ]
+    },
+    {
+      "catalogId": "ps4-poker-club",
+      "title": "Poker Club",
+      "gameEsSku": "201236",
+      "availabilityModes": [
+        "preowned"
+      ]
+    },
+    {
+      "catalogId": "ps4-real-heroes-firefighter",
+      "title": "Real Heroes Firefighter",
+      "gameEsSku": "186025",
+      "availabilityModes": [
+        "preowned"
+      ]
+    },
+    {
+      "catalogId": "ps4-40-principales-karaoke-party-vol-2",
+      "title": "40 Principales Karaoke Party Vol.2",
+      "gameEsSku": "119879",
+      "availabilityModes": [
+        "preowned"
+      ]
+    }
+  ]
+}

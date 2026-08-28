@@ -39,7 +39,7 @@ GENRES_INDEX_FILE = ROOT / "data" / "index" / "genres.json"
 
 GAME_PRODUCT_HOSTS = {"game.es", "www.game.es"}
 GAME_IMAGE_HOSTS = {"media.game.es"}
-SUPPORTED_PLATFORMS = {"ps5", "switch2"}
+SUPPORTED_PLATFORMS = {"ps4", "ps5", "switch2"}
 SUPPORTED_PEGI = {3, 7, 12, 16, 18}
 PUBLISHER_BLACKLIST = {"", "0", "contact sales", "tsr 0235"}
 
@@ -120,7 +120,7 @@ def slugify(value: str) -> str:
 def normalized_title(value: str | None) -> str:
     text = unicodedata.normalize("NFKD", str(value or ""))
     text = text.encode("ascii", "ignore").decode("ascii").lower()
-    text = re.sub(r"\b(ps5|playstation 5)\b", " ", text)
+    text = re.sub(r"\b(ps4|playstation 4|ps5|playstation 5|switch 2|nintendo switch 2)\b", " ", text)
     return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", text)).strip()
 
 
@@ -187,6 +187,7 @@ def validate_payload(payload: dict[str, Any]) -> tuple[str, date, list[dict[str,
         ):
             continue
         catalog_id = f"{platform_slug}-{slugify(title)}"
+        cover_slug = f"{slugify(title)}-{sku}" if platform_slug == "ps4" else slugify(title)
         if sku in seen_skus or catalog_id in seen_ids:
             continue
         seen_skus.add(sku)
@@ -212,6 +213,7 @@ def validate_payload(payload: dict[str, Any]) -> tuple[str, date, list[dict[str,
                 "year": release_date.year,
                 "catalogId": catalog_id,
                 "slug": slugify(title),
+                "coverSlug": cover_slug,
             }
         )
     return platform_slug, as_of, valid
@@ -268,7 +270,7 @@ def catalog_entry(candidate: dict[str, Any], collected_at: str) -> dict[str, Any
         "physicalVariant": None,
         "edition": "standard",
         "listingStatus": "listed",
-        "coverUrl": public_cover_url(platform_slug, f"{candidate['slug']}.jpg"),
+        "coverUrl": public_cover_url(platform_slug, f"{candidate['coverSlug']}.jpg"),
         "pcPath": None,
         "pcId": None,
         "pcRegion": None,
@@ -315,7 +317,7 @@ def details_entry(candidate: dict[str, Any], collected_at: str) -> dict[str, Any
         "releaseDate": candidate["releaseDate"],
         "reference": None,
         "players": None,
-        "support": "Disco Blu-ray" if candidate["platformSlug"] == "ps5" else "Cartucho",
+        "support": "Cartucho" if candidate["platformSlug"] == "switch2" else "Disco Blu-ray",
         "developer": None,
         "publisher": publisher,
         "genres": genres,
@@ -393,7 +395,7 @@ def merge_details_entry(
 
 def download_cover(candidate: dict[str, Any], covers_dir: Path) -> tuple[str, str | None]:
     catalog_id = candidate["catalogId"]
-    destination = covers_dir / candidate["platformSlug"] / f"{candidate['slug']}.jpg"
+    destination = covers_dir / candidate["platformSlug"] / f"{candidate['coverSlug']}.jpg"
     if destination.is_file() and destination.stat().st_size > 500:
         return catalog_id, None
     try:
@@ -433,15 +435,16 @@ def update_platform(platforms: list[dict[str, Any]], platform_slug: str, listed:
     for platform in platforms:
         if platform.get("slug") != platform_slug:
             continue
-        platform["status"] = "open"
         platform["estimatedCatalogSize"] = max(listed, int(platform.get("estimatedCatalogSize") or 0))
-        platform["active"] = True
-        platform["newsEnabled"] = True
-        label = "PlayStation 5" if platform_slug == "ps5" else "Nintendo Switch 2"
-        platform["description"] = (
-            f"Catálogo abierto de {label}, iniciado con lanzamientos físicos disponibles en GAME España "
-            "y ampliado mediante revisión administrativa."
-        )
+        if platform_slug != "ps4":
+            platform["status"] = "open"
+            platform["active"] = True
+            platform["newsEnabled"] = True
+            label = "PlayStation 5" if platform_slug == "ps5" else "Nintendo Switch 2"
+            platform["description"] = (
+                f"Catálogo abierto de {label}, iniciado con lanzamientos físicos disponibles en GAME España "
+                "y ampliado mediante revisión administrativa."
+            )
         return
     raise ValueError(f"No existe la plataforma {platform_slug} en data/platforms.json.")
 
@@ -638,7 +641,6 @@ def apply_import(
                 continue
             before = copy.deepcopy(existing)
             for key in (
-                "seedSource",
                 "gameEsSku",
                 "gameEsProductUrl",
                 "gameEsImageUrl",

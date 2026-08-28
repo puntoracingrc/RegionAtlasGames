@@ -80,7 +80,7 @@ def main() -> None:
         Handler.next_job = {
             "id": "local-game-release-test",
             "jobType": "catalog_discovery",
-            "platformSlug": "ps5",
+            "platformSlug": "ps4",
             "offerType": "new",
             "limit": 80,
             "maxPages": 4,

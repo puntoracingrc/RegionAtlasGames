@@ -5,6 +5,7 @@ import { canWriteCatalogFiles } from "./admin-auth";
 import { priceWorkerPublicBaseUrl } from "./admin-price-collect";
 import {
   normalizeGameReleaseDiscoveryResult,
+  type GameReleaseDiscoveryPlatform,
   type GameReleaseDiscoveryResult,
 } from "./game-release-discovery";
 
@@ -238,7 +239,6 @@ function normalizeJob(input: unknown): LocalGameRunnerJob | null {
       : raw.jobType === "manual_paste"
         ? "manual_paste"
         : "api_collect";
-  if (jobType === "catalog_discovery" && platformSlug === "ps4") return null;
   if (jobType !== "catalog_discovery" && platformSlug === "switch2") return null;
   return {
     id: String(raw.id),
@@ -407,8 +407,14 @@ export async function createLocalGameRunnerJob(
 ): Promise<{ ok: true; job: LocalGameRunnerJob } | { error: string }> {
   const jobType: LocalGameRunnerJobType = input.jobType === "catalog_discovery" ? "catalog_discovery" : "api_collect";
   if (jobType === "catalog_discovery") {
-    const platformSlug = input.platformSlug === "switch2" ? "switch2" : input.platformSlug === "ps5" ? "ps5" : null;
-    if (!platformSlug) return { error: "Elige PS5 o Switch 2 para descubrir lanzamientos." };
+    const platformSlug = input.platformSlug === "switch2"
+      ? "switch2"
+      : input.platformSlug === "ps5"
+        ? "ps5"
+        : input.platformSlug === "ps4"
+          ? "ps4"
+          : null;
+    if (!platformSlug) return { error: "Elige PS4, PS5 o Switch 2 para descubrir lanzamientos." };
     const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
     const active = queue.jobs.find(
       (job) =>
@@ -416,7 +422,10 @@ export async function createLocalGameRunnerJob(
         job.platformSlug === platformSlug &&
         (job.status === "pending" || job.status === "running"),
     );
-    if (active) return { error: `Ya hay una búsqueda de ${platformSlug === "ps5" ? "PS5" : "Switch 2"} esperando o en marcha.` };
+    if (active) {
+      const label = platformSlug === "ps4" ? "PS4" : platformSlug === "ps5" ? "PS5" : "Switch 2";
+      return { error: `Ya hay una búsqueda de ${label} esperando o en marcha.` };
+    }
 
     const now = new Date().toISOString();
     const job: LocalGameRunnerJob = {
@@ -473,15 +482,15 @@ export async function createLocalGameRunnerJob(
 export async function ensureScheduledGameReleaseDiscoveryJobs(): Promise<{
   ok: true;
   created: LocalGameRunnerJob[];
-  skipped: Array<{ platformSlug: "ps5" | "switch2"; reason: string }>;
+  skipped: Array<{ platformSlug: GameReleaseDiscoveryPlatform; reason: string }>;
 } | { error: string }> {
   const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
   const now = new Date();
   const recentCutoff = now.getTime() - 6 * 24 * 60 * 60 * 1000;
   const created: LocalGameRunnerJob[] = [];
-  const skipped: Array<{ platformSlug: "ps5" | "switch2"; reason: string }> = [];
+  const skipped: Array<{ platformSlug: GameReleaseDiscoveryPlatform; reason: string }> = [];
 
-  for (const platformSlug of ["ps5", "switch2"] as const) {
+  for (const platformSlug of ["ps4", "ps5", "switch2"] as const) {
     const related = queue.jobs.filter(
       (job) => job.jobType === "catalog_discovery" && job.platformSlug === platformSlug,
     );
