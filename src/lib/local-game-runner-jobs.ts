@@ -3,6 +3,10 @@ import path from "path";
 import { appDataDir } from "./app-data-dir";
 import { canWriteCatalogFiles } from "./admin-auth";
 import { priceWorkerPublicBaseUrl } from "./admin-price-collect";
+import {
+  normalizeGameReleaseDiscoveryResult,
+  type GameReleaseDiscoveryResult,
+} from "./game-release-discovery";
 
 const JOBS_FILE =
   process.env.LOCAL_GAME_RUNNER_JOBS_FILE ??
@@ -12,18 +16,27 @@ const JOBS_FILE =
 
 export type LocalGameRunnerOfferType = "new" | "preowned";
 export type LocalGameRunnerStatus = "pending" | "running" | "done" | "error" | "cancelled";
+export type LocalGameRunnerJobType = "api_collect" | "manual_paste" | "catalog_discovery";
+export type LocalGameRunnerPlatform = "ps4" | "ps5" | "switch2";
+export type CatalogDiscoveryReview = {
+  status: "draft_created" | "dismissed";
+  reviewedAt: string;
+  pcId?: number | null;
+  catalogId?: string | null;
+};
 
 export type LocalGameRunnerJob = {
   id: string;
-  jobType?: "api_collect" | "manual_paste";
+  jobType?: LocalGameRunnerJobType;
   status: LocalGameRunnerStatus;
   source: "game-es";
-  platformSlug: "ps4" | "ps5";
+  platformSlug: LocalGameRunnerPlatform;
   offerType: LocalGameRunnerOfferType;
   limit: number;
   startPage: number;
   maxPages: number;
   skipRecentDays: number;
+  repeatStopCount?: number;
   createdAt: string;
   updatedAt: string;
   claimedAt?: string | null;
@@ -40,7 +53,11 @@ export type LocalGameRunnerJob = {
     rows?: number | null;
     matchedByAi?: number | null;
     review?: number | null;
+    candidates?: number | null;
+    existing?: number | null;
+    seenBefore?: number | null;
   } | null;
+  catalogDiscoveryReviews?: Record<string, CatalogDiscoveryReview>;
   logTail?: string | null;
   error?: string | null;
 };
@@ -52,12 +69,14 @@ type LocalGameRunnerQueue = {
 };
 
 export type CreateLocalGameRunnerJobInput = {
+  jobType?: string;
   platformSlug?: string;
   offerType?: string;
   limit?: number;
   startPage?: number;
   maxPages?: number;
   skipRecentDays?: number;
+  repeatStopCount?: number;
 };
 
 export type GamePastePreviewProduct = {
@@ -175,17 +194,52 @@ export function previewGamePasteText(text: string): GamePastePreview {
   };
 }
 
+function normalizeCatalogDiscoveryReviews(value: unknown): Record<string, CatalogDiscoveryReview> {
+  if (!value || typeof value !== "object") return {};
+  const entries: Array<[string, CatalogDiscoveryReview]> = [];
+  for (const [rawSku, rawReview] of Object.entries(value as Record<string, unknown>).slice(0, 200)) {
+    const sourceSku = rawSku.trim().slice(0, 80);
+    if (!sourceSku || !rawReview || typeof rawReview !== "object") continue;
+    const review = rawReview as Partial<CatalogDiscoveryReview>;
+    if (review.status !== "draft_created" && review.status !== "dismissed") continue;
+    entries.push([
+      sourceSku,
+      {
+        status: review.status,
+        reviewedAt: typeof review.reviewedAt === "string" ? review.reviewedAt : new Date().toISOString(),
+        pcId: Number.isFinite(review.pcId) ? Number(review.pcId) : null,
+        catalogId: typeof review.catalogId === "string" ? review.catalogId.slice(0, 240) : null,
+      },
+    ]);
+  }
+  return Object.fromEntries(entries);
+}
+
 function normalizeJob(input: unknown): LocalGameRunnerJob | null {
   if (!input || typeof input !== "object") return null;
   const raw = input as Partial<LocalGameRunnerJob>;
-  const platformSlug = raw.platformSlug === "ps5" ? "ps5" : raw.platformSlug === "ps4" ? "ps4" : null;
+  const platformSlug: LocalGameRunnerPlatform | null =
+    raw.platformSlug === "switch2"
+      ? "switch2"
+      : raw.platformSlug === "ps5"
+        ? "ps5"
+        : raw.platformSlug === "ps4"
+          ? "ps4"
+          : null;
   const offerType = raw.offerType === "new" ? "new" : raw.offerType === "preowned" ? "preowned" : null;
   if (!raw.id || !platformSlug || !offerType) return null;
   const status: LocalGameRunnerStatus =
     raw.status === "running" || raw.status === "done" || raw.status === "error" || raw.status === "cancelled"
       ? raw.status
       : "pending";
-  const jobType = raw.jobType === "manual_paste" ? "manual_paste" : "api_collect";
+  const jobType: LocalGameRunnerJobType =
+    raw.jobType === "catalog_discovery"
+      ? "catalog_discovery"
+      : raw.jobType === "manual_paste"
+        ? "manual_paste"
+        : "api_collect";
+  if (jobType === "catalog_discovery" && platformSlug === "ps4") return null;
+  if (jobType !== "catalog_discovery" && platformSlug === "switch2") return null;
   return {
     id: String(raw.id),
     status,
@@ -193,10 +247,14 @@ function normalizeJob(input: unknown): LocalGameRunnerJob | null {
     source: "game-es",
     platformSlug,
     offerType,
-    limit: Math.max(1, Math.min(jobType === "manual_paste" ? 5000 : 60, Number(raw.limit) || 20)),
+    limit: Math.max(
+      1,
+      Math.min(jobType === "manual_paste" ? 5000 : jobType === "catalog_discovery" ? 200 : 60, Number(raw.limit) || 20),
+    ),
     startPage: Math.max(0, Math.min(20, Number(raw.startPage) || 0)),
-    maxPages: Math.max(1, Math.min(8, Number(raw.maxPages) || 1)),
-    skipRecentDays: Math.max(0, Math.min(30, Number(raw.skipRecentDays) || 0)),
+    maxPages: Math.max(1, Math.min(jobType === "catalog_discovery" ? 10 : 8, Number(raw.maxPages) || 1)),
+    skipRecentDays: Math.max(0, Math.min(jobType === "catalog_discovery" ? 365 : 30, Number(raw.skipRecentDays) || 0)),
+    repeatStopCount: jobType === "catalog_discovery" ? Math.max(0, Math.min(10, Number(raw.repeatStopCount) || 3)) : undefined,
     createdAt: typeof raw.createdAt === "string" ? raw.createdAt : new Date().toISOString(),
     updatedAt: typeof raw.updatedAt === "string" ? raw.updatedAt : new Date().toISOString(),
     claimedAt: raw.claimedAt ?? null,
@@ -209,6 +267,8 @@ function normalizeJob(input: unknown): LocalGameRunnerJob | null {
     importLogTail: raw.importLogTail ?? null,
     importError: raw.importError ?? null,
     resultSummary: raw.resultSummary ?? null,
+    catalogDiscoveryReviews:
+      jobType === "catalog_discovery" ? normalizeCatalogDiscoveryReviews(raw.catalogDiscoveryReviews) : undefined,
     logTail: raw.logTail ?? null,
     error: raw.error ?? null,
   };
@@ -345,6 +405,42 @@ export async function listLocalGameRunnerJobs(limit = 20): Promise<LocalGameRunn
 export async function createLocalGameRunnerJob(
   input: CreateLocalGameRunnerJobInput,
 ): Promise<{ ok: true; job: LocalGameRunnerJob } | { error: string }> {
+  const jobType: LocalGameRunnerJobType = input.jobType === "catalog_discovery" ? "catalog_discovery" : "api_collect";
+  if (jobType === "catalog_discovery") {
+    const platformSlug = input.platformSlug === "switch2" ? "switch2" : input.platformSlug === "ps5" ? "ps5" : null;
+    if (!platformSlug) return { error: "Elige PS5 o Switch 2 para descubrir lanzamientos." };
+    const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
+    const active = queue.jobs.find(
+      (job) =>
+        job.jobType === "catalog_discovery" &&
+        job.platformSlug === platformSlug &&
+        (job.status === "pending" || job.status === "running"),
+    );
+    if (active) return { error: `Ya hay una búsqueda de ${platformSlug === "ps5" ? "PS5" : "Switch 2"} esperando o en marcha.` };
+
+    const now = new Date().toISOString();
+    const job: LocalGameRunnerJob = {
+      id: `local-game-release-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
+      jobType,
+      status: "pending",
+      source: "game-es",
+      platformSlug,
+      offerType: "new",
+      limit: Math.max(1, Math.min(200, Number(input.limit) || 80)),
+      startPage: 0,
+      maxPages: Math.max(1, Math.min(10, Number(input.maxPages) || 4)),
+      skipRecentDays: Math.max(1, Math.min(365, Number(input.skipRecentDays) || 365)),
+      repeatStopCount: Math.max(1, Math.min(10, Number(input.repeatStopCount) || 3)),
+      catalogDiscoveryReviews: {},
+      createdAt: now,
+      updatedAt: now,
+    };
+    queue.jobs.unshift(job);
+    const written = await writeQueue(queue);
+    if ("error" in written) return written;
+    return { ok: true, job };
+  }
+
   const platformSlug = input.platformSlug === "ps5" ? "ps5" : input.platformSlug === "ps4" ? "ps4" : null;
   const offerType = input.offerType === "new" ? "new" : input.offerType === "preowned" ? "preowned" : null;
   if (!platformSlug || !offerType) return { error: "Elige plataforma PS4/PS5 y tipo nuevo/seminuevo." };
@@ -372,6 +468,61 @@ export async function createLocalGameRunnerJob(
   const written = await writeQueue(queue);
   if ("error" in written) return written;
   return { ok: true, job };
+}
+
+export async function ensureScheduledGameReleaseDiscoveryJobs(): Promise<{
+  ok: true;
+  created: LocalGameRunnerJob[];
+  skipped: Array<{ platformSlug: "ps5" | "switch2"; reason: string }>;
+} | { error: string }> {
+  const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
+  const now = new Date();
+  const recentCutoff = now.getTime() - 6 * 24 * 60 * 60 * 1000;
+  const created: LocalGameRunnerJob[] = [];
+  const skipped: Array<{ platformSlug: "ps5" | "switch2"; reason: string }> = [];
+
+  for (const platformSlug of ["ps5", "switch2"] as const) {
+    const related = queue.jobs.filter(
+      (job) => job.jobType === "catalog_discovery" && job.platformSlug === platformSlug,
+    );
+    if (related.some((job) => job.status === "pending" || job.status === "running")) {
+      skipped.push({ platformSlug, reason: "active_job" });
+      continue;
+    }
+    const latestCompleted = related
+      .filter((job) => job.status === "done")
+      .sort((a, b) => Date.parse(b.finishedAt ?? b.updatedAt) - Date.parse(a.finishedAt ?? a.updatedAt))[0];
+    if (latestCompleted && Date.parse(latestCompleted.finishedAt ?? latestCompleted.updatedAt) >= recentCutoff) {
+      skipped.push({ platformSlug, reason: "completed_this_week" });
+      continue;
+    }
+
+    const at = now.toISOString();
+    const job: LocalGameRunnerJob = {
+      id: `local-game-release-${Date.now().toString(36)}-${platformSlug}-${Math.random().toString(36).slice(2, 7)}`,
+      jobType: "catalog_discovery",
+      status: "pending",
+      source: "game-es",
+      platformSlug,
+      offerType: "new",
+      limit: 80,
+      startPage: 0,
+      maxPages: 4,
+      skipRecentDays: 365,
+      repeatStopCount: 3,
+      catalogDiscoveryReviews: {},
+      createdAt: at,
+      updatedAt: at,
+    };
+    queue.jobs.unshift(job);
+    created.push(job);
+  }
+
+  if (created.length > 0) {
+    const written = await writeQueue(queue);
+    if ("error" in written) return written;
+  }
+  return { ok: true, created, skipped };
 }
 
 export function localGameRunnerTokenConfigured(): boolean {
@@ -407,12 +558,16 @@ export async function claimNextLocalGameRunnerJob(
 function summarizeResult(result: unknown): LocalGameRunnerJob["resultSummary"] {
   const raw = result && typeof result === "object" ? (result as Record<string, unknown>) : {};
   const listings = Array.isArray(raw.listings) ? raw.listings : [];
+  const candidates = Array.isArray(raw.candidates) ? raw.candidates : [];
   const stats = raw.stats && typeof raw.stats === "object" ? (raw.stats as Record<string, unknown>) : {};
   return {
     productsDetected: Number(stats.products ?? stats.products_matched ?? stats.rawProducts ?? listings.length) || null,
     rows: listings.length,
     matchedByAi: Number(stats.matched_by_ai ?? 0) || 0,
     review: listings.filter((row) => row && typeof row === "object" && (row as Record<string, unknown>).regionReviewNeeded).length,
+    candidates: candidates.length,
+    existing: Number(stats.existing ?? 0) || 0,
+    seenBefore: Number(stats.seenBefore ?? 0) || 0,
   };
 }
 
@@ -427,20 +582,31 @@ export async function completeLocalGameRunnerJob(input: {
   const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
   const job = queue.jobs.find((item) => item.id === input.jobId);
   if (!job) return { error: "Job local no encontrado." };
+  const discoveryResult = job.jobType === "catalog_discovery" && input.ok
+    ? normalizeGameReleaseDiscoveryResult(input.result)
+    : null;
+  const incompatibleDiscoveryResult = job.jobType === "catalog_discovery" && input.ok && !discoveryResult;
   const now = new Date().toISOString();
   const logTail = String(input.log ?? "").slice(-12000);
-  job.status = input.ok ? "done" : "error";
+  job.status = input.ok && !incompatibleDiscoveryResult ? "done" : "error";
   job.finishedAt = now;
   job.updatedAt = now;
   job.runnerId = input.runnerId || job.runnerId || "mac-local";
   job.logTail = logTail || null;
-  job.error = input.ok ? null : String(input.error || "El runner local informó error.");
-  if (input.ok && input.result) {
-    const resultPath = `app/data/price-ingest/local-game/${job.id}.json`;
-    const resultWritten = await writeWorkerFile(resultPath, Buffer.from(`${JSON.stringify(input.result, null, 2)}\n`, "utf8"));
+  job.error = incompatibleDiscoveryResult
+    ? "El runner devolvió un formato antiguo o con precios. Actualiza el código del runner antes de reintentar; no se ha importado ningún dato."
+    : input.ok
+      ? null
+      : String(input.error || "El runner local informó error.");
+  if (input.ok && !incompatibleDiscoveryResult && input.result) {
+    const resultPath = job.jobType === "catalog_discovery"
+      ? `app/data/catalog-discovery/local-game/${job.id}.json`
+      : `app/data/price-ingest/local-game/${job.id}.json`;
+    const safeResult = discoveryResult ?? input.result;
+    const resultWritten = await writeWorkerFile(resultPath, Buffer.from(`${JSON.stringify(safeResult, null, 2)}\n`, "utf8"));
     if ("error" in resultWritten) return resultWritten;
     job.resultPath = resultPath;
-    job.resultSummary = summarizeResult(input.result);
+    job.resultSummary = summarizeResult(safeResult);
   }
   const written = await writeQueue(queue);
   if ("error" in written) return written;
@@ -451,6 +617,9 @@ export async function importLocalGameRunnerJob(jobId: string): Promise<{ ok: tru
   const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
   const job = queue.jobs.find((item) => item.id === jobId);
   if (!job) return { error: "Job local no encontrado." };
+  if (job.jobType === "catalog_discovery") {
+    return { error: "Los lanzamientos se revisan como fichas de catálogo; no se importan al flujo de precios." };
+  }
   if (job.status !== "done") return { error: "Solo se pueden importar jobs completados." };
   if (!job.resultPath) return { error: "El job no tiene JSON de resultado en el worker." };
 
@@ -473,6 +642,65 @@ export async function importLocalGameRunnerJob(jobId: string): Promise<{ ok: tru
   const written = await writeQueue(queue);
   if ("error" in written) return written;
   return { ok: true, job };
+}
+
+export async function readGameReleaseDiscoveryResult(
+  jobId: string,
+): Promise<{ ok: true; job: LocalGameRunnerJob; result: GameReleaseDiscoveryResult } | { error: string }> {
+  const queue = await readQueueWithStaleRecovery();
+  const job = queue.jobs.find((item) => item.id === jobId);
+  if (!job || job.jobType !== "catalog_discovery") return { error: "Búsqueda de lanzamientos no encontrada." };
+  if (job.status !== "done" || !job.resultPath) return { error: "La búsqueda todavía no tiene resultado revisable." };
+  if (!job.resultPath.startsWith("app/data/catalog-discovery/local-game/")) return { error: "Ruta de resultado no válida." };
+  const publicBaseUrl = priceWorkerPublicBaseUrl();
+  if (!publicBaseUrl) return { error: "URL pública del worker no configurada." };
+  try {
+    const response = await fetch(`${publicBaseUrl}/${job.resultPath.replace(/^\/+/, "")}`, {
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+    });
+    if (!response.ok) return { error: `El worker devolvió HTTP ${response.status} al leer candidatos.` };
+    const result = normalizeGameReleaseDiscoveryResult(await response.json());
+    if (!result) return { error: "El resultado GAME no tiene el formato seguro esperado." };
+    if (result.platformSlug !== job.platformSlug) return { error: "La plataforma del resultado no coincide con el job." };
+    return { ok: true, job, result };
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo leer el resultado GAME." };
+  }
+}
+
+export async function recordGameReleaseDiscoveryReview(input: {
+  jobId: string;
+  sourceSku: string;
+  status: CatalogDiscoveryReview["status"];
+  pcId?: number | null;
+  catalogId?: string | null;
+}): Promise<{ ok: true; job: LocalGameRunnerJob; review: CatalogDiscoveryReview } | { error: string }> {
+  const sourceSku = input.sourceSku.trim().slice(0, 80);
+  if (!sourceSku) return { error: "Falta el SKU GAME del candidato." };
+  const result = await readGameReleaseDiscoveryResult(input.jobId);
+  if ("error" in result) return result;
+  if (!result.result.candidates.some((candidate) => candidate.sourceSku === sourceSku)) {
+    return { error: "El candidato no pertenece a este resultado GAME." };
+  }
+
+  const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
+  const job = queue.jobs.find((item) => item.id === input.jobId);
+  if (!job || job.jobType !== "catalog_discovery") return { error: "Búsqueda de lanzamientos no encontrada." };
+  const review: CatalogDiscoveryReview = {
+    status: input.status,
+    reviewedAt: new Date().toISOString(),
+    pcId: Number.isFinite(input.pcId) ? Number(input.pcId) : null,
+    catalogId: input.catalogId?.trim().slice(0, 240) || null,
+  };
+  job.catalogDiscoveryReviews = {
+    ...(job.catalogDiscoveryReviews ?? {}),
+    [sourceSku]: review,
+  };
+  job.updatedAt = review.reviewedAt;
+  const written = await writeQueue(queue);
+  if ("error" in written) return written;
+  return { ok: true, job, review };
 }
 
 export async function importGamePasteText(

@@ -1,0 +1,367 @@
+#!/usr/bin/env python3
+"""Descubre lanzamientos físicos ya disponibles en GAME España.
+
+Este flujo alimenta una bandeja de revisión de catálogo. No extrae ni publica
+precios y nunca modifica el catálogo por sí solo.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+import time
+import unicodedata
+from datetime import date, datetime
+from pathlib import Path
+from typing import Any
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from collect_game_es import GameEsError, fetch_search_page  # noqa: E402
+from collectors.catalog_match import rank_catalog_candidates  # noqa: E402
+from collectors.common import now_iso, platform_catalog_games, save_json  # noqa: E402
+
+SOURCE = "game-es-release-discovery"
+REGION = "PAL España"
+PLATFORM_RULES = {
+    "ps5": {
+        "family": "PS5",
+        "navigationSegment": "/playstation-5/",
+    },
+    "switch2": {
+        "family": "NSW2",
+        "navigationSegment": "/nintendo-switch-2/",
+    },
+}
+BUY_BUTTONS = {"comprar", "anadir", "añadir"}
+
+
+def normalize_text(value: str) -> str:
+    normalized = unicodedata.normalize("NFKD", value.lower())
+    normalized = normalized.encode("ascii", "ignore").decode("ascii")
+    normalized = re.sub(r"[^a-z0-9]+", " ", normalized)
+    return re.sub(r"\s+", " ", normalized).strip()
+
+
+def canonical_title(value: str) -> str:
+    return normalize_text(value)
+
+
+def parse_game_release_date(value: object) -> date | None:
+    raw = str(value or "").strip()
+    if not raw:
+        return None
+    for fmt in ("%d/%m/%Y %H:%M:%S", "%d/%m/%Y", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(raw, fmt).date()
+        except ValueError:
+            continue
+    return None
+
+
+def product_seen_key(product: dict[str, Any]) -> str:
+    sku = str(product.get("sourceSku") or product.get("SKU") or "").strip().lower()
+    if sku:
+        return f"sku:{sku}"
+    url = str(product.get("productUrl") or "").strip().lower()
+    if url:
+        return f"url:{url}"
+    return f"title:{canonical_title(str(product.get('title') or product.get('Name') or ''))}"
+
+
+def product_title_key(product: dict[str, Any]) -> str:
+    return f"title:{canonical_title(str(product.get('title') or product.get('Name') or ''))}"
+
+
+def load_seen_discoveries(recent_dir: Path, platform_slug: str) -> set[str]:
+    if not recent_dir.exists():
+        return set()
+    seen: set[str] = set()
+    for path in sorted(recent_dir.glob("*.json")):
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if payload.get("source") != SOURCE or payload.get("platformSlug") != platform_slug:
+            continue
+        for group in ("candidates", "existingProducts"):
+            rows = payload.get(group)
+            if not isinstance(rows, list):
+                continue
+            for row in rows:
+                if isinstance(row, dict):
+                    seen.add(product_seen_key(row))
+                    seen.add(product_title_key(row))
+    return seen
+
+
+def best_available_new_offer(product: dict[str, Any]) -> dict[str, Any] | None:
+    for offer in product.get("Offers") or []:
+        if str(offer.get("BasketCode") or "").upper() != "NEW":
+            continue
+        if offer.get("IsNew") is not True:
+            continue
+        if normalize_text(str(offer.get("ButtonText") or "")) not in BUY_BUTTONS:
+            continue
+        if offer.get("PaintButton") is False:
+            continue
+        return offer
+    return None
+
+
+def candidate_from_product(
+    product: dict[str, Any],
+    platform_slug: str,
+    *,
+    as_of: date,
+) -> tuple[dict[str, Any] | None, str | None]:
+    rules = PLATFORM_RULES[platform_slug]
+    title = str(product.get("Name") or "").strip()
+    navigation = str(product.get("Navigation") or "").strip()
+    if not title:
+        return None, "missing_title"
+    if not navigation.startswith("videojuegos/"):
+        return None, "not_a_game"
+    if rules["navigationSegment"] not in f"/{navigation.lower()}/":
+        return None, "wrong_platform"
+    if str(product.get("Family") or "").upper() != rules["family"]:
+        return None, "wrong_platform"
+    release_date = parse_game_release_date(product.get("ReleaseDate"))
+    if release_date is None:
+        return None, "missing_release_date"
+    if release_date > as_of:
+        return None, "future_release"
+    if product.get("IsAvailable") is not True:
+        return None, "not_available"
+    if best_available_new_offer(product) is None:
+        return None, "not_for_sale"
+    image_url = str(product.get("ImageUrl") or "").strip()
+    if not image_url:
+        return None, "missing_cover"
+
+    product_url = f"https://www.game.es/{navigation.lstrip('/')}"
+    genres = [str(value).strip() for value in (product.get("Genres") or []) if str(value).strip()]
+    return {
+        "title": title,
+        "platformSlug": platform_slug,
+        "region": REGION,
+        "releaseDate": release_date.isoformat(),
+        "year": release_date.year,
+        "sourceSku": str(product.get("SKU") or "").strip(),
+        "productUrl": product_url,
+        "imageUrl": image_url,
+        "publisher": str(product.get("Publisher") or "").strip() or None,
+        "genres": genres,
+        "availability": "available",
+        "regionEvidence": "game_es_retail_catalog",
+    }, None
+
+
+def exact_catalog_index(games: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+    index: dict[str, list[dict[str, Any]]] = {}
+    for game in games:
+        for value in (game.get("title"), game.get("titlePc")):
+            key = canonical_title(str(value or ""))
+            if not key:
+                continue
+            bucket = index.setdefault(key, [])
+            if not any(existing.get("id") == game.get("id") for existing in bucket):
+                bucket.append(game)
+    return index
+
+
+def compact_match(game: dict[str, Any], score: float = 1.0) -> dict[str, Any]:
+    return {
+        "catalogId": str(game.get("id") or ""),
+        "title": str(game.get("title") or ""),
+        "region": str(game.get("region") or ""),
+        "score": round(score, 3),
+    }
+
+
+def classify_catalog_candidate(
+    candidate: dict[str, Any],
+    games: list[dict[str, Any]],
+    exact_index: dict[str, list[dict[str, Any]]],
+) -> tuple[str, list[dict[str, Any]]]:
+    exact = exact_index.get(canonical_title(candidate["title"]), [])
+    if exact:
+        return "existing", [compact_match(game) for game in exact[:3]]
+
+    ranked = rank_catalog_candidates(
+        {"title": candidate["title"]},
+        games,
+        candidate["platformSlug"],
+        listing_region=candidate["region"],
+        min_score=0.78,
+    )
+    plausible = [compact_match(item.game, item.raw_score) for item in ranked[:3] if item.raw_score >= 0.78]
+    if plausible:
+        return "possible_duplicate", plausible
+    return "new", []
+
+
+def collect_release_candidates(
+    platform_slug: str,
+    *,
+    limit: int,
+    max_pages: int,
+    repeat_stop_count: int,
+    delay: float,
+    as_of: date,
+    recent_dir: Path,
+) -> dict[str, Any]:
+    games = platform_catalog_games(platform_slug, REGION)
+    exact_index = exact_catalog_index(games)
+    seen_previous = load_seen_discoveries(recent_dir, platform_slug)
+    seen_run: set[str] = set()
+    candidates: list[dict[str, Any]] = []
+    existing_products: list[dict[str, Any]] = []
+    rejected_samples: list[dict[str, str]] = []
+    rejected_counts: dict[str, int] = {}
+    consecutive_known = 0
+    stop_reason = "safety_page_limit"
+    pages_scanned = 0
+    raw_products = 0
+    total_results: int | None = None
+    total_pages: int | None = None
+
+    for page in range(max(1, max_pages)):
+        payload = fetch_search_page(platform_slug, "new", page, order=0)
+        pages_scanned += 1
+        total_results = payload.get("TotalResults")
+        total_pages = payload.get("TotalPages")
+        rows = payload.get("Products") or []
+        raw_products += len(rows)
+        if not rows:
+            stop_reason = "no_products"
+            break
+
+        for raw in rows:
+            candidate, rejected_reason = candidate_from_product(raw, platform_slug, as_of=as_of)
+            if candidate is None:
+                reason = rejected_reason or "invalid"
+                rejected_counts[reason] = rejected_counts.get(reason, 0) + 1
+                if len(rejected_samples) < 12:
+                    rejected_samples.append({
+                        "title": str(raw.get("Name") or "Sin título")[:180],
+                        "reason": reason,
+                    })
+                continue
+
+            key = product_seen_key(candidate)
+            title_key = product_title_key(candidate)
+            if key in seen_run or title_key in seen_run:
+                rejected_counts["duplicate_source"] = rejected_counts.get("duplicate_source", 0) + 1
+                continue
+            seen_run.add(key)
+            seen_run.add(title_key)
+
+            if key in seen_previous or title_key in seen_previous:
+                consecutive_known += 1
+                existing_products.append({**candidate, "catalogStatus": "seen_before", "matches": []})
+            else:
+                status, matches = classify_catalog_candidate(candidate, games, exact_index)
+                if status == "existing":
+                    consecutive_known += 1
+                    existing_products.append({**candidate, "catalogStatus": status, "matches": matches})
+                else:
+                    consecutive_known = 0
+                    candidates.append({**candidate, "catalogStatus": status, "matches": matches})
+                    if len(candidates) >= max(1, limit):
+                        stop_reason = "candidate_limit"
+                        break
+
+            if repeat_stop_count > 0 and consecutive_known >= repeat_stop_count:
+                stop_reason = "known_streak"
+                break
+
+        if stop_reason in {"candidate_limit", "known_streak"}:
+            break
+        if total_pages is not None and page >= int(total_pages):
+            stop_reason = "last_page"
+            break
+        if page + 1 < max_pages:
+            time.sleep(max(0.0, delay))
+
+    return {
+        "source": SOURCE,
+        "mode": "released_catalog_candidates",
+        "containsPrices": False,
+        "platformSlug": platform_slug,
+        "region": REGION,
+        "collectedAt": now_iso(),
+        "asOf": as_of.isoformat(),
+        "candidates": candidates,
+        "existingProducts": existing_products,
+        "rejectedSamples": rejected_samples,
+        "stats": {
+            "pages": pages_scanned,
+            "rawProducts": raw_products,
+            "totalResults": total_results,
+            "totalPages": total_pages,
+            "catalogGames": len(games),
+            "previouslySeen": len(seen_previous),
+            "candidates": len(candidates),
+            "possibleDuplicates": sum(1 for row in candidates if row["catalogStatus"] == "possible_duplicate"),
+            "existing": sum(1 for row in existing_products if row["catalogStatus"] == "existing"),
+            "seenBefore": sum(1 for row in existing_products if row["catalogStatus"] == "seen_before"),
+            "rejected": sum(rejected_counts.values()),
+            "rejectedByReason": rejected_counts,
+            "repeatStopCount": repeat_stop_count,
+            "consecutiveKnownAtStop": consecutive_known,
+            "stopReason": stop_reason,
+        },
+    }
+
+
+def run(args: argparse.Namespace) -> int:
+    as_of = datetime.strptime(args.as_of, "%Y-%m-%d").date() if args.as_of else date.today()
+    print(f"=== GAME España · novedades de catálogo · {args.platform} · hasta {as_of.isoformat()} ===")
+    result = collect_release_candidates(
+        args.platform,
+        limit=max(1, args.limit),
+        max_pages=max(1, args.max_pages),
+        repeat_stop_count=max(0, args.repeat_stop_count),
+        delay=max(0.0, args.delay),
+        as_of=as_of,
+        recent_dir=args.recent_dir,
+    )
+    stats = result["stats"]
+    print(
+        f"  Páginas {stats['pages']} · raw {stats['rawProducts']} · "
+        f"candidatos {stats['candidates']} · conocidos {stats['existing'] + stats['seenBefore']}"
+    )
+    print(f"  Parada: {stats['stopReason']} · descartes {stats['rejected']}")
+    for candidate in result["candidates"][:10]:
+        print(f"  {candidate['releaseDate']} · {candidate['title']} · {candidate['catalogStatus']}")
+    if not args.dry_run:
+        save_json(args.output, result)
+        print(f"  Guardado: {args.output}")
+    return 0
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Discover released PS5/Switch 2 games from GAME España")
+    parser.add_argument("--platform", required=True, choices=sorted(PLATFORM_RULES))
+    parser.add_argument("--limit", type=int, default=80)
+    parser.add_argument("--max-pages", type=int, default=4)
+    parser.add_argument("--repeat-stop-count", type=int, default=3)
+    parser.add_argument("--delay", type=float, default=0.8)
+    parser.add_argument("--as-of", default="", help="Fecha YYYY-MM-DD para pruebas/reprocesado.")
+    parser.add_argument("--recent-dir", type=Path, default=ROOT / "data" / "catalog-discovery" / "game-es")
+    parser.add_argument("--output", type=Path, default=ROOT / "data" / "catalog-discovery" / "game-es.json")
+    parser.add_argument("--dry-run", action="store_true")
+    args = parser.parse_args()
+    try:
+        raise SystemExit(run(args))
+    except GameEsError as exc:
+        print(f"  ERROR: {exc}")
+        raise SystemExit(0 if args.dry_run else 1) from exc
+
+
+if __name__ == "__main__":
+    main()

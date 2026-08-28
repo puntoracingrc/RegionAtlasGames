@@ -109,6 +109,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "media.game.es",
+        pathname: "/COVERV2/**",
+      },
+      {
+        protocol: "https",
         hostname: "commons.wikimedia.org",
         pathname: "/wiki/Special:FilePath/**",
       },

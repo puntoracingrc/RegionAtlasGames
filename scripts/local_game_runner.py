@@ -19,6 +19,7 @@ import tempfile
 import time
 import urllib.error
 import urllib.request
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -99,13 +100,23 @@ def download_recent_results(job: dict[str, Any], recent_dir: Path) -> int:
     recent_dir.mkdir(parents=True, exist_ok=True)
     downloaded = 0
     current_id = str(job.get("id") or "")
+    cutoff = datetime.now(timezone.utc) - timedelta(days=skip_days)
     for item in jobs[:80]:
         if not isinstance(item, dict) or str(item.get("id") or "") == current_id:
             continue
         if item.get("status") != "done" or not item.get("resultPath"):
             continue
+        if str(item.get("jobType") or "api_collect") != str(job.get("jobType") or "api_collect"):
+            continue
         if item.get("platformSlug") != job.get("platformSlug") or item.get("offerType") != job.get("offerType"):
             continue
+        finished_at = str(item.get("finishedAt") or item.get("updatedAt") or "").strip()
+        if finished_at:
+            try:
+                if datetime.fromisoformat(finished_at.replace("Z", "+00:00")) < cutoff:
+                    continue
+            except ValueError:
+                continue
         result_path = str(item["resultPath"]).lstrip("/")
         url = f"{worker_base}/{result_path}"
         payload = fetch_public_json(url)
@@ -157,6 +168,45 @@ def collect_game(job: dict[str, Any]) -> tuple[bool, dict[str, Any] | None, str,
         local_copy_dir = ROOT / "data" / "price-ingest" / "local-game"
         local_copy_dir.mkdir(parents=True, exist_ok=True)
         (local_copy_dir / f"{job['id']}.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        return True, result, log, None
+
+
+def discover_game_releases(job: dict[str, Any]) -> tuple[bool, dict[str, Any] | None, str, str | None]:
+    with tempfile.TemporaryDirectory(prefix="region-atlas-game-releases-") as tmp:
+        tmp_path = Path(tmp)
+        output = tmp_path / f"{job['id']}.json"
+        recent_dir = tmp_path / "recent"
+        recent_downloaded = download_recent_results(job, recent_dir)
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "discover_game_releases.py"),
+            "--platform",
+            str(job["platformSlug"]),
+            "--limit",
+            str(int(job.get("limit") or 80)),
+            "--max-pages",
+            str(int(job.get("maxPages") or 4)),
+            "--repeat-stop-count",
+            str(int(job.get("repeatStopCount") or 3)),
+            "--recent-dir",
+            str(recent_dir),
+            "--output",
+            str(output),
+        ]
+        proc = subprocess.run(cmd, cwd=ROOT, env=os.environ.copy(), text=True, capture_output=True, timeout=300)
+        prefix = f"Resultados anteriores descargados para no repetir candidatos: {recent_downloaded}\n"
+        log = "\n".join(part for part in [prefix + proc.stdout, proc.stderr] if part).strip()
+        if proc.returncode != 0:
+            return False, None, log, f"discover_game_releases terminó con código {proc.returncode}"
+        if not output.exists():
+            return False, None, log, "discover_game_releases no generó archivo de resultado"
+        result = json.loads(output.read_text())
+        local_copy_dir = ROOT / "data" / "catalog-discovery" / "local-game"
+        local_copy_dir.mkdir(parents=True, exist_ok=True)
+        (local_copy_dir / f"{job['id']}.json").write_text(
+            json.dumps(result, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
         return True, result, log, None
 
 
@@ -215,6 +265,8 @@ def run_once(base_url: str, token: str, runner_id: str) -> bool:
     print(f"Job recibido: {job['id']} · {job['platformSlug']} · {job['offerType']} · {job_type} · límite {job.get('limit')}")
     if job_type == "manual_paste":
         ok, result, log, error = import_game_paste(job)
+    elif job_type == "catalog_discovery":
+        ok, result, log, error = discover_game_releases(job)
     else:
         ok, result, log, error = collect_game(job)
     complete = request_json(
