@@ -12,6 +12,10 @@ import {
 import { catalogIdExistsInCatalog } from "@/lib/catalog-runtime-overlay";
 import { findSimilarCatalogGames } from "@/lib/admin-title-similarity";
 import { REGION_OPTIONS } from "@/lib/admin-draft-storage";
+import {
+  readGameReleaseDiscoveryResult,
+  recordGameReleaseDiscoveryReview,
+} from "@/lib/local-game-runner-jobs";
 
 export async function POST(request: Request) {
   if (!(await assertAdminApi())) {
@@ -41,7 +45,37 @@ export async function POST(request: Request) {
     autoEnrich?: boolean;
     autoAi?: boolean;
     confirmDistinct?: boolean;
+    discoveryJobId?: string;
+    discoverySourceSku?: string;
   };
+
+  let discoveryContext: { jobId: string; sourceSku: string } | null = null;
+  if (body.discoveryJobId || body.discoverySourceSku) {
+    const jobId = body.discoveryJobId?.trim() ?? "";
+    const sourceSku = body.discoverySourceSku?.trim() ?? "";
+    if (!jobId || !sourceSku) {
+      return NextResponse.json({ error: "Falta identificar el candidato GAME." }, { status: 400 });
+    }
+    const discovery = await readGameReleaseDiscoveryResult(jobId);
+    if ("error" in discovery) {
+      return NextResponse.json({ error: discovery.error }, { status: 400 });
+    }
+    if (discovery.job.catalogDiscoveryReviews?.[sourceSku]) {
+      return NextResponse.json({ error: "Este candidato GAME ya fue revisado." }, { status: 409 });
+    }
+    const candidate = discovery.result.candidates.find((item) => item.sourceSku === sourceSku);
+    if (!candidate) {
+      return NextResponse.json({ error: "El candidato GAME no pertenece a este resultado." }, { status: 400 });
+    }
+    body.title = candidate.title;
+    body.platformSlug = candidate.platformSlug;
+    body.region = candidate.region;
+    body.coverUrl = candidate.imageUrl;
+    body.releaseDate = candidate.releaseDate;
+    body.year = candidate.year;
+    body.publisherName = candidate.publisher;
+    discoveryContext = { jobId, sourceSku };
+  }
 
   const title = body.title?.trim();
   const platformSlug = body.platformSlug?.trim();
@@ -138,10 +172,23 @@ export async function POST(request: Request) {
     triggerPostSaveEnrichment(pcId).catch(console.error);
   }
 
+  let discoveryTrackingWarning: string | null = null;
+  if (discoveryContext) {
+    const tracked = await recordGameReleaseDiscoveryReview({
+      jobId: discoveryContext.jobId,
+      sourceSku: discoveryContext.sourceSku,
+      status: "draft_created",
+      pcId,
+      catalogId: draft.catalogId,
+    });
+    if ("error" in tracked) discoveryTrackingWarning = tracked.error;
+  }
+
   return NextResponse.json({
     ok: true,
     pcId,
     draft,
     redirect: `/admin/cola/${pcId}${body.autoAi ? "?ai=1" : ""}`,
+    discoveryTrackingWarning,
   });
 }

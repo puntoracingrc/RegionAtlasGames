@@ -26,7 +26,7 @@ function statusLabel(status: LocalGameRunnerJob["status"]): string {
 }
 
 export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Props) {
-  const [jobs, setJobs] = useState(initialJobs);
+  const [jobs, setJobs] = useState(initialJobs.filter((job) => job.jobType !== "catalog_discovery"));
   const [platformSlug, setPlatformSlug] = useState<"ps4" | "ps5">("ps4");
   const [offerType, setOfferType] = useState<LocalGameRunnerOfferType>("preowned");
   const [limit, setLimit] = useState(20);
@@ -49,7 +49,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
   async function refreshJobs() {
     const response = await fetch("/api/admin/price-local-game-jobs", { cache: "no-store" });
     const data = await response.json().catch(() => null) as { ok?: boolean; jobs?: LocalGameRunnerJob[]; error?: string } | null;
-    if (data?.ok && data.jobs) setJobs(data.jobs);
+    if (data?.ok && data.jobs) setJobs(data.jobs.filter((job) => job.jobType !== "catalog_discovery"));
   }
 
   useEffect(() => {

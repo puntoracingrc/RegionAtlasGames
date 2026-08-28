@@ -1,0 +1,54 @@
+# Descubrimiento de lanzamientos GAME
+
+## Alcance
+
+El flujo descubre juegos físicos de PlayStation 5 y Nintendo Switch 2 publicados en GAME España para preparar nuevas fichas de Region Atlas.
+
+- No captura ni importa precios.
+- No publica juegos automáticamente.
+- No modifica el catálogo hasta que un administrador crea y revisa un borrador.
+- El extractor masivo manual de precios GAME nuevo/seminuevo sigue siendo un flujo independiente.
+
+## Criterios de entrada
+
+Un producto solo se propone si cumple todos estos criterios:
+
+- pertenece a la plataforma exacta consultada;
+- su ruta de GAME es de `videojuegos`, no de accesorios, consolas o merchandising;
+- tiene fecha de lanzamiento conocida y no futura;
+- GAME lo marca disponible;
+- la oferta nueva muestra `Comprar`, no `Reservar` ni `Pre-compra`;
+- tiene SKU, URL de producto y portada.
+
+La salida conserva título, plataforma, región propuesta `PAL España`, fecha, SKU, URL, portada, editor y géneros disponibles. El contrato de resultado declara `containsPrices: false` y el servidor rechaza resultados antiguos o incompatibles.
+
+## Duplicados
+
+La búsqueda usa tres niveles:
+
+1. SKU o URL ya vistos en resultados anteriores: no se vuelve a proponer.
+2. Título exacto en la misma plataforma y región: se considera ya catalogado.
+3. Título parecido: se muestra como posible duplicado y exige revisión humana.
+
+El recorrido está ordenado por fecha de lanzamiento descendente. Termina al encontrar tres juegos conocidos consecutivos o al alcanzar los límites de páginas/candidatos. Las variantes de otras regiones no se consideran duplicados exactos de `PAL España`.
+
+## Operación
+
+- Admin: `/admin/precios`, bloque `Nuevos lanzamientos PS5 y Switch 2`.
+- Manual: elegir plataforma y pulsar `Buscar lanzamientos`.
+- Automático: cada lunes a las `06:15 UTC`, Vercel encola PS5 y Switch 2.
+- Ejecución: el runner local recoge el job cuando está encendido; el Mac no abre puertos.
+- Revisión: cada candidato puede abrirse en GAME, convertirse en borrador o descartarse.
+- Publicación: continúa en la cola normal de catálogo y conserva su revisión final habitual.
+
+Antes de activar la primera búsqueda, el equipo que ejecuta `scripts/local_game_runner.py` debe usar una versión que incluya `catalog_discovery`. Si devuelve el formato antiguo de precios, el servidor marca el job como error y no guarda ni importa el resultado.
+
+## Límites
+
+- 80 candidatos por ejecución.
+- 4 páginas de GAME por ejecución.
+- 3 juegos conocidos consecutivos para detener la búsqueda.
+- 365 días de resultados recientes consultados por el runner para evitar repetir candidatos.
+- Un único job activo por plataforma.
+
+GAME sigue siendo una fuente externa. Un cambio de su API, etiquetas o disponibilidad puede detener la recogida; el fallo queda visible en Admin y no afecta a fichas ya publicadas.

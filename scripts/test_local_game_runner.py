@@ -10,6 +10,13 @@ import local_game_runner
 
 class Handler(BaseHTTPRequestHandler):
     completed: dict | None = None
+    next_job: dict = {
+        "id": "local-game-test",
+        "platformSlug": "ps4",
+        "offerType": "preowned",
+        "limit": 2,
+        "maxPages": 1,
+    }
 
     def do_POST(self):  # noqa: N802
         length = int(self.headers.get("content-length") or "0")
@@ -26,14 +33,7 @@ class Handler(BaseHTTPRequestHandler):
                 json.dumps(
                     {
                         "ok": True,
-                        "job": {
-                            "id": "local-game-test",
-                            "platformSlug": "ps4",
-                            "offerType": "preowned",
-                            "limit": 2,
-                            "maxPages": 1,
-                            "runnerId": payload.get("runnerId"),
-                        },
+                        "job": {**Handler.next_job, "runnerId": payload.get("runnerId")},
                     }
                 ).encode()
             )
@@ -56,21 +56,49 @@ def fake_collect_game(job):
     return True, {"source": "game-es-preowned", "listings": [{"catalogId": "ps4-test", "regionReviewNeeded": True}], "stats": {"products": 1}}, "fake log", None
 
 
+def fake_discover_game_releases(job):
+    return True, {
+        "source": "game-es-release-discovery",
+        "mode": "released_catalog_candidates",
+        "containsPrices": False,
+        "candidates": [{"title": "Test PS5"}],
+    }, "fake discovery log", None
+
+
 def main() -> None:
     server = HTTPServer(("127.0.0.1", 0), Handler)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
     local_game_runner.collect_game = fake_collect_game
+    local_game_runner.discover_game_releases = fake_discover_game_releases
     try:
         did_work = local_game_runner.run_once(f"http://127.0.0.1:{server.server_port}", "test-token", "test-runner")
+        assert did_work is True
+        assert Handler.completed is not None
+        assert Handler.completed["result"]["source"] == "game-es-preowned"
+
+        Handler.next_job = {
+            "id": "local-game-release-test",
+            "jobType": "catalog_discovery",
+            "platformSlug": "ps5",
+            "offerType": "new",
+            "limit": 80,
+            "maxPages": 4,
+            "repeatStopCount": 3,
+        }
+        did_discovery = local_game_runner.run_once(
+            f"http://127.0.0.1:{server.server_port}",
+            "test-token",
+            "test-runner",
+        )
     finally:
         server.shutdown()
-    assert did_work is True
+    assert did_discovery is True
     assert Handler.completed is not None
-    assert Handler.completed["jobId"] == "local-game-test"
+    assert Handler.completed["jobId"] == "local-game-release-test"
     assert Handler.completed["runnerId"] == "test-runner"
     assert Handler.completed["ok"] is True
-    assert Handler.completed["result"]["source"] == "game-es-preowned"
+    assert Handler.completed["result"]["source"] == "game-es-release-discovery"
     print("OK local GAME runner flow")
 
 

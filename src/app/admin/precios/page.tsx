@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { readFileSync } from "fs";
 import path from "path";
+import { AdminGameReleaseDiscoveryPanel } from "@/components/admin/admin-game-release-discovery-panel";
 import { AdminLocalGameRunnerPanel } from "@/components/admin/admin-local-game-runner-panel";
 import { AdminMarketCollectionPanel } from "@/components/admin/admin-market-collection-panel";
 import { AdminPriceCoverageTable } from "@/components/admin/admin-price-coverage-table";
@@ -756,6 +757,11 @@ export default async function AdminPricesPage({
         initialSettings={priceSourceSettings}
         platformOptions={platformOptions}
         regionOptions={regionOptions}
+      />
+
+      <AdminGameReleaseDiscoveryPanel
+        initialJobs={localGameJobs}
+        tokenConfigured={localGameRunnerTokenConfigured()}
       />
 
       <AdminLocalGameRunnerPanel

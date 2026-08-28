@@ -35,6 +35,7 @@ USER_AGENT = "RegionAtlasGames/1.0 (+game-es-price-source)"
 HEADS_BY_PLATFORM = {
     "ps4": "juegos-ps4",
     "ps5": "software-ps5",
+    "switch2": "nintendo-switch-2-nsw2",
 }
 OFFER_TYPES = {
     "new": {
@@ -54,7 +55,13 @@ class GameEsError(RuntimeError):
     pass
 
 
-def fetch_search_page(platform_slug: str, offer_type: str, page: int) -> dict[str, Any]:
+def fetch_search_page(
+    platform_slug: str,
+    offer_type: str,
+    page: int,
+    *,
+    order: int = 7,
+) -> dict[str, Any]:
     head = HEADS_BY_PLATFORM.get(platform_slug)
     if not head:
         raise GameEsError(f"Plataforma no soportada por GAME piloto: {platform_slug}")
@@ -64,7 +71,7 @@ def fetch_search_page(platform_slug: str, offer_type: str, page: int) -> dict[st
         "MaxPrice": None,
         "Head": head,
         "SKU": None,
-        "Order": 7,
+        "Order": order,
         "CategoryFilter": [offer_cfg["filter"]],
         "Category": None,
         "TotalPages": None,
@@ -247,7 +254,9 @@ def collect_products(
         if new_count == 0 and not skip_seen:
             stats["stopReason"] = "no_new_products"
             break
-        if stats["totalPages"] is not None and page + 1 >= int(stats["totalPages"]):
+        # GAME devuelve el índice de la última página (0..TotalPages), no el
+        # número de páginas. El comparador anterior omitía siempre la última.
+        if stats["totalPages"] is not None and page >= int(stats["totalPages"]):
             stats["stopReason"] = "last_page"
             break
         if page + 1 < start_page + max_pages:
