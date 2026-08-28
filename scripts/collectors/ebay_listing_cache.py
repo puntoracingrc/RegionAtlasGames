@@ -12,7 +12,7 @@ from collectors.common import load_json, now_iso, save_json
 from collectors.storage_paths import ingest_dir
 
 LISTING_CACHE_ROOT = ingest_dir() / "cache" / "ebay-listings"
-EBAY_LISTING_CACHE_VERSION = 2
+EBAY_LISTING_CACHE_VERSION = 3
 
 
 def _optional_money(value: Any) -> float | None:

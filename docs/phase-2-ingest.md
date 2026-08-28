@@ -74,20 +74,21 @@ chmod +x scripts/run_ebay_ingest.sh
 
 ### Comportamiento
 
-- Búsqueda: `{título} {plataforma} {referencia?} {PAL español|PAL}` según región catálogo.
-- Si la ficha tiene **referencia producto** (`game-details.json`), se añade a la query eBay.
-- Anuncios con código de otro juego/edición se descartan; coincidencia de SKU → `sku_regional`.
-- Filtro ubicación: España (`LocatedIn=ES`) vía Finding API.
-- Región en ingest: inferida del **título** (`cover_spain`, `listing_title_region`, etc.) + `aiConfidence` 0.86–0.88.
-- Descarta títulos con NTSC/USA/JAPón cuando el catálogo es PAL ES/EU.
-- Caché opcional: `data/price-ingest/cache/ebay/{plataforma}/{catalogId}.json` con `--use-cache`.
+- Búsqueda por título limpio; plataforma, región y referencias se validan después de recibir los resultados.
+- Browse API usa siempre `EBAY_ES`, entrega a España y una política de ubicación del artículo acorde con la región buscada.
+- Una referencia exacta de otra variante o una carátula confirmada puede reasignar el anuncio a la ficha regional correcta del mismo juego.
+- El texto regional sin referencia exige visión de portada antes de publicar en otra variante.
+- La ubicación del vendedor es solo una pista y nunca verifica la región del juego.
+- Si falta la variante, hay ambigüedad o las pruebas se contradicen, la fila va a `regionalCandidates` y a la cola de `/admin/precios`; no entra en medias ni actualiza catálogo.
+- El precio del artículo, el transporte y el total estimado para España permanecen separados.
+- Caché por juego y por anuncio bajo `data/price-ingest/cache/`; el cambio de política invalida decisiones antiguas.
 - Informe: `data/price-ingest/reports/ebay-{plataforma}-{fecha}.json`.
 
 ### Limitaciones
 
 - **Vendidos** requieren Finding API (`EBAY_APP_ID`). Browse no expone sold.
 - eBay puede bloquear scraping HTML; no usamos scrape — solo API oficial.
-- La región no está verificada por foto hasta Fase 2b (IA visión).
+- Sin referencia regional exacta o visión concluyente, una reasignación queda pendiente de revisión.
 
 ## Arquitectura Fase 2 (resto)
 

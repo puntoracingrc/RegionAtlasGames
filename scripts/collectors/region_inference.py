@@ -81,6 +81,26 @@ def detect_listing_region(title: str) -> str | None:
     return None
 
 
+def detect_listing_regions(title: str) -> set[str]:
+    """Todas las regiones explícitas; permite detectar anuncios contradictorios."""
+    detected: set[str] = set()
+    checks = (
+        (LISTING_USA_RE, "USA"),
+        (LISTING_PAL_ES_RE, "PAL España"),
+        (LISTING_UK_RE, "PAL UK/ENG"),
+        (LISTING_GERMANY_RE, "PAL Alemania"),
+        (LISTING_AUSTRALIA_RE, "Australia"),
+        (LISTING_PAL_EU_RE, "PAL Europa"),
+        (LISTING_JAPAN_RE, "Japón"),
+    )
+    for pattern, region in checks:
+        if pattern.search(title):
+            detected.add(region)
+    if LISTING_PAL_GENERIC_RE.search(title) and not detected:
+        detected.add("PAL Europa")
+    return detected
+
+
 def regions_match(catalog_region: str, listing_region: str) -> bool:
     c = normalize_region(catalog_region)
     l = normalize_region(listing_region)

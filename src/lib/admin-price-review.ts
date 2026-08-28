@@ -40,6 +40,10 @@ export type PriceReviewItem = {
     reviewNotes?: string[];
     conditionRaw?: string | null;
     coverVision?: Record<string, unknown> | null;
+    searchedCatalogId?: string | null;
+    originCountry?: string | null;
+    originRegionHint?: string | null;
+    routingReason?: string | null;
   };
   jobId?: string | null;
   collectedAt?: string | null;

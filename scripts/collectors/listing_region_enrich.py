@@ -39,6 +39,8 @@ def region_needs_cover_vision(
     """True solo si faltan pruebas de región y la visión podría resolverlo."""
     if not ok_ref and not force_weak_evidence:
         return False
+    if force_weak_evidence and "sku_regional" not in evidence:
+        return True
     if os.environ.get("REGION_VISION_DISABLED", "").strip():
         return False
     if not region_cover_vision_available():
@@ -46,8 +48,6 @@ def region_needs_cover_vision(
     rules_ok, _ = check_listing_evidence_meets_rules(
         platform_slug, catalog_region, evidence, ai_conf
     )
-    if force_weak_evidence and "seller_states_region" in evidence and "sku_regional" not in evidence:
-        return True
     return not (rules_ok and regions_match(catalog_region, listing_region))
 
 

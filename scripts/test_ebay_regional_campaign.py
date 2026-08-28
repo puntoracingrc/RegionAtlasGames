@@ -13,6 +13,7 @@ from run_ebay_regional_campaign import (
     record_result,
     select_batch,
     select_global_batch,
+    sync_catalog_ids,
     validate_runtime_environment,
 )
 
@@ -78,7 +79,17 @@ def main() -> None:
         failed=[],
         listings_added=3,
         retry_limit=3,
+        regional_reroutes=1,
+        regional_reviews=2,
     )
+    assert ps4["lastRun"]["regionalReroutes"] == 1
+    assert ps4["lastRun"]["regionalReviews"] == 2
+    assert "1 aprovechados en otra región" in ps4["log"][-1]["message"]
+    assert sync_catalog_ids(["es-missing", "es-priced"], ["jp", "es-missing"]) == [
+        "es-missing",
+        "es-priced",
+        "jp",
+    ]
     ps4 = reconcile_state(ps4, catalog, "ps4", "PlayStation 4")
     region, ids = select_batch(ps4, catalog, 2)
     assert region and region["key"] == "pal_uk"
