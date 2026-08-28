@@ -25,6 +25,9 @@ test("normalizes trusted GAME release candidates without exposing price fields",
         year: 2026,
         sourceSku: "123456",
         productUrl: "https://www.game.es/videojuegos/accion/playstation-5/juego/123456",
+        availabilityModes: ["new", "preowned"],
+        preownedSourceSku: "654321",
+        preownedProductUrl: "https://www.game.es/videojuegos/accion/playstation-5/juego-seminuevo/654321",
         imageUrl: "https://media.game.es/COVERV2/3D_L/123/123456.png",
         publisher: "Estudio",
         genres: ["Acción"],
@@ -41,6 +44,8 @@ test("normalizes trusted GAME release candidates without exposing price fields",
   assert.equal(result.candidates.length, 1);
   assert.equal(result.candidates[0].title, "Juego de prueba");
   assert.equal(result.candidates[0].pegi, 12);
+  assert.deepEqual(result.candidates[0].availabilityModes, ["new", "preowned"]);
+  assert.equal(result.candidates[0].preownedSourceSku, "654321");
   assert.equal("priceEur" in result.candidates[0], false);
 });
 

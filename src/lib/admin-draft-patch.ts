@@ -41,6 +41,13 @@ export function draftFromCatalogGame(
             productUrl: game.gameEsProductUrl,
             imageUrl: game.gameEsImageUrl ?? null,
             fetchedAt: details?.fetchedAt ?? new Date().toISOString(),
+            preowned: game.gameEsPreownedSku && game.gameEsPreownedProductUrl
+              ? {
+                  sku: game.gameEsPreownedSku,
+                  productUrl: game.gameEsPreownedProductUrl,
+                  fetchedAt: details?.fetchedAt ?? new Date().toISOString(),
+                }
+              : null,
           }
         : null,
     source: "manual",

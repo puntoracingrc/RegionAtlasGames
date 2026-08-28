@@ -15,6 +15,9 @@ def candidate(title: str, sku: str, *, status: str = "new") -> dict:
         "year": 2026,
         "sourceSku": sku,
         "productUrl": f"https://www.game.es/videojuegos/accion/playstation-5/{sku}/{sku}",
+        "availabilityModes": ["new", "preowned"],
+        "preownedSourceSku": f"9{sku}",
+        "preownedProductUrl": f"https://www.game.es/videojuegos/accion/playstation-5/{sku}-seminuevo/9{sku}",
         "imageUrl": f"https://media.game.es/COVERV2/3D_L/{sku[:3]}/{sku}.png",
         "publisher": "Test Studio",
         "genres": ["ACCION", "SIMULADOR", "DEPORTES"],
@@ -79,6 +82,8 @@ def test_import_is_strict_and_idempotent() -> None:
     assert catalog[0]["hasEsPrice"] is False
     assert catalog[0]["regionVerified"] is False
     assert catalog[0]["gameEsSku"] == "123456"
+    assert catalog[0]["gameEsPreownedSku"] == "9123456"
+    assert catalog[0]["gameEsPreownedProductUrl"].endswith("/9123456")
     assert details["ps5-juego-publicado"]["pegi"] == 12
     assert [genre["slug"] for genre in details["ps5-juego-publicado"]["genres"]] == [
         "action",
@@ -86,6 +91,7 @@ def test_import_is_strict_and_idempotent() -> None:
         "sports",
     ]
     assert details["ps5-juego-publicado"]["sources"]["gameEs"]["sku"] == "123456"
+    assert details["ps5-juego-publicado"]["sources"]["gameEs"]["preowned"]["sku"] == "9123456"
     assert platforms[0]["active"] is True
     assert platforms[0]["status"] == "open"
     assert collection[0]["catalogId"] == "ps5-juego-publicado"

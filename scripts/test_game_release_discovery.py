@@ -77,6 +77,29 @@ def test_release_filters() -> None:
     assert accessory is None and reason == "not_a_game"
 
 
+def test_preowned_source_is_verified_without_prices() -> None:
+    original_fetch_page = discovery.fetch_game_product_page
+    new_url = "https://www.game.es/videojuegos/accion/nintendo-switch-2/hades-ii/251055"
+    used_url = "https://www.game.es/videojuegos/accion/nintendo-switch-2/hades-ii-seminuevo/256841"
+
+    def fake_fetch(url: str) -> str:
+        if url == new_url:
+            return f'<html><body><a href="{used_url}">Seminuevo</a></body></html>'
+        if url == used_url:
+            return "<html><body><h1>Hades II</h1><p>SEMINUEVO</p><button>Añadir a la cesta</button></body></html>"
+        raise AssertionError(url)
+
+    discovery.fetch_game_product_page = fake_fetch
+    try:
+        source, error = discovery.discover_preowned_source(new_url, "switch2")
+    finally:
+        discovery.fetch_game_product_page = original_fetch_page
+
+    assert error is None
+    assert source == {"sourceSku": "256841", "productUrl": used_url}
+    assert not any("price" in key.lower() for key in source)
+
+
 def test_known_streak_and_no_prices() -> None:
     original_catalog = discovery.platform_catalog_games
     original_fetch = discovery.fetch_search_page
@@ -190,6 +213,7 @@ def test_game_sku_remains_identity_when_title_changes() -> None:
 
 def main() -> None:
     test_release_filters()
+    test_preowned_source_is_verified_without_prices()
     test_known_streak_and_no_prices()
     test_game_price_collector_reads_last_page()
     test_game_sku_remains_identity_when_title_changes()

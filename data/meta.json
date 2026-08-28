@@ -3,8 +3,8 @@
   "source": "/Users/macbookpro14/Downloads/CATALOGO_COMPLETO_PAL_ESPAÑA.xlsx",
   "catalogScope": "retro-pal-es-closed",
   "platformCount": 22,
-  "catalogListed": 32092,
-  "catalogEstimatedTotal": 30636,
+  "catalogListed": 32168,
+  "catalogEstimatedTotal": 30712,
   "listedByPlatform": {
     "3ds": 483,
     "dreamcast": 950,
@@ -28,6 +28,7 @@
     "saturn": 1597,
     "sega32x": 82,
     "snes": 2761,
+    "switch2": 76,
     "wii": 1294
   },
   "collection": {
@@ -41,7 +42,7 @@
     "totalBuyValue": 19199.33
   },
   "catalogExcluded": 4317,
-  "catalogTotal": 36409,
+  "catalogTotal": 36485,
   "excludedByPlatform": {
     "3ds": 136,
     "ds": 52,
@@ -69,14 +70,14 @@
   },
   "lastCuratedAt": "2026-06-12T17:06:29",
   "lastMuseumSeedAt": "2026-06-12T17:49:36",
-  "coversListed": 31577,
+  "coversListed": 31653,
   "coversListedPct": 98.4,
   "lastCoversSeedAt": "2026-06-15T09:23:43",
-  "gamesWithDetails": 30152,
-  "indexCompanies": 4242,
+  "gamesWithDetails": 30228,
+  "indexCompanies": 4245,
   "indexGenres": 121,
   "lastDetailsSeedAt": "2026-06-12T19:59:24",
-  "coversLocal": 31577,
+  "coversLocal": 31653,
   "lastEsPriceSyncAt": "2026-08-28T02:22:21Z",
   "lastEsPriceSyncPlatform": "ps4",
   "lastDetailsEnrichAt": "2026-06-19T11:15:04",
@@ -84,5 +85,5 @@
   "catalogWithCover": 25774,
   "catalogWithLocalCover": 25774,
   "lastSeedAt": "2026-06-14T23:46:00",
-  "lastGameEsCatalogImportAt": "2026-08-28T10:08:28Z"
+  "lastGameEsCatalogImportAt": "2026-08-28T15:48:25Z"
 }

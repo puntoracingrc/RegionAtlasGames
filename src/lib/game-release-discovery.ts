@@ -1,5 +1,6 @@
 export type GameReleaseDiscoveryPlatform = "ps5" | "switch2";
 export type GameReleaseCatalogStatus = "new" | "possible_duplicate";
+export type GameReleaseAvailabilityMode = "new" | "preowned";
 
 export type GameReleaseDiscoveryMatch = {
   catalogId: string;
@@ -16,6 +17,9 @@ export type GameReleaseDiscoveryCandidate = {
   year: number;
   sourceSku: string;
   productUrl: string;
+  availabilityModes: GameReleaseAvailabilityMode[];
+  preownedSourceSku: string | null;
+  preownedProductUrl: string | null;
   imageUrl: string | null;
   publisher: string | null;
   genres: string[];
@@ -36,6 +40,12 @@ export type GameReleaseDiscoveryResult = {
   stats: {
     pages: number;
     rawProducts: number;
+    newRawProducts: number;
+    preownedRawProducts: number;
+    preownedPages: number;
+    preownedLinked: number;
+    preownedOnlyCandidates: number;
+    preownedFailures: number;
     totalResults: number | null;
     totalPages: number | null;
     catalogGames: number;
@@ -192,10 +202,20 @@ function normalizeCandidate(
   const releaseDate = cleanString(raw.releaseDate, 10);
   const platformSlug = raw.platformSlug === "switch2" ? "switch2" : raw.platformSlug === "ps5" ? "ps5" : null;
   const productUrl = trustedUrl(raw.productUrl, new Set(["www.game.es", "game.es"]));
+  const preownedSourceSku = cleanString(raw.preownedSourceSku, 80) || null;
+  const preownedProductUrl = trustedUrl(raw.preownedProductUrl, new Set(["www.game.es", "game.es"]));
   const catalogStatus = raw.catalogStatus === "possible_duplicate" ? "possible_duplicate" : raw.catalogStatus === "new" ? "new" : null;
   if (!title || !sourceSku || !/^\d{4}-\d{2}-\d{2}$/.test(releaseDate) || platformSlug !== expectedPlatform || !productUrl || !catalogStatus) {
     return null;
   }
+  if (Boolean(preownedSourceSku) !== Boolean(preownedProductUrl)) return null;
+  const availabilityModes: GameReleaseAvailabilityMode[] = Array.isArray(raw.availabilityModes)
+    ? [...new Set(raw.availabilityModes.filter(
+        (mode): mode is GameReleaseAvailabilityMode => mode === "new" || mode === "preowned",
+      ))]
+    : ["new"];
+  if (preownedSourceSku && !availabilityModes.includes("preowned")) availabilityModes.push("preowned");
+  if (availabilityModes.length === 0) availabilityModes.push(preownedSourceSku ? "preowned" : "new");
   const imageUrl = trustedUrl(raw.imageUrl, new Set(["media.game.es"]));
   const matches = Array.isArray(raw.matches)
     ? raw.matches.map(normalizeMatch).filter((match): match is GameReleaseDiscoveryMatch => Boolean(match)).slice(0, 3)
@@ -208,6 +228,9 @@ function normalizeCandidate(
     year: cleanNumber(raw.year, 1950, 2100),
     sourceSku,
     productUrl,
+    availabilityModes,
+    preownedSourceSku,
+    preownedProductUrl,
     imageUrl,
     publisher: cleanString(raw.publisher, 160) || null,
     genres: Array.isArray(raw.genres)
@@ -245,6 +268,12 @@ export function normalizeGameReleaseDiscoveryResult(value: unknown): GameRelease
     stats: {
       pages: cleanNumber(rawStats.pages, 0, 50),
       rawProducts: cleanNumber(rawStats.rawProducts, 0, 10_000),
+      newRawProducts: cleanNumber(rawStats.newRawProducts ?? rawStats.rawProducts, 0, 10_000),
+      preownedRawProducts: cleanNumber(rawStats.preownedRawProducts, 0, 10_000),
+      preownedPages: cleanNumber(rawStats.preownedPages, 0, 50),
+      preownedLinked: cleanNumber(rawStats.preownedLinked, 0, 10_000),
+      preownedOnlyCandidates: cleanNumber(rawStats.preownedOnlyCandidates, 0, 10_000),
+      preownedFailures: cleanNumber(rawStats.preownedFailures, 0, 10_000),
       totalResults: rawStats.totalResults == null ? null : cleanNumber(rawStats.totalResults, 0, 1_000_000),
       totalPages: rawStats.totalPages == null ? null : cleanNumber(rawStats.totalPages, 0, 10_000),
       catalogGames: cleanNumber(rawStats.catalogGames, 0, 1_000_000),

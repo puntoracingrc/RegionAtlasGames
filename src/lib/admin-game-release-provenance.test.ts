@@ -15,6 +15,11 @@ test("preserves trusted GAME provenance from draft to published catalog data", (
     productUrl: "https://www.game.es/videojuegos/accion/playstation-5/juego/123456",
     imageUrl: "https://media.game.es/COVERV2/3D_L/123/123456.png",
     fetchedAt: "2026-08-28T10:00:00Z",
+    preowned: {
+      sku: "654321",
+      productUrl: "https://www.game.es/videojuegos/accion/playstation-5/juego-seminuevo/654321",
+      fetchedAt: "2026-08-28T10:00:00Z",
+    },
   };
   const draft = draftFromManualInput({
     pcId: -1,
@@ -36,9 +41,11 @@ test("preserves trusted GAME provenance from draft to published catalog data", (
   assert.equal(game.matchConfidence, "GAME_ES_ADMIN");
   assert.equal(game.gameEsSku, "123456");
   assert.equal(game.gameEsProductUrl, gameEsSource.productUrl);
+  assert.equal(game.gameEsPreownedSku, "654321");
   assert.equal(game.regionVerified, false);
   assert.equal(game.hasEsPrice, false);
   assert.equal(details.sources?.gameEs?.sku, "123456");
+  assert.equal(details.sources?.gameEs?.preowned?.sku, "654321");
   assert.equal(details.pegi, 12);
   assert.equal(details.fieldSources?.publisher, "game-es");
   assert.equal(details.fieldSources?.genres, "game-es");

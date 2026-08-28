@@ -2,9 +2,10 @@
 
 ## Alcance
 
-El flujo descubre juegos físicos de PlayStation 5 y Nintendo Switch 2 publicados en GAME España para preparar nuevas fichas de Region Atlas.
+El flujo descubre juegos físicos nuevos y seminuevos de PlayStation 5 y Nintendo Switch 2 publicados en GAME España para preparar nuevas fichas de Region Atlas.
 
 - No captura ni importa precios.
+- Unifica la modalidad nueva y seminueva en una sola ficha de juego y conserva por separado sus SKU y URL de procedencia.
 - El flujo periódico no publica juegos automáticamente.
 - No modifica el catálogo hasta que un administrador crea y revisa un borrador.
 - El extractor masivo manual de precios GAME nuevo/seminuevo sigue siendo un flujo independiente.
@@ -19,10 +20,10 @@ Un producto solo se propone si cumple todos estos criterios:
 - su ruta de GAME es de `videojuegos`, no de accesorios, consolas o merchandising;
 - tiene fecha de lanzamiento conocida y no futura;
 - GAME lo marca disponible;
-- la oferta nueva muestra `Comprar`, no `Reservar` ni `Pre-compra`;
+- la oferta nueva muestra `Comprar`, no `Reservar` ni `Pre-compra`, o existe una oferta seminueva disponible;
 - tiene SKU, URL de producto y portada.
 
-La salida conserva título, plataforma, región propuesta `PAL España`, fecha, SKU, URL, portada, PEGI, editor y géneros disponibles. El contrato de resultado declara `containsPrices: false` y el servidor rechaza resultados antiguos o incompatibles. GAME España es evidencia comercial para proponer la región, no una prueba definitiva de la edición física; las fichas quedan con `regionVerified: false` hasta una comprobación específica.
+La salida conserva título, plataforma, región propuesta `PAL España`, fecha, SKU, URL, portada, PEGI, editor, géneros y modalidades disponibles. Cuando existe seminuevo conserva además su SKU y URL, nunca el precio. El contrato de resultado declara `containsPrices: false` y el servidor rechaza resultados antiguos o incompatibles. GAME España es evidencia comercial para proponer la región, no una prueba definitiva de la edición física; las fichas quedan con `regionVerified: false` hasta una comprobación específica.
 
 ## Duplicados
 
@@ -51,7 +52,7 @@ python3 scripts/import_game_release_catalog.py \
   --covers-dir /ruta/temporal/portadas \
   --require-covers \
   --approve-source-batch \
-  --report data/catalog-seed-reports/game-es-ps5-AAAA-MM-DD.json
+  --report data/catalog-seed-reports/game-es-PLATAFORMA-AAAA-MM-DD.json
 ```
 
 Primero debe ejecutarse con `--dry-run`. Después de la importación se suben y verifican todas las portadas propias, se reconstruyen los índices y el cambio completo pasa por rama, PR, checks y verificación de producción.
@@ -61,7 +62,7 @@ Antes de activar la primera búsqueda, el equipo que ejecuta `scripts/local_game
 ## Límites
 
 - 80 candidatos por ejecución.
-- 4 páginas de GAME por ejecución.
+- 4 páginas de GAME por modalidad y hasta 80 fichas de producto para localizar su enlace seminuevo.
 - 3 juegos conocidos consecutivos para detener la búsqueda.
 - 365 días de resultados recientes consultados por el runner para evitar repetir candidatos.
 - Un único job activo por plataforma.

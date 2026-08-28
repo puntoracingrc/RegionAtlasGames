@@ -170,6 +170,10 @@ def validate_payload(payload: dict[str, Any]) -> tuple[str, date, list[dict[str,
         release_date = parse_iso_date(raw.get("releaseDate"))
         product_url = trusted_https_url(raw.get("productUrl"), GAME_PRODUCT_HOSTS)
         image_url = trusted_https_url(raw.get("imageUrl"), GAME_IMAGE_HOSTS)
+        preowned_sku = str(raw.get("preownedSourceSku") or "").strip()
+        preowned_url = trusted_https_url(raw.get("preownedProductUrl"), GAME_PRODUCT_HOSTS)
+        if bool(preowned_sku) != bool(preowned_url):
+            continue
         if (
             not title
             or not sku
@@ -194,6 +198,16 @@ def validate_payload(payload: dict[str, Any]) -> tuple[str, date, list[dict[str,
                 "sourceSku": sku,
                 "productUrl": product_url,
                 "imageUrl": image_url,
+                "availabilityModes": [
+                    mode
+                    for mode in ("new", "preowned")
+                    if mode in (
+                        set(raw.get("availabilityModes") or ["new"])
+                        | ({"preowned"} if preowned_sku else set())
+                    )
+                ],
+                "preownedSourceSku": preowned_sku or None,
+                "preownedProductUrl": preowned_url,
                 "releaseDate": release_date.isoformat(),
                 "year": release_date.year,
                 "catalogId": catalog_id,
@@ -275,6 +289,8 @@ def catalog_entry(candidate: dict[str, Any], collected_at: str) -> dict[str, Any
         "gameEsSku": candidate["sourceSku"],
         "gameEsProductUrl": candidate["productUrl"],
         "gameEsImageUrl": candidate["imageUrl"],
+        "gameEsPreownedSku": candidate.get("preownedSourceSku"),
+        "gameEsPreownedProductUrl": candidate.get("preownedProductUrl"),
     }
 
 
@@ -299,7 +315,7 @@ def details_entry(candidate: dict[str, Any], collected_at: str) -> dict[str, Any
         "releaseDate": candidate["releaseDate"],
         "reference": None,
         "players": None,
-        "support": "Disco Blu-ray",
+        "support": "Disco Blu-ray" if candidate["platformSlug"] == "ps5" else "Cartucho",
         "developer": None,
         "publisher": publisher,
         "genres": genres,
@@ -316,6 +332,17 @@ def details_entry(candidate: dict[str, Any], collected_at: str) -> dict[str, Any
                 "productUrl": candidate["productUrl"],
                 "imageUrl": candidate["imageUrl"],
                 "fetchedAt": collected_at,
+                **(
+                    {
+                        "preowned": {
+                            "sku": candidate["preownedSourceSku"],
+                            "productUrl": candidate["preownedProductUrl"],
+                            "fetchedAt": collected_at,
+                        }
+                    }
+                    if candidate.get("preownedSourceSku") and candidate.get("preownedProductUrl")
+                    else {}
+                ),
             }
         },
         "fieldSources": field_sources,
@@ -575,11 +602,12 @@ def apply_import(
     platform_slug, as_of, candidates = validate_payload(payload)
     collected_at = str(payload.get("collectedAt") or f"{as_of.isoformat()}T00:00:00Z")
     by_id = {str(game.get("id")): game for game in catalog if game.get("id")}
-    by_sku = {
-        str(game.get("gameEsSku")): game
-        for game in catalog
-        if str(game.get("gameEsSku") or "").strip()
-    }
+    by_sku: dict[str, dict[str, Any]] = {}
+    for game in catalog:
+        for field in ("gameEsSku", "gameEsPreownedSku"):
+            sku = str(game.get(field) or "").strip()
+            if sku:
+                by_sku[sku] = game
     added = 0
     updated = 0
     unchanged = 0
@@ -594,6 +622,8 @@ def apply_import(
             continue
         entry = catalog_entry(candidate, collected_at)
         source_match = by_sku.get(candidate["sourceSku"])
+        if source_match is None and candidate.get("preownedSourceSku"):
+            source_match = by_sku.get(candidate["preownedSourceSku"])
         id_match = by_id.get(catalog_id)
         if source_match is not None and id_match is not None and source_match is not id_match:
             collisions.append(catalog_id)
@@ -612,6 +642,8 @@ def apply_import(
                 "gameEsSku",
                 "gameEsProductUrl",
                 "gameEsImageUrl",
+                "gameEsPreownedSku",
+                "gameEsPreownedProductUrl",
             ):
                 existing[key] = entry[key]
             existing["regionEvidence"] = sorted(
@@ -623,10 +655,12 @@ def apply_import(
         else:
             catalog.append(entry)
             by_id[catalog_id] = entry
-            by_sku[candidate["sourceSku"]] = entry
             added += 1
             target = entry
             before = None
+        by_sku[candidate["sourceSku"]] = target
+        if candidate.get("preownedSourceSku"):
+            by_sku[candidate["preownedSourceSku"]] = target
         detail_id = str(target["id"])
         imported_ids.add(detail_id)
         merged_details, details_changed = merge_details_entry(
@@ -754,7 +788,7 @@ def main() -> None:
     if args.report:
         save_json(args.report, report)
     print(json.dumps({"ok": True, **report}, ensure_ascii=False, indent=2))
-    print(f"PS5 activo: {platform_slug == 'ps5'} · precios GAME importados: 0")
+    print(f"Plataforma {platform_slug} activa · precios GAME importados: 0")
 
 
 if __name__ == "__main__":

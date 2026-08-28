@@ -12132,7 +12132,22 @@
       "ps5-yakuza-0-director-s-cut",
       "ps5-yakuza-kiwami-3-dark-ties",
       "ps5-zapling-bygone-deluxe-edition",
-      "ps5-ziggurat-ii"
+      "ps5-ziggurat-ii",
+      "switch2-destroy-all-humans",
+      "switch2-dynasty-warriors-origins",
+      "switch2-formation-z-deluxe-edition",
+      "switch2-fortnite-lote-de-fuego-oscuro-y-hielo-ciab",
+      "switch2-hades-ii",
+      "switch2-metal-gear-solid-master-collection-vol-2",
+      "switch2-metroid-prime-4-beyond",
+      "switch2-pragmata",
+      "switch2-star-fox",
+      "switch2-starship-troopers-ultimate-bug-war",
+      "switch2-super-meat-boy-3d-special-edition",
+      "switch2-truxton-extreme",
+      "switch2-yakuza-kiwami-1",
+      "switch2-yakuza-kiwami-2",
+      "switch2-yakuza-kiwami-3-dark-ties"
     ],
     "byPlatform": {
       "3ds": 105,
@@ -12157,9 +12172,10 @@
       "sega32x": 4,
       "snes": 692,
       "wii": 1002,
-      "ps5": 93
+      "ps5": 93,
+      "switch2": 15
     },
-    "gameCount": 12129
+    "gameCount": 12144
   },
   "adventure": {
     "name": "Aventura",
@@ -22143,7 +22159,33 @@
       "ps5-uncharted-coleccion-legado-de-los-ladrones",
       "ps5-wanderer-the-fragments-of-fate",
       "ps5-welcome-to-paradize",
-      "ps5-yonder-the-cloud-catcher-chronicles-signature-edition"
+      "ps5-yonder-the-cloud-catcher-chronicles-signature-edition",
+      "switch2-animal-crossing-new-horizons-nsw2-edition",
+      "switch2-bluey-s-quest-for-the-gold-pen",
+      "switch2-bubsy-4d-pawsome-edition",
+      "switch2-cronos-the-new-dawn",
+      "switch2-digimon-story-time-stranger",
+      "switch2-donkey-kong-bananza",
+      "switch2-elden-ring-tarnished-edition",
+      "switch2-goodnight-universe",
+      "switch2-kirby-y-la-tierra-olvidada-nsw2-edition",
+      "switch2-little-nightmares-enhanced-edition-complete-edition",
+      "switch2-little-nightmares-ii-enhanced-edition",
+      "switch2-little-nightmares-iii",
+      "switch2-little-nightmares-iii-edicion-coleccionista-mirror-edition",
+      "switch2-no-sleep-for-kaname-date-ai-the-somnium-files-aiba-edition",
+      "switch2-outbound",
+      "switch2-outbound-collector-s-edition",
+      "switch2-pokemon-pokopia",
+      "switch2-split-fiction-ciab",
+      "switch2-super-mario-bros-wonder-nintendo-switch-2-edition",
+      "switch2-survival-kids",
+      "switch2-the-disney-afternoon-collection",
+      "switch2-the-legend-of-zelda-tears-of-the-kingdom-nsw2-edition",
+      "switch2-the-rogue-prince-of-persia",
+      "switch2-the-rogue-prince-of-persia-immortal-edition",
+      "switch2-yoshi-and-the-mysterious-book",
+      "switch2-zelda-breath-of-the-wild-nsw2-edition"
     ],
     "byPlatform": {
       "3ds": 105,
@@ -22168,9 +22210,10 @@
       "sega32x": 4,
       "snes": 689,
       "wii": 1002,
-      "ps5": 76
+      "ps5": 76,
+      "switch2": 26
     },
-    "gameCount": 9978
+    "gameCount": 10004
   },
   "sports": {
     "name": "Deportes",
@@ -24406,7 +24449,10 @@
       "ps5-session-skate-sim",
       "ps5-tennis-world-tour-2",
       "ps5-topspin-2k25",
-      "ps5-tour-de-france-2026"
+      "ps5-tour-de-france-2026",
+      "switch2-ea-sports-fc-26",
+      "switch2-mario-tennis-fever",
+      "switch2-wwe-2k26"
     ],
     "byPlatform": {
       "3ds": 14,
@@ -24431,9 +24477,10 @@
       "sega32x": 2,
       "snes": 65,
       "wii": 28,
-      "ps5": 8
+      "ps5": 8,
+      "switch2": 3
     },
-    "gameCount": 2230
+    "gameCount": 2233
   },
   "platformer": {
     "name": "Plataformas",
@@ -26492,7 +26539,8 @@
       "ps5-rugrats-adventures-in-gameland",
       "ps5-sackboy-a-big-adventure",
       "ps5-shadow-labyrinth",
-      "ps5-the-grinch-christmas-adventures-complete-edition"
+      "ps5-the-grinch-christmas-adventures-complete-edition",
+      "switch2-super-mario-bros-wonder-nintendo-switch-2-edition"
     ],
     "byPlatform": {
       "3ds": 31,
@@ -26516,9 +26564,10 @@
       "sega32x": 3,
       "snes": 29,
       "wii": 16,
-      "ps5": 11
+      "ps5": 11,
+      "switch2": 1
     },
-    "gameCount": 2053
+    "gameCount": 2054
   },
   "shooter": {
     "name": "Shooter",
@@ -28521,7 +28570,9 @@
       "ps5-warplanes-double-pack",
       "ps5-wwi-tannenberg-eastern-front",
       "ps5-wwi-verdun-western-front",
-      "ps5-xeno-crisis"
+      "ps5-xeno-crisis",
+      "switch2-high-on-life-2",
+      "switch2-splatoon-raiders"
     ],
     "byPlatform": {
       "3ds": 6,
@@ -28546,9 +28597,10 @@
       "sega32x": 18,
       "snes": 23,
       "wii": 20,
-      "ps5": 9
+      "ps5": 9,
+      "switch2": 2
     },
-    "gameCount": 1997
+    "gameCount": 1999
   },
   "rpg": {
     "name": "RPG",
@@ -30593,7 +30645,22 @@
       "ps5-wildermyth",
       "ps5-wings-of-endless-deluxe-edition",
       "ps5-wizman-s-world-retry",
-      "ps5-ys-memoire-the-oath-in-felghana"
+      "ps5-ys-memoire-the-oath-in-felghana",
+      "switch2-bravely-default-flying-fairy",
+      "switch2-disgaea-mayhem-deluxe-edition",
+      "switch2-dragon-quest-vii-reimagined",
+      "switch2-fallout-4-anniversary-edition-ciab",
+      "switch2-final-fantasy-vii-remake-intergrade",
+      "switch2-leyendas-pokemon-z-a-nsw2-edition",
+      "switch2-monster-hunter-stories-3-twisted-reflection",
+      "switch2-mouse-p-i-for-hire",
+      "switch2-nicktoons-the-dice-of-destiny",
+      "switch2-octopath-traveler-0",
+      "switch2-raidou-remastered-the-mystery-of-the-soulless-army",
+      "switch2-the-elder-scrolls-v-skyrim-anniversary-edition-ciab",
+      "switch2-the-legend-of-heroes-trails-beyond-the-horizon-deluxe-edition",
+      "switch2-wild-hearts-s",
+      "switch2-xenoblade-chronicles-x-definitive-edition-nsw2-edition"
     ],
     "byPlatform": {
       "3ds": 69,
@@ -30616,9 +30683,10 @@
       "saturn": 116,
       "snes": 44,
       "wii": 10,
-      "ps5": 57
+      "ps5": 57,
+      "switch2": 15
     },
-    "gameCount": 2039
+    "gameCount": 2054
   },
   "racing": {
     "name": "Carreras",
@@ -32457,7 +32525,11 @@
       "ps5-screamer-echo-edition",
       "ps5-tt-isle-of-man-ride-on-the-edge-3",
       "ps5-wrc-10",
-      "ps5-wrc-generations"
+      "ps5-wrc-generations",
+      "switch2-gear-club-unlimited-3",
+      "switch2-kirby-air-riders",
+      "switch2-mario-kart-world",
+      "switch2-snowrunner"
     ],
     "byPlatform": {
       "3ds": 18,
@@ -32481,9 +32553,10 @@
       "sega32x": 3,
       "snes": 76,
       "wii": 15,
-      "ps5": 23
+      "ps5": 23,
+      "switch2": 4
     },
-    "gameCount": 1833
+    "gameCount": 1837
   },
   "fighting": {
     "name": "Lucha",
@@ -33882,7 +33955,12 @@
       "ps5-mortal-kombat-legacy-kollection-deluxe-edition",
       "ps5-tekken-8",
       "ps5-them-s-fightin-herds-deluxe-edition",
-      "ps5-two-strikes"
+      "ps5-two-strikes",
+      "switch2-dragon-ball-sparking-zero",
+      "switch2-mortal-kombat-legacy-kollection",
+      "switch2-mortal-kombat-legacy-kollection-deluxe-edition",
+      "switch2-street-fighter-6-year-1-2-fighters-edition",
+      "switch2-virtua-fighter-5-r-e-v-o-world-stage-30th-anniversary-edition"
     ],
     "byPlatform": {
       "3ds": 9,
@@ -33907,9 +33985,10 @@
       "sega32x": 5,
       "snes": 83,
       "wii": 6,
-      "ps5": 15
+      "ps5": 15,
+      "switch2": 5
     },
-    "gameCount": 1393
+    "gameCount": 1398
   },
   "puzzle": {
     "name": "Puzzle",
@@ -34899,7 +34978,8 @@
       "ds-jewels-of-the-ages",
       "ps5-monopoly-star-wars",
       "ps5-monument-valley-the-trilogy",
-      "ps5-puyo-puyo-tetris-2"
+      "ps5-puyo-puyo-tetris-2",
+      "switch2-monopoly-star-wars"
     ],
     "byPlatform": {
       "3ds": 48,
@@ -34923,9 +35003,10 @@
       "saturn": 82,
       "snes": 45,
       "wii": 10,
-      "ps5": 3
+      "ps5": 3,
+      "switch2": 1
     },
-    "gameCount": 984
+    "gameCount": 985
   },
   "other": {
     "name": "Varios",
@@ -36768,7 +36849,8 @@
       "ps5-train-sim-world-6",
       "ps5-transport-fever-2",
       "ps5-two-point-campus-enrolment-edition",
-      "ps5-zombie-cure-lab"
+      "ps5-zombie-cure-lab",
+      "switch2-momento"
     ],
     "byPlatform": {
       "3ds": 45,
@@ -36791,9 +36873,10 @@
       "sega32x": 6,
       "snes": 37,
       "wii": 14,
-      "ps5": 31
+      "ps5": 31,
+      "switch2": 1
     },
-    "gameCount": 868
+    "gameCount": 869
   },
   "beat-em-up": {
     "name": "Beat 'em up",
@@ -40615,7 +40698,9 @@
       "ps5-resident-evil-village-gold-edition",
       "ps5-silent-hill-2",
       "ps5-the-mound-omen-of-cthulhu-deluxe-edition",
-      "ps5-the-nightmare-box-vol-2"
+      "ps5-the-nightmare-box-vol-2",
+      "switch2-reanimal-deluxe-edition",
+      "switch2-resident-evil-requiem-lenticular-edition"
     ],
     "byPlatform": {
       "3ds": 1,
@@ -40632,9 +40717,10 @@
       "saturn": 18,
       "snes": 1,
       "wii": 4,
-      "ps5": 23
+      "ps5": 23,
+      "switch2": 2
     },
-    "gameCount": 335
+    "gameCount": 337
   },
   "baseball": {
     "name": "Béisbol",
@@ -41491,7 +41577,8 @@
       "ps5-taxi-chaos-2",
       "ps5-terminator-2d-no-fate-standard-edition",
       "ps5-toaplan-arcade-collection-vol-1",
-      "ps5-toaplan-arcade-collection-vol-2"
+      "ps5-toaplan-arcade-collection-vol-2",
+      "switch2-marvel-cosmic-invasion"
     ],
     "byPlatform": {
       "3ds": 7,
@@ -41512,9 +41599,10 @@
       "sega32x": 5,
       "snes": 9,
       "wii": 5,
-      "ps5": 19
+      "ps5": 19,
+      "switch2": 1
     },
-    "gameCount": 271
+    "gameCount": 272
   },
   "party": {
     "name": "Party",
@@ -44688,13 +44776,15 @@
       "megadrive-marble-madness",
       "megadrive-japon-columns",
       "megadrive-usa-marble-madness",
-      "ps5-asterix-and-obelix-heroes"
+      "ps5-asterix-and-obelix-heroes",
+      "switch2-super-mario-party-jamboree-nsw2-edition"
     ],
     "byPlatform": {
       "megadrive": 7,
-      "ps5": 1
+      "ps5": 1,
+      "switch2": 1
     },
-    "gameCount": 8
+    "gameCount": 9
   },
   "hockey": {
     "name": "Hockey",

@@ -160,6 +160,8 @@ export function buildCatalogEntry(draft: AdminGameDraft, staging: CatalogStaging
     gameEsSku: draft.gameEsSource?.sku ?? null,
     gameEsProductUrl: draft.gameEsSource?.productUrl ?? null,
     gameEsImageUrl: draft.gameEsSource?.imageUrl ?? null,
+    gameEsPreownedSku: draft.gameEsSource?.preowned?.sku ?? null,
+    gameEsPreownedProductUrl: draft.gameEsSource?.preowned?.productUrl ?? null,
   };
 }
 
@@ -246,6 +248,8 @@ export function mergeCatalogFromDraft(existing: CatalogGame, draft: AdminGameDra
           gameEsSku: draft.gameEsSource.sku,
           gameEsProductUrl: draft.gameEsSource.productUrl,
           gameEsImageUrl: draft.gameEsSource.imageUrl,
+          gameEsPreownedSku: draft.gameEsSource.preowned?.sku ?? null,
+          gameEsPreownedProductUrl: draft.gameEsSource.preowned?.productUrl ?? null,
         }
       : {}),
   };
