@@ -1,4 +1,4 @@
-export type GameReleaseDiscoveryPlatform = "ps5" | "switch2";
+export type GameReleaseDiscoveryPlatform = "ps4" | "ps5" | "switch2";
 export type GameReleaseCatalogStatus = "new" | "possible_duplicate";
 export type GameReleaseAvailabilityMode = "new" | "preowned";
 
@@ -200,7 +200,13 @@ function normalizeCandidate(
   const title = cleanString(raw.title, 240);
   const sourceSku = cleanString(raw.sourceSku, 80);
   const releaseDate = cleanString(raw.releaseDate, 10);
-  const platformSlug = raw.platformSlug === "switch2" ? "switch2" : raw.platformSlug === "ps5" ? "ps5" : null;
+  const platformSlug = raw.platformSlug === "switch2"
+    ? "switch2"
+    : raw.platformSlug === "ps5"
+      ? "ps5"
+      : raw.platformSlug === "ps4"
+        ? "ps4"
+        : null;
   const productUrl = trustedUrl(raw.productUrl, new Set(["www.game.es", "game.es"]));
   const preownedSourceSku = cleanString(raw.preownedSourceSku, 80) || null;
   const preownedProductUrl = trustedUrl(raw.preownedProductUrl, new Set(["www.game.es", "game.es"]));
@@ -248,7 +254,13 @@ export function normalizeGameReleaseDiscoveryResult(value: unknown): GameRelease
   if (raw.source !== "game-es-release-discovery" || raw.mode !== "released_catalog_candidates" || raw.containsPrices !== false) {
     return null;
   }
-  const platformSlug: GameReleaseDiscoveryPlatform | null = raw.platformSlug === "switch2" ? "switch2" : raw.platformSlug === "ps5" ? "ps5" : null;
+  const platformSlug: GameReleaseDiscoveryPlatform | null = raw.platformSlug === "switch2"
+    ? "switch2"
+    : raw.platformSlug === "ps5"
+      ? "ps5"
+      : raw.platformSlug === "ps4"
+        ? "ps4"
+        : null;
   if (!platformSlug || !Array.isArray(raw.candidates)) return null;
   const candidates = raw.candidates
     .map((candidate) => normalizeCandidate(candidate, platformSlug))

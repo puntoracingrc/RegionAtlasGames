@@ -13687,7 +13687,8 @@
       "ps5-resident-evil-village-gold-edition",
       "switch2-monster-hunter-stories-3-twisted-reflection",
       "switch2-pragmata",
-      "switch2-resident-evil-requiem-lenticular-edition"
+      "switch2-resident-evil-requiem-lenticular-edition",
+      "ps4-street-fighter-6-lenticular-edition"
     ],
     "byPlatform": {
       "3ds": 5,
@@ -13704,7 +13705,7 @@
       "ps1": 38,
       "ps2": 47,
       "ps3": 21,
-      "ps4": 141,
+      "ps4": 142,
       "saturn": 50,
       "snes": 15,
       "wii": 15,
@@ -14606,9 +14607,10 @@
       "ps5-resident-evil-village-gold-edition",
       "switch2-monster-hunter-stories-3-twisted-reflection",
       "switch2-pragmata",
-      "switch2-resident-evil-requiem-lenticular-edition"
+      "switch2-resident-evil-requiem-lenticular-edition",
+      "ps4-street-fighter-6-lenticular-edition"
     ],
-    "gameCount": 592
+    "gameCount": 593
   },
   "snk": {
     "name": "SNK Corporation",
@@ -18843,7 +18845,8 @@
       "ps4-skylanders-trap-team",
       "ps2-return-to-castle-wolfenstein-operation-resurrection",
       "ps2-madagascar",
-      "ps5-crash-team-rumble-deluxe-edition"
+      "ps5-crash-team-rumble-deluxe-edition",
+      "ps4-crash-team-rumble-deluxe-edition"
     ],
     "byPlatform": {
       "3ds": 16,
@@ -18859,7 +18862,7 @@
       "ps1": 15,
       "ps2": 71,
       "ps3": 52,
-      "ps4": 101,
+      "ps4": 102,
       "saturn": 7,
       "snes": 3,
       "wii": 117,
@@ -19373,9 +19376,10 @@
       "ps4-skylanders-trap-team",
       "ps2-return-to-castle-wolfenstein-operation-resurrection",
       "ps2-madagascar",
-      "ps5-crash-team-rumble-deluxe-edition"
+      "ps5-crash-team-rumble-deluxe-edition",
+      "ps4-crash-team-rumble-deluxe-edition"
     ],
-    "gameCount": 485
+    "gameCount": 486
   },
   "square-enix": {
     "name": "Square Enix",
@@ -29754,10 +29758,11 @@
       "ps5-sacred-2-remaster",
       "ps5-townsmen-vr",
       "switch2-destroy-all-humans",
-      "switch2-reanimal-deluxe-edition"
+      "switch2-reanimal-deluxe-edition",
+      "ps4-dcl-drone-championship-league-the-game"
     ],
     "byPlatform": {
-      "ps4": 105,
+      "ps4": 106,
       "ps5": 5,
       "switch2": 2
     },
@@ -29879,9 +29884,10 @@
       "ps5-sacred-2-remaster",
       "ps5-townsmen-vr",
       "switch2-destroy-all-humans",
-      "switch2-reanimal-deluxe-edition"
+      "switch2-reanimal-deluxe-edition",
+      "ps4-dcl-drone-championship-league-the-game"
     ],
-    "gameCount": 112
+    "gameCount": 113
   },
   "beam-software": {
     "name": "Beam Software",
@@ -30726,14 +30732,15 @@
       "ps4-saints-row-the-third-remastered",
       "ps4-usa-f1-2019-legends-edition",
       "ps5-kingdom-come-deliverance-royal-edition",
-      "ps5-metro-exodus-complete-collection"
+      "ps5-metro-exodus-complete-collection",
+      "ps4-king-s-bounty-2-day-one-edition"
     ],
     "byPlatform": {
       "3ds": 4,
       "ds": 7,
       "ps2": 1,
       "ps3": 7,
-      "ps4": 65,
+      "ps4": 66,
       "wii": 15,
       "ps5": 2
     },
@@ -30842,9 +30849,10 @@
       "ps4-saints-row-the-third-remastered",
       "ps4-usa-f1-2019-legends-edition",
       "ps5-kingdom-come-deliverance-royal-edition",
-      "ps5-metro-exodus-complete-collection"
+      "ps5-metro-exodus-complete-collection",
+      "ps4-king-s-bounty-2-day-one-edition"
     ],
-    "gameCount": 101
+    "gameCount": 102
   },
   "tt-games": {
     "name": "TT Games Ltd",
@@ -55297,11 +55305,12 @@
       "ps5-welcome-to-paradize",
       "ps5-wrc-10",
       "ps5-wrc-generations",
-      "switch2-gear-club-unlimited-3"
+      "switch2-gear-club-unlimited-3",
+      "ps4-chef-life"
     ],
     "byPlatform": {
       "ps3": 1,
-      "ps4": 16,
+      "ps4": 17,
       "ps5": 32,
       "switch2": 1
     },
@@ -55356,9 +55365,10 @@
       "ps5-welcome-to-paradize",
       "ps5-wrc-10",
       "ps5-wrc-generations",
-      "switch2-gear-club-unlimited-3"
+      "switch2-gear-club-unlimited-3",
+      "ps4-chef-life"
     ],
-    "gameCount": 50
+    "gameCount": 51
   },
   "nichibutsu": {
     "name": "Nichibutsu",
@@ -56727,10 +56737,11 @@
       "ps5-bluey-s-quest-for-the-gold-pen",
       "ps5-chromagun-2-dye-hard",
       "ps5-slime-rancher-2",
-      "switch2-bluey-s-quest-for-the-gold-pen"
+      "switch2-bluey-s-quest-for-the-gold-pen",
+      "ps4-bluey-s-quest-for-the-gold-pen"
     ],
     "byPlatform": {
-      "ps4": 16,
+      "ps4": 17,
       "ps5": 4,
       "switch2": 1
     },
@@ -56756,9 +56767,10 @@
       "ps5-bluey-s-quest-for-the-gold-pen",
       "ps5-chromagun-2-dye-hard",
       "ps5-slime-rancher-2",
-      "switch2-bluey-s-quest-for-the-gold-pen"
+      "switch2-bluey-s-quest-for-the-gold-pen",
+      "ps4-bluey-s-quest-for-the-gold-pen"
     ],
-    "gameCount": 21
+    "gameCount": 22
   },
   "riot-nihon-telenet": {
     "name": "Riot (Nihon Telenet)",
@@ -58099,10 +58111,11 @@
       "ps5-neon-apex-beyond-the-limit",
       "ps5-read-only-memories-neurodiver",
       "ps5-tevi",
-      "ps5-this-is-fine-maximum-cope"
+      "ps5-this-is-fine-maximum-cope",
+      "ps4-rico-london-standard-edition"
     ],
     "byPlatform": {
-      "ps4": 15,
+      "ps4": 16,
       "ps5": 9
     },
     "asDeveloper": [
@@ -58131,9 +58144,10 @@
       "ps5-neon-apex-beyond-the-limit",
       "ps5-read-only-memories-neurodiver",
       "ps5-tevi",
-      "ps5-this-is-fine-maximum-cope"
+      "ps5-this-is-fine-maximum-cope",
+      "ps4-rico-london-standard-edition"
     ],
-    "gameCount": 24
+    "gameCount": 25
   },
   "rockstar-north": {
     "name": "Rockstar North",
@@ -65208,11 +65222,13 @@
       "ps4-grand-ages-medieval",
       "ps4-my-riding-stables-life-with-horses",
       "ps5-disciples-domination",
-      "ps5-sudden-strike-5-deluxe-edition"
+      "ps5-sudden-strike-5-deluxe-edition",
+      "ps4-disciples-liberation",
+      "ps4-matchpoint-tennis-championships"
     ],
     "byPlatform": {
       "ps3": 1,
-      "ps4": 9,
+      "ps4": 11,
       "ps5": 2
     },
     "asDeveloper": [
@@ -65230,9 +65246,11 @@
       "ps4-grand-ages-medieval",
       "ps4-my-riding-stables-life-with-horses",
       "ps5-disciples-domination",
-      "ps5-sudden-strike-5-deluxe-edition"
+      "ps5-sudden-strike-5-deluxe-edition",
+      "ps4-disciples-liberation",
+      "ps4-matchpoint-tennis-championships"
     ],
-    "gameCount": 12
+    "gameCount": 14
   },
   "kcek": {
     "name": "KCEK",
@@ -66674,10 +66692,12 @@
       "ps5-truxton-extreme",
       "ps5-wizman-s-world-retry",
       "switch2-formation-z-deluxe-edition",
-      "switch2-truxton-extreme"
+      "switch2-truxton-extreme",
+      "ps4-batsugun-saturn-tribute-boosted-edicion-deluxe",
+      "ps4-ender-magnolia-deluxe-edition"
     ],
     "byPlatform": {
-      "ps4": 9,
+      "ps4": 11,
       "ps5": 19,
       "switch2": 2
     },
@@ -66713,9 +66733,11 @@
       "ps5-truxton-extreme",
       "ps5-wizman-s-world-retry",
       "switch2-formation-z-deluxe-edition",
-      "switch2-truxton-extreme"
+      "switch2-truxton-extreme",
+      "ps4-batsugun-saturn-tribute-boosted-edicion-deluxe",
+      "ps4-ender-magnolia-deluxe-edition"
     ],
-    "gameCount": 30
+    "gameCount": 32
   },
   "copya-systems": {
     "name": "Copya Systems",
@@ -83587,10 +83609,12 @@
       "ps5-spellcaster-university",
       "ps5-tadeo-jones-3-la-tabla-esmeralda-el-legado-del-sol-de-occidente",
       "ps5-voidwrought",
-      "ps5-ziggurat-ii"
+      "ps5-ziggurat-ii",
+      "ps4-masterchef-el-videojuego-oficial",
+      "ps4-minabo-a-walk-through-life-day-one-edition"
     ],
     "byPlatform": {
-      "ps4": 4,
+      "ps4": 6,
       "ps5": 11
     },
     "asDeveloper": [
@@ -83610,9 +83634,11 @@
       "ps5-spellcaster-university",
       "ps5-tadeo-jones-3-la-tabla-esmeralda-el-legado-del-sol-de-occidente",
       "ps5-voidwrought",
-      "ps5-ziggurat-ii"
+      "ps5-ziggurat-ii",
+      "ps4-masterchef-el-videojuego-oficial",
+      "ps4-minabo-a-walk-through-life-day-one-edition"
     ],
-    "gameCount": 15
+    "gameCount": 17
   },
   "sensory-sweep-studios": {
     "name": "Sensory Sweep Studios",
@@ -98175,10 +98201,12 @@
       "ps5-rpg-maker-with",
       "ps5-the-legend-of-heroes-trails-beyond-the-horizon-deluxe-edition",
       "switch2-disgaea-mayhem-deluxe-edition",
-      "switch2-the-legend-of-heroes-trails-beyond-the-horizon-deluxe-edition"
+      "switch2-the-legend-of-heroes-trails-beyond-the-horizon-deluxe-edition",
+      "ps4-r-type-tactics-i-ii-cosmos",
+      "ps4-void-trrlm2-void-terrarium-2-deluxe-edition"
     ],
     "byPlatform": {
-      "ps4": 2,
+      "ps4": 4,
       "ps5": 8,
       "switch2": 2
     },
@@ -98195,9 +98223,11 @@
       "ps5-rpg-maker-with",
       "ps5-the-legend-of-heroes-trails-beyond-the-horizon-deluxe-edition",
       "switch2-disgaea-mayhem-deluxe-edition",
-      "switch2-the-legend-of-heroes-trails-beyond-the-horizon-deluxe-edition"
+      "switch2-the-legend-of-heroes-trails-beyond-the-horizon-deluxe-edition",
+      "ps4-r-type-tactics-i-ii-cosmos",
+      "ps4-void-trrlm2-void-terrarium-2-deluxe-edition"
     ],
-    "gameCount": 12
+    "gameCount": 14
   },
   "nixxes-software": {
     "name": "Nixxes Software",
@@ -136371,16 +136401,19 @@
     "slug": "creative",
     "museumPath": "",
     "gameIds": [
-      "ps5-ariana-and-the-elder-codex"
+      "ps5-ariana-and-the-elder-codex",
+      "ps4-calamity-angels-special-delivery"
     ],
     "byPlatform": {
-      "ps5": 1
+      "ps5": 1,
+      "ps4": 1
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps5-ariana-and-the-elder-codex"
+      "ps5-ariana-and-the-elder-codex",
+      "ps4-calamity-angels-special-delivery"
     ],
-    "gameCount": 1
+    "gameCount": 2
   },
   "far-out": {
     "name": "Far Out",
@@ -136561,6 +136594,50 @@
     "asDeveloper": [],
     "asPublisher": [
       "switch2-mouse-p-i-for-hire"
+    ],
+    "gameCount": 1
+  },
+  "game": {
+    "name": "game",
+    "slug": "game",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-40-principales-karaoke-party-vol-2",
+      "ps4-fairy-tail-2",
+      "ps4-grimgrimoire-oncemore",
+      "ps4-harvest-life",
+      "ps4-poker-club",
+      "ps4-real-heroes-firefighter",
+      "ps4-tintin-reportero-los-cigarros-del-faraon"
+    ],
+    "byPlatform": {
+      "ps4": 7
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps4-40-principales-karaoke-party-vol-2",
+      "ps4-fairy-tail-2",
+      "ps4-grimgrimoire-oncemore",
+      "ps4-harvest-life",
+      "ps4-poker-club",
+      "ps4-real-heroes-firefighter",
+      "ps4-tintin-reportero-los-cigarros-del-faraon"
+    ],
+    "gameCount": 7
+  },
+  "avance": {
+    "name": "avance",
+    "slug": "avance",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-avicii-invector"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps4-avicii-invector"
     ],
     "gameCount": 1
   }

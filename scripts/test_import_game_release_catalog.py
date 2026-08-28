@@ -134,6 +134,37 @@ def test_collection_link_does_not_collapse_distinct_editions() -> None:
     assert collection[0]["catalogId"] is None
 
 
+def test_ps4_import_preserves_platform_policy_and_uses_bluray() -> None:
+    data = payload()
+    data["platformSlug"] = "ps4"
+    for row in data["candidates"]:
+        row["platformSlug"] = "ps4"
+        row["productUrl"] = row["productUrl"].replace("playstation-5", "playstation-4")
+        row["preownedProductUrl"] = row["preownedProductUrl"].replace("playstation-5", "playstation-4")
+    platforms = [{
+        "slug": "ps4",
+        "status": "semi-closed",
+        "estimatedCatalogSize": 12_000,
+        "description": "Catálogo multirregión existente.",
+    }]
+    catalog: list[dict] = []
+    details: dict = {}
+    result = apply_import(
+        payload=data,
+        catalog=catalog,
+        details=details,
+        platforms=platforms,
+        collection=[],
+        available_cover_ids={"ps4-juego-publicado"},
+        require_covers=True,
+    )
+    assert result["added"] == 1
+    assert details["ps4-juego-publicado"]["support"] == "Disco Blu-ray"
+    assert catalog[0]["coverUrl"] == "/covers/ps4/juego-publicado-123456.jpg"
+    assert platforms[0]["status"] == "semi-closed"
+    assert platforms[0]["description"] == "Catálogo multirregión existente."
+
+
 def test_indexes_are_incremental_and_idempotent() -> None:
     catalog = [{"id": "ps5-juego", "platformSlug": "ps5", "listingStatus": "listed"}]
     details = {
@@ -166,6 +197,7 @@ def test_existing_manual_details_are_preserved() -> None:
             "region": "PAL España",
             "listingStatus": "excluded",
             "coverUrl": "/covers/ps5/portada-manual.jpg",
+            "seedSource": "pricecharting-pal",
             "hasEsPrice": True,
             "regionVerified": True,
         }
@@ -197,6 +229,7 @@ def test_existing_manual_details_are_preserved() -> None:
     assert result["updated"] == 1
     assert catalog[0]["listingStatus"] == "excluded"
     assert catalog[0]["coverUrl"] == "/covers/ps5/portada-manual.jpg"
+    assert catalog[0]["seedSource"] == "pricecharting-pal"
     assert catalog[0]["hasEsPrice"] is True
     assert catalog[0]["regionVerified"] is True
     assert details["ps5-juego-publicado"]["year"] == 2025
@@ -227,6 +260,7 @@ def test_rejects_hidden_price_fields() -> None:
 def main() -> None:
     test_import_is_strict_and_idempotent()
     test_collection_link_does_not_collapse_distinct_editions()
+    test_ps4_import_preserves_platform_policy_and_uses_bluray()
     test_indexes_are_incremental_and_idempotent()
     test_existing_manual_details_are_preserved()
     test_rejects_price_payloads()

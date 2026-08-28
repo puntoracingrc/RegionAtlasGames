@@ -32,7 +32,7 @@ type CandidateFeedback = {
 };
 
 function platformLabel(platformSlug: string): string {
-  return platformSlug === "switch2" ? "Switch 2" : "PS5";
+  return platformSlug === "switch2" ? "Switch 2" : platformSlug === "ps4" ? "PS4" : "PS5";
 }
 
 function jobStatusLabel(status: LocalGameRunnerJob["status"]): string {
@@ -64,7 +64,7 @@ export function AdminGameReleaseDiscoveryPanel({ initialJobs, tokenConfigured }:
   const [jobs, setJobs] = useState(
     initialJobs.filter((job) => job.jobType === "catalog_discovery"),
   );
-  const [platformSlug, setPlatformSlug] = useState<"ps5" | "switch2">("ps5");
+  const [platformSlug, setPlatformSlug] = useState<"ps4" | "ps5" | "switch2">("ps5");
   const [state, setState] = useState<"idle" | "saving" | "loading" | "error" | "saved">("idle");
   const [message, setMessage] = useState("");
   const [selected, setSelected] = useState<{ jobId: string; result: GameReleaseDiscoveryResult } | null>(null);
@@ -274,7 +274,7 @@ export function AdminGameReleaseDiscoveryPanel({ initialJobs, tokenConfigured }:
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase text-emerald-700 dark:text-emerald-300">Catálogo · GAME España</p>
-          <h2 className="mt-1 text-2xl font-black text-foreground">Juegos físicos PS5 y Switch 2</h2>
+          <h2 className="mt-1 text-2xl font-black text-foreground">Juegos físicos PS4, PS5 y Switch 2</h2>
           <p className="mt-2 text-sm text-muted">Nuevo y seminuevo disponibles, con fecha ya cumplida y portada. Sin precios ni publicación automática.</p>
         </div>
         <button type="button" onClick={() => void refreshJobs()} className="btn-secondary inline-flex items-center gap-2 text-sm">
@@ -294,9 +294,10 @@ export function AdminGameReleaseDiscoveryPanel({ initialJobs, tokenConfigured }:
           Plataforma
           <select
             value={platformSlug}
-            onChange={(event) => setPlatformSlug(event.target.value as "ps5" | "switch2")}
+            onChange={(event) => setPlatformSlug(event.target.value as "ps4" | "ps5" | "switch2")}
             className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
           >
+            <option value="ps4">PlayStation 4</option>
             <option value="ps5">PlayStation 5</option>
             <option value="switch2">Nintendo Switch 2</option>
           </select>

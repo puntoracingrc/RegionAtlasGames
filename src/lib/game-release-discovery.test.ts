@@ -49,6 +49,29 @@ test("normalizes trusted GAME release candidates without exposing price fields",
   assert.equal("priceEur" in result.candidates[0], false);
 });
 
+test("accepts PS4 release discovery payloads", () => {
+  const result = normalizeGameReleaseDiscoveryResult({
+    source: "game-es-release-discovery",
+    mode: "released_catalog_candidates",
+    containsPrices: false,
+    platformSlug: "ps4",
+    candidates: [{
+      title: "Juego PS4",
+      platformSlug: "ps4",
+      releaseDate: "2026-08-20",
+      year: 2026,
+      sourceSku: "123456",
+      productUrl: "https://www.game.es/videojuegos/accion/playstation-4/juego-ps4/123456",
+      imageUrl: "https://media.game.es/COVERV2/3D_L/123/123456.png",
+      availabilityModes: ["new"],
+      catalogStatus: "new",
+    }],
+    stats: {},
+  });
+  assert.equal(result?.platformSlug, "ps4");
+  assert.equal(result?.candidates[0].platformSlug, "ps4");
+});
+
 test("maps GAME taxonomy to catalog genre names and rejects non-PEGI numbers", () => {
   assert.deepEqual(gameReleaseGenreNames(["ACCION-ESTRATEGIA", "CONDUCCION", "DESCONOCIDO"]), [
     "Acción",
