@@ -5,9 +5,11 @@
 El flujo descubre juegos físicos de PlayStation 5 y Nintendo Switch 2 publicados en GAME España para preparar nuevas fichas de Region Atlas.
 
 - No captura ni importa precios.
-- No publica juegos automáticamente.
+- El flujo periódico no publica juegos automáticamente.
 - No modifica el catálogo hasta que un administrador crea y revisa un borrador.
 - El extractor masivo manual de precios GAME nuevo/seminuevo sigue siendo un flujo independiente.
+
+La apertura inicial de una plataforma puede hacerse con un lote de fuente aprobado mediante `scripts/import_game_release_catalog.py`. Es una operación extraordinaria, versionada en Git y separada del recolector periódico. El importador exige `--approve-source-batch`, rechaza cualquier campo de precio, descarga las portadas al alojamiento propio y no sobrescribe datos enriquecidos manualmente.
 
 ## Criterios de entrada
 
@@ -20,7 +22,7 @@ Un producto solo se propone si cumple todos estos criterios:
 - la oferta nueva muestra `Comprar`, no `Reservar` ni `Pre-compra`;
 - tiene SKU, URL de producto y portada.
 
-La salida conserva título, plataforma, región propuesta `PAL España`, fecha, SKU, URL, portada, editor y géneros disponibles. El contrato de resultado declara `containsPrices: false` y el servidor rechaza resultados antiguos o incompatibles.
+La salida conserva título, plataforma, región propuesta `PAL España`, fecha, SKU, URL, portada, PEGI, editor y géneros disponibles. El contrato de resultado declara `containsPrices: false` y el servidor rechaza resultados antiguos o incompatibles. GAME España es evidencia comercial para proponer la región, no una prueba definitiva de la edición física; las fichas quedan con `regionVerified: false` hasta una comprobación específica.
 
 ## Duplicados
 
@@ -40,6 +42,19 @@ El recorrido está ordenado por fecha de lanzamiento descendente. Termina al enc
 - Ejecución: el runner local recoge el job cuando está encendido; el Mac no abre puertos.
 - Revisión: cada candidato puede abrirse en GAME, convertirse en borrador o descartarse.
 - Publicación: continúa en la cola normal de catálogo y conserva su revisión final habitual.
+
+Para un alta inicial masiva aprobada:
+
+```bash
+python3 scripts/import_game_release_catalog.py \
+  --input /ruta/al/lote-game.json \
+  --covers-dir /ruta/temporal/portadas \
+  --require-covers \
+  --approve-source-batch \
+  --report data/catalog-seed-reports/game-es-ps5-AAAA-MM-DD.json
+```
+
+Primero debe ejecutarse con `--dry-run`. Después de la importación se suben y verifican todas las portadas propias, se reconstruyen los índices y el cambio completo pasa por rama, PR, checks y verificación de producción.
 
 Antes de activar la primera búsqueda, el equipo que ejecuta `scripts/local_game_runner.py` debe usar una versión que incluya `catalog_discovery`. Si devuelve el formato antiguo de precios, el servidor marca el job como error y no guarda ni importa el resultado.
 

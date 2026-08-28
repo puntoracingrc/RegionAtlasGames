@@ -1,5 +1,12 @@
 import type { GameDetailsSeoMeta } from "./types";
 
+export type AdminGameEsSource = {
+  sku: string;
+  productUrl: string;
+  imageUrl: string | null;
+  fetchedAt: string;
+};
+
 export type ContributorReviewStatus =
   | "contributor-draft"
   | "pending-review"
@@ -20,6 +27,7 @@ export type AdminGameDraft = {
   coverUrl: string | null;
   year: number | null;
   releaseDate: string | null;
+  pegi?: number | null;
   players: number | null;
   support: string | null;
   developerName: string | null;
@@ -38,6 +46,7 @@ export type AdminGameDraft = {
     referenceUsed?: boolean;
     referenceUrl?: string | null;
   } | null;
+  gameEsSource?: AdminGameEsSource | null;
   source: "import" | "manual";
   contributorEmail?: string | null;
   reviewStatus?: ContributorReviewStatus | null;

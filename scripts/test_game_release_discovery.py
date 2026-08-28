@@ -29,6 +29,7 @@ def product(
         "ImageUrl": f"https://media.game.es/COVERV2/3D_L/{sku[:3]}/{sku}.png",
         "Publisher": "Test Studio",
         "Genres": ["Acción"],
+        "Pegi": 12,
         "IsAvailable": True,
         "Offers": [
             {
@@ -51,6 +52,7 @@ def test_release_filters() -> None:
     assert reason is None
     assert released is not None
     assert released["releaseDate"] == "2026-08-20"
+    assert released["pegi"] == 12
     assert "price" not in {key.lower() for key in released}
 
     reserved, reason = discovery.candidate_from_product(
@@ -147,10 +149,50 @@ def test_game_price_collector_reads_last_page() -> None:
     assert stats["stopReason"] == "last_page"
 
 
+def test_game_sku_remains_identity_when_title_changes() -> None:
+    original_catalog = discovery.platform_catalog_games
+    original_fetch = discovery.fetch_search_page
+    discovery.platform_catalog_games = lambda *_args, **_kwargs: [
+        {
+            "id": "ps5-titulo-anterior",
+            "title": "Título anterior",
+            "titlePc": None,
+            "platformSlug": "ps5",
+            "region": "PAL España",
+            "gameEsSku": "400001",
+            "gameEsProductUrl": "https://www.game.es/videojuegos/accion/playstation-5/titulo-anterior/400001",
+        }
+    ]
+    discovery.fetch_search_page = lambda *_args, **_kwargs: {
+        "Products": [product("Título comercial corregido", "400001")],
+        "TotalResults": 1,
+        "TotalPages": 0,
+    }
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            result = discovery.collect_release_candidates(
+                "ps5",
+                limit=80,
+                max_pages=1,
+                repeat_stop_count=0,
+                delay=0,
+                as_of=date(2026, 8, 28),
+                recent_dir=Path(tmp),
+            )
+    finally:
+        discovery.platform_catalog_games = original_catalog
+        discovery.fetch_search_page = original_fetch
+
+    assert result["candidates"] == []
+    assert len(result["existingProducts"]) == 1
+    assert result["existingProducts"][0]["matches"][0]["catalogId"] == "ps5-titulo-anterior"
+
+
 def main() -> None:
     test_release_filters()
     test_known_streak_and_no_prices()
     test_game_price_collector_reads_last_page()
+    test_game_sku_remains_identity_when_title_changes()
     print("OK GAME release discovery")
 
 

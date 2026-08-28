@@ -224,12 +224,12 @@
     "name": "PlayStation 5",
     "shortName": "PS5",
     "manufacturer": "sony",
-    "status": "semi-closed",
-    "estimatedCatalogSize": 0,
+    "status": "open",
+    "estimatedCatalogSize": 390,
     "sortOrder": 23,
-    "active": false,
-    "newsEnabled": false,
-    "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
+    "active": true,
+    "newsEnabled": true,
+    "description": "Catálogo abierto de PlayStation 5, iniciado con lanzamientos físicos disponibles en GAME España y ampliado mediante revisión administrativa."
   },
   {
     "slug": "psvita",

@@ -376,7 +376,10 @@ export function AdminGameReleaseDiscoveryPanel({ initialJobs, tokenConfigured }:
                     <div className="flex flex-wrap items-start justify-between gap-2">
                       <div>
                         <p className="font-bold text-foreground">{candidate.title}</p>
-                        <p className="mt-1 text-xs text-muted">Lanzamiento {candidate.releaseDate} · SKU {candidate.sourceSku}</p>
+                        <p className="mt-1 text-xs text-muted">
+                          Lanzamiento {candidate.releaseDate} · SKU {candidate.sourceSku}
+                          {candidate.pegi ? ` · PEGI ${candidate.pegi}` : ""}
+                        </p>
                       </div>
                       <span className={`rounded border px-2 py-1 text-[10px] font-bold uppercase ${candidate.catalogStatus === "possible_duplicate" ? "border-amber-300 text-amber-800 dark:text-amber-200" : "border-emerald-300 text-emerald-800 dark:text-emerald-200"}`}>
                         {candidate.catalogStatus === "possible_duplicate" ? "Parecido" : "Nuevo"}

@@ -1,4 +1,4 @@
-export type DetailEntitySource = "museum" | "pricecharting" | "serialstation" | "wikidata" | "merged";
+export type DetailEntitySource = "museum" | "pricecharting" | "serialstation" | "wikidata" | "game-es" | "merged";
 
 export type DetailEntity = {
   name: string;
@@ -13,7 +13,7 @@ export type DetailEntity = {
 /** @deprecated use DetailEntity */
 export type MuseumEntity = DetailEntity;
 
-export type GameDetailsFieldSource = "museum" | "pricecharting" | "serialstation" | "wikidata";
+export type GameDetailsFieldSource = "museum" | "pricecharting" | "serialstation" | "wikidata" | "game-es";
 
 export type GameDetailsSources = {
   museum?: { museumPath: string; fetchedAt: string };
@@ -26,6 +26,7 @@ export type GameDetailsSources = {
     fetchedAt: string;
   };
   wikidata?: { wikidataId: string; fetchedAt: string; matchScore?: number | null };
+  gameEs?: { sku: string; productUrl: string; imageUrl?: string | null; fetchedAt: string };
 };
 
 export type GameDetailsSeoFaq = { question: string; answer: string };
@@ -106,6 +107,7 @@ export type GameDetails = {
   };
   seoMeta?: GameDetailsSeoMeta | null;
   videos?: GameVideo[];
+  pegi?: number | null;
 };
 
 export type IndexEntry = {
@@ -248,6 +250,12 @@ export type CatalogGame = {
   priceSource: string | null;
   updatedAt: string | null;
   hasEsPrice: boolean;
+  seedSource?: string | null;
+  regionEvidence?: string[];
+  regionVerified?: boolean;
+  gameEsSku?: string | null;
+  gameEsProductUrl?: string | null;
+  gameEsImageUrl?: string | null;
   /** true solo si el precio ES proviene de anuncios con región verificada */
   priceRegionVerified?: boolean;
   /** Referencia retail CeX (no mezclada con mercado P2P) */

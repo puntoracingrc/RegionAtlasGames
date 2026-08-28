@@ -20,6 +20,7 @@ export function draftFromCatalogGame(
     coverUrl: game.coverUrl,
     year: details?.year ?? null,
     releaseDate: details?.releaseDate ?? null,
+    pegi: details?.pegi ?? null,
     players: details?.players ?? null,
     support: details?.support ?? null,
     developerName: details?.developer?.name ?? null,
@@ -32,6 +33,16 @@ export function draftFromCatalogGame(
     description: details?.description ?? null,
     seoMeta: details?.seoMeta ?? null,
     descriptionMeta: details?.descriptionMeta ?? null,
+    gameEsSource: details?.sources?.gameEs
+      ? { ...details.sources.gameEs, imageUrl: details.sources.gameEs.imageUrl ?? null }
+      : game.gameEsSku && game.gameEsProductUrl
+        ? {
+            sku: game.gameEsSku,
+            productUrl: game.gameEsProductUrl,
+            imageUrl: game.gameEsImageUrl ?? null,
+            fetchedAt: details?.fetchedAt ?? new Date().toISOString(),
+          }
+        : null,
     source: "manual",
     updatedAt: new Date().toISOString(),
   };
@@ -79,6 +90,10 @@ export function applyDraftPatch(
   assignString("publisherSlug", body.publisherSlug);
   assignNumber("year", body.year);
   assignNumber("players", body.players);
+  if (body.pegi === null) next.pegi = null;
+  else if (typeof body.pegi === "number" && [3, 7, 12, 16, 18].includes(body.pegi)) {
+    next.pegi = body.pegi;
+  }
   if (typeof body.description === "string") next.description = body.description.trim() || null;
   if (Array.isArray(body.genreNames)) {
     next.genreNames = body.genreNames.filter((g): g is string => typeof g === "string");

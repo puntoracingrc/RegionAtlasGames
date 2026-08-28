@@ -150,6 +150,7 @@ export function draftFromStaging(
     coverUrl: existing?.coverUrl ?? game.coverUrl,
     year: existing?.year ?? details?.year ?? null,
     releaseDate: existing?.releaseDate ?? details?.releaseDate ?? null,
+    pegi: existing?.pegi ?? details?.pegi ?? null,
     players: existing?.players ?? details?.players ?? null,
     support: existing?.support ?? details?.support ?? null,
     developerName:
@@ -175,6 +176,9 @@ export function draftFromStaging(
     description: existing?.description ?? details?.description ?? null,
     seoMeta: existing?.seoMeta ?? details?.seoMeta ?? null,
     descriptionMeta: existing?.descriptionMeta ?? details?.descriptionMeta ?? null,
+    gameEsSource: existing?.gameEsSource ?? (details?.sources?.gameEs
+      ? { ...details.sources.gameEs, imageUrl: details.sources.gameEs.imageUrl ?? null }
+      : null),
     source: game.pcId < 0 ? "manual" : "import",
     contributorEmail: existing?.contributorEmail ?? game.contributorEmail ?? null,
     reviewStatus: existing?.reviewStatus ?? game.reviewStatus ?? null,
@@ -193,6 +197,7 @@ export function draftFromManualInput(input: {
   coverUrl?: string | null;
   year?: number | null;
   releaseDate?: string | null;
+  pegi?: number | null;
   players?: number | null;
   support?: string | null;
   developerName?: string | null;
@@ -203,6 +208,7 @@ export function draftFromManualInput(input: {
   subgenreNames?: string[];
   facetNames?: string[];
   description?: string | null;
+  gameEsSource?: AdminGameDraft["gameEsSource"];
   pcId: number;
   contributorEmail?: string | null;
   reviewStatus?: AdminGameDraft["reviewStatus"];
@@ -232,6 +238,7 @@ export function draftFromManualInput(input: {
     coverUrl: input.coverUrl?.trim() || null,
     year: input.year ?? null,
     releaseDate: input.releaseDate?.trim() || null,
+    pegi: input.pegi ?? null,
     players: input.players ?? null,
     support: input.support?.trim() || null,
     developerName: input.developerName?.trim() || null,
@@ -244,6 +251,7 @@ export function draftFromManualInput(input: {
     description: input.description?.trim() || null,
     seoMeta: null,
     descriptionMeta: null,
+    gameEsSource: input.gameEsSource ?? null,
     source: "manual",
     contributorEmail: input.contributorEmail ?? null,
     reviewStatus: input.reviewStatus ?? null,

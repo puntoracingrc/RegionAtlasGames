@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { normalizeGameReleaseDiscoveryResult } from "./game-release-discovery";
+import {
+  gameReleaseGenreNames,
+  gameReleaseGenreSlug,
+  gameReleasePublisher,
+  normalizeGameReleaseDiscoveryResult,
+} from "./game-release-discovery";
 
 test("normalizes trusted GAME release candidates without exposing price fields", () => {
   const result = normalizeGameReleaseDiscoveryResult({
@@ -23,6 +28,7 @@ test("normalizes trusted GAME release candidates without exposing price fields",
         imageUrl: "https://media.game.es/COVERV2/3D_L/123/123456.png",
         publisher: "Estudio",
         genres: ["Acción"],
+        pegi: 12,
         catalogStatus: "new",
         matches: [],
         priceEur: 69.99,
@@ -34,7 +40,44 @@ test("normalizes trusted GAME release candidates without exposing price fields",
   assert.ok(result);
   assert.equal(result.candidates.length, 1);
   assert.equal(result.candidates[0].title, "Juego de prueba");
+  assert.equal(result.candidates[0].pegi, 12);
   assert.equal("priceEur" in result.candidates[0], false);
+});
+
+test("maps GAME taxonomy to catalog genre names and rejects non-PEGI numbers", () => {
+  assert.deepEqual(gameReleaseGenreNames(["ACCION-ESTRATEGIA", "CONDUCCION", "DESCONOCIDO"]), [
+    "Acción",
+    "Estrategia",
+    "Carreras",
+  ]);
+  assert.equal(gameReleaseGenreSlug("Carreras"), "racing");
+  assert.deepEqual(gameReleasePublisher("BNEE"), {
+    name: "Bandai Namco Entertainment",
+    slug: "bandai-namco-entertainment",
+  });
+  assert.deepEqual(gameReleasePublisher("Editor Nuevo"), {
+    name: "Editor Nuevo",
+    slug: "editor-nuevo",
+  });
+  const result = normalizeGameReleaseDiscoveryResult({
+    source: "game-es-release-discovery",
+    mode: "released_catalog_candidates",
+    containsPrices: false,
+    platformSlug: "ps5",
+    candidates: [{
+      title: "Juego",
+      platformSlug: "ps5",
+      releaseDate: "2026-08-20",
+      year: 2026,
+      sourceSku: "1",
+      productUrl: "https://www.game.es/videojuegos/juego/1",
+      imageUrl: "https://media.game.es/COVERV2/3D_L/1/1.png",
+      pegi: 15,
+      catalogStatus: "new",
+    }],
+    stats: {},
+  });
+  assert.equal(result?.candidates[0].pegi, null);
 });
 
 test("rejects candidates with untrusted product or cover hosts", () => {

@@ -12039,7 +12039,100 @@
       "ps4-usa-fist-of-the-north-star-lost-paradise-playstation-hits",
       "mastersystem-tom-and-jerry-movie",
       "wii-retro-city-rampage-dx",
-      "snes-operation-starfish"
+      "snes-operation-starfish",
+      "ps5-7-days-to-die-console-edition",
+      "ps5-abyssus",
+      "ps5-aggelos-2",
+      "ps5-aliens-fireteam-elite",
+      "ps5-among-us-crewmate-edition",
+      "ps5-among-us-ejected-edition",
+      "ps5-among-us-impostor-edition",
+      "ps5-ariana-and-the-elder-codex",
+      "ps5-assassin-s-creed-black-flag-resynced-standard-edition",
+      "ps5-assassin-s-creed-mirage",
+      "ps5-assassin-s-creed-valhalla",
+      "ps5-ball-x-pit",
+      "ps5-breakout-beyond",
+      "ps5-crash-team-rumble-deluxe-edition",
+      "ps5-daemon-x-machina-titanic-scion",
+      "ps5-death-howl",
+      "ps5-death-stranding-2-on-the-beach",
+      "ps5-deliver-at-all-costs",
+      "ps5-double-dragon-revive-limited-edition",
+      "ps5-dreadout-remastered-collection",
+      "ps5-earthion-deluxe-edition",
+      "ps5-eldrador-creatures-shadowfall",
+      "ps5-far-cry-6",
+      "ps5-formation-z",
+      "ps5-formation-z-deluxe-edition",
+      "ps5-frostpunk-2-whiteout-edition",
+      "ps5-ghost-of-tsushima-director-s-cut",
+      "ps5-grand-theft-auto-v",
+      "ps5-halo-campaign-evolved",
+      "ps5-hell-let-loose-vietnam",
+      "ps5-high-on-life-game-of-the-year",
+      "ps5-hood-story-kaito-yamazaki",
+      "ps5-hunting-simulator-2",
+      "ps5-john-carpenter-s-toxic-commando",
+      "ps5-judgment",
+      "ps5-kaku-ancient-seal",
+      "ps5-kemono-heroes-collector-s-edition",
+      "ps5-killing-floor-3-day-one-edition",
+      "ps5-kinnikuneko-super-muscle-cat",
+      "ps5-kinnikuneko-super-muscle-cat-purrrrfect-edition",
+      "ps5-koira",
+      "ps5-kusan-city-of-wolves",
+      "ps5-macross-shooting-insight",
+      "ps5-mamorukun-recurse",
+      "ps5-mamorukun-recurse-underworld-edition",
+      "ps5-metal-gear-solid-delta-snake-eater-day-one-edition",
+      "ps5-metal-gear-solid-master-collection-vol-2",
+      "ps5-metro-exodus-complete-collection",
+      "ps5-murky-divers-pharmacorps-edition",
+      "ps5-new-super-lucky-s-tale",
+      "ps5-new-tales-from-the-borderlands-deluxe-edition",
+      "ps5-outcast-a-new-beginning",
+      "ps5-overthrown",
+      "ps5-pampas-selene",
+      "ps5-panzer-knights-commanders-edition",
+      "ps5-pragmata",
+      "ps5-r-type-delta-hd-boosted",
+      "ps5-raiden-iii-x-mikado-maniax-deluxe-edition",
+      "ps5-ravenswatch",
+      "ps5-revenge-of-the-savage-planet-day-one-edition",
+      "ps5-robocop-rogue-city",
+      "ps5-robocop-rogue-city-unfinished-business",
+      "ps5-rushing-beat-x-return-of-the-brawl-brothers",
+      "ps5-saros",
+      "ps5-scott-pilgrim-ex",
+      "ps5-shotgun-king",
+      "ps5-sifu",
+      "ps5-spirit-mancer-collector-s-edition",
+      "ps5-star-wars-dark-forces-remaster",
+      "ps5-star-wars-zero-company",
+      "ps5-starship-troopers-extermination",
+      "ps5-starship-troopers-ultimate-bug-war",
+      "ps5-steelrising",
+      "ps5-sudden-strike-5-deluxe-edition",
+      "ps5-super-meat-boy-3d",
+      "ps5-super-meat-boy-3d-special-edition",
+      "ps5-sworn-deluxe-edition",
+      "ps5-system-shock-2-25th-anniversary-edition",
+      "ps5-system-shock-2-remastered",
+      "ps5-teenage-mutant-ninja-turtles-splintered-fate-deluxe-edition",
+      "ps5-the-messenger",
+      "ps5-the-walking-dead-saints-and-sinners-chapter-2-retribution-payback-edition",
+      "ps5-this-is-fine-maximum-cope",
+      "ps5-totally-reliable-delivery-service-definitive-edition",
+      "ps5-truxton-extreme",
+      "ps5-undead-citadel",
+      "ps5-until-dawn",
+      "ps5-vampire-the-masquerade-bloodlines-2-day-one-edition",
+      "ps5-voidwrought",
+      "ps5-yakuza-0-director-s-cut",
+      "ps5-yakuza-kiwami-3-dark-ties",
+      "ps5-zapling-bygone-deluxe-edition",
+      "ps5-ziggurat-ii"
     ],
     "byPlatform": {
       "3ds": 105,
@@ -12063,9 +12156,10 @@
       "saturn": 290,
       "sega32x": 4,
       "snes": 692,
-      "wii": 1002
+      "wii": 1002,
+      "ps5": 93
     },
-    "gameCount": 12036
+    "gameCount": 12129
   },
   "adventure": {
     "name": "Aventura",
@@ -21973,7 +22067,83 @@
       "ps4-skautfold-usurper",
       "ps4-usa-fist-of-the-north-star-lost-paradise-playstation-hits",
       "wii-retro-city-rampage-dx",
-      "snes-operation-starfish"
+      "snes-operation-starfish",
+      "ps5-1348-ex-voto-limited-edition",
+      "ps5-a-red-walking-robot",
+      "ps5-amerzone-the-explorer-s-legacy-limited-editon",
+      "ps5-as-dusk-falls-special-edition",
+      "ps5-aureole-wings-of-hope-celestian-edition",
+      "ps5-barbie-rutas-a-caballo",
+      "ps5-bluey-el-videojuego",
+      "ps5-bluey-s-quest-for-the-gold-pen",
+      "ps5-chicken-run-eggstraction",
+      "ps5-chromagun-2-dye-hard",
+      "ps5-cloudpunk",
+      "ps5-cooking-companions-premium-edition",
+      "ps5-cult-of-the-lamb-definitive-edition",
+      "ps5-darksiders-warmastered",
+      "ps5-detective-collection-vol-ii",
+      "ps5-disney-dreamlight-valley-cozy-edition",
+      "ps5-elden-ring-nightreign-seekers-edition",
+      "ps5-ereban-shadow-legacy",
+      "ps5-ereban-shadow-legacy-limited-collector-s-edition",
+      "ps5-eriksholm-the-stolen-dream",
+      "ps5-five-nights-at-freddys-secret-of-the-mimic",
+      "ps5-god-of-war-ragnarok",
+      "ps5-goodbye-world",
+      "ps5-hello-kitty-island-adventure-edicion-standard",
+      "ps5-horizon-forbidden-west",
+      "ps5-horizon-forbidden-west-complete-edition",
+      "ps5-koa-and-the-five-pirates-of-mara-edicion-coleccionista",
+      "ps5-legacy-of-kain-soul-reaver-1-y-2-remastered",
+      "ps5-lego-horizon-adventures",
+      "ps5-life-is-strange-true-colors",
+      "ps5-lil-gator-game-gator-of-the-year-edition",
+      "ps5-lumo-2",
+      "ps5-lumo-2-collector-s-edition",
+      "ps5-marvel-s-spider-man-miles-morales",
+      "ps5-minecraft",
+      "ps5-minecraft-legends-deluxe-edition",
+      "ps5-monster-high-skulltimate-secrets",
+      "ps5-my-little-pony-misterio-en-los-altos-de-cefiro",
+      "ps5-mythwrecked-ambrosia-island",
+      "ps5-naiad",
+      "ps5-necrophosis",
+      "ps5-nikoderiko-the-magical-world-directors-cut",
+      "ps5-nikoderiko-the-magical-world-directors-cut-collector-s-edition",
+      "ps5-once-upon-a-katamari",
+      "ps5-outbound",
+      "ps5-outbound-collector-s-edition",
+      "ps5-outer-wilds-archaeologist-edition",
+      "ps5-pepper-grinder",
+      "ps5-petit-island",
+      "ps5-prince-of-persia-the-lost-crown",
+      "ps5-ratchet-clank-una-dimension-aparte",
+      "ps5-read-only-memories-neurodiver",
+      "ps5-resonance-a-plague-tale-legacy",
+      "ps5-samurai-academy-paws-of-fury",
+      "ps5-shadows-of-doubt",
+      "ps5-silt",
+      "ps5-skull-and-bones-special-edition",
+      "ps5-slay-the-princess-the-pristine-cut-special-edition",
+      "ps5-slime-rancher-2",
+      "ps5-star-trek-voyager-across-the-unknown-deluxe-edition",
+      "ps5-stellar-blade",
+      "ps5-styx-blades-of-greed",
+      "ps5-suicide-guy-vr-deluxe",
+      "ps5-tadeo-jones-3-la-tabla-esmeralda-el-legado-del-sol-de-occidente",
+      "ps5-tevi",
+      "ps5-the-grinch-christmas-adventures-complete-edition",
+      "ps5-the-inheritance-of-crimson-manor-victorian-edition",
+      "ps5-the-last-of-us-parte-i",
+      "ps5-the-lord-of-the-rings-gollum",
+      "ps5-the-rogue-prince-of-persia",
+      "ps5-tomb-raider-i-ii-iii-remastered",
+      "ps5-tomb-raider-iv-vi-remastered-starring-lara-croft",
+      "ps5-uncharted-coleccion-legado-de-los-ladrones",
+      "ps5-wanderer-the-fragments-of-fate",
+      "ps5-welcome-to-paradize",
+      "ps5-yonder-the-cloud-catcher-chronicles-signature-edition"
     ],
     "byPlatform": {
       "3ds": 105,
@@ -21997,9 +22167,10 @@
       "saturn": 289,
       "sega32x": 4,
       "snes": 689,
-      "wii": 1002
+      "wii": 1002,
+      "ps5": 76
     },
-    "gameCount": 9902
+    "gameCount": 9978
   },
   "sports": {
     "name": "Deportes",
@@ -24227,7 +24398,15 @@
       "nes-japon-triathron",
       "megadrive-madden-nfl-%2796",
       "dreamcast-usa-world-series-baseball-2k1",
-      "ps3-move-street-cricket-2"
+      "ps3-move-street-cricket-2",
+      "ps5-ea-sports-fc-26",
+      "ps5-golden-tee-arcade-classics",
+      "ps5-harry-potter-campeones-de-quidditch-deluxe-edition",
+      "ps5-nickelodeon-extreme-tennis-next",
+      "ps5-session-skate-sim",
+      "ps5-tennis-world-tour-2",
+      "ps5-topspin-2k25",
+      "ps5-tour-de-france-2026"
     ],
     "byPlatform": {
       "3ds": 14,
@@ -24251,9 +24430,10 @@
       "saturn": 136,
       "sega32x": 2,
       "snes": 65,
-      "wii": 28
+      "wii": 28,
+      "ps5": 8
     },
-    "gameCount": 2222
+    "gameCount": 2230
   },
   "platformer": {
     "name": "Plataformas",
@@ -26301,7 +26481,18 @@
       "saturn-usa-pandemonium",
       "ps4-shantae-half-genie-hero-ultimate-edition-collector%27s-edition",
       "gameboy-lost-world-jurassic-park",
-      "dreamcast-tomb-raider-last-revelation"
+      "dreamcast-tomb-raider-last-revelation",
+      "ps5-astro-bot",
+      "ps5-elsie-magitek-edition",
+      "ps5-frogun-deluxe-edition",
+      "ps5-nikoderiko-the-magical-world-directors-cut",
+      "ps5-nikoderiko-the-magical-world-directors-cut-collector-s-edition",
+      "ps5-nine-sols",
+      "ps5-ratchet-clank-una-dimension-aparte",
+      "ps5-rugrats-adventures-in-gameland",
+      "ps5-sackboy-a-big-adventure",
+      "ps5-shadow-labyrinth",
+      "ps5-the-grinch-christmas-adventures-complete-edition"
     ],
     "byPlatform": {
       "3ds": 31,
@@ -26324,9 +26515,10 @@
       "saturn": 82,
       "sega32x": 3,
       "snes": 29,
-      "wii": 16
+      "wii": 16,
+      "ps5": 11
     },
-    "gameCount": 2042
+    "gameCount": 2053
   },
   "shooter": {
     "name": "Shooter",
@@ -28320,7 +28512,16 @@
       "ps4-japon-battlefield-4",
       "megacd-usa-sol-feace",
       "ps4-usa-shikhondo-limited-edition",
-      "mastersystem-tom-and-jerry-movie"
+      "mastersystem-tom-and-jerry-movie",
+      "ps5-battlefield-6",
+      "ps5-crazy-chicken-shooter-edition",
+      "ps5-helldivers-ii",
+      "ps5-project-tower",
+      "ps5-underdogs",
+      "ps5-warplanes-double-pack",
+      "ps5-wwi-tannenberg-eastern-front",
+      "ps5-wwi-verdun-western-front",
+      "ps5-xeno-crisis"
     ],
     "byPlatform": {
       "3ds": 6,
@@ -28344,9 +28545,10 @@
       "saturn": 167,
       "sega32x": 18,
       "snes": 23,
-      "wii": 20
+      "wii": 20,
+      "ps5": 9
     },
-    "gameCount": 1988
+    "gameCount": 1997
   },
   "rpg": {
     "name": "RPG",
@@ -30334,7 +30536,64 @@
       "ps4-usa-the-legend-of-nayuta-boundless-trails-limited-edition",
       "ps4-usa-world-of-final-fantasy-limited-edition",
       "ps4-hyperdimension-neptunia-re;birth3-v-generation",
-      "ps4-japon-final-fantasy-xv-film-collections-box"
+      "ps4-japon-final-fantasy-xv-film-collections-box",
+      "ps5-7th-domain-tree-of-chaos",
+      "ps5-cabernet",
+      "ps5-cabernet-collector-s-edition",
+      "ps5-cattle-country",
+      "ps5-centum-premium-edition",
+      "ps5-clash-artifacts-of-chaos",
+      "ps5-crimson-desert-day-1-edition",
+      "ps5-cyberpunk-2077-ultimate-edition",
+      "ps5-demon-s-souls",
+      "ps5-disciples-domination",
+      "ps5-disgaea-mayhem-deluxe-edition",
+      "ps5-dragon-age-the-veilguard",
+      "ps5-dragon-age-the-veilguard-vyrantium-edition",
+      "ps5-dragon-quest-vii-reimagined",
+      "ps5-dragon-s-dogma-2",
+      "ps5-echoes-of-aincrad",
+      "ps5-etrange-overlord-deluxe-edition",
+      "ps5-final-fantasy-vii-remake-intergrade-rebirth-twin-pack-physical-edition",
+      "ps5-final-fantasy-xvi",
+      "ps5-greedfall-the-dying-world",
+      "ps5-greedfall-the-dying-world-deluxe-edition",
+      "ps5-hammerwatch-ii-the-chronicles-edition",
+      "ps5-hogwarts-legacy-standard",
+      "ps5-house-of-the-dead-2-remake-infect-edition",
+      "ps5-indika",
+      "ps5-kemco-rpg-selection-vol-1",
+      "ps5-kingdom-come-deliverance-royal-edition",
+      "ps5-labyrinth-of-galleria-the-moon-society",
+      "ps5-lies-of-p",
+      "ps5-life-is-strange-reunion",
+      "ps5-lisa-decade-of-joy-collection",
+      "ps5-long-gone-days",
+      "ps5-long-gone-days-collector-s-edition",
+      "ps5-medieval-dynasty",
+      "ps5-nioh-3-launch-edition",
+      "ps5-octopath-traveler-0",
+      "ps5-one-piece-odyssey",
+      "ps5-phantom-brave-the-lost-hero-deluxe-edition",
+      "ps5-psyvariar-3",
+      "ps5-rise-of-the-ronin",
+      "ps5-sacred-2-remaster",
+      "ps5-sengoku-dynasty-ultimate-edition",
+      "ps5-shadow-gambit-the-cursed-crew-complete-edition-deluxe-edition",
+      "ps5-shadow-gambit-the-cursed-crew-complete-edition-limited-edition",
+      "ps5-skautfold-moonless-knight",
+      "ps5-soul-hackers-2",
+      "ps5-sword-of-the-necromancer-collection",
+      "ps5-sword-of-the-necromancer-collection-special-edition",
+      "ps5-the-adventures-of-elliot-the-millennium-tales",
+      "ps5-the-legend-of-heroes-trails-beyond-the-horizon-deluxe-edition",
+      "ps5-tiny-bookshop",
+      "ps5-unicorn-overlord",
+      "ps5-warhammer-chaosbane-slayer-edition",
+      "ps5-wildermyth",
+      "ps5-wings-of-endless-deluxe-edition",
+      "ps5-wizman-s-world-retry",
+      "ps5-ys-memoire-the-oath-in-felghana"
     ],
     "byPlatform": {
       "3ds": 69,
@@ -30356,9 +30615,10 @@
       "ps4": 1046,
       "saturn": 116,
       "snes": 44,
-      "wii": 10
+      "wii": 10,
+      "ps5": 57
     },
-    "gameCount": 1982
+    "gameCount": 2039
   },
   "racing": {
     "name": "Carreras",
@@ -32174,7 +32434,30 @@
       "megadrive-usa-road-rash-3",
       "ps1-snow-racer-98",
       "ps2-suzuki-tt-superbikes",
-      "ds-hot-wheels-track-attack"
+      "ds-hot-wheels-track-attack",
+      "ps5-drive-rally-special-edition",
+      "ps5-ea-sports-f1-25",
+      "ps5-formula-legends-legacy-edition",
+      "ps5-gran-turismo-7",
+      "ps5-hot-wheels-lets-race",
+      "ps5-hot-wheels-unleashed-challenge-accepted-edition",
+      "ps5-matchbox-driving-adventures",
+      "ps5-monster-energy-supercross-the-official-videogame-4",
+      "ps5-monster-jam-showdown-day-one-edition",
+      "ps5-monster-truck-championship",
+      "ps5-motogp-26",
+      "ps5-old-school-rally-special-edition",
+      "ps5-overpass-2",
+      "ps5-project-motor-racing",
+      "ps5-redout-2-deluxe-edition",
+      "ps5-rennsport",
+      "ps5-ride-6",
+      "ps5-screamer",
+      "ps5-screamer-collector-s-edition",
+      "ps5-screamer-echo-edition",
+      "ps5-tt-isle-of-man-ride-on-the-edge-3",
+      "ps5-wrc-10",
+      "ps5-wrc-generations"
     ],
     "byPlatform": {
       "3ds": 18,
@@ -32197,9 +32480,10 @@
       "saturn": 85,
       "sega32x": 3,
       "snes": 76,
-      "wii": 15
+      "wii": 15,
+      "ps5": 23
     },
-    "gameCount": 1810
+    "gameCount": 1833
   },
   "fighting": {
     "name": "Lucha",
@@ -33583,7 +33867,22 @@
       "gameboy-pal-street-fighter-ii",
       "neogeo-king-of-fighters-95",
       "saturn-japon-advanced-variable-geo-edicion-limitada",
-      "ps4-usa-king-of-fighters-%2798-ultimate-match"
+      "ps4-usa-king-of-fighters-%2798-ultimate-match",
+      "ps5-baki-hanma-blood-arena",
+      "ps5-blazing-strike",
+      "ps5-bleach-rebirth-of-souls",
+      "ps5-dragon-ball-fighterz",
+      "ps5-dragon-ball-sparking-zero",
+      "ps5-dragon-ball-xenoverse-2",
+      "ps5-ea-sports-ufc-5",
+      "ps5-ea-sports-ufc-6",
+      "ps5-hunter-x-hunter-nen-x-impact",
+      "ps5-invincible-vs",
+      "ps5-marvel-tokon-fighting-souls",
+      "ps5-mortal-kombat-legacy-kollection-deluxe-edition",
+      "ps5-tekken-8",
+      "ps5-them-s-fightin-herds-deluxe-edition",
+      "ps5-two-strikes"
     ],
     "byPlatform": {
       "3ds": 9,
@@ -33607,9 +33906,10 @@
       "saturn": 135,
       "sega32x": 5,
       "snes": 83,
-      "wii": 6
+      "wii": 6,
+      "ps5": 15
     },
-    "gameCount": 1378
+    "gameCount": 1393
   },
   "puzzle": {
     "name": "Puzzle",
@@ -34596,7 +34896,10 @@
       "nes-japon-tetris-2-bombliss",
       "gamegear-usa-pac-attack",
       "nes-japon-chiisana-obake-acchi-socchi-kocchi",
-      "ds-jewels-of-the-ages"
+      "ds-jewels-of-the-ages",
+      "ps5-monopoly-star-wars",
+      "ps5-monument-valley-the-trilogy",
+      "ps5-puyo-puyo-tetris-2"
     ],
     "byPlatform": {
       "3ds": 48,
@@ -34619,9 +34922,10 @@
       "ps4": 112,
       "saturn": 82,
       "snes": 45,
-      "wii": 10
+      "wii": 10,
+      "ps5": 3
     },
-    "gameCount": 981
+    "gameCount": 984
   },
   "other": {
     "name": "Varios",
@@ -35563,7 +35867,8 @@
       "snes-yoshi%27s-safari",
       "snes-japon-biometal",
       "snes-pal-phalanx",
-      "ds-my-health-coach-manage-your-weight"
+      "ds-my-health-coach-manage-your-weight",
+      "ps5-rpg-maker-with"
     ],
     "byPlatform": {
       "3ds": 12,
@@ -35586,9 +35891,10 @@
       "ps4": 126,
       "saturn": 66,
       "snes": 100,
-      "wii": 12
+      "wii": 12,
+      "ps5": 1
     },
-    "gameCount": 936
+    "gameCount": 937
   },
   "simulation": {
     "name": "Simulación",
@@ -36431,7 +36737,38 @@
       "ps4-usa-my-time-at-sandrock-collector%27s-edition",
       "ps4-animal-doctor",
       "ps4-usa-alchemic-cutie",
-      "snes-pilotwings"
+      "snes-pilotwings",
+      "ps5-3d-minigolf",
+      "ps5-ambulance-life-a-paramedic-simulator",
+      "ps5-autobahn-police-sim-3-complete-edition",
+      "ps5-bus-bound",
+      "ps5-city-bus-manager",
+      "ps5-date-everything",
+      "ps5-farming-simulator-25",
+      "ps5-garden-life",
+      "ps5-goat-simulator-3-goat-overload-edition",
+      "ps5-hundred-days-wine-making-simulator",
+      "ps5-let-s-school",
+      "ps5-masterchef-el-videojuego-oficial",
+      "ps5-military-logistics-simulator",
+      "ps5-momento",
+      "ps5-mysims-coleccion-sofa-y-mantita",
+      "ps5-nice-day-for-fishing",
+      "ps5-park-ranger-simulator",
+      "ps5-please-be-happy",
+      "ps5-pools",
+      "ps5-real-farm-premium-edition",
+      "ps5-republic-of-pirates",
+      "ps5-shredders-full-ride-edition",
+      "ps5-story-of-seasons-grand-bazaar",
+      "ps5-tales-of-the-shire-a-the-lord-of-the-rings-game",
+      "ps5-taxi-life",
+      "ps5-townsmen-vr",
+      "ps5-train-sim-world-4-flying-scotsman-centenary-edition",
+      "ps5-train-sim-world-6",
+      "ps5-transport-fever-2",
+      "ps5-two-point-campus-enrolment-edition",
+      "ps5-zombie-cure-lab"
     ],
     "byPlatform": {
       "3ds": 45,
@@ -36453,9 +36790,10 @@
       "saturn": 144,
       "sega32x": 6,
       "snes": 37,
-      "wii": 14
+      "wii": 14,
+      "ps5": 31
     },
-    "gameCount": 837
+    "gameCount": 868
   },
   "beat-em-up": {
     "name": "Beat 'em up",
@@ -38794,7 +39132,24 @@
       "ps4-usa-mercenaries-wings-the-false-phoenix-special-edition",
       "ps4-usa-mercenaries-rebirth-call-of-the-wild-lynx",
       "ps4-frostpunk-signature-edition",
-      "saturn-japon-bomberman-wars"
+      "saturn-japon-bomberman-wars",
+      "ps5-against-the-storm",
+      "ps5-animal-hospital",
+      "ps5-chef-life",
+      "ps5-crown-wars-the-black-prince",
+      "ps5-eldrador-creatures-shadowfall",
+      "ps5-frostpunk-2-whiteout-edition",
+      "ps5-king-of-tokyo-limited-edition",
+      "ps5-laysara-summit-kingdom",
+      "ps5-laysara-summit-kingdom-collector-s-edition",
+      "ps5-overthrown",
+      "ps5-persona-5-tactica",
+      "ps5-r-type-tactics-i-ii-cosmos",
+      "ps5-spellcaster-university",
+      "ps5-star-wars-zero-company",
+      "ps5-sugardew-island",
+      "ps5-two-point-museum-explorer-edition",
+      "ps5-war-hospital"
     ],
     "byPlatform": {
       "3ds": 13,
@@ -38815,9 +39170,10 @@
       "ps4": 170,
       "saturn": 74,
       "snes": 27,
-      "wii": 2
+      "wii": 2,
+      "ps5": 17
     },
-    "gameCount": 685
+    "gameCount": 702
   },
   "music": {
     "name": "Música",
@@ -39177,7 +39533,14 @@
       "ps4-usa-rock-band-rivals-band-kit-bundle",
       "wii-just-dance-kids-2014",
       "ps2-singstar-90s-microphone-bundle",
-      "ps2-singstar-svenska-stjarnor"
+      "ps2-singstar-svenska-stjarnor",
+      "ps5-let-s-sing-2022",
+      "ps5-let-s-sing-2023",
+      "ps5-let-s-sing-2023-2-microfonos",
+      "ps5-let-s-sing-2024",
+      "ps5-let-s-sing-2024-2-microfonos",
+      "ps5-let-s-sing-2025",
+      "ps5-let-s-sing-2026"
     ],
     "byPlatform": {
       "3ds": 9,
@@ -39194,9 +39557,10 @@
       "ps3": 63,
       "ps4": 90,
       "saturn": 1,
-      "wii": 36
+      "wii": 36,
+      "ps5": 7
     },
-    "gameCount": 354
+    "gameCount": 361
   },
   "board": {
     "name": "Juego de mesa",
@@ -40228,7 +40592,30 @@
       "ps3-silent-hill-homecoming",
       "ps1-fear-effect-2-retro-helix",
       "ps2-project-zero-2",
-      "ps4-usa-horror-tales-the-wine"
+      "ps4-usa-horror-tales-the-wine",
+      "ps5-alan-wake-2-deluxe-edition",
+      "ps5-battle-of-rebels",
+      "ps5-bendy-double-pack",
+      "ps5-bye-sweet-carole",
+      "ps5-clock-tower-rewind",
+      "ps5-cthulhu-the-cosmic-abyss",
+      "ps5-dark-atlas",
+      "ps5-dead-of-darkness",
+      "ps5-dead-space-remake",
+      "ps5-everdark-undead-apocalypse",
+      "ps5-evil-inside",
+      "ps5-five-nights-at-freddys-into-the-pit",
+      "ps5-forgive-me-father-2",
+      "ps5-oxide-room-208",
+      "ps5-poppy-playtime-triple-pack",
+      "ps5-reanimal-deluxe-edition",
+      "ps5-resident-evil-2",
+      "ps5-resident-evil-3",
+      "ps5-resident-evil-7-gold-edition",
+      "ps5-resident-evil-village-gold-edition",
+      "ps5-silent-hill-2",
+      "ps5-the-mound-omen-of-cthulhu-deluxe-edition",
+      "ps5-the-nightmare-box-vol-2"
     ],
     "byPlatform": {
       "3ds": 1,
@@ -40244,9 +40631,10 @@
       "ps4": 203,
       "saturn": 18,
       "snes": 1,
-      "wii": 4
+      "wii": 4,
+      "ps5": 23
     },
-    "gameCount": 312
+    "gameCount": 335
   },
   "baseball": {
     "name": "Béisbol",
@@ -41084,7 +41472,26 @@
       "ps2-ultimate-pro-pinball",
       "gamecube-pac-man-vs",
       "ps1-time-crisis-project-titan",
-      "ps4-tanuki-justice"
+      "ps4-tanuki-justice",
+      "ps5-atari-50-the-anniversary-celebration-expanded-edition",
+      "ps5-bitmap-bureau-collection",
+      "ps5-blazblue-entropy-effect-x-deluxe-edition",
+      "ps5-dunjungle-premium-edition",
+      "ps5-hotel-barcelona",
+      "ps5-inspector-waffles-early-days",
+      "ps5-into-the-restless-ruins",
+      "ps5-kiborg",
+      "ps5-lost-ruins",
+      "ps5-marvel-cosmic-invasion",
+      "ps5-mr-run-jump-kombinera-adrenaline",
+      "ps5-neon-apex-beyond-the-limit",
+      "ps5-snow-bros-wonderland",
+      "ps5-sonic-wings-reunion",
+      "ps5-sonic-wings-reunion-collector-edition",
+      "ps5-taxi-chaos-2",
+      "ps5-terminator-2d-no-fate-standard-edition",
+      "ps5-toaplan-arcade-collection-vol-1",
+      "ps5-toaplan-arcade-collection-vol-2"
     ],
     "byPlatform": {
       "3ds": 7,
@@ -41104,9 +41511,10 @@
       "saturn": 6,
       "sega32x": 5,
       "snes": 9,
-      "wii": 5
+      "wii": 5,
+      "ps5": 19
     },
-    "gameCount": 252
+    "gameCount": 271
   },
   "party": {
     "name": "Party",
@@ -41341,7 +41749,8 @@
       "wii-big-family-games",
       "ps4-usa-carnival-games",
       "saturn-japon-shutsudou-mini-skirt-police",
-      "ds-eindeloos-games-top-10"
+      "ds-eindeloos-games-top-10",
+      "ps5-lego-party"
     ],
     "byPlatform": {
       "3ds": 14,
@@ -41356,9 +41765,10 @@
       "ps3": 23,
       "ps4": 51,
       "saturn": 3,
-      "wii": 27
+      "wii": 27,
+      "ps5": 1
     },
-    "gameCount": 229
+    "gameCount": 230
   },
   "wrestling": {
     "name": "Wrestling",
@@ -44040,12 +44450,16 @@
       "megadrive-usa-bible-adventures",
       "megadrive-usa-where-world-carmen-sandiego",
       "megadrive-usa-thomas-tank-engine-friends",
-      "megadrive-usa-magic-school-bus-scholastics-space-exploration-game"
+      "megadrive-usa-magic-school-bus-scholastics-space-exploration-game",
+      "ps5-dreamworks-la-casa-de-munecas-de-gabby-listos-para-la-fiesta",
+      "ps5-neopets-mega-mini-games-collection-the-neopian-arcade-odyssey-day-1-edition",
+      "ps5-paw-patrol-mundo-dino"
     ],
     "byPlatform": {
-      "megadrive": 15
+      "megadrive": 15,
+      "ps5": 3
     },
-    "gameCount": 15
+    "gameCount": 18
   },
   "citas": {
     "name": "Citas",
@@ -44273,12 +44687,14 @@
       "megadrive-pal-columns",
       "megadrive-marble-madness",
       "megadrive-japon-columns",
-      "megadrive-usa-marble-madness"
+      "megadrive-usa-marble-madness",
+      "ps5-asterix-and-obelix-heroes"
     ],
     "byPlatform": {
-      "megadrive": 7
+      "megadrive": 7,
+      "ps5": 1
     },
-    "gameCount": 7
+    "gameCount": 8
   },
   "hockey": {
     "name": "Hockey",
