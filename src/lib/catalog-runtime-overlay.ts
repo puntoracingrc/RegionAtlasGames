@@ -3,6 +3,7 @@ import { revalidateTag, unstable_cache } from "next/cache";
 import { buildCatalogSeoSlug } from "./catalog-url";
 import { getCatalogGame, listedCatalog } from "./catalog";
 import {
+  mergeCatalogGameWithOverlay,
   mergeCatalogPlatformGames,
   resolveCatalogOverlayCandidate,
 } from "./catalog-overlay-merge";
@@ -250,7 +251,11 @@ export async function resolveCatalogGameWithOverlay(
   );
   if (overlayId) {
     const overlayGame = await readCatalogOverlayGame(overlayId);
-    if (overlayGame) return overlayGame;
+    if (overlayGame) {
+      return staticGame?.id === overlayGame.id
+        ? mergeCatalogGameWithOverlay(staticGame, overlayGame)
+        : overlayGame;
+    }
   }
   return staticGame;
 }
