@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-08-29T07:18:25Z",
+  "lastRunAt": "2026-08-29T09:24:00Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -64,7 +64,7 @@
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     },
     "ps4": {
-      "lastSyncAt": "2026-08-29T07:10:44Z",
+      "lastSyncAt": "2026-08-29T09:16:19Z",
       "source": "eBay ES",
       "gamesTargeted": 51,
       "gamesUpdated": 17,
@@ -84,7 +84,7 @@
       "cholloGamesSkipped": 0,
       "kaotoGamesUpdated": 0,
       "kaotoGamesSkipped": 0,
-      "tcnsGamesUpdated": 0,
+      "tcnsGamesUpdated": 13,
       "tcnsGamesSkipped": 0,
       "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
@@ -116,6 +116,15 @@
           "skipped_no_key": 0,
           "skipped_has_bucket": 0,
           "skipped_no_hints": 0
+        }
+      },
+      "sourceRuns": {
+        "todoconsolas": {
+          "lastSyncAt": "2026-08-29T09:16:19Z",
+          "gamesTargeted": 13,
+          "gamesUpdated": 13,
+          "gamesSkipped": 0,
+          "policy": "exact_title_region_used_v1"
         }
       }
     },

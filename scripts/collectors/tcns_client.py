@@ -5,15 +5,16 @@ from __future__ import annotations
 import html
 import re
 import time
-import urllib.parse
+import urllib.error
 import urllib.request
 from typing import Any
 
-from collectors.common import build_search_queries, build_search_query, normalize_query
+from collectors.common import build_search_queries, build_search_query
 from collectors import platform_sources as ps
 
 TCNS_BASE = "https://www.todoconsolas.com"
 USER_AGENT = "RegionAtlasGames/1.0 (+price-reference-ingest)"
+CATEGORY_PATH_RE = re.compile(r"\d+-[a-z0-9-]+")
 
 TCNS_PLATFORM_CATEGORIES = ps.legacy_tcns_categories()
 
@@ -42,12 +43,46 @@ IMG_RE = re.compile(
     re.I,
 )
 PAGE_LINK_RE = re.compile(r"[?&]page=(\d+)")
+EAN_URL_RE = re.compile(r"-(\d{8,14})\.html(?:$|[?#])")
+
+
+class TodoConsolasRequestError(RuntimeError):
+    """Error de acceso que el recolector debe tratar sin insistir."""
+
+    def __init__(self, message: str, *, status_code: int | None = None, retry_after: str | None = None):
+        super().__init__(message)
+        self.status_code = status_code
+        self.retry_after = retry_after
 
 
 def fetch_html(url: str) -> str:
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        return resp.read().decode("utf-8", errors="ignore")
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Accept": "text/html,application/xhtml+xml",
+            "Accept-Language": "es-ES,es;q=0.9,en;q=0.5",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            return resp.read().decode("utf-8", errors="ignore")
+    except urllib.error.HTTPError as exc:
+        retry_after = exc.headers.get("Retry-After") if exc.headers else None
+        if exc.code in {403, 429}:
+            detail = f"; Retry-After={retry_after}" if retry_after else ""
+            raise TodoConsolasRequestError(
+                f"TodoConsolas bloqueó la petición con HTTP {exc.code}{detail}",
+                status_code=exc.code,
+                retry_after=retry_after,
+            ) from exc
+        raise TodoConsolasRequestError(
+            f"HTTP {exc.code} al consultar TodoConsolas",
+            status_code=exc.code,
+            retry_after=retry_after,
+        ) from exc
+    except urllib.error.URLError as exc:
+        raise TodoConsolasRequestError(f"No se pudo consultar TodoConsolas: {exc.reason}") from exc
 
 
 def parse_price(raw: str) -> float | None:
@@ -61,6 +96,10 @@ def tcns_sources_for_platform(platform_slug: str) -> list[str]:
     return ps.tcns_sources_for_platform(platform_slug)
 
 
+def tcns_category_paths_for_platform(platform_slug: str) -> list[str]:
+    return ps.tcns_category_slugs(platform_slug)
+
+
 def supported_platform_slugs() -> list[str]:
     return sorted(TCNS_PLATFORM_CATEGORIES.keys())
 
@@ -70,47 +109,18 @@ def build_tcns_search_query(game: dict[str, Any]) -> str:
     return build_search_query(game)
 
 
-def search_url(query: str, page: int = 1) -> str:
-    params = urllib.parse.urlencode({"controller": "search", "s": query})
-    base = f"{TCNS_BASE}/busqueda?{params}"
-    return base if page <= 1 else f"{base}&page={page}"
-
-
 def fetch_search_products(
     query: str,
     *,
     max_pages: int | None = None,
     delay_s: float = 0.35,
 ) -> list[dict[str, Any]]:
-    """Busca en todoconsolas.com/busqueda. Sin resultados → lista vacía."""
-    query = normalize_query(query)
-    if not query:
-        return []
-
-    first_html = fetch_html(search_url(query, 1))
-    max_page = max_page_number(first_html)
-    if max_pages is not None:
-        max_page = min(max_page, max_pages)
-    else:
-        from collectors.listing_recency import search_pages_cap
-
-        max_page = min(max_page, search_pages_cap())
-
-    seen_urls: set[str] = set()
-    products: list[dict[str, Any]] = []
-
-    for page in range(1, max_page + 1):
-        page_html = first_html if page == 1 else fetch_html(search_url(query, page))
-        for product in parse_category_page(page_html):
-            url = str(product["productUrl"])
-            if url in seen_urls:
-                continue
-            seen_urls.add(url)
-            products.append(product)
-        if page < max_page:
-            time.sleep(delay_s)
-
-    return products
+    """El buscador interno queda desactivado; robots.txt excluye esa ruta."""
+    del query, max_pages, delay_s
+    raise TodoConsolasRequestError(
+        "El buscador interno de TodoConsolas está desactivado. "
+        "Usa collect_todoconsolas_category_pilot.py sobre categorías públicas."
+    )
 
 
 def fetch_game_products(
@@ -135,10 +145,7 @@ def fetch_game_products(
 
 
 def tcns_sources_for_platform_legacy_categories(platform_slug: str) -> list[str]:
-    raw = TCNS_PLATFORM_CATEGORIES.get(platform_slug)
-    if not raw:
-        return []
-    return raw if isinstance(raw, list) else [raw]
+    return tcns_category_paths_for_platform(platform_slug)
 
 
 def parse_category_page(html_text: str) -> list[dict[str, Any]]:
@@ -164,6 +171,8 @@ def parse_category_page(html_text: str) -> list[dict[str, Any]]:
         id_match = re.search(r"/(\d+)-[^/]+\.html", product_url)
         if id_match:
             external_id = id_match.group(1)
+        ean_match = EAN_URL_RE.search(product_url)
+        source_reference = ean_match.group(1) if ean_match else ""
         products.append(
             {
                 "title": title,
@@ -171,6 +180,8 @@ def parse_category_page(html_text: str) -> list[dict[str, Any]]:
                 "priceEur": price,
                 "conditionRaw": condition,
                 "externalId": external_id,
+                "sourceReference": source_reference or None,
+                "_referenceText": source_reference,
                 "imageUrl": image_url or None,
             }
         )
@@ -182,15 +193,29 @@ def max_page_number(html_text: str) -> int:
     return max(pages) if pages else 1
 
 
+def category_page_url(category_path: str, page: int = 1) -> str:
+    """Construye solo URLs de categorías públicas, nunca el buscador interno."""
+    path = category_path.strip("/").lower()
+    if not CATEGORY_PATH_RE.fullmatch(path):
+        raise ValueError(f"Ruta de categoría TodoConsolas no válida: {category_path}")
+    if page < 1:
+        raise ValueError("La página debe ser mayor o igual que 1")
+    base_url = f"{TCNS_BASE}/{path}"
+    return base_url if page == 1 else f"{base_url}?page={page}"
+
+
+def fetch_category_page(category_path: str, page: int = 1) -> tuple[list[dict[str, Any]], int]:
+    page_html = fetch_html(category_page_url(category_path, page))
+    return parse_category_page(page_html), max_page_number(page_html)
+
+
 def fetch_category_products(
     category_path: str,
     *,
     max_pages: int | None = None,
     delay_s: float = 0.35,
 ) -> list[dict[str, Any]]:
-    base_url = f"{TCNS_BASE}/{category_path.strip('/')}"
-    first_html = fetch_html(base_url)
-    max_page = max_page_number(first_html)
+    first_products, max_page = fetch_category_page(category_path, 1)
     if max_pages is not None:
         max_page = min(max_page, max_pages)
 
@@ -198,8 +223,8 @@ def fetch_category_products(
     products: list[dict[str, Any]] = []
 
     for page in range(1, max_page + 1):
-        page_html = first_html if page == 1 else fetch_html(f"{base_url}?page={page}")
-        for product in parse_category_page(page_html):
+        page_products = first_products if page == 1 else fetch_category_page(category_path, page)[0]
+        for product in page_products:
             url = str(product["productUrl"])
             if url in seen_urls:
                 continue

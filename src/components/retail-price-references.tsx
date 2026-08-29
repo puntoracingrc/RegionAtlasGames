@@ -29,6 +29,7 @@ type GameLike = Pick<
 >;
 
 const CONDITION_LABELS: Record<string, string> = {
+  preowned: "Segunda mano",
   used: "Usado / suelto",
   no_manual: "Sin manual",
   cib: "Completo (CIB)",

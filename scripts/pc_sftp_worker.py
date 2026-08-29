@@ -662,6 +662,27 @@ def upload_price_review_queue(queue: SftpQueue) -> None:
     queue.upload_file(queue.remote("app", "data", "admin", "price-review-queue.json"), review_file)
 
 
+def upload_price_review_queue_verified(queue: SftpQueue) -> int:
+    from collectors.price_review_queue import merge_price_review_queue_documents
+
+    review_file = ROOT / "data" / "admin" / "price-review-queue.json"
+    if not review_file.exists():
+        raise RuntimeError(f"No existe la cola local: {review_file}")
+    remote_path = queue.remote("app", "data", "admin", "price-review-queue.json")
+    local_payload = json.loads(review_file.read_text(encoding="utf-8"))
+    if queue.exists(remote_path):
+        remote_payload = queue.read_json(remote_path)
+    else:
+        remote_payload = {"items": [], "decisions": []}
+    merged_payload = merge_price_review_queue_documents(remote_payload, local_payload)
+    review_file.write_text(json_text(merged_payload), encoding="utf-8")
+    queue.upload_file(remote_path, review_file)
+    verified_payload = queue.read_json(remote_path)
+    if verified_payload != merged_payload:
+        raise RuntimeError("La lectura posterior no coincide con la cola local subida.")
+    return len(merged_payload.get("items") or [])
+
+
 def update_local_game_queue_import(queue: SftpQueue, import_id: str, code: int, log_tail: str) -> None:
     remote_path = queue.remote("app", "data", "admin", "local-game-runner-jobs.json")
     try:
@@ -930,6 +951,11 @@ def main() -> int:
     parser.add_argument("--interval", type=int, default=None, help="Segundos entre consultas; implica modo daemon.")
     parser.add_argument("--daily", action="store_true", help="Permite ejecutar la rueda automatica si PRICE_PC_DAILY_ENABLED=1.")
     parser.add_argument("--check", action="store_true", help="Verifica configuracion/conexion y sale.")
+    parser.add_argument(
+        "--upload-review-queue",
+        action="store_true",
+        help="Sube la cola local de revisión y verifica su lectura remota.",
+    )
     parser.add_argument("--dry-run", "--list", action="store_true", help="Lista jobs pendientes y acciones sin mover ni ejecutar nada.")
     args = parser.parse_args()
     config = load_config()
@@ -940,6 +966,11 @@ def main() -> int:
             queue.mkdir_p(queue.remote("jobs", "requests"))
             queue.mkdir_p(queue.remote("logs"))
         install_hint()
+        return 0
+    if args.upload_review_queue:
+        with SftpQueue(config) as queue:
+            uploaded = upload_price_review_queue_verified(queue)
+        print(f"Cola de revisión subida y verificada: {uploaded} elementos.")
         return 0
     interval = args.interval if args.interval is not None else int(os.environ.get("PRICE_PC_WORKER_INTERVAL", "120"))
     daemon = args.daemon or args.interval is not None

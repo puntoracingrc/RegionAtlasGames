@@ -38,7 +38,7 @@ BATCHES_FILE = ROOT / "data" / "price-sync-batches.json"
 INGEST_DIR = ROOT / "data" / "price-ingest"
 PYTHON = sys.executable
 
-LIST_KEYS = ("listings", "cex", "jgo", "chollo", "kaoto", "tcns")
+LIST_KEYS = ("listings", "regionalCandidates", "cex", "jgo", "chollo", "kaoto", "tcns")
 
 
 def load_batches() -> dict[str, dict[str, Any]]:
