@@ -252,8 +252,10 @@ export async function resolveCatalogGameWithOverlay(
   if (overlayId) {
     const overlayGame = await readCatalogOverlayGame(overlayId);
     if (overlayGame) {
-      return staticGame?.id === overlayGame.id
-        ? mergeCatalogGameWithOverlay(staticGame, overlayGame)
+      const staticSource =
+        staticGame?.id === overlayGame.id ? staticGame : getCatalogGame(overlayGame.id);
+      return staticSource
+        ? mergeCatalogGameWithOverlay(staticSource, overlayGame)
         : overlayGame;
     }
   }
