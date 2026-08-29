@@ -4,6 +4,7 @@ import path from "path";
 import { AdminGameReleaseDiscoveryPanel } from "@/components/admin/admin-game-release-discovery-panel";
 import { AdminLocalGameRunnerPanel } from "@/components/admin/admin-local-game-runner-panel";
 import { AdminMarketCollectionPanel } from "@/components/admin/admin-market-collection-panel";
+import { AdminPcWorkerUpdatePanel } from "@/components/admin/admin-pc-worker-update-panel";
 import { AdminPriceCoverageTable } from "@/components/admin/admin-price-coverage-table";
 import { AdminPriceReviewPanel } from "@/components/admin/admin-price-review-panel";
 import { AdminPriceSourceSettingsPanel } from "@/components/admin/admin-price-source-settings-panel";
@@ -768,6 +769,8 @@ export default async function AdminPricesPage({
           </p>
         ) : null}
       </Panel>
+
+      <AdminPcWorkerUpdatePanel />
 
       <Panel className={adminToneClass("status")}>
         <div className="flex flex-wrap items-start justify-between gap-4">

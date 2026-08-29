@@ -11,4 +11,14 @@ $env:PYTHONUTF8 = "1"
 $env:PYTHONIOENCODING = "utf-8"
 $env:PYTHONLEGACYWINDOWSSTDIO = "0"
 $env:PYTHONUNBUFFERED = "1"
-& $Python "scripts\pc_sftp_worker.py" --daemon --daily --interval 120
+
+do {
+  & $Python "scripts\pc_sftp_worker.py" --daemon --daily --interval 120
+  $WorkerExitCode = $LASTEXITCODE
+  if ($WorkerExitCode -eq 75) {
+    Write-Host "Worker actualizado. Reiniciando con el codigo nuevo..."
+    Start-Sleep -Seconds 2
+  }
+} while ($WorkerExitCode -eq 75)
+
+exit $WorkerExitCode

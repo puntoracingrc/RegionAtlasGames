@@ -63,21 +63,46 @@ el barrido en tráfico agresivo:
 - deja los exactos en un artefacto `ready-for-git.json`; nunca escribe precios
   en el catálogo ni publica producción.
 
-El worker permanente lo ejecuta únicamente cuando
-`PRICE_PC_TODOCONSOLAS_WEEKLY_ENABLED=1` en el `.env.worker` del PC. La plantilla
-lo mantiene en `0`: desplegar el código no lo activa. El estado y el log se
-publican en el almacenamiento externo para que `/admin/precios` muestre avance,
-pausas, coincidencias exactas y elementos de revisión.
+El worker permanente solo lo ejecuta cuando existe una configuración explícita.
+La plantilla local lo mantiene en `0`; además,
+`PRICE_PC_TODOCONSOLAS_WEEKLY_HARD_DISABLED=1` funciona como corte local de
+emergencia y prevalece sobre el panel. El estado y el log se publican en el
+almacenamiento externo para que `/admin/precios` muestre avance, pausas,
+coincidencias exactas y elementos de revisión.
 
-Activación controlada en el PC, siempre después del merge y los checks:
+## Actualización segura del PC
+
+`/admin/precios` puede solicitar dos acciones cerradas: actualizar el worker o
+actualizarlo y preparar un piloto PS4. La solicitud no contiene comandos y el PC
+solo la acepta si se cumplen todas estas condiciones:
+
+- el SHA solicitado es el commit completo que Vercel tiene en producción;
+- el remoto es `puntoracingrc/RegionAtlasGames`;
+- el checkout está en `main` y no tiene cambios locales;
+- `origin/main` sigue apuntando exactamente al SHA solicitado;
+- el avance es fast-forward y se ejecuta con `git merge --ff-only`.
+
+No se admiten ramas arbitrarias, `reset`, fuerza, rollback ni ejecución remota de
+comandos. El piloto administrado también queda limitado a plataformas conocidas,
+una o dos páginas por pasada, pausas de 5 a 30 segundos y backoff mínimo de 24
+horas. El piloto recomendado empieza con PS4, una página, 8 segundos de pausa,
+3 de jitter y periodicidad semanal.
+
+El PC instalado antes de esta función necesita un único arranque manual para
+aprender a leer estas solicitudes. Siempre después del merge, checks y
+verificación de producción:
 
 ```powershell
 Stop-ScheduledTask -TaskName "Region Atlas PC Worker"
 git pull --ff-only origin main
-# Cambiar PRICE_PC_TODOCONSOLAS_WEEKLY_ENABLED=1 en .env.worker
 Start-ScheduledTask -TaskName "Region Atlas PC Worker"
 py scripts\pc_sftp_worker.py --dry-run
 ```
+
+Después de ese arranque, las actualizaciones futuras se solicitan desde el panel
+y el PC informa de hostname, commit, rama, limpieza y configuración activa. Si
+el checkout está sucio o diverge, se para sin sobrescribir nada. El panel ofrece
+un diagnóstico copiable sin credenciales.
 
 El repositorio público se puede actualizar en lectura sin un token clásico de
 GitHub. No se deben guardar PAT de escritura en `.env.worker` ni en el remoto
