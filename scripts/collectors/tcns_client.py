@@ -43,6 +43,7 @@ IMG_RE = re.compile(
     re.I,
 )
 PAGE_LINK_RE = re.compile(r"[?&]page=(\d+)")
+EAN_URL_RE = re.compile(r"-(\d{8,14})\.html(?:$|[?#])")
 
 
 class TodoConsolasRequestError(RuntimeError):
@@ -170,6 +171,8 @@ def parse_category_page(html_text: str) -> list[dict[str, Any]]:
         id_match = re.search(r"/(\d+)-[^/]+\.html", product_url)
         if id_match:
             external_id = id_match.group(1)
+        ean_match = EAN_URL_RE.search(product_url)
+        source_reference = ean_match.group(1) if ean_match else ""
         products.append(
             {
                 "title": title,
@@ -177,6 +180,8 @@ def parse_category_page(html_text: str) -> list[dict[str, Any]]:
                 "priceEur": price,
                 "conditionRaw": condition,
                 "externalId": external_id,
+                "sourceReference": source_reference or None,
+                "_referenceText": source_reference,
                 "imageUrl": image_url or None,
             }
         )

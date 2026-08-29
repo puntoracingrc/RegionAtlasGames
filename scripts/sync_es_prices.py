@@ -46,6 +46,8 @@ from collectors.condition_buckets import (  # noqa: E402
 from collectors.price_history import record_platform_snapshots  # noqa: E402
 from collectors.price_ai_policy import price_collectors_use_ai  # noqa: E402
 from collectors.price_review_queue import record_price_review_candidates  # noqa: E402
+from collectors.tcns_policy import POLICY_VERSION as TCNS_POLICY_VERSION  # noqa: E402
+from collectors.tcns_policy import tcns_row_is_auto_approved  # noqa: E402
 
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 STATE_FILE = ROOT / "data" / "price-sync-state.json"
@@ -539,6 +541,8 @@ def apply_tcns_row(
     row: dict[str, Any],
     synced_at: str,
 ) -> bool:
+    if not tcns_row_is_auto_approved(row, game):
+        return False
     catalog_region = str(game.get("region") or "")
     listing_region = str(row.get("listingRegion") or catalog_region).strip()
     if not listing_region or not catalog_regions_match(catalog_region, listing_region):
@@ -670,6 +674,7 @@ def collect_condition_observations(
     kaoto_by_id: dict[str, dict[str, Any]],
     tcns_by_id: dict[str, dict[str, Any]],
     tc_by_id: dict[str, dict[str, Any]],
+    catalog_game: dict[str, Any] | None = None,
     use_vision: bool = True,
 ) -> list[tuple[float, str, str]]:
     observations: list[tuple[float, str, str]] = []
@@ -700,6 +705,12 @@ def collect_condition_observations(
     ):
         row = source_map.get(gid)
         if not row:
+            continue
+        if source_name == "todoconsolas" and (
+            catalog_game is None or not tcns_row_is_auto_approved(row, catalog_game)
+        ):
+            continue
+        if source_name == "todoconsolas" and str(row.get("conditionRaw") or "").strip().casefold() == "segunda mano":
             continue
         row = {**row, "source": row.get("source") or source_name}
         obs = _row_observation(row, catalog_region=catalog_region, platform_slug=platform_slug, use_vision=use_vision)
@@ -916,9 +927,6 @@ def main() -> None:
     state = load_json(STATE_FILE)
     catalog: list[dict[str, Any]] = load_json(CATALOG_FILE)
     platforms = load_json(PLATFORMS_FILE)
-    ranges_cleared = clear_unverified_market_ranges(catalog)
-    if ranges_cleared:
-        print(f"Rangos Excel eliminados en {ranges_cleared} juegos sin verificar región.")
 
     rotation: list[str] = state.get("rotationOrder") or [
         p["slug"] for p in sorted(platforms, key=lambda x: x.get("sortOrder", 99))
@@ -949,17 +957,6 @@ def main() -> None:
     game_auto_verified = apply_game_preowned_auto_region_policy(ingest, catalog_by_id)
     if game_auto_verified:
         print(f"  GAME seminuevo autoaceptado PAL España: {game_auto_verified} filas")
-    try:
-        review_stats = record_price_review_candidates(ingest, platform_slug)
-        if review_stats.get("added") or review_stats.get("updated"):
-            print(
-                "  Precios a revisar: "
-                f"+{review_stats.get('added', 0)} nuevos · "
-                f"{review_stats.get('updated', 0)} actualizados · "
-                f"{review_stats.get('pending', 0)} pendientes"
-            )
-    except Exception as exc:  # noqa: BLE001
-        print(f"  AVISO: no se pudo actualizar la cola de precios a revisar: {exc}")
     listings = ingest.get("listings") or []
     cex_rows = ingest.get("cex") or []
     jgo_rows = ingest.get("jgo") or []
@@ -984,6 +981,9 @@ def main() -> None:
             allow_cross_region_catalog_ids=args.allow_cross_region_catalog_ids,
         )
     ]
+    ranges_cleared = clear_unverified_market_ranges(targets)
+    if ranges_cleared:
+        print(f"Rangos Excel eliminados en {ranges_cleared} juegos dentro del alcance.")
     target_ids = {g["id"] for g in targets}
     by_id = {g["id"]: g for g in catalog}
     coverage_before = price_coverage_snapshot(catalog, platform_slug, args.region)
@@ -1146,6 +1146,7 @@ def main() -> None:
             kaoto_by_id=kaoto_by_id,
             tcns_by_id=tcns_by_id,
             tc_by_id=tc_by_id,
+            catalog_game=game,
             use_vision=use_vision,
         )
         if apply_condition_price_estimates(
@@ -1231,13 +1232,25 @@ def main() -> None:
         print("Dry-run: no se escriben archivos.")
         return
 
+    try:
+        review_stats = record_price_review_candidates(ingest, platform_slug)
+        if review_stats.get("added") or review_stats.get("updated"):
+            print(
+                "  Precios a revisar: "
+                f"+{review_stats.get('added', 0)} nuevos · "
+                f"{review_stats.get('updated', 0)} actualizados · "
+                f"{review_stats.get('pending', 0)} pendientes"
+            )
+    except Exception as exc:  # noqa: BLE001
+        print(f"  AVISO: no se pudo actualizar la cola de precios a revisar: {exc}")
+
     history_recorded = record_platform_snapshots(platform_games, synced_at=synced_at)
     if history_recorded:
         print(f"  Histórico precios: {history_recorded} puntos nuevos/actualizados")
 
     save_json(CATALOG_FILE, catalog_after)
 
-    state.setdefault("platforms", {})[platform_slug] = {
+    platform_run_state = {
         "lastSyncAt": synced_at,
         "source": price_source_label({str(r.get("source", "other")).lower() for r in listings}),
         "gamesTargeted": len(targets),
@@ -1274,6 +1287,31 @@ def main() -> None:
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
         "aiSummary": ai_summary,
     }
+    source_only_tcns = str(ingest.get("source") or "").strip().lower() == "todoconsolas" and not any(
+        (listings, cex_rows, jgo_rows, chollo_rows, kaoto_rows, ingest.get("tc") or [])
+    )
+    platforms_state = state.setdefault("platforms", {})
+    if source_only_tcns:
+        previous_platform_state = dict(platforms_state.get(platform_slug) or {})
+        source_runs = dict(previous_platform_state.get("sourceRuns") or {})
+        source_runs["todoconsolas"] = {
+            "lastSyncAt": synced_at,
+            "gamesTargeted": len(targets),
+            "gamesUpdated": tcns_updated,
+            "gamesSkipped": tcns_skipped,
+            "policy": TCNS_POLICY_VERSION,
+        }
+        previous_platform_state.update(
+            {
+                "lastSyncAt": synced_at,
+                "tcnsGamesUpdated": tcns_updated,
+                "tcnsGamesSkipped": tcns_skipped,
+                "sourceRuns": source_runs,
+            }
+        )
+        platforms_state[platform_slug] = previous_platform_state
+    else:
+        platforms_state[platform_slug] = platform_run_state
     if args.region:
         regions_state = state.setdefault("regions", {})
         platform_regions = regions_state.setdefault(platform_slug, {})

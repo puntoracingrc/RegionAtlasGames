@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 from typing import Any
 
 from collectors.common import ROOT, load_json, now_iso, save_json
+from collectors.tcns_policy import POLICY_VERSION
 
 QUEUE_FILE = ROOT / "data" / "admin" / "price-review-queue.json"
 REVIEW_KEYS = (
@@ -36,6 +38,12 @@ def _item_id(row: dict[str, Any], source: str, platform_slug: str) -> str:
 
 
 def _reason(row: dict[str, Any]) -> str | None:
+    if (
+        str(row.get("source") or "").strip().lower() == "todoconsolas"
+        and row.get("autoApproved") is True
+        and row.get("acceptancePolicy") == POLICY_VERSION
+    ):
+        return None
     notes = [str(item) for item in (row.get("regionReviewNotes") or []) if str(item).strip()]
     if row.get("regionReviewNeeded"):
         return str(row.get("regionReviewReason") or "").strip() or "; ".join(notes) or "region_no_confirmada"
@@ -112,6 +120,47 @@ def load_price_review_queue() -> dict[str, Any]:
     }
 
 
+def merge_price_review_queue_documents(existing: dict[str, Any], incoming: dict[str, Any]) -> dict[str, Any]:
+    existing_items = {
+        str(item.get("id")): item
+        for item in (existing.get("items") or [])
+        if isinstance(item, dict) and item.get("id")
+    }
+    for item in incoming.get("items") or []:
+        if not isinstance(item, dict) or not item.get("id"):
+            continue
+        item_id = str(item["id"])
+        previous = existing_items.get(item_id)
+        if previous and previous.get("status") in {"accepted", "rejected"}:
+            continue
+        existing_items[item_id] = {
+            **(previous or {}),
+            **item,
+            "createdAt": (previous or {}).get("createdAt") or item.get("createdAt") or now_iso(),
+        }
+
+    decisions: list[dict[str, Any]] = []
+    seen_decisions: set[str] = set()
+    for decision in [*(existing.get("decisions") or []), *(incoming.get("decisions") or [])]:
+        if not isinstance(decision, dict):
+            continue
+        key = json.dumps(decision, ensure_ascii=False, sort_keys=True, default=str)
+        if key in seen_decisions:
+            continue
+        seen_decisions.add(key)
+        decisions.append(decision)
+    return {
+        "schemaVersion": 1,
+        "updatedAt": now_iso(),
+        "items": sorted(
+            existing_items.values(),
+            key=lambda item: str(item.get("updatedAt") or item.get("createdAt") or ""),
+            reverse=True,
+        )[:1000],
+        "decisions": decisions,
+    }
+
+
 def record_price_review_candidates(ingest: dict[str, Any], platform_slug: str) -> dict[str, int]:
     queue = load_price_review_queue()
     existing = {str(item.get("id")): item for item in queue["items"] if isinstance(item, dict) and item.get("id")}
@@ -161,4 +210,9 @@ def record_price_review_candidates(ingest: dict[str, Any], platform_slug: str) -
     return {"added": added, "updated": updated, "pending": sum(1 for item in queue["items"] if item.get("status") == "pending")}
 
 
-__all__ = ["QUEUE_FILE", "load_price_review_queue", "record_price_review_candidates"]
+__all__ = [
+    "QUEUE_FILE",
+    "load_price_review_queue",
+    "merge_price_review_queue_documents",
+    "record_price_review_candidates",
+]

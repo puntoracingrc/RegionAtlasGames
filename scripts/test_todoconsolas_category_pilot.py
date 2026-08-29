@@ -6,6 +6,7 @@ import urllib.error
 from collect_todoconsolas_category_pilot import (
     classify_candidate,
     is_preowned_product,
+    merge_ingest_payload,
     validate_window,
 )
 from collectors.catalog_match import CatalogMatchResult
@@ -68,7 +69,7 @@ def assert_rate_limit_stops_without_retry() -> None:
 def main() -> None:
     html = """
     <article class="product-miniature product">
-      <a href="https://www.todoconsolas.com/juegos-ps4/123-prueba-111.html">
+      <a href="https://www.todoconsolas.com/juegos-ps4/123-prueba-8424365720111.html">
         <h2 class="h3 product-title">Juego de Prueba PS4 (SP)</h2>
       </a>
       <span class="condition-label-primary no-border">Segunda mano</span>
@@ -85,6 +86,7 @@ def main() -> None:
     products = parse_category_page(html)
     assert len(products) == 2
     assert products[0]["priceEur"] == 19.95
+    assert products[0]["sourceReference"] == "8424365720111"
     assert is_preowned_product(products[0]) is True
     assert is_preowned_product(products[1]) is False
 
@@ -101,7 +103,7 @@ def main() -> None:
         "title": "Juego de Prueba PS4 (SP)",
         "priceEur": 19.95,
         "conditionRaw": "Segunda mano",
-        "productUrl": "https://www.todoconsolas.com/juegos-ps4/123-prueba-111.html",
+        "productUrl": "https://www.todoconsolas.com/juegos-ps4/123-prueba-8424365720111.html",
         "externalId": "123",
     }
     strong = classify_candidate(
@@ -113,7 +115,7 @@ def main() -> None:
             margin=0.3,
         ),
     )
-    assert strong["status"] == "strong_review"
+    assert strong["status"] == "auto_approved"
 
     missing_region = classify_candidate(
         {**product, "title": "Juego de Prueba PS4"},
@@ -124,7 +126,32 @@ def main() -> None:
             margin=0.4,
         ),
     )
-    assert missing_region["status"] == "blocked_missing_region"
+    assert missing_region["status"] == "manual_review"
+
+    merged = merge_ingest_payload(
+        {
+            "collectedAt": "2026-08-29T09:00:00Z",
+            "tcns": [{"catalogId": "a", "retailPriceEur": 20}],
+            "regionalCandidates": [{"productUrl": "https://example.test/review-a", "title": "A"}],
+        },
+        {
+            "collectedAt": "2026-08-29T10:00:00Z",
+            "tcns": [
+                {"catalogId": "a", "retailPriceEur": 18},
+                {"catalogId": "b", "retailPriceEur": 12},
+            ],
+            "regionalCandidates": [{"productUrl": "https://example.test/review-b", "title": "B"}],
+        },
+    )
+    assert {row["catalogId"] for row in merged["tcns"]} == {"a", "b"}
+    assert next(row for row in merged["tcns"] if row["catalogId"] == "a")["retailPriceEur"] == 18
+    assert len(merged["regionalCandidates"]) == 2
+    assert_raises_value_error(
+        lambda: merge_ingest_payload(
+            {"collectedAt": "2026-08-28T09:00:00Z", "tcns": [{"catalogId": "a"}]},
+            {"collectedAt": "2026-08-29T10:00:00Z", "tcns": []},
+        )
+    )
     print("OK TodoConsolas category pilot")
 
 

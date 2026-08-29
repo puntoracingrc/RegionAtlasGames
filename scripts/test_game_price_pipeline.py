@@ -103,6 +103,7 @@ def main() -> None:
         kaoto_by_id=kaoto_by_id,
         tcns_by_id=tcns_by_id,
         tc_by_id=tc_by_id,
+        catalog_game=game,
         use_vision=use_vision,
     )
     estimates, sources = mean_by_bucket(observations)
