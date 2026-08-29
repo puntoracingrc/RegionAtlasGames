@@ -22,6 +22,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from pc_worker_update import (
+    WorkerUpdateError,
+    apply_update_request,
+    load_runtime_control,
+    worker_git_health,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PUBLIC_URL = "https://www.puntoracing.net/MEDIAREGIONATLAS/price-worker"
 RUN_DIR = ROOT / "data" / "worker-runtime"
@@ -32,6 +39,9 @@ TODOCONSOLAS_WEEKLY_DIR = RUN_DIR / "todoconsolas-weekly"
 TODOCONSOLAS_WEEKLY_STATE = TODOCONSOLAS_WEEKLY_DIR / "state.json"
 TODOCONSOLAS_WEEKLY_CAMPAIGNS = TODOCONSOLAS_WEEKLY_DIR / "campaigns"
 TODOCONSOLAS_WEEKLY_DISABLED_MARKER = TODOCONSOLAS_WEEKLY_DIR / "disabled-status.lock"
+PC_RUNTIME_CONTROL = RUN_DIR / "pc-control.json"
+PC_WORKER_HEALTH_MARKER = RUN_DIR / "pc-worker-health.lock"
+WORKER_RESTART_EXIT_CODE = 75
 
 
 def now_iso() -> str:
@@ -235,6 +245,33 @@ def command_base_env() -> dict[str, str]:
 
 def env_enabled(name: str) -> bool:
     return os.environ.get(name, "0").strip().lower() in {"1", "true", "yes", "on"}
+
+
+def effective_todoconsolas_weekly_config() -> dict[str, Any]:
+    control = load_runtime_control(PC_RUNTIME_CONTROL)
+    remote = control.get("todoConsolasWeekly") if isinstance(control.get("todoConsolasWeekly"), dict) else None
+    hard_disabled = env_enabled("PRICE_PC_TODOCONSOLAS_WEEKLY_HARD_DISABLED")
+    if remote is not None and not hard_disabled:
+        return {
+            "enabled": bool(remote.get("enabled")),
+            "platforms": ",".join(str(item) for item in remote.get("platforms") or []),
+            "pagesPerRun": str(remote.get("pagesPerRun") or 1),
+            "delaySeconds": str(remote.get("delaySeconds") or 8),
+            "jitterSeconds": str(remote.get("jitterSeconds") or 3),
+            "backoffHours": str(remote.get("backoffHours") or 24),
+            "intervalDays": str(remote.get("intervalDays") or 7),
+            "source": "admin_control",
+        }
+    return {
+        "enabled": env_enabled("PRICE_PC_TODOCONSOLAS_WEEKLY_ENABLED") and not hard_disabled,
+        "platforms": os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_PLATFORMS", "").strip(),
+        "pagesPerRun": os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_PAGES_PER_RUN", "2"),
+        "delaySeconds": os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_DELAY_SECONDS", "6"),
+        "jitterSeconds": os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_JITTER_SECONDS", "2"),
+        "backoffHours": os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_BACKOFF_HOURS", "24"),
+        "intervalDays": os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_INTERVAL_DAYS", "7"),
+        "source": "local_env",
+    }
 
 
 def run_logged(cmd: list[str], log_path: Path, env: dict[str, str], timeout: int | None = None) -> int:
@@ -762,7 +799,7 @@ def _upload_todoconsolas_weekly_artifacts(queue: SftpQueue, state: dict[str, Any
         queue.upload_file(posixpath.join(remote_campaign, "ingest", local_path.name), local_path)
 
 
-def run_todoconsolas_weekly(queue: SftpQueue) -> bool:
+def run_todoconsolas_weekly(queue: SftpQueue, settings: dict[str, Any]) -> bool:
     from collect_todoconsolas_weekly import state_needs_slice
 
     state = {}
@@ -783,17 +820,17 @@ def run_todoconsolas_weekly(queue: SftpQueue) -> bool:
         "--output-root",
         str(TODOCONSOLAS_WEEKLY_CAMPAIGNS),
         "--interval-days",
-        os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_INTERVAL_DAYS", "7"),
+        str(settings["intervalDays"]),
         "--pages-per-run",
-        os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_PAGES_PER_RUN", "2"),
+        str(settings["pagesPerRun"]),
         "--delay",
-        os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_DELAY_SECONDS", "6"),
+        str(settings["delaySeconds"]),
         "--jitter",
-        os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_JITTER_SECONDS", "2"),
+        str(settings["jitterSeconds"]),
         "--backoff-hours",
-        os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_BACKOFF_HOURS", "24"),
+        str(settings["backoffHours"]),
     ]
-    platforms = os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_PLATFORMS", "").strip()
+    platforms = str(settings.get("platforms") or "").strip()
     if platforms:
         cmd.extend(["--platforms", platforms])
     code = run_logged(cmd, log_file, command_base_env(), timeout=900)
@@ -850,6 +887,81 @@ def publish_todoconsolas_weekly_disabled_status(queue: SftpQueue) -> None:
     queue.upload_bytes(queue.remote("cron", "todoconsolas-weekly-status.json"), json_bytes(status))
     TODOCONSOLAS_WEEKLY_DISABLED_MARKER.parent.mkdir(parents=True, exist_ok=True)
     TODOCONSOLAS_WEEKLY_DISABLED_MARKER.write_text(checked_at, encoding="utf-8")
+
+
+def _supported_todoconsolas_platforms() -> set[str]:
+    from collectors.tcns_client import supported_platform_slugs
+
+    return set(supported_platform_slugs())
+
+
+def process_worker_update_request(queue: SftpQueue, request_name: str) -> int:
+    safe_id = "".join(character for character in request_name.removesuffix(".json") if character.isalnum() or character in "-_")
+    request_id = safe_id or uuid.uuid4().hex
+    request_path = queue.remote("jobs", "worker-update-requests", request_name)
+    running_path = queue.remote("jobs", "worker-update-running", request_name)
+    done_path = queue.remote("jobs", "worker-update-done", request_name)
+    failed_path = queue.remote("jobs", "worker-update-failed", request_name)
+    result_path = queue.remote("jobs", "worker-update-results", f"{request_id}.json")
+    public_status_path = queue.remote("cron", "pc-worker-update-status.json")
+    if not queue.rename(request_path, running_path):
+        return 0
+
+    started_at = now_iso()
+    try:
+        request = queue.read_json(running_path)
+        result = apply_update_request(
+            ROOT,
+            request,
+            control_path=PC_RUNTIME_CONTROL,
+            allowed_platforms=_supported_todoconsolas_platforms(),
+        )
+        status = {
+            **result,
+            "requestId": request_id,
+            "runnerId": queue.config.runner_id,
+            "hostname": socket.gethostname(),
+            "startedAt": started_at,
+            "finishedAt": now_iso(),
+        }
+        queue.upload_bytes(result_path, json_bytes(status))
+        queue.upload_bytes(public_status_path, json_bytes(status))
+        queue.rename(running_path, done_path)
+        return WORKER_RESTART_EXIT_CODE if result.get("restartRequired") else 1
+    except (WorkerUpdateError, OSError, json.JSONDecodeError, ValueError) as exc:
+        status = {
+            "ok": False,
+            "status": "error",
+            "requestId": request_id,
+            "runnerId": queue.config.runner_id,
+            "hostname": socket.gethostname(),
+            "startedAt": started_at,
+            "finishedAt": now_iso(),
+            "error": str(exc),
+        }
+        queue.upload_bytes(result_path, json_bytes(status))
+        queue.upload_bytes(public_status_path, json_bytes(status))
+        queue.rename(running_path, failed_path)
+        return 1
+
+
+def publish_pc_worker_health(queue: SftpQueue, *, force: bool = False) -> None:
+    if not force and PC_WORKER_HEALTH_MARKER.exists():
+        age = time.time() - PC_WORKER_HEALTH_MARKER.stat().st_mtime
+        if age < 5 * 60:
+            return
+    checked_at = now_iso()
+    payload = {
+        "schemaVersion": 1,
+        "runnerId": queue.config.runner_id,
+        "hostname": socket.gethostname(),
+        "checkedAt": checked_at,
+        "git": worker_git_health(ROOT),
+        "todoConsolasWeekly": effective_todoconsolas_weekly_config(),
+    }
+    queue.upload_bytes(queue.remote("cron", "pc-worker-health.json"), json_bytes(payload))
+    PC_WORKER_HEALTH_MARKER.parent.mkdir(parents=True, exist_ok=True)
+    PC_WORKER_HEALTH_MARKER.write_text(checked_at, encoding="utf-8")
 
 
 def run_local_game_once() -> bool:
@@ -933,10 +1045,23 @@ def dry_run_list(config: WorkerConfig) -> int:
 
         import_dir = queue.remote("jobs", "import-requests")
         request_dir = queue.remote("jobs", "requests")
+        update_dir = queue.remote("jobs", "worker-update-requests")
         import_requests = queue.list_json(import_dir)
         review_dir = queue.remote("jobs", "review-requests")
         review_requests = queue.list_json(review_dir)
         price_requests = queue.list_json(request_dir)
+        update_requests = queue.list_json(update_dir)
+
+        print(f"Worker update requests pending: {len(update_requests)}")
+        for name in update_requests:
+            try:
+                request = queue.read_json(posixpath.join(update_dir, name))
+                print(
+                    "  would update: "
+                    f"{name} · mode={request.get('mode')} · target={str(request.get('targetSha') or '')[:12]}"
+                )
+            except Exception as exc:
+                print(f"  would update: {name} · unreadable={exc}")
 
         print(f"Import requests pending: {len(import_requests)}")
         for name in import_requests:
@@ -963,7 +1088,7 @@ def dry_run_list(config: WorkerConfig) -> int:
             print("GAME local runner: token configured, not queried in dry-run to avoid claiming API jobs.")
         else:
             print("GAME local runner: disabled, LOCAL_GAME_RUNNER_TOKEN is not set.")
-        weekly_enabled = env_enabled("PRICE_PC_TODOCONSOLAS_WEEKLY_ENABLED")
+        weekly_config = effective_todoconsolas_weekly_config()
         weekly_state: dict[str, Any] = {}
         if TODOCONSOLAS_WEEKLY_STATE.exists():
             try:
@@ -972,9 +1097,16 @@ def dry_run_list(config: WorkerConfig) -> int:
                 weekly_state = {"status": "invalid_state"}
         print(
             "TodoConsolas weekly: "
-            f"{'enabled' if weekly_enabled else 'disabled'} · "
+            f"{'enabled' if weekly_config['enabled'] else 'disabled'} · "
+            f"source={weekly_config['source']} · platforms={weekly_config['platforms'] or 'all'} · "
             f"status={weekly_state.get('status') or 'not_started'} · "
             f"campaign={weekly_state.get('campaignId') or 'none'}"
+        )
+        git_health = worker_git_health(ROOT)
+        print(
+            "Worker git: "
+            f"commit={str(git_health.get('commitSha') or 'unknown')[:12]} · "
+            f"branch={git_health.get('branch') or 'unknown'} · clean={git_health.get('clean')}"
         )
     return 0
 
@@ -1042,6 +1174,10 @@ def run_once(config: WorkerConfig, *, daily: bool) -> int:
         lock_ttl = int(os.environ.get("PRICE_PC_LOCK_TTL_SECONDS", "21600"))
         try:
             with SftpLock(queue, lock_ttl):
+                update_requests = queue.list_json(queue.remote("jobs", "worker-update-requests"))
+                if update_requests:
+                    return process_worker_update_request(queue, update_requests[0])
+                publish_pc_worker_health(queue)
                 if run_local_game_once():
                     return 1
                 import_requests = queue.list_json(queue.remote("jobs", "import-requests"))
@@ -1056,8 +1192,9 @@ def run_once(config: WorkerConfig, *, daily: bool) -> int:
                 if requests:
                     process_price_request(queue, requests[0])
                     return 1
-                if daily and env_enabled("PRICE_PC_TODOCONSOLAS_WEEKLY_ENABLED"):
-                    if run_todoconsolas_weekly(queue):
+                weekly_config = effective_todoconsolas_weekly_config()
+                if daily and weekly_config["enabled"]:
+                    if run_todoconsolas_weekly(queue, weekly_config):
                         return 1
                 elif daily:
                     publish_todoconsolas_weekly_disabled_status(queue)
@@ -1109,6 +1246,9 @@ def main() -> int:
     while True:
         try:
             processed = run_once(config, daily=args.daily)
+            if processed == WORKER_RESTART_EXIT_CODE:
+                print(f"{now_iso()} Worker actualizado; reinicio controlado solicitado.")
+                return WORKER_RESTART_EXIT_CODE
             if processed == 0:
                 print(f"{now_iso()} Sin jobs pendientes.")
         except Exception as exc:
