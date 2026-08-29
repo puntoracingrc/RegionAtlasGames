@@ -5,6 +5,7 @@ import { canWriteCatalogFiles } from "./admin-auth";
 import { clonePublishedCatalogGameToRegion, mergePublishedCatalogGames, updatePublishedCatalogPrices } from "./admin-catalog-publish";
 import { priceWorkerPublicBaseUrl } from "./admin-price-collect";
 import { getCoverSrc } from "./cover-url";
+import { todoConsolasListingMetadata } from "./todoconsolas-listing";
 import type { CatalogGame } from "./types";
 import catalogData from "../../data/catalog.json";
 
@@ -66,6 +67,11 @@ export type PriceReviewItem = {
     originCountry?: string | null;
     originRegionHint?: string | null;
     routingReason?: string | null;
+    displayTitle?: string | null;
+    sourceRegionCode?: string | null;
+    sourceRegionLabel?: string | null;
+    gameKeyCard?: boolean | null;
+    fullySpanishVersion?: boolean | null;
   };
   catalogPreview?: {
     id: string;
@@ -211,10 +217,37 @@ function emptyQueue(): PriceReviewQueue {
   return { schemaVersion: 1, updatedAt: new Date().toISOString(), items: [], decisions: [] };
 }
 
+export function normalizeTodoConsolasReviewItem(item: PriceReviewItem): PriceReviewItem {
+  if (item.source.toLowerCase() !== "todoconsolas") return item;
+  const metadata = todoConsolasListingMetadata(item.listingTitle, item.platformSlug);
+  const evidence = item.evidence ?? {};
+  const sourceRegionCode = evidence.sourceRegionCode?.trim() || metadata.sourceRegionCode;
+  const regionEvidence = [...(evidence.regionEvidence ?? [])];
+  if (sourceRegionCode) {
+    const suffixEvidence = `tcns_suffix_${sourceRegionCode.toLowerCase()}`;
+    if (!regionEvidence.includes(suffixEvidence)) regionEvidence.unshift(suffixEvidence);
+  }
+  return {
+    ...item,
+    detectedRegion: item.detectedRegion || metadata.detectedRegion,
+    evidence: {
+      ...evidence,
+      displayTitle: evidence.displayTitle?.trim() || metadata.displayTitle,
+      sourceRegionCode,
+      sourceRegionLabel: evidence.sourceRegionLabel?.trim() || metadata.sourceRegionLabel,
+      gameKeyCard: evidence.gameKeyCard ?? metadata.gameKeyCard,
+      fullySpanishVersion: evidence.fullySpanishVersion ?? metadata.fullySpanishVersion,
+      regionEvidence,
+    },
+  };
+}
+
 function normalizeQueue(input: unknown): PriceReviewQueue {
   const raw = input && typeof input === "object" ? (input as Partial<PriceReviewQueue>) : {};
   const items = Array.isArray(raw.items)
-    ? raw.items.filter((item): item is PriceReviewItem => Boolean(item?.id && item?.listingTitle))
+    ? raw.items
+      .filter((item): item is PriceReviewItem => Boolean(item?.id && item?.listingTitle))
+      .map(normalizeTodoConsolasReviewItem)
     : [];
   return {
     schemaVersion: 1,

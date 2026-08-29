@@ -2,11 +2,13 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   normalizePriceReviewTriageFilter,
+  normalizeTodoConsolasReviewItem,
   priceReviewCatalogPreview,
   priceReviewMatchesTriageFilter,
   priceReviewTriageBucket,
   type PriceReviewItem,
 } from "./admin-price-review";
+import { todoConsolasListingMetadata } from "./todoconsolas-listing";
 
 function review(overrides: Partial<PriceReviewItem> = {}): PriceReviewItem {
   return {
@@ -71,4 +73,75 @@ test("falls back to a catalog match alternative for the visual preview", () => {
     },
   }));
   assert.equal(preview?.id, "ps4-daymare-1994-sandcastle");
+});
+
+test("interprets TodoConsolas KC and SP without changing the original title", () => {
+  const listingTitle = "Final Fantasy VII Remake Intergrade KC Switch 2 (SP)";
+  assert.deepEqual(todoConsolasListingMetadata(listingTitle, "switch2"), {
+    displayTitle: "Final Fantasy VII Remake Intergrade",
+    sourceRegionCode: "SP",
+    sourceRegionLabel: "PAL España",
+    detectedRegion: "PAL España",
+    gameKeyCard: true,
+    fullySpanishVersion: true,
+  });
+
+  const normalized = normalizeTodoConsolasReviewItem(review({
+    platformSlug: "switch2",
+    listingTitle,
+    detectedRegion: null,
+    evidence: { regionEvidence: ["listing_title_region"] },
+  }));
+  assert.equal(normalized.listingTitle, listingTitle);
+  assert.equal(normalized.detectedRegion, "PAL España");
+  assert.equal(normalized.evidence?.displayTitle, "Final Fantasy VII Remake Intergrade");
+  assert.equal(normalized.evidence?.gameKeyCard, true);
+  assert.equal(normalized.evidence?.sourceRegionCode, "SP");
+  assert.equal(normalized.evidence?.sourceRegionLabel, "PAL España");
+  assert.equal(normalized.evidence?.fullySpanishVersion, true);
+  assert.deepEqual(normalized.evidence?.regionEvidence, ["tcns_suffix_sp", "listing_title_region"]);
+});
+
+test("does not treat literal KC in another platform title as a Game-Key Card", () => {
+  assert.deepEqual(todoConsolasListingMetadata("KC Returns PS5 (SP)", "ps5"), {
+    displayTitle: "KC Returns",
+    sourceRegionCode: "SP",
+    sourceRegionLabel: "PAL España",
+    detectedRegion: "PAL España",
+    gameKeyCard: false,
+    fullySpanishVersion: true,
+  });
+});
+
+test("accepts PS as a defensive TodoConsolas alias for PAL España on PlayStation", () => {
+  assert.deepEqual(todoConsolasListingMetadata("Astro Bot PS5 (PS)", "ps5"), {
+    displayTitle: "Astro Bot",
+    sourceRegionCode: "PS",
+    sourceRegionLabel: "PAL España",
+    detectedRegion: "PAL España",
+    gameKeyCard: false,
+    fullySpanishVersion: true,
+  });
+});
+
+test("accepts ESP as an explicit TodoConsolas code for PAL España", () => {
+  const metadata = todoConsolasListingMetadata("Astro Bot PS5 (ESP)", "ps5");
+  assert.equal(metadata.displayTitle, "Astro Bot");
+  assert.equal(metadata.detectedRegion, "PAL España");
+  assert.equal(metadata.fullySpanishVersion, true);
+});
+
+test("keeps EU, IT and PL as distinct TodoConsolas regional signals", () => {
+  assert.equal(todoConsolasListingMetadata("Juego PS5 (EU)", "ps5").detectedRegion, "PAL Europa");
+  assert.equal(todoConsolasListingMetadata("Juego PS5 (FR)", "ps5").detectedRegion, "PAL Francia");
+  assert.equal(todoConsolasListingMetadata("Juego PS5 (IT)", "ps5").detectedRegion, "PAL Italia");
+  assert.deepEqual(todoConsolasListingMetadata("Juego PS5 (PL)", "ps5"), {
+    displayTitle: "Juego",
+    sourceRegionCode: "PL",
+    sourceRegionLabel: "PAL Portugal",
+    detectedRegion: "PAL Portugal",
+    gameKeyCard: false,
+    fullySpanishVersion: false,
+  });
+  assert.equal(todoConsolasListingMetadata("Juego PS5 (AS)", "ps5").detectedRegion, "Asia");
 });

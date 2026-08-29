@@ -14,7 +14,11 @@ from typing import Any
 from collectors.catalog_match import CatalogMatchResult
 from collectors.reference_match import extract_references_from_text
 from collectors.region_inference import normalize_region
-from collectors.tcns_match import canonical_tcns_title, infer_tcns_region_product
+from collectors.tcns_match import (
+    canonical_tcns_title,
+    infer_tcns_region_product,
+    tcns_listing_metadata,
+)
 from collectors.tcns_policy import POLICY_VERSION, tcns_auto_match_decision
 
 TRIAGE_BUCKETS = (
@@ -239,6 +243,11 @@ def approved_tcns_ingest_row(
         raise ValueError("Solo una decisión exacta puede convertirse en precio aprobado")
     game = index.games_by_id[decision.catalog_id]
     listing_region = infer_tcns_region_product(product)
+    platform_slug = str(game.get("platformSlug") or decision.catalog_id.partition("-")[0])
+    metadata = tcns_listing_metadata(str(product.get("title") or ""), platform_slug)
+    region_evidence = ["listing_title_region", "catalog_title_exact"]
+    if metadata["sourceRegionCode"]:
+        region_evidence.insert(0, f"tcns_suffix_{str(metadata['sourceRegionCode']).lower()}")
     row: dict[str, Any] = {
         "catalogId": decision.catalog_id,
         "source": "todoconsolas",
@@ -256,16 +265,20 @@ def approved_tcns_ingest_row(
         "listingRegion": listing_region,
         "catalogRegion": str(game.get("region") or ""),
         "regionVerified": True,
-        "regionEvidence": ["listing_title_region", "catalog_title_exact"],
+        "regionEvidence": region_evidence,
         "matchMethod": decision.match_method,
         "matchScore": decision.match_score,
         "matchMargin": decision.match_margin,
         "autoApproved": True,
         "acceptancePolicy": POLICY_VERSION,
+        **metadata,
     }
     if decision.matched_reference:
         row["matchedReference"] = decision.matched_reference
-        row["regionEvidence"] = ["listing_title_region", "catalog_reference_exact"]
+        row["regionEvidence"] = [
+            *(item for item in row["regionEvidence"] if item != "catalog_title_exact"),
+            "catalog_reference_exact",
+        ]
     return row
 
 
@@ -274,12 +287,21 @@ def review_tcns_ingest_row(
     decision: TcnsTriageDecision,
     index: TcnsTriageIndex,
     collected_at: str,
+    *,
+    platform_slug: str | None = None,
 ) -> dict[str, Any]:
     if decision.bucket == "safe_exact":
         raise ValueError("Una decisión exacta no debe entrar en revisión manual")
     game = index.games_by_id.get(decision.catalog_id or "") or {}
     listing_region = infer_tcns_region_product(product)
     product_url = str(product.get("productUrl") or product.get("listingUrl") or "")
+    resolved_platform = platform_slug or str(game.get("platformSlug") or "")
+    if not resolved_platform and decision.catalog_id:
+        resolved_platform = decision.catalog_id.partition("-")[0]
+    metadata = tcns_listing_metadata(str(product.get("title") or ""), resolved_platform)
+    region_evidence = ["listing_title_region"] if listing_region else []
+    if metadata["sourceRegionCode"]:
+        region_evidence.insert(0, f"tcns_suffix_{str(metadata['sourceRegionCode']).lower()}")
     return {
         "catalogId": None,
         "candidateCatalogId": decision.catalog_id,
@@ -299,7 +321,7 @@ def review_tcns_ingest_row(
         "listingRegion": listing_region,
         "catalogRegion": str(game.get("region") or "") or None,
         "regionVerified": bool(listing_region),
-        "regionEvidence": ["listing_title_region"] if listing_region else [],
+        "regionEvidence": region_evidence,
         "regionReviewNeeded": True,
         "regionReviewReason": decision.policy_reason,
         "regionReviewNotes": [
@@ -317,6 +339,7 @@ def review_tcns_ingest_row(
         "triageCatalogId": decision.catalog_id,
         "triageMatchMethod": decision.match_method,
         "triageMatchedReference": decision.matched_reference,
+        **metadata,
     }
 
 

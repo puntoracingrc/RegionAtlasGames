@@ -135,6 +135,10 @@ def main() -> None:
     )
     assert strong["status"] == "auto_approved"
     assert strong["imageUrl"].endswith("/123-large_default/juego-prueba.jpg")
+    assert strong["sourceRegionCode"] == "SP"
+    assert strong["displayTitle"] == "Juego de Prueba"
+    assert strong["gameKeyCard"] is False
+    assert strong["fullySpanishVersion"] is True
     approved = approved_ingest_row(
         product,
         CatalogMatchResult(
@@ -146,6 +150,7 @@ def main() -> None:
         "2026-08-29T10:00:00Z",
     )
     assert approved["imageUrl"].endswith("/123-large_default/juego-prueba.jpg")
+    assert "tcns_suffix_sp" in approved["regionEvidence"]
 
     missing_region = classify_candidate(
         {**product, "title": "Juego de Prueba PS4"},

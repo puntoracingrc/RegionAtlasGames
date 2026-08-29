@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from collectors.common import ROOT, load_json, now_iso, save_json
+from collectors.tcns_match import infer_tcns_region, tcns_listing_metadata
 from collectors.tcns_policy import POLICY_VERSION
 
 QUEUE_FILE = ROOT / "data" / "admin" / "price-review-queue.json"
@@ -99,13 +100,22 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
     price = row.get("priceEur") if row.get("priceEur") is not None else row.get("retailPriceEur")
     if not title or price is None:
         return None
+    tcns_metadata = tcns_listing_metadata(title, platform_slug) if source == "todoconsolas" else {}
+    source_region_code = row.get("sourceRegionCode") or tcns_metadata.get("sourceRegionCode")
+    region_evidence = list(row.get("regionEvidence") or [])
+    if source_region_code:
+        suffix_evidence = f"tcns_suffix_{str(source_region_code).lower()}"
+        if suffix_evidence not in region_evidence:
+            region_evidence.insert(0, suffix_evidence)
     return {
         "id": _item_id(row, source, platform_slug),
         "status": "pending",
         "source": source,
         "platformSlug": platform_slug,
         "targetRegion": row.get("searchedCatalogRegion") or ingest.get("region") or row.get("catalogRegion"),
-        "detectedRegion": row.get("listingRegion"),
+        "detectedRegion": row.get("listingRegion") or (
+            infer_tcns_region(title) if source == "todoconsolas" else None
+        ),
         "catalogId": catalog_id or None,
         "candidateCatalogId": candidate_catalog_id or None,
         "listingTitle": title,
@@ -123,7 +133,7 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
             "imageUrls": row.get("imageUrls"),
             "catalogTitle": row.get("catalogTitle"),
             "catalogCoverUrl": row.get("catalogCoverUrl"),
-            "regionEvidence": row.get("regionEvidence") or [],
+            "regionEvidence": region_evidence,
             "matchMethod": row.get("triageMatchMethod") or row.get("matchMethod"),
             "matchScore": row.get("matchScore"),
             "matchMargin": row.get("matchMargin"),
@@ -136,6 +146,11 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
             "originRegionHint": row.get("originRegionHint"),
             "routingReason": row.get("regionalRoutingReason") or row.get("regionReviewReason"),
             "matchedReference": row.get("triageMatchedReference") or row.get("matchedReference"),
+            "displayTitle": row.get("displayTitle") or tcns_metadata.get("displayTitle"),
+            "sourceRegionCode": source_region_code,
+            "sourceRegionLabel": row.get("sourceRegionLabel") or tcns_metadata.get("sourceRegionLabel"),
+            "gameKeyCard": row.get("gameKeyCard") if row.get("gameKeyCard") is not None else tcns_metadata.get("gameKeyCard"),
+            "fullySpanishVersion": row.get("fullySpanishVersion") if row.get("fullySpanishVersion") is not None else tcns_metadata.get("fullySpanishVersion"),
         },
         "jobId": ingest.get("jobId"),
         "collectedAt": row.get("collectedAt") or ingest.get("collectedAt") or now_iso(),

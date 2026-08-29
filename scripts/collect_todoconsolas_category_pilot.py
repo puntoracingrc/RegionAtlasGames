@@ -25,7 +25,11 @@ from collectors.tcns_client import (  # noqa: E402
     fetch_category_page,
     tcns_category_paths_for_platform,
 )
-from collectors.tcns_match import infer_tcns_region_product, match_tcns_product  # noqa: E402
+from collectors.tcns_match import (  # noqa: E402
+    infer_tcns_region_product,
+    match_tcns_product,
+    tcns_listing_metadata,
+)
 from collectors.tcns_policy import POLICY_VERSION, tcns_auto_match_decision  # noqa: E402
 
 SOURCE = "todoconsolas"
@@ -64,6 +68,7 @@ def classify_candidate(product: dict[str, Any], result, platform_slug: str = "ps
         if approved
         else REVIEW_REASON_LABELS.get(policy_reason, "Debe revisarse antes de aplicar el precio.")
     )
+    metadata = tcns_listing_metadata(str(product.get("title") or ""), platform_slug)
 
     return {
         "status": status,
@@ -84,6 +89,7 @@ def classify_candidate(product: dict[str, Any], result, platform_slug: str = "ps
         "matchScore": score,
         "matchMargin": margin,
         "alternatives": result.alternatives,
+        **metadata,
     }
 
 
@@ -92,6 +98,11 @@ def approved_ingest_row(product: dict[str, Any], result, collected_at: str) -> d
     if not game:
         raise ValueError("Una fila aprobada necesita ficha de catálogo")
     listing_region = infer_tcns_region_product(product)
+    platform_slug = str(game.get("platformSlug") or str(game.get("id") or "").partition("-")[0])
+    metadata = tcns_listing_metadata(str(product.get("title") or ""), platform_slug)
+    region_evidence = ["listing_title_region", "catalog_title_exact"]
+    if metadata["sourceRegionCode"]:
+        region_evidence.insert(0, f"tcns_suffix_{str(metadata['sourceRegionCode']).lower()}")
     row: dict[str, Any] = {
         "catalogId": str(game["id"]),
         "source": SOURCE,
@@ -110,21 +121,32 @@ def approved_ingest_row(product: dict[str, Any], result, collected_at: str) -> d
         "listingRegion": listing_region,
         "catalogRegion": str(game.get("region") or ""),
         "regionVerified": True,
-        "regionEvidence": ["listing_title_region", "catalog_title_exact"],
+        "regionEvidence": region_evidence,
         "matchMethod": result.match_method,
         "matchScore": result.match_score,
         "matchMargin": result.margin,
         "matchAlternatives": result.alternatives,
         "autoApproved": True,
         "acceptancePolicy": POLICY_VERSION,
+        **metadata,
     }
     if result.matched_reference:
         row["matchedReference"] = result.matched_reference
-        row["regionEvidence"] = ["listing_title_region", "catalog_reference_exact"]
+        row["regionEvidence"] = [
+            *(item for item in row["regionEvidence"] if item != "catalog_title_exact"),
+            "catalog_reference_exact",
+        ]
     return row
 
 
 def review_ingest_row(product: dict[str, Any], result, candidate: dict[str, Any], collected_at: str) -> dict[str, Any]:
+    metadata = tcns_listing_metadata(
+        str(product.get("title") or ""),
+        str((result.game or {}).get("platformSlug") or str(candidate.get("catalogId") or "").partition("-")[0]),
+    )
+    region_evidence = ["listing_title_region"] if candidate.get("listingRegion") else []
+    if metadata["sourceRegionCode"]:
+        region_evidence.insert(0, f"tcns_suffix_{str(metadata['sourceRegionCode']).lower()}")
     return {
         "catalogId": None,
         "candidateCatalogId": candidate.get("catalogId"),
@@ -146,7 +168,7 @@ def review_ingest_row(product: dict[str, Any], result, candidate: dict[str, Any]
         "catalogTitle": candidate.get("catalogTitle"),
         "catalogCoverUrl": candidate.get("catalogCoverUrl"),
         "regionVerified": bool(candidate.get("listingRegion")),
-        "regionEvidence": ["listing_title_region"] if candidate.get("listingRegion") else [],
+        "regionEvidence": region_evidence,
         "regionReviewNeeded": True,
         "regionReviewReason": candidate.get("policyReason"),
         "regionReviewNotes": [candidate.get("reason")],
@@ -154,6 +176,7 @@ def review_ingest_row(product: dict[str, Any], result, candidate: dict[str, Any]
         "matchScore": result.match_score,
         "matchMargin": result.margin,
         "matchAlternatives": result.alternatives,
+        **metadata,
     }
 
 
