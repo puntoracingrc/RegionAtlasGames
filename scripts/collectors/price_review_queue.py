@@ -121,6 +121,8 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
             "url": row.get("productUrl") or row.get("listingUrl"),
             "imageUrl": row.get("imageUrl"),
             "imageUrls": row.get("imageUrls"),
+            "catalogTitle": row.get("catalogTitle"),
+            "catalogCoverUrl": row.get("catalogCoverUrl"),
             "regionEvidence": row.get("regionEvidence") or [],
             "matchMethod": row.get("triageMatchMethod") or row.get("matchMethod"),
             "matchScore": row.get("matchScore"),

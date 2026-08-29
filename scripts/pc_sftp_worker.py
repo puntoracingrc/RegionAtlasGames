@@ -636,6 +636,19 @@ def process_review_request(queue: SftpQueue, request_name: str) -> bool:
             log_remote,
             request,
         )
+    job_type = str(request.get("jobType") or "price_review_vision")
+    if job_type not in {"price_review_vision", "price_review_images"}:
+        error_status = {
+            "jobId": review_id,
+            "jobType": job_type,
+            "status": "error",
+            "finishedAt": now_iso(),
+            "updatedAt": now_iso(),
+            "error": f"Tipo de job de revisión no permitido: {job_type}",
+        }
+        queue.upload_bytes(status_remote, json_bytes(error_status))
+        queue.rename(running_path, done_path)
+        return True
     try:
         queue.download(queue.remote("app", "data", "admin", "price-review-queue.json"), local_queue)
     except OSError:
@@ -646,12 +659,14 @@ def process_review_request(queue: SftpQueue, request_name: str) -> bool:
     status = {
         "jobId": review_id,
         "status": "running",
-        "jobType": "price_review_vision",
+        "jobType": job_type,
         "platformSlug": request.get("platformSlug"),
         "source": request.get("source"),
         "query": request.get("query"),
         "triageBucket": request.get("triageBucket"),
         "visionLimit": request.get("visionLimit"),
+        "mediaLimit": request.get("mediaLimit"),
+        "captureOnly": request.get("captureOnly") is True,
         "startedAt": now_iso(),
         "updatedAt": now_iso(),
         "runnerId": queue.config.runner_id,
@@ -682,7 +697,7 @@ def process_review_request(queue: SftpQueue, request_name: str) -> bool:
     final_status.update(
         {
             "jobId": review_id,
-            "jobType": "price_review_vision",
+            "jobType": job_type,
             "status": "done" if code == 0 else "error",
             "exitCode": code,
             "finishedAt": final_status.get("finishedAt") or now_iso(),
@@ -692,7 +707,8 @@ def process_review_request(queue: SftpQueue, request_name: str) -> bool:
         }
     )
     if code != 0 and not final_status.get("error"):
-        final_status["error"] = f"Auto-revisión IA PC terminó con código {code}."
+        label = "Captura de portadas PC" if job_type == "price_review_images" else "Auto-revisión IA PC"
+        final_status["error"] = f"{label} terminó con código {code}."
     status_file.write_text(json_text(final_status), encoding="utf-8")
     upload_price_review_queue(queue)
     queue.upload_bytes(status_remote, json_bytes(final_status))

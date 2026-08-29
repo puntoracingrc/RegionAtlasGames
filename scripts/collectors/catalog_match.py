@@ -233,6 +233,7 @@ def _alternatives_payload(ranked: list[RankedCandidate], *, limit: int = 5) -> l
                 "catalogId": str(item.game.get("id") or ""),
                 "title": str(item.game.get("title") or ""),
                 "region": str(item.game.get("region") or ""),
+                "coverUrl": str(item.game.get("coverUrl") or "") or None,
                 "score": round(item.raw_score, 3),
             }
         )

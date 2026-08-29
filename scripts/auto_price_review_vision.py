@@ -19,7 +19,13 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
+
+from collectors.tcns_client import (
+    TodoConsolasRequestError,
+    fetch_category_page,
+    tcns_category_paths_for_platform,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 QUEUE_FILE = ROOT / "data" / "admin" / "price-review-queue.json"
@@ -153,13 +159,13 @@ def push_image(out: list[str], raw_url: str | None, page_url: str) -> None:
 
 def extract_images_from_html(text: str, page_url: str) -> list[str]:
     out: list[str] = []
-    for match in re.finditer(r"<meta[^>]+(?:property|name)=[\"'](?:og:image|twitter:image|image)[\"'][^>]+content=[\"']([^\"']+)[\"'][^>]*>", text, re.I):
+    for match in re.finditer(r"<meta[^>]+(?:property|name)\s*=\s*[\"'](?:og:image|twitter:image|image)[\"'][^>]+content\s*=\s*[\"']([^\"']+)[\"'][^>]*>", text, re.I):
         push_image(out, match.group(1), page_url)
     for match in re.finditer(r'"image"\s*:\s*(?:"([^"]+)"|\[\s*"([^"]+)")', text, re.I):
         push_image(out, match.group(1) or match.group(2), page_url)
     for match in re.finditer(r"<img\b[^>]+>", text, re.I):
         tag = match.group(0)
-        attr = re.search(r"\b(?:data-full-size-image-url|data-src|src|srcset)=[\"']([^\"']+)[\"']", tag, re.I)
+        attr = re.search(r"\b(?:src|data-src|data-lazy-src|data-full-size-image-url|srcset)\s*=\s*[\"']([^\"']+)[\"']", tag, re.I)
         if attr:
             push_image(out, attr.group(1), page_url)
         if len(out) >= 3:
@@ -190,6 +196,139 @@ def fetch_listing_images(item: dict[str, Any]) -> list[str]:
     except Exception:
         return []
     return extract_images_from_html(text, page_url)
+
+
+def item_image_urls(item: dict[str, Any]) -> list[str]:
+    evidence = item.get("evidence") if isinstance(item.get("evidence"), dict) else {}
+    urls = [str(evidence.get("imageUrl") or "").strip()]
+    if isinstance(evidence.get("imageUrls"), list):
+        urls.extend(str(url).strip() for url in evidence["imageUrls"] if str(url).strip())
+    return [url for url in dict.fromkeys(urls) if image_url_looks_useful(url)][:2]
+
+
+def store_item_images(item: dict[str, Any], images: list[str], source: str) -> bool:
+    clean = [url for url in dict.fromkeys(images) if image_url_looks_useful(url)][:2]
+    if not clean:
+        return False
+    evidence = item.get("evidence") if isinstance(item.get("evidence"), dict) else {}
+    before = (evidence.get("imageUrl"), tuple(evidence.get("imageUrls") or []))
+    evidence["imageUrl"] = clean[0]
+    evidence["imageUrls"] = clean
+    evidence["imageCapturedAt"] = now_iso()
+    evidence["imageSource"] = source
+    item["evidence"] = evidence
+    item["updatedAt"] = now_iso()
+    return before != (evidence["imageUrl"], tuple(clean))
+
+
+def canonical_product_url(value: str | None) -> str:
+    clean = str(value or "").strip()
+    if not clean:
+        return ""
+    parsed = urllib.parse.urlsplit(clean)
+    return urllib.parse.urlunsplit((parsed.scheme.lower(), parsed.netloc.lower(), parsed.path.rstrip("/"), "", ""))
+
+
+def capture_todoconsolas_category_images(
+    items: list[dict[str, Any]],
+    *,
+    delay_seconds: float,
+    fetch_page: Callable[[str, int], tuple[list[dict[str, Any]], int]] = fetch_category_page,
+    on_progress: Callable[[dict[str, int]], None] | None = None,
+) -> dict[str, int]:
+    stats = {"pagesFetched": 0, "captured": 0, "remaining": 0, "errors": 0}
+    grouped: dict[str, dict[str, list[dict[str, Any]]]] = {}
+    for item in items:
+        if item_image_urls(item):
+            continue
+        evidence = item.get("evidence") if isinstance(item.get("evidence"), dict) else {}
+        product_url = canonical_product_url(str(evidence.get("url") or ""))
+        platform = str(item.get("platformSlug") or "").strip()
+        if product_url and platform:
+            grouped.setdefault(platform, {}).setdefault(product_url, []).append(item)
+
+    for platform, targets in sorted(grouped.items()):
+        for category_path in tcns_category_paths_for_platform(platform):
+            page = 1
+            last_page = 1
+            while page <= last_page and targets:
+                try:
+                    products, last_page = fetch_page(category_path, page)
+                except TodoConsolasRequestError:
+                    stats["errors"] += 1
+                    break
+                stats["pagesFetched"] += 1
+                for product in products:
+                    product_url = canonical_product_url(str(product.get("productUrl") or ""))
+                    image_url = str(product.get("imageUrl") or "").strip()
+                    matched_items = targets.pop(product_url, [])
+                    for item in matched_items:
+                        if store_item_images(item, [image_url], "todoconsolas_category"):
+                            stats["captured"] += 1
+                if on_progress:
+                    on_progress(stats)
+                page += 1
+                if page <= last_page and targets:
+                    time.sleep(delay_seconds)
+        stats["remaining"] += sum(len(matches) for matches in targets.values())
+    return stats
+
+
+def run_capture_only(
+    matches: list[dict[str, Any]],
+    request: dict[str, Any],
+    queue: dict[str, Any],
+    queue_path: Path,
+    status_path: Path,
+    started: str,
+) -> int:
+    limit = max(1, min(2_000, int(request.get("mediaLimit") or 1_000)))
+    delay_seconds = max(2.0, min(30.0, float(request.get("captureDelaySeconds") or 8.0)))
+    selected = matches[:limit]
+    stats = {
+        "matched": len(matches),
+        "selected": len(selected),
+        "existing": sum(1 for item in selected if item_image_urls(item)),
+        "captured": 0,
+        "pagesFetched": 0,
+        "noImage": 0,
+        "errors": 0,
+    }
+
+    def progress(batch_stats: dict[str, int]) -> None:
+        stats["captured"] = batch_stats["captured"]
+        stats["pagesFetched"] = batch_stats["pagesFetched"]
+        stats["errors"] = batch_stats["errors"]
+        queue["updatedAt"] = now_iso()
+        write_json(queue_path, queue)
+        write_json(status_path, {"status": "running", "mode": "capture_only", "startedAt": started, "updatedAt": now_iso(), "stats": stats})
+
+    tcns_items = [item for item in selected if str(item.get("source") or "").lower() == "todoconsolas"]
+    tcns_stats = capture_todoconsolas_category_images(
+        tcns_items,
+        delay_seconds=delay_seconds,
+        on_progress=progress,
+    )
+    stats["captured"] = tcns_stats["captured"]
+    stats["pagesFetched"] = tcns_stats["pagesFetched"]
+    stats["errors"] = tcns_stats["errors"]
+
+    for item in selected:
+        if item_image_urls(item) or str(item.get("source") or "").lower() == "todoconsolas":
+            continue
+        images = fetch_listing_images(item)
+        if images and store_item_images(item, images, "listing_page"):
+            stats["captured"] += 1
+            queue["updatedAt"] = now_iso()
+            write_json(queue_path, queue)
+            time.sleep(2.0)
+
+    stats["noImage"] = sum(1 for item in selected if not item_image_urls(item))
+    queue["updatedAt"] = now_iso()
+    write_json(queue_path, queue)
+    write_json(status_path, {"status": "done", "mode": "capture_only", "startedAt": started, "finishedAt": now_iso(), "stats": stats})
+    print(json.dumps(stats, ensure_ascii=False, indent=2))
+    return 0
 
 
 def openai_vision(item: dict[str, Any], images: list[str]) -> dict[str, Any] | None:
@@ -306,6 +445,9 @@ def run(request_path: Path, queue_path: Path, status_path: Path) -> int:
     started = now_iso()
     write_json(status_path, {"status": "running", "startedAt": started, "stats": stats})
 
+    if request.get("captureOnly") is True:
+        return run_capture_only(matches, request, queue, queue_path, status_path, started)
+
     if not os.environ.get("OPENAI_API_KEY", "").strip():
         stats["noAi"] = len(matches)
         write_json(status_path, {"status": "error", "startedAt": started, "finishedAt": now_iso(), "error": "OPENAI_API_KEY no configurada en el PC worker.", "stats": stats})
@@ -318,6 +460,7 @@ def run(request_path: Path, queue_path: Path, status_path: Path) -> int:
         if not images:
             stats["noImage"] += 1
             continue
+        store_item_images(item, images, "listing_page")
         stats["attempted"] += 1
         vision = openai_vision(item, images)
         if not vision:
