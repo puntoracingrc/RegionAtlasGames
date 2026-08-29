@@ -9,11 +9,17 @@ import pc_sftp_worker
 from collectors.catalog_match import CatalogMatchResult
 from collectors.price_review_queue import _reason as review_reason
 from collectors.price_review_queue import merge_price_review_queue_documents
+from collectors.reference_match import extract_references_from_text, is_valid_gtin
+from collectors.tcns_match import infer_tcns_region_product, match_tcns_product
 from collectors.tcns_policy import (
     POLICY_VERSION,
     canonical_tcns_title,
     tcns_auto_match_decision,
     tcns_row_is_auto_approved,
+)
+from collectors.tcns_review_triage import (
+    build_tcns_triage_index,
+    triage_tcns_product,
 )
 from sync_es_prices import apply_tcns_row, collect_condition_observations
 from daily_price_ingest import LIST_KEYS
@@ -73,7 +79,81 @@ def approved_row(**overrides):
 def main() -> None:
     assert "regionalCandidates" in LIST_KEYS
     assert canonical_tcns_title("Life Is Strange 2 PS4 (SP)", "ps4") == "life is strange 2"
+    assert canonical_tcns_title("Life Is Strange 2 PS4 (ES)", "ps4") == "life is strange 2"
+    assert infer_tcns_region_product(product(title="Life Is Strange 2 PS4 (ES)")) == "PAL España"
     assert canonical_tcns_title("Life is Strange 2", "ps4") == "life is strange 2"
+    assert is_valid_gtin("8436016711890") is True
+    assert is_valid_gtin("8436016711891") is False
+    assert extract_references_from_text("EAN 8436016711890") == {"8436016711890"}
+
+    title_match = match_tcns_product(product(), [game()], "ps4")
+    assert title_match.game and title_match.game["id"] == game()["id"]
+    assert title_match.match_method == "title"
+    assert title_match.match_score == 1.0
+
+    ean_match = match_tcns_product(
+        product(_referenceText="8436016711890"),
+        [game(title="Título localizado distinto")],
+        "ps4",
+        ref_to_ids={"8436016711890": [game()["id"]]},
+    )
+    assert ean_match.game and ean_match.game["id"] == game()["id"]
+    assert ean_match.match_method == "reference"
+    assert ean_match.matched_reference == "8436016711890"
+
+    conflicting_eans = match_tcns_product(
+        product(title="Nombre comercial sin coincidencia PS4 (SP)", _referenceText="8436016711890 4006381333931"),
+        [
+            game(id="ps4-ean-a", title="Título A"),
+            game(id="ps4-ean-b", title="Título B"),
+        ],
+        "ps4",
+        ref_to_ids={
+            "8436016711890": ["ps4-ean-a"],
+            "4006381333931": ["ps4-ean-b"],
+        },
+    )
+    assert conflicting_eans.match_method != "reference"
+
+    triage_index = build_tcns_triage_index(
+        [
+            game(),
+            game(id="ps4-life-is-strange-2-eu", region="PAL Europa"),
+            game(id="ps4-duplicado", title="Juego Duplicado"),
+            game(id="ps4-duplicado-2", title="Juego Duplicado"),
+            game(id="ps4-ean-only", title="Título de catálogo distinto"),
+        ],
+        {"ps4-ean-only": {"ean": "8436016711890"}},
+    )
+    exact_decision = triage_tcns_product(product(), "ps4", triage_index)
+    assert exact_decision.bucket == "safe_exact"
+    assert exact_decision.catalog_id == game()["id"]
+    assert exact_decision.match_method == "title"
+
+    ean_decision = triage_tcns_product(
+        product(
+            title="Nombre comercial PS4 (SP)",
+            productUrl="https://www.todoconsolas.com/juego-8436016711890.html",
+        ),
+        "ps4",
+        triage_index,
+    )
+    assert ean_decision.bucket == "safe_exact"
+    assert ean_decision.catalog_id == "ps4-ean-only"
+    assert ean_decision.match_method == "reference"
+
+    assert triage_tcns_product(
+        product(title="Life Is Strange 2 PS4 (JP)"), "ps4", triage_index
+    ).bucket == "regional_variant"
+    assert triage_tcns_product(
+        product(title="Juego sin ficha PS4 (SP)"), "ps4", triage_index
+    ).bucket == "catalog_gap"
+    assert triage_tcns_product(
+        product(title="Juego Duplicado PS4 (SP)"), "ps4", triage_index
+    ).bucket == "manual_match"
+    assert triage_tcns_product(
+        product(priceEur=1.0), "ps4", triage_index
+    ).bucket == "price_anomaly"
 
     ok, reason = tcns_auto_match_decision(product(), result(), "ps4")
     assert ok is True

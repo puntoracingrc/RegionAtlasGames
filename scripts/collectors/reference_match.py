@@ -31,11 +31,23 @@ REFERENCE_EXTRACTORS: list[re.Pattern[str]] = [
     re.compile(r"\b(MK-\d+-\d+)\b", re.I),
     re.compile(r"\b(NEO-[A-Z0-9-]+)\b", re.I),
     re.compile(r"\b(NUS-[A-Z0-9-]+)\b", re.I),
+    re.compile(r"\b(\d{8}|\d{12}|\d{13}|\d{14})\b"),
 ]
 
 
 def normalize_reference(ref: str) -> str:
     return re.sub(r"\s+", "", ref.strip().upper())
+
+
+def is_valid_gtin(value: str) -> bool:
+    digits = re.sub(r"\D", "", value)
+    if len(digits) not in {8, 12, 13, 14}:
+        return False
+    weighted = sum(
+        int(digit) * (3 if index % 2 == 0 else 1)
+        for index, digit in enumerate(reversed(digits[:-1]))
+    )
+    return (10 - weighted % 10) % 10 == int(digits[-1])
 
 
 def extract_references_from_text(text: str) -> set[str]:
@@ -45,6 +57,8 @@ def extract_references_from_text(text: str) -> set[str]:
     for pattern in REFERENCE_EXTRACTORS:
         for match in pattern.findall(text):
             norm = normalize_reference(str(match))
+            if norm.isdigit() and not is_valid_gtin(norm):
+                continue
             if len(norm) >= 3:
                 found.add(norm)
     return found
@@ -91,12 +105,16 @@ def build_platform_reference_index(platform_slug: str) -> tuple[dict[str, str], 
         if game.get("listingStatus") == "excluded":
             continue
         gid = str(game["id"])
-        ref = str((details.get(gid) or {}).get("reference") or "").strip()
-        if not ref:
-            continue
-        norm = normalize_reference(ref)
-        id_to_ref[gid] = norm
-        ref_to_ids.setdefault(norm, []).append(gid)
+        game_details = details.get(gid) or {}
+        refs: list[str] = []
+        ref = str(game_details.get("reference") or "").strip()
+        if ref:
+            refs.append(normalize_reference(ref))
+        ean = str(game_details.get("ean") or "").strip()
+        refs.extend(ref for ref in extract_references_from_text(ean) if ref.isdigit())
+        for norm in dict.fromkeys(refs):
+            id_to_ref.setdefault(gid, norm)
+            ref_to_ids.setdefault(norm, []).append(gid)
 
     return id_to_ref, ref_to_ids
 

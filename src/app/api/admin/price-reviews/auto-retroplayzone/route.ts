@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
-import type { PriceReviewCondition } from "@/lib/admin-price-review";
+import type { PriceReviewCondition, PriceReviewTriageFilter } from "@/lib/admin-price-review";
 import { autoReviewRetroplayzonePrices } from "@/lib/admin-price-review";
 
 export const maxDuration = 60;
@@ -19,6 +19,7 @@ export async function POST(request: Request) {
       assumedCondition?: string;
       useVision?: boolean;
       visionLimit?: number;
+      triageBucket?: string;
     } | null;
     const result = await autoReviewRetroplayzonePrices({
       apply: Boolean(body?.apply),
@@ -29,6 +30,7 @@ export async function POST(request: Request) {
       assumedCondition: body?.assumedCondition === "none" ? "none" : body?.assumedCondition as PriceReviewCondition | undefined,
       useVision: Boolean(body?.useVision),
       visionLimit: body?.visionLimit,
+      triageBucket: body?.triageBucket as PriceReviewTriageFilter | undefined,
     });
     if ("error" in result) {
       return NextResponse.json({ error: result.error }, { status: 400 });

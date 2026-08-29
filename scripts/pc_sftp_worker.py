@@ -605,6 +605,7 @@ def process_review_request(queue: SftpQueue, request_name: str) -> bool:
         "platformSlug": request.get("platformSlug"),
         "source": request.get("source"),
         "query": request.get("query"),
+        "triageBucket": request.get("triageBucket"),
         "visionLimit": request.get("visionLimit"),
         "startedAt": now_iso(),
         "updatedAt": now_iso(),

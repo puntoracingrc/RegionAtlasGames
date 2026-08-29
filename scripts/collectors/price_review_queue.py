@@ -62,6 +62,22 @@ def _source_for_key(row: dict[str, Any], fallback: str) -> str:
     return str(row.get("source") or fallback).strip().lower() or fallback
 
 
+def _triage_bucket(row: dict[str, Any], source: str, reason: str) -> str:
+    if source != "todoconsolas":
+        return "manual_match"
+    if reason in {"price_out_of_range", "price_change_requires_review"}:
+        return "price_anomaly"
+    if reason == "catalog_region_not_exact":
+        return "regional_variant"
+    if reason == "listing_region_missing":
+        return "missing_region"
+    alternatives = row.get("matchAlternatives") or []
+    candidate = str(row.get("candidateCatalogId") or row.get("catalogId") or "").strip()
+    if not candidate and not alternatives:
+        return "catalog_gap"
+    return "manual_match"
+
+
 def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: dict[str, Any]) -> dict[str, Any] | None:
     reason = _reason(row)
     if not reason:
@@ -85,6 +101,7 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
         "priceEur": price,
         "condition": row.get("condition") or "unknown",
         "reason": reason,
+        "triageBucket": _triage_bucket(row, source, reason),
         "evidence": {
             "url": row.get("productUrl") or row.get("listingUrl"),
             "imageUrl": row.get("imageUrl"),

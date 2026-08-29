@@ -267,6 +267,8 @@ def match_catalog_product(
     refs = extract_references_from_text(product_reference_text(product))
     if ref_to_ids and refs:
         games_by_id = {str(g["id"]): g for g in catalog_games}
+        compatible: dict[str, dict[str, Any]] = {}
+        matched_refs: dict[str, set[str]] = {}
         for ref in refs:
             for catalog_id in ref_to_ids.get(ref, []):
                 game = games_by_id.get(catalog_id)
@@ -276,14 +278,18 @@ def match_catalog_product(
                     str(game.get("region") or ""), listing_region
                 ):
                     continue
-                return CatalogMatchResult(
-                    game=game,
-                    matched_reference=ref,
-                    match_method="reference",
-                    match_score=1.0,
-                    margin=1.0,
-                    ai_confidence=0.93,
-                )
+                compatible[str(game["id"])] = game
+                matched_refs.setdefault(str(game["id"]), set()).add(ref)
+        if len(compatible) == 1:
+            catalog_id, game = next(iter(compatible.items()))
+            return CatalogMatchResult(
+                game=game,
+                matched_reference=sorted(matched_refs[catalog_id])[0],
+                match_method="reference",
+                match_score=1.0,
+                margin=1.0,
+                ai_confidence=0.93,
+            )
 
     ranked = rank_catalog_candidates(
         product,
