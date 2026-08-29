@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-08-29T11:54:35Z",
+  "lastRunAt": "2026-08-29T16:55:26Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -64,15 +64,15 @@
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     },
     "ps4": {
-      "lastSyncAt": "2026-08-29T11:51:48Z",
+      "lastSyncAt": "2026-08-29T16:47:14Z",
       "source": "eBay ES",
       "gamesTargeted": 51,
-      "gamesUpdated": 17,
+      "gamesUpdated": 15,
       "wallapopGamesUpdated": 0,
-      "ebayGamesUpdated": 17,
+      "ebayGamesUpdated": 15,
       "vintedGamesUpdated": 0,
-      "gamesSkippedNoData": 34,
-      "gamesRejectedOutliers": 1,
+      "gamesSkippedNoData": 36,
+      "gamesRejectedOutliers": 0,
       "gamesRejectedUnverifiedRegion": 0,
       "gamesRejectedRegionMismatch": 0,
       "gamesRejectedInsufficientEvidence": 0,
@@ -84,27 +84,27 @@
       "cholloGamesSkipped": 0,
       "kaotoGamesUpdated": 0,
       "kaotoGamesSkipped": 0,
-      "tcnsGamesUpdated": 161,
+      "tcnsGamesUpdated": 0,
       "tcnsGamesSkipped": 0,
       "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
-      "coveragePct": 33.3,
+      "coveragePct": 29.4,
       "priceListTotalGames": 3042,
-      "priceListPricedBefore": 360,
-      "priceListPricedAfter": 376,
-      "priceListPricedDelta": 16,
-      "priceListCoverageBeforePct": 11.8,
-      "priceListCoverageAfterPct": 12.4,
-      "priceListCoverageDeltaPct": 0.6,
-      "ebayDeliveryGamesUpdated": 13,
+      "priceListPricedBefore": 376,
+      "priceListPricedAfter": 391,
+      "priceListPricedDelta": 15,
+      "priceListCoverageBeforePct": 12.4,
+      "priceListCoverageAfterPct": 12.9,
+      "priceListCoverageDeltaPct": 0.5,
+      "ebayDeliveryGamesUpdated": 11,
       "regionPolicy": "Reglas en data/region-evidence-rules.json",
       "aiSummary": {
         "openAiConfigured": true,
         "sources": [
           {
             "source": "ebay-es",
-            "aiRows": 71,
-            "resolved": 71,
+            "aiRows": 53,
+            "resolved": 53,
             "review": 0,
             "rejected": 0
           }
@@ -116,15 +116,6 @@
           "skipped_no_key": 0,
           "skipped_has_bucket": 0,
           "skipped_no_hints": 0
-        }
-      },
-      "sourceRuns": {
-        "todoconsolas": {
-          "lastSyncAt": "2026-08-29T11:51:48Z",
-          "gamesTargeted": 161,
-          "gamesUpdated": 161,
-          "gamesSkipped": 0,
-          "policy": "tcns_exact_title_region_used_v1"
         }
       }
     },
@@ -363,28 +354,28 @@
   "regions": {
     "ps4": {
       "PAL España": {
-        "lastSyncAt": "2026-08-29T07:10:44Z",
+        "lastSyncAt": "2026-08-29T16:47:14Z",
         "source": "eBay ES",
         "gamesTargeted": 51,
-        "gamesUpdated": 17,
+        "gamesUpdated": 15,
         "wallapopGamesUpdated": 0,
-        "ebayGamesUpdated": 17,
+        "ebayGamesUpdated": 15,
         "vintedGamesUpdated": 0,
-        "coveragePct": 33.3,
+        "coveragePct": 29.4,
         "priceListTotalGames": 3042,
-        "priceListPricedBefore": 360,
-        "priceListPricedAfter": 376,
-        "priceListPricedDelta": 16,
-        "priceListCoverageBeforePct": 11.8,
-        "priceListCoverageAfterPct": 12.4,
-        "priceListCoverageDeltaPct": 0.6,
+        "priceListPricedBefore": 376,
+        "priceListPricedAfter": 391,
+        "priceListPricedDelta": 15,
+        "priceListCoverageBeforePct": 12.4,
+        "priceListCoverageAfterPct": 12.9,
+        "priceListCoverageDeltaPct": 0.5,
         "aiSummary": {
           "openAiConfigured": true,
           "sources": [
             {
               "source": "ebay-es",
-              "aiRows": 71,
-              "resolved": 71,
+              "aiRows": 53,
+              "resolved": 53,
               "review": 0,
               "rejected": 0
             }
