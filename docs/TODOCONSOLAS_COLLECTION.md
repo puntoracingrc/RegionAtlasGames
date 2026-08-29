@@ -24,9 +24,10 @@ El recolector prudente `scripts/collect_todoconsolas_category_pilot.py`:
 
 ## Plataformas configuradas
 
-- PS4: `28-juegos-ps4`
-- PS5: `359-juegos-ps5`
-- Nintendo Switch 2: `392-juegos-switch-2`
+El registro `data/platform-sources.json` contiene categorías públicas para 21
+plataformas: Nintendo (NES a Switch 2), Sega, Neo Geo y PlayStation (PS1 a
+PS5). PS4, PS5 y Switch 2 tienen prioridad al comenzar cada campaña. Las dos
+variantes Neo Geo comparten una categoría y se consulta una sola vez.
 
 ## Barrido manual
 
@@ -39,10 +40,65 @@ python3 scripts/collect_todoconsolas_category_pilot.py \
 ```
 
 Para cambiar de catálogo se usa `--platform ps4`, `--platform ps5` o
-`--platform switch2`. Para inspeccionar otra parte se cambia `--start-page`. Nunca se
+`--platform switch2`; también se admite cualquier plataforma con categoría en
+el registro. Para inspeccionar otra parte se cambia `--start-page`. Nunca se
 deben ejecutar más de cinco páginas por tanda. Un barrido semanal completo se
 puede repartir en ventanas sucesivas; no hace falta consultar cada juego ni
 repetirlo cada seis horas.
+
+## Motor semanal del PC
+
+`scripts/collect_todoconsolas_weekly.py` automatiza esas ventanas sin convertir
+el barrido en tráfico agresivo:
+
+- procesa por defecto dos páginas de una única categoría por pasada;
+- conserva campaña, categoría y página siguiente en
+  `data/worker-runtime/todoconsolas-weekly/state.json`;
+- reanuda después de apagar o reiniciar el PC;
+- espera al menos cinco segundos entre peticiones y añade jitter;
+- ante HTTP 403/429 se detiene sin reintento y entra en backoff;
+- deduplica categorías compartidas y ofertas repetidas;
+- separa `safe_exact`, `manual_match`, `catalog_gap`, `regional_variant`,
+  `price_anomaly` y `missing_region`;
+- deja los exactos en un artefacto `ready-for-git.json`; nunca escribe precios
+  en el catálogo ni publica producción.
+
+El worker permanente lo ejecuta únicamente cuando
+`PRICE_PC_TODOCONSOLAS_WEEKLY_ENABLED=1` en el `.env.worker` del PC. La plantilla
+lo mantiene en `0`: desplegar el código no lo activa. El estado y el log se
+publican en el almacenamiento externo para que `/admin/precios` muestre avance,
+pausas, coincidencias exactas y elementos de revisión.
+
+Activación controlada en el PC, siempre después del merge y los checks:
+
+```powershell
+Stop-ScheduledTask -TaskName "Region Atlas PC Worker"
+git pull --ff-only origin main
+# Cambiar PRICE_PC_TODOCONSOLAS_WEEKLY_ENABLED=1 en .env.worker
+Start-ScheduledTask -TaskName "Region Atlas PC Worker"
+py scripts\pc_sftp_worker.py --dry-run
+```
+
+El repositorio público se puede actualizar en lectura sin un token clásico de
+GitHub. No se deben guardar PAT de escritura en `.env.worker` ni en el remoto
+Git del PC para ejecutar este recolector. Si `git pull --ff-only` detecta cambios
+locales o divergencia, se conserva el checkout y se revisa; nunca se fuerza con
+`reset --hard`.
+
+Ejecución local controlada de una sola tanda:
+
+```bash
+python3 scripts/collect_todoconsolas_weekly.py \
+  --platforms ps4,ps5,switch2 \
+  --pages-per-run 2 \
+  --delay 6 \
+  --jitter 2
+```
+
+Al completar todas las categorías, el siguiente ciclo queda programado siete
+días después. La incorporación sigue este orden obligatorio: dry-run de
+`sync_es_prices`, revisión del diff, rama, commit, push, PR, checks, merge y
+verificación de Production Domain.
 
 El informe opcional es diagnóstico. El lote separado contiene únicamente
 precios autoaprobados en `tcns` y dudas en `regionalCandidates`:
@@ -88,6 +144,6 @@ python3 scripts/pc_sftp_worker.py --upload-review-queue
 La subida lee primero la cola remota, conserva decisiones ya aceptadas o
 rechazadas, añade los casos locales y verifica el contenido después de subirlo.
 
-El recolector general y la rueda automática deben continuar desactivados hasta
-que el piloto tenga una tasa de error aceptable y la activación se apruebe de
-forma explícita desde administración.
+El recolector general y la rueda automática permanecen independientes y pueden
+seguir desactivados. El motor semanal del PC tiene su propio interruptor para
+que una activación futura no encienda por accidente otros recolectores.
