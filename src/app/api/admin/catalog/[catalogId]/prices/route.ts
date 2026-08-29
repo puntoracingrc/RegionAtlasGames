@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
+import { resolveCatalogIdParam } from "@/lib/catalog";
 import {
   getPublishedGameForAdmin,
   priceFieldsFromGame,
@@ -13,7 +14,7 @@ export async function GET(_request: Request, { params }: RouteParams) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
 
-  const catalogId = decodeURIComponent((await params).catalogId);
+  const catalogId = resolveCatalogIdParam((await params).catalogId);
   const resolved = await getPublishedGameForAdmin(catalogId);
   if (!resolved) {
     return NextResponse.json({ error: "Juego no encontrado." }, { status: 404 });
@@ -32,7 +33,7 @@ export async function PATCH(request: Request, { params }: RouteParams) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
 
-  const catalogId = decodeURIComponent((await params).catalogId);
+  const catalogId = resolveCatalogIdParam((await params).catalogId);
   const body = (await request.json()) as Partial<Record<string, unknown>>;
   const result = await updatePublishedCatalogPrices(catalogId, body);
   if ("error" in result) {

@@ -9,6 +9,7 @@ import re
 import argparse
 import unicodedata
 from collections import Counter
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import unquote
@@ -43,6 +44,18 @@ REVIEW_CRITICAL_FIELDS = {
     "matchedCatalogId",
     "resolvedCatalogId",
 }
+
+IDENTIFIER_FIELDS = {
+    "id",
+    "slug",
+    "$key",
+    "catalogId",
+    "candidateCatalogId",
+    "matchedCatalogId",
+    "resolvedCatalogId",
+}
+
+SOURCE_PATH_FIELDS = {"pcPath", "coverUrl", "museumPath"}
 
 
 def load_json(path: Path, fallback: Any) -> Any:
@@ -82,6 +95,19 @@ def issue_kind(value: str) -> str:
     if URL_ESCAPE_RE.search(value):
         parts.append("url_escape")
     return "+".join(parts) or "encoded"
+
+
+def decision_for_issue(issue: dict[str, Any]) -> str:
+    if issue.get("suggestedIdExists") and issue.get("suggestedId") != issue.get("value"):
+        return "manual_collision"
+    field = re.sub(r"\[\d+\]", "", str(issue.get("field") or "")).rsplit(".", 1)[-1]
+    if field in IDENTIFIER_FIELDS:
+        return "preserve_identifier"
+    if field in SOURCE_PATH_FIELDS:
+        return "preserve_source_path"
+    if field in TEXT_FIELDS or issue.get("severity") == "text":
+        return "runtime_decode"
+    return "manual_review"
 
 
 def add_issue(
@@ -292,17 +318,28 @@ def main() -> None:
     issues.extend(scan_catalog(catalog, catalog_ids))
     issues.extend(scan_details(details, catalog_ids))
     issues.extend(scan_price_reviews(queue, catalog_ids))
+    for issue in issues:
+        issue["decision"] = decision_for_issue(issue)
 
     counts = Counter((issue["source"], issue["severity"], issue["kind"]) for issue in issues)
     by_source = Counter(issue["source"] for issue in issues)
     by_severity = Counter(issue["severity"] for issue in issues)
+    by_decision = Counter(issue["decision"] for issue in issues)
+    unique_records = {f"{issue['source']}:{issue['recordId']}" for issue in issues}
+    unique_catalog_records = {
+        issue["recordId"] for issue in issues if issue["source"] == "catalog"
+    }
 
     report = {
-        "schemaVersion": 1,
+        "schemaVersion": 2,
+        "generatedAt": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "summary": {
             "totalIssues": len(issues),
+            "totalRecords": len(unique_records),
+            "catalogRecords": len(unique_catalog_records),
             "bySource": dict(sorted(by_source.items())),
             "bySeverity": dict(sorted(by_severity.items())),
+            "byDecision": dict(sorted(by_decision.items())),
             "bySourceSeverityKind": {
                 "|".join(key): count for key, count in sorted(counts.items())
             },

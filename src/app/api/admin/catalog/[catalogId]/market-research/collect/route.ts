@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
+import { resolveCatalogIdParam } from "@/lib/catalog";
 import { EbayApiError, EbayAuthError } from "@/lib/ebay/ebay-errors";
 import { collectMarketResearchForCatalog } from "@/lib/market-research-service";
 
@@ -28,7 +29,7 @@ function safeEbayError(error: EbayAuthError | EbayApiError): { message: string; 
 export async function POST(_request: Request, { params }: RouteParams) {
   const admin = await assertAdminApi();
   if (!admin) return response({ error: "No autorizado." }, 401);
-  const catalogId = decodeURIComponent((await params).catalogId);
+  const catalogId = resolveCatalogIdParam((await params).catalogId);
 
   try {
     const result = await collectMarketResearchForCatalog(catalogId, admin.email);

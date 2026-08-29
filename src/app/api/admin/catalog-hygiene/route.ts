@@ -18,10 +18,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
   const body = (await request.json().catch(() => null)) as { action?: string; target?: string } | null;
-  const result =
-    body?.action === "migration-plan"
-      ? await startCatalogEntityMigrationPlanPcJob(body.target === "html_amp" || body.target === "all" ? body.target : "percent27")
-      : await startCatalogEntityAuditPcJob();
+  const action = body?.action ?? "audit";
+  if (action !== "audit" && action !== "migration-plan") {
+    return NextResponse.json({ error: "Acción de higiene no válida." }, { status: 400 });
+  }
+  const result = action === "migration-plan"
+    ? await startCatalogEntityMigrationPlanPcJob(
+        body?.target === "html_amp" || body?.target === "all" ? body.target : "percent27",
+      )
+    : await startCatalogEntityAuditPcJob();
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 400 });
   }

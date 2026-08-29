@@ -2,6 +2,7 @@ import { readFileSync } from "fs";
 import path from "path";
 import { mergeCompanyIndex, resolveCanonicalCompanySlug } from "./company-canonical";
 import { mergeGenreIndex, resolveCanonicalGenreSlug } from "./genre-canonical";
+import { normalizeGameDetailsPresentation } from "./catalog-presentation";
 import type { CatalogGame, GameDetails, IndexEntry } from "./types";
 import { getCatalogGame, getPlatform, meta } from "./catalog";
 
@@ -38,9 +39,9 @@ function loadGameDetails(): Record<string, GameDetails> {
   if (gameDetailsCache) return gameDetailsCache;
   const raw = loadDataJson<Record<string, unknown>>("game-details.json", {});
   gameDetailsCache = Object.fromEntries(
-    Object.entries(raw).filter((entry): entry is [string, GameDetails] =>
-      isGameDetails(entry[1]),
-    ),
+    Object.entries(raw)
+      .filter((entry): entry is [string, GameDetails] => isGameDetails(entry[1]))
+      .map(([id, details]) => [id, normalizeGameDetailsPresentation(details)]),
   );
   return gameDetailsCache;
 }

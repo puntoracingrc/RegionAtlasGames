@@ -3,8 +3,11 @@ import { priceWorkerPublicBaseUrl } from "./admin-price-collect";
 
 export type CatalogEntityAuditSummary = {
   totalIssues?: number;
+  totalRecords?: number;
+  catalogRecords?: number;
   bySource?: Record<string, number>;
   bySeverity?: Record<string, number>;
+  byDecision?: Record<string, number>;
   bySourceSeverityKind?: Record<string, number>;
 };
 
@@ -20,10 +23,12 @@ export type CatalogEntityAuditIssue = {
   suggestedSlug?: string;
   suggestedId?: string;
   suggestedIdExists?: boolean;
+  decision?: string;
 };
 
 export type CatalogEntityAuditReport = {
   schemaVersion?: number;
+  generatedAt?: string;
   summary?: CatalogEntityAuditSummary;
   examples?: CatalogEntityAuditIssue[];
   issues?: CatalogEntityAuditIssue[];
@@ -141,6 +146,10 @@ async function writeWorkerFile(remote: string, payload: Buffer): Promise<{ ok: t
   }
 }
 
+function isActiveStatus(status: CatalogEntityAuditStatus | null): boolean {
+  return status?.status === "pending" || status?.status === "running";
+}
+
 export async function readCatalogEntityAuditState(): Promise<CatalogEntityAuditState> {
   const [status, report, migrationPlanStatus, migrationPlan] = await Promise.all([
     fetchWorkerJson<CatalogEntityAuditStatus>("app/data/admin/catalog-html-entity-audit-status.json"),
@@ -158,6 +167,12 @@ export async function readCatalogEntityAuditState(): Promise<CatalogEntityAuditS
 }
 
 export async function startCatalogEntityAuditPcJob(): Promise<{ ok: true; jobId: string; message: string } | { error: string }> {
+  const current = await fetchWorkerJson<CatalogEntityAuditStatus>(
+    "app/data/admin/catalog-html-entity-audit-status.json",
+  );
+  if (isActiveStatus(current)) {
+    return { error: "Ya hay una auditoría de catálogo esperando o ejecutándose en el PC." };
+  }
   const jobId = `catalog-audit-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
   const now = new Date().toISOString();
   const request = {
@@ -193,6 +208,12 @@ export async function startCatalogEntityAuditPcJob(): Promise<{ ok: true; jobId:
 export async function startCatalogEntityMigrationPlanPcJob(
   target: "percent27" | "html_amp" | "all" = "percent27",
 ): Promise<{ ok: true; jobId: string; message: string } | { error: string }> {
+  const current = await fetchWorkerJson<CatalogEntityAuditStatus>(
+    "app/data/admin/catalog-entity-migration-plan-status.json",
+  );
+  if (isActiveStatus(current)) {
+    return { error: "Ya hay una simulación de IDs esperando o ejecutándose en el PC." };
+  }
   const jobId = `catalog-plan-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
   const now = new Date().toISOString();
   const request = {

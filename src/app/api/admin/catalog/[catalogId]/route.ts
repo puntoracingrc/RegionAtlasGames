@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
+import { resolveCatalogIdParam } from "@/lib/catalog";
 import { applyDraftPatch, draftFromCatalogGame, getPublishedGameForAdmin } from "@/lib/admin-catalog-publish";
 
 type RouteParams = { params: Promise<{ catalogId: string }> };
@@ -9,7 +10,7 @@ export async function GET(_request: Request, { params }: RouteParams) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
 
-  const catalogId = decodeURIComponent((await params).catalogId);
+  const catalogId = resolveCatalogIdParam((await params).catalogId);
   const resolved = await getPublishedGameForAdmin(catalogId);
   if (!resolved) {
     return NextResponse.json({ error: "Juego no encontrado." }, { status: 404 });
@@ -24,7 +25,7 @@ export async function PATCH(request: Request, { params }: RouteParams) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
 
-  const catalogId = decodeURIComponent((await params).catalogId);
+  const catalogId = resolveCatalogIdParam((await params).catalogId);
   const resolved = await getPublishedGameForAdmin(catalogId);
   if (!resolved) {
     return NextResponse.json({ error: "Juego no encontrado." }, { status: 404 });
@@ -59,7 +60,7 @@ export async function DELETE(_request: Request, { params }: RouteParams) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
 
-  const catalogId = decodeURIComponent((await params).catalogId);
+  const catalogId = resolveCatalogIdParam((await params).catalogId);
   const { deletePublishedCatalogGame } = await import("@/lib/admin-catalog-publish");
   const result = await deletePublishedCatalogGame(catalogId);
   if ("error" in result) {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getCatalogGame, isPublicCatalogGame } from "@/lib/catalog";
+import { getCatalogGame, isPublicCatalogGame, resolveCatalogIdParam } from "@/lib/catalog";
 import {
   getAffiliateOfferBlock,
   getEbayAffiliateImpressionPixelUrl,
@@ -74,7 +74,7 @@ function disabledPayload(catalogId: string, error?: string): AffiliateOfferApiPa
 }
 
 export async function GET(_request: Request, { params }: RouteParams) {
-  const catalogId = decodeURIComponent((await params).catalogId).trim();
+  const catalogId = resolveCatalogIdParam((await params).catalogId);
   if (!catalogId) {
     return withHeaders(disabledPayload("", "missing_catalog_id"), 400);
   }

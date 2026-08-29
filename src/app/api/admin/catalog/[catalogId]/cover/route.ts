@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
+import { resolveCatalogIdParam } from "@/lib/catalog";
 import {
   MAX_COVER_UPLOAD_BYTES,
   uploadCoverToCdn,
@@ -24,7 +25,7 @@ export async function POST(request: Request, { params }: RouteParams) {
       return NextResponse.json({ error: "No autorizado." }, { status: 401 });
     }
 
-    const catalogId = decodeURIComponent((await params).catalogId);
+    const catalogId = resolveCatalogIdParam((await params).catalogId);
     const resolved = await getPublishedGameForAdmin(catalogId);
     if (!resolved) {
       return NextResponse.json({ error: "Juego no encontrado." }, { status: 404 });

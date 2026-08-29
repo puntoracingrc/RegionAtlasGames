@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { AdminGameEditor } from "@/components/admin/admin-game-editor";
 import { AdminGamePricesPanel } from "@/components/admin/admin-game-prices-panel";
 import { AdminMarketResearchPanel } from "@/components/admin/admin-market-research-panel";
+import { resolveCatalogIdParam } from "@/lib/catalog";
 import {
   draftFromCatalogGame,
   getPublishedGameForAdmin,
@@ -15,7 +16,7 @@ import { getStoredMarketResearch } from "@/lib/market-research-service";
 type Props = { params: Promise<{ catalogId: string }> };
 
 export default async function AdminEditPublishedGamePage({ params }: Props) {
-  const catalogId = decodeURIComponent((await params).catalogId);
+  const catalogId = resolveCatalogIdParam((await params).catalogId);
   const resolved = await getPublishedGameForAdmin(catalogId);
   if (!resolved) notFound();
 

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
+import { resolveCatalogIdParam } from "@/lib/catalog";
 import { EbayApiError, EbayAuthError } from "@/lib/ebay/ebay-errors";
 import {
   getStoredMarketResearch,
@@ -31,7 +32,7 @@ function safeEbayError(error: EbayAuthError | EbayApiError): { message: string; 
 export async function POST(_request: Request, { params }: RouteParams) {
   if (!(await assertAdminApi())) return response({ error: "No autorizado." }, 401);
 
-  const catalogId = decodeURIComponent((await params).catalogId);
+  const catalogId = resolveCatalogIdParam((await params).catalogId);
 
   try {
     const result = await runMarketResearchForCatalog(catalogId);
@@ -57,7 +58,7 @@ export async function POST(_request: Request, { params }: RouteParams) {
 
 export async function GET(_request: Request, { params }: RouteParams) {
   if (!(await assertAdminApi())) return response({ error: "No autorizado." }, 401);
-  const catalogId = decodeURIComponent((await params).catalogId);
+  const catalogId = resolveCatalogIdParam((await params).catalogId);
   try {
     const stored = await getStoredMarketResearch(catalogId);
     if (!stored) return response({ error: "Juego no encontrado." }, 404);
