@@ -4,6 +4,8 @@ import metaData from "../../data/meta.json";
 import platformsData from "../../data/platforms.json";
 import { getRegionDisplay } from "@/lib/region-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
+import { normalizeCatalogGamePresentation } from "./catalog-presentation";
+import { resolveEncodedCatalogIdParam } from "./catalog-id-param";
 import type {
   CatalogGame,
   CatalogMeta,
@@ -13,7 +15,7 @@ import type {
 } from "./types";
 
 export const platforms = platformsData as Platform[];
-export const catalog = catalogData as CatalogGame[];
+export const catalog = (catalogData as CatalogGame[]).map(normalizeCatalogGamePresentation);
 export const collection = collectionData as CollectionItem[];
 export const meta = metaData as CatalogMeta;
 
@@ -42,6 +44,10 @@ export const publicListedCatalog = listedCatalog.filter(isPublicCatalogGame);
 
 export function getCatalogGame(id: string): CatalogGame | undefined {
   return catalogById.get(id);
+}
+
+export function resolveCatalogIdParam(value: string): string {
+  return resolveEncodedCatalogIdParam(value, (candidate) => catalogById.has(candidate));
 }
 
 export function getCollectionItem(id: string): CollectionView | undefined {

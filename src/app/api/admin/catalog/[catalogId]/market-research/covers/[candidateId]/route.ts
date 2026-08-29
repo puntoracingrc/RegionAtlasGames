@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
+import { resolveCatalogIdParam } from "@/lib/catalog";
 import { decideStoredCoverCandidate } from "@/lib/market-research-service";
 import { readJsonBody } from "@/lib/request-security";
 
@@ -27,7 +28,7 @@ export async function POST(request: Request, { params }: RouteParams) {
   const routeParams = await params;
   try {
     const result = await decideStoredCoverCandidate({
-      catalogId: decodeURIComponent(routeParams.catalogId),
+      catalogId: resolveCatalogIdParam(routeParams.catalogId),
       candidateId: decodeURIComponent(routeParams.candidateId),
       action: parsed.data.action,
       confirmMismatch: parsed.data.confirmMismatch === true,

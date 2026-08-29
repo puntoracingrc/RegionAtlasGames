@@ -1,3 +1,5 @@
+import { serializeJsonLd } from "@/lib/safe-json-ld";
+
 export function GameJsonLd({ data }: { data: Record<string, unknown>[] }) {
   return (
     <>
@@ -5,7 +7,7 @@ export function GameJsonLd({ data }: { data: Record<string, unknown>[] }) {
         <script
           key={i}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(block) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(block) }}
         />
       ))}
     </>

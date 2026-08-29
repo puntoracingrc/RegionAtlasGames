@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
+import { resolveCatalogIdParam } from "@/lib/catalog";
 import { setMarketObservationReview } from "@/lib/market-research-service";
 import { readJsonBody } from "@/lib/request-security";
 
@@ -24,7 +25,7 @@ export async function PATCH(request: Request, { params }: RouteParams) {
   const routeParams = await params;
   try {
     const result = await setMarketObservationReview({
-      catalogId: decodeURIComponent(routeParams.catalogId),
+      catalogId: resolveCatalogIdParam(routeParams.catalogId),
       observationId: decodeURIComponent(routeParams.observationId),
       status: parsed.data.status,
       reviewedBy: admin.email,

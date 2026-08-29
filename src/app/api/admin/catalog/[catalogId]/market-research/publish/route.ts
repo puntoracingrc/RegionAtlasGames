@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
+import { resolveCatalogIdParam } from "@/lib/catalog";
 import { publishStoredMarketEstimates } from "@/lib/market-research-service";
 import { readJsonBody } from "@/lib/request-security";
 
@@ -22,7 +23,7 @@ export async function POST(request: Request, { params }: RouteParams) {
   if (condition && !["loose", "game_manual", "complete", "sealed"].includes(condition)) {
     return response({ error: "Estado físico no válido." }, 400);
   }
-  const catalogId = decodeURIComponent((await params).catalogId);
+  const catalogId = resolveCatalogIdParam((await params).catalogId);
   try {
     const result = await publishStoredMarketEstimates({
       catalogId,

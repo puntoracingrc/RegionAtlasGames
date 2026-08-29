@@ -8,6 +8,10 @@ import {
 } from "./catalog-overlay-merge";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { getStaticGameDetails } from "./static-game-details";
+import {
+  normalizeCatalogGamePresentation,
+  normalizeGameDetailsPresentation,
+} from "./catalog-presentation";
 import type { CatalogGame, GameDetails } from "./types";
 
 const OVERLAY_PREFIX = "region-atlas/catalog/overlay";
@@ -101,7 +105,7 @@ async function readCatalogOverlayGameFresh(catalogId: string): Promise<CatalogGa
     const result = await get(gameBlobPath(catalogId), { ...auth, useCache: false });
     if (!result?.stream || result.statusCode !== 200) return null;
     const text = await new Response(result.stream).text();
-    return JSON.parse(text) as CatalogGame;
+    return normalizeCatalogGamePresentation(JSON.parse(text) as CatalogGame);
   } catch {
     return null;
   }
@@ -253,23 +257,23 @@ export async function resolveCatalogGameWithOverlay(
 
 export async function getGameDetailsWithOverlay(id: string): Promise<GameDetails | undefined> {
   const overlay = await readCatalogOverlayDetails(id);
-  if (overlay) return overlay;
+  if (overlay) return normalizeGameDetailsPresentation(overlay);
 
   const platformSlug = getCatalogGame(id)?.platformSlug;
   const staticDetails = await getStaticGameDetails(id, platformSlug);
   const { getGameDetails } = await import("./indexes");
   const indexedDetails = getGameDetails(id);
   if (!staticDetails) return indexedDetails;
-  if (!indexedDetails) return staticDetails;
+  if (!indexedDetails) return normalizeGameDetailsPresentation(staticDetails);
 
-  return {
+  return normalizeGameDetailsPresentation({
     ...indexedDetails,
     description: staticDetails.description ?? indexedDetails.description,
     descriptionMeta: staticDetails.descriptionMeta ?? indexedDetails.descriptionMeta,
     seoMeta: staticDetails.seoMeta ?? indexedDetails.seoMeta,
     videos: staticDetails.videos ?? indexedDetails.videos,
     ...("pegi" in staticDetails ? { pegi: (staticDetails as GameDetails & { pegi?: unknown }).pegi } : {}),
-  };
+  });
 }
 
 export async function getCatalogByPlatformWithOverlay(platformSlug: string): Promise<CatalogGame[]> {
