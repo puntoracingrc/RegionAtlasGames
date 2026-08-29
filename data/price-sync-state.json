@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-08-29T20:54:20Z",
+  "lastRunAt": "2026-08-29T22:29:26Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -303,7 +303,7 @@
       }
     },
     "switch2": {
-      "lastSyncAt": "2026-08-29T11:51:48Z",
+      "lastSyncAt": "2026-08-29T22:26:49Z",
       "source": "Mercado ES",
       "gamesTargeted": 1,
       "gamesUpdated": 0,
@@ -323,7 +323,7 @@
       "cholloGamesSkipped": 0,
       "kaotoGamesUpdated": 0,
       "kaotoGamesSkipped": 0,
-      "tcnsGamesUpdated": 11,
+      "tcnsGamesUpdated": 18,
       "tcnsGamesSkipped": 0,
       "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
@@ -351,9 +351,9 @@
       },
       "sourceRuns": {
         "todoconsolas": {
-          "lastSyncAt": "2026-08-29T11:51:48Z",
-          "gamesTargeted": 11,
-          "gamesUpdated": 11,
+          "lastSyncAt": "2026-08-29T22:26:49Z",
+          "gamesTargeted": 18,
+          "gamesUpdated": 18,
           "gamesSkipped": 0,
           "policy": "tcns_exact_title_region_used_v1"
         }
@@ -389,6 +389,37 @@
               "rejected": 0
             }
           ],
+          "conditionVision": {
+            "calls": 0,
+            "resolved": 0,
+            "skipped_no_images": 0,
+            "skipped_no_key": 0,
+            "skipped_has_bucket": 0,
+            "skipped_no_hints": 0
+          }
+        }
+      }
+    },
+    "switch2": {
+      "PAL España": {
+        "lastSyncAt": "2026-08-29T22:26:49Z",
+        "source": "Mercado ES",
+        "gamesTargeted": 18,
+        "gamesUpdated": 0,
+        "wallapopGamesUpdated": 0,
+        "ebayGamesUpdated": 0,
+        "vintedGamesUpdated": 0,
+        "coveragePct": 0.0,
+        "priceListTotalGames": 76,
+        "priceListPricedBefore": 0,
+        "priceListPricedAfter": 0,
+        "priceListPricedDelta": 0,
+        "priceListCoverageBeforePct": 0.0,
+        "priceListCoverageAfterPct": 0.0,
+        "priceListCoverageDeltaPct": 0.0,
+        "aiSummary": {
+          "openAiConfigured": false,
+          "sources": [],
           "conditionVision": {
             "calls": 0,
             "resolved": 0,
