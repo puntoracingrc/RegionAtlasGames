@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-08-28T18:59:25Z",
+  "lastRunAt": "2026-08-29T07:18:25Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -64,7 +64,7 @@
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     },
     "ps4": {
-      "lastSyncAt": "2026-08-28T18:49:39Z",
+      "lastSyncAt": "2026-08-29T07:10:44Z",
       "source": "eBay ES",
       "gamesTargeted": 51,
       "gamesUpdated": 17,
@@ -89,22 +89,22 @@
       "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
       "coveragePct": 33.3,
-      "priceListTotalGames": 3016,
-      "priceListPricedBefore": 344,
-      "priceListPricedAfter": 360,
+      "priceListTotalGames": 3042,
+      "priceListPricedBefore": 360,
+      "priceListPricedAfter": 376,
       "priceListPricedDelta": 16,
-      "priceListCoverageBeforePct": 11.4,
-      "priceListCoverageAfterPct": 11.9,
-      "priceListCoverageDeltaPct": 0.5,
-      "ebayDeliveryGamesUpdated": 11,
+      "priceListCoverageBeforePct": 11.8,
+      "priceListCoverageAfterPct": 12.4,
+      "priceListCoverageDeltaPct": 0.6,
+      "ebayDeliveryGamesUpdated": 13,
       "regionPolicy": "Reglas en data/region-evidence-rules.json",
       "aiSummary": {
         "openAiConfigured": true,
         "sources": [
           {
             "source": "ebay-es",
-            "aiRows": 58,
-            "resolved": 58,
+            "aiRows": 71,
+            "resolved": 71,
             "review": 0,
             "rejected": 0
           }
@@ -240,7 +240,7 @@
   "regions": {
     "ps4": {
       "PAL España": {
-        "lastSyncAt": "2026-08-28T18:49:39Z",
+        "lastSyncAt": "2026-08-29T07:10:44Z",
         "source": "eBay ES",
         "gamesTargeted": 51,
         "gamesUpdated": 17,
@@ -248,20 +248,20 @@
         "ebayGamesUpdated": 17,
         "vintedGamesUpdated": 0,
         "coveragePct": 33.3,
-        "priceListTotalGames": 3016,
-        "priceListPricedBefore": 344,
-        "priceListPricedAfter": 360,
+        "priceListTotalGames": 3042,
+        "priceListPricedBefore": 360,
+        "priceListPricedAfter": 376,
         "priceListPricedDelta": 16,
-        "priceListCoverageBeforePct": 11.4,
-        "priceListCoverageAfterPct": 11.9,
-        "priceListCoverageDeltaPct": 0.5,
+        "priceListCoverageBeforePct": 11.8,
+        "priceListCoverageAfterPct": 12.4,
+        "priceListCoverageDeltaPct": 0.6,
         "aiSummary": {
           "openAiConfigured": true,
           "sources": [
             {
               "source": "ebay-es",
-              "aiRows": 58,
-              "resolved": 58,
+              "aiRows": 71,
+              "resolved": 71,
               "review": 0,
               "rejected": 0
             }
