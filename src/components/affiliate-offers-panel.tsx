@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { formatEur } from "@/lib/price-format";
+import {
+  affiliateConditionLabel,
+  affiliateOfferLocation,
+  affiliateShippingLabel,
+  formatAffiliateMoney,
+} from "@/lib/affiliate-offer-presentation";
 import { AffiliateDisclosure } from "./affiliate/affiliate-disclosure";
 import { Badge, Panel, PanelTitle } from "./ui";
 import type { AffiliateFallbackCta, AffiliateOffer } from "@/lib/affiliate-offers";
@@ -36,13 +41,6 @@ function providerLabel(provider: AffiliateOffer["provider"]): string {
 function fallbackProviderLabel(provider: AffiliateFallbackCta["provider"]): string {
   if (provider === "amazon") return "Amazon";
   return "eBay";
-}
-
-function priceLabel(offer: AffiliateOffer): string {
-  if (offer.currency === "EUR") {
-    return offer.price != null ? formatEur(offer.price) : "Ver precio";
-  }
-  return offer.price != null ? `${offer.price.toFixed(2)} ${offer.currency}` : "Ver precio";
 }
 
 export function AffiliateOffersPanel({ catalogId }: Props) {
@@ -146,41 +144,63 @@ export function AffiliateOffersPanel({ catalogId }: Props) {
             Ofertas activas encontradas automáticamente. Los precios externos pueden cambiar y deben confirmarse en la
             tienda antes de comprar.
           </p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {offers.map((offer) => (
-              <a
-                key={`${offer.provider}-${offer.id}`}
-                href={offer.url}
-                target="_blank"
-                rel="sponsored nofollow noopener noreferrer"
-                className="group grid grid-cols-[72px_1fr] gap-3 rounded-2xl border border-border bg-background/45 p-3 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-card-hover"
-              >
-                <div className="flex h-[72px] w-[72px] items-center justify-center overflow-hidden rounded-xl border border-border bg-card">
-                  {offer.imageUrl ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={offer.imageUrl} alt="" className="h-full w-full object-cover" loading="lazy" />
-                  ) : (
-                    <span className="text-xs text-muted">{providerLabel(offer.provider)}</span>
-                  )}
-                </div>
-                <div className="min-w-0">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge tone={offer.provider === "ebay" ? "violet" : "amber"}>
-                      {providerLabel(offer.provider)}
-                    </Badge>
-                    {offer.condition ? <span className="text-[11px] text-muted">{offer.condition}</span> : null}
+          <div className="grid gap-3">
+            {offers.map((offer) => {
+              const location = affiliateOfferLocation(offer.location);
+              const condition = affiliateConditionLabel(offer.condition);
+              return (
+                <a
+                  key={`${offer.provider}-${offer.id}`}
+                  href={offer.url}
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
+                  className="group rounded-lg border border-border bg-background/45 p-4 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-card-hover"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex h-[104px] w-[104px] shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-white p-1">
+                      {offer.imageUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={offer.imageUrl} alt="" className="h-full w-full object-contain" loading="lazy" />
+                      ) : (
+                        <span className="text-xs text-muted">{providerLabel(offer.provider)}</span>
+                      )}
+                    </div>
+                    <div className="min-w-0 text-right">
+                      <Badge tone={offer.provider === "ebay" ? "violet" : "amber"}>
+                        {providerLabel(offer.provider)}
+                      </Badge>
+                      <p className="mt-3 text-[10px] font-semibold uppercase text-muted">Precio</p>
+                      <p className="mt-1 text-2xl font-bold text-foreground">
+                        {formatAffiliateMoney(offer.price, offer.currency)}
+                      </p>
+                      <p className="mt-1 text-xs leading-5 text-muted">
+                        {affiliateShippingLabel(offer.shippingPrice, offer.currency)}
+                      </p>
+                    </div>
                   </div>
-                  <p className="mt-2 line-clamp-2 text-sm font-semibold leading-5 text-foreground group-hover:text-accent">
-                    {offer.title}
-                  </p>
-                  <p className="mt-2 text-base font-bold text-foreground">{priceLabel(offer)}</p>
-                  <p className="mt-1 text-[11px] text-muted">
-                    {offer.shippingPrice != null ? `Envío ${formatEur(offer.shippingPrice)}` : "Ver envío"}
-                    {offer.location ? ` · ${offer.location}` : ""}
-                  </p>
-                </div>
-              </a>
-            ))}
+                  <div className="mt-3 border-t border-border pt-3">
+                    <p className="break-words text-sm font-semibold leading-5 text-foreground group-hover:text-accent">
+                      {offer.title}
+                    </p>
+                    <div className="mt-2 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-xs text-muted">
+                      <span>{condition ?? "Estado no indicado"}</span>
+                      {location ? (
+                        <span className="inline-flex items-center gap-1.5 font-medium text-foreground/75">
+                          {location.flag ? (
+                            <span aria-hidden="true" className="text-base leading-none">
+                              {location.flag}
+                            </span>
+                          ) : null}
+                          <span>{location.label}</span>
+                        </span>
+                      ) : (
+                        <span>Ubicación no indicada</span>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </>
       ) : searchFallbacks.length > 0 ? (
