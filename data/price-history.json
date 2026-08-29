@@ -2231,6 +2231,13 @@
         "loose": 88.97,
         "complete": null,
         "sealed": null
+      },
+      {
+        "at": "2026-06-22T16:39:04Z",
+        "loose": 160.0,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null
       }
     ],
     "megadrive-alisia-dragoon": [
@@ -2295,6 +2302,13 @@
         "loose": 71.58,
         "complete": null,
         "sealed": null
+      },
+      {
+        "at": "2026-06-22T16:39:04Z",
+        "loose": 120.0,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null
       }
     ],
     "megadrive-pal-arnold-palmer-tournament-golf": [
@@ -2357,6 +2371,13 @@
       {
         "at": "2026-06-13T00:20:00Z",
         "loose": 38.71,
+        "complete": null,
+        "sealed": null
+      },
+      {
+        "at": "2026-06-22T16:39:04Z",
+        "loose": 75.0,
+        "gameManual": null,
         "complete": null,
         "sealed": null
       }
@@ -2453,6 +2474,13 @@
       {
         "at": "2026-06-13T00:20:00Z",
         "loose": 54.14,
+        "complete": null,
+        "sealed": null
+      },
+      {
+        "at": "2026-06-22T16:39:04Z",
+        "loose": 65.0,
+        "gameManual": null,
         "complete": null,
         "sealed": null
       }
@@ -2822,6 +2850,13 @@
         "at": "2026-06-13T00:20:00Z",
         "loose": 14.68,
         "complete": 28.4,
+        "sealed": null
+      },
+      {
+        "at": "2026-06-22T16:39:04Z",
+        "loose": 9.95,
+        "gameManual": null,
+        "complete": 12.95,
         "sealed": null
       }
     ],
@@ -3445,6 +3480,13 @@
       {
         "at": "2026-06-13T00:20:00Z",
         "loose": 47.74,
+        "complete": null,
+        "sealed": null
+      },
+      {
+        "at": "2026-06-22T16:39:04Z",
+        "loose": 100.0,
+        "gameManual": null,
         "complete": null,
         "sealed": null
       }
@@ -4727,6 +4769,13 @@
         "loose": 32.1,
         "complete": null,
         "sealed": null
+      },
+      {
+        "at": "2026-06-22T16:39:04Z",
+        "loose": 50.0,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null
       }
     ],
     "megadrive-japon-time-dominator-1st": [
@@ -4869,6 +4918,13 @@
       {
         "at": "2026-06-13T00:20:00Z",
         "loose": 38.56,
+        "complete": null,
+        "sealed": null
+      },
+      {
+        "at": "2026-06-22T16:39:04Z",
+        "loose": 70.0,
+        "gameManual": null,
         "complete": null,
         "sealed": null
       }
@@ -8430,6 +8486,393 @@
         "at": "2026-06-14T21:20:00Z",
         "loose": 410.0,
         "complete": 27.5,
+        "sealed": null
+      }
+    ],
+    "megadrive-usa-american-gladiators": [
+      {
+        "at": "2026-06-22T16:39:04Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 35.0,
+        "sealed": null
+      }
+    ],
+    "megadrive-super-league": [
+      {
+        "at": "2026-06-22T16:39:04Z",
+        "loose": 50.0,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "megadrive-japon-super-league": [
+      {
+        "at": "2026-06-22T16:39:04Z",
+        "loose": 50.0,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null
+      }
+    ],
+    "ps4-ash-of-gods-redemption": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 7.99,
+        "sealed": null
+      }
+    ],
+    "ps4-assassins-creed-valhalla": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.99,
+        "sealed": null
+      }
+    ],
+    "ps4-asterix-&amp;-obelix-xxxl-the-ram-from-hibernia-limited-edition": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.99,
+        "sealed": null
+      }
+    ],
+    "ps4-atrapa-la-bandera": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 7.99,
+        "sealed": null
+      }
+    ],
+    "ps4-avicii-invector-encore-edition": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.99,
+        "sealed": null
+      }
+    ],
+    "ps4-bassmaster-fishing-2022-deluxe-edition": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 34.95,
+        "sealed": null
+      }
+    ],
+    "ps4-colt-canyon": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.99,
+        "sealed": null
+      }
+    ],
+    "ps4-doctor-who-the-edge-of-time": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.95,
+        "sealed": null
+      }
+    ],
+    "ps4-drawfighters": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 2.99,
+        "sealed": null
+      }
+    ],
+    "ps4-eve-valkyrie": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 6.99,
+        "sealed": null
+      }
+    ],
+    "ps4-evoland-legendary-edition": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.95,
+        "sealed": null
+      }
+    ],
+    "ps4-fantasy-friends": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.99,
+        "sealed": null
+      }
+    ],
+    "ps4-flockers": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.95,
+        "sealed": null
+      }
+    ],
+    "ps4-frantics": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 8.95,
+        "sealed": null
+      }
+    ],
+    "ps4-gigantosaurus-dino-sports": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.99,
+        "sealed": null
+      }
+    ],
+    "ps4-lego-star-wars-el-despertar-de-la-fuerza": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 6.99,
+        "sealed": null
+      }
+    ],
+    "ps4-malnazidos": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.99,
+        "sealed": null
+      }
+    ],
+    "ps4-mask-of-mists": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.99,
+        "sealed": null
+      }
+    ],
+    "ps4-melbits-world": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 2.99,
+        "sealed": null
+      }
+    ],
+    "ps4-motogp-23": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.99,
+        "sealed": null
+      }
+    ],
+    "ps4-my-life-pet-vet": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.99,
+        "sealed": null
+      }
+    ],
+    "ps4-my-life-riding-stables-3": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.99,
+        "sealed": null
+      }
+    ],
+    "ps4-overpass-day-one-edition": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.95,
+        "sealed": null
+      }
+    ],
+    "ps4-quivr": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.95,
+        "sealed": null
+      }
+    ],
+    "ps4-saints-row-day-one-edition": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 7.99,
+        "sealed": null
+      }
+    ],
+    "ps4-silt": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 29.99,
+        "sealed": null
+      }
+    ],
+    "ps4-skautfold-3-into-the-fray": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.99,
+        "sealed": null
+      }
+    ],
+    "ps4-summer-in-mara": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.99,
+        "sealed": null
+      }
+    ],
+    "ps4-super-crazy-rhythm-castle": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 6.99,
+        "sealed": null
+      }
+    ],
+    "ps4-super-toy-cars-2-ultimate-racing": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.99,
+        "sealed": null
+      }
+    ],
+    "ps4-surviving-the-aftermath-day-one-edition": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.99,
+        "sealed": null
+      }
+    ],
+    "ps4-survivor-castaway-island": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.99,
+        "sealed": null
+      }
+    ],
+    "ps4-the-house-of-dead-remake-limited-edition": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 29.99,
+        "sealed": null
+      }
+    ],
+    "ps4-this-is-the-police-2": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.95,
+        "sealed": null
+      }
+    ],
+    "ps4-those-who-remain-deluxe-edition": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.95,
+        "sealed": null
+      }
+    ],
+    "ps4-valhalla-hills-definitive-edition": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.95,
+        "sealed": null
+      }
+    ],
+    "ps4-wildshade-unicorn-champions": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.99,
+        "sealed": null
+      }
+    ],
+    "ps4-windlands-2": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.99,
+        "sealed": null
+      }
+    ],
+    "ps4-windstorm-an-unexpected-arrival": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.99,
+        "sealed": null
+      }
+    ],
+    "ps4-zapling-bygone": [
+      {
+        "at": "2026-06-22T17:10:43Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.99,
         "sealed": null
       }
     ]

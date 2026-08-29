@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-06-14T21:21:40Z",
+  "lastRunAt": "2026-06-22T17:17:05Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -64,19 +64,59 @@
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     },
     "ps4": {
-      "lastSyncAt": "2026-06-12T20:30:00Z",
-      "source": "Wallapop ES / eBay ES / Vinted ES",
-      "gamesTargeted": 3016,
-      "gamesUpdated": 9,
-      "gamesSkippedNoData": 3007,
-      "gamesRejectedOutliers": 0,
-      "gamesRejectedUnverifiedRegion": 0,
+      "lastSyncAt": "2026-06-22T17:10:43Z",
+      "source": "Mercado ES",
+      "gamesTargeted": 8444,
+      "gamesUpdated": 37,
+      "wallapopGamesUpdated": 0,
+      "ebayGamesUpdated": 0,
+      "vintedGamesUpdated": 0,
+      "gamesSkippedNoData": 8407,
+      "gamesRejectedOutliers": 3,
+      "gamesRejectedUnverifiedRegion": 161,
       "gamesRejectedRegionMismatch": 0,
       "gamesRejectedInsufficientEvidence": 0,
-      "cexGamesUpdated": 2,
+      "cexGamesUpdated": 0,
       "cexGamesSkipped": 0,
-      "coveragePct": 0.3,
-      "regionPolicy": "Reglas en data/region-evidence-rules.json"
+      "jgoGamesUpdated": 0,
+      "jgoGamesSkipped": 0,
+      "cholloGamesUpdated": 0,
+      "cholloGamesSkipped": 0,
+      "kaotoGamesUpdated": 0,
+      "kaotoGamesSkipped": 0,
+      "tcnsGamesUpdated": 0,
+      "tcnsGamesSkipped": 0,
+      "tcGamesUpdated": 0,
+      "tcGamesSkipped": 0,
+      "coveragePct": 0.4,
+      "priceListTotalGames": 8444,
+      "priceListPricedBefore": 311,
+      "priceListPricedAfter": 347,
+      "priceListPricedDelta": 36,
+      "priceListCoverageBeforePct": 3.7,
+      "priceListCoverageAfterPct": 4.1,
+      "priceListCoverageDeltaPct": 0.4,
+      "regionPolicy": "Reglas en data/region-evidence-rules.json",
+      "aiSummary": {
+        "openAiConfigured": false,
+        "sources": [
+          {
+            "source": "game-es-preowned",
+            "aiRows": 201,
+            "resolved": 40,
+            "review": 161,
+            "rejected": 0
+          }
+        ],
+        "conditionVision": {
+          "calls": 0,
+          "resolved": 0,
+          "skipped_no_images": 0,
+          "skipped_no_key": 0,
+          "skipped_has_bucket": 0,
+          "skipped_no_hints": 0
+        }
+      }
     },
     "saturn": {
       "lastSyncAt": "2026-06-12T22:48:57Z",
@@ -121,29 +161,59 @@
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     },
     "megadrive": {
-      "lastSyncAt": "2026-06-13T00:20:00Z",
-      "source": "TodoColeccion",
+      "lastSyncAt": "2026-06-22T16:39:04Z",
+      "source": "Mercado ES",
       "gamesTargeted": 1679,
-      "gamesUpdated": 79,
-      "gamesSkippedNoData": 1600,
-      "gamesRejectedOutliers": 0,
+      "gamesUpdated": 2,
+      "wallapopGamesUpdated": 0,
+      "ebayGamesUpdated": 0,
+      "vintedGamesUpdated": 0,
+      "gamesSkippedNoData": 1677,
+      "gamesRejectedOutliers": 2,
       "gamesRejectedUnverifiedRegion": 0,
       "gamesRejectedRegionMismatch": 0,
-      "gamesRejectedInsufficientEvidence": 0,
-      "cexGamesUpdated": 148,
+      "gamesRejectedInsufficientEvidence": 187,
+      "cexGamesUpdated": 0,
       "cexGamesSkipped": 0,
-      "jgoGamesUpdated": 140,
+      "jgoGamesUpdated": 0,
       "jgoGamesSkipped": 0,
-      "cholloGamesUpdated": 6,
+      "cholloGamesUpdated": 0,
       "cholloGamesSkipped": 0,
-      "kaotoGamesUpdated": 13,
+      "kaotoGamesUpdated": 0,
       "kaotoGamesSkipped": 0,
-      "tcnsGamesUpdated": 72,
+      "tcnsGamesUpdated": 0,
       "tcnsGamesSkipped": 0,
-      "tcGamesUpdated": 79,
+      "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
-      "coveragePct": 4.7,
-      "regionPolicy": "Reglas en data/region-evidence-rules.json"
+      "coveragePct": 0.1,
+      "priceListTotalGames": 1679,
+      "priceListPricedBefore": 360,
+      "priceListPricedAfter": 360,
+      "priceListPricedDelta": 0,
+      "priceListCoverageBeforePct": 21.4,
+      "priceListCoverageAfterPct": 21.4,
+      "priceListCoverageDeltaPct": 0.0,
+      "regionPolicy": "Reglas en data/region-evidence-rules.json",
+      "aiSummary": {
+        "openAiConfigured": false,
+        "sources": [
+          {
+            "source": "retroplayzone",
+            "aiRows": 191,
+            "resolved": 191,
+            "review": 0,
+            "rejected": 0
+          }
+        ],
+        "conditionVision": {
+          "calls": 1,
+          "resolved": 0,
+          "skipped_no_images": 0,
+          "skipped_no_key": 0,
+          "skipped_has_bucket": 0,
+          "skipped_no_hints": 0
+        }
+      }
     },
     "gamegear": {
       "lastSyncAt": "2026-06-13T17:34:10Z",
@@ -194,6 +264,61 @@
       "tcGamesSkipped": 0,
       "coveragePct": 85.8,
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
+    },
+    "mastersystem": {
+      "lastSyncAt": "2026-06-22T16:51:57Z",
+      "source": "Mercado ES",
+      "gamesTargeted": 500,
+      "gamesUpdated": 2,
+      "wallapopGamesUpdated": 0,
+      "ebayGamesUpdated": 0,
+      "vintedGamesUpdated": 0,
+      "gamesSkippedNoData": 498,
+      "gamesRejectedOutliers": 0,
+      "gamesRejectedUnverifiedRegion": 0,
+      "gamesRejectedRegionMismatch": 0,
+      "gamesRejectedInsufficientEvidence": 30,
+      "cexGamesUpdated": 0,
+      "cexGamesSkipped": 0,
+      "jgoGamesUpdated": 0,
+      "jgoGamesSkipped": 0,
+      "cholloGamesUpdated": 0,
+      "cholloGamesSkipped": 0,
+      "kaotoGamesUpdated": 0,
+      "kaotoGamesSkipped": 0,
+      "tcnsGamesUpdated": 0,
+      "tcnsGamesSkipped": 0,
+      "tcGamesUpdated": 0,
+      "tcGamesSkipped": 0,
+      "coveragePct": 0.4,
+      "priceListTotalGames": 500,
+      "priceListPricedBefore": 0,
+      "priceListPricedAfter": 2,
+      "priceListPricedDelta": 2,
+      "priceListCoverageBeforePct": 0.0,
+      "priceListCoverageAfterPct": 0.4,
+      "priceListCoverageDeltaPct": 0.4,
+      "regionPolicy": "Reglas en data/region-evidence-rules.json",
+      "aiSummary": {
+        "openAiConfigured": false,
+        "sources": [
+          {
+            "source": "retroplayzone",
+            "aiRows": 32,
+            "resolved": 32,
+            "review": 0,
+            "rejected": 0
+          }
+        ],
+        "conditionVision": {
+          "calls": 2,
+          "resolved": 0,
+          "skipped_no_images": 0,
+          "skipped_no_key": 0,
+          "skipped_has_bucket": 0,
+          "skipped_no_hints": 0
+        }
+      }
     }
   }
 }
