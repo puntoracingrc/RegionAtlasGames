@@ -92,6 +92,30 @@ def main() -> None:
     )
     assert_equal(runnable_sources("ps4"), [], "paused rotation has no runnable collectors")
 
+    merged = ps._newest_document(
+        {
+            "platforms": {
+                "ps4": {"todoconsolas": ["28-juegos-ps4"]},
+                "ps5": {"todoconsolas": ["359-juegos-ps5"]},
+            },
+            "collectorSettings": {"updatedAt": "2026-01-01T00:00:00Z", "sources": {}},
+        },
+        {
+            "platforms": {"ps4": {"todoconsolas": ["old-ps4"]}},
+            "collectorSettings": {
+                "updatedAt": "2026-08-29T00:00:00Z",
+                "sources": {"todoconsolas": {"enabledManual": False, "enabledRotation": False}},
+            },
+        },
+    )
+    assert_equal(merged["platforms"]["ps4"]["todoconsolas"], ["28-juegos-ps4"], "local platform registry wins")
+    assert_equal(merged["platforms"]["ps5"]["todoconsolas"], ["359-juegos-ps5"], "new local platform survives")
+    assert_equal(
+        merged["collectorSettings"]["sources"]["todoconsolas"]["enabledRotation"],
+        False,
+        "newest remote switches survive",
+    )
+
     ps._cache = None
     print("OK price source manual/rotation modes")
 

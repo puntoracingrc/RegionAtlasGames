@@ -143,6 +143,12 @@ def main() -> None:
     assert set(queue_by_id) == {"decided", "remote-only", "local-only"}
     assert queue_by_id["decided"]["status"] == "accepted"
 
+    large_queue = merge_price_review_queue_documents(
+        {"items": [{"id": f"remote-{index}", "status": "pending"} for index in range(800)]},
+        {"items": [{"id": f"local-{index}", "status": "pending"} for index in range(500)]},
+    )
+    assert len(large_queue["items"]) == 1300
+
     rejected_target = game()
     assert apply_tcns_row(rejected_target, {**row, "autoApproved": False}, "test") is False
     assert "tcnsRetailPrice" not in rejected_target

@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-08-29T09:24:00Z",
+  "lastRunAt": "2026-08-29T10:27:05Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -64,7 +64,7 @@
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     },
     "ps4": {
-      "lastSyncAt": "2026-08-29T09:16:19Z",
+      "lastSyncAt": "2026-08-29T10:09:48Z",
       "source": "eBay ES",
       "gamesTargeted": 51,
       "gamesUpdated": 17,
@@ -84,7 +84,7 @@
       "cholloGamesSkipped": 0,
       "kaotoGamesUpdated": 0,
       "kaotoGamesSkipped": 0,
-      "tcnsGamesUpdated": 13,
+      "tcnsGamesUpdated": 134,
       "tcnsGamesSkipped": 0,
       "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
@@ -120,11 +120,11 @@
       },
       "sourceRuns": {
         "todoconsolas": {
-          "lastSyncAt": "2026-08-29T09:16:19Z",
-          "gamesTargeted": 13,
-          "gamesUpdated": 13,
+          "lastSyncAt": "2026-08-29T10:09:48Z",
+          "gamesTargeted": 134,
+          "gamesUpdated": 134,
           "gamesSkipped": 0,
-          "policy": "exact_title_region_used_v1"
+          "policy": "tcns_exact_title_region_used_v1"
         }
       }
     },
@@ -244,6 +244,120 @@
       "tcGamesSkipped": 0,
       "coveragePct": 85.8,
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
+    },
+    "ps5": {
+      "lastSyncAt": "2026-08-29T10:19:19Z",
+      "source": "Mercado ES",
+      "gamesTargeted": 61,
+      "gamesUpdated": 0,
+      "wallapopGamesUpdated": 0,
+      "ebayGamesUpdated": 0,
+      "vintedGamesUpdated": 0,
+      "gamesSkippedNoData": 61,
+      "gamesRejectedOutliers": 0,
+      "gamesRejectedUnverifiedRegion": 0,
+      "gamesRejectedRegionMismatch": 0,
+      "gamesRejectedInsufficientEvidence": 0,
+      "cexGamesUpdated": 0,
+      "cexGamesSkipped": 0,
+      "jgoGamesUpdated": 0,
+      "jgoGamesSkipped": 0,
+      "cholloGamesUpdated": 0,
+      "cholloGamesSkipped": 0,
+      "kaotoGamesUpdated": 0,
+      "kaotoGamesSkipped": 0,
+      "tcnsGamesUpdated": 61,
+      "tcnsGamesSkipped": 0,
+      "tcGamesUpdated": 0,
+      "tcGamesSkipped": 0,
+      "coveragePct": 0.0,
+      "priceListTotalGames": 390,
+      "priceListPricedBefore": 0,
+      "priceListPricedAfter": 0,
+      "priceListPricedDelta": 0,
+      "priceListCoverageBeforePct": 0.0,
+      "priceListCoverageAfterPct": 0.0,
+      "priceListCoverageDeltaPct": 0.0,
+      "ebayDeliveryGamesUpdated": 0,
+      "regionPolicy": "Reglas en data/region-evidence-rules.json",
+      "aiSummary": {
+        "openAiConfigured": false,
+        "sources": [],
+        "conditionVision": {
+          "calls": 0,
+          "resolved": 0,
+          "skipped_no_images": 0,
+          "skipped_no_key": 0,
+          "skipped_has_bucket": 0,
+          "skipped_no_hints": 0
+        }
+      },
+      "sourceRuns": {
+        "todoconsolas": {
+          "lastSyncAt": "2026-08-29T10:19:19Z",
+          "gamesTargeted": 61,
+          "gamesUpdated": 61,
+          "gamesSkipped": 0,
+          "policy": "tcns_exact_title_region_used_v1"
+        }
+      }
+    },
+    "switch2": {
+      "lastSyncAt": "2026-08-29T10:21:21Z",
+      "source": "Mercado ES",
+      "gamesTargeted": 1,
+      "gamesUpdated": 0,
+      "wallapopGamesUpdated": 0,
+      "ebayGamesUpdated": 0,
+      "vintedGamesUpdated": 0,
+      "gamesSkippedNoData": 1,
+      "gamesRejectedOutliers": 0,
+      "gamesRejectedUnverifiedRegion": 0,
+      "gamesRejectedRegionMismatch": 0,
+      "gamesRejectedInsufficientEvidence": 0,
+      "cexGamesUpdated": 0,
+      "cexGamesSkipped": 0,
+      "jgoGamesUpdated": 0,
+      "jgoGamesSkipped": 0,
+      "cholloGamesUpdated": 0,
+      "cholloGamesSkipped": 0,
+      "kaotoGamesUpdated": 0,
+      "kaotoGamesSkipped": 0,
+      "tcnsGamesUpdated": 1,
+      "tcnsGamesSkipped": 0,
+      "tcGamesUpdated": 0,
+      "tcGamesSkipped": 0,
+      "coveragePct": 0.0,
+      "priceListTotalGames": 76,
+      "priceListPricedBefore": 0,
+      "priceListPricedAfter": 0,
+      "priceListPricedDelta": 0,
+      "priceListCoverageBeforePct": 0.0,
+      "priceListCoverageAfterPct": 0.0,
+      "priceListCoverageDeltaPct": 0.0,
+      "ebayDeliveryGamesUpdated": 0,
+      "regionPolicy": "Reglas en data/region-evidence-rules.json",
+      "aiSummary": {
+        "openAiConfigured": false,
+        "sources": [],
+        "conditionVision": {
+          "calls": 0,
+          "resolved": 0,
+          "skipped_no_images": 0,
+          "skipped_no_key": 0,
+          "skipped_has_bucket": 0,
+          "skipped_no_hints": 0
+        }
+      },
+      "sourceRuns": {
+        "todoconsolas": {
+          "lastSyncAt": "2026-08-29T10:21:21Z",
+          "gamesTargeted": 1,
+          "gamesUpdated": 1,
+          "gamesSkipped": 0,
+          "policy": "tcns_exact_title_region_used_v1"
+        }
+      }
     }
   },
   "regions": {

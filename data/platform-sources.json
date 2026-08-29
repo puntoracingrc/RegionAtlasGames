@@ -358,6 +358,16 @@
       ],
       "kaoto": "playstation-4",
       "serialstationConsole": "PS4"
+    },
+    "ps5": {
+      "todoconsolas": [
+        "359-juegos-ps5"
+      ]
+    },
+    "switch2": {
+      "todoconsolas": [
+        "392-juegos-switch-2"
+      ]
     }
   },
   "collectorSettings": {

@@ -11,6 +11,7 @@ from collectors.common import ROOT, load_json, now_iso, save_json
 from collectors.tcns_policy import POLICY_VERSION
 
 QUEUE_FILE = ROOT / "data" / "admin" / "price-review-queue.json"
+MAX_REVIEW_QUEUE_ITEMS = 5_000
 REVIEW_KEYS = (
     "listings",
     "regionalCandidates",
@@ -156,7 +157,7 @@ def merge_price_review_queue_documents(existing: dict[str, Any], incoming: dict[
             existing_items.values(),
             key=lambda item: str(item.get("updatedAt") or item.get("createdAt") or ""),
             reverse=True,
-        )[:1000],
+        )[:MAX_REVIEW_QUEUE_ITEMS],
         "decisions": decisions,
     }
 
@@ -204,7 +205,11 @@ def record_price_review_candidates(ingest: dict[str, Any], platform_slug: str) -
                 existing[item["id"]] = item
                 added += 1
 
-    queue["items"] = sorted(existing.values(), key=lambda item: str(item.get("updatedAt") or ""), reverse=True)[:1000]
+    queue["items"] = sorted(
+        existing.values(),
+        key=lambda item: str(item.get("updatedAt") or ""),
+        reverse=True,
+    )[:MAX_REVIEW_QUEUE_ITEMS]
     queue["updatedAt"] = now_iso()
     save_json(QUEUE_FILE, queue)
     return {"added": added, "updated": updated, "pending": sum(1 for item in queue["items"] if item.get("status") == "pending")}
@@ -212,6 +217,7 @@ def record_price_review_candidates(ingest: dict[str, Any], platform_slug: str) -
 
 __all__ = [
     "QUEUE_FILE",
+    "MAX_REVIEW_QUEUE_ITEMS",
     "load_price_review_queue",
     "merge_price_review_queue_documents",
     "record_price_review_candidates",

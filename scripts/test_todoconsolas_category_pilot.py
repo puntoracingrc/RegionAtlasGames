@@ -16,6 +16,7 @@ from collectors.tcns_client import (
     fetch_html,
     fetch_search_products,
     parse_category_page,
+    tcns_category_paths_for_platform,
 )
 from collectors import tcns_client
 
@@ -67,6 +68,10 @@ def assert_rate_limit_stops_without_retry() -> None:
 
 
 def main() -> None:
+    assert tcns_category_paths_for_platform("ps4") == ["28-juegos-ps4"]
+    assert tcns_category_paths_for_platform("ps5") == ["359-juegos-ps5"]
+    assert tcns_category_paths_for_platform("switch2") == ["392-juegos-switch-2"]
+
     html = """
     <article class="product-miniature product">
       <a href="https://www.todoconsolas.com/juegos-ps4/123-prueba-8424365720111.html">

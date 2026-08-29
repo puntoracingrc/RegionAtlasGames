@@ -434,7 +434,22 @@ export async function readBestPlatformSourcesDocument(): Promise<PlatformSources
   const dated = candidates
     .map((document, index) => ({ document, index, updatedAt: collectorSettingsUpdatedAt(document) }))
     .sort((a, b) => b.updatedAt - a.updatedAt || a.index - b.index);
-  return dated[0]?.document ?? disk;
+  const selected = dated[0]?.document ?? disk;
+  const selectedPlatforms =
+    selected.platforms && typeof selected.platforms === "object" && !Array.isArray(selected.platforms)
+      ? (selected.platforms as Record<string, unknown>)
+      : {};
+  const diskPlatforms =
+    disk.platforms && typeof disk.platforms === "object" && !Array.isArray(disk.platforms)
+      ? (disk.platforms as Record<string, unknown>)
+      : {};
+  return {
+    ...selected,
+    platforms: {
+      ...selectedPlatforms,
+      ...diskPlatforms,
+    },
+  };
 }
 
 function normalizeCustomSource(input: unknown): PriceCustomSourceSetting | null {

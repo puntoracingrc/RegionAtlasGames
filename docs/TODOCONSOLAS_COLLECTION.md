@@ -22,17 +22,24 @@ El recolector prudente `scripts/collect_todoconsolas_category_pilot.py`:
 - espera al menos cinco segundos entre peticiones;
 - se detiene sin reintentar ante HTTP 403 o 429.
 
-## Piloto PS4
+## Plataformas configuradas
+
+- PS4: `28-juegos-ps4`
+- PS5: `359-juegos-ps5`
+- Nintendo Switch 2: `392-juegos-switch-2`
+
+## Barrido manual
 
 ```bash
 python3 scripts/collect_todoconsolas_category_pilot.py \
-  --platform ps4 \
+  --platform ps5 \
   --start-page 1 \
   --max-pages 1 \
   --dry-run
 ```
 
-Para inspeccionar otra parte del catálogo se cambia `--start-page`. Nunca se
+Para cambiar de catálogo se usa `--platform ps4`, `--platform ps5` o
+`--platform switch2`. Para inspeccionar otra parte se cambia `--start-page`. Nunca se
 deben ejecutar más de cinco páginas por tanda. Un barrido semanal completo se
 puede repartir en ventanas sucesivas; no hace falta consultar cada juego ni
 repetirlo cada seis horas.
