@@ -64,9 +64,16 @@ def _collector_settings_updated_at(document: dict[str, Any] | None) -> str:
 def _newest_document(local: dict[str, Any], remote: dict[str, Any] | None) -> dict[str, Any]:
     if not remote:
         return local
-    if _collector_settings_updated_at(remote) > _collector_settings_updated_at(local):
-        return remote
-    return local
+    selected = remote if _collector_settings_updated_at(remote) > _collector_settings_updated_at(local) else local
+    remote_platforms = remote.get("platforms") if isinstance(remote.get("platforms"), dict) else {}
+    local_platforms = local.get("platforms") if isinstance(local.get("platforms"), dict) else {}
+    return {
+        **selected,
+        "platforms": {
+            **remote_platforms,
+            **local_platforms,
+        },
+    }
 
 
 def _platforms() -> dict[str, dict[str, Any]]:

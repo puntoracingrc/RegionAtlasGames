@@ -963,6 +963,9 @@ def main() -> None:
     chollo_rows = ingest.get("chollo") or []
     kaoto_rows = ingest.get("kaoto") or []
     tcns_rows = ingest.get("tcns") or []
+    source_only_tcns = str(ingest.get("source") or "").strip().lower() == "todoconsolas" and not any(
+        (listings, cex_rows, jgo_rows, chollo_rows, kaoto_rows, ingest.get("tc") or [])
+    )
     grouped = group_by_catalog_id(listings)
     cex_by_id = {str(r["catalogId"]): r for r in cex_rows if r.get("catalogId")}
     jgo_by_id = {str(r["catalogId"]): r for r in jgo_rows if r.get("catalogId")}
@@ -981,7 +984,7 @@ def main() -> None:
             allow_cross_region_catalog_ids=args.allow_cross_region_catalog_ids,
         )
     ]
-    ranges_cleared = clear_unverified_market_ranges(targets)
+    ranges_cleared = 0 if source_only_tcns else clear_unverified_market_ranges(targets)
     if ranges_cleared:
         print(f"Rangos Excel eliminados en {ranges_cleared} juegos dentro del alcance.")
     target_ids = {g["id"] for g in targets}
@@ -1287,12 +1290,11 @@ def main() -> None:
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
         "aiSummary": ai_summary,
     }
-    source_only_tcns = str(ingest.get("source") or "").strip().lower() == "todoconsolas" and not any(
-        (listings, cex_rows, jgo_rows, chollo_rows, kaoto_rows, ingest.get("tc") or [])
-    )
     platforms_state = state.setdefault("platforms", {})
     if source_only_tcns:
         previous_platform_state = dict(platforms_state.get(platform_slug) or {})
+        if not all(key in previous_platform_state for key in ("source", "gamesTargeted", "gamesUpdated")):
+            previous_platform_state = dict(platform_run_state)
         source_runs = dict(previous_platform_state.get("sourceRuns") or {})
         source_runs["todoconsolas"] = {
             "lastSyncAt": synced_at,

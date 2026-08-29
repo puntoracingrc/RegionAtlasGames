@@ -10,6 +10,7 @@ const REVIEW_FILE =
   (process.env.VERCEL
     ? path.join(appDataDir(), "price-review-queue.json")
     : path.join(process.cwd(), "data", "admin", "price-review-queue.json"));
+const MAX_PRICE_REVIEW_DECISIONS = 5_000;
 
 export type PriceReviewStatus = "pending" | "accepted" | "rejected";
 export type PriceReviewCondition = "loose" | "game_manual" | "complete" | "sealed" | "unknown";
@@ -801,7 +802,7 @@ export async function autoReviewRetroplayzonePrices(
       note: `Autoaceptado cola de precios (${label}): región, estado y match claros.`,
     })),
     ...queue.decisions,
-  ].slice(0, 1000);
+  ].slice(0, MAX_PRICE_REVIEW_DECISIONS);
   const write = await writeQueue(queue);
   return {
     ok: true,
@@ -854,7 +855,7 @@ export async function decidePriceReviewItem(
   queue.decisions = [
     { id, at: now, ...nextItem.decision },
     ...queue.decisions,
-  ].slice(0, 1000);
+  ].slice(0, MAX_PRICE_REVIEW_DECISIONS);
   const write = await writeQueue(queue);
   return { ok: true, item: nextItem, workerSynced: write.workerSynced, apply };
 }
