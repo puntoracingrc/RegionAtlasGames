@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-08-29T10:27:05Z",
+  "lastRunAt": "2026-08-29T11:54:35Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -64,7 +64,7 @@
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     },
     "ps4": {
-      "lastSyncAt": "2026-08-29T10:09:48Z",
+      "lastSyncAt": "2026-08-29T11:51:48Z",
       "source": "eBay ES",
       "gamesTargeted": 51,
       "gamesUpdated": 17,
@@ -84,7 +84,7 @@
       "cholloGamesSkipped": 0,
       "kaotoGamesUpdated": 0,
       "kaotoGamesSkipped": 0,
-      "tcnsGamesUpdated": 134,
+      "tcnsGamesUpdated": 161,
       "tcnsGamesSkipped": 0,
       "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
@@ -120,9 +120,9 @@
       },
       "sourceRuns": {
         "todoconsolas": {
-          "lastSyncAt": "2026-08-29T10:09:48Z",
-          "gamesTargeted": 134,
-          "gamesUpdated": 134,
+          "lastSyncAt": "2026-08-29T11:51:48Z",
+          "gamesTargeted": 161,
+          "gamesUpdated": 161,
           "gamesSkipped": 0,
           "policy": "tcns_exact_title_region_used_v1"
         }
@@ -246,7 +246,7 @@
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     },
     "ps5": {
-      "lastSyncAt": "2026-08-29T10:19:19Z",
+      "lastSyncAt": "2026-08-29T11:51:48Z",
       "source": "Mercado ES",
       "gamesTargeted": 61,
       "gamesUpdated": 0,
@@ -266,7 +266,7 @@
       "cholloGamesSkipped": 0,
       "kaotoGamesUpdated": 0,
       "kaotoGamesSkipped": 0,
-      "tcnsGamesUpdated": 61,
+      "tcnsGamesUpdated": 31,
       "tcnsGamesSkipped": 0,
       "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
@@ -294,16 +294,16 @@
       },
       "sourceRuns": {
         "todoconsolas": {
-          "lastSyncAt": "2026-08-29T10:19:19Z",
-          "gamesTargeted": 61,
-          "gamesUpdated": 61,
+          "lastSyncAt": "2026-08-29T11:51:48Z",
+          "gamesTargeted": 31,
+          "gamesUpdated": 31,
           "gamesSkipped": 0,
           "policy": "tcns_exact_title_region_used_v1"
         }
       }
     },
     "switch2": {
-      "lastSyncAt": "2026-08-29T10:21:21Z",
+      "lastSyncAt": "2026-08-29T11:51:48Z",
       "source": "Mercado ES",
       "gamesTargeted": 1,
       "gamesUpdated": 0,
@@ -323,7 +323,7 @@
       "cholloGamesSkipped": 0,
       "kaotoGamesUpdated": 0,
       "kaotoGamesSkipped": 0,
-      "tcnsGamesUpdated": 1,
+      "tcnsGamesUpdated": 11,
       "tcnsGamesSkipped": 0,
       "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
@@ -351,9 +351,9 @@
       },
       "sourceRuns": {
         "todoconsolas": {
-          "lastSyncAt": "2026-08-29T10:21:21Z",
-          "gamesTargeted": 1,
-          "gamesUpdated": 1,
+          "lastSyncAt": "2026-08-29T11:51:48Z",
+          "gamesTargeted": 11,
+          "gamesUpdated": 11,
           "gamesSkipped": 0,
           "policy": "tcns_exact_title_region_used_v1"
         }

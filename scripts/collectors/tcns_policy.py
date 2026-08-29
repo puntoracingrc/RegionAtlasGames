@@ -2,47 +2,16 @@
 
 from __future__ import annotations
 
-import html
-import re
-import unicodedata
 from typing import Any
 
 from collectors.region_inference import normalize_region
-from collectors.tcns_match import infer_tcns_region_product
+from collectors.tcns_match import canonical_tcns_title, infer_tcns_region_product
 
 POLICY_VERSION = "tcns_exact_title_region_used_v1"
 MIN_PRICE_EUR = 3.0
 MAX_PRICE_EUR = 1000.0
 MIN_EXISTING_PRICE_RATIO = 0.5
 MAX_EXISTING_PRICE_RATIO = 2.0
-
-REGION_SUFFIX_RE = re.compile(r"\s*\((?:SP|ES|EU|UK|JP|JAP|US|USA|FR|DE|IT)\)\s*$", re.I)
-PLATFORM_LABELS: dict[str, tuple[str, ...]] = {
-    "ps1": ("ps1", "playstation 1"),
-    "ps2": ("ps2", "playstation 2"),
-    "ps3": ("ps3", "playstation 3"),
-    "ps4": ("ps4", "playstation 4"),
-    "ps5": ("ps5", "playstation 5"),
-    "switch": ("nintendo switch", "switch"),
-    "switch2": ("nintendo switch 2", "switch 2"),
-}
-
-
-def canonical_tcns_title(value: str, platform_slug: str) -> str:
-    text = str(value or "")
-    for _ in range(2):
-        decoded = html.unescape(text)
-        if decoded == text:
-            break
-        text = decoded
-    text = REGION_SUFFIX_RE.sub("", text)
-    text = unicodedata.normalize("NFKD", text.lower()).encode("ascii", "ignore").decode("ascii")
-    text = text.replace("&", " and ")
-    for label in sorted(PLATFORM_LABELS.get(platform_slug, (platform_slug,)), key=len, reverse=True):
-        text = re.sub(rf"\b{re.escape(label)}\b", " ", text, flags=re.I)
-    text = re.sub(r"[^a-z0-9]+", " ", text)
-    return re.sub(r"\s+", " ", text).strip()
-
 
 def _price(value: Any) -> float | None:
     try:

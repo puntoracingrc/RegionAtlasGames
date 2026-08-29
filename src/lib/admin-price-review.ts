@@ -14,6 +14,15 @@ const MAX_PRICE_REVIEW_DECISIONS = 5_000;
 
 export type PriceReviewStatus = "pending" | "accepted" | "rejected";
 export type PriceReviewCondition = "loose" | "game_manual" | "complete" | "sealed" | "unknown";
+export type PriceReviewTriageBucket =
+  | "safe_exact"
+  | "manual_match"
+  | "catalog_gap"
+  | "regional_variant"
+  | "price_anomaly"
+  | "missing_region";
+export type PriceReviewTriageFilter = PriceReviewTriageBucket | "actionable" | "all";
+export type PriceReviewTriageCounts = Record<PriceReviewTriageFilter, number>;
 
 export type PriceReviewItem = {
   id: string;
@@ -28,6 +37,11 @@ export type PriceReviewItem = {
   priceEur: number;
   condition?: PriceReviewCondition | string | null;
   reason: string;
+  triageBucket?: PriceReviewTriageBucket | "resolved_exact" | "resolved_duplicate" | null;
+  triageReason?: string | null;
+  triageCatalogId?: string | null;
+  triageMatchMethod?: string | null;
+  triageMatchedReference?: string | null;
   evidence?: {
     url?: string | null;
     imageUrl?: string | null;
@@ -102,6 +116,14 @@ export type PriceReviewAutoRetroplayzoneInput = {
   assumedCondition?: PriceReviewCondition | "none";
   useVision?: boolean;
   visionLimit?: number;
+  triageBucket?: PriceReviewTriageFilter;
+};
+
+export type PriceReviewTriageView = {
+  items: PriceReviewItem[];
+  counts: PriceReviewTriageCounts;
+  total: number;
+  filter: PriceReviewTriageFilter;
 };
 
 export type PriceReviewAutoRetroplayzoneCandidate = {
@@ -263,6 +285,7 @@ export async function startPriceReviewPcVisionJob(
     query: input.query,
     assumedRegion: input.assumedRegion,
     assumedCondition: input.assumedCondition ?? "none",
+    triageBucket: input.triageBucket ?? "all",
     visionLimit,
     requestedAt: now,
     runner: "pc_sftp_worker",
@@ -321,12 +344,82 @@ function patchFromReview(item: PriceReviewItem, input: PriceReviewDecisionInput)
   };
 }
 
-export async function listPriceReviewItems(limit = 40): Promise<PriceReviewItem[]> {
+const TRIAGE_BUCKETS: PriceReviewTriageBucket[] = [
+  "safe_exact",
+  "manual_match",
+  "catalog_gap",
+  "regional_variant",
+  "price_anomaly",
+  "missing_region",
+];
+
+function emptyTriageCounts(): PriceReviewTriageCounts {
+  return {
+    all: 0,
+    actionable: 0,
+    safe_exact: 0,
+    manual_match: 0,
+    catalog_gap: 0,
+    regional_variant: 0,
+    price_anomaly: 0,
+    missing_region: 0,
+  };
+}
+
+export function normalizePriceReviewTriageFilter(value: string | null | undefined): PriceReviewTriageFilter {
+  if (value === "all" || value === "actionable" || TRIAGE_BUCKETS.includes(value as PriceReviewTriageBucket)) {
+    return value as PriceReviewTriageFilter;
+  }
+  return "actionable";
+}
+
+export function priceReviewTriageBucket(item: PriceReviewItem): PriceReviewTriageBucket {
+  if (TRIAGE_BUCKETS.includes(item.triageBucket as PriceReviewTriageBucket)) {
+    return item.triageBucket as PriceReviewTriageBucket;
+  }
+  if (item.source.toLowerCase() !== "todoconsolas") return "manual_match";
+  if (["price_out_of_range", "price_change_requires_review"].includes(item.reason)) return "price_anomaly";
+  if (item.reason === "catalog_region_not_exact") return "regional_variant";
+  if (item.reason === "listing_region_missing") return "missing_region";
+  if (!item.catalogId && !item.candidateCatalogId && !(item.evidence?.matchAlternatives?.length)) {
+    return "catalog_gap";
+  }
+  return "manual_match";
+}
+
+export function priceReviewMatchesTriageFilter(
+  item: PriceReviewItem,
+  filter: PriceReviewTriageFilter,
+): boolean {
+  if (filter === "all") return true;
+  const bucket = priceReviewTriageBucket(item);
+  if (filter === "actionable") return bucket === "manual_match" || bucket === "missing_region";
+  return bucket === filter;
+}
+
+export async function getPriceReviewTriageView(
+  limit = 200,
+  requestedFilter: PriceReviewTriageFilter = "actionable",
+): Promise<PriceReviewTriageView> {
   const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
-  return queue.items
+  const filter = normalizePriceReviewTriageFilter(requestedFilter);
+  const counts = emptyTriageCounts();
+  const pending = queue.items
     .filter((item) => item.status === "pending")
-    .sort((a, b) => Date.parse(b.updatedAt ?? b.createdAt ?? "") - Date.parse(a.updatedAt ?? a.createdAt ?? ""))
-    .slice(0, limit);
+    .map((item) => {
+      const triageBucket = priceReviewTriageBucket(item);
+      counts.all += 1;
+      counts[triageBucket] += 1;
+      if (triageBucket === "manual_match" || triageBucket === "missing_region") counts.actionable += 1;
+      return item.triageBucket === triageBucket ? item : { ...item, triageBucket };
+    })
+    .sort((a, b) => Date.parse(b.updatedAt ?? b.createdAt ?? "") - Date.parse(a.updatedAt ?? a.createdAt ?? ""));
+  const items = pending.filter((item) => priceReviewMatchesTriageFilter(item, filter)).slice(0, limit);
+  return { items, counts, total: counts.all, filter };
+}
+
+export async function listPriceReviewItems(limit = 40): Promise<PriceReviewItem[]> {
+  return (await getPriceReviewTriageView(limit, "all")).items;
 }
 
 function normalizedText(value: string | null | undefined): string {
@@ -651,6 +744,8 @@ function isSafeAutoAccept(
 
 function itemMatchesAutoReviewInput(item: PriceReviewItem, input: PriceReviewAutoRetroplayzoneInput): boolean {
   if (item.status !== "pending") return false;
+  const triageFilter = input.triageBucket ? normalizePriceReviewTriageFilter(input.triageBucket) : "all";
+  if (!priceReviewMatchesTriageFilter(item, triageFilter)) return false;
   const platformSlug = input.platformSlug?.trim();
   if (platformSlug && platformSlug !== "all" && item.platformSlug !== platformSlug) return false;
   const source = input.source?.trim();
@@ -678,6 +773,7 @@ function autoReviewLabel(input: PriceReviewAutoRetroplayzoneInput): string {
     input.assumedRegion?.trim() ? `region ${input.assumedRegion.trim()}` : null,
     input.assumedCondition && input.assumedCondition !== "none" ? `estado ${input.assumedCondition}` : null,
     input.useVision ? `IA portadas max ${visionLimit}` : null,
+    input.triageBucket && input.triageBucket !== "all" ? `bandeja ${input.triageBucket}` : null,
   ].filter(Boolean);
   return parts.length ? parts.join(" · ") : "toda la cola";
 }

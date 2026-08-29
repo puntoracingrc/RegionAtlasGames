@@ -1,12 +1,19 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { PriceReviewCondition, PriceReviewItem } from "@/lib/admin-price-review";
+import type {
+  PriceReviewCondition,
+  PriceReviewItem,
+  PriceReviewTriageCounts,
+  PriceReviewTriageFilter,
+} from "@/lib/admin-price-review";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { adminToneClass } from "./admin-visual";
 
 type Props = {
   initialItems: PriceReviewItem[];
+  initialCounts: PriceReviewTriageCounts;
+  initialTotal: number;
 };
 
 type AutoRetroplayzoneCandidate = {
@@ -60,6 +67,7 @@ const sourceLabels: Record<string, string> = {
   "xtralife-es": "XtraLife España",
   "on-digital-es": "On Digital España",
   "cashconverters-es": "Cash Converters España",
+  todoconsolas: "TodoConsolas",
 };
 
 const reasonLabels: Record<string, string> = {
@@ -72,7 +80,22 @@ const reasonLabels: Record<string, string> = {
   regional_signal_conflict: "Las pruebas regionales se contradicen",
   regional_confirmation_missing: "Falta confirmar la región",
   seller_origin_hint_only: "Ubicación del vendedor: solo una pista",
+  catalog_match_not_unique: "La ficha exacta no está demostrada",
+  catalog_title_not_exact: "Título o edición no exactos",
+  catalog_region_not_exact: "Variante de otra región",
+  listing_region_missing: "Falta confirmar la región",
+  price_out_of_range: "Precio fuera del rango seguro",
+  price_change_requires_review: "Cambio de precio anómalo",
+  catalog_not_found: "No existe una ficha compatible",
 };
+
+const triageTabs: Array<{ value: PriceReviewTriageFilter; label: string; helper: string }> = [
+  { value: "actionable", label: "Revisar ahora", helper: "Decisiones humanas pendientes" },
+  { value: "catalog_gap", label: "Faltan fichas", helper: "Juegos aún sin destino en catálogo" },
+  { value: "regional_variant", label: "Variantes", helper: "La región encontrada no coincide" },
+  { value: "price_anomaly", label: "Precios anómalos", helper: "Importes que necesitan comprobación" },
+  { value: "all", label: "Todos", helper: "Vista completa de pendientes" },
+];
 
 function uniqueOptions(values: Array<string | null | undefined>): string[] {
   const seen = new Set<string>();
@@ -455,8 +478,11 @@ function ReviewCard({
   );
 }
 
-export function AdminPriceReviewPanel({ initialItems }: Props) {
+export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTotal }: Props) {
   const [items, setItems] = useState(initialItems);
+  const [triageCounts, setTriageCounts] = useState(initialCounts);
+  const [totalPending, setTotalPending] = useState(initialTotal);
+  const [activeBucket, setActiveBucket] = useState<PriceReviewTriageFilter>("actionable");
   const [autoState, setAutoState] = useState<"idle" | "previewing" | "applying" | "error" | "done">("idle");
   const [autoResult, setAutoResult] = useState<AutoRetroplayzoneResponse | null>(null);
   const [pcVisionState, setPcVisionState] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -471,6 +497,8 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
   const [assumedCondition, setAssumedCondition] = useState<PriceReviewCondition | "none">("none");
   const [useVision, setUseVision] = useState(false);
   const [visionLimit, setVisionLimit] = useState(10);
+  const activeBucketMeta = triageTabs.find((tab) => tab.value === activeBucket) ?? triageTabs[0];
+  const activeBucketTotal = triageCounts[activeBucket] ?? 0;
 
   const platformOptions = useMemo(
     () => optionCounts(items, (item) => item.platformSlug, (value) => value.toUpperCase()),
@@ -502,6 +530,7 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
   const visibleItems = filteredItems.slice(0, visibleLimit);
   const gamePs4Pending = items.filter((item) => item.platformSlug === "ps4" && item.source.startsWith("game-es")).length;
   const activeReviewLabel = [
+    activeBucketMeta.label,
     platformFilter !== "all" ? platformFilter.toUpperCase() : null,
     sourceFilter !== "all" ? sourceLabel(sourceFilter) : null,
     query.trim() ? `Busqueda: ${query.trim()}` : null,
@@ -547,6 +576,18 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
     resetAutoPreview();
   }
 
+  function selectTriageBucket(value: PriceReviewTriageFilter) {
+    if (value === activeBucket || refreshState === "loading") return;
+    setActiveBucket(value);
+    setItems([]);
+    setPlatformFilter("all");
+    setSourceFilter("all");
+    setQuery("");
+    setVisibleLimit(40);
+    resetAutoPreview();
+    void refreshItems(value);
+  }
+
   function updateAssumedRegion(value: string) {
     setAssumedRegion(value);
     resetAutoPreview();
@@ -567,19 +608,27 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
     resetAutoPreview();
   }
 
-  async function refreshItems() {
+  async function refreshItems(bucket: PriceReviewTriageFilter = activeBucket) {
     setRefreshState("loading");
     setRefreshMessage("");
-    const response = await fetch("/api/admin/price-reviews?limit=500", { cache: "no-store" });
-    const data = await response.json().catch(() => null) as { ok?: boolean; items?: PriceReviewItem[]; error?: string } | null;
+    const response = await fetch(`/api/admin/price-reviews?limit=500&bucket=${encodeURIComponent(bucket)}`, { cache: "no-store" });
+    const data = await response.json().catch(() => null) as {
+      ok?: boolean;
+      items?: PriceReviewItem[];
+      counts?: PriceReviewTriageCounts;
+      total?: number;
+      error?: string;
+    } | null;
     if (!response.ok || !data?.ok || !Array.isArray(data.items)) {
       setRefreshState("error");
       setRefreshMessage(data?.error ?? "No se pudo actualizar la cola.");
       return;
     }
     setItems(data.items);
+    if (data.counts) setTriageCounts(data.counts);
+    if (typeof data.total === "number") setTotalPending(data.total);
     setRefreshState("idle");
-    setRefreshMessage(`${data.items.length} pendientes cargados.`);
+    setRefreshMessage(`${data.items.length} de ${data.counts?.[bucket] ?? data.items.length} cargados.`);
     resetAutoPreview();
   }
 
@@ -597,6 +646,7 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
         assumedCondition,
         useVision,
         visionLimit,
+        triageBucket: activeBucket,
       }),
     });
     const rawText = await response.text().catch(() => "");
@@ -636,6 +686,7 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
         assumedRegion: assumedRegion || undefined,
         assumedCondition,
         visionLimit,
+        triageBucket: activeBucket,
       }),
     });
     const rawText = await response.text().catch(() => "");
@@ -654,19 +705,66 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
     setPcVisionMessage(`${data.message ?? "Job enviado al PC."}${data.jobId ? ` ID: ${data.jobId}` : ""}`);
   }
 
+  function markItemDone(id: string) {
+    const completed = items.find((item) => item.id === id);
+    setItems((current) => current.filter((item) => item.id !== id));
+    if (!completed) return;
+    setTotalPending((current) => Math.max(0, current - 1));
+    setTriageCounts((current) => {
+      const next = { ...current, all: Math.max(0, current.all - 1) };
+      const bucket = completed.triageBucket;
+      if (bucket && bucket !== "resolved_exact" && bucket in next) {
+        next[bucket as keyof PriceReviewTriageCounts] = Math.max(
+          0,
+          current[bucket as keyof PriceReviewTriageCounts] - 1,
+        );
+      }
+      if (bucket === "manual_match" || bucket === "missing_region") {
+        next.actionable = Math.max(0, current.actionable - 1);
+      }
+      return next;
+    });
+  }
+
   return (
     <Panel className={adminToneClass("edit")}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <PanelTitle eyebrow="Precios a revisar">Anuncios pendientes de revisión</PanelTitle>
           <p className="mt-2 text-sm leading-6 text-muted">
-            Esta cola es solo de precios recolectados. No se mezcla con la revisión de fichas del catálogo.
+            Los casos están separados por el tipo de decisión que necesitan.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
           {gamePs4Pending > 0 ? <Badge tone="amber">GAME PS4: {gamePs4Pending}</Badge> : null}
-          <Badge tone={items.length > 0 ? "amber" : "green"}>{items.length} pendientes cargados</Badge>
+          <Badge tone={totalPending > 0 ? "amber" : "green"}>{totalPending} pendientes totales</Badge>
         </div>
+      </div>
+      <div className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-5" role="tablist" aria-label="Bandejas de revisión">
+        {triageTabs.map((tab) => {
+          const selected = activeBucket === tab.value;
+          return (
+            <button
+              key={tab.value}
+              type="button"
+              role="tab"
+              aria-selected={selected}
+              disabled={refreshState === "loading"}
+              onClick={() => selectTriageBucket(tab.value)}
+              className={`min-h-20 rounded-xl border px-3 py-3 text-left transition ${
+                selected
+                  ? "border-accent bg-accent/10 text-foreground"
+                  : "border-border bg-background/50 text-muted hover:border-accent/50 hover:text-foreground"
+              }`}
+            >
+              <span className="flex items-center justify-between gap-2 text-sm font-black">
+                <span>{tab.label}</span>
+                <span className="tabular-nums">{triageCounts[tab.value]}</span>
+              </span>
+              <span className="mt-1 block text-xs leading-4">{tab.helper}</span>
+            </button>
+          );
+        })}
       </div>
       <div className="mt-4 rounded-2xl border border-border bg-background/50 p-3">
         <div className="grid gap-3 md:grid-cols-[1fr_1fr_1.4fr_auto]">
@@ -713,7 +811,7 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
             <button type="button" onClick={clearFilters} className="btn-secondary text-xs">
               Limpiar
             </button>
-            <button type="button" disabled={refreshState === "loading"} onClick={refreshItems} className="btn-secondary text-xs">
+            <button type="button" disabled={refreshState === "loading"} onClick={() => refreshItems()} className="btn-secondary text-xs">
               {refreshState === "loading" ? "Actualizando..." : "Actualizar"}
             </button>
           </div>
@@ -721,7 +819,7 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
         <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-muted">
           <span>
             Mostrando {visibleItems.length} de {filteredItems.length} filtrados.
-            {items.length >= 500 ? " La cola puede tener más de 500; usa filtros para afinar." : ""}
+            {items.length < activeBucketTotal ? ` La bandeja contiene ${activeBucketTotal}; usa los filtros para afinar.` : ""}
           </span>
           {refreshMessage ? (
             <span className={refreshState === "error" ? "font-semibold text-rose-600 dark:text-rose-300" : "font-semibold text-emerald-600 dark:text-emerald-300"}>
@@ -855,7 +953,7 @@ export function AdminPriceReviewPanel({ initialItems }: Props) {
       {filteredItems.length > 0 ? (
         <div className="mt-4 grid gap-3">
           {visibleItems.map((item) => (
-            <ReviewCard key={item.id} item={item} onDone={(id) => setItems((current) => current.filter((entry) => entry.id !== id))} />
+            <ReviewCard key={item.id} item={item} onDone={markItemDone} />
           ))}
           {visibleItems.length < filteredItems.length ? (
             <button type="button" onClick={() => setVisibleLimit((current) => current + 40)} className="btn-secondary justify-self-center text-xs">

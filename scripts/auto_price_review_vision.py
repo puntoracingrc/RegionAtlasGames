@@ -51,6 +51,12 @@ def write_json(path: Path, payload: Any) -> None:
 def item_matches(item: dict[str, Any], request: dict[str, Any]) -> bool:
     if item.get("status") != "pending":
         return False
+    triage_filter = str(request.get("triageBucket") or "all").strip()
+    triage_bucket = str(item.get("triageBucket") or "manual_match").strip()
+    if triage_filter == "actionable" and triage_bucket not in {"manual_match", "missing_region"}:
+        return False
+    if triage_filter not in {"", "all", "actionable"} and triage_bucket != triage_filter:
+        return False
     platform = str(request.get("platformSlug") or "").strip()
     if platform and platform != "all" and item.get("platformSlug") != platform:
         return False

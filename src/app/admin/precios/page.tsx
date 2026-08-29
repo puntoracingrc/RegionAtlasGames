@@ -16,7 +16,7 @@ import {
   type AdminPriceJobMeta,
 } from "@/lib/admin-price-collect";
 import type { AdminPriceCronAttempt } from "@/lib/admin-price-cron-log";
-import { listPriceReviewItems } from "@/lib/admin-price-review";
+import { getPriceReviewTriageView } from "@/lib/admin-price-review";
 import { listLocalGameRunnerJobs, localGameRunnerTokenConfigured } from "@/lib/local-game-runner-jobs";
 import { listMarketResearchBatches } from "@/lib/market-research-batches";
 import { readPriceSourceSettings } from "@/lib/price-source-settings";
@@ -506,10 +506,10 @@ export default async function AdminPricesPage({
   const view = normalizePriceView(params?.vista);
   const coverageSort = normalizeCoverageSort(params?.coverageSort);
   const needsDashboard = view === "resumen" || view === "cobertura";
-  const [dashboard, priceSourceSettings, priceReviewItems, localGameJobs, marketBatches] = await Promise.all([
+  const [dashboard, priceSourceSettings, priceReviewView, localGameJobs, marketBatches] = await Promise.all([
     needsDashboard ? getAdminPriceDashboard(20) : Promise.resolve(null),
     view === "fuentes" ? readPriceSourceSettings() : Promise.resolve(null),
-    view === "revision" ? listPriceReviewItems(500) : Promise.resolve([]),
+    view === "revision" ? getPriceReviewTriageView(500, "actionable") : Promise.resolve(null),
     view === "game" ? listLocalGameRunnerJobs(20) : Promise.resolve([]),
     view === "fuentes" ? listMarketResearchBatches(12) : Promise.resolve([]),
   ]);
@@ -835,7 +835,13 @@ export default async function AdminPricesPage({
         </>
       ) : null}
 
-      {view === "revision" ? <AdminPriceReviewPanel initialItems={priceReviewItems} /> : null}
+      {view === "revision" && priceReviewView ? (
+        <AdminPriceReviewPanel
+          initialItems={priceReviewView.items}
+          initialCounts={priceReviewView.counts}
+          initialTotal={priceReviewView.total}
+        />
+      ) : null}
 
       {view === "cobertura" && dashboard ? (
         <>

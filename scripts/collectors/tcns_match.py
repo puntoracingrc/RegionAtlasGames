@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import html
 import re
+import unicodedata
 from typing import Any
 
 from collectors.catalog_match import CatalogMatchResult, match_catalog_product, product_title
@@ -11,12 +13,23 @@ from collectors.listing_images import attach_image_urls
 from collectors.region_inference import detect_listing_region
 
 TITLE_REGION_SUFFIX_RE = re.compile(
-    r"\((SP|EU|UK|JP|FR|US|USA|DE|IT|JAP)\)\s*$",
+    r"\((SP|ES|EU|UK|JP|FR|US|USA|DE|IT|JAP)\)\s*$",
     re.I,
 )
 
+PLATFORM_LABELS: dict[str, tuple[str, ...]] = {
+    "ps1": ("ps1", "playstation 1"),
+    "ps2": ("ps2", "playstation 2"),
+    "ps3": ("ps3", "playstation 3"),
+    "ps4": ("ps4", "playstation 4"),
+    "ps5": ("ps5", "playstation 5"),
+    "switch": ("nintendo switch", "switch"),
+    "switch2": ("nintendo switch 2", "switch 2"),
+}
+
 REGION_SUFFIX_MAP: dict[str, str] = {
     "SP": "PAL España",
+    "ES": "PAL España",
     "EU": "PAL Europa",
     "UK": "PAL UK/ENG",
     "JP": "Japón",
@@ -38,6 +51,22 @@ CONDITION_MAP: list[tuple[str, str]] = [
 ]
 
 
+def canonical_tcns_title(value: str, platform_slug: str) -> str:
+    text = str(value or "")
+    for _ in range(2):
+        decoded = html.unescape(text)
+        if decoded == text:
+            break
+        text = decoded
+    text = TITLE_REGION_SUFFIX_RE.sub("", text)
+    text = unicodedata.normalize("NFKD", text.lower()).encode("ascii", "ignore").decode("ascii")
+    text = text.replace("&", " and ")
+    for label in sorted(PLATFORM_LABELS.get(platform_slug, (platform_slug,)), key=len, reverse=True):
+        text = re.sub(rf"\b{re.escape(label)}\b", " ", text, flags=re.I)
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
 def infer_tcns_region(title: str) -> str | None:
     suffix = TITLE_REGION_SUFFIX_RE.search(title.strip())
     if suffix:
@@ -57,13 +86,15 @@ def match_tcns_product(
     ref_to_ids: dict[str, list[str]] | None = None,
     min_score: float = 0.42,
 ) -> CatalogMatchResult:
+    adapted = dict(product)
+    adapted["title"] = canonical_tcns_title(product_title(product), platform_slug)
     return match_catalog_product(
-        product,
+        adapted,
         catalog_games,
         platform_slug,
         ref_to_ids=ref_to_ids,
         min_score=min_score,
-        infer_listing_region=infer_tcns_region_product,
+        infer_listing_region=lambda _product: infer_tcns_region_product(product),
     )
 
 
@@ -143,6 +174,7 @@ def product_to_ingest_row(
 
 __all__ = [
     "best_tcns_match",
+    "canonical_tcns_title",
     "infer_tcns_region",
     "infer_tcns_region_product",
     "match_tcns_product",
