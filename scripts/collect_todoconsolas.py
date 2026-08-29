@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
-"""Ingest referencias retail desde todoconsolas.com (PrestaShop, segunda mano ES).
+"""Recolector histórico TodoConsolas, conservado como entrada fail-closed.
 
-Búsqueda avanzada por juego (solo título, paginación).
-Si TodoConsolas no tiene el juego, no hay resultados → siguiente.
-
-  python3 scripts/collect_todoconsolas.py --platform gamegear --limit 5 --dry-run
-  python3 scripts/collect_todoconsolas.py --all
-  ./scripts/run_todoconsolas_ingest.sh ps2 --sync
+El buscador interno ya no se consulta. Usa el piloto de categorías públicas:
+  python3 scripts/collect_todoconsolas_category_pilot.py --platform ps4 --dry-run
 """
 
 from __future__ import annotations
@@ -109,6 +105,10 @@ def collect_game_rows(
 
 
 def collect_platform(platform_slug: str, args: argparse.Namespace) -> tuple[list[dict[str, Any]], dict[str, int]]:
+    raise SystemExit(
+        "El recolector por búsqueda está desactivado por política de acceso. "
+        "Usa collect_todoconsolas_category_pilot.py."
+    )
     if not tcns_sources_for_platform(platform_slug):
         raise SystemExit(f"Plataforma sin soporte TodoConsolas: {platform_slug}")
 
