@@ -11,5 +11,11 @@ export function resolveEncodedCatalogIdParam(
   } catch {
     // A malformed percent escape is still a valid opaque legacy identifier.
   }
+
+  const encoded = encodeURIComponent(exact).replace(/[!'()*]/g, (character) =>
+    `%${character.charCodeAt(0).toString(16).toUpperCase()}`,
+  );
+  if (encoded !== exact && exists(encoded)) return encoded;
+
   return exact;
 }
