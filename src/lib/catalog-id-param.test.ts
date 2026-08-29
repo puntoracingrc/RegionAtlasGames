@@ -26,6 +26,13 @@ test("recovers one transport-encoding layer without changing the canonical id", 
   );
 });
 
+test("recovers a legacy percent id after an upstream proxy decodes it", () => {
+  assert.equal(
+    resolveEncodedCatalogIdParam("3ds-collector's-edition", (id) => ids.has(id)),
+    "3ds-collector%27s-edition",
+  );
+});
+
 test("leaves normal, unknown and malformed identifiers untouched", () => {
   assert.equal(resolveEncodedCatalogIdParam("ps4-normal-game", (id) => ids.has(id)), "ps4-normal-game");
   assert.equal(resolveEncodedCatalogIdParam("ps4-unknown%27game", (id) => ids.has(id)), "ps4-unknown%27game");
