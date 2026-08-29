@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   normalizePriceReviewTriageFilter,
+  priceReviewCatalogPreview,
   priceReviewMatchesTriageFilter,
   priceReviewTriageBucket,
   type PriceReviewItem,
@@ -51,4 +52,23 @@ test("normalizes unknown API filters to the actionable inbox", () => {
   assert.equal(normalizePriceReviewTriageFilter("catalog_gap"), "catalog_gap");
   assert.equal(normalizePriceReviewTriageFilter("unexpected"), "actionable");
   assert.equal(normalizePriceReviewTriageFilter(null), "actionable");
+});
+
+test("adds the catalog cover and main metadata to a review candidate", () => {
+  const preview = priceReviewCatalogPreview(review({
+    platformSlug: "ps4",
+    candidateCatalogId: "ps4-daymare-1994-sandcastle",
+  }));
+  assert.equal(preview?.title, "Daymare 1994 Sandcastle");
+  assert.equal(preview?.region, "PAL España");
+  assert.equal(preview?.coverUrl?.endsWith("/covers/ps4/daymare-1994-sandcastle.jpg"), true);
+});
+
+test("falls back to a catalog match alternative for the visual preview", () => {
+  const preview = priceReviewCatalogPreview(review({
+    evidence: {
+      matchAlternatives: [{ catalogId: "ps4-daymare-1994-sandcastle", score: 0.91 }],
+    },
+  }));
+  assert.equal(preview?.id, "ps4-daymare-1994-sandcastle");
 });

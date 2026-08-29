@@ -4,6 +4,9 @@ import { appDataDir } from "./app-data-dir";
 import { canWriteCatalogFiles } from "./admin-auth";
 import { clonePublishedCatalogGameToRegion, mergePublishedCatalogGames, updatePublishedCatalogPrices } from "./admin-catalog-publish";
 import { priceWorkerPublicBaseUrl } from "./admin-price-collect";
+import { getCoverSrc } from "./cover-url";
+import type { CatalogGame } from "./types";
+import catalogData from "../../data/catalog.json";
 
 const REVIEW_FILE =
   process.env.ADMIN_PRICE_REVIEW_FILE ??
@@ -50,16 +53,27 @@ export type PriceReviewItem = {
     matchMethod?: string | null;
     matchScore?: number | null;
     matchMargin?: number | null;
-    matchAlternatives?: Array<{ catalogId?: string; title?: string; region?: string; score?: number }>;
+    matchAlternatives?: Array<{ catalogId?: string; title?: string; region?: string; coverUrl?: string | null; score?: number }>;
     aiConfidence?: number | null;
     reviewNotes?: string[];
     conditionRaw?: string | null;
+    catalogTitle?: string | null;
+    catalogCoverUrl?: string | null;
+    imageCapturedAt?: string | null;
+    imageSource?: string | null;
     coverVision?: Record<string, unknown> | null;
     searchedCatalogId?: string | null;
     originCountry?: string | null;
     originRegionHint?: string | null;
     routingReason?: string | null;
   };
+  catalogPreview?: {
+    id: string;
+    title: string;
+    region: string;
+    edition: string;
+    coverUrl: string | null;
+  } | null;
   jobId?: string | null;
   collectedAt?: string | null;
   createdAt?: string | null;
@@ -73,6 +87,36 @@ export type PriceReviewItem = {
     note?: string | null;
   };
 };
+
+const catalogPreviewById = new Map(
+  (catalogData as CatalogGame[]).map((game) => [
+    game.id,
+    {
+      id: game.id,
+      title: game.title,
+      region: game.region,
+      edition: game.edition,
+      coverUrl: getCoverSrc(game.coverUrl, game.id),
+    },
+  ]),
+);
+
+export function priceReviewCatalogPreview(item: PriceReviewItem): NonNullable<PriceReviewItem["catalogPreview"]> | null {
+  const candidateIds = [
+    item.candidateCatalogId,
+    item.catalogId,
+    item.triageCatalogId,
+    item.evidence?.searchedCatalogId,
+    ...(item.evidence?.matchAlternatives ?? []).map((candidate) => candidate.catalogId),
+  ];
+  for (const candidateId of candidateIds) {
+    const clean = candidateId?.trim();
+    if (!clean) continue;
+    const preview = catalogPreviewById.get(clean);
+    if (preview) return preview;
+  }
+  return null;
+}
 
 type PriceReviewQueue = {
   schemaVersion: number;
@@ -117,6 +161,13 @@ export type PriceReviewAutoRetroplayzoneInput = {
   useVision?: boolean;
   visionLimit?: number;
   triageBucket?: PriceReviewTriageFilter;
+};
+
+export type PriceReviewPcImageJobInput = Pick<
+  PriceReviewAutoRetroplayzoneInput,
+  "platformSlug" | "source" | "query" | "triageBucket"
+> & {
+  mediaLimit?: number;
 };
 
 export type PriceReviewTriageView = {
@@ -309,6 +360,58 @@ export async function startPriceReviewPcVisionJob(
   return { ok: true, jobId, message: "Job de IA de portadas enviado al PC. Refresca estado cuando termine." };
 }
 
+export async function startPriceReviewPcImageJob(
+  input: PriceReviewPcImageJobInput = {},
+): Promise<PriceReviewPcVisionJobResult | { error: string }> {
+  const jobId = `review-images-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+  const now = new Date().toISOString();
+  const rawLimit = Number(input.mediaLimit ?? 1_000);
+  const mediaLimit = Number.isFinite(rawLimit)
+    ? Math.max(1, Math.min(2_000, Math.round(rawLimit)))
+    : 1_000;
+  const request = {
+    jobId,
+    jobType: "price_review_images",
+    captureOnly: true,
+    platformSlug: input.platformSlug,
+    source: input.source,
+    query: input.query,
+    triageBucket: input.triageBucket ?? "all",
+    mediaLimit,
+    captureDelaySeconds: 8,
+    requestedAt: now,
+    runner: "pc_sftp_worker",
+  };
+  const status = {
+    jobId,
+    jobType: "price_review_images",
+    status: "pending",
+    platformSlug: input.platformSlug,
+    source: input.source,
+    query: input.query,
+    triageBucket: input.triageBucket ?? "all",
+    mediaLimit,
+    startedAt: now,
+    updatedAt: now,
+    logTail: "Captura prudente de portadas enviada al PC worker por SFTP.",
+  };
+  const statusWritten = await writeWorkerFile(
+    `jobs/review-${jobId}.json`,
+    Buffer.from(`${JSON.stringify(status, null, 2)}\n`, "utf8"),
+  );
+  if ("error" in statusWritten) return statusWritten;
+  const requestWritten = await writeWorkerFile(
+    `jobs/review-requests/${jobId}.json`,
+    Buffer.from(`${JSON.stringify(request, null, 2)}\n`, "utf8"),
+  );
+  if ("error" in requestWritten) return requestWritten;
+  return {
+    ok: true,
+    jobId,
+    message: "Captura de portadas enviada al PC. La cola se actualizará sin aprobar precios.",
+  };
+}
+
 function conditionPatchField(condition: string | null | undefined): string {
   if (condition === "loose") return "estimatedPriceLoose";
   if (condition === "game_manual") return "estimatedPriceGameManual";
@@ -411,7 +514,11 @@ export async function getPriceReviewTriageView(
       counts.all += 1;
       counts[triageBucket] += 1;
       if (triageBucket === "manual_match" || triageBucket === "missing_region") counts.actionable += 1;
-      return item.triageBucket === triageBucket ? item : { ...item, triageBucket };
+      return {
+        ...item,
+        triageBucket,
+        catalogPreview: priceReviewCatalogPreview(item),
+      };
     })
     .sort((a, b) => Date.parse(b.updatedAt ?? b.createdAt ?? "") - Date.parse(a.updatedAt ?? a.createdAt ?? ""));
   const items = pending.filter((item) => priceReviewMatchesTriageFilter(item, filter)).slice(0, limit);

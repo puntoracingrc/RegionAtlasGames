@@ -1,12 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ChevronDown, ExternalLink, ImageOff, Images } from "lucide-react";
 import type {
   PriceReviewCondition,
   PriceReviewItem,
   PriceReviewTriageCounts,
   PriceReviewTriageFilter,
 } from "@/lib/admin-price-review";
+import { getCoverSrc } from "@/lib/cover-url";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { adminToneClass } from "./admin-visual";
 
@@ -164,6 +166,52 @@ function optionCounts<T extends string>(
     .sort((a, b) => a.label.localeCompare(b.label, "es"));
 }
 
+function formatConfidence(value: number | null | undefined): string {
+  if (value == null || !Number.isFinite(Number(value))) return "—";
+  const numeric = Number(value);
+  return numeric <= 1 ? `${Math.round(numeric * 100)} %` : numeric.toFixed(2);
+}
+
+function ReviewThumbnail({
+  url,
+  label,
+  alt,
+}: {
+  url: string | null;
+  label: string;
+  alt: string;
+}) {
+  const [failed, setFailed] = useState(false);
+
+  return (
+    <figure className="min-w-0">
+      <div className="flex aspect-[3/4] w-full items-center justify-center overflow-hidden rounded-lg border border-border bg-card/45">
+        {url && !failed ? (
+          // Las portadas llegan de tiendas externas con dominios variables.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={url}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            referrerPolicy="no-referrer"
+            onError={() => setFailed(true)}
+            className="h-full w-full object-contain"
+          />
+        ) : (
+          <span className="flex flex-col items-center gap-1 px-2 text-center text-[10px] text-muted">
+            <ImageOff className="size-5" aria-hidden="true" />
+            Sin imagen
+          </span>
+        )}
+      </div>
+      <figcaption className="mt-1 truncate text-center text-[10px] font-bold uppercase text-muted" title={label}>
+        {label}
+      </figcaption>
+    </figure>
+  );
+}
+
 function ReviewCard({
   item,
   onDone,
@@ -186,8 +234,18 @@ function ReviewCard({
   const [mergeIds, setMergeIds] = useState<string[]>([]);
   const [mergeState, setMergeState] = useState<"idle" | "saving" | "error" | "done">("idle");
   const [mergeMessage, setMergeMessage] = useState("");
+  const [expanded, setExpanded] = useState(false);
   const alternatives = item.evidence?.matchAlternatives ?? [];
-  const imageUrl = item.evidence?.imageUrl || item.evidence?.imageUrls?.[0] || null;
+  const primaryAlternative = alternatives.find((alternative) => (
+    alternative.catalogId === item.candidateCatalogId || alternative.catalogId === item.catalogId
+  )) ?? alternatives[0];
+  const listingImageUrl = item.evidence?.imageUrl || item.evidence?.imageUrls?.[0] || null;
+  const catalogImageUrl = item.catalogPreview?.coverUrl
+    || getCoverSrc(item.evidence?.catalogCoverUrl)
+    || getCoverSrc(primaryAlternative?.coverUrl)
+    || null;
+  const candidateTitle = item.catalogPreview?.title || item.evidence?.catalogTitle || primaryAlternative?.title || null;
+  const candidateRegion = item.catalogPreview?.region || primaryAlternative?.region || null;
   const catalogOptions = uniqueOptions([
     item.catalogId,
     item.candidateCatalogId,
@@ -280,200 +338,173 @@ function ReviewCard({
   }
 
   return (
-    <article className="rounded-2xl border border-border bg-background/55 p-4">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
+    <article className="overflow-hidden rounded-lg border border-border bg-background/55">
+      <div className="grid gap-4 p-4 lg:grid-cols-[176px_minmax(0,1fr)_auto]">
+        <div className="grid grid-cols-2 gap-2">
+          <ReviewThumbnail url={listingImageUrl} label="Anuncio" alt={`Imagen del anuncio ${item.listingTitle}`} />
+          <ReviewThumbnail url={catalogImageUrl} label="Catálogo" alt={`Portada de catálogo ${candidateTitle ?? item.listingTitle}`} />
+        </div>
+
+        <div className="min-w-0">
           <div className="flex flex-wrap gap-2">
             <Badge tone="neutral">{sourceLabel(item.source)}</Badge>
             <Badge tone="amber">{reasonLabel(item.reason)}</Badge>
+            <Badge tone="neutral">{item.platformSlug.toUpperCase()}</Badge>
           </div>
-          <h3 className="mt-2 text-base font-black text-foreground">{item.listingTitle}</h3>
-          <p className="mt-1 text-xs text-muted">
-            {item.platformSlug} · objetivo {item.targetRegion || "—"} · detectada {item.detectedRegion || "—"} · {formatDate(item.collectedAt)}
+          <h3 className="mt-2 text-base font-black leading-6 text-foreground">{item.listingTitle}</h3>
+          <p className="mt-1 text-sm font-bold text-foreground">
+            {candidateTitle ?? "Sin ficha candidata"}
           </p>
-        </div>
-        <p className="text-xl font-black text-foreground">{formatPrice(item.priceEur)}</p>
-      </div>
+          <p className="mt-0.5 break-all text-[11px] text-muted">
+            {item.catalogPreview?.id || item.candidateCatalogId || item.catalogId || item.evidence?.searchedCatalogId || "Sin ID de catálogo"}
+            {candidateRegion ? ` · ${candidateRegion}` : ""}
+            {item.catalogPreview?.edition ? ` · ${item.catalogPreview.edition}` : ""}
+          </p>
 
-      <div className="mt-3 grid gap-3 md:grid-cols-[120px_1fr]">
-        {imageUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={imageUrl} alt="" className="h-28 w-28 rounded-xl border border-border object-cover" />
-        ) : (
-          <div className="flex h-28 w-28 items-center justify-center rounded-xl border border-border bg-card/50 text-[11px] text-muted">
-            Sin imagen
-          </div>
-        )}
-        <div className="grid gap-2 text-xs text-muted md:grid-cols-2">
-          <p><strong className="text-foreground">Juego candidato:</strong> {item.candidateCatalogId || item.catalogId || "—"}</p>
-          <p><strong className="text-foreground">Ficha buscada:</strong> {item.evidence?.searchedCatalogId || "—"}</p>
-          <p><strong className="text-foreground">Estado sugerido:</strong> {conditionLabels[String(item.condition || "unknown")] ?? item.condition}</p>
-          <p><strong className="text-foreground">Match:</strong> {item.evidence?.matchMethod || "—"} {item.evidence?.matchScore != null ? `· score ${item.evidence.matchScore}` : ""}</p>
-          <p><strong className="text-foreground">IA:</strong> {item.evidence?.aiConfidence != null ? `confianza ${item.evidence.aiConfidence}` : "no usada / sin dato"}</p>
-          <p className="md:col-span-2">
-            <strong className="text-foreground">Evidencia región:</strong>{" "}
-            {(item.evidence?.regionEvidence ?? []).join(", ") || "sin prueba"}
-          </p>
-          {item.evidence?.originRegionHint ? (
-            <p className="md:col-span-2">
-              <strong className="text-foreground">Pista del vendedor:</strong>{" "}
-              {item.evidence.originRegionHint}
-              {item.evidence.originCountry ? ` (${item.evidence.originCountry})` : ""}. No confirma la edición.
+          <dl className="mt-3 grid gap-x-4 gap-y-2 text-xs sm:grid-cols-2 xl:grid-cols-3">
+            <div>
+              <dt className="font-semibold text-muted">Región</dt>
+              <dd className="font-bold text-foreground">{item.detectedRegion || "Sin detectar"} <span className="font-normal text-muted">· objetivo {item.targetRegion || "—"}</span></dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-muted">Estado</dt>
+              <dd className="font-bold text-foreground">{conditionLabels[String(item.condition || "unknown")] ?? item.condition} <span className="font-normal text-muted">· {item.evidence?.conditionRaw || "sin texto original"}</span></dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-muted">Coincidencia</dt>
+              <dd className="font-bold text-foreground">{item.evidence?.matchMethod || item.triageMatchMethod || "Sin método"} <span className="font-normal text-muted">· {formatConfidence(item.evidence?.matchScore)} · margen {formatConfidence(item.evidence?.matchMargin)}</span></dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-muted">Evidencia regional</dt>
+              <dd className="text-foreground">{(item.evidence?.regionEvidence ?? []).join(", ") || "Sin prueba"}</dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-muted">Recolección</dt>
+              <dd className="text-foreground">{formatDate(item.collectedAt || item.updatedAt)}</dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-muted">IA</dt>
+              <dd className="text-foreground">{item.evidence?.aiConfidence != null ? `Confianza ${formatConfidence(item.evidence.aiConfidence)}` : "No usada"}</dd>
+            </div>
+          </dl>
+
+          {item.triageReason || item.evidence?.originRegionHint ? (
+            <p className="mt-3 text-xs leading-5 text-muted">
+              {item.triageReason || `Pista del vendedor: ${item.evidence?.originRegionHint}${item.evidence?.originCountry ? ` (${item.evidence.originCountry})` : ""}.`}
             </p>
           ) : null}
-          {item.evidence?.reviewNotes?.length ? (
-            <p className="md:col-span-2"><strong className="text-foreground">Mini log:</strong> {item.evidence.reviewNotes.join(" · ")}</p>
-          ) : null}
-          {item.evidence?.url ? (
-            <a href={item.evidence.url} target="_blank" rel="noreferrer" className="font-semibold text-accent md:col-span-2">
-              Abrir anuncio/producto externo →
-            </a>
-          ) : null}
         </div>
-      </div>
 
-      {alternatives.length > 0 ? (
-        <div className="mt-3 rounded-xl border border-border bg-card/45 p-3 text-xs text-muted">
-          <p className="font-semibold text-foreground">Alternativas detectadas</p>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {alternatives.slice(0, 5).map((alt) => (
-              <label
-                key={`${alt.catalogId}-${alt.region}`}
-                className="flex items-center gap-2 rounded-full border border-border px-3 py-1 text-left font-semibold text-muted hover:border-accent hover:text-foreground"
+        <div className="flex min-w-36 flex-row items-center justify-between gap-2 lg:flex-col lg:items-end lg:justify-start">
+          <p className="text-xl font-black tabular-nums text-foreground">{formatPrice(item.priceEur)}</p>
+          <div className="flex gap-2">
+            {item.evidence?.url ? (
+              <a
+                href={item.evidence.url}
+                target="_blank"
+                rel="noreferrer"
+                title="Abrir anuncio externo"
+                aria-label="Abrir anuncio externo"
+                className="btn-secondary size-9 p-0"
               >
-                <input
-                  type="checkbox"
-                  checked={Boolean(alt.catalogId && mergeIds.includes(alt.catalogId))}
-                  onChange={() => toggleMergeId(alt.catalogId)}
-                  className="h-3.5 w-3.5 accent-amber-500"
-                />
-                <button
-                  type="button"
-                  onClick={() => {
-                    setCatalogId(alt.catalogId ?? catalogId);
-                    if (alt.region) setRegion(alt.region);
-                  }}
-                  className="text-left"
-                >
-                  {alt.catalogId} · {alt.region} · {alt.score}
-                </button>
-              </label>
-            ))}
-          </div>
-          <div className="mt-3 flex flex-wrap items-center gap-2">
+                <ExternalLink className="size-4" aria-hidden="true" />
+              </a>
+            ) : null}
             <button
               type="button"
-              disabled={mergeState === "saving" || mergeIds.length < 2}
-              onClick={mergeCatalogGames}
+              aria-expanded={expanded}
+              onClick={() => setExpanded((current) => !current)}
               className="btn-secondary text-xs"
             >
-              {mergeState === "saving" ? "Fusionando..." : "Fusionar fichas marcadas"}
+              Revisar
+              <ChevronDown className={`size-4 transition-transform ${expanded ? "rotate-180" : ""}`} aria-hidden="true" />
             </button>
-            <span className="text-[11px] text-muted">
-              Marca 2 o más. La ficha madre será la más completa/con mejores precios.
-            </span>
           </div>
-          {mergeMessage ? (
-            <p className={`mt-2 rounded-xl border px-3 py-2 text-xs ${mergeState === "error" ? "border-red-200 bg-red-50 text-red-700" : "border-emerald-200 bg-emerald-50 text-emerald-700"}`}>
-              {mergeMessage}
-            </p>
+        </div>
+      </div>
+
+      {expanded ? (
+        <div className="border-t border-border bg-card/20 p-4">
+          {item.evidence?.reviewNotes?.length ? (
+            <p className="mb-4 text-xs leading-5 text-muted"><strong className="text-foreground">Registro:</strong> {item.evidence.reviewNotes.join(" · ")}</p>
           ) : null}
+
+          {alternatives.length > 0 ? (
+            <section className="border-b border-border pb-4 text-xs text-muted">
+              <p className="font-semibold text-foreground">Alternativas detectadas</p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {alternatives.slice(0, 5).map((alt) => (
+                  <label key={`${alt.catalogId}-${alt.region}`} className="flex items-center gap-2 rounded-full border border-border px-3 py-1 text-left font-semibold text-muted hover:border-accent hover:text-foreground">
+                    <input type="checkbox" checked={Boolean(alt.catalogId && mergeIds.includes(alt.catalogId))} onChange={() => toggleMergeId(alt.catalogId)} className="h-3.5 w-3.5 accent-amber-500" />
+                    <button type="button" onClick={() => { setCatalogId(alt.catalogId ?? catalogId); if (alt.region) setRegion(alt.region); }} className="text-left">
+                      {alt.title || alt.catalogId} · {alt.region || "sin región"} · {formatConfidence(alt.score)}
+                    </button>
+                  </label>
+                ))}
+              </div>
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <button type="button" disabled={mergeState === "saving" || mergeIds.length < 2} onClick={mergeCatalogGames} className="btn-secondary text-xs">
+                  {mergeState === "saving" ? "Fusionando..." : "Fusionar fichas marcadas"}
+                </button>
+                <span className="text-[11px] text-muted">Marca 2 o más. La ficha madre será la más completa.</span>
+              </div>
+              {mergeMessage ? <p className={`mt-2 text-xs font-semibold ${mergeState === "error" ? "text-rose-600 dark:text-rose-300" : "text-emerald-600 dark:text-emerald-300"}`}>{mergeMessage}</p> : null}
+            </section>
+          ) : null}
+
+          <div className="mt-4 grid gap-2 md:grid-cols-4">
+            <label className="text-xs font-semibold text-muted">Juego destino
+              <select value={catalogId} onChange={(event) => setCatalogId(event.target.value)} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
+                <option value="">Selecciona juego</option>
+                {catalogOptions.map((value) => <option key={value} value={value}>{value}</option>)}
+              </select>
+            </label>
+            <label className="text-xs font-semibold text-muted">Región
+              <select value={region} onChange={(event) => setRegion(event.target.value)} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
+                <option value="">Selecciona región</option>
+                {regionOptions.map((value) => <option key={value} value={value}>{value}</option>)}
+              </select>
+            </label>
+            <label className="text-xs font-semibold text-muted">Estado
+              <select value={condition} onChange={(event) => setCondition(event.target.value as PriceReviewCondition)} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
+                {Object.entries(conditionLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+              </select>
+            </label>
+            <label className="text-xs font-semibold text-muted">Nota
+              <input value={note} onChange={(event) => setNote(event.target.value)} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent" />
+            </label>
+          </div>
+
+          <section className="mt-4 border-t border-amber-300/60 pt-4 dark:border-amber-400/30">
+            <p className="text-xs font-bold text-foreground">Crear ficha para otra región</p>
+            <p className="mt-1 text-xs leading-5 text-muted">Copia una ficha existente cuando el anuncio pertenezca a una región que aún no tenga variante.</p>
+            <div className="mt-3 grid gap-2 md:grid-cols-[1fr_1fr_auto]">
+              <label className="text-xs font-semibold text-muted">Ficha base
+                <select value={cloneBaseCatalogId} onChange={(event) => setCloneBaseCatalogId(event.target.value)} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
+                  <option value="">Selecciona ficha base</option>
+                  {cloneBaseOptions.map((value) => <option key={value} value={value}>{value}</option>)}
+                </select>
+              </label>
+              <label className="text-xs font-semibold text-muted">Nueva región
+                <select value={cloneRegion} onChange={(event) => setCloneRegion(event.target.value)} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
+                  <option value="">Selecciona región</option>
+                  {regionOptions.map((value) => <option key={value} value={value}>{value}</option>)}
+                </select>
+              </label>
+              <button type="button" disabled={cloneState === "saving" || !cloneBaseCatalogId || !cloneRegion} onClick={cloneRegionCatalog} className="btn-secondary self-end text-xs">
+                {cloneState === "saving" ? "Creando..." : "Crear ficha"}
+              </button>
+            </div>
+            {cloneMessage ? <p className={`mt-3 text-xs font-semibold ${cloneState === "error" ? "text-rose-600 dark:text-rose-300" : "text-emerald-600 dark:text-emerald-300"}`}>{cloneMessage}</p> : null}
+          </section>
+
+          <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-border pt-4">
+            <button type="button" disabled={state === "saving"} onClick={() => decide("accept")} className="btn-primary text-xs">Aceptar verificado</button>
+            <button type="button" disabled={state === "saving"} onClick={() => decide("reject")} className="btn-secondary text-xs">Rechazar</button>
+            {state === "error" ? <span className="text-xs font-semibold text-rose-600 dark:text-rose-300">{message}</span> : null}
+          </div>
         </div>
       ) : null}
-
-      <div className="mt-3 grid gap-2 md:grid-cols-4">
-        <label className="text-xs font-semibold text-muted">
-          Juego destino
-          <select value={catalogId} onChange={(event) => setCatalogId(event.target.value)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
-            <option value="">Selecciona juego</option>
-            {catalogOptions.map((value) => (
-              <option key={value} value={value}>{value}</option>
-            ))}
-          </select>
-          <span className="mt-1 block text-[11px] font-normal leading-4 text-muted">Usa las alternativas detectadas si el candidato no es correcto.</span>
-        </label>
-        <label className="text-xs font-semibold text-muted">
-          Región
-          <select value={region} onChange={(event) => setRegion(event.target.value)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
-            <option value="">Selecciona región</option>
-            {regionOptions.map((value) => (
-              <option key={value} value={value}>{value}</option>
-            ))}
-          </select>
-        </label>
-        <label className="text-xs font-semibold text-muted">
-          Estado
-          <select value={condition} onChange={(event) => setCondition(event.target.value as PriceReviewCondition)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
-            {Object.entries(conditionLabels).map(([value, label]) => (
-              <option key={value} value={value}>{label}</option>
-            ))}
-          </select>
-        </label>
-        <label className="text-xs font-semibold text-muted">
-          Nota
-          <input value={note} onChange={(event) => setNote(event.target.value)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent" />
-        </label>
-      </div>
-      <div className="mt-3 rounded-2xl border border-amber-300/60 bg-amber-50/70 p-3 dark:border-amber-400/30 dark:bg-amber-950/20">
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <p className="text-xs font-bold text-foreground">Crear ficha para otra región</p>
-            <p className="mt-1 text-xs leading-5 text-muted">
-              Úsalo cuando el anuncio pertenezca a una región para la que aún no exista ficha. Copia los datos de la ficha buscada y crea la variante regional nueva.
-            </p>
-          </div>
-        </div>
-        <div className="mt-3 grid gap-2 md:grid-cols-[1fr_1fr_auto]">
-          <label className="text-xs font-semibold text-muted">
-            Ficha base a copiar
-            <select
-              value={cloneBaseCatalogId}
-              onChange={(event) => setCloneBaseCatalogId(event.target.value)}
-              className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
-            >
-              <option value="">Selecciona ficha base</option>
-              {cloneBaseOptions.map((value) => (
-                <option key={value} value={value}>{value}</option>
-              ))}
-            </select>
-          </label>
-          <label className="text-xs font-semibold text-muted">
-            Nueva región
-            <select
-              value={cloneRegion}
-              onChange={(event) => setCloneRegion(event.target.value)}
-              className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent"
-            >
-              <option value="">Selecciona región</option>
-              {regionOptions.map((value) => (
-                <option key={value} value={value}>{value}</option>
-              ))}
-            </select>
-          </label>
-          <button
-            type="button"
-            disabled={cloneState === "saving" || !cloneBaseCatalogId || !cloneRegion}
-            onClick={cloneRegionCatalog}
-            className="btn-secondary self-end text-xs"
-          >
-            {cloneState === "saving" ? "Creando..." : "Crear ficha"}
-          </button>
-        </div>
-        {cloneMessage ? (
-          <p className={`mt-3 rounded-xl border px-3 py-2 text-xs ${cloneState === "error" ? "border-red-200 bg-red-50 text-red-700" : "border-emerald-200 bg-emerald-50 text-emerald-700"}`}>
-            {cloneMessage}
-          </p>
-        ) : null}
-      </div>
-      <div className="mt-3 flex flex-wrap items-center gap-2">
-        <button type="button" disabled={state === "saving"} onClick={() => decide("accept")} className="btn-primary text-xs">
-          Aceptar verificado
-        </button>
-        <button type="button" disabled={state === "saving"} onClick={() => decide("reject")} className="btn-secondary text-xs">
-          Rechazar
-        </button>
-        {state === "error" ? <span className="text-xs font-semibold text-rose-600 dark:text-rose-300">{message}</span> : null}
-      </div>
     </article>
   );
 }
@@ -487,6 +518,9 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
   const [autoResult, setAutoResult] = useState<AutoRetroplayzoneResponse | null>(null);
   const [pcVisionState, setPcVisionState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [pcVisionMessage, setPcVisionMessage] = useState("");
+  const [pcImageState, setPcImageState] = useState<"idle" | "sending" | "running" | "done" | "error">("idle");
+  const [pcImageMessage, setPcImageMessage] = useState("");
+  const pcImagePollRef = useRef<number | null>(null);
   const [platformFilter, setPlatformFilter] = useState("all");
   const [sourceFilter, setSourceFilter] = useState("all");
   const [query, setQuery] = useState("");
@@ -538,6 +572,10 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
     assumedCondition !== "none" ? `Estado: ${conditionLabels[assumedCondition]}` : null,
     useVision ? `IA portadas: ${visionLimit}` : null,
   ].filter(Boolean).join(" · ") || "Toda la cola cargada";
+
+  useEffect(() => () => {
+    if (pcImagePollRef.current != null) window.clearInterval(pcImagePollRef.current);
+  }, []);
 
   function resetAutoPreview() {
     setAutoResult(null);
@@ -703,6 +741,78 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
     }
     setPcVisionState("sent");
     setPcVisionMessage(`${data.message ?? "Job enviado al PC."}${data.jobId ? ` ID: ${data.jobId}` : ""}`);
+  }
+
+  async function readPcImageJob(jobId: string) {
+    try {
+      const response = await fetch(`/api/admin/price-jobs/${encodeURIComponent(`review-${jobId}`)}`, { cache: "no-store" });
+      const data = await response.json().catch(() => null) as {
+        job?: {
+          status?: string;
+          error?: string;
+          stats?: { captured?: number; existing?: number; noImage?: number; pagesFetched?: number };
+        };
+      } | null;
+      if (!response.ok || !data?.job) return;
+      const status = data.job.status;
+      const stats = data.job.stats;
+      if (status === "done") {
+        if (pcImagePollRef.current != null) window.clearInterval(pcImagePollRef.current);
+        pcImagePollRef.current = null;
+        setPcImageState("done");
+        setPcImageMessage(
+          `Portadas terminadas: ${stats?.captured ?? 0} capturadas, ${stats?.existing ?? 0} ya disponibles y ${stats?.noImage ?? 0} aún sin imagen. ${stats?.pagesFetched ?? 0} páginas públicas consultadas.`,
+        );
+        await refreshItems();
+      } else if (status === "error") {
+        if (pcImagePollRef.current != null) window.clearInterval(pcImagePollRef.current);
+        pcImagePollRef.current = null;
+        setPcImageState("error");
+        setPcImageMessage(data.job.error ?? "La captura de portadas terminó con error.");
+      } else {
+        setPcImageState("running");
+        setPcImageMessage(`El PC está capturando portadas${stats?.captured != null ? ` · ${stats.captured} encontradas` : ""}.`);
+      }
+    } catch {
+      // El siguiente sondeo reintenta los fallos transitorios de red.
+    }
+  }
+
+  async function pollPcImageJob(jobId: string) {
+    if (pcImagePollRef.current != null) window.clearInterval(pcImagePollRef.current);
+    pcImagePollRef.current = window.setInterval(() => void readPcImageJob(jobId), 4_000);
+    await readPcImageJob(jobId);
+  }
+
+  async function sendPcImageJob() {
+    setPcImageState("sending");
+    setPcImageMessage("");
+    const response = await fetch("/api/admin/price-reviews/pc-images", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        platformSlug: platformFilter === "all" ? undefined : platformFilter,
+        source: sourceFilter === "all" ? undefined : sourceFilter,
+        query: query.trim() || undefined,
+        triageBucket: activeBucket,
+        mediaLimit: 1_000,
+      }),
+    });
+    const rawText = await response.text().catch(() => "");
+    let data: { ok?: boolean; jobId?: string; message?: string; error?: string } | null = null;
+    try {
+      data = rawText ? JSON.parse(rawText) as { ok?: boolean; jobId?: string; message?: string; error?: string } : null;
+    } catch {
+      data = null;
+    }
+    if (!response.ok || !data?.ok || !data.jobId) {
+      setPcImageState("error");
+      setPcImageMessage(data?.error ?? rawText.slice(0, 500).trim() ?? `HTTP ${response.status}`);
+      return;
+    }
+    setPcImageState("running");
+    setPcImageMessage(`${data.message ?? "Captura enviada al PC."} ID: ${data.jobId}`);
+    void pollPcImageJob(data.jobId);
   }
 
   function markItemDone(id: string) {
@@ -893,6 +1003,15 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
           <div className="flex flex-wrap content-start gap-2 lg:justify-end">
             <button
               type="button"
+              disabled={pcImageState === "sending" || pcImageState === "running" || filteredItems.length === 0}
+              onClick={sendPcImageJob}
+              className="btn-secondary text-xs"
+            >
+              <Images className="size-4" aria-hidden="true" />
+              {pcImageState === "sending" ? "Enviando..." : pcImageState === "running" ? "Capturando..." : "Capturar portadas"}
+            </button>
+            <button
+              type="button"
               disabled={pcVisionState === "sending" || filteredItems.length === 0}
               onClick={sendPcVisionJob}
               className="btn-secondary text-xs"
@@ -917,6 +1036,11 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
             </button>
           </div>
         </div>
+        {pcImageMessage ? (
+          <div className={`mt-3 rounded-lg border px-3 py-2 text-xs ${pcImageState === "error" ? "border-red-200 bg-red-50 text-red-700" : pcImageState === "done" ? "border-emerald-200 bg-emerald-50 text-emerald-700" : "border-sky-200 bg-sky-50 text-sky-700"}`}>
+            <p className="font-semibold">{pcImageMessage}</p>
+          </div>
+        ) : null}
         {pcVisionMessage ? (
           <div className={`mt-3 rounded-xl border px-3 py-2 text-xs ${pcVisionState === "error" ? "border-red-200 bg-red-50 text-red-700" : "border-sky-200 bg-sky-50 text-sky-700"}`}>
             <p className="font-semibold">{pcVisionMessage}</p>

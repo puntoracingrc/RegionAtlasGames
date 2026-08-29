@@ -6,6 +6,7 @@ import html
 import re
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from typing import Any
 
@@ -38,8 +39,9 @@ CONDITION_RE = re.compile(
     r'condition-label-primary[^"]*"[^>]*>([^<]+)',
     re.I,
 )
-IMG_RE = re.compile(
-    r'data-full-size-image-url="([^"]+)"|src="([^"]+/(\d+)-[^"]+\.(?:jpg|jpeg|png|webp))"',
+IMG_TAG_RE = re.compile(r"<img\b[^>]*>", re.I | re.S)
+IMG_ATTR_RE = re.compile(
+    r"\b(src|data-src|data-lazy-src|data-full-size-image-url|srcset)\s*=\s*[\"']([^\"']+)[\"']",
     re.I,
 )
 PAGE_LINK_RE = re.compile(r"[?&]page=(\d+)")
@@ -90,6 +92,20 @@ def parse_price(raw: str) -> float | None:
         return round(float(raw.replace(".", "").replace(",", ".")), 2)
     except ValueError:
         return None
+
+
+def _category_image_url(block: str) -> str | None:
+    """Extrae la miniatura del producto tolerando el HTML espaciado de PrestaShop."""
+    for tag in IMG_TAG_RE.findall(block):
+        attrs = {name.lower(): value for name, value in IMG_ATTR_RE.findall(tag)}
+        for name in ("data-full-size-image-url", "data-src", "data-lazy-src", "src", "srcset"):
+            raw = html.unescape(attrs.get(name, "")).strip()
+            if not raw or raw.startswith("data:"):
+                continue
+            first = raw.split(",")[0].strip().split()[0]
+            if first:
+                return urllib.parse.urljoin(TCNS_BASE, first)
+    return None
 
 
 def tcns_sources_for_platform(platform_slug: str) -> list[str]:
@@ -163,10 +179,7 @@ def parse_category_page(html_text: str) -> list[dict[str, Any]]:
         product_url = html.unescape(url_m.group(1)).strip()
         cond_raw = CONDITION_RE.search(block)
         condition = html.unescape(cond_raw.group(1)).strip() if cond_raw else ""
-        img_match = IMG_RE.search(block)
-        image_url = ""
-        if img_match:
-            image_url = html.unescape(img_match.group(1) or img_match.group(2) or "").strip()
+        image_url = _category_image_url(block)
         external_id = ""
         id_match = re.search(r"/(\d+)-[^/]+\.html", product_url)
         if id_match:
@@ -182,7 +195,7 @@ def parse_category_page(html_text: str) -> list[dict[str, Any]]:
                 "externalId": external_id,
                 "sourceReference": source_reference or None,
                 "_referenceText": source_reference,
-                "imageUrl": image_url or None,
+                "imageUrl": image_url,
             }
         )
     return products

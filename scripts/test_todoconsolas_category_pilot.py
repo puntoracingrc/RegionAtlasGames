@@ -4,9 +4,11 @@ from __future__ import annotations
 import urllib.error
 
 from collect_todoconsolas_category_pilot import (
+    approved_ingest_row,
     classify_candidate,
     is_preowned_product,
     merge_ingest_payload,
+    review_ingest_row,
     validate_window,
 )
 from collectors.catalog_match import CatalogMatchResult
@@ -77,6 +79,10 @@ def main() -> None:
       <a href="https://www.todoconsolas.com/juegos-ps4/123-prueba-8424365720111.html">
         <h2 class="h3 product-title">Juego de Prueba PS4 (SP)</h2>
       </a>
+      <img
+        src = "https://www.todoconsolas.com/123-home_default/juego-prueba.jpg"
+        data-full-size-image-url = "https://www.todoconsolas.com/123-large_default/juego-prueba.jpg"
+      >
       <span class="condition-label-primary no-border">Segunda mano</span>
       <span itemprop="price" content="19,95 €"></span>
     </article>
@@ -92,6 +98,7 @@ def main() -> None:
     assert len(products) == 2
     assert products[0]["priceEur"] == 19.95
     assert products[0]["sourceReference"] == "8424365720111"
+    assert products[0]["imageUrl"] == "https://www.todoconsolas.com/123-large_default/juego-prueba.jpg"
     assert is_preowned_product(products[0]) is True
     assert is_preowned_product(products[1]) is False
 
@@ -109,9 +116,26 @@ def main() -> None:
         "priceEur": 19.95,
         "conditionRaw": "Segunda mano",
         "productUrl": "https://www.todoconsolas.com/juegos-ps4/123-prueba-8424365720111.html",
+        "imageUrl": "https://www.todoconsolas.com/123-large_default/juego-prueba.jpg",
         "externalId": "123",
     }
     strong = classify_candidate(
+        product,
+        CatalogMatchResult(
+            game={
+                "id": "ps4-test",
+                "title": "Juego de Prueba",
+                "region": "PAL España",
+                "coverUrl": "/covers/ps4/juego-prueba.jpg",
+            },
+            match_method="title",
+            match_score=0.95,
+            margin=0.3,
+        ),
+    )
+    assert strong["status"] == "auto_approved"
+    assert strong["imageUrl"].endswith("/123-large_default/juego-prueba.jpg")
+    approved = approved_ingest_row(
         product,
         CatalogMatchResult(
             game={"id": "ps4-test", "title": "Juego de Prueba", "region": "PAL España"},
@@ -119,8 +143,9 @@ def main() -> None:
             match_score=0.95,
             margin=0.3,
         ),
+        "2026-08-29T10:00:00Z",
     )
-    assert strong["status"] == "auto_approved"
+    assert approved["imageUrl"].endswith("/123-large_default/juego-prueba.jpg")
 
     missing_region = classify_candidate(
         {**product, "title": "Juego de Prueba PS4"},
@@ -132,6 +157,27 @@ def main() -> None:
         ),
     )
     assert missing_region["status"] == "manual_review"
+    review = review_ingest_row(
+        product,
+        CatalogMatchResult(
+            game={
+                "id": "ps4-test",
+                "title": "Juego de Prueba",
+                "region": "PAL España",
+                "coverUrl": "/covers/ps4/juego-prueba.jpg",
+            },
+            match_method="title",
+            match_score=1.0,
+            margin=0.4,
+        ),
+        {
+            **missing_region,
+            "catalogCoverUrl": "/covers/ps4/juego-prueba.jpg",
+        },
+        "2026-08-29T10:00:00Z",
+    )
+    assert review["imageUrl"].endswith("/123-large_default/juego-prueba.jpg")
+    assert review["catalogCoverUrl"] == "/covers/ps4/juego-prueba.jpg"
 
     merged = merge_ingest_payload(
         {
