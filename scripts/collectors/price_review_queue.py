@@ -65,6 +65,15 @@ def _source_for_key(row: dict[str, Any], fallback: str) -> str:
 def _triage_bucket(row: dict[str, Any], source: str, reason: str) -> str:
     if source != "todoconsolas":
         return "manual_match"
+    explicit = str(row.get("triageBucket") or "").strip()
+    if explicit in {
+        "manual_match",
+        "catalog_gap",
+        "regional_variant",
+        "price_anomaly",
+        "missing_region",
+    }:
+        return explicit
     if reason in {"price_out_of_range", "price_change_requires_review"}:
         return "price_anomaly"
     if reason == "catalog_region_not_exact":
@@ -79,11 +88,13 @@ def _triage_bucket(row: dict[str, Any], source: str, reason: str) -> str:
 
 
 def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: dict[str, Any]) -> dict[str, Any] | None:
-    reason = _reason(row)
+    reason = str(row.get("triageReason") or "").strip() or _reason(row)
     if not reason:
         return None
     catalog_id = str(row.get("catalogId") or "").strip()
-    candidate_catalog_id = str(row.get("candidateCatalogId") or catalog_id).strip()
+    candidate_catalog_id = str(
+        row.get("triageCatalogId") or row.get("candidateCatalogId") or catalog_id
+    ).strip()
     title = str(row.get("title") or "").strip()
     price = row.get("priceEur") if row.get("priceEur") is not None else row.get("retailPriceEur")
     if not title or price is None:
@@ -102,12 +113,16 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
         "condition": row.get("condition") or "unknown",
         "reason": reason,
         "triageBucket": _triage_bucket(row, source, reason),
+        "triageReason": reason,
+        "triageCatalogId": candidate_catalog_id or None,
+        "triageMatchMethod": row.get("triageMatchMethod") or row.get("matchMethod"),
+        "triageMatchedReference": row.get("triageMatchedReference") or row.get("matchedReference"),
         "evidence": {
             "url": row.get("productUrl") or row.get("listingUrl"),
             "imageUrl": row.get("imageUrl"),
             "imageUrls": row.get("imageUrls"),
             "regionEvidence": row.get("regionEvidence") or [],
-            "matchMethod": row.get("matchMethod"),
+            "matchMethod": row.get("triageMatchMethod") or row.get("matchMethod"),
             "matchScore": row.get("matchScore"),
             "matchMargin": row.get("matchMargin"),
             "matchAlternatives": row.get("matchAlternatives") or [],
@@ -118,6 +133,7 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
             "originCountry": row.get("originCountry"),
             "originRegionHint": row.get("originRegionHint"),
             "routingReason": row.get("regionalRoutingReason") or row.get("regionReviewReason"),
+            "matchedReference": row.get("triageMatchedReference") or row.get("matchedReference"),
         },
         "jobId": ingest.get("jobId"),
         "collectedAt": row.get("collectedAt") or ingest.get("collectedAt") or now_iso(),

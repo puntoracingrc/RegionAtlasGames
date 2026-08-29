@@ -70,6 +70,8 @@ export type AdminPriceDashboard = {
     state: string | null;
     cronLog: string | null;
     attempts: string | null;
+    todoConsolasWeeklyStatus: string | null;
+    todoConsolasWeeklyLog: string | null;
   };
   cronLogTail: string | null;
   nextStep: {
@@ -84,6 +86,28 @@ export type AdminPriceDashboard = {
   cronAttempts: AdminPriceCronAttempt[];
   ebayStatus: AdminPriceEbayStatus;
   aiStatus: AdminPriceAiStatus;
+  todoConsolasWeekly: AdminTodoConsolasWeeklyStatus;
+};
+
+export type AdminTodoConsolasWeeklyStatus = {
+  available: boolean;
+  enabled: boolean | null;
+  status: string;
+  campaignId: string | null;
+  updatedAt: string | null;
+  completedAt: string | null;
+  nextDueAt: string | null;
+  blockedUntil: string | null;
+  lastAction: string | null;
+  error: string | null;
+  progress: {
+    unitsCompleted: number;
+    unitsTotal: number;
+    pagesProcessed: number;
+    knownPagesTotal: number;
+    exactListings: number;
+    reviewListings: number;
+  };
 };
 
 export type AdminPriceEbayStatus = {
@@ -228,7 +252,74 @@ function workerUrls() {
     state: base ? `${base}/app/data/price-sync-state.json` : null,
     cronLog: base ? `${base}/cron/price-rotation.log` : null,
     attempts: base ? `${base}/cron/price-rotation-attempts.json` : null,
+    todoConsolasWeeklyStatus: base ? `${base}/cron/todoconsolas-weekly-status.json` : null,
+    todoConsolasWeeklyLog: base ? `${base}/cron/todoconsolas-weekly.log` : null,
   };
+}
+
+function emptyTodoConsolasWeeklyStatus(): AdminTodoConsolasWeeklyStatus {
+  return {
+    available: false,
+    enabled: null,
+    status: "not_reported",
+    campaignId: null,
+    updatedAt: null,
+    completedAt: null,
+    nextDueAt: null,
+    blockedUntil: null,
+    lastAction: null,
+    error: null,
+    progress: {
+      unitsCompleted: 0,
+      unitsTotal: 0,
+      pagesProcessed: 0,
+      knownPagesTotal: 0,
+      exactListings: 0,
+      reviewListings: 0,
+    },
+  };
+}
+
+async function loadTodoConsolasWeeklyStatus(): Promise<AdminTodoConsolasWeeklyStatus> {
+  const url = workerUrls().todoConsolasWeeklyStatus;
+  if (!url) return emptyTodoConsolasWeeklyStatus();
+  try {
+    const response = await fetch(url, {
+      cache: "no-store",
+      signal: AbortSignal.timeout(3_000),
+    });
+    if (!response.ok) return emptyTodoConsolasWeeklyStatus();
+    const data = (await response.json()) as Record<string, unknown>;
+    const rawProgress = data.progress && typeof data.progress === "object"
+      ? data.progress as Record<string, unknown>
+      : {};
+    const lastError = data.lastError && typeof data.lastError === "object"
+      ? data.lastError as Record<string, unknown>
+      : {};
+    const numberValue = (value: unknown) => Number.isFinite(Number(value)) ? Number(value) : 0;
+    return {
+      available: true,
+      enabled: typeof data.enabled === "boolean" ? data.enabled : null,
+      status: String(data.status || "unknown"),
+      campaignId: data.campaignId ? String(data.campaignId) : null,
+      updatedAt: data.updatedAt ? String(data.updatedAt) : null,
+      completedAt: data.completedAt ? String(data.completedAt) : null,
+      nextDueAt: data.nextDueAt ? String(data.nextDueAt) : null,
+      blockedUntil: data.blockedUntil ? String(data.blockedUntil) : null,
+      lastAction: data.lastAction ? String(data.lastAction) : null,
+      error: lastError.message ? String(lastError.message) : null,
+      progress: {
+        unitsCompleted: numberValue(rawProgress.unitsCompleted),
+        unitsTotal: numberValue(rawProgress.unitsTotal),
+        pagesProcessed: numberValue(rawProgress.pagesProcessed),
+        knownPagesTotal: numberValue(rawProgress.knownPagesTotal),
+        exactListings: numberValue(rawProgress.exactListings),
+        reviewListings: numberValue(rawProgress.reviewListings),
+      },
+    };
+  } catch {
+    return emptyTodoConsolasWeeklyStatus();
+  }
 }
 
 async function listHostingPriceCronAttempts(
@@ -497,12 +588,13 @@ function platformHealth(state: PriceSyncState): AdminPlatformPriceHealth[] {
 export async function getAdminPriceDashboard(
   limit = 18,
 ): Promise<AdminPriceDashboard> {
-  const [workerState, hostingAttempts, localAttempts, cronLogTail, manualJobs] = await Promise.all([
+  const [workerState, hostingAttempts, localAttempts, cronLogTail, manualJobs, todoConsolasWeekly] = await Promise.all([
     loadWorkerPriceSyncState(),
     listHostingPriceCronAttempts(12),
     listAdminPriceCronAttempts(12),
     loadHostingPriceCronLogTail(),
     listAdminPriceJobs(limit),
+    loadTodoConsolasWeeklyStatus(),
   ]);
   const activeState = workerState ?? priceSyncState;
   const workerOpenAi = workerOpenAiTelemetry(activeState);
@@ -537,6 +629,7 @@ export async function getAdminPriceDashboard(
     cronAttempts,
     ebayStatus: buildEbayStatus(),
     aiStatus: buildAiStatus(workerOpenAi, latestAiSummary(activeState)),
+    todoConsolasWeekly,
   };
 }
 

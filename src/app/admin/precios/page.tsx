@@ -7,9 +7,17 @@ import { AdminMarketCollectionPanel } from "@/components/admin/admin-market-coll
 import { AdminPriceCoverageTable } from "@/components/admin/admin-price-coverage-table";
 import { AdminPriceReviewPanel } from "@/components/admin/admin-price-review-panel";
 import { AdminPriceSourceSettingsPanel } from "@/components/admin/admin-price-source-settings-panel";
-import { AdminStatTile, adminToneClass } from "@/components/admin/admin-visual";
+import {
+  AdminStatTile,
+  adminToneClass,
+  type AdminVisualTone,
+} from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
-import { getAdminPriceDashboard, type AdminPriceSyncRow } from "@/lib/admin-price-dashboard";
+import {
+  getAdminPriceDashboard,
+  type AdminPriceSyncRow,
+  type AdminTodoConsolasWeeklyStatus,
+} from "@/lib/admin-price-dashboard";
 import {
   adminPriceCollectUnavailableReason,
   isAdminPriceCollectAvailable,
@@ -306,6 +314,28 @@ function aiStatusTone(enabled: boolean | null): "green" | "amber" | "rose" {
   return "amber";
 }
 
+function todoConsolasWeeklyPresentation(status: AdminTodoConsolasWeeklyStatus): {
+  label: string;
+  tone: "green" | "amber" | "rose" | "neutral";
+} {
+  if (!status.available) return { label: "Aún no activado", tone: "neutral" };
+  if (status.enabled === false || status.status === "disabled") return { label: "Desactivado en PC", tone: "neutral" };
+  if (status.status === "ready_for_git") return { label: "Lote listo para Git", tone: "green" };
+  if (status.status === "running") return { label: "Barrido en curso", tone: "amber" };
+  if (status.status === "backoff") return { label: "Pausa segura", tone: "rose" };
+  if (status.status === "error") return { label: "Error del worker", tone: "rose" };
+  if (status.status === "waiting" || status.status === "complete") return { label: "Esperando próxima semana", tone: "green" };
+  return { label: status.status || "Sin estado", tone: "neutral" };
+}
+
+function todoConsolasWeeklyPanelTone(
+  status: AdminTodoConsolasWeeklyStatus | undefined,
+): AdminVisualTone {
+  if (!status?.available || status.enabled === false || status.status === "disabled") return "neutral";
+  if (status.status === "backoff" || status.status === "error") return "danger";
+  return "status";
+}
+
 function isHostingRotationAttempt(attempt: AdminPriceCronAttempt): boolean {
   return attempt.userAgent === "1and1-hosting-cron" || attempt.id.startsWith("hosting-");
 }
@@ -531,6 +561,14 @@ export default async function AdminPricesPage({
   const recentRotationAttempts = rotationAttempts.filter((attempt) => isTodayOrYesterday(attempt.at));
   const recentSourceTotals = sourceLeaderboard(dashboard?.recentSyncs ?? []);
   const latestProgress = latestPriceListProgress(dashboard?.recentSyncs ?? []);
+  const todoConsolasWeekly = dashboard?.todoConsolasWeekly;
+  const todoConsolasWeeklyUi = todoConsolasWeekly
+    ? todoConsolasWeeklyPresentation(todoConsolasWeekly)
+    : null;
+  const todoConsolasWeeklyPct = todoConsolasWeekly?.progress.unitsTotal
+    ? Math.round((todoConsolasWeekly.progress.unitsCompleted / todoConsolasWeekly.progress.unitsTotal) * 100)
+    : 0;
+  const todoConsolasPanelTone = todoConsolasWeeklyPanelTone(todoConsolasWeekly);
 
   return (
     <div className="space-y-6">
@@ -673,6 +711,63 @@ export default async function AdminPricesPage({
           </p>
         </Panel>
       </div>
+
+      <Panel className={adminToneClass(todoConsolasPanelTone)}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <PanelTitle eyebrow="TodoConsolas · PC worker">Barrido semanal prudente</PanelTitle>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-muted">
+              Recorre categorías públicas en tandas pequeñas. Las coincidencias exactas preparan un lote; ningún precio se publica sin revisión, Git y checks.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge tone={todoConsolasWeeklyUi?.tone ?? "neutral"}>{todoConsolasWeeklyUi?.label ?? "Sin lectura"}</Badge>
+            {todoConsolasWeekly?.available && dashboard.workerUrls.todoConsolasWeeklyStatus ? (
+              <a href={dashboard.workerUrls.todoConsolasWeeklyStatus} target="_blank" rel="noreferrer" className="btn-secondary text-xs">
+                Estado JSON
+              </a>
+            ) : null}
+            {todoConsolasWeekly?.available && todoConsolasWeekly.campaignId && dashboard.workerUrls.todoConsolasWeeklyLog ? (
+              <a href={dashboard.workerUrls.todoConsolasWeeklyLog} target="_blank" rel="noreferrer" className="btn-secondary text-xs">
+                Log del PC
+              </a>
+            ) : null}
+          </div>
+        </div>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+          <AdminStatTile
+            tone={todoConsolasPanelTone}
+            label="Categorías"
+            value={`${todoConsolasWeekly?.progress.unitsCompleted ?? 0}/${todoConsolasWeekly?.progress.unitsTotal || "—"}`}
+            helper={`${todoConsolasWeeklyPct}% del ciclo`}
+          />
+          <AdminStatTile tone={todoConsolasPanelTone} label="Páginas leídas" value={todoConsolasWeekly?.progress.pagesProcessed ?? 0} />
+          <AdminStatTile tone={todoConsolasPanelTone} label="Exactos detectados" value={todoConsolasWeekly?.progress.exactListings ?? 0} helper="pendientes de Git" />
+          <AdminStatTile tone={todoConsolasPanelTone} label="Para revisar" value={todoConsolasWeekly?.progress.reviewListings ?? 0} helper="separados por motivo" />
+          <AdminStatTile
+            tone={todoConsolasPanelTone}
+            label={todoConsolasWeekly?.status === "backoff" ? "Reintento permitido" : "Próximo ciclo"}
+            value={formatDate(todoConsolasWeekly?.status === "backoff" ? todoConsolasWeekly.blockedUntil : todoConsolasWeekly?.nextDueAt)}
+            helper={todoConsolasWeekly?.campaignId ? `Campaña ${todoConsolasWeekly.campaignId}` : "sin campaña iniciada"}
+          />
+        </div>
+        <div className="mt-4 h-2 overflow-hidden rounded-full bg-border" aria-label={`Barrido TodoConsolas al ${todoConsolasWeeklyPct}%`}>
+          <div
+            className={`h-full rounded-full ${todoConsolasPanelTone === "danger" ? "bg-rose-500" : "bg-accent"}`}
+            style={{ width: `${Math.min(100, todoConsolasWeeklyPct)}%` }}
+          />
+        </div>
+        {todoConsolasWeekly?.error ? (
+          <p className="mt-3 rounded-xl border border-rose-400/35 bg-rose-500/10 p-3 text-sm text-rose-800 dark:text-rose-200">
+            {todoConsolasWeekly.error}
+          </p>
+        ) : null}
+        {!todoConsolasWeekly?.available ? (
+          <p className="mt-3 text-xs text-muted">
+            El panel aparecerá con datos cuando el PC actualizado ejecute su primera tanda. La función permanece apagada por defecto.
+          </p>
+        ) : null}
+      </Panel>
 
       <Panel className={adminToneClass("status")}>
         <div className="flex flex-wrap items-start justify-between gap-4">

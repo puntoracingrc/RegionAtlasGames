@@ -28,6 +28,10 @@ RUN_DIR = ROOT / "data" / "worker-runtime"
 LOG_DIR = RUN_DIR / "logs"
 STATUS_DIR = RUN_DIR / "status"
 RESULTS_DIR = RUN_DIR / "results"
+TODOCONSOLAS_WEEKLY_DIR = RUN_DIR / "todoconsolas-weekly"
+TODOCONSOLAS_WEEKLY_STATE = TODOCONSOLAS_WEEKLY_DIR / "state.json"
+TODOCONSOLAS_WEEKLY_CAMPAIGNS = TODOCONSOLAS_WEEKLY_DIR / "campaigns"
+TODOCONSOLAS_WEEKLY_DISABLED_MARKER = TODOCONSOLAS_WEEKLY_DIR / "disabled-status.lock"
 
 
 def now_iso() -> str:
@@ -227,6 +231,10 @@ def command_base_env() -> dict[str, str]:
     env.setdefault("PRICE_WORKER_DAILY", "1")
     env.setdefault("REGION_VISION_DISABLED", "1")
     return env
+
+
+def env_enabled(name: str) -> bool:
+    return os.environ.get(name, "0").strip().lower() in {"1", "true", "yes", "on"}
 
 
 def run_logged(cmd: list[str], log_path: Path, env: dict[str, str], timeout: int | None = None) -> int:
@@ -740,6 +748,110 @@ def run_daily_rotation(queue: SftpQueue) -> bool:
     return True
 
 
+def _upload_todoconsolas_weekly_artifacts(queue: SftpQueue, state: dict[str, Any]) -> None:
+    campaign_id = str(state.get("campaignId") or "").strip()
+    if not campaign_id:
+        return
+    local_campaign = TODOCONSOLAS_WEEKLY_CAMPAIGNS / campaign_id
+    remote_campaign = queue.remote("cron", "todoconsolas-weekly", campaign_id)
+    for filename in ("summary.json", "ready-for-git.json"):
+        local_path = local_campaign / filename
+        if local_path.exists():
+            queue.upload_file(posixpath.join(remote_campaign, filename), local_path)
+    for local_path in sorted((local_campaign / "ingest").glob("*.json")):
+        queue.upload_file(posixpath.join(remote_campaign, "ingest", local_path.name), local_path)
+
+
+def run_todoconsolas_weekly(queue: SftpQueue) -> bool:
+    from collect_todoconsolas_weekly import state_needs_slice
+
+    state = {}
+    if TODOCONSOLAS_WEEKLY_STATE.exists():
+        try:
+            state = json.loads(TODOCONSOLAS_WEEKLY_STATE.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            state = {}
+    if not state_needs_slice(state):
+        return False
+
+    log_file = LOG_DIR / "todoconsolas-weekly.log"
+    cmd = [
+        sys.executable,
+        str(ROOT / "scripts" / "collect_todoconsolas_weekly.py"),
+        "--state",
+        str(TODOCONSOLAS_WEEKLY_STATE),
+        "--output-root",
+        str(TODOCONSOLAS_WEEKLY_CAMPAIGNS),
+        "--interval-days",
+        os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_INTERVAL_DAYS", "7"),
+        "--pages-per-run",
+        os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_PAGES_PER_RUN", "2"),
+        "--delay",
+        os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_DELAY_SECONDS", "6"),
+        "--jitter",
+        os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_JITTER_SECONDS", "2"),
+        "--backoff-hours",
+        os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_BACKOFF_HOURS", "24"),
+    ]
+    platforms = os.environ.get("PRICE_PC_TODOCONSOLAS_WEEKLY_PLATFORMS", "").strip()
+    if platforms:
+        cmd.extend(["--platforms", platforms])
+    code = run_logged(cmd, log_file, command_base_env(), timeout=900)
+
+    try:
+        state = json.loads(TODOCONSOLAS_WEEKLY_STATE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        state = {
+            "schemaVersion": 1,
+            "engine": "todoconsolas_weekly_public_categories",
+            "status": "error",
+            "lastError": {"at": now_iso(), "message": f"El proceso terminó con código {code} sin estado legible."},
+        }
+    status = {
+        **state,
+        "enabled": True,
+        "runnerId": queue.config.runner_id,
+        "hostname": socket.gethostname(),
+        "workerCheckedAt": now_iso(),
+        "exitCode": code,
+    }
+    queue.upload_bytes(queue.remote("cron", "todoconsolas-weekly-status.json"), json_bytes(status))
+    queue.upload_file(queue.remote("cron", "todoconsolas-weekly.log"), log_file)
+    _upload_todoconsolas_weekly_artifacts(queue, state)
+    if code == 0:
+        upload_price_review_queue_verified(queue)
+    return True
+
+
+def publish_todoconsolas_weekly_disabled_status(queue: SftpQueue) -> None:
+    if TODOCONSOLAS_WEEKLY_DISABLED_MARKER.exists():
+        age = time.time() - TODOCONSOLAS_WEEKLY_DISABLED_MARKER.stat().st_mtime
+        if age < 60 * 60:
+            return
+    previous: dict[str, Any] = {}
+    if TODOCONSOLAS_WEEKLY_STATE.exists():
+        try:
+            previous = json.loads(TODOCONSOLAS_WEEKLY_STATE.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            previous = {}
+    checked_at = now_iso()
+    status = {
+        **previous,
+        "schemaVersion": 1,
+        "engine": "todoconsolas_weekly_public_categories",
+        "enabled": False,
+        "status": "disabled",
+        "previousStatus": previous.get("status"),
+        "runnerId": queue.config.runner_id,
+        "hostname": socket.gethostname(),
+        "workerCheckedAt": checked_at,
+        "updatedAt": checked_at,
+    }
+    queue.upload_bytes(queue.remote("cron", "todoconsolas-weekly-status.json"), json_bytes(status))
+    TODOCONSOLAS_WEEKLY_DISABLED_MARKER.parent.mkdir(parents=True, exist_ok=True)
+    TODOCONSOLAS_WEEKLY_DISABLED_MARKER.write_text(checked_at, encoding="utf-8")
+
+
 def run_local_game_once() -> bool:
     if not os.environ.get("LOCAL_GAME_RUNNER_TOKEN", "").strip():
         return False
@@ -851,6 +963,19 @@ def dry_run_list(config: WorkerConfig) -> int:
             print("GAME local runner: token configured, not queried in dry-run to avoid claiming API jobs.")
         else:
             print("GAME local runner: disabled, LOCAL_GAME_RUNNER_TOKEN is not set.")
+        weekly_enabled = env_enabled("PRICE_PC_TODOCONSOLAS_WEEKLY_ENABLED")
+        weekly_state: dict[str, Any] = {}
+        if TODOCONSOLAS_WEEKLY_STATE.exists():
+            try:
+                weekly_state = json.loads(TODOCONSOLAS_WEEKLY_STATE.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                weekly_state = {"status": "invalid_state"}
+        print(
+            "TodoConsolas weekly: "
+            f"{'enabled' if weekly_enabled else 'disabled'} · "
+            f"status={weekly_state.get('status') or 'not_started'} · "
+            f"campaign={weekly_state.get('campaignId') or 'none'}"
+        )
     return 0
 
 
@@ -931,6 +1056,11 @@ def run_once(config: WorkerConfig, *, daily: bool) -> int:
                 if requests:
                     process_price_request(queue, requests[0])
                     return 1
+                if daily and env_enabled("PRICE_PC_TODOCONSOLAS_WEEKLY_ENABLED"):
+                    if run_todoconsolas_weekly(queue):
+                        return 1
+                elif daily:
+                    publish_todoconsolas_weekly_disabled_status(queue)
                 if daily and os.environ.get("PRICE_PC_DAILY_ENABLED", "0").lower() in {"1", "true", "yes"}:
                     return 1 if run_daily_rotation(queue) else 0
         except RuntimeError as exc:

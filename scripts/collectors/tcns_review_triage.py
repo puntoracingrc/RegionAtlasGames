@@ -26,6 +26,20 @@ TRIAGE_BUCKETS = (
     "missing_region",
 )
 
+TRIAGE_REASON_LABELS = {
+    "condition_not_plain_preowned": "El estado no es segunda mano normal.",
+    "price_out_of_range": "El precio está fuera del rango de seguridad.",
+    "price_change_requires_review": "El cambio frente al precio anterior es demasiado grande.",
+    "catalog_match_not_unique": "No hay una única ficha de catálogo demostrada.",
+    "catalog_not_found": "No existe todavía una ficha compatible en el catálogo.",
+    "listing_region_missing": "El anuncio no declara una región verificable.",
+    "catalog_region_not_exact": "La región no coincide exactamente con la ficha.",
+    "reference_missing": "Falta la referencia exacta que justificaría el enlace.",
+    "catalog_title_not_exact": "El título o la edición no coinciden exactamente.",
+    "match_metadata_invalid": "La confianza del enlace no se pudo validar.",
+    "match_confidence_too_low": "La coincidencia necesita revisión humana.",
+}
+
 
 @dataclass(frozen=True)
 class TcnsTriageIndex:
@@ -255,6 +269,57 @@ def approved_tcns_ingest_row(
     return row
 
 
+def review_tcns_ingest_row(
+    product: dict[str, Any],
+    decision: TcnsTriageDecision,
+    index: TcnsTriageIndex,
+    collected_at: str,
+) -> dict[str, Any]:
+    if decision.bucket == "safe_exact":
+        raise ValueError("Una decisión exacta no debe entrar en revisión manual")
+    game = index.games_by_id.get(decision.catalog_id or "") or {}
+    listing_region = infer_tcns_region_product(product)
+    product_url = str(product.get("productUrl") or product.get("listingUrl") or "")
+    return {
+        "catalogId": None,
+        "candidateCatalogId": decision.catalog_id,
+        "source": "todoconsolas",
+        "sourceType": "retail_es_preowned",
+        "offerType": "preowned",
+        "title": str(product.get("title") or ""),
+        "priceEur": round(float(product["priceEur"]), 2),
+        "retailPriceEur": round(float(product["priceEur"]), 2),
+        "currency": "EUR",
+        "productUrl": product_url,
+        "externalId": str(product.get("externalId") or ""),
+        "imageUrl": product.get("imageUrl"),
+        "condition": "preowned",
+        "conditionRaw": str(product.get("conditionRaw") or "Segunda mano"),
+        "collectedAt": collected_at,
+        "listingRegion": listing_region,
+        "catalogRegion": str(game.get("region") or "") or None,
+        "regionVerified": bool(listing_region),
+        "regionEvidence": ["listing_title_region"] if listing_region else [],
+        "regionReviewNeeded": True,
+        "regionReviewReason": decision.policy_reason,
+        "regionReviewNotes": [
+            TRIAGE_REASON_LABELS.get(
+                decision.policy_reason,
+                "Debe revisarse antes de aplicar el precio.",
+            )
+        ],
+        "matchMethod": decision.match_method,
+        "matchedReference": decision.matched_reference,
+        "matchScore": decision.match_score,
+        "matchMargin": decision.match_margin,
+        "triageBucket": decision.bucket,
+        "triageReason": decision.policy_reason,
+        "triageCatalogId": decision.catalog_id,
+        "triageMatchMethod": decision.match_method,
+        "triageMatchedReference": decision.matched_reference,
+    }
+
+
 def queue_item_as_product(item: dict[str, Any]) -> dict[str, Any]:
     evidence = item.get("evidence") if isinstance(item.get("evidence"), dict) else {}
     return {
@@ -275,5 +340,6 @@ __all__ = [
     "approved_tcns_ingest_row",
     "build_tcns_triage_index",
     "queue_item_as_product",
+    "review_tcns_ingest_row",
     "triage_tcns_product",
 ]
