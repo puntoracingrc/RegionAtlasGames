@@ -216,20 +216,64 @@ export function catalogGameToCollectionItem(
   };
 }
 
+function linkCollectionItemWithCatalog(
+  current: CollectionItem,
+  match: CatalogGame,
+  others: CollectionItem[],
+): CollectionItem {
+  const fromCatalog = catalogGameToCollectionItem(match, others);
+  const recommendedPrice = current.recommendedPrice ?? fromCatalog.recommendedPrice;
+  const totalValue =
+    current.totalValue ??
+    (recommendedPrice != null
+      ? Math.round(recommendedPrice * current.quantity * 100) / 100
+      : null);
+
+  return {
+    ...fromCatalog,
+    id: current.id,
+    quantity: current.quantity,
+    buyPrice: current.buyPrice ?? fromCatalog.buyPrice,
+    previousSalePrice: current.previousSalePrice ?? fromCatalog.previousSalePrice,
+    notes: current.notes ?? fromCatalog.notes,
+    sealed: current.sealed,
+    quantityPc: current.quantityPc ?? fromCatalog.quantityPc,
+    recommendedPrice,
+    totalValue,
+    hasEsPrice: fromCatalog.hasEsPrice || current.hasEsPrice,
+    priceSource: current.priceSource ?? fromCatalog.priceSource,
+    pcRefPrice: current.pcRefPrice ?? fromCatalog.pcRefPrice,
+    addedAt: current.addedAt ?? new Date().toISOString(),
+  };
+}
+
 export async function addCatalogGameToCollection(
   userId: string,
   catalogId: string,
-): Promise<{ item: CollectionItem } | { error: string }> {
+): Promise<{ item: CollectionItem; linkedExisting: boolean } | { error: string }> {
   const game = getCatalogGame(catalogId);
   if (!game || game.listingStatus === "excluded") {
     return { error: "Juego no encontrado en el catálogo." };
   }
 
   try {
-    return await mutateUserCollection<{ item: CollectionItem }>(userId, (file) => {
+    return await mutateUserCollection<{ item: CollectionItem; linkedExisting: boolean }>(userId, (file) => {
+      const existingIndex = file.items.findIndex((item) => {
+        if (item.catalogMatched && item.catalogId) return false;
+        return findAvailableCatalogLink(item)?.id === catalogId;
+      });
+
+      if (existingIndex >= 0) {
+        const current = file.items[existingIndex];
+        const others = file.items.filter((_, index) => index !== existingIndex);
+        const linked = linkCollectionItemWithCatalog(current, game, others);
+        file.items[existingIndex] = linked;
+        return { next: file, result: { item: linked, linkedExisting: true } };
+      }
+
       const item = catalogGameToCollectionItem(game, file.items);
       file.items.push(item);
-      return { next: file, result: { item } };
+      return { next: file, result: { item, linkedExisting: false } };
     });
   } catch (error) {
     console.error("[collection-store] add failed", error);
@@ -353,30 +397,7 @@ export async function linkCollectionItemToCatalog(
       }
 
       const others = file.items.filter((_, itemIndex) => itemIndex !== index);
-      const fromCatalog = catalogGameToCollectionItem(match, others);
-      const recommendedPrice = current.recommendedPrice ?? fromCatalog.recommendedPrice;
-      const totalValue =
-        current.totalValue ??
-        (recommendedPrice != null
-          ? Math.round(recommendedPrice * current.quantity * 100) / 100
-          : null);
-
-      file.items[index] = {
-        ...fromCatalog,
-        id: current.id,
-        quantity: current.quantity,
-        buyPrice: current.buyPrice ?? fromCatalog.buyPrice,
-        previousSalePrice: current.previousSalePrice ?? fromCatalog.previousSalePrice,
-        notes: current.notes ?? fromCatalog.notes,
-        sealed: current.sealed,
-        quantityPc: current.quantityPc ?? fromCatalog.quantityPc,
-        recommendedPrice,
-        totalValue,
-        hasEsPrice: fromCatalog.hasEsPrice || current.hasEsPrice,
-        priceSource: current.priceSource ?? fromCatalog.priceSource,
-        pcRefPrice: current.pcRefPrice ?? fromCatalog.pcRefPrice,
-        addedAt: current.addedAt ?? new Date().toISOString(),
-      };
+      file.items[index] = linkCollectionItemWithCatalog(current, match, others);
 
       return { next: file, result: { item: file.items[index] } };
     });

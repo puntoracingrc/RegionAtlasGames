@@ -115,7 +115,7 @@ export function CatalogGameCard({
         owned={owned}
         isLoggedIn={isLoggedIn}
         onChange={onOwnedChange}
-        className="absolute right-1.5 top-1.5 z-10"
+        className="!absolute right-1.5 top-1.5 z-10"
       />
     </div>
   );

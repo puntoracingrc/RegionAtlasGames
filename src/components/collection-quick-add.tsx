@@ -20,13 +20,20 @@ export function CollectionQuickAdd({
   onChange,
   className,
 }: Props) {
-  const [localOwned, setLocalOwned] = useState(owned);
+  const [ownedOverride, setOwnedOverride] = useState<{
+    catalogId: string;
+    owned: boolean;
+  } | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [feedback, setFeedback] = useState<string | null>(null);
+  const localOwned = ownedOverride?.catalogId === catalogId ? ownedOverride.owned : owned;
 
   useEffect(() => {
-    setLocalOwned(owned);
-  }, [owned, catalogId]);
+    if (!feedback) return;
+    const timeout = window.setTimeout(() => setFeedback(null), 3200);
+    return () => window.clearTimeout(timeout);
+  }, [feedback]);
 
   async function handleAdd(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
@@ -36,6 +43,7 @@ export function CollectionQuickAdd({
 
     setLoading(true);
     setError(null);
+    setFeedback(null);
     try {
       const res = await fetch("/api/user/collection/items", {
         method: "POST",
@@ -44,19 +52,27 @@ export function CollectionQuickAdd({
       });
       const data = (await res.json().catch(() => ({}))) as {
         error?: string;
+        linkedExisting?: boolean;
         ownedCatalogIds?: string[];
       };
 
       if (!res.ok) {
-        setError(data.error ?? "No se pudo guardar");
+        const message = data.error ?? "No se pudo guardar";
+        setError(message);
+        setFeedback("No se pudo añadir");
         return;
       }
 
-      setLocalOwned(true);
+      setOwnedOverride({ catalogId, owned: true });
       const ids = Array.isArray(data.ownedCatalogIds)
         ? data.ownedCatalogIds.filter((id): id is string => typeof id === "string")
         : undefined;
       onChange?.(catalogId, true, ids);
+      setFeedback(data.linkedExisting ? "Ficha enlazada" : "Añadido");
+    } catch {
+      const message = "No se pudo conectar. Inténtalo de nuevo.";
+      setError(message);
+      setFeedback("Sin conexión");
     } finally {
       setLoading(false);
     }
@@ -80,7 +96,7 @@ export function CollectionQuickAdd({
   }
 
   return (
-    <span className={cn("relative", className)}>
+    <span className={className ?? "relative"}>
       <button
         type="button"
         onClick={handleAdd}
@@ -97,6 +113,18 @@ export function CollectionQuickAdd({
       >
         {loading ? "…" : localOwned ? "+1" : "+"}
       </button>
+      {feedback && (
+        <span
+          role="status"
+          aria-live="polite"
+          className={cn(
+            "absolute right-0 top-9 z-20 w-max max-w-44 rounded-md border bg-black/90 px-2 py-1 text-xs font-medium shadow-lg",
+            error ? "border-rose-400/60 text-rose-200" : "border-emerald-400/60 text-emerald-200",
+          )}
+        >
+          {feedback}
+        </span>
+      )}
     </span>
   );
 }

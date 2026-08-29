@@ -1,10 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import writeExcelFile from "write-excel-file/node";
+import type { CollectionItem } from "./types";
 import {
+  findAvailableCatalogLink,
   importSpreadsheet,
   isSupportedSpreadsheetFilename,
   parseSpreadsheet,
+  repairCollectionPlatform,
 } from "./import-collection";
 
 test("accepts current spreadsheet formats and rejects legacy XLS", () => {
@@ -57,5 +60,51 @@ test("rejects unsupported spreadsheet extensions", async () => {
   await assert.rejects(
     () => parseSpreadsheet(Buffer.from("not-a-sheet"), "coleccion.xls"),
     /Formato no soportado/,
+  );
+});
+
+test("repairs the catalog scope when an existing platform becomes active", async () => {
+  const csv = Buffer.from(
+    "Titulo;Plataforma\nJuego PS5 todavía sin ficha;PS5\n",
+    "utf8",
+  );
+  const result = await importSpreadsheet(csv, "coleccion.csv");
+  const imported = result.items[0];
+
+  assert.ok(imported);
+  const repaired = repairCollectionPlatform({ ...imported, inRetroCatalog: false });
+
+  assert.equal(repaired.platformSlug, "ps5");
+  assert.equal(repaired.inRetroCatalog, true);
+});
+
+test("matches equal titles to the requested regional variant", () => {
+  const base = {
+    id: "regional-import",
+    catalogId: null,
+    catalogMatched: false,
+    inRetroCatalog: true,
+    title: "102 Dalmatians, Disneys: Puppies to the Rescue",
+    platformSlug: "dreamcast",
+    region: "PAL Europa",
+  } as CollectionItem;
+
+  assert.equal(
+    findAvailableCatalogLink(base)?.id,
+    "dreamcast-pal-102-dalmatians-disneys-puppies-rescue",
+  );
+  assert.equal(
+    findAvailableCatalogLink({ ...base, region: "USA" })?.id,
+    "dreamcast-102-dalmatians-disneys-puppies-rescue",
+  );
+
+  assert.equal(
+    findAvailableCatalogLink({
+      ...base,
+      title: "Astro Bot",
+      platformSlug: "ps5",
+      region: "USA",
+    }),
+    null,
   );
 });

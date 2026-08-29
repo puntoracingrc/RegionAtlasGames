@@ -88,6 +88,12 @@ export function CollectionToggle({
             : undefined,
         tone: "success",
       });
+    } catch {
+      setToast({
+        message: "No he podido guardarlo.",
+        detail: "No se pudo conectar. Prueba otra vez en unos segundos.",
+        tone: "warning",
+      });
     } finally {
       setLoading(false);
     }
@@ -126,6 +132,12 @@ export function CollectionToggle({
               ? `${gameTitle} ya no figura en tu colección.`
               : undefined,
         tone: nextCount > 0 ? "info" : "warning",
+      });
+    } catch {
+      setToast({
+        message: "No he podido quitar la copia.",
+        detail: "No se pudo conectar. Prueba otra vez en unos segundos.",
+        tone: "warning",
       });
     } finally {
       setLoading(false);

@@ -1,7 +1,7 @@
 import path from "path";
 import { appDataFile } from "./app-data-dir";
 import { assertDurableBlobConfigured, blobAuthConfigured } from "./blob-auth";
-import { repairCollectionPlatform } from "./import-collection";
+import { findAvailableCatalogLink, repairCollectionPlatform } from "./import-collection";
 import {
   mutateBlobJsonDocument,
   mutateDiskJsonDocument,
@@ -80,11 +80,23 @@ function repairCollection(data: UserCollectionFile): {
   data: UserCollectionFile;
   changed: boolean;
 } {
-  const items = data.items.map(repairCollectionPlatform);
+  const items = data.items.map((item) => {
+    const repaired = repairCollectionPlatform(item);
+    const match = findAvailableCatalogLink(repaired);
+    if (!match) return repaired;
+    return {
+      ...repaired,
+      catalogId: match.id,
+      catalogMatched: true,
+      inRetroCatalog: true,
+    };
+  });
   const changed = items.some(
     (item, index) =>
       item.platformSlug !== data.items[index]?.platformSlug ||
-      item.inRetroCatalog !== data.items[index]?.inRetroCatalog,
+      item.inRetroCatalog !== data.items[index]?.inRetroCatalog ||
+      item.catalogId !== data.items[index]?.catalogId ||
+      item.catalogMatched !== data.items[index]?.catalogMatched,
   );
   return { data: changed ? { ...data, items } : data, changed };
 }
