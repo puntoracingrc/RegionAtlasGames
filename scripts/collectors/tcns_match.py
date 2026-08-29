@@ -13,7 +13,16 @@ from collectors.listing_images import attach_image_urls
 from collectors.region_inference import detect_listing_region
 
 TITLE_REGION_SUFFIX_RE = re.compile(
-    r"\((SP|ES|EU|UK|JP|FR|US|USA|DE|IT|JAP)\)\s*$",
+    r"\((SP|PS|ES|ESP|EU|UK|JP|FR|US|USA|DE|IT|PL|AS|JAP)\)\s*$",
+    re.I,
+)
+
+GAME_KEY_CARD_BEFORE_PLATFORM_RE = re.compile(
+    r"\bKC\b(?=\s+(?:Nintendo\s+)?Switch\s*2\b)",
+    re.I,
+)
+GAME_KEY_CARD_AFTER_PLATFORM_RE = re.compile(
+    r"(\b(?:Nintendo\s+)?Switch\s*2\b)\s+KC\b",
     re.I,
 )
 
@@ -29,16 +38,20 @@ PLATFORM_LABELS: dict[str, tuple[str, ...]] = {
 
 REGION_SUFFIX_MAP: dict[str, str] = {
     "SP": "PAL España",
+    "PS": "PAL España",
     "ES": "PAL España",
+    "ESP": "PAL España",
     "EU": "PAL Europa",
     "UK": "PAL UK/ENG",
     "JP": "Japón",
     "JAP": "Japón",
     "US": "USA",
     "USA": "USA",
-    "FR": "PAL Europa",
+    "FR": "PAL Francia",
     "DE": "PAL Alemania",
-    "IT": "PAL Europa",
+    "IT": "PAL Italia",
+    "PL": "PAL Portugal",
+    "AS": "Asia",
 }
 
 CONDITION_MAP: list[tuple[str, str]] = [
@@ -51,26 +64,65 @@ CONDITION_MAP: list[tuple[str, str]] = [
 ]
 
 
-def canonical_tcns_title(value: str, platform_slug: str) -> str:
+def _decoded_tcns_title(value: str) -> str:
     text = str(value or "")
     for _ in range(2):
         decoded = html.unescape(text)
         if decoded == text:
             break
         text = decoded
+    return text
+
+
+def tcns_region_suffix_code(value: str) -> str | None:
+    suffix = TITLE_REGION_SUFFIX_RE.search(_decoded_tcns_title(value).strip())
+    return suffix.group(1).upper() if suffix else None
+
+
+def tcns_is_game_key_card(value: str, platform_slug: str = "") -> bool:
+    text = _decoded_tcns_title(value)
+    if platform_slug and platform_slug != "switch2":
+        return False
+    return bool(
+        GAME_KEY_CARD_BEFORE_PLATFORM_RE.search(text)
+        or GAME_KEY_CARD_AFTER_PLATFORM_RE.search(text)
+    )
+
+
+def tcns_display_title(value: str, platform_slug: str) -> str:
+    text = _decoded_tcns_title(value)
     text = TITLE_REGION_SUFFIX_RE.sub("", text)
-    text = unicodedata.normalize("NFKD", text.lower()).encode("ascii", "ignore").decode("ascii")
-    text = text.replace("&", " and ")
+    if tcns_is_game_key_card(text, platform_slug):
+        text = GAME_KEY_CARD_BEFORE_PLATFORM_RE.sub("", text)
+        text = GAME_KEY_CARD_AFTER_PLATFORM_RE.sub(r"\1", text)
     for label in sorted(PLATFORM_LABELS.get(platform_slug, (platform_slug,)), key=len, reverse=True):
         text = re.sub(rf"\b{re.escape(label)}\b", " ", text, flags=re.I)
+    return re.sub(r"\s+", " ", text).strip(" -_/\t\r\n")
+
+
+def tcns_listing_metadata(value: str, platform_slug: str) -> dict[str, Any]:
+    region_code = tcns_region_suffix_code(value)
+    return {
+        "displayTitle": tcns_display_title(value, platform_slug),
+        "sourceRegionCode": region_code,
+        "sourceRegionLabel": REGION_SUFFIX_MAP.get(region_code or ""),
+        "gameKeyCard": tcns_is_game_key_card(value, platform_slug),
+        "fullySpanishVersion": region_code in {"SP", "PS", "ES", "ESP"},
+    }
+
+
+def canonical_tcns_title(value: str, platform_slug: str) -> str:
+    text = tcns_display_title(value, platform_slug)
+    text = unicodedata.normalize("NFKD", text.lower()).encode("ascii", "ignore").decode("ascii")
+    text = text.replace("&", " and ")
     text = re.sub(r"[^a-z0-9]+", " ", text)
     return re.sub(r"\s+", " ", text).strip()
 
 
 def infer_tcns_region(title: str) -> str | None:
-    suffix = TITLE_REGION_SUFFIX_RE.search(title.strip())
-    if suffix:
-        return REGION_SUFFIX_MAP.get(suffix.group(1).upper())
+    suffix_code = tcns_region_suffix_code(title)
+    if suffix_code:
+        return REGION_SUFFIX_MAP.get(suffix_code)
     return detect_listing_region(title)
 
 
@@ -142,6 +194,11 @@ def product_to_ingest_row(
         return {}
     title = product_title(product)
     listing_region = infer_tcns_region(title) or "PAL España"
+    platform_slug = str(catalog_id).partition("-")[0]
+    metadata = tcns_listing_metadata(title, platform_slug)
+    region_evidence = ["listing_title_region", "seller_states_region"]
+    if metadata["sourceRegionCode"]:
+        region_evidence.insert(0, f"tcns_suffix_{str(metadata['sourceRegionCode']).lower()}")
     row: dict[str, Any] = {
         "catalogId": catalog_id,
         "source": "todoconsolas",
@@ -149,13 +206,14 @@ def product_to_ingest_row(
         "priceEur": round(float(price), 2),
         "listingRegion": listing_region,
         "regionVerified": True,
-        "regionEvidence": ["listing_title_region", "seller_states_region"],
+        "regionEvidence": region_evidence,
         "productUrl": str(product.get("productUrl") or ""),
         "condition": infer_tcns_condition(str(product.get("conditionRaw") or ""), title),
         "inStock": True,
         "externalId": str(product.get("externalId") or ""),
         "title": title,
         "matchMethod": match_method,
+        **metadata,
     }
     if matched_reference:
         row["matchedReference"] = matched_reference
@@ -180,4 +238,8 @@ __all__ = [
     "match_tcns_product",
     "pick_best_product_rows",
     "product_to_ingest_row",
+    "tcns_display_title",
+    "tcns_is_game_key_card",
+    "tcns_listing_metadata",
+    "tcns_region_suffix_code",
 ]

@@ -285,7 +285,13 @@ def classify_products(
         else:
             platform_slug, decision = _best_review(decisions)
         rows[platform_slug]["regionalCandidates"].append(
-            review_tcns_ingest_row(product, decision, index, collected_at)
+            review_tcns_ingest_row(
+                product,
+                decision,
+                index,
+                collected_at,
+                platform_slug=platform_slug,
+            )
         )
         counts[decision.bucket] += 1
     return rows, counts

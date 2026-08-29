@@ -8,9 +8,18 @@ from pathlib import Path
 import pc_sftp_worker
 from collectors.catalog_match import CatalogMatchResult
 from collectors.price_review_queue import _reason as review_reason
+from collectors.price_review_queue import _row_to_item
 from collectors.price_review_queue import merge_price_review_queue_documents
 from collectors.reference_match import extract_references_from_text, is_valid_gtin
-from collectors.tcns_match import infer_tcns_region_product, match_tcns_product
+from collectors.tcns_match import (
+    canonical_tcns_title as canonical_tcns_match_title,
+    infer_tcns_region_product,
+    match_tcns_product,
+    tcns_display_title,
+    tcns_is_game_key_card,
+    tcns_listing_metadata,
+    tcns_region_suffix_code,
+)
 from collectors.tcns_policy import (
     POLICY_VERSION,
     canonical_tcns_title,
@@ -18,6 +27,7 @@ from collectors.tcns_policy import (
     tcns_row_is_auto_approved,
 )
 from collectors.tcns_review_triage import (
+    approved_tcns_ingest_row,
     build_tcns_triage_index,
     triage_tcns_product,
 )
@@ -82,9 +92,98 @@ def main() -> None:
     assert canonical_tcns_title("Life Is Strange 2 PS4 (ES)", "ps4") == "life is strange 2"
     assert infer_tcns_region_product(product(title="Life Is Strange 2 PS4 (ES)")) == "PAL España"
     assert canonical_tcns_title("Life is Strange 2", "ps4") == "life is strange 2"
+    key_card_title = "Final Fantasy VII Remake Intergrade KC Switch 2 (SP)"
+    assert tcns_display_title(key_card_title, "switch2") == "Final Fantasy VII Remake Intergrade"
+    assert canonical_tcns_match_title(key_card_title, "switch2") == "final fantasy vii remake intergrade"
+    assert tcns_is_game_key_card(key_card_title, "switch2") is True
+    assert tcns_region_suffix_code(key_card_title) == "SP"
+    assert infer_tcns_region_product(product(title=key_card_title)) == "PAL España"
+    assert tcns_listing_metadata(key_card_title, "switch2") == {
+        "displayTitle": "Final Fantasy VII Remake Intergrade",
+        "sourceRegionCode": "SP",
+        "sourceRegionLabel": "PAL España",
+        "gameKeyCard": True,
+        "fullySpanishVersion": True,
+    }
+    assert tcns_display_title("KC Returns PS5 (SP)", "ps5") == "KC Returns"
+    assert tcns_is_game_key_card("KC Returns PS5 (SP)", "ps5") is False
+    assert canonical_tcns_match_title("Astro Bot PS5 (PS)", "ps5") == "astro bot"
+    assert infer_tcns_region_product(product(title="Astro Bot PS5 (PS)")) == "PAL España"
+    assert infer_tcns_region_product(product(title="Astro Bot PS5 (ESP)")) == "PAL España"
+    assert tcns_listing_metadata("Astro Bot PS5 (PS)", "ps5")["fullySpanishVersion"] is True
+    assert infer_tcns_region_product(product(title="Metaphor ReFantazio PS5 (EU)")) == "PAL Europa"
+    assert infer_tcns_region_product(product(title="Metaphor ReFantazio PS5 (FR)")) == "PAL Francia"
+    assert infer_tcns_region_product(product(title="Metaphor ReFantazio PS5 (IT)")) == "PAL Italia"
+    assert infer_tcns_region_product(product(title="Metaphor ReFantazio PS5 (PL)")) == "PAL Portugal"
+    assert infer_tcns_region_product(product(title="Metaphor ReFantazio PS5 (AS)")) == "Asia"
+    assert infer_tcns_region_product(product(title="Metaphor ReFantazio PS5 (JAP)")) == "Japón"
+    assert canonical_tcns_match_title("Metaphor ReFantazio PS5 (PL)", "ps5") == "metaphor refantazio"
     assert is_valid_gtin("8436016711890") is True
     assert is_valid_gtin("8436016711891") is False
     assert extract_references_from_text("EAN 8436016711890") == {"8436016711890"}
+
+    switch2_game = {
+        "id": "switch2-final-fantasy-vii-remake-intergrade",
+        "title": "Final Fantasy VII Remake Intergrade",
+        "platformSlug": "switch2",
+        "region": "PAL España",
+    }
+    switch2_product = product(title=key_card_title, priceEur=34.95)
+    switch2_match = match_tcns_product(switch2_product, [switch2_game], "switch2")
+    assert switch2_match.game and switch2_match.game["id"] == switch2_game["id"]
+    assert switch2_match.match_score == 1.0
+    switch2_index = build_tcns_triage_index([switch2_game], {})
+    switch2_decision = triage_tcns_product(switch2_product, "switch2", switch2_index)
+    assert switch2_decision.bucket == "safe_exact"
+    switch2_row = approved_tcns_ingest_row(
+        switch2_product,
+        switch2_decision,
+        switch2_index,
+        "2026-08-29T10:00:00Z",
+    )
+    assert switch2_row["gameKeyCard"] is True
+    assert switch2_row["sourceRegionCode"] == "SP"
+    assert switch2_row["sourceRegionLabel"] == "PAL España"
+    assert switch2_row["fullySpanishVersion"] is True
+    assert switch2_row["displayTitle"] == "Final Fantasy VII Remake Intergrade"
+    assert "tcns_suffix_sp" in switch2_row["regionEvidence"]
+    switch2_queue_item = _row_to_item(
+        {
+            **switch2_row,
+            "autoApproved": False,
+            "regionReviewNeeded": True,
+            "regionReviewReason": "catalog_match_not_unique",
+        },
+        "todoconsolas",
+        "switch2",
+        {"region": "PAL España"},
+    )
+    assert switch2_queue_item is not None
+    assert switch2_queue_item["evidence"]["gameKeyCard"] is True
+    assert switch2_queue_item["evidence"]["sourceRegionCode"] == "SP"
+    assert switch2_queue_item["evidence"]["sourceRegionLabel"] == "PAL España"
+    assert switch2_queue_item["evidence"]["fullySpanishVersion"] is True
+    assert switch2_queue_item["evidence"]["displayTitle"] == "Final Fantasy VII Remake Intergrade"
+
+    asian_game = {
+        "id": "ps5-metaphor-refantazio-asia",
+        "title": "Metaphor ReFantazio",
+        "platformSlug": "ps5",
+        "region": "Asia",
+    }
+    asian_index = build_tcns_triage_index([asian_game], {})
+    assert triage_tcns_product(
+        product(title="Metaphor ReFantazio PS5 (AS)"),
+        "ps5",
+        asian_index,
+    ).bucket == "safe_exact"
+    european_game = {**asian_game, "id": "ps5-metaphor-refantazio-eu", "region": "PAL Europa"}
+    european_index = build_tcns_triage_index([european_game], {})
+    assert triage_tcns_product(
+        product(title="Metaphor ReFantazio PS5 (IT)"),
+        "ps5",
+        european_index,
+    ).bucket == "regional_variant"
 
     title_match = match_tcns_product(product(), [game()], "ps4")
     assert title_match.game and title_match.game["id"] == game()["id"]

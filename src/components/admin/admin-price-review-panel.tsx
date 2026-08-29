@@ -55,6 +55,9 @@ const commonRegionOptions = [
   "PAL España",
   "España",
   "PAL Europa",
+  "PAL Francia",
+  "PAL Italia",
+  "PAL Portugal",
   "PAL UK/ENG",
   "PAL Alemania",
   "USA",
@@ -140,6 +143,22 @@ function reasonLabel(value: string): string {
   return value
     .replace(/_/g, " ")
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function todoConsolasRegionLabel(item: PriceReviewItem): string | null {
+  if (item.source !== "todoconsolas") return null;
+  const code = item.evidence?.sourceRegionCode;
+  if (item.evidence?.fullySpanishVersion) return "Versión española";
+  if (code === "EU") return "Versión europea";
+  if (code === "UK") return "Versión británica";
+  if (code === "FR") return "Versión francesa";
+  if (code === "DE") return "Versión alemana";
+  if (code === "IT") return "Versión italiana";
+  if (code === "PL") return "Versión portuguesa";
+  if (code === "AS") return "Versión Asia (no Japón)";
+  if (code === "JP" || code === "JAP") return "Versión japonesa";
+  if (code === "US" || code === "USA") return "Versión estadounidense";
+  return null;
 }
 
 function normalizedText(value: string | null | undefined): string {
@@ -235,6 +254,8 @@ function ReviewCard({
   const [mergeState, setMergeState] = useState<"idle" | "saving" | "error" | "done">("idle");
   const [mergeMessage, setMergeMessage] = useState("");
   const [expanded, setExpanded] = useState(false);
+  const displayTitle = item.evidence?.displayTitle?.trim() || item.listingTitle;
+  const sourceRegionLabel = todoConsolasRegionLabel(item);
   const alternatives = item.evidence?.matchAlternatives ?? [];
   const primaryAlternative = alternatives.find((alternative) => (
     alternative.catalogId === item.candidateCatalogId || alternative.catalogId === item.catalogId
@@ -341,8 +362,8 @@ function ReviewCard({
     <article className="overflow-hidden rounded-lg border border-border bg-background/55">
       <div className="grid gap-4 p-4 lg:grid-cols-[176px_minmax(0,1fr)_auto]">
         <div className="grid grid-cols-2 gap-2">
-          <ReviewThumbnail url={listingImageUrl} label="Anuncio" alt={`Imagen del anuncio ${item.listingTitle}`} />
-          <ReviewThumbnail url={catalogImageUrl} label="Catálogo" alt={`Portada de catálogo ${candidateTitle ?? item.listingTitle}`} />
+          <ReviewThumbnail url={listingImageUrl} label="Anuncio" alt={`Imagen del anuncio ${displayTitle}`} />
+          <ReviewThumbnail url={catalogImageUrl} label="Catálogo" alt={`Portada de catálogo ${candidateTitle ?? displayTitle}`} />
         </div>
 
         <div className="min-w-0">
@@ -350,8 +371,10 @@ function ReviewCard({
             <Badge tone="neutral">{sourceLabel(item.source)}</Badge>
             <Badge tone="amber">{reasonLabel(item.reason)}</Badge>
             <Badge tone="neutral">{item.platformSlug.toUpperCase()}</Badge>
+            {item.evidence?.gameKeyCard ? <Badge tone="violet">Game-Key Card</Badge> : null}
+            {sourceRegionLabel ? <Badge tone={item.evidence?.fullySpanishVersion ? "green" : "neutral"}>{sourceRegionLabel}</Badge> : null}
           </div>
-          <h3 className="mt-2 text-base font-black leading-6 text-foreground">{item.listingTitle}</h3>
+          <h3 className="mt-2 text-base font-black leading-6 text-foreground">{displayTitle}</h3>
           <p className="mt-1 text-sm font-bold text-foreground">
             {candidateTitle ?? "Sin ficha candidata"}
           </p>
@@ -425,6 +448,11 @@ function ReviewCard({
 
       {expanded ? (
         <div className="border-t border-border bg-card/20 p-4">
+          {displayTitle !== item.listingTitle ? (
+            <p className="mb-4 text-xs leading-5 text-muted">
+              <strong className="text-foreground">Título original TodoConsolas:</strong> {item.listingTitle}
+            </p>
+          ) : null}
           {item.evidence?.reviewNotes?.length ? (
             <p className="mb-4 text-xs leading-5 text-muted"><strong className="text-foreground">Registro:</strong> {item.evidence.reviewNotes.join(" · ")}</p>
           ) : null}
@@ -550,6 +578,7 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
       if (!cleanQuery) return true;
       const haystack = normalizedText([
         item.listingTitle,
+        item.evidence?.displayTitle,
         item.catalogId,
         item.candidateCatalogId,
         item.targetRegion,
