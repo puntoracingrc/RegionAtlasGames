@@ -3,6 +3,7 @@ import readExcelFile from "read-excel-file/node";
 import { normalizeImportedPlatformSlug } from "./collection-platform-slugs";
 import { slugify } from "./slug";
 import { catalog, platforms } from "./catalog";
+import { getRegionDisplay } from "./region-display";
 import type { CatalogGame, CollectionItem } from "./types";
 
 const EXCEL_TO_SLUG: Record<string, string> = {
@@ -222,11 +223,12 @@ export { normalizeImportedPlatformSlug } from "./collection-platform-slugs";
 
 export function repairCollectionPlatform(item: CollectionItem): CollectionItem {
   const platformSlug = normalizeImportedPlatformSlug(item.platformSlug);
-  if (platformSlug === item.platformSlug) return item;
+  const inRetroCatalog = retroSlugs.has(platformSlug);
+  if (platformSlug === item.platformSlug && inRetroCatalog === item.inRetroCatalog) return item;
   return {
     ...item,
     platformSlug,
-    inRetroCatalog: retroSlugs.has(platformSlug),
+    inRetroCatalog,
   };
 }
 
@@ -380,24 +382,44 @@ function slugKey(text: string): string {
 }
 
 function buildCatalogMatchIndex() {
-  const byPlatformTitle = new Map<string, string>();
+  const byPlatformTitle = new Map<string, string | null>();
+  const byPlatformTitleRegion = new Map<string, string | null>();
   const byId = new Map(catalog.map((g) => [g.id, g]));
+
+  function register(index: Map<string, string | null>, key: string, gameId: string) {
+    const existing = index.get(key);
+    if (existing === undefined || existing === gameId) {
+      index.set(key, gameId);
+      return;
+    }
+    index.set(key, null);
+  }
 
   for (const game of catalog) {
     if (game.listingStatus === "excluded") continue;
-    const key = `${game.platformSlug}::${slugKey(game.title)}`;
-    if (!byPlatformTitle.has(key)) {
-      byPlatformTitle.set(key, game.id);
-    }
-    if (game.titlePc) {
-      const pcKey = `${game.platformSlug}::${slugKey(game.titlePc)}`;
-      if (!byPlatformTitle.has(pcKey)) {
-        byPlatformTitle.set(pcKey, game.id);
+    const regionKey = normalizeRegionMatchKey(game.region);
+    for (const title of [game.title, game.titlePc].filter(Boolean) as string[]) {
+      const key = `${game.platformSlug}::${slugKey(title)}`;
+      register(byPlatformTitle, key, game.id);
+      if (regionKey) {
+        register(byPlatformTitleRegion, `${key}::${regionKey}`, game.id);
       }
     }
   }
 
-  return { byPlatformTitle, byId };
+  return { byPlatformTitle, byPlatformTitleRegion, byId };
+}
+
+const catalogMatchIndex = buildCatalogMatchIndex();
+
+function normalizeRegionMatchKey(region: string | null | undefined): string | null {
+  if (!region?.trim() || region.trim() === "—") return null;
+  return slugify(getRegionDisplay(region).label);
+}
+
+function matchesImportedRegion(game: CatalogGame, region: string | null): boolean {
+  const expected = normalizeRegionMatchKey(region);
+  return expected == null || normalizeRegionMatchKey(game.region) === expected;
 }
 
 function findCatalogMatch(
@@ -407,46 +429,39 @@ function findCatalogMatch(
   pcId: number | null,
   region: string | null,
 ): CatalogGame | null {
-  const { byPlatformTitle, byId } = buildCatalogMatchIndex();
+  const { byPlatformTitle, byPlatformTitleRegion, byId } = catalogMatchIndex;
 
   if (pcId != null) {
-    const byPcId = catalog.find(
-      (g) => g.platformSlug === platform && g.pcId === pcId && g.listingStatus !== "excluded",
+    const byPcId = catalog.filter(
+      (g) =>
+        g.platformSlug === platform &&
+        g.pcId === pcId &&
+        g.listingStatus !== "excluded" &&
+        matchesImportedRegion(g, region),
     );
-    if (byPcId) return byPcId;
+    if (byPcId.length === 1) return byPcId[0];
   }
 
   const directId = `${platform}-${slugify(title)}`;
-  if (byId.has(directId)) return byId.get(directId)!;
+  const direct = byId.get(directId);
+  if (direct && matchesImportedRegion(direct, region)) return direct;
 
   const keys = [
     `${platform}::${slugify(title)}`,
     titlePc ? `${platform}::${slugify(titlePc)}` : null,
   ].filter(Boolean) as string[];
 
+  const regionKey = normalizeRegionMatchKey(region);
   for (const key of keys) {
+    const regionalId = regionKey ? byPlatformTitleRegion.get(`${key}::${regionKey}`) : null;
+    if (regionalId && byId.has(regionalId)) return byId.get(regionalId)!;
+
     const id = byPlatformTitle.get(key);
-    if (id && byId.has(id)) return byId.get(id)!;
+    const candidate = id ? byId.get(id) : null;
+    if (candidate && matchesImportedRegion(candidate, region)) return candidate;
   }
 
-  const candidates = catalog.filter(
-    (g) =>
-      g.platformSlug === platform &&
-      g.listingStatus !== "excluded" &&
-      slugify(g.title) === slugify(title),
-  );
-
-  if (candidates.length === 1) return candidates[0];
-
-  if (candidates.length > 1 && region) {
-    const regionLower = region.toLowerCase();
-    const regional = candidates.find((g) =>
-      g.region.toLowerCase().includes(regionLower.slice(0, 3)),
-    );
-    if (regional) return regional;
-  }
-
-  return candidates[0] ?? null;
+  return null;
 }
 
 export function isPlatformCatalogActive(platformSlug: string): boolean {

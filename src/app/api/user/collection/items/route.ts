@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import {
   addCatalogGameToCollection,
-  countCatalogGameOwned,
   getUserCollectionViews,
   removeCatalogGameFromCollection,
   removeOneCatalogGameFromCollection,
@@ -40,13 +39,17 @@ export async function POST(request: Request) {
   }
 
   const views = await getUserCollectionViews(user.id);
+  const ownedCount = views
+    .filter((item) => item.catalogId === catalogId)
+    .reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
 
   return NextResponse.json({
     item: enrichCollectionItem(result.item),
     owned: true,
-    ownedCount: await countCatalogGameOwned(user.id, catalogId),
+    linkedExisting: result.linkedExisting,
+    ownedCount,
     ownedCatalogIds: [
-      ...new Set(views.map((i) => i.catalogId).filter((id): id is string => Boolean(id))),
+      ...new Set(views.map((item) => item.catalogId).filter((id): id is string => Boolean(id))),
     ],
   });
 }
@@ -83,13 +86,15 @@ export async function DELETE(request: Request) {
   }
 
   const views = await getUserCollectionViews(user.id);
-  const ownedCount = await countCatalogGameOwned(user.id, catalogId);
+  const ownedCount = views
+    .filter((item) => item.catalogId === catalogId)
+    .reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
   return NextResponse.json({
     removed: result.removed,
     owned: ownedCount > 0,
     ownedCount,
     ownedCatalogIds: [
-      ...new Set(views.map((i) => i.catalogId).filter((id): id is string => Boolean(id))),
+      ...new Set(views.map((item) => item.catalogId).filter((id): id is string => Boolean(id))),
     ],
   });
 }

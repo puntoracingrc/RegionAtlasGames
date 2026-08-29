@@ -7,6 +7,7 @@ import {
   mutateBlobJsonDocument,
   mutateDiskJsonDocument,
   readDiskJsonDocument,
+  readUtf8Stream,
 } from "./json-document-store";
 import type { get, head, put } from "@vercel/blob";
 
@@ -52,6 +53,20 @@ function blobHeadResult(etag: string) {
     etag,
   };
 }
+
+test("reads UTF-8 Blob streams directly across chunk boundaries", async () => {
+  const encoder = new TextEncoder();
+  const bytes = encoder.encode('{"label":"Colección PS5"}');
+  const stream = new ReadableStream<Uint8Array>({
+    start(controller) {
+      controller.enqueue(bytes.slice(0, 17));
+      controller.enqueue(bytes.slice(17));
+      controller.close();
+    },
+  });
+
+  assert.equal(await readUtf8Stream(stream), '{"label":"Colección PS5"}');
+});
 
 test("retries a stale Blob read and writes with the authoritative ETag", async () => {
   let reads = 0;

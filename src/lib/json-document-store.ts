@@ -58,6 +58,24 @@ const defaultBlobDependencies: BlobDocumentDependencies = {
 
 const diskQueues = new Map<string, Promise<void>>();
 
+export async function readUtf8Stream(stream: ReadableStream<Uint8Array>): Promise<string> {
+  const reader = stream.getReader();
+  const decoder = new TextDecoder();
+  let text = "";
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      text += decoder.decode(value, { stream: true });
+    }
+    text += decoder.decode();
+    return text;
+  } finally {
+    reader.releaseLock();
+  }
+}
+
 function isConflict(error: unknown): boolean {
   return (
     error instanceof BlobDocumentVersionConflictError ||
@@ -116,7 +134,7 @@ async function readVersionedBlobDocument<T>(
     throw new BlobDocumentVersionConflictError();
   }
   return {
-    value: options.parse(await new Response(response.stream).text()),
+    value: options.parse(await readUtf8Stream(response.stream)),
     etag: metadata.etag,
     exists: true,
   };
