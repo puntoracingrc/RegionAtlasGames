@@ -25,6 +25,7 @@ export const dynamic = "force-dynamic";
 
 type RecentLabel = "hoy" | "ayer" | "reciente" | "antiguo";
 type CoverageSort = "updated-desc" | "updated-asc" | "coverage-desc" | "coverage-asc";
+type PriceView = "resumen" | "fuentes" | "game" | "revision" | "cobertura";
 type PriceSyncHealth = {
   label: string;
   tone: "green" | "amber" | "rose" | "neutral";
@@ -480,19 +481,37 @@ function normalizeCoverageSort(value: string | string[] | undefined): CoverageSo
   return "updated-desc";
 }
 
+function normalizePriceView(value: string | string[] | undefined): PriceView {
+  const current = Array.isArray(value) ? value[0] : value;
+  if (current === "fuentes" || current === "game" || current === "revision" || current === "cobertura") {
+    return current;
+  }
+  return "resumen";
+}
+
+const priceViews: Array<{ id: PriceView; label: string; helper: string }> = [
+  { id: "resumen", label: "Resumen", helper: "Automatización y eBay" },
+  { id: "fuentes", label: "Fuentes", helper: "Motores y lotes" },
+  { id: "game", label: "GAME y PC", helper: "Descubrimiento local" },
+  { id: "revision", label: "Revisión", helper: "Precios dudosos" },
+  { id: "cobertura", label: "Cobertura", helper: "Historial y regiones" },
+];
+
 export default async function AdminPricesPage({
   searchParams,
 }: {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const params = await searchParams;
+  const view = normalizePriceView(params?.vista);
   const coverageSort = normalizeCoverageSort(params?.coverageSort);
+  const needsDashboard = view === "resumen" || view === "cobertura";
   const [dashboard, priceSourceSettings, priceReviewItems, localGameJobs, marketBatches] = await Promise.all([
-    getAdminPriceDashboard(20),
-    readPriceSourceSettings(),
-    listPriceReviewItems(500),
-    listLocalGameRunnerJobs(20),
-    listMarketResearchBatches(12),
+    needsDashboard ? getAdminPriceDashboard(20) : Promise.resolve(null),
+    view === "fuentes" ? readPriceSourceSettings() : Promise.resolve(null),
+    view === "revision" ? listPriceReviewItems(500) : Promise.resolve([]),
+    view === "game" ? listLocalGameRunnerJobs(20) : Promise.resolve([]),
+    view === "fuentes" ? listMarketResearchBatches(12) : Promise.resolve([]),
   ]);
   const platformOptions = readPriceSourcePlatformOptions();
   const regionOptions = readPriceSourceRegionOptions();
@@ -504,17 +523,40 @@ export default async function AdminPricesPage({
   const ebayCompleted = ebayTotals.completed ?? 0;
   const ebayProgress = ebayTotal > 0 ? Math.round((ebayCompleted / ebayTotal) * 1000) / 10 : 0;
   const currentEbayPlatform = ebayCampaign.platforms?.find((platform) => platform.platformSlug === ebayCampaign.currentPlatform);
-  const freshRows = dashboard.recentSyncs.filter((row) => {
+  const freshRows = (dashboard?.recentSyncs ?? []).filter((row) => {
     return isTodayOrYesterday(row.lastSyncAt);
   });
-  const rotationAttempts = dashboard.cronAttempts.filter(isHostingRotationAttempt);
+  const rotationAttempts = (dashboard?.cronAttempts ?? []).filter(isHostingRotationAttempt);
   const lastRotationDone = rotationAttempts.find((attempt) => attempt.status === "done");
   const recentRotationAttempts = rotationAttempts.filter((attempt) => isTodayOrYesterday(attempt.at));
-  const recentSourceTotals = sourceLeaderboard(dashboard.recentSyncs);
-  const latestProgress = latestPriceListProgress(dashboard.recentSyncs);
+  const recentSourceTotals = sourceLeaderboard(dashboard?.recentSyncs ?? []);
+  const latestProgress = latestPriceListProgress(dashboard?.recentSyncs ?? []);
 
   return (
     <div className="space-y-6">
+      <nav aria-label="Herramientas de precios" className="grid gap-2 sm:grid-cols-2 xl:grid-cols-5">
+        {priceViews.map((item) => {
+          const active = item.id === view;
+          return (
+            <Link
+              key={item.id}
+              href={`/admin/precios?vista=${item.id}`}
+              aria-current={active ? "page" : undefined}
+              className={`border-b-2 px-3 py-3 transition ${
+                active
+                  ? "border-accent text-foreground"
+                  : "border-border text-muted hover:border-accent/40 hover:text-foreground"
+              }`}
+            >
+              <span className="block text-sm font-black">{item.label}</span>
+              <span className="mt-1 block text-xs leading-5">{item.helper}</span>
+            </Link>
+          );
+        })}
+      </nav>
+
+      {view === "resumen" && dashboard ? (
+        <>
       <div className="grid gap-4 lg:grid-cols-3">
         <Panel className={`${adminToneClass("status")} min-w-0 lg:col-span-2`}>
           <PanelTitle eyebrow="Rotación automática">Estado de recopilación</PanelTitle>
@@ -762,30 +804,41 @@ export default async function AdminPricesPage({
         </details>
       </Panel>
 
-      <AdminMarketCollectionPanel
-        initialBatches={marketBatches}
-        platformOptions={platformOptions}
-        regionOptions={regionOptions}
-      />
+        </>
+      ) : null}
 
-      <AdminPriceSourceSettingsPanel
-        initialSettings={priceSourceSettings}
-        platformOptions={platformOptions}
-        regionOptions={regionOptions}
-      />
+      {view === "fuentes" && priceSourceSettings ? (
+        <>
+          <AdminMarketCollectionPanel
+            initialBatches={marketBatches}
+            platformOptions={platformOptions}
+            regionOptions={regionOptions}
+          />
+          <AdminPriceSourceSettingsPanel
+            initialSettings={priceSourceSettings}
+            platformOptions={platformOptions}
+            regionOptions={regionOptions}
+          />
+        </>
+      ) : null}
 
-      <AdminGameReleaseDiscoveryPanel
-        initialJobs={localGameJobs}
-        tokenConfigured={localGameRunnerTokenConfigured()}
-      />
+      {view === "game" ? (
+        <>
+          <AdminGameReleaseDiscoveryPanel
+            initialJobs={localGameJobs}
+            tokenConfigured={localGameRunnerTokenConfigured()}
+          />
+          <AdminLocalGameRunnerPanel
+            initialJobs={localGameJobs}
+            tokenConfigured={localGameRunnerTokenConfigured()}
+          />
+        </>
+      ) : null}
 
-      <AdminLocalGameRunnerPanel
-        initialJobs={localGameJobs}
-        tokenConfigured={localGameRunnerTokenConfigured()}
-      />
+      {view === "revision" ? <AdminPriceReviewPanel initialItems={priceReviewItems} /> : null}
 
-      <AdminPriceReviewPanel initialItems={priceReviewItems} />
-
+      {view === "cobertura" && dashboard ? (
+        <>
       <Panel className={adminToneClass("search")}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <PanelTitle eyebrow="Historial">Últimas plataformas sincronizadas</PanelTitle>
@@ -915,6 +968,11 @@ export default async function AdminPricesPage({
         />
       </Panel>
 
+        </>
+      ) : null}
+
+      {view === "resumen" && dashboard ? (
+        <>
       <Panel className={adminToneClass("status")}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <PanelTitle eyebrow="Cron automático">Últimos intentos reales de la rueda</PanelTitle>
@@ -1059,6 +1117,8 @@ export default async function AdminPricesPage({
           </p>
         )}
       </Panel>
+        </>
+      ) : null}
     </div>
   );
 }

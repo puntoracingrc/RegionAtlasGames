@@ -2,6 +2,11 @@ import { AdminSystemTools } from "@/components/admin/admin-system-tools";
 import { AdminNotice, AdminStatTile } from "@/components/admin/admin-visual";
 import { Panel, PanelTitle } from "@/components/ui";
 import { blobAuthConfigured } from "@/lib/blob-auth";
+import {
+  adminHealthTone,
+  classifyCollectors,
+  classifyStagingAutomation,
+} from "@/lib/admin-operations-health";
 import { readCatalogStagingIndex } from "@/lib/catalog-staging-storage";
 import { readPriceSourceSettings } from "@/lib/price-source-settings";
 import type { CatalogStagingIndex } from "@/lib/catalog-staging-types";
@@ -45,12 +50,17 @@ export default async function AdminSystemPage() {
   const deploymentSha = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 8) || "local";
   const environment = process.env.VERCEL_ENV || process.env.NODE_ENV || "local";
   const generatedAt = new Date().toISOString();
-  const hasOperationalWarning =
+  const stagingHealth = classifyStagingAutomation(index);
+  const collectorsHealth = classifyCollectors(
+    sourceSettings ? { total: sources.length, manualActive, rotationActive } : null,
+  );
+  const hasOperationalAction =
     !storageHealthy ||
     indexResult.status === "rejected" ||
     sourcesResult.status === "rejected" ||
-    manualActive > 0 ||
-    rotationActive > 0;
+    stagingHealth.level === "action";
+  const hasOperationalWatch =
+    stagingHealth.level === "watch" || collectorsHealth.level === "watch";
 
   const diagnostic = [
     "REGION_ATLAS_HEALTH_V1",
@@ -80,9 +90,13 @@ export default async function AdminSystemPage() {
     `cron.lastEnriched=${lastRun?.enriched ?? "unknown"}`,
     `cron.lastFailed=${lastRun?.failed ?? "unknown"}`,
     `cron.stoppedByBudget=${lastRun?.stoppedByBudget ?? "unknown"}`,
+    `cron.healthLevel=${stagingHealth.level}`,
+    `cron.healthLabel=${inline(stagingHealth.label)}`,
     `priceSources.total=${sourcesResult.status === "fulfilled" ? sources.length : "unknown"}`,
     `priceSources.manualActive=${sourcesResult.status === "fulfilled" ? manualActive : "unknown"}`,
     `priceSources.rotationActive=${sourcesResult.status === "fulfilled" ? rotationActive : "unknown"}`,
+    `priceSources.healthLevel=${collectorsHealth.level}`,
+    `priceSources.healthLabel=${inline(collectorsHealth.label)}`,
     `readErrors.staging=${indexResult.status === "rejected" ? inline(indexResult.reason) : "none"}`,
     `readErrors.priceSources=${sourcesResult.status === "rejected" ? inline(sourcesResult.reason) : "none"}`,
   ].join("\n");
@@ -113,27 +127,31 @@ export default async function AdminSystemPage() {
             label="Cola staging"
             value={index?.pcIds.length ?? "—"}
             helper={`${pendingEnrichment} pendientes de enriquecer`}
-            tone={index ? "neutral" : "danger"}
+            tone={adminHealthTone(stagingHealth.level)}
           />
           <AdminStatTile
             label="Último cron"
             value={formatDate(lastRun?.completedAt)}
-            helper={lastRun ? `${lastRun.elapsedMs} ms · ${lastRun.attempted} intentos` : "Aún sin telemetría"}
-            tone={lastRun?.failed ? "danger" : "status"}
+            helper={lastRun ? `${lastRun.elapsedMs} ms · ${lastRun.attempted} intentos` : stagingHealth.detail}
+            tone={adminHealthTone(stagingHealth.level)}
           />
           <AdminStatTile
             label="Recolectores activos"
             value={`${manualActive} manual · ${rotationActive} rueda`}
-            helper={`${sources.length || 0} fuentes configuradas`}
-            tone={manualActive || rotationActive ? "danger" : "status"}
+            helper={collectorsHealth.detail}
+            tone={adminHealthTone(collectorsHealth.level)}
           />
         </div>
       </section>
 
-      <AdminNotice tone={hasOperationalWarning ? "danger" : "status"}>
-        {hasOperationalWarning
-          ? "Hay una señal que conviene revisar antes de ejecutar tareas automáticas."
-          : `Configuración estable. Despliegue ${deploymentSha} en ${environment}.`}
+      <AdminNotice tone={hasOperationalAction ? "danger" : hasOperationalWatch ? "edit" : "status"}>
+        {hasOperationalAction
+          ? "Hay un fallo o una automatización sin confirmar que requiere revisión."
+          : hasOperationalWatch
+            ? "El sistema responde, pero hay una tarea que conviene vigilar."
+            : collectorsHealth.level === "paused"
+              ? `Sistema disponible. Los recolectores están pausados; despliegue ${deploymentSha} en ${environment}.`
+              : `Configuración estable. Despliegue ${deploymentSha} en ${environment}.`}
       </AdminNotice>
 
       <Panel>

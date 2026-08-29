@@ -109,7 +109,7 @@ export function AdminNotice({
   tone,
 }: {
   children: React.ReactNode;
-  tone: "status" | "danger";
+  tone: AdminVisualTone;
 }) {
   return (
     <div className={cn("rounded-2xl border p-4 text-sm", toneStyles[tone], labelStyles[tone])}>

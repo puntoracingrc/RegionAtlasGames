@@ -211,7 +211,11 @@ def planned_sources(platform_slug: str) -> list[tuple[str, Path]]:
         "ebay": INGEST_DIR / f"{platform_slug}{suffix}-ebay.json",
     }
     planned: list[tuple[str, Path]] = []
-    for source in ps.collectors_for_platform(platform_slug, ebay_configured=ebay_configured()):
+    for source in ps.collectors_for_platform(
+        platform_slug,
+        ebay_configured=ebay_configured(),
+        mode="rotation",
+    ):
         if source.startswith("generic:"):
             safe_source = re.sub(r"[^a-zA-Z0-9_-]+", "-", source.split(":", 1)[1]).strip("-").lower()
             path = INGEST_DIR / f"{platform_slug}{suffix}-{safe_source}.json"
@@ -220,6 +224,11 @@ def planned_sources(platform_slug: str) -> list[tuple[str, Path]]:
         if path is not None:
             planned.append((source, path))
     return planned
+
+
+def runnable_sources(platform_slug: str) -> list[tuple[str, Path]]:
+    skipped = daily_skip_sources()
+    return [item for item in planned_sources(platform_slug) if item[0] not in skipped]
 
 
 def collector_match_args() -> list[str]:
@@ -513,6 +522,11 @@ def main() -> None:
         action="store_true",
         help="Sync catálogo sin avanzar nextPlatformSlug",
     )
+    parser.add_argument(
+        "--allow-no-collectors",
+        action="store_true",
+        help="Finaliza correctamente si todas las fuentes de este paso están pausadas; no oculta fallos de fuentes activas.",
+    )
     args = parser.parse_args()
 
     rotation_step, platform_slugs, batch_label = resolve_rotation(args)
@@ -554,6 +568,10 @@ def main() -> None:
             f"Wallapop≤{wallapop_game_limit()} · retail≤{daily_retail_game_limit()} · "
             f"timeout collector={collector_timeout_seconds('jgo')}s máx aprox."
         )
+
+    if args.allow_no_collectors and not any(runnable_sources(platform_slug) for platform_slug in platform_slugs):
+        print("\nPausa controlada: este paso no tiene recolectores habilitados. Rotación no avanzada.")
+        return
 
     synced = 0
     platform_pause = platform_pause_seconds()
