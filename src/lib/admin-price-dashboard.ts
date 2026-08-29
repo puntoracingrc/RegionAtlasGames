@@ -2,7 +2,6 @@ import catalogData from "../../data/catalog.json";
 import platformsData from "../../data/platforms.json";
 import batchesData from "../../data/price-sync-batches.json";
 import priceSyncStateData from "../../data/price-sync-state.json";
-import path from "path";
 import {
   listAdminPriceJobs,
   priceWorkerPublicBaseUrl,
@@ -214,6 +213,7 @@ async function loadWorkerPriceSyncState(): Promise<PriceSyncState | null> {
   try {
     const response = await fetch(`${base}/app/data/price-sync-state.json`, {
       cache: "no-store",
+      signal: AbortSignal.timeout(3_000),
     });
     if (!response.ok) return null;
     return parseRemotePriceSyncState(await response.json());
@@ -239,6 +239,7 @@ async function listHostingPriceCronAttempts(
   try {
     const response = await fetch(`${base}/cron/price-rotation-attempts.json`, {
       cache: "no-store",
+      signal: AbortSignal.timeout(3_000),
     });
     if (!response.ok) return [];
     const data = (await response.json()) as {
@@ -266,6 +267,7 @@ async function loadHostingPriceCronLogTail(): Promise<string | null> {
   try {
     const response = await fetch(`${base}/cron/price-rotation.log`, {
       cache: "no-store",
+      signal: AbortSignal.timeout(3_000),
     });
     if (!response.ok) return null;
     const text = await response.text();
@@ -279,75 +281,6 @@ async function loadHostingPriceCronLogTail(): Promise<string | null> {
   }
 }
 
-function priceWorkerRemoteRoot(): string {
-  const explicit = process.env.PRICE_WORKER_REMOTE_DIR?.trim();
-  if (explicit) return explicit.replace(/^\/+|\/+$/g, "");
-  const coversRoot = (
-    process.env.COVERS_FTP_REMOTE_ROOT?.trim() ||
-    "MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers"
-  ).replace(/^\/+|\/+$/g, "");
-  if (/\/covers$/i.test(coversRoot)) return coversRoot.replace(/\/covers$/i, "/price-worker");
-  return `${coversRoot}/price-worker`;
-}
-
-function workerSftpConfig(): { host: string; port: number; username: string; password: string } | null {
-  const host = process.env.PRICE_WORKER_SFTP_HOST?.trim() || process.env.COVERS_FTP_HOST?.trim() || process.env.PRICE_WORKER_SSH_HOST?.trim();
-  const username = process.env.PRICE_WORKER_SFTP_USER?.trim() || process.env.COVERS_FTP_USER?.trim() || process.env.PRICE_WORKER_SSH_USER?.trim();
-  const password = process.env.PRICE_WORKER_SFTP_PASSWORD?.trim() || process.env.COVERS_FTP_PASSWORD?.trim() || process.env.PRICE_WORKER_SSH_PASSWORD?.trim();
-  if (!host || !username || !password) return null;
-  const portRaw = process.env.PRICE_WORKER_SFTP_PORT?.trim() || process.env.COVERS_FTP_PORT?.trim() || process.env.PRICE_WORKER_SSH_PORT?.trim();
-  const port = portRaw && Number.isFinite(Number(portRaw)) ? Number(portRaw) : 22;
-  return { host, port, username, password };
-}
-
-function envHasOpenAiKey(text: string): boolean {
-  return /^\s*OPENAI_API_KEY\s*=\s*\S+/m.test(text);
-}
-
-async function loadWorkerOpenAiConfigured(): Promise<{ configured: boolean | null; checkedAt: string | null }> {
-  const config = workerSftpConfig();
-  if (!config) return { configured: null, checkedAt: null };
-
-  const remoteRoot = priceWorkerRemoteRoot();
-  const candidates = [
-    path.posix.join(remoteRoot, "app", ".env.local"),
-    path.posix.join(remoteRoot, "app", ".env"),
-    path.posix.join(remoteRoot, ".env"),
-    path.posix.join(remoteRoot, "cron", "price_rotation.sh"),
-    ".region-atlas-cron/price_rotation.sh",
-  ];
-  let client:
-    | {
-        connect(config: Record<string, unknown>): Promise<void>;
-        exists(remotePath: string): Promise<boolean | "d" | "-" | "l">;
-        get(remotePath: string): Promise<Buffer | string>;
-        end(): Promise<void>;
-      }
-    | null = null;
-
-  try {
-    const mod = (await import("ssh2-sftp-client")) as unknown as {
-      default: new () => NonNullable<typeof client>;
-    };
-    client = new mod.default();
-    await client.connect({ ...config, readyTimeout: 20_000, retries: 1 });
-    for (const candidate of candidates) {
-      const exists = await client.exists(candidate).catch(() => false);
-      if (!exists) continue;
-      const payload = await client.get(candidate);
-      const text = Buffer.isBuffer(payload) ? payload.toString("utf8") : String(payload);
-      if (envHasOpenAiKey(text)) {
-        return { configured: true, checkedAt: new Date().toISOString() };
-      }
-    }
-    return { configured: false, checkedAt: new Date().toISOString() };
-  } catch {
-    return { configured: null, checkedAt: new Date().toISOString() };
-  } finally {
-    await client?.end().catch(() => undefined);
-  }
-}
-
 function latestAiSummary(state: PriceSyncState): AdminPriceAiSummary | null {
   return (
     Object.values(state.platforms ?? {})
@@ -357,6 +290,21 @@ function latestAiSummary(state: PriceSyncState): AdminPriceAiSummary | null {
           Date.parse(b.lastSyncAt ?? "") - Date.parse(a.lastSyncAt ?? ""),
       )[0]?.aiSummary ?? null
   );
+}
+
+function workerOpenAiTelemetry(state: PriceSyncState): {
+  configured: boolean | null;
+  checkedAt: string | null;
+} {
+  const latest = Object.values(state.platforms ?? {})
+    .filter((stats) => Boolean(stats.aiSummary))
+    .sort((a, b) => Date.parse(b.lastSyncAt ?? "") - Date.parse(a.lastSyncAt ?? ""))[0];
+  return {
+    configured: typeof latest?.aiSummary?.openAiConfigured === "boolean"
+      ? latest.aiSummary.openAiConfigured
+      : null,
+    checkedAt: latest?.lastSyncAt ?? null,
+  };
 }
 
 function buildAiStatus(
@@ -372,7 +320,7 @@ function buildAiStatus(
       checkedAt: workerOpenAi.checkedAt,
       label: "IA activa en worker",
       helper:
-        "El hosting externo tiene OPENAI_API_KEY cargada. El detalle por fuente aparecerá tras cada sync.",
+        "La última telemetría de sincronización confirma IA activa. El panel no abre una conexión SFTP para comprobar secretos.",
       sourceUsage,
       conditionVision: summary?.conditionVision ?? {},
     };
@@ -383,7 +331,7 @@ function buildAiStatus(
       checkedAt: workerOpenAi.checkedAt,
       label: "IA apagada en worker",
       helper:
-        "No se ha encontrado OPENAI_API_KEY en el worker externo; los collectors deben resolver sin IA.",
+        "La última telemetría indicó IA apagada; los recolectores resolvieron sin ella.",
       sourceUsage,
       conditionVision: summary?.conditionVision ?? {},
     };
@@ -393,7 +341,7 @@ function buildAiStatus(
     checkedAt: workerOpenAi.checkedAt,
     label: summary?.openAiConfigured ? "IA activa en sync" : "IA no comprobada",
     helper:
-      "No se pudo confirmar la variable del worker por SFTP. Se muestra el último resumen guardado si existe.",
+      "La última sincronización no dejó telemetría suficiente. No se consultan secretos del worker al abrir el panel.",
     sourceUsage,
     conditionVision: summary?.conditionVision ?? {},
   };
@@ -549,11 +497,15 @@ function platformHealth(state: PriceSyncState): AdminPlatformPriceHealth[] {
 export async function getAdminPriceDashboard(
   limit = 18,
 ): Promise<AdminPriceDashboard> {
-  const [workerState, workerOpenAi] = await Promise.all([
+  const [workerState, hostingAttempts, localAttempts, cronLogTail, manualJobs] = await Promise.all([
     loadWorkerPriceSyncState(),
-    loadWorkerOpenAiConfigured(),
+    listHostingPriceCronAttempts(12),
+    listAdminPriceCronAttempts(12),
+    loadHostingPriceCronLogTail(),
+    listAdminPriceJobs(limit),
   ]);
   const activeState = workerState ?? priceSyncState;
+  const workerOpenAi = workerOpenAiTelemetry(activeState);
   const recentSyncs = Object.entries(activeState.platforms ?? {})
     .map(([platformSlug, stats]) => ({
       platformSlug,
@@ -567,8 +519,8 @@ export async function getAdminPriceDashboard(
     .slice(0, limit);
 
   const cronAttempts = [
-    ...(await listHostingPriceCronAttempts(12)),
-    ...(await listAdminPriceCronAttempts(12)),
+    ...hostingAttempts,
+    ...localAttempts,
   ]
     .sort((a, b) => Date.parse(b.at) - Date.parse(a.at))
     .slice(0, 12);
@@ -577,13 +529,19 @@ export async function getAdminPriceDashboard(
     lastRunAt: activeState.lastRunAt ?? null,
     syncStateSource: workerState ? "worker" : "local",
     workerUrls: workerUrls(),
-    cronLogTail: await loadHostingPriceCronLogTail(),
+    cronLogTail,
     nextStep: resolveStep(activeState.nextPlatformSlug),
     recentSyncs,
     platformHealth: platformHealth(activeState),
-    manualJobs: await listAdminPriceJobs(limit),
+    manualJobs,
     cronAttempts,
     ebayStatus: buildEbayStatus(),
     aiStatus: buildAiStatus(workerOpenAi, latestAiSummary(activeState)),
   };
+}
+
+export async function getAdminPriceRotationTarget(): Promise<AdminPriceDashboard["nextStep"]> {
+  const workerState = await loadWorkerPriceSyncState();
+  const activeState = workerState ?? priceSyncState;
+  return resolveStep(activeState.nextPlatformSlug);
 }

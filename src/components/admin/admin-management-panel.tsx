@@ -1,6 +1,5 @@
 "use client";
 
-import type { ReactNode } from "react";
 import { useState } from "react";
 import { AdminCatalogSearchPanel } from "@/components/admin/admin-catalog-search-panel";
 import { AdminCatalogHygienePanel } from "@/components/admin/admin-catalog-hygiene-panel";
@@ -53,36 +52,10 @@ function optionClass(active: boolean): string {
   }`;
 }
 
-function entityTitle(entity: EntityKey): string {
-  return entities.find((item) => item.id === entity)?.label ?? entity;
-}
-
-function actionTitle(action: ActionKey): string {
-  return actions.find((item) => item.id === action)?.label ?? action;
-}
-
-function PendingPanel({
-  entity,
-  action,
-  children,
-}: {
-  entity: EntityKey;
-  action: ActionKey;
-  children: ReactNode;
-}) {
-  return (
-    <Panel className={adminToneClass("status")}>
-      <PanelTitle eyebrow={`${entityTitle(entity)} · ${actionTitle(action)}`}>
-        Acción pendiente de rematar
-      </PanelTitle>
-      <AdminNotice tone="status">{children}</AdminNotice>
-    </Panel>
-  );
-}
-
 export function AdminManagementPanel({ platforms, regions, companies, taxonomyOptions }: Props) {
   const [entity, setEntity] = useState<EntityKey>("games");
   const [action, setAction] = useState<ActionKey>("edit");
+  const actionApplies = entity === "games" || entity === "series" || entity === "platforms" || entity === "companies";
 
   function renderPanel() {
     if (entity === "games" && action === "create") {
@@ -103,10 +76,12 @@ export function AdminManagementPanel({ platforms, regions, companies, taxonomyOp
 
     if (entity === "games" && action === "delete") {
       return (
-        <PendingPanel entity={entity} action={action}>
-          Primero busca el juego en “Editar”. La eliminación definitiva de fichas publicadas necesita una
-          confirmación específica para no borrar catálogo por accidente.
-        </PendingPanel>
+        <div className="space-y-4">
+          <AdminNotice tone="status">
+            Busca la ficha y ábrela. El editor muestra la eliminación definitiva con su confirmación de seguridad.
+          </AdminNotice>
+          <AdminCatalogSearchPanel />
+        </div>
       );
     }
 
@@ -157,6 +132,9 @@ export function AdminManagementPanel({ platforms, regions, companies, taxonomyOp
                   className={optionClass(entity === item.id)}
                   onClick={() => {
                     setEntity(item.id);
+                    if (item.id === "taxonomy" || item.id === "hygiene" || item.id === "contributors") {
+                      setAction("edit");
+                    }
                   }}
                 >
                   <span className="block text-sm font-black">{item.label}</span>
@@ -168,26 +146,30 @@ export function AdminManagementPanel({ platforms, regions, companies, taxonomyOp
             </div>
           </section>
 
-          <section className="space-y-3">
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">2. Selecciona acción</p>
-            <div className="grid gap-3 md:grid-cols-3">
-              {actions.map((item) => {
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    className={optionClass(action === item.id)}
-                    onClick={() => setAction(item.id)}
-                  >
-                    <span className="block text-sm font-black">{item.label}</span>
-                    <span className={`mt-1 block text-xs leading-5 ${action === item.id ? "text-accent-fg/80" : "text-muted"}`}>
-                      {item.helper}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </section>
+          {actionApplies ? (
+            <section className="space-y-3">
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">2. Selecciona acción</p>
+              <div className="grid gap-3 md:grid-cols-3">
+                {actions.map((item) => {
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      className={optionClass(action === item.id)}
+                      onClick={() => setAction(item.id)}
+                    >
+                      <span className="block text-sm font-black">{item.label}</span>
+                      <span className={`mt-1 block text-xs leading-5 ${action === item.id ? "text-accent-fg/80" : "text-muted"}`}>
+                        {item.helper}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          ) : (
+            <p className="text-xs leading-5 text-muted">Esta sección tiene una única herramienta y se abre directamente.</p>
+          )}
         </div>
       </Panel>
 

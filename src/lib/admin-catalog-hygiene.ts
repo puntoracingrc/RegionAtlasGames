@@ -113,6 +113,7 @@ async function fetchWorkerJson<T>(relativePath: string): Promise<T | null> {
     const response = await fetch(`${base}/${relativePath.replace(/^\/+/, "")}`, {
       cache: "no-store",
       headers: { Accept: "application/json" },
+      signal: AbortSignal.timeout(3_000),
     });
     if (!response.ok) return null;
     return (await response.json()) as T;

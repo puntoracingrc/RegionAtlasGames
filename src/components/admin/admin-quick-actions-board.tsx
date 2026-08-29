@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AdminFunctionCard, type AdminVisualTone } from "@/components/admin/admin-visual";
+import type { AdminHealthSignal } from "@/lib/admin-operations-health";
 
 const STORAGE_KEY = "region-atlas-admin-quick-actions-order-v1";
 
@@ -51,12 +52,10 @@ function moveActionByStep(actions: AdminQuickAction[], href: string, step: -1 | 
 
 export function AdminQuickActionsBoard({
   actions,
-  hasPendingReview,
-  pendingReviewCount,
+  statuses,
 }: {
   actions: AdminQuickAction[];
-  hasPendingReview: boolean;
-  pendingReviewCount: number;
+  statuses?: Record<string, AdminHealthSignal>;
 }) {
   const [items, setItems] = useState(actions);
   const [draggingHref, setDraggingHref] = useState<string | null>(null);
@@ -99,8 +98,15 @@ export function AdminQuickActionsBoard({
   }
 
   function renderCard(action: AdminQuickAction, index: number) {
+    const status = statuses?.[action.href];
+    const cardTone: AdminVisualTone =
+      status?.level === "action"
+        ? "danger"
+        : status?.level === "watch"
+          ? "edit"
+          : action.tone;
     return (
-      <AdminFunctionCard tone={action.tone} className="relative h-full transition group-hover:shadow-sm">
+      <AdminFunctionCard tone={cardTone} className="relative h-full transition group-hover:shadow-sm">
         {isEditingOrder ? (
           <div className="absolute right-3 top-3 flex items-center gap-1">
             <button
@@ -134,17 +140,27 @@ export function AdminQuickActionsBoard({
             </span>
           </div>
         ) : null}
-        {action.href === "/admin/cola" && hasPendingReview ? (
-          <span
-            aria-label={`${pendingReviewCount} fichas pendientes de revisión`}
-            className="absolute right-3 top-3 h-3 w-3 rounded-full bg-red-500 shadow-[0_0_0_4px_rgba(239,68,68,0.16)]"
-          />
-        ) : null}
         <span className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 text-lg font-bold text-accent">
           {action.icon}
         </span>
         <p className="font-semibold text-foreground group-hover:text-accent">{action.title}</p>
         <p className="mt-1 text-xs leading-5 text-muted">{action.description}</p>
+        {!isEditingOrder && status ? (
+          <span
+            className={`mt-3 inline-flex max-w-full rounded-full border px-2 py-1 text-[10px] font-black leading-4 ${
+              status.level === "action"
+                ? "border-rose-300 bg-rose-600 text-white"
+                : status.level === "watch"
+                  ? "border-amber-300 bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200"
+                  : status.level === "paused"
+                    ? "border-border bg-background text-muted"
+                    : "border-emerald-300 bg-emerald-100 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200"
+            }`}
+            title={status.detail}
+          >
+            <span className="truncate">{status.label}</span>
+          </span>
+        ) : null}
       </AdminFunctionCard>
     );
   }

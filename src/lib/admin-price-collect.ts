@@ -293,6 +293,7 @@ export async function listAdminPriceJobs(limit = 20): Promise<AdminPriceJobMeta[
     .slice(0, limit);
   const refreshed = await Promise.all(
     jobs.map(async (job) => {
+      if (job.status !== "running") return inferRemoteJobErrorFromLog(job, job.logTail);
       const live = await readAdminPriceJob(job.jobId);
       const merged = live ? { ...job, ...live } : job;
       return inferRemoteJobErrorFromLog(merged, merged.logTail);
@@ -531,11 +532,17 @@ async function readRemotePriceJob(jobId: string): Promise<AdminPriceJobMeta | nu
   const config = remoteWorkerConfig();
   if (!config) return null;
   try {
-    const statusRes = await fetch(`${config.publicBaseUrl}/jobs/${encodeURIComponent(jobId)}.json`, { cache: "no-store" });
+    const statusRes = await fetch(`${config.publicBaseUrl}/jobs/${encodeURIComponent(jobId)}.json`, {
+      cache: "no-store",
+      signal: AbortSignal.timeout(3_000),
+    });
     if (!statusRes.ok) return null;
     const meta = (await statusRes.json()) as AdminPriceJobMeta;
     meta.jobId = meta.jobId || jobId;
-    const logRes = await fetch(`${config.publicBaseUrl}/logs/${encodeURIComponent(jobId)}.log`, { cache: "no-store" }).catch(() => null);
+    const logRes = await fetch(`${config.publicBaseUrl}/logs/${encodeURIComponent(jobId)}.log`, {
+      cache: "no-store",
+      signal: AbortSignal.timeout(3_000),
+    }).catch(() => null);
     if (logRes?.ok) {
       const log = await logRes.text();
       meta.logTail = log.slice(-80000);

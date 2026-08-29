@@ -4,6 +4,7 @@ from __future__ import annotations
 import os
 
 from collectors import platform_sources as ps
+from daily_price_ingest import runnable_sources
 
 
 def with_document(document):
@@ -20,7 +21,7 @@ def main() -> None:
     os.environ.pop("ENABLE_EBAY_PRICE_WHEEL", None)
     with_document(
         {
-            "platforms": {"ps4": {}},
+            "platforms": {"ps4": {"cex": ["100"]}},
             "collectorSettings": {
                 "sources": {
                     "wallapop": {"enabled": True, "enabledManual": True, "enabledRotation": False},
@@ -71,6 +72,25 @@ def main() -> None:
     assert_equal(ps.generic_source_enabled("rotation-shop", "ps4", mode="automatic"), True, "generic rotation on")
     assert_equal(ps.generic_source_enabled("legacy-shop", "ps4", mode="manual"), False, "generic legacy off manual")
     assert_equal(ps.generic_source_enabled("legacy-shop", "ps4", mode="automatic"), False, "generic legacy off rotation")
+    assert_equal(
+        [source for source, _path in runnable_sources("ps4")],
+        ["cex", "generic:rotation-shop"],
+        "daily runnable sources only include rotation mode",
+    )
+
+    with_document(
+        {
+            "platforms": {"ps4": {"cex": ["100"]}},
+            "collectorSettings": {
+                "sources": {
+                    "wallapop": {"enabled": False, "enabledManual": False, "enabledRotation": False},
+                    "cex": {"enabled": False, "enabledManual": False, "enabledRotation": False},
+                },
+                "customSources": [],
+            },
+        }
+    )
+    assert_equal(runnable_sources("ps4"), [], "paused rotation has no runnable collectors")
 
     ps._cache = None
     print("OK price source manual/rotation modes")

@@ -336,14 +336,36 @@ export function applyCatalogStagingGameTransition(
   }
 }
 
+export async function mapWithConcurrency<T, R>(
+  items: T[],
+  concurrency: number,
+  mapper: (item: T, index: number) => Promise<R>,
+): Promise<R[]> {
+  if (items.length === 0) return [];
+  const results = new Array<R>(items.length);
+  const workers = Math.min(items.length, Math.max(1, Math.min(32, Math.floor(concurrency) || 1)));
+  let cursor = 0;
+
+  await Promise.all(
+    Array.from({ length: workers }, async () => {
+      while (cursor < items.length) {
+        const index = cursor;
+        cursor += 1;
+        results[index] = await mapper(items[index], index);
+      }
+    }),
+  );
+  return results;
+}
+
 export async function listCatalogStagingGames(limit = 5000): Promise<CatalogStagingGame[]> {
   const index = await readCatalogStagingIndex();
-  const games: CatalogStagingGame[] = [];
-  for (const pcId of index.pcIds.slice(0, limit)) {
-    const game = await readCatalogStagingGame(pcId);
-    if (game) games.push(game);
-  }
-  return games;
+  const games = await mapWithConcurrency(
+    index.pcIds.slice(0, limit),
+    16,
+    (pcId) => readCatalogStagingGame(pcId),
+  );
+  return games.filter((game): game is CatalogStagingGame => Boolean(game));
 }
 
 export type CatalogStagingEnrichmentSelection = {

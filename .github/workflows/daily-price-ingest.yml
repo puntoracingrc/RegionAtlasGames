@@ -52,6 +52,7 @@ jobs:
           DAILY_SKIP_TODOCOLECCION: "1"
         run: |
           ARGS=()
+          ARGS+=(--allow-no-collectors)
           if [[ -n "${{ inputs.platform }}" ]]; then
             ARGS+=(--platform "${{ inputs.platform }}")
           fi

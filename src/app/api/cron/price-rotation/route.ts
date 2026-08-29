@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAdminPriceDashboard } from "@/lib/admin-price-dashboard";
+import { getAdminPriceRotationTarget } from "@/lib/admin-price-dashboard";
 import { startAdminPriceCollectJob } from "@/lib/admin-price-collect";
 import { recordAdminPriceCronAttempt } from "@/lib/admin-price-cron-log";
 import { cronRequestAuthorized } from "@/lib/cron-auth";
@@ -17,8 +17,8 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
   }
 
-  const dashboard = await getAdminPriceDashboard();
-  const step = dashboard.nextStep.slug;
+  const nextStep = await getAdminPriceRotationTarget();
+  const step = nextStep.slug;
   if (!step) {
     await recordAdminPriceCronAttempt({
       status: "error",
@@ -33,7 +33,7 @@ export async function GET(request: Request) {
     const attempt = await recordAdminPriceCronAttempt({
       status: "skipped",
       step,
-      label: dashboard.nextStep.label,
+      label: nextStep.label,
       message: "Prueba seca: cron verificado sin lanzar recolección.",
       userAgent,
     });
@@ -42,8 +42,8 @@ export async function GET(request: Request) {
       dryRun: true,
       attempt,
       step,
-      label: dashboard.nextStep.label,
-      platforms: dashboard.nextStep.platforms,
+      label: nextStep.label,
+      platforms: nextStep.platforms,
     });
   }
 
@@ -56,7 +56,7 @@ export async function GET(request: Request) {
     await recordAdminPriceCronAttempt({
       status: "error",
       step,
-      label: dashboard.nextStep.label,
+      label: nextStep.label,
       message: started.error,
       userAgent,
     });
@@ -66,7 +66,7 @@ export async function GET(request: Request) {
   await recordAdminPriceCronAttempt({
     status: "started",
     step,
-    label: dashboard.nextStep.label,
+    label: nextStep.label,
     jobId: started.jobId,
     message: "Recolección automática lanzada.",
     userAgent,
@@ -76,7 +76,7 @@ export async function GET(request: Request) {
     ok: true,
     jobId: started.jobId,
     step,
-    label: dashboard.nextStep.label,
-    platforms: dashboard.nextStep.platforms,
+    label: nextStep.label,
+    platforms: nextStep.platforms,
   });
 }

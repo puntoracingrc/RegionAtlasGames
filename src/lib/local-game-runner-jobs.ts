@@ -327,6 +327,7 @@ async function readQueueFromWorker(): Promise<LocalGameRunnerQueue | null> {
     const response = await fetch(`${priceWorkerPublicBaseUrl()}/app/data/admin/local-game-runner-jobs.json`, {
       cache: "no-store",
       headers: { Accept: "application/json" },
+      signal: AbortSignal.timeout(3_000),
     });
     if (!response.ok) return null;
     return normalizeQueue(await response.json());
