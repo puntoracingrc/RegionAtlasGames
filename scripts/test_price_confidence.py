@@ -14,6 +14,7 @@ from sync_es_prices import (  # noqa: E402
     MIN_VERIFIED_OBSERVATIONS,
     apply_condition_price_estimates,
     estimate_price,
+    merge_scoped_platform_run_state,
 )
 
 
@@ -86,6 +87,40 @@ def main() -> None:
     )
     assert verified["recommendedPrice"] == 25.0
     assert verified["priceRegionVerified"] is True
+
+    delivery_total = {
+        **base_game(),
+        "estimatedShippingToSpainSealed": 3.0,
+        "estimatedTotalToSpainSealed": 50.0,
+    }
+    assert apply_condition_price_estimates(
+        delivery_total,
+        [
+            (10.0, "sealed", "ebay-es"),
+            (14.0, "sealed", "wallapop"),
+        ],
+        synced_at="test",
+        pc_ref=None,
+    )
+    assert delivery_total["estimatedPriceSealed"] == 12.0
+    assert delivery_total["estimatedTotalToSpainSealed"] == 15.0
+
+    previous_platform = {
+        "lastSyncAt": "full-run",
+        "source": "eBay ES",
+        "gamesTargeted": 50,
+        "gamesUpdated": 20,
+    }
+    scoped = merge_scoped_platform_run_state(
+        previous_platform,
+        {"lastSyncAt": "single-game", "source": "Wallapop ES", "gamesTargeted": 1},
+        {"ps4-example"},
+    )
+    assert scoped["lastSyncAt"] == "full-run"
+    assert scoped["gamesTargeted"] == 50
+    assert scoped["lastScopedSync"]["scope"] == "catalog_ids"
+    assert scoped["lastScopedSync"]["catalogIds"] == ["ps4-example"]
+    assert scoped["lastScopedSync"]["source"] == "Wallapop ES"
 
     print("price confidence tests: OK")
 
