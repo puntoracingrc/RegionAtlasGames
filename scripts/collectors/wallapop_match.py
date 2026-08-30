@@ -37,6 +37,14 @@ UNMATCHED_EXTRA_RE = re.compile(
     r"\b(art[ -]?book|libro de arte|steelbook|figura|figurine|banda sonora|soundtrack|p[oó]ster)\b",
     re.I,
 )
+INCLUDED_ACCESSORY_RE = re.compile(
+    r"(?:"
+    r"\+\s*(?:\d+\s*)?(?:micr[oó]fon(?:o|os)?|micros?)"
+    r"|\bincluye(?:n)?\s+(?:(?:\d+|un|una|dos)\s+)?(?:micr[oó]fon(?:o|os)?|micros?)"
+    r"|\b(?:con|junto con)\s+(?:(?:\d+|un|una|dos)\s+)(?:micr[oó]fon(?:o|os)?|micros?)"
+    r")\b",
+    re.I,
+)
 EXTRA_EDITION_RE = re.compile(
     r"\b(collector|coleccionista|limited|limitada|special|especial|deluxe|art[ -]?book|steelbook)\b",
     re.I,
@@ -65,7 +73,7 @@ def listing_has_unmatched_extras(product: dict[str, Any], game: dict[str, Any]) 
     listing_text = " ".join(
         str(product.get(key) or "") for key in ("title", "description", "characteristics")
     )
-    if not UNMATCHED_EXTRA_RE.search(listing_text):
+    if not (UNMATCHED_EXTRA_RE.search(listing_text) or INCLUDED_ACCESSORY_RE.search(listing_text)):
         return False
     catalog_text = f"{game.get('title') or ''} {game.get('edition') or ''}"
     return not EXTRA_EDITION_RE.search(catalog_text)

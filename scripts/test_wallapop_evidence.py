@@ -183,6 +183,20 @@ def test_unmatched_extras() -> None:
         },
         {"title": "13 Sentinels: Aegis Rim Collector's Edition", "edition": "collector"},
     )
+    assert listing_has_unmatched_extras(
+        {
+            "title": "Videojuego PS4 40 Principales Karaoke Party Vol.2 + microfon",
+            "description": "Incluye micros con signos de uso.",
+        },
+        {"title": "40 Principales Karaoke Party Vol.2", "edition": "standard"},
+    )
+    assert not listing_has_unmatched_extras(
+        {
+            "title": "40 Principales Karaoke Party Vol.2 PS4",
+            "description": "Juego compatible con micrófonos USB.",
+        },
+        {"title": "40 Principales Karaoke Party Vol.2", "edition": "standard"},
+    )
 
 
 def test_physical_editions_never_share_a_catalog_match() -> None:
@@ -605,6 +619,22 @@ def test_regional_packaging_becomes_reusable_engine_evidence() -> None:
     assert "PAL Europa: portada y contraportada en inglés y francés" in prompt
 
 
+def test_verified_packaging_rules_for_current_wallapop_reviews() -> None:
+    catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
+    by_id = {str(game.get("id") or ""): game for game in catalog}
+
+    ace = by_id["ps4-ace-combat-7-skies-unknown"]
+    ace_prompt = regional_packaging_prompt(ace.get("regionalPackaging"))
+    assert "PAL España: contraportada en español y portugués" in ace_prompt
+    assert "PAL Francia: contraportada en francés" in ace_prompt
+    assert "PAL Italia: portada en italiano" in ace_prompt
+
+    karaoke = by_id["ps4-40-principales-karaoke-party-vol-2"]
+    karaoke_prompt = regional_packaging_prompt(karaoke.get("regionalPackaging"))
+    assert "PAL España: portada y contraportada en español" in karaoke_prompt
+    assert karaoke.get("manualExpected") is None
+
+
 def main() -> None:
     test_detail_parser()
     test_condition_language()
@@ -621,6 +651,7 @@ def main() -> None:
     test_manual_expectation_respects_console_generation()
     test_original_contents_are_learned_from_accepted_review()
     test_regional_packaging_becomes_reusable_engine_evidence()
+    test_verified_packaging_rules_for_current_wallapop_reviews()
     print("OK Wallapop evidence v2")
 
 
