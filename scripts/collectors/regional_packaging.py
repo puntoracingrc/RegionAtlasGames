@@ -17,6 +17,8 @@ LANGUAGE_LABELS = {
     "zh": "chino",
 }
 
+RATING_SYSTEMS = {"PEGI", "ESRB", "CERO", "USK"}
+
 
 def _languages(value: Any) -> list[str]:
     if not isinstance(value, list):
@@ -40,13 +42,16 @@ def normalize_regional_packaging(value: Any) -> list[dict[str, Any]]:
         region = str(item.get("region") or "").strip()
         if not region or region.lower() in seen:
             continue
+        raw_rating = str(item.get("ratingSystem") or "").strip().upper()
+        rating_system = raw_rating if raw_rating in RATING_SYSTEMS else None
         front = _languages(item.get("frontCoverLanguages"))
         back = _languages(item.get("backCoverLanguages"))
-        if not front and not back:
+        if not rating_system and not front and not back:
             continue
         variants.append(
             {
                 "region": region,
+                "ratingSystem": rating_system,
                 "frontCoverLanguages": front,
                 "backCoverLanguages": back,
             }
@@ -70,18 +75,25 @@ def regional_packaging_prompt(value: Any) -> str:
         return ""
     lines = ["Señales regionales ya verificadas para esta ficha:"]
     for variant in variants:
+        rating_system = variant["ratingSystem"]
         front = variant["frontCoverLanguages"]
         back = variant["backCoverLanguages"]
+        parts: list[str] = []
+        if rating_system:
+            parts.append(f"clasificación {rating_system} en la portada")
         if front and front == back:
-            detail = f"portada y contraportada en {_language_list(front)}"
+            parts.append(f"portada y contraportada en {_language_list(front)}")
         else:
-            parts: list[str] = []
             if front:
                 parts.append(f"portada en {_language_list(front)}")
             if back:
                 parts.append(f"contraportada en {_language_list(back)}")
-            detail = "; ".join(parts)
+        detail = "; ".join(parts)
         lines.append(f"- {variant['region']}: {detail}.")
+    lines.append(
+        "PEGI solo confirma Europa: dentro de esa familia decide la variante nacional por la contraportada."
+    )
+    lines.append("ESRB identifica USA, CERO Japón y USK Alemania.")
     lines.append("Compara estas señales con las fotos actuales; no las atribuyas a otra edición física.")
     return "\n".join(lines)
 

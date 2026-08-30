@@ -195,6 +195,8 @@ export type Platform = {
 
 export type RegionalPackagingVariant = {
   region: string;
+  /** Sistema de clasificación visible en la portada física. */
+  ratingSystem?: "PEGI" | "ESRB" | "CERO" | "USK" | null;
   /** Idiomas visibles en la portada física, expresados como códigos ISO cortos. */
   frontCoverLanguages?: string[] | null;
   /** Idiomas visibles en la contraportada física, expresados como códigos ISO cortos. */

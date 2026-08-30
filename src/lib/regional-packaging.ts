@@ -13,6 +13,16 @@ const LANGUAGE_LABELS: Record<string, string> = {
   zh: "chino",
 };
 
+const RATING_SYSTEMS = new Set(["PEGI", "ESRB", "CERO", "USK"] as const);
+
+function normalizeRatingSystem(value: unknown): RegionalPackagingVariant["ratingSystem"] {
+  if (typeof value !== "string") return null;
+  const ratingSystem = value.trim().toUpperCase();
+  return RATING_SYSTEMS.has(ratingSystem as "PEGI" | "ESRB" | "CERO" | "USK")
+    ? ratingSystem as "PEGI" | "ESRB" | "CERO" | "USK"
+    : null;
+}
+
 function normalizeLanguages(value: unknown): string[] {
   if (!Array.isArray(value)) return [];
   return [...new Set(
@@ -32,10 +42,11 @@ export function normalizeRegionalPackaging(value: unknown): RegionalPackagingVar
     const candidate = item as Record<string, unknown>;
     const region = typeof candidate.region === "string" ? candidate.region.trim() : "";
     if (!region || seen.has(region.toLowerCase())) continue;
+    const ratingSystem = normalizeRatingSystem(candidate.ratingSystem);
     const frontCoverLanguages = normalizeLanguages(candidate.frontCoverLanguages);
     const backCoverLanguages = normalizeLanguages(candidate.backCoverLanguages);
-    if (frontCoverLanguages.length === 0 && backCoverLanguages.length === 0) continue;
-    variants.push({ region, frontCoverLanguages, backCoverLanguages });
+    if (!ratingSystem && frontCoverLanguages.length === 0 && backCoverLanguages.length === 0) continue;
+    variants.push({ region, ratingSystem, frontCoverLanguages, backCoverLanguages });
     seen.add(region.toLowerCase());
   }
 
@@ -50,15 +61,20 @@ function formatLanguageList(languages: string[]): string {
 }
 
 export function describeRegionalPackagingVariant(variant: RegionalPackagingVariant): string {
+  const ratingSystem = normalizeRatingSystem(variant.ratingSystem);
   const front = normalizeLanguages(variant.frontCoverLanguages);
   const back = normalizeLanguages(variant.backCoverLanguages);
   if (front.length > 0 && JSON.stringify(front) === JSON.stringify(back)) {
-    return `Portada y contraportada en ${formatLanguageList(front)}.`;
+    const languageDetail = `portada y contraportada en ${formatLanguageList(front)}`;
+    return ratingSystem
+      ? `Clasificación ${ratingSystem} en la portada; ${languageDetail}.`
+      : `${languageDetail[0].toUpperCase()}${languageDetail.slice(1)}.`;
   }
 
   const parts: string[] = [];
-  if (front.length > 0) parts.push(`Portada en ${formatLanguageList(front)}`);
-  if (back.length > 0) parts.push(`contraportada en ${formatLanguageList(back)}`);
+  if (ratingSystem) parts.push(`Clasificación ${ratingSystem} en la portada`);
+  if (front.length > 0) parts.push(`${parts.length > 0 ? "portada" : "Portada"} en ${formatLanguageList(front)}`);
+  if (back.length > 0) parts.push(`${parts.length > 0 ? "contraportada" : "Contraportada"} en ${formatLanguageList(back)}`);
   return `${parts.join("; ")}.`;
 }
 

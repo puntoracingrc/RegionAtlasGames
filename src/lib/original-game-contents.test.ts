@@ -59,18 +59,21 @@ test("admin price patch stores only supported original contents", () => {
 
 test("regional packaging keeps concrete cover-language evidence", () => {
   const variants = normalizeRegionalPackaging([
-    { region: "PAL España", frontCoverLanguages: ["ES"], backCoverLanguages: ["es"] },
-    { region: "PAL Europa", frontCoverLanguages: ["en", "fr"], backCoverLanguages: ["en", "fr"] },
+    { region: "PAL España", ratingSystem: "pegi", frontCoverLanguages: ["ES"], backCoverLanguages: ["es"] },
+    { region: "PAL Europa", ratingSystem: "PEGI", frontCoverLanguages: ["en", "fr"], backCoverLanguages: ["en", "fr"] },
     { region: "PAL Europa", frontCoverLanguages: ["de"] },
+    { region: "PAL Alemania", ratingSystem: "usk" },
   ]);
 
-  assert.equal(variants.length, 2);
+  assert.equal(variants.length, 3);
+  assert.equal(variants[0].ratingSystem, "PEGI");
   assert.equal(
     describeRegionalPackagingVariant(variants[0]),
-    "Portada y contraportada en español.",
+    "Clasificación PEGI en la portada; portada y contraportada en español.",
   );
+  assert.equal(describeRegionalPackagingVariant(variants[2]), "Clasificación USK en la portada.");
   assert.equal(
     describeRegionalPackagingComparison(variants),
-    "PAL España: Portada y contraportada en español. PAL Europa: Portada y contraportada en inglés y francés.",
+    "PAL España: Clasificación PEGI en la portada; portada y contraportada en español. PAL Europa: Clasificación PEGI en la portada; portada y contraportada en inglés y francés. PAL Alemania: Clasificación USK en la portada.",
   );
 });

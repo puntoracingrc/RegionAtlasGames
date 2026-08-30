@@ -45,7 +45,7 @@ DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 MIN_CONFIDENCE = float(os.environ.get("REGION_VISION_MIN_CONFIDENCE", "0.82"))
 MAX_IMAGES = max(1, min(8, int(os.environ.get("REGION_VISION_MAX_IMAGES", "8"))))
-REGION_COVER_VISION_POLICY = "region_cover_vision_v6_regional_packaging"
+REGION_COVER_VISION_POLICY = "region_cover_vision_v7_rating_system_back_cover"
 
 REGION_ALIASES = {
     "pal europa": "PAL Europa",
@@ -57,6 +57,18 @@ REGION_ALIASES = {
     "pal uk/eng": "PAL UK/ENG",
     "pal uk": "PAL UK/ENG",
     "uk": "PAL UK/ENG",
+    "pal francia": "PAL Francia",
+    "pal france": "PAL Francia",
+    "francia": "PAL Francia",
+    "france": "PAL Francia",
+    "pal italia": "PAL Italia",
+    "pal italy": "PAL Italia",
+    "italia": "PAL Italia",
+    "italy": "PAL Italia",
+    "pal alemania": "PAL Alemania",
+    "pal germany": "PAL Alemania",
+    "alemania": "PAL Alemania",
+    "germany": "PAL Alemania",
     "usa": "USA",
     "ntsc-u": "USA",
     "us": "USA",
@@ -73,6 +85,9 @@ EVIDENCE_FOR_REGION: dict[str, list[str]] = {
     "USA": ["cover_usa"],
     "Japón": ["cover_japan"],
     "PAL UK/ENG": ["cover_pal_eu", "photo_region_mark"],
+    "PAL Francia": ["cover_pal_eu", "photo_region_mark"],
+    "PAL Italia": ["cover_pal_eu", "photo_region_mark"],
+    "PAL Alemania": ["cover_pal_eu", "photo_region_mark"],
 }
 
 
@@ -217,9 +232,9 @@ def classify_region_from_cover(
                 f"{', '.join(original_contents_expected or []) or 'por confirmar'}\n"
                 f"{packaging_block}"
                 f"Fuente: {source}\n\n"
-                "Mira la(s) foto(s) del anuncio (carátula, caja, contraportada con PEGI/ESRB/código regional).\n"
+                "Mira la(s) foto(s) del anuncio (carátula, caja, contraportada, sistema de clasificación y código regional).\n"
                 "Responde JSON:\n"
-                '{"isTargetGame":bool,"listingRegion":"PAL Europa|PAL España|PAL UK/ENG|USA|Japón|unknown",'
+                '{"isTargetGame":bool,"listingRegion":"PAL Europa|PAL España|PAL UK/ENG|PAL Francia|PAL Italia|PAL Alemania|USA|Japón|unknown",'
                 '"regionMatchesCatalog":bool,'
                 '"evidence":["cover_japan"|"cover_usa"|"cover_pal_eu"|"cover_spain"|"photo_region_mark"],'
                 '"condition":"loose|game_manual|complete|sealed|null","confidence":0-1,"reason":"..."}\n\n'
@@ -229,10 +244,12 @@ def classify_region_from_cover(
                 "- Collector's, Limited, Deluxe, Steelbook y otras ediciones son fichas distintas. Comprueba el texto impreso en la portada/caja y no las mezcles con la estándar.\n"
                 "- Cree las afirmaciones explícitas del título/descripción sobre región física y estado. Si el estado no está declarado, resuélvelo con las fotos.\n"
                 "- 'juego en español', voces o subtítulos en español describen idioma jugable y NO prueban PAL España.\n"
-                "- PEGI solo prueba familia PAL europea; no distingue España de UK.\n"
+                "- Sistemas de portada: PEGI→Europa, ESRB→USA, CERO→Japón y USK→Alemania.\n"
+                "- PEGI solo prueba familia PAL europea; nunca lo conviertas por sí solo en PAL España.\n"
+                "- Dentro de PEGI, usa principalmente el idioma de la contraportada para distinguir la variante: española/portuguesa, francesa, italiana, inglesa u otra.\n"
                 "- Contraportada/caja predominantemente española o código/distribuidor ES→PAL España.\n"
                 "- Contraportada solo inglesa + PEGI→PAL UK/ENG; varios idiomas→PAL Europa/multirregión.\n"
-                "- Katakana/kanji y códigos japoneses→Japón; ESRB/código USA→USA.\n"
+                "- Katakana/kanji, CERO o códigos japoneses→Japón; ESRB/código USA→USA; USK→PAL Alemania.\n"
                 "- regionMatchesCatalog=true si la edición visible encaja con la región del catálogo.\n"
                 "- evidence: códigos que justifiquen la región vista (mínimo uno válido).\n"
                 "- condition: loose si solo está el juego/cartucho/disco; game_manual si hay juego + manual sin caja; complete si está abierto pero conserva todo el contenido original; sealed solo si el film de fábrica intacto es visible.\n"
