@@ -10,6 +10,7 @@ import {
   type PriceReviewItem,
 } from "./admin-price-review";
 import { todoConsolasListingMetadata } from "./todoconsolas-listing";
+import { buildCollectorLearningSnapshot } from "./collector-learning";
 
 function review(overrides: Partial<PriceReviewItem> = {}): PriceReviewItem {
   return {
@@ -179,4 +180,84 @@ test("keeps EU, IT and PL as distinct TodoConsolas regional signals", () => {
     fullySpanishVersion: false,
   });
   assert.equal(todoConsolasListingMetadata("Juego PS5 (AS)", "ps5").detectedRegion, "Asia");
+});
+
+test("publishes only approved, distilled collector learning", () => {
+  const snapshot = buildCollectorLearningSnapshot({
+    items: [
+      review({
+        id: "accepted-wallapop",
+        status: "accepted",
+        source: "wallapop",
+        candidateCatalogId: "ps4-13-sentinels-aegis-rim",
+        listingTitle: "Seller title that must not be published",
+        evidence: {
+          url: "https://example.test/private-listing",
+          description: "Seller description that must not be published",
+          imageUrls: ["https://cdn.example.test/front.jpg", "http://unsafe.example.test/back.jpg"],
+          regionEvidence: ["cover_spain"],
+          searchQuery: "13 Sentinels PS4",
+        },
+        decidedAt: "2026-08-30T10:00:00Z",
+        decision: {
+          action: "accept",
+          catalogId: "ps4-13-sentinels-aegis-rim",
+          region: "PAL España",
+          condition: "complete",
+          note: "Contraportada española comprobada.",
+          originalContents: [],
+        },
+      }),
+      review({
+        id: "accepted-ebay",
+        status: "accepted",
+        source: "ebay-es",
+        candidateCatalogId: "ps4-13-sentinels-aegis-rim",
+        evidence: { searchQuery: "13 Sentinels Aegis Rim" },
+        decidedAt: "2026-08-30T11:00:00Z",
+        decision: {
+          action: "accept",
+          catalogId: "ps4-13-sentinels-aegis-rim",
+          region: "PAL España",
+          condition: "sealed",
+        },
+      }),
+      review({
+        id: "rejected",
+        status: "rejected",
+        source: "wallapop",
+        candidateCatalogId: "ps4-13-sentinels-aegis-rim",
+        evidence: { searchQuery: "bad query" },
+        decision: { action: "reject" },
+      }),
+    ],
+  }, "2026-08-30T12:00:00Z");
+
+  const learned = snapshot.games["ps4-13-sentinels-aegis-rim"];
+  assert.equal(learned.manualExpected, false);
+  assert.deepEqual(learned.originalContentsExpected, []);
+  assert.deepEqual(learned.successfulQueries.wallapop.map((row) => row.query), ["13 Sentinels PS4"]);
+  assert.deepEqual(learned.successfulQueries["ebay-es"].map((row) => row.query), ["13 Sentinels Aegis Rim"]);
+  const wallapopExample = learned.approvedExamples.find((row) => row.source === "wallapop");
+  const ebayExample = learned.approvedExamples.find((row) => row.source === "ebay-es");
+  assert.deepEqual(wallapopExample?.imageUrls, ["https://cdn.example.test/front.jpg"]);
+  assert.deepEqual(ebayExample?.imageUrls, []);
+  const serialized = JSON.stringify(snapshot);
+  assert.equal(serialized.includes("private-listing"), false);
+  assert.equal(serialized.includes("Seller description"), false);
+  assert.equal(serialized.includes("Seller title"), false);
+  assert.equal(serialized.includes("bad query"), false);
+
+  const opaqueId = "ps4-asterix-&amp;-obelix";
+  const opaqueSnapshot = buildCollectorLearningSnapshot({
+    items: [review({
+      id: "opaque-id",
+      status: "accepted",
+      source: "wallapop",
+      candidateCatalogId: opaqueId,
+      decision: { action: "accept", catalogId: opaqueId, region: "PAL España" },
+    })],
+  });
+  assert.ok(opaqueSnapshot.games[opaqueId]);
+  assert.equal(opaqueSnapshot.games["ps4-asterix-&-obelix"], undefined);
 });

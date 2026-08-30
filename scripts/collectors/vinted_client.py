@@ -269,7 +269,7 @@ def fetch_game_products(
 ) -> list[dict[str, Any]]:
     seen: set[str] = set()
     products: list[dict[str, Any]] = []
-    for query in build_search_queries(game):
+    for query in build_search_queries(game, source="vinted-es"):
         for product in fetch_search_products(
             query,
             session,

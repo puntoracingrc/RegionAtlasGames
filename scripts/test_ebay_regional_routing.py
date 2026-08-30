@@ -50,6 +50,7 @@ def report() -> dict:
         "skippedAuctions": 0,
         "listingCacheHits": 0,
         "skippedReference": 0,
+        "skippedPhysicalEdition": 0,
         "skippedRules": 0,
         "skippedTitle": 0,
         "matchedReference": 0,
@@ -253,6 +254,25 @@ def main() -> None:
     assert conflicting.reason == "regional_signal_conflict"
     assert conflicting.detected_region is None
 
+    edition_report = report()
+    edition_review = process_ebay_item(
+        item("Example Game Collector's Edition PS4"),
+        game=target,
+        platform_slug="ps4",
+        catalog_id=target["id"],
+        catalog_region=target["region"],
+        regional_family_games=games,
+        catalog_by_id=by_id,
+        ref_to_ids={},
+        use_listing_cache=False,
+        report=edition_report,
+    )
+    assert edition_review and edition_review.review_only
+    assert edition_review.row["regionReviewReason"] == "physical_edition_mismatch"
+    assert edition_review.row["detectedPhysicalEdition"] == "collector"
+    assert edition_review.row["targetPhysicalEdition"] == "standard"
+    assert edition_report["skippedPhysicalEdition"] == 1
+
     with patch(
         "collectors.listing_region_enrich.enrich_listing_region_from_cover",
         return_value=(
@@ -263,9 +283,9 @@ def main() -> None:
             "complete",
             ["cover_vision_verified"],
         ),
-    ):
+    ) as cover_vision:
         processed = process_ebay_item(
-            item("Example Game PS4 Japan"),
+            {**item("Example Game PS4 Japan"), "searchQuery": "Example Game"},
             game=target,
             platform_slug="ps4",
             catalog_id=target["id"],
@@ -279,10 +299,12 @@ def main() -> None:
     assert processed and processed.rerouted and not processed.review_only
     assert processed.row["catalogId"] == japan["id"]
     assert processed.row["regionalReroutedFromCatalogId"] == target["id"]
+    assert processed.row["searchQuery"] == "Example Game"
+    assert cover_vision.call_args.kwargs["catalog_id"] == japan["id"]
 
     with patch.dict(os.environ, {"REGION_VISION_DISABLED": "1"}):
         hinted = process_ebay_item(
-            item("Example Game PS4", origin="JP"),
+            {**item("Example Game PS4", origin="JP"), "searchQuery": "Example Game"},
             game=target,
             platform_slug="ps4",
             catalog_id=target["id"],
@@ -308,6 +330,7 @@ def main() -> None:
     assert review_item["catalogId"] is None
     assert review_item["candidateCatalogId"] == japan["id"]
     assert review_item["evidence"]["searchedCatalogId"] == target["id"]
+    assert review_item["evidence"]["searchQuery"] == "Example Game"
 
     selected = {target["id"], japan["id"]}
     assert catalog_game_in_write_scope(

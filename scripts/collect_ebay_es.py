@@ -27,7 +27,7 @@ from build_ingest_template import validate_ingest  # noqa: E402
 from collectors.cache_policy import attach_policy_version  # noqa: E402
 from collectors.common import (  # noqa: E402
     INGEST_DIR,
-    build_ebay_search_query,
+    build_ebay_search_queries,
     es_market_games,
     load_json,
     load_platforms,
@@ -44,6 +44,12 @@ from collectors.ebay_game_cache import (  # noqa: E402
 )
 from collectors.ebay_listing_cache import read_listing_cache, write_listing_cache  # noqa: E402
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
+from collectors.physical_edition import (  # noqa: E402
+    catalog_physical_edition,
+    listing_physical_edition,
+    physical_edition_label,
+    physical_editions_match,
+)
 from collectors.regional_variant_routing import (  # noqa: E402
     RegionalRouteDecision,
     regional_variants_for,
@@ -155,6 +161,8 @@ def _review_row(
         "externalId": item.get("itemId"),
         "productUrl": item.get("url"),
         "imageUrl": item.get("imageUrl"),
+        "imageUrls": item.get("imageUrls"),
+        "searchQuery": item.get("searchQuery"),
         "shippingEur": item.get("shippingEur"),
         "estimatedTotalToSpainEur": item.get("estimatedTotalToSpainEur"),
         "originalPrice": item.get("originalPrice"),
@@ -274,6 +282,40 @@ def process_ebay_item(
 
     listing_type = "sold" if item.get("_listingType") == "sold" else "active"
     item_title = str(item.get("title") or "")
+    if not physical_editions_match(item, game):
+        report["skippedPhysicalEdition"] += 1
+        edition_decision = RegionalRouteDecision(
+            kind="review",
+            reason="physical_edition_mismatch",
+        )
+        row = _review_row(
+            item,
+            game=game,
+            decision=edition_decision,
+            catalog_by_id=catalog_by_id,
+            reason="physical_edition_mismatch",
+        )
+        row["detectedPhysicalEdition"] = physical_edition_label(
+            listing_physical_edition(item)
+        )
+        row["targetPhysicalEdition"] = physical_edition_label(
+            catalog_physical_edition(game)
+        )
+        if use_listing_cache:
+            write_listing_cache(
+                item,
+                platform_slug=platform_slug,
+                catalog_id=catalog_id,
+                accepted=True,
+                row=row,
+            )
+        return ProcessedEbayItem(
+            row=row,
+            target_matched=False,
+            review_only=True,
+            rerouted=False,
+        )
+
     decision = resolve_regional_route(
         target=game,
         listing_title=item_title,
@@ -342,7 +384,10 @@ def process_ebay_item(
         platform_slug=platform_slug,
         product_url=str(item.get("url") or ""),
         image_url=str(item.get("imageUrl") or "") or None,
-        game_title=str(game.get("title") or ""),
+        image_urls=[str(url) for url in (item.get("imageUrls") or []) if url],
+        game_title=str(destination.get("title") or game.get("title") or ""),
+        catalog_game=destination,
+        search_query=str(item.get("searchQuery") or "") or None,
         shipping_eur=item.get("shippingEur"),
         total_to_spain_eur=item.get("estimatedTotalToSpainEur"),
         original_price=item.get("originalPrice"),
@@ -675,6 +720,7 @@ def main() -> None:
         "skippedRules": 0,
         "skippedTitle": 0,
         "skippedReference": 0,
+        "skippedPhysicalEdition": 0,
         "skippedAuctions": 0,
         "skippedDuplicates": 0,
         "matchedReference": 0,
@@ -690,6 +736,7 @@ def main() -> None:
         "catalogIdsFailed": [],
         "regionalRoutedCatalogIds": [],
         "regionalRerouteDetails": [],
+        "catalogSearchAttempts": [],
     }
     seen_listing_ids: set[str] = set()
 
@@ -702,7 +749,8 @@ def main() -> None:
     for idx, game in enumerate(games, start=1):
         catalog_id = game["id"]
         catalog_region = game.get("region") or ""
-        query = build_ebay_search_query(game)
+        queries = build_ebay_search_queries(game)
+        query = queries[0]
         regional_family_games = [
             candidate
             for candidate in platform_games
@@ -724,37 +772,57 @@ def main() -> None:
                 cached = load_game_cache(cache_file)
                 if cached:
                     raw_items = list(cached.get("items") or [])
+                    query = str(cached.get("query") or query)
+                    for item in raw_items:
+                        item.setdefault("searchQuery", query)
                     report["backend"] = cached.get("backend")
                     report["gameCacheHits"] += 1
                     used_game_cache = True
 
             if not raw_items:
-                for mode_idx, (is_sold, label) in enumerate(modes):
-                    try:
-                        items, backend = search_ebay_es(
-                            query,
-                            catalog_region=catalog_region,
-                            destination_postal_code=args.destination_postal_code,
-                            sold=is_sold,
-                            max_results=args.per_game,
-                        )
-                    except RuntimeError as exc:
-                        report["errors"].append(
-                            {
-                                "catalogId": catalog_id,
-                                "mode": label,
-                                "error": str(exc),
-                            }
-                        )
-                        print(f"  [{idx}/{len(games)}] AVISO {catalog_id} ({label}): {exc}")
-                        if len(modes) == 1:
-                            raise
-                        continue
-                    report["backend"] = backend
-                    for item in items:
-                        item["_listingType"] = label
-                    raw_items.extend(items)
-                    if idx < len(games) or mode_idx < len(modes) - 1:
+                for query_idx, candidate_query in enumerate(queries):
+                    candidate_items: list[dict[str, Any]] = []
+                    for mode_idx, (is_sold, label) in enumerate(modes):
+                        try:
+                            items, backend = search_ebay_es(
+                                candidate_query,
+                                catalog_region=catalog_region,
+                                destination_postal_code=args.destination_postal_code,
+                                sold=is_sold,
+                                max_results=args.per_game,
+                            )
+                        except RuntimeError as exc:
+                            report["errors"].append(
+                                {
+                                    "catalogId": catalog_id,
+                                    "mode": label,
+                                    "query": candidate_query,
+                                    "error": str(exc),
+                                }
+                            )
+                            print(f"  [{idx}/{len(games)}] AVISO {catalog_id} ({label}): {exc}")
+                            if len(modes) == 1:
+                                raise
+                            continue
+                        report["backend"] = backend
+                        for item in items:
+                            item["_listingType"] = label
+                            item["searchQuery"] = candidate_query
+                        candidate_items.extend(items)
+                        if mode_idx < len(modes) - 1:
+                            time.sleep(args.delay)
+                    report["catalogSearchAttempts"].append(
+                        {
+                            "catalogId": catalog_id,
+                            "query": candidate_query,
+                            "results": len(candidate_items),
+                        }
+                    )
+                    if candidate_items:
+                        query = candidate_query
+                        raw_items = candidate_items
+                        break
+                    if query_idx < len(queries) - 1:
                         time.sleep(args.delay)
                 if not args.dry_run:
                     save_json(
@@ -859,6 +927,7 @@ def main() -> None:
         f"game-cache hits: {report['gameCacheHits']} · "
         f"ref. SKU: {report['matchedReference']} · "
         f"rechazados ref.: {report['skippedReference']} · "
+        f"edición física a revisión: {report['skippedPhysicalEdition']} · "
         f"subastas activas descartadas: {report['skippedAuctions']} · "
         f"redirigidos: {report['regionalReroutes']} · "
         f"revisión regional: {report['regionalReviewCandidates']} · "

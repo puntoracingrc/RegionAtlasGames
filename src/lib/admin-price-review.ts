@@ -3,6 +3,7 @@ import path from "path";
 import { appDataDir } from "./app-data-dir";
 import { canWriteCatalogFiles } from "./admin-auth";
 import { clonePublishedCatalogGameToRegion, mergePublishedCatalogGames, updatePublishedCatalogPrices } from "./admin-catalog-publish";
+import { buildCollectorLearningSnapshot } from "./collector-learning";
 import { priceWorkerPublicBaseUrl } from "./admin-price-collect";
 import { getCoverSrc } from "./cover-url";
 import { todoConsolasListingMetadata } from "./todoconsolas-listing";
@@ -83,6 +84,7 @@ export type PriceReviewItem = {
     sourceRegionLabel?: string | null;
     gameKeyCard?: boolean | null;
     fullySpanishVersion?: boolean | null;
+    searchQuery?: string | null;
   };
   catalogPreview?: {
     id: string;
@@ -317,10 +319,16 @@ function workerSftpConfig(): { host: string; port: number; username: string; pas
 
 async function writeQueue(queue: PriceReviewQueue): Promise<{ workerSynced: boolean; error?: string }> {
   queue.updatedAt = new Date().toISOString();
+  const learning = buildCollectorLearningSnapshot(queue, queue.updatedAt);
   if (canWriteCatalogFiles() || !process.env.VERCEL) {
     const dir = path.dirname(REVIEW_FILE);
     if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
     writeFileSync(REVIEW_FILE, `${JSON.stringify(queue, null, 2)}\n`, "utf8");
+    writeFileSync(
+      path.join(dir, "collector-learning.json"),
+      `${JSON.stringify(learning, null, 2)}\n`,
+      "utf8",
+    );
   }
 
   const config = workerSftpConfig();
@@ -334,11 +342,17 @@ async function writeQueue(queue: PriceReviewQueue): Promise<{ workerSynced: bool
     };
   };
   const client = new mod.default();
-  const remotePath = path.posix.join(priceWorkerRemoteRoot(), "app", "data", "admin", "price-review-queue.json");
+  const remoteDir = path.posix.join(priceWorkerRemoteRoot(), "app", "data", "admin");
+  const remotePath = path.posix.join(remoteDir, "price-review-queue.json");
+  const learningPath = path.posix.join(remoteDir, "collector-learning.json");
   try {
     await client.connect({ ...config, readyTimeout: 60_000, retries: 1 });
-    await client.mkdir(path.posix.dirname(remotePath), true);
+    await client.mkdir(remoteDir, true);
     await client.put(Buffer.from(`${JSON.stringify(queue, null, 2)}\n`, "utf8"), remotePath);
+    await client.put(
+      Buffer.from(`${JSON.stringify(learning, null, 2)}\n`, "utf8"),
+      learningPath,
+    );
     return { workerSynced: true };
   } catch (error) {
     return { workerSynced: false, error: error instanceof Error ? error.message : "No se pudo sincronizar el worker." };

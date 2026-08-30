@@ -278,6 +278,20 @@ def browse_search(
         image_url = (item.get("image") or {}).get("imageUrl") or (
             thumb[0].get("imageUrl") if thumb and isinstance(thumb[0], dict) else None
         )
+        image_urls = list(
+            dict.fromkeys(
+                str(url)
+                for url in [
+                    image_url,
+                    *[
+                        image.get("imageUrl")
+                        for image in thumb
+                        if isinstance(image, dict)
+                    ],
+                ]
+                if url
+            )
+        )[:3]
         origin_country = (item.get("itemLocation") or {}).get("country")
         parsed.append(
             {
@@ -291,6 +305,7 @@ def browse_search(
                 "itemId": item.get("itemId", ""),
                 "url": item.get("itemWebUrl", ""),
                 "imageUrl": image_url,
+                "imageUrls": image_urls,
                 "buyingOptions": buying_options,
                 "marketplaceId": policy.marketplace_id,
                 "originCountry": origin_country,

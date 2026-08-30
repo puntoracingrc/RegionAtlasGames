@@ -47,6 +47,8 @@ WALLAPOP_PAL_STATE = WALLAPOP_PAL_DIR / "state.json"
 PC_RUNTIME_CONTROL = RUN_DIR / "pc-control.json"
 PC_WORKER_HEALTH_MARKER = RUN_DIR / "pc-worker-health.lock"
 PC_AUTO_UPDATE_STATE = RUN_DIR / "pc-auto-update.json"
+COLLECTOR_LEARNING_FILE = ROOT / "data" / "admin" / "collector-learning.json"
+COLLECTOR_LEARNING_SYNC_STATE = RUN_DIR / "collector-learning-sync.json"
 WORKER_RESTART_EXIT_CODE = 75
 
 
@@ -821,6 +823,73 @@ def upload_price_review_queue(queue: SftpQueue) -> None:
     if not review_file.exists():
         return
     queue.upload_file(queue.remote("app", "data", "admin", "price-review-queue.json"), review_file)
+    upload_collector_learning_snapshot(
+        queue,
+        json.loads(review_file.read_text(encoding="utf-8")),
+    )
+
+
+def upload_collector_learning_snapshot(
+    queue: SftpQueue,
+    review_payload: dict[str, Any],
+) -> int:
+    from collectors.collector_intelligence import write_collector_learning_snapshot
+
+    snapshot = write_collector_learning_snapshot(
+        review_payload,
+        COLLECTOR_LEARNING_FILE,
+        updated_at=str(review_payload.get("updatedAt") or now_iso()),
+    )
+    remote_path = queue.remote("app", "data", "admin", "collector-learning.json")
+    queue.upload_file(remote_path, COLLECTOR_LEARNING_FILE)
+    verified = queue.read_json(remote_path)
+    if verified != snapshot:
+        raise RuntimeError("La lectura posterior no coincide con la memoria común subida.")
+    return len(snapshot.get("games") or {})
+
+
+def sync_collector_learning_snapshot(queue: SftpQueue, *, force: bool = False) -> bool:
+    remote_queue = queue.remote("app", "data", "admin", "price-review-queue.json")
+    remote_learning = queue.remote("app", "data", "admin", "collector-learning.json")
+    if not queue.exists(remote_queue):
+        return False
+    try:
+        remote_mtime = int(queue.sftp.stat(remote_queue).st_mtime)
+    except (AttributeError, OSError, TypeError, ValueError):
+        remote_mtime = 0
+    previous: dict[str, Any] = {}
+    if COLLECTOR_LEARNING_SYNC_STATE.exists():
+        try:
+            previous = json.loads(COLLECTOR_LEARNING_SYNC_STATE.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            previous = {}
+    if (
+        not force
+        and remote_mtime
+        and previous.get("remoteQueueMtime") == remote_mtime
+        and queue.exists(remote_learning)
+    ):
+        return False
+
+    local_queue = ROOT / "data" / "admin" / "price-review-queue.json"
+    queue.download(remote_queue, local_queue)
+    payload = json.loads(local_queue.read_text(encoding="utf-8"))
+    game_count = upload_collector_learning_snapshot(queue, payload)
+    COLLECTOR_LEARNING_SYNC_STATE.parent.mkdir(parents=True, exist_ok=True)
+    COLLECTOR_LEARNING_SYNC_STATE.write_text(
+        json.dumps(
+            {
+                "remoteQueueMtime": remote_mtime,
+                "gameCount": game_count,
+                "syncedAt": now_iso(),
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    return True
 
 
 def upload_price_review_queue_verified(queue: SftpQueue) -> int:
@@ -841,6 +910,7 @@ def upload_price_review_queue_verified(queue: SftpQueue) -> int:
     verified_payload = queue.read_json(remote_path)
     if verified_payload != merged_payload:
         raise RuntimeError("La lectura posterior no coincide con la cola local subida.")
+    upload_collector_learning_snapshot(queue, merged_payload)
     return len(merged_payload.get("items") or [])
 
 
@@ -1707,6 +1777,10 @@ def run_once(config: WorkerConfig, *, daily: bool) -> int:
                 auto_update = maybe_auto_update_worker(queue)
                 if auto_update == WORKER_RESTART_EXIT_CODE:
                     return auto_update
+                try:
+                    sync_collector_learning_snapshot(queue)
+                except Exception as exc:  # noqa: BLE001
+                    print(f"{now_iso()} Memoria común no sincronizada: {exc}")
                 publish_pc_worker_health(queue)
                 if run_local_game_once():
                     return 1

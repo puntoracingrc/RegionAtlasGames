@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 from typing import Any, Callable
 
 from collectors.catalog_ai_match import hydrate_cached_game, resolve_ambiguous_match
+from collectors.collector_intelligence import apply_collector_game_context
 from collectors.price_ai_policy import price_collectors_use_ai
 from collectors.catalog_match import CatalogMatchResult, is_likely_game_product, match_catalog_product
 from collectors.listing_region_enrich import apply_region_enrichment_to_row
@@ -110,6 +111,10 @@ def run_match_pipeline(
             continue
 
         row_source = str(row.get("source") or source)
+        apply_collector_game_context(row, game, row_source)
+        search_query = str(product.get("searchQuery") or "").strip()
+        if search_query and not row.get("searchQuery"):
+            row["searchQuery"] = search_query
         ok_ref = bool(row.get("matchedReference") or result.matched_reference)
         strong_match = result.match_method in {"reference", "ai"} or (
             result.match_score is not None and result.match_score >= 0.75

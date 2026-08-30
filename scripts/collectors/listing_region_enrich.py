@@ -6,6 +6,7 @@ import os
 from typing import Any
 
 from collectors.condition_buckets import DISPLAY_BUCKETS
+from collectors.collector_intelligence import collector_source_policy
 from collectors.listing_images import (
     attach_image_urls,
     extract_product_image_urls,
@@ -101,7 +102,7 @@ def enrich_listing_region_from_cover(
         return listing_region, evidence, ai_conf, rules_ok and region_matches, known_condition, notes
 
     image_urls: list[str] = []
-    image_limit = 12 if source == "wallapop" else 3
+    image_limit = int(collector_source_policy(source).get("imageLimit") or 3)
     if row:
         image_urls = row_image_urls(row, fetch_missing=False, limit=image_limit)
     if not image_urls and product:
