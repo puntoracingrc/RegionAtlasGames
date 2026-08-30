@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-08-29T22:29:26Z",
+  "lastRunAt": "2026-08-30T02:10:04Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -121,7 +121,7 @@
       "sourceRuns": {
         "todoconsolas": {
           "lastSyncAt": "2026-08-29T18:15:47Z",
-          "gamesTargeted": 8470,
+          "gamesTargeted": 302,
           "gamesUpdated": 302,
           "gamesSkipped": 0,
           "policy": "tcns_exact_title_region_used_v1"
