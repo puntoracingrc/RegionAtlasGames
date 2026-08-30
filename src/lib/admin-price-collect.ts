@@ -9,8 +9,15 @@ export type AdminPriceJobMeta = {
   jobId: string;
   status: "running" | "done" | "error";
   catalogId?: string;
+  catalogIds?: string[];
+  resultCatalogIds?: string[];
+  verifiedCatalogIds?: string[];
   platformSlug?: string;
   region?: string;
+  source?: "wallapop";
+  resultPath?: string;
+  collectorStats?: Record<string, unknown>;
+  reviewQueueItems?: number;
   targets?: AdminPriceCollectTarget[];
   completedTargets?: (AdminPriceCollectTarget & { exitCode?: number })[];
   failedTargets?: (AdminPriceCollectTarget & { error?: string; exitCode?: number })[];
@@ -50,11 +57,13 @@ type AdminPriceJobRegistry = {
 
 type PriceJobStartInput = {
   catalogId?: string;
+  catalogIds?: string[];
   platformSlug?: string;
   region?: string;
   targets?: AdminPriceCollectTarget[];
   estimateMinutes?: number;
   advanceRotation?: boolean;
+  source?: "wallapop";
 };
 
 type WorkerConfig = {
@@ -69,11 +78,13 @@ type WorkerConfig = {
 type RemotePriceCollectRequest = {
   jobId: string;
   status: "pending";
-  mode: "catalog" | "platform" | "targets";
+  mode: "catalog" | "platform" | "targets" | "wallapop_batch";
   catalogId?: string;
+  catalogIds?: string[];
   platformSlug?: string;
   region?: string;
   targets?: AdminPriceCollectTarget[];
+  source?: "wallapop";
   estimateMinutes?: number;
   advanceRotation: boolean;
   trigger: "manual" | "automatic";
@@ -302,20 +313,48 @@ export async function listAdminPriceJobs(limit = 20): Promise<AdminPriceJobMeta[
   return refreshed.sort((a, b) => Date.parse(b.startedAt) - Date.parse(a.startedAt)).slice(0, limit);
 }
 
-function validateInput(input: PriceJobStartInput): { targets: AdminPriceCollectTarget[] } | { error: string } {
+function cleanCatalogIds(value: string[] | undefined): string[] | { error: string } {
+  const seen = new Set<string>();
+  const ids: string[] = [];
+  for (const raw of value ?? []) {
+    const id = raw.trim();
+    if (!id || seen.has(id)) continue;
+    if (id.length > 240 || /[\u0000-\u001f\u007f]/.test(id)) {
+      return { error: `ID de catálogo no permitido: ${id}` };
+    }
+    seen.add(id);
+    ids.push(id);
+  }
+  if (ids.length > 20) return { error: "La tanda Wallapop admite como máximo 20 juegos." };
+  return ids;
+}
+
+function validateInput(
+  input: PriceJobStartInput,
+): { targets: AdminPriceCollectTarget[]; catalogIds: string[] } | { error: string } {
   if (!isAdminPriceCollectAvailable()) {
     return { error: adminPriceCollectUnavailableReason() };
   }
 
   const targets = (input.targets ?? []).filter((target) => target.platformSlug.trim());
-  if (!input.catalogId && !input.platformSlug && targets.length === 0) {
-    return { error: "Indica catalogId, platformSlug o targets." };
+  const catalogIds = cleanCatalogIds(input.catalogIds);
+  if ("error" in catalogIds) return catalogIds;
+  if (!input.catalogId && catalogIds.length === 0 && !input.platformSlug && targets.length === 0) {
+    return { error: "Indica catalogId, catalogIds, platformSlug o targets." };
   }
-  const targetKinds = [Boolean(input.catalogId), Boolean(input.platformSlug), targets.length > 0].filter(Boolean).length;
+  const targetKinds = [
+    Boolean(input.catalogId),
+    catalogIds.length > 0,
+    Boolean(input.platformSlug),
+    targets.length > 0,
+  ].filter(Boolean).length;
   if (targetKinds > 1) {
     return { error: "Solo un tipo de objetivo a la vez." };
   }
-  return { targets };
+  if (catalogIds.length > 0 && input.source !== "wallapop") {
+    return { error: "Las tandas de IDs solo están habilitadas para Wallapop." };
+  }
+  return { targets, catalogIds };
 }
 
 async function writeRemoteWorkerFile(config: WorkerConfig, remote: string, payload: Buffer): Promise<{ ok: true } | { error: string }> {
@@ -348,20 +387,32 @@ async function writeRemoteWorkerFile(config: WorkerConfig, remote: string, paylo
   }
 }
 
-async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: AdminPriceCollectTarget[]): Promise<{ jobId: string } | { error: string }> {
+async function startRemotePriceCollectJob(
+  input: PriceJobStartInput,
+  targets: AdminPriceCollectTarget[],
+  catalogIds: string[],
+): Promise<{ jobId: string } | { error: string }> {
   const config = remoteWorkerConfig();
   if (!config) return { error: adminPriceCollectUnavailableReason() };
   const jobId = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   const startedAt = new Date().toISOString();
-  const mode = input.catalogId ? "catalog" : input.platformSlug ? "platform" : "targets";
+  const mode = input.catalogId
+    ? "catalog"
+    : catalogIds.length > 0
+      ? "wallapop_batch"
+      : input.platformSlug
+        ? "platform"
+        : "targets";
   const job = {
     jobId,
     status: "pending",
     mode,
     catalogId: input.catalogId,
+    catalogIds: catalogIds.length > 0 ? catalogIds : undefined,
     platformSlug: input.platformSlug,
     region: input.region,
     targets: targets.length > 0 ? targets : undefined,
+    source: input.source,
     estimateMinutes: input.estimateMinutes,
     advanceRotation: Boolean(input.advanceRotation),
     trigger: input.advanceRotation ? "automatic" : "manual",
@@ -373,9 +424,11 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
     jobId,
     status: "running",
     catalogId: input.catalogId,
+    catalogIds: catalogIds.length > 0 ? catalogIds : undefined,
     platformSlug: input.platformSlug,
     region: input.region,
     targets: targets.length > 0 ? targets : undefined,
+    source: input.source,
     estimateMinutes: input.estimateMinutes,
     trigger: input.advanceRotation ? "automatic" : "manual",
     startedAt,
@@ -394,10 +447,10 @@ async function startRemotePriceCollectJob(input: PriceJobStartInput, targets: Ad
 export async function startAdminPriceCollectJob(input: PriceJobStartInput): Promise<{ jobId: string } | { error: string }> {
   const validation = validateInput(input);
   if ("error" in validation) return validation;
-  const { targets } = validation;
+  const { targets, catalogIds } = validation;
 
   if (shouldUseRemoteWorker()) {
-    return startRemotePriceCollectJob(input, targets);
+    return startRemotePriceCollectJob(input, targets, catalogIds);
   }
 
   mkdirSync(JOBS_DIR, { recursive: true });
@@ -410,6 +463,7 @@ export async function startAdminPriceCollectJob(input: PriceJobStartInput): Prom
     paths.status,
   ];
   if (input.catalogId) args.push("--catalog-id", input.catalogId);
+  else if (catalogIds.length > 0) args.push("--catalog-ids-json", JSON.stringify(catalogIds));
   else if (input.platformSlug) {
     args.push("--platform", input.platformSlug);
     if (input.region?.trim()) args.push("--region", input.region.trim());
@@ -423,9 +477,11 @@ export async function startAdminPriceCollectJob(input: PriceJobStartInput): Prom
     jobId,
     status: "running",
     catalogId: input.catalogId,
+    catalogIds: catalogIds.length > 0 ? catalogIds : undefined,
     platformSlug: input.platformSlug,
     region: input.region,
     targets: targets.length > 0 ? targets : undefined,
+    source: input.source,
     estimateMinutes: input.estimateMinutes,
     trigger: input.advanceRotation ? "automatic" : "manual",
     startedAt,

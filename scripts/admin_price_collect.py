@@ -39,6 +39,35 @@ from daily_price_ingest import (  # noqa: E402
 )
 
 CATALOG_FILE = ROOT / "data" / "catalog.json"
+RESULTS_DIR = ROOT / "data" / "worker-runtime" / "results"
+MAX_WALLAPOP_BATCH_GAMES = 20
+SCOPED_PRICE_MUTATION_FILES = (
+    CATALOG_FILE,
+    ROOT / "data" / "meta.json",
+    ROOT / "data" / "price-history.json",
+    ROOT / "data" / "price-sync-state.json",
+)
+PRICE_RESULT_FIELDS = (
+    "recommendedPrice",
+    "estimatedPriceLoose",
+    "estimatedPriceGameManual",
+    "estimatedPriceComplete",
+    "estimatedPriceSealed",
+    "estimatedShippingToSpainLoose",
+    "estimatedShippingToSpainGameManual",
+    "estimatedShippingToSpainComplete",
+    "estimatedShippingToSpainSealed",
+    "estimatedTotalToSpainLoose",
+    "estimatedTotalToSpainGameManual",
+    "estimatedTotalToSpainComplete",
+    "estimatedTotalToSpainSealed",
+    "marketMin",
+    "marketMax",
+    "priceSource",
+    "priceDataSources",
+    "hasEsPrice",
+    "priceRegionVerified",
+)
 
 
 def write_status(path: Path | None, payload: dict[str, Any]) -> None:
@@ -67,6 +96,106 @@ def find_game(catalog_id: str) -> dict[str, Any]:
     if not game:
         raise SystemExit(f"Juego no encontrado: {catalog_id}")
     return game
+
+
+def normalize_catalog_ids(value: Any) -> list[str]:
+    if not isinstance(value, list):
+        raise SystemExit("--catalog-ids-json debe ser una lista JSON")
+    selected: list[str] = []
+    seen: set[str] = set()
+    for raw in value:
+        catalog_id = str(raw or "").strip()
+        if not catalog_id or catalog_id in seen:
+            continue
+        if len(catalog_id) > 240 or any(ord(character) < 32 or ord(character) == 127 for character in catalog_id):
+            raise SystemExit(f"ID de catálogo no permitido: {catalog_id}")
+        seen.add(catalog_id)
+        selected.append(catalog_id)
+    if not selected:
+        raise SystemExit("La tanda Wallapop no contiene juegos")
+    if len(selected) > MAX_WALLAPOP_BATCH_GAMES:
+        raise SystemExit(f"La tanda Wallapop admite como máximo {MAX_WALLAPOP_BATCH_GAMES} juegos")
+    return selected
+
+
+def find_games(catalog_ids: list[str]) -> list[dict[str, Any]]:
+    catalog = load_json(CATALOG_FILE, [])
+    by_id = {str(game.get("id") or ""): game for game in catalog if game.get("id")}
+    missing = [catalog_id for catalog_id in catalog_ids if catalog_id not in by_id]
+    if missing:
+        raise SystemExit(f"Juego(s) no encontrado(s): {', '.join(missing)}")
+    games = [by_id[catalog_id] for catalog_id in catalog_ids]
+    platforms = {str(game.get("platformSlug") or "").strip() for game in games}
+    if "" in platforms or len(platforms) != 1:
+        raise SystemExit("Todos los juegos de la tanda deben pertenecer a la misma plataforma")
+    return games
+
+
+def wallapop_result_path(status_file: Path | None) -> Path:
+    job_id = status_job_id(status_file) or "manual-wallapop-batch"
+    return RESULTS_DIR / job_id / "catalog-price-results.json"
+
+
+def write_wallapop_result(
+    path: Path,
+    *,
+    job_id: str | None,
+    platform_slug: str,
+    searched_catalog_ids: list[str],
+    result_catalog_ids: list[str],
+    verified_catalog_ids: list[str],
+) -> None:
+    catalog = load_json(CATALOG_FILE, [])
+    selected = set(result_catalog_ids)
+    games = [game for game in catalog if str(game.get("id") or "") in selected]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    save_json(
+        path,
+        {
+            "schemaVersion": 1,
+            "jobId": job_id,
+            "source": "wallapop",
+            "platformSlug": platform_slug,
+            "generatedAt": now_iso(),
+            "searchedCatalogIds": searched_catalog_ids,
+            "catalogIds": result_catalog_ids,
+            "verifiedCatalogIds": verified_catalog_ids,
+            "games": games,
+        },
+    )
+
+
+def snapshot_scoped_price_files() -> dict[Path, bytes | None]:
+    return {
+        path: path.read_bytes() if path.exists() else None
+        for path in SCOPED_PRICE_MUTATION_FILES
+    }
+
+
+def restore_scoped_price_files(snapshot: dict[Path, bytes | None]) -> None:
+    for path, original in snapshot.items():
+        if original is None:
+            path.unlink(missing_ok=True)
+            continue
+        path.write_bytes(original)
+
+
+def verified_changed_catalog_ids(
+    before_catalog: list[dict[str, Any]],
+    after_catalog: list[dict[str, Any]],
+    scope_ids: list[str],
+) -> list[str]:
+    before_by_id = {str(game.get("id") or ""): game for game in before_catalog if game.get("id")}
+    after_by_id = {str(game.get("id") or ""): game for game in after_catalog if game.get("id")}
+    verified: list[str] = []
+    for catalog_id in scope_ids:
+        before = before_by_id.get(catalog_id, {})
+        after = after_by_id.get(catalog_id)
+        if not after or after.get("priceRegionVerified") is not True:
+            continue
+        if any(before.get(field) != after.get(field) for field in PRICE_RESULT_FIELDS):
+            verified.append(catalog_id)
+    return verified
 
 
 def region_slug(region: str | None) -> str:
@@ -241,11 +370,130 @@ def collect_game(catalog_id: str, *, status_file: Path | None) -> int:
     return result.returncode
 
 
+def collect_wallapop_batch(catalog_ids: list[str], *, status_file: Path | None) -> int:
+    games = find_games(catalog_ids)
+    platform_slug = str(games[0].get("platformSlug") or "").strip()
+    job_id = status_job_id(status_file)
+    output = INGEST_DIR / f"{platform_slug}-wallapop-batch-{job_id or 'manual'}.json"
+    result_path = wallapop_result_path(status_file)
+
+    os.environ.pop("PRICE_COLLECT_CATALOG_ID", None)
+    os.environ.pop("PRICE_COLLECT_REGION", None)
+    os.environ["PRICE_COLLECT_CATALOG_IDS"] = json.dumps(catalog_ids, ensure_ascii=False)
+    os.environ["DAILY_WALLAPOP_GAME_LIMIT"] = str(len(catalog_ids))
+    os.environ["DAILY_USE_CACHE"] = "0"
+
+    print(f"=== Wallapop · tanda segura de {len(catalog_ids)} juegos ===")
+    print(f"Plataforma: {platform_slug} · IA visual: habilitada si hay credenciales")
+    for index, game in enumerate(games, start=1):
+        print(f"  {index:02d}. {game.get('title')} · {game.get('region')} · {game.get('id')}")
+
+    if not run_collector("wallapop", platform_slug, output, dry_run=False):
+        write_status(
+            status_file,
+            {
+                "status": "error",
+                "jobId": job_id,
+                "error": "Wallapop no produjo un artefacto válido para la tanda",
+                "catalogIds": catalog_ids,
+                "source": "wallapop",
+                "platformSlug": platform_slug,
+                "trigger": collect_trigger(),
+                "finishedAt": now_iso(),
+            },
+        )
+        return 1
+
+    ingest = load_json(output, {})
+    routed_ids = {
+        str(row.get("catalogId") or "").strip()
+        for key in ("listings", "regionalCandidates")
+        for row in (ingest.get(key) or [])
+        if isinstance(row, dict) and str(row.get("catalogId") or "").strip()
+    }
+    catalog_by_id = {
+        str(game.get("id") or ""): game
+        for game in load_json(CATALOG_FILE, [])
+        if game.get("id")
+    }
+    result_catalog_ids = list(catalog_ids)
+    for routed_id in sorted(routed_ids):
+        routed_game = catalog_by_id.get(routed_id)
+        if (
+            routed_id not in result_catalog_ids
+            and routed_game
+            and str(routed_game.get("platformSlug") or "") == platform_slug
+        ):
+            result_catalog_ids.append(routed_id)
+
+    scope_file = result_path.parent / "catalog-ids.json"
+    scope_file.parent.mkdir(parents=True, exist_ok=True)
+    save_json(scope_file, {"catalogIds": result_catalog_ids})
+    sync_cmd = [
+        PYTHON,
+        str(ROOT / "scripts" / "sync_es_prices.py"),
+        "--platform",
+        platform_slug,
+        "--input",
+        str(output),
+        "--catalog-ids-file",
+        str(scope_file),
+        "--allow-cross-region-catalog-ids",
+        "--no-advance-rotation",
+    ]
+    print("\n--- Sync limitado a juegos buscados y variantes regionales detectadas ---")
+    snapshot = snapshot_scoped_price_files()
+    before_catalog = json.loads((snapshot.get(CATALOG_FILE) or b"[]").decode("utf-8"))
+    verified_catalog_ids: list[str] = []
+    try:
+        result = subprocess.run(sync_cmd, cwd=ROOT)
+        if result.returncode == 0:
+            after_catalog = load_json(CATALOG_FILE, [])
+            verified_catalog_ids = verified_changed_catalog_ids(
+                before_catalog,
+                after_catalog,
+                result_catalog_ids,
+            )
+            write_wallapop_result(
+                result_path,
+                job_id=job_id,
+                platform_slug=platform_slug,
+                searched_catalog_ids=catalog_ids,
+                result_catalog_ids=result_catalog_ids,
+                verified_catalog_ids=verified_catalog_ids,
+            )
+    finally:
+        restore_scoped_price_files(snapshot)
+
+    stats = ingest.get("stats") if isinstance(ingest.get("stats"), dict) else {}
+    write_status(
+        status_file,
+        {
+            "status": "done" if result.returncode == 0 else "error",
+            "jobId": job_id,
+            "exitCode": result.returncode,
+            "catalogIds": catalog_ids,
+            "resultCatalogIds": result_catalog_ids,
+            "verifiedCatalogIds": verified_catalog_ids,
+            "source": "wallapop",
+            "platformSlug": platform_slug,
+            "sources": ["wallapop"],
+            "trigger": collect_trigger(),
+            "ingestPath": str(output.relative_to(ROOT)),
+            "resultLocalPath": str(result_path.relative_to(ROOT)) if result.returncode == 0 else None,
+            "collectorStats": stats,
+            "finishedAt": now_iso(),
+        },
+    )
+    return result.returncode
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Recolección de precios (admin)")
     parser.add_argument("--platform", help="Slug de plataforma (todos los juegos)")
     parser.add_argument("--region", help="Filtrar región de catálogo")
     parser.add_argument("--catalog-id", help="Id de catálogo (un solo juego)")
+    parser.add_argument("--catalog-ids-json", help="Tanda Wallapop JSON de hasta 20 IDs")
     parser.add_argument("--targets-json", help="Lote JSON [{ platformSlug, region? }]")
     parser.add_argument(
         "--advance-rotation",
@@ -259,9 +507,16 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    target_modes = [bool(args.platform), bool(args.catalog_id), bool(args.targets_json)]
+    target_modes = [
+        bool(args.platform),
+        bool(args.catalog_id),
+        bool(args.catalog_ids_json),
+        bool(args.targets_json),
+    ]
     if sum(1 for mode in target_modes if mode) != 1:
-        raise SystemExit("Indica --platform, --catalog-id o --targets-json (uno solo).")
+        raise SystemExit("Indica --platform, --catalog-id, --catalog-ids-json o --targets-json (uno solo).")
+
+    batch_catalog_ids = normalize_catalog_ids(json.loads(args.catalog_ids_json)) if args.catalog_ids_json else None
 
     write_status(
         args.status_file,
@@ -271,6 +526,8 @@ def main() -> None:
             "platformSlug": args.platform,
             "region": args.region,
             "catalogId": args.catalog_id,
+            "catalogIds": batch_catalog_ids,
+            "source": "wallapop" if batch_catalog_ids else None,
             "targets": json.loads(args.targets_json) if args.targets_json else None,
             "trigger": collect_trigger(),
             "startedAt": now_iso(),
@@ -287,6 +544,8 @@ def main() -> None:
             )
         elif args.catalog_id:
             code = collect_game(args.catalog_id.strip(), status_file=args.status_file)
+        elif batch_catalog_ids:
+            code = collect_wallapop_batch(batch_catalog_ids, status_file=args.status_file)
         else:
             targets = json.loads(args.targets_json)
             if not isinstance(targets, list):
@@ -302,6 +561,8 @@ def main() -> None:
                     "platformSlug": args.platform,
                     "region": args.region,
                     "catalogId": args.catalog_id,
+                    "catalogIds": batch_catalog_ids,
+                    "source": "wallapop" if batch_catalog_ids else None,
                     "targets": json.loads(args.targets_json) if args.targets_json else None,
                     "trigger": collect_trigger(),
                     "error": str(exc),
@@ -319,6 +580,8 @@ def main() -> None:
                     "platformSlug": args.platform,
                     "region": args.region,
                     "catalogId": args.catalog_id,
+                    "catalogIds": batch_catalog_ids,
+                    "source": "wallapop" if batch_catalog_ids else None,
                     "targets": json.loads(args.targets_json) if args.targets_json else None,
                     "trigger": collect_trigger(),
                     "error": str(exc),

@@ -84,9 +84,20 @@ def platform_catalog_games(platform_slug: str, region: str | None = None) -> lis
     ]
     if region:
         games = [g for g in games if g.get("region") == region]
+    selected_ids: set[str] = set()
+    catalog_ids_raw = os.environ.get("PRICE_COLLECT_CATALOG_IDS", "").strip()
+    if catalog_ids_raw:
+        try:
+            parsed = json.loads(catalog_ids_raw)
+        except json.JSONDecodeError:
+            parsed = [part.strip() for part in catalog_ids_raw.split(",")]
+        if isinstance(parsed, list):
+            selected_ids.update(str(value).strip() for value in parsed if str(value).strip())
     catalog_id = os.environ.get("PRICE_COLLECT_CATALOG_ID", "").strip()
     if catalog_id:
-        games = [g for g in games if str(g.get("id")) == catalog_id]
+        selected_ids.add(catalog_id)
+    if selected_ids:
+        games = [g for g in games if str(g.get("id")) in selected_ids]
     return sorted(games, key=lambda g: g["title"].lower())
 
 

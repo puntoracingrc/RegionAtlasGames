@@ -348,6 +348,7 @@ function isTodayOrYesterday(value: string | null | undefined): boolean {
 
 function jobTitle(job: AdminPriceJobMeta): string {
   if (job.targets?.length) return `Lote de ${job.targets.length} objetivo(s)`;
+  if (job.catalogIds?.length) return `Wallapop · ${job.catalogIds.length} juegos`;
   if (job.platformSlug) return `Plataforma ${job.platformSlug}${job.region ? ` · ${job.region}` : ""}`;
   return `Juego ${job.catalogId ?? "—"}`;
 }
