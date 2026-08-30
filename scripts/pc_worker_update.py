@@ -8,12 +8,16 @@ import math
 import re
 import subprocess
 import tempfile
+import urllib.error
+import urllib.request
 from pathlib import Path
 from typing import Any
 
 UPDATE_MODE = "git_fast_forward_main_v1"
 CONTROL_SCHEMA_VERSION = 1
 EXPECTED_GITHUB_REPOSITORY = "github.com/puntoracingrc/regionatlasgames"
+EXPECTED_RELEASE_REPOSITORY = "puntoracingrc/RegionAtlasGames"
+DEFAULT_PRODUCTION_RELEASE_URL = "https://www.regionatlas.games/api/worker/release"
 SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 
 
@@ -63,6 +67,47 @@ def validate_target_sha(value: Any) -> str:
     if not SHA_RE.fullmatch(sha):
         raise WorkerUpdateError("La solicitud no contiene un commit SHA completo y valido.")
     return sha
+
+
+def normalize_production_release(value: Any) -> dict[str, str]:
+    if not isinstance(value, dict):
+        raise WorkerUpdateError("El manifiesto de producción no es un objeto.")
+    if value.get("schemaVersion") != 1:
+        raise WorkerUpdateError("Versión de manifiesto de producción no permitida.")
+    if value.get("repository") != EXPECTED_RELEASE_REPOSITORY:
+        raise WorkerUpdateError("El manifiesto no corresponde al repositorio oficial.")
+    if value.get("branch") != "main":
+        raise WorkerUpdateError("El manifiesto de producción no corresponde a main.")
+    return {
+        "commitSha": validate_target_sha(value.get("commitSha")),
+        "checkedAt": str(value.get("checkedAt") or "").strip()[:80],
+    }
+
+
+def fetch_production_release(
+    url: str = DEFAULT_PRODUCTION_RELEASE_URL,
+    *,
+    timeout: int = 20,
+) -> dict[str, str]:
+    request = urllib.request.Request(
+        url,
+        headers={
+            "Accept": "application/json",
+            "User-Agent": "RegionAtlas-PC-Worker/1.0",
+        },
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            payload = response.read(32 * 1024 + 1)
+    except (OSError, urllib.error.URLError) as exc:
+        raise WorkerUpdateError(f"No se pudo leer el commit de producción: {exc}") from exc
+    if len(payload) > 32 * 1024:
+        raise WorkerUpdateError("El manifiesto de producción supera el tamaño permitido.")
+    try:
+        value = json.loads(payload.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise WorkerUpdateError("El manifiesto de producción no contiene JSON válido.") from exc
+    return normalize_production_release(value)
 
 
 def normalize_weekly_control(
@@ -291,12 +336,15 @@ def apply_update_request(
 
 
 __all__ = [
+    "DEFAULT_PRODUCTION_RELEASE_URL",
     "EXPECTED_GITHUB_REPOSITORY",
     "UPDATE_MODE",
     "WorkerUpdateError",
     "apply_update_request",
+    "fetch_production_release",
     "load_runtime_control",
     "normalize_github_origin",
+    "normalize_production_release",
     "normalize_weekly_control",
     "validate_target_sha",
     "validate_update_request",

@@ -101,6 +101,7 @@ def main() -> None:
         raise AssertionError(f"wallapop/fallback: secuencia inesperada {fallback_queries!r}")
 
     calls: list[str] = []
+    diagnostics: dict[str, object] = {}
     original_fetch = wallapop_client.fetch_query_products
 
     def fake_fetch(query: str, **_: object) -> list[dict[str, str]]:
@@ -113,11 +114,19 @@ def main() -> None:
 
     try:
         wallapop_client.fetch_query_products = fake_fetch
-        fetch_game_products({"title": "2Dark [Limited Edition]", "platformSlug": "ps4"})
+        fetch_game_products(
+            {"title": "2Dark [Limited Edition]", "platformSlug": "ps4"},
+            diagnostics=diagnostics,
+        )
     finally:
         wallapop_client.fetch_query_products = original_fetch
     if calls != ["2Dark ps4", "2 Dark ps4"]:
         raise AssertionError(f"wallapop/title-variants: consultas ejecutadas {calls!r}")
+    attempts = diagnostics.get("attempts")
+    if not isinstance(attempts, list) or [row.get("query") for row in attempts] != calls:
+        raise AssertionError(f"wallapop/diagnostics: intentos inesperados {attempts!r}")
+    if attempts[0].get("results") != 6 or attempts[1].get("newResults") != 1:
+        raise AssertionError(f"wallapop/diagnostics: conteos inesperados {attempts!r}")
     print("OK: Wallapop usa título base + plataforma; resto sin sufijos")
 
 

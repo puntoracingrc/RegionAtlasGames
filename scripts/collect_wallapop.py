@@ -365,7 +365,7 @@ def collect_game_listings(
     use_listing_ai: bool,
     use_listing_ai_cache: bool,
     delay_s: float,
-) -> tuple[list[dict[str, Any]], dict[str, int]]:
+) -> tuple[list[dict[str, Any]], dict[str, int], dict[str, Any]]:
     catalog_id = str(game["id"])
     cache_file = CACHE_DIR / platform_slug / f"{catalog_id}.json"
     game_stats = {
@@ -384,14 +384,49 @@ def collect_game_listings(
             cache_policy_matches(cached)
             and cached.get("wallapopEvidencePolicy") == WALLAPOP_EVIDENCE_POLICY
         ):
-            return list(cached.get("listings") or []), game_stats
+            cached_rows = list(cached.get("listings") or [])
+            cached_query = str(cached.get("query") or build_wallapop_query(game))
+            return cached_rows, game_stats, {
+                "catalogId": catalog_id,
+                "title": str(game.get("title") or catalog_id),
+                "platformSlug": platform_slug,
+                "attempts": [{
+                    "query": cached_query,
+                    "results": len(cached_rows),
+                    "newResults": len(cached_rows),
+                    "cumulativeResults": len(cached_rows),
+                }],
+                "candidateCount": len(cached_rows),
+                "titleMatchedCount": len(cached_rows),
+                "detailMatchedCount": len(cached_rows),
+                "classifiedCandidateCount": len(cached_rows),
+                "acceptedListings": len(cached_rows),
+                "verifiedListings": sum(1 for row in cached_rows if row.get("regionVerified") is True),
+                "reviewListings": sum(1 for row in cached_rows if row.get("regionReviewNeeded")),
+                "matchedCatalogIds": sorted({
+                    str(row.get("catalogId") or "")
+                    for row in cached_rows
+                    if str(row.get("catalogId") or "")
+                }),
+                "rejectedListings": 0,
+                "discardRatePct": 0,
+                "outcome": "accepted" if cached_rows else "no_results",
+                "fromCache": True,
+            }
 
-    products = fetch_game_products(game, max_pages=max_pages, delay_s=delay_s)
+    search_trace: dict[str, Any] = {}
+    products = fetch_game_products(
+        game,
+        max_pages=max_pages,
+        delay_s=delay_s,
+        diagnostics=search_trace,
+    )
     matched = [
         product
         for product in products
         if listing_matches_game(product, game, platform_slug)
     ]
+    title_matched_count = len(matched)
     matched, detail_stats = enrich_product_details(matched, delay_s=delay_s)
     game_stats.update(detail_stats)
     matched = [
@@ -399,6 +434,7 @@ def collect_game_listings(
         for product in matched
         if listing_matches_game(product, game, platform_slug)
     ]
+    detail_matched_count = len(matched)
 
     ai_by_key: dict[str, Any] = {}
     content_profile = game_content_profile(game)
@@ -417,6 +453,7 @@ def collect_game_listings(
         game_stats.update(ai_stats)
 
     rows: list[dict[str, Any]] = []
+    classified_candidate_count = 0
     catalog_region = str(game.get("region") or "")
     for product in matched:
         ai_result = ai_by_key.get(result_key(product))
@@ -426,6 +463,7 @@ def collect_game_listings(
                 continue
         elif not is_wallapop_game_product(product):
             continue
+        classified_candidate_count += 1
 
         row = product_to_ingest_row(
             product,
@@ -449,6 +487,41 @@ def collect_game_listings(
         if row:
             rows.append(route_row_to_detected_variant(row, game, platform_games))
 
+    candidate_count = int(search_trace.get("candidateCount") or len(products))
+    accepted_count = len(rows)
+    rejected_count = max(0, candidate_count - accepted_count)
+    discard_rate = round((rejected_count / candidate_count) * 100) if candidate_count else 0
+    if candidate_count == 0:
+        outcome = "no_results"
+    elif accepted_count == 0:
+        outcome = "all_discarded"
+    elif discard_rate >= 80:
+        outcome = "mostly_discarded"
+    else:
+        outcome = "accepted"
+    diagnostic = {
+        "catalogId": catalog_id,
+        "title": str(game.get("title") or catalog_id),
+        "platformSlug": platform_slug,
+        "attempts": list(search_trace.get("attempts") or []),
+        "candidateCount": candidate_count,
+        "titleMatchedCount": title_matched_count,
+        "detailMatchedCount": detail_matched_count,
+        "classifiedCandidateCount": classified_candidate_count,
+        "acceptedListings": accepted_count,
+        "verifiedListings": sum(1 for row in rows if row.get("regionVerified") is True),
+        "reviewListings": sum(1 for row in rows if row.get("regionReviewNeeded")),
+        "matchedCatalogIds": sorted({
+            str(row.get("catalogId") or "")
+            for row in rows
+            if str(row.get("catalogId") or "")
+        }),
+        "rejectedListings": rejected_count,
+        "discardRatePct": discard_rate,
+        "outcome": outcome,
+        "fromCache": False,
+    }
+
     if use_cache:
         save_json(
             cache_file,
@@ -460,13 +533,13 @@ def collect_game_listings(
                 }
             ),
         )
-    return rows, game_stats
+    return rows, game_stats, diagnostic
 
 
 def collect_platform(
     platform_slug: str,
     args: argparse.Namespace,
-) -> tuple[list[dict[str, Any]], dict[str, int]]:
+) -> tuple[list[dict[str, Any]], dict[str, int], list[dict[str, Any]]]:
     if not wallapop_sources_for_platform(platform_slug):
         raise SystemExit(f"Plataforma no soportada: {platform_slug}")
 
@@ -499,8 +572,14 @@ def collect_platform(
         "details_loaded": 0,
         "details_failed": 0,
         "duplicate_catalog_rows_removed": 0,
+        "search_queries_executed": 0,
+        "games_no_results": 0,
+        "games_all_discarded": 0,
+        "games_mostly_discarded": 0,
+        "games_errors": 0,
     }
     all_rows: list[dict[str, Any]] = []
+    search_diagnostics: list[dict[str, Any]] = []
     per_game_pages = args.max_pages if args.max_pages is not None else wallapop_per_game_pages()
     match_opts = match_kwargs(args)
     use_listing_ai = match_opts["use_ai"]
@@ -508,7 +587,7 @@ def collect_platform(
 
     for index, game in enumerate(games, start=1):
         try:
-            rows, game_stats = collect_game_listings(
+            rows, game_stats, diagnostic = collect_game_listings(
                 game,
                 platform_slug,
                 ref_to_ids=ref_to_ids,
@@ -523,9 +602,40 @@ def collect_platform(
             raise
         except Exception as exc:  # noqa: BLE001
             print(f"  [{index}/{len(games)}] ERROR {game['title'][:40]}: {exc}")
+            stats["games_errors"] += 1
+            search_diagnostics.append(
+                {
+                    "catalogId": str(game.get("id") or ""),
+                    "title": str(game.get("title") or game.get("id") or ""),
+                    "platformSlug": platform_slug,
+                    "attempts": [],
+                    "candidateCount": 0,
+                    "titleMatchedCount": 0,
+                    "detailMatchedCount": 0,
+                    "classifiedCandidateCount": 0,
+                    "acceptedListings": 0,
+                    "verifiedListings": 0,
+                    "reviewListings": 0,
+                    "matchedCatalogIds": [],
+                    "rejectedListings": 0,
+                    "discardRatePct": 0,
+                    "outcome": "error",
+                    "error": str(exc)[:300],
+                    "fromCache": False,
+                }
+            )
             continue
 
         stats["api_calls"] += 1
+        stats["search_queries_executed"] += len(diagnostic.get("attempts") or [])
+        outcome = str(diagnostic.get("outcome") or "")
+        if outcome == "no_results":
+            stats["games_no_results"] += 1
+        elif outcome == "all_discarded":
+            stats["games_all_discarded"] += 1
+        elif outcome == "mostly_discarded":
+            stats["games_mostly_discarded"] += 1
+        search_diagnostics.append(diagnostic)
         stats["ai_cache_hits"] += game_stats.get("ai_cache_hits", 0)
         stats["ai_batches"] += game_stats.get("ai_batches", 0)
         stats["ai_rejected"] += game_stats.get("ai_rejected", 0)
@@ -561,7 +671,7 @@ def collect_platform(
     stats["listings_verified"] = sum(1 for row in all_rows if row.get("regionVerified") is True)
     stats["listings_review"] = sum(1 for row in all_rows if row.get("regionReviewNeeded"))
     stats["games_with_listings"] = len({row.get("catalogId") for row in all_rows if row.get("catalogId")})
-    return all_rows, stats
+    return all_rows, stats, search_diagnostics
 
 
 def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
@@ -579,8 +689,9 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
 
     if args.sweep_platform:
         listing_rows, stats = collect_platform_sweep(platform_slug, args)
+        search_diagnostics: list[dict[str, Any]] = []
     else:
-        listing_rows, stats = collect_platform(platform_slug, args)
+        listing_rows, stats, search_diagnostics = collect_platform(platform_slug, args)
     print(
         f"\n  Juegos consultados: {stats['games_requested']} · "
         f"con anuncios: {stats['games_with_listings']} · "
@@ -625,6 +736,7 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         ),
         "searchMode": "platform-sweep" if args.sweep_platform else "title",
         "stats": stats,
+        "searchDiagnostics": search_diagnostics,
         "listings": listing_rows,
         "cex": [],
         "jgo": [],
@@ -634,6 +746,9 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
     if args.merge and out.exists():
         existing = load_json(out, {})
         existing["listings"] = listing_rows
+        existing["stats"] = stats
+        existing["searchMode"] = payload["searchMode"]
+        existing["searchDiagnostics"] = search_diagnostics
         existing["collectedAt"] = now_iso()
         payload = existing
 

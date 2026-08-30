@@ -98,6 +98,16 @@ def test_success_waits_and_never_repeats() -> None:
             "exitCode": 0,
             "finishedAt": "2026-08-30T12:05:00Z",
             "verifiedCatalogIds": ["ps4-game-01"],
+            "pricedCatalogIds": ["ps4-game-01", "ps4-game-02"],
+            "collectorStats": {"games_requested": 20, "games_with_listings": 4},
+            "searchDiagnostics": [
+                {
+                    "catalogId": "ps4-game-01",
+                    "title": "Game 01",
+                    "outcome": "accepted",
+                    "attempts": [{"query": "Game 01 ps4", "results": 4}],
+                }
+            ],
             "resultCatalogIds": ["ps4-game-01"],
             "resultPath": "results/wallapop-test-1/catalog-price-results.json",
             "ingestResultPath": "results/wallapop-test-1/wallapop-ingest.json",
@@ -110,6 +120,8 @@ def test_success_waits_and_never_repeats() -> None:
     assert state["nextRunAt"] == "2026-08-30T12:17:00Z"
     assert len(state["processedCatalogIds"]) == 20
     assert state["readyArtifacts"][0]["jobId"] == "wallapop-test-1"
+    assert state["lastBatch"]["pricedCatalogIds"] == ["ps4-game-01", "ps4-game-02"]
+    assert state["lastBatch"]["searchDiagnostics"][0]["catalogId"] == "ps4-game-01"
 
     state, waiting_batch = select_next_batch(
         state,
@@ -179,6 +191,15 @@ def test_public_state_omits_large_internal_cursor() -> None:
     assert published["settings"]["maxBatchSize"] == MAX_BATCH_SIZE
     assert published["settings"]["autoPublish"] is True
     assert published["readyArtifactCount"] == 0
+    assert published["priceResults"]["changedGames"] == 0
+
+    state["readyArtifacts"] = [
+        {"jobId": "one", "verifiedCatalogIds": ["ps4-game-01", "ps4-game-02"]},
+        {"jobId": "two", "verifiedCatalogIds": ["ps4-game-02"]},
+    ]
+    published = public_state(state, settings, [game(1), game(2)])
+    assert published["priceResults"]["changedGames"] == 2
+    assert published["priceResults"]["batchesWithChanges"] == 2
 
 
 def main() -> None:

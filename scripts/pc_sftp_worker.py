@@ -24,8 +24,10 @@ from pathlib import Path
 from typing import Any
 
 from pc_worker_update import (
+    DEFAULT_PRODUCTION_RELEASE_URL,
     WorkerUpdateError,
     apply_update_request,
+    fetch_production_release,
     load_runtime_control,
     worker_git_health,
 )
@@ -44,6 +46,7 @@ WALLAPOP_PAL_DIR = RUN_DIR / "wallapop-pal"
 WALLAPOP_PAL_STATE = WALLAPOP_PAL_DIR / "state.json"
 PC_RUNTIME_CONTROL = RUN_DIR / "pc-control.json"
 PC_WORKER_HEALTH_MARKER = RUN_DIR / "pc-worker-health.lock"
+PC_AUTO_UPDATE_STATE = RUN_DIR / "pc-auto-update.json"
 WORKER_RESTART_EXIT_CODE = 75
 
 
@@ -1341,6 +1344,107 @@ def process_worker_update_request(queue: SftpQueue, request_name: str) -> int:
         return 1
 
 
+def pc_auto_update_enabled() -> bool:
+    return os.environ.get("PRICE_PC_AUTO_UPDATE_ENABLED", "1").strip().lower() in {
+        "1", "true", "yes", "on",
+    }
+
+
+def pc_auto_update_interval_seconds() -> int:
+    try:
+        value = int(os.environ.get("PRICE_PC_AUTO_UPDATE_INTERVAL_SECONDS", "600"))
+    except ValueError:
+        value = 600
+    return max(300, min(value, 24 * 60 * 60))
+
+
+def load_pc_auto_update_state() -> dict[str, Any]:
+    if not PC_AUTO_UPDATE_STATE.exists():
+        return {}
+    try:
+        value = json.loads(PC_AUTO_UPDATE_STATE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return value if isinstance(value, dict) else {}
+
+
+def maybe_auto_update_worker(queue: SftpQueue) -> int:
+    if not pc_auto_update_enabled():
+        return 0
+    previous = load_pc_auto_update_state()
+    last_checked = parse_iso(str(previous.get("checkedAt") or ""))
+    if last_checked and time.time() - last_checked < pc_auto_update_interval_seconds():
+        return 0
+
+    checked_at = now_iso()
+    public_status_path = queue.remote("cron", "pc-worker-auto-update-status.json")
+    try:
+        release = fetch_production_release(
+            os.environ.get("PRICE_PC_PRODUCTION_RELEASE_URL", DEFAULT_PRODUCTION_RELEASE_URL).strip()
+            or DEFAULT_PRODUCTION_RELEASE_URL,
+        )
+        health = worker_git_health(ROOT)
+        current_sha = str(health.get("commitSha") or "")
+        target_sha = release["commitSha"]
+        if current_sha == target_sha and health.get("branch") == "main" and health.get("clean") is True:
+            status = {
+                "ok": True,
+                "status": "already_current",
+                "checkedAt": checked_at,
+                "beforeSha": current_sha,
+                "afterSha": current_sha,
+                "targetSha": target_sha,
+                "automatic": True,
+            }
+            _write_local_json(PC_AUTO_UPDATE_STATE, status)
+            queue.upload_bytes(public_status_path, json_bytes(status))
+            return 0
+
+        request_id = f"auto-update-{int(time.time())}"
+        result = apply_update_request(
+            ROOT,
+            {
+                "schemaVersion": 1,
+                "mode": "git_fast_forward_main_v1",
+                "requestId": request_id,
+                "targetSha": target_sha,
+                "requestedAt": checked_at,
+                "repository": "puntoracingrc/RegionAtlasGames",
+                "branch": "main",
+            },
+            control_path=PC_RUNTIME_CONTROL,
+            allowed_platforms=_supported_todoconsolas_platforms(),
+        )
+        status = {
+            **result,
+            "requestId": request_id,
+            "targetSha": target_sha,
+            "checkedAt": checked_at,
+            "finishedAt": now_iso(),
+            "automatic": True,
+            "runnerId": queue.config.runner_id,
+            "hostname": socket.gethostname(),
+        }
+        _write_local_json(PC_AUTO_UPDATE_STATE, status)
+        queue.upload_bytes(public_status_path, json_bytes(status))
+        queue.upload_bytes(queue.remote("cron", "pc-worker-update-status.json"), json_bytes(status))
+        if result.get("restartRequired"):
+            PC_WORKER_HEALTH_MARKER.unlink(missing_ok=True)
+            return WORKER_RESTART_EXIT_CODE
+        return 0
+    except (WorkerUpdateError, OSError, json.JSONDecodeError, ValueError) as exc:
+        status = {
+            "ok": False,
+            "status": "error",
+            "checkedAt": checked_at,
+            "automatic": True,
+            "error": str(exc),
+        }
+        _write_local_json(PC_AUTO_UPDATE_STATE, status)
+        queue.upload_bytes(public_status_path, json_bytes(status))
+        return 0
+
+
 def publish_pc_worker_health(queue: SftpQueue, *, force: bool = False) -> None:
     if not force and PC_WORKER_HEALTH_MARKER.exists():
         age = time.time() - PC_WORKER_HEALTH_MARKER.stat().st_mtime
@@ -1355,6 +1459,11 @@ def publish_pc_worker_health(queue: SftpQueue, *, force: bool = False) -> None:
         "git": worker_git_health(ROOT),
         "todoConsolasWeekly": effective_todoconsolas_weekly_config(),
         "wallapopPalCampaign": effective_wallapop_pal_config(),
+        "autoUpdate": {
+            "enabled": pc_auto_update_enabled(),
+            "intervalSeconds": pc_auto_update_interval_seconds(),
+            **load_pc_auto_update_state(),
+        },
     }
     queue.upload_bytes(queue.remote("cron", "pc-worker-health.json"), json_bytes(payload))
     PC_WORKER_HEALTH_MARKER.parent.mkdir(parents=True, exist_ok=True)
@@ -1585,6 +1694,9 @@ def run_once(config: WorkerConfig, *, daily: bool) -> int:
                         queue,
                         wallapop_control_requests[0],
                     ) else 0
+                auto_update = maybe_auto_update_worker(queue)
+                if auto_update == WORKER_RESTART_EXIT_CODE:
+                    return auto_update
                 publish_pc_worker_health(queue)
                 if run_local_game_once():
                     return 1

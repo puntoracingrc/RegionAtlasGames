@@ -9,7 +9,7 @@ import {
   Play,
   RefreshCw,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { adminToneClass, type AdminVisualTone } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type {
@@ -80,6 +80,28 @@ function overviewTone(overview: PcWorkerUpdateOverview | null): AdminVisualTone 
   return aligned && isFresh(overview.health.checkedAt) ? "status" : "edit";
 }
 
+function queuedUpdateAlreadyApplied(overview: PcWorkerUpdateOverview | null): boolean {
+  if (!overview || overview.update.status !== "queued" || !isFresh(overview.health.checkedAt)) return false;
+  const workerSha = overview.health.git.commitSha;
+  return Boolean(
+    workerSha
+      && overview.health.git.branch === "main"
+      && overview.health.git.clean === true
+      && workerSha === overview.deploymentSha
+      && (!overview.update.targetSha || overview.update.targetSha === workerSha),
+  );
+}
+
+function workerHealthLabel(
+  overview: PcWorkerUpdateOverview | null,
+  options: { aligned: boolean; fresh: boolean; updateQueued: boolean },
+): string {
+  if (!overview?.health.available) return "PC sin telemetría";
+  if (!options.fresh) return options.updateQueued ? "Esperando al PC" : "Lectura antigua";
+  if (!overview.health.git.ok || overview.health.git.clean === false) return "Revisión necesaria";
+  return options.aligned ? "PC alineado" : "Actualización pendiente";
+}
+
 function copyLog(overview: PcWorkerUpdateOverview | null): string {
   return [
     "REGION_ATLAS_PC_WORKER_STATUS_V1",
@@ -106,6 +128,9 @@ export function AdminPcWorkerUpdatePanel() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+  const updateSatisfied = queuedUpdateAlreadyApplied(overview);
+  const effectiveUpdateStatus = updateSatisfied ? "already_current" : overview?.update.status ?? "not_reported";
+  const updateQueued = effectiveUpdateStatus === "queued";
 
   async function refresh() {
     setLoading(true);
@@ -129,10 +154,10 @@ export function AdminPcWorkerUpdatePanel() {
   }, []);
 
   useEffect(() => {
-    if (overview?.update.status !== "queued") return;
+    if (!updateQueued) return;
     const timer = window.setInterval(() => void refresh(), 8_000);
     return () => window.clearInterval(timer);
-  }, [overview?.update.status]);
+  }, [updateQueued]);
 
   async function queueUpdate(action: PcWorkerUpdateAction) {
     const confirmation = action === "automatic_sources" || action === "ps4_pilot"
@@ -186,16 +211,11 @@ export function AdminPcWorkerUpdatePanel() {
   );
   const fresh = isFresh(overview?.health.checkedAt);
   const busy = submitting !== null;
-  const controlsDisabled = busy || !overview?.queueAvailable;
-  const statusTone = overview?.update.status === "error" ? "rose"
-    : overview?.update.status === "queued" ? "amber"
+  const controlsDisabled = busy || updateQueued || !overview?.queueAvailable;
+  const statusTone = effectiveUpdateStatus === "error" ? "rose"
+    : effectiveUpdateStatus === "queued" ? "amber"
       : overview?.update.ok ? "green" : "neutral";
-  const healthLabel = useMemo(() => {
-    if (!overview?.health.available) return "PC sin telemetría";
-    if (!fresh) return "Lectura antigua";
-    if (!overview.health.git.ok || overview.health.git.clean === false) return "Revisión necesaria";
-    return aligned ? "PC alineado" : "Actualización pendiente";
-  }, [aligned, fresh, overview]);
+  const healthLabel = workerHealthLabel(overview, { aligned, fresh, updateQueued });
 
   return (
     <Panel className={adminToneClass(tone)}>
@@ -207,7 +227,8 @@ export function AdminPcWorkerUpdatePanel() {
           </div>
           <div className="flex flex-wrap gap-2">
             <Badge tone={tone === "danger" ? "rose" : tone === "status" ? "green" : "amber"}>{healthLabel}</Badge>
-            <Badge tone={statusTone}>{updateLabel(overview?.update.status ?? "not_reported")}</Badge>
+            <Badge tone={statusTone}>{updateLabel(effectiveUpdateStatus)}</Badge>
+            {overview?.health.autoUpdate.enabled ? <Badge tone="green">Autoactualización activa</Badge> : null}
           </div>
         </div>
         <button type="button" onClick={() => void refresh()} disabled={loading} className="btn-secondary inline-flex items-center gap-2 text-sm">
@@ -271,10 +292,21 @@ export function AdminPcWorkerUpdatePanel() {
           {overview.queueBlockReason}
         </p>
       ) : null}
+      {updateQueued ? (
+        <p className="mt-4 flex items-start gap-2 text-sm font-semibold text-amber-900 dark:text-amber-100">
+          <RefreshCw aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
+          Actualización pendiente. Si el PC está con una tanda, la terminará primero; después se actualizará y reiniciará con el código nuevo.
+        </p>
+      ) : null}
       {overview?.health.available && aligned && fresh ? (
         <p className="mt-4 flex items-start gap-2 text-sm text-emerald-800 dark:text-emerald-200">
           <CheckCircle2 aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
           El PC está en <code>main</code>, limpio y ejecutando el commit de producción.
+        </p>
+      ) : null}
+      {overview?.health.autoUpdate.enabled ? (
+        <p className="mt-3 text-sm text-foreground">
+          El PC comprueba el commit desplegado cuando queda libre y se actualiza por avance seguro de <code>main</code>.
         </p>
       ) : null}
       {overview?.health.available && overview.health.git.clean === false ? (

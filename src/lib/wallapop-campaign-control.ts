@@ -1,4 +1,5 @@
 import path from "path";
+import { decodeHtmlEntities } from "./decode-html-entities";
 import {
   getPcWorkerUpdateOverview,
   resolvePcWorkerDeploymentSha,
@@ -12,6 +13,50 @@ export const WALLAPOP_CAMPAIGN_PLATFORMS = ["ps4", "ps5", "ps3", "ps2", "ps1"] a
 
 export type WallapopCampaignAction = "enable" | "disable" | "restart";
 
+export type WallapopQueryAttempt = {
+  query: string;
+  results: number;
+  newResults: number;
+  cumulativeResults: number;
+};
+
+export type WallapopSearchDiagnostic = {
+  catalogId: string | null;
+  title: string | null;
+  platformSlug: string | null;
+  attempts: WallapopQueryAttempt[];
+  candidateCount: number;
+  titleMatchedCount: number;
+  detailMatchedCount: number;
+  classifiedCandidateCount: number;
+  acceptedListings: number;
+  verifiedListings: number;
+  reviewListings: number;
+  rejectedListings: number;
+  discardRatePct: number;
+  outcome: "accepted" | "no_results" | "all_discarded" | "mostly_discarded" | "error";
+  error: string | null;
+  fromCache: boolean;
+  matchedCatalogIds: string[];
+  priceDecision: "price_changed" | "verified_price_unchanged" | "no_accepted_listings" | "awaiting_more_verified_listings" | "rejected_by_price_sync" | null;
+  priceChangedCatalogIds: string[];
+  verifiedPriceCatalogIds: string[];
+  requiredVerifiedListings: number;
+};
+
+export type WallapopCollectorStats = {
+  gamesRequested: number;
+  gamesWithListings: number;
+  listings: number;
+  listingsVerified: number;
+  listingsReview: number;
+  searchQueriesExecuted: number;
+  gamesNoResults: number;
+  gamesAllDiscarded: number;
+  gamesMostlyDiscarded: number;
+  gamesErrors: number;
+};
+
 type WallapopBatchSummary = {
   jobId: string | null;
   platformSlug: string | null;
@@ -20,7 +65,10 @@ type WallapopBatchSummary = {
   queuedAt: string | null;
   finishedAt: string | null;
   verifiedCatalogIds: string[];
+  pricedCatalogIds: string[];
   reviewQueueItems: number;
+  collectorStats: WallapopCollectorStats;
+  searchDiagnostics: WallapopSearchDiagnostic[];
   error: string | null;
 };
 
@@ -52,6 +100,11 @@ export type WallapopCampaignStatus = {
   };
   activeBatch: WallapopBatchSummary | null;
   lastBatch: WallapopBatchSummary | null;
+  priceResults: {
+    changedGames: number;
+    changedCatalogIds: string[];
+    batchesWithChanges: number;
+  };
   readyArtifactCount: number;
   error: string | null;
   consecutiveErrors: number;
@@ -98,6 +151,99 @@ function cleanStringArray(value: unknown, limit = 20): string[] {
     .slice(0, limit);
 }
 
+function cleanDisplayStringArray(value: unknown, limit = 20): string[] {
+  return cleanStringArray(value, limit).map((item) => {
+    let decoded = item;
+    for (let index = 0; index < 5; index += 1) {
+      const next = decodeHtmlEntities(decoded);
+      if (next === decoded) break;
+      decoded = next;
+    }
+    return decoded;
+  });
+}
+
+function cleanCount(value: unknown): number {
+  return Math.max(0, Math.round(cleanNumber(value)));
+}
+
+function normalizeCollectorStats(value: unknown): WallapopCollectorStats {
+  const row = value && typeof value === "object" && !Array.isArray(value)
+    ? value as UnknownRecord
+    : {};
+  return {
+    gamesRequested: cleanCount(row.games_requested),
+    gamesWithListings: cleanCount(row.games_with_listings),
+    listings: cleanCount(row.listings),
+    listingsVerified: cleanCount(row.listings_verified),
+    listingsReview: cleanCount(row.listings_review),
+    searchQueriesExecuted: cleanCount(row.search_queries_executed),
+    gamesNoResults: cleanCount(row.games_no_results),
+    gamesAllDiscarded: cleanCount(row.games_all_discarded),
+    gamesMostlyDiscarded: cleanCount(row.games_mostly_discarded),
+    gamesErrors: cleanCount(row.games_errors),
+  };
+}
+
+function normalizeSearchDiagnostics(value: unknown): WallapopSearchDiagnostic[] {
+  if (!Array.isArray(value)) return [];
+  const allowedOutcomes = new Set(["accepted", "no_results", "all_discarded", "mostly_discarded", "error"]);
+  const allowedDecisions = new Set([
+    "price_changed",
+    "verified_price_unchanged",
+    "no_accepted_listings",
+    "awaiting_more_verified_listings",
+    "rejected_by_price_sync",
+  ]);
+  return value.slice(0, WALLAPOP_CAMPAIGN_MAX_BATCH_SIZE).flatMap((raw) => {
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) return [];
+    const row = raw as UnknownRecord;
+    const rawAttempts = Array.isArray(row.attempts) ? row.attempts : [];
+    const attempts = rawAttempts.slice(0, 8).flatMap((attempt) => {
+      if (!attempt || typeof attempt !== "object" || Array.isArray(attempt)) return [];
+      const item = attempt as UnknownRecord;
+      const query = cleanText(item.query, 180);
+      if (!query) return [];
+      return [{
+        query: decodeHtmlEntities(query),
+        results: cleanCount(item.results),
+        newResults: cleanCount(item.newResults),
+        cumulativeResults: cleanCount(item.cumulativeResults),
+      }];
+    });
+    const outcome = cleanText(row.outcome, 40);
+    const priceDecision = cleanText(row.priceDecision, 80);
+    const title = cleanText(row.title, 240);
+    return [{
+      catalogId: cleanText(row.catalogId, 240),
+      title: title ? decodeHtmlEntities(title) : null,
+      platformSlug: cleanText(row.platformSlug, 40),
+      attempts,
+      candidateCount: cleanCount(row.candidateCount),
+      titleMatchedCount: cleanCount(row.titleMatchedCount),
+      detailMatchedCount: cleanCount(row.detailMatchedCount),
+      classifiedCandidateCount: cleanCount(row.classifiedCandidateCount),
+      acceptedListings: cleanCount(row.acceptedListings),
+      verifiedListings: cleanCount(row.verifiedListings),
+      reviewListings: cleanCount(row.reviewListings),
+      rejectedListings: cleanCount(row.rejectedListings),
+      discardRatePct: Math.min(100, cleanCount(row.discardRatePct)),
+      outcome: allowedOutcomes.has(outcome ?? "")
+        ? outcome as WallapopSearchDiagnostic["outcome"]
+        : "error",
+      error: cleanText(row.error, 300),
+      fromCache: row.fromCache === true,
+      matchedCatalogIds: cleanStringArray(row.matchedCatalogIds, 20),
+      priceDecision: allowedDecisions.has(priceDecision ?? "")
+        ? priceDecision as NonNullable<WallapopSearchDiagnostic["priceDecision"]>
+        : null,
+      priceChangedCatalogIds: cleanStringArray(row.priceChangedCatalogIds, 20),
+      verifiedPriceCatalogIds: cleanStringArray(row.verifiedPriceCatalogIds, 20),
+      requiredVerifiedListings: Math.max(1, cleanCount(row.requiredVerifiedListings) || 3),
+    }];
+  });
+}
+
 function emptyBatch(): WallapopBatchSummary | null {
   return null;
 }
@@ -109,11 +255,14 @@ function normalizeBatch(value: unknown): WallapopBatchSummary | null {
     jobId: cleanText(row.jobId, 160),
     platformSlug: cleanText(row.platformSlug, 40),
     catalogIds: cleanStringArray(row.catalogIds),
-    titles: cleanStringArray(row.titles),
+    titles: cleanDisplayStringArray(row.titles),
     queuedAt: cleanText(row.queuedAt, 80),
     finishedAt: cleanText(row.finishedAt, 80),
     verifiedCatalogIds: cleanStringArray(row.verifiedCatalogIds, 100),
+    pricedCatalogIds: cleanStringArray(row.pricedCatalogIds, 100),
     reviewQueueItems: Math.max(0, cleanNumber(row.reviewQueueItems)),
+    collectorStats: normalizeCollectorStats(row.collectorStats),
+    searchDiagnostics: normalizeSearchDiagnostics(row.searchDiagnostics),
     error: cleanText(row.error),
   };
 }
@@ -147,6 +296,11 @@ export function emptyWallapopCampaignStatus(): WallapopCampaignStatus {
     },
     activeBatch: null,
     lastBatch: null,
+    priceResults: {
+      changedGames: 0,
+      changedCatalogIds: [],
+      batchesWithChanges: 0,
+    },
     readyArtifactCount: 0,
     error: null,
     consecutiveErrors: 0,
@@ -176,6 +330,9 @@ export function normalizeWallapopCampaignStatus(value: UnknownRecord | null): Wa
   }
   const lastError = value.lastError && typeof value.lastError === "object"
     ? value.lastError as UnknownRecord
+    : {};
+  const priceResults = value.priceResults && typeof value.priceResults === "object"
+    ? value.priceResults as UnknownRecord
     : {};
   const normalizedPlatforms = cleanStringArray(
     settings.platforms,
@@ -211,6 +368,11 @@ export function normalizeWallapopCampaignStatus(value: UnknownRecord | null): Wa
     },
     activeBatch: normalizeBatch(value.activeBatch),
     lastBatch: normalizeBatch(value.lastBatch),
+    priceResults: {
+      changedGames: cleanCount(priceResults.changedGames),
+      changedCatalogIds: cleanStringArray(priceResults.changedCatalogIds, 500),
+      batchesWithChanges: cleanCount(priceResults.batchesWithChanges),
+    },
     readyArtifactCount: Math.max(0, cleanNumber(value.readyArtifactCount)),
     error: cleanText(lastError.message),
     consecutiveErrors: Math.max(0, cleanNumber(value.consecutiveErrors)),
@@ -239,7 +401,9 @@ function publicBaseUrl(): string {
 
 async function fetchWorkerJson(relativePath: string): Promise<UnknownRecord | null> {
   try {
-    const response = await fetch(`${publicBaseUrl()}/${relativePath.replace(/^\//, "")}`, {
+    const url = new URL(`${publicBaseUrl()}/${relativePath.replace(/^\//, "")}`);
+    url.searchParams.set("_", Date.now().toString());
+    const response = await fetch(url, {
       cache: "no-store",
       signal: AbortSignal.timeout(3_000),
     });

@@ -22,6 +22,13 @@ export type PcWorkerHealth = {
     platforms: string | null;
     source: string | null;
   };
+  autoUpdate: {
+    enabled: boolean;
+    status: string | null;
+    checkedAt: string | null;
+    targetSha: string | null;
+    error: string | null;
+  };
 };
 
 export type PcWorkerUpdateStatus = {
@@ -243,7 +250,9 @@ export async function queuePcWorkerUpdate(action: PcWorkerUpdateAction) {
 
 async function fetchWorkerJson(relativePath: string): Promise<Record<string, unknown> | null> {
   try {
-    const response = await fetch(`${publicBaseUrl()}/${relativePath.replace(/^\//, "")}`, {
+    const url = new URL(`${publicBaseUrl()}/${relativePath.replace(/^\//, "")}`);
+    url.searchParams.set("_", Date.now().toString());
+    const response = await fetch(url, {
       cache: "no-store",
       signal: AbortSignal.timeout(3_000),
     });
@@ -264,6 +273,9 @@ export function normalizePcWorkerHealth(value: Record<string, unknown> | null): 
   const weekly = value?.todoConsolasWeekly && typeof value.todoConsolasWeekly === "object"
     ? value.todoConsolasWeekly as Record<string, unknown>
     : {};
+  const autoUpdate = value?.autoUpdate && typeof value.autoUpdate === "object"
+    ? value.autoUpdate as Record<string, unknown>
+    : {};
   return {
     available: Boolean(value),
     checkedAt: cleanText(value?.checkedAt, 80),
@@ -281,6 +293,13 @@ export function normalizePcWorkerHealth(value: Record<string, unknown> | null): 
       enabled: typeof weekly.enabled === "boolean" ? weekly.enabled : null,
       platforms: cleanText(weekly.platforms, 300),
       source: cleanText(weekly.source, 80),
+    },
+    autoUpdate: {
+      enabled: autoUpdate.enabled === true,
+      status: cleanText(autoUpdate.status, 80),
+      checkedAt: cleanText(autoUpdate.checkedAt, 80),
+      targetSha: cleanSha(autoUpdate.targetSha),
+      error: cleanText(autoUpdate.error),
     },
   };
 }

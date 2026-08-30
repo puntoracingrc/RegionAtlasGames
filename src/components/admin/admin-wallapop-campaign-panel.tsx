@@ -74,6 +74,23 @@ function progressPercent(overview: WallapopCampaignOverview | null): number {
   return Math.min(100, Math.round((progress.processedGames / progress.totalGames) * 100));
 }
 
+function searchOutcomeLabel(outcome: string): string {
+  if (outcome === "no_results") return "Sin anuncios";
+  if (outcome === "all_discarded") return "Todo descartado";
+  if (outcome === "mostly_discarded") return "Descarte alto";
+  if (outcome === "error") return "Error";
+  return "Con evidencias";
+}
+
+function priceDecisionLabel(decision: string | null): string {
+  if (decision === "price_changed") return "Precio modificado";
+  if (decision === "verified_price_unchanged") return "Precio verificado sin cambios";
+  if (decision === "awaiting_more_verified_listings") return "Faltan muestras verificadas";
+  if (decision === "rejected_by_price_sync") return "Rechazado por el cálculo";
+  if (decision === "no_accepted_listings") return "Sin anuncios aceptados";
+  return "Sin diagnóstico de precio";
+}
+
 function diagnosticText(overview: WallapopCampaignOverview | null): string {
   return [
     "REGION_ATLAS_WALLAPOP_CAMPAIGN_V1",
@@ -152,7 +169,9 @@ export function AdminWallapopCampaignPanel() {
         setError(data?.error ?? "No se pudo cambiar el estado del robot.");
         return;
       }
-      setMessage(action === "disable" ? "Orden de apagado enviada al PC." : "Orden enviada al PC. El panel comprobará la confirmación.");
+      setMessage(action === "disable"
+        ? "Parada solicitada. El PC terminará la tanda actual y no iniciará otra."
+        : "Orden enviada al PC. El panel comprobará la confirmación.");
       await refresh();
     } catch {
       setError("No se pudo cambiar el estado del robot.");
@@ -172,6 +191,7 @@ export function AdminWallapopCampaignPanel() {
   }
 
   const campaign = overview?.campaign;
+  const stopping = campaign?.status === "stopping";
   const presentation = statusPresentation(campaign?.status ?? "disabled", campaign?.enabled ?? false);
   const progress = progressPercent(overview);
   const busy = submitting !== null || overview?.control.status === "queued";
@@ -183,6 +203,13 @@ export function AdminWallapopCampaignPanel() {
     })
     ?? "—";
   const canToggle = campaign?.enabled ? overview?.canDisable : overview?.canEnable;
+  const lastBatch = campaign?.lastBatch;
+  const lastStats = lastBatch?.collectorStats;
+  const issueDiagnostics = lastBatch?.searchDiagnostics.filter((diagnostic) => (
+    diagnostic.outcome !== "accepted"
+    || diagnostic.priceDecision === "awaiting_more_verified_listings"
+    || diagnostic.priceDecision === "rejected_by_price_sync"
+  )) ?? [];
   const platformProgress = useMemo(
     () => campaign?.settings.platforms.map((slug) => ({ slug, ...(campaign.progress.byPlatform[slug] ?? { processed: 0, total: 0 }) })) ?? [],
     [campaign],
@@ -209,11 +236,17 @@ export function AdminWallapopCampaignPanel() {
             role="switch"
             aria-checked={campaign?.enabled ?? false}
             onClick={() => void sendControl(campaign?.enabled ? "disable" : "enable")}
-            disabled={busy || !canToggle}
+            disabled={busy || stopping || !canToggle}
             className={campaign?.enabled ? "btn-secondary inline-flex items-center gap-2 text-sm" : "btn-primary inline-flex items-center gap-2 text-sm"}
           >
             {campaign?.enabled ? <PauseCircle aria-hidden="true" className="h-4 w-4" /> : <Play aria-hidden="true" className="h-4 w-4" />}
-            {submitting ? "Enviando..." : campaign?.enabled ? "Apagar" : "Encender"}
+            {submitting
+              ? "Enviando..."
+              : stopping
+                ? "Finalizando tanda..."
+                : campaign?.enabled
+                  ? "Detener tras tanda"
+                  : "Encender"}
           </button>
           <button type="button" onClick={() => void refresh()} disabled={loading} className="btn-secondary inline-flex items-center gap-2 text-sm" title="Actualizar estado">
             <RefreshCw aria-hidden="true" className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
@@ -230,7 +263,7 @@ export function AdminWallapopCampaignPanel() {
         <AdminStatTile tone={presentation.panelTone} label="Catálogo recorrido" value={`${campaign?.progress.processedGames ?? 0}/${campaign?.progress.totalGames || "—"}`} helper={`${progress}% del ciclo`} />
         <AdminStatTile tone={presentation.panelTone} label="Plataforma" value={currentPlatform.toUpperCase()} helper={`${campaign?.progress.completedPlatforms ?? 0}/${campaign?.progress.totalPlatforms ?? 5} terminadas`} />
         <AdminStatTile tone={presentation.panelTone} label="Tanda actual" value={currentBatch?.catalogIds.length ?? 0} helper={currentBatch?.jobId ?? "ninguna en marcha"} />
-        <AdminStatTile tone={presentation.panelTone} label="Última verificación" value={campaign?.lastBatch?.verifiedCatalogIds.length ?? 0} helper={`${campaign?.readyArtifactCount ?? 0} lote(s) en el manifiesto Git`} />
+        <AdminStatTile tone={presentation.panelTone} label="Precios modificados" value={campaign?.priceResults.changedGames ?? 0} helper={`${campaign?.priceResults.batchesWithChanges ?? 0} tanda(s) con cambios`} />
         <AdminStatTile tone={presentation.panelTone} label="Próxima tanda" value={formatDate(campaign?.nextRunAt)} helper={campaign?.campaignId ? `ciclo ${campaign.campaignId}` : "aún no iniciado"} />
       </div>
 
@@ -248,6 +281,95 @@ export function AdminWallapopCampaignPanel() {
           </Badge>
         ))}
       </div>
+
+      {lastBatch ? (
+        <section className="mt-5 border-y border-border py-4" aria-labelledby="wallapop-last-batch-title">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 id="wallapop-last-batch-title" className="text-sm font-bold text-foreground">Resultado de la última tanda</h3>
+            <p className="text-xs text-muted">{lastBatch.platformSlug?.toUpperCase() ?? "—"} · {formatDate(lastBatch.finishedAt)}</p>
+          </div>
+          <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3 xl:grid-cols-5">
+            <div>
+              <dt className="text-xs font-semibold uppercase text-muted">Juegos consultados</dt>
+              <dd className="mt-1 text-xl font-black text-foreground">{lastStats?.gamesRequested ?? lastBatch.catalogIds.length}</dd>
+            </div>
+            <div>
+              <dt className="text-xs font-semibold uppercase text-muted">Con anuncios útiles</dt>
+              <dd className="mt-1 text-xl font-black text-foreground">{lastStats?.gamesWithListings ?? 0}</dd>
+            </div>
+            <div>
+              <dt className="text-xs font-semibold uppercase text-muted">Anuncios aceptados</dt>
+              <dd className="mt-1 text-xl font-black text-foreground">{lastStats?.listings ?? 0}</dd>
+            </div>
+            <div>
+              <dt className="text-xs font-semibold uppercase text-muted">Región verificada</dt>
+              <dd className="mt-1 text-xl font-black text-foreground">{lastStats?.listingsVerified ?? 0}</dd>
+            </div>
+            <div>
+              <dt className="text-xs font-semibold uppercase text-muted">Precios modificados</dt>
+              <dd className="mt-1 text-xl font-black text-foreground">{lastBatch.verifiedCatalogIds.length}</dd>
+            </div>
+          </dl>
+        </section>
+      ) : null}
+
+      {lastBatch?.searchDiagnostics.length ? (
+        <section className="mt-5" aria-labelledby="wallapop-query-diagnostics-title">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 id="wallapop-query-diagnostics-title" className="text-sm font-bold text-foreground">Búsquedas que necesitan atención</h3>
+            <p className="text-xs text-muted">{issueDiagnostics.length} de {lastBatch.searchDiagnostics.length} juegos</p>
+          </div>
+          {issueDiagnostics.length ? (
+            <div className="mt-3 overflow-x-auto border-y border-border">
+              <table className="w-full min-w-[880px] text-left text-sm">
+                <thead className="bg-card/60 text-xs uppercase text-muted">
+                  <tr>
+                    <th className="px-3 py-2 font-semibold">Juego</th>
+                    <th className="px-3 py-2 font-semibold">Resultado</th>
+                    <th className="px-3 py-2 font-semibold">Precio</th>
+                    <th className="px-3 py-2 font-semibold">Consultas exactas</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {issueDiagnostics.map((diagnostic, diagnosticIndex) => (
+                    <tr key={diagnostic.catalogId ?? diagnostic.title ?? `diagnostic-${diagnosticIndex}`} className="align-top">
+                      <td className="px-3 py-3">
+                        <p className="max-w-64 font-bold text-foreground">{diagnostic.title ?? diagnostic.catalogId ?? "Juego sin título"}</p>
+                        <p className="mt-1 text-xs text-muted">{diagnostic.catalogId}</p>
+                      </td>
+                      <td className="px-3 py-3">
+                        <Badge tone={diagnostic.outcome === "error" ? "rose" : diagnostic.outcome === "accepted" ? "amber" : "neutral"}>
+                          {searchOutcomeLabel(diagnostic.outcome)}
+                        </Badge>
+                        <p className="mt-2 whitespace-nowrap text-xs text-muted">
+                          {diagnostic.acceptedListings}/{diagnostic.candidateCount} aceptados · {diagnostic.verifiedListings} verificados
+                        </p>
+                      </td>
+                      <td className="px-3 py-3 text-xs font-semibold text-foreground">
+                        {priceDecisionLabel(diagnostic.priceDecision)}
+                      </td>
+                      <td className="px-3 py-3">
+                        <div className="flex max-w-2xl flex-wrap gap-2">
+                          {diagnostic.attempts.map((attempt, index) => (
+                            <span key={`${attempt.query}-${index}`} className="rounded border border-border bg-background/70 px-2 py-1 text-xs text-foreground">
+                              “{attempt.query}” · {attempt.results} resultado(s)
+                            </span>
+                          ))}
+                          {!diagnostic.attempts.length ? <span className="text-xs text-muted">Sin consultas registradas</span> : null}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p className="mt-3 text-sm font-semibold text-emerald-800 dark:text-emerald-200">La tanda no dejó búsquedas problemáticas.</p>
+          )}
+        </section>
+      ) : lastBatch ? (
+        <p className="mt-5 text-sm text-muted">El PC aún no ha enviado el detalle por juego. Aparecerá tras la primera tanda ejecutada con la versión nueva.</p>
+      ) : null}
 
       {!overview?.canEnable && !campaign?.enabled && overview?.controlBlockReason ? (
         <p className="mt-4 flex items-start gap-2 rounded-lg border border-amber-300/70 bg-amber-100/60 p-3 text-sm text-amber-900 dark:border-amber-400/30 dark:bg-amber-950/25 dark:text-amber-100">
@@ -275,7 +397,7 @@ export function AdminWallapopCampaignPanel() {
       ) : null}
       {currentBatch?.titles.length ? (
         <p className="mt-4 truncate text-xs text-muted" title={currentBatch.titles.join(" · ")}>
-          En curso: {currentBatch.titles.join(" · ")}
+          Juegos de la tanda: {currentBatch.titles.join(" · ")}
         </p>
       ) : null}
       {message ? <p className="mt-4 text-sm font-semibold text-emerald-800 dark:text-emerald-200">{message}</p> : null}

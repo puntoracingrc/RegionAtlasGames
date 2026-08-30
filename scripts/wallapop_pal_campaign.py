@@ -7,6 +7,7 @@ cursor y decide cuando una respuesta obliga a esperar o detener la campaña.
 
 from __future__ import annotations
 
+import html as html_lib
 import math
 import re
 import unicodedata
@@ -218,6 +219,16 @@ def _title_sort_key(game: dict[str, Any]) -> tuple[str, str]:
     return (title, str(game.get("id") or ""))
 
 
+def _display_title(value: Any) -> str:
+    title = str(value or "")
+    for _ in range(5):
+        decoded = html_lib.unescape(title)
+        if decoded == title:
+            break
+        title = decoded
+    return title.strip()
+
+
 def eligible_games(catalog: list[dict[str, Any]], platform_slug: str) -> list[dict[str, Any]]:
     return sorted(
         (
@@ -298,7 +309,7 @@ def select_next_batch(
         batch = {
             "platformSlug": platform_slug,
             "catalogIds": [str(game["id"]) for game in selected],
-            "titles": [str(game.get("title") or game["id"]) for game in selected],
+            "titles": [_display_title(game.get("title") or game["id"]) for game in selected],
         }
         state["status"] = "queueing"
         state["platformIndex"] = index
@@ -379,8 +390,14 @@ def reconcile_active_batch(
             "titles": active.get("titles") or [],
             "finishedAt": str(job.get("finishedAt") or iso_at(now)),
             "verifiedCatalogIds": job.get("verifiedCatalogIds") or [],
+            "pricedCatalogIds": job.get("pricedCatalogIds") or [],
             "reviewQueueItems": int(job.get("reviewQueueItems") or 0),
             "collectorStats": job.get("collectorStats") if isinstance(job.get("collectorStats"), dict) else {},
+            "searchDiagnostics": (
+                job.get("searchDiagnostics")[:MAX_BATCH_SIZE]
+                if isinstance(job.get("searchDiagnostics"), list)
+                else []
+            ),
         }
         verified_ids = [str(item) for item in job.get("verifiedCatalogIds") or [] if str(item)]
         result_path = str(job.get("resultPath") or "")
@@ -457,6 +474,15 @@ def public_state(
 ) -> dict[str, Any]:
     active = state.get("activeBatch") if isinstance(state.get("activeBatch"), dict) else None
     last_batch = state.get("lastBatch") if isinstance(state.get("lastBatch"), dict) else None
+    ready_artifacts = [
+        item for item in state.get("readyArtifacts") or [] if isinstance(item, dict)
+    ]
+    changed_catalog_ids = list(dict.fromkeys(
+        str(catalog_id)
+        for artifact in ready_artifacts
+        for catalog_id in artifact.get("verifiedCatalogIds") or []
+        if str(catalog_id)
+    ))
     return {
         "schemaVersion": SCHEMA_VERSION,
         "engine": ENGINE,
@@ -480,7 +506,12 @@ def public_state(
         "progress": campaign_progress(state, catalog),
         "activeBatch": active,
         "lastBatch": last_batch,
-        "readyArtifactCount": len(state.get("readyArtifacts") or []),
+        "priceResults": {
+            "changedGames": len(changed_catalog_ids),
+            "changedCatalogIds": changed_catalog_ids,
+            "batchesWithChanges": len(ready_artifacts),
+        },
+        "readyArtifactCount": len(ready_artifacts),
         "lastError": state.get("lastError") if isinstance(state.get("lastError"), dict) else None,
         "consecutiveErrors": int(state.get("consecutiveErrors") or 0),
     }

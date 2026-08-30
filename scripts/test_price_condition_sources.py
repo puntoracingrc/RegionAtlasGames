@@ -10,7 +10,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from collectors.condition_buckets import mean_by_bucket, source_weight  # noqa: E402
-from sync_es_prices import apply_learned_original_contents, collect_condition_observations  # noqa: E402
+from sync_es_prices import (  # noqa: E402
+    apply_condition_price_estimates,
+    apply_learned_original_contents,
+    collect_condition_observations,
+)
 
 
 def main() -> None:
@@ -61,6 +65,23 @@ def main() -> None:
         [(100.0, "complete", "ebay-es"), (20.0, "complete", "todoconsolas")]
     )
     assert weighted["complete"] == 68.48
+
+    verified_game: dict[str, object] = {"priceRegionVerified": True}
+    assert apply_condition_price_estimates(
+        verified_game,
+        [
+            (12.0, "complete", "wallapop"),
+            (16.0, "complete", "wallapop"),
+            (18.0, "sealed", "wallapop"),
+            (20.0, "sealed", "wallapop"),
+            (22.0, "sealed", "wallapop"),
+        ],
+        synced_at="2026-08-30T10:00:00Z",
+        pc_ref=None,
+    )
+    assert verified_game["estimatedPriceComplete"] == 14.0
+    assert verified_game["estimatedPriceSealed"] == 20.0
+    assert verified_game["priceRegionVerified"] is True
 
     content_game: dict[str, object] = {}
     assert apply_learned_original_contents(
