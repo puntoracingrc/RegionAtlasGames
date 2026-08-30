@@ -15,6 +15,7 @@ from typing import Any
 
 from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.condition_buckets import DISPLAY_BUCKETS
+from collectors.game_content_profile import manual_missing_declared
 from collectors.game_region_learning import game_region_profile
 from collectors.region_inference import regions_match
 
@@ -142,6 +143,7 @@ def classify_region_from_cover(
     description: str = "",
     known_condition: str | None = None,
     catalog_id: str | None = None,
+    manual_expected: bool | None = None,
     cache_key: str | None = None,
     use_cache: bool = True,
 ) -> RegionCoverVisionResult | None:
@@ -159,6 +161,7 @@ def classify_region_from_cover(
             platform_slug,
             game_title,
             description[:1000],
+            str(manual_expected),
             str((learned_profile or {}).get("fingerprint") or ""),
             *urls,
         ]
@@ -195,6 +198,8 @@ def classify_region_from_cover(
                 f"Título anuncio: {title}\n"
                 f"Descripción completa: {description[:2000]}\n"
                 f"Estado ya declarado por texto: {known_condition or 'desconocido'}\n"
+                f"¿La edición incluía manual de fábrica?: "
+                f"{'sí' if manual_expected is True else 'no' if manual_expected is False else 'desconocido'}\n"
                 f"Fuente: {source}\n\n"
                 "Mira la(s) foto(s) del anuncio (carátula, caja, contraportada con PEGI/ESRB/código regional).\n"
                 "Responde JSON:\n"
@@ -213,7 +218,9 @@ def classify_region_from_cover(
                 "- Katakana/kanji y códigos japoneses→Japón; ESRB/código USA→USA.\n"
                 "- regionMatchesCatalog=true si la edición visible encaja con la región del catálogo.\n"
                 "- evidence: códigos que justifiquen la región vista (mínimo uno válido).\n"
-                "- condition: loose si solo está el juego/cartucho/disco; game_manual si hay juego + manual sin caja; complete si hay caja retail + juego o la caja aparece abierta; sealed solo si está precintado. 'Desprecintado' siempre es complete, nunca sealed.\n"
+                "- condition: loose si solo está el juego/cartucho/disco; game_manual si hay juego + manual sin caja; complete si está abierto pero conserva todo el contenido original; sealed solo si está precintado.\n"
+                "- Si manual_expected=true, una copia sin manual no es complete. Si manual_expected=false, caja + juego puede ser complete sin manual.\n"
+                "- 'Desprecintado' es complete solo si no falta contenido original.\n"
                 "- Si hay artbook, figura, steelbook u otro extra que no pertenezca a la edición objetivo, isTargetGame=false para valoración."
             ),
         }
@@ -266,6 +273,12 @@ def classify_region_from_cover(
     condition = str(cond_raw).strip().lower() if cond_raw not in (None, "null", "") else None
     if condition not in DISPLAY_BUCKETS:
         condition = None
+    if (
+        condition == "complete"
+        and manual_expected is not False
+        and manual_missing_declared(f"{title} {description}")
+    ):
+        condition = None
 
     result = RegionCoverVisionResult(
         listing_region=listing_region,
@@ -294,6 +307,7 @@ def classify_region_from_cover(
             "platformSlug": platform_slug,
             "source": source,
             "externalId": external_id,
+            "manualExpected": manual_expected,
             "resolvedAt": _now_iso(),
         }),
     )
@@ -318,6 +332,7 @@ def apply_region_cover_vision(
     known_condition: str | None = None,
     require_condition: bool = False,
     catalog_id: str | None = None,
+    manual_expected: bool | None = None,
 ) -> tuple[str, list[str], float, bool, str | None]:
     """
     Si el anuncio ya está verificado por texto/reglas, no hace nada.
@@ -351,6 +366,7 @@ def apply_region_cover_vision(
         description=description,
         known_condition=known_condition,
         catalog_id=catalog_id,
+        manual_expected=manual_expected,
     )
     if not vision or not vision.is_target_game or vision.confidence < MIN_CONFIDENCE:
         verified = rules_ok and region_matches

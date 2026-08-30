@@ -46,10 +46,10 @@ export function formatEsPriceForCard(
 ): string {
   const status = esPriceDisplayLabel(game);
   if (status === "pending") return "Pendiente";
-  if (status === "unverified") return "Sin verificar";
   const conditionPrice = primaryConditionPriceEntry(game);
   if (hasAnyConditionEstimate(game) && conditionPrice) {
     return `${conditionPrice.shortLabel} · ${formatEur(conditionPrice.price)}`;
   }
+  if (status === "unverified" && game.recommendedPrice == null) return "Sin dato";
   return formatEur(game.recommendedPrice);
 }

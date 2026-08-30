@@ -50,10 +50,17 @@ No se mezclan estados diferentes:
 |---|---|
 | `estimatedPriceLoose` | Juego o cartucho suelto |
 | `estimatedPriceGameManual` | Juego + manual, sin caja completa |
-| `estimatedPriceComplete` | Completo |
+| `estimatedPriceComplete` | Abierto con todo el contenido que incluia esa edicion de fabrica |
 | `estimatedPriceSealed` | Precintado |
 
 `recommendedPrice` usa, por orden, completo, juego + manual, suelto y precintado. El precio principal es solo el artículo. El transporte estimado de eBay a España se guarda y muestra por separado.
+
+La presencia de manual se decide por juego y edicion, no por una regla general de
+plataforma. `manualExpected: true` exige el manual para clasificar una copia como
+completa; `false` permite caja + juego cuando esa edicion nunca lo incluyo. Si el
+valor no esta confirmado, una mencion como `sin manual` queda para revision y no
+se convierte automaticamente en completa. El recolector solo aprende esta regla
+de decisiones aceptadas en la cola de revision, nunca de candidatos pendientes.
 
 Se exigen al menos dos observaciones del mismo estado para calcular una media y tres para marcarla como verificada. Los outliers, precios imposibles, anuncios antiguos y regiones incompatibles se descartan.
 

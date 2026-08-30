@@ -11,6 +11,7 @@ from collectors.condition_buckets import (
     infer_condition_bucket,
 )
 from collectors.condition_vision import classify_condition_from_images
+from collectors.game_content_profile import manual_missing_declared
 from collectors.listing_images import row_image_urls
 
 CONDITION_HINT_RE = re.compile(
@@ -55,24 +56,52 @@ def _row_description(row: dict[str, Any]) -> str:
     return str(row.get("description") or row.get("listingDescription") or "").strip()
 
 
-def _text_bucket(row: dict[str, Any], *, title: str, condition_raw: str) -> str | None:
+def _text_bucket(
+    row: dict[str, Any],
+    *,
+    title: str,
+    condition_raw: str,
+    manual_expected: bool | None,
+) -> str | None:
     description = _row_description(row)
     explicit = str(row.get("condition") or row.get("conditionBucket") or "").strip().lower()
+    text = f"{condition_raw} {title} {description}".strip()
+    if manual_missing_declared(text) and manual_expected is not False:
+        return None
     if explicit in DISPLAY_BUCKETS:
         return explicit
-    bucket = bucket_from_raw(condition_raw)
+    bucket = bucket_from_raw(condition_raw, manual_expected=manual_expected)
     if bucket:
         return bucket
-    return infer_condition_bucket(title, condition_raw=condition_raw, description=description)
+    return infer_condition_bucket(
+        title,
+        condition_raw=condition_raw,
+        description=description,
+        manual_expected=manual_expected,
+    )
 
 
-def _needs_vision(row: dict[str, Any], *, title: str, condition_raw: str) -> bool:
-    if _text_bucket(row, title=title, condition_raw=condition_raw):
+def _needs_vision(
+    row: dict[str, Any],
+    *,
+    title: str,
+    condition_raw: str,
+    manual_expected: bool | None,
+) -> bool:
+    text = f"{title} {_row_description(row)} {condition_raw}".strip()
+    if manual_missing_declared(text) and manual_expected is not False:
+        _VISION_STATS["skipped_no_hints"] += 1
+        return False
+    if _text_bucket(
+        row,
+        title=title,
+        condition_raw=condition_raw,
+        manual_expected=manual_expected,
+    ):
         _VISION_STATS["skipped_has_bucket"] += 1
         return False
     if row.get("imageUrls") or row.get("imageUrl"):
         return True
-    text = f"{title} {_row_description(row)} {condition_raw}".strip()
     if not CONDITION_HINT_RE.search(text):
         _VISION_STATS["skipped_no_hints"] += 1
         return False
@@ -85,6 +114,7 @@ def resolve_condition_bucket(
     platform_slug: str,
     use_vision: bool = True,
     fetch_images: bool = True,
+    manual_expected: bool | None = None,
 ) -> tuple[str | None, str]:
     """
     Devuelve (estado, method) con method: text | vision | none.
@@ -92,12 +122,24 @@ def resolve_condition_bucket(
     """
     title = str(row.get("title") or "")
     condition_raw = str(row.get("condition") or "")
+    if manual_expected is None and isinstance(row.get("manualExpected"), bool):
+        manual_expected = bool(row["manualExpected"])
 
-    bucket = _text_bucket(row, title=title, condition_raw=condition_raw)
+    bucket = _text_bucket(
+        row,
+        title=title,
+        condition_raw=condition_raw,
+        manual_expected=manual_expected,
+    )
     if bucket:
         return bucket, "text"
 
-    if not use_vision or not _needs_vision(row, title=title, condition_raw=condition_raw):
+    if not use_vision or not _needs_vision(
+        row,
+        title=title,
+        condition_raw=condition_raw,
+        manual_expected=manual_expected,
+    ):
         return None, "none"
 
     cache_key = _vision_cache_key(row)
@@ -117,7 +159,8 @@ def resolve_condition_bucket(
         title=title,
         platform_slug=platform_slug,
         source=str(row.get("source") or "unknown"),
-        cache_key=cache_key,
+        cache_key=f"{cache_key}|manual_expected={manual_expected}",
+        manual_expected=manual_expected,
     )
     if bucket:
         _VISION_STATS["resolved"] += 1

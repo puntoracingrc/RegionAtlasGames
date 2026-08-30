@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 from typing import Any
 
+from collectors.game_content_profile import manual_missing_declared
 from collectors.jgo_match import infer_condition
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -29,7 +30,6 @@ RAW_TO_BUCKET: dict[str, str] = {
     "game_manual": "game_manual",
     "with_manual": "game_manual",
     "no_box": "game_manual",
-    "no_manual": "complete",
     "cib": "complete",
     "complete": "complete",
     "sealed": "sealed",
@@ -44,7 +44,6 @@ NO_BOX_RE = re.compile(r"\b(sin caja|no box|solo cartucho|solo disco|solo juego)
 COMPLETE_RE = re.compile(
     r"\b("
     r"completo|complete|cib|con caja|"
-    r"sin manual|no manual|solo falta manual|"
     r"caja y|box and|with box|in box|boxed"
     r")\b",
     re.I,
@@ -73,10 +72,12 @@ LOOSE_RE = re.compile(
 )
 
 
-def bucket_from_raw(raw: str | None) -> str | None:
+def bucket_from_raw(raw: str | None, *, manual_expected: bool | None = None) -> str | None:
     if not raw:
         return None
     key = raw.strip().lower()
+    if key == "no_manual":
+        return "complete" if manual_expected is False else None
     return RAW_TO_BUCKET.get(key)
 
 
@@ -85,16 +86,21 @@ def infer_condition_bucket(
     *,
     condition_raw: str = "",
     description: str = "",
+    manual_expected: bool | None = None,
 ) -> str | None:
-    """Devuelve loose | complete | sealed | None."""
+    """Devuelve estado; completo exige todo el contenido original conocido."""
     combined = f"{condition_raw} {title} {description}".strip()
     if not combined:
         return None
 
-    if UNSEALED_RE.search(combined) and not NO_BOX_RE.search(combined):
-        return "complete"
     if SEALED_RE.search(combined):
         return "sealed"
+    if NO_BOX_RE.search(combined):
+        return "game_manual" if GAME_MANUAL_RE.search(combined) else "loose"
+    if manual_missing_declared(combined):
+        return "complete" if manual_expected is False else None
+    if UNSEALED_RE.search(combined):
+        return "complete"
     if GAME_MANUAL_RE.search(combined) and not COMPLETE_RE.search(combined):
         return "game_manual"
     if COMPLETE_RE.search(combined):
@@ -103,7 +109,7 @@ def infer_condition_bucket(
         return "loose"
 
     inferred = infer_condition(combined)
-    bucket = bucket_from_raw(inferred)
+    bucket = bucket_from_raw(inferred, manual_expected=manual_expected)
     if bucket:
         return bucket
     return None
@@ -118,6 +124,7 @@ def observation_from_row(
     condition_key: str = "condition",
     use_vision: bool = True,
     fetch_images: bool = True,
+    manual_expected: bool | None = None,
 ) -> tuple[float, str, str] | None:
     price = row.get(price_key)
     if price is None:
@@ -135,6 +142,7 @@ def observation_from_row(
         platform_slug=platform_slug,
         use_vision=use_vision,
         fetch_images=fetch_images and not has_inline_image,
+        manual_expected=manual_expected,
     )
     if not bucket:
         return None

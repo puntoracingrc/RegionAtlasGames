@@ -122,6 +122,23 @@ def main() -> None:
     assert scoped["lastScopedSync"]["catalogIds"] == ["ps4-example"]
     assert scoped["lastScopedSync"]["source"] == "Wallapop ES"
 
+    scoped_region = merge_scoped_platform_run_state(
+        {
+            "lastSyncAt": "regional-full-run",
+            "source": "eBay ES",
+            "gamesTargeted": 53,
+        },
+        {
+            "lastSyncAt": "regional-single-game",
+            "source": "Wallapop ES",
+            "gamesTargeted": 1,
+        },
+        {"ps4-example"},
+    )
+    assert scoped_region["lastSyncAt"] == "regional-full-run"
+    assert scoped_region["gamesTargeted"] == 53
+    assert scoped_region["lastScopedSync"]["lastSyncAt"] == "regional-single-game"
+
     print("price confidence tests: OK")
 
 

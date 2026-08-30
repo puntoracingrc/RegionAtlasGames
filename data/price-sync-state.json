@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-08-30T08:36:19Z",
+  "lastRunAt": "2026-08-30T09:02:06Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -129,7 +129,7 @@
         "vintedGamesUpdated": 0,
         "gamesSkippedNoData": 0,
         "gamesRejectedOutliers": 0,
-        "gamesRejectedUnverifiedRegion": 1,
+        "gamesRejectedUnverifiedRegion": 0,
         "gamesRejectedRegionMismatch": 0,
         "gamesRejectedInsufficientEvidence": 0,
         "cexGamesUpdated": 0,
@@ -146,23 +146,23 @@
         "tcGamesSkipped": 0,
         "gameGamesUpdated": 0,
         "coveragePct": 100.0,
-        "priceListTotalGames": 8470,
-        "priceListPricedBefore": 451,
-        "priceListPricedAfter": 451,
+        "priceListTotalGames": 3042,
+        "priceListPricedBefore": 444,
+        "priceListPricedAfter": 444,
         "priceListPricedDelta": 0,
-        "priceListCoverageBeforePct": 5.3,
-        "priceListCoverageAfterPct": 5.3,
+        "priceListCoverageBeforePct": 14.6,
+        "priceListCoverageAfterPct": 14.6,
         "priceListCoverageDeltaPct": 0.0,
         "ebayDeliveryGamesUpdated": 0,
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
         "aiSummary": {
-          "openAiConfigured": true,
+          "openAiConfigured": false,
           "sources": [
             {
               "source": "wallapop",
               "aiRows": 8,
-              "resolved": 7,
-              "review": 1,
+              "resolved": 8,
+              "review": 0,
               "rejected": 0
             }
           ],
@@ -450,6 +450,47 @@
             "skipped_has_bucket": 0,
             "skipped_no_hints": 0
           }
+        },
+        "lastScopedSync": {
+          "lastSyncAt": "2026-08-30T08:31:23Z",
+          "source": "Wallapop ES",
+          "gamesTargeted": 1,
+          "gamesUpdated": 1,
+          "wallapopGamesUpdated": 1,
+          "ebayGamesUpdated": 0,
+          "vintedGamesUpdated": 0,
+          "coveragePct": 100.0,
+          "priceListTotalGames": 3042,
+          "priceListPricedBefore": 444,
+          "priceListPricedAfter": 444,
+          "priceListPricedDelta": 0,
+          "priceListCoverageBeforePct": 14.6,
+          "priceListCoverageAfterPct": 14.6,
+          "priceListCoverageDeltaPct": 0.0,
+          "aiSummary": {
+            "openAiConfigured": false,
+            "sources": [
+              {
+                "source": "wallapop",
+                "aiRows": 8,
+                "resolved": 8,
+                "review": 0,
+                "rejected": 0
+              }
+            ],
+            "conditionVision": {
+              "calls": 0,
+              "resolved": 0,
+              "skipped_no_images": 0,
+              "skipped_no_key": 0,
+              "skipped_has_bucket": 0,
+              "skipped_no_hints": 0
+            }
+          },
+          "scope": "catalog_ids",
+          "catalogIds": [
+            "ps4-13-sentinels-aegis-rim"
+          ]
         }
       }
     },

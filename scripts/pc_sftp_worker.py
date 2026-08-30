@@ -331,6 +331,13 @@ def process_price_request(queue: SftpQueue, request_name: str) -> bool:
     status_file.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     queue.upload_bytes(status_remote, json_bytes(status))
 
+    # Las decisiones humanas son memoria operativa del clasificador. Descarga
+    # la cola vigente antes de recolectar para no aprender de una copia antigua.
+    local_review_queue = ROOT / "data" / "admin" / "price-review-queue.json"
+    remote_review_queue = queue.remote("app", "data", "admin", "price-review-queue.json")
+    if queue.exists(remote_review_queue):
+        queue.download(remote_review_queue, local_review_queue)
+
     env = command_base_env()
     env["PRICE_COLLECT_TRIGGER"] = "automatic" if job.get("trigger") == "automatic" else "manual"
     code = run_logged(build_admin_collect_args(job, status_file), log_file, env)
@@ -350,6 +357,11 @@ def process_price_request(queue: SftpQueue, request_name: str) -> bool:
     )
     if code != 0 and not final_status.get("error"):
         final_status["error"] = f"Worker PC termino con codigo {code}."
+    if code == 0 and local_review_queue.exists():
+        try:
+            final_status["reviewQueueItems"] = upload_price_review_queue_verified(queue)
+        except Exception as exc:  # noqa: BLE001
+            final_status["reviewQueueSyncError"] = str(exc)
     status_file.write_text(json.dumps(final_status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     queue.upload_bytes(status_remote, json_bytes(final_status))
     queue.upload_file(log_remote, log_file)

@@ -19,7 +19,7 @@ export const CONDITION_PRICE_SHORT_LABELS: Record<ConditionBucket, string> = {
 export const CONDITION_PRICE_DESCRIPTIONS: Record<ConditionBucket, string> = {
   loose: "Cartucho o disco suelto",
   gameManual: "Juego + manual, sin caja",
-  complete: "Caja + juego; puede incluir manual",
+  complete: "Abierto con todo su contenido original",
   sealed: "Nuevo precintado",
 };
 

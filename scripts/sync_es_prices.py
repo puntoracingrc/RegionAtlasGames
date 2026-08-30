@@ -43,6 +43,7 @@ from collectors.condition_buckets import (  # noqa: E402
     mean_by_bucket,
     observation_from_row,
 )
+from collectors.game_content_profile import game_content_profile  # noqa: E402
 from collectors.price_history import record_platform_snapshots  # noqa: E402
 from collectors.price_ai_policy import price_collectors_use_ai  # noqa: E402
 from collectors.price_review_queue import record_price_review_candidates  # noqa: E402
@@ -647,6 +648,7 @@ def _row_observation(
     platform_slug: str,
     require_p2p_rules: bool = False,
     use_vision: bool = True,
+    manual_expected: bool | None = None,
 ) -> tuple[float, str, str] | None:
     if require_p2p_rules:
         if is_game_preowned_auto_verified(row, catalog_region):
@@ -654,6 +656,7 @@ def _row_observation(
                 row,
                 platform_slug=platform_slug,
                 use_vision=use_vision,
+                manual_expected=manual_expected,
             )
         if not is_listing_region_verified(row):
             return None
@@ -682,6 +685,7 @@ def _row_observation(
         row,
         platform_slug=platform_slug,
         use_vision=use_vision,
+        manual_expected=manual_expected,
     )
     return obs
 
@@ -703,6 +707,11 @@ def collect_condition_observations(
 ) -> list[tuple[float, str, str]]:
     observations: list[tuple[float, str, str]] = []
     current_sources: set[str] = set()
+    content_profile = game_content_profile(
+        catalog_game
+        or {"id": gid, "catalogId": gid, "platformSlug": platform_slug}
+    )
+    manual_expected = content_profile["manualExpected"]
 
     for row in grouped.get(gid, []):
         obs = _row_observation(
@@ -711,6 +720,7 @@ def collect_condition_observations(
             platform_slug=platform_slug,
             require_p2p_rules=True,
             use_vision=use_vision,
+            manual_expected=manual_expected,
         )
         if obs:
             observations.append(obs)
@@ -719,7 +729,13 @@ def collect_condition_observations(
     cex_row = cex_by_id.get(gid)
     if cex_row:
         cex_row = {**cex_row, "source": cex_row.get("source") or "cex"}
-        obs = _row_observation(cex_row, catalog_region=catalog_region, platform_slug=platform_slug, use_vision=use_vision)
+        obs = _row_observation(
+            cex_row,
+            catalog_region=catalog_region,
+            platform_slug=platform_slug,
+            use_vision=use_vision,
+            manual_expected=manual_expected,
+        )
         if obs:
             observations.append(obs)
             current_sources.add(obs[2])
@@ -743,7 +759,13 @@ def collect_condition_observations(
         ):
             row = {**row, "condition": "complete"}
         row = {**row, "source": row.get("source") or source_name}
-        obs = _row_observation(row, catalog_region=catalog_region, platform_slug=platform_slug, use_vision=use_vision)
+        obs = _row_observation(
+            row,
+            catalog_region=catalog_region,
+            platform_slug=platform_slug,
+            use_vision=use_vision,
+            manual_expected=manual_expected,
+        )
         if obs:
             observations.append(obs)
             current_sources.add(obs[2])
@@ -782,6 +804,7 @@ def collect_condition_observations(
                 platform_slug=platform_slug,
                 use_vision=False,
                 fetch_images=False,
+                manual_expected=manual_expected,
             )
             if obs:
                 observations.append(obs)
@@ -920,6 +943,7 @@ def apply_ebay_delivery_estimates(
     *,
     catalog_region: str,
     platform_slug: str,
+    manual_expected: bool | None = None,
 ) -> bool:
     """Publica transporte por separado; nunca lo mezcla en el precio principal."""
     usable, *_ = filter_verified_listings(platform_slug, catalog_region, rows)
@@ -936,6 +960,7 @@ def apply_ebay_delivery_estimates(
             platform_slug=platform_slug,
             use_vision=False,
             fetch_images=False,
+            manual_expected=manual_expected,
         )
         if bucket not in DISPLAY_BUCKETS:
             continue
@@ -1267,6 +1292,7 @@ def main() -> None:
             grouped.get(gid, []),
             catalog_region=catalog_region,
             platform_slug=platform_slug,
+            manual_expected=game_content_profile(game)["manualExpected"],
         ):
             delivery_updated += 1
         by_id[gid] = game
@@ -1431,7 +1457,7 @@ def main() -> None:
     if args.region:
         regions_state = state.setdefault("regions", {})
         platform_regions = regions_state.setdefault(platform_slug, {})
-        platform_regions[args.region] = {
+        region_run_state = {
             "lastSyncAt": synced_at,
             "source": price_source_label({str(r.get("source", "other")).lower() for r in listings}),
             "gamesTargeted": len(targets),
@@ -1449,6 +1475,14 @@ def main() -> None:
             "priceListCoverageDeltaPct": price_list_coverage_delta,
             "aiSummary": ai_summary,
         }
+        if selected_catalog_ids is not None:
+            platform_regions[args.region] = merge_scoped_platform_run_state(
+                dict(platform_regions.get(args.region) or {}),
+                region_run_state,
+                selected_catalog_ids,
+            )
+        else:
+            platform_regions[args.region] = region_run_state
     state["lastRunAt"] = now_iso()
     rotation_step = args.rotation_step or platform_slug
     if not args.no_advance_rotation:

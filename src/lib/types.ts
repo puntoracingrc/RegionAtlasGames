@@ -219,6 +219,8 @@ export type CatalogGame = {
   region: string;
   physicalVariant?: string | null;
   edition: string;
+  /** Si la edición física incluía manual de fábrica; null/ausente = por confirmar. */
+  manualExpected?: boolean | null;
   listingStatus: "listed" | "pending" | "excluded";
   excludeCategory?: string | null;
   excludeReason?: string | null;

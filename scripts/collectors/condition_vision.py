@@ -22,7 +22,7 @@ VISION_CACHE_DIR = ingest_dir() / "cache" / "condition-vision"
 DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 MIN_CONFIDENCE = 0.80
-MAX_IMAGES = max(1, min(3, int(os.environ.get("VISION_MAX_IMAGES", "1"))))
+MAX_IMAGES = max(1, min(8, int(os.environ.get("VISION_MAX_IMAGES", "8"))))
 
 
 def vision_available() -> bool:
@@ -84,6 +84,7 @@ def classify_condition_from_images(
     platform_slug: str,
     source: str,
     cache_key: str,
+    manual_expected: bool | None = None,
     use_cache: bool = True,
 ) -> tuple[str | None, float, str | None]:
     urls = [u for u in image_urls if u][:MAX_IMAGES]
@@ -110,13 +111,17 @@ def classify_condition_from_images(
                 f"Plataforma: {platform_slug}\n"
                 f"Fuente: {source}\n"
                 f"Título anuncio: {title}\n\n"
+                f"¿La edición incluía manual de fábrica?: "
+                f"{'sí' if manual_expected is True else 'no' if manual_expected is False else 'desconocido'}\n\n"
                 "Clasifica el ESTADO FÍSICO de la copia en venta mirando la(s) foto(s).\n"
                 "Responde JSON: "
                 '{"bucket":"loose|game_manual|complete|sealed|null","confidence":0-1,"reason":"..."}\n\n'
                 "Reglas:\n"
                 "- loose: solo cartucho/disco/medio suelto, sin caja retail completa\n"
                 "- game_manual: juego/cartucho/disco con manual visible, pero sin caja retail\n"
-                "- complete: caja abierta con juego; puede faltar manual; caja + disco\n"
+                "- complete: copia abierta con todo lo que esa edición incluía de fábrica\n"
+                "- si manual_expected=true, una copia sin manual NO es complete; devuelve null\n"
+                "- si manual_expected=false, caja + juego puede ser complete sin manual\n"
                 "- sealed: precintado de fábrica, film plástico intacto, sin abrir\n"
                 "- null: no se puede determinar\n"
                 "No confundas múltiples juegos en un lote si solo se vende uno."

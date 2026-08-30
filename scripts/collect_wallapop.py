@@ -40,6 +40,7 @@ from collectors.listing_recency import (  # noqa: E402
     wallapop_per_game_pages,
     wallapop_time_filter,
 )
+from collectors.game_content_profile import game_content_profile  # noqa: E402
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
 from collectors.regional_variant_routing import regional_variants_for, strict_regions_match  # noqa: E402
 from collectors.match_pipeline import print_match_stats, run_match_pipeline  # noqa: E402
@@ -72,7 +73,7 @@ from region_evidence_rules import check_listing_evidence_meets_rules  # noqa: E4
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
 CACHE_DIR = ROOT / "data" / "price-ingest" / "cache" / "wallapop"
-WALLAPOP_EVIDENCE_POLICY = "wallapop_full_listing_evidence_v1"
+WALLAPOP_EVIDENCE_POLICY = "wallapop_full_listing_evidence_v2"
 REQUEST_DELAY = 0.35
 MIN_TITLE_SCORE = 0.42
 
@@ -272,6 +273,7 @@ def collect_platform_sweep(
     def row_builder(product: dict[str, Any], matched_game: dict[str, Any], result) -> dict[str, Any] | None:
         if listing_has_unmatched_extras(product, matched_game):
             return None
+        content_profile = game_content_profile(matched_game)
         row = product_to_ingest_row(
             product,
             str(matched_game["id"]),
@@ -279,6 +281,8 @@ def collect_platform_sweep(
             platform_slug,
             ref_to_ids=ref_to_ids,
             game_title=str(matched_game.get("title") or ""),
+            manual_expected=content_profile["manualExpected"],
+            manual_expectation_source=content_profile["manualExpectationSource"],
             **match_row_kwargs(result),
         )
         return row if row else None
@@ -362,10 +366,15 @@ def collect_game_listings(
     ]
 
     ai_by_key: dict[str, Any] = {}
+    content_profile = game_content_profile(game)
     if use_listing_ai and ai_available() and matched:
+        game_for_ai = {
+            **game,
+            "manualExpected": content_profile["manualExpected"],
+        }
         ai_by_key, ai_stats = classify_products_for_game(
             matched,
-            game,
+            game_for_ai,
             platform_slug,
             use_cache=use_listing_ai_cache,
         )
@@ -390,6 +399,8 @@ def collect_game_listings(
             ref_to_ids=ref_to_ids,
             match_method="search",
             game_title=str(game.get("title") or ""),
+            manual_expected=content_profile["manualExpected"],
+            manual_expectation_source=content_profile["manualExpectationSource"],
             match_score=round(
                 token_similarity(str(game.get("title") or ""), product_title(product)),
                 3,
