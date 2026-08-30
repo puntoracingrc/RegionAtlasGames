@@ -9785,6 +9785,33 @@
         "complete": 15.44,
         "sealed": null
       }
+    ],
+    "ps4-cartoon-network-battle-crashers": [
+      {
+        "at": "2026-08-30T16:47:21Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.51,
+        "sealed": null
+      }
+    ],
+    "ps4-chaos-child": [
+      {
+        "at": "2026-08-30T16:47:21Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 42.45
+      }
+    ],
+    "ps4-cobra-kai-the-karate-kid-saga-continues": [
+      {
+        "at": "2026-08-30T16:47:21Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.29,
+        "sealed": null
+      }
     ]
   }
 }
