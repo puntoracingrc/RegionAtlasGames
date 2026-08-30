@@ -10,6 +10,9 @@ export type PlatformPriceSync = {
   gamesRejectedUnverifiedRegion?: number;
   gamesRejectedRegionMismatch?: number;
   gamesRejectedInsufficientEvidence?: number;
+  wallapopGamesUpdated?: number;
+  ebayGamesUpdated?: number;
+  vintedGamesUpdated?: number;
   cexGamesUpdated?: number;
   cexGamesSkipped?: number;
   jgoGamesUpdated?: number;
@@ -22,6 +25,7 @@ export type PlatformPriceSync = {
   tcnsGamesSkipped?: number;
   tcGamesUpdated?: number;
   tcGamesSkipped?: number;
+  gameGamesUpdated?: number;
   coveragePct: number;
   regionPolicy?: string;
 };

@@ -12,7 +12,6 @@ import { GamePriceHero } from "@/components/game-price-hero";
 import { GamePriceHistoryChart } from "@/components/game-price-history-chart";
 import { GameProductReference } from "@/components/game-product-reference";
 import { GameTaxonomyLinks, type GameTaxonomyLink } from "@/components/game-taxonomy-links";
-import { RetailPriceReferences } from "@/components/retail-price-references";
 import { RecordedProSalesPanel } from "@/components/recorded-pro-sales-panel";
 import { SimilarGames } from "@/components/similar-games";
 import { DetailCoverArt } from "@/components/detail-cover-art";
@@ -255,8 +254,6 @@ export default async function CatalogGamePage({ params }: Props) {
             )}
 
             <GameProductReference game={game} details={details} />
-
-            <RetailPriceReferences game={game} />
 
             <CollectionToggle
               catalogId={game.id}

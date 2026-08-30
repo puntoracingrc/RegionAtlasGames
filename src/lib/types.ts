@@ -264,9 +264,13 @@ export type CatalogGame = {
   gameEsImageUrl?: string | null;
   gameEsPreownedSku?: string | null;
   gameEsPreownedProductUrl?: string | null;
+  /** Referencia agregada GAME seminuevo; el anuncio no se publica. */
+  gameRetailPrice?: number | null;
+  gameCondition?: string | null;
+  gameMatchedAt?: string | null;
   /** true solo si el precio ES proviene de anuncios con región verificada */
   priceRegionVerified?: boolean;
-  /** Referencia retail CeX (no mezclada con mercado P2P) */
+  /** Referencia retail CeX, ponderada por debajo de las observaciones P2P. */
   cexSellPrice?: number | null;
   cexCashPrice?: number | null;
   cexProductUrl?: string | null;
@@ -377,6 +381,9 @@ export type CollectionItem = {
   /** ISO — cuándo se añadió a la colección (manual o enlace a catálogo). */
   addedAt?: string | null;
   priceRegionVerified?: boolean;
+  gameRetailPrice?: number | null;
+  gameCondition?: string | null;
+  gameMatchedAt?: string | null;
   cexSellPrice?: number | null;
   cexCashPrice?: number | null;
   cexProductUrl?: string | null;

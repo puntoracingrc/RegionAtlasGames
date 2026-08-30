@@ -91,6 +91,22 @@ def main() -> None:
         assert Handler.completed["result"]["source"] == "game-es-preowned"
 
         Handler.next_job = {
+            "id": "local-game-switch2-test",
+            "platformSlug": "switch2",
+            "offerType": "preowned",
+            "limit": 2,
+            "maxPages": 1,
+        }
+        did_switch2 = local_game_runner.run_once(
+            f"http://127.0.0.1:{server.server_port}",
+            "test-token",
+            "test-runner",
+        )
+        assert did_switch2 is True
+        assert Handler.completed is not None
+        assert Handler.completed["result"]["source"] == "game-es-preowned"
+
+        Handler.next_job = {
             "id": "local-game-release-test",
             "jobType": "catalog_discovery",
             "platformSlug": "ps4",

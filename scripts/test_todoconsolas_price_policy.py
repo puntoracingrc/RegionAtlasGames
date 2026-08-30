@@ -300,7 +300,7 @@ def main() -> None:
         catalog_game=target,
         use_vision=False,
     )
-    assert observations == []
+    assert observations == [(11.95, "complete", "todoconsolas")]
 
     merged_queue = merge_price_review_queue_documents(
         {

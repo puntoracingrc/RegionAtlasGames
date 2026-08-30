@@ -24,8 +24,8 @@ test("builds a fixed official main update request", () => {
   assert.equal(request.weeklyControl, undefined);
 });
 
-test("keeps the PS4 pilot bounded and review-only", () => {
-  const request = buildPcWorkerUpdateRequest(SHA.toUpperCase(), "ps4_pilot", {
+test("keeps the modern automatic sources bounded and review-only", () => {
+  const request = buildPcWorkerUpdateRequest(SHA.toUpperCase(), "automatic_sources", {
     now: new Date("2026-08-29T16:00:00.000Z"),
     suffix: "pilot",
   });
@@ -33,7 +33,7 @@ test("keeps the PS4 pilot bounded and review-only", () => {
   assert.equal(request.targetSha, SHA);
   assert.deepEqual(request.weeklyControl, {
     enabled: true,
-    platforms: ["ps4"],
+    platforms: ["ps4", "ps5", "switch2"],
     pagesPerRun: 1,
     delaySeconds: 8,
     jitterSeconds: 3,
@@ -46,6 +46,7 @@ test("rejects abbreviated commits and unknown actions", () => {
   assert.throws(() => buildPcWorkerUpdateRequest("0123456", "update_only"));
   assert.equal(resolvePcWorkerDeploymentSha("0123456"), null);
   assert.equal(resolvePcWorkerDeploymentSha(SHA.toUpperCase()), SHA);
+  assert.equal(isPcWorkerUpdateAction("automatic_sources"), true);
   assert.equal(isPcWorkerUpdateAction("ps4_pilot"), true);
   assert.equal(isPcWorkerUpdateAction("run_command"), false);
 });

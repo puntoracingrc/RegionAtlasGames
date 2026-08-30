@@ -19,6 +19,15 @@ STALE_SECONDS="${PRICE_ROTATION_STALE_SECONDS:-21600}"
 mkdir -p "$CRON_DIR"
 cd "$APP" || exit 1
 
+if [[ "${PRICE_EXTERNAL_ROTATION_ENABLED:-0}" != "1" && "${PRICE_EXTERNAL_ROTATION_ENABLED:-0}" != "true" ]]; then
+  {
+    echo ""
+    echo "=== Price rotation hosting $(date -u +%Y-%m-%dT%H:%M:%SZ) ==="
+    echo "Rueda general retirada de la automatizacion. Usa PRICE_EXTERNAL_ROTATION_ENABLED=1 solo para una recuperacion manual consciente."
+  } >> "$LOG"
+  exit 0
+fi
+
 record_attempt() {
   local status="$1"
   local message="$2"

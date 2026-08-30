@@ -60,7 +60,7 @@ function isFresh(value: string | null | undefined): boolean {
 function updateLabel(value: string): string {
   if (value === "queued") return "En cola";
   if (value === "updated") return "Actualizado";
-  if (value === "configured") return "Piloto configurado";
+  if (value === "configured") return "Motores configurados";
   if (value === "already_current") return "Ya estaba actualizado";
   if (value === "error") return "Error";
   return "Sin actualización registrada";
@@ -135,8 +135,8 @@ export function AdminPcWorkerUpdatePanel() {
   }, [overview?.update.status]);
 
   async function queueUpdate(action: PcWorkerUpdateAction) {
-    const confirmation = action === "ps4_pilot"
-      ? "Se actualizará el worker al commit exacto de producción y se preparará un piloto PS4 de una página semanal. ¿Continuar?"
+    const confirmation = action === "automatic_sources" || action === "ps4_pilot"
+      ? "Se actualizará el worker al commit exacto de producción y se activará el barrido semanal prudente de PS4, PS5 y Switch 2. ¿Continuar?"
       : "Se actualizará el worker al commit exacto de producción. ¿Continuar?";
     if (!window.confirm(confirmation)) return;
 
@@ -155,8 +155,8 @@ export function AdminPcWorkerUpdatePanel() {
         return;
       }
       setMessage(
-        action === "ps4_pilot"
-          ? "Actualización y piloto PS4 en cola. El panel comprobará la respuesta del PC."
+        action === "automatic_sources" || action === "ps4_pilot"
+          ? "Actualización y motores modernos en cola. El panel comprobará la respuesta del PC."
           : "Actualización en cola. El panel comprobará la respuesta del PC.",
       );
       await refresh();
@@ -252,12 +252,12 @@ export function AdminPcWorkerUpdatePanel() {
         </button>
         <button
           type="button"
-          onClick={() => void queueUpdate("ps4_pilot")}
+          onClick={() => void queueUpdate("automatic_sources")}
           disabled={controlsDisabled}
           className="btn-primary inline-flex items-center gap-2 text-sm"
         >
           <Play aria-hidden="true" className="h-4 w-4" />
-          {submitting === "ps4_pilot" ? "Encolando..." : "Actualizar y preparar piloto PS4"}
+          {submitting === "automatic_sources" ? "Encolando..." : "Actualizar y activar PS4, PS5 y Switch 2"}
         </button>
         <button type="button" onClick={() => void copyDiagnostic()} className="btn-secondary inline-flex items-center gap-2 text-sm">
           <Clipboard aria-hidden="true" className="h-4 w-4" />
@@ -290,7 +290,7 @@ export function AdminPcWorkerUpdatePanel() {
       ) : null}
       {overview?.health.todoConsolasWeekly.enabled === true ? (
         <p className="mt-3 text-sm text-foreground">
-          Piloto activo: <strong>{overview.health.todoConsolasWeekly.platforms || "plataformas configuradas"}</strong> · origen {overview.health.todoConsolasWeekly.source || "desconocido"}.
+          Barrido semanal activo: <strong>{overview.health.todoConsolasWeekly.platforms || "plataformas configuradas"}</strong> · origen {overview.health.todoConsolasWeekly.source || "desconocido"}.
         </p>
       ) : null}
       {message ? <p className="mt-4 text-sm font-semibold text-emerald-800 dark:text-emerald-200">{message}</p> : null}

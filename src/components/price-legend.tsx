@@ -1,4 +1,4 @@
-function RetailBadge({ code, label }: { code: string; label: string }) {
+function SourceBadge({ code, label }: { code: string; label: string }) {
   return (
     <span className="inline-flex items-center gap-1.5">
       <span className="rounded border border-border bg-card px-1 font-semibold text-foreground/80">
@@ -31,18 +31,14 @@ export function PriceLegend({ defaultOpen = false }: { defaultOpen?: boolean }) 
 
       <details className="mt-2">
         <summary className="cursor-pointer text-[11px] font-medium text-muted hover:text-foreground">
-          Fuentes y abreviaturas
+          Cómo se forma la referencia
         </summary>
         <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 border-t border-border/50 pt-2">
-          <RetailBadge code="P2P" label="Wallapop · Vinted · eBay ES · TodoColeccion" />
-          <RetailBadge code="CeX" label="Retail ES" />
-          <RetailBadge code="JGO" label="Japan Game Online" />
-          <RetailBadge code="Chollo" label="Chollo Games" />
-          <RetailBadge code="Kaoto" label="Kaoto Store" />
-          <RetailBadge code="TCNS" label="TodoConsolas" />
+          <SourceBadge code="P2P" label="Anuncios entre particulares verificados" />
+          <SourceBadge code="ES" label="Tiendas españolas de segunda mano" />
+          <SourceBadge code="IMP" label="Tiendas de importación especializadas" />
           <span className="inline-flex items-center gap-1.5">
-            <span className="font-semibold text-foreground/80">PC</span>
-            Ref. PriceCharting por edición (PAL · USA · JP)
+            Cada fuente se pondera por fiabilidad, región y estado del artículo.
           </span>
         </div>
       </details>

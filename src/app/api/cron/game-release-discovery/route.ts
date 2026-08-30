@@ -15,8 +15,13 @@ export async function GET(request: Request) {
     console.error("[game-release-discovery-cron]", result.error);
     return NextResponse.json({ ok: false, error: result.error }, { status: 500 });
   }
-  console.info("[game-release-discovery-cron]", JSON.stringify({
-    created: result.created.map((job) => ({ id: job.id, platformSlug: job.platformSlug })),
+  console.info("[game-weekly-automation-cron]", JSON.stringify({
+    created: result.created.map((job) => ({
+      id: job.id,
+      jobType: job.jobType,
+      platformSlug: job.platformSlug,
+      offerType: job.offerType,
+    })),
     skipped: result.skipped,
   }));
   return NextResponse.json(result);

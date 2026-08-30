@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Runner local para GAME España.
+"""Runner del PC servidor para GAME España.
 
-Uso en el Mac:
+Uso en el PC servidor:
   LOCAL_GAME_RUNNER_TOKEN=... python3 scripts/local_game_runner.py --once
 
-El Mac NO abre puertos. Solo pregunta a Region Atlas si hay jobs GAME pendientes,
+El PC NO abre puertos. Solo pregunta a Region Atlas si hay trabajos GAME pendientes,
 ejecuta collect_game_es.py desde la conexión local y sube resultado/log.
 """
 
@@ -337,7 +337,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Runner local GAME España para Region Atlas")
     parser.add_argument("--base-url", default=os.environ.get("REGION_ATLAS_BASE_URL", DEFAULT_BASE_URL))
     parser.add_argument("--token", default=os.environ.get("LOCAL_GAME_RUNNER_TOKEN", ""))
-    parser.add_argument("--runner-id", default=os.environ.get("LOCAL_GAME_RUNNER_ID", "mac-local-game-runner"))
+    parser.add_argument("--runner-id", default=os.environ.get("LOCAL_GAME_RUNNER_ID", "pc-region-atlas-runner"))
     parser.add_argument("--once", action="store_true", help="Procesa como máximo un job y sale.")
     parser.add_argument("--interval", type=int, default=120, help="Segundos entre consultas si no usas --once.")
     args = parser.parse_args()

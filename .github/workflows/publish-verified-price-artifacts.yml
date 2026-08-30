@@ -1,0 +1,147 @@
+name: Publish verified PC price artifacts
+
+on:
+  schedule:
+    - cron: "47 */6 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: price-data-writes
+  cancel-in-progress: false
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate and apply new PC artifacts
+        id: artifacts
+        run: python3 scripts/publish_verified_price_artifacts.py
+
+      - name: Stop when there is nothing new
+        if: steps.artifacts.outputs.changed != 'true'
+        run: echo "Sin artefactos nuevos verificados."
+
+      - uses: actions/setup-node@v4
+        if: steps.artifacts.outputs.changed == 'true'
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.artifacts.outputs.changed == 'true'
+        run: npm ci
+
+      - name: Full quality gate
+        if: steps.artifacts.outputs.changed == 'true'
+        run: |
+          npm audit --omit=dev --audit-level=high
+          npm run lint
+          npm run typecheck
+          npm run test:unit
+          npm run test:collector-controls
+          npm run test:affiliate-offers-v1
+          npm run build
+
+      - name: Limit generated changes to price data
+        if: steps.artifacts.outputs.changed == 'true'
+        run: |
+          unexpected="$(git diff --name-only | grep -Ev '^(data/(catalog|meta|price-history|price-sync-state|price-artifact-publish-state)\.json)$' || true)"
+          if [[ -n "$unexpected" ]]; then
+            echo "El publicador modificó rutas no permitidas:" >&2
+            echo "$unexpected" >&2
+            exit 1
+          fi
+          git diff --check
+
+      - name: Create reviewed Git branch
+        if: steps.artifacts.outputs.changed == 'true'
+        id: branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SUMMARY: ${{ steps.artifacts.outputs.summary }}
+        run: |
+          branch="automation/verified-prices-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git switch -c "$branch"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/catalog.json \
+            data/meta.json \
+            data/price-history.json \
+            data/price-sync-state.json \
+            data/price-artifact-publish-state.json
+          git commit -m "chore(prices): publish verified PC artifacts"
+          git push origin "$branch"
+          pr_url="$(gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "Publish verified PC price artifacts" \
+            --body "Publicación automática validada.\n\n${SUMMARY}\n\nSolo contiene datos de precio aceptados por las políticas de región y estado.")"
+          echo "name=$branch" >> "$GITHUB_OUTPUT"
+          echo "pr_url=$pr_url" >> "$GITHUB_OUTPUT"
+      - name: Run branch checks and merge PR
+        if: steps.artifacts.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ steps.branch.outputs.name }}
+          PR_URL: ${{ steps.branch.outputs.pr_url }}
+        run: |
+          head_sha="$(git rev-parse HEAD)"
+          gh workflow run quality.yml --ref "$BRANCH"
+          run_id=""
+          for _ in {1..30}; do
+            run_id="$(gh run list --workflow quality.yml --branch "$BRANCH" --event workflow_dispatch --limit 20 --json databaseId,headSha --jq ".[] | select(.headSha == \"$head_sha\") | .databaseId" | head -n 1)"
+            [[ -n "$run_id" ]] && break
+            sleep 5
+          done
+          [[ -n "$run_id" ]] || { echo "No apareció el run Quality de la rama." >&2; exit 1; }
+          gh run watch "$run_id" --exit-status
+          gh pr merge "$PR_URL" --merge --delete-branch
+
+      - name: Verify main checks and production response
+        if: steps.artifacts.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          main_sha="$(gh api repos/${GITHUB_REPOSITORY}/commits/main --jq .sha)"
+          gh workflow run quality.yml --ref main
+          run_id=""
+          for _ in {1..30}; do
+            run_id="$(gh run list --workflow quality.yml --branch main --event workflow_dispatch --limit 20 --json databaseId,headSha --jq ".[] | select(.headSha == \"$main_sha\") | .databaseId" | head -n 1)"
+            [[ -n "$run_id" ]] && break
+            sleep 5
+          done
+          [[ -n "$run_id" ]] || { echo "No apareció el run Quality de main." >&2; exit 1; }
+          gh run watch "$run_id" --exit-status
+          vercel_state=""
+          for _ in {1..60}; do
+            vercel_state="$(gh api "repos/${GITHUB_REPOSITORY}/commits/${main_sha}/status" --jq '[.statuses[] | select(.context == "Vercel")][0].state // ""')"
+            [[ "$vercel_state" == "success" ]] && break
+            [[ "$vercel_state" == "failure" || "$vercel_state" == "error" ]] && {
+              echo "Vercel informó ${vercel_state} para ${main_sha}." >&2
+              exit 1
+            }
+            sleep 10
+          done
+          [[ "$vercel_state" == "success" ]] || { echo "Vercel no confirmó el commit exacto ${main_sha}." >&2; exit 1; }
+          for _ in {1..30}; do
+            code="$(curl -L -sS -o /dev/null -w '%{http_code}' --max-time 20 https://www.regionatlas.games/ || true)"
+            [[ "$code" == "200" ]] && exit 0
+            sleep 20
+          done
+          echo "Producción no respondió 200 dentro del plazo." >&2
+          exit 1

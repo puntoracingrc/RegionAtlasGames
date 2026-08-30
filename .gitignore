@@ -68,6 +68,7 @@ public/covers
 /data/museum
 /data/pc
 /data/price-ingest
+/data/catalog-discovery/
 /data/wikidata
 /data/serialstation
 /data/descriptions
