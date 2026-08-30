@@ -337,3 +337,19 @@ button:disabled,
     filter: hue-rotate(18deg) brightness(1.06);
   }
 }
+@keyframes navigation-progress {
+  0% {
+    transform: scaleX(0.08);
+  }
+  65% {
+    transform: scaleX(0.78);
+  }
+  100% {
+    transform: scaleX(0.94);
+  }
+}
+
+.navigation-progress-bar {
+  animation: navigation-progress 1.4s ease-out infinite;
+  transform-origin: left center;
+}

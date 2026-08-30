@@ -35,7 +35,7 @@ export const SORT_OPTIONS: { value: CatalogSort; label: string }[] = [
 ];
 
 export const DEFAULT_SORT: CatalogSort = "title-asc";
-export const CATALOG_PAGE_SIZE = 120;
+export const CATALOG_PAGE_SIZE = 48;
 
 export type CatalogPriceType = "recommended" | "sealed" | "complete" | "gameManual" | "loose";
 

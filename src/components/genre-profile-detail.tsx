@@ -4,6 +4,7 @@ import { GenrePlatformGames, GenreProfileHeader, GenreReferenceTop } from "@/com
 import { SiteNav } from "@/components/site-nav";
 import { CATALOG_PAGE_SIZE } from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
+import { toCatalogCardGame } from "@/lib/catalog-card-game";
 import { buildGenreIntro } from "@/lib/genre-seo";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { pickRecommendedGames } from "@/lib/game-facet-profile";
@@ -28,7 +29,8 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn, fromCata
   const initialGames = [...view.games]
     .sort((a, b) => a.title.localeCompare(b.title, "es", { sensitivity: "base" }))
     .slice(0, CATALOG_PAGE_SIZE)
-    .map(toCatalogListGame);
+    .map(toCatalogListGame)
+    .map(toCatalogCardGame);
 
   return (
     <>

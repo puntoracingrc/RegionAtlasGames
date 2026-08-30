@@ -9,6 +9,7 @@ import {
   type CatalogSort,
 } from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
+import { toCatalogCardGame } from "@/lib/catalog-card-game";
 import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { isPublicPlatformSlug } from "@/lib/catalog";
 import type { CatalogListGame } from "@/lib/types";
@@ -19,6 +20,9 @@ type PlatformSearchCacheEntry = {
 };
 
 const PLATFORM_SEARCH_CACHE_TTL_MS = 5 * 60 * 1000;
+const PUBLIC_CACHE_HEADERS = {
+  "Cache-Control": "public, s-maxage=300, stale-while-revalidate=3600",
+};
 const platformSearchCache = new Map<string, PlatformSearchCacheEntry>();
 
 async function getPlatformSearchData(slug: string): Promise<PlatformSearchCacheEntry> {
@@ -43,7 +47,7 @@ export async function GET(
 ) {
   const { slug } = await params;
   if (!isPublicPlatformSlug(slug)) {
-    return NextResponse.json({ items: [], total: 0 }, { status: 404 });
+    return NextResponse.json({ items: [], total: 0 }, { status: 404, headers: PUBLIC_CACHE_HEADERS });
   }
 
   const url = new URL(request.url);
@@ -69,7 +73,7 @@ export async function GET(
   );
   const start = (page - 1) * CATALOG_PAGE_SIZE;
   return NextResponse.json({
-    items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE),
+    items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE).map(toCatalogCardGame),
     total: filtered.total,
-  });
+  }, { headers: PUBLIC_CACHE_HEADERS });
 }

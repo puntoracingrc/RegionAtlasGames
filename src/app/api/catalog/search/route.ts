@@ -20,6 +20,7 @@ import { catalogGamePath } from "@/lib/catalog-seo";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import type { CatalogGame, CatalogListGame } from "@/lib/types";
+import { toCatalogCardGame } from "@/lib/catalog-card-game";
 
 const MAX_RESULTS = 12;
 const MAX_TAXONOMY_OPTIONS = 16;
@@ -187,7 +188,7 @@ export async function GET(request: Request) {
     const start = (page - 1) * CATALOG_PAGE_SIZE;
     return NextResponse.json(
       {
-        items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE),
+        items: filtered.items.slice(start, start + CATALOG_PAGE_SIZE).map(toCatalogCardGame),
         total: filtered.total,
       },
       { headers: PUBLIC_CACHE_HEADERS },

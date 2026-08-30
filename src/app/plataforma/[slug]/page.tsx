@@ -13,10 +13,11 @@ import {
   publicSubgenreFilterOptions,
 } from "@/lib/catalog-filters";
 import { buildPlatformCatalogInsights } from "@/lib/platform-catalog-insights";
-import { getOwnedCatalogIds, getUserCollectionViews } from "@/lib/collection-store";
+import { getUserCollectionViews } from "@/lib/collection-store";
 import { getCatalogByPlatformWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { getAdminPlatform } from "@/lib/admin-entity-catalog";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
+import { toCatalogCardGame } from "@/lib/catalog-card-game";
 import { publicCatalogRegionFilterOptionsForPlatform, publicCompanyFilterOptions } from "@/lib/public-catalog-filter-options";
 import { listNewsForSection } from "@/lib/news-cache";
 import { platformNewsTopicForSlug } from "@/lib/news-platform-topics";
@@ -45,20 +46,27 @@ export default async function PlatformPage({ params, searchParams }: Props) {
   const query = await searchParams;
   const platform = await getAdminPlatform(slug);
   if (!platform || platform.active === false) notFound();
-
-  const user = await getCurrentUser();
-  const owned = user ? await getUserCollectionViews(user.id) : [];
-  const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
-  const ownedOnPlatform = owned.filter((c) => c.platformSlug === slug);
-  const catalogGames = await getCatalogByPlatformWithOverlay(slug);
-  const initialGames = sortCatalogByTitle(catalogGames).slice(0, CATALOG_PAGE_SIZE).map(toCatalogListGame);
-  const listingCounts = await getActiveListingCountsByCatalog();
   const platformNewsTopic = platformNewsTopicForSlug(platform.slug);
-  const platformNews = platformNewsTopic
-    ? await listNewsForSection({ section: "platform", topic: platformNewsTopic.topic, limit: 9 })
-    : platform.newsEnabled === true
-      ? await listNewsForSection({ section: "platform", topic: platform.slug, limit: 9 })
-      : [];
+
+  const [user, catalogGames, listingCounts, platformNews] = await Promise.all([
+    getCurrentUser(),
+    getCatalogByPlatformWithOverlay(slug),
+    getActiveListingCountsByCatalog(),
+    platformNewsTopic
+      ? listNewsForSection({ section: "platform", topic: platformNewsTopic.topic, limit: 9 })
+      : platform.newsEnabled === true
+        ? listNewsForSection({ section: "platform", topic: platform.slug, limit: 9 })
+        : Promise.resolve([]),
+  ]);
+  const owned = user ? await getUserCollectionViews(user.id) : [];
+  const ownedCatalogIds = user
+    ? [...new Set(owned.map((item) => item.catalogId).filter((id): id is string => Boolean(id)))]
+    : [];
+  const ownedOnPlatform = owned.filter((c) => c.platformSlug === slug);
+  const initialGames = sortCatalogByTitle(catalogGames)
+    .slice(0, CATALOG_PAGE_SIZE)
+    .map(toCatalogListGame)
+    .map(toCatalogCardGame);
   const platformNewsLabel = platformNewsTopic?.label ?? platform.shortName;
 
   return (

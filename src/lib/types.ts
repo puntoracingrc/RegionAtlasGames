@@ -346,12 +346,13 @@ export type CatalogListGame = Pick<
 > & {
   displayPlatform: string;
   displayYear: number | null;
-  searchText: string;
-  gameSearchText: string;
-  companySearchText: string;
-  companies: string[];
-  sortGenre: string;
-  sortReference: string;
+  /** Campos internos del indice. Se omiten en las respuestas de tarjetas. */
+  searchText?: string;
+  gameSearchText?: string;
+  companySearchText?: string;
+  companies?: string[];
+  sortGenre?: string;
+  sortReference?: string;
   genreSlugs?: string[];
   subgenreSlugs?: string[];
   facetSlugs?: string[];
