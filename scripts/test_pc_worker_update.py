@@ -6,6 +6,7 @@ import os
 import subprocess
 import tempfile
 from pathlib import Path
+from types import SimpleNamespace
 
 import pc_sftp_worker
 from pc_worker_update import (
@@ -284,10 +285,66 @@ def test_runtime_control_and_hard_stop() -> None:
             os.environ["PRICE_PC_TODOCONSOLAS_WEEKLY_HARD_DISABLED"] = original_hard_stop
 
 
+def test_manual_update_clears_stale_health_marker() -> None:
+    class FakeQueue:
+        def __init__(self) -> None:
+            self.files: dict[str, bytes] = {}
+            self.config = SimpleNamespace(runner_id="test-worker")
+
+        def remote(self, *parts: str) -> str:
+            return "/".join(("price-worker", *parts))
+
+        def rename(self, source: str, target: str) -> bool:
+            payload = self.files.pop(source, None)
+            if payload is None:
+                return False
+            self.files[target] = payload
+            return True
+
+        def read_json(self, path: str) -> dict:
+            return json.loads(self.files[path].decode("utf-8"))
+
+        def upload_bytes(self, path: str, payload: bytes) -> None:
+            self.files[path] = payload
+
+    original_marker = pc_sftp_worker.PC_WORKER_HEALTH_MARKER
+    original_apply = pc_sftp_worker.apply_update_request
+    original_supported = pc_sftp_worker._supported_todoconsolas_platforms
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            marker = Path(tmp) / "pc-worker-health.lock"
+            marker.write_text("stale", encoding="utf-8")
+            pc_sftp_worker.PC_WORKER_HEALTH_MARKER = marker
+            pc_sftp_worker.apply_update_request = lambda *_args, **_kwargs: {
+                "ok": True,
+                "status": "updated",
+                "beforeSha": "0" * 40,
+                "afterSha": "1" * 40,
+                "restartRequired": True,
+            }
+            pc_sftp_worker._supported_todoconsolas_platforms = lambda: {"ps4"}
+
+            queue = FakeQueue()
+            request_name = "worker-update-test.json"
+            request_path = queue.remote("jobs", "worker-update-requests", request_name)
+            queue.files[request_path] = b"{}\n"
+
+            result = pc_sftp_worker.process_worker_update_request(queue, request_name)
+
+            assert result == pc_sftp_worker.WORKER_RESTART_EXIT_CODE
+            assert not marker.exists()
+            assert queue.remote("jobs", "worker-update-done", request_name) in queue.files
+    finally:
+        pc_sftp_worker.PC_WORKER_HEALTH_MARKER = original_marker
+        pc_sftp_worker.apply_update_request = original_apply
+        pc_sftp_worker._supported_todoconsolas_platforms = original_supported
+
+
 def main() -> None:
     test_validation()
     test_git_fast_forward()
     test_runtime_control_and_hard_stop()
+    test_manual_update_clears_stale_health_marker()
     print("OK PC worker safe update")
 
 

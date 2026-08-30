@@ -1294,6 +1294,13 @@ def _supported_todoconsolas_platforms() -> set[str]:
     return set(supported_platform_slugs())
 
 
+def clear_pc_worker_health_marker() -> None:
+    try:
+        PC_WORKER_HEALTH_MARKER.unlink(missing_ok=True)
+    except OSError:
+        pass
+
+
 def process_worker_update_request(queue: SftpQueue, request_name: str) -> int:
     safe_id = "".join(character for character in request_name.removesuffix(".json") if character.isalnum() or character in "-_")
     request_id = safe_id or uuid.uuid4().hex
@@ -1326,7 +1333,10 @@ def process_worker_update_request(queue: SftpQueue, request_name: str) -> int:
         queue.upload_bytes(result_path, json_bytes(status))
         queue.upload_bytes(public_status_path, json_bytes(status))
         queue.rename(running_path, done_path)
-        return WORKER_RESTART_EXIT_CODE if result.get("restartRequired") else 1
+        if result.get("restartRequired"):
+            clear_pc_worker_health_marker()
+            return WORKER_RESTART_EXIT_CODE
+        return 1
     except (WorkerUpdateError, OSError, json.JSONDecodeError, ValueError) as exc:
         status = {
             "ok": False,
@@ -1429,7 +1439,7 @@ def maybe_auto_update_worker(queue: SftpQueue) -> int:
         queue.upload_bytes(public_status_path, json_bytes(status))
         queue.upload_bytes(queue.remote("cron", "pc-worker-update-status.json"), json_bytes(status))
         if result.get("restartRequired"):
-            PC_WORKER_HEALTH_MARKER.unlink(missing_ok=True)
+            clear_pc_worker_health_marker()
             return WORKER_RESTART_EXIT_CODE
         return 0
     except (WorkerUpdateError, OSError, json.JSONDecodeError, ValueError) as exc:
