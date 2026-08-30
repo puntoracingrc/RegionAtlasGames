@@ -289,6 +289,13 @@ def build_admin_collect_args(job: dict[str, Any], status_file: Path) -> list[str
     mode = job.get("mode")
     if mode == "catalog":
         args.extend(["--catalog-id", str(job.get("catalogId") or "")])
+    elif mode == "wallapop_batch":
+        args.extend(
+            [
+                "--catalog-ids-json",
+                json.dumps(job.get("catalogIds") or [], ensure_ascii=False),
+            ]
+        )
     elif mode == "platform":
         args.extend(["--platform", str(job.get("platformSlug") or "")])
         if str(job.get("region") or "").strip():
@@ -316,6 +323,8 @@ def process_price_request(queue: SftpQueue, request_name: str) -> bool:
         "jobId": job_id,
         "status": "running",
         "catalogId": job.get("catalogId"),
+        "catalogIds": job.get("catalogIds"),
+        "source": job.get("source"),
         "platformSlug": job.get("platformSlug"),
         "region": job.get("region"),
         "targets": job.get("targets"),
@@ -340,7 +349,23 @@ def process_price_request(queue: SftpQueue, request_name: str) -> bool:
 
     env = command_base_env()
     env["PRICE_COLLECT_TRIGGER"] = "automatic" if job.get("trigger") == "automatic" else "manual"
-    code = run_logged(build_admin_collect_args(job, status_file), log_file, env)
+    if job.get("mode") == "wallapop_batch":
+        # Esta tanda usa todas las imágenes del anuncio cuando el texto no basta.
+        # Los jobs heredados conservan el modo ligero del PC.
+        env.pop("REGION_VISION_DISABLED", None)
+        env["DAILY_USE_CACHE"] = "0"
+    git_health = worker_git_health(ROOT)
+    if job.get("mode") == "wallapop_batch" and git_health.get("clean") is not True:
+        log_file.parent.mkdir(parents=True, exist_ok=True)
+        log_file.write_text(
+            "Tanda Wallapop cancelada: el checkout del PC no estaba limpio antes de empezar.\n",
+            encoding="utf-8",
+        )
+        code = 2
+        status["error"] = "El PC tiene cambios locales; la tanda no se ejecuta sobre un catálogo incierto."
+        status_file.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    else:
+        code = run_logged(build_admin_collect_args(job, status_file), log_file, env)
     try:
         final_status = json.loads(status_file.read_text(encoding="utf-8"))
     except Exception:
@@ -357,6 +382,25 @@ def process_price_request(queue: SftpQueue, request_name: str) -> bool:
     )
     if code != 0 and not final_status.get("error"):
         final_status["error"] = f"Worker PC termino con codigo {code}."
+    if code == 0 and job.get("mode") == "wallapop_batch":
+        local_result_raw = str(final_status.get("resultLocalPath") or "").strip()
+        local_result = (ROOT / local_result_raw).resolve() if local_result_raw else None
+        allowed_root = (RESULTS_DIR / job_id).resolve()
+        if (
+            local_result is None
+            or local_result.parent != allowed_root
+            or local_result.name != "catalog-price-results.json"
+            or not local_result.exists()
+        ):
+            code = 1
+            final_status["status"] = "error"
+            final_status["exitCode"] = 1
+            final_status["error"] = "La tanda terminó sin un artefacto de precios limitado y verificable."
+        else:
+            result_remote = queue.remote("results", job_id, "catalog-price-results.json")
+            queue.upload_file(result_remote, local_result)
+            final_status["resultPath"] = f"results/{job_id}/catalog-price-results.json"
+        final_status.pop("resultLocalPath", None)
     if code == 0 and local_review_queue.exists():
         try:
             final_status["reviewQueueItems"] = upload_price_review_queue_verified(queue)
@@ -1046,6 +1090,9 @@ def summarize_request(name: str, payload: dict[str, Any]) -> str:
     targets = payload.get("targets")
     if isinstance(targets, list):
         bits.append(f"targets={len(targets)}")
+    catalog_ids = payload.get("catalogIds")
+    if isinstance(catalog_ids, list):
+        bits.append(f"catalogIds={len(catalog_ids)}")
     return " · ".join(bits)
 
 

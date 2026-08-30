@@ -16,7 +16,7 @@ export async function GET(_request: Request, { params }: RouteParams) {
     return NextResponse.json({ error: "Job no encontrado." }, { status: 404 });
   }
 
-  if (job.status === "done" && job.catalogId) {
+  if (job.status === "done" && (job.catalogId || job.catalogIds?.length)) {
     const applied = await applyAdminPriceJobResults(jobId);
     if ("error" in applied) {
       return NextResponse.json({
@@ -33,7 +33,7 @@ export async function GET(_request: Request, { params }: RouteParams) {
       job: {
         ...job,
         autoApplied: true,
-        autoApplySummary: `${applied.updated} actualizados · ${applied.skipped} sin cambios · ${applied.errors.length} errores`,
+        autoApplySummary: `${applied.updated} verificados aplicados · ${applied.skippedUnverified} pendientes de revisión · ${applied.skipped - applied.skippedUnverified} sin cambios · ${applied.errors.length} errores`,
       },
     });
   }
