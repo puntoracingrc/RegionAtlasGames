@@ -2,6 +2,10 @@ import Link from "next/link";
 import { formatEur } from "@/lib/price-format";
 import { conditionScoreOutOfTen } from "@/lib/marketplace-ui";
 import {
+  listingAnalysisHasVerifiedEstimate,
+  listingVerificationLabel,
+} from "@/lib/marketplace-verification";
+import {
   countActiveListingsForCatalog,
   getActiveListingsForCatalog,
   getPublicSellerListing,
@@ -21,7 +25,7 @@ export async function CatalogMarketplacePanel({ catalogId }: Props) {
       <Panel>
         <PanelTitle>En venta entre usuarios</PanelTitle>
         <p className="text-sm text-muted">
-          Nadie lo vende ahora mismo. Si lo tienes en tu colección, puedes publicar un anuncio con fotos verificadas.
+          Nadie lo vende ahora mismo. Si lo tienes en tu colección, puedes publicar un anuncio con portada y contraportada.
         </p>
       </Panel>
     );
@@ -35,6 +39,7 @@ export async function CatalogMarketplacePanel({ catalogId }: Props) {
       <ul className="mt-3 space-y-2">
         {listings.map((listing) => {
           const pub = getPublicSellerListing(listing);
+          const hasVerifiedEstimate = listingAnalysisHasVerifiedEstimate(listing.aiAnalysis);
           return (
             <li
               key={listing.id}
@@ -56,11 +61,11 @@ export async function CatalogMarketplacePanel({ catalogId }: Props) {
                 </p>
                 <p className="text-xs text-muted">
                   {listing.sealed ? "Precintado · " : ""}
-                  {pub.aiAnalysis
-                    ? `Análisis: ${pub.aiAnalysis.conditionVerdict} · ~${formatEur(pub.aiAnalysis.estimatedPriceEur)}`
-                    : "Sin análisis"}
+                  {hasVerifiedEstimate && pub.aiAnalysis
+                    ? `${listingVerificationLabel(listing.aiAnalysis)} · ${pub.aiAnalysis.conditionVerdict} · ~${formatEur(pub.aiAnalysis.estimatedPriceEur)}`
+                    : listingVerificationLabel(listing.aiAnalysis)}
                 </p>
-                {pub.aiAnalysis?.conditionScore != null && (
+                {hasVerifiedEstimate && pub.aiAnalysis?.conditionScore != null && (
                   <div className="mt-2 flex items-center gap-2">
                     <div className="h-1.5 w-24 overflow-hidden rounded-full bg-border">
                       <div

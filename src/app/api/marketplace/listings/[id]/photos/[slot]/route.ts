@@ -2,6 +2,7 @@ import { readFileSync } from "fs";
 import path from "path";
 import { get } from "@vercel/blob";
 import { blobAuthConfigured, blobAuthOptions } from "@/lib/blob-auth";
+import { isAdminEmail } from "@/lib/admin-auth";
 import { getListing } from "@/lib/listings";
 import { PHOTO_SLOT_LABELS, type ListingPhotoSlot } from "@/lib/marketplace-types";
 import { getCurrentUser } from "@/lib/users";
@@ -28,7 +29,8 @@ export async function GET(_request: Request, { params }: Params) {
   }
   const canReadPrivatePhoto =
     listing.sellerId === user?.id ||
-    (listing.status === "sold" && listing.soldToUserId === user?.id);
+    (listing.status === "sold" && listing.soldToUserId === user?.id) ||
+    isAdminEmail(user?.email);
   if (listing.status !== "active" && !canReadPrivatePhoto) {
     return Response.json({ error: "No autorizado." }, { status: 403 });
   }

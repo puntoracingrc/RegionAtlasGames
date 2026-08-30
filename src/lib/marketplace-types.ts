@@ -7,7 +7,10 @@ export type ListingPhotoSlot =
   | "cover-back"
   | "media-front"
   | "media-back"
-  | "manual-front";
+  | "manual-front"
+  | "detail-1"
+  | "detail-2"
+  | "detail-3";
 
 export type ListingPhoto = {
   slot: ListingPhotoSlot;
@@ -15,8 +18,17 @@ export type ListingPhoto = {
   width: number;
   height: number;
   bytes: number;
+  contentHash?: string;
+  perceptualHash?: string;
   uploadedAt: string;
 };
+
+export type ListingVerificationStatus =
+  | "verified"
+  | "manual_verified"
+  | "review_required"
+  | "unavailable"
+  | "rejected";
 
 export type AiListingAnalysis = {
   conditionVerdict: string;
@@ -26,10 +38,27 @@ export type AiListingAnalysis = {
   gameMatchVerdict?: string;
   gameMatchConfidence?: number;
   conditionIssues?: string[];
+  verificationStatus?: ListingVerificationStatus;
+  verificationReasons?: string[];
+  analyzedPhotoSlots?: ListingPhotoSlot[];
+  uniquePhotoCount?: number;
+  regionVerdict?: string;
+  reviewedAt?: string;
+  reviewedBy?: string;
+  manualReviewCriteria?: ManualListingReviewCriterion[];
   notes: string;
   analyzedAt: string;
   model: string;
 };
+
+export const MANUAL_LISTING_REVIEW_CRITERIA = [
+  "distinct_photos",
+  "game_and_platform",
+  "region_evidence",
+] as const;
+
+export type ManualListingReviewCriterion =
+  (typeof MANUAL_LISTING_REVIEW_CRITERIA)[number];
 
 export type ListingSaleOptions = {
   pickup: boolean;
@@ -63,6 +92,11 @@ export type MarketplaceListing = {
   recordedSalePriceEur: number | null;
 };
 
+export type MarketplaceListingClientPhoto = Omit<
+  ListingPhoto,
+  "contentHash" | "perceptualHash"
+>;
+
 export type MarketplaceListingClientView = Pick<
   MarketplaceListing,
   | "id"
@@ -76,7 +110,6 @@ export type MarketplaceListingClientView = Pick<
   | "platformSlug"
   | "region"
   | "status"
-  | "photos"
   | "aiAnalysis"
   | "sealed"
   | "updatedAt"
@@ -84,7 +117,9 @@ export type MarketplaceListingClientView = Pick<
   | "sellerConfirmedAt"
   | "buyerConfirmedAt"
   | "recordedSalePriceEur"
->;
+> & {
+  photos: MarketplaceListingClientPhoto[];
+};
 
 export type ChatMessage = {
   id: string;
@@ -129,16 +164,24 @@ export type RecordedPrivateSale = {
 export const REQUIRED_PHOTO_SLOTS: ListingPhotoSlot[] = [
   "cover-front",
   "cover-back",
-  "media-front",
-  "media-back",
 ];
 
-export const OPTIONAL_PHOTO_SLOTS: ListingPhotoSlot[] = ["manual-front"];
+export const OPTIONAL_PHOTO_SLOTS: ListingPhotoSlot[] = [
+  "media-front",
+  "media-back",
+  "manual-front",
+  "detail-1",
+  "detail-2",
+  "detail-3",
+];
 
 export const PHOTO_SLOT_LABELS: Record<ListingPhotoSlot, string> = {
-  "cover-front": "Portada (anverso)",
-  "cover-back": "Portada (reverso)",
+  "cover-front": "Portada",
+  "cover-back": "Contraportada",
   "media-front": "Cartucho / disco (anverso)",
   "media-back": "Cartucho / disco (reverso)",
   "manual-front": "Manual (portada, si incluye)",
+  "detail-1": "Detalle adicional 1",
+  "detail-2": "Detalle adicional 2",
+  "detail-3": "Detalle adicional 3",
 };

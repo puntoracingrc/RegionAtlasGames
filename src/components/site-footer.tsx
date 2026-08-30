@@ -10,7 +10,7 @@ const legalLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-12 border-t border-border bg-card/55">
+    <footer className="relative z-0 mt-12 shrink-0 border-t border-border bg-card/55">
       <div className="mx-auto flex max-w-[1600px] flex-col gap-4 px-4 py-8 text-sm text-muted md:flex-row md:items-center md:justify-between md:px-6">
         <div>
           <p className="font-semibold text-foreground">Region Atlas Games</p>

@@ -117,7 +117,7 @@ export function buildGameFaq(
     faqs.push({
       question: `¿Dónde comprar ${game.title} en España?`,
       answer:
-        "Revisa los anuncios verificados entre usuarios en esta ficha. Cada anuncio incluye fotos obligatorias y una estimación IA dentro del rango de mercado PAL ES.",
+        "Revisa los anuncios entre usuarios en esta ficha. Los anuncios nuevos incluyen portada y contraportada distintas; la estimación solo aparece tras una comprobación automática o manual.",
     });
   }
 

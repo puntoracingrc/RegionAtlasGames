@@ -51,9 +51,11 @@ function MenuIcon({ open }: { open: boolean }) {
 export function SiteNav({
   initialStaffRole,
   initialUser,
+  sticky = true,
 }: {
   initialStaffRole?: StaffRole;
   initialUser?: PublicUser | null;
+  sticky?: boolean;
 } = {}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -94,7 +96,12 @@ export function SiteNav({
   }, [open]);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-nav backdrop-blur-md">
+    <nav
+      className={cn(
+        "z-50 border-b border-border bg-nav backdrop-blur-md",
+        sticky ? "sticky top-0" : "relative",
+      )}
+    >
       <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-4 py-2.5 md:px-6">
         <SiteLogo priority />
 

@@ -10,6 +10,11 @@ import { formatEur } from "@/lib/price-format";
 import { coverAspectClass, LISTING_PHOTOS_GRID_CLASS } from "@/lib/cover-aspect";
 import { cn } from "@/lib/cn";
 import { conditionScoreOutOfTen, LISTING_STATUS_HINTS, listingStatusLabel } from "@/lib/marketplace-ui";
+import {
+  listingAnalysisHasVerifiedEstimate,
+  listingAnalysisIsVerified,
+  listingVerificationLabel,
+} from "@/lib/marketplace-verification";
 import { SiteNav } from "@/components/site-nav";
 import { Panel, PanelTitle } from "@/components/ui";
 
@@ -49,6 +54,8 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
       setError(data.error ?? "Error al subir foto.");
       return;
     }
+    if (data.listing) setCurrent(data.listing);
+    setSuccess("Foto guardada. La comprobación anterior se ha reiniciado.");
     router.refresh();
   }
 
@@ -147,11 +154,13 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
   const missing = REQUIRED_PHOTO_SLOTS.filter(
     (slot) => !current.photos.some((p) => p.slot === slot),
   );
+  const verificationPassed = listingAnalysisIsVerified(current.aiAnalysis);
+  const hasVerifiedEstimate = listingAnalysisHasVerifiedEstimate(current.aiAnalysis);
 
   return (
     <>
-      <SiteNav />
-      <main className="mx-auto max-w-3xl px-4 py-8 md:px-6">
+      <SiteNav sticky={false} />
+      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8 md:px-6">
         <BackLink href={catalogHref}>Volver al juego</BackLink>
 
         <header className="mt-4 mb-6 space-y-2">
@@ -195,13 +204,13 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
           {Object.entries(PHOTO_SLOT_LABELS).map(([slot, label]) => {
             const photo = current.photos.find((p) => p.slot === slot);
             const required = REQUIRED_PHOTO_SLOTS.includes(slot as (typeof REQUIRED_PHOTO_SLOTS)[number]);
-            const isMedia = slot.startsWith("media-");
-            const aspect = isMedia ? "aspect-square" : coverAspectClass(current.platformSlug);
+            const isDetail = slot.startsWith("media-") || slot.startsWith("detail-");
+            const aspect = isDetail ? "aspect-square" : coverAspectClass(current.platformSlug);
             return (
               <Panel key={slot}>
                 <p className="text-xs font-medium text-foreground">
                   {label}
-                  {required ? " *" : ""}
+                  {required ? " · obligatoria" : " · opcional"}
                 </p>
                 {photo ? (
                   <div
@@ -236,18 +245,33 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
           })}
         </section>
 
+        {isOwner && (
+          <p className="mb-6 text-sm leading-6 text-muted">
+            Para publicar solo exigimos dos fotos distintas: portada y contraportada. Puedes añadir
+            disco, cartucho, manual o detalles de desgaste cuando aporten información útil.
+          </p>
+        )}
+
         {current.aiAnalysis && (
           <Panel className="mb-6">
-            <PanelTitle>
-              {current.aiAnalysis.model.startsWith("pal-es-heuristic")
-                ? "Análisis automático (privado entre partes)"
-                : "Análisis IA (privado entre partes)"}
-            </PanelTitle>
-            <ConditionMeter score={current.aiAnalysis.conditionScore} />
-            <p className="mt-3 text-sm text-foreground">{current.aiAnalysis.conditionVerdict}</p>
-            <p className="mt-2 text-lg font-bold text-accent">
-              Estimación: {formatEur(current.aiAnalysis.estimatedPriceEur)}
+            <PanelTitle>Comprobación del anuncio</PanelTitle>
+            <p className={cn(
+              "border-l-2 px-3 py-2 text-sm font-semibold",
+              verificationPassed
+                ? "border-emerald-500 text-emerald-700 dark:text-emerald-300"
+                : "border-amber-500 text-amber-800 dark:text-amber-200",
+            )}>
+              {listingVerificationLabel(current.aiAnalysis)}
             </p>
+            {hasVerifiedEstimate ? (
+              <>
+                <div className="mt-4"><ConditionMeter score={current.aiAnalysis.conditionScore} /></div>
+                <p className="mt-3 text-sm text-foreground">{current.aiAnalysis.conditionVerdict}</p>
+                <p className="mt-2 text-lg font-bold text-accent">
+                  Estimación: {formatEur(current.aiAnalysis.estimatedPriceEur)}
+                </p>
+              </>
+            ) : null}
             {current.aiAnalysis.visualDescription && (
               <p className="mt-3 text-sm leading-relaxed text-muted">
                 {current.aiAnalysis.visualDescription}
@@ -262,6 +286,13 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
               <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-muted">
                 {current.aiAnalysis.conditionIssues.map((issue) => (
                   <li key={issue}>{issue}</li>
+                ))}
+              </ul>
+            )}
+            {current.aiAnalysis.verificationReasons && current.aiAnalysis.verificationReasons.length > 0 && (
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted">
+                {current.aiAnalysis.verificationReasons.map((reason) => (
+                  <li key={reason}>{reason}</li>
                 ))}
               </ul>
             )}
@@ -366,13 +397,13 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                   disabled={loading || missing.length > 0}
                   onClick={runAnalyze}
                 >
-                  Analizar fotos ({quotaRemaining} restantes)
+                  Comprobar fotos ({quotaRemaining} restantes)
                 </button>
                 {current.status === "draft" ? (
                   <button
                     type="button"
-                    className="btn-primary"
-                    disabled={loading || !current.aiAnalysis || missing.length > 0}
+                    className="btn-primary disabled:cursor-not-allowed disabled:saturate-0"
+                    disabled={loading || !verificationPassed || missing.length > 0}
                     onClick={publish}
                   >
                     Publicar anuncio

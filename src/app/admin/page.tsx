@@ -52,6 +52,13 @@ const quickActions = [
     tone: "status",
   },
   {
+    href: "/admin/ventas",
+    title: "Revisar ventas",
+    description: "Portadas, contraportadas y anuncios que la comprobación automática no puede cerrar.",
+    icon: "◎",
+    tone: "search",
+  },
+  {
     href: "/admin/importacion",
     title: "Importar catálogo",
     description: "CSV/Excel a revisión sin tocar colecciones.",

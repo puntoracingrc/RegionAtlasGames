@@ -1,3 +1,4 @@
+import { createHash } from "crypto";
 import {
   MAX_PHOTO_BYTES,
   MAX_PHOTO_INPUT_PIXELS,
@@ -9,6 +10,56 @@ import {
 async function loadSharp() {
   const { default: sharp } = await import("sharp");
   return sharp;
+}
+
+export type ListingPhotoFingerprint = {
+  contentHash: string;
+  perceptualHash: string;
+};
+
+export function perceptualHashDistance(left: string, right: string): number {
+  if (!/^[0-9a-f]{16}$/i.test(left) || !/^[0-9a-f]{16}$/i.test(right)) {
+    return Number.POSITIVE_INFINITY;
+  }
+  let distance = 0;
+  for (let index = 0; index < left.length; index += 1) {
+    let xor = Number.parseInt(left[index], 16) ^ Number.parseInt(right[index], 16);
+    while (xor > 0) {
+      distance += xor & 1;
+      xor >>= 1;
+    }
+  }
+  return distance;
+}
+
+export async function fingerprintListingPhoto(buffer: Buffer): Promise<ListingPhotoFingerprint> {
+  const sharp = await loadSharp();
+  const { data, info } = await sharp(buffer, {
+    limitInputPixels: MAX_PHOTO_INPUT_PIXELS,
+    sequentialRead: true,
+    failOn: "error",
+  })
+    .rotate()
+    .grayscale()
+    .resize(9, 8, { fit: "fill" })
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+
+  const hashBytes: number[] = [];
+  for (let y = 0; y < 8; y += 1) {
+    let byte = 0;
+    for (let x = 0; x < 8; x += 1) {
+      const offset = (y * 9 + x) * info.channels;
+      const nextOffset = (y * 9 + x + 1) * info.channels;
+      byte = (byte << 1) | (data[offset] > data[nextOffset] ? 1 : 0);
+    }
+    hashBytes.push(byte);
+  }
+
+  return {
+    contentHash: createHash("sha256").update(buffer).digest("hex"),
+    perceptualHash: hashBytes.map((byte) => byte.toString(16).padStart(2, "0")).join(""),
+  };
 }
 
 export async function validateListingPhoto(buffer: Buffer): Promise<
