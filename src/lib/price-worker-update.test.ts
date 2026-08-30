@@ -52,8 +52,12 @@ test("rejects abbreviated commits and unknown actions", () => {
   assert.equal(isPcWorkerUpdateAction("run_command"), false);
 });
 
-test("keeps dedicated worker SSH separate from the covers FTP protocol", () => {
+test("prefers explicit worker SFTP over covers and legacy PC SSH credentials", () => {
   const config = resolveWorkerSftpConfig({
+    PRICE_WORKER_SFTP_HOST: "queue.example.test",
+    PRICE_WORKER_SFTP_USER: "queue",
+    PRICE_WORKER_SFTP_PASSWORD: "queue-secret",
+    PRICE_WORKER_SFTP_PORT: "2222",
     PRICE_WORKER_SSH_HOST: "worker.example.test",
     PRICE_WORKER_SSH_USER: "worker",
     PRICE_WORKER_SSH_PASSWORD: "worker-secret",
@@ -66,26 +70,42 @@ test("keeps dedicated worker SSH separate from the covers FTP protocol", () => {
     COVERS_FTP_PROTOCOL: "ftp",
   });
 
-  assert.equal(config?.host, "worker.example.test");
-  assert.equal(config?.port, 22);
+  assert.equal(config?.host, "queue.example.test");
+  assert.equal(config?.port, 2222);
   assert.equal(config?.protocol, "sftp");
   assert.equal(config?.remoteDir, "region-atlas/price-worker");
 });
 
-test("does not combine incomplete worker credentials with covers credentials", () => {
+test("keeps the external queue ahead of legacy PC SSH credentials", () => {
   const config = resolveWorkerSftpConfig({
     PRICE_WORKER_SSH_HOST: "worker.example.test",
+    PRICE_WORKER_SSH_USER: "worker",
+    PRICE_WORKER_SSH_PASSWORD: "worker-secret",
+    COVERS_FTP_HOST: "covers.example.test",
+    COVERS_FTP_USER: "covers",
+    COVERS_FTP_PASSWORD: "covers-secret",
+    COVERS_FTP_PORT: "22",
+    COVERS_FTP_PROTOCOL: "sftp",
+    COVERS_FTP_REMOTE_ROOT: "MEDIAREGIONATLAS/covers",
+  });
+
+  assert.equal(config?.host, "covers.example.test");
+  assert.equal(config?.protocol, "sftp");
+  assert.equal(config?.remoteDir, "MEDIAREGIONATLAS/price-worker");
+});
+
+test("does not combine incomplete SFTP credentials with covers credentials", () => {
+  const config = resolveWorkerSftpConfig({
+    PRICE_WORKER_SFTP_HOST: "queue.example.test",
     COVERS_FTP_HOST: "covers.example.test",
     COVERS_FTP_USER: "covers",
     COVERS_FTP_PASSWORD: "covers-secret",
     COVERS_FTP_PORT: "21",
     COVERS_FTP_PROTOCOL: "ftp",
-    COVERS_FTP_REMOTE_ROOT: "MEDIAREGIONATLAS/covers",
   });
 
   assert.equal(config?.host, "covers.example.test");
   assert.equal(config?.protocol, "ftp");
-  assert.equal(config?.remoteDir, "MEDIAREGIONATLAS/price-worker");
 });
 
 test("normalizes public worker telemetry without trusting extra fields", () => {

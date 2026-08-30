@@ -110,50 +110,44 @@ function validPort(value: string | undefined, fallback: number): number {
 }
 
 export function resolveWorkerSftpConfig(env: WorkerSftpEnv = process.env): WorkerSftpConfig | null {
-  const dedicatedConnections = [
+  const coversPort = validPort(env.COVERS_FTP_PORT, 22);
+  const connections = [
     {
       host: env.PRICE_WORKER_SFTP_HOST?.trim(),
       username: env.PRICE_WORKER_SFTP_USER?.trim(),
       password: env.PRICE_WORKER_SFTP_PASSWORD?.trim(),
       port: validPort(env.PRICE_WORKER_SFTP_PORT, 22),
+      protocol: "sftp",
+    },
+    {
+      host: env.COVERS_FTP_HOST?.trim(),
+      username: env.COVERS_FTP_USER?.trim(),
+      password: env.COVERS_FTP_PASSWORD?.trim(),
+      port: coversPort,
+      protocol: env.COVERS_FTP_PROTOCOL?.trim().toLowerCase() || (coversPort === 22 ? "sftp" : "ftp"),
     },
     {
       host: env.PRICE_WORKER_SSH_HOST?.trim(),
       username: env.PRICE_WORKER_SSH_USER?.trim(),
       password: env.PRICE_WORKER_SSH_PASSWORD?.trim(),
       port: validPort(env.PRICE_WORKER_SSH_PORT, 22),
+      protocol: "sftp",
     },
   ];
-  const dedicated = dedicatedConnections.find(
+  const selected = connections.find(
     (candidate) => candidate.host && candidate.username && candidate.password,
   );
+  if (!selected?.host || !selected.username || !selected.password) return null;
   const coversRoot = (env.COVERS_FTP_REMOTE_ROOT?.trim() || "MEDIAPUNTORACINGWEB/MEDIAREGIONATLAS/covers")
     .replace(/^\/+|\/+$/g, "");
   const remoteBase = /\/covers$/i.test(coversRoot) ? coversRoot.replace(/\/covers$/i, "") : coversRoot;
-
-  if (dedicated?.host && dedicated.username && dedicated.password) {
-    return {
-      host: dedicated.host,
-      username: dedicated.username,
-      password: dedicated.password,
-      port: dedicated.port,
-      remoteDir: (env.PRICE_WORKER_REMOTE_DIR || `${remoteBase}/price-worker`).replace(/^\/+|\/+$/g, ""),
-      protocol: "sftp",
-    };
-  }
-
-  const host = env.COVERS_FTP_HOST?.trim();
-  const username = env.COVERS_FTP_USER?.trim();
-  const password = env.COVERS_FTP_PASSWORD?.trim();
-  if (!host || !username || !password) return null;
-  const port = validPort(env.COVERS_FTP_PORT, 22);
   return {
-    host,
-    username,
-    password,
-    port,
+    host: selected.host,
+    username: selected.username,
+    password: selected.password,
+    port: selected.port,
     remoteDir: (env.PRICE_WORKER_REMOTE_DIR || `${remoteBase}/price-worker`).replace(/^\/+|\/+$/g, ""),
-    protocol: env.COVERS_FTP_PROTOCOL?.trim().toLowerCase() || (port === 22 ? "sftp" : "ftp"),
+    protocol: selected.protocol,
   };
 }
 
