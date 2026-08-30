@@ -485,22 +485,43 @@ def fetch_game_products(
     *,
     max_pages: int | None = None,
     delay_s: float = 0.35,
+    diagnostics: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
     seen: set[str] = set()
     products: list[dict[str, Any]] = []
+    attempts: list[dict[str, Any]] = []
     minimum_results = wallapop_min_query_results()
     primary_queries = wallapop_primary_search_queries(game)
     for index, query in enumerate(wallapop_search_queries(game)):
-        for product in fetch_query_products(query, max_pages=max_pages, delay_s=delay_s):
+        fetched = fetch_query_products(query, max_pages=max_pages, delay_s=delay_s)
+        added = 0
+        for product in fetched:
             key = str(product.get("externalId") or product.get("productUrl") or "")
             if not key or key in seen:
                 continue
             seen.add(key)
             product["searchQuery"] = query
             products.append(product)
+            added += 1
+        attempts.append(
+            {
+                "query": query,
+                "results": len(fetched),
+                "newResults": added,
+                "cumulativeResults": len(products),
+            }
+        )
         tried_all_primary_spellings = index + 1 >= len(primary_queries)
         if tried_all_primary_spellings and len(products) >= minimum_results:
             break
+    if diagnostics is not None:
+        diagnostics.update(
+            {
+                "attempts": attempts,
+                "candidateCount": len(products),
+                "minimumResultsBeforeFallback": minimum_results,
+            }
+        )
     return products
 
 

@@ -144,6 +144,7 @@ def write_wallapop_result(
     searched_catalog_ids: list[str],
     result_catalog_ids: list[str],
     verified_catalog_ids: list[str],
+    priced_catalog_ids: list[str],
 ) -> None:
     catalog = load_json(CATALOG_FILE, [])
     selected = set(result_catalog_ids)
@@ -160,6 +161,7 @@ def write_wallapop_result(
             "searchedCatalogIds": searched_catalog_ids,
             "catalogIds": result_catalog_ids,
             "verifiedCatalogIds": verified_catalog_ids,
+            "pricedCatalogIds": priced_catalog_ids,
             "games": games,
         },
     )
@@ -196,6 +198,74 @@ def verified_changed_catalog_ids(
         if any(before.get(field) != after.get(field) for field in PRICE_RESULT_FIELDS):
             verified.append(catalog_id)
     return verified
+
+
+def verified_price_catalog_ids(
+    catalog: list[dict[str, Any]],
+    scope_ids: list[str],
+) -> list[str]:
+    by_id = {str(game.get("id") or ""): game for game in catalog if game.get("id")}
+    return [
+        catalog_id
+        for catalog_id in scope_ids
+        if by_id.get(catalog_id, {}).get("priceRegionVerified") is True
+        and (
+            by_id.get(catalog_id, {}).get("recommendedPrice") is not None
+            or any(
+                by_id.get(catalog_id, {}).get(field) is not None
+                for field in PRICE_RESULT_FIELDS
+                if field.startswith("estimatedPrice")
+            )
+        )
+    ]
+
+
+def price_decision_diagnostics(
+    raw_diagnostics: Any,
+    *,
+    changed_catalog_ids: list[str],
+    priced_catalog_ids: list[str],
+) -> list[dict[str, Any]]:
+    if not isinstance(raw_diagnostics, list):
+        return []
+    changed = set(changed_catalog_ids)
+    priced = set(priced_catalog_ids)
+    diagnostics: list[dict[str, Any]] = []
+    for raw in raw_diagnostics[:MAX_WALLAPOP_BATCH_GAMES]:
+        if not isinstance(raw, dict):
+            continue
+        matched = {
+            str(value).strip()
+            for value in raw.get("matchedCatalogIds") or []
+            if str(value).strip()
+        }
+        catalog_id = str(raw.get("catalogId") or "").strip()
+        if catalog_id:
+            matched.add(catalog_id)
+        changed_matches = sorted(matched & changed)
+        priced_matches = sorted(matched & priced)
+        accepted = max(0, int(raw.get("acceptedListings") or 0))
+        verified = max(0, int(raw.get("verifiedListings") or 0))
+        if changed_matches:
+            price_decision = "price_changed"
+        elif priced_matches:
+            price_decision = "verified_price_unchanged"
+        elif accepted == 0:
+            price_decision = "no_accepted_listings"
+        elif verified < 3:
+            price_decision = "awaiting_more_verified_listings"
+        else:
+            price_decision = "rejected_by_price_sync"
+        diagnostics.append(
+            {
+                **raw,
+                "priceDecision": price_decision,
+                "priceChangedCatalogIds": changed_matches,
+                "verifiedPriceCatalogIds": priced_matches,
+                "requiredVerifiedListings": 3,
+            }
+        )
+    return diagnostics
 
 
 def region_slug(region: str | None) -> str:
@@ -445,6 +515,8 @@ def collect_wallapop_batch(catalog_ids: list[str], *, status_file: Path | None) 
     snapshot = snapshot_scoped_price_files()
     before_catalog = json.loads((snapshot.get(CATALOG_FILE) or b"[]").decode("utf-8"))
     verified_catalog_ids: list[str] = []
+    priced_catalog_ids: list[str] = []
+    search_diagnostics: list[dict[str, Any]] = []
     try:
         result = subprocess.run(sync_cmd, cwd=ROOT)
         if result.returncode == 0:
@@ -454,6 +526,12 @@ def collect_wallapop_batch(catalog_ids: list[str], *, status_file: Path | None) 
                 after_catalog,
                 result_catalog_ids,
             )
+            priced_catalog_ids = verified_price_catalog_ids(after_catalog, result_catalog_ids)
+            search_diagnostics = price_decision_diagnostics(
+                ingest.get("searchDiagnostics"),
+                changed_catalog_ids=verified_catalog_ids,
+                priced_catalog_ids=priced_catalog_ids,
+            )
             write_wallapop_result(
                 result_path,
                 job_id=job_id,
@@ -461,6 +539,7 @@ def collect_wallapop_batch(catalog_ids: list[str], *, status_file: Path | None) 
                 searched_catalog_ids=catalog_ids,
                 result_catalog_ids=result_catalog_ids,
                 verified_catalog_ids=verified_catalog_ids,
+                priced_catalog_ids=priced_catalog_ids,
             )
     finally:
         restore_scoped_price_files(snapshot)
@@ -475,6 +554,8 @@ def collect_wallapop_batch(catalog_ids: list[str], *, status_file: Path | None) 
             "catalogIds": catalog_ids,
             "resultCatalogIds": result_catalog_ids,
             "verifiedCatalogIds": verified_catalog_ids,
+            "pricedCatalogIds": priced_catalog_ids,
+            "searchDiagnostics": search_diagnostics,
             "source": "wallapop",
             "platformSlug": platform_slug,
             "sources": ["wallapop"],

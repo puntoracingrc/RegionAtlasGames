@@ -53,7 +53,39 @@ test("normalizes telemetry and never exposes an oversized batch", () => {
       jobId: "wallapop-job-1",
       platformSlug: "ps4",
       catalogIds: Array.from({ length: 40 }, (_, index) => `ps4-${index}`),
-      titles: Array.from({ length: 40 }, (_, index) => `Game ${index}`),
+      titles: ["Assassin&amp;#39;s Creed", ...Array.from({ length: 39 }, (_, index) => `Game ${index}`)],
+    },
+    lastBatch: {
+      jobId: "wallapop-job-0",
+      platformSlug: "ps4",
+      catalogIds: ["ps4-assassins-creed"],
+      titles: ["Assassin&#39;s Creed"],
+      collectorStats: {
+        games_requested: 20,
+        games_with_listings: 4,
+        listings: 18,
+        listings_verified: 12,
+        games_no_results: 10,
+      },
+      searchDiagnostics: [{
+        catalogId: "ps4-assassins-creed",
+        title: "Assassin&#39;s Creed",
+        outcome: "mostly_discarded",
+        candidateCount: 30,
+        acceptedListings: 2,
+        verifiedListings: 1,
+        discardRatePct: 93,
+        priceDecision: "awaiting_more_verified_listings",
+        attempts: Array.from({ length: 12 }, (_, index) => ({
+          query: `Assassin&#39;s Creed query ${index}`,
+          results: index,
+        })),
+      }],
+    },
+    priceResults: {
+      changedGames: 6,
+      changedCatalogIds: ["ps4-one", "ps4-two"],
+      batchesWithChanges: 5,
     },
   });
 
@@ -64,6 +96,12 @@ test("normalizes telemetry and never exposes an oversized batch", () => {
   assert.deepEqual(campaign.settings.platforms, ["ps4", "ps5"]);
   assert.equal(campaign.settings.autoPublish, false);
   assert.equal(campaign.activeBatch?.catalogIds.length, 20);
+  assert.equal(campaign.activeBatch?.titles[0], "Assassin's Creed");
+  assert.equal(campaign.lastBatch?.collectorStats.gamesWithListings, 4);
+  assert.equal(campaign.lastBatch?.searchDiagnostics[0]?.attempts.length, 8);
+  assert.equal(campaign.lastBatch?.searchDiagnostics[0]?.attempts[0]?.query, "Assassin's Creed query 0");
+  assert.equal(campaign.lastBatch?.searchDiagnostics[0]?.priceDecision, "awaiting_more_verified_listings");
+  assert.equal(campaign.priceResults.changedGames, 6);
   assert.equal(campaign.progress.byPlatform.ps4.processed, 20);
   assert.equal("secret" in campaign.settings, false);
 });

@@ -126,6 +126,13 @@ test("normalizes public worker telemetry without trusting extra fields", () => {
       platforms: "ps4",
       source: "admin_control",
     },
+    autoUpdate: {
+      enabled: true,
+      status: "already_current",
+      checkedAt: "2026-08-29T16:00:00Z",
+      targetSha: SHA,
+      secret: "hidden",
+    },
   });
   const status = normalizePcWorkerUpdateStatus({
     ok: false,
@@ -138,6 +145,8 @@ test("normalizes public worker telemetry without trusting extra fields", () => {
   assert.equal(health.available, true);
   assert.equal(health.git.commitSha, SHA);
   assert.equal(health.todoConsolasWeekly.platforms, "ps4");
+  assert.equal(health.autoUpdate.enabled, true);
+  assert.equal(health.autoUpdate.targetSha, SHA);
   assert.equal("secret" in health, false);
   assert.equal(status.status, "error");
   assert.equal(status.error, "checkout sucio");

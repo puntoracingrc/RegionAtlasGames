@@ -940,8 +940,13 @@ def apply_condition_price_estimates(
         None,
     )
     primary = game.get(CONDITION_PRICE_FIELDS[primary_bucket]) if primary_bucket else None
-    game["priceRegionVerified"] = bool(
+    condition_region_verified = bool(
         primary_bucket and bucket_counts.get(primary_bucket, 0) >= MIN_VERIFIED_OBSERVATIONS
+    )
+    # El desglose por estado complementa el cálculo P2P general. No debe borrar
+    # una verificación regional que ese cálculo ya obtuvo con suficientes anuncios.
+    game["priceRegionVerified"] = bool(
+        game.get("priceRegionVerified") is True or condition_region_verified
     )
     game["recommendedPrice"] = primary
     game["deltaEsVsPc"] = delta_es_vs_pc(primary, pc_ref)

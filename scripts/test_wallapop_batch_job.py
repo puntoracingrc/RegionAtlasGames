@@ -99,11 +99,13 @@ def main() -> None:
                 searched_catalog_ids=["ps4-alpha"],
                 result_catalog_ids=["ps4-alpha", "ps4-beta"],
                 verified_catalog_ids=["ps4-alpha"],
+                priced_catalog_ids=["ps4-alpha"],
             )
             result = json.loads(result_path.read_text(encoding="utf-8"))
             assert result["source"] == "wallapop"
             assert [game["id"] for game in result["games"]] == ["ps4-alpha", "ps4-beta"]
             assert result["verifiedCatalogIds"] == ["ps4-alpha"]
+            assert result["pricedCatalogIds"] == ["ps4-alpha"]
 
             after_catalog = [
                 {**catalog[0], "recommendedPrice": 25.0},
@@ -115,6 +117,30 @@ def main() -> None:
                 after_catalog,
                 ["ps4-alpha", "ps4-beta"],
             ) == ["ps4-alpha"]
+            assert admin_price_collect.verified_price_catalog_ids(
+                after_catalog,
+                ["ps4-alpha", "ps4-beta"],
+            ) == ["ps4-alpha"]
+            diagnostics = admin_price_collect.price_decision_diagnostics(
+                [
+                    {
+                        "catalogId": "ps4-alpha",
+                        "acceptedListings": 3,
+                        "verifiedListings": 3,
+                        "matchedCatalogIds": ["ps4-alpha"],
+                    },
+                    {
+                        "catalogId": "ps4-beta",
+                        "acceptedListings": 2,
+                        "verifiedListings": 2,
+                        "matchedCatalogIds": ["ps4-beta"],
+                    },
+                ],
+                changed_catalog_ids=["ps4-alpha"],
+                priced_catalog_ids=["ps4-alpha"],
+            )
+            assert diagnostics[0]["priceDecision"] == "price_changed"
+            assert diagnostics[1]["priceDecision"] == "awaiting_more_verified_listings"
 
             tracked = temp / "tracked.json"
             tracked.write_bytes(b"before\n")

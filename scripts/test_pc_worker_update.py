@@ -13,6 +13,7 @@ from pc_worker_update import (
     WorkerUpdateError,
     apply_update_request,
     normalize_github_origin,
+    normalize_production_release,
     normalize_weekly_control,
     validate_update_request,
 )
@@ -74,6 +75,27 @@ def test_validation() -> None:
         "github.com/puntoracingrc/regionatlasgames"
     )
     assert normalize_github_origin("https://example.com/puntoracingrc/RegionAtlasGames") is None
+    release = normalize_production_release(
+        {
+            "schemaVersion": 1,
+            "repository": "puntoracingrc/RegionAtlasGames",
+            "branch": "main",
+            "commitSha": "0" * 40,
+            "checkedAt": "2026-08-30T20:00:00Z",
+        }
+    )
+    assert release["commitSha"] == "0" * 40
+    expect_rejected(
+        lambda: normalize_production_release(
+            {
+                "schemaVersion": 1,
+                "repository": "attacker/other",
+                "branch": "main",
+                "commitSha": "0" * 40,
+            }
+        ),
+        "repositorio oficial",
+    )
 
     allowed = {"ps4", "ps5", "switch2"}
     normalized = normalize_weekly_control(request("0" * 40)["weeklyControl"], allowed_platforms=allowed)
