@@ -123,6 +123,6 @@ export default async function CatalogPage({ searchParams }: Props) {
 }
 
 function parsePriceType(value: string | undefined): CatalogPriceType {
-  if (value === "complete" || value === "gameManual" || value === "loose") return value;
+  if (value === "sealed" || value === "complete" || value === "gameManual" || value === "loose") return value;
   return "recommended";
 }
