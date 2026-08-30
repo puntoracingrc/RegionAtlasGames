@@ -38,6 +38,7 @@ export type LocalGameRunnerJob = {
   source: "game-es" | "catalog-ai";
   platformSlug: LocalGameRunnerPlatform;
   offerType: LocalGameRunnerOfferType;
+  trigger?: "manual" | "automatic";
   limit: number;
   startPage: number;
   maxPages: number;
@@ -66,6 +67,9 @@ export type LocalGameRunnerJob = {
     seenBefore?: number | null;
     ready?: number | null;
     errors?: number | null;
+    pages?: number | null;
+    totalPages?: number | null;
+    stopReason?: string | null;
   } | null;
   catalogDiscoveryReviews?: Record<string, CatalogDiscoveryReview>;
   logTail?: string | null;
@@ -252,7 +256,7 @@ function normalizeJob(input: unknown): LocalGameRunnerJob | null {
       : raw.jobType === "manual_paste"
         ? "manual_paste"
         : "api_collect";
-  if (jobType !== "catalog_discovery" && jobType !== "catalog_enrichment" && platformSlug === "switch2") return null;
+  const trigger = raw.trigger === "automatic" ? "automatic" : "manual";
   return {
     id: String(raw.id),
     status,
@@ -260,14 +264,23 @@ function normalizeJob(input: unknown): LocalGameRunnerJob | null {
     source: jobType === "catalog_enrichment" ? "catalog-ai" : "game-es",
     platformSlug,
     offerType,
+    trigger,
     limit: Math.max(
       1,
       Math.min(
-        jobType === "manual_paste" ? 5000 : jobType === "catalog_discovery" ? 200 : jobType === "catalog_enrichment" ? 20 : 60,
+        jobType === "manual_paste"
+          ? 5000
+          : jobType === "catalog_discovery"
+            ? 200
+            : jobType === "catalog_enrichment"
+              ? 20
+              : trigger === "automatic"
+                ? 200
+                : 60,
         Number(raw.limit) || (jobType === "catalog_enrichment" ? 5 : 20),
       ),
     ),
-    startPage: Math.max(0, Math.min(20, Number(raw.startPage) || 0)),
+    startPage: Math.max(0, Math.min(trigger === "automatic" ? 500 : 20, Number(raw.startPage) || 0)),
     maxPages: Math.max(1, Math.min(jobType === "catalog_discovery" ? 10 : 8, Number(raw.maxPages) || 1)),
     skipRecentDays: Math.max(0, Math.min(jobType === "catalog_discovery" ? 365 : 30, Number(raw.skipRecentDays) || 0)),
     repeatStopCount: jobType === "catalog_discovery" ? Math.max(0, Math.min(10, Number(raw.repeatStopCount) || 3)) : undefined,
@@ -459,6 +472,7 @@ export async function createLocalGameRunnerJob(
       source: "catalog-ai",
       platformSlug,
       offerType: "new",
+      trigger: "manual",
       limit: Math.max(1, Math.min(20, Number(input.limit) || 5)),
       startPage: 0,
       maxPages: 1,
@@ -502,6 +516,7 @@ export async function createLocalGameRunnerJob(
       source: "game-es",
       platformSlug,
       offerType: "new",
+      trigger: "manual",
       limit: Math.max(1, Math.min(200, Number(input.limit) || 80)),
       startPage: 0,
       maxPages: Math.max(1, Math.min(10, Number(input.maxPages) || 4)),
@@ -517,9 +532,15 @@ export async function createLocalGameRunnerJob(
     return { ok: true, job };
   }
 
-  const platformSlug = input.platformSlug === "ps5" ? "ps5" : input.platformSlug === "ps4" ? "ps4" : null;
+  const platformSlug = input.platformSlug === "switch2"
+    ? "switch2"
+    : input.platformSlug === "ps5"
+      ? "ps5"
+      : input.platformSlug === "ps4"
+        ? "ps4"
+        : null;
   const offerType = input.offerType === "new" ? "new" : input.offerType === "preowned" ? "preowned" : null;
-  if (!platformSlug || !offerType) return { error: "Elige plataforma PS4/PS5 y tipo nuevo/seminuevo." };
+  if (!platformSlug || !offerType) return { error: "Elige plataforma PS4, PS5 o Switch 2 y tipo nuevo/seminuevo." };
   const limit = Math.max(1, Math.min(60, Number(input.limit) || 20));
   const startPage = Math.max(0, Math.min(20, Number(input.startPage) || 0));
   const maxPages = Math.max(1, Math.min(8, Number(input.maxPages) || 1));
@@ -532,6 +553,7 @@ export async function createLocalGameRunnerJob(
     source: "game-es",
     platformSlug,
     offerType,
+    trigger: "manual",
     limit,
     startPage,
     maxPages,
@@ -549,49 +571,93 @@ export async function createLocalGameRunnerJob(
 export async function ensureScheduledGameReleaseDiscoveryJobs(): Promise<{
   ok: true;
   created: LocalGameRunnerJob[];
-  skipped: Array<{ platformSlug: GameReleaseDiscoveryPlatform; reason: string }>;
+  skipped: Array<{
+    platformSlug: GameReleaseDiscoveryPlatform;
+    jobType: "catalog_discovery" | "api_collect";
+    reason: string;
+  }>;
 } | { error: string }> {
   const queue = queueWithRecentJobs((await readQueueFromWorker()) ?? readQueueFromDisk());
   const now = new Date();
   const recentCutoff = now.getTime() - 6 * 24 * 60 * 60 * 1000;
   const created: LocalGameRunnerJob[] = [];
-  const skipped: Array<{ platformSlug: GameReleaseDiscoveryPlatform; reason: string }> = [];
+  const skipped: Array<{
+    platformSlug: GameReleaseDiscoveryPlatform;
+    jobType: "catalog_discovery" | "api_collect";
+    reason: string;
+  }> = [];
 
   for (const platformSlug of ["ps4", "ps5", "switch2"] as const) {
-    const related = queue.jobs.filter(
+    const discoveryJobs = queue.jobs.filter(
       (job) => job.jobType === "catalog_discovery" && job.platformSlug === platformSlug,
     );
-    if (related.some((job) => job.status === "pending" || job.status === "running")) {
-      skipped.push({ platformSlug, reason: "active_job" });
-      continue;
-    }
-    const latestCompleted = related
+    const latestDiscovery = discoveryJobs
+      .filter((job) => job.trigger === "automatic")
       .filter((job) => job.status === "done")
       .sort((a, b) => Date.parse(b.finishedAt ?? b.updatedAt) - Date.parse(a.finishedAt ?? a.updatedAt))[0];
-    if (latestCompleted && Date.parse(latestCompleted.finishedAt ?? latestCompleted.updatedAt) >= recentCutoff) {
-      skipped.push({ platformSlug, reason: "completed_this_week" });
-      continue;
+    const at = now.toISOString();
+    if (discoveryJobs.some((job) => job.status === "pending" || job.status === "running")) {
+      skipped.push({ platformSlug, jobType: "catalog_discovery", reason: "active_job" });
+    } else if (latestDiscovery && Date.parse(latestDiscovery.finishedAt ?? latestDiscovery.updatedAt) >= recentCutoff) {
+      skipped.push({ platformSlug, jobType: "catalog_discovery", reason: "completed_this_week" });
+    } else {
+      const discoveryJob: LocalGameRunnerJob = {
+        id: `local-game-release-${Date.now().toString(36)}-${platformSlug}-${Math.random().toString(36).slice(2, 7)}`,
+        jobType: "catalog_discovery",
+        status: "pending",
+        source: "game-es",
+        platformSlug,
+        offerType: "new",
+        trigger: "automatic",
+        limit: 80,
+        startPage: 0,
+        maxPages: 4,
+        skipRecentDays: 365,
+        repeatStopCount: 3,
+        catalogDiscoveryReviews: {},
+        createdAt: at,
+        updatedAt: at,
+      };
+      queue.jobs.unshift(discoveryJob);
+      created.push(discoveryJob);
     }
 
-    const at = now.toISOString();
-    const job: LocalGameRunnerJob = {
-      id: `local-game-release-${Date.now().toString(36)}-${platformSlug}-${Math.random().toString(36).slice(2, 7)}`,
-      jobType: "catalog_discovery",
-      status: "pending",
-      source: "game-es",
-      platformSlug,
-      offerType: "new",
-      limit: 80,
-      startPage: 0,
-      maxPages: 4,
-      skipRecentDays: 365,
-      repeatStopCount: 3,
-      catalogDiscoveryReviews: {},
-      createdAt: at,
-      updatedAt: at,
-    };
-    queue.jobs.unshift(job);
-    created.push(job);
+    const priceJobs = queue.jobs.filter(
+      (job) => job.jobType === "api_collect" && job.offerType === "preowned" && job.platformSlug === platformSlug,
+    );
+    const latestPrice = priceJobs
+      .filter((job) => job.trigger === "automatic")
+      .filter((job) => job.status === "done")
+      .sort((a, b) => Date.parse(b.finishedAt ?? b.updatedAt) - Date.parse(a.finishedAt ?? a.updatedAt))[0];
+    if (priceJobs.some((job) => job.status === "pending" || job.status === "running")) {
+      skipped.push({ platformSlug, jobType: "api_collect", reason: "active_job" });
+    } else if (latestPrice && Date.parse(latestPrice.finishedAt ?? latestPrice.updatedAt) >= recentCutoff) {
+      skipped.push({ platformSlug, jobType: "api_collect", reason: "completed_this_week" });
+    } else {
+      const pagesRead = Math.max(1, Number(latestPrice?.resultSummary?.pages) || latestPrice?.maxPages || 8);
+      const candidateStart = latestPrice ? latestPrice.startPage + pagesRead : 0;
+      const totalPages = latestPrice?.resultSummary?.totalPages;
+      const startPage = typeof totalPages === "number" && totalPages >= 0 && candidateStart > totalPages
+        ? 0
+        : candidateStart;
+      const priceJob: LocalGameRunnerJob = {
+        id: `local-game-price-${Date.now().toString(36)}-${platformSlug}-${Math.random().toString(36).slice(2, 7)}`,
+        jobType: "api_collect",
+        status: "pending",
+        source: "game-es",
+        platformSlug,
+        offerType: "preowned",
+        trigger: "automatic",
+        limit: 200,
+        startPage,
+        maxPages: 8,
+        skipRecentDays: 30,
+        createdAt: at,
+        updatedAt: at,
+      };
+      queue.jobs.unshift(priceJob);
+      created.push(priceJob);
+    }
   }
 
   if (created.length > 0) {
@@ -647,6 +713,9 @@ function summarizeResult(result: unknown): LocalGameRunnerJob["resultSummary"] {
     seenBefore: Number(stats.seenBefore ?? 0) || 0,
     ready: Number(stats.ready ?? proposals.filter((proposal) => proposal && typeof proposal === "object" && (proposal as Record<string, unknown>).status === "ready").length) || 0,
     errors: Number(stats.errors ?? proposals.filter((proposal) => proposal && typeof proposal === "object" && (proposal as Record<string, unknown>).status === "error").length) || 0,
+    pages: Number(stats.pages ?? 0) || null,
+    totalPages: Number.isFinite(Number(stats.totalPages)) ? Number(stats.totalPages) : null,
+    stopReason: typeof stats.stopReason === "string" ? stats.stopReason.slice(0, 120) : null,
   };
 }
 

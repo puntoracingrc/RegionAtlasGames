@@ -10,13 +10,23 @@ type Props = {
 type SourceChip = { label: string; count: number };
 
 function sourceChips(sync: NonNullable<ReturnType<typeof getPlatformPriceSync>>): SourceChip[] {
+  const p2p =
+    (sync.wallapopGamesUpdated ?? 0) +
+    (sync.ebayGamesUpdated ?? 0) +
+    (sync.vintedGamesUpdated ?? 0) +
+    (sync.tcGamesUpdated ?? 0);
+  const retailEs =
+    (sync.cexGamesUpdated ?? 0) +
+    (sync.gameGamesUpdated ?? 0) +
+    (sync.tcnsGamesUpdated ?? 0);
+  const importRetail =
+    (sync.jgoGamesUpdated ?? 0) +
+    (sync.cholloGamesUpdated ?? 0) +
+    (sync.kaotoGamesUpdated ?? 0);
   const items: SourceChip[] = [
-    { label: "CeX", count: sync.cexGamesUpdated ?? 0 },
-    { label: "JGO", count: sync.jgoGamesUpdated ?? 0 },
-    { label: "Chollo", count: sync.cholloGamesUpdated ?? 0 },
-    { label: "Kaoto", count: sync.kaotoGamesUpdated ?? 0 },
-    { label: "TodoConsolas", count: sync.tcnsGamesUpdated ?? 0 },
-    { label: "TodoColección", count: sync.tcGamesUpdated ?? 0 },
+    { label: "P2P", count: p2p },
+    { label: "Tiendas ES", count: retailEs },
+    { label: "Importación", count: importRetail },
   ];
   return items.filter((item) => item.count > 0);
 }
@@ -82,7 +92,7 @@ export function PlatformPriceCoverage({ platformSlug, className }: Props) {
             </div>
             <p className="text-[11px] text-muted">
               {sync.gamesUpdated.toLocaleString("es-ES")} de{" "}
-              {sync.gamesTargeted.toLocaleString("es-ES")} ediciones con dato · {sync.source ?? "Mercado"}
+              {sync.gamesTargeted.toLocaleString("es-ES")} ediciones con dato · mercado verificado
             </p>
           </div>
         </div>

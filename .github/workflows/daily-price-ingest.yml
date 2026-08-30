@@ -1,9 +1,6 @@
-name: Daily price ingest
+name: Manual legacy price ingest
 
 on:
-  schedule:
-    # 04:00 UTC — una plataforma al día
-    - cron: "0 4 * * *"
   workflow_dispatch:
     inputs:
       platform:

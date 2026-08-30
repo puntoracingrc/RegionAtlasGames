@@ -1214,7 +1214,7 @@ def run_once(config: WorkerConfig, *, daily: bool) -> int:
                         return 1
                 elif daily:
                     publish_todoconsolas_weekly_disabled_status(queue)
-                if daily and os.environ.get("PRICE_PC_DAILY_ENABLED", "0").lower() in {"1", "true", "yes"}:
+                if daily and env_enabled("PRICE_PC_LEGACY_ROTATION_ENABLED"):
                     return 1 if run_daily_rotation(queue) else 0
         except RuntimeError as exc:
             print(f"{now_iso()} {exc}")
@@ -1233,7 +1233,11 @@ def main() -> int:
     parser.add_argument("--once", action="store_true", help="Procesa como maximo un job y sale.")
     parser.add_argument("--daemon", action="store_true", help="Mantiene polling continuo. Sin esto, solo hace una pasada.")
     parser.add_argument("--interval", type=int, default=None, help="Segundos entre consultas; implica modo daemon.")
-    parser.add_argument("--daily", action="store_true", help="Permite ejecutar la rueda automatica si PRICE_PC_DAILY_ENABLED=1.")
+    parser.add_argument(
+        "--daily",
+        action="store_true",
+        help="Permite motores dedicados. La rueda general solo arranca con PRICE_PC_LEGACY_ROTATION_ENABLED=1.",
+    )
     parser.add_argument("--check", action="store_true", help="Verifica configuracion/conexion y sale.")
     parser.add_argument(
         "--upload-review-queue",

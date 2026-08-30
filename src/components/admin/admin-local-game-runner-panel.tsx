@@ -18,8 +18,8 @@ function formatDate(value: string | null | undefined): string {
 }
 
 function statusLabel(status: LocalGameRunnerJob["status"]): string {
-  if (status === "pending") return "Esperando Mac";
-  if (status === "running") return "Ejecutando en Mac";
+  if (status === "pending") return "Esperando PC";
+  if (status === "running") return "Ejecutando en PC";
   if (status === "done") return "Completado";
   if (status === "error") return "Error";
   return "Cancelado";
@@ -27,7 +27,7 @@ function statusLabel(status: LocalGameRunnerJob["status"]): string {
 
 export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Props) {
   const [jobs, setJobs] = useState(initialJobs.filter((job) => job.jobType !== "catalog_discovery"));
-  const [platformSlug, setPlatformSlug] = useState<"ps4" | "ps5">("ps4");
+  const [platformSlug, setPlatformSlug] = useState<"ps4" | "ps5" | "switch2">("ps4");
   const [offerType, setOfferType] = useState<LocalGameRunnerOfferType>("preowned");
   const [limit, setLimit] = useState(20);
   const [startPage, setStartPage] = useState(0);
@@ -76,7 +76,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
     }
     setJobs((current) => [data.job!, ...current].slice(0, 30));
     setState("saved");
-    setMessage("Job GAME creado. Si tu Mac tiene el runner encendido, lo recogerá solo.");
+    setMessage("Trabajo GAME creado. Si el PC servidor está encendido, lo recogerá solo.");
   }
 
   async function importJob(jobId: string) {
@@ -143,17 +143,17 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
     }
     setPasteState("done");
     setJobs((current) => [data.job!, ...current.filter((job) => job.id !== data.job!.id)].slice(0, 30));
-    setPasteMessage("Pegado guardado como job. Arranca el runner del Mac y luego pulsa ‘Importar al flujo’ cuando aparezca completado.");
+    setPasteMessage("Pegado guardado como trabajo. El PC servidor lo procesará; después podrás importarlo manualmente.");
   }
 
   return (
     <section className="rounded-3xl border border-blue-300/70 bg-blue-50/70 p-5 shadow-sm dark:border-blue-400/30 dark:bg-blue-950/25 md:p-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700 dark:text-blue-300">GAME local</p>
-          <h2 className="mt-2 text-2xl font-black tracking-tight text-foreground">Runner GAME desde tu Mac</h2>
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700 dark:text-blue-300">GAME · PC servidor</p>
+          <h2 className="mt-2 text-2xl font-black tracking-tight text-foreground">Recolección GAME</h2>
           <p className="mt-2 max-w-4xl text-sm leading-6 text-muted">
-            Crea trabajos GAME para que tu Mac, desde conexión española, los ejecute y suba resultados al worker. No abre puertos en tu Mac.
+            El PC servidor busca lanzamientos y precios seminuevos de PS4, PS5 y Switch 2. Los lotes automáticos se publican por Git solo después de validarse.
           </p>
           {!tokenConfigured ? (
             <p className="mt-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-400/30 dark:bg-amber-950/30 dark:text-amber-200">
@@ -172,9 +172,10 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
       <div className="mt-5 grid gap-3 md:grid-cols-[1fr_1fr_1fr_1fr_auto]">
         <label className="text-xs font-semibold text-muted">
           Plataforma
-          <select value={platformSlug} onChange={(event) => setPlatformSlug(event.target.value as "ps4" | "ps5")} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground">
+          <select value={platformSlug} onChange={(event) => setPlatformSlug(event.target.value as "ps4" | "ps5" | "switch2")} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground">
             <option value="ps4">PS4</option>
             <option value="ps5">PS5</option>
+            <option value="switch2">Nintendo Switch 2</option>
           </select>
         </label>
         <label className="text-xs font-semibold text-muted">
@@ -193,7 +194,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
           <input type="number" min={1} max={8} value={maxPages} onChange={(event) => setMaxPages(Number(event.target.value) || 1)} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground" />
         </label>
         <button type="button" onClick={createJob} disabled={state === "saving"} className="btn-primary self-end">
-          {state === "saving" ? "Creando..." : "Lanzar GAME desde Mac"}
+          {state === "saving" ? "Creando..." : "Lanzar búsqueda manual"}
         </button>
       </div>
       <div className="mt-3 grid gap-3 md:grid-cols-2">
@@ -220,7 +221,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-700 dark:text-amber-300">GAME pegado manual</p>
             <h3 className="mt-1 text-xl font-black tracking-tight text-foreground">Pegar catálogo seminuevo de GAME</h3>
             <p className="mt-2 max-w-4xl text-sm leading-6 text-muted">
-              Pega el texto tal cual desde GAME. Primero lo previsualizas; al confirmar se crea un job para que lo procese tu Mac sin límite de Vercel.
+              Pega el texto tal cual desde GAME. Primero lo previsualizas; al confirmar se crea un trabajo para que lo procese el PC sin límite de Vercel.
             </p>
           </div>
           <span className="rounded-full border border-amber-300 bg-amber-100 px-3 py-1 text-[11px] font-bold text-amber-800 dark:border-amber-400/30 dark:bg-amber-900/30 dark:text-amber-100">
@@ -231,9 +232,10 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
           <div className="space-y-3">
             <label className="block text-xs font-semibold text-muted">
               Plataforma destino
-              <select value={platformSlug} onChange={(event) => setPlatformSlug(event.target.value as "ps4" | "ps5")} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground">
+              <select value={platformSlug} onChange={(event) => setPlatformSlug(event.target.value as "ps4" | "ps5" | "switch2")} className="mt-1 w-full rounded-xl border border-border bg-background px-3 py-2 text-sm text-foreground">
                 <option value="ps4">PS4</option>
                 <option value="ps5">PS5</option>
+                <option value="switch2">Nintendo Switch 2</option>
               </select>
             </label>
             <label className="block text-xs font-semibold text-muted">
@@ -332,6 +334,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
                 <p className="font-bold text-foreground">
                   {job.platformSlug.toUpperCase()} · {job.offerType === "preowned" ? "Seminuevo" : "Nuevo"}
                   {job.jobType === "manual_paste" ? " · Pegado manual" : ""}
+                  {job.trigger === "automatic" ? " · Automático" : ""}
                 </p>
                 <p className="mt-1 text-xs text-muted">Creado: {formatDate(job.createdAt)} · Actualizado: {formatDate(job.updatedAt)}</p>
                 <p className="text-xs text-muted">
@@ -348,7 +351,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
             ) : null}
             {job.error ? <p className="mt-3 text-xs text-rose-600 dark:text-rose-300">{job.error}</p> : null}
             {job.resultPath ? <p className="mt-2 break-all text-xs text-muted">Resultado worker: {job.resultPath}</p> : null}
-            {job.status === "done" && job.resultPath ? (
+            {job.status === "done" && job.resultPath && job.trigger !== "automatic" ? (
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <button
                   type="button"
@@ -375,6 +378,11 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
                 </span>
               </div>
             ) : null}
+            {job.status === "done" && job.resultPath && job.trigger === "automatic" ? (
+              <p className="mt-3 rounded-xl border border-emerald-300/60 bg-emerald-50 px-3 py-2 text-xs text-emerald-800 dark:border-emerald-400/25 dark:bg-emerald-950/25 dark:text-emerald-200">
+                Resultado automático listo. Git lo validará y publicará sin exponer el anuncio de GAME.
+              </p>
+            ) : null}
             {job.importError ? <p className="mt-2 text-xs text-rose-600 dark:text-rose-300">Importación: {job.importError}</p> : null}
             {job.importLogTail ? (
               <details className="mt-3 rounded-xl border border-emerald-400/25 bg-slate-950 p-3">
@@ -384,7 +392,7 @@ export function AdminLocalGameRunnerPanel({ initialJobs, tokenConfigured }: Prop
             ) : null}
             {job.logTail ? (
               <details className="mt-3 rounded-xl border border-blue-400/25 bg-slate-950 p-3">
-                <summary className="cursor-pointer list-none text-xs font-semibold text-blue-200">Log del Mac</summary>
+                <summary className="cursor-pointer list-none text-xs font-semibold text-blue-200">Log del PC servidor</summary>
                 <pre className="mt-3 max-h-48 overflow-auto whitespace-pre-wrap rounded-lg border border-blue-400/15 bg-black/70 p-3 font-mono text-[11px] leading-5 text-blue-100">{job.logTail}</pre>
               </details>
             ) : null}

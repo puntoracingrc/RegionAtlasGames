@@ -2,7 +2,7 @@ import path from "path";
 
 export const PC_WORKER_UPDATE_MODE = "git_fast_forward_main_v1";
 
-export type PcWorkerUpdateAction = "update_only" | "ps4_pilot";
+export type PcWorkerUpdateAction = "update_only" | "automatic_sources" | "ps4_pilot";
 
 export type PcWorkerHealth = {
   available: boolean;
@@ -77,7 +77,7 @@ export function resolvePcWorkerDeploymentSha(
 }
 
 export function isPcWorkerUpdateAction(value: unknown): value is PcWorkerUpdateAction {
-  return value === "update_only" || value === "ps4_pilot";
+  return value === "update_only" || value === "automatic_sources" || value === "ps4_pilot";
 }
 
 function deploymentQueueReadiness(): { available: boolean; reason: string | null } {
@@ -119,10 +119,10 @@ function sftpConfig(): WorkerSftpConfig | null {
 }
 
 function weeklyControlFor(action: PcWorkerUpdateAction) {
-  if (action !== "ps4_pilot") return undefined;
+  if (action !== "automatic_sources" && action !== "ps4_pilot") return undefined;
   return {
     enabled: true,
-    platforms: ["ps4"],
+    platforms: action === "automatic_sources" ? ["ps4", "ps5", "switch2"] : ["ps4"],
     pagesPerRun: 1,
     delaySeconds: 8,
     jitterSeconds: 3,

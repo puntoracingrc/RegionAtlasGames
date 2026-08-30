@@ -11,10 +11,9 @@ import { esPriceDisplayLabel, hasVerifiedEsPrice } from "@/lib/price-display";
 import { ebayRegionalSearchPolicy } from "@/lib/ebay/ebay-regional-policy";
 import {
   bestJapanRetailPrice,
-  bestJapanRetailSource,
   hasJapanRetailReference,
   latestJapanRetailMatchedAt,
-} from "@/components/retail-price-references";
+} from "@/lib/import-retail-prices";
 import { Badge } from "@/components/ui";
 
 type Props = { game: CatalogGame };
@@ -35,7 +34,6 @@ export function GamePriceHero({ game }: Props) {
   if (status === "pending" || !hasEstimate) {
     if (hasJapanRetailReference(game)) {
       const retailPrice = bestJapanRetailPrice(game);
-      const retailSource = bestJapanRetailSource(game);
       const updatedAt = latestJapanRetailMatchedAt(game);
       const retailUpdatedLabel = updatedAt
         ? new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(updatedAt))
@@ -51,14 +49,13 @@ export function GamePriceHero({ game }: Props) {
                 <p className="mt-1 text-xs text-muted">Actualizado: {retailUpdatedLabel}</p>
               )}
             </div>
-            <Badge tone="amber">{retailSource}</Badge>
+            <Badge tone="amber">Referencia verificada</Badge>
           </div>
           <p className="mt-5 text-3xl font-bold text-accent sm:text-4xl">
             {formatEur(retailPrice)}
           </p>
           <p className="mt-3 text-sm text-muted">
-            Precio «desde» en tienda especializada. Aún no hay media de reventa por estado para
-            esta edición.
+            Referencia agregada de mercado. Aún no hay media de reventa por estado para esta edición.
           </p>
         </section>
       );
@@ -171,12 +168,10 @@ export function GamePriceHero({ game }: Props) {
         </p>
       )}
 
-      {game.priceDataSources && (
-        <p className="mt-3 text-xs text-muted/80">
-          Datos usados: {game.priceDataSources}
-          {updatedLabel ? ` · Último dato con precio: ${updatedLabel}` : ""}
-        </p>
-      )}
+      <p className="mt-3 text-xs text-muted/80">
+        Fuentes de mercado verificadas
+        {updatedLabel ? ` · Último dato con precio: ${updatedLabel}` : ""}
+      </p>
     </section>
   );
 }

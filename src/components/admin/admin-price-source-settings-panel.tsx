@@ -166,9 +166,9 @@ function sourceModeEnabled(source: SourceWithModes, mode: "manual" | "rotation")
 function sourceModeSummary(source: SourceWithModes): string {
   const manual = sourceModeEnabled(source, "manual");
   const rotation = sourceModeEnabled(source, "rotation");
-  if (manual && rotation) return "Manual y rueda";
+  if (manual && rotation) return "Manual · rueda retirada";
   if (manual) return "Solo manual";
-  if (rotation) return "Solo rueda";
+  if (rotation) return "Rueda retirada";
   return "Apagada";
 }
 
@@ -497,13 +497,6 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
     [settings],
   );
 
-  const rotationActiveCount = useMemo(
-    () =>
-      priceCollectorSourceOrder.filter((key) => sourceModeEnabled(settings.sources[key], "rotation")).length
-      + settings.customSources.filter((source) => customSourceCanUseGenericCollector(source) && sourceModeEnabled(source, "rotation")).length,
-    [settings],
-  );
-
   function updateSourceHint(key: keyof PriceSourceSettings["sources"], routeHint: string) {
     setSettings((current) => ({
       ...current,
@@ -694,7 +687,7 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
     setSettings(data.settings);
     if (data.worker?.ok) {
       setSaveState("saved");
-      setMessage("Fuentes guardadas y sincronizadas con el worker externo. La próxima rueda usará este estado.");
+      setMessage("Fuentes manuales guardadas y sincronizadas con el worker externo.");
     } else {
       setSaveState("error");
       setMessage(
@@ -728,12 +721,12 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-700 dark:text-emerald-300">Fuentes</p>
           <h2 className="mt-2 text-2xl font-black tracking-tight text-foreground">Fuentes de recolección de precios</h2>
           <p className="mt-2 max-w-4xl text-sm leading-6 text-muted">
-            Activa o apaga collectors. Las fuentes configuradas con datos suficientes entran por el collector genérico; si faltan rutas o buscador quedan guardadas como pendientes.
+            Configura búsquedas manuales y fuentes candidatas. La antigua rueda general está retirada; eBay, GAME y TodoConsolas usan motores automáticos dedicados y controlados.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
           <button type="button" onClick={saveSettings} disabled={saveState === "saving"} className="btn-primary">
-            {saveState === "saving" ? "Guardando..." : `Guardar fuentes (manual ${manualActiveCount} · rueda ${rotationActiveCount})`}
+            {saveState === "saving" ? "Guardando..." : `Guardar fuentes manuales (${manualActiveCount})`}
           </button>
           <button
             type="button"
@@ -781,10 +774,11 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
                   <input
                     type="checkbox"
                     checked={sourceModeEnabled(source, "rotation")}
-                    onChange={(event) => updateSourceMode(key, "rotation", event.target.checked)}
+                    disabled
+                    title="La rueda general se retiró para evitar programadores duplicados."
                     className="mr-1 accent-[var(--accent)]"
                   />
-                  Rueda automática
+                  Rueda retirada
                 </label>
               </div>
               <p className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-muted">
@@ -947,10 +941,11 @@ export function AdminPriceSourceSettingsPanel({ initialSettings, platformOptions
                   <input
                     type="checkbox"
                     checked={sourceModeEnabled(source, "rotation")}
-                    onChange={(event) => updateCustomSourceMode(source.id, "rotation", event.target.checked)}
+                    disabled
+                    title="La rueda general se retiró para evitar programadores duplicados."
                     className="mr-1 accent-[var(--accent)]"
                   />
-                  Rueda automática
+                  Rueda retirada
                 </label>
               </div>
               <div className="mt-3 flex flex-wrap items-center justify-between gap-2">

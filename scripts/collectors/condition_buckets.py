@@ -23,6 +23,8 @@ BUCKET_LABELS_ES: dict[str, str] = {
 
 RAW_TO_BUCKET: dict[str, str] = {
     "used": "loose",
+    "preowned": "complete",
+    "segunda mano": "complete",
     "loose": "loose",
     "game_manual": "game_manual",
     "with_manual": "game_manual",

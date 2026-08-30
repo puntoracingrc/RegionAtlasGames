@@ -2,7 +2,7 @@
 """Sincronización semanal de precios ES por plataforma (rotación).
 
 - P2P (Wallapop / eBay / Vinted / TodoColeccion): mediana con región verificada + reglas por plataforma.
-- CeX: cexSellPrice / cexCashPrice aparte (no entra en la mediana P2P).
+- CeX: cexSellPrice / cexCashPrice como referencia retail ponderada por estado.
 - Japan Game Online: jgoRetailPrice aparte (retail import JP en ES).
 - Chollo Games: cholloRetailPrice aparte (importación Madrid).
 - Kaoto Store: kaotoRetailPrice aparte (Shopify, import JP/PAL).
@@ -427,6 +427,8 @@ def price_source_label(sources: set[str]) -> str:
         labels.append("Vinted ES")
     if "todocoleccion" in sources:
         labels.append("TodoColeccion")
+    if "game-es-preowned" in sources:
+        labels.append("GAME seminuevo")
     if not labels:
         return "Mercado ES"
     return " / ".join(labels)
@@ -616,6 +618,28 @@ def apply_tc_row(
     return True
 
 
+def apply_game_preowned_reference(
+    game: dict[str, Any],
+    rows: list[dict[str, Any]],
+    synced_at: str,
+) -> bool:
+    """Conserva la última referencia GAME validada sin publicar su anuncio."""
+    catalog_region = str(game.get("region") or "")
+    valid_rows = [row for row in rows if is_game_preowned_auto_verified(row, catalog_region)]
+    if not valid_rows:
+        return False
+    row = max(valid_rows, key=lambda item: str(item.get("collectedAt") or ""))
+    price = row.get("retailPriceEur")
+    if price is None:
+        price = row.get("priceEur")
+    if price is None or float(price) <= 0:
+        return False
+    game["gameRetailPrice"] = round(float(price), 2)
+    game["gameCondition"] = "complete"
+    game["gameMatchedAt"] = synced_at
+    return True
+
+
 def _row_observation(
     row: dict[str, Any],
     *,
@@ -678,6 +702,7 @@ def collect_condition_observations(
     use_vision: bool = True,
 ) -> list[tuple[float, str, str]]:
     observations: list[tuple[float, str, str]] = []
+    current_sources: set[str] = set()
 
     for row in grouped.get(gid, []):
         obs = _row_observation(
@@ -689,6 +714,7 @@ def collect_condition_observations(
         )
         if obs:
             observations.append(obs)
+            current_sources.add(obs[2])
 
     cex_row = cex_by_id.get(gid)
     if cex_row:
@@ -696,6 +722,7 @@ def collect_condition_observations(
         obs = _row_observation(cex_row, catalog_region=catalog_region, platform_slug=platform_slug, use_vision=use_vision)
         if obs:
             observations.append(obs)
+            current_sources.add(obs[2])
 
     for source_map, source_name in (
         (jgo_by_id, "japangameonline"),
@@ -710,12 +737,54 @@ def collect_condition_observations(
             catalog_game is None or not tcns_row_is_auto_approved(row, catalog_game)
         ):
             continue
-        if source_name == "todoconsolas" and str(row.get("conditionRaw") or "").strip().casefold() == "segunda mano":
-            continue
+        if source_name == "todoconsolas" and (
+            str(row.get("condition") or "").strip().casefold() == "preowned"
+            or str(row.get("conditionRaw") or "").strip().casefold() == "segunda mano"
+        ):
+            row = {**row, "condition": "complete"}
         row = {**row, "source": row.get("source") or source_name}
         obs = _row_observation(row, catalog_region=catalog_region, platform_slug=platform_slug, use_vision=use_vision)
         if obs:
             observations.append(obs)
+            current_sources.add(obs[2])
+
+    if catalog_game:
+        stored_rows = (
+            ("game-es-preowned", "gameRetailPrice", "gameCondition"),
+            ("cex", "cexSellPrice", None),
+            ("japangameonline", "jgoRetailPrice", "jgoCondition"),
+            ("chollogames", "cholloRetailPrice", "cholloCondition"),
+            ("kaotostore", "kaotoRetailPrice", "kaotoCondition"),
+            ("todoconsolas", "tcnsRetailPrice", "tcnsCondition"),
+            ("todocoleccion", "tcListingPrice", "tcCondition"),
+        )
+        for source, price_field, condition_field in stored_rows:
+            source_aliases = {
+                "japangameonline": {"japangameonline", "jgo"},
+                "chollogames": {"chollogames", "chollo"},
+                "kaotostore": {"kaotostore", "kaoto"},
+                "todocoleccion": {"todocoleccion", "tc"},
+            }.get(source, {source})
+            if current_sources & source_aliases:
+                continue
+            price = catalog_game.get(price_field)
+            condition = catalog_game.get(condition_field) if condition_field else None
+            if source == "todoconsolas" and str(condition or "").strip().casefold() in {"preowned", "segunda mano"}:
+                condition = "complete"
+            if price is None or not condition:
+                continue
+            obs = observation_from_row(
+                {
+                    "source": source,
+                    "priceEur": price,
+                    "condition": condition,
+                },
+                platform_slug=platform_slug,
+                use_vision=False,
+                fetch_images=False,
+            )
+            if obs:
+                observations.append(obs)
 
     return observations
 
@@ -966,6 +1035,9 @@ def main() -> None:
     source_only_tcns = str(ingest.get("source") or "").strip().lower() == "todoconsolas" and not any(
         (listings, cex_rows, jgo_rows, chollo_rows, kaoto_rows, ingest.get("tc") or [])
     )
+    source_only_game = str(ingest.get("source") or "").strip().lower() == "game-es-preowned" and not any(
+        (cex_rows, jgo_rows, chollo_rows, kaoto_rows, tcns_rows, ingest.get("tc") or [])
+    )
     grouped = group_by_catalog_id(listings)
     cex_by_id = {str(r["catalogId"]): r for r in cex_rows if r.get("catalogId")}
     jgo_by_id = {str(r["catalogId"]): r for r in jgo_rows if r.get("catalogId")}
@@ -984,7 +1056,7 @@ def main() -> None:
             allow_cross_region_catalog_ids=args.allow_cross_region_catalog_ids,
         )
     ]
-    ranges_cleared = 0 if source_only_tcns else clear_unverified_market_ranges(targets)
+    ranges_cleared = 0 if source_only_tcns or source_only_game else clear_unverified_market_ranges(targets)
     if ranges_cleared:
         print(f"Rangos Excel eliminados en {ranges_cleared} juegos dentro del alcance.")
     target_ids = {g["id"] for g in targets}
@@ -1013,6 +1085,7 @@ def main() -> None:
     tcns_skipped = 0
     tc_updated = 0
     tc_skipped = 0
+    game_reference_updated = 0
     tc_by_id = pick_best_tc_rows(grouped)
 
     for game in targets:
@@ -1057,6 +1130,9 @@ def main() -> None:
                 skipped += 1
         else:
             skipped += 1
+
+        if apply_game_preowned_reference(game, rows, synced_at):
+            game_reference_updated += 1
 
         cex_row = cex_by_id.get(gid)
         if cex_row:
@@ -1203,6 +1279,7 @@ def main() -> None:
     print(f"  TodoConsolas rechazado (región): {tcns_skipped}")
     print(f"  TodoColeccion actualizado (referencia P2P ES): {tc_updated}")
     print(f"  TodoColeccion rechazado (región): {tc_skipped}")
+    print(f"  GAME seminuevo guardado como referencia: {game_reference_updated}")
     print(f"  Precios por estado (suelto/completo/precintado): {condition_updated}")
     print(f"  Transporte eBay a España separado: {delivery_updated}")
     vstats = vision_stats()
@@ -1278,6 +1355,7 @@ def main() -> None:
         "tcnsGamesSkipped": tcns_skipped,
         "tcGamesUpdated": tc_updated,
         "tcGamesSkipped": tc_skipped,
+        "gameGamesUpdated": game_reference_updated,
         "coveragePct": coverage,
         "priceListTotalGames": total_games_in_scope,
         "priceListPricedBefore": priced_games_before,
@@ -1291,26 +1369,29 @@ def main() -> None:
         "aiSummary": ai_summary,
     }
     platforms_state = state.setdefault("platforms", {})
-    if source_only_tcns:
+    if source_only_tcns or source_only_game:
         previous_platform_state = dict(platforms_state.get(platform_slug) or {})
         if not all(key in previous_platform_state for key in ("source", "gamesTargeted", "gamesUpdated")):
             previous_platform_state = dict(platform_run_state)
         source_runs = dict(previous_platform_state.get("sourceRuns") or {})
-        source_runs["todoconsolas"] = {
+        source_run_key = "todoconsolas" if source_only_tcns else "game-es-preowned"
+        source_runs[source_run_key] = {
             "lastSyncAt": synced_at,
             "gamesTargeted": len(targets),
-            "gamesUpdated": tcns_updated,
-            "gamesSkipped": tcns_skipped,
-            "policy": TCNS_POLICY_VERSION,
+            "gamesUpdated": tcns_updated if source_only_tcns else game_reference_updated,
+            "gamesSkipped": tcns_skipped if source_only_tcns else max(0, len(targets) - game_reference_updated),
+            "policy": TCNS_POLICY_VERSION if source_only_tcns else "game_es_pal_spain_safe_match_v1",
         }
-        previous_platform_state.update(
-            {
-                "lastSyncAt": synced_at,
-                "tcnsGamesUpdated": tcns_updated,
-                "tcnsGamesSkipped": tcns_skipped,
-                "sourceRuns": source_runs,
-            }
-        )
+        source_patch = {
+            "lastSyncAt": synced_at,
+            "sourceRuns": source_runs,
+            "conditionPriceGamesUpdated": condition_updated,
+        }
+        if source_only_tcns:
+            source_patch.update({"tcnsGamesUpdated": tcns_updated, "tcnsGamesSkipped": tcns_skipped})
+        else:
+            source_patch.update({"gameGamesUpdated": game_reference_updated})
+        previous_platform_state.update(source_patch)
         platforms_state[platform_slug] = previous_platform_state
     else:
         platforms_state[platform_slug] = platform_run_state

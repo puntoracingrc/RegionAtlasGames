@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Collector piloto GAME España por API interna.
+"""Collector GAME España por API interna.
 
 Fuente retail España. Separa:
 - game-es-new: precio nuevo/current retail.
 - game-es-preowned: precio seminuevo/preowned retail.
 
-No se engancha a la rueda por defecto: las fichas quedan apagadas hasta validar.
+Los lotes automáticos se publican solo tras validar contrato, región y coincidencia.
 """
 
 from __future__ import annotations

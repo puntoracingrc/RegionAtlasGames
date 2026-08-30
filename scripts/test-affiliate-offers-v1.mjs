@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 const blockedSource = readFileSync("src/lib/affiliate/matching/blocked-keywords.ts", "utf8");
 for (const keyword of ["manual only", "box only", "repro", "caja vacía"]) {
@@ -36,5 +36,9 @@ assert.equal(score({ title: "Silent Hill 2", platform: "PS2" }, "Silent Hill 2 P
 assert.ok(score({ title: "Silent Hill 2", platform: "PS2" }, "Silent Hill 2 Xbox") < 0.85);
 assert.ok(score({ title: "Silent Hill 2", platform: "PS2", region: "PAL España" }, "Silent Hill 2 NTSC-J Japan") < 0.85);
 assert.ok(readFileSync("src/components/affiliate-offers-panel.tsx", "utf8").includes("<AffiliateDisclosure"));
+
+const publicDetailPage = readFileSync("src/app/catalogo/[slug]/page.tsx", "utf8");
+assert.ok(!publicDetailPage.includes("RetailPriceReferences"), "La ficha pública no debe mostrar referencias no afiliadas");
+assert.ok(!existsSync("src/components/retail-price-references.tsx"), "No debe existir el antiguo panel público de tiendas no afiliadas");
 
 console.log("AFFILIATE_OFFERS_V1 tests OK.");
