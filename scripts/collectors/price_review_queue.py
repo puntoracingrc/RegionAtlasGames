@@ -158,6 +158,7 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
             "sourceRegionLabel": row.get("sourceRegionLabel") or tcns_metadata.get("sourceRegionLabel"),
             "gameKeyCard": row.get("gameKeyCard") if row.get("gameKeyCard") is not None else tcns_metadata.get("gameKeyCard"),
             "fullySpanishVersion": row.get("fullySpanishVersion") if row.get("fullySpanishVersion") is not None else tcns_metadata.get("fullySpanishVersion"),
+            "searchQuery": row.get("searchQuery"),
         },
         "jobId": ingest.get("jobId"),
         "collectedAt": row.get("collectedAt") or ingest.get("collectedAt") or now_iso(),

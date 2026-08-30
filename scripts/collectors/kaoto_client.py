@@ -247,7 +247,7 @@ def fetch_game_products(
 ) -> list[dict[str, Any]]:
     seen: set[str] = set()
     products: list[dict[str, Any]] = []
-    for query in build_search_queries(game):
+    for query in build_search_queries(game, source="kaotostore"):
         for product in fetch_search_products(query, max_pages=max_pages, delay_s=delay_s):
             key = str(product.get("externalId") or product.get("productUrl") or product.get("title") or "")
             if not key or key in seen:

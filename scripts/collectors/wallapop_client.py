@@ -21,6 +21,7 @@ from collectors.common import (
     platform_search_aliases,
     platform_search_keyword,
 )
+from collectors.collector_intelligence import learned_source_queries
 from collectors.physical_edition import catalog_physical_edition, physical_edition_base_title
 from collectors.listing_recency import (
     is_recent_listing,
@@ -156,6 +157,10 @@ def wallapop_search_queries(game: dict[str, Any]) -> list[str]:
     aliases = platform_search_aliases(platform_slug)
     primary = platform_search_keyword(platform_slug)
     queries = wallapop_primary_search_queries(game)
+    queries.extend(
+        normalize_query(query)
+        for query in learned_source_queries(game.get("id") or game.get("catalogId"), "wallapop")
+    )
     queries.extend(
         normalize_query(f"{title} {alias}")
         for alias in aliases

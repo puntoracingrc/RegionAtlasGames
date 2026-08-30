@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from collectors.common import ROOT
+from collectors.collector_intelligence import collector_game_learning
 
 DEFAULT_QUEUE_FILE = ROOT / "data" / "admin" / "price-review-queue.json"
 
@@ -317,6 +318,28 @@ def game_content_profile(game: dict[str, Any] | None) -> dict[str, Any]:
         str(queue),
         mtime_ns,
     )
+    shared_learning = collector_game_learning(catalog_id)
+    shared_manual = _manual_bool(shared_learning.get("manualExpected"))
+    shared_contents = (
+        normalize_original_contents(shared_learning.get("originalContentsExpected"))
+        if isinstance(shared_learning.get("originalContentsExpected"), list)
+        else None
+    )
+    shared_examples = len(
+        [
+            item
+            for item in (shared_learning.get("approvedExamples") or [])
+            if isinstance(item, dict)
+        ]
+    )
+    if shared_manual is not None:
+        learned = shared_manual
+        source = "approved_collector_memory"
+        examples = max(examples, shared_examples)
+    if shared_contents is not None:
+        learned_contents = tuple(shared_contents)
+        content_source = "approved_collector_memory"
+        content_examples = max(content_examples, shared_examples)
 
     if explicit_contents is not None:
         expected_contents: list[str] | None = explicit_contents

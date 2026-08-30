@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from collectors.common import ROOT, load_json
+from collectors.collector_intelligence import collector_game_learning
 
 DEFAULT_QUEUE_FILE = ROOT / "data" / "admin" / "price-review-queue.json"
 
@@ -56,7 +57,15 @@ def game_region_profile(catalog_id: str | None) -> dict[str, Any] | None:
     clean_id = str(catalog_id or "").strip()
     if not clean_id:
         return None
-    examples = _accepted_examples(clean_id)
+    learned = collector_game_learning(clean_id)
+    shared_examples = learned.get("approvedExamples")
+    examples = (
+        [item for item in shared_examples if isinstance(item, dict)][:3]
+        if isinstance(shared_examples, list)
+        else []
+    )
+    if not examples:
+        examples = _accepted_examples(clean_id)
     if not examples:
         return None
     profile = {"catalogId": clean_id, "approvedExamples": examples}

@@ -212,12 +212,20 @@ def build_search_queries(
     platform: dict[str, Any] | None = None,
     *,
     include_title_only: bool = True,
+    source: str | None = None,
 ) -> list[str]:
     title = str(game.get("title") or "").strip()
 
     queries: list[str] = []
     if include_title_only:
         queries.append(normalize_query(title))
+    if source:
+        from collectors.collector_intelligence import learned_source_queries
+
+        queries.extend(
+            normalize_query(query)
+            for query in learned_source_queries(game.get("id") or game.get("catalogId"), source)
+        )
 
     clean: list[str] = []
     seen: set[str] = set()
@@ -235,6 +243,14 @@ def build_ebay_search_query(game: dict[str, Any], platform: dict[str, Any] | Non
     return build_search_query(game, platform)
 
 
+def build_ebay_search_queries(
+    game: dict[str, Any],
+    platform: dict[str, Any] | None = None,
+) -> list[str]:
+    """eBay prueba el título amplio y solo después una consulta aprendida en eBay."""
+    return build_search_queries(game, platform, source="ebay-es")
+
+
 def to_ingest_listing(
     *,
     catalog_id: str,
@@ -248,7 +264,10 @@ def to_ingest_listing(
     platform_slug: str | None = None,
     product_url: str | None = None,
     image_url: str | None = None,
+    image_urls: list[str] | None = None,
     game_title: str | None = None,
+    catalog_game: dict[str, Any] | None = None,
+    search_query: str | None = None,
     shipping_eur: float | None = None,
     total_to_spain_eur: float | None = None,
     original_price: float | str | None = None,
@@ -282,7 +301,20 @@ def to_ingest_listing(
         matched_reference=matched_ref,
     )
 
+    from collectors.collector_intelligence import collector_game_context
+
+    context_game = catalog_game or {
+        "id": catalog_id,
+        "catalogId": catalog_id,
+        "platformSlug": platform_slug,
+        "region": catalog_region,
+        "title": game_title or title,
+    }
+    collector_context = collector_game_context(context_game, source)
+
     product_payload: dict[str, Any] = {"productUrl": product_url, "url": product_url}
+    if image_urls:
+        product_payload["imageUrls"] = [str(url) for url in image_urls if url]
     if image_url:
         product_payload["imageUrl"] = image_url
     image_scratch: dict[str, Any] = {}
@@ -319,6 +351,10 @@ def to_ingest_listing(
                     row=image_scratch,
                     external_id=external_id,
                     force_weak_evidence=force_cover_vision,
+                    catalog_id=collector_context.get("catalogId") or catalog_id,
+                    manual_expected=collector_context.get("manualExpected"),
+                    original_contents_expected=collector_context.get("originalContentsExpected"),
+                    regional_packaging=collector_context.get("regionalPackagingExpected"),
                 )
             )
         else:
@@ -336,6 +372,18 @@ def to_ingest_listing(
         "regionEvidence": evidence,
         "aiConfidence": ai_conf,
     }
+    for key in (
+        "manualExpected",
+        "manualExpectationSource",
+        "originalContentsExpected",
+        "originalContentsSource",
+        "regionalPackagingExpected",
+    ):
+        value = collector_context.get(key)
+        if value is not None:
+            row[key] = value
+    if search_query:
+        row["searchQuery"] = search_query
     if external_id:
         row["externalId"] = external_id
     if matched_ref:

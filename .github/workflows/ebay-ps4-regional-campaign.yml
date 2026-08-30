@@ -36,6 +36,20 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Load approved collector intelligence
+        env:
+          LEARNING_URL: https://www.puntoracing.net/MEDIAREGIONATLAS/price-worker/app/data/admin/collector-learning.json
+        run: |
+          LEARNING_FILE="$RUNNER_TEMP/collector-learning.json"
+          if ! curl --fail --silent --show-error --retry 2 \
+            -H "Cache-Control: no-cache" \
+            "$LEARNING_URL?run=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
+            -o "$LEARNING_FILE"; then
+            printf '{"schemaVersion":1,"policyVersion":"collector-intelligence-v1","games":{}}\n' > "$LEARNING_FILE"
+          fi
+          python3 -m json.tool "$LEARNING_FILE" >/dev/null
+          echo "PRICE_COLLECTOR_LEARNING_FILE=$LEARNING_FILE" >> "$GITHUB_ENV"
+
       - name: Run resumable global campaign
         id: campaign
         env:

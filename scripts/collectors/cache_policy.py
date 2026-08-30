@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-PRICE_INGEST_POLICY_VERSION = 2
+PRICE_INGEST_POLICY_VERSION = 3
 
 
 def attach_policy_version(payload: dict[str, Any]) -> dict[str, Any]:

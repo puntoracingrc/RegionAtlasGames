@@ -340,11 +340,100 @@ def test_manual_update_clears_stale_health_marker() -> None:
         pc_sftp_worker._supported_todoconsolas_platforms = original_supported
 
 
+def test_collector_learning_sync() -> None:
+    class FakeQueue:
+        def __init__(self) -> None:
+            self.files: dict[str, bytes] = {}
+            self.config = SimpleNamespace(runner_id="test-worker")
+            self.sftp = SimpleNamespace(
+                stat=lambda _path: SimpleNamespace(st_mtime=1788120000),
+            )
+
+        def remote(self, *parts: str) -> str:
+            return "/".join(("price-worker", *parts))
+
+        def exists(self, path: str) -> bool:
+            return path in self.files
+
+        def download(self, remote: str, local: Path) -> None:
+            local.parent.mkdir(parents=True, exist_ok=True)
+            local.write_bytes(self.files[remote])
+
+        def upload_file(self, remote: str, local: Path) -> None:
+            self.files[remote] = local.read_bytes()
+
+        def read_json(self, path: str) -> dict:
+            return json.loads(self.files[path].decode("utf-8"))
+
+    original_root = pc_sftp_worker.ROOT
+    original_learning_file = pc_sftp_worker.COLLECTOR_LEARNING_FILE
+    original_sync_state = pc_sftp_worker.COLLECTOR_LEARNING_SYNC_STATE
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pc_sftp_worker.ROOT = root
+            pc_sftp_worker.COLLECTOR_LEARNING_FILE = (
+                root / "data" / "admin" / "collector-learning.json"
+            )
+            pc_sftp_worker.COLLECTOR_LEARNING_SYNC_STATE = (
+                root / "data" / "worker-runtime" / "collector-learning-sync.json"
+            )
+            queue = FakeQueue()
+            remote_queue = queue.remote("app", "data", "admin", "price-review-queue.json")
+            queue.files[remote_queue] = json.dumps(
+                {
+                    "updatedAt": "2026-08-30T22:00:00Z",
+                    "items": [
+                        {
+                            "id": "accepted-wallapop-example",
+                            "status": "accepted",
+                            "source": "wallapop",
+                            "catalogId": "ps4-example-game",
+                            "listingTitle": "Seller data must not leave the review queue",
+                            "evidence": {
+                                "url": "https://example.test/private-listing",
+                                "searchQuery": "Example Game ps4",
+                                "imageUrls": ["https://cdn.example.test/back.jpg"],
+                                "regionEvidence": ["back_cover_spanish"],
+                            },
+                            "decision": {
+                                "action": "accept",
+                                "catalogId": "ps4-example-game",
+                                "region": "PAL España",
+                                "condition": "complete",
+                                "originalContents": [],
+                            },
+                        }
+                    ],
+                },
+                ensure_ascii=False,
+            ).encode("utf-8")
+
+            assert pc_sftp_worker.sync_collector_learning_snapshot(queue, force=True) is True
+            remote_learning = queue.remote("app", "data", "admin", "collector-learning.json")
+            snapshot = queue.read_json(remote_learning)
+            assert list(snapshot["games"]) == ["ps4-example-game"]
+            learned_query = snapshot["games"]["ps4-example-game"]["successfulQueries"][
+                "wallapop"
+            ][0]
+            assert learned_query["query"] == "Example Game ps4"
+            assert learned_query["acceptedCount"] == 1
+            serialized = json.dumps(snapshot, ensure_ascii=False)
+            assert "Seller data" not in serialized
+            assert "private-listing" not in serialized
+            assert pc_sftp_worker.sync_collector_learning_snapshot(queue) is False
+    finally:
+        pc_sftp_worker.ROOT = original_root
+        pc_sftp_worker.COLLECTOR_LEARNING_FILE = original_learning_file
+        pc_sftp_worker.COLLECTOR_LEARNING_SYNC_STATE = original_sync_state
+
+
 def main() -> None:
     test_validation()
     test_git_fast_forward()
     test_runtime_control_and_hard_stop()
     test_manual_update_clears_stale_health_marker()
+    test_collector_learning_sync()
     print("OK PC worker safe update")
 
 
