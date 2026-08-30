@@ -1,5 +1,6 @@
 import { hasBlockedAffiliateKeyword } from "../affiliate/matching/score-offer-match.ts";
 import { normalizeAffiliateText, titleTokens } from "../affiliate/matching/normalize-title.ts";
+import { physicalEditionsMatch } from "../physical-edition.ts";
 import type { EbayLocalizedAspect } from "./ebay.types.ts";
 
 export type EbaySearchBasis = {
@@ -9,6 +10,7 @@ export type EbaySearchBasis = {
 
 export type EbayResearchTarget = {
   title: string;
+  edition?: string | null;
   platformSlug: string;
   region: string;
   gtins: string[];
@@ -243,6 +245,7 @@ export function evaluateEbayResearchMatch(
   const platform = platformMatch(text, target.platformSlug);
   const region = evaluateRegion(text, target.region, exactIdentifier || exactReference);
   const blocked = hasBlockedAffiliateKeyword(evidence.title);
+  const editionCompatible = physicalEditionsMatch(target.title, text, target.edition);
 
   let confidence = coverage * 0.58;
   if (exactIdentifier) confidence += 0.3;
@@ -262,9 +265,10 @@ export function evaluateEbayResearchMatch(
   reasons.push(`plataforma ${platform}`);
   reasons.push(`región ${region.match}`);
   if (blocked) reasons.push("contenido accesorio o no válido");
+  if (!editionCompatible) reasons.push("edición física distinta");
 
   let decision: EbayResearchDecision = "review";
-  if (blocked || platform === "conflict" || (coverage < 0.45 && !exactIdentifier && !exactReference)) {
+  if (!editionCompatible || blocked || platform === "conflict" || (coverage < 0.45 && !exactIdentifier && !exactReference)) {
     decision = "reject";
   } else if (region.match === "conflict") {
     decision = "other_variant";

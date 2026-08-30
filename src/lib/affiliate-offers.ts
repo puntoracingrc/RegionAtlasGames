@@ -3,6 +3,7 @@ import path from "path";
 import { buildEbayGameCustomId } from "./ebay/ebay-enduserctx";
 import { getPlatform } from "./catalog";
 import { readCatalogOverlayGame } from "./catalog-runtime-overlay";
+import { physicalEditionsMatch } from "./physical-edition";
 import type { CatalogGame, GameDetails } from "./types";
 
 export type AffiliateProvider = "ebay" | "amazon" | "rakuten" | "mock" | "manual";
@@ -236,6 +237,9 @@ function titleTokens(text: string): string[] {
 }
 
 function scoreOffer(game: CatalogGame, details: GameDetails | null, title: string): number {
+  const targetEditionText = [game.title, game.titlePc, game.slug].filter(Boolean).join(" ");
+  if (!physicalEditionsMatch(targetEditionText, title, game.edition)) return 0;
+
   const normalizedTitle = normalize(title);
   const platform = getPlatform(game.platformSlug);
   const platformHints = [

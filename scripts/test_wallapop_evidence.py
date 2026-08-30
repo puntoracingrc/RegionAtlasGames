@@ -185,6 +185,10 @@ def test_physical_editions_never_share_a_catalog_match() -> None:
         "title": "1971 Project Helios Collector's Edition PS4",
         "description": "Sin abrir. Nuevo a estrenar y en PAL ES",
     }
+    abbreviated_collector_listing = {
+        **collector_listing,
+        "title": "1971 Project Helios Collector's Ed. PS4",
+    }
 
     assert listing_has_unmatched_extras(collector_listing, standard)
     assert listing_has_unmatched_extras(standard_listing, collector)
@@ -193,8 +197,10 @@ def test_physical_editions_never_share_a_catalog_match() -> None:
 
     standard_result = match_catalog_product(standard_listing, [standard, collector], "ps4")
     collector_result = match_catalog_product(collector_listing, [standard, collector], "ps4")
+    abbreviated_result = match_catalog_product(abbreviated_collector_listing, [standard, collector], "ps4")
     assert_equal(standard_result.game and standard_result.game["id"], standard["id"], "estándar")
     assert_equal(collector_result.game and collector_result.game["id"], collector["id"], "collector")
+    assert_equal(abbreviated_result.game and abbreviated_result.game["id"], collector["id"], "collector abreviado")
 
     missing = match_catalog_product(collector_listing, [standard], "ps4")
     assert missing.game is None

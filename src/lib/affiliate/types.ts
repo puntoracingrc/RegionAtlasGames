@@ -34,6 +34,7 @@ export type AffiliateOffer = {
 export type AffiliateOfferSearchInput = {
   gameId: string;
   title: string;
+  edition?: string;
   platform?: string;
   region?: string;
   barcode?: string;

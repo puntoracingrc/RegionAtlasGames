@@ -228,6 +228,7 @@ export function aggregateEbayListings(listings: EbayResearchListing[]): EbayCond
 function researchTarget(game: CatalogGame, details: GameDetails | null, epids: string[] = []): EbayResearchTarget {
   return {
     title: game.title,
+    edition: game.edition,
     platformSlug: game.platformSlug,
     region: game.region,
     gtins: parseGameGtins(details?.ean),

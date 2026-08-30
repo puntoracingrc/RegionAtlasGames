@@ -34,6 +34,7 @@ function scoringInput(input: EbaySearchInput): AffiliateOfferSearchInput {
   return {
     gameId: input.gameId || "ebay-search",
     title: input.title || input.query,
+    edition: input.edition,
     platform: input.platform,
     region: input.region,
     barcode: input.gtin || input.barcode,
