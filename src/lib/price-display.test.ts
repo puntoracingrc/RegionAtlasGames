@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { PRICE_TYPE_OPTIONS, sortCatalogListGames } from "./catalog-filters";
 import { formatEsPriceForCard } from "./price-display";
+import type { CatalogListGame } from "./types";
 
 const eur = (value: number | null) => (value == null ? "—" : `${value.toFixed(2)} €`);
 
@@ -30,5 +32,23 @@ test("keeps pending when no Spanish market price exists", () => {
       eur,
     ),
     "Pendiente",
+  );
+});
+
+test("offers sealed as a catalog condition and sorts by its own price", () => {
+  assert.deepEqual(
+    PRICE_TYPE_OPTIONS.map((option) => option.value),
+    ["recommended", "sealed", "complete", "gameManual", "loose"],
+  );
+
+  const games = [
+    { id: "without-sealed", title: "Without sealed", estimatedPriceSealed: null },
+    { id: "higher-sealed", title: "Higher sealed", estimatedPriceSealed: 45 },
+    { id: "lower-sealed", title: "Lower sealed", estimatedPriceSealed: 20 },
+  ] as CatalogListGame[];
+
+  assert.deepEqual(
+    sortCatalogListGames(games, "price-desc", "sealed").map((game) => game.id),
+    ["higher-sealed", "lower-sealed", "without-sealed"],
   );
 });

@@ -46,6 +46,7 @@ function FilterField({ label, children }: { label: string; children: ReactNode }
 }
 
 function selectedPrice(game: CatalogListGame, priceType: CatalogPriceType): number | null {
+  if (priceType === "sealed") return game.estimatedPriceSealed ?? null;
   if (priceType === "complete") return game.estimatedPriceComplete ?? null;
   if (priceType === "gameManual") return game.estimatedPriceGameManual ?? null;
   if (priceType === "loose") return game.estimatedPriceLoose ?? null;
