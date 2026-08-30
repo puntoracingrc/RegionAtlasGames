@@ -19,7 +19,14 @@ LISTING_USA_RE = re.compile(
     re.I,
 )
 LISTING_PAL_ES_RE = re.compile(
-    r"\b(pal[\s-]?esp|pal[\s-]?espa|españa|spanish|castellano|espanol|español)\b",
+    r"\b("
+    r"pal[\s-]?(?:es|esp|españa)|"
+    r"versi[oó]n\s+(?:pal\s+)?(?:es|esp|española|espanola)|"
+    r"edici[oó]n\s+(?:pal\s+)?(?:es|esp|española|espanola)|"
+    r"(?:precintado|precintada|nuevo|nueva)\s+(?:pal\s+)?(?:es|esp)|"
+    r"(?:caja|car[aá]tula|contraportada|portada)(?:\s+y\s+juego)?\s+en\s+(?:español|espanol|castellano)|"
+    r"(?:caja|car[aá]tula|contraportada|portada)\s+(?:española|espanola)"
+    r")\b",
     re.I,
 )
 LISTING_PAL_EU_RE = re.compile(
@@ -27,6 +34,7 @@ LISTING_PAL_EU_RE = re.compile(
     re.I,
 )
 LISTING_PAL_GENERIC_RE = re.compile(r"\bpal\b", re.I)
+LISTING_PEGI_RE = re.compile(r"\bpegi(?:\s*\d{1,2})?\b", re.I)
 LISTING_UK_RE = re.compile(r"\b(uk|england|english version|pal uk)\b", re.I)
 LISTING_GERMANY_RE = re.compile(r"\b(germany|german|alemania|alem[aá]n|deutsch)\b", re.I)
 LISTING_AUSTRALIA_RE = re.compile(r"\b(australia|australian|austral)\b", re.I)
@@ -61,7 +69,7 @@ def normalize_region(region: str) -> str:
 
 
 def detect_listing_region(title: str) -> str | None:
-    """Región explícita en el título del anuncio, si existe."""
+    """Región física explícita en título, descripción o características."""
     if LISTING_USA_RE.search(title):
         return "USA"
     if LISTING_PAL_ES_RE.search(title):
@@ -75,6 +83,8 @@ def detect_listing_region(title: str) -> str | None:
     if LISTING_PAL_EU_RE.search(title):
         return "PAL Europa"
     if LISTING_PAL_GENERIC_RE.search(title):
+        return "PAL Europa"
+    if LISTING_PEGI_RE.search(title):
         return "PAL Europa"
     if LISTING_JAPAN_RE.search(title):
         return "Japón"

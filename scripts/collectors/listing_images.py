@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 from collectors.storage_paths import ingest_dir
 
 IMAGE_CACHE_DIR = ingest_dir() / "cache" / "listing-images"
+DEFAULT_MAX_LISTING_IMAGES = 3
 
 OG_IMAGE_RE = re.compile(
     r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
@@ -64,7 +65,7 @@ def _cex_image_urls(product: dict[str, Any]) -> list[str]:
             if url:
                 return [str(url)]
     if isinstance(raw, list):
-        return [str(u) for u in raw if u][:3]
+        return [str(u) for u in raw if u][:DEFAULT_MAX_LISTING_IMAGES]
     return []
 
 
@@ -74,7 +75,7 @@ def _jgo_image_urls(product: dict[str, Any]) -> list[str]:
         src = image.get("src") if isinstance(image, dict) else None
         if src:
             urls.append(str(src))
-    return urls[:3]
+    return urls[:DEFAULT_MAX_LISTING_IMAGES]
 
 
 def _shopify_image_urls(product: dict[str, Any]) -> list[str]:
@@ -83,7 +84,7 @@ def _shopify_image_urls(product: dict[str, Any]) -> list[str]:
         src = image.get("src") if isinstance(image, dict) else None
         if src:
             urls.append(str(src))
-    return urls[:3]
+    return urls[:DEFAULT_MAX_LISTING_IMAGES]
 
 
 def _ebay_image_urls(product: dict[str, Any]) -> list[str]:
@@ -96,10 +97,15 @@ def _ebay_image_urls(product: dict[str, Any]) -> list[str]:
     return []
 
 
-def extract_product_image_urls(product: dict[str, Any], source: str) -> list[str]:
+def extract_product_image_urls(
+    product: dict[str, Any],
+    source: str,
+    *,
+    limit: int = DEFAULT_MAX_LISTING_IMAGES,
+) -> list[str]:
     source_key = source.strip().lower()
     if product.get("imageUrls") and isinstance(product["imageUrls"], list):
-        return [str(u) for u in product["imageUrls"] if u][:3]
+        return [str(u) for u in product["imageUrls"] if u][:limit]
 
     if source_key == "cex":
         return _cex_image_urls(product)
@@ -115,11 +121,16 @@ def extract_product_image_urls(product: dict[str, Any], source: str) -> list[str
         if isinstance(val, str) and val:
             return [val]
         if isinstance(val, list):
-            return [str(u) for u in val if u][:3]
+            return [str(u) for u in val if u][:limit]
     return []
 
 
-def row_image_urls(row: dict[str, Any], *, fetch_missing: bool = True) -> list[str]:
+def row_image_urls(
+    row: dict[str, Any],
+    *,
+    fetch_missing: bool = True,
+    limit: int = DEFAULT_MAX_LISTING_IMAGES,
+) -> list[str]:
     urls: list[str] = []
     raw = row.get("imageUrls")
     if isinstance(raw, list):
@@ -129,25 +140,31 @@ def row_image_urls(row: dict[str, Any], *, fetch_missing: bool = True) -> list[s
         urls.append(str(single))
 
     if urls:
-        return list(dict.fromkeys(urls))[:3]
+        return list(dict.fromkeys(urls))[:limit]
 
     if not fetch_missing:
         return []
 
     page_url = str(row.get("productUrl") or row.get("url") or "").strip()
     if page_url:
-        return fetch_page_image_urls(page_url)[:3]
+        return fetch_page_image_urls(page_url)[:limit]
     return []
 
 
-def attach_image_urls(row: dict[str, Any], product: dict[str, Any], source: str) -> None:
-    urls = extract_product_image_urls(product, source)
+def attach_image_urls(
+    row: dict[str, Any],
+    product: dict[str, Any],
+    source: str,
+    *,
+    limit: int = DEFAULT_MAX_LISTING_IMAGES,
+) -> None:
+    urls = extract_product_image_urls(product, source, limit=limit)
     if not urls:
         page_url = str(product.get("productUrl") or product.get("url") or "").strip()
         if page_url and not product.get("imageUrl"):
             urls = fetch_page_image_urls(page_url)
     if urls:
-        row["imageUrls"] = urls[:3]
+        row["imageUrls"] = urls[:limit]
         row["imageUrl"] = urls[0]
 
 

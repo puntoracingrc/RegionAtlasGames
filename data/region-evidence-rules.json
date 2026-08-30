@@ -6,34 +6,34 @@
   },
   "catalogRegionOverrides": {
     "pal españa": {
-      "requiredAnyOf": ["cover_spain", "manual_es"],
+      "requiredAnyOf": ["cover_spain", "manual_es", "seller_states_physical_region"],
       "minEvidenceCount": 1,
-      "summary": "Carátula española o manual en castellano."
+      "summary": "Edición física española declarada o visible en carátula/manual."
     },
     "españa": {
-      "requiredAnyOf": ["cover_spain", "manual_es"],
+      "requiredAnyOf": ["cover_spain", "manual_es", "seller_states_physical_region"],
       "minEvidenceCount": 1,
-      "summary": "Carátula española o manual en castellano."
+      "summary": "Edición física española declarada o visible en carátula/manual."
     },
     "pal europa": {
-      "requiredAnyOf": ["cover_pal_eu", "sku_regional", "photo_region_mark", "barcode_regional"],
+      "requiredAnyOf": ["cover_pal_eu", "sku_regional", "photo_region_mark", "barcode_regional", "seller_states_physical_region"],
       "minEvidenceCount": 1,
       "summary": "Etiqueta PAL EU, SKU regional o clasificación PEGI visible."
     },
     "usa": {
-      "requiredAnyOf": ["cover_usa", "sku_regional"],
+      "requiredAnyOf": ["cover_usa", "sku_regional", "seller_states_physical_region"],
       "minEvidenceCount": 1,
       "forbiddenEvidence": ["cover_spain", "cover_japan"],
       "summary": "Carátula NTSC-USA o código regional USA en etiqueta."
     },
     "japón": {
-      "requiredAnyOf": ["cover_japan", "sku_regional"],
+      "requiredAnyOf": ["cover_japan", "sku_regional", "seller_states_physical_region"],
       "minEvidenceCount": 1,
       "forbiddenEvidence": ["cover_spain", "cover_usa", "cover_pal_eu"],
       "summary": "Carátula japonesa o código regional JPN."
     },
     "japan": {
-      "requiredAnyOf": ["cover_japan", "sku_regional"],
+      "requiredAnyOf": ["cover_japan", "sku_regional", "seller_states_physical_region"],
       "minEvidenceCount": 1,
       "forbiddenEvidence": ["cover_spain", "cover_usa", "cover_pal_eu"],
       "summary": "Carátula japonesa o código regional JPN."
@@ -60,14 +60,14 @@
       "minAiConfidence": 0.9,
       "catalogRegionOverrides": {
         "pal españa": {
-          "requiredAnyOf": ["cover_spain"],
+          "requiredAnyOf": ["cover_spain", "seller_states_physical_region"],
           "minEvidenceCount": 1,
-          "summary": "PS4 PAL España: carátula con logo/textos ES visibles (foto obligatoria)."
+          "summary": "PS4 PAL España: edición física ES declarada o visible en fotos."
         },
         "españa": {
-          "requiredAnyOf": ["cover_spain"],
+          "requiredAnyOf": ["cover_spain", "seller_states_physical_region"],
           "minEvidenceCount": 1,
-          "summary": "PS4 España: carátula ES visible."
+          "summary": "PS4 España: edición física ES declarada o visible en fotos."
         },
         "pal europa": {
           "requiredAnyOf": ["cover_pal_eu", "photo_region_mark"],
@@ -197,6 +197,7 @@
     "sku_regional": "SKU / código regional en soporte",
     "barcode_regional": "Código de barras regional",
     "seller_states_region": "Vendedor indica región en texto",
+    "seller_states_physical_region": "Vendedor indica explícitamente la edición física o el idioma del embalaje",
     "listing_title_region": "Región explícita en título",
     "photo_region_mark": "PEGI / rating / sello regional en foto",
     "game_es_preowned_trusted_source": "GAME España seminuevo: fuente retail ES con match alto y sin marca de importación"

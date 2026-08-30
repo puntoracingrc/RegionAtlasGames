@@ -51,7 +51,7 @@ def _reason(row: dict[str, Any]) -> str | None:
         return str(row.get("regionReviewReason") or "").strip() or "; ".join(notes) or "region_no_confirmada"
     if row.get("regionVerified") is not True:
         return "sin_prueba_region"
-    alternatives = row.get("matchAlternatives") or []
+    alternatives = row.get("matchAlternatives") or row.get("catalogMatchAlternatives") or []
     if isinstance(alternatives, list) and len(alternatives) > 1:
         return "match_ambiguo"
     if str(row.get("condition") or "unknown") == "unknown":
@@ -131,6 +131,9 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
             "url": row.get("productUrl") or row.get("listingUrl"),
             "imageUrl": row.get("imageUrl"),
             "imageUrls": row.get("imageUrls"),
+            "description": row.get("description"),
+            "characteristics": row.get("characteristics"),
+            "externalId": row.get("externalId"),
             "catalogTitle": row.get("catalogTitle"),
             "catalogCoverUrl": row.get("catalogCoverUrl"),
             "regionEvidence": region_evidence,

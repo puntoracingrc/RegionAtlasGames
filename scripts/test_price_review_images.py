@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import json
+
 from auto_price_review_vision import (
     canonical_product_url,
     capture_todoconsolas_category_images,
+    extract_images_from_html,
     item_image_urls,
+    map_condition,
+    map_region,
 )
 
 
@@ -49,6 +54,24 @@ def main() -> None:
     assert item["evidence"]["imageSource"] == "todoconsolas_category"
     assert item["evidence"]["imageCapturedAt"].endswith("Z")
     assert item_image_urls(existing) == ["https://www.todoconsolas.com/999-large_default/existente.jpg"]
+
+    wallapop_item = {
+        "images": [
+            {"urls": {"medium": f"https://cdn.example/{index}.jpg"}}
+            for index in range(1, 5)
+        ]
+    }
+    wallapop_html = (
+        '<script id="__NEXT_DATA__" type="application/json">'
+        + json.dumps({"props": {"pageProps": {"item": wallapop_item}}})
+        + "</script>"
+    )
+    assert extract_images_from_html(
+        wallapop_html,
+        "https://es.wallapop.com/item/test-123",
+    ) == [f"https://cdn.example/{index}.jpg" for index in range(1, 5)]
+    assert map_condition("desprecintado") == "complete"
+    assert map_region("PAL UK/ENG") == "PAL UK/ENG"
     print("OK price review images")
 
 

@@ -11,6 +11,7 @@ from collectors.jgo_match import infer_condition
 from collectors.listing_images import attach_image_urls
 from collectors.listing_region_enrich import enrich_listing_region_from_cover
 from collectors.reference_match import listing_reference_valid_for_catalog
+from collectors.regional_variant_routing import strict_regions_match
 from collectors.wallapop_listing_ai import ListingAiResult
 from collectors.region_inference import (
     detect_listing_region,
@@ -30,6 +31,15 @@ NON_GAME_RE = re.compile(
     re.I,
 )
 
+UNMATCHED_EXTRA_RE = re.compile(
+    r"\b(art[ -]?book|libro de arte|steelbook|figura|figurine|banda sonora|soundtrack|p[oó]ster)\b",
+    re.I,
+)
+EXTRA_EDITION_RE = re.compile(
+    r"\b(collector|coleccionista|limited|limitada|special|especial|deluxe|art[ -]?book|steelbook)\b",
+    re.I,
+)
+
 
 def is_wallapop_game_listing(title: str, *, description: str = "") -> bool:
     text = f"{title} {description}".strip()
@@ -45,6 +55,89 @@ def is_wallapop_game_product(product: dict[str, Any]) -> bool:
         product_title(product),
         description=str(product.get("description") or ""),
     )
+
+
+def listing_has_unmatched_extras(product: dict[str, Any], game: dict[str, Any]) -> bool:
+    listing_text = " ".join(
+        str(product.get(key) or "") for key in ("title", "description", "characteristics")
+    )
+    if not UNMATCHED_EXTRA_RE.search(listing_text):
+        return False
+    catalog_text = f"{game.get('title') or ''} {game.get('edition') or ''}"
+    return not EXTRA_EDITION_RE.search(catalog_text)
+
+
+def dedupe_wallapop_rows(rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], int]:
+    """Retira solo asociaciones repetidas del mismo anuncio exacto.
+
+    El titulo, precio y las imagenes no participan en la clave: anuncios que se
+    parecen siguen siendo observaciones independientes.
+    """
+    groups: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for index, row in enumerate(rows):
+        external_id = str(row.get("externalId") or "").strip()
+        product_url = str(row.get("productUrl") or "").strip()
+        if external_id:
+            key = ("external_id", external_id)
+        elif product_url:
+            key = ("product_url", product_url)
+        else:
+            key = ("row", str(index))
+        groups.setdefault(key, []).append(row)
+
+    def rank(row: dict[str, Any]) -> tuple[int, int, int, float, int]:
+        evidence = set(str(value) for value in (row.get("regionEvidence") or []))
+        strong = len(evidence & {"sku_regional", "cover_vision", "cover_spain", "cover_pal_eu", "cover_usa", "cover_japan"})
+        return (
+            int(row.get("regionVerified") is True),
+            int(strict_regions_match(str(row.get("catalogRegion") or ""), str(row.get("listingRegion") or ""))),
+            strong,
+            float(row.get("matchScore") or 0),
+            -len(row.get("regionReviewNotes") or []),
+        )
+
+    result: list[dict[str, Any]] = []
+    removed = 0
+    for candidates in groups.values():
+        ordered = sorted(candidates, key=rank, reverse=True)
+        winner = dict(ordered[0])
+        catalog_choices = list(
+            dict.fromkeys(str(row.get("catalogId") or "") for row in ordered if row.get("catalogId"))
+        )
+        if len(catalog_choices) > 1:
+            winner["catalogMatchAlternatives"] = catalog_choices
+            existing_alternatives = winner.get("matchAlternatives")
+            alternatives = list(existing_alternatives) if isinstance(existing_alternatives, list) else []
+            known_ids = {
+                str(item.get("catalogId") or "")
+                for item in alternatives
+                if isinstance(item, dict)
+            }
+            for row in ordered:
+                candidate_id = str(row.get("catalogId") or "")
+                if not candidate_id or candidate_id in known_ids:
+                    continue
+                alternatives.append(
+                    {
+                        "catalogId": candidate_id,
+                        "title": row.get("catalogTitle"),
+                        "region": row.get("catalogRegion"),
+                        "coverUrl": row.get("catalogCoverUrl"),
+                        "score": row.get("matchScore"),
+                    }
+                )
+                known_ids.add(candidate_id)
+            winner["matchAlternatives"] = alternatives
+            if not winner.get("regionVerified"):
+                winner["catalogMatchAmbiguous"] = True
+                winner["regionReviewNeeded"] = True
+                notes = list(winner.get("regionReviewNotes") or [])
+                if "catalog_match_not_unique" not in notes:
+                    notes.append("catalog_match_not_unique")
+                winner["regionReviewNotes"] = notes
+        result.append(winner)
+        removed += len(ordered) - 1
+    return result, removed
 
 
 def infer_wallapop_region_product(product: dict[str, Any]) -> str | None:
@@ -71,7 +164,8 @@ def product_to_ingest_row(
 ) -> dict[str, Any] | None:
     title = product_title(product)
     description = str(product.get("description") or "").strip()
-    full_text = f"{title} {description}".strip()
+    characteristics = str(product.get("characteristics") or "").strip()
+    full_text = f"{title} {description} {characteristics}".strip()
     price = product.get("priceEur")
     if price is None or float(price) <= 0:
         return None
@@ -93,37 +187,49 @@ def product_to_ingest_row(
     detected = detect_listing_region(full_text)
     if detected:
         listing_region = detected
-        if not regions_match(catalog_region, detected):
-            evidence = ["listing_title_region"]
-            if detected in ("Japón", "Japan"):
-                evidence.append("cover_japan")
-            elif detected == "USA":
-                evidence.append("cover_usa")
+        evidence = ["listing_title_region", "seller_states_physical_region"]
+        if regions_match(catalog_region, detected):
+            ai_conf = max(float(ai_conf or 0), 0.92)
+        else:
             ai_conf = min(float(ai_conf or 0), 0.72)
-
-    if product.get("imageUrl") and "photo_region_mark" not in evidence:
-        evidence = [*evidence, "photo_region_mark"]
-        if regions_match(catalog_region, listing_region):
-            ai_conf = max(float(ai_conf or 0), 0.86)
+    elif "sku_regional" not in evidence:
+        listing_region = catalog_region
+        evidence = []
+        ai_conf = 0.0
 
     ai_result: ListingAiResult | None = None
+    ai_target_conflict = False
     if listing_ai is not None:
         ai_result = listing_ai if isinstance(listing_ai, ListingAiResult) else ListingAiResult.from_dict(listing_ai)
         if ai_result.listing_region:
-            listing_region = ai_result.listing_region
-            if ai_result.region_matches_catalog is True:
-                evidence = [*evidence, "listing_ai_region"]
-                ai_conf = max(float(ai_conf or 0), float(ai_result.confidence))
-            elif ai_result.region_matches_catalog is False and not regions_match(
-                catalog_region, listing_region
-            ):
-                evidence = [*evidence, "listing_ai_region_mismatch"]
+            if detected and not strict_regions_match(detected, ai_result.listing_region):
+                evidence = [*evidence, "listing_ai_region_conflict"]
+            elif not detected:
+                listing_region = ai_result.listing_region
+                evidence = [*evidence, "listing_ai_region_hint"]
         if ai_result.confidence:
             ai_confidence = ai_result.confidence
+        ai_target_conflict = bool(
+            ai_result.is_target_game is False and ai_result.confidence >= 0.75
+        )
+
+    raw_cond = infer_condition(full_text)
+    bucket = infer_condition_bucket(full_text, condition_raw=raw_cond)
+    if ai_result and not bucket and ai_result.condition in DISPLAY_BUCKETS:
+        bucket = ai_result.condition
 
     image_scratch: dict[str, Any] = {}
-    attach_image_urls(image_scratch, product, "wallapop")
+    attach_image_urls(image_scratch, product, "wallapop", limit=12)
     external_id = str(product.get("externalId") or "").strip()
+    force_region_vision = (
+        "seller_states_region" in evidence
+        and "sku_regional" not in evidence
+        and not matched_reference
+    ) or not strict_regions_match(catalog_region, listing_region)
+    force_region_vision = force_region_vision or ai_target_conflict or any(
+        value in evidence
+        for value in ("listing_ai_region_hint", "listing_ai_region_conflict")
+    )
 
     listing_region, evidence, ai_conf, region_verified, vision_condition, vision_notes = (
         enrich_listing_region_from_cover(
@@ -139,16 +245,23 @@ def product_to_ingest_row(
             product=product,
             row=image_scratch,
             external_id=external_id or None,
-            force_weak_evidence="seller_states_region" in evidence
-            and "sku_regional" not in evidence
-            and not matched_reference,
+            force_weak_evidence=force_region_vision,
+            known_condition=bucket,
+            require_condition=True,
+            catalog_id=catalog_id,
         )
     )
 
     rules_ok, rules_reason = check_listing_evidence_meets_rules(
         platform_slug, catalog_region, evidence, ai_conf
     )
-    region_matches = regions_match(catalog_region, listing_region)
+    region_matches = strict_regions_match(catalog_region, listing_region)
+    vision_confirmed_target = "cover_vision" in evidence
+    region_verified = bool(
+        region_verified
+        and region_matches
+        and (not ai_target_conflict or vision_confirmed_target)
+    )
 
     row: dict[str, Any] = {
         "catalogId": catalog_id,
@@ -164,6 +277,10 @@ def product_to_ingest_row(
         "matchMethod": match_method,
         "catalogRegion": catalog_region,
     }
+    if description:
+        row["description"] = description[:3000]
+    if characteristics:
+        row["characteristics"] = characteristics[:500]
     if not region_verified:
         row["regionReviewNeeded"] = True
         notes: list[str] = []
@@ -189,13 +306,9 @@ def product_to_ingest_row(
     if match_alternatives:
         row["matchAlternatives"] = match_alternatives
     if ai_confidence is not None:
-        row["aiConfidence"] = round(float(ai_confidence), 3)
+        row["listingAiConfidence"] = round(float(ai_confidence), 3)
     if product.get("listedAt"):
         row["listedAt"] = product["listedAt"]
-    raw_cond = infer_condition(full_text)
-    bucket = infer_condition_bucket(full_text, condition_raw=raw_cond)
-    if ai_result and not bucket and ai_result.condition in DISPLAY_BUCKETS:
-        bucket = ai_result.condition
     if vision_condition in DISPLAY_BUCKETS:
         bucket = vision_condition
     if bucket:
@@ -210,13 +323,15 @@ def product_to_ingest_row(
         row["imageUrls"] = image_scratch["imageUrls"]
         row["imageUrl"] = image_scratch.get("imageUrl")
     elif not row.get("imageUrl"):
-        attach_image_urls(row, product, "wallapop")
+        attach_image_urls(row, product, "wallapop", limit=12)
     return row
 
 
 __all__ = [
+    "dedupe_wallapop_rows",
     "infer_wallapop_region_product",
     "is_wallapop_game_listing",
     "is_wallapop_game_product",
+    "listing_has_unmatched_extras",
     "product_to_ingest_row",
 ]
