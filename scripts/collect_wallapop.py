@@ -102,6 +102,9 @@ PLATFORM_ALIAS_GROUPS: dict[str, set[str]] = {
     "ps2": {"playstation", "ps2"},
     "ps3": {"playstation", "ps3"},
     "ps4": {"playstation", "ps4"},
+    "ps5": {"playstation", "ps5"},
+    "psvita": {"playstation", "playstation vita", "ps vita", "psvita"},
+    "psp": {"playstation", "playstation portable", "psp"},
 }
 
 PLATFORM_TERM_RE = re.compile(
@@ -109,7 +112,8 @@ PLATFORM_TERM_RE = re.compile(
     r"neo geo pocket|neogeo pocket|neo geo cd|neogeo cd|neo geo|neogeo|"
     r"game gear|gameboy|game boy|master system|mega drive|megadrive|mega cd|sega cd|"
     r"super nintendo|nintendo 64|nintendo ds|nintendo 3ds|"
-    r"32x|dreamcast|saturn|nintendo|playstation|psx|\bps[1-5]\b|"
+    r"32x|dreamcast|saturn|nintendo|playstation vita|playstation portable|"
+    r"ps vita|psvita|psp|playstation|psx|\bps[1-5]\b|"
     r"xbox|switch|gamecube|wii|3ds|ds|\bnes\b|\bsnes\b|\bn64\b"
     r")\b",
     re.I,

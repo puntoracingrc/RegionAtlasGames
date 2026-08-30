@@ -250,6 +250,39 @@ def test_localized_physical_edition_keeps_the_same_base_game() -> None:
     assert listing_matches_game(product, game, "ps4")
 
 
+def test_explicit_vita_listing_never_prices_the_ps4_game() -> None:
+    ps4_game = {
+        "id": "ps4-accel-world-vs-sword-art-online",
+        "title": "Accel World Vs Sword Art Online",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+    }
+    vita_game = {
+        **ps4_game,
+        "id": "psvita-accel-world-vs-sword-art-online",
+        "platformSlug": "psvita",
+    }
+    products = [
+        {
+            "title": "Accel World vs Sword Art Online psvita",
+            "description": "Juego completo para PlayStation Vita.",
+        },
+        {
+            "title": "Accel World vs Sword Art Online PS Vita",
+            "description": "Carátula y juego para la consola portátil.",
+        },
+        {
+            "title": "Accel World vs Sword Art Online PlayStation Vita",
+            "description": "Edición física.",
+        },
+    ]
+
+    for product in products:
+        assert not listing_matches_game(product, ps4_game, "ps4")
+        assert listing_matches_game(product, vita_game, "psvita")
+
+
 def test_exact_id_deduplication_only() -> None:
     rows = [
         {
@@ -579,6 +612,7 @@ def main() -> None:
     test_unmatched_extras()
     test_physical_editions_never_share_a_catalog_match()
     test_localized_physical_edition_keeps_the_same_base_game()
+    test_explicit_vita_listing_never_prices_the_ps4_game()
     test_exact_id_deduplication_only()
     test_routes_a_found_region_to_its_catalog_variant()
     test_text_ai_is_a_hint_not_physical_region_proof()
