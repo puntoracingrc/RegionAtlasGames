@@ -2,12 +2,14 @@ import { SiteNav } from "@/components/site-nav";
 import { AdminNav } from "@/components/admin/admin-nav";
 import { requireAdminUser } from "@/lib/admin-auth";
 import { getCatalogStagingSummary } from "@/lib/catalog-staging";
+import { getListingsNeedingVerification } from "@/lib/listings";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const user = await requireAdminUser();
-  const pendingReviewCount = await getCatalogStagingSummary(0)
-    .then((summary) => summary.totalGames)
-    .catch(() => 0);
+  const [pendingReviewCount, marketplaceReviewCount] = await Promise.all([
+    getCatalogStagingSummary(0).then((summary) => summary.totalGames).catch(() => 0),
+    getListingsNeedingVerification(500).then((listings) => listings.length).catch(() => 0),
+  ]);
 
   return (
     <>
@@ -27,7 +29,10 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             </p>
           </div>
         </header>
-        <AdminNav pendingReviewCount={pendingReviewCount} />
+        <AdminNav
+          pendingReviewCount={pendingReviewCount}
+          marketplaceReviewCount={marketplaceReviewCount}
+        />
         {children}
       </main>
     </>

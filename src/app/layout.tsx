@@ -57,7 +57,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-background text-foreground">
+      <body className="flex min-h-screen flex-col bg-background text-foreground">
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -75,7 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         <ThemeProvider>
           <UserThemeSync />
-          {children}
+          <div className="flex min-h-0 flex-1 flex-col">{children}</div>
           <SiteFooter />
         </ThemeProvider>
       </body>

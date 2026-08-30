@@ -11,11 +11,18 @@ const links = [
   { href: "/admin/ia", label: "IA", icon: "✦" },
   { href: "/admin/noticias", label: "Noticias", icon: "◫" },
   { href: "/admin/precios", label: "Recolección", icon: "€" },
+  { href: "/admin/ventas", label: "Ventas", icon: "◎" },
   { href: "/admin/importacion", label: "Importar", icon: "⇪" },
   { href: "/admin/sistema", label: "Sistema", icon: "●" },
 ];
 
-export function AdminNav({ pendingReviewCount = 0 }: { pendingReviewCount?: number }) {
+export function AdminNav({
+  pendingReviewCount = 0,
+  marketplaceReviewCount = 0,
+}: {
+  pendingReviewCount?: number;
+  marketplaceReviewCount?: number;
+}) {
   const pathname = usePathname();
   const hasPendingReview = pendingReviewCount > 0;
 
@@ -58,6 +65,12 @@ export function AdminNav({ pendingReviewCount = 0 }: { pendingReviewCount?: numb
                   className="absolute -right-3 -top-2 h-2.5 w-2.5 rounded-full bg-rose-500 ring-2 ring-background"
                   aria-label={`${pendingReviewCount} fichas pendientes de revisión`}
                   title={`${pendingReviewCount} fichas pendientes de revisión`}
+                />
+              ) : link.href === "/admin/ventas" && marketplaceReviewCount > 0 ? (
+                <span
+                  className="absolute -right-3 -top-2 h-2.5 w-2.5 rounded-full bg-amber-500 ring-2 ring-background"
+                  aria-label={`${marketplaceReviewCount} anuncios pendientes de revisión`}
+                  title={`${marketplaceReviewCount} anuncios pendientes de revisión`}
                 />
               ) : null}
             </span>

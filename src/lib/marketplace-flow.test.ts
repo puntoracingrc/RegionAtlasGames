@@ -19,11 +19,15 @@ import {
   getMarketplaceListingClientView,
   markListingSold,
   publishListing,
+  reviewMarketplaceListing,
   setListingAiAnalysis,
   upsertListingPhoto,
 } from "./listings";
 import type { ListingPhotoSlot } from "./marketplace-types";
-import { REQUIRED_PHOTO_SLOTS } from "./marketplace-types";
+import {
+  MANUAL_LISTING_REVIEW_CRITERIA,
+  REQUIRED_PHOTO_SLOTS,
+} from "./marketplace-types";
 import { aiQuotaForPlan, canViewCollectionValue } from "./plans";
 import { recordedSalesSummary } from "./recorded-sales";
 import { registerUser } from "./users";
@@ -99,6 +103,8 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
         width: 1200,
         height: 1600,
         bytes: 45_000,
+        contentHash: slot === "cover-front" ? "front-hash" : "back-hash",
+        perceptualHash: slot === "cover-front" ? "0000000000000000" : "ffffffffffffffff",
         uploadedAt: new Date().toISOString(),
       });
       assertResult(photo);
@@ -113,8 +119,27 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
     );
     assertResult(analysis);
     assert.ok(analysis.estimatedPriceEur > 0);
+    assert.equal(analysis.verificationStatus, "unavailable");
     assert.ok(await setListingAiAnalysis(draft.id, analysis));
-    assert.deepEqual(await publishListing(draft.id, sellerResult.user.id), { ok: true });
+    assert.deepEqual(await publishListing(draft.id, sellerResult.user.id), {
+      error: "La comprobación no está cerrada. El anuncio permanece en revisión manual.",
+    });
+    assert.deepEqual(await reviewMarketplaceListing({
+      listingId: draft.id,
+      reviewer: "admin@example.test",
+      action: "approve",
+    }), {
+      error: "Confirma los tres criterios antes de aprobar el anuncio.",
+    });
+    const reviewed = await reviewMarketplaceListing({
+      listingId: draft.id,
+      reviewer: "admin@example.test",
+      action: "approve",
+      note: "Portada y contraportada distintas comprobadas en QA.",
+      criteria: [...MANUAL_LISTING_REVIEW_CRITERIA],
+    });
+    assertResult(reviewed);
+    assert.equal(reviewed.aiAnalysis?.verificationStatus, "manual_verified");
     assert.equal((await getActiveListingsForCatalog(catalogId)).length, 1);
 
     const conversation = await startConversation({

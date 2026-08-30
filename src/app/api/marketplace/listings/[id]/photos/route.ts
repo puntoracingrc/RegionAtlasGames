@@ -3,14 +3,19 @@ import path from "path";
 import { NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 import { blobAuthConfigured, blobAuthOptions } from "@/lib/blob-auth";
-import { getListing, upsertListingPhoto } from "@/lib/listings";
 import {
+  getListing,
+  getMarketplaceListingClientView,
+  upsertListingPhoto,
+} from "@/lib/listings";
+import {
+  fingerprintListingPhoto,
   normalizeListingPhoto,
   validateListingPhoto,
 } from "@/lib/listing-photo-sharp";
 import type { ListingPhotoSlot } from "@/lib/marketplace-types";
 import { PHOTO_SLOT_LABELS, REQUIRED_PHOTO_SLOTS } from "@/lib/marketplace-types";
-import { MAX_PHOTO_BYTES } from "@/lib/listing-photos";
+import { findDuplicateListingPhoto, MAX_PHOTO_BYTES } from "@/lib/listing-photos";
 import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
 import { getCurrentUser } from "@/lib/users";
 
@@ -88,14 +93,32 @@ export async function POST(request: Request, { params }: Params) {
   }
 
   const normalized = await normalizeListingPhoto(buffer);
-  const url = await saveListingPhoto(id, slot, normalized);
-  const photo = {
+  const fingerprint = await fingerprintListingPhoto(normalized);
+  const candidate = {
     slot,
-    url,
+    url: "",
     width: check.width,
     height: check.height,
     bytes: normalized.length,
+    ...fingerprint,
     uploadedAt: new Date().toISOString(),
+  };
+  const duplicate = findDuplicateListingPhoto(listing.photos, candidate);
+  if (duplicate) {
+    return NextResponse.json(
+      {
+        error:
+          `Esta foto repite «${PHOTO_SLOT_LABELS[duplicate.slot]}». `
+          + "Sube una imagen distinta para cada vista.",
+      },
+      { status: 409 },
+    );
+  }
+
+  const url = await saveListingPhoto(id, slot, normalized);
+  const photo = {
+    ...candidate,
+    url,
   };
 
   const updated = await upsertListingPhoto(id, user.id, photo);
@@ -106,5 +129,6 @@ export async function POST(request: Request, { params }: Params) {
   return NextResponse.json({
     photo: updated.photo,
     required: REQUIRED_PHOTO_SLOTS,
+    listing: getMarketplaceListingClientView((await getListing(id))!),
   });
 }

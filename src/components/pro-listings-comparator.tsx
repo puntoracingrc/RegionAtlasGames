@@ -5,6 +5,10 @@ import {
   getPublicSellerListing,
 } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
+import {
+  listingAnalysisHasVerifiedEstimate,
+  listingVerificationLabel,
+} from "@/lib/marketplace-verification";
 import { Panel, PanelTitle } from "@/components/ui";
 
 type Props = { catalogId: string };
@@ -19,7 +23,7 @@ export async function ProListingsComparator({ catalogId }: Props) {
       <Panel>
         <PanelTitle>En venta entre usuarios</PanelTitle>
         <p className="text-sm text-muted">
-          Nadie lo vende ahora mismo. Puedes publicar un anuncio con fotos verificadas desde tu
+          Nadie lo vende ahora mismo. Puedes publicar un anuncio con portada y contraportada desde tu
           colección.
         </p>
       </Panel>
@@ -29,7 +33,7 @@ export async function ProListingsComparator({ catalogId }: Props) {
   return (
     <Panel>
       <PanelTitle>
-        En venta · {listings.length} {listings.length === 1 ? "copia verificada" : "copias verificadas"}
+        En venta · {listings.length} {listings.length === 1 ? "copia" : "copias"}
       </PanelTitle>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[480px] text-left text-sm">
@@ -44,15 +48,18 @@ export async function ProListingsComparator({ catalogId }: Props) {
           <tbody>
             {listings.map((listing) => {
               const pub = getPublicSellerListing(listing);
+              const hasVerifiedEstimate = listingAnalysisHasVerifiedEstimate(listing.aiAnalysis);
               const aiPrice = pub.aiAnalysis?.estimatedPriceEur;
               return (
                 <tr key={listing.id} className="border-b border-border/60 last:border-0">
                   <td className="py-2.5 pr-3 font-medium text-foreground">{pub.sellerName}</td>
                   <td className="py-2.5 pr-3 text-muted">
-                    {listing.sealed ? "Precintado" : pub.aiAnalysis?.conditionVerdict ?? "Sin analizar"}
+                    {hasVerifiedEstimate
+                      ? listing.sealed ? "Precintado" : pub.aiAnalysis?.conditionVerdict ?? "Revisado"
+                      : listingVerificationLabel(listing.aiAnalysis)}
                   </td>
                   <td className="py-2.5 pr-3 font-semibold text-accent">
-                    {aiPrice != null ? formatEur(aiPrice) : "—"}
+                    {hasVerifiedEstimate && aiPrice != null ? formatEur(aiPrice) : "—"}
                   </td>
                   <td className="py-2.5 text-right">
                     {canContact ? (
@@ -72,8 +79,8 @@ export async function ProListingsComparator({ catalogId }: Props) {
         </table>
       </div>
       <p className="mt-3 text-xs text-muted">
-        Anuncios con fotos obligatorias. La IA estima un precio orientativo dentro del rango de
-        mercado PAL ES.
+        Los anuncios nuevos necesitan portada y contraportada distintas. La estimación solo se
+        muestra cuando la comprobación automática o manual está cerrada.
       </p>
     </Panel>
   );

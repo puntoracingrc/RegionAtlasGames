@@ -2,7 +2,6 @@ import { analyzeListingPhotos } from "../src/lib/ai-listing-analysis";
 import { getCatalogGame } from "../src/lib/catalog";
 import { catalogGamePath } from "../src/lib/catalog-url";
 import { addCatalogGameToCollection } from "../src/lib/collection-store";
-import { getCoverSrc } from "../src/lib/cover-url";
 import {
   createListingDraft,
   getListing,
@@ -41,8 +40,14 @@ async function main() {
 
   const catalogId = "ps4-13-sentinels-aegis-rim";
   const game = getCatalogGame(catalogId);
-  const photoUrl = getCoverSrc(game?.coverUrl, catalogId);
-  if (!game || !photoUrl) throw new Error("El juego de QA no tiene una portada pública válida.");
+  if (!game) throw new Error("Falta el juego de QA.");
+  const frontPhotoUrl = process.env.MARKETPLACE_QA_FRONT_PHOTO_URL?.trim();
+  const backPhotoUrl = process.env.MARKETPLACE_QA_BACK_PHOTO_URL?.trim();
+  if (!frontPhotoUrl || !backPhotoUrl || frontPhotoUrl === backPhotoUrl) {
+    throw new Error(
+      "La QA necesita MARKETPLACE_QA_FRONT_PHOTO_URL y MARKETPLACE_QA_BACK_PHOTO_URL distintas. No se duplican portadas para simular evidencias.",
+    );
+  }
   const added = await addCatalogGameToCollection(sellerResult.user.id, catalogId);
   if ("error" in added) throw new Error(added.error);
 
@@ -55,9 +60,10 @@ async function main() {
   if ("error" in draft) throw new Error(draft.error);
 
   for (const slot of REQUIRED_PHOTO_SLOTS) {
+    const photoUrl = slot === "cover-front" ? frontPhotoUrl : backPhotoUrl;
     const stored = await upsertListingPhoto(draft.id, sellerResult.user.id, {
       slot,
-      url: `${photoUrl}?qa=${slot}`,
+      url: photoUrl,
       width: 1200,
       height: 1600,
       bytes: 45_000,
@@ -70,6 +76,11 @@ async function main() {
   if (!ready) throw new Error("No se pudo recuperar el anuncio de QA.");
   const analysis = await analyzeListingPhotos(ready, sellerResult.user.plan, sellerResult.user.id);
   if ("error" in analysis) throw new Error(analysis.error);
+  if (analysis.verificationStatus !== "verified") {
+    throw new Error(
+      `La QA no se publica sin verificación real: ${analysis.verificationReasons?.join("; ") || analysis.verificationStatus}`,
+    );
+  }
   await setListingAiAnalysis(draft.id, analysis);
   const published = await publishListing(draft.id, sellerResult.user.id);
   if ("error" in published) throw new Error(published.error);

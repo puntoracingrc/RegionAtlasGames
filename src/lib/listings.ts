@@ -8,11 +8,21 @@ import {
 import type {
   AiListingAnalysis,
   ListingPhoto,
+  ManualListingReviewCriterion,
   MarketplaceListing,
   MarketplaceListingClientView,
   RecordedPrivateSale,
 } from "./marketplace-types";
-import { photosReadyForPublish } from "./listing-photos";
+import {
+  MANUAL_LISTING_REVIEW_CRITERIA,
+  PHOTO_SLOT_LABELS,
+} from "./marketplace-types";
+import { findDuplicateListingPhoto, photosReadyForPublish } from "./listing-photos";
+import {
+  listingAnalysisIsVerified,
+  listingAnalysisHasVerifiedEstimate,
+  listingNeedsManualReview,
+} from "./marketplace-verification";
 
 const LISTINGS_DOCUMENT = "listings.json";
 const SALES_DOCUMENT = "recorded-sales.json";
@@ -189,11 +199,23 @@ export async function upsertListingPhoto(
       };
     }
 
+    const duplicate = findDuplicateListingPhoto(listing.photos, photo);
+    if (duplicate) {
+      return {
+        next: listings,
+        result: {
+          error: `Esta imagen ya se ha usado en «${PHOTO_SLOT_LABELS[duplicate.slot]}». Portada y contraportada deben ser fotos distintas.`,
+        } as const,
+        changed: false,
+      };
+    }
+
     const photos = listing.photos.filter((stored) => stored.slot !== photo.slot);
     photos.push(photo);
     listings[idx] = {
       ...listing,
       photos,
+      aiAnalysis: null,
       status: listing.status === "active" ? "draft" : listing.status,
       updatedAt: new Date().toISOString(),
     };
@@ -215,7 +237,7 @@ export async function publishListing(id: string, sellerId: string): Promise<{ ok
     if (!photosReadyForPublish(listing.photos)) {
       return {
         next: listings,
-        result: { error: "Sube todas las fotos obligatorias antes de publicar." } as const,
+        result: { error: "Sube una portada y una contraportada distintas antes de publicar." } as const,
         changed: false,
       };
     }
@@ -223,6 +245,15 @@ export async function publishListing(id: string, sellerId: string): Promise<{ ok
       return {
         next: listings,
         result: { error: "Ejecuta el análisis IA antes de publicar." } as const,
+        changed: false,
+      };
+    }
+    if (!listingAnalysisIsVerified(listing.aiAnalysis)) {
+      return {
+        next: listings,
+        result: {
+          error: "La comprobación no está cerrada. El anuncio permanece en revisión manual.",
+        } as const,
         changed: false,
       };
     }
@@ -360,7 +391,110 @@ export async function setListingAiAnalysis(
   return updateListing(listingId, { aiAnalysis: analysis });
 }
 
+export async function getListingsNeedingVerification(
+  limit = 100,
+): Promise<MarketplaceListing[]> {
+  return (await readListings())
+    .filter((listing) => (
+      listing.status === "draft" && listingNeedsManualReview(listing.aiAnalysis)
+    ) || (
+      listing.status === "active" && !listingAnalysisIsVerified(listing.aiAnalysis)
+    ))
+    .sort((left, right) => right.updatedAt.localeCompare(left.updatedAt))
+    .slice(0, Math.max(1, Math.min(500, limit)));
+}
+
+export async function reviewMarketplaceListing(input: {
+  listingId: string;
+  reviewer: string;
+  action: "approve" | "reject";
+  note?: string;
+  criteria?: ManualListingReviewCriterion[];
+}): Promise<MarketplaceListing | { error: string }> {
+  return mutateListings<MarketplaceListing | { error: string }>((listings) => {
+    const index = listings.findIndex((listing) => listing.id === input.listingId);
+    const listing = listings[index];
+    if (!listing || listing.status === "sold" || listing.status === "cancelled") {
+      return {
+        next: listings,
+        result: { error: "Anuncio no encontrado o ya cerrado." } as const,
+        changed: false,
+      };
+    }
+    if (!photosReadyForPublish(listing.photos)) {
+      return {
+        next: listings,
+        result: { error: "Faltan portada o contraportada." } as const,
+        changed: false,
+      };
+    }
+    if (
+      input.action === "approve"
+      && !MANUAL_LISTING_REVIEW_CRITERIA.every((criterion) => input.criteria?.includes(criterion))
+    ) {
+      return {
+        next: listings,
+        result: { error: "Confirma los tres criterios antes de aprobar el anuncio." } as const,
+        changed: false,
+      };
+    }
+    for (const photo of listing.photos) {
+      const duplicate = findDuplicateListingPhoto(listing.photos, photo);
+      if (duplicate) {
+        return {
+          next: listings,
+          result: {
+            error: `Hay una imagen repetida entre «${PHOTO_SLOT_LABELS[photo.slot]}» y «${PHOTO_SLOT_LABELS[duplicate.slot]}».`,
+          } as const,
+          changed: false,
+        };
+      }
+    }
+
+    const now = new Date().toISOString();
+    const note = input.note?.trim().slice(0, 500) || null;
+    const baseAnalysis: AiListingAnalysis = listing.aiAnalysis ?? {
+      conditionVerdict: "Estado revisado manualmente",
+      conditionScore: 0.5,
+      estimatedPriceEur: listing.recordedSalePriceEur ?? 0,
+      notes: "",
+      analyzedAt: now,
+      model: "manual-review-v1",
+    };
+    const approved = input.action === "approve";
+    const analysis: AiListingAnalysis = {
+      ...baseAnalysis,
+      verificationStatus: approved ? "manual_verified" : "rejected",
+      verificationReasons: note ? [note] : approved ? [] : ["El administrador solicitó nuevas evidencias."],
+      reviewedAt: now,
+      reviewedBy: input.reviewer,
+      manualReviewCriteria: approved ? [...MANUAL_LISTING_REVIEW_CRITERIA] : [],
+      conditionVerdict: approved
+        ? "Identidad y región revisadas; estado sin estimación automática"
+        : baseAnalysis.conditionVerdict,
+      gameMatchVerdict: approved
+        ? "Juego, plataforma y región revisados manualmente."
+        : baseAnalysis.gameMatchVerdict,
+      gameMatchConfidence: approved ? 1 : baseAnalysis.gameMatchConfidence,
+      regionVerdict: approved ? `${listing.region} confirmada manualmente` : baseAnalysis.regionVerdict,
+      notes: approved
+        ? "Anuncio revisado manualmente antes de publicarse."
+        : "El anuncio sigue en borrador hasta que el vendedor corrija las evidencias.",
+      model: approved ? "manual-review-v2" : baseAnalysis.model,
+    };
+    listings[index] = {
+      ...listing,
+      aiAnalysis: analysis,
+      status: approved ? "active" : "draft",
+      publishedAt: approved ? listing.publishedAt ?? now : listing.publishedAt,
+      updatedAt: now,
+    };
+    return { next: listings, result: listings[index] };
+  });
+}
+
 export function getPublicSellerListing(listing: MarketplaceListing) {
+  const hasVerifiedEstimate = listingAnalysisHasVerifiedEstimate(listing.aiAnalysis);
   return {
     id: listing.id,
     sellerName: listing.sellerName,
@@ -371,12 +505,13 @@ export function getPublicSellerListing(listing: MarketplaceListing) {
     saleOptions: listing.saleOptions ?? { pickup: true, shipping: true },
     aiAnalysis: listing.aiAnalysis
       ? {
-          conditionVerdict: listing.aiAnalysis.conditionVerdict,
-          conditionScore: listing.aiAnalysis.conditionScore,
-          estimatedPriceEur: listing.aiAnalysis.estimatedPriceEur,
+          conditionVerdict: hasVerifiedEstimate ? listing.aiAnalysis.conditionVerdict : null,
+          conditionScore: hasVerifiedEstimate ? listing.aiAnalysis.conditionScore : null,
+          estimatedPriceEur: hasVerifiedEstimate ? listing.aiAnalysis.estimatedPriceEur : null,
           visualDescription: listing.aiAnalysis.visualDescription ?? null,
           gameMatchVerdict: listing.aiAnalysis.gameMatchVerdict ?? null,
           gameMatchConfidence: listing.aiAnalysis.gameMatchConfidence ?? null,
+          verificationStatus: listing.aiAnalysis.verificationStatus ?? null,
         }
       : null,
     photoCount: listing.photos.length,
@@ -387,6 +522,27 @@ export function getPublicSellerListing(listing: MarketplaceListing) {
 export function getMarketplaceListingClientView(
   listing: MarketplaceListing,
 ): MarketplaceListingClientView {
+  const analysis = listing.aiAnalysis
+    ? {
+        conditionVerdict: listing.aiAnalysis.conditionVerdict,
+        conditionScore: listing.aiAnalysis.conditionScore,
+        estimatedPriceEur: listing.aiAnalysis.estimatedPriceEur,
+        visualDescription: listing.aiAnalysis.visualDescription,
+        gameMatchVerdict: listing.aiAnalysis.gameMatchVerdict,
+        gameMatchConfidence: listing.aiAnalysis.gameMatchConfidence,
+        conditionIssues: listing.aiAnalysis.conditionIssues,
+        verificationStatus: listing.aiAnalysis.verificationStatus,
+        verificationReasons: listing.aiAnalysis.verificationReasons,
+        analyzedPhotoSlots: listing.aiAnalysis.analyzedPhotoSlots,
+        uniquePhotoCount: listing.aiAnalysis.uniquePhotoCount,
+        regionVerdict: listing.aiAnalysis.regionVerdict,
+        reviewedAt: listing.aiAnalysis.reviewedAt,
+        manualReviewCriteria: listing.aiAnalysis.manualReviewCriteria,
+        notes: listing.aiAnalysis.notes,
+        analyzedAt: listing.aiAnalysis.analyzedAt,
+        model: listing.aiAnalysis.model,
+      }
+    : null;
   return {
     id: listing.id,
     catalogId: listing.catalogId,
@@ -399,8 +555,15 @@ export function getMarketplaceListingClientView(
     platformSlug: listing.platformSlug,
     region: listing.region,
     status: listing.status,
-    photos: listing.photos,
-    aiAnalysis: listing.aiAnalysis,
+    photos: listing.photos.map((photo) => ({
+      slot: photo.slot,
+      url: photo.url,
+      width: photo.width,
+      height: photo.height,
+      bytes: photo.bytes,
+      uploadedAt: photo.uploadedAt,
+    })),
+    aiAnalysis: analysis,
     sealed: listing.sealed,
     updatedAt: listing.updatedAt,
     publishedAt: listing.publishedAt,

@@ -8,7 +8,7 @@ export const LISTING_STATUS_LABELS: Record<ListingStatus, string> = {
 };
 
 export const LISTING_STATUS_HINTS: Record<ListingStatus, string> = {
-  draft: "Sube fotos, analiza con IA y publica.",
+  draft: "Sube portada y contraportada, comprueba las evidencias y publica.",
   active: "Visible en el catálogo y disponible para contacto.",
   sold: "Venta cerrada o pendiente de confirmación del comprador.",
   cancelled: "Anuncio retirado. Puedes crear uno nuevo desde tu colección.",
