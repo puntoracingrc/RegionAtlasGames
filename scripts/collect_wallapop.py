@@ -41,10 +41,12 @@ from collectors.listing_recency import (  # noqa: E402
     wallapop_time_filter,
 )
 from collectors.reference_match import build_platform_reference_index  # noqa: E402
+from collectors.regional_variant_routing import regional_variants_for, strict_regions_match  # noqa: E402
 from collectors.match_pipeline import print_match_stats, run_match_pipeline  # noqa: E402
 from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
 from collectors.wallapop_client import (  # noqa: E402
     build_wallapop_query,
+    enrich_product_details,
     fetch_game_products,
     fetch_query_products,
     supported_platform_slugs,
@@ -58,11 +60,19 @@ from collectors.wallapop_listing_ai import (
     passes_listing_ai,
     result_key,
 )
-from collectors.wallapop_match import infer_wallapop_region_product, is_wallapop_game_product, product_to_ingest_row  # noqa: E402
+from collectors.wallapop_match import (  # noqa: E402
+    dedupe_wallapop_rows,
+    infer_wallapop_region_product,
+    is_wallapop_game_product,
+    listing_has_unmatched_extras,
+    product_to_ingest_row,
+)
+from region_evidence_rules import check_listing_evidence_meets_rules  # noqa: E402
 
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
 CACHE_DIR = ROOT / "data" / "price-ingest" / "cache" / "wallapop"
+WALLAPOP_EVIDENCE_POLICY = "wallapop_full_listing_evidence_v1"
 REQUEST_DELAY = 0.35
 MIN_TITLE_SCORE = 0.42
 
@@ -115,8 +125,10 @@ def mentions_other_platform(text: str, platform_slug: str) -> bool:
 
 def listing_matches_game(product: dict[str, Any], game: dict[str, Any], platform_slug: str) -> bool:
     title = product_title(product)
-    full_text = f"{title} {product.get('description') or ''}"
+    full_text = f"{title} {product.get('description') or ''} {product.get('characteristics') or ''}"
     if mentions_other_platform(full_text, platform_slug):
+        return False
+    if listing_has_unmatched_extras(product, game):
         return False
     game_title = str(game.get("title") or "")
     if edition_numbers_conflict(title, game_title):
@@ -124,6 +136,68 @@ def listing_matches_game(product: dict[str, Any], game: dict[str, Any], platform
     listing_core = product_core_title(title)
     game_core = product_core_title(game_title)
     return token_similarity(game_core, listing_core) >= MIN_TITLE_SCORE
+
+
+def route_row_to_detected_variant(
+    row: dict[str, Any],
+    searched_game: dict[str, Any],
+    platform_games: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Aprovecha una región encontrada sin confundir anuncios ni variantes."""
+    listing_region = str(row.get("listingRegion") or "").strip()
+    searched_region = str(searched_game.get("region") or "").strip()
+    if not listing_region or strict_regions_match(searched_region, listing_region):
+        return row
+
+    variants = regional_variants_for(searched_game, platform_games, listing_region)
+    routed = dict(row)
+    routed["searchedCatalogId"] = str(searched_game.get("id") or "")
+    routed["searchedCatalogRegion"] = searched_region
+    if len(variants) != 1:
+        routed["regionVerified"] = False
+        routed["regionReviewNeeded"] = True
+        routed["regionalRoutingReason"] = (
+            "regional_variant_missing" if not variants else "regional_variant_ambiguous"
+        )
+        if variants:
+            routed["matchAlternatives"] = [
+                {
+                    "catalogId": str(game.get("id") or ""),
+                    "title": game.get("title"),
+                    "region": game.get("region"),
+                    "coverUrl": game.get("coverUrl"),
+                    "score": row.get("matchScore"),
+                }
+                for game in variants
+            ]
+        return routed
+
+    destination = variants[0]
+    destination_region = str(destination.get("region") or listing_region)
+    rules_ok, rules_reason = check_listing_evidence_meets_rules(
+        str(destination.get("platformSlug") or searched_game.get("platformSlug") or ""),
+        destination_region,
+        list(routed.get("regionEvidence") or []),
+        float(routed.get("aiConfidence") or 0),
+    )
+    routed["catalogId"] = str(destination.get("id") or "")
+    routed["catalogRegion"] = destination_region
+    routed["catalogTitle"] = destination.get("title")
+    routed["catalogCoverUrl"] = destination.get("coverUrl")
+    routed["regionalRoutingReason"] = "detected_region_variant"
+    routed["regionVerified"] = bool(
+        rules_ok and strict_regions_match(destination_region, listing_region)
+    )
+    if routed["regionVerified"]:
+        routed.pop("regionReviewNeeded", None)
+        routed.pop("regionReviewNotes", None)
+    else:
+        routed["regionReviewNeeded"] = True
+        notes = list(routed.get("regionReviewNotes") or [])
+        if rules_reason and rules_reason not in notes:
+            notes.append(str(rules_reason))
+        routed["regionReviewNotes"] = notes
+    return routed
 
 
 def default_sweep_queries(platform_slug: str) -> list[str]:
@@ -150,7 +224,10 @@ def collect_platform_sweep(
     products: list[dict[str, Any]] | None = None
     if args.use_cache and cache_file.exists():
         cached = load_json(cache_file, {})
-        if cache_policy_matches(cached):
+        if (
+            cache_policy_matches(cached)
+            and cached.get("wallapopEvidencePolicy") == WALLAPOP_EVIDENCE_POLICY
+        ):
             products = list(cached.get("products") or [])
             queries = list(cached.get("queries") or queries)
     if products is None:
@@ -179,9 +256,22 @@ def collect_platform_sweep(
             if index < len(queries):
                 time.sleep(args.delay)
         if args.use_cache:
-            save_json(cache_file, attach_policy_version({"queries": queries, "products": products}))
+            save_json(
+                cache_file,
+                attach_policy_version(
+                    {
+                        "wallapopEvidencePolicy": WALLAPOP_EVIDENCE_POLICY,
+                        "queries": queries,
+                        "products": products,
+                    }
+                ),
+            )
+
+    products, detail_stats = enrich_product_details(products, delay_s=args.delay)
 
     def row_builder(product: dict[str, Any], matched_game: dict[str, Any], result) -> dict[str, Any] | None:
+        if listing_has_unmatched_extras(product, matched_game):
+            return None
         row = product_to_ingest_row(
             product,
             str(matched_game["id"]),
@@ -205,8 +295,9 @@ def collect_platform_sweep(
         use_ai=match_opts["use_ai"],
         use_match_cache=match_opts["use_match_cache"],
     )
+    deduped_rows, duplicates_removed = dedupe_wallapop_rows(stats_match.rows)
+    stats_match.rows = deduped_rows
     print_match_stats(stats_match, label="Wallapop sweep")
-
     stats = {
         "games_requested": len(platform_games),
         "games_with_listings": len({row.get("catalogId") for row in stats_match.rows}),
@@ -218,6 +309,8 @@ def collect_platform_sweep(
         "ai_batches": 0,
         "ai_rejected": 0,
         "ai_regex_rejected": 0,
+        **detail_stats,
+        "duplicate_catalog_rows_removed": duplicates_removed,
     }
     return stats_match.rows, stats
 
@@ -227,6 +320,7 @@ def collect_game_listings(
     platform_slug: str,
     *,
     ref_to_ids: dict[str, list[str]] | None,
+    platform_games: list[dict[str, Any]],
     max_pages: int | None,
     use_cache: bool,
     use_listing_ai: bool,
@@ -240,17 +334,30 @@ def collect_game_listings(
         "ai_batches": 0,
         "ai_rejected": 0,
         "ai_regex_rejected": 0,
+        "details_requested": 0,
+        "details_loaded": 0,
+        "details_failed": 0,
     }
 
     if use_cache and cache_file.exists():
         cached = load_json(cache_file, {})
-        if cache_policy_matches(cached):
+        if (
+            cache_policy_matches(cached)
+            and cached.get("wallapopEvidencePolicy") == WALLAPOP_EVIDENCE_POLICY
+        ):
             return list(cached.get("listings") or []), game_stats
 
     products = fetch_game_products(game, max_pages=max_pages, delay_s=delay_s)
     matched = [
         product
         for product in products
+        if listing_matches_game(product, game, platform_slug)
+    ]
+    matched, detail_stats = enrich_product_details(matched, delay_s=delay_s)
+    game_stats.update(detail_stats)
+    matched = [
+        product
+        for product in matched
         if listing_matches_game(product, game, platform_slug)
     ]
 
@@ -290,12 +397,18 @@ def collect_game_listings(
             listing_ai=ai_result,
         )
         if row:
-            rows.append(row)
+            rows.append(route_row_to_detected_variant(row, game, platform_games))
 
     if use_cache:
         save_json(
             cache_file,
-            attach_policy_version({"query": build_wallapop_query(game), "listings": rows}),
+            attach_policy_version(
+                {
+                    "wallapopEvidencePolicy": WALLAPOP_EVIDENCE_POLICY,
+                    "query": build_wallapop_query(game),
+                    "listings": rows,
+                }
+            ),
         )
     return rows, game_stats
 
@@ -309,6 +422,11 @@ def collect_platform(
 
     platform = load_platforms().get(platform_slug)
     region_key = os.environ.get("PRICE_COLLECT_REGION", "").strip() or "all"
+    platform_games = [
+        game
+        for game in load_json(CATALOG_FILE, [])
+        if game.get("platformSlug") == platform_slug and game.get("listingStatus") != "excluded"
+    ]
     games = prioritize_catalog_games(
         platform_catalog_games(platform_slug),
         args.limit,
@@ -327,6 +445,10 @@ def collect_platform(
         "ai_batches": 0,
         "ai_rejected": 0,
         "ai_regex_rejected": 0,
+        "details_requested": 0,
+        "details_loaded": 0,
+        "details_failed": 0,
+        "duplicate_catalog_rows_removed": 0,
     }
     all_rows: list[dict[str, Any]] = []
     per_game_pages = args.max_pages if args.max_pages is not None else wallapop_per_game_pages()
@@ -340,6 +462,7 @@ def collect_platform(
                 game,
                 platform_slug,
                 ref_to_ids=ref_to_ids,
+                platform_games=platform_games,
                 max_pages=per_game_pages,
                 use_cache=args.use_cache,
                 use_listing_ai=use_listing_ai,
@@ -355,6 +478,9 @@ def collect_platform(
         stats["ai_batches"] += game_stats.get("ai_batches", 0)
         stats["ai_rejected"] += game_stats.get("ai_rejected", 0)
         stats["ai_regex_rejected"] += game_stats.get("ai_regex_rejected", 0)
+        stats["details_requested"] += game_stats.get("details_requested", 0)
+        stats["details_loaded"] += game_stats.get("details_loaded", 0)
+        stats["details_failed"] += game_stats.get("details_failed", 0)
         if rows:
             stats["games_with_listings"] += 1
             stats["listings"] += len(rows)
@@ -377,6 +503,12 @@ def collect_platform(
         if index < len(games):
             time.sleep(args.delay)
 
+    all_rows, duplicates_removed = dedupe_wallapop_rows(all_rows)
+    stats["duplicate_catalog_rows_removed"] = duplicates_removed
+    stats["listings"] = len(all_rows)
+    stats["listings_verified"] = sum(1 for row in all_rows if row.get("regionVerified") is True)
+    stats["listings_review"] = sum(1 for row in all_rows if row.get("regionReviewNeeded"))
+    stats["games_with_listings"] = len({row.get("catalogId") for row in all_rows if row.get("catalogId")})
     return all_rows, stats
 
 
@@ -404,6 +536,11 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         f"verificados: {stats['listings_verified']} · "
         f"pendientes revisión: {stats['listings_review']}"
     )
+    print(
+        f"  Detalle: {stats.get('details_loaded', 0)}/{stats.get('details_requested', 0)} fichas · "
+        f"fallos {stats.get('details_failed', 0)} · "
+        f"asociaciones regionales duplicadas retiradas {stats.get('duplicate_catalog_rows_removed', 0)}"
+    )
     if listing_ai_on:
         print(
             f"  IA: {stats['ai_batches']} lotes · "
@@ -427,7 +564,7 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
             f"Wallapop ES — {'barrido por plataforma' if args.sweep_platform else 'búsqueda por juego'} "
             "(categoría videojuegos). "
             "Filtrado IA por anuncio con caché en data/price-ingest/cache/wallapop-listing-ai/ "
-            "(re-analiza si cambia título o precio). Desactivar: --no-ai."
+            "(re-analiza si cambia título, precio, descripción o galería). Desactivar: --no-ai."
         ),
         "searchMode": "platform-sweep" if args.sweep_platform else "title",
         "stats": stats,

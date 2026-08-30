@@ -5,6 +5,7 @@ import {
   normalizeTodoConsolasReviewItem,
   priceReviewCatalogPreview,
   priceReviewMatchesTriageFilter,
+  priceReviewTextSignals,
   priceReviewTriageBucket,
   type PriceReviewItem,
 } from "./admin-price-review";
@@ -42,6 +43,40 @@ test("keeps non-TodoConsolas reviews in the actionable inbox", () => {
   const item = review({ source: "game-es-preowned" });
   assert.equal(priceReviewTriageBucket(item), "manual_match");
   assert.equal(priceReviewMatchesTriageFilter(item, "actionable"), true);
+});
+
+test("uses Wallapop description without confusing playable language with physical region", () => {
+  assert.deepEqual(priceReviewTextSignals(review({
+    source: "wallapop",
+    listingTitle: "13 Sentinels Aegis Rim PS4",
+    evidence: { description: "Edición física. PEGI 12. Juego en español." },
+  })), {
+    region: "PAL Europa",
+    condition: null,
+    unmatchedExtras: false,
+  });
+  assert.deepEqual(priceReviewTextSignals(review({
+    source: "wallapop",
+    listingTitle: "13 Sentinels Aegis Rim PS4",
+    evidence: { description: "Caja y juego en español. Solo desprecintado." },
+  })), {
+    region: "PAL España",
+    condition: "complete",
+    unmatchedExtras: false,
+  });
+});
+
+test("flags unmatched extras but keeps distinct normal listings independent", () => {
+  assert.equal(priceReviewTextSignals(review({
+    source: "wallapop",
+    candidateCatalogId: "ps4-daymare-1994-sandcastle",
+    listingTitle: "Daymare 1994 PS4 con libro de arte",
+  })).unmatchedExtras, true);
+  assert.equal(priceReviewTextSignals(review({
+    source: "wallapop",
+    candidateCatalogId: "ps4-daymare-1994-sandcastle",
+    listingTitle: "Daymare 1994 PS4 precintado",
+  })).unmatchedExtras, false);
 });
 
 test("actionable combines manual matches and missing regions only", () => {

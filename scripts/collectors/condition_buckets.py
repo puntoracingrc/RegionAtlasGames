@@ -36,6 +36,11 @@ RAW_TO_BUCKET: dict[str, str] = {
 }
 
 SEALED_RE = re.compile(r"\b(precintado|precintada|sellado|sealed|brand new sealed|new sealed)\b", re.I)
+UNSEALED_RE = re.compile(
+    r"\b(desprecintado|desprecintada|sin precinto|precinto abierto|caja abierta|open box|opened)\b",
+    re.I,
+)
+NO_BOX_RE = re.compile(r"\b(sin caja|no box|solo cartucho|solo disco|solo juego)\b", re.I)
 COMPLETE_RE = re.compile(
     r"\b("
     r"completo|complete|cib|con caja|"
@@ -86,6 +91,8 @@ def infer_condition_bucket(
     if not combined:
         return None
 
+    if UNSEALED_RE.search(combined) and not NO_BOX_RE.search(combined):
+        return "complete"
     if SEALED_RE.search(combined):
         return "sealed"
     if GAME_MANUAL_RE.search(combined) and not COMPLETE_RE.search(combined):

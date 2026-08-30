@@ -35,8 +35,10 @@ def region_needs_cover_vision(
     ai_conf: float,
     ok_ref: bool,
     force_weak_evidence: bool = False,
+    known_condition: str | None = None,
+    require_condition: bool = False,
 ) -> bool:
-    """True solo si faltan pruebas de región y la visión podría resolverlo."""
+    """True si falta probar región o, cuando se pide, el estado físico."""
     if not ok_ref and not force_weak_evidence:
         return False
     if force_weak_evidence and "sku_regional" not in evidence:
@@ -48,7 +50,9 @@ def region_needs_cover_vision(
     rules_ok, _ = check_listing_evidence_meets_rules(
         platform_slug, catalog_region, evidence, ai_conf
     )
-    return not (rules_ok and regions_match(catalog_region, listing_region))
+    region_ready = rules_ok and regions_match(catalog_region, listing_region)
+    condition_ready = bool(known_condition) or not require_condition
+    return not (region_ready and condition_ready)
 
 
 def enrich_listing_region_from_cover(
@@ -66,6 +70,9 @@ def enrich_listing_region_from_cover(
     row: dict[str, Any] | None = None,
     external_id: str | None = None,
     force_weak_evidence: bool = False,
+    known_condition: str | None = None,
+    require_condition: bool = False,
+    catalog_id: str | None = None,
 ) -> tuple[str, list[str], float, bool, str | None, list[str]]:
     """
     Texto/reglas primero. Solo si faltan pruebas y hay fotos + API → visión en el mismo paso.
@@ -85,14 +92,17 @@ def enrich_listing_region_from_cover(
         ai_conf=ai_conf,
         ok_ref=vision_ok_ref,
         force_weak_evidence=force_weak_evidence,
+        known_condition=known_condition,
+        require_condition=require_condition,
     ):
-        return listing_region, evidence, ai_conf, rules_ok and region_matches, None, notes
+        return listing_region, evidence, ai_conf, rules_ok and region_matches, known_condition, notes
 
     image_urls: list[str] = []
+    image_limit = 12 if source == "wallapop" else 3
     if row:
-        image_urls = row_image_urls(row, fetch_missing=False)
+        image_urls = row_image_urls(row, fetch_missing=False, limit=image_limit)
     if not image_urls and product:
-        image_urls = extract_product_image_urls(product, source)
+        image_urls = extract_product_image_urls(product, source, limit=image_limit)
     if not image_urls and product:
         page = str(product.get("productUrl") or product.get("url") or "").strip()
         if page:
@@ -113,6 +123,10 @@ def enrich_listing_region_from_cover(
         source=source,
         external_id=external_id,
         force_vision=force_weak_evidence,
+        description=str((product or {}).get("description") or ""),
+        known_condition=known_condition,
+        require_condition=require_condition,
+        catalog_id=catalog_id,
     )
 
     if force_weak_evidence and "cover_vision" not in evidence:
@@ -164,6 +178,8 @@ def apply_region_enrichment_to_row(
         and "seller_states_region" in evidence
         and "sku_regional" not in evidence
         and not row.get("matchedReference"),
+        known_condition=str(row.get("condition") or "") or None,
+        require_condition=False,
     ):
         if use_strict and not row.get("regionVerified"):
             return None
@@ -195,6 +211,9 @@ def apply_region_enrichment_to_row(
             and "seller_states_region" in evidence
             and "sku_regional" not in evidence
             and not row.get("matchedReference"),
+            known_condition=str(row.get("condition") or "") or None,
+            require_condition=False,
+            catalog_id=str(row.get("catalogId") or "") or None,
         )
     )
 

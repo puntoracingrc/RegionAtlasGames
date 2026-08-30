@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import json
+import html as html_lib
 import os
+import re
 import ssl
 import time
 import urllib.error
@@ -30,6 +32,8 @@ USER_AGENT = (
 # Tecnología > Gaming: consolas y videojuegos > Videojuegos y más > Videojuegos
 DEFAULT_CATEGORY_ID = "10093"
 DEFAULT_GAME_LIMIT = 50
+DEFAULT_DETAIL_LIMIT = 12
+MAX_DETAIL_IMAGES = 12
 
 DEFAULT_LATITUDE = 40.4168
 DEFAULT_LONGITUDE = -3.7038
@@ -43,6 +47,12 @@ RETRYABLE_URL_ERRORS = (
     urllib.error.URLError,
     ssl.SSLError,
 )
+
+NEXT_DATA_RE = re.compile(
+    r'<script[^>]+id=["\']__NEXT_DATA__["\'][^>]*>(?P<payload>.*?)</script>',
+    re.I | re.S,
+)
+_DETAIL_CACHE: dict[str, dict[str, Any]] = {}
 
 
 def wallapop_order_by() -> str:
@@ -116,16 +126,136 @@ def _product_url(web_slug: str) -> str:
     return f"{WALLAPOP_WEB}/item/{slug}" if slug else WALLAPOP_WEB
 
 
-def _primary_image(item: dict[str, Any]) -> str | None:
+def _image_urls(item: dict[str, Any], *, limit: int = MAX_DETAIL_IMAGES) -> list[str]:
     images = item.get("images") or []
-    if not images or not isinstance(images[0], dict):
-        return None
-    urls = images[0].get("urls") or {}
-    for key in ("medium", "big", "small"):
-        url = urls.get(key)
-        if url:
-            return str(url)
-    return None
+    result: list[str] = []
+    for image in images:
+        if not isinstance(image, dict):
+            continue
+        urls = image.get("urls") or {}
+        for key in ("medium", "big", "small"):
+            url = urls.get(key)
+            if url:
+                result.append(str(url))
+                break
+        if len(result) >= limit:
+            break
+    return list(dict.fromkeys(result))
+
+
+def _localized_text(value: Any) -> str:
+    if isinstance(value, dict):
+        return str(value.get("original") or value.get("translated") or "").strip()
+    return str(value or "").strip()
+
+
+def wallapop_detail_limit() -> int:
+    raw = os.environ.get("WALLAPOP_DETAIL_LIMIT_PER_GAME", "").strip()
+    if not raw:
+        return DEFAULT_DETAIL_LIMIT
+    try:
+        return max(0, min(30, int(raw)))
+    except ValueError:
+        return DEFAULT_DETAIL_LIMIT
+
+
+def parse_item_detail_html(html_text: str, product: dict[str, Any]) -> dict[str, Any]:
+    """Completa un resultado de búsqueda con descripción y galería de la ficha pública."""
+    match = NEXT_DATA_RE.search(html_text)
+    if not match:
+        return dict(product)
+    raw_payload = match.group("payload")
+    try:
+        payload = json.loads(raw_payload)
+    except (json.JSONDecodeError, TypeError):
+        try:
+            payload = json.loads(html_lib.unescape(raw_payload))
+        except (json.JSONDecodeError, TypeError):
+            return dict(product)
+    item = (((payload.get("props") or {}).get("pageProps") or {}).get("item") or {})
+    if not isinstance(item, dict):
+        return dict(product)
+
+    enriched = dict(product)
+    title = _localized_text(item.get("title"))
+    description = _localized_text(item.get("description"))
+    images = _image_urls(item)
+    if title:
+        enriched["title"] = title
+    if description:
+        enriched["description"] = description
+    if images:
+        enriched["imageUrls"] = images
+        enriched["imageUrl"] = images[0]
+    characteristics = str(item.get("characteristics") or "").strip()
+    if characteristics:
+        enriched["characteristics"] = characteristics
+    enriched["detailFetched"] = True
+    return enriched
+
+
+def fetch_product_detail(product: dict[str, Any], *, retries: int = 2) -> dict[str, Any]:
+    page_url = str(product.get("productUrl") or "").strip()
+    if not page_url:
+        return dict(product)
+    cached = _DETAIL_CACHE.get(page_url)
+    if cached is not None:
+        return dict(cached)
+
+    headers = _headers()
+    headers["Accept"] = "text/html,application/xhtml+xml"
+    req = urllib.request.Request(page_url, headers=headers)
+    last_error: BaseException | None = None
+    for attempt in range(1, max(1, retries) + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                html_text = resp.read().decode("utf-8", errors="ignore")
+            enriched = parse_item_detail_html(html_text, product)
+            _DETAIL_CACHE[page_url] = dict(enriched)
+            return enriched
+        except urllib.error.HTTPError as exc:
+            if exc.code in {429, 500, 502, 503, 504} and attempt < retries:
+                last_error = exc
+            else:
+                raise RuntimeError(f"Wallapop detalle ({exc.code})") from exc
+        except RETRYABLE_URL_ERRORS as exc:
+            if attempt >= retries:
+                raise RuntimeError("Wallapop detalle: error de conexión") from exc
+            last_error = exc
+        time.sleep(min(1.5 * attempt, 4.0))
+    raise RuntimeError(f"Wallapop detalle: error de conexión ({last_error})")
+
+
+def enrich_product_details(
+    products: list[dict[str, Any]],
+    *,
+    max_items: int | None = None,
+    delay_s: float = 0.35,
+) -> tuple[list[dict[str, Any]], dict[str, int]]:
+    limit = wallapop_detail_limit() if max_items is None else max(0, max_items)
+    stats = {"details_requested": 0, "details_loaded": 0, "details_failed": 0}
+    if limit == 0 or os.environ.get("WALLAPOP_DETAIL_FETCH_DISABLED", "").strip():
+        return [dict(product) for product in products], stats
+
+    enriched: list[dict[str, Any]] = []
+    for index, product in enumerate(products):
+        if index >= limit:
+            enriched.append(dict(product))
+            continue
+        stats["details_requested"] += 1
+        try:
+            detailed = fetch_product_detail(product)
+            enriched.append(detailed)
+            if detailed.get("detailFetched"):
+                stats["details_loaded"] += 1
+            else:
+                stats["details_failed"] += 1
+        except RuntimeError:
+            stats["details_failed"] += 1
+            enriched.append(dict(product))
+        if index + 1 < min(len(products), limit) and delay_s > 0:
+            time.sleep(delay_s)
+    return enriched, stats
 
 
 def parse_search_item(item: dict[str, Any]) -> dict[str, Any] | None:
@@ -164,9 +294,10 @@ def parse_search_item(item: dict[str, Any]) -> dict[str, Any] | None:
     }
     if listed_at:
         product["listedAt"] = listed_at
-    image_url = _primary_image(item)
-    if image_url:
-        product["imageUrl"] = image_url
+    image_urls = _image_urls(item)
+    if image_urls:
+        product["imageUrls"] = image_urls
+        product["imageUrl"] = image_urls[0]
     return product
 
 
@@ -281,12 +412,16 @@ __all__ = [
     "DEFAULT_GAME_LIMIT",
     "DEFAULT_ORDER_BY",
     "build_wallapop_query",
+    "enrich_product_details",
+    "fetch_product_detail",
     "fetch_game_products",
     "fetch_query_products",
     "parse_search_item",
+    "parse_item_detail_html",
     "search_page",
     "supported_platform_slugs",
     "wallapop_game_limit",
+    "wallapop_detail_limit",
     "wallapop_order_by",
     "wallapop_sources_for_platform",
 ]
