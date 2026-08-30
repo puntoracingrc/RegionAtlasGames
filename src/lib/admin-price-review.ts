@@ -6,6 +6,10 @@ import { clonePublishedCatalogGameToRegion, mergePublishedCatalogGames, updatePu
 import { priceWorkerPublicBaseUrl } from "./admin-price-collect";
 import { getCoverSrc } from "./cover-url";
 import { todoConsolasListingMetadata } from "./todoconsolas-listing";
+import {
+  normalizeOriginalGameContents,
+  type OriginalGameContentKey,
+} from "./original-game-contents";
 import type { CatalogGame } from "./types";
 import catalogData from "../../data/catalog.json";
 
@@ -63,6 +67,8 @@ export type PriceReviewItem = {
     conditionRaw?: string | null;
     manualExpected?: boolean | null;
     manualExpectationSource?: string | null;
+    originalContentsExpected?: string[] | null;
+    originalContentsSource?: string | null;
     catalogTitle?: string | null;
     catalogCoverUrl?: string | null;
     imageCapturedAt?: string | null;
@@ -84,6 +90,8 @@ export type PriceReviewItem = {
     region: string;
     edition: string;
     coverUrl: string | null;
+    manualExpected?: boolean | null;
+    originalContents?: string[] | null;
   } | null;
   jobId?: string | null;
   collectedAt?: string | null;
@@ -96,6 +104,7 @@ export type PriceReviewItem = {
     region?: string | null;
     condition?: PriceReviewCondition | string | null;
     note?: string | null;
+    originalContents?: OriginalGameContentKey[] | null;
   };
 };
 
@@ -108,6 +117,8 @@ const catalogPreviewById = new Map(
       region: game.region,
       edition: game.edition,
       coverUrl: getCoverSrc(game.coverUrl, game.id),
+      manualExpected: game.manualExpected,
+      originalContents: game.originalContents,
     },
   ]),
 );
@@ -151,6 +162,7 @@ export type PriceReviewDecisionInput = {
   region?: string;
   condition?: PriceReviewCondition;
   note?: string;
+  originalContents?: OriginalGameContentKey[];
 };
 
 export type PriceReviewCloneRegionInput = {
@@ -471,6 +483,9 @@ function patchFromReview(item: PriceReviewItem, input: PriceReviewDecisionInput)
   const price = Number(item.priceEur);
   const source = sourceLabel(item.source);
   const field = conditionPatchField(condition);
+  const originalContents = input.originalContents === undefined
+    ? undefined
+    : normalizeOriginalGameContents(input.originalContents);
   return {
     [field]: price,
     recommendedPrice: price,
@@ -482,6 +497,12 @@ function patchFromReview(item: PriceReviewItem, input: PriceReviewDecisionInput)
     priceDataSources: source,
     ...(item.evidence?.url ? { [`${item.source}ProductUrl`]: item.evidence.url } : {}),
     ...(catalogId ? { catalogId } : {}),
+    ...(originalContents === undefined ? {} : {
+      originalContents,
+      manualExpected: originalContents.includes("manual"),
+      originalContentsSource: "admin_verified",
+      originalContentsUpdatedAt: new Date().toISOString(),
+    }),
   };
 }
 
@@ -1147,6 +1168,9 @@ export async function decidePriceReviewItem(
       region: input.region?.trim() || item.targetRegion || item.detectedRegion || null,
       condition: input.condition || item.condition || null,
       note: input.note?.trim() || null,
+      ...(input.originalContents === undefined
+        ? {}
+        : { originalContents: normalizeOriginalGameContents(input.originalContents) }),
     },
   };
   queue.items[index] = nextItem;

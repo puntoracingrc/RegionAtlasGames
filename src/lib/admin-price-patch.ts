@@ -1,4 +1,5 @@
 import type { CatalogGame } from "./types";
+import { normalizeOriginalGameContents } from "./original-game-contents";
 
 export type AdminPriceFields = Pick<
   CatalogGame,
@@ -168,6 +169,22 @@ export function applyPricePatch(
     }
     const parsed = parseOptionalNumber(raw);
     if (parsed !== undefined) (next as Record<string, unknown>)[key] = parsed;
+  }
+
+  if ("originalContents" in body) {
+    next.originalContents = normalizeOriginalGameContents(body.originalContents);
+  }
+  if ("manualExpected" in body) {
+    const parsed = parseOptionalBoolean(body.manualExpected);
+    if (parsed !== undefined) next.manualExpected = parsed;
+  }
+  if ("originalContentsSource" in body) {
+    const parsed = parseOptionalString(body.originalContentsSource);
+    if (parsed !== undefined) next.originalContentsSource = parsed;
+  }
+  if ("originalContentsUpdatedAt" in body) {
+    const parsed = parseOptionalString(body.originalContentsUpdatedAt);
+    if (parsed !== undefined) next.originalContentsUpdatedAt = parsed;
   }
 
   next.updatedAt = new Date().toISOString().slice(0, 10);

@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from collectors.condition_buckets import infer_condition_bucket  # noqa: E402
 from collectors.catalog_match import match_catalog_product  # noqa: E402
-from collect_wallapop import route_row_to_detected_variant  # noqa: E402
+from collect_wallapop import listing_matches_game, route_row_to_detected_variant  # noqa: E402
 from collectors.game_region_learning import game_region_profile  # noqa: E402
 from collectors.game_content_profile import game_content_profile  # noqa: E402
 from collectors.region_inference import detect_listing_region  # noqa: E402
@@ -85,6 +85,11 @@ def test_condition_language() -> None:
         "desprecintado",
     )
     assert_equal(
+        infer_condition_bucket("Nuevo, no precintado; caja y disco completos."),
+        "complete",
+        "negación de precintado",
+    )
+    assert_equal(
         infer_condition_bucket("Caja abierta, juego y caja retail."),
         "complete",
         "caja abierta",
@@ -103,6 +108,24 @@ def test_condition_language() -> None:
         infer_condition_bucket("Caja y disco, sin manual.", manual_expected=False),
         "complete",
         "sin manual cuando la edición nunca lo incluyó",
+    )
+    assert_equal(
+        infer_condition_bucket("Estado muy bueno. Caja original: No."),
+        "loose",
+        "campo de tienda sin caja original",
+    )
+    assert_equal(
+        infer_condition_bucket("Edición limitada del videojuego 2Dark para PS4."),
+        None,
+        "no inventar completo cuando el estado no está declarado",
+    )
+    assert_equal(
+        infer_condition_bucket(
+            "Caja y juego completos, pero sin póster.",
+            original_contents_expected=["manual", "poster"],
+        ),
+        None,
+        "no marcar completo si falta un extra original conocido",
     )
 
 
@@ -206,6 +229,21 @@ def test_physical_editions_never_share_a_catalog_match() -> None:
     assert missing.game is None
     assert_equal(missing.unmatched_reason, "physical_edition_missing", "hueco de edición")
     assert_equal(missing.detected_edition, "collector", "edición ausente detectada")
+
+
+def test_localized_physical_edition_keeps_the_same_base_game() -> None:
+    game = {
+        "id": "ps4-2dark-limited-edition",
+        "title": "2Dark [Limited Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+    }
+    product = {
+        "title": "2Dark Edición Limitada PS4 PAL ESP",
+        "description": "Edición limitada del videojuego 2Dark para PS4.",
+    }
+    assert listing_matches_game(product, game, "ps4")
 
 
 def test_exact_id_deduplication_only() -> None:
@@ -340,6 +378,17 @@ def test_text_ai_is_a_hint_not_physical_region_proof() -> None:
     )
     assert passes_listing_ai(wrong_target_hint, catalog_region="PAL España")
 
+    uncertain_game_hint = ListingAiResult(
+        is_video_game=True,
+        is_target_game=False,
+        listing_region=None,
+        region_matches_catalog=False,
+        condition=None,
+        confidence=0.5,
+        reason="faltan estado y edición en el texto",
+    )
+    assert passes_listing_ai(uncertain_game_hint, catalog_region="PAL España")
+
 
 def test_learning_only_from_accepted_reviews() -> None:
     with tempfile.TemporaryDirectory() as tmp:
@@ -436,17 +485,82 @@ def test_content_profile_only_learns_from_strong_accepted_evidence() -> None:
         assert_equal(explicit["manualExpected"], False, "catálogo verificado prevalece")
 
 
+def test_manual_expectation_respects_console_generation() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        queue_file = Path(tmp) / "missing-review-queue.json"
+        previous = os.environ.get("PRICE_REVIEW_QUEUE_FILE")
+        os.environ["PRICE_REVIEW_QUEUE_FILE"] = str(queue_file)
+        try:
+            ps2 = game_content_profile({"id": "ps2-game", "platformSlug": "ps2"})
+            ps3 = game_content_profile({"id": "ps3-game", "platformSlug": "ps3"})
+            ps5 = game_content_profile({"id": "ps5-game", "platformSlug": "ps5"})
+        finally:
+            if previous is None:
+                os.environ.pop("PRICE_REVIEW_QUEUE_FILE", None)
+            else:
+                os.environ["PRICE_REVIEW_QUEUE_FILE"] = previous
+        assert_equal(ps2["manualExpected"], True, "antes de PS3 el manual forma parte del completo")
+        assert_equal(ps2["manualExpectationSource"], "platform_generation_default", "origen generacional")
+        assert_equal(ps2["originalContentsExpected"], ["manual"], "contenido mínimo histórico")
+        assert_equal(ps3["manualExpected"], None, "PS3 se aprende por juego")
+        assert_equal(ps5["manualExpected"], None, "PS5 no inventa manual sin evidencia")
+
+
+def test_original_contents_are_learned_from_accepted_review() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        queue_file = Path(tmp) / "price-review-queue.json"
+        queue_file.write_text(
+            json.dumps(
+                {
+                    "items": [
+                        {
+                            "id": "accepted",
+                            "status": "accepted",
+                            "catalogId": "ps4-collector",
+                            "listingTitle": "Edición completa con manual y póster",
+                            "decision": {
+                                "catalogId": "ps4-collector",
+                                "condition": "complete",
+                                "originalContents": ["manual", "poster", "soundtrack"],
+                            },
+                        }
+                    ]
+                }
+            ),
+            encoding="utf-8",
+        )
+        previous = os.environ.get("PRICE_REVIEW_QUEUE_FILE")
+        os.environ["PRICE_REVIEW_QUEUE_FILE"] = str(queue_file)
+        try:
+            profile = game_content_profile({"id": "ps4-collector", "platformSlug": "ps4"})
+        finally:
+            if previous is None:
+                os.environ.pop("PRICE_REVIEW_QUEUE_FILE", None)
+            else:
+                os.environ["PRICE_REVIEW_QUEUE_FILE"] = previous
+        assert_equal(
+            profile["originalContentsExpected"],
+            ["manual", "poster", "soundtrack"],
+            "decisión del admin consolida contenido original",
+        )
+        assert_equal(profile["manualExpected"], True, "el contenido confirmado actualiza el manual")
+        assert_equal(profile["originalContentsSource"], "accepted_admin_decision", "origen contenido")
+
+
 def main() -> None:
     test_detail_parser()
     test_condition_language()
     test_region_language()
     test_unmatched_extras()
     test_physical_editions_never_share_a_catalog_match()
+    test_localized_physical_edition_keeps_the_same_base_game()
     test_exact_id_deduplication_only()
     test_routes_a_found_region_to_its_catalog_variant()
     test_text_ai_is_a_hint_not_physical_region_proof()
     test_learning_only_from_accepted_reviews()
     test_content_profile_only_learns_from_strong_accepted_evidence()
+    test_manual_expectation_respects_console_generation()
+    test_original_contents_are_learned_from_accepted_review()
     print("OK Wallapop evidence v2")
 
 

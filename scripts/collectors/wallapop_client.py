@@ -14,7 +14,14 @@ import urllib.request
 from datetime import datetime, timezone
 from typing import Any
 
-from collectors.common import build_search_queries, load_platforms, normalize_query, build_search_query
+from collectors.common import (
+    build_search_query,
+    load_platforms,
+    normalize_query,
+    platform_search_aliases,
+    platform_search_keyword,
+)
+from collectors.physical_edition import catalog_physical_edition, physical_edition_base_title
 from collectors.listing_recency import (
     is_recent_listing,
     wallapop_listing_age_days,
@@ -34,6 +41,7 @@ DEFAULT_CATEGORY_ID = "10093"
 DEFAULT_GAME_LIMIT = 50
 DEFAULT_DETAIL_LIMIT = 12
 MAX_DETAIL_IMAGES = 12
+DEFAULT_MIN_QUERY_RESULTS = 6
 
 DEFAULT_LATITUDE = 40.4168
 DEFAULT_LONGITUDE = -3.7038
@@ -87,9 +95,75 @@ def supported_platform_slugs() -> list[str]:
     return sorted(load_platforms().keys())
 
 
+def _wallapop_base_title(game: dict[str, Any]) -> str:
+    title = build_search_query(game)
+    if catalog_physical_edition(game):
+        raw_title = str(game.get("title") or "")
+        for _ in range(5):
+            decoded = html_lib.unescape(raw_title)
+            if decoded == raw_title:
+                break
+            raw_title = decoded
+        bracketless = re.sub(r"\s*[\[(][^)\]]+[)\]]\s*$", "", raw_title).strip()
+        title = (
+            normalize_query(bracketless)
+            if bracketless and bracketless != raw_title
+            else physical_edition_base_title(title)
+        )
+    return normalize_query(title)
+
+
+def _wallapop_title_variants(game: dict[str, Any]) -> list[str]:
+    """Grafias minimas del titulo; Wallapop trata los terminos con rigidez."""
+    title = _wallapop_base_title(game)
+    variants = [title]
+    spaced = re.sub(r"(?<=\d)(?=[A-Za-z])", " ", title)
+    if spaced != title:
+        variants.append(normalize_query(spaced))
+    return list(dict.fromkeys(value for value in variants if value))
+
+
 def build_wallapop_query(game: dict[str, Any]) -> str:
-    """Query del buscador: solo título."""
-    return build_search_query(game)
+    """Query principal: título base + plataforma, sin etiquetas de edición."""
+    title = _wallapop_base_title(game)
+    platform = platform_search_keyword(str(game.get("platformSlug") or ""))
+    return normalize_query(f"{title} {platform}" if platform else title)
+
+
+def wallapop_primary_search_queries(game: dict[str, Any]) -> list[str]:
+    """Consultas que siempre se prueban: titulo base (y grafias) + plataforma."""
+    platform = platform_search_keyword(str(game.get("platformSlug") or ""))
+    return list(
+        dict.fromkeys(
+            normalize_query(f"{title} {platform}" if platform else title)
+            for title in _wallapop_title_variants(game)
+        )
+    )
+
+
+def wallapop_search_queries(game: dict[str, Any]) -> list[str]:
+    """Principal, alias de plataforma y título solo para fallback progresivo."""
+    titles = _wallapop_title_variants(game)
+    platform_slug = str(game.get("platformSlug") or "")
+    aliases = platform_search_aliases(platform_slug)
+    primary = platform_search_keyword(platform_slug)
+    queries = wallapop_primary_search_queries(game)
+    queries.extend(
+        normalize_query(f"{title} {alias}")
+        for alias in aliases
+        if alias != primary
+        for title in titles
+    )
+    queries.extend(titles)
+    return list(dict.fromkeys(query for query in queries if query))
+
+
+def wallapop_min_query_results() -> int:
+    raw = os.environ.get("WALLAPOP_MIN_QUERY_RESULTS", "").strip()
+    try:
+        return max(1, int(raw)) if raw else DEFAULT_MIN_QUERY_RESULTS
+    except ValueError:
+        return DEFAULT_MIN_QUERY_RESULTS
 
 
 def _headers() -> dict[str, str]:
@@ -394,7 +468,9 @@ def fetch_game_products(
 ) -> list[dict[str, Any]]:
     seen: set[str] = set()
     products: list[dict[str, Any]] = []
-    for query in build_search_queries(game):
+    minimum_results = wallapop_min_query_results()
+    primary_queries = wallapop_primary_search_queries(game)
+    for index, query in enumerate(wallapop_search_queries(game)):
         for product in fetch_query_products(query, max_pages=max_pages, delay_s=delay_s):
             key = str(product.get("externalId") or product.get("productUrl") or "")
             if not key or key in seen:
@@ -402,7 +478,8 @@ def fetch_game_products(
             seen.add(key)
             product["searchQuery"] = query
             products.append(product)
-        if products:
+        tried_all_primary_spellings = index + 1 >= len(primary_queries)
+        if tried_all_primary_spellings and len(products) >= minimum_results:
             break
     return products
 
@@ -422,6 +499,9 @@ __all__ = [
     "supported_platform_slugs",
     "wallapop_game_limit",
     "wallapop_detail_limit",
+    "wallapop_min_query_results",
     "wallapop_order_by",
+    "wallapop_primary_search_queries",
+    "wallapop_search_queries",
     "wallapop_sources_for_platform",
 ]

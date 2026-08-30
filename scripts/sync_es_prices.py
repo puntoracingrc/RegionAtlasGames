@@ -652,6 +652,7 @@ def _row_observation(
     require_p2p_rules: bool = False,
     use_vision: bool = True,
     manual_expected: bool | None = None,
+    original_contents_expected: list[str] | None = None,
 ) -> tuple[float, str, str] | None:
     if require_p2p_rules:
         if is_game_preowned_auto_verified(row, catalog_region):
@@ -660,6 +661,7 @@ def _row_observation(
                 platform_slug=platform_slug,
                 use_vision=use_vision,
                 manual_expected=manual_expected,
+                original_contents_expected=original_contents_expected,
             )
         if not is_listing_region_verified(row):
             return None
@@ -689,6 +691,7 @@ def _row_observation(
         platform_slug=platform_slug,
         use_vision=use_vision,
         manual_expected=manual_expected,
+        original_contents_expected=original_contents_expected,
     )
     return obs
 
@@ -716,6 +719,7 @@ def collect_condition_observations(
         or {"id": gid, "catalogId": gid, "platformSlug": platform_slug}
     )
     manual_expected = content_profile["manualExpected"]
+    original_contents_expected = content_profile["originalContentsExpected"]
 
     for row in grouped.get(gid, []):
         obs = _row_observation(
@@ -725,6 +729,7 @@ def collect_condition_observations(
             require_p2p_rules=True,
             use_vision=use_vision,
             manual_expected=manual_expected,
+            original_contents_expected=original_contents_expected,
         )
         if obs:
             observations.append(obs)
@@ -741,6 +746,7 @@ def collect_condition_observations(
             platform_slug=platform_slug,
             use_vision=use_vision,
             manual_expected=manual_expected,
+            original_contents_expected=original_contents_expected,
         )
         if obs:
             observations.append(obs)
@@ -771,6 +777,7 @@ def collect_condition_observations(
             platform_slug=platform_slug,
             use_vision=use_vision,
             manual_expected=manual_expected,
+            original_contents_expected=original_contents_expected,
         )
         if obs:
             observations.append(obs)
@@ -811,11 +818,42 @@ def collect_condition_observations(
                 use_vision=False,
                 fetch_images=False,
                 manual_expected=manual_expected,
+                original_contents_expected=original_contents_expected,
             )
             if obs:
                 observations.append(obs)
 
     return observations
+
+
+def apply_learned_original_contents(
+    game: dict[str, Any],
+    content_profile: dict[str, Any],
+    *,
+    synced_at: str,
+) -> bool:
+    """Consolida en catálogo solo contenido aprendido tras revisión humana."""
+    source = str(content_profile.get("originalContentsSource") or "")
+    expected = content_profile.get("originalContentsExpected")
+    if source not in {"accepted_admin_decision", "accepted_content_evidence"}:
+        return False
+    if not isinstance(expected, list):
+        return False
+
+    normalized = [str(item) for item in expected if item]
+    changed = (
+        game.get("originalContents") != normalized
+        or game.get("originalContentsSource") != source
+    )
+    if not changed:
+        return False
+    game["originalContents"] = normalized
+    game["originalContentsSource"] = source
+    game["originalContentsUpdatedAt"] = synced_at
+    manual_expected = content_profile.get("manualExpected")
+    if isinstance(manual_expected, bool):
+        game["manualExpected"] = manual_expected
+    return True
 
 
 CONDITION_PRICE_FIELDS = {
@@ -953,6 +991,7 @@ def apply_ebay_delivery_estimates(
     catalog_region: str,
     platform_slug: str,
     manual_expected: bool | None = None,
+    original_contents_expected: list[str] | None = None,
 ) -> bool:
     """Publica transporte por separado; nunca lo mezcla en el precio principal."""
     usable, *_ = filter_verified_listings(platform_slug, catalog_region, rows)
@@ -970,6 +1009,7 @@ def apply_ebay_delivery_estimates(
             use_vision=False,
             fetch_images=False,
             manual_expected=manual_expected,
+            original_contents_expected=original_contents_expected,
         )
         if bucket not in DISPLAY_BUCKETS:
             continue
@@ -1281,6 +1321,8 @@ def main() -> None:
         gid = game["id"]
         catalog_region = str(game.get("region") or "")
         human_reviewed_buckets: set[str] = set()
+        content_profile = game_content_profile(game)
+        apply_learned_original_contents(game, content_profile, synced_at=synced_at)
         observations = collect_condition_observations(
             gid,
             catalog_region,
@@ -1304,12 +1346,14 @@ def main() -> None:
             human_reviewed_buckets=human_reviewed_buckets,
         ):
             condition_updated += 1
+        delivery_content_profile = game_content_profile(game)
         if apply_ebay_delivery_estimates(
             game,
             grouped.get(gid, []),
             catalog_region=catalog_region,
             platform_slug=platform_slug,
-            manual_expected=game_content_profile(game)["manualExpected"],
+            manual_expected=delivery_content_profile["manualExpected"],
+            original_contents_expected=delivery_content_profile["originalContentsExpected"],
         ):
             delivery_updated += 1
         by_id[gid] = game

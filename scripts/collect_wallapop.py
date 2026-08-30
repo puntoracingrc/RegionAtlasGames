@@ -3,8 +3,8 @@
 
 Replica la búsqueda web:
   Tecnología → Gaming: consolas y videojuegos → Videojuegos y más → Videojuegos
-  Orden: más recientes · Filtro: últimos 30 días · Query: solo título
-  Ej.: «Sonic the Hedgehog»
+  Orden: más recientes · Filtro: últimos 30 días · Query: título + plataforma
+  Ej.: «Sonic the Hedgehog megadrive»
 
   python3 scripts/collect_wallapop.py --platform megadrive --limit 10 --dry-run
   python3 scripts/collect_wallapop.py --platform dreamcast
@@ -45,6 +45,7 @@ from collectors.reference_match import build_platform_reference_index  # noqa: E
 from collectors.regional_variant_routing import regional_variants_for, strict_regions_match  # noqa: E402
 from collectors.match_pipeline import print_match_stats, run_match_pipeline  # noqa: E402
 from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
+from collectors.physical_edition import physical_edition_base_title  # noqa: E402
 from collectors.wallapop_client import (  # noqa: E402
     build_wallapop_query,
     enrich_product_details,
@@ -114,6 +115,15 @@ PLATFORM_TERM_RE = re.compile(
     re.I,
 )
 
+REGION_SUFFIX_RE = re.compile(
+    r"(?:\s+(?:"
+    r"pal(?:\s+(?:esp|es|espana|eu|europa|europe|uk))?|"
+    r"esp|espana|spain|eu|europa|europe|uk|it|italia|pl|portugal|"
+    r"usa|us|ntsc(?:\s*[uj])?|jp|jap|japon|japan|asia|as"
+    r"))+\s*$",
+    re.I,
+)
+
 
 def mentions_other_platform(text: str, platform_slug: str) -> bool:
     allowed = PLATFORM_ALIAS_GROUPS.get(platform_slug, {platform_slug})
@@ -122,6 +132,14 @@ def mentions_other_platform(text: str, platform_slug: str) -> bool:
         if term not in allowed:
             return True
     return False
+
+
+def wallapop_match_core(title: str) -> str:
+    """Quita edición, consola y sufijo regional solo para comparar títulos."""
+    core = physical_edition_base_title(title)
+    core = PLATFORM_TERM_RE.sub(" ", core)
+    core = REGION_SUFFIX_RE.sub(" ", core)
+    return product_core_title(re.sub(r"\s+", " ", core).strip())
 
 
 def listing_matches_game(product: dict[str, Any], game: dict[str, Any], platform_slug: str) -> bool:
@@ -134,8 +152,8 @@ def listing_matches_game(product: dict[str, Any], game: dict[str, Any], platform
     game_title = str(game.get("title") or "")
     if edition_numbers_conflict(title, game_title):
         return False
-    listing_core = product_core_title(title)
-    game_core = product_core_title(game_title)
+    listing_core = wallapop_match_core(title)
+    game_core = wallapop_match_core(game_title)
     return token_similarity(game_core, listing_core) >= MIN_TITLE_SCORE
 
 
@@ -283,6 +301,8 @@ def collect_platform_sweep(
             game_title=str(matched_game.get("title") or ""),
             manual_expected=content_profile["manualExpected"],
             manual_expectation_source=content_profile["manualExpectationSource"],
+            original_contents_expected=content_profile["originalContentsExpected"],
+            original_contents_source=content_profile["originalContentsSource"],
             **match_row_kwargs(result),
         )
         return row if row else None
@@ -373,6 +393,7 @@ def collect_game_listings(
         game_for_ai = {
             **game,
             "manualExpected": content_profile["manualExpected"],
+            "originalContentsExpected": content_profile["originalContentsExpected"],
         }
         ai_by_key, ai_stats = classify_products_for_game(
             matched,
@@ -403,6 +424,8 @@ def collect_game_listings(
             game_title=str(game.get("title") or ""),
             manual_expected=content_profile["manualExpected"],
             manual_expectation_source=content_profile["manualExpectationSource"],
+            original_contents_expected=content_profile["originalContentsExpected"],
+            original_contents_source=content_profile["originalContentsSource"],
             match_score=round(
                 token_similarity(str(game.get("title") or ""), product_title(product)),
                 3,
