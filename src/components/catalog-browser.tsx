@@ -656,12 +656,14 @@ export function EntityBrowser({
   ownedCatalogIds = [],
   listingCounts = {},
   isLoggedIn = false,
+  showPriceLegend = true,
 }: {
   games: CatalogListGame[];
   title: string;
   ownedCatalogIds?: string[];
   listingCounts?: Record<string, number>;
   isLoggedIn?: boolean;
+  showPriceLegend?: boolean;
 }) {
   return (
     <CatalogBrowser
@@ -672,6 +674,7 @@ export function EntityBrowser({
       ownedCatalogIds={ownedCatalogIds}
       listingCounts={listingCounts}
       isLoggedIn={isLoggedIn}
+      showPriceLegend={showPriceLegend}
     />
   );
 }

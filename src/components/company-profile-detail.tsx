@@ -90,6 +90,7 @@ export function CompanyProfileDetail({ view, series, ownedCatalogIds, isLoggedIn
             title={view.name}
             ownedCatalogIds={ownedCatalogIds}
             isLoggedIn={isLoggedIn}
+            showPriceLegend={false}
           />
         </section>
       </main>

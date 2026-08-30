@@ -156,10 +156,9 @@ export function GamePriceHero({ game }: Props) {
         </p>
       )}
 
-      <p className="mt-3 text-xs text-muted/80">
-        Fuentes de mercado revisadas
-        {updatedLabel ? ` · Último dato con precio: ${updatedLabel}` : ""}
-      </p>
+      {updatedLabel && (
+        <p className="mt-3 text-xs text-muted/80">Última actualización de precio: {updatedLabel}</p>
+      )}
     </section>
   );
 }
