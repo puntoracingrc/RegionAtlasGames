@@ -19,6 +19,10 @@ from collectors.game_region_learning import game_region_profile  # noqa: E402
 from collectors.game_content_profile import game_content_profile  # noqa: E402
 from collectors.region_inference import detect_listing_region  # noqa: E402
 from collectors.regional_variant_routing import strict_regions_match  # noqa: E402
+from collectors.regional_packaging import (  # noqa: E402
+    normalize_regional_packaging,
+    regional_packaging_prompt,
+)
 from collectors.wallapop_client import parse_item_detail_html  # noqa: E402
 from collectors.wallapop_listing_ai import ListingAiResult, passes_listing_ai  # noqa: E402
 from collectors.wallapop_match import (  # noqa: E402
@@ -547,6 +551,27 @@ def test_original_contents_are_learned_from_accepted_review() -> None:
         assert_equal(profile["originalContentsSource"], "accepted_admin_decision", "origen contenido")
 
 
+def test_regional_packaging_becomes_reusable_engine_evidence() -> None:
+    variants = normalize_regional_packaging(
+        [
+            {
+                "region": "PAL España",
+                "frontCoverLanguages": ["ES"],
+                "backCoverLanguages": ["es"],
+            },
+            {
+                "region": "PAL Europa",
+                "frontCoverLanguages": ["en", "fr"],
+                "backCoverLanguages": ["en", "fr"],
+            },
+        ]
+    )
+    prompt = regional_packaging_prompt(variants)
+    assert_equal(len(variants), 2, "variantes regionales normalizadas")
+    assert "PAL España: portada y contraportada en español" in prompt
+    assert "PAL Europa: portada y contraportada en inglés y francés" in prompt
+
+
 def main() -> None:
     test_detail_parser()
     test_condition_language()
@@ -561,6 +586,7 @@ def main() -> None:
     test_content_profile_only_learns_from_strong_accepted_evidence()
     test_manual_expectation_respects_console_generation()
     test_original_contents_are_learned_from_accepted_review()
+    test_regional_packaging_becomes_reusable_engine_evidence()
     print("OK Wallapop evidence v2")
 
 

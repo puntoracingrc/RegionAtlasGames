@@ -8,6 +8,19 @@ const TODOCONSOLAS_SOURCE_FIELDS = [
   "tcnsInStock",
 ] as const satisfies readonly (keyof CatalogGame)[];
 
+const ORIGINAL_CONTENT_FIELDS = [
+  "manualExpected",
+  "originalContents",
+  "originalContentsSource",
+  "originalContentsUpdatedAt",
+] as const satisfies readonly (keyof CatalogGame)[];
+
+const REGIONAL_PACKAGING_FIELDS = [
+  "regionalPackaging",
+  "regionalPackagingSource",
+  "regionalPackagingUpdatedAt",
+] as const satisfies readonly (keyof CatalogGame)[];
+
 function sourceTimestamp(value: string | null | undefined): number {
   if (!value) return Number.NEGATIVE_INFINITY;
   const parsed = Date.parse(value);
@@ -26,6 +39,22 @@ export function mergeCatalogGameWithOverlay(
     sourceTimestamp(overlayGame.tcnsMatchedAt)
   ) {
     for (const field of TODOCONSOLAS_SOURCE_FIELDS) {
+      (merged as Record<keyof CatalogGame, unknown>)[field] = staticGame[field];
+    }
+  }
+  if (
+    sourceTimestamp(staticGame.originalContentsUpdatedAt) >
+    sourceTimestamp(overlayGame.originalContentsUpdatedAt)
+  ) {
+    for (const field of ORIGINAL_CONTENT_FIELDS) {
+      (merged as Record<keyof CatalogGame, unknown>)[field] = staticGame[field];
+    }
+  }
+  if (
+    sourceTimestamp(staticGame.regionalPackagingUpdatedAt) >
+    sourceTimestamp(overlayGame.regionalPackagingUpdatedAt)
+  ) {
+    for (const field of REGIONAL_PACKAGING_FIELDS) {
       (merged as Record<keyof CatalogGame, unknown>)[field] = staticGame[field];
     }
   }

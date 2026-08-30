@@ -193,6 +193,14 @@ export type Platform = {
   newsEnabled?: boolean;
 };
 
+export type RegionalPackagingVariant = {
+  region: string;
+  /** Idiomas visibles en la portada física, expresados como códigos ISO cortos. */
+  frontCoverLanguages?: string[] | null;
+  /** Idiomas visibles en la contraportada física, expresados como códigos ISO cortos. */
+  backCoverLanguages?: string[] | null;
+};
+
 export type NewsSection = "home" | "platform" | "company";
 
 export type NewsItem = {
@@ -225,6 +233,10 @@ export type CatalogGame = {
   originalContents?: string[] | null;
   originalContentsSource?: string | null;
   originalContentsUpdatedAt?: string | null;
+  /** Señales visuales verificadas que permiten distinguir variantes regionales. */
+  regionalPackaging?: RegionalPackagingVariant[] | null;
+  regionalPackagingSource?: string | null;
+  regionalPackagingUpdatedAt?: string | null;
   listingStatus: "listed" | "pending" | "excluded";
   excludeCategory?: string | null;
   excludeReason?: string | null;

@@ -17,6 +17,7 @@ import { SITE_LOGO } from "./site-brand";
 import { getCoverSrc } from "./cover-url";
 import { getSiteUrl } from "./site-url";
 import { hasVerifiedEsPrice, hasVerifiedEsPriceRange } from "./price-display";
+import { describeRegionalPackagingComparison } from "./regional-packaging";
 
 export {
   buildCatalogSeoSlug,
@@ -88,6 +89,7 @@ export function buildGameFaq(
   const min = hasRange ? game.marketMin : null;
   const max = hasRange ? game.marketMax : null;
   const est = game.recommendedPrice;
+  const regionalPackaging = describeRegionalPackagingComparison(game.regionalPackaging);
 
   const priceAnswer = hasPrice
     ? hasRange && min != null && max != null
@@ -102,12 +104,14 @@ export function buildGameFaq(
       question: `¿Cuánto vale ${game.title} en ${platformName}?`,
       answer: priceAnswer,
     },
-    {
-      question: `¿Por qué varía el precio de ${game.title}?`,
-      answer:
-        "El valor depende sobre todo del estado (caja, manual, disco/cartucho, precinto), de la región PAL y de la demanda entre coleccionistas en España. Una copia completa en buen estado suele valer varias veces más que una suelta con marcas de uso.",
-    },
   ];
+
+  if (regionalPackaging) {
+    faqs.push({
+      question: `¿Cómo se distingue la edición física de ${game.title}?`,
+      answer: regionalPackaging,
+    });
+  }
 
   if (hasRange && min != null && max != null) {
     faqs.push({

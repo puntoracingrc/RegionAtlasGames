@@ -7,6 +7,7 @@ import {
 } from "./catalog-presentation";
 import type { CatalogGame, GameDetails } from "./types";
 import { getCoverSrc } from "./cover-url";
+import { buildGameFaq } from "./catalog-seo";
 
 test("decodes repeated HTML entities without decoding URL escapes", () => {
   assert.equal(decodeCatalogDisplayText("Tom &amp;amp; Jerry&#39;s"), "Tom & Jerry's");
@@ -47,4 +48,27 @@ test("allows curated local catalog covers without allowing arbitrary URLs", () =
     "/catalog-covers/ps4/1971-project-helios.jpg",
   );
   assert.equal(getCoverSrc("https://untrusted.example/cover.jpg"), null);
+});
+
+test("game FAQ replaces generic price filler with verified physical-edition facts", () => {
+  const game = {
+    id: "ps4-7-days-to-die",
+    title: "7 Days To Die",
+    platformSlug: "ps4",
+    region: "PAL España",
+    hasEsPrice: true,
+    recommendedPrice: 18,
+    marketMin: 10,
+    marketMax: 19.99,
+    priceRegionVerified: true,
+    regionalPackaging: [
+      { region: "PAL España", frontCoverLanguages: ["es"], backCoverLanguages: ["es"] },
+      { region: "PAL Europa", frontCoverLanguages: ["en", "fr"], backCoverLanguages: ["en", "fr"] },
+    ],
+  } as CatalogGame;
+
+  const faqs = buildGameFaq(game, undefined, undefined);
+  assert.equal(faqs.some((faq) => faq.question.includes("Por qué varía")), false);
+  assert.equal(faqs.some((faq) => faq.question.includes("edición física")), true);
+  assert.match(faqs.map((faq) => faq.answer).join(" "), /contraportada en inglés y francés/);
 });

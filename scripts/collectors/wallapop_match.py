@@ -169,6 +169,7 @@ def product_to_ingest_row(
     manual_expectation_source: str | None = None,
     original_contents_expected: list[str] | None = None,
     original_contents_source: str | None = None,
+    regional_packaging: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any] | None:
     title = product_title(product)
     description = str(product.get("description") or "").strip()
@@ -276,6 +277,7 @@ def product_to_ingest_row(
             catalog_id=catalog_id,
             manual_expected=manual_expected,
             original_contents_expected=original_contents_expected,
+            regional_packaging=regional_packaging,
         )
     )
 
@@ -310,6 +312,8 @@ def product_to_ingest_row(
     if original_contents_expected is not None:
         row["originalContentsExpected"] = original_contents_expected
         row["originalContentsSource"] = original_contents_source or "catalog"
+    if regional_packaging:
+        row["regionalPackagingExpected"] = regional_packaging
     if description:
         row["description"] = description[:3000]
     if characteristics:
