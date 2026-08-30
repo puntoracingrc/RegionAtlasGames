@@ -17,14 +17,18 @@ from collectors.catalog_match import match_catalog_product  # noqa: E402
 from collect_wallapop import listing_matches_game, route_row_to_detected_variant  # noqa: E402
 from collectors.game_region_learning import game_region_profile  # noqa: E402
 from collectors.game_content_profile import game_content_profile  # noqa: E402
-from collectors.region_inference import detect_listing_region  # noqa: E402
+from collectors.region_inference import detect_listing_region, regions_match  # noqa: E402
 from collectors.regional_variant_routing import strict_regions_match  # noqa: E402
 from collectors.regional_packaging import (  # noqa: E402
     normalize_regional_packaging,
     regional_packaging_prompt,
 )
 from collectors.wallapop_client import parse_item_detail_html  # noqa: E402
-from collectors.wallapop_listing_ai import ListingAiResult, passes_listing_ai  # noqa: E402
+from collectors.wallapop_listing_ai import (  # noqa: E402
+    ListingAiResult,
+    map_ai_listing_region,
+    passes_listing_ai,
+)
 from collectors.wallapop_match import (  # noqa: E402
     dedupe_wallapop_rows,
     listing_has_unmatched_extras,
@@ -165,6 +169,14 @@ def test_region_language() -> None:
     assert rules_ok, reason
     assert not strict_regions_match("PAL UK/ENG", "PAL Europa")
     assert not strict_regions_match("PAL España", "PAL Europa")
+    assert_equal(map_ai_listing_region("PAL Italia"), "PAL Italia", "IA conserva variante italiana")
+    assert_equal(map_ai_listing_region("PAL Francia"), "PAL Francia", "IA conserva variante francesa")
+    assert_equal(map_ai_listing_region("PAL Alemania"), "PAL Alemania", "IA conserva variante alemana")
+    assert regions_match("PAL Europa", "PAL Italia")
+    assert regions_match("PAL Europa", "PAL España")
+    assert not regions_match("PAL España", "PAL Europa")
+    assert not regions_match("PAL España", "PAL Italia")
+    assert not regions_match("PAL Francia", "PAL Italia")
 
 
 def test_unmatched_extras() -> None:
@@ -182,6 +194,20 @@ def test_unmatched_extras() -> None:
             "title": "13 Sentinels Aegis Rim Collector's Edition PS4 + Art Book",
         },
         {"title": "13 Sentinels: Aegis Rim Collector's Edition", "edition": "collector"},
+    )
+    assert listing_has_unmatched_extras(
+        {
+            "title": "Videojuego PS4 40 Principales Karaoke Party Vol.2 + microfon",
+            "description": "Incluye micros con signos de uso.",
+        },
+        {"title": "40 Principales Karaoke Party Vol.2", "edition": "standard"},
+    )
+    assert not listing_has_unmatched_extras(
+        {
+            "title": "40 Principales Karaoke Party Vol.2 PS4",
+            "description": "Juego compatible con micrófonos USB.",
+        },
+        {"title": "40 Principales Karaoke Party Vol.2", "edition": "standard"},
     )
 
 
@@ -589,11 +615,13 @@ def test_regional_packaging_becomes_reusable_engine_evidence() -> None:
         [
             {
                 "region": "PAL España",
+                "ratingSystem": "PEGI",
                 "frontCoverLanguages": ["ES"],
                 "backCoverLanguages": ["es"],
             },
             {
                 "region": "PAL Europa",
+                "ratingSystem": "PEGI",
                 "frontCoverLanguages": ["en", "fr"],
                 "backCoverLanguages": ["en", "fr"],
             },
@@ -601,8 +629,27 @@ def test_regional_packaging_becomes_reusable_engine_evidence() -> None:
     )
     prompt = regional_packaging_prompt(variants)
     assert_equal(len(variants), 2, "variantes regionales normalizadas")
-    assert "PAL España: portada y contraportada en español" in prompt
-    assert "PAL Europa: portada y contraportada en inglés y francés" in prompt
+    assert "PAL España: clasificación PEGI en la portada; portada y contraportada en español" in prompt
+    assert "PAL Europa: clasificación PEGI en la portada; portada y contraportada en inglés y francés" in prompt
+
+
+def test_verified_packaging_rules_for_current_wallapop_reviews() -> None:
+    catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
+    by_id = {str(game.get("id") or ""): game for game in catalog}
+
+    ace = by_id["ps4-ace-combat-7-skies-unknown"]
+    ace_prompt = regional_packaging_prompt(ace.get("regionalPackaging"))
+    assert "PAL España: clasificación PEGI en la portada; contraportada en español y portugués" in ace_prompt
+    assert "PAL Francia: clasificación PEGI en la portada; contraportada en francés" in ace_prompt
+    assert "PAL Italia: clasificación PEGI en la portada; contraportada en italiano" in ace_prompt
+    assert "PAL Alemania: clasificación USK en la portada" in ace_prompt
+    assert "USA: clasificación ESRB en la portada" in ace_prompt
+    assert "Japón: clasificación CERO en la portada" in ace_prompt
+
+    karaoke = by_id["ps4-40-principales-karaoke-party-vol-2"]
+    karaoke_prompt = regional_packaging_prompt(karaoke.get("regionalPackaging"))
+    assert "PAL España: clasificación PEGI en la portada; portada y contraportada en español" in karaoke_prompt
+    assert karaoke.get("manualExpected") is None
 
 
 def main() -> None:
@@ -621,6 +668,7 @@ def main() -> None:
     test_manual_expectation_respects_console_generation()
     test_original_contents_are_learned_from_accepted_review()
     test_regional_packaging_becomes_reusable_engine_evidence()
+    test_verified_packaging_rules_for_current_wallapop_reviews()
     print("OK Wallapop evidence v2")
 
 

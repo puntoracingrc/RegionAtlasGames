@@ -31,7 +31,7 @@ DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 MIN_CONFIDENCE = 0.75
 DESCRIPTION_MAX = 2000
-LISTING_AI_POLICY = "wallapop_listing_ai_v6_regional_packaging"
+LISTING_AI_POLICY = "wallapop_listing_ai_v7_rating_system_back_cover"
 
 
 def batch_size() -> int:
@@ -68,6 +68,18 @@ AI_REGION_MAP = {
     "pal uk/eng": "PAL UK/ENG",
     "pal uk": "PAL UK/ENG",
     "uk": "PAL UK/ENG",
+    "pal francia": "PAL Francia",
+    "pal france": "PAL Francia",
+    "francia": "PAL Francia",
+    "france": "PAL Francia",
+    "pal italia": "PAL Italia",
+    "pal italy": "PAL Italia",
+    "italia": "PAL Italia",
+    "italy": "PAL Italia",
+    "pal alemania": "PAL Alemania",
+    "pal germany": "PAL Alemania",
+    "alemania": "PAL Alemania",
+    "germany": "PAL Alemania",
     "usa": "USA",
     "ntsc-u": "USA",
     "japón": "Japón",
@@ -260,7 +272,7 @@ def _build_system_prompt(game: dict[str, Any], platform_slug: str) -> str:
         f"{packaging_block}"
         "Responde JSON: "
         '{"results":[{"externalId":"...","isVideoGame":bool,"isTargetGame":bool,'
-        '"listingRegion":"PAL Europa|PAL España|PAL UK/ENG|USA|Japón|unknown",'
+        '"listingRegion":"PAL Europa|PAL España|PAL UK/ENG|PAL Francia|PAL Italia|PAL Alemania|USA|Japón|unknown",'
         '"regionMatchesCatalog":bool,"condition":"loose|game_manual|complete|sealed|null",'
         '"confidence":0-1,"reason":"..."}]}. '
         "isVideoGame=false para peluches, ropa, pósters, consolas, lotes, manuales sueltos, figuras, revistas. "
@@ -272,7 +284,9 @@ def _build_system_prompt(game: dict[str, Any], platform_slug: str) -> str:
         f"regionMatchesCatalog=true si la edición encaja con {catalog_region}. "
         "Cree las afirmaciones explícitas sobre edición física y estado. "
         "'Juego en español', voces o subtítulos en español solo describen idioma jugable y no prueban PAL España. "
-        "PEGI solo prueba familia PAL europea. "
+        "PEGI solo prueba familia PAL europea y nunca demuestra por sí solo PAL España. "
+        "Dentro de PEGI, una variante nacional requiere una afirmación física explícita sobre la contraportada o el embalaje. "
+        "ESRB identifica USA, CERO Japón y USK Alemania. "
         "'No precintado', 'desprecintado', 'sin precinto' o 'precinto abierto' significan complete si no falta contenido, nunca sealed. "
         "'Nuevo', 'a estrenar' o 'sin uso' sin una afirmación explícita de precinto no prueban sealed: devuelve null y deja que lo decidan las fotos. "
         "No supongas complete si el texto no declara caja y contenido o que está completo: devuelve null. "

@@ -44,9 +44,19 @@ REGION_ALIASES: dict[str, set[str]] = {
     "españa": {"pal españa", "españa"},
     "japón": {"japón", "japan"},
     "japan": {"japón", "japan"},
-    "pal europa": {"pal europa", "españa", "pal españa"},
-    "pal uk/eng": {"pal uk/eng", "pal europa"},
-    "pal alemania": {"pal alemania", "pal europa"},
+    "pal europa": {
+        "pal europa",
+        "españa",
+        "pal españa",
+        "pal uk/eng",
+        "pal francia",
+        "pal italia",
+        "pal alemania",
+    },
+    "pal uk/eng": {"pal uk/eng"},
+    "pal alemania": {"pal alemania"},
+    "pal francia": {"pal francia"},
+    "pal italia": {"pal italia"},
 }
 
 REGION_QUERY_HINTS: dict[str, str] = {
@@ -60,6 +70,8 @@ REGION_QUERY_HINTS: dict[str, str] = {
     "Australia": "PAL Australia",
     "PAL UK/ENG": "PAL UK",
     "PAL Alemania": "PAL alemán",
+    "PAL Francia": "PAL francés",
+    "PAL Italia": "PAL italiano",
 }
 # Región y consola se filtran post-fetch; la query lleva solo título (build_search_query).
 
@@ -118,19 +130,7 @@ def regions_match(catalog_region: str, listing_region: str) -> bool:
         return False
     if c == l:
         return True
-    if l in REGION_ALIASES.get(c, set()):
-        return True
-    if c in REGION_ALIASES.get(l, set()):
-        return True
-    if c in ("pal europa", "pal uk/eng", "pal alemania") and l in (
-        "pal europa",
-        "pal uk/eng",
-        "pal alemania",
-    ):
-        return True
-    if c in ("pal españa", "españa") and l == "pal europa":
-        return False
-    return False
+    return l in REGION_ALIASES.get(c, set())
 
 
 def title_conflicts_region(title: str, catalog_region: str) -> bool:

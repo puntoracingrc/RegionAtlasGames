@@ -46,6 +46,10 @@ def canonical_region_key(region: str | None) -> str:
         return "pal_uk"
     if normalized in {"pal alemania", "pal germany", "germany", "alemania"}:
         return "pal_de"
+    if normalized in {"pal francia", "pal france", "france", "francia"}:
+        return "pal_fr"
+    if normalized in {"pal italia", "pal italy", "italy", "italia"}:
+        return "pal_it"
     if normalized in {"pal europa", "pal europe", "pal eu", "europe"}:
         return "pal_eu"
     if normalized in {"usa", "ntsc u", "ntsc usa", "united states"}:
