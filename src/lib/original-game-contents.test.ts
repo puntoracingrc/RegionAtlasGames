@@ -6,6 +6,11 @@ import {
   resolveOriginalGameContents,
 } from "./original-game-contents";
 import type { CatalogGame } from "./types";
+import {
+  describeRegionalPackagingComparison,
+  describeRegionalPackagingVariant,
+  normalizeRegionalPackaging,
+} from "./regional-packaging";
 
 test("expects a manual by generation only before PS3", () => {
   assert.deepEqual(resolveOriginalGameContents({ platformSlug: "ps2" }), {
@@ -50,4 +55,22 @@ test("admin price patch stores only supported original contents", () => {
   assert.deepEqual(patched.originalContents, ["manual", "poster"]);
   assert.equal(patched.manualExpected, true);
   assert.equal(patched.originalContentsSource, "admin_verified");
+});
+
+test("regional packaging keeps concrete cover-language evidence", () => {
+  const variants = normalizeRegionalPackaging([
+    { region: "PAL España", frontCoverLanguages: ["ES"], backCoverLanguages: ["es"] },
+    { region: "PAL Europa", frontCoverLanguages: ["en", "fr"], backCoverLanguages: ["en", "fr"] },
+    { region: "PAL Europa", frontCoverLanguages: ["de"] },
+  ]);
+
+  assert.equal(variants.length, 2);
+  assert.equal(
+    describeRegionalPackagingVariant(variants[0]),
+    "Portada y contraportada en español.",
+  );
+  assert.equal(
+    describeRegionalPackagingComparison(variants),
+    "PAL España: Portada y contraportada en español. PAL Europa: Portada y contraportada en inglés y francés.",
+  );
 });

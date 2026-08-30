@@ -20,6 +20,7 @@ from collectors.catalog_match import product_title
 from collectors.common import load_json, load_platforms, now_iso, save_json
 from collectors.condition_buckets import infer_condition_bucket
 from collectors.physical_edition import catalog_physical_edition, physical_edition_label
+from collectors.regional_packaging import regional_packaging_prompt
 
 ROOT = Path(__file__).resolve().parents[2]
 from collectors.storage_paths import ingest_dir
@@ -30,7 +31,7 @@ DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 MIN_CONFIDENCE = 0.75
 DESCRIPTION_MAX = 2000
-LISTING_AI_POLICY = "wallapop_listing_ai_v5_original_contents"
+LISTING_AI_POLICY = "wallapop_listing_ai_v6_regional_packaging"
 
 
 def batch_size() -> int:
@@ -242,6 +243,8 @@ def _build_system_prompt(game: dict[str, Any], platform_slug: str) -> str:
         for item in (game.get("originalContentsExpected") or [])
         if item
     ]
+    packaging_rules = regional_packaging_prompt(game.get("regionalPackaging"))
+    packaging_block = f"{packaging_rules}\n" if packaging_rules else ""
     manual_rule = (
         "Esta edición incluía manual de fábrica: sin manual no es complete. "
         if manual_expected is True
@@ -254,6 +257,7 @@ def _build_system_prompt(game: dict[str, Any], platform_slug: str) -> str:
         f"Objetivo catálogo: «{title}» ({catalog_region}) para {platform_name}.\n"
         f"Edición física objetivo: {physical_edition}.\n"
         f"Contenido original ya conocido: {', '.join(original_contents_expected) or 'por confirmar'}.\n"
+        f"{packaging_block}"
         "Responde JSON: "
         '{"results":[{"externalId":"...","isVideoGame":bool,"isTargetGame":bool,'
         '"listingRegion":"PAL Europa|PAL España|PAL UK/ENG|USA|Japón|unknown",'

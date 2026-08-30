@@ -303,6 +303,7 @@ def collect_platform_sweep(
             manual_expectation_source=content_profile["manualExpectationSource"],
             original_contents_expected=content_profile["originalContentsExpected"],
             original_contents_source=content_profile["originalContentsSource"],
+            regional_packaging=matched_game.get("regionalPackaging"),
             **match_row_kwargs(result),
         )
         return row if row else None
@@ -426,6 +427,7 @@ def collect_game_listings(
             manual_expectation_source=content_profile["manualExpectationSource"],
             original_contents_expected=content_profile["originalContentsExpected"],
             original_contents_source=content_profile["originalContentsSource"],
+            regional_packaging=game.get("regionalPackaging"),
             match_score=round(
                 token_similarity(str(game.get("title") or ""), product_title(product)),
                 3,

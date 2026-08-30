@@ -18,6 +18,7 @@ from collectors.condition_buckets import DISPLAY_BUCKETS
 from collectors.game_content_profile import manual_missing_declared, missing_original_contents
 from collectors.game_region_learning import game_region_profile
 from collectors.physical_edition import physical_edition_label, physical_edition_markers
+from collectors.regional_packaging import normalize_regional_packaging, regional_packaging_prompt
 from collectors.region_inference import regions_match
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -44,7 +45,7 @@ DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 MIN_CONFIDENCE = float(os.environ.get("REGION_VISION_MIN_CONFIDENCE", "0.82"))
 MAX_IMAGES = max(1, min(8, int(os.environ.get("REGION_VISION_MAX_IMAGES", "8"))))
-REGION_COVER_VISION_POLICY = "region_cover_vision_v5_original_contents"
+REGION_COVER_VISION_POLICY = "region_cover_vision_v6_regional_packaging"
 
 REGION_ALIASES = {
     "pal europa": "PAL Europa",
@@ -147,6 +148,7 @@ def classify_region_from_cover(
     catalog_id: str | None = None,
     manual_expected: bool | None = None,
     original_contents_expected: list[str] | None = None,
+    regional_packaging: list[dict[str, Any]] | None = None,
     cache_key: str | None = None,
     use_cache: bool = True,
 ) -> RegionCoverVisionResult | None:
@@ -156,6 +158,9 @@ def classify_region_from_cover(
         return None
 
     learned_profile = game_region_profile(catalog_id)
+    packaging = normalize_regional_packaging(regional_packaging)
+    packaging_rules = regional_packaging_prompt(packaging)
+    packaging_block = f"{packaging_rules}\n" if packaging_rules else ""
     physical_edition = physical_edition_label(physical_edition_markers(game_title))
     key = cache_key or "|".join(
         [
@@ -168,6 +173,7 @@ def classify_region_from_cover(
             description[:1000],
             str(manual_expected),
             ",".join(original_contents_expected or []),
+            json.dumps(packaging, ensure_ascii=False, sort_keys=True),
             str((learned_profile or {}).get("fingerprint") or ""),
             *urls,
         ]
@@ -209,6 +215,7 @@ def classify_region_from_cover(
                 f"{'sí' if manual_expected is True else 'no' if manual_expected is False else 'desconocido'}\n"
                 f"Contenido original ya conocido para esta edición: "
                 f"{', '.join(original_contents_expected or []) or 'por confirmar'}\n"
+                f"{packaging_block}"
                 f"Fuente: {source}\n\n"
                 "Mira la(s) foto(s) del anuncio (carátula, caja, contraportada con PEGI/ESRB/código regional).\n"
                 "Responde JSON:\n"
@@ -329,6 +336,7 @@ def classify_region_from_cover(
             "externalId": external_id,
             "manualExpected": manual_expected,
             "originalContentsExpected": original_contents_expected,
+            "regionalPackaging": packaging,
             "visionPolicy": REGION_COVER_VISION_POLICY,
             "resolvedAt": _now_iso(),
         }),
@@ -356,6 +364,7 @@ def apply_region_cover_vision(
     catalog_id: str | None = None,
     manual_expected: bool | None = None,
     original_contents_expected: list[str] | None = None,
+    regional_packaging: list[dict[str, Any]] | None = None,
 ) -> tuple[str, list[str], float, bool, str | None]:
     """
     Si el anuncio ya está verificado por texto/reglas, no hace nada.
@@ -391,6 +400,7 @@ def apply_region_cover_vision(
         catalog_id=catalog_id,
         manual_expected=manual_expected,
         original_contents_expected=original_contents_expected,
+        regional_packaging=regional_packaging,
     )
     if not vision or not vision.is_target_game or vision.confidence < MIN_CONFIDENCE:
         verified = rules_ok and region_matches

@@ -75,6 +75,7 @@ def enrich_listing_region_from_cover(
     catalog_id: str | None = None,
     manual_expected: bool | None = None,
     original_contents_expected: list[str] | None = None,
+    regional_packaging: list[dict[str, Any]] | None = None,
 ) -> tuple[str, list[str], float, bool, str | None, list[str]]:
     """
     Texto/reglas primero. Solo si faltan pruebas y hay fotos + API → visión en el mismo paso.
@@ -131,6 +132,7 @@ def enrich_listing_region_from_cover(
         catalog_id=catalog_id,
         manual_expected=manual_expected,
         original_contents_expected=original_contents_expected,
+        regional_packaging=regional_packaging,
     )
 
     if force_weak_evidence and "cover_vision" not in evidence:
@@ -226,6 +228,11 @@ def apply_region_enrichment_to_row(
             original_contents_expected=(
                 [str(item) for item in row["originalContentsExpected"]]
                 if isinstance(row.get("originalContentsExpected"), list)
+                else None
+            ),
+            regional_packaging=(
+                [item for item in row["regionalPackagingExpected"] if isinstance(item, dict)]
+                if isinstance(row.get("regionalPackagingExpected"), list)
                 else None
             ),
         )

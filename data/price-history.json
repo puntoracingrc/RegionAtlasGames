@@ -8521,6 +8521,22 @@
         "gameManual": null,
         "complete": 41.32,
         "sealed": 134.95
+      },
+      {
+        "at": "2026-08-30T12:56:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 50.0,
+        "sealed": 134.95
+      }
+    ],
+    "ps4-7-days-to-die": [
+      {
+        "at": "2026-08-30T12:56:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.0,
+        "sealed": null
       }
     ],
     "ps4-8-to-glory": [

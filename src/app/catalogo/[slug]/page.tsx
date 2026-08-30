@@ -43,6 +43,10 @@ import {
   ORIGINAL_GAME_CONTENT_LABELS,
   resolveOriginalGameContents,
 } from "@/lib/original-game-contents";
+import {
+  describeRegionalPackagingVariant,
+  normalizeRegionalPackaging,
+} from "@/lib/regional-packaging";
 import { resolveGameEntityLinks } from "@/lib/entity-links";
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
@@ -128,6 +132,8 @@ export default async function CatalogGamePage({ params }: Props) {
   const topSegment = isTopInSegment(game);
   const priceStatus = esPriceDisplayLabel(game);
   const originalContentProfile = resolveOriginalGameContents(game);
+  const regionalPackaging = normalizeRegionalPackaging(game.regionalPackaging);
+  const showPhysicalEdition = originalContentProfile.explicit || regionalPackaging.length > 0;
   const regionLabel = getRegionDisplay(game.region).label;
   const similar = getSimilarGames(game);
   const faqs = buildGameFaq(game, platform, details);
@@ -260,14 +266,31 @@ export default async function CatalogGamePage({ params }: Props) {
 
             <GameProductReference game={game} details={details} />
 
-            {originalContentProfile.contents.length > 0 && (
+            {showPhysicalEdition && (
               <Panel>
-                <PanelTitle>Contenido original</PanelTitle>
-                <p className="text-sm leading-6 text-muted">
-                  {originalContentProfile.contents
-                    .map((content) => ORIGINAL_GAME_CONTENT_LABELS[content])
-                    .join(" · ")}
-                </p>
+                <PanelTitle>Edición física</PanelTitle>
+                <dl className="space-y-4 text-sm leading-6">
+                  {originalContentProfile.explicit && (
+                    <div>
+                      <dt className="font-semibold text-foreground">Contenido de fábrica</dt>
+                      <dd className="text-muted">
+                        {originalContentProfile.contents.length > 0
+                          ? `Caja · Juego · ${originalContentProfile.contents
+                              .map((content) => ORIGINAL_GAME_CONTENT_LABELS[content])
+                              .join(" · ")}`
+                          : "Caja y juego. No incluía manual ni otros extras de fábrica."}
+                      </dd>
+                    </div>
+                  )}
+                  {regionalPackaging.map((variant) => (
+                    <div key={variant.region}>
+                      <dt className="font-semibold text-foreground">{variant.region}</dt>
+                      <dd className="text-muted">
+                        {describeRegionalPackagingVariant(variant)}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
               </Panel>
             )}
 

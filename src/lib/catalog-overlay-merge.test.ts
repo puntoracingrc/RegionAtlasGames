@@ -105,6 +105,28 @@ test("a newer runtime TodoConsolas reference still takes precedence", () => {
   assert.equal(merged.tcnsMatchedAt, "2026-08-29T11:00:00Z");
 });
 
+test("verified physical-edition facts survive a stale runtime overlay", () => {
+  const staticGame = {
+    ...game("ps4-7-days-to-die", "7 Days To Die", "ps4"),
+    manualExpected: false,
+    originalContents: [],
+    originalContentsSource: "admin_verified",
+    originalContentsUpdatedAt: "2026-08-30T12:00:00Z",
+    regionalPackaging: [
+      { region: "PAL España", frontCoverLanguages: ["es"], backCoverLanguages: ["es"] },
+    ],
+    regionalPackagingSource: "admin_verified",
+    regionalPackagingUpdatedAt: "2026-08-30T12:00:00Z",
+  };
+  const overlayGame = game("ps4-7-days-to-die", "7 Days To Die", "ps4");
+
+  const merged = mergeCatalogGameWithOverlay(staticGame, overlayGame);
+
+  assert.equal(merged.manualExpected, false);
+  assert.deepEqual(merged.originalContents, []);
+  assert.deepEqual(merged.regionalPackaging, staticGame.regionalPackaging);
+});
+
 test("an overlay moved to another platform removes the stale static entry", () => {
   const staticGame = game("nes-pal-mario", "Mario");
   const movedOverlay = { ...staticGame, platformSlug: "snes" };
