@@ -9697,6 +9697,78 @@
         "complete": null,
         "sealed": 20.0
       }
+    ],
+    "ps4-brawlout": [
+      {
+        "at": "2026-08-30T12:01:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 33.57,
+        "sealed": null
+      }
+    ],
+    "ps4-breathedge": [
+      {
+        "at": "2026-08-30T12:01:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 32.67,
+        "sealed": null
+      }
+    ],
+    "ps4-bridge-constructor-compilation": [
+      {
+        "at": "2026-08-30T12:01:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 32.0,
+        "sealed": 42.49
+      }
+    ],
+    "ps4-brigandine-the-legend-of-runersia": [
+      {
+        "at": "2026-08-30T12:01:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 50.45,
+        "sealed": null
+      }
+    ],
+    "ps4-bubble-bobble-4-friends-the-baron-is-back": [
+      {
+        "at": "2026-08-30T12:01:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 42.05,
+        "sealed": null
+      }
+    ],
+    "ps4-bugsnax": [
+      {
+        "at": "2026-08-30T12:01:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 42.19,
+        "sealed": null
+      }
+    ],
+    "ps4-call-of-duty-wwii": [
+      {
+        "at": "2026-08-30T12:01:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.08,
+        "sealed": null
+      }
+    ],
+    "ps4-can%27t-drive-this": [
+      {
+        "at": "2026-08-30T12:01:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.44,
+        "sealed": null
+      }
     ]
   }
 }
