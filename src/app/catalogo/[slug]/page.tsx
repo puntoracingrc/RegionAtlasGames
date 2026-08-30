@@ -307,7 +307,6 @@ export default async function CatalogGamePage({ params }: Props) {
             {user && ownedItem && (
               <SellListingButton
                 collectionItemId={ownedItem.id}
-                plan={user.plan}
                 openListingId={openListing?.id}
               />
             )}

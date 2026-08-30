@@ -6,7 +6,6 @@ import {
   getActiveListingsForCatalog,
   getPublicSellerListing,
 } from "@/lib/listings";
-import { canUseMarketplace } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 import { Panel, PanelTitle } from "@/components/ui";
 
@@ -15,7 +14,7 @@ type Props = { catalogId: string };
 export async function CatalogMarketplacePanel({ catalogId }: Props) {
   const listings = await getActiveListingsForCatalog(catalogId);
   const user = await getCurrentUser();
-  const canContact = user ? canUseMarketplace(user.plan) : false;
+  const canContact = Boolean(user);
 
   if (listings.length === 0) {
     return (
@@ -58,7 +57,7 @@ export async function CatalogMarketplacePanel({ catalogId }: Props) {
                 <p className="text-xs text-muted">
                   {listing.sealed ? "Precintado · " : ""}
                   {pub.aiAnalysis
-                    ? `IA: ${pub.aiAnalysis.conditionVerdict} · ~${formatEur(pub.aiAnalysis.estimatedPriceEur)}`
+                    ? `Análisis: ${pub.aiAnalysis.conditionVerdict} · ~${formatEur(pub.aiAnalysis.estimatedPriceEur)}`
                     : "Sin análisis"}
                 </p>
                 {pub.aiAnalysis?.conditionScore != null && (
@@ -91,7 +90,9 @@ export async function CatalogMarketplacePanel({ catalogId }: Props) {
                   Ver fotos y contactar →
                 </Link>
               ) : (
-                <span className="text-xs text-muted">Plan Pro para contactar</span>
+                <Link href="/login" className="text-xs text-muted hover:text-accent">
+                  Inicia sesión para contactar
+                </Link>
               )}
             </li>
           );

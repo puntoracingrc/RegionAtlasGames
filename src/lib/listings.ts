@@ -9,6 +9,7 @@ import type {
   AiListingAnalysis,
   ListingPhoto,
   MarketplaceListing,
+  MarketplaceListingClientView,
   RecordedPrivateSale,
 } from "./marketplace-types";
 import { photosReadyForPublish } from "./listing-photos";
@@ -380,5 +381,31 @@ export function getPublicSellerListing(listing: MarketplaceListing) {
       : null,
     photoCount: listing.photos.length,
     publishedAt: listing.publishedAt,
+  };
+}
+
+export function getMarketplaceListingClientView(
+  listing: MarketplaceListing,
+): MarketplaceListingClientView {
+  return {
+    id: listing.id,
+    catalogId: listing.catalogId,
+    sellerName: listing.sellerName,
+    sellerCity: listing.sellerCity,
+    title: listing.title,
+    customTitle: listing.customTitle,
+    customDescription: listing.customDescription,
+    saleOptions: listing.saleOptions,
+    platformSlug: listing.platformSlug,
+    region: listing.region,
+    status: listing.status,
+    photos: listing.photos,
+    aiAnalysis: listing.aiAnalysis,
+    sealed: listing.sealed,
+    updatedAt: listing.updatedAt,
+    publishedAt: listing.publishedAt,
+    sellerConfirmedAt: listing.sellerConfirmedAt,
+    buyerConfirmedAt: listing.buyerConfirmedAt,
+    recordedSalePriceEur: listing.recordedSalePriceEur,
   };
 }

@@ -104,7 +104,6 @@ export default async function CollectionItemPage({ params }: Props) {
             {item.catalogId && item.inRetroCatalog && (
               <SellListingButton
                 collectionItemId={item.id}
-                plan={user.plan}
                 openListingId={openListing?.id}
               />
             )}

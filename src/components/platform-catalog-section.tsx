@@ -112,8 +112,8 @@ export function PlatformCatalogSection({
                 {!canViewCollectionValue && (
                   <>
                     {" · "}
-                    <Link href="/ajustes" className="text-accent hover:underline">
-                      Valor total con Pro
+                    <Link href="/login" className="text-accent hover:underline">
+                      Inicia sesión para ver el valor
                     </Link>
                   </>
                 )}

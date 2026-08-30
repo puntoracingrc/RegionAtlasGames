@@ -97,7 +97,7 @@ export function buildGameFaq(
       : hasVerifiedEsPrice(game)
         ? `La referencia verificada en España ronda ${formatEur(est)} para la edición ${regionLabel}.`
         : `Tenemos una estimación orientativa de ${formatEur(est)} para ${regionLabel}, basada en una muestra todavía pequeña. El rango min–máx aparecerá cuando haya suficientes ventas confirmadas.`
-    : `Aún no tenemos suficientes ventas verificadas en el mercado español para este título. Consulta de nuevo pronto o revisa anuncios entre usuarios Pro.`;
+    : `Aún no tenemos suficientes ventas verificadas en el mercado español para este título. Consulta de nuevo pronto o revisa los anuncios entre usuarios.`;
 
   const faqs: GameFaqItem[] = [
     {
@@ -117,7 +117,7 @@ export function buildGameFaq(
     faqs.push({
       question: `¿Dónde comprar ${game.title} en España?`,
       answer:
-        "Revisa los anuncios verificados entre usuarios Pro en esta ficha. Cada anuncio incluye fotos obligatorias y una estimación IA dentro del rango de mercado PAL ES.",
+        "Revisa los anuncios verificados entre usuarios en esta ficha. Cada anuncio incluye fotos obligatorias y una estimación IA dentro del rango de mercado PAL ES.",
     });
   }
 

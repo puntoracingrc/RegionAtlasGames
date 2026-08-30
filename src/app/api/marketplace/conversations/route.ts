@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
-import { findConversation, getUserConversations, startConversation } from "@/lib/conversations";
-import { canUseMarketplace } from "@/lib/plans";
+import { getUserConversations, startConversation } from "@/lib/conversations";
 import { getCurrentUser } from "@/lib/users";
 import { getListing } from "@/lib/listings";
+import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
 
 export async function GET() {
   const user = await getCurrentUser();
-  if (!user || !canUseMarketplace(user.plan)) {
-    return NextResponse.json({ error: "Plan Pro requerido." }, { status: 403 });
+  if (!user) {
+    return NextResponse.json({ error: "Inicia sesión." }, { status: 401 });
   }
 
   const conversations = await Promise.all((await getUserConversations(user.id)).map(async (conv) => {
@@ -36,9 +36,16 @@ export async function GET() {
 
 export async function POST(request: Request) {
   const user = await getCurrentUser();
-  if (!user || !canUseMarketplace(user.plan)) {
-    return NextResponse.json({ error: "Plan Pro requerido." }, { status: 403 });
+  if (!user) {
+    return NextResponse.json({ error: "Inicia sesión." }, { status: 401 });
   }
+  const rateLimited = await marketplaceRateLimitResponse(request, {
+    action: "conversation-start",
+    userId: user.id,
+    limit: 40,
+    windowMs: 60 * 60 * 1000,
+  });
+  if (rateLimited) return rateLimited;
 
   const body = await request.json();
   const listingId = String(body.listingId ?? "").trim();

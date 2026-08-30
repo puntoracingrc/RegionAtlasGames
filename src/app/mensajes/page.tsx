@@ -2,13 +2,11 @@ import { redirect } from "next/navigation";
 import { MessagesInboxClient } from "@/components/messages-inbox-client";
 import { getUserConversations } from "@/lib/conversations";
 import { getListing } from "@/lib/listings";
-import { canUseMarketplace } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
 export default async function MessagesPage() {
   const user = await getCurrentUser();
   if (!user) redirect("/login");
-  if (!canUseMarketplace(user.plan)) redirect("/ajustes");
 
   const conversations = await Promise.all((await getUserConversations(user.id)).map(async (conv) => {
     const listing = await getListing(conv.listingId);

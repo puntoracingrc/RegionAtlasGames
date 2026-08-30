@@ -65,8 +65,8 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
         ) : (
           <StatCard
             label="Valor venta"
-            value="Pro"
-            hint={`${summary.withEsPrice} con precio · desbloquea el total en Ajustes`}
+            value="—"
+            hint={`${summary.withEsPrice} con precio · inicia sesión para ver el total`}
             locked
           />
         )}

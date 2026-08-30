@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { BackLink } from "@/components/breadcrumbs";
-import type { MarketplaceListing } from "@/lib/marketplace-types";
+import type { MarketplaceListingClientView } from "@/lib/marketplace-types";
 import { PHOTO_SLOT_LABELS, REQUIRED_PHOTO_SLOTS } from "@/lib/marketplace-types";
 import { formatEur } from "@/lib/price-format";
 import { coverAspectClass, LISTING_PHOTOS_GRID_CLASS } from "@/lib/cover-aspect";
@@ -14,7 +14,7 @@ import { SiteNav } from "@/components/site-nav";
 import { Panel, PanelTitle } from "@/components/ui";
 
 type Props = {
-  listing: MarketplaceListing;
+  listing: MarketplaceListingClientView;
   isOwner: boolean;
   quotaRemaining: number;
   catalogHref: string;
@@ -238,7 +238,11 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
 
         {current.aiAnalysis && (
           <Panel className="mb-6">
-            <PanelTitle>Análisis IA (privado entre partes)</PanelTitle>
+            <PanelTitle>
+              {current.aiAnalysis.model.startsWith("pal-es-heuristic")
+                ? "Análisis automático (privado entre partes)"
+                : "Análisis IA (privado entre partes)"}
+            </PanelTitle>
             <ConditionMeter score={current.aiAnalysis.conditionScore} />
             <p className="mt-3 text-sm text-foreground">{current.aiAnalysis.conditionVerdict}</p>
             <p className="mt-2 text-lg font-bold text-accent">
@@ -362,16 +366,22 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                   disabled={loading || missing.length > 0}
                   onClick={runAnalyze}
                 >
-                  Analizar con IA ({quotaRemaining} restantes)
+                  Analizar fotos ({quotaRemaining} restantes)
                 </button>
-                <button
-                  type="button"
-                  className="btn-primary"
-                  disabled={loading || !current.aiAnalysis || missing.length > 0}
-                  onClick={publish}
-                >
-                  Publicar anuncio
-                </button>
+                {current.status === "draft" ? (
+                  <button
+                    type="button"
+                    className="btn-primary"
+                    disabled={loading || !current.aiAnalysis || missing.length > 0}
+                    onClick={publish}
+                  >
+                    Publicar anuncio
+                  </button>
+                ) : (
+                  <span className="inline-flex items-center rounded-lg border border-emerald-400/30 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-700 dark:text-emerald-300">
+                    Anuncio publicado
+                  </span>
+                )}
                 <button
                   type="button"
                   className="rounded-lg border border-border px-4 py-2 text-sm text-muted transition hover:border-rose-400/40 hover:text-rose-300"

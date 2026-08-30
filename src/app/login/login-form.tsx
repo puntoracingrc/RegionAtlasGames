@@ -106,7 +106,7 @@ export function LoginForm() {
         <Panel>
           <PanelTitle>Iniciar sesión</PanelTitle>
           <p className="mb-4 text-sm text-muted">
-            Accede para guardar juegos en tu colección y usar el mercado Pro.
+            Accede para guardar juegos en tu colección y usar el mercado entre usuarios.
           </p>
 
           <GoogleSignInButton />

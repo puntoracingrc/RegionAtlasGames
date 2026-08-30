@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createListingDraft } from "@/lib/listings";
-import { canUseMarketplace } from "@/lib/plans";
+import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
 import { getCurrentUser } from "@/lib/users";
 
 export async function POST(request: Request) {
@@ -8,13 +8,13 @@ export async function POST(request: Request) {
   if (!user) {
     return NextResponse.json({ error: "Inicia sesión." }, { status: 401 });
   }
-  if (!canUseMarketplace(user.plan)) {
-    return NextResponse.json(
-      { error: "El mercado requiere plan Pro." },
-      { status: 403 },
-    );
-  }
-
+  const rateLimited = await marketplaceRateLimitResponse(request, {
+    action: "listing-create",
+    userId: user.id,
+    limit: 20,
+    windowMs: 60 * 60 * 1000,
+  });
+  if (rateLimited) return rateLimited;
   const body = await request.json();
   const collectionItemId = String(body.collectionItemId ?? "").trim();
   if (!collectionItemId) {

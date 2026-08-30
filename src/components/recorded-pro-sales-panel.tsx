@@ -10,13 +10,13 @@ export async function RecordedProSalesPanel({ catalogId }: Props) {
 
   return (
     <Panel>
-      <PanelTitle>Ventas Pro registradas (privado)</PanelTitle>
+      <PanelTitle>Ventas registradas (privado)</PanelTitle>
       <p className="text-sm text-muted">
-        {count} venta{count !== 1 ? "s" : ""} cerrada{count !== 1 ? "s" : ""} entre usuarios Pro con
-        doble confirmación. Datos anónimos — no sustituyen el precio P2P verificado hasta Fase 6.
+        {count} venta{count !== 1 ? "s" : ""} cerrada{count !== 1 ? "s" : ""} entre usuarios con
+        doble confirmación. Son datos anónimos que complementan las estimaciones del catálogo.
       </p>
       <p className="mt-2 text-lg font-semibold text-foreground">
-        Mediana Pro: {medianEur != null ? formatEur(medianEur) : "—"}
+        Mediana registrada: {medianEur != null ? formatEur(medianEur) : "—"}
       </p>
       {latestAt && (
         <p className="mt-1 text-xs text-muted">

@@ -132,7 +132,7 @@ function ListingRow({
           </p>
           {listing.aiAnalysis?.conditionScore != null && (
             <p className="mt-1 text-xs text-muted">
-              Estado IA: {conditionScoreOutOfTen(listing.aiAnalysis.conditionScore)}/10 ·{" "}
+              Análisis: {conditionScoreOutOfTen(listing.aiAnalysis.conditionScore)}/10 ·{" "}
               {listing.aiAnalysis.conditionVerdict}
             </p>
           )}

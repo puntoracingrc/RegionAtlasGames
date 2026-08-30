@@ -11,8 +11,8 @@ export function CollectionValueUpsell({ compact, className = "", itemCount }: Pr
     return (
       <span className={`text-foreground/85 ${className}`.trim()}>
         Valor total —{" "}
-        <Link href="/ajustes" className="font-semibold text-accent hover:underline">
-          Pro
+        <Link href="/login" className="font-semibold text-accent hover:underline">
+          inicia sesión
         </Link>
       </span>
     );
@@ -26,7 +26,7 @@ export function CollectionValueUpsell({ compact, className = "", itemCount }: Pr
         Valor de tu colección
       </p>
       <p className="mt-2 text-lg font-semibold text-foreground">
-        Disponible con plan Pro
+        Disponible al iniciar sesión
       </p>
       {itemCount != null && itemCount > 0 && (
         <p className="mt-1 text-sm text-muted">
@@ -34,11 +34,11 @@ export function CollectionValueUpsell({ compact, className = "", itemCount }: Pr
         </p>
       )}
       <p className="mt-2 max-w-xl text-sm text-muted">
-        Puedes importar y gestionar toda tu colección gratis. El valor total estimado y el desglose
-        por plataforma se muestran solo en cuentas de pago.
+        Crea una cuenta para guardar tu colección y consultar su valor estimado y el desglose por
+        plataforma.
       </p>
-      <Link href="/ajustes" className="btn-primary mt-4 inline-flex">
-        Ver plan Pro
+      <Link href="/login" className="btn-primary mt-4 inline-flex">
+        Iniciar sesión
       </Link>
     </section>
   );

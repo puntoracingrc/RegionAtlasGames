@@ -1,15 +1,22 @@
 import { NextResponse } from "next/server";
 import { getListing, updateListing } from "@/lib/listings";
-import { canUseMarketplace } from "@/lib/plans";
+import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
 import { getCurrentUser } from "@/lib/users";
 
 type Params = { params: Promise<{ id: string }> };
 
 export async function PATCH(request: Request, { params }: Params) {
   const user = await getCurrentUser();
-  if (!user || !canUseMarketplace(user.plan)) {
-    return NextResponse.json({ error: "Plan Pro requerido." }, { status: 403 });
+  if (!user) {
+    return NextResponse.json({ error: "Inicia sesión." }, { status: 401 });
   }
+  const rateLimited = await marketplaceRateLimitResponse(request, {
+    action: "listing-update",
+    userId: user.id,
+    limit: 120,
+    windowMs: 60 * 60 * 1000,
+  });
+  if (rateLimited) return rateLimited;
 
   const { id } = await params;
   const listing = await getListing(id);
