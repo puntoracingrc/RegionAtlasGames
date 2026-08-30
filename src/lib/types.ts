@@ -221,6 +221,10 @@ export type CatalogGame = {
   edition: string;
   /** Si la edición física incluía manual de fábrica; null/ausente = por confirmar. */
   manualExpected?: boolean | null;
+  /** Contenido incluido de fábrica en esta edición física, confirmado o aprendido. */
+  originalContents?: string[] | null;
+  originalContentsSource?: string | null;
+  originalContentsUpdatedAt?: string | null;
   listingStatus: "listed" | "pending" | "excluded";
   excludeCategory?: string | null;
   excludeReason?: string | null;

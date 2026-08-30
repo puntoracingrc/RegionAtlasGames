@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from collectors.condition_buckets import mean_by_bucket, source_weight  # noqa: E402
-from sync_es_prices import collect_condition_observations  # noqa: E402
+from sync_es_prices import apply_learned_original_contents, collect_condition_observations  # noqa: E402
 
 
 def main() -> None:
@@ -61,6 +61,28 @@ def main() -> None:
         [(100.0, "complete", "ebay-es"), (20.0, "complete", "todoconsolas")]
     )
     assert weighted["complete"] == 68.48
+
+    content_game: dict[str, object] = {}
+    assert apply_learned_original_contents(
+        content_game,
+        {
+            "manualExpected": True,
+            "originalContentsExpected": ["manual", "map", "poster"],
+            "originalContentsSource": "accepted_admin_decision",
+        },
+        synced_at="2026-08-30T10:00:00Z",
+    )
+    assert content_game["originalContents"] == ["manual", "map", "poster"]
+    assert content_game["manualExpected"] is True
+    assert not apply_learned_original_contents(
+        {},
+        {
+            "manualExpected": True,
+            "originalContentsExpected": ["manual"],
+            "originalContentsSource": "platform_generation_default",
+        },
+        synced_at="2026-08-30T10:00:00Z",
+    )
     print("OK weighted stored price sources")
 
 

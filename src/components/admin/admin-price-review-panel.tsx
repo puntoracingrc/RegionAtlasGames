@@ -9,6 +9,12 @@ import type {
   PriceReviewTriageFilter,
 } from "@/lib/admin-price-review";
 import { getCoverSrc } from "@/lib/cover-url";
+import {
+  ORIGINAL_GAME_CONTENT_KEYS,
+  ORIGINAL_GAME_CONTENT_LABELS,
+  normalizeOriginalGameContents,
+  type OriginalGameContentKey,
+} from "@/lib/original-game-contents";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { adminToneClass } from "./admin-visual";
 
@@ -242,6 +248,15 @@ function ReviewCard({
   const [region, setRegion] = useState(item.detectedRegion ?? item.targetRegion ?? "");
   const [condition, setCondition] = useState<PriceReviewCondition>((item.condition as PriceReviewCondition) || "unknown");
   const [note, setNote] = useState("");
+  const initialOriginalContents = normalizeOriginalGameContents(
+    item.catalogPreview?.originalContents
+      ?? item.evidence?.originalContentsExpected
+      ?? (item.catalogPreview?.manualExpected === true || item.evidence?.manualExpected === true
+        ? ["manual"]
+        : []),
+  );
+  const [originalContents, setOriginalContents] = useState<OriginalGameContentKey[]>(initialOriginalContents);
+  const [originalContentsTouched, setOriginalContentsTouched] = useState(false);
   const [state, setState] = useState<"idle" | "saving" | "error">("idle");
   const [message, setMessage] = useState("");
   const [cloneBaseCatalogId, setCloneBaseCatalogId] = useState(
@@ -293,7 +308,14 @@ function ReviewCard({
     const response = await fetch(`/api/admin/price-reviews/${encodeURIComponent(item.id)}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action, catalogId, region, condition, note }),
+      body: JSON.stringify({
+        action,
+        catalogId,
+        region,
+        condition,
+        note,
+        ...(originalContentsTouched ? { originalContents } : {}),
+      }),
     });
     const data = await response.json().catch(() => null) as { error?: string } | null;
     if (!response.ok) {
@@ -302,6 +324,17 @@ function ReviewCard({
       return;
     }
     onDone(item.id);
+  }
+
+  function toggleOriginalContent(content: OriginalGameContentKey) {
+    setOriginalContentsTouched(true);
+    setOriginalContents((current) => (
+      current.includes(content)
+        ? current.filter((itemContent) => itemContent !== content)
+        : ORIGINAL_GAME_CONTENT_KEYS.filter((itemContent) => (
+            itemContent === content || current.includes(itemContent)
+          ))
+    ));
   }
 
   async function cloneRegionCatalog() {
@@ -409,6 +442,14 @@ function ReviewCard({
               <dt className="font-semibold text-muted">IA</dt>
               <dd className="text-foreground">{item.evidence?.aiConfidence != null ? `Confianza ${formatConfidence(item.evidence.aiConfidence)}` : "No usada"}</dd>
             </div>
+            <div>
+              <dt className="font-semibold text-muted">Contenido original</dt>
+              <dd className="text-foreground">
+                {initialOriginalContents.length > 0
+                  ? initialOriginalContents.map((content) => ORIGINAL_GAME_CONTENT_LABELS[content]).join(" · ")
+                  : "Por confirmar"}
+              </dd>
+            </div>
           </dl>
 
           {item.triageReason || item.evidence?.originRegionHint ? (
@@ -502,6 +543,23 @@ function ReviewCard({
               <input value={note} onChange={(event) => setNote(event.target.value)} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent" />
             </label>
           </div>
+
+          <fieldset className="mt-4 border-t border-border pt-4">
+            <legend className="text-xs font-bold text-foreground">Contenido original de fábrica</legend>
+            <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+              {ORIGINAL_GAME_CONTENT_KEYS.map((content) => (
+                <label key={content} className="flex items-center gap-2 text-xs font-semibold text-muted">
+                  <input
+                    type="checkbox"
+                    checked={originalContents.includes(content)}
+                    onChange={() => toggleOriginalContent(content)}
+                    className="size-4 accent-amber-500"
+                  />
+                  {ORIGINAL_GAME_CONTENT_LABELS[content]}
+                </label>
+              ))}
+            </div>
+          </fieldset>
 
           <section className="mt-4 border-t border-amber-300/60 pt-4 dark:border-amber-400/30">
             <p className="text-xs font-bold text-foreground">Crear ficha para otra región</p>

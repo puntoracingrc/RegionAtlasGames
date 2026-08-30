@@ -18,6 +18,7 @@ from collectors.catalog_ai_match import ai_available, product_cache_key
 from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.catalog_match import product_title
 from collectors.common import load_json, load_platforms, now_iso, save_json
+from collectors.condition_buckets import infer_condition_bucket
 from collectors.physical_edition import catalog_physical_edition, physical_edition_label
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -29,6 +30,7 @@ DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 MIN_CONFIDENCE = 0.75
 DESCRIPTION_MAX = 2000
+LISTING_AI_POLICY = "wallapop_listing_ai_v5_original_contents"
 
 
 def batch_size() -> int:
@@ -146,7 +148,7 @@ def listing_content_fingerprint(product: dict[str, Any]) -> str:
     title, price = listing_snapshot(product)
     description = str(product.get("description") or "")
     images = [str(url) for url in (product.get("imageUrls") or []) if url]
-    payload = "\n".join([title, f"{price:.2f}", description, *images])
+    payload = "\n".join([LISTING_AI_POLICY, title, f"{price:.2f}", description, *images])
     return hashlib.sha1(payload.encode("utf-8")).hexdigest()
 
 
@@ -235,6 +237,11 @@ def _build_system_prompt(game: dict[str, Any], platform_slug: str) -> str:
     title = str(game.get("title") or "")
     physical_edition = physical_edition_label(catalog_physical_edition(game))
     manual_expected = game.get("manualExpected") if isinstance(game.get("manualExpected"), bool) else None
+    original_contents_expected = [
+        str(item)
+        for item in (game.get("originalContentsExpected") or [])
+        if item
+    ]
     manual_rule = (
         "Esta edición incluía manual de fábrica: sin manual no es complete. "
         if manual_expected is True
@@ -246,6 +253,7 @@ def _build_system_prompt(game: dict[str, Any], platform_slug: str) -> str:
         "Experto en videojuegos retro. Clasifica anuncios de Wallapop ES.\n"
         f"Objetivo catálogo: «{title}» ({catalog_region}) para {platform_name}.\n"
         f"Edición física objetivo: {physical_edition}.\n"
+        f"Contenido original ya conocido: {', '.join(original_contents_expected) or 'por confirmar'}.\n"
         "Responde JSON: "
         '{"results":[{"externalId":"...","isVideoGame":bool,"isTargetGame":bool,'
         '"listingRegion":"PAL Europa|PAL España|PAL UK/ENG|USA|Japón|unknown",'
@@ -261,8 +269,11 @@ def _build_system_prompt(game: dict[str, Any], platform_slug: str) -> str:
         "Cree las afirmaciones explícitas sobre edición física y estado. "
         "'Juego en español', voces o subtítulos en español solo describen idioma jugable y no prueban PAL España. "
         "PEGI solo prueba familia PAL europea. "
-        "'Desprecintado' significa complete, nunca sealed. "
+        "'No precintado', 'desprecintado', 'sin precinto' o 'precinto abierto' significan complete si no falta contenido, nunca sealed. "
+        "'Nuevo', 'a estrenar' o 'sin uso' sin una afirmación explícita de precinto no prueban sealed: devuelve null y deja que lo decidan las fotos. "
+        "No supongas complete si el texto no declara caja y contenido o que está completo: devuelve null. "
         f"{manual_rule}"
+        "Si se conoce contenido original adicional, complete exige conservar todos esos elementos. "
         "Si incluye artbook, steelbook, figura u otro extra ajeno a la edición objetivo, isTargetGame=false para valorar el precio."
     )
 
@@ -292,6 +303,12 @@ def _classify_batch(
 
     by_id = {str(row.get("externalId") or ""): row for row in batch_results if isinstance(row, dict)}
     out: dict[str, ListingAiResult] = {}
+    manual_expected = game.get("manualExpected") if isinstance(game.get("manualExpected"), bool) else None
+    original_contents_expected = [
+        str(item)
+        for item in (game.get("originalContentsExpected") or [])
+        if item
+    ]
     for product in batch:
         rid = str(product.get("externalId") or "")
         row = by_id.get(rid) or {
@@ -301,7 +318,17 @@ def _classify_batch(
             "confidence": 0,
             "reason": "sin_respuesta_ia",
         }
-        out[rid or product_cache_key(product, "wallapop") or ""] = ListingAiResult.from_dict(row)
+        result = ListingAiResult.from_dict(row)
+        listing_text = " ".join(
+            str(product.get(key) or "")
+            for key in ("title", "description", "characteristics")
+        )
+        result.condition = infer_condition_bucket(
+            listing_text,
+            manual_expected=manual_expected,
+            original_contents_expected=original_contents_expected,
+        )
+        out[rid or product_cache_key(product, "wallapop") or ""] = result
     return out
 
 
@@ -431,11 +458,10 @@ def passes_listing_ai(
     *,
     catalog_region: str,
 ) -> bool:
-    if not result.is_video_game:
-        return False
-    if result.confidence < MIN_CONFIDENCE:
-        return False
-    return True
+    del catalog_region
+    # El texto solo filtra productos que claramente no son videojuegos. Una
+    # duda de edición, región o estado debe llegar a las fotos del anuncio.
+    return result.is_video_game
 
 
 def result_key(product: dict[str, Any]) -> str:

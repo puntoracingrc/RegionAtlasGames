@@ -39,6 +39,10 @@ import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { getPlatform, isPublicCatalogGame } from "@/lib/catalog";
 import { grailLabel, isGrailGame, isTopInSegment, topSegmentLabel } from "@/lib/game-highlight";
 import { esPriceDisplayLabel } from "@/lib/price-display";
+import {
+  ORIGINAL_GAME_CONTENT_LABELS,
+  resolveOriginalGameContents,
+} from "@/lib/original-game-contents";
 import { resolveGameEntityLinks } from "@/lib/entity-links";
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
@@ -123,6 +127,7 @@ export default async function CatalogGamePage({ params }: Props) {
   const grail = isGrailGame(game);
   const topSegment = isTopInSegment(game);
   const priceStatus = esPriceDisplayLabel(game);
+  const originalContentProfile = resolveOriginalGameContents(game);
   const regionLabel = getRegionDisplay(game.region).label;
   const similar = getSimilarGames(game);
   const faqs = buildGameFaq(game, platform, details);
@@ -254,6 +259,17 @@ export default async function CatalogGamePage({ params }: Props) {
             )}
 
             <GameProductReference game={game} details={details} />
+
+            {originalContentProfile.contents.length > 0 && (
+              <Panel>
+                <PanelTitle>Contenido original</PanelTitle>
+                <p className="text-sm leading-6 text-muted">
+                  {originalContentProfile.contents
+                    .map((content) => ORIGINAL_GAME_CONTENT_LABELS[content])
+                    .join(" · ")}
+                </p>
+              </Panel>
+            )}
 
             <CollectionToggle
               catalogId={game.id}

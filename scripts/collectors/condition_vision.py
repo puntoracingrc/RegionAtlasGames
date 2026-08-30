@@ -85,6 +85,7 @@ def classify_condition_from_images(
     source: str,
     cache_key: str,
     manual_expected: bool | None = None,
+    original_contents_expected: list[str] | None = None,
     use_cache: bool = True,
 ) -> tuple[str | None, float, str | None]:
     urls = [u for u in image_urls if u][:MAX_IMAGES]
@@ -113,6 +114,8 @@ def classify_condition_from_images(
                 f"Título anuncio: {title}\n\n"
                 f"¿La edición incluía manual de fábrica?: "
                 f"{'sí' if manual_expected is True else 'no' if manual_expected is False else 'desconocido'}\n\n"
+                f"Contenido original ya conocido para esta edición: "
+                f"{', '.join(original_contents_expected or []) or 'por confirmar'}\n\n"
                 "Clasifica el ESTADO FÍSICO de la copia en venta mirando la(s) foto(s).\n"
                 "Responde JSON: "
                 '{"bucket":"loose|game_manual|complete|sealed|null","confidence":0-1,"reason":"..."}\n\n'
@@ -120,6 +123,7 @@ def classify_condition_from_images(
                 "- loose: solo cartucho/disco/medio suelto, sin caja retail completa\n"
                 "- game_manual: juego/cartucho/disco con manual visible, pero sin caja retail\n"
                 "- complete: copia abierta con todo lo que esa edición incluía de fábrica\n"
+                "- si se conoce una lista de contenido original, complete exige conservar todos esos elementos\n"
                 "- si manual_expected=true, una copia sin manual NO es complete; devuelve null\n"
                 "- si manual_expected=false, caja + juego puede ser complete sin manual\n"
                 "- sealed: precintado de fábrica, film plástico intacto, sin abrir\n"
@@ -129,7 +133,7 @@ def classify_condition_from_images(
         }
     ]
     for url in urls:
-        user_content.append({"type": "image_url", "image_url": {"url": url, "detail": "low"}})
+        user_content.append({"type": "image_url", "image_url": {"url": url, "detail": "high"}})
 
     try:
         raw = _openai_vision(
@@ -162,6 +166,7 @@ def classify_condition_from_images(
             "title": title,
             "platformSlug": platform_slug,
             "source": source,
+            "originalContentsExpected": original_contents_expected,
             "resolvedAt": now_iso(),
             "model": os.environ.get("OPENAI_VISION_MODEL")
             or os.environ.get("OPENAI_MODEL", DEFAULT_MODEL),

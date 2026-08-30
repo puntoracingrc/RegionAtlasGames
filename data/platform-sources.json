@@ -4,6 +4,10 @@
   "platforms": {
     "nes": {
       "searchKeyword": "nes",
+      "searchAliases": [
+        "nes",
+        "nintendo entertainment system"
+      ],
       "cex": [
         "1155"
       ],
@@ -20,6 +24,10 @@
     },
     "snes": {
       "searchKeyword": "snes",
+      "searchAliases": [
+        "snes",
+        "super nintendo"
+      ],
       "cex": [
         "1027"
       ],
@@ -37,6 +45,10 @@
     },
     "n64": {
       "searchKeyword": "n64",
+      "searchAliases": [
+        "n64",
+        "nintendo 64"
+      ],
       "cex": [
         "1019"
       ],
@@ -134,6 +146,10 @@
     },
     "mastersystem": {
       "searchKeyword": "mastersystem",
+      "searchAliases": [
+        "mastersystem",
+        "master system"
+      ],
       "cex": [
         "1147"
       ],
@@ -149,6 +165,10 @@
     },
     "megadrive": {
       "searchKeyword": "megadrive",
+      "searchAliases": [
+        "megadrive",
+        "mega drive"
+      ],
       "cex": [
         "1151"
       ],
@@ -243,6 +263,11 @@
     },
     "neogeo": {
       "searchKeyword": "neogeo",
+      "searchAliases": [
+        "neogeo",
+        "neo geo",
+        "neo geo aes"
+      ],
       "ebaySearchKeyword": "neo geo aes",
       "cex": [
         "212"
@@ -296,6 +321,11 @@
     },
     "ps1": {
       "searchKeyword": "ps1",
+      "searchAliases": [
+        "ps1",
+        "playstation 1",
+        "psx"
+      ],
       "cex": [
         "1088"
       ],
@@ -314,6 +344,10 @@
     },
     "ps2": {
       "searchKeyword": "ps2",
+      "searchAliases": [
+        "ps2",
+        "playstation 2"
+      ],
       "cex": [
         "824"
       ],
@@ -332,6 +366,10 @@
     },
     "ps3": {
       "searchKeyword": "ps3",
+      "searchAliases": [
+        "ps3",
+        "playstation 3"
+      ],
       "cex": [
         "821"
       ],
@@ -347,6 +385,10 @@
     },
     "ps4": {
       "searchKeyword": "ps4",
+      "searchAliases": [
+        "ps4",
+        "playstation 4"
+      ],
       "cex": [
         "1001"
       ],
@@ -360,11 +402,22 @@
       "serialstationConsole": "PS4"
     },
     "ps5": {
+      "searchKeyword": "ps5",
+      "searchAliases": [
+        "ps5",
+        "playstation 5"
+      ],
       "todoconsolas": [
         "359-juegos-ps5"
       ]
     },
     "switch2": {
+      "searchKeyword": "switch2",
+      "searchAliases": [
+        "switch2",
+        "switch 2",
+        "nintendo switch 2"
+      ],
       "todoconsolas": [
         "392-juegos-switch-2"
       ]

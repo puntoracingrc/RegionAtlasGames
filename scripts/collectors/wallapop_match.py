@@ -7,7 +7,7 @@ from typing import Any
 
 from collectors.catalog_match import is_manual_only_listing, product_title
 from collectors.condition_buckets import DISPLAY_BUCKETS, infer_condition_bucket
-from collectors.game_content_profile import manual_missing_declared
+from collectors.game_content_profile import manual_missing_declared, missing_original_contents
 from collectors.jgo_match import infer_condition
 from collectors.listing_images import attach_image_urls
 from collectors.listing_region_enrich import enrich_listing_region_from_cover
@@ -167,6 +167,8 @@ def product_to_ingest_row(
     game_title: str | None = None,
     manual_expected: bool | None = None,
     manual_expectation_source: str | None = None,
+    original_contents_expected: list[str] | None = None,
+    original_contents_source: str | None = None,
 ) -> dict[str, Any] | None:
     title = product_title(product)
     description = str(product.get("description") or "").strip()
@@ -224,14 +226,19 @@ def product_to_ingest_row(
         full_text,
         condition_raw=raw_cond,
         manual_expected=manual_expected,
+        original_contents_expected=original_contents_expected,
     )
     missing_required_manual = (
         manual_expected is not False and manual_missing_declared(full_text)
+    )
+    missing_required_content = bool(
+        missing_original_contents(full_text, original_contents_expected)
     )
     if (
         ai_result
         and not bucket
         and not missing_required_manual
+        and not missing_required_content
         and ai_result.condition in DISPLAY_BUCKETS
     ):
         bucket = ai_result.condition
@@ -268,6 +275,7 @@ def product_to_ingest_row(
             require_condition=True,
             catalog_id=catalog_id,
             manual_expected=manual_expected,
+            original_contents_expected=original_contents_expected,
         )
     )
 
@@ -299,6 +307,9 @@ def product_to_ingest_row(
     if manual_expected is not None:
         row["manualExpected"] = manual_expected
         row["manualExpectationSource"] = manual_expectation_source or "catalog"
+    if original_contents_expected is not None:
+        row["originalContentsExpected"] = original_contents_expected
+        row["originalContentsSource"] = original_contents_source or "catalog"
     if description:
         row["description"] = description[:3000]
     if characteristics:
@@ -332,7 +343,11 @@ def product_to_ingest_row(
     if product.get("listedAt"):
         row["listedAt"] = product["listedAt"]
     if vision_condition in DISPLAY_BUCKETS:
+        if bucket and bucket != vision_condition:
+            row["conditionTextValue"] = bucket
+            row["conditionConflictDetected"] = True
         bucket = vision_condition
+        row["conditionResolvedBy"] = "cover_vision"
     if bucket:
         row["condition"] = bucket
     if ai_result and match_method == "search":

@@ -146,6 +146,8 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
             "conditionRaw": row.get("conditionRaw"),
             "manualExpected": row.get("manualExpected"),
             "manualExpectationSource": row.get("manualExpectationSource"),
+            "originalContentsExpected": row.get("originalContentsExpected"),
+            "originalContentsSource": row.get("originalContentsSource"),
             "searchedCatalogId": row.get("searchedCatalogId"),
             "originCountry": row.get("originCountry"),
             "originRegionHint": row.get("originRegionHint"),
