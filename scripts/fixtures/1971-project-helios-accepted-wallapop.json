@@ -1,0 +1,49 @@
+{
+  "platformSlug": "ps4",
+  "collectedAt": "2026-08-30T09:51:23Z",
+  "source": "wallapop",
+  "notes": "Dos anuncios revisados y aceptados por el administrador. No se publican enlaces de Wallapop.",
+  "listings": [
+    {
+      "catalogId": "ps4-1971-project-helios",
+      "source": "wallapop",
+      "listingType": "active",
+      "priceEur": 7.0,
+      "listingRegion": "PAL Europa",
+      "regionVerified": true,
+      "regionEvidence": [
+        "cover_pal_eu",
+        "photo_region_mark",
+        "cover_vision"
+      ],
+      "aiConfidence": 1.0,
+      "condition": "complete",
+      "title": "1971 Project Helios PS4",
+      "description": "Buen estado. Edición estándar abierta; contraportada PAL multilingüe comprobada en la galería.",
+      "humanReviewed": true
+    },
+    {
+      "catalogId": "ps4-1971-project-helios-collector%27s-edition",
+      "source": "wallapop",
+      "listingType": "active",
+      "priceEur": 20.0,
+      "listingRegion": "PAL España",
+      "regionVerified": true,
+      "regionEvidence": [
+        "listing_title_region",
+        "seller_states_physical_region",
+        "cover_vision"
+      ],
+      "aiConfidence": 1.0,
+      "condition": "sealed",
+      "title": "1971 Project Helios Collector's Edition PS4",
+      "description": "Sin abrir. Nuevo a estrenar y en PAL ES. Caja Collector's Edition comprobada en las fotos.",
+      "humanReviewed": true
+    }
+  ],
+  "cex": [],
+  "jgo": [],
+  "chollo": [],
+  "kaoto": [],
+  "tcns": []
+}

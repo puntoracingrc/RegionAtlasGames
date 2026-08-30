@@ -157,7 +157,7 @@ export function GamePriceHero({ game }: Props) {
       )}
 
       <p className="mt-3 text-xs text-muted/80">
-        Fuentes de mercado verificadas
+        Fuentes de mercado revisadas
         {updatedLabel ? ` · Último dato con precio: ${updatedLabel}` : ""}
       </p>
     </section>

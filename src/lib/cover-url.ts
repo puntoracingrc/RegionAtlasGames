@@ -22,5 +22,9 @@ export function getCoverSrc(
     return `${COVERS_PUBLIC_BASE_URL}/${relative}`;
   }
 
+  if (coverUrl.startsWith("/catalog-covers/")) {
+    return coverUrl;
+  }
+
   return null;
 }
