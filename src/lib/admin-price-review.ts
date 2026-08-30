@@ -61,6 +61,8 @@ export type PriceReviewItem = {
     aiConfidence?: number | null;
     reviewNotes?: string[];
     conditionRaw?: string | null;
+    manualExpected?: boolean | null;
+    manualExpectationSource?: string | null;
     catalogTitle?: string | null;
     catalogCoverUrl?: string | null;
     imageCapturedAt?: string | null;

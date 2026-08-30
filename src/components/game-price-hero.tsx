@@ -122,7 +122,6 @@ export function GamePriceHero({ game }: Props) {
                 <p className="mt-5 break-words text-2xl font-black tracking-tight text-foreground sm:text-3xl">
                   {formatEur(entry.price)}
                 </p>
-                <p className="mt-1 text-[11px] font-semibold uppercase text-muted">Solo artículo</p>
                 {entry.totalToSpain != null && (
                   <div className="mt-4 border-t border-border/70 pt-3 text-xs text-muted">
                     <div className="flex items-center justify-between gap-3">
@@ -146,17 +145,6 @@ export function GamePriceHero({ game }: Props) {
       {conditionPrices.length === 0 && game.recommendedPrice != null && (
         <p className="mt-5 text-3xl font-bold text-accent sm:text-4xl">
           {formatEur(game.recommendedPrice)}
-        </p>
-      )}
-
-      <p className="mt-5 text-sm leading-relaxed text-muted">
-        El valor principal es solo el artículo. Se calcula con anuncios de la variante regional
-        indicada y se separa de los costes para recibirlo en España.
-      </p>
-
-      {conditionPrices.length > 0 && (
-        <p className="mt-2 text-xs text-muted/80">
-          La etiqueta principal indica qué precio se usa como referencia rápida en el catálogo.
         </p>
       )}
 

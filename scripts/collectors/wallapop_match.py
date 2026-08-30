@@ -7,6 +7,7 @@ from typing import Any
 
 from collectors.catalog_match import is_manual_only_listing, product_title
 from collectors.condition_buckets import DISPLAY_BUCKETS, infer_condition_bucket
+from collectors.game_content_profile import manual_missing_declared
 from collectors.jgo_match import infer_condition
 from collectors.listing_images import attach_image_urls
 from collectors.listing_region_enrich import enrich_listing_region_from_cover
@@ -161,6 +162,8 @@ def product_to_ingest_row(
     ai_confidence: float | None = None,
     listing_ai: Any | None = None,
     game_title: str | None = None,
+    manual_expected: bool | None = None,
+    manual_expectation_source: str | None = None,
 ) -> dict[str, Any] | None:
     title = product_title(product)
     description = str(product.get("description") or "").strip()
@@ -214,8 +217,20 @@ def product_to_ingest_row(
         )
 
     raw_cond = infer_condition(full_text)
-    bucket = infer_condition_bucket(full_text, condition_raw=raw_cond)
-    if ai_result and not bucket and ai_result.condition in DISPLAY_BUCKETS:
+    bucket = infer_condition_bucket(
+        full_text,
+        condition_raw=raw_cond,
+        manual_expected=manual_expected,
+    )
+    missing_required_manual = (
+        manual_expected is not False and manual_missing_declared(full_text)
+    )
+    if (
+        ai_result
+        and not bucket
+        and not missing_required_manual
+        and ai_result.condition in DISPLAY_BUCKETS
+    ):
         bucket = ai_result.condition
 
     image_scratch: dict[str, Any] = {}
@@ -249,6 +264,7 @@ def product_to_ingest_row(
             known_condition=bucket,
             require_condition=True,
             catalog_id=catalog_id,
+            manual_expected=manual_expected,
         )
     )
 
@@ -277,6 +293,9 @@ def product_to_ingest_row(
         "matchMethod": match_method,
         "catalogRegion": catalog_region,
     }
+    if manual_expected is not None:
+        row["manualExpected"] = manual_expected
+        row["manualExpectationSource"] = manual_expectation_source or "catalog"
     if description:
         row["description"] = description[:3000]
     if characteristics:

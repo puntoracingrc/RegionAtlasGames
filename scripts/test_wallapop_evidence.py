@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from collectors.condition_buckets import infer_condition_bucket  # noqa: E402
 from collect_wallapop import route_row_to_detected_variant  # noqa: E402
 from collectors.game_region_learning import game_region_profile  # noqa: E402
+from collectors.game_content_profile import game_content_profile  # noqa: E402
 from collectors.region_inference import detect_listing_region  # noqa: E402
 from collectors.regional_variant_routing import strict_regions_match  # noqa: E402
 from collectors.wallapop_client import parse_item_detail_html  # noqa: E402
@@ -86,6 +87,21 @@ def test_condition_language() -> None:
         infer_condition_bucket("Caja abierta, juego y caja retail."),
         "complete",
         "caja abierta",
+    )
+    assert_equal(
+        infer_condition_bucket("Caja y disco, sin manual."),
+        None,
+        "sin manual y contenido original desconocido",
+    )
+    assert_equal(
+        infer_condition_bucket("Caja y disco, sin manual.", manual_expected=True),
+        None,
+        "sin manual cuando era obligatorio",
+    )
+    assert_equal(
+        infer_condition_bucket("Caja y disco, sin manual.", manual_expected=False),
+        "complete",
+        "sin manual cuando la edición nunca lo incluyó",
     )
 
 
@@ -320,6 +336,52 @@ def test_learning_only_from_accepted_reviews() -> None:
         assert_equal(len(examples[0]["imageUrls"]), 2, "referencias visuales aprendidas")
 
 
+def test_content_profile_only_learns_from_strong_accepted_evidence() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        queue_file = Path(tmp) / "price-review-queue.json"
+        queue_file.write_text(
+            json.dumps(
+                {
+                    "items": [
+                        {
+                            "id": "pending",
+                            "status": "pending",
+                            "catalogId": "ps4-game",
+                            "condition": "complete",
+                            "listingTitle": "Nuevo pero abierto",
+                            "evidence": {"imageUrls": ["front", "back"]},
+                        },
+                        {
+                            "id": "accepted",
+                            "status": "accepted",
+                            "catalogId": "ps4-game",
+                            "condition": "complete",
+                            "listingTitle": "Como nuevo pero sin manual",
+                            "decision": {"catalogId": "ps4-game", "condition": "complete"},
+                            "evidence": {"imageUrls": ["front", "back"]},
+                        },
+                    ]
+                }
+            ),
+            encoding="utf-8",
+        )
+        previous = os.environ.get("PRICE_REVIEW_QUEUE_FILE")
+        os.environ["PRICE_REVIEW_QUEUE_FILE"] = str(queue_file)
+        try:
+            profile = game_content_profile({"id": "ps4-game", "platformSlug": "ps4"})
+            explicit = game_content_profile(
+                {"id": "ps4-explicit", "platformSlug": "ps4", "manualExpected": False}
+            )
+        finally:
+            if previous is None:
+                os.environ.pop("PRICE_REVIEW_QUEUE_FILE", None)
+            else:
+                os.environ["PRICE_REVIEW_QUEUE_FILE"] = previous
+        assert_equal(profile["manualExpected"], True, "sin manual prueba que existía")
+        assert_equal(profile["manualExpectationSource"], "accepted_manual_evidence", "origen")
+        assert_equal(explicit["manualExpected"], False, "catálogo verificado prevalece")
+
+
 def main() -> None:
     test_detail_parser()
     test_condition_language()
@@ -329,6 +391,7 @@ def main() -> None:
     test_routes_a_found_region_to_its_catalog_variant()
     test_text_ai_is_a_hint_not_physical_region_proof()
     test_learning_only_from_accepted_reviews()
+    test_content_profile_only_learns_from_strong_accepted_evidence()
     print("OK Wallapop evidence v2")
 
 

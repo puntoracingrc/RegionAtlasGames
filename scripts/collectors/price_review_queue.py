@@ -144,6 +144,8 @@ def _row_to_item(row: dict[str, Any], source: str, platform_slug: str, ingest: d
             "aiConfidence": row.get("aiConfidence"),
             "reviewNotes": row.get("regionReviewNotes") or [],
             "conditionRaw": row.get("conditionRaw"),
+            "manualExpected": row.get("manualExpected"),
+            "manualExpectationSource": row.get("manualExpectationSource"),
             "searchedCatalogId": row.get("searchedCatalogId"),
             "originCountry": row.get("originCountry"),
             "originRegionHint": row.get("originRegionHint"),

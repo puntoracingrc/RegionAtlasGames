@@ -232,6 +232,14 @@ def _build_system_prompt(game: dict[str, Any], platform_slug: str) -> str:
     platform_name = str(platform.get("shortName") or platform.get("name") or platform_slug)
     catalog_region = str(game.get("region") or "")
     title = str(game.get("title") or "")
+    manual_expected = game.get("manualExpected") if isinstance(game.get("manualExpected"), bool) else None
+    manual_rule = (
+        "Esta edición incluía manual de fábrica: sin manual no es complete. "
+        if manual_expected is True
+        else "Esta edición no incluía manual de fábrica: caja + juego puede ser complete. "
+        if manual_expected is False
+        else "No supongas si esta edición incluía manual; una mención explícita a 'sin manual' requiere revisión. "
+    )
     return (
         "Experto en videojuegos retro. Clasifica anuncios de Wallapop ES.\n"
         f"Objetivo catálogo: «{title}» ({catalog_region}) para {platform_name}.\n"
@@ -249,6 +257,7 @@ def _build_system_prompt(game: dict[str, Any], platform_slug: str) -> str:
         "'Juego en español', voces o subtítulos en español solo describen idioma jugable y no prueban PAL España. "
         "PEGI solo prueba familia PAL europea. "
         "'Desprecintado' significa complete, nunca sealed. "
+        f"{manual_rule}"
         "Si incluye artbook, steelbook, figura u otro extra ajeno a la edición objetivo, isTargetGame=false para valorar el precio."
     )
 
