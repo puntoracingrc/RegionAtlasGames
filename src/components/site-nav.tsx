@@ -1,12 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AuthNav } from "@/components/auth-nav";
 import { SiteLogo } from "@/components/site-logo";
 import { cn } from "@/lib/cn";
 import type { PublicUser } from "@/lib/session";
+import { IntentLink } from "@/components/intent-link";
+import { LinkPendingFeedback } from "@/components/link-pending-feedback";
 
 const LINKS = [
   { href: "/", label: "Inicio" },
@@ -100,31 +101,34 @@ export function SiteNav({
         <div className="flex items-center justify-end gap-2 sm:gap-3 md:gap-5">
           <div className="hidden items-center gap-x-4 text-[13px] text-muted sm:flex">
             {navLinks.filter((link) => link.href !== "/ajustes" && link.href !== "/admin" && link.href !== "/contribuir").map((link) => (
-              <Link
+              <IntentLink
                 key={link.href}
                 href={link.href}
                 className="transition hover:text-foreground"
               >
                 {link.label}
-              </Link>
+                <LinkPendingFeedback label={`Abriendo ${link.label}…`} />
+              </IntentLink>
             ))}
           </div>
 
           {staffRole === "admin" && (
-            <Link
+            <IntentLink
               href="/admin"
               className="hidden rounded-md px-2 py-1.5 text-[13px] font-medium text-violet-700 transition hover:text-violet-900 dark:text-violet-300 sm:inline"
             >
               Admin
-            </Link>
+              <LinkPendingFeedback label="Abriendo administración…" />
+            </IntentLink>
           )}
           {staffRole === "contributor" && (
-            <Link
+            <IntentLink
               href="/contribuir"
               className="hidden rounded-md px-2 py-1.5 text-[13px] font-medium text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-300 sm:inline"
             >
               Contribuir
-            </Link>
+              <LinkPendingFeedback label="Abriendo contribuciones…" />
+            </IntentLink>
           )}
 
           <AuthNav initialUser={initialUser} />
@@ -162,7 +166,7 @@ export function SiteNav({
                     : pathname === link.href || pathname.startsWith(`${link.href}/`);
                 return (
                   <li key={link.href}>
-                    <Link
+                    <IntentLink
                       href={link.href}
                       className={cn(
                         "block rounded-lg px-3 py-2.5 text-sm transition",
@@ -173,7 +177,8 @@ export function SiteNav({
                       onClick={() => setOpen(false)}
                     >
                       {link.label}
-                    </Link>
+                      <LinkPendingFeedback label={`Abriendo ${link.label}…`} />
+                    </IntentLink>
                   </li>
                 );
               })}

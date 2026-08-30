@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 import { CoverArt } from "@/components/cover-art";
 import { RegionFlag } from "@/components/region-flag";
@@ -11,6 +10,8 @@ import { gameCardHighlightClass } from "@/lib/card-highlight";
 import { cn } from "@/lib/cn";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
+import { IntentLink } from "@/components/intent-link";
+import { LinkPendingFeedback } from "@/components/link-pending-feedback";
 
 const cardBase =
   "group relative flex flex-col overflow-hidden rounded-xl border bg-card transition-all duration-200 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/45 hover:bg-card-hover";
@@ -87,7 +88,7 @@ export function CatalogGameCard({
 
   return (
     <div className={cn(cardBase, gameCardHighlightClass(owned, grail, topSegment))}>
-      <Link href={catalogGamePath(game)} className="flex flex-1 flex-col">
+      <IntentLink href={catalogGamePath(game)} className="flex flex-1 flex-col">
         <CoverSlot
           image={getCoverSrc(game.coverUrl, game.id)}
           title={decodeHtmlEntities(game.title)}
@@ -109,7 +110,8 @@ export function CatalogGameCard({
           topSegment={topSegment}
           listingsForSale={listingsForSale}
         />
-      </Link>
+        <LinkPendingFeedback label="Abriendo ficha…" overlay />
+      </IntentLink>
       <CollectionQuickAdd
         catalogId={game.id}
         owned={owned}
@@ -167,18 +169,20 @@ export function CollectionGameCard({
   if (overlayAction) {
     return (
       <div className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment), "relative")}>
-        <Link href={href} className="flex flex-1 flex-col">
+        <IntentLink href={href} className="flex flex-1 flex-col">
           {body}
-        </Link>
+          <LinkPendingFeedback label="Abriendo ficha…" overlay />
+        </IntentLink>
         {overlayAction}
       </div>
     );
   }
 
   return (
-    <Link href={href} className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment))}>
+    <IntentLink href={href} className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment))}>
       {body}
-    </Link>
+      <LinkPendingFeedback label="Abriendo ficha…" overlay />
+    </IntentLink>
   );
 }
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { LoaderCircle } from "lucide-react";
 import { CatalogGameCard } from "@/components/game-card";
 import { CatalogPagination } from "@/components/catalog-pagination";
 import { HighlightLegend } from "@/components/highlight-legend";
@@ -28,6 +29,7 @@ import {
 import type { CatalogListGame } from "@/lib/types";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { formatEur } from "@/lib/price-format";
+import { cn } from "@/lib/cn";
 
 const selectClass =
   "h-10 w-full rounded-lg border border-border bg-input px-3 text-sm outline-none ring-accent/25 transition focus:border-accent/50 focus:ring-2";
@@ -157,6 +159,10 @@ export function CatalogBrowser({
   const [isLoading, setIsLoading] = useState(false);
   const canShowPriceLegend = showPriceLegend && source?.kind !== "platform";
   const [savedStateLoaded, setSavedStateLoaded] = useState(!persistKey);
+  const normalizedDraftLength = draftQ.trim().length;
+  const searchSettling =
+    draftQ !== q && (normalizedDraftLength === 0 || normalizedDraftLength >= 2);
+  const catalogBusy = isLoading || searchSettling;
 
   const regions = useMemo(
     () =>
@@ -314,8 +320,8 @@ export function CatalogBrowser({
     }
 
     const controller = new AbortController();
+    setIsLoading(true);
     const timeout = window.setTimeout(async () => {
-      setIsLoading(true);
       try {
         const params = new URLSearchParams({
           q,
@@ -394,6 +400,7 @@ export function CatalogBrowser({
   const resultEnd = Math.min(safePage * CATALOG_PAGE_SIZE, total);
 
   function goToPage(nextPage: number) {
+    setIsLoading(true);
     setPage(nextPage);
     gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -450,7 +457,17 @@ export function CatalogBrowser({
             </p>
             <h3 className="mt-1 text-lg font-black text-foreground">Explorar catálogo</h3>
           </div>
-          {(isLoading || draftQ !== q) && <p className="text-xs font-semibold text-accent">Actualizando catálogo…</p>}
+          <div
+            role="status"
+            aria-live="polite"
+            className={cn(
+              "flex min-h-6 items-center gap-2 text-xs font-semibold text-accent transition-opacity",
+              catalogBusy ? "opacity-100" : "opacity-0",
+            )}
+          >
+            <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin" />
+            Actualizando catálogo…
+          </div>
         </div>
 
         <div className="space-y-3">
@@ -625,10 +642,23 @@ export function CatalogBrowser({
               pageSize={CATALOG_PAGE_SIZE}
               total={total}
               onPageChange={goToPage}
+              disabled={catalogBusy}
             />
           )}
 
-          {catalogGrid}
+          <div className="relative" aria-busy={catalogBusy}>
+            <div className={cn("transition duration-200", catalogBusy && "pointer-events-none opacity-35")}>
+              {catalogGrid}
+            </div>
+            {catalogBusy ? (
+              <div className="pointer-events-none absolute inset-x-0 top-6 z-30 flex justify-center px-4">
+                <div className="flex items-center gap-3 rounded-lg border border-accent/35 bg-card px-4 py-3 text-sm font-semibold text-foreground shadow-xl">
+                  <LoaderCircle aria-hidden="true" className="h-5 w-5 animate-spin text-accent" />
+                  Actualizando resultados…
+                </div>
+              </div>
+            ) : null}
+          </div>
 
           {totalPages > 1 && (
             <CatalogPagination
@@ -636,6 +666,7 @@ export function CatalogBrowser({
               pageSize={CATALOG_PAGE_SIZE}
               total={total}
               onPageChange={goToPage}
+              disabled={catalogBusy}
             />
           )}
         </>

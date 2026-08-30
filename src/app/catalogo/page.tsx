@@ -13,6 +13,7 @@ import { publicListedCatalog } from "@/lib/catalog";
 import { getActiveListingCountsByCatalog } from "@/lib/listings";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
+import { toCatalogCardGame } from "@/lib/catalog-card-game";
 import { getDefaultCatalogInitialPage } from "@/lib/public-catalog-initial-page";
 import {
   publicCatalogRegionFilterOptions,
@@ -47,9 +48,11 @@ export default async function CatalogPage({ searchParams }: Props) {
   const initialPriceType = parsePriceType(params?.priceType);
   const initialSort = initialPriceType === "recommended" ? DEFAULT_SORT : "price-desc";
 
-  const user = await getCurrentUser();
+  const [user, listingCounts] = await Promise.all([
+    getCurrentUser(),
+    getActiveListingCountsByCatalog(),
+  ]);
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
-  const listingCounts = await getActiveListingCountsByCatalog();
   const hasInitialFilters =
     initialQuery.trim() !== "" ||
     initialPlatform !== "all" ||
@@ -75,6 +78,9 @@ export default async function CatalogPage({ searchParams }: Props) {
         { regions: true, platforms: true },
       )
     : getDefaultCatalogInitialPage();
+  const initialGames = hasInitialFilters
+    ? initialCatalog.items.slice(0, CATALOG_PAGE_SIZE).map(toCatalogCardGame)
+    : initialCatalog.items;
 
   return (
     <>
@@ -92,7 +98,7 @@ export default async function CatalogPage({ searchParams }: Props) {
         </header>
 
         <CatalogBrowser
-          games={initialCatalog.items.slice(0, CATALOG_PAGE_SIZE)}
+          games={initialGames}
           contextName="todo el catálogo"
           source={{ kind: "catalog" }}
           totalCount={initialCatalog.total}

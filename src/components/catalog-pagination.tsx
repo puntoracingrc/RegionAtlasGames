@@ -7,6 +7,7 @@ type Props = {
   pageSize: number;
   total: number;
   onPageChange: (page: number) => void;
+  disabled?: boolean;
   className?: string;
 };
 
@@ -19,7 +20,7 @@ function pageRange(page: number, totalPages: number): number[] {
   return [...pages].filter((p) => p >= 1 && p <= totalPages).sort((a, b) => a - b);
 }
 
-export function CatalogPagination({ page, pageSize, total, onPageChange, className }: Props) {
+export function CatalogPagination({ page, pageSize, total, onPageChange, disabled = false, className }: Props) {
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   if (totalPages <= 1) return null;
 
@@ -39,7 +40,7 @@ export function CatalogPagination({ page, pageSize, total, onPageChange, classNa
       <div className="flex flex-wrap items-center justify-center gap-1.5">
         <PaginationButton
           label="Anterior"
-          disabled={page <= 1}
+          disabled={disabled || page <= 1}
           onClick={() => onPageChange(page - 1)}
         />
 
@@ -51,6 +52,7 @@ export function CatalogPagination({ page, pageSize, total, onPageChange, classNa
               {showEllipsis && <span className="px-1 text-sm text-muted">…</span>}
               <button
                 type="button"
+                disabled={disabled || p === page}
                 onClick={() => onPageChange(p)}
                 aria-current={p === page ? "page" : undefined}
                 className={cn(
@@ -58,6 +60,7 @@ export function CatalogPagination({ page, pageSize, total, onPageChange, classNa
                   p === page
                     ? "cursor-default border-accent/40 bg-accent/15 font-semibold text-accent"
                     : "border-border bg-card text-foreground hover:border-accent/30 hover:bg-card-hover",
+                  disabled && "opacity-60",
                 )}
               >
                 {p}
@@ -68,7 +71,7 @@ export function CatalogPagination({ page, pageSize, total, onPageChange, classNa
 
         <PaginationButton
           label="Siguiente"
-          disabled={page >= totalPages}
+          disabled={disabled || page >= totalPages}
           onClick={() => onPageChange(page + 1)}
         />
       </div>
