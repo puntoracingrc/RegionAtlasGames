@@ -884,7 +884,34 @@ def apply_condition_price_estimates(
     if bucket_prices:
         game["marketMin"] = round(min(bucket_prices), 2)
         game["marketMax"] = round(max(bucket_prices), 2)
+
+    for bucket, shipping_field in SHIPPING_TO_SPAIN_FIELDS.items():
+        price = game.get(CONDITION_PRICE_FIELDS[bucket])
+        shipping = game.get(shipping_field)
+        if not isinstance(price, (int, float)) or price <= 0:
+            continue
+        if not isinstance(shipping, (int, float)) or shipping < 0:
+            continue
+        game[TOTAL_TO_SPAIN_FIELDS[bucket]] = round(float(price) + float(shipping), 2)
     return True
+
+
+def merge_scoped_platform_run_state(
+    previous: dict[str, Any],
+    run_state: dict[str, Any],
+    catalog_ids: set[str],
+) -> dict[str, Any]:
+    scoped = {
+        **run_state,
+        "scope": "catalog_ids",
+        "catalogIds": sorted(catalog_ids),
+    }
+    if not previous:
+        return scoped
+    return {
+        **previous,
+        "lastScopedSync": scoped,
+    }
 
 
 def apply_ebay_delivery_estimates(
@@ -1393,6 +1420,12 @@ def main() -> None:
             source_patch.update({"gameGamesUpdated": game_reference_updated})
         previous_platform_state.update(source_patch)
         platforms_state[platform_slug] = previous_platform_state
+    elif selected_catalog_ids is not None:
+        platforms_state[platform_slug] = merge_scoped_platform_run_state(
+            dict(platforms_state.get(platform_slug) or {}),
+            platform_run_state,
+            selected_catalog_ids,
+        )
     else:
         platforms_state[platform_slug] = platform_run_state
     if args.region:
