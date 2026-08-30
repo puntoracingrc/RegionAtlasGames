@@ -11,6 +11,7 @@ from collectors.game_content_profile import manual_missing_declared
 from collectors.jgo_match import infer_condition
 from collectors.listing_images import attach_image_urls
 from collectors.listing_region_enrich import enrich_listing_region_from_cover
+from collectors.physical_edition import physical_editions_match
 from collectors.reference_match import listing_reference_valid_for_catalog
 from collectors.regional_variant_routing import strict_regions_match
 from collectors.wallapop_listing_ai import ListingAiResult
@@ -59,6 +60,8 @@ def is_wallapop_game_product(product: dict[str, Any]) -> bool:
 
 
 def listing_has_unmatched_extras(product: dict[str, Any], game: dict[str, Any]) -> bool:
+    if not physical_editions_match(product, game):
+        return True
     listing_text = " ".join(
         str(product.get(key) or "") for key in ("title", "description", "characteristics")
     )

@@ -94,7 +94,7 @@ export function buildGameFaq(
       ? `En ${SITE_LOGO} el mercado verificado en ${regionLabel} oscila entre ${formatEur(min)} y ${formatEur(max)}, con una referencia media de ${formatEur(est)}. El precio final depende del estado de conservación (suelto, completo, precintado o gradado).`
       : hasVerifiedEsPrice(game)
         ? `La referencia verificada en España ronda ${formatEur(est)} para la edición ${regionLabel}.`
-        : `Tenemos una estimación orientativa de ${formatEur(est)} para ${regionLabel}, pendiente de verificar región en anuncios P2P. El rango min–máx aparecerá cuando haya suficientes ventas confirmadas.`
+        : `Tenemos una estimación orientativa de ${formatEur(est)} para ${regionLabel}, basada en una muestra todavía pequeña. El rango min–máx aparecerá cuando haya suficientes ventas confirmadas.`
     : `Aún no tenemos suficientes ventas verificadas en el mercado español para este título. Consulta de nuevo pronto o revisa anuncios entre usuarios Pro.`;
 
   const faqs: GameFaqItem[] = [

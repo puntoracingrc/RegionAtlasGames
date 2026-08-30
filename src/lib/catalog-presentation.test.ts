@@ -6,6 +6,7 @@ import {
   normalizeGameDetailsPresentation,
 } from "./catalog-presentation";
 import type { CatalogGame, GameDetails } from "./types";
+import { getCoverSrc } from "./cover-url";
 
 test("decodes repeated HTML entities without decoding URL escapes", () => {
   assert.equal(decodeCatalogDisplayText("Tom &amp;amp; Jerry&#39;s"), "Tom & Jerry's");
@@ -38,4 +39,12 @@ test("normalizes only user-facing detail text", () => {
   assert.equal(normalized.description, "Acción & aventura");
   assert.equal(normalized.reference, "REF'01");
   assert.equal(normalized.museumPath, details.museumPath);
+});
+
+test("allows curated local catalog covers without allowing arbitrary URLs", () => {
+  assert.equal(
+    getCoverSrc("/catalog-covers/ps4/1971-project-helios.jpg"),
+    "/catalog-covers/ps4/1971-project-helios.jpg",
+  );
+  assert.equal(getCoverSrc("https://untrusted.example/cover.jpg"), null);
 });

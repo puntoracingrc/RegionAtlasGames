@@ -36,6 +36,15 @@ def main() -> None:
     assert estimate[3] == "insufficient_observations"
     assert estimate[5] == 1
 
+    reviewed_estimate = estimate_price(
+        [25.0],
+        None,
+        None,
+        allow_single_observation=True,
+    )
+    assert reviewed_estimate[0] == 25.0
+    assert reviewed_estimate[5] == 1
+
     estimate = estimate_price([20.0, 30.0], None, None)
     assert estimate[0] == 25.0
     assert estimate[5] == 2
@@ -48,6 +57,18 @@ def main() -> None:
         pc_ref=None,
     )
     assert one_observation["hasEsPrice"] is False
+
+    human_reviewed = base_game()
+    assert apply_condition_price_estimates(
+        human_reviewed,
+        [(20.0, "complete", "wallapop")],
+        synced_at="test",
+        pc_ref=None,
+        human_reviewed_buckets={"complete"},
+    )
+    assert human_reviewed["recommendedPrice"] == 20.0
+    assert human_reviewed["estimatedPriceComplete"] == 20.0
+    assert human_reviewed["priceRegionVerified"] is False
 
     estimated = base_game()
     assert apply_condition_price_estimates(

@@ -49,9 +49,9 @@ def decode_title(title: str) -> str:
 
 def norm_title(title: str) -> str:
     t = decode_title(title)
-    t = re.sub(r"\[[^\]]+\]", "", t).strip()
     t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode("ascii")
-    return re.sub(r"\s+", " ", t).lower()
+    t = re.sub(r"[^a-zA-Z0-9]+", " ", t)
+    return re.sub(r"\s+", " ", t).strip().lower()
 
 
 def has_bracket(title: str) -> bool:
@@ -131,9 +131,15 @@ def apply_curation(catalog: list[dict], *, reset: bool = False) -> tuple[list[di
             excluded_by_rule[game["id"]] = hit
 
     alive = [g for g in catalog if g["id"] not in excluded_by_rule]
-    groups: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    groups: dict[tuple[str, str, str], list[dict]] = defaultdict(list)
     for game in alive:
-        groups[(game["platformSlug"], norm_title(game["title"]))].append(game)
+        groups[
+            (
+                game["platformSlug"],
+                str(game.get("region") or "").strip().lower(),
+                norm_title(game["title"]),
+            )
+        ].append(game)
 
     keep_ids: set[str] = set()
     duplicate_excluded: dict[str, str] = {}

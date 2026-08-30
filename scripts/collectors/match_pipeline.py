@@ -22,6 +22,7 @@ class MatchPipelineStats:
     ambiguous_skipped: int = 0
     region_rejected: int = 0
     cover_vision_used: int = 0
+    catalog_edition_gaps: list[dict[str, Any]] = field(default_factory=list)
     rows: list[dict[str, Any]] = field(default_factory=list)
 
 
@@ -80,6 +81,26 @@ def run_match_pipeline(
 
         if not result.game:
             stats.unmatched += 1
+            if result.unmatched_reason == "physical_edition_missing":
+                stats.catalog_edition_gaps.append(
+                    {
+                        "reason": result.unmatched_reason,
+                        "platformSlug": platform_slug,
+                        "detectedEdition": result.detected_edition,
+                        "listingTitle": str(
+                            product.get("title")
+                            or product.get("name")
+                            or product.get("boxName")
+                            or ""
+                        ),
+                        "externalId": str(product.get("externalId") or "") or None,
+                        "productUrl": str(
+                            product.get("productUrl") or product.get("permalink") or ""
+                        )
+                        or None,
+                        "alternatives": result.alternatives,
+                    }
+                )
             continue
 
         game = games_by_id.get(str(result.game["id"]), result.game)
@@ -147,6 +168,7 @@ def print_match_stats(stats: MatchPipelineStats, *, label: str, use_ai: bool | N
     print(f"  Productos {label}: {stats.products}")
     print(f"  IA precios: {'activa' if ai_on else 'apagada'}")
     print(f"  Sin match catálogo: {stats.unmatched}")
+    print(f"  Ediciones físicas ausentes detectadas: {len(stats.catalog_edition_gaps)}")
     print(f"  No-juego / accesorio: {stats.non_games}")
     print(f"  Match por referencia: {stats.matched_by_ref}")
     print(f"  Match por título (auto): {stats.matched_by_title}")

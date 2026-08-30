@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from collectors.condition_buckets import infer_condition_bucket  # noqa: E402
+from collectors.catalog_match import match_catalog_product  # noqa: E402
 from collect_wallapop import route_row_to_detected_variant  # noqa: E402
 from collectors.game_region_learning import game_region_profile  # noqa: E402
 from collectors.game_content_profile import game_content_profile  # noqa: E402
@@ -149,9 +150,56 @@ def test_unmatched_extras() -> None:
         {"title": "13 Sentinels: Aegis Rim", "edition": "standard"},
     )
     assert not listing_has_unmatched_extras(
-        listing,
+        {
+            **listing,
+            "title": "13 Sentinels Aegis Rim Collector's Edition PS4 + Art Book",
+        },
         {"title": "13 Sentinels: Aegis Rim Collector's Edition", "edition": "collector"},
     )
+
+
+def test_physical_editions_never_share_a_catalog_match() -> None:
+    standard = {
+        "id": "ps4-1971-project-helios",
+        "title": "1971 Project Helios",
+        "titlePc": "1971 Project Helios",
+        "platformSlug": "ps4",
+        "region": "PAL Europa",
+        "edition": "standard",
+        "listingStatus": "listed",
+    }
+    collector = {
+        "id": "ps4-1971-project-helios-collector",
+        "title": "1971 Project Helios [Collector's Edition]",
+        "titlePc": "1971 Project Helios [Collector's Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "edition": "collector",
+        "listingStatus": "listed",
+    }
+    standard_listing = {
+        "title": "1971 Project Helios PS4",
+        "description": "Buen estado",
+    }
+    collector_listing = {
+        "title": "1971 Project Helios Collector's Edition PS4",
+        "description": "Sin abrir. Nuevo a estrenar y en PAL ES",
+    }
+
+    assert listing_has_unmatched_extras(collector_listing, standard)
+    assert listing_has_unmatched_extras(standard_listing, collector)
+    assert not listing_has_unmatched_extras(standard_listing, standard)
+    assert not listing_has_unmatched_extras(collector_listing, collector)
+
+    standard_result = match_catalog_product(standard_listing, [standard, collector], "ps4")
+    collector_result = match_catalog_product(collector_listing, [standard, collector], "ps4")
+    assert_equal(standard_result.game and standard_result.game["id"], standard["id"], "estándar")
+    assert_equal(collector_result.game and collector_result.game["id"], collector["id"], "collector")
+
+    missing = match_catalog_product(collector_listing, [standard], "ps4")
+    assert missing.game is None
+    assert_equal(missing.unmatched_reason, "physical_edition_missing", "hueco de edición")
+    assert_equal(missing.detected_edition, "collector", "edición ausente detectada")
 
 
 def test_exact_id_deduplication_only() -> None:
@@ -387,6 +435,7 @@ def main() -> None:
     test_condition_language()
     test_region_language()
     test_unmatched_extras()
+    test_physical_editions_never_share_a_catalog_match()
     test_exact_id_deduplication_only()
     test_routes_a_found_region_to_its_catalog_variant()
     test_text_ai_is_a_hint_not_physical_region_proof()

@@ -2,6 +2,36 @@
 """Pruebas de las decisiones conservadoras de higiene del catálogo."""
 
 from audit_catalog_html_entities import decision_for_issue
+from curate_catalog import apply_curation
+
+
+def test_distinct_regions_and_physical_editions_are_preserved() -> None:
+    catalog = [
+        {
+            "id": "ps4-example-es-standard",
+            "title": "Example Game",
+            "platformSlug": "ps4",
+            "region": "PAL España",
+            "listingStatus": "listed",
+        },
+        {
+            "id": "ps4-example-eu-standard",
+            "title": "Example Game",
+            "platformSlug": "ps4",
+            "region": "PAL Europa",
+            "listingStatus": "listed",
+        },
+        {
+            "id": "ps4-example-es-collector",
+            "title": "Example Game [Collector's Edition]",
+            "platformSlug": "ps4",
+            "region": "PAL España",
+            "listingStatus": "listed",
+        },
+    ]
+    curated, report = apply_curation(catalog, reset=True)
+    assert report["listed"] == 3
+    assert all(game["listingStatus"] == "listed" for game in curated)
 
 
 def main() -> None:
@@ -20,6 +50,7 @@ def main() -> None:
         )
         == "manual_collision"
     )
+    test_distinct_regions_and_physical_editions_are_preserved()
     print("catalog hygiene decisions: ok")
 
 

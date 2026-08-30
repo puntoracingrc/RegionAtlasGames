@@ -215,7 +215,7 @@ def default_sweep_queries(platform_slug: str) -> list[str]:
 def collect_platform_sweep(
     platform_slug: str,
     args: argparse.Namespace,
-) -> tuple[list[dict[str, Any]], dict[str, int]]:
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     platform_games = platform_catalog_games(platform_slug)
     _, ref_to_ids = build_platform_reference_index(platform_slug)
     queries = [args.sweep_query] if args.sweep_query else default_sweep_queries(platform_slug)
@@ -315,6 +315,8 @@ def collect_platform_sweep(
         "ai_regex_rejected": 0,
         **detail_stats,
         "duplicate_catalog_rows_removed": duplicates_removed,
+        "catalog_edition_gaps_count": len(stats_match.catalog_edition_gaps),
+        "catalog_edition_gaps": stats_match.catalog_edition_gaps,
     }
     return stats_match.rows, stats
 
@@ -552,6 +554,11 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
         f"fallos {stats.get('details_failed', 0)} · "
         f"asociaciones regionales duplicadas retiradas {stats.get('duplicate_catalog_rows_removed', 0)}"
     )
+    if stats.get("catalog_edition_gaps_count"):
+        print(
+            "  Catálogo incompleto: "
+            f"{stats['catalog_edition_gaps_count']} edición(es) física(s) separadas detectadas"
+        )
     if listing_ai_on:
         print(
             f"  IA: {stats['ai_batches']} lotes · "

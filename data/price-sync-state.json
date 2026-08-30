@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-08-30T09:02:06Z",
+  "lastRunAt": "2026-08-30T09:57:21Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -120,11 +120,11 @@
         }
       },
       "lastScopedSync": {
-        "lastSyncAt": "2026-08-30T08:31:23Z",
+        "lastSyncAt": "2026-08-30T09:51:23Z",
         "source": "Wallapop ES",
-        "gamesTargeted": 1,
-        "gamesUpdated": 1,
-        "wallapopGamesUpdated": 1,
+        "gamesTargeted": 2,
+        "gamesUpdated": 2,
+        "wallapopGamesUpdated": 2,
         "ebayGamesUpdated": 0,
         "vintedGamesUpdated": 0,
         "gamesSkippedNoData": 0,
@@ -146,12 +146,12 @@
         "tcGamesSkipped": 0,
         "gameGamesUpdated": 0,
         "coveragePct": 100.0,
-        "priceListTotalGames": 3042,
-        "priceListPricedBefore": 444,
-        "priceListPricedAfter": 444,
+        "priceListTotalGames": 8471,
+        "priceListPricedBefore": 452,
+        "priceListPricedAfter": 452,
         "priceListPricedDelta": 0,
-        "priceListCoverageBeforePct": 14.6,
-        "priceListCoverageAfterPct": 14.6,
+        "priceListCoverageBeforePct": 5.3,
+        "priceListCoverageAfterPct": 5.3,
         "priceListCoverageDeltaPct": 0.0,
         "ebayDeliveryGamesUpdated": 0,
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
@@ -160,8 +160,8 @@
           "sources": [
             {
               "source": "wallapop",
-              "aiRows": 8,
-              "resolved": 8,
+              "aiRows": 2,
+              "resolved": 2,
               "review": 0,
               "rejected": 0
             }
@@ -177,7 +177,8 @@
         },
         "scope": "catalog_ids",
         "catalogIds": [
-          "ps4-13-sentinels-aegis-rim"
+          "ps4-1971-project-helios",
+          "ps4-1971-project-helios-collector%27s-edition"
         ]
       }
     },

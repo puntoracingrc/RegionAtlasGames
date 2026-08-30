@@ -381,6 +381,8 @@ def estimate_price(
     prices: list[float],
     previous: float | None,
     pc_ref: float | None,
+    *,
+    allow_single_observation: bool = False,
 ) -> tuple[float | None, float | None, float | None, str | None, int, int]:
     """Mediana + rango (min/máx) sobre anuncios aceptados tras filtrar outliers."""
     accepted, rejected = filter_prices(prices, previous, pc_ref)
@@ -388,7 +390,8 @@ def estimate_price(
         return None, None, None, "no_listings", 0, 0
     if not accepted:
         return None, None, None, "all_rejected", len(rejected), 0
-    if len(accepted) < MIN_ESTIMATE_OBSERVATIONS:
+    minimum_observations = 1 if allow_single_observation else MIN_ESTIMATE_OBSERVATIONS
+    if len(accepted) < minimum_observations:
         return None, None, None, "insufficient_observations", len(rejected), len(accepted)
 
     est = round(median(accepted), 2)
@@ -704,6 +707,7 @@ def collect_condition_observations(
     tc_by_id: dict[str, dict[str, Any]],
     catalog_game: dict[str, Any] | None = None,
     use_vision: bool = True,
+    human_reviewed_buckets: set[str] | None = None,
 ) -> list[tuple[float, str, str]]:
     observations: list[tuple[float, str, str]] = []
     current_sources: set[str] = set()
@@ -725,6 +729,8 @@ def collect_condition_observations(
         if obs:
             observations.append(obs)
             current_sources.add(obs[2])
+            if row.get("humanReviewed") is True and human_reviewed_buckets is not None:
+                human_reviewed_buckets.add(obs[1])
 
     cex_row = cex_by_id.get(gid)
     if cex_row:
@@ -860,7 +866,9 @@ def apply_condition_price_estimates(
     *,
     synced_at: str,
     pc_ref: float | None,
+    human_reviewed_buckets: set[str] | None = None,
 ) -> bool:
+    human_reviewed_buckets = human_reviewed_buckets or set()
     bucket_counts = {
         bucket: sum(1 for _, observed_bucket, _ in observations if observed_bucket == bucket)
         for bucket in DISPLAY_BUCKETS
@@ -869,6 +877,7 @@ def apply_condition_price_estimates(
         observation
         for observation in observations
         if bucket_counts.get(observation[1], 0) >= MIN_ESTIMATE_OBSERVATIONS
+        or observation[1] in human_reviewed_buckets
     ]
     estimates, sources = mean_by_bucket(eligible_observations)
     has_new_estimate = any(estimates.get(b) is not None for b in DISPLAY_BUCKETS)
@@ -1159,7 +1168,12 @@ def main() -> None:
             previous = game.get("recommendedPrice")
             pc_ref = game.get("pcRefPrice")
 
-            est, market_min, market_max, _, rej, accepted_count = estimate_price(prices, previous, pc_ref)
+            est, market_min, market_max, _, rej, accepted_count = estimate_price(
+                prices,
+                previous,
+                pc_ref,
+                allow_single_observation=any(row.get("humanReviewed") is True for row in usable),
+            )
             rejected_outliers += rej
 
             if est is not None and market_min is not None and market_max is not None:
@@ -1266,6 +1280,7 @@ def main() -> None:
     for game in platform_games:
         gid = game["id"]
         catalog_region = str(game.get("region") or "")
+        human_reviewed_buckets: set[str] = set()
         observations = collect_condition_observations(
             gid,
             catalog_region,
@@ -1279,12 +1294,14 @@ def main() -> None:
             tc_by_id=tc_by_id,
             catalog_game=game,
             use_vision=use_vision,
+            human_reviewed_buckets=human_reviewed_buckets,
         )
         if apply_condition_price_estimates(
             game,
             observations,
             synced_at=synced_at,
             pc_ref=game.get("pcRefPrice"),
+            human_reviewed_buckets=human_reviewed_buckets,
         ):
             condition_updated += 1
         if apply_ebay_delivery_estimates(

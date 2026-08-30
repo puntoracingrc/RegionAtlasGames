@@ -14,6 +14,13 @@ from collectors.jgo_match import (
     token_similarity,
 )
 from collectors.reference_match import extract_references_from_text
+from collectors.physical_edition import (
+    catalog_physical_edition,
+    listing_physical_edition,
+    physical_edition_base_title,
+    physical_edition_label,
+    physical_editions_match,
+)
 
 NON_GAME_RE = re.compile(
     r"\b("
@@ -84,6 +91,8 @@ class CatalogMatchResult:
     ambiguous: bool = False
     alternatives: list[dict[str, Any]] = field(default_factory=list)
     ai_confidence: float | None = None
+    unmatched_reason: str | None = None
+    detected_edition: str | None = None
 
 
 def product_title(product: dict[str, Any]) -> str:
@@ -207,6 +216,8 @@ def rank_catalog_candidates(
 
     ranked: list[RankedCandidate] = []
     for game in pool:
+        if not physical_editions_match(product, game):
+            continue
         raw = _best_title_score(game, core)
         if raw < min_score:
             continue
@@ -234,6 +245,7 @@ def _alternatives_payload(ranked: list[RankedCandidate], *, limit: int = 5) -> l
                 "title": str(item.game.get("title") or ""),
                 "region": str(item.game.get("region") or ""),
                 "coverUrl": str(item.game.get("coverUrl") or "") or None,
+                "edition": str(item.game.get("edition") or "standard"),
                 "score": round(item.raw_score, 3),
             }
         )
@@ -246,6 +258,49 @@ def _auto_accept(score: float, margin: float, *, sequel_conflict: bool) -> bool:
     if score >= AUTO_SCORE_HIGH:
         return True
     return score >= AUTO_SCORE_MIN and margin >= AUTO_MARGIN_MIN
+
+
+def _missing_physical_edition(
+    product: dict[str, Any],
+    catalog_games: list[dict[str, Any]],
+    platform_slug: str,
+    listing_region: str | None,
+) -> CatalogMatchResult | None:
+    listing_base = product_core_title(physical_edition_base_title(product_title(product)))
+    if not listing_base:
+        return None
+
+    closest: list[RankedCandidate] = []
+    for game in catalog_games:
+        if game.get("platformSlug") != platform_slug or game.get("listingStatus") == "excluded":
+            continue
+        if listing_region and not regions_compatible(str(game.get("region") or ""), listing_region):
+            continue
+        if physical_editions_match(product, game):
+            continue
+        catalog_titles = filter(None, [game.get("title"), game.get("titlePc")])
+        score = max(
+            (
+                token_similarity(
+                    product_core_title(physical_edition_base_title(str(candidate))),
+                    listing_base,
+                )
+                for candidate in catalog_titles
+            ),
+            default=0.0,
+        )
+        if score >= AUTO_SCORE_HIGH:
+            closest.append(RankedCandidate(game=game, score=score, raw_score=score))
+
+    if not closest:
+        return None
+    closest.sort(key=lambda item: (-item.score, str(item.game.get("id") or "")))
+    return CatalogMatchResult(
+        unmatched_reason="physical_edition_missing",
+        detected_edition=physical_edition_label(listing_physical_edition(product)),
+        match_score=round(closest[0].raw_score, 3),
+        alternatives=_alternatives_payload(closest),
+    )
 
 
 def match_catalog_product(
@@ -279,6 +334,8 @@ def match_catalog_product(
                     str(game.get("region") or ""), listing_region
                 ):
                     continue
+                if not physical_editions_match(product, game):
+                    continue
                 compatible[str(game["id"])] = game
                 matched_refs.setdefault(str(game["id"]), set()).add(ref)
         if len(compatible) == 1:
@@ -300,7 +357,12 @@ def match_catalog_product(
         min_score=min_score,
     )
     if not ranked:
-        return CatalogMatchResult()
+        return _missing_physical_edition(
+            product,
+            catalog_games,
+            platform_slug,
+            listing_region,
+        ) or CatalogMatchResult()
 
     top = ranked[0]
     second_score = ranked[1].raw_score if len(ranked) > 1 else 0.0

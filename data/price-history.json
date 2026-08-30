@@ -9679,6 +9679,24 @@
         "complete": 24.73,
         "sealed": 49.0
       }
+    ],
+    "ps4-1971-project-helios": [
+      {
+        "at": "2026-08-30T09:51:23Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 7.0,
+        "sealed": null
+      }
+    ],
+    "ps4-1971-project-helios-collector%27s-edition": [
+      {
+        "at": "2026-08-30T09:51:23Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 20.0
+      }
     ]
   }
 }
