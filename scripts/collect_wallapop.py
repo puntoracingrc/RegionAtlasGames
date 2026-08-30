@@ -47,6 +47,7 @@ from collectors.match_pipeline import print_match_stats, run_match_pipeline  # n
 from collectors.match_row_kwargs import match_row_kwargs  # noqa: E402
 from collectors.physical_edition import physical_edition_base_title  # noqa: E402
 from collectors.wallapop_client import (  # noqa: E402
+    WallapopBlockedError,
     build_wallapop_query,
     enrich_product_details,
     fetch_game_products,
@@ -77,6 +78,13 @@ CACHE_DIR = ROOT / "data" / "price-ingest" / "cache" / "wallapop"
 WALLAPOP_EVIDENCE_POLICY = "wallapop_full_listing_evidence_v2"
 REQUEST_DELAY = 0.35
 MIN_TITLE_SCORE = 0.42
+
+
+def wallapop_request_delay() -> float:
+    try:
+        return max(0.35, min(10.0, float(os.environ.get("WALLAPOP_REQUEST_DELAY", REQUEST_DELAY))))
+    except ValueError:
+        return REQUEST_DELAY
 
 
 PLATFORM_ALIAS_GROUPS: dict[str, set[str]] = {
@@ -511,6 +519,8 @@ def collect_platform(
                 use_listing_ai_cache=use_listing_ai_cache,
                 delay_s=args.delay,
             )
+        except WallapopBlockedError:
+            raise
         except Exception as exc:  # noqa: BLE001
             print(f"  [{index}/{len(games)}] ERROR {game['title'][:40]}: {exc}")
             continue
@@ -678,7 +688,7 @@ def main() -> None:
         type=int,
         help="Tope opcional de páginas por juego (default: todas hasta que no haya «Cargar más»)",
     )
-    parser.add_argument("--delay", type=float, default=REQUEST_DELAY)
+    parser.add_argument("--delay", type=float, default=wallapop_request_delay())
     parser.add_argument(
         "--sweep-platform",
         action="store_true",

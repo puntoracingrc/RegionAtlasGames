@@ -259,6 +259,7 @@ def apply_update_request(
     control_changed = False
     if weekly_control is not None:
         next_control = {
+            **previous_control,
             "schemaVersion": CONTROL_SCHEMA_VERSION,
             "updatedBy": UPDATE_MODE,
             "targetSha": target_sha,

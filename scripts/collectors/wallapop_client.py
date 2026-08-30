@@ -63,6 +63,14 @@ NEXT_DATA_RE = re.compile(
 _DETAIL_CACHE: dict[str, dict[str, Any]] = {}
 
 
+class WallapopBlockedError(RuntimeError):
+    """La fuente ha pedido detener la recoleccion, sin reintentos evasivos."""
+
+    def __init__(self, message: str, *, status_code: int | None = None) -> None:
+        super().__init__(message)
+        self.status_code = status_code
+
+
 def wallapop_order_by() -> str:
     raw = os.environ.get("WALLAPOP_ORDER_BY", "").strip().lower()
     if raw in VALID_ORDER_BY:
@@ -288,7 +296,12 @@ def fetch_product_detail(product: dict[str, Any], *, retries: int = 2) -> dict[s
             _DETAIL_CACHE[page_url] = dict(enriched)
             return enriched
         except urllib.error.HTTPError as exc:
-            if exc.code in {429, 500, 502, 503, 504} and attempt < retries:
+            if exc.code in {403, 429}:
+                raise WallapopBlockedError(
+                    f"Wallapop detalle ({exc.code}): parada segura",
+                    status_code=exc.code,
+                ) from exc
+            if exc.code in {500, 502, 503, 504} and attempt < retries:
                 last_error = exc
             else:
                 raise RuntimeError(f"Wallapop detalle ({exc.code})") from exc
@@ -324,6 +337,8 @@ def enrich_product_details(
                 stats["details_loaded"] += 1
             else:
                 stats["details_failed"] += 1
+        except WallapopBlockedError:
+            raise
         except RuntimeError:
             stats["details_failed"] += 1
             enriched.append(dict(product))
@@ -406,7 +421,12 @@ def search_page(
                 return json.loads(resp.read().decode("utf-8"))
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", errors="ignore")[:400]
-            if exc.code in {429, 500, 502, 503, 504} and attempt < retries:
+            if exc.code in {403, 429}:
+                raise WallapopBlockedError(
+                    f"Wallapop API ({exc.code}): parada segura",
+                    status_code=exc.code,
+                ) from exc
+            if exc.code in {500, 502, 503, 504} and attempt < retries:
                 last_error = exc
             else:
                 raise RuntimeError(f"Wallapop API ({exc.code}): {body}") from exc
@@ -488,6 +508,7 @@ __all__ = [
     "DEFAULT_CATEGORY_ID",
     "DEFAULT_GAME_LIMIT",
     "DEFAULT_ORDER_BY",
+    "WallapopBlockedError",
     "build_wallapop_query",
     "enrich_product_details",
     "fetch_product_detail",

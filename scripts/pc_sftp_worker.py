@@ -11,6 +11,7 @@ import argparse
 import json
 import os
 import posixpath
+import random
 import socket
 import subprocess
 import sys
@@ -39,6 +40,8 @@ TODOCONSOLAS_WEEKLY_DIR = RUN_DIR / "todoconsolas-weekly"
 TODOCONSOLAS_WEEKLY_STATE = TODOCONSOLAS_WEEKLY_DIR / "state.json"
 TODOCONSOLAS_WEEKLY_CAMPAIGNS = TODOCONSOLAS_WEEKLY_DIR / "campaigns"
 TODOCONSOLAS_WEEKLY_DISABLED_MARKER = TODOCONSOLAS_WEEKLY_DIR / "disabled-status.lock"
+WALLAPOP_PAL_DIR = RUN_DIR / "wallapop-pal"
+WALLAPOP_PAL_STATE = WALLAPOP_PAL_DIR / "state.json"
 PC_RUNTIME_CONTROL = RUN_DIR / "pc-control.json"
 PC_WORKER_HEALTH_MARKER = RUN_DIR / "pc-worker-health.lock"
 WORKER_RESTART_EXIT_CODE = 75
@@ -274,6 +277,20 @@ def effective_todoconsolas_weekly_config() -> dict[str, Any]:
     }
 
 
+def effective_wallapop_pal_config() -> dict[str, Any]:
+    from wallapop_pal_campaign import effective_settings
+
+    control = load_runtime_control(PC_RUNTIME_CONTROL)
+    remote = control.get("wallapopPalCampaign")
+    settings = effective_settings(remote if isinstance(remote, dict) else {})
+    if env_enabled("PRICE_PC_WALLAPOP_PAL_HARD_DISABLED"):
+        settings["enabled"] = False
+        settings["source"] = "hard_stop"
+    else:
+        settings["source"] = "admin_control" if isinstance(remote, dict) else "default_off"
+    return settings
+
+
 def run_logged(cmd: list[str], log_path: Path, env: dict[str, str], timeout: int | None = None) -> int:
     log_path.parent.mkdir(parents=True, exist_ok=True)
     with log_path.open("a", encoding="utf-8", errors="ignore") as log:
@@ -330,6 +347,7 @@ def process_price_request(queue: SftpQueue, request_name: str) -> bool:
         "targets": job.get("targets"),
         "estimateMinutes": job.get("estimateMinutes"),
         "trigger": job.get("trigger") or "manual",
+        "campaignId": job.get("campaignId"),
         "startedAt": started_at,
         "updatedAt": now_iso(),
         "runnerId": queue.config.runner_id,
@@ -354,6 +372,9 @@ def process_price_request(queue: SftpQueue, request_name: str) -> bool:
         # Los jobs heredados conservan el modo ligero del PC.
         env.pop("REGION_VISION_DISABLED", None)
         env["DAILY_USE_CACHE"] = "0"
+        env.setdefault("INGEST_WALLAPOP_PER_GAME_PAGES", "1")
+        env.setdefault("WALLAPOP_DETAIL_LIMIT_PER_GAME", "6")
+        env.setdefault("WALLAPOP_REQUEST_DELAY", "1.5")
     git_health = worker_git_health(ROOT)
     if job.get("mode") == "wallapop_batch" and git_health.get("clean") is not True:
         log_file.parent.mkdir(parents=True, exist_ok=True)
@@ -382,15 +403,30 @@ def process_price_request(queue: SftpQueue, request_name: str) -> bool:
     )
     if code != 0 and not final_status.get("error"):
         final_status["error"] = f"Worker PC termino con codigo {code}."
+    if code != 0 and job.get("mode") == "wallapop_batch":
+        from wallapop_pal_campaign import is_blocking_job
+
+        log_tail = tail(log_file)
+        if is_blocking_job({"error": final_status.get("error"), "logTail": log_tail}):
+            final_status["blocked"] = True
+            final_status["blockReason"] = "Wallapop devolvio una señal de bloqueo; no se reintentara automaticamente."
+            final_status["error"] = final_status.get("error") or final_status["blockReason"]
     if code == 0 and job.get("mode") == "wallapop_batch":
         local_result_raw = str(final_status.get("resultLocalPath") or "").strip()
         local_result = (ROOT / local_result_raw).resolve() if local_result_raw else None
         allowed_root = (RESULTS_DIR / job_id).resolve()
+        ingest_raw = str(final_status.get("ingestPath") or "").strip()
+        local_ingest = (ROOT / ingest_raw).resolve() if ingest_raw else None
+        expected_ingest_name = f"{job.get('platformSlug')}-wallapop-batch-{job_id}.json"
         if (
             local_result is None
             or local_result.parent != allowed_root
             or local_result.name != "catalog-price-results.json"
             or not local_result.exists()
+            or local_ingest is None
+            or local_ingest.parent != (ROOT / "data" / "price-ingest").resolve()
+            or local_ingest.name != expected_ingest_name
+            or not local_ingest.exists()
         ):
             code = 1
             final_status["status"] = "error"
@@ -398,9 +434,13 @@ def process_price_request(queue: SftpQueue, request_name: str) -> bool:
             final_status["error"] = "La tanda terminó sin un artefacto de precios limitado y verificable."
         else:
             result_remote = queue.remote("results", job_id, "catalog-price-results.json")
+            ingest_remote = queue.remote("results", job_id, "wallapop-ingest.json")
             queue.upload_file(result_remote, local_result)
+            queue.upload_file(ingest_remote, local_ingest)
             final_status["resultPath"] = f"results/{job_id}/catalog-price-results.json"
+            final_status["ingestResultPath"] = f"results/{job_id}/wallapop-ingest.json"
         final_status.pop("resultLocalPath", None)
+        final_status.pop("ingestPath", None)
     if code == 0 and local_review_queue.exists():
         try:
             final_status["reviewQueueItems"] = upload_price_review_queue_verified(queue)
@@ -961,6 +1001,290 @@ def publish_todoconsolas_weekly_disabled_status(queue: SftpQueue) -> None:
     TODOCONSOLAS_WEEKLY_DISABLED_MARKER.write_text(checked_at, encoding="utf-8")
 
 
+def _write_local_json(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        mode="w",
+        encoding="utf-8",
+        dir=path.parent,
+        delete=False,
+    ) as handle:
+        json.dump(payload, handle, ensure_ascii=False, indent=2)
+        handle.write("\n")
+        temporary = Path(handle.name)
+    temporary.replace(path)
+
+
+def _load_wallapop_state(settings: dict[str, Any]) -> dict[str, Any]:
+    from wallapop_pal_campaign import ENGINE, new_state
+
+    if WALLAPOP_PAL_STATE.exists():
+        try:
+            state = json.loads(WALLAPOP_PAL_STATE.read_text(encoding="utf-8"))
+            if isinstance(state, dict) and state.get("engine") == ENGINE:
+                return state
+        except (OSError, json.JSONDecodeError):
+            pass
+    return new_state(settings)
+
+
+def _wallapop_catalog() -> list[dict[str, Any]]:
+    try:
+        value = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    return [item for item in value if isinstance(item, dict)] if isinstance(value, list) else []
+
+
+def _publish_wallapop_status(
+    queue: SftpQueue,
+    state: dict[str, Any],
+    settings: dict[str, Any],
+    catalog: list[dict[str, Any]],
+) -> None:
+    from wallapop_pal_campaign import public_state
+
+    status = {
+        **public_state(state, settings, catalog),
+        "runnerId": queue.config.runner_id,
+        "hostname": socket.gethostname(),
+        "workerCheckedAt": now_iso(),
+    }
+    queue.upload_bytes(queue.remote("cron", "wallapop-pal-status.json"), json_bytes(status))
+    artifact_manifest = {
+        "schemaVersion": 1,
+        "engine": status.get("engine"),
+        "updatedAt": status.get("updatedAt"),
+        "artifacts": [
+            item for item in state.get("readyArtifacts") or []
+            if isinstance(item, dict)
+        ],
+    }
+    queue.upload_bytes(
+        queue.remote("cron", "wallapop-pal-artifacts.json"),
+        json_bytes(artifact_manifest),
+    )
+
+
+def _queue_wallapop_batch(
+    queue: SftpQueue,
+    state: dict[str, Any],
+    batch: dict[str, Any],
+) -> tuple[str, dict[str, Any]]:
+    from wallapop_pal_campaign import MAX_BATCH_SIZE, mark_batch_queued
+
+    catalog_ids = [str(item) for item in batch.get("catalogIds") or []]
+    if not catalog_ids or len(catalog_ids) > MAX_BATCH_SIZE:
+        raise RuntimeError("El coordinador Wallapop intento crear una tanda fuera del limite de 20.")
+    timestamp = int(time.time())
+    job_id = f"wallapop-pal-{timestamp}-{uuid.uuid4().hex[:6]}"
+    started_at = now_iso()
+    job = {
+        "jobId": job_id,
+        "status": "pending",
+        "mode": "wallapop_batch",
+        "catalogIds": catalog_ids,
+        "platformSlug": batch.get("platformSlug"),
+        "region": "PAL España",
+        "source": "wallapop",
+        "estimateMinutes": max(10, len(catalog_ids) * 2),
+        "advanceRotation": False,
+        "trigger": "automatic",
+        "campaignId": state.get("campaignId"),
+        "startedAt": started_at,
+        "updatedAt": started_at,
+        "runner": "sftp_queue",
+    }
+    running = {
+        "jobId": job_id,
+        "status": "running",
+        "catalogIds": catalog_ids,
+        "platformSlug": batch.get("platformSlug"),
+        "region": "PAL España",
+        "source": "wallapop",
+        "estimateMinutes": job["estimateMinutes"],
+        "trigger": "automatic",
+        "campaignId": state.get("campaignId"),
+        "startedAt": started_at,
+        "updatedAt": started_at,
+        "logTail": "Tanda creada por el robot Wallapop PAL; esperando al PC worker.",
+    }
+    queue.upload_bytes(queue.remote("jobs", f"{job_id}.json"), json_bytes(running))
+    queue.upload_bytes(queue.remote("jobs", "requests", f"{job_id}.json"), json_bytes(job))
+    return job_id, mark_batch_queued(state, batch, job_id)
+
+
+def run_wallapop_pal_campaign(queue: SftpQueue, settings: dict[str, Any]) -> bool:
+    from wallapop_pal_campaign import (
+        reconcile_active_batch,
+        select_next_batch,
+    )
+
+    catalog = _wallapop_catalog()
+    state = _load_wallapop_state(settings)
+    active = state.get("activeBatch") if isinstance(state.get("activeBatch"), dict) else None
+    if active:
+        job_id = str(active.get("jobId") or "")
+        job: dict[str, Any] | None = None
+        if job_id:
+            try:
+                job = queue.read_json(queue.remote("jobs", f"{job_id}.json"))
+            except (OSError, json.JSONDecodeError):
+                job = None
+        state = reconcile_active_batch(
+            state,
+            job,
+            settings,
+            jitter_minutes=random.randint(0, int(settings.get("jitterMinutes") or 0)),
+        )
+        _write_local_json(WALLAPOP_PAL_STATE, state)
+        _publish_wallapop_status(queue, state, settings, catalog)
+        if state.get("activeBatch"):
+            return False
+
+    state, batch = select_next_batch(state, catalog, settings)
+    if batch is not None:
+        _, state = _queue_wallapop_batch(queue, state, batch)
+        queued = True
+    else:
+        queued = False
+    _write_local_json(WALLAPOP_PAL_STATE, state)
+    _publish_wallapop_status(queue, state, settings, catalog)
+    return queued
+
+
+def process_wallapop_control_request(queue: SftpQueue, request_name: str) -> bool:
+    from wallapop_pal_campaign import (
+        WallapopCampaignControlError,
+        effective_settings,
+        new_state,
+        normalize_control_request,
+    )
+
+    request_path = queue.remote("jobs", "wallapop-control-requests", request_name)
+    running_path = queue.remote("jobs", "wallapop-control-running", request_name)
+    done_path = queue.remote("jobs", "wallapop-control-done", request_name)
+    failed_path = queue.remote("jobs", "wallapop-control-failed", request_name)
+    public_path = queue.remote("cron", "wallapop-pal-control-status.json")
+    request_id = request_name.removesuffix(".json")
+    if not queue.rename(request_path, running_path):
+        return False
+    started_at = now_iso()
+    try:
+        request = queue.read_json(running_path)
+        normalized = normalize_control_request(request)
+        current_state = _load_wallapop_state(effective_wallapop_pal_config())
+        if normalized.get("resetCycle") and current_state.get("activeBatch"):
+            raise WallapopCampaignControlError(
+                "No se puede reiniciar el ciclo mientras hay una tanda en marcha; apagalo y espera a que termine."
+            )
+        if normalized.get("action") == "disable" and isinstance(current_state.get("activeBatch"), dict):
+            active = current_state["activeBatch"]
+            job_id = str(active.get("jobId") or "")
+            queued_path = queue.remote("jobs", "requests", f"{job_id}.json")
+            cancelled_path = queue.remote("jobs", "cancelled", f"{job_id}.json")
+            if job_id and queue.exists(queued_path) and queue.rename(queued_path, cancelled_path):
+                cancelled_at = now_iso()
+                current_state["activeBatch"] = None
+                current_state["status"] = "disabled"
+                current_state["nextRunAt"] = None
+                current_state["lastAction"] = "queued_batch_cancelled"
+                current_state["updatedAt"] = cancelled_at
+                current_state["lastBatch"] = {
+                    "jobId": job_id,
+                    "platformSlug": active.get("platformSlug"),
+                    "catalogIds": active.get("catalogIds") or [],
+                    "titles": active.get("titles") or [],
+                    "finishedAt": cancelled_at,
+                    "error": "Tanda cancelada antes de empezar desde el admin.",
+                }
+                queue.upload_bytes(
+                    queue.remote("jobs", f"{job_id}.json"),
+                    json_bytes(
+                        {
+                            "jobId": job_id,
+                            "status": "error",
+                            "catalogIds": active.get("catalogIds") or [],
+                            "platformSlug": active.get("platformSlug"),
+                            "source": "wallapop",
+                            "trigger": "automatic",
+                            "finishedAt": cancelled_at,
+                            "updatedAt": cancelled_at,
+                            "error": "Tanda cancelada antes de empezar desde el admin.",
+                        }
+                    ),
+                )
+            elif job_id:
+                current_state["status"] = "stopping"
+                current_state["nextRunAt"] = None
+                current_state["lastAction"] = "stop_requested_during_batch"
+                current_state["updatedAt"] = now_iso()
+
+        stored_settings = {
+            "enabled": normalized["enabled"],
+            "platforms": normalized["platforms"],
+            "batchSize": normalized["batchSize"],
+            "pauseMinutes": normalized["pauseMinutes"],
+            "jitterMinutes": normalized["jitterMinutes"],
+            "updatedAt": now_iso(),
+            "updatedBy": normalized.get("requestId") or request_id,
+        }
+        control = load_runtime_control(PC_RUNTIME_CONTROL)
+        control.update(
+            {
+                "schemaVersion": 1,
+                "wallapopPalCampaign": stored_settings,
+            }
+        )
+        _write_local_json(PC_RUNTIME_CONTROL, control)
+        settings = effective_settings(stored_settings)
+        if normalized.get("resetCycle"):
+            ready_artifacts = [
+                item for item in current_state.get("readyArtifacts") or []
+                if isinstance(item, dict)
+            ]
+            current_state = new_state(settings)
+            current_state["readyArtifacts"] = ready_artifacts
+        elif settings.get("enabled") and current_state.get("status") == "disabled":
+            current_state["status"] = "running"
+            current_state["nextRunAt"] = now_iso()
+            current_state["lastAction"] = "enabled_from_admin"
+            current_state["updatedAt"] = now_iso()
+        _write_local_json(WALLAPOP_PAL_STATE, current_state)
+        catalog = _wallapop_catalog()
+        _publish_wallapop_status(queue, current_state, settings, catalog)
+        status = {
+            "ok": True,
+            "status": "configured",
+            "requestId": normalized.get("requestId") or request_id,
+            "action": normalized.get("action"),
+            "enabled": settings.get("enabled"),
+            "batchSize": settings.get("batchSize"),
+            "pauseMinutes": settings.get("pauseMinutes"),
+            "startedAt": started_at,
+            "finishedAt": now_iso(),
+            "runnerId": queue.config.runner_id,
+            "hostname": socket.gethostname(),
+        }
+        queue.upload_bytes(public_path, json_bytes(status))
+        queue.rename(running_path, done_path)
+        return True
+    except (WallapopCampaignControlError, OSError, json.JSONDecodeError, ValueError) as exc:
+        status = {
+            "ok": False,
+            "status": "error",
+            "requestId": request_id,
+            "startedAt": started_at,
+            "finishedAt": now_iso(),
+            "runnerId": queue.config.runner_id,
+            "hostname": socket.gethostname(),
+            "error": str(exc),
+        }
+        queue.upload_bytes(public_path, json_bytes(status))
+        queue.rename(running_path, failed_path)
+        return True
+
+
 def _supported_todoconsolas_platforms() -> set[str]:
     from collectors.tcns_client import supported_platform_slugs
 
@@ -1030,6 +1354,7 @@ def publish_pc_worker_health(queue: SftpQueue, *, force: bool = False) -> None:
         "checkedAt": checked_at,
         "git": worker_git_health(ROOT),
         "todoConsolasWeekly": effective_todoconsolas_weekly_config(),
+        "wallapopPalCampaign": effective_wallapop_pal_config(),
     }
     queue.upload_bytes(queue.remote("cron", "pc-worker-health.json"), json_bytes(payload))
     PC_WORKER_HEALTH_MARKER.parent.mkdir(parents=True, exist_ok=True)
@@ -1252,6 +1577,14 @@ def run_once(config: WorkerConfig, *, daily: bool) -> int:
                 update_requests = queue.list_json(queue.remote("jobs", "worker-update-requests"))
                 if update_requests:
                     return process_worker_update_request(queue, update_requests[0])
+                wallapop_control_requests = queue.list_json(
+                    queue.remote("jobs", "wallapop-control-requests")
+                )
+                if wallapop_control_requests:
+                    return 1 if process_wallapop_control_request(
+                        queue,
+                        wallapop_control_requests[0],
+                    ) else 0
                 publish_pc_worker_health(queue)
                 if run_local_game_once():
                     return 1
@@ -1273,6 +1606,9 @@ def run_once(config: WorkerConfig, *, daily: bool) -> int:
                         return 1
                 elif daily:
                     publish_todoconsolas_weekly_disabled_status(queue)
+                wallapop_settings = effective_wallapop_pal_config()
+                if daily and run_wallapop_pal_campaign(queue, wallapop_settings):
+                    return 1
                 if daily and env_enabled("PRICE_PC_LEGACY_ROTATION_ENABLED"):
                     return 1 if run_daily_rotation(queue) else 0
         except RuntimeError as exc:
