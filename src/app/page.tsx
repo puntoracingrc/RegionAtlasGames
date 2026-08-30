@@ -110,7 +110,7 @@ export default async function HomePage() {
               userSummary
                 ? showCollectionValue
                   ? `${userSummary.totalItems} juegos importados`
-                  : `${userSummary.totalItems} juegos · valor total con Pro`
+                  : `${userSummary.totalItems} juegos · inicia sesión para ver el valor`
                 : "Regístrate e importa tu inventario"
             }
           />

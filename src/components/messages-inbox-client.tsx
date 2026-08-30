@@ -42,7 +42,7 @@ export function MessagesInboxClient({ conversations }: Props) {
         <header className="mb-6 space-y-2">
           <h1 className="text-2xl font-bold text-foreground">Mensajes</h1>
           <p className="text-sm text-muted">
-            Conversaciones de compraventa Pro. Negociad el precio y cerrad la venta desde el chat.
+            Conversaciones de compraventa. Negociad el precio y cerrad la venta desde el chat.
           </p>
         </header>
 

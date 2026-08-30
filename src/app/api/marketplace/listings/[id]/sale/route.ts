@@ -1,16 +1,23 @@
 import { NextResponse } from "next/server";
 import { confirmBuyerReceipt, markListingSold } from "@/lib/listings";
 import { findConversation } from "@/lib/conversations";
-import { canUseMarketplace } from "@/lib/plans";
+import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
 import { getCurrentUser } from "@/lib/users";
 
 type Params = { params: Promise<{ id: string }> };
 
 export async function POST(request: Request, { params }: Params) {
   const user = await getCurrentUser();
-  if (!user || !canUseMarketplace(user.plan)) {
-    return NextResponse.json({ error: "Plan Pro requerido." }, { status: 403 });
+  if (!user) {
+    return NextResponse.json({ error: "Inicia sesión." }, { status: 401 });
   }
+  const rateLimited = await marketplaceRateLimitResponse(request, {
+    action: "sale-update",
+    userId: user.id,
+    limit: 30,
+    windowMs: 60 * 60 * 1000,
+  });
+  if (rateLimited) return rateLimited;
 
   const { id } = await params;
   const body = await request.json();
@@ -27,7 +34,7 @@ export async function POST(request: Request, { params }: Params) {
       listingId: id,
       sellerId: user.id,
       buyerId,
-      buyerName: String(body.buyerName ?? conv.buyerName),
+      buyerName: conv.buyerName,
       priceEur: Number(body.priceEur),
     });
     if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });

@@ -63,6 +63,29 @@ export type MarketplaceListing = {
   recordedSalePriceEur: number | null;
 };
 
+export type MarketplaceListingClientView = Pick<
+  MarketplaceListing,
+  | "id"
+  | "catalogId"
+  | "sellerName"
+  | "sellerCity"
+  | "title"
+  | "customTitle"
+  | "customDescription"
+  | "saleOptions"
+  | "platformSlug"
+  | "region"
+  | "status"
+  | "photos"
+  | "aiAnalysis"
+  | "sealed"
+  | "updatedAt"
+  | "publishedAt"
+  | "sellerConfirmedAt"
+  | "buyerConfirmedAt"
+  | "recordedSalePriceEur"
+>;
+
 export type ChatMessage = {
   id: string;
   senderId: string;

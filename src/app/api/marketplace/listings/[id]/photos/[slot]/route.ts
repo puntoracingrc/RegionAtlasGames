@@ -26,7 +26,10 @@ export async function GET(_request: Request, { params }: Params) {
   if (!listing || !photo) {
     return Response.json({ error: "Foto no encontrada." }, { status: 404 });
   }
-  if (listing.status !== "active" && listing.sellerId !== user?.id) {
+  const canReadPrivatePhoto =
+    listing.sellerId === user?.id ||
+    (listing.status === "sold" && listing.soldToUserId === user?.id);
+  if (listing.status !== "active" && !canReadPrivatePhoto) {
     return Response.json({ error: "No autorizado." }, { status: 403 });
   }
 

@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { AccountProfileSettings } from "@/components/account-profile-settings";
-import { PlanPanel } from "@/components/plan-panel";
 import { SiteNav } from "@/components/site-nav";
 import { ThemeSettings } from "@/components/theme-settings";
 import { Panel, PanelTitle } from "@/components/ui";
 import { aiQuotaRemaining } from "@/lib/ai-listing-analysis";
+import { OPEN_ACCESS_AI_ANALYSES_PER_MONTH } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
 
 export default async function SettingsPage() {
@@ -31,16 +31,36 @@ export default async function SettingsPage() {
 
           {user && (
             <Panel>
-              <PanelTitle>Plan y mercado</PanelTitle>
+              <PanelTitle>Funciones disponibles</PanelTitle>
               <p className="mb-4 text-sm text-muted">
-                Pro incluye valor total de tu colección (global y por plataforma), mercado entre
-                usuarios y análisis IA de fotos.
+                Todas las cuentas tienen acceso al valor de la colección, la compraventa entre
+                usuarios y el análisis de fotos.
               </p>
-              <PlanPanel
-                plan={user.plan}
-                aiQuotaRemaining={await aiQuotaRemaining(user.id, user.plan)}
-                allowDemoUpgrade={process.env.DEMO_PLAN_UPGRADE_ENABLED === "1"}
-              />
+              <dl className="space-y-3 text-sm">
+                <div>
+                  <dt className="text-muted">Valor de colección</dt>
+                  <dd className="font-medium text-foreground">Total y por plataforma</dd>
+                </div>
+                <div>
+                  <dt className="text-muted">Mercado entre usuarios</dt>
+                  <dd className="font-medium text-foreground">Activo para comprar y vender</dd>
+                </div>
+                <div>
+                  <dt className="text-muted">Análisis de fotos este mes</dt>
+                  <dd className="font-medium text-foreground">
+                    {await aiQuotaRemaining(user.id, user.plan)} disponibles de{" "}
+                    {OPEN_ACCESS_AI_ANALYSES_PER_MONTH}
+                  </dd>
+                </div>
+              </dl>
+              <div className="mt-4 flex flex-wrap gap-3 text-sm">
+                <Link href="/mis-anuncios" className="text-accent hover:underline">
+                  Mis anuncios →
+                </Link>
+                <Link href="/mensajes" className="text-accent hover:underline">
+                  Mensajes →
+                </Link>
+              </div>
             </Panel>
           )}
 

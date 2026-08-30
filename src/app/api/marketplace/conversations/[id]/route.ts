@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { addMessage, getConversation } from "@/lib/conversations";
-import { getListing } from "@/lib/listings";
+import { getListing, getMarketplaceListingClientView } from "@/lib/listings";
+import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
 import { getCurrentUser } from "@/lib/users";
 
 type Params = { params: Promise<{ id: string }> };
@@ -19,7 +20,10 @@ export async function GET(_request: Request, { params }: Params) {
   }
 
   const listing = await getListing(conversation.listingId);
-  return NextResponse.json({ conversation, listing });
+  return NextResponse.json({
+    conversation,
+    listing: listing ? getMarketplaceListingClientView(listing) : null,
+  });
 }
 
 export async function PATCH(request: Request, { params }: Params) {
@@ -27,6 +31,13 @@ export async function PATCH(request: Request, { params }: Params) {
   if (!user) {
     return NextResponse.json({ error: "Inicia sesión." }, { status: 401 });
   }
+  const rateLimited = await marketplaceRateLimitResponse(request, {
+    action: "message-send",
+    userId: user.id,
+    limit: 120,
+    windowMs: 10 * 60 * 1000,
+  });
+  if (rateLimited) return rateLimited;
 
   const { id } = await params;
   const body = await request.json();

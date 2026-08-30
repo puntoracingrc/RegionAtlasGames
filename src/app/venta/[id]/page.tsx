@@ -2,8 +2,7 @@ import { notFound, redirect } from "next/navigation";
 import { ListingManageClient } from "@/components/listing-manage-client";
 import { aiQuotaRemaining } from "@/lib/ai-listing-analysis";
 import { catalogGamePath } from "@/lib/catalog-url";
-import { getListing } from "@/lib/listings";
-import { canUseMarketplace } from "@/lib/plans";
+import { getListing, getMarketplaceListingClientView } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
 
 type Props = { params: Promise<{ id: string }> };
@@ -11,7 +10,6 @@ type Props = { params: Promise<{ id: string }> };
 export default async function ListingPage({ params }: Props) {
   const user = await getCurrentUser();
   if (!user) redirect("/login");
-  if (!canUseMarketplace(user.plan)) redirect("/ajustes");
 
   const { id } = await params;
   const listing = await getListing(id);
@@ -29,7 +27,7 @@ export default async function ListingPage({ params }: Props) {
   return (
     <ListingManageClient
       key={listing.updatedAt}
-      listing={listing}
+      listing={getMarketplaceListingClientView(listing)}
       isOwner={isOwner}
       quotaRemaining={await aiQuotaRemaining(user.id, user.plan)}
       catalogHref={catalogGamePath(listing.catalogId)}

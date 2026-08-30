@@ -262,7 +262,7 @@ export async function analyzeListingPhotos(
     conditionScore,
     estimatedPriceEur: estimated,
     gameMatchVerdict:
-      "Coincidencia probable con la ficha anunciada. En esta fase se valida que existan las fotos obligatorias; la visión avanzada queda preparada para producción.",
+      "Coincidencia probable con la ficha anunciada. Las fotos obligatorias están presentes; revisa que correspondan al juego antes de comprar.",
     gameMatchConfidence: 0.82,
     visualDescription:
       `Anuncio de ${listing.title} con ${listing.photos.length} foto${listing.photos.length === 1 ? "" : "s"} reales ` +
@@ -270,7 +270,7 @@ export async function analyzeListingPhotos(
     conditionIssues: issues,
     notes:
       "Estimación privada orientativa para negociar entre comprador y vendedor. " +
-      "No es una tasación oficial. Preparado para sustituir esta heurística por visión real con API key.",
+      "No sustituye una revisión física del artículo.",
     analyzedAt: new Date().toISOString(),
     model: "pal-es-heuristic-v2",
   };

@@ -3,18 +3,14 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import type { UserPlan } from "@/lib/marketplace-types";
-import { canUseMarketplace } from "@/lib/plans";
 
 type Props = {
   collectionItemId: string;
-  plan: UserPlan;
   openListingId?: string | null;
 };
 
 export function SellListingButton({
   collectionItemId,
-  plan,
   openListingId,
 }: Props) {
   const router = useRouter();
@@ -43,19 +39,6 @@ export function SellListingButton({
     } finally {
       setLoading(false);
     }
-  }
-
-  if (!canUseMarketplace(plan)) {
-    return (
-      <div className="rounded-xl border border-violet-400/35 bg-violet-500/10 p-4 text-sm">
-        <p className="text-violet-900 dark:text-violet-100">
-          Vender y comprar requiere el plan <strong>Pro</strong>.
-        </p>
-        <Link href="/ajustes" className="mt-2 inline-block font-semibold text-accent hover:underline">
-          Ver planes →
-        </Link>
-      </div>
-    );
   }
 
   if (openListingId) {

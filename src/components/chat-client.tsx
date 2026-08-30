@@ -2,26 +2,26 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { SiteNav } from "@/components/site-nav";
 import { Panel, PanelTitle } from "@/components/ui";
-import { formatEur } from "@/lib/price-format";
+import { formatEurCents } from "@/lib/price-format";
 import type { ChatMessage, MarketplaceConversation } from "@/lib/marketplace-types";
-import type { MarketplaceListing } from "@/lib/marketplace-types";
+import type { MarketplaceListingClientView } from "@/lib/marketplace-types";
 
 type Props = { conversationId: string; userId: string };
 
 export function ChatClient({ conversationId, userId }: Props) {
   const router = useRouter();
   const [conversation, setConversation] = useState<MarketplaceConversation | null>(null);
-  const [listing, setListing] = useState<MarketplaceListing | null>(null);
+  const [listing, setListing] = useState<MarketplaceListingClientView | null>(null);
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
   const [salePrice, setSalePrice] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
-  async function load() {
+  const load = useCallback(async () => {
     const res = await fetch(`/api/marketplace/conversations/${conversationId}`);
     const data = await res.json();
     if (res.ok) {
@@ -30,11 +30,11 @@ export function ChatClient({ conversationId, userId }: Props) {
     } else {
       setError(data.error ?? "No se pudo cargar el chat.");
     }
-  }
+  }, [conversationId]);
 
   useEffect(() => {
-    load();
-  }, [conversationId]);
+    void load();
+  }, [load]);
 
   async function send() {
     if (!text.trim()) return;
@@ -52,7 +52,7 @@ export function ChatClient({ conversationId, userId }: Props) {
       return;
     }
     setText("");
-    load();
+    void load();
   }
 
   async function sellerConfirmSale() {
@@ -81,8 +81,8 @@ export function ChatClient({ conversationId, userId }: Props) {
       setError(data.error ?? "No se pudo registrar la venta.");
       return;
     }
-    setSuccess(`Venta marcada a ${formatEur(price)}. Espera confirmación del comprador.`);
-    load();
+    setSuccess(`Venta marcada a ${formatEurCents(price)}. Espera confirmación del comprador.`);
+    void load();
     router.refresh();
   }
 
@@ -107,7 +107,7 @@ export function ChatClient({ conversationId, userId }: Props) {
         ? "Venta cerrada y registrada en precios (privado)."
         : "Recepción ya estaba confirmada.",
     );
-    load();
+    void load();
   }
 
   async function blockPeer() {
@@ -127,7 +127,7 @@ export function ChatClient({ conversationId, userId }: Props) {
       return;
     }
     setSuccess("Usuario bloqueado.");
-    load();
+    void load();
   }
 
   if (!conversation) {
@@ -230,8 +230,8 @@ export function ChatClient({ conversationId, userId }: Props) {
           <Panel className="mt-6">
             <PanelTitle>Marcar como vendido</PanelTitle>
             <p className="mb-2 text-xs text-muted">
-              Precio final privado — mejora las estimaciones del catálogo si el comprador confirma
-              recepción (Fase 6).
+              El precio final es privado. Se incorporará de forma anónima a las estimaciones si el
+              comprador confirma la recepción.
             </p>
             <input
               type="number"
@@ -246,6 +246,17 @@ export function ChatClient({ conversationId, userId }: Props) {
               Vendido a {conversation.buyerName}
             </button>
           </Panel>
+        )}
+
+        {listing?.status === "sold" && !listing.buyerConfirmedAt && (
+          <p className="mt-4 rounded-lg border border-amber-400/20 bg-amber-500/10 px-3 py-2 text-sm text-amber-800 dark:text-amber-200">
+            Venta acordada
+            {listing.recordedSalePriceEur != null &&
+              ` · ${formatEurCents(listing.recordedSalePriceEur)}`}
+            {isSeller
+              ? " · Pendiente de confirmación del comprador."
+              : " · Confirma cuando hayas recibido el juego."}
+          </p>
         )}
 
         {listing?.status === "sold" && isBuyer && !listing.buyerConfirmedAt && (
@@ -264,7 +275,8 @@ export function ChatClient({ conversationId, userId }: Props) {
         {listing?.buyerConfirmedAt && (
           <p className="mt-4 text-sm text-emerald-700 dark:text-emerald-300">
             Venta cerrada
-            {listing.recordedSalePriceEur != null && ` · ${formatEur(listing.recordedSalePriceEur)}`}
+            {listing.recordedSalePriceEur != null &&
+              ` · ${formatEurCents(listing.recordedSalePriceEur)}`}
           </p>
         )}
       </main>

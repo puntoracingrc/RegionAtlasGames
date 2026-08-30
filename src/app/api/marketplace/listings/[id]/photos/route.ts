@@ -11,7 +11,7 @@ import {
 import type { ListingPhotoSlot } from "@/lib/marketplace-types";
 import { PHOTO_SLOT_LABELS, REQUIRED_PHOTO_SLOTS } from "@/lib/marketplace-types";
 import { MAX_PHOTO_BYTES } from "@/lib/listing-photos";
-import { canUseMarketplace } from "@/lib/plans";
+import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
 import { getCurrentUser } from "@/lib/users";
 
 const PHOTO_DIR = path.join(process.cwd(), "public", "listing-photos");
@@ -44,9 +44,16 @@ type Params = { params: Promise<{ id: string }> };
 
 export async function POST(request: Request, { params }: Params) {
   const user = await getCurrentUser();
-  if (!user || !canUseMarketplace(user.plan)) {
-    return NextResponse.json({ error: "Plan Pro requerido." }, { status: 403 });
+  if (!user) {
+    return NextResponse.json({ error: "Inicia sesión." }, { status: 401 });
   }
+  const rateLimited = await marketplaceRateLimitResponse(request, {
+    action: "photo-upload",
+    userId: user.id,
+    limit: 80,
+    windowMs: 60 * 60 * 1000,
+  });
+  if (rateLimited) return rateLimited;
 
   const { id } = await params;
   const listing = await getListing(id);

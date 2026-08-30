@@ -102,27 +102,20 @@ export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
             >
               Mi colección
             </Link>
-            {user.plan === "pro" && (
-              <>
-                <Link
-                  href="/mis-anuncios"
-                  className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
-                  onClick={() => setOpen(false)}
-                >
-                  Mis anuncios
-                  <span className="ml-1.5 rounded bg-accent/20 px-1.5 py-0.5 text-[10px] font-medium text-accent">
-                    Pro
-                  </span>
-                </Link>
-                <Link
-                  href="/mensajes"
-                  className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
-                  onClick={() => setOpen(false)}
-                >
-                  Mensajes
-                </Link>
-              </>
-            )}
+            <Link
+              href="/mis-anuncios"
+              className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
+              onClick={() => setOpen(false)}
+            >
+              Mis anuncios
+            </Link>
+            <Link
+              href="/mensajes"
+              className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
+              onClick={() => setOpen(false)}
+            >
+              Mensajes
+            </Link>
             <button
               type="button"
               onClick={logout}

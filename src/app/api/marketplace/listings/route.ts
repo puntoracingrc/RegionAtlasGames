@@ -15,6 +15,6 @@ export async function GET(request: Request) {
   return NextResponse.json({
     count: listings.length,
     listings,
-    canContact: user?.plan === "pro",
+    canContact: Boolean(user),
   });
 }
