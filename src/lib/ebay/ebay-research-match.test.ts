@@ -136,6 +136,40 @@ test("rejects box-only listings even with a matching title", () => {
   assert.equal(match.decision, "reject");
 });
 
+test("rejects a collector listing for the standard physical edition", () => {
+  const match = evaluateEbayResearchMatch(
+    {
+      title: "1971 Project Helios",
+      edition: "standard",
+      platformSlug: "ps4",
+      region: "PAL Europa",
+      gtins: [],
+    },
+    evidence({ title: "1971 Project Helios Collector's Edition PS4 PAL EU precintado" }),
+  );
+  assert.equal(match.decision, "reject");
+  assert.ok(match.reasons.includes("edición física distinta"));
+});
+
+test("recognizes Collector's Ed. as the collector physical edition", () => {
+  const match = evaluateEbayResearchMatch(
+    {
+      title: "1971 Project Helios Collector's Edition",
+      edition: "collector",
+      platformSlug: "ps4",
+      region: "PAL España",
+      gtins: ["8437015294131"],
+    },
+    evidence({
+      title: "1971 Project Helios Collector's Ed. PS4 PAL España precintado",
+      gtin: "8437015294131",
+      searchBasis: { kind: "gtin", value: "8437015294131" },
+    }),
+  );
+  assert.equal(match.decision, "accept");
+  assert.equal(match.conditionBucket, "sealed");
+});
+
 test("parses and deduplicates EAN values from catalog details", () => {
   assert.deepEqual(parseGameGtins("4012927024011, 4012927024011 / 0045496730529"), [
     "4012927024011",

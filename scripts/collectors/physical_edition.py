@@ -20,18 +20,18 @@ EDITION_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     (
         "collector",
         re.compile(
-            r"\b(?:collector(?:\s+s)?|collectors|coleccionista)\s+(?:edition|edicion)\b"
+            r"\b(?:(?:collector(?:\s+s)?|collectors)\s+(?:(?:limited|deluxe|special)\s+)?(?:edition|edicion|ed)|(?:edicion\s+)?coleccionista)\b"
         ),
     ),
-    ("limited", re.compile(r"\b(?:limited\s+edition|edicion\s+limitada)\b")),
-    ("deluxe", re.compile(r"\b(?:deluxe\s+edition|edicion\s+deluxe)\b")),
-    ("special", re.compile(r"\b(?:special\s+edition|edicion\s+especial)\b")),
-    ("ultimate", re.compile(r"\b(?:ultimate\s+edition|edicion\s+ultimate)\b")),
-    ("gold", re.compile(r"\bgold\s+edition\b")),
-    ("complete-edition", re.compile(r"\bcomplete\s+edition\b")),
-    ("day-one", re.compile(r"\b(?:day\s+one|dia\s+uno)\s+edition\b")),
-    ("launch", re.compile(r"\blaunch\s+edition\b")),
-    ("signature", re.compile(r"\bsignature\s+edition\b")),
+    ("limited", re.compile(r"\b(?:limited\s+(?:edition|ed)|edicion\s+limitada)\b")),
+    ("deluxe", re.compile(r"\b(?:deluxe\s+(?:edition|ed)|edicion\s+deluxe)\b")),
+    ("special", re.compile(r"\b(?:special\s+(?:edition|ed)|edicion\s+especial)\b")),
+    ("ultimate", re.compile(r"\b(?:ultimate\s+(?:edition|ed)|edicion\s+ultimate)\b")),
+    ("gold", re.compile(r"\bgold\s+(?:edition|ed)\b")),
+    ("complete-edition", re.compile(r"\bcomplete\s+(?:edition|ed)\b")),
+    ("day-one", re.compile(r"\b(?:day\s+one|dia\s+uno)\s+(?:edition|ed)\b")),
+    ("launch", re.compile(r"\blaunch\s+(?:edition|ed)\b")),
+    ("signature", re.compile(r"\bsignature\s+(?:edition|ed)\b")),
     ("premium-box", re.compile(r"\bpremium\s+box\b")),
     ("steelbook", re.compile(r"\bsteelbook\b")),
 )
