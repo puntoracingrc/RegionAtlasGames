@@ -8532,10 +8532,10 @@
     ],
     "ps4-7-days-to-die": [
       {
-        "at": "2026-08-30T12:56:05Z",
+        "at": "2026-08-30T17:37:59Z",
         "loose": null,
         "gameManual": null,
-        "complete": 18.0,
+        "complete": 17.0,
         "sealed": null
       }
     ],
@@ -8609,6 +8609,13 @@
         "gameManual": null,
         "complete": 40.95,
         "sealed": null
+      },
+      {
+        "at": "2026-08-30T17:54:25Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.49,
+        "sealed": null
       }
     ],
     "ps4-adventure-academia-the-fractured-continent": [
@@ -8680,6 +8687,13 @@
         "loose": null,
         "gameManual": null,
         "complete": null,
+        "sealed": 21.99
+      },
+      {
+        "at": "2026-08-30T18:33:11Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.18,
         "sealed": 21.99
       }
     ],
@@ -8884,6 +8898,13 @@
         "gameManual": null,
         "complete": 12.95,
         "sealed": null
+      },
+      {
+        "at": "2026-08-30T20:20:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.8,
+        "sealed": null
       }
     ],
     "ps4-assassin%27s-creed-origins": [
@@ -8892,6 +8913,13 @@
         "loose": null,
         "gameManual": null,
         "complete": 21.5,
+        "sealed": null
+      },
+      {
+        "at": "2026-08-30T20:20:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.94,
         "sealed": null
       }
     ],
@@ -8902,6 +8930,13 @@
         "gameManual": null,
         "complete": 40.92,
         "sealed": null
+      },
+      {
+        "at": "2026-08-30T20:20:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.88,
+        "sealed": null
       }
     ],
     "ps4-assassin%27s-creed-valhalla": [
@@ -8911,6 +8946,13 @@
         "gameManual": null,
         "complete": 16.47,
         "sealed": null
+      },
+      {
+        "at": "2026-08-30T20:20:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.38,
+        "sealed": null
       }
     ],
     "ps4-assassin%27s-creed-mirage": [
@@ -8919,6 +8961,13 @@
         "loose": null,
         "gameManual": null,
         "complete": 28.35,
+        "sealed": null
+      },
+      {
+        "at": "2026-08-30T20:20:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.0,
         "sealed": null
       }
     ],
@@ -9707,11 +9756,11 @@
     ],
     "ps4-1971-project-helios-collector%27s-edition": [
       {
-        "at": "2026-08-30T09:51:23Z",
+        "at": "2026-08-30T17:37:59Z",
         "loose": null,
         "gameManual": null,
         "complete": null,
-        "sealed": 20.0
+        "sealed": 21.67
       }
     ],
     "ps4-brawlout": [
@@ -9810,6 +9859,69 @@
         "loose": null,
         "gameManual": null,
         "complete": 17.29,
+        "sealed": null
+      }
+    ],
+    "ps4-ark-survival-evolved": [
+      {
+        "at": "2026-08-30T19:50:59Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.71,
+        "sealed": null
+      }
+    ],
+    "ps4-assassin%27s-creed-odyssey": [
+      {
+        "at": "2026-08-30T20:20:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.87,
+        "sealed": null
+      }
+    ],
+    "ps4-assassin%27s-creed-the-ezio-collection": [
+      {
+        "at": "2026-08-30T20:20:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 23.39,
+        "sealed": 44.95
+      }
+    ],
+    "ps4-assassin%27s-creed-unity": [
+      {
+        "at": "2026-08-30T20:20:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.89,
+        "sealed": null
+      }
+    ],
+    "ps4-assassins-creed-4-black-flag": [
+      {
+        "at": "2026-08-30T20:20:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.18,
+        "sealed": null
+      }
+    ],
+    "ps4-assassins-creed-odyssey": [
+      {
+        "at": "2026-08-30T20:20:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.67,
+        "sealed": null
+      }
+    ],
+    "ps4-assassins-creed-origins": [
+      {
+        "at": "2026-08-30T20:20:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.33,
         "sealed": null
       }
     ]
