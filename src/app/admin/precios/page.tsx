@@ -8,6 +8,7 @@ import { AdminPcWorkerUpdatePanel } from "@/components/admin/admin-pc-worker-upd
 import { AdminPriceCoverageTable } from "@/components/admin/admin-price-coverage-table";
 import { AdminPriceReviewPanel } from "@/components/admin/admin-price-review-panel";
 import { AdminPriceSourceSettingsPanel } from "@/components/admin/admin-price-source-settings-panel";
+import { AdminWallapopCampaignPanel } from "@/components/admin/admin-wallapop-campaign-panel";
 import {
   AdminStatTile,
   adminToneClass,
@@ -770,6 +771,8 @@ export default async function AdminPricesPage({
           </p>
         ) : null}
       </Panel>
+
+      <AdminWallapopCampaignPanel />
 
       <AdminPcWorkerUpdatePanel />
 

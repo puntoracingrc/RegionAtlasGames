@@ -13,6 +13,7 @@ from publish_verified_price_artifacts import (  # noqa: E402
     ArtifactError,
     validate_game_ingest,
     validate_tcns_ingest,
+    validate_wallapop_artifact,
 )
 
 
@@ -80,9 +81,88 @@ def test_game_contract() -> None:
     expect_error(lambda: validate_game_ingest(bad_host, job))
 
 
+def test_wallapop_contract() -> None:
+    job_id = "wallapop-pal-test-1"
+    manifest = {
+        "jobId": job_id,
+        "platformSlug": "ps4",
+        "searchedCatalogIds": ["ps4-alpha"],
+        "resultCatalogIds": ["ps4-alpha", "ps4-alpha-usa"],
+        "verifiedCatalogIds": ["ps4-alpha"],
+        "resultPath": f"results/{job_id}/catalog-price-results.json",
+        "ingestResultPath": f"results/{job_id}/wallapop-ingest.json",
+    }
+    catalog = [
+        {"id": "ps4-alpha", "platformSlug": "ps4", "region": "PAL España"},
+        {"id": "ps4-alpha-usa", "platformSlug": "ps4", "region": "USA"},
+    ]
+    result = {
+        "schemaVersion": 1,
+        "jobId": job_id,
+        "source": "wallapop",
+        "platformSlug": "ps4",
+        "searchedCatalogIds": ["ps4-alpha"],
+        "catalogIds": ["ps4-alpha", "ps4-alpha-usa"],
+        "verifiedCatalogIds": ["ps4-alpha"],
+        "games": [
+            {
+                "id": "ps4-alpha",
+                "platformSlug": "ps4",
+                "region": "PAL España",
+                "priceRegionVerified": True,
+            },
+            {
+                "id": "ps4-alpha-usa",
+                "platformSlug": "ps4",
+                "region": "USA",
+                "priceRegionVerified": False,
+            },
+        ],
+    }
+    verified_row = {
+        "catalogId": "ps4-alpha",
+        "source": "wallapop",
+        "listingType": "active",
+        "priceEur": 20,
+        "title": "Alpha PS4 precintado",
+        "listingRegion": "PAL España",
+        "regionVerified": True,
+        "regionEvidence": ["cover_vision"],
+        "productUrl": "https://es.wallapop.com/item/alpha-123",
+        "condition": "sealed",
+    }
+    ingest = {
+        "platformSlug": "ps4",
+        "source": "wallapop",
+        "listings": [
+            verified_row,
+            {
+                **verified_row,
+                "externalId": "review-only",
+                "regionVerified": False,
+                "listingRegion": "",
+            },
+        ],
+    }
+    platform, clean, count = validate_wallapop_artifact(manifest, result, ingest, catalog)
+    assert platform == "ps4"
+    assert count == 1
+    assert clean["listings"] == [{**verified_row, "catalogRegion": "PAL España"}]
+    assert clean["regionalCandidates"] == []
+
+    bad_region = {
+        **ingest,
+        "listings": [{**verified_row, "listingRegion": "USA"}],
+    }
+    expect_error(lambda: validate_wallapop_artifact(manifest, result, bad_region, catalog))
+    bad_path = {**manifest, "ingestResultPath": "app/data/catalog.json"}
+    expect_error(lambda: validate_wallapop_artifact(bad_path, result, ingest, catalog))
+
+
 def main() -> None:
     test_tcns_contract()
     test_game_contract()
+    test_wallapop_contract()
     print("OK verified price artifact publisher")
 
 

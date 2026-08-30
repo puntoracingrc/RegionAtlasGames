@@ -177,6 +177,14 @@ def test_git_fast_forward() -> None:
             assert git(worker, "rev-parse", "HEAD") == second_sha
             stored = json.loads(control.read_text(encoding="utf-8"))
             assert stored["todoConsolasWeekly"]["platforms"] == ["ps4"]
+            stored["wallapopPalCampaign"] = {
+                "enabled": False,
+                "platforms": ["ps4", "ps5", "ps3", "ps2", "ps1"],
+                "batchSize": 20,
+                "pauseMinutes": 10,
+                "jitterMinutes": 3,
+            }
+            control.write_text(json.dumps(stored), encoding="utf-8")
 
             current = apply_update_request(
                 worker,
@@ -186,6 +194,8 @@ def test_git_fast_forward() -> None:
             )
             assert current["status"] == "already_current"
             assert current["restartRequired"] is False
+            preserved = json.loads(control.read_text(encoding="utf-8"))
+            assert preserved["wallapopPalCampaign"]["enabled"] is False
 
             (worker / "local-change.txt").write_text("do not overwrite\n", encoding="utf-8")
             expect_rejected(
