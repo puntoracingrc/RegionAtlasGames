@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { MessageCircle } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NotificationBell } from "@/components/notification-bell";
@@ -69,73 +70,82 @@ export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
 
   return (
     <div className="flex items-center gap-2">
+      <Link
+        href="/mensajes"
+        className="inline-flex h-9 items-center justify-center gap-1.5 rounded-md border border-border bg-card px-2 text-foreground transition hover:bg-card-hover xl:px-2.5"
+        title="Marketplace y mensajes"
+        aria-label="Marketplace y mensajes"
+      >
+        <MessageCircle className="h-4 w-4" aria-hidden />
+        <span className="hidden text-[13px] xl:inline">Mensajes</span>
+      </Link>
       <NotificationBell />
       <div className="relative">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 rounded-md border border-border bg-card px-2.5 py-1.5 text-[13px] transition hover:bg-card-hover"
-      >
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-accent/20 text-xs font-semibold text-accent">
-          {user.name.charAt(0).toUpperCase()}
-        </span>
-        <span className="hidden max-w-[120px] truncate text-foreground sm:inline">{user.name}</span>
-      </button>
-      {open && (
-        <>
-          <button
-            type="button"
-            className="fixed inset-0 z-40"
-            aria-label="Cerrar menú"
-            onClick={() => setOpen(false)}
-          />
-          <div className="absolute right-0 z-50 mt-2 min-w-[180px] rounded-lg border border-border bg-card py-1 shadow-lg shadow-black/20">
-            <p className="border-b border-border px-3 py-2 text-xs text-muted">{user.email}</p>
-            <Link
-              href="/ajustes"
-              className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
-              onClick={() => setOpen(false)}
-            >
-              Ajustes
-            </Link>
-            <Link
-              href="/coleccion"
-              className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
-              onClick={() => setOpen(false)}
-            >
-              Mi colección
-            </Link>
-            <Link
-              href="/mis-anuncios"
-              className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
-              onClick={() => setOpen(false)}
-            >
-              Mis anuncios
-            </Link>
-            <Link
-              href="/notificaciones"
-              className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
-              onClick={() => setOpen(false)}
-            >
-              Notificaciones
-            </Link>
-            <Link
-              href="/mensajes"
-              className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
-              onClick={() => setOpen(false)}
-            >
-              Mensajes
-            </Link>
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="flex items-center gap-2 rounded-md border border-border bg-card px-2.5 py-1.5 text-[13px] transition hover:bg-card-hover"
+        >
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-accent/20 text-xs font-semibold text-accent">
+            {user.name.charAt(0).toUpperCase()}
+          </span>
+          <span className="hidden max-w-[120px] truncate text-foreground sm:inline">{user.name}</span>
+        </button>
+        {open && (
+          <>
             <button
               type="button"
-              onClick={logout}
-              className="block w-full px-3 py-2 text-left text-sm text-rose-500 hover:bg-card-hover"
-            >
-              Cerrar sesión
-            </button>
-          </div>
-        </>
-      )}
+              className="fixed inset-0 z-40"
+              aria-label="Cerrar menú"
+              onClick={() => setOpen(false)}
+            />
+            <div className="absolute right-0 z-50 mt-2 min-w-[180px] rounded-lg border border-border bg-card py-1 shadow-lg shadow-black/20">
+              <p className="border-b border-border px-3 py-2 text-xs text-muted">{user.email}</p>
+              <Link
+                href="/ajustes"
+                className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
+                onClick={() => setOpen(false)}
+              >
+                Ajustes
+              </Link>
+              <Link
+                href="/coleccion"
+                className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
+                onClick={() => setOpen(false)}
+              >
+                Mi colección
+              </Link>
+              <Link
+                href="/mis-anuncios"
+                className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
+                onClick={() => setOpen(false)}
+              >
+                Mis anuncios
+              </Link>
+              <Link
+                href="/notificaciones"
+                className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
+                onClick={() => setOpen(false)}
+              >
+                Notificaciones
+              </Link>
+              <Link
+                href="/mensajes"
+                className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
+                onClick={() => setOpen(false)}
+              >
+                Mensajes
+              </Link>
+              <button
+                type="button"
+                onClick={logout}
+                className="block w-full px-3 py-2 text-left text-sm text-rose-500 hover:bg-card-hover"
+              >
+                Cerrar sesión
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

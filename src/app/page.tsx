@@ -1,242 +1,503 @@
+import { cache, Suspense } from "react";
+import {
+  ArrowRight,
+  Boxes,
+  CircleAlert,
+  CircleDollarSign,
+  Gamepad2,
+  MessageCircle,
+  PackageCheck,
+} from "lucide-react";
 import Link from "next/link";
+import { CollectionValueChart } from "@/components/collection-value-chart";
 import { HomeCatalogSearch } from "@/components/home-catalog-search";
 import { NewsStrip } from "@/components/news-strip";
-import { PlatformGrid } from "@/components/platform-card";
 import { SiteNav } from "@/components/site-nav";
-import {
-  getUserCollectionViews,
-  readUserCollection,
-  summarizeCollectionForPlan,
-} from "@/lib/collection-store";
-import { meta, publicListedCatalog } from "@/lib/catalog";
+import { Panel } from "@/components/ui";
 import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
+import {
+  enrichCollectionItem,
+  getCatalogGame,
+  meta,
+  publicListedCatalog,
+} from "@/lib/catalog";
 import { publicGenreFilterOptions, publicRegionFilterOptions } from "@/lib/catalog-filters";
-import { formatEur } from "@/lib/price-format";
+import { catalogGamePath } from "@/lib/catalog-seo";
+import { readUserCollection, summarizeCollectionForPlan } from "@/lib/collection-store";
+import { getUserCommunicationOverview } from "@/lib/conversations";
+import { getCoverSrc } from "@/lib/cover-url";
+import { buildHomeCollectionSnapshot, type HomeCollectionSnapshot } from "@/lib/home-dashboard";
 import { indexStats } from "@/lib/indexes";
+import { getSellerListings } from "@/lib/listings";
+import { listingStatusLabel } from "@/lib/marketplace-ui";
 import { listNewsForSection } from "@/lib/news-cache";
-import { canViewCollectionValue } from "@/lib/plans";
-import { regionBarColorForLabel, regionSortRank } from "@/lib/platform-catalog-insights";
-import { getRegionDisplay } from "@/lib/region-display";
+import { formatEur } from "@/lib/price-format";
+import type { PublicUser } from "@/lib/session";
 import { SITE_LOGO } from "@/lib/site-brand";
+import type { CatalogGame, CollectionView } from "@/lib/types";
 import { getCurrentUser } from "@/lib/users";
+
+const loadHomeCollectionSnapshot = cache(
+  async (userId: string, plan: PublicUser["plan"]): Promise<HomeCollectionSnapshot> => {
+    const file = await readUserCollection(userId);
+    const items = file.items.map(enrichCollectionItem);
+    const summary = summarizeCollectionForPlan(items, plan);
+    return buildHomeCollectionSnapshot(items, summary);
+  },
+);
+
+const loadHomeActivity = cache(async (userId: string) => {
+  const [communication, listings] = await Promise.all([
+    getUserCommunicationOverview(userId, 5),
+    getSellerListings(userId),
+  ]);
+  return { communication, listings };
+});
+
+const PUBLIC_CATALOG_SAMPLE = [...publicListedCatalog]
+  .filter((game) => game.coverUrl && game.recommendedPrice != null)
+  .sort(
+    (a, b) =>
+      (b.updatedAt ?? "").localeCompare(a.updatedAt ?? "") ||
+      a.title.localeCompare(b.title, "es"),
+  )
+  .slice(0, 6);
 
 export default async function HomePage() {
   const user = await getCurrentUser();
-  const ownedItems = user ? await getUserCollectionViews(user.id) : [];
-  const userSummary = user
-    ? summarizeCollectionForPlan((await readUserCollection(user.id)).items, user.plan)
-    : null;
-  const showCollectionValue = user ? canViewCollectionValue(user.plan) : false;
-  const indexes = indexStats();
-  const atlasStats = buildAtlasPanelStats();
-  const homeNews = await listNewsForSection({ section: "home", topic: "general", limit: 9 });
-  const activePlatforms = (await listAdminPlatforms()).filter((platform) => platform.active !== false);
-  const searchPlatforms = activePlatforms.map((platform) => ({
-    slug: platform.slug,
-    name: platform.name,
-    shortName: platform.shortName,
-  }));
-  const searchRegions = publicRegionFilterOptions();
-  const searchGenres = publicGenreFilterOptions();
-  const platformRange =
-    activePlatforms.length > 1
-      ? `${activePlatforms[0].shortName} a ${activePlatforms.at(-1)?.shortName}`
-      : (activePlatforms[0]?.shortName ?? "Catálogo");
 
   return (
     <>
-      <SiteNav />
-      <main className="mx-auto max-w-[1600px] px-4 py-6 md:px-6 md:py-8">
-        <header className="relative mb-10 overflow-hidden rounded-2xl border border-border bg-card/70 px-4 py-5 shadow-2xl shadow-slate-950/5 backdrop-blur md:px-7 md:py-7 dark:shadow-black/25">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgb(217_119_6/0.16),transparent_36%),linear-gradient(90deg,rgb(15_23_42/0.08)_1px,transparent_1px),linear-gradient(0deg,rgb(15_23_42/0.06)_1px,transparent_1px)] bg-[size:auto,44px_44px,44px_44px] dark:bg-[linear-gradient(135deg,rgb(251_191_36/0.14),transparent_36%),linear-gradient(90deg,rgb(255_255_255/0.06)_1px,transparent_1px),linear-gradient(0deg,rgb(255_255_255/0.04)_1px,transparent_1px)]" />
-          <div className="relative grid gap-6 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end">
-            <div className="max-w-3xl space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
-                Catálogo por región · Precios en España
-              </div>
-              <div className="space-y-3">
-                <h1 className="max-w-2xl text-4xl font-bold tracking-tight text-foreground md:text-6xl">
-                  {SITE_LOGO}
-                </h1>
-                <p className="max-w-2xl text-base leading-relaxed text-muted md:text-lg">
-                  El atlas para coleccionistas: juegos oficiales por consola y región, fichas
-                  enriquecidas, búsqueda por compañía, género o SKU, y referencias de precio
-                  españolas conforme se verifican.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2 sm:flex-row">
-                <Link href="/plataformas" className="btn-primary min-h-11 px-5">
-                  Explorar catálogo
-                </Link>
-                <Link href="/coleccion" className="btn-secondary min-h-11 px-5">
-                  Mi colección
-                </Link>
-              </div>
-              <p className="text-sm font-medium text-muted/90">
-                {platformRange} · PAL, NTSC USA y NTSC-J Japón ·{" "}
-                {publicListedCatalog.length.toLocaleString("es-ES")} juegos indexados
-              </p>
-            </div>
-            <HeroAtlasPanel stats={atlasStats} />
-          </div>
-        </header>
-
-        <HomeCatalogSearch platforms={searchPlatforms} regions={searchRegions} genres={searchGenres} />
-
-        <NewsStrip title="Actualidad del videojuego" items={homeNews} />
-
-        <section className="mb-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <Stat label="Plataformas" value={String(activePlatforms.length)} hint="Consolas activas en catálogo" />
-          <Stat
-            label="Juegos en catálogo"
-            value={publicListedCatalog.length.toLocaleString("es-ES")}
-            hint="Títulos indexados por plataforma y región"
-          />
-          <Stat
-            label="Compañías y géneros"
-            value={`${indexes.companies} · ${indexes.genres}`}
-            hint="Índices cruzados navegables"
-          />
-          <Stat
-            label={userSummary ? "Tu colección" : "Mi colección"}
-            value={
-              userSummary
-                ? showCollectionValue
-                  ? formatEur(userSummary.totalRecommendedValue)
-                  : String(userSummary.totalItems)
-                : "Importa Excel"
-            }
-            hint={
-              userSummary
-                ? showCollectionValue
-                  ? `${userSummary.totalItems} juegos importados`
-                  : `${userSummary.totalItems} juegos · inicia sesión para ver el valor`
-                : "Regístrate e importa tu inventario"
-            }
-          />
-        </section>
-
-        <section className="space-y-4">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <h2 className="text-2xl font-bold text-foreground">Plataformas</h2>
-              <p className="mt-1 text-sm text-muted">
-                Accede al listado completo, filtra por región y ordena por año, precio o referencia.
-              </p>
-            </div>
-          </div>
-          <PlatformGrid items={activePlatforms} ownedItems={ownedItems} />
-        </section>
-      </main>
+      <SiteNav initialUser={user} />
+      {user ? <PersonalHome user={user} /> : <PublicHome />}
     </>
   );
 }
 
-function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {
+async function PersonalHome({ user }: { user: PublicUser }) {
+  const activityPromise = loadHomeActivity(user.id);
+  const snapshot = await loadHomeCollectionSnapshot(user.id, user.plan);
+  const { summary } = snapshot;
+  const attentionCount = summary.pendingCatalog + summary.outOfScopeItems;
+
   return (
-    <article className="rounded-lg border border-border/70 bg-card/70 px-4 py-3 shadow-sm shadow-slate-950/5 transition hover:-translate-y-0.5 hover:bg-card-hover">
-      <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">{label}</p>
-      <p className="mt-1 text-xl font-bold text-accent/95">{value}</p>
-      {hint && <p className="mt-1 text-xs leading-snug text-muted/85">{hint}</p>}
+    <main className="mx-auto max-w-[1500px] px-4 py-6 md:px-6 md:py-8">
+      <header className="mb-7 flex flex-col justify-between gap-4 border-b border-border/70 pb-6 md:flex-row md:items-end">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wider text-accent">Tu inicio</p>
+          <h1 className="mt-1 text-3xl font-bold text-foreground md:text-4xl">
+            Hola, {firstName(user.name)}
+          </h1>
+          <p className="mt-2 max-w-2xl text-sm text-muted md:text-base">
+            Este es el estado actual de tu colección y tu actividad en {SITE_LOGO}.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Link href="/coleccion" className="btn-primary gap-2">
+            <Boxes className="h-4 w-4" aria-hidden />
+            Gestionar colección
+          </Link>
+          <Link href="/plataformas" className="btn-secondary gap-2">
+            Explorar catálogo
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+        </div>
+      </header>
+
+      <section className="mb-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="Resumen de colección">
+        <DashboardMetric
+          icon={Gamepad2}
+          label="Juegos"
+          value={summary.totalItems.toLocaleString("es-ES")}
+          detail={`${summary.totalUnits.toLocaleString("es-ES")} unidades`}
+        />
+        <DashboardMetric
+          icon={CircleDollarSign}
+          label="Valor estimado"
+          value={formatEur(summary.totalRecommendedValue)}
+          detail={`${snapshot.priceCoveragePct}% de fichas con precio`}
+        />
+        <DashboardMetric
+          icon={PackageCheck}
+          label="Con precio"
+          value={summary.withEsPrice.toLocaleString("es-ES")}
+          detail={`${summary.pendingEsPrice.toLocaleString("es-ES")} pendientes`}
+        />
+        <DashboardMetric
+          icon={CircleAlert}
+          label="Fichas pendientes"
+          value={attentionCount.toLocaleString("es-ES")}
+          detail={`${summary.pendingEsPrice.toLocaleString("es-ES")} sin precio`}
+        />
+      </section>
+
+      <div className="grid gap-6 xl:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.65fr)]">
+        <Panel className="min-w-0">
+          <SectionHeading
+            title="Evolución del valor"
+            detail="Historial disponible y valor actual de tus unidades."
+          />
+          <CollectionValueChart points={snapshot.valueHistory} />
+        </Panel>
+
+        <Panel>
+          <SectionHeading title="Plataformas favoritas" detail="Ordenadas por unidades en tu colección." />
+          {snapshot.favoritePlatforms.length > 0 ? (
+            <ul className="divide-y divide-border/70">
+              {snapshot.favoritePlatforms.map((platform) => (
+                <li key={platform.slug}>
+                  <Link
+                    href={`/plataforma/${platform.slug}`}
+                    className="group block py-3 first:pt-0 last:pb-0"
+                  >
+                    <div className="flex items-center justify-between gap-3 text-sm">
+                      <span className="font-semibold text-foreground group-hover:text-accent">
+                        {platform.label}
+                      </span>
+                      <span className="text-muted">{platform.units} uds.</span>
+                    </div>
+                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-foreground/10">
+                      <div
+                        className="h-full rounded-full bg-accent"
+                        style={{ width: `${Math.max(platform.share, 3)}%` }}
+                      />
+                    </div>
+                    <p className="mt-1 text-[11px] text-muted">
+                      {platform.games} {platform.games === 1 ? "juego" : "juegos"} · {platform.share}%
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <EmptyLine href="/coleccion" label="Añade juegos para ver tus plataformas principales." />
+          )}
+        </Panel>
+
+        <Panel>
+          <SectionHeading
+            title="Últimos añadidos"
+            detail="Los movimientos más recientes de tu colección."
+            href="/coleccion"
+            action="Ver colección"
+          />
+          {snapshot.recentItems.length > 0 ? (
+            <div className="grid gap-x-5 sm:grid-cols-2">
+              {snapshot.recentItems.map((item) => (
+                <RecentCollectionRow key={item.id} item={item} />
+              ))}
+            </div>
+          ) : (
+            <EmptyLine href="/coleccion" label="Tu colección todavía está vacía." />
+          )}
+        </Panel>
+
+        <div className="space-y-6">
+          <Panel>
+            <SectionHeading title="Fichas por completar" detail="Trabajo pendiente para mejorar tu resumen." />
+            <div className="space-y-3 text-sm">
+              <StatusLine label="Sin enlazar al catálogo" value={summary.pendingCatalog} />
+              <StatusLine label="Fuera del catálogo actual" value={summary.outOfScopeItems} />
+              <StatusLine label="Sin precio español" value={summary.pendingEsPrice} />
+            </div>
+            <Link href="/coleccion" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline">
+              Revisar pendientes <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </Panel>
+
+          <Suspense fallback={<ActivitySkeleton />}>
+            <HomeActivityPanel userId={user.id} activityPromise={activityPromise} />
+          </Suspense>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+async function HomeActivityPanel({
+  userId,
+  activityPromise,
+}: {
+  userId: string;
+  activityPromise: ReturnType<typeof loadHomeActivity>;
+}) {
+  const { communication, listings } = await activityPromise;
+  const openListings = listings.filter((listing) => listing.status === "active" || listing.status === "draft");
+  const events = [
+    ...communication.notifications.map((notification) => ({
+      key: `notification-${notification.id}`,
+      title: notification.title,
+      detail: notification.body,
+      href: notification.href,
+      at: notification.createdAt,
+      unread: !notification.readAt,
+    })),
+    ...communication.conversations.map(({ conversation, unreadCount }) => {
+      const latest = conversation.messages.at(-1);
+      const peer = conversation.buyerId === userId ? conversation.sellerName : conversation.buyerName;
+      return {
+        key: `conversation-${conversation.id}`,
+        title: getCatalogGame(conversation.catalogId)?.title ?? "Conversación de compraventa",
+        detail: latest?.body ? `${peer}: ${latest.body}` : `Conversación con ${peer}`,
+        href: `/chat/${conversation.id}`,
+        at: latest?.createdAt ?? conversation.updatedAt,
+        unread: unreadCount > 0,
+      };
+    }),
+    ...listings.map((listing) => ({
+      key: `listing-${listing.id}`,
+      title: listing.title,
+      detail: `Anuncio ${listingStatusLabel(listing.status).toLowerCase()}`,
+      href: `/venta/${listing.id}`,
+      at: listing.updatedAt,
+      unread: false,
+    })),
+  ]
+    .sort((a, b) => b.at.localeCompare(a.at))
+    .slice(0, 5);
+
+  return (
+    <Panel>
+      <SectionHeading
+        title="Actividad"
+        detail={`${communication.summary.unreadMessages} mensajes sin leer · ${openListings.length} anuncios abiertos`}
+        href="/notificaciones"
+        action="Ver todo"
+      />
+      {events.length > 0 ? (
+        <ul className="divide-y divide-border/70">
+          {events.map((event) => (
+            <li key={event.key}>
+              <Link href={event.href} className="flex items-start gap-3 py-2.5 first:pt-0 last:pb-0">
+                <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${event.unread ? "bg-accent" : "bg-foreground/20"}`} />
+                <span className="min-w-0">
+                  <span className="block truncate text-sm font-medium text-foreground hover:text-accent">
+                    {event.title}
+                  </span>
+                  {event.detail && <span className="mt-0.5 block truncate text-xs text-muted">{event.detail}</span>}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <EmptyLine href="/mensajes" label="No hay actividad de compraventa todavía." />
+      )}
+      <div className="mt-4 flex gap-2 border-t border-border/70 pt-4">
+        <Link href="/mensajes" className="btn-secondary flex-1 gap-1.5 text-xs">
+          <MessageCircle className="h-4 w-4" aria-hidden /> Mensajes
+        </Link>
+        <Link href="/mis-anuncios" className="btn-secondary flex-1 text-xs">Mis anuncios</Link>
+      </div>
+    </Panel>
+  );
+}
+
+async function PublicHome() {
+  const [platforms, homeNews] = await Promise.all([
+    listAdminPlatforms().then((items) => items.filter((platform) => platform.active !== false)),
+    listNewsForSection({ section: "home", topic: "general", limit: 6 }),
+  ]);
+  const indexes = indexStats();
+  return (
+    <main className="mx-auto max-w-[1500px] px-4 py-7 md:px-6 md:py-10">
+      <header className="mb-8 grid gap-6 border-b border-border/70 pb-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+        <div className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-wider text-accent">Catálogo físico por región</p>
+          <h1 className="mt-2 text-4xl font-bold text-foreground md:text-6xl">{SITE_LOGO}</h1>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
+            Explora ediciones por consola y región, consulta precios del mercado español y organiza tu colección.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Link href="/login" className="btn-primary">Iniciar sesión</Link>
+          <Link href="/registro" className="btn-secondary">Crear cuenta</Link>
+        </div>
+      </header>
+
+      <HomeCatalogSearch
+        platforms={platforms.map((platform) => ({
+          slug: platform.slug,
+          name: platform.name,
+          shortName: platform.shortName,
+        }))}
+        regions={publicRegionFilterOptions()}
+        genres={publicGenreFilterOptions()}
+      />
+
+      <section className="my-8 grid grid-cols-2 border-y border-border/70 md:grid-cols-4" aria-label="Cobertura del catálogo">
+        <PublicStat value={publicListedCatalog.length.toLocaleString("es-ES")} label="Juegos" />
+        <PublicStat value={String(platforms.length)} label="Plataformas" />
+        <PublicStat value={indexes.companies.toLocaleString("es-ES")} label="Compañías" />
+        <PublicStat value={(meta.gamesWithDetails ?? 0).toLocaleString("es-ES")} label="Fichas completas" />
+      </section>
+
+      <section className="mb-9">
+        <SectionHeading
+          title="Fichas actualizadas"
+          detail="Una muestra reciente del catálogo público."
+          href="/plataformas"
+          action="Ver plataformas"
+        />
+        <div className="grid gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
+          {PUBLIC_CATALOG_SAMPLE.map((game) => (
+            <PublicCatalogRow key={game.id} game={game} />
+          ))}
+        </div>
+      </section>
+
+      <NewsStrip title="Actividad reciente" items={homeNews} />
+    </main>
+  );
+}
+
+function DashboardMetric({
+  icon: Icon,
+  label,
+  value,
+  detail,
+}: {
+  icon: typeof Gamepad2;
+  label: string;
+  value: string;
+  detail: string;
+}) {
+  return (
+    <article className="rounded-lg border border-border/80 bg-card/90 p-4 shadow-sm shadow-black/5">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">{label}</p>
+          <p className="mt-1 text-2xl font-bold text-foreground">{value}</p>
+          <p className="mt-1 text-xs text-muted">{detail}</p>
+        </div>
+        <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-accent/10 text-accent">
+          <Icon className="h-4 w-4" aria-hidden />
+        </span>
+      </div>
     </article>
   );
 }
 
-type HeroRegionStat = {
-  label: string;
-  count: number;
-  pct: number;
-  color: string;
-};
-
-type HeroMetric = {
-  label: string;
-  value: string;
-};
-
-type HeroAtlasStats = {
-  total: number;
-  regions: HeroRegionStat[];
-  metrics: HeroMetric[];
-};
-
-function buildAtlasPanelStats(): HeroAtlasStats {
-  const regionCounts = new Map<string, number>();
-  let priceCount = 0;
-
-  for (const game of publicListedCatalog) {
-    const region = getRegionDisplay(game.region).label;
-    regionCounts.set(region, (regionCounts.get(region) ?? 0) + 1);
-    if (game.hasEsPrice || game.recommendedPrice != null) priceCount += 1;
-  }
-
-  const total = publicListedCatalog.length;
-  const detailCount = meta.gamesWithDetails ?? 0;
-  let restColorIndex = 0;
-  const regions = [...regionCounts.entries()]
-    .sort((a, b) => {
-      const rankDiff = regionSortRank(a[0]) - regionSortRank(b[0]);
-      if (rankDiff !== 0) return rankDiff;
-      return b[1] - a[1] || a[0].localeCompare(b[0], "es");
-    })
-    .slice(0, 4)
-    .map(([label, count]) => {
-      const rank = regionSortRank(label);
-      const color =
-        rank < 4 ? regionBarColorForLabel(label) : regionBarColorForLabel(label, restColorIndex++);
-      return {
-        label,
-        count,
-        pct: total > 0 ? Math.round((count / total) * 1000) / 10 : 0,
-        color,
-      };
-    });
-
-  return {
-    total,
-    regions,
-    metrics: [
-      { label: "Fichas", value: detailCount.toLocaleString("es-ES") },
-      { label: "Precios", value: priceCount.toLocaleString("es-ES") },
-    ],
-  };
+function SectionHeading({
+  title,
+  detail,
+  href,
+  action,
+}: {
+  title: string;
+  detail?: string;
+  href?: string;
+  action?: string;
+}) {
+  return (
+    <div className="mb-4 flex items-start justify-between gap-4">
+      <div>
+        <h2 className="text-lg font-bold text-foreground">{title}</h2>
+        {detail && <p className="mt-1 text-xs text-muted">{detail}</p>}
+      </div>
+      {href && action && (
+        <Link href={href} className="shrink-0 text-xs font-medium text-accent hover:underline">
+          {action}
+        </Link>
+      )}
+    </div>
+  );
 }
 
-function HeroAtlasPanel({ stats }: { stats: HeroAtlasStats }) {
+function RecentCollectionRow({ item }: { item: CollectionView }) {
+  const cover = getCoverSrc(item.coverUrl, item.catalogId ?? item.id);
+  const catalogGame = item.catalogId ? getCatalogGame(item.catalogId) : null;
+  const href = catalogGame && item.catalogMatched ? catalogGamePath(catalogGame) : `/coleccion/${item.id}`;
+
   return (
-    <aside className="rounded-xl border border-border/70 bg-background/65 p-4 shadow-xl shadow-slate-950/10 backdrop-blur dark:shadow-black/30">
-      <div className="flex items-center justify-between gap-3">
-        <p className="text-xs font-semibold uppercase tracking-wider text-muted">Cobertura real</p>
-        <p className="rounded-full border border-accent/20 bg-accent/10 px-2 py-1 text-[11px] font-semibold text-accent">
-          {stats.total.toLocaleString("es-ES")} juegos
-        </p>
+    <Link href={href} className="group grid min-h-20 grid-cols-[48px_minmax(0,1fr)_auto] items-center gap-3 border-b border-border/70 py-3">
+      <div className="flex h-16 w-12 items-center justify-center overflow-hidden rounded border border-border bg-background">
+        {cover ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={cover} alt="" className="max-h-full max-w-full object-contain" loading="lazy" />
+        ) : (
+          <span className="px-1 text-center text-[8px] uppercase text-muted">Sin portada</span>
+        )}
       </div>
-      <div className="mt-5 space-y-4">
-        {stats.regions.map((region) => (
-          <div key={region.label}>
-            <div className="mb-1.5 flex items-center justify-between text-xs">
-              <span className="font-semibold text-foreground">{region.label}</span>
-              <span className="text-muted">
-                {region.count.toLocaleString("es-ES")} · {region.pct}%
-              </span>
-            </div>
-            <div className="h-2 overflow-hidden rounded-full bg-foreground/10">
-              <div
-                className={`h-full rounded-full ${region.color}`}
-                style={{ width: `${Math.max(region.pct, 1)}%` }}
-              />
-            </div>
-          </div>
-        ))}
+      <div className="min-w-0">
+        <p className="truncate text-sm font-semibold text-foreground group-hover:text-accent">{item.title}</p>
+        <p className="mt-1 text-xs uppercase text-muted">{item.platformSlug} · {item.region}</p>
+        <p className="mt-1 text-[11px] text-muted">{formatAddedAt(item.addedAt)}</p>
       </div>
-      <div className="mt-5 grid grid-cols-3 gap-2 text-center">
-        {stats.metrics.map((metric) => (
-          <div key={metric.label} className="rounded-lg border border-border/60 bg-card/70 px-2 py-2">
-            <p className="text-[11px] font-semibold text-foreground">{metric.value}</p>
-            <p className="mt-0.5 text-[10px] text-muted">{metric.label}</p>
-          </div>
-        ))}
-      </div>
-    </aside>
+      <span className="text-sm font-semibold text-foreground">{item.quantity > 1 ? `×${item.quantity}` : ""}</span>
+    </Link>
   );
+}
+
+function PublicCatalogRow({ game }: { game: CatalogGame }) {
+  const cover = getCoverSrc(game.coverUrl, game.id);
+  return (
+    <Link href={catalogGamePath(game)} className="group grid min-h-24 grid-cols-[56px_minmax(0,1fr)_auto] items-center gap-3 border-b border-border/70 py-3">
+      <div className="flex h-20 w-14 items-center justify-center overflow-hidden rounded border border-border bg-card">
+        {cover ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={cover} alt="" className="max-h-full max-w-full object-contain" loading="lazy" />
+        ) : (
+          <span className="px-1 text-center text-[8px] uppercase text-muted">Sin portada</span>
+        )}
+      </div>
+      <div className="min-w-0">
+        <p className="line-clamp-2 text-sm font-semibold text-foreground group-hover:text-accent">{game.title}</p>
+        <p className="mt-1 text-xs text-muted">{game.platformSlug.toUpperCase()} · {game.region}</p>
+      </div>
+      <span className="text-sm font-bold text-foreground">
+        {game.recommendedPrice != null ? formatEur(game.recommendedPrice) : ""}
+      </span>
+    </Link>
+  );
+}
+
+function PublicStat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="border-r border-border/70 px-3 py-4 text-center even:border-r-0 md:py-5 md:even:border-r md:last:border-r-0">
+      <p className="text-xl font-bold text-foreground md:text-2xl">{value}</p>
+      <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-muted">{label}</p>
+    </div>
+  );
+}
+
+function StatusLine({ label, value }: { label: string; value: number }) {
+  return (
+    <div className="flex items-center justify-between gap-4 border-b border-border/70 pb-2 last:border-b-0 last:pb-0">
+      <span className="text-muted">{label}</span>
+      <strong className="text-foreground">{value.toLocaleString("es-ES")}</strong>
+    </div>
+  );
+}
+
+function EmptyLine({ href, label }: { href: string; label: string }) {
+  return (
+    <Link href={href} className="block border-y border-dashed border-border py-8 text-center text-sm text-muted hover:text-accent">
+      {label}
+    </Link>
+  );
+}
+
+function ActivitySkeleton() {
+  return (
+    <Panel>
+      <div className="h-5 w-28 animate-pulse rounded bg-foreground/10" />
+      <div className="mt-5 space-y-3">
+        {[0, 1, 2].map((value) => (
+          <div key={value} className="h-10 animate-pulse rounded bg-foreground/5" />
+        ))}
+      </div>
+    </Panel>
+  );
+}
+
+function firstName(name: string): string {
+  return name.trim().split(/\s+/)[0] || "coleccionista";
+}
+
+function formatAddedAt(value: string | null | undefined): string {
+  if (!value) return "En tu colección";
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return "En tu colección";
+  return new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "short", year: "numeric" }).format(parsed);
 }
