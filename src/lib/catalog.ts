@@ -3,6 +3,7 @@ import catalogIdAliasesData from "../../data/catalog-id-aliases.json";
 import collectionData from "../../data/collection.json";
 import metaData from "../../data/meta.json";
 import platformsData from "../../data/platforms.json";
+import { primaryConditionPrice } from "./condition-prices";
 import { getRegionDisplay } from "@/lib/region-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { normalizeCatalogGamePresentation } from "./catalog-presentation";
@@ -63,13 +64,46 @@ export function getCollectionItem(id: string): CollectionView | undefined {
 }
 
 export function enrichCollectionItem(item: CollectionItem): CollectionView {
-  const cat = item.catalogId ? catalogById.get(item.catalogId) : undefined;
+  const cat = item.catalogId ? getCatalogGame(item.catalogId) : undefined;
+  const quantity = Math.max(1, item.quantity || 1);
+  const catalogUnitPrice = cat
+    ? item.sealed
+      ? cat.estimatedPriceSealed ?? primaryConditionPrice(cat) ?? cat.recommendedPrice
+      : primaryConditionPrice(cat) ?? cat.recommendedPrice
+    : null;
+  const storedUnitPrice =
+    item.recommendedPrice ??
+    (item.totalValue != null ? item.totalValue / quantity : null);
+  const currentUnitPrice = catalogUnitPrice ?? storedUnitPrice;
+
   return {
     ...item,
     catalogMatched: Boolean(item.catalogMatched && cat),
+    title: cat?.title ?? item.title,
     coverUrl: cat?.coverUrl ?? null,
     titlePc: cat?.titlePc ?? item.titlePc ?? null,
     pcId: cat?.pcId ?? item.pcImportId ?? null,
+    marketMin: cat?.marketMin ?? item.marketMin,
+    marketMax: cat?.marketMax ?? item.marketMax,
+    recommendedPrice: currentUnitPrice,
+    estimatedPriceLoose: cat?.estimatedPriceLoose ?? item.estimatedPriceLoose ?? null,
+    estimatedPriceGameManual:
+      cat?.estimatedPriceGameManual ?? item.estimatedPriceGameManual ?? null,
+    estimatedPriceComplete:
+      cat?.estimatedPriceComplete ?? item.estimatedPriceComplete ?? null,
+    estimatedPriceSealed: cat?.estimatedPriceSealed ?? item.estimatedPriceSealed ?? null,
+    estimatedPriceNewRetail:
+      cat?.estimatedPriceNewRetail ?? item.estimatedPriceNewRetail ?? null,
+    priceDataSources: cat?.priceDataSources ?? item.priceDataSources ?? null,
+    priceSource: cat?.priceSource ?? item.priceSource,
+    updatedAt: cat?.updatedAt ?? item.updatedAt,
+    hasEsPrice: currentUnitPrice != null,
+    priceRegionVerified:
+      catalogUnitPrice != null ? cat?.priceRegionVerified : item.priceRegionVerified,
+    totalValue:
+      currentUnitPrice != null
+        ? Math.round(currentUnitPrice * quantity * 100) / 100
+        : null,
   };
 }
 

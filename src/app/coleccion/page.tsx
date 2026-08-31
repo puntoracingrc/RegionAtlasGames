@@ -18,7 +18,6 @@ import {
 import { outOfScopeCollectionItems, pendingCatalogItems } from "@/lib/import-collection";
 import { enrichCollectionGapItem } from "@/lib/collection-gap";
 import { countCollectionByPlatform } from "@/lib/collection-platform-groups";
-import { enrichCollectionItem } from "@/lib/catalog";
 import { canViewCollectionValue } from "@/lib/plans";
 import { isCatalogRequestConfigured } from "@/lib/email";
 import { SITE_LOGO } from "@/lib/site-brand";
@@ -57,7 +56,7 @@ export default async function CollectionPage() {
   const linkedItems = filterMainCollectionExplorerItems(items);
   const pendingItems = pendingCatalogItems(file.items).map(enrichCollectionGapItem);
   const outOfScopeItems = outOfScopeCollectionItems(file.items).map(enrichCollectionGapItem);
-  const summary = summarizeCollectionForPlan(file.items, user.plan);
+  const summary = summarizeCollectionForPlan(items, user.plan);
   const platformCounts = countCollectionByPlatform(file.items);
   const ps5Count = platformCounts.ps5;
   const showCollectionValue = canViewCollectionValue(user.plan);
