@@ -11689,11 +11689,11 @@
     ],
     "ps4-contra-rogue-corps": [
       {
-        "at": "2026-08-31T14:04:53Z",
+        "at": "2026-08-31T20:12:39Z",
         "loose": null,
         "gameManual": null,
         "complete": null,
-        "sealed": 48.96,
+        "sealed": 42.93,
         "newRetail": null
       }
     ],
@@ -11709,32 +11709,32 @@
     ],
     "ps4-crash-bandicoot-n-sane-trilogy": [
       {
-        "at": "2026-08-31T14:04:53Z",
+        "at": "2026-08-31T20:12:39Z",
         "loose": null,
         "gameManual": null,
-        "complete": 25.99,
+        "complete": 22.24,
         "sealed": null,
         "newRetail": null
       }
     ],
     "ps4-crash-team-racing-nitro-fueled": [
       {
-        "at": "2026-08-31T14:04:53Z",
+        "at": "2026-08-31T20:12:39Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
+        "complete": 21.45,
         "sealed": 29.95,
-        "newRetail": null
+        "newRetail": 24.95
       }
     ],
     "ps4-crayola-scoot": [
       {
-        "at": "2026-08-31T14:04:53Z",
+        "at": "2026-08-31T20:12:39Z",
         "loose": null,
         "gameManual": null,
         "complete": null,
         "sealed": 17.31,
-        "newRetail": null
+        "newRetail": 27.9
       }
     ],
     "ps4-attack-on-titan-2-final-battle": [
@@ -12455,6 +12455,96 @@
         "complete": 18.0,
         "sealed": null,
         "newRetail": null
+      }
+    ],
+    "ps4-contraptions-collection": [
+      {
+        "at": "2026-08-31T20:12:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 31.45,
+        "newRetail": null
+      }
+    ],
+    "ps4-control-ultimate-edition": [
+      {
+        "at": "2026-08-31T20:12:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 24.0,
+        "sealed": 29.95,
+        "newRetail": null
+      }
+    ],
+    "ps4-cooking-mama-cookstar": [
+      {
+        "at": "2026-08-31T20:12:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 39.99
+      }
+    ],
+    "ps4-crash-bandicoot-4-it%27s-about-time": [
+      {
+        "at": "2026-08-31T20:12:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 21.0,
+        "sealed": 50.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-crash-team-racing-nitro-fueled-nitros-oxide-edition": [
+      {
+        "at": "2026-08-31T20:12:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 59.9
+      }
+    ],
+    "ps4-crisis-core-final-fantasy-vii-reunion": [
+      {
+        "at": "2026-08-31T20:12:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 20.0,
+        "sealed": 29.9,
+        "newRetail": null
+      }
+    ],
+    "ps4-crypt-of-the-necrodancer": [
+      {
+        "at": "2026-08-31T20:12:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 19.9
+      }
+    ],
+    "ps4-crysis-remastered-trilogy": [
+      {
+        "at": "2026-08-31T20:12:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 20.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-crash-team-rumble-deluxe-edition": [
+      {
+        "at": "2026-08-31T20:12:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.99,
+        "sealed": null,
+        "newRetail": 29.99
       }
     ]
   }

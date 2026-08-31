@@ -1,0 +1,411 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-page-11-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T20:12:39Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Tramo Conception Plus a Cuphead del catalogo PS4 PAL España.",
+    "Se mantienen separados completo, precintado y nuevo en tienda.",
+    "Las ofertas agotadas, regiones pendientes, lotes y ediciones distintas quedan documentadas sin alimentar la media.",
+    "Los resultados aplicados siguen siendo orientativos y no convierten una region dudosa en verificada."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-conception-plus-maidens-of-the-twelve-stars",
+      "title": "Conception Plus: Maidens of the Twelve Stars",
+      "status": "skipped",
+      "reason": "El ultimo precio nuevo de MediaMarkt esta sin stock."
+    },
+    {
+      "catalogId": "ps4-concrete-genie",
+      "title": "Concrete Genie",
+      "status": "skipped",
+      "reason": "El precio de MediaMarkt esta agotado y la oferta marketplace no confirma caratula ni region."
+    },
+    {
+      "catalogId": "ps4-connectank",
+      "title": "ConnecTank",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-construction-simulator-gold-edition",
+      "title": "Construction Simulator [Gold Edition]",
+      "status": "skipped",
+      "reason": "Sin oferta PAL España exacta; se excluyen las copias extranjeras."
+    },
+    {
+      "catalogId": "ps4-constructor",
+      "title": "Constructor",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-constructor-plus",
+      "title": "Constructor Plus",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-contra-rogue-corps",
+      "title": "Contra: Rogue Corps",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 36.9,
+          "maximum": 36.9,
+          "sources": ["todocoleccion"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-contraptions",
+      "title": "Contraptions",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta nueva; la ficha conserva su precio anterior."
+    },
+    {
+      "catalogId": "ps4-contraptions-collection",
+      "title": "Contraptions Collection",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 28,
+          "maximum": 34.9,
+          "sources": ["ebay", "miravia-wakkap"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-control",
+      "title": "Control",
+      "status": "skipped",
+      "reason": "La copia abierta de 12 EUR no confirma region."
+    },
+    {
+      "catalogId": "ps4-control-ultimate-edition",
+      "title": "Control Ultimate Edition",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 29.95,
+          "maximum": 29.95,
+          "sources": ["retroloco"]
+        }
+      },
+      "rejectedConditions": {
+        "complete": "El anuncio Wallapop de 17 EUR no confirma estado ni region."
+      }
+    },
+    {
+      "catalogId": "ps4-cooking-mama",
+      "title": "Cooking Mama",
+      "status": "skipped",
+      "reason": "Sin oferta exacta; no se mezcla con Cooking Mama: Cookstar."
+    },
+    {
+      "catalogId": "ps4-cooking-mama-cookstar",
+      "title": "Cooking Mama: Cookstar",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 39.99,
+          "maximum": 39.99,
+          "sources": ["mediamarkt"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-coolpaintr-vr",
+      "title": "CoolPaintr VR",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-core-keeper",
+      "title": "Core Keeper",
+      "status": "skipped",
+      "reason": "El precintado Wallapop no confirma region y la copia de TodoConsolas es PAL UK."
+    },
+    {
+      "catalogId": "ps4-cotton-100",
+      "title": "Cotton 100",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-cotton-fantasy",
+      "title": "Cotton Fantasy",
+      "status": "skipped",
+      "reason": "La oferta marketplace no confirma caratula ni region."
+    },
+    {
+      "catalogId": "ps4-cotton-guardian-force-saturn-tribute",
+      "title": "Cotton Guardian Force: Saturn Tribute",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto; se excluye la edicion japonesa."
+    },
+    {
+      "catalogId": "ps4-cotton-reboot",
+      "title": "Cotton Reboot",
+      "status": "skipped",
+      "reason": "Las copias abiertas PAL España localizadas estan actualmente sin stock."
+    },
+    {
+      "catalogId": "ps4-crash-bandicoot-4-it%27s-about-time",
+      "title": "Crash Bandicoot 4: It's About Time",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 17,
+          "maximum": 25,
+          "sources": ["wallapop"]
+        },
+        "sealed": {
+          "minimum": 50,
+          "maximum": 50,
+          "sources": ["wallapop"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-crash-bandicoot-n-sane-trilogy",
+      "title": "Crash Bandicoot N. Sane Trilogy",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 16.95,
+          "maximum": 20,
+          "sources": ["wallapop", "todoconsolas"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-crash-dummy",
+      "title": "Crash Dummy",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-crash-team-racing-&amp;-spyro-reignited-trilogy",
+      "title": "Crash Team Racing & Spyro Reignited Trilogy",
+      "status": "skipped",
+      "reason": "Sin oferta del recopilatorio exacto; no se suman los juegos por separado."
+    },
+    {
+      "catalogId": "ps4-crash-team-racing-nitro-fueled-nitros-oxide-edition",
+      "title": "Crash Team Racing Nitro-Fueled [Nitros Oxide Edition]",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 59.9,
+          "maximum": 59.9,
+          "sources": ["mediamarkt"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-crash-team-racing-nitro-fueled",
+      "title": "Crash Team Racing: Nitro-Fueled",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 19.95,
+          "maximum": 22.95,
+          "sources": ["masqnuevo", "cash-converters"]
+        },
+        "new_retail": {
+          "minimum": 24.95,
+          "maximum": 24.95,
+          "sources": ["todoconsolas"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-crash-team-rumble",
+      "title": "Crash Team Rumble",
+      "status": "skipped",
+      "reason": "Sin oferta fisica de la edicion estandar exacta."
+    },
+    {
+      "catalogId": "ps4-crash-team-rumble-deluxe-edition",
+      "title": "Crash Team Rumble Deluxe Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 19.99,
+          "maximum": 19.99,
+          "sources": ["game"]
+        },
+        "new_retail": {
+          "minimum": 29.99,
+          "maximum": 29.99,
+          "sources": ["game"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-crashbots",
+      "title": "Crashbots",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-crayola-scoot",
+      "title": "Crayola Scoot",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 27.9,
+          "maximum": 27.9,
+          "sources": ["impact-game"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-crazy-chicken-jump-%27n%27-run-traps-and-treasures",
+      "title": "Crazy Chicken Jump 'N' Run: Traps and Treasures",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-crazy-chicken-kart-2",
+      "title": "Crazy Chicken Kart 2",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-crazy-machines-vr",
+      "title": "Crazy Machines VR",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-creature-in-the-well",
+      "title": "Creature in the Well",
+      "status": "skipped",
+      "reason": "El ultimo precio nuevo de Tesura Games esta agotado."
+    },
+    {
+      "catalogId": "ps4-creed-rise-to-glory",
+      "title": "Creed Rise to Glory",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-creepy-road",
+      "title": "Creepy Road",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-cricket-19-the-official-game-of-the-ashes",
+      "title": "Cricket 19: The Official Game of the Ashes",
+      "status": "skipped",
+      "reason": "Sin oferta PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-cricket-22-the-official-game-of-the-ashes",
+      "title": "Cricket 22: The Official Game of the Ashes",
+      "status": "skipped",
+      "reason": "Sin oferta PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-cricket-24",
+      "title": "Cricket 24",
+      "status": "skipped",
+      "reason": "Sin oferta PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-cricket-26-the-official-game-of-the-ashes",
+      "title": "Cricket 26: The Official Game of the Ashes",
+      "status": "skipped",
+      "reason": "Sin oferta PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-cris-tales",
+      "title": "Cris Tales",
+      "status": "skipped",
+      "reason": "El ultimo precio nuevo PAL España esta descatalogado."
+    },
+    {
+      "catalogId": "ps4-crisis-core-final-fantasy-vii-reunion",
+      "title": "Crisis Core: Final Fantasy VII Reunion",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 20,
+          "maximum": 20,
+          "sources": ["wallapop"]
+        },
+        "sealed": {
+          "minimum": 29.9,
+          "maximum": 29.9,
+          "sources": ["wakkap"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-crosscode",
+      "title": "CrossCode",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España activa."
+    },
+    {
+      "catalogId": "ps4-crown-trick",
+      "title": "Crown Trick",
+      "status": "skipped",
+      "reason": "Sin oferta estandar PAL España; no se mezcla con la Special Edition."
+    },
+    {
+      "catalogId": "ps4-crymachina",
+      "title": "Crymachina",
+      "status": "skipped",
+      "reason": "Sin oferta fisica estandar PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-crypt-of-the-necrodancer",
+      "title": "Crypt of the NecroDancer",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 19.9,
+          "maximum": 19.9,
+          "sources": ["impact-game"]
+        }
+      },
+      "notes": [
+        "Edicion fisica nueva con los extras propios de esta presentacion; no se clasifica como precintada sin confirmacion del sello."
+      ]
+    },
+    {
+      "catalogId": "ps4-crysis-remastered-trilogy",
+      "title": "Crysis Remastered Trilogy",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 20,
+          "maximum": 20,
+          "sources": ["wallapop"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-crystar",
+      "title": "Crystar",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-cuphead",
+      "title": "Cuphead",
+      "status": "skipped",
+      "reason": "Las copias abiertas no confirman region y las precintadas PAL España estan actualmente sin stock."
+    }
+  ]
+}
