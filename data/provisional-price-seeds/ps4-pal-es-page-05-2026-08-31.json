@@ -1,0 +1,382 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-page-05-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T00:00:00Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Lote 5 curatorial para completar precios de entrada mientras los collectors acumulan evidencia individual.",
+    "La fuente prioritaria sigue siendo Wallapop, despues eBay, TodoConsolas y otras tiendas/plataformas españolas.",
+    "Cada rango aporta un unico punto medio y se combina una sola vez con el precio previo del mismo estado.",
+    "Nuevo en tienda se registra como new_retail salvo que el extracto confirme precinto; precintado confirmado se registra como sealed.",
+    "Se excluyen lotes sin precio unitario, ofertas agotadas o sin disponibilidad, digitales, otras regiones y ediciones distintas.",
+    "Las variantes de escritura duplicadas quedan documentadas para no sumar la misma evidencia dos veces."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-asterix-&amp;-obelix-xxl-3-the-crystal-menhir-limited-edition",
+      "title": "Asterix & Obelix XXL 3: The Crystal Menhir [Limited Edition]",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 80.26, "maximum": 92.93, "sources": ["carrefour", "phone-house"] }
+      }
+    },
+    {
+      "catalogId": "ps4-asterix-&amp;-obelix-xxl-collection",
+      "title": "Asterix & Obelix XXL Collection",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 20.86, "maximum": 59.9, "sources": ["mediamarkt", "spanish-marketplace"] }
+      }
+    },
+    {
+      "catalogId": "ps4-asterix-&amp;-obelix-xxl-romastered",
+      "title": "Asterix & Obelix XXL: Romastered",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 20.4, "maximum": 20.4, "sources": ["todoconsolas", "ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-asterix-&amp;-obelix-xxl2",
+      "title": "Asterix & Obelix XXL2",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 17.9, "maximum": 17.9, "sources": ["worten"] }
+      }
+    },
+    {
+      "catalogId": "ps4-asterix-&amp;-obelix-xxxl-the-ram-from-hibernia-limited-edition",
+      "title": "Asterix & Obelix XXXL: The Ram from Hibernia [Limited Edition]",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 56.85, "maximum": 56.85, "sources": ["miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-asterix-&amp;-obelix-heroes",
+      "title": "Asterix & Obelix: Heroes",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 29.9, "maximum": 29.9, "sources": ["mediamarkt"] }
+      }
+    },
+    {
+      "catalogId": "ps4-asterix-&amp;-obelix-slap-them-all-collector%27s-edition",
+      "title": "Asterix & Obelix: Slap Them All [Collector's Edition]",
+      "status": "skipped",
+      "reason": "La ultima ficha nueva de 79,99 EUR esta actualmente agotada."
+    },
+    {
+      "catalogId": "ps4-asterix-&amp;-obelix-slap-them-all-2",
+      "title": "Asterix & Obelix: Slap Them All! 2",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 19.58, "maximum": 19.58, "sources": ["mediamarkt"] }
+      }
+    },
+    {
+      "catalogId": "ps4-astria-ascending",
+      "title": "Astria Ascending",
+      "status": "skipped",
+      "reason": "Solo aparece dentro de un lote de juegos por 300 EUR; no permite precio unitario valido."
+    },
+    {
+      "catalogId": "ps4-astro-bot-rescue-mission",
+      "title": "Astro Bot Rescue Mission",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 25, "maximum": 25, "sources": ["wallapop"] }
+      },
+      "rejectedConditions": {
+        "complete": "La referencia de segunda mano de TodoConsolas a 22,95 EUR esta sin stock."
+      }
+    },
+    {
+      "catalogId": "ps4-astroneer",
+      "title": "Astroneer",
+      "status": "skipped",
+      "reason": "La ultima ficha nueva de 34,99 EUR no tiene disponibilidad."
+    },
+    {
+      "catalogId": "ps4-astronite",
+      "title": "Astronite",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 19.95, "maximum": 19.95, "sources": ["todoconsolas"] },
+        "new_retail": { "minimum": 29.9, "maximum": 29.9, "sources": ["impact-game"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ataque-a-los-titanes-wings-of-freedom",
+      "title": "Ataque a los Titanes: Wings of Freedom",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 64.95, "maximum": 109.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-atari-50-the-anniversary-celebration",
+      "title": "Atari 50: The Anniversary Celebration",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 18.99, "maximum": 18.99, "sources": ["xtralife", "spanish-marketplace"] }
+      }
+    },
+    {
+      "catalogId": "ps4-atari-flashback-classics-vol-1",
+      "title": "Atari Flashback Classics Vol. 1",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 25.8, "maximum": 30.31, "sources": ["carrefour"] }
+      }
+    },
+    {
+      "catalogId": "ps4-atari-flashback-classics-vol-2",
+      "title": "Atari Flashback Classics Vol. 2",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] },
+        "new_retail": { "minimum": 14.95, "maximum": 14.95, "sources": ["todoconsolas"] }
+      }
+    },
+    {
+      "catalogId": "ps4-atelier-firis-the-alchemist-and-the-mysterious-journey",
+      "title": "Atelier Firis: The Alchemist and the Mysterious Journey",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 65.85, "maximum": 65.85, "sources": ["miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-atelier-lulua-the-scion-of-arland",
+      "title": "Atelier Lulua: The Scion of Arland",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 35, "maximum": 35, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-atelier-lydie-&amp;-suelle",
+      "title": "Atelier Lydie & Suelle",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-atelier-ryza-2-lost-legends-&amp;-the-secret-fairy",
+      "title": "Atelier Ryza 2: Lost Legends & The Secret Fairy",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto localizado; la copia PAL Europa nueva de 120 EUR no se usa para valorar la española."
+    },
+    {
+      "catalogId": "ps4-atelier-ryza-3-alchemist-of-the-end-&amp;-the-secret-key",
+      "title": "Atelier Ryza 3: Alchemist of the End & the Secret Key",
+      "status": "skipped",
+      "reason": "Ofertas nuevas de 78,96-89,13 EUR con region de caratula pendiente de confirmar."
+    },
+    {
+      "catalogId": "ps4-atelier-ryza-ever-darkness-and-the-secret-hideout",
+      "title": "Atelier Ryza: Ever Darkness and the Secret Hideout",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-atelier-sophie-2-the-alchemist-of-the-mysterious-dream",
+      "title": "Atelier Sophie 2: The Alchemist of the Mysterious Dream",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-atelier-sophie-the-alchemist-of-the-mysterious-book",
+      "title": "Atelier Sophie: The Alchemist of the Mysterious Book",
+      "status": "skipped",
+      "reason": "La ultima ficha nueva de 29,90 EUR esta agotada."
+    },
+    {
+      "catalogId": "ps4-atelier-yumia-la-alquimista-de-los-recuerdos-y",
+      "title": "Atelier Yumia: La alquimista de los recuerdos y la tierra imaginada",
+      "status": "skipped",
+      "reason": "Oferta PS4 nueva de 92,26 EUR con caratula PAL España pendiente de verificacion visual."
+    },
+    {
+      "catalogId": "ps4-atelier-yumia-the-alchemist-of-memories-&amp;-the-envisioned-land",
+      "title": "Atelier Yumia: The Alchemist of Memories & The Envisioned Land",
+      "status": "skipped",
+      "reason": "Duplicado tecnico de la referencia española anterior; no se contabiliza dos veces."
+    },
+    {
+      "catalogId": "ps4-atomfall",
+      "title": "Atomfall",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 54.9, "maximum": 54.9, "sources": ["impact-game"] }
+      }
+    },
+    {
+      "catalogId": "ps4-atomic-heart",
+      "title": "Atomic Heart",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 22.9, "maximum": 32.35, "sources": ["wakkap", "spanish-marketplace"] }
+      },
+      "notes": [
+        "Oferta activa en tiendas españolas usada solo como referencia provisional; no convierte la region en verificada."
+      ]
+    },
+    {
+      "catalogId": "ps4-atrapa-la-bandera",
+      "title": "Atrapa la Bandera",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] },
+        "new_retail": { "minimum": 39.95, "maximum": 39.95, "sources": ["baba"] }
+      }
+    },
+    {
+      "catalogId": "ps4-attack-on-titan-2",
+      "title": "Attack on Titan 2",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 80, "maximum": 80, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-attack-on-titan-2-final-battle",
+      "title": "Attack on Titan 2: Final Battle",
+      "status": "skipped",
+      "reason": "La ultima ficha de 19,95 EUR esta agotada en GAME."
+    },
+    {
+      "catalogId": "ps4-attack-on-titan-wings-of-freedom",
+      "title": "Attack on Titan Wings of Freedom",
+      "status": "skipped",
+      "reason": "Duplicado tecnico de Ataque a los Titanes: Wings of Freedom; no se contabiliza una segunda vez."
+    },
+    {
+      "catalogId": "ps4-attack-on-titan-wings-of-freedom-treasure-box",
+      "title": "Attack on Titan: Wings of Freedom [Treasure Box]",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 229.99, "maximum": 229.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-atv-drift-&amp;-tricks",
+      "title": "ATV Drift & Tricks",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 47.58, "maximum": 47.58, "sources": ["mediamarkt"] }
+      },
+      "notes": [
+        "Oferta activa de marketplace español usada como precio provisional; no se marca como region verificada."
+      ]
+    },
+    {
+      "catalogId": "ps4-atv-renegades",
+      "title": "ATV Renegades",
+      "status": "skipped",
+      "reason": "La ultima ficha nueva de 30,99 EUR no tiene disponibilidad."
+    },
+    {
+      "catalogId": "ps4-autobahn-police-sim-3-complete-edition",
+      "title": "Autobahn Police Sim 3 Complete Edition",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 39.9, "maximum": 44.99, "sources": ["wakkap", "game"] }
+      }
+    },
+    {
+      "catalogId": "ps4-autobahn-police-simulator-2",
+      "title": "Autobahn Police Simulator 2",
+      "status": "skipped",
+      "reason": "Ficha nueva de 29,99 EUR con disponibilidad no confirmada."
+    },
+    {
+      "catalogId": "ps4-autobahn-police-simulator-3",
+      "title": "Autobahn Police Simulator 3",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 16.95, "maximum": 16.95, "sources": ["todoconsolas"] }
+      },
+      "rejectedConditions": {
+        "new_retail": "La ultima ficha nueva de GAME a 34,99 EUR esta agotada."
+      }
+    },
+    {
+      "catalogId": "ps4-autonauts",
+      "title": "Autonauts",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 9.99, "maximum": 9.99, "sources": ["xtralife"] }
+      }
+    },
+    {
+      "catalogId": "ps4-avatar-the-last-airbender-quest-for-balance",
+      "title": "Avatar: The Last Airbender - Quest for Balance",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 30.95, "maximum": 30.95, "sources": ["carrefour"] },
+        "sealed": { "minimum": 44.9, "maximum": 44.9, "sources": ["miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-aven-colony",
+      "title": "Aven Colony",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 15, "maximum": 15, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-avicii-invector",
+      "title": "Avicii Invector",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 14.95, "maximum": 14.95, "sources": ["xtralife"] }
+      }
+    },
+    {
+      "catalogId": "ps4-avicii-invector-encore-edition",
+      "title": "Avicii Invector: Encore Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 9.99, "maximum": 9.99, "sources": ["game"] },
+        "new_retail": { "minimum": 10.95, "maximum": 10.95, "sources": ["xtralife"] }
+      }
+    },
+    {
+      "catalogId": "ps4-away-the-survival-series",
+      "title": "Away: The Survival Series",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-awesome-pea",
+      "title": "Awesome Pea",
+      "status": "skipped",
+      "reason": "Sin edicion fisica PAL España localizada; solo aparecen versiones digitales."
+    },
+    {
+      "catalogId": "ps4-awesome-pea-2",
+      "title": "Awesome Pea 2",
+      "status": "skipped",
+      "reason": "Sin edicion fisica PAL España localizada; solo aparecen versiones digitales."
+    },
+    {
+      "catalogId": "ps4-awesomenauts-assemble",
+      "title": "Awesomenauts Assemble",
+      "status": "skipped",
+      "reason": "Oferta nueva de 36,15 EUR con region de caratula pendiente de confirmar."
+    },
+    {
+      "catalogId": "ps4-axiom-verge",
+      "title": "Axiom Verge",
+      "status": "skipped",
+      "reason": "Sin oferta de la edicion estandar PAL España exacta; la Multiverse Edition de 80 EUR es una edicion distinta."
+    }
+  ]
+}
