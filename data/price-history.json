@@ -12386,6 +12386,36 @@
         "sealed": 71.63,
         "newRetail": null
       }
+    ],
+    "ps4-broforce-deluxe-edition": [
+      {
+        "at": "2026-08-31T19:27:23Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 34.0,
+        "sealed": null,
+        "newRetail": 22.95
+      }
+    ],
+    "ps4-call-of-duty-modern-warfare-remastered": [
+      {
+        "at": "2026-08-31T19:27:23Z",
+        "loose": 19.95,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-catherine-full-body": [
+      {
+        "at": "2026-08-31T19:27:23Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 29.99,
+        "newRetail": null
+      }
     ]
   }
 }

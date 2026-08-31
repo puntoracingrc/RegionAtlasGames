@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-page-08-supplement-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T19:27:23Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint_delta",
+  "notes": [
+    "Suplemento del tramo Blood Bowl III a Bus Driver Simulator Countryside.",
+    "Los valores RA ya presentes no se reintroducen como observaciones.",
+    "Las fichas agotadas o con disponibilidad contradictoria se conservan solo como decisiones documentales."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-bluey-the-videogame",
+      "title": "Bluey: The Videogame",
+      "status": "skipped",
+      "reason": "Xtralife muestra 19,99 EUR, pero la ficha combina variante visible y estado descatalogado; no se usa sin confirmar stock."
+    },
+    {
+      "catalogId": "ps4-broforce-deluxe-edition",
+      "title": "BroForce Deluxe Edition",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 22.95,
+          "maximum": 22.95,
+          "sources": ["xtralife"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-bulletstorm-full-clip-edition",
+      "title": "Bulletstorm: Full Clip Edition",
+      "status": "skipped",
+      "reason": "El ultimo precio de MediaMarkt España, 29,99 EUR nuevo, ya no esta disponible y solo se conserva como referencia historica."
+    }
+  ]
+}

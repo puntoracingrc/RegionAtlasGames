@@ -13,7 +13,13 @@ export type DetailEntity = {
 /** @deprecated use DetailEntity */
 export type MuseumEntity = DetailEntity;
 
-export type GameDetailsFieldSource = "museum" | "pricecharting" | "serialstation" | "wikidata" | "game-es";
+export type GameDetailsFieldSource =
+  | "museum"
+  | "pricecharting"
+  | "serialstation"
+  | "wikidata"
+  | "game-es"
+  | "official";
 
 export type GameDetailsSources = {
   museum?: { museumPath: string; fetchedAt: string };
@@ -26,6 +32,7 @@ export type GameDetailsSources = {
     fetchedAt: string;
   };
   wikidata?: { wikidataId: string; fetchedAt: string; matchScore?: number | null };
+  official?: { url: string; label: string; fetchedAt: string };
   gameEs?: {
     sku: string;
     productUrl: string;

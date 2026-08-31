@@ -1,0 +1,322 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-page-09-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T19:27:23Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Tramo Bus Simulator a Catherine: Full Body del catalogo PS4 PAL España.",
+    "Los valores marcados como RA ya proceden de Region Atlas y no se cuentan otra vez.",
+    "Las versiones digitales, PAL Europa sin caratula española y ediciones distintas quedan excluidas.",
+    "Los precios de tienda sin disponibilidad actual no alimentan la media."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-bus-simulator",
+      "title": "Bus Simulator",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-bus-simulator-21",
+      "title": "Bus Simulator 21",
+      "status": "skipped",
+      "reason": "El precio localizado corresponde a la version digital Next Stop de PlayStation Store."
+    },
+    {
+      "catalogId": "ps4-bus-simulator-21-next-stop-gold-edition",
+      "title": "Bus Simulator 21: Next Stop [Gold Edition]",
+      "status": "skipped",
+      "reason": "Las ofertas fisicas europeas no acreditan caratula PAL España."
+    },
+    {
+      "catalogId": "ps4-cabela%27s-african-adventures",
+      "title": "Cabela's African Adventures",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-calamity-angels-special-delivery",
+      "title": "Calamity Angels: Special Delivery",
+      "status": "skipped",
+      "reason": "Ficha de 2026 todavia sin precio español."
+    },
+    {
+      "catalogId": "ps4-caligula-effect-overdose",
+      "title": "Caligula Effect: Overdose",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-cthulhu",
+      "title": "Call of Cthulhu",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-advanced-warfare",
+      "title": "Call of Duty Advanced Warfare",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-black-ops-4",
+      "title": "Call Of Duty Black Ops 4",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-black-ops-4-especialista",
+      "title": "Call of Duty Black Ops 4 Especialista",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-black-ops-iii",
+      "title": "Call of Duty Black Ops III",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-ghosts",
+      "title": "Call of Duty Ghosts",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-infinite-warfare",
+      "title": "Call Of Duty Infinite Warfare",
+      "status": "skipped",
+      "reason": "La referencia RA no desglosa estado ni confirma completamente la region."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-wwii",
+      "title": "Call of Duty WWII",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-advanced-warfare-day-zero-edition",
+      "title": "Call of Duty: Advanced Warfare [Day Zero Edition]",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-black-ops-4-pro-edition",
+      "title": "Call of Duty: Black Ops 4 [Pro Edition]",
+      "status": "skipped",
+      "reason": "La referencia RA de 5 EUR no desglosa estado y puede corresponder a una unidad incompleta o mal asociada."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-black-ops-6",
+      "title": "Call Of Duty: Black Ops 6",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-black-ops-7",
+      "title": "Call Of Duty: Black Ops 7",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-black-ops-cold-war",
+      "title": "Call of Duty: Black Ops Cold War",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-ghosts-limited-edition",
+      "title": "Call Of Duty: Ghosts [Limited Edition]",
+      "status": "skipped",
+      "reason": "Sin referencia exacta de la Limited Edition; no se usa el precio de la edicion estandar."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-infinite-warfare-legacy-pro-edition",
+      "title": "Call Of Duty: Infinite Warfare [Legacy Pro Edition]",
+      "status": "skipped",
+      "reason": "Sin referencia para el contenido completo de esta edicion."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-modern-warfare",
+      "title": "Call of Duty: Modern Warfare",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-modern-warfare-ii",
+      "title": "Call Of Duty: Modern Warfare II",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-modern-warfare-iii",
+      "title": "Call of Duty: Modern Warfare III",
+      "status": "skipped",
+      "reason": "La referencia RA tiene region verificada, pero no desglosa el estado."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-modern-warfare-remastered",
+      "title": "Call of Duty: Modern Warfare Remastered",
+      "status": "accepted",
+      "conditions": {
+        "loose": {
+          "minimum": 19.95,
+          "maximum": 19.95,
+          "sources": ["cash-converters"]
+        }
+      },
+      "rejectedConditions": {
+        "complete": "La unidad carece de caja original y no se clasifica como completa."
+      }
+    },
+    {
+      "catalogId": "ps4-call-of-duty-vanguard",
+      "title": "Call Of Duty: Vanguard",
+      "status": "skipped",
+      "reason": "Los estados suelto y completo ya existen como referencias RA separadas; no se vuelven a promediar."
+    },
+    {
+      "catalogId": "ps4-call-of-duty-wwii-pro-edition",
+      "title": "Call of Duty: WWII [Pro Edition]",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-call-of-the-sea-noah%27s-diary-edition",
+      "title": "Call of the Sea [Noah's Diary Edition]",
+      "status": "skipped",
+      "reason": "Sin valoracion para esta edicion exacta."
+    },
+    {
+      "catalogId": "ps4-can%27t-drive-this",
+      "title": "Can't Drive This",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-candle-signature-edition",
+      "title": "Candle [Signature Edition]",
+      "status": "skipped",
+      "reason": "Sin referencia fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-candle-the-power-of-the-flame",
+      "title": "Candle: The Power of the Flame",
+      "status": "skipped",
+      "reason": "Sin referencia exacta; no se sustituye por la Signature Edition."
+    },
+    {
+      "catalogId": "ps4-cannon-dancer-osman",
+      "title": "Cannon Dancer - Osman",
+      "status": "skipped",
+      "reason": "Sin precio fisico PAL España publicado."
+    },
+    {
+      "catalogId": "ps4-caos-en-deponia",
+      "title": "Caos en Deponia",
+      "status": "skipped",
+      "reason": "Las referencias RA completa y precintada son anomalas y ya permanecen separadas; no se fusionan."
+    },
+    {
+      "catalogId": "ps4-captain-tsubasa-rise-of-new-champions",
+      "title": "Captain Tsubasa: Rise of New Champions",
+      "status": "skipped",
+      "reason": "El precio RA ya existe; el año erroneo se corrige por separado con fuente oficial."
+    },
+    {
+      "catalogId": "ps4-car-mechanic-simulator",
+      "title": "Car Mechanic Simulator",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-carly-and-the-reaperman-escape-from-the-underworld",
+      "title": "Carly and the Reaperman: Escape from the Underworld",
+      "status": "skipped",
+      "reason": "Sin referencia fisica PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-carmageddon-max-damage",
+      "title": "Carmageddon Max Damage",
+      "status": "skipped",
+      "reason": "Sin precio fisico PAL España publicado."
+    },
+    {
+      "catalogId": "ps4-carnival-games",
+      "title": "Carnival Games",
+      "status": "skipped",
+      "reason": "El precio de PlayStation Store corresponde a una promocion digital."
+    },
+    {
+      "catalogId": "ps4-carrion",
+      "title": "Carrion",
+      "status": "skipped",
+      "reason": "La referencia RA no desglosa estado ni confirma suficientemente la region."
+    },
+    {
+      "catalogId": "ps4-cars",
+      "title": "Cars",
+      "status": "skipped",
+      "reason": "Titulo demasiado generico; requiere identificar la edicion concreta antes de valorarlo."
+    },
+    {
+      "catalogId": "ps4-cars-3-driven-to-win",
+      "title": "Cars 3: Driven to Win",
+      "status": "skipped",
+      "reason": "Las copias fisicas europeas no acreditan caratula PAL España."
+    },
+    {
+      "catalogId": "ps4-cartoon-network-battle-crashers",
+      "title": "Cartoon Network Battle Crashers",
+      "status": "skipped",
+      "reason": "Solo aporta una referencia RA ya presente en el catalogo."
+    },
+    {
+      "catalogId": "ps4-cat-quest",
+      "title": "Cat Quest",
+      "status": "skipped",
+      "reason": "La oferta española localizada es digital."
+    },
+    {
+      "catalogId": "ps4-cat-quest-cat-quest-2",
+      "title": "Cat Quest + Cat Quest 2",
+      "status": "skipped",
+      "reason": "La referencia RA no desglosa estado ni confirma suficientemente la procedencia regional."
+    },
+    {
+      "catalogId": "ps4-cat-quest-&#43;-cat-quest-ii-pawsome-pack",
+      "title": "Cat Quest + Cat Quest II Pawsome Pack",
+      "status": "skipped",
+      "reason": "Edicion diferenciada sin precio; no se fusiona con Cat Quest + Cat Quest 2."
+    },
+    {
+      "catalogId": "ps4-catan-console-edition",
+      "title": "Catan: Console Edition",
+      "status": "skipped",
+      "reason": "Las ofertas fisicas europeas no acreditan caratula PAL España y las promociones españolas son digitales."
+    },
+    {
+      "catalogId": "ps4-cathedral",
+      "title": "Cathedral",
+      "status": "skipped",
+      "reason": "La referencia RA no desglosa estado ni confirma suficientemente la region."
+    },
+    {
+      "catalogId": "ps4-catherine-full-body",
+      "title": "Catherine: Full Body",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 29.99,
+          "maximum": 29.99,
+          "sources": ["retroloco"]
+        }
+      }
+    }
+  ]
+}
