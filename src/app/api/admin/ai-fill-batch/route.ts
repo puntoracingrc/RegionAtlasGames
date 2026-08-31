@@ -48,6 +48,10 @@ type BatchSummary = {
   selectable: number;
 };
 
+const MAX_ITEMS_PER_REQUEST = 1;
+
+export const maxDuration = 180;
+
 
 type BatchCandidate = {
   id: string;
@@ -158,6 +162,25 @@ function normalizeSearch(value: string): string {
     .replace(/\p{Diacritic}/gu, "");
 }
 
+function toSearchItem(game: BatchCandidate): SearchItem {
+  return {
+    id: game.id,
+    pcId: game.pcId,
+    catalogId: game.catalogId,
+    title: game.title,
+    platformSlug: game.platformSlug,
+    region: game.region,
+    status: game.status,
+    lastSeenAt: game.lastSeenAt,
+  };
+}
+
+async function candidateNeedsFill(candidate: BatchCandidate): Promise<boolean> {
+  if (candidate.source === "catalog") return catalogCandidateNeedsMissingFill(candidate);
+  const draft = await resolveCandidateDraft(candidate);
+  return Boolean(draft && needsMissingFill(draft));
+}
+
 export async function GET(request: Request) {
   if (!(await assertAdminApi())) {
     return NextResponse.json({ error: "No autorizado." }, { status: 401 });
@@ -203,6 +226,19 @@ export async function GET(request: Request) {
     return NextResponse.json({ ok: true, summary });
   }
 
+  if (requestMode === "queue") {
+    const batchMode: BatchMode = searchParams.get("batchMode") === "force" ? "force" : "missing";
+    const games: SearchItem[] = [];
+
+    for (const candidate of filteredCandidates) {
+      if (games.length >= limit) break;
+      if (batchMode === "missing" && !(await candidateNeedsFill(candidate))) continue;
+      games.push(toSearchItem(candidate));
+    }
+
+    return NextResponse.json({ ok: true, games });
+  }
+
   const query = searchParams.get("q") ?? "";
   const normalizedQuery = normalizeSearch(query);
   const parsedPcId = Number.parseInt(query.trim(), 10);
@@ -219,16 +255,7 @@ export async function GET(request: Request) {
       return haystack.includes(normalizedQuery);
     })
     .slice(0, limit)
-    .map((game): SearchItem => ({
-      id: game.id,
-      pcId: game.pcId,
-      catalogId: game.catalogId,
-      title: game.title,
-      platformSlug: game.platformSlug,
-      region: game.region,
-      status: game.status,
-      lastSeenAt: game.lastSeenAt,
-    }));
+    .map(toSearchItem);
 
   return NextResponse.json({ ok: true, games });
 }
@@ -258,6 +285,7 @@ export async function POST(request: Request) {
   const status = body.status ?? "pending-catalog";
   const mode: BatchMode = body.mode === "force" ? "force" : "missing";
   const limit = normalizeLimit(body.limit);
+  const requestLimit = Math.min(limit, MAX_ITEMS_PER_REQUEST);
   const requestedItemIds = Array.isArray(body.itemIds) ? new Set(body.itemIds.map(String)) : null;
   const requestedPcIds = Array.isArray(body.pcIds)
     ? new Set(
@@ -282,7 +310,7 @@ export async function POST(request: Request) {
     .sort((a, b) => b.lastSeenAt.localeCompare(a.lastSeenAt) || a.title.localeCompare(b.title, "es"));
   const candidatesToInspect =
     source === "catalog" && mode === "missing" && !requestedItemIds && !requestedPcIds
-      ? candidates.filter(catalogCandidateNeedsMissingFill).slice(0, limit)
+      ? candidates.filter(catalogCandidateNeedsMissingFill).slice(0, requestLimit)
       : candidates;
 
   const report = {
@@ -306,7 +334,7 @@ export async function POST(request: Request) {
   };
 
   for (const candidate of candidatesToInspect) {
-    if (report.selected >= limit) break;
+    if (report.selected >= requestLimit) break;
     const draft = await resolveCandidateDraft(candidate);
     if (!draft) {
       report.errors += 1;
