@@ -47,9 +47,10 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
   const [filters, setFilters] = useState<GameFilters>(DEFAULT_COLLECTION_FILTERS);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
-  const platformOptions = useMemo(() => collectionPlatformOptions(items), [items]);
-  const developerOptions = useMemo(() => collectionDeveloperOptions(items), [items]);
-  const publisherOptions = useMemo(() => collectionPublisherOptions(items), [items]);
+  const groupedItems = useMemo(() => groupCollectionDisplayItems(items).map((item) => item.game), [items]);
+  const platformOptions = useMemo(() => collectionPlatformOptions(groupedItems), [groupedItems]);
+  const developerOptions = useMemo(() => collectionDeveloperOptions(groupedItems), [groupedItems]);
+  const publisherOptions = useMemo(() => collectionPublisherOptions(groupedItems), [groupedItems]);
 
   const filtered = useMemo(() => filterCollection(items, filters), [items, filters]);
   const displayed = useMemo(() => groupCollectionDisplayItems(filtered), [filtered]);
@@ -108,7 +109,7 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
             onChange={(e) => setFilters((f) => ({ ...f, platform: e.target.value }))}
             className={selectClass}
           >
-            <option value="all">Todas las plataformas ({items.length})</option>
+            <option value="all">Todas las plataformas ({groupedItems.length})</option>
             {platformOptions.map((p) => (
               <option key={p.slug} value={p.slug}>
                 {p.name} ({p.count})
@@ -168,7 +169,8 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
         </div>
         <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm text-foreground/85">
           <span>
-            Mostrando <strong className="font-semibold text-foreground">{displayed.length}</strong> juegos
+            Mostrando <strong className="font-semibold text-foreground">{displayed.length}</strong>{" "}
+            {displayed.length === 1 ? "juego" : "juegos"}
             {displayedUnits !== displayed.length ? ` · ${displayedUnits} unidades` : ""}
           </span>
           <div className="flex items-center gap-3">
