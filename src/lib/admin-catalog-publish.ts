@@ -15,6 +15,7 @@ import { canWriteCatalogFiles } from "./admin-auth";
 import {
   catalogIdExistsInCatalog,
   deleteCatalogOverlayGame,
+  getCatalogByPlatformWithOverlay,
   loadCatalogOverlayIndex,
   readCatalogOverlayDetails,
   readCatalogOverlayGame,
@@ -26,6 +27,7 @@ import { buildCatalogSeoSlug } from "./catalog-url";
 import { getCatalogGame, listedCatalog } from "./catalog";
 import { catalogIdFromStaging, guessPcPath } from "./pc-path-guess";
 import { slugify } from "./slug";
+import { findCatalogIdentityCollision } from "./catalog-identity";
 import { applyDraftPatch, draftFromCatalogGame, recomputeCatalogId } from "./admin-draft-patch";
 import { applyPricePatch, priceFieldsFromGame, type AdminPriceFields } from "./admin-price-patch";
 import { createAdminCompany } from "./admin-entity-catalog";
@@ -55,6 +57,24 @@ function saveJson(filePath: string, data: unknown) {
   const dir = path.dirname(filePath);
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
   writeFileSync(filePath, `${JSON.stringify(data, null, 2)}\n`, "utf-8");
+}
+
+async function findDraftIdentityCollision(
+  draft: AdminGameDraft,
+  excludeCatalogId?: string,
+): Promise<CatalogGame | null> {
+  const games = await getCatalogByPlatformWithOverlay(draft.platformSlug);
+  return findCatalogIdentityCollision(
+    games,
+    {
+      platformSlug: draft.platformSlug,
+      region: draft.region,
+      edition: draft.edition,
+      physicalVariant: draft.physicalVariant,
+      title: draft.title,
+    },
+    { excludeCatalogId },
+  );
 }
 
 function entityDraft(
@@ -741,6 +761,13 @@ export async function updatePublishedCatalogGame(
     }
   }
 
+  const collision = await findDraftIdentityCollision(draft, original);
+  if (collision) {
+    return {
+      error: `Ya existe una ficha equivalente: «${collision.title}» (${collision.id}).`,
+    };
+  }
+
   const entry = mergeCatalogFromDraft(resolved.game, draft);
   const details = mergeDetailsFromDraft(resolved.details, draft);
   const seoSlug = buildCatalogSeoSlug(entry);
@@ -867,6 +894,13 @@ export type PublishResult =
 export async function publishAdminGameDraft(
   draft: AdminGameDraft,
 ): Promise<PublishResult> {
+  const collision = await findDraftIdentityCollision(draft);
+  if (collision) {
+    return {
+      error: `Ya existe una ficha equivalente: «${collision.title}» (${collision.id}).`,
+    };
+  }
+
   const localizedDraft = await localizeRemoteDraftCover(draft);
   if ("error" in localizedDraft) return { error: localizedDraft.error };
   applyLocalizedDraftCover(draft, localizedDraft);

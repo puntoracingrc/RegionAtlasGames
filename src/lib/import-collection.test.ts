@@ -108,3 +108,26 @@ test("matches equal titles to the requested regional variant", () => {
     null,
   );
 });
+
+test("links legacy apostrophe variants to the surviving catalog record", () => {
+  const base = {
+    id: "legacy-adam",
+    catalogId: null,
+    catalogMatched: false,
+    inRetroCatalog: true,
+    platformSlug: "ps4",
+    region: "PAL España",
+  } as CollectionItem;
+
+  for (const title of [
+    "Adam's Venture Origins",
+    "Adam&#39;s Venture Origins",
+    "Adam´s Venture Origins",
+    "Adam’s Venture Origins",
+  ]) {
+    assert.equal(
+      findAvailableCatalogLink({ ...base, title })?.id,
+      "ps4-adam-s-venture-origins",
+    );
+  }
+});
