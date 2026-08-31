@@ -53,6 +53,7 @@ PRICE_RESULT_FIELDS = (
     "estimatedPriceGameManual",
     "estimatedPriceComplete",
     "estimatedPriceSealed",
+    "estimatedPriceNewRetail",
     "estimatedShippingToSpainLoose",
     "estimatedShippingToSpainGameManual",
     "estimatedShippingToSpainComplete",

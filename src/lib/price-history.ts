@@ -8,6 +8,7 @@ export type PriceHistorySnapshot = {
   gameManual?: number | null;
   complete: number | null;
   sealed: number | null;
+  newRetail?: number | null;
 };
 
 export const CONDITION_CHART_COLORS: Record<
@@ -18,6 +19,7 @@ export const CONDITION_CHART_COLORS: Record<
   gameManual: { stroke: "#0ea5e9", label: CONDITION_PRICE_LABELS.gameManual },
   complete: { stroke: "#10b981", label: CONDITION_PRICE_LABELS.complete },
   sealed: { stroke: "#8b5cf6", label: CONDITION_PRICE_LABELS.sealed },
+  newRetail: { stroke: "#db2777", label: CONDITION_PRICE_LABELS.newRetail },
 };
 
 type PriceHistoryFile = {

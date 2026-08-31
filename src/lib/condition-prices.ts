@@ -1,12 +1,13 @@
 import type { CatalogGame, CollectionItem } from "./types";
 
-export type ConditionBucket = "loose" | "gameManual" | "complete" | "sealed";
+export type ConditionBucket = "loose" | "gameManual" | "complete" | "sealed" | "newRetail";
 
 export const CONDITION_PRICE_LABELS: Record<ConditionBucket, string> = {
   loose: "Suelto",
   gameManual: "Juego + manual",
   complete: "Completo",
   sealed: "Precintado",
+  newRetail: "Nuevo en tienda",
 };
 
 export const CONDITION_PRICE_SHORT_LABELS: Record<ConditionBucket, string> = {
@@ -14,6 +15,7 @@ export const CONDITION_PRICE_SHORT_LABELS: Record<ConditionBucket, string> = {
   gameManual: "Jgo. + manual",
   complete: "Completo",
   sealed: "Prec.",
+  newRetail: "Nuevo",
 };
 
 export const CONDITION_PRICE_DESCRIPTIONS: Record<ConditionBucket, string> = {
@@ -21,9 +23,10 @@ export const CONDITION_PRICE_DESCRIPTIONS: Record<ConditionBucket, string> = {
   gameManual: "Juego + manual, sin caja",
   complete: "Abierto con todo su contenido original",
   sealed: "Nuevo precintado",
+  newRetail: "Producto nuevo; precinto no confirmado",
 };
 
-const DISPLAY_ORDER: ConditionBucket[] = ["sealed", "complete", "gameManual", "loose"];
+const DISPLAY_ORDER: ConditionBucket[] = ["sealed", "newRetail", "complete", "gameManual", "loose"];
 
 type GameWithConditionPrices = Pick<
   CatalogGame | CollectionItem,
@@ -31,6 +34,7 @@ type GameWithConditionPrices = Pick<
   | "estimatedPriceGameManual"
   | "estimatedPriceComplete"
   | "estimatedPriceSealed"
+  | "estimatedPriceNewRetail"
   | "estimatedShippingToSpainLoose"
   | "estimatedShippingToSpainGameManual"
   | "estimatedShippingToSpainComplete"
@@ -54,7 +58,8 @@ export function hasAnyConditionEstimate(game: GameWithConditionPrices): boolean 
     game.estimatedPriceLoose != null ||
     game.estimatedPriceGameManual != null ||
     game.estimatedPriceComplete != null ||
-    game.estimatedPriceSealed != null
+    game.estimatedPriceSealed != null ||
+    game.estimatedPriceNewRetail != null
   );
 }
 
@@ -98,18 +103,28 @@ export function conditionPriceEntries(
       totalToSpain: game.estimatedTotalToSpainSealed ?? null,
     });
   }
+  if (game.estimatedPriceNewRetail != null) {
+    entries.push({
+      bucket: "newRetail",
+      label: CONDITION_PRICE_LABELS.newRetail,
+      price: game.estimatedPriceNewRetail,
+      shippingToSpain: null,
+      totalToSpain: null,
+    });
+  }
   return entries.sort(
     (a, b) => DISPLAY_ORDER.indexOf(a.bucket) - DISPLAY_ORDER.indexOf(b.bucket),
   );
 }
 
-/** Precio principal para tarjetas: completo → suelto → precintado. */
+/** Precio principal para tarjetas: abierto/completo antes que producto sin abrir. */
 export function primaryConditionPrice(game: GameWithConditionPrices): number | null {
   return (
     game.estimatedPriceComplete ??
     game.estimatedPriceGameManual ??
     game.estimatedPriceLoose ??
     game.estimatedPriceSealed ??
+    game.estimatedPriceNewRetail ??
     null
   );
 }
@@ -147,6 +162,14 @@ export function primaryConditionPriceEntry(
       label: CONDITION_PRICE_LABELS.sealed,
       shortLabel: CONDITION_PRICE_SHORT_LABELS.sealed,
       price: game.estimatedPriceSealed,
+    };
+  }
+  if (game.estimatedPriceNewRetail != null) {
+    return {
+      bucket: "newRetail",
+      label: CONDITION_PRICE_LABELS.newRetail,
+      shortLabel: CONDITION_PRICE_SHORT_LABELS.newRetail,
+      price: game.estimatedPriceNewRetail,
     };
   }
   return null;

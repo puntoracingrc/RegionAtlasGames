@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-page-02-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T00:00:00Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Rangos curatoriales para evitar fichas vacias mientras los collectors acumulan evidencia individual.",
+    "Cada rango aporta un unico punto medio y se combina una sola vez con el precio previo del mismo estado.",
+    "Nuevo en tienda es un estado distinto de precintado cuando la fuente no confirma el precinto.",
+    "Solo se aplican ofertas activas atribuidas a PAL España; referencias agotadas, historicas o regionalmente ambiguas quedan documentadas y excluidas.",
+    "TodoConsolas se conserva como fuente interna fija; las fuentes no se muestran en la interfaz publica."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-aerea-collector%27s-edition",
+      "title": "Aerea [Collector's Edition]",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-aeterna-noctis",
+      "title": "Aeterna Noctis",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 19.95, "maximum": 19.95, "sources": ["todoconsolas"] }
+      }
+    },
+    {
+      "catalogId": "ps4-aeternoblade-ii",
+      "title": "AeternoBlade II",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-aew-fight-forever",
+      "title": "AEW: Fight Forever",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 21.41, "maximum": 25.95, "sources": ["ebay", "xtralife"] }
+      }
+    },
+    {
+      "catalogId": "ps4-afl-evolution-2",
+      "title": "AFL Evolution 2",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-after-the-fall-frontrunner-edition",
+      "title": "After the Fall: Frontrunner Edition",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 19.9, "maximum": 20.99, "sources": ["wakkap", "discoazul"] }
+      }
+    },
+    {
+      "catalogId": "ps4-afterimage-deluxe-edition",
+      "title": "Afterimage: Deluxe Edition",
+      "status": "skipped",
+      "reason": "Sin PAL España confirmado."
+    },
+    {
+      "catalogId": "ps4-agatha-christie-the-abc-murders",
+      "title": "Agatha Christie: The ABC Murders",
+      "status": "skipped",
+      "reason": "Sin PAL España confirmado."
+    },
+    {
+      "catalogId": "ps4-agatha-christie-hercule-poirot-the-london-case",
+      "title": "Agatha Christie: Hercule Poirot - The London Case",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 24.99, "maximum": 39.9, "sources": ["retroloco", "carrefour", "miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-agatha-christie-murder-on-the-orient-express-deluxe-edition",
+      "title": "Agatha Christie: Murder on the Orient Express [Deluxe Edition]",
+      "status": "skipped",
+      "reason": "Sin PAL España confirmado."
+    },
+    {
+      "catalogId": "ps4-agatha-christie%27s-hercule-poirot-the-first-cases",
+      "title": "Agatha Christie's Hercule Poirot: The First Cases",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 18.49, "maximum": 23.19, "sources": ["miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-age-of-wonders-planetfall",
+      "title": "Age of Wonders: Planetfall",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-agents-of-mayhem",
+      "title": "Agents of Mayhem",
+      "status": "skipped",
+      "reason": "Sin oferta activa de esta edicion exacta."
+    },
+    {
+      "catalogId": "ps4-agents-of-mayhem-retail-edition",
+      "title": "Agents of Mayhem Retail Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 4.95, "maximum": 4.95, "sources": ["game"] },
+        "new_retail": { "minimum": 9.95, "maximum": 9.95, "sources": ["game"] }
+      }
+    },
+    {
+      "catalogId": "ps4-aggelos",
+      "title": "Aggelos",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 54.95, "maximum": 54.95, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-agony",
+      "title": "Agony",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 59.99, "maximum": 77.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-aground",
+      "title": "Aground",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-ai-the-somnium-files",
+      "title": "AI: The Somnium Files",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 107.88, "maximum": 107.88, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ai-the-somnium-files-nirvana-initiative-collector%27s-edition",
+      "title": "AI: The Somnium Files - Nirvana Initiative [Collector's Edition]",
+      "status": "skipped",
+      "reason": "Sin oferta activa; el ultimo precio visible de 114,95 EUR esta descatalogado."
+    },
+    {
+      "catalogId": "ps4-ai-the-somnium-files-nirvana-initiative",
+      "title": "AI: The Somnium Files: Nirvana Initiative",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 67.85, "maximum": 69.4, "sources": ["miravia", "ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-air-conflicts-pacific-carriers",
+      "title": "Air Conflicts: Pacific Carriers",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-air-conflicts-secret-wars",
+      "title": "Air Conflicts: Secret Wars",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-air-conflicts-vietnam-ultimate-edition",
+      "title": "Air Conflicts: Vietnam [Ultimate Edition]",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-air-conflicts-double-pack",
+      "title": "Air Conflicts: Double Pack",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 27.4, "maximum": 27.4, "sources": ["guanxe"] }
+      }
+    },
+    {
+      "catalogId": "ps4-air-missions-hind",
+      "title": "Air Missions Hind",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 34.99, "maximum": 34.99, "sources": ["todocoleccion"] }
+      }
+    },
+    {
+      "catalogId": "ps4-air-twister",
+      "title": "Air Twister",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-airoheart",
+      "title": "Airoheart",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 39.9, "maximum": 39.9, "sources": ["impact-game"] }
+      }
+    },
+    {
+      "catalogId": "ps4-airport-simulator-2019",
+      "title": "Airport Simulator 2019",
+      "status": "skipped",
+      "reason": "Sin oferta activa; los ultimos precios de 19,90-20,99 EUR estan sin stock."
+    },
+    {
+      "catalogId": "ps4-airport-simulator-day-&amp;-night",
+      "title": "Airport Simulator: Day & Night",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-ak-xolotl",
+      "title": "AK-Xolotl",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 31.9, "maximum": 42.9, "sources": ["wakkap", "miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-akai-katana-shin",
+      "title": "Akai Katana Shin",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 19.99, "maximum": 19.99, "sources": ["game"] },
+        "sealed": { "minimum": 39.9, "maximum": 48.6, "sources": ["miravia", "ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-akiba%27s-beat",
+      "title": "Akiba's Beat",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 31.9, "maximum": 56.85, "sources": ["miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-akiba%27s-trip-hellbound-&amp;-debriefed",
+      "title": "Akiba's Trip: Hellbound & Debriefed",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 9.95, "maximum": 9.95, "sources": ["todoconsolas"] }
+      }
+    },
+    {
+      "catalogId": "ps4-akiba%27s-trip-undead-&amp;-undressed",
+      "title": "Akiba's Trip: Undead & Undressed",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-akinofa",
+      "title": "Akinofa",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-akka-arrh-special-edition",
+      "title": "Akka Arrh: Special Edition",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 53.84, "maximum": 53.84, "sources": ["carrefour"] }
+      }
+    },
+    {
+      "catalogId": "ps4-alan-wake",
+      "title": "Alan Wake",
+      "status": "skipped",
+      "reason": "Sin edicion fisica PAL España independiente localizada."
+    },
+    {
+      "catalogId": "ps4-alan-wake-remastered",
+      "title": "Alan Wake Remastered",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 40.74, "maximum": 40.74, "sources": ["todoconsolas", "ebay"] },
+        "sealed": { "minimum": 49.95, "maximum": 49.95, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-alchemic-cutie",
+      "title": "Alchemic Cutie",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 16.87, "maximum": 24.5, "sources": ["ebay", "carrefour"] }
+      }
+    },
+    {
+      "catalogId": "ps4-alchemic-jousts",
+      "title": "Alchemic Jousts",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 20.99, "maximum": 20.99, "sources": ["vpd"] }
+      }
+    },
+    {
+      "catalogId": "ps4-alekhine%27s-gun",
+      "title": "Alekhine's Gun",
+      "status": "skipped",
+      "reason": "Sin PAL España activo localizado."
+    },
+    {
+      "catalogId": "ps4-alex-kidd-in-miracle-world-dx",
+      "title": "Alex Kidd in Miracle World DX",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 25.95, "maximum": 25.95, "sources": ["xtralife"] }
+      }
+    },
+    {
+      "catalogId": "ps4-alfred-hitchcock-vertigo-limited-edition",
+      "title": "Alfred Hitchcock - Vertigo [Limited Edition]",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 15.58, "maximum": 29.9, "sources": ["miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-alice-gear-aegis-cs-concerto-of-simulatrix",
+      "title": "Alice Gear Aegis CS: Concerto of Simulatrix",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 15.58, "maximum": 31.84, "sources": ["carrefour", "todoconsolas", "xtralife"] }
+      }
+    },
+    {
+      "catalogId": "ps4-alien-isolation",
+      "title": "Alien: Isolation",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 14.9, "maximum": 14.9, "sources": ["impact-game"] },
+        "sealed": { "minimum": 24.99, "maximum": 25, "sources": ["retroloco", "milanuncios"] }
+      }
+    },
+    {
+      "catalogId": "ps4-alien-isolation-evac-lifeboat-steelbook-edition",
+      "title": "Alien: Isolation [EVAC Lifeboat Steelbook Edition]",
+      "status": "skipped",
+      "reason": "Sin PAL España activo confirmado."
+    },
+    {
+      "catalogId": "ps4-aliens-dark-descent",
+      "title": "Aliens: Dark Descent",
+      "status": "skipped",
+      "reason": "Las ofertas activas encontradas no confirman PAL España."
+    },
+    {
+      "catalogId": "ps4-aliens-fireteam-elite",
+      "title": "Aliens: Fireteam Elite",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 28.74, "maximum": 28.74, "sources": ["todoconsolas", "ebay"] },
+        "sealed": { "minimum": 29.9, "maximum": 29.9, "sources": ["miravia"] }
+      }
+    }
+  ]
+}

@@ -37,11 +37,12 @@ export const SORT_OPTIONS: { value: CatalogSort; label: string }[] = [
 export const DEFAULT_SORT: CatalogSort = "title-asc";
 export const CATALOG_PAGE_SIZE = 48;
 
-export type CatalogPriceType = "recommended" | "sealed" | "complete" | "gameManual" | "loose";
+export type CatalogPriceType = "recommended" | "sealed" | "newRetail" | "complete" | "gameManual" | "loose";
 
 export const PRICE_TYPE_OPTIONS: { value: CatalogPriceType; label: string }[] = [
   { value: "recommended", label: "Precio recomendado" },
   { value: "sealed", label: "Precintado" },
+  { value: "newRetail", label: "Nuevo en tienda" },
   { value: "complete", label: "Completo" },
   { value: "gameManual", label: "Juego + manual" },
   { value: "loose", label: "Suelto" },
@@ -142,6 +143,7 @@ function yearKey(game: CatalogListGame): number | null {
 
 function priceKey(game: CatalogListGame, priceType: CatalogPriceType): number | null {
   if (priceType === "sealed") return game.estimatedPriceSealed ?? null;
+  if (priceType === "newRetail") return game.estimatedPriceNewRetail ?? null;
   if (priceType === "complete") return game.estimatedPriceComplete ?? null;
   if (priceType === "gameManual") return game.estimatedPriceGameManual ?? null;
   if (priceType === "loose") return game.estimatedPriceLoose ?? null;

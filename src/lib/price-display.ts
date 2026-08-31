@@ -41,6 +41,7 @@ export function formatEsPriceForCard(
     | "estimatedPriceGameManual"
     | "estimatedPriceComplete"
     | "estimatedPriceSealed"
+    | "estimatedPriceNewRetail"
   >,
   formatEur: (n: number | null) => string,
 ): string {

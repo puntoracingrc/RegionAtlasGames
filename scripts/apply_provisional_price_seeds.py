@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import json
 from datetime import datetime, timezone
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 from typing import Any
 
@@ -24,8 +25,9 @@ CONDITION_FIELDS = {
     "game_manual": "estimatedPriceGameManual",
     "complete": "estimatedPriceComplete",
     "sealed": "estimatedPriceSealed",
+    "new_retail": "estimatedPriceNewRetail",
 }
-PRIMARY_CONDITION_ORDER = ("complete", "game_manual", "loose", "sealed")
+PRIMARY_CONDITION_ORDER = ("complete", "game_manual", "loose", "sealed", "new_retail")
 SHIPPING_FIELDS = {
     "loose": "estimatedShippingToSpainLoose",
     "game_manual": "estimatedShippingToSpainGameManual",
@@ -39,6 +41,7 @@ TOTAL_FIELDS = {
     "sealed": "estimatedTotalToSpainSealed",
 }
 PROVISIONAL_LABEL = "Estimación provisional"
+MONEY_QUANTUM = Decimal("0.01")
 
 
 def load_json(path: Path) -> Any:
@@ -53,12 +56,16 @@ def now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
+def money(value: Any) -> float:
+    return float(Decimal(str(value)).quantize(MONEY_QUANTUM, rounding=ROUND_HALF_UP))
+
+
 def midpoint(price_range: dict[str, Any]) -> float:
-    minimum = float(price_range["minimum"])
-    maximum = float(price_range.get("maximum", minimum))
+    minimum = Decimal(str(price_range["minimum"]))
+    maximum = Decimal(str(price_range.get("maximum", minimum)))
     if minimum <= 0 or maximum <= 0 or maximum < minimum:
         raise ValueError(f"Rango invalido: {price_range!r}")
-    return round((minimum + maximum) / 2, 2)
+    return money((minimum + maximum) / 2)
 
 
 def merge_label(previous: Any, label: str) -> str:
@@ -77,14 +84,14 @@ def condition_value(game: dict[str, Any], condition: str) -> float | None:
     field = CONDITION_FIELDS[condition]
     value = game.get(field)
     if value is not None:
-        return round(float(value), 2)
+        return money(value)
 
     # Parte del catalogo antiguo solo tenia recommendedPrice. Se considera
     # completo unicamente cuando no existe ningun desglose por estado.
     if condition == "complete" and not any(game.get(name) is not None for name in CONDITION_FIELDS.values()):
         recommended = game.get("recommendedPrice")
         if recommended is not None:
-            return round(float(recommended), 2)
+            return money(recommended)
     return None
 
 
@@ -92,14 +99,14 @@ def selected_price(game: dict[str, Any]) -> float | None:
     for condition in PRIMARY_CONDITION_ORDER:
         value = game.get(CONDITION_FIELDS[condition])
         if value is not None:
-            return round(float(value), 2)
+            return money(value)
     return None
 
 
 def update_derived_price_fields(game: dict[str, Any], *, applied_at: str, batch_id: str) -> None:
     recommended = selected_price(game)
     condition_values = [
-        round(float(game[field]), 2)
+        money(game[field])
         for field in CONDITION_FIELDS.values()
         if game.get(field) is not None
     ]
@@ -119,10 +126,13 @@ def update_derived_price_fields(game: dict[str, Any], *, applied_at: str, batch_
 
     for condition, price_field in CONDITION_FIELDS.items():
         price = game.get(price_field)
-        shipping = game.get(SHIPPING_FIELDS[condition])
+        shipping_field = SHIPPING_FIELDS.get(condition)
+        if not shipping_field:
+            continue
+        shipping = game.get(shipping_field)
         if price is None or shipping is None:
             continue
-        game[TOTAL_FIELDS[condition]] = round(float(price) + float(shipping), 2)
+        game[TOTAL_FIELDS[condition]] = money(Decimal(str(price)) + Decimal(str(shipping)))
 
     pc_ref = game.get("pcRefPrice")
     if recommended is not None and isinstance(pc_ref, (int, float)) and pc_ref:
@@ -204,6 +214,16 @@ def apply_batch(
             continue
 
         accepted_entries += 1
+        if "complete" not in conditions:
+            for game in games:
+                has_typed_price = any(
+                    game.get(field) is not None for field in CONDITION_FIELDS.values()
+                )
+                legacy_price = game.get("recommendedPrice")
+                if not has_typed_price and legacy_price is not None:
+                    game[CONDITION_FIELDS["complete"]] = money(legacy_price)
+                    fields_updated += 1
+
         for condition, raw_range in conditions.items():
             provisional = midpoint(raw_range)
             previous_values = [
@@ -212,7 +232,10 @@ def apply_batch(
                 if (value := condition_value(game, condition)) is not None
             ]
             components = previous_values + [provisional]
-            blended = round(sum(components) / len(components), 2)
+            blended = money(
+                sum((Decimal(str(value)) for value in components), start=Decimal("0"))
+                / Decimal(len(components))
+            )
             field = CONDITION_FIELDS[condition]
             for game in games:
                 if game.get(field) != blended:

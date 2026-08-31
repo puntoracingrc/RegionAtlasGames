@@ -91,7 +91,8 @@ function hasPrice(game: CatalogGame): boolean {
     game.estimatedPriceLoose != null ||
     game.estimatedPriceGameManual != null ||
     game.estimatedPriceComplete != null ||
-    game.estimatedPriceSealed != null
+    game.estimatedPriceSealed != null ||
+    game.estimatedPriceNewRetail != null
   );
 }
 

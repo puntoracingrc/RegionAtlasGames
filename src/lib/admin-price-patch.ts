@@ -8,6 +8,7 @@ export type AdminPriceFields = Pick<
   | "estimatedPriceGameManual"
   | "estimatedPriceComplete"
   | "estimatedPriceSealed"
+  | "estimatedPriceNewRetail"
   | "estimatedShippingToSpainLoose"
   | "estimatedShippingToSpainGameManual"
   | "estimatedShippingToSpainComplete"
@@ -45,6 +46,7 @@ const PRICE_KEYS: (keyof AdminPriceFields)[] = [
   "estimatedPriceGameManual",
   "estimatedPriceComplete",
   "estimatedPriceSealed",
+  "estimatedPriceNewRetail",
   "estimatedShippingToSpainLoose",
   "estimatedShippingToSpainGameManual",
   "estimatedShippingToSpainComplete",
@@ -111,6 +113,7 @@ export function priceFieldsFromGame(game: CatalogGame): AdminPriceFields {
     estimatedPriceGameManual: game.estimatedPriceGameManual ?? null,
     estimatedPriceComplete: game.estimatedPriceComplete ?? null,
     estimatedPriceSealed: game.estimatedPriceSealed ?? null,
+    estimatedPriceNewRetail: game.estimatedPriceNewRetail ?? null,
     estimatedShippingToSpainLoose: game.estimatedShippingToSpainLoose ?? null,
     estimatedShippingToSpainGameManual: game.estimatedShippingToSpainGameManual ?? null,
     estimatedShippingToSpainComplete: game.estimatedShippingToSpainComplete ?? null,
@@ -201,6 +204,7 @@ export function applyPricePatch(
     next.estimatedPriceGameManual,
     next.estimatedPriceComplete,
     next.estimatedPriceSealed,
+    next.estimatedPriceNewRetail,
     next.recommendedPrice,
   ].filter((v): v is number => v != null);
   if (bucketPrices.length > 0) {
@@ -213,7 +217,8 @@ export function applyPricePatch(
     next.estimatedPriceLoose != null ||
     next.estimatedPriceGameManual != null ||
     next.estimatedPriceComplete != null ||
-    next.estimatedPriceSealed != null
+    next.estimatedPriceSealed != null ||
+    next.estimatedPriceNewRetail != null
   ) {
     next.hasEsPrice = true;
   }

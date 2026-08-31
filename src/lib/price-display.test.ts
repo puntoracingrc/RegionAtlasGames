@@ -38,7 +38,7 @@ test("keeps pending when no Spanish market price exists", () => {
 test("offers sealed as a catalog condition and sorts by its own price", () => {
   assert.deepEqual(
     PRICE_TYPE_OPTIONS.map((option) => option.value),
-    ["recommended", "sealed", "complete", "gameManual", "loose"],
+    ["recommended", "sealed", "newRetail", "complete", "gameManual", "loose"],
   );
 
   const games = [
@@ -50,5 +50,31 @@ test("offers sealed as a catalog condition and sorts by its own price", () => {
   assert.deepEqual(
     sortCatalogListGames(games, "price-desc", "sealed").map((game) => game.id),
     ["higher-sealed", "lower-sealed", "without-sealed"],
+  );
+});
+
+test("keeps new retail separate from sealed and exposes its own catalog sort", () => {
+  assert.equal(
+    formatEsPriceForCard(
+      {
+        hasEsPrice: true,
+        priceRegionVerified: false,
+        recommendedPrice: 19.95,
+        estimatedPriceNewRetail: 19.95,
+      },
+      eur,
+    ),
+    "Nuevo · 19.95 €",
+  );
+
+  const games = [
+    { id: "sealed-only", title: "Sealed", estimatedPriceSealed: 10 },
+    { id: "higher-retail", title: "Higher", estimatedPriceNewRetail: 30 },
+    { id: "lower-retail", title: "Lower", estimatedPriceNewRetail: 20 },
+  ] as CatalogListGame[];
+
+  assert.deepEqual(
+    sortCatalogListGames(games, "price-desc", "newRetail").map((game) => game.id),
+    ["higher-retail", "lower-retail", "sealed-only"],
   );
 });
