@@ -415,6 +415,8 @@ export type CollectionItem = {
   hasEsPrice: boolean;
   /** ISO — cuándo se añadió a la colección (manual o enlace a catálogo). */
   addedAt?: string | null;
+  /** ISO — fecha de compra indicada por el propietario. */
+  purchasedAt?: string | null;
   priceRegionVerified?: boolean;
   gameRetailPrice?: number | null;
   gameCondition?: string | null;

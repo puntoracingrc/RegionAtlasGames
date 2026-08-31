@@ -6,12 +6,16 @@ import test from "node:test";
 import { getCatalogGame } from "./catalog";
 import {
   addCatalogGameToCollection,
+  addCatalogCopyGroup,
   catalogGameToCollectionItem,
+  getUserCollectionItem,
   getUserCollectionViews,
   getOwnedCatalogIds,
   readUserCollection,
+  recordCompletedCollectionSale,
   saveUserCollectionItems,
   summarizeCollection,
+  updateUserCollectionItemDetails,
 } from "./collection-store";
 import { primaryConditionPrice } from "./condition-prices";
 import type { CollectionItem } from "./types";
@@ -183,6 +187,73 @@ test("refreshes linked collection values from current catalog prices", async () 
       summary.totalRecommendedValue,
       Math.round((completePrice * 2 + game.estimatedPriceSealed) * 100) / 100,
     );
+  } finally {
+    restoreEnvironment(env);
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("manages homogeneous copy groups and applies completed sales once", async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), "region-atlas-collection-"));
+  const env: EnvironmentSnapshot = {
+    APP_DATA_DIR: process.env.APP_DATA_DIR,
+    VERCEL: process.env.VERCEL,
+    BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
+    BLOB_STORE_ID: process.env.BLOB_STORE_ID,
+  };
+  process.env.APP_DATA_DIR = directory;
+  delete process.env.VERCEL;
+  delete process.env.BLOB_READ_WRITE_TOKEN;
+  delete process.env.BLOB_STORE_ID;
+
+  try {
+    const userId = "copy-groups-owner";
+    const catalogId = "ps4-13-sentinels-aegis-rim";
+    const first = await addCatalogGameToCollection(userId, catalogId);
+    assert.ok(!("error" in first));
+    const second = await addCatalogCopyGroup(userId, catalogId);
+    assert.ok(!("error" in second));
+
+    const updated = await updateUserCollectionItemDetails(userId, first.item.id, {
+      quantity: 2,
+      collectionCondition: "sealed",
+      buyPrice: 18.5,
+      purchasedAt: "2026-08-12T00:00:00.000Z",
+      addedAt: "2026-08-13T00:00:00.000Z",
+      notes: "Dos copias iguales",
+    });
+    assert.ok(!("error" in updated));
+    assert.equal(updated.item.quantity, 2);
+    assert.equal(updated.item.sealed, true);
+    assert.equal(updated.item.buyPrice, 18.5);
+    assert.equal(updated.item.purchasedAt, "2026-08-12T00:00:00.000Z");
+
+    const views = await getUserCollectionViews(userId);
+    assert.equal(views.length, 2);
+    assert.equal(views.reduce((sum, item) => sum + item.quantity, 0), 3);
+    const game = getCatalogGame(catalogId);
+    assert.ok(game?.estimatedPriceSealed != null);
+    assert.equal(views[0]?.recommendedPrice, game.estimatedPriceSealed);
+    assert.equal(views[0]?.totalValue, game.estimatedPriceSealed * 2);
+
+    assert.deepEqual(
+      await recordCompletedCollectionSale(userId, first.item.id, "sale-one"),
+      { adjusted: true, remaining: 1 },
+    );
+    assert.deepEqual(
+      await recordCompletedCollectionSale(userId, first.item.id, "sale-one"),
+      { adjusted: false, remaining: 1 },
+    );
+    const remainingCopy = await getUserCollectionItem(userId, first.item.id);
+    assert.equal(remainingCopy?.quantity, 1);
+    assert.equal(remainingCopy?.totalValue, game.estimatedPriceSealed);
+
+    assert.deepEqual(
+      await recordCompletedCollectionSale(userId, first.item.id, "sale-two"),
+      { adjusted: true, remaining: 0 },
+    );
+    assert.equal(await getUserCollectionItem(userId, first.item.id), undefined);
+    assert.equal((await readUserCollection(userId)).items.length, 1);
   } finally {
     restoreEnvironment(env);
     await rm(directory, { recursive: true, force: true });

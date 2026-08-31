@@ -2,6 +2,7 @@ import { notFound, redirect } from "next/navigation";
 import { ListingManageClient } from "@/components/listing-manage-client";
 import { aiQuotaRemaining } from "@/lib/ai-listing-analysis";
 import { catalogGamePath } from "@/lib/catalog-url";
+import { collectionCatalogPath } from "@/lib/collection-path";
 import { getListing, getMarketplaceListingClientView } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
 
@@ -30,7 +31,7 @@ export default async function ListingPage({ params }: Props) {
       listing={getMarketplaceListingClientView(listing)}
       isOwner={isOwner}
       quotaRemaining={await aiQuotaRemaining(user.id, user.plan)}
-      catalogHref={catalogGamePath(listing.catalogId)}
+      catalogHref={isOwner ? collectionCatalogPath(listing.catalogId) : catalogGamePath(listing.catalogId)}
     />
   );
 }

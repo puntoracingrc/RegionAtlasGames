@@ -28,7 +28,7 @@ import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { formatEsPriceForCard } from "@/lib/price-display";
 import { RegionFlag } from "@/components/region-flag";
 import { IntentLink } from "@/components/intent-link";
-import { catalogGamePath } from "@/lib/catalog-path";
+import { collectionCatalogPath } from "@/lib/collection-path";
 import { LinkPendingFeedback } from "@/components/link-pending-feedback";
 
 type Props = {
@@ -242,7 +242,9 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
 
 function CollectionCompactRow({ item }: { item: CollectionDisplayItem }) {
   const { game, units, conditionCounts } = item;
-  const href = game.catalogId && game.catalogMatched ? catalogGamePath(game.catalogId) : `/coleccion/${game.id}`;
+  const href = game.catalogId && game.catalogMatched
+    ? collectionCatalogPath(game.catalogId)
+    : `/coleccion/${game.id}`;
   const cover = getCoverSrc(game.coverUrl, game.catalogId ?? game.id);
   const price =
     !game.hasEsPrice && game.recommendedPrice != null

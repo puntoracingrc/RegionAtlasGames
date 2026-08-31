@@ -1,6 +1,6 @@
 import { randomUUID } from "crypto";
 import { getCatalogGame } from "./catalog";
-import { getUserCollectionItem } from "./collection-store";
+import { getUserCollectionItem, recordCompletedCollectionSale } from "./collection-store";
 import {
   mutateMarketplaceDocument,
   readMarketplaceDocument,
@@ -81,6 +81,18 @@ export async function getSellerOpenListing(
   );
 }
 
+export async function getSellerOpenListingForCollectionItem(
+  sellerId: string,
+  collectionItemId: string,
+): Promise<MarketplaceListing | undefined> {
+  return (await readListings()).find(
+    (listing) =>
+      listing.sellerId === sellerId &&
+      listing.collectionItemId === collectionItemId &&
+      (listing.status === "active" || listing.status === "draft"),
+  );
+}
+
 export async function sellerHasOpenListing(sellerId: string, catalogId: string): Promise<boolean> {
   return (await getSellerOpenListing(sellerId, catalogId)) != null;
 }
@@ -128,7 +140,7 @@ export async function createListingDraft(input: {
       pickup: true,
       shipping: true,
     },
-    askingPriceEur: game?.recommendedPrice ?? item.recommendedPrice ?? null,
+    askingPriceEur: item.recommendedPrice ?? game?.recommendedPrice ?? null,
     sellerLocation: null,
     platformSlug: item.platformSlug,
     region: item.region,
@@ -136,6 +148,9 @@ export async function createListingDraft(input: {
     photos: [],
     aiAnalysis: null,
     sealed: item.sealed,
+    collectionCondition: item.sealed
+      ? "sealed"
+      : item.collectionCondition ?? "unknown",
     createdAt: now,
     updatedAt: now,
     publishedAt: null,
@@ -152,14 +167,14 @@ export async function createListingDraft(input: {
     const existing = listings.find(
       (stored) =>
         stored.sellerId === input.sellerId &&
-        stored.catalogId === item.catalogId &&
+        stored.collectionItemId === input.collectionItemId &&
         (stored.status === "active" || stored.status === "draft"),
     );
     if (existing) {
       return {
         next: listings,
         result: {
-          error: "Ya tienes un anuncio abierto para este juego (máx. 1 unidad).",
+          error: "Esta copia ya tiene un anuncio abierto.",
           existingListingId: existing.id,
         },
         changed: false,
@@ -391,10 +406,17 @@ export async function confirmBuyerReceipt(input: {
       priceEur: listing.recordedSalePriceEur!,
       conditionScore: listing.aiAnalysis?.conditionScore ?? null,
       sealed: listing.sealed,
+      collectionCondition: listing.collectionCondition ?? (listing.sealed ? "sealed" : "unknown"),
       completedAt: listing.buyerConfirmedAt!,
     });
     return { next: sales, result: true };
   });
+
+  await recordCompletedCollectionSale(
+    listing.sellerId,
+    listing.collectionItemId,
+    listing.id,
+  );
 
   return { ok: true, recorded };
 }
@@ -516,6 +538,7 @@ export function getPublicSellerListing(listing: MarketplaceListing) {
     sellerCity: listing.sellerCity ?? null,
     title: listing.customTitle || listing.title,
     sealed: listing.sealed,
+    collectionCondition: listing.collectionCondition ?? (listing.sealed ? "sealed" : "unknown"),
     region: listing.region,
     saleOptions: listing.saleOptions ?? { pickup: true, shipping: true },
     askingPriceEur: listingAskingPriceEur(listing),
@@ -584,6 +607,7 @@ export function getMarketplaceListingClientView(
     })),
     aiAnalysis: analysis,
     sealed: listing.sealed,
+    collectionCondition: listing.collectionCondition ?? (listing.sealed ? "sealed" : "unknown"),
     updatedAt: listing.updatedAt,
     publishedAt: listing.publishedAt,
     sellerConfirmedAt: listing.sellerConfirmedAt,

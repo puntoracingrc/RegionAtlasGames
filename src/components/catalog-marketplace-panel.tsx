@@ -15,6 +15,13 @@ import { getCurrentUser } from "@/lib/users";
 
 type Props = { catalogId: string };
 
+const COLLECTION_CONDITION_LABELS = {
+  sealed: "Precintado",
+  complete: "Completo",
+  "game-manual": "Juego + manual",
+  loose: "Suelto",
+} as const;
+
 export async function CatalogMarketplacePanel({ catalogId }: Props) {
   const [listings, user] = await Promise.all([
     getActiveListingsForCatalog(catalogId),
@@ -23,6 +30,7 @@ export async function CatalogMarketplacePanel({ catalogId }: Props) {
   const marketplaceOffers: MarketplaceCatalogOffer[] = listings.map((listing) => {
     const publicListing = getPublicSellerListing(listing);
     const verifiedEstimate = listingAnalysisHasVerifiedEstimate(listing.aiAnalysis);
+    const storedCondition = listing.collectionCondition ?? (listing.sealed ? "sealed" : "unknown");
     return {
       id: listing.id,
       title: publicListing.title,
@@ -33,8 +41,8 @@ export async function CatalogMarketplacePanel({ catalogId }: Props) {
         listing.photos[0]?.url ??
         null,
       askingPriceEur: publicListing.askingPriceEur,
-      conditionLabel: listing.sealed
-        ? "Precintado"
+      conditionLabel: storedCondition !== "unknown"
+        ? COLLECTION_CONDITION_LABELS[storedCondition]
         : verifiedEstimate && publicListing.aiAnalysis?.conditionVerdict
           ? publicListing.aiAnalysis.conditionVerdict
           : listingVerificationLabel(listing.aiAnalysis),
