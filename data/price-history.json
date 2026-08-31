@@ -9422,6 +9422,14 @@
         "gameManual": null,
         "complete": 45.56,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 45.56,
+        "sealed": 49.19,
+        "newRetail": null
       }
     ],
     "ps4-azure-striker-gunvolt-striker-pack": [
@@ -9431,6 +9439,14 @@
         "gameManual": null,
         "complete": 54.97,
         "sealed": 66.66
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 54.97,
+        "sealed": 60.83,
+        "newRetail": null
       }
     ],
     "ps4-baboon": [
@@ -9440,6 +9456,14 @@
         "gameManual": null,
         "complete": 27.92,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 27.92,
+        "sealed": 79.95,
+        "newRetail": null
       }
     ],
     "ps4-baja-edge-of-control-hd": [
@@ -9449,6 +9473,14 @@
         "gameManual": null,
         "complete": 23.8,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 23.8,
+        "sealed": null,
+        "newRetail": 35.25
       }
     ],
     "ps4-balan-wonderworld": [
@@ -9458,6 +9490,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 19.7
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 19.7,
+        "newRetail": 15.95
       }
     ],
     "ps4-40-principales-karaoke-party-vol-2": [
@@ -9483,6 +9523,14 @@
         "gameManual": null,
         "complete": 18.92,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.46,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-batman-the-telltale-series": [
@@ -9492,6 +9540,14 @@
         "gameManual": null,
         "complete": 14.97,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.46,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-battle-chasers-nightwar": [
@@ -9510,6 +9566,14 @@
         "gameManual": null,
         "complete": 23.95,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.23,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-battlefield-hardline": [
@@ -9519,6 +9583,14 @@
         "gameManual": null,
         "complete": 18.95,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.45,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-battlewake": [
@@ -9528,6 +9600,14 @@
         "gameManual": null,
         "complete": 37.92,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 37.92,
+        "sealed": 49.32,
+        "newRetail": null
       }
     ],
     "ps4-battlezone": [
@@ -9537,6 +9617,14 @@
         "gameManual": null,
         "complete": 18.93,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.44,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-bayonetta-&amp;-vanquish-10th-anniversary-bundle": [
@@ -9546,6 +9634,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 37.47
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 42.73,
+        "newRetail": null
       }
     ],
     "ps4-beast-quest": [
@@ -9555,6 +9651,14 @@
         "gameManual": null,
         "complete": 59.94,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 59.94,
+        "sealed": 47.9,
+        "newRetail": null
       }
     ],
     "ps4-bee-simulator": [
@@ -9695,6 +9799,14 @@
         "gameManual": null,
         "complete": 34.95,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 34.95,
+        "sealed": null,
+        "newRetail": 39.99
       }
     ],
     "ps4-colt-canyon": [
@@ -11229,6 +11341,156 @@
         "complete": null,
         "sealed": null,
         "newRetail": 14.95
+      }
+    ],
+    "ps4-back-4-blood": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.45,
+        "sealed": 12.21,
+        "newRetail": null
+      }
+    ],
+    "ps4-barbie-horse-trails": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 36.89
+      }
+    ],
+    "ps4-batman-arkham-collection-steel-book": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 117.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-batman-return-to-arkham": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.0,
+        "sealed": null,
+        "newRetail": 18.2
+      }
+    ],
+    "ps4-batman-the-enemy-within": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 40.74,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-batsugun-saturn-tribute-boosted": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 34.45,
+        "newRetail": null
+      }
+    ],
+    "ps4-battle-worlds-kronos": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 18.11,
+        "newRetail": null
+      }
+    ],
+    "ps4-battleborn": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 23.34,
+        "newRetail": null
+      }
+    ],
+    "ps4-battlefield-1": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 7.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-battlefield-2042": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 20.0,
+        "sealed": null,
+        "newRetail": 28.63
+      }
+    ],
+    "ps4-battlefield-4": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.18,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-battlefield-v": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-bayala": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 50.09,
+        "newRetail": null
+      }
+    ],
+    "ps4-bayonetta-&amp;-vanquish-10th-anniversary-bundle-launch-edition": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 75.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-batsugun-saturn-tribute-boosted-edicion-deluxe": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 75.33
       }
     ]
   }

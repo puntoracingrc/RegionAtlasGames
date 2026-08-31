@@ -1,0 +1,381 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-page-06-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T00:00:00Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Lote 6 curatorial para completar precios de entrada mientras los collectors acumulan evidencia individual.",
+    "La fuente prioritaria sigue siendo Wallapop, despues eBay, TodoConsolas y otras tiendas/plataformas españolas.",
+    "Cada rango aporta un unico punto medio y se combina una sola vez con el precio previo del mismo estado.",
+    "Nuevo en tienda se registra como new_retail salvo que el extracto confirme precinto; precintado confirmado se registra como sealed.",
+    "Se excluyen unidades incompletas, lotes sin precio unitario, ofertas agotadas, digitales, otras regiones y ediciones distintas.",
+    "Los duplicados ortograficos quedan documentados y no reciben una segunda valoracion."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-azur-lane-crosswave",
+      "title": "Azur Lane: Crosswave",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 45.02, "maximum": 53.36, "sources": ["miravia", "carrefour"] }
+      }
+    },
+    {
+      "catalogId": "ps4-azure-striker-gonvolt-striker-pack",
+      "title": "Azure Striker Gonvolt Striker Pack",
+      "status": "skipped",
+      "reason": "Duplicado tecnico por error ortografico de Azure Striker Gunvolt Striker Pack; no se valora aparte."
+    },
+    {
+      "catalogId": "ps4-azure-striker-gunvolt-striker-pack",
+      "title": "Azure Striker Gunvolt Striker Pack",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 55, "maximum": 55, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-baboon",
+      "title": "Baboon",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 79.95, "maximum": 79.95, "sources": ["gameplay-stores"] }
+      },
+      "rejectedConditions": {
+        "complete": "La unidad de 14,90 EUR esta incompleta y no conserva la caratula."
+      }
+    },
+    {
+      "catalogId": "ps4-baby-shark-sing-and-swim-party",
+      "title": "Baby Shark: Sing and Swim Party",
+      "status": "skipped",
+      "reason": "Oferta nueva de 16,99 EUR con region PAL España pendiente de confirmar."
+    },
+    {
+      "catalogId": "ps4-babylon%27s-fall",
+      "title": "Babylon's Fall",
+      "status": "skipped",
+      "reason": "Sin copia PAL España exacta; los resultados eran importacion USA o steelbook sin juego."
+    },
+    {
+      "catalogId": "ps4-back-4-blood",
+      "title": "Back 4 Blood",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 9.44, "maximum": 14.97, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-back-to-the-future-the-game-30th-anniversary",
+      "title": "Back to the Future: The Game - 30th Anniversary",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto localizado; las copias encontradas eran importaciones."
+    },
+    {
+      "catalogId": "ps4-baja-edge-of-control-hd",
+      "title": "Baja: Edge of Control HD",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 14.9, "maximum": 55.59, "sources": ["impact-game", "mediamarkt"] }
+      }
+    },
+    {
+      "catalogId": "ps4-balan-underworld",
+      "title": "Balan Underworld",
+      "status": "skipped",
+      "reason": "Duplicado tecnico y denominacion incorrecta de Balan Wonderworld; no se contabiliza aparte."
+    },
+    {
+      "catalogId": "ps4-balan-wonderworld",
+      "title": "Balan Wonderworld",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 12, "maximum": 19.9, "sources": ["maype", "impact-game"] }
+      }
+    },
+    {
+      "catalogId": "ps4-baldo-the-guardian-owls",
+      "title": "Baldo: The Guardian Owls",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto; las ofertas localizadas eran importaciones."
+    },
+    {
+      "catalogId": "ps4-baldur%27s-gate-1-&amp;-2-enhanced-edition",
+      "title": "Baldur's Gate 1 & 2 Enhanced Edition",
+      "status": "skipped",
+      "reason": "Sin oferta PAL España exacta; las referencias PAL generales no se usan para valorar la ficha española."
+    },
+    {
+      "catalogId": "ps4-barbie-horse-trails",
+      "title": "Barbie: Horse Trails",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 36.89, "maximum": 36.89, "sources": ["cstech"] }
+      }
+    },
+    {
+      "catalogId": "ps4-bard%27s-gold",
+      "title": "Bard's Gold",
+      "status": "skipped",
+      "reason": "Sin edicion fisica PAL España localizada; solo aparece la version digital."
+    },
+    {
+      "catalogId": "ps4-bard%27s-tale-remastered-and-resnarkled",
+      "title": "Bard's Tale: Remastered and Resnarkled",
+      "status": "skipped",
+      "reason": "Sin edicion fisica PAL España localizada; solo aparece la version digital."
+    },
+    {
+      "catalogId": "ps4-bassmaster-fishing-2022-deluxe-edition",
+      "title": "Bassmaster Fishing 2022: Deluxe Edition",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 39.99, "maximum": 39.99, "sources": ["discoazul"] }
+      }
+    },
+    {
+      "catalogId": "ps4-batbarian-testament-of-the-primordials",
+      "title": "Batbarian: Testament of the Primordials",
+      "status": "skipped",
+      "reason": "Sin edicion fisica PAL España localizada; solo aparece la version digital."
+    },
+    {
+      "catalogId": "ps4-batman-arkham-asylum-comic-edition",
+      "title": "Batman Arkham Asylum [Comic Edition]",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto activo; la unidad localizada era PAL Italia."
+    },
+    {
+      "catalogId": "ps4-batman-arkham-collection",
+      "title": "Batman Arkham Collection",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto confirmado; las ofertas localizadas eran versiones de importacion."
+    },
+    {
+      "catalogId": "ps4-batman-arkham-collection-steel-book",
+      "title": "Batman Arkham Collection Steel Book",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 60, "maximum": 60, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-batman-arkham-knight",
+      "title": "Batman Arkham Knight",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 14, "sources": ["wallapop", "realcash", "todocoleccion"] }
+      }
+    },
+    {
+      "catalogId": "ps4-batman-arkham-vr",
+      "title": "Batman Arkham VR",
+      "status": "skipped",
+      "reason": "Ofertas nuevas de 26,20-36,49 EUR con region PAL España pendiente de confirmacion visual."
+    },
+    {
+      "catalogId": "ps4-batman-return-to-arkham-launch-edition",
+      "title": "Batman Return to Arkham [Launch Edition]",
+      "status": "skipped",
+      "reason": "Sin oferta activa de la Launch Edition exacta."
+    },
+    {
+      "catalogId": "ps4-batman-arkham-knight-limited-edition",
+      "title": "Batman: Arkham Knight [Limited Edition]",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto activo; las ediciones localizadas eran extranjeras."
+    },
+    {
+      "catalogId": "ps4-batman-return-to-arkham",
+      "title": "Batman: Return to Arkham",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 15, "maximum": 15, "sources": ["wallapop"] },
+        "new_retail": { "minimum": 15.99, "maximum": 20.4, "sources": ["todoconsolas", "ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-batman-the-enemy-within",
+      "title": "Batman: The Enemy Within",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 40.74, "maximum": 40.74, "sources": ["ebay", "cash-converters"] }
+      }
+    },
+    {
+      "catalogId": "ps4-batman-the-telltale-series",
+      "title": "Batman: The Telltale Series",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 9.95, "maximum": 9.95, "sources": ["todoconsolas"] }
+      }
+    },
+    {
+      "catalogId": "ps4-bats-bloodsucker-anti-terror-squad",
+      "title": "BATS: Bloodsucker Anti-Terror Squad",
+      "status": "skipped",
+      "reason": "Sin edicion fisica PAL España localizada; solo aparece la version digital."
+    },
+    {
+      "catalogId": "ps4-batsugun-saturn-tribute-boosted",
+      "title": "Batsugun Saturn Tribute Boosted",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 26, "maximum": 42.9, "sources": ["todoconsolas", "pccomponentes", "miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-batsugun-saturn-tribute-boosted-edicion-deluxe",
+      "title": "BATSUGUN Saturn Tribute Boosted - Edicion Deluxe",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 69.99, "maximum": 80.66, "sources": ["game", "ebay", "spanish-marketplace"] }
+      }
+    },
+    {
+      "catalogId": "ps4-battle-axe",
+      "title": "Battle Axe",
+      "status": "skipped",
+      "reason": "Sin edicion estandar PAL España exacta; la Badge Edition localizada es una edicion distinta."
+    },
+    {
+      "catalogId": "ps4-battle-chasers-nightwar",
+      "title": "Battle Chasers: Nightwar",
+      "status": "skipped",
+      "reason": "Oferta nueva de 35 EUR con region PAL España pendiente de confirmar."
+    },
+    {
+      "catalogId": "ps4-battle-worlds-kronos",
+      "title": "Battle Worlds: Kronos",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 16.22, "maximum": 19.99, "sources": ["ebay", "spanish-marketplace"] }
+      }
+    },
+    {
+      "catalogId": "ps4-battleborn",
+      "title": "Battleborn",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 19.99, "maximum": 26.68, "sources": ["worten", "miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-battlefield-1",
+      "title": "Battlefield 1",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 5, "maximum": 10, "sources": ["wallapop", "todoconsolas"] }
+      }
+    },
+    {
+      "catalogId": "ps4-battlefield-1-revolution",
+      "title": "Battlefield 1 Revolution",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 15, "sources": ["wallapop", "todoconsolas", "todocoleccion"] }
+      }
+    },
+    {
+      "catalogId": "ps4-battlefield-2042",
+      "title": "Battlefield 2042",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 20, "maximum": 20, "sources": ["todocoleccion"] },
+        "new_retail": { "minimum": 15.3, "maximum": 41.96, "sources": ["spanish-marketplace", "phone-house"] }
+      }
+    },
+    {
+      "catalogId": "ps4-battlefield-4",
+      "title": "Battlefield 4",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 9.95, "maximum": 10.4, "sources": ["todoconsolas", "phone-house"] }
+      }
+    },
+    {
+      "catalogId": "ps4-battlefield-hardline",
+      "title": "Battlefield Hardline",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 11.94, "maximum": 11.94, "sources": ["ebay", "cash-converters"] }
+      },
+      "rejectedConditions": {
+        "complete": "Los resultados de Wallapop eran lotes sin precio individual."
+      }
+    },
+    {
+      "catalogId": "ps4-battlefield-v",
+      "title": "Battlefield V",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 8, "maximum": 10, "sources": ["wallapop", "ebay", "cash-converters"] }
+      }
+    },
+    {
+      "catalogId": "ps4-battlewake",
+      "title": "Battlewake",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 43.74, "maximum": 54.9, "sources": ["ebay", "arreglatelo"] }
+      },
+      "notes": [
+        "Anuncios usados como referencia provisional porque declaran PAL España; no convierten la region en verificada."
+      ]
+    },
+    {
+      "catalogId": "ps4-battlezone",
+      "title": "Battlezone",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 5.95, "maximum": 5.95, "sources": ["todoconsolas"] }
+      }
+    },
+    {
+      "catalogId": "ps4-bayala",
+      "title": "Bayala",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 50.09, "maximum": 50.09, "sources": ["ebay"] }
+      },
+      "rejectedConditions": {
+        "sealed": "La unidad de Milanuncios a 20 EUR se anuncia nueva, pero no confirma precinto."
+      }
+    },
+    {
+      "catalogId": "ps4-bayonetta-&amp;-vanquish-10th-anniversary-bundle-launch-edition",
+      "title": "Bayonetta & Vanquish [10th Anniversary Bundle Launch Edition]",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 59.99, "maximum": 90, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-bayonetta-&amp;-vanquish-10th-anniversary-bundle",
+      "title": "Bayonetta & Vanquish 10th Anniversary Bundle",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 47.99, "maximum": 47.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-beamdog-ultimate-collector%27s-pack",
+      "title": "Beamdog Ultimate Collector's Pack",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto localizado; la unica referencia era una importacion UK."
+    },
+    {
+      "catalogId": "ps4-beast-quest",
+      "title": "Beast Quest",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 47.9, "maximum": 47.9, "sources": ["miravia"] }
+      }
+    }
+  ]
+}
