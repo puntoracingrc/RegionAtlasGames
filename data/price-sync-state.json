@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-08-30T21:36:50Z",
+  "lastRunAt": "2026-08-31T06:15:32Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -120,15 +120,15 @@
         }
       },
       "lastScopedSync": {
-        "lastSyncAt": "2026-08-30T20:20:15Z",
+        "lastSyncAt": "2026-08-30T22:04:45Z",
         "source": "Wallapop ES",
-        "gamesTargeted": 11,
-        "gamesUpdated": 10,
-        "wallapopGamesUpdated": 10,
+        "gamesTargeted": 1,
+        "gamesUpdated": 1,
+        "wallapopGamesUpdated": 1,
         "ebayGamesUpdated": 0,
         "vintedGamesUpdated": 0,
-        "gamesSkippedNoData": 1,
-        "gamesRejectedOutliers": 23,
+        "gamesSkippedNoData": 0,
+        "gamesRejectedOutliers": 0,
         "gamesRejectedUnverifiedRegion": 0,
         "gamesRejectedRegionMismatch": 0,
         "gamesRejectedInsufficientEvidence": 0,
@@ -145,13 +145,13 @@
         "tcGamesUpdated": 0,
         "tcGamesSkipped": 0,
         "gameGamesUpdated": 0,
-        "coveragePct": 90.9,
+        "coveragePct": 100.0,
         "priceListTotalGames": 8471,
-        "priceListPricedBefore": 471,
-        "priceListPricedAfter": 474,
-        "priceListPricedDelta": 3,
-        "priceListCoverageBeforePct": 5.6,
-        "priceListCoverageAfterPct": 5.6,
+        "priceListPricedBefore": 508,
+        "priceListPricedAfter": 509,
+        "priceListPricedDelta": 1,
+        "priceListCoverageBeforePct": 6.0,
+        "priceListCoverageAfterPct": 6.0,
         "priceListCoverageDeltaPct": 0.0,
         "ebayDeliveryGamesUpdated": 0,
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
@@ -160,8 +160,8 @@
           "sources": [
             {
               "source": "wallapop",
-              "aiRows": 87,
-              "resolved": 87,
+              "aiRows": 5,
+              "resolved": 5,
               "review": 0,
               "rejected": 0
             }
@@ -177,17 +177,7 @@
         },
         "scope": "catalog_ids",
         "catalogIds": [
-          "ps4-assassin%27s-creed-iv-black-flag",
-          "ps4-assassin%27s-creed-mirage",
-          "ps4-assassin%27s-creed-odyssey",
-          "ps4-assassin%27s-creed-origins",
-          "ps4-assassin%27s-creed-syndicate",
-          "ps4-assassin%27s-creed-the-ezio-collection",
-          "ps4-assassin%27s-creed-unity",
-          "ps4-assassin%27s-creed-valhalla",
-          "ps4-assassins-creed-4-black-flag",
-          "ps4-assassins-creed-odyssey",
-          "ps4-assassins-creed-origins"
+          "ps4-astro-bot-rescue-mission"
         ]
       }
     },
