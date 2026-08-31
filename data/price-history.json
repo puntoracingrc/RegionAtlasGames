@@ -9293,6 +9293,14 @@
         "gameManual": null,
         "complete": 18.17,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.17,
+        "sealed": null,
+        "newRetail": 20.4
       }
     ],
     "ps4-astronite": [
@@ -9302,6 +9310,14 @@
         "gameManual": null,
         "complete": 29.38,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 24.67,
+        "sealed": null,
+        "newRetail": 29.9
       }
     ],
     "ps4-atari-50-the-anniversary-celebration": [
@@ -9311,6 +9327,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 32.48
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 32.48,
+        "newRetail": 18.99
       }
     ],
     "ps4-atari-flashback-classics-vol-1": [
@@ -9320,6 +9344,14 @@
         "gameManual": null,
         "complete": 30.43,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 30.43,
+        "sealed": null,
+        "newRetail": 28.06
       }
     ],
     "ps4-atelier-lulua-the-scion-of-arland": [
@@ -9329,6 +9361,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 142.45
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 35.0,
+        "sealed": 142.45,
+        "newRetail": null
       }
     ],
     "ps4-atelier-sophie-2-the-alchemist-of-the-mysterious-dream": [
@@ -9356,6 +9396,14 @@
         "gameManual": null,
         "complete": 32.74,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 23.87,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-away-the-survival-series": [
@@ -9596,6 +9644,14 @@
         "gameManual": null,
         "complete": 22.99,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.99,
+        "sealed": 56.85,
+        "newRetail": null
       }
     ],
     "ps4-atrapa-la-bandera": [
@@ -9605,6 +9661,14 @@
         "gameManual": null,
         "complete": 7.99,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.0,
+        "sealed": null,
+        "newRetail": 39.95
       }
     ],
     "ps4-avicii-invector-encore-edition": [
@@ -9614,6 +9678,14 @@
         "gameManual": null,
         "complete": 9.99,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.99,
+        "sealed": null,
+        "newRetail": 10.95
       }
     ],
     "ps4-bassmaster-fishing-2022-deluxe-edition": [
@@ -10699,6 +10771,14 @@
         "complete": 24.67,
         "sealed": null,
         "newRetail": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 24.84,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-all-star-fruit-racing": [
@@ -10969,6 +11049,186 @@
         "complete": 35.4,
         "sealed": 21.2,
         "newRetail": null
+      }
+    ],
+    "ps4-asterix-&amp;-obelix-xxl-3-the-crystal-menhir-limited-edition": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 86.6
+      }
+    ],
+    "ps4-asterix-&amp;-obelix-xxl-collection": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 40.38
+      }
+    ],
+    "ps4-asterix-&amp;-obelix-xxl2": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 17.9
+      }
+    ],
+    "ps4-asterix-&amp;-obelix-heroes": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 29.9
+      }
+    ],
+    "ps4-asterix-&amp;-obelix-slap-them-all-2": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 19.58
+      }
+    ],
+    "ps4-ataque-a-los-titanes-wings-of-freedom": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 87.47,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-atari-flashback-classics-vol-2": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 21.24,
+        "sealed": null,
+        "newRetail": 14.95
+      }
+    ],
+    "ps4-atelier-firis-the-alchemist-and-the-mysterious-journey": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 65.85
+      }
+    ],
+    "ps4-atomfall": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 55.0,
+        "sealed": null,
+        "newRetail": 54.9
+      }
+    ],
+    "ps4-atomic-heart": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 80.0,
+        "sealed": null,
+        "newRetail": 27.63
+      }
+    ],
+    "ps4-attack-on-titan-2": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 80.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-attack-on-titan-wings-of-freedom-treasure-box": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 229.99,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-atv-drift-&amp;-tricks": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 47.58
+      }
+    ],
+    "ps4-autobahn-police-simulator-3": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.95,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-autonauts": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 9.99
+      }
+    ],
+    "ps4-avatar-the-last-airbender-quest-for-balance": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 44.9,
+        "newRetail": 30.95
+      }
+    ],
+    "ps4-autobahn-police-sim-3-complete-edition": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 42.45
+      }
+    ],
+    "ps4-avicii-invector": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 14.95
       }
     ]
   }
