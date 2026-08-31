@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-page-03-reworked-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T00:00:00Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Lote 3 rehecho tras reforzar la prioridad de busqueda: Wallapop, eBay, TodoConsolas y despues otras tiendas/plataformas españolas.",
+    "Rangos curatoriales para evitar fichas vacias mientras los collectors acumulan evidencia individual.",
+    "Cada rango aporta un unico punto medio y se combina una sola vez con el precio previo del mismo estado.",
+    "Solo se aplican ofertas activas atribuidas a PAL España; PAL UK, Francia, Alemania, Italia, USA, Asia, digitales, lotes y ediciones distintas quedan excluidos.",
+    "Nuevo en tienda se registra como new_retail; nuevo/sin usar de particular sin precinto confirmado no se clasifica como sealed.",
+    "Las fuentes se conservan como trazabilidad interna y no se muestran en la interfaz publica."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-all-star-fruit-racing",
+      "title": "All-Star Fruit Racing",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 14.9, "maximum": 14.9, "sources": ["impact-game"] }
+      }
+    },
+    {
+      "catalogId": "ps4-alliance-alive-hd-remastered-limited-edition",
+      "title": "Alliance Alive HD Remastered [Limited Edition]",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España verificada."
+    },
+    {
+      "catalogId": "ps4-alpine-the-simulation-game",
+      "title": "Alpine The Simulation Game",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 26.77, "maximum": 26.77, "sources": ["discoazul"] }
+      }
+    },
+    {
+      "catalogId": "ps4-alwa%27s-collection",
+      "title": "Alwa's Collection",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificada."
+    },
+    {
+      "catalogId": "ps4-amazing-princess-sarah",
+      "title": "Amazing Princess Sarah",
+      "status": "skipped",
+      "reason": "Sin oferta activa; la ultima referencia nueva de 24,90 EUR esta actualmente sin stock."
+    },
+    {
+      "catalogId": "ps4-amazing-spiderman-2",
+      "title": "Amazing Spiderman 2",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 87.55, "maximum": 87.55, "sources": ["amazon-marketplace", "idealo"] }
+      },
+      "rejectedConditions": {
+        "complete": "El precio abierto de 19,95 EUR esta agotado en MasQNuevo."
+      }
+    },
+    {
+      "catalogId": "ps4-ambition-record",
+      "title": "Ambition Record",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificada."
+    },
+    {
+      "catalogId": "ps4-american-fugitive",
+      "title": "American Fugitive",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 37.98, "maximum": 37.98, "sources": ["mediamarkt"] }
+      }
+    },
+    {
+      "catalogId": "ps4-among-the-sleep",
+      "title": "Among the Sleep",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 83.99, "maximum": 83.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-among-us-ejected-edition",
+      "title": "Among Us [Ejected Edition]",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 44.99, "maximum": 44.99, "sources": ["game"] },
+        "new_retail": { "minimum": 49.99, "maximum": 49.99, "sources": ["game"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ancestors-legacy",
+      "title": "Ancestors Legacy",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ancestors-legacy-conqueror%27s-edition",
+      "title": "Ancestors Legacy: Conqueror's Edition",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-andro-dunos-ii",
+      "title": "Andro Dunos II",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 60, "maximum": 60, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-angry-alligator",
+      "title": "Angry Alligator",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-angry-birds-star-wars",
+      "title": "Angry Birds Star Wars",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-anima-gate-of-memories",
+      "title": "Anima Gate of Memories",
+      "status": "skipped",
+      "reason": "Sin oferta activa exacta PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-anima-gates-of-memories-&#43;-the-nameless-chonicles-collection",
+      "title": "Anima Gates Of Memories + The Nameless Chonicles Collection",
+      "status": "skipped",
+      "reason": "Sin oferta de esta referencia exacta."
+    },
+    {
+      "catalogId": "ps4-anima-gate-of-memories-arcane-edition",
+      "title": "Anima: Gate Of Memories [Arcane Edition]",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 47.17, "maximum": 47.17, "sources": ["miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-anima-gate-of-memories-the-nameless-chronicles",
+      "title": "Anima: Gate of Memories The Nameless Chronicles",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-animal-doctor",
+      "title": "Animal Doctor",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-animal-hospital",
+      "title": "Animal Hospital",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-ankora-lost-days-&amp;-deiland-pocket-planet",
+      "title": "Ankora Lost Days & Deiland Pocket Planet",
+      "status": "skipped",
+      "reason": "Aparece nuevo mediante TodoConsolas/Fnac, pero sin precio actual visible y verificable."
+    },
+    {
+      "catalogId": "ps4-annapurna-ultimate-collection",
+      "title": "Annapurna Ultimate Collection",
+      "status": "skipped",
+      "reason": "Sin oferta activa con precio verificable."
+    },
+    {
+      "catalogId": "ps4-anonymous;code-steelbook-launch-edition",
+      "title": "Anonymous;Code [SteelBook Launch Edition]",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 64.73, "maximum": 64.73, "sources": ["mediamarkt"] }
+      }
+    },
+    {
+      "catalogId": "ps4-another-sight",
+      "title": "Another Sight",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 84, "maximum": 84, "sources": ["milanuncios"] }
+      }
+    },
+    {
+      "catalogId": "ps4-another-world",
+      "title": "Another World",
+      "status": "skipped",
+      "reason": "Sin oferta fisica de la edicion individual exacta; no se cuenta la 20th Anniversary ni recopilatorios."
+    },
+    {
+      "catalogId": "ps4-another-world-&amp;-flashback-double-pack",
+      "title": "Another World & Flashback Double Pack",
+      "status": "skipped",
+      "reason": "Sin oferta activa; la ultima referencia nueva de 39,99 EUR no esta disponible actualmente."
+    },
+    {
+      "catalogId": "ps4-antarctica-88",
+      "title": "Antarctica 88",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-anthem",
+      "title": "Anthem",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ao-international-tennis",
+      "title": "AO International Tennis",
+      "status": "skipped",
+      "reason": "Solo aparece dentro de lotes o junto con consola; sin precio individual exacto verificable."
+    },
+    {
+      "catalogId": "ps4-ao-tennis-2",
+      "title": "AO Tennis 2",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] }
+      },
+      "rejectedConditions": {
+        "sealed": "El anuncio de 15 EUR dice nuevo/sin usar, pero no confirma precinto."
+      }
+    },
+    {
+      "catalogId": "ps4-apex-construct",
+      "title": "Apex Construct",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 14.99, "maximum": 14.99, "sources": ["todocoleccion"] },
+        "sealed": { "minimum": 36.48, "maximum": 36.48, "sources": ["todocoleccion"] }
+      }
+    },
+    {
+      "catalogId": "ps4-apex-legends-lifeline-edition",
+      "title": "Apex Legends [Lifeline Edition]",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 5.95, "maximum": 5.95, "sources": ["todoconsolas"] },
+        "new_retail": { "minimum": 49.34, "maximum": 49.34, "sources": ["mediamarkt"] }
+      }
+    },
+    {
+      "catalogId": "ps4-apsulov-end-of-gods",
+      "title": "Apsulov: End of Gods",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 37.05, "maximum": 37.05, "sources": ["shein"] }
+      },
+      "rejectedConditions": {
+        "complete": "Wallapop solo muestra un lote de tres juegos por 30 EUR; no sirve como precio unitario."
+      }
+    },
+    {
+      "catalogId": "ps4-arab-drift-cars",
+      "title": "Arab Drift Cars",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-aragami",
+      "title": "Aragami",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 65.99, "maximum": 65.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-aragami-2",
+      "title": "Aragami 2",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 23.95, "maximum": 23.95, "sources": ["xtralife"] }
+      }
+    },
+    {
+      "catalogId": "ps4-arashi-castles-of-sin",
+      "title": "Arashi: Castles of Sin",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España activa verificable."
+    },
+    {
+      "catalogId": "ps4-arc-of-alchemist",
+      "title": "Arc of Alchemist",
+      "status": "skipped",
+      "reason": "Sin oferta activa; la ultima referencia nueva de 50,99 EUR no esta disponible actualmente."
+    },
+    {
+      "catalogId": "ps4-arcade-classics-anniversary-collection",
+      "title": "Arcade Classics Anniversary Collection",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-arcade-paradise",
+      "title": "Arcade Paradise",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 19.56, "maximum": 19.56, "sources": ["shein"] },
+        "sealed": { "minimum": 28.75, "maximum": 28.75, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-arcade-spirits",
+      "title": "Arcade Spirits",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-arcade-spirits-the-new-challengers",
+      "title": "Arcade Spirits: The New Challengers",
+      "status": "skipped",
+      "reason": "Sin oferta activa; la referencia PAL España de 14,95 EUR figura provisionalmente agotada."
+    },
+    {
+      "catalogId": "ps4-arcadegeddon",
+      "title": "Arcadegeddon",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 14.9, "maximum": 14.9, "sources": ["impact-game"] }
+      }
+    },
+    {
+      "catalogId": "ps4-arcania-the-complete-tale",
+      "title": "Arcania The Complete Tale",
+      "status": "skipped",
+      "reason": "Sin oferta activa; la ultima referencia nueva de 30,99 EUR no esta disponible actualmente."
+    },
+    {
+      "catalogId": "ps4-archetype-arcadia",
+      "title": "Archetype Arcadia",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 14.99, "maximum": 25.69, "sources": ["carrefour", "ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-are-you-smarter-than-a-5th-grader",
+      "title": "Are You Smarter Than A 5th Grader",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-ariana-and-the-elder-codex",
+      "title": "Ariana And The Elder Codex",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 37.95, "maximum": 37.95, "sources": ["todoconsolas"] }
+      }
+    }
+  ]
+}

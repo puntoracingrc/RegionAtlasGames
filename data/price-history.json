@@ -8961,6 +8961,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 49.47
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 54.74,
+        "newRetail": null
       }
     ],
     "ps4-animal-hospital": [
@@ -8979,6 +8987,14 @@
         "gameManual": null,
         "complete": 32.42,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 23.71,
+        "sealed": 36.48,
+        "newRetail": null
       }
     ],
     "ps4-apex-legends-lifeline-edition": [
@@ -8988,6 +9004,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 20.97
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 5.95,
+        "sealed": 20.97,
+        "newRetail": 49.34
       }
     ],
     "ps4-aragami": [
@@ -8997,6 +9021,14 @@
         "gameManual": null,
         "complete": 38.2,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 52.1,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-aragami-2": [
@@ -9006,6 +9038,14 @@
         "gameManual": null,
         "complete": 20.39,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 20.39,
+        "sealed": null,
+        "newRetail": 23.95
       }
     ],
     "ps4-arcade-paradise": [
@@ -9015,6 +9055,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 34.4
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 31.58,
+        "newRetail": 19.56
       }
     ],
     "ps4-arcadegeddon": [
@@ -9024,6 +9072,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 26.4
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 26.4,
+        "newRetail": 14.9
       }
     ],
     "ps4-arietta-of-spirits": [
@@ -10539,6 +10595,156 @@
         "complete": 24.67,
         "sealed": null,
         "newRetail": null
+      }
+    ],
+    "ps4-all-star-fruit-racing": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 14.9
+      }
+    ],
+    "ps4-alpine-the-simulation-game": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 26.77
+      }
+    ],
+    "ps4-amazing-spiderman-2": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 87.55
+      }
+    ],
+    "ps4-american-fugitive": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 37.98
+      }
+    ],
+    "ps4-among-the-sleep": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 83.99,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-among-us-ejected-edition": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 44.99,
+        "sealed": null,
+        "newRetail": 49.99
+      }
+    ],
+    "ps4-ancestors-legacy": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-anima-gate-of-memories-arcane-edition": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 47.17
+      }
+    ],
+    "ps4-anonymous;code-steelbook-launch-edition": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 64.73
+      }
+    ],
+    "ps4-another-sight": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 84.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-anthem": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-ao-tennis-2": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.73,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-apsulov-end-of-gods": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 64.95,
+        "sealed": null,
+        "newRetail": 37.05
+      }
+    ],
+    "ps4-archetype-arcadia": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 29.3,
+        "sealed": 20.34,
+        "newRetail": null
+      }
+    ],
+    "ps4-ariana-and-the-elder-codex": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 49.0,
+        "sealed": null,
+        "newRetail": 37.95
       }
     ]
   }
