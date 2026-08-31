@@ -14,6 +14,7 @@ export type InboxConversation = {
   role: "seller" | "buyer";
   peerName: string;
   messageCount: number;
+  unreadCount: number;
   lastMessage: string | null;
   lastMessageAt: string;
   updatedAt: string;
@@ -59,11 +60,24 @@ export function MessagesInboxClient({ conversations }: Props) {
               <li key={conv.id}>
                 <Link
                   href={`/chat/${conv.id}`}
-                  className="block rounded-lg border border-border bg-card px-4 py-3 transition hover:border-accent/40 hover:bg-card-hover"
+                  className={`block rounded-lg border px-4 py-3 transition hover:border-accent/40 hover:bg-card-hover ${
+                    conv.unreadCount > 0
+                      ? "border-accent/35 bg-accent/8"
+                      : "border-border bg-card"
+                  }`}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <p className="truncate font-medium text-foreground">{conv.title}</p>
+                      <div className="flex min-w-0 items-center gap-2">
+                        <p className={`truncate text-foreground ${conv.unreadCount > 0 ? "font-bold" : "font-medium"}`}>
+                          {conv.title}
+                        </p>
+                        {conv.unreadCount > 0 && (
+                          <span className="inline-flex min-w-5 shrink-0 items-center justify-center rounded-full bg-accent px-1.5 py-0.5 text-[10px] font-bold text-accent-fg">
+                            {conv.unreadCount > 9 ? "9+" : conv.unreadCount}
+                          </span>
+                        )}
+                      </div>
                       <p className="mt-0.5 text-xs text-muted">
                         {conv.role === "seller" ? "Comprador" : "Vendedor"}: {conv.peerName}
                         {conv.listingStatus

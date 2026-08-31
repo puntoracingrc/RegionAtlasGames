@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
-import { confirmBuyerReceipt, markListingSold } from "@/lib/listings";
-import { findConversation } from "@/lib/conversations";
+import { confirmBuyerReceipt, getListing, markListingSold } from "@/lib/listings";
+import {
+  findConversation,
+  notifySaleCompleted,
+  notifySaleMarked,
+} from "@/lib/conversations";
 import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
 import { getCurrentUser } from "@/lib/users";
 
@@ -38,12 +42,39 @@ export async function POST(request: Request, { params }: Params) {
       priceEur: Number(body.priceEur),
     });
     if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
+    const listing = await getListing(id);
+    if (listing) {
+      await notifySaleMarked({
+        listingId: listing.id,
+        catalogId: listing.catalogId,
+        buyerId,
+        sellerId: user.id,
+        title: listing.customTitle || listing.title,
+        conversationId: conv.id,
+      }).catch((error) => {
+        console.error("[marketplace-sale] buyer notification projection failed", error);
+      });
+    }
     return NextResponse.json({ ok: true });
   }
 
   if (action === "buyer-confirm") {
+    const listingBeforeConfirmation = await getListing(id);
+    const conversationBeforeConfirmation = await findConversation(id, user.id);
     const result = await confirmBuyerReceipt({ listingId: id, buyerId: user.id });
     if ("error" in result) return NextResponse.json({ error: result.error }, { status: 400 });
+    if (listingBeforeConfirmation?.sellerId && conversationBeforeConfirmation) {
+      await notifySaleCompleted({
+        listingId: listingBeforeConfirmation.id,
+        catalogId: listingBeforeConfirmation.catalogId,
+        sellerId: listingBeforeConfirmation.sellerId,
+        buyerId: user.id,
+        title: listingBeforeConfirmation.customTitle || listingBeforeConfirmation.title,
+        conversationId: conversationBeforeConfirmation.id,
+      }).catch((error) => {
+        console.error("[marketplace-sale] seller notification projection failed", error);
+      });
+    }
     return NextResponse.json(result);
   }
 

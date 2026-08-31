@@ -137,7 +137,7 @@ export type ChatMessage = {
   senderName: string;
   body: string;
   createdAt: string;
-  status?: "sent" | "delivered";
+  status?: "sent" | "delivered" | "read";
 };
 
 export type MarketplaceConversation = {
@@ -160,6 +160,34 @@ export type MarketplaceBlock = {
   blockedId: string;
   conversationId: string;
   createdAt: string;
+};
+
+export type MarketplaceNotificationKind =
+  | "new_message"
+  | "listing_approved"
+  | "listing_rejected"
+  | "sale_marked"
+  | "sale_completed";
+
+export type MarketplaceNotification = {
+  id: string;
+  recipientId: string;
+  kind: MarketplaceNotificationKind;
+  title: string;
+  body: string | null;
+  href: string;
+  eventKey: string;
+  actorId: string | null;
+  conversationId: string | null;
+  listingId: string | null;
+  catalogId: string | null;
+  createdAt: string;
+  readAt: string | null;
+};
+
+export type MarketplaceCommunicationSummary = {
+  unreadNotifications: number;
+  unreadMessages: number;
 };
 
 export type RecordedPrivateSale = {
