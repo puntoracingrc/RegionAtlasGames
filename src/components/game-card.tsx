@@ -12,6 +12,10 @@ import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { IntentLink } from "@/components/intent-link";
 import { LinkPendingFeedback } from "@/components/link-pending-feedback";
+import {
+  formatCollectionConditionSummary,
+  type CollectionConditionCounts,
+} from "@/lib/collection-display";
 
 const cardBase =
   "group relative flex flex-col overflow-hidden rounded-xl border bg-card transition-all duration-200 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/45 hover:bg-card-hover";
@@ -126,9 +130,11 @@ export function CatalogGameCard({
 export function CollectionGameCard({
   game,
   overlayAction,
+  conditionCounts,
 }: {
   game: CollectionView;
   overlayAction?: ReactNode;
+  conditionCounts?: CollectionConditionCounts;
 }) {
   const collectionPlatformLabel = platformLabel(game.platformSlug);
   const href = game.catalogId && game.catalogMatched ? catalogGamePath(game.catalogId) : `/coleccion/${game.id}`;
@@ -160,6 +166,7 @@ export function CollectionGameCard({
         priceUnverified={game.hasEsPrice && game.priceRegionVerified !== true}
         importPrice={!game.hasEsPrice && game.recommendedPrice != null}
         quantity={game.quantity}
+        conditionCounts={conditionCounts}
         grail={grail}
         topSegment={topSegment}
       />
@@ -276,6 +283,7 @@ function CardBody({
   listingsForSale,
   priceUnverified,
   importPrice,
+  conditionCounts,
 }: {
   title: string;
   platform: string;
@@ -289,6 +297,7 @@ function CardBody({
   priceVerified?: boolean;
   priceUnverified?: boolean;
   importPrice?: boolean;
+  conditionCounts?: CollectionConditionCounts;
 }) {
   const tags = [
     topSegment ? "Top región" : null,
@@ -356,7 +365,13 @@ function CardBody({
           )}
         </div>
       </div>
-      {quantity != null && quantity > 1 && (
+      {quantity != null && conditionCounts && (
+        <p className="text-[11px] text-muted">
+          {quantity} {quantity === 1 ? "unidad" : "unidades"} ·{" "}
+          {formatCollectionConditionSummary(conditionCounts, true)}
+        </p>
+      )}
+      {quantity != null && quantity > 1 && !conditionCounts && (
         <p className="text-[11px] text-muted">×{quantity} unidades</p>
       )}
     </div>

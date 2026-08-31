@@ -31,6 +31,17 @@ test("imports semicolon-delimited CSV with quantities", async () => {
   assert.equal(result.items[0]?.quantity, 2);
 });
 
+test("preserves the owned copy condition from collection imports", async () => {
+  const csv = Buffer.from(
+    "Titulo;Plataforma;Cantidad;Condicion\nPrecintado;PS4;2;Sealed\nCompleto;PS4;1;CIB\n",
+    "utf8",
+  );
+  const result = await importSpreadsheet(csv, "coleccion.csv");
+
+  assert.equal(result.items[0]?.collectionCondition, "sealed");
+  assert.equal(result.items[1]?.collectionCondition, "complete");
+});
+
 test("prefers the TODO sheet in a multi-sheet XLSX workbook", async () => {
   const workbook = await writeExcelFile([
     {
@@ -130,4 +141,27 @@ test("links legacy apostrophe variants to the surviving catalog record", () => {
       "ps4-adam-s-venture-origins",
     );
   }
+});
+
+test("repairs collection links using the PriceCharting title and product id", () => {
+  const base = {
+    id: "legacy-ps5-import",
+    catalogId: null,
+    catalogMatched: false,
+    inRetroCatalog: true,
+    title: "Nombre antiguo de la colección",
+    titlePc: "Final Fantasy VII Rebirth",
+    pcImportId: 6166789,
+    platformSlug: "ps5",
+    region: "PAL España",
+  } as CollectionItem;
+
+  assert.equal(
+    findAvailableCatalogLink(base)?.id,
+    "ps5-final-fantasy-vii-rebirth",
+  );
+  assert.equal(
+    findAvailableCatalogLink({ ...base, pcImportId: null })?.id,
+    "ps5-final-fantasy-vii-rebirth",
+  );
 });

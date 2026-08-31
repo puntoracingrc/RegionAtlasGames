@@ -480,7 +480,13 @@ export function findAvailableCatalogLink(item: CollectionItem): CatalogGame | nu
   const platform = normalizeImportedPlatformSlug(item.platformSlug);
   if (!isPlatformCatalogActive(platform)) return null;
 
-  return findCatalogMatch(platform, item.title, item.title, null, item.region);
+  return findCatalogMatch(
+    platform,
+    item.title,
+    item.titlePc ?? item.title,
+    item.pcImportId ?? null,
+    item.region,
+  );
 }
 
 function inferRegion(raw: string | null, platform: string): string {
@@ -495,6 +501,28 @@ function inferSealed(condition: string | null, sealedRaw: string | null): boolea
   if (!condition) return false;
   const c = condition.toLowerCase();
   return c.includes("new") || c.includes("sealed") || c.includes("precint") || c === "nuevo";
+}
+
+function inferCollectionCondition(
+  condition: string | null,
+  sealedRaw: string | null,
+): CollectionItem["collectionCondition"] {
+  if (inferSealed(condition, sealedRaw)) return "sealed";
+  const value = (condition ?? "").toLowerCase();
+  if (value.includes("game") && value.includes("manual")) return "game-manual";
+  if (value.includes("juego") && value.includes("manual")) return "game-manual";
+  if (value.includes("cib") || value.includes("complete") || value.includes("completo")) {
+    return "complete";
+  }
+  if (
+    value.includes("loose") ||
+    value.includes("suelto") ||
+    value.includes("disc only") ||
+    value.includes("disco solo")
+  ) {
+    return "loose";
+  }
+  return "unknown";
 }
 
 function priceFromCondition(
@@ -641,6 +669,7 @@ export function importRowsToCollection(rows: unknown[][]): {
     if (catalogMatched) stats.matchedCatalog += 1;
     else if (inRetro) stats.unmatched += 1;
 
+    const sealedRaw = clean(cell(row, cols.sealed));
     items.push({
       id: itemId,
       catalogId: matched?.id ?? null,
@@ -652,7 +681,8 @@ export function importRowsToCollection(rows: unknown[][]): {
       pcImportId: pcId,
       platformSlug: plat,
       region,
-      sealed: inferSealed(condition, clean(cell(row, cols.sealed))),
+      sealed: inferSealed(condition, sealedRaw),
+      collectionCondition: inferCollectionCondition(condition, sealedRaw),
       quantity: qty,
       quantityPc: num(cell(row, cols.quantityPc)),
       buyPrice: market.buyPriceFromImport,
