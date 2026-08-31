@@ -103,7 +103,13 @@ def selected_price(game: dict[str, Any]) -> float | None:
     return None
 
 
-def update_derived_price_fields(game: dict[str, Any], *, applied_at: str, batch_id: str) -> None:
+def update_derived_price_fields(
+    game: dict[str, Any],
+    *,
+    applied_at: str,
+    batch_id: str,
+    preserve_region_verified: bool = False,
+) -> None:
     recommended = selected_price(game)
     condition_values = [
         money(game[field])
@@ -114,7 +120,7 @@ def update_derived_price_fields(game: dict[str, Any], *, applied_at: str, batch_
     game["marketMin"] = min(condition_values) if condition_values else None
     game["marketMax"] = max(condition_values) if condition_values else None
     game["hasEsPrice"] = recommended is not None
-    game["priceRegionVerified"] = False
+    game["priceRegionVerified"] = True if preserve_region_verified else False
     game["priceSource"] = merge_label(game.get("priceSource"), PROVISIONAL_LABEL)
     game["priceDataSources"] = merge_label(game.get("priceDataSources"), PROVISIONAL_LABEL)
     game["updatedAt"] = applied_at
@@ -139,6 +145,14 @@ def update_derived_price_fields(game: dict[str, Any], *, applied_at: str, batch_
         game["deltaEsVsPc"] = round(((recommended - float(pc_ref)) / float(pc_ref)) * 100, 1)
     elif recommended is None:
         game["deltaEsVsPc"] = None
+
+
+def should_preserve_region_verified(before: dict[str, Any], after: dict[str, Any]) -> bool:
+    if before.get("priceRegionVerified") is not True:
+        return False
+    previous = before.get("recommendedPrice")
+    current = selected_price(after)
+    return previous is not None and current is not None and money(previous) == money(current)
 
 
 def validate_batch(payload: dict[str, Any]) -> None:
@@ -214,6 +228,8 @@ def apply_batch(
             continue
 
         accepted_entries += 1
+        before_by_id = {str(game["id"]): dict(game) for game in games}
+
         if "complete" not in conditions:
             for game in games:
                 has_typed_price = any(
@@ -243,7 +259,13 @@ def apply_batch(
                     fields_updated += 1
 
         for game in games:
-            update_derived_price_fields(game, applied_at=applied_at, batch_id=batch_id)
+            before = before_by_id[str(game["id"])]
+            update_derived_price_fields(
+                game,
+                applied_at=applied_at,
+                batch_id=batch_id,
+                preserve_region_verified=should_preserve_region_verified(before, game),
+            )
             updated_ids.add(str(game["id"]))
 
     # Permite corregir campos derivados de un lote ya aplicado sin volver a
@@ -252,7 +274,12 @@ def apply_batch(
         if batch_id not in (game.get("provisionalPriceBatchIds") or []):
             continue
         before = dict(game)
-        update_derived_price_fields(game, applied_at=applied_at, batch_id=batch_id)
+        update_derived_price_fields(
+            game,
+            applied_at=applied_at,
+            batch_id=batch_id,
+            preserve_region_verified=should_preserve_region_verified(before, game),
+        )
         if game != before:
             updated_ids.add(str(game["id"]))
             derived_rows_reconciled += 1

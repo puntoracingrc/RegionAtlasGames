@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-page-04-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T00:00:00Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Lote 4 curatorial para completar precios de entrada mientras los collectors acumulan evidencia individual.",
+    "La fuente prioritaria sigue siendo Wallapop, despues eBay, TodoConsolas y otras tiendas/plataformas españolas.",
+    "Cada rango aporta un unico punto medio y se combina una sola vez con el precio previo del mismo estado.",
+    "Nuevo en tienda se registra como new_retail salvo que el extracto confirme precinto; precintado/sin abrir se registra como sealed.",
+    "Se excluyen lotes sin precio unitario, ofertas agotadas, digitales, otras plataformas, otras regiones y ediciones distintas.",
+    "Las variantes de escritura duplicadas quedan documentadas para no sumar la misma evidencia dos veces."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-arietta-of-spirits",
+      "title": "Arietta of Spirits",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 32.45, "maximum": 32.45, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-arise-a-simple-story",
+      "title": "Arise: A Simple Story",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 42.55, "maximum": 42.55, "sources": ["ebay"] }
+      },
+      "notes": [
+        "Aceptado provisionalmente porque titulo, EAN, plataforma y region coinciden; se ignoran campos internos erroneos del anuncio."
+      ]
+    },
+    {
+      "catalogId": "ps4-arizona-sunshine",
+      "title": "Arizona Sunshine",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ark-park",
+      "title": "Ark Park",
+      "status": "skipped",
+      "reason": "Localizado solo dentro de lote PSVR con cuatro juegos por 300 EUR; no permite precio unitario valido."
+    },
+    {
+      "catalogId": "ps4-ark-survival-evolved",
+      "title": "Ark Survival Evolved",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] },
+        "sealed": { "minimum": 31.9, "maximum": 31.9, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ark-survival-evolved-ultimate-survivor-edition",
+      "title": "ARK: Survival Evolved [Ultimate Survivor Edition]",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 12, "maximum": 12, "sources": ["wallapop"] },
+        "new_retail": { "minimum": 34.95, "maximum": 34.95, "sources": ["xtralife"] }
+      }
+    },
+    {
+      "catalogId": "ps4-arkanoid-eternal-battle-limited-edition",
+      "title": "Arkanoid Eternal Battle: Limited Edition",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 16.99, "maximum": 16.99, "sources": ["xtralife"] }
+      }
+    },
+    {
+      "catalogId": "ps4-armagallant-decks-of-destiny",
+      "title": "ArmaGallant Decks of Destiny",
+      "status": "skipped",
+      "reason": "Ofertas españolas visibles desde 20,33 EUR, pero sin acreditacion suficiente de edicion PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-armello-special-edition",
+      "title": "Armello [Special Edition]",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 25, "maximum": 25, "sources": ["ebay"] },
+        "sealed": { "minimum": 15.81, "maximum": 15.81, "sources": ["carrefour"] }
+      }
+    },
+    {
+      "catalogId": "ps4-armored-core-vi-fires-of-rubicon",
+      "title": "Armored Core VI: Fires Of Rubicon",
+      "status": "skipped",
+      "reason": "Oferta estandar sin prueba regional suficiente; las fichas PAL España verificables son Launch/Day One Edition."
+    },
+    {
+      "catalogId": "ps4-arslan-the-warriors-of-legend",
+      "title": "Arslan The Warriors of Legend",
+      "status": "skipped",
+      "reason": "Aparece en anuncio multiple sin precio individual; la ultima referencia usada no conserva caja original y esta agotada."
+    },
+    {
+      "catalogId": "ps4-ary-and-the-secret-of-seasons",
+      "title": "Ary and the Secret of Seasons",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 32.9, "maximum": 32.9, "sources": ["miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ash-of-gods-redemption",
+      "title": "Ash of Gods: Redemption",
+      "status": "skipped",
+      "reason": "Sin edicion fisica PS4 PAL España exacta; la oferta española encontrada era para Nintendo Switch."
+    },
+    {
+      "catalogId": "ps4-ashes-cricket",
+      "title": "Ashes Cricket",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PS4 PAL España exacta; los resultados recuperados correspondian a otras plataformas."
+    },
+    {
+      "catalogIds": [
+        "ps4-assasin%27s-creed-syndicate-big-ben-edition",
+        "ps4-assassin%27s-creed-syndicate-big-ben-edition"
+      ],
+      "title": "Assassin's Creed Syndicate [Big Ben Edition]",
+      "status": "skipped",
+      "reason": "Sin edicion completa PAL España verificada; las unidades localizadas eran francesas o portuguesas."
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-chronicles",
+      "title": "Assassin's Creed Chronicles",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iii-remastered",
+      "title": "Assassin's Creed III Remastered",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 31.65, "maximum": 31.65, "sources": ["miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-iv-black-flag",
+      "title": "Assassin's Creed IV: Black Flag",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 15, "maximum": 15, "sources": ["wallapop"] }
+      },
+      "notes": [
+        "Aceptado como provisional por titulo y plataforma; el texto recuperado no explicita region."
+      ]
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-mirage-collector%27s-edition",
+      "title": "Assassin's Creed Mirage [Collector's Edition]",
+      "status": "skipped",
+      "reason": "Sin edicion PS4 PAL España completa localizada; la Collector disponible encontrada era de PS5."
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey",
+      "title": "Assassin's Creed Odyssey",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins",
+      "title": "Assassin's Creed Origins",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 15, "maximum": 15, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-rogue-remastered",
+      "title": "Assassin's Creed Rogue Remastered",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España verificada; el resultado exacto localizado era digital de PlayStation Store."
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-syndicate",
+      "title": "Assassin's Creed Syndicate",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 8, "maximum": 8, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-the-ezio-collection",
+      "title": "Assassin's Creed The Ezio Collection",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 13, "maximum": 13, "sources": ["wallapop"] }
+      },
+      "rejectedConditions": {
+        "sealed": "Unidad italiana precintada descartada por region."
+      }
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity",
+      "title": "Assassin's Creed Unity",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla",
+      "title": "Assassin's Creed Valhalla",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 15, "maximum": 15, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-mirage",
+      "title": "Assassin's Creed: Mirage",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 26.25, "maximum": 26.25, "sources": ["miravia"] }
+      },
+      "rejectedConditions": {
+        "new_retail": "Ultima referencia Xtralife de 19,99 EUR descartada por no tener disponibilidad clara."
+      },
+      "notes": [
+        "Oferta activa PS4 usada como provisional; el extracto no acredita region suficiente para marcarla como verificada."
+      ]
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-odyssey-athenian-edition",
+      "title": "Assassin's Creed: Odyssey [Athenian Edition]",
+      "status": "skipped",
+      "reason": "Sin oferta completa PAL España verificable."
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-origins-gold-edition",
+      "title": "Assassin's Creed: Origins [Gold Edition]",
+      "status": "skipped",
+      "reason": "Sin edicion fisica Gold PAL España verificada; las Gold localizadas eran digitales y la oferta fisica era Deluxe Edition."
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-unity-special-edition",
+      "title": "Assassin's Creed: Unity [Special Edition]",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] }
+      },
+      "notes": [
+        "Caja y juego completo; la mencion de manual se conserva como dato de contenido, no como bucket game_manual."
+      ]
+    },
+    {
+      "catalogId": "ps4-assassin%27s-creed-valhalla-ragnarok-edition",
+      "title": "Assassin's Creed: Valhalla [Ragnarok Edition]",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 76.31, "maximum": 76.31, "sources": ["spanish-marketplace"] }
+      },
+      "notes": [
+        "Se descarta la oferta mas barata porque no demuestra region; se usa la oferta que acredita edicion y region exactas."
+      ]
+    },
+    {
+      "catalogId": "ps4-assassins-creed-3-remastered",
+      "title": "Assassins Creed 3 Remastered",
+      "status": "skipped",
+      "reason": "Duplicado tecnico de Assassin's Creed III Remastered; no se valora una segunda vez."
+    },
+    {
+      "catalogId": "ps4-assassins-creed-4-black-flag",
+      "title": "Assassins Creed 4 Black Flag",
+      "status": "skipped",
+      "reason": "Duplicado tecnico de Assassin's Creed IV: Black Flag; no se valora una segunda vez."
+    },
+    {
+      "catalogIds": [
+        "ps4-assassin%27s-creed-mirage-deluxe-edition",
+        "ps4-assassins-creed-mirage-deluxe-edition"
+      ],
+      "title": "Assassin's Creed Mirage Deluxe Edition",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 64.9, "maximum": 64.9, "sources": ["wakkap", "spanish-marketplace"] }
+      },
+      "rejectedConditions": {
+        "new_retail": "Ultima referencia Xtralife de 24,95 EUR descartada por estar sin stock."
+      }
+    },
+    {
+      "catalogId": "ps4-assassins-creed-odyssey",
+      "title": "Assassins Creed Odyssey",
+      "status": "skipped",
+      "reason": "Duplicado tecnico de Assassin's Creed Odyssey; no se contabiliza de nuevo."
+    },
+    {
+      "catalogId": "ps4-assassins-creed-origins",
+      "title": "Assassins Creed Origins",
+      "status": "skipped",
+      "reason": "Duplicado tecnico de Assassin's Creed Origins; no se contabiliza de nuevo."
+    },
+    {
+      "catalogId": "ps4-assassins-creed-rogue-remastered",
+      "title": "Assassins Creed Rogue Remastered",
+      "status": "skipped",
+      "reason": "Duplicado tecnico de Assassin's Creed Rogue Remastered; continua sin precio fisico PAL España verificado."
+    },
+    {
+      "catalogId": "ps4-assassins-creed-syndicate",
+      "title": "Assassins Creed Syndicate",
+      "status": "skipped",
+      "reason": "Duplicado tecnico de Assassin's Creed Syndicate; se conserva el precio de la entrada principal."
+    },
+    {
+      "catalogId": "ps4-assassins-creed-the-ezio-collection",
+      "title": "Assassins Creed The Ezio Collection",
+      "status": "skipped",
+      "reason": "Duplicado tecnico de Assassin's Creed The Ezio Collection; se conserva el precio de la entrada principal."
+    },
+    {
+      "catalogId": "ps4-assassins-creed-unity",
+      "title": "Assassins Creed Unity",
+      "status": "skipped",
+      "reason": "Duplicado tecnico de Assassin's Creed Unity; se conserva el precio de la entrada principal."
+    },
+    {
+      "catalogId": "ps4-assassins-creed-valhalla",
+      "title": "Assassins Creed Valhalla",
+      "status": "skipped",
+      "reason": "Duplicado tecnico de Assassin's Creed Valhalla; se conserva el precio de la entrada principal."
+    },
+    {
+      "catalogId": "ps4-assassins-creed-valhalla-dawn-of-ragnarok",
+      "title": "Assassins Creed Valhalla: Dawn of Ragnarok",
+      "status": "skipped",
+      "reason": "Sin edicion fisica independiente PAL España verificada; los resultados eran codigos o contenido digital."
+    },
+    {
+      "catalogId": "ps4-assault-suit-leynos",
+      "title": "Assault Suit Leynos",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta; el resultado localizado pertenecia a Assault Suit Leynos 2."
+    },
+    {
+      "catalogId": "ps4-assetto-corsa",
+      "title": "Assetto Corsa",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 9.9, "maximum": 9.9, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-assetto-corsa-competizione",
+      "title": "Assetto Corsa Competizione",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 12.95, "maximum": 12.95, "sources": ["realcash"] },
+        "new_retail": { "minimum": 45.59, "maximum": 45.59, "sources": ["miravia"] }
+      }
+    },
+    {
+      "catalogId": "ps4-astebros",
+      "title": "Astebros",
+      "status": "skipped",
+      "reason": "Sin edicion fisica PS4 PAL España localizada; el resultado exacto era un cartucho recopilatorio para Evercade."
+    },
+    {
+      "catalogId": "ps4-asterix-&amp;-obelix-slap-them-all",
+      "title": "Asterix & Obelix Slap Them All",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 21.2, "maximum": 21.2, "sources": ["carrefour"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ast%c3%a9rix-&amp;-ob%c3%a9lix-xxl-2-blu-ray-edition",
+      "title": "Astérix & Obélix XXL 2 [Blu-Ray Edition]",
+      "status": "skipped",
+      "reason": "La variante exacta esta identificada, pero no hay oferta activa verificable; la unidad PAL España encontrada era Limited Edition."
+    }
+  ]
+}

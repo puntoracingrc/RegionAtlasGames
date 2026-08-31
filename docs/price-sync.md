@@ -32,6 +32,12 @@ La antigua rueda general se conserva solo para recuperación manual:
 
 Todas las fuentes verificadas pueden aportar a la media de su estado. El peso está en `data/price-source-weights.json`.
 
+En lotes curatoriales y revisiones manuales de un juego concreto, el orden de
+busqueda es fijo: Wallapop, eBay, TodoConsolas y despues otras tiendas o
+plataformas españolas. Si una fuente prioritaria no devuelve una oferta activa
+exacta de la misma edicion fisica PS4 PAL España, se documenta como hueco y se
+pasa a la siguiente fuente.
+
 | Categoría | Ejemplos | Peso por observación |
 |---|---|---:|
 | P2P | eBay, Wallapop, Vinted, TodoColeccion | 1,00 |
@@ -52,8 +58,11 @@ No se mezclan estados diferentes:
 | `estimatedPriceGameManual` | Juego + manual, sin caja completa |
 | `estimatedPriceComplete` | Abierto con todo el contenido que incluia esa edicion de fabrica |
 | `estimatedPriceSealed` | Precintado |
+| `estimatedPriceNewRetail` | Nuevo en tienda, sin confirmacion visual de precinto |
 
-`recommendedPrice` usa, por orden, completo, juego + manual, suelto y precintado. El precio principal es solo el artículo. El transporte estimado de eBay a España se guarda y muestra por separado.
+`recommendedPrice` usa, por orden, completo, juego + manual, suelto, precintado
+y nuevo en tienda. PAL UK, Francia, Alemania, Italia, USA, Japon/Asia,
+digitales, lotes y ediciones distintas nunca rellenan huecos de PAL España.
 
 La presencia de manual se decide por juego y edicion, no por una regla general de
 plataforma. `manualExpected: true` exige el manual para clasificar una copia como
