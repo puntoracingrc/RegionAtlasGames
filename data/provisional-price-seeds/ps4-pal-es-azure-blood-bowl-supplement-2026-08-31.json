@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-azure-blood-bowl-supplement-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T19:05:38Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint_delta",
+  "notes": [
+    "Lote suplementario para referencias externas nuevas entre Azure Striker Gunvolt y Blood Bowl III.",
+    "Los importes marcados como RA no se reintroducen porque ya proceden del catalogo de Region Atlas.",
+    "Las referencias agotadas, de region pendiente o sin fuente identificada no alimentan la media.",
+    "Los rangos ya presentes en los lotes 6, 7 y 8 no se duplican."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-balan-wonderworld",
+      "title": "Balan Wonderworld",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 9.99,
+          "maximum": 9.99,
+          "sources": ["game"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-batman-arkham-vr",
+      "title": "Batman Arkham VR",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 5.95,
+          "maximum": 5.95,
+          "sources": ["todoconsolas"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-batman-return-to-arkham",
+      "title": "Batman: Return To Arkham",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 14.95,
+          "maximum": 14.95,
+          "sources": ["todoconsolas"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-batman-the-telltale-series",
+      "title": "Batman: The Telltale Series",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 29.63,
+          "maximum": 29.63,
+          "sources": ["ebay"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-battlefield-2042",
+      "title": "Battlefield 2042",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 10,
+          "maximum": 10,
+          "sources": ["wallapop"]
+        },
+        "new_retail": {
+          "minimum": 14.99,
+          "maximum": 25.9,
+          "sources": ["xtralife", "todoconsolas"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-battlefield-4",
+      "title": "Battlefield 4",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 8,
+          "maximum": 8,
+          "sources": ["wallapop"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-battlefield-hardline",
+      "title": "Battlefield Hardline",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 9.95,
+          "maximum": 9.95,
+          "sources": ["game"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-beyond-a-steel-sky-utopia-edition",
+      "title": "Beyond A Steel Sky [Utopia Edition]",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 149.99,
+          "maximum": 149.99,
+          "sources": ["mediamarkt-marketplace"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-big-bobby-car-the-big-race",
+      "title": "Big Bobby Car The Big Race",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 16.85,
+          "maximum": 19.5,
+          "sources": ["carrefour-marketplace", "mediamarkt-marketplace"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-big-buck-hunter-arcade",
+      "title": "Big Buck Hunter Arcade",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 56.99,
+          "maximum": 56.99,
+          "sources": ["todocoleccion"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-bioshock-the-collection",
+      "title": "Bioshock The Collection",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 25.95,
+          "maximum": 25.95,
+          "sources": ["todoconsolas"]
+        },
+        "new_retail": {
+          "minimum": 24.9,
+          "maximum": 24.9,
+          "sources": ["todoconsolas", "pccomponentes-marketplace"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-black-clover-quartet-knights",
+      "title": "Black Clover Quartet Knights",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 17.8,
+          "maximum": 17.8,
+          "sources": ["todoconsolas", "phone-house"]
+        },
+        "sealed": {
+          "minimum": 71.99,
+          "maximum": 71.99,
+          "sources": ["ebay"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-black-hole-complete-edition",
+      "title": "Black Hole [Complete Edition]",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 5,
+          "maximum": 20,
+          "sources": ["akiba-games", "todocoleccion"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-blacksad-under-the-skin",
+      "title": "Blacksad: Under the Skin",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 12.95,
+          "maximum": 20.95,
+          "sources": ["ebay", "cash-converters"]
+        },
+        "new_retail": {
+          "minimum": 36.49,
+          "maximum": 36.49,
+          "sources": ["mediamarkt"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-blade-assault",
+      "title": "Blade Assault",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 9.99,
+          "maximum": 19.95,
+          "sources": ["xtralife", "todoconsolas"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-bladed-fury",
+      "title": "Bladed Fury",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 34.99,
+          "maximum": 34.99,
+          "sources": ["todocoleccion"]
+        },
+        "new_retail": {
+          "minimum": 36.9,
+          "maximum": 36.9,
+          "sources": ["impact-game"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-blazblue-chrono-phantasma-extend",
+      "title": "BlazBlue Chrono Phantasma Extend",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 15.7,
+          "maximum": 15.7,
+          "sources": ["todoconsolas", "phone-house"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-blazblue-cross-tag-battle",
+      "title": "BlazBlue Cross Tag Battle",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 19.9,
+          "maximum": 19.9,
+          "sources": ["impact-game"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-blaze-and-the-monster-machines-axle-city-racers",
+      "title": "Blaze And The Monster Machines: Axle City Racers",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 21.01,
+          "maximum": 21.01,
+          "sources": ["todoconsolas", "spanish-marketplace"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-bleach-rebirth-of-souls",
+      "title": "Bleach Rebirth of Souls",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 37.95,
+          "maximum": 37.95,
+          "sources": ["xtralife"]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-blood-and-truth",
+      "title": "Blood and Truth",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 19.46,
+          "maximum": 19.46,
+          "sources": ["spanish-price-comparison"]
+        },
+        "sealed": {
+          "minimum": 43.93,
+          "maximum": 43.93,
+          "sources": ["miravia"]
+        }
+      },
+      "rejectedConditions": {
+        "complete": "La referencia abierta de 10 EUR no identifica la fuente y no se incorpora."
+      }
+    },
+    {
+      "catalogId": "ps4-blood-bowl-ii",
+      "title": "Blood Bowl II",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 71.63,
+          "maximum": 71.63,
+          "sources": ["ebay"]
+        }
+      }
+    }
+  ]
+}
