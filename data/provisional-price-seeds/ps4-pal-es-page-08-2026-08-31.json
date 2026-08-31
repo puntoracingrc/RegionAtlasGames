@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-page-08-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T00:00:00Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Lote 8 curatorial con 48 referencias y una entrada documental por duplicado ortografico.",
+    "Cada rango aporta un unico punto medio y se combina una sola vez con el precio previo del mismo estado.",
+    "Nuevo en tienda se registra como new_retail; solo el precinto confirmado se registra como sealed.",
+    "Se excluyen fichas agotadas, unidades incompletas, lotes sin precio unitario, digitales, regiones provisionales y ediciones distintas.",
+    "Las fuentes se conservan como trazabilidad interna y no se muestran en la interfaz publica."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-blood-bowl-iii-brutal-edition",
+      "title": "Blood Bowl III: Brutal Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 14.95, "maximum": 14.95, "sources": ["ebay"] },
+        "new_retail": { "minimum": 22, "maximum": 22, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-bloodborne",
+      "title": "Bloodborne",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-bloodborne-game-of-the-year",
+      "title": "Bloodborne Game of the Year Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 20, "maximum": 20, "sources": ["wallapop"] },
+        "sealed": { "minimum": 22.99, "maximum": 23, "sources": ["wallapop"] },
+        "new_retail": { "minimum": 24.95, "maximum": 24.95, "sources": ["todoconsolas"] }
+      }
+    },
+    {
+      "catalogId": "ps4-bloodborne-playstation-hits",
+      "title": "Bloodborne PlayStation Hits",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 20, "maximum": 20, "sources": ["wallapop"] },
+        "new_retail": { "minimum": 19.99, "maximum": 19.99, "sources": ["mediamarkt"] }
+      },
+      "notes": [
+        "La oferta nueva tenia disponibilidad limitada al consultar el lote."
+      ]
+    },
+    {
+      "catalogId": "ps4-bloodstained-curse-of-the-moon-2",
+      "title": "Bloodstained Curse of the Moon 2",
+      "status": "skipped",
+      "reason": "El anuncio de Wallapop dice nuevo, pero no confirma precinto ni region."
+    },
+    {
+      "catalogId": "ps4-bloodstained-ritual-of-the-night",
+      "title": "Bloodstained: Ritual of the Night",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 25, "maximum": 25, "sources": ["wallapop"] },
+        "sealed": { "minimum": 49.99, "maximum": 49.99, "sources": ["todocoleccion"] }
+      }
+    },
+    {
+      "catalogId": "ps4-blue-fire",
+      "title": "Blue Fire",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 19.99, "maximum": 19.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-blue-reflection",
+      "title": "Blue Reflection",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-blue-reflection-sencond-light",
+      "title": "Blue Reflection Sencond Light",
+      "status": "skipped",
+      "reason": "Duplicado tecnico con error ortografico de Blue Reflection: Second Light; no se valora dos veces."
+    },
+    {
+      "catalogId": "ps4-blue-reflection-second-light",
+      "title": "Blue Reflection: Second Light",
+      "status": "skipped",
+      "reason": "Las ultimas fichas nuevas de 34-39,99 EUR estan agotadas."
+    },
+    {
+      "catalogId": "ps4-bluey-the-videogame",
+      "title": "Bluey: The Videogame",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-bluey-s-quest-for-the-gold-pen",
+      "title": "Bluey's Quest for the Gold Pen",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 27.95, "maximum": 35.4, "sources": ["xtralife", "todoconsolas", "pccomponentes"] }
+      }
+    },
+    {
+      "catalogId": "ps4-boerderij-leven",
+      "title": "Boerderij Leven",
+      "status": "skipped",
+      "reason": "Sin edicion fisica PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-bomber-crew-signature-edition",
+      "title": "Bomber Crew [Signature Edition]",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 45.99, "maximum": 45.99, "sources": ["lamee-software"] }
+      },
+      "rejectedConditions": {
+        "new_retail": "La ultima ficha de GAME a 29,99 EUR esta agotada."
+      }
+    },
+    {
+      "catalogId": "ps4-bomber-crew-complete-edition",
+      "title": "Bomber Crew Complete Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 13.66, "maximum": 13.66, "sources": ["todocoleccion"] }
+      }
+    },
+    {
+      "catalogId": "ps4-borderlands-3",
+      "title": "Borderlands 3",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-borderlands-the-handsome-collection",
+      "title": "Borderlands The Handsome Collection",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 21.98, "maximum": 21.98, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-borderlands-the-handsome-collection-claptrap-in-a-box-edition",
+      "title": "Borderlands: The Handsome Collection [Claptrap In A Box Edition]",
+      "status": "skipped",
+      "reason": "Sin edicion completa exacta localizada; los anuncios recuperados solo incluian accesorios."
+    },
+    {
+      "catalogId": "ps4-bound-by-flame",
+      "title": "Bound by Flame",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-bounty-battle",
+      "title": "Bounty Battle",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-box-vr",
+      "title": "Box VR",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-bramble-the-mountain-king",
+      "title": "Bramble: The Mountain King",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 35.25, "maximum": 35.25, "sources": ["mediamarkt"] },
+        "sealed": { "minimum": 60, "maximum": 60, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-bratz-rhythm-&amp;-style",
+      "title": "Bratz Rhythm & Style",
+      "status": "skipped",
+      "reason": "Oferta nueva provisional de 15,96 EUR sin acreditacion regional de caratula."
+    },
+    {
+      "catalogId": "ps4-bratz-flaunt-your-fashion",
+      "title": "Bratz: Flaunt your Fashion",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] },
+        "new_retail": { "minimum": 19.41, "maximum": 19.41, "sources": ["worten"] }
+      }
+    },
+    {
+      "catalogId": "ps4-braveland-trilogy",
+      "title": "Braveland Trilogy",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-bravo-team",
+      "title": "Bravo Team",
+      "status": "skipped",
+      "reason": "Solo aparece dentro de un lote PSVR sin precio unitario valido."
+    },
+    {
+      "catalogId": "ps4-brawlout",
+      "title": "Brawlout",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-breakers-collection",
+      "title": "Breakers Collection",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-breathedge",
+      "title": "Breathedge",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-bridge-constructor-compilation",
+      "title": "Bridge Constructor Compilation",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 27.9, "maximum": 27.9, "sources": ["impact-game"] }
+      }
+    },
+    {
+      "catalogId": "ps4-brigandine-the-legend-of-runersia-collectors-edition",
+      "title": "Brigandine The Legend of Runersia - Collector's Edition",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 88.09, "maximum": 88.82, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-brigandine-the-legend-of-runersia",
+      "title": "Brigandine: The Legend of Runersia",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 51.1, "maximum": 51.53, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-broforce",
+      "title": "Broforce",
+      "status": "skipped",
+      "reason": "Precio abierto provisional sin acreditacion clara de PAL España."
+    },
+    {
+      "catalogId": "ps4-broforce-deluxe-edition",
+      "title": "BroForce Deluxe Edition",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-brok-the-investigator",
+      "title": "BROK: The Investigator",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-broken-pieces",
+      "title": "Broken Pieces",
+      "status": "skipped",
+      "reason": "Oferta nueva provisional de vendedor español sin region acreditada."
+    },
+    {
+      "catalogId": "ps4-broken-sword-shadow-of-the-templars-reforged",
+      "title": "Broken Sword - Shadow Of The Templars: Reforged",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 99.99, "maximum": 99.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-broken-sword-5-the-serpent%27s-curse",
+      "title": "Broken Sword 5 The Serpent's Curse",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto; la unidad de TodoConsolas era PAL Italia."
+    },
+    {
+      "catalogId": "ps4-brotherhood-united",
+      "title": "Brotherhood United",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto; la edicion europea nueva no se usa para valorar la española."
+    },
+    {
+      "catalogId": "ps4-brothers-a-tale-of-two-sons",
+      "title": "Brothers A Tale of Two Sons",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-bubble-bobble-4-friends-the-baron-is-back",
+      "title": "Bubble Bobble 4 Friends: The Baron is Back",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": { "minimum": 29.99, "maximum": 29.99, "sources": ["amazon-marketplace"] },
+        "sealed": { "minimum": 42.9, "maximum": 42.9, "sources": ["miravia", "wakkap"] }
+      }
+    },
+    {
+      "catalogId": "ps4-bubsy-the-woolies-strike-back",
+      "title": "Bubsy The Woolies Strike Back",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto; las ofertas visibles eran importaciones estadounidenses."
+    },
+    {
+      "catalogId": "ps4-budget-cuts",
+      "title": "Budget Cuts",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-bugsnax",
+      "title": "Bugsnax",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PS4 PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-bulletstorm-full-clip-edition",
+      "title": "Bulletstorm: Full Clip Edition",
+      "status": "skipped",
+      "reason": "Sin PAL España exacto; las unidades recuperadas eran PAL UK."
+    },
+    {
+      "catalogId": "ps4-bunny-must-die-chelsea-and-the-7-devils",
+      "title": "Bunny Must Die: Chelsea and the 7 Devils",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-burnout-paradise-remastered",
+      "title": "BurnOut Paradise Remastered",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 14.95, "maximum": 20.95, "sources": ["ebay", "cash-converters", "todoconsolas"] }
+      }
+    },
+    {
+      "catalogId": "ps4-bus-driver-simulator",
+      "title": "Bus Driver Simulator",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta; las referencias encontradas eran alemanas o digitales."
+    },
+    {
+      "catalogId": "ps4-bus-driver-simulator-countryside",
+      "title": "Bus Driver Simulator Countryside",
+      "status": "skipped",
+      "reason": "Sin oferta fisica PAL España exacta; las unidades disponibles eran alemanas o europeas."
+    }
+  ]
+}

@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-page-07-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T00:00:00Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Lote 7 curatorial para completar precios de entrada mientras los collectors acumulan evidencia individual.",
+    "Cada rango aporta un unico punto medio y se combina una sola vez con el precio previo del mismo estado.",
+    "Nuevo en tienda se registra como new_retail; solo el precinto confirmado se registra como sealed.",
+    "Se excluyen fichas agotadas, unidades incompletas, lotes sin precio unitario, digitales, regiones provisionales y ediciones distintas.",
+    "Las fuentes se conservan como trazabilidad interna y no se muestran en la interfaz publica."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-bee-simulator",
+      "title": "Bee Simulator",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 6.99, "maximum": 6.99, "sources": ["game"] }
+      },
+      "rejectedConditions": {
+        "new_retail": "La ficha nueva de GAME a 9,99 EUR esta agotada."
+      }
+    },
+    {
+      "catalogId": "ps4-beholder-3",
+      "title": "Beholder 3",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-beholder-complete-edition",
+      "title": "Beholder Complete Edition",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 39.99, "maximum": 39.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-beholgar",
+      "title": "Beholgar",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 45, "maximum": 45, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-below-special-edition",
+      "title": "Below [Special Edition]",
+      "status": "skipped",
+      "reason": "La ultima ficha nueva de GAME a 34,99 EUR esta agotada."
+    },
+    {
+      "catalogId": "ps4-ben-10",
+      "title": "Ben 10",
+      "status": "skipped",
+      "reason": "La ultima ficha nueva de GAME a 24,95 EUR esta agotada."
+    },
+    {
+      "catalogId": "ps4-ben-10-power-trip",
+      "title": "Ben 10: Power Trip",
+      "status": "skipped",
+      "reason": "Las ultimas fichas abierta y nueva de GAME estan agotadas."
+    },
+    {
+      "catalogId": "ps4-bendy-and-the-ink-machine",
+      "title": "Bendy and the Ink Machine",
+      "status": "skipped",
+      "reason": "Las ultimas fichas abierta y nueva de GAME estan agotadas."
+    },
+    {
+      "catalogId": "ps4-berserk-and-the-band-of-the-hawk",
+      "title": "Berserk and The Band of the Hawk",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 299.9, "maximum": 299.9, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-beyond-a-steel-sky-utopia-edition",
+      "title": "Beyond A Steel Sky [Utopia Edition]",
+      "status": "skipped",
+      "reason": "La ultima ficha nueva de GAME a 69,99 EUR esta agotada."
+    },
+    {
+      "catalogId": "ps4-beyond-enemy-lines-2-enhanced-edition",
+      "title": "Beyond Enemy Lines 2: Enhanced Edition",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-bibi-&amp;-tina-at-the-horse-farm",
+      "title": "Bibi & Tina At The Horse Farm",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-big-bash-boom",
+      "title": "Big Bash Boom",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-big-bobby-car-the-big-race",
+      "title": "Big Bobby Car The Big Race",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-big-buck-hunter-arcade",
+      "title": "Big Buck Hunter Arcade",
+      "status": "skipped",
+      "reason": "Las ultimas fichas abierta y nueva de GAME estan agotadas."
+    },
+    {
+      "catalogId": "ps4-big-pharma-special-edition",
+      "title": "Big Pharma [Special Edition]",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 14.45, "maximum": 14.45, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-big-rumble-boxing-creed-champions-day-one-edition",
+      "title": "Big Rumble Boxing: Creed Champions [Day One Edition]",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-biomutant",
+      "title": "Biomutant",
+      "status": "skipped",
+      "reason": "La unidad desde 13,95 EUR no conserva caja original ni acredita region PAL España."
+    },
+    {
+      "catalogId": "ps4-bioshock-the-collection",
+      "title": "Bioshock The Collection",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 15, "maximum": 16.95, "sources": ["wallapop", "ebay", "cash-converters"] }
+      }
+    },
+    {
+      "catalogId": "ps4-birthdays-the-beginning",
+      "title": "Birthdays the Beginning",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-bishoujo-battle-double-strike",
+      "title": "Bishoujo Battle: Double Strike",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-bit-dungeon&#43;",
+      "title": "Bit Dungeon+",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-black-clover-quartet-knights",
+      "title": "Black Clover Quartet Knights",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 39.99, "maximum": 39.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-black-hole-complete-edition",
+      "title": "Black Hole [Complete Edition]",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 34.99, "maximum": 34.99, "sources": ["ebay"] },
+        "sealed": { "minimum": 65.99, "maximum": 65.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-black-mirror",
+      "title": "Black Mirror",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-blackguards-2",
+      "title": "Blackguards 2",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España verificada."
+    },
+    {
+      "catalogId": "ps4-blacksad-under-the-skin",
+      "title": "Blacksad: Under the Skin",
+      "status": "skipped",
+      "reason": "Rango abierto provisional sin acreditacion clara de caratula PAL España."
+    },
+    {
+      "catalogId": "ps4-blade-assault",
+      "title": "Blade Assault",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 13.75, "maximum": 19.95, "sources": ["ebay", "todoconsolas"] }
+      }
+    },
+    {
+      "catalogId": "ps4-blade-runner-vhs-edition",
+      "title": "Blade Runner VHS Edition",
+      "status": "skipped",
+      "reason": "Sin oferta exacta localizada."
+    },
+    {
+      "catalogId": "ps4-bladed-fury",
+      "title": "Bladed Fury",
+      "status": "skipped",
+      "reason": "La ultima ficha nueva de GAME a 39,95 EUR esta agotada."
+    },
+    {
+      "catalogId": "ps4-bladestorm-nightmare",
+      "title": "Bladestorm Nightmare",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 49.99, "maximum": 49.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-blair-witch",
+      "title": "Blair Witch",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 100, "maximum": 100, "sources": ["ebay"] }
+      },
+      "rejectedConditions": {
+        "complete": "La unidad abierta de 28,95 EUR no acredita claramente caratula PAL España."
+      }
+    },
+    {
+      "catalogId": "ps4-blasphemous",
+      "title": "Blasphemous",
+      "status": "skipped",
+      "reason": "La ultima ficha abierta de TodoConsolas a 22,95 EUR esta sin stock."
+    },
+    {
+      "catalogId": "ps4-blasphemous-coleccionista",
+      "title": "Blasphemous Coleccionista",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 399.99, "maximum": 749.95, "sources": ["wallapop", "ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-blast-brigade-vs-the-evil-legion-of-dr-cread-29-99-euros",
+      "title": "Blast Brigade vs. the Evil Legion of Dr. Cread",
+      "status": "skipped",
+      "reason": "Titulo corregido para retirar el precio incrustado; sin oferta exacta nueva localizada."
+    },
+    {
+      "catalogId": "ps4-blazblue-central-fiction",
+      "title": "BlazBlue Central Fiction",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-blazblue-chrono-phantasma-extend",
+      "title": "BlazBlue Chrono Phantasma Extend",
+      "status": "skipped",
+      "reason": "Anuncio PAL provisional sin acreditacion especifica de España."
+    },
+    {
+      "catalogId": "ps4-blazblue-cross-tag-battle",
+      "title": "BlazBlue Cross Tag Battle",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 24.99, "maximum": 24.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-blazblue-central-fiction-azure-edition",
+      "title": "BlazBlue: Central Fiction [Azure Edition]",
+      "status": "skipped",
+      "reason": "Sin oferta exacta localizada."
+    },
+    {
+      "catalogId": "ps4-blazblue-chrono-phantasma-extend-limited-edition",
+      "title": "BlazBlue: Chrono Phantasma Extend [Limited Edition]",
+      "status": "skipped",
+      "reason": "Sin oferta PS4 PAL España exacta localizada."
+    },
+    {
+      "catalogId": "ps4-blaze-and-the-monster-machines-axle-city-racers",
+      "title": "Blaze And The Monster Machines: Axle City Racers",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-blazing-beaks",
+      "title": "Blazing Beaks",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-blazing-chrome",
+      "title": "Blazing Chrome",
+      "status": "skipped",
+      "reason": "El anuncio de Wallapop dice nuevo, pero no confirma precinto ni region."
+    },
+    {
+      "catalogId": "ps4-bleach-rebirth-of-souls",
+      "title": "Bleach Rebirth of Souls",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 26.99, "maximum": 26.99, "sources": ["game"] },
+        "new_retail": { "minimum": 29.99, "maximum": 29.99, "sources": ["game"] },
+        "sealed": { "minimum": 49, "maximum": 49, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-blind",
+      "title": "Blind",
+      "status": "skipped",
+      "reason": "Sin oferta exacta PAL España localizada."
+    },
+    {
+      "catalogId": "ps4-blind-men",
+      "title": "Blind Men",
+      "status": "skipped",
+      "reason": "Sin oferta exacta localizada."
+    },
+    {
+      "catalogId": "ps4-blood-and-truth",
+      "title": "Blood and Truth",
+      "status": "skipped",
+      "reason": "La ultima ficha abierta de GAME a 6,99 EUR esta agotada."
+    },
+    {
+      "catalogId": "ps4-blood-bowl-ii",
+      "title": "Blood Bowl II",
+      "status": "skipped",
+      "reason": "Precio abierto provisional de eBay sin acreditacion clara de PAL España."
+    }
+  ]
+}
