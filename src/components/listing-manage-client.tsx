@@ -2,14 +2,19 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { LocateFixed, MapPin, X } from "lucide-react";
+import { useRef, useState } from "react";
+import { Camera, ImagePlus, LoaderCircle, LocateFixed, MapPin, X } from "lucide-react";
 import { BackLink } from "@/components/breadcrumbs";
 import type { MarketplaceListingClientView } from "@/lib/marketplace-types";
 import { PHOTO_SLOT_LABELS, REQUIRED_PHOTO_SLOTS } from "@/lib/marketplace-types";
 import { formatEur, formatEurCents } from "@/lib/price-format";
 import { coverAspectClass, LISTING_PHOTOS_GRID_CLASS } from "@/lib/cover-aspect";
 import { cn } from "@/lib/cn";
+import {
+  LISTING_PHOTO_UPLOAD_TIMEOUT_MS,
+  listingPhotoUploadError,
+  prepareListingPhoto,
+} from "@/lib/listing-photo-client";
 import { conditionScoreOutOfTen, LISTING_STATUS_HINTS, listingStatusLabel } from "@/lib/marketplace-ui";
 import {
   listingAnalysisHasVerifiedEstimate,
@@ -28,6 +33,8 @@ type Props = {
 
 export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogHref }: Props) {
   const router = useRouter();
+  const fileInputs = useRef<Record<string, HTMLInputElement | null>>({});
+  const cameraInputs = useRef<Record<string, HTMLInputElement | null>>({});
   const [current, setCurrent] = useState(listing);
   const [customTitle, setCustomTitle] = useState(listing.customTitle ?? "");
   const [customDescription, setCustomDescription] = useState(listing.customDescription ?? "");
@@ -43,26 +50,64 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [locating, setLocating] = useState(false);
+  const [photoFeedback, setPhotoFeedback] = useState<{
+    tone: "error" | "success";
+    message: string;
+  } | null>(null);
+  const [photoUpload, setPhotoUpload] = useState<{
+    slot: string;
+    phase: "preparing" | "uploading";
+  } | null>(null);
 
   async function upload(slot: string, file: File) {
-    setLoading(true);
-    setError(null);
-    const form = new FormData();
-    form.append("slot", slot);
-    form.append("file", file);
-    const res = await fetch(`/api/marketplace/listings/${current.id}/photos`, {
-      method: "POST",
-      body: form,
-    });
-    const data = await res.json();
-    setLoading(false);
-    if (!res.ok) {
-      setError(data.error ?? "Error al subir foto.");
-      return;
+    setPhotoFeedback(null);
+    setPhotoUpload({ slot, phase: "preparing" });
+
+    let timeoutId: number | undefined;
+    try {
+      const prepared = await prepareListingPhoto(file);
+      setPhotoUpload({ slot, phase: "uploading" });
+
+      const controller = new AbortController();
+      timeoutId = window.setTimeout(() => controller.abort(), LISTING_PHOTO_UPLOAD_TIMEOUT_MS);
+      const form = new FormData();
+      form.append("slot", slot);
+      form.append("file", prepared.file);
+      const res = await fetch(`/api/marketplace/listings/${current.id}/photos`, {
+        method: "POST",
+        body: form,
+        signal: controller.signal,
+      });
+      const data = await res.json().catch(() => null) as {
+        error?: string;
+        listing?: MarketplaceListingClientView;
+      } | null;
+      if (!res.ok) {
+        throw new Error(listingPhotoUploadError(res.status, data?.error));
+      }
+      if (!data?.listing) {
+        throw new Error("La foto se recibió, pero no se pudo actualizar el anuncio.");
+      }
+
+      setCurrent(data.listing);
+      setPhotoFeedback({
+        tone: "success",
+        message: prepared.resized
+          ? "Foto reducida y guardada correctamente."
+          : "Foto guardada correctamente.",
+      });
+      router.refresh();
+    } catch (caught) {
+      const message = caught instanceof DOMException && caught.name === "AbortError"
+        ? "La subida ha tardado demasiado. Comprueba la conexión y vuelve a intentarlo."
+        : caught instanceof Error
+          ? caught.message
+          : "No se pudo subir la foto. Vuelve a intentarlo.";
+      setPhotoFeedback({ tone: "error", message });
+    } finally {
+      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+      setPhotoUpload(null);
     }
-    if (data.listing) setCurrent(data.listing);
-    setSuccess("Foto guardada. La comprobación anterior se ha reiniciado.");
-    router.refresh();
   }
 
   async function publish() {
@@ -196,6 +241,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
   );
   const verificationPassed = listingAnalysisIsVerified(current.aiAnalysis);
   const hasVerifiedEstimate = listingAnalysisHasVerifiedEstimate(current.aiAnalysis);
+  const busy = loading || photoUpload !== null;
 
   return (
     <>
@@ -245,12 +291,27 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
           </p>
         )}
 
-        <section className={cn("mb-6", LISTING_PHOTOS_GRID_CLASS)}>
+        {photoFeedback ? (
+          <p
+            role={photoFeedback.tone === "error" ? "alert" : "status"}
+            className={cn(
+              "mb-4 rounded-lg border px-3 py-2 text-sm",
+              photoFeedback.tone === "error"
+                ? "border-rose-400/20 bg-rose-500/10 text-rose-700 dark:text-rose-200"
+                : "border-emerald-400/20 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200",
+            )}
+          >
+            {photoFeedback.message}
+          </p>
+        ) : null}
+
+        <section className={cn("mb-6", LISTING_PHOTOS_GRID_CLASS)} aria-busy={photoUpload !== null}>
           {Object.entries(PHOTO_SLOT_LABELS).map(([slot, label]) => {
             const photo = current.photos.find((p) => p.slot === slot);
             const required = REQUIRED_PHOTO_SLOTS.includes(slot as (typeof REQUIRED_PHOTO_SLOTS)[number]);
             const isDetail = slot.startsWith("media-") || slot.startsWith("detail-");
             const aspect = isDetail ? "aspect-square" : coverAspectClass(current.platformSlug);
+            const isUploadingThisPhoto = photoUpload?.slot === slot;
             return (
               <Panel key={slot}>
                 <p className="text-xs font-medium text-foreground">
@@ -271,19 +332,66 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                   <p className="mt-2 text-xs text-muted">Sin foto</p>
                 )}
                 {isOwner && current.status !== "sold" && (
-                  <label className="mt-2 block cursor-pointer text-xs text-accent hover:underline">
-                    {photo ? "Reemplazar" : "Subir"}
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      disabled={loading}
-                      onChange={(e) => {
-                        const f = e.target.files?.[0];
-                        if (f) upload(slot, f);
-                      }}
-                    />
-                  </label>
+                  <div className="mt-3 flex min-h-9 flex-wrap items-center gap-2">
+                    {isUploadingThisPhoto ? (
+                      <span className="inline-flex items-center gap-1.5 text-xs font-medium text-accent" role="status">
+                        <LoaderCircle size={15} className="animate-spin" aria-hidden="true" />
+                        {photoUpload?.phase === "preparing" ? "Preparando foto…" : "Subiendo foto…"}
+                      </span>
+                    ) : (
+                      <>
+                        <button
+                          type="button"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-xs font-medium text-foreground transition hover:border-accent/50 hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
+                          disabled={busy}
+                          onClick={() => fileInputs.current[slot]?.click()}
+                        >
+                          <ImagePlus size={15} aria-hidden="true" />
+                          {photo ? "Cambiar archivo" : "Elegir archivo"}
+                        </button>
+                        <input
+                          ref={(node) => {
+                            fileInputs.current[slot] = node;
+                          }}
+                          type="file"
+                          accept="image/*"
+                          className="sr-only"
+                          disabled={busy}
+                          onChange={(event) => {
+                            const input = event.currentTarget;
+                            const selected = input.files?.[0];
+                            input.value = "";
+                            if (selected) void upload(slot, selected);
+                          }}
+                        />
+                        <button
+                          type="button"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-xs font-medium text-foreground transition hover:border-accent/50 hover:text-accent disabled:cursor-not-allowed disabled:opacity-50 md:hidden"
+                          disabled={busy}
+                          onClick={() => cameraInputs.current[slot]?.click()}
+                        >
+                          <Camera size={15} aria-hidden="true" />
+                          Hacer foto
+                        </button>
+                        <input
+                          ref={(node) => {
+                            cameraInputs.current[slot] = node;
+                          }}
+                          type="file"
+                          accept="image/*"
+                          capture="environment"
+                          className="sr-only"
+                          disabled={busy}
+                          onChange={(event) => {
+                            const input = event.currentTarget;
+                            const selected = input.files?.[0];
+                            input.value = "";
+                            if (selected) void upload(slot, selected);
+                          }}
+                        />
+                      </>
+                    )}
+                  </div>
                 )}
               </Panel>
             );
@@ -413,7 +521,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                   <button
                     type="button"
                     className="btn-secondary inline-flex items-center gap-2 text-sm"
-                    disabled={loading || locating}
+                    disabled={busy || locating}
                     onClick={useApproximateLocation}
                   >
                     <LocateFixed size={16} aria-hidden="true" />
@@ -457,7 +565,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                   Envío
                 </label>
               </div>
-              <button type="button" className="btn-secondary" disabled={loading} onClick={saveDetails}>
+              <button type="button" className="btn-secondary" disabled={busy} onClick={saveDetails}>
                 Guardar detalles
               </button>
             </div>
@@ -494,7 +602,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                 <button
                   type="button"
                   className="btn-secondary"
-                  disabled={loading || missing.length > 0}
+                  disabled={busy || missing.length > 0}
                   onClick={runAnalyze}
                 >
                   Comprobar fotos ({quotaRemaining} restantes)
@@ -503,7 +611,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                   <button
                     type="button"
                     className="btn-primary disabled:cursor-not-allowed disabled:saturate-0"
-                    disabled={loading || !verificationPassed || missing.length > 0}
+                    disabled={busy || !verificationPassed || missing.length > 0}
                     onClick={publish}
                   >
                     Publicar anuncio
@@ -516,7 +624,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                 <button
                   type="button"
                   className="rounded-lg border border-border px-4 py-2 text-sm text-muted transition hover:border-rose-400/40 hover:text-rose-300"
-                  disabled={loading}
+                  disabled={busy}
                   onClick={cancelListing}
                 >
                   Retirar anuncio
@@ -531,7 +639,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
           </div>
         ) : (
           current.status === "active" && (
-            <button type="button" className="btn-primary" disabled={loading} onClick={startChat}>
+            <button type="button" className="btn-primary" disabled={busy} onClick={startChat}>
               Iniciar conversación
             </button>
           )
