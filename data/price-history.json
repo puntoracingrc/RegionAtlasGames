@@ -10529,6 +10529,14 @@
         "gameManual": null,
         "complete": 15.51,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T18:56:27Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 13.88,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-chaos-child": [
@@ -10538,6 +10546,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 42.45
+      },
+      {
+        "at": "2026-08-31T18:56:27Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 20.0,
+        "sealed": 42.45,
+        "newRetail": null
       }
     ],
     "ps4-cobra-kai-the-karate-kid-saga-continues": [
@@ -11679,20 +11695,20 @@
     ],
     "ps4-conception-plus-maidens-of-the-twelve-stars": [
       {
-        "at": "2026-08-31T14:04:53Z",
+        "at": "2026-08-31T20:12:07Z",
         "loose": null,
         "gameManual": null,
-        "complete": 45.41,
-        "sealed": null,
+        "complete": 45.0,
+        "sealed": 100.0,
         "newRetail": null
       }
     ],
     "ps4-contra-rogue-corps": [
       {
-        "at": "2026-08-31T20:12:39Z",
+        "at": "2026-08-31T20:12:07Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
+        "complete": 21.28,
         "sealed": 42.93,
         "newRetail": null
       }
@@ -11709,30 +11725,30 @@
     ],
     "ps4-crash-bandicoot-n-sane-trilogy": [
       {
-        "at": "2026-08-31T20:12:39Z",
+        "at": "2026-08-31T20:39:09Z",
         "loose": null,
         "gameManual": null,
-        "complete": 22.24,
+        "complete": 16.11,
         "sealed": null,
         "newRetail": null
       }
     ],
     "ps4-crash-team-racing-nitro-fueled": [
       {
-        "at": "2026-08-31T20:12:39Z",
-        "loose": null,
+        "at": "2026-08-31T20:39:09Z",
+        "loose": 21.5,
         "gameManual": null,
-        "complete": 21.45,
+        "complete": 20.64,
         "sealed": 29.95,
         "newRetail": 24.95
       }
     ],
     "ps4-crayola-scoot": [
       {
-        "at": "2026-08-31T20:12:39Z",
+        "at": "2026-08-31T20:39:09Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
+        "complete": 15.0,
         "sealed": 17.31,
         "newRetail": 27.9
       }
@@ -12409,31 +12425,31 @@
     ],
     "ps4-catherine-full-body": [
       {
-        "at": "2026-08-31T19:27:23Z",
+        "at": "2026-08-31T18:56:27Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
-        "sealed": 29.99,
+        "complete": 21.0,
+        "sealed": 21.65,
         "newRetail": null
       }
     ],
     "ps4-celeste": [
       {
-        "at": "2026-08-31T19:53:53Z",
+        "at": "2026-08-31T18:56:27Z",
         "loose": null,
         "gameManual": null,
-        "complete": 37.98,
-        "sealed": null,
+        "complete": 50.0,
+        "sealed": 53.5,
         "newRetail": null
       }
     ],
     "ps4-civilization-vi": [
       {
-        "at": "2026-08-31T19:53:53Z",
+        "at": "2026-08-31T19:27:15Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
-        "sealed": 30.0,
+        "complete": 15.05,
+        "sealed": 28.33,
         "newRetail": null
       }
     ],
@@ -12449,11 +12465,11 @@
     ],
     "ps4-code-vein": [
       {
-        "at": "2026-08-31T19:53:53Z",
+        "at": "2026-08-31T19:50:04Z",
         "loose": null,
         "gameManual": null,
-        "complete": 18.0,
-        "sealed": null,
+        "complete": 16.8,
+        "sealed": 15.5,
         "newRetail": null
       }
     ],
@@ -12489,10 +12505,10 @@
     ],
     "ps4-crash-bandicoot-4-it%27s-about-time": [
       {
-        "at": "2026-08-31T20:12:39Z",
-        "loose": null,
+        "at": "2026-08-31T20:39:09Z",
+        "loose": 30.0,
         "gameManual": null,
-        "complete": 21.0,
+        "complete": 22.5,
         "sealed": 50.0,
         "newRetail": null
       }
@@ -12509,11 +12525,11 @@
     ],
     "ps4-crisis-core-final-fantasy-vii-reunion": [
       {
-        "at": "2026-08-31T20:12:39Z",
+        "at": "2026-08-31T21:07:01Z",
         "loose": null,
         "gameManual": null,
-        "complete": 20.0,
-        "sealed": 29.9,
+        "complete": 22.14,
+        "sealed": 27.4,
         "newRetail": null
       }
     ],
@@ -12529,30 +12545,30 @@
     ],
     "ps4-crysis-remastered-trilogy": [
       {
-        "at": "2026-08-31T20:12:39Z",
+        "at": "2026-08-31T21:07:01Z",
         "loose": null,
         "gameManual": null,
         "complete": 20.0,
-        "sealed": null,
+        "sealed": 42.3,
         "newRetail": null
       }
     ],
     "ps4-crash-team-rumble-deluxe-edition": [
       {
-        "at": "2026-08-31T20:12:39Z",
+        "at": "2026-08-31T20:39:09Z",
         "loose": null,
         "gameManual": null,
-        "complete": 19.99,
-        "sealed": null,
+        "complete": 16.97,
+        "sealed": 22.08,
         "newRetail": 29.99
       }
     ],
     "ps4-cyberpunk-2077": [
       {
-        "at": "2026-08-31T20:35:15Z",
+        "at": "2026-08-31T21:07:01Z",
         "loose": null,
         "gameManual": null,
-        "complete": 22.5,
+        "complete": 20.83,
         "sealed": null,
         "newRetail": null
       }
@@ -12569,30 +12585,30 @@
     ],
     "ps4-dark-souls-remastered": [
       {
-        "at": "2026-08-31T20:35:15Z",
+        "at": "2026-08-31T22:04:33Z",
         "loose": null,
         "gameManual": null,
-        "complete": 15.98,
-        "sealed": null,
+        "complete": 13.34,
+        "sealed": 21.75,
         "newRetail": null
       }
     ],
     "ps4-dark-souls-trilogy": [
       {
-        "at": "2026-08-31T20:35:15Z",
+        "at": "2026-08-31T22:04:33Z",
         "loose": null,
         "gameManual": null,
-        "complete": 32.74,
-        "sealed": 42.5,
+        "complete": 24.9,
+        "sealed": 39.4,
         "newRetail": 29.95
       }
     ],
     "ps4-days-gone": [
       {
-        "at": "2026-08-31T20:35:15Z",
-        "loose": null,
+        "at": "2026-08-31T22:04:33Z",
+        "loose": 22.0,
         "gameManual": null,
-        "complete": 15.0,
+        "complete": 22.91,
         "sealed": null,
         "newRetail": null
       }
@@ -12609,20 +12625,20 @@
     ],
     "ps4-dead-island-2-pulp-edition": [
       {
-        "at": "2026-08-31T20:35:15Z",
+        "at": "2026-08-31T22:33:08Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
+        "complete": 14.59,
         "sealed": null,
         "newRetail": 17.95
       }
     ],
     "ps4-death-stranding": [
       {
-        "at": "2026-08-31T20:35:15Z",
+        "at": "2026-08-31T23:01:58Z",
         "loose": null,
         "gameManual": null,
-        "complete": 13.48,
+        "complete": 15.01,
         "sealed": null,
         "newRetail": null
       }
@@ -13155,6 +13171,496 @@
         "complete": null,
         "sealed": null,
         "newRetail": 14.95
+      }
+    ],
+    "ps4-carmageddon-max-damage": [
+      {
+        "at": "2026-08-31T18:56:27Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 38.65,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-carnival-games": [
+      {
+        "at": "2026-08-31T18:56:27Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 13.33,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-cat-quest": [
+      {
+        "at": "2026-08-31T18:56:27Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 25.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-catmaze": [
+      {
+        "at": "2026-08-31T18:56:27Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 32.5,
+        "sealed": 28.33,
+        "newRetail": null
+      }
+    ],
+    "ps4-charon%27s-staircase": [
+      {
+        "at": "2026-08-31T19:27:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 23.3,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-chernobylite": [
+      {
+        "at": "2026-08-31T19:27:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 20.75,
+        "sealed": 40.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-chicken-range": [
+      {
+        "at": "2026-08-31T19:27:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.38,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-children-of-morta": [
+      {
+        "at": "2026-08-31T19:27:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 39.99,
+        "newRetail": null
+      }
+    ],
+    "ps4-chimparty": [
+      {
+        "at": "2026-08-31T19:27:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.75,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-chronos-before-the-ashes": [
+      {
+        "at": "2026-08-31T19:27:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 30.74,
+        "sealed": 19.75,
+        "newRetail": null
+      }
+    ],
+    "ps4-circuit-breakers": [
+      {
+        "at": "2026-08-31T19:27:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 17.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-citadel-forged-with-fire": [
+      {
+        "at": "2026-08-31T19:27:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.56,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-cladun-returns-this-is-sengoku": [
+      {
+        "at": "2026-08-31T19:27:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 64.25,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-clash-artifacts-of-chaos-zeno-edition": [
+      {
+        "at": "2026-08-31T19:50:04Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-clive-%27n%27-wrench": [
+      {
+        "at": "2026-08-31T19:50:04Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 25.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-concrete-genie": [
+      {
+        "at": "2026-08-31T20:12:07Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 21.6,
+        "sealed": 26.42,
+        "newRetail": null
+      }
+    ],
+    "ps4-constructor": [
+      {
+        "at": "2026-08-31T20:12:07Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.8,
+        "sealed": 12.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-cotton-reboot": [
+      {
+        "at": "2026-08-31T20:12:07Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 30.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-crystar": [
+      {
+        "at": "2026-08-31T21:07:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 67.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-cuphead": [
+      {
+        "at": "2026-08-31T21:07:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 43.33,
+        "sealed": 56.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-curse-of-the-sea-rats": [
+      {
+        "at": "2026-08-31T21:07:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.33,
+        "sealed": 20.88,
+        "newRetail": null
+      }
+    ],
+    "ps4-curved-space": [
+      {
+        "at": "2026-08-31T21:07:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.11,
+        "sealed": 15.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-cyberpunk-2077-edicion-day-one": [
+      {
+        "at": "2026-08-31T21:07:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 27.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dakar-desert-rally": [
+      {
+        "at": "2026-08-31T21:07:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 25.98,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-danganronpa-1-2-reload": [
+      {
+        "at": "2026-08-31T21:07:01Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 42.25,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dariusburst-another-chronicle-ex&#43;": [
+      {
+        "at": "2026-08-31T21:31:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 92.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-dark-pictures-anthology-man-of-medan": [
+      {
+        "at": "2026-08-31T21:31:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 34.35,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dark-pictures-the-devil-in-me": [
+      {
+        "at": "2026-08-31T21:31:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 26.67,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dark-rose-valkyrie": [
+      {
+        "at": "2026-08-31T21:31:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 40.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dark-souls-iii": [
+      {
+        "at": "2026-08-31T21:31:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.71,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-darkest-dungeon-ancestral-edition": [
+      {
+        "at": "2026-08-31T22:04:33Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 52.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-darksiders-ii-deathinitive-edition": [
+      {
+        "at": "2026-08-31T22:04:33Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.49,
+        "sealed": 52.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-darksiders-iii": [
+      {
+        "at": "2026-08-31T22:04:33Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.0,
+        "sealed": 26.75,
+        "newRetail": null
+      }
+    ],
+    "ps4-darksiders-warmastered-edition": [
+      {
+        "at": "2026-08-31T22:04:33Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.75,
+        "sealed": 107.22,
+        "newRetail": null
+      }
+    ],
+    "ps4-daymare-1994-sandcastle": [
+      {
+        "at": "2026-08-31T22:04:33Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.33,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-daymare-1998": [
+      {
+        "at": "2026-08-31T22:04:33Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 21.23,
+        "sealed": 29.75,
+        "newRetail": null
+      }
+    ],
+    "ps4-dead-alliance": [
+      {
+        "at": "2026-08-31T22:33:08Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 8.1,
+        "sealed": 20.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-dead-by-daylight": [
+      {
+        "at": "2026-08-31T22:33:08Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 35.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dead-cells": [
+      {
+        "at": "2026-08-31T22:33:08Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 30.2,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dead-island-definitive-edition": [
+      {
+        "at": "2026-08-31T22:33:08Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.7,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dead-or-alive-6": [
+      {
+        "at": "2026-08-31T22:33:08Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.5,
+        "sealed": 50.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-dead-rising-4-frank%27s-big-package": [
+      {
+        "at": "2026-08-31T22:33:08Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.31,
+        "sealed": 20.79,
+        "newRetail": null
+      }
+    ],
+    "ps4-deadlight-director%27s-cut": [
+      {
+        "at": "2026-08-31T23:01:58Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 36.4,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-deadpool-masacre": [
+      {
+        "at": "2026-08-31T23:01:58Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 206.67,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-death-end-re;quest": [
+      {
+        "at": "2026-08-31T23:01:58Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 44.32,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-death%27s-gambit": [
+      {
+        "at": "2026-08-31T23:01:58Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 20.0,
+        "sealed": 42.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-deformers": [
+      {
+        "at": "2026-08-31T23:01:58Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 7.67,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-deiland": [
+      {
+        "at": "2026-08-31T23:01:58Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.99,
+        "sealed": 20.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-deliver-us-the-moon-deluxe-edition": [
+      {
+        "at": "2026-08-31T23:01:58Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 47.5,
+        "newRetail": null
       }
     ]
   }

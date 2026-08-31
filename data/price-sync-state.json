@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-08-31T14:27:51Z",
+  "lastRunAt": "2026-08-31T23:10:48Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -120,11 +120,11 @@
         }
       },
       "lastScopedSync": {
-        "lastSyncAt": "2026-08-31T12:22:55Z",
+        "lastSyncAt": "2026-08-31T23:01:58Z",
         "source": "Wallapop ES",
-        "gamesTargeted": 12,
-        "gamesUpdated": 12,
-        "wallapopGamesUpdated": 12,
+        "gamesTargeted": 9,
+        "gamesUpdated": 9,
+        "wallapopGamesUpdated": 9,
         "ebayGamesUpdated": 0,
         "vintedGamesUpdated": 0,
         "gamesSkippedNoData": 0,
@@ -147,11 +147,11 @@
         "gameGamesUpdated": 0,
         "coveragePct": 100.0,
         "priceListTotalGames": 8468,
-        "priceListPricedBefore": 594,
-        "priceListPricedAfter": 605,
-        "priceListPricedDelta": 11,
-        "priceListCoverageBeforePct": 7.0,
-        "priceListCoverageAfterPct": 7.1,
+        "priceListPricedBefore": 723,
+        "priceListPricedAfter": 730,
+        "priceListPricedDelta": 7,
+        "priceListCoverageBeforePct": 8.5,
+        "priceListCoverageAfterPct": 8.6,
         "priceListCoverageDeltaPct": 0.1,
         "ebayDeliveryGamesUpdated": 0,
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
@@ -160,8 +160,8 @@
           "sources": [
             {
               "source": "wallapop",
-              "aiRows": 86,
-              "resolved": 86,
+              "aiRows": 67,
+              "resolved": 67,
               "review": 0,
               "rejected": 0
             }
@@ -177,18 +177,15 @@
         },
         "scope": "catalog_ids",
         "catalogIds": [
-          "ps4-call-of-duty-black-ops-4-pro-edition",
-          "ps4-call-of-duty-black-ops-6",
-          "ps4-call-of-duty-black-ops-7",
-          "ps4-call-of-duty-black-ops-cold-war",
-          "ps4-call-of-duty-modern-warfare",
-          "ps4-call-of-duty-modern-warfare-ii",
-          "ps4-call-of-duty-modern-warfare-iii",
-          "ps4-call-of-duty-vanguard",
-          "ps4-call-of-duty-wwii-pro-edition",
-          "ps4-caos-en-deponia",
-          "ps4-captain-tsubasa-rise-of-new-champions",
-          "ps4-car-mechanic-simulator"
+          "ps4-deadlight-director%27s-cut",
+          "ps4-deadpool-masacre",
+          "ps4-death%27s-gambit",
+          "ps4-death-end-re;quest",
+          "ps4-death-stranding",
+          "ps4-deception-iv-the-nightmare-princess",
+          "ps4-deformers",
+          "ps4-deiland",
+          "ps4-deliver-us-the-moon-deluxe-edition"
         ]
       }
     },
