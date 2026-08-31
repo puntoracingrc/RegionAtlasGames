@@ -12416,6 +12416,46 @@
         "sealed": 29.99,
         "newRetail": null
       }
+    ],
+    "ps4-celeste": [
+      {
+        "at": "2026-08-31T19:53:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 37.98,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-civilization-vi": [
+      {
+        "at": "2026-08-31T19:53:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 30.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-cloudpunk": [
+      {
+        "at": "2026-08-31T19:53:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.99,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-code-vein": [
+      {
+        "at": "2026-08-31T19:53:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.0,
+        "sealed": null,
+        "newRetail": null
+      }
     ]
   }
 }

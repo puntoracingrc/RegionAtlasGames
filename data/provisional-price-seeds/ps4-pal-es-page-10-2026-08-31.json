@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-page-10-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T19:53:53Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_direct_observation",
+  "notes": [
+    "Tramo Catmaze a Concept Destruction del catalogo PS4 PAL España.",
+    "Solo se aplican precios observados de una edicion y estado identificables.",
+    "Las propuestas inferidas, referencias RA, lotes, variantes extranjeras y otras ediciones quedan documentadas sin alimentar la media.",
+    "Todos los precios aplicados siguen siendo orientativos y no convierten la region en verificada."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-catmaze",
+      "title": "Catmaze",
+      "status": "skipped",
+      "reason": "Sin muestra exacta identificable de PS4 PAL España."
+    },
+    {
+      "catalogId": "ps4-catty-&amp;-batty-the-spirit-guide",
+      "title": "Catty & Batty: The Spirit Guide",
+      "status": "skipped",
+      "reason": "Sin muestra exacta de PS4 PAL España."
+    },
+    {
+      "catalogId": "ps4-celeste",
+      "title": "Celeste",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 40.95,
+          "maximum": 40.95,
+          "sources": ["cash-converters"]
+        }
+      },
+      "notes": [
+        "Copia de PS4 con caja original y estado bueno.",
+        "La observacion se incorpora como orientativa y sin marcar la region como verificada."
+      ]
+    },
+    {
+      "catalogId": "ps4-chained-echoes",
+      "title": "Chained Echoes",
+      "status": "skipped",
+      "reason": "Sin muestra exacta utilizable."
+    },
+    {
+      "catalogId": "ps4-chants-of-sennaar",
+      "title": "Chants of Sennaar",
+      "status": "skipped",
+      "reason": "Sin muestra fisica exacta de PS4 PAL España."
+    },
+    {
+      "catalogId": "ps4-chaos-child",
+      "title": "Chaos Child",
+      "status": "skipped",
+      "reason": "El precio precintado aportado ya es una referencia RA del catalogo y no se promedia otra vez."
+    },
+    {
+      "catalogId": "ps4-chaos-on-deponia",
+      "title": "Chaos on Deponia",
+      "status": "skipped",
+      "reason": "Posible duplicado linguistico de Caos en Deponia; requiere revision de identidad antes de recibir un precio propio."
+    },
+    {
+      "catalogId": "ps4-charon%27s-staircase",
+      "title": "Charon's Staircase",
+      "status": "skipped",
+      "reason": "Sin muestra exacta de PS4 PAL España."
+    },
+    {
+      "catalogId": "ps4-chef-life",
+      "title": "Chef Life",
+      "status": "skipped",
+      "reason": "Los rangos aportados son inferidos desde referencias europeas y no una muestra PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-chef-life-a-restaurant-simulator-al-forno-edition",
+      "title": "Chef Life: A Restaurant Simulator [Al Forno Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta de la Al Forno Edition PAL España; no se aplica el rango propuesto."
+    },
+    {
+      "catalogId": "ps4-chernobylite",
+      "title": "Chernobylite",
+      "status": "skipped",
+      "reason": "Referencias dispersas sin una copia PAL España exacta y disponible."
+    },
+    {
+      "catalogId": "ps4-chicken-police-paint-it-red",
+      "title": "Chicken Police: Paint It Red",
+      "status": "skipped",
+      "reason": "Sin muestra fisica exacta de PS4 PAL España."
+    },
+    {
+      "catalogId": "ps4-chicken-range",
+      "title": "Chicken Range",
+      "status": "skipped",
+      "reason": "Sin muestra exacta."
+    },
+    {
+      "catalogId": "ps4-chicken-run-eggstraction",
+      "title": "Chicken Run: Eggstraction",
+      "status": "skipped",
+      "reason": "Lanzamiento reciente sin una muestra de segunda mano utilizable."
+    },
+    {
+      "catalogId": "ps4-child-of-light-deluxe-edition",
+      "title": "Child of Light [Deluxe Edition]",
+      "status": "skipped",
+      "reason": "Sin una Deluxe Edition completa y regionalmente confirmada; no se usa la edicion estandar."
+    },
+    {
+      "catalogId": "ps4-children-of-morta",
+      "title": "Children of Morta",
+      "status": "skipped",
+      "reason": "La cifra aportada procede de RA o de referencias europeas generales y no constituye una observacion nueva exacta."
+    },
+    {
+      "catalogId": "ps4-children-of-zodiarcs",
+      "title": "Children of Zodiarcs",
+      "status": "skipped",
+      "reason": "La referencia de 35 EUR ya existe en RA y la externa no confirma una copia PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-chimparty",
+      "title": "Chimparty",
+      "status": "skipped",
+      "reason": "Resultados escasos mezclados con accesorios y lotes PlayLink."
+    },
+    {
+      "catalogId": "ps4-chivalry-ii-day-one-edition",
+      "title": "Chivalry II [Day One Edition]",
+      "status": "skipped",
+      "reason": "El rango corrector no identifica una oferta exacta, disponible y regionalmente comprobable."
+    },
+    {
+      "catalogId": "ps4-chorus",
+      "title": "Chorus",
+      "status": "skipped",
+      "reason": "Sin muestra exacta PAL España."
+    },
+    {
+      "catalogId": "ps4-chronicles-of-2-heroes-amaterasu%27s-wrath",
+      "title": "Chronicles of 2 Heroes: Amaterasu's Wrath",
+      "status": "skipped",
+      "reason": "Sin copia exacta aprovechable."
+    },
+    {
+      "catalogId": "ps4-chronos-before-the-ashes",
+      "title": "Chronos: Before the Ashes",
+      "status": "skipped",
+      "reason": "Sin muestra exacta PAL España."
+    },
+    {
+      "catalogId": "ps4-circuit-breakers",
+      "title": "Circuit Breakers",
+      "status": "skipped",
+      "reason": "Sin anuncio exacto de PS4 PAL España."
+    },
+    {
+      "catalogId": "ps4-citadel-forged-with-fire",
+      "title": "Citadel: Forged With Fire",
+      "status": "skipped",
+      "reason": "La referencia RA y los rangos propuestos no son una observacion nueva exacta."
+    },
+    {
+      "catalogId": "ps4-cities-skylines",
+      "title": "Cities: Skylines",
+      "status": "skipped",
+      "reason": "La copia usada europea no acredita PAL España."
+    },
+    {
+      "catalogId": "ps4-civilization-vi",
+      "title": "Civilization VI",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 30,
+          "maximum": 30,
+          "sources": ["wallapop"]
+        }
+      },
+      "notes": [
+        "Anuncio individual de PS4 indicado como sin abrir.",
+        "La caratula o el CUSA siguen pendientes; no se marca la region como verificada y no se infiere el estado completo."
+      ]
+    },
+    {
+      "catalogId": "ps4-cladun-returns-this-is-sengoku",
+      "title": "Cladun Returns: This Is Sengoku!",
+      "status": "skipped",
+      "reason": "La cifra RA ya existe y las ofertas externas no garantizan caratula PAL España."
+    },
+    {
+      "catalogId": "ps4-clash-artifacts-of-chaos-zeno-edition",
+      "title": "Clash: Artifacts of Chaos [Zeno Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta de la Zeno Edition."
+    },
+    {
+      "catalogId": "ps4-classic-racers-elite",
+      "title": "Classic Racers Elite",
+      "status": "skipped",
+      "reason": "Sin anuncio exacto de PS4 PAL España."
+    },
+    {
+      "catalogId": "ps4-clive-%27n%27-wrench",
+      "title": "Clive 'N' Wrench",
+      "status": "skipped",
+      "reason": "Resultados insuficientes y mezclados con otras plataformas."
+    },
+    {
+      "catalogId": "ps4-clockwork-aquario",
+      "title": "Clockwork Aquario",
+      "status": "skipped",
+      "reason": "El resultado de 20 EUR es una placa decorativa, no el juego."
+    },
+    {
+      "catalogId": "ps4-close-to-the-sun",
+      "title": "Close to the Sun",
+      "status": "skipped",
+      "reason": "Las referencias fisicas son PAL Europa general y no una copia PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-cloudpunk",
+      "title": "Cloudpunk",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 22.99,
+          "maximum": 22.99,
+          "sources": ["game"]
+        }
+      },
+      "notes": [
+        "Referencia GAME seminueva de la edicion estandar.",
+        "La Signature Edition de 150 EUR se excluye de esta ficha."
+      ]
+    },
+    {
+      "catalogId": "ps4-cobra-kai-2-dojos-rising",
+      "title": "Cobra Kai 2: Dojos Rising",
+      "status": "skipped",
+      "reason": "Solo hay una referencia RA no plenamente verificada y una propuesta derivada."
+    },
+    {
+      "catalogId": "ps4-cobra-kai-the-karate-kid-saga-continues",
+      "title": "Cobra Kai: The Karate Kid Saga Continues",
+      "status": "skipped",
+      "reason": "La referencia completa ya existe en RA; la copia europea no se introduce como una observacion española nueva."
+    },
+    {
+      "catalogId": "ps4-code-realize-bouquet-of-rainbows",
+      "title": "Code: Realize - Bouquet of Rainbows",
+      "status": "skipped",
+      "reason": "Sin muestra exacta PAL España."
+    },
+    {
+      "catalogId": "ps4-code-realize-wintertide-miracles",
+      "title": "Code: Realize - Wintertide Miracles",
+      "status": "skipped",
+      "reason": "Sin muestra exacta PAL España."
+    },
+    {
+      "catalogId": "ps4-code-vein",
+      "title": "Code Vein",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 18,
+          "maximum": 18,
+          "sources": ["wallapop"]
+        }
+      },
+      "notes": [
+        "Anuncio identificado expresamente como PS4 PAL ES, con libreto y en buen estado."
+      ]
+    },
+    {
+      "catalogId": "ps4-coffee-crisis-special-edition",
+      "title": "Coffee Crisis [Special Edition]",
+      "status": "skipped",
+      "reason": "La referencia europea no confirma la Special Edition PAL España."
+    },
+    {
+      "catalogId": "ps4-coffee-talk",
+      "title": "Coffee Talk",
+      "status": "skipped",
+      "reason": "El anuncio de 150 EUR corresponde a una variante de coleccionista con placa, no a la edicion estandar."
+    },
+    {
+      "catalogId": "ps4-coffee-talk-2-in-1-double-pack",
+      "title": "Coffee Talk 2-In-1 Double Pack",
+      "status": "skipped",
+      "reason": "Sin muestra exacta del doble pack; no se usan resultados del primer Coffee Talk."
+    },
+    {
+      "catalogId": "ps4-colossus-down",
+      "title": "Colossus Down",
+      "status": "skipped",
+      "reason": "El precio historico de Xtralife y los rangos de comparadores no acreditan una oferta actual utilizable."
+    },
+    {
+      "catalogId": "ps4-colt-canyon",
+      "title": "Colt Canyon",
+      "status": "skipped",
+      "reason": "El precio completo de 14,99 EUR ya existe en RA y no se vuelve a promediar."
+    },
+    {
+      "catalogId": "ps4-commandos-2-&amp;-3-hd-remaster-double-pack",
+      "title": "Commandos 2 & 3 HD Remaster Double Pack",
+      "status": "skipped",
+      "reason": "Sin muestra exacta del doble pack; no se mezcla con Commandos 2 & Praetorians."
+    },
+    {
+      "catalogId": "ps4-commandos-2-&amp;-praetorians-hd-remaster-double-pack",
+      "title": "Commandos 2 & Praetorians HD Remaster Double Pack",
+      "status": "skipped",
+      "reason": "La cifra aportada ya es una referencia RA y no una observacion externa nueva verificada."
+    },
+    {
+      "catalogId": "ps4-conan-exile-collector%27s-edition",
+      "title": "Conan Exile [Collector's Edition]",
+      "status": "skipped",
+      "reason": "No se puede confirmar que las apariciones incluyan todos los elementos de coleccionista."
+    },
+    {
+      "catalogId": "ps4-conan-exiles",
+      "title": "Conan Exiles",
+      "status": "skipped",
+      "reason": "El lote de 120 EUR no se puede repartir y la referencia individual corresponde a la Day One Edition, no a la estandar."
+    },
+    {
+      "catalogId": "ps4-concept-destruction",
+      "title": "Concept Destruction",
+      "status": "skipped",
+      "reason": "Sin anuncio exacto de PS4 PAL España."
+    }
+  ]
+}
