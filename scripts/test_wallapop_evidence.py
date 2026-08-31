@@ -7,6 +7,7 @@ import json
 import os
 import sys
 import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,6 +19,7 @@ from collect_wallapop import listing_matches_game, route_row_to_detected_variant
 from collectors.game_region_learning import game_region_profile  # noqa: E402
 from collectors.game_content_profile import game_content_profile  # noqa: E402
 from collectors.region_inference import detect_listing_region, regions_match  # noqa: E402
+from collectors.listing_recency import is_recent_listing  # noqa: E402
 from collectors.regional_variant_routing import strict_regions_match  # noqa: E402
 from collectors.regional_packaging import (  # noqa: E402
     normalize_regional_packaging,
@@ -274,6 +276,14 @@ def test_localized_physical_edition_keeps_the_same_base_game() -> None:
         "description": "Edición limitada del videojuego 2Dark para PS4.",
     }
     assert listing_matches_game(product, game, "ps4")
+    assert listing_matches_game(
+        {
+            "title": "2 Dark Edición Limitada PS4 PAL ESP",
+            "description": "Edición limitada del videojuego 2Dark para PS4.",
+        },
+        game,
+        "ps4",
+    )
 
 
 def test_explicit_vita_listing_never_prices_the_ps4_game() -> None:
@@ -307,6 +317,96 @@ def test_explicit_vita_listing_never_prices_the_ps4_game() -> None:
     for product in products:
         assert not listing_matches_game(product, ps4_game, "ps4")
         assert listing_matches_game(product, vita_game, "psvita")
+
+
+def test_explicit_target_platform_wins_over_cross_generation_description() -> None:
+    game = {
+        "id": "ps4-astria-ascending",
+        "title": "Astria Ascending",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+    }
+    assert listing_matches_game(
+        {
+            "title": "Astria Ascending PS4 (PlayStation 4) - Nuevo",
+            "description": "La carátula indica PS5 Upgrade Available.",
+        },
+        game,
+        "ps4",
+    )
+    assert listing_matches_game(
+        {
+            "title": "Atomic Heart PlayStation 4",
+            "description": "Videojuego para PlayStation 4 con actualización opcional a PS5.",
+        },
+        {**game, "id": "ps4-atomic-heart", "title": "Atomic Heart"},
+        "ps4",
+    )
+    assert not listing_matches_game(
+        {"title": "Astria Ascending PS5", "description": "Videojuego para PS5."},
+        game,
+        "ps4",
+    )
+    assert not listing_matches_game(
+        {"title": "Pack Astria Ascending PS4/PS5", "description": "Dos juegos."},
+        game,
+        "ps4",
+    )
+
+
+def test_numbered_bundle_never_prices_one_volume() -> None:
+    game = {
+        "id": "ps4-atari-flashback-classics-vol-1",
+        "title": "Atari Flashback Classics Vol 1",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+    }
+    assert listing_matches_game(
+        {"title": "Atari Flashback Classics Vol. 1 PS4"},
+        game,
+        "ps4",
+    )
+    assert not listing_matches_game(
+        {"title": "Atari Flashback Classics Vol. 1 y 2 PS4"},
+        game,
+        "ps4",
+    )
+
+
+def test_seller_keyword_coleccionista_is_not_a_collectors_edition() -> None:
+    standard = {
+        "id": "ps4-astronite",
+        "title": "Astronite",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+    }
+    assert listing_matches_game(
+        {
+            "title": "Astronite PS4 (PlayStation 4)",
+            "description": "Caja y disco impolutos. Etiquetas: arcade, coleccionista, videojuegos.",
+        },
+        standard,
+        "ps4",
+    )
+    assert not listing_matches_game(
+        {
+            "title": "Astronite PS4",
+            "description": "Versión coleccionista con caja especial.",
+        },
+        standard,
+        "ps4",
+    )
+
+
+def test_recently_seen_active_listing_is_current_even_if_published_long_ago() -> None:
+    now = datetime(2026, 8, 31, 4, 0, tzinfo=timezone.utc)
+    row = {
+        "source": "wallapop",
+        "listingType": "active",
+        "listedAt": "2023-01-01T00:00:00Z",
+        "lastSeenAt": "2026-08-31T03:59:00Z",
+    }
+    assert is_recent_listing(row, now=now)
 
 
 def test_exact_id_deduplication_only() -> None:
@@ -660,6 +760,10 @@ def main() -> None:
     test_physical_editions_never_share_a_catalog_match()
     test_localized_physical_edition_keeps_the_same_base_game()
     test_explicit_vita_listing_never_prices_the_ps4_game()
+    test_explicit_target_platform_wins_over_cross_generation_description()
+    test_numbered_bundle_never_prices_one_volume()
+    test_seller_keyword_coleccionista_is_not_a_collectors_edition()
+    test_recently_seen_active_listing_is_current_even_if_published_long_ago()
     test_exact_id_deduplication_only()
     test_routes_a_found_region_to_its_catalog_variant()
     test_text_ai_is_a_hint_not_physical_region_proof()
@@ -669,7 +773,7 @@ def main() -> None:
     test_original_contents_are_learned_from_accepted_review()
     test_regional_packaging_becomes_reusable_engine_evidence()
     test_verified_packaging_rules_for_current_wallapop_reviews()
-    print("OK Wallapop evidence v2")
+    print("OK Wallapop evidence v3")
 
 
 if __name__ == "__main__":

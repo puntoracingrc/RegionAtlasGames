@@ -11,7 +11,10 @@ from collectors.game_content_profile import manual_missing_declared, missing_ori
 from collectors.jgo_match import infer_condition
 from collectors.listing_images import attach_image_urls
 from collectors.listing_region_enrich import enrich_listing_region_from_cover
-from collectors.physical_edition import physical_editions_match
+from collectors.physical_edition import (
+    catalog_physical_edition,
+    listing_physical_edition,
+)
 from collectors.reference_match import listing_reference_valid_for_catalog
 from collectors.regional_variant_routing import strict_regions_match
 from collectors.wallapop_listing_ai import ListingAiResult
@@ -49,6 +52,17 @@ EXTRA_EDITION_RE = re.compile(
     r"\b(collector|coleccionista|limited|limitada|special|especial|deluxe|art[ -]?book|steelbook)\b",
     re.I,
 )
+STRONG_EDITION_DESCRIPTION_RE = re.compile(
+    r"\b("
+    r"collector(?:'s|s)?\s+(?:edition|ed\.?|box)|"
+    r"edici[oó]n\s+(?:coleccionista|limitada|deluxe|especial|ultimate)|"
+    r"versi[oó]n\s+coleccionista|"
+    r"limited\s+(?:edition|ed\.?)|special\s+(?:edition|ed\.?)|"
+    r"deluxe\s+(?:edition|ed\.?)|ultimate\s+(?:edition|ed\.?)|"
+    r"day\s+one\s+(?:edition|ed\.?)|premium\s+box|steelbook"
+    r")\b",
+    re.I,
+)
 
 
 def is_wallapop_game_listing(title: str, *, description: str = "") -> bool:
@@ -68,7 +82,20 @@ def is_wallapop_game_product(product: dict[str, Any]) -> bool:
 
 
 def listing_has_unmatched_extras(product: dict[str, Any], game: dict[str, Any]) -> bool:
-    if not physical_editions_match(product, game):
+    catalog_edition = catalog_physical_edition(game)
+    title_edition = listing_physical_edition(product_title(product))
+    if title_edition:
+        listing_edition = title_edition
+    else:
+        description = " ".join(
+            str(product.get(key) or "") for key in ("description", "characteristics")
+        )
+        listing_edition = (
+            listing_physical_edition(description)
+            if STRONG_EDITION_DESCRIPTION_RE.search(description)
+            else frozenset()
+        )
+    if listing_edition != catalog_edition:
         return True
     listing_text = " ".join(
         str(product.get(key) or "") for key in ("title", "description", "characteristics")
@@ -354,6 +381,10 @@ def product_to_ingest_row(
         row["listingAiConfidence"] = round(float(ai_confidence), 3)
     if product.get("listedAt"):
         row["listedAt"] = product["listedAt"]
+    if product.get("lastSeenAt"):
+        row["lastSeenAt"] = product["lastSeenAt"]
+    if product.get("searchMode"):
+        row["searchMode"] = product["searchMode"]
     if vision_condition in DISPLAY_BUCKETS:
         if bucket and bucket != vision_condition:
             row["conditionTextValue"] = bucket

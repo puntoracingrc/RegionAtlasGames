@@ -15,9 +15,11 @@ export type WallapopCampaignAction = "enable" | "disable" | "restart";
 
 export type WallapopQueryAttempt = {
   query: string;
+  mode: "recent" | "active" | null;
   results: number;
   newResults: number;
   cumulativeResults: number;
+  relevantResults: number;
 };
 
 export type WallapopSearchDiagnostic = {
@@ -32,6 +34,7 @@ export type WallapopSearchDiagnostic = {
   acceptedListings: number;
   verifiedListings: number;
   reviewListings: number;
+  rejectionReasons: Record<string, number>;
   rejectedListings: number;
   discardRatePct: number;
   outcome: "accepted" | "no_results" | "all_discarded" | "mostly_discarded" | "error";
@@ -195,6 +198,15 @@ function normalizeSearchDiagnostics(value: unknown): WallapopSearchDiagnostic[] 
     "awaiting_more_verified_listings",
     "rejected_by_price_sync",
   ]);
+  const allowedRejectionReasons = new Set([
+    "wrong_platform",
+    "edition_or_extras",
+    "numbered_variant",
+    "title_mismatch",
+    "ai_or_evidence",
+    "not_game",
+    "insufficient_evidence",
+  ]);
   return value.slice(0, WALLAPOP_CAMPAIGN_MAX_BATCH_SIZE).flatMap((raw) => {
     if (!raw || typeof raw !== "object" || Array.isArray(raw)) return [];
     const row = raw as UnknownRecord;
@@ -204,13 +216,30 @@ function normalizeSearchDiagnostics(value: unknown): WallapopSearchDiagnostic[] 
       const item = attempt as UnknownRecord;
       const query = cleanText(item.query, 180);
       if (!query) return [];
+      const mode = cleanText(item.mode, 20);
+      const normalizedMode: WallapopQueryAttempt["mode"] = mode === "recent" || mode === "active"
+        ? mode
+        : null;
       return [{
         query: decodeHtmlEntities(query),
+        mode: normalizedMode,
         results: cleanCount(item.results),
         newResults: cleanCount(item.newResults),
         cumulativeResults: cleanCount(item.cumulativeResults),
+        relevantResults: cleanCount(item.relevantResults),
       }];
     });
+    const rawRejectionReasons = row.rejectionReasons
+      && typeof row.rejectionReasons === "object"
+      && !Array.isArray(row.rejectionReasons)
+      ? row.rejectionReasons as UnknownRecord
+      : {};
+    const rejectionReasons = Object.fromEntries(
+      Object.entries(rawRejectionReasons)
+        .filter(([reason]) => allowedRejectionReasons.has(reason))
+        .map(([reason, count]) => [reason, cleanCount(count)])
+        .filter(([, count]) => Number(count) > 0),
+    );
     const outcome = cleanText(row.outcome, 40);
     const priceDecision = cleanText(row.priceDecision, 80);
     const title = cleanText(row.title, 240);
@@ -226,6 +255,7 @@ function normalizeSearchDiagnostics(value: unknown): WallapopSearchDiagnostic[] 
       acceptedListings: cleanCount(row.acceptedListings),
       verifiedListings: cleanCount(row.verifiedListings),
       reviewListings: cleanCount(row.reviewListings),
+      rejectionReasons,
       rejectedListings: cleanCount(row.rejectedListings),
       discardRatePct: Math.min(100, cleanCount(row.discardRatePct)),
       outcome: allowedOutcomes.has(outcome ?? "")

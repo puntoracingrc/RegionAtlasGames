@@ -75,10 +75,17 @@ test("normalizes telemetry and never exposes an oversized batch", () => {
         acceptedListings: 2,
         verifiedListings: 1,
         discardRatePct: 93,
+        rejectionReasons: {
+          wrong_platform: 12,
+          title_mismatch: 5,
+          unknown_reason: 99,
+        },
         priceDecision: "awaiting_more_verified_listings",
         attempts: Array.from({ length: 12 }, (_, index) => ({
           query: `Assassin&#39;s Creed query ${index}`,
+          mode: index === 0 ? "active" : "recent",
           results: index,
+          relevantResults: Math.max(0, index - 1),
         })),
       }],
     },
@@ -100,6 +107,11 @@ test("normalizes telemetry and never exposes an oversized batch", () => {
   assert.equal(campaign.lastBatch?.collectorStats.gamesWithListings, 4);
   assert.equal(campaign.lastBatch?.searchDiagnostics[0]?.attempts.length, 8);
   assert.equal(campaign.lastBatch?.searchDiagnostics[0]?.attempts[0]?.query, "Assassin's Creed query 0");
+  assert.equal(campaign.lastBatch?.searchDiagnostics[0]?.attempts[0]?.mode, "active");
+  assert.deepEqual(campaign.lastBatch?.searchDiagnostics[0]?.rejectionReasons, {
+    wrong_platform: 12,
+    title_mismatch: 5,
+  });
   assert.equal(campaign.lastBatch?.searchDiagnostics[0]?.priceDecision, "awaiting_more_verified_listings");
   assert.equal(campaign.priceResults.changedGames, 6);
   assert.equal(campaign.progress.byPlatform.ps4.processed, 20);

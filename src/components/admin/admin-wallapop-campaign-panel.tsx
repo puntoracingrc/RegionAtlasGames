@@ -91,6 +91,17 @@ function priceDecisionLabel(decision: string | null): string {
   return "Sin diagnóstico de precio";
 }
 
+function rejectionReasonLabel(reason: string): string {
+  if (reason === "wrong_platform") return "otra plataforma";
+  if (reason === "edition_or_extras") return "otra edición o extras";
+  if (reason === "numbered_variant") return "otro volumen";
+  if (reason === "title_mismatch") return "otro juego";
+  if (reason === "ai_or_evidence") return "evidencia insuficiente";
+  if (reason === "not_game") return "no es un juego";
+  if (reason === "insufficient_evidence") return "anuncio incompleto";
+  return reason;
+}
+
 function diagnosticText(overview: WallapopCampaignOverview | null): string {
   return [
     "REGION_ATLAS_WALLAPOP_CAMPAIGN_V1",
@@ -344,6 +355,13 @@ export function AdminWallapopCampaignPanel() {
                         <p className="mt-2 whitespace-nowrap text-xs text-muted">
                           {diagnostic.acceptedListings}/{diagnostic.candidateCount} aceptados · {diagnostic.verifiedListings} verificados
                         </p>
+                        {Object.keys(diagnostic.rejectionReasons).length ? (
+                          <p className="mt-1 max-w-72 text-xs text-muted">
+                            Descartes: {Object.entries(diagnostic.rejectionReasons)
+                              .map(([reason, count]) => `${rejectionReasonLabel(reason)} ${count}`)
+                              .join(" · ")}
+                          </p>
+                        ) : null}
                       </td>
                       <td className="px-3 py-3 text-xs font-semibold text-foreground">
                         {priceDecisionLabel(diagnostic.priceDecision)}
@@ -353,6 +371,8 @@ export function AdminWallapopCampaignPanel() {
                           {diagnostic.attempts.map((attempt, index) => (
                             <span key={`${attempt.query}-${index}`} className="rounded border border-border bg-background/70 px-2 py-1 text-xs text-foreground">
                               “{attempt.query}” · {attempt.results} resultado(s)
+                              {attempt.mode === "active" ? " · activos" : attempt.mode === "recent" ? " · últimos 30 días" : ""}
+                              {attempt.relevantResults ? ` · ${attempt.relevantResults} del juego` : ""}
                             </span>
                           ))}
                           {!diagnostic.attempts.length ? <span className="text-xs text-muted">Sin consultas registradas</span> : null}
