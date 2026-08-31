@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Collector Wallapop ES → data/price-ingest/{platform}-wallapop.json.
 
-Replica la búsqueda web:
+Replica la búsqueda web de forma adaptativa:
   Tecnología → Gaming: consolas y videojuegos → Videojuegos y más → Videojuegos
-  Orden: más recientes · Filtro: últimos 30 días · Query: título + plataforma
+  Primero: más recientes · últimos 30 días · título + plataforma
+  Si faltan candidatos: anuncios activos · relevancia · una página acotada
   Ej.: «Sonic the Hedgehog megadrive»
 
   python3 scripts/collect_wallapop.py --platform megadrive --limit 10 --dry-run
@@ -18,6 +19,7 @@ import re
 import subprocess
 import sys
 import time
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -26,7 +28,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from build_ingest_template import validate_ingest  # noqa: E402
 from collectors.catalog_match import (  # noqa: E402
-    edition_numbers_conflict,
+    extract_edition_numbers,
     product_core_title,
     product_title,
     token_similarity,
@@ -53,6 +55,7 @@ from collectors.wallapop_client import (  # noqa: E402
     fetch_game_products,
     fetch_query_products,
     supported_platform_slugs,
+    wallapop_active_fallback_pages,
     wallapop_game_limit,
     wallapop_order_by,
     wallapop_sources_for_platform,
@@ -75,7 +78,7 @@ from region_evidence_rules import check_listing_evidence_meets_rules  # noqa: E4
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
 CACHE_DIR = ROOT / "data" / "price-ingest" / "cache" / "wallapop"
-WALLAPOP_EVIDENCE_POLICY = "wallapop_full_listing_evidence_v2"
+WALLAPOP_EVIDENCE_POLICY = "wallapop_full_listing_evidence_v3"
 REQUEST_DELAY = 0.35
 MIN_TITLE_SCORE = 0.42
 
@@ -106,11 +109,11 @@ PLATFORM_ALIAS_GROUPS: dict[str, set[str]] = {
     "neogeo": {"neo geo", "neogeo", "aes"},
     "neogeocd": {"neo geo cd", "neogeo cd"},
     "neogeopocket": {"neo geo pocket", "neogeo pocket", "ngp", "ngpc"},
-    "ps1": {"playstation", "ps1", "psx"},
-    "ps2": {"playstation", "ps2"},
-    "ps3": {"playstation", "ps3"},
-    "ps4": {"playstation", "ps4"},
-    "ps5": {"playstation", "ps5"},
+    "ps1": {"playstation", "playstation 1", "ps1", "psx"},
+    "ps2": {"playstation", "playstation 2", "ps2"},
+    "ps3": {"playstation", "playstation 3", "ps3"},
+    "ps4": {"playstation", "playstation 4", "ps4"},
+    "ps5": {"playstation", "playstation 5", "ps5"},
     "psvita": {"playstation", "playstation vita", "ps vita", "psvita"},
     "psp": {"playstation", "playstation portable", "psp"},
 }
@@ -121,7 +124,7 @@ PLATFORM_TERM_RE = re.compile(
     r"game gear|gameboy|game boy|master system|mega drive|megadrive|mega cd|sega cd|"
     r"super nintendo|nintendo 64|nintendo ds|nintendo 3ds|"
     r"32x|dreamcast|saturn|nintendo|playstation vita|playstation portable|"
-    r"ps vita|psvita|psp|playstation|psx|\bps[1-5]\b|"
+    r"ps vita|psvita|psp|playstation\s*[1-5]|ps\s*[1-5]|playstation|psx|"
     r"xbox|switch|gamecube|wii|3ds|ds|\bnes\b|\bsnes\b|\bn64\b"
     r")\b",
     re.I,
@@ -137,13 +140,74 @@ REGION_SUFFIX_RE = re.compile(
 )
 
 
+def _normalize_platform_term(term: str) -> str:
+    value = re.sub(r"\s+", " ", term.lower()).strip()
+    value = re.sub(r"^ps\s+([1-5])$", r"ps\1", value)
+    value = re.sub(r"^playstation\s*([1-5])$", r"ps\1", value)
+    aliases = {
+        "psx": "ps1",
+        "playstation vita": "psvita",
+        "ps vita": "psvita",
+        "playstation portable": "psp",
+        "super nintendo": "snes",
+        "nintendo 64": "n64",
+        "nintendo ds": "ds",
+        "nintendo 3ds": "3ds",
+        "game boy": "gameboy",
+        "master system": "mastersystem",
+        "mega drive": "megadrive",
+        "neo geo": "neogeo",
+        "neo geo cd": "neogeocd",
+        "neo geo pocket": "neogeopocket",
+    }
+    return aliases.get(value, value)
+
+
+def mentioned_platform_terms(text: str) -> set[str]:
+    return {
+        _normalize_platform_term(match.group(1))
+        for match in PLATFORM_TERM_RE.finditer(text)
+    }
+
+
 def mentions_other_platform(text: str, platform_slug: str) -> bool:
-    allowed = PLATFORM_ALIAS_GROUPS.get(platform_slug, {platform_slug})
+    allowed = {
+        _normalize_platform_term(term)
+        for term in PLATFORM_ALIAS_GROUPS.get(platform_slug, {platform_slug})
+    }
     for match in PLATFORM_TERM_RE.finditer(text):
-        term = match.group(1).lower().strip()
+        term = _normalize_platform_term(match.group(1))
         if term not in allowed:
             return True
     return False
+
+
+def listing_has_platform_conflict(product: dict[str, Any], platform_slug: str) -> bool:
+    """El título manda; la descripción solo desambigua si el título no lo hace."""
+    allowed = {
+        _normalize_platform_term(term)
+        for term in PLATFORM_ALIAS_GROUPS.get(platform_slug, {platform_slug})
+    }
+    target = _normalize_platform_term(platform_slug)
+    title_terms = mentioned_platform_terms(product_title(product))
+    if title_terms:
+        if any(term not in allowed for term in title_terms):
+            return True
+        if target in title_terms:
+            return False
+
+    characteristics = str(product.get("characteristics") or "")
+    characteristic_terms = mentioned_platform_terms(characteristics)
+    if characteristic_terms:
+        if target in characteristic_terms:
+            return False
+        if any(term not in allowed for term in characteristic_terms):
+            return True
+
+    description_terms = mentioned_platform_terms(str(product.get("description") or ""))
+    if target in description_terms:
+        return False
+    return any(term not in allowed for term in description_terms)
 
 
 def wallapop_match_core(title: str) -> str:
@@ -151,22 +215,41 @@ def wallapop_match_core(title: str) -> str:
     core = physical_edition_base_title(title)
     core = PLATFORM_TERM_RE.sub(" ", core)
     core = REGION_SUFFIX_RE.sub(" ", core)
+    core = re.sub(r"(?<=\d)(?=[A-Za-z])", " ", core)
     return product_core_title(re.sub(r"\s+", " ", core).strip())
 
 
-def listing_matches_game(product: dict[str, Any], game: dict[str, Any], platform_slug: str) -> bool:
-    title = product_title(product)
-    full_text = f"{title} {product.get('description') or ''} {product.get('characteristics') or ''}"
-    if mentions_other_platform(full_text, platform_slug):
-        return False
+def _wallapop_numbered_variant_conflict(listing_core: str, game_core: str) -> bool:
+    def title_numbers(value: str) -> set[int]:
+        separated = re.sub(r"(?<=\d)(?=[A-Za-z])|(?<=[A-Za-z])(?=\d)", " ", value)
+        return {number for number in extract_edition_numbers(separated) if number <= 10}
+
+    listing_numbers = title_numbers(listing_core)
+    game_numbers = title_numbers(game_core)
+    return listing_numbers != game_numbers
+
+
+def listing_match_rejection_reason(
+    product: dict[str, Any],
+    game: dict[str, Any],
+    platform_slug: str,
+) -> str | None:
+    if listing_has_platform_conflict(product, platform_slug):
+        return "wrong_platform"
     if listing_has_unmatched_extras(product, game):
-        return False
+        return "edition_or_extras"
     game_title = str(game.get("title") or "")
-    if edition_numbers_conflict(title, game_title):
-        return False
-    listing_core = wallapop_match_core(title)
+    listing_core = wallapop_match_core(product_title(product))
     game_core = wallapop_match_core(game_title)
-    return token_similarity(game_core, listing_core) >= MIN_TITLE_SCORE
+    if _wallapop_numbered_variant_conflict(listing_core, game_core):
+        return "numbered_variant"
+    if token_similarity(game_core, listing_core) < MIN_TITLE_SCORE:
+        return "title_mismatch"
+    return None
+
+
+def listing_matches_game(product: dict[str, Any], game: dict[str, Any], platform_slug: str) -> bool:
+    return listing_match_rejection_reason(product, game, platform_slug) is None
 
 
 def route_row_to_detected_variant(
@@ -403,6 +486,7 @@ def collect_game_listings(
                 "acceptedListings": len(cached_rows),
                 "verifiedListings": sum(1 for row in cached_rows if row.get("regionVerified") is True),
                 "reviewListings": sum(1 for row in cached_rows if row.get("regionReviewNeeded")),
+                "rejectionReasons": {},
                 "matchedCatalogIds": sorted({
                     str(row.get("catalogId") or "")
                     for row in cached_rows
@@ -420,20 +504,27 @@ def collect_game_listings(
         max_pages=max_pages,
         delay_s=delay_s,
         diagnostics=search_trace,
+        candidate_filter=lambda product: listing_matches_game(product, game, platform_slug),
     )
-    matched = [
-        product
-        for product in products
-        if listing_matches_game(product, game, platform_slug)
-    ]
+    rejection_reasons: Counter[str] = Counter()
+    matched: list[dict[str, Any]] = []
+    for product in products:
+        rejection_reason = listing_match_rejection_reason(product, game, platform_slug)
+        if rejection_reason:
+            rejection_reasons[rejection_reason] += 1
+        else:
+            matched.append(product)
     title_matched_count = len(matched)
     matched, detail_stats = enrich_product_details(matched, delay_s=delay_s)
     game_stats.update(detail_stats)
-    matched = [
-        product
-        for product in matched
-        if listing_matches_game(product, game, platform_slug)
-    ]
+    detail_matched: list[dict[str, Any]] = []
+    for product in matched:
+        rejection_reason = listing_match_rejection_reason(product, game, platform_slug)
+        if rejection_reason:
+            rejection_reasons[rejection_reason] += 1
+        else:
+            detail_matched.append(product)
+    matched = detail_matched
     detail_matched_count = len(matched)
 
     ai_by_key: dict[str, Any] = {}
@@ -460,8 +551,10 @@ def collect_game_listings(
         if use_listing_ai and ai_available():
             if not ai_result or not passes_listing_ai(ai_result, catalog_region=catalog_region):
                 game_stats["ai_rejected"] += 1
+                rejection_reasons["ai_or_evidence"] += 1
                 continue
         elif not is_wallapop_game_product(product):
+            rejection_reasons["not_game"] += 1
             continue
         classified_candidate_count += 1
 
@@ -486,6 +579,8 @@ def collect_game_listings(
         )
         if row:
             rows.append(route_row_to_detected_variant(row, game, platform_games))
+        else:
+            rejection_reasons["insufficient_evidence"] += 1
 
     candidate_count = int(search_trace.get("candidateCount") or len(products))
     accepted_count = len(rows)
@@ -511,6 +606,7 @@ def collect_game_listings(
         "acceptedListings": accepted_count,
         "verifiedListings": sum(1 for row in rows if row.get("regionVerified") is True),
         "reviewListings": sum(1 for row in rows if row.get("regionReviewNeeded")),
+        "rejectionReasons": dict(sorted(rejection_reasons.items())),
         "matchedCatalogIds": sorted({
             str(row.get("catalogId") or "")
             for row in rows
@@ -616,6 +712,7 @@ def collect_platform(
                     "acceptedListings": 0,
                     "verifiedListings": 0,
                     "reviewListings": 0,
+                    "rejectionReasons": {},
                     "matchedCatalogIds": [],
                     "rejectedListings": 0,
                     "discardRatePct": 0,
@@ -682,6 +779,7 @@ def run_platform(platform_slug: str, args: argparse.Namespace) -> int:
     print(
         f"  Modo web: cat. videojuegos · orden {wallapop_order_by()} · "
         f"últimos {wallapop_listing_age_days()} días ({wallapop_time_filter()}) · "
+        f"fallback activos/relevancia {wallapop_active_fallback_pages()} pág. · "
         f"paginación {'completa (hasta sin cargar más)' if wallapop_per_game_pages() is None else wallapop_per_game_pages()} · "
         f"límite {args.limit} juegos · "
         f"IA anuncios {'on' if listing_ai_on else 'off (--no-ai o sin OPENAI_API_KEY)'}"

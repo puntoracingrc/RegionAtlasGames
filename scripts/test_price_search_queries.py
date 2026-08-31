@@ -18,6 +18,7 @@ from collectors.tc_client import build_tc_search_query  # noqa: E402
 from collectors.vinted_client import build_vinted_search_query  # noqa: E402
 from collectors.wallapop_client import build_wallapop_query  # noqa: E402
 from collectors.wallapop_client import fetch_game_products  # noqa: E402
+from collectors.wallapop_client import SEARCH_MODE_ACTIVE, SEARCH_MODE_RECENT  # noqa: E402
 from collectors.wallapop_client import wallapop_search_queries  # noqa: E402
 import collectors.wallapop_client as wallapop_client  # noqa: E402
 
@@ -99,6 +100,17 @@ def main() -> None:
         "Super Mario World",
     ]:
         raise AssertionError(f"wallapop/fallback: secuencia inesperada {fallback_queries!r}")
+    shortened_queries = wallapop_search_queries(
+        {"title": "Atari 50: The Anniversary Celebration", "platformSlug": "ps4"}
+    )
+    if shortened_queries != [
+        "Atari 50 The Anniversary Celebration ps4",
+        "Atari 50 The Anniversary Celebration playstation 4",
+        "Atari 50 The Anniversary Celebration",
+        "Atari 50 ps4",
+        "Atari 50",
+    ]:
+        raise AssertionError(f"wallapop/subtitulo-corto: secuencia inesperada {shortened_queries!r}")
 
     calls: list[str] = []
     diagnostics: dict[str, object] = {}
@@ -127,6 +139,44 @@ def main() -> None:
         raise AssertionError(f"wallapop/diagnostics: intentos inesperados {attempts!r}")
     if attempts[0].get("results") != 6 or attempts[1].get("newResults") != 1:
         raise AssertionError(f"wallapop/diagnostics: conteos inesperados {attempts!r}")
+
+    fallback_calls: list[tuple[str, str]] = []
+
+    def fake_sparse_fetch(query: str, **kwargs: object) -> list[dict[str, str]]:
+        mode = str(kwargs.get("search_mode") or "")
+        fallback_calls.append((query, mode))
+        if mode != SEARCH_MODE_ACTIVE or query != "Astria Ascending ps4":
+            return []
+        return [
+            {
+                "externalId": f"active-{index}",
+                "productUrl": f"https://example.test/active/{index}",
+                "title": f"Astria Ascending PS4 anuncio {index}",
+            }
+            for index in range(6)
+        ]
+
+    active_diagnostics: dict[str, object] = {}
+    try:
+        wallapop_client.fetch_query_products = fake_sparse_fetch
+        active_products = fetch_game_products(
+            {"title": "Astria Ascending", "platformSlug": "ps4"},
+            diagnostics=active_diagnostics,
+            candidate_filter=lambda product: "PS4" in str(product.get("title") or ""),
+        )
+    finally:
+        wallapop_client.fetch_query_products = original_fetch
+    if len(active_products) != 6:
+        raise AssertionError(f"wallapop/fallback-activo: esperados 6, recibidos {len(active_products)}")
+    expected_calls = [
+        ("Astria Ascending ps4", SEARCH_MODE_RECENT),
+        ("Astria Ascending ps4", SEARCH_MODE_ACTIVE),
+    ]
+    if fallback_calls != expected_calls:
+        raise AssertionError(f"wallapop/fallback-activo: consultas inesperadas {fallback_calls!r}")
+    active_attempts = active_diagnostics.get("attempts")
+    if not isinstance(active_attempts, list) or active_attempts[-1].get("mode") != SEARCH_MODE_ACTIVE:
+        raise AssertionError(f"wallapop/fallback-activo: diagnóstico incompleto {active_attempts!r}")
     print("OK: Wallapop usa título base + plataforma; resto sin sufijos")
 
 

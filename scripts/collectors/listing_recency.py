@@ -240,6 +240,11 @@ def is_recent_listing(
         if not apply_recency_to_retail():
             return True
 
+    if src == "wallapop" and str(row.get("listingType") or "").lower() == "active":
+        last_seen = parse_listed_at(str(row.get("lastSeenAt") or ""))
+        if last_seen is not None:
+            return last_seen >= listing_cutoff(now=now, source=src)
+
     listed = parse_listed_at(str(row.get("listedAt") or ""))
     if listed is None:
         collected = parse_listed_at(str(row.get("collectedAt") or ""))

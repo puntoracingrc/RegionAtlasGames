@@ -12,12 +12,13 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
-from typing import Any
+from typing import Any, Callable
 
 from collectors.common import (
     build_search_query,
     load_platforms,
     normalize_query,
+    now_iso,
     platform_search_aliases,
     platform_search_keyword,
 )
@@ -43,6 +44,10 @@ DEFAULT_GAME_LIMIT = 50
 DEFAULT_DETAIL_LIMIT = 12
 MAX_DETAIL_IMAGES = 12
 DEFAULT_MIN_QUERY_RESULTS = 6
+DEFAULT_ACTIVE_FALLBACK_PAGES = 1
+
+SEARCH_MODE_RECENT = "recent"
+SEARCH_MODE_ACTIVE = "active"
 
 DEFAULT_LATITUDE = 40.4168
 DEFAULT_LONGITUDE = -3.7038
@@ -132,6 +137,24 @@ def _wallapop_title_variants(game: dict[str, Any]) -> list[str]:
     return list(dict.fromkeys(value for value in variants if value))
 
 
+def _wallapop_short_title_variants(game: dict[str, Any]) -> list[str]:
+    """Acorta subtítulos solo como último recurso para anuncios abreviados."""
+    raw_title = str(game.get("title") or "")
+    for _ in range(5):
+        decoded = html_lib.unescape(raw_title)
+        if decoded == raw_title:
+            break
+        raw_title = decoded
+    short = normalize_query(re.split(r"\s*:\s*", raw_title, maxsplit=1)[0].strip())
+    if ":" not in raw_title or len(short.split()) < 2:
+        return []
+    variants = [short]
+    spaced = re.sub(r"(?<=\d)(?=[A-Za-z])", " ", short)
+    if spaced != short:
+        variants.append(normalize_query(spaced))
+    return list(dict.fromkeys(value for value in variants if value))
+
+
 def build_wallapop_query(game: dict[str, Any]) -> str:
     """Query principal: título base + plataforma, sin etiquetas de edición."""
     title = _wallapop_base_title(game)
@@ -168,6 +191,31 @@ def wallapop_search_queries(game: dict[str, Any]) -> list[str]:
         for title in titles
     )
     queries.extend(titles)
+    short_titles = _wallapop_short_title_variants(game)
+    queries.extend(
+        normalize_query(f"{title} {primary}" if primary else title)
+        for title in short_titles
+    )
+    queries.extend(short_titles)
+    return list(dict.fromkeys(query for query in queries if query))
+
+
+def wallapop_active_fallback_queries(game: dict[str, Any]) -> list[str]:
+    """Búsqueda de anuncios activos: exacta primero, abreviada al final."""
+    titles = _wallapop_title_variants(game)
+    short_titles = _wallapop_short_title_variants(game)
+    platform = platform_search_keyword(str(game.get("platformSlug") or ""))
+    queries = wallapop_primary_search_queries(game)
+    queries.extend(
+        normalize_query(query)
+        for query in learned_source_queries(game.get("id") or game.get("catalogId"), "wallapop")
+    )
+    queries.extend(titles)
+    queries.extend(
+        normalize_query(f"{title} {platform}" if platform else title)
+        for title in short_titles
+    )
+    queries.extend(short_titles)
     return list(dict.fromkeys(query for query in queries if query))
 
 
@@ -177,6 +225,14 @@ def wallapop_min_query_results() -> int:
         return max(1, int(raw)) if raw else DEFAULT_MIN_QUERY_RESULTS
     except ValueError:
         return DEFAULT_MIN_QUERY_RESULTS
+
+
+def wallapop_active_fallback_pages() -> int:
+    raw = os.environ.get("WALLAPOP_ACTIVE_FALLBACK_PAGES", "").strip()
+    try:
+        return max(1, min(3, int(raw))) if raw else DEFAULT_ACTIVE_FALLBACK_PAGES
+    except ValueError:
+        return DEFAULT_ACTIVE_FALLBACK_PAGES
 
 
 def _headers() -> dict[str, str]:
@@ -384,6 +440,7 @@ def parse_search_item(item: dict[str, Any]) -> dict[str, Any] | None:
         "priceEur": price,
         "externalId": item_id,
         "listingType": "active",
+        "lastSeenAt": now_iso(),
         "source": "wallapop",
     }
     if listed_at:
@@ -400,6 +457,7 @@ def search_page(
     keywords: str,
     next_page: str | None = None,
     category_id: str = DEFAULT_CATEGORY_ID,
+    search_mode: str = SEARCH_MODE_RECENT,
     retries: int = 3,
 ) -> dict[str, Any]:
     lat, lon = _coords()
@@ -408,10 +466,13 @@ def search_page(
         "filters_source": "search_box",
         "longitude": str(lon),
         "latitude": str(lat),
-        "order_by": wallapop_order_by(),
         "category_ids": category_id,
-        "time_filter": wallapop_time_filter(),
     }
+    if search_mode == SEARCH_MODE_ACTIVE:
+        params["order_by"] = "most_relevance"
+    else:
+        params["order_by"] = wallapop_order_by()
+        params["time_filter"] = wallapop_time_filter()
     if next_page:
         params["next_page"] = next_page
     else:
@@ -448,6 +509,7 @@ def fetch_query_products(
     *,
     max_pages: int | None = None,
     delay_s: float = 0.35,
+    search_mode: str = SEARCH_MODE_RECENT,
 ) -> list[dict[str, Any]]:
     """Pagina hasta que la API no devuelve next_page (= sin «Cargar más» en la web)."""
     page_limit = max_pages if max_pages is not None else wallapop_per_game_pages()
@@ -457,7 +519,11 @@ def fetch_query_products(
     pages = 0
 
     while True:
-        payload = search_page(keywords=keywords, next_page=next_token)
+        payload = search_page(
+            keywords=keywords,
+            next_page=next_token,
+            search_mode=search_mode,
+        )
         section = (payload.get("data") or {}).get("section") or {}
         items = (section.get("payload") or {}).get("items") or []
         pages += 1
@@ -473,6 +539,7 @@ def fetch_query_products(
                 continue
             seen.add(key)
             product["searchQuery"] = keywords
+            product["searchMode"] = search_mode
             products.append(product)
 
         next_token = (payload.get("meta") or {}).get("next_page")
@@ -491,14 +558,25 @@ def fetch_game_products(
     max_pages: int | None = None,
     delay_s: float = 0.35,
     diagnostics: dict[str, Any] | None = None,
+    candidate_filter: Callable[[dict[str, Any]], bool] | None = None,
 ) -> list[dict[str, Any]]:
     seen: set[str] = set()
     products: list[dict[str, Any]] = []
     attempts: list[dict[str, Any]] = []
     minimum_results = wallapop_min_query_results()
     primary_queries = wallapop_primary_search_queries(game)
-    for index, query in enumerate(wallapop_search_queries(game)):
-        fetched = fetch_query_products(query, max_pages=max_pages, delay_s=delay_s)
+
+    def relevant_count() -> int:
+        if candidate_filter is None:
+            return len(products)
+        return sum(1 for product in products if candidate_filter(product))
+
+    def append_results(
+        query: str,
+        fetched: list[dict[str, Any]],
+        *,
+        search_mode: str,
+    ) -> None:
         added = 0
         for product in fetched:
             key = str(product.get("externalId") or product.get("productUrl") or "")
@@ -506,24 +584,54 @@ def fetch_game_products(
                 continue
             seen.add(key)
             product["searchQuery"] = query
+            product["searchMode"] = search_mode
             products.append(product)
             added += 1
         attempts.append(
             {
                 "query": query,
+                "mode": search_mode,
                 "results": len(fetched),
                 "newResults": added,
                 "cumulativeResults": len(products),
+                "relevantResults": relevant_count(),
             }
         )
+
+    for index, query in enumerate(primary_queries):
+        fetched = fetch_query_products(
+            query,
+            max_pages=max_pages,
+            delay_s=delay_s,
+            search_mode=SEARCH_MODE_RECENT,
+        )
+        append_results(query, fetched, search_mode=SEARCH_MODE_RECENT)
         tried_all_primary_spellings = index + 1 >= len(primary_queries)
-        if tried_all_primary_spellings and len(products) >= minimum_results:
+        if tried_all_primary_spellings and relevant_count() >= minimum_results:
             break
+
+    if relevant_count() < minimum_results:
+        fallback_pages = wallapop_active_fallback_pages()
+        if max_pages is not None:
+            fallback_pages = min(fallback_pages, max_pages)
+        fallback_primary = wallapop_primary_search_queries(game)
+        for index, query in enumerate(wallapop_active_fallback_queries(game)):
+            fetched = fetch_query_products(
+                query,
+                max_pages=fallback_pages,
+                delay_s=delay_s,
+                search_mode=SEARCH_MODE_ACTIVE,
+            )
+            append_results(query, fetched, search_mode=SEARCH_MODE_ACTIVE)
+            tried_all_primary_spellings = index + 1 >= len(fallback_primary)
+            if tried_all_primary_spellings and relevant_count() >= minimum_results:
+                break
     if diagnostics is not None:
         diagnostics.update(
             {
                 "attempts": attempts,
                 "candidateCount": len(products),
+                "relevantCandidateCount": relevant_count(),
                 "minimumResultsBeforeFallback": minimum_results,
             }
         )
@@ -534,6 +642,8 @@ __all__ = [
     "DEFAULT_CATEGORY_ID",
     "DEFAULT_GAME_LIMIT",
     "DEFAULT_ORDER_BY",
+    "SEARCH_MODE_ACTIVE",
+    "SEARCH_MODE_RECENT",
     "WallapopBlockedError",
     "build_wallapop_query",
     "enrich_product_details",
@@ -547,6 +657,8 @@ __all__ = [
     "wallapop_game_limit",
     "wallapop_detail_limit",
     "wallapop_min_query_results",
+    "wallapop_active_fallback_pages",
+    "wallapop_active_fallback_queries",
     "wallapop_order_by",
     "wallapop_primary_search_queries",
     "wallapop_search_queries",
