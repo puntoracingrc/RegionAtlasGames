@@ -341,17 +341,13 @@
       }
     },
     {
-      "catalogIds": [
-        "ps4-adam%27s-venture-origins",
-        "ps4-adam-s-venture-origins"
-      ],
+      "catalogId": "ps4-adam-s-venture-origins",
       "title": "Adam's Venture Origins",
       "status": "accepted",
       "conditions": {
         "complete": { "minimum": 25, "maximum": 30, "sources": ["wallapop"] },
         "sealed": { "minimum": 70, "maximum": 70, "sources": ["wallapop"] }
-      },
-      "note": "Dos IDs actuales representan el mismo titulo; reciben el mismo precio provisional."
+      }
     },
     {
       "catalogId": "ps4-adventure-academia-the-fractured-continent",

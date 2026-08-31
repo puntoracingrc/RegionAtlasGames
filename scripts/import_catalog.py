@@ -4,11 +4,10 @@
 from __future__ import annotations
 
 import json
-import re
-import unicodedata
 from pathlib import Path
 
 import pandas as pd
+from catalog_identity import catalog_identity_key, game_identity_key, slugify
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCEL = Path("/Users/macbookpro14/Downloads/CATALOGO_COMPLETO_PAL_ESPAÑA.xlsx")
@@ -44,14 +43,6 @@ EXCEL_TO_SLUG = {
     "NEO GEO POCKET": "neogeopocket",
     "NEO GEO POCKET COLOR": "neogeopocket",
 }
-
-
-def slugify(text: str) -> str:
-    t = unicodedata.normalize("NFKD", str(text))
-    t = t.encode("ascii", "ignore").decode("ascii").lower()
-    t = re.sub(r"[^a-z0-9]+", "-", t).strip("-")
-    return t or "juego"
-
 
 def clean(value):
     if value is None or (isinstance(value, float) and pd.isna(value)):
@@ -108,6 +99,10 @@ def main() -> None:
         for game in json.loads(CATALOG_OUT.read_text(encoding="utf-8")):
             catalog[game["id"]] = game
 
+    catalog_by_identity: dict[str, list[str]] = {}
+    for game in catalog.values():
+        catalog_by_identity.setdefault(game_identity_key(game), []).append(game["id"])
+
     collection: list[dict] = []
     coll_slugs: dict[str, int] = {}
 
@@ -121,7 +116,30 @@ def main() -> None:
             continue
 
         in_retro = plat in retro_slugs
+        incoming_region = clean(row.get("Región")) or "PAL España"
+        incoming_pc_id = num(row.get("ID PriceCharting"))
         cat_id = catalog_key(plat, title) if in_retro else None
+        if in_retro and cat_id not in catalog:
+            identity = catalog_identity_key(
+                platform_slug=plat,
+                region=incoming_region,
+                edition="standard",
+                physical_variant=None,
+                title=title,
+            )
+            identity_matches = catalog_by_identity.get(identity, [])
+            if len(identity_matches) == 1:
+                cat_id = identity_matches[0]
+            elif incoming_pc_id is not None:
+                pc_matches = [
+                    game["id"]
+                    for game in catalog.values()
+                    if game.get("platformSlug") == plat
+                    and game.get("pcId") == incoming_pc_id
+                    and game.get("listingStatus") != "excluded"
+                ]
+                if len(pc_matches) == 1:
+                    cat_id = pc_matches[0]
 
         if in_retro and cat_id not in catalog:
             catalog[cat_id] = {
@@ -130,16 +148,17 @@ def main() -> None:
                 "title": title,
                 "titlePc": clean(row.get("Título PriceCharting")),
                 "platformSlug": plat,
-                "region": clean(row.get("Región")) or "PAL España",
+                "region": incoming_region,
                 "edition": "standard",
                 "listingStatus": "listed",
                 "coverUrl": clean(row.get("URL Portada")),
-                "pcId": num(row.get("ID PriceCharting")),
+                "pcId": incoming_pc_id,
                 "pcRegion": clean(row.get("Región PC")),
                 "pcCondition": clean(row.get("Estado PriceCharting")),
                 "matchConfidence": clean(row.get("Confianza Match")),
                 **market_fields(row),
             }
+            catalog_by_identity.setdefault(game_identity_key(catalog[cat_id]), []).append(cat_id)
         if in_retro and cat_id in catalog:
             existing = catalog[cat_id]
             incoming = market_fields(row)
@@ -150,8 +169,8 @@ def main() -> None:
                 existing["coverUrl"] = clean(row.get("URL Portada"))
             if clean(row.get("Título PriceCharting")):
                 existing["titlePc"] = clean(row.get("Título PriceCharting"))
-            if num(row.get("ID PriceCharting")):
-                existing["pcId"] = num(row.get("ID PriceCharting"))
+            if incoming_pc_id:
+                existing["pcId"] = incoming_pc_id
             existing["matchConfidence"] = clean(row.get("Confianza Match")) or existing.get("matchConfidence")
             existing["listingStatus"] = "listed"
 
@@ -170,7 +189,7 @@ def main() -> None:
                 "inRetroCatalog": in_retro,
                 "title": title,
                 "platformSlug": plat,
-                "region": clean(row.get("Región")) or "PAL España",
+                "region": incoming_region,
                 "sealed": str(clean(row.get("Precintado")) or "").upper() == "SI",
                 "quantity": qty,
                 "quantityPc": num(row.get("Cantidad PC verificada")),

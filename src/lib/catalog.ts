@@ -1,4 +1,5 @@
 import catalogData from "../../data/catalog.json";
+import catalogIdAliasesData from "../../data/catalog-id-aliases.json";
 import collectionData from "../../data/collection.json";
 import metaData from "../../data/meta.json";
 import platformsData from "../../data/platforms.json";
@@ -26,6 +27,7 @@ export function isListedGame(game: CatalogGame): boolean {
 export const listedCatalog = catalog.filter(isListedGame);
 
 const catalogById = new Map(catalog.map((g) => [g.id, g]));
+const catalogIdAliases = new Map(Object.entries(catalogIdAliasesData as Record<string, string>));
 const platformBySlug = new Map(platforms.map((p) => [p.slug, p]));
 
 export function getPlatform(slug: string): Platform | undefined {
@@ -43,11 +45,15 @@ export function isPublicCatalogGame(game: CatalogGame): boolean {
 export const publicListedCatalog = listedCatalog.filter(isPublicCatalogGame);
 
 export function getCatalogGame(id: string): CatalogGame | undefined {
-  return catalogById.get(id);
+  return catalogById.get(id) ?? catalogById.get(catalogIdAliases.get(id) ?? "");
 }
 
 export function resolveCatalogIdParam(value: string): string {
-  return resolveEncodedCatalogIdParam(value, (candidate) => catalogById.has(candidate));
+  const resolved = resolveEncodedCatalogIdParam(
+    value,
+    (candidate) => catalogById.has(candidate) || catalogIdAliases.has(candidate),
+  );
+  return catalogIdAliases.get(resolved) ?? resolved;
 }
 
 export function getCollectionItem(id: string): CollectionView | undefined {
