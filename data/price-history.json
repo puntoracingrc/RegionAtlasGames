@@ -9467,6 +9467,14 @@
         "gameManual": null,
         "complete": 16.99,
         "sealed": null
+      },
+      {
+        "at": "2026-08-30T21:45:31Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.13,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-asterix-&amp;-obelix-xxxl-the-ram-from-hibernia-limited-edition": [
@@ -10479,6 +10487,66 @@
         "gameManual": null,
         "complete": 28.74,
         "sealed": 29.9,
+        "newRetail": null
+      }
+    ],
+    "ps4-assassins-creed-syndicate": [
+      {
+        "at": "2026-08-30T21:45:31Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.33,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-assassins-creed-the-ezio-collection": [
+      {
+        "at": "2026-08-30T21:45:31Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 23.43,
+        "sealed": 44.95,
+        "newRetail": null
+      }
+    ],
+    "ps4-assassins-creed-unity": [
+      {
+        "at": "2026-08-30T21:45:31Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 13.48,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-assetto-corsa": [
+      {
+        "at": "2026-08-30T21:45:31Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-assetto-corsa-competizione": [
+      {
+        "at": "2026-08-30T21:45:31Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.21,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-astro-bot-rescue-mission": [
+      {
+        "at": "2026-08-30T22:04:45Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 24.67,
+        "sealed": null,
         "newRetail": null
       }
     ]
