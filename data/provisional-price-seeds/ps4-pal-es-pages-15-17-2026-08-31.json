@@ -1,0 +1,1307 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-pages-15-17-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T21:42:08Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Tramos Disgaea 5 Alliance of Vengeance a Encodya [Neon Edition] del catálogo PS4 PAL España.",
+    "Se mantienen separados completo, suelto, precintado y nuevo en tienda.",
+    "Las fichas de tienda sin stock alimentan solo la referencia provisional de nuevo retail y no confirman disponibilidad.",
+    "Las referencias RA, estados mezclados, ediciones distintas y muestras incompletas quedan documentadas sin duplicar observaciones.",
+    "Los resultados aplicados siguen siendo orientativos y no convierten una región dudosa en verificada."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-disgaea-5-alliance-of-vengeance",
+      "title": "Disgaea 5 Alliance of Vengeance",
+      "status": "accepted",
+      "conditions": {
+        "loose": {
+          "minimum": 19.5,
+          "maximum": 19.5,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-disgaea-5-alliance-of-vengeance-limited-edition",
+      "title": "Disgaea 5: Alliance of Vengeance [Limited Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-disgaea-6-complete-deluxe-edition",
+      "title": "Disgaea 6 Complete [Deluxe Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-disgaea-7-vows-of-the-virtueless-deluxe-edition",
+      "title": "Disgaea 7: Vows Of The Virtueless [Deluxe Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dishonored-pray-arkane-collection",
+      "title": "Dishonored & Pray Arkane Collection",
+      "status": "skipped",
+      "reason": "Referencia orientativa de Region Atlas ya existente; no se reincorpora como observación nueva."
+    },
+    {
+      "catalogId": "ps4-dishonored-2",
+      "title": "Dishonored 2",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 5,
+          "maximum": 5,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dishonored-complete-collection",
+      "title": "Dishonored Complete Collection",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dishonored-definitive-edition",
+      "title": "Dishonored Definitive Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 17.95,
+          "maximum": 17.95,
+          "sources": [
+            "cash-converters"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dishonored-prey-the-arkane-collection",
+      "title": "Dishonored Prey: The Arkane Collection",
+      "status": "skipped",
+      "reason": "no la mezclo con la ficha anterior «Dishonored & Pray»."
+    },
+    {
+      "catalogId": "ps4-dishonored-death-of-the-outsider",
+      "title": "Dishonored: Death of the Outsider",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-disney-classic-games-collection-the-jungle-book-aladdin-&amp;-the-lion-king",
+      "title": "Disney Classic Games Collection: The Jungle Book, Aladdin & The Lion King",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 14.99,
+          "maximum": 14.99,
+          "sources": [
+            "mediamarkt"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-disney-classic-games-aladdin-and-the-lion-king",
+      "title": "Disney Classic Games: Aladdin And The Lion King",
+      "status": "skipped",
+      "reason": "no utilizo el precio de la colección que también incluye The Jungle Book."
+    },
+    {
+      "catalogId": "ps4-disney-dreamlight-valley-cozy-edition",
+      "title": "Disney Dreamlight Valley: Cozy Edition",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 34.95,
+          "maximum": 36.9,
+          "sources": [
+            "xtralife",
+            "impact-game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-disney-infinity",
+      "title": "Disney Infinity",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-disney-infinity-20",
+      "title": "Disney Infinity 2.0",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-disney-infinity-30",
+      "title": "Disney Infinity 3.0",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-disney-infinity-30-starter-pack",
+      "title": "Disney Infinity 3.0 Starter Pack",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-disney-infinity-marvel-3-0-starter-pack",
+      "title": "Disney Infinity Marvel 3.0. Starter Pack",
+      "status": "skipped",
+      "reason": "Referencia orientativa de Region Atlas ya existente; no se reincorpora como observación nueva."
+    },
+    {
+      "catalogId": "ps4-disney-infinity-marvel-super-heroes-starter-pak-20",
+      "title": "Disney Infinity: Marvel Super Heroes Starter Pak 2.0",
+      "status": "skipped",
+      "reason": "no traslado el precio del Starter Pack 3.0."
+    },
+    {
+      "catalogId": "ps4-disney-universe",
+      "title": "Disney Universe",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dissidia-final-fantasy-nt",
+      "title": "Dissidia Final Fantasy NT",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 8.95,
+          "maximum": 8.95,
+          "sources": [
+            "cash-converters"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-distrust",
+      "title": "Distrust",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-divinity-original-sin-enhanced-edition",
+      "title": "Divinity: Original Sin [Enhanced Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-divinity-original-sin-ii-definitive-edition",
+      "title": "Divinity: Original Sin II: Definitive Edition",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dmc-devil-may-cry-definitive-edition",
+      "title": "DMC: Devil May Cry [Definitive Edition]",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 14.99,
+          "maximum": 14.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-do-not-feed-the-monkeys",
+      "title": "Do Not Feed The Monkeys",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-do-not-open",
+      "title": "Do Not Open",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 19.99,
+          "maximum": 24.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-doctor-who-duo-bundle",
+      "title": "Doctor Who: Duo Bundle",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 32.99,
+          "maximum": 32.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-doctor-who-the-edge-of-time",
+      "title": "Doctor Who: The Edge of Time",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 19.95,
+          "maximum": 19.95,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dodgeball-academia",
+      "title": "Dodgeball Academia",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dogchild",
+      "title": "Dogchild",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dogurai",
+      "title": "Dogurai",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-doki-doki-literature-club-plus",
+      "title": "Doki Doki Literature Club Plus",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 39.99,
+          "maximum": 39.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dollhouse",
+      "title": "Dollhouse",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dolmen-day-one-edition",
+      "title": "Dolmen [Day One Edition]",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 9.99,
+          "maximum": 9.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dolphin-spirit-ocean-mission",
+      "title": "Dolphin Spirit: Ocean Mission",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-don-bradman-cricket",
+      "title": "Don Bradman Cricket",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-don-bradman-cricket-17",
+      "title": "Don Bradman Cricket 17",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-don%27t-knock-twice",
+      "title": "Don’t Knock Twice",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 14.95,
+          "maximum": 14.95,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-don%27t-starve",
+      "title": "Don’t Starve",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-doom",
+      "title": "Doom",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-doom-3-vr-edition",
+      "title": "DOOM 3: VR Edition",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-doom-anthology-collector%27s-edition",
+      "title": "Doom Anthology [Collector’s Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-doom-eternal",
+      "title": "Doom Eternal",
+      "status": "skipped",
+      "reason": "Las fichas GAME mezclan precios y estados; no se asigna el rango a completo ni a nuevo retail."
+    },
+    {
+      "catalogId": "ps4-doom-slayers-collection",
+      "title": "Doom Slayers Collection",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 24.95,
+          "maximum": 24.95,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-doom-vfr",
+      "title": "Doom VFR",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-doom-vr-pack",
+      "title": "Doom VR Pack",
+      "status": "skipped",
+      "reason": "no lo mezclo con DOOM 3 VR ni con DOOM VFR por separado."
+    },
+    {
+      "catalogId": "ps4-door-kickers-action-squad",
+      "title": "Door Kickers: Action Squad",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-doraemon-story-of-seasons",
+      "title": "Doraemon: Story Of Seasons",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 19.99,
+          "maximum": 19.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-double-dragon-gaiden-rise-of-the-dragons",
+      "title": "Double Dragon Gaiden Rise of the Dragons",
+      "status": "skipped",
+      "reason": "Referencia orientativa de Region Atlas ya existente; no se reincorpora como observación nueva."
+    },
+    {
+      "catalogId": "ps4-double-kick-heroes-steel-book",
+      "title": "Double Kick Heroes [Steel Book]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-double-pack-assassin%27s-creed-odyssey-&#43;-assassin%27s-creed-origins",
+      "title": "Double Pack: Assassin’s Creed Odyssey + Assassin’s Creed Origins",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-down-the-rabbit-hole",
+      "title": "Down the Rabbit Hole",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-downward-spiral-horus-station",
+      "title": "Downward Spiral: Horus Station",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dragon-age-inquisition",
+      "title": "Dragon Age Inquisition",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dragon-age-inquisition-deluxe-edition",
+      "title": "Dragon Age: Inquisition [Deluxe Edition]",
+      "status": "skipped",
+      "reason": "no traslado el precio de la edición estándar."
+    },
+    {
+      "catalogId": "ps4-dragon-ball-fighterz",
+      "title": "Dragon Ball FighterZ",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 12.99,
+          "maximum": 12.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dragon-ball-fighterz-&#43;-dragon-ball-xenoverse-2",
+      "title": "Dragon Ball Fighterz + Dragon Ball Xenoverse 2",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 16.99,
+          "maximum": 16.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dragon-ball-xenoverse",
+      "title": "Dragon Ball Xenoverse",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack",
+      "title": "Dragon Ball Xenoverse 1 & 2 Double Pack",
+      "status": "skipped",
+      "reason": "Las fichas GAME mezclan precios y estados; no se asigna el rango a completo ni a nuevo retail."
+    },
+    {
+      "catalogId": "ps4-dragon-ball-xenoverse-2",
+      "title": "Dragon Ball Xenoverse 2",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 9.99,
+          "maximum": 9.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dragon-ball-z-kakarot",
+      "title": "Dragon Ball Z Kakarot",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 14.99,
+          "maximum": 14.99,
+          "sources": [
+            "game"
+          ]
+        },
+        "new_retail": {
+          "minimum": 19.99,
+          "maximum": 19.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dragon-ball-z-kakarot-legendary-edition",
+      "title": "Dragon Ball Z: Kakarot [Legendary Edition]",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 59.99,
+          "maximum": 59.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dragon-ball-the-breakers-special-edition",
+      "title": "Dragon Ball: The Breakers [Special Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dragon-quest-builders",
+      "title": "Dragon Quest Builders",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dragon-quest-builders-2",
+      "title": "Dragon Quest Builders 2",
+      "status": "skipped",
+      "reason": "Referencia orientativa de Region Atlas ya existente; no se reincorpora como observación nueva."
+    },
+    {
+      "catalogId": "ps4-dragon-quest-heroes",
+      "title": "Dragon Quest Heroes",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dragon-quest-heroes-ii",
+      "title": "Dragon Quest Heroes II",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dragon-quest-xi-echoes-of-an-elusive-age",
+      "title": "Dragon Quest XI Echoes of An Elusive Age",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dragon-quest-xi-edicion-definitiva",
+      "title": "Dragon Quest XI Edición Definitiva",
+      "status": "skipped",
+      "reason": "Referencia orientativa de Region Atlas ya existente; no se reincorpora como observación nueva."
+    },
+    {
+      "catalogId": "ps4-dragon-quest-xi-s-echoes-of-an-elusive-age-definitive-edition",
+      "title": "Dragon Quest XI S: Echoes of an Elusive Age Definitive Edition",
+      "status": "skipped",
+      "reason": "no aplico automáticamente la referencia de la ficha anterior."
+    },
+    {
+      "catalogId": "ps4-dragon-quest-xi-echoes-of-an-elusive-age-edition-of-light",
+      "title": "Dragon Quest XI: Echoes Of An Elusive Age [Edition Of Light]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dragon-star-varnir",
+      "title": "Dragon Star Varnir",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 29.99,
+          "maximum": 29.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dragon%27s-crown-pro",
+      "title": "Dragon’s Crown Pro",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 14.99,
+          "maximum": 14.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dragon%27s-dogma-dark-arisen",
+      "title": "Dragon’s Dogma Dark Arisen",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 14.99,
+          "maximum": 14.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dragons-crwon-pro",
+      "title": "Dragons Crwon Pro",
+      "status": "skipped",
+      "reason": "Referencia orientativa de Region Atlas ya existente; no se reincorpora como observación nueva."
+    },
+    {
+      "catalogId": "ps4-dragons-dawn-of-new-riders",
+      "title": "Dragons Dawn Of New Riders",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dragons-legends-of-the-nine-realms",
+      "title": "Dragons: Legends of the Nine Realms",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-drawfighters",
+      "title": "Drawfighters",
+      "status": "skipped",
+      "reason": "Referencia orientativa de Region Atlas ya existente; no se reincorpora como observación nueva."
+    },
+    {
+      "catalogId": "ps4-dreamfall-chapters",
+      "title": "Dreamfall Chapters",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dreams",
+      "title": "Dreams",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 9.99,
+          "maximum": 9.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dreamworks-all-star-kart-racing",
+      "title": "DreamWorks All-Star Kart Racing",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dredge-deluxe-edition",
+      "title": "Dredge: Deluxe Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 24.99,
+          "maximum": 24.99,
+          "sources": [
+            "game"
+          ]
+        },
+        "new_retail": {
+          "minimum": 29.99,
+          "maximum": 29.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-driveclub",
+      "title": "DriveClub",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 6.95,
+          "maximum": 6.95,
+          "sources": [
+            "game"
+          ]
+        },
+        "new_retail": {
+          "minimum": 19.95,
+          "maximum": 19.95,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-driveclub-vr",
+      "title": "DriveClub VR",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 6.95,
+          "maximum": 6.95,
+          "sources": [
+            "game"
+          ]
+        },
+        "new_retail": {
+          "minimum": 19.95,
+          "maximum": 19.95,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-drunkn-bar-fight",
+      "title": "Drunkn Bar Fight",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-ducati-90th-anniversary",
+      "title": "Ducati : 90th Anniversary",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-duck-souls&#43;",
+      "title": "Duck Souls+",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dungeon-of-the-endless",
+      "title": "Dungeon Of The Endless",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 9.99,
+          "maximum": 9.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dungeons-&amp;-dragons-dark-alliance-steelbook-edition",
+      "title": "Dungeons & Dragons Dark Alliance [Steelbook Edition]",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 24.99,
+          "maximum": 24.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dungeons-&amp;-dragons-dark-alliance-day-one-edition",
+      "title": "Dungeons & Dragons: Dark Alliance [Day One Edition]",
+      "status": "skipped",
+      "reason": "no utilizo el precio de la Steelbook."
+    },
+    {
+      "catalogId": "ps4-dungeons-2",
+      "title": "Dungeons 2",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dungeons-iii",
+      "title": "Dungeons III",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dungeons-iii-complete-collection",
+      "title": "Dungeons III: Complete Collection",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dungeons-of-the-endless-signature-edition",
+      "title": "Dungeons of the Endless Signature Edition",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 44.99,
+          "maximum": 44.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dusk-diver",
+      "title": "Dusk Diver",
+      "status": "skipped",
+      "reason": "para la edición estándar. He localizado la Day One Edition a 44,95 €, pero no traslado ese precio a esta ficha."
+    },
+    {
+      "catalogId": "ps4-dusk-diver-2-launch-edition",
+      "title": "Dusk Diver 2 [Launch Edition]",
+      "status": "skipped",
+      "reason": "las muestras localizadas no permitían asegurar una edición PAL España exacta."
+    },
+    {
+      "catalogId": "ps4-dying-light",
+      "title": "Dying Light",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dying-light-2-stay-human",
+      "title": "Dying Light 2: Stay Human",
+      "status": "skipped",
+      "reason": "para la edición estándar exacta."
+    },
+    {
+      "catalogId": "ps4-dying-light-the-following-enhanced-edition",
+      "title": "Dying Light: The Following [Enhanced Edition]",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 22.99,
+          "maximum": 22.99,
+          "sources": [
+            "game"
+          ]
+        },
+        "new_retail": {
+          "minimum": 29.95,
+          "maximum": 29.95,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-dynasty-feud",
+      "title": "Dynasty Feud",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dynasty-warriors-8-empires",
+      "title": "Dynasty Warriors 8 Empires",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dynasty-warriors-8-xtreme-legends-complete-edition",
+      "title": "Dynasty Warriors 8 Xtreme Legends [Complete Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dynasty-warriors-9",
+      "title": "Dynasty Warriors 9",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-dynasty-warriors-9-empires",
+      "title": "Dynasty Warriors 9 Empires",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-ea-sports-fc-24",
+      "title": "EA Sports FC 24",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 14.99,
+          "maximum": 14.99,
+          "sources": [
+            "game"
+          ]
+        },
+        "new_retail": {
+          "minimum": 29.99,
+          "maximum": 29.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-ea-sports-fc-25",
+      "title": "EA Sports FC 25",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 24.99,
+          "maximum": 24.99,
+          "sources": [
+            "game"
+          ]
+        },
+        "new_retail": {
+          "minimum": 29.99,
+          "maximum": 29.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-ea-sports-fc-26",
+      "title": "EA Sports FC 26",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 26.99,
+          "maximum": 26.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-ea-sports-madden-nfl-25",
+      "title": "EA Sports Madden NFL 25",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-eagle-flight",
+      "title": "Eagle Flight",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-earth-defense-force-41-the-shadow-of-new-despair",
+      "title": "Earth Defense Force 4.1: The Shadow of New Despair",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 14.95,
+          "maximum": 14.95,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-earth-defense-force-5",
+      "title": "Earth Defense Force 5",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 34.95,
+          "maximum": 34.95,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-earth-s-dawn",
+      "title": "Earth’s Dawn",
+      "status": "skipped",
+      "reason": "Referencia orientativa de Region Atlas ya existente; no se reincorpora como observación nueva."
+    },
+    {
+      "catalogId": "ps4-earthfall-deluxe-edition",
+      "title": "Earthfall [Deluxe Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-earthlock-festival-of-magic",
+      "title": "Earthlock Festival Of Magic",
+      "status": "skipped",
+      "reason": "Las fichas GAME mezclan precios y estados; no se asigna el rango a completo ni a nuevo retail."
+    },
+    {
+      "catalogId": "ps4-edge-of-eternity",
+      "title": "Edge of Eternity",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 19.99,
+          "maximum": 19.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-efootball-pes-2020",
+      "title": "eFootball PES 2020",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 9.99,
+          "maximum": 9.99,
+          "sources": [
+            "game"
+          ]
+        },
+        "new_retail": {
+          "minimum": 19.95,
+          "maximum": 19.95,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-efootball-pes-2021-season-update",
+      "title": "eFootball PES 2021 Season Update",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 19.99,
+          "maximum": 19.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-eiyuden-chronicle-hundred-heroes",
+      "title": "Eiyuden Chronicle: Hundred Heroes",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-eiyuden-chronicle-rising",
+      "title": "Eiyuden Chronicle: Rising",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 34.99,
+          "maximum": 34.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-elden-ring",
+      "title": "Elden Ring",
+      "status": "skipped",
+      "reason": "para la edición estándar."
+    },
+    {
+      "catalogId": "ps4-elden-ring-lanzamiento",
+      "title": "Elden Ring Lanzamiento",
+      "status": "skipped",
+      "reason": "Referencia orientativa de Region Atlas ya existente; no se reincorpora como observación nueva."
+    },
+    {
+      "catalogId": "ps4-elden-ring-nightreign",
+      "title": "Elden Ring Nightreign",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 24.99,
+          "maximum": 24.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-elder-scorlls-online-morrowind",
+      "title": "Elder Scorlls Online : Morrowind",
+      "status": "skipped",
+      "reason": "Referencia orientativa de Region Atlas ya existente; no se reincorpora como observación nueva."
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-online-elsweyr",
+      "title": "Elder Scrolls Online Elsweyr",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-online-morrowind",
+      "title": "Elder Scrolls Online Morrowind",
+      "status": "skipped",
+      "reason": "no hereda automáticamente los 7 € de la ficha anterior."
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-online-summerset",
+      "title": "Elder Scrolls Online Summerset",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-online-tamriel-unlimited",
+      "title": "Elder Scrolls Online Tamriel Unlimited",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-online-gold-edition",
+      "title": "Elder Scrolls Online: Gold Edition",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-online-greymoor-collector%27s-edition",
+      "title": "Elder Scrolls Online: Greymoor [Collector’s Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-online-morrowind-collector%27s-edition",
+      "title": "Elder Scrolls Online: Morrowind [Collector’s Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-online-summerset-collector%27s-edition",
+      "title": "Elder Scrolls Online: Summerset [Collector’s Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-online-tamriel-unlimited-crown-edition",
+      "title": "Elder Scrolls Online: Tamriel Unlimited [Crown Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-v-skyrim-special-edition",
+      "title": "Elder Scrolls V Skyrim [Special Edition]",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 19.99,
+          "maximum": 19.99,
+          "sources": [
+            "game"
+          ]
+        },
+        "new_retail": {
+          "minimum": 29.99,
+          "maximum": 29.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-v-skyrim-vr",
+      "title": "Elder Scrolls V Skyrim VR",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-elder-scrolls-v-skyrim-steelbook-edition",
+      "title": "Elder Scrolls V: Skyrim [Steelbook Edition]",
+      "status": "skipped",
+      "reason": "no traslado el precio de la Special Edition estándar."
+    },
+    {
+      "catalogId": "ps4-eldrador-creatures",
+      "title": "Eldrador Creatures",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-elex",
+      "title": "Elex",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-elex-ii",
+      "title": "Elex II",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 9.99,
+          "maximum": 9.99,
+          "sources": [
+            "game"
+          ]
+        },
+        "new_retail": {
+          "minimum": 12.99,
+          "maximum": 12.99,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-elite-dangerous-legendary-edition",
+      "title": "Elite Dangerous: Legendary Edition",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 14.95,
+          "maximum": 14.95,
+          "sources": [
+            "game"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-embr-uber-firefighters",
+      "title": "Embr: Uber Firefighters",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-emergency-call-the-attack-squad",
+      "title": "Emergency Call - The Attack Squad",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    },
+    {
+      "catalogId": "ps4-empire-of-sin",
+      "title": "Empire of Sin",
+      "status": "skipped",
+      "reason": "para la edición estándar; no utilizo precios de la Day One Edition."
+    },
+    {
+      "catalogId": "ps4-encodya-neon-edition",
+      "title": "Encodya [Neon Edition]",
+      "status": "skipped",
+      "reason": "Sin muestra exacta útil en la revisión actual."
+    }
+  ]
+}
