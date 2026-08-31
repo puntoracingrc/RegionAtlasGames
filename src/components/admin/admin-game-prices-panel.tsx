@@ -371,6 +371,11 @@ export function AdminGamePricesPanel({ catalogId, initialPrices, updatedAt }: Pr
           onChange={(v) => patchPrice("estimatedPriceSealed", v)}
         />
         <PriceInput
+          label="Nuevo en tienda"
+          value={numValue(prices.estimatedPriceNewRetail)}
+          onChange={(v) => patchPrice("estimatedPriceNewRetail", v)}
+        />
+        <PriceInput
           label="Mínimo mercado"
           value={numValue(prices.marketMin)}
           onChange={(v) => patchPrice("marketMin", v)}

@@ -177,6 +177,7 @@ export function catalogGameToCollectionItem(
     estimatedPriceGameManual: game.estimatedPriceGameManual ?? null,
     estimatedPriceComplete: game.estimatedPriceComplete ?? null,
     estimatedPriceSealed: game.estimatedPriceSealed ?? null,
+    estimatedPriceNewRetail: game.estimatedPriceNewRetail ?? null,
     priceDataSources: game.priceDataSources ?? null,
     pcRefPrice: game.pcRefPrice,
     deltaEsVsPc: game.deltaEsVsPc,

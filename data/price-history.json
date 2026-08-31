@@ -8757,6 +8757,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 63.98
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 63.98,
+        "newRetail": 19.95
       }
     ],
     "ps4-aeternoblade-ii": [
@@ -8775,6 +8783,14 @@
         "gameManual": null,
         "complete": 14.96,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.96,
+        "sealed": 23.68,
+        "newRetail": null
       }
     ],
     "ps4-afterimage-deluxe-edition": [
@@ -8809,6 +8825,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 84.95
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 96.42,
+        "newRetail": null
       }
     ],
     "ps4-airoheart": [
@@ -8818,6 +8842,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 54.95
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 54.95,
+        "newRetail": 39.9
       }
     ],
     "ps4-ak-xolotl": [
@@ -8827,6 +8859,14 @@
         "gameManual": null,
         "complete": 19.95,
         "sealed": 41.4
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.95,
+        "sealed": 39.4,
+        "newRetail": null
       }
     ],
     "ps4-akai-katana-shin": [
@@ -8836,6 +8876,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 44.5
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.99,
+        "sealed": 44.38,
+        "newRetail": null
       }
     ],
     "ps4-akiba%27s-beat": [
@@ -8845,6 +8893,14 @@
         "gameManual": null,
         "complete": 45.9,
         "sealed": 89.45
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 45.9,
+        "sealed": 66.92,
+        "newRetail": null
       }
     ],
     "ps4-alchemic-cutie": [
@@ -8854,6 +8910,14 @@
         "gameManual": null,
         "complete": 19.88,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.88,
+        "sealed": 20.69,
+        "newRetail": null
       }
     ],
     "ps4-alchemic-jousts": [
@@ -8863,6 +8927,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 36.48
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 36.48,
+        "newRetail": 20.99
       }
     ],
     "ps4-alice-gear-aegis-cs-concerto-of-simulatrix": [
@@ -8872,6 +8944,14 @@
         "gameManual": null,
         "complete": 31.95,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 31.95,
+        "sealed": 23.71,
+        "newRetail": null
       }
     ],
     "ps4-andro-dunos-ii": [
@@ -10240,6 +10320,166 @@
         "gameManual": null,
         "complete": null,
         "sealed": 15.0
+      }
+    ],
+    "ps4-after-the-fall-frontrunner-edition": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 20.45,
+        "newRetail": null
+      }
+    ],
+    "ps4-agatha-christie%27s-hercule-poirot-the-first-cases": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 20.84,
+        "newRetail": null
+      }
+    ],
+    "ps4-agatha-christie-hercule-poirot-the-london-case": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 32.45,
+        "newRetail": null
+      }
+    ],
+    "ps4-agents-of-mayhem-retail-edition": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 6.98,
+        "sealed": null,
+        "newRetail": 9.95
+      }
+    ],
+    "ps4-aggelos": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 54.95,
+        "newRetail": null
+      }
+    ],
+    "ps4-agony": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 45.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-ai-the-somnium-files-nirvana-initiative": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 68.63,
+        "newRetail": null
+      }
+    ],
+    "ps4-air-conflicts-double-pack": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 27.4
+      }
+    ],
+    "ps4-air-missions-hind": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 34.99,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-akiba%27s-trip-hellbound-&amp;-debriefed": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 9.95
+      }
+    ],
+    "ps4-akka-arrh-special-edition": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 53.84,
+        "newRetail": null
+      }
+    ],
+    "ps4-alan-wake-remastered": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 40.74,
+        "sealed": 49.95,
+        "newRetail": null
+      }
+    ],
+    "ps4-alex-kidd-in-miracle-world-dx": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 53.47,
+        "sealed": null,
+        "newRetail": 25.95
+      }
+    ],
+    "ps4-alfred-hitchcock-vertigo-limited-edition": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 22.74,
+        "newRetail": null
+      }
+    ],
+    "ps4-alien-isolation": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 25.0,
+        "newRetail": 14.9
+      }
+    ],
+    "ps4-aliens-fireteam-elite": [
+      {
+        "at": "2026-08-31T00:00:00Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 28.74,
+        "sealed": 29.9,
+        "newRetail": null
       }
     ]
   }

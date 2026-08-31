@@ -15,12 +15,13 @@ def _parse_day(iso_at: str) -> str:
     return iso_at[:10]
 
 
-def _snapshot_values(snapshot: dict[str, Any]) -> tuple[Any, Any, Any, Any]:
+def _snapshot_values(snapshot: dict[str, Any]) -> tuple[Any, Any, Any, Any, Any]:
     return (
         snapshot.get("loose"),
         snapshot.get("gameManual"),
         snapshot.get("complete"),
         snapshot.get("sealed"),
+        snapshot.get("newRetail"),
     )
 
 
@@ -29,7 +30,8 @@ def snapshot_from_game(game: dict[str, Any], synced_at: str) -> dict[str, Any] |
     game_manual = game.get("estimatedPriceGameManual")
     complete = game.get("estimatedPriceComplete")
     sealed = game.get("estimatedPriceSealed")
-    if loose is None and game_manual is None and complete is None and sealed is None:
+    new_retail = game.get("estimatedPriceNewRetail")
+    if loose is None and game_manual is None and complete is None and sealed is None and new_retail is None:
         return None
     return {
         "at": synced_at,
@@ -37,6 +39,7 @@ def snapshot_from_game(game: dict[str, Any], synced_at: str) -> dict[str, Any] |
         "gameManual": game_manual,
         "complete": complete,
         "sealed": sealed,
+        "newRetail": new_retail,
     }
 
 

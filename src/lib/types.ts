@@ -259,6 +259,8 @@ export type CatalogGame = {
   estimatedPriceGameManual?: number | null;
   estimatedPriceComplete?: number | null;
   estimatedPriceSealed?: number | null;
+  /** Producto nuevo en tienda; el precinto no esta confirmado. */
+  estimatedPriceNewRetail?: number | null;
   /** Transporte estimado a España, separado del valor del artículo */
   estimatedShippingToSpainLoose?: number | null;
   estimatedShippingToSpainGameManual?: number | null;
@@ -340,6 +342,7 @@ export type CatalogListGame = Pick<
   | "estimatedPriceGameManual"
   | "estimatedPriceComplete"
   | "estimatedPriceSealed"
+  | "estimatedPriceNewRetail"
   | "pcRefPrice"
   | "hasEsPrice"
   | "priceRegionVerified"
@@ -385,6 +388,7 @@ export type CollectionItem = {
   estimatedPriceGameManual?: number | null;
   estimatedPriceComplete?: number | null;
   estimatedPriceSealed?: number | null;
+  estimatedPriceNewRetail?: number | null;
   estimatedShippingToSpainLoose?: number | null;
   estimatedShippingToSpainGameManual?: number | null;
   estimatedShippingToSpainComplete?: number | null;

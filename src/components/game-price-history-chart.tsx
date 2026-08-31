@@ -19,7 +19,7 @@ type Point = { x: number; y: number; at: string; value: number };
 const WIDTH = 640;
 const HEIGHT = 240;
 const PAD = { top: 18, right: 16, bottom: 36, left: 52 };
-const BUCKETS: ConditionBucket[] = ["loose", "gameManual", "complete", "sealed"];
+const BUCKETS: ConditionBucket[] = ["loose", "gameManual", "complete", "sealed", "newRetail"];
 
 function seriesPoints(
   history: PriceHistorySnapshot[],

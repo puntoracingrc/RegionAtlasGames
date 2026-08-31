@@ -16,6 +16,7 @@ test("toCatalogCardGame omite el indice interno y conserva lo visible", () => {
     estimatedPriceGameManual: null,
     estimatedPriceComplete: 20,
     estimatedPriceSealed: 35,
+    estimatedPriceNewRetail: 30,
     pcRefPrice: null,
     hasEsPrice: true,
     priceRegionVerified: true,
@@ -38,6 +39,7 @@ test("toCatalogCardGame omite el indice interno y conserva lo visible", () => {
 
   assert.equal(card.title, "Example");
   assert.equal(card.estimatedPriceSealed, 35);
+  assert.equal(card.estimatedPriceNewRetail, 30);
   assert.equal(card.isTopSegment, true);
   assert.equal("searchText" in card, false);
   assert.equal("companySearchText" in card, false);

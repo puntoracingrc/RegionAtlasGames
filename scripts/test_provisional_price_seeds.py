@@ -36,6 +36,12 @@ def payload() -> dict:
                 "conditions": {"complete": {"minimum": 25, "maximum": 30}},
             },
             {
+                "catalogId": "ps4-retail",
+                "title": "Retail",
+                "status": "accepted",
+                "conditions": {"new_retail": {"minimum": 15, "maximum": 25}},
+            },
+            {
                 "catalogId": "ps4-skipped",
                 "title": "Skipped",
                 "status": "skipped",
@@ -66,7 +72,13 @@ def main() -> None:
             "id": "ps4-duplicate-b",
             "platformSlug": "ps4",
             "region": "PAL España",
-            "recommendedPrice": 22,
+            "recommendedPrice": 22.01,
+        },
+        {
+            "id": "ps4-retail",
+            "platformSlug": "ps4",
+            "region": "PAL España",
+            "recommendedPrice": 30,
         },
         {
             "id": "ps4-skipped",
@@ -77,9 +89,9 @@ def main() -> None:
     ]
 
     result = apply_batch(catalog, payload(), applied_at="2026-08-31T00:00:00Z")
-    assert result["acceptedEntriesApplied"] == 2
+    assert result["acceptedEntriesApplied"] == 3
     assert result["skippedEntries"] == 1
-    assert result["catalogRowsUpdated"] == 3
+    assert result["catalogRowsUpdated"] == 4
 
     existing = catalog[0]
     assert existing["estimatedPriceComplete"] == 17.5
@@ -89,17 +101,24 @@ def main() -> None:
     assert existing["provisionalPriceBatchIds"] == ["test-batch"]
 
     # El precio generico previo del duplicado se combina una sola vez con el
-    # punto medio 27,50 y se replica en los dos IDs del mismo titulo.
-    assert catalog[1]["estimatedPriceComplete"] == 24.75
-    assert catalog[2]["estimatedPriceComplete"] == 24.75
-    assert catalog[1]["recommendedPrice"] == 24.75
-    assert catalog[2]["recommendedPrice"] == 24.75
-    assert "estimatedPriceComplete" not in catalog[3]
+    # punto medio 27,50 y se replica en los dos IDs del mismo titulo. El medio
+    # centimo usa redondeo comercial: 24,755 pasa a 24,76.
+    assert catalog[1]["estimatedPriceComplete"] == 24.76
+    assert catalog[2]["estimatedPriceComplete"] == 24.76
+    assert catalog[1]["recommendedPrice"] == 24.76
+    assert catalog[2]["recommendedPrice"] == 24.76
+    # "Nuevo" en tienda no demuestra que el articulo siga precintado. El
+    # precio generico previo se conserva como completo y ambas cifras conviven.
+    assert catalog[3]["estimatedPriceComplete"] == 30
+    assert catalog[3]["estimatedPriceNewRetail"] == 20
+    assert catalog[3]["recommendedPrice"] == 30
+    assert "estimatedPriceSealed" not in catalog[3]
+    assert "estimatedPriceComplete" not in catalog[4]
 
     snapshot = deepcopy(catalog)
     repeated = apply_batch(catalog, payload(), applied_at="2026-08-31T00:00:00Z")
     assert repeated["catalogRowsUpdated"] == 0
-    assert repeated["alreadyAppliedEntries"] == 2
+    assert repeated["alreadyAppliedEntries"] == 3
     assert catalog == snapshot
 
     wrong_region = payload()

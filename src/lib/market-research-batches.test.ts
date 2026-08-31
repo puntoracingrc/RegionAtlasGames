@@ -52,3 +52,16 @@ test("keeps each region as an independent selectable target", () => {
   });
   assert.deepEqual(selected.map((item) => item.id), ["game-usa"]);
 });
+
+test("does not enqueue a game whose only estimate is new retail", () => {
+  const retailOnly = {
+    ...game("retail-only"),
+    estimatedPriceNewRetail: 19.95,
+  };
+  const selected = selectMarketResearchTargets({
+    games: [retailOnly, game("missing-price")],
+    mode: "missing_price",
+    limit: 10,
+  });
+  assert.deepEqual(selected.map((item) => item.id), ["missing-price"]);
+});

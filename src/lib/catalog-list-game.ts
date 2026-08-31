@@ -74,6 +74,7 @@ export function toCatalogListGame(game: CatalogGame): CatalogListGame {
     estimatedPriceGameManual: game.estimatedPriceGameManual,
     estimatedPriceComplete: game.estimatedPriceComplete,
     estimatedPriceSealed: game.estimatedPriceSealed,
+    estimatedPriceNewRetail: game.estimatedPriceNewRetail,
     pcRefPrice: game.pcRefPrice,
     hasEsPrice: game.hasEsPrice,
     priceRegionVerified: game.priceRegionVerified,
