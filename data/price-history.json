@@ -11492,6 +11492,66 @@
         "sealed": null,
         "newRetail": 75.33
       }
+    ],
+    "ps4-conception-plus-maidens-of-the-twelve-stars": [
+      {
+        "at": "2026-08-31T14:04:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 45.41,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-contra-rogue-corps": [
+      {
+        "at": "2026-08-31T14:04:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 48.96,
+        "newRetail": null
+      }
+    ],
+    "ps4-contraptions": [
+      {
+        "at": "2026-08-31T14:04:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 30.56,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-crash-bandicoot-n-sane-trilogy": [
+      {
+        "at": "2026-08-31T14:04:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 25.99,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-crash-team-racing-nitro-fueled": [
+      {
+        "at": "2026-08-31T14:04:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 29.95,
+        "newRetail": null
+      }
+    ],
+    "ps4-crayola-scoot": [
+      {
+        "at": "2026-08-31T14:04:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 17.31,
+        "newRetail": null
+      }
     ]
   }
 }
