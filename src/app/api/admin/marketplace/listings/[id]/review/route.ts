@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/admin-auth";
 import { inspectStoredListingPhotoEvidence } from "@/lib/ai-listing-analysis";
+import { notifyListingReview } from "@/lib/conversations";
 import { getListing, reviewMarketplaceListing } from "@/lib/listings";
 import {
   MANUAL_LISTING_REVIEW_CRITERIA,
@@ -67,5 +68,15 @@ export async function POST(request: Request, { params }: Params) {
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 409 });
   }
+  await notifyListingReview({
+    listingId: result.id,
+    catalogId: result.catalogId,
+    sellerId: result.sellerId,
+    title: result.customTitle || result.title,
+    action,
+    note: typeof body.note === "string" ? body.note : null,
+  }).catch((error) => {
+    console.error("[marketplace-review] notification projection failed", error);
+  });
   return NextResponse.json({ ok: true, listing: result });
 }

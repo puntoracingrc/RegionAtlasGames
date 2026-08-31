@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { addMessage, getConversation } from "@/lib/conversations";
+import { addMessage, getConversationWithUnread } from "@/lib/conversations";
 import { getListing, getMarketplaceListingClientView } from "@/lib/listings";
 import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
 import { getCurrentUser } from "@/lib/users";
@@ -11,10 +11,11 @@ export async function GET(_request: Request, { params }: Params) {
   if (!user) return NextResponse.json({ error: "No autenticado." }, { status: 401 });
 
   const { id } = await params;
-  const conversation = await getConversation(id);
-  if (!conversation) {
+  const result = await getConversationWithUnread(id, user.id);
+  if (!result) {
     return NextResponse.json({ error: "No encontrada." }, { status: 404 });
   }
+  const { conversation, unreadCount } = result;
   if (conversation.buyerId !== user.id && conversation.sellerId !== user.id) {
     return NextResponse.json({ error: "No autorizado." }, { status: 403 });
   }
@@ -22,8 +23,9 @@ export async function GET(_request: Request, { params }: Params) {
   const listing = await getListing(conversation.listingId);
   return NextResponse.json({
     conversation,
+    unreadCount,
     listing: listing ? getMarketplaceListingClientView(listing) : null,
-  });
+  }, { headers: { "Cache-Control": "private, no-store" } });
 }
 
 export async function PATCH(request: Request, { params }: Params) {
@@ -42,6 +44,7 @@ export async function PATCH(request: Request, { params }: Params) {
   const { id } = await params;
   const body = await request.json();
   const message = String(body.message ?? "").trim();
+  const clientMutationId = String(body.clientMutationId ?? "").trim() || undefined;
   if (!message) {
     return NextResponse.json({ error: "Mensaje vacío." }, { status: 400 });
   }
@@ -51,6 +54,7 @@ export async function PATCH(request: Request, { params }: Params) {
     senderId: user.id,
     senderName: user.name,
     body: message,
+    clientMutationId,
   });
 
   if ("error" in result) {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { SiteNav } from "@/components/site-nav";
 import { Panel, PanelTitle } from "@/components/ui";
 import { formatEurCents } from "@/lib/price-format";
@@ -10,6 +10,17 @@ import type { ChatMessage, MarketplaceConversation } from "@/lib/marketplace-typ
 import type { MarketplaceListingClientView } from "@/lib/marketplace-types";
 
 type Props = { conversationId: string; userId: string };
+
+function formatMessageTime(iso: string) {
+  try {
+    return new Intl.DateTimeFormat("es-ES", {
+      hour: "2-digit",
+      minute: "2-digit",
+    }).format(new Date(iso));
+  } catch {
+    return "";
+  }
+}
 
 export function ChatClient({ conversationId, userId }: Props) {
   const router = useRouter();
@@ -20,43 +31,86 @@ export function ChatClient({ conversationId, userId }: Props) {
   const [salePrice, setSalePrice] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const sendingRef = useRef(false);
+  const pendingMessageRef = useRef<{ body: string; id: string } | null>(null);
 
   const load = useCallback(async () => {
-    const res = await fetch(`/api/marketplace/conversations/${conversationId}`);
-    const data = await res.json();
-    if (res.ok) {
-      setConversation(data.conversation);
-      setListing(data.listing);
-      setSalePrice((current) => {
-        if (current || data.listing?.askingPriceEur == null) return current;
-        return String(data.listing.askingPriceEur);
+    try {
+      const res = await fetch(`/api/marketplace/conversations/${conversationId}`, {
+        cache: "no-store",
       });
-    } else {
-      setError(data.error ?? "No se pudo cargar el chat.");
+      const data = await res.json();
+      if (res.ok) {
+        setConversation(data.conversation);
+        setListing(data.listing);
+        setSalePrice((current) => {
+          if (current || data.listing?.askingPriceEur == null) return current;
+          return String(data.listing.askingPriceEur);
+        });
+        if (Number(data.unreadCount ?? 0) > 0) {
+          await fetch(`/api/marketplace/conversations/${conversationId}/read`, {
+            method: "POST",
+          }).catch(() => undefined);
+          window.dispatchEvent(new Event("region-atlas:communications-changed"));
+        }
+      } else {
+        setError(data.error ?? "No se pudo cargar el chat.");
+      }
+    } catch {
+      setError("No se pudo cargar el chat.");
     }
   }, [conversationId]);
 
   useEffect(() => {
-    void load();
+    const initialLoad = window.setTimeout(() => void load(), 0);
+    const interval = window.setInterval(() => {
+      if (document.visibilityState === "visible") void load();
+    }, 10_000);
+    const refreshWhenVisible = () => {
+      if (document.visibilityState === "visible") void load();
+    };
+    document.addEventListener("visibilitychange", refreshWhenVisible);
+    return () => {
+      window.clearTimeout(initialLoad);
+      window.clearInterval(interval);
+      document.removeEventListener("visibilitychange", refreshWhenVisible);
+    };
   }, [load]);
 
   async function send() {
-    if (!text.trim()) return;
+    const message = text.trim();
+    if (!message || sendingRef.current) return;
+    sendingRef.current = true;
     setLoading(true);
     setError(null);
-    const res = await fetch(`/api/marketplace/conversations/${conversationId}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: text }),
-    });
-    const data = await res.json();
-    setLoading(false);
-    if (!res.ok) {
-      setError(data.error ?? "No se pudo enviar el mensaje.");
-      return;
+    const pending = pendingMessageRef.current?.body === message
+      ? pendingMessageRef.current
+      : { body: message, id: crypto.randomUUID() };
+    pendingMessageRef.current = pending;
+    try {
+      const res = await fetch(`/api/marketplace/conversations/${conversationId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message,
+          clientMutationId: pending.id,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "No se pudo enviar el mensaje.");
+        return;
+      }
+      pendingMessageRef.current = null;
+      setText((current) => (current.trim() === message ? "" : current));
+      window.dispatchEvent(new Event("region-atlas:communications-changed"));
+      void load();
+    } catch {
+      setError("No se pudo enviar el mensaje.");
+    } finally {
+      sendingRef.current = false;
+      setLoading(false);
     }
-    setText("");
-    void load();
   }
 
   async function sellerConfirmSale() {
@@ -203,7 +257,15 @@ export function ChatClient({ conversationId, userId }: Props) {
                   : "mr-8 bg-card-hover text-foreground/85"
               }`}
             >
-              <p className="text-[10px] uppercase text-muted">{m.senderName}</p>
+              <div className="flex items-center justify-between gap-3 text-[10px] text-muted">
+                <span className="uppercase">{m.senderName}</span>
+                <span>
+                  {formatMessageTime(m.createdAt)}
+                  {m.senderId === userId && m.status
+                    ? ` · ${m.status === "read" ? "Leído" : "Entregado"}`
+                    : ""}
+                </span>
+              </div>
               <p>{m.body}</p>
             </div>
           ))}
@@ -218,6 +280,7 @@ export function ChatClient({ conversationId, userId }: Props) {
           <input
             value={text}
             onChange={(e) => setText(e.target.value)}
+            disabled={loading}
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault();

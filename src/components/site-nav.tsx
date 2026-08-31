@@ -106,7 +106,7 @@ export function SiteNav({
         <SiteLogo priority />
 
         <div className="flex items-center justify-end gap-2 sm:gap-3 md:gap-5">
-          <div className="hidden items-center gap-x-4 text-[13px] text-muted sm:flex">
+          <div className="hidden items-center gap-x-4 text-[13px] text-muted lg:flex">
             {navLinks.filter((link) => link.href !== "/ajustes" && link.href !== "/admin" && link.href !== "/contribuir").map((link) => (
               <IntentLink
                 key={link.href}
@@ -122,7 +122,7 @@ export function SiteNav({
           {staffRole === "admin" && (
             <IntentLink
               href="/admin"
-              className="hidden rounded-md px-2 py-1.5 text-[13px] font-medium text-violet-700 transition hover:text-violet-900 dark:text-violet-300 sm:inline"
+              className="hidden rounded-md px-2 py-1.5 text-[13px] font-medium text-violet-700 transition hover:text-violet-900 dark:text-violet-300 lg:inline"
             >
               Admin
               <LinkPendingFeedback label="Abriendo administración…" />
@@ -131,7 +131,7 @@ export function SiteNav({
           {staffRole === "contributor" && (
             <IntentLink
               href="/contribuir"
-              className="hidden rounded-md px-2 py-1.5 text-[13px] font-medium text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-300 sm:inline"
+              className="hidden rounded-md px-2 py-1.5 text-[13px] font-medium text-emerald-700 transition hover:text-emerald-900 dark:text-emerald-300 lg:inline"
             >
               Contribuir
               <LinkPendingFeedback label="Abriendo contribuciones…" />
@@ -142,7 +142,7 @@ export function SiteNav({
 
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card text-foreground transition hover:bg-card-hover sm:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card text-foreground transition hover:bg-card-hover lg:hidden"
             aria-expanded={open}
             aria-controls="site-mobile-menu"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
@@ -157,13 +157,13 @@ export function SiteNav({
         <>
           <button
             type="button"
-            className="fixed inset-0 top-[53px] z-40 bg-black/40 sm:hidden"
+            className="fixed inset-0 top-[53px] z-40 bg-black/40 lg:hidden"
             aria-label="Cerrar menú"
             onClick={() => setOpen(false)}
           />
           <div
             id="site-mobile-menu"
-            className="relative z-50 border-t border-border bg-nav px-4 py-3 sm:hidden"
+            className="relative z-50 border-t border-border bg-nav px-4 py-3 lg:hidden"
           >
             <ul className="space-y-1">
               {navLinks.map((link) => {

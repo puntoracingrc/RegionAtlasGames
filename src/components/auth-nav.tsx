@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { NotificationBell } from "@/components/notification-bell";
 import type { PublicUser } from "@/lib/session";
 
 export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
@@ -67,7 +68,9 @@ export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
   }
 
   return (
-    <div className="relative">
+    <div className="flex items-center gap-2">
+      <NotificationBell />
+      <div className="relative">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -110,6 +113,13 @@ export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
               Mis anuncios
             </Link>
             <Link
+              href="/notificaciones"
+              className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
+              onClick={() => setOpen(false)}
+            >
+              Notificaciones
+            </Link>
+            <Link
               href="/mensajes"
               className="block px-3 py-2 text-sm text-foreground hover:bg-card-hover"
               onClick={() => setOpen(false)}
@@ -126,6 +136,7 @@ export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
           </div>
         </>
       )}
+      </div>
     </div>
   );
 }

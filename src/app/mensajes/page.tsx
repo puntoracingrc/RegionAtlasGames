@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { MessagesInboxClient } from "@/components/messages-inbox-client";
-import { getUserConversations } from "@/lib/conversations";
+import { getUserConversationsWithUnread } from "@/lib/conversations";
 import { getListing } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
 
@@ -8,7 +8,7 @@ export default async function MessagesPage() {
   const user = await getCurrentUser();
   if (!user) redirect("/login");
 
-  const conversations = await Promise.all((await getUserConversations(user.id)).map(async (conv) => {
+  const conversations = await Promise.all((await getUserConversationsWithUnread(user.id)).map(async ({ conversation: conv, unreadCount }) => {
     const listing = await getListing(conv.listingId);
     const last = conv.messages[conv.messages.length - 1];
     const role = conv.sellerId === user.id ? ("seller" as const) : ("buyer" as const);
@@ -23,6 +23,7 @@ export default async function MessagesPage() {
       role,
       peerName,
       messageCount: conv.messages.length,
+      unreadCount,
       lastMessage: last?.body ?? null,
       lastMessageAt: last?.createdAt ?? conv.updatedAt,
       updatedAt: conv.updatedAt,

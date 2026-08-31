@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getUserConversations, startConversation } from "@/lib/conversations";
+import { getUserConversationsWithUnread, startConversation } from "@/lib/conversations";
 import { getCurrentUser } from "@/lib/users";
 import { getListing } from "@/lib/listings";
 import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
@@ -10,7 +10,7 @@ export async function GET() {
     return NextResponse.json({ error: "Inicia sesión." }, { status: 401 });
   }
 
-  const conversations = await Promise.all((await getUserConversations(user.id)).map(async (conv) => {
+  const conversations = await Promise.all((await getUserConversationsWithUnread(user.id)).map(async ({ conversation: conv, unreadCount }) => {
     const listing = await getListing(conv.listingId);
     const last = conv.messages[conv.messages.length - 1];
     const role = conv.sellerId === user.id ? "seller" : "buyer";
@@ -25,13 +25,17 @@ export async function GET() {
       role,
       peerName,
       messageCount: conv.messages.length,
+      unreadCount,
       lastMessage: last?.body ?? null,
       lastMessageAt: last?.createdAt ?? conv.updatedAt,
       updatedAt: conv.updatedAt,
     };
   }));
 
-  return NextResponse.json({ conversations });
+  return NextResponse.json(
+    { conversations },
+    { headers: { "Cache-Control": "private, no-store" } },
+  );
 }
 
 export async function POST(request: Request) {
