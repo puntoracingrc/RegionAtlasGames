@@ -1,0 +1,410 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-first-page-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-08-31T00:00:00Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Rangos curatoriales para evitar fichas vacias mientras los collectors acumulan evidencia individual.",
+    "Cada rango aporta un unico punto medio; no se inventa un numero de anuncios.",
+    "Las referencias expresamente UK, Portugal, Alemania o PAL Europa no se aplican a PAL España.",
+    "Nuevo sin confirmacion de precinto no se clasifica como sealed."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-hack-gu-last-recode",
+      "title": ".hack G.U. Last Recode",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 35, "maximum": 74.99, "sources": ["wallapop", "ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-11-11-memories-retold",
+      "title": "11-11: Memories Retold",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 5, "maximum": 20, "sources": ["wallapop"] },
+        "sealed": { "minimum": 15, "maximum": 35, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-112th-seed",
+      "title": "112th Seed",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 15, "maximum": 15, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-13-sentinels-aegis-rim",
+      "title": "13 Sentinels: Aegis Rim",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 15, "maximum": 24.9, "sources": ["wallapop", "ebay"] },
+        "sealed": { "minimum": 22.9, "maximum": 33.9, "sources": ["wallapop", "ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-1971-project-helios-collector%27s-edition",
+      "title": "1971 Project Helios Collector's Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 20, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-2dark-limited-edition",
+      "title": "2Dark Limited Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 25, "maximum": 50, "sources": ["wallapop"] },
+        "sealed": { "minimum": 69, "maximum": 80, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-30-nights-pine-view-drive-&amp;-joe%27s-diner",
+      "title": "30 Nights Pine View Drive & Joe's Diner",
+      "status": "skipped",
+      "reason": "Sin precio localizado."
+    },
+    {
+      "catalogId": "ps4-3d-mini-golf",
+      "title": "3D Mini Golf",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 35, "maximum": 35, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-3drudder-for-playstation-vr",
+      "title": "3dRudder for PlayStation VR",
+      "status": "skipped",
+      "reason": "Accesorio; no debe alimentar el precio de un videojuego."
+    },
+    {
+      "catalogId": "ps4-40-principales-karaoke-party-vol-2",
+      "title": "40 Principales Karaoke Party Vol. 2",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 8, "maximum": 12, "sources": ["wallapop", "ebay"] }
+      },
+      "rejectedConditions": {
+        "sealed": "El anuncio de 7 EUR dice nuevo, pero no confirma precinto."
+      }
+    },
+    {
+      "catalogId": "ps4-41-hours",
+      "title": "41 Hours",
+      "status": "skipped",
+      "reason": "Precios en GBP de eBay UK para PAL UK; no corresponden a PAL España."
+    },
+    {
+      "catalogId": "ps4-428-shibuya-scramble",
+      "title": "428 Shibuya Scramble",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 49, "maximum": 69.95, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-7-days-to-die",
+      "title": "7 Days to Die",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 12, "maximum": 17, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-7th-sector",
+      "title": "7th Sector",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 39.95, "maximum": 80, "sources": ["ebay", "wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-8-to-glory",
+      "title": "8 to Glory",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 5, "maximum": 5, "sources": ["wallapop"] },
+        "sealed": { "minimum": 12.34, "maximum": 25, "sources": ["wallapop", "ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-8-bit-armies",
+      "title": "8-Bit Armies",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 8, "maximum": 17, "sources": ["wallapop", "ebay"] }
+      },
+      "rejectedConditions": {
+        "sealed": "El precio precintado corresponde expresamente a PAL UK."
+      }
+    },
+    {
+      "catalogId": "ps4-8-bit-hordes",
+      "title": "8-Bit Hordes",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 8, "maximum": 8, "sources": ["wallapop"] },
+        "sealed": { "minimum": 10, "maximum": 10, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-8-bit-invaders",
+      "title": "8-Bit Invaders",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 7, "maximum": 7, "sources": ["wallapop"] },
+        "sealed": { "minimum": 12.5, "maximum": 12.5, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-88-heroes",
+      "title": "88 Heroes",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 15, "maximum": 25, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-8doors-arum%27s-afterlife-adventure",
+      "title": "8Doors: Arum's Afterlife Adventure",
+      "status": "skipped",
+      "reason": "Precio en GBP de marketplace UK para PAL UK."
+    },
+    {
+      "catalogId": "ps4-9-monkeys-of-shaolin",
+      "title": "9 Monkeys of Shaolin",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 10, "sources": ["ebay"] },
+        "sealed": { "minimum": 14.9, "maximum": 17.99, "sources": ["ebay"] }
+      }
+    },
+    {
+      "catalogId": "ps4-99-vidas",
+      "title": "99 Vidas",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 63.8, "maximum": 63.8, "sources": ["ebay", "wallapop"] },
+        "sealed": { "minimum": 90, "maximum": 110, "sources": ["ebay", "wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-a-hat-in-time",
+      "title": "A Hat in Time",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 15, "maximum": 20, "sources": ["wallapop"] },
+        "sealed": { "minimum": 20, "maximum": 45, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-a-plague-tale-innocence",
+      "title": "A Plague Tale: Innocence",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 20, "maximum": 28, "sources": ["wallapop"] },
+        "sealed": { "minimum": 19.9, "maximum": 19.9, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-a-short-hike",
+      "title": "A Short Hike",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 130, "maximum": 130, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-a-space-for-the-unbound",
+      "title": "A Space for the Unbound",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 30, "maximum": 30, "sources": ["wallapop"] },
+        "sealed": { "minimum": 39.9, "maximum": 39.9, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-a-way-out",
+      "title": "A Way Out",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 47, "maximum": 70, "sources": ["wallapop"] },
+        "sealed": { "minimum": 70, "maximum": 75, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-abzu",
+      "title": "Abzu",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 29, "maximum": 39, "sources": ["wallapop"] },
+        "sealed": { "minimum": 37.5, "maximum": 37.5, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-acalesia",
+      "title": "Acalesia",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 15, "maximum": 15, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-accel-world-vs-sword-art-online",
+      "title": "Accel World vs Sword Art Online",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 25, "maximum": 35, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ace-attorney-investigations-collection",
+      "title": "Ace Attorney Investigations Collection",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 35, "maximum": 35, "sources": ["wallapop"] },
+        "sealed": { "minimum": 34.9, "maximum": 40, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ace-combat-7-top-gun-maverick-edition",
+      "title": "Ace Combat 7 Top Gun: Maverick Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 29.9, "maximum": 29.9, "sources": ["wallapop"] },
+        "sealed": { "minimum": 22, "maximum": 44.99, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ace-combat-7-skies-unknown",
+      "title": "Ace Combat 7: Skies Unknown",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 10, "maximum": 25, "sources": ["wallapop"] },
+        "sealed": { "minimum": 18.99, "maximum": 23, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-ace-combat-7-skies-unknown-strangereal-edition",
+      "title": "Ace Combat 7 Strangereal Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 140, "maximum": 140, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-aces-of-the-luftwaffe-squadron-extended-edition",
+      "title": "Aces of the Luftwaffe Squadron: Extended Edition",
+      "status": "skipped",
+      "reason": "Precio en GBP de eBay UK para PAL UK."
+    },
+    {
+      "catalogId": "ps4-action-pack-doom-eternal-&#43;-rage-2",
+      "title": "Action Pack: DOOM Eternal + Rage 2",
+      "status": "skipped",
+      "reason": "Bol/eBay sin confirmacion suficiente de variante PAL España."
+    },
+    {
+      "catalogId": "ps4-action-pack-doom-vfr-&#43;-doom-3-vr",
+      "title": "Action Pack: DOOM VFR + DOOM 3 VR",
+      "status": "skipped",
+      "reason": "Sin precio localizado."
+    },
+    {
+      "catalogId": "ps4-action-pack-quake-&#43;-doom-slayers-collection",
+      "title": "Action Pack: Quake + DOOM Slayers Collection",
+      "status": "skipped",
+      "reason": "Referencias de tienda europea/Amazon Alemania sin confirmacion PAL España."
+    },
+    {
+      "catalogId": "ps4-action-pack-quake-&#43;-quake-ii-&#43;-doom",
+      "title": "Action Pack: Quake + Quake II + DOOM",
+      "status": "skipped",
+      "reason": "Referencia de tienda europea sin confirmacion PAL España."
+    },
+    {
+      "catalogId": "ps4-adam-wolfe",
+      "title": "Adam Wolfe",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 25, "maximum": 25, "sources": ["wallapop", "ebay"] },
+        "sealed": { "minimum": 24.33, "maximum": 39.03, "sources": ["wallapop", "ebay"] }
+      }
+    },
+    {
+      "catalogIds": [
+        "ps4-adam%27s-venture-origins",
+        "ps4-adam-s-venture-origins"
+      ],
+      "title": "Adam's Venture Origins",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 25, "maximum": 30, "sources": ["wallapop"] },
+        "sealed": { "minimum": 70, "maximum": 70, "sources": ["wallapop"] }
+      },
+      "note": "Dos IDs actuales representan el mismo titulo; reciben el mismo precio provisional."
+    },
+    {
+      "catalogId": "ps4-adventure-academia-the-fractured-continent",
+      "title": "Adventure Academia: The Fractured Continent",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 21.9, "maximum": 23, "sources": ["retroloco", "wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-adventure-time-finn-and-jake-investigations",
+      "title": "Adventure Time: Finn and Jake Investigations",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 26.99, "maximum": 30, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-adventure-time-pirates-of-the-enchiridion",
+      "title": "Adventure Time: Pirates of the Enchiridion",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 50, "maximum": 50, "sources": ["wallapop"] },
+        "sealed": { "minimum": 54.95, "maximum": 59.95, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-adventures-of-chris",
+      "title": "Adventures of Chris",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 15, "maximum": 15, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-aegis-of-earth-protonovus-assault",
+      "title": "Aegis of Earth: Protonovus Assault",
+      "status": "accepted",
+      "conditions": {
+        "complete": { "minimum": 15, "maximum": 25, "sources": ["wallapop"] },
+        "sealed": { "minimum": 18, "maximum": 18, "sources": ["wallapop"] }
+      }
+    },
+    {
+      "catalogId": "ps4-aer-memories-of-old",
+      "title": "AER: Memories of Old",
+      "status": "accepted",
+      "conditions": {
+        "sealed": { "minimum": 44, "maximum": 44, "sources": ["wallapop-spain"] }
+      },
+      "rejectedConditions": {
+        "complete": "El precio abierto de 8,99 EUR corresponde a Wallapop Portugal."
+      }
+    }
+  ]
+}
