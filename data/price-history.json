@@ -12546,6 +12546,186 @@
         "sealed": null,
         "newRetail": 29.99
       }
+    ],
+    "ps4-cyberpunk-2077": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-danganronpa-v3-killing-harmony": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 90.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dark-souls-remastered": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.98,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dark-souls-trilogy": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 32.74,
+        "sealed": 42.5,
+        "newRetail": 29.95
+      }
+    ],
+    "ps4-days-gone": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dead-cells-return-to-castlevania-edition": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 30.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dead-island-2-pulp-edition": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 17.95
+      }
+    ],
+    "ps4-death-stranding": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 13.48,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-demons-of-asteborg": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 70.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-destiny": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-destiny-2": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 4.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-detroit-become-human": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.95,
+        "sealed": 30.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-deus-ex-mankind-divided-day-one-edition": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-devil-may-cry-5": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 19.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-diablo-iii-eternal-collection": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-diablo-iii-reaper-of-souls-ultimate-evil-edition": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-diablo-iv": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 30.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dirt-4": [
+      {
+        "at": "2026-08-31T20:35:15Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.0,
+        "sealed": null,
+        "newRetail": null
+      }
     ]
   }
 }
