@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { UserThemeSync } from "@/components/user-theme-sync";
 import { SiteFooter } from "@/components/site-footer";
+import { PwaServiceWorker } from "@/components/pwa-service-worker";
 import {
   SITE_DEFAULT_URL,
   SITE_DESCRIPTION,
@@ -25,12 +26,21 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl() || SITE_DEFAULT_URL),
+  applicationName: SITE_LOGO,
   title: {
     default: SITE_TITLE,
     template: `%s | ${SITE_LOGO}`,
   },
   description: SITE_DESCRIPTION,
   manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: SITE_LOGO,
+  },
+  formatDetection: {
+    telephone: false,
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -46,6 +56,16 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f1f5f9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0d12" },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -57,7 +77,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex min-h-screen flex-col bg-background text-foreground">
+      <body className="flex min-h-screen w-full min-w-0 flex-col overflow-x-clip bg-background text-foreground">
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -75,7 +95,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         <ThemeProvider>
           <UserThemeSync />
-          <div className="flex min-h-0 flex-1 flex-col">{children}</div>
+          <PwaServiceWorker />
+          <div className="flex min-h-0 w-full min-w-0 flex-1 flex-col">{children}</div>
           <SiteFooter />
         </ThemeProvider>
       </body>
