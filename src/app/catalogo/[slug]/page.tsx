@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CollectionToggle } from "@/components/collection-toggle";
 import { CatalogMarketplacePanel } from "@/components/catalog-marketplace-panel";
-import { SellListingButton } from "@/components/sell-listing-button";
 import { GameFaq } from "@/components/game-faq";
 import { GameJsonLd } from "@/components/game-json-ld";
 import { GamePriceHero } from "@/components/game-price-hero";
@@ -19,9 +18,8 @@ import { SiteNav } from "@/components/site-nav";
 import { Badge, DetailRow, Panel, PanelTitle } from "@/components/ui";
 import {
   countCatalogGameOwned,
-  getFirstCollectionItemForCatalog,
-  isCatalogGameOwned,
 } from "@/lib/collection-store";
+import { collectionCatalogPath } from "@/lib/collection-path";
 import {
   buildBreadcrumbJsonLd,
   buildCatalogSeoSlug,
@@ -49,7 +47,6 @@ import {
 import { resolveGameEntityLinks } from "@/lib/entity-links";
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
-import { getSellerOpenListing } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
 import { listPublicSeriesForGame } from "@/lib/admin-series-manager";
 import { findGameFacetEntityByNameOrAlias, findGameFacetEntityBySlug } from "@/lib/game-facets/taxonomy";
@@ -119,10 +116,8 @@ export default async function CatalogGamePage({ params }: Props) {
   }
 
   const user = await getCurrentUser();
-  const owned = user ? await isCatalogGameOwned(user.id, game.id) : false;
   const ownedCount = user ? await countCatalogGameOwned(user.id, game.id) : 0;
-  const ownedItem = user && owned ? await getFirstCollectionItemForCatalog(user.id, game.id) : undefined;
-  const openListing = user && owned ? await getSellerOpenListing(user.id, game.id) : undefined;
+  const owned = ownedCount > 0;
 
   const platform = getPlatform(game.platformSlug);
   const details = await getGameDetailsWithOverlay(game.id);
@@ -301,11 +296,20 @@ export default async function CatalogGamePage({ params }: Props) {
               platformSlug={game.platformSlug}
             />
 
-            {user && ownedItem && (
-              <SellListingButton
-                collectionItemId={ownedItem.id}
-                openListingId={openListing?.id}
-              />
+            {user && owned && (
+              <Panel>
+                <PanelTitle>Tu colección</PanelTitle>
+                <p className="text-sm text-muted">
+                  Tienes {ownedCount} {ownedCount === 1 ? "unidad" : "unidades"}. Edita el
+                  estado, las fechas y el coste o elige qué copia quieres poner en venta.
+                </p>
+                <Link
+                  href={collectionCatalogPath(game.id)}
+                  className="btn-primary mt-4 inline-flex"
+                >
+                  Gestionar mis copias
+                </Link>
+              </Panel>
             )}
 
             <RecordedProSalesPanel catalogId={game.id} />

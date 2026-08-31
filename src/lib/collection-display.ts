@@ -18,7 +18,7 @@ const EMPTY_COUNTS: CollectionConditionCounts = {
 };
 
 export function collectionCondition(item: CollectionView): CollectionCondition {
-  return item.collectionCondition ?? (item.sealed ? "sealed" : "unknown");
+  return item.sealed ? "sealed" : item.collectionCondition ?? "unknown";
 }
 
 export function groupCollectionDisplayItems(items: CollectionView[]): CollectionDisplayItem[] {

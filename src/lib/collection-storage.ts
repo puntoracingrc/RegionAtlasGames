@@ -17,6 +17,8 @@ export type UserCollectionFile = {
   source: string | null;
   items: CollectionItem[];
   catalogGapReportSentAt?: string | null;
+  /** Ventas ya descontadas del inventario. Evita dobles decrementos en reintentos. */
+  completedSaleIds?: string[];
 };
 
 function shouldUseBlobStorage(): boolean {
@@ -41,7 +43,7 @@ function collectionBlobPath(userId: string): string {
 }
 
 function emptyCollection(userId: string): UserCollectionFile {
-  return { userId, importedAt: null, source: null, items: [] };
+  return { userId, importedAt: null, source: null, items: [], completedSaleIds: [] };
 }
 
 function parseCollection(raw: string, userId: string): UserCollectionFile {

@@ -5,7 +5,12 @@ import path from "node:path";
 import test from "node:test";
 import { analyzeListingPhotos } from "./ai-listing-analysis";
 import { getCatalogGame } from "./catalog";
-import { addCatalogGameToCollection } from "./collection-store";
+import {
+  addCatalogCopyGroup,
+  addCatalogGameToCollection,
+  getUserCollectionItem,
+  updateUserCollectionItemDetails,
+} from "./collection-store";
 import {
   addMessage,
   getConversation,
@@ -88,6 +93,19 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
 
     const added = await addCatalogGameToCollection(sellerResult.user.id, catalogId);
     assertResult(added);
+    const updatedOwnedCopy = await updateUserCollectionItemDetails(
+      sellerResult.user.id,
+      added.item.id,
+      {
+        quantity: 2,
+        collectionCondition: "complete",
+        buyPrice: 12,
+        purchasedAt: "2026-08-01T00:00:00.000Z",
+        addedAt: added.item.addedAt ?? new Date().toISOString(),
+        notes: null,
+      },
+    );
+    assertResult(updatedOwnedCopy);
     const draft = await createListingDraft({
       sellerId: sellerResult.user.id,
       sellerName: sellerResult.user.name,
@@ -96,7 +114,32 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
     });
     assertResult(draft);
     assert.ok(draft.askingPriceEur && draft.askingPriceEur > 0);
+    assert.equal(
+      draft.askingPriceEur,
+      (await getUserCollectionItem(sellerResult.user.id, added.item.id))?.recommendedPrice,
+    );
+    assert.equal(draft.collectionCondition, "complete");
     assert.equal(draft.recordedSalePriceEur, null);
+
+    const secondCopy = await addCatalogCopyGroup(sellerResult.user.id, catalogId);
+    assertResult(secondCopy);
+    const secondDraft = await createListingDraft({
+      sellerId: sellerResult.user.id,
+      sellerName: sellerResult.user.name,
+      sellerCity: sellerResult.user.city,
+      collectionItemId: secondCopy.item.id,
+    });
+    assertResult(secondDraft);
+    const duplicateSecondDraft = await createListingDraft({
+      sellerId: sellerResult.user.id,
+      sellerName: sellerResult.user.name,
+      sellerCity: sellerResult.user.city,
+      collectionItemId: secondCopy.item.id,
+    });
+    assert.deepEqual(duplicateSecondDraft, {
+      error: "Esta copia ya tiene un anuncio abierto.",
+      existingListingId: secondDraft.id,
+    });
 
     for (const slot of REQUIRED_PHOTO_SLOTS) {
       const photo = await upsertListingPhoto(draft.id, sellerResult.user.id, {
@@ -181,6 +224,10 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
     assert.deepEqual(
       await confirmBuyerReceipt({ listingId: draft.id, buyerId: buyerResult.user.id }),
       { ok: true, recorded: false },
+    );
+    assert.equal(
+      (await getUserCollectionItem(sellerResult.user.id, added.item.id))?.quantity,
+      1,
     );
 
     const sold = await getListing(draft.id);

@@ -45,7 +45,7 @@ export function SellListingButton({
     return (
       <div className="rounded-xl border border-border bg-card p-4">
         <p className="text-sm text-muted">
-          Ya tienes un anuncio abierto para este juego (máx. 1 unidad por título).
+          Esta copia ya tiene un anuncio abierto.
         </p>
         <Link
           href={`/venta/${openListingId}`}
@@ -60,7 +60,7 @@ export function SellListingButton({
   return (
     <div className="rounded-xl border border-border bg-card p-4">
       <p className="text-sm text-muted">
-        Solo puedes publicar un anuncio por juego en el catálogo.
+        El anuncio quedará vinculado a esta copia de tu colección.
       </p>
       <button
         type="button"

@@ -3,14 +3,13 @@ import { BackLink } from "@/components/breadcrumbs";
 import { notFound, redirect } from "next/navigation";
 import { GameProductReference } from "@/components/game-product-reference";
 import { CollectionValueUpsell } from "@/components/collection-value-upsell";
-import { SellListingButton } from "@/components/sell-listing-button";
 import { DetailCoverArt } from "@/components/detail-cover-art";
 import { isGrailGame, isTopInSegment } from "@/lib/game-highlight";
 import { RegionFlag } from "@/components/region-flag";
 import { SiteNav } from "@/components/site-nav";
 import { PriceBox } from "@/components/ui";
-import { getSellerOpenListing } from "@/lib/listings";
 import { getUserCollectionItem } from "@/lib/collection-store";
+import { collectionCatalogPath } from "@/lib/collection-path";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { getCatalogGame, getPlatform } from "@/lib/catalog";
@@ -29,12 +28,11 @@ export default async function CollectionItemPage({ params }: Props) {
   const { id } = await params;
   const item = await getUserCollectionItem(user.id, id);
   if (!item) notFound();
+  if (item.catalogId && item.catalogMatched) {
+    redirect(collectionCatalogPath(item.catalogId));
+  }
 
   const platform = getPlatform(item.platformSlug);
-  const openListing =
-    item.catalogId != null
-      ? await getSellerOpenListing(user.id, item.catalogId)
-      : undefined;
   const grail = isGrailGame(item);
   const topSegment = isTopInSegment(item);
   const catalogGame = item.catalogId ? getCatalogGame(item.catalogId) : undefined;
@@ -99,13 +97,6 @@ export default async function CollectionItemPage({ params }: Props) {
 
             {catalogGame && (
               <GameProductReference game={catalogGame} details={catalogDetails} variant="compact" />
-            )}
-
-            {item.catalogId && item.inRetroCatalog && (
-              <SellListingButton
-                collectionItemId={item.id}
-                openListingId={openListing?.id}
-              />
             )}
 
             {item.catalogId && item.inRetroCatalog && (

@@ -31,6 +31,14 @@ type Props = {
   catalogHref: string;
 };
 
+const COLLECTION_CONDITION_LABELS = {
+  sealed: "Precintado",
+  complete: "Completo",
+  "game-manual": "Juego + manual",
+  loose: "Suelto",
+  unknown: "Estado sin indicar",
+} as const;
+
 export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogHref }: Props) {
   const router = useRouter();
   const fileInputs = useRef<Record<string, HTMLInputElement | null>>({});
@@ -256,7 +264,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
             {current.sellerCity ? ` · ${current.sellerCity}` : ""}
             {" · "}
             {current.region}
-            {current.sealed ? " · Precintado" : ""}
+            {` · ${COLLECTION_CONDITION_LABELS[current.collectionCondition ?? (current.sealed ? "sealed" : "unknown")]}`}
           </p>
           <p className="text-xs text-muted">
             {(current.saleOptions?.pickup ?? true) && "Trato en mano"}

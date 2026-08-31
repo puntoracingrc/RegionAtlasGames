@@ -1,3 +1,5 @@
+import type { CollectionCondition } from "./types";
+
 export type UserPlan = "free" | "pro";
 
 export type ListingStatus = "draft" | "active" | "sold" | "cancelled";
@@ -90,6 +92,7 @@ export type MarketplaceListing = {
   photos: ListingPhoto[];
   aiAnalysis: AiListingAnalysis | null;
   sealed: boolean;
+  collectionCondition?: CollectionCondition;
   createdAt: string;
   updatedAt: string;
   publishedAt: string | null;
@@ -122,6 +125,7 @@ export type MarketplaceListingClientView = Pick<
   | "status"
   | "aiAnalysis"
   | "sealed"
+  | "collectionCondition"
   | "updatedAt"
   | "publishedAt"
   | "sellerConfirmedAt"
@@ -196,6 +200,7 @@ export type RecordedPrivateSale = {
   priceEur: number;
   conditionScore: number | null;
   sealed: boolean;
+  collectionCondition?: CollectionCondition;
   completedAt: string;
 };
 

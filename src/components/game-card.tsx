@@ -3,6 +3,7 @@ import { CoverArt } from "@/components/cover-art";
 import { RegionFlag } from "@/components/region-flag";
 import type { CatalogListGame, CollectionView } from "@/lib/types";
 import { catalogGamePath } from "@/lib/catalog-path";
+import { collectionCatalogPath } from "@/lib/collection-path";
 import { formatEsPriceForCard } from "@/lib/price-display";
 import { formatEur } from "@/lib/price-format";
 import { CollectionQuickAdd } from "@/components/collection-quick-add";
@@ -137,7 +138,9 @@ export function CollectionGameCard({
   conditionCounts?: CollectionConditionCounts;
 }) {
   const collectionPlatformLabel = platformLabel(game.platformSlug);
-  const href = game.catalogId && game.catalogMatched ? catalogGamePath(game.catalogId) : `/coleccion/${game.id}`;
+  const href = game.catalogId && game.catalogMatched
+    ? collectionCatalogPath(game.catalogId)
+    : `/coleccion/${game.id}`;
   const { grail, topSegment } = gameHighlights(game);
   const priceLabel =
     !game.hasEsPrice && game.recommendedPrice != null

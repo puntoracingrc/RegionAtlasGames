@@ -66,10 +66,18 @@ export function getCollectionItem(id: string): CollectionView | undefined {
 export function enrichCollectionItem(item: CollectionItem): CollectionView {
   const cat = item.catalogId ? getCatalogGame(item.catalogId) : undefined;
   const quantity = Math.max(1, item.quantity || 1);
+  const condition = item.sealed ? "sealed" : item.collectionCondition ?? "unknown";
+  const fallbackCatalogPrice = cat ? primaryConditionPrice(cat) ?? cat.recommendedPrice : null;
   const catalogUnitPrice = cat
-    ? item.sealed
-      ? cat.estimatedPriceSealed ?? primaryConditionPrice(cat) ?? cat.recommendedPrice
-      : primaryConditionPrice(cat) ?? cat.recommendedPrice
+    ? condition === "sealed"
+      ? cat.estimatedPriceSealed ?? fallbackCatalogPrice
+      : condition === "complete"
+        ? cat.estimatedPriceComplete ?? fallbackCatalogPrice
+        : condition === "game-manual"
+          ? cat.estimatedPriceGameManual ?? fallbackCatalogPrice
+          : condition === "loose"
+            ? cat.estimatedPriceLoose ?? fallbackCatalogPrice
+            : fallbackCatalogPrice
     : null;
   const storedUnitPrice =
     item.recommendedPrice ??
