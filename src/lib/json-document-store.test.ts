@@ -35,7 +35,8 @@ function blobGetResult(value: CounterDocument, etag: string) {
       contentType: "application/json",
       contentDisposition: "",
       cacheControl: "private, max-age=0",
-      size: new TextEncoder().encode(raw).byteLength,
+      // The private Blob SDK currently reports zero here; head() carries the real size.
+      size: 0,
       uploadedAt: new Date(0),
       etag,
     },
@@ -50,12 +51,12 @@ function truncatedBlobGetResult(value: CounterDocument, etag: string) {
   };
 }
 
-function blobHeadResult(etag: string) {
+function blobHeadResult(etag: string, size = 11) {
   return {
     url: "https://example.private.blob.vercel-storage.com/counter.json",
     downloadUrl: "https://example.private.blob.vercel-storage.com/counter.json?download=1",
     pathname: "counter.json",
-    size: 12,
+    size,
     uploadedAt: new Date(0),
     contentType: "application/json",
     contentDisposition: "",
