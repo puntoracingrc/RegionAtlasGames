@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CollectionToggle } from "@/components/collection-toggle";
 import { CatalogMarketplacePanel } from "@/components/catalog-marketplace-panel";
-import { AffiliateOffersPanel } from "@/components/affiliate-offers-panel";
 import { SellListingButton } from "@/components/sell-listing-button";
 import { GameFaq } from "@/components/game-faq";
 import { GameJsonLd } from "@/components/game-json-ld";
@@ -201,7 +200,7 @@ export default async function CatalogGamePage({ params }: Props) {
 
         <div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,400px)_1fr] lg:gap-10">
           <div className="space-y-4 lg:self-start">
-            <div className="lg:sticky lg:top-20">
+            <div>
               <DetailCoverArt
                 src={getCoverSrc(game.coverUrl, game.id)}
                 alt={coverAlt}
@@ -213,8 +212,6 @@ export default async function CatalogGamePage({ params }: Props) {
             </div>
 
             <CatalogMarketplacePanel catalogId={game.id} />
-
-            <AffiliateOffersPanel catalogId={game.id} />
           </div>
 
           <div className="min-w-0 space-y-5">

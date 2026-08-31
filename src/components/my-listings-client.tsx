@@ -7,6 +7,7 @@ import { SiteNav } from "@/components/site-nav";
 import { Panel } from "@/components/ui";
 import { formatEur } from "@/lib/price-format";
 import type { MarketplaceListing } from "@/lib/marketplace-types";
+import { listingAskingPriceEur } from "@/lib/marketplace-listing-values";
 import { conditionScoreOutOfTen, LISTING_STATUS_HINTS, listingStatusLabel } from "@/lib/marketplace-ui";
 
 type Props = {
@@ -109,10 +110,9 @@ function ListingRow({
   onCancel?: () => void;
 }) {
   const canManage = listing.status === "draft" || listing.status === "active";
-  const price =
-    listing.aiAnalysis?.estimatedPriceEur ??
-    listing.recordedSalePriceEur ??
-    null;
+  const directPrice =
+    listing.status === "sold" ? listing.recordedSalePriceEur : listingAskingPriceEur(listing);
+  const estimatedPrice = directPrice == null ? listing.aiAnalysis?.estimatedPriceEur ?? null : null;
 
   return (
     <li className="rounded-lg border border-border bg-card px-4 py-3">
@@ -128,7 +128,8 @@ function ListingRow({
             {listing.region}
             {listing.sellerCity ? ` · ${listing.sellerCity}` : ""}
             {listing.sealed ? " · Precintado" : ""}
-            {price != null ? ` · ~${formatEur(price)}` : ""}
+            {directPrice != null ? ` · ${formatEur(directPrice)}` : ""}
+            {estimatedPrice != null ? ` · ~${formatEur(estimatedPrice)}` : ""}
           </p>
           {listing.aiAnalysis?.conditionScore != null && (
             <p className="mt-1 text-xs text-muted">

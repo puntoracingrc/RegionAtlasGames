@@ -19,6 +19,7 @@ export type AffiliateOffer = {
   shippingPrice: number | null;
   condition: string | null;
   location: string | null;
+  listedAt?: string | null;
   confidence: number;
 };
 
@@ -47,6 +48,7 @@ type EbaySearchItem = {
   price?: { value?: string; currency?: string };
   shippingOptions?: Array<{ shippingCost?: { value?: string; currency?: string } }>;
   condition?: string;
+  itemCreationDate?: string;
   itemLocation?: { country?: string; postalCode?: string };
 };
 
@@ -692,6 +694,7 @@ async function getEbayOffers(
         shippingPrice: numberValue(item.shippingOptions?.[0]?.shippingCost?.value),
         condition: item.condition ?? null,
         location: item.itemLocation?.country ?? null,
+        listedAt: item.itemCreationDate ?? null,
         confidence,
       };
     })

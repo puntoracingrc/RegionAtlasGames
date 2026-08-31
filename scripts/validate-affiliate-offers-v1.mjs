@@ -28,7 +28,7 @@ function walk(dir, acc = []) {
 }
 
 const disclosureComponent = "src/components/affiliate/affiliate-disclosure.tsx";
-const offersPanel = read("src/components/affiliate-offers-panel.tsx");
+const offersPanel = read("src/components/catalog-offers-list.tsx");
 const offersApi = read("src/app/api/catalog/offers/[catalogId]/route.ts");
 const catalogGamePage = read("src/app/catalogo/[slug]/page.tsx");
 const envExample = read(".env.example");
@@ -43,7 +43,11 @@ const allSource = walk(root)
 assert(existsSync(file("docs/affiliate-offers-v1.md")), "Falta docs/affiliate-offers-v1.md");
 assert(existsSync(file(disclosureComponent)), "Falta componente AffiliateDisclosure");
 assert(disclosure.includes("Disclosure:"), "El disclosure no empieza por Disclosure:");
-assert(offersPanel.includes("<AffiliateDisclosure"), "AffiliateOffersPanel debe renderizar AffiliateDisclosure");
+assert(
+  offersPanel.includes("AFFILIATE_DISCLOSURE_COMPACT_TEXT") &&
+    offersPanel.includes('href="/affiliate-disclosure"'),
+  "La lista unificada debe mostrar el disclosure afiliado y enlazar su información",
+);
 assert(offersPanel.includes('rel="sponsored nofollow noopener noreferrer"'), "Los enlaces afiliados deben usar rel sponsored nofollow noopener noreferrer");
 assert(offersPanel.includes('target="_blank"'), "Los enlaces afiliados deben abrirse con target _blank tras click voluntario");
 assert(
@@ -65,7 +69,10 @@ assert(affiliateOffers.includes("!item.itemAffiliateWebUrl"), "Las cards eBay de
 assert(affiliateOffers.includes("url: item.itemAffiliateWebUrl"), "Las cards eBay deben enlazar con itemAffiliateWebUrl");
 assert(!affiliateOffers.includes("item.itemAffiliateWebUrl ?? appendEbayTracking"), "El fallback trackeado no debe renderizarse como oferta individual");
 assert(affiliateOffers.includes("Buscar este juego en eBay"), "El CTA fallback debe llamarse Buscar este juego en eBay");
-assert(offersPanel.includes("fallbackCta") && offersPanel.includes("fallbackCta.label"), "El panel debe renderizar fallbackCta como CTA separado");
+assert(
+  offersPanel.includes("fallbackCtas") && offersPanel.includes("fallback.label"),
+  "La lista unificada debe renderizar cada fallback como CTA separado",
+);
 assert(affiliateOffers.includes("trackingId"), "AffiliateOfferBlock debe devolver trackingId por ficha");
 assert(
   (offersPanel.includes("trackingId") && catalogGamePage.includes("trackingId={affiliateOffers.trackingId}")) ||
@@ -78,6 +85,11 @@ assert(
   "El panel público debe recibir fallbackCta por ficha",
 );
 assert(!catalogGamePage.includes("await getAffiliateOfferBlock"), "La ficha pública no debe bloquearse esperando ofertas afiliadas");
+assert(
+  catalogGamePage.includes("<CatalogMarketplacePanel") &&
+    !catalogGamePage.includes("<AffiliateOffersPanel"),
+  "La ficha debe mostrar usuarios y afiliados en una sola lista",
+);
 assert(
   catalogGamePage.includes("catalogId={game.id}") && offersApi.includes("getAffiliateOfferBlock"),
   "Las ofertas afiliadas deben cargarse bajo demanda por API pública",

@@ -65,6 +65,12 @@ export type ListingSaleOptions = {
   shipping: boolean;
 };
 
+export type ApproximateListingLocation = {
+  latitude: number;
+  longitude: number;
+  precision: "approximate";
+};
+
 export type MarketplaceListing = {
   id: string;
   catalogId: string;
@@ -76,6 +82,8 @@ export type MarketplaceListing = {
   customTitle: string | null;
   customDescription: string | null;
   saleOptions: ListingSaleOptions;
+  askingPriceEur?: number | null;
+  sellerLocation?: ApproximateListingLocation | null;
   platformSlug: string;
   region: string;
   status: ListingStatus;
@@ -107,6 +115,8 @@ export type MarketplaceListingClientView = Pick<
   | "customTitle"
   | "customDescription"
   | "saleOptions"
+  | "askingPriceEur"
+  | "sellerLocation"
   | "platformSlug"
   | "region"
   | "status"

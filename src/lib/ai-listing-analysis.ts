@@ -21,6 +21,7 @@ import type {
   MarketplaceListing,
   UserPlan,
 } from "./marketplace-types";
+import { listingAskingPriceEur } from "./marketplace-listing-values";
 import { evaluateListingVisionEvidence } from "./marketplace-verification";
 import { aiQuotaForPlan } from "./plans";
 import { safeRemoteFetch } from "./remote-fetch";
@@ -460,7 +461,7 @@ export async function analyzeListingPhotos(
   }
 
   const game = getCatalogGame(listing.catalogId);
-  const referencePrice = game?.recommendedPrice ?? game?.pcRefPrice ?? listing.recordedSalePriceEur;
+  const referencePrice = game?.recommendedPrice ?? game?.pcRefPrice ?? listingAskingPriceEur(listing);
   const basePrice = referencePrice ?? 35;
   const inspection = await inspectStoredListingPhotos(listing);
   const { photos } = inspection;
