@@ -89,6 +89,28 @@ const PLATFORM_WIKI_HINT: Record<string, string> = {
 };
 
 const USER_AGENT = "RegionAtlasGames/1.0 (admin ai fill)";
+const UPSTREAM_TIMEOUT_MS = 10_000;
+const OPENAI_REQUEST_TIMEOUT_MS = 35_000;
+
+async function fetchWithTimeout(
+  input: RequestInfo | URL,
+  init: RequestInit = {},
+  timeoutMs = UPSTREAM_TIMEOUT_MS,
+  timeoutLabel = "La fuente externa",
+): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(input, { ...init, signal: controller.signal });
+  } catch (error) {
+    if (controller.signal.aborted) {
+      throw new Error(`${timeoutLabel} no respondió en ${Math.ceil(timeoutMs / 1000)} segundos.`);
+    }
+    throw error;
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 type ReferenceSource = {
   label: string;
@@ -779,7 +801,7 @@ async function searchSteamStoreExperimental(draft: AdminGameDraft): Promise<Refe
       cc: "ES",
       l: "spanish",
     });
-    const suggestRes = await fetch(`${STEAM_SEARCH_SUGGEST_URL}?${params}`, {
+    const suggestRes = await fetchWithTimeout(`${STEAM_SEARCH_SUGGEST_URL}?${params}`, {
       headers: { "User-Agent": USER_AGENT },
     });
     if (!suggestRes.ok) continue;
@@ -791,7 +813,7 @@ async function searchSteamStoreExperimental(draft: AdminGameDraft): Promise<Refe
   if (!appId) return null;
 
   const appUrl = `https://store.steampowered.com/app/${appId}/?cc=ES&l=spanish`;
-  const appRes = await fetch(appUrl, {
+  const appRes = await fetchWithTimeout(appUrl, {
     headers: {
       "User-Agent": USER_AGENT,
       Cookie: STEAM_AGE_COOKIE,
@@ -942,7 +964,7 @@ async function fetchManualReference(url: string): Promise<ReferenceSource | null
     return fetchPlayStationProduct(parsed.toString());
   }
 
-  const res = await fetch(parsed.toString(), { headers: { "User-Agent": USER_AGENT } });
+  const res = await fetchWithTimeout(parsed.toString(), { headers: { "User-Agent": USER_AGENT } });
   if (!res.ok) return null;
   const html = await res.text();
   const title =
@@ -1038,7 +1060,7 @@ function preferredPsCover(product: PlayStationProduct, jsonLd: Record<string, un
 }
 
 async function fetchPlayStationProduct(url: string): Promise<ReferenceSource | null> {
-  const res = await fetch(url, { headers: { "User-Agent": USER_AGENT } });
+  const res = await fetchWithTimeout(url, { headers: { "User-Agent": USER_AGENT } });
   if (!res.ok) return null;
   const html = await res.text();
   const jsonLd = parseProductJsonLd(html);
@@ -1118,7 +1140,7 @@ async function searchPlayStationStore(draft: AdminGameDraft): Promise<ReferenceS
   const platformHint = PLAYSTATION_STORE_PLATFORM[draft.platformSlug];
   const query = platformHint ? `${draft.title} ${platformHint}` : draft.title;
   const searchUrl = `https://store.playstation.com/es-es/search/${encodeURIComponent(query)}`;
-  const res = await fetch(searchUrl, { headers: { "User-Agent": USER_AGENT } });
+  const res = await fetchWithTimeout(searchUrl, { headers: { "User-Agent": USER_AGENT } });
   if (!res.ok) return null;
 
   const html = await res.text();
@@ -1157,7 +1179,7 @@ async function searchPlayStationOfficialPage(draft: AdminGameDraft): Promise<Ref
     .filter((value) => /^[a-z0-9%-]+$/.test(value));
   for (const candidateSlug of candidateSlugs) {
     const url = `https://www.playstation.com/es-es/games/${candidateSlug}/`;
-    const response = await fetch(url, { headers: { "User-Agent": USER_AGENT } });
+    const response = await fetchWithTimeout(url, { headers: { "User-Agent": USER_AGENT } });
     if (!response.ok) continue;
     const reference = parsePlayStationOfficialPage(await response.text(), url);
     if (
@@ -1185,7 +1207,7 @@ function nintendoReferenceMatchesPlatform(
 }
 
 async function fetchNintendoOfficialProduct(url: string): Promise<ReferenceSource | null> {
-  const response = await fetch(url, { headers: { "User-Agent": USER_AGENT } });
+  const response = await fetchWithTimeout(url, { headers: { "User-Agent": USER_AGENT } });
   if (!response.ok) return null;
   return parseNintendoOfficialPage(await response.text(), url);
 }
@@ -1203,7 +1225,7 @@ async function searchNintendoOfficial(draft: AdminGameDraft): Promise<ReferenceS
 
   const indexUrls = [NINTENDO_OFFICIAL_INDEX[draft.platformSlug], NINTENDO_GENERAL_INDEX].filter(Boolean);
   for (const indexUrl of indexUrls) {
-    const response = await fetch(indexUrl, { headers: { "User-Agent": USER_AGENT } });
+    const response = await fetchWithTimeout(indexUrl, { headers: { "User-Agent": USER_AGENT } });
     if (!response.ok) continue;
     const productUrl = findNintendoOfficialProductUrl(await response.text(), draft.title, indexUrl);
     if (!productUrl) continue;
@@ -1233,7 +1255,7 @@ async function googleTrustedSearch(query: string, platformSlug: string): Promise
     hl: "es",
     safe: "active",
   });
-  const res = await fetch(`https://www.googleapis.com/customsearch/v1?${params}`, {
+  const res = await fetchWithTimeout(`https://www.googleapis.com/customsearch/v1?${params}`, {
     headers: { "User-Agent": USER_AGENT },
   });
   if (!res.ok) return [];
@@ -1270,7 +1292,7 @@ async function serpApiTrustedSearch(query: string, platformSlug: string): Promis
     hl: "es",
     num: "5",
   });
-  const res = await fetch(`https://serpapi.com/search.json?${params}`, {
+  const res = await fetchWithTimeout(`https://serpapi.com/search.json?${params}`, {
     headers: { "User-Agent": USER_AGENT },
   });
   if (!res.ok) return [];
@@ -1422,7 +1444,7 @@ async function searchWikipedia(title: string, platformSlug: string, lang: string
     format: "json",
     origin: "*",
   });
-  const res = await fetch(`https://${lang}.wikipedia.org/w/api.php?${params}`, {
+  const res = await fetchWithTimeout(`https://${lang}.wikipedia.org/w/api.php?${params}`, {
     headers: { "User-Agent": USER_AGENT },
   });
   if (!res.ok) return null;
@@ -1442,7 +1464,7 @@ async function fetchWikiExtract(title: string, lang: string) {
     format: "json",
     origin: "*",
   });
-  const res = await fetch(`https://${lang}.wikipedia.org/w/api.php?${params}`, {
+  const res = await fetchWithTimeout(`https://${lang}.wikipedia.org/w/api.php?${params}`, {
     headers: { "User-Agent": USER_AGENT },
   });
   if (!res.ok) return null;
@@ -1463,22 +1485,27 @@ export async function openAiJson(system: string, user: string): Promise<Record<s
     /\/$/,
     "",
   );
-  const res = await fetch(`${base}/chat/completions`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
+  const res = await fetchWithTimeout(
+    `${base}/chat/completions`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: descriptionModel(),
+        temperature: 0.7,
+        response_format: { type: "json_object" },
+        messages: [
+          { role: "system", content: system },
+          { role: "user", content: user },
+        ],
+      }),
     },
-    body: JSON.stringify({
-      model: descriptionModel(),
-      temperature: 0.7,
-      response_format: { type: "json_object" },
-      messages: [
-        { role: "system", content: system },
-        { role: "user", content: user },
-      ],
-    }),
-  });
+    OPENAI_REQUEST_TIMEOUT_MS,
+    "OpenAI",
+  );
   if (!res.ok) {
     const text = await res.text();
     throw new Error(`OpenAI ${res.status}: ${text.slice(0, 200)}`);

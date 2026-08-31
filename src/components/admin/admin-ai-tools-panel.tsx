@@ -3,43 +3,20 @@
 import { useEffect, useMemo, useState } from "react";
 import { AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
+import {
+  appendAdminAiBatchFailure,
+  createAdminAiBatchReport,
+  describeAdminAiBatchResponseError,
+  mergeAdminAiBatchReports,
+  replaceAdminAiBatchItem,
+} from "@/lib/admin-ai-batch-client";
+import type {
+  AdminAiBatchItem as BatchItem,
+  AdminAiBatchQueueItem as SearchItem,
+  AdminAiBatchReport as BatchReport,
+} from "@/lib/admin-ai-batch-client";
 
 type PlatformOption = { slug: string; name: string; shortName?: string };
-
-type BatchItem = {
-  pcId: number | null;
-  catalogId?: string;
-  title: string;
-  platformSlug: string;
-  region: string;
-  status: "processed" | "skipped" | "error" | "dry-run";
-  message: string;
-  fieldsUpdated: string[];
-  sources: string[];
-  urls: string[];
-  steamTags: string[];
-  descriptionPreview: string | null;
-  seoPreview: string | null;
-};
-
-type BatchReport = {
-  scanned: number;
-  selected: number;
-  processed: number;
-  saved: number;
-  skipped: number;
-  errors: number;
-  dryRun: boolean;
-  sourceCoverage: {
-    steam: number;
-    official: number;
-    wikipedia: number;
-    existing: number;
-    other: number;
-  };
-  fieldCoverage: Record<string, number>;
-  items: BatchItem[];
-};
 
 type BatchSummary = {
   candidates: number;
@@ -47,17 +24,6 @@ type BatchSummary = {
   complete: number;
   limit: number;
   selectable: number;
-};
-
-type SearchItem = {
-  id: string;
-  pcId: number | null;
-  catalogId?: string;
-  title: string;
-  platformSlug: string;
-  region: string;
-  status: string;
-  lastSeenAt: string;
 };
 
 type Props = {
@@ -103,12 +69,6 @@ function statusLabel(status: BatchItem["status"]): string {
   return "saltado";
 }
 
-function mergeReportItem(report: BatchReport, incoming: BatchItem): BatchReport {
-  const items = report.items.map((item) => (item.pcId === incoming.pcId ? incoming : item));
-  if (!items.some((item) => item.pcId === incoming.pcId)) items.unshift(incoming);
-  return { ...report, items };
-}
-
 function reportBadge(report: BatchReport): { tone: "green" | "amber" | "rose" | "neutral"; label: string } {
   if (report.errors > 0) return { tone: "rose", label: "con errores" };
   if (report.selected === 0 && report.processed === 0) return { tone: "neutral", label: "sin candidatos" };
@@ -119,6 +79,28 @@ function reportBadge(report: BatchReport): { tone: "green" | "amber" | "rose" | 
 function truncate(value: string | null, size = 260): string {
   if (!value) return "";
   return value.length > size ? `${value.slice(0, size).trim()}…` : value;
+}
+
+async function readAdminAiResponse<T extends { error?: string }>(response: Response): Promise<T> {
+  const raw = await response.text();
+  let data: T | null = null;
+  try {
+    data = raw ? (JSON.parse(raw) as T) : null;
+  } catch {
+    data = null;
+  }
+
+  if (!response.ok) {
+    throw new Error(describeAdminAiBatchResponseError(response.status, data?.error));
+  }
+  if (!data) throw new Error("El servidor devolvió una respuesta incompleta para el lote de IA.");
+  return data;
+}
+
+function batchErrorMessage(error: unknown): string {
+  return error instanceof Error && error.message.trim()
+    ? error.message
+    : "Se perdió la conexión mientras se procesaba la ficha. Puedes relanzarla de forma individual.";
 }
 
 export function AdminAiToolsPanel({ platforms, regions }: Props) {
@@ -139,6 +121,7 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
   const [selectedGames, setSelectedGames] = useState<SearchItem[]>([]);
   const [summary, setSummary] = useState<BatchSummary | null>(null);
   const [summaryLoading, setSummaryLoading] = useState(false);
+  const [progress, setProgress] = useState<{ current: number; total: number; title: string } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<BatchReport | null>(null);
 
@@ -179,18 +162,29 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
     };
   }, [limit, mode, platformSlug, region, source, status]);
 
-  async function postBatch(payload: Record<string, unknown>): Promise<BatchReport | null> {
+  async function postBatch(payload: Record<string, unknown>): Promise<BatchReport> {
     const res = await fetch("/api/admin/ai-fill-batch", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-    const data = await res.json();
-    if (!res.ok) {
-      setError(data.error ?? "No se pudo lanzar el lote de IA.");
-      return null;
-    }
-    return data.report as BatchReport;
+    const data = await readAdminAiResponse<{ error?: string; report: BatchReport }>(res);
+    return data.report;
+  }
+
+  async function loadBatchQueue(): Promise<SearchItem[]> {
+    const params = new URLSearchParams({
+      mode: "queue",
+      source,
+      platformSlug,
+      region,
+      status,
+      batchMode: mode,
+      limit: String(limit),
+    });
+    const res = await fetch(`/api/admin/ai-fill-batch?${params}`);
+    const data = await readAdminAiResponse<{ error?: string; games: SearchItem[] }>(res);
+    return Array.isArray(data.games) ? data.games : [];
   }
 
   async function searchGames() {
@@ -243,22 +237,45 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
     setReport(null);
     try {
       const hasManualSelection = selectedItemIds.length > 0;
-      const nextReport = await postBatch({
-        source,
-        platformSlug: hasManualSelection ? "all" : platformSlug,
-        region: hasManualSelection ? "all" : region,
-        status: hasManualSelection ? "all" : status,
-        mode,
-        limit: hasManualSelection ? selectedItemIds.length : limit,
-        includeMetadata,
-        includeDescription,
+      const queue = hasManualSelection ? selectedGames : await loadBatchQueue();
+      let nextReport = createAdminAiBatchReport(
+        hasManualSelection ? queue.length : summary?.candidates ?? queue.length,
         dryRun,
-        itemIds: hasManualSelection ? selectedItemIds : undefined,
-      });
-      if (nextReport) setReport(nextReport);
-    } catch {
-      setError("Error de red al lanzar la IA.");
+      );
+      setReport(nextReport);
+
+      for (let index = 0; index < queue.length; index += 1) {
+        const game = queue[index];
+        setProgress({ current: index + 1, total: queue.length, title: game.title });
+        try {
+          const singleReport = await postBatch({
+            source,
+            platformSlug: "all",
+            region: "all",
+            status: "all",
+            mode,
+            limit: 1,
+            includeMetadata,
+            includeDescription,
+            dryRun,
+            itemIds: [game.id],
+          });
+          nextReport = mergeAdminAiBatchReports(nextReport, singleReport);
+        } catch (itemError) {
+          nextReport = appendAdminAiBatchFailure(nextReport, game, batchErrorMessage(itemError));
+        }
+        setReport(nextReport);
+      }
+
+      if (nextReport.errors > 0) {
+        setError(
+          `El lote terminó con ${nextReport.errors} ficha(s) pendientes. Las demás se procesaron y puedes relanzar solo las fallidas.`,
+        );
+      }
+    } catch (batchError) {
+      setError(batchErrorMessage(batchError));
     } finally {
+      setProgress(null);
       setLoading(false);
     }
   }
@@ -279,12 +296,12 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
         includeDescription,
         dryRun: nextDryRun,
       });
-      const nextItem = singleReport?.items[0];
+      const nextItem = singleReport.items[0];
       if (nextItem) {
-        setReport((current) => (current ? mergeReportItem(current, nextItem) : singleReport));
+        setReport((current) => (current ? replaceAdminAiBatchItem(current, nextItem) : singleReport));
       }
-    } catch {
-      setError("Error de red al relanzar esa ficha.");
+    } catch (itemError) {
+      setError(batchErrorMessage(itemError));
     } finally {
       setRerunningItemId(null);
     }
@@ -483,7 +500,9 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
 
             <button type="button" className="btn-primary" disabled={loading} onClick={() => void runBatch()}>
               {loading
-                ? "Trabajando…"
+                ? progress
+                  ? `Procesando ${progress.current}/${progress.total}…`
+                  : "Preparando lote…"
                 : selectedGames.length
                   ? dryRun
                     ? `Previsualizar ${selectedGames.length} juego(s)`
@@ -492,6 +511,11 @@ export function AdminAiToolsPanel({ platforms, regions }: Props) {
                     ? "Previsualizar lote IA"
                     : "Lanzar lote IA"}
             </button>
+            {progress ? (
+              <p className="text-sm text-muted" role="status" aria-live="polite">
+                Ficha {progress.current} de {progress.total}: <strong className="text-foreground">{progress.title}</strong>
+              </p>
+            ) : null}
           </div>
         </div>
       </Panel>
