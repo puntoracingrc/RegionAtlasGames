@@ -680,6 +680,31 @@ export async function getUserNotificationInbox(
   };
 }
 
+export async function getUserCommunicationOverview(
+  userId: string,
+  limit = 6,
+): Promise<{
+  notifications: MarketplaceNotification[];
+  summary: MarketplaceCommunicationSummary;
+  conversations: Array<{ conversation: MarketplaceConversation; unreadCount: number }>;
+}> {
+  const state = await readInitializedState();
+  const conversations = state.conversations
+    .filter((conversation) => conversation.buyerId === userId || conversation.sellerId === userId)
+    .sort((left, right) => right.updatedAt.localeCompare(left.updatedAt))
+    .slice(0, Math.max(1, Math.min(20, limit)))
+    .map((conversation) => ({
+      conversation: hydrateConversation(state, conversation),
+      unreadCount: unreadMessagesForConversation(state, conversation, userId).length,
+    }));
+
+  return {
+    notifications: notificationsFromState(state, userId, limit),
+    summary: communicationSummaryFromState(state, userId),
+    conversations,
+  };
+}
+
 export async function markNotificationsRead(input: {
   userId: string;
   notificationIds?: string[];

@@ -7,6 +7,7 @@ import {
   addMessage,
   getCommunicationSummary,
   getConversation,
+  getUserCommunicationOverview,
   getUserConversationsWithUnread,
   getUserNotifications,
   markConversationRead,
@@ -110,6 +111,14 @@ test("central communications migrate legacy chat and keep unread events idempote
       unreadNotifications: 1,
       unreadMessages: 1,
     });
+    const overview = await getUserCommunicationOverview("seller-1", 5);
+    assert.deepEqual(overview.summary, {
+      unreadNotifications: 1,
+      unreadMessages: 1,
+    });
+    assert.equal(overview.notifications.length, 1);
+    assert.equal(overview.conversations.length, 1);
+    assert.equal(overview.conversations[0]?.unreadCount, 1);
     assert.equal((await getUserConversationsWithUnread("seller-1"))[0]?.unreadCount, 1);
     assert.equal((await getUserNotifications("seller-1"))[0]?.kind, "new_message");
     assert.deepEqual(

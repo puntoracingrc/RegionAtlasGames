@@ -13,11 +13,8 @@ const LINKS = [
   { href: "/", label: "Inicio" },
   { href: "/plataformas", label: "Plataformas" },
   { href: "/compania", label: "Compañías" },
-  { href: "/genero", label: "Géneros" },
   { href: "/saga", label: "Sagas" },
-  { href: "/etiqueta", label: "Etiquetas" },
   { href: "/coleccion", label: "Mi colección" },
-  { href: "/ajustes", label: "Ajustes" },
 ];
 
 const ADMIN_LINK = { href: "/admin", label: "Admin" };
@@ -85,10 +82,6 @@ export function SiteNav({
         : LINKS;
 
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
@@ -106,18 +99,26 @@ export function SiteNav({
         <SiteLogo priority />
 
         <div className="flex items-center justify-end gap-2 sm:gap-3 md:gap-5">
-          <div className="hidden items-center gap-x-4 text-[13px] text-muted lg:flex">
-            {navLinks.filter((link) => link.href !== "/ajustes" && link.href !== "/admin" && link.href !== "/contribuir").map((link) => (
+          <div className="hidden items-center gap-x-3 text-[13px] text-muted lg:flex xl:gap-x-4">
+            {LINKS.map((link) => (
               <IntentLink
                 key={link.href}
                 href={link.href}
-                className="transition hover:text-foreground"
+                className={cn(
+                  "transition hover:text-foreground",
+                  link.href === "/"
+                    ? pathname === "/" && "font-medium text-foreground"
+                    : (pathname === link.href || pathname.startsWith(`${link.href}/`)) &&
+                        "font-medium text-foreground",
+                )}
               >
                 {link.label}
                 <LinkPendingFeedback label={`Abriendo ${link.label}…`} />
               </IntentLink>
             ))}
           </div>
+
+          <AuthNav initialUser={initialUser} />
 
           {staffRole === "admin" && (
             <IntentLink
@@ -137,8 +138,6 @@ export function SiteNav({
               <LinkPendingFeedback label="Abriendo contribuciones…" />
             </IntentLink>
           )}
-
-          <AuthNav initialUser={initialUser} />
 
           <button
             type="button"
