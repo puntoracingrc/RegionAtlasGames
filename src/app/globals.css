@@ -54,6 +54,11 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+main {
+  width: 100%;
+  min-width: 0;
+}
+
 a[href],
 button:not(:disabled),
 label:has(input[type="file"], input[type="checkbox"], input[type="radio"]),

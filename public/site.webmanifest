@@ -2,16 +2,22 @@
   "name": "Region Atlas Games",
   "short_name": "Region Atlas",
   "description": "Catálogo de videojuegos por región, colección y precios para coleccionistas.",
+  "id": "/",
   "start_url": "/",
+  "scope": "/",
+  "lang": "es",
+  "dir": "ltr",
   "display": "standalone",
-  "background_color": "#020617",
-  "theme_color": "#f5a400",
+  "background_color": "#f1f5f9",
+  "theme_color": "#92400e",
+  "categories": ["games", "entertainment", "utilities"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/app-icon.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/brand-icon.png",
