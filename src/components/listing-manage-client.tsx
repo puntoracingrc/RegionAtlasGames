@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { LocateFixed, MapPin, X } from "lucide-react";
 import { BackLink } from "@/components/breadcrumbs";
 import type { MarketplaceListingClientView } from "@/lib/marketplace-types";
 import { PHOTO_SLOT_LABELS, REQUIRED_PHOTO_SLOTS } from "@/lib/marketplace-types";
-import { formatEur } from "@/lib/price-format";
+import { formatEur, formatEurCents } from "@/lib/price-format";
 import { coverAspectClass, LISTING_PHOTOS_GRID_CLASS } from "@/lib/cover-aspect";
 import { cn } from "@/lib/cn";
 import { conditionScoreOutOfTen, LISTING_STATUS_HINTS, listingStatusLabel } from "@/lib/marketplace-ui";
@@ -31,12 +32,17 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
   const [customTitle, setCustomTitle] = useState(listing.customTitle ?? "");
   const [customDescription, setCustomDescription] = useState(listing.customDescription ?? "");
   const [sellerCity, setSellerCity] = useState(listing.sellerCity ?? "");
+  const [askingPriceEur, setAskingPriceEur] = useState(
+    listing.askingPriceEur != null ? String(listing.askingPriceEur) : "",
+  );
+  const [sellerLocation, setSellerLocation] = useState(listing.sellerLocation ?? null);
   const [saleOptions, setSaleOptions] = useState(
     listing.saleOptions ?? { pickup: true, shipping: true },
   );
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [locating, setLocating] = useState(false);
 
   async function upload(slot: string, file: File) {
     setLoading(true);
@@ -106,6 +112,8 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
         customTitle,
         customDescription,
         sellerCity,
+        askingPriceEur,
+        sellerLocation,
         saleOptions,
       }),
     });
@@ -115,9 +123,41 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
       setError(data.error ?? "No se pudo guardar el anuncio.");
       return;
     }
-    if (data.listing) setCurrent(data.listing);
+    if (data.listing) {
+      setCurrent(data.listing);
+      setSellerLocation(data.listing.sellerLocation ?? null);
+      setAskingPriceEur(
+        data.listing.askingPriceEur != null ? String(data.listing.askingPriceEur) : "",
+      );
+    }
     setSuccess("Anuncio actualizado.");
     router.refresh();
+  }
+
+  function useApproximateLocation() {
+    setError(null);
+    setSuccess(null);
+    if (!navigator.geolocation) {
+      setError("Este navegador no permite obtener la ubicación.");
+      return;
+    }
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setSellerLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          precision: "approximate",
+        });
+        setLocating(false);
+        setSuccess("Ubicación preparada. Guarda los detalles para aplicarla.");
+      },
+      () => {
+        setLocating(false);
+        setError("No se ha podido obtener la ubicación. Puedes seguir usando solo la ciudad.");
+      },
+      { enableHighAccuracy: false, timeout: 10_000, maximumAge: 15 * 60 * 1000 },
+    );
   }
 
   async function startChat() {
@@ -177,6 +217,11 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
             {(current.saleOptions?.pickup ?? true) && (current.saleOptions?.shipping ?? true) ? " · " : ""}
             {(current.saleOptions?.shipping ?? true) && "Envío"}
           </p>
+          {current.askingPriceEur != null && current.status !== "sold" ? (
+            <p className="text-2xl font-bold tabular-nums text-foreground">
+              {formatEurCents(current.askingPriceEur)}
+            </p>
+          ) : null}
           <p className="text-sm">
             <span className="font-medium text-accent">{listingStatusLabel(current.status)}</span>
             <span className="text-muted"> — {LISTING_STATUS_HINTS[current.status]}</span>
@@ -318,6 +363,27 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
               </label>
               <label className="block space-y-1.5">
                 <span className="text-xs font-medium uppercase tracking-wider text-muted">
+                  Precio de venta
+                </span>
+                <div className="relative max-w-48">
+                  <input
+                    type="number"
+                    inputMode="decimal"
+                    min="0.01"
+                    max="100000"
+                    step="0.01"
+                    value={askingPriceEur}
+                    onChange={(event) => setAskingPriceEur(event.target.value)}
+                    className="input pr-9 tabular-nums"
+                    required
+                  />
+                  <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-muted">
+                    €
+                  </span>
+                </div>
+              </label>
+              <label className="block space-y-1.5">
+                <span className="text-xs font-medium uppercase tracking-wider text-muted">
                   Descripción del vendedor
                 </span>
                 <textarea
@@ -339,6 +405,40 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                   placeholder="Ej. Madrid"
                 />
               </label>
+              <div className="space-y-2">
+                <span className="block text-xs font-medium uppercase tracking-wider text-muted">
+                  Ubicación aproximada · opcional
+                </span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    className="btn-secondary inline-flex items-center gap-2 text-sm"
+                    disabled={loading || locating}
+                    onClick={useApproximateLocation}
+                  >
+                    <LocateFixed size={16} aria-hidden="true" />
+                    {locating ? "Localizando…" : sellerLocation ? "Actualizar zona" : "Añadir zona"}
+                  </button>
+                  {sellerLocation ? (
+                    <button
+                      type="button"
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted transition hover:text-foreground"
+                      title="Quitar ubicación aproximada"
+                      aria-label="Quitar ubicación aproximada"
+                      onClick={() => setSellerLocation(null)}
+                    >
+                      <X size={16} aria-hidden="true" />
+                    </button>
+                  ) : null}
+                  <span className="inline-flex items-center gap-1.5 text-xs text-muted">
+                    <MapPin size={14} aria-hidden="true" />
+                    {sellerLocation ? "Zona añadida" : "Solo se mostrará la ciudad"}
+                  </span>
+                </div>
+                <p className="text-xs text-muted">
+                  La posición se redondea a una zona de unos 10 km antes de guardarse.
+                </p>
+              </div>
               <div className="flex flex-wrap gap-2 text-sm">
                 <label className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-foreground">
                   <input

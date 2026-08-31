@@ -43,6 +43,7 @@ export type EbayItemSummary = {
     shippingCost?: EbayMoney;
   }>;
   condition?: string;
+  itemCreationDate?: string;
   itemEndDate?: string;
   estimatedAvailabilities?: Array<{
     estimatedAvailabilityStatus?: string;

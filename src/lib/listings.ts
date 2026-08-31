@@ -23,6 +23,10 @@ import {
   listingAnalysisHasVerifiedEstimate,
   listingNeedsManualReview,
 } from "./marketplace-verification";
+import {
+  coarsenListingLocation,
+  listingAskingPriceEur,
+} from "./marketplace-listing-values";
 
 const LISTINGS_DOCUMENT = "listings.json";
 const SALES_DOCUMENT = "recorded-sales.json";
@@ -124,6 +128,8 @@ export async function createListingDraft(input: {
       pickup: true,
       shipping: true,
     },
+    askingPriceEur: game?.recommendedPrice ?? item.recommendedPrice ?? null,
+    sellerLocation: null,
     platformSlug: item.platformSlug,
     region: item.region,
     status: "draft",
@@ -137,7 +143,7 @@ export async function createListingDraft(input: {
     soldToUserName: null,
     sellerConfirmedAt: null,
     buyerConfirmedAt: null,
-    recordedSalePriceEur: game?.recommendedPrice ?? item.recommendedPrice ?? null,
+    recordedSalePriceEur: null,
   };
 
   return mutateListings<
@@ -248,6 +254,14 @@ export async function publishListing(id: string, sellerId: string): Promise<{ ok
         changed: false,
       };
     }
+    const askingPriceEur = listingAskingPriceEur(listing);
+    if (askingPriceEur == null) {
+      return {
+        next: listings,
+        result: { error: "Indica un precio de venta válido antes de publicar." } as const,
+        changed: false,
+      };
+    }
     if (!listingAnalysisIsVerified(listing.aiAnalysis)) {
       return {
         next: listings,
@@ -259,6 +273,7 @@ export async function publishListing(id: string, sellerId: string): Promise<{ ok
     }
     listings[idx] = {
       ...listing,
+      askingPriceEur,
       status: "active",
       publishedAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -456,7 +471,7 @@ export async function reviewMarketplaceListing(input: {
     const baseAnalysis: AiListingAnalysis = listing.aiAnalysis ?? {
       conditionVerdict: "Estado revisado manualmente",
       conditionScore: 0.5,
-      estimatedPriceEur: listing.recordedSalePriceEur ?? 0,
+      estimatedPriceEur: listingAskingPriceEur(listing) ?? 0,
       notes: "",
       analyzedAt: now,
       model: "manual-review-v1",
@@ -503,6 +518,8 @@ export function getPublicSellerListing(listing: MarketplaceListing) {
     sealed: listing.sealed,
     region: listing.region,
     saleOptions: listing.saleOptions ?? { pickup: true, shipping: true },
+    askingPriceEur: listingAskingPriceEur(listing),
+    sellerLocation: coarsenListingLocation(listing.sellerLocation),
     aiAnalysis: listing.aiAnalysis
       ? {
           conditionVerdict: hasVerifiedEstimate ? listing.aiAnalysis.conditionVerdict : null,
@@ -552,6 +569,8 @@ export function getMarketplaceListingClientView(
     customTitle: listing.customTitle,
     customDescription: listing.customDescription,
     saleOptions: listing.saleOptions,
+    askingPriceEur: listingAskingPriceEur(listing),
+    sellerLocation: listing.sellerLocation ?? null,
     platformSlug: listing.platformSlug,
     region: listing.region,
     status: listing.status,

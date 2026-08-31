@@ -27,6 +27,10 @@ export function ChatClient({ conversationId, userId }: Props) {
     if (res.ok) {
       setConversation(data.conversation);
       setListing(data.listing);
+      setSalePrice((current) => {
+        if (current || data.listing?.askingPriceEur == null) return current;
+        return String(data.listing.askingPriceEur);
+      });
     } else {
       setError(data.error ?? "No se pudo cargar el chat.");
     }
@@ -169,6 +173,9 @@ export function ChatClient({ conversationId, userId }: Props) {
           <p className="text-sm text-muted">
             {listing?.title && <span className="text-foreground">{listing.title} · </span>}
             {isSeller ? `Comprador: ${conversation.buyerName}` : `Vendedor: ${conversation.sellerName}`}
+            {listing?.status === "active" && listing.askingPriceEur != null
+              ? ` · ${formatEurCents(listing.askingPriceEur)}`
+              : ""}
           </p>
         </header>
 

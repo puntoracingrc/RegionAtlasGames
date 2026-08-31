@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import { getListing, updateListing } from "@/lib/listings";
 import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
 import { getCurrentUser } from "@/lib/users";
+import {
+  coarsenListingLocation,
+  normalizeAskingPriceEur,
+} from "@/lib/marketplace-listing-values";
 
 type Params = { params: Promise<{ id: string }> };
 
@@ -31,6 +35,11 @@ export async function PATCH(request: Request, { params }: Params) {
   const customTitle = String(body.customTitle ?? "").trim();
   const customDescription = String(body.customDescription ?? "").trim();
   const sellerCity = String(body.sellerCity ?? "").trim();
+  const askingPriceEur = normalizeAskingPriceEur(body.askingPriceEur);
+  const sellerLocationProvided = Object.prototype.hasOwnProperty.call(body, "sellerLocation");
+  const sellerLocation = sellerLocationProvided
+    ? coarsenListingLocation(body.sellerLocation)
+    : listing.sellerLocation ?? null;
   const saleOptions = {
     pickup: Boolean(body.saleOptions?.pickup),
     shipping: Boolean(body.saleOptions?.shipping),
@@ -48,6 +57,15 @@ export async function PATCH(request: Request, { params }: Params) {
   if (sellerCity && sellerCity.length < 2) {
     return NextResponse.json({ error: "Ciudad demasiado corta." }, { status: 400 });
   }
+  if (askingPriceEur == null || askingPriceEur > 100_000) {
+    return NextResponse.json(
+      { error: "Indica un precio de venta válido entre 0,01 € y 100.000 €." },
+      { status: 400 },
+    );
+  }
+  if (sellerLocationProvided && body.sellerLocation != null && sellerLocation == null) {
+    return NextResponse.json({ error: "Ubicación no válida." }, { status: 400 });
+  }
   if (!saleOptions.pickup && !saleOptions.shipping) {
     return NextResponse.json(
       { error: "Elige al menos trato en mano o envío." },
@@ -59,6 +77,8 @@ export async function PATCH(request: Request, { params }: Params) {
     customTitle: customTitle || null,
     customDescription: customDescription || null,
     sellerCity: sellerCity || user.city || null,
+    askingPriceEur,
+    sellerLocation,
     saleOptions,
   });
 

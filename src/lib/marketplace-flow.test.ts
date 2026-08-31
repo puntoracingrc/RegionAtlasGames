@@ -95,6 +95,8 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
       collectionItemId: added.item.id,
     });
     assertResult(draft);
+    assert.ok(draft.askingPriceEur && draft.askingPriceEur > 0);
+    assert.equal(draft.recordedSalePriceEur, null);
 
     for (const slot of REQUIRED_PHOTO_SLOTS) {
       const photo = await upsertListingPhoto(draft.id, sellerResult.user.id, {
