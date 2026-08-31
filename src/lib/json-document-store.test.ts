@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import {
   mutateBlobJsonDocument,
+  readBlobJsonDocument,
   mutateDiskJsonDocument,
   readDiskJsonDocument,
   readUtf8Stream,
@@ -22,9 +23,10 @@ function parseCounter(raw: string): CounterDocument {
 }
 
 function blobGetResult(value: CounterDocument, etag: string) {
+  const raw = JSON.stringify(value);
   return {
     statusCode: 200 as const,
-    stream: new Response(JSON.stringify(value)).body!,
+    stream: new Response(raw).body!,
     headers: new Headers(),
     blob: {
       url: "https://example.private.blob.vercel-storage.com/counter.json",
@@ -33,10 +35,18 @@ function blobGetResult(value: CounterDocument, etag: string) {
       contentType: "application/json",
       contentDisposition: "",
       cacheControl: "private, max-age=0",
-      size: 12,
+      size: new TextEncoder().encode(raw).byteLength,
       uploadedAt: new Date(0),
       etag,
     },
+  };
+}
+
+function truncatedBlobGetResult(value: CounterDocument, etag: string) {
+  const raw = JSON.stringify(value);
+  return {
+    ...blobGetResult(value, etag),
+    stream: new Response(raw.slice(0, -1)).body!,
   };
 }
 
@@ -66,6 +76,37 @@ test("reads UTF-8 Blob streams directly across chunk boundaries", async () => {
   });
 
   assert.equal(await readUtf8Stream(stream), '{"label":"Colección PS5"}');
+});
+
+test("retries a truncated Blob stream before parsing the document", async () => {
+  let reads = 0;
+  const waits: number[] = [];
+  const dependencies = {
+    get: (async () => {
+      reads += 1;
+      return reads === 1
+        ? truncatedBlobGetResult({ count: 7 }, '"same"')
+        : blobGetResult({ count: 7 }, '"same"');
+    }) as typeof get,
+    head: (async () => blobHeadResult("same")) as typeof head,
+    put: (async () => blobHeadResult("next")) as typeof put,
+    wait: async (milliseconds: number) => {
+      waits.push(milliseconds);
+    },
+  };
+
+  const result = await readBlobJsonDocument(
+    {
+      pathname: "counter.json",
+      empty: (): CounterDocument => ({ count: 0 }),
+      parse: parseCounter,
+    },
+    dependencies,
+  );
+
+  assert.deepEqual(result, { count: 7 });
+  assert.equal(reads, 2);
+  assert.deepEqual(waits, [50]);
 });
 
 test("retries a stale Blob read and writes with the authoritative ETag", async () => {

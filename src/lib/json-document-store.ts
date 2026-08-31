@@ -49,6 +49,15 @@ class BlobDocumentVersionConflictError extends Error {
   }
 }
 
+class BlobDocumentIncompleteReadError extends Error {
+  constructor(pathname: string, expectedBytes: number, receivedBytes: number) {
+    super(
+      `La lectura de ${pathname} quedó incompleta (${receivedBytes}/${expectedBytes} bytes).`,
+    );
+    this.name = "BlobDocumentIncompleteReadError";
+  }
+}
+
 const defaultBlobDependencies: BlobDocumentDependencies = {
   get,
   head,
@@ -84,6 +93,15 @@ function isConflict(error: unknown): boolean {
       error.name === "BlobDocumentVersionConflictError" ||
       error.name === "BlobPreconditionFailedError"
     ))
+  );
+}
+
+function isRetryableBlobReadError(error: unknown): boolean {
+  return (
+    isConflict(error) ||
+    error instanceof BlobDocumentIncompleteReadError ||
+    (error instanceof Error && error.name === "BlobDocumentIncompleteReadError") ||
+    (error instanceof SyntaxError && /unexpected end/i.test(error.message))
   );
 }
 
@@ -133,20 +151,32 @@ async function readVersionedBlobDocument<T>(
   ) {
     throw new BlobDocumentVersionConflictError();
   }
+  const raw = await readUtf8Stream(response.stream);
+  const receivedBytes = new TextEncoder().encode(raw).byteLength;
+  if (receivedBytes !== response.blob.size) {
+    throw new BlobDocumentIncompleteReadError(
+      options.pathname,
+      response.blob.size,
+      receivedBytes,
+    );
+  }
   return {
-    value: options.parse(await readUtf8Stream(response.stream)),
+    value: options.parse(raw),
     etag: metadata.etag,
     exists: true,
   };
 }
 
-export async function readBlobJsonDocument<T>(options: BlobDocumentOptions<T>): Promise<T> {
+export async function readBlobJsonDocument<T>(
+  options: BlobDocumentOptions<T>,
+  dependencies: BlobDocumentDependencies = defaultBlobDependencies,
+): Promise<T> {
   for (let attempt = 0; attempt < 4; attempt += 1) {
     try {
-      return (await readVersionedBlobDocument(options)).value;
+      return (await readVersionedBlobDocument(options, dependencies)).value;
     } catch (error) {
-      if (!isConflict(error) || attempt === 3) throw error;
-      await defaultBlobDependencies.wait(retryDelay(attempt));
+      if (!isRetryableBlobReadError(error) || attempt === 3) throw error;
+      await dependencies.wait(retryDelay(attempt));
     }
   }
   throw new Error(`No se pudo leer una versión estable de ${options.pathname}.`);
@@ -165,7 +195,7 @@ export async function mutateBlobJsonDocument<T, R>(
     try {
       current = await readVersionedBlobDocument(options, dependencies);
     } catch (error) {
-      if (!isConflict(error)) throw error;
+      if (!isRetryableBlobReadError(error)) throw error;
       if (attempt + 1 < maxAttempts) await dependencies.wait(retryDelay(attempt));
       continue;
     }
