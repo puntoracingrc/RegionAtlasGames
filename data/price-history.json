@@ -9500,12 +9500,12 @@
         "sealed": 19.7
       },
       {
-        "at": "2026-08-31T08:31:54Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
         "complete": 7.21,
         "sealed": 10.87,
-        "newRetail": 15.95
+        "newRetail": 12.97
       }
     ],
     "ps4-40-principales-karaoke-party-vol-2": [
@@ -9550,11 +9550,11 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T09:04:34Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
         "complete": 15.18,
-        "sealed": 24.8,
+        "sealed": 27.22,
         "newRetail": null
       }
     ],
@@ -9601,10 +9601,10 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T09:04:34Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
-        "complete": 8.29,
+        "complete": 9.12,
         "sealed": null,
         "newRetail": null
       }
@@ -9729,11 +9729,11 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T09:58:44Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
         "complete": 16.33,
-        "sealed": null,
+        "sealed": 56.99,
         "newRetail": null
       }
     ],
@@ -10190,11 +10190,11 @@
         "sealed": 51.66
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
-        "complete": 25.33,
-        "sealed": 45.83,
+        "complete": 21.57,
+        "sealed": 58.91,
         "newRetail": null
       }
     ],
@@ -10207,10 +10207,10 @@
         "sealed": 40.0
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
-        "complete": 25.91,
+        "complete": 19.21,
         "sealed": 53.0,
         "newRetail": null
       }
@@ -10224,12 +10224,12 @@
         "sealed": 33.67
       },
       {
-        "at": "2026-08-31T09:58:44Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
-        "complete": 14.98,
+        "complete": 15.97,
         "sealed": 12.5,
-        "newRetail": null
+        "newRetail": 36.49
       }
     ],
     "ps4-blade-assault": [
@@ -10241,12 +10241,12 @@
         "sealed": 37.53
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
         "complete": null,
         "sealed": 28.39,
-        "newRetail": null
+        "newRetail": 14.97
       }
     ],
     "ps4-bladed-fury": [
@@ -10256,6 +10256,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 31.25
+      },
+      {
+        "at": "2026-08-31T19:05:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 34.99,
+        "sealed": 31.25,
+        "newRetail": 36.9
       }
     ],
     "ps4-bladestorm-nightmare": [
@@ -10299,6 +10307,14 @@
         "gameManual": null,
         "complete": 26.97,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T19:05:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 21.34,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-blood-and-truth": [
@@ -10310,12 +10326,12 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T10:26:09Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
         "complete": 15.0,
-        "sealed": 27.18,
-        "newRetail": null
+        "sealed": 35.56,
+        "newRetail": 19.46
       }
     ],
     "ps4-bound-by-flame": [
@@ -11543,12 +11559,12 @@
     ],
     "ps4-batman-return-to-arkham": [
       {
-        "at": "2026-08-31T09:04:34Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
         "complete": 19.1,
         "sealed": null,
-        "newRetail": 18.2
+        "newRetail": 16.58
       }
     ],
     "ps4-batman-the-enemy-within": [
@@ -11603,20 +11619,20 @@
     ],
     "ps4-battlefield-2042": [
       {
-        "at": "2026-08-31T09:04:34Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
-        "complete": 10.9,
+        "complete": 10.45,
         "sealed": null,
-        "newRetail": 28.63
+        "newRetail": 24.54
       }
     ],
     "ps4-battlefield-4": [
       {
-        "at": "2026-08-31T09:04:34Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
-        "complete": 7.98,
+        "complete": 7.99,
         "sealed": null,
         "newRetail": null
       }
@@ -11833,12 +11849,12 @@
     ],
     "ps4-bioshock-the-collection": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
-        "complete": 20.18,
+        "complete": 23.07,
         "sealed": 26.99,
-        "newRetail": null
+        "newRetail": 24.9
       }
     ],
     "ps4-black-mirror": [
@@ -11873,12 +11889,12 @@
     ],
     "ps4-blazblue-cross-tag-battle": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
         "complete": null,
         "sealed": 25.5,
-        "newRetail": null
+        "newRetail": 19.9
       }
     ],
     "ps4-blind": [
@@ -12243,12 +12259,12 @@
     ],
     "ps4-bleach-rebirth-of-souls": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T19:05:38Z",
         "loose": null,
         "gameManual": null,
         "complete": 46.0,
         "sealed": 49.0,
-        "newRetail": 29.99
+        "newRetail": 33.97
       }
     ],
     "ps4-blood-bowl-iii-brutal-edition": [
@@ -12319,6 +12335,56 @@
         "complete": null,
         "sealed": null,
         "newRetail": 31.68
+      }
+    ],
+    "ps4-batman-arkham-vr": [
+      {
+        "at": "2026-08-31T19:05:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 5.95,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-beyond-a-steel-sky-utopia-edition": [
+      {
+        "at": "2026-08-31T19:05:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 149.99
+      }
+    ],
+    "ps4-big-bobby-car-the-big-race": [
+      {
+        "at": "2026-08-31T19:05:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 18.18
+      }
+    ],
+    "ps4-blaze-and-the-monster-machines-axle-city-racers": [
+      {
+        "at": "2026-08-31T19:05:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 21.01
+      }
+    ],
+    "ps4-blood-bowl-ii": [
+      {
+        "at": "2026-08-31T19:05:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 71.63,
+        "newRetail": null
       }
     ]
   }
