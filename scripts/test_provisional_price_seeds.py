@@ -42,6 +42,12 @@ def payload() -> dict:
                 "conditions": {"new_retail": {"minimum": 15, "maximum": 25}},
             },
             {
+                "catalogId": "ps4-preserve-verified",
+                "title": "Preserve Verified",
+                "status": "accepted",
+                "conditions": {"sealed": {"minimum": 40, "maximum": 40}},
+            },
+            {
                 "catalogId": "ps4-skipped",
                 "title": "Skipped",
                 "status": "skipped",
@@ -81,6 +87,15 @@ def main() -> None:
             "recommendedPrice": 30,
         },
         {
+            "id": "ps4-preserve-verified",
+            "platformSlug": "ps4",
+            "region": "PAL España",
+            "estimatedPriceComplete": 20,
+            "recommendedPrice": 20,
+            "hasEsPrice": True,
+            "priceRegionVerified": True,
+        },
+        {
             "id": "ps4-skipped",
             "platformSlug": "ps4",
             "region": "PAL España",
@@ -89,9 +104,9 @@ def main() -> None:
     ]
 
     result = apply_batch(catalog, payload(), applied_at="2026-08-31T00:00:00Z")
-    assert result["acceptedEntriesApplied"] == 3
+    assert result["acceptedEntriesApplied"] == 4
     assert result["skippedEntries"] == 1
-    assert result["catalogRowsUpdated"] == 4
+    assert result["catalogRowsUpdated"] == 5
 
     existing = catalog[0]
     assert existing["estimatedPriceComplete"] == 17.5
@@ -113,12 +128,16 @@ def main() -> None:
     assert catalog[3]["estimatedPriceNewRetail"] == 20
     assert catalog[3]["recommendedPrice"] == 30
     assert "estimatedPriceSealed" not in catalog[3]
-    assert "estimatedPriceComplete" not in catalog[4]
+    assert catalog[4]["estimatedPriceComplete"] == 20
+    assert catalog[4]["estimatedPriceSealed"] == 40
+    assert catalog[4]["recommendedPrice"] == 20
+    assert catalog[4]["priceRegionVerified"] is True
+    assert "estimatedPriceComplete" not in catalog[5]
 
     snapshot = deepcopy(catalog)
     repeated = apply_batch(catalog, payload(), applied_at="2026-08-31T00:00:00Z")
     assert repeated["catalogRowsUpdated"] == 0
-    assert repeated["alreadyAppliedEntries"] == 3
+    assert repeated["alreadyAppliedEntries"] == 4
     assert catalog == snapshot
 
     wrong_region = payload()
