@@ -153,10 +153,10 @@ async function readVersionedBlobDocument<T>(
   }
   const raw = await readUtf8Stream(response.stream);
   const receivedBytes = new TextEncoder().encode(raw).byteLength;
-  if (receivedBytes !== response.blob.size) {
+  if (receivedBytes !== metadata.size) {
     throw new BlobDocumentIncompleteReadError(
       options.pathname,
-      response.blob.size,
+      metadata.size,
       receivedBytes,
     );
   }
