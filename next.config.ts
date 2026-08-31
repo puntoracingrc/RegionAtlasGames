@@ -26,7 +26,7 @@ const securityHeaders = [
   { key: "X-Frame-Options", value: "DENY" },
   {
     key: "Permissions-Policy",
-    value: "camera=(self), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()",
+    value: "camera=(self), microphone=(), geolocation=(self), payment=(), usb=(), browsing-topics=()",
   },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin-allow-popups" },
   { key: "X-Permitted-Cross-Domain-Policies", value: "none" },
