@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { LayoutGrid, Rows3 } from "lucide-react";
 import { CollectionGameCard } from "@/components/game-card";
 import { HighlightLegend } from "@/components/highlight-legend";
 import { CollectionValueUpsell } from "@/components/collection-value-upsell";
@@ -17,6 +18,18 @@ import {
 } from "@/lib/collection-filters";
 import type { CollectionSummary } from "@/lib/collection-store";
 import type { CollectionView, GameFilters } from "@/lib/types";
+import {
+  formatCollectionConditionSummary,
+  groupCollectionDisplayItems,
+  type CollectionDisplayItem,
+} from "@/lib/collection-display";
+import { getCoverSrc } from "@/lib/cover-url";
+import { decodeHtmlEntities } from "@/lib/decode-html-entities";
+import { formatEsPriceForCard } from "@/lib/price-display";
+import { RegionFlag } from "@/components/region-flag";
+import { IntentLink } from "@/components/intent-link";
+import { catalogGamePath } from "@/lib/catalog-path";
+import { LinkPendingFeedback } from "@/components/link-pending-feedback";
 
 type Props = {
   items: CollectionView[];
@@ -32,12 +45,15 @@ const searchClass =
 
 export function CollectionExplorer({ items, summary, canViewCollectionValue }: Props) {
   const [filters, setFilters] = useState<GameFilters>(DEFAULT_COLLECTION_FILTERS);
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   const platformOptions = useMemo(() => collectionPlatformOptions(items), [items]);
   const developerOptions = useMemo(() => collectionDeveloperOptions(items), [items]);
   const publisherOptions = useMemo(() => collectionPublisherOptions(items), [items]);
 
   const filtered = useMemo(() => filterCollection(items, filters), [items, filters]);
+  const displayed = useMemo(() => groupCollectionDisplayItems(filtered), [filtered]);
+  const displayedUnits = displayed.reduce((sum, item) => sum + item.units, 0);
   const filteredValue = filtered.reduce((sum, g) => sum + (g.totalValue || 0), 0);
   const filtersActive = hasActiveCollectionFilters(filters);
 
@@ -152,27 +168,64 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
         </div>
         <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm text-foreground/85">
           <span>
-            Mostrando <strong className="font-semibold text-foreground">{filtered.length}</strong> juegos
+            Mostrando <strong className="font-semibold text-foreground">{displayed.length}</strong> juegos
+            {displayedUnits !== displayed.length ? ` · ${displayedUnits} unidades` : ""}
           </span>
-          {canViewCollectionValue ? (
-            <span>
-              Valor filtrado:{" "}
-              <strong className="font-semibold text-foreground">{formatEur(filteredValue)}</strong>
-            </span>
-          ) : (
-            <CollectionValueUpsell compact />
-          )}
+          <div className="flex items-center gap-3">
+            {canViewCollectionValue ? (
+              <span>
+                Valor filtrado:{" "}
+                <strong className="font-semibold text-foreground">{formatEur(filteredValue)}</strong>
+              </span>
+            ) : (
+              <CollectionValueUpsell compact />
+            )}
+            <div className="inline-flex rounded-lg border border-border bg-input p-0.5" aria-label="Vista de la colección">
+              <button
+                type="button"
+                onClick={() => setViewMode("grid")}
+                aria-label="Ver como cuadrícula"
+                aria-pressed={viewMode === "grid"}
+                title="Cuadrícula"
+                className={`flex h-8 w-8 items-center justify-center rounded-md transition ${
+                  viewMode === "grid" ? "bg-card-hover text-accent shadow-sm" : "text-muted hover:text-foreground"
+                }`}
+              >
+                <LayoutGrid className="h-4 w-4" aria-hidden />
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode("list")}
+                aria-label="Ver como lista compacta"
+                aria-pressed={viewMode === "list"}
+                title="Lista compacta"
+                className={`flex h-8 w-8 items-center justify-center rounded-md transition ${
+                  viewMode === "list" ? "bg-card-hover text-accent shadow-sm" : "text-muted hover:text-foreground"
+                }`}
+              >
+                <Rows3 className="h-4 w-4" aria-hidden />
+              </button>
+            </div>
+          </div>
         </div>
         <div className="mt-2 border-t border-border/60 pt-3">
           <HighlightLegend subdued={false} />
         </div>
       </section>
 
-      <section className={CATALOG_GRID_CLASS}>
-        {filtered.map((game) => (
-          <CollectionGameCard key={game.id} game={game} />
-        ))}
-      </section>
+      {viewMode === "grid" ? (
+        <section className={CATALOG_GRID_CLASS}>
+          {displayed.map(({ game, conditionCounts }) => (
+            <CollectionGameCard key={game.catalogId ?? game.id} game={game} conditionCounts={conditionCounts} />
+          ))}
+        </section>
+      ) : (
+        <section className="divide-y divide-border/70 border-y border-border/70">
+          {displayed.map((item) => (
+            <CollectionCompactRow key={item.game.catalogId ?? item.game.id} item={item} />
+          ))}
+        </section>
+      )}
 
       {filtered.length === 0 && (
         <p className="rounded-2xl border border-dashed border-border p-10 text-center text-muted">
@@ -182,6 +235,54 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
         </p>
       )}
     </div>
+  );
+}
+
+function CollectionCompactRow({ item }: { item: CollectionDisplayItem }) {
+  const { game, units, conditionCounts } = item;
+  const href = game.catalogId && game.catalogMatched ? catalogGamePath(game.catalogId) : `/coleccion/${game.id}`;
+  const cover = getCoverSrc(game.coverUrl, game.catalogId ?? game.id);
+  const price =
+    !game.hasEsPrice && game.recommendedPrice != null
+      ? formatEur(game.recommendedPrice)
+      : formatEsPriceForCard(game, formatEur);
+
+  return (
+    <IntentLink
+      href={href}
+      className="group relative grid min-h-[68px] grid-cols-[42px_minmax(0,1fr)_auto] items-center gap-3 px-1 py-2 transition [content-visibility:auto] hover:bg-card-hover sm:grid-cols-[46px_minmax(0,1fr)_minmax(150px,auto)_auto] sm:px-2"
+    >
+      <div className="flex h-14 w-11 items-center justify-center overflow-hidden border border-border bg-card">
+        {cover ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={cover} alt="" className="max-h-full max-w-full object-contain" loading="lazy" />
+        ) : (
+          <span className="px-1 text-center text-[8px] uppercase text-muted">Sin portada</span>
+        )}
+      </div>
+      <div className="min-w-0">
+        <h3 className="truncate text-sm font-semibold text-foreground group-hover:text-accent">
+          {decodeHtmlEntities(game.title)}
+        </h3>
+        <p className="mt-0.5 flex flex-wrap items-center gap-1 text-[11px] text-muted">
+          <span className="uppercase">{game.platformSlug}</span>
+          <span aria-hidden>·</span>
+          <RegionFlag region={game.region} size="xs" showLabel labelMode="short" />
+        </p>
+        <p className="mt-0.5 truncate text-[11px] text-muted sm:hidden">
+          {units} {units === 1 ? "unidad" : "unidades"} ·{" "}
+          {formatCollectionConditionSummary(conditionCounts, true)}
+        </p>
+      </div>
+      <p className="hidden min-w-0 text-[11px] text-muted sm:block sm:text-right">
+        <strong className="font-semibold text-foreground">
+          {units} {units === 1 ? "unidad" : "unidades"}
+        </strong>
+        <span className="block truncate">{formatCollectionConditionSummary(conditionCounts, true)}</span>
+      </p>
+      <p className="text-right text-sm font-bold text-accent">{price}</p>
+      <LinkPendingFeedback label="Abriendo ficha…" overlay />
+    </IntentLink>
   );
 }
 

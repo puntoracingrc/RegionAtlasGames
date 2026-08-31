@@ -363,6 +363,8 @@ export type CatalogListGame = Pick<
   isTopSegment: boolean;
 };
 
+export type CollectionCondition = "sealed" | "complete" | "game-manual" | "loose" | "unknown";
+
 export type CollectionItem = {
   id: string;
   catalogId: string | null;
@@ -375,6 +377,7 @@ export type CollectionItem = {
   platformSlug: string;
   region: string;
   sealed: boolean;
+  collectionCondition?: CollectionCondition;
   quantity: number;
   quantityPc: number | null;
   buyPrice: number | null;
