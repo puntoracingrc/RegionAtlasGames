@@ -9387,6 +9387,14 @@
         "gameManual": null,
         "complete": 113.33,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T08:06:28Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 53.32,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-aven-colony": [
@@ -9398,10 +9406,10 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T08:06:28Z",
         "loose": null,
         "gameManual": null,
-        "complete": 23.87,
+        "complete": 12.04,
         "sealed": null,
         "newRetail": null
       }
@@ -9441,11 +9449,11 @@
         "sealed": 66.66
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T08:31:54Z",
         "loose": null,
         "gameManual": null,
         "complete": 54.97,
-        "sealed": 60.83,
+        "sealed": 34.74,
         "newRetail": null
       }
     ],
@@ -9458,10 +9466,10 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T08:31:54Z",
         "loose": null,
         "gameManual": null,
-        "complete": 27.92,
+        "complete": 11.33,
         "sealed": 79.95,
         "newRetail": null
       }
@@ -9492,11 +9500,11 @@
         "sealed": 19.7
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T08:31:54Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
-        "sealed": 19.7,
+        "complete": 7.21,
+        "sealed": 10.87,
         "newRetail": 15.95
       }
     ],
@@ -9525,11 +9533,11 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:04:34Z",
         "loose": null,
         "gameManual": null,
-        "complete": 15.46,
-        "sealed": null,
+        "complete": 11.23,
+        "sealed": 42.5,
         "newRetail": null
       }
     ],
@@ -9542,11 +9550,11 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:04:34Z",
         "loose": null,
         "gameManual": null,
-        "complete": 12.46,
-        "sealed": null,
+        "complete": 15.18,
+        "sealed": 24.8,
         "newRetail": null
       }
     ],
@@ -9557,6 +9565,14 @@
         "gameManual": null,
         "complete": 24.95,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T09:04:34Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.75,
+        "sealed": 18.33,
+        "newRetail": null
       }
     ],
     "ps4-battlefield-1-revolution": [
@@ -9568,10 +9584,10 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:04:34Z",
         "loose": null,
         "gameManual": null,
-        "complete": 18.23,
+        "complete": 7.75,
         "sealed": null,
         "newRetail": null
       }
@@ -9585,10 +9601,10 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:04:34Z",
         "loose": null,
         "gameManual": null,
-        "complete": 15.45,
+        "complete": 8.29,
         "sealed": null,
         "newRetail": null
       }
@@ -9636,11 +9652,11 @@
         "sealed": 37.47
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:32:02Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
-        "sealed": 42.73,
+        "complete": 18.33,
+        "sealed": 20.0,
         "newRetail": null
       }
     ],
@@ -9668,6 +9684,14 @@
         "gameManual": null,
         "complete": 31.47,
         "sealed": 22.64
+      },
+      {
+        "at": "2026-08-31T09:32:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.2,
+        "sealed": 16.33,
+        "newRetail": null
       }
     ],
     "ps4-beholder-complete-edition": [
@@ -9677,6 +9701,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 49.99
+      },
+      {
+        "at": "2026-08-31T09:32:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 20.67,
+        "sealed": 26.67,
+        "newRetail": null
       }
     ],
     "ps4-below-special-edition": [
@@ -9695,6 +9727,14 @@
         "gameManual": null,
         "complete": 20.81,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T09:58:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.33,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "megadrive-usa-american-gladiators": [
@@ -9767,10 +9807,10 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T00:00:00Z",
-        "loose": null,
+        "at": "2026-08-31T08:06:28Z",
+        "loose": 7.5,
         "gameManual": null,
-        "complete": 9.0,
+        "complete": 9.33,
         "sealed": null,
         "newRetail": 39.95
       }
@@ -9784,11 +9824,11 @@
         "sealed": null
       },
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T08:06:28Z",
         "loose": null,
         "gameManual": null,
         "complete": 9.99,
-        "sealed": null,
+        "sealed": 26.5,
         "newRetail": 10.95
       }
     ],
@@ -10122,6 +10162,14 @@
         "gameManual": null,
         "complete": 17.63,
         "sealed": 28.17
+      },
+      {
+        "at": "2026-08-31T09:58:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.44,
+        "sealed": 28.17,
+        "newRetail": null
       }
     ],
     "ps4-birthdays-the-beginning": [
@@ -10140,6 +10188,14 @@
         "gameManual": null,
         "complete": 40.5,
         "sealed": 51.66
+      },
+      {
+        "at": "2026-08-31T09:58:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 25.33,
+        "sealed": 51.66,
+        "newRetail": null
       }
     ],
     "ps4-black-hole-complete-edition": [
@@ -10149,6 +10205,14 @@
         "gameManual": null,
         "complete": 29.95,
         "sealed": 40.0
+      },
+      {
+        "at": "2026-08-31T09:58:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.82,
+        "sealed": 40,
+        "newRetail": null
       }
     ],
     "ps4-blacksad-under-the-skin": [
@@ -10158,6 +10222,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 33.67
+      },
+      {
+        "at": "2026-08-31T09:58:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.98,
+        "sealed": 12.5,
+        "newRetail": null
       }
     ],
     "ps4-blade-assault": [
@@ -10167,6 +10239,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": 37.53
+      },
+      {
+        "at": "2026-08-31T09:58:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 39.92,
+        "newRetail": null
       }
     ],
     "ps4-bladed-fury": [
@@ -10212,6 +10292,14 @@
         "gameManual": null,
         "complete": 42.51,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T10:26:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.0,
+        "sealed": 27.18,
+        "newRetail": null
       }
     ],
     "ps4-bound-by-flame": [
@@ -10221,6 +10309,14 @@
         "gameManual": null,
         "complete": 39.89,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T10:53:16Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.68,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-bounty-battle": [
@@ -10282,6 +10378,14 @@
         "gameManual": null,
         "complete": 32.67,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T11:15:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.0,
+        "sealed": 17.0,
+        "newRetail": null
       }
     ],
     "ps4-bridge-constructor-compilation": [
@@ -10291,6 +10395,14 @@
         "gameManual": null,
         "complete": 32.0,
         "sealed": 42.49
+      },
+      {
+        "at": "2026-08-31T11:15:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.67,
+        "sealed": 42.49,
+        "newRetail": null
       }
     ],
     "ps4-brigandine-the-legend-of-runersia": [
@@ -10318,6 +10430,14 @@
         "gameManual": null,
         "complete": 42.19,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T11:15:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.0,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-call-of-duty-wwii": [
@@ -10327,6 +10447,14 @@
         "gameManual": null,
         "complete": 14.08,
         "sealed": null
+      },
+      {
+        "at": "2026-08-31T11:50:47Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.59,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-can%27t-drive-this": [
@@ -11265,11 +11393,11 @@
     ],
     "ps4-attack-on-titan-2": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T08:06:28Z",
         "loose": null,
         "gameManual": null,
-        "complete": 80.0,
-        "sealed": null,
+        "complete": 58.0,
+        "sealed": 95.0,
         "newRetail": null
       }
     ],
@@ -11285,10 +11413,10 @@
     ],
     "ps4-atv-drift-&amp;-tricks": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T08:06:28Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
+        "complete": 6.98,
         "sealed": null,
         "newRetail": 47.58
       }
@@ -11305,11 +11433,11 @@
     ],
     "ps4-autonauts": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T08:06:28Z",
         "loose": null,
         "gameManual": null,
         "complete": null,
-        "sealed": null,
+        "sealed": 14.0,
         "newRetail": 9.99
       }
     ],
@@ -11335,21 +11463,21 @@
     ],
     "ps4-avicii-invector": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T08:06:28Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
+        "complete": 6.21,
         "sealed": null,
         "newRetail": 14.95
       }
     ],
     "ps4-back-4-blood": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T08:31:54Z",
         "loose": null,
         "gameManual": null,
-        "complete": 10.45,
-        "sealed": 12.21,
+        "complete": 10.67,
+        "sealed": 11.0,
         "newRetail": null
       }
     ],
@@ -11375,10 +11503,10 @@
     ],
     "ps4-batman-return-to-arkham": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:04:34Z",
         "loose": null,
         "gameManual": null,
-        "complete": 15.0,
+        "complete": 19.1,
         "sealed": null,
         "newRetail": 18.2
       }
@@ -11405,60 +11533,60 @@
     ],
     "ps4-battle-worlds-kronos": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:04:34Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
+        "complete": 9.9,
         "sealed": 18.11,
         "newRetail": null
       }
     ],
     "ps4-battleborn": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:04:34Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
-        "sealed": 23.34,
+        "complete": 6.04,
+        "sealed": 12.5,
         "newRetail": null
       }
     ],
     "ps4-battlefield-1": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:04:34Z",
         "loose": null,
         "gameManual": null,
-        "complete": 7.5,
+        "complete": 9.71,
         "sealed": null,
         "newRetail": null
       }
     ],
     "ps4-battlefield-2042": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:04:34Z",
         "loose": null,
         "gameManual": null,
-        "complete": 20.0,
+        "complete": 10.9,
         "sealed": null,
         "newRetail": 28.63
       }
     ],
     "ps4-battlefield-4": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:04:34Z",
         "loose": null,
         "gameManual": null,
-        "complete": 10.18,
+        "complete": 7.98,
         "sealed": null,
         "newRetail": null
       }
     ],
     "ps4-battlefield-v": [
       {
-        "at": "2026-08-31T00:00:00Z",
+        "at": "2026-08-31T09:32:02Z",
         "loose": null,
         "gameManual": null,
-        "complete": 9.0,
+        "complete": 13.16,
         "sealed": null,
         "newRetail": null
       }
@@ -11550,6 +11678,516 @@
         "gameManual": null,
         "complete": null,
         "sealed": 17.31,
+        "newRetail": null
+      }
+    ],
+    "ps4-attack-on-titan-2-final-battle": [
+      {
+        "at": "2026-08-31T08:06:28Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 62.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-atv-renegades": [
+      {
+        "at": "2026-08-31T08:06:28Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.25,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-awesomenauts-assemble": [
+      {
+        "at": "2026-08-31T08:06:28Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 8.6,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-babylon%27s-fall": [
+      {
+        "at": "2026-08-31T08:31:54Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.0,
+        "sealed": 35.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-baldo-the-guardian-owls": [
+      {
+        "at": "2026-08-31T08:31:54Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 35.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-batman-arkham-collection": [
+      {
+        "at": "2026-08-31T08:31:54Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 21.0,
+        "sealed": 233.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-beholgar": [
+      {
+        "at": "2026-08-31T09:32:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 35.67,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-ben-10": [
+      {
+        "at": "2026-08-31T09:32:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-ben-10-power-trip": [
+      {
+        "at": "2026-08-31T09:32:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 8.75,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-bendy-and-the-ink-machine": [
+      {
+        "at": "2026-08-31T09:32:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 36.42,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-berserk-and-the-band-of-the-hawk": [
+      {
+        "at": "2026-08-31T09:32:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 153.33,
+        "sealed": 305.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-bioshock-the-collection": [
+      {
+        "at": "2026-08-31T09:58:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 24.38,
+        "sealed": 26.99,
+        "newRetail": null
+      }
+    ],
+    "ps4-black-mirror": [
+      {
+        "at": "2026-08-31T09:58:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.33,
+        "sealed": 34.14,
+        "newRetail": null
+      }
+    ],
+    "ps4-blair-witch": [
+      {
+        "at": "2026-08-31T09:58:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 57.57,
+        "sealed": 71.66,
+        "newRetail": null
+      }
+    ],
+    "ps4-blasphemous": [
+      {
+        "at": "2026-08-31T10:26:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 73.33,
+        "sealed": 146.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-blazblue-cross-tag-battle": [
+      {
+        "at": "2026-08-31T10:26:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 26.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-blind": [
+      {
+        "at": "2026-08-31T10:26:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 27.49,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-bloodborne": [
+      {
+        "at": "2026-08-31T10:26:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.59,
+        "sealed": 54.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-bloodborne-goty": [
+      {
+        "at": "2026-08-31T10:26:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 31.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-bloodborne-ps-hits": [
+      {
+        "at": "2026-08-31T10:26:09Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.2,
+        "sealed": 16.67,
+        "newRetail": null
+      }
+    ],
+    "ps4-bloodstained-ritual-of-the-night": [
+      {
+        "at": "2026-08-31T10:53:16Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 35.5,
+        "sealed": 86.67,
+        "newRetail": null
+      }
+    ],
+    "ps4-blue-fire": [
+      {
+        "at": "2026-08-31T10:53:16Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.5,
+        "sealed": 22.06,
+        "newRetail": null
+      }
+    ],
+    "ps4-blue-reflection": [
+      {
+        "at": "2026-08-31T10:53:16Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 81.4,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-blue-reflection-second-light": [
+      {
+        "at": "2026-08-31T10:53:16Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 57.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-bomber-crew-complete-edition": [
+      {
+        "at": "2026-08-31T10:53:16Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.5,
+        "sealed": 27.48,
+        "newRetail": null
+      }
+    ],
+    "ps4-borderlands-3": [
+      {
+        "at": "2026-08-31T10:53:16Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-borderlands-the-handsome-collection": [
+      {
+        "at": "2026-08-31T10:53:16Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-bratz-flaunt-your-fashion": [
+      {
+        "at": "2026-08-31T10:53:16Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-bravo-team": [
+      {
+        "at": "2026-08-31T11:15:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-broken-sword-5-the-serpent%27s-curse": [
+      {
+        "at": "2026-08-31T11:15:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 25.0,
+        "sealed": 33.75,
+        "newRetail": null
+      }
+    ],
+    "ps4-brothers-a-tale-of-two-sons": [
+      {
+        "at": "2026-08-31T11:15:39Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 34.24,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-burnout-paradise-remastered": [
+      {
+        "at": "2026-08-31T11:50:47Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.97,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-bus-simulator": [
+      {
+        "at": "2026-08-31T11:50:47Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-caligula-effect-overdose": [
+      {
+        "at": "2026-08-31T11:50:47Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 59.25,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-cthulhu": [
+      {
+        "at": "2026-08-31T11:50:47Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 91.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-advanced-warfare": [
+      {
+        "at": "2026-08-31T11:50:47Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.76,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-black-ops-4": [
+      {
+        "at": "2026-08-31T11:50:47Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.28,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-black-ops-4-especialista": [
+      {
+        "at": "2026-08-31T11:50:47Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-black-ops-iii": [
+      {
+        "at": "2026-08-31T11:50:47Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.25,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-ghosts": [
+      {
+        "at": "2026-08-31T11:50:47Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.27,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-advanced-warfare-day-zero-edition": [
+      {
+        "at": "2026-08-31T11:50:47Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.88,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-black-ops-6": [
+      {
+        "at": "2026-08-31T12:22:55Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 26.75,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-black-ops-7": [
+      {
+        "at": "2026-08-31T12:22:55Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 33.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-black-ops-cold-war": [
+      {
+        "at": "2026-08-31T12:22:55Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.62,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-modern-warfare": [
+      {
+        "at": "2026-08-31T12:22:55Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.67,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-modern-warfare-ii": [
+      {
+        "at": "2026-08-31T12:22:55Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.6,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-vanguard": [
+      {
+        "at": "2026-08-31T12:22:55Z",
+        "loose": 19.48,
+        "gameManual": null,
+        "complete": 16.71,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-call-of-duty-wwii-pro-edition": [
+      {
+        "at": "2026-08-31T12:22:55Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-caos-en-deponia": [
+      {
+        "at": "2026-08-31T12:22:55Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 21.67,
+        "sealed": 18.23,
+        "newRetail": null
+      }
+    ],
+    "ps4-captain-tsubasa-rise-of-new-champions": [
+      {
+        "at": "2026-08-31T12:22:55Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.56,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-car-mechanic-simulator": [
+      {
+        "at": "2026-08-31T12:22:55Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 27.33,
+        "sealed": null,
         "newRetail": null
       }
     ]
