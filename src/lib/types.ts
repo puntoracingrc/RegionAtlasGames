@@ -372,6 +372,23 @@ export type CatalogListGame = Pick<
 
 export type CollectionCondition = "sealed" | "complete" | "game-manual" | "loose" | "unknown";
 
+export type CollectionPhotoSlot =
+  | "cover-front"
+  | "cover-back"
+  | "detail-1"
+  | "detail-2"
+  | "detail-3"
+  | "detail-4";
+
+export type CollectionPhoto = {
+  slot: CollectionPhotoSlot;
+  url: string;
+  width: number;
+  height: number;
+  bytes: number;
+  uploadedAt: string;
+};
+
 export type CollectionItem = {
   id: string;
   catalogId: string | null;
@@ -393,6 +410,8 @@ export type CollectionItem = {
   previousSalePrice: number | null;
   totalValue: number | null;
   notes: string | null;
+  /** Fotos privadas de esta copia física, ordenadas por hueco. */
+  photos?: CollectionPhoto[];
   marketMin: number | null;
   marketMax: number | null;
   recommendedPrice: number | null;

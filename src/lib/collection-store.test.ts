@@ -13,12 +13,19 @@ import {
   getOwnedCatalogIds,
   readUserCollection,
   recordCompletedCollectionSale,
+  removeUserCollectionPhoto,
   saveUserCollectionItems,
   summarizeCollection,
   updateUserCollectionItemDetails,
+  upsertUserCollectionPhoto,
 } from "./collection-store";
+import { COLLECTION_PHOTO_SLOTS } from "./collection-photos";
+import {
+  readCollectionPhotoFile,
+  saveCollectionPhotoFile,
+} from "./collection-photo-storage";
 import { primaryConditionPrice } from "./condition-prices";
-import type { CollectionItem } from "./types";
+import type { CollectionItem, CollectionPhoto } from "./types";
 
 type EnvironmentSnapshot = Record<string, string | undefined>;
 
@@ -244,6 +251,27 @@ test("manages individual copies and applies completed sales once", async () => {
     assert.equal(updated.item.ownerEstimatedPrice, 72);
     assert.equal(updated.item.purchasedAt, "2026-08-12T00:00:00.000Z");
 
+    const salePhoto: CollectionPhoto = {
+      slot: "cover-front",
+      url: `/api/user/collection/copies/${first.item.id}/photos/cover-front?v=1`,
+      width: 900,
+      height: 1200,
+      bytes: 13,
+      uploadedAt: "2026-09-01T08:00:00.000Z",
+    };
+    await saveCollectionPhotoFile(
+      userId,
+      first.item.id,
+      salePhoto.slot,
+      Buffer.from("private photo"),
+    );
+    assert.ok(!("error" in await upsertUserCollectionPhoto(
+      userId,
+      first.item.id,
+      salePhoto,
+    )));
+    assert.ok(await readCollectionPhotoFile(userId, first.item.id, salePhoto.slot));
+
     const views = await getUserCollectionViews(userId);
     assert.equal(views.length, 2);
     assert.equal(views.reduce((sum, item) => sum + item.quantity, 0), 2);
@@ -261,7 +289,79 @@ test("manages individual copies and applies completed sales once", async () => {
       { adjusted: false, remaining: 0 },
     );
     assert.equal(await getUserCollectionItem(userId, first.item.id), undefined);
+    assert.equal(await readCollectionPhotoFile(userId, first.item.id, salePhoto.slot), null);
     assert.equal((await readUserCollection(userId)).items.length, 1);
+  } finally {
+    restoreEnvironment(env);
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("stores up to six ordered private photo slots per individual copy", async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), "region-atlas-collection-"));
+  const env: EnvironmentSnapshot = {
+    APP_DATA_DIR: process.env.APP_DATA_DIR,
+    VERCEL: process.env.VERCEL,
+    BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
+    BLOB_STORE_ID: process.env.BLOB_STORE_ID,
+  };
+  process.env.APP_DATA_DIR = directory;
+  delete process.env.VERCEL;
+  delete process.env.BLOB_READ_WRITE_TOKEN;
+  delete process.env.BLOB_STORE_ID;
+
+  try {
+    assert.deepEqual(COLLECTION_PHOTO_SLOTS, [
+      "cover-front",
+      "cover-back",
+      "detail-1",
+      "detail-2",
+      "detail-3",
+      "detail-4",
+    ]);
+
+    const userId = "photo-copy-owner";
+    const result = await addCatalogGameToCollection(
+      userId,
+      "ps4-13-sentinels-aegis-rim",
+    );
+    assert.ok(!("error" in result));
+
+    const detail: CollectionPhoto = {
+      slot: "detail-2",
+      url: "/private/detail-2?v=1",
+      width: 1200,
+      height: 900,
+      bytes: 98_000,
+      uploadedAt: "2026-09-01T08:00:00.000Z",
+    };
+    const front: CollectionPhoto = {
+      slot: "cover-front",
+      url: "/private/front?v=1",
+      width: 900,
+      height: 1200,
+      bytes: 102_000,
+      uploadedAt: "2026-09-01T08:01:00.000Z",
+    };
+    assert.ok(!("error" in await upsertUserCollectionPhoto(userId, result.item.id, detail)));
+    assert.ok(!("error" in await upsertUserCollectionPhoto(userId, result.item.id, front)));
+
+    let stored = await getUserCollectionItem(userId, result.item.id);
+    assert.deepEqual(stored?.photos?.map((photo) => photo.slot), ["cover-front", "detail-2"]);
+
+    const replacement = {
+      ...front,
+      url: "/private/front?v=2",
+      uploadedAt: "2026-09-01T08:02:00.000Z",
+    };
+    assert.ok(!("error" in await upsertUserCollectionPhoto(userId, result.item.id, replacement)));
+    stored = await getUserCollectionItem(userId, result.item.id);
+    assert.equal(stored?.photos?.length, 2);
+    assert.equal(stored?.photos?.[0]?.url, replacement.url);
+
+    assert.ok(!("error" in await removeUserCollectionPhoto(userId, result.item.id, "detail-2")));
+    stored = await getUserCollectionItem(userId, result.item.id);
+    assert.deepEqual(stored?.photos?.map((photo) => photo.slot), ["cover-front"]);
   } finally {
     restoreEnvironment(env);
     await rm(directory, { recursive: true, force: true });
