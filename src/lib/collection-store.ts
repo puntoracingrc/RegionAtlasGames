@@ -21,6 +21,12 @@ import { findAvailableCatalogLink } from "./import-collection";
 import { priceForCollectionCondition } from "./condition-prices";
 import { removeCollectionPhoto, upsertCollectionPhoto } from "./collection-photos";
 import { deleteCollectionPhotoFile } from "./collection-photo-storage";
+import {
+  DEFAULT_COLLECTION_CONDITION,
+  isPricedCollectionCondition,
+  normalizeLegacyCollectionCondition,
+  type PricedCollectionCondition,
+} from "./collection-condition-policy";
 
 export type { UserCollectionFile } from "./collection-storage";
 
@@ -210,8 +216,9 @@ function uniqueItemId(items: CollectionItem[], title: string): string {
 export function catalogGameToCollectionItem(
   game: CatalogGame,
   items: CollectionItem[],
+  initialCondition: PricedCollectionCondition = DEFAULT_COLLECTION_CONDITION,
 ): CollectionItem {
-  const rec = game.recommendedPrice;
+  const conditionPrice = priceForCollectionCondition(game, initialCondition);
   return {
     id: uniqueItemId(items, game.title),
     catalogId: game.id,
@@ -220,14 +227,14 @@ export function catalogGameToCollectionItem(
     title: game.title,
     platformSlug: game.platformSlug,
     region: game.region,
-    sealed: false,
-    collectionCondition: "unknown",
+    sealed: initialCondition === "sealed",
+    collectionCondition: initialCondition,
     quantity: 1,
     quantityPc: null,
     buyPrice: null,
     ownerEstimatedPrice: null,
     previousSalePrice: null,
-    totalValue: rec,
+    totalValue: conditionPrice,
     notes: null,
     photos: [],
     marketMin: game.marketMin,
@@ -303,7 +310,10 @@ function linkCollectionItemWithCatalog(
     previousSalePrice: current.previousSalePrice ?? fromCatalog.previousSalePrice,
     notes: current.notes ?? fromCatalog.notes,
     sealed: current.sealed,
-    collectionCondition: current.collectionCondition ?? (current.sealed ? "sealed" : "unknown"),
+    collectionCondition: normalizeLegacyCollectionCondition(
+      current.collectionCondition,
+      current.sealed,
+    ),
     quantityPc: current.quantityPc ?? fromCatalog.quantityPc,
     recommendedPrice,
     totalValue,
@@ -324,14 +334,6 @@ export type CollectionItemDetailsPatch = {
   notes: string | null;
 };
 
-const COLLECTION_CONDITIONS = new Set<CollectionCondition>([
-  "sealed",
-  "complete",
-  "game-manual",
-  "loose",
-  "unknown",
-]);
-
 function validIsoDate(value: string): boolean {
   return Boolean(value) && Number.isFinite(Date.parse(value));
 }
@@ -339,7 +341,7 @@ function validIsoDate(value: string): boolean {
 function validateCollectionItemPatch(
   patch: CollectionItemDetailsPatch,
 ): string | null {
-  if (!COLLECTION_CONDITIONS.has(patch.collectionCondition)) {
+  if (!isPricedCollectionCondition(patch.collectionCondition)) {
     return "El estado indicado no es válido.";
   }
   if (
@@ -371,6 +373,7 @@ function validateCollectionItemPatch(
 export async function addCatalogCopy(
   userId: string,
   catalogId: string,
+  initialCondition: PricedCollectionCondition = DEFAULT_COLLECTION_CONDITION,
 ): Promise<{ item: CollectionItem } | { error: string }> {
   const game = getCatalogGame(catalogId);
   if (!game || game.listingStatus === "excluded") {
@@ -379,7 +382,7 @@ export async function addCatalogCopy(
 
   try {
     return await mutateUserCollection<{ item: CollectionItem }>(userId, (file) => {
-      const item = catalogGameToCollectionItem(game, file.items);
+      const item = catalogGameToCollectionItem(game, file.items, initialCondition);
       file.items.push(item);
       return { next: file, result: { item } };
     });
@@ -589,6 +592,7 @@ export async function recordCompletedCollectionSale(
 export async function addCatalogGameToCollection(
   userId: string,
   catalogId: string,
+  initialCondition: PricedCollectionCondition = DEFAULT_COLLECTION_CONDITION,
 ): Promise<{ item: CollectionItem; linkedExisting: boolean } | { error: string }> {
   const game = getCatalogGame(catalogId);
   if (!game || game.listingStatus === "excluded") {
@@ -610,7 +614,7 @@ export async function addCatalogGameToCollection(
         return { next: file, result: { item: linked, linkedExisting: true } };
       }
 
-      const item = catalogGameToCollectionItem(game, file.items);
+      const item = catalogGameToCollectionItem(game, file.items, initialCondition);
       file.items.push(item);
       return { next: file, result: { item, linkedExisting: false } };
     });

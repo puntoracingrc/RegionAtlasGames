@@ -7,7 +7,7 @@ export const COLLECTION_CONDITION_LABELS: Record<CollectionCondition, string> = 
   complete: "Abierto y completo",
   "game-manual": "Juego + manual",
   loose: "Solo juego",
-  unknown: "Sin indicar",
+  unknown: "Abierto y completo",
 };
 
 export const COLLECTION_CONDITION_SHORT_LABELS: Record<CollectionCondition, string> = {
@@ -15,7 +15,7 @@ export const COLLECTION_CONDITION_SHORT_LABELS: Record<CollectionCondition, stri
   complete: "Completo",
   "game-manual": "Juego + manual",
   loose: "Solo juego",
-  unknown: "Sin indicar",
+  unknown: "Completo",
 };
 
 export const CONDITION_PRICE_LABELS: Record<ConditionBucket, string> = {

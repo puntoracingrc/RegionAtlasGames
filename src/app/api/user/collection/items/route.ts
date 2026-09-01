@@ -8,6 +8,8 @@ import {
 import { enrichCollectionItem } from "@/lib/catalog";
 import { getSellerListings } from "@/lib/listings";
 import { getCurrentUser } from "@/lib/users";
+import { defaultCollectionConditionForPlatform } from "@/lib/collection-condition-policy";
+import { getCatalogGame } from "@/lib/catalog";
 
 export async function POST(request: Request) {
   const user = await getCurrentUser();
@@ -23,7 +25,12 @@ export async function POST(request: Request) {
 
   let result: Awaited<ReturnType<typeof addCatalogGameToCollection>>;
   try {
-    result = await addCatalogGameToCollection(user.id, catalogId);
+    const game = getCatalogGame(catalogId);
+    const initialCondition = defaultCollectionConditionForPlatform(
+      user.collectionDefaultConditions,
+      game?.platformSlug ?? "",
+    );
+    result = await addCatalogGameToCollection(user.id, catalogId, initialCondition);
   } catch (error) {
     console.error("[collection/items] POST failed", error);
     const detail = error instanceof Error ? error.message : String(error);

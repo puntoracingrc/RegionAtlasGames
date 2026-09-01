@@ -3,6 +3,7 @@ import {
   COLLECTION_CONDITION_SHORT_LABELS,
   priceForCollectionCondition,
 } from "./condition-prices";
+import { normalizeLegacyCollectionCondition } from "./collection-condition-policy";
 
 export type CollectionConditionCounts = Record<CollectionCondition, number>;
 
@@ -31,7 +32,6 @@ const CONDITION_ORDER: CollectionCondition[] = [
   "complete",
   "game-manual",
   "loose",
-  "unknown",
 ];
 
 const EMPTY_COUNTS: CollectionConditionCounts = {
@@ -43,7 +43,7 @@ const EMPTY_COUNTS: CollectionConditionCounts = {
 };
 
 export function collectionCondition(item: CollectionView): CollectionCondition {
-  return item.sealed ? "sealed" : item.collectionCondition ?? "unknown";
+  return normalizeLegacyCollectionCondition(item.collectionCondition, item.sealed);
 }
 
 function validDate(value: string | null | undefined): string | null {
@@ -134,7 +134,6 @@ export function formatCollectionConditionSummary(
     ["complete", "completo", "completas"],
     ["game-manual", "juego + manual", "juego + manual"],
     ["loose", "suelto", "sueltas"],
-    ["unknown", "sin indicar", "sin indicar"],
   ];
   const parts = labels.flatMap(([condition, singular, plural]) => {
     const units = counts[condition];

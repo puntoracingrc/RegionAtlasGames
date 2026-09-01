@@ -14,6 +14,10 @@ import { listAdminPlatforms } from "@/lib/admin-entity-catalog";
 import { upsertCatalogStagingFromImport } from "@/lib/catalog-staging";
 import { canViewCollectionValue } from "@/lib/plans";
 import { getCurrentUser } from "@/lib/users";
+import {
+  defaultCollectionConditionForPlatform,
+  normalizeLegacyCollectionCondition,
+} from "@/lib/collection-condition-policy";
 
 export async function POST(request: Request) {
   const user = await getCurrentUser();
@@ -53,6 +57,20 @@ export async function POST(request: Request) {
     );
   }
   const { items, stats } = imported;
+  for (const item of items) {
+    if (item.collectionCondition === "unknown" || !item.collectionCondition) {
+      item.collectionCondition = defaultCollectionConditionForPlatform(
+        user.collectionDefaultConditions,
+        item.platformSlug,
+      );
+      item.sealed = item.collectionCondition === "sealed";
+    } else {
+      item.collectionCondition = normalizeLegacyCollectionCondition(
+        item.collectionCondition,
+        item.sealed,
+      );
+    }
+  }
   const knownPlatformSlugs = new Set((await listAdminPlatforms()).map((platform) => platform.slug));
   for (const item of items) {
     if (knownPlatformSlugs.has(item.platformSlug)) {

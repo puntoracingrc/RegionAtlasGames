@@ -9,6 +9,10 @@ import {
   type ThemePreference,
 } from "./session";
 import type { UserPlan } from "./marketplace-types";
+import {
+  sanitizeCollectionDefaultConditions,
+  type CollectionDefaultConditions,
+} from "./collection-condition-policy";
 import { getSessionSecret } from "./server-env";
 import { loadUsers, mutateUsers, type StoredUserRecord } from "./users-store";
 
@@ -30,6 +34,9 @@ export function toPublicUser(user: StoredUser): PublicUser {
     city: user.city?.trim() || null,
     theme: user.theme,
     plan: user.plan ?? "free",
+    collectionDefaultConditions: sanitizeCollectionDefaultConditions(
+      user.collectionDefaultConditions,
+    ),
     createdAt: user.createdAt,
   };
 }
@@ -307,6 +314,22 @@ export async function updateUserTheme(
       const idx = users.findIndex((user) => user.id === userId);
       if (idx === -1) return { next: users, result: null, changed: false };
       users[idx].theme = theme;
+      return { next: users, result: toPublicUser(users[idx]) };
+    });
+  } catch {
+    return null;
+  }
+}
+
+export async function updateUserCollectionDefaultConditions(
+  userId: string,
+  collectionDefaultConditions: CollectionDefaultConditions,
+): Promise<PublicUser | null> {
+  try {
+    return await mutateUsers((users) => {
+      const idx = users.findIndex((user) => user.id === userId);
+      if (idx === -1) return { next: users, result: null, changed: false };
+      users[idx].collectionDefaultConditions = { ...collectionDefaultConditions };
       return { next: users, result: toPublicUser(users[idx]) };
     });
   } catch {

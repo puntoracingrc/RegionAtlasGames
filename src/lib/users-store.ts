@@ -1,4 +1,5 @@
 import path from "path";
+import type { CollectionDefaultConditions } from "./collection-condition-policy";
 import { assertDurableBlobConfigured, blobAuthConfigured } from "./blob-auth";
 import { appDataFile } from "./app-data-dir";
 import {
@@ -18,6 +19,7 @@ export type StoredUserRecord = {
   googleId?: string;
   theme: "light" | "dark" | "system";
   plan?: "free" | "pro";
+  collectionDefaultConditions?: CollectionDefaultConditions;
   createdAt: string;
 };
 

@@ -12,7 +12,7 @@ import {
   Trash2,
   XCircle,
 } from "lucide-react";
-import type { CollectionCondition, CollectionView } from "@/lib/types";
+import type { CollectionView } from "@/lib/types";
 import type { ListingStatus } from "@/lib/marketplace-types";
 import { formatEur } from "@/lib/price-format";
 import { getCoverSrc } from "@/lib/cover-url";
@@ -22,20 +22,17 @@ import {
   priceForCollectionCondition,
 } from "@/lib/condition-prices";
 import { CollectionCopyPhotos } from "@/components/collection-copy-photos";
+import {
+  availableCollectionConditions,
+  normalizeLegacyCollectionCondition,
+  type PricedCollectionCondition,
+} from "@/lib/collection-condition-policy";
 
 export type CollectionCopyListing = {
   id: string;
   collectionItemId: string;
   status: ListingStatus;
 };
-
-const CONDITION_OPTIONS: Array<{ value: CollectionCondition; label: string }> = [
-  { value: "sealed", label: COLLECTION_CONDITION_LABELS.sealed },
-  { value: "complete", label: COLLECTION_CONDITION_LABELS.complete },
-  { value: "game-manual", label: COLLECTION_CONDITION_LABELS["game-manual"] },
-  { value: "loose", label: COLLECTION_CONDITION_LABELS.loose },
-  { value: "unknown", label: COLLECTION_CONDITION_LABELS.unknown },
-];
 
 function dateInputValue(value?: string | null): string {
   if (!value) return "";
@@ -140,8 +137,8 @@ function CollectionCopyRow({
   onListingRemoved: (listingId: string) => void;
 }) {
   const router = useRouter();
-  const [condition, setCondition] = useState<CollectionCondition>(
-    item.sealed ? "sealed" : item.collectionCondition ?? "unknown",
+  const [condition, setCondition] = useState<PricedCollectionCondition>(
+    normalizeLegacyCollectionCondition(item.collectionCondition, item.sealed),
   );
   const [buyPrice, setBuyPrice] = useState(item.buyPrice == null ? "" : String(item.buyPrice));
   const [ownerEstimatedPrice, setOwnerEstimatedPrice] = useState(
@@ -263,6 +260,8 @@ function CollectionCopyRow({
   const cover = ownFrontPhoto?.url ?? getCoverSrc(item.coverUrl, item.catalogId ?? item.id);
   const title = decodeHtmlEntities(item.title);
   const catalogEstimate = priceForCollectionCondition(item, condition);
+  const conditionOptions = availableCollectionConditions(item.platformSlug);
+  if (!conditionOptions.includes(condition)) conditionOptions.push(condition);
 
   return (
     <article className="grid grid-cols-[40px_minmax(0,1fr)] gap-3 py-4 sm:grid-cols-[48px_minmax(0,1fr)]">
@@ -315,9 +314,13 @@ function CollectionCopyRow({
               value={condition}
               disabled={disabled || activeListing}
               title={activeListing ? "Retira el anuncio de la venta para cambiar el estado" : undefined}
-              onChange={(event) => setCondition(event.target.value as CollectionCondition)}
+              onChange={(event) => setCondition(event.target.value as PricedCollectionCondition)}
             >
-              {CONDITION_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+              {conditionOptions.map((option) => (
+                <option key={option} value={option}>
+                  {COLLECTION_CONDITION_LABELS[option]}
+                </option>
+              ))}
             </select>
             {activeListing ? (
               <span className="block text-[10px] text-muted">

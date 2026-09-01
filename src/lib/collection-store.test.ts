@@ -94,6 +94,54 @@ test("repairs an exact legacy PS5 match and exposes it as owned", async () => {
   }
 });
 
+test("migrates the former unknown state to complete without changing explicit states", async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), "region-atlas-collection-"));
+  const env: EnvironmentSnapshot = {
+    APP_DATA_DIR: process.env.APP_DATA_DIR,
+    VERCEL: process.env.VERCEL,
+    BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
+    BLOB_STORE_ID: process.env.BLOB_STORE_ID,
+  };
+  process.env.APP_DATA_DIR = directory;
+  delete process.env.VERCEL;
+  delete process.env.BLOB_READ_WRITE_TOKEN;
+  delete process.env.BLOB_STORE_ID;
+
+  try {
+    const game = getCatalogGame("ps4-13-sentinels-aegis-rim");
+    assert.ok(game);
+    const unknown = { ...catalogGameToCollectionItem(game, []), collectionCondition: "unknown" as const };
+    const loose = {
+      ...catalogGameToCollectionItem(game, [unknown]),
+      collectionCondition: "loose" as const,
+    };
+    const saved = await saveUserCollectionItems("condition-migration", [unknown, loose], {
+      source: "legacy.csv",
+    });
+    assert.ok(!("error" in saved));
+
+    const repaired = await readUserCollection("condition-migration");
+    assert.equal(repaired.items[0]?.collectionCondition, "complete");
+    assert.equal(repaired.items[1]?.collectionCondition, "loose");
+  } finally {
+    restoreEnvironment(env);
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("creates catalog copies as complete by default and accepts a platform preference", () => {
+  const game = getCatalogGame("ps5-astro-bot");
+  assert.ok(game);
+  const complete = catalogGameToCollectionItem(game, []);
+  const sealed = catalogGameToCollectionItem(game, [complete], "sealed");
+
+  assert.equal(complete.collectionCondition, "complete");
+  assert.equal(complete.sealed, false);
+  assert.equal(sealed.collectionCondition, "sealed");
+  assert.equal(sealed.sealed, true);
+  assert.equal(sealed.totalValue, game.estimatedPriceSealed ?? sealed.totalValue);
+});
+
 test("adding an exact imported game links it without creating a duplicate", async () => {
   const directory = await mkdtemp(path.join(os.tmpdir(), "region-atlas-collection-"));
   const env: EnvironmentSnapshot = {

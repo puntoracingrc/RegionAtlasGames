@@ -6,6 +6,12 @@ import {
   formatCollectionConditionSummary,
   groupCollectionDisplayItems,
 } from "./collection-display";
+import {
+  availableCollectionConditions,
+  defaultCollectionConditionForPlatform,
+  normalizeLegacyCollectionCondition,
+  sanitizeCollectionDefaultConditions,
+} from "./collection-condition-policy";
 
 function item(overrides: Partial<CollectionView>): CollectionView {
   return {
@@ -121,4 +127,31 @@ test("does not merge pending rows without a catalog identity", () => {
     item({ id: "pending-2", catalogId: null, catalogMatched: false }),
   ]);
   assert.equal(grouped.length, 2);
+});
+
+test("uses complete for legacy copies without a condition", () => {
+  assert.equal(normalizeLegacyCollectionCondition("unknown"), "complete");
+  const grouped = groupCollectionDisplayItems([item({ collectionCondition: "unknown" })]);
+  assert.equal(grouped[0]?.conditionCounts.complete, 1);
+  assert.equal(grouped[0]?.conditionCounts.unknown, 0);
+});
+
+test("only offers collector conditions that make sense for each medium", () => {
+  assert.deepEqual(availableCollectionConditions("ps5"), ["sealed", "complete", "loose"]);
+  assert.deepEqual(availableCollectionConditions("n64"), [
+    "sealed",
+    "complete",
+    "game-manual",
+    "loose",
+  ]);
+});
+
+test("stores safe per-platform defaults and falls back to complete", () => {
+  const preferences = sanitizeCollectionDefaultConditions(
+    { ps5: "sealed", n64: "game-manual", ps4: "game-manual", invalid: "unknown" },
+    new Set(["ps5", "n64", "ps4"]),
+  );
+  assert.deepEqual(preferences, { ps5: "sealed", n64: "game-manual", ps4: "complete" });
+  assert.equal(defaultCollectionConditionForPlatform(preferences, "ps5"), "sealed");
+  assert.equal(defaultCollectionConditionForPlatform(preferences, "ps2"), "complete");
 });
