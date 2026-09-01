@@ -115,8 +115,17 @@ test("matches equal titles to the requested regional variant", () => {
       title: "Astro Bot",
       platformSlug: "ps5",
       region: "USA",
-    }),
-    null,
+    })?.id,
+    "ps5-usa-astro-bot",
+  );
+  assert.equal(
+    findAvailableCatalogLink({
+      ...base,
+      title: "Astro Bot",
+      platformSlug: "ps5",
+      region: "PAL España",
+    })?.id,
+    "ps5-astro-bot",
   );
 });
 
