@@ -55,9 +55,11 @@ const summary: CollectionSummary = {
 
 test("favorite platforms count games and units independently", () => {
   const result = buildFavoritePlatforms([
-    collectionItem({ id: "ps4-a", quantity: 2 }),
+    collectionItem({ id: "ps4-a" }),
+    collectionItem({ id: "ps4-a-copy-2" }),
     collectionItem({ id: "ps4-b", catalogId: "game-2", quantity: 1 }),
-    collectionItem({ id: "ps5-a", catalogId: "game-3", platformSlug: "ps5", quantity: 2 }),
+    collectionItem({ id: "ps5-a", catalogId: "game-3", platformSlug: "ps5" }),
+    collectionItem({ id: "ps5-a-copy-2", catalogId: "game-3", platformSlug: "ps5" }),
   ]);
 
   assert.deepEqual(result, [

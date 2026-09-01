@@ -91,13 +91,24 @@ export function groupCollectionByPlatform(items: CollectionView[]): CollectionPl
 }
 
 export function countCollectionByPlatform(
-  items: Array<{ platformSlug: string; quantity: number }>,
+  items: Array<{
+    platformSlug: string;
+    quantity: number;
+    id?: string;
+    catalogId?: string | null;
+    title?: string;
+  }>,
 ): Record<string, { items: number; units: number }> {
   const counts: Record<string, { items: number; units: number }> = {};
+  const titlesByPlatform = new Map<string, Set<string>>();
   for (const item of items) {
     const slug = normalizeImportedPlatformSlug(item.platformSlug);
     if (!counts[slug]) counts[slug] = { items: 0, units: 0 };
-    counts[slug].items += 1;
+    const titleKey = item.catalogId ?? item.title?.trim().toLocaleLowerCase("es") ?? item.id ?? "";
+    const titles = titlesByPlatform.get(slug) ?? new Set<string>();
+    titles.add(titleKey);
+    titlesByPlatform.set(slug, titles);
+    counts[slug].items = titles.size;
     counts[slug].units += item.quantity;
   }
   return counts;

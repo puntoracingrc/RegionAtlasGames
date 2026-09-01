@@ -78,11 +78,61 @@ function hasCollectionData(data: UserCollectionFile): boolean {
   return data.items.length > 0 || Boolean(data.importedAt) || Boolean(data.catalogGapReportSentAt);
 }
 
+export function normalizeIndividualCollectionItems(items: CollectionItem[]): {
+  items: CollectionItem[];
+  changed: boolean;
+} {
+  const usedIds = new Set(items.map((item) => item.id));
+  const normalized: CollectionItem[] = [];
+  let changed = false;
+
+  for (const item of items) {
+    const quantity = Math.max(1, Math.floor(Number(item.quantity) || 1));
+    const unitValue =
+      item.totalValue != null && quantity > 1
+        ? Math.round((item.totalValue / quantity) * 100) / 100
+        : item.totalValue;
+    const quantityPc = item.quantityPc == null ? null : 1;
+    const first = {
+      ...item,
+      quantity: 1,
+      quantityPc,
+      totalValue: unitValue,
+    };
+    normalized.push(first);
+
+    if (quantity === 1) {
+      if (
+        item.quantity !== first.quantity ||
+        item.quantityPc !== first.quantityPc ||
+        item.totalValue !== first.totalValue
+      ) {
+        changed = true;
+      }
+      continue;
+    }
+
+    changed = true;
+    for (let copyNumber = 2; copyNumber <= quantity; copyNumber += 1) {
+      let candidate = `${item.id}-copy-${copyNumber}`;
+      let suffix = copyNumber;
+      while (usedIds.has(candidate)) {
+        suffix += 1;
+        candidate = `${item.id}-copy-${suffix}`;
+      }
+      usedIds.add(candidate);
+      normalized.push({ ...first, id: candidate });
+    }
+  }
+
+  return { items: normalized, changed };
+}
+
 function repairCollection(data: UserCollectionFile): {
   data: UserCollectionFile;
   changed: boolean;
 } {
-  const items = data.items.map((item) => {
+  const repairedItems = data.items.map((item) => {
     const repaired = repairCollectionPlatform(item);
     const match = findAvailableCatalogLink(repaired);
     if (!match) return repaired;
@@ -93,14 +143,16 @@ function repairCollection(data: UserCollectionFile): {
       inRetroCatalog: true,
     };
   });
-  const changed = items.some(
+  const catalogChanged = repairedItems.some(
     (item, index) =>
       item.platformSlug !== data.items[index]?.platformSlug ||
       item.inRetroCatalog !== data.items[index]?.inRetroCatalog ||
       item.catalogId !== data.items[index]?.catalogId ||
       item.catalogMatched !== data.items[index]?.catalogMatched,
   );
-  return { data: changed ? { ...data, items } : data, changed };
+  const copies = normalizeIndividualCollectionItems(repairedItems);
+  const changed = catalogChanged || copies.changed;
+  return { data: changed ? { ...data, items: copies.items } : data, changed };
 }
 
 export async function mutateUserCollection<R>(

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { enrichCollectionItem } from "@/lib/catalog";
 import {
-  addCatalogCopyGroup,
+  addCatalogCopy,
   getUserCollectionItem,
   removeUserCollectionItem,
   updateUserCollectionItemDetails,
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
   const catalogId = String(body.catalogId ?? "").trim();
   if (!catalogId) return NextResponse.json({ error: "Falta catalogId." }, { status: 400 });
 
-  const result = await addCatalogCopyGroup(user.id, catalogId);
+  const result = await addCatalogCopy(user.id, catalogId);
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 400 });
   }
@@ -59,7 +59,6 @@ export async function PATCH(request: Request) {
   const purchasedAt = isoDate(body.purchasedAt);
   const addedAt = isoDate(body.addedAt, true);
   const result = await updateUserCollectionItemDetails(user.id, itemId, {
-    quantity: Number(body.quantity),
     collectionCondition,
     buyPrice: buyPriceRaw ? Number(buyPriceRaw) : null,
     purchasedAt,

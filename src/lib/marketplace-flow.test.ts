@@ -6,7 +6,7 @@ import test from "node:test";
 import { analyzeListingPhotos } from "./ai-listing-analysis";
 import { getCatalogGame } from "./catalog";
 import {
-  addCatalogCopyGroup,
+  addCatalogCopy,
   addCatalogGameToCollection,
   getUserCollectionItem,
   updateUserCollectionItemDetails,
@@ -97,7 +97,6 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
       sellerResult.user.id,
       added.item.id,
       {
-        quantity: 2,
         collectionCondition: "complete",
         buyPrice: 12,
         purchasedAt: "2026-08-01T00:00:00.000Z",
@@ -121,7 +120,7 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
     assert.equal(draft.collectionCondition, "complete");
     assert.equal(draft.recordedSalePriceEur, null);
 
-    const secondCopy = await addCatalogCopyGroup(sellerResult.user.id, catalogId);
+    const secondCopy = await addCatalogCopy(sellerResult.user.id, catalogId);
     assertResult(secondCopy);
     const secondDraft = await createListingDraft({
       sellerId: sellerResult.user.id,
@@ -225,10 +224,7 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
       await confirmBuyerReceipt({ listingId: draft.id, buyerId: buyerResult.user.id }),
       { ok: true, recorded: false },
     );
-    assert.equal(
-      (await getUserCollectionItem(sellerResult.user.id, added.item.id))?.quantity,
-      1,
-    );
+    assert.equal(await getUserCollectionItem(sellerResult.user.id, added.item.id), undefined);
 
     const sold = await getListing(draft.id);
     assert.equal(sold?.status, "sold");

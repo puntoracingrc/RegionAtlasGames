@@ -28,7 +28,7 @@ import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { formatEsPriceForCard } from "@/lib/price-display";
 import { RegionFlag } from "@/components/region-flag";
 import { IntentLink } from "@/components/intent-link";
-import { collectionCatalogPath } from "@/lib/collection-path";
+import { collectionCatalogAnchorId, collectionCatalogPath } from "@/lib/collection-path";
 import { LinkPendingFeedback } from "@/components/link-pending-feedback";
 
 type Props = {
@@ -218,7 +218,13 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
       {viewMode === "grid" ? (
         <section className={CATALOG_GRID_CLASS}>
           {displayed.map(({ game, conditionCounts }) => (
-            <CollectionGameCard key={game.catalogId ?? game.id} game={game} conditionCounts={conditionCounts} />
+            <div
+              key={game.catalogId ?? game.id}
+              id={collectionCatalogAnchorId(game.catalogId ?? game.id)}
+              className="scroll-mt-24"
+            >
+              <CollectionGameCard game={game} conditionCounts={conditionCounts} />
+            </div>
           ))}
         </section>
       ) : (
@@ -254,6 +260,7 @@ function CollectionCompactRow({ item }: { item: CollectionDisplayItem }) {
   return (
     <IntentLink
       href={href}
+      id={collectionCatalogAnchorId(game.catalogId ?? game.id)}
       className="group relative grid min-h-[68px] grid-cols-[42px_minmax(0,1fr)_auto] items-center gap-3 px-1 py-2 transition [content-visibility:auto] hover:bg-card-hover sm:grid-cols-[46px_minmax(0,1fr)_minmax(150px,auto)_auto] sm:px-2"
     >
       <div className="flex h-14 w-11 items-center justify-center overflow-hidden border border-border bg-card">

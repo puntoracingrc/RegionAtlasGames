@@ -80,7 +80,7 @@ export async function POST(request: Request) {
 
   return NextResponse.json({
     items: views,
-    summary: summarizeCollectionForPlan(items, user.plan),
+    summary: summarizeCollectionForPlan(saved.items, user.plan),
     canViewCollectionValue: canViewCollectionValue(user.plan),
     stats,
     staging,

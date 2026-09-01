@@ -132,13 +132,17 @@ export function buildCollectionValueTimeline(
 
 export function buildFavoritePlatforms(items: CollectionView[], limit = 4): HomePlatformSummary[] {
   const counts = new Map<string, { games: number; units: number }>();
+  const gamesByPlatform = new Map<string, Set<string>>();
   let totalUnits = 0;
 
   for (const item of items) {
     const slug = normalizeImportedPlatformSlug(item.platformSlug);
     const current = counts.get(slug) ?? { games: 0, units: 0 };
     const units = Math.max(1, item.quantity || 1);
-    current.games += 1;
+    const games = gamesByPlatform.get(slug) ?? new Set<string>();
+    games.add(item.catalogId ?? `${item.region}:${item.title.trim().toLocaleLowerCase("es")}`);
+    gamesByPlatform.set(slug, games);
+    current.games = games.size;
     current.units += units;
     totalUnits += units;
     counts.set(slug, current);
