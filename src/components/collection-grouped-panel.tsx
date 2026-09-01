@@ -2,7 +2,6 @@ import { CollectionGapPlatformGrid } from "@/components/collection-gap-platform-
 import { groupCollectionByPlatform } from "@/lib/collection-platform-groups";
 import { countLinkableGapItems } from "@/lib/collection-gap";
 import type { CollectionView } from "@/lib/types";
-import { Panel, PanelTitle } from "@/components/ui";
 
 type Variant = "pending" | "outOfScope";
 
@@ -13,18 +12,14 @@ type Props = {
 
 const COPY: Record<
   Variant,
-  { title: (count: number) => string; description: string; panelClass: string }
+  { title: (count: number) => string; panelClass: string }
 > = {
   pending: {
     title: (count) => `Pendientes de catálogo (${count})`,
-    description:
-      "Elige una plataforma para ver tu listado. Cuando haya ficha en el catálogo, pulsa + para enlazar el juego.",
     panelClass: "border-amber-400/25 bg-amber-500/5",
   },
   outOfScope: {
     title: (count) => `Plataformas sin catálogo oficial (${count})`,
-    description:
-      "PS5 y otras plataformas aún no indexadas. Entra en cada bloque para ver tus juegos y enlazarlos cuando tengamos ficha.",
     panelClass: "border-blue-400/20 bg-blue-500/5",
   },
 };
@@ -37,22 +32,19 @@ export function CollectionGroupedPanel({ variant, items }: Props) {
   const linkableTotal = countLinkableGapItems(items);
 
   return (
-    <Panel className={`mb-8 ${copy.panelClass}`}>
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <PanelTitle>{copy.title(items.length)}</PanelTitle>
-          <p className="mt-2 max-w-3xl text-sm text-muted">{copy.description}</p>
-        </div>
+    <section className={`mb-3 rounded-xl border px-4 py-3 ${copy.panelClass}`}>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <h2 className="text-sm font-semibold text-foreground">{copy.title(items.length)}</h2>
         {linkableTotal > 0 && (
-          <span className="rounded-full border border-emerald-400/40 bg-emerald-600/90 px-3 py-1.5 text-xs font-semibold text-white shadow-sm">
+          <span className="rounded-md border border-emerald-400/40 bg-emerald-600/90 px-2 py-1 text-[11px] font-semibold text-white">
             {linkableTotal} {linkableTotal === 1 ? "listo" : "listos"} para +
           </span>
         )}
       </div>
 
-      <div className="mt-5">
+      <div className="mt-2">
         <CollectionGapPlatformGrid variant={variant} groups={groups} />
       </div>
-    </Panel>
+    </section>
   );
 }

@@ -1,14 +1,10 @@
 import Link from "next/link";
-import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import {
   MANUFACTURER_PANEL_STYLE,
   type CollectionPlatformGroup,
 } from "@/lib/collection-platform-groups";
 import { countLinkableGapItems } from "@/lib/collection-gap";
 import { cn } from "@/lib/cn";
-
-const HOVER_LIFT =
-  "transition-all duration-200 ease-out hover:-translate-y-1.5 hover:shadow-xl hover:shadow-black/45";
 
 type Variant = "pending" | "outOfScope";
 
@@ -24,48 +20,30 @@ type Props = {
 export function CollectionGapPlatformCard({ variant, group }: Props) {
   const style = MANUFACTURER_PANEL_STYLE[group.manufacturer];
   const linkable = countLinkableGapItems(group.items);
-  const unitsLabel =
-    group.units > group.items.length ? ` · ${group.units} uds.` : "";
 
   return (
     <Link
       href={gapPlatformHref(variant, group.slug)}
       className={cn(
-        "group relative rounded-xl border bg-gradient-to-br p-4",
-        HOVER_LIFT,
-        "hover:border-white/25",
+        "group flex min-h-11 items-center justify-between gap-3 rounded-md border bg-card/70 px-3 py-2 transition hover:border-accent/40 hover:bg-card-hover",
         style,
         linkable > 0 && "ring-1 ring-emerald-400/35",
       )}
     >
-      {linkable > 0 && (
-        <span
-          className="absolute right-3 top-3 flex h-7 min-w-7 items-center justify-center rounded-full border border-emerald-300/50 bg-emerald-600 px-1.5 text-[11px] font-bold text-white shadow-md"
-          title={`${linkable} ${linkable === 1 ? "ficha lista" : "fichas listas"} para enlazar`}
-        >
-          {linkable > 99 ? "99+" : linkable}
-        </span>
-      )}
-
-      <div className="pr-10">
-        <ManufacturerLogo manufacturer={group.manufacturer} />
-        <h3 className="mt-1 text-xl font-bold text-foreground">{group.shortName}</h3>
-      </div>
-
-      <p className="mt-4 text-sm text-muted">
-        {group.items.length} {group.items.length === 1 ? "juego" : "juegos"}
-        {unitsLabel}
-      </p>
-
-      {linkable > 0 ? (
-        <p className="mt-2 text-xs font-medium text-emerald-700 dark:text-emerald-300/95">
-          {linkable} {linkable === 1 ? "listo para enlazar" : "listos para enlazar"} · pulsa +
+      <div className="min-w-0">
+        <h3 className="text-sm font-semibold text-foreground">{group.shortName}</h3>
+        <p className="text-[11px] text-muted">
+          {group.items.length} {group.items.length === 1 ? "juego" : "juegos"}
+          {group.units > group.items.length ? ` · ${group.units} uds.` : ""}
         </p>
-      ) : variant === "outOfScope" && group.slug === "ps5" ? (
-        <p className="mt-2 text-xs text-muted">Sin ficha en catálogo todavía</p>
-      ) : (
-        <p className="mt-2 text-xs text-muted">Ver listado completo</p>
-      )}
+      </div>
+      <span
+        className={`shrink-0 text-xs font-semibold ${
+          linkable > 0 ? "text-emerald-700 dark:text-emerald-300" : "text-muted"
+        }`}
+      >
+        {linkable > 0 ? `${linkable} para enlazar` : "Ver"}
+      </span>
     </Link>
   );
 }
@@ -78,7 +56,7 @@ export function CollectionGapPlatformGrid({
   groups: CollectionPlatformGroup[];
 }) {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
       {groups.map((group) => (
         <CollectionGapPlatformCard key={group.slug} variant={variant} group={group} />
       ))}

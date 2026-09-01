@@ -18,7 +18,6 @@ import {
   hasActiveCollectionFilters,
   sortCollectionDisplayItems,
 } from "@/lib/collection-filters";
-import type { CollectionSummary } from "@/lib/collection-store";
 import type { CollectionListingState, CollectionView, GameFilters } from "@/lib/types";
 import {
   collectionConditionValues,
@@ -41,7 +40,6 @@ import { COLLECTION_CONDITION_LABELS } from "@/lib/condition-prices";
 
 type Props = {
   items: CollectionView[];
-  summary: CollectionSummary;
   canViewCollectionValue: boolean;
   listingStateByItemId: Record<string, CollectionListingState>;
 };
@@ -64,7 +62,6 @@ function blocksBulkConditionChange(state: CollectionListingState | undefined): b
 
 export function CollectionExplorer({
   items,
-  summary,
   canViewCollectionValue,
   listingStateByItemId,
 }: Props) {
@@ -251,43 +248,9 @@ export function CollectionExplorer({
   }
 
   return (
-    <div className="space-y-8">
-      <header className="space-y-1">
-        <h2 className="text-xl font-bold text-foreground">Catálogo enlazado</h2>
-        <p className="text-sm text-muted">
-          Juegos con ficha oficial en Region Atlas. El resto está en las secciones de pendientes y
-          plataformas sin catálogo arriba.
-        </p>
-      </header>
-
-      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Ítems retro" value={String(summary.retroItems)} hint={`${summary.totalUnits} unidades`} />
-        {canViewCollectionValue ? (
-          <>
-            <StatCard
-              label="Valor venta"
-              value={formatEur(summary.totalRecommendedValue)}
-              hint={`${summary.withEsPrice} con precio actualizado`}
-            />
-            <StatCard label="Inversión compra" value={formatEur(summary.totalBuyValue)} hint="Base de coste" />
-          </>
-        ) : (
-          <StatCard
-            label="Valor venta"
-            value="—"
-            hint={`${summary.withEsPrice} con precio · inicia sesión para ver el total`}
-            locked
-          />
-        )}
-        <StatCard
-          label="Fuera catálogo retro"
-          value={String(summary.outOfScopeItems)}
-          hint="PS5 y otras plataformas vivas"
-          accent="rose"
-        />
-      </section>
-
+    <div className="space-y-5">
       <section className="rounded-2xl border border-border bg-card p-4 md:p-5">
+        <h2 className="mb-3 text-lg font-bold text-foreground">Juegos</h2>
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           <input
             type="search"
@@ -820,28 +783,5 @@ function CollectionCompactRow({ item }: { item: CollectionDisplayItem }) {
       </div>
       <LinkPendingFeedback label="Abriendo ficha…" overlay />
     </IntentLink>
-  );
-}
-
-function StatCard({
-  label,
-  value,
-  hint,
-  accent = "amber",
-  locked = false,
-}: {
-  label: string;
-  value: string;
-  hint: string;
-  accent?: "amber" | "rose";
-  locked?: boolean;
-}) {
-  const color = locked ? "text-muted" : accent === "rose" ? "text-rose-700 dark:text-rose-300" : "text-accent";
-  return (
-    <article className="rounded-2xl border border-border bg-gradient-to-br from-white/[0.05] to-transparent p-5">
-      <p className="text-xs uppercase tracking-wider text-muted">{label}</p>
-      <p className={`mt-2 text-3xl font-bold ${color}`}>{value}</p>
-      <p className="mt-1 text-sm text-muted">{hint}</p>
-    </article>
   );
 }

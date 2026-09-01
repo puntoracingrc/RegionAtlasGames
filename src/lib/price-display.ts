@@ -6,6 +6,28 @@ type PriceFields = Pick<
   "hasEsPrice" | "priceRegionVerified" | "marketMin" | "marketMax"
 >;
 
+type CatalogConditionPriceFields = Pick<
+  CatalogGame | CollectionItem,
+  "estimatedPriceSealed" | "estimatedPriceComplete" | "estimatedPriceLoose"
+>;
+
+export type CatalogConditionPriceRow = {
+  condition: "sealed" | "complete" | "loose";
+  label: "Precintado" | "Completo" | "Solo juego";
+  price: number | null;
+};
+
+/** Los tres precios comparables que siempre aparecen en las vistas del catalogo. */
+export function catalogConditionPriceRows(
+  game: CatalogConditionPriceFields,
+): CatalogConditionPriceRow[] {
+  return [
+    { condition: "sealed", label: "Precintado", price: game.estimatedPriceSealed ?? null },
+    { condition: "complete", label: "Completo", price: game.estimatedPriceComplete ?? null },
+    { condition: "loose", label: "Solo juego", price: game.estimatedPriceLoose ?? null },
+  ];
+}
+
 /** Precio ES fiable: existe y la región de los anuncios fuente quedó verificada. */
 export function hasVerifiedEsPrice(
   game: Pick<CatalogGame | CollectionItem, "hasEsPrice" | "priceRegionVerified">,

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { CollectionCatalogRequestPanel } from "@/components/collection-catalog-request";
 import { CollectionExplorer } from "@/components/collection-explorer";
 import { CollectionImport } from "@/components/collection-import";
 import {
@@ -21,9 +20,7 @@ import {
 import { enrichCollectionItem } from "@/lib/catalog";
 import { outOfScopeCollectionItems, pendingCatalogItems } from "@/lib/import-collection";
 import { enrichCollectionGapItem } from "@/lib/collection-gap";
-import { countCollectionByPlatform } from "@/lib/collection-platform-groups";
 import { canViewCollectionValue } from "@/lib/plans";
-import { isCatalogRequestConfigured } from "@/lib/email";
 import {
   collectionListingStates,
   completedCollectionPurchases,
@@ -69,40 +66,36 @@ export default async function CollectionPage() {
   const pendingItems = pendingCatalogItems(file.items).map(enrichCollectionGapItem);
   const outOfScopeItems = outOfScopeCollectionItems(file.items).map(enrichCollectionGapItem);
   const summary = summarizeCollectionForPlan(items, user.plan);
-  const platformCounts = countCollectionByPlatform(file.items);
-  const ps5Count = platformCounts.ps5;
   const showCollectionValue = canViewCollectionValue(user.plan);
   const hasItems = items.length > 0;
   const hasLinkedItems = linkedItems.length > 0;
-  const gapTotal = summary.pendingCatalog + summary.outOfScopeItems;
-  const catalogRequestConfigured =
-    isCatalogRequestConfigured() || process.env.NODE_ENV !== "production";
-
   return (
     <>
       <SiteNav />
-      <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
-        <header className="mb-8 space-y-2">
-          <h1 className="text-3xl font-bold text-foreground">Mi colección</h1>
-          <p className="text-muted">
-            {hasItems ? (
-              <>
-                {summary.totalItems} juegos importados
-                {ps5Count
-                  ? ` · ${ps5Count.items} PS5${ps5Count.units > ps5Count.items ? ` (${ps5Count.units} uds.)` : ""}`
-                  : ""}
-                {file.source ? ` desde ${file.source}` : ""}
-                {file.importedAt
-                  ? ` · ${new Date(file.importedAt).toLocaleString("es-ES")}`
-                  : ""}
-              </>
-            ) : (
-              "Importa tu Excel para ver tu inventario enlazado al catálogo."
-            )}
-          </p>
+      <main className="mx-auto max-w-[1600px] px-4 py-6 md:px-6 md:py-8">
+        <header className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-foreground">Mi colección</h1>
+            <p className="mt-1 text-xs text-muted">
+              {hasItems ? (
+                <>
+                  Actualizada
+                  {file.importedAt
+                    ? ` el ${new Date(file.importedAt).toLocaleDateString("es-ES")}`
+                    : ""}
+                  {file.source ? ` desde ${file.source}` : ""}
+                </>
+              ) : (
+                "Importa tu inventario para empezar."
+              )}
+            </p>
+          </div>
+          <CollectionImport
+            compact
+            hasItems={hasItems}
+            canViewCollectionValue={showCollectionValue}
+          />
         </header>
-
-        <CollectionImport hasItems={hasItems} canViewCollectionValue={showCollectionValue} />
 
         {hasItems && (
           <CollectionValueHero summary={summary} canViewCollectionValue={showCollectionValue} />
@@ -116,20 +109,9 @@ export default async function CollectionPage() {
           <CollectionOutOfScopePanel items={outOfScopeItems} />
         )}
 
-        {hasItems && gapTotal > 0 && (
-          <CollectionCatalogRequestPanel
-            totalItems={gapTotal}
-            pendingCount={summary.pendingCatalog}
-            outOfScopeCount={summary.outOfScopeItems}
-            lastSentAt={file.catalogGapReportSentAt ?? null}
-            configured={catalogRequestConfigured}
-          />
-        )}
-
         {hasLinkedItems && (
           <CollectionExplorer
             items={linkedItems}
-            summary={summary}
             canViewCollectionValue={showCollectionValue}
             listingStateByItemId={listingStateByItemId}
           />

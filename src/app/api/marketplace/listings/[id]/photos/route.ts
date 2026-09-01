@@ -10,7 +10,7 @@ import {
 } from "@/lib/listings";
 import {
   fingerprintListingPhoto,
-  normalizeListingPhoto,
+  normalizeListingPhotoWithMetadata,
   validateListingPhoto,
 } from "@/lib/listing-photo-sharp";
 import type { ListingPhotoSlot } from "@/lib/marketplace-types";
@@ -93,14 +93,14 @@ export async function POST(request: Request, { params }: Params) {
       return NextResponse.json({ error: check.error }, { status: 400 });
     }
 
-    const normalized = await normalizeListingPhoto(buffer);
-    const fingerprint = await fingerprintListingPhoto(normalized);
+    const normalized = await normalizeListingPhotoWithMetadata(buffer);
+    const fingerprint = await fingerprintListingPhoto(normalized.buffer);
     const candidate = {
       slot,
       url: "",
-      width: check.width,
-      height: check.height,
-      bytes: normalized.length,
+      width: normalized.width,
+      height: normalized.height,
+      bytes: normalized.buffer.length,
       ...fingerprint,
       uploadedAt: new Date().toISOString(),
     };
@@ -116,7 +116,7 @@ export async function POST(request: Request, { params }: Params) {
       );
     }
 
-    const url = await saveListingPhoto(id, slot, normalized);
+    const url = await saveListingPhoto(id, slot, normalized.buffer);
     const photo = {
       ...candidate,
       url,

@@ -6,7 +6,6 @@ import {
   ChevronLeft,
   ChevronRight,
   ImagePlus,
-  Images,
   LoaderCircle,
   Trash2,
   X,
@@ -120,12 +119,12 @@ function CollectionPhotoGallery({
           </div>
         </header>
 
-        <div className="relative flex min-h-0 flex-1 items-center justify-center bg-black p-2 sm:p-4">
+        <div className="relative flex h-[clamp(200px,68vh,680px)] flex-none items-center justify-center bg-black p-2 sm:p-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={current.url}
             alt={`${label} de ${title}`}
-            className="max-h-[68vh] max-w-full object-contain"
+            className="h-full w-full object-contain"
           />
           {photos.length > 1 ? (
             <>
@@ -190,12 +189,6 @@ export function CollectionCopyPhotos({ item, disabled, onSaved }: Props) {
   const [gallerySlot, setGallerySlot] = useState<CollectionPhotoSlot | null>(null);
   const closeGallery = useCallback(() => setGallerySlot(null), []);
   const photos = orderedCollectionPhotos(item.photos);
-  const visibleSlots = COLLECTION_PHOTO_SLOTS.slice(0, 2);
-  const detailSlots = COLLECTION_PHOTO_SLOTS.slice(2);
-  const detailPhotos = photos.filter((photo) => detailSlots.includes(photo.slot));
-  const nextDetailSlot = detailSlots.find(
-    (slot) => !photos.some((photo) => photo.slot === slot),
-  );
   const busy = disabled || photoUpload !== null;
 
   async function upload(slot: CollectionPhotoSlot, file: File) {
@@ -274,187 +267,117 @@ export function CollectionCopyPhotos({ item, disabled, onSaved }: Props) {
         <span className="text-[11px] font-semibold uppercase text-muted">Tus fotos</span>
         <span className="text-[11px] tabular-nums text-muted">{photos.length}/6</span>
       </div>
-      <div className="grid max-w-[290px] grid-cols-2 gap-2">
-        {visibleSlots.map((slot) => {
-          const label = COLLECTION_PHOTO_LABELS[slot];
-          const photo = photos.find((stored) => stored.slot === slot);
-          const phase = photoUpload?.slot === slot ? photoUpload.phase : null;
-          return (
-            <div key={slot} className="min-w-0 overflow-hidden rounded-md border border-border bg-card/60">
-              {photo ? (
-                <button
-                  type="button"
-                  className="block aspect-[4/3] w-full overflow-hidden bg-black/80"
-                  aria-label={`Abrir ${label} en la galería`}
-                  aria-haspopup="dialog"
-                  onClick={() => setGallerySlot(slot)}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={photo.url} alt={label} className="h-full w-full object-contain" />
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  className="flex aspect-[4/3] w-full items-center justify-center bg-background/50 text-muted transition hover:text-accent disabled:opacity-50"
-                  disabled={busy}
-                  aria-label={`Añadir ${label}`}
-                  title={`Añadir ${label}`}
-                  onClick={() => fileInputs.current[slot]?.click()}
-                >
-                  {phase ? <LoaderCircle className="h-5 w-5 animate-spin" aria-hidden /> : <ImagePlus className="h-5 w-5" aria-hidden />}
-                </button>
-              )}
-              <div className="flex min-h-9 items-center justify-between gap-1 border-t border-border/70 px-1.5">
-                <span className="min-w-0 truncate text-[9px] font-medium text-muted">{label}</span>
-                <div className="flex shrink-0 items-center">
-                  {phase ? (
-                    <LoaderCircle className="h-3.5 w-3.5 animate-spin text-accent" aria-hidden />
-                  ) : (
-                    <>
-                      <button
-                        type="button"
-                        className="inline-flex h-7 w-7 items-center justify-center text-muted transition hover:text-accent disabled:opacity-40"
-                        disabled={busy}
-                        aria-label={`${photo ? "Cambiar" : "Añadir"} ${label}`}
-                        title={`${photo ? "Cambiar" : "Añadir"} ${label}`}
-                        onClick={() => fileInputs.current[slot]?.click()}
-                      >
-                        <ImagePlus className="h-3.5 w-3.5" aria-hidden />
-                      </button>
-                      <button
-                        type="button"
-                        className="inline-flex h-7 w-7 items-center justify-center text-muted transition hover:text-accent disabled:opacity-40 md:hidden"
-                        disabled={busy}
-                        aria-label={`Hacer foto para ${label}`}
-                        title={`Hacer foto para ${label}`}
-                        onClick={() => cameraInputs.current[slot]?.click()}
-                      >
-                        <Camera className="h-3.5 w-3.5" aria-hidden />
-                      </button>
-                      {photo ? (
+      <div className="-mx-1 max-w-full overflow-x-auto px-1 pb-1 [contain:layout_paint]">
+        <div className="grid w-full min-w-[780px] max-w-[900px] grid-cols-6 gap-2">
+          {COLLECTION_PHOTO_SLOTS.map((slot) => {
+            const label = COLLECTION_PHOTO_LABELS[slot];
+            const photo = photos.find((stored) => stored.slot === slot);
+            const phase = photoUpload?.slot === slot ? photoUpload.phase : null;
+            return (
+              <div key={slot} className="min-w-0 overflow-hidden rounded-md border border-border bg-card/60">
+                {photo ? (
+                  <button
+                    type="button"
+                    className="block aspect-[4/3] w-full overflow-hidden bg-black/80"
+                    aria-label={`Abrir ${label} en la galería`}
+                    aria-haspopup="dialog"
+                    onClick={() => setGallerySlot(slot)}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={photo.url} alt={label} className="h-full w-full object-contain" />
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="flex aspect-[4/3] w-full items-center justify-center bg-background/50 text-muted transition hover:text-accent disabled:opacity-50"
+                    disabled={busy}
+                    aria-label={`Añadir ${label}`}
+                    title={`Añadir ${label}`}
+                    onClick={() => fileInputs.current[slot]?.click()}
+                  >
+                    {phase ? <LoaderCircle className="h-5 w-5 animate-spin" aria-hidden /> : <ImagePlus className="h-5 w-5" aria-hidden />}
+                  </button>
+                )}
+                <div className="flex min-h-9 items-center justify-between gap-1 border-t border-border/70 px-1.5">
+                  <span className="min-w-0 truncate text-[9px] font-medium text-muted">{label}</span>
+                  <div className="flex shrink-0 items-center">
+                    {phase ? (
+                      <LoaderCircle className="h-3.5 w-3.5 animate-spin text-accent" aria-hidden />
+                    ) : (
+                      <>
                         <button
                           type="button"
-                          className="inline-flex h-7 w-7 items-center justify-center text-muted transition hover:text-rose-600 disabled:opacity-40"
+                          className="inline-flex h-7 w-7 items-center justify-center text-muted transition hover:text-accent disabled:opacity-40"
                           disabled={busy}
-                          aria-label={`Eliminar ${label}`}
-                          title={`Eliminar ${label}`}
-                          onClick={() => void remove(slot)}
+                          aria-label={`${photo ? "Cambiar" : "Añadir"} ${label}`}
+                          title={`${photo ? "Cambiar" : "Añadir"} ${label}`}
+                          onClick={() => fileInputs.current[slot]?.click()}
                         >
-                          <Trash2 className="h-3.5 w-3.5" aria-hidden />
+                          <ImagePlus className="h-3.5 w-3.5" aria-hidden />
                         </button>
-                      ) : null}
-                    </>
-                  )}
+                        <button
+                          type="button"
+                          className="inline-flex h-7 w-7 items-center justify-center text-muted transition hover:text-accent disabled:opacity-40 md:hidden"
+                          disabled={busy}
+                          aria-label={`Hacer foto para ${label}`}
+                          title={`Hacer foto para ${label}`}
+                          onClick={() => cameraInputs.current[slot]?.click()}
+                        >
+                          <Camera className="h-3.5 w-3.5" aria-hidden />
+                        </button>
+                        {photo ? (
+                          <button
+                            type="button"
+                            className="inline-flex h-7 w-7 items-center justify-center text-muted transition hover:text-rose-600 disabled:opacity-40"
+                            disabled={busy}
+                            aria-label={`Eliminar ${label}`}
+                            title={`Eliminar ${label}`}
+                            onClick={() => void remove(slot)}
+                          >
+                            <Trash2 className="h-3.5 w-3.5" aria-hidden />
+                          </button>
+                        ) : null}
+                      </>
+                    )}
+                  </div>
                 </div>
+                <input
+                  ref={(node) => {
+                    fileInputs.current[slot] = node;
+                  }}
+                  type="file"
+                  accept="image/*"
+                  className="sr-only"
+                  disabled={busy}
+                  data-testid={`collection-photo-file-${slot}`}
+                  onChange={(event) => {
+                    const input = event.currentTarget;
+                    const file = input.files?.[0];
+                    input.value = "";
+                    if (file) void upload(slot, file);
+                  }}
+                />
+                <input
+                  ref={(node) => {
+                    cameraInputs.current[slot] = node;
+                  }}
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  className="sr-only"
+                  disabled={busy}
+                  onChange={(event) => {
+                    const input = event.currentTarget;
+                    const file = input.files?.[0];
+                    input.value = "";
+                    if (file) void upload(slot, file);
+                  }}
+                />
               </div>
-              <input
-                ref={(node) => {
-                  fileInputs.current[slot] = node;
-                }}
-                type="file"
-                accept="image/*"
-                className="sr-only"
-                disabled={busy}
-                data-testid={`collection-photo-file-${slot}`}
-                onChange={(event) => {
-                  const input = event.currentTarget;
-                  const file = input.files?.[0];
-                  input.value = "";
-                  if (file) void upload(slot, file);
-                }}
-              />
-              <input
-                ref={(node) => {
-                  cameraInputs.current[slot] = node;
-                }}
-                type="file"
-                accept="image/*"
-                capture="environment"
-                className="sr-only"
-                disabled={busy}
-                onChange={(event) => {
-                  const input = event.currentTarget;
-                  const file = input.files?.[0];
-                  input.value = "";
-                  if (file) void upload(slot, file);
-                }}
-              />
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-
-      <div className="mt-2 flex flex-wrap items-center gap-2">
-        {nextDetailSlot ? (
-          <>
-            <button
-              type="button"
-              className="inline-flex h-8 items-center gap-1.5 rounded-md border border-border px-2.5 text-xs font-medium text-foreground transition hover:border-accent/50 hover:text-accent disabled:opacity-50"
-              disabled={busy}
-              onClick={() => fileInputs.current[nextDetailSlot]?.click()}
-            >
-              <ImagePlus className="h-3.5 w-3.5" aria-hidden />
-              Añadir otra foto
-            </button>
-            <button
-              type="button"
-              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border text-muted transition hover:border-accent/50 hover:text-accent disabled:opacity-50 md:hidden"
-              disabled={busy}
-              aria-label="Hacer otra foto"
-              title="Hacer otra foto"
-              onClick={() => cameraInputs.current[nextDetailSlot]?.click()}
-            >
-              <Camera className="h-3.5 w-3.5" aria-hidden />
-            </button>
-          </>
-        ) : null}
-        {detailPhotos.length > 0 ? (
-          <button
-            type="button"
-            className="inline-flex h-8 items-center gap-1.5 rounded-md border border-border px-2.5 text-xs font-medium text-muted transition hover:border-accent/50 hover:text-accent"
-            aria-haspopup="dialog"
-            onClick={() => setGallerySlot(detailPhotos[0].slot)}
-          >
-            <Images className="h-3.5 w-3.5" aria-hidden />
-            +{detailPhotos.length} {detailPhotos.length === 1 ? "foto" : "fotos"}
-          </button>
-        ) : null}
-      </div>
-
-      {detailSlots.map((slot) => (
-        <span key={slot} className="hidden">
-          <input
-            ref={(node) => {
-              fileInputs.current[slot] = node;
-            }}
-            type="file"
-            accept="image/*"
-            disabled={busy}
-            data-testid={`collection-photo-file-${slot}`}
-            onChange={(event) => {
-              const input = event.currentTarget;
-              const file = input.files?.[0];
-              input.value = "";
-              if (file) void upload(slot, file);
-            }}
-          />
-          <input
-            ref={(node) => {
-              cameraInputs.current[slot] = node;
-            }}
-            type="file"
-            accept="image/*"
-            capture="environment"
-            disabled={busy}
-            onChange={(event) => {
-              const input = event.currentTarget;
-              const file = input.files?.[0];
-              input.value = "";
-              if (file) void upload(slot, file);
-            }}
-          />
-        </span>
-      ))}
 
       {feedback ? (
         <p

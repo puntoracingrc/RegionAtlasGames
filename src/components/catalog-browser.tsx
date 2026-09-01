@@ -35,7 +35,7 @@ import { catalogGamePath } from "@/lib/catalog-path";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
-import { formatEsPriceForCard } from "@/lib/price-display";
+import { catalogConditionPriceRows } from "@/lib/price-display";
 import { formatEur } from "@/lib/price-format";
 import { cn } from "@/lib/cn";
 
@@ -55,40 +55,21 @@ function FilterField({ label, children }: { label: string; children: ReactNode }
   );
 }
 
-function selectedPrice(game: CatalogListGame, priceType: CatalogPriceType): number | null {
-  if (priceType === "sealed") return game.estimatedPriceSealed ?? null;
-  if (priceType === "newRetail") return game.estimatedPriceNewRetail ?? null;
-  if (priceType === "complete") return game.estimatedPriceComplete ?? null;
-  if (priceType === "gameManual") return game.estimatedPriceGameManual ?? null;
-  if (priceType === "loose") return game.estimatedPriceLoose ?? null;
-  return null;
-}
-
-function selectedPriceLabel(game: CatalogListGame, priceType: CatalogPriceType): string | undefined {
-  if (priceType === "recommended") return undefined;
-  const option = PRICE_TYPE_OPTIONS.find((item) => item.value === priceType);
-  const label = option?.label ?? "Estado";
-  const price = selectedPrice(game, priceType);
-  return `${label} · ${price != null ? formatEur(price) : "Sin dato"}`;
-}
-
 function CatalogCompactRow({
   game,
   owned,
   isLoggedIn,
   onOwnedChange,
   listingsForSale,
-  priceLabel,
 }: {
   game: CatalogListGame;
   owned: boolean;
   isLoggedIn: boolean;
   onOwnedChange: (catalogId: string, owned: boolean, ownedCatalogIds?: string[]) => void;
   listingsForSale: number;
-  priceLabel?: string;
 }) {
   const cover = getCoverSrc(game.coverUrl, game.id);
-  const displayedPrice = priceLabel ?? formatEsPriceForCard(game, formatEur);
+  const conditionPrices = catalogConditionPriceRows(game);
 
   return (
     <div
@@ -151,7 +132,27 @@ function CatalogCompactRow({
           )}
         </p>
 
-        <p className="text-right text-sm font-bold text-accent">{displayedPrice}</p>
+        <dl
+          className="grid w-[92px] shrink-0 grid-rows-3 gap-0.5 text-[9px] leading-tight sm:w-[138px] sm:text-[10px]"
+          aria-label="Precios por estado"
+        >
+          {conditionPrices.map((value) => (
+            <div
+              key={value.condition}
+              className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-1"
+            >
+              <dt className="truncate text-muted">{value.label}</dt>
+              <dd
+                className={cn(
+                  "whitespace-nowrap text-right font-semibold tabular-nums",
+                  value.price == null ? "text-muted" : "text-accent",
+                )}
+              >
+                {value.price == null ? "--" : formatEur(value.price)}
+              </dd>
+            </div>
+          ))}
+        </dl>
         <LinkPendingFeedback label="Abriendo ficha…" overlay />
       </IntentLink>
 
@@ -541,14 +542,11 @@ export function CatalogBrowser({
             isLoggedIn={isLoggedIn}
             onOwnedChange={handleOwnedChange}
             listingsForSale={listingCounts[game.id] ?? 0}
-            priceLabel={selectedPriceLabel(game, priceType)}
-            priceVerified={priceType === "recommended" ? undefined : selectedPrice(game, priceType) != null}
-            priceUnverified={priceType === "recommended" ? undefined : false}
           />
         ))}
       </section>
     ),
-    [handleOwnedChange, isLoggedIn, listingCounts, ownedSet, pageItems, priceType],
+    [handleOwnedChange, isLoggedIn, listingCounts, ownedSet, pageItems],
   );
 
   const catalogList = useMemo(
@@ -562,12 +560,11 @@ export function CatalogBrowser({
             isLoggedIn={isLoggedIn}
             onOwnedChange={handleOwnedChange}
             listingsForSale={listingCounts[game.id] ?? 0}
-            priceLabel={selectedPriceLabel(game, priceType)}
           />
         ))}
       </section>
     ),
-    [handleOwnedChange, isLoggedIn, listingCounts, ownedSet, pageItems, priceType],
+    [handleOwnedChange, isLoggedIn, listingCounts, ownedSet, pageItems],
   );
 
   return (

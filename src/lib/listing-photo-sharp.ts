@@ -106,9 +106,17 @@ export async function validateListingPhoto(buffer: Buffer): Promise<
   }
 }
 
-export async function normalizeListingPhoto(buffer: Buffer): Promise<Buffer> {
+export type NormalizedListingPhoto = {
+  buffer: Buffer;
+  width: number;
+  height: number;
+};
+
+export async function normalizeListingPhotoWithMetadata(
+  buffer: Buffer,
+): Promise<NormalizedListingPhoto> {
   const sharp = await loadSharp();
-  return sharp(buffer, {
+  const { data, info } = await sharp(buffer, {
     limitInputPixels: MAX_PHOTO_INPUT_PIXELS,
     sequentialRead: true,
     failOn: "error",
@@ -116,5 +124,6 @@ export async function normalizeListingPhoto(buffer: Buffer): Promise<Buffer> {
     .rotate()
     .resize({ width: 2400, height: 2400, fit: "inside", withoutEnlargement: true })
     .jpeg({ quality: 88, mozjpeg: true })
-    .toBuffer();
+    .toBuffer({ resolveWithObject: true });
+  return { buffer: data, width: info.width, height: info.height };
 }

@@ -46,6 +46,20 @@ function CollectionTransactionHistory({
   const isPurchase = kind === "purchase";
   const titleId = `${kind}s-history-title`;
 
+  if (listings.length === 0) {
+    return (
+      <section
+        className="mt-4 flex min-h-12 items-center justify-between gap-3 rounded-lg border border-border/70 bg-card/55 px-4 py-3"
+        aria-labelledby={titleId}
+      >
+        <h2 id={titleId} className="text-sm font-semibold text-foreground">
+          {isPurchase ? "Historial de compras" : "Historial de ventas"}
+        </h2>
+        <span className="text-xs text-muted">Sin movimientos</span>
+      </section>
+    );
+  }
+
   return (
     <section className="mt-10" aria-labelledby={titleId}>
       <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
@@ -69,12 +83,7 @@ function CollectionTransactionHistory({
         )}
       </div>
 
-      {listings.length === 0 ? (
-        <p className="border-y border-dashed border-border px-2 py-8 text-center text-sm text-muted">
-          {isPurchase ? "Aún no hay compras completadas." : "Aún no hay ventas completadas."}
-        </p>
-      ) : (
-        <ol className="divide-y divide-border/70 border-y border-border/70">
+      <ol className="divide-y divide-border/70 border-y border-border/70">
           {listings.map((listing) => {
             const game = getCatalogGame(listing.catalogId);
             const cover = getCoverSrc(game?.coverUrl, listing.catalogId);
@@ -148,8 +157,7 @@ function CollectionTransactionHistory({
               </li>
             );
           })}
-        </ol>
-      )}
+      </ol>
     </section>
   );
 }

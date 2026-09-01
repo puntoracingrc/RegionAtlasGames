@@ -5,7 +5,11 @@ import { RegionFlag } from "@/components/region-flag";
 import type { CatalogListGame, CollectionView } from "@/lib/types";
 import { catalogGamePath } from "@/lib/catalog-path";
 import { collectionCatalogPath } from "@/lib/collection-path";
-import { formatEsPriceForCard } from "@/lib/price-display";
+import {
+  catalogConditionPriceRows,
+  formatEsPriceForCard,
+  type CatalogConditionPriceRow,
+} from "@/lib/price-display";
 import { formatEur } from "@/lib/price-format";
 import { CollectionQuickAdd } from "@/components/collection-quick-add";
 import { gameCardHighlightClass } from "@/lib/card-highlight";
@@ -78,18 +82,12 @@ export function CatalogGameCard({
   isLoggedIn = false,
   onOwnedChange,
   listingsForSale = 0,
-  priceLabel,
-  priceVerified,
-  priceUnverified,
 }: {
   game: CatalogListGame;
   owned?: boolean;
   isLoggedIn?: boolean;
   onOwnedChange?: (catalogId: string, owned: boolean, ownedCatalogIds?: string[]) => void;
   listingsForSale?: number;
-  priceLabel?: string;
-  priceVerified?: boolean;
-  priceUnverified?: boolean;
 }) {
   const { grail, topSegment } = gameHighlights(game);
 
@@ -110,9 +108,7 @@ export function CatalogGameCard({
           platform={game.displayPlatform}
           region={game.region}
           year={game.displayYear}
-          price={priceLabel ?? formatEsPriceForCard(game, formatEur)}
-          priceVerified={priceVerified ?? (game.priceRegionVerified === true)}
-          priceUnverified={priceUnverified ?? (game.hasEsPrice && game.priceRegionVerified !== true)}
+          catalogPrices={catalogConditionPriceRows(game)}
           grail={grail}
           topSegment={topSegment}
           listingsForSale={listingsForSale}
@@ -307,12 +303,13 @@ function CardBody({
   importPrice,
   conditionCounts,
   conditionValues,
+  catalogPrices,
 }: {
   title: string;
   platform: string;
   region?: string;
   year?: number | null;
-  price: string;
+  price?: string;
   quantity?: number;
   grail?: boolean;
   topSegment?: boolean;
@@ -322,6 +319,7 @@ function CardBody({
   importPrice?: boolean;
   conditionCounts?: CollectionConditionCounts;
   conditionValues?: CollectionConditionValue[];
+  catalogPrices?: CatalogConditionPriceRow[];
 }) {
   const tags = [
     topSegment ? "Top región" : null,
@@ -333,7 +331,7 @@ function CardBody({
       <h3
         className={cn(
           "line-clamp-2 text-[13px] font-semibold leading-snug text-foreground",
-          conditionValues && "min-h-9",
+          (conditionValues || catalogPrices) && "min-h-9",
         )}
       >
         {title}
@@ -375,7 +373,7 @@ function CardBody({
               </span>
             )}
           </p>
-          {!conditionValues && (
+          {!conditionValues && !catalogPrices && (
             <>
               <p
                 className={cn(
@@ -391,7 +389,7 @@ function CardBody({
                           : "text-accent",
                 )}
               >
-                {price}
+                {price ?? "--"}
               </p>
               {importPrice && (
                 <p className="mt-0.5 text-[10px] uppercase tracking-wider text-muted">Ref. import</p>
@@ -432,13 +430,40 @@ function CardBody({
           ))}
         </div>
       )}
-      {!conditionValues && quantity != null && conditionCounts && (
+      {catalogPrices && (
+        <div className="mt-auto border-t border-border/70 pt-1" aria-label="Precios por estado">
+          <dl className="grid h-[3.35rem] grid-rows-3 text-[10px] leading-none">
+            {catalogPrices.map((value) => (
+              <div
+                key={value.condition}
+                className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-1"
+              >
+                <dt className="truncate text-muted">{value.label}</dt>
+                <dd
+                  className={cn(
+                    "whitespace-nowrap text-right font-semibold tabular-nums",
+                    value.price == null ? "text-muted" : "text-accent",
+                  )}
+                >
+                  {value.price == null ? "--" : formatEur(value.price)}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          {listingsForSale != null && listingsForSale > 0 && (
+            <p className="mt-0.5 text-[10px] font-medium text-violet-300">
+              {listingsForSale} en venta
+            </p>
+          )}
+        </div>
+      )}
+      {!conditionValues && !catalogPrices && quantity != null && conditionCounts && (
         <p className="text-[11px] text-muted">
           {quantity} {quantity === 1 ? "unidad" : "unidades"} ·{" "}
           {formatCollectionConditionSummary(conditionCounts, true)}
         </p>
       )}
-      {!conditionValues && quantity != null && quantity > 1 && !conditionCounts && (
+      {!conditionValues && !catalogPrices && quantity != null && quantity > 1 && !conditionCounts && (
         <p className="text-[11px] text-muted">×{quantity} unidades</p>
       )}
     </div>

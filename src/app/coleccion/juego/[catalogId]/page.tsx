@@ -44,6 +44,7 @@ export default async function CollectionCatalogGamePage({ params }: Props) {
       status: listing.status,
     }));
   const platform = getPlatform(game.platformSlug);
+  const catalogCover = getCoverSrc(game.coverUrl, game.id);
 
   return (
     <>
@@ -54,7 +55,7 @@ export default async function CollectionCatalogGamePage({ params }: Props) {
         <div className="mt-5 grid gap-6 border-b border-border pb-7 sm:grid-cols-[150px_minmax(0,1fr)] sm:items-center">
           <div className="max-w-[150px]">
             <DetailCoverArt
-              src={getCoverSrc(game.coverUrl, game.id)}
+              src={catalogCover}
               alt={decodeHtmlEntities(game.title)}
               platformSlug={game.platformSlug}
               owned
@@ -81,6 +82,7 @@ export default async function CollectionCatalogGamePage({ params }: Props) {
 
         <CollectionCopiesManager
           catalogId={catalogId}
+          catalogCover={catalogCover}
           initialItems={items}
           initialListings={listings}
         />
