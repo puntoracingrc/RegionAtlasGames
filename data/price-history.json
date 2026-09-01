@@ -15386,6 +15386,76 @@
         "sealed": null,
         "newRetail": null
       }
+    ],
+    "ps4-dungeons-iii-complete-collection": [
+      {
+        "at": "2026-09-01T16:45:07Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 23.37,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dynasty-warriors-8-empires": [
+      {
+        "at": "2026-09-01T16:45:07Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.97,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dynasty-warriors-8-xtreme-legends-complete-edition": [
+      {
+        "at": "2026-09-01T16:45:07Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 27.47,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dynasty-warriors-9-empires": [
+      {
+        "at": "2026-09-01T16:45:07Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 30.22,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-eldrador-creatures": [
+      {
+        "at": "2026-09-01T16:45:07Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 27.47,
+        "newRetail": null
+      }
+    ],
+    "ps4-epic-chef": [
+      {
+        "at": "2026-09-01T16:45:07Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.84,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-equestrian-training": [
+      {
+        "at": "2026-09-01T16:45:07Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.62,
+        "sealed": null,
+        "newRetail": null
+      }
     ]
   }
 }
