@@ -13,6 +13,7 @@ from import_pricecharting_software_list import (
     CANVAS_SIZE,
     CoverTask,
     LiveRow,
+    PC_ID_ALIASES,
     SourceRow,
     clean_source_title,
     cover_is_clean,
@@ -21,6 +22,20 @@ from import_pricecharting_software_list import (
     normalize_title,
     save_clean_cover,
 )
+
+
+def test_switch2_pal_eu_aliases_reuse_reviewed_spanish_records() -> None:
+    expected = {
+        9705791: "switch2-zelda-breath-of-the-wild-nsw2-edition",
+        9705792: "switch2-the-legend-of-zelda-tears-of-the-kingdom-nsw2-edition",
+        10053980: "switch2-no-sleep-for-kaname-date-ai-the-somnium-files-aiba-edition",
+        10350244: "switch2-kirby-y-la-tierra-olvidada-nsw2-edition",
+        10546991: "switch2-leyendas-pokemon-z-a-nsw2-edition",
+        11360714: "switch2-split-fiction-ciab",
+        11408015: "switch2-animal-crossing-new-horizons-nsw2-edition",
+        12589196: "switch2-xenoblade-chronicles-x-definitive-edition-nsw2-edition",
+    }
+    assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
 
 
 def sample_game(catalog_id: str, title: str) -> dict:
@@ -362,6 +377,7 @@ def test_reused_cover_keeps_region_specific_filename() -> None:
 
 
 if __name__ == "__main__":
+    test_switch2_pal_eu_aliases_reuse_reviewed_spanish_records()
     test_merge_preserves_prices_and_skips_technical_duplicate()
     test_title_normalization_handles_common_catalog_variants()
     test_distinct_pc_ids_with_equivalent_titles_remain_separate()
