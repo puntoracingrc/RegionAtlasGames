@@ -5,11 +5,13 @@ import { getCatalogGame } from "@/lib/catalog";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import type { MarketplaceListing } from "@/lib/marketplace-types";
-import { formatEur } from "@/lib/price-format";
+import { formatEurCents } from "@/lib/price-format";
 
 type Props = {
   listings: MarketplaceListing[];
 };
+
+type HistoryKind = "purchase" | "sale";
 
 const dateFormatter = new Intl.DateTimeFormat("es-ES", {
   day: "numeric",
@@ -26,30 +28,50 @@ const conditionLabels = {
 } as const;
 
 export function CollectionSalesHistory({ listings }: Props) {
+  return <CollectionTransactionHistory listings={listings} kind="sale" />;
+}
+
+export function CollectionPurchasesHistory({ listings }: Props) {
+  return <CollectionTransactionHistory listings={listings} kind="purchase" />;
+}
+
+function CollectionTransactionHistory({
+  listings,
+  kind,
+}: Props & { kind: HistoryKind }) {
   const total = listings.reduce(
     (sum, listing) => sum + (listing.recordedSalePriceEur ?? 0),
     0,
   );
+  const isPurchase = kind === "purchase";
+  const titleId = `${kind}s-history-title`;
 
   return (
-    <section className="mt-10" aria-labelledby="sales-history-title">
+    <section className="mt-10" aria-labelledby={titleId}>
       <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
         <div>
-          <h2 id="sales-history-title" className="text-xl font-bold text-foreground">
-            Historial de juegos vendidos
+          <h2 id={titleId} className="text-xl font-bold text-foreground">
+            {isPurchase ? "Historial de juegos comprados" : "Historial de juegos vendidos"}
           </h2>
           <p className="mt-1 text-sm text-muted">
-            {listings.length} {listings.length === 1 ? "venta completada" : "ventas completadas"}
+            {listings.length}{" "}
+            {listings.length === 1
+              ? isPurchase
+                ? "compra completada"
+                : "venta completada"
+              : isPurchase
+                ? "compras completadas"
+                : "ventas completadas"}
           </p>
         </div>
         {listings.length > 0 && (
-          <strong className="text-sm text-foreground">Total: {formatEur(total)}</strong>
+          <strong className="text-sm text-foreground">Total: {formatEurCents(total)}</strong>
         )}
       </div>
 
       {listings.length === 0 ? (
         <p className="border-y border-dashed border-border px-2 py-8 text-center text-sm text-muted">
-          Aún no hay ventas completadas.
+          {isPurchase ? "Aún no hay compras completadas." : "Aún no hay ventas completadas."}
         </p>
       ) : (
         <ol className="divide-y divide-border/70 border-y border-border/70">
@@ -92,25 +114,31 @@ export function CollectionSalesHistory({ listings }: Props) {
                       <span aria-hidden>·</span>
                       <span>{conditionLabels[condition]}</span>
                     </p>
-                    {listing.soldToUserName && (
+                    {(isPurchase || listing.soldToUserName) && (
                       <p className="mt-0.5 truncate text-[11px] text-muted sm:hidden">
-                        Vendido a {listing.soldToUserName}
+                        {isPurchase
+                          ? `Comprado a ${listing.sellerName}`
+                          : `Vendido a ${listing.soldToUserName}`}
                       </p>
                     )}
                   </div>
                   <div className="hidden min-w-0 text-right text-[11px] text-muted sm:block">
                     <span className="inline-flex items-center gap-1 font-medium text-emerald-700 dark:text-emerald-300">
                       <CheckCircle2 className="h-3.5 w-3.5" aria-hidden />
-                      Completada
+                      {isPurchase ? "Recibida" : "Completada"}
                     </span>
                     <span className="block truncate">
-                      {listing.soldToUserName ? `A ${listing.soldToUserName} · ` : ""}
+                      {isPurchase
+                        ? `Vendedor: ${listing.sellerName} · `
+                        : listing.soldToUserName
+                          ? `A ${listing.soldToUserName} · `
+                          : ""}
                       {dateFormatter.format(new Date(listing.buyerConfirmedAt!))}
                     </span>
                   </div>
                   <div className="text-right">
                     <strong className="block text-sm text-accent">
-                      {formatEur(listing.recordedSalePriceEur)}
+                      {formatEurCents(listing.recordedSalePriceEur)}
                     </strong>
                     <span className="text-[10px] text-muted sm:hidden">
                       {dateFormatter.format(new Date(listing.buyerConfirmedAt!))}

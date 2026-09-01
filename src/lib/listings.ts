@@ -101,6 +101,17 @@ export async function getSellerListings(sellerId: string): Promise<MarketplaceLi
   return (await readListings()).filter((l) => l.sellerId === sellerId);
 }
 
+export async function getUserMarketplaceActivityListings(userId: string): Promise<{
+  sellerListings: MarketplaceListing[];
+  buyerListings: MarketplaceListing[];
+}> {
+  const listings = await readListings();
+  return {
+    sellerListings: listings.filter((listing) => listing.sellerId === userId),
+    buyerListings: listings.filter((listing) => listing.soldToUserId === userId),
+  };
+}
+
 export async function countActiveListingsForCollectionItem(
   sellerId: string,
   collectionItemId: string,
