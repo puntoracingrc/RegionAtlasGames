@@ -20,13 +20,12 @@ import {
 import type { CollectionSummary } from "@/lib/collection-store";
 import type { CollectionListingState, CollectionView, GameFilters } from "@/lib/types";
 import {
-  formatCollectionConditionSummary,
+  collectionConditionValues,
   groupCollectionDisplayItems,
   type CollectionDisplayItem,
 } from "@/lib/collection-display";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
-import { formatEsPriceForCard } from "@/lib/price-display";
 import { RegionFlag } from "@/components/region-flag";
 import { IntentLink } from "@/components/intent-link";
 import { collectionCatalogAnchorId, collectionCatalogPath } from "@/lib/collection-path";
@@ -311,21 +310,18 @@ export function CollectionExplorer({
 }
 
 function CollectionCompactRow({ item }: { item: CollectionDisplayItem }) {
-  const { game, units, conditionCounts } = item;
+  const { game } = item;
   const href = game.catalogId && game.catalogMatched
     ? collectionCatalogPath(game.catalogId)
     : `/coleccion/${game.id}`;
   const cover = getCoverSrc(game.coverUrl, game.catalogId ?? game.id);
-  const price =
-    !game.hasEsPrice && game.recommendedPrice != null
-      ? formatEur(game.recommendedPrice)
-      : formatEsPriceForCard(game, formatEur);
+  const conditionValues = collectionConditionValues(item);
 
   return (
     <IntentLink
       href={href}
       id={collectionCatalogAnchorId(game.catalogId ?? game.id)}
-      className="group relative grid min-h-[68px] grid-cols-[42px_minmax(0,1fr)_auto] items-center gap-3 px-1 py-2 transition [content-visibility:auto] hover:bg-card-hover sm:grid-cols-[46px_minmax(0,1fr)_minmax(150px,auto)_auto] sm:px-2"
+      className="group relative grid min-h-[76px] grid-cols-[42px_minmax(0,1fr)] items-center gap-x-3 gap-y-2 px-1 py-2.5 transition [content-visibility:auto] hover:bg-card-hover sm:px-2 md:grid-cols-[46px_minmax(190px,0.8fr)_minmax(340px,1.4fr)]"
     >
       <div className="flex h-14 w-11 items-center justify-center overflow-hidden border border-border bg-card">
         {cover ? (
@@ -344,18 +340,31 @@ function CollectionCompactRow({ item }: { item: CollectionDisplayItem }) {
           <span aria-hidden>·</span>
           <RegionFlag region={game.region} size="xs" showLabel labelMode="short" />
         </p>
-        <p className="mt-0.5 truncate text-[11px] text-muted sm:hidden">
-          {units} {units === 1 ? "unidad" : "unidades"} ·{" "}
-          {formatCollectionConditionSummary(conditionCounts, true)}
-        </p>
       </div>
-      <p className="hidden min-w-0 text-[11px] text-muted sm:block sm:text-right">
-        <strong className="font-semibold text-foreground">
-          {units} {units === 1 ? "unidad" : "unidades"}
-        </strong>
-        <span className="block truncate">{formatCollectionConditionSummary(conditionCounts, true)}</span>
-      </p>
-      <p className="text-right text-sm font-bold text-accent">{price}</p>
+      <div className="col-span-2 grid min-w-0 grid-cols-[repeat(auto-fit,minmax(96px,1fr))] divide-x divide-border/70 md:col-span-1">
+        {conditionValues.map((value) => (
+          <div
+            key={value.condition}
+            className="flex min-w-0 flex-col items-center justify-center px-2 py-1 text-center"
+          >
+            <span className="max-w-full truncate text-[10px] font-semibold uppercase text-muted">
+              {value.label}
+            </span>
+            <strong className="mt-0.5 text-sm font-bold text-accent tabular-nums">
+              {value.totalPrice == null
+                ? "Pendiente"
+                : `${formatEur(value.totalPrice)}${value.units > 1 ? " total" : ""}`}
+            </strong>
+            <span className="mt-0.5 text-[10px] text-muted tabular-nums">
+              {value.units === 1
+                ? "1 unidad"
+                : value.unitPrice == null
+                  ? `${value.units} unidades`
+                  : `${value.units} uds. × ${formatEur(value.unitPrice)}`}
+            </span>
+          </div>
+        ))}
+      </div>
       <LinkPendingFeedback label="Abriendo ficha…" overlay />
     </IntentLink>
   );
