@@ -31,7 +31,7 @@ const PAL_PC_CONSOLE: Record<string, string> = {
   switch2: "switch-2",
   gameboycolor: "pal-gameboy-color",
   psp: "pal-psp",
-  psvita: "pal-ps-vita",
+  psvita: "pal-playstation-vita",
   wiiu: "pal-wii-u",
   pcengine: "pc-engine",
 };
