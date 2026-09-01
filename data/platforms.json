@@ -35,9 +35,9 @@
     "shortName": "Game Boy",
     "manufacturer": "nintendo",
     "status": "closed",
-    "estimatedCatalogSize": 1788,
+    "estimatedCatalogSize": 2280,
     "sortOrder": 4,
-    "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
+    "description": "Catálogo multirregión (PAL España provisional, PAL Europa, NTSC USA y NTSC-J Japón)."
   },
   {
     "slug": "gamecube",
