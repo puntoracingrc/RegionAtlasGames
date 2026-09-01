@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { PRICE_TYPE_OPTIONS, sortCatalogListGames } from "./catalog-filters";
+import {
+  PRICE_TYPE_OPTIONS,
+  catalogPriceTypeOptions,
+  normalizeCatalogPriceTypeForPlatform,
+  sortCatalogListGames,
+} from "./catalog-filters";
 import { catalogConditionPriceRows, formatEsPriceForCard } from "./price-display";
 import type { CatalogListGame } from "./types";
 
@@ -66,6 +71,22 @@ test("offers sealed as a catalog condition and sorts by its own price", () => {
     sortCatalogListGames(games, "price-desc", "sealed").map((game) => game.id),
     ["higher-sealed", "lower-sealed", "without-sealed"],
   );
+});
+
+test("offers only condition prices compatible with each platform medium", () => {
+  assert.deepEqual(
+    catalogPriceTypeOptions("ps3").map((option) => option.value),
+    ["recommended", "sealed", "newRetail", "complete", "loose"],
+  );
+  assert.deepEqual(
+    catalogPriceTypeOptions("n64").map((option) => option.value),
+    ["recommended", "sealed", "newRetail", "complete", "gameManual", "loose"],
+  );
+  assert.equal(
+    catalogPriceTypeOptions("ps3").find((option) => option.value === "loose")?.label,
+    "Solo juego",
+  );
+  assert.equal(normalizeCatalogPriceTypeForPlatform("gameManual", "ps3"), "recommended");
 });
 
 test("keeps new retail separate from sealed and exposes its own catalog sort", () => {

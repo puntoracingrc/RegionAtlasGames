@@ -4,6 +4,7 @@ import {
   DEFAULT_SORT,
   PRICE_FILTER_OPTIONS,
   filterCatalogGames,
+  normalizeCatalogPriceTypeForPlatform,
   type CatalogPriceFilter,
   type CatalogPriceType,
   type CatalogSort,
@@ -58,7 +59,10 @@ export async function GET(
   const facet = url.searchParams.get("facet") ?? "all";
   const company = url.searchParams.get("company") ?? "";
   const sort = (url.searchParams.get("sort") ?? DEFAULT_SORT) as CatalogSort;
-  const priceType = (url.searchParams.get("priceType") ?? "recommended") as CatalogPriceType;
+  const priceType = normalizeCatalogPriceTypeForPlatform(
+    (url.searchParams.get("priceType") ?? "recommended") as CatalogPriceType,
+    slug,
+  );
   const priceFilterParam = url.searchParams.get("priceFilter") ?? "all";
   const priceFilter = PRICE_FILTER_OPTIONS.some((option) => option.value === priceFilterParam)
     ? (priceFilterParam as CatalogPriceFilter)

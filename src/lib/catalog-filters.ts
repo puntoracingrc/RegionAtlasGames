@@ -3,6 +3,7 @@ import { findGameFacetEntityBySlug, getGameFacetsTaxonomy } from "@/lib/game-fac
 import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { getRegionDisplay } from "@/lib/region-display";
+import { supportsGameManualCondition } from "@/lib/collection-condition-policy";
 import type { CatalogListGame } from "@/lib/types";
 
 export type CatalogSort =
@@ -45,8 +46,26 @@ export const PRICE_TYPE_OPTIONS: { value: CatalogPriceType; label: string }[] = 
   { value: "newRetail", label: "Nuevo en tienda" },
   { value: "complete", label: "Completo" },
   { value: "gameManual", label: "Juego + manual" },
-  { value: "loose", label: "Suelto" },
+  { value: "loose", label: "Solo juego" },
 ];
+
+export function catalogPriceTypeOptions(
+  platformSlug?: string | null,
+): { value: CatalogPriceType; label: string }[] {
+  if (!platformSlug || platformSlug === "all" || supportsGameManualCondition(platformSlug)) {
+    return PRICE_TYPE_OPTIONS;
+  }
+  return PRICE_TYPE_OPTIONS.filter((option) => option.value !== "gameManual");
+}
+
+export function normalizeCatalogPriceTypeForPlatform(
+  value: CatalogPriceType,
+  platformSlug?: string | null,
+): CatalogPriceType {
+  return catalogPriceTypeOptions(platformSlug).some((option) => option.value === value)
+    ? value
+    : "recommended";
+}
 
 export type CatalogPriceFilter = "all" | "verified" | "unverified" | "pending";
 
