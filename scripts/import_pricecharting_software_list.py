@@ -28,7 +28,7 @@ from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 from typing import Any
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageChops, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_FILE = ROOT / "data" / "catalog.json"
@@ -746,18 +746,23 @@ def merge_catalog(
         else:
             expected_cover_url = None
         managed_cover = not game.get("coverUrl") or game.get("seedSource") == seed_source
+        cover_destination = covers_root / platform / filename if expected_cover_url else None
         if (
             live.cover_source_url
             and covers_root
             and managed_cover
-            and game.get("coverUrl") != expected_cover_url
+            and (
+                game.get("coverUrl") != expected_cover_url
+                or cover_destination is None
+                or not cover_is_clean(cover_destination)
+            )
         ):
             cover_tasks.append(
                 CoverTask(
                     catalog_id=str(game["id"]),
                     title=str(game["title"]),
                     source_url=live.cover_source_url,
-                    destination=covers_root / platform / filename,
+                    destination=cover_destination,
                 )
             )
         elif not game.get("coverUrl") and not live.cover_source_url:
@@ -786,6 +791,53 @@ def merge_catalog(
     return catalog, cover_tasks, stats
 
 
+def excessive_flat_border_bbox(
+    image: Image.Image,
+    *,
+    max_content_ratio: float = 0.65,
+    require_small_both_axes: bool = False,
+) -> tuple[int, int, int, int] | None:
+    width, height = image.size
+    if width < 16 or height < 16:
+        return None
+    corners = [
+        image.getpixel((0, 0)),
+        image.getpixel((width - 1, 0)),
+        image.getpixel((0, height - 1)),
+        image.getpixel((width - 1, height - 1)),
+    ]
+    if any(max(channel) - min(channel) > 18 for channel in zip(*corners)):
+        return None
+    background = tuple(sorted(channel)[len(channel) // 2] for channel in zip(*corners))
+    difference = ImageChops.difference(image, Image.new("RGB", image.size, background)).convert("L")
+    content = difference.point(lambda value: 255 if value > 32 else 0)
+    bbox = content.getbbox()
+    if not bbox:
+        return None
+    left, top, right, bottom = bbox
+    horizontal_margin = min(left, width - right)
+    vertical_margin = min(top, height - bottom)
+    content_width_ratio = (right - left) / width
+    content_height_ratio = (bottom - top) / height
+    content_area = (right - left) * (bottom - top)
+    crop_horizontal = horizontal_margin >= width * 0.06 and content_width_ratio < 0.88
+    crop_vertical = vertical_margin >= height * 0.06 and content_height_ratio < 0.88
+    if not crop_horizontal and not crop_vertical:
+        return None
+    if require_small_both_axes and max(content_width_ratio, content_height_ratio) >= 0.70:
+        return None
+    if content_area > width * height * max_content_ratio:
+        return None
+    padding_x = max(2, round((right - left) * 0.02))
+    padding_y = max(2, round((bottom - top) * 0.02))
+    return (
+        max(0, left - padding_x) if crop_horizontal else 0,
+        max(0, top - padding_y) if crop_vertical else 0,
+        min(width, right + padding_x) if crop_horizontal else width,
+        min(height, bottom + padding_y) if crop_vertical else height,
+    )
+
+
 def cover_is_clean(path: Path) -> bool:
     if not path.is_file() or path.stat().st_size < 512:
         return False
@@ -794,7 +846,17 @@ def cover_is_clean(path: Path) -> bool:
         return False
     try:
         with Image.open(io.BytesIO(raw)) as image:
-            return image.size == CANVAS_SIZE and not image.getexif()
+            rgb = image.convert("RGB")
+            return (
+                image.size == CANVAS_SIZE
+                and not image.getexif()
+                and excessive_flat_border_bbox(
+                    rgb,
+                    max_content_ratio=0.25,
+                    require_small_both_axes=True,
+                )
+                is None
+            )
     except Exception:
         return False
 
@@ -805,7 +867,15 @@ def save_clean_cover(raw: bytes, destination: Path) -> None:
     with Image.open(io.BytesIO(raw)) as source:
         source.load()
         oriented = ImageOps.exif_transpose(source).convert("RGB")
-    oriented.thumbnail(CANVAS_SIZE, Image.Resampling.LANCZOS)
+    crop_box = excessive_flat_border_bbox(oriented)
+    if crop_box:
+        oriented = oriented.crop(crop_box)
+    scale = min(CANVAS_SIZE[0] / oriented.width, CANVAS_SIZE[1] / oriented.height)
+    resized_size = (
+        max(1, round(oriented.width * scale)),
+        max(1, round(oriented.height * scale)),
+    )
+    oriented = oriented.resize(resized_size, Image.Resampling.LANCZOS)
     canvas = Image.new("RGB", CANVAS_SIZE, (246, 246, 246))
     offset = ((CANVAS_SIZE[0] - oriented.width) // 2, (CANVAS_SIZE[1] - oriented.height) // 2)
     canvas.paste(oriented, offset)

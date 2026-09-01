@@ -7,7 +7,7 @@ import tempfile
 from decimal import Decimal
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageChops
 
 from import_pricecharting_software_list import (
     CANVAS_SIZE,
@@ -298,6 +298,50 @@ def test_cover_reencode_removes_source_metadata_and_standardizes_size() -> None:
             assert not cleaned.getexif()
 
 
+def test_cover_reencode_crops_excessive_uniform_canvas_and_upscales_art() -> None:
+    image = Image.new("RGB", (1600, 1600), (255, 255, 255))
+    cover = Image.new("RGB", (300, 420), (25, 90, 170))
+    image.paste(cover, (650, 590))
+    source = io.BytesIO()
+    image.save(source, format="JPEG", quality=92)
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        destination = Path(temp_dir) / "ps3" / "small-centered-cover.jpg"
+        save_clean_cover(source.getvalue(), destination)
+        assert cover_is_clean(destination)
+        with Image.open(destination) as cleaned:
+            difference = ImageChops.difference(
+                cleaned.convert("RGB"),
+                Image.new("RGB", CANVAS_SIZE, (246, 246, 246)),
+            ).convert("L")
+            bbox = difference.point(lambda value: 255 if value > 24 else 0).getbbox()
+            assert bbox is not None
+            assert bbox[2] - bbox[0] >= 900
+            assert bbox[3] - bbox[1] >= 1250
+
+
+def test_cover_reencode_can_crop_only_the_excessive_horizontal_border() -> None:
+    image = Image.new("RGB", (540, 360), (255, 255, 255))
+    cover = Image.new("RGB", (274, 340), (25, 90, 170))
+    image.paste(cover, (133, 10))
+    source = io.BytesIO()
+    image.save(source, format="JPEG", quality=92)
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        destination = Path(temp_dir) / "ps3" / "vertical-steelbook.jpg"
+        save_clean_cover(source.getvalue(), destination)
+        assert cover_is_clean(destination)
+        with Image.open(destination) as cleaned:
+            difference = ImageChops.difference(
+                cleaned.convert("RGB"),
+                Image.new("RGB", CANVAS_SIZE, (246, 246, 246)),
+            ).convert("L")
+            bbox = difference.point(lambda value: 255 if value > 32 else 0).getbbox()
+            assert bbox is not None
+            assert bbox[2] - bbox[0] >= 900
+            assert bbox[3] - bbox[1] >= 1150
+
+
 def test_reused_cover_keeps_region_specific_filename() -> None:
     image = Image.new("RGB", (320, 500), (10, 80, 160))
     source = io.BytesIO()
@@ -325,5 +369,7 @@ if __name__ == "__main__":
     test_reviewed_alias_retires_displaced_catalog_duplicate()
     test_usd_prices_map_to_conditions_and_preserve_existing_reference()
     test_cover_reencode_removes_source_metadata_and_standardizes_size()
+    test_cover_reencode_crops_excessive_uniform_canvas_and_upscales_art()
+    test_cover_reencode_can_crop_only_the_excessive_horizontal_border()
     test_reused_cover_keeps_region_specific_filename()
     print("OK: import_pricecharting_software_list")
