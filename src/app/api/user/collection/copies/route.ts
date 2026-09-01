@@ -2,10 +2,9 @@ import { NextResponse } from "next/server";
 import { enrichCollectionItem } from "@/lib/catalog";
 import {
   addCatalogCopy,
-  getUserCollectionItem,
   removeUserCollectionItem,
-  updateUserCollectionItemDetails,
 } from "@/lib/collection-store";
+import { updateCollectionCopyDetails } from "@/lib/collection-copy-details";
 import { getSellerOpenListingForCollectionItem } from "@/lib/listings";
 import type { CollectionCondition } from "@/lib/types";
 import { getCurrentUser } from "@/lib/users";
@@ -40,35 +39,26 @@ export async function PATCH(request: Request) {
 
   const body = await request.json();
   const itemId = String(body.itemId ?? "").trim();
-  const current = itemId ? await getUserCollectionItem(user.id, itemId) : undefined;
-  if (!current) {
-    return NextResponse.json({ error: "Copia no encontrada en tu colección." }, { status: 404 });
-  }
-
   const collectionCondition = String(body.collectionCondition ?? "unknown") as CollectionCondition;
-  const currentCondition = current.sealed ? "sealed" : current.collectionCondition ?? "unknown";
-  const openListing = await getSellerOpenListingForCollectionItem(user.id, itemId);
-  if (openListing && collectionCondition !== currentCondition) {
-    return NextResponse.json(
-      { error: "Retira el anuncio antes de cambiar el estado de esta copia." },
-      { status: 409 },
-    );
-  }
-
   const buyPriceRaw = String(body.buyPrice ?? "").trim();
+  const ownerEstimatedPriceRaw = String(body.ownerEstimatedPrice ?? "").trim();
   const purchasedAt = isoDate(body.purchasedAt);
   const addedAt = isoDate(body.addedAt, true);
-  const result = await updateUserCollectionItemDetails(user.id, itemId, {
+  const result = await updateCollectionCopyDetails(user.id, itemId, {
     collectionCondition,
     buyPrice: buyPriceRaw ? Number(buyPriceRaw) : null,
+    ownerEstimatedPrice: ownerEstimatedPriceRaw ? Number(ownerEstimatedPriceRaw) : null,
     purchasedAt,
     addedAt: addedAt ?? "invalid",
     notes: String(body.notes ?? "").trim() || null,
   });
   if ("error" in result) {
-    return NextResponse.json({ error: result.error }, { status: 400 });
+    return NextResponse.json({ error: result.error }, { status: result.status });
   }
-  return NextResponse.json({ item: enrichCollectionItem(result.item) });
+  return NextResponse.json({
+    item: enrichCollectionItem(result.item),
+    draftSynced: result.draftSynced,
+  });
 }
 
 export async function DELETE(request: Request) {

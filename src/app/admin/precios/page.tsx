@@ -2,6 +2,7 @@ import Link from "next/link";
 import { readFileSync } from "fs";
 import path from "path";
 import { AdminGameReleaseDiscoveryPanel } from "@/components/admin/admin-game-release-discovery-panel";
+import { AdminCollectionPriceDiscrepancyPanel } from "@/components/admin/admin-collection-price-discrepancy-panel";
 import { AdminLocalGameRunnerPanel } from "@/components/admin/admin-local-game-runner-panel";
 import { AdminMarketCollectionPanel } from "@/components/admin/admin-market-collection-panel";
 import { AdminPcWorkerUpdatePanel } from "@/components/admin/admin-pc-worker-update-panel";
@@ -27,6 +28,7 @@ import {
 } from "@/lib/admin-price-collect";
 import type { AdminPriceCronAttempt } from "@/lib/admin-price-cron-log";
 import { getPriceReviewTriageView } from "@/lib/admin-price-review";
+import { getAdminCollectionPriceDiscrepancies } from "@/lib/admin-collection-price-discrepancies";
 import { listLocalGameRunnerJobs, localGameRunnerTokenConfigured } from "@/lib/local-game-runner-jobs";
 import { listMarketResearchBatches } from "@/lib/market-research-batches";
 import { readPriceSourceSettings } from "@/lib/price-source-settings";
@@ -539,12 +541,20 @@ export default async function AdminPricesPage({
   const view = normalizePriceView(params?.vista);
   const coverageSort = normalizeCoverageSort(params?.coverageSort);
   const needsDashboard = view === "resumen" || view === "cobertura";
-  const [dashboard, priceSourceSettings, priceReviewView, localGameJobs, marketBatches] = await Promise.all([
+  const [
+    dashboard,
+    priceSourceSettings,
+    priceReviewView,
+    localGameJobs,
+    marketBatches,
+    collectionPriceDiscrepancies,
+  ] = await Promise.all([
     needsDashboard ? getAdminPriceDashboard(20) : Promise.resolve(null),
     view === "fuentes" ? readPriceSourceSettings() : Promise.resolve(null),
     view === "revision" ? getPriceReviewTriageView(500, "actionable") : Promise.resolve(null),
     view === "game" ? listLocalGameRunnerJobs(20) : Promise.resolve([]),
     view === "fuentes" ? listMarketResearchBatches(12) : Promise.resolve([]),
+    view === "revision" ? getAdminCollectionPriceDiscrepancies() : Promise.resolve([]),
   ]);
   const platformOptions = readPriceSourcePlatformOptions();
   const regionOptions = readPriceSourceRegionOptions();
@@ -938,11 +948,14 @@ export default async function AdminPricesPage({
       ) : null}
 
       {view === "revision" && priceReviewView ? (
-        <AdminPriceReviewPanel
-          initialItems={priceReviewView.items}
-          initialCounts={priceReviewView.counts}
-          initialTotal={priceReviewView.total}
-        />
+        <>
+          <AdminCollectionPriceDiscrepancyPanel items={collectionPriceDiscrepancies} />
+          <AdminPriceReviewPanel
+            initialItems={priceReviewView.items}
+            initialCounts={priceReviewView.counts}
+            initialTotal={priceReviewView.total}
+          />
+        </>
       ) : null}
 
       {view === "cobertura" && dashboard ? (

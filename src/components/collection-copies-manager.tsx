@@ -17,6 +17,10 @@ import type { ListingStatus } from "@/lib/marketplace-types";
 import { formatEur } from "@/lib/price-format";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
+import {
+  COLLECTION_CONDITION_LABELS,
+  priceForCollectionCondition,
+} from "@/lib/condition-prices";
 
 export type CollectionCopyListing = {
   id: string;
@@ -25,11 +29,11 @@ export type CollectionCopyListing = {
 };
 
 const CONDITION_OPTIONS: Array<{ value: CollectionCondition; label: string }> = [
-  { value: "sealed", label: "Precintado" },
-  { value: "complete", label: "Abierto y completo" },
-  { value: "game-manual", label: "Juego + manual" },
-  { value: "loose", label: "Solo juego" },
-  { value: "unknown", label: "Sin indicar" },
+  { value: "sealed", label: COLLECTION_CONDITION_LABELS.sealed },
+  { value: "complete", label: COLLECTION_CONDITION_LABELS.complete },
+  { value: "game-manual", label: COLLECTION_CONDITION_LABELS["game-manual"] },
+  { value: "loose", label: COLLECTION_CONDITION_LABELS.loose },
+  { value: "unknown", label: COLLECTION_CONDITION_LABELS.unknown },
 ];
 
 function dateInputValue(value?: string | null): string {
@@ -139,6 +143,9 @@ function CollectionCopyRow({
     item.sealed ? "sealed" : item.collectionCondition ?? "unknown",
   );
   const [buyPrice, setBuyPrice] = useState(item.buyPrice == null ? "" : String(item.buyPrice));
+  const [ownerEstimatedPrice, setOwnerEstimatedPrice] = useState(
+    item.ownerEstimatedPrice == null ? "" : String(item.ownerEstimatedPrice),
+  );
   const [purchasedAt, setPurchasedAt] = useState(dateInputValue(item.purchasedAt));
   const [addedAt, setAddedAt] = useState(dateInputValue(item.addedAt) || new Date().toISOString().slice(0, 10));
   const [notes, setNotes] = useState(item.notes ?? "");
@@ -155,19 +162,27 @@ function CollectionCopyRow({
         itemId: item.id,
         collectionCondition: condition,
         buyPrice,
+        ownerEstimatedPrice,
         purchasedAt,
         addedAt,
         notes,
       }),
     });
-    const data = await response.json().catch(() => null) as { item?: CollectionView; error?: string } | null;
+    const data = await response.json().catch(() => null) as {
+      item?: CollectionView;
+      draftSynced?: boolean;
+      error?: string;
+    } | null;
     setBusy(null);
     if (!response.ok || !data?.item) {
       setFeedback({ tone: "error", text: data?.error ?? "No se pudieron guardar los cambios." });
       return;
     }
     onSaved(data.item);
-    setFeedback({ tone: "success", text: "Juego actualizado." });
+    setFeedback({
+      tone: "success",
+      text: data.draftSynced ? "Juego y borrador de venta actualizados." : "Juego actualizado.",
+    });
     router.refresh();
   }
 
@@ -245,6 +260,7 @@ function CollectionCopyRow({
   const draftListing = listing?.status === "draft";
   const cover = getCoverSrc(item.coverUrl, item.catalogId ?? item.id);
   const title = decodeHtmlEntities(item.title);
+  const catalogEstimate = priceForCollectionCondition(item, condition);
 
   return (
     <article className="grid grid-cols-[40px_minmax(0,1fr)] gap-3 py-4 sm:grid-cols-[48px_minmax(0,1fr)]">
@@ -275,7 +291,7 @@ function CollectionCopyRow({
                 {listingLabel(listing.status)}
               </span>
             ) : null}
-            <span className="text-xs text-muted">Valor estimado: {formatEur(item.totalValue)}</span>
+            <span className="text-xs text-muted">Valor estimado: {formatEur(catalogEstimate)}</span>
           </div>
           <button
             type="button"
@@ -289,19 +305,53 @@ function CollectionCopyRow({
           </button>
         </div>
 
-        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-[minmax(170px,1.15fr)_minmax(125px,0.8fr)_minmax(145px,0.9fr)_minmax(145px,0.9fr)]">
+        <div className="grid gap-2 sm:grid-cols-3">
           <label className="space-y-1">
             <span className="text-[11px] font-medium text-muted">Estado</span>
             <select
               className="input h-10 py-2 text-sm"
               value={condition}
-              disabled={disabled || Boolean(listing)}
-              title={listing ? "Cierra el anuncio para cambiar el estado" : undefined}
+              disabled={disabled || activeListing}
+              title={activeListing ? "Retira el anuncio de la venta para cambiar el estado" : undefined}
               onChange={(event) => setCondition(event.target.value as CollectionCondition)}
             >
               {CONDITION_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
             </select>
+            {activeListing ? (
+              <span className="block text-[10px] text-muted">
+                Retira el anuncio de la venta para cambiar el estado.
+              </span>
+            ) : null}
           </label>
+          <div className="space-y-1">
+            <span className="text-[11px] font-medium text-muted">Nuestra estimación</span>
+            <output
+              className="input flex h-10 items-center py-2 text-sm font-semibold text-foreground"
+              aria-live="polite"
+            >
+              {formatEur(catalogEstimate)}
+            </output>
+          </div>
+          <label className="space-y-1">
+            <span className="text-[11px] font-medium text-muted">Tu estimación</span>
+            <div className="relative">
+              <input
+                className="input h-10 pr-8 text-sm"
+                type="number"
+                min="0"
+                max="1000000"
+                step="0.01"
+                value={ownerEstimatedPrice}
+                disabled={disabled}
+                placeholder="Sin indicar"
+                onChange={(event) => setOwnerEstimatedPrice(event.target.value)}
+              />
+              <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-muted">€</span>
+            </div>
+          </label>
+        </div>
+
+        <div className="mt-2 grid gap-2 sm:grid-cols-3">
           <label className="space-y-1">
             <span className="text-[11px] font-medium text-muted">Precio de compra</span>
             <div className="relative">

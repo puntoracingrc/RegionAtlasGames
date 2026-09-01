@@ -388,6 +388,8 @@ export type CollectionItem = {
   quantity: number;
   quantityPc: number | null;
   buyPrice: number | null;
+  /** Estimación por unidad indicada por el propietario; no sustituye el precio de catálogo. */
+  ownerEstimatedPrice?: number | null;
   previousSalePrice: number | null;
   totalValue: number | null;
   notes: string | null;

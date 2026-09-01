@@ -1,6 +1,14 @@
-import type { CatalogGame, CollectionItem } from "./types";
+import type { CatalogGame, CollectionCondition, CollectionItem } from "./types";
 
 export type ConditionBucket = "loose" | "gameManual" | "complete" | "sealed" | "newRetail";
+
+export const COLLECTION_CONDITION_LABELS: Record<CollectionCondition, string> = {
+  sealed: "Precintado",
+  complete: "Abierto y completo",
+  "game-manual": "Juego + manual",
+  loose: "Solo juego",
+  unknown: "Sin indicar",
+};
 
 export const CONDITION_PRICE_LABELS: Record<ConditionBucket, string> = {
   loose: "Suelto",
@@ -44,6 +52,9 @@ type GameWithConditionPrices = Pick<
   | "estimatedTotalToSpainComplete"
   | "estimatedTotalToSpainSealed"
 >;
+
+type ItemWithCollectionPrice = GameWithConditionPrices &
+  Pick<CatalogGame | CollectionItem, "recommendedPrice">;
 
 export type ConditionPriceEntry = {
   bucket: ConditionBucket;
@@ -127,6 +138,18 @@ export function primaryConditionPrice(game: GameWithConditionPrices): number | n
     game.estimatedPriceNewRetail ??
     null
   );
+}
+
+export function priceForCollectionCondition(
+  item: ItemWithCollectionPrice,
+  condition: CollectionCondition,
+): number | null {
+  const fallback = primaryConditionPrice(item) ?? item.recommendedPrice;
+  if (condition === "sealed") return item.estimatedPriceSealed ?? fallback;
+  if (condition === "complete") return item.estimatedPriceComplete ?? fallback;
+  if (condition === "game-manual") return item.estimatedPriceGameManual ?? fallback;
+  if (condition === "loose") return item.estimatedPriceLoose ?? fallback;
+  return fallback;
 }
 
 export function primaryConditionPriceEntry(
