@@ -249,11 +249,11 @@
     "shortName": "PSP",
     "manufacturer": "sony",
     "status": "semi-closed",
-    "estimatedCatalogSize": 0,
+    "estimatedCatalogSize": 1230,
     "sortOrder": 25,
-    "active": false,
+    "active": true,
     "newsEnabled": false,
-    "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
+    "description": "Catálogo físico iniciado con ediciones NTSC USA y precios por estado de conservación."
   },
   {
     "slug": "switch2",
