@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import type { CollectionView } from "./types";
 import {
+  collectionConditionValues,
   formatCollectionConditionSummary,
   groupCollectionDisplayItems,
 } from "./collection-display";
@@ -74,6 +75,44 @@ test("keeps the earliest and latest dates across copies", () => {
   assert.equal(grouped[0]?.latestAddedAt, "2026-03-01");
   assert.equal(grouped[0]?.earliestPurchasedAt, "2024-02-01");
   assert.equal(grouped[0]?.latestPurchasedAt, "2026-02-01");
+});
+
+test("calculates a centered list value for every owned condition", () => {
+  const grouped = groupCollectionDisplayItems([
+    item({
+      id: "sealed",
+      sealed: true,
+      collectionCondition: "sealed",
+      quantity: 2,
+      estimatedPriceComplete: 20,
+      estimatedPriceSealed: 30,
+      totalValue: 60,
+    }),
+    item({
+      id: "complete",
+      collectionCondition: "complete",
+      estimatedPriceComplete: 20,
+      estimatedPriceSealed: 30,
+      totalValue: 20,
+    }),
+  ]);
+
+  assert.deepEqual(collectionConditionValues(grouped[0]!), [
+    {
+      condition: "sealed",
+      label: "Precintado",
+      units: 2,
+      unitPrice: 30,
+      totalPrice: 60,
+    },
+    {
+      condition: "complete",
+      label: "Completo",
+      units: 1,
+      unitPrice: 20,
+      totalPrice: 20,
+    },
+  ]);
 });
 
 test("does not merge pending rows without a catalog identity", () => {

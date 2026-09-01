@@ -10,6 +10,14 @@ export const COLLECTION_CONDITION_LABELS: Record<CollectionCondition, string> = 
   unknown: "Sin indicar",
 };
 
+export const COLLECTION_CONDITION_SHORT_LABELS: Record<CollectionCondition, string> = {
+  sealed: "Precintado",
+  complete: "Completo",
+  "game-manual": "Juego + manual",
+  loose: "Solo juego",
+  unknown: "Sin indicar",
+};
+
 export const CONDITION_PRICE_LABELS: Record<ConditionBucket, string> = {
   loose: "Suelto",
   gameManual: "Juego + manual",

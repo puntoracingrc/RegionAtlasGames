@@ -1,4 +1,8 @@
 import type { CollectionCondition, CollectionView } from "./types";
+import {
+  COLLECTION_CONDITION_SHORT_LABELS,
+  priceForCollectionCondition,
+} from "./condition-prices";
 
 export type CollectionConditionCounts = Record<CollectionCondition, number>;
 
@@ -13,6 +17,22 @@ export type CollectionDisplayItem = {
   earliestPurchasedAt: string | null;
   latestPurchasedAt: string | null;
 };
+
+export type CollectionConditionValue = {
+  condition: CollectionCondition;
+  label: string;
+  units: number;
+  unitPrice: number | null;
+  totalPrice: number | null;
+};
+
+const CONDITION_ORDER: CollectionCondition[] = [
+  "sealed",
+  "complete",
+  "game-manual",
+  "loose",
+  "unknown",
+];
 
 const EMPTY_COUNTS: CollectionConditionCounts = {
   sealed: 0,
@@ -86,6 +106,23 @@ export function groupCollectionDisplayItems(items: CollectionView[]): Collection
   }
 
   return [...groups.values()];
+}
+
+export function collectionConditionValues(
+  item: CollectionDisplayItem,
+): CollectionConditionValue[] {
+  return CONDITION_ORDER.flatMap((condition) => {
+    const units = item.conditionCounts[condition];
+    if (units <= 0) return [];
+    const unitPrice = priceForCollectionCondition(item.game, condition);
+    return [{
+      condition,
+      label: COLLECTION_CONDITION_SHORT_LABELS[condition],
+      units,
+      unitPrice,
+      totalPrice: unitPrice == null ? null : Math.round(unitPrice * units * 100) / 100,
+    }];
+  });
 }
 
 export function formatCollectionConditionSummary(
