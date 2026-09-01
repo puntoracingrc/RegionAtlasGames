@@ -1,4 +1,4 @@
-# Importación PS2 USA desde PriceCharting
+# Importación PS2 NTSC USA desde PriceCharting
 
 Fecha: `2026-09-01T20:50:00+02:00`
 
@@ -10,7 +10,7 @@ Fecha: `2026-09-01T20:50:00+02:00`
 - Fichas ocultas reactivadas: **0**.
 - Duplicados previos consolidados: **0**.
 - Duplicados técnicos omitidos: **0**.
-- Total final de PS2 USA: **2497**.
+- Total final de PS2 NTSC USA: **2497**.
 - Portadas disponibles, limpias y verificadas: **2494**.
 - Portadas sin resolver: **3**.
 
