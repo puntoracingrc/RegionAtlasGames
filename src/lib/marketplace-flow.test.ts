@@ -22,6 +22,7 @@ import {
   getActiveListingsForCatalog,
   getListing,
   getMarketplaceListingClientView,
+  getUserMarketplaceActivityListings,
   markListingSold,
   publishListing,
   reviewMarketplaceListing,
@@ -236,6 +237,12 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
     assert.equal(clientView.recordedSalePriceEur, 24.5);
     assert.ok(clientView.buyerConfirmedAt);
     assert.equal("soldToUserId" in clientView, false);
+    assert.deepEqual(
+      (await getUserMarketplaceActivityListings(buyerResult.user.id)).buyerListings.map(
+        (listing) => listing.id,
+      ),
+      [draft.id],
+    );
     assert.equal((await getActiveListingsForCatalog(catalogId)).length, 0);
     assert.deepEqual(await recordedSalesSummary(catalogId), {
       count: 1,

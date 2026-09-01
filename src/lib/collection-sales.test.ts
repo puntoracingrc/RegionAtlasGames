@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { collectionListingStates, completedCollectionSales } from "./collection-sales";
+import {
+  collectionListingStates,
+  completedCollectionPurchases,
+  completedCollectionSales,
+} from "./collection-sales";
 import type { MarketplaceListing } from "./marketplace-types";
 
 function listing(overrides: Partial<MarketplaceListing>): MarketplaceListing {
@@ -63,6 +67,43 @@ test("sales history contains only buyer-confirmed sales in newest-first order", 
       recordedSalePriceEur: 25,
     }),
   ]);
+
+  assert.deepEqual(completed.map((entry) => entry.id), ["newer", "older"]);
+});
+
+test("purchase history contains only the buyer's confirmed purchases", () => {
+  const completed = completedCollectionPurchases(
+    [
+      listing({
+        id: "other-buyer",
+        status: "sold",
+        soldToUserId: "buyer-2",
+        buyerConfirmedAt: "2026-03-02T00:00:00.000Z",
+        recordedSalePriceEur: 30,
+      }),
+      listing({
+        id: "pending",
+        status: "sold",
+        soldToUserId: "buyer-1",
+        recordedSalePriceEur: 25,
+      }),
+      listing({
+        id: "older",
+        status: "sold",
+        soldToUserId: "buyer-1",
+        buyerConfirmedAt: "2026-01-02T00:00:00.000Z",
+        recordedSalePriceEur: 20,
+      }),
+      listing({
+        id: "newer",
+        status: "sold",
+        soldToUserId: "buyer-1",
+        buyerConfirmedAt: "2026-02-02T00:00:00.000Z",
+        recordedSalePriceEur: 25,
+      }),
+    ],
+    "buyer-1",
+  );
 
   assert.deepEqual(completed.map((entry) => entry.id), ["newer", "older"]);
 });

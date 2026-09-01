@@ -42,3 +42,18 @@ export function completedCollectionSales(
     )
     .sort((left, right) => right.buyerConfirmedAt!.localeCompare(left.buyerConfirmedAt!));
 }
+
+export function completedCollectionPurchases(
+  listings: readonly MarketplaceListing[],
+  buyerId: string,
+): MarketplaceListing[] {
+  return listings
+    .filter(
+      (listing) =>
+        listing.soldToUserId === buyerId &&
+        listing.status === "sold" &&
+        listing.buyerConfirmedAt != null &&
+        listing.recordedSalePriceEur != null,
+    )
+    .sort((left, right) => right.buyerConfirmedAt!.localeCompare(left.buyerConfirmedAt!));
+}
