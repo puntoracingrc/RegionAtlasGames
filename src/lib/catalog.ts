@@ -4,6 +4,7 @@ import collectionData from "../../data/collection.json";
 import metaData from "../../data/meta.json";
 import platformsData from "../../data/platforms.json";
 import { primaryConditionPrice } from "./condition-prices";
+import { normalizeLegacyCollectionCondition } from "./collection-condition-policy";
 import { getRegionDisplay } from "@/lib/region-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { normalizeCatalogGamePresentation } from "./catalog-presentation";
@@ -66,7 +67,7 @@ export function getCollectionItem(id: string): CollectionView | undefined {
 export function enrichCollectionItem(item: CollectionItem): CollectionView {
   const cat = item.catalogId ? getCatalogGame(item.catalogId) : undefined;
   const quantity = Math.max(1, item.quantity || 1);
-  const condition = item.sealed ? "sealed" : item.collectionCondition ?? "unknown";
+  const condition = normalizeLegacyCollectionCondition(item.collectionCondition, item.sealed);
   const fallbackCatalogPrice = cat ? primaryConditionPrice(cat) ?? cat.recommendedPrice : null;
   const catalogUnitPrice = cat
     ? condition === "sealed"

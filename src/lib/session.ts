@@ -1,5 +1,6 @@
 import type { SessionOptions } from "iron-session";
 import type { UserPlan } from "./marketplace-types";
+import type { CollectionDefaultConditions } from "./collection-condition-policy";
 import { DEV_SESSION_SECRET } from "./server-env";
 
 export type ThemePreference = "light" | "dark" | "system";
@@ -35,5 +36,6 @@ export type PublicUser = {
   city: string | null;
   theme: ThemePreference;
   plan: UserPlan;
+  collectionDefaultConditions: CollectionDefaultConditions;
   createdAt: string;
 };

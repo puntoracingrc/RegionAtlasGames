@@ -24,7 +24,7 @@ const conditionLabels = {
   complete: "Abierto completo",
   "game-manual": "Juego + manual",
   loose: "Solo juego",
-  unknown: "Sin indicar",
+  unknown: "Completo",
 } as const;
 
 export function CollectionSalesHistory({ listings }: Props) {

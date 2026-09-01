@@ -127,7 +127,7 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
       sellerResult.user.id,
       added.item.id,
       {
-        collectionCondition: "game-manual",
+        collectionCondition: "loose",
         buyPrice: 12,
         ownerEstimatedPrice: 19,
         purchasedAt: "2026-08-01T00:00:00.000Z",
@@ -137,9 +137,9 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
     );
     assertResult(updatedDraftCopy);
     assert.equal(updatedDraftCopy.draftSynced, true);
-    assert.equal(updatedDraftCopy.item.collectionCondition, "game-manual");
+    assert.equal(updatedDraftCopy.item.collectionCondition, "loose");
     assert.equal(updatedDraftCopy.item.ownerEstimatedPrice, 19);
-    assert.equal((await getListing(draft.id))?.collectionCondition, "game-manual");
+    assert.equal((await getListing(draft.id))?.collectionCondition, "loose");
 
     const secondCopy = await addCatalogCopy(sellerResult.user.id, catalogId);
     assertResult(secondCopy);
@@ -221,7 +221,7 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
         status: 409,
       },
     );
-    assert.equal((await getListing(draft.id))?.collectionCondition, "game-manual");
+    assert.equal((await getListing(draft.id))?.collectionCondition, "loose");
 
     const conversation = await startConversation({
       listingId: draft.id,

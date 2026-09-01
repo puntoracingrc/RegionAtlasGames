@@ -14,6 +14,7 @@ import type {
   RecordedPrivateSale,
 } from "./marketplace-types";
 import type { CollectionCondition } from "./types";
+import { normalizeLegacyCollectionCondition } from "./collection-condition-policy";
 import {
   MANUAL_LISTING_REVIEW_CRITERIA,
   PHOTO_SLOT_LABELS,
@@ -160,9 +161,10 @@ export async function createListingDraft(input: {
     photos: [],
     aiAnalysis: null,
     sealed: item.sealed,
-    collectionCondition: item.sealed
-      ? "sealed"
-      : item.collectionCondition ?? "unknown",
+    collectionCondition: normalizeLegacyCollectionCondition(
+      item.collectionCondition,
+      item.sealed,
+    ),
     createdAt: now,
     updatedAt: now,
     publishedAt: null,
@@ -224,7 +226,10 @@ export async function syncDraftListingConditionForCollectionItem(input: {
     if (index < 0) return { next: listings, result: false, changed: false };
 
     const listing = listings[index];
-    const currentCondition = listing.collectionCondition ?? (listing.sealed ? "sealed" : "unknown");
+    const currentCondition = normalizeLegacyCollectionCondition(
+      listing.collectionCondition,
+      listing.sealed,
+    );
     if (currentCondition === input.collectionCondition) {
       return { next: listings, result: false, changed: false };
     }
@@ -449,7 +454,10 @@ export async function confirmBuyerReceipt(input: {
       priceEur: listing.recordedSalePriceEur!,
       conditionScore: listing.aiAnalysis?.conditionScore ?? null,
       sealed: listing.sealed,
-      collectionCondition: listing.collectionCondition ?? (listing.sealed ? "sealed" : "unknown"),
+      collectionCondition: normalizeLegacyCollectionCondition(
+        listing.collectionCondition,
+        listing.sealed,
+      ),
       completedAt: listing.buyerConfirmedAt!,
     });
     return { next: sales, result: true };
@@ -581,7 +589,10 @@ export function getPublicSellerListing(listing: MarketplaceListing) {
     sellerCity: listing.sellerCity ?? null,
     title: listing.customTitle || listing.title,
     sealed: listing.sealed,
-    collectionCondition: listing.collectionCondition ?? (listing.sealed ? "sealed" : "unknown"),
+    collectionCondition: normalizeLegacyCollectionCondition(
+      listing.collectionCondition,
+      listing.sealed,
+    ),
     region: listing.region,
     saleOptions: listing.saleOptions ?? { pickup: true, shipping: true },
     askingPriceEur: listingAskingPriceEur(listing),
@@ -650,7 +661,10 @@ export function getMarketplaceListingClientView(
     })),
     aiAnalysis: analysis,
     sealed: listing.sealed,
-    collectionCondition: listing.collectionCondition ?? (listing.sealed ? "sealed" : "unknown"),
+    collectionCondition: normalizeLegacyCollectionCondition(
+      listing.collectionCondition,
+      listing.sealed,
+    ),
     updatedAt: listing.updatedAt,
     publishedAt: listing.publishedAt,
     sellerConfirmedAt: listing.sellerConfirmedAt,

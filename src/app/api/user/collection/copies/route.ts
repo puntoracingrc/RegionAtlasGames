@@ -8,6 +8,11 @@ import { updateCollectionCopyDetails } from "@/lib/collection-copy-details";
 import { getSellerOpenListingForCollectionItem } from "@/lib/listings";
 import type { CollectionCondition } from "@/lib/types";
 import { getCurrentUser } from "@/lib/users";
+import {
+  defaultCollectionConditionForPlatform,
+  isPricedCollectionCondition,
+} from "@/lib/collection-condition-policy";
+import { getCatalogGame } from "@/lib/catalog";
 
 function isoDate(value: unknown, required = false): string | null {
   const raw = String(value ?? "").trim();
@@ -26,7 +31,15 @@ export async function POST(request: Request) {
   const catalogId = String(body.catalogId ?? "").trim();
   if (!catalogId) return NextResponse.json({ error: "Falta catalogId." }, { status: 400 });
 
-  const result = await addCatalogCopy(user.id, catalogId);
+  const game = getCatalogGame(catalogId);
+  const result = await addCatalogCopy(
+    user.id,
+    catalogId,
+    defaultCollectionConditionForPlatform(
+      user.collectionDefaultConditions,
+      game?.platformSlug ?? "",
+    ),
+  );
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: 400 });
   }
@@ -39,7 +52,10 @@ export async function PATCH(request: Request) {
 
   const body = await request.json();
   const itemId = String(body.itemId ?? "").trim();
-  const collectionCondition = String(body.collectionCondition ?? "unknown") as CollectionCondition;
+  const collectionCondition = String(body.collectionCondition ?? "") as CollectionCondition;
+  if (!isPricedCollectionCondition(collectionCondition)) {
+    return NextResponse.json({ error: "Elige un estado válido." }, { status: 400 });
+  }
   const buyPriceRaw = String(body.buyPrice ?? "").trim();
   const ownerEstimatedPriceRaw = String(body.ownerEstimatedPrice ?? "").trim();
   const purchasedAt = isoDate(body.purchasedAt);

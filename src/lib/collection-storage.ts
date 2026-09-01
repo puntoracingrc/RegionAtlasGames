@@ -10,6 +10,7 @@ import {
   type JsonMutation,
 } from "./json-document-store";
 import type { CollectionItem } from "./types";
+import { normalizeLegacyCollectionCondition } from "./collection-condition-policy";
 
 export type UserCollectionFile = {
   userId: string;
@@ -133,7 +134,16 @@ function repairCollection(data: UserCollectionFile): {
   changed: boolean;
 } {
   const repairedItems = data.items.map((item) => {
-    const repaired = repairCollectionPlatform(item);
+    const repairedPlatform = repairCollectionPlatform(item);
+    const collectionCondition = normalizeLegacyCollectionCondition(
+      repairedPlatform.collectionCondition,
+      repairedPlatform.sealed,
+    );
+    const repaired = {
+      ...repairedPlatform,
+      sealed: collectionCondition === "sealed",
+      collectionCondition,
+    };
     const match = findAvailableCatalogLink(repaired);
     if (!match) return repaired;
     return {
@@ -148,7 +158,9 @@ function repairCollection(data: UserCollectionFile): {
       item.platformSlug !== data.items[index]?.platformSlug ||
       item.inRetroCatalog !== data.items[index]?.inRetroCatalog ||
       item.catalogId !== data.items[index]?.catalogId ||
-      item.catalogMatched !== data.items[index]?.catalogMatched,
+      item.catalogMatched !== data.items[index]?.catalogMatched ||
+      item.collectionCondition !== data.items[index]?.collectionCondition ||
+      item.sealed !== data.items[index]?.sealed,
   );
   const copies = normalizeIndividualCollectionItems(repairedItems);
   const changed = catalogChanged || copies.changed;

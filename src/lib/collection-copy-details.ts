@@ -8,6 +8,11 @@ import {
   syncDraftListingConditionForCollectionItem,
 } from "./listings";
 import type { CollectionItem } from "./types";
+import {
+  availableCollectionConditions,
+  isPricedCollectionCondition,
+  normalizeLegacyCollectionCondition,
+} from "./collection-condition-policy";
 
 export type CollectionCopyDetailsUpdateResult =
   | { item: CollectionItem; draftSynced: boolean }
@@ -23,8 +28,20 @@ export async function updateCollectionCopyDetails(
     return { error: "Copia no encontrada en tu colección.", status: 404 };
   }
 
-  const currentCondition = current.sealed ? "sealed" : current.collectionCondition ?? "unknown";
+  const currentCondition = normalizeLegacyCollectionCondition(
+    current.collectionCondition,
+    current.sealed,
+  );
   const conditionChanged = patch.collectionCondition !== currentCondition;
+  if (!isPricedCollectionCondition(patch.collectionCondition)) {
+    return { error: "Elige un estado válido.", status: 400 };
+  }
+  if (
+    conditionChanged &&
+    !availableCollectionConditions(current.platformSlug).includes(patch.collectionCondition)
+  ) {
+    return { error: "Ese estado no está disponible para esta plataforma.", status: 400 };
+  }
   const openListing = await getSellerOpenListingForCollectionItem(userId, itemId);
 
   if (openListing?.status === "active" && conditionChanged) {

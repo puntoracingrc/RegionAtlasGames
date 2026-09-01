@@ -2,6 +2,7 @@ import { getCatalogGame } from "./catalog";
 import { priceForCollectionCondition } from "./condition-prices";
 import { readUserCollection } from "./collection-store";
 import type { CollectionCondition } from "./types";
+import { normalizeLegacyCollectionCondition } from "./collection-condition-policy";
 import { readUsers } from "./users";
 
 const MIN_USERS = 3;
@@ -135,7 +136,10 @@ export async function getAdminCollectionPriceDiscrepancies(): Promise<AdminColle
         if (!item.catalogId || item.ownerEstimatedPrice == null || item.ownerEstimatedPrice <= 0) continue;
         const game = getCatalogGame(item.catalogId);
         if (!game) continue;
-        const condition = item.sealed ? "sealed" : item.collectionCondition ?? "unknown";
+        const condition = normalizeLegacyCollectionCondition(
+          item.collectionCondition,
+          item.sealed,
+        );
         samples.push({
           userId,
           catalogId: game.id,

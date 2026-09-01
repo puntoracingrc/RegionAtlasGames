@@ -195,10 +195,9 @@ export function CollectionExplorer({
           >
             <option value="all">Todos los estados</option>
             <option value="sealed">Precintado</option>
-            <option value="complete">Abierto completo</option>
+            <option value="complete">Abierto y completo</option>
             <option value="game-manual">Juego + manual</option>
             <option value="loose">Solo juego</option>
-            <option value="unknown">Sin indicar</option>
           </select>
           <select
             value={filters.sale}
