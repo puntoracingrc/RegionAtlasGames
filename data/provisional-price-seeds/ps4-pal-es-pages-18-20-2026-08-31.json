@@ -1,0 +1,1140 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-pages-18-20-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-09-01T00:03:42Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Tramos Ender Lilies a Five Nights At Freddy’s [Core Collection] del catálogo PS4 PAL España.",
+    "Solo se incorporan observaciones externas de la edición y región exactas; las referencias RA ya existentes no se duplican.",
+    "Los rangos aportan un único punto medio por estado y se combinan una sola vez con el valor previo.",
+    "Regiones sin confirmar, lotes sin precio unitario, ediciones distintas y resultados engañosos quedan documentados sin precio.",
+    "Final Fantasy VII Rebirth y Final Fantasy VII Rebirth DELUXE se documentan como fichas incorrectas de PS4 y no reciben valoración."
+  ],
+  "entries": [
+    {
+      "catalogId": "ps4-ender-lilies",
+      "title": "Ender Lilies",
+      "status": "skipped",
+      "reason": "Ref. 34 € — RA; posible ficha abreviada duplicada de la siguiente."
+    },
+    {
+      "catalogId": "ps4-ender-lilies-quietus-of-the-knights",
+      "title": "Ender Lilies Quietus Of The Knights",
+      "status": "skipped",
+      "reason": "W nuevo: 40 €, multidioma; PAL España no confirmado — Wallapop."
+    },
+    {
+      "catalogId": "ps4-ender-magnolia-deluxe-edition",
+      "title": "Ender Magnolia - Deluxe Edition",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-ender-magnolia-bloom-in-the-mist",
+      "title": "Ender Magnolia: Bloom In The Mist",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-endling-extinction-is-forever",
+      "title": "Endling: Extinction is Forever",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 29.89,
+          "maximum": 29.89,
+          "sources": [
+            "miravia"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-endocrisis",
+      "title": "Endocrisis",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-enter-digiton-heart-of-corruption",
+      "title": "Enter Digiton: Heart of Corruption",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-enter-exit-the-gungeon",
+      "title": "Enter-Exit The Gungeon",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 30.32,
+          "maximum": 30.32,
+          "sources": [
+            "mediamarkt",
+            "todoconsolas"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-epic-chef",
+      "title": "Epic Chef",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-epic-mickey",
+      "title": "Epic Mickey",
+      "status": "skipped",
+      "reason": "Pendiente; ficha demasiado genérica para valorar sin identificar la edición."
+    },
+    {
+      "catalogId": "ps4-epic-mickey-rebrushed",
+      "title": "Epic Mickey: Rebrushed",
+      "status": "skipped",
+      "reason": "Pendiente en formato físico PAL España."
+    },
+    {
+      "catalogId": "ps4-epics-of-hammerwatch-heroes-edition",
+      "title": "Epics Of Hammerwatch: Heroes Edition",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-epics-of-hammerwatch-heroes%27-edition-special-limited",
+      "title": "Epics Of Hammerwatch: Heroes' Edition [Special Limited]",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-equestrian-training",
+      "title": "Equestrian Training",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-escape-from-life-inc",
+      "title": "Escape from Life Inc",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-escape-from-tethys",
+      "title": "Escape From Tethys",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-eschatos",
+      "title": "Eschatos",
+      "status": "skipped",
+      "reason": "Ref. 50 € — RA."
+    },
+    {
+      "catalogId": "ps4-eternights",
+      "title": "Eternights",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-ether-one",
+      "title": "Ether One",
+      "status": "skipped",
+      "reason": "Ref. 18 € — RA."
+    },
+    {
+      "catalogId": "ps4-evan%27s-remains",
+      "title": "Evan's Remains",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-eve-valkyrie",
+      "title": "EVE Valkyrie",
+      "status": "skipped",
+      "reason": "Ab.: 6,99 € — RA."
+    },
+    {
+      "catalogId": "ps4-ever-forward",
+      "title": "Ever Forward",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-everreach-project-eden",
+      "title": "Everreach: Project Eden",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-everspace-stellar-edition",
+      "title": "Everspace [Stellar Edition]",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-everybody%27s-golf",
+      "title": "Everybody's Golf",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-everybody%27s-golf-vr",
+      "title": "Everybody's Golf VR",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-everyday-heroes-firefighting-&amp;-construction",
+      "title": "Everyday Heroes: Firefighting & Construction",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-evil-dead-the-game",
+      "title": "Evil Dead: The Game",
+      "status": "skipped",
+      "reason": "Ab.: 14,99 € — RA."
+    },
+    {
+      "catalogId": "ps4-evil-genius-2",
+      "title": "Evil Genius 2",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-evil-west",
+      "title": "Evil West",
+      "status": "skipped",
+      "reason": "PAL España exacto pendiente · TC tiene una copia nueva por 14,95 €, pero es PAL UK y queda excluida."
+    },
+    {
+      "catalogId": "ps4-evoland-legendary-edition",
+      "title": "Evoland [Legendary Edition]",
+      "status": "skipped",
+      "reason": "Ab.: 19,95 € — RA."
+    },
+    {
+      "catalogId": "ps4-evolve",
+      "title": "Evolve",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 7,
+          "maximum": 7,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-exist-archive-the-other-side-of-the-sky",
+      "title": "Exist Archive The Other Side of the Sky",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-exoprimal",
+      "title": "Exoprimal",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-expeditions-a-mudrunner-game",
+      "title": "Expeditions: A MudRunner Game",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-extinction",
+      "title": "Extinction",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 7.99,
+          "maximum": 7.99,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fist-forged-in-shadow-torch-limited-edition",
+      "title": "F.I.S.T.: Forged In Shadow Torch [Limited Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; no utilizo el precio de la edición estándar."
+    },
+    {
+      "catalogId": "ps4-f1-2015",
+      "title": "F1 2015",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 17,
+          "maximum": 17,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-f1-2016",
+      "title": "F1 2016",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-f1-2017",
+      "title": "F1 2017",
+      "status": "skipped",
+      "reason": "Pendiente; aparece dentro de packs con consola, sin precio unitario fiable."
+    },
+    {
+      "catalogId": "ps4-f1-2018",
+      "title": "F1 2018",
+      "status": "skipped",
+      "reason": "Edición Headline W Ab.: 10 €; la edición estándar exacta queda pendiente."
+    },
+    {
+      "catalogId": "ps4-f1-2019",
+      "title": "F1 2019",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-f1-2020",
+      "title": "F1 2020",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 15,
+          "maximum": 15,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-f1-2021",
+      "title": "F1 2021",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 6,
+          "maximum": 8,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-f1-22",
+      "title": "F1 22",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 5,
+          "maximum": 20,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-f1-23",
+      "title": "F1 23",
+      "status": "skipped",
+      "reason": "Pendiente; solo aparece dentro de un lote de cuatro juegos por 15 €, sin precio individual."
+    },
+    {
+      "catalogId": "ps4-f1-24",
+      "title": "F1 24",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 26.95,
+          "maximum": 26.95,
+          "sources": [
+            "xtralife"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-f1-manager-22",
+      "title": "F1 Manager 22",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-f1-manager-23",
+      "title": "F1 Manager 23",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fade-to-silence",
+      "title": "Fade To Silence",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 14,
+          "maximum": 14,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fahrenheit",
+      "title": "Fahrenheit",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fairy-fencer-f-advent-dark-force",
+      "title": "Fairy Fencer F Advent Dark Force",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fairy-fencer-f-refrain-chord",
+      "title": "Fairy Fencer F: Refrain Chord",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fairy-tail",
+      "title": "Fairy Tail",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fairy-tail-2",
+      "title": "Fairy Tail 2",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fallen-legion-revenants-vanguard-edition",
+      "title": "Fallen Legion Revenants [Vanguard Edition]",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fallout-4",
+      "title": "Fallout 4",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 10,
+          "maximum": 10,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fallout-4-goty-steelbook-edition",
+      "title": "Fallout 4 GOTY SteelBook Edition",
+      "status": "skipped",
+      "reason": "Pendiente; no utilizo la edición estándar."
+    },
+    {
+      "catalogId": "ps4-fallout-4-pipboy-edition",
+      "title": "Fallout 4 PipBoy Edition",
+      "status": "skipped",
+      "reason": "Ref. 240 € — RA."
+    },
+    {
+      "catalogId": "ps4-fallout-76",
+      "title": "Fallout 76",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 8,
+          "maximum": 8,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fallout-76-tricentennial-edition",
+      "title": "Fallout 76 Tricentennial Edition",
+      "status": "skipped",
+      "reason": "Ref. 10 € — RA."
+    },
+    {
+      "catalogId": "ps4-fallout-76-wastelanders",
+      "title": "Fallout 76 Wastelanders",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fantasy-friends",
+      "title": "Fantasy Friends",
+      "status": "skipped",
+      "reason": "Ab.: 9,99 € — RA."
+    },
+    {
+      "catalogId": "ps4-far-cry-3-classic-edition",
+      "title": "Far Cry 3 [Classic Edition]",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-far-cry-4",
+      "title": "Far Cry 4",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 3,
+          "maximum": 3,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-far-cry-4-&amp;-far-cry-5-double-pack",
+      "title": "Far Cry 4 & Far Cry 5 Double Pack",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-far-cry-4-complete-edition",
+      "title": "Far Cry 4: Complete Edition",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-far-cry-5",
+      "title": "Far Cry 5",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 10,
+          "maximum": 10,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-far-cry-6",
+      "title": "Far Cry 6",
+      "status": "skipped",
+      "reason": "Pendiente; descarto un anuncio W de 15 € porque el título dice Far Cry 6, pero la descripción corresponde a Minecraft."
+    },
+    {
+      "catalogId": "ps4-far-cry-new-dawn",
+      "title": "Far Cry New Dawn",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-far-cry-primal",
+      "title": "Far Cry Primal",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 8,
+          "maximum": 8,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-far-cry-primal-and-far-cry-4-double-pack",
+      "title": "Far Cry Primal and Far Cry 4 Double Pack",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-farcry-5-limited-edition",
+      "title": "Farcry 5 [Limited Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; no se sustituye por la estándar."
+    },
+    {
+      "catalogId": "ps4-farcry-6-gold-edition",
+      "title": "FARCRY 6 Gold Edition",
+      "status": "skipped",
+      "reason": "Ref. 17 € — RA."
+    },
+    {
+      "catalogId": "ps4-farmer%27s-dynasty",
+      "title": "Farmer's Dynasty",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-farmers-vs-zombies",
+      "title": "Farmers vs Zombies",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-farming-simulator-15",
+      "title": "Farming Simulator 15",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-farming-simulator-17-platinum-edition",
+      "title": "Farming Simulator 17 [Platinum Edition]",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-farming-simulator-19",
+      "title": "Farming Simulator 19",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-farming-simulator-2017",
+      "title": "Farming Simulator 2017",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-farming-simulator-22",
+      "title": "Farming Simulator 22",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-farpoint",
+      "title": "Farpoint",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fast-&amp;-furious-spy-racers-rise-of-sh1ft3r",
+      "title": "Fast & Furious: Spy Racers - Rise of Sh1ft3r",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fast-and-furious-crossroads",
+      "title": "Fast and Furious Crossroads",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fatal-frame-maiden-of-black-water",
+      "title": "Fatal Frame : Maiden of Black Water",
+      "status": "skipped",
+      "reason": "Ref. 50 € — RA."
+    },
+    {
+      "catalogId": "ps4-fatal-frame-mask-of-the-lunar-eclipse",
+      "title": "Fatal Frame : Mask of the Lunar Eclipse",
+      "status": "skipped",
+      "reason": "Ref. 78 € — RA."
+    },
+    {
+      "catalogId": "ps4-fatal-fury-city-of-the-wolves",
+      "title": "Fatal Fury: City Of The Wolves",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fatal-fury-city-of-the-wolves-special-edition",
+      "title": "Fatal Fury: City of the Wolves Special Edition",
+      "status": "skipped",
+      "reason": "Ref. 58 € — RA."
+    },
+    {
+      "catalogId": "ps4-fateextella-link",
+      "title": "Fate/Extella Link",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fateextella-the-umbral-star",
+      "title": "Fate/Extella: The Umbral Star",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fatesamurai-remnant",
+      "title": "Fate/Samurai Remnant",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fell-seal-arbiter%27s-mark-deluxe-edition",
+      "title": "Fell Seal: Arbiter's Mark [Deluxe Edition]",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fia-european-truck-racing-championship",
+      "title": "FIA European Truck Racing Championship",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fifa-14",
+      "title": "FIFA 14",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 5,
+          "maximum": 5,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fifa-15",
+      "title": "FIFA 15",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fifa-16",
+      "title": "FIFA 16",
+      "status": "skipped",
+      "reason": "Solo localizado dentro de un lote de cinco juegos por 25 €; sin precio unitario válido."
+    },
+    {
+      "catalogId": "ps4-fifa-17",
+      "title": "FIFA 17",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 2.99,
+          "maximum": 2.99,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fifa-18",
+      "title": "FIFA 18",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 5,
+          "maximum": 5,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fifa-18-world-cup-edition",
+      "title": "FIFA 18: World Cup Edition",
+      "status": "skipped",
+      "reason": "Pendiente; no utilizo el precio de FIFA 18 estándar."
+    },
+    {
+      "catalogId": "ps4-fifa-19",
+      "title": "FIFA 19",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 10,
+          "maximum": 10,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fifa-19-ultimate-team-steelbook-edition",
+      "title": "FIFA 19 Ultimate Team [Steelbook Edition]",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fifa-20",
+      "title": "Fifa 20",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 3,
+          "maximum": 10,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fifa-21",
+      "title": "FIFA 21",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 10,
+          "maximum": 10,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fifa-22",
+      "title": "FIFA 22",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 5,
+          "maximum": 5,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fifa-23",
+      "title": "FIFA 23",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 7,
+          "maximum": 7,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fight-%27n-rage-5th-anniversary-edition",
+      "title": "Fight 'n Rage: 5th Anniversary Edition",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fighting-legends-digipack-edition",
+      "title": "Fighting Legends [DigiPack Edition]",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fimbul",
+      "title": "Fimbul",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-dissidia",
+      "title": "Final Fantasy Dissidia",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 10,
+          "maximum": 10,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-final-fantasy-i-vi-aniversary-collection-esp",
+      "title": "Final Fantasy I - VI Aniversary Collection ESP",
+      "status": "skipped",
+      "reason": "Ref. 75 € — RA."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-i-vi-collection-pixel-remaster",
+      "title": "Final Fantasy I-VI Collection Pixel Remaster",
+      "status": "skipped",
+      "reason": "Pendiente; posible variante o duplicado de la ficha anterior."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-i-vi-collection-anniversary-edition",
+      "title": "Final Fantasy I-VI Collection: Anniversary Edition",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-type-0-hd",
+      "title": "Final Fantasy Type-0 HD",
+      "status": "skipped",
+      "reason": "Pendiente; aparece dentro de packs con consola, sin precio individual fiable."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-vii-rebirth",
+      "title": "Final Fantasy VII Rebirth",
+      "status": "skipped",
+      "reason": "Ficha incorrecta en el catálogo de PS4: el juego oficial es exclusivo de PS5. No debe recibir valoración PS4."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-vii-rebirth-deluxe",
+      "title": "Final Fantasy VII Rebirth DELUXE",
+      "status": "skipped",
+      "reason": "Ficha incorrecta en PS4; la Deluxe también corresponde a PS5. La referencia RA de 160 € no debe utilizarse para PS4."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-vii-remake",
+      "title": "Final Fantasy VII Remake",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 22,
+          "maximum": 22,
+          "sources": [
+            "wallapop"
+          ]
+        },
+        "new_retail": {
+          "minimum": 15.99,
+          "maximum": 15.99,
+          "sources": [
+            "xtralife"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-final-fantasy-vii-remake-deluxe",
+      "title": "Final Fantasy VII Remake DELUXE",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 200,
+          "maximum": 200,
+          "sources": [
+            "todocoleccion"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-final-fantasy-viii",
+      "title": "Final Fantasy VIII",
+      "status": "skipped",
+      "reason": "Pendiente; no la mezclo con VIII Remastered."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-viii-remastered",
+      "title": "Final Fantasy VIII Remastered",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 25,
+          "maximum": 25,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-final-fantasy-x-x-2-hd-remaster",
+      "title": "Final Fantasy X X-2 HD Remaster",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 10,
+          "maximum": 10,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xii",
+      "title": "Final Fantasy XII",
+      "status": "skipped",
+      "reason": "Ref. 18 € — RA; ficha genérica que no fusiono automáticamente con The Zodiac Age."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xii-the-zodiac-age",
+      "title": "Final Fantasy XII The Zodiac Age",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 5,
+          "maximum": 5,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xii-the-zodiac-age-collector%27s-edition",
+      "title": "Final Fantasy XII: The Zodiac Age [Collector's Edition]",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xiv-a-realm-reborn",
+      "title": "Final Fantasy XIV A Realm Reborn",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xiv-complete-edition",
+      "title": "Final Fantasy XIV Complete Edition",
+      "status": "skipped",
+      "reason": "Ref. 18 € — RA."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xiv-online-complete-edition",
+      "title": "Final Fantasy XIV Online Complete Edition",
+      "status": "skipped",
+      "reason": "Pendiente; no hereda automáticamente la referencia anterior."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xiv-online-heavensward",
+      "title": "Final Fantasy XIV Online: Heavensward",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xiv-online-starter-edition",
+      "title": "Final Fantasy XIV Online: Starter Edition",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xiv-a-realm-reborn-collector%27s-edition",
+      "title": "Final Fantasy XIV: A Realm Reborn [Collector's Edition]",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xiv-shadowbringers",
+      "title": "Final Fantasy XIV: Shadowbringers",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xiv-stormblood",
+      "title": "Final Fantasy XIV: Stormblood",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xv",
+      "title": "Final Fantasy XV",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 5,
+          "maximum": 8,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-final-fantasy-xv-royal-edition",
+      "title": "Final Fantasy XV Royal Edition",
+      "status": "skipped",
+      "reason": "Ref. 16 € — RA."
+    },
+    {
+      "catalogId": "ps4-final-vendetta",
+      "title": "Final Vendetta",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fire-pro-wrestling-world",
+      "title": "Fire Pro Wrestling World",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-firefighters-airport-fire-department",
+      "title": "Firefighters: Airport Fire Department",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-firefighting-simulator-the-squad",
+      "title": "Firefighting Simulator - The Squad",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-firewall-zero-hour",
+      "title": "Firewall Zero Hour",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 9,
+          "maximum": 9,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-fishing-north-atlantic-complete-edition",
+      "title": "Fishing North Atlantic: Complete Edition",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fishing-sim-world",
+      "title": "Fishing Sim World",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fishing-sim-world-pro-tour-collector%27s-edition",
+      "title": "Fishing Sim World Pro Tour: Collector's Edition",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-fist-of-the-north-star-lost-paradise",
+      "title": "Fist of the North Star Lost Paradise",
+      "status": "skipped",
+      "reason": "Edición estándar exacta pendiente · Variante PS Hits nueva PAL/ES: 14,95 € — TodoConsolas."
+    },
+    {
+      "catalogId": "ps4-fist-of-the-north-star-lost-paradise-day-one-edition",
+      "title": "Fist Of The North Star: Lost Paradise [Day One Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; no utilizo la edición PS Hits."
+    },
+    {
+      "catalogId": "ps4-five-nights-at-freddy%27s-core-collection",
+      "title": "Five Nights At Freddy's [Core Collection]",
+      "status": "skipped",
+      "reason": "Nuevo: 27,31 €, vendido por marketplace — Worten; carátula PAL España no explicitada en la ficha."
+    }
+  ]
+}
