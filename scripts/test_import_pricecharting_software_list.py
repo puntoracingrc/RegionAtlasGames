@@ -14,6 +14,7 @@ from import_pricecharting_software_list import (
     CoverTask,
     LiveRow,
     SourceRow,
+    clean_source_title,
     cover_is_clean,
     download_covers,
     merge_catalog,
@@ -94,6 +95,15 @@ def test_title_normalization_handles_common_catalog_variants() -> None:
     assert normalize_title("Five Nights at Freddy’s") == normalize_title("Five Nights At Freddy's")
     assert normalize_title("Dragon's Dogma II") == normalize_title("Dragon´s Dogma 2")
     assert normalize_title("Helldivers II") == normalize_title("Helldivers 2")
+    assert normalize_title("Adventure Time: Finn &amp; Jake Investigations") == normalize_title(
+        "Adventure Time: Finn & Jake Investigations"
+    )
+    assert normalize_title("Far Cry 3 &#43; Far Cry 4") == normalize_title(
+        "Far Cry 3 + Far Cry 4"
+    )
+    assert clean_source_title("Dark Souls II [Limited Edition] /2000") == (
+        "Dark Souls II [Limited Edition]"
+    )
 
 
 def test_distinct_pc_ids_with_equivalent_titles_remain_separate() -> None:
@@ -121,6 +131,107 @@ def test_distinct_pc_ids_with_equivalent_titles_remain_separate() -> None:
     assert stats["updated"] == 0
     assert {game["pcId"] for game in merged} == {111, 222}
     assert {game["id"] for game in merged} == {"ps5-usa-example-2", "ps5-usa-example-ii"}
+
+
+def test_one_existing_record_cannot_claim_two_source_editions() -> None:
+    existing = sample_game("ps5-example", "Example")
+    existing["pcId"] = 111
+    existing["pcPath"] = "/game/playstation-5/example-other-edition"
+    joined = [
+        (
+            SourceRow("Example", None, None, None),
+            LiveRow("Example", 111, "/game/playstation-5/example", None),
+        ),
+        (
+            SourceRow("Example [Other Edition]", None, None, None),
+            LiveRow(
+                "Example [Other Edition]",
+                222,
+                "/game/playstation-5/example-other-edition",
+                None,
+            ),
+        ),
+    ]
+    merged, _, stats = merge_catalog(
+        [existing],
+        joined,
+        platform="ps5",
+        region="PAL España",
+        pc_region="PAL EU (referencia)",
+        collected_at="2026-09-01T12:00:00+02:00",
+        covers_root=None,
+    )
+    assert stats["added"] == 1
+    assert len(merged) == 2
+    assert {game["pcId"] for game in merged} == {111, 222}
+
+
+def test_verified_source_can_promote_an_excluded_match() -> None:
+    existing = sample_game("ps5-example", "Example")
+    existing["listingStatus"] = "excluded"
+    existing["coverUrl"] = None
+    existing["pcPath"] = "/game/pal-playstation-5/example"
+    joined = [
+        (
+            SourceRow("Example", None, None, None),
+            LiveRow("Example", 111, "/game/pal-playstation-5/example", None),
+        )
+    ]
+    merged, _, stats = merge_catalog(
+        [existing],
+        joined,
+        platform="ps5",
+        region="PAL España",
+        pc_region="PAL EU (referencia)",
+        collected_at="2026-09-01T12:00:00+02:00",
+        covers_root=None,
+        promote_matched_excluded=True,
+    )
+    assert len(merged) == 1
+    assert merged[0]["listingStatus"] == "listed"
+    assert stats["promoted"] == 1
+    assert stats["updated"] == 1
+
+
+def test_reviewed_alias_retires_displaced_catalog_duplicate() -> None:
+    canonical = sample_game(
+        "ps3-skylanders-spyro-s-adventure-ps3-pack-de-inicio",
+        "Skylanders Spyro's Adventure PS3 Pack de Inicio",
+    )
+    duplicate = sample_game(
+        "ps3-skylanders-spyro%27s-adventure-starter-pack",
+        "Skylanders: Spyro's Adventure Starter Pack",
+    )
+    for game in (canonical, duplicate):
+        game["platformSlug"] = "ps3"
+    duplicate["pcId"] = 5037241
+    duplicate["pcPath"] = "/game/pal-playstation-3/skylanders-spyro%27s-adventure-starter-pack"
+    joined = [
+        (
+            SourceRow("Skylanders: Spyro's Adventure Starter Pack", None, None, None),
+            LiveRow(
+                "Skylanders: Spyro's Adventure Starter Pack",
+                5037241,
+                "/game/pal-playstation-3/skylanders-spyro%27s-adventure-starter-pack",
+                None,
+            ),
+        )
+    ]
+    merged, _, stats = merge_catalog(
+        [canonical, duplicate],
+        joined,
+        platform="ps3",
+        region="PAL España",
+        pc_region="PAL EU (referencia)",
+        collected_at="2026-09-01T12:00:00+02:00",
+        covers_root=None,
+    )
+    assert canonical["pcId"] == 5037241
+    assert canonical["listingStatus"] == "listed"
+    assert duplicate["listingStatus"] == "excluded"
+    assert duplicate["pcId"] is None
+    assert stats["retiredDuplicates"] == 1
+    assert len(merged) == 2
 
 
 def test_usd_prices_map_to_conditions_and_preserve_existing_reference() -> None:
@@ -209,6 +320,9 @@ if __name__ == "__main__":
     test_merge_preserves_prices_and_skips_technical_duplicate()
     test_title_normalization_handles_common_catalog_variants()
     test_distinct_pc_ids_with_equivalent_titles_remain_separate()
+    test_one_existing_record_cannot_claim_two_source_editions()
+    test_verified_source_can_promote_an_excluded_match()
+    test_reviewed_alias_retires_displaced_catalog_duplicate()
     test_usd_prices_map_to_conditions_and_preserve_existing_reference()
     test_cover_reencode_removes_source_metadata_and_standardizes_size()
     test_reused_cover_keeps_region_specific_filename()

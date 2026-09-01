@@ -45,6 +45,7 @@ SKIP_PC_IDS: dict[int, str] = {
     8741598: "duplicado técnico de Jets'n'Guns 2 (6330502)",
     12789731: "duplicado técnico de Aggelos II (14218825)",
     6074032: "duplicado técnico de Fight'N Rage (5551873)",
+    14033382: "duplicado técnico de Civilization Revolution (47271)",
 }
 
 # La Day One usa la misma portada frontal que la edición estándar y la ficha de
@@ -54,8 +55,20 @@ COVER_SOURCE_FALLBACKS: dict[int, int] = {
     6574230: 4695520,
 }
 
+# Algunas fichas regionales no tienen imagen en PriceCharting. Solo se usan
+# fuentes alternativas cuando la edición y la carátula se han comprobado.
+COVER_SOURCE_OVERRIDES: dict[int, str] = {
+    91300: (
+        "https://www.voxgaming.fr/img/image.php?"
+        "k=tqpUtkYFFJDQkYNr9p-wBhRUnqk9-M7wSVEsX32MVPuVrDnRDLNTVt7tCKdWrewP7eXgi7V0G59zTsSHOeDlE1wX-tYbbVrbHcwewP7Xzw"
+    ),
+}
+
 # Equivalencias revisadas donde GAME España usa traducción o una grafía distinta.
 PC_ID_ALIASES: dict[int, str] = {
+    5037241: "ps3-skylanders-spyro-s-adventure-ps3-pack-de-inicio",
+    6073318: "ps3-skylanders-super-chargers-ps3-pack-de-inicio",
+    6073312: "ps3-skylanders-trap-team-ps3-pack-de-inicio",
     7308807: "ps5-3d-minigolf",
     11282053: "ps5-barbie-rutas-a-caballo",
     6021372: "ps5-bluey-el-videojuego",
@@ -73,6 +86,15 @@ PC_ID_ALIASES: dict[int, str] = {
     6859515: "ps5-tomb-raider-i-ii-iii-remastered",
     11046874: "ps5-tomb-raider-iv-vi-remastered-starring-lara-croft",
     12645726: "ps5-wizman-s-world-retry",
+}
+
+# Fichas técnicas importadas que duplican una ficha española ya usada por la
+# colección. Al resolver el alias se conservan los IDs españoles y se retiran
+# estas copias del catálogo público.
+PC_ID_DISPLACED_DUPLICATES: dict[int, str] = {
+    5037241: "ps3-skylanders-spyro%27s-adventure-starter-pack",
+    6073318: "ps3-skylanders-superchargers-starter-pack",
+    6073312: "ps3-skylanders-trap-team-starter-pack",
 }
 
 TITLE_ALIASES: dict[str, str] = {
@@ -122,7 +144,7 @@ def slugify(text: str) -> str:
 
 
 def normalize_title(text: str | None) -> str:
-    value = str(text or "").translate(
+    value = html.unescape(str(text or "")).translate(
         str.maketrans(
             {
                 "’": "",
@@ -159,6 +181,10 @@ def normalize_title(text: str | None) -> str:
     return " ".join(value.split())
 
 
+def clean_source_title(text: str) -> str:
+    return re.sub(r"\s+/\d+$", "", text.strip())
+
+
 def parse_money(raw: str) -> Decimal | None:
     value = raw.strip().replace("$", "").replace(",", "")
     return Decimal(value) if value else None
@@ -186,7 +212,7 @@ def parse_source_rows(path: Path) -> list[SourceRow]:
         parts = line.split("\t")
         if len(parts) < 5:
             continue
-        title = parts[1].strip()
+        title = clean_source_title(parts[1])
         price_cells = parts[2:5]
         looks_like_row = title and all(not cell or cell.startswith("$") for cell in price_cells)
         if not looks_like_row:
@@ -329,7 +355,11 @@ def apply_cover_fallbacks(rows: list[LiveRow]) -> list[LiveRow]:
     for row in rows:
         fallback_id = COVER_SOURCE_FALLBACKS.get(row.pc_id)
         fallback = by_id.get(fallback_id) if fallback_id else None
-        cover_url = row.cover_source_url or (fallback.cover_source_url if fallback else None)
+        cover_url = (
+            row.cover_source_url
+            or COVER_SOURCE_OVERRIDES.get(row.pc_id)
+            or (fallback.cover_source_url if fallback else None)
+        )
         resolved.append(
             LiveRow(
                 title=row.title,
@@ -410,15 +440,22 @@ def choose_existing(
     by_title: dict[str, list[dict[str, Any]]],
     claimed_catalog_ids: set[str],
 ) -> tuple[dict[str, Any] | None, str]:
-    if live.pc_id in by_pc_id:
-        return by_pc_id[live.pc_id], "pc_id"
-    if live.pc_path in by_pc_path:
-        return by_pc_path[live.pc_path], "pc_path"
-
     alias_id = PC_ID_ALIASES.get(live.pc_id) or TITLE_ALIASES.get(live.title)
     alias = catalog_by_id.get(alias_id or "")
-    if alias and alias.get("platformSlug") == platform and alias.get("region") == region:
+    if (
+        alias
+        and alias.get("platformSlug") == platform
+        and alias.get("region") == region
+        and str(alias["id"]) not in claimed_catalog_ids
+    ):
         return alias, "reviewed_alias"
+
+    pc_id_match = by_pc_id.get(live.pc_id)
+    if pc_id_match and str(pc_id_match["id"]) not in claimed_catalog_ids:
+        return pc_id_match, "pc_id"
+    pc_path_match = by_pc_path.get(live.pc_path)
+    if pc_path_match and str(pc_path_match["id"]) not in claimed_catalog_ids:
+        return pc_path_match, "pc_path"
 
     candidates = [
         game
@@ -561,6 +598,7 @@ def merge_catalog(
     museum_region: str | None = None,
     usd_per_eur: Decimal | None = None,
     exchange_rate_date: str | None = None,
+    promote_matched_excluded: bool = False,
 ) -> tuple[list[dict[str, Any]], list[CoverTask], dict[str, Any]]:
     id_prefix = id_prefix or platform
     platform_games = [
@@ -590,6 +628,8 @@ def merge_catalog(
     match_reasons: Counter[str] = Counter()
     added = 0
     updated = 0
+    promoted = 0
+    retired_duplicates = 0
     skipped: list[dict[str, Any]] = []
     missing_cover_sources: list[dict[str, str]] = []
     source_price_counts = Counter()
@@ -622,6 +662,30 @@ def merge_catalog(
         match_reasons[reason] += 1
         if existing:
             changed = False
+            displaced_id = PC_ID_DISPLACED_DUPLICATES.get(live.pc_id)
+            displaced = catalog_by_id.get(displaced_id or "")
+            if (
+                reason == "reviewed_alias"
+                and displaced
+                and displaced is not existing
+                and displaced.get("platformSlug") == platform
+                and displaced.get("region") == region
+            ):
+                displaced_changed = displaced.get("listingStatus") != "excluded" or any(
+                    displaced.get(key) is not None for key in ("pcId", "pcPath", "pcRegion")
+                )
+                displaced["listingStatus"] = "excluded"
+                displaced["pcId"] = None
+                displaced["pcPath"] = None
+                displaced["pcRegion"] = None
+                claimed_catalog_ids.add(str(displaced["id"]))
+                if displaced_changed:
+                    displaced["updatedAt"] = collected_at[:10]
+                    retired_duplicates += 1
+            if promote_matched_excluded and existing.get("listingStatus") == "excluded":
+                existing["listingStatus"] = "listed"
+                changed = True
+                promoted += 1
             # La lista regional es la autoridad para la identidad del producto.
             for key, value in (
                 ("pcId", live.pc_id),
@@ -709,6 +773,8 @@ def merge_catalog(
         "sourceRows": len(joined_rows),
         "added": added,
         "updated": updated,
+        "promoted": promoted,
+        "retiredDuplicates": retired_duplicates,
         "skipped": skipped,
         "missingCoverSources": missing_cover_sources,
         "matchReasons": dict(sorted(match_reasons.items())),
@@ -865,6 +931,8 @@ def write_report(path: Path, stats: dict[str, Any]) -> None:
         f"- Filas de software aportadas: **{stats['sourceRows']}**.",
         f"- Fichas nuevas: **{stats['added']}**.",
         f"- Fichas existentes enlazadas/actualizadas: **{stats['matched']}** / **{stats['updated']}**.",
+        f"- Fichas ocultas reactivadas: **{stats['promoted']}**.",
+        f"- Duplicados previos consolidados: **{stats['retiredDuplicates']}**.",
         f"- Duplicados técnicos omitidos: **{len(stats['skipped'])}**.",
         f"- Total final de {platform_label} {stats['region']}: **{stats['finalPlatformRegionCount']}**.",
         f"- Portadas disponibles, limpias y verificadas: **{available_covers}**.",
@@ -918,6 +986,11 @@ def main() -> None:
     parser.add_argument("--match-confidence", default="SEED_PC")
     parser.add_argument("--museum-region")
     parser.add_argument(
+        "--promote-matched-excluded",
+        action="store_true",
+        help="Publica fichas excluidas cuando la lista aportada confirma la referencia exacta",
+    )
+    parser.add_argument(
         "--usd-per-eur",
         type=Decimal,
         help="Tasa de referencia: cuántos USD equivalen a 1 EUR",
@@ -962,6 +1035,7 @@ def main() -> None:
         museum_region=args.museum_region,
         usd_per_eur=args.usd_per_eur,
         exchange_rate_date=args.exchange_rate_date,
+        promote_matched_excluded=args.promote_matched_excluded,
     )
     stats["platform"] = args.platform
     stats["region"] = args.region
