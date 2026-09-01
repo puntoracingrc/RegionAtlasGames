@@ -13,6 +13,7 @@ import type {
   MarketplaceListingClientView,
   RecordedPrivateSale,
 } from "./marketplace-types";
+import type { CollectionCondition } from "./types";
 import {
   MANUAL_LISTING_REVIEW_CRITERIA,
   PHOTO_SLOT_LABELS,
@@ -205,6 +206,37 @@ export async function updateListing(
     if (idx === -1) return { next: listings, result: null, changed: false };
     listings[idx] = { ...listings[idx], ...patch, updatedAt: new Date().toISOString() };
     return { next: listings, result: listings[idx] };
+  });
+}
+
+export async function syncDraftListingConditionForCollectionItem(input: {
+  sellerId: string;
+  collectionItemId: string;
+  collectionCondition: CollectionCondition;
+}): Promise<boolean> {
+  return mutateListings<boolean>((listings) => {
+    const index = listings.findIndex(
+      (listing) =>
+        listing.sellerId === input.sellerId &&
+        listing.collectionItemId === input.collectionItemId &&
+        listing.status === "draft",
+    );
+    if (index < 0) return { next: listings, result: false, changed: false };
+
+    const listing = listings[index];
+    const currentCondition = listing.collectionCondition ?? (listing.sealed ? "sealed" : "unknown");
+    if (currentCondition === input.collectionCondition) {
+      return { next: listings, result: false, changed: false };
+    }
+
+    listings[index] = {
+      ...listing,
+      sealed: input.collectionCondition === "sealed",
+      collectionCondition: input.collectionCondition,
+      aiAnalysis: null,
+      updatedAt: new Date().toISOString(),
+    };
+    return { next: listings, result: true };
   });
 }
 

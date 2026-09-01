@@ -16,6 +16,7 @@ import {
   type UserCollectionFile,
 } from "./collection-storage";
 import { findAvailableCatalogLink } from "./import-collection";
+import { priceForCollectionCondition } from "./condition-prices";
 
 export type { UserCollectionFile } from "./collection-storage";
 
@@ -205,6 +206,7 @@ export function catalogGameToCollectionItem(
     quantity: 1,
     quantityPc: null,
     buyPrice: null,
+    ownerEstimatedPrice: null,
     previousSalePrice: null,
     totalValue: rec,
     notes: null,
@@ -277,6 +279,7 @@ function linkCollectionItemWithCatalog(
     id: current.id,
     quantity: current.quantity,
     buyPrice: current.buyPrice ?? fromCatalog.buyPrice,
+    ownerEstimatedPrice: current.ownerEstimatedPrice ?? null,
     previousSalePrice: current.previousSalePrice ?? fromCatalog.previousSalePrice,
     notes: current.notes ?? fromCatalog.notes,
     sealed: current.sealed,
@@ -295,6 +298,7 @@ function linkCollectionItemWithCatalog(
 export type CollectionItemDetailsPatch = {
   collectionCondition: CollectionCondition;
   buyPrice: number | null;
+  ownerEstimatedPrice: number | null;
   purchasedAt: string | null;
   addedAt: string;
   notes: string | null;
@@ -324,6 +328,14 @@ function validateCollectionItemPatch(
   ) {
     return "El precio de compra no es válido.";
   }
+  if (
+    patch.ownerEstimatedPrice != null &&
+    (!Number.isFinite(patch.ownerEstimatedPrice) ||
+      patch.ownerEstimatedPrice < 0 ||
+      patch.ownerEstimatedPrice > 1_000_000)
+  ) {
+    return "Tu estimación de precio no es válida.";
+  }
   if (patch.purchasedAt != null && !validIsoDate(patch.purchasedAt)) {
     return "La fecha de compra no es válida.";
   }
@@ -334,24 +346,6 @@ function validateCollectionItemPatch(
     return "Las notas no pueden superar 1.000 caracteres.";
   }
   return null;
-}
-
-function storedPriceForCondition(
-  item: CollectionItem,
-  condition: CollectionCondition,
-): number | null {
-  const fallback =
-    item.estimatedPriceComplete ??
-    item.estimatedPriceGameManual ??
-    item.estimatedPriceLoose ??
-    item.estimatedPriceSealed ??
-    item.estimatedPriceNewRetail ??
-    item.recommendedPrice;
-  if (condition === "sealed") return item.estimatedPriceSealed ?? fallback;
-  if (condition === "complete") return item.estimatedPriceComplete ?? fallback;
-  if (condition === "game-manual") return item.estimatedPriceGameManual ?? fallback;
-  if (condition === "loose") return item.estimatedPriceLoose ?? fallback;
-  return fallback;
 }
 
 export async function addCatalogCopy(
@@ -394,7 +388,7 @@ export async function updateUserCollectionItemDetails(
       }
 
       const current = file.items[index];
-      const unitPrice = storedPriceForCondition(current, patch.collectionCondition);
+      const unitPrice = priceForCollectionCondition(current, patch.collectionCondition);
       const item: CollectionItem = {
         ...current,
         quantity: 1,
@@ -402,6 +396,10 @@ export async function updateUserCollectionItemDetails(
         sealed: patch.collectionCondition === "sealed",
         collectionCondition: patch.collectionCondition,
         buyPrice: patch.buyPrice == null ? null : Math.round(patch.buyPrice * 100) / 100,
+        ownerEstimatedPrice:
+          patch.ownerEstimatedPrice == null
+            ? null
+            : Math.round(patch.ownerEstimatedPrice * 100) / 100,
         purchasedAt: patch.purchasedAt,
         addedAt: patch.addedAt,
         notes: patch.notes?.trim() || null,

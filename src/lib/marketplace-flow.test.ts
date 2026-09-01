@@ -11,6 +11,7 @@ import {
   getUserCollectionItem,
   updateUserCollectionItemDetails,
 } from "./collection-store";
+import { updateCollectionCopyDetails } from "./collection-copy-details";
 import {
   addMessage,
   getConversation,
@@ -100,6 +101,7 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
       {
         collectionCondition: "complete",
         buyPrice: 12,
+        ownerEstimatedPrice: null,
         purchasedAt: "2026-08-01T00:00:00.000Z",
         addedAt: added.item.addedAt ?? new Date().toISOString(),
         notes: null,
@@ -120,6 +122,24 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
     );
     assert.equal(draft.collectionCondition, "complete");
     assert.equal(draft.recordedSalePriceEur, null);
+
+    const updatedDraftCopy = await updateCollectionCopyDetails(
+      sellerResult.user.id,
+      added.item.id,
+      {
+        collectionCondition: "game-manual",
+        buyPrice: 12,
+        ownerEstimatedPrice: 19,
+        purchasedAt: "2026-08-01T00:00:00.000Z",
+        addedAt: added.item.addedAt ?? new Date().toISOString(),
+        notes: null,
+      },
+    );
+    assertResult(updatedDraftCopy);
+    assert.equal(updatedDraftCopy.draftSynced, true);
+    assert.equal(updatedDraftCopy.item.collectionCondition, "game-manual");
+    assert.equal(updatedDraftCopy.item.ownerEstimatedPrice, 19);
+    assert.equal((await getListing(draft.id))?.collectionCondition, "game-manual");
 
     const secondCopy = await addCatalogCopy(sellerResult.user.id, catalogId);
     assertResult(secondCopy);
@@ -186,6 +206,22 @@ test("two free users can publish, chat, close and confirm a sale", async () => {
     assertResult(reviewed);
     assert.equal(reviewed.aiAnalysis?.verificationStatus, "manual_verified");
     assert.equal((await getActiveListingsForCatalog(catalogId)).length, 1);
+
+    assert.deepEqual(
+      await updateCollectionCopyDetails(sellerResult.user.id, added.item.id, {
+        collectionCondition: "sealed",
+        buyPrice: 12,
+        ownerEstimatedPrice: 35,
+        purchasedAt: "2026-08-01T00:00:00.000Z",
+        addedAt: added.item.addedAt ?? new Date().toISOString(),
+        notes: null,
+      }),
+      {
+        error: "Retira el anuncio de la venta antes de cambiar el estado de esta copia.",
+        status: 409,
+      },
+    );
+    assert.equal((await getListing(draft.id))?.collectionCondition, "game-manual");
 
     const conversation = await startConversation({
       listingId: draft.id,

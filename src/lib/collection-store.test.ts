@@ -232,6 +232,7 @@ test("manages individual copies and applies completed sales once", async () => {
     const updated = await updateUserCollectionItemDetails(userId, first.item.id, {
       collectionCondition: "sealed",
       buyPrice: 18.5,
+      ownerEstimatedPrice: 72,
       purchasedAt: "2026-08-12T00:00:00.000Z",
       addedAt: "2026-08-13T00:00:00.000Z",
       notes: "Primera copia precintada",
@@ -240,6 +241,7 @@ test("manages individual copies and applies completed sales once", async () => {
     assert.equal(updated.item.quantity, 1);
     assert.equal(updated.item.sealed, true);
     assert.equal(updated.item.buyPrice, 18.5);
+    assert.equal(updated.item.ownerEstimatedPrice, 72);
     assert.equal(updated.item.purchasedAt, "2026-08-12T00:00:00.000Z");
 
     const views = await getUserCollectionViews(userId);
