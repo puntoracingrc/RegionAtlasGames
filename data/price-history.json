@@ -14072,6 +14072,36 @@
         "sealed": 30.0,
         "newRetail": null
       }
+    ],
+    "ps4-cyberdimension-neptunia-4-goddesses-online": [
+      {
+        "at": "2026-09-01T05:19:25Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 54.99,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-daymare-1994-sandcastle-limited-edition": [
+      {
+        "at": "2026-09-01T05:19:25Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 28.04,
+        "newRetail": null
+      }
+    ],
+    "ps4-days-of-doom": [
+      {
+        "at": "2026-09-01T05:19:25Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.37,
+        "sealed": 27.42,
+        "newRetail": null
+      }
     ]
   }
 }
