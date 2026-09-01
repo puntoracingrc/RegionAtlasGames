@@ -1,11 +1,15 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { LoaderCircle } from "lucide-react";
+import { LayoutGrid, LoaderCircle, Rows3, ShoppingCart } from "lucide-react";
 import { CatalogGameCard } from "@/components/game-card";
 import { CatalogPagination } from "@/components/catalog-pagination";
+import { CollectionQuickAdd } from "@/components/collection-quick-add";
 import { HighlightLegend } from "@/components/highlight-legend";
+import { IntentLink } from "@/components/intent-link";
+import { LinkPendingFeedback } from "@/components/link-pending-feedback";
 import { PriceLegend } from "@/components/price-legend";
+import { RegionFlag } from "@/components/region-flag";
 import { RegionFilterChips } from "@/components/region-filter-chips";
 import {
   CATALOG_PAGE_SIZE,
@@ -27,7 +31,11 @@ import {
   type CatalogTaxonomyFilterOption,
 } from "@/lib/catalog-filters";
 import type { CatalogListGame } from "@/lib/types";
+import { catalogGamePath } from "@/lib/catalog-path";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
+import { getCoverSrc } from "@/lib/cover-url";
+import { decodeHtmlEntities } from "@/lib/decode-html-entities";
+import { formatEsPriceForCard } from "@/lib/price-display";
 import { formatEur } from "@/lib/price-format";
 import { cn } from "@/lib/cn";
 
@@ -62,6 +70,100 @@ function selectedPriceLabel(game: CatalogListGame, priceType: CatalogPriceType):
   const label = option?.label ?? "Estado";
   const price = selectedPrice(game, priceType);
   return `${label} · ${price != null ? formatEur(price) : "Sin dato"}`;
+}
+
+function CatalogCompactRow({
+  game,
+  owned,
+  isLoggedIn,
+  onOwnedChange,
+  listingsForSale,
+  priceLabel,
+}: {
+  game: CatalogListGame;
+  owned: boolean;
+  isLoggedIn: boolean;
+  onOwnedChange: (catalogId: string, owned: boolean, ownedCatalogIds?: string[]) => void;
+  listingsForSale: number;
+  priceLabel?: string;
+}) {
+  const cover = getCoverSrc(game.coverUrl, game.id);
+  const displayedPrice = priceLabel ?? formatEsPriceForCard(game, formatEur);
+
+  return (
+    <div
+      className={cn(
+        "relative flex min-h-[68px] items-center transition [content-visibility:auto] hover:bg-card-hover",
+        owned && "bg-emerald-500/[0.06]",
+      )}
+      data-catalog-list-row={game.id}
+    >
+      <IntentLink
+        href={catalogGamePath(game)}
+        className="group grid min-w-0 flex-1 grid-cols-[44px_minmax(0,1fr)_auto] items-center gap-3 px-1 py-2 sm:grid-cols-[48px_minmax(0,1fr)_minmax(110px,auto)_minmax(120px,auto)] sm:px-2"
+      >
+        <div className="flex h-14 w-11 items-center justify-center overflow-hidden border border-border bg-card">
+          {cover ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={cover} alt="" className="max-h-full max-w-full object-contain" loading="lazy" />
+          ) : (
+            <span className="px-1 text-center text-[8px] uppercase text-muted">Sin portada</span>
+          )}
+        </div>
+
+        <div className="min-w-0">
+          <h3 className="truncate text-sm font-semibold text-foreground group-hover:text-accent">
+            {decodeHtmlEntities(game.title)}
+          </h3>
+          <p className="mt-0.5 flex flex-wrap items-center gap-1 text-[11px] text-muted">
+            <span>{game.displayPlatform}</span>
+            <span aria-hidden>·</span>
+            <RegionFlag region={game.region} size="xs" showLabel labelMode="short" />
+            {game.displayYear != null ? (
+              <>
+                <span aria-hidden>·</span>
+                <span>{game.displayYear}</span>
+              </>
+            ) : null}
+            {owned ? (
+              <>
+                <span aria-hidden>·</span>
+                <span className="font-semibold text-emerald-600 dark:text-emerald-400">En tu colección</span>
+              </>
+            ) : null}
+          </p>
+          {listingsForSale > 0 ? (
+            <p className="mt-0.5 flex items-center gap-1 text-[11px] font-medium text-emerald-600 sm:hidden dark:text-emerald-400">
+              <ShoppingCart className="h-3 w-3" aria-hidden />
+              {listingsForSale} {listingsForSale === 1 ? "anuncio" : "anuncios"}
+            </p>
+          ) : null}
+        </div>
+
+        <p className="hidden items-center justify-end gap-1 text-right text-[11px] text-muted sm:flex">
+          {listingsForSale > 0 ? (
+            <>
+              <ShoppingCart className="h-3.5 w-3.5 text-emerald-500" aria-hidden />
+              <span>{listingsForSale} en venta</span>
+            </>
+          ) : (
+            <span aria-hidden>—</span>
+          )}
+        </p>
+
+        <p className="text-right text-sm font-bold text-accent">{displayedPrice}</p>
+        <LinkPendingFeedback label="Abriendo ficha…" overlay />
+      </IntentLink>
+
+      <CollectionQuickAdd
+        catalogId={game.id}
+        owned={owned}
+        isLoggedIn={isLoggedIn}
+        onChange={onOwnedChange}
+        className="relative mr-2 shrink-0"
+      />
+    </div>
+  );
 }
 
 type Props = {
@@ -153,6 +255,7 @@ export function CatalogBrowser({
   const [companyFocused, setCompanyFocused] = useState(false);
   const [priceType, setPriceType] = useState<CatalogPriceType>(initialPriceType);
   const [sort, setSort] = useState<CatalogSort>(initialPriceType === "recommended" ? DEFAULT_SORT : "price-desc");
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const priceFilter = "all";
   const [page, setPage] = useState(1);
   const [serverItems, setServerItems] = useState(games);
@@ -448,6 +551,25 @@ export function CatalogBrowser({
     [handleOwnedChange, isLoggedIn, listingCounts, ownedSet, pageItems, priceType],
   );
 
+  const catalogList = useMemo(
+    () => (
+      <section ref={gridRef} className="divide-y divide-border/70 border-y border-border/70">
+        {pageItems.map((game) => (
+          <CatalogCompactRow
+            key={game.id}
+            game={game}
+            owned={ownedSet.has(game.id)}
+            isLoggedIn={isLoggedIn}
+            onOwnedChange={handleOwnedChange}
+            listingsForSale={listingCounts[game.id] ?? 0}
+            priceLabel={selectedPriceLabel(game, priceType)}
+          />
+        ))}
+      </section>
+    ),
+    [handleOwnedChange, isLoggedIn, listingCounts, ownedSet, pageItems, priceType],
+  );
+
   return (
     <div className="space-y-4">
       <div className="rounded-3xl border border-sky-500/25 bg-sky-50/85 p-4 shadow-sm shadow-black/5 backdrop-blur dark:border-sky-300/15 dark:bg-slate-900/80 md:p-5">
@@ -625,7 +747,41 @@ export function CatalogBrowser({
                 </>
               )}
             </p>
-            <HighlightLegend showOwned compact={compactLegends} />
+            <div className="flex flex-wrap items-center justify-end gap-3">
+              <HighlightLegend showOwned compact={compactLegends} />
+              <div className="inline-flex rounded-lg border border-border bg-input p-0.5" aria-label="Vista del catálogo">
+                <button
+                  type="button"
+                  onClick={() => setViewMode("grid")}
+                  aria-label="Ver como cuadrícula"
+                  aria-pressed={viewMode === "grid"}
+                  title="Cuadrícula"
+                  className={cn(
+                    "flex h-8 w-8 items-center justify-center rounded-md transition",
+                    viewMode === "grid"
+                      ? "bg-card-hover text-accent shadow-sm"
+                      : "text-muted hover:text-foreground",
+                  )}
+                >
+                  <LayoutGrid className="h-4 w-4" aria-hidden />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setViewMode("list")}
+                  aria-label="Ver como lista compacta"
+                  aria-pressed={viewMode === "list"}
+                  title="Lista compacta"
+                  className={cn(
+                    "flex h-8 w-8 items-center justify-center rounded-md transition",
+                    viewMode === "list"
+                      ? "bg-card-hover text-accent shadow-sm"
+                      : "text-muted hover:text-foreground",
+                  )}
+                >
+                  <Rows3 className="h-4 w-4" aria-hidden />
+                </button>
+              </div>
+            </div>
           </div>
           {canShowPriceLegend && <PriceLegend defaultOpen={!compactLegends} />}
         </div>
@@ -649,7 +805,7 @@ export function CatalogBrowser({
 
           <div className="relative" aria-busy={catalogBusy}>
             <div className={cn("transition duration-200", catalogBusy && "pointer-events-none opacity-35")}>
-              {catalogGrid}
+              {viewMode === "grid" ? catalogGrid : catalogList}
             </div>
             {catalogBusy ? (
               <div className="pointer-events-none absolute inset-x-0 top-6 z-30 flex justify-center px-4">
