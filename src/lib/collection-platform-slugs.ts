@@ -13,6 +13,7 @@ const LEGACY_PLATFORM_SLUGS: Record<string, string> = {
   "pal-gameboy-color": "gameboycolor",
   "game-boy-color": "gameboycolor",
   "gameboy-color": "gameboycolor",
+  "pal-playstation-vita": "psvita",
   "pal-ps-vita": "psvita",
   "ps-vita": "psvita",
   "pal-wii-u": "wiiu",

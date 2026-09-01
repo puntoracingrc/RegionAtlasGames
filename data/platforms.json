@@ -241,7 +241,7 @@
     "sortOrder": 24,
     "active": true,
     "newsEnabled": false,
-    "description": "Catálogo físico iniciado con las ediciones NTSC USA y sus precios por estado."
+    "description": "Catálogo físico con ediciones PAL España provisionales y NTSC USA, separadas por región."
   },
   {
     "slug": "psp",

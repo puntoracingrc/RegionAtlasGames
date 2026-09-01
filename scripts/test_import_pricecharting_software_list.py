@@ -22,6 +22,11 @@ from import_pricecharting_software_list import (
     normalize_title,
     save_clean_cover,
 )
+from collectors.pc_region_paths import PAL_PC_CONSOLE
+
+
+def test_psvita_pal_uses_live_pricecharting_console_slug() -> None:
+    assert PAL_PC_CONSOLE["psvita"] == "pal-playstation-vita"
 
 
 def test_switch2_pal_eu_aliases_reuse_reviewed_spanish_records() -> None:
@@ -377,6 +382,7 @@ def test_reused_cover_keeps_region_specific_filename() -> None:
 
 
 if __name__ == "__main__":
+    test_psvita_pal_uses_live_pricecharting_console_slug()
     test_switch2_pal_eu_aliases_reuse_reviewed_spanish_records()
     test_merge_preserves_prices_and_skips_technical_duplicate()
     test_title_normalization_handles_common_catalog_variants()
