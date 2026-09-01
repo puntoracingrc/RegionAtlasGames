@@ -17,28 +17,63 @@ export function CollectionValueHero({ summary, canViewCollectionValue }: Props) 
       ? Math.round((summary.withEsPrice / summary.totalItems) * 100)
       : 0;
 
+  const pendingCatalog = summary.pendingCatalog + summary.outOfScopeItems;
+
   return (
-    <section className="mb-8 rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/10 via-card to-violet-500/5 p-6 sm:p-8">
-      <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-        Valor estimado de tu colección
-      </p>
-      <p className="mt-2 text-4xl font-bold text-accent sm:text-5xl">
-        {formatEur(summary.totalRecommendedValue)}
-      </p>
-      <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted">
-        <span>
-          <strong className="text-foreground">{summary.totalItems}</strong> juegos
-        </span>
-        <span>
-          <strong className="text-foreground">{summary.withEsPrice}</strong> con precio (
-          {pricedPct}%)
-        </span>
+    <section
+      className="mb-4 overflow-hidden rounded-xl border border-border bg-card"
+      aria-label="Resumen de la colección"
+    >
+      <div
+        className={`grid grid-cols-2 divide-x divide-y divide-border/70 sm:grid-cols-3 lg:divide-y-0 ${
+          summary.totalBuyValue > 0 ? "lg:grid-cols-6" : "lg:grid-cols-5"
+        }`}
+      >
+        <CompactStat
+          label="Valor estimado"
+          value={formatEur(summary.totalRecommendedValue)}
+          accent
+        />
+        <CompactStat label="Juegos" value={String(summary.totalItems)} />
+        <CompactStat label="Unidades" value={String(summary.totalUnits)} />
+        <CompactStat
+          label="Con precio"
+          value={`${summary.withEsPrice} · ${pricedPct}%`}
+        />
+        <CompactStat
+          label="Sin ficha"
+          value={String(pendingCatalog)}
+          className={summary.totalBuyValue > 0 ? undefined : "col-span-2 sm:col-span-1"}
+        />
         {summary.totalBuyValue > 0 && (
-          <span>
-            Inversión: <strong className="text-foreground">{formatEur(summary.totalBuyValue)}</strong>
-          </span>
+          <CompactStat label="Inversión" value={formatEur(summary.totalBuyValue)} />
         )}
       </div>
     </section>
+  );
+}
+
+function CompactStat({
+  label,
+  value,
+  accent = false,
+  className = "",
+}: {
+  label: string;
+  value: string;
+  accent?: boolean;
+  className?: string;
+}) {
+  return (
+    <div className={`flex min-h-20 flex-col justify-center px-4 py-3 ${className}`}>
+      <span className="text-[10px] font-semibold uppercase text-muted">{label}</span>
+      <strong
+        className={`mt-1 text-xl font-bold tabular-nums ${
+          accent ? "text-accent" : "text-foreground"
+        }`}
+      >
+        {value}
+      </strong>
+    </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
+import { FileUp, LoaderCircle } from "lucide-react";
 import type { ImportStats } from "@/lib/import-collection";
 import type { CollectionSummary } from "@/lib/collection-store";
 import { Panel, PanelTitle } from "@/components/ui";
@@ -10,9 +11,10 @@ import { CollectionImportRace } from "@/components/collection-import-race";
 type Props = {
   hasItems: boolean;
   canViewCollectionValue: boolean;
+  compact?: boolean;
 };
 
-export function CollectionImport({ hasItems, canViewCollectionValue }: Props) {
+export function CollectionImport({ hasItems, canViewCollectionValue, compact = false }: Props) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(false);
@@ -52,6 +54,46 @@ export function CollectionImport({ hasItems, canViewCollectionValue }: Props) {
     }
   }
 
+  const fileInput = (
+    <input
+      ref={inputRef}
+      type="file"
+      accept=".xlsx,.csv"
+      className="hidden"
+      disabled={loading}
+      onChange={onFileChange}
+    />
+  );
+
+  if (compact) {
+    return (
+      <div className="flex flex-col items-start gap-2 sm:items-end">
+        <label
+          className="btn-secondary min-h-9 cursor-pointer gap-2 px-3 py-2 text-xs"
+          title={hasItems ? "Reemplaza la colección actual con un Excel o CSV" : "Importa un Excel o CSV"}
+        >
+          {loading ? (
+            <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden />
+          ) : (
+            <FileUp className="h-4 w-4" aria-hidden />
+          )}
+          {loading ? "Importando…" : hasItems ? "Reimportar" : "Importar archivo"}
+          {fileInput}
+        </label>
+        {error && (
+          <p className="max-w-sm text-xs text-rose-700 dark:text-rose-300" role="alert">
+            {error}
+          </p>
+        )}
+        {result && (
+          <p className="max-w-sm text-xs text-emerald-700 dark:text-emerald-300" role="status">
+            {result.stats.imported} juegos importados · {result.stats.matchedCatalog} enlazados
+          </p>
+        )}
+      </div>
+    );
+  }
+
   return (
     <Panel className="mb-8">
       <PanelTitle>
@@ -69,14 +111,7 @@ export function CollectionImport({ hasItems, canViewCollectionValue }: Props) {
       <div className="mt-4 flex flex-wrap items-center gap-3">
         <label className="btn-primary cursor-pointer">
           {loading ? "Importando…" : hasItems ? "Reimportar archivo" : "Elegir archivo"}
-          <input
-            ref={inputRef}
-            type="file"
-            accept=".xlsx,.csv"
-            className="hidden"
-            disabled={loading}
-            onChange={onFileChange}
-          />
+          {fileInput}
         </label>
         {hasItems && (
           <p className="text-xs text-muted">
