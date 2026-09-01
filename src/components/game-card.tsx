@@ -16,6 +16,7 @@ import { IntentLink } from "@/components/intent-link";
 import { LinkPendingFeedback } from "@/components/link-pending-feedback";
 import {
   formatCollectionConditionSummary,
+  type CollectionConditionValue,
   type CollectionConditionCounts,
 } from "@/lib/collection-display";
 
@@ -133,11 +134,13 @@ export function CollectionGameCard({
   game,
   overlayAction,
   conditionCounts,
+  conditionValues,
   hasActiveListing = false,
 }: {
   game: CollectionView;
   overlayAction?: ReactNode;
   conditionCounts?: CollectionConditionCounts;
+  conditionValues?: CollectionConditionValue[];
   hasActiveListing?: boolean;
 }) {
   const collectionPlatformLabel = platformLabel(game.platformSlug);
@@ -173,6 +176,7 @@ export function CollectionGameCard({
         importPrice={!game.hasEsPrice && game.recommendedPrice != null}
         quantity={game.quantity}
         conditionCounts={conditionCounts}
+        conditionValues={conditionValues}
         grail={grail}
         topSegment={topSegment}
       />
@@ -181,7 +185,10 @@ export function CollectionGameCard({
 
   if (overlayAction) {
     return (
-      <div className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment), "relative")}>
+      <div
+        className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment), "relative h-full")}
+        data-collection-grid-card="true"
+      >
         <IntentLink href={href} className="flex flex-1 flex-col">
           {body}
           <LinkPendingFeedback label="Abriendo ficha…" overlay />
@@ -192,7 +199,11 @@ export function CollectionGameCard({
   }
 
   return (
-    <IntentLink href={href} className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment))}>
+    <IntentLink
+      href={href}
+      className={cn(cardBase, gameCardHighlightClass(true, grail, topSegment), "h-full")}
+      data-collection-grid-card="true"
+    >
       {body}
       <LinkPendingFeedback label="Abriendo ficha…" overlay />
     </IntentLink>
@@ -295,6 +306,7 @@ function CardBody({
   priceUnverified,
   importPrice,
   conditionCounts,
+  conditionValues,
 }: {
   title: string;
   platform: string;
@@ -309,6 +321,7 @@ function CardBody({
   priceUnverified?: boolean;
   importPrice?: boolean;
   conditionCounts?: CollectionConditionCounts;
+  conditionValues?: CollectionConditionValue[];
 }) {
   const tags = [
     topSegment ? "Top región" : null,
@@ -316,11 +329,23 @@ function CardBody({
   ].filter(Boolean);
 
   return (
-    <div className="flex flex-1 flex-col gap-1.5 p-3">
-      <h3 className="line-clamp-2 text-[13px] font-semibold leading-snug text-foreground">{title}</h3>
-      <div className="mt-auto flex items-end justify-between gap-2 pt-1">
+    <div className="flex flex-1 flex-col p-3">
+      <h3
+        className={cn(
+          "line-clamp-2 text-[13px] font-semibold leading-snug text-foreground",
+          conditionValues && "min-h-9",
+        )}
+      >
+        {title}
+      </h3>
+      <div className={cn("flex items-end justify-between gap-2 pt-1", !conditionValues && "mt-auto")}>
         <div className="min-w-0">
-          <p className="flex flex-wrap items-center gap-x-1 gap-y-0.5 text-[10px] uppercase tracking-wider text-muted">
+          <p
+            className={cn(
+              "flex items-center gap-x-1 text-[10px] uppercase tracking-wider text-muted",
+              conditionValues ? "h-5 flex-nowrap overflow-hidden" : "flex-wrap gap-y-0.5",
+            )}
+          >
             <span className="max-w-full truncate">{platform}</span>
             {year != null && (
               <>
@@ -350,39 +375,70 @@ function CardBody({
               </span>
             )}
           </p>
-          <p
-            className={cn(
-              "text-base font-bold",
-              importPrice
-                ? "text-muted"
-                : priceUnverified
-                  ? "text-muted"
-                  : grail
-                    ? "text-amber-300"
-                    : topSegment
-                      ? "text-violet-300"
-                      : "text-accent",
-            )}
-          >
-            {price}
-          </p>
-          {importPrice && (
-            <p className="mt-0.5 text-[10px] uppercase tracking-wider text-muted">Ref. import</p>
-          )}
-          {listingsForSale != null && listingsForSale > 0 && (
-            <p className="mt-0.5 text-[11px] font-medium text-violet-300">
-              {listingsForSale} en venta
-            </p>
+          {!conditionValues && (
+            <>
+              <p
+                className={cn(
+                  "text-base font-bold",
+                  importPrice
+                    ? "text-muted"
+                    : priceUnverified
+                      ? "text-muted"
+                      : grail
+                        ? "text-amber-300"
+                        : topSegment
+                          ? "text-violet-300"
+                          : "text-accent",
+                )}
+              >
+                {price}
+              </p>
+              {importPrice && (
+                <p className="mt-0.5 text-[10px] uppercase tracking-wider text-muted">Ref. import</p>
+              )}
+              {listingsForSale != null && listingsForSale > 0 && (
+                <p className="mt-0.5 text-[11px] font-medium text-violet-300">
+                  {listingsForSale} en venta
+                </p>
+              )}
+            </>
           )}
         </div>
       </div>
-      {quantity != null && conditionCounts && (
+      {conditionValues && (
+        <div
+          className="mt-2 grid h-[6.25rem] grid-rows-5 border-t border-border/70"
+          aria-label="Unidades y valor por estado"
+        >
+          {conditionValues.map((value) => (
+            <div
+              key={value.condition}
+              className="grid min-h-0 grid-cols-1 content-center gap-0 border-b border-border/50 text-[8px] leading-[9px] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-1 sm:text-[10px] sm:leading-normal"
+              aria-label={`${value.label}: ${value.units} ${value.units === 1 ? "unidad" : "unidades"}, ${
+                value.totalPrice == null ? "precio pendiente" : `${formatEur(value.totalPrice)} en total`
+              }`}
+            >
+              <span className="min-w-0 truncate text-center font-medium text-foreground/90 sm:text-left">
+                {value.label}
+              </span>
+              <span className="whitespace-nowrap text-center text-muted tabular-nums sm:text-right">
+                {value.units} {value.units === 1 ? "ud." : "uds."}
+                <span aria-hidden> · </span>
+                <strong className="font-semibold text-accent">
+                  {value.totalPrice == null ? "Pendiente" : formatEur(value.totalPrice)}
+                </strong>
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+      {!conditionValues && quantity != null && conditionCounts && (
         <p className="text-[11px] text-muted">
           {quantity} {quantity === 1 ? "unidad" : "unidades"} ·{" "}
           {formatCollectionConditionSummary(conditionCounts, true)}
         </p>
       )}
-      {quantity != null && quantity > 1 && !conditionCounts && (
+      {!conditionValues && quantity != null && quantity > 1 && !conditionCounts && (
         <p className="text-[11px] text-muted">×{quantity} unidades</p>
       )}
     </div>

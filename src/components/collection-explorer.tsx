@@ -274,21 +274,25 @@ export function CollectionExplorer({
 
       {viewMode === "grid" ? (
         <section className={CATALOG_GRID_CLASS}>
-          {displayed.map(({ game, conditionCounts }) => (
-            <div
-              key={game.catalogId ?? game.id}
-              id={collectionCatalogAnchorId(game.catalogId ?? game.id)}
-              className="scroll-mt-24"
-            >
-              <CollectionGameCard
-                game={game}
-                conditionCounts={conditionCounts}
-                hasActiveListing={activeSaleKeys.has(
-                  game.catalogMatched && game.catalogId ? game.catalogId : game.id,
-                )}
-              />
-            </div>
-          ))}
+          {displayed.map((item) => {
+            const { game, conditionCounts } = item;
+            return (
+              <div
+                key={game.catalogId ?? game.id}
+                id={collectionCatalogAnchorId(game.catalogId ?? game.id)}
+                className="h-full scroll-mt-24"
+              >
+                <CollectionGameCard
+                  game={game}
+                  conditionCounts={conditionCounts}
+                  conditionValues={collectionConditionValues(item)}
+                  hasActiveListing={activeSaleKeys.has(
+                    game.catalogMatched && game.catalogId ? game.catalogId : game.id,
+                  )}
+                />
+              </div>
+            );
+          })}
         </section>
       ) : (
         <section className="divide-y divide-border/70 border-y border-border/70">
