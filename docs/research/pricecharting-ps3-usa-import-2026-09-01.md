@@ -1,4 +1,4 @@
-# Importación PS3 USA desde PriceCharting
+# Importación PS3 NTSC USA desde PriceCharting
 
 Fecha: `2026-09-01T20:30:00+02:00`
 
@@ -10,7 +10,7 @@ Fecha: `2026-09-01T20:30:00+02:00`
 - Fichas ocultas reactivadas: **0**.
 - Duplicados previos consolidados: **0**.
 - Duplicados técnicos omitidos: **0**.
-- Total final de PS3 USA: **2019**.
+- Total final de PS3 NTSC USA: **2019**.
 - Portadas preparadas localmente, limpias y verificadas: **2019**.
 - Portadas sin resolver: **0**.
 - Portadas ya publicadas en el hosting: **0**.

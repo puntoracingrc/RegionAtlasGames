@@ -1,4 +1,4 @@
-# Importación PS4 USA desde PriceCharting
+# Importación PS4 NTSC USA desde PriceCharting
 
 Fecha: `2026-09-01T17:10:00+02:00`
 
@@ -8,7 +8,7 @@ Fecha: `2026-09-01T17:10:00+02:00`
 - Fichas nuevas: **24**.
 - Fichas existentes enlazadas/actualizadas: **4264** / **4264**.
 - Duplicados técnicos omitidos: **0**.
-- Total final de PS4 USA: **4497**.
+- Total final de PS4 NTSC USA: **4497**.
 - Fichas nuevas con portada: **24 de 24**.
 - Portadas anteriores recuperadas: **1**.
 - Fichas anteriores que continúan sin origen de portada: **4**.

@@ -1,4 +1,4 @@
-# Importación PS5 USA desde PriceCharting
+# Importación PS5 NTSC USA desde PriceCharting
 
 Fecha: `2026-09-01T00:00:00Z`
 
@@ -8,7 +8,7 @@ Fecha: `2026-09-01T00:00:00Z`
 - Fichas nuevas: **2310**.
 - Fichas existentes enlazadas/actualizadas durante la primera importación: **0** / **0**.
 - Duplicados técnicos omitidos: **2**.
-- Total final de PS5 USA: **2310**.
+- Total final de PS5 NTSC USA: **2310**.
 - Portadas disponibles, limpias y verificadas: **2310**.
 - Portadas descargadas de la tabla pública: **2309**.
 - Portadas recuperadas del catálogo PS5 existente: **1**.

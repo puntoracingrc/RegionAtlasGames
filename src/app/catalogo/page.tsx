@@ -4,6 +4,7 @@ import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
   filterCatalogGames,
+  normalizeCatalogPriceTypeForPlatform,
   publicFacetFilterOptions,
   publicGenreFilterOptions,
   publicSubgenreFilterOptions,
@@ -45,7 +46,10 @@ export default async function CatalogPage({ searchParams }: Props) {
   const initialGenre = typeof params?.genre === "string" ? params.genre : "all";
   const initialSubgenre = typeof params?.subgenre === "string" ? params.subgenre : "all";
   const initialFacet = typeof params?.facet === "string" ? params.facet : "all";
-  const initialPriceType = parsePriceType(params?.priceType);
+  const initialPriceType = normalizeCatalogPriceTypeForPlatform(
+    parsePriceType(params?.priceType),
+    initialPlatform,
+  );
   const initialSort = initialPriceType === "recommended" ? DEFAULT_SORT : "price-desc";
 
   const [user, listingCounts] = await Promise.all([

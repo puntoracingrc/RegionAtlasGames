@@ -181,8 +181,18 @@ def normalize_title(text: str | None) -> str:
     return " ".join(value.split())
 
 
+def decode_html_entities(text: str) -> str:
+    decoded = text
+    for _ in range(3):
+        unescaped = html.unescape(decoded)
+        if unescaped == decoded:
+            break
+        decoded = unescaped
+    return decoded
+
+
 def clean_source_title(text: str) -> str:
-    return re.sub(r"\s+/\d+$", "", text.strip())
+    return re.sub(r"\s+/\d+$", "", decode_html_entities(text).strip())
 
 
 def parse_money(raw: str) -> Decimal | None:
@@ -287,7 +297,7 @@ def parse_live_page(page_html: str) -> list[LiveRow]:
         title_html = re.sub(r"<[^>]+>", "", title_match.group(2))
         rows.append(
             LiveRow(
-                title=html.unescape(title_html).strip(),
+                title=decode_html_entities(title_html).strip(),
                 pc_id=int(match.group(1)),
                 pc_path=html.unescape(title_match.group(1)).strip(),
                 cover_source_url=image_url,
@@ -662,6 +672,13 @@ def merge_catalog(
         match_reasons[reason] += 1
         if existing:
             changed = False
+            for title_key in ("title", "titlePc"):
+                current_title = existing.get(title_key)
+                if current_title:
+                    clean_title = decode_html_entities(str(current_title))
+                    if clean_title != current_title:
+                        existing[title_key] = clean_title
+                        changed = True
             displaced_id = PC_ID_DISPLACED_DUPLICATES.get(live.pc_id)
             displaced = catalog_by_id.get(displaced_id or "")
             if (

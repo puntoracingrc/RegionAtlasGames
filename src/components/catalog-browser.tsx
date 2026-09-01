@@ -15,6 +15,8 @@ import {
   CATALOG_PAGE_SIZE,
   DEFAULT_SORT,
   PRICE_TYPE_OPTIONS,
+  catalogPriceTypeOptions,
+  normalizeCatalogPriceTypeForPlatform,
   filterCatalogGames,
   platformOptions,
   publicFacetFilterOptions,
@@ -254,7 +256,7 @@ export function CatalogBrowser({
   const [facet, setFacet] = useState(initialFacet);
   const [company, setCompany] = useState("");
   const [companyFocused, setCompanyFocused] = useState(false);
-  const [priceType, setPriceType] = useState<CatalogPriceType>(initialPriceType);
+  const [selectedPriceType, setSelectedPriceType] = useState<CatalogPriceType>(initialPriceType);
   const [sort, setSort] = useState<CatalogSort>(initialPriceType === "recommended" ? DEFAULT_SORT : "price-desc");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const priceFilter = "all";
@@ -285,6 +287,19 @@ export function CatalogBrowser({
   const [activeSubgenres, setActiveSubgenres] = useState(subgenres);
   const [activeFacets, setActiveFacets] = useState(facets);
   const [activeCompanies, setActiveCompanies] = useState(companies);
+  const priceTypePlatform = source?.kind === "platform"
+    ? source.slug
+    : platform !== "all"
+      ? platform
+      : null;
+  const priceTypeOptions = useMemo(
+    () => catalogPriceTypeOptions(priceTypePlatform),
+    [priceTypePlatform],
+  );
+  const priceType = normalizeCatalogPriceTypeForPlatform(
+    selectedPriceType,
+    priceTypePlatform,
+  );
 
   const visibleRegions = useMemo(() => {
     if (showPlatformFilter && platform !== "all") {
@@ -335,7 +350,7 @@ export function CatalogBrowser({
         if (typeof saved.subgenre === "string") setSubgenre(saved.subgenre);
         if (typeof saved.facet === "string") setFacet(saved.facet);
         if (typeof saved.company === "string") setCompany(saved.company);
-        if (saved.priceType && PRICE_TYPE_OPTIONS.some((option) => option.value === saved.priceType)) setPriceType(saved.priceType);
+        if (saved.priceType && PRICE_TYPE_OPTIONS.some((option) => option.value === saved.priceType)) setSelectedPriceType(saved.priceType);
         if (saved.sort && SORT_OPTIONS.some((option) => option.value === saved.sort)) setSort(saved.sort);
         if (typeof saved.page === "number" && Number.isFinite(saved.page)) setPage(Math.max(1, saved.page));
       }
@@ -511,10 +526,17 @@ export function CatalogBrowser({
   }
 
   function handlePriceTypeChange(nextPriceType: CatalogPriceType) {
-    setPriceType(nextPriceType);
+    setSelectedPriceType(nextPriceType);
     if (nextPriceType !== "recommended" && sort !== "price-asc" && sort !== "price-desc") {
       setSort("price-desc");
     }
+  }
+
+  function handlePlatformChange(nextPlatform: string) {
+    const nextPriceType = normalizeCatalogPriceTypeForPlatform(priceType, nextPlatform);
+    setPlatform(nextPlatform);
+    setSelectedPriceType(nextPriceType);
+    if (nextPriceType !== priceType) setSort(DEFAULT_SORT);
   }
 
   const handleOwnedChange = useCallback(function handleOwnedChange(
@@ -622,7 +644,7 @@ export function CatalogBrowser({
             <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7">
             {showPlatformFilter && platforms.length > 1 && (
               <FilterField label="Plataforma">
-                <select value={platform} onChange={(e) => setPlatform(e.target.value)} className={selectClass}>
+                <select value={platform} onChange={(e) => handlePlatformChange(e.target.value)} className={selectClass}>
                   <option value="all">Todas las plataformas</option>
                   {platforms.map((p) => (
                     <option key={p.slug} value={p.slug}>
@@ -709,7 +731,7 @@ export function CatalogBrowser({
                 onChange={(e) => handlePriceTypeChange(e.target.value as CatalogPriceType)}
                 className={selectClass}
               >
-                {PRICE_TYPE_OPTIONS.map((opt) => (
+                {priceTypeOptions.map((opt) => (
                   <option key={opt.value} value={opt.value}>
                     {opt.label}
                   </option>
