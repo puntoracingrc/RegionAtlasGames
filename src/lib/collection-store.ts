@@ -2,6 +2,8 @@ import type {
   CatalogGame,
   CollectionCondition,
   CollectionItem,
+  CollectionPhoto,
+  CollectionPhotoSlot,
   CollectionView,
 } from "./types";
 import { enrichCollectionItem, getCatalogGame } from "./catalog";
@@ -17,8 +19,25 @@ import {
 } from "./collection-storage";
 import { findAvailableCatalogLink } from "./import-collection";
 import { priceForCollectionCondition } from "./condition-prices";
+import { removeCollectionPhoto, upsertCollectionPhoto } from "./collection-photos";
+import { deleteCollectionPhotoFile } from "./collection-photo-storage";
 
 export type { UserCollectionFile } from "./collection-storage";
+
+type RemovedCollectionItem = Pick<CollectionItem, "id" | "photos">;
+
+async function deleteRemovedCollectionPhotos(
+  userId: string,
+  items: RemovedCollectionItem[],
+): Promise<void> {
+  await Promise.allSettled(
+    items.flatMap((item) =>
+      (item.photos ?? []).map((photo) =>
+        deleteCollectionPhotoFile(userId, item.id, photo.slot),
+      ),
+    ),
+  );
+}
 
 export type CollectionSummary = {
   totalItems: number;
@@ -210,6 +229,7 @@ export function catalogGameToCollectionItem(
     previousSalePrice: null,
     totalValue: rec,
     notes: null,
+    photos: [],
     marketMin: game.marketMin,
     marketMax: game.marketMax,
     recommendedPrice: game.recommendedPrice,
@@ -416,6 +436,68 @@ export async function updateUserCollectionItemDetails(
   }
 }
 
+export async function upsertUserCollectionPhoto(
+  userId: string,
+  itemId: string,
+  photo: CollectionPhoto,
+): Promise<{ item: CollectionItem } | { error: string }> {
+  try {
+    return await mutateUserCollection<{ item: CollectionItem } | { error: string }>(userId, (file) => {
+      const index = file.items.findIndex((item) => item.id === itemId);
+      if (index < 0) {
+        return {
+          next: file,
+          result: { error: "Copia no encontrada en tu colección." } as const,
+          changed: false,
+        };
+      }
+      const item = {
+        ...file.items[index],
+        photos: upsertCollectionPhoto(file.items[index].photos, photo),
+      };
+      file.items[index] = item;
+      return { next: file, result: { item } };
+    });
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo guardar la foto." };
+  }
+}
+
+export async function removeUserCollectionPhoto(
+  userId: string,
+  itemId: string,
+  slot: CollectionPhotoSlot,
+): Promise<{ item: CollectionItem } | { error: string }> {
+  try {
+    return await mutateUserCollection<{ item: CollectionItem } | { error: string }>(userId, (file) => {
+      const index = file.items.findIndex((item) => item.id === itemId);
+      if (index < 0) {
+        return {
+          next: file,
+          result: { error: "Copia no encontrada en tu colección." } as const,
+          changed: false,
+        };
+      }
+      const current = file.items[index];
+      if (!(current.photos ?? []).some((photo) => photo.slot === slot)) {
+        return {
+          next: file,
+          result: { error: "Foto no encontrada." } as const,
+          changed: false,
+        };
+      }
+      const item = {
+        ...current,
+        photos: removeCollectionPhoto(current.photos, slot),
+      };
+      file.items[index] = item;
+      return { next: file, result: { item } };
+    });
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "No se pudo eliminar la foto." };
+  }
+}
+
 export async function removeUserCollectionItem(
   userId: string,
   itemId: string,
@@ -423,7 +505,9 @@ export async function removeUserCollectionItem(
 ): Promise<{ removed: true } | { error: string }> {
   const protectedIds = new Set(protectedItemIds);
   try {
-    return await mutateUserCollection<{ removed: true } | { error: string }>(userId, (file) => {
+    const result = await mutateUserCollection<
+      { removed: true; removedItem: RemovedCollectionItem } | { error: string }
+    >(userId, (file) => {
       const index = file.items.findIndex((item) => item.id === itemId);
       if (index < 0) {
         return {
@@ -439,9 +523,13 @@ export async function removeUserCollectionItem(
           changed: false,
         };
       }
+      const removedItem = file.items[index];
       file.items.splice(index, 1);
-      return { next: file, result: { removed: true } as const };
+      return { next: file, result: { removed: true, removedItem } as const };
     });
+    if ("error" in result) return result;
+    await deleteRemovedCollectionPhotos(userId, [result.removedItem]);
+    return { removed: true };
   } catch (error) {
     return { error: error instanceof Error ? error.message : "No se pudo eliminar la copia." };
   }
@@ -452,19 +540,24 @@ export async function recordCompletedCollectionSale(
   itemId: string,
   saleId: string,
 ): Promise<{ adjusted: boolean; remaining: number }> {
-  return mutateUserCollection<{ adjusted: boolean; remaining: number }>(userId, (file) => {
+  const result = await mutateUserCollection<{
+    adjusted: boolean;
+    remaining: number;
+    removedItem: RemovedCollectionItem | null;
+  }>(userId, (file) => {
     const completedSaleIds = file.completedSaleIds ?? [];
     if (completedSaleIds.includes(saleId)) {
       const remaining = file.items.find((item) => item.id === itemId)?.quantity ?? 0;
       return {
         next: file,
-        result: { adjusted: false, remaining },
+        result: { adjusted: false, remaining, removedItem: null },
         changed: false,
       };
     }
 
     const index = file.items.findIndex((item) => item.id === itemId);
     let remaining = 0;
+    let removedItem: RemovedCollectionItem | null = null;
     if (index >= 0) {
       const item = file.items[index];
       if (item.quantity > 1) {
@@ -476,13 +569,21 @@ export async function recordCompletedCollectionSale(
           item.totalValue = Math.round(unitValue * item.quantity * 100) / 100;
         }
       } else {
+        removedItem = item;
         file.items.splice(index, 1);
       }
     }
 
     file.completedSaleIds = [...completedSaleIds, saleId].slice(-1_000);
-    return { next: file, result: { adjusted: index >= 0, remaining } };
+    return {
+      next: file,
+      result: { adjusted: index >= 0, remaining, removedItem },
+    };
   });
+  if (result.removedItem) {
+    await deleteRemovedCollectionPhotos(userId, [result.removedItem]);
+  }
+  return { adjusted: result.adjusted, remaining: result.remaining };
 }
 
 export async function addCatalogGameToCollection(
@@ -525,8 +626,11 @@ export async function removeCatalogGameFromCollection(
   catalogId: string,
 ): Promise<{ removed: number } | { error: string }> {
   try {
-    return await mutateUserCollection<{ removed: number } | { error: string }>(userId, (file) => {
+    const result = await mutateUserCollection<
+      { removed: number; removedItems: RemovedCollectionItem[] } | { error: string }
+    >(userId, (file) => {
       const before = file.items.length;
+      const removedItems = file.items.filter((item) => item.catalogId === catalogId);
       file.items = file.items.filter((item) => item.catalogId !== catalogId);
       if (file.items.length === before) {
         return {
@@ -535,8 +639,14 @@ export async function removeCatalogGameFromCollection(
           changed: false,
         };
       }
-      return { next: file, result: { removed: before - file.items.length } };
+      return {
+        next: file,
+        result: { removed: before - file.items.length, removedItems },
+      };
     });
+    if ("error" in result) return result;
+    await deleteRemovedCollectionPhotos(userId, result.removedItems);
+    return { removed: result.removed };
   } catch (error) {
     return { error: error instanceof Error ? error.message : "No se pudo actualizar la colección." };
   }
@@ -549,8 +659,9 @@ export async function removeOneCatalogGameFromCollection(
 ): Promise<{ removed: number; remaining: number } | { error: string }> {
   const protectedIds = new Set(protectedItemIds);
   try {
-    return await mutateUserCollection<
-      { removed: number; remaining: number } | { error: string }
+    const result = await mutateUserCollection<
+      | { removed: number; remaining: number; removedItem: RemovedCollectionItem | null }
+      | { error: string }
     >(userId, (file) => {
       const matchingIndexes = file.items
         .map((item, index) => ({ item, index }))
@@ -580,6 +691,7 @@ export async function removeOneCatalogGameFromCollection(
         const bTime = Date.parse(b.item.addedAt ?? "");
         return (Number.isFinite(bTime) ? bTime : 0) - (Number.isFinite(aTime) ? aTime : 0);
       })[0];
+      let removedItem: RemovedCollectionItem | null = null;
 
       if (target.item.quantity > 1) {
         const unitValue =
@@ -592,14 +704,27 @@ export async function removeOneCatalogGameFromCollection(
             Math.round(unitValue * target.item.quantity * 100) / 100;
         }
       } else {
+        removedItem = target.item;
         file.items.splice(target.index, 1);
       }
 
       const remaining = file.items
         .filter((item) => item.catalogId === catalogId)
         .reduce((total, item) => total + Math.max(1, item.quantity || 1), 0);
-      return { next: file, result: { removed: 1, remaining } };
+      return {
+        next: file,
+        result: {
+          removed: 1,
+          remaining,
+          removedItem,
+        },
+      };
     });
+    if ("error" in result) return result;
+    if (result.removedItem) {
+      await deleteRemovedCollectionPhotos(userId, [result.removedItem]);
+    }
+    return { removed: result.removed, remaining: result.remaining };
   } catch (error) {
     return { error: error instanceof Error ? error.message : "No se pudo actualizar la colección." };
   }

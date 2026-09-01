@@ -121,7 +121,7 @@ export function normalizeIndividualCollectionItems(items: CollectionItem[]): {
         candidate = `${item.id}-copy-${suffix}`;
       }
       usedIds.add(candidate);
-      normalized.push({ ...first, id: candidate });
+      normalized.push({ ...first, id: candidate, photos: [] });
     }
   }
 

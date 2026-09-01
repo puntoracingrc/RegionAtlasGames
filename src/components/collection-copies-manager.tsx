@@ -21,6 +21,7 @@ import {
   COLLECTION_CONDITION_LABELS,
   priceForCollectionCondition,
 } from "@/lib/condition-prices";
+import { CollectionCopyPhotos } from "@/components/collection-copy-photos";
 
 export type CollectionCopyListing = {
   id: string;
@@ -86,7 +87,7 @@ export function CollectionCopiesManager({
           <h2 className="text-lg font-bold text-foreground">Tus copias</h2>
           <p className="mt-1 text-sm text-muted">
             {items.length} {items.length === 1 ? "copia" : "copias"}. Cada una tiene su propio
-            estado, compra, notas y anuncio.
+            estado, compra, fotos, notas y anuncio.
           </p>
         </div>
         <button
@@ -258,7 +259,8 @@ function CollectionCopyRow({
   const disabled = busy !== null;
   const activeListing = listing?.status === "active";
   const draftListing = listing?.status === "draft";
-  const cover = getCoverSrc(item.coverUrl, item.catalogId ?? item.id);
+  const ownFrontPhoto = item.photos?.find((photo) => photo.slot === "cover-front");
+  const cover = ownFrontPhoto?.url ?? getCoverSrc(item.coverUrl, item.catalogId ?? item.id);
   const title = decodeHtmlEntities(item.title);
   const catalogEstimate = priceForCollectionCondition(item, condition);
 
@@ -269,7 +271,7 @@ function CollectionCopyRow({
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={cover}
-            alt={`Portada de ${title}`}
+            alt={`${ownFrontPhoto ? "Tu portada" : "Portada"} de ${title}`}
             className="max-h-full max-w-full object-contain"
             loading="lazy"
           />
@@ -373,6 +375,12 @@ function CollectionCopyRow({
           <span className="text-[11px] font-medium text-muted">Notas personales</span>
           <input className="input h-10 text-sm" value={notes} maxLength={1000} disabled={disabled} placeholder="Ej. Primera tirada, pequeño roce en la caja…" onChange={(event) => setNotes(event.target.value)} />
         </label>
+
+        <CollectionCopyPhotos
+          item={item}
+          disabled={disabled}
+          onSaved={onSaved}
+        />
 
         {feedback ? (
           <p role={feedback.tone === "error" ? "alert" : "status"} className={`mt-2 text-sm ${feedback.tone === "error" ? "text-rose-700 dark:text-rose-300" : "text-emerald-700 dark:text-emerald-300"}`}>
