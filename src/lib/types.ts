@@ -488,7 +488,19 @@ export type CollectionView = CollectionItem & {
   availableCatalogId?: string | null;
 };
 
-export type CollectionSort = "added-desc" | "title-asc" | "year-asc" | "year-desc";
+export type CollectionSort =
+  | "added-desc"
+  | "added-asc"
+  | "title-asc"
+  | "price-desc"
+  | "price-asc"
+  | "purchased-desc"
+  | "purchased-asc"
+  | "quantity-desc"
+  | "quantity-asc";
+
+export type CollectionListingState = "active" | "draft" | "pending-sale";
+export type CollectionSaleFilter = "all" | CollectionListingState | "not-listed";
 
 export type GameFilters = {
   q: string;
@@ -496,7 +508,8 @@ export type GameFilters = {
   developer: string;
   publisher: string;
   sort: CollectionSort;
-  sealed: "all" | "yes" | "no";
+  condition: "all" | CollectionCondition;
+  sale: CollectionSaleFilter;
 };
 
 /** @deprecated usar CollectionView */

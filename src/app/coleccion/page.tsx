@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CollectionCatalogRequestPanel } from "@/components/collection-catalog-request";
 import { CollectionExplorer } from "@/components/collection-explorer";
 import { CollectionImport } from "@/components/collection-import";
+import { CollectionSalesHistory } from "@/components/collection-sales-history";
 import {
   CollectionOutOfScopePanel,
   CollectionPendingPanel,
@@ -11,17 +12,19 @@ import { SiteNav } from "@/components/site-nav";
 import { Panel, PanelTitle } from "@/components/ui";
 import {
   filterMainCollectionExplorerItems,
-  getUserCollectionViews,
   readUserCollection,
   summarizeCollectionForPlan,
 } from "@/lib/collection-store";
+import { enrichCollectionItem } from "@/lib/catalog";
 import { outOfScopeCollectionItems, pendingCatalogItems } from "@/lib/import-collection";
 import { enrichCollectionGapItem } from "@/lib/collection-gap";
 import { countCollectionByPlatform } from "@/lib/collection-platform-groups";
 import { canViewCollectionValue } from "@/lib/plans";
 import { isCatalogRequestConfigured } from "@/lib/email";
+import { collectionListingStates, completedCollectionSales } from "@/lib/collection-sales";
 import { SITE_LOGO } from "@/lib/site-brand";
 import { getCurrentUser } from "@/lib/users";
+import { getSellerListings } from "@/lib/listings";
 
 export default async function CollectionPage() {
   const user = await getCurrentUser();
@@ -46,8 +49,13 @@ export default async function CollectionPage() {
     );
   }
 
-  const file = await readUserCollection(user.id);
-  const items = await getUserCollectionViews(user.id);
+  const [file, sellerListings] = await Promise.all([
+    readUserCollection(user.id),
+    getSellerListings(user.id),
+  ]);
+  const items = file.items.map(enrichCollectionItem);
+  const listingStateByItemId = collectionListingStates(sellerListings);
+  const completedSales = completedCollectionSales(sellerListings);
   const linkedItems = filterMainCollectionExplorerItems(items);
   const pendingItems = pendingCatalogItems(file.items).map(enrichCollectionGapItem);
   const outOfScopeItems = outOfScopeCollectionItems(file.items).map(enrichCollectionGapItem);
@@ -114,8 +122,11 @@ export default async function CollectionPage() {
             items={linkedItems}
             summary={summary}
             canViewCollectionValue={showCollectionValue}
+            listingStateByItemId={listingStateByItemId}
           />
         )}
+
+        <CollectionSalesHistory listings={completedSales} />
 
         {hasItems && !hasLinkedItems && summary.pendingCatalog === 0 && summary.outOfScopeItems === 0 && (
           <p className="rounded-2xl border border-dashed border-border p-10 text-center text-muted">

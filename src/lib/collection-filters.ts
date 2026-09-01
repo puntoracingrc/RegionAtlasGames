@@ -1,12 +1,25 @@
-import type { CollectionView, GameFilters } from "@/lib/types";
+import {
+  collectionCondition,
+  type CollectionDisplayItem,
+} from "@/lib/collection-display";
+import type {
+  CollectionListingState,
+  CollectionView,
+  GameFilters,
+} from "@/lib/types";
 
 export type CollectionSort = GameFilters["sort"];
 
 export const COLLECTION_SORT_OPTIONS: { value: CollectionSort; label: string }[] = [
   { value: "added-desc", label: "Últimos añadidos" },
+  { value: "added-asc", label: "Primeros añadidos" },
+  { value: "purchased-desc", label: "Compra más reciente" },
+  { value: "purchased-asc", label: "Compra más antigua" },
+  { value: "price-desc", label: "Precio (mayor → menor)" },
+  { value: "price-asc", label: "Precio (menor → mayor)" },
+  { value: "quantity-desc", label: "Cantidad (mayor → menor)" },
+  { value: "quantity-asc", label: "Cantidad (menor → mayor)" },
   { value: "title-asc", label: "Alfabético (A → Z)" },
-  { value: "year-asc", label: "Año de salida (antiguo → reciente)" },
-  { value: "year-desc", label: "Año de salida (reciente → antiguo)" },
 ];
 
 export const DEFAULT_COLLECTION_SORT: CollectionSort = "added-desc";
@@ -17,7 +30,8 @@ export const DEFAULT_COLLECTION_FILTERS: GameFilters = {
   developer: "all",
   publisher: "all",
   sort: DEFAULT_COLLECTION_SORT,
-  sealed: "all",
+  condition: "all",
+  sale: "all",
 };
 
 export function hasActiveCollectionFilters(filters: GameFilters): boolean {
@@ -27,7 +41,8 @@ export function hasActiveCollectionFilters(filters: GameFilters): boolean {
     filters.developer !== "all" ||
     filters.publisher !== "all" ||
     filters.sort !== DEFAULT_COLLECTION_SORT ||
-    filters.sealed !== "all"
+    filters.condition !== "all" ||
+    filters.sale !== "all"
   );
 }
 
@@ -62,66 +77,122 @@ export function collectionPublisherOptions(items: CollectionView[]): CollectionF
   return [];
 }
 
-function addedAtMs(item: CollectionView, index: number): number {
-  if (item.addedAt) {
-    const t = Date.parse(item.addedAt);
-    if (!Number.isNaN(t)) return t;
-  }
-  return index;
-}
-
-function sortCollectionItems(
-  list: { item: CollectionView; index: number }[],
-  sort: CollectionSort,
-): CollectionView[] {
-  const sorted = [...list];
-  sorted.sort((a, b) => {
-    switch (sort) {
-      case "title-asc":
-        return a.item.title.localeCompare(b.item.title, "es");
-      case "year-asc": {
-        return a.item.title.localeCompare(b.item.title, "es");
-      }
-      case "year-desc": {
-        return a.item.title.localeCompare(b.item.title, "es");
-      }
-      case "added-desc":
-      default:
-        return addedAtMs(b.item, b.index) - addedAtMs(a.item, a.index);
-    }
-  });
-  return sorted.map(({ item }) => item);
-}
-
 export function filterCollection(
   source: CollectionView[],
   filters: GameFilters,
+  listingStateByItemId: Record<string, CollectionListingState> = {},
 ): CollectionView[] {
   const q = filters.q.trim().toLowerCase();
-  const indexed = source.map((item, index) => ({ item, index }));
 
-  const filtered = indexed.filter(({ item }) => {
+  return source.filter((item) => {
     if (filters.platform !== "all" && item.platformSlug !== filters.platform) {
       return false;
     }
-    if (filters.sealed === "yes" && !item.sealed) return false;
-    if (filters.sealed === "no" && item.sealed) return false;
+    if (filters.condition !== "all" && collectionCondition(item) !== filters.condition) {
+      return false;
+    }
+
+    const listingState = listingStateByItemId[item.id] ?? null;
+    if (filters.sale === "not-listed" && listingState !== null) return false;
+    if (
+      filters.sale !== "all" &&
+      filters.sale !== "not-listed" &&
+      listingState !== filters.sale
+    ) {
+      return false;
+    }
 
     if (filters.developer !== "all" || filters.publisher !== "all") return false;
-
     if (!q) return true;
 
-    const haystack = [
-      item.title,
-      item.titlePc,
-      item.platformSlug,
-      item.notes,
-    ]
+    const haystack = [item.title, item.titlePc, item.platformSlug, item.notes]
       .filter(Boolean)
       .join(" ")
       .toLowerCase();
     return haystack.includes(q);
   });
+}
 
-  return sortCollectionItems(filtered, filters.sort);
+function dateMs(value: string | null): number | null {
+  if (!value) return null;
+  const parsed = Date.parse(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function compareNullableNumber(
+  left: number | null,
+  right: number | null,
+  direction: "asc" | "desc",
+): number {
+  if (left == null && right == null) return 0;
+  if (left == null) return 1;
+  if (right == null) return -1;
+  return direction === "asc" ? left - right : right - left;
+}
+
+function unitPrice(item: CollectionDisplayItem): number | null {
+  if (item.game.recommendedPrice != null) return item.game.recommendedPrice;
+  if (item.game.totalValue == null || item.units <= 0) return null;
+  return item.game.totalValue / item.units;
+}
+
+export function sortCollectionDisplayItems(
+  source: CollectionDisplayItem[],
+  sort: CollectionSort,
+): CollectionDisplayItem[] {
+  const indexed = source.map((item, index) => ({ item, index }));
+  indexed.sort((left, right) => {
+    let compared = 0;
+    switch (sort) {
+      case "title-asc":
+        return left.item.game.title.localeCompare(right.item.game.title, "es");
+      case "price-desc":
+        compared = compareNullableNumber(unitPrice(left.item), unitPrice(right.item), "desc");
+        break;
+      case "price-asc":
+        compared = compareNullableNumber(unitPrice(left.item), unitPrice(right.item), "asc");
+        break;
+      case "purchased-desc":
+        compared = compareNullableNumber(
+          dateMs(left.item.latestPurchasedAt),
+          dateMs(right.item.latestPurchasedAt),
+          "desc",
+        );
+        break;
+      case "purchased-asc":
+        compared = compareNullableNumber(
+          dateMs(left.item.earliestPurchasedAt),
+          dateMs(right.item.earliestPurchasedAt),
+          "asc",
+        );
+        break;
+      case "quantity-desc":
+        compared = right.item.units - left.item.units;
+        break;
+      case "quantity-asc":
+        compared = left.item.units - right.item.units;
+        break;
+      case "added-asc":
+        compared = compareNullableNumber(
+          dateMs(left.item.earliestAddedAt),
+          dateMs(right.item.earliestAddedAt),
+          "asc",
+        );
+        break;
+      case "added-desc":
+      default:
+        compared = compareNullableNumber(
+          dateMs(left.item.latestAddedAt),
+          dateMs(right.item.latestAddedAt),
+          "desc",
+        );
+        if (compared === 0 && !left.item.latestAddedAt && !right.item.latestAddedAt) {
+          compared = right.index - left.index;
+        }
+        break;
+    }
+
+    return compared || left.item.game.title.localeCompare(right.item.game.title, "es");
+  });
+  return indexed.map(({ item }) => item);
 }
