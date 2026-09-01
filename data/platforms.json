@@ -249,11 +249,11 @@
     "shortName": "PSP",
     "manufacturer": "sony",
     "status": "semi-closed",
-    "estimatedCatalogSize": 1230,
+    "estimatedCatalogSize": 2349,
     "sortOrder": 25,
     "active": true,
     "newsEnabled": false,
-    "description": "Catálogo físico iniciado con ediciones NTSC USA y precios por estado de conservación."
+    "description": "Catálogo físico con ediciones PAL España provisionales (base PAL Europa) y NTSC USA; precios USA por estado de conservación."
   },
   {
     "slug": "switch2",
