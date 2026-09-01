@@ -9874,6 +9874,14 @@
         "gameManual": null,
         "complete": 2.99,
         "sealed": null
+      },
+      {
+        "at": "2026-09-01T02:24:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.4,
+        "sealed": 11.87,
+        "newRetail": null
       }
     ],
     "ps4-eve-valkyrie": [
@@ -9883,6 +9891,14 @@
         "gameManual": null,
         "complete": 6.99,
         "sealed": null
+      },
+      {
+        "at": "2026-09-01T04:18:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.17,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-evoland-legendary-edition": [
@@ -9892,6 +9908,14 @@
         "gameManual": null,
         "complete": 19.95,
         "sealed": null
+      },
+      {
+        "at": "2026-09-01T04:48:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.95,
+        "sealed": 37.5,
+        "newRetail": null
       }
     ],
     "ps4-fantasy-friends": [
@@ -12655,20 +12679,20 @@
     ],
     "ps4-destiny": [
       {
-        "at": "2026-08-31T20:35:15Z",
+        "at": "2026-08-31T23:28:10Z",
         "loose": null,
         "gameManual": null,
-        "complete": 9.5,
+        "complete": 7.78,
         "sealed": null,
         "newRetail": null
       }
     ],
     "ps4-destiny-2": [
       {
-        "at": "2026-08-31T20:35:15Z",
+        "at": "2026-08-31T23:28:10Z",
         "loose": null,
         "gameManual": null,
-        "complete": 4.0,
+        "complete": 6.48,
         "sealed": null,
         "newRetail": null
       }
@@ -12681,6 +12705,14 @@
         "complete": 19.95,
         "sealed": 30.0,
         "newRetail": null
+      },
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.99,
+        "sealed": 40.0,
+        "newRetail": null
       }
     ],
     "ps4-deus-ex-mankind-divided-day-one-edition": [
@@ -12689,6 +12721,14 @@
         "loose": null,
         "gameManual": null,
         "complete": 11.0,
+        "sealed": null,
+        "newRetail": null
+      },
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 7.63,
         "sealed": null,
         "newRetail": null
       }
@@ -12701,6 +12741,14 @@
         "complete": null,
         "sealed": 19.0,
         "newRetail": null
+      },
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.89,
+        "sealed": 18.5,
+        "newRetail": null
       }
     ],
     "ps4-diablo-iii-eternal-collection": [
@@ -12709,6 +12757,14 @@
         "loose": null,
         "gameManual": null,
         "complete": 15.0,
+        "sealed": null,
+        "newRetail": null
+      },
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 21.38,
         "sealed": null,
         "newRetail": null
       }
@@ -12731,6 +12787,14 @@
         "complete": 30.0,
         "sealed": null,
         "newRetail": null
+      },
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 23.0,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-dirt-4": [
@@ -12739,6 +12803,14 @@
         "loose": null,
         "gameManual": null,
         "complete": 15.0,
+        "sealed": null,
+        "newRetail": null
+      },
+      {
+        "at": "2026-09-01T00:30:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.08,
         "sealed": null,
         "newRetail": null
       }
@@ -12751,6 +12823,14 @@
         "complete": null,
         "sealed": null,
         "newRetail": null
+      },
+      {
+        "at": "2026-09-01T00:30:06Z",
+        "loose": 19.5,
+        "gameManual": null,
+        "complete": 24.5,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-dishonored-2": [
@@ -12759,6 +12839,14 @@
         "loose": null,
         "gameManual": null,
         "complete": 5.0,
+        "sealed": null,
+        "newRetail": null
+      },
+      {
+        "at": "2026-09-01T00:30:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 8.69,
         "sealed": null,
         "newRetail": null
       }
@@ -12801,6 +12889,14 @@
         "complete": 8.95,
         "sealed": null,
         "newRetail": null
+      },
+      {
+        "at": "2026-09-01T00:58:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.38,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-dmc-devil-may-cry-definitive-edition": [
@@ -12809,6 +12905,14 @@
         "loose": null,
         "gameManual": null,
         "complete": null,
+        "sealed": null,
+        "newRetail": 14.99
+      },
+      {
+        "at": "2026-09-01T00:58:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 26.33,
         "sealed": null,
         "newRetail": 14.99
       }
@@ -12820,6 +12924,14 @@
         "gameManual": null,
         "complete": 24.0,
         "sealed": null,
+        "newRetail": 22.49
+      },
+      {
+        "at": "2026-09-01T00:58:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 29.0,
+        "sealed": 37.5,
         "newRetail": 22.49
       }
     ],
@@ -12851,6 +12963,14 @@
         "complete": 9.99,
         "sealed": null,
         "newRetail": null
+      },
+      {
+        "at": "2026-09-01T01:22:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.0,
+        "sealed": 22.5,
+        "newRetail": null
       }
     ],
     "ps4-don%27t-knock-twice": [
@@ -12860,6 +12980,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": null,
+        "newRetail": 14.95
+      },
+      {
+        "at": "2026-09-01T01:22:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 37.91,
+        "sealed": 35.0,
         "newRetail": 14.95
       }
     ],
@@ -12881,6 +13009,14 @@
         "complete": null,
         "sealed": null,
         "newRetail": 19.99
+      },
+      {
+        "at": "2026-09-01T01:52:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.79,
+        "sealed": 25.51,
+        "newRetail": 19.99
       }
     ],
     "ps4-dragon-ball-fighterz": [
@@ -12889,6 +13025,14 @@
         "loose": null,
         "gameManual": null,
         "complete": 12.99,
+        "sealed": null,
+        "newRetail": null
+      },
+      {
+        "at": "2026-09-01T01:52:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.19,
         "sealed": null,
         "newRetail": null
       }
@@ -12901,6 +13045,14 @@
         "complete": 16.99,
         "sealed": null,
         "newRetail": null
+      },
+      {
+        "at": "2026-09-01T01:52:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.92,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "ps4-dragon-ball-xenoverse-2": [
@@ -12909,6 +13061,14 @@
         "loose": null,
         "gameManual": null,
         "complete": 9.99,
+        "sealed": null,
+        "newRetail": null
+      },
+      {
+        "at": "2026-09-01T01:52:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 13.48,
         "sealed": null,
         "newRetail": null
       }
@@ -12921,6 +13081,14 @@
         "complete": 14.99,
         "sealed": null,
         "newRetail": 19.99
+      },
+      {
+        "at": "2026-09-01T01:52:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.07,
+        "sealed": null,
+        "newRetail": 19.99
       }
     ],
     "ps4-dragon-ball-z-kakarot-legendary-edition": [
@@ -12930,6 +13098,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": null,
+        "newRetail": 59.99
+      },
+      {
+        "at": "2026-09-01T01:52:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.25,
+        "sealed": 10.67,
         "newRetail": 59.99
       }
     ],
@@ -12951,6 +13127,14 @@
         "complete": null,
         "sealed": null,
         "newRetail": 14.99
+      },
+      {
+        "at": "2026-09-01T02:24:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 50.35,
+        "newRetail": 14.99
       }
     ],
     "ps4-dragon%27s-dogma-dark-arisen": [
@@ -12961,6 +13145,14 @@
         "complete": null,
         "sealed": null,
         "newRetail": 14.99
+      },
+      {
+        "at": "2026-09-01T02:24:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.0,
+        "sealed": 21.13,
+        "newRetail": 14.99
       }
     ],
     "ps4-dreams": [
@@ -12970,6 +13162,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": null,
+        "newRetail": 9.99
+      },
+      {
+        "at": "2026-09-01T02:24:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.52,
+        "sealed": 41.25,
         "newRetail": 9.99
       }
     ],
@@ -12991,6 +13191,14 @@
         "complete": 6.95,
         "sealed": null,
         "newRetail": 19.95
+      },
+      {
+        "at": "2026-09-01T02:24:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.29,
+        "sealed": null,
+        "newRetail": 19.95
       }
     ],
     "ps4-driveclub-vr": [
@@ -12999,6 +13207,14 @@
         "loose": null,
         "gameManual": null,
         "complete": 6.95,
+        "sealed": null,
+        "newRetail": 19.95
+      },
+      {
+        "at": "2026-09-01T02:24:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.67,
         "sealed": null,
         "newRetail": 19.95
       }
@@ -13041,6 +13257,14 @@
         "complete": 22.99,
         "sealed": null,
         "newRetail": 29.95
+      },
+      {
+        "at": "2026-09-01T02:52:38Z",
+        "loose": 22.49,
+        "gameManual": null,
+        "complete": 17.5,
+        "sealed": null,
+        "newRetail": 29.95
       }
     ],
     "ps4-ea-sports-fc-24": [
@@ -13049,6 +13273,14 @@
         "loose": null,
         "gameManual": null,
         "complete": 14.99,
+        "sealed": null,
+        "newRetail": 29.99
+      },
+      {
+        "at": "2026-09-01T02:52:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.77,
         "sealed": null,
         "newRetail": 29.99
       }
@@ -13061,6 +13293,14 @@
         "complete": 24.99,
         "sealed": null,
         "newRetail": 29.99
+      },
+      {
+        "at": "2026-09-01T02:52:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.46,
+        "sealed": null,
+        "newRetail": 29.99
       }
     ],
     "ps4-ea-sports-fc-26": [
@@ -13069,6 +13309,14 @@
         "loose": null,
         "gameManual": null,
         "complete": null,
+        "sealed": null,
+        "newRetail": 26.99
+      },
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 30.78,
         "sealed": null,
         "newRetail": 26.99
       }
@@ -13091,6 +13339,14 @@
         "complete": null,
         "sealed": null,
         "newRetail": 34.95
+      },
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 39.0,
+        "sealed": null,
+        "newRetail": 34.95
       }
     ],
     "ps4-edge-of-eternity": [
@@ -13101,6 +13357,14 @@
         "complete": null,
         "sealed": null,
         "newRetail": 19.99
+      },
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.7,
+        "sealed": 22.17,
+        "newRetail": 19.99
       }
     ],
     "ps4-efootball-pes-2020": [
@@ -13109,6 +13373,14 @@
         "loose": null,
         "gameManual": null,
         "complete": 9.99,
+        "sealed": null,
+        "newRetail": 19.95
+      },
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.0,
         "sealed": null,
         "newRetail": 19.95
       }
@@ -13131,6 +13403,14 @@
         "complete": null,
         "sealed": null,
         "newRetail": 34.99
+      },
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 32.63,
+        "sealed": null,
+        "newRetail": 34.99
       }
     ],
     "ps4-elden-ring-nightreign": [
@@ -13140,6 +13420,14 @@
         "gameManual": null,
         "complete": null,
         "sealed": null,
+        "newRetail": 24.99
+      },
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 25.71,
         "newRetail": 24.99
       }
     ],
@@ -13151,6 +13439,14 @@
         "complete": 19.99,
         "sealed": null,
         "newRetail": 29.99
+      },
+      {
+        "at": "2026-09-01T03:55:20Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.5,
+        "sealed": null,
+        "newRetail": 29.99
       }
     ],
     "ps4-elex-ii": [
@@ -13160,6 +13456,14 @@
         "gameManual": null,
         "complete": 9.99,
         "sealed": null,
+        "newRetail": 12.99
+      },
+      {
+        "at": "2026-09-01T03:55:20Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.43,
+        "sealed": 22.5,
         "newRetail": 12.99
       }
     ],
@@ -13665,11 +13969,11 @@
     ],
     "ps4-endling-extinction-is-forever": [
       {
-        "at": "2026-09-01T00:03:42Z",
+        "at": "2026-09-01T04:18:05Z",
         "loose": null,
         "gameManual": null,
         "complete": null,
-        "sealed": 29.89,
+        "sealed": 27.49,
         "newRetail": null
       }
     ],
@@ -13685,30 +13989,30 @@
     ],
     "ps4-evolve": [
       {
-        "at": "2026-09-01T00:03:42Z",
+        "at": "2026-09-01T04:48:29Z",
         "loose": null,
         "gameManual": null,
-        "complete": 7.0,
+        "complete": 6.9,
         "sealed": null,
         "newRetail": null
       }
     ],
     "ps4-extinction": [
       {
-        "at": "2026-09-01T00:03:42Z",
+        "at": "2026-09-01T04:48:29Z",
         "loose": null,
         "gameManual": null,
-        "complete": 7.99,
+        "complete": 13.8,
         "sealed": null,
         "newRetail": null
       }
     ],
     "ps4-f1-2015": [
       {
-        "at": "2026-09-01T00:03:42Z",
+        "at": "2026-09-01T04:48:29Z",
         "loose": null,
         "gameManual": null,
-        "complete": 17.0,
+        "complete": 8.83,
         "sealed": null,
         "newRetail": null
       }
@@ -13725,60 +14029,60 @@
     ],
     "ps4-f1-2021": [
       {
-        "at": "2026-09-01T00:03:42Z",
+        "at": "2026-09-01T05:21:10Z",
         "loose": null,
         "gameManual": null,
-        "complete": 7.0,
+        "complete": 9.92,
         "sealed": null,
         "newRetail": null
       }
     ],
     "ps4-f1-22": [
       {
-        "at": "2026-09-01T00:03:42Z",
+        "at": "2026-09-01T05:21:10Z",
         "loose": null,
         "gameManual": null,
-        "complete": 12.5,
+        "complete": 9.71,
         "sealed": null,
         "newRetail": null
       }
     ],
     "ps4-f1-24": [
       {
-        "at": "2026-09-01T00:03:42Z",
+        "at": "2026-09-01T05:21:10Z",
         "loose": null,
         "gameManual": null,
-        "complete": null,
+        "complete": 24.98,
         "sealed": null,
         "newRetail": 26.95
       }
     ],
     "ps4-fade-to-silence": [
       {
-        "at": "2026-09-01T00:03:42Z",
-        "loose": null,
+        "at": "2026-09-01T05:21:10Z",
+        "loose": 12.45,
         "gameManual": null,
-        "complete": 13.0,
-        "sealed": null,
+        "complete": 11.9,
+        "sealed": 22.84,
         "newRetail": null
       }
     ],
     "ps4-fallout-4": [
       {
-        "at": "2026-09-01T00:03:42Z",
+        "at": "2026-09-01T05:21:10Z",
         "loose": null,
         "gameManual": null,
-        "complete": 10.0,
+        "complete": 13.28,
         "sealed": null,
         "newRetail": null
       }
     ],
     "ps4-fallout-76": [
       {
-        "at": "2026-09-01T00:03:42Z",
+        "at": "2026-09-01T05:21:10Z",
         "loose": null,
         "gameManual": null,
-        "complete": 9.0,
+        "complete": 8.44,
         "sealed": null,
         "newRetail": null
       }
@@ -14100,6 +14404,816 @@
         "gameManual": null,
         "complete": 17.37,
         "sealed": 27.42,
+        "newRetail": null
+      }
+    ],
+    "ps4-demon-gaze-ii": [
+      {
+        "at": "2026-08-31T23:28:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 39.0,
+        "sealed": 45.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-demons-age": [
+      {
+        "at": "2026-08-31T23:28:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 44.99,
+        "newRetail": null
+      }
+    ],
+    "ps4-deponia": [
+      {
+        "at": "2026-08-31T23:28:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 40.67,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-deponia-collection": [
+      {
+        "at": "2026-08-31T23:28:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 78.67,
+        "sealed": 110.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-descenders": [
+      {
+        "at": "2026-08-31T23:28:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.23,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-desperados-iii": [
+      {
+        "at": "2026-08-31T23:28:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 13.49,
+        "sealed": 22.79,
+        "newRetail": null
+      }
+    ],
+    "ps4-destiny-2-los-renegados": [
+      {
+        "at": "2026-08-31T23:28:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 7.61,
+        "sealed": 13.7,
+        "newRetail": null
+      }
+    ],
+    "ps4-destiny-connect-tick-tock-travelers": [
+      {
+        "at": "2026-08-31T23:28:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.95,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-destiny-the-collection": [
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 8.54,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-destroy-all-humans": [
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.01,
+        "sealed": 23.99,
+        "newRetail": null
+      }
+    ],
+    "ps4-devil-may-cry-hd-collection": [
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 34.95,
+        "newRetail": null
+      }
+    ],
+    "ps4-dex": [
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 24.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-digimon-story-cyber-sleuth": [
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 24.33,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-digimon-story-cyber-sleuth-hackers-memory": [
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 32.62,
+        "sealed": 37.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-digimon-survive": [
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.1,
+        "sealed": 22.23,
+        "newRetail": null
+      }
+    ],
+    "ps4-digimon-world-next-order": [
+      {
+        "at": "2026-09-01T00:04:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.11,
+        "sealed": 26.74,
+        "newRetail": null
+      }
+    ],
+    "ps4-dirt-5": [
+      {
+        "at": "2026-09-01T00:30:06Z",
+        "loose": 16.5,
+        "gameManual": null,
+        "complete": 13.27,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dirt-rally": [
+      {
+        "at": "2026-09-01T00:30:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.33,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dirt-rally-vr": [
+      {
+        "at": "2026-09-01T00:30:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-disco-elysium-the-final-cut": [
+      {
+        "at": "2026-09-01T00:30:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 104.67,
+        "newRetail": null
+      }
+    ],
+    "ps4-disgaea-1-complete": [
+      {
+        "at": "2026-09-01T00:30:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 40.18,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-disgaea-7-vows-of-the-virtueless-deluxe-edition": [
+      {
+        "at": "2026-09-01T00:30:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 28.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-dishonored-prey-the-arkane-collection": [
+      {
+        "at": "2026-09-01T00:58:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 28.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-disney-classic-games-aladdin-and-the-lion-king": [
+      {
+        "at": "2026-09-01T00:58:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.8,
+        "sealed": 24.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-disney-infinity-20": [
+      {
+        "at": "2026-09-01T00:58:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.75,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-disney-infinity-30": [
+      {
+        "at": "2026-09-01T00:58:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.56,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-divinity-original-sin-enhanced-edition": [
+      {
+        "at": "2026-09-01T00:58:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 66.25,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-divinity-original-sin-ii-definitive-edition": [
+      {
+        "at": "2026-09-01T00:58:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 53.32,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dogchild": [
+      {
+        "at": "2026-09-01T01:22:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.81,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dollhouse": [
+      {
+        "at": "2026-09-01T01:22:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 56.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-doom": [
+      {
+        "at": "2026-09-01T01:22:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 13.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-doom-3-vr-edition": [
+      {
+        "at": "2026-09-01T01:22:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 60.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-doom-eternal": [
+      {
+        "at": "2026-09-01T01:22:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.16,
+        "sealed": 47.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-doom-vfr": [
+      {
+        "at": "2026-09-01T01:22:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.25,
+        "sealed": 32.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-down-the-rabbit-hole": [
+      {
+        "at": "2026-09-01T01:52:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 37.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-dragon-age-inquisition": [
+      {
+        "at": "2026-09-01T01:52:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.83,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dragon-ball-xenoverse": [
+      {
+        "at": "2026-09-01T01:52:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.71,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dragon-ball-the-breakers-special-edition": [
+      {
+        "at": "2026-09-01T01:52:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.37,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dragon-quest-builders-2": [
+      {
+        "at": "2026-09-01T01:52:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 23.33,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dragon-quest-xi-echoes-of-an-elusive-age": [
+      {
+        "at": "2026-09-01T02:24:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dragon-quest-xi-edicion-definitiva": [
+      {
+        "at": "2026-09-01T02:24:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 21.48,
+        "sealed": 26.97,
+        "newRetail": null
+      }
+    ],
+    "ps4-dreamfall-chapters": [
+      {
+        "at": "2026-09-01T02:24:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.67,
+        "sealed": 26.25,
+        "newRetail": null
+      }
+    ],
+    "ps4-ducati-90th-anniversary": [
+      {
+        "at": "2026-09-01T02:24:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 5.81,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dungeons-2": [
+      {
+        "at": "2026-09-01T02:52:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.48,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dying-light": [
+      {
+        "at": "2026-09-01T02:52:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.67,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dying-light-2-stay-human": [
+      {
+        "at": "2026-09-01T02:52:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 20.88,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-dynasty-feud": [
+      {
+        "at": "2026-09-01T02:52:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 7.57,
+        "sealed": 15.4,
+        "newRetail": null
+      }
+    ],
+    "ps4-dynasty-warriors-9": [
+      {
+        "at": "2026-09-01T02:52:38Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.8,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-eagle-flight": [
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 16.17,
+        "sealed": 23.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-earthfall-deluxe-edition": [
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 16.99,
+        "newRetail": null
+      }
+    ],
+    "ps4-earthlock-festival-of-magic": [
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 19.99,
+        "newRetail": null
+      }
+    ],
+    "ps4-earth-s-dawn": [
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.32,
+        "sealed": 50.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-elden-ring": [
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 25.25,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-elden-ring-lanzamiento": [
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 50.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-elder-scrolls-online-elsweyr": [
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.42,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-elder-scrolls-online-summerset": [
+      {
+        "at": "2026-09-01T03:25:06Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 5.49,
+        "sealed": 13.33,
+        "newRetail": null
+      }
+    ],
+    "ps4-elder-scrolls-online-tamriel-unlimited": [
+      {
+        "at": "2026-09-01T03:55:20Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 8.83,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-elder-scrolls-online-gold-edition": [
+      {
+        "at": "2026-09-01T03:55:20Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 6.75,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-elder-scrolls-v-skyrim-vr": [
+      {
+        "at": "2026-09-01T03:55:20Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.67,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-elex": [
+      {
+        "at": "2026-09-01T03:55:20Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 13.97,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-ender-lilies": [
+      {
+        "at": "2026-09-01T03:55:20Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 49.98,
+        "newRetail": null
+      }
+    ],
+    "ps4-eternights": [
+      {
+        "at": "2026-09-01T04:18:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-ever-forward": [
+      {
+        "at": "2026-09-01T04:18:05Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 28.48,
+        "newRetail": null
+      }
+    ],
+    "ps4-everybody%27s-golf": [
+      {
+        "at": "2026-09-01T04:48:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 25.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-everybody%27s-golf-vr": [
+      {
+        "at": "2026-09-01T04:48:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 22.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-evil-dead-the-game": [
+      {
+        "at": "2026-09-01T04:48:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.0,
+        "sealed": 41.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-evil-genius-2": [
+      {
+        "at": "2026-09-01T04:48:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 10.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-evil-west": [
+      {
+        "at": "2026-09-01T04:48:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 25.0,
+        "sealed": 19.99,
+        "newRetail": null
+      }
+    ],
+    "ps4-exoprimal": [
+      {
+        "at": "2026-09-01T04:48:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 14.31,
+        "newRetail": null
+      }
+    ],
+    "ps4-f1-2016": [
+      {
+        "at": "2026-09-01T04:48:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 6.75,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-f1-2017": [
+      {
+        "at": "2026-09-01T04:48:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 11.33,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-f1-2018": [
+      {
+        "at": "2026-09-01T04:48:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 9.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-f1-23": [
+      {
+        "at": "2026-09-01T05:21:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.4,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-f1-manager-22": [
+      {
+        "at": "2026-09-01T05:21:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.77,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-f1-manager-23": [
+      {
+        "at": "2026-09-01T05:21:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.4,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-fahrenheit": [
+      {
+        "at": "2026-09-01T05:21:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.25,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-fairy-fencer-f-advent-dark-force": [
+      {
+        "at": "2026-09-01T05:21:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 50.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-fairy-tail": [
+      {
+        "at": "2026-09-01T05:21:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 28.74,
+        "sealed": 75.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-fallout-76-tricentennial-edition": [
+      {
+        "at": "2026-09-01T05:21:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 10.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-fallout-76-wastelanders": [
+      {
+        "at": "2026-09-01T05:21:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 14.0,
+        "newRetail": null
+      }
+    ],
+    "ps4-fairy-tail-2": [
+      {
+        "at": "2026-09-01T05:21:10Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 31.96,
         "newRetail": null
       }
     ]
