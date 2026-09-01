@@ -24,6 +24,10 @@ La importación también normaliza las entidades HTML presentes en títulos here
 
 La lista acredita PAL Europa. Por indicación editorial se publica provisionalmente como PAL España, con `regionVerified: false`, hasta disponer de validación española por carátula, EAN o número de serie.
 
+## Publicación de portadas
+
+El 01/09/2026 se sincronizaron las **830 portadas** con el hosting. También se publicaron **55 alias técnicos** para las rutas con apóstrofos codificados; el inventario remoto confirmó **885 de 885 archivos** y las muestras públicas devolvieron HTTP 200.
+
 ## Fichas nuevas
 
 - Ball Blazer Champions

@@ -32,7 +32,7 @@ La clave interna de compatibilidad continúa siendo `USA`; la interfaz y la docu
 
 ## Publicación
 
-Las portadas están preparadas localmente, pero este lote no se ha enviado ni desplegado.
+El 01/09/2026 se sincronizaron las **1920 portadas** con el hosting. El inventario remoto confirmó **1920 de 1920 archivos** y las muestras públicas devolvieron HTTP 200.
 
 ## Coincidencias
 
