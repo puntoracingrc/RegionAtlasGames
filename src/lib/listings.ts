@@ -245,6 +245,44 @@ export async function syncDraftListingConditionForCollectionItem(input: {
   });
 }
 
+export async function syncDraftListingConditionsForCollectionItems(input: {
+  sellerId: string;
+  collectionItemIds: readonly string[];
+  collectionCondition: CollectionCondition;
+}): Promise<number> {
+  const selectedIds = new Set(input.collectionItemIds);
+  if (selectedIds.size === 0) return 0;
+
+  return mutateListings<number>((listings) => {
+    let synced = 0;
+    const next = listings.map((listing) => {
+      if (
+        listing.sellerId !== input.sellerId ||
+        listing.status !== "draft" ||
+        !selectedIds.has(listing.collectionItemId)
+      ) {
+        return listing;
+      }
+
+      const currentCondition = normalizeLegacyCollectionCondition(
+        listing.collectionCondition,
+        listing.sealed,
+      );
+      if (currentCondition === input.collectionCondition) return listing;
+
+      synced += 1;
+      return {
+        ...listing,
+        sealed: input.collectionCondition === "sealed",
+        collectionCondition: input.collectionCondition,
+        aiAnalysis: null,
+        updatedAt: new Date().toISOString(),
+      };
+    });
+    return { next, result: synced, changed: synced > 0 };
+  });
+}
+
 export async function upsertListingPhoto(
   id: string,
   sellerId: string,

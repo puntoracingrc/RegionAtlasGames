@@ -22,6 +22,7 @@ import { priceForCollectionCondition } from "./condition-prices";
 import { removeCollectionPhoto, upsertCollectionPhoto } from "./collection-photos";
 import { deleteCollectionPhotoFile } from "./collection-photo-storage";
 import {
+  availableCollectionConditions,
   DEFAULT_COLLECTION_CONDITION,
   isPricedCollectionCondition,
   normalizeLegacyCollectionCondition,
@@ -436,6 +437,93 @@ export async function updateUserCollectionItemDetails(
     });
   } catch (error) {
     return { error: error instanceof Error ? error.message : "No se pudo guardar la copia." };
+  }
+}
+
+export async function updateUserCollectionItemsCondition(
+  userId: string,
+  itemIds: readonly string[],
+  collectionCondition: PricedCollectionCondition,
+): Promise<
+  | { items: CollectionItem[]; updatedItemIds: string[] }
+  | { error: string }
+> {
+  if (!isPricedCollectionCondition(collectionCondition)) {
+    return { error: "El estado indicado no es válido." };
+  }
+
+  const selectedIds = new Set(itemIds.map((itemId) => itemId.trim()).filter(Boolean));
+  if (selectedIds.size === 0) return { error: "Selecciona al menos una copia." };
+  if (selectedIds.size > 2_000) return { error: "La selección supera el límite de 2.000 copias." };
+
+  try {
+    return await mutateUserCollection<
+      | { items: CollectionItem[]; updatedItemIds: string[] }
+      | { error: string }
+    >(userId, (file) => {
+      const selectedItems = file.items.filter((item) => selectedIds.has(item.id));
+      if (selectedItems.length !== selectedIds.size) {
+        return {
+          next: file,
+          result: { error: "Alguna copia seleccionada ya no existe en tu colección." } as const,
+          changed: false,
+        };
+      }
+
+      const incompatible = selectedItems.find((item) => {
+        const currentCondition = normalizeLegacyCollectionCondition(
+          item.collectionCondition,
+          item.sealed,
+        );
+        return (
+          currentCondition !== collectionCondition &&
+          !availableCollectionConditions(item.platformSlug).includes(collectionCondition)
+        );
+      });
+      if (incompatible) {
+        return {
+          next: file,
+          result: {
+            error: `El estado elegido no está disponible para ${incompatible.platformSlug.toUpperCase()}.`,
+          } as const,
+          changed: false,
+        };
+      }
+
+      const updatedItems: CollectionItem[] = [];
+      const updatedItemIds: string[] = [];
+      file.items = file.items.map((item) => {
+        if (!selectedIds.has(item.id)) return item;
+        const currentCondition = normalizeLegacyCollectionCondition(
+          item.collectionCondition,
+          item.sealed,
+        );
+        if (currentCondition === collectionCondition) return item;
+
+        const unitPrice = priceForCollectionCondition(item, collectionCondition);
+        const updated: CollectionItem = {
+          ...item,
+          quantity: 1,
+          quantityPc: null,
+          sealed: collectionCondition === "sealed",
+          collectionCondition,
+          totalValue: unitPrice == null ? item.totalValue : Math.round(unitPrice * 100) / 100,
+        };
+        updatedItems.push(updated);
+        updatedItemIds.push(item.id);
+        return updated;
+      });
+
+      return {
+        next: file,
+        result: { items: updatedItems, updatedItemIds },
+        changed: updatedItemIds.length > 0,
+      };
+    });
+  } catch (error) {
+    return {
+      error: error instanceof Error ? error.message : "No se pudo actualizar la colección.",
+    };
   }
 }
 
