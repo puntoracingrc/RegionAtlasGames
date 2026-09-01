@@ -15216,6 +15216,26 @@
         "sealed": 31.96,
         "newRetail": null
       }
+    ],
+    "ps4-dodgeball-academia": [
+      {
+        "at": "2026-09-01T11:47:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 29.5,
+        "newRetail": null
+      }
+    ],
+    "ps4-drunkn-bar-fight": [
+      {
+        "at": "2026-09-01T11:47:18Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.82,
+        "sealed": null,
+        "newRetail": null
+      }
     ]
   }
 }
