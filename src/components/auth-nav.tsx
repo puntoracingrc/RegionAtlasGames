@@ -10,6 +10,9 @@ import type { PublicUser } from "@/lib/session";
 export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
   const router = useRouter();
   const pathname = usePathname();
+  const nextPath = pathname === "/login" || pathname === "/registro"
+    ? "/coleccion"
+    : pathname || "/coleccion";
   const [user, setUser] = useState<PublicUser | null>(initialUser ?? null);
   const [loading, setLoading] = useState(initialUser === undefined);
   const [open, setOpen] = useState(false);
@@ -52,17 +55,11 @@ export function AuthNav({ initialUser }: { initialUser?: PublicUser | null }) {
           Ajustes
         </Link>
         <Link
-          href={`/login?next=${encodeURIComponent(pathname || "/coleccion")}`}
-          className="rounded-md px-2 py-1.5 text-[12px] text-muted transition hover:text-foreground sm:px-2.5 sm:text-[13px]"
-        >
-          <span className="sm:hidden">Entrar</span>
-          <span className="hidden sm:inline">Iniciar sesión</span>
-        </Link>
-        <Link
-          href="/registro"
+          href={`/login?next=${encodeURIComponent(nextPath)}`}
           className="rounded-md bg-accent px-2 py-1.5 text-[12px] font-medium text-accent-fg transition hover:opacity-90 sm:px-2.5 sm:text-[13px]"
         >
-          Registrarse
+          <span className="sm:hidden">Entrar</span>
+          <span className="hidden sm:inline">Continuar con Google</span>
         </Link>
       </div>
     );

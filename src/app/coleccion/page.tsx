@@ -34,17 +34,12 @@ export default async function CollectionPage() {
           <Panel>
             <PanelTitle>Mi colección</PanelTitle>
             <p className="mt-2 text-sm text-muted">
-              Crea una cuenta para importar tu inventario desde Excel o CSV y vincularlo al
+              Accede con Google para importar tu inventario desde Excel o CSV y vincularlo al
               catálogo de {SITE_LOGO}.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              <Link href="/registro" className="btn-primary">
-                Crear cuenta
-              </Link>
-              <Link href="/login" className="btn-secondary">
-                Iniciar sesión
-              </Link>
-            </div>
+            <Link href="/login?next=%2Fcoleccion" className="btn-primary mt-6">
+              Continuar con Google
+            </Link>
           </Panel>
         </main>
       </>
