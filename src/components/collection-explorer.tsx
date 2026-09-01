@@ -339,7 +339,7 @@ export function CollectionExplorer({
             className={selectClass}
             aria-label="Filtrar por estado de venta"
           >
-            <option value="all">Todos los anuncios</option>
+            <option value="all">Todos los juegos</option>
             <option value="active">A la venta</option>
             <option value="draft">Borrador de venta</option>
             <option value="pending-sale">Venta pendiente de confirmar</option>
@@ -425,7 +425,7 @@ export function CollectionExplorer({
                 ) : (
                   <Square className="h-4 w-4" aria-hidden />
                 )}
-                {allVisibleSelected ? "Quitar seleccion visible" : "Seleccionar todos los visibles"}
+                {allVisibleSelected ? "Quitar selección visible" : "Seleccionar todos los visibles"}
               </button>
               <span className="text-sm text-muted" aria-live="polite">
                 <strong className="text-foreground">{selectedVisibleCount}</strong>{" "}
@@ -596,6 +596,8 @@ function BulkSelectionOverlay({
       aria-label={label}
       aria-pressed={locked ? undefined : selected}
       title={label}
+      data-bulk-selection-control="true"
+      data-selected={selected ? "true" : "false"}
       className={`absolute inset-0 z-20 transition ${
         compact ? "rounded-md" : "rounded-xl"
       } ${
@@ -607,8 +609,10 @@ function BulkSelectionOverlay({
       }`}
     >
       <span
-        className={`absolute flex h-8 w-8 items-center justify-center rounded-md border shadow-md ${
-          compact ? "left-1 top-1/2 -translate-y-1/2" : "right-2 top-2"
+        className={`absolute flex min-h-8 items-center justify-center gap-2 border shadow-md ${
+          compact
+            ? "left-1 top-1/2 h-8 w-8 -translate-y-1/2 rounded-md"
+            : "right-2 top-2 max-w-[calc(100%-1rem)] rounded-lg px-2.5"
         } ${
           locked
             ? "border-border bg-card text-muted"
@@ -624,6 +628,11 @@ function BulkSelectionOverlay({
           <CheckSquare2 className="h-4 w-4" />
         ) : (
           <Square className="h-4 w-4" />
+        )}
+        {!compact && (
+          <span className="truncate text-[11px] font-semibold">
+            {locked ? "No disponible" : selected ? "Seleccionado" : "Seleccionar"}
+          </span>
         )}
       </span>
       {blockedCopies > 0 && !compact && (
