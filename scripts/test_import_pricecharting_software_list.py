@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import io
 import tempfile
+from decimal import Decimal
 from pathlib import Path
 
 from PIL import Image
@@ -93,6 +94,53 @@ def test_title_normalization_handles_common_catalog_variants() -> None:
     assert normalize_title("Helldivers II") == normalize_title("Helldivers 2")
 
 
+def test_usd_prices_map_to_conditions_and_preserve_existing_reference() -> None:
+    catalog = [sample_game("ps5-juego-usa", "Juego USA")]
+    catalog[0]["region"] = "USA"
+    catalog[0]["pcId"] = 321
+    joined = [
+        (
+            SourceRow("Juego USA", Decimal("10"), Decimal("20"), Decimal("30")),
+            LiveRow("Juego USA", 321, "/game/playstation-4/juego-usa", None),
+        )
+    ]
+    merged, _, stats = merge_catalog(
+        catalog,
+        joined,
+        platform="ps5",
+        region="USA",
+        pc_region="NTSC USA (referencia)",
+        collected_at="2026-09-01T12:00:00+02:00",
+        covers_root=None,
+        usd_per_eur=Decimal("1.1590"),
+        exchange_rate_date="2026-09-01",
+    )
+    game = merged[0]
+    assert game["priceChartingLooseUsd"] == 10
+    assert game["priceChartingCompleteUsd"] == 20
+    assert game["priceChartingSealedUsd"] == 30
+    assert game["estimatedPriceLoose"] == 8.63
+    assert game["estimatedPriceComplete"] == 17.26
+    assert game["estimatedPriceSealed"] == 25.88
+    assert game["recommendedPrice"] == 15
+    assert game["pcRefPrice"] == 17.26
+    assert game["priceSource"] == "manual"
+    assert stats["updated"] == 1
+
+    _, _, second_stats = merge_catalog(
+        merged,
+        joined,
+        platform="ps5",
+        region="USA",
+        pc_region="NTSC USA (referencia)",
+        collected_at="2026-09-01T12:00:00+02:00",
+        covers_root=None,
+        usd_per_eur=Decimal("1.1590"),
+        exchange_rate_date="2026-09-01",
+    )
+    assert second_stats["updated"] == 0
+
+
 def test_cover_reencode_removes_source_metadata_and_standardizes_size() -> None:
     image = Image.new("RGB", (320, 500), (10, 80, 160))
     exif = Image.Exif()
@@ -113,5 +161,6 @@ def test_cover_reencode_removes_source_metadata_and_standardizes_size() -> None:
 if __name__ == "__main__":
     test_merge_preserves_prices_and_skips_technical_duplicate()
     test_title_normalization_handles_common_catalog_variants()
+    test_usd_prices_map_to_conditions_and_preserve_existing_reference()
     test_cover_reencode_removes_source_metadata_and_standardizes_size()
     print("OK: import_pricecharting_software_list")

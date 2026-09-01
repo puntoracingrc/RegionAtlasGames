@@ -24,7 +24,7 @@ from collections import Counter, defaultdict, deque
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import date, datetime
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 from typing import Any
 
@@ -37,6 +37,7 @@ USER_AGENT = "RegionAtlas-CatalogImport/1.0"
 PAGE_SIZE = 150
 CANVAS_SIZE = (1000, 1400)
 MAX_IMAGE_BYTES = 24 * 1024 * 1024
+MONEY_QUANT = Decimal("0.01")
 
 
 # Duplicado técnico del mismo producto estándar. Se mantiene la ficha canónica.
@@ -159,6 +160,20 @@ def normalize_title(text: str | None) -> str:
 def parse_money(raw: str) -> Decimal | None:
     value = raw.strip().replace("$", "").replace(",", "")
     return Decimal(value) if value else None
+
+
+def decimal_number(value: Decimal | None) -> float | None:
+    if value is None:
+        return None
+    return float(value.quantize(MONEY_QUANT, rounding=ROUND_HALF_UP))
+
+
+def usd_to_eur(value: Decimal | None, usd_per_eur: Decimal) -> float | None:
+    if value is None:
+        return None
+    if usd_per_eur <= 0:
+        raise ValueError("La tasa USD por EUR debe ser mayor que cero")
+    return decimal_number(value / usd_per_eur)
 
 
 def parse_source_rows(path: Path) -> list[SourceRow]:
@@ -361,11 +376,11 @@ def path_slug(pc_path: str) -> str:
     return slugify(tail)
 
 
-def allocate_slug(title: str, platform: str, used_ids: set[str]) -> str:
+def allocate_slug(title: str, id_prefix: str, used_ids: set[str]) -> str:
     base = slugify(title)
     candidate = base
     suffix = 2
-    while f"{platform}-{candidate}" in used_ids:
+    while f"{id_prefix}-{candidate}" in used_ids:
         candidate = f"{base}-{suffix}"
         suffix += 1
     return candidate
@@ -414,9 +429,16 @@ def make_game(
     pc_region: str,
     slug: str,
     collected_at: str,
+    *,
+    id_prefix: str,
+    seed_source: str,
+    region_evidence: str,
+    region_verified: bool,
+    match_confidence: str,
+    museum_region: str | None,
 ) -> dict[str, Any]:
-    return {
-        "id": f"{platform}-{slug}",
+    game = {
+        "id": f"{id_prefix}-{slug}",
         "slug": slug,
         "title": source.title,
         "titlePc": live.title,
@@ -430,7 +452,7 @@ def make_game(
         "pcId": live.pc_id,
         "pcRegion": pc_region,
         "pcCondition": None,
-        "matchConfidence": "SEED_PC",
+        "matchConfidence": match_confidence,
         "marketMin": None,
         "marketMax": None,
         "recommendedPrice": None,
@@ -440,10 +462,72 @@ def make_game(
         "updatedAt": collected_at[:10],
         "hasEsPrice": False,
         "priceRegionVerified": False,
-        "seedSource": "pricecharting-pal-user-list",
-        "regionEvidence": ["user_confirmed_pal_europe_as_pal_es"],
-        "regionVerified": False,
+        "seedSource": seed_source,
+        "regionEvidence": [region_evidence],
+        "regionVerified": region_verified,
     }
+    if museum_region:
+        game["museumRegion"] = museum_region
+    return game
+
+
+def apply_usd_condition_prices(
+    game: dict[str, Any],
+    source: SourceRow,
+    *,
+    usd_per_eur: Decimal,
+    exchange_rate_date: str,
+    collected_at: str,
+) -> bool:
+    raw_prices = {
+        "priceChartingLooseUsd": decimal_number(source.loose_usd),
+        "priceChartingCompleteUsd": decimal_number(source.cib_usd),
+        "priceChartingSealedUsd": decimal_number(source.new_usd),
+    }
+    converted_prices = {
+        "estimatedPriceLoose": usd_to_eur(source.loose_usd, usd_per_eur),
+        "estimatedPriceComplete": usd_to_eur(source.cib_usd, usd_per_eur),
+        "estimatedPriceSealed": usd_to_eur(source.new_usd, usd_per_eur),
+    }
+    metadata: dict[str, Any] = {
+        "priceChartingCurrency": "USD",
+        "priceChartingUsdPerEur": float(usd_per_eur),
+        "priceChartingExchangeRateDate": exchange_rate_date,
+        "priceChartingCollectedAt": collected_at,
+    }
+    changed = False
+    for key, value in {**raw_prices, **metadata}.items():
+        if game.get(key) != value:
+            game[key] = value
+            changed = True
+    for key, value in converted_prices.items():
+        if value is not None and game.get(key) != value:
+            game[key] = value
+            changed = True
+
+    primary = (
+        converted_prices["estimatedPriceComplete"]
+        or converted_prices["estimatedPriceLoose"]
+        or converted_prices["estimatedPriceSealed"]
+    )
+    if primary is not None:
+        for key in ("recommendedPrice", "pcRefPrice"):
+            if game.get(key) is None:
+                game[key] = primary
+                changed = True
+        if game.get("priceSource") is None:
+            game["priceSource"] = "PriceCharting USA, convertido a EUR con referencia BCE"
+            changed = True
+        sources = [
+            value.strip()
+            for value in str(game.get("priceDataSources") or "").split(",")
+            if value.strip()
+        ]
+        if "PriceCharting USA" not in sources:
+            sources.append("PriceCharting USA")
+            game["priceDataSources"] = ", ".join(sources)
+            changed = True
+    return changed
 
 
 def merge_catalog(
@@ -455,7 +539,16 @@ def merge_catalog(
     pc_region: str,
     collected_at: str,
     covers_root: Path | None,
+    id_prefix: str | None = None,
+    seed_source: str = "pricecharting-user-list",
+    region_evidence: str = "pricecharting_catalog",
+    region_verified: bool = False,
+    match_confidence: str = "SEED_PC",
+    museum_region: str | None = None,
+    usd_per_eur: Decimal | None = None,
+    exchange_rate_date: str | None = None,
 ) -> tuple[list[dict[str, Any]], list[CoverTask], dict[str, Any]]:
+    id_prefix = id_prefix or platform
     platform_games = [
         game
         for game in catalog
@@ -513,8 +606,7 @@ def merge_catalog(
         match_reasons[reason] += 1
         if existing:
             changed = False
-            # Esta lista es la autoridad para la identidad PS5 PAL. Corrige IDs
-            # históricos que pudieran apuntar a USA o incluso a otra consola.
+            # La lista regional es la autoridad para la identidad del producto.
             for key, value in (
                 ("pcId", live.pc_id),
                 ("pcPath", live.pc_path),
@@ -527,12 +619,23 @@ def merge_catalog(
                 existing["titlePc"] = live.title
                 changed = True
             game = existing
-            if changed:
-                game["updatedAt"] = collected_at[:10]
-                updated += 1
         else:
-            slug = allocate_slug(source.title, platform, used_ids)
-            game = make_game(source, live, platform, region, pc_region, slug, collected_at)
+            slug = allocate_slug(source.title, id_prefix, used_ids)
+            game = make_game(
+                source,
+                live,
+                platform,
+                region,
+                pc_region,
+                slug,
+                collected_at,
+                id_prefix=id_prefix,
+                seed_source=seed_source,
+                region_evidence=region_evidence,
+                region_verified=region_verified,
+                match_confidence=match_confidence,
+                museum_region=museum_region,
+            )
             catalog.append(game)
             catalog_by_id[game["id"]] = game
             used_ids.add(game["id"])
@@ -540,6 +643,21 @@ def merge_catalog(
             by_pc_path[live.pc_path] = game
             by_title[normalize_title(source.title)].append(game)
             added += 1
+            changed = False
+
+        if usd_per_eur is not None:
+            if not exchange_rate_date:
+                raise ValueError("La importación de precios USD requiere fecha de cambio")
+            changed = apply_usd_condition_prices(
+                game,
+                source,
+                usd_per_eur=usd_per_eur,
+                exchange_rate_date=exchange_rate_date,
+                collected_at=collected_at,
+            ) or changed
+        if existing and changed:
+            game["updatedAt"] = collected_at[:10]
+            updated += 1
 
         if not game.get("coverUrl") and live.cover_source_url and covers_root:
             filename = f"{game['slug']}.jpg"
@@ -568,6 +686,9 @@ def merge_catalog(
         "missingCoverSources": missing_cover_sources,
         "matchReasons": dict(sorted(match_reasons.items())),
         "sourcePriceRows": dict(source_price_counts),
+        "priceMode": "usd_to_eur" if usd_per_eur is not None else "identity_only",
+        "usdPerEur": float(usd_per_eur) if usd_per_eur is not None else None,
+        "exchangeRateDate": exchange_rate_date,
     }
     return catalog, cover_tasks, stats
 
@@ -706,8 +827,9 @@ def update_meta(meta: dict[str, Any], catalog: list[dict[str, Any]], stats: dict
 def write_report(path: Path, stats: dict[str, Any]) -> None:
     covers = stats["covers"]
     available_covers = covers["downloaded"] + covers["reused"]
+    platform_label = str(stats["platform"]).upper()
     lines = [
-        "# Importación PS5 PAL Europa como PAL España",
+        f"# Importación {platform_label} {stats['region']} desde PriceCharting",
         "",
         f"Fecha: `{stats['collectedAt']}`",
         "",
@@ -717,20 +839,30 @@ def write_report(path: Path, stats: dict[str, Any]) -> None:
         f"- Fichas nuevas: **{stats['added']}**.",
         f"- Fichas existentes enlazadas/actualizadas: **{stats['matched']}** / **{stats['updated']}**.",
         f"- Duplicados técnicos omitidos: **{len(stats['skipped'])}**.",
-        f"- Total final de PS5 PAL España: **{stats['finalPlatformRegionCount']}**.",
+        f"- Total final de {platform_label} {stats['region']}: **{stats['finalPlatformRegionCount']}**.",
         f"- Portadas disponibles, limpias y verificadas: **{available_covers}**.",
         f"- Portadas sin resolver: **{len(covers['failures'])}**.",
         "",
         "Las portadas se guardan como JPEG de 1000 x 1400, sin EXIF ni comentarios, "
         "y con el slug interno del catálogo como nombre de archivo.",
         "",
-        "Los importes del listado están expresados en USD. No se han copiado a "
-        "`pcRefPrice`, `recommendedPrice`, `marketMin` ni `marketMax`, porque la web "
-        "presenta esos campos como euros. Los precios españoles existentes no se han modificado.",
-        "",
         "## Coincidencias",
         "",
     ]
+    if stats["priceMode"] == "usd_to_eur":
+        lines[lines.index("## Coincidencias"):lines.index("## Coincidencias")] = [
+            "Los importes originales se conservan en USD. Para mostrarlos y sumarlos en la web se "
+            f"han convertido a EUR con la referencia documentada de **1 EUR = {stats['usdPerEur']:.4f} USD** "
+            f"del **{stats['exchangeRateDate']}**. La asignación es Loose = Solo juego, CIB = Completo "
+            "y New = Precintado.",
+            "",
+        ]
+    else:
+        lines[lines.index("## Coincidencias"):lines.index("## Coincidencias")] = [
+            "Los importes del listado están expresados en USD. No se han copiado a los campos EUR "
+            "del catálogo. Los precios españoles existentes no se han modificado.",
+            "",
+        ]
     for reason, count in sorted(stats["matchReasons"].items()):
         lines.append(f"- `{reason}`: {count}")
     if stats["skipped"]:
@@ -752,6 +884,18 @@ def main() -> None:
     parser.add_argument("--region", default="PAL España")
     parser.add_argument("--pc-console", default="pal-playstation-5")
     parser.add_argument("--pc-region", default="PAL EU (referencia)")
+    parser.add_argument("--id-prefix", help="Prefijo de ID; por defecto usa la plataforma")
+    parser.add_argument("--seed-source", default="pricecharting-user-list")
+    parser.add_argument("--region-evidence", default="pricecharting_catalog")
+    parser.add_argument("--region-verified", action="store_true")
+    parser.add_argument("--match-confidence", default="SEED_PC")
+    parser.add_argument("--museum-region")
+    parser.add_argument(
+        "--usd-per-eur",
+        type=Decimal,
+        help="Tasa de referencia: cuántos USD equivalen a 1 EUR",
+    )
+    parser.add_argument("--exchange-rate-date")
     parser.add_argument("--catalog", type=Path, default=CATALOG_FILE)
     parser.add_argument("--meta", type=Path, default=META_FILE)
     parser.add_argument("--live-cache", type=Path)
@@ -763,6 +907,9 @@ def main() -> None:
     parser.add_argument("--collected-at", default=datetime.now().astimezone().isoformat(timespec="seconds"))
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
+
+    if (args.usd_per_eur is None) != (args.exchange_rate_date is None):
+        parser.error("--usd-per-eur y --exchange-rate-date deben usarse juntos")
 
     source_rows = parse_source_rows(args.input)
     print(f"Lista: {len(source_rows)} filas")
@@ -780,6 +927,14 @@ def main() -> None:
         pc_region=args.pc_region,
         collected_at=args.collected_at,
         covers_root=args.covers_root,
+        id_prefix=args.id_prefix,
+        seed_source=args.seed_source,
+        region_evidence=args.region_evidence,
+        region_verified=args.region_verified,
+        match_confidence=args.match_confidence,
+        museum_region=args.museum_region,
+        usd_per_eur=args.usd_per_eur,
+        exchange_rate_date=args.exchange_rate_date,
     )
     stats["platform"] = args.platform
     stats["region"] = args.region

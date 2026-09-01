@@ -280,6 +280,15 @@ export type CatalogGame = {
   estimatedTotalToSpainSealed?: number | null;
   /** Origen de datos agregados (TodoColeccion, CeX, …) */
   priceDataSources?: string | null;
+  /** Referencias originales de PriceCharting USA antes de convertirlas a EUR. */
+  priceChartingLooseUsd?: number | null;
+  priceChartingCompleteUsd?: number | null;
+  priceChartingSealedUsd?: number | null;
+  priceChartingCurrency?: "USD" | null;
+  /** Cotización de referencia expresada como USD por 1 EUR. */
+  priceChartingUsdPerEur?: number | null;
+  priceChartingExchangeRateDate?: string | null;
+  priceChartingCollectedAt?: string | null;
   pcRefPrice: number | null;
   deltaEsVsPc: number | null;
   priceSource: string | null;
