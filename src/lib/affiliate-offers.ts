@@ -1,6 +1,13 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
-import { buildEbayGameCustomId } from "./ebay/ebay-enduserctx";
+import { buildEbayEndUserContext, buildEbayGameCustomId } from "./ebay/ebay-enduserctx";
+import {
+  ebayAffiliateSearchFilter,
+  mergeSpainFirstEbayOffers,
+  shouldExpandEbaySearch,
+  type EbayAffiliateSearchScope,
+  type EbayOfferMarketScope,
+} from "./affiliate/ebay-offer-priority";
 import { getPlatform } from "./catalog";
 import { readCatalogOverlayGame } from "./catalog-runtime-overlay";
 import { physicalEditionsMatch } from "./physical-edition";
@@ -21,6 +28,7 @@ export type AffiliateOffer = {
   location: string | null;
   listedAt?: string | null;
   confidence: number;
+  marketScope?: EbayOfferMarketScope;
 };
 
 export type AffiliateFallbackCta = {
@@ -276,6 +284,12 @@ function ebayLimit(): number {
   return Number.isFinite(limit) ? Math.max(1, Math.min(10, limit)) : 6;
 }
 
+function ebaySpainMinimum(): number {
+  const limit = ebayLimit();
+  const minimum = Number.parseInt(process.env.EBAY_AFFILIATE_SPAIN_MIN ?? "", 10);
+  return Number.isFinite(minimum) ? Math.max(1, Math.min(limit, minimum)) : Math.min(3, limit);
+}
+
 function ebayCampaignId(): string | null {
   return configured(process.env.EBAY_CAMPAIGN_ID) ?? configured(process.env.EBAY_AFFILIATE_CAMPAIGN_ID);
 }
@@ -385,9 +399,13 @@ function ebayGameCustomId(game: CatalogGame): string {
 }
 
 function ebayEndUserContext(game: CatalogGame): string | null {
-  const campaignId = ebayCampaignId();
-  if (!campaignId) return null;
-  return `affiliateCampaignId=${campaignId},affiliateReferenceId=${ebayGameCustomId(game)}`;
+  return buildEbayEndUserContext({
+    campaignId: ebayCampaignId() ?? undefined,
+    gameSlug: game.slug,
+    platformSlug: game.platformSlug,
+    country: "ES",
+    zip: configured(process.env.EBAY_CONTEXTUAL_ZIP) ?? undefined,
+  });
 }
 
 function ebayBackoffActive(): boolean {
@@ -642,11 +660,7 @@ async function getEbayOffers(
   const token = await getEbayAccessToken();
   if (!token) return { offers: [], fallbackCta };
 
-  const params = new URLSearchParams({
-    q: ebayQuery(game, details),
-    limit: String(ebayLimit() * 2),
-    filter: "buyingOptions:{FIXED_PRICE}",
-  });
+  const query = ebayQuery(game, details);
   const endUserContext = ebayEndUserContext(game);
   const headers: Record<string, string> = {
     Authorization: `Bearer ${token}`,
@@ -654,68 +668,119 @@ async function getEbayOffers(
   };
   if (endUserContext) headers["X-EBAY-C-ENDUSERCTX"] = endUserContext;
 
-  const res = await fetch(`${EBAY_BROWSE_SEARCH_URL}?${params}`, {
-    headers,
-    next: { revalidate: DEFAULT_CACHE_SECONDS },
-  });
-  if (!res.ok) {
+  const mapOffers = (rawItems: EbaySearchItem[], scope: EbayAffiliateSearchScope) => {
+    const offers = rawItems
+      .map((item): AffiliateOffer | null => {
+        if (!item.itemId || !item.title || !item.itemWebUrl || !item.itemAffiliateWebUrl) return null;
+        const confidence = scoreOffer(game, details, item.title);
+        if (confidence < 0.62) return null;
+        return {
+          provider: "ebay",
+          id: item.itemId,
+          title: item.title,
+          url: item.itemAffiliateWebUrl,
+          imageUrl: item.image?.imageUrl ?? null,
+          price: numberValue(item.price?.value),
+          currency: item.price?.currency ?? "EUR",
+          shippingPrice: numberValue(item.shippingOptions?.[0]?.shippingCost?.value),
+          condition: item.condition ?? null,
+          location: item.itemLocation?.country ?? null,
+          listedAt: item.itemCreationDate ?? null,
+          confidence,
+        };
+      })
+      .filter((offer): offer is AffiliateOffer => Boolean(offer))
+      .sort((a, b) => b.confidence - a.confidence || (a.price ?? 999999) - (b.price ?? 999999));
+
+    if (rawItems.length > 0 && offers.length === 0) {
+      console.warn("ebay_search_filtered_out", {
+        catalogId: game.id,
+        query,
+        scope,
+        rawItems: rawItems.length,
+        firstTitles: rawItems
+          .map((item) => item.title)
+          .filter(Boolean)
+          .slice(0, 5),
+      });
+    }
+    return offers;
+  };
+
+  const search = async (scope: EbayAffiliateSearchScope) => {
+    const params = new URLSearchParams({
+      q: query,
+      limit: String(ebayLimit() * 2),
+      filter: ebayAffiliateSearchFilter(scope),
+    });
+    const response = await fetch(`${EBAY_BROWSE_SEARCH_URL}?${params}`, {
+      headers,
+      next: { revalidate: DEFAULT_CACHE_SECONDS },
+    });
+    if (response.ok) {
+      const data = (await response.json()) as EbaySearchResponse;
+      return {
+        ok: true as const,
+        status: response.status,
+        retryAfter: null,
+        rawItems: data.itemSummaries ?? [],
+        error: "",
+      };
+    }
+
     let error = "";
     try {
-      error = JSON.stringify(await res.json());
+      error = JSON.stringify(await response.json());
     } catch {
-      error = await res.text();
+      error = await response.text();
     }
+    return {
+      ok: false as const,
+      status: response.status,
+      retryAfter: response.headers.get("retry-after"),
+      rawItems: [] as EbaySearchItem[],
+      error,
+    };
+  };
+
+  const logFailure = (scope: EbayAffiliateSearchScope, status: number, error: string) => {
     console.warn("ebay_search_failed", {
-      status: res.status,
+      status,
+      scope,
       marketplace: ebayMarketplace(),
       catalogId: game.id,
-      query: ebayQuery(game, details),
+      query,
       error: error.slice(0, 700),
     });
-    if (res.status === 429) setEbayBackoff(res.status, res.headers.get("retry-after"));
-    return { offers: [], fallbackCta };
+  };
+
+  const spainResult = await search("spain");
+  if (!spainResult.ok) {
+    logFailure("spain", spainResult.status, spainResult.error);
+    if (spainResult.status === 429) {
+      setEbayBackoff(spainResult.status, spainResult.retryAfter);
+      return { offers: [], fallbackCta };
+    }
+  }
+  const spainOffers = spainResult.ok ? mapOffers(spainResult.rawItems, "spain") : [];
+
+  let expandedOffers: AffiliateOffer[] = [];
+  if (shouldExpandEbaySearch(spainOffers.length, ebaySpainMinimum())) {
+    const expandedResult = await search("expanded");
+    if (expandedResult.ok) {
+      expandedOffers = mapOffers(expandedResult.rawItems, "expanded");
+    } else {
+      logFailure("expanded", expandedResult.status, expandedResult.error);
+      if (expandedResult.status === 429) {
+        setEbayBackoff(expandedResult.status, expandedResult.retryAfter);
+      }
+    }
   }
 
-  const data = (await res.json()) as EbaySearchResponse;
-  const rawItems = data.itemSummaries ?? [];
-  const offers = rawItems
-    .map((item): AffiliateOffer | null => {
-      if (!item.itemId || !item.title || !item.itemWebUrl || !item.itemAffiliateWebUrl) return null;
-      const confidence = scoreOffer(game, details, item.title);
-      if (confidence < 0.62) return null;
-      return {
-        provider: "ebay",
-        id: item.itemId,
-        title: item.title,
-        url: item.itemAffiliateWebUrl,
-        imageUrl: item.image?.imageUrl ?? null,
-        price: numberValue(item.price?.value),
-        currency: item.price?.currency ?? "EUR",
-        shippingPrice: numberValue(item.shippingOptions?.[0]?.shippingCost?.value),
-        condition: item.condition ?? null,
-        location: item.itemLocation?.country ?? null,
-        listedAt: item.itemCreationDate ?? null,
-        confidence,
-      };
-    })
-    .filter((offer): offer is AffiliateOffer => Boolean(offer))
-    .sort((a, b) => b.confidence - a.confidence || (a.price ?? 999999) - (b.price ?? 999999));
-
-  const sliced = offers.slice(0, ebayLimit());
-  if (rawItems.length > 0 && sliced.length === 0) {
-    console.warn("ebay_search_filtered_out", {
-      catalogId: game.id,
-      query: ebayQuery(game, details),
-      rawItems: rawItems.length,
-      firstTitles: rawItems
-        .map((item) => item.title)
-        .filter(Boolean)
-        .slice(0, 5),
-    });
-  }
+  const offers = mergeSpainFirstEbayOffers(spainOffers, expandedOffers, ebayLimit());
   return {
-    offers: sliced,
-    fallbackCta: sliced.length > 0 ? null : fallbackCta,
+    offers,
+    fallbackCta: offers.length > 0 ? null : fallbackCta,
   };
 }
 

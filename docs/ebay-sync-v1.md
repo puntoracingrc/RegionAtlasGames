@@ -39,6 +39,7 @@ EBAY_CUSTOM_ID_PREFIX=rag
 EBAY_CONTEXTUAL_COUNTRY=ES
 EBAY_CONTEXTUAL_ZIP=
 EBAY_AFFILIATE_LIMIT=6
+EBAY_AFFILIATE_SPAIN_MIN=3
 EBAY_AFFILIATE_IMPRESSION_PIXEL_URL=
 EBAY_AFFILIATE_MPT=
 EBAY_AFFILIATE_MKCID=1
@@ -91,6 +92,14 @@ Headers:
 Authorization: Bearer {access_token}
 X-EBAY-C-MARKETPLACE-ID: EBAY_ES
 ```
+
+La búsqueda pública se hace por fases:
+
+1. Primero limita el origen con `itemLocationCountry:ES` y exige `deliveryCountry:ES`.
+2. Si quedan menos de `EBAY_AFFILIATE_SPAIN_MIN` ofertas válidas, repite sin limitar el país de origen pero conserva `deliveryCountry:ES`.
+3. Deduplica ambas respuestas y mantiene las ofertas españolas antes del bloque internacional, también al ordenar por precio o fecha.
+
+El umbral por defecto es `3` y nunca puede superar `EBAY_AFFILIATE_LIMIT`.
 
 Si existe `EBAY_CAMPAIGN_ID`, se prepara `X-EBAY-C-ENDUSERCTX` con `affiliateCampaignId` y `affiliateReferenceId`:
 

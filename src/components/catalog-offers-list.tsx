@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import {
   CalendarDays,
   CircleUserRound,
@@ -65,6 +65,7 @@ type UnifiedOffer = {
   priceEur: number | null;
   listedAt: string | null;
   location: OfferCoordinates | null;
+  isInternational: boolean;
   marketplace?: MarketplaceCatalogOffer;
   affiliate?: AffiliateOffer;
 };
@@ -131,18 +132,31 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
       priceEur: offer.askingPriceEur,
       listedAt: offer.publishedAt,
       location: offer.sellerLocation,
+      isInternational: false,
       marketplace: offer,
     }));
-    const affiliateRows = affiliateOffers.map((offer) => ({
-      id: `${offer.provider}-${offer.id}`,
-      source: "affiliate" as const,
-      priceEur: affiliateSortPrice(offer),
-      listedAt: offer.listedAt ?? null,
-      location: null,
-      affiliate: offer,
-    }));
-    return sortCatalogOffers([...userRows, ...affiliateRows], sortMode, buyerLocation);
+    const affiliateRows = affiliateOffers.map((offer) => {
+      const location = affiliateOfferLocation(offer.location);
+      const isInternational =
+        offer.marketScope === "international" ||
+        (offer.provider === "ebay" && offer.marketScope !== "spain" && Boolean(location?.code && location.code !== "ES"));
+      return {
+        id: `${offer.provider}-${offer.id}`,
+        source: "affiliate" as const,
+        priceEur: affiliateSortPrice(offer),
+        listedAt: offer.listedAt ?? null,
+        location: null,
+        isInternational,
+        affiliate: offer,
+      };
+    });
+    const sorted = sortCatalogOffers([...userRows, ...affiliateRows], sortMode, buyerLocation);
+    return [
+      ...sorted.filter((offer) => !offer.isInternational),
+      ...sorted.filter((offer) => offer.isInternational),
+    ];
   }, [affiliateOffers, buyerLocation, marketplaceOffers, sortMode]);
+  const firstInternationalOfferIndex = unifiedOffers.findIndex((offer) => offer.isInternational);
 
   const fallbackCtas =
     affiliateState.status === "ready"
@@ -241,27 +255,35 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
       ) : null}
 
       <ul className="divide-y divide-border/80">
-        {unifiedOffers.map((offer, index) =>
-          offer.source === "marketplace" && offer.marketplace ? (
-            <MarketplaceOfferRow
-              key={offer.id}
-              offer={offer.marketplace}
-              canContact={canContact}
-              className={!showAllOnSmallScreens && index >= 3 ? "hidden lg:list-item" : undefined}
-              distance={
-                buyerLocation && offer.location
-                  ? offerDistanceKm(buyerLocation, offer.location)
-                  : null
-              }
-            />
-          ) : offer.affiliate ? (
-            <AffiliateOfferRow
-              key={offer.id}
-              offer={offer.affiliate}
-              className={!showAllOnSmallScreens && index >= 3 ? "hidden lg:list-item" : undefined}
-            />
-          ) : null,
-        )}
+        {unifiedOffers.map((offer, index) => {
+          const responsiveClass = !showAllOnSmallScreens && index >= 3 ? "hidden lg:list-item" : undefined;
+          return (
+            <Fragment key={offer.id}>
+              {index === firstInternationalOfferIndex ? (
+                <li className={responsiveClass}>
+                  <div className="flex items-center justify-between gap-3 bg-background/35 px-3 py-2 text-[11px] font-semibold text-muted">
+                    <span>Fuera de España</span>
+                    <span className="font-normal">Con envío a España</span>
+                  </div>
+                </li>
+              ) : null}
+              {offer.source === "marketplace" && offer.marketplace ? (
+                <MarketplaceOfferRow
+                  offer={offer.marketplace}
+                  canContact={canContact}
+                  className={responsiveClass}
+                  distance={
+                    buyerLocation && offer.location
+                      ? offerDistanceKm(buyerLocation, offer.location)
+                      : null
+                  }
+                />
+              ) : offer.affiliate ? (
+                <AffiliateOfferRow offer={offer.affiliate} className={responsiveClass} />
+              ) : null}
+            </Fragment>
+          );
+        })}
         {unifiedOffers.length > 3 ? (
           <li className="lg:hidden">
             <button
