@@ -1,0 +1,915 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-pages-24-26-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-09-01T00:38:20Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Tramo posterior a Hasbro Family Fun Pack hasta Just Dance 2018, páginas 24 a 26 del catálogo fuente PS4 PAL España.",
+    "Las 144 referencias tienen ficha pública actual; solo tres observaciones demuestran plataforma, edición y región con precisión suficiente.",
+    "Las muestras W? permanecen documentadas y no nutren precios porque su región no está demostrada.",
+    "Hellblade y Hollow Knight conservan sus muestras PAL España solo como observación por ser únicas y anormalmente altas.",
+    "Los posibles duplicados, títulos truncados e importes incrustados se señalan para higiene posterior sin fusionar ni renombrar fichas en este lote.",
+    "Los resultados aceptados son estimaciones provisionales, no precios verificados ni ventas finalizadas."
+  ],
+  "audit": {
+    "sourceEntries": 144,
+    "currentCatalogMatches": 144,
+    "acceptedEntries": 3,
+    "skippedEntries": 141
+  },
+  "entries": [
+    {
+      "catalogId": "ps4-headmaster-extra-time-edition",
+      "title": "HeadMaster: Extra Time Edition",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-heart-&amp;-slash",
+      "title": "Heart & Slash",
+      "status": "skipped",
+      "reason": "W? Ab.: 7–8 €. La región no queda demostrada; se conserva como referencia."
+    },
+    {
+      "catalogId": "ps4-heaven%27s-vault",
+      "title": "Heaven's Vault",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-heavy-fire-red-shadow",
+      "title": "Heavy Fire Red Shadow",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-heavy-rain-&amp;-beyond-two-souls",
+      "title": "Heavy Rain & Beyond: Two Souls",
+      "status": "skipped",
+      "reason": "W? Ab.: 20 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-heidelberg-1693",
+      "title": "Heidelberg 1693",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hell-warders",
+      "title": "Hell Warders",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hellblade-senua%27s-sacrifice",
+      "title": "Hellblade: Senua's Sacrifice",
+      "status": "skipped",
+      "reason": "W? Ab.: 25 €. La única copia nueva PAL España a 60 € queda en observación por muestra única alta."
+    },
+    {
+      "catalogId": "ps4-hellbreachers",
+      "title": "Hellbreachers",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-helldivers-super-earth-ultimate-edition",
+      "title": "Helldivers: Super-Earth [Ultimate Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hellmut-the-badass-from-hell",
+      "title": "Hellmut: The Badass From Hell",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hello-neighbor",
+      "title": "Hello Neighbor",
+      "status": "skipped",
+      "reason": "W? Ab.: 12–15 €. Muestra única y región no demostrada."
+    },
+    {
+      "catalogId": "ps4-hello-neighbor-2",
+      "title": "Hello Neighbor 2",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hello-neighbor-hide-&amp;-seek",
+      "title": "Hello Neighbor: Hide & Seek",
+      "status": "skipped",
+      "reason": "W? Ab.: 12 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-hellpoint",
+      "title": "Hellpoint",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-helvetii",
+      "title": "Helvetii",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hentai-vs-evil",
+      "title": "Hentai Vs. Evil",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-here-they-lie",
+      "title": "Here They Lie",
+      "status": "skipped",
+      "reason": "W? Prec.: 12 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-hero-defense",
+      "title": "Hero Defense",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-heroland",
+      "title": "Heroland",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hidden-agenda",
+      "title": "Hidden Agenda",
+      "status": "skipped",
+      "reason": "Nuevo a 20 € con título español Intenciones Ocultas; falta confirmar visualmente la edición PAL España."
+    },
+    {
+      "catalogId": "ps4-hidden-through-time-definite-edition",
+      "title": "Hidden Through Time: Definite Edition",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hillbilly-doomsday",
+      "title": "Hillbilly Doomsday",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hitman",
+      "title": "Hitman",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hitman-2",
+      "title": "Hitman 2",
+      "status": "skipped",
+      "reason": "W? Ab.: 18–20 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-hitman-3",
+      "title": "Hitman 3",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hitman-definitive-edition",
+      "title": "Hitman: Definitive Edition",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hitman-the-complete-first-season",
+      "title": "Hitman: The Complete First Season",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hoa",
+      "title": "Hoa",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hogwarts-legacy",
+      "title": "Hogwarts Legacy",
+      "status": "skipped",
+      "reason": "W? Prec.: 20 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-hokko-life",
+      "title": "Hokko Life",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hollow-knight",
+      "title": "Hollow Knight",
+      "status": "skipped",
+      "reason": "Nuevo a 25 € sin región y precintado PAL España a 54,99 €. Dispersión excesiva; no se modifica."
+    },
+    {
+      "catalogId": "ps4-hollow-knight-collector-s-edition",
+      "title": "Hollow Knight Collector´s Edition",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-home-sweet-home",
+      "title": "Home Sweet Home",
+      "status": "skipped",
+      "reason": "W? Ab.: 29–30 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-homefront-the-revolution",
+      "title": "Homefront The Revolution",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 12,
+          "maximum": 12,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-honor-and-duty-all-out-war-edition",
+      "title": "Honor and Duty: All Out War Edition",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-horizon-chase-turbo",
+      "title": "Horizon Chase Turbo",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-horizon-forbidden-west",
+      "title": "Horizon Forbidden West",
+      "status": "skipped",
+      "reason": "W? Ab.: 20–22 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-horizon-zero-dawn",
+      "title": "Horizon Zero Dawn",
+      "status": "skipped",
+      "reason": "Ab.: 10 € y nuevo: 15 €. La región de las muestras no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-horned-knight",
+      "title": "Horned Knight",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-horse-club-adventures",
+      "title": "Horse Club Adventures",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-horse-club-adventures-2-hazelwood-stories",
+      "title": "Horse Club Adventures 2: Hazelwood Stories",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-horse-tales-emerald-valley-ranch-limited-edition",
+      "title": "Horse Tales: Emerald Valley Ranch [Limited Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hot-wheels-monster-trucks-stunt-mayhem",
+      "title": "Hot Wheels Monster Trucks: Stunt Mayhem",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hot-wheels-unleashed-2-turbocharged",
+      "title": "Hot Wheels Unleashed 2 Turbocharged",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hot-wheels-unleashed-day-one-edition",
+      "title": "Hot Wheels Unleashed [Day One Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hotel-transylvania-scary-tale-adventures",
+      "title": "Hotel Transylvania: Scary-Tale Adventures",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hotline-miami-collection",
+      "title": "Hotline Miami Collection",
+      "status": "skipped",
+      "reason": "W? Ab.: 20 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-hotshot-racing",
+      "title": "Hotshot Racing",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-house-flipper",
+      "title": "House Flipper",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-house-flipper-pets-edition",
+      "title": "House Flipper: Pets Edition",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-human-fall-flat-dream-collection",
+      "title": "Human Fall Flat [Dream Collection]",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hunt-showdow",
+      "title": "Hunt : Showdow",
+      "status": "skipped",
+      "reason": "Posible duplicado tipográfico de Hunt: Showdown; no se valora por separado."
+    },
+    {
+      "catalogId": "ps4-hunt-showdown",
+      "title": "Hunt: Showdown",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-huntdown",
+      "title": "Huntdown",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hunting-simulator",
+      "title": "Hunting Simulator",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hunting-simulator-2",
+      "title": "Hunting Simulator 2",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hustle-kings",
+      "title": "Hustle Kings",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hyper-sentinel",
+      "title": "Hyper Sentinel",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hyperdimension-neptunia-re;birth-triple-pack",
+      "title": "Hyperdimension Neptunia Re;Birth Triple Pack",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hyperdimension-neptunia-re;birth1",
+      "title": "Hyperdimension Neptunia Re;Birth1",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hyperdimension-neptunia-re;birth1&#43;",
+      "title": "Hyperdimension Neptunia Re;Birth1+",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hyperdimension-neptunia-re;birth2-sisters-generation",
+      "title": "Hyperdimension Neptunia Re;Birth2: Sisters Generation",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-hyperdimension-neptunia-re;birth3-v-generation",
+      "title": "Hyperdimension Neptunia Re;Birth3: V Generation",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-i-ai",
+      "title": "I, AI",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-ice-age-scrat%27s-nutty-adventure",
+      "title": "Ice Age: Scrat's Nutty Adventure",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-ice-cream-surfer",
+      "title": "Ice Cream Surfer",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-ikai",
+      "title": "IKAI",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-immortal-planet",
+      "title": "Immortal Planet",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-immortal-realms-vampire-wars",
+      "title": "Immortal Realms: Vampire Wars",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-immortal-redneck",
+      "title": "Immortal Redneck",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-immortal-unchained",
+      "title": "Immortal Unchained",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-immortals-fenyx-rising",
+      "title": "Immortals Fenyx Rising",
+      "status": "skipped",
+      "reason": "Nuevo a 20 €, pero la plataforma no queda confirmada."
+    },
+    {
+      "catalogId": "ps4-in-nightmare",
+      "title": "In Nightmare",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-in-rays-of-the-light",
+      "title": "In Rays Of The Light",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-indiecalypse",
+      "title": "Indiecalypse",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-indivisible",
+      "title": "Indivisible",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-industry-giant-2",
+      "title": "Industry Giant 2",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-inertial-drift",
+      "title": "Inertial Drift",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-inescapable-no-rules-no-rescue",
+      "title": "Inescapable: No Rules, No Rescue",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-infamous-first-light",
+      "title": "Infamous First Light",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-infamous-second-son",
+      "title": "Infamous Second Son",
+      "status": "skipped",
+      "reason": "W? Ab.: 10 € y nuevo: 14 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-infernax",
+      "title": "Infernax",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 45,
+          "maximum": 45,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-infinite-beyond-the-mind-limited-olga-edition-29-99",
+      "title": "Infinite - Beyond the Mind - Limited Olga Edition 29,99",
+      "status": "skipped",
+      "reason": "El importe 29,99 parece incrustado por error en el título; requiere higiene de catálogo."
+    },
+    {
+      "catalogId": "ps4-infinite-beyond-the-mind-limited-tanya-edition-29-99",
+      "title": "Infinite - Beyond the Mind - Limited Tanya Edition 29,99",
+      "status": "skipped",
+      "reason": "El importe 29,99 parece incrustado por error en el título; requiere higiene de catálogo."
+    },
+    {
+      "catalogId": "ps4-infinite-beyond-the-mind-olga-edition",
+      "title": "Infinite - Beyond The Mind [Olga Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-infinite-beyond-the-mind-tanya-edition",
+      "title": "Infinite Beyond The Mind [Tanya Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-infliction-extended-cut",
+      "title": "Infliction Extended Cut",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-injustice-2",
+      "title": "Injustice 2",
+      "status": "skipped",
+      "reason": "W? Ab.: 8 €. La región no queda demostrada; no se mezcla con Legendary Edition."
+    },
+    {
+      "catalogId": "ps4-injustice-2-legendary-edition",
+      "title": "Injustice 2 Legendary Edition",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-injustice-gods-among-us-ultimate-edition",
+      "title": "Injustice: Gods Among Us [Ultimate Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-inked",
+      "title": "Inked",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-inked-a-tale-of-love",
+      "title": "Inked: A Tale of Love",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-inpatient",
+      "title": "Inpatient",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-inside-&amp;-limbo-double-pack",
+      "title": "Inside & Limbo Double Pack",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-inspector-gadget-mad-time-party",
+      "title": "Inspector Gadget: Mad Time Party",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-inspector-waffles",
+      "title": "Inspector Waffles",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-insurgency-sandstorm",
+      "title": "Insurgency Sandstorm",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-intruders-hide-and-seek",
+      "title": "Intruders: Hide And Seek",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-ion-fury",
+      "title": "Ion Fury",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-ion-fury-double-shot-edition",
+      "title": "Ion Fury: Double Shot Edition",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-irem-collection-volume-1",
+      "title": "Irem Collection Volume 1",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-irem-collection-volume-1-limited-edition",
+      "title": "Irem Collection Volume 1 - Limited Edition",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-irem-collection-volume-2-limited-edition-34-99",
+      "title": "Irem Collection Volume 2 - Limited Edition. 34,99",
+      "status": "skipped",
+      "reason": "El importe 34,99 parece incrustado por error en el título actual; requiere higiene de catálogo."
+    },
+    {
+      "catalogId": "ps4-iris-fall",
+      "title": "Iris Fall",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-iro-hero",
+      "title": "Iro Hero",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-iron-man-vr",
+      "title": "Iron Man VR",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-is-it-wrong-to-pick-up",
+      "title": "Is it Wrong to Pick Up",
+      "status": "skipped",
+      "reason": "Título truncado; posible duplicado de Infinite Combate. Requiere revisión de catálogo."
+    },
+    {
+      "catalogId": "ps4-is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-infinite-combate",
+      "title": "Is It Wrong To Try To Pick Up Girls In A Dungeon: Infinite Combate",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-it-takes-two",
+      "title": "It Takes Two",
+      "status": "skipped",
+      "reason": "Muestras PS4 completas de 20–35 €. La región PAL España no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-j-stars-victory-vs&#43;",
+      "title": "J-Stars Victory VS+",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jackquest-the-tale-of-the-sword",
+      "title": "JackQuest: The Tale of the Sword",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jagged-alliance-rage",
+      "title": "Jagged Alliance Rage",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jajamaru-legendary-ninja-collection",
+      "title": "JaJaMaru Legendary Ninja Collection",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jak-daxter-the-precursor-legacy",
+      "title": "Jak & Daxter : The Precursor Legacy",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jets-%27n%27-guns-2",
+      "title": "Jets 'N' Guns 2",
+      "status": "skipped",
+      "reason": "Posible duplicado ortográfico de Jets'n'Guns 2; no se valora por separado."
+    },
+    {
+      "catalogId": "ps4-jets%27n%27guns-2",
+      "title": "Jets'n'Guns 2",
+      "status": "skipped",
+      "reason": "Posible duplicado ortográfico de Jets 'N' Guns 2; no se valora por separado."
+    },
+    {
+      "catalogId": "ps4-jets%27n%27guns-2-deluxe-edition",
+      "title": "Jets'n'Guns 2: Deluxe Edition",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jim-power-the-lost-dimension",
+      "title": "Jim Power: The Lost Dimension",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jitsu-squad",
+      "title": "Jitsu Squad",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-joe%27s-diner",
+      "title": "Joe's Diner",
+      "status": "skipped",
+      "reason": "Posible duplicado ortográfico de Joes Diner; no se valora por separado."
+    },
+    {
+      "catalogId": "ps4-joes-diner",
+      "title": "Joes Diner",
+      "status": "skipped",
+      "reason": "Posible duplicado ortográfico de Joe's Diner; no se valora por separado."
+    },
+    {
+      "catalogId": "ps4-john-wick-hex",
+      "title": "John Wick HEX",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jojo-siwa-worldwide-party",
+      "title": "JoJo Siwa: Worldwide Party",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jojo%27s-bizarre-adventure-eyes-of-heaven",
+      "title": "Jojo's Bizarre  Adventure: Eyes of Heaven",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jojo%27s-bizarre-adventure-all-star-battle-r",
+      "title": "JoJo's Bizarre Adventure: All-Star Battle R",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jojo-s-all-star-battle",
+      "title": "Jojo´s All Star Battle",
+      "status": "skipped",
+      "reason": "Requiere comparar portada antes de relacionarlo con All-Star Battle R."
+    },
+    {
+      "catalogId": "ps4-journey-collector%27s-edition",
+      "title": "Journey [Collector's Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-journey-of-the-broken-circle",
+      "title": "Journey of the Broken Circle",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-journey-to-the-savage-planet",
+      "title": "Journey to the Savage Planet",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-judgment",
+      "title": "Judgment",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jujutsu-kaisen-cursed-clash",
+      "title": "Jujutsu Kaisen: Cursed Clash",
+      "status": "skipped",
+      "reason": "W? Ab.: 15 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-jumanji-the-video-game",
+      "title": "Jumanji: The Video Game",
+      "status": "skipped",
+      "reason": "W? Ab.: 13 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-jumanji-wild-adventures",
+      "title": "Jumanji: Wild Adventures",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jump-force",
+      "title": "Jump Force",
+      "status": "skipped",
+      "reason": "Ab.: 14–15 €. La región PAL España no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-jurassic-world-evolution",
+      "title": "Jurassic World Evolution",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-jurassic-world-evolution-2",
+      "title": "Jurassic World Evolution 2",
+      "status": "skipped",
+      "reason": "W? Ab.: 38 €. Muestra única alta y región no demostrada."
+    },
+    {
+      "catalogId": "ps4-just-cause-3",
+      "title": "Just Cause 3",
+      "status": "skipped",
+      "reason": "W? Ab.: 8 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-just-cause-4",
+      "title": "Just Cause 4",
+      "status": "accepted",
+      "conditions": {
+        "sealed": {
+          "minimum": 30,
+          "maximum": 30,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-just-dance-2014",
+      "title": "Just Dance 2014",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-just-dance-2015",
+      "title": "Just Dance 2015",
+      "status": "skipped",
+      "reason": "W? Ab.: 12 €. La región no queda demostrada."
+    },
+    {
+      "catalogId": "ps4-just-dance-2016",
+      "title": "Just Dance 2016",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-just-dance-2017",
+      "title": "Just Dance 2017",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    },
+    {
+      "catalogId": "ps4-just-dance-2018",
+      "title": "Just Dance 2018",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto utilizable."
+    }
+  ]
+}
