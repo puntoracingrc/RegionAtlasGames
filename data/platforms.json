@@ -237,11 +237,11 @@
     "shortName": "PS Vita",
     "manufacturer": "sony",
     "status": "semi-closed",
-    "estimatedCatalogSize": 0,
+    "estimatedCatalogSize": 548,
     "sortOrder": 24,
-    "active": false,
+    "active": true,
     "newsEnabled": false,
-    "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
+    "description": "Catálogo físico iniciado con las ediciones NTSC USA y sus precios por estado."
   },
   {
     "slug": "psp",
