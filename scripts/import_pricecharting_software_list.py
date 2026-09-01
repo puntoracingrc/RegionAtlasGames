@@ -86,6 +86,23 @@ PC_ID_ALIASES: dict[int, str] = {
     6859515: "ps5-tomb-raider-i-ii-iii-remastered",
     11046874: "ps5-tomb-raider-iv-vi-remastered-starring-lara-croft",
     12645726: "ps5-wizman-s-world-retry",
+    9705791: "switch2-zelda-breath-of-the-wild-nsw2-edition",
+    9705792: "switch2-the-legend-of-zelda-tears-of-the-kingdom-nsw2-edition",
+    9659450: "switch2-bravely-default-flying-fairy",
+    9821768: "switch2-street-fighter-6-year-1-2-fighters-edition",
+    10053980: "switch2-no-sleep-for-kaname-date-ai-the-somnium-files-aiba-edition",
+    10053989: "switch2-super-mario-party-jamboree-nsw2-edition",
+    10350244: "switch2-kirby-y-la-tierra-olvidada-nsw2-edition",
+    10546991: "switch2-leyendas-pokemon-z-a-nsw2-edition",
+    10851421: "switch2-little-nightmares-iii-edicion-coleccionista-mirror-edition",
+    11351768: "switch2-fortnite-lote-de-fuego-oscuro-y-hielo-ciab",
+    11360714: "switch2-split-fiction-ciab",
+    11398219: "switch2-yakuza-kiwami-1",
+    11408015: "switch2-animal-crossing-new-horizons-nsw2-edition",
+    12168733: "switch2-resident-evil-requiem-lenticular-edition",
+    12368591: "switch2-super-mario-bros-wonder-nintendo-switch-2-edition",
+    12589196: "switch2-xenoblade-chronicles-x-definitive-edition-nsw2-edition",
+    13572418: "switch2-monopoly-star-wars",
 }
 
 # Fichas técnicas importadas que duplican una ficha española ya usada por la
