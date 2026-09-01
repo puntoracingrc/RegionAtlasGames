@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+
+from __future__ import annotations
+
+import io
+import tempfile
+from pathlib import Path
+
+from PIL import Image
+
+from import_pricecharting_software_list import (
+    CANVAS_SIZE,
+    LiveRow,
+    SourceRow,
+    cover_is_clean,
+    merge_catalog,
+    normalize_title,
+    save_clean_cover,
+)
+
+
+def sample_game(catalog_id: str, title: str) -> dict:
+    return {
+        "id": catalog_id,
+        "slug": catalog_id.removeprefix("ps5-"),
+        "title": title,
+        "titlePc": title,
+        "platformSlug": "ps5",
+        "region": "PAL España",
+        "edition": "standard",
+        "listingStatus": "listed",
+        "coverUrl": "/covers/ps5/existing.jpg",
+        "pcPath": None,
+        "pcId": None,
+        "pcRegion": None,
+        "pcCondition": None,
+        "matchConfidence": "GAME_ES_RELEASE",
+        "marketMin": 10,
+        "marketMax": 20,
+        "recommendedPrice": 15,
+        "pcRefPrice": None,
+        "deltaEsVsPc": None,
+        "priceSource": "manual",
+        "updatedAt": "2026-08-01",
+        "hasEsPrice": True,
+        "seedSource": "test",
+    }
+
+
+def test_merge_preserves_prices_and_skips_technical_duplicate() -> None:
+    catalog = [sample_game("ps5-3d-minigolf", "3D MINIGOLF")]
+    catalog[0]["pcId"] = 999
+    joined = [
+        (
+            SourceRow("3D Mini Golf", None, None, None),
+            LiveRow("3D Mini Golf", 7308807, "/game/pal-playstation-5/3d-mini-golf", None),
+        ),
+        (
+            SourceRow("Juego Nuevo", None, None, None),
+            LiveRow("Juego Nuevo", 123, "/game/pal-playstation-5/juego-nuevo", None),
+        ),
+        (
+            SourceRow("Jets 'N' Guns 2", None, None, None),
+            LiveRow("Jets 'N' Guns 2", 8741598, "/game/pal-playstation-5/jets-n-guns-2", None),
+        ),
+    ]
+    merged, tasks, stats = merge_catalog(
+        catalog,
+        joined,
+        platform="ps5",
+        region="PAL España",
+        pc_region="PAL EU (referencia)",
+        collected_at="2026-09-01T12:00:00+02:00",
+        covers_root=None,
+    )
+    assert len(merged) == 2
+    assert not tasks
+    assert stats["added"] == 1
+    assert len(stats["skipped"]) == 1
+    existing = next(game for game in merged if game["id"] == "ps5-3d-minigolf")
+    assert existing["pcId"] == 7308807
+    assert existing["recommendedPrice"] == 15
+    assert existing["priceSource"] == "manual"
+    added = next(game for game in merged if game["id"] == "ps5-juego-nuevo")
+    assert added["region"] == "PAL España"
+    assert added["pcRefPrice"] is None
+    assert added["coverUrl"] is None
+
+
+def test_title_normalization_handles_common_catalog_variants() -> None:
+    assert normalize_title("Five Nights at Freddy’s") == normalize_title("Five Nights At Freddy's")
+    assert normalize_title("Dragon's Dogma II") == normalize_title("Dragon´s Dogma 2")
+    assert normalize_title("Helldivers II") == normalize_title("Helldivers 2")
+
+
+def test_cover_reencode_removes_source_metadata_and_standardizes_size() -> None:
+    image = Image.new("RGB", (320, 500), (10, 80, 160))
+    exif = Image.Exif()
+    exif[0x010E] = "PriceCharting source image"
+    source = io.BytesIO()
+    image.save(source, format="JPEG", exif=exif)
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        destination = Path(temp_dir) / "ps5" / "juego-limpio.jpg"
+        save_clean_cover(source.getvalue(), destination)
+        assert cover_is_clean(destination)
+        assert b"pricecharting" not in destination.read_bytes().lower()
+        with Image.open(destination) as cleaned:
+            assert cleaned.size == CANVAS_SIZE
+            assert not cleaned.getexif()
+
+
+if __name__ == "__main__":
+    test_merge_preserves_prices_and_skips_technical_duplicate()
+    test_title_normalization_handles_common_catalog_variants()
+    test_cover_reencode_removes_source_metadata_and_standardizes_size()
+    print("OK: import_pricecharting_software_list")
