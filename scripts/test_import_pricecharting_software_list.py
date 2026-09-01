@@ -104,6 +104,7 @@ def test_title_normalization_handles_common_catalog_variants() -> None:
     assert clean_source_title("Dark Souls II [Limited Edition] /2000") == (
         "Dark Souls II [Limited Edition]"
     )
+    assert clean_source_title("Command &amp;amp; Conquer") == "Command & Conquer"
 
 
 def test_distinct_pc_ids_with_equivalent_titles_remain_separate() -> None:
