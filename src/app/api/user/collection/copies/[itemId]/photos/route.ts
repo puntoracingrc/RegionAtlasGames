@@ -7,7 +7,7 @@ import {
   getUserCollectionItem,
   upsertUserCollectionPhoto,
 } from "@/lib/collection-store";
-import { normalizeListingPhoto } from "@/lib/listing-photo-sharp";
+import { normalizeListingPhotoWithMetadata } from "@/lib/listing-photo-sharp";
 import { MAX_PHOTO_BYTES } from "@/lib/listing-photos";
 import { marketplaceRateLimitResponse } from "@/lib/marketplace-request-security";
 import { getCurrentUser } from "@/lib/users";
@@ -55,17 +55,17 @@ export async function POST(request: Request, { params }: Params) {
       return NextResponse.json({ error: validation.error }, { status: 400 });
     }
 
-    const normalized = await normalizeListingPhoto(source);
+    const normalized = await normalizeListingPhotoWithMetadata(source);
     const uploadedAt = new Date().toISOString();
-    await saveCollectionPhotoFile(user.id, itemId, slot, normalized);
+    await saveCollectionPhotoFile(user.id, itemId, slot, normalized.buffer);
     const photo = {
       slot,
       url:
         `/api/user/collection/copies/${encodeURIComponent(itemId)}/photos/${slot}`
         + `?v=${encodeURIComponent(uploadedAt)}`,
-      width: validation.width,
-      height: validation.height,
-      bytes: normalized.length,
+      width: normalized.width,
+      height: normalized.height,
+      bytes: normalized.buffer.length,
       uploadedAt,
     };
     const updated = await upsertUserCollectionPhoto(user.id, itemId, photo);

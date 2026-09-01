@@ -9,6 +9,14 @@ export type PreparedListingPhoto = {
   resized: boolean;
 };
 
+export function listingPhotoNeedsResize(
+  bytes: number,
+  width: number,
+  height: number,
+): boolean {
+  return bytes > MAX_UPLOAD_BYTES || Math.max(width, height) > MAX_UPLOAD_DIMENSION;
+}
+
 function loadBrowserImage(file: File): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const url = URL.createObjectURL(file);
@@ -58,15 +66,22 @@ export async function prepareListingPhoto(file: File): Promise<PreparedListingPh
     throw new Error("El archivo debe ser una imagen.");
   }
 
-  if (file.size <= MAX_UPLOAD_BYTES) {
-    return { file, resized: false };
+  let image: HTMLImageElement;
+  try {
+    image = await loadBrowserImage(file);
+  } catch (error) {
+    // Algunos formatos válidos no se previsualizan en todos los navegadores.
+    // El servidor volverá a validar y normalizar los archivos que ya sean ligeros.
+    if (file.size <= MAX_UPLOAD_BYTES) return { file, resized: false };
+    throw error;
   }
-
-  const image = await loadBrowserImage(file);
   const sourceWidth = image.naturalWidth;
   const sourceHeight = image.naturalHeight;
   if (!sourceWidth || !sourceHeight) {
     throw new Error("No se ha podido leer el tamaño de la foto.");
+  }
+  if (!listingPhotoNeedsResize(file.size, sourceWidth, sourceHeight)) {
+    return { file, resized: false };
   }
 
   let scale = Math.min(1, MAX_UPLOAD_DIMENSION / Math.max(sourceWidth, sourceHeight));

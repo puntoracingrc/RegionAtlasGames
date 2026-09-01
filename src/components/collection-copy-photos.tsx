@@ -119,12 +119,12 @@ function CollectionPhotoGallery({
           </div>
         </header>
 
-        <div className="relative flex min-h-0 flex-1 items-center justify-center bg-black p-2 sm:p-4">
+        <div className="relative flex h-[clamp(200px,68vh,680px)] flex-none items-center justify-center bg-black p-2 sm:p-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={current.url}
             alt={`${label} de ${title}`}
-            className="max-h-[68vh] max-w-full object-contain"
+            className="h-full w-full object-contain"
           />
           {photos.length > 1 ? (
             <>
