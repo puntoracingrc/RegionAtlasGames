@@ -15,7 +15,6 @@ import {
 import type { CollectionView } from "@/lib/types";
 import type { ListingStatus } from "@/lib/marketplace-types";
 import { formatEur } from "@/lib/price-format";
-import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import {
   COLLECTION_CONDITION_LABELS,
@@ -46,10 +45,12 @@ function listingLabel(status: ListingStatus): string {
 
 export function CollectionCopiesManager({
   catalogId,
+  catalogCover,
   initialItems,
   initialListings,
 }: {
   catalogId: string;
+  catalogCover: string | null;
   initialItems: CollectionView[];
   initialListings: CollectionCopyListing[];
 }) {
@@ -109,6 +110,7 @@ export function CollectionCopiesManager({
           <CollectionCopyRow
             key={item.id}
             item={item}
+            catalogCover={catalogCover}
             position={index + 1}
             listing={listings.find((listing) => listing.collectionItemId === item.id)}
             onSaved={(saved) => setItems((current) => current.map((entry) => entry.id === saved.id ? saved : entry))}
@@ -123,6 +125,7 @@ export function CollectionCopiesManager({
 
 function CollectionCopyRow({
   item,
+  catalogCover,
   position,
   listing,
   onSaved,
@@ -130,6 +133,7 @@ function CollectionCopyRow({
   onListingRemoved,
 }: {
   item: CollectionView;
+  catalogCover: string | null;
   position: number;
   listing?: CollectionCopyListing;
   onSaved: (item: CollectionView) => void;
@@ -257,7 +261,7 @@ function CollectionCopyRow({
   const activeListing = listing?.status === "active";
   const draftListing = listing?.status === "draft";
   const ownFrontPhoto = item.photos?.find((photo) => photo.slot === "cover-front");
-  const cover = ownFrontPhoto?.url ?? getCoverSrc(item.coverUrl, item.catalogId ?? item.id);
+  const cover = ownFrontPhoto?.url ?? catalogCover;
   const title = decodeHtmlEntities(item.title);
   const catalogEstimate = priceForCollectionCondition(item, condition);
   const conditionOptions = availableCollectionConditions(item.platformSlug);
