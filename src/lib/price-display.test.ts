@@ -1,10 +1,25 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { PRICE_TYPE_OPTIONS, sortCatalogListGames } from "./catalog-filters";
-import { formatEsPriceForCard } from "./price-display";
+import { catalogConditionPriceRows, formatEsPriceForCard } from "./price-display";
 import type { CatalogListGame } from "./types";
 
 const eur = (value: number | null) => (value == null ? "—" : `${value.toFixed(2)} €`);
+
+test("keeps the three catalog condition prices in a fixed order and preserves gaps", () => {
+  assert.deepEqual(
+    catalogConditionPriceRows({
+      estimatedPriceSealed: 42,
+      estimatedPriceComplete: null,
+      estimatedPriceLoose: 11,
+    }),
+    [
+      { condition: "sealed", label: "Precintado", price: 42 },
+      { condition: "complete", label: "Completo", price: null },
+      { condition: "loose", label: "Solo juego", price: 11 },
+    ],
+  );
+});
 
 test("shows an orientative condition price instead of hiding it as unverified", () => {
   assert.equal(
