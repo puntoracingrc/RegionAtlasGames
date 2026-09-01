@@ -93,14 +93,9 @@ export default async function SettingsPage() {
             ) : (
               <div className="space-y-3 text-sm text-muted">
                 <p>Inicia sesión para sincronizar tu colección y preferencias entre dispositivos.</p>
-                <div className="flex gap-3">
-                  <Link href="/login" className="btn-primary">
-                    Iniciar sesión
-                  </Link>
-                  <Link href="/registro" className="btn-secondary">
-                    Registrarse
-                  </Link>
-                </div>
+                <Link href="/login?next=%2Fajustes" className="btn-primary">
+                  Continuar con Google
+                </Link>
               </div>
             )}
           </Panel>

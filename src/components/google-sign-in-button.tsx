@@ -45,19 +45,6 @@ function GoogleIcon() {
   );
 }
 
-export function AuthDivider() {
-  return (
-    <div className="relative my-4">
-      <div className="absolute inset-0 flex items-center" aria-hidden="true">
-        <div className="w-full border-t border-border" />
-      </div>
-      <div className="relative flex justify-center text-xs uppercase tracking-wider">
-        <span className="bg-card px-2 text-muted">o</span>
-      </div>
-    </div>
-  );
-}
-
 export function googleAuthErrorMessage(code: string | null): string | null {
   if (!code) return null;
   if (code === "not-configured") {
@@ -65,6 +52,9 @@ export function googleAuthErrorMessage(code: string | null): string | null {
   }
   if (code === "cancelled") return "Has cancelado el inicio con Google.";
   if (code === "invalid-state") return "Sesión de Google no válida. Inténtalo de nuevo.";
+  if (code === "email-disabled") {
+    return "El acceso por email ya no está disponible. Continúa con Google.";
+  }
   if (code === "failed") return "No se pudo completar el inicio con Google.";
   try {
     return decodeURIComponent(code);

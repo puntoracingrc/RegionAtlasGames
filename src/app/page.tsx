@@ -310,8 +310,7 @@ async function PublicHome() {
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Link href="/login" className="btn-primary">Iniciar sesión</Link>
-          <Link href="/registro" className="btn-secondary">Crear cuenta</Link>
+          <Link href="/login" className="btn-primary">Continuar con Google</Link>
         </div>
       </header>
 
