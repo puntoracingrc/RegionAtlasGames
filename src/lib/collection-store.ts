@@ -11,6 +11,7 @@ import { slugify } from "./slug";
 import {
   loadUserCollection,
   mutateUserCollection,
+  normalizeIndividualCollectionItems,
   saveUserCollectionFile,
   type UserCollectionFile,
 } from "./collection-storage";
@@ -65,21 +66,39 @@ export async function getUserCollectionItemsForCatalog(
     .map(enrichCollectionItem);
 }
 
+function collectionTitleKey(item: CollectionItem): string {
+  if (item.catalogMatched && item.catalogId) return `catalog:${item.catalogId}`;
+  return `title:${item.platformSlug}:${item.region}:${slugify(item.title)}`;
+}
+
 export function summarizeCollection(items: CollectionItem[]): CollectionSummary {
-  const retroItems = items.filter((i) => i.inRetroCatalog);
-  const withEs = items.filter((i) => i.hasEsPrice);
-  const pendingCatalog = items.filter((i) => i.inRetroCatalog && !i.catalogMatched).length;
+  const titleGroups = new Map<string, CollectionItem[]>();
+  for (const item of items) {
+    const key = collectionTitleKey(item);
+    const group = titleGroups.get(key);
+    if (group) group.push(item);
+    else titleGroups.set(key, [item]);
+  }
+  const groups = [...titleGroups.values()];
+  const retroItems = groups.filter((group) => group.some((item) => item.inRetroCatalog));
+  const withEs = groups.filter((group) => group.some((item) => item.hasEsPrice));
+  const pricedCopies = items.filter((item) => item.hasEsPrice);
+  const pendingCatalog = groups.filter(
+    (group) =>
+      group.some((item) => item.inRetroCatalog) &&
+      !group.some((item) => item.catalogMatched),
+  ).length;
 
   return {
-    totalItems: items.length,
+    totalItems: groups.length,
     retroItems: retroItems.length,
-    outOfScopeItems: items.length - retroItems.length,
+    outOfScopeItems: groups.length - retroItems.length,
     pendingCatalog,
     totalUnits: items.reduce((s, i) => s + i.quantity, 0),
     withEsPrice: withEs.length,
-    pendingEsPrice: items.length - withEs.length,
+    pendingEsPrice: groups.length - withEs.length,
     totalRecommendedValue: Math.round(
-      withEs.reduce((s, i) => s + (i.totalValue ?? 0), 0) * 100,
+      pricedCopies.reduce((s, item) => s + (item.totalValue ?? 0), 0) * 100,
     ) / 100,
     totalBuyValue: Math.round(
       items.reduce((s, i) => s + (i.buyPrice ?? 0) * i.quantity, 0) * 100,
@@ -119,11 +138,12 @@ export async function saveUserCollectionItems(
   meta: { source: string | null },
 ): Promise<UserCollectionFile | { error: string }> {
   const current = await readUserCollection(userId).catch(() => null);
+  const individualItems = normalizeIndividualCollectionItems(items).items;
   const data: UserCollectionFile = {
     userId,
     importedAt: new Date().toISOString(),
     source: meta.source,
-    items,
+    items: individualItems,
     completedSaleIds: current?.completedSaleIds ?? [],
   };
   const saved = await saveUserCollectionFile(data);
@@ -273,7 +293,6 @@ function linkCollectionItemWithCatalog(
 }
 
 export type CollectionItemDetailsPatch = {
-  quantity: number;
   collectionCondition: CollectionCondition;
   buyPrice: number | null;
   purchasedAt: string | null;
@@ -296,9 +315,6 @@ function validIsoDate(value: string): boolean {
 function validateCollectionItemPatch(
   patch: CollectionItemDetailsPatch,
 ): string | null {
-  if (!Number.isInteger(patch.quantity) || patch.quantity < 1 || patch.quantity > 999) {
-    return "La cantidad debe estar entre 1 y 999.";
-  }
   if (!COLLECTION_CONDITIONS.has(patch.collectionCondition)) {
     return "El estado indicado no es válido.";
   }
@@ -338,7 +354,7 @@ function storedPriceForCondition(
   return fallback;
 }
 
-export async function addCatalogCopyGroup(
+export async function addCatalogCopy(
   userId: string,
   catalogId: string,
 ): Promise<{ item: CollectionItem } | { error: string }> {
@@ -378,11 +394,10 @@ export async function updateUserCollectionItemDetails(
       }
 
       const current = file.items[index];
-      const quantity = patch.quantity;
       const unitPrice = storedPriceForCondition(current, patch.collectionCondition);
       const item: CollectionItem = {
         ...current,
-        quantity,
+        quantity: 1,
         quantityPc: null,
         sealed: patch.collectionCondition === "sealed",
         collectionCondition: patch.collectionCondition,
@@ -393,7 +408,7 @@ export async function updateUserCollectionItemDetails(
         totalValue:
           unitPrice == null
             ? current.totalValue
-            : Math.round(unitPrice * quantity * 100) / 100,
+            : Math.round(unitPrice * 100) / 100,
       };
       file.items[index] = item;
       return { next: file, result: { item } };

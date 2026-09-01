@@ -10,6 +10,7 @@ import { RegionFlag } from "@/components/region-flag";
 import { SiteNav } from "@/components/site-nav";
 import { getCatalogGame, getPlatform, resolveCatalogIdParam } from "@/lib/catalog";
 import { catalogGamePath } from "@/lib/catalog-path";
+import { collectionCatalogReturnPath } from "@/lib/collection-path";
 import { getUserCollectionItemsForCatalog } from "@/lib/collection-store";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
@@ -48,7 +49,7 @@ export default async function CollectionCatalogGamePage({ params }: Props) {
     <>
       <SiteNav />
       <main className="mx-auto w-full max-w-6xl px-4 py-6 md:px-6 md:py-8">
-        <BackLink href="/coleccion">Mi colección</BackLink>
+        <BackLink href={collectionCatalogReturnPath(catalogId)}>Mi colección</BackLink>
 
         <div className="mt-5 grid gap-6 border-b border-border pb-7 sm:grid-cols-[150px_minmax(0,1fr)] sm:items-center">
           <div className="max-w-[150px]">
