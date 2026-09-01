@@ -158,6 +158,7 @@ export function CollectionGameCard({
         sealed={game.sealed}
         hasActiveListing={hasActiveListing}
         owned
+        hideOwnedBadge={Boolean(overlayAction)}
         grail={grail}
         topSegment={topSegment}
       />
