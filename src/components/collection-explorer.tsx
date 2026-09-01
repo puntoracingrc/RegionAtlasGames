@@ -67,6 +67,17 @@ export function CollectionExplorer({
     () => sortCollectionDisplayItems(groupCollectionDisplayItems(filtered), filters.sort),
     [filtered, filters.sort],
   );
+  const activeSaleKeys = useMemo(
+    () =>
+      new Set(
+        items.flatMap((item) =>
+          listingStateByItemId[item.id] === "active"
+            ? [item.catalogMatched && item.catalogId ? item.catalogId : item.id]
+            : [],
+        ),
+      ),
+    [items, listingStateByItemId],
+  );
   const displayedUnits = displayed.reduce((sum, item) => sum + item.units, 0);
   const filteredValue = filtered.reduce((sum, g) => sum + (g.totalValue || 0), 0);
   const filtersActive = hasActiveCollectionFilters(filters);
@@ -270,7 +281,13 @@ export function CollectionExplorer({
               id={collectionCatalogAnchorId(game.catalogId ?? game.id)}
               className="scroll-mt-24"
             >
-              <CollectionGameCard game={game} conditionCounts={conditionCounts} />
+              <CollectionGameCard
+                game={game}
+                conditionCounts={conditionCounts}
+                hasActiveListing={activeSaleKeys.has(
+                  game.catalogMatched && game.catalogId ? game.catalogId : game.id,
+                )}
+              />
             </div>
           ))}
         </section>

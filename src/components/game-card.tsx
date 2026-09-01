@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ShoppingCart } from "lucide-react";
 import { CoverArt } from "@/components/cover-art";
 import { RegionFlag } from "@/components/region-flag";
 import type { CatalogListGame, CollectionView } from "@/lib/types";
@@ -132,10 +133,12 @@ export function CollectionGameCard({
   game,
   overlayAction,
   conditionCounts,
+  hasActiveListing = false,
 }: {
   game: CollectionView;
   overlayAction?: ReactNode;
   conditionCounts?: CollectionConditionCounts;
+  hasActiveListing?: boolean;
 }) {
   const collectionPlatformLabel = platformLabel(game.platformSlug);
   const href = game.catalogId && game.catalogMatched
@@ -154,7 +157,7 @@ export function CollectionGameCard({
         title={decodeHtmlEntities(game.title)}
         platformSlug={game.platformSlug}
         sealed={game.sealed}
-        platform={collectionPlatformLabel}
+        hasActiveListing={hasActiveListing}
         owned
         grail={grail}
         topSegment={topSegment}
@@ -201,7 +204,7 @@ function CoverSlot({
   title,
   platformSlug,
   sealed,
-  platform,
+  hasActiveListing,
   owned,
   grail,
   topSegment,
@@ -211,7 +214,7 @@ function CoverSlot({
   title: string;
   platformSlug?: string;
   sealed?: boolean;
-  platform?: string;
+  hasActiveListing?: boolean;
   owned?: boolean;
   grail?: boolean;
   topSegment?: boolean;
@@ -227,9 +230,14 @@ function CoverSlot({
         className="rounded-none border-0 shadow-none"
       />
       <div className="absolute left-1.5 top-1.5 flex flex-wrap gap-1">
-        {platform && (
-          <span className="rounded-md bg-black/75 px-1.5 py-0.5 text-[9px] font-semibold uppercase text-accent/90">
-            {platform}
+        {hasActiveListing && (
+          <span
+            className="flex h-7 w-7 items-center justify-center rounded-md border border-emerald-300/60 bg-black/80 text-emerald-300 shadow-md"
+            title="Tienes este juego a la venta"
+            aria-label="Tienes este juego a la venta"
+            data-active-listing="true"
+          >
+            <ShoppingCart className="h-4 w-4" aria-hidden />
           </span>
         )}
         {topSegment && (
