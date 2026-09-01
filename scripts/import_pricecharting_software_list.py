@@ -43,6 +43,8 @@ MONEY_QUANT = Decimal("0.01")
 # Duplicado técnico del mismo producto estándar. Se mantiene la ficha canónica.
 SKIP_PC_IDS: dict[int, str] = {
     8741598: "duplicado técnico de Jets'n'Guns 2 (6330502)",
+    12789731: "duplicado técnico de Aggelos II (14218825)",
+    6074032: "duplicado técnico de Fight'N Rage (5551873)",
 }
 
 # La Day One usa la misma portada frontal que la edición estándar y la ficha de
@@ -386,6 +388,13 @@ def allocate_slug(title: str, id_prefix: str, used_ids: set[str]) -> str:
     return candidate
 
 
+def cover_filename(game: dict[str, Any], id_prefix: str, platform: str) -> str:
+    prefix = ""
+    if id_prefix != platform:
+        prefix = f"{id_prefix.removeprefix(f'{platform}-')}-"
+    return f"{prefix}{game['slug']}.jpg"
+
+
 def infer_edition(title: str) -> str:
     words = set(normalize_title(title).split())
     return "collector" if "collector" in words else "standard"
@@ -399,6 +408,7 @@ def choose_existing(
     by_pc_id: dict[int, dict[str, Any]],
     by_pc_path: dict[str, dict[str, Any]],
     by_title: dict[str, list[dict[str, Any]]],
+    claimed_catalog_ids: set[str],
 ) -> tuple[dict[str, Any] | None, str]:
     if live.pc_id in by_pc_id:
         return by_pc_id[live.pc_id], "pc_id"
@@ -410,7 +420,11 @@ def choose_existing(
     if alias and alias.get("platformSlug") == platform and alias.get("region") == region:
         return alias, "reviewed_alias"
 
-    candidates = by_title.get(normalize_title(live.title), [])
+    candidates = [
+        game
+        for game in by_title.get(normalize_title(live.title), [])
+        if str(game["id"]) not in claimed_catalog_ids
+    ]
     if len(candidates) == 1:
         return candidates[0], "normalized_title"
     if len(candidates) > 1:
@@ -579,6 +593,7 @@ def merge_catalog(
     skipped: list[dict[str, Any]] = []
     missing_cover_sources: list[dict[str, str]] = []
     source_price_counts = Counter()
+    claimed_catalog_ids: set[str] = set()
 
     for source, live in joined_rows:
         source_price_counts.update(
@@ -602,6 +617,7 @@ def merge_catalog(
             by_pc_id,
             by_pc_path,
             by_title,
+            claimed_catalog_ids,
         )
         match_reasons[reason] += 1
         if existing:
@@ -644,6 +660,7 @@ def merge_catalog(
             by_title[normalize_title(source.title)].append(game)
             added += 1
             changed = False
+        claimed_catalog_ids.add(str(game["id"]))
 
         if usd_per_eur is not None:
             if not exchange_rate_date:
@@ -659,8 +676,18 @@ def merge_catalog(
             game["updatedAt"] = collected_at[:10]
             updated += 1
 
-        if not game.get("coverUrl") and live.cover_source_url and covers_root:
-            filename = f"{game['slug']}.jpg"
+        if live.cover_source_url and covers_root:
+            filename = cover_filename(game, id_prefix, platform)
+            expected_cover_url = f"/covers/{platform}/{filename}"
+        else:
+            expected_cover_url = None
+        managed_cover = not game.get("coverUrl") or game.get("seedSource") == seed_source
+        if (
+            live.cover_source_url
+            and covers_root
+            and managed_cover
+            and game.get("coverUrl") != expected_cover_url
+        ):
             cover_tasks.append(
                 CoverTask(
                     catalog_id=str(game["id"]),
@@ -789,7 +816,7 @@ def download_covers(
                 failures.append({"catalogId": catalog_id, "title": task.title, "error": error})
             else:
                 game = by_id[catalog_id]
-                game["coverUrl"] = f"/covers/{game['platformSlug']}/{game['slug']}.jpg"
+                game["coverUrl"] = f"/covers/{game['platformSlug']}/{task.destination.name}"
                 reused += int(was_reused)
                 downloaded += int(not was_reused)
             if index % 100 == 0 or index == len(cover_tasks):

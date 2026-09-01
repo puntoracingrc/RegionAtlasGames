@@ -3,7 +3,7 @@
   "source": "/Users/macbookpro14/Downloads/CATALOGO_COMPLETO_PAL_ESPAÑA.xlsx",
   "catalogScope": "retro-pal-es-closed",
   "platformCount": 22,
-  "catalogListed": 33977,
+  "catalogListed": 36287,
   "catalogEstimatedTotal": 30712,
   "listedByPlatform": {
     "3ds": 483,
@@ -24,7 +24,7 @@
     "ps2": 2508,
     "ps3": 1362,
     "ps4": 8496,
-    "ps5": 2147,
+    "ps5": 4457,
     "saturn": 1597,
     "sega32x": 82,
     "snes": 2761,
@@ -42,7 +42,7 @@
     "totalBuyValue": 19199.33
   },
   "catalogExcluded": 4316,
-  "catalogTotal": 38293,
+  "catalogTotal": 40603,
   "excludedByPlatform": {
     "3ds": 136,
     "ds": 52,
@@ -77,19 +77,19 @@
   "indexCompanies": 4247,
   "indexGenres": 121,
   "lastDetailsSeedAt": "2026-06-12T19:59:24",
-  "coversLocal": 33461,
+  "coversLocal": 35771,
   "lastEsPriceSyncAt": "2026-09-01T12:03:31Z",
   "lastEsPriceSyncPlatform": "ps4",
   "lastDetailsEnrichAt": "2026-06-19T11:15:04",
   "lastSerialstationEnrichAt": "2026-06-13T08:51:10",
-  "catalogWithCover": 33463,
-  "catalogWithLocalCover": 33461,
+  "catalogWithCover": 35773,
+  "catalogWithLocalCover": 35771,
   "lastSeedAt": "2026-06-14T23:46:00",
   "lastGameEsCatalogImportAt": "2026-08-28T18:57:37Z",
   "lastProvisionalPriceSeedAt": "2026-09-01T00:38:20Z",
   "lastProvisionalPriceSeedBatch": "ps4-pal-es-pages-24-26-2026-08-31",
   "lastLegacyCollectionCatalogImportAt": "2026-08-31T17:51:12Z",
-  "lastPriceChartingCatalogImportAt": "2026-09-01T17:45:00+02:00",
-  "lastPriceChartingCatalogImportPlatform": "ps4",
-  "lastPriceChartingCatalogImportRegion": "PAL España"
+  "lastPriceChartingCatalogImportAt": "2026-09-01T00:00:00Z",
+  "lastPriceChartingCatalogImportPlatform": "ps5",
+  "lastPriceChartingCatalogImportRegion": "USA"
 }

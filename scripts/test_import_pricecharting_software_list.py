@@ -11,9 +11,11 @@ from PIL import Image
 
 from import_pricecharting_software_list import (
     CANVAS_SIZE,
+    CoverTask,
     LiveRow,
     SourceRow,
     cover_is_clean,
+    download_covers,
     merge_catalog,
     normalize_title,
     save_clean_cover,
@@ -94,6 +96,33 @@ def test_title_normalization_handles_common_catalog_variants() -> None:
     assert normalize_title("Helldivers II") == normalize_title("Helldivers 2")
 
 
+def test_distinct_pc_ids_with_equivalent_titles_remain_separate() -> None:
+    joined = [
+        (
+            SourceRow("Example 2", None, None, None),
+            LiveRow("Example 2", 111, "/game/playstation-5/example-2", None),
+        ),
+        (
+            SourceRow("Example II", None, None, None),
+            LiveRow("Example II", 222, "/game/playstation-5/example-ii", None),
+        ),
+    ]
+    merged, _, stats = merge_catalog(
+        [],
+        joined,
+        platform="ps5",
+        region="USA",
+        pc_region="NTSC USA (referencia)",
+        collected_at="2026-09-01T12:00:00+02:00",
+        covers_root=None,
+        id_prefix="ps5-usa",
+    )
+    assert stats["added"] == 2
+    assert stats["updated"] == 0
+    assert {game["pcId"] for game in merged} == {111, 222}
+    assert {game["id"] for game in merged} == {"ps5-usa-example-2", "ps5-usa-example-ii"}
+
+
 def test_usd_prices_map_to_conditions_and_preserve_existing_reference() -> None:
     catalog = [sample_game("ps5-juego-usa", "Juego USA")]
     catalog[0]["region"] = "USA"
@@ -158,9 +187,29 @@ def test_cover_reencode_removes_source_metadata_and_standardizes_size() -> None:
             assert not cleaned.getexif()
 
 
+def test_reused_cover_keeps_region_specific_filename() -> None:
+    image = Image.new("RGB", (320, 500), (10, 80, 160))
+    source = io.BytesIO()
+    image.save(source, format="JPEG")
+    catalog = [{"id": "ps5-usa-example", "slug": "example", "platformSlug": "ps5"}]
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        destination = Path(temp_dir) / "ps5" / "usa-example.jpg"
+        save_clean_cover(source.getvalue(), destination)
+        stats = download_covers(
+            catalog,
+            [CoverTask("ps5-usa-example", "Example", "https://invalid.test", destination)],
+            workers=1,
+        )
+        assert stats["reused"] == 1
+        assert catalog[0]["coverUrl"] == "/covers/ps5/usa-example.jpg"
+
+
 if __name__ == "__main__":
     test_merge_preserves_prices_and_skips_technical_duplicate()
     test_title_normalization_handles_common_catalog_variants()
+    test_distinct_pc_ids_with_equivalent_titles_remain_separate()
     test_usd_prices_map_to_conditions_and_preserve_existing_reference()
     test_cover_reencode_removes_source_metadata_and_standardizes_size()
+    test_reused_cover_keeps_region_specific_filename()
     print("OK: import_pricecharting_software_list")
