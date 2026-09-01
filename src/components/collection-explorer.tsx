@@ -15,9 +15,10 @@ import {
   collectionPublisherOptions,
   filterCollection,
   hasActiveCollectionFilters,
+  sortCollectionDisplayItems,
 } from "@/lib/collection-filters";
 import type { CollectionSummary } from "@/lib/collection-store";
-import type { CollectionView, GameFilters } from "@/lib/types";
+import type { CollectionListingState, CollectionView, GameFilters } from "@/lib/types";
 import {
   formatCollectionConditionSummary,
   groupCollectionDisplayItems,
@@ -35,15 +36,21 @@ type Props = {
   items: CollectionView[];
   summary: CollectionSummary;
   canViewCollectionValue: boolean;
+  listingStateByItemId: Record<string, CollectionListingState>;
 };
 
 const selectClass =
   "rounded-xl border border-border bg-input px-4 py-2.5 text-sm text-foreground outline-none ring-accent/30 focus:ring-2";
 
 const searchClass =
-  "rounded-xl border border-border bg-input px-4 py-2.5 text-sm text-foreground outline-none ring-accent/30 placeholder:text-muted/90 focus:ring-2 xl:col-span-3";
+  "rounded-xl border border-border bg-input px-4 py-2.5 text-sm text-foreground outline-none ring-accent/30 placeholder:text-muted/90 focus:ring-2 xl:col-span-2";
 
-export function CollectionExplorer({ items, summary, canViewCollectionValue }: Props) {
+export function CollectionExplorer({
+  items,
+  summary,
+  canViewCollectionValue,
+  listingStateByItemId,
+}: Props) {
   const [filters, setFilters] = useState<GameFilters>(DEFAULT_COLLECTION_FILTERS);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
@@ -52,8 +59,14 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
   const developerOptions = useMemo(() => collectionDeveloperOptions(groupedItems), [groupedItems]);
   const publisherOptions = useMemo(() => collectionPublisherOptions(groupedItems), [groupedItems]);
 
-  const filtered = useMemo(() => filterCollection(items, filters), [items, filters]);
-  const displayed = useMemo(() => groupCollectionDisplayItems(filtered), [filtered]);
+  const filtered = useMemo(
+    () => filterCollection(items, filters, listingStateByItemId),
+    [items, filters, listingStateByItemId],
+  );
+  const displayed = useMemo(
+    () => sortCollectionDisplayItems(groupCollectionDisplayItems(filtered), filters.sort),
+    [filtered, filters.sort],
+  );
   const displayedUnits = displayed.reduce((sum, item) => sum + item.units, 0);
   const filteredValue = filtered.reduce((sum, g) => sum + (g.totalValue || 0), 0);
   const filtersActive = hasActiveCollectionFilters(filters);
@@ -96,7 +109,7 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
       </section>
 
       <section className="rounded-2xl border border-border bg-card p-4 md:p-5">
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           <input
             type="search"
             placeholder="Buscar título, plataforma, compañía…"
@@ -107,7 +120,8 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
           <select
             value={filters.platform}
             onChange={(e) => setFilters((f) => ({ ...f, platform: e.target.value }))}
-            className={selectClass}
+            className={`${selectClass} xl:col-span-2`}
+            aria-label="Filtrar por plataforma"
           >
             <option value="all">Todas las plataformas ({groupedItems.length})</option>
             {platformOptions.map((p) => (
@@ -150,12 +164,45 @@ export function CollectionExplorer({ items, summary, canViewCollectionValue }: P
               setFilters((f) => ({ ...f, sort: e.target.value as GameFilters["sort"] }))
             }
             className={selectClass}
+            aria-label="Ordenar colección"
           >
             {COLLECTION_SORT_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
                 {opt.label}
               </option>
             ))}
+          </select>
+          <select
+            value={filters.condition}
+            onChange={(e) =>
+              setFilters((f) => ({
+                ...f,
+                condition: e.target.value as GameFilters["condition"],
+              }))
+            }
+            className={selectClass}
+            aria-label="Filtrar por estado"
+          >
+            <option value="all">Todos los estados</option>
+            <option value="sealed">Precintado</option>
+            <option value="complete">Abierto completo</option>
+            <option value="game-manual">Juego + manual</option>
+            <option value="loose">Solo juego</option>
+            <option value="unknown">Sin indicar</option>
+          </select>
+          <select
+            value={filters.sale}
+            onChange={(e) =>
+              setFilters((f) => ({ ...f, sale: e.target.value as GameFilters["sale"] }))
+            }
+            className={selectClass}
+            aria-label="Filtrar por estado de venta"
+          >
+            <option value="all">Todos los anuncios</option>
+            <option value="active">A la venta</option>
+            <option value="draft">Borrador de venta</option>
+            <option value="pending-sale">Venta pendiente de confirmar</option>
+            <option value="not-listed">No anunciado</option>
           </select>
           {filtersActive && (
             <button

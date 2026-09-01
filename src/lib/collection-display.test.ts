@@ -24,6 +24,8 @@ function item(overrides: Partial<CollectionView>): CollectionView {
     buyPrice: null,
     previousSalePrice: null,
     totalValue: 20,
+    addedAt: "2026-08-01T00:00:00.000Z",
+    purchasedAt: null,
     notes: null,
     marketMin: null,
     marketMax: null,
@@ -55,10 +57,23 @@ test("groups copies of the same catalog game and preserves their conditions", ()
     loose: 0,
     unknown: 0,
   });
+  assert.deepEqual(grouped[0]?.itemIds, ["sealed", "complete"]);
   assert.equal(
     formatCollectionConditionSummary(grouped[0]!.conditionCounts),
     "2 precintadas · 1 completo",
   );
+});
+
+test("keeps the earliest and latest dates across copies", () => {
+  const grouped = groupCollectionDisplayItems([
+    item({ id: "older", addedAt: "2025-01-01", purchasedAt: "2024-02-01" }),
+    item({ id: "newer", addedAt: "2026-03-01", purchasedAt: "2026-02-01" }),
+  ]);
+
+  assert.equal(grouped[0]?.earliestAddedAt, "2025-01-01");
+  assert.equal(grouped[0]?.latestAddedAt, "2026-03-01");
+  assert.equal(grouped[0]?.earliestPurchasedAt, "2024-02-01");
+  assert.equal(grouped[0]?.latestPurchasedAt, "2026-02-01");
 });
 
 test("does not merge pending rows without a catalog identity", () => {

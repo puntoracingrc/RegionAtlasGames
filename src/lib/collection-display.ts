@@ -7,6 +7,11 @@ export type CollectionDisplayItem = {
   entries: number;
   units: number;
   conditionCounts: CollectionConditionCounts;
+  itemIds: string[];
+  earliestAddedAt: string | null;
+  latestAddedAt: string | null;
+  earliestPurchasedAt: string | null;
+  latestPurchasedAt: string | null;
 };
 
 const EMPTY_COUNTS: CollectionConditionCounts = {
@@ -21,6 +26,22 @@ export function collectionCondition(item: CollectionView): CollectionCondition {
   return item.sealed ? "sealed" : item.collectionCondition ?? "unknown";
 }
 
+function validDate(value: string | null | undefined): string | null {
+  return value && Number.isFinite(Date.parse(value)) ? value : null;
+}
+
+function earlierDate(current: string | null, candidate: string | null): string | null {
+  if (!current) return candidate;
+  if (!candidate) return current;
+  return Date.parse(candidate) < Date.parse(current) ? candidate : current;
+}
+
+function laterDate(current: string | null, candidate: string | null): string | null {
+  if (!current) return candidate;
+  if (!candidate) return current;
+  return Date.parse(candidate) > Date.parse(current) ? candidate : current;
+}
+
 export function groupCollectionDisplayItems(items: CollectionView[]): CollectionDisplayItem[] {
   const groups = new Map<string, CollectionDisplayItem>();
 
@@ -29,6 +50,8 @@ export function groupCollectionDisplayItems(items: CollectionView[]): Collection
     const key = item.catalogMatched && item.catalogId ? `catalog:${item.catalogId}` : `item:${item.id}`;
     const condition = collectionCondition(item);
     const current = groups.get(key);
+    const addedAt = validDate(item.addedAt);
+    const purchasedAt = validDate(item.purchasedAt);
 
     if (!current) {
       const conditionCounts = { ...EMPTY_COUNTS, [condition]: units };
@@ -37,13 +60,23 @@ export function groupCollectionDisplayItems(items: CollectionView[]): Collection
         entries: 1,
         units,
         conditionCounts,
+        itemIds: [item.id],
+        earliestAddedAt: addedAt,
+        latestAddedAt: addedAt,
+        earliestPurchasedAt: purchasedAt,
+        latestPurchasedAt: purchasedAt,
       });
       continue;
     }
 
     current.entries += 1;
     current.units += units;
+    current.itemIds.push(item.id);
     current.conditionCounts[condition] += units;
+    current.earliestAddedAt = earlierDate(current.earliestAddedAt, addedAt);
+    current.latestAddedAt = laterDate(current.latestAddedAt, addedAt);
+    current.earliestPurchasedAt = earlierDate(current.earliestPurchasedAt, purchasedAt);
+    current.latestPurchasedAt = laterDate(current.latestPurchasedAt, purchasedAt);
     current.game.quantity = current.units;
     current.game.sealed = current.conditionCounts.sealed === current.units;
     current.game.totalValue =
