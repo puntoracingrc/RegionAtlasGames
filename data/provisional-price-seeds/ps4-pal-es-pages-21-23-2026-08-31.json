@@ -1,0 +1,952 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ps4-pal-es-pages-21-23-2026-08-31",
+  "platformSlug": "ps4",
+  "region": "PAL España",
+  "collectedAt": "2026-09-01T00:20:53Z",
+  "researchDate": "2026-08-31",
+  "currency": "EUR",
+  "pricesIncludeShipping": false,
+  "method": "provisional_range_midpoint",
+  "notes": [
+    "Tramos Five Nights at Freddy’s: Help Wanted a Hasbro Family Fun Pack del catálogo fuente PS4 PAL España.",
+    "Solo se incorporan siete observaciones externas con ficha pública actual e identidad inequívoca.",
+    "Las referencias RA ya existentes, regiones no demostradas, códigos sin confirmar, piezas sueltas y ediciones distintas no se duplican.",
+    "Ochenta nombres del catálogo fuente no coinciden literalmente con el catálogo actual; Friday the 13th y GTA Trilogy se resolvieron manualmente a su única ficha canónica.",
+    "Las fichas actuales excluidas permanecen documentadas sin reactivarse ni recibir valoración pública.",
+    "Los precios de tienda sin disponibilidad se mantienen separados como nuevo retail y no confirman stock."
+  ],
+  "audit": {
+    "sourceEntries": 144,
+    "acceptedEntries": 7,
+    "skippedEntries": 137,
+    "sourceNamesWithoutLiteralMatch": 80,
+    "manuallyResolvedCanonicalTitles": 2,
+    "remainingDocumentaryNamesWithoutLiteralMatch": 78,
+    "excludedCatalogMatches": 7
+  },
+  "entries": [
+    {
+      "catalogId": "ps4-five-nights-at-freddy%27s-help-wanted",
+      "title": "Five Nights at Freddy’s: Help Wanted",
+      "status": "skipped",
+      "reason": "Pendiente; sin precio físico PAL España exacto."
+    },
+    {
+      "catalogId": "ps4-five-nights-at-freddy%27s-security-breach",
+      "title": "Five Nights at Freddy’s: Security Breach",
+      "status": "skipped",
+      "reason": "Pendiente; descartados resultados de PS5."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-003-five-nights-at-freddys-secret-of-the-mimic",
+      "title": "Five Nights at Freddy’s: Secret of the Mimic",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-004-five-nights-at-freddys-the-core-collection",
+      "title": "Five Nights at Freddy’s: The Core Collection",
+      "status": "skipped",
+      "reason": "Ref. RA: 25 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-flashback-25th-anniversary-collector%27s-edition",
+      "title": "Flashback [25th Anniversary Collector’s Edition]",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-006-flashback-25th-anniversary",
+      "title": "Flashback [25th Anniversary]",
+      "status": "skipped",
+      "reason": "Existe copia española precintada localizada, pero el anuncio no muestra un precio actual utilizable. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-007-flashback-2",
+      "title": "Flashback 2",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-008-flat-heroes",
+      "title": "Flat Heroes",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-flatout-4-total-insanity",
+      "title": "FlatOut 4: Total Insanity",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-010-flinthook",
+      "title": "Flinthook",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-011-flint-treasure-of-oblivion",
+      "title": "Flint: Treasure of Oblivion",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-flipping-death",
+      "title": "Flipping Death",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-flockers",
+      "title": "Flockers",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-for-honor",
+      "title": "For Honor",
+      "status": "skipped",
+      "reason": "Ab./completo RA: 5,33 €."
+    },
+    {
+      "catalogId": "ps4-for-honor-gold-edition",
+      "title": "For Honor [Gold Edition]",
+      "status": "skipped",
+      "reason": "W Ab./como nuevo: 11,99 €. La ficha actual está excluida; no se reactiva ni se valora desde este lote."
+    },
+    {
+      "catalogId": "ps4-for-honor-limited-edition",
+      "title": "For Honor [Limited Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; no la mezclo con Gold o estándar. La ficha actual está excluida; no se reactiva ni se valora desde este lote."
+    },
+    {
+      "catalogId": "ps4-for-the-king",
+      "title": "For The King",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-forgive-me-father",
+      "title": "Forgive Me Father",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-019-forklift-extreme",
+      "title": "Forklift: Extreme",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-020-fortnite-darkfire-bundle",
+      "title": "Fortnite [Darkfire Bundle]",
+      "status": "skipped",
+      "reason": "Pendiente; solo tendría valor completo con los códigos sin usar. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-fortnite-minty-legends-pack",
+      "title": "Fortnite [Minty Legends Pack]",
+      "status": "skipped",
+      "reason": "Ref. RA: 9,95 €; comprobar código sin canjear."
+    },
+    {
+      "catalogId": "ps4-fortnite-deep-freeze-bundle",
+      "title": "Fortnite Deep Freeze Bundle",
+      "status": "skipped",
+      "reason": "Ref. RA: 10 €; comprobar código sin canjear."
+    },
+    {
+      "catalogId": "ps4-fortnite-transformers-pack",
+      "title": "Fortnite Transformers Pack",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-024-fortune-funland",
+      "title": "Fortune Funland",
+      "status": "skipped",
+      "reason": "Ref. RA: 28 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-025-frane-dragons-odyssey",
+      "title": "Frane: Dragons’ Odyssey",
+      "status": "skipped",
+      "reason": "Ref. RA: 40 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-026-freakout-calamity-tv-show",
+      "title": "Freakout: Calamity TV Show",
+      "status": "skipped",
+      "reason": "Ref. RA: 44 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-027-freddy-spaghetti-collectors-edition",
+      "title": "Freddy Spaghetti [Collector’s Edition]",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-028-friday-the-13th-the-game-ultimate-slasher-edition",
+      "title": "Friday the 13th: The Game [Ultimate Slasher Edition]",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-friday-the-13th",
+      "title": "Friday the 13th: The Game",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 18,
+          "maximum": 18,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-030-frostpunk",
+      "title": "Frostpunk",
+      "status": "skipped",
+      "reason": "Ref. RA: 16 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-031-frostpunk-the-last-autumn-game-of-the-year-edition",
+      "title": "Frostpunk The Last Autumn [Game of the Year Edition]",
+      "status": "skipped",
+      "reason": "Pendiente; mantengo literalmente la ficha del catálogo. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-032-frozen-olafs-quest",
+      "title": "Frozen: Olaf’s Quest",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-033-furi",
+      "title": "Furi",
+      "status": "skipped",
+      "reason": "Ref. RA: 43 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-034-furi-collectors-edition",
+      "title": "Furi [Collector’s Edition]",
+      "status": "skipped",
+      "reason": "Ref. RA: 160 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-035-furwind",
+      "title": "Furwind",
+      "status": "skipped",
+      "reason": "Ref. RA: 36 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-036-fuser",
+      "title": "Fuser",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-037-gal-gun-2",
+      "title": "Gal*Gun 2",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-038-gal-gun-double-peace",
+      "title": "Gal*Gun Double Peace",
+      "status": "skipped",
+      "reason": "Ref. RA: 37 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-039-gal-gun-double-peace-mr-happiness-edition",
+      "title": "Gal*Gun: Double Peace [Mr. Happiness Edition]",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-040-gamedec-limited-edition",
+      "title": "Gamedec [Limited Edition]",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-gas-guzzlers-extreme",
+      "title": "Gas Guzzlers Extreme",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-042-gauntlet-slayer-edition",
+      "title": "Gauntlet [Slayer Edition]",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-gear-club-unlimited-2-ultimate-edition",
+      "title": "Gear Club Unlimited 2 [Ultimate Edition]",
+      "status": "skipped",
+      "reason": "Ab./completo RA: 14,99 €."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-044-gearshifters",
+      "title": "Gearshifters",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-045-ghost-1-0-unepic-collection-limited-edition",
+      "title": "Ghost 1.0 + Unepic Collection [Limited Edition]",
+      "status": "skipped",
+      "reason": "Ref. RA: 75 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-046-ghost-blade-hd",
+      "title": "Ghost Blade HD",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-ghost-of-a-tale",
+      "title": "Ghost of a Tale",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-ghost-of-tsushima",
+      "title": "Ghost of Tsushima",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 10,
+          "maximum": 25.95,
+          "sources": [
+            "wallapop",
+            "todoconsolas"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-049-ghost-of-tsushima-steelbook-edition",
+      "title": "Ghost of Tsushima - Steelbook Edition",
+      "status": "skipped",
+      "reason": "Ref. RA: 30 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-ghost-of-tsushima-director%27s-cut",
+      "title": "Ghost of Tsushima Director’s Cut",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 37,
+          "maximum": 37,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-051-ghost-of-tsushima-edicion-especial",
+      "title": "Ghost of Tsushima Edición Especial",
+      "status": "skipped",
+      "reason": "W Prec.: 80 € · TC Ab. PAL/ES: 34,95 € · Ref. RA: 30 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-052-ghost-of-tsushima-steelbook-special-edition",
+      "title": "Ghost of Tsushima Steelbook [Special Edition]",
+      "status": "skipped",
+      "reason": "Ref. RA: 30 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-ghost-of-tsushima-special-edition",
+      "title": "Ghost of Tsushima Special Edition",
+      "status": "skipped",
+      "reason": "Ref. RA: 30 €; posible duplicado de la edición especial anterior. La ficha actual está excluida; no se reactiva ni se valora desde este lote."
+    },
+    {
+      "catalogId": "ps4-ghost-parade",
+      "title": "Ghost Parade",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-ghost-song",
+      "title": "Ghost Song",
+      "status": "skipped",
+      "reason": "Ref. RA: 69 €."
+    },
+    {
+      "catalogId": "ps4-ghostbusters-the-video-game-remastered",
+      "title": "Ghostbusters: The Video Game Remastered",
+      "status": "skipped",
+      "reason": "Ref. RA: 20 €."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-057-ghostrunner",
+      "title": "Ghostrunner",
+      "status": "skipped",
+      "reason": "Ref. RA: 15 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-058-ghostrunner-2",
+      "title": "Ghostrunner 2",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-059-ghostrunner-complete-edition",
+      "title": "Ghostrunner: Complete Edition",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-gigantosaurus-dino-kart",
+      "title": "Gigantosaurus Dino Kart",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-gigantosaurus-the-game",
+      "title": "Gigantosaurus The Game",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-062-gimmick-collectors-edition",
+      "title": "Gimmick [Collector’s Edition]",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-gimmick-special-edition",
+      "title": "Gimmick Special Edition",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-ginger-beyond-the-crystal",
+      "title": "Ginger: Beyond the Crystal",
+      "status": "skipped",
+      "reason": "Ab./completo RA: 25 €."
+    },
+    {
+      "catalogId": "ps4-ginga-force",
+      "title": "Ginga Force",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-066-ginga-force-natsuki-chronicles",
+      "title": "Ginga Force & Natsuki Chronicles",
+      "status": "skipped",
+      "reason": "Ref. RA: 48 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-067-glover",
+      "title": "Glover",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-god-eater-2-rage-burst",
+      "title": "God Eater 2: Rage Burst",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-god-eater-3",
+      "title": "God Eater 3",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-god-of-war",
+      "title": "God Of War",
+      "status": "skipped",
+      "reason": "W Ab.: 8–15 €, según edición estándar o PlayStation Hits."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-071-god-of-war-3-remastered",
+      "title": "God Of War 3 Remastered",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-072-god-of-war-3-remastered-ps-hits",
+      "title": "God of War 3 Remastered [PS Hits]",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-god-of-war-ragnarok",
+      "title": "God Of War Ragnarok",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 20,
+          "maximum": 30,
+          "sources": [
+            "wallapop",
+            "todoconsolas"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-074-god-of-war-ragnarok-collector-edition",
+      "title": "God Of War Ragnarok Collector Edition",
+      "status": "skipped",
+      "reason": "W Prec./sin desprecintar: 249 € · TC sin juego: 159,95 € · Ref. RA completa: 180 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-075-god-of-war-ragnarok-day-one-edition",
+      "title": "God of War Ragnarok Day One Edition",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-076-god-of-war-ragnarok-edicion-coleccionista",
+      "title": "God of War Ragnarok [Edición Coleccionista]",
+      "status": "skipped",
+      "reason": "Ref. RA: 180 €; parece duplicado de la Collector Edition. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-077-god-of-war-ragnarok-jotnar-edition",
+      "title": "God of War Ragnarok [Jötnar Edition]",
+      "status": "skipped",
+      "reason": "Ref. RA: 275 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-god-of-war-ragnarok-launch-edition",
+      "title": "God of War Ragnarok [Launch Edition]",
+      "status": "skipped",
+      "reason": "Ref. RA: 15 €. La ficha actual está excluida; no se reactiva ni se valora desde este lote."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-079-god-of-war-ragnarok-edicion-coleccionista",
+      "title": "God Of War Ragnarok Edicion Coleccionista",
+      "status": "skipped",
+      "reason": "Ref. RA: 180 €; duplicado tipográfico del catálogo. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-080-god-of-war-ragnarok-launch-edition",
+      "title": "God Of War Ragnarok Launch Edition",
+      "status": "skipped",
+      "reason": "Ref. RA: 15 €; duplicado tipográfico. La ficha actual está excluida; no se reactiva ni se valora desde este lote."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-081-god-of-war-steelbook",
+      "title": "God Of War Steelbook",
+      "status": "skipped",
+      "reason": "Ref. RA: 38 € · TC vende el steelbook suelto por 49,95 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-god-wars-future-past",
+      "title": "God Wars Future Past",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-083-god-wars-the-complete-legend",
+      "title": "God Wars The Complete Legend",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-godzilla",
+      "title": "Godzilla",
+      "status": "skipped",
+      "reason": "Ref. RA: 140 € · Sin muestra exacta actual de Wallapop PAL España; no utilizo las unidades PAL extranjeras de 120–300 €."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-085-golazo-2-deluxe-edition",
+      "title": "Golazo 2 [Deluxe Edition]",
+      "status": "skipped",
+      "reason": "Ref. RA: 28 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-086-golazo-super-goal",
+      "title": "Golazo Super Goal",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-087-golf-with-your-friends",
+      "title": "Golf With Your Friends",
+      "status": "skipped",
+      "reason": "Ab./completo RA: 14,95 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-088-gonner",
+      "title": "Gonner",
+      "status": "skipped",
+      "reason": "Ref. RA: 14,95 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-goodbye-deponia",
+      "title": "Goodbye Deponia",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-goosebumps-dead-of-night",
+      "title": "Goosebumps Dead of Night",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-091-gotham-knights-special-steelbook-edition",
+      "title": "Gotham Knights Special Steelbook Edition",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-092-granblue-fantasy-relink-deluxe-edition",
+      "title": "Granblue Fantasy Relink Deluxe Edition",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-093-grand-ages-medieval-limited-edition",
+      "title": "Grand Ages Medieval [Limited Edition]",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-grand-kingdom",
+      "title": "Grand Kingdom",
+      "status": "skipped",
+      "reason": "Ref. RA: 70 €."
+    },
+    {
+      "catalogId": "ps4-grand-theft-auto-the-trilogy-definitive-edition",
+      "title": "Grand Theft Auto Trilogy Definitive Edition",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 15,
+          "maximum": 15,
+          "sources": [
+            "wallapop"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-grand-theft-auto-v-premium-edition",
+      "title": "Grand Theft Auto V [Premium Edition]",
+      "status": "skipped",
+      "reason": "W Ab./como nuevo: 10–20 € · W Prec.: 12 € · Ref. RA: 15 €. La ficha actual está excluida; no se reactiva ni se valora desde este lote."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-097-grand-theft-auto-v-premium-edition",
+      "title": "Grand Theft Auto V Premium Edition",
+      "status": "skipped",
+      "reason": "Duplicado de la última ficha del lote 22 · W Ab.: 10–20 € · W Prec.: 12 € · Ref. RA: 15 €. La ficha actual está excluida; no se reactiva ni se valora desde este lote."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-098-grand-theft-auto-v-steel-book-edition",
+      "title": "Grand Theft Auto V Steel Book Edition",
+      "status": "skipped",
+      "reason": "Ref. RA: 35 € · Sin muestra exacta actual de PS4 PAL España. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-gravel",
+      "title": "Gravel",
+      "status": "skipped",
+      "reason": "Ref. RA: 14 €."
+    },
+    {
+      "catalogId": "ps4-gravity-rush-remastered",
+      "title": "Gravity Rush Remastered",
+      "status": "skipped",
+      "reason": "W? Ab./buen estado: 31 €, región no visible · Ab./completo PAL España según RA: 180 €. No sustituiría los 180 € por ese único anuncio sin confirmar la carátula."
+    },
+    {
+      "catalogId": "ps4-gravity-rush-2",
+      "title": "Gravity Rush 2",
+      "status": "accepted",
+      "conditions": {
+        "complete": {
+          "minimum": 28,
+          "maximum": 50,
+          "sources": [
+            "marketplace-es"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-greedfall",
+      "title": "GreedFall",
+      "status": "accepted",
+      "conditions": {
+        "new_retail": {
+          "minimum": 49.99,
+          "maximum": 49.99,
+          "sources": [
+            "spanish-retail"
+          ]
+        }
+      }
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-103-greedfall-gold-edition",
+      "title": "GreedFall Gold Edition",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-104-grey-skies-a-war-of-the-worlds-story",
+      "title": "Grey Skies: A War of the Worlds Story",
+      "status": "skipped",
+      "reason": "Ref. RA: 27 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-105-grip-combat-racing",
+      "title": "Grip Combat Racing",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-106-grid",
+      "title": "GRID",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-grid-legends",
+      "title": "Grid Legends",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-108-grim-fandango-remastered",
+      "title": "Grim Fandango Remastered",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-109-grime",
+      "title": "Grime",
+      "status": "skipped",
+      "reason": "Ref. RA: 32 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-110-grips-combate-airblades-double-pack",
+      "title": "Grips Combate & Airblades Double Pack",
+      "status": "skipped",
+      "reason": "Ab./completo RA: 14,99 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-guilty-gear-strive",
+      "title": "Guilty Gear Strive",
+      "status": "skipped",
+      "reason": "Ref. RA: 18 €."
+    },
+    {
+      "catalogId": "ps4-guilty-gear-xrd-revelator",
+      "title": "Guilty Gear XRD Revelator",
+      "status": "skipped",
+      "reason": "Pendiente para esta ficha exacta."
+    },
+    {
+      "catalogId": "ps4-guilty-gear-xrd-rev-2",
+      "title": "Guilty Gear Xrd Rev 2",
+      "status": "skipped",
+      "reason": "Ab./completo RA: 12,99 €."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-114-guilty-gear-xrd-rev-2-plus",
+      "title": "Guilty Gear Xrd Rev 2 Plus",
+      "status": "skipped",
+      "reason": "Ab./completo RA: 12,99 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-115-guilty-gear-xrd-revelator",
+      "title": "Guilty Gear Xrd Revelator",
+      "status": "skipped",
+      "reason": "Ref. RA: 8 €; probable duplicado ortográfico."
+    },
+    {
+      "catalogId": "ps4-guilty-gear-xrd-sign",
+      "title": "Guilty Gear Xrd Sign",
+      "status": "skipped",
+      "reason": "Ref. RA: 22 €."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-117-guilty-gear-xrd-sign-limited-edition",
+      "title": "Guilty Gear Xrd Sign [Limited Edition]",
+      "status": "skipped",
+      "reason": "Ref. RA: 53 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-118-guilty-gear-xrd-revelator-2",
+      "title": "Guilty Gear Xrd: Revelator 2",
+      "status": "skipped",
+      "reason": "Ref. RA: 12,99 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-119-guilty-gear-xrd-sign",
+      "title": "Guilty Gear Xrd: Sign",
+      "status": "skipped",
+      "reason": "Ref. RA: 22 €; duplicado con puntuación distinta."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-120-guilty-gear-xrd-sign-limited-edition",
+      "title": "Guilty Gear Xrd: Sign [Limited Edition]",
+      "status": "skipped",
+      "reason": "Ref. RA: 53 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-121-guilty-gear-strive",
+      "title": "Guilty Gear: Strive",
+      "status": "skipped",
+      "reason": "Ref. RA: 18 €; duplicado de la primera ficha del bloque."
+    },
+    {
+      "catalogId": "ps4-gungrave-gore",
+      "title": "Gungrave G.O.R.E.",
+      "status": "skipped",
+      "reason": "Físico PAL España pendiente · Referencia reacondicionada española: 25 €, sin confirmar carátula regional."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-123-gungrave-g-o-r-e-day-one-edition",
+      "title": "Gungrave G.O.R.E. [Day One Edition]",
+      "status": "skipped",
+      "reason": "Ref. RA: 20 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-gunlord-x",
+      "title": "Gunlord X",
+      "status": "skipped",
+      "reason": "Ref. RA: 40 €."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-125-guns-gore-cannoli-1-2",
+      "title": "Guns Gore & Cannoli 1 & 2",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-126-guns-gore-cannoli-2",
+      "title": "Guns Gore & Cannoli 2",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-127-guts-and-glory",
+      "title": "Guts and Glory",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-hades",
+      "title": "Hades",
+      "status": "skipped",
+      "reason": "Ref. RA: 22 € · Los anuncios encontrados en Wallapop eran de Switch o PS5 y quedan excluidos."
+    },
+    {
+      "catalogId": "ps4-handball-16",
+      "title": "Handball 16",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-handball-17",
+      "title": "Handball 17",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-131-handball-21",
+      "title": "Handball 21",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-132-handball-25",
+      "title": "Handball 25",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-133-handball-challenge-14",
+      "title": "Handball Challenge 14",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-134-handball-challenge-16",
+      "title": "Handball Challenge 16",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-135-handball-challenge-17",
+      "title": "Handball Challenge 17",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-136-handball-challenge-18",
+      "title": "Handball Challenge 18",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-137-hard-west-collectors-edition",
+      "title": "Hard West [Collector’s Edition]",
+      "status": "skipped",
+      "reason": "Ref. RA: 40 €. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-harvest-moon-light-of-hope",
+      "title": "Harvest Moon Light of Hope",
+      "status": "skipped",
+      "reason": "Ab./completo RA: 13,79 €."
+    },
+    {
+      "catalogId": "ps4-harvest-moon-mad-dash",
+      "title": "Harvest Moon Mad Dash",
+      "status": "skipped",
+      "reason": "Pendiente para esta ficha sin dos puntos."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-140-harvest-moon-light-of-hope-complete-special-edition",
+      "title": "Harvest Moon: Light of Hope Complete Special Edition",
+      "status": "skipped",
+      "reason": "Pendiente. Ficha literal ausente del catálogo público actual; no se recrea ni se aproxima."
+    },
+    {
+      "catalogId": "ps4-source-pages-21-23-141-harvest-moon-mad-dash",
+      "title": "Harvest Moon: Mad Dash",
+      "status": "skipped",
+      "reason": "Ref. RA: 10 €."
+    },
+    {
+      "catalogId": "ps4-harvest-moon-the-winds-of-anthos",
+      "title": "Harvest Moon: The Winds of Anthos",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-has-been-heroes",
+      "title": "Has-Been Heroes",
+      "status": "skipped",
+      "reason": "Pendiente."
+    },
+    {
+      "catalogId": "ps4-hasbro-family-fun-pack",
+      "title": "Hasbro Family Fun Pack",
+      "status": "skipped",
+      "reason": "Ref. RA: 12,50 €."
+    }
+  ]
+}

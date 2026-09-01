@@ -13972,6 +13972,76 @@
         "sealed": null,
         "newRetail": null
       }
+    ],
+    "ps4-friday-the-13th": [
+      {
+        "at": "2026-09-01T00:20:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-ghost-of-tsushima": [
+      {
+        "at": "2026-09-01T00:20:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 17.98,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-ghost-of-tsushima-director%27s-cut": [
+      {
+        "at": "2026-09-01T00:20:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 37.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-god-of-war-ragnarok": [
+      {
+        "at": "2026-09-01T00:20:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 25.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-grand-theft-auto-the-trilogy-definitive-edition": [
+      {
+        "at": "2026-09-01T00:20:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-gravity-rush-2": [
+      {
+        "at": "2026-09-01T00:20:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 39.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-greedfall": [
+      {
+        "at": "2026-09-01T00:20:53Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": 49.99
+      }
     ]
   }
 }
