@@ -1,0 +1,312 @@
+# Actualización de precios SNES USA desde PriceCharting
+
+Fecha: `2026-09-02T14:01:48+02:00`
+
+La región se conserva como **USA (NTSC-U)**. Fuente: [listado USA de Super Nintendo en PriceCharting](https://www.pricecharting.com/console/super-nintendo?sort=name).
+
+## Resultado
+
+- Filas de software aportadas: **958**.
+- Fichas nuevas: **0**.
+- Fichas existentes con coincidencia/actualizadas: **679** / **679**.
+- Fichas ocultas reactivadas: **0**.
+- Accesorios conservados fuera del catálogo público: **0**.
+- Duplicados previos consolidados: **0**.
+- Filas omitidas: **279**.
+- Total final de SNES USA: **723**.
+
+No se han creado fichas ni modificado títulos, regiones, rutas o portadas. Solo se actualizan los tres precios de las coincidencias existentes.
+
+Los importes originales se conservan en USD. Para mostrarlos y sumarlos en la web se han convertido a EUR con la referencia documentada de **1 EUR = 1.1590 USD** del **2026-09-01**. La asignación es Loose = Solo juego, CIB = Completo y New = Precintado.
+
+Las equivalencias adicionales solo se aceptaron cuando el título correspondía al mismo producto y la portada ofrecía una coincidencia visual única. Quedaron fuera las variantes sin ficha exacta, incluidos homebrew, traducciones, NFR, Player's Choice, Limited Run y otras reediciones. El mapa revisado se conserva en `data/import-aliases/pricecharting-snes-usa.json`.
+
+## Resolución
+
+- `normalized_title`: 485
+- `normalized_title_and_slug`: 14
+- `pc_id`: 93
+- `reviewed_alias`: 87
+- `unmatched_existing_catalog`: 279
+
+## Omitidos
+
+- 240p Test Suite (`6216758`): sin coincidencia inequívoca en el catálogo existente.
+- ActRaiser (`6830`): sin coincidencia inequívoca en el catálogo existente.
+- Addams Family Values (`6833`): sin coincidencia inequívoca en el catálogo existente.
+- Aero The Acro-Bat 2 [Limited Run] (`7667487`): sin coincidencia inequívoca en el catálogo existente.
+- Aero the Acro-Bat [Limited Run] (`10103257`): sin coincidencia inequívoca en el catálogo existente.
+- Ancient Magic: Bazoe! Mahou Sekai [English Translation] (`6240224`): sin coincidencia inequívoca en el catálogo existente.
+- Animaniacs [Majesco Candy Cane] (`11355593`): sin coincidencia inequívoca en el catálogo existente.
+- Apocalypse [Homebrew] (`3322025`): sin coincidencia inequívoca en el catálogo existente.
+- Apocalypse II [Homebrew] (`3332276`): sin coincidencia inequívoca en el catálogo existente.
+- Assault Suits Valken [Collector's Edition] (`6795200`): sin coincidencia inequívoca en el catálogo existente.
+- Assault Suits Valken: Deluxe Edition (`6903154`): sin coincidencia inequívoca en el catálogo existente.
+- Attack of the Petscii Robots (`5325016`): sin coincidencia inequívoca en el catálogo existente.
+- Bahamut Lagoon [Homebrew] (`2585912`): sin coincidencia inequívoca en el catálogo existente.
+- Batman Forever (`6853`): sin coincidencia inequívoca en el catálogo existente.
+- Battle Clash [Shooter Series] (`5705795`): sin coincidencia inequívoca en el catálogo existente.
+- Battletoads & Double Dragon [Limited Edition] (`5836783`): sin coincidencia inequívoca en el catálogo existente.
+- Beavis and Butthead (`8594`): sin coincidencia inequívoca en el catálogo existente.
+- Block 'Em Sock 'Em [Homebrew] (`6540031`): sin coincidencia inequívoca en el catálogo existente.
+- Bobby's World [Homebrew] (`2984758`): sin coincidencia inequívoca en el catálogo existente.
+- Brandish 2: The Planet Buster [English Translation] (`6240155`): sin coincidencia inequívoca en el catálogo existente.
+- Breath of Fire (`6873`): sin coincidencia inequívoca en el catálogo existente.
+- Breath Of Fire II - Retranslated [Homebrew] (`7095513`): sin coincidencia inequívoca en el catálogo existente.
+- Brunswick World Tournament Of Champions [Majesco Candy Cane] (`10396067`): sin coincidencia inequívoca en el catálogo existente.
+- Capcom's Soccer Shootout (`6879`): sin coincidencia inequívoca en el catálogo existente.
+- Castlevania Dracula X [Playtronic] (`4895141`): sin coincidencia inequívoca en el catálogo existente.
+- Chaos Seed [English Translation] (`6240226`): sin coincidencia inequívoca en el catálogo existente.
+- Chip's Challenge [Homebrew] (`12226013`): sin coincidencia inequívoca en el catálogo existente.
+- Chrono Trigger: Crimson Echoes [Homebrew] (`7095546`): sin coincidencia inequívoca en el catálogo existente.
+- Chrono Trigger: Flame Of Eternity [Homebrew] (`7800750`): sin coincidencia inequívoca en el catálogo existente.
+- Classic Kong [Homebrew] (`724518`): sin coincidencia inequívoca en el catálogo existente.
+- Clock Tower [Homebrew] (`3312779`): sin coincidencia inequívoca en el catálogo existente.
+- Conker's High Rule Tail [Homebrew] (`6240255`): sin coincidencia inequívoca en el catálogo existente.
+- Contra III The Alien Wars [Majesco Candy Cane] (`10352865`): sin coincidencia inequívoca en el catálogo existente.
+- Contra III The Alien Wars [Not for Resale] (`37530`): sin coincidencia inequívoca en el catálogo existente.
+- Corn Buster [Homebrew] (`3368813`): sin coincidencia inequívoca en el catálogo existente.
+- Cotton 100 (`4405208`): sin coincidencia inequívoca en el catálogo existente.
+- Cyber Knight II [English Translation] (`6240146`): sin coincidencia inequívoca en el catálogo existente.
+- Dark Half [English Translation] (`6240250`): sin coincidencia inequívoca en el catálogo existente.
+- Data East Classic Collection [Homebrew] (`63902`): sin coincidencia inequívoca en el catálogo existente.
+- Donald Duck And The Magical Hat [Homebrew] (`11711065`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong Country (`6900`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong Country 2 [Not for Resale] (`81219`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong Country 2 [Player's Choice] (`42311`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong Country 3 (`6902`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong Country 3 [Not for Resale] (`36326`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong Country 3 [Player's Choice] (`42312`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong Country Competition (`14934`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong Country [Player's Choice] (`42313`): sin coincidencia inequívoca en el catálogo existente.
+- Doom [Collector's Edition] (`10864870`): sin coincidencia inequívoca en el catálogo existente.
+- Doom [Limited Run] (`10864872`): sin coincidencia inequívoca en el catálogo existente.
+- DoReMi Fantasy Milon's Quest [English] (`926494`): sin coincidencia inequívoca en el catálogo existente.
+- Dorke & Ymp [Homebrew] (`2291082`): sin coincidencia inequívoca en el catálogo existente.
+- Dragon Quest III [Homebrew] (`2265655`): sin coincidencia inequívoca en el catálogo existente.
+- Dragon View [Limited Run] (`5167312`): sin coincidencia inequívoca en el catálogo existente.
+- Dual Orb II [English Translation] (`6240228`): sin coincidencia inequívoca en el catálogo existente.
+- Earthworm Jim 1+2 [25th Anniversary Edition] (`72385`): sin coincidencia inequívoca en el catálogo existente.
+- Emerald Dragon [English Translation] (`6240128`): sin coincidencia inequívoca en el catálogo existente.
+- Eyra The Crow Maiden (`5879674`): sin coincidencia inequívoca en el catálogo existente.
+- F-Zero 2 Grand Prix [Homebrew] (`7812279`): sin coincidencia inequívoca en el catálogo existente.
+- F-Zero [Player's Choice] (`42314`): sin coincidencia inequívoca en el catálogo existente.
+- F1 Pole Position (`6918`): sin coincidencia inequívoca en el catálogo existente.
+- Final Fight (`6928`): sin coincidencia inequívoca en el catálogo existente.
+- Fire Emblem: Genealogy of the Holy War [Homebrew] (`2265650`): sin coincidencia inequívoca en el catálogo existente.
+- Fire Emblem: Mystery of the Emblem [Homebrew] (`4781265`): sin coincidencia inequívoca en el catálogo existente.
+- Fire Emblem: Thracia 776 [English Translation] (`4781267`): sin coincidencia inequívoca en el catálogo existente.
+- Fire Striker (`6931`): sin coincidencia inequívoca en el catálogo existente.
+- Fork Parker's Crunch Out [Homebrew] (`6905430`): sin coincidencia inequívoca en el catálogo existente.
+- Ghoul Patrol [Limited Run] (`4765164`): sin coincidencia inequívoca en el catálogo existente.
+- Ghoul Patrol [Premium Edition] (`4765165`): sin coincidencia inequívoca en el catálogo existente.
+- Gourmet Warriors [English Translation] (`6240157`): sin coincidencia inequívoca en el catálogo existente.
+- Gunple: Gunman's Proof [English Translation] (`6240231`): sin coincidencia inequívoca en el catálogo existente.
+- Hind Strike [Homebrew] (`2290956`): sin coincidencia inequívoca en el catálogo existente.
+- Hyper Light Drifter (`8604981`): sin coincidencia inequívoca en el catálogo existente.
+- Illusion of Gaia [T-Shirt Bundle] (`5115949`): sin coincidencia inequívoca en el catálogo existente.
+- International Superstar Soccer [Playtronic] (`4946963`): sin coincidencia inequívoca en el catálogo existente.
+- Iron Commando (`13016089`): sin coincidencia inequívoca en el catálogo existente.
+- Jaleco Brawler's Pack (`83899`): sin coincidencia inequívoca en el catálogo existente.
+- Jelly Boy [Homebrew] (`2369385`): sin coincidencia inequívoca en el catálogo existente.
+- Jelly Boy [Limited Run] (`10561275`): sin coincidencia inequívoca en el catálogo existente.
+- Jim Power in Mutant Planet (`3621910`): sin coincidencia inequívoca en el catálogo existente.
+- Jim Power The Lost Dimension [Homebrew] (`1587735`): sin coincidencia inequívoca en el catálogo existente.
+- Jim Power: The Lost Dimension [Strictly Limited] (`6946204`): sin coincidencia inequívoca en el catálogo existente.
+- Joe & Mac: Ultimate Caveman Collection [Homebrew] (`71585`): sin coincidencia inequívoca en el catálogo existente.
+- Joe and Mac (`6959`): sin coincidencia inequívoca en el catálogo existente.
+- John Madden Football (`13824`): sin coincidencia inequívoca en el catálogo existente.
+- Jungle Strike [Majesco Candy Cane] (`10395461`): sin coincidencia inequívoca en el catálogo existente.
+- Jurassic Park (`7359`): sin coincidencia inequívoca en el catálogo existente.
+- Jurassic Park [Collector's Edition] (`7624053`): sin coincidencia inequívoca en el catálogo existente.
+- Jurassic Park [Limited Run] (`7536745`): sin coincidencia inequívoca en el catálogo existente.
+- Jurassic Park Part 2: The Chaos Continues [Collector's Edition] (`7420310`): sin coincidencia inequívoca en el catálogo existente.
+- Jurassic Park Part 2: The Chaos Continues [Limited Run] (`7420309`): sin coincidencia inequívoca en el catálogo existente.
+- Ken Griffey Jr's Winning Run (`6965`): sin coincidencia inequívoca en el catálogo existente.
+- Ken Griffey Jr's Winning Run [Not for Resale] (`37531`): sin coincidencia inequívoca en el catálogo existente.
+- Ken Griffey Jr Major League Baseball [Not For Resale] (`9020994`): sin coincidencia inequívoca en el catálogo existente.
+- Killer Instinct [Not for Resale] (`37532`): sin coincidencia inequívoca en el catálogo existente.
+- Kirby Super Star [Playtronic] (`5781602`): sin coincidencia inequívoca en el catálogo existente.
+- Legend (`6978`): sin coincidencia inequívoca en el catálogo existente.
+- Legend Of The Mystical Ninja 2 [Homebrew] (`12093087`): sin coincidencia inequívoca en el catálogo existente.
+- Legend Of The Mystical Ninja 3 [Homebrew] (`12093089`): sin coincidencia inequívoca en el catálogo existente.
+- Lennus II: The Apostles of the Seals [English Translation] (`6240249`): sin coincidencia inequívoca en el catálogo existente.
+- Lethal Enforcers (`13037`): sin coincidencia inequívoca en el catálogo existente.
+- Little Medusa [Homebrew] (`71002`): sin coincidencia inequívoca en el catálogo existente.
+- Live A Live [English Translation] (`6240126`): sin coincidencia inequívoca en el catálogo existente.
+- Lufia and The Fortress of Doom (`6986`): sin coincidencia inequívoca en el catálogo existente.
+- Lufia II Rise of Sinistrals (`6987`): sin coincidencia inequívoca en el catálogo existente.
+- M.A.C.S. Basic Rifle Marksmanship Program (`5861244`): sin coincidencia inequívoca en el catálogo existente.
+- M.A.C.S. Moving Target Simulator (`5861245`): sin coincidencia inequívoca en el catálogo existente.
+- M.A.C.S. Multipurpose Arcade Combat Simulator (`30858`): sin coincidencia inequívoca en el catálogo existente.
+- Made Monogatari - Big Kindergarten Kids [English Translation] (`6240248`): sin coincidencia inequívoca en el catálogo existente.
+- Magic Knight Rayearth [English Translation] (`6240143`): sin coincidencia inequívoca en el catálogo existente.
+- Magical Pop'n [Homebrew] (`11711061`): sin coincidencia inequívoca en el catálogo existente.
+- Majyuo: King Of Demons (`7148903`): sin coincidencia inequívoca en el catálogo existente.
+- Mario Paint [Mouse Bundle] (`38381`): sin coincidencia inequívoca en el catálogo existente.
+- Mario Paint [Player's Choice] (`42316`): sin coincidencia inequívoca en el catálogo existente.
+- Mazezam Challenge [Homebrew] (`2296230`): sin coincidencia inequívoca en el catálogo existente.
+- MechWarrior (`7381`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man 7 (`7000`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man X [Blue Iam8bit 30th Anniversary Edition] (`8530510`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man X [iam8bit 30th Anniversary Edition] (`53797`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man X [Majesco] (`4699397`): sin coincidencia inequívoca en el catálogo existente.
+- Mighty Morphin Power Rangers (`7013`): sin coincidencia inequívoca en el catálogo existente.
+- Monopoly (`7388`): sin coincidencia inequívoca en el catálogo existente.
+- Monopoly [Majesco Candy Cane] (`11355595`): sin coincidencia inequívoca en el catálogo existente.
+- Mortal Kombat (`7017`): sin coincidencia inequívoca en el catálogo existente.
+- Mortal Kombat [Competition Edition] (`6235899`): sin coincidencia inequívoca en el catálogo existente.
+- Mortal Kombat II [Not for Resale] (`37533`): sin coincidencia inequívoca en el catálogo existente.
+- Moto-X [Homebrew] (`6659671`): sin coincidencia inequívoca en el catálogo existente.
+- Mr. Bloppy Saves the World [Homebrew] (`2290955`): sin coincidencia inequívoca en el catálogo existente.
+- Mr Tuff [Homebrew] (`7049136`): sin coincidencia inequívoca en el catálogo existente.
+- Mystic Ark [English Translation] (`6240246`): sin coincidencia inequívoca en el catálogo existente.
+- NCAA Basketball [Not for Resale] (`37534`): sin coincidencia inequívoca en el catálogo existente.
+- Neugier: The Journey Home [English Translation] (`6240260`): sin coincidencia inequívoca en el catálogo existente.
+- New Super Mario Land [Homebrew] (`3889006`): sin coincidencia inequívoca en el catálogo existente.
+- New Super Mario World 2: Around The World (`13300793`): sin coincidencia inequívoca en el catálogo existente.
+- New Super Mario World 2 [Homebrew] (`12997369`): sin coincidencia inequívoca en el catálogo existente.
+- NFL Quarterback Club (`14995`): sin coincidencia inequívoca en el catálogo existente.
+- NFL Quarterback Club 96 [Kmart] (`6782980`): sin coincidencia inequívoca en el catálogo existente.
+- NHL Stanley Cup [Not For Resale] (`11423431`): sin coincidencia inequívoca en el catálogo existente.
+- Nightmare Busters [Homebrew] (`63267`): sin coincidencia inequívoca en el catálogo existente.
+- Nintendo Campus Challenge 1992 (`19388`): sin coincidencia inequívoca en el catálogo existente.
+- Nintendo Campus Challenge 1992 [Reproduction] (`34875`): sin coincidencia inequívoca en el catálogo existente.
+- Nintendo Powerfest 1994 (`19389`): sin coincidencia inequívoca en el catálogo existente.
+- Nintendo Powerfest 1994 [Reproduction] (`71790`): sin coincidencia inequívoca en el catálogo existente.
+- NTF 2.5 Test Cartridge (`9111838`): sin coincidencia inequívoca en el catálogo existente.
+- Old Towers [Homebrew] (`6905429`): sin coincidencia inequívoca en el catálogo existente.
+- Pac Man 2 [Majesco Candy Cane] (`11355597`): sin coincidencia inequívoca en el catálogo existente.
+- Pac-Man 2 The New Adventures [Holographic Cover] (`4555661`): sin coincidencia inequívoca en el catálogo existente.
+- Parodius [English Translation] (`6646537`): sin coincidencia inequívoca en el catálogo existente.
+- Pinkie (`3313286`): sin coincidencia inequívoca en el catálogo existente.
+- Pop'n TwinBee: Rainbow Bell Adventures [English Translation] (`6240237`): sin coincidencia inequívoca en el catálogo existente.
+- Porky Pig's Haunted Holiday [Majesco Candy Cane] (`10459931`): sin coincidencia inequívoca en el catálogo existente.
+- Prince of Persia (`10580`): sin coincidencia inequívoca en el catálogo existente.
+- R-Type III & Super R-Type [Collector's Edition] (`2158185`): sin coincidencia inequívoca en el catálogo existente.
+- Radical Dreamers [Homebrew] (`67835`): sin coincidencia inequívoca en el catálogo existente.
+- Record of Lodoss War [English Translation] (`6240245`): sin coincidencia inequívoca en el catálogo existente.
+- Rendering Ranger 2 [Limited Run] (`3872174`): sin coincidencia inequívoca en el catálogo existente.
+- Rendering Ranger: R2 (`6234501`): sin coincidencia inequívoca en el catálogo existente.
+- Rendering Ranger R2 [Collector's Edition] (`6239428`): sin coincidencia inequívoca en el catálogo existente.
+- Return of Double Dragon (`63893`): sin coincidencia inequívoca en el catálogo existente.
+- River City Ransom 2 [Homebrew] (`93606`): sin coincidencia inequívoca en el catálogo existente.
+- Robocop vs The Terminator (`7436`): sin coincidencia inequívoca en el catálogo existente.
+- Sailor Moon Another Story [Homebrew] (`11711070`): sin coincidencia inequívoca en el catálogo existente.
+- Sailor Moon Fighter S [Homebrew] (`12997363`): sin coincidencia inequívoca en el catálogo existente.
+- Sailor Moon R [Homebrew] (`12997365`): sin coincidencia inequívoca en el catálogo existente.
+- Scooby Doo Mystery [Majesco Candy Cane] (`10459930`): sin coincidencia inequívoca en el catálogo existente.
+- Scooby Doo Mystery [Majesco Reprint] (`6100976`): sin coincidencia inequívoca en el catálogo existente.
+- Sea Quest DSV (`7079`): sin coincidencia inequívoca en el catálogo existente.
+- Secret of Evermore (`7080`): sin coincidencia inequívoca en el catálogo existente.
+- Secret of Mana (`7081`): sin coincidencia inequívoca en el catálogo existente.
+- Secret of Mana 2 [Homebrew] (`3295507`): sin coincidencia inequívoca en el catálogo existente.
+- Shadowrun [Sweepstakes] (`13710804`): sin coincidencia inequívoca en el catálogo existente.
+- Shin Megami Tensei [Homebrew] (`2265656`): sin coincidencia inequívoca en el catálogo existente.
+- Shin Megami Tensei II [English Translation] (`6240121`): sin coincidencia inequívoca en el catálogo existente.
+- Shockman Zero (`8798168`): sin coincidencia inequívoca en el catálogo existente.
+- SimCity 2000 (`12537`): sin coincidencia inequívoca en el catálogo existente.
+- SimCity [Player's Choice] (`42317`): sin coincidencia inequívoca en el catálogo existente.
+- Slayers [English Translation] (`6240252`): sin coincidencia inequívoca en el catálogo existente.
+- Socks the Cat [Homebrew] (`71856`): sin coincidencia inequívoca en el catálogo existente.
+- S.O.S. (`7093`): sin coincidencia inequívoca en el catálogo existente.
+- Spiderman (`7446`): sin coincidencia inequívoca en el catálogo existente.
+- Spiderman Maximum Carnage [Collector's Edition] (`38649`): sin coincidencia inequívoca en el catálogo existente.
+- Spiderman X-Men Arcade's Revenge [First Print] (`4998454`): sin coincidencia inequívoca en el catálogo existente.
+- Star Fox 2 [Homebrew] (`7847683`): sin coincidencia inequívoca en el catálogo existente.
+- Star Fox [Not for Resale] (`37535`): sin coincidencia inequívoca en el catálogo existente.
+- Star Ocean [Homebrew] (`2265649`): sin coincidencia inequívoca en el catálogo existente.
+- Stone Protectors [PIKO] (`3305916`): sin coincidencia inequívoca en el catálogo existente.
+- Street Fighter II [30th Anniversary Edition] (`42386`): sin coincidencia inequívoca en el catálogo existente.
+- Street Fighter II [Not for Resale] (`37536`): sin coincidencia inequívoca en el catálogo existente.
+- Street Fighter II Turbo (`7109`): sin coincidencia inequívoca en el catálogo existente.
+- Street Fighter II Turbo [Not for Resale] (`37537`): sin coincidencia inequívoca en el catálogo existente.
+- Stunt Race FX [Not for Resale] (`37538`): sin coincidencia inequívoca en el catálogo existente.
+- SUPER 110 IN 1 (`14069411`): sin coincidencia inequívoca en el catálogo existente.
+- Super 3D Noah's Ark [Piko] (`3888985`): sin coincidencia inequívoca en el catálogo existente.
+- Super 4-in-1 Multicart [Homebrew] (`71857`): sin coincidencia inequívoca en el catálogo existente.
+- Super Adventure Island (`7113`): sin coincidencia inequívoca en el catálogo existente.
+- Super Back to the Future Part II [English Translation] (`5135173`): sin coincidencia inequívoca en el catálogo existente.
+- Super Baseball 2020 (`7117`): sin coincidencia inequívoca en el catálogo existente.
+- Super Battleship [Majesco Candy Cane] (`10394851`): sin coincidencia inequívoca en el catálogo existente.
+- Super Black Bass [Majesco Candy Cane] (`10397188`): sin coincidencia inequívoca en el catálogo existente.
+- Super Bomberman (`14547`): sin coincidencia inequívoca en el catálogo existente.
+- Super Bomberman Party Pack (`34653`): sin coincidencia inequívoca en el catálogo existente.
+- Super Bonk 2 [Homebrew] (`11408543`): sin coincidencia inequívoca en el catálogo existente.
+- Super Copa [Playtronic] (`67514`): sin coincidencia inequívoca en el catálogo existente.
+- Super Fire Pro Wrestling X Premium [English Translation] (`6240138`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario All-Stars (`7138`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario All-stars and Super Mario World (`9888`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario All-Stars [Not For Resale] (`10367264`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario All-Stars [Player's Choice] (`42318`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario Kart (`7139`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario Kart [Player's Choice] (`42319`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario World 2 Yoshi's Island (`7142`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario World 2 Yoshi's Island [Not for Resale] (`37541`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario World [First Print] (`4998610`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario World [Not For Resale] (`11463616`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario World [Player's Choice] (`42320`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario World [Playtronic] (`5705474`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario World [Reversed Nintendo Seal] (`3621152`): sin coincidencia inequívoca en el catálogo existente.
+- Super Metroid (`7143`): sin coincidencia inequívoca en el catálogo existente.
+- Super Metroid Darkholme Hospital [Homebrew] (`7980011`): sin coincidencia inequívoca en el catálogo existente.
+- Super Metroid [Not for Resale] (`2994193`): sin coincidencia inequívoca en el catálogo existente.
+- Super Metroid [Player's Choice] (`42321`): sin coincidencia inequívoca en el catálogo existente.
+- Super Metroid [Player's Choice Not For Resale] (`9358005`): sin coincidencia inequívoca en el catálogo existente.
+- Super Off Road [Not For Resale] (`9090837`): sin coincidencia inequívoca en el catálogo existente.
+- Super Scope 6 [Gun Bundle] (`19501`): sin coincidencia inequívoca en el catálogo existente.
+- Super Scope Test Cartridge (`9111839`): sin coincidencia inequívoca en el catálogo existente.
+- Super Soccer (`7151`): sin coincidencia inequívoca en el catálogo existente.
+- Super Star Wars Empire Strikes Back [JVC] (`6390462`): sin coincidencia inequívoca en el catálogo existente.
+- Super Star Wars [No JVC] (`8172825`): sin coincidencia inequívoca en el catálogo existente.
+- Super Star Wars [Player's Choice] (`42322`): sin coincidencia inequívoca en el catálogo existente.
+- Super Star Wars: Return Of The Jedi [JVC] (`8172824`): sin coincidencia inequívoca en el catálogo existente.
+- Super Street Fighter II (`7156`): sin coincidencia inequívoca en el catálogo existente.
+- Super Turrican (`7464`): sin coincidencia inequívoca en el catálogo existente.
+- Super Turrican 2 [Special Edition] (`3510540`): sin coincidencia inequívoca en el catálogo existente.
+- Super Turrican Collection (`3510537`): sin coincidencia inequívoca en el catálogo existente.
+- Sydney Hunter and the Caverns of Death [Homebrew] (`63903`): sin coincidencia inequívoca en el catálogo existente.
+- Taco Princess from the Moon (`4199139`): sin coincidencia inequívoca en el catálogo existente.
+- Tactics Ogre [Homebrew] (`1847465`): sin coincidencia inequívoca en el catálogo existente.
+- Tales of Phantasia [English] (`926493`): sin coincidencia inequívoca en el catálogo existente.
+- Targa [Homebrew] (`3400939`): sin coincidencia inequívoca en el catálogo existente.
+- Teenage Mutant Ninja Turtles IV Turtles in Time [Not for Resale] (`37540`): sin coincidencia inequívoca en el catálogo existente.
+- Tekken 2 [Homebrew] (`71859`): sin coincidencia inequívoca en el catálogo existente.
+- Terranigma [English Reproduction] (`31305`): sin coincidencia inequívoca en el catálogo existente.
+- Tetris 2 [Player's Choice] (`42323`): sin coincidencia inequívoca en el catálogo existente.
+- Tetris and Dr. Mario [Player's Choice] (`42324`): sin coincidencia inequívoca en el catálogo existente.
+- Tetris Attack [Not for Resale] (`37539`): sin coincidencia inequívoca en el catálogo existente.
+- The Amazing Spider-Man: Lethal Foes [Homebrew] (`7488054`): sin coincidencia inequívoca en el catálogo existente.
+- The Lion King [Legacy Cartridge Collection] (`72386`): sin coincidencia inequívoca en el catálogo existente.
+- The Return of the Mysterious Game of Crypticism (`5489379`): sin coincidencia inequívoca en el catálogo existente.
+- Top Gear (`7211`): sin coincidencia inequívoca en el catálogo existente.
+- Top Gear [Majesco Candy Cane] (`10372131`): sin coincidencia inequívoca en el catálogo existente.
+- Torneko's Great Adventure [English Translation] (`6240262`): sin coincidencia inequívoca en el catálogo existente.
+- Treasure Hunter G [English Translation] (`6240134`): sin coincidencia inequívoca en el catálogo existente.
+- Treasure of the Rudras [English Translation] (`6240124`): sin coincidencia inequívoca en el catálogo existente.
+- Umihara Kawase [English Translation] (`6240227`): sin coincidencia inequívoca en el catálogo existente.
+- Undercover Cops (`2311854`): sin coincidencia inequívoca en el catálogo existente.
+- Undercover Cops [Collector's Edition] (`2296224`): sin coincidencia inequívoca en el catálogo existente.
+- Unholy Night: The Darkness Hunter [Homebrew] (`50131`): sin coincidencia inequívoca en el catálogo existente.
+- Where in the World is Carmen Sandiego [Big Box] (`4404476`): sin coincidencia inequívoca en el catálogo existente.
+- Where in Time is Carmen Sandiego [Big Box] (`3177020`): sin coincidencia inequívoca en el catálogo existente.
+- Wild Guns [Strictly Limited] (`3739845`): sin coincidencia inequívoca en el catálogo existente.
+- Wizardry I-II-III: Story of Llylgamyn [English Translation] (`6240122`): sin coincidencia inequívoca en el catálogo existente.
+- Wonder Project J [English Translation] (`6240131`): sin coincidencia inequívoca en el catálogo existente.
+- Worms (`11035250`): sin coincidencia inequívoca en el catálogo existente.
+- Worms [Collector's Edition] (`11955795`): sin coincidencia inequívoca en el catálogo existente.
+- Worms [Peach Cart] (`11033497`): sin coincidencia inequívoca en el catálogo existente.
+- WWF Super Wrestlemania [Majesco Candy Cane] (`10396716`): sin coincidencia inequívoca en el catálogo existente.
+- Xeno Crisis (`11330854`): sin coincidencia inequívoca en el catálogo existente.
+- Xeno Crisis [Collector's Edition] (`7323406`): sin coincidencia inequívoca en el catálogo existente.
+- Ys IV: Mask of the Sun [English Translation] (`6240225`): sin coincidencia inequívoca en el catálogo existente.
+- Ys IV: Mask Of The Sun [Homebrew] (`7151002`): sin coincidencia inequívoca en el catálogo existente.
+- Zelda Ancient Stone Tablets [Homebrew] (`5076174`): sin coincidencia inequívoca en el catálogo existente.
+- Zelda Link to the Past [French] (`161992`): sin coincidencia inequívoca en el catálogo existente.
+- Zelda Link to the Past [Player's Choice] (`42315`): sin coincidencia inequívoca en el catálogo existente.
+- Zero The Kamikaze Squirrel [Limited Run] (`7415864`): sin coincidencia inequívoca en el catálogo existente.
+- Zombies Ate My Neighbors [Box Variant] (`37945`): sin coincidencia inequívoca en el catálogo existente.
+- Zombies Ate My Neighbors [Limited Run] (`4765161`): sin coincidencia inequívoca en el catálogo existente.
+- Zombies Ate My Neighbors [Limited Run Event] (`6134042`): sin coincidencia inequívoca en el catálogo existente.
+- Zombies Ate My Neighbors [Premium Edition] (`4765163`): sin coincidencia inequívoca en el catálogo existente.
+- Zombies Ate My Neighbors [Premium Edition Transparent Green] (`6457388`): sin coincidencia inequívoca en el catálogo existente.
