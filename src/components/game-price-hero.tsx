@@ -5,7 +5,6 @@ import {
   CONDITION_PRICE_DESCRIPTIONS,
   conditionPriceEntries,
   hasAnyConditionEstimate,
-  primaryConditionPriceEntry,
 } from "@/lib/condition-prices";
 import { catalogPriceDisplayLabel, hasVerifiedEsPrice } from "@/lib/price-display";
 import { ebayRegionalSearchPolicy } from "@/lib/ebay/ebay-regional-policy";
@@ -22,7 +21,6 @@ export function GamePriceHero({ game }: Props) {
   const status = catalogPriceDisplayLabel(game);
   const regionLabel = getRegionDisplay(game.region).label;
   const conditionPrices = conditionPriceEntries(game);
-  const primaryCondition = primaryConditionPriceEntry(game);
   const hasEstimate = hasAnyConditionEstimate(game) || hasVerifiedEsPrice(game);
   const regionalPolicy = ebayRegionalSearchPolicy(game.region);
   const hasDeliveryEstimate = conditionPrices.some((entry) => entry.totalToSpain != null);
@@ -90,55 +88,40 @@ export function GamePriceHero({ game }: Props) {
         </Badge>
       </div>
 
-      {primaryCondition && (
+      {conditionPrices.length > 0 && (
         <div className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-3">
-          {conditionPrices.map((entry) => {
-            const isPrimary = entry.bucket === primaryCondition.bucket;
-            return (
-              <div
-                key={entry.bucket}
-                className={[
-                  "rounded-2xl border p-4 transition",
-                  isPrimary
-                    ? "border-accent/35 bg-accent/10 shadow-sm"
-                    : "border-border/70 bg-background/45",
-                ].join(" ")}
-              >
-                <div className="flex min-w-0 flex-wrap items-start justify-between gap-2">
-                  <div className="min-w-0">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-                      {entry.label}
-                    </p>
-                    <p className="mt-1 text-xs leading-snug text-muted/80">
-                      {CONDITION_PRICE_DESCRIPTIONS[entry.bucket]}
-                    </p>
-                  </div>
-                  {isPrimary && (
-                    <span className="shrink-0 rounded-full bg-accent/15 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-accent">
-                      Principal
-                    </span>
-                  )}
-                </div>
-                <p className="mt-5 break-words text-2xl font-black tracking-tight text-foreground sm:text-3xl">
-                  {formatEur(entry.price)}
+          {conditionPrices.map((entry) => (
+            <div
+              key={entry.bucket}
+              className="rounded-2xl border border-border/70 bg-background/45 p-4 transition"
+            >
+              <div className="min-w-0">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+                  {entry.label}
                 </p>
-                {entry.totalToSpain != null && (
-                  <div className="mt-4 border-t border-border/70 pt-3 text-xs text-muted">
-                    <div className="flex items-center justify-between gap-3">
-                      <span>Transporte estimado</span>
-                      <span className="font-semibold text-foreground">
-                        {entry.shippingToSpain != null ? `+ ${formatEur(entry.shippingToSpain)}` : "Incluido"}
-                      </span>
-                    </div>
-                    <div className="mt-1 flex items-center justify-between gap-3">
-                      <span>Artículo + transporte</span>
-                      <span className="font-bold text-foreground">{formatEur(entry.totalToSpain)}</span>
-                    </div>
-                  </div>
-                )}
+                <p className="mt-1 text-xs leading-snug text-muted/80">
+                  {CONDITION_PRICE_DESCRIPTIONS[entry.bucket]}
+                </p>
               </div>
-            );
-          })}
+              <p className="mt-5 break-words text-2xl font-black tracking-tight text-foreground sm:text-3xl">
+                {formatEur(entry.price)}
+              </p>
+              {entry.totalToSpain != null && (
+                <div className="mt-4 border-t border-border/70 pt-3 text-xs text-muted">
+                  <div className="flex items-center justify-between gap-3">
+                    <span>Transporte estimado</span>
+                    <span className="font-semibold text-foreground">
+                      {entry.shippingToSpain != null ? `+ ${formatEur(entry.shippingToSpain)}` : "Incluido"}
+                    </span>
+                  </div>
+                  <div className="mt-1 flex items-center justify-between gap-3">
+                    <span>Artículo + transporte</span>
+                    <span className="font-bold text-foreground">{formatEur(entry.totalToSpain)}</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       )}
 
