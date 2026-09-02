@@ -74,7 +74,7 @@ NTSC_PC_CONSOLE: dict[str, str] = {
 
 # Japón — consolas jp-* (algunas plataformas no existen en PC → fallback en resolve)
 JP_PC_CONSOLE: dict[str, str] = {
-    "nes": "jp-nes",
+    "nes": "famicom",
     "snes": "super-famicom",
     "n64": "jp-nintendo-64",
     "gameboy": "jp-gameboy",

@@ -19,6 +19,21 @@ test("PS Vita PAL uses the live PriceCharting console path", () => {
   );
 });
 
+test("NES Japan uses the live Famicom PriceCharting console path", () => {
+  assert.deepEqual(
+    guessPcPath({
+      platformSlug: "nes",
+      region: "Japón",
+      title: "Summer Carnival '92: Recca",
+    }),
+    {
+      pcPath: "/game/famicom/summer-carnival-92-recca",
+      pcRegion: "Japón (referencia)",
+      slug: "summer-carnival-92-recca",
+    },
+  );
+});
+
 test("PS Vita imports accept the corrected and legacy console slugs", () => {
   assert.equal(normalizeImportedPlatformSlug("pal-playstation-vita"), "psvita");
   assert.equal(normalizeImportedPlatformSlug("pal-ps-vita"), "psvita");
