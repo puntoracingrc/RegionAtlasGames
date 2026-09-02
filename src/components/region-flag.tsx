@@ -9,6 +9,7 @@ type Props = {
   size?: "xs" | "sm" | "md";
   showLabel?: boolean;
   labelMode?: "full" | "short";
+  labelOverride?: string;
   className?: string;
 };
 
@@ -36,17 +37,19 @@ export function RegionFlag({
   size = "xs",
   showLabel = false,
   labelMode = "full",
+  labelOverride,
   className,
 }: Props) {
   const { flagCode, label, shortLabel } = getRegionDisplay(region);
   const Flag = FLAG_COMPONENTS[flagCode];
-  const visibleLabel = labelMode === "short" ? shortLabel : label;
+  const visibleLabel = labelOverride ?? (labelMode === "short" ? shortLabel : label);
+  const accessibleLabel = labelOverride ?? label;
 
   return (
     <span
       className={cn("inline-flex shrink-0 items-center gap-1.5", className)}
-      title={label}
-      aria-label={label}
+      title={accessibleLabel}
+      aria-label={accessibleLabel}
     >
       <Flag
         aria-hidden

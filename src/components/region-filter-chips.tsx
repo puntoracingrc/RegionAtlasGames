@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 type Props = {
   value: string;
   onChange: (value: string) => void;
-  options: Array<{ value: string; label: string; count?: number }>;
+  options: Array<{ value: string; label: string; count?: number; flagRegion?: string }>;
   allLabel?: string;
   className?: string;
 };
@@ -32,7 +32,8 @@ export function RegionFilterChips({
           key={opt.value}
           active={value === opt.value}
           onClick={() => onChange(opt.value)}
-          region={opt.label}
+          region={opt.flagRegion ?? opt.label}
+          labelOverride={opt.flagRegion ? opt.label : undefined}
         />
       ))}
     </div>
@@ -44,11 +45,13 @@ function RegionChip({
   onClick,
   label,
   region,
+  labelOverride,
 }: {
   active: boolean;
   onClick: () => void;
   label?: string;
   region?: string;
+  labelOverride?: string;
 }) {
   return (
     <button
@@ -64,7 +67,13 @@ function RegionChip({
     >
       {region ? (
         <>
-          <RegionFlag region={region} size="xs" showLabel labelMode="short" />
+          <RegionFlag
+            region={region}
+            size="xs"
+            showLabel
+            labelMode="short"
+            labelOverride={labelOverride}
+          />
         </>
       ) : (
         <span>{label}</span>

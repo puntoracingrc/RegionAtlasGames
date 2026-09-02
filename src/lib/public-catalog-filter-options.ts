@@ -2,7 +2,10 @@ import { platforms, publicListedCatalog } from "@/lib/catalog";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCompanies } from "@/lib/indexes";
-import { publicRegionLabelsForPlatform } from "@/lib/platform-region-policy";
+import {
+  publicRegionLabelForPlatform,
+  publicRegionLabelsForPlatform,
+} from "@/lib/platform-region-policy";
 import type {
   CatalogCompanyFilterOption,
   CatalogPlatformFilterOption,
@@ -27,26 +30,35 @@ export function publicCompanyFilterOptions(): CatalogCompanyFilterOption[] {
   return getCompanies().map((company) => ({ value: company.name, name: company.name }));
 }
 
-function sortedRegionOptions(labels: Iterable<string>): CatalogRegionFilterOption[] {
+function sortedRegionOptions(
+  labels: Iterable<string>,
+  flagRegions?: ReadonlyMap<string, string>,
+): CatalogRegionFilterOption[] {
   return [...labels]
     .sort((a, b) => {
       const rankDiff = regionSortRank(a) - regionSortRank(b);
       if (rankDiff !== 0) return rankDiff;
       return a.localeCompare(b, "es", { sensitivity: "base" });
     })
-    .map((label) => ({ value: label, label }));
+    .map((label) => ({
+      value: label,
+      label,
+      ...(flagRegions?.get(label) && flagRegions.get(label) !== label
+        ? { flagRegion: flagRegions.get(label) }
+        : {}),
+    }));
 }
 
 function buildRegionOptionsIndex(): RegionOptionsIndex {
   const labels = new Set<string>();
-  const labelsByPlatform = new Map<string, Set<string>>();
+  const labelsByPlatform = new Map<string, Map<string, string>>();
 
   for (const game of publicListedCatalog) {
     const label = getRegionDisplay(game.region).label;
     labels.add(label);
 
-    const platformLabels = labelsByPlatform.get(game.platformSlug) ?? new Set<string>();
-    platformLabels.add(label);
+    const platformLabels = labelsByPlatform.get(game.platformSlug) ?? new Map<string, string>();
+    platformLabels.set(publicRegionLabelForPlatform(game.platformSlug, game.region), label);
     labelsByPlatform.set(game.platformSlug, platformLabels);
   }
 
@@ -57,8 +69,8 @@ function buildRegionOptionsIndex(): RegionOptionsIndex {
         const policyLabels = publicRegionLabelsForPlatform(platformSlug);
         const visibleLabels = policyLabels
           ? policyLabels.filter((label) => platformLabels.has(label))
-          : platformLabels;
-        return [platformSlug, sortedRegionOptions(visibleLabels)];
+          : platformLabels.keys();
+        return [platformSlug, sortedRegionOptions(visibleLabels, platformLabels)];
       }),
     ),
   };

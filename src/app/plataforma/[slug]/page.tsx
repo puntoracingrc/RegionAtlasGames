@@ -91,7 +91,7 @@ export default async function PlatformPage({ params, searchParams }: Props) {
               platform={platform}
               games={initialGames}
               totalGames={catalogGames.length}
-              insights={buildPlatformCatalogInsights(catalogGames)}
+              insights={buildPlatformCatalogInsights(catalogGames, platform.slug)}
               regions={publicCatalogRegionFilterOptionsForPlatform(platform.slug)}
               genres={publicGenreFilterOptions()}
               subgenres={publicSubgenreFilterOptions()}
