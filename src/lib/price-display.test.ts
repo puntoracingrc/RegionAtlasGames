@@ -92,6 +92,48 @@ test("offers sealed as a catalog condition and sorts by its own price", () => {
   );
 });
 
+test("sorts recommended prices even when their Spanish region is not verified", () => {
+  const games = [
+    {
+      id: "missing-price",
+      title: "Missing price",
+      recommendedPrice: null,
+      estimatedPriceComplete: null,
+    },
+    {
+      id: "higher-orientative",
+      title: "Higher orientative",
+      hasEsPrice: false,
+      priceRegionVerified: false,
+      recommendedPrice: 45,
+    },
+    {
+      id: "condition-fallback",
+      title: "Condition fallback",
+      hasEsPrice: false,
+      priceRegionVerified: false,
+      recommendedPrice: null,
+      estimatedPriceComplete: 30,
+    },
+    {
+      id: "lower-verified",
+      title: "Lower verified",
+      hasEsPrice: true,
+      priceRegionVerified: true,
+      recommendedPrice: 20,
+    },
+  ] as CatalogListGame[];
+
+  assert.deepEqual(
+    sortCatalogListGames(games, "price-desc", "recommended").map((game) => game.id),
+    ["higher-orientative", "condition-fallback", "lower-verified", "missing-price"],
+  );
+  assert.deepEqual(
+    sortCatalogListGames(games, "price-asc", "recommended").map((game) => game.id),
+    ["lower-verified", "condition-fallback", "higher-orientative", "missing-price"],
+  );
+});
+
 test("offers only condition prices compatible with each platform medium", () => {
   assert.deepEqual(
     catalogPriceTypeOptions("ps3").map((option) => option.value),
