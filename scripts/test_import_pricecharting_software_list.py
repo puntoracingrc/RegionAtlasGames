@@ -40,6 +40,10 @@ def test_neogeo_cd_japan_uses_its_regional_pricecharting_console_slug() -> None:
     assert JP_PC_CONSOLE["neogeocd"] == "jp-neo-geo-cd"
 
 
+def test_snes_japan_uses_super_famicom_pricecharting_console_slug() -> None:
+    assert JP_PC_CONSOLE["snes"] == "super-famicom"
+
+
 def test_switch2_pal_eu_aliases_reuse_reviewed_spanish_records() -> None:
     expected = {
         9705791: "switch2-zelda-breath-of-the-wild-nsw2-edition",
@@ -344,6 +348,84 @@ def sample_game(catalog_id: str, title: str) -> dict:
         "hasEsPrice": True,
         "seedSource": "test",
     }
+
+
+def test_prices_only_existing_does_not_change_identity_or_create_games() -> None:
+    existing = sample_game("ps5-existing", "Existing Game")
+    existing.update(
+        {
+            "platformSlug": "snes",
+            "region": "Japón",
+            "pcId": 111,
+            "pcPath": "/game/legacy/existing-game",
+            "pcRegion": "Referencia histórica",
+            "recommendedPrice": None,
+            "priceSource": None,
+        }
+    )
+    joined = [
+        (
+            SourceRow(
+                title="Existing Game PriceCharting",
+                loose_usd=Decimal("10"),
+                cib_usd=Decimal("20"),
+                new_usd=Decimal("30"),
+            ),
+            LiveRow(
+                title="Existing Game PriceCharting",
+                pc_id=222,
+                pc_path="/game/super-famicom/existing-game",
+                cover_source_url=None,
+            ),
+        ),
+        (
+            SourceRow(
+                title="Missing Game",
+                loose_usd=Decimal("1"),
+                cib_usd=Decimal("2"),
+                new_usd=Decimal("3"),
+            ),
+            LiveRow(
+                title="Missing Game",
+                pc_id=333,
+                pc_path="/game/super-famicom/missing-game",
+                cover_source_url=None,
+            ),
+        ),
+    ]
+
+    merged, tasks, stats = merge_catalog(
+        [existing],
+        joined,
+        platform="snes",
+        region="Japón",
+        pc_region="Super Famicom (PriceCharting)",
+        collected_at="2026-09-02T12:00:00+02:00",
+        covers_root=None,
+        usd_per_eur=Decimal("1.1590"),
+        exchange_rate_date="2026-09-01",
+        price_source_label="PriceCharting Japón",
+        prices_only_existing=True,
+        pc_id_aliases={222: "ps5-existing"},
+    )
+
+    assert len(merged) == 1
+    assert tasks == []
+    assert merged[0]["pcId"] == 111
+    assert merged[0]["pcPath"] == "/game/legacy/existing-game"
+    assert merged[0]["pcRegion"] == "Referencia histórica"
+    assert merged[0]["priceChartingLooseUsd"] == 10
+    assert merged[0]["estimatedPriceComplete"] == 17.26
+    assert stats["added"] == 0
+    assert stats["updated"] == 1
+    assert stats["pricesOnlyExisting"] is True
+    assert stats["skipped"] == [
+        {
+            "pcId": 333,
+            "title": "Missing Game",
+            "reason": "sin coincidencia inequívoca en el catálogo existente",
+        }
+    ]
 
 
 def test_merge_preserves_prices_and_skips_technical_duplicate() -> None:
