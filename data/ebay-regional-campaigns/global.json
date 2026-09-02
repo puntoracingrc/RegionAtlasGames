@@ -12,46 +12,46 @@
   "currentPlatform": "ps4",
   "currentPlatformName": "PlayStation 4",
   "currentRegion": "PAL España",
-  "updatedAt": "2026-09-02T04:55:37Z",
+  "updatedAt": "2026-09-02T11:41:16Z",
   "lastRun": {
-    "at": "2026-09-02T04:55:37Z",
+    "at": "2026-09-02T11:41:16Z",
     "platformSlug": "ps4",
     "platformName": "PlayStation 4",
     "region": "PAL España",
     "selected": 50,
     "processed": 50,
-    "matched": 24,
+    "matched": 18,
     "listingsAdded": 50,
     "regionalReroutes": 0,
-    "regionalReviews": 34,
+    "regionalReviews": 17,
     "failed": 0,
     "systemicError": null,
     "coverCandidatesAdded": 0
   },
   "totals": {
-    "catalogGames": 56371,
-    "completed": 675,
-    "matched": 280,
-    "noMatch": 395,
+    "catalogGames": 57263,
+    "completed": 725,
+    "matched": 298,
+    "noMatch": 427,
     "deferred": 0,
-    "pending": 55696
+    "pending": 56538
   },
-  "estimatedRunsRemaining": 1114,
-  "estimatedDaysRemaining": 279,
+  "estimatedRunsRemaining": 1131,
+  "estimatedDaysRemaining": 283,
   "platforms": [
     {
       "platformSlug": "ps4",
       "platformName": "PlayStation 4",
       "status": "running",
       "currentRegion": "PAL España",
-      "updatedAt": "2026-09-02T04:55:37Z",
+      "updatedAt": "2026-09-02T11:41:16Z",
       "totals": {
         "catalogGames": 8496,
-        "completed": 675,
-        "matched": 280,
-        "noMatch": 395,
+        "completed": 725,
+        "matched": 298,
+        "noMatch": 427,
         "deferred": 0,
-        "pending": 7821
+        "pending": 7771
       },
       "regions": [
         {
@@ -61,11 +61,11 @@
           "marketScope": "country",
           "originLabel": "España",
           "total": 3043,
-          "completed": 675,
-          "matched": 280,
-          "noMatch": 395,
+          "completed": 725,
+          "matched": 298,
+          "noMatch": 427,
           "deferred": 0,
-          "pending": 2368
+          "pending": 2318
         },
         {
           "key": "pal_europa",
@@ -417,12 +417,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 483,
+        "catalogGames": 1329,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 483
+        "pending": 1329
       },
       "regions": [
         {
@@ -431,12 +431,25 @@
           "catalogRegion": "PAL España",
           "marketScope": "country",
           "originLabel": "España",
-          "total": 483,
+          "total": 551,
           "completed": 0,
           "matched": 0,
           "noMatch": 0,
           "deferred": 0,
-          "pending": 483
+          "pending": 551
+        },
+        {
+          "key": "usa",
+          "label": "USA",
+          "catalogRegion": "USA",
+          "marketScope": "country",
+          "originLabel": "Estados Unidos",
+          "total": 778,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 778
         }
       ]
     },
@@ -979,45 +992,88 @@
       ]
     },
     {
-      "platformSlug": "neogeocd",
-      "platformName": "Neo Geo CD",
+      "platformSlug": "neogeo-aes-plus",
+      "platformName": "NEOGEO AES+",
       "status": "ready",
-      "currentRegion": "USA",
+      "currentRegion": "Japonesa",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 161,
+        "catalogGames": 20,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 161
+        "pending": 20
       },
       "regions": [
         {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 64,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 64
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
+          "key": "japonesa",
+          "label": "Japonesa",
+          "catalogRegion": "Japonesa",
           "marketScope": "country",
           "originLabel": "Japón",
-          "total": 97,
+          "total": 10,
           "completed": 0,
           "matched": 0,
           "noMatch": 0,
           "deferred": 0,
-          "pending": 97
+          "pending": 10
+        },
+        {
+          "key": "internacional",
+          "label": "Internacional",
+          "catalogRegion": "Internacional",
+          "marketScope": "unrestricted",
+          "originLabel": "Internacional",
+          "total": 10,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 10
+        }
+      ]
+    },
+    {
+      "platformSlug": "neogeocd",
+      "platformName": "Neo Geo CD",
+      "status": "ready",
+      "currentRegion": "Japonesa",
+      "updatedAt": null,
+      "totals": {
+        "catalogGames": 183,
+        "completed": 0,
+        "matched": 0,
+        "noMatch": 0,
+        "deferred": 0,
+        "pending": 183
+      },
+      "regions": [
+        {
+          "key": "japonesa",
+          "label": "Japonesa",
+          "catalogRegion": "Japonesa",
+          "marketScope": "country",
+          "originLabel": "Japón",
+          "total": 99,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 99
+        },
+        {
+          "key": "occidental",
+          "label": "Occidental",
+          "catalogRegion": "Occidental",
+          "marketScope": "unrestricted",
+          "originLabel": "Occidental",
+          "total": 84,
+          "completed": 0,
+          "matched": 0,
+          "noMatch": 0,
+          "deferred": 0,
+          "pending": 84
         }
       ]
     },
@@ -1028,12 +1084,12 @@
       "currentRegion": "PAL Europa",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 165,
+        "catalogGames": 169,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 165
+        "pending": 169
       },
       "regions": [
         {
@@ -1042,12 +1098,12 @@
           "catalogRegion": "PAL Europa",
           "marketScope": "multi_region",
           "originLabel": "Europa multirregión",
-          "total": 41,
+          "total": 42,
           "completed": 0,
           "matched": 0,
           "noMatch": 0,
           "deferred": 0,
-          "pending": 41
+          "pending": 42
         },
         {
           "key": "usa",
@@ -1055,12 +1111,12 @@
           "catalogRegion": "USA",
           "marketScope": "country",
           "originLabel": "Estados Unidos",
-          "total": 32,
+          "total": 35,
           "completed": 0,
           "matched": 0,
           "noMatch": 0,
           "deferred": 0,
-          "pending": 32
+          "pending": 35
         },
         {
           "key": "japon",
@@ -1559,6 +1615,14 @@
       "at": "2026-09-02T04:55:37Z",
       "level": "info",
       "message": "PlayStation 4 · PAL España: 50/50 consultados, 24 con evidencias, 50 anuncios aceptados, 0 aprovechados en otra región, 34 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "ps4",
+      "region": "PAL España",
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-02T11:41:16Z",
+      "level": "info",
+      "message": "PlayStation 4 · PAL España: 50/50 consultados, 18 con evidencias, 50 anuncios aceptados, 0 aprovechados en otra región, 17 a revisión, 0 fallos, 0 aplazados.",
       "platformSlug": "ps4",
       "region": "PAL España",
       "coverCandidatesAdded": 0

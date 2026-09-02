@@ -15496,6 +15496,86 @@
         "sealed": null,
         "newRetail": null
       }
+    ],
+    "ps4-frogun-deluxe-edition": [
+      {
+        "at": "2026-09-02T11:28:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.55,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-fury-unleashed-bang-edition": [
+      {
+        "at": "2026-09-02T11:28:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 28.29,
+        "newRetail": null
+      }
+    ],
+    "ps4-g-darius-hd": [
+      {
+        "at": "2026-09-02T11:28:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 31.92,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-galaxy-of-pen-and-paper-&#43;1-edition": [
+      {
+        "at": "2026-09-02T11:28:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 23.2,
+        "newRetail": null
+      }
+    ],
+    "ps4-galgun-2": [
+      {
+        "at": "2026-09-02T11:28:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 49.99,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-gear-club-unlimited-2-ultimate-edition": [
+      {
+        "at": "2026-09-02T11:28:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 18.62,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-generation-zero": [
+      {
+        "at": "2026-09-02T11:28:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 21.47,
+        "newRetail": null
+      }
+    ],
+    "ps4-ghost-giant": [
+      {
+        "at": "2026-09-02T11:28:44Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 38.45,
+        "sealed": null,
+        "newRetail": null
+      }
     ]
   }
 }
