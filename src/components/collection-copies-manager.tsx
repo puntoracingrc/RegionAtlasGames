@@ -149,7 +149,8 @@ function CollectionCopyRow({
     item.ownerEstimatedPrice == null ? "" : String(item.ownerEstimatedPrice),
   );
   const [purchasedAt, setPurchasedAt] = useState(dateInputValue(item.purchasedAt));
-  const [addedAt, setAddedAt] = useState(dateInputValue(item.addedAt) || new Date().toISOString().slice(0, 10));
+  const originalAddedAt = dateInputValue(item.addedAt);
+  const [addedAt, setAddedAt] = useState(originalAddedAt);
   const [notes, setNotes] = useState(item.notes ?? "");
   const [busy, setBusy] = useState<"save" | "sell" | "cancel" | "remove" | null>(null);
   const [feedback, setFeedback] = useState<{ tone: "error" | "success"; text: string } | null>(null);
@@ -166,7 +167,7 @@ function CollectionCopyRow({
         buyPrice,
         ownerEstimatedPrice,
         purchasedAt,
-        addedAt,
+        ...(addedAt !== originalAddedAt ? { addedAt } : {}),
         notes,
       }),
     });
@@ -374,7 +375,7 @@ function CollectionCopyRow({
           </label>
           <label className="space-y-1">
             <span className="text-[11px] font-medium text-muted">Añadido a colección</span>
-            <input className="input h-10 text-sm" type="date" value={addedAt} disabled={disabled} required onChange={(event) => setAddedAt(event.target.value)} />
+            <input className="input h-10 text-sm" type="date" value={addedAt} disabled={disabled} onChange={(event) => setAddedAt(event.target.value)} />
           </label>
         </div>
 

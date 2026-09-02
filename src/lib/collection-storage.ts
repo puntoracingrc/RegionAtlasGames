@@ -129,6 +129,26 @@ export function normalizeIndividualCollectionItems(items: CollectionItem[]): {
   return { items: normalized, changed };
 }
 
+export function backfillCollectionAddedAt(
+  items: CollectionItem[],
+  importedAt: string | null,
+): { items: CollectionItem[]; changed: boolean } {
+  const importedAtMs = Date.parse(importedAt ?? "");
+  if (!Number.isFinite(importedAtMs)) return { items, changed: false };
+
+  let changed = false;
+  const lastIndex = Math.max(0, items.length - 1);
+  const datedItems = items.map((item, index) => {
+    if (item.addedAt && Number.isFinite(Date.parse(item.addedAt))) return item;
+    changed = true;
+    return {
+      ...item,
+      addedAt: new Date(importedAtMs - (lastIndex - index)).toISOString(),
+    };
+  });
+  return { items: datedItems, changed };
+}
+
 function repairCollection(data: UserCollectionFile): {
   data: UserCollectionFile;
   changed: boolean;
@@ -163,8 +183,9 @@ function repairCollection(data: UserCollectionFile): {
       item.sealed !== data.items[index]?.sealed,
   );
   const copies = normalizeIndividualCollectionItems(repairedItems);
-  const changed = catalogChanged || copies.changed;
-  return { data: changed ? { ...data, items: copies.items } : data, changed };
+  const dated = backfillCollectionAddedAt(copies.items, data.importedAt);
+  const changed = catalogChanged || copies.changed || dated.changed;
+  return { data: changed ? { ...data, items: dated.items } : data, changed };
 }
 
 export async function mutateUserCollection<R>(

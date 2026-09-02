@@ -11,6 +11,7 @@ import type { UserPlan } from "./marketplace-types";
 import { canViewCollectionValue } from "./plans";
 import { slugify } from "./slug";
 import {
+  backfillCollectionAddedAt,
   loadUserCollection,
   mutateUserCollection,
   normalizeIndividualCollectionItems,
@@ -165,12 +166,14 @@ export async function saveUserCollectionItems(
   meta: { source: string | null },
 ): Promise<UserCollectionFile | { error: string }> {
   const current = await readUserCollection(userId).catch(() => null);
+  const importedAt = new Date().toISOString();
   const individualItems = normalizeIndividualCollectionItems(items).items;
+  const datedItems = backfillCollectionAddedAt(individualItems, importedAt).items;
   const data: UserCollectionFile = {
     userId,
-    importedAt: new Date().toISOString(),
+    importedAt,
     source: meta.source,
-    items: individualItems,
+    items: datedItems,
     completedSaleIds: current?.completedSaleIds ?? [],
   };
   const saved = await saveUserCollectionFile(data);
@@ -331,7 +334,7 @@ export type CollectionItemDetailsPatch = {
   buyPrice: number | null;
   ownerEstimatedPrice: number | null;
   purchasedAt: string | null;
-  addedAt: string;
+  addedAt?: string;
   notes: string | null;
 };
 
@@ -362,7 +365,7 @@ function validateCollectionItemPatch(
   if (patch.purchasedAt != null && !validIsoDate(patch.purchasedAt)) {
     return "La fecha de compra no es válida.";
   }
-  if (!validIsoDate(patch.addedAt)) {
+  if (patch.addedAt !== undefined && !validIsoDate(patch.addedAt)) {
     return "La fecha de alta no es válida.";
   }
   if ((patch.notes?.length ?? 0) > 1_000) {
@@ -425,7 +428,7 @@ export async function updateUserCollectionItemDetails(
             ? null
             : Math.round(patch.ownerEstimatedPrice * 100) / 100,
         purchasedAt: patch.purchasedAt,
-        addedAt: patch.addedAt,
+        addedAt: patch.addedAt ?? current.addedAt,
         notes: patch.notes?.trim() || null,
         totalValue:
           unitPrice == null

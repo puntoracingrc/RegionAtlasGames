@@ -59,13 +59,15 @@ export async function PATCH(request: Request) {
   const buyPriceRaw = String(body.buyPrice ?? "").trim();
   const ownerEstimatedPriceRaw = String(body.ownerEstimatedPrice ?? "").trim();
   const purchasedAt = isoDate(body.purchasedAt);
-  const addedAt = isoDate(body.addedAt, true);
+  const addedAt = Object.prototype.hasOwnProperty.call(body, "addedAt")
+    ? isoDate(body.addedAt) ?? "invalid"
+    : undefined;
   const result = await updateCollectionCopyDetails(user.id, itemId, {
     collectionCondition,
     buyPrice: buyPriceRaw ? Number(buyPriceRaw) : null,
     ownerEstimatedPrice: ownerEstimatedPriceRaw ? Number(ownerEstimatedPriceRaw) : null,
     purchasedAt,
-    addedAt: addedAt ?? "invalid",
+    addedAt,
     notes: String(body.notes ?? "").trim() || null,
   });
   if ("error" in result) {
