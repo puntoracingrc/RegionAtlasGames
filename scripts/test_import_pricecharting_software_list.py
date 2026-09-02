@@ -16,6 +16,7 @@ from import_pricecharting_software_list import (
     NEVER_PROMOTE_PC_IDS,
     PC_ID_ALIASES,
     SKIP_PC_IDS,
+    SKIP_PC_PRICE_TARGETS,
     SourceRow,
     clean_source_title,
     cover_filename,
@@ -86,6 +87,9 @@ def test_neogeo_japanese_aliases_reuse_romanized_records() -> None:
     }
     assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
     assert {4890449, 185791, 4369282}.issubset(SKIP_PC_IDS)
+    assert SKIP_PC_PRICE_TARGETS[4369282] == (
+        "neogeo-fuuun-mokushiroku-kakutou-sousei"
+    )
 
 
 def test_japanese_price_source_replaces_generic_usa_label() -> None:
@@ -111,6 +115,84 @@ def test_japanese_price_source_replaces_generic_usa_label() -> None:
 
     assert game["priceSource"].startswith("PriceCharting Japón,")
     assert game["priceDataSources"] == "eBay ES, PriceCharting Japón"
+
+
+def test_skipped_japanese_duplicate_supplies_prices_to_canonical_record() -> None:
+    catalog = [
+        {
+            "id": "neogeo-fuuun-mokushiroku-kakutou-sousei",
+            "slug": "fuuun-mokushiroku-kakutou-sousei",
+            "title": "Fuuun Mokushiroku: Kakutou Sousei",
+            "titlePc": "Fu'un Mokishiroku",
+            "platformSlug": "neogeo",
+            "region": "Japonesa",
+            "listingStatus": "listed",
+            "coverUrl": "/covers/neogeo/fuuun-mokushiroku-kakutou-sousei.jpg",
+            "pcId": 185730,
+            "pcPath": "/game/jp-neo-geo-aes/fu%27un-mokishiroku",
+            "pcRegion": "JP Neo Geo AES (PriceCharting)",
+            "recommendedPrice": None,
+            "pcRefPrice": None,
+            "priceSource": None,
+        }
+    ]
+    joined = [
+        (
+            SourceRow(
+                title="Savage Reign",
+                loose_usd=Decimal("268.92"),
+                cib_usd=Decimal("1076.45"),
+                new_usd=Decimal("2153.00"),
+            ),
+            LiveRow(
+                title="Savage Reign",
+                pc_id=4369282,
+                pc_path="/game/jp-neo-geo-aes/savage-reign",
+                cover_source_url=None,
+            ),
+        )
+    ]
+
+    merged, _, stats = merge_catalog(
+        catalog,
+        joined,
+        platform="neogeo",
+        region="Japonesa",
+        pc_region="JP Neo Geo AES (PriceCharting)",
+        collected_at="2026-09-02T06:15:00+02:00",
+        covers_root=None,
+        usd_per_eur=Decimal("1.1590"),
+        exchange_rate_date="2026-09-01",
+        price_source_label="PriceCharting Japón",
+    )
+
+    game = merged[0]
+    assert game["pcId"] == 185730
+    assert game["pcPath"] == "/game/jp-neo-geo-aes/fu%27un-mokishiroku"
+    assert game["priceChartingLooseUsd"] == 268.92
+    assert game["priceChartingCompleteUsd"] == 1076.45
+    assert game["priceChartingSealedUsd"] == 2153
+    assert game["estimatedPriceLoose"] == 232.03
+    assert game["estimatedPriceComplete"] == 928.77
+    assert game["estimatedPriceSealed"] == 1857.64
+    assert game["recommendedPrice"] == 928.77
+    assert stats["added"] == 0
+    assert stats["supplementalPriceUpdates"] == 1
+    assert stats["skipped"][0]["priceTarget"] == game["id"]
+
+    _, _, second_stats = merge_catalog(
+        merged,
+        joined,
+        platform="neogeo",
+        region="Japonesa",
+        pc_region="JP Neo Geo AES (PriceCharting)",
+        collected_at="2026-09-02T06:15:00+02:00",
+        covers_root=None,
+        usd_per_eur=Decimal("1.1590"),
+        exchange_rate_date="2026-09-01",
+        price_source_label="PriceCharting Japón",
+    )
+    assert second_stats["supplementalPriceUpdates"] == 0
 
 
 def sample_game(catalog_id: str, title: str) -> dict:
@@ -517,6 +599,7 @@ if __name__ == "__main__":
     test_neogeo_western_aliases_reuse_published_records()
     test_neogeo_japanese_aliases_reuse_romanized_records()
     test_japanese_price_source_replaces_generic_usa_label()
+    test_skipped_japanese_duplicate_supplies_prices_to_canonical_record()
     test_merge_preserves_prices_and_skips_technical_duplicate()
     test_title_normalization_handles_common_catalog_variants()
     test_distinct_pc_ids_with_equivalent_titles_remain_separate()

@@ -38,3 +38,6 @@ Bakatonosama Manyuki* y se conserva como canónica la ficha más completa.
 - Samurai Shodown IV: Amakusa's Revenge (`4890449`): duplicado técnico japonés de Samurai Spirits 4 (185787).
 - Sengoku 2 (`185791`): duplicado técnico japonés de Sengoku Denshou 2 (6675926).
 - Savage Reign (`4369282`): duplicado técnico japonés de Fu'un Mokishiroku (185730).
+
+Los precios de la fila duplicada *Savage Reign* se transfieren a la ficha
+canónica *Fu'un Mokishiroku* sin sustituir su ID, ruta ni carátula japonesa.
