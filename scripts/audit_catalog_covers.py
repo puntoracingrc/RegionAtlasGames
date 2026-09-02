@@ -20,6 +20,15 @@ CATALOG_FILE = ROOT / "data" / "catalog.json"
 CDN = "https://www.puntoracing.net/MEDIAREGIONATLAS/covers"
 
 
+def is_bundled_cover_url(url: str | None) -> bool:
+    """Portadas servidas por la propia aplicación, no por el CDN externo."""
+    return bool(url and str(url).startswith("/catalog-covers/"))
+
+
+def is_known_cover_url(url: str | None) -> bool:
+    return is_local_cover_url(url) or is_bundled_cover_url(url)
+
+
 def head_ok(url: str, timeout: float = 12.0) -> bool:
     req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "RAG-Audit/1.0"})
     try:
@@ -45,12 +54,12 @@ def main() -> None:
         if slug:
             by_platform[slug].append(game)
 
-    print(f"{'platform':12} listed  /covers  http  none  cdn_ok/sample")
+    print(f"{'platform':12} listed  /covers  bundled  http  none  cdn_ok/sample")
     issues: list[str] = []
 
     for slug in sorted(by_platform):
         games = by_platform[slug]
-        local = http = none = 0
+        local = bundled = http = none = 0
         for g in games:
             u = g.get("coverUrl")
             if not u:
@@ -59,6 +68,8 @@ def main() -> None:
                 http += 1
             elif is_local_cover_url(str(u)):
                 local += 1
+            elif is_bundled_cover_url(str(u)):
+                bundled += 1
             else:
                 none += 1
 
@@ -68,7 +79,10 @@ def main() -> None:
             rel = str(g["coverUrl"]).replace("/covers/", "")
             if head_ok(f"{CDN}/{rel}"):
                 ok += 1
-        print(f"{slug:12} {len(games):5} {local:6} {http:4} {none:4} {ok}/{len(sample)}")
+        print(
+            f"{slug:12} {len(games):5} {local:6} {bundled:7} "
+            f"{http:4} {none:4} {ok}/{len(sample)}"
+        )
 
         if http:
             issues.append(f"{slug}: {http} URLs http (normalizar)")
