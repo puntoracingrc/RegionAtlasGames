@@ -151,6 +151,26 @@ def test_n64_usa_reviewed_price_aliases_target_unique_usa_games() -> None:
     )
 
 
+def test_n64_japan_reviewed_price_aliases_target_unique_japanese_games() -> None:
+    root = Path(__file__).resolve().parents[1]
+    aliases = json.loads(
+        (root / "data/import-aliases/pricecharting-n64-japan.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    catalog = json.loads((root / "data/catalog.json").read_text(encoding="utf-8"))
+    catalog_by_id = {str(game["id"]): game for game in catalog}
+
+    assert len(aliases) == 105
+    assert len(set(aliases.values())) == len(aliases)
+    assert all(catalog_id in catalog_by_id for catalog_id in aliases.values())
+    assert all(
+        catalog_by_id[catalog_id].get("platformSlug") == "n64"
+        and catalog_by_id[catalog_id].get("region") == "Japón"
+        for catalog_id in aliases.values()
+    )
+
+
 def test_neogeo_cd_western_aliases_reuse_published_records() -> None:
     expected = {
         39675: "neogeocd-usa-super-baseball-2020",
