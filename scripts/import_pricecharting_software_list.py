@@ -40,8 +40,9 @@ MAX_IMAGE_BYTES = 24 * 1024 * 1024
 MONEY_QUANT = Decimal("0.01")
 
 
-# Duplicado técnico del mismo producto estándar. Se mantiene la ficha canónica.
+# Filas que no deben crear una ficha: duplicados técnicos o productos sin juego.
 SKIP_PC_IDS: dict[int, str] = {
+    10230816: "hardware: pack de consola Nintendo NES Super 3 Set",
     8741598: "duplicado técnico de Jets'n'Guns 2 (6330502)",
     12789731: "duplicado técnico de Aggelos II (14218825)",
     6074032: "duplicado técnico de Fight'N Rage (5551873)",

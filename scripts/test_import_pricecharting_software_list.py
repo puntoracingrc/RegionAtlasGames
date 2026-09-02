@@ -102,6 +102,12 @@ def test_neogeo_japanese_aliases_reuse_romanized_records() -> None:
     )
 
 
+def test_nes_console_bundle_is_not_imported_as_a_game() -> None:
+    assert SKIP_PC_IDS[10230816] == (
+        "hardware: pack de consola Nintendo NES Super 3 Set"
+    )
+
+
 def test_neogeo_cd_western_aliases_reuse_published_records() -> None:
     expected = {
         39675: "neogeocd-usa-super-baseball-2020",
@@ -803,6 +809,7 @@ if __name__ == "__main__":
     test_gameboy_usa_aliases_reuse_existing_regional_records()
     test_neogeo_western_aliases_reuse_published_records()
     test_neogeo_japanese_aliases_reuse_romanized_records()
+    test_nes_console_bundle_is_not_imported_as_a_game()
     test_neogeo_cd_western_aliases_reuse_published_records()
     test_neogeo_pocket_usa_aliases_reuse_published_records()
     test_neogeo_pocket_europe_aliases_reuse_published_records()
