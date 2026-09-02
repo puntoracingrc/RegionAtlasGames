@@ -15576,6 +15576,36 @@
         "sealed": null,
         "newRetail": null
       }
+    ],
+    "ps4-god-eater-2-rage-burst": [
+      {
+        "at": "2026-09-02T16:41:26Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 27.57,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-usa-granblue-fantasy-versus": [
+      {
+        "at": "2026-09-02T16:41:26Z",
+        "loose": 15.33,
+        "gameManual": null,
+        "complete": 15.82,
+        "sealed": 25.66,
+        "newRetail": null
+      }
+    ],
+    "ps4-grand-ages-medieval": [
+      {
+        "at": "2026-09-02T16:41:26Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 58.04,
+        "sealed": null,
+        "newRetail": null
+      }
     ]
   }
 }
