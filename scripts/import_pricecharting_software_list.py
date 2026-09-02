@@ -71,6 +71,11 @@ REGION_SPECIFIC_SKIP_PC_IDS: dict[tuple[str, str, int], str] = {
         "Japonesa",
         4780114,
     ): "carátula occidental ya representada por Voltage Fighter Gowcaizer",
+    (
+        "neogeopocket",
+        "PAL Europa",
+        9913397,
+    ): "duplicado técnico con errata de Evolution: Eternal Dungeons (11027144)",
 }
 
 # La Day One usa la misma portada frontal que la edición estándar y la ficha de
@@ -231,6 +236,18 @@ PC_ID_ALIASES: dict[int, str] = {
     31183: "neogeopocket-usa-bio-motor-unitron",
     31184: "neogeopocket-usa-neo-geo-cup-98-plus-color",
     31241: "neogeopocket-usa-last-blade-beyond-destiny",
+    9152020: "neogeopocket-pal-fantastic-night-dreams-cotton",
+    9021361: "neogeopocket-pal-last-blade-beyond-destiny",
+    2984774: (
+        "neogeopocket-pal-snk-vs-capcom-card-fighters-clash-capcom-cardfighters"
+    ),
+    8096530: "neogeopocket-pal-snk-gals-fighters",
+    3483601: "neogeopocket-pal-dark-arms",
+    3812483: "neogeopocket-pal-cool-boarders-pocket",
+    2984773: (
+        "neogeopocket-pal-snk-vs-capcom-card-fighters-clash-snk-cardfighters-version"
+    ),
+    11027144: "neogeopocket-pal-evolution-eternal-dungeons",
 }
 
 # Fichas técnicas importadas que duplican una ficha española ya usada por la
