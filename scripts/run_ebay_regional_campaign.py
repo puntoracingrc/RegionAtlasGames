@@ -27,8 +27,11 @@ STATE_DIR = ROOT / "data" / "ebay-regional-campaigns"
 GLOBAL_STATE_FILE = STATE_DIR / "global.json"
 COVER_CANDIDATES_FILE = STATE_DIR / "cover-candidates.json"
 
-DEFAULT_BATCH_SIZE = 50
+DEFAULT_BATCH_SIZE = 250
+DEFAULT_SEARCH_BUDGET = 250
 RUNS_PER_DAY = 4
+DAILY_SEARCH_BUDGET = DEFAULT_SEARCH_BUDGET * RUNS_PER_DAY
+CAMPAIGN_REGION_NAMES = {"pal espana", "espana", "pal europa"}
 
 LEGACY_REGION_KEYS = {
     "pal espana": "pal_es",
@@ -48,6 +51,22 @@ def _normalize(value: str) -> str:
 def region_key(catalog_region: str) -> str:
     normalized = _normalize(catalog_region)
     return LEGACY_REGION_KEYS.get(normalized) or re.sub(r"[^a-z0-9]+", "_", normalized).strip("_") or "unknown"
+
+
+def campaign_region_in_scope(catalog_region: str) -> bool:
+    return _normalize(catalog_region) in CAMPAIGN_REGION_NAMES
+
+
+def current_daily_usage(state: dict[str, Any] | None) -> dict[str, Any]:
+    today = now_iso()[:10]
+    current = state.get("dailyUsage") if isinstance(state, dict) else None
+    if not isinstance(current, dict) or current.get("date") != today:
+        return {"date": today, "apiSearches": 0}
+    try:
+        used = max(0, int(current.get("apiSearches") or 0))
+    except (TypeError, ValueError):
+        used = 0
+    return {"date": today, "apiSearches": min(DAILY_SEARCH_BUDGET, used)}
 
 
 def region_priority(catalog_region: str) -> tuple[int, str]:
@@ -118,6 +137,7 @@ def platform_regions(catalog: list[dict[str, Any]], platform_slug: str) -> list[
         if game.get("platformSlug") == platform_slug
         and game.get("listingStatus") != "excluded"
         and str(game.get("region") or "").strip()
+        and campaign_region_in_scope(str(game.get("region") or ""))
     }
     return sorted(regions, key=region_priority)
 
@@ -296,6 +316,9 @@ def record_result(
     retry_limit: int,
     regional_reroutes: int = 0,
     regional_reviews: int = 0,
+    api_searches: int = 0,
+    search_budget: int | None = None,
+    search_budget_exhausted: bool = False,
     systemic_error: str | None = None,
 ) -> dict[str, Any]:
     at = now_iso()
@@ -346,6 +369,9 @@ def record_result(
         "listingsAdded": listings_added,
         "regionalReroutes": regional_reroutes,
         "regionalReviews": regional_reviews,
+        "apiSearches": api_searches,
+        "searchBudget": search_budget,
+        "searchBudgetExhausted": search_budget_exhausted,
         "failed": len(failed),
         "systemicError": systemic_error,
     }
@@ -391,12 +417,12 @@ def build_global_state(
     states: dict[str, dict[str, Any]],
     order: list[str],
     *,
-    batch_size: int,
     current: dict[str, Any] | None = None,
     last_entry: dict[str, Any] | None = None,
     cover_queue: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     prior = current if isinstance(current, dict) else {}
+    daily_usage = current_daily_usage(prior)
     platform_rows: list[dict[str, Any]] = []
     for slug in order:
         state = states[slug]
@@ -434,7 +460,8 @@ def build_global_state(
         for key in ("catalogGames", "completed", "matched", "noMatch", "deferred", "pending")
     }
     next_row = next((row for row in platform_rows if int((row.get("totals") or {}).get("pending") or 0) > 0), None)
-    runs_remaining = math.ceil(totals["pending"] / batch_size) if totals["pending"] else 0
+    games_per_run = min(DEFAULT_BATCH_SIZE, DEFAULT_SEARCH_BUDGET)
+    runs_remaining = math.ceil(totals["pending"] / games_per_run) if totals["pending"] else 0
     log = prior.get("log") if isinstance(prior.get("log"), list) else []
     if not log:
         inherited = [entry for state in states.values() for entry in state.get("log", [])]
@@ -459,13 +486,23 @@ def build_global_state(
         "campaignId": "ebay-global-regional-v1",
         "marketplaceId": "EBAY_ES",
         "destinationCountry": "ES",
-        "schedule": {"hours": 6, "runsPerDay": RUNS_PER_DAY, "batchSize": batch_size},
+        "schedule": {
+            "hours": 6,
+            "runsPerDay": RUNS_PER_DAY,
+            "batchSize": DEFAULT_BATCH_SIZE,
+            "searchBudgetPerRun": DEFAULT_SEARCH_BUDGET,
+            "dailySearchBudget": DAILY_SEARCH_BUDGET,
+            "dailySearchesUsed": daily_usage["apiSearches"],
+            "dailySearchesRemaining": max(0, DAILY_SEARCH_BUDGET - daily_usage["apiSearches"]),
+            "regions": ["PAL España", "PAL Europa"],
+        },
         "status": status,
         "currentPlatform": next_row.get("platformSlug") if next_row else None,
         "currentPlatformName": next_row.get("platformName") if next_row else None,
         "currentRegion": next_row.get("currentRegion") if next_row else None,
         "updatedAt": last_entry.get("at") if last_entry else prior.get("updatedAt"),
         "lastRun": last_run,
+        "dailyUsage": daily_usage,
         "totals": totals,
         "estimatedRunsRemaining": runs_remaining,
         "estimatedDaysRemaining": math.ceil(runs_remaining / RUNS_PER_DAY) if runs_remaining else 0,
@@ -497,6 +534,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Campaña regional eBay para todo el catálogo")
     parser.add_argument("--platform", help="Limitar manualmente el siguiente lote a una plataforma")
     parser.add_argument("--batch-size", type=int, default=DEFAULT_BATCH_SIZE)
+    parser.add_argument("--search-budget", type=int, default=DEFAULT_SEARCH_BUDGET)
     parser.add_argument("--per-game", type=int, default=8)
     parser.add_argument("--delay", type=float, default=0.5)
     parser.add_argument("--retry-limit", type=int, default=3)
@@ -505,6 +543,7 @@ def main() -> None:
     args = parser.parse_args()
 
     batch_size = min(250, max(1, args.batch_size))
+    search_budget = min(250, max(1, args.search_budget))
     catalog = load_json(CATALOG_FILE, [])
     order, names = platform_order(catalog)
     if args.platform:
@@ -518,10 +557,12 @@ def main() -> None:
     platform_state, region, selected = select_global_batch(states, catalog, selection_order, batch_size)
     cover_queue = load_json(COVER_CANDIDATES_FILE, empty_cover_queue())
     global_current = load_json(GLOBAL_STATE_FILE, {})
+    daily_usage = current_daily_usage(global_current)
+    daily_remaining = max(0, DAILY_SEARCH_BUDGET - int(daily_usage["apiSearches"]))
+    effective_search_budget = min(search_budget, daily_remaining)
     global_state = build_global_state(
         states,
         order,
-        batch_size=batch_size,
         current=global_current,
         cover_queue=cover_queue,
     )
@@ -533,9 +574,21 @@ def main() -> None:
         print(f"Campaña {global_state['status']}: no quedan variantes pendientes en el alcance solicitado.")
         return
 
+    if effective_search_budget <= 0:
+        if not args.dry_run:
+            global_state["updatedAt"] = now_iso()
+            save_json(GLOBAL_STATE_FILE, global_state)
+        write_github_output(global_state)
+        print(
+            f"Presupuesto diario agotado: {daily_usage['apiSearches']}/{DAILY_SEARCH_BUDGET} "
+            "búsquedas API. El lote permanece pendiente."
+        )
+        return
+
     print(
         f"Siguiente lote: {platform_state['platformName']} · {region['label']} · "
-        f"{len(selected)} juegos · pendientes globales: {global_state['totals']['pending']}"
+        f"{len(selected)} juegos · presupuesto API: {effective_search_budget} · "
+        f"pendientes globales: {global_state['totals']['pending']}"
     )
     if args.dry_run:
         for catalog_id in selected[:20]:
@@ -574,7 +627,6 @@ def main() -> None:
         global_state = build_global_state(
             states,
             order,
-            batch_size=batch_size,
             current=global_current,
             last_entry=platform_state["log"][-1],
             cover_queue=cover_queue,
@@ -603,6 +655,8 @@ def main() -> None:
             "--active",
             "--limit", str(len(selected)),
             "--per-game", str(max(1, args.per_game)),
+            "--max-searches", str(effective_search_budget),
+            "--allowed-regions", "PAL España,España,PAL Europa",
             "--delay", str(max(0.0, args.delay)),
             "--destination-postal-code", args.destination_postal_code,
             "--catalog-ids-file", str(ids_file),
@@ -617,6 +671,8 @@ def main() -> None:
         listings_added = int(report.get("listingsAdded") or 0)
         regional_reroutes = int(report.get("regionalReroutes") or 0)
         regional_reviews = int(report.get("regionalReviewCandidates") or 0)
+        api_searches = int(report.get("apiSearches") or 0)
+        search_budget_exhausted = bool(report.get("searchBudgetExhausted"))
         routed_catalog_ids = [
             str(value)
             for value in report.get("regionalRoutedCatalogIds") or []
@@ -666,9 +722,17 @@ def main() -> None:
             retry_limit=max(1, args.retry_limit),
             regional_reroutes=regional_reroutes,
             regional_reviews=regional_reviews,
+            api_searches=api_searches,
+            search_budget=effective_search_budget,
+            search_budget_exhausted=search_budget_exhausted,
             systemic_error=systemic_error,
         )
         last_entry = platform_state["log"][-1]
+        daily_usage["apiSearches"] = min(
+            DAILY_SEARCH_BUDGET,
+            int(daily_usage["apiSearches"]) + api_searches,
+        )
+        global_after_run = {**global_current, "dailyUsage": daily_usage}
 
         catalog_after = load_json(CATALOG_FILE, [])
         if not systemic_error and ingest_file.exists():
@@ -693,8 +757,7 @@ def main() -> None:
         global_state = build_global_state(
             states,
             order,
-            batch_size=batch_size,
-            current=global_current,
+            current=global_after_run,
             last_entry=last_entry,
             cover_queue=cover_queue,
         )

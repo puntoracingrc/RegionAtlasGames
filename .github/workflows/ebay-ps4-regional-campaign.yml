@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       batch_size:
-        description: "Juegos a consultar (1-250)"
+        description: "Juegos máximos a considerar por tanda (1-250)"
         required: false
-        default: "25"
+        default: "250"
         type: string
       dry_run:
         description: "Solo mostrar el siguiente lote"
@@ -58,8 +58,8 @@ jobs:
           EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          BATCH_SIZE="${{ inputs.batch_size || '50' }}"
-          ARGS=(--batch-size "$BATCH_SIZE" --per-game 8 --delay 0.5)
+          BATCH_SIZE="${{ inputs.batch_size || '250' }}"
+          ARGS=(--batch-size "$BATCH_SIZE" --search-budget "$BATCH_SIZE" --per-game 8 --delay 0.5)
           if [[ "${{ inputs.dry_run }}" == "true" ]]; then
             ARGS+=(--dry-run)
           else
@@ -96,10 +96,19 @@ jobs:
             echo "Sin cambios de campaña."
             exit 0
           fi
-          git fetch origin main
-          if [[ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]]; then
-            echo "main cambió durante el lote; no se fuerza una mezcla de datos." >&2
-            exit 1
-          fi
           git commit -m "chore(prices): advance global eBay regional campaign"
-          git push origin HEAD:main
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git rebase --abort
+              echo "Los datos de main cambiaron de forma incompatible; no se fuerza la mezcla." >&2
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "main avanzó durante el push; reintentando ($attempt/3)." >&2
+            sleep 5
+          done
+          echo "No se pudo publicar el lote tras tres reintentos seguros." >&2
+          exit 1

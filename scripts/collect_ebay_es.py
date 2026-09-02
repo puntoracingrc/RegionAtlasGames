@@ -52,6 +52,7 @@ from collectors.physical_edition import (  # noqa: E402
 )
 from collectors.regional_variant_routing import (  # noqa: E402
     RegionalRouteDecision,
+    canonical_region_key,
     regional_variants_for,
     resolve_regional_route,
     same_regional_edition_family,
@@ -68,6 +69,49 @@ class ProcessedEbayItem:
     target_matched: bool
     review_only: bool
     rerouted: bool
+
+
+@dataclass
+class SearchBudget:
+    limit: int | None
+    used: int = 0
+    exhausted: bool = False
+
+    @classmethod
+    def from_value(cls, value: int) -> "SearchBudget":
+        return cls(limit=max(1, value) if value > 0 else None)
+
+    def reserve(self) -> bool:
+        if self.limit is not None and self.used >= self.limit:
+            self.exhausted = True
+            return False
+        self.used += 1
+        return True
+
+    def has_capacity(self) -> bool:
+        return self.limit is None or self.used < self.limit
+
+
+def allowed_region_keys(value: str) -> set[str]:
+    return {
+        key
+        for key in (canonical_region_key(part) for part in value.split(","))
+        if key
+    }
+
+
+def filter_platform_games_by_regions(
+    games: list[dict[str, Any]],
+    allowed_regions: str,
+) -> list[dict[str, Any]]:
+    allowed = allowed_region_keys(allowed_regions)
+    if not allowed:
+        return games
+    return [
+        game
+        for game in games
+        if canonical_region_key(str(game.get("region") or "")) in allowed
+    ]
 
 
 def _result_from_cached_row(row: dict[str, Any], target_catalog_id: str) -> ProcessedEbayItem:
@@ -643,6 +687,17 @@ def main() -> None:
     parser.add_argument("--catalog-ids-file", type=Path, help="JSON o TXT con IDs exactos, en orden")
     parser.add_argument("--per-game", type=int, default=8, help="Anuncios eBay por juego")
     parser.add_argument(
+        "--max-searches",
+        type=int,
+        default=0,
+        help="Máximo de llamadas de búsqueda API (0 = sin límite adicional)",
+    )
+    parser.add_argument(
+        "--allowed-regions",
+        default="",
+        help="Regiones permitidas para destino/enrutado, separadas por coma",
+    )
+    parser.add_argument(
         "--sold",
         action="store_true",
         help="Legacy: intentar vendidos con Finding API solo si EBAY_ALLOW_LEGACY_SOLD=1",
@@ -678,13 +733,17 @@ def main() -> None:
     games = select_games(args.platform, args.region, args.limit, args.catalog_ids_file)
     out = args.output or INGEST_DIR / f"{args.platform}-ebay.json"
     _, ref_to_ids = build_platform_reference_index(args.platform)
-    platform_games = platform_catalog_games(args.platform)
+    platform_games = filter_platform_games_by_regions(
+        platform_catalog_games(args.platform),
+        args.allowed_regions,
+    )
     catalog_by_id = {
         str(catalog_game.get("id")): catalog_game
         for catalog_game in platform_games
         if catalog_game.get("id")
     }
     use_listing_cache = not args.no_listing_cache and not args.dry_run
+    search_budget = SearchBudget.from_value(args.max_searches)
 
     payload = (
         load_json(out, {"listings": [], "regionalCandidates": [], "cex": []})
@@ -737,6 +796,10 @@ def main() -> None:
         "regionalRoutedCatalogIds": [],
         "regionalRerouteDetails": [],
         "catalogSearchAttempts": [],
+        "apiSearches": 0,
+        "searchBudget": search_budget.limit,
+        "searchBudgetExhausted": False,
+        "allowedRegions": sorted(allowed_region_keys(args.allowed_regions)),
     }
     seen_listing_ids: set[str] = set()
 
@@ -759,6 +822,8 @@ def main() -> None:
         cache_file = GAME_CACHE_DIR / args.platform / f"{catalog_id}.json"
         game_listings: list[dict] = []
         used_game_cache = False
+        game_search_attempted = False
+        stop_after_game = False
 
         try:
             modes: list[tuple[bool, str]] = []
@@ -782,7 +847,14 @@ def main() -> None:
             if not raw_items:
                 for query_idx, candidate_query in enumerate(queries):
                     candidate_items: list[dict[str, Any]] = []
+                    query_attempted = False
                     for mode_idx, (is_sold, label) in enumerate(modes):
+                        if not search_budget.reserve():
+                            stop_after_game = True
+                            break
+                        report["apiSearches"] = search_budget.used
+                        query_attempted = True
+                        game_search_attempted = True
                         try:
                             items, backend = search_ebay_es(
                                 candidate_query,
@@ -811,19 +883,28 @@ def main() -> None:
                         candidate_items.extend(items)
                         if mode_idx < len(modes) - 1:
                             time.sleep(args.delay)
-                    report["catalogSearchAttempts"].append(
-                        {
-                            "catalogId": catalog_id,
-                            "query": candidate_query,
-                            "results": len(candidate_items),
-                        }
-                    )
+                    if query_attempted:
+                        report["catalogSearchAttempts"].append(
+                            {
+                                "catalogId": catalog_id,
+                                "query": candidate_query,
+                                "results": len(candidate_items),
+                            }
+                        )
                     if candidate_items:
                         query = candidate_query
                         raw_items = candidate_items
                         break
+                    if stop_after_game:
+                        break
                     if query_idx < len(queries) - 1:
                         time.sleep(args.delay)
+                if stop_after_game and not game_search_attempted:
+                    print(
+                        f"  Presupuesto de búsquedas agotado antes de {catalog_id}; "
+                        "el resto permanece pendiente."
+                    )
+                    break
                 if not args.dry_run:
                     save_json(
                         cache_file,
@@ -918,6 +999,16 @@ def main() -> None:
 
         if not used_game_cache and idx < len(games):
             time.sleep(args.delay)
+        if not search_budget.has_capacity():
+            search_budget.exhausted = True
+            print(
+                f"  Presupuesto de búsquedas agotado: "
+                f"{search_budget.used}/{search_budget.limit}."
+            )
+            break
+
+    report["apiSearches"] = search_budget.used
+    report["searchBudgetExhausted"] = search_budget.exhausted
 
     print(
         f"\nTotal anuncios: {len(payload['listings'])} · "
@@ -932,6 +1023,8 @@ def main() -> None:
         f"redirigidos: {report['regionalReroutes']} · "
         f"revisión regional: {report['regionalReviewCandidates']} · "
         f"duplicados: {report['skippedDuplicates']} · "
+        f"búsquedas API: {report['apiSearches']}"
+        f"/{report['searchBudget'] or 'sin límite'} · "
         f"backend: {report['backend']}"
     )
 
