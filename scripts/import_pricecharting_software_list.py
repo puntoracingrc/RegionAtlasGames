@@ -76,6 +76,41 @@ REGION_SPECIFIC_SKIP_PC_IDS: dict[tuple[str, str, int], str] = {
         "PAL Europa",
         9913397,
     ): "duplicado técnico con errata de Evolution: Eternal Dungeons (11027144)",
+    (
+        "neogeopocket",
+        "Japón",
+        10854739,
+    ): "hardware: consola Neo Geo Pocket Color Crystal Clear",
+    (
+        "neogeopocket",
+        "Japón",
+        12336061,
+    ): "hardware: consola Neo Geo Pocket Color en pack Pachislot Aruze",
+    (
+        "neogeopocket",
+        "Japón",
+        31205,
+    ): "ficha contaminada: su única venta corresponde a OHANABI y la imagen no es de Neo Geo Pocket",
+    (
+        "neogeopocket",
+        "Japón",
+        31206,
+    ): "Puzzle De Pon no tuvo edición Neo Geo Pocket; ficha mal clasificada",
+    (
+        "neogeopocket",
+        "Japón",
+        31210,
+    ): "duplicado traducido y contaminado de Mizuki Shigeru no Youkai Shashinkan (3269161)",
+    (
+        "neogeopocket",
+        "Japón",
+        6179739,
+    ): "ficha genérica que mezcla las versiones SNK y Capcom de Card Fighters' Clash",
+    (
+        "neogeopocket",
+        "Japón",
+        12336011,
+    ): "variante Famitsu sin cotizaciones; no se mezcla con la edición estándar",
 }
 
 # La Day One usa la misma portada frontal que la edición estándar y la ficha de
@@ -248,6 +283,30 @@ PC_ID_ALIASES: dict[int, str] = {
         "neogeopocket-pal-snk-vs-capcom-card-fighters-clash-snk-cardfighters-version"
     ),
     11027144: "neogeopocket-pal-evolution-eternal-dungeons",
+    4991353: "neogeopocket-japon-beast-busters-yami-no-seitai-heiki",
+    6179736: "neogeopocket-japon-bio-motor-unitron",
+    31218: "neogeopocket-japon-kikou-seiki-unitron",
+    61893: "neogeopocket-japon-fantastic-night-dreams-cotton",
+    3268946: "neogeopocket-japon-pachi-slot-aruze-oukoku-pocket-del-sol-2",
+    31236: "neogeopocket-japon-shinkisekai-evolution-hateshinai-dungeon",
+    4991359: "neogeopocket-japon-garou-densetsu-first-contact",
+    6939415: "neogeopocket-japon-snk-gals-fighters",
+    3269157: "neogeopocket-japon-pachi-slot-aruze-oukoku-pocket-dh2",
+    3269159: "neogeopocket-japon-magical-drop-pocket",
+    31251: "neogeopocket-japon-mesaze-kanji-ou",
+    31224: "neogeopocket-japon-neo-derby-champ-daiyosou",
+    31220: "neogeopocket-japon-densetsu-no-ogre-battle-zenobia-no-ouji",
+    3269156: "neogeopocket-japon-pachi-slot-aruze-oukoku-pocket-hanabi",
+    6563301: "neogeopocket-japon-pachi-slot-aruze-oukoku-pocket-azteca",
+    3269154: "neogeopocket-japon-pachi-slot-aruze-oukoku-e-cup",
+    7286141: "neogeopocket-japon-pachi-slot-aruze-oukoku-pocket-porcano-2",
+    31253: "neogeopocket-japon-oekaki-puzzle",
+    13728371: "neogeopocket-japon-tsunagete-pon-2",
+    31243: "neogeopocket-japon-renketsu-puzzle-tsunagete-pon-color",
+    2184431: (
+        "neogeopocket-japon-bakumatsu-roman-tokubetsu-ben-gekka-no-kenshi-tsuki-ni"
+    ),
+    31250: "neogeopocket-japon-pachi-slot-aruze-oukoku-pocket-ward-lights",
 }
 
 # Fichas técnicas importadas que duplican una ficha española ya usada por la
