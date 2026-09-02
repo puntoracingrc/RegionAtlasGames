@@ -160,6 +160,18 @@
     "description": "Catálogo con dos variantes regionales: Occidental y Japonesa."
   },
   {
+    "slug": "neogeo-aes-plus",
+    "name": "NEOGEO AES+",
+    "shortName": "AES+",
+    "manufacturer": "snk",
+    "status": "open",
+    "estimatedCatalogSize": 20,
+    "sortOrder": 16.5,
+    "active": true,
+    "newsEnabled": true,
+    "description": "Catálogo abierto de reediciones físicas oficiales para NEOGEO AES+, separadas en versiones Internacional y Japonesa."
+  },
+  {
     "slug": "neogeocd",
     "name": "Neo Geo CD",
     "shortName": "Neo Geo CD",

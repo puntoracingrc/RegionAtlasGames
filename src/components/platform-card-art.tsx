@@ -18,6 +18,7 @@ export const PLATFORM_IMAGE_SLUGS = new Set([
   "dreamcast",
   "gamegear",
   "neogeo",
+  "neogeo-aes-plus",
   "neogeocd",
   "neogeopocket",
   "ps1",
@@ -37,6 +38,7 @@ const PLATFORM_ART_CLASS: Partial<Record<string, string>> = {
   ps5: "bottom-2 right-4 h-[108px] w-[104px] sm:h-[116px] sm:w-[112px]",
   switch: "bottom-3 right-4 h-[86px] w-[146px] sm:h-[90px] sm:w-[154px]",
   switch2: "bottom-3 right-4 h-[86px] w-[146px] sm:h-[90px] sm:w-[154px]",
+  "neogeo-aes-plus": "bottom-2 right-3 h-[100px] w-[150px] sm:h-[108px] sm:w-[162px]",
 };
 
 const DEFAULT_PLATFORM_ART_CLASS =

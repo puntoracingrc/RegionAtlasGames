@@ -12151,7 +12151,13 @@
       "ps4-crash-team-rumble-deluxe-edition",
       "ps4-ender-magnolia-deluxe-edition",
       "ps4-ion-fury-double-shot-edition",
-      "ps4-rico-london-standard-edition"
+      "ps4-rico-london-standard-edition",
+      "neogeo-aes-plus-international-metal-slug",
+      "neogeo-aes-plus-japanese-metal-slug",
+      "neogeo-aes-plus-international-shock-troopers",
+      "neogeo-aes-plus-japanese-shock-troopers",
+      "neogeo-aes-plus-international-magician-lord",
+      "neogeo-aes-plus-japanese-magician-lord"
     ],
     "byPlatform": {
       "3ds": 105,
@@ -12177,9 +12183,10 @@
       "snes": 692,
       "wii": 1002,
       "ps5": 93,
-      "switch2": 15
+      "switch2": 15,
+      "neogeo-aes-plus": 6
     },
-    "gameCount": 12148
+    "gameCount": 12154
   },
   "adventure": {
     "name": "Aventura",
@@ -24459,7 +24466,9 @@
       "switch2-ea-sports-fc-26",
       "switch2-mario-tennis-fever",
       "switch2-wwe-2k26",
-      "ps4-matchpoint-tennis-championships"
+      "ps4-matchpoint-tennis-championships",
+      "neogeo-aes-plus-international-big-tournament-golf",
+      "neogeo-aes-plus-japanese-big-tournament-golf"
     ],
     "byPlatform": {
       "3ds": 14,
@@ -24485,9 +24494,10 @@
       "snes": 65,
       "wii": 28,
       "ps5": 8,
-      "switch2": 3
+      "switch2": 3,
+      "neogeo-aes-plus": 2
     },
-    "gameCount": 2234
+    "gameCount": 2236
   },
   "platformer": {
     "name": "Plataformas",
@@ -26547,7 +26557,9 @@
       "ps5-sackboy-a-big-adventure",
       "ps5-shadow-labyrinth",
       "ps5-the-grinch-christmas-adventures-complete-edition",
-      "switch2-super-mario-bros-wonder-nintendo-switch-2-edition"
+      "switch2-super-mario-bros-wonder-nintendo-switch-2-edition",
+      "neogeo-aes-plus-international-magician-lord",
+      "neogeo-aes-plus-japanese-magician-lord"
     ],
     "byPlatform": {
       "3ds": 31,
@@ -26572,9 +26584,10 @@
       "snes": 29,
       "wii": 16,
       "ps5": 11,
-      "switch2": 1
+      "switch2": 1,
+      "neogeo-aes-plus": 2
     },
-    "gameCount": 2054
+    "gameCount": 2056
   },
   "shooter": {
     "name": "Shooter",
@@ -28579,7 +28592,15 @@
       "ps5-wwi-verdun-western-front",
       "ps5-xeno-crisis",
       "switch2-high-on-life-2",
-      "switch2-splatoon-raiders"
+      "switch2-splatoon-raiders",
+      "neogeo-aes-plus-international-metal-slug",
+      "neogeo-aes-plus-japanese-metal-slug",
+      "neogeo-aes-plus-international-pulstar",
+      "neogeo-aes-plus-japanese-pulstar",
+      "neogeo-aes-plus-international-shock-troopers",
+      "neogeo-aes-plus-japanese-shock-troopers",
+      "neogeo-aes-plus-international-twinkle-star-sprites",
+      "neogeo-aes-plus-japanese-twinkle-star-sprites"
     ],
     "byPlatform": {
       "3ds": 6,
@@ -28605,9 +28626,10 @@
       "snes": 23,
       "wii": 20,
       "ps5": 9,
-      "switch2": 2
+      "switch2": 2,
+      "neogeo-aes-plus": 8
     },
-    "gameCount": 1999
+    "gameCount": 2007
   },
   "rpg": {
     "name": "RPG",
@@ -32542,7 +32564,9 @@
       "switch2-gear-club-unlimited-3",
       "switch2-kirby-air-riders",
       "switch2-mario-kart-world",
-      "switch2-snowrunner"
+      "switch2-snowrunner",
+      "neogeo-aes-plus-international-over-top",
+      "neogeo-aes-plus-japanese-over-top"
     ],
     "byPlatform": {
       "3ds": 18,
@@ -32567,9 +32591,10 @@
       "snes": 76,
       "wii": 15,
       "ps5": 23,
-      "switch2": 4
+      "switch2": 4,
+      "neogeo-aes-plus": 2
     },
-    "gameCount": 1837
+    "gameCount": 1839
   },
   "fighting": {
     "name": "Lucha",
@@ -33974,7 +33999,13 @@
       "switch2-mortal-kombat-legacy-kollection-deluxe-edition",
       "switch2-street-fighter-6-year-1-2-fighters-edition",
       "switch2-virtua-fighter-5-r-e-v-o-world-stage-30th-anniversary-edition",
-      "ps4-street-fighter-6-lenticular-edition"
+      "ps4-street-fighter-6-lenticular-edition",
+      "neogeo-aes-plus-international-garou-mark-of-the-wolves",
+      "neogeo-aes-plus-japanese-garou-mark-of-the-wolves",
+      "neogeo-aes-plus-international-the-king-of-fighters-2002",
+      "neogeo-aes-plus-japanese-the-king-of-fighters-2002",
+      "neogeo-aes-plus-international-samurai-shodown-v-special",
+      "neogeo-aes-plus-japanese-samurai-shodown-v-special"
     ],
     "byPlatform": {
       "3ds": 9,
@@ -34000,9 +34031,10 @@
       "snes": 83,
       "wii": 6,
       "ps5": 15,
-      "switch2": 5
+      "switch2": 5,
+      "neogeo-aes-plus": 6
     },
-    "gameCount": 1399
+    "gameCount": 1405
   },
   "puzzle": {
     "name": "Puzzle",
@@ -34993,7 +35025,9 @@
       "ps5-monopoly-star-wars",
       "ps5-monument-valley-the-trilogy",
       "ps5-puyo-puyo-tetris-2",
-      "switch2-monopoly-star-wars"
+      "switch2-monopoly-star-wars",
+      "neogeo-aes-plus-international-twinkle-star-sprites",
+      "neogeo-aes-plus-japanese-twinkle-star-sprites"
     ],
     "byPlatform": {
       "3ds": 48,
@@ -35018,9 +35052,10 @@
       "snes": 45,
       "wii": 10,
       "ps5": 3,
-      "switch2": 1
+      "switch2": 1,
+      "neogeo-aes-plus": 2
     },
-    "gameCount": 985
+    "gameCount": 987
   },
   "other": {
     "name": "Varios",
@@ -42892,7 +42927,9 @@
       "gamegear-usa-scratch-golf",
       "ps4-japon-everybody%27s-golf-vr",
       "mastersystem-japon-great-golf-japon",
-      "dreamcast-japon-golf-shiyouyo-kouryaku-pack"
+      "dreamcast-japon-golf-shiyouyo-kouryaku-pack",
+      "neogeo-aes-plus-international-big-tournament-golf",
+      "neogeo-aes-plus-japanese-big-tournament-golf"
     ],
     "byPlatform": {
       "dreamcast": 5,
@@ -42910,9 +42947,10 @@
       "ps3": 2,
       "ps4": 13,
       "saturn": 11,
-      "snes": 2
+      "snes": 2,
+      "neogeo-aes-plus": 2
     },
-    "gameCount": 154
+    "gameCount": 156
   },
   "educational": {
     "name": "Educativo",

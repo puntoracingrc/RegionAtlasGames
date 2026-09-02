@@ -44,6 +44,7 @@ export const LEGACY_MANUAL_PLATFORMS = new Set([
   "dreamcast",
   "gamegear",
   "neogeo",
+  "neogeo-aes-plus",
   "neogeocd",
   "neogeopocket",
   "ps1",

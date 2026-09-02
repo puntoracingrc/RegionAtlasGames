@@ -1,5 +1,6 @@
 const PUBLIC_REGION_LABELS_BY_PLATFORM: Record<string, readonly string[]> = {
   neogeo: ["Occidental", "Japonesa"],
+  "neogeo-aes-plus": ["Internacional", "Japonesa"],
 };
 
 export function publicRegionLabelsForPlatform(platformSlug: string): readonly string[] | null {

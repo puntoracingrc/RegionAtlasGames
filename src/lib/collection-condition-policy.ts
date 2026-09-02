@@ -25,6 +25,7 @@ const GAME_MANUAL_PLATFORMS = new Set([
   "sega32x",
   "gamegear",
   "neogeo",
+  "neogeo-aes-plus",
   "neogeopocket",
   "psvita",
   "switch",

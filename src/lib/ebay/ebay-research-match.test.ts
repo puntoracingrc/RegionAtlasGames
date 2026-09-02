@@ -170,6 +170,28 @@ test("recognizes Collector's Ed. as the collector physical edition", () => {
   assert.equal(match.conditionBucket, "sealed");
 });
 
+test("distinguishes NEOGEO AES+ reissues from classic AES listings", () => {
+  const aesPlusTarget: EbayResearchTarget = {
+    title: "Metal Slug",
+    edition: "Reedición AES+ 2026",
+    platformSlug: "neogeo-aes-plus",
+    region: "Internacional",
+    gtins: [],
+  };
+  const aesPlusEvidence = evidence({
+    title: "Metal Slug NEOGEO AES+ international sealed",
+  });
+
+  assert.equal(evaluateEbayResearchMatch(aesPlusTarget, aesPlusEvidence).platformMatch, "exact");
+  assert.equal(
+    evaluateEbayResearchMatch(
+      { ...aesPlusTarget, platformSlug: "neogeo", edition: "standard" },
+      aesPlusEvidence,
+    ).platformMatch,
+    "conflict",
+  );
+});
+
 test("parses and deduplicates EAN values from catalog details", () => {
   assert.deepEqual(parseGameGtins("4012927024011, 4012927024011 / 0045496730529"), [
     "4012927024011",
