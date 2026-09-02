@@ -63,7 +63,7 @@ const NTSC_PC_CONSOLE: Record<string, string> = {
 };
 
 const JP_PC_CONSOLE: Record<string, string> = {
-  nes: "jp-nes",
+  nes: "famicom",
   snes: "jp-super-nintendo",
   n64: "jp-nintendo-64",
   gameboy: "jp-gameboy",

@@ -40,6 +40,10 @@ def test_neogeo_cd_japan_uses_its_regional_pricecharting_console_slug() -> None:
     assert JP_PC_CONSOLE["neogeocd"] == "jp-neo-geo-cd"
 
 
+def test_nes_japan_uses_famicom_pricecharting_console_slug() -> None:
+    assert JP_PC_CONSOLE["nes"] == "famicom"
+
+
 def test_snes_japan_uses_super_famicom_pricecharting_console_slug() -> None:
     assert JP_PC_CONSOLE["snes"] == "super-famicom"
 
