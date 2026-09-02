@@ -6,52 +6,67 @@
   "schedule": {
     "hours": 6,
     "runsPerDay": 4,
-    "batchSize": 50
+    "batchSize": 250,
+    "searchBudgetPerRun": 250,
+    "dailySearchBudget": 1000,
+    "dailySearchesUsed": 250,
+    "dailySearchesRemaining": 750,
+    "regions": [
+      "PAL España",
+      "PAL Europa"
+    ]
   },
   "status": "running",
   "currentPlatform": "ps4",
   "currentPlatformName": "PlayStation 4",
   "currentRegion": "PAL España",
-  "updatedAt": "2026-09-02T16:54:48Z",
+  "updatedAt": "2026-09-02T20:36:25Z",
   "lastRun": {
-    "at": "2026-09-02T16:54:48Z",
+    "at": "2026-09-02T20:36:25Z",
     "platformSlug": "ps4",
     "platformName": "PlayStation 4",
     "region": "PAL España",
-    "selected": 50,
-    "processed": 50,
-    "matched": 8,
-    "listingsAdded": 10,
-    "regionalReroutes": 1,
-    "regionalReviews": 126,
+    "selected": 250,
+    "processed": 250,
+    "matched": 5,
+    "listingsAdded": 5,
+    "regionalReroutes": 0,
+    "regionalReviews": 272,
+    "apiSearches": 250,
+    "searchBudget": 250,
+    "searchBudgetExhausted": true,
     "failed": 0,
     "systemicError": null,
     "coverCandidatesAdded": 0
   },
-  "totals": {
-    "catalogGames": 57514,
-    "completed": 775,
-    "matched": 306,
-    "noMatch": 469,
-    "deferred": 0,
-    "pending": 56739
+  "dailyUsage": {
+    "date": "2026-09-02",
+    "apiSearches": 250
   },
-  "estimatedRunsRemaining": 1135,
-  "estimatedDaysRemaining": 284,
+  "totals": {
+    "catalogGames": 25760,
+    "completed": 1025,
+    "matched": 311,
+    "noMatch": 714,
+    "deferred": 0,
+    "pending": 24735
+  },
+  "estimatedRunsRemaining": 99,
+  "estimatedDaysRemaining": 25,
   "platforms": [
     {
       "platformSlug": "ps4",
       "platformName": "PlayStation 4",
       "status": "running",
       "currentRegion": "PAL España",
-      "updatedAt": "2026-09-02T16:54:48Z",
+      "updatedAt": "2026-09-02T20:36:25Z",
       "totals": {
-        "catalogGames": 8496,
-        "completed": 775,
-        "matched": 306,
-        "noMatch": 469,
+        "catalogGames": 3044,
+        "completed": 1025,
+        "matched": 311,
+        "noMatch": 714,
         "deferred": 0,
-        "pending": 7721
+        "pending": 2019
       },
       "regions": [
         {
@@ -61,11 +76,11 @@
           "marketScope": "country",
           "originLabel": "España",
           "total": 3043,
-          "completed": 775,
-          "matched": 306,
-          "noMatch": 469,
+          "completed": 1025,
+          "matched": 311,
+          "noMatch": 714,
           "deferred": 0,
-          "pending": 2268
+          "pending": 2018
         },
         {
           "key": "pal_europa",
@@ -79,58 +94,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 1
-        },
-        {
-          "key": "pal_uk",
-          "label": "PAL UK/ENG",
-          "catalogRegion": "PAL UK/ENG",
-          "marketScope": "country",
-          "originLabel": "Reino Unido",
-          "total": 2,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 2
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 4497,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 4497
-        },
-        {
-          "key": "japan_alias",
-          "label": "JAPAN",
-          "catalogRegion": "JAPAN",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 2,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 2
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 951,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 951
         }
       ]
     },
@@ -141,12 +104,12 @@
       "currentRegion": "PAL Europa",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 2297,
+        "catalogGames": 464,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 2297
+        "pending": 464
       },
       "regions": [
         {
@@ -161,32 +124,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 464
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 778,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 778
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 1055,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 1055
         }
       ]
     },
@@ -197,12 +134,12 @@
       "currentRegion": "España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 2881,
+        "catalogGames": 661,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 2881
+        "pending": 661
       },
       "regions": [
         {
@@ -230,32 +167,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 658
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 723,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 723
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 1497,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 1497
         }
       ]
     },
@@ -266,12 +177,12 @@
       "currentRegion": "España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 776,
+        "catalogGames": 278,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 776
+        "pending": 278
       },
       "regions": [
         {
@@ -293,51 +204,12 @@
           "catalogRegion": "PAL Europa",
           "marketScope": "multi_region",
           "originLabel": "Europa multirregión",
-          "total": 237,
+          "total": 269,
           "completed": 0,
           "matched": 0,
           "noMatch": 0,
           "deferred": 0,
-          "pending": 237
-        },
-        {
-          "key": "australia",
-          "label": "Australia",
-          "catalogRegion": "Australia",
-          "marketScope": "country",
-          "originLabel": "Australia",
-          "total": 5,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 5
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 317,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 317
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 208,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 208
+          "pending": 269
         }
       ]
     },
@@ -348,12 +220,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 2510,
+        "catalogGames": 962,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 2510
+        "pending": 962
       },
       "regions": [
         {
@@ -381,32 +253,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 470
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 736,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 736
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 812,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 812
         }
       ]
     },
@@ -417,12 +263,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 1329,
+        "catalogGames": 551,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 1329
+        "pending": 551
       },
       "regions": [
         {
@@ -437,19 +283,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 551
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 778,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 778
         }
       ]
     },
@@ -550,12 +383,12 @@
       "currentRegion": "PAL Europa",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 500,
+        "catalogGames": 300,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 500
+        "pending": 300
       },
       "regions": [
         {
@@ -570,32 +403,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 300
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 116,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 116
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 84,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 84
         }
       ]
     },
@@ -606,12 +413,12 @@
       "currentRegion": "PAL Europa",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 1679,
+        "catalogGames": 537,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 1679
+        "pending": 537
       },
       "regions": [
         {
@@ -626,32 +433,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 537
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 713,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 713
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 429,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 429
         }
       ]
     },
@@ -662,12 +443,12 @@
       "currentRegion": "PAL Europa",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 82,
+        "catalogGames": 27,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 82
+        "pending": 27
       },
       "regions": [
         {
@@ -682,32 +463,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 27
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 36,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 36
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 19,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 19
         }
       ]
     },
@@ -718,12 +473,12 @@
       "currentRegion": "PAL Europa",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 372,
+        "catalogGames": 95,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 372
+        "pending": 95
       },
       "regions": [
         {
@@ -738,32 +493,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 95
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 160,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 160
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 117,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 117
         }
       ]
     },
@@ -774,12 +503,12 @@
       "currentRegion": "PAL Europa",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 1597,
+        "catalogGames": 239,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 1597
+        "pending": 239
       },
       "regions": [
         {
@@ -794,32 +523,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 239
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 248,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 248
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 1110,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 1110
         }
       ]
     },
@@ -830,12 +533,12 @@
       "currentRegion": "PAL Europa",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 950,
+        "catalogGames": 216,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 950
+        "pending": 216
       },
       "regions": [
         {
@@ -850,32 +553,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 216
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 251,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 251
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 483,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 483
         }
       ]
     },
@@ -886,12 +563,12 @@
       "currentRegion": "España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 637,
+        "catalogGames": 204,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 637
+        "pending": 204
       },
       "regions": [
         {
@@ -919,163 +596,56 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 200
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 233,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 233
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 200,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 200
         }
       ]
     },
     {
       "platformSlug": "neogeo",
       "platformName": "Neo Geo AES",
-      "status": "ready",
-      "currentRegion": "Japonesa",
+      "status": "completed",
+      "currentRegion": null,
       "updatedAt": null,
       "totals": {
-        "catalogGames": 248,
+        "catalogGames": 0,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 248
+        "pending": 0
       },
-      "regions": [
-        {
-          "key": "japonesa",
-          "label": "Japonesa",
-          "catalogRegion": "Japonesa",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 131,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 131
-        },
-        {
-          "key": "occidental",
-          "label": "Occidental",
-          "catalogRegion": "Occidental",
-          "marketScope": "unrestricted",
-          "originLabel": "Occidental",
-          "total": 117,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 117
-        }
-      ]
+      "regions": []
     },
     {
       "platformSlug": "neogeo-aes-plus",
       "platformName": "NEOGEO AES+",
-      "status": "ready",
-      "currentRegion": "Japonesa",
+      "status": "completed",
+      "currentRegion": null,
       "updatedAt": null,
       "totals": {
-        "catalogGames": 20,
+        "catalogGames": 0,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 20
+        "pending": 0
       },
-      "regions": [
-        {
-          "key": "japonesa",
-          "label": "Japonesa",
-          "catalogRegion": "Japonesa",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 10,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 10
-        },
-        {
-          "key": "internacional",
-          "label": "Internacional",
-          "catalogRegion": "Internacional",
-          "marketScope": "unrestricted",
-          "originLabel": "Internacional",
-          "total": 10,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 10
-        }
-      ]
+      "regions": []
     },
     {
       "platformSlug": "neogeocd",
       "platformName": "Neo Geo CD",
-      "status": "ready",
-      "currentRegion": "Japonesa",
+      "status": "completed",
+      "currentRegion": null,
       "updatedAt": null,
       "totals": {
-        "catalogGames": 183,
+        "catalogGames": 0,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 183
+        "pending": 0
       },
-      "regions": [
-        {
-          "key": "japonesa",
-          "label": "Japonesa",
-          "catalogRegion": "Japonesa",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 99,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 99
-        },
-        {
-          "key": "occidental",
-          "label": "Occidental",
-          "catalogRegion": "Occidental",
-          "marketScope": "unrestricted",
-          "originLabel": "Occidental",
-          "total": 84,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 84
-        }
-      ]
+      "regions": []
     },
     {
       "platformSlug": "neogeopocket",
@@ -1084,12 +654,12 @@
       "currentRegion": "PAL Europa",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 169,
+        "catalogGames": 42,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 169
+        "pending": 42
       },
       "regions": [
         {
@@ -1104,32 +674,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 42
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 35,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 35
-        },
-        {
-          "key": "japon",
-          "label": "Japón",
-          "catalogRegion": "Japón",
-          "marketScope": "country",
-          "originLabel": "Japón",
-          "total": 92,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 92
         }
       ]
     },
@@ -1140,12 +684,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 3856,
+        "catalogGames": 1933,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 3856
+        "pending": 1933
       },
       "regions": [
         {
@@ -1160,19 +704,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 1933
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 1923,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 1923
         }
       ]
     },
@@ -1183,12 +714,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 5743,
+        "catalogGames": 3246,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 5743
+        "pending": 3246
       },
       "regions": [
         {
@@ -1203,19 +734,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 3246
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 2497,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 2497
         }
       ]
     },
@@ -1226,12 +744,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 4466,
+        "catalogGames": 2446,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 4466
+        "pending": 2446
       },
       "regions": [
         {
@@ -1246,32 +764,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 2446
-        },
-        {
-          "key": "pal_alemania",
-          "label": "PAL Alemania",
-          "catalogRegion": "PAL Alemania",
-          "marketScope": "country",
-          "originLabel": "Alemania",
-          "total": 1,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 1
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 2019,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 2019
         }
       ]
     },
@@ -1282,12 +774,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 4457,
+        "catalogGames": 2147,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 4457
+        "pending": 2147
       },
       "regions": [
         {
@@ -1302,19 +794,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 2147
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 2310,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 2310
         }
       ]
     },
@@ -1325,12 +804,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 838,
+        "catalogGames": 290,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 838
+        "pending": 290
       },
       "regions": [
         {
@@ -1345,19 +824,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 290
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 548,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 548
         }
       ]
     },
@@ -1368,12 +834,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 2349,
+        "catalogGames": 1119,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 2349
+        "pending": 1119
       },
       "regions": [
         {
@@ -1388,19 +854,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 1119
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 1230,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 1230
         }
       ]
     },
@@ -1411,12 +864,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 318,
+        "catalogGames": 141,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 318
+        "pending": 141
       },
       "regions": [
         {
@@ -1431,19 +884,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 141
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 177,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 177
         }
       ]
     },
@@ -1454,12 +894,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 7244,
+        "catalogGames": 3301,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 7244
+        "pending": 3301
       },
       "regions": [
         {
@@ -1474,19 +914,6 @@
           "noMatch": 0,
           "deferred": 0,
           "pending": 3301
-        },
-        {
-          "key": "usa",
-          "label": "USA",
-          "catalogRegion": "USA",
-          "marketScope": "country",
-          "originLabel": "Estados Unidos",
-          "total": 3943,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
-          "deferred": 0,
-          "pending": 3943
         }
       ]
     }
@@ -1631,6 +1058,14 @@
       "at": "2026-09-02T16:54:48Z",
       "level": "info",
       "message": "PlayStation 4 · PAL España: 50/50 consultados, 8 con evidencias, 10 anuncios aceptados, 1 aprovechados en otra región, 126 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "ps4",
+      "region": "PAL España",
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-02T20:36:25Z",
+      "level": "info",
+      "message": "PlayStation 4 · PAL España: 250/250 consultados, 5 con evidencias, 5 anuncios aceptados, 0 aprovechados en otra región, 272 a revisión, 0 fallos, 0 aplazados.",
       "platformSlug": "ps4",
       "region": "PAL España",
       "coverCandidatesAdded": 0
