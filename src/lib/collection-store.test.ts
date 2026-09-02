@@ -20,6 +20,7 @@ import {
   upsertUserCollectionPhoto,
 } from "./collection-store";
 import { COLLECTION_PHOTO_SLOTS } from "./collection-photos";
+import { backfillCollectionAddedAt } from "./collection-storage";
 import {
   readCollectionPhotoFile,
   saveCollectionPhotoFile,
@@ -140,6 +141,22 @@ test("creates catalog copies as complete by default and accepts a platform prefe
   assert.equal(sealed.collectionCondition, "sealed");
   assert.equal(sealed.sealed, true);
   assert.equal(sealed.totalValue, game.estimatedPriceSealed ?? sealed.totalValue);
+});
+
+test("backfills imported collection dates without changing the legacy row order", () => {
+  const game = getCatalogGame("ps5-astro-bot");
+  assert.ok(game);
+  const first = { ...catalogGameToCollectionItem(game, []), id: "first", addedAt: null };
+  const second = { ...catalogGameToCollectionItem(game, [first]), id: "second", addedAt: null };
+
+  const result = backfillCollectionAddedAt(
+    [first, second],
+    "2026-06-13T16:36:23.000Z",
+  );
+
+  assert.equal(result.changed, true);
+  assert.equal(result.items[0]?.addedAt, "2026-06-13T16:36:22.999Z");
+  assert.equal(result.items[1]?.addedAt, "2026-06-13T16:36:23.000Z");
 });
 
 test("adding an exact imported game links it without creating a duplicate", async () => {
@@ -298,6 +315,16 @@ test("manages individual copies and applies completed sales once", async () => {
     assert.equal(updated.item.buyPrice, 18.5);
     assert.equal(updated.item.ownerEstimatedPrice, 72);
     assert.equal(updated.item.purchasedAt, "2026-08-12T00:00:00.000Z");
+
+    const stateOnlyUpdate = await updateUserCollectionItemDetails(userId, first.item.id, {
+      collectionCondition: "sealed",
+      buyPrice: 18.5,
+      ownerEstimatedPrice: 72,
+      purchasedAt: "2026-08-12T00:00:00.000Z",
+      notes: "Estado guardado sin cambiar la fecha de alta",
+    });
+    assert.ok(!("error" in stateOnlyUpdate));
+    assert.equal(stateOnlyUpdate.item.addedAt, "2026-08-13T00:00:00.000Z");
 
     const salePhoto: CollectionPhoto = {
       slot: "cover-front",
