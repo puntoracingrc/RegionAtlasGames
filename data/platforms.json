@@ -272,12 +272,12 @@
     "name": "Nintendo Switch",
     "shortName": "Switch",
     "manufacturer": "nintendo",
-    "status": "semi-closed",
-    "estimatedCatalogSize": 0,
-    "sortOrder": 27,
-    "active": false,
-    "newsEnabled": false,
-    "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
+    "status": "open",
+    "estimatedCatalogSize": 3301,
+    "sortOrder": 8,
+    "active": true,
+    "newsEnabled": true,
+    "description": "Catálogo abierto de Nintendo Switch con ediciones PAL España provisionales basadas en el listado PAL Europa aportado y ampliación mediante revisión administrativa."
   },
   {
     "slug": "wiiu",
