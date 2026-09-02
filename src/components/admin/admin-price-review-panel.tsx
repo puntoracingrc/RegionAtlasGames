@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ChevronDown, ExternalLink, ImageOff, Images } from "lucide-react";
+import { Check, ChevronDown, ExternalLink, ImageOff, Images, X } from "lucide-react";
 import type {
   PriceReviewCondition,
   PriceReviewItem,
@@ -17,6 +17,7 @@ import {
 } from "@/lib/original-game-contents";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import { adminToneClass } from "./admin-visual";
+import type { PriceReviewRejectReason } from "@/lib/collector-learning";
 
 type Props = {
   initialItems: PriceReviewItem[];
@@ -55,6 +56,20 @@ const conditionLabels: Record<string, string> = {
   complete: "Completo",
   sealed: "Precintado",
   unknown: "Desconocido",
+};
+
+const rejectReasonLabels: Record<PriceReviewRejectReason, string> = {
+  duplicate: "Anuncio duplicado",
+  wrong_game: "Juego incorrecto",
+  wrong_platform: "Plataforma incorrecta",
+  wrong_edition: "Edición incorrecta",
+  wrong_region: "Región incorrecta",
+  non_game: "No es un juego",
+  lot_or_bundle: "Lote o varios juegos",
+  condition_unverified: "Estado no verificable",
+  price_anomaly: "Precio anómalo",
+  insufficient_evidence: "Evidencia insuficiente",
+  other: "Otro motivo",
 };
 
 const commonRegionOptions = [
@@ -118,15 +133,6 @@ function uniqueOptions(values: Array<string | null | undefined>): string[] {
     out.push(clean);
   }
   return out;
-}
-
-function formatDate(value: string | null | undefined): string {
-  if (!value) return "—";
-  return new Intl.DateTimeFormat("es-ES", {
-    dateStyle: "medium",
-    timeStyle: "short",
-    timeZone: "Europe/Madrid",
-  }).format(new Date(value));
 }
 
 function formatPrice(value: number | string | null | undefined): string {
@@ -201,16 +207,18 @@ function ReviewThumbnail({
   url,
   label,
   alt,
+  compact = false,
 }: {
   url: string | null;
   label: string;
   alt: string;
+  compact?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
 
   return (
-    <figure className="min-w-0">
-      <div className="flex aspect-[3/4] w-full items-center justify-center overflow-hidden rounded-lg border border-border bg-card/45">
+    <figure className={compact ? "w-14 shrink-0" : "min-w-0"}>
+      <div className={`flex items-center justify-center overflow-hidden rounded-lg border border-border bg-card/45 ${compact ? "h-20 w-14" : "aspect-[3/4] w-full"}`}>
         {url && !failed ? (
           // Las portadas llegan de tiendas externas con dominios variables.
           // eslint-disable-next-line @next/next/no-img-element
@@ -230,7 +238,7 @@ function ReviewThumbnail({
           </span>
         )}
       </div>
-      <figcaption className="mt-1 truncate text-center text-[10px] font-bold uppercase text-muted" title={label}>
+      <figcaption className="mt-1 truncate text-center text-[9px] font-bold uppercase text-muted" title={label}>
         {label}
       </figcaption>
     </figure>
@@ -248,6 +256,7 @@ function ReviewCard({
   const [region, setRegion] = useState(item.detectedRegion ?? item.targetRegion ?? "");
   const [condition, setCondition] = useState<PriceReviewCondition>((item.condition as PriceReviewCondition) || "unknown");
   const [note, setNote] = useState("");
+  const [rejectReason, setRejectReason] = useState<PriceReviewRejectReason | "">("");
   const initialOriginalContents = normalizeOriginalGameContents(
     item.catalogPreview?.originalContents
       ?? item.evidence?.originalContentsExpected
@@ -303,6 +312,11 @@ function ReviewCard({
   ]);
 
   async function decide(action: "accept" | "reject") {
+    if (action === "reject" && !rejectReason) {
+      setState("error");
+      setMessage("Indica el motivo del descarte para que el motor pueda aprender de esta decisión.");
+      return;
+    }
     setState("saving");
     setMessage("");
     const response = await fetch(`/api/admin/price-reviews/${encodeURIComponent(item.id)}`, {
@@ -314,6 +328,7 @@ function ReviewCard({
         region,
         condition,
         note,
+        ...(action === "reject" ? { reasonCode: rejectReason } : {}),
         ...(originalContentsTouched ? { originalContents } : {}),
       }),
     });
@@ -393,75 +408,60 @@ function ReviewCard({
 
   return (
     <article className="overflow-hidden rounded-lg border border-border bg-background/55">
-      <div className="grid gap-4 p-4 lg:grid-cols-[176px_minmax(0,1fr)_auto]">
-        <div className="grid grid-cols-2 gap-2">
-          <ReviewThumbnail url={listingImageUrl} label="Anuncio" alt={`Imagen del anuncio ${displayTitle}`} />
-          <ReviewThumbnail url={catalogImageUrl} label="Catálogo" alt={`Portada de catálogo ${candidateTitle ?? displayTitle}`} />
+      <div className="grid items-center gap-3 p-3 md:grid-cols-[124px_minmax(0,1.4fr)_minmax(170px,.7fr)_auto]">
+        <div className="flex gap-2">
+          <ReviewThumbnail compact url={listingImageUrl} label="Anuncio" alt={`Imagen del anuncio ${displayTitle}`} />
+          <ReviewThumbnail compact url={catalogImageUrl} label="Catálogo" alt={`Portada de catálogo ${candidateTitle ?? displayTitle}`} />
         </div>
 
         <div className="min-w-0">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             <Badge tone="neutral">{sourceLabel(item.source)}</Badge>
             <Badge tone="amber">{reasonLabel(item.reason)}</Badge>
             <Badge tone="neutral">{item.platformSlug.toUpperCase()}</Badge>
             {item.evidence?.gameKeyCard ? <Badge tone="violet">Game-Key Card</Badge> : null}
             {sourceRegionLabel ? <Badge tone={item.evidence?.fullySpanishVersion ? "green" : "neutral"}>{sourceRegionLabel}</Badge> : null}
           </div>
-          <h3 className="mt-2 text-base font-black leading-6 text-foreground">{displayTitle}</h3>
-          <p className="mt-1 text-sm font-bold text-foreground">
-            {candidateTitle ?? "Sin ficha candidata"}
+          <h3 className="mt-1.5 truncate text-sm font-black text-foreground" title={displayTitle}>{displayTitle}</h3>
+          <p className="mt-0.5 truncate text-xs font-bold text-foreground" title={candidateTitle ?? "Sin ficha candidata"}>
+            → {candidateTitle ?? "Sin ficha candidata"}
           </p>
-          <p className="mt-0.5 break-all text-[11px] text-muted">
+          <p className="mt-0.5 truncate text-[10px] text-muted" title={item.catalogPreview?.id || item.candidateCatalogId || item.catalogId || item.evidence?.searchedCatalogId || "Sin ID de catálogo"}>
             {item.catalogPreview?.id || item.candidateCatalogId || item.catalogId || item.evidence?.searchedCatalogId || "Sin ID de catálogo"}
             {candidateRegion ? ` · ${candidateRegion}` : ""}
             {item.catalogPreview?.edition ? ` · ${item.catalogPreview.edition}` : ""}
           </p>
-
-          <dl className="mt-3 grid gap-x-4 gap-y-2 text-xs sm:grid-cols-2 xl:grid-cols-3">
-            <div>
-              <dt className="font-semibold text-muted">Región</dt>
-              <dd className="font-bold text-foreground">{item.detectedRegion || "Sin detectar"} <span className="font-normal text-muted">· objetivo {item.targetRegion || "—"}</span></dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-muted">Estado</dt>
-              <dd className="font-bold text-foreground">{conditionLabels[String(item.condition || "unknown")] ?? item.condition} <span className="font-normal text-muted">· {item.evidence?.conditionRaw || "sin texto original"}</span></dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-muted">Coincidencia</dt>
-              <dd className="font-bold text-foreground">{item.evidence?.matchMethod || item.triageMatchMethod || "Sin método"} <span className="font-normal text-muted">· {formatConfidence(item.evidence?.matchScore)} · margen {formatConfidence(item.evidence?.matchMargin)}</span></dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-muted">Evidencia regional</dt>
-              <dd className="text-foreground">{(item.evidence?.regionEvidence ?? []).join(", ") || "Sin prueba"}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-muted">Recolección</dt>
-              <dd className="text-foreground">{formatDate(item.collectedAt || item.updatedAt)}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-muted">IA</dt>
-              <dd className="text-foreground">{item.evidence?.aiConfidence != null ? `Confianza ${formatConfidence(item.evidence.aiConfidence)}` : "No usada"}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-muted">Contenido original</dt>
-              <dd className="text-foreground">
-                {initialOriginalContents.length > 0
-                  ? initialOriginalContents.map((content) => ORIGINAL_GAME_CONTENT_LABELS[content]).join(" · ")
-                  : "Por confirmar"}
-              </dd>
-            </div>
-          </dl>
-
-          {item.triageReason || item.evidence?.originRegionHint ? (
-            <p className="mt-3 text-xs leading-5 text-muted">
-              {item.triageReason || `Pista del vendedor: ${item.evidence?.originRegionHint}${item.evidence?.originCountry ? ` (${item.evidence.originCountry})` : ""}.`}
-            </p>
-          ) : null}
         </div>
 
-        <div className="flex min-w-36 flex-row items-center justify-between gap-2 lg:flex-col lg:items-end lg:justify-start">
-          <p className="text-xl font-black tabular-nums text-foreground">{formatPrice(item.priceEur)}</p>
-          <div className="flex gap-2">
+        <dl className="grid grid-cols-2 gap-x-3 gap-y-1 text-[11px]">
+          <div>
+            <dt className="font-semibold text-muted">Región</dt>
+            <dd className="truncate font-bold text-foreground" title={`${item.detectedRegion || "Sin detectar"} · objetivo ${item.targetRegion || "—"}`}>{item.detectedRegion || "Sin detectar"}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-muted">Match</dt>
+            <dd className="font-bold text-foreground">{formatConfidence(item.evidence?.matchScore)}</dd>
+          </div>
+          <label className="col-span-2 font-semibold text-muted">Estado
+            <select value={condition} onChange={(event) => setCondition(event.target.value as PriceReviewCondition)} className="mt-0.5 w-full rounded-md border border-border bg-background px-2 py-1 text-[11px] text-foreground outline-none focus:border-accent">
+              {Object.entries(conditionLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+            </select>
+          </label>
+        </dl>
+
+        <div className="flex min-w-48 flex-col items-stretch gap-1.5">
+          <p className="text-right text-lg font-black tabular-nums text-foreground">{formatPrice(item.priceEur)}</p>
+          <div className="flex justify-end gap-1.5">
+            <button
+              type="button"
+              disabled={state === "saving" || !catalogId || !region || condition === "unknown"}
+              onClick={() => decide("accept")}
+              className="btn-primary h-8 px-2 text-[11px]"
+              title={!catalogId || !region || condition === "unknown" ? "Completa ficha, región y estado en Detalles" : "Aceptar precio verificado"}
+            >
+              <Check className="size-3.5" aria-hidden="true" />
+              Aceptar
+            </button>
             {item.evidence?.url ? (
               <a
                 href={item.evidence.url}
@@ -469,7 +469,7 @@ function ReviewCard({
                 rel="noreferrer"
                 title="Abrir anuncio externo"
                 aria-label="Abrir anuncio externo"
-                className="btn-secondary size-9 p-0"
+                className="btn-secondary size-8 p-0"
               >
                 <ExternalLink className="size-4" aria-hidden="true" />
               </a>
@@ -478,12 +478,22 @@ function ReviewCard({
               type="button"
               aria-expanded={expanded}
               onClick={() => setExpanded((current) => !current)}
-              className="btn-secondary text-xs"
+              className="btn-secondary h-8 px-2 text-[11px]"
             >
-              Revisar
+              Detalles
               <ChevronDown className={`size-4 transition-transform ${expanded ? "rotate-180" : ""}`} aria-hidden="true" />
             </button>
           </div>
+          <div className="flex gap-1.5">
+            <select value={rejectReason} onChange={(event) => setRejectReason(event.target.value as PriceReviewRejectReason | "")} aria-label="Motivo de rechazo" className="min-w-0 flex-1 rounded-md border border-border bg-background px-2 py-1 text-[10px] text-foreground outline-none focus:border-accent">
+              <option value="">Motivo de rechazo</option>
+              {Object.entries(rejectReasonLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+            </select>
+            <button type="button" disabled={state === "saving" || !rejectReason} onClick={() => decide("reject")} className="btn-secondary size-8 p-0" title="Rechazar este caso" aria-label="Rechazar este caso">
+              <X className="size-4" aria-hidden="true" />
+            </button>
+          </div>
+          {state === "error" ? <p className="text-right text-[10px] font-semibold text-rose-600 dark:text-rose-300">{message}</p> : null}
         </div>
       </div>
 
@@ -521,7 +531,7 @@ function ReviewCard({
             </section>
           ) : null}
 
-          <div className="mt-4 grid gap-2 md:grid-cols-4">
+          <div className="mt-4 grid gap-2 md:grid-cols-2 xl:grid-cols-5">
             <label className="text-xs font-semibold text-muted">Juego destino
               <select value={catalogId} onChange={(event) => setCatalogId(event.target.value)} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
                 <option value="">Selecciona juego</option>
@@ -541,6 +551,12 @@ function ReviewCard({
             </label>
             <label className="text-xs font-semibold text-muted">Nota
               <input value={note} onChange={(event) => setNote(event.target.value)} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent" />
+            </label>
+            <label className="text-xs font-semibold text-muted">Motivo si rechazas
+              <select value={rejectReason} onChange={(event) => setRejectReason(event.target.value as PriceReviewRejectReason | "")} className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-xs text-foreground outline-none focus:border-accent">
+                <option value="">Selecciona motivo</option>
+                {Object.entries(rejectReasonLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+              </select>
             </label>
           </div>
 
@@ -617,6 +633,8 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
   const [assumedCondition, setAssumedCondition] = useState<PriceReviewCondition | "none">("none");
   const [useVision, setUseVision] = useState(false);
   const [visionLimit, setVisionLimit] = useState(10);
+  const [closeState, setCloseState] = useState<"idle" | "closing" | "done" | "error">("idle");
+  const [closeMessage, setCloseMessage] = useState("");
   const activeBucketMeta = triageTabs.find((tab) => tab.value === activeBucket) ?? triageTabs[0];
   const activeBucketTotal = triageCounts[activeBucket] ?? 0;
 
@@ -755,6 +773,42 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
     setRefreshState("idle");
     setRefreshMessage(`${data.items.length} de ${data.counts?.[bucket] ?? data.items.length} cargados.`);
     resetAutoPreview();
+  }
+
+  async function closeUnresolved() {
+    const scope = activeReviewLabel;
+    if (!window.confirm(`Se cerrarán como evidencia insuficiente todos los pendientes de: ${scope}. Esta acción los quitará de la bandeja sin borrar juegos del catálogo.`)) {
+      return;
+    }
+    setCloseState("closing");
+    setCloseMessage("");
+    const response = await fetch("/api/admin/price-reviews/close-unresolved", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        confirmation: "CERRAR PENDIENTES",
+        platformSlug: platformFilter === "all" ? undefined : platformFilter,
+        source: sourceFilter === "all" ? undefined : sourceFilter,
+        query: query.trim() || undefined,
+        triageBucket: activeBucket,
+      }),
+    });
+    const data = await response.json().catch(() => null) as {
+      ok?: boolean;
+      closed?: number;
+      remaining?: number;
+      workerSynced?: boolean;
+      workerSyncError?: string;
+      error?: string;
+    } | null;
+    if (!response.ok || !data?.ok) {
+      setCloseState("error");
+      setCloseMessage(data?.error ?? "No se pudieron cerrar los pendientes.");
+      return;
+    }
+    setCloseState("done");
+    setCloseMessage(`${data.closed ?? 0} casos cerrados; ${data.remaining ?? 0} pendientes en total.${data.workerSynced ? "" : ` Worker no sincronizado${data.workerSyncError ? `: ${data.workerSyncError}` : "."}`}`);
+    await refreshItems(activeBucket);
   }
 
   async function runAutoRetroplayzone(apply: boolean) {
@@ -1011,6 +1065,10 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
             <button type="button" disabled={refreshState === "loading"} onClick={() => refreshItems()} className="btn-secondary text-xs">
               {refreshState === "loading" ? "Actualizando..." : "Actualizar"}
             </button>
+            <button type="button" disabled={closeState === "closing" || activeBucketTotal === 0} onClick={closeUnresolved} className="btn-secondary text-xs">
+              <X className="size-4" aria-hidden="true" />
+              {closeState === "closing" ? "Cerrando..." : "Cerrar sin resolver"}
+            </button>
           </div>
         </div>
         <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-muted">
@@ -1021,6 +1079,11 @@ export function AdminPriceReviewPanel({ initialItems, initialCounts, initialTota
           {refreshMessage ? (
             <span className={refreshState === "error" ? "font-semibold text-rose-600 dark:text-rose-300" : "font-semibold text-emerald-600 dark:text-emerald-300"}>
               {refreshMessage}
+            </span>
+          ) : null}
+          {closeMessage ? (
+            <span className={closeState === "error" ? "font-semibold text-rose-600 dark:text-rose-300" : "font-semibold text-emerald-600 dark:text-emerald-300"}>
+              {closeMessage}
             </span>
           ) : null}
         </div>

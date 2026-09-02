@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import re
+import unicodedata
 from typing import Any
 
 LANGUAGE_LABELS = {
@@ -17,7 +19,8 @@ LANGUAGE_LABELS = {
     "zh": "chino",
 }
 
-RATING_SYSTEMS = {"PEGI", "ESRB", "CERO", "USK"}
+RATING_SYSTEMS = {"PEGI", "ESRB", "CERO", "USK", "ACB", "BBFC", "ELSPA"}
+IMAGE_ROLES = {"front", "back", "spine", "disc", "cartridge", "manual", "seal", "other"}
 
 
 def _languages(value: Any) -> list[str]:
@@ -98,4 +101,129 @@ def regional_packaging_prompt(value: Any) -> str:
     return "\n".join(lines)
 
 
-__all__ = ["normalize_regional_packaging", "regional_packaging_prompt"]
+def _clean_list(value: Any, *, limit: int, max_length: int) -> list[str]:
+    if not isinstance(value, list):
+        return []
+    result: list[str] = []
+    for item in value:
+        clean = re.sub(r"\s+", " ", str(item or "")).strip()[:max_length]
+        if clean and clean not in result:
+            result.append(clean)
+    return result[:limit]
+
+
+def normalize_visual_observations(value: Any, *, image_limit: int = 8) -> list[dict[str, Any]]:
+    if not isinstance(value, list):
+        return []
+    observations: list[dict[str, Any]] = []
+    for index, item in enumerate(value):
+        if not isinstance(item, dict):
+            continue
+        try:
+            image_index = int(item.get("imageIndex") or index + 1)
+        except (TypeError, ValueError):
+            continue
+        if image_index < 1 or image_index > image_limit:
+            continue
+        role = str(item.get("role") or "other").strip().lower()
+        if role not in IMAGE_ROLES:
+            role = "other"
+        ratings = [
+            rating
+            for rating in (str(raw).strip().upper() for raw in (item.get("ratingSystems") or []))
+            if rating in RATING_SYSTEMS
+        ]
+        languages = _languages(item.get("languages"))
+        product_codes = [
+            code.upper()
+            for code in _clean_list(item.get("productCodes"), limit=8, max_length=48)
+            if re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9 ._()/+-]{1,47}", code)
+        ]
+        barcodes = [
+            digits
+            for digits in (re.sub(r"\D", "", raw) for raw in _clean_list(item.get("barcodes"), limit=4, max_length=24))
+            if 8 <= len(digits) <= 14
+        ]
+        observations.append(
+            {
+                "imageIndex": image_index,
+                "role": role,
+                "ratingSystems": list(dict.fromkeys(ratings))[:4],
+                "languages": languages,
+                "productCodes": list(dict.fromkeys(product_codes))[:8],
+                "barcodes": list(dict.fromkeys(barcodes))[:4],
+                "distributors": _clean_list(item.get("distributors"), limit=6, max_length=80),
+                "editionMarkers": _clean_list(item.get("editionMarkers"), limit=6, max_length=80),
+            }
+        )
+    return observations[:image_limit]
+
+
+def _normalized_text(value: str) -> str:
+    raw = unicodedata.normalize("NFKD", value)
+    return "".join(char for char in raw if not unicodedata.combining(char)).lower()
+
+
+def infer_region_from_visual_observations(
+    value: Any,
+) -> tuple[str | None, list[str]]:
+    observations = normalize_visual_observations(value)
+    ratings = {
+        rating
+        for observation in observations
+        for rating in observation["ratingSystems"]
+    }
+    codes = " ".join(
+        code for observation in observations for code in observation["productCodes"]
+    ).upper()
+    distributors = _normalized_text(
+        " ".join(
+            distributor
+            for observation in observations
+            for distributor in observation["distributors"]
+        )
+    )
+    back_languages = {
+        language
+        for observation in observations
+        if observation["role"] in {"back", "manual"}
+        for language in observation["languages"]
+    }
+    evidence: list[str] = []
+
+    if "ESRB" in ratings or re.search(r"\b(?:SLUS|SCUS|ULUS|BLUS|BCUS|USA)\b", codes):
+        return "USA", ["cover_usa", "photo_region_mark", "sku_regional"]
+    if "CERO" in ratings or re.search(r"\b(?:SLPS|SCPS|ULJS|BLJM|BCJS|JPN)\b", codes):
+        return "Japón", ["cover_japan", "photo_region_mark", "sku_regional"]
+    if "USK" in ratings or re.search(r"(?:[-/(]|\b)(?:NOE|GER)(?:[-/)]|\b)", codes):
+        return "PAL Alemania", ["cover_pal_eu", "photo_region_mark", "sku_regional"]
+    if re.search(r"(?:[-/(]|\b)ESP(?:[-/)]|\b)", codes) or any(
+        marker in distributors for marker in ("espana", "spain", "iberica", "distribuido en espana")
+    ):
+        return "PAL España", ["cover_spain", "sku_regional", "distributor_regional"]
+    if re.search(r"(?:[-/(]|\b)(?:FRA|FR)(?:[-/)]|\b)", codes):
+        return "PAL Francia", ["cover_pal_eu", "sku_regional"]
+    if re.search(r"(?:[-/(]|\b)(?:ITA|IT)(?:[-/)]|\b)", codes):
+        return "PAL Italia", ["cover_pal_eu", "sku_regional"]
+    if re.search(r"(?:[-/(]|\b)(?:UKV|UK)(?:[-/)]|\b)", codes):
+        return "PAL UK/ENG", ["cover_pal_eu", "sku_regional"]
+
+    if "PEGI" in ratings:
+        evidence.extend(["cover_pal_eu", "photo_region_mark"])
+        if "es" in back_languages:
+            return "PAL España", [*evidence, "cover_spain", "back_cover_language"]
+        if back_languages == {"fr"}:
+            return "PAL Francia", [*evidence, "back_cover_language"]
+        if back_languages == {"it"}:
+            return "PAL Italia", [*evidence, "back_cover_language"]
+        return "PAL Europa", evidence + (["back_cover_language"] if back_languages else [])
+
+    return None, []
+
+
+__all__ = [
+    "infer_region_from_visual_observations",
+    "normalize_regional_packaging",
+    "normalize_visual_observations",
+    "regional_packaging_prompt",
+]

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  closeUnresolvedPriceReviewQueue,
   normalizePriceReviewTriageFilter,
   normalizeTodoConsolasReviewItem,
   priceReviewCatalogPreview,
@@ -8,6 +9,7 @@ import {
   priceReviewTextSignals,
   priceReviewTriageBucket,
   type PriceReviewItem,
+  type PriceReviewQueue,
 } from "./admin-price-review";
 import { todoConsolasListingMetadata } from "./todoconsolas-listing";
 import { buildCollectorLearningSnapshot } from "./collector-learning";
@@ -90,6 +92,35 @@ test("normalizes unknown API filters to the actionable inbox", () => {
   assert.equal(normalizePriceReviewTriageFilter("catalog_gap"), "catalog_gap");
   assert.equal(normalizePriceReviewTriageFilter("unexpected"), "actionable");
   assert.equal(normalizePriceReviewTriageFilter(null), "actionable");
+});
+
+test("closes only unresolved reviews in the selected scope", () => {
+  const queue: PriceReviewQueue = {
+    schemaVersion: 1,
+    updatedAt: "2026-09-02T10:00:00.000Z",
+    items: [
+      review({ id: "ps5-target", platformSlug: "ps5", source: "todoconsolas", triageBucket: "manual_match" }),
+      review({ id: "ps4-other", platformSlug: "ps4", source: "todoconsolas", triageBucket: "manual_match" }),
+      review({ id: "gap", platformSlug: "ps5", source: "todoconsolas", triageBucket: "catalog_gap" }),
+      review({ id: "accepted", status: "accepted", platformSlug: "ps5", source: "todoconsolas", triageBucket: "manual_match" }),
+    ],
+    decisions: [{ id: "older", action: "accept" }],
+  };
+
+  const result = closeUnresolvedPriceReviewQueue(queue, {
+    platformSlug: "ps5",
+    source: "todoconsolas",
+    triageBucket: "actionable",
+  }, "2026-09-02T11:00:00.000Z");
+
+  assert.equal(result.closed, 1);
+  assert.equal(result.remaining, 2);
+  assert.equal(result.queue.items.find((item) => item.id === "ps5-target")?.status, "rejected");
+  assert.equal(result.queue.items.find((item) => item.id === "ps5-target")?.decision?.reasonCode, "insufficient_evidence");
+  assert.equal(result.queue.items.find((item) => item.id === "ps4-other")?.status, "pending");
+  assert.equal(result.queue.items.find((item) => item.id === "gap")?.status, "pending");
+  assert.equal(result.queue.items.find((item) => item.id === "accepted")?.status, "accepted");
+  assert.deepEqual(result.queue.decisions.map((decision) => decision.id), ["ps5-target", "older"]);
 });
 
 test("adds the catalog cover and main metadata to a review candidate", () => {
@@ -197,6 +228,15 @@ test("publishes only approved, distilled collector learning", () => {
           imageUrls: ["https://cdn.example.test/front.jpg", "http://unsafe.example.test/back.jpg"],
           regionEvidence: ["cover_spain"],
           searchQuery: "13 Sentinels PS4",
+          coverVision: {
+            observations: [{
+              imageIndex: 2,
+              role: "back",
+              ratingSystems: ["PEGI"],
+              languages: ["es", "pt"],
+              productCodes: ["CUSA-00000/ESP"],
+            }],
+          },
         },
         decidedAt: "2026-08-30T10:00:00Z",
         decision: {
@@ -227,8 +267,19 @@ test("publishes only approved, distilled collector learning", () => {
         status: "rejected",
         source: "wallapop",
         candidateCatalogId: "ps4-13-sentinels-aegis-rim",
-        evidence: { searchQuery: "bad query" },
-        decision: { action: "reject" },
+        evidence: {
+          imageUrls: ["https://cdn.example.test/wrong-edition.jpg"],
+          searchQuery: "bad query",
+        },
+        decision: { action: "reject", reasonCode: "wrong_edition" },
+      }),
+      review({
+        id: "duplicate",
+        status: "rejected",
+        source: "wallapop",
+        candidateCatalogId: "ps4-13-sentinels-aegis-rim",
+        evidence: { imageUrls: ["https://cdn.example.test/valid-duplicate.jpg"] },
+        decision: { action: "reject", reasonCode: "duplicate" },
       }),
     ],
   }, "2026-08-30T12:00:00Z");
@@ -242,11 +293,15 @@ test("publishes only approved, distilled collector learning", () => {
   const ebayExample = learned.approvedExamples.find((row) => row.source === "ebay-es");
   assert.deepEqual(wallapopExample?.imageUrls, ["https://cdn.example.test/front.jpg"]);
   assert.deepEqual(ebayExample?.imageUrls, []);
+  assert.equal(wallapopExample?.visualObservations[0]?.role, "back");
+  assert.deepEqual(learned.rejectedExamples.map((row) => row.reasonCode), ["wrong_edition"]);
+  assert.deepEqual(snapshot.rejectionSummary.wallapop, { wrong_edition: 1, duplicate: 1 });
   const serialized = JSON.stringify(snapshot);
   assert.equal(serialized.includes("private-listing"), false);
   assert.equal(serialized.includes("Seller description"), false);
   assert.equal(serialized.includes("Seller title"), false);
   assert.equal(serialized.includes("bad query"), false);
+  assert.equal(serialized.includes("valid-duplicate.jpg"), false);
 
   const opaqueId = "ps4-asterix-&amp;-obelix";
   const opaqueSnapshot = buildCollectorLearningSnapshot({

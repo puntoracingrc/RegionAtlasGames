@@ -103,6 +103,28 @@ ORIGINAL_CONTENT_KEYS = (
     "figure",
 )
 
+REJECT_REASON_CODES = {
+    "duplicate",
+    "wrong_game",
+    "wrong_platform",
+    "wrong_edition",
+    "wrong_region",
+    "non_game",
+    "lot_or_bundle",
+    "condition_unverified",
+    "price_anomaly",
+    "insufficient_evidence",
+    "other",
+}
+VISUAL_REJECT_REASONS = {
+    "wrong_game",
+    "wrong_platform",
+    "wrong_edition",
+    "wrong_region",
+    "non_game",
+    "lot_or_bundle",
+}
+
 
 def normalize_collector_source(source: Any) -> str:
     clean = str(source or "").strip().lower()
@@ -268,22 +290,90 @@ def _original_contents(value: Any) -> list[str] | None:
     return [key for key in ORIGINAL_CONTENT_KEYS if key in found]
 
 
+def infer_reject_reason(item: dict[str, Any], decision: dict[str, Any]) -> str:
+    explicit = _clean_text(decision.get("reasonCode"), 80).lower()
+    if explicit in REJECT_REASON_CODES:
+        return explicit
+    text = _clean_text(
+        " ".join(
+            str(value)
+            for value in (decision.get("note"), item.get("triageReason"), item.get("reason"))
+            if value
+        ),
+        1_000,
+    ).lower()
+    rules = (
+        (r"duplic|repetid|mismo anuncio", "duplicate"),
+        (r"lote|bundle|pack de juegos|varios juegos", "lot_or_bundle"),
+        (r"plataforma|consola equivoc|versi[oó]n de (ps|xbox|switch)", "wrong_platform"),
+        (r"edici[oó]n|edition|deluxe|collector|steelbook|launch|est[aá]ndar", "wrong_edition"),
+        (r"regi[oó]n|pal|ntsc|usa|jap[oó]n|francia|italia|alemania|uk", "wrong_region"),
+        (r"accesorio|figura|manual suelto|solo caja|caja vac[ií]a|consola|mando", "non_game"),
+        (r"precio|importe|an[oó]mal|fuera de rango", "price_anomaly"),
+        (r"estado|condition|precint|completo", "condition_unverified"),
+        (r"evidencia|no concluyente|sin prueba|no confirmad", "insufficient_evidence"),
+        (r"juego incorrecto|otro juego|t[ií]tulo incorrecto|no coincide", "wrong_game"),
+    )
+    for pattern, reason in rules:
+        if re.search(pattern, text):
+            return reason
+    return "other"
+
+
+def _visual_observations(evidence: dict[str, Any]) -> list[dict[str, Any]]:
+    cover_vision = _record(evidence.get("coverVision"))
+    raw_observations = cover_vision.get("observations")
+    if not isinstance(raw_observations, list):
+        return []
+    observations: list[dict[str, Any]] = []
+    for index, raw in enumerate(raw_observations):
+        observation = _record(raw)
+        try:
+            image_index = int(observation.get("imageIndex") or index + 1)
+        except (TypeError, ValueError):
+            continue
+        if not 1 <= image_index <= 8:
+            continue
+        observations.append(
+            {
+                "imageIndex": image_index,
+                "role": _clean_text(observation.get("role"), 24).lower() or "other",
+                "ratingSystems": _string_list(observation.get("ratingSystems"), limit=4, max_length=16),
+                "languages": _string_list(observation.get("languages"), limit=12, max_length=8),
+                "productCodes": _string_list(observation.get("productCodes"), limit=8, max_length=48),
+                "barcodes": _string_list(observation.get("barcodes"), limit=4, max_length=20),
+                "distributors": _string_list(observation.get("distributors"), limit=6, max_length=80),
+                "editionMarkers": _string_list(observation.get("editionMarkers"), limit=6, max_length=80),
+            }
+        )
+    return observations[:8]
+
+
 def build_collector_learning_snapshot(
     queue: dict[str, Any] | None,
     *,
     updated_at: str,
 ) -> dict[str, Any]:
     games: dict[str, dict[str, Any]] = {}
+    rejection_summary: dict[str, dict[str, int]] = {}
     for raw_item in (queue or {}).get("items") or []:
         item = _record(raw_item)
         decision = _record(item.get("decision"))
-        if item.get("status") != "accepted" or decision.get("action") != "accept":
+        is_accepted = item.get("status") == "accepted" and decision.get("action") == "accept"
+        is_rejected = item.get("status") == "rejected" and decision.get("action") == "reject"
+        if not is_accepted and not is_rejected:
             continue
         catalog_id = _catalog_id(
             decision.get("catalogId") or item.get("catalogId") or item.get("candidateCatalogId"),
         )
         source = normalize_collector_source(item.get("source"))
-        if not catalog_id or not source:
+        if not source:
+            continue
+        if is_rejected:
+            reason_code = infer_reject_reason(item, decision)
+            source_summary = rejection_summary.setdefault(source, {})
+            source_summary[reason_code] = source_summary.get(reason_code, 0) + 1
+        if not catalog_id:
             continue
         evidence = _record(item.get("evidence"))
         decided_at = _clean_text(item.get("decidedAt") or item.get("updatedAt"), 80) or updated_at
@@ -292,6 +382,7 @@ def build_collector_learning_snapshot(
             {
                 "catalogId": catalog_id,
                 "approvedExamples": [],
+                "rejectedExamples": [],
                 "successfulQueries": {},
                 "_contentDecidedAt": "",
             },
@@ -305,6 +396,23 @@ def build_collector_learning_snapshot(
         condition = _clean_text(decision.get("condition") or item.get("condition"), 80) or None
         region_evidence = _string_list(evidence.get("regionEvidence"), limit=16)
         note = _clean_text(decision.get("note"), 500) or None
+        observations = _visual_observations(evidence)
+        if is_rejected:
+            reason_code = infer_reject_reason(item, decision)
+            if reason_code in VISUAL_REJECT_REASONS and images:
+                game["rejectedExamples"].append(
+                    {
+                        "source": source,
+                        "reasonCode": reason_code,
+                        "detectedRegion": _clean_text(item.get("detectedRegion"), 120) or None,
+                        "regionEvidence": region_evidence,
+                        "note": note,
+                        "imageUrls": images,
+                        "decidedAt": decided_at,
+                        "visualObservations": observations,
+                    }
+                )
+            continue
         if images or region or condition or region_evidence or note:
             game["approvedExamples"].append(
                 {
@@ -316,6 +424,7 @@ def build_collector_learning_snapshot(
                     "imageUrls": images,
                     "searchQuery": _clean_text(evidence.get("searchQuery"), 180) or None,
                     "decidedAt": decided_at,
+                    "visualObservations": observations,
                 }
             )
 
@@ -352,6 +461,11 @@ def build_collector_learning_snapshot(
             key=lambda row: str(row.get("decidedAt") or ""),
             reverse=True,
         )[:3]
+        game["rejectedExamples"] = sorted(
+            game["rejectedExamples"],
+            key=lambda row: str(row.get("decidedAt") or ""),
+            reverse=True,
+        )[:3]
         successful: dict[str, list[dict[str, Any]]] = {}
         for source, query_map in sorted(game["successfulQueries"].items()):
             ordered_queries = sorted(
@@ -374,6 +488,7 @@ def build_collector_learning_snapshot(
         "policyVersion": COLLECTOR_INTELLIGENCE_POLICY,
         "updatedAt": updated_at,
         "games": serialized,
+        "rejectionSummary": rejection_summary,
     }
 
 
@@ -402,7 +517,9 @@ __all__ = [
     "collector_game_learning",
     "collector_learning_payload",
     "collector_source_policy",
+    "infer_reject_reason",
     "learned_source_queries",
     "normalize_collector_source",
     "write_collector_learning_snapshot",
+    "VISUAL_REJECT_REASONS",
 ]

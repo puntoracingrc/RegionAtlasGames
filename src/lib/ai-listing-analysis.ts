@@ -357,7 +357,8 @@ async function analyzeWithOpenAiVision(
         + `Precio orientativo de catálogo: ${basePrice} €. Precintado indicado: ${listing.sealed ? "sí" : "no"}. `
         + `Contenido original aprendido: ${collectorContext.originalContentsExpected.join(", ") || "sin datos"}. `
         + `Manual esperado: ${collectorContext.manualExpected == null ? "sin datos" : collectorContext.manualExpected ? "sí" : "no"}. `
-        + `Señales regionales aprobadas: ${collectorContext.approvedRegionSignals.join(", ") || "sin señales previas"}.`,
+        + `Señales regionales aprobadas: ${collectorContext.approvedRegionSignals.join(", ") || "sin señales previas"}. `
+        + `Errores ya descartados para esta ficha: ${collectorContext.rejectedReasonCodes.join(", ") || "sin contraejemplos"}.`,
     },
   ];
 
@@ -367,6 +368,16 @@ async function analyzeWithOpenAiVision(
       text: "Referencias visuales aprobadas del mismo juego. Sirven para identificarlo; no describen el estado del ejemplar vendido.",
     });
     for (const imageUrl of collectorContext.referenceImageUrls) {
+      content.push({ type: "input_image", image_url: imageUrl });
+    }
+  }
+
+  if (collectorContext.rejectedReferenceImageUrls.length > 0) {
+    content.push({
+      type: "input_text",
+      text: "Contraejemplos rechazados para esta ficha. Sirven para evitar confundir juego, plataforma, edición o región; no describen una copia válida.",
+    });
+    for (const imageUrl of collectorContext.rejectedReferenceImageUrls) {
       content.push({ type: "input_image", image_url: imageUrl });
     }
   }
