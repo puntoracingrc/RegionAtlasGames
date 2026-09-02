@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import io
+import json
 import tempfile
 from decimal import Decimal
 from pathlib import Path
@@ -127,6 +128,26 @@ def test_n64_australian_variants_are_not_mixed_into_pal_europe() -> None:
     assert all(
         ("n64", "PAL Europa", pc_id) in REGION_SPECIFIC_SKIP_PC_IDS
         for pc_id in expected_australian
+    )
+
+
+def test_n64_usa_reviewed_price_aliases_target_unique_usa_games() -> None:
+    root = Path(__file__).resolve().parents[1]
+    aliases = json.loads(
+        (root / "data/import-aliases/pricecharting-n64-usa.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    catalog = json.loads((root / "data/catalog.json").read_text(encoding="utf-8"))
+    catalog_by_id = {str(game["id"]): game for game in catalog}
+
+    assert len(aliases) == 58
+    assert len(set(aliases.values())) == len(aliases)
+    assert all(catalog_id in catalog_by_id for catalog_id in aliases.values())
+    assert all(
+        catalog_by_id[catalog_id].get("platformSlug") == "n64"
+        and catalog_by_id[catalog_id].get("region") == "USA"
+        for catalog_id in aliases.values()
     )
 
 
@@ -832,6 +853,9 @@ if __name__ == "__main__":
     test_neogeo_western_aliases_reuse_published_records()
     test_neogeo_japanese_aliases_reuse_romanized_records()
     test_nes_console_bundle_is_not_imported_as_a_game()
+    test_n64_console_bundles_are_not_imported_as_games()
+    test_n64_australian_variants_are_not_mixed_into_pal_europe()
+    test_n64_usa_reviewed_price_aliases_target_unique_usa_games()
     test_neogeo_cd_western_aliases_reuse_published_records()
     test_neogeo_pocket_usa_aliases_reuse_published_records()
     test_neogeo_pocket_europe_aliases_reuse_published_records()
