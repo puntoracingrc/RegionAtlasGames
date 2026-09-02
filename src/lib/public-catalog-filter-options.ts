@@ -2,6 +2,7 @@ import { platforms, publicListedCatalog } from "@/lib/catalog";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCompanies } from "@/lib/indexes";
+import { publicRegionLabelsForPlatform } from "@/lib/platform-region-policy";
 import type {
   CatalogCompanyFilterOption,
   CatalogPlatformFilterOption,
@@ -52,10 +53,13 @@ function buildRegionOptionsIndex(): RegionOptionsIndex {
   return {
     all: sortedRegionOptions(labels),
     byPlatform: Object.fromEntries(
-      [...labelsByPlatform.entries()].map(([platformSlug, platformLabels]) => [
-        platformSlug,
-        sortedRegionOptions(platformLabels),
-      ]),
+      [...labelsByPlatform.entries()].map(([platformSlug, platformLabels]) => {
+        const policyLabels = publicRegionLabelsForPlatform(platformSlug);
+        const visibleLabels = policyLabels
+          ? policyLabels.filter((label) => platformLabels.has(label))
+          : platformLabels;
+        return [platformSlug, sortedRegionOptions(visibleLabels)];
+      }),
     ),
   };
 }

@@ -33,7 +33,9 @@ export function regionSortRank(label: string): number {
   if (key === "pal españa" || key === "españa") return 0;
   if (key === "pal europa") return 1;
   if (key === "usa" || key === "ntsc usa") return 2;
+  if (key === "occidental") return 2;
   if (key === "japón" || key === "japan" || key === "ntsc-j japón") return 3;
+  if (key === "japonesa") return 3;
   return 4;
 }
 
