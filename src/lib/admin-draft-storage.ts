@@ -310,4 +310,11 @@ export function platformOptions() {
   return [...platforms].sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
-export const REGION_OPTIONS = ["PAL España", "PAL Europa", "USA", "Japón"] as const;
+export const REGION_OPTIONS = [
+  "PAL España",
+  "PAL Europa",
+  "USA",
+  "Japón",
+  "Occidental",
+  "Japonesa",
+] as const;

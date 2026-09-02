@@ -13,9 +13,11 @@ from import_pricecharting_software_list import (
     CANVAS_SIZE,
     CoverTask,
     LiveRow,
+    NEVER_PROMOTE_PC_IDS,
     PC_ID_ALIASES,
     SourceRow,
     clean_source_title,
+    cover_filename,
     cover_is_clean,
     download_covers,
     merge_catalog,
@@ -50,6 +52,21 @@ def test_gameboy_usa_aliases_reuse_existing_regional_records() -> None:
         3139: "gameboy-usa-yoshis-cookie",
     }
     assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
+
+
+def test_neogeo_western_aliases_reuse_published_records() -> None:
+    expected = {
+        12037: "neogeo-blues-journey",
+        37814: "neogeo-samurai-shodown-3-blades-blood",
+        37823: "neogeo-samurai-shodown-4-amakusas-revenge",
+        37851: "neogeo-usa-eight-man",
+        37898: "neogeo-2020-super-baseball",
+        38513: "neogeo-spin-master",
+        38542: "neogeo-trash-rally",
+        72337: "neogeo-svc-chaos-snk-vs-capcom",
+    }
+    assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
+    assert set(NEVER_PROMOTE_PC_IDS) == {6327097, 6682447}
 
 
 def sample_game(catalog_id: str, title: str) -> dict:
@@ -221,6 +238,47 @@ def test_verified_source_can_promote_an_excluded_match() -> None:
     assert merged[0]["listingStatus"] == "listed"
     assert stats["promoted"] == 1
     assert stats["updated"] == 1
+
+
+def test_neogeo_flash_cartridge_gets_price_but_stays_excluded() -> None:
+    existing = sample_game("neogeo-neo-sd-pro", "Neo SD Pro")
+    existing.update(
+        {
+            "platformSlug": "neogeo",
+            "region": "Occidental",
+            "listingStatus": "excluded",
+            "pcId": 6682447,
+            "pcPath": "/game/neo-geo-aes/neo-sd-pro",
+        }
+    )
+    joined = [
+        (
+            SourceRow("Neo SD Pro", None, Decimal("1324"), Decimal("2648")),
+            LiveRow("Neo SD Pro", 6682447, "/game/neo-geo-aes/neo-sd-pro", None),
+        )
+    ]
+    merged, _, stats = merge_catalog(
+        [existing],
+        joined,
+        platform="neogeo",
+        region="Occidental",
+        pc_region="Occidental (referencia PriceCharting)",
+        collected_at="2026-09-02T12:00:00+02:00",
+        covers_root=None,
+        usd_per_eur=Decimal("1.1590"),
+        exchange_rate_date="2026-09-01",
+        promote_matched_excluded=True,
+    )
+    assert merged[0]["listingStatus"] == "excluded"
+    assert merged[0]["estimatedPriceComplete"] == 1142.36
+    assert stats["promoted"] == 0
+    assert stats["promotionBlocked"] == [
+        {
+            "pcId": 6682447,
+            "title": "Neo SD Pro",
+            "reason": "cartucho flash Neo SD Pro",
+        }
+    ]
 
 
 def test_reviewed_alias_retires_displaced_catalog_duplicate() -> None:
@@ -401,18 +459,29 @@ def test_reused_cover_keeps_region_specific_filename() -> None:
         assert catalog[0]["coverUrl"] == "/covers/ps5/usa-example.jpg"
 
 
+def test_cover_filename_decodes_legacy_percent_escapes() -> None:
+    game = {"slug": "xeno-crisis-collector%27s-edition"}
+    assert cover_filename(game, "neogeo-occidental", "neogeo") == (
+        "occidental-xeno-crisis-collector-s-edition.jpg"
+    )
+
+
 if __name__ == "__main__":
     test_psvita_pal_uses_live_pricecharting_console_slug()
     test_switch2_pal_eu_aliases_reuse_reviewed_spanish_records()
+    test_gameboy_usa_aliases_reuse_existing_regional_records()
+    test_neogeo_western_aliases_reuse_published_records()
     test_merge_preserves_prices_and_skips_technical_duplicate()
     test_title_normalization_handles_common_catalog_variants()
     test_distinct_pc_ids_with_equivalent_titles_remain_separate()
     test_one_existing_record_cannot_claim_two_source_editions()
     test_verified_source_can_promote_an_excluded_match()
+    test_neogeo_flash_cartridge_gets_price_but_stays_excluded()
     test_reviewed_alias_retires_displaced_catalog_duplicate()
     test_usd_prices_map_to_conditions_and_preserve_existing_reference()
     test_cover_reencode_removes_source_metadata_and_standardizes_size()
     test_cover_reencode_crops_excessive_uniform_canvas_and_upscales_art()
     test_cover_reencode_can_crop_only_the_excessive_horizontal_border()
     test_reused_cover_keeps_region_specific_filename()
+    test_cover_filename_decodes_legacy_percent_escapes()
     print("OK: import_pricecharting_software_list")

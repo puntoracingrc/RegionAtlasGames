@@ -106,6 +106,21 @@ PC_ID_ALIASES: dict[int, str] = {
     13290: "gameboy-usa-battletoads-ragnaroks-world",
     3051: "gameboy-usa-star-wars-empire-strikes-back",
     3139: "gameboy-usa-yoshis-cookie",
+    12037: "neogeo-blues-journey",
+    37814: "neogeo-samurai-shodown-3-blades-blood",
+    37823: "neogeo-samurai-shodown-4-amakusas-revenge",
+    37851: "neogeo-usa-eight-man",
+    37875: "neogeo-king-monsters-2-next-thing",
+    37898: "neogeo-2020-super-baseball",
+    37901: "neogeo-top-players-golf",
+    38513: "neogeo-spin-master",
+    38542: "neogeo-trash-rally",
+    38556: "neogeo-king-fighters-98-slugfest",
+    39607: "neogeo-top-hunter-roddy-kathy",
+    45755: "neogeo-king-fighters-2002-be-fighter",
+    67438: "neogeo-samurai-shodown-5-special-samurai-spirits-zero-special",
+    72337: "neogeo-svc-chaos-snk-vs-capcom",
+    81201: "neogeo-galaxy-fight-universal-warriors",
 }
 
 # Fichas técnicas importadas que duplican una ficha española ya usada por la
@@ -115,6 +130,23 @@ PC_ID_DISPLACED_DUPLICATES: dict[int, str] = {
     5037241: "ps3-skylanders-spyro%27s-adventure-starter-pack",
     6073318: "ps3-skylanders-superchargers-starter-pack",
     6073312: "ps3-skylanders-trap-team-starter-pack",
+    12037: "neogeo-blue%27s-journey",
+    37814: "neogeo-samurai-shodown-iii",
+    37823: "neogeo-samurai-shodown-iv",
+    37851: "neogeo-eightman",
+    37863: "neogeo-usa-metal-slug-x",
+    37864: "neogeo-usa-metal-slug-4",
+    37901: "neogeo-top-player%27s-golf",
+    37903: "neogeo-usa-world-heroes-2",
+    38513: "neogeo-spinmaster",
+    67438: "neogeo-samurai-shodown-v-special",
+}
+
+# Accesorios que aparecen en tablas de PriceCharting junto al software. Se
+# conservan como referencia y reciben precio, pero nunca se publican como juego.
+NEVER_PROMOTE_PC_IDS: dict[int, str] = {
+    6327097: "cartucho flash Neo SD Terraonion",
+    6682447: "cartucho flash Neo SD Pro",
 }
 
 TITLE_ALIASES: dict[str, str] = {
@@ -452,7 +484,8 @@ def cover_filename(game: dict[str, Any], id_prefix: str, platform: str) -> str:
     prefix = ""
     if id_prefix != platform:
         prefix = f"{id_prefix.removeprefix(f'{platform}-')}-"
-    return f"{prefix}{game['slug']}.jpg"
+    clean_slug = slugify(urllib.parse.unquote(str(game["slug"])))
+    return f"{prefix}{clean_slug}.jpg"
 
 
 def infer_edition(title: str) -> str:
@@ -659,6 +692,7 @@ def merge_catalog(
     added = 0
     updated = 0
     promoted = 0
+    promotion_blocked: list[dict[str, Any]] = []
     retired_duplicates = 0
     skipped: list[dict[str, Any]] = []
     missing_cover_sources: list[dict[str, str]] = []
@@ -737,9 +771,18 @@ def merge_catalog(
                     displaced["updatedAt"] = collected_at[:10]
                     retired_duplicates += 1
             if promote_matched_excluded and existing.get("listingStatus") == "excluded":
-                existing["listingStatus"] = "listed"
-                changed = True
-                promoted += 1
+                if live.pc_id in NEVER_PROMOTE_PC_IDS:
+                    promotion_blocked.append(
+                        {
+                            "pcId": live.pc_id,
+                            "title": source.title,
+                            "reason": NEVER_PROMOTE_PC_IDS[live.pc_id],
+                        }
+                    )
+                else:
+                    existing["listingStatus"] = "listed"
+                    changed = True
+                    promoted += 1
             # La lista regional es la autoridad para la identidad del producto.
             for key, value in (
                 ("pcId", live.pc_id),
@@ -833,6 +876,7 @@ def merge_catalog(
         "added": added,
         "updated": updated,
         "promoted": promoted,
+        "promotionBlocked": promotion_blocked,
         "retiredDuplicates": retired_duplicates,
         "skipped": skipped,
         "missingCoverSources": missing_cover_sources,
@@ -1056,6 +1100,7 @@ def write_report(path: Path, stats: dict[str, Any]) -> None:
         f"- Fichas nuevas: **{stats['added']}**.",
         f"- Fichas existentes enlazadas/actualizadas: **{stats['matched']}** / **{stats['updated']}**.",
         f"- Fichas ocultas reactivadas: **{stats['promoted']}**.",
+        f"- Accesorios conservados fuera del catálogo público: **{len(stats['promotionBlocked'])}**.",
         f"- Duplicados previos consolidados: **{stats['retiredDuplicates']}**.",
         f"- Duplicados técnicos omitidos: **{len(stats['skipped'])}**.",
         f"- Total final de {platform_label} {stats['region']}: **{stats['finalPlatformRegionCount']}**.",
@@ -1087,6 +1132,10 @@ def write_report(path: Path, stats: dict[str, Any]) -> None:
     if stats["skipped"]:
         lines.extend(["", "## Omitidos", ""])
         for item in stats["skipped"]:
+            lines.append(f"- {item['title']} (`{item['pcId']}`): {item['reason']}.")
+    if stats["promotionBlocked"]:
+        lines.extend(["", "## Referencias no publicadas como juegos", ""])
+        for item in stats["promotionBlocked"]:
             lines.append(f"- {item['title']} (`{item['pcId']}`): {item['reason']}.")
     if covers["failures"]:
         lines.extend(["", "## Portadas pendientes", ""])

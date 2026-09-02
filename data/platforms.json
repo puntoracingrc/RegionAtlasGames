@@ -155,9 +155,9 @@
     "shortName": "Neo Geo AES",
     "manufacturer": "snk",
     "status": "closed",
-    "estimatedCatalogSize": 212,
+    "estimatedCatalogSize": 232,
     "sortOrder": 16,
-    "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
+    "description": "Catálogo con dos variantes regionales: Occidental y Japonesa."
   },
   {
     "slug": "neogeocd",
