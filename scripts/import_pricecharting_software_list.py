@@ -51,6 +51,12 @@ SKIP_PC_IDS: dict[int, str] = {
     4369282: "duplicado técnico japonés de Fu'un Mokishiroku (185730)",
 }
 
+# Algunas filas duplicadas sí contienen cotizaciones útiles que faltan en la
+# ficha canónica. Se transfieren solo los precios; nunca su identidad o portada.
+SKIP_PC_PRICE_TARGETS: dict[int, str] = {
+    4369282: "neogeo-fuuun-mokushiroku-kakutou-sousei",
+}
+
 # La Day One usa la misma portada frontal que la edición estándar y la ficha de
 # origen no aporta imagen. Se reutiliza la carátula estándar y se vuelve a
 # rasterizar con el mismo proceso de limpieza que el resto.
@@ -655,7 +661,13 @@ def apply_usd_condition_prices(
         "priceChartingCollectedAt": collected_at,
     }
     changed = False
-    for key, value in {**raw_prices, **metadata}.items():
+    for key, value in raw_prices.items():
+        if value is None:
+            continue
+        if game.get(key) != value:
+            game[key] = value
+            changed = True
+    for key, value in metadata.items():
         if game.get(key) != value:
             game[key] = value
             changed = True
@@ -679,10 +691,12 @@ def apply_usd_condition_prices(
             current_price_source.startswith("PriceCharting ")
             and "convertido a EUR" in current_price_source
         ):
-            game["priceSource"] = (
+            desired_price_source = (
                 f"{price_source_label}, convertido a EUR con referencia BCE"
             )
-            changed = True
+            if current_price_source != desired_price_source:
+                game["priceSource"] = desired_price_source
+                changed = True
         sources = [
             value.strip()
             for value in str(game.get("priceDataSources") or "").split(",")
@@ -752,6 +766,7 @@ def merge_catalog(
     missing_cover_sources: list[dict[str, str]] = []
     source_price_counts = Counter()
     claimed_catalog_ids: set[str] = set()
+    supplemental_price_updates = 0
 
     for source, live in joined_rows:
         source_price_counts.update(
@@ -762,9 +777,34 @@ def merge_catalog(
             }
         )
         if live.pc_id in SKIP_PC_IDS:
-            skipped.append(
-                {"pcId": live.pc_id, "title": source.title, "reason": SKIP_PC_IDS[live.pc_id]}
-            )
+            skipped_item: dict[str, Any] = {
+                "pcId": live.pc_id,
+                "title": source.title,
+                "reason": SKIP_PC_IDS[live.pc_id],
+            }
+            price_target_id = SKIP_PC_PRICE_TARGETS.get(live.pc_id)
+            price_target = catalog_by_id.get(price_target_id or "")
+            if (
+                price_target
+                and price_target.get("platformSlug") == platform
+                and price_target.get("region") == region
+                and usd_per_eur is not None
+            ):
+                if not exchange_rate_date:
+                    raise ValueError("La importación de precios USD requiere fecha de cambio")
+                price_changed = apply_usd_condition_prices(
+                    price_target,
+                    source,
+                    usd_per_eur=usd_per_eur,
+                    exchange_rate_date=exchange_rate_date,
+                    collected_at=collected_at,
+                    price_source_label=price_source_label,
+                )
+                skipped_item["priceTarget"] = price_target_id
+                if price_changed:
+                    price_target["updatedAt"] = collected_at[:10]
+                    supplemental_price_updates += 1
+            skipped.append(skipped_item)
             continue
 
         existing, reason = choose_existing(
@@ -933,6 +973,7 @@ def merge_catalog(
         "promoted": promoted,
         "promotionBlocked": promotion_blocked,
         "retiredDuplicates": retired_duplicates,
+        "supplementalPriceUpdates": supplemental_price_updates,
         "skipped": skipped,
         "missingCoverSources": missing_cover_sources,
         "matchReasons": dict(sorted(match_reasons.items())),
