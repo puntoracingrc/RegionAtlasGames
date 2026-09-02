@@ -291,6 +291,15 @@ function ReviewCard({
     || null;
   const candidateTitle = item.catalogPreview?.title || item.evidence?.catalogTitle || primaryAlternative?.title || null;
   const candidateRegion = item.catalogPreview?.region || primaryAlternative?.region || null;
+  const rawMatchScore = Number(item.evidence?.matchScore);
+  const normalizedMatchScore = rawMatchScore > 1 ? rawMatchScore / 100 : rawMatchScore;
+  const canQuickAccept = Boolean(
+    catalogId
+    && region
+    && condition !== "unknown"
+    && Number.isFinite(normalizedMatchScore)
+    && normalizedMatchScore >= 0.8,
+  );
   const catalogOptions = uniqueOptions([
     item.catalogId,
     item.candidateCatalogId,
@@ -454,10 +463,10 @@ function ReviewCard({
           <div className="flex justify-end gap-1.5">
             <button
               type="button"
-              disabled={state === "saving" || !catalogId || !region || condition === "unknown"}
+              disabled={state === "saving" || !canQuickAccept}
               onClick={() => decide("accept")}
               className="btn-primary h-8 px-2 text-[11px]"
-              title={!catalogId || !region || condition === "unknown" ? "Completa ficha, región y estado en Detalles" : "Aceptar precio verificado"}
+              title={canQuickAccept ? "Aceptar precio verificado" : "Revisa la coincidencia, la ficha, la región y el estado en Detalles"}
             >
               <Check className="size-3.5" aria-hidden="true" />
               Aceptar
