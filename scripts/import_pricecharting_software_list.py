@@ -226,6 +226,11 @@ PC_ID_ALIASES: dict[int, str] = {
     11212133: "neogeocd-japon-tokuten-oh-3-eikoue-no-michi",
     11747549: "neogeocd-japon-top-hunter",
     5166918: "neogeocd-japon-oshidashi-zintrick",
+    31161: "neogeopocket-usa-dark-arms",
+    31173: "neogeopocket-usa-snk-gals-fighters",
+    31183: "neogeopocket-usa-bio-motor-unitron",
+    31184: "neogeopocket-usa-neo-geo-cup-98-plus-color",
+    31241: "neogeopocket-usa-last-blade-beyond-destiny",
 }
 
 # Fichas técnicas importadas que duplican una ficha española ya usada por la

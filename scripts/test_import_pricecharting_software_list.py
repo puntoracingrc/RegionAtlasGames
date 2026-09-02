@@ -136,6 +136,17 @@ def test_neogeo_cd_japanese_aliases_keep_commercial_regions_separate() -> None:
     ) in REGION_SPECIFIC_SKIP_PC_IDS
 
 
+def test_neogeo_pocket_usa_aliases_reuse_published_records() -> None:
+    expected = {
+        31161: "neogeopocket-usa-dark-arms",
+        31173: "neogeopocket-usa-snk-gals-fighters",
+        31183: "neogeopocket-usa-bio-motor-unitron",
+        31184: "neogeopocket-usa-neo-geo-cup-98-plus-color",
+        31241: "neogeopocket-usa-last-blade-beyond-destiny",
+    }
+    assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
+
+
 def test_source_parser_preserves_an_empty_leading_price_column() -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         source = Path(temp_dir) / "prices.txt"

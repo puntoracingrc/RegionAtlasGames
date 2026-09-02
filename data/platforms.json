@@ -187,9 +187,9 @@
     "shortName": "Neo Geo Pocket",
     "manufacturer": "snk",
     "status": "closed",
-    "estimatedCatalogSize": 165,
+    "estimatedCatalogSize": 168,
     "sortOrder": 18,
-    "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
+    "description": "Catálogo físico organizado en sus tres familias comerciales: USA, Europea y Japonesa."
   },
   {
     "slug": "ps1",

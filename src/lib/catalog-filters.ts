@@ -2,6 +2,7 @@ import { catalogSearchTokens } from "@/lib/catalog-search-normalize";
 import { findGameFacetEntityBySlug, getGameFacetsTaxonomy } from "@/lib/game-facets/taxonomy";
 import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
+import { publicRegionLabelForPlatform } from "@/lib/platform-region-policy";
 import { getRegionDisplay } from "@/lib/region-display";
 import { supportsGameManualCondition } from "@/lib/collection-condition-policy";
 import type { CatalogListGame } from "@/lib/types";
@@ -254,6 +255,7 @@ export type CatalogRegionFilterOption = {
   value: string;
   label: string;
   count?: number;
+  flagRegion?: string;
 };
 
 function matchesSlugFilter(slugs: string[] | undefined, selected: string | undefined): boolean {
@@ -281,7 +283,11 @@ export function filterCatalogGames(
   let list = games;
 
   if (options?.regions !== false && region !== "all") {
-    list = list.filter((g) => getRegionDisplay(g.region).label === region);
+    list = list.filter((g) => {
+      const standardLabel = getRegionDisplay(g.region).label;
+      return standardLabel === region
+        || publicRegionLabelForPlatform(g.platformSlug, g.region) === region;
+    });
   }
   if (options?.platforms && platform !== "all") {
     list = list.filter((g) => g.platformSlug === platform);

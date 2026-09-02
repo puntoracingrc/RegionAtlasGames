@@ -71,7 +71,13 @@ export function PlatformRegionBar({ regions, selectedRegion, onSelectRegion }: P
                 className={cn("h-2.5 w-2.5 rounded-full shadow-sm", region.barColorClass)}
                 aria-hidden
               />
-              <RegionFlag region={region.label} size="xs" showLabel labelMode="short" />
+              <RegionFlag
+                region={region.flagRegion ?? region.label}
+                size="xs"
+                showLabel
+                labelMode="short"
+                labelOverride={region.flagRegion ? region.label : undefined}
+              />
             </button>
           );
         })}

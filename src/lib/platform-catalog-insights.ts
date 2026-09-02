@@ -1,4 +1,5 @@
 import { getRegionDisplay } from "@/lib/region-display";
+import { publicRegionLabelForPlatform } from "@/lib/platform-region-policy";
 
 export type RegionSlice = {
   label: string;
@@ -6,6 +7,7 @@ export type RegionSlice = {
   count: number;
   pct: number;
   barColorClass: string;
+  flagRegion?: string;
 };
 
 export type PlatformCatalogInsights = {
@@ -31,7 +33,7 @@ const REGION_BAR_COLOR_BY_RANK: Record<number, string> = {
 export function regionSortRank(label: string): number {
   const key = label.trim().toLowerCase();
   if (key === "pal españa" || key === "españa") return 0;
-  if (key === "pal europa") return 1;
+  if (key === "pal europa" || key === "europea") return 1;
   if (key === "usa" || key === "ntsc usa") return 2;
   if (key === "occidental") return 2;
   if (key === "internacional") return 2;
@@ -90,18 +92,29 @@ type PlatformInsightGame = {
   region: string;
 };
 
-export function buildPlatformCatalogInsights(games: PlatformInsightGame[]): PlatformCatalogInsights {
+export function buildPlatformCatalogInsights(
+  games: PlatformInsightGame[],
+  platformSlug?: string,
+): PlatformCatalogInsights {
   const total = games.length;
   const withEsPrice = games.filter((g) => g.hasEsPrice).length;
   const withCover = games.filter((g) => Boolean(g.coverUrl)).length;
 
   const regionCounts = new Map<string, number>();
+  const flagRegions = new Map<string, string>();
   for (const game of games) {
-    const label = getRegionDisplay(game.region).label;
+    const canonicalLabel = getRegionDisplay(game.region).label;
+    const label = platformSlug
+      ? publicRegionLabelForPlatform(platformSlug, game.region)
+      : canonicalLabel;
     regionCounts.set(label, (regionCounts.get(label) ?? 0) + 1);
+    if (label !== canonicalLabel) flagRegions.set(label, canonicalLabel);
   }
 
-  const topRegions = sortRegionSlices([...regionCounts.entries()], total);
+  const topRegions = sortRegionSlices([...regionCounts.entries()], total).map((region) => ({
+    ...region,
+    ...(flagRegions.get(region.label) ? { flagRegion: flagRegions.get(region.label) } : {}),
+  }));
 
   return {
     total,
