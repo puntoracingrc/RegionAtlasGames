@@ -83,7 +83,8 @@ const PLATFORM_MARKERS: PlatformMarker[] = [
   { slug: "gamegear", patterns: [/\bgame gear\b/] },
   { slug: "neogeopocket", patterns: [/\bneo geo pocket(?: color)?\b/] },
   { slug: "neogeocd", patterns: [/\bneo geo cd\b/] },
-  { slug: "neogeo", patterns: [/\bneo geo(?: aes)?\b(?! (?:cd|pocket))/] },
+  { slug: "neogeo-aes-plus", patterns: [/\bneo[ -]?geo aes\+\b/, /\bneo[ -]?geo aes plus\b/] },
+  { slug: "neogeo", patterns: [/\bneo geo(?: aes)?\b(?! (?:\+|plus|cd|pocket))/] },
 ];
 
 function normalizedIdentifier(value: string | null | undefined): string {
@@ -97,11 +98,16 @@ function aspectText(aspects: EbayLocalizedAspect[] | undefined): string {
 }
 
 function evidenceText(evidence: EbayResearchEvidence): string {
-  return normalizeAffiliateText(
-    [evidence.title, evidence.productTitle, evidence.condition, aspectText(evidence.localizedAspects)]
-      .filter(Boolean)
-      .join(" "),
-  );
+  const raw = [
+    evidence.title,
+    evidence.productTitle,
+    evidence.condition,
+    aspectText(evidence.localizedAspects),
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .replace(/aes\s*\+/gi, "AES Plus");
+  return normalizeAffiliateText(raw);
 }
 
 function detectedPlatforms(text: string): Set<string> {

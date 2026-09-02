@@ -20,7 +20,13 @@ const NINTENDO_SLUGS = new Set([
   "switch",
   "switch2",
 ]);
-const SNK_SLUGS = new Set(["neogeo", "neogeocd", "neogeopocket", "neogeopocketcolor"]);
+const SNK_SLUGS = new Set([
+  "neogeo",
+  "neogeo-aes-plus",
+  "neogeocd",
+  "neogeopocket",
+  "neogeopocketcolor",
+]);
 const SEGA_SLUGS = new Set(["mastersystem", "megadrive", "sega32x", "megacd", "saturn", "dreamcast", "gamegear"]);
 
 export function platformNewsTopicForSlug(slug: string): PlatformNewsTopic | null {

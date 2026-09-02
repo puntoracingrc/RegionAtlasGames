@@ -3,7 +3,7 @@
   "source": "/Users/macbookpro14/Downloads/CATALOGO_COMPLETO_PAL_ESPAÑA.xlsx",
   "catalogScope": "retro-pal-es-closed",
   "platformCount": 22,
-  "catalogListed": 56371,
+  "catalogListed": 56391,
   "catalogEstimatedTotal": 30712,
   "listedByPlatform": {
     "3ds": 483,
@@ -32,7 +32,8 @@
     "snes": 2761,
     "switch": 7244,
     "switch2": 318,
-    "wii": 1294
+    "wii": 1294,
+    "neogeo-aes-plus": 20
   },
   "collection": {
     "totalItems": 479,
@@ -45,7 +46,7 @@
     "totalBuyValue": 19199.33
   },
   "catalogExcluded": 2141,
-  "catalogTotal": 58512,
+  "catalogTotal": 58532,
   "excludedByPlatform": {
     "3ds": 136,
     "ds": 52,
@@ -76,8 +77,8 @@
   "coversListed": 31757,
   "coversListedPct": 98.4,
   "lastCoversSeedAt": "2026-06-15T09:23:43",
-  "gamesWithDetails": 30255,
-  "indexCompanies": 4247,
+  "gamesWithDetails": 30260,
+  "indexCompanies": 4248,
   "indexGenres": 121,
   "lastDetailsSeedAt": "2026-06-12T19:59:24",
   "coversLocal": 56250,
@@ -94,5 +95,6 @@
   "lastLegacyCollectionCatalogImportAt": "2026-08-31T17:51:12Z",
   "lastPriceChartingCatalogImportAt": "2026-09-02T06:15:00+02:00",
   "lastPriceChartingCatalogImportPlatform": "neogeo",
-  "lastPriceChartingCatalogImportRegion": "Japonesa"
+  "lastPriceChartingCatalogImportRegion": "Japonesa",
+  "lastNeoGeoAesPlusSeedAt": "2026-09-02T12:00:00+02:00"
 }

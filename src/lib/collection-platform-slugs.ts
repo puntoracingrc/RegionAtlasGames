@@ -29,6 +29,7 @@ const LEGACY_PLATFORM_SLUGS: Record<string, string> = {
   xboxseriesx: "xboxseries",
   xboxseriess: "xboxseries",
   "switch-2": "switch2",
+  "neo-geo-aes-plus": "neogeo-aes-plus",
   "playstation-portable": "psp",
   "playstation-vita": "psvita",
   "pc-engine": "pcengine",

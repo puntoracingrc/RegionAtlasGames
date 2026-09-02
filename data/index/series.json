@@ -1552,15 +1552,18 @@
       "ps4-usa-king-of-fighters-97-global-match",
       "ps2-king-of-fighters-2002",
       "ps4-king-of-fighters-xiv-ultimate-edition",
-      "ps2-king-of-fighters-maximum-impact"
+      "ps2-king-of-fighters-maximum-impact",
+      "neogeo-aes-plus-international-the-king-of-fighters-2002",
+      "neogeo-aes-plus-japanese-the-king-of-fighters-2002"
     ],
     "byPlatform": {
       "ps1": 1,
       "ps2": 5,
       "ps3": 2,
-      "ps4": 7
+      "ps4": 7,
+      "neogeo-aes-plus": 2
     },
-    "gameCount": 15
+    "gameCount": 17
   },
   "armored-core": {
     "name": "Armored Core",
@@ -2421,14 +2424,17 @@
       "ps2-metal-slug-5",
       "ps2-metal-slug-4",
       "ps4-metal-slug-xx",
-      "ps4-metal-slug-anthology"
+      "ps4-metal-slug-anthology",
+      "neogeo-aes-plus-international-metal-slug",
+      "neogeo-aes-plus-japanese-metal-slug"
     ],
     "byPlatform": {
       "ps1": 1,
       "ps2": 4,
-      "ps4": 5
+      "ps4": 5,
+      "neogeo-aes-plus": 2
     },
-    "gameCount": 10
+    "gameCount": 12
   },
   "nhl-2k": {
     "name": "nhl-2k",
@@ -7711,5 +7717,70 @@
       "ps3": 1
     },
     "gameCount": 1
+  },
+  "fatal-fury": {
+    "name": "Fatal Fury",
+    "slug": "fatal-fury",
+    "museumPath": "",
+    "gameIds": [
+      "neogeo-aes-plus-international-garou-mark-of-the-wolves",
+      "neogeo-aes-plus-japanese-garou-mark-of-the-wolves"
+    ],
+    "byPlatform": {
+      "neogeo-aes-plus": 2
+    },
+    "gameCount": 2
+  },
+  "samurai-shodown": {
+    "name": "Samurai Shodown",
+    "slug": "samurai-shodown",
+    "museumPath": "",
+    "gameIds": [
+      "neogeo-aes-plus-international-samurai-shodown-v-special",
+      "neogeo-aes-plus-japanese-samurai-shodown-v-special"
+    ],
+    "byPlatform": {
+      "neogeo-aes-plus": 2
+    },
+    "gameCount": 2
+  },
+  "shock-troopers": {
+    "name": "Shock Troopers",
+    "slug": "shock-troopers",
+    "museumPath": "",
+    "gameIds": [
+      "neogeo-aes-plus-international-shock-troopers",
+      "neogeo-aes-plus-japanese-shock-troopers"
+    ],
+    "byPlatform": {
+      "neogeo-aes-plus": 2
+    },
+    "gameCount": 2
+  },
+  "twinkle-star-sprites": {
+    "name": "Twinkle Star Sprites",
+    "slug": "twinkle-star-sprites",
+    "museumPath": "",
+    "gameIds": [
+      "neogeo-aes-plus-international-twinkle-star-sprites",
+      "neogeo-aes-plus-japanese-twinkle-star-sprites"
+    ],
+    "byPlatform": {
+      "neogeo-aes-plus": 2
+    },
+    "gameCount": 2
+  },
+  "magician-lord": {
+    "name": "Magician Lord",
+    "slug": "magician-lord",
+    "museumPath": "",
+    "gameIds": [
+      "neogeo-aes-plus-international-magician-lord",
+      "neogeo-aes-plus-japanese-magician-lord"
+    ],
+    "byPlatform": {
+      "neogeo-aes-plus": 2
+    },
+    "gameCount": 2
   }
 }

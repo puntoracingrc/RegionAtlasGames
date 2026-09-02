@@ -15183,7 +15183,9 @@
       "neogeo-ryuuko-no-ken-2",
       "neogeopocket-pal-fantastic-night-dreams-cotton",
       "neogeo-king-of-fighters-95",
-      "ps4-usa-king-of-fighters-%2798-ultimate-match"
+      "ps4-usa-king-of-fighters-%2798-ultimate-match",
+      "neogeo-aes-plus-international-garou-mark-of-the-wolves",
+      "neogeo-aes-plus-japanese-garou-mark-of-the-wolves"
     ],
     "byPlatform": {
       "dreamcast": 12,
@@ -15199,7 +15201,8 @@
       "ps2": 4,
       "ps4": 50,
       "saturn": 12,
-      "snes": 2
+      "snes": 2,
+      "neogeo-aes-plus": 2
     },
     "asDeveloper": [
       "neogeocd-japon-riding-hero",
@@ -15556,7 +15559,9 @@
       "neogeo-aso-ii-last-guardian",
       "neogeo-ryuuko-no-ken-2",
       "neogeo-king-of-fighters-95",
-      "ps4-usa-king-of-fighters-%2798-ultimate-match"
+      "ps4-usa-king-of-fighters-%2798-ultimate-match",
+      "neogeo-aes-plus-international-garou-mark-of-the-wolves",
+      "neogeo-aes-plus-japanese-garou-mark-of-the-wolves"
     ],
     "asPublisher": [
       "neogeocd-japon-riding-hero",
@@ -16043,7 +16048,7 @@
       "neogeopocket-pal-fantastic-night-dreams-cotton",
       "neogeo-king-of-fighters-95"
     ],
-    "gameCount": 567
+    "gameCount": 569
   },
   "bandai-namco-entertainment": {
     "name": "Bandai Namco Entertainment",
@@ -37837,13 +37842,20 @@
       "neogeo-aggressors-of-dark-kombat",
       "neogeo-tsukai-gan-gan-koshinkyoku",
       "neogeo-blues-journey",
-      "neogeocd-japon-crossed-swords"
+      "neogeocd-japon-crossed-swords",
+      "neogeo-aes-plus-international-twinkle-star-sprites",
+      "neogeo-aes-plus-japanese-twinkle-star-sprites",
+      "neogeo-aes-plus-international-magician-lord",
+      "neogeo-aes-plus-japanese-magician-lord",
+      "neogeo-aes-plus-international-over-top",
+      "neogeo-aes-plus-japanese-over-top"
     ],
     "byPlatform": {
       "megadrive": 1,
       "neogeo": 27,
       "neogeocd": 20,
-      "neogeopocket": 11
+      "neogeopocket": 11,
+      "neogeo-aes-plus": 6
     },
     "asDeveloper": [
       "neogeopocket-pal-dynamite-slugger",
@@ -37900,7 +37912,13 @@
       "neogeo-over-top",
       "neogeo-aggressors-of-dark-kombat",
       "neogeo-tsukai-gan-gan-koshinkyoku",
-      "neogeo-blues-journey"
+      "neogeo-blues-journey",
+      "neogeo-aes-plus-international-twinkle-star-sprites",
+      "neogeo-aes-plus-japanese-twinkle-star-sprites",
+      "neogeo-aes-plus-international-magician-lord",
+      "neogeo-aes-plus-japanese-magician-lord",
+      "neogeo-aes-plus-international-over-top",
+      "neogeo-aes-plus-japanese-over-top"
     ],
     "asPublisher": [
       "neogeopocket-japon-party-mail",
@@ -37913,7 +37931,7 @@
       "neogeocd-japon-world-heroes-2",
       "neogeocd-japon-crossed-swords"
     ],
-    "gameCount": 59
+    "gameCount": 65
   },
   "kid": {
     "name": "Kid",
@@ -49219,14 +49237,17 @@
       "nes-japon-moero-junior-basket-two-two",
       "nes-usa-amagon",
       "nes-usa-totally-rad",
-      "nes-totally-rad"
+      "nes-totally-rad",
+      "neogeo-aes-plus-international-pulstar",
+      "neogeo-aes-plus-japanese-pulstar"
     ],
     "byPlatform": {
       "gameboy": 2,
       "neogeo": 1,
       "neogeocd": 4,
       "nes": 18,
-      "ps1": 1
+      "ps1": 1,
+      "neogeo-aes-plus": 2
     },
     "asDeveloper": [
       "gameboy-usa-blaster-master-boy",
@@ -49254,12 +49275,14 @@
       "nes-japon-moero-junior-basket-two-two",
       "nes-usa-amagon",
       "nes-usa-totally-rad",
-      "nes-totally-rad"
+      "nes-totally-rad",
+      "neogeo-aes-plus-international-pulstar",
+      "neogeo-aes-plus-japanese-pulstar"
     ],
     "asPublisher": [
       "neogeo-pulstar"
     ],
-    "gameCount": 26
+    "gameCount": 28
   },
   "falcom": {
     "name": "Falcom",
@@ -50639,13 +50662,16 @@
       "neogeopocket-japon-samurai-shodown-2-ngp-best-collection",
       "neogeopocket-japon-samurai-spirits-2",
       "saturn-japon-stakes-winner-gi-kanzen-seiha-heno-michi",
-      "neogeo-ragnagard-shinouken"
+      "neogeo-ragnagard-shinouken",
+      "neogeo-aes-plus-international-shock-troopers",
+      "neogeo-aes-plus-japanese-shock-troopers"
     ],
     "byPlatform": {
       "neogeo": 5,
       "neogeocd": 4,
       "neogeopocket": 14,
-      "saturn": 1
+      "saturn": 1,
+      "neogeo-aes-plus": 2
     },
     "asDeveloper": [
       "neogeopocket-pal-samurai-shodown-2",
@@ -50668,7 +50694,9 @@
       "neogeopocket-japon-bakumatsu-roman-tokubetsu-ben-gekka-no-kenshi-tsuki-ni",
       "neogeopocket-japon-samurai-shodown-2-ngp-best-collection",
       "neogeopocket-japon-samurai-spirits-2",
-      "saturn-japon-stakes-winner-gi-kanzen-seiha-heno-michi"
+      "saturn-japon-stakes-winner-gi-kanzen-seiha-heno-michi",
+      "neogeo-aes-plus-international-shock-troopers",
+      "neogeo-aes-plus-japanese-shock-troopers"
     ],
     "asPublisher": [
       "neogeocd-japon-stakes-winner",
@@ -50678,7 +50706,7 @@
       "neogeo-quiz-king-fighters",
       "neogeo-ragnagard-shinouken"
     ],
-    "gameCount": 24
+    "gameCount": 26
   },
   "sega-am6-cs1": {
     "name": "Sega AM6 (CS1)",
@@ -62514,11 +62542,14 @@
       "dreamcast-japon-net-versus-mahjong",
       "dreamcast-japon-net-versus-reversi",
       "dreamcast-japon-net-versus-shougi",
-      "neogeo-samurai-shodown-5-special-samurai-spirits-zero-special"
+      "neogeo-samurai-shodown-5-special-samurai-spirits-zero-special",
+      "neogeo-aes-plus-international-samurai-shodown-v-special",
+      "neogeo-aes-plus-japanese-samurai-shodown-v-special"
     ],
     "byPlatform": {
       "dreamcast": 8,
-      "neogeo": 4
+      "neogeo": 4,
+      "neogeo-aes-plus": 2
     },
     "asDeveloper": [
       "dreamcast-japon-net-versus-renju-gomoku-namebe",
@@ -62532,12 +62563,14 @@
       "dreamcast-japon-net-versus-mahjong",
       "dreamcast-japon-net-versus-reversi",
       "dreamcast-japon-net-versus-shougi",
-      "neogeo-samurai-shodown-5-special-samurai-spirits-zero-special"
+      "neogeo-samurai-shodown-5-special-samurai-spirits-zero-special",
+      "neogeo-aes-plus-international-samurai-shodown-v-special",
+      "neogeo-aes-plus-japanese-samurai-shodown-v-special"
     ],
     "asPublisher": [
       "neogeo-samurai-spirits-zero"
     ],
-    "gameCount": 12
+    "gameCount": 14
   },
   "2k-play": {
     "name": "2K Play",
@@ -69864,11 +69897,16 @@
       "neogeo-metal-slug-3",
       "neogeocd-japon-metal-slug",
       "neogeo-big-tournament-golf",
-      "neogeocd-japon-big-tournament-golf"
+      "neogeocd-japon-big-tournament-golf",
+      "neogeo-aes-plus-international-metal-slug",
+      "neogeo-aes-plus-japanese-metal-slug",
+      "neogeo-aes-plus-international-big-tournament-golf",
+      "neogeo-aes-plus-japanese-big-tournament-golf"
     ],
     "byPlatform": {
       "neogeo": 5,
-      "neogeocd": 3
+      "neogeocd": 3,
+      "neogeo-aes-plus": 4
     },
     "asDeveloper": [
       "neogeo-metal-slug-2",
@@ -69878,12 +69916,16 @@
       "neogeo-metal-slug-3",
       "neogeocd-japon-metal-slug",
       "neogeo-big-tournament-golf",
-      "neogeocd-japon-big-tournament-golf"
+      "neogeocd-japon-big-tournament-golf",
+      "neogeo-aes-plus-international-metal-slug",
+      "neogeo-aes-plus-japanese-metal-slug",
+      "neogeo-aes-plus-international-big-tournament-golf",
+      "neogeo-aes-plus-japanese-big-tournament-golf"
     ],
     "asPublisher": [
       "neogeo-big-tournament-golf"
     ],
-    "gameCount": 8
+    "gameCount": 12
   },
   "ocean-software": {
     "name": "Ocean Software",
@@ -76953,23 +76995,28 @@
       "neogeo-king-fighters-2001",
       "neogeo-king-fighters-2000",
       "neogeo-king-fighters-2002-be-fighter",
-      "neogeo-king-of-fighters-2001"
+      "neogeo-king-of-fighters-2001",
+      "neogeo-aes-plus-international-the-king-of-fighters-2002",
+      "neogeo-aes-plus-japanese-the-king-of-fighters-2002"
     ],
     "byPlatform": {
-      "neogeo": 5
+      "neogeo": 5,
+      "neogeo-aes-plus": 2
     },
     "asDeveloper": [
       "neogeo-king-of-fighters-2002",
       "neogeo-king-fighters-2001",
       "neogeo-king-fighters-2000",
       "neogeo-king-fighters-2002-be-fighter",
-      "neogeo-king-of-fighters-2001"
+      "neogeo-king-of-fighters-2001",
+      "neogeo-aes-plus-international-the-king-of-fighters-2002",
+      "neogeo-aes-plus-japanese-the-king-of-fighters-2002"
     ],
     "asPublisher": [
       "neogeo-king-of-fighters-2002",
       "neogeo-king-fighters-2001"
     ],
-    "gameCount": 5
+    "gameCount": 7
   },
   "firebrand-games": {
     "name": "Firebrand Games",
@@ -136640,5 +136687,59 @@
       "ps4-avicii-invector"
     ],
     "gameCount": 1
+  },
+  "plaion-replai": {
+    "name": "PLAION REPLAI",
+    "slug": "plaion-replai",
+    "museumPath": "",
+    "gameIds": [
+      "neogeo-aes-plus-international-garou-mark-of-the-wolves",
+      "neogeo-aes-plus-japanese-garou-mark-of-the-wolves",
+      "neogeo-aes-plus-international-metal-slug",
+      "neogeo-aes-plus-japanese-metal-slug",
+      "neogeo-aes-plus-international-the-king-of-fighters-2002",
+      "neogeo-aes-plus-japanese-the-king-of-fighters-2002",
+      "neogeo-aes-plus-international-pulstar",
+      "neogeo-aes-plus-japanese-pulstar",
+      "neogeo-aes-plus-international-samurai-shodown-v-special",
+      "neogeo-aes-plus-japanese-samurai-shodown-v-special",
+      "neogeo-aes-plus-international-shock-troopers",
+      "neogeo-aes-plus-japanese-shock-troopers",
+      "neogeo-aes-plus-international-twinkle-star-sprites",
+      "neogeo-aes-plus-japanese-twinkle-star-sprites",
+      "neogeo-aes-plus-international-big-tournament-golf",
+      "neogeo-aes-plus-japanese-big-tournament-golf",
+      "neogeo-aes-plus-international-magician-lord",
+      "neogeo-aes-plus-japanese-magician-lord",
+      "neogeo-aes-plus-international-over-top",
+      "neogeo-aes-plus-japanese-over-top"
+    ],
+    "byPlatform": {
+      "neogeo-aes-plus": 20
+    },
+    "asDeveloper": [],
+    "asPublisher": [
+      "neogeo-aes-plus-international-garou-mark-of-the-wolves",
+      "neogeo-aes-plus-japanese-garou-mark-of-the-wolves",
+      "neogeo-aes-plus-international-metal-slug",
+      "neogeo-aes-plus-japanese-metal-slug",
+      "neogeo-aes-plus-international-the-king-of-fighters-2002",
+      "neogeo-aes-plus-japanese-the-king-of-fighters-2002",
+      "neogeo-aes-plus-international-pulstar",
+      "neogeo-aes-plus-japanese-pulstar",
+      "neogeo-aes-plus-international-samurai-shodown-v-special",
+      "neogeo-aes-plus-japanese-samurai-shodown-v-special",
+      "neogeo-aes-plus-international-shock-troopers",
+      "neogeo-aes-plus-japanese-shock-troopers",
+      "neogeo-aes-plus-international-twinkle-star-sprites",
+      "neogeo-aes-plus-japanese-twinkle-star-sprites",
+      "neogeo-aes-plus-international-big-tournament-golf",
+      "neogeo-aes-plus-japanese-big-tournament-golf",
+      "neogeo-aes-plus-international-magician-lord",
+      "neogeo-aes-plus-japanese-magician-lord",
+      "neogeo-aes-plus-international-over-top",
+      "neogeo-aes-plus-japanese-over-top"
+    ],
+    "gameCount": 20
   }
 }
