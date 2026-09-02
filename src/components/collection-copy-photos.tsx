@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
+import type { DragEvent as ReactDragEvent } from "react";
 import {
   Camera,
   ChevronLeft,
@@ -187,6 +188,7 @@ export function CollectionCopyPhotos({ item, disabled, onSaved }: Props) {
   } | null>(null);
   const [feedback, setFeedback] = useState<{ tone: "error" | "success"; text: string } | null>(null);
   const [gallerySlot, setGallerySlot] = useState<CollectionPhotoSlot | null>(null);
+  const [dragSlot, setDragSlot] = useState<CollectionPhotoSlot | null>(null);
   const closeGallery = useCallback(() => setGallerySlot(null), []);
   const photos = orderedCollectionPhotos(item.photos);
   const busy = disabled || photoUpload !== null;
@@ -261,20 +263,65 @@ export function CollectionCopyPhotos({ item, disabled, onSaved }: Props) {
     }
   }
 
+  function handleDragLeave(
+    event: ReactDragEvent<HTMLDivElement>,
+    slot: CollectionPhotoSlot,
+  ) {
+    const nextTarget = event.relatedTarget;
+    if (nextTarget instanceof Node && event.currentTarget.contains(nextTarget)) return;
+    setDragSlot((currentSlot) => currentSlot === slot ? null : currentSlot);
+  }
+
+  function handleDrop(
+    event: ReactDragEvent<HTMLDivElement>,
+    slot: CollectionPhotoSlot,
+  ) {
+    event.preventDefault();
+    event.stopPropagation();
+    setDragSlot(null);
+    if (busy) return;
+    const file = event.dataTransfer.files[0];
+    if (!file) {
+      setFeedback({ tone: "error", text: "Suelta un archivo de imagen válido." });
+      return;
+    }
+    void upload(slot, file);
+  }
+
   return (
     <div className="mt-3 border-t border-border/70 pt-3">
       <div className="mb-2 flex items-center justify-between gap-3">
         <span className="text-[11px] font-semibold uppercase text-muted">Tus fotos</span>
         <span className="text-[11px] tabular-nums text-muted">{photos.length}/6</span>
       </div>
-      <div className="-mx-1 max-w-full overflow-x-auto px-1 pb-1 [contain:layout_paint]">
+      <div
+        className="-mx-1 max-w-full overflow-x-auto px-1 pb-1 [contain:layout_paint]"
+        onDragOver={(event) => event.preventDefault()}
+        onDrop={(event) => event.preventDefault()}
+      >
         <div className="grid w-full min-w-[780px] max-w-[900px] grid-cols-6 gap-2">
           {COLLECTION_PHOTO_SLOTS.map((slot) => {
             const label = COLLECTION_PHOTO_LABELS[slot];
             const photo = photos.find((stored) => stored.slot === slot);
             const phase = photoUpload?.slot === slot ? photoUpload.phase : null;
             return (
-              <div key={slot} className="min-w-0 overflow-hidden rounded-md border border-border bg-card/60">
+              <div
+                key={slot}
+                className={cn(
+                  "min-w-0 overflow-hidden rounded-md border border-border bg-card/60 transition",
+                  dragSlot === slot && "border-accent bg-accent/5 ring-2 ring-accent/35",
+                )}
+                onDragEnter={(event) => {
+                  event.preventDefault();
+                  if (!busy) setDragSlot(slot);
+                }}
+                onDragOver={(event) => {
+                  event.preventDefault();
+                  if (event.dataTransfer) event.dataTransfer.dropEffect = "copy";
+                }}
+                onDragLeave={(event) => handleDragLeave(event, slot)}
+                onDrop={(event) => handleDrop(event, slot)}
+              >
                 {photo ? (
                   <button
                     type="button"
@@ -287,16 +334,40 @@ export function CollectionCopyPhotos({ item, disabled, onSaved }: Props) {
                     <img src={photo.url} alt={label} className="h-full w-full object-contain" />
                   </button>
                 ) : (
-                  <button
-                    type="button"
-                    className="flex aspect-[4/3] w-full items-center justify-center bg-background/50 text-muted transition hover:text-accent disabled:opacity-50"
-                    disabled={busy}
-                    aria-label={`Añadir ${label}`}
-                    title={`Añadir ${label}`}
-                    onClick={() => fileInputs.current[slot]?.click()}
-                  >
-                    {phase ? <LoaderCircle className="h-5 w-5 animate-spin" aria-hidden /> : <ImagePlus className="h-5 w-5" aria-hidden />}
-                  </button>
+                  <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-1 bg-background/50 px-2 text-muted">
+                    {phase ? (
+                      <>
+                        <LoaderCircle className="h-5 w-5 animate-spin" aria-hidden />
+                        <span className="text-[9px] font-medium">
+                          {phase === "preparing" ? "Preparando" : "Subiendo"}
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          type="button"
+                          className="inline-flex items-center gap-1 text-[9px] font-semibold text-foreground transition hover:text-accent disabled:opacity-50"
+                          disabled={busy}
+                          onClick={() => fileInputs.current[slot]?.click()}
+                        >
+                          <ImagePlus className="h-3.5 w-3.5" aria-hidden />
+                          Archivo
+                        </button>
+                        <span className="text-[8px] font-medium">
+                          {dragSlot === slot ? "Suelta aquí" : "o arrastra aquí"}
+                        </span>
+                        <button
+                          type="button"
+                          className="inline-flex items-center gap-1 text-[9px] font-semibold text-foreground transition hover:text-accent disabled:opacity-50"
+                          disabled={busy}
+                          onClick={() => cameraInputs.current[slot]?.click()}
+                        >
+                          <Camera className="h-3.5 w-3.5" aria-hidden />
+                          Cámara
+                        </button>
+                      </>
+                    )}
+                  </div>
                 )}
                 <div className="flex min-h-9 items-center justify-between gap-1 border-t border-border/70 px-1.5">
                   <span className="min-w-0 truncate text-[9px] font-medium text-muted">{label}</span>
@@ -317,7 +388,7 @@ export function CollectionCopyPhotos({ item, disabled, onSaved }: Props) {
                         </button>
                         <button
                           type="button"
-                          className="inline-flex h-7 w-7 items-center justify-center text-muted transition hover:text-accent disabled:opacity-40 md:hidden"
+                          className="inline-flex h-7 w-7 items-center justify-center text-muted transition hover:text-accent disabled:opacity-40"
                           disabled={busy}
                           aria-label={`Hacer foto para ${label}`}
                           title={`Hacer foto para ${label}`}

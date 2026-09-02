@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
+import type { DragEvent as ReactDragEvent } from "react";
 import { Camera, ImagePlus, LoaderCircle, LocateFixed, MapPin, X } from "lucide-react";
 import { BackLink } from "@/components/breadcrumbs";
 import type { MarketplaceListingClientView } from "@/lib/marketplace-types";
@@ -66,6 +67,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
     slot: string;
     phase: "preparing" | "uploading";
   } | null>(null);
+  const [dragSlot, setDragSlot] = useState<string | null>(null);
 
   async function upload(slot: string, file: File) {
     setPhotoFeedback(null);
@@ -116,6 +118,25 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
       if (timeoutId !== undefined) window.clearTimeout(timeoutId);
       setPhotoUpload(null);
     }
+  }
+
+  function handlePhotoDragLeave(event: ReactDragEvent<HTMLDivElement>, slot: string) {
+    const nextTarget = event.relatedTarget;
+    if (nextTarget instanceof Node && event.currentTarget.contains(nextTarget)) return;
+    setDragSlot((currentSlot) => currentSlot === slot ? null : currentSlot);
+  }
+
+  function handlePhotoDrop(event: ReactDragEvent<HTMLDivElement>, slot: string) {
+    event.preventDefault();
+    event.stopPropagation();
+    setDragSlot(null);
+    if (busy) return;
+    const file = event.dataTransfer.files[0];
+    if (!file) {
+      setPhotoFeedback({ tone: "error", message: "Suelta un archivo de imagen válido." });
+      return;
+    }
+    void upload(slot, file);
   }
 
   async function publish() {
@@ -313,7 +334,12 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
           </p>
         ) : null}
 
-        <section className={cn("mb-6", LISTING_PHOTOS_GRID_CLASS)} aria-busy={photoUpload !== null}>
+        <section
+          className={cn("mb-6", LISTING_PHOTOS_GRID_CLASS)}
+          aria-busy={photoUpload !== null}
+          onDragOver={(event) => event.preventDefault()}
+          onDrop={(event) => event.preventDefault()}
+        >
           {Object.entries(PHOTO_SLOT_LABELS).map(([slot, label]) => {
             const photo = current.photos.find((p) => p.slot === slot);
             const required = REQUIRED_PHOTO_SLOTS.includes(slot as (typeof REQUIRED_PHOTO_SLOTS)[number]);
@@ -321,11 +347,28 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
             const aspect = isDetail ? "aspect-square" : coverAspectClass(current.platformSlug);
             const isUploadingThisPhoto = photoUpload?.slot === slot;
             return (
-              <Panel key={slot}>
-                <p className="text-xs font-medium text-foreground">
+              <div
+                key={slot}
+                className="rounded-lg"
+                onDragEnter={(event) => {
+                  event.preventDefault();
+                  if (!busy) setDragSlot(slot);
+                }}
+                onDragOver={(event) => {
+                  event.preventDefault();
+                  if (event.dataTransfer) event.dataTransfer.dropEffect = "copy";
+                }}
+                onDragLeave={(event) => handlePhotoDragLeave(event, slot)}
+                onDrop={(event) => handlePhotoDrop(event, slot)}
+              >
+                <Panel className={cn(
+                  "h-full transition",
+                  dragSlot === slot && "border-accent bg-accent/5 ring-2 ring-accent/35",
+                )}>
+                  <p className="text-xs font-medium text-foreground">
                   {label}
                   {required ? " · obligatoria" : " · opcional"}
-                </p>
+                  </p>
                 {photo ? (
                   <div
                     className={cn(
@@ -337,7 +380,15 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                     <img src={photo.url} alt={label} className="h-full w-full object-contain p-0.5" />
                   </div>
                 ) : (
-                  <p className="mt-2 text-xs text-muted">Sin foto</p>
+                  <button
+                    type="button"
+                    className="mt-2 flex min-h-24 w-full flex-col items-center justify-center gap-1.5 rounded-md border border-dashed border-border bg-background/35 px-3 text-xs text-muted transition hover:border-accent/50 hover:text-accent disabled:opacity-50"
+                    disabled={!isOwner || current.status === "sold" || busy}
+                    onClick={() => fileInputs.current[slot]?.click()}
+                  >
+                    <ImagePlus size={19} aria-hidden="true" />
+                    {dragSlot === slot ? "Suelta aquí" : "Archivo o arrastra aquí"}
+                  </button>
                 )}
                 {isOwner && current.status !== "sold" && (
                   <div className="mt-3 flex min-h-9 flex-wrap items-center gap-2">
@@ -374,7 +425,7 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                         />
                         <button
                           type="button"
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-xs font-medium text-foreground transition hover:border-accent/50 hover:text-accent disabled:cursor-not-allowed disabled:opacity-50 md:hidden"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-border px-2.5 py-1.5 text-xs font-medium text-foreground transition hover:border-accent/50 hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
                           disabled={busy}
                           onClick={() => cameraInputs.current[slot]?.click()}
                         >
@@ -400,8 +451,9 @@ export function ListingManageClient({ listing, isOwner, quotaRemaining, catalogH
                       </>
                     )}
                   </div>
-                )}
-              </Panel>
+                  )}
+                </Panel>
+              </div>
             );
           })}
         </section>
