@@ -170,6 +170,31 @@ def test_neogeo_pocket_europe_aliases_reuse_published_records() -> None:
     ) in REGION_SPECIFIC_SKIP_PC_IDS
 
 
+def test_neogeo_pocket_japan_aliases_reuse_published_records() -> None:
+    expected = {
+        4991353: "neogeopocket-japon-beast-busters-yami-no-seitai-heiki",
+        6179736: "neogeopocket-japon-bio-motor-unitron",
+        31218: "neogeopocket-japon-kikou-seiki-unitron",
+        61893: "neogeopocket-japon-fantastic-night-dreams-cotton",
+        31236: "neogeopocket-japon-shinkisekai-evolution-hateshinai-dungeon",
+        4991359: "neogeopocket-japon-garou-densetsu-first-contact",
+        3269157: "neogeopocket-japon-pachi-slot-aruze-oukoku-pocket-dh2",
+        31220: "neogeopocket-japon-densetsu-no-ogre-battle-zenobia-no-ouji",
+        31253: "neogeopocket-japon-oekaki-puzzle",
+        13728371: "neogeopocket-japon-tsunagete-pon-2",
+        2184431: (
+            "neogeopocket-japon-bakumatsu-roman-tokubetsu-ben-gekka-no-kenshi-tsuki-ni"
+        ),
+    }
+    assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
+
+    skipped = {10854739, 12336061, 31205, 31206, 31210, 6179739, 12336011}
+    assert all(
+        ("neogeopocket", "Japón", pc_id) in REGION_SPECIFIC_SKIP_PC_IDS
+        for pc_id in skipped
+    )
+
+
 def test_source_parser_preserves_an_empty_leading_price_column() -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         source = Path(temp_dir) / "prices.txt"
@@ -699,6 +724,7 @@ if __name__ == "__main__":
     test_neogeo_cd_western_aliases_reuse_published_records()
     test_neogeo_pocket_usa_aliases_reuse_published_records()
     test_neogeo_pocket_europe_aliases_reuse_published_records()
+    test_neogeo_pocket_japan_aliases_reuse_published_records()
     test_source_parser_preserves_an_empty_leading_price_column()
     test_japanese_price_source_replaces_generic_usa_label()
     test_skipped_japanese_duplicate_supplies_prices_to_canonical_record()
