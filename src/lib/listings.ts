@@ -57,6 +57,14 @@ export async function getActiveListingsForCatalog(catalogId: string): Promise<Ma
   return (await readListings()).filter((l) => l.catalogId === catalogId && l.status === "active");
 }
 
+export async function getActiveMarketplaceListings(): Promise<MarketplaceListing[]> {
+  return (await readListings())
+    .filter((listing) => listing.status === "active")
+    .sort((left, right) =>
+      (right.publishedAt ?? right.updatedAt).localeCompare(left.publishedAt ?? left.updatedAt),
+    );
+}
+
 export async function countActiveListingsForCatalog(catalogId: string): Promise<number> {
   return (await getActiveListingsForCatalog(catalogId)).length;
 }
