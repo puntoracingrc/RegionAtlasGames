@@ -41,7 +41,6 @@ jobs:
           EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           DAILY_SOURCE_PAUSE_SEC: "5"
-          DAILY_EBAY_GAME_LIMIT: "25"
           DAILY_WALLAPOP_GAME_LIMIT: "50"
           DAILY_VINTED_GAME_LIMIT: "35"
           DAILY_RETAIL_GAME_LIMIT: "120"

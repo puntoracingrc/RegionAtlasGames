@@ -86,12 +86,24 @@ type EbayGlobalCampaign = {
   totals?: EbayCampaignTotals;
   estimatedRunsRemaining?: number;
   estimatedDaysRemaining?: number;
+  schedule?: {
+    hours?: number;
+    runsPerDay?: number;
+    batchSize?: number;
+    searchBudgetPerRun?: number;
+    dailySearchBudget?: number;
+    dailySearchesUsed?: number;
+    dailySearchesRemaining?: number;
+    regions?: string[];
+  };
   lastRun?: {
     at?: string;
     platformName?: string;
     region?: string;
     regionalReroutes?: number;
     regionalReviews?: number;
+    apiSearches?: number;
+    searchBudget?: number;
   };
   platforms?: EbayCampaignPlatform[];
   coverCandidates?: { games?: number; images?: number; platforms?: number };
@@ -130,14 +142,39 @@ function readEbayGlobalCampaign(): EbayGlobalCampaign {
       const ps4 = JSON.parse(
         readFileSync(path.join(process.cwd(), "data", "ebay-regional-campaigns", "ps4.json"), "utf8"),
       ) as { status?: string; currentRegion?: string | null; updatedAt?: string | null; totals?: EbayCampaignTotals; regions?: Record<string, EbayCampaignRegion>; log?: EbayGlobalCampaign["log"] };
-      const active = catalog.filter((game) => game.platformSlug && game.listingStatus !== "excluded");
+      const inCampaignRegion = (region?: string) => {
+        const normalized = String(region ?? "")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, " ")
+          .trim();
+        return normalized === "pal espana" || normalized === "espana" || normalized === "pal europa";
+      };
+      const active = catalog.filter(
+        (game) => game.platformSlug && game.listingStatus !== "excluded" && inCampaignRegion(game.region),
+      );
+      const ps4Regions = Object.values(ps4.regions ?? {}).filter((region) =>
+        inCampaignRegion(region.catalogRegion ?? region.label),
+      );
+      const ps4Totals = ps4Regions.reduce<EbayCampaignTotals>(
+        (totals, region) => ({
+          catalogGames: (totals.catalogGames ?? 0) + (region.total ?? 0),
+          completed: (totals.completed ?? 0) + (region.completed ?? 0),
+          matched: (totals.matched ?? 0) + (region.matched ?? 0),
+          noMatch: (totals.noMatch ?? 0) + Math.max(0, (region.completed ?? 0) - (region.matched ?? 0)),
+          deferred: (totals.deferred ?? 0) + (region.deferred ?? 0),
+          pending: (totals.pending ?? 0) + (region.pending ?? 0),
+        }),
+        {},
+      );
       const names = new Map(platformDefinitions.map((platform) => [platform.slug, platform.name]));
       const slugs = [...new Set(active.map((game) => String(game.platformSlug)))];
       const platforms = slugs.map((slug) => {
         const games = active.filter((game) => game.platformSlug === slug);
-        const ps4Totals = slug === "ps4" ? ps4.totals ?? {} : {};
-        const completed = ps4Totals.completed ?? 0;
-        const deferred = ps4Totals.deferred ?? 0;
+        const storedTotals = slug === "ps4" ? ps4Totals : {};
+        const completed = storedTotals.completed ?? 0;
+        const deferred = storedTotals.deferred ?? 0;
         return {
           platformSlug: slug,
           platformName: names.get(slug) ?? slug,
@@ -147,16 +184,16 @@ function readEbayGlobalCampaign(): EbayGlobalCampaign {
           totals: {
             catalogGames: games.length,
             completed,
-            matched: ps4Totals.matched ?? 0,
-            noMatch: ps4Totals.noMatch ?? 0,
+            matched: storedTotals.matched ?? 0,
+            noMatch: storedTotals.noMatch ?? 0,
             deferred,
             pending: games.length - completed - deferred,
           },
-          regions: slug === "ps4" ? Object.values(ps4.regions ?? {}) : [],
+          regions: slug === "ps4" ? ps4Regions : [],
         } satisfies EbayCampaignPlatform;
       });
-      const completed = ps4.totals?.completed ?? 0;
-      const deferred = ps4.totals?.deferred ?? 0;
+      const completed = ps4Totals.completed ?? 0;
+      const deferred = ps4Totals.deferred ?? 0;
       const pending = active.length - completed - deferred;
       return {
         status: ps4.status ?? "ready",
@@ -167,13 +204,23 @@ function readEbayGlobalCampaign(): EbayGlobalCampaign {
         totals: {
           catalogGames: active.length,
           completed,
-          matched: ps4.totals?.matched ?? 0,
-          noMatch: ps4.totals?.noMatch ?? 0,
+          matched: ps4Totals.matched ?? 0,
+          noMatch: ps4Totals.noMatch ?? 0,
           deferred,
           pending,
         },
-        estimatedRunsRemaining: Math.ceil(pending / 50),
-        estimatedDaysRemaining: Math.ceil(pending / 200),
+        estimatedRunsRemaining: Math.ceil(pending / 250),
+        estimatedDaysRemaining: Math.ceil(pending / 1000),
+        schedule: {
+          hours: 6,
+          runsPerDay: 4,
+          batchSize: 250,
+          searchBudgetPerRun: 250,
+          dailySearchBudget: 1000,
+          dailySearchesUsed: 0,
+          dailySearchesRemaining: 1000,
+          regions: ["PAL España", "PAL Europa"],
+        },
         platforms,
         log: ps4.log ?? [],
       };
@@ -789,10 +836,10 @@ export default async function AdminPricesPage({
       <Panel className={adminToneClass("status")}>
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <PanelTitle eyebrow="eBay España · cada 6 horas">Campaña regional global</PanelTitle>
+            <PanelTitle eyebrow="eBay España · hasta 1.000 búsquedas al día">Campaña PAL</PanelTitle>
             <p className="mt-2 text-sm leading-6 text-muted">
-              Recorre todas las plataformas y ediciones del catálogo. Multi-PAL se consulta como una
-              misma edición europea; artículo, transporte y coste estimado en España permanecen separados.
+              Recorre PAL España y PAL Europa en todas las plataformas. USA y Japón quedan fuera;
+              artículo, transporte y coste estimado en España permanecen separados.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -810,11 +857,17 @@ export default async function AdminPricesPage({
           </div>
         </div>
 
-        <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-6">
           <AdminStatTile tone="status" label="Consultados" value={`${ebayCompleted}/${ebayTotal || "—"}`} helper={`${ebayProgress}% del catálogo activo`} />
           <AdminStatTile tone="status" label="Con evidencias" value={ebayTotals.matched ?? 0} helper="al menos un anuncio aceptado" />
           <AdminStatTile tone="status" label="Plataforma actual" value={ebayCampaign.currentPlatformName ?? "Finalizada"} helper={ebayCampaign.currentRegion ?? "sin región pendiente"} />
           <AdminStatTile tone="status" label="Pendientes / aplazados" value={`${ebayTotals.pending ?? 0} / ${ebayTotals.deferred ?? 0}`} helper={formatDate(ebayCampaign.updatedAt)} />
+          <AdminStatTile
+            tone="status"
+            label="Búsquedas hoy"
+            value={`${ebayCampaign.schedule?.dailySearchesUsed ?? 0}/${ebayCampaign.schedule?.dailySearchBudget ?? 1000}`}
+            helper={`${ebayCampaign.schedule?.dailySearchesRemaining ?? 1000} disponibles · UTC`}
+          />
           <AdminStatTile tone="status" label="Primera vuelta" value={ebayCampaign.estimatedDaysRemaining ? `~${ebayCampaign.estimatedDaysRemaining} días` : "Finalizada"} helper={`${ebayCampaign.estimatedRunsRemaining ?? 0} lotes restantes`} />
         </div>
         {ebayCampaign.lastRun && (
@@ -823,6 +876,9 @@ export default async function AdminPricesPage({
             {ebayCampaign.lastRun.region ? ` · ${ebayCampaign.lastRun.region}` : ""} ·{" "}
             <strong className="text-foreground">{ebayCampaign.lastRun.regionalReroutes ?? 0}</strong> anuncios aprovechados en otra región ·{" "}
             <strong className="text-foreground">{ebayCampaign.lastRun.regionalReviews ?? 0}</strong> enviados a revisión.
+            {typeof ebayCampaign.lastRun.apiSearches === "number"
+              ? ` ${ebayCampaign.lastRun.apiSearches}/${ebayCampaign.lastRun.searchBudget ?? 250} búsquedas API utilizadas.`
+              : ""}
           </p>
         )}
         <div className="mt-4 h-2 overflow-hidden rounded-full bg-border" aria-label={`Campaña global al ${ebayProgress}%`}>

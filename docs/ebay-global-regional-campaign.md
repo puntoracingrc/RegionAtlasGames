@@ -8,24 +8,29 @@ Completar y refrescar precios del catálogo físico desde eBay España sin ejecu
 
 - Workflow: `.github/workflows/ebay-ps4-regional-campaign.yml`.
 - Frecuencia: cada 6 horas (`23 */6 * * *`).
-- Lote programado: 50 variantes; el despacho manual permite entre 1 y 250.
+- Presupuesto: cuatro tandas diarias de hasta 250 búsquedas API; máximo 1.000 búsquedas al día.
+- Una variante puede consumir una segunda búsqueda aprendida si la primera no devuelve resultados; el presupuesto cuenta llamadas reales, no juegos seleccionados.
+- El consumo se guarda por fecha UTC; una ejecución manual también descuenta presupuesto y las tandas posteriores se recortan o esperan al día siguiente.
 - Orden: continúa PS4 desde su estado actual y después recorre las plataformas de `data/platforms.json`.
 - Dentro de cada región: primero fichas sin precio y después las ya valoradas, siempre por título e ID.
 - Estado: `data/ebay-regional-campaigns/<plataforma>.json` y resumen `global.json`.
-- Escritura: solo por commit Git a `main`; el workflow se detiene si `main` cambia mientras procesa el lote.
+- Escritura: solo por commit Git a `main`; si `main` avanza con cambios compatibles, el lote se rebasa y publica sin perder las búsquedas realizadas.
 
 ## Regiones
 
-- España, UK, Alemania, Francia, Italia, Australia, USA y Japón usan país de origen concreto.
-- `PAL Europa` y etiquetas Multi-PAL usan una sola búsqueda `CONTINENTAL_EUROPE` para no duplicar una edición compartida.
+- La campaña solo recorre `PAL España`, el alias heredado `España` y `PAL Europa`.
+- USA, Japón, PAL UK y las demás regiones quedan fuera de esta campaña.
+- Los hallazgos de esas regiones tampoco se redirigen ni actualizan: quedan descartados o pendientes de revisión sin tocar sus fichas.
+- `PAL Europa` usa una sola búsqueda `CONTINENTAL_EUROPE` para no duplicar una edición compartida.
 - Ediciones distintas del mismo título mantienen precio independiente.
 - Una región futura sin política explícita debe revisarse antes de permitir que publique datos.
 
 ### Hallazgos de otra región
 
-- Si una búsqueda de España encuentra una edición japonesa, USA u otra región explícita, esa fila no entra en el precio español.
-- Una referencia regional exacta o la visión de la carátula deben confirmar la edición antes de publicar el precio en otra variante.
-- Si existe una única ficha del mismo juego, edición y formato físico para la región confirmada, el anuncio se reasigna a esa ficha.
+- Si una búsqueda de España encuentra una edición japonesa, USA u otra región excluida, esa fila no entra en ningún precio de la campaña.
+- El enrutado solo puede moverse entre variantes incluidas en el alcance PAL España/PAL Europa.
+- Una referencia regional exacta o la visión de la carátula deben confirmar la edición antes de publicar el precio en otra variante PAL incluida.
+- Si existe una única ficha del mismo juego, edición y formato físico para la región PAL confirmada, el anuncio se reasigna a esa ficha.
 - Si falta la ficha, hay varias candidatas o las señales se contradicen, el anuncio entra en la cola de `/admin/precios` y no modifica precios.
 - El país del vendedor solo es una pista para solicitar comprobación visual. Nunca confirma por sí solo que el juego sea japonés, americano o europeo.
 - El sync cruzado requiere `--catalog-ids-file` y solo permite los IDs exactos buscados o confirmados por el collector.
@@ -40,8 +45,8 @@ La misma respuesta de eBay alimenta `data/ebay-regional-campaigns/cover-candidat
 ## Operación
 
 ```bash
-python3 scripts/run_ebay_regional_campaign.py --dry-run --batch-size 50
-python3 scripts/run_ebay_regional_campaign.py --platform ps4 --dry-run --batch-size 25
+python3 scripts/run_ebay_regional_campaign.py --dry-run --batch-size 250 --search-budget 250
+python3 scripts/run_ebay_regional_campaign.py --platform ps4 --dry-run --batch-size 25 --search-budget 25
 npm run test:collector-controls
 ```
 
