@@ -12,6 +12,7 @@ from PIL import Image, ImageChops
 from import_pricecharting_software_list import (
     CANVAS_SIZE,
     CoverTask,
+    FORCE_COVER_REFRESH_PC_IDS,
     LiveRow,
     NEVER_PROMOTE_PC_IDS,
     PC_ID_ALIASES,
@@ -109,6 +110,23 @@ def test_neogeo_japanese_aliases_reuse_romanized_records() -> None:
 def test_nes_console_bundle_is_not_imported_as_a_game() -> None:
     assert SKIP_PC_IDS[10230816] == (
         "hardware: pack de consola Nintendo NES Super 3 Set"
+    )
+
+
+def test_n64_console_bundles_are_not_imported_as_games() -> None:
+    expected_hardware = {5156512, 6277383}
+    assert expected_hardware.issubset(SKIP_PC_IDS)
+    assert all(
+        SKIP_PC_IDS[pc_id].startswith("hardware:") for pc_id in expected_hardware
+    )
+    assert 40054 in FORCE_COVER_REFRESH_PC_IDS
+
+
+def test_n64_australian_variants_are_not_mixed_into_pal_europe() -> None:
+    expected_australian = {2306048, 40179, 79634, 5334107, 5978892, 63942}
+    assert all(
+        ("n64", "PAL Europa", pc_id) in REGION_SPECIFIC_SKIP_PC_IDS
+        for pc_id in expected_australian
     )
 
 

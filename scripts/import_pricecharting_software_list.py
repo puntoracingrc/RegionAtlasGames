@@ -43,6 +43,8 @@ MONEY_QUANT = Decimal("0.01")
 # Filas que no deben crear una ficha: duplicados técnicos o productos sin juego.
 SKIP_PC_IDS: dict[int, str] = {
     10230816: "hardware: pack de consola Nintendo NES Super 3 Set",
+    5156512: "hardware: pack de consola Nintendo 64 GoldenEye 007",
+    6277383: "hardware: pack de consola Nintendo 64 F-1 World Grand Prix",
     8741598: "duplicado técnico de Jets'n'Guns 2 (6330502)",
     12789731: "duplicado técnico de Aggelos II (14218825)",
     6074032: "duplicado técnico de Fight'N Rage (5551873)",
@@ -62,6 +64,36 @@ SKIP_PC_PRICE_TARGETS: dict[int, str] = {
 # de la carátula. Se omiten solo en la región incorrecta para poder procesarlas
 # aparte sin contaminar precios entre variantes.
 REGION_SPECIFIC_SKIP_PC_IDS: dict[tuple[str, str, int], str] = {
+    (
+        "n64",
+        "PAL Europa",
+        2306048,
+    ): "variante australiana: HSV Adventure Racing",
+    (
+        "n64",
+        "PAL Europa",
+        40179,
+    ): "variante australiana confirmada por la clasificación G de la carátula",
+    (
+        "n64",
+        "PAL Europa",
+        79634,
+    ): "variante australiana confirmada por la clasificación G8+ de la carátula",
+    (
+        "n64",
+        "PAL Europa",
+        5334107,
+    ): "variante australiana confirmada por la clasificación G de la carátula",
+    (
+        "n64",
+        "PAL Europa",
+        5978892,
+    ): "variante australiana confirmada por la clasificación G de la carátula",
+    (
+        "n64",
+        "PAL Europa",
+        63942,
+    ): "variante PAL publicada únicamente en Australia",
     (
         "neogeocd",
         "Japonesa",
@@ -119,6 +151,12 @@ REGION_SPECIFIC_SKIP_PC_IDS: dict[tuple[str, str, int], str] = {
 # rasterizar con el mismo proceso de limpieza que el resto.
 COVER_SOURCE_FALLBACKS: dict[int, int] = {
     6574230: 4695520,
+}
+
+# Portadas publicadas que una revisión visual identificó como otro producto.
+# Se vuelven a generar aunque la ficha proceda de una semilla anterior.
+FORCE_COVER_REFRESH_PC_IDS: set[int] = {
+    40054,  # F-1 World Grand Prix mostraba F1 Pole Position 64.
 }
 
 # Algunas fichas regionales no tienen imagen en PriceCharting. Solo se usan
@@ -1137,7 +1175,11 @@ def merge_catalog(
             expected_cover_url = f"/covers/{platform}/{filename}"
         else:
             expected_cover_url = None
-        managed_cover = not game.get("coverUrl") or game.get("seedSource") == seed_source
+        managed_cover = (
+            not game.get("coverUrl")
+            or game.get("seedSource") == seed_source
+            or live.pc_id in FORCE_COVER_REFRESH_PC_IDS
+        )
         cover_destination = covers_root / platform / filename if expected_cover_url else None
         if (
             live.cover_source_url
