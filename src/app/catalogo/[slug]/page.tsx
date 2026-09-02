@@ -35,7 +35,7 @@ import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { getPlatform, isPublicCatalogGame } from "@/lib/catalog";
 import { grailLabel, isGrailGame, isTopInSegment, topSegmentLabel } from "@/lib/game-highlight";
-import { esPriceDisplayLabel } from "@/lib/price-display";
+import { catalogPriceDisplayLabel } from "@/lib/price-display";
 import {
   ORIGINAL_GAME_CONTENT_LABELS,
   resolveOriginalGameContents,
@@ -124,7 +124,7 @@ export default async function CatalogGamePage({ params }: Props) {
   const entityLinks = details ? resolveGameEntityLinks(details) : null;
   const grail = isGrailGame(game);
   const topSegment = isTopInSegment(game);
-  const priceStatus = esPriceDisplayLabel(game);
+  const priceStatus = catalogPriceDisplayLabel(game);
   const originalContentProfile = resolveOriginalGameContents(game);
   const regionalPackaging = normalizeRegionalPackaging(game.regionalPackaging);
   const showPhysicalEdition = originalContentProfile.explicit || regionalPackaging.length > 0;

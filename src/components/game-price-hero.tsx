@@ -7,7 +7,7 @@ import {
   hasAnyConditionEstimate,
   primaryConditionPriceEntry,
 } from "@/lib/condition-prices";
-import { esPriceDisplayLabel, hasVerifiedEsPrice } from "@/lib/price-display";
+import { catalogPriceDisplayLabel, hasVerifiedEsPrice } from "@/lib/price-display";
 import { ebayRegionalSearchPolicy } from "@/lib/ebay/ebay-regional-policy";
 import {
   bestJapanRetailPrice,
@@ -19,7 +19,7 @@ import { Badge } from "@/components/ui";
 type Props = { game: CatalogGame };
 
 export function GamePriceHero({ game }: Props) {
-  const status = esPriceDisplayLabel(game);
+  const status = catalogPriceDisplayLabel(game);
   const regionLabel = getRegionDisplay(game.region).label;
   const conditionPrices = conditionPriceEntries(game);
   const primaryCondition = primaryConditionPriceEntry(game);
@@ -31,7 +31,7 @@ export function GamePriceHero({ game }: Props) {
     ? new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(game.updatedAt))
     : null;
 
-  if (status === "pending" || !hasEstimate) {
+  if (!hasEstimate) {
     if (hasJapanRetailReference(game)) {
       const retailPrice = bestJapanRetailPrice(game);
       const updatedAt = latestJapanRetailMatchedAt(game);

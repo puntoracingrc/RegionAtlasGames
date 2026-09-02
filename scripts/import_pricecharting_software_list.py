@@ -103,6 +103,9 @@ PC_ID_ALIASES: dict[int, str] = {
     12368591: "switch2-super-mario-bros-wonder-nintendo-switch-2-edition",
     12589196: "switch2-xenoblade-chronicles-x-definitive-edition-nsw2-edition",
     13572418: "switch2-monopoly-star-wars",
+    13290: "gameboy-usa-battletoads-ragnaroks-world",
+    3051: "gameboy-usa-star-wars-empire-strikes-back",
+    3139: "gameboy-usa-yoshis-cookie",
 }
 
 # Fichas técnicas importadas que duplican una ficha española ya usada por la
@@ -696,6 +699,23 @@ def merge_catalog(
                     if clean_title != current_title:
                         existing[title_key] = clean_title
                         changed = True
+            if region_verified and existing.get("regionVerified") is not True:
+                existing["regionVerified"] = True
+                changed = True
+            evidence = existing.get("regionEvidence")
+            if isinstance(evidence, list):
+                evidence_values = [str(value) for value in evidence if value]
+            elif evidence:
+                evidence_values = [str(evidence)]
+            else:
+                evidence_values = []
+            if region_evidence and region_evidence not in evidence_values:
+                evidence_values.append(region_evidence)
+                existing["regionEvidence"] = evidence_values
+                changed = True
+            if not existing.get("matchConfidence") and match_confidence:
+                existing["matchConfidence"] = match_confidence
+                changed = True
             displaced_id = PC_ID_DISPLACED_DUPLICATES.get(live.pc_id)
             displaced = catalog_by_id.get(displaced_id or "")
             if (
