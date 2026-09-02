@@ -591,7 +591,7 @@ export function CatalogBrowser({
 
   return (
     <div className="space-y-4">
-      <div className="rounded-3xl border border-sky-500/25 bg-sky-50/85 p-4 shadow-sm shadow-black/5 backdrop-blur dark:border-sky-300/15 dark:bg-slate-900/80 md:p-5">
+      <div className="rounded-3xl border border-border/80 bg-card/95 p-4 shadow-sm shadow-black/5 backdrop-blur md:p-5">
         <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-[10px] font-black uppercase tracking-[0.24em] text-accent">
@@ -623,13 +623,13 @@ export function CatalogBrowser({
               autoComplete="off"
               autoCorrect="off"
               spellCheck={false}
-              className="h-12 w-full rounded-2xl border border-sky-600/20 bg-white px-4 text-sm shadow-inner outline-none ring-accent/25 transition placeholder:text-muted focus:border-accent/50 focus:ring-2 dark:border-white/10 dark:bg-black/35"
+              className="h-12 w-full rounded-2xl border border-border bg-input px-4 text-sm shadow-sm outline-none ring-accent/25 transition placeholder:text-muted focus:border-accent/50 focus:ring-2"
             />
           </label>
 
           <div className="space-y-3">
             {showRegionFilter && visibleRegions.length > 1 && (
-              <div className="rounded-2xl border border-sky-600/15 bg-white/60 p-2 dark:border-white/10 dark:bg-white/5">
+              <div className="rounded-2xl border border-border/70 bg-background/55 p-2">
                 <p className="mb-2 px-1 text-[10px] font-black uppercase tracking-[0.18em] text-muted">Región</p>
                 <RegionFilterChips
                   value={region}
@@ -751,7 +751,7 @@ export function CatalogBrowser({
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 rounded-2xl border border-sky-600/15 bg-white/65 p-3 dark:border-white/10 dark:bg-white/5 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-2 rounded-2xl border border-border/70 bg-background/55 p-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
             <p className="text-sm font-medium text-muted">
               {total === 0 ? (
                 <>0 resultados en {contextName}</>
