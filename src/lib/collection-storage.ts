@@ -171,6 +171,10 @@ function repairCollection(data: UserCollectionFile): {
       catalogId: match.id,
       catalogMatched: true,
       inRetroCatalog: true,
+      title: match.title,
+      titlePc: match.titlePc ?? repaired.titlePc,
+      platformSlug: match.platformSlug,
+      region: match.region,
     };
   });
   const catalogChanged = repairedItems.some(
@@ -179,6 +183,9 @@ function repairCollection(data: UserCollectionFile): {
       item.inRetroCatalog !== data.items[index]?.inRetroCatalog ||
       item.catalogId !== data.items[index]?.catalogId ||
       item.catalogMatched !== data.items[index]?.catalogMatched ||
+      item.title !== data.items[index]?.title ||
+      item.titlePc !== data.items[index]?.titlePc ||
+      item.region !== data.items[index]?.region ||
       item.collectionCondition !== data.items[index]?.collectionCondition ||
       item.sealed !== data.items[index]?.sealed,
   );

@@ -174,3 +174,56 @@ test("repairs collection links using the PriceCharting title and product id", ()
     "ps5-final-fantasy-vii-rebirth",
   );
 });
+
+test("links the known legacy collection gaps to their canonical catalog records", () => {
+  const base = {
+    id: "legacy-gap",
+    catalogId: null,
+    catalogMatched: false,
+    inRetroCatalog: true,
+    region: "PAL España",
+  } as CollectionItem;
+  const expectedByImport = [
+    ["ps2", "Mega Man Anniversary Collection", "ps2-usa-mega-man-anniversary-collection"],
+    [
+      "ps3",
+      "Skylander's Giants Portal Owners Pack",
+      "ps3-usa-skylander-s-giants-portal-owners-pack",
+    ],
+    [
+      "ps4",
+      "Brigandine: The Legend Of Runersia [Collector's Edition]",
+      "ps4-brigandine-the-legend-of-runersia-collectors-edition",
+    ],
+    ["ps4", "Carrion [Limited Run]", "ps4-usa-carrion-limited-run"],
+    [
+      "ps4",
+      "Fallout 4 [Game Of The Year Slipcover]",
+      "ps4-usa-fallout-4-game-of-the-year-slipcover",
+    ],
+    ["ps4", "Mega Man Legacy Collection", "ps4-usa-mega-man-legacy-collection"],
+    [
+      "ps4",
+      "Mega Man X Legacy Collection 1 + 2",
+      "ps4-usa-mega-man-x-legacy-collection-1-&#43;-2",
+    ],
+    [
+      "ps4",
+      "Star Hunter DX & Space Moth: Lunar Edition [Special Limited Edition]",
+      "ps4-star-hunter-dx-space-moth-lunar-editon",
+    ],
+    [
+      "ps5",
+      "Final Fantasy VII REMAKE INTERGRADE & REBIRTH Twin Pack",
+      "ps5-final-fantasy-vii-remake-intergrade-rebirth-twin-pack-physical-edition",
+    ],
+    ["xbox360", "Spec Ops: The Line", "xbox360-spec-ops-the-line"],
+  ] as const;
+
+  for (const [platformSlug, title, expectedId] of expectedByImport) {
+    assert.equal(
+      findAvailableCatalogLink({ ...base, platformSlug, title })?.id,
+      expectedId,
+    );
+  }
+});
