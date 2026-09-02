@@ -385,6 +385,29 @@ function slugKey(text: string): string {
   return slugify(text);
 }
 
+/**
+ * Importaciones antiguas cuyo título identifica una edición inequívoca pero
+ * arrastran una región por defecto o una grafía distinta a la ficha canónica.
+ */
+const LEGACY_COLLECTION_CATALOG_OVERRIDES: Record<string, string> = {
+  "ps2::mega-man-anniversary-collection": "ps2-usa-mega-man-anniversary-collection",
+  "ps3::skylander-s-giants-portal-owners-pack":
+    "ps3-usa-skylander-s-giants-portal-owners-pack",
+  "ps4::brigandine-the-legend-of-runersia-collector-s-edition":
+    "ps4-brigandine-the-legend-of-runersia-collectors-edition",
+  "ps4::carrion-limited-run": "ps4-usa-carrion-limited-run",
+  "ps4::fallout-4-game-of-the-year-slipcover":
+    "ps4-usa-fallout-4-game-of-the-year-slipcover",
+  "ps4::mega-man-legacy-collection": "ps4-usa-mega-man-legacy-collection",
+  "ps4::mega-man-x-legacy-collection-1-2":
+    "ps4-usa-mega-man-x-legacy-collection-1-&#43;-2",
+  "ps4::star-hunter-dx-space-moth-lunar-edition-special-limited-edition":
+    "ps4-star-hunter-dx-space-moth-lunar-editon",
+  "ps5::final-fantasy-vii-remake-intergrade-rebirth-twin-pack":
+    "ps5-final-fantasy-vii-remake-intergrade-rebirth-twin-pack-physical-edition",
+  "xbox360::spec-ops-the-line": "xbox360-spec-ops-the-line",
+};
+
 function buildCatalogMatchIndex() {
   const byPlatformTitle = new Map<string, string | null>();
   const byPlatformTitleRegion = new Map<string, string | null>();
@@ -435,6 +458,16 @@ function findCatalogMatch(
 ): CatalogGame | null {
   const { byPlatformTitle, byPlatformTitleRegion, byId } = catalogMatchIndex;
 
+  const overrideId = LEGACY_COLLECTION_CATALOG_OVERRIDES[`${platform}::${slugKey(title)}`];
+  const override = overrideId ? byId.get(overrideId) : null;
+  if (
+    override &&
+    override.platformSlug === platform &&
+    override.listingStatus !== "excluded"
+  ) {
+    return override;
+  }
+
   if (pcId != null) {
     const byPcId = catalog.filter(
       (g) =>
@@ -448,7 +481,13 @@ function findCatalogMatch(
 
   const directId = `${platform}-${slugify(title)}`;
   const direct = byId.get(directId);
-  if (direct && matchesImportedRegion(direct, region)) return direct;
+  if (
+    direct &&
+    direct.listingStatus !== "excluded" &&
+    matchesImportedRegion(direct, region)
+  ) {
+    return direct;
+  }
 
   const keys = [
     `${platform}::${slugify(title)}`,

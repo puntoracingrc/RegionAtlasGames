@@ -8,7 +8,12 @@ import {
 import { DetailCoverArt } from "@/components/detail-cover-art";
 import { RegionFlag } from "@/components/region-flag";
 import { SiteNav } from "@/components/site-nav";
-import { getCatalogGame, getPlatform, resolveCatalogIdParam } from "@/lib/catalog";
+import {
+  getCatalogGame,
+  getPlatform,
+  isPublicCatalogGame,
+  resolveCatalogIdParam,
+} from "@/lib/catalog";
 import { catalogGamePath } from "@/lib/catalog-path";
 import { collectionCatalogReturnPath } from "@/lib/collection-path";
 import { getUserCollectionItemsForCatalog } from "@/lib/collection-store";
@@ -74,9 +79,11 @@ export default async function CollectionCatalogGamePage({ params }: Props) {
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
               Aquí gestionas tus unidades físicas. La ficha general del juego y sus precios públicos no se modifican.
             </p>
-            <Link href={catalogGamePath(game)} className="mt-3 inline-flex text-sm font-medium text-accent hover:underline">
-              Ver ficha pública del juego →
-            </Link>
+            {isPublicCatalogGame(game) ? (
+              <Link href={catalogGamePath(game)} className="mt-3 inline-flex text-sm font-medium text-accent hover:underline">
+                Ver ficha pública del juego →
+              </Link>
+            ) : null}
           </header>
         </div>
 

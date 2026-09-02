@@ -95,6 +95,99 @@ test("repairs an exact legacy PS5 match and exposes it as owned", async () => {
   }
 });
 
+test("repairs a legacy regional override without changing its collection date", async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), "region-atlas-collection-"));
+  const env: EnvironmentSnapshot = {
+    APP_DATA_DIR: process.env.APP_DATA_DIR,
+    VERCEL: process.env.VERCEL,
+    BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
+    BLOB_STORE_ID: process.env.BLOB_STORE_ID,
+  };
+  process.env.APP_DATA_DIR = directory;
+  delete process.env.VERCEL;
+  delete process.env.BLOB_READ_WRITE_TOKEN;
+  delete process.env.BLOB_STORE_ID;
+
+  try {
+    const source = getCatalogGame("ps2-usa-mega-man-anniversary-collection");
+    assert.ok(source);
+    const addedAt = "2026-06-13T16:36:23.422Z";
+    const legacy = {
+      ...catalogGameToCollectionItem(source, []),
+      id: "mega-man-anniversary-collection",
+      catalogId: null,
+      catalogMatched: false,
+      title: "Mega Man Anniversary Collection",
+      region: "PAL España",
+      addedAt,
+    };
+    const saved = await saveUserCollectionItems("legacy-regional-owner", [legacy], {
+      source: "collection.csv",
+    });
+    assert.ok(!("error" in saved));
+
+    const repaired = await readUserCollection("legacy-regional-owner");
+    assert.equal(repaired.items[0]?.catalogId, source.id);
+    assert.equal(repaired.items[0]?.catalogMatched, true);
+    assert.equal(repaired.items[0]?.region, "USA");
+    assert.equal(repaired.items[0]?.addedAt, addedAt);
+  } finally {
+    restoreEnvironment(env);
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("keeps duplicate legacy copies while linking both to one catalog record", async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), "region-atlas-collection-"));
+  const env: EnvironmentSnapshot = {
+    APP_DATA_DIR: process.env.APP_DATA_DIR,
+    VERCEL: process.env.VERCEL,
+    BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
+    BLOB_STORE_ID: process.env.BLOB_STORE_ID,
+  };
+  process.env.APP_DATA_DIR = directory;
+  delete process.env.VERCEL;
+  delete process.env.BLOB_READ_WRITE_TOKEN;
+  delete process.env.BLOB_STORE_ID;
+
+  try {
+    const source = getCatalogGame("ps3-usa-skylander-s-giants-portal-owners-pack");
+    assert.ok(source);
+    const firstAddedAt = "2026-06-13T16:36:23.379Z";
+    const secondAddedAt = "2026-06-13T16:36:23.764Z";
+    const base = {
+      ...catalogGameToCollectionItem(source, []),
+      catalogId: null,
+      catalogMatched: false,
+      title: "Skylander's Giants Portal Owners Pack",
+      region: "PAL España",
+    };
+    const saved = await saveUserCollectionItems(
+      "legacy-duplicate-owner",
+      [
+        { ...base, id: "legacy-skylanders-1", addedAt: firstAddedAt },
+        { ...base, id: "legacy-skylanders-2", addedAt: secondAddedAt },
+      ],
+      { source: "collection.csv" },
+    );
+    assert.ok(!("error" in saved));
+
+    const repaired = await readUserCollection("legacy-duplicate-owner");
+    assert.equal(repaired.items.length, 2);
+    assert.deepEqual(
+      repaired.items.map((item) => item.catalogId),
+      [source.id, source.id],
+    );
+    assert.deepEqual(
+      repaired.items.map((item) => item.addedAt),
+      [firstAddedAt, secondAddedAt],
+    );
+  } finally {
+    restoreEnvironment(env);
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test("migrates the former unknown state to complete without changing explicit states", async () => {
   const directory = await mkdtemp(path.join(os.tmpdir(), "region-atlas-collection-"));
   const env: EnvironmentSnapshot = {
