@@ -15,6 +15,7 @@ from import_pricecharting_software_list import (
     LiveRow,
     NEVER_PROMOTE_PC_IDS,
     PC_ID_ALIASES,
+    REGION_SPECIFIC_SKIP_PC_IDS,
     SKIP_PC_IDS,
     SKIP_PC_PRICE_TARGETS,
     SourceRow,
@@ -28,11 +29,15 @@ from import_pricecharting_software_list import (
     save_clean_cover,
     apply_usd_condition_prices,
 )
-from collectors.pc_region_paths import PAL_PC_CONSOLE
+from collectors.pc_region_paths import JP_PC_CONSOLE, PAL_PC_CONSOLE
 
 
 def test_psvita_pal_uses_live_pricecharting_console_slug() -> None:
     assert PAL_PC_CONSOLE["psvita"] == "pal-playstation-vita"
+
+
+def test_neogeo_cd_japan_uses_its_regional_pricecharting_console_slug() -> None:
+    assert JP_PC_CONSOLE["neogeocd"] == "jp-neo-geo-cd"
 
 
 def test_switch2_pal_eu_aliases_reuse_reviewed_spanish_records() -> None:
@@ -104,6 +109,31 @@ def test_neogeo_cd_western_aliases_reuse_published_records() -> None:
         39729: "neogeocd-usa-top-hunter-roddy-cathy",
     }
     assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
+
+
+def test_neogeo_cd_japanese_aliases_keep_commercial_regions_separate() -> None:
+    expected = {
+        5403329: "neogeocd-japon-super-baseball-2020",
+        12364331: "neogeocd-japon-ryuuko-no-ken",
+        5769143: "neogeocd-japon-art-fighting-ryuuko-no-ken-gaiden",
+        12364330: "neogeocd-japon-garou-densetsu-shukumei-no-tatakai",
+        5732855: "neogeocd-japon-king-fighters-98-dream-match-never-ends",
+        3697187: "neogeocd-japon-bakumatsu-roman-gekka-no-kenshi",
+        2736624: "neogeocd-japon-samurai-spirits-zankurou-musouken",
+        11212133: "neogeocd-japon-tokuten-oh-3-eikoue-no-michi",
+        5166918: "neogeocd-japon-oshidashi-zintrick",
+    }
+    assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
+    assert (
+        "neogeocd",
+        "Japonesa",
+        185710,
+    ) in REGION_SPECIFIC_SKIP_PC_IDS
+    assert (
+        "neogeocd",
+        "Japonesa",
+        4780114,
+    ) in REGION_SPECIFIC_SKIP_PC_IDS
 
 
 def test_source_parser_preserves_an_empty_leading_price_column() -> None:

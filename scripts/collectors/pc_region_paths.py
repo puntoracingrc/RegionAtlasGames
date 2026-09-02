@@ -90,7 +90,7 @@ JP_PC_CONSOLE: dict[str, str] = {
     "dreamcast": "jp-sega-dreamcast",
     "gamegear": "jp-sega-game-gear",
     "neogeo": "neo-geo-aes",
-    "neogeocd": "neo-geo-cd",
+    "neogeocd": "jp-neo-geo-cd",
     "neogeopocket": "neo-geo-pocket-color",
     "ps1": "jp-playstation",
     "ps2": "jp-playstation-2",
