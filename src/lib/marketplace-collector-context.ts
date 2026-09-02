@@ -20,6 +20,8 @@ export type MarketplaceCollectorContext = {
   manualExpected: boolean | null;
   approvedRegionSignals: string[];
   referenceImageUrls: string[];
+  rejectedReasonCodes: string[];
+  rejectedReferenceImageUrls: string[];
 };
 
 async function loadSnapshot(): Promise<CollectorLearningSnapshot | null> {
@@ -61,12 +63,15 @@ export async function getMarketplaceCollectorContext(
       manualExpected: null,
       approvedRegionSignals: [],
       referenceImageUrls: [],
+      rejectedReasonCodes: [],
+      rejectedReferenceImageUrls: [],
     };
   }
 
   const matchingExamples = game.approvedExamples.filter(
     (example) => !example.region || example.region === region,
   );
+  const rejectedExamples = game.rejectedExamples ?? [];
   return {
     originalContentsExpected: game.originalContentsExpected ?? [],
     manualExpected: typeof game.manualExpected === "boolean" ? game.manualExpected : null,
@@ -75,6 +80,12 @@ export async function getMarketplaceCollectorContext(
     )].slice(0, 12),
     referenceImageUrls: [...new Set(
       matchingExamples.flatMap((example) => example.imageUrls),
+    )].filter((url) => /^https:\/\//i.test(url)).slice(0, 2),
+    rejectedReasonCodes: [...new Set(
+      rejectedExamples.map((example) => example.reasonCode),
+    )].slice(0, 6),
+    rejectedReferenceImageUrls: [...new Set(
+      rejectedExamples.flatMap((example) => example.imageUrls),
     )].filter((url) => /^https:\/\//i.test(url)).slice(0, 2),
   };
 }

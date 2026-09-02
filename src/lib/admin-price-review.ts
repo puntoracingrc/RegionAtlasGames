@@ -3,7 +3,11 @@ import path from "path";
 import { appDataDir } from "./app-data-dir";
 import { canWriteCatalogFiles } from "./admin-auth";
 import { clonePublishedCatalogGameToRegion, mergePublishedCatalogGames, updatePublishedCatalogPrices } from "./admin-catalog-publish";
-import { buildCollectorLearningSnapshot } from "./collector-learning";
+import {
+  buildCollectorLearningSnapshot,
+  PRICE_REVIEW_REJECT_REASON_CODES,
+  type PriceReviewRejectReason,
+} from "./collector-learning";
 import { priceWorkerPublicBaseUrl } from "./admin-price-collect";
 import { getCoverSrc } from "./cover-url";
 import { todoConsolasListingMetadata } from "./todoconsolas-listing";
@@ -106,6 +110,7 @@ export type PriceReviewItem = {
     region?: string | null;
     condition?: PriceReviewCondition | string | null;
     note?: string | null;
+    reasonCode?: PriceReviewRejectReason | null;
     originalContents?: OriginalGameContentKey[] | null;
   };
 };
@@ -142,7 +147,7 @@ export function priceReviewCatalogPreview(item: PriceReviewItem): NonNullable<Pr
   return null;
 }
 
-type PriceReviewQueue = {
+export type PriceReviewQueue = {
   schemaVersion: number;
   updatedAt: string;
   items: PriceReviewItem[];
@@ -164,6 +169,7 @@ export type PriceReviewDecisionInput = {
   region?: string;
   condition?: PriceReviewCondition;
   note?: string;
+  reasonCode?: PriceReviewRejectReason;
   originalContents?: OriginalGameContentKey[];
 };
 
@@ -193,6 +199,13 @@ export type PriceReviewPcImageJobInput = Pick<
   "platformSlug" | "source" | "query" | "triageBucket"
 > & {
   mediaLimit?: number;
+};
+
+export type PriceReviewCloseUnresolvedInput = Pick<
+  PriceReviewAutoRetroplayzoneInput,
+  "platformSlug" | "source" | "query" | "triageBucket"
+> & {
+  confirmation?: string;
 };
 
 export type PriceReviewTriageView = {
@@ -1001,6 +1014,63 @@ function itemMatchesAutoReviewInput(item: PriceReviewItem, input: PriceReviewAut
   ].filter(Boolean).join(" ")).includes(query);
 }
 
+export function closeUnresolvedPriceReviewQueue(
+  queue: PriceReviewQueue,
+  input: PriceReviewCloseUnresolvedInput,
+  now = new Date().toISOString(),
+): { queue: PriceReviewQueue; closed: number; remaining: number } {
+  const targets = queue.items.filter((item) => itemMatchesAutoReviewInput(item, input));
+  if (!targets.length) {
+    return {
+      queue,
+      closed: 0,
+      remaining: queue.items.filter((item) => item.status === "pending").length,
+    };
+  }
+
+  const targetIds = new Set(targets.map((item) => item.id));
+  const note = "Cerrado al reiniciar la cola: evidencia insuficiente para una decisión fiable.";
+  const nextQueue: PriceReviewQueue = {
+    ...queue,
+    updatedAt: now,
+    items: queue.items.map((item) => {
+      if (!targetIds.has(item.id)) return item;
+      return {
+        ...item,
+        status: "rejected",
+        decidedAt: now,
+        updatedAt: now,
+        decision: {
+          action: "reject",
+          catalogId: item.catalogId || item.candidateCatalogId || null,
+          region: item.detectedRegion || item.targetRegion || null,
+          condition: item.condition || null,
+          reasonCode: "insufficient_evidence",
+          note,
+        },
+      };
+    }),
+    decisions: [
+      ...targets.map((item) => ({
+        id: item.id,
+        at: now,
+        action: "reject",
+        catalogId: item.catalogId || item.candidateCatalogId || null,
+        region: item.detectedRegion || item.targetRegion || null,
+        condition: item.condition || null,
+        reasonCode: "insufficient_evidence",
+        note,
+      })),
+      ...queue.decisions,
+    ].slice(0, MAX_PRICE_REVIEW_DECISIONS),
+  };
+  return {
+    queue: nextQueue,
+    closed: targets.length,
+    remaining: nextQueue.items.filter((item) => item.status === "pending").length,
+  };
+}
+
 function autoReviewLabel(input: PriceReviewAutoRetroplayzoneInput): string {
   const visionLimit = normalizeVisionLimit(input);
   const parts = [
@@ -1182,6 +1252,13 @@ export async function decidePriceReviewItem(
       region: input.region?.trim() || item.targetRegion || item.detectedRegion || null,
       condition: input.condition || item.condition || null,
       note: input.note?.trim() || null,
+      ...(input.action === "reject"
+        ? {
+            reasonCode: PRICE_REVIEW_REJECT_REASON_CODES.includes(input.reasonCode as PriceReviewRejectReason)
+              ? input.reasonCode
+              : undefined,
+          }
+        : {}),
       ...(input.originalContents === undefined
         ? {}
         : { originalContents: normalizeOriginalGameContents(input.originalContents) }),
@@ -1194,6 +1271,35 @@ export async function decidePriceReviewItem(
   ].slice(0, MAX_PRICE_REVIEW_DECISIONS);
   const write = await writeQueue(queue);
   return { ok: true, item: nextItem, workerSynced: write.workerSynced, apply };
+}
+
+export async function closeUnresolvedPriceReviewItems(
+  input: PriceReviewCloseUnresolvedInput,
+): Promise<
+  | { ok: true; closed: number; remaining: number; workerSynced: boolean; workerSyncError?: string }
+  | { error: string }
+> {
+  if (input.confirmation !== "CERRAR PENDIENTES") {
+    return { error: "Confirmación incorrecta." };
+  }
+  const queue = (await readQueueFromWorker()) ?? readQueueFromDisk();
+  const closed = closeUnresolvedPriceReviewQueue(queue, input);
+  if (!closed.closed) {
+    return {
+      ok: true,
+      closed: 0,
+      remaining: closed.remaining,
+      workerSynced: true,
+    };
+  }
+  const write = await writeQueue(closed.queue);
+  return {
+    ok: true,
+    closed: closed.closed,
+    remaining: closed.remaining,
+    workerSynced: write.workerSynced,
+    ...(write.error ? { workerSyncError: write.error } : {}),
+  };
 }
 
 export async function clonePriceReviewCatalogRegion(

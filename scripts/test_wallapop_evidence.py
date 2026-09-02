@@ -22,7 +22,9 @@ from collectors.region_inference import detect_listing_region, regions_match  # 
 from collectors.listing_recency import is_recent_listing  # noqa: E402
 from collectors.regional_variant_routing import strict_regions_match  # noqa: E402
 from collectors.regional_packaging import (  # noqa: E402
+    infer_region_from_visual_observations,
     normalize_regional_packaging,
+    normalize_visual_observations,
     regional_packaging_prompt,
 )
 from collectors.wallapop_client import parse_item_detail_html  # noqa: E402
@@ -553,7 +555,7 @@ def test_text_ai_is_a_hint_not_physical_region_proof() -> None:
     assert passes_listing_ai(uncertain_game_hint, catalog_region="PAL España")
 
 
-def test_learning_only_from_accepted_reviews() -> None:
+def test_learning_uses_accepted_and_safe_rejected_reviews() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         queue_file = Path(tmp) / "price-review-queue.json"
         queue_file.write_text(
@@ -581,6 +583,30 @@ def test_learning_only_from_accepted_reviews() -> None:
                                 "regionEvidence": ["cover_spain", "cover_vision"],
                             },
                         },
+                        {
+                            "status": "rejected",
+                            "catalogId": "ps4-game",
+                            "decidedAt": "2026-08-30T09:00:00Z",
+                            "decision": {
+                                "action": "reject",
+                                "catalogId": "ps4-game",
+                                "reasonCode": "wrong_region",
+                            },
+                            "evidence": {
+                                "imageUrls": ["https://cdn.example/usa.jpg"],
+                                "regionEvidence": ["cover_usa"],
+                            },
+                        },
+                        {
+                            "status": "rejected",
+                            "catalogId": "ps4-game",
+                            "decision": {
+                                "action": "reject",
+                                "catalogId": "ps4-game",
+                                "reasonCode": "duplicate",
+                            },
+                            "evidence": {"imageUrls": ["https://cdn.example/duplicate.jpg"]},
+                        },
                     ]
                 }
             ),
@@ -600,6 +626,9 @@ def test_learning_only_from_accepted_reviews() -> None:
         assert_equal(len(examples), 1, "solo aprende de decisiones aceptadas")
         assert_equal(examples[0]["region"], "PAL España", "región aprendida")
         assert_equal(len(examples[0]["imageUrls"]), 2, "referencias visuales aprendidas")
+        rejected = profile["rejectedExamples"]
+        assert_equal(len(rejected), 1, "solo aprende de descartes visuales útiles")
+        assert_equal(rejected[0]["reasonCode"], "wrong_region", "motivo negativo aprendido")
 
 
 def test_content_profile_only_learns_from_strong_accepted_evidence() -> None:
@@ -733,6 +762,40 @@ def test_regional_packaging_becomes_reusable_engine_evidence() -> None:
     assert "PAL Europa: clasificación PEGI en la portada; portada y contraportada en inglés y francés" in prompt
 
 
+def test_structured_visual_evidence_distinguishes_rating_and_country() -> None:
+    observations = normalize_visual_observations(
+        [
+            {"imageIndex": 1, "role": "front", "ratingSystems": ["PEGI"]},
+            {
+                "imageIndex": 2,
+                "role": "back",
+                "languages": ["es", "pt"],
+                "productCodes": ["CUSA-00000/ESP"],
+                "barcodes": ["8 412345 678901"],
+            },
+        ]
+    )
+    region, evidence = infer_region_from_visual_observations(observations)
+    assert_equal(region, "PAL España", "contraportada y sufijo españoles")
+    assert "cover_spain" in evidence
+    assert_equal(observations[1]["barcodes"], ["8412345678901"], "EAN normalizado")
+
+    pegi_only_region, _ = infer_region_from_visual_observations(
+        [{"imageIndex": 1, "role": "front", "ratingSystems": ["PEGI"]}]
+    )
+    assert_equal(pegi_only_region, "PAL Europa", "PEGI no se convierte en España")
+
+    cusa_only_region, _ = infer_region_from_visual_observations(
+        [{"imageIndex": 1, "role": "front", "productCodes": ["CUSA-12345"]}]
+    )
+    assert_equal(cusa_only_region, None, "CUSA no demuestra USA")
+
+    esrb_region, _ = infer_region_from_visual_observations(
+        [{"imageIndex": 1, "role": "front", "ratingSystems": ["ESRB"]}]
+    )
+    assert_equal(esrb_region, "USA", "ESRB identifica USA")
+
+
 def test_verified_packaging_rules_for_current_wallapop_reviews() -> None:
     catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
     by_id = {str(game.get("id") or ""): game for game in catalog}
@@ -767,11 +830,12 @@ def main() -> None:
     test_exact_id_deduplication_only()
     test_routes_a_found_region_to_its_catalog_variant()
     test_text_ai_is_a_hint_not_physical_region_proof()
-    test_learning_only_from_accepted_reviews()
+    test_learning_uses_accepted_and_safe_rejected_reviews()
     test_content_profile_only_learns_from_strong_accepted_evidence()
     test_manual_expectation_respects_console_generation()
     test_original_contents_are_learned_from_accepted_review()
     test_regional_packaging_becomes_reusable_engine_evidence()
+    test_structured_visual_evidence_distinguishes_rating_and_country()
     test_verified_packaging_rules_for_current_wallapop_reviews()
     print("OK Wallapop evidence v3")
 

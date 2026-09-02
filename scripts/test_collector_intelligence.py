@@ -72,8 +72,37 @@ def main() -> None:
                 "status": "rejected",
                 "source": "wallapop",
                 "catalogId": catalog_id,
-                "evidence": {"searchQuery": "wrong query"},
-                "decision": {"action": "reject", "catalogId": catalog_id},
+                "evidence": {
+                    "searchQuery": "wrong query",
+                    "imageUrls": ["https://cdn.example.test/wrong-region.jpg"],
+                    "coverVision": {
+                        "observations": [
+                            {
+                                "imageIndex": 2,
+                                "role": "back",
+                                "ratingSystems": ["ESRB"],
+                                "languages": ["en"],
+                            }
+                        ]
+                    },
+                },
+                "decision": {
+                    "action": "reject",
+                    "catalogId": catalog_id,
+                    "reasonCode": "wrong_region",
+                },
+            },
+            {
+                "id": "duplicate",
+                "status": "rejected",
+                "source": "wallapop",
+                "catalogId": catalog_id,
+                "evidence": {"imageUrls": ["https://cdn.example.test/valid-duplicate.jpg"]},
+                "decision": {
+                    "action": "reject",
+                    "catalogId": catalog_id,
+                    "reasonCode": "duplicate",
+                },
             },
         ]
     }
@@ -86,6 +115,12 @@ def main() -> None:
     assert "private seller description" not in serialized
     assert "private-listing" not in serialized
     assert "wrong query" not in serialized
+    assert "valid-duplicate.jpg" not in serialized
+    assert snapshot["games"][catalog_id]["rejectedExamples"][0]["reasonCode"] == "wrong_region"
+    assert snapshot["rejectionSummary"]["wallapop"] == {
+        "wrong_region": 1,
+        "duplicate": 1,
+    }
 
     with tempfile.TemporaryDirectory(prefix="collector-learning-") as temp_dir:
         learning_file = Path(temp_dir) / "collector-learning.json"
@@ -124,6 +159,7 @@ def main() -> None:
             assert content["manualExpectationSource"] == "approved_collector_memory"
             profile = game_region_profile(catalog_id)
             assert profile and profile["approvedExamples"][0]["region"] == "PAL España"
+            assert profile["rejectedExamples"][0]["reasonCode"] == "wrong_region"
 
             row = apply_collector_game_context({"catalogId": catalog_id}, game, "ebay-es")
             assert row["manualExpected"] is False

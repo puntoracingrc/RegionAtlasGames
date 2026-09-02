@@ -196,6 +196,8 @@
     "manual_pal": "Manual PAL multilingüe",
     "sku_regional": "SKU / código regional en soporte",
     "barcode_regional": "Código de barras regional",
+    "back_cover_language": "Idioma visible en contraportada o manual",
+    "distributor_regional": "Distribuidor territorial visible",
     "seller_states_region": "Vendedor indica región en texto",
     "seller_states_physical_region": "Vendedor indica explícitamente la edición física o el idioma del embalaje",
     "listing_title_region": "Región explícita en título",

@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 
 from auto_price_review_vision import (
+    apply_vision_to_item,
     canonical_product_url,
     capture_todoconsolas_category_images,
     extract_images_from_html,
@@ -72,6 +73,46 @@ def main() -> None:
     ) == [f"https://cdn.example/{index}.jpg" for index in range(1, 5)]
     assert map_condition("desprecintado") == "complete"
     assert map_region("PAL UK/ENG") == "PAL UK/ENG"
+
+    pegi_only = {"status": "pending", "condition": "unknown", "evidence": {}}
+    pegi_outcome = apply_vision_to_item(
+        pegi_only,
+        {
+            "isTargetGame": True,
+            "listingRegion": "PAL España",
+            "condition": "complete",
+            "confidence": 0.95,
+            "evidence": ["cover_spain"],
+            "observations": [
+                {"imageIndex": 1, "role": "front", "ratingSystems": ["PEGI"]}
+            ],
+        },
+        ["https://cdn.example/front.jpg"],
+        {"assumedRegion": "PAL España"},
+    )
+    assert pegi_outcome == "conflict"
+    assert pegi_only["evidence"]["coverVision"]["region"] == "PAL Europa"
+
+    spanish_back = {"status": "pending", "condition": "unknown", "evidence": {}}
+    spanish_outcome = apply_vision_to_item(
+        spanish_back,
+        {
+            "isTargetGame": True,
+            "listingRegion": "PAL España",
+            "condition": "complete",
+            "confidence": 0.95,
+            "evidence": ["cover_spain"],
+            "observations": [
+                {"imageIndex": 1, "role": "front", "ratingSystems": ["PEGI"]},
+                {"imageIndex": 2, "role": "back", "languages": ["es", "pt"]},
+            ],
+        },
+        ["https://cdn.example/front.jpg", "https://cdn.example/back.jpg"],
+        {"assumedRegion": "PAL España"},
+    )
+    assert spanish_outcome == "updated"
+    assert spanish_back["detectedRegion"] == "PAL España"
+    assert "back_cover_language" in spanish_back["evidence"]["regionEvidence"]
     print("OK price review images")
 
 

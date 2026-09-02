@@ -1,4 +1,4 @@
-"""Memoria visual por ficha basada solo en decisiones ya aceptadas."""
+"""Memoria visual por ficha basada en decisiones humanas aceptadas y rechazadas."""
 
 from __future__ import annotations
 
@@ -9,7 +9,11 @@ from pathlib import Path
 from typing import Any
 
 from collectors.common import ROOT, load_json
-from collectors.collector_intelligence import collector_game_learning
+from collectors.collector_intelligence import (
+    VISUAL_REJECT_REASONS,
+    collector_game_learning,
+    infer_reject_reason,
+)
 
 DEFAULT_QUEUE_FILE = ROOT / "data" / "admin" / "price-review-queue.json"
 
@@ -53,6 +57,51 @@ def _accepted_examples(catalog_id: str) -> list[dict[str, Any]]:
     return sorted(accepted, key=lambda item: item["decidedAt"], reverse=True)[:3]
 
 
+def _rejected_examples(catalog_id: str) -> list[dict[str, Any]]:
+    queue = load_json(_queue_file(), {})
+    items = queue.get("items") if isinstance(queue, dict) else []
+    if not isinstance(items, list):
+        return []
+    rejected: list[dict[str, Any]] = []
+    for item in items:
+        if not isinstance(item, dict) or item.get("status") != "rejected":
+            continue
+        decision = item.get("decision") if isinstance(item.get("decision"), dict) else {}
+        decided_catalog_id = str(
+            decision.get("catalogId")
+            or item.get("catalogId")
+            or item.get("candidateCatalogId")
+            or ""
+        )
+        if decided_catalog_id != catalog_id:
+            continue
+        reason_code = infer_reject_reason(item, decision)
+        if reason_code not in VISUAL_REJECT_REASONS:
+            continue
+        evidence = item.get("evidence") if isinstance(item.get("evidence"), dict) else {}
+        image_urls = [
+            str(url)
+            for url in [evidence.get("imageUrl"), *(evidence.get("imageUrls") or [])]
+            if str(url or "").startswith("https://")
+        ]
+        image_urls = list(dict.fromkeys(image_urls))[:4]
+        if not image_urls:
+            continue
+        rejected.append(
+            {
+                "reasonCode": reason_code,
+                "detectedRegion": str(item.get("detectedRegion") or ""),
+                "regionEvidence": [
+                    str(value) for value in (evidence.get("regionEvidence") or []) if value
+                ],
+                "note": str(decision.get("note") or "")[:500],
+                "imageUrls": image_urls,
+                "decidedAt": str(item.get("decidedAt") or item.get("updatedAt") or ""),
+            }
+        )
+    return sorted(rejected, key=lambda item: item["decidedAt"], reverse=True)[:3]
+
+
 def game_region_profile(catalog_id: str | None) -> dict[str, Any] | None:
     clean_id = str(catalog_id or "").strip()
     if not clean_id:
@@ -66,9 +115,21 @@ def game_region_profile(catalog_id: str | None) -> dict[str, Any] | None:
     )
     if not examples:
         examples = _accepted_examples(clean_id)
-    if not examples:
+    shared_rejected = learned.get("rejectedExamples")
+    rejected_examples = (
+        [item for item in shared_rejected if isinstance(item, dict)][:3]
+        if isinstance(shared_rejected, list)
+        else []
+    )
+    if not rejected_examples:
+        rejected_examples = _rejected_examples(clean_id)
+    if not examples and not rejected_examples:
         return None
-    profile = {"catalogId": clean_id, "approvedExamples": examples}
+    profile = {
+        "catalogId": clean_id,
+        "approvedExamples": examples,
+        "rejectedExamples": rejected_examples,
+    }
     profile["fingerprint"] = hashlib.sha1(
         json.dumps(profile, ensure_ascii=False, sort_keys=True).encode("utf-8")
     ).hexdigest()
