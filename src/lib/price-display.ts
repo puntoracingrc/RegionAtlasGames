@@ -53,6 +53,29 @@ export function esPriceDisplayLabel(
   return "unverified";
 }
 
+/** Estado visible del precio: conserva la verificación ES y admite referencias externas orientativas. */
+export function catalogPriceDisplayLabel(
+  game: Pick<
+    CatalogGame | CollectionItem,
+    | "hasEsPrice"
+    | "priceRegionVerified"
+    | "recommendedPrice"
+    | "pcRefPrice"
+    | "estimatedPriceLoose"
+    | "estimatedPriceGameManual"
+    | "estimatedPriceComplete"
+    | "estimatedPriceSealed"
+    | "estimatedPriceNewRetail"
+  >,
+): "verified" | "unverified" | "pending" {
+  const esStatus = esPriceDisplayLabel(game);
+  if (esStatus !== "pending") return esStatus;
+  if (hasAnyConditionEstimate(game) || game.recommendedPrice != null || game.pcRefPrice != null) {
+    return "unverified";
+  }
+  return "pending";
+}
+
 export function formatEsPriceForCard(
   game: Pick<
     CatalogGame | CollectionItem,

@@ -43,6 +43,15 @@ def test_switch2_pal_eu_aliases_reuse_reviewed_spanish_records() -> None:
     assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
 
 
+def test_gameboy_usa_aliases_reuse_existing_regional_records() -> None:
+    expected = {
+        13290: "gameboy-usa-battletoads-ragnaroks-world",
+        3051: "gameboy-usa-star-wars-empire-strikes-back",
+        3139: "gameboy-usa-yoshis-cookie",
+    }
+    assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
+
+
 def sample_game(catalog_id: str, title: str) -> dict:
     return {
         "id": catalog_id,
@@ -259,6 +268,8 @@ def test_usd_prices_map_to_conditions_and_preserve_existing_reference() -> None:
     catalog = [sample_game("ps5-juego-usa", "Juego USA")]
     catalog[0]["region"] = "USA"
     catalog[0]["pcId"] = 321
+    catalog[0]["regionVerified"] = False
+    catalog[0]["regionEvidence"] = ["legacy_catalog"]
     joined = [
         (
             SourceRow("Juego USA", Decimal("10"), Decimal("20"), Decimal("30")),
@@ -273,6 +284,8 @@ def test_usd_prices_map_to_conditions_and_preserve_existing_reference() -> None:
         pc_region="NTSC USA (referencia)",
         collected_at="2026-09-01T12:00:00+02:00",
         covers_root=None,
+        region_evidence="pricecharting_ntsc_usa_user_list",
+        region_verified=True,
         usd_per_eur=Decimal("1.1590"),
         exchange_rate_date="2026-09-01",
     )
@@ -286,6 +299,11 @@ def test_usd_prices_map_to_conditions_and_preserve_existing_reference() -> None:
     assert game["recommendedPrice"] == 15
     assert game["pcRefPrice"] == 17.26
     assert game["priceSource"] == "manual"
+    assert game["regionVerified"] is True
+    assert game["regionEvidence"] == [
+        "legacy_catalog",
+        "pricecharting_ntsc_usa_user_list",
+    ]
     assert stats["updated"] == 1
 
     _, _, second_stats = merge_catalog(
@@ -296,6 +314,8 @@ def test_usd_prices_map_to_conditions_and_preserve_existing_reference() -> None:
         pc_region="NTSC USA (referencia)",
         collected_at="2026-09-01T12:00:00+02:00",
         covers_root=None,
+        region_evidence="pricecharting_ntsc_usa_user_list",
+        region_verified=True,
         usd_per_eur=Decimal("1.1590"),
         exchange_rate_date="2026-09-01",
     )

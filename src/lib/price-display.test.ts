@@ -6,7 +6,11 @@ import {
   normalizeCatalogPriceTypeForPlatform,
   sortCatalogListGames,
 } from "./catalog-filters";
-import { catalogConditionPriceRows, formatEsPriceForCard } from "./price-display";
+import {
+  catalogConditionPriceRows,
+  catalogPriceDisplayLabel,
+  formatEsPriceForCard,
+} from "./price-display";
 import type { CatalogListGame } from "./types";
 
 const eur = (value: number | null) => (value == null ? "—" : `${value.toFixed(2)} €`);
@@ -52,6 +56,21 @@ test("keeps pending when no Spanish market price exists", () => {
       eur,
     ),
     "Pendiente",
+  );
+});
+
+test("shows PriceCharting condition estimates as orientative outside Spain", () => {
+  assert.equal(
+    catalogPriceDisplayLabel({
+      hasEsPrice: false,
+      priceRegionVerified: false,
+      recommendedPrice: 56.36,
+      pcRefPrice: 56.36,
+      estimatedPriceSealed: 129.42,
+      estimatedPriceComplete: 56.36,
+      estimatedPriceLoose: 12.94,
+    }),
+    "unverified",
   );
 });
 
