@@ -57,6 +57,22 @@ SKIP_PC_PRICE_TARGETS: dict[int, str] = {
     4369282: "neogeo-fuuun-mokushiroku-kakutou-sousei",
 }
 
+# Filas cuya categoría de PriceCharting no coincide con la familia comercial
+# de la carátula. Se omiten solo en la región incorrecta para poder procesarlas
+# aparte sin contaminar precios entre variantes.
+REGION_SPECIFIC_SKIP_PC_IDS: dict[tuple[str, str, int], str] = {
+    (
+        "neogeocd",
+        "Japonesa",
+        185710,
+    ): "edición física NCI con carátula occidental; se importa en Occidental",
+    (
+        "neogeocd",
+        "Japonesa",
+        4780114,
+    ): "carátula occidental ya representada por Voltage Fighter Gowcaizer",
+}
+
 # La Day One usa la misma portada frontal que la edición estándar y la ficha de
 # origen no aporta imagen. Se reutiliza la carátula estándar y se vuelve a
 # rasterizar con el mismo proceso de limpieza que el resto.
@@ -178,6 +194,38 @@ PC_ID_ALIASES: dict[int, str] = {
     39700: "neogeocd-usa-king-fighters-99-millennium-battle",
     39727: "neogeocd-usa-super-sidekicks-3-next-glory",
     39729: "neogeocd-usa-top-hunter-roddy-cathy",
+    5403329: "neogeocd-japon-super-baseball-2020",
+    12364331: "neogeocd-japon-ryuuko-no-ken",
+    8051582: "neogeocd-japon-ryuuko-no-ken-2",
+    5769143: "neogeocd-japon-art-fighting-ryuuko-no-ken-gaiden",
+    5710915: "neogeocd-japon-choujin-gakuen-gowcaizer",
+    5403319: "neogeocd-japon-garou-densetsu-2-arata-naru-tatakai",
+    3177730: "neogeocd-japon-garou-densetsu-3-haruka-naru-tatakai",
+    12364330: "neogeocd-japon-garou-densetsu-shukumei-no-tatakai",
+    4034099: "neogeocd-japon-garou-densetsu-special",
+    3112659: "neogeocd-japon-flying-power-disk",
+    6055038: "neogeocd-japon-futsal-5-5-mini-soccer",
+    11212134: "neogeocd-japon-galaxy-fight-universal-warriors",
+    3654411: "neogeocd-japon-tsukai-gan-gan-koshinkyoku",
+    5732855: "neogeocd-japon-king-fighters-98-dream-match-never-ends",
+    3457538: "neogeocd-japon-king-fighters-98-dream-match-never-ends-limited-edition",
+    5640067: "neogeocd-japon-king-monsters-2-next-thing",
+    3697187: "neogeocd-japon-bakumatsu-roman-gekka-no-kenshi",
+    3697188: "neogeocd-japon-bakumatsu-rouman-dai-ni-maku-gekka-no-kenshi",
+    3379537: "neogeocd-japon-jyanshin-densetsu-quest-jongmaster",
+    4034097: "neogeocd-japon-real-bout-garou-densetsu",
+    6643090: "neogeocd-japon-real-bout-garou-densetsu-2",
+    4034098: "neogeocd-japon-real-bout-garou-densetsu-special",
+    2736624: "neogeocd-japon-samurai-spirits-zankurou-musouken",
+    2615435: "neogeocd-japon-shin-samurai-spirits-haohmaru-jigokuhen",
+    3457536: "neogeocd-japon-samurai-spirits-amakusa-kourin",
+    4034096: "neogeocd-japon-shinsetsu-samurai-spirits-bushidouretsuden",
+    3413578: "neogeocd-japon-fuun-mokujiroku",
+    39722: "neogeocd-japon-sengoku-denshou",
+    3413577: "neogeocd-japon-sengoku-denshou-2",
+    11212133: "neogeocd-japon-tokuten-oh-3-eikoue-no-michi",
+    11747549: "neogeocd-japon-top-hunter",
+    5166918: "neogeocd-japon-oshidashi-zintrick",
 }
 
 # Fichas técnicas importadas que duplican una ficha española ya usada por la
@@ -783,6 +831,18 @@ def merge_catalog(
                 "new": int(source.new_usd is not None),
             }
         )
+        regional_skip_reason = REGION_SPECIFIC_SKIP_PC_IDS.get(
+            (platform, region, live.pc_id)
+        )
+        if regional_skip_reason:
+            skipped.append(
+                {
+                    "pcId": live.pc_id,
+                    "title": source.title,
+                    "reason": regional_skip_reason,
+                }
+            )
+            continue
         if live.pc_id in SKIP_PC_IDS:
             skipped_item: dict[str, Any] = {
                 "pcId": live.pc_id,
@@ -1273,6 +1333,11 @@ def main() -> None:
     )
     parser.add_argument("--exchange-rate-date")
     parser.add_argument("--price-source-label", default="PriceCharting USA")
+    parser.add_argument(
+        "--only-title",
+        action="append",
+        help="Procesa solo el título exacto indicado; puede repetirse",
+    )
     parser.add_argument("--catalog", type=Path, default=CATALOG_FILE)
     parser.add_argument("--meta", type=Path, default=META_FILE)
     parser.add_argument("--live-cache", type=Path)
@@ -1289,6 +1354,15 @@ def main() -> None:
         parser.error("--usd-per-eur y --exchange-rate-date deben usarse juntos")
 
     source_rows = parse_source_rows(args.input)
+    if args.only_title:
+        selected_titles = set(args.only_title)
+        source_rows = [row for row in source_rows if row.title in selected_titles]
+        missing_titles = selected_titles - {row.title for row in source_rows}
+        if missing_titles:
+            parser.error(
+                "No se encontraron los títulos solicitados: "
+                + ", ".join(sorted(missing_titles))
+            )
     print(f"Lista: {len(source_rows)} filas")
     live_rows = load_live_rows(args.live_cache, args.pc_console, args.release_date)
     live_rows = apply_cover_fallbacks(live_rows)
