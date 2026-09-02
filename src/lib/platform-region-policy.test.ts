@@ -9,6 +9,10 @@ test("Neo Geo AES exposes only Western and Japanese region families", () => {
   assert.equal(getRegionDisplay("Japonesa").flagCode, "JP");
 });
 
+test("Neo Geo CD exposes only Western and Japanese region families", () => {
+  assert.deepEqual(publicRegionLabelsForPlatform("neogeocd"), ["Occidental", "Japonesa"]);
+});
+
 test("NEOGEO AES+ keeps its international and Japanese reissues separate", () => {
   assert.deepEqual(publicRegionLabelsForPlatform("neogeo-aes-plus"), [
     "Internacional",

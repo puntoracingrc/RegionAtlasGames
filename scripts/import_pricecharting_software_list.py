@@ -171,6 +171,13 @@ PC_ID_ALIASES: dict[int, str] = {
     4917269: "neogeo-tokutenou-3-eikou-e-no-chousen",
     185804: "neogeo-tokutenou-2-real-fight-football",
     185811: "neogeo-chojin-gakuen-gowcaizer",
+    39675: "neogeocd-usa-super-baseball-2020",
+    39688: "neogeocd-usa-fatal-fury-battle-fury",
+    39690: "neogeocd-usa-fatal-fury-3-road-final-victory",
+    63066: "neogeocd-usa-galaxy-fight-universal-warriors",
+    39700: "neogeocd-usa-king-fighters-99-millennium-battle",
+    39727: "neogeocd-usa-super-sidekicks-3-next-glory",
+    39729: "neogeocd-usa-top-hunter-roddy-cathy",
 }
 
 # Fichas técnicas importadas que duplican una ficha española ya usada por la

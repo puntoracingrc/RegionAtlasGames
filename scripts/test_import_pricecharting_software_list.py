@@ -24,6 +24,7 @@ from import_pricecharting_software_list import (
     download_covers,
     merge_catalog,
     normalize_title,
+    parse_source_rows,
     save_clean_cover,
     apply_usd_condition_prices,
 )
@@ -90,6 +91,39 @@ def test_neogeo_japanese_aliases_reuse_romanized_records() -> None:
     assert SKIP_PC_PRICE_TARGETS[4369282] == (
         "neogeo-fuuun-mokushiroku-kakutou-sousei"
     )
+
+
+def test_neogeo_cd_western_aliases_reuse_published_records() -> None:
+    expected = {
+        39675: "neogeocd-usa-super-baseball-2020",
+        39688: "neogeocd-usa-fatal-fury-battle-fury",
+        39690: "neogeocd-usa-fatal-fury-3-road-final-victory",
+        63066: "neogeocd-usa-galaxy-fight-universal-warriors",
+        39700: "neogeocd-usa-king-fighters-99-millennium-battle",
+        39727: "neogeocd-usa-super-sidekicks-3-next-glory",
+        39729: "neogeocd-usa-top-hunter-roddy-cathy",
+    }
+    assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
+
+
+def test_source_parser_preserves_an_empty_leading_price_column() -> None:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        source = Path(temp_dir) / "prices.txt"
+        source.write_text(
+            "\t2020 Super Baseball\t\t$58.89\t$119.28\t+ Collection\n",
+            encoding="utf-8",
+        )
+
+        rows = parse_source_rows(source)
+
+    assert rows == [
+        SourceRow(
+            title="2020 Super Baseball",
+            loose_usd=None,
+            cib_usd=Decimal("58.89"),
+            new_usd=Decimal("119.28"),
+        )
+    ]
 
 
 def test_japanese_price_source_replaces_generic_usa_label() -> None:
@@ -598,6 +632,8 @@ if __name__ == "__main__":
     test_gameboy_usa_aliases_reuse_existing_regional_records()
     test_neogeo_western_aliases_reuse_published_records()
     test_neogeo_japanese_aliases_reuse_romanized_records()
+    test_neogeo_cd_western_aliases_reuse_published_records()
+    test_source_parser_preserves_an_empty_leading_price_column()
     test_japanese_price_source_replaces_generic_usa_label()
     test_skipped_japanese_duplicate_supplies_prices_to_canonical_record()
     test_merge_preserves_prices_and_skips_technical_duplicate()

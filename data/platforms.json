@@ -177,9 +177,9 @@
     "shortName": "Neo Geo CD",
     "manufacturer": "snk",
     "status": "closed",
-    "estimatedCatalogSize": 161,
+    "estimatedCatalogSize": 180,
     "sortOrder": 17,
-    "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
+    "description": "Catálogo físico organizado en sus dos familias comerciales: Occidental y Japonesa."
   },
   {
     "slug": "neogeopocket",
