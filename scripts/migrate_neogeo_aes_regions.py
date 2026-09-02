@@ -18,6 +18,8 @@ REGION_MAP = {
 # Son la misma edición occidental con títulos o slugs heredados distintos. La
 # ficha de destino conserva la URL pública y la información más completa.
 CATALOG_ID_ALIASES = {
+    "neogeo-bakatono-sama-mahjong-manyuki": "neogeo-mahjong-bakatonosama-manyuki",
+    "neogeo-japonesa-savage-reign": "neogeo-fuuun-mokushiroku-kakutou-sousei",
     "neogeo-blue%27s-journey": "neogeo-blues-journey",
     "neogeo-eightman": "neogeo-usa-eight-man",
     "neogeo-fatal-fury-king-fighters": "neogeo-fatal-fury",

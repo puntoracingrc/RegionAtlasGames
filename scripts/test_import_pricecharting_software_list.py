@@ -15,6 +15,7 @@ from import_pricecharting_software_list import (
     LiveRow,
     NEVER_PROMOTE_PC_IDS,
     PC_ID_ALIASES,
+    SKIP_PC_IDS,
     SourceRow,
     clean_source_title,
     cover_filename,
@@ -23,6 +24,7 @@ from import_pricecharting_software_list import (
     merge_catalog,
     normalize_title,
     save_clean_cover,
+    apply_usd_condition_prices,
 )
 from collectors.pc_region_paths import PAL_PC_CONSOLE
 
@@ -67,6 +69,48 @@ def test_neogeo_western_aliases_reuse_published_records() -> None:
     }
     assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
     assert set(NEVER_PROMOTE_PC_IDS) == {6327097, 6682447}
+
+
+def test_neogeo_japanese_aliases_reuse_romanized_records() -> None:
+    expected = {
+        185705: "neogeo-super-baseball-2020",
+        185707: "neogeo-ryuuko-no-ken",
+        185721: "neogeo-garou-densetsu-shukumei-no-tatakai",
+        185723: "neogeo-real-bout-garou-densetsu",
+        185748: (
+            "neogeo-bakumatsu-roman-daini-maku-gekka-no-kenshi-tsuki-ni-saku-hana-chiri-yuku"
+        ),
+        185757: "neogeo-mahjong-bakatonosama-manyuki",
+        185787: "neogeo-samurai-spirits-amakusa-kourin",
+        185794: "neogeo-shock-troopers-2nd-squad",
+    }
+    assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
+    assert {4890449, 185791, 4369282}.issubset(SKIP_PC_IDS)
+
+
+def test_japanese_price_source_replaces_generic_usa_label() -> None:
+    game = {
+        "priceSource": "PriceCharting USA, convertido a EUR con referencia BCE",
+        "priceDataSources": "eBay ES, PriceCharting USA",
+    }
+    source = SourceRow(
+        title="Metal Slug 2",
+        loose_usd=Decimal("341.89"),
+        cib_usd=Decimal("5606.58"),
+        new_usd=Decimal("11213.00"),
+    )
+
+    apply_usd_condition_prices(
+        game,
+        source,
+        usd_per_eur=Decimal("1.1590"),
+        exchange_rate_date="2026-09-01",
+        collected_at="2026-09-02T06:15:00+02:00",
+        price_source_label="PriceCharting Japón",
+    )
+
+    assert game["priceSource"].startswith("PriceCharting Japón,")
+    assert game["priceDataSources"] == "eBay ES, PriceCharting Japón"
 
 
 def sample_game(catalog_id: str, title: str) -> dict:
@@ -471,6 +515,8 @@ if __name__ == "__main__":
     test_switch2_pal_eu_aliases_reuse_reviewed_spanish_records()
     test_gameboy_usa_aliases_reuse_existing_regional_records()
     test_neogeo_western_aliases_reuse_published_records()
+    test_neogeo_japanese_aliases_reuse_romanized_records()
+    test_japanese_price_source_replaces_generic_usa_label()
     test_merge_preserves_prices_and_skips_technical_duplicate()
     test_title_normalization_handles_common_catalog_variants()
     test_distinct_pc_ids_with_equivalent_titles_remain_separate()

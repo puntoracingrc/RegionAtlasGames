@@ -46,6 +46,9 @@ SKIP_PC_IDS: dict[int, str] = {
     12789731: "duplicado técnico de Aggelos II (14218825)",
     6074032: "duplicado técnico de Fight'N Rage (5551873)",
     14033382: "duplicado técnico de Civilization Revolution (47271)",
+    4890449: "duplicado técnico japonés de Samurai Spirits 4 (185787)",
+    185791: "duplicado técnico japonés de Sengoku Denshou 2 (6675926)",
+    4369282: "duplicado técnico japonés de Fu'un Mokishiroku (185730)",
 }
 
 # La Day One usa la misma portada frontal que la edición estándar y la ficha de
@@ -121,6 +124,47 @@ PC_ID_ALIASES: dict[int, str] = {
     67438: "neogeo-samurai-shodown-5-special-samurai-spirits-zero-special",
     72337: "neogeo-svc-chaos-snk-vs-capcom",
     81201: "neogeo-galaxy-fight-universal-warriors",
+    185705: "neogeo-super-baseball-2020",
+    185707: "neogeo-ryuuko-no-ken",
+    142900: "neogeo-ryuuko-no-ken-2",
+    185708: "neogeo-art-fighting-ryuuko-no-ken-gaiden",
+    185719: "neogeo-eight-man",
+    185721: "neogeo-garou-densetsu-shukumei-no-tatakai",
+    142902: "neogeo-garou-densetsu-2-aratanaru-tatakai",
+    185722: "neogeo-garou-densetsu-3-harukanaru-tatakai",
+    185723: "neogeo-real-bout-garou-densetsu",
+    185724: "neogeo-real-bout-garou-densetsu-2-newcomers",
+    185725: "neogeo-real-bout-garou-densetsu-special",
+    185726: "neogeo-garou-densetsu-special",
+    185730: "neogeo-fuuun-mokushiroku-kakutou-sousei",
+    185732: "neogeo-tsukai-gan-gan-koshinkyoku",
+    185737: "neogeo-kabuki-klash-tengai-makyu-shinden",
+    21265: "neogeo-fuun-super-tag-battle",
+    72303: "neogeo-bakumatsu-roman-gekka-no-kenshi",
+    185748: (
+        "neogeo-bakumatsu-roman-daini-maku-gekka-no-kenshi-tsuki-ni-saku-hana-chiri-yuku"
+    ),
+    185753: "neogeo-ashita-no-joe-desentsu-legend-success-joe",
+    185757: "neogeo-mahjong-bakatonosama-manyuki",
+    185758: "neogeo-mahjong-kyou-retsuden-nishi-nihon-hen",
+    185759: "neogeo-mina-san-no-okagesama-desu-dai-sugoroku-taikai",
+    185760: "neogeo-master-syougi-shogi-no-tatsujin",
+    185761: "neogeo-shin-gouketsuji-ichizoku-toukon-matrimelee",
+    185771: "neogeo-neo-geo-cup-98-road-victory",
+    185777: "neogeo-chibi-marukochan-deluxe-quiz",
+    185778: "neogeo-quiz-daisousa-sen",
+    185779: "neogeo-quiz-daisousa-sen-2-quiz-meintantei-neo-geo",
+    185786: "neogeo-samurai-spirits-3-blades-blood",
+    185787: "neogeo-samurai-spirits-amakusa-kourin",
+    185790: "neogeo-sengoku-denshou",
+    185792: "neogeo-sengoku-denshou-2001",
+    185793: "neogeo-ragnagard-shinouken",
+    155364: "neogeo-shin-samurai-spirits-haoumaru-jigokuhen",
+    185794: "neogeo-shock-troopers-2nd-squad",
+    185803: "neogeo-tokutenou-super-sidekicks",
+    4917269: "neogeo-tokutenou-3-eikou-e-no-chousen",
+    185804: "neogeo-tokutenou-2-real-fight-football",
+    185811: "neogeo-chojin-gakuen-gowcaizer",
 }
 
 # Fichas técnicas importadas que duplican una ficha española ya usada por la
@@ -592,6 +636,7 @@ def apply_usd_condition_prices(
     usd_per_eur: Decimal,
     exchange_rate_date: str,
     collected_at: str,
+    price_source_label: str = "PriceCharting USA",
 ) -> bool:
     raw_prices = {
         "priceChartingLooseUsd": decimal_number(source.loose_usd),
@@ -629,16 +674,24 @@ def apply_usd_condition_prices(
             if game.get(key) is None:
                 game[key] = primary
                 changed = True
-        if game.get("priceSource") is None:
-            game["priceSource"] = "PriceCharting USA, convertido a EUR con referencia BCE"
+        current_price_source = str(game.get("priceSource") or "")
+        if not current_price_source or (
+            current_price_source.startswith("PriceCharting ")
+            and "convertido a EUR" in current_price_source
+        ):
+            game["priceSource"] = (
+                f"{price_source_label}, convertido a EUR con referencia BCE"
+            )
             changed = True
         sources = [
             value.strip()
             for value in str(game.get("priceDataSources") or "").split(",")
             if value.strip()
         ]
-        if "PriceCharting USA" not in sources:
-            sources.append("PriceCharting USA")
+        sources = [value for value in sources if not value.startswith("PriceCharting ")]
+        if price_source_label not in sources:
+            sources.append(price_source_label)
+        if game.get("priceDataSources") != ", ".join(sources):
             game["priceDataSources"] = ", ".join(sources)
             changed = True
     return changed
@@ -661,6 +714,7 @@ def merge_catalog(
     museum_region: str | None = None,
     usd_per_eur: Decimal | None = None,
     exchange_rate_date: str | None = None,
+    price_source_label: str = "PriceCharting USA",
     promote_matched_excluded: bool = False,
 ) -> tuple[list[dict[str, Any]], list[CoverTask], dict[str, Any]]:
     id_prefix = id_prefix or platform
@@ -832,6 +886,7 @@ def merge_catalog(
                 usd_per_eur=usd_per_eur,
                 exchange_rate_date=exchange_rate_date,
                 collected_at=collected_at,
+                price_source_label=price_source_label,
             ) or changed
         if existing and changed:
             game["updatedAt"] = collected_at[:10]
@@ -1169,6 +1224,7 @@ def main() -> None:
         help="Tasa de referencia: cuántos USD equivalen a 1 EUR",
     )
     parser.add_argument("--exchange-rate-date")
+    parser.add_argument("--price-source-label", default="PriceCharting USA")
     parser.add_argument("--catalog", type=Path, default=CATALOG_FILE)
     parser.add_argument("--meta", type=Path, default=META_FILE)
     parser.add_argument("--live-cache", type=Path)
@@ -1208,6 +1264,7 @@ def main() -> None:
         museum_region=args.museum_region,
         usd_per_eur=args.usd_per_eur,
         exchange_rate_date=args.exchange_rate_date,
+        price_source_label=args.price_source_label,
         promote_matched_excluded=args.promote_matched_excluded,
     )
     stats["platform"] = args.platform

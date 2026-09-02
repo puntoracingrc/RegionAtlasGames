@@ -56,6 +56,71 @@ def test_migrate_regions_and_retire_aliases() -> None:
     }
 
 
+def test_duplicate_japanese_mahjong_entry_is_consolidated() -> None:
+    catalog = [
+        {
+            "id": "neogeo-bakatono-sama-mahjong-manyuki",
+            "platformSlug": "neogeo",
+            "region": "Japonesa",
+            "listingStatus": "listed",
+            "pcId": 1,
+            "pcPath": "/duplicate",
+            "pcRegion": "legacy",
+        },
+        {
+            "id": "neogeo-mahjong-bakatonosama-manyuki",
+            "platformSlug": "neogeo",
+            "region": "Japonesa",
+            "listingStatus": "listed",
+        },
+    ]
+    aliases: dict[str, str] = {}
+    collection = [{"catalogId": "neogeo-bakatono-sama-mahjong-manyuki"}]
+
+    stats = migrate(catalog, aliases, collection)
+
+    assert catalog[0]["listingStatus"] == "excluded"
+    assert catalog[0]["pcId"] is None
+    assert aliases["neogeo-bakatono-sama-mahjong-manyuki"] == (
+        "neogeo-mahjong-bakatonosama-manyuki"
+    )
+    assert collection[0]["catalogId"] == "neogeo-mahjong-bakatonosama-manyuki"
+    assert stats["retiredDuplicates"] == 1
+    assert stats["relinkedCollectionItems"] == 1
+
+
+def test_duplicate_japanese_savage_reign_entry_is_consolidated() -> None:
+    catalog = [
+        {
+            "id": "neogeo-japonesa-savage-reign",
+            "platformSlug": "neogeo",
+            "region": "Japonesa",
+            "listingStatus": "listed",
+            "pcId": 4369282,
+            "pcPath": "/game/jp-neo-geo-aes/savage-reign",
+            "pcRegion": "JP Neo Geo AES (PriceCharting)",
+        },
+        {
+            "id": "neogeo-fuuun-mokushiroku-kakutou-sousei",
+            "platformSlug": "neogeo",
+            "region": "Japonesa",
+            "listingStatus": "listed",
+        },
+    ]
+    aliases: dict[str, str] = {}
+
+    stats = migrate(catalog, aliases, [])
+
+    assert catalog[0]["listingStatus"] == "excluded"
+    assert catalog[0]["pcId"] is None
+    assert aliases["neogeo-japonesa-savage-reign"] == (
+        "neogeo-fuuun-mokushiroku-kakutou-sousei"
+    )
+    assert stats["retiredDuplicates"] == 1
+
+
 if __name__ == "__main__":
     test_migrate_regions_and_retire_aliases()
+    test_duplicate_japanese_mahjong_entry_is_consolidated()
+    test_duplicate_japanese_savage_reign_entry_is_consolidated()
     print("OK: neogeo_aes_regions")
