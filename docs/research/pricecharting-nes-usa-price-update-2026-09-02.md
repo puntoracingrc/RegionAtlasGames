@@ -1,0 +1,476 @@
+# Actualización de precios NES USA desde PriceCharting
+
+Fecha: `2026-09-02T18:15:00+02:00`
+
+La región se conserva como **USA (NTSC-U)**. Fuente: [listado USA de NES en PriceCharting](https://www.pricecharting.com/console/nes?sort=name).
+
+## Resultado
+
+- Filas de software aportadas: **1180**.
+- Fichas nuevas: **0**.
+- Fichas existentes con coincidencia/actualizadas: **737** / **737**.
+- Fichas ocultas reactivadas: **0**.
+- Accesorios conservados fuera del catálogo público: **0**.
+- Duplicados previos consolidados: **0**.
+- Filas omitidas: **443**.
+- Total final de NES USA: **778**.
+
+No se han creado fichas ni modificado títulos, regiones, rutas o portadas. Solo se actualizan los tres precios de las coincidencias existentes.
+
+Los importes originales se conservan en USD. Para mostrarlos y sumarlos en la web se han convertido a EUR con la referencia documentada de **1 EUR = 1.1590 USD** del **2026-09-01**. La asignación es Loose = Solo juego, CIB = Completo y New = Precintado.
+
+Las equivalencias adicionales solo se han aceptado cuando el nombre abreviado, el subtítulo o la puntuación identificaban el mismo producto. El mapa revisado queda en `data/import-aliases/pricecharting-nes-usa.json`. Se mantienen fuera las referencias sin ficha exacta, especialmente variantes de cartucho, homebrew, repros, bundles, ediciones modernas y material de prueba.
+
+## Resolución
+
+- `normalized_title`: 511
+- `normalized_title_and_slug`: 11
+- `pc_id`: 117
+- `reviewed_alias`: 98
+- `unmatched_existing_catalog`: 443
+
+## Omitidos
+
+- 10-Yard Fight [5 Screw] (`37965`): sin coincidencia inequívoca en el catálogo existente.
+- 1942 [5 Screw] (`37996`): sin coincidencia inequívoca en el catálogo existente.
+- 3D WorldRunner [5 Screw] (`38021`): sin coincidencia inequívoca en el catálogo existente.
+- 8-BIT XMAS 2019 (`8794095`): sin coincidencia inequívoca en el catálogo existente.
+- 8-Bit Xmas 2020 (`6403739`): sin coincidencia inequívoca en el catálogo existente.
+- 8-Bit Xmas 2022 [Homebrew] (`4621203`): sin coincidencia inequívoca en el catálogo existente.
+- 8-Bit Xmas 2023 [Homebrew] (`6134934`): sin coincidencia inequívoca en el catálogo existente.
+- 8Bit Music Power [Collector's Edition] (`3343493`): sin coincidencia inequívoca en el catálogo existente.
+- 8bit Music Power Encore (`7963866`): sin coincidencia inequívoca en el catálogo existente.
+- 8Bit Music Power Encore [Collector's Edition] (`8368187`): sin coincidencia inequívoca en el catálogo existente.
+- 8Bit Music Power Final [Collector's Edition] (`3343494`): sin coincidencia inequívoca en el catálogo existente.
+- 8Bit Music Power Final [Homebrew] (`3001666`): sin coincidencia inequívoca en el catálogo existente.
+- 8Bit Music Power [Homebrew] (`3001664`): sin coincidencia inequívoca en el catálogo existente.
+- A Boy and His Blob Trouble on Blobolonia [Limited Run] (`5407899`): sin coincidencia inequívoca en el catálogo existente.
+- A Boy and His Blob: Trouble on Blobolonia [Limited Run Collector's Edition] (`5769170`): sin coincidencia inequívoca en el catálogo existente.
+- Addams Family (`8455`): sin coincidencia inequívoca en el catálogo existente.
+- Adventure Island (`8464`): sin coincidencia inequívoca en el catálogo existente.
+- Adventure Island 4 [Homebrew] (`2585574`): sin coincidencia inequívoca en el catálogo existente.
+- Airball [Homebrew] (`2585575`): sin coincidencia inequívoca en el catálogo existente.
+- Airball [RetroRoomGames] (`5151410`): sin coincidencia inequívoca en el catálogo existente.
+- Alfonzo's Arctic Adventure (`10353080`): sin coincidencia inequívoca en el catálogo existente.
+- Alfonzo's Arctic Adventure [Homebrew] (`67580`): sin coincidencia inequívoca en el catálogo existente.
+- Alpha Mission [5 Screw] (`38035`): sin coincidencia inequívoca en el catálogo existente.
+- Alwa's Awakening (`3414193`): sin coincidencia inequívoca en el catálogo existente.
+- Amazon's Training Road [Homebrew] (`5528272`): sin coincidencia inequívoca en el catálogo existente.
+- Anamanaguchi: Power Supply 10th Anniversary Cart (`7979593`): sin coincidencia inequívoca en el catálogo existente.
+- Anguna Scourge of the Goblin King [Homebrew] (`2782204`): sin coincidencia inequívoca en el catálogo existente.
+- Arkanoid [5 Screw] (`38015`): sin coincidencia inequívoca en el catálogo existente.
+- Arkanoid [Controller Bundle] (`37957`): sin coincidencia inequívoca en el catálogo existente.
+- Armed for Battle [Homebrew] (`2165015`): sin coincidencia inequívoca en el catálogo existente.
+- Astro Ninja Man DX (`8361231`): sin coincidencia inequívoca en el catálogo existente.
+- Astro Ninja Man DX [Collector's Edition] (`9628672`): sin coincidencia inequívoca en el catálogo existente.
+- Athena [5 Screw] (`38016`): sin coincidencia inequívoca en el catálogo existente.
+- Athletic World [5 Screw] (`38009`): sin coincidencia inequívoca en el catálogo existente.
+- Athletic World [Family Fun Fitness] (`170177`): sin coincidencia inequívoca en el catálogo existente.
+- Bad News Baseball (`12193`): sin coincidencia inequívoca en el catálogo existente.
+- Balloon Fight [5 Screw] (`37983`): sin coincidencia inequívoca en el catálogo existente.
+- Bandai Golf Challenge Pebble Beach (`12195`): sin coincidencia inequívoca en el catálogo existente.
+- Baseball [5 Screw] (`37966`): sin coincidencia inequívoca en el catálogo existente.
+- Basse Def Adventures (`6779173`): sin coincidencia inequívoca en el catálogo existente.
+- Batman The Video Game (`13844`): sin coincidencia inequívoca en el catálogo existente.
+- Battle Kid 2: Mountain of Torment [Homebrew] (`2164948`): sin coincidencia inequívoca en el catálogo existente.
+- Battletoads and Double Dragon [Collector's Edition] (`4251803`): sin coincidencia inequívoca en el catálogo existente.
+- Battletoads and Double Dragon The Ultimate Team (`8588`): sin coincidencia inequívoca en el catálogo existente.
+- Battletoads [Legacy Cartridge Collection] (`152914`): sin coincidencia inequívoca en el catálogo existente.
+- Bible Adventures [Blue] (`2201952`): sin coincidencia inequívoca en el catálogo existente.
+- Big Nose Freaks Out [Aladdin] (`39520`): sin coincidencia inequívoca en el catálogo existente.
+- Black Box Challenge [Homebrew] (`836875`): sin coincidencia inequívoca en el catálogo existente.
+- Blade Buster [Homebrew] (`3402831`): sin coincidencia inequívoca en el catálogo existente.
+- Blazing Rangers (`4127082`): sin coincidencia inequívoca en el catálogo existente.
+- Bobby Six Seven [Homebrew] (`6777378`): sin coincidencia inequívoca en el catálogo existente.
+- Bobby Six Seven [Silver Edition] (`6777379`): sin coincidencia inequívoca en el catálogo existente.
+- Bovinium Quest (`6206366`): sin coincidencia inequívoca en el catálogo existente.
+- Breakthru [5 Screw] (`38039`): sin coincidencia inequívoca en el catálogo existente.
+- Bubble Bobble (`11983`): sin coincidencia inequívoca en el catálogo existente.
+- BurgerTime [5 Screw] (`38006`): sin coincidencia inequívoca en el catálogo existente.
+- Buzz & Waldog [Homebrew] (`5156739`): sin coincidencia inequívoca en el catálogo existente.
+- California Raisins The Great Escape [Reproduction] (`8687`): sin coincidencia inequívoca en el catálogo existente.
+- Candelabra: Estoscerro [Homebrew] (`67470`): sin coincidencia inequívoca en el catálogo existente.
+- Carpet Shark [Homebrew] (`3167488`): sin coincidencia inequívoca en el catálogo existente.
+- Castle of Deceit [Blue] (`71973`): sin coincidencia inequívoca en el catálogo existente.
+- Castlevania [5 Screw] (`38007`): sin coincidencia inequívoca en el catálogo existente.
+- Castlevania III Dracula's Curse [Win A Trip] (`13635422`): sin coincidencia inequívoca en el catálogo existente.
+- Castlevania Remix [Homebrew] (`6138740`): sin coincidencia inequívoca en el catálogo existente.
+- Changeable Guardian Estique (`8834981`): sin coincidencia inequívoca en el catálogo existente.
+- Chaos between Realms Mission to MGC [Homebrew] (`4954619`): sin coincidencia inequívoca en el catálogo existente.
+- Cheetahmen II: The Lost Levels [Homebrew] (`70912`): sin coincidencia inequívoca en el catálogo existente.
+- Cheetahmen: The Creation (`6303584`): sin coincidencia inequívoca en el catálogo existente.
+- Chew Chew Mimic (`7375252`): sin coincidencia inequívoca en el catálogo existente.
+- Chip and Dale Rescue Rangers (`12127`): sin coincidencia inequívoca en el catálogo existente.
+- Chunkout 2 [Homebrew] (`3401574`): sin coincidencia inequívoca en el catálogo existente.
+- Clu Clu Land Test Cartridge (`4954606`): sin coincidencia inequívoca en el catálogo existente.
+- Clu Clu Land Test Cartridge [5 Screw] (`4954613`): sin coincidencia inequívoca en el catálogo existente.
+- Commando [5 Screw] (`37997`): sin coincidencia inequívoca en el catálogo existente.
+- Control Deck Test Cartridge (`37258`): sin coincidencia inequívoca en el catálogo existente.
+- Copper Jacket (`6147867`): sin coincidencia inequívoca en el catálogo existente.
+- Courier [Homebrew] (`6735824`): sin coincidencia inequívoca en el catálogo existente.
+- Covid-19 [Homebrew] (`149503`): sin coincidencia inequívoca en el catálogo existente.
+- Crabbie Attack [Homebrew] (`6658074`): sin coincidencia inequívoca en el catálogo existente.
+- Creeping it Reel [Homebrew] (`155990`): sin coincidencia inequívoca en el catálogo existente.
+- Creepy Brawlers [Homebrew] (`2781025`): sin coincidencia inequívoca en el catálogo existente.
+- Crystal Mines [Black] (`4034742`): sin coincidencia inequívoca en el catálogo existente.
+- Data East All-Star Collection [Homebrew] (`58273`): sin coincidencia inequívoca en el catálogo existente.
+- Data Man (`6779186`): sin coincidencia inequívoca en el catálogo existente.
+- Dawn Metropolis [10th Anniversary Homewbrew] (`7979596`): sin coincidencia inequívoca en el catálogo existente.
+- Days of Thunder [Chris Oberth] (`161410`): sin coincidencia inequívoca en el catálogo existente.
+- Dead Tomb [8 Bit Legit] (`8195385`): sin coincidencia inequívoca en el catálogo existente.
+- Dead Tomb [Homebrew] (`2183139`): sin coincidencia inequívoca en el catálogo existente.
+- Deadly Towers [5 Screw] (`38022`): sin coincidencia inequívoca en el catálogo existente.
+- Dizzy the Adventurer (`39508`): sin coincidencia inequívoca en el catálogo existente.
+- Doki Doki Panic [Homebrew] (`8036467`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong 3 [5 Screw] (`37986`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong [5 Screw] (`37984`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong Jr [5 Screw] (`37985`): sin coincidencia inequívoca en el catálogo existente.
+- Donkey Kong Jr Math [5 Screw] (`37968`): sin coincidencia inequívoca en el catálogo existente.
+- Doodle World [Homebrew] (`3001677`): sin coincidencia inequívoca en el catálogo existente.
+- Doodle World: Redrawn (`6095325`): sin coincidencia inequívoca en el catálogo existente.
+- Double Dribble [5 Screw] (`38023`): sin coincidencia inequívoca en el catálogo existente.
+- Dragon Feet [Homebrew] (`2290711`): sin coincidencia inequívoca en el catálogo existente.
+- Dragon Leap [Homebrew] (`2290954`): sin coincidencia inequívoca en el catálogo existente.
+- Duck Hunt (`12218`): sin coincidencia inequívoca en el catálogo existente.
+- Duck Hunt [5 Screw] (`37976`): sin coincidencia inequívoca en el catálogo existente.
+- Duck Hunt Test Cartridge (`71682`): sin coincidencia inequívoca en el catálogo existente.
+- Duck Tales [Gold Cartridge] (`34156`): sin coincidencia inequívoca en el catálogo existente.
+- Dungeons & Doomknights [Collector's Edition] (`3225711`): sin coincidencia inequívoca en el catálogo existente.
+- Dungeons & Doomknights [Homebrew] (`3217662`): sin coincidencia inequívoca en el catálogo existente.
+- Dushlan [Homebrew] (`155989`): sin coincidencia inequívoca en el catálogo existente.
+- EarthBound [Homebrew] (`2254208`): sin coincidencia inequívoca en el catálogo existente.
+- Elevator Action [5 Screw] (`38017`): sin coincidencia inequívoca en el catálogo existente.
+- Eskimo Bob (`10353079`): sin coincidencia inequívoca en el catálogo existente.
+- Eskimo Bob & Alfonzo's Arctic Adventure (`6643091`): sin coincidencia inequívoca en el catálogo existente.
+- Eskimo Bob [Homebrew] (`3397404`): sin coincidencia inequívoca en el catálogo existente.
+- Excitebike [5 Screw] (`37977`): sin coincidencia inequívoca en el catálogo existente.
+- Exit Loop (`6206368`): sin coincidencia inequívoca en el catálogo existente.
+- Eyra The Crow Maiden (`5879673`): sin coincidencia inequívoca en el catálogo existente.
+- Family Fun Fitness Bundle (`4643062`): sin coincidencia inequívoca en el catálogo existente.
+- Family Fun Fitness Stadium Events [Timewalk] (`5157519`): sin coincidencia inequívoca en el catálogo existente.
+- Family Picross [Homebrew] (`3366476`): sin coincidencia inequívoca en el catálogo existente.
+- Final Fantasy 7 Remake [Homebrew] (`4335486`): sin coincidencia inequívoca en el catálogo existente.
+- Final Fantasy II [Homebrew] (`7286065`): sin coincidencia inequívoca en el catálogo existente.
+- Final Fantasy VII [Demake] (`3399768`): sin coincidencia inequívoca en el catálogo existente.
+- Final Fantasy VII [Homebrew] (`7063513`): sin coincidencia inequívoca en el catálogo existente.
+- Fire And Rescue (`9569172`): sin coincidencia inequívoca en el catálogo existente.
+- Fix-It Felix, Jr [Homebrew] (`2183152`): sin coincidencia inequívoca en el catálogo existente.
+- Flea [Homebrew] (`200107`): sin coincidencia inequívoca en el catálogo existente.
+- From Below [Homebrew] (`3001668`): sin coincidencia inequívoca en el catálogo existente.
+- Full Quiet [Homebrew] (`4598084`): sin coincidencia inequívoca en el catálogo existente.
+- Full Quiet [Limited Edition] (`4408985`): sin coincidencia inequívoca en el catálogo existente.
+- Fun House (`12239`): sin coincidencia inequívoca en el catálogo existente.
+- Galactic Crusader [Black] (`13990896`): sin coincidencia inequívoca en el catálogo existente.
+- Galaxian [Homebrew] (`5490834`): sin coincidencia inequívoca en el catálogo existente.
+- Galf (`52012`): sin coincidencia inequívoca en el catálogo existente.
+- Galf [Gold] (`68608`): sin coincidencia inequívoca en el catálogo existente.
+- Galf [White] (`52013`): sin coincidencia inequívoca en el catálogo existente.
+- Game Of Baseball (`9122849`): sin coincidencia inequívoca en el catálogo existente.
+- Gaplus [Homebrew] (`5428196`): sin coincidencia inequívoca en el catálogo existente.
+- Garbage Pail Kids: Mad Mike and the Quest for Stale Gum (`4536058`): sin coincidencia inequívoca en el catálogo existente.
+- Garbage Pail Kids: Mad Mike and the Quest for Stale Gum [Pink] (`4536059`): sin coincidencia inequívoca en el catálogo existente.
+- Gauntlet (`12243`): sin coincidencia inequívoca en el catálogo existente.
+- Germ Squashers [Homebrew] (`2296231`): sin coincidencia inequívoca en el catálogo existente.
+- Get 'em Gary [Homebrew] (`3366475`): sin coincidencia inequívoca en el catálogo existente.
+- Ghostbusters (`12245`): sin coincidencia inequívoca en el catálogo existente.
+- Ghosts 'n Goblins [5 Screw] (`37998`): sin coincidencia inequívoca en el catálogo existente.
+- Ghoul Grind [Homebrew] (`2736568`): sin coincidencia inequívoca en el catálogo existente.
+- Gimmick [Limited Run] (`11741992`): sin coincidencia inequívoca en el catálogo existente.
+- Gleamy The Cube [Homebrew] (`7557784`): sin coincidencia inequívoca en el catálogo existente.
+- Godzilla 2 (`9042`): sin coincidencia inequívoca en el catálogo existente.
+- Golf [5 Screw] (`37969`): sin coincidencia inequívoca en el catálogo existente.
+- Gotcha [5 Screw] (`39516`): sin coincidencia inequívoca en el catálogo existente.
+- Gradius [5 Screw] (`37999`): sin coincidencia inequívoca en el catálogo existente.
+- Graveyard Dude [Homebrew] (`7830118`): sin coincidencia inequívoca en el catálogo existente.
+- Gumshoe [5 Screw] (`37990`): sin coincidencia inequívoca en el catálogo existente.
+- Gun.Smoke [Bar] (`68556`): sin coincidencia inequívoca en el catálogo existente.
+- Gyromite [5 Screw] (`37970`): sin coincidencia inequívoca en el catálogo existente.
+- Gyromite [Mattel] (`6837398`): sin coincidencia inequívoca en el catálogo existente.
+- Gyromite [ROB Bundle] (`37958`): sin coincidencia inequívoca en el catálogo existente.
+- Halloween [Homebrew] (`8675197`): sin coincidencia inequívoca en el catálogo existente.
+- Hammerin' Harry 2: Dan The Red Strikes Back (`6736000`): sin coincidencia inequívoca en el catálogo existente.
+- Hammerin' Harry Concrete Collection (`6303567`): sin coincidencia inequívoca en el catálogo existente.
+- Hammerin' Harry [Homebrew] (`6735928`): sin coincidencia inequívoca en el catálogo existente.
+- Happy Camper [Homebrew] (`3398915`): sin coincidencia inequívoca en el catálogo existente.
+- Haradius Zero [Homebrew] (`3510939`): sin coincidencia inequívoca en el catálogo existente.
+- HaraForce [Homebrew] (`4891782`): sin coincidencia inequívoca en el catálogo existente.
+- Haratyler [Homebrew] (`4891790`): sin coincidencia inequívoca en el catálogo existente.
+- Haratyler MP [Homebrew] (`4891788`): sin coincidencia inequívoca en el catálogo existente.
+- Haunted Halloween '85 [Homebrew] (`1312889`): sin coincidencia inequívoca en el catálogo existente.
+- Haunted: Halloween '86 (`10286205`): sin coincidencia inequívoca en el catálogo existente.
+- Haunted Halloween '86 [Homebrew] (`1312890`): sin coincidencia inequívoca en el catálogo existente.
+- Haunted Halloween '87 [Homebrew] (`11050963`): sin coincidencia inequívoca en el catálogo existente.
+- Hit The Ice [Homebrew] (`2585570`): sin coincidencia inequívoca en el catálogo existente.
+- Hogan's Alley (`12262`): sin coincidencia inequívoca en el catálogo existente.
+- Hollywood Squares [Black Box] (`5700619`): sin coincidencia inequívoca en el catálogo existente.
+- Holy Diver [Collectors Edition] (`58103`): sin coincidencia inequívoca en el catálogo existente.
+- Holy Diver [Homebrew] (`7063424`): sin coincidencia inequívoca en el catálogo existente.
+- Home Alone (`9117`): sin coincidencia inequívoca en el catálogo existente.
+- Hoppin' Mad [Homebrew] (`13274431`): sin coincidencia inequívoca en el catálogo existente.
+- Hot Slots (`14931`): sin coincidencia inequívoca en el catálogo existente.
+- I'm Kid Dracula [Homebrew] (`3402853`): sin coincidencia inequívoca en el catálogo existente.
+- Ice Climber [5 Screw] (`37972`): sin coincidencia inequívoca en el catálogo existente.
+- Ice Hockey [Black Box] (`4134140`): sin coincidencia inequívoca en el catálogo existente.
+- Ikari Warriors [5 Screw] (`38008`): sin coincidencia inequívoca en el catálogo existente.
+- Impossible Mission II [AVE] (`44966`): sin coincidencia inequívoca en el catálogo existente.
+- In Cart Famicom To NES Adapter (`8432221`): sin coincidencia inequívoca en el catálogo existente.
+- Indiana Jones and the Last Crusade [Ubisoft] (`30748`): sin coincidencia inequívoca en el catálogo existente.
+- Indiana Jones and the Temple of Doom [Tengen] (`39513`): sin coincidencia inequívoca en el catálogo existente.
+- Iron Sword Wizards and Warriors II (`12274`): sin coincidencia inequívoca en el catálogo existente.
+- Iwata Edition Balloon Fight [Homebrew] (`7063504`): sin coincidencia inequívoca en el catálogo existente.
+- Jackie Chan's Action Kung Fu (`12277`): sin coincidencia inequívoca en el catálogo existente.
+- Jaws [5 Screw] (`39519`): sin coincidencia inequívoca en el catálogo existente.
+- Jay and Silent Bob Mall Brawl [Homebrew] (`99166`): sin coincidencia inequívoca en el catálogo existente.
+- Jay and Silent Bob Mall Brawl [Premium Edition] (`99112`): sin coincidencia inequívoca en el catálogo existente.
+- Jester (`9622029`): sin coincidencia inequívoca en el catálogo existente.
+- Jim Power: The Lost Dimension [Homebrew] (`3001676`): sin coincidencia inequívoca en el catálogo existente.
+- Joust More (`12319328`): sin coincidencia inequívoca en el catálogo existente.
+- Joy Mech Fight [Homebrew] (`5177436`): sin coincidencia inequívoca en el catálogo existente.
+- Joystick Test Cartridge (`71648`): sin coincidencia inequívoca en el catálogo existente.
+- Jurassic Park [Collector's Edition] (`8092051`): sin coincidencia inequívoca en el catálogo existente.
+- Jurassic Park [Limited Run] (`7624056`): sin coincidencia inequívoca en el catálogo existente.
+- Justice Duel [Homebrew] (`2529538`): sin coincidencia inequívoca en el catálogo existente.
+- Karate Champ [5 Screw] (`39518`): sin coincidencia inequívoca en el catálogo existente.
+- Kevin Power in Too Many Games [Homebrew] (`2291088`): sin coincidencia inequívoca en el catálogo existente.
+- Kid Icarus [5 Screw] (`38010`): sin coincidencia inequívoca en el catálogo existente.
+- Kid Niki Radical Ninja [5 Screw] (`38041`): sin coincidencia inequívoca en el catálogo existente.
+- Kira Kira Star Night DX [Collector's Edition] (`3343492`): sin coincidencia inequívoca en el catálogo existente.
+- Kira Kira Star Night DX [Homebrew] (`2836926`): sin coincidencia inequívoca en el catálogo existente.
+- Kirby's Adventure [French] (`5385441`): sin coincidencia inequívoca en el catálogo existente.
+- Kubo 3 [Homebrew] (`5690237`): sin coincidencia inequívoca en el catálogo existente.
+- Kung Fu [5 Screw] (`37973`): sin coincidencia inequívoca en el catálogo existente.
+- Kung Fu II (`8830288`): sin coincidencia inequívoca en el catálogo existente.
+- L'Abbaye des Morts [Homebrew] (`2529456`): sin coincidencia inequívoca en el catálogo existente.
+- Labyrinth [English Translation] (`6138743`): sin coincidencia inequívoca en el catálogo existente.
+- Larry and the Long Look for Luscious Lover [Homebrew] (`4441236`): sin coincidencia inequívoca en el catálogo existente.
+- Legend of Iowa [Homebrew] (`4199209`): sin coincidencia inequívoca en el catálogo existente.
+- Legend of Kage [5 Screw] (`38018`): sin coincidencia inequívoca en el catálogo existente.
+- Legend of Zelda (`9236`): sin coincidencia inequívoca en el catálogo existente.
+- Legend of Zelda [5 Screw] (`38020`): sin coincidencia inequívoca en el catálogo existente.
+- Legend of Zelda Outlands [Homebrew] (`1317390`): sin coincidencia inequívoca en el catálogo existente.
+- Little Medusa [Homebrew] (`155987`): sin coincidencia inequívoca en el catálogo existente.
+- Lizard [Homebrew] (`2931518`): sin coincidencia inequívoca en el catálogo existente.
+- Lode Runner [5 Screw] (`38024`): sin coincidencia inequívoca en el catálogo existente.
+- Log Jammers [Homebrew] (`155986`): sin coincidencia inequívoca en el catálogo existente.
+- Lunar Pool [5 Screw] (`38036`): sin coincidencia inequívoca en el catálogo existente.
+- Mach Rider [5 Screw] (`37978`): sin coincidencia inequívoca en el catálogo existente.
+- Malasombra (`10694728`): sin coincidencia inequívoca en el catálogo existente.
+- Maniac Mansion [Limited Run] (`6552295`): sin coincidencia inequívoca en el catálogo existente.
+- Maniac Mansion [Premium Edition] (`6495430`): sin coincidencia inequívoca en el catálogo existente.
+- Mario Adventure [Homebrew] (`3402832`): sin coincidencia inequívoca en el catálogo existente.
+- Mario Bros [5 Screw] (`37987`): sin coincidencia inequívoca en el catálogo existente.
+- Mario Bros Arcade Classics Series (`12000`): sin coincidencia inequívoca en el catálogo existente.
+- Mario in Zebes [Homebrew] (`1317392`): sin coincidencia inequívoca en el catálogo existente.
+- Mawthorne [Homebrew] (`4891246`): sin coincidencia inequívoca en el catálogo existente.
+- Mawthorne [Kickstarter Edition Homebrew] (`4891619`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man (`9314`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man 10 (`37373`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man 2 [30th Anniversary Edition] (`53798`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man 2 [30th Anniversary Glow in the Dark] (`3269319`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man [5 Screw] (`38045`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man 6 [Capcom Variant] (`2158376`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man 9 (`34155`): sin coincidencia inequívoca en el catálogo existente.
+- Mega Man [First Print] (`68986`): sin coincidencia inequívoca en el catálogo existente.
+- Megacom 76 (`16294`): sin coincidencia inequívoca en el catálogo existente.
+- Metal Gear [5 Screw] (`10176968`): sin coincidencia inequívoca en el catálogo existente.
+- Metal Storm [Collector's Edition] (`2573470`): sin coincidencia inequívoca en el catálogo existente.
+- Metal Storm [Limited Run Black] (`67418`): sin coincidencia inequívoca en el catálogo existente.
+- Metal Storm [Limited Run Collector's Edition] (`67419`): sin coincidencia inequívoca en el catálogo existente.
+- Metroid [5 Screw] (`37991`): sin coincidencia inequívoca en el catálogo existente.
+- Micro Mages [Homebrew] (`64044`): sin coincidencia inequívoca en el catálogo existente.
+- Mighty Bomb Jack [5 Screw] (`38011`): sin coincidencia inequívoca en el catálogo existente.
+- Mike Tyson's Punch-Out (`12001`): sin coincidencia inequívoca en el catálogo existente.
+- Mike Tyson's Punch-Out [5 Screw] (`39517`): sin coincidencia inequívoca en el catálogo existente.
+- Mike Tyson's Punch-Out [White Bullets] (`1944666`): sin coincidencia inequívoca en el catálogo existente.
+- Mini Putt [Homebrew] (`2585572`): sin coincidencia inequívoca en el catálogo existente.
+- Montezuma's Revenge [Homewbrew] (`4620608`): sin coincidencia inequívoca en el catálogo existente.
+- Montezuma's Revenge [Limited Run] (`13364361`): sin coincidencia inequívoca en el catálogo existente.
+- Moon8 [Homebrew] (`3380250`): sin coincidencia inequívoca en el catálogo existente.
+- Mother [25th Anniversary Edition Homebrew] (`4781297`): sin coincidencia inequívoca en el catálogo existente.
+- Mr. Maymunshine's Christmas Land [Homebrew] (`6021303`): sin coincidencia inequívoca en el catálogo existente.
+- Ms. Pac-Man [Namco] (`9382`): sin coincidencia inequívoca en el catálogo existente.
+- MultiDude (`9569177`): sin coincidencia inequívoca en el catálogo existente.
+- Mystery World Dizzy (`4956460`): sin coincidencia inequívoca en el catálogo existente.
+- Mystic Origins [Homebrew] (`3168514`): sin coincidencia inequívoca en el catálogo existente.
+- Nebs 'n Debs [Homebrew] (`67649`): sin coincidencia inequívoca en el catálogo existente.
+- NES Virus Cleaner [Homebrew] (`2362618`): sin coincidencia inequívoca en el catálogo existente.
+- NEScape [Homebrew] (`3277477`): sin coincidencia inequívoca en el catálogo existente.
+- Ninja Kid [5 Screw] (`37995`): sin coincidencia inequívoca en el catálogo existente.
+- Nintendo Campus Challenge 1991 (`19387`): sin coincidencia inequívoca en el catálogo existente.
+- Nintendo Campus Challenge 1991 [Reproduction] (`34874`): sin coincidencia inequívoca en el catálogo existente.
+- Nintendo World Championship (`14933`): sin coincidencia inequívoca en el catálogo existente.
+- Nintendo World Championship [25th Anniversary] (`38640`): sin coincidencia inequívoca en el catálogo existente.
+- Nintendo World Championship Gold (`16173`): sin coincidencia inequívoca en el catálogo existente.
+- Nintendo World Championship [Reproduction] (`34873`): sin coincidencia inequívoca en el catálogo existente.
+- Noah's Ark [Reproduction] (`3313311`): sin coincidencia inequívoca en el catálogo existente.
+- Nomolos: Storming the Catsle [Homebrew] (`3401875`): sin coincidencia inequívoca en el catálogo existente.
+- NTF2 Test Cartridge (`21251`): sin coincidencia inequívoca en el catálogo existente.
+- Orebody: Binder's Tale (`4358583`): sin coincidencia inequívoca en el catálogo existente.
+- Orebody: Binder's Tale [Silver Edition] (`5837419`): sin coincidencia inequívoca en el catálogo existente.
+- P'Radikus Conflict [Black] (`8469822`): sin coincidencia inequívoca en el catálogo existente.
+- Pac-Man [Namco] (`9518`): sin coincidencia inequívoca en el catálogo existente.
+- Pac-Man [Tengen Gray] (`40508`): sin coincidencia inequívoca en el catálogo existente.
+- Pesterminator (`19452`): sin coincidencia inequívoca en el catálogo existente.
+- Pesterminator [Black] (`9906003`): sin coincidencia inequívoca en el catálogo existente.
+- Peter Pan and the Pirates (`12352`): sin coincidencia inequívoca en el catálogo existente.
+- Peulsa Saga Kaji's Trials [Homebrew] (`6748730`): sin coincidencia inequívoca en el catálogo existente.
+- Pinball [5 Screw] (`37979`): sin coincidencia inequívoca en el catálogo existente.
+- PIOPOW (`8693339`): sin coincidencia inequívoca en el catálogo existente.
+- Pipemania (`13767682`): sin coincidencia inequívoca en el catálogo existente.
+- Pizza Pop (`9568384`): sin coincidencia inequívoca en el catálogo existente.
+- Ploid [Homebrew] (`3001680`): sin coincidencia inequívoca en el catálogo existente.
+- Popeye [5 Screw] (`37988`): sin coincidencia inequívoca en el catálogo existente.
+- Port Test Cartridge (`71649`): sin coincidencia inequívoca en el catálogo existente.
+- Power Pad Test Cartridge (`71650`): sin coincidencia inequívoca en el catálogo existente.
+- Prince Of Persia 2: The Shadow & The Flame [Homebrew] (`10166498`): sin coincidencia inequívoca en el catálogo existente.
+- Pro Wrestling [5 Screw] (`38001`): sin coincidencia inequívoca en el catálogo existente.
+- Project Blue (`141601`): sin coincidencia inequívoca en el catálogo existente.
+- Project Blue [Special Edition Homebrew] (`4891800`): sin coincidencia inequívoca en el catálogo existente.
+- Quest Forge: By Order of Kings [Homebrew] (`2291087`): sin coincidencia inequívoca en el catálogo existente.
+- Racermate Challenge II (`30824`): sin coincidencia inequívoca en el catálogo existente.
+- Rad Racer [5 Screw] (`38037`): sin coincidencia inequívoca en el catálogo existente.
+- Raid on Bungeling Bay [5 Screw] (`38025`): sin coincidencia inequívoca en el catálogo existente.
+- Rainbow Brite [Homebrew] (`235769`): sin coincidencia inequívoca en el catálogo existente.
+- RBI Baseball [Gray Cart] (`39512`): sin coincidencia inequívoca en el catálogo existente.
+- R.C. Pro-Am II [Retro-Bit] (`11343994`): sin coincidencia inequívoca en el catálogo existente.
+- Recca [Homebrew] (`2183251`): sin coincidencia inequívoca en el catálogo existente.
+- Reknum Souls Adventure [Homebrew] (`6389372`): sin coincidencia inequívoca en el catálogo existente.
+- Resident Evil [Homebrew] (`4954196`): sin coincidencia inequívoca en el catálogo existente.
+- Rick & Morty [Homebrew] (`3684079`): sin coincidencia inequívoca en el catálogo existente.
+- Ring King [5 Screw] (`38026`): sin coincidencia inequívoca en el catálogo existente.
+- River City Ball & Brawl Bundle (`13993108`): sin coincidencia inequívoca en el catálogo existente.
+- River City Fighting Legend (`13949675`): sin coincidencia inequívoca en el catálogo existente.
+- Road Fighter [Homebrew] (`10851399`): sin coincidencia inequívoca en el catálogo existente.
+- RoboCop (`12394`): sin coincidencia inequívoca en el catálogo existente.
+- Rod Land: Collector's Edition (`7879930`): sin coincidencia inequívoca en el catálogo existente.
+- Rollie [Homebrew] (`155287`): sin coincidencia inequívoca en el catálogo existente.
+- Royal Flush: A Princess Side Story [Homebrew] (`161552`): sin coincidencia inequívoca en el catálogo existente.
+- Rugrats: Adventures In Gameland (`7677475`): sin coincidencia inequívoca en el catálogo existente.
+- Rugrats Adventures In Gameland [Collector's Edition] (`9456463`): sin coincidencia inequívoca en el catálogo existente.
+- Rush'n Attack [5 Screw] (`38004`): sin coincidencia inequívoca en el catálogo existente.
+- Rygar [5 Screw] (`38012`): sin coincidencia inequívoca en el catálogo existente.
+- Sam's Journey [Homebrew] (`7859795`): sin coincidencia inequívoca en el catálogo existente.
+- SCAT Special Cybernetic Attack Team [Green Limited Run] (`2706114`): sin coincidencia inequívoca en el catálogo existente.
+- SCAT Special Cybernetic Attack Team [Green Limited Run Collector's Edition] (`2706113`): sin coincidencia inequívoca en el catálogo existente.
+- SCAT Special Cybernetic Attack Team [Limited Run] (`2313347`): sin coincidencia inequívoca en el catálogo existente.
+- SCAT Special Cybernetic Attack Team [Limited Run Collector's Edition] (`2684517`): sin coincidencia inequívoca en el catálogo existente.
+- Scott The Woz: The Game Of Crypticism [Homebrew] (`1317363`): sin coincidencia inequívoca en el catálogo existente.
+- Scott The Woz: The Game Of Crypticism [Homebrew Second Edition] (`1317365`): sin coincidencia inequívoca en el catálogo existente.
+- Secret Scout [Blue] (`67361`): sin coincidencia inequívoca en el catálogo existente.
+- Section-Z [5 Screw] (`38013`): sin coincidencia inequívoca en el catálogo existente.
+- Shadow of the Ninja [Limited Run] (`2619728`): sin coincidencia inequívoca en el catálogo existente.
+- Shadow of the Ninja [Limited Run Collector's Edition] (`2593764`): sin coincidencia inequívoca en el catálogo existente.
+- Shera & the 40 Thieves [Homebrew] (`2563030`): sin coincidencia inequívoca en el catálogo existente.
+- Shera & the 40 Thieves [Limited Edition] (`2563029`): sin coincidencia inequívoca en el catálogo existente.
+- Silent Assault [Black] (`72390`): sin coincidencia inequívoca en el catálogo existente.
+- Skate Cat (`7624059`): sin coincidencia inequívoca en el catálogo existente.
+- Skate or Die 2 (`12423`): sin coincidencia inequívoca en el catálogo existente.
+- Sky Kid [5 Screw] (`38027`): sin coincidencia inequívoca en el catálogo existente.
+- Slalom [5 Screw] (`38019`): sin coincidencia inequívoca en el catálogo existente.
+- Snow Bros. [Limited Run] (`11213165`): sin coincidencia inequívoca en el catálogo existente.
+- Soccer [5 Screw] (`38002`): sin coincidencia inequívoca en el catálogo existente.
+- Soda Drinker Pro (`7648052`): sin coincidencia inequívoca en el catálogo existente.
+- Solaris [Homebrew] (`724180`): sin coincidencia inequívoca en el catálogo existente.
+- Solomon's Key [5 Screw] (`38014`): sin coincidencia inequívoca en el catálogo existente.
+- SonSon [Homebrew] (`2585582`): sin coincidencia inequívoca en el catálogo existente.
+- Space Foxes: Vixen Elite [Homebrew] (`3397403`): sin coincidencia inequívoca en el catálogo existente.
+- Spelunker [5 Screw] (`38028`): sin coincidencia inequívoca en el catálogo existente.
+- Spirit Impel [Homebrew] (`10113112`): sin coincidencia inequívoca en el catálogo existente.
+- Splatterhouse [Homebrew] (`3402856`): sin coincidencia inequívoca en el catálogo existente.
+- Spy Hunter (`12437`): sin coincidencia inequívoca en el catálogo existente.
+- Spy Hunter [5 Screw] (`38029`): sin coincidencia inequívoca en el catálogo existente.
+- Star Force [5 Screw] (`38042`): sin coincidencia inequívoca en el catálogo existente.
+- Star Keeper [Homebrew] (`8260115`): sin coincidencia inequívoca en el catálogo existente.
+- Star Tropics II: Zoda's Revenge (`10238`): sin coincidencia inequívoca en el catálogo existente.
+- Star Versus [Homebrew] (`2291089`): sin coincidencia inequívoca en el catálogo existente.
+- Star Voyager [5 Screw] (`38031`): sin coincidencia inequívoca en el catálogo existente.
+- Star Wars [Classic Edition] (`59746`): sin coincidencia inequívoca en el catálogo existente.
+- Star Wars [Premium Edition] (`60614`): sin coincidencia inequívoca en el catálogo existente.
+- Star Wars The Empire Strikes Back [Classic Edition] (`68878`): sin coincidencia inequívoca en el catálogo existente.
+- Star Wars The Empire Strikes Back [Premium Edition] (`2012522`): sin coincidencia inequívoca en el catálogo existente.
+- Steel Legion (`8667693`): sin coincidencia inequívoca en el catálogo existente.
+- Study Hall (`9749612`): sin coincidencia inequívoca en el catálogo existente.
+- Sudoku [Homebrew] (`2585576`): sin coincidencia inequívoca en el catálogo existente.
+- Super C [5 Screw] (`68663`): sin coincidencia inequívoca en el catálogo existente.
+- Super Contra 7 [Homebrew] (`3402833`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario Bros 2 (`12010`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario Bros 2 The Lost Levels [Homebrew] (`5168001`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario Bros 2J [Homebrew] (`1975178`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario Bros 3 [Challenge Set] (`67556`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario Bros. 3 [Left Bros] (`241987`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario Bros. 3 [Red Label] (`8879325`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario Bros [5 Screw] (`37981`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario Bros Duck Hunt World Class Track Meet [Red Overalls] (`8431355`): sin coincidencia inequívoca en el catálogo existente.
+- Super Pitfall [5 Screw] (`38043`): sin coincidencia inequívoca en el catálogo existente.
+- Super Russian Roulette [Homebrew] (`61459`): sin coincidencia inequívoca en el catálogo existente.
+- Super Spike Volleyball And World Cup Soccer [Gold Cartridge] (`8450830`): sin coincidencia inequívoca en el catálogo existente.
+- Super Tilt Bro [Homebrew] (`8243372`): sin coincidencia inequívoca en el catálogo existente.
+- Super Tilt Bro. [Kickstarter Limited] (`10340219`): sin coincidencia inequívoca en el catálogo existente.
+- Sweet Home [Homebrew] (`2585573`): sin coincidencia inequívoca en el catálogo existente.
+- Swords and Runes III [Homebrew] (`3001679`): sin coincidencia inequívoca en el catálogo existente.
+- T-Gun [Homebrew] (`2291132`): sin coincidencia inequívoca en el catálogo existente.
+- Tag Team Wrestling [5 Screw] (`37994`): sin coincidencia inequívoca en el catálogo existente.
+- Tapeworm [Homebrew] (`2594756`): sin coincidencia inequívoca en el catálogo existente.
+- Tecmo NBA Basketball [N7] (`3399199`): sin coincidencia inequívoca en el catálogo existente.
+- Tecmo Super Bowl 2018 [Homebrew] (`6948882`): sin coincidencia inequívoca en el catálogo existente.
+- Teenage Mutant Ninja Turtles (`9941`): sin coincidencia inequívoca en el catálogo existente.
+- Teenage Mutant Ninja Turtles II [No Free Pizza Offer] (`3621148`): sin coincidencia inequívoca en el catálogo existente.
+- Teenage Mutant Ninja Turtles Tournament Fighters (`9944`): sin coincidencia inequívoca en el catálogo existente.
+- Temple Dilemma [Collector's Edition] (`3225718`): sin coincidencia inequívoca en el catálogo existente.
+- Temple Dilemma [Homebrew] (`3225715`): sin coincidencia inequívoca en el catálogo existente.
+- Temple Dilemma [Special Edition] (`3225717`): sin coincidencia inequívoca en el catálogo existente.
+- Tennis [5 Screw] (`37982`): sin coincidencia inequívoca en el catálogo existente.
+- Tetris [CTWC] (`2782853`): sin coincidencia inequívoca en el catálogo existente.
+- Tetris Gym [Homebrew] (`7274748`): sin coincidencia inequívoca en el catálogo existente.
+- The Adventures of Panzer [Homebrew] (`3225712`): sin coincidencia inequívoca en el catálogo existente.
+- The Adventures of Panzer II [Homebrew] (`4998147`): sin coincidencia inequívoca en el catálogo existente.
+- The Goonies II [5 Screw] (`38040`): sin coincidencia inequívoca en el catálogo existente.
+- The House in the Cemetery [Homebrew] (`6021302`): sin coincidencia inequívoca en el catálogo existente.
+- The Incident [Homebrew] (`3395030`): sin coincidencia inequívoca en el catálogo existente.
+- The Legends of Owlia [Homebrew] (`4441237`): sin coincidencia inequívoca en el catálogo existente.
+- The Mad Wizard [Homebrew] (`2290708`): sin coincidencia inequívoca en el catálogo existente.
+- The Magnilo Case [Homebrew] (`2252805`): sin coincidencia inequívoca en el catálogo existente.
+- The Meating (`6590947`): sin coincidencia inequívoca en el catálogo existente.
+- The Rise of Amondus [Homebrew] (`3001681`): sin coincidencia inequívoca en el catálogo existente.
+- The Tower of Turmoil [Homebrew] (`156550`): sin coincidencia inequívoca en el catálogo existente.
+- The Untouchables [Blue Label] (`92926`): sin coincidencia inequívoca en el catálogo existente.
+- The Updated Donkey Kong Pie Factory [Homebrew] (`7136024`): sin coincidencia inequívoca en el catálogo existente.
+- Three Stooges [Limited Run] (`7129828`): sin coincidencia inequívoca en el catálogo existente.
+- Tiger-Heli [5 Screw] (`38033`): sin coincidencia inequívoca en el catálogo existente.
+- Top Gun [5 Screw] (`38044`): sin coincidencia inequívoca en el catálogo existente.
+- Town & Country Surf Designs: Wood and Water Rage (`12461`): sin coincidencia inequívoca en el catálogo existente.
+- Track and Field (`12498`): sin coincidencia inequívoca en el catálogo existente.
+- Track and Field [5 Screw] (`38005`): sin coincidencia inequívoca en el catálogo existente.
+- Transformers: Mystery of Convoy [Homebrew] (`3401872`): sin coincidencia inequívoca en el catálogo existente.
+- Trojan [5 Screw] (`38000`): sin coincidencia inequívoca en el catálogo existente.
+- Trophy [Homebrew] (`742998`): sin coincidencia inequívoca en el catálogo existente.
+- Twelve Seconds [Homebrew] (`2291133`): sin coincidencia inequívoca en el catálogo existente.
+- Twin Dragons [Homebrew] (`67650`): sin coincidencia inequívoca en el catálogo existente.
+- Uchusen Ultimate PLOID Battle (`3395027`): sin coincidencia inequívoca en el catálogo existente.
+- Urban Champion [5 Screw] (`37989`): sin coincidencia inequívoca en el catálogo existente.
+- UXO: Unexploded Ordnance [Homebrew] (`2291134`): sin coincidencia inequívoca en el catálogo existente.
+- Venice Beach Volleyball (`12509`): sin coincidencia inequívoca en el catálogo existente.
+- Volleyball [5 Screw] (`38003`): sin coincidencia inequívoca en el catálogo existente.
+- VS Duck Hunt [Homebrew] (`352954`): sin coincidencia inequívoca en el catálogo existente.
+- Wayne Gretzky Hockey [White Jersey] (`6714930`): sin coincidencia inequívoca en el catálogo existente.
+- Wayne Gretzky Hockey [White Jersey No Logo] (`5281934`): sin coincidencia inequívoca en el catálogo existente.
+- Wild Gunman [5 Screw] (`37974`): sin coincidencia inequívoca en el catálogo existente.
+- Wilford Brimley Battle [Homebrew] (`2585577`): sin coincidencia inequívoca en el catálogo existente.
+- Winter Games [5 Screw] (`38034`): sin coincidencia inequívoca en el catálogo existente.
+- Wisdom Tree Video Game Collection [Homebrew] (`3179902`): sin coincidencia inequívoca en el catálogo existente.
+- Witch n' Wiz (`4442142`): sin coincidencia inequívoca en el catálogo existente.
+- Witch n Wiz [Limited Collectors Edition] (`4527691`): sin coincidencia inequívoca en el catálogo existente.
+- Wizards and Warriors [5 Screw] (`38046`): sin coincidencia inequívoca en el catálogo existente.
+- Wonderland Dizzy (`5115976`): sin coincidencia inequívoca en el catálogo existente.
+- World Class Track Meet (`12530`): sin coincidencia inequívoca en el catálogo existente.
+- Wrecking Crew [5 Screw] (`37975`): sin coincidencia inequívoca en el catálogo existente.
+- Xcavator 2025 (`13797107`): sin coincidencia inequívoca en el catálogo existente.
+- Yeah Yeah Beebiss II [Homebrew] (`2975536`): sin coincidencia inequívoca en el catálogo existente.
+- Yoshi (`10228`): sin coincidencia inequívoca en el catálogo existente.
+- Zanac [5 Screw] (`38038`): sin coincidencia inequívoca en el catálogo existente.
+- Zed And Zee [Homebrew] (`8242979`): sin coincidencia inequívoca en el catálogo existente.
+- Zelda II The Adventures Of Link [Mattel] (`6837395`): sin coincidencia inequívoca en el catálogo existente.
+- Zelda III: The Legend of Zelda Outlands [Homebrew] (`2183153`): sin coincidencia inequívoca en el catálogo existente.
+- Zelda Shin Zelda Densetsu [Homebrew] (`5945390`): sin coincidencia inequívoca en el catálogo existente.
+- Zelda Test Cartridge (`20786`): sin coincidencia inequívoca en el catálogo existente.
+- Zombie Nation [Strictly Limited] (`5404573`): sin coincidencia inequívoca en el catálogo existente.
