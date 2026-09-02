@@ -147,6 +147,29 @@ def test_neogeo_pocket_usa_aliases_reuse_published_records() -> None:
     assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
 
 
+def test_neogeo_pocket_europe_aliases_reuse_published_records() -> None:
+    expected = {
+        9152020: "neogeopocket-pal-fantastic-night-dreams-cotton",
+        9021361: "neogeopocket-pal-last-blade-beyond-destiny",
+        2984774: (
+            "neogeopocket-pal-snk-vs-capcom-card-fighters-clash-capcom-cardfighters"
+        ),
+        8096530: "neogeopocket-pal-snk-gals-fighters",
+        3483601: "neogeopocket-pal-dark-arms",
+        3812483: "neogeopocket-pal-cool-boarders-pocket",
+        2984773: (
+            "neogeopocket-pal-snk-vs-capcom-card-fighters-clash-snk-cardfighters-version"
+        ),
+        11027144: "neogeopocket-pal-evolution-eternal-dungeons",
+    }
+    assert {pc_id: PC_ID_ALIASES[pc_id] for pc_id in expected} == expected
+    assert (
+        "neogeopocket",
+        "PAL Europa",
+        9913397,
+    ) in REGION_SPECIFIC_SKIP_PC_IDS
+
+
 def test_source_parser_preserves_an_empty_leading_price_column() -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         source = Path(temp_dir) / "prices.txt"
@@ -674,6 +697,8 @@ if __name__ == "__main__":
     test_neogeo_western_aliases_reuse_published_records()
     test_neogeo_japanese_aliases_reuse_romanized_records()
     test_neogeo_cd_western_aliases_reuse_published_records()
+    test_neogeo_pocket_usa_aliases_reuse_published_records()
+    test_neogeo_pocket_europe_aliases_reuse_published_records()
     test_source_parser_preserves_an_empty_leading_price_column()
     test_japanese_price_source_replaces_generic_usa_label()
     test_skipped_japanese_duplicate_supplies_prices_to_canonical_record()
