@@ -688,8 +688,13 @@ def choose_existing(
     by_pc_path: dict[str, dict[str, Any]],
     by_title: dict[str, list[dict[str, Any]]],
     claimed_catalog_ids: set[str],
+    pc_id_aliases: dict[int, str] | None = None,
 ) -> tuple[dict[str, Any] | None, str]:
-    alias_id = PC_ID_ALIASES.get(live.pc_id) or TITLE_ALIASES.get(live.title)
+    alias_id = (
+        (pc_id_aliases or {}).get(live.pc_id)
+        or PC_ID_ALIASES.get(live.pc_id)
+        or TITLE_ALIASES.get(live.title)
+    )
     alias = catalog_by_id.get(alias_id or "")
     if (
         alias
@@ -866,6 +871,8 @@ def merge_catalog(
     exchange_rate_date: str | None = None,
     price_source_label: str = "PriceCharting USA",
     promote_matched_excluded: bool = False,
+    prices_only_existing: bool = False,
+    pc_id_aliases: dict[int, str] | None = None,
 ) -> tuple[list[dict[str, Any]], list[CoverTask], dict[str, Any]]:
     id_prefix = id_prefix or platform
     platform_games = [
@@ -964,8 +971,52 @@ def merge_catalog(
             by_pc_path,
             by_title,
             claimed_catalog_ids,
+            pc_id_aliases,
         )
-        match_reasons[reason] += 1
+        reported_reason = (
+            "unmatched_existing_catalog"
+            if prices_only_existing and reason == "new"
+            else reason
+        )
+        match_reasons[reported_reason] += 1
+        if prices_only_existing:
+            if not existing:
+                skipped.append(
+                    {
+                        "pcId": live.pc_id,
+                        "title": source.title,
+                        "reason": "sin coincidencia inequívoca en el catálogo existente",
+                    }
+                )
+                continue
+            claimed_catalog_ids.add(str(existing["id"]))
+            if all(
+                value is None
+                for value in (source.loose_usd, source.cib_usd, source.new_usd)
+            ):
+                skipped.append(
+                    {
+                        "pcId": live.pc_id,
+                        "title": source.title,
+                        "reason": "la fuente no aporta ningún precio",
+                    }
+                )
+                continue
+            if usd_per_eur is None or not exchange_rate_date:
+                raise ValueError(
+                    "El modo de solo precios requiere tasa USD/EUR y fecha de cambio"
+                )
+            if apply_usd_condition_prices(
+                existing,
+                source,
+                usd_per_eur=usd_per_eur,
+                exchange_rate_date=exchange_rate_date,
+                collected_at=collected_at,
+                price_source_label=price_source_label,
+            ):
+                existing["updatedAt"] = collected_at[:10]
+                updated += 1
+            continue
         if existing:
             changed = False
             for title_key in ("title", "titlePc"):
@@ -1129,6 +1180,7 @@ def merge_catalog(
         "priceMode": "usd_to_eur" if usd_per_eur is not None else "identity_only",
         "usdPerEur": float(usd_per_eur) if usd_per_eur is not None else None,
         "exchangeRateDate": exchange_rate_date,
+        "pricesOnlyExisting": prices_only_existing,
     }
     return catalog, cover_tasks, stats
 
@@ -1333,8 +1385,10 @@ def write_report(path: Path, stats: dict[str, Any]) -> None:
     covers = stats["covers"]
     available_covers = covers["downloaded"] + covers["reused"]
     platform_label = str(stats["platform"]).upper()
+    prices_only_existing = bool(stats.get("pricesOnlyExisting"))
+    operation = "Actualización de precios" if prices_only_existing else "Importación"
     lines = [
-        f"# Importación {platform_label} {stats['region']} desde PriceCharting",
+        f"# {operation} {platform_label} {stats['region']} desde PriceCharting",
         "",
         f"Fecha: `{stats['collectedAt']}`",
         "",
@@ -1342,23 +1396,33 @@ def write_report(path: Path, stats: dict[str, Any]) -> None:
         "",
         f"- Filas de software aportadas: **{stats['sourceRows']}**.",
         f"- Fichas nuevas: **{stats['added']}**.",
-        f"- Fichas existentes enlazadas/actualizadas: **{stats['matched']}** / **{stats['updated']}**.",
+        f"- Fichas existentes con coincidencia/actualizadas: **{stats['matched']}** / **{stats['updated']}**.",
         f"- Fichas ocultas reactivadas: **{stats['promoted']}**.",
         f"- Accesorios conservados fuera del catálogo público: **{len(stats['promotionBlocked'])}**.",
         f"- Duplicados previos consolidados: **{stats['retiredDuplicates']}**.",
-        f"- Duplicados técnicos omitidos: **{len(stats['skipped'])}**.",
+        f"- Filas omitidas: **{len(stats['skipped'])}**.",
         f"- Total final de {platform_label} {stats['region']}: **{stats['finalPlatformRegionCount']}**.",
-        f"- Portadas disponibles, limpias y verificadas: **{available_covers}**.",
-        f"- Portadas sin resolver: **{len(covers['failures'])}**.",
         "",
-        "Las portadas se guardan como JPEG de 1000 x 1400, sin EXIF ni comentarios, "
-        "y con el slug interno del catálogo como nombre de archivo.",
-        "",
-        "## Coincidencias",
+        "## Resolución",
         "",
     ]
+    if prices_only_existing:
+        lines[lines.index("## Resolución"):lines.index("## Resolución")] = [
+            "No se han creado fichas ni modificado títulos, regiones, rutas o portadas. Solo se "
+            "actualizan los tres precios de las coincidencias existentes.",
+            "",
+        ]
+    else:
+        lines[lines.index("## Resolución"):lines.index("## Resolución")] = [
+            f"- Portadas disponibles, limpias y verificadas: **{available_covers}**.",
+            f"- Portadas sin resolver: **{len(covers['failures'])}**.",
+            "",
+            "Las portadas se guardan como JPEG de 1000 x 1400, sin EXIF ni comentarios, "
+            "y con el slug interno del catálogo como nombre de archivo.",
+            "",
+        ]
     if stats["priceMode"] == "usd_to_eur":
-        lines[lines.index("## Coincidencias"):lines.index("## Coincidencias")] = [
+        lines[lines.index("## Resolución"):lines.index("## Resolución")] = [
             "Los importes originales se conservan en USD. Para mostrarlos y sumarlos en la web se "
             f"han convertido a EUR con la referencia documentada de **1 EUR = {stats['usdPerEur']:.4f} USD** "
             f"del **{stats['exchangeRateDate']}**. La asignación es Loose = Solo juego, CIB = Completo "
@@ -1366,7 +1430,7 @@ def write_report(path: Path, stats: dict[str, Any]) -> None:
             "",
         ]
     else:
-        lines[lines.index("## Coincidencias"):lines.index("## Coincidencias")] = [
+        lines[lines.index("## Resolución"):lines.index("## Resolución")] = [
             "Los importes del listado están expresados en USD. No se han copiado a los campos EUR "
             "del catálogo. Los precios españoles existentes no se han modificado.",
             "",
@@ -1408,6 +1472,16 @@ def main() -> None:
         help="Publica fichas excluidas cuando la lista aportada confirma la referencia exacta",
     )
     parser.add_argument(
+        "--prices-only-existing",
+        action="store_true",
+        help="Actualiza precios solo en fichas existentes, sin cambiar identidad ni crear fichas",
+    )
+    parser.add_argument(
+        "--pc-id-aliases",
+        type=Path,
+        help="JSON opcional con equivalencias PriceCharting ID -> ID interno revisadas",
+    )
+    parser.add_argument(
         "--usd-per-eur",
         type=Decimal,
         help="Tasa de referencia: cuántos USD equivalen a 1 EUR",
@@ -1433,6 +1507,18 @@ def main() -> None:
 
     if (args.usd_per_eur is None) != (args.exchange_rate_date is None):
         parser.error("--usd-per-eur y --exchange-rate-date deben usarse juntos")
+    if args.prices_only_existing and args.usd_per_eur is None:
+        parser.error("--prices-only-existing requiere --usd-per-eur y --exchange-rate-date")
+
+    pc_id_aliases: dict[int, str] = {}
+    if args.pc_id_aliases:
+        raw_aliases = json.loads(args.pc_id_aliases.read_text(encoding="utf-8"))
+        if not isinstance(raw_aliases, dict):
+            parser.error("--pc-id-aliases debe contener un objeto JSON")
+        try:
+            pc_id_aliases = {int(pc_id): str(catalog_id) for pc_id, catalog_id in raw_aliases.items()}
+        except (TypeError, ValueError) as exc:
+            parser.error(f"--pc-id-aliases contiene una equivalencia no válida: {exc}")
 
     source_rows = parse_source_rows(args.input)
     if args.only_title:
@@ -1469,6 +1555,8 @@ def main() -> None:
         exchange_rate_date=args.exchange_rate_date,
         price_source_label=args.price_source_label,
         promote_matched_excluded=args.promote_matched_excluded,
+        prices_only_existing=args.prices_only_existing,
+        pc_id_aliases=pc_id_aliases,
     )
     stats["platform"] = args.platform
     stats["region"] = args.region

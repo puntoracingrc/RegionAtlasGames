@@ -1,0 +1,555 @@
+# Actualización de precios SNES Japón desde PriceCharting
+
+Fecha: `2026-09-02T13:26:06+02:00`
+
+## Resultado
+
+- Filas de software aportadas: **1495**.
+- Fichas nuevas: **0**.
+- Fichas existentes con coincidencia/actualizadas: **973** / **973**.
+- Fichas ocultas reactivadas: **0**.
+- Accesorios conservados fuera del catálogo público: **0**.
+- Duplicados previos consolidados: **0**.
+- Filas omitidas: **522**.
+- Total final de SNES Japón: **1497**.
+
+No se han creado fichas ni modificado títulos, regiones, rutas o portadas. Solo se actualizan los tres precios de las coincidencias existentes.
+
+Los importes originales se conservan en USD. Para mostrarlos y sumarlos en la web se han convertido a EUR con la referencia documentada de **1 EUR = 1.1590 USD** del **2026-09-01**. La asignación es Loose = Solo juego, CIB = Completo y New = Precintado.
+
+Fuente: [listado japonés de Super Famicom en PriceCharting](https://www.pricecharting.com/console/super-famicom?sort=name).
+
+Las equivalencias adicionales se aceptaron solo cuando la portada coincidía de forma única mediante huella perceptual, con distancia visual baja y un margen amplio frente a la segunda candidata. El mapa revisado queda en `data/import-aliases/pricecharting-snes-japan.json`. Se descartaron expresamente `Wild Guns [Strictly Limited]`, `Super Bomberman 2 [Nintendo Classics]` y el relanzamiento de `Sun Sport Fishing` porque reutilizan imagen pero representan otra edición.
+
+## Resolución
+
+- `normalized_title`: 424
+- `normalized_title_and_slug`: 4
+- `pc_id`: 395
+- `reviewed_alias`: 175
+- `unmatched_existing_catalog`: 497
+
+## Omitidos
+
+- 3x3 Eyes Juma Hokan (`43500`): sin coincidencia inequívoca en el catálogo existente.
+- 3x3 Eyes Seima Kourinden (`43501`): sin coincidencia inequívoca en el catálogo existente.
+- 4th Super Robot Wars (`43504`): sin coincidencia inequívoca en el catálogo existente.
+- 96 Zenkoku Koko Soccer Senshuken (`44929`): sin coincidencia inequívoca en el catálogo existente.
+- ActRaiser 2 (`43511`): sin coincidencia inequívoca en el catálogo existente.
+- Aguri Suzuki no F1 Super Driving (`43513`): sin coincidencia inequívoca en el catálogo existente.
+- AIII S.V. (`43514`): sin coincidencia inequívoca en el catálogo existente.
+- Air Management (`43515`): sin coincidencia inequívoca en el catálogo existente.
+- Air Management II (`43516`): sin coincidencia inequívoca en el catálogo existente.
+- Albert Odyssey 2 (`43521`): sin coincidencia inequívoca en el catálogo existente.
+- America Odan Ultra Quiz (`43527`): sin coincidencia inequívoca en el catálogo existente.
+- Appleseed: Oracle of Prometheus (`43535`): sin coincidencia inequívoca en el catálogo existente.
+- Arabian Nights (`43537`): sin coincidencia inequívoca en el catálogo existente.
+- Araiguma Rascal (`43538`): sin coincidencia inequívoca en el catálogo existente.
+- Aretha II (`43543`): sin coincidencia inequívoca en el catálogo existente.
+- Aretha the Super Famicom (`43542`): sin coincidencia inequívoca en el catálogo existente.
+- Art of Fighting 2 (`44408`): sin coincidencia inequívoca en el catálogo existente.
+- Asahi Shinbun Rensai (`43546`): sin coincidencia inequívoca en el catálogo existente.
+- Bahamut Lagoon (`43552`): sin coincidencia inequívoca en el catálogo existente.
+- Bakkusu Bani Hachamecha Daiboken (`43553`): sin coincidencia inequívoca en el catálogo existente.
+- Bakukyuu Renpatsu Super B-Daman (`43554`): sin coincidencia inequívoca en el catálogo existente.
+- Bakuto Dochers (`43556`): sin coincidencia inequívoca en el catálogo existente.
+- Ball Bullet Gun (`43557`): sin coincidencia inequívoca en el catálogo existente.
+- Banshee's Last Cry (`2021464`): sin coincidencia inequívoca en el catálogo existente.
+- Bastard (`43561`): sin coincidencia inequívoca en el catálogo existente.
+- Battle Commander (`43565`): sin coincidencia inequívoca en el catálogo existente.
+- Battle Dodge Ball (`43567`): sin coincidencia inequívoca en el catálogo existente.
+- Battle Master (`43571`): sin coincidencia inequívoca en el catálogo existente.
+- Battle Mobile (`6047122`): sin coincidencia inequívoca en el catálogo existente.
+- Battle Racers (`43573`): sin coincidencia inequívoca en el catálogo existente.
+- Battle Tycoon (`43578`): sin coincidencia inequívoca en el catálogo existente.
+- Beasts & Blades (`44436`): sin coincidencia inequívoca en el catálogo existente.
+- Benkei Gaiden (`43583`): sin coincidencia inequívoca en el catálogo existente.
+- Big Ichigeki Pachi-Slot Daikouryaku 2 (`43586`): sin coincidencia inequívoca en el catálogo existente.
+- Bijo to Yajuu (`43587`): sin coincidencia inequívoca en el catálogo existente.
+- Bishoujo Janshi Suchie-Pai (`43591`): sin coincidencia inequívoca en el catálogo existente.
+- Bishoujo Senshi Sailor Moon S: Jougai Rantou (`43596`): sin coincidencia inequívoca en el catálogo existente.
+- Bishoujo Senshi Sailor Moon S: Kondo Puzzle de Oshiokiyo (`1739150`): sin coincidencia inequívoca en el catálogo existente.
+- Bishoujo Senshi Sailor Moon SuperS (`43600`): sin coincidencia inequívoca en el catálogo existente.
+- Bishoujo Wrestler Retsuden: Blizzard Yuki Rannyuu (`11551214`): la fuente no aporta ningún precio.
+- Bisyoujyo Wrestlinger's History (`43601`): sin coincidencia inequívoca en el catálogo existente.
+- Blackthorne (`43602`): sin coincidencia inequívoca en el catálogo existente.
+- Bonkers (`43610`): sin coincidencia inequívoca en el catálogo existente.
+- Bushi Seiryuuden (`43620`): sin coincidencia inequívoca en el catálogo existente.
+- Captain Tsubasa III (`43625`): sin coincidencia inequívoca en el catálogo existente.
+- Captain Tsubasa J (`43628`): sin coincidencia inequívoca en el catálogo existente.
+- Captain Tsubasa V (`43627`): sin coincidencia inequívoca en el catálogo existente.
+- Card Master (`43630`): sin coincidencia inequívoca en el catálogo existente.
+- CB Chara Wars (`43633`): sin coincidencia inequívoca en el catálogo existente.
+- Champions World Class Soccer (`43634`): sin coincidencia inequívoca en el catálogo existente.
+- Chickenhead (`44444`): sin coincidencia inequívoca en el catálogo existente.
+- Cho Aniki (`43641`): sin coincidencia inequívoca en el catálogo existente.
+- Cho Makai Taisen (`43645`): sin coincidencia inequívoca en el catálogo existente.
+- Cho Makaimura (`43646`): sin coincidencia inequívoca en el catálogo existente.
+- Chrono Trigger [Prerelease] (`10021182`): sin coincidencia inequívoca en el catálogo existente.
+- ClockWorks (`43655`): sin coincidencia inequívoca en el catálogo existente.
+- Computer Nouryoku Kaiseki (`43658`): sin coincidencia inequívoca en el catálogo existente.
+- Cosmo Police Galivan II (`43665`): sin coincidencia inequívoca en el catálogo existente.
+- Cotton 100 [Columbus Circle] (`7289262`): sin coincidencia inequívoca en el catálogo existente.
+- Crayon Shin-chan 2 (`43667`): sin coincidencia inequívoca en el catálogo existente.
+- Cyber Knight II (`43672`): sin coincidencia inequívoca en el catálogo existente.
+- Daibakushou Jinsei Gekijou (`43674`): sin coincidencia inequívoca en el catálogo existente.
+- Daibakushou Jinsei Gekijou: Dokidoki Seishun (`43675`): sin coincidencia inequívoca en el catálogo existente.
+- Daibakushou Jinsei Gekijou: Ooedo Nikki (`43676`): sin coincidencia inequívoca en el catálogo existente.
+- Daibakushou Jinsei Gekijou: Zukkoke Salaryman (`43677`): sin coincidencia inequívoca en el catálogo existente.
+- Daikaiju Monogatari (`43678`): sin coincidencia inequívoca en el catálogo existente.
+- Daikoukai Jidai II (`43680`): sin coincidencia inequívoca en el catálogo existente.
+- Dark Law (`43687`): sin coincidencia inequívoca en el catálogo existente.
+- Demon's Blazon (`43695`): sin coincidencia inequívoca en el catálogo existente.
+- Densetsu no Ogre Battle (`43696`): sin coincidencia inequívoca en el catálogo existente.
+- Derby Jockey (`43698`): sin coincidencia inequívoca en el catálogo existente.
+- Desert Fighter (`43704`): sin coincidencia inequívoca en el catálogo existente.
+- Desert Strike (`43705`): sin coincidencia inequívoca en el catálogo existente.
+- Devil's Course (`43707`): sin coincidencia inequívoca en el catálogo existente.
+- Dimensional Force (`43710`): sin coincidencia inequívoca en el catálogo existente.
+- Dino Wars (`43711`): sin coincidencia inequívoca en el catálogo existente.
+- Dokapon Gaiden (`43714`): sin coincidencia inequívoca en el catálogo existente.
+- Dokyusei 2 (`43728`): sin coincidencia inequívoca en el catálogo existente.
+- Dolucky's A-League Soccer (`43716`): sin coincidencia inequívoca en el catálogo existente.
+- Donald Duck no Maho no Boshi (`43719`): sin coincidencia inequívoca en el catálogo existente.
+- Doraemon (`43722`): sin coincidencia inequívoca en el catálogo existente.
+- Doraemon 2 (`43723`): sin coincidencia inequívoca en el catálogo existente.
+- Doraemon 3 (`43724`): sin coincidencia inequívoca en el catálogo existente.
+- Doraemon 4 (`43725`): sin coincidencia inequívoca en el catálogo existente.
+- DoReMi Fantasy (`43726`): sin coincidencia inequívoca en el catálogo existente.
+- Dr. Mario (`43731`): sin coincidencia inequívoca en el catálogo existente.
+- Dragon Ball Z: Super Gokuden Kakusei Hen (`43737`): sin coincidencia inequívoca en el catálogo existente.
+- Dragon Quest I & II (`43740`): sin coincidencia inequívoca en el catálogo existente.
+- Dragon Quest III (`43741`): sin coincidencia inequívoca en el catálogo existente.
+- Dual Orb (`43750`): sin coincidencia inequívoca en el catálogo existente.
+- Dynamaite (`43754`): sin coincidencia inequívoca en el catálogo existente.
+- Earth Light (`43756`): sin coincidencia inequívoca en el catálogo existente.
+- Earth Light: Luna Strike (`43757`): sin coincidencia inequívoca en el catálogo existente.
+- Elfaria (`43761`): sin coincidencia inequívoca en el catálogo existente.
+- Elfaria 2 (`43762`): sin coincidencia inequívoca en el catálogo existente.
+- EMIT Vol. 2 (`43766`): sin coincidencia inequívoca en el catálogo existente.
+- EMIT Vol. 3 (`43767`): sin coincidencia inequívoca en el catálogo existente.
+- Esparks (`43769`): sin coincidencia inequívoca en el catálogo existente.
+- Exhaust Heat II (`43774`): sin coincidencia inequívoca en el catálogo existente.
+- Eye of the Beholder (`43775`): sin coincidencia inequívoca en el catálogo existente.
+- F1 Grand Prix (`43776`): sin coincidencia inequívoca en el catálogo existente.
+- Famicom Bunko (`43780`): sin coincidencia inequívoca en el catálogo existente.
+- Famicom Tantei Club Part II (`43781`): sin coincidencia inequívoca en el catálogo existente.
+- Fatal Fury (`62465`): sin coincidencia inequívoca en el catálogo existente.
+- Fatal Fury 2 (`1368330`): sin coincidencia inequívoca en el catálogo existente.
+- Fatal Fury Special (`157609`): sin coincidencia inequívoca en el catálogo existente.
+- Fatal Fury the Battle of Destiny (`43848`): sin coincidencia inequívoca en el catálogo existente.
+- Feda (`43784`): sin coincidencia inequívoca en el catálogo existente.
+- Final Fantasy IV EasyType (`43790`): sin coincidencia inequívoca en el catálogo existente.
+- Final Knockout (`43798`): sin coincidencia inequívoca en el catálogo existente.
+- Fire Emblem: Monsho no Nazo (`43801`): sin coincidencia inequívoca en el catálogo existente.
+- Fire Emblem: Thracia 776 [SF Memory] (`2254297`): sin coincidencia inequívoca en el catálogo existente.
+- First Queen (`43807`): sin coincidencia inequívoca en el catálogo existente.
+- Flying Hero (`43812`): sin coincidencia inequívoca en el catálogo existente.
+- Fushigi no Dungeon 2 (`43826`): sin coincidencia inequívoca en el catálogo existente.
+- Gaia Gensoki (`43828`): sin coincidencia inequívoca en el catálogo existente.
+- Gambler Jikochuushinha (`43833`): sin coincidencia inequívoca en el catálogo existente.
+- Gambler Jikochuushinha 2 (`43834`): sin coincidencia inequívoca en el catálogo existente.
+- Gambling Hourouki (`43835`): la fuente no aporta ningún precio.
+- Ganbare Goemon (`43841`): sin coincidencia inequívoca en el catálogo existente.
+- Ganbare Goemon 2 (`43842`): sin coincidencia inequívoca en el catálogo existente.
+- Ganbare Goemon 3 (`43843`): sin coincidencia inequívoca en el catálogo existente.
+- Ganbare Goemon Kirakira Dochu (`43844`): sin coincidencia inequívoca en el catálogo existente.
+- Ganpuru (`43845`): sin coincidencia inequívoca en el catálogo existente.
+- Ganso Pachi-Slot Nippon'ichi (`43846`): sin coincidencia inequívoca en el catálogo existente.
+- Garo Densetsu Supersharu (`43850`): sin coincidencia inequívoca en el catálogo existente.
+- Gegege no Kitarou: Youkai Donjaara (`43853`): la fuente no aporta ningún precio.
+- Gekisou Sentai Carranger (`43854`): sin coincidencia inequívoca en el catálogo existente.
+- Gekitotsu Dangan Jidosha Kessen (`43855`): sin coincidencia inequívoca en el catálogo existente.
+- Genju Ryodan (`43857`): la fuente no aporta ningún precio.
+- Genocide 2 (`43858`): sin coincidencia inequívoca en el catálogo existente.
+- Getsumen no Anubis (`43859`): sin coincidencia inequívoca en el catálogo existente.
+- Ghost Sweeper Mikami (`43861`): sin coincidencia inequívoca en el catálogo existente.
+- Gindama Oyakata Jissen Pachinko (`6665626`): sin coincidencia inequívoca en el catálogo existente.
+- Ginga Eiyuu Densetsu (`43863`): sin coincidencia inequívoca en el catálogo existente.
+- Gionbana (`43866`): sin coincidencia inequívoca en el catálogo existente.
+- GOD: Growth or Devolution (`43827`): sin coincidencia inequívoca en el catálogo existente.
+- Gokujo Parodius (`43873`): sin coincidencia inequívoca en el catálogo existente.
+- Gon (`43874`): sin coincidencia inequívoca en el catálogo existente.
+- Goofy & Max (`2674798`): sin coincidencia inequívoca en el catálogo existente.
+- Gouketsuji Ichizoku (`43876`): sin coincidencia inequívoca en el catálogo existente.
+- Granhistoria (`43881`): sin coincidencia inequívoca en el catálogo existente.
+- Great Strategy Expert (`43681`): sin coincidencia inequívoca en el catálogo existente.
+- Great Strategy Expert WWII (`43682`): sin coincidencia inequívoca en el catálogo existente.
+- GunForce (`43888`): sin coincidencia inequívoca en el catálogo existente.
+- Gunple: Gunman's Proof (`3365262`): sin coincidencia inequívoca en el catálogo existente.
+- Hakunetsu Pro Yakyuu (`43893`): sin coincidencia inequívoca en el catálogo existente.
+- Hakunetsu Pro Yakyuu '93 (`43894`): sin coincidencia inequívoca en el catálogo existente.
+- Hakunetsu Pro Yakyuu '94 (`43895`): sin coincidencia inequívoca en el catálogo existente.
+- Hameln no Violin Hiki (`43896`): sin coincidencia inequívoca en el catálogo existente.
+- Hana no Keiji (`43897`): sin coincidencia inequívoca en el catálogo existente.
+- Hanafuda (`43898`): sin coincidencia inequívoca en el catálogo existente.
+- Hanjuku Hero (`43900`): sin coincidencia inequívoca en el catálogo existente.
+- Hao Taikei Ryu Knight (`43902`): sin coincidencia inequívoca en el catálogo existente.
+- Harukanaru Augusta 2 (`43905`): sin coincidencia inequívoca en el catálogo existente.
+- Harukanaru Augusta 3 (`43906`): sin coincidencia inequívoca en el catálogo existente.
+- Hatayama Hatch no Pro Yakyuu News Jitsumei Han (`43910`): sin coincidencia inequívoca en el catálogo existente.
+- Hayazashi Nidan Morita Shogi (`43912`): sin coincidencia inequívoca en el catálogo existente.
+- Hayazashi Nidan Morita Shogi 2 (`43913`): sin coincidencia inequívoca en el catálogo existente.
+- Hebereke no Popun (`43915`): sin coincidencia inequívoca en el catálogo existente.
+- Heisei Gunjin Shougi (`43917`): la fuente no aporta ningún precio.
+- Heisei Inu Monogatari Bow (`43918`): sin coincidencia inequívoca en el catálogo existente.
+- Heisei Shin Onigashima: Kouhen (`43920`): sin coincidencia inequívoca en el catálogo existente.
+- Heiwa Parlor Mini 8 (`43924`): sin coincidencia inequívoca en el catálogo existente.
+- Herakles no Eikou IV (`45222`): sin coincidencia inequívoca en el catálogo existente.
+- Hercules no Eiko III (`43926`): sin coincidencia inequívoca en el catálogo existente.
+- Hercules no Eiko IV (`43927`): sin coincidencia inequívoca en el catálogo existente.
+- Higashio Osamu Kanshuu Super Pro Yakyuu Stadium (`43929`): la fuente no aporta ningún precio.
+- Hisshou 777 Fighter (`43937`): sin coincidencia inequívoca en el catálogo existente.
+- Hisshou 777 Fighter II (`43938`): sin coincidencia inequívoca en el catálogo existente.
+- Hisshou 777 Fighter III (`43939`): sin coincidencia inequívoca en el catálogo existente.
+- Hokuto no Ken 6 (`43942`): sin coincidencia inequívoca en el catálogo existente.
+- Hong Kong 1997 (`7473624`): sin coincidencia inequívoca en el catálogo existente.
+- Honkaku Shougi: Fuuunji Ryuuou (`43950`): la fuente no aporta ningún precio.
+- Honke Sankyo Fever (`43952`): sin coincidencia inequívoca en el catálogo existente.
+- Honke Sankyo Fever: Jikkyou Simulation 2 (`43953`): sin coincidencia inequívoca en el catálogo existente.
+- Honke Sankyo Fever: Jikkyou Simulation 3 (`43954`): sin coincidencia inequívoca en el catálogo existente.
+- Honoo No Doukyuuji (`4556178`): sin coincidencia inequívoca en el catálogo existente.
+- Horai Gakuen no Bouken (`43957`): la fuente no aporta ningún precio.
+- Human Grand Prix III (`43964`): sin coincidencia inequívoca en el catálogo existente.
+- Hybrid Wrestler (`43823`): sin coincidencia inequívoca en el catálogo existente.
+- Hyper Battle Game (`43967`): sin coincidencia inequívoca en el catálogo existente.
+- Hyper Olympic Set (`9210533`): sin coincidencia inequívoca en el catálogo existente.
+- Ippatsu Gyakuten (`43979`): sin coincidencia inequívoca en el catálogo existente.
+- Iron Commando [Piko] (`12836852`): sin coincidencia inequívoca en el catálogo existente.
+- Isozuri (`43982`): sin coincidencia inequívoca en el catálogo existente.
+- Itou Haka Rokudan no Shougi Doujou (`43985`): sin coincidencia inequívoca en el catálogo existente.
+- Jaki Crush (`43995`): sin coincidencia inequívoca en el catálogo existente.
+- Jaleco Rally (`43996`): sin coincidencia inequívoca en el catálogo existente.
+- Jammes (`43997`): sin coincidencia inequívoca en el catálogo existente.
+- Jikkyo Power Pro Wrestling '96 (`44004`): sin coincidencia inequívoca en el catálogo existente.
+- Jikkyou Powerful Pro Yakyuu (`44005`): sin coincidencia inequívoca en el catálogo existente.
+- Jikkyou Powerful Pro Yakyuu '96 (`44007`): sin coincidencia inequívoca en el catálogo existente.
+- Jikkyou Powerful Pro Yakyuu 3 '97 (`44010`): sin coincidencia inequívoca en el catálogo existente.
+- Jirou Akagawa (`44014`): sin coincidencia inequívoca en el catálogo existente.
+- Jissen Kyotei (`44015`): sin coincidencia inequívoca en el catálogo existente.
+- Jissen Pachi-Slot Hisshouhou Gindama (`43865`): sin coincidencia inequívoca en el catálogo existente.
+- Jissen Pachinko Hisshouhou 2 (`44022`): sin coincidencia inequívoca en el catálogo existente.
+- JoJo's Bizarre Adventure (`2250660`): sin coincidencia inequívoca en el catálogo existente.
+- Kacho Kosaku Shima (`44041`): sin coincidencia inequívoca en el catálogo existente.
+- Kagakusha Harley no Haran Banjou (`44042`): sin coincidencia inequívoca en el catálogo existente.
+- Kaizou Choujin Shubibinman Zero (`64018`): sin coincidencia inequívoca en el catálogo existente.
+- Kamaitachi No Yoru (`44044`): sin coincidencia inequívoca en el catálogo existente.
+- Kat's Run (`44048`): sin coincidencia inequívoca en el catálogo existente.
+- Katou Ichi-Ni-San Kudan Shougi Club (`44049`): la fuente no aporta ningún precio.
+- Keirin King Supervised By Koichi Nakano (`6074105`): sin coincidencia inequívoca en el catálogo existente.
+- Kenyuu Densetsu Yaiba (`44056`): sin coincidencia inequívoca en el catálogo existente.
+- Kero Kero Keroppi no Boken Nikki (`44057`): la fuente no aporta ningún precio.
+- Kessen Dokapon Okukoku IV (`44058`): sin coincidencia inequívoca en el catálogo existente.
+- Kido Keisatsu Patlabor (`44066`): sin coincidencia inequívoca en el catálogo existente.
+- Kidou Butouden G-Gundam (`44060`): sin coincidencia inequívoca en el catálogo existente.
+- Kidou Senshi Gundam (`44061`): sin coincidencia inequívoca en el catálogo existente.
+- Kidou Senshi Gundam F91 (`44062`): sin coincidencia inequívoca en el catálogo existente.
+- KiKi KaiKai: Tsukiyo Soushi (`44068`): sin coincidencia inequívoca en el catálogo existente.
+- Kikuni Masahiko no Jantoushi Dora Ou (`44069`): sin coincidencia inequívoca en el catálogo existente.
+- King of the Monsters 2 (`44075`): sin coincidencia inequívoca en el catálogo existente.
+- Kinnikuman (`44077`): sin coincidencia inequívoca en el catálogo existente.
+- Kirby no Kira Kira Kids (`44079`): sin coincidencia inequívoca en el catálogo existente.
+- Kishin Korinden Oni (`44083`): sin coincidencia inequívoca en el catálogo existente.
+- Kiteretsu Daihyakka (`44084`): sin coincidencia inequívoca en el catálogo existente.
+- Koryu no Mimi (`44089`): sin coincidencia inequívoca en el catálogo existente.
+- Koutetsu no Kishi 2 (`44096`): sin coincidencia inequívoca en el catálogo existente.
+- Kyouraku Sanyou Maruhon Parlor Parlor (`44103`): sin coincidencia inequívoca en el catálogo existente.
+- Kyouraku Sanyou Maruhon Parlor Parlor 2 (`44104`): sin coincidencia inequívoca en el catálogo existente.
+- Kyouraku Sanyou Maruhon Parlor Parlor 3 (`44105`): sin coincidencia inequívoca en el catálogo existente.
+- Kyouraku Sanyou Maruhon Parlor Parlor IV CR (`44106`): sin coincidencia inequívoca en el catálogo existente.
+- Kyuuyaku Megami Tensei (`44108`): sin coincidencia inequívoca en el catálogo existente.
+- Lady Stalker (`44109`): sin coincidencia inequívoca en el catálogo existente.
+- Laplace No Ma (`14014155`): sin coincidencia inequívoca en el catálogo existente.
+- Laser Birdie (`44113`): sin coincidencia inequívoca en el catálogo existente.
+- Lemmings (`44120`): sin coincidencia inequívoca en el catálogo existente.
+- Lemmings 2 (`44121`): sin coincidencia inequívoca en el catálogo existente.
+- Lennus II (`44123`): sin coincidencia inequívoca en el catálogo existente.
+- Lethal Enforcers (`44124`): sin coincidencia inequívoca en el catálogo existente.
+- Little Master (`44130`): sin coincidencia inequívoca en el catálogo existente.
+- Lode Runner Twin (`44132`): sin coincidencia inequívoca en el catálogo existente.
+- Lodoss Tou Senki (`44133`): sin coincidencia inequívoca en el catálogo existente.
+- Logos Panic (`44134`): sin coincidencia inequívoca en el catálogo existente.
+- Lupin III (`44137`): sin coincidencia inequívoca en el catálogo existente.
+- Macross: Scrambled Valkyrie (`43648`): sin coincidencia inequívoca en el catálogo existente.
+- Mado Monogatari (`44138`): sin coincidencia inequívoca en el catálogo existente.
+- Magical Taruruto Kun Magic Adventure (`62466`): sin coincidencia inequívoca en el catálogo existente.
+- Magna Braban (`44146`): sin coincidencia inequívoca en el catálogo existente.
+- Mahojin Guru Guru (`44154`): sin coincidencia inequívoca en el catálogo existente.
+- Mahojin Guru Guru 2 (`44155`): sin coincidencia inequívoca en el catálogo existente.
+- Majin Tensei II (`44157`): sin coincidencia inequívoca en el catálogo existente.
+- Majyuuou [2018] (`62321`): sin coincidencia inequívoca en el catálogo existente.
+- Makeruna Makendou (`44160`): sin coincidencia inequívoca en el catálogo existente.
+- Marchen Adventure Cotton (`44162`): sin coincidencia inequívoca en el catálogo existente.
+- Mario Paint (`44165`): sin coincidencia inequívoca en el catálogo existente.
+- Marvel Super Heroes: War of the Gems (`44167`): sin coincidencia inequívoca en el catálogo existente.
+- Marvelous (`44168`): sin coincidencia inequívoca en el catálogo existente.
+- Matsumura Kunihiro Den (`44172`): sin coincidencia inequívoca en el catálogo existente.
+- Metal Slader Glory (`44178`): sin coincidencia inequívoca en el catálogo existente.
+- Mickey Mania (`44180`): sin coincidencia inequívoca en el catálogo existente.
+- Mickey no Tokyo Disneyland Daiboken (`44182`): sin coincidencia inequívoca en el catálogo existente.
+- Mini Yonku Let's & Go (`44189`): sin coincidencia inequívoca en el catálogo existente.
+- Miyaji Shachou no Pachinko Fan (`44193`): sin coincidencia inequívoca en el catálogo existente.
+- Mobile Suit Gundam Wing Endless Duel (`58564`): sin coincidencia inequívoca en el catálogo existente.
+- Monster Maker III: Hikari no Majutsushi (`44199`): sin coincidencia inequívoca en el catálogo existente.
+- Monster Maker Kids (`44200`): sin coincidencia inequívoca en el catálogo existente.
+- Mortal Kombat (`44201`): sin coincidencia inequívoca en el catálogo existente.
+- Mother 2 (`44204`): sin coincidencia inequívoca en el catálogo existente.
+- Motteke Oh Dorobo (`44206`): sin coincidencia inequívoca en el catálogo existente.
+- Musya (`43877`): sin coincidencia inequívoca en el catálogo existente.
+- Nakajima Satoru F-1 Hero '94 (`44215`): sin coincidencia inequívoca en el catálogo existente.
+- Nakano Koichi Kanshuu (`44216`): sin coincidencia inequívoca en el catálogo existente.
+- Naki no Ryu (`44217`): sin coincidencia inequívoca en el catálogo existente.
+- Nangoku Shonen Papuwa-kun (`44219`): sin coincidencia inequívoca en el catálogo existente.
+- NBA Jam (`44223`): sin coincidencia inequívoca en el catálogo existente.
+- Neugier (`44230`): sin coincidencia inequívoca en el catálogo existente.
+- New 3D Golf Simulation (`44232`): sin coincidencia inequívoca en el catálogo existente.
+- New 3D Golf Simulation: Harukanaru Augusta (`4388063`): sin coincidencia inequívoca en el catálogo existente.
+- New Mobile Report Gundam Wing (`44455`): sin coincidencia inequívoca en el catálogo existente.
+- NFL Football (`44234`): sin coincidencia inequívoca en el catálogo existente.
+- NFL John Madden '94 (`3187827`): sin coincidencia inequívoca en el catálogo existente.
+- NFL Pro Football '94 (`44235`): sin coincidencia inequívoca en el catálogo existente.
+- Nichibutsu Arcade Classics 2 (`44241`): sin coincidencia inequívoca en el catálogo existente.
+- Nigel Mansell's F-1 Challenge (`44244`): la fuente no aporta ningún precio.
+- Nigel Mansell Indy Car (`44233`): sin coincidencia inequívoca en el catálogo existente.
+- Nightmare Busters (`6984573`): sin coincidencia inequívoca en el catálogo existente.
+- Nintama Rantaro (`44247`): sin coincidencia inequívoca en el catálogo existente.
+- Nintama Rantaro 2 (`44249`): sin coincidencia inequívoca en el catálogo existente.
+- Nintama Rantaro: Ninjutsu Gakuen Puzzle Taikai no Dan (`44248`): sin coincidencia inequívoca en el catálogo existente.
+- Nintama Rantaro Special (`44251`): sin coincidencia inequívoca en el catálogo existente.
+- Nintendo Power SF Cartridge (`4252216`): sin coincidencia inequívoca en el catálogo existente.
+- Nitropunks (`44255`): sin coincidencia inequívoca en el catálogo existente.
+- Nomark Baku Haitou (`44259`): sin coincidencia inequívoca en el catálogo existente.
+- NTT JRA PAT (`44262`): sin coincidencia inequívoca en el catálogo existente.
+- NTT JRA PAT: Wide Baken Taiyou (`44263`): sin coincidencia inequívoca en el catálogo existente.
+- Ochan no Oekaki Logic (`44265`): sin coincidencia inequívoca en el catálogo existente.
+- Oda Nobunaga (`44266`): sin coincidencia inequívoca en el catálogo existente.
+- Odekake Lester (`44267`): sin coincidencia inequívoca en el catálogo existente.
+- Oekaki Logic 2 (`44269`): la fuente no aporta ningún precio.
+- Okamoto Ayako to Match Play Golf (`44270`): sin coincidencia inequívoca en el catálogo existente.
+- Ongaku Tsukuru (`44272`): sin coincidencia inequívoca en el catálogo existente.
+- Oraga Land Shusai (`44276`): sin coincidencia inequívoca en el catálogo existente.
+- Ozumo Spirit (`44282`): sin coincidencia inequívoca en el catálogo existente.
+- Pachi-Slot Kanzen Kouryaku (`44285`): sin coincidencia inequívoca en el catálogo existente.
+- Pachi-Slot Shoubushi (`44291`): la fuente no aporta ningún precio.
+- Pachinko Fan: Shouri Sengen (`44293`): sin coincidencia inequívoca en el catálogo existente.
+- Pachinko Monogatari (`44295`): sin coincidencia inequívoca en el catálogo existente.
+- Pachinko Monogatari 2 (`44296`): sin coincidencia inequívoca en el catálogo existente.
+- Pachinko Renchan Tengoku (`44297`): sin coincidencia inequívoca en el catálogo existente.
+- Pachinko Tetsujin (`44298`): sin coincidencia inequívoca en el catálogo existente.
+- Parlor Mini (`44306`): sin coincidencia inequívoca en el catálogo existente.
+- Parlor Mini 3 (`44308`): sin coincidencia inequívoca en el catálogo existente.
+- Parlor Mini 4 (`44309`): sin coincidencia inequívoca en el catálogo existente.
+- Parlor Mini 5 (`44310`): sin coincidencia inequívoca en el catálogo existente.
+- Parlor Mini 7 (`44312`): sin coincidencia inequívoca en el catálogo existente.
+- Phalanx (`44317`): sin coincidencia inequívoca en el catálogo existente.
+- Pinocchio (`44330`): sin coincidencia inequívoca en el catálogo existente.
+- Pitfall (`44332`): sin coincidencia inequívoca en el catálogo existente.
+- Populous II (`44341`): sin coincidencia inequívoca en el catálogo existente.
+- Princess Maker (`44348`): sin coincidencia inequívoca en el catálogo existente.
+- Pro Kishi Jinsei Simulation (`44352`): sin coincidencia inequívoca en el catálogo existente.
+- Pro Mahjong Tsuwamono: Renka Han (`44357`): sin coincidencia inequívoca en el catálogo existente.
+- Pro Yakyu Star (`44360`): la fuente no aporta ningún precio.
+- Pro Yakyuu Nettou: Puzzle Stadium (`44359`): la fuente no aporta ningún precio.
+- R-Type III (`44366`): sin coincidencia inequívoca en el catálogo existente.
+- Ramos' World Wide Soccer (`44368`): sin coincidencia inequívoca en el catálogo existente.
+- Ranma 1/2: Akaneko-dan teki Hihou (`44369`): sin coincidencia inequívoca en el catálogo existente.
+- Ranma 1/2: Chonai Gekito Hen (`44372`): sin coincidencia inequívoca en el catálogo existente.
+- Rapurasu no Ma (`44374`): sin coincidencia inequívoca en el catálogo existente.
+- Rendering Ranger (`44376`): sin coincidencia inequívoca en el catálogo existente.
+- Res Arcana (`44377`): sin coincidencia inequívoca en el catálogo existente.
+- Rockman Soccer (`44391`): sin coincidencia inequívoca en el catálogo existente.
+- Romance of the Three Kingdoms II (`5610602`): sin coincidencia inequívoca en el catálogo existente.
+- Romance of the Three Kingdoms III (`6074103`): sin coincidencia inequívoca en el catálogo existente.
+- RPM Racing (`44400`): sin coincidencia inequívoca en el catálogo existente.
+- Saikyo (`44411`): sin coincidencia inequívoca en el catálogo existente.
+- Sakurai Shouichi no Jankiryuu (`44412`): sin coincidencia inequívoca en el catálogo existente.
+- Same Game (`1072398`): sin coincidencia inequívoca en el catálogo existente.
+- SameGame + Tengai Makyou Zero Jikei (`44414`): sin coincidencia inequívoca en el catálogo existente.
+- Sangokushi Seishi (`44419`): sin coincidencia inequívoca en el catálogo existente.
+- SD Gundam G Next (`44425`): sin coincidencia inequívoca en el catálogo existente.
+- SD Gundam G-Next: Unit & Map Collection (`5961020`): sin coincidencia inequívoca en el catálogo existente.
+- SD Gundam Gaiden (`44426`): sin coincidencia inequívoca en el catálogo existente.
+- SD Gundam Gaiden 2 (`44427`): sin coincidencia inequívoca en el catálogo existente.
+- SD Gundam Generation B: Gryps Senki (`802526`): la fuente no aporta ningún precio.
+- SD Gundam Generation C: Axis Senki (`802527`): la fuente no aporta ningún precio.
+- SD Gundam Generation D: Babylonia Kenkoku Senki (`802528`): la fuente no aporta ningún precio.
+- SD Gundam Generation E - Zansukaaru Senki (`802529`): sin coincidencia inequívoca en el catálogo existente.
+- SD Gundam Generation F - Colony Kakutouki (`802530`): la fuente no aporta ningún precio.
+- SD Kidou Senshi Gundam V (`44063`): sin coincidencia inequívoca en el catálogo existente.
+- SD Ultra Battle: Ultraman Densetsu (`802523`): sin coincidencia inequívoca en el catálogo existente.
+- Seifuku Densetsu (`44435`): sin coincidencia inequívoca en el catálogo existente.
+- Sgt. Saunders' Combat (`44443`): sin coincidencia inequívoca en el catálogo existente.
+- Shanghai III (`44447`): sin coincidencia inequívoca en el catálogo existente.
+- Shigetaka Kashiwagi's Top Water Bassing (`44449`): sin coincidencia inequívoca en el catálogo existente.
+- Shijou Saikyou League Serie A (`44450`): sin coincidencia inequívoca en el catálogo existente.
+- Shijou Saikyou no Quiz Ou Ketteisen Super (`44451`): sin coincidencia inequívoca en el catálogo existente.
+- Shin Majan (`44456`): sin coincidencia inequívoca en el catálogo existente.
+- Shin Megami Tensei (`44457`): sin coincidencia inequívoca en el catálogo existente.
+- Shin Naki no Ryu (`44460`): sin coincidencia inequívoca en el catálogo existente.
+- Shin Nippon Pro Wrestling (`44462`): sin coincidencia inequívoca en el catálogo existente.
+- Shin Nippon Pro Wrestling '94 (`44463`): sin coincidencia inequívoca en el catálogo existente.
+- Shin Nippon Pro Wrestling '95 (`44464`): sin coincidencia inequívoca en el catálogo existente.
+- Shin SD Sengokuden (`44465`): sin coincidencia inequívoca en el catálogo existente.
+- Shin Seikoku (`44466`): sin coincidencia inequívoca en el catálogo existente.
+- Shin Star Trek (`44468`): sin coincidencia inequívoca en el catálogo existente.
+- Shin Togenkyo (`44469`): la fuente no aporta ningún precio.
+- Shinseiki GPX (`44473`): sin coincidencia inequívoca en el catálogo existente.
+- Shinzui Taikyoku Igo (`44476`): sin coincidencia inequívoca en el catálogo existente.
+- Shonen Ashibe (`44486`): sin coincidencia inequívoca en el catálogo existente.
+- Shonin yo Taishi wo Idake (`44488`): sin coincidencia inequívoca en el catálogo existente.
+- Shougi (`44481`): sin coincidencia inequívoca en el catálogo existente.
+- Shougi Saikyou (`44483`): la fuente no aporta ningún precio.
+- Shougi Saikyou 2 (`44484`): sin coincidencia inequívoca en el catálogo existente.
+- Shougi Sanmai (`44485`): sin coincidencia inequívoca en el catálogo existente.
+- Shutokou Battle 2: Drift King (`44490`): sin coincidencia inequívoca en el catálogo existente.
+- Shuushoku Game (`44491`): sin coincidencia inequívoca en el catálogo existente.
+- Sim Earth (`44498`): sin coincidencia inequívoca en el catálogo existente.
+- SimCity (`44495`): sin coincidencia inequívoca en el catálogo existente.
+- SimCity 2000 (`44496`): sin coincidencia inequívoca en el catálogo existente.
+- Slam Dunk (`43816`): sin coincidencia inequívoca en el catálogo existente.
+- Slam Dunk 2 (`43818`): sin coincidencia inequívoca en el catálogo existente.
+- Slam Dunk: SD Heat Up (`43817`): sin coincidencia inequívoca en el catálogo existente.
+- Soreyuke Ebisumaru Karakuri Meiro (`44513`): sin coincidencia inequívoca en el catálogo existente.
+- Sotsugyou Bangai Hen (`44514`): sin coincidencia inequívoca en el catálogo existente.
+- Sougou Kakutougi: Astral Bout 2 (`44516`): sin coincidencia inequívoca en el catálogo existente.
+- Space Invaders (`44525`): sin coincidencia inequívoca en el catálogo existente.
+- Sprinter Monogatari (`44530`): sin coincidencia inequívoca en el catálogo existente.
+- St. Andrews (`44531`): sin coincidencia inequívoca en el catálogo existente.
+- Star Fox 2 (`44533`): sin coincidencia inequívoca en el catálogo existente.
+- Street Fighter II (`44539`): sin coincidencia inequívoca en el catálogo existente.
+- Strike Gunner (`44543`): sin coincidencia inequívoca en el catálogo existente.
+- SuFami Turbo & Gundam Generation: One Year War Chronicle (`3521632`): sin coincidencia inequívoca en el catálogo existente.
+- Sun Sport Fishing (`44547`): sin coincidencia inequívoca en el catálogo existente.
+- Super 4WD (`44551`): sin coincidencia inequívoca en el catálogo existente.
+- Super Adventure Island (`44765`): sin coincidencia inequívoca en el catálogo existente.
+- Super Adventure Island II (`44766`): sin coincidencia inequívoca en el catálogo existente.
+- Super Battletank (`44558`): sin coincidencia inequívoca en el catálogo existente.
+- Super Bomberman (`44566`): sin coincidencia inequívoca en el catálogo existente.
+- Super Bomberman 2: Caravan Edition (`44569`): sin coincidencia inequívoca en el catálogo existente.
+- Super Bomberman 5: Gold Cartridge (`44573`): sin coincidencia inequívoca en el catálogo existente.
+- Super Bomberman: Panic Bomber W (`44567`): sin coincidencia inequívoca en el catálogo existente.
+- Super Casino (`44576`): sin coincidencia inequívoca en el catálogo existente.
+- Super Chinese World 2 (`44581`): sin coincidencia inequívoca en el catálogo existente.
+- Super Dogfight (`44585`): sin coincidencia inequívoca en el catálogo existente.
+- Super Donkey Kong 2 (`44587`): sin coincidencia inequívoca en el catálogo existente.
+- Super Donkey Kong 3: Nazo no Krems Shima (`44588`): sin coincidencia inequívoca en el catálogo existente.
+- Super F1 Hero (`44601`): sin coincidencia inequívoca en el catálogo existente.
+- Super Family Gelande (`44604`): sin coincidencia inequívoca en el catálogo existente.
+- Super Fishing (`44620`): sin coincidencia inequívoca en el catálogo existente.
+- Super Formation Soccer 95 (`44623`): sin coincidencia inequívoca en el catálogo existente.
+- Super Formation Soccer 96 (`44624`): sin coincidencia inequívoca en el catálogo existente.
+- Super Honmei (`44635`): sin coincidencia inequívoca en el catálogo existente.
+- Super Jinsei Game (`44641`): sin coincidencia inequívoca en el catálogo existente.
+- Super Jinsei Game 2 (`44642`): sin coincidencia inequívoca en el catálogo existente.
+- Super Jinsei Game 3 (`44643`): sin coincidencia inequívoca en el catálogo existente.
+- Super Kokou Yakyuu (`44649`): sin coincidencia inequívoca en el catálogo existente.
+- Super Kyotei 2 (`44652`): sin coincidencia inequívoca en el catálogo existente.
+- Super Kyousouba (`44650`): sin coincidencia inequívoca en el catálogo existente.
+- Super Kyuukyoku Harikiri Stadium (`44653`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mahjong 2 (`44659`): sin coincidencia inequívoca en el catálogo existente.
+- Super Mario World (`44666`): sin coincidencia inequívoca en el catálogo existente.
+- Super Metroid (`44667`): sin coincidencia inequívoca en el catálogo existente.
+- Super Naxat Open (`44672`): sin coincidencia inequívoca en el catálogo existente.
+- Super Nichibutsu Mahjong 2 (`44677`): sin coincidencia inequívoca en el catálogo existente.
+- Super Nichibutsu Mahjong 3 (`44678`): sin coincidencia inequívoca en el catálogo existente.
+- Super Nichibutsu Mahjong 4 (`44679`): sin coincidencia inequívoca en el catálogo existente.
+- Super Nobunaga no Yabou: Bushou Fuunroku (`44681`): sin coincidencia inequívoca en el catálogo existente.
+- Super Nobunaga no Yabou: Zengoku Han (`44682`): sin coincidencia inequívoca en el catálogo existente.
+- Super Okuman Chouja Game (`44684`): sin coincidencia inequívoca en el catálogo existente.
+- Super Oozumou Nessen Dai Ichiban (`4758840`): sin coincidencia inequívoca en el catálogo existente.
+- Super Pinball II (`44691`): sin coincidencia inequívoca en el catálogo existente.
+- Super Real Mahjong PV: Paradise (`44704`): sin coincidencia inequívoca en el catálogo existente.
+- Super Robot Taisen Gaiden (`44706`): sin coincidencia inequívoca en el catálogo existente.
+- Super Shanghai (`44711`): sin coincidencia inequívoca en el catálogo existente.
+- Super Shougi 3 (`44714`): sin coincidencia inequívoca en el catálogo existente.
+- Super Smash TV (`44716`): sin coincidencia inequívoca en el catálogo existente.
+- Super Star Wars (`44720`): sin coincidencia inequívoca en el catálogo existente.
+- Super SWIV (`44725`): sin coincidencia inequívoca en el catálogo existente.
+- Super Tetris 2 (`44728`): sin coincidencia inequívoca en el catálogo existente.
+- Super Tetris 2 & Bombliss (`45211`): sin coincidencia inequívoca en el catálogo existente.
+- Super Tetris 2 & Bombliss [Gentei Han] (`3104634`): sin coincidencia inequívoca en el catálogo existente.
+- Super Turrican (`44734`): sin coincidencia inequívoca en el catálogo existente.
+- Super Valis (`44739`): sin coincidencia inequívoca en el catálogo existente.
+- Super V.G. (`44738`): sin coincidencia inequívoca en el catálogo existente.
+- Super Yakyuu Michi (`44744`): sin coincidencia inequívoca en el catálogo existente.
+- Super Zugan (`44745`): sin coincidencia inequívoca en el catálogo existente.
+- Super Zugan 2 (`44746`): sin coincidencia inequívoca en el catálogo existente.
+- Sutobasu Yaro Sho (`44747`): sin coincidencia inequívoca en el catálogo existente.
+- Sword World SFC 2 (`44752`): sin coincidencia inequívoca en el catálogo existente.
+- Table Game Daishuugou Shougi Mahjong Hanafuda (`44756`): sin coincidencia inequívoca en el catálogo existente.
+- Taikou Rishinden (`44762`): la fuente no aporta ningún precio.
+- Tatakae Genshijin 2 (`44774`): sin coincidencia inequívoca en el catálogo existente.
+- Tatakae Genshijin 3 (`44775`): sin coincidencia inequívoca en el catálogo existente.
+- Tatsujin Ou (`6682442`): sin coincidencia inequívoca en el catálogo existente.
+- Tecmo Super Bowl II (`44778`): sin coincidencia inequívoca en el catálogo existente.
+- Tekkaman Blade (`44829`): sin coincidencia inequívoca en el catálogo existente.
+- Tenchi o Kurau (`44788`): sin coincidencia inequívoca en el catálogo existente.
+- Tengai Makyou Zero (`44789`): sin coincidencia inequívoca en el catálogo existente.
+- Tengai Makyou Zero: Shonen Jump no Shou (`44790`): sin coincidencia inequívoca en el catálogo existente.
+- Tenshi no Uta (`44792`): sin coincidencia inequívoca en el catálogo existente.
+- The Amazing Spiderman: Lethal Foes (`43526`): sin coincidencia inequívoca en el catálogo existente.
+- The Atlas (`43550`): sin coincidencia inequívoca en el catálogo existente.
+- The Flintstones: The Treasure of Sierra Madrock (`43811`): sin coincidencia inequívoca en el catálogo existente.
+- The Irem Major Title (`43980`): sin coincidencia inequívoca en el catálogo existente.
+- The Jungle Book (`44031`): sin coincidencia inequívoca en el catálogo existente.
+- The Rocketeer (`44385`): sin coincidencia inequívoca en el catálogo existente.
+- The Shinri Game 2 (`44471`): sin coincidencia inequívoca en el catálogo existente.
+- The Simpsons (`44499`): sin coincidencia inequívoca en el catálogo existente.
+- The Simpsons: Bart's Nightmare (`6490183`): sin coincidencia inequívoca en el catálogo existente.
+- Thunderbirds (`44801`): sin coincidencia inequívoca en el catálogo existente.
+- Toride (`44811`): sin coincidencia inequívoca en el catálogo existente.
+- Touge Densetsu (`44814`): sin coincidencia inequívoca en el catálogo existente.
+- Toy Story (`44816`): sin coincidencia inequívoca en el catálogo existente.
+- Traverse (`44817`): sin coincidencia inequívoca en el catálogo existente.
+- True Shin Mah-Jong (`1549288`): la fuente no aporta ningún precio.
+- Uchuu Race (`44830`): sin coincidencia inequívoca en el catálogo existente.
+- UFO Kamen Yakisoban (`44831`): sin coincidencia inequívoca en el catálogo existente.
+- Ugoku E Ver. 2.0 (`44832`): sin coincidencia inequívoca en el catálogo existente.
+- Ultima Gaiden (`44834`): sin coincidencia inequívoca en el catálogo existente.
+- Ultima: Savage Empire (`44833`): sin coincidencia inequívoca en el catálogo existente.
+- Ultima VII (`44836`): sin coincidencia inequívoca en el catálogo existente.
+- Ultimate Football (`44837`): sin coincidencia inequívoca en el catálogo existente.
+- Ultra Baseball Jitsumeiban (`44838`): sin coincidencia inequívoca en el catálogo existente.
+- Ultra Baseball Jitsumeiban 2 (`44839`): sin coincidencia inequívoca en el catálogo existente.
+- Ultra Baseball Jitsumeiban 3 (`44840`): sin coincidencia inequívoca en el catálogo existente.
+- Undake 30: Same Game Mario Version (`161152`): sin coincidencia inequívoca en el catálogo existente.
+- Unholy Night: The Darkness Hunter (`2706051`): sin coincidencia inequívoca en el catálogo existente.
+- Waka Taka ozumo (`44858`): sin coincidencia inequívoca en el catálogo existente.
+- Waku Waku Ski Wonder Spur (`44859`): sin coincidencia inequívoca en el catálogo existente.
+- Wally wo Sagase (`44860`): sin coincidencia inequívoca en el catálogo existente.
+- Waratte Iitomo Tamorin Pick (`44861`): sin coincidencia inequívoca en el catálogo existente.
+- Wild Guns (`44864`): sin coincidencia inequívoca en el catálogo existente.
+- Winning Post 2: Program '96 (`802518`): la fuente no aporta ningún precio.
+- Wizardry Gaiden IV (`44870`): sin coincidencia inequívoca en el catálogo existente.
+- Wizardry I-II-III (`44871`): sin coincidencia inequívoca en el catálogo existente.
+- Wizardry VI (`44873`): sin coincidencia inequívoca en el catálogo existente.
+- Wolverine (`44875`): sin coincidencia inequívoca en el catálogo existente.
+- World Class Rugby 2 (`44879`): sin coincidencia inequívoca en el catálogo existente.
+- WWF Super WrestleMania (`44887`): sin coincidencia inequívoca en el catálogo existente.
+- X-Men (`44889`): sin coincidencia inequívoca en el catálogo existente.
+- X-Terminator 2 Sauke (`44890`): sin coincidencia inequívoca en el catálogo existente.
+- Xak (`44892`): sin coincidencia inequívoca en el catálogo existente.
+- Xandra no Daiboken (`44893`): sin coincidencia inequívoca en el catálogo existente.
+- Xandra no Daibouken (`4080739`): sin coincidencia inequívoca en el catálogo existente.
+- Xardion (`44894`): sin coincidencia inequívoca en el catálogo existente.
+- Yadamon (`44895`): sin coincidencia inequívoca en el catálogo existente.
+- Yakouchuu (`44896`): sin coincidencia inequívoca en el catálogo existente.
+- YamYam (`44899`): sin coincidencia inequívoca en el catálogo existente.
+- Yokai Buster (`44908`): sin coincidencia inequívoca en el catálogo existente.
+- Yokoyama Mitsuteru: Sangokushi Bangi (`44903`): sin coincidencia inequívoca en el catálogo existente.
+- Yoshi's Safari (`1589482`): sin coincidencia inequívoca en el catálogo existente.
+- Yu Yu Hakusho (`44913`): sin coincidencia inequívoca en el catálogo existente.
+- Yu Yu Hakusho 2 (`44914`): sin coincidencia inequívoca en el catálogo existente.
+- Yu Yu Hakusho Final (`44915`): sin coincidencia inequívoca en el catálogo existente.
+- Yume Meikyuu (`44919`): sin coincidencia inequívoca en el catálogo existente.
+- Zan II (`44924`): sin coincidencia inequívoca en el catálogo existente.
+- Zen-Nippon Pro Wrestling (`44930`): sin coincidencia inequívoca en el catálogo existente.
+- Zen-Nippon Pro Wrestling 2 (`44933`): sin coincidencia inequívoca en el catálogo existente.
+- Zen-Nippon Pro Wrestling: Fight da Pon (`44932`): sin coincidencia inequívoca en el catálogo existente.
+- Zenkoku Juudan (`44926`): sin coincidencia inequívoca en el catálogo existente.
+- Zenkoku Koko Soccer (`44927`): sin coincidencia inequívoca en el catálogo existente.
+- Zenkoku Koko Soccer 2 (`44928`): sin coincidencia inequívoca en el catálogo existente.
+- Zero4 Champ RR (`44934`): sin coincidencia inequívoca en el catálogo existente.
+- Zig Zag Cat (`44937`): sin coincidencia inequívoca en el catálogo existente.
+- Zoku: Legend of Bishin (`44938`): sin coincidencia inequívoca en el catálogo existente.
+- Zoo-tto Mahjong (`44939`): la fuente no aporta ningún precio.
