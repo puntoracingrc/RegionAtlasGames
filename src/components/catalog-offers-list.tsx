@@ -70,8 +70,17 @@ type UnifiedOffer = {
   affiliate?: AffiliateOffer;
 };
 
-function providerLabel(provider: AffiliateOffer["provider"] | AffiliateFallbackCta["provider"]): string {
-  if (provider === "ebay") return "eBay";
+function providerLabel(provider: AffiliateOffer["provider"] | AffiliateFallbackCta["provider"]) {
+  if (provider === "ebay") {
+    return (
+      <span aria-label="eBay" className="inline-flex font-extrabold tracking-[-0.08em]" role="img">
+        <span aria-hidden="true" className="text-[#e53238]">e</span>
+        <span aria-hidden="true" className="text-[#0064d2]">b</span>
+        <span aria-hidden="true" className="text-[#f5af02]">a</span>
+        <span aria-hidden="true" className="text-[#86b817]">y</span>
+      </span>
+    );
+  }
   if (provider === "amazon") return "Amazon";
   if (provider === "rakuten") return "Rakuten";
   return "Tienda";
@@ -306,7 +315,7 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
         ) : null}
         {fallbackCtas.map((fallback) => (
           <li key={fallback.id} className="px-3 py-3">
-            <div className="flex justify-end">
+              <div className="flex justify-center">
               <a
                 href={fallback.url}
                 target="_blank"
