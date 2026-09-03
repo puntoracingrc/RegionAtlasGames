@@ -8,7 +8,6 @@ import { cn } from "@/lib/cn";
 import type {
   PersonCardData,
   PersonExpertise,
-  PersonPublicationLevel,
 } from "@/lib/person-research-types";
 
 const PAGE_SIZE = 48;
@@ -25,13 +24,13 @@ const expertiseOptions: { value: "all" | PersonExpertise; label: string }[] = [
   { value: "executive", label: "Gestión" },
 ];
 
-type Sort = "name" | "birth" | "editorial";
+type Sort = "name" | "birth";
 
 function normalize(value: string): string {
   return value.toLocaleLowerCase("es").normalize("NFD").replace(/\p{M}/gu, "");
 }
 
-function PersonCard({ person }: { person: PersonCardData }) {
+function PersonCard({ person, priority = false }: { person: PersonCardData; priority?: boolean }) {
   return (
     <Link
       href={`/persona/${person.slug}`}
@@ -41,6 +40,7 @@ function PersonCard({ person }: { person: PersonCardData }) {
         src={person.portraitPath}
         name={person.name}
         sizes="(max-width: 640px) 50vw, (max-width: 1280px) 25vw, 18vw"
+        priority={priority}
         className="h-44 w-full border-b border-border"
       />
       <div className="flex min-w-0 flex-col p-3.5">
@@ -48,11 +48,9 @@ function PersonCard({ person }: { person: PersonCardData }) {
           <h2 className="line-clamp-2 min-h-12 text-base font-bold leading-6 text-foreground group-hover:text-accent">
             {person.name}
           </h2>
-          {person.publicationLevel === "editorial" && (
-            <span className="shrink-0 rounded-md bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700 dark:text-emerald-300">
-              Revisada
-            </span>
-          )}
+          <span className="shrink-0 rounded-md bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700 dark:text-emerald-300">
+            Revisada
+          </span>
         </div>
         <p className="mt-1 line-clamp-2 text-xs text-muted">
           {[person.lifeLabel, person.origin].filter(Boolean).join(" · ") || "Trayectoria documentada"}
@@ -72,7 +70,6 @@ function PersonCard({ person }: { person: PersonCardData }) {
 export function PersonExplorer({ people }: { people: PersonCardData[] }) {
   const [query, setQuery] = useState("");
   const [expertise, setExpertise] = useState<"all" | PersonExpertise>("all");
-  const [level, setLevel] = useState<"all" | PersonPublicationLevel>("all");
   const [sort, setSort] = useState<Sort>("name");
   const [visible, setVisible] = useState(PAGE_SIZE);
 
@@ -81,12 +78,7 @@ export function PersonExplorer({ people }: { people: PersonCardData[] }) {
     return people
       .filter((person) => !normalizedQuery || person.searchHaystack.includes(normalizedQuery))
       .filter((person) => expertise === "all" || person.expertise.includes(expertise))
-      .filter((person) => level === "all" || person.publicationLevel === level)
       .sort((a, b) => {
-        if (sort === "editorial") {
-          return Number(b.publicationLevel === "editorial") - Number(a.publicationLevel === "editorial") ||
-            a.name.localeCompare(b.name, "es");
-        }
         if (sort === "birth") {
           const aYear = Number(a.lifeLabel?.match(/\d{4}/)?.[0] ?? 9999);
           const bYear = Number(b.lifeLabel?.match(/\d{4}/)?.[0] ?? 9999);
@@ -94,15 +86,14 @@ export function PersonExplorer({ people }: { people: PersonCardData[] }) {
         }
         return a.name.localeCompare(b.name, "es", { numeric: true });
       });
-  }, [expertise, level, people, query, sort]);
+  }, [expertise, people, query, sort]);
 
-  const active = query.trim() || expertise !== "all" || level !== "all" || sort !== "name";
+  const active = query.trim() || expertise !== "all" || sort !== "name";
   const shown = filtered.slice(0, visible);
 
   function reset() {
     setQuery("");
     setExpertise("all");
-    setLevel("all");
     setSort("name");
     setVisible(PAGE_SIZE);
   }
@@ -147,28 +138,12 @@ export function PersonExplorer({ people }: { people: PersonCardData[] }) {
           ))}
         </div>
 
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-[15rem_15rem_auto]">
-          <label className="space-y-1">
-            <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Tipo de ficha</span>
-            <select
-              className="input"
-              value={level}
-              onChange={(event) => {
-                setLevel(event.target.value as typeof level);
-                setVisible(PAGE_SIZE);
-              }}
-            >
-              <option value="all">Todas las fichas</option>
-              <option value="editorial">Revisión editorial</option>
-              <option value="structured">Ficha estructurada</option>
-            </select>
-          </label>
+        <div className="mt-4 grid gap-3 sm:grid-cols-[15rem_auto]">
           <label className="space-y-1">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Orden</span>
             <select className="input" value={sort} onChange={(event) => setSort(event.target.value as Sort)}>
               <option value="name">Nombre (A-Z)</option>
               <option value="birth">Nacimiento</option>
-              <option value="editorial">Revisadas primero</option>
             </select>
           </label>
           <div className="flex items-end justify-between gap-3 lg:justify-end">
@@ -187,7 +162,9 @@ export function PersonExplorer({ people }: { people: PersonCardData[] }) {
 
       {shown.length > 0 ? (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-          {shown.map((person) => <PersonCard key={person.slug} person={person} />)}
+          {shown.map((person, index) => (
+            <PersonCard key={person.slug} person={person} priority={index < 6} />
+          ))}
         </div>
       ) : (
         <div className="rounded-lg border border-border bg-card px-4 py-14 text-center text-sm text-muted">

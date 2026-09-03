@@ -12,7 +12,7 @@
       "source_url": "https://awards.cesa.or.jp/2014/prize/prize_04.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00002",
@@ -25,7 +25,7 @@
       "source_url": "https://comicbook.com/anime/news/dragon-ball-akira-toriyama-eisner-award-nomination-2019/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00003",
@@ -38,7 +38,7 @@
       "source_url": "https://www.animenewsnetwork.com/interest/2019-05-31/dragonball-creator-akira-toriyama-knighted-by-france/.147351",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00004",
@@ -64,7 +64,7 @@
       "source_url": "https://gpi.noosfere.org/gpi-2006/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00006",
@@ -103,7 +103,7 @@
       "source_url": "https://gpi.noosfere.org/gpi-2018/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00009",
@@ -129,7 +129,7 @@
       "source_url": "https://gpi.noosfere.org/gpi-2020/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00011",
@@ -142,7 +142,7 @@
       "source_url": "https://prixlibranous.org/livres-primes/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00012",
@@ -155,7 +155,7 @@
       "source_url": "https://www.gamasutra.com/php-bin/news_index.php?story=12732",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00013",
@@ -298,7 +298,7 @@
       "source_url": "https://www.lemonde.fr/pixels/article/2022/03/10/jeux-video-la-ceremonie-des-pegases-recompense-deathloop-et-road-96_6116999_4408996.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00024",
@@ -311,7 +311,7 @@
       "source_url": "http://chamberybd.fr/ledition-2011/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00025",
@@ -415,7 +415,7 @@
       "source_url": "https://commencement.umich.edu/wp-content/uploads/2022/08/SpringCommencement2022.pdf",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00033",
@@ -428,7 +428,7 @@
       "source_url": "https://www.infoworld.com/article/2644044/queen-grants-knighthood-to-bill-gates.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00034",
@@ -441,7 +441,7 @@
       "source_url": "https://www.nationalmedals.org/laureates/bill-gates",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00035",
@@ -454,7 +454,7 @@
       "source_url": "https://www.indiatoday.in/india/story/bill-gates-melinda-padma-bhushan-india-foundation-social-work-237379-2015-01-25",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00036",
@@ -467,7 +467,7 @@
       "source_url": "https://likumi.lv/ta/id/199478-par-atzinibas-krusta-pieskirsanu-un-apbalvosanu-ar-goda-zimi",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00037",
@@ -480,7 +480,7 @@
       "source_url": "http://www.laskerfoundation.org/awards/show/advancing-global-health-through-enlightened-philanthropy/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00038",
@@ -493,7 +493,7 @@
       "source_url": "https://www.whitehouse.gov/the-press-office/2016/11/16/president-obama-names-recipients-presidential-medal-freedom",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00039",
@@ -506,7 +506,7 @@
       "source_url": "http://www.fulbright.org/about-us/news/2010_Fulbright_Prize",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00040",
@@ -519,7 +519,7 @@
       "source_url": "https://www.bbc.com/news/11310420",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00041",
@@ -532,7 +532,7 @@
       "source_url": "https://www.bcs.org/more/about-us/history-of-bcs/distinguished-fellowship-distfbcs/roll-of-distinguished-fellows/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00042",
@@ -545,7 +545,7 @@
       "source_url": "https://www.unfpa.org/news/united-nations-population-award-presented-bill-and-melinda-gates-asian-parliamentarians",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00043",
@@ -558,7 +558,7 @@
       "source_url": "http://www.gettyimages.com/pictures/microsoft-chairman-bill-gates-left-receives-the-aztec-eagle-news-photo-94587215",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00044",
@@ -571,7 +571,7 @@
       "source_url": "http://www.ordens.presidencia.pt/?idc=154",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00045",
@@ -584,7 +584,7 @@
       "source_url": "http://www.nasonline.org/news-and-multimedia/news/jan-23-2013-pwm.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00046",
@@ -597,7 +597,7 @@
       "source_url": "http://www.cdep.ro/pls/legis/legis_pck.htp_act_text?idt=78535",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00047",
@@ -610,7 +610,7 @@
       "source_url": "https://www.parismatch.com/Actu/International/Bill-et-Melinda-Gates-une-medaille-pour-le-coeur-1242938",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00048",
@@ -623,7 +623,7 @@
       "source_url": "https://www.fi.edu/laureates/william-h-gates",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00049",
@@ -636,7 +636,7 @@
       "source_url": "http://www.moe.gov.cn/s78/A22/xwb_left/moe_829/tnull_44386.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00050",
@@ -649,7 +649,7 @@
       "source_url": "https://www.forskning.se/2002/01/16/bill-gates-craig-venter-och-david-king-hedersdoktorer-vid-kth/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00051",
@@ -662,7 +662,7 @@
       "source_url": "https://computersweden.idg.se/2.2683/1.104789/karolinska-gor-bill-gates-till-hedersdoktor",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00052",
@@ -701,7 +701,7 @@
       "source_url": "https://ig.ft.com/sites/person-of-the-year/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00055",
@@ -714,7 +714,7 @@
       "source_url": "https://www.spiegel.de/lebenundlernen/uni/bill-gates-in-harvard-lametta-fuer-den-verlorenen-sohn-a-487470.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00056",
@@ -727,7 +727,7 @@
       "source_url": "https://rp-online.de/panorama/fernsehen/bill-gates-bekommt-bambi-auszeichnung_aid-14424731",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00057",
@@ -740,7 +740,7 @@
       "source_url": "https://www.fi.edu/en/laureates/william-h-gates",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00058",
@@ -766,7 +766,7 @@
       "source_url": "https://www.cnbcindonesia.com/tech/20250924082337-37-669668/bill-gates-dapat-bintang-jasa-prabowo-antarkan-langsung-ke-new-york",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00060",
@@ -779,7 +779,7 @@
       "source_url": "https://www.bafta.org/media-centre/press-releases/brenda-romero-to-receive-bafta-special-award/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00061",
@@ -792,7 +792,7 @@
       "source_url": "https://www.polygon.com/2015/12/3/9846760/the-game-awards-2015-winners",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00062",
@@ -831,7 +831,7 @@
       "source_url": "https://mcvuk.com/development-news/carol-shaw-awarded-industry-icon-honour-at-the-game-awards/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00065",
@@ -896,7 +896,7 @@
       "source_url": "https://www.sisyfos.cz/clanek/1618-bludne-balvany-za-rok-2025",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00070",
@@ -909,7 +909,7 @@
       "source_url": "https://www.oscars.org/oscars/ceremonies/1938",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00071",
@@ -1026,7 +1026,7 @@
       "source_url": "https://www5.open.ac.uk/students/ceremonies/sites/www.open.ac.uk.students.ceremonies/files/files/Honorary%20graduate%20cumulative%20list(7).xlsx",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00080",
@@ -1039,7 +1039,7 @@
       "source_url": "https://www.bafta.org/media-centre/press-releases/david-braben-to-be-honoured-with-bafta-fellowship/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00081",
@@ -1091,7 +1091,7 @@
       "source_url": "https://www.gamespot.com/articles/re4-named-game-of-year-at-spike-awards/1100-6140144/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00085",
@@ -1104,7 +1104,7 @@
       "source_url": "https://www.polygon.com/clair-obscur-gdc-awards-win-sweep/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00086",
@@ -1117,7 +1117,7 @@
       "source_url": "https://www.lefigaro.fr/jeux-video/eiji-aonuma-co-createur-des-jeux-video-zelda-nomme-chevalier-de-l-ordre-des-arts-et-des-lettres-20231102",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00087",
@@ -1130,7 +1130,7 @@
       "source_url": "https://royalsociety.org/news/2018/05/distinguished-scientists-elected-fellows-royal-society-2018/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00088",
@@ -1156,7 +1156,7 @@
       "source_url": "https://time.com/person-of-the-year-2021-elon-musk/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00090",
@@ -1182,7 +1182,7 @@
       "source_url": "https://www.ft.com/content/a7f75d25-d710-4aaa-9f57-49e24d67744d",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00092",
@@ -1195,7 +1195,7 @@
       "source_url": "https://www.smenet.org/Professional-Development/Awards-Competitions/Award-Recipients/John-Fritz-Medal-Award",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00093",
@@ -1208,7 +1208,7 @@
       "source_url": "https://www.sharecast.com/news/general-news/donald-trump-sadiq-khan-and-elon-musk-among-times-100-most-influential-people-of-2018--3253291.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00094",
@@ -1234,7 +1234,7 @@
       "source_url": "https://www.carnegie.org/awards/great-immigrants/2010-great-immigrants/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00096",
@@ -1247,7 +1247,7 @@
       "source_url": "https://www.welt.de/wirtschaft/article216274010/Elon-Musk-bekommt-Axel-Springer-Award.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00097",
@@ -1260,7 +1260,7 @@
       "source_url": "https://www.teslarati.com/tesla-spacex-ceo-elon-musk-receives-stephen-hawking-medal/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00098",
@@ -1273,7 +1273,7 @@
       "source_url": "https://www.pcmag.com/news/edison-awards-honor-elon-musk-lenovos-yang-yuanqing",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00099",
@@ -1286,7 +1286,7 @@
       "source_url": "https://www.heinleinprize.com/hall-of-fame",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00100",
@@ -1299,7 +1299,7 @@
       "source_url": "https://living-legends-of-aviation.myshopify.com/pages/elon-musk",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00101",
@@ -1312,7 +1312,7 @@
       "source_url": "https://www.metropoles.com/brasil/musk-recebe-de-bolsonaro-a-medalha-de-ordem-do-merito-da-defesa",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00102",
@@ -1325,7 +1325,7 @@
       "source_url": "https://www.nae.edu/270224.aspx",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00103",
@@ -1338,7 +1338,7 @@
       "source_url": "https://seas.yale.edu/news-events/news/seas-celebrates-class-2015-honors-innovators-elon-musk-and-dean-kamen",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00104",
@@ -1364,7 +1364,7 @@
       "source_url": "https://www.ithistory.org/honor-roll/dr-elon-musk#:~:text=In%202010he%20was%20elected%20to,University%20of%20Surrey%20in%20England.",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00106",
@@ -1377,7 +1377,7 @@
       "source_url": "https://www.skeptic.org.uk/2024/10/elon-musk-beats-dragons-den-star-steven-bartlett-to-rusty-razor-pseudoscience-award/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00107",
@@ -1390,7 +1390,7 @@
       "source_url": "https://time.com/collections/100-most-influential-people-2025/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00108",
@@ -1403,7 +1403,7 @@
       "source_url": "https://www.president.gov.ua/documents/8352026-61293",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00109",
@@ -1429,7 +1429,7 @@
       "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00111",
@@ -1455,7 +1455,7 @@
       "source_url": "http://www.culture.gouv.fr/Nous-connaitre/Organisation/Conseil-de-l-Ordre-des-Arts-et-des-Lettres/Arretes-de-Nominations-dans-l-ordre-des-Arts-et-des-Lettres/Nomination-dans-l-ordre-des-Arts-et-des-Lettres-janvier-2013",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00113",
@@ -1546,7 +1546,7 @@
       "source_url": "https://d23.com/walt-disney-legend/george-lucas/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00120",
@@ -1598,7 +1598,7 @@
       "source_url": "https://www.comic-con.org/awards/inkpot",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00124",
@@ -1611,7 +1611,7 @@
       "source_url": "https://www.thehugoawards.org/hugo-history/1978-hugo-awards/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00125",
@@ -1624,7 +1624,7 @@
       "source_url": "https://www.thehugoawards.org/hugo-history/1981-hugo-awards/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00126",
@@ -1637,7 +1637,7 @@
       "source_url": "https://www.thehugoawards.org/hugo-history/1982-hugo-awards/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00127",
@@ -1650,7 +1650,7 @@
       "source_url": "https://www.thehugoawards.org/hugo-history/1984-hugo-awards/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00128",
@@ -1663,7 +1663,7 @@
       "source_url": "https://www.thehugoawards.org/hugo-history/1990-hugo-awards/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00129",
@@ -1676,7 +1676,7 @@
       "source_url": "https://womeninfilm.org/updates/wif-awards-retrospective/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00130",
@@ -1702,7 +1702,7 @@
       "source_url": "https://www.bfmtv.com/culture/video-george-lucas-jodie-foster-et-claude-lelouch-decores-de-la-legion-d-honneur-a-l-elysee-par-emmanuel-macron_VN-202607150596.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00132",
@@ -1832,7 +1832,7 @@
       "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00142",
@@ -1897,7 +1897,7 @@
       "source_url": "https://www.acbd.fr/8335/actualites/echolands-t1-prix-comics-acbd-2023/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00147",
@@ -1936,7 +1936,7 @@
       "source_url": "https://natalie.mu/eiga/news/223847",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00150",
@@ -1949,7 +1949,7 @@
       "source_url": "https://prizesworld.com/prizes/name/庵野秀明",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00151",
@@ -1962,7 +1962,7 @@
       "source_url": "https://prizesworld.com/prizes/name/%E5%BA%B5%E9%87%8E%E7%A7%80%E6%98%8E",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00152",
@@ -1975,7 +1975,7 @@
       "source_url": "https://animeanime.jp/article/2017/07/22/34719.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00153",
@@ -1988,7 +1988,7 @@
       "source_url": "https://natalie.mu/eiga/news/475752",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00154",
@@ -2001,7 +2001,7 @@
       "source_url": "https://www.japan-academy-prize.jp/prizes/?t=40",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00155",
@@ -2014,7 +2014,7 @@
       "source_url": "https://www.japan-academy-prize.jp/prizes/?t=40",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00156",
@@ -2027,7 +2027,7 @@
       "source_url": "https://www.japan-academy-prize.jp/prizes/?t=45",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00157",
@@ -2066,7 +2066,7 @@
       "source_url": "https://www.kinenote.com/main/award/kinejun/y2016.aspx",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00160",
@@ -2092,7 +2092,7 @@
       "source_url": "https://news.mynavi.jp/article/20080402-animeaward2008/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00162",
@@ -2105,7 +2105,7 @@
       "source_url": "https://animefestival.jp/ja/post/15548/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00163",
@@ -2144,7 +2144,7 @@
       "source_url": "https://awards.cesa.or.jp/2020/prize/year/04.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00166",
@@ -2248,7 +2248,7 @@
       "source_url": "https://www.gamesindustry.biz/igda-names-game-developers-choice-award-winners",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00174",
@@ -2261,7 +2261,7 @@
       "source_url": "https://www.museumofplay.org/games/bejeweled/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00175",
@@ -2274,7 +2274,7 @@
       "source_url": "https://www.museumofplay.org/games/bejeweled/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00176",
@@ -2287,7 +2287,7 @@
       "source_url": "https://aaspeechesdb.oscars.org/link/085-204/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00177",
@@ -2326,7 +2326,7 @@
       "source_url": "https://womeninfilm.org/updates/wif-awards-retrospective/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00180",
@@ -2352,7 +2352,7 @@
       "source_url": "https://academiejeuvideo.org/edition-2020",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00182",
@@ -2469,7 +2469,7 @@
       "source_url": "https://www.oscars.org/oscars/ceremonies/1953",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00191",
@@ -2560,7 +2560,7 @@
       "source_url": "https://www.polygon.com/2014/12/5/7343105/the-game-awards-2014-winners",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00198",
@@ -2664,7 +2664,7 @@
       "source_url": "https://www.bafta.org/awards/games?award-year=2005",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00206",
@@ -2703,7 +2703,7 @@
       "source_url": "https://www.oscars.org/oscars/ceremonies/1951",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00209",
@@ -2716,7 +2716,7 @@
       "source_url": "https://www.polygon.com/2015/12/3/9846760/the-game-awards-2015-winners",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00210",
@@ -2729,7 +2729,7 @@
       "source_url": "https://www.polygon.com/indie-game-awards-2025-winners-list/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00211",
@@ -2768,7 +2768,7 @@
       "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00214",
@@ -2781,7 +2781,7 @@
       "source_url": "https://www.bafta.org/media-centre/press-releases/minecraft-mastermind-markus-persson-to-receive-bafta-special-award/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00215",
@@ -2794,7 +2794,7 @@
       "source_url": "https://awards.cesa.or.jp/2015/prize/prize_04.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00216",
@@ -2846,7 +2846,7 @@
       "source_url": "https://next.liberation.fr/images/2020/09/25/michel-ancel-si-j-etais-reste-il-n-y-aurait-pas-eu-de-beyond-good-and-evil-2_1800385",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00220",
@@ -2872,7 +2872,7 @@
       "source_url": "https://centerforinquiry.org/news/10-new-fellows-elected-to-committee-for-skeptical-inquiry/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00222",
@@ -2885,7 +2885,7 @@
       "source_url": "https://www.invent.org/inductees/milton-bradley",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00223",
@@ -3002,7 +3002,7 @@
       "source_url": "https://www.thersa.org/about/albert-medal/past-winners",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00232",
@@ -3093,7 +3093,7 @@
       "source_url": "https://frenchamerican.org/young-leaders/earlier-classes/2000/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00239",
@@ -3106,7 +3106,7 @@
       "source_url": "https://www.bafta.org/stories/2009-academy-fellow-nolan-bushnell/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00240",
@@ -3197,7 +3197,7 @@
       "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00247",
@@ -3210,7 +3210,7 @@
       "source_url": "https://www.bafta.org/awards/games?award-year=2011",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00248",
@@ -3275,7 +3275,7 @@
       "source_url": "https://www.grammy.com/grammys/artists/raphael-saadiq/13827",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00253",
@@ -3314,7 +3314,7 @@
       "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00256",
@@ -3340,7 +3340,7 @@
       "source_url": "https://www.polygon.com/clair-obscur-gdc-awards-win-sweep/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00258",
@@ -3392,7 +3392,7 @@
       "source_url": "https://www.gamasutra.com/view/news/358772/Adventure_game_trailblazer_Roberta_Williams_to_receive_Pioneer_Award_at_GDC_2020.php",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00262",
@@ -3405,7 +3405,7 @@
       "source_url": "https://www.bafta.org/awards/games?award-year=2005",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00263",
@@ -3613,7 +3613,7 @@
       "source_url": "https://www.bundespraesident.de/SharedDocs/Downloads/DE/verdienstorden.pdf?__blob=publicationFile",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00279",
@@ -3678,7 +3678,7 @@
       "source_url": "https://www.oscars.org/oscars/ceremonies/1994",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00284",
@@ -3691,7 +3691,7 @@
       "source_url": "https://www.oscars.org/oscars/ceremonies/1999",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00285",
@@ -3704,7 +3704,7 @@
       "source_url": "https://www.oscars.org/oscars/ceremonies/1994",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00286",
@@ -3951,7 +3951,7 @@
       "source_url": "https://www.loc.gov/about/awards-and-honors/living-legends/steven-spielberg/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00305",
@@ -3964,7 +3964,7 @@
       "source_url": "https://www.comic-con.org/awards/inkpot/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00306",
@@ -3990,7 +3990,7 @@
       "source_url": "https://crsreports.congress.gov/product/pdf/R/R47639",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00308",
@@ -4042,7 +4042,7 @@
       "source_url": "https://goldenglobes.com/person/steven-spielberg/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00312",
@@ -4055,7 +4055,7 @@
       "source_url": "https://www.festival-cannes.com/p/steven-spielberg/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00313",
@@ -4146,7 +4146,7 @@
       "source_url": "https://www.harvard.edu/on-campus/commencement/honorary-degrees",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00320",
@@ -4172,7 +4172,7 @@
       "source_url": "https://www.bafta.org/awards/film/david-lean-award-for-achievement-in-direction",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00322",
@@ -4237,7 +4237,7 @@
       "source_url": "https://www.vanityfair.fr/ecrans/article/golden-globes-2023-palmares-complet",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00327",
@@ -4341,7 +4341,7 @@
       "source_url": "https://walkoffame.com/sumner-redstone/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00335",
@@ -4354,7 +4354,7 @@
       "source_url": "https://theemmys.tv/trusteesaward/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00336",
@@ -4367,7 +4367,7 @@
       "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00337",
@@ -4380,7 +4380,7 @@
       "source_url": "https://www.bafta.org/media-centre/press-releases/tim-schafer-to-receive-bafta-fellowship/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00338",
@@ -4419,7 +4419,7 @@
       "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00341",
@@ -4484,7 +4484,7 @@
       "source_url": "https://awards.cesa.or.jp/2011/prize/prize_04.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00346",
@@ -4510,7 +4510,7 @@
       "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00348",
@@ -4562,7 +4562,7 @@
       "source_url": "https://njhalloffame.org/2015-nominees/william-fox/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00352",
@@ -4627,7 +4627,7 @@
       "source_url": "https://academiejeuvideo.org/edition-2020",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00357",
@@ -4666,7 +4666,7 @@
       "source_url": "https://awards.cesa.or.jp/2010/prize/prize_04.html",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00360",
@@ -4679,7 +4679,7 @@
       "source_url": "https://www.nikkei.com/article/DGXZQOUA31C8A0R31C25A0000000/",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00361",
@@ -4692,7 +4692,7 @@
       "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00362",
@@ -4705,7 +4705,7 @@
       "source_url": "https://academiejeuvideo.org/edition-2021",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00363",
@@ -4718,7 +4718,7 @@
       "source_url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042846616",
       "confidence": "HIGH",
       "requires_review": false,
-      "publication_status": "published"
+      "publication_status": "internal"
     },
     {
       "award_id": "PAWD-00364",

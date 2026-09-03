@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import io
 import json
+import re
 import time
 import urllib.parse
 import urllib.request
@@ -16,11 +17,8 @@ from typing import Any
 from PIL import Image, ImageOps
 
 
-PUBLIC_STATUSES = {"READY_EDITORIAL", "READY_STRUCTURED"}
-PUBLIC_LEVELS = {
-    "READY_EDITORIAL": "editorial",
-    "READY_STRUCTURED": "structured",
-}
+PUBLIC_STATUSES = {"READY_EDITORIAL"}
+APPROVALS_FILE = "data/research/person-editorial-approvals.json"
 OUTPUT_FILES = (
     "core.json",
     "relations.json",
@@ -39,6 +37,7 @@ PROTECTED_FILES = (
     "data/company-profiles.json",
     "data/index/companies.json",
     "data/index/company-entities.json",
+    "data/research/company-study/core.json",
     "data/research/company-study/public.json",
 )
 
@@ -69,6 +68,14 @@ def sha256_file(path: Path) -> str:
     return sha256_bytes(path.read_bytes())
 
 
+def first_year(*values: Any) -> int | None:
+    for value in values:
+        match = re.search(r"\b(?:18|19|20)\d{2}\b", str(value or ""))
+        if match:
+            return int(match.group(0))
+    return None
+
+
 def clean_url(value: str) -> str:
     if not value:
         return ""
@@ -95,8 +102,12 @@ def source_title(row: dict[str, Any]) -> str:
     return labels.get(hostname, hostname.removeprefix("www."))
 
 
-def is_public_person(person: dict[str, Any]) -> bool:
-    return not person["requires_review"] and person["publication_status"] in PUBLIC_STATUSES
+def is_public_person(person: dict[str, Any], approved_slugs: set[str]) -> bool:
+    return (
+        person["slug"] in approved_slugs
+        and not person["requires_review"]
+        and person["publication_status"] in PUBLIC_STATUSES
+    )
 
 
 def portrait_is_usable(media: dict[str, Any]) -> bool:
@@ -109,8 +120,12 @@ def portrait_is_usable(media: dict[str, Any]) -> bool:
     )
 
 
-def public_profile(person: dict[str, Any], media: dict[str, Any] | None) -> dict[str, Any]:
-    level = PUBLIC_LEVELS[person["publication_status"]]
+def public_profile(
+    person: dict[str, Any],
+    media: dict[str, Any] | None,
+    approval: dict[str, Any],
+    reviewed_at: str,
+) -> dict[str, Any]:
     portrait = None
     if media:
         portrait = {
@@ -124,12 +139,28 @@ def public_profile(person: dict[str, Any], media: dict[str, Any] | None) -> dict
             "sourceId": media["source_id"],
         }
 
-    editorial = level == "editorial"
+    claims = approval["biographyClaims"]
+    if not claims or any(not claim.get("text") or not claim.get("sourceIds") for claim in claims):
+        raise ValueError(f"Editorial biography claims need text and sources: {person['slug']}")
+    biography_source_ids = sorted({source_id for claim in claims for source_id in claim["sourceIds"]})
+    fact_source_ids = sorted(set(approval["factSourceIds"]))
+    occupations_by_name = {row["name"]: row for row in person.get("occupations", [])}
+    occupations = [
+        occupations_by_name.get(name, {"qid": "", "name": name, "source_urls": []})
+        for name in approval.get("occupationNames", [])
+    ]
+    field_sources = {
+        "identity": fact_source_ids,
+        "life": fact_source_ids,
+        "originDisplay": fact_source_ids,
+        "occupations": fact_source_ids,
+        "biographyEs": biography_source_ids,
+    }
     return {
         "slug": person["slug"],
         "name": person["name"],
         "qid": person["qid"],
-        "publicationLevel": level,
+        "publicationLevel": "editorial",
         "aliases": person.get("aliases", []),
         "nativeNames": person.get("native_names", []),
         "birthDate": person.get("birth_date") or None,
@@ -139,33 +170,25 @@ def public_profile(person: dict[str, Any], media: dict[str, Any] | None) -> dict
         "deathYear": person.get("death_year"),
         "deathPrecision": person.get("death_precision") or None,
         "lifeStatus": person.get("life_status") or "UNKNOWN",
-        "birthPlace": person.get("birth_place"),
-        "citizenships": person.get("citizenships", []),
-        "originDisplay": person.get("origin_display") or None,
-        "occupations": person.get("occupations", []),
-        "fieldsOfWork": person.get("fields_of_work", []),
-        "education": person.get("education", []),
-        "careerStart": person.get("career_start") or None,
-        "careerEnd": person.get("career_end") or None,
-        "officialWebsites": [clean_url(url) for url in person.get("official_websites", [])],
-        "biographyEs": person["biography_es"],
-        "careerSummaryEs": person.get("career_summary_es") or None,
-        "industryImpactEs": person.get("industry_impact_es") if editorial else None,
-        "publicReceptionEs": person.get("public_reception_es") if editorial else None,
+        "birthPlace": None,
+        "citizenships": [],
+        "originDisplay": approval.get("originDisplay") or None,
+        "occupations": occupations,
+        "fieldsOfWork": [],
+        "education": [],
+        "careerStart": None,
+        "careerEnd": None,
+        "officialWebsites": [],
+        "biographyEs": " ".join(claim["text"] for claim in claims),
+        "biographyClaims": claims,
+        "careerSummaryEs": None,
+        "industryImpactEs": None,
+        "publicReceptionEs": None,
         "portrait": portrait,
-        "sourceIds": sorted(set(person.get("source_ids", []))),
-        "lastChecked": person["last_checked"],
+        "fieldSources": field_sources,
+        "sourceIds": sorted(set(fact_source_ids + biography_source_ids)),
+        "lastChecked": reviewed_at,
     }
-
-
-def publication_for_child(
-    row: dict[str, Any], public_slugs: set[str], *, allow_association: bool = False
-) -> str:
-    if row.get("person_slug") not in public_slugs:
-        return "internal"
-    if allow_association and row.get("relationship_precision") == "ASSOCIATION_NOT_EXACT_CREDIT":
-        return "published_context"
-    return "published" if not row.get("requires_review", True) else "internal"
 
 
 def public_source(row: dict[str, Any]) -> dict[str, Any]:
@@ -220,129 +243,271 @@ def build_outputs(repo: Path, package_dir: Path) -> dict[str, Any]:
         raise ValueError("Automatic person merges are forbidden")
 
     companies = read_json(repo / "data/index/companies.json")
-    public_people = [person for person in people if is_public_person(person)]
-    public_slugs = {person["slug"] for person in public_people}
-    staged_people = [person for person in people if person["slug"] not in public_slugs]
-    if len(public_people) != 327 or len(staged_people) != 161:
-        raise ValueError("The public/staging partition must be exactly 327/161")
+    company_research = read_json(repo / "data/research/company-study/core.json")
+    company_research_by_slug = {row["slug"]: row for row in company_research["records"]}
+    people_by_slug = {person["slug"]: person for person in people}
+    sources_by_id = {row["source_id"]: row for row in package["person_sources"]}
+    approvals = read_json(repo / APPROVALS_FILE)
+    if approvals.get("version") != 1:
+        raise ValueError("Unsupported editorial approval version")
+    approval_rows = approvals.get("profiles", [])
+    approvals_by_slug = {row["slug"]: row for row in approval_rows}
+    if len(approval_rows) != 25 or len(approvals_by_slug) != 25:
+        raise ValueError("Editorial approvals must contain 25 unique profiles")
 
-    media_by_slug = {
+    editorial_slugs = {
+        person["slug"]
+        for person in people
+        if person["publication_status"] == "READY_EDITORIAL" and not person["requires_review"]
+    }
+    if approvals_by_slug.keys() != editorial_slugs:
+        raise ValueError("Editorial approvals must match the 25 READY_EDITORIAL identities exactly")
+
+    public_people = [person for person in people if is_public_person(person, editorial_slugs)]
+    public_slugs = {person["slug"] for person in public_people}
+    structured_people = [
+        person
+        for person in people
+        if person["publication_status"] == "READY_STRUCTURED" and not person["requires_review"]
+    ]
+    structured_slugs = {person["slug"] for person in structured_people}
+    staged_people = [
+        person for person in people if person["slug"] not in public_slugs | structured_slugs
+    ]
+    if len(public_people) != 25 or len(structured_people) != 302 or len(staged_people) != 161:
+        raise ValueError("The editorial/structured/blocked partition must be exactly 25/302/161")
+
+    retained_portrait_slugs = {
+        path.stem for path in (repo / "public/person-portraits").glob("*.webp")
+    }
+    if len(retained_portrait_slugs) != 217:
+        raise ValueError(f"Expected 217 retained portrait files, found {len(retained_portrait_slugs)}")
+    usable_media = {
         row["person_slug"]: row
         for row in package["person_media"]
-        if row["person_slug"] in public_slugs and portrait_is_usable(row)
+        if portrait_is_usable(row)
     }
-    if len(media_by_slug) != 217:
-        raise ValueError(f"Expected 217 usable public portraits, found {len(media_by_slug)}")
+    missing_retained_media = retained_portrait_slugs - usable_media.keys()
+    if missing_retained_media:
+        raise ValueError(f"Retained portraits lack license metadata: {sorted(missing_retained_media)[:10]}")
+    retained_media_by_slug = {
+        slug: usable_media[slug] for slug in retained_portrait_slugs
+    }
+    media_by_slug = {
+        slug: media for slug, media in retained_media_by_slug.items() if slug in public_slugs
+    }
 
+    approved_relations = {row["id"]: row for row in approvals.get("approvedRelations", [])}
+    known_blocked_relations = approvals.get("knownBlockedRelations", {})
+    relation_rows_by_id = {row["relation_id"]: row for row in package["person_company_relations"]}
+    if approved_relations.keys() - relation_rows_by_id.keys():
+        raise ValueError("An approved relation does not exist in the research package")
+    if known_blocked_relations.keys() - relation_rows_by_id.keys():
+        raise ValueError("A known blocked relation does not exist in the research package")
+
+    canonical_aliases = approvals.get("canonicalCompanyAliases", {})
     relations = []
     public_relations = []
+    public_relation_keys: set[tuple[str, str]] = set()
     for row in package["person_company_relations"]:
-        visibility = publication_for_child(row, public_slugs)
-        if visibility == "published" and (not row.get("company_slug") or row["company_slug"] not in companies):
-            raise ValueError(f"Public relation has no canonical company: {row['relation_id']}")
-        record = {**row, "publication_status": visibility}
-        relations.append(record)
-        if visibility == "published":
-            public_relations.append(
-                {
-                    "id": row["relation_id"],
-                    "personSlug": row["person_slug"],
-                    "companySlug": row["company_slug"],
-                    "companyName": row["company_name"],
-                    "role": row["role"],
-                    "roleLabelEs": row["role_label_es"],
-                    "start": row.get("role_start") or None,
-                    "end": row.get("role_end") or None,
-                    "pointInTime": row.get("point_in_time") or None,
-                    "confidence": row["confidence"],
-                    "sourceId": row["source_id"],
-                }
+        relation_id = row["relation_id"]
+        approved = approved_relations.get(relation_id)
+        visibility = "published" if approved else "internal"
+        block_reason = known_blocked_relations.get(relation_id)
+        relations.append(
+            {
+                **row,
+                "publication_status": visibility,
+                "publication_block_reason": block_reason,
+            }
+        )
+        if not approved:
+            continue
+        if row["person_slug"] not in public_slugs or row.get("requires_review", True):
+            raise ValueError(f"An unreviewed relation cannot be public: {relation_id}")
+        if row.get("relation_origin") == "WIKIDATA_P108":
+            raise ValueError(f"Wikidata P108 alone cannot verify a relation: {relation_id}")
+        company_slug = canonical_aliases.get(row.get("company_slug"), row.get("company_slug"))
+        if not company_slug or company_slug not in companies:
+            raise ValueError(f"Public relation has no canonical company: {relation_id}")
+        source_id = approved["sourceId"]
+        source = sources_by_id.get(source_id)
+        if not source or source.get("reliability") != "HIGH" or source.get("source_kind") not in {
+            "OFFICIAL_OR_FIRST_PARTY",
+            "AWARD_OR_CULTURAL_INSTITUTION",
+        }:
+            raise ValueError(f"Public relation needs an independent high-confidence source: {relation_id}")
+        relation_key = (row["person_slug"], company_slug)
+        if relation_key in public_relation_keys:
+            raise ValueError(f"Duplicate public relation through a company alias: {relation_id}")
+        public_relation_keys.add(relation_key)
+        start = approved.get("start") or row.get("role_start") or None
+        end = approved.get("end") or row.get("role_end") or None
+        point_in_time = approved.get("pointInTime") or row.get("point_in_time") or None
+        person = people_by_slug[row["person_slug"]]
+        death_year = person.get("death_year")
+        relation_years = [
+            year
+            for year in (
+                first_year(start),
+                first_year(point_in_time),
+                first_year(end),
             )
-    if len(public_relations) != 87:
-        raise ValueError(f"Expected 87 safe public company relations, found {len(public_relations)}")
+            if year is not None
+        ]
+        if death_year and any(year > death_year for year in relation_years):
+            raise ValueError(f"Public relation occurs after the person's death: {relation_id}")
+        company_founded_year = company_research_by_slug.get(company_slug, {}).get("foundedYear")
+        if death_year and company_founded_year and company_founded_year > death_year:
+            raise ValueError(f"Company was founded after the person's death: {relation_id}")
+        if "FOUNDER" in row["role"] and company_founded_year:
+            relation_year = first_year(start, point_in_time)
+            if relation_year != company_founded_year:
+                raise ValueError(f"Founder relation must match the company founding year: {relation_id}")
+        public_relations.append(
+            {
+                "id": relation_id,
+                "personSlug": row["person_slug"],
+                "companySlug": company_slug,
+                "companyName": row["company_name"],
+                "role": row["role"],
+                "roleLabelEs": row["role_label_es"],
+                "start": start,
+                "end": end,
+                "pointInTime": point_in_time,
+                "confidence": "HIGH",
+                "sourceId": source_id,
+                "relationOrigin": row.get("relation_origin") or "UNKNOWN",
+                "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED",
+            }
+        )
+
+    def approved_ids(field: str) -> set[str]:
+        values = [item for approval in approval_rows for item in approval.get(field, [])]
+        if len(values) != len(set(values)):
+            raise ValueError(f"Duplicate identifiers in editorial approvals: {field}")
+        return set(values)
+
+    approved_exact_credit_ids = approved_ids("exactCreditIds")
+    approved_award_ids = approved_ids("awardIds")
+    approved_position_ids = approved_ids("positionIds")
+    approved_curiosity_ids = approved_ids("curiosityIds")
 
     works = []
     exact_credits = []
     related_works = []
+    found_exact_credit_ids: set[str] = set()
     for row in package["person_works"]:
-        visibility = publication_for_child(row, public_slugs, allow_association=True)
-        record = {**row, "publication_status": visibility}
-        works.append(record)
-        public_record = {
-            "id": row["work_id"],
-            "personSlug": row["person_slug"],
-            "workQid": row.get("work_qid") or None,
-            "title": row["title"],
-            "year": row.get("year") or None,
-            "role": row["role"],
-            "confidence": row["confidence"],
-            "sourceId": row["source_id"],
-        }
-        if visibility == "published" and row["relationship_precision"] == "EXACT_EDITORIAL_CREDIT":
-            exact_credits.append(public_record)
-        elif visibility == "published_context":
-            related_works.append(public_record)
-    if len(exact_credits) != 63 or len(related_works) != 159:
-        raise ValueError(
-            f"Expected 63 exact credits and 159 contextual works, found {len(exact_credits)}/{len(related_works)}"
+        work_id = row["work_id"]
+        visibility = "published" if work_id in approved_exact_credit_ids else "internal"
+        works.append({**row, "publication_status": visibility})
+        if visibility != "published":
+            continue
+        if (
+            row["person_slug"] not in public_slugs
+            or row.get("requires_review", True)
+            or row.get("relationship_precision") != "EXACT_EDITORIAL_CREDIT"
+        ):
+            raise ValueError(f"Only reviewed exact credits can be public: {work_id}")
+        found_exact_credit_ids.add(work_id)
+        exact_credits.append(
+            {
+                "id": work_id,
+                "personSlug": row["person_slug"],
+                "workQid": row.get("work_qid") or None,
+                "title": row["title"],
+                "year": row.get("year") or None,
+                "role": row["role"],
+                "relationshipPrecision": row["relationship_precision"],
+                "confidence": row["confidence"],
+                "sourceId": row["source_id"],
+            }
         )
+    if found_exact_credit_ids != approved_exact_credit_ids or len(exact_credits) != 63:
+        raise ValueError("The 63 approved exact credits must resolve exactly")
 
     awards = []
     public_awards = []
+    found_award_ids: set[str] = set()
     for row in package["person_awards"]:
-        visibility = publication_for_child(row, public_slugs)
+        award_id = row["award_id"]
+        visibility = "published" if award_id in approved_award_ids else "internal"
         awards.append({**row, "publication_status": visibility})
-        if visibility == "published":
-            public_awards.append(
-                {
-                    "id": row["award_id"],
-                    "personSlug": row["person_slug"],
-                    "name": row["award_name"],
-                    "date": row.get("date") or None,
-                    "confidence": row["confidence"],
-                    "sourceId": row["source_id"],
-                }
-            )
-    if len(public_awards) != 173:
-        raise ValueError(f"Expected 173 safe public awards, found {len(public_awards)}")
+        if visibility != "published":
+            continue
+        if row["person_slug"] not in public_slugs or row.get("requires_review", True):
+            raise ValueError(f"An unreviewed award cannot be public: {award_id}")
+        found_award_ids.add(award_id)
+        public_awards.append(
+            {
+                "id": award_id,
+                "personSlug": row["person_slug"],
+                "name": row["award_name"],
+                "date": row.get("date") or None,
+                "confidence": row["confidence"],
+                "sourceId": row["source_id"],
+            }
+        )
+    if found_award_ids != approved_award_ids:
+        raise ValueError("Every approved award must resolve to a reviewed public record")
 
     positions = []
     public_positions = []
+    found_position_ids: set[str] = set()
     for row in package["person_positions"]:
-        visibility = publication_for_child(row, public_slugs)
+        position_id = row["position_id"]
+        visibility = "published" if position_id in approved_position_ids else "internal"
         positions.append({**row, "publication_status": visibility})
-        if visibility == "published":
-            public_positions.append(
-                {
-                    "id": row["position_id"],
-                    "personSlug": row["person_slug"],
-                    "name": row["position_name"],
-                    "start": row.get("start") or None,
-                    "end": row.get("end") or None,
-                    "pointInTime": row.get("point_in_time") or None,
-                    "confidence": row["confidence"],
-                    "sourceId": row["source_id"],
-                }
-            )
-    if len(public_positions) != 15:
-        raise ValueError(f"Expected 15 safe public positions, found {len(public_positions)}")
+        if visibility != "published":
+            continue
+        if row["person_slug"] not in public_slugs or row.get("requires_review", True):
+            raise ValueError(f"An unreviewed position cannot be public: {position_id}")
+        found_position_ids.add(position_id)
+        public_positions.append(
+            {
+                "id": position_id,
+                "personSlug": row["person_slug"],
+                "name": row["position_name"],
+                "start": row.get("start") or None,
+                "end": row.get("end") or None,
+                "pointInTime": row.get("point_in_time") or None,
+                "confidence": row["confidence"],
+                "sourceId": row["source_id"],
+            }
+        )
+    if found_position_ids != approved_position_ids:
+        raise ValueError("Every approved position must resolve to a reviewed public record")
 
     public_curiosities = []
+    found_curiosity_ids: set[str] = set()
     for row in package["person_curiosities"]:
-        if row["person_slug"] in public_slugs and not row["requires_review"]:
-            public_curiosities.append(
-                {
-                    "id": row["curiosity_id"],
-                    "personSlug": row["person_slug"],
-                    "summaryEs": row["summary_es"],
-                    "confidence": row["confidence"],
-                    "sourceId": row["source_id"],
-                }
-            )
-    if len(public_curiosities) != 25:
-        raise ValueError(f"Expected 25 safe curiosities, found {len(public_curiosities)}")
+        curiosity_id = row["curiosity_id"]
+        if curiosity_id not in approved_curiosity_ids:
+            continue
+        if row["person_slug"] not in public_slugs or row.get("requires_review", True):
+            raise ValueError(f"An unreviewed curiosity cannot be public: {curiosity_id}")
+        found_curiosity_ids.add(curiosity_id)
+        public_curiosities.append(
+            {
+                "id": curiosity_id,
+                "personSlug": row["person_slug"],
+                "summaryEs": row["summary_es"],
+                "confidence": row["confidence"],
+                "sourceId": row["source_id"],
+            }
+        )
+    if found_curiosity_ids != approved_curiosity_ids:
+        raise ValueError("Every approved curiosity must resolve to a reviewed public record")
 
-    profiles = [public_profile(person, media_by_slug.get(person["slug"])) for person in public_people]
+    profiles = [
+        public_profile(
+            person,
+            media_by_slug.get(person["slug"]),
+            approvals_by_slug[person["slug"]],
+            approvals["reviewedAt"],
+        )
+        for person in public_people
+    ]
     profiles.sort(key=lambda row: (row["name"].casefold(), row["slug"]))
 
     referenced_source_ids = {source_id for profile in profiles for source_id in profile["sourceIds"]}
@@ -354,19 +519,20 @@ def build_outputs(repo: Path, package_dir: Path) -> dict[str, Any]:
     referenced_source_ids.update(row["sourceId"] for row in public_curiosities)
     referenced_source_ids.update(media["source_id"] for media in media_by_slug.values())
 
-    sources_by_id = {row["source_id"]: row for row in package["person_sources"]}
     missing_sources = referenced_source_ids - sources_by_id.keys()
     if missing_sources:
         raise ValueError(f"Missing public sources: {sorted(missing_sources)[:10]}")
     public_sources = [public_source(sources_by_id[source_id]) for source_id in sorted(referenced_source_ids)]
 
-    core_records = [
-        {
-            **person,
-            "visibility": "published" if person["slug"] in public_slugs else "admin_only",
-        }
-        for person in people
-    ]
+    core_records = []
+    for person in people:
+        if person["slug"] in public_slugs:
+            visibility = "published"
+        elif person["slug"] in structured_slugs:
+            visibility = "admin_structured"
+        else:
+            visibility = "blocked"
+        core_records.append({**person, "visibility": visibility})
     media_records = [
         {
             **row,
@@ -376,10 +542,16 @@ def build_outputs(repo: Path, package_dir: Path) -> dict[str, Any]:
             "license_url": clean_url(row.get("license_url", "")),
             "local_path": (
                 f"/person-portraits/{row['person_slug']}.webp"
-                if row["person_slug"] in media_by_slug
+                if row["person_slug"] in retained_portrait_slugs
                 else None
             ),
-            "publication_status": "published" if row["person_slug"] in media_by_slug else "internal",
+            "publication_status": (
+                "published"
+                if row["person_slug"] in media_by_slug
+                else "internal_retained"
+                if row["person_slug"] in retained_portrait_slugs
+                else "internal"
+            ),
         }
         for row in package["person_media"]
     ]
@@ -388,6 +560,9 @@ def build_outputs(repo: Path, package_dir: Path) -> dict[str, Any]:
             **row,
             "url": clean_url(row.get("url", "")),
             "title": source_title(row),
+            "publication_status": (
+                "published" if row["source_id"] in referenced_source_ids else "internal"
+            ),
         }
         for row in package["person_sources"]
     ]
@@ -400,17 +575,21 @@ def build_outputs(repo: Path, package_dir: Path) -> dict[str, Any]:
         "sourcePackage": "estudio-personas-regionatlas-2026-09-03.zip",
         "counts": {
             "totalPeople": 488,
-            "publishedPeople": 327,
+            "publishedPeople": 25,
             "editorialPeople": 25,
             "structuredPeople": 302,
             "stagingPeople": 161,
-            "publicPortraits": 217,
-            "publicCompanyRelations": 87,
+            "publicPortraits": len(media_by_slug),
+            "retainedPortraits": 217,
+            "publicCompanyRelations": len(public_relations),
+            "internalCompanyRelations": len(relations) - len(public_relations),
+            "explicitlyBlockedRelations": len(known_blocked_relations),
+            "removedPublicRelations": 87 - len(public_relations),
             "publicExactCredits": 63,
-            "publicContextualWorks": 159,
-            "publicAwards": 173,
-            "publicPositions": 15,
-            "publicCuriosities": 25,
+            "publicContextualWorks": 0,
+            "publicAwards": len(public_awards),
+            "publicPositions": len(public_positions),
+            "publicCuriosities": len(public_curiosities),
             "unresolvedMentions": 138,
             "internalSources": 1736,
             "internalProvenanceRows": 5154,
@@ -420,10 +599,14 @@ def build_outputs(repo: Path, package_dir: Path) -> dict[str, Any]:
             "routeKey": "slug",
             "automaticMergeAllowed": False,
             "stagingIsPublic": False,
+            "structuredIsPublic": False,
+            "reviewRelationIsPublic": False,
+            "wikidataOnlyRelationIsVerified": False,
             "contextualWorkIsExactCredit": False,
             "portraitHotlinkingAllowed": False,
         },
         "protectedFileHashes": protected_hashes,
+        "editorialApprovalHash": sha256_file(repo / APPROVALS_FILE),
     }
 
     return {
@@ -511,13 +694,13 @@ def download_portrait(item: dict[str, Any], destination: Path) -> tuple[str, str
 
 
 def write_portraits(package: dict[str, Any], repo: Path) -> dict[str, str]:
-    public_slugs = {
-        person["slug"] for person in package["people"] if is_public_person(person)
+    retained_slugs = {
+        path.stem for path in (repo / "public/person-portraits").glob("*.webp")
     }
     items = [
         media
         for media in package["person_media"]
-        if media["person_slug"] in public_slugs and portrait_is_usable(media)
+        if media["person_slug"] in retained_slugs and portrait_is_usable(media)
     ]
     destination = repo / "public/person-portraits"
     destination.mkdir(parents=True, exist_ok=True)

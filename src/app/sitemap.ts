@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${base}/persona/${person.slug}`,
     lastModified: new Date(person.lastChecked),
     changeFrequency: "monthly",
-    priority: person.publicationLevel === "editorial" ? 0.6 : 0.5,
+    priority: 0.6,
   }));
 
   return [...staticRoutes, ...platformRoutes, ...personRoutes, ...gameRoutes];

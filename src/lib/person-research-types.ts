@@ -1,6 +1,11 @@
 import type { ResearchConfidence } from "./research-types";
 
-export type PersonPublicationLevel = "editorial" | "structured";
+export type PersonPublicationLevel = "editorial";
+
+export type PersonBiographyClaim = {
+  text: string;
+  sourceIds: string[];
+};
 
 export type PersonResearchTerm = {
   qid: string;
@@ -43,10 +48,12 @@ export type PersonPublicProfile = {
   careerEnd: string | null;
   officialWebsites: string[];
   biographyEs: string;
+  biographyClaims: PersonBiographyClaim[];
   careerSummaryEs: string | null;
   industryImpactEs: string | null;
   publicReceptionEs: string | null;
   portrait: PersonPortrait | null;
+  fieldSources: Record<string, string[]>;
   sourceIds: string[];
   lastChecked: string;
 };
@@ -63,6 +70,8 @@ export type PersonCompanyRelation = {
   pointInTime: string | null;
   confidence: ResearchConfidence;
   sourceId: string;
+  relationOrigin: string;
+  verificationStatus: "INDEPENDENT_SOURCE_VERIFIED";
 };
 
 export type PersonWork = {
@@ -72,6 +81,7 @@ export type PersonWork = {
   title: string;
   year: string | number | null;
   role: string;
+  relationshipPrecision: "EXACT_EDITORIAL_CREDIT" | "ASSOCIATION_NOT_EXACT_CREDIT";
   confidence: ResearchConfidence;
   sourceId: string;
 };
@@ -193,7 +203,11 @@ export type PersonResearchManifest = {
     structuredPeople: number;
     stagingPeople: number;
     publicPortraits: number;
+    retainedPortraits: number;
     publicCompanyRelations: number;
+    internalCompanyRelations: number;
+    explicitlyBlockedRelations: number;
+    removedPublicRelations: number;
     publicExactCredits: number;
     publicContextualWorks: number;
     publicAwards: number;
@@ -208,11 +222,15 @@ export type PersonResearchManifest = {
     routeKey: "slug";
     automaticMergeAllowed: false;
     stagingIsPublic: false;
+    structuredIsPublic: false;
+    reviewRelationIsPublic: false;
+    wikidataOnlyRelationIsVerified: false;
     contextualWorkIsExactCredit: false;
     portraitHotlinkingAllowed: false;
   };
   protectedFileHashes: Record<string, string>;
   portraitHashes: Record<string, string>;
+  editorialApprovalHash: string;
 };
 
 export type PersonAdminRecord = {

@@ -69,7 +69,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "q139902526",
@@ -131,7 +131,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "q139902531",
@@ -199,7 +199,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "q139902545",
@@ -267,7 +267,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "adam-hines",
@@ -340,7 +340,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "adam-saltsman",
@@ -428,7 +428,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "adrian-carmack",
@@ -527,7 +527,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "akihiro-hino",
@@ -654,7 +654,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "akira-toriyama",
@@ -824,7 +824,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "al-lowe",
@@ -962,7 +962,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "alain-damasio",
@@ -1142,7 +1142,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "alan-miller",
@@ -1232,7 +1232,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "alberto-jose-gonzalez",
@@ -1318,7 +1318,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "aleksei-pazhitnov",
@@ -1562,7 +1562,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "alex-seropian",
@@ -1670,7 +1670,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "alexander-bruggemann",
@@ -1770,7 +1770,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "alexander-mishulin",
@@ -1840,7 +1840,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "allan-alcorn",
@@ -1963,7 +1963,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "american-mcgee",
@@ -2076,7 +2076,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "amy-hennig",
@@ -2300,7 +2300,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "andrew-kosove",
@@ -2398,7 +2398,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "andrew-spinks",
@@ -2495,7 +2495,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "andrew-wilson",
@@ -2588,7 +2588,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "andy-gavin",
@@ -2706,7 +2706,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "anne-laure-fanise",
@@ -2784,7 +2784,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "arnaud-de-puyfontaine",
@@ -2901,7 +2901,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "arnt-jensen",
@@ -2998,7 +2998,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "atsushi-inaba",
@@ -3115,7 +3115,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "augustine-yip",
@@ -3210,7 +3210,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "benoit-sokal",
@@ -3386,7 +3386,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "bernie-stolar",
@@ -3462,7 +3462,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "berry-gordy",
@@ -3612,7 +3612,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "bill-gates",
@@ -3878,7 +3878,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "bill-stealey",
@@ -3980,7 +3980,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "bob-whitehead",
@@ -4077,7 +4077,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "bobby-kotick",
@@ -4201,7 +4201,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "brenda-brathwaite",
@@ -4356,7 +4356,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "brent-oster",
@@ -4451,7 +4451,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "brett-sperry",
@@ -4554,7 +4554,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "brian-fargo",
@@ -4688,7 +4688,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "broderick-johnson",
@@ -4791,7 +4791,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "bruce-carver",
@@ -4892,7 +4892,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "bruce-straley",
@@ -4983,7 +4983,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "bruno-bonnell",
@@ -5136,7 +5136,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "cabel-sasser",
@@ -5216,7 +5216,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "carlos-andres-rocha-silva",
@@ -5283,7 +5283,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "carol-shaw",
@@ -5389,7 +5389,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "carsten-fichtelmann",
@@ -5472,7 +5472,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "casey-hudson",
@@ -5561,7 +5561,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "cevat-yerli",
@@ -5661,7 +5661,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "charles-cecil",
@@ -5779,7 +5779,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "charles-eugene-lancelot-brown",
@@ -5878,7 +5878,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "charlie-jackson",
@@ -5971,7 +5971,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chi-yufeng",
@@ -6063,7 +6063,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chiyomaru-shikura",
@@ -6161,7 +6161,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chris-anderson",
@@ -6303,7 +6303,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chris-avellone",
@@ -6416,7 +6416,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chris-hulsbeck",
@@ -6517,7 +6517,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chris-jones-q2964754",
@@ -6620,7 +6620,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chris-jones-q6476599",
@@ -6705,7 +6705,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chris-metzen",
@@ -6863,7 +6863,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chris-roberts",
@@ -6981,7 +6981,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chris-sawyer",
@@ -7072,7 +7072,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chris-stamper",
@@ -7152,7 +7152,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "chris-yates",
@@ -7237,7 +7237,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "christian-guillemot",
@@ -7317,7 +7317,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "christophe-sapet",
@@ -7462,7 +7462,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "christopher-andreasson",
@@ -7542,7 +7542,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "christopher-ward",
@@ -7631,7 +7631,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "christopher-weaver",
@@ -7744,7 +7744,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "chuck-brungardt",
@@ -7812,7 +7812,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "claude-guillemot",
@@ -7915,7 +7915,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "cliff-bleszinski",
@@ -8005,7 +8005,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "curt-schilling",
@@ -8117,7 +8117,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "damon-slye",
@@ -8190,7 +8190,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "dan-houser",
@@ -8305,7 +8305,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "dan-paladin",
@@ -8397,7 +8397,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "dan-salvato",
@@ -8474,7 +8474,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "daniel-vavra",
@@ -8625,7 +8625,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "danielle-bunten-berry",
@@ -8806,7 +8806,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "darryl-f-zanuck",
@@ -8945,7 +8945,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "dave-lebling",
@@ -9033,7 +9033,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "david-braben",
@@ -9176,7 +9176,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "david-cage",
@@ -9321,7 +9321,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "david-crane",
@@ -9428,7 +9428,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "david-geffen",
@@ -9600,7 +9600,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "david-jaffe",
@@ -9719,7 +9719,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "david-jones",
@@ -9837,7 +9837,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "david-l-adams",
@@ -9927,7 +9927,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "david-perry",
@@ -10025,7 +10025,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "david-rosen",
@@ -10105,7 +10105,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "david-shannon-morse",
@@ -10204,7 +10204,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "david-sykes",
@@ -10279,7 +10279,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "denis-dyack",
@@ -10379,7 +10379,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "denis-sinner",
@@ -10465,7 +10465,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "dennis-wedin",
@@ -10548,7 +10548,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "derek-yu",
@@ -10653,7 +10653,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "dino-patti",
@@ -10738,7 +10738,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "dion-koster",
@@ -10836,7 +10836,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "don-daglow",
@@ -10948,7 +10948,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "don-mattrick",
@@ -11053,7 +11053,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "dona-bailey",
@@ -11175,7 +11175,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "doug-bowser",
@@ -11266,7 +11266,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "doug-carlston",
@@ -11422,7 +11422,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ebba-ljungerud",
@@ -11484,7 +11484,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "eberhard-schmidt",
@@ -11597,7 +11597,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "ed-boon",
@@ -11741,7 +11741,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ed-fries",
@@ -11822,7 +11822,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "eiji-aonuma",
@@ -11939,7 +11939,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "eikichi-kawasaki",
@@ -12031,7 +12031,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "elliot-handler",
@@ -12127,7 +12127,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "elon-musk",
@@ -12422,7 +12422,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "eran-egozy",
@@ -12499,7 +12499,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "eric-barone",
@@ -12678,7 +12678,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "eric-caen",
@@ -12753,7 +12753,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "eugene-jarvis",
@@ -12876,7 +12876,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "feargus-urquhart",
@@ -12993,7 +12993,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ferdinando-peretti",
@@ -13085,7 +13085,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "florent-castelnerac",
@@ -13189,7 +13189,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "forest-willard",
@@ -13284,7 +13284,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "francis-ingrand",
@@ -13357,7 +13357,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "francois-lionet",
@@ -13449,7 +13449,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "fredrik-liliegren",
@@ -13558,7 +13558,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "fredrik-wester",
@@ -13641,7 +13641,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "fritz-leutwiler",
@@ -13729,7 +13729,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "frederic-chesnais",
@@ -13807,7 +13807,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "frederick-raynal",
@@ -13928,7 +13928,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "fumito-ueda",
@@ -14037,7 +14037,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "fusajiro-yamauchi",
@@ -14130,7 +14130,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "gabe-newell",
@@ -14387,7 +14387,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "garry-newman",
@@ -14472,7 +14472,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "gary-foreman",
@@ -14545,7 +14545,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "gen-yoshi-kadokawa",
@@ -14647,7 +14647,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "genyo-takeda",
@@ -14742,7 +14742,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "george-lucas",
@@ -14976,7 +14976,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "george-swinnerton-parker",
@@ -15070,7 +15070,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "glen-schofield",
@@ -15172,7 +15172,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "glenn-corpes",
@@ -15240,7 +15240,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "goichi-suda",
@@ -15349,7 +15349,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "goto-shinpei",
@@ -15498,7 +15498,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "grant-williams",
@@ -15573,7 +15573,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "greg-fischbach",
@@ -15670,7 +15670,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "greg-zeschuk",
@@ -15784,7 +15784,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "grzegorz-miechowski",
@@ -15863,7 +15863,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "guillaume-de-fondaumiere",
@@ -15963,7 +15963,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "gunpei-yokoi",
@@ -16172,7 +16172,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "haden-blackman",
@@ -16284,7 +16284,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hajime-satomi",
@@ -16383,7 +16383,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "harold-matson",
@@ -16458,7 +16458,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "hashimoto-masaya",
@@ -16553,7 +16553,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "henk-rogers",
@@ -16666,7 +16666,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hermen-hulst",
@@ -16774,7 +16774,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "herve-caen",
@@ -16849,7 +16849,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "hideaki-anno",
@@ -17046,7 +17046,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hideki-kamiya",
@@ -17169,7 +17169,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hideo-kojima",
@@ -17553,7 +17553,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hirokazu-yasuhara",
@@ -17661,7 +17661,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hiroki-kikuta",
@@ -17769,7 +17769,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hiroki-totoki",
@@ -17876,7 +17876,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hironobu-sakaguchi",
@@ -18131,7 +18131,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hiroshi-yamauchi",
@@ -18238,7 +18238,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hiroya-hatsushiba",
@@ -18329,7 +18329,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hiroyuki-takahashi",
@@ -18432,7 +18432,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hiroyuki-yamaga",
@@ -18540,7 +18540,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "hisao-oguchi",
@@ -18641,7 +18641,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ian-hetherington",
@@ -18746,7 +18746,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ichizo-kobayashi",
@@ -18858,7 +18858,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "iginio-straffi",
@@ -18994,7 +18994,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ilya-karpinskiy",
@@ -19064,7 +19064,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "isao-okawa",
@@ -19152,7 +19152,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "itaru-hinoue",
@@ -19247,7 +19247,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ivo-wubbels",
@@ -19338,7 +19338,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "j-allen-brack",
@@ -19407,7 +19407,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jace-hall",
@@ -19504,7 +19504,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jack-friedman",
@@ -19599,7 +19599,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jade-raymond",
@@ -19742,7 +19742,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jake-rodkin",
@@ -19836,7 +19836,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jamie-king",
@@ -19919,7 +19919,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "jan-kudera",
@@ -20022,7 +20022,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "jason-jones-programador",
@@ -20118,7 +20118,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jason-kapalka",
@@ -20265,7 +20265,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jason-rubin",
@@ -20369,7 +20369,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jason-west",
@@ -20439,7 +20439,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "jay-obernolte",
@@ -20561,7 +20561,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jean-louis-petriat",
@@ -20624,7 +20624,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "jeff-braun",
@@ -20711,7 +20711,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "jeff-minter",
@@ -20829,7 +20829,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jeff-small",
@@ -20907,7 +20907,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jeff-spangenberg",
@@ -21007,7 +21007,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jeff-tunnell",
@@ -21082,7 +21082,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "jeffrey-katzenberg",
@@ -21236,7 +21236,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jeffrey-rosen",
@@ -21378,7 +21378,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jehanne-rousseau",
@@ -21497,7 +21497,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jen-oneal",
@@ -21568,7 +21568,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "jens-andersson",
@@ -21638,7 +21638,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "jeremiah-slaczka",
@@ -21714,7 +21714,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "jez-san",
@@ -21822,7 +21822,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jim-mackonochie",
@@ -21906,7 +21906,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jim-ryan",
@@ -21977,7 +21977,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "joe-madureira",
@@ -22117,7 +22117,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "joel-jewett",
@@ -22203,7 +22203,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "john-a-garcia",
@@ -22290,7 +22290,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "john-carmack",
@@ -22583,7 +22583,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "john-romero",
@@ -22868,7 +22868,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "john-tobias",
@@ -22983,7 +22983,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jon-burton",
@@ -23130,7 +23130,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jon-freeman",
@@ -23217,7 +23217,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jon-hare",
@@ -23329,7 +23329,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jon-m-gibson",
@@ -23423,7 +23423,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jon-van-caneghem",
@@ -23529,7 +23529,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jonatan-soderstrom",
@@ -23619,7 +23619,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jordan-mechner",
@@ -23762,7 +23762,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "jordan-weisman",
@@ -23876,7 +23876,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "josef-fares",
@@ -24007,7 +24007,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "josef-martinovsky",
@@ -24092,7 +24092,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "joseph-m-schenck",
@@ -24197,7 +24197,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "judith-r-faulkner",
@@ -24301,7 +24301,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "julia-pfiffer",
@@ -24363,7 +24363,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "jun-maeda",
@@ -24495,7 +24495,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "junichi-masuda",
@@ -24631,7 +24631,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "jurjen-katsman",
@@ -24705,7 +24705,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "justin-roiland",
@@ -24903,7 +24903,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kagemasa-kozuki",
@@ -25000,7 +25000,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kantaro-tomiyama",
@@ -25085,7 +25085,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kazuhiko-nishi",
@@ -25221,7 +25221,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kazunori-yamauchi",
@@ -25348,7 +25348,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kazuo-hirai",
@@ -25446,7 +25446,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "kazuo-okada",
@@ -25529,7 +25529,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kedhrin-gonzalez",
@@ -25597,7 +25597,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "keiichiro-toyama",
@@ -25722,7 +25722,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "keiko-erikawa",
@@ -25816,7 +25816,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kelly-sumner",
@@ -25898,7 +25898,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ken-kutaragi",
@@ -26157,7 +26157,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ken-sugimori",
@@ -26275,7 +26275,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ken-williams",
@@ -26393,7 +26393,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kenji-eno",
@@ -26499,7 +26499,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kenji-matsubara",
@@ -26583,7 +26583,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "kenzo-tsujimoto",
@@ -26678,7 +26678,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kim-swift",
@@ -26774,7 +26774,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kinoko-nasu",
@@ -26880,7 +26880,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kirill-kravchenko",
@@ -26977,7 +26977,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "kodera-tsuyoshi",
@@ -27058,7 +27058,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "koichi-nakamura",
@@ -27168,7 +27168,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "koji-igarashi",
@@ -27287,7 +27287,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "koola",
@@ -27371,7 +27371,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "koji-kondo",
@@ -27474,7 +27474,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "larry-kaplan",
@@ -27591,7 +27591,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "larry-probst",
@@ -27693,7 +27693,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "lars-h-barstad",
@@ -27773,7 +27773,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "laurant-weill",
@@ -27850,7 +27850,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "laurent-dassault",
@@ -27946,7 +27946,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "laurent-lichnewsky",
@@ -28036,7 +28036,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "les-edgar",
@@ -28116,7 +28116,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "leslie-benzies",
@@ -28212,7 +28212,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "lori-ann-cole",
@@ -28281,7 +28281,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "lorne-lanning",
@@ -28403,7 +28403,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "louis-b-mayer",
@@ -28520,7 +28520,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "louis-castle",
@@ -28634,7 +28634,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "maddy-thorson",
@@ -28736,7 +28736,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "magnus-gordon-gardeback",
@@ -28821,7 +28821,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "marc-alexander-ullrich",
@@ -28897,7 +28897,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "marc-blank",
@@ -29008,7 +29008,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "marc-du-pontavice",
@@ -29119,7 +29119,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "marcus-bromander",
@@ -29215,7 +29215,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "marcus-loew",
@@ -29318,7 +29318,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "mariina-hallikainen",
@@ -29398,7 +29398,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "mario-wynands",
@@ -29483,7 +29483,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "mariona-valls-i-porta",
@@ -29571,7 +29571,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "mark-cerny",
@@ -29694,7 +29694,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "mark-lyons",
@@ -29802,7 +29802,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "mark-randel",
@@ -29883,7 +29883,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "mark-rein",
@@ -29972,7 +29972,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "markus-persson",
@@ -30117,7 +30117,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "martin-alper",
@@ -30195,7 +30195,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "martin-kenwright",
@@ -30272,7 +30272,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "martin-klima",
@@ -30393,7 +30393,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "masahiro-sakurai",
@@ -30524,7 +30524,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "masamitsu-niitani",
@@ -30608,7 +30608,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "masashi-miyamoto",
@@ -30702,7 +30702,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "masaya-matsuura",
@@ -30813,7 +30813,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "masaya-nakamura",
@@ -30944,7 +30944,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "masayuki-kato",
@@ -31030,7 +31030,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "masayuki-uemura",
@@ -31130,7 +31130,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "matt-conn",
@@ -31214,7 +31214,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "matt-firor",
@@ -31312,7 +31312,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "matthew-smith",
@@ -31404,7 +31404,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "mattias-snygg",
@@ -31474,7 +31474,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "maurice-sibrandi",
@@ -31549,7 +31549,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "maya-rogers",
@@ -31639,7 +31639,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "megan-ellison",
@@ -31730,7 +31730,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "michael-berlyn",
@@ -31833,7 +31833,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "michael-hoge",
@@ -31920,7 +31920,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "michael-kogan",
@@ -32024,7 +32024,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "michael-lohscheller",
@@ -32115,7 +32115,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "michael-morhaime",
@@ -32237,7 +32237,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "michael-ruve",
@@ -32304,7 +32304,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "michel-ancel",
@@ -32419,7 +32419,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "michel-guillemot",
@@ -32530,7 +32530,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "michiel-sala",
@@ -32603,7 +32603,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "mick-west",
@@ -32701,7 +32701,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "mike-bithell",
@@ -32795,7 +32795,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "mike-booth",
@@ -32870,7 +32870,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "mike-harrington",
@@ -32978,7 +32978,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "mike-jaret",
@@ -33060,7 +33060,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "mike-rose",
@@ -33133,7 +33133,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "mike-ybarra",
@@ -33204,7 +33204,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "milton-bradley",
@@ -33335,7 +33335,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "minoru-arakawa",
@@ -33431,7 +33431,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "miros-aw-dymek",
@@ -33515,7 +33515,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "nacho-ruiz",
@@ -33604,7 +33604,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "naoharu-yamashina",
@@ -33696,7 +33696,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "naoki-hisaya",
@@ -33804,7 +33804,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "naoki-yoshida",
@@ -33899,7 +33899,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "naoto-oshima",
@@ -34035,7 +34035,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "napoleon-iii",
@@ -34174,7 +34174,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "neil-druckmann",
@@ -34301,7 +34301,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "nels-anderson",
@@ -34381,7 +34381,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "nick-bruty",
@@ -34470,7 +34470,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "nicolas-cannasse",
@@ -34561,7 +34561,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "nicolas-gaume",
@@ -34656,7 +34656,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "nobuo-inaba",
@@ -34738,7 +34738,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "nobuo-uematsu",
@@ -34836,7 +34836,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "noirin-carmody",
@@ -34911,7 +34911,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "nolan-bushnell",
@@ -35061,7 +35061,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "nozomu-matsumoto",
@@ -35152,7 +35152,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "oleg-shpilchevsky",
@@ -35225,7 +35225,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "olly-moss",
@@ -35316,7 +35316,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "olof-gustafsson",
@@ -35403,7 +35403,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "pascal-herold",
@@ -35512,7 +35512,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "patrice-desilets",
@@ -35606,7 +35606,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "patrick-buckland",
@@ -35681,7 +35681,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "paul-de-senneville",
@@ -35818,7 +35818,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "paul-jackson",
@@ -35908,7 +35908,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "paul-neurath",
@@ -35984,7 +35984,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "paul-reiche-iii",
@@ -36097,7 +36097,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "paul-thelen",
@@ -36176,7 +36176,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "peter-de-jong",
@@ -36249,7 +36249,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "peter-keefe",
@@ -36333,7 +36333,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "peter-molyneux",
@@ -36471,7 +36471,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "peter-moore",
@@ -36573,7 +36573,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "petr-vochozka",
@@ -36663,7 +36663,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "phil-robb",
@@ -36743,7 +36743,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "phil-spencer",
@@ -36834,7 +36834,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ragnar-t-rnquist",
@@ -36963,7 +36963,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ralph-h-baer",
@@ -37238,7 +37238,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "raoul-pal",
@@ -37317,7 +37317,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "raph-koster",
@@ -37427,7 +37427,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "raphael-saadiq",
@@ -37566,7 +37566,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "raphael-colantonio",
@@ -37676,7 +37676,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ray-muzyka",
@@ -37791,7 +37791,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "rebecca-heineman",
@@ -37912,7 +37912,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "rebekah-saltsman",
@@ -37989,7 +37989,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "reggie-fils-aime",
@@ -38092,7 +38092,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "riccardo-cangini",
@@ -38186,7 +38186,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "richard-garriott",
@@ -38410,7 +38410,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "rieko-kodama",
@@ -38627,7 +38627,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "robert-a-altman",
@@ -38730,7 +38730,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "robert-kurvitz",
@@ -38840,7 +38840,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "robert-m-bakish",
@@ -38933,7 +38933,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "roberta-williams",
@@ -39204,7 +39204,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ronnen-harary",
@@ -39289,7 +39289,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ross-symons",
@@ -39376,7 +39376,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "ruud-van-de-moosdijk",
@@ -39463,7 +39463,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "ryan-ashley-brant",
@@ -39545,7 +39545,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "ryoichi-ueda",
@@ -39628,7 +39628,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "sam-houser",
@@ -39778,7 +39778,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "sam-lake",
@@ -39890,7 +39890,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "samuli-syvahuoko",
@@ -39991,7 +39991,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "satoru-iwata",
@@ -40374,7 +40374,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "seamus-blackley",
@@ -40462,7 +40462,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "sean-krankel",
@@ -40535,7 +40535,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "sean-vanaman",
@@ -40644,7 +40644,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "sebastian-wloch",
@@ -40706,7 +40706,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "sebastian-wojciechowski",
@@ -40787,7 +40787,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "sefton-hill",
@@ -40862,7 +40862,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "sekiryo-kaneda",
@@ -40951,7 +40951,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "senne-de-jong",
@@ -41019,7 +41019,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "shelley-day",
@@ -41106,7 +41106,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "shigeru-miyamoto",
@@ -41457,7 +41457,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "shinji-mikami",
@@ -41680,7 +41680,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "shuhei-yoshida",
@@ -41778,7 +41778,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "shuntaro-furukawa",
@@ -41864,7 +41864,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "shozo-kaga",
@@ -41940,7 +41940,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "sid-meier",
@@ -42200,7 +42200,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "stacey-snider",
@@ -42291,7 +42291,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "stefan-gagne",
@@ -42359,7 +42359,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "stephen-b-streater",
@@ -42445,7 +42445,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "stephen-chaplin",
@@ -42527,7 +42527,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "steve-gaynor",
@@ -42616,7 +42616,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "steve-turner",
@@ -42693,7 +42693,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "steven-frank",
@@ -42768,7 +42768,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "steven-spielberg",
@@ -43070,7 +43070,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "stewart-gilray",
@@ -43153,7 +43153,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "stine-w-rn",
@@ -43246,7 +43246,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "strauss-zelnick",
@@ -43341,7 +43341,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "stephane-roussel",
@@ -43419,7 +43419,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "sumner-redstone",
@@ -43544,7 +43544,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "sylvain-passot",
@@ -43617,7 +43617,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "sebastien-benard",
@@ -43715,7 +43715,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "taizo-son",
@@ -43819,7 +43819,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "takami-akai",
@@ -43945,7 +43945,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "takashi-iizuka",
@@ -44068,7 +44068,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "takashi-tezuka",
@@ -44187,7 +44187,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "takeshi-miyaji",
@@ -44277,7 +44277,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tanya-jessen",
@@ -44373,7 +44373,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "tatsumi-kimishima",
@@ -44473,7 +44473,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tatsuya-minami",
@@ -44557,7 +44557,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "ted-price",
@@ -44665,7 +44665,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tero-virtala",
@@ -44734,7 +44734,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "terry-donovan",
@@ -44807,7 +44807,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "terunobu-maeda",
@@ -44895,7 +44895,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tetsuya-mizuguchi",
@@ -45026,7 +45026,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tetsuya-nomura",
@@ -45137,7 +45137,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tetsuya-takahashi",
@@ -45250,7 +45250,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "thomas-tull",
@@ -45359,7 +45359,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tim-remmers",
@@ -45454,7 +45454,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "tim-schafer",
@@ -45608,7 +45608,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tim-stamper",
@@ -45688,7 +45688,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "tim-sweeney",
@@ -45913,7 +45913,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "todd-howard",
@@ -46045,7 +46045,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tohru-narihiro",
@@ -46132,7 +46132,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "tom-clancy",
@@ -46277,7 +46277,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tom-fulp",
@@ -46382,7 +46382,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tom-hall",
@@ -46503,7 +46503,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tom-kalinske",
@@ -46601,7 +46601,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tom-putzki",
@@ -46706,7 +46706,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "tomas-sala",
@@ -46798,7 +46798,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "tomonobu-itagaki",
@@ -46928,7 +46928,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tony-warriner",
@@ -47019,7 +47019,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "toshihiro-kondo",
@@ -47108,7 +47108,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "toshihiro-nagoshi",
@@ -47274,7 +47274,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "toshihiro-nishikado",
@@ -47383,7 +47383,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "toshiki-kawai",
@@ -47461,7 +47461,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "toshio-okada",
@@ -47550,7 +47550,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "trent-oster",
@@ -47636,7 +47636,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "trip-hawkins",
@@ -47790,7 +47790,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "tsuguhiko-kadokawa",
@@ -47894,7 +47894,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "tsunekazu-ishihara",
@@ -47993,7 +47993,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "toru-iwatani",
@@ -48231,7 +48231,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "vince-zampella",
@@ -48341,7 +48341,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "viv",
@@ -48425,7 +48425,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "warren-spector",
@@ -48568,7 +48568,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "wes-keltner",
@@ -48643,7 +48643,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "will-wright",
@@ -48944,7 +48944,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "yannick-bollore",
@@ -49050,7 +49050,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "yannis-bolman",
@@ -49123,7 +49123,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "yasuhiro-takeda",
@@ -49220,7 +49220,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "yasumi-matsuno",
@@ -49323,7 +49323,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "yasuyoshi-tokuma",
@@ -49426,7 +49426,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "yoan-fanise",
@@ -49514,7 +49514,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "yoichi-erikawa",
@@ -49616,7 +49616,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "yoichi-wada",
@@ -49701,7 +49701,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "yoko-taro",
@@ -49931,7 +49931,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     },
     {
       "slug": "yoshinori-kitase",
@@ -50028,7 +50028,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "yoshiyuki-sadamoto",
@@ -50159,7 +50159,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "yukinori-taniguchi",
@@ -50278,7 +50278,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "yukio-futatsugi",
@@ -50382,7 +50382,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "yves-guillemot",
@@ -50509,7 +50509,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "yu-suzuki",
@@ -50770,7 +50770,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "yuji-naka",
@@ -50899,7 +50899,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "zdenek-bakala",
@@ -51005,7 +51005,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "eric-chahi",
@@ -51132,7 +51132,7 @@
       "review_reasons": [],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "published"
+      "visibility": "admin_structured"
     },
     {
       "slug": "eric-viennot",
@@ -51244,7 +51244,7 @@
       ],
       "automatic_merge_allowed": false,
       "last_checked": "2026-09-03T20:30:51.514332+00:00",
-      "visibility": "admin_only"
+      "visibility": "blocked"
     }
   ]
 }

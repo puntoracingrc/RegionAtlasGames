@@ -24,7 +24,7 @@ type InternalPerson = {
   review_reasons: string[];
   source_ids: string[];
   portrait: unknown;
-  visibility: "published" | "admin_only";
+  visibility: "published" | "admin_structured" | "blocked";
 };
 
 type InternalRelation = { person_slug: string; publication_status: string };
@@ -44,13 +44,18 @@ function normalize(value: string): string {
 }
 
 function gateFor(person: InternalPerson): PersonAdminRecord["gate"] {
-  if (person.visibility !== "published") return "staging";
-  return person.publication_status === "READY_EDITORIAL" ? "editorial" : "structured";
+  if (person.publication_status === "READY_EDITORIAL" && person.visibility === "published") {
+    return "editorial";
+  }
+  if (person.publication_status === "READY_STRUCTURED" && person.visibility === "admin_structured") {
+    return "structured";
+  }
+  return "staging";
 }
 
 function matchesFilter(record: PersonAdminRecord, filter: PersonAdminFilter): boolean {
   if (filter === "all") return true;
-  if (filter === "published") return record.gate !== "staging";
+  if (filter === "published") return record.gate === "editorial";
   return record.gate === filter;
 }
 

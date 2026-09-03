@@ -141,7 +141,7 @@ function timelineFor(view: Omit<PersonPublicView, "timeline">): PersonTimelineIt
       title: "Nacimiento",
       detail: profile.birthPlace?.name ?? profile.originDisplay,
       kind: "life",
-      sourceId: null,
+      sourceId: profile.fieldSources.life?.[0] ?? null,
     });
   }
   for (const relation of view.companyRelations) {
@@ -196,7 +196,7 @@ function timelineFor(view: Omit<PersonPublicView, "timeline">): PersonTimelineIt
       title: "Fallecimiento",
       detail: null,
       kind: "life",
-      sourceId: null,
+      sourceId: profile.fieldSources.life?.[0] ?? null,
     });
   }
   return timeline.sort(

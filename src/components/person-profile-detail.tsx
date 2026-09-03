@@ -84,11 +84,8 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
           </figure>
 
           <div className="min-w-0 pt-1">
-            <span className={profile.publicationLevel === "editorial"
-              ? "rounded-md bg-emerald-500/15 px-2 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300"
-              : "rounded-md bg-sky-500/15 px-2 py-1 text-xs font-semibold text-sky-700 dark:text-sky-300"}
-            >
-              {profile.publicationLevel === "editorial" ? "Perfil revisado editorialmente" : "Ficha estructurada"}
+            <span className="rounded-md bg-emerald-500/15 px-2 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+              Perfil revisado editorialmente
             </span>
             <h1 className="mt-4 text-4xl font-black leading-tight text-foreground md:text-5xl">{profile.name}</h1>
             {profile.nativeNames.length > 0 && (

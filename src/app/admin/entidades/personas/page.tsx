@@ -17,10 +17,10 @@ type Props = {
 
 const filters: { value: PersonAdminFilter; label: string }[] = [
   { value: "all", label: "Todos" },
-  { value: "published", label: "Publicados" },
-  { value: "editorial", label: "Revisión editorial" },
-  { value: "structured", label: "Estructurados" },
-  { value: "staging", label: "Staging" },
+  { value: "published", label: "Públicos" },
+  { value: "editorial", label: "Editoriales públicas" },
+  { value: "structured", label: "Estructurados internos" },
+  { value: "staging", label: "Bloqueados" },
 ];
 
 function validFilter(value: string | undefined): PersonAdminFilter {
@@ -37,9 +37,9 @@ function href(input: { query?: string; filter?: PersonAdminFilter; page?: number
 }
 
 function gateBadge(gate: "editorial" | "structured" | "staging") {
-  if (gate === "editorial") return <Badge tone="green">Editorial</Badge>;
-  if (gate === "structured") return <Badge tone="violet">Estructurada</Badge>;
-  return <Badge tone="amber">Staging</Badge>;
+  if (gate === "editorial") return <Badge tone="green">Editorial pública</Badge>;
+  if (gate === "structured") return <Badge tone="violet">Estructurada interna</Badge>;
+  return <Badge tone="amber">Bloqueada</Badge>;
 }
 
 export default async function AdminPeopleResearchPage({ searchParams }: Props) {
@@ -61,7 +61,7 @@ export default async function AdminPeopleResearchPage({ searchParams }: Props) {
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">Entidades personales</p>
           <h2 className="mt-1 text-2xl font-black text-foreground">Investigación de personas</h2>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-muted">
-            Identidades enlazadas por QID, procedencia por campo y revisión separada para perfiles públicos y staging.
+            Identidades enlazadas por QID, procedencia por campo y revisión separada para perfiles públicos, estructurados internos y bloqueados.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -76,15 +76,15 @@ export default async function AdminPeopleResearchPage({ searchParams }: Props) {
         <PanelTitle eyebrow="Lote auditado">Control de publicación</PanelTitle>
         <dl className="grid divide-y divide-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 xl:grid-cols-4">
           <div className="p-3 sm:first:pl-0"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><UsersRound className="h-4 w-4" aria-hidden="true" /> Identidades</dt><dd className="mt-2 text-2xl font-black text-foreground">{counts.totalPeople}</dd></div>
-          <div className="p-3"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><UserRoundCheck className="h-4 w-4" aria-hidden="true" /> Publicadas</dt><dd className="mt-2 text-2xl font-black text-foreground">{counts.publishedPeople}</dd><p className="mt-1 text-xs text-muted">{counts.editorialPeople} editoriales · {counts.structuredPeople} estructuradas</p></div>
-          <div className="p-3"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><LockKeyhole className="h-4 w-4" aria-hidden="true" /> Staging</dt><dd className="mt-2 text-2xl font-black text-foreground">{counts.stagingPeople}</dd><p className="mt-1 text-xs text-muted">Sin ruta pública</p></div>
-          <div className="p-3 sm:last:pr-0"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><ImageIcon className="h-4 w-4" aria-hidden="true" /> Retratos locales</dt><dd className="mt-2 text-2xl font-black text-foreground">{counts.publicPortraits}</dd><p className="mt-1 text-xs text-muted">Licencia y atribución conservadas</p></div>
+          <div className="p-3"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><UserRoundCheck className="h-4 w-4" aria-hidden="true" /> Editoriales públicas</dt><dd className="mt-2 text-2xl font-black text-foreground">{counts.publishedPeople}</dd><p className="mt-1 text-xs text-muted">Únicas con ruta, sitemap y SEO</p></div>
+          <div className="p-3"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><LockKeyhole className="h-4 w-4" aria-hidden="true" /> Solo Admin</dt><dd className="mt-2 text-2xl font-black text-foreground">{counts.structuredPeople + counts.stagingPeople}</dd><p className="mt-1 text-xs text-muted">{counts.structuredPeople} estructuradas · {counts.stagingPeople} bloqueadas</p></div>
+          <div className="p-3 sm:last:pr-0"><dt className="flex items-center gap-2 text-xs font-semibold text-muted"><ImageIcon className="h-4 w-4" aria-hidden="true" /> Retratos conservados</dt><dd className="mt-2 text-2xl font-black text-foreground">{counts.retainedPortraits}</dd><p className="mt-1 text-xs text-muted">{counts.publicPortraits} visibles · licencias intactas</p></div>
         </dl>
       </Panel>
 
       <AdminNotice tone="status">
         <strong className="text-foreground">Barrera pública activa.</strong>{" "}
-        Los {counts.stagingPeople} perfiles pendientes y las {counts.unresolvedMentions} menciones sin resolver quedan fuera de rutas públicas, sitemap y SEO. Compartir nombre no fusiona identidades.
+        Los {counts.structuredPeople} perfiles estructurados y los {counts.stagingPeople} bloqueados quedan fuera de rutas públicas, sitemap y SEO. Sus relaciones documentales permanecen en revisión dentro de Admin; compartir nombre no fusiona identidades.
       </AdminNotice>
 
       <Panel className={adminToneClass("edit")}>
@@ -109,7 +109,7 @@ export default async function AdminPeopleResearchPage({ searchParams }: Props) {
             <li key={record.slug} className="grid gap-3 py-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_auto] lg:items-center">
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
-                  {record.gate === "staging" ? <span className="font-semibold text-foreground">{record.name}</span> : <Link href={`/persona/${record.slug}`} target="_blank" rel="noreferrer" className="font-semibold text-foreground hover:text-accent">{record.name}</Link>}
+                  {record.gate === "editorial" ? <Link href={`/persona/${record.slug}`} target="_blank" rel="noreferrer" className="font-semibold text-foreground hover:text-accent">{record.name}</Link> : <span className="font-semibold text-foreground">{record.name}</span>}
                   {gateBadge(record.gate)}
                   {record.portrait && <Badge>Retrato</Badge>}
                 </div>
@@ -120,7 +120,7 @@ export default async function AdminPeopleResearchPage({ searchParams }: Props) {
                 <p className="truncate">{record.occupations.join(" · ") || "Sin ocupación documentada"}</p>
               </div>
               <div className="text-xs text-muted lg:text-right">
-                <p>{record.relations} relaciones · {record.exactCredits} créditos · {record.sources} fuentes</p>
+                <p>{record.relations} relaciones documentales en revisión · {record.exactCredits} créditos · {record.sources} fuentes</p>
                 {record.reasons.length > 0 && <p className="mt-1 max-w-xl text-amber-700 dark:text-amber-300">{record.reasons.join(" · ")}</p>}
               </div>
             </li>
