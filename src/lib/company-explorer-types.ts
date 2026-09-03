@@ -132,6 +132,8 @@ export type CompanyCardData = {
   activityPeriods: CompanyActivityFilter[];
   companyStatus: Exclude<CompanyStatusFilter, "all">;
   hasProfile: boolean;
+  logoUrl: string | null;
+  logoIsProvisional: boolean;
   searchHaystack: string;
 };
 

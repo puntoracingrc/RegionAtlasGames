@@ -28,6 +28,8 @@ function company(overrides: Partial<CompanyCardData> = {}): CompanyCardData {
     activityPeriods: ["2010s"],
     companyStatus: "unknown",
     hasProfile: false,
+    logoUrl: null,
+    logoIsProvisional: true,
     searchHaystack: name.toLowerCase(),
     ...overrides,
   };
