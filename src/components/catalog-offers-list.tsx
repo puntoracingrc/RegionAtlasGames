@@ -306,7 +306,7 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
         ) : null}
         {fallbackCtas.map((fallback) => (
           <li key={fallback.id} className="px-3 py-3">
-            <div className="flex justify-end">
+              <div className="flex justify-center">
               <a
                 href={fallback.url}
                 target="_blank"
