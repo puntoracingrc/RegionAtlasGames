@@ -203,10 +203,13 @@ export function AffiliateOffersPanel({ catalogId }: Props) {
             })}
           </div>
         </>
-      ) : searchFallbacks.length > 0 ? (
-        <div className="rounded-2xl border border-border bg-background/45 p-4">
+      ) : null}
+      {searchFallbacks.length > 0 ? (
+        <div className={`${offers.length > 0 ? "mt-4 " : ""}rounded-2xl border border-border bg-background/45 p-4`}>
           <p className="text-sm leading-6 text-muted">
-            No hay listings válidos para mostrar ahora mismo. Puedes abrir una búsqueda afiliada en una tienda externa.
+            {offers.length > 0
+              ? "También puedes abrir una búsqueda afiliada específica para este juego."
+              : "No hay listings válidos para mostrar ahora mismo. Puedes abrir una búsqueda afiliada en una tienda externa."}
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {searchFallbacks.map((fallback) => (
