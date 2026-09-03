@@ -1,106 +1,43 @@
 "use client";
 
+import { ChevronDown, ChevronUp, RotateCcw, Search, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { CompanyLogo } from "@/components/company-logo";
 import { cn } from "@/lib/cn";
+import {
+  COMPANY_ACTIVITY_OPTIONS,
+  COMPANY_MARKET_OPTIONS,
+  COMPANY_SIZE_OPTIONS,
+  COMPANY_SORT_OPTIONS,
+  COMPANY_STATUS_OPTIONS,
+  DEFAULT_COMPANY_FILTERS,
+  hasActiveCompanyFilters,
+  type CompanyCardData,
+  type CompanyExplorerData,
+  type CompanyIndexFilters,
+  type CompanyRoleFilter,
+  type CompanyRoleKind,
+} from "@/lib/company-explorer-types";
 
-type CompanyRoleKind = "publisher" | "developer" | "both";
-type CompanySort =
-  | "name-asc"
-  | "name-desc"
-  | "games-desc"
-  | "games-asc"
-  | "market-desc"
-  | "dev-desc"
-  | "pub-desc";
-type CompanyRoleFilter = "all" | "publishers" | "developers" | "both";
-type CompanyIndexFilters = {
-  q: string;
-  initial: string;
-  role: CompanyRoleFilter;
-  platform: string;
-  genre: string;
-  sort: CompanySort;
-};
-type CompanyCardData = {
-  slug: string;
-  name: string;
-  gameCount: number;
-  developerCount: number;
-  publisherCount: number;
-  roleKind: CompanyRoleKind;
-  platformSlugs: string[];
-  platformPreview: string;
-  genreSlugs: string[];
-  marketScore: number;
-  grailCount: number;
-  pricedCount: number;
-  hasProfile: boolean;
-  logoUrl: string | null;
-  logoIsProvisional: boolean;
-  searchHaystack: string;
-};
-type CompanyFilterOption = { slug: string; name: string; count: number };
-type CompanyExplorerData = {
-  companies: CompanyCardData[];
-  platformOptions: CompanyFilterOption[];
-  genreOptions: CompanyFilterOption[];
+type Props = CompanyExplorerData & {
   totalCount: number;
   initials: string[];
   grouped: {
     publishers: CompanyCardData[];
     developers: CompanyCardData[];
   } | null;
-  stats: {
-    total: number;
-    publishers: number;
-    developers: number;
-    dualRole: number;
-    withProfile: number;
-    gamesWithDetails: number;
-  };
 };
-
-const DEFAULT_COMPANY_FILTERS: CompanyIndexFilters = {
-  q: "",
-  initial: "all",
-  role: "all",
-  platform: "all",
-  genre: "all",
-  sort: "games-desc",
-};
-const COMPANY_SORT_OPTIONS: { value: CompanySort; label: string }[] = [
-  { value: "games-desc", label: "Más juegos en catálogo" },
-  { value: "games-asc", label: "Menos juegos" },
-  { value: "market-desc", label: "Relevancia en mercado" },
-  { value: "name-asc", label: "Nombre (A → Z)" },
-  { value: "name-desc", label: "Nombre (Z → A)" },
-  { value: "dev-desc", label: "Más títulos como desarrolladora" },
-  { value: "pub-desc", label: "Más títulos como publicadora" },
-];
-type Props = CompanyExplorerData;
 
 const ROLE_TABS: { value: CompanyRoleFilter; label: string; hint: string }[] = [
   { value: "all", label: "Todas", hint: "Catálogo completo" },
-  { value: "publishers", label: "Publicadoras", hint: "Solo publican (sin créditos de desarrollo)" },
-  { value: "developers", label: "Desarrolladoras", hint: "Solo desarrollan (sin créditos de publicación)" },
+  { value: "publishers", label: "Publicadoras", hint: "Compañías con créditos de publicación" },
+  { value: "developers", label: "Desarrolladoras", hint: "Compañías con créditos de desarrollo" },
   { value: "both", label: "Ambos roles", hint: "Desarrollan y publican en el catálogo" },
 ];
 
 const selectClass =
-  "rounded-xl border border-border bg-input px-4 py-2.5 text-sm text-foreground outline-none ring-accent/30 focus:ring-2";
-
-function hasActiveCompanyFilters(filters: CompanyIndexFilters): boolean {
-  return (
-    filters.q.trim() !== "" ||
-    filters.initial !== "all" ||
-    filters.role !== "all" ||
-    filters.platform !== "all" ||
-    filters.genre !== "all" ||
-    filters.sort !== DEFAULT_COMPANY_FILTERS.sort
-  );
-}
+  "w-full rounded-lg border border-border bg-input px-3 py-2.5 text-sm text-foreground outline-none ring-accent/30 focus:ring-2";
 
 function companyRoleLabel(role: CompanyRoleKind): string {
   if (role === "publisher") return "Publicadora";
@@ -120,6 +57,10 @@ function companyPageParams(filters: CompanyIndexFilters, page: number): URLSearc
     role: filters.role,
     platform: filters.platform,
     genre: filters.genre,
+    size: filters.size,
+    status: filters.status,
+    activity: filters.activity,
+    market: filters.market,
     sort: filters.sort,
     page: String(page),
   });
@@ -139,6 +80,7 @@ export function CompanyExplorer({
   companies: initialCompanies,
   platformOptions,
   genreOptions,
+  filterCounts,
   stats,
   totalCount,
   initials,
@@ -151,46 +93,49 @@ export function CompanyExplorer({
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState(false);
+  const [showMoreFilters, setShowMoreFilters] = useState(false);
 
-  const showGrouped =
-    filters.role === "all" &&
-    !filters.q.trim() &&
-    filters.initial === "all" &&
-    filters.platform === "all" &&
-    filters.genre === "all";
+  const showGrouped = !filtersActive;
+  const moreFilterCount = [filters.status, filters.activity, filters.market].filter(
+    (value) => value !== "all",
+  ).length;
   const hasMore = items.length < total;
 
   useEffect(() => {
     const controller = new AbortController();
-
-    if (!filtersActive) {
-      setItems(initialCompanies);
-      setTotal(totalCount);
-      setPage(1);
-      setIsLoading(false);
-      setLoadError(false);
-      return () => controller.abort();
-    }
-
-    setIsLoading(true);
-    setLoadError(false);
-    fetchCompanyPage(filters, 1, controller.signal)
-      .then((payload) => {
-        setItems(payload.items);
-        setTotal(payload.total);
+    const timer = window.setTimeout(() => {
+      if (!filtersActive) {
+        setItems(initialCompanies);
+        setTotal(totalCount);
         setPage(1);
-      })
-      .catch((error) => {
-        if (!controller.signal.aborted) {
-          console.warn("[company-explorer] fetch failed", error);
-          setLoadError(true);
-        }
-      })
-      .finally(() => {
-        if (!controller.signal.aborted) setIsLoading(false);
-      });
+        setIsLoading(false);
+        setLoadError(false);
+        return;
+      }
 
-    return () => controller.abort();
+      setIsLoading(true);
+      setLoadError(false);
+      fetchCompanyPage(filters, 1, controller.signal)
+        .then((payload) => {
+          setItems(payload.items);
+          setTotal(payload.total);
+          setPage(1);
+        })
+        .catch((error) => {
+          if (!controller.signal.aborted) {
+            console.warn("[company-explorer] fetch failed", error);
+            setLoadError(true);
+          }
+        })
+        .finally(() => {
+          if (!controller.signal.aborted) setIsLoading(false);
+        });
+    }, filters.q.trim() ? 180 : 0);
+
+    return () => {
+      window.clearTimeout(timer);
+      controller.abort();
+    };
   }, [filters, filtersActive, initialCompanies, totalCount]);
 
   async function loadMore() {
@@ -212,7 +157,7 @@ export function CompanyExplorer({
 
   return (
     <div className="space-y-6">
-      <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="grid grid-cols-2 gap-2 md:gap-3 xl:grid-cols-4">
         <StatCard label="Compañías" value={stats.total.toLocaleString("es-ES")} hint="Fichas unificadas" />
         <StatCard
           label="Publicadoras"
@@ -237,6 +182,7 @@ export function CompanyExplorer({
             key={tab.value}
             type="button"
             title={tab.hint}
+            aria-pressed={filters.role === tab.value}
             onClick={() => setFilters((current) => ({ ...current, role: tab.value }))}
             className={cn(
               "rounded-full border px-4 py-2 text-sm font-medium transition",
@@ -250,97 +196,230 @@ export function CompanyExplorer({
         ))}
       </div>
 
-      <section className="rounded-2xl border border-border bg-card p-4 md:p-5">
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+      <section className="rounded-2xl border border-border bg-card p-4 md:p-5" aria-busy={isLoading}>
+        <div className="relative">
+          <Search
+            aria-hidden="true"
+            className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-muted"
+            size={18}
+          />
           <input
             type="search"
+            aria-label="Buscar compañía"
             placeholder="Buscar compañía, alias o slug…"
             value={filters.q}
             onChange={(e) => setFilters((current) => ({ ...current, q: e.target.value }))}
-            className="rounded-xl border border-border bg-input px-4 py-2.5 text-sm text-foreground outline-none ring-accent/30 placeholder:text-muted/90 focus:ring-2 xl:col-span-3"
+            className="w-full rounded-lg border border-border bg-input py-2.5 pl-10 pr-4 text-sm text-foreground outline-none ring-accent/30 placeholder:text-muted/90 focus:ring-2"
           />
-          <select
-            value={filters.platform}
-            onChange={(e) => setFilters((current) => ({ ...current, platform: e.target.value }))}
-            className={selectClass}
+        </div>
+
+        <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          <FilterField label="Plataforma">
+            <select
+              value={filters.platform}
+              onChange={(e) => setFilters((current) => ({ ...current, platform: e.target.value }))}
+              className={selectClass}
+            >
+              <option value="all">Todas las plataformas</option>
+              {platformOptions.map((platform) => (
+                <option key={platform.slug} value={platform.slug}>
+                  {platform.name} ({platform.count})
+                </option>
+              ))}
+            </select>
+          </FilterField>
+          <FilterField label="Género">
+            <select
+              value={filters.genre}
+              onChange={(e) => setFilters((current) => ({ ...current, genre: e.target.value }))}
+              className={selectClass}
+            >
+              <option value="all">Todos los géneros</option>
+              {genreOptions.slice(0, 80).map((genre) => (
+                <option key={genre.slug} value={genre.slug}>
+                  {genre.name} ({genre.count})
+                </option>
+              ))}
+            </select>
+          </FilterField>
+          <FilterField label="Tamaño del catálogo">
+            <select
+              value={filters.size}
+              onChange={(e) =>
+                setFilters((current) => ({
+                  ...current,
+                  size: e.target.value as CompanyIndexFilters["size"],
+                }))
+              }
+              className={selectClass}
+            >
+              {COMPANY_SIZE_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </FilterField>
+          <FilterField label="Orden">
+            <select
+              value={filters.sort}
+              onChange={(e) =>
+                setFilters((current) => ({
+                  ...current,
+                  sort: e.target.value as CompanyIndexFilters["sort"],
+                }))
+              }
+              className={selectClass}
+            >
+              {COMPANY_SORT_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </FilterField>
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-border pt-4">
+          <button
+            type="button"
+            aria-expanded={showMoreFilters}
+            aria-controls="company-more-filters"
+            onClick={() => setShowMoreFilters((current) => !current)}
+            className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-border bg-input px-3.5 text-sm font-semibold text-foreground transition hover:border-accent/40 hover:bg-card-hover"
           >
-            <option value="all">Todas las plataformas</option>
-            {platformOptions.map((platform) => (
-              <option key={platform.slug} value={platform.slug}>
-                {platform.name} ({platform.count})
-              </option>
-            ))}
-          </select>
-          <select
-            value={filters.genre}
-            onChange={(e) => setFilters((current) => ({ ...current, genre: e.target.value }))}
-            className={selectClass}
-          >
-            <option value="all">Todos los géneros</option>
-            {genreOptions.slice(0, 80).map((genre) => (
-              <option key={genre.slug} value={genre.slug}>
-                {genre.name} ({genre.count})
-              </option>
-            ))}
-          </select>
-          <select
-            value={filters.sort}
-            onChange={(e) =>
-              setFilters((current) => ({
-                ...current,
-                sort: e.target.value as CompanyIndexFilters["sort"],
-              }))
-            }
-            className={selectClass}
-          >
-            {COMPANY_SORT_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+            <SlidersHorizontal aria-hidden="true" size={17} />
+            Más filtros
+            {moreFilterCount > 0 && (
+              <span className="min-w-5 rounded-full bg-accent px-1.5 py-0.5 text-center text-xs text-accent-foreground">
+                {moreFilterCount}
+              </span>
+            )}
+            {showMoreFilters ? (
+              <ChevronUp aria-hidden="true" size={16} />
+            ) : (
+              <ChevronDown aria-hidden="true" size={16} />
+            )}
+          </button>
           {filtersActive && (
             <button
               type="button"
-              onClick={() => setFilters(DEFAULT_COMPANY_FILTERS)}
-              className="rounded-xl border border-border bg-input px-4 py-2.5 text-sm font-medium text-foreground transition hover:border-accent/40 hover:bg-card-hover"
+              onClick={() => {
+                setFilters(DEFAULT_COMPANY_FILTERS);
+                setShowMoreFilters(false);
+              }}
+              className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-border bg-transparent px-3.5 text-sm font-medium text-foreground transition hover:border-accent/40 hover:bg-card-hover"
             >
-              Limpiar filtros
+              <RotateCcw aria-hidden="true" size={16} />
+              Limpiar
             </button>
           )}
         </div>
-        <p className="mt-3 text-sm text-foreground/85">
-          Mostrando <strong className="text-foreground">{items.length.toLocaleString("es-ES")}</strong>{" "}
-          de <strong className="text-foreground">{total.toLocaleString("es-ES")}</strong> compañías
-        </p>
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          <button
-            type="button"
-            onClick={() => setFilters((current) => ({ ...current, initial: "all" }))}
-            className={cn(
-              "rounded-lg border px-2.5 py-1 text-xs font-semibold transition",
-              filters.initial === "all"
-                ? "border-accent/50 bg-accent/15 text-accent"
-                : "border-border bg-background/60 text-muted hover:border-accent/30 hover:text-accent",
-            )}
+
+        {showMoreFilters && (
+          <div
+            id="company-more-filters"
+            className="mt-4 grid gap-3 rounded-lg border border-border bg-background/40 p-3 md:grid-cols-3"
           >
-            Todas
-          </button>
-          {initials.map((initial) => (
+            <FilterField label="Estado de la compañía">
+              <select
+                value={filters.status}
+                onChange={(e) =>
+                  setFilters((current) => ({
+                    ...current,
+                    status: e.target.value as CompanyIndexFilters["status"],
+                  }))
+                }
+                className={selectClass}
+              >
+                {COMPANY_STATUS_OPTIONS.filter(
+                  (option) => option.value === "all" || filterCounts.status[option.value] > 0,
+                ).map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                    {option.value === "all" ? "" : ` (${filterCounts.status[option.value]})`}
+                  </option>
+                ))}
+              </select>
+            </FilterField>
+            <FilterField label="Actividad en catálogo">
+              <select
+                value={filters.activity}
+                onChange={(e) =>
+                  setFilters((current) => ({
+                    ...current,
+                    activity: e.target.value as CompanyIndexFilters["activity"],
+                  }))
+                }
+                className={selectClass}
+              >
+                {COMPANY_ACTIVITY_OPTIONS.filter(
+                  (option) => option.value === "all" || filterCounts.activity[option.value] > 0,
+                ).map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                    {option.value === "all" ? "" : ` (${filterCounts.activity[option.value]})`}
+                  </option>
+                ))}
+              </select>
+            </FilterField>
+            <FilterField label="Datos de precio">
+              <select
+                value={filters.market}
+                onChange={(e) =>
+                  setFilters((current) => ({
+                    ...current,
+                    market: e.target.value as CompanyIndexFilters["market"],
+                  }))
+                }
+                className={selectClass}
+              >
+                {COMPANY_MARKET_OPTIONS.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </FilterField>
+          </div>
+        )}
+
+        <div className="mt-4 border-t border-border pt-4">
+          <p className="text-sm text-foreground/85">
+            Mostrando <strong className="text-foreground">{items.length.toLocaleString("es-ES")}</strong>{" "}
+            de <strong className="text-foreground">{total.toLocaleString("es-ES")}</strong> compañías
+          </p>
+          <div className="mt-3 flex flex-wrap gap-1.5" aria-label="Filtrar por inicial">
             <button
-              key={initial}
               type="button"
-              onClick={() => setFilters((current) => ({ ...current, initial, sort: "name-asc" }))}
+              aria-pressed={filters.initial === "all"}
+              onClick={() => setFilters((current) => ({ ...current, initial: "all" }))}
               className={cn(
                 "rounded-lg border px-2.5 py-1 text-xs font-semibold transition",
-                filters.initial === initial
+                filters.initial === "all"
                   ? "border-accent/50 bg-accent/15 text-accent"
                   : "border-border bg-background/60 text-muted hover:border-accent/30 hover:text-accent",
               )}
             >
-              {initial}
+              Todas
             </button>
-          ))}
+            {initials.map((initial) => (
+              <button
+                key={initial}
+                type="button"
+                aria-pressed={filters.initial === initial}
+                onClick={() => setFilters((current) => ({ ...current, initial, sort: "name-asc" }))}
+                className={cn(
+                  "rounded-lg border px-2.5 py-1 text-xs font-semibold transition",
+                  filters.initial === initial
+                    ? "border-accent/50 bg-accent/15 text-accent"
+                    : "border-border bg-background/60 text-muted hover:border-accent/30 hover:text-accent",
+                )}
+              >
+                {initial}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -354,7 +433,7 @@ export function CompanyExplorer({
         </div>
       )}
 
-      <CompanyGrid companies={items} />
+      <CompanyGrid companies={items} sort={filters.sort} />
 
       {hasMore && (
         <div className="flex justify-center">
@@ -381,6 +460,15 @@ export function CompanyExplorer({
         </p>
       )}
     </div>
+  );
+}
+
+function FilterField({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <label className="grid gap-1.5">
+      <span className="text-xs font-semibold uppercase text-muted">{label}</span>
+      {children}
+    </label>
   );
 }
 
@@ -423,9 +511,11 @@ function CompanyPreviewSection({
 
 function CompanyGrid({
   companies,
+  sort,
   compact = false,
 }: {
   companies: CompanyExplorerData["companies"];
+  sort: CompanyIndexFilters["sort"];
   compact?: boolean;
 }) {
   return (
@@ -456,7 +546,8 @@ function CompanyGrid({
                 <RoleBadge roleKind={company.roleKind} />
               </div>
               <p className="mt-1 text-sm text-accent">
-                {company.gameCount.toLocaleString("es-ES")} juegos
+                {company.gameCount.toLocaleString("es-ES")}{" "}
+                {company.gameCount === 1 ? "juego" : "juegos"}
               </p>
             </div>
           </div>
@@ -469,9 +560,10 @@ function CompanyGrid({
           {company.platformPreview && (
             <p className="mt-2 line-clamp-2 text-xs text-muted">{company.platformPreview}</p>
           )}
+          <CompanySortMetric company={company} sort={sort} />
           <div className="mt-auto flex flex-wrap gap-1.5 pt-3">
             {company.hasProfile && (
-              <span className="rounded-md border border-border bg-card-hover px-2 py-0.5 text-[10px] uppercase tracking-wide text-muted">
+              <span className="rounded-md border border-border bg-card-hover px-2 py-0.5 text-[10px] uppercase text-muted">
                 Perfil
               </span>
             )}
@@ -482,7 +574,7 @@ function CompanyGrid({
             )}
             {company.pricedCount > 0 && (
               <span className="rounded-md bg-emerald-500/10 px-2 py-0.5 text-[10px] text-emerald-700 dark:text-emerald-200">
-                {company.pricedCount} con precio ES
+                {company.pricedCount} con precio
               </span>
             )}
           </div>
@@ -492,11 +584,43 @@ function CompanyGrid({
   );
 }
 
+const euroFormatter = new Intl.NumberFormat("es-ES", {
+  style: "currency",
+  currency: "EUR",
+  maximumFractionDigits: 0,
+});
+
+function CompanySortMetric({
+  company,
+  sort,
+}: {
+  company: CompanyCardData;
+  sort: CompanyIndexFilters["sort"];
+}) {
+  let label: string | null = null;
+  if (sort === "market-desc") {
+    label = `Valor acumulado · ${euroFormatter.format(company.marketScore)}`;
+  } else if (sort === "median-desc") {
+    label = company.medianPrice == null
+      ? "Precio mediano sin datos"
+      : `Precio mediano · ${euroFormatter.format(company.medianPrice)}`;
+  } else if (sort === "grails-desc") {
+    label = `${company.grailCount.toLocaleString("es-ES")} ${company.grailCount === 1 ? "título" : "títulos"} de alto valor`;
+  } else if (sort === "recent-desc") {
+    label = company.latestReleaseYear == null
+      ? "Actividad sin fecha"
+      : `Último lanzamiento · ${company.latestReleaseYear}`;
+  }
+
+  if (!label) return null;
+  return <p className="mt-2 text-xs font-semibold text-accent">{label}</p>;
+}
+
 function RoleBadge({ roleKind }: { roleKind: CompanyExplorerData["companies"][number]["roleKind"] }) {
   return (
     <span
       className={cn(
-        "shrink-0 rounded-md px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide",
+        "shrink-0 rounded-md px-2 py-0.5 text-[10px] font-semibold uppercase",
         roleKind === "publisher" && "bg-sky-500/15 text-sky-700 dark:text-sky-200",
         roleKind === "developer" && "bg-violet-500/15 text-violet-700 dark:text-violet-200",
         roleKind === "both" && "bg-emerald-500/15 text-emerald-700 dark:text-emerald-200",
@@ -509,10 +633,10 @@ function RoleBadge({ roleKind }: { roleKind: CompanyExplorerData["companies"][nu
 
 function StatCard({ label, value, hint }: { label: string; value: string; hint: string }) {
   return (
-    <article className="rounded-2xl border border-border bg-gradient-to-br from-white/[0.05] to-transparent p-5">
-      <p className="text-xs uppercase tracking-wider text-muted">{label}</p>
-      <p className="mt-2 text-3xl font-bold text-accent">{value}</p>
-      <p className="mt-1 text-sm text-muted">{hint}</p>
+    <article className="flex min-h-[116px] flex-col rounded-2xl border border-border bg-gradient-to-br from-white/[0.05] to-transparent p-3 md:min-h-[126px] md:p-5">
+      <p className="text-[11px] leading-tight uppercase text-muted md:text-xs">{label}</p>
+      <p className="mt-2 text-2xl font-bold text-accent md:text-3xl">{value}</p>
+      <p className="mt-auto pt-1 text-xs text-muted md:text-sm">{hint}</p>
     </article>
   );
 }

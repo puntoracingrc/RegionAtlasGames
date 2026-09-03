@@ -6,93 +6,49 @@ import { resolveCompanyLogo } from "./company-logo";
 import { getEffectivePrice, isGrailGame } from "./game-highlight";
 import { summarizeIndexEntry } from "./index-entity";
 import { getCompanies, getGameDetails, getGenre, indexStats } from "./indexes";
+import {
+  COMPANY_ACTIVITY_OPTIONS,
+  COMPANY_MARKET_OPTIONS,
+  COMPANY_SIZE_OPTIONS,
+  COMPANY_SORT_OPTIONS,
+  COMPANY_STATUS_OPTIONS,
+  DEFAULT_COMPANY_FILTERS,
+  hasActiveCompanyFilters,
+  type CompanyActivityFilter,
+  type CompanyCardData,
+  type CompanyCatalogSizeFilter,
+  type CompanyExplorerData,
+  type CompanyFilterOption,
+  type CompanyIndexFilters,
+  type CompanyMarketFilter,
+  type CompanyRoleFilter,
+  type CompanyRoleKind,
+  type CompanySort,
+  type CompanyStatusFilter,
+} from "./company-explorer-types";
 import type { IndexEntry } from "./types";
 
-export type CompanyRoleKind = "publisher" | "developer" | "both";
-
-export type CompanyMarketFilter = "all" | "collectible" | "priced" | "major";
-
-export type CompanySort =
-  | "name-asc"
-  | "name-desc"
-  | "games-desc"
-  | "games-asc"
-  | "market-desc"
-  | "dev-desc"
-  | "pub-desc";
-
-export type CompanyRoleFilter = "all" | "publishers" | "developers" | "both";
-
-export type CompanyIndexFilters = {
-  q: string;
-  initial: string;
-  role: CompanyRoleFilter;
-  platform: string;
-  genre: string;
-  market: CompanyMarketFilter;
-  sort: CompanySort;
+export {
+  COMPANY_ACTIVITY_OPTIONS,
+  COMPANY_MARKET_OPTIONS,
+  COMPANY_SIZE_OPTIONS,
+  COMPANY_SORT_OPTIONS,
+  COMPANY_STATUS_OPTIONS,
+  DEFAULT_COMPANY_FILTERS,
+  hasActiveCompanyFilters,
 };
-
-export const DEFAULT_COMPANY_FILTERS: CompanyIndexFilters = {
-  q: "",
-  initial: "all",
-  role: "all",
-  platform: "all",
-  genre: "all",
-  market: "all",
-  sort: "games-desc",
-};
-
-export const COMPANY_SORT_OPTIONS: { value: CompanySort; label: string }[] = [
-  { value: "games-desc", label: "Más juegos en catálogo" },
-  { value: "games-asc", label: "Menos juegos" },
-  { value: "market-desc", label: "Relevancia en mercado" },
-  { value: "name-asc", label: "Nombre (A → Z)" },
-  { value: "name-desc", label: "Nombre (Z → A)" },
-  { value: "dev-desc", label: "Más títulos como desarrolladora" },
-  { value: "pub-desc", label: "Más títulos como publicadora" },
-];
-
-export const COMPANY_MARKET_OPTIONS: { value: CompanyMarketFilter; label: string }[] = [
-  { value: "all", label: "Todo el mercado" },
-  { value: "major", label: "Catálogo amplio (50+ juegos)" },
-  { value: "collectible", label: "Con títulos de alto valor" },
-  { value: "priced", label: "Con precios de mercado ES" },
-];
-
-export type CompanyCardData = {
-  slug: string;
-  name: string;
-  gameCount: number;
-  developerCount: number;
-  publisherCount: number;
-  roleKind: CompanyRoleKind;
-  platformSlugs: string[];
-  platformPreview: string;
-  genreSlugs: string[];
-  marketScore: number;
-  grailCount: number;
-  pricedCount: number;
-  hasProfile: boolean;
-  logoUrl: string | null;
-  logoIsProvisional: boolean;
-  searchHaystack: string;
-};
-
-export type CompanyFilterOption = { slug: string; name: string; count: number };
-
-export type CompanyExplorerData = {
-  companies: CompanyCardData[];
-  platformOptions: CompanyFilterOption[];
-  genreOptions: CompanyFilterOption[];
-  stats: {
-    total: number;
-    publishers: number;
-    developers: number;
-    dualRole: number;
-    withProfile: number;
-    gamesWithDetails: number;
-  };
+export type {
+  CompanyActivityFilter,
+  CompanyCardData,
+  CompanyCatalogSizeFilter,
+  CompanyExplorerData,
+  CompanyFilterOption,
+  CompanyIndexFilters,
+  CompanyMarketFilter,
+  CompanyRoleFilter,
+  CompanyRoleKind,
+  CompanySort,
+  CompanyStatusFilter,
 };
 
 export type CompanyExplorerInitialData = Omit<CompanyExplorerData, "companies"> & {
@@ -106,7 +62,6 @@ export type CompanyExplorerInitialData = Omit<CompanyExplorerData, "companies"> 
 };
 
 const PLATFORM_PREVIEW = 4;
-const MAJOR_CATALOG_MIN = 50;
 export const COMPANY_PAGE_SIZE = 120;
 
 let explorerCache: CompanyExplorerData | null = null;
@@ -125,10 +80,49 @@ function buildSearchHaystack(name: string, slug: string, aliases: string[]): str
     .replace(/\p{M}/gu, "");
 }
 
+function activityPeriodForYear(year: number): CompanyActivityFilter | null {
+  if (year < 1980) return "pre-1980";
+  if (year < 1990) return "1980s";
+  if (year < 2000) return "1990s";
+  if (year < 2010) return "2000s";
+  if (year < 2020) return "2010s";
+  if (year < 2030) return "2020s";
+  return null;
+}
+
+function median(values: number[]): number | null {
+  if (values.length === 0) return null;
+  const sorted = [...values].sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+  if (sorted.length % 2 === 1) return sorted[middle];
+  return (sorted[middle - 1] + sorted[middle]) / 2;
+}
+
 export function companyInitial(name: string): string {
   const first = name.trim().charAt(0).toLocaleUpperCase("es-ES");
   if (!first) return "#";
   return /^\d$/.test(first) ? "0-9" : first.normalize("NFD").replace(/\p{M}/gu, "");
+}
+
+function companyNameGroup(name: string): number {
+  const first = name.trim().charAt(0);
+  if (/^\d$/.test(first)) return 0;
+  if (/^\p{L}$/u.test(first)) return 1;
+  return 2;
+}
+
+function compareCompanyNames(a: string, b: string): number {
+  return (
+    companyNameGroup(a) - companyNameGroup(b) ||
+    a.localeCompare(b, "es", { numeric: true, sensitivity: "base" })
+  );
+}
+
+function compareCompanyNamesDescending(a: string, b: string): number {
+  return (
+    companyNameGroup(a) - companyNameGroup(b) ||
+    b.localeCompare(a, "es", { numeric: true, sensitivity: "base" })
+  );
 }
 
 function enrichCompany(entry: IndexEntry): CompanyCardData {
@@ -139,12 +133,16 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
   const logo = resolveCompanyLogo(summary.slug, storedProfile?.logoUrl);
 
   const genreSlugs = new Set<string>();
+  const activityPeriods = new Set<CompanyActivityFilter>();
   const platformCounts = new Map<string, number>();
+  const priceValues: number[] = [];
   let marketScore = 0;
   let grailCount = 0;
   let pricedCount = 0;
   let developerCount = 0;
   let publisherCount = 0;
+  let firstReleaseYear: number | null = null;
+  let latestReleaseYear: number | null = null;
   const developerIds = new Set(summary.entry.asDeveloper ?? []);
   const publisherIds = new Set(summary.entry.asPublisher ?? []);
 
@@ -160,9 +158,17 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
     for (const genre of details?.genres ?? []) {
       genreSlugs.add(resolveCanonicalGenreEntity(genre).slug);
     }
+    const year = details?.year;
+    if (year != null && Number.isInteger(year) && year >= 1950 && year < 2100) {
+      firstReleaseYear = firstReleaseYear == null ? year : Math.min(firstReleaseYear, year);
+      latestReleaseYear = latestReleaseYear == null ? year : Math.max(latestReleaseYear, year);
+      const period = activityPeriodForYear(year);
+      if (period) activityPeriods.add(period);
+    }
     const price = getEffectivePrice(game);
     if (price != null && price > 0) {
       marketScore += price;
+      priceValues.push(price);
       pricedCount += 1;
     }
     if (isGrailGame(game)) grailCount += 1;
@@ -192,8 +198,13 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
     platformPreview,
     genreSlugs: [...genreSlugs],
     marketScore,
+    medianPrice: median(priceValues),
     grailCount,
     pricedCount,
+    firstReleaseYear,
+    latestReleaseYear,
+    activityPeriods: activityPeriods.size > 0 ? [...activityPeriods] : ["unknown"],
+    companyStatus: storedProfile?.status ?? "unknown",
     hasProfile: Boolean(storedProfile?.history),
     logoUrl: logo.url,
     logoIsProvisional: logo.provisional,
@@ -231,6 +242,23 @@ export function getCompanyExplorerData(): CompanyExplorerData {
       (slug) => getPlatform(slug)?.shortName ?? slug,
     ),
     genreOptions: buildFilterOptions(companies, "genreSlugs", (slug) => getGenre(slug)?.name ?? slug),
+    filterCounts: {
+      status: {
+        active: companies.filter((company) => company.companyStatus === "active").length,
+        defunct: companies.filter((company) => company.companyStatus === "defunct").length,
+        subsidiary: companies.filter((company) => company.companyStatus === "subsidiary").length,
+        unknown: companies.filter((company) => company.companyStatus === "unknown").length,
+      },
+      activity: {
+        "pre-1980": companies.filter((company) => company.activityPeriods.includes("pre-1980")).length,
+        "1980s": companies.filter((company) => company.activityPeriods.includes("1980s")).length,
+        "1990s": companies.filter((company) => company.activityPeriods.includes("1990s")).length,
+        "2000s": companies.filter((company) => company.activityPeriods.includes("2000s")).length,
+        "2010s": companies.filter((company) => company.activityPeriods.includes("2010s")).length,
+        "2020s": companies.filter((company) => company.activityPeriods.includes("2020s")).length,
+        unknown: companies.filter((company) => company.activityPeriods.includes("unknown")).length,
+      },
+    },
     stats: {
       total: companies.length,
       publishers: companies.filter((c) => c.roleKind === "publisher").length,
@@ -255,31 +283,22 @@ export function getCompanyExplorerInitialData(): CompanyExplorerInitialData {
   const publishers = filterCompanies(data.companies, {
     ...DEFAULT_COMPANY_FILTERS,
     role: "publishers",
+    sort: "games-desc",
   }).slice(0, 12);
   const developers = filterCompanies(data.companies, {
     ...DEFAULT_COMPANY_FILTERS,
     role: "developers",
+    sort: "games-desc",
   }).slice(0, 12);
+  const initialCompanies = filterCompanies(data.companies, DEFAULT_COMPANY_FILTERS);
 
   return {
     ...data,
-    companies: data.companies.slice(0, COMPANY_PAGE_SIZE),
+    companies: initialCompanies.slice(0, COMPANY_PAGE_SIZE),
     totalCount: data.companies.length,
     initials,
     grouped: publishers.length === 0 && developers.length === 0 ? null : { publishers, developers },
   };
-}
-
-export function hasActiveCompanyFilters(filters: CompanyIndexFilters): boolean {
-  return (
-    filters.q.trim() !== "" ||
-    filters.initial !== "all" ||
-    filters.role !== "all" ||
-    filters.platform !== "all" ||
-    filters.genre !== "all" ||
-    filters.market !== "all" ||
-    filters.sort !== DEFAULT_COMPANY_FILTERS.sort
-  );
 }
 
 function matchesInitial(company: CompanyCardData, initial: string): boolean {
@@ -287,7 +306,11 @@ function matchesInitial(company: CompanyCardData, initial: string): boolean {
 }
 
 function matchesSearch(company: CompanyCardData, query: string): boolean {
-  const needle = query.trim().toLowerCase();
+  const needle = query
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "");
   if (!needle) return true;
   const tokens = needle.split(/\s+/).filter(Boolean);
   return tokens.every((token) => company.searchHaystack.includes(token));
@@ -296,9 +319,9 @@ function matchesSearch(company: CompanyCardData, query: string): boolean {
 function matchesRole(company: CompanyCardData, role: CompanyRoleFilter): boolean {
   switch (role) {
     case "publishers":
-      return company.roleKind === "publisher";
+      return company.roleKind === "publisher" || company.roleKind === "both";
     case "developers":
-      return company.roleKind === "developer";
+      return company.roleKind === "developer" || company.roleKind === "both";
     case "both":
       return company.roleKind === "both";
     default:
@@ -308,15 +331,40 @@ function matchesRole(company: CompanyCardData, role: CompanyRoleFilter): boolean
 
 function matchesMarket(company: CompanyCardData, market: CompanyMarketFilter): boolean {
   switch (market) {
-    case "major":
-      return company.gameCount >= MAJOR_CATALOG_MIN;
     case "collectible":
       return company.grailCount > 0;
     case "priced":
       return company.pricedCount > 0;
+    case "unpriced":
+      return company.pricedCount === 0;
     default:
       return true;
   }
+}
+
+function matchesCatalogSize(company: CompanyCardData, size: CompanyCatalogSizeFilter): boolean {
+  switch (size) {
+    case "micro":
+      return company.gameCount <= 4;
+    case "small":
+      return company.gameCount >= 5 && company.gameCount <= 19;
+    case "medium":
+      return company.gameCount >= 20 && company.gameCount <= 49;
+    case "large":
+      return company.gameCount >= 50 && company.gameCount <= 199;
+    case "major":
+      return company.gameCount >= 200;
+    default:
+      return true;
+  }
+}
+
+function matchesStatus(company: CompanyCardData, status: CompanyStatusFilter): boolean {
+  return status === "all" || company.companyStatus === status;
+}
+
+function matchesActivity(company: CompanyCardData, activity: CompanyActivityFilter): boolean {
+  return activity === "all" || company.activityPeriods.includes(activity);
 }
 
 function sortCompanies(list: CompanyCardData[], sort: CompanySort): CompanyCardData[] {
@@ -324,9 +372,9 @@ function sortCompanies(list: CompanyCardData[], sort: CompanySort): CompanyCardD
   sorted.sort((a, b) => {
     switch (sort) {
       case "name-asc":
-        return a.name.localeCompare(b.name, "es", { sensitivity: "base" });
+        return compareCompanyNames(a.name, b.name);
       case "name-desc":
-        return b.name.localeCompare(a.name, "es", { sensitivity: "base" });
+        return compareCompanyNamesDescending(a.name, b.name);
       case "games-asc":
         return a.gameCount - b.gameCount || a.name.localeCompare(b.name, "es");
       case "games-desc":
@@ -335,6 +383,26 @@ function sortCompanies(list: CompanyCardData[], sort: CompanySort): CompanyCardD
         return (
           b.marketScore - a.marketScore ||
           b.grailCount - a.grailCount ||
+          b.gameCount - a.gameCount ||
+          a.name.localeCompare(b.name, "es")
+        );
+      case "median-desc":
+        return (
+          (b.medianPrice ?? Number.NEGATIVE_INFINITY) -
+            (a.medianPrice ?? Number.NEGATIVE_INFINITY) ||
+          b.pricedCount - a.pricedCount ||
+          a.name.localeCompare(b.name, "es")
+        );
+      case "grails-desc":
+        return (
+          b.grailCount - a.grailCount ||
+          b.marketScore - a.marketScore ||
+          a.name.localeCompare(b.name, "es")
+        );
+      case "recent-desc":
+        return (
+          (b.latestReleaseYear ?? Number.NEGATIVE_INFINITY) -
+            (a.latestReleaseYear ?? Number.NEGATIVE_INFINITY) ||
           b.gameCount - a.gameCount ||
           a.name.localeCompare(b.name, "es")
         );
@@ -366,6 +434,9 @@ export function filterCompanies(
       matchesSearch(company, filters.q) &&
       matchesInitial(company, filters.initial) &&
       matchesRole(company, filters.role) &&
+      matchesCatalogSize(company, filters.size) &&
+      matchesStatus(company, filters.status) &&
+      matchesActivity(company, filters.activity) &&
       matchesMarket(company, filters.market) &&
       (filters.platform === "all" || company.platformSlugs.includes(filters.platform)) &&
       (filters.genre === "all" || company.genreSlugs.includes(filters.genre)),
