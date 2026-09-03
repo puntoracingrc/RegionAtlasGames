@@ -1,5 +1,6 @@
 import { readFileSync } from "fs";
 import path from "path";
+import seriesIndexData from "../../data/index/series.json";
 import { mergeCompanyIndex, resolveCanonicalCompanySlug } from "./company-canonical";
 import { mergeGenreIndex, resolveCanonicalGenreSlug } from "./genre-canonical";
 import { normalizeGameDetailsPresentation } from "./catalog-presentation";
@@ -52,10 +53,7 @@ export const companies = mergeCompanyIndex(
 export const genres = mergeGenreIndex(
   loadDataJson<Record<string, IndexEntry>>(path.join("index", "genres.json"), {}),
 );
-export const seriesIndex = loadDataJson<Record<string, IndexEntry>>(
-  path.join("index", "series.json"),
-  {},
-);
+export const seriesIndex = seriesIndexData as Record<string, IndexEntry>;
 export const tagsIndex = loadDataJson<Record<string, IndexEntry>>(
   path.join("index", "tags.json"),
   {},

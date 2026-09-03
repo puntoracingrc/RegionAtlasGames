@@ -1,8 +1,10 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
 import { get, put } from "@vercel/blob";
+import seriesIndexData from "../../data/index/series.json";
 import { canWriteCatalogFiles } from "./admin-auth";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
+import { catalog as bundledCatalog } from "./catalog";
 import { findGameFacetEntityByNameOrAlias, getGameFacetsTaxonomy } from "./game-facets/taxonomy";
 import { slugify } from "./slug";
 import type { CatalogGame, DetailEntity, GameDetails, IndexEntry } from "./types";
@@ -292,7 +294,9 @@ async function writeAdminSeriesOverlay(overlay: AdminSeriesOverlay): Promise<voi
 }
 
 function loadCatalog(): CatalogGame[] {
-  return loadJson<CatalogGame[]>(CATALOG_FILE, []).filter((game) => game.listingStatus !== "excluded");
+  return loadJson<CatalogGame[]>(CATALOG_FILE, bundledCatalog).filter(
+    (game) => game.listingStatus !== "excluded",
+  );
 }
 
 function loadDetails(): Record<string, GameDetails> {
@@ -300,7 +304,10 @@ function loadDetails(): Record<string, GameDetails> {
 }
 
 function loadSeriesIndex(): Record<string, IndexEntry> {
-  return loadJson<Record<string, IndexEntry>>(SERIES_INDEX_FILE, {});
+  return loadJson<Record<string, IndexEntry>>(
+    SERIES_INDEX_FILE,
+    seriesIndexData as Record<string, IndexEntry>,
+  );
 }
 
 function saveSeriesIndex(index: Record<string, IndexEntry>) {
@@ -461,7 +468,9 @@ function effectiveSeriesEntry(
   const overlayEntry = overlay.series[slug];
   if (!staticEntry && !overlayEntry) return null;
 
-  const baseGameIds = overlayEntry?.gameIds ?? staticEntry?.gameIds ?? [];
+  // An overlay can outlive a deployment where the bundled index was missing.
+  // Preserve the canonical index membership and layer admin changes on top.
+  const baseGameIds = staticEntry?.gameIds ?? overlayEntry?.gameIds ?? [];
   const removals = new Set(overlayEntry?.removals ?? []);
   const gameIds = uniqueStrings([...baseGameIds, ...(overlayEntry?.additions ?? [])]).filter(
     (id) => !removals.has(id),
