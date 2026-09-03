@@ -1,0 +1,374 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "slug": "adk",
+      "publicationStatus": "published",
+      "reviewedAt": "2026-09-03",
+      "sourceIds": [
+        "source-0f68d25d65d5b4f5"
+      ],
+      "identityCorrection": {
+        "field": "wikidataId",
+        "previousValue": "Q18247429",
+        "value": "Q2634015",
+        "sourceId": "source-0f68d25d65d5b4f5",
+        "replaceLegacyIdentitySources": true
+      }
+    },
+    {
+      "slug": "capcom",
+      "publicationStatus": "published",
+      "reviewedAt": "2026-09-03",
+      "sourceIds": [
+        "source-1c8d44786c4347e1",
+        "source-d75ed2ed43cab87e"
+      ],
+      "identityCorrection": {
+        "field": "wikidataId",
+        "previousValue": "Q144680",
+        "value": "Q14428",
+        "sourceId": "source-d75ed2ed43cab87e",
+        "replaceLegacyIdentitySources": true
+      },
+      "history": {
+        "textEs": "La historia corporativa de Capcom parte de I.R.M. en Osaka en 1979; una sociedad llamada Capcom se creó para vender software en 1983 y la estructura adoptó el nombre actual tras una fusión en 1989. La empresa pasó de las recreativas a las consolas y construyó un catálogo propio que se extendió después a cine, animación y productos licenciados.",
+        "method": "research",
+        "sourceIds": [
+          "source-1c8d44786c4347e1"
+        ]
+      }
+    },
+    {
+      "slug": "konami",
+      "publicationStatus": "published",
+      "reviewedAt": "2026-09-03",
+      "sourceIds": [
+        "source-6a4aba27d2cba13f"
+      ],
+      "history": {
+        "textEs": "Kagemasa Kozuki inició en Osaka un negocio de reparación y alquiler de jukeboxes en 1969; Konami Industry se constituyó en 1973 para fabricar equipos recreativos. Durante los años ochenta se expandió al ordenador, MSX y Famicom/NES, y más tarde diversificó el grupo hacia cartas, máquinas de juego y deporte. Desde 2006 la actividad de entretenimiento digital se organiza mediante una sociedad operativa diferenciada del holding.",
+        "method": "research",
+        "sourceIds": [
+          "source-6a4aba27d2cba13f"
+        ]
+      }
+    },
+    {
+      "slug": "nintendo",
+      "publicationStatus": "published",
+      "reviewedAt": "2026-09-03",
+      "sourceIds": [
+        "source-e5449238936467c6"
+      ],
+      "history": {
+        "textEs": "Nintendo nació en Kioto en 1889 como un negocio de naipes hanafuda impulsado por Fusajirō Yamauchi. Tras décadas de diversificación, la compañía orientó su actividad hacia el entretenimiento electrónico y entró en las consolas domésticas en 1977. Game & Watch, Famicom/NES, Game Boy y sus sucesoras consolidaron un modelo en el que hardware, software y personajes propios se refuerzan mutuamente.",
+        "method": "research",
+        "sourceIds": [
+          "source-e5449238936467c6"
+        ]
+      }
+    },
+    {
+      "slug": "sega",
+      "publicationStatus": "published",
+      "reviewedAt": "2026-09-03",
+      "sourceIds": [
+        "source-2ae44cffb0876718"
+      ],
+      "history": {
+        "textEs": "La línea corporativa de Sega se articula en Japón desde 1960 y adoptó el nombre Sega Enterprises tras su unión con Rosen Enterprises en 1965. Creció desde las máquinas recreativas hasta competir como fabricante de consolas entre 1983 y 2001. Después concentró su actividad en juegos, recreativas y explotación de propiedades intelectuales dentro del grupo Sega Sammy.",
+        "method": "research",
+        "sourceIds": [
+          "source-2ae44cffb0876718"
+        ]
+      }
+    },
+    {
+      "slug": "sims",
+      "publicationStatus": "published",
+      "reviewedAt": "2026-09-03",
+      "sourceIds": [
+        "source-3a4e0e23d109f83e"
+      ],
+      "identityCorrection": {
+        "field": "wikidataId",
+        "previousValue": "Q16883354",
+        "value": "Q4048789",
+        "sourceId": "source-3a4e0e23d109f83e",
+        "replaceLegacyIdentitySources": true
+      }
+    }
+  ],
+  "achievements": [
+    {
+      "id": "achievement-a449562ed91ea1c2",
+      "companySlug": "capcom",
+      "type": "GENRE_DEFINING_WORK",
+      "title": "Street Fighter II y la lucha competitiva",
+      "summaryEs": "Su éxito en recreativas y consolas convirtió la lucha uno contra uno en uno de los géneros centrales de los años noventa.",
+      "yearLabel": "1991",
+      "relatedGamesOrSeries": [
+        "Street Fighter II"
+      ],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-1c8d44786c4347e1",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-982c3022c811dd30",
+      "companySlug": "capcom",
+      "type": "GENRE_DEFINING_WORK",
+      "title": "Consolidación del survival horror",
+      "summaryEs": "Resident Evil se convirtió en una referencia comercial y creativa que asentó el survival horror en consola.",
+      "yearLabel": "1996",
+      "relatedGamesOrSeries": [
+        "Resident Evil"
+      ],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-1c8d44786c4347e1",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-7c1748e864e1b0e5",
+      "companySlug": "konami",
+      "type": "NETWORKED_ARCADE_MILESTONE",
+      "title": "e-amusement",
+      "summaryEs": "La plataforma conectada lanzada en 2002 vinculó máquinas recreativas, perfiles y servicios en red.",
+      "yearLabel": "2002",
+      "relatedGamesOrSeries": [
+        "e-amusement"
+      ],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-6a4aba27d2cba13f",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-08a79f461e548aa0",
+      "companySlug": "nintendo",
+      "type": "PIONEERING_MILESTONE",
+      "title": "Producción masiva de cartas plásticas",
+      "summaryEs": "En 1953 fue la primera empresa japonesa que logró producir cartas de plástico a gran escala.",
+      "yearLabel": "1953",
+      "relatedGamesOrSeries": [],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-e5449238936467c6",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-7303bdf18357f0a0",
+      "companySlug": "nintendo",
+      "type": "HARDWARE_AND_SOFTWARE_LEGACY",
+      "title": "Ecosistema de consolas y sagas propias",
+      "summaryEs": "Su trayectoria une plataformas de alcance mundial con personajes y series desarrollados durante varias generaciones.",
+      "yearLabel": null,
+      "relatedGamesOrSeries": [
+        "Game & Watch",
+        "NES",
+        "Game Boy",
+        "Nintendo Switch",
+        "Super Mario",
+        "The Legend of Zelda"
+      ],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-e5449238936467c6",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-0ad3f83e27075ee5",
+      "companySlug": "sega",
+      "type": "CONSOLE_LEGACY",
+      "title": "Fabricante de consolas entre 1983 y 2001",
+      "summaryEs": "SG-1000, Master System, Mega Drive/Genesis, Saturn y Dreamcast situaron a Sega entre los grandes fabricantes de hardware doméstico.",
+      "yearLabel": "1983–2001",
+      "relatedGamesOrSeries": [
+        "SG-1000",
+        "Mega Drive",
+        "Saturn",
+        "Dreamcast"
+      ],
+      "confidence": "HIGH",
+      "sourceId": "source-2ae44cffb0876718",
+      "publicationStatus": "published"
+    },
+    {
+      "id": "achievement-c0ab0ceffd4424b4",
+      "companySlug": "sega",
+      "type": "PIONEERING_MILESTONE",
+      "title": "Arcades con nuevas formas de interacción",
+      "summaryEs": "La cronología oficial atribuye a Hang-On el primer simulador de movimiento de su clase y a Virtua Fighter un papel pionero entre los juegos de lucha 3D poligonales.",
+      "yearLabel": "1985–1993",
+      "relatedGamesOrSeries": [
+        "Hang-On",
+        "Virtua Racing",
+        "Virtua Fighter"
+      ],
+      "confidence": "VERY_HIGH",
+      "sourceId": "source-2ae44cffb0876718",
+      "publicationStatus": "published"
+    }
+  ],
+  "sources": [
+    {
+      "id": "source-1c8d44786c4347e1",
+      "url": "https://www.capcom.co.jp/ir/english/company/history.html",
+      "title": "Capcom Corporate History",
+      "kind": "OFFICIAL_CORPORATE_HISTORY",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": [
+        "en"
+      ],
+      "subjectSlugs": [
+        "capcom"
+      ],
+      "supportsFields": [
+        "achievements",
+        "foundation",
+        "history",
+        "products",
+        "relationships"
+      ],
+      "retrievedAt": "2026-09-03T19:36:13.219986+00:00",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "source-6a4aba27d2cba13f",
+      "url": "https://www.konami.com/corporate/en/history/",
+      "title": "Konami Corporate History",
+      "kind": "OFFICIAL_CORPORATE_HISTORY",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": [
+        "en"
+      ],
+      "subjectSlugs": [
+        "konami"
+      ],
+      "supportsFields": [
+        "achievements",
+        "foundation",
+        "history",
+        "people",
+        "relationships"
+      ],
+      "retrievedAt": "2026-09-03T19:36:13.219986+00:00",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "source-e5449238936467c6",
+      "url": "https://www.nintendo.co.jp/corporate/en/history/index.html",
+      "title": "Nintendo Company History",
+      "kind": "OFFICIAL_CORPORATE_HISTORY",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": [
+        "en"
+      ],
+      "subjectSlugs": [
+        "nintendo"
+      ],
+      "supportsFields": [
+        "achievements",
+        "foundation",
+        "history",
+        "people",
+        "products"
+      ],
+      "retrievedAt": "2026-09-03T19:36:13.219986+00:00",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "source-2ae44cffb0876718",
+      "url": "https://www.sega.co.jp/en/company/history/",
+      "title": "SEGA Corporate History",
+      "kind": "OFFICIAL_CORPORATE_HISTORY",
+      "reliability": "PRIMARY_OFFICIAL",
+      "languages": [
+        "en"
+      ],
+      "subjectSlugs": [
+        "sega"
+      ],
+      "supportsFields": [
+        "achievements",
+        "foundation",
+        "history",
+        "products",
+        "relationships"
+      ],
+      "retrievedAt": "2026-09-03T19:36:13.219986+00:00",
+      "verifiedPrimary": true,
+      "registryState": "registered"
+    },
+    {
+      "id": "source-d75ed2ed43cab87e",
+      "url": "https://www.wikidata.org/wiki/Q14428",
+      "title": "Wikidata Q14428",
+      "kind": "WIKIDATA",
+      "reliability": "STRUCTURED_SECONDARY",
+      "languages": [],
+      "subjectSlugs": [
+        "capcom"
+      ],
+      "supportsFields": [
+        "country",
+        "dates",
+        "headquarters",
+        "identity",
+        "names",
+        "people",
+        "relationships"
+      ],
+      "retrievedAt": "2026-09-03T19:36:13.219986+00:00",
+      "verifiedPrimary": false,
+      "registryState": "registered"
+    },
+    {
+      "id": "source-0f68d25d65d5b4f5",
+      "url": "https://www.wikidata.org/wiki/Q2634015",
+      "title": "Wikidata Q2634015",
+      "kind": "WIKIDATA",
+      "reliability": "STRUCTURED_SECONDARY",
+      "languages": [],
+      "subjectSlugs": [
+        "adk"
+      ],
+      "supportsFields": [
+        "country",
+        "dates",
+        "headquarters",
+        "identity",
+        "names",
+        "people",
+        "relationships"
+      ],
+      "retrievedAt": "2026-09-03T19:36:13.219986+00:00",
+      "verifiedPrimary": false,
+      "registryState": "registered"
+    },
+    {
+      "id": "source-3a4e0e23d109f83e",
+      "url": "https://www.wikidata.org/wiki/Q4048789",
+      "title": "Wikidata Q4048789",
+      "kind": "WIKIDATA",
+      "reliability": "STRUCTURED_SECONDARY",
+      "languages": [],
+      "subjectSlugs": [
+        "sims"
+      ],
+      "supportsFields": [
+        "country",
+        "dates",
+        "headquarters",
+        "identity",
+        "names",
+        "people",
+        "relationships"
+      ],
+      "retrievedAt": "2026-09-03T19:36:13.219986+00:00",
+      "verifiedPrimary": false,
+      "registryState": "registered"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 import { EntityBrowser } from "@/components/catalog-browser";
 import { CompanyCollaborators } from "@/components/company-collaborators";
 import { CompanyPlatformGames } from "@/components/company-platform-games";
@@ -35,6 +36,78 @@ export function CompanyProfileDetail({ view, series, ownedCatalogIds, isLoggedIn
             ))}
           </div>
         </section>
+
+        {view.achievements.length > 0 && (
+          <section className="mb-10 border-y border-border py-5 md:py-6">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <h2 className="text-lg font-semibold text-foreground">Hitos documentados</h2>
+                <p className="mt-1 text-sm text-foreground/75">
+                  Hechos contrastados con fuentes corporativas primarias.
+                </p>
+              </div>
+              <span className="text-sm font-semibold text-muted">
+                {view.achievements.length} {view.achievements.length === 1 ? "hito" : "hitos"}
+              </span>
+            </div>
+            <ol className="mt-4 divide-y divide-border">
+              {view.achievements.map((achievement) => {
+                const source = view.researchSources.find(
+                  (item) => item.id === achievement.sourceId,
+                );
+                return (
+                  <li key={achievement.id} className="grid gap-2 py-4 md:grid-cols-[7rem_minmax(0,1fr)_auto] md:items-start">
+                    <span className="text-sm font-bold text-accent">
+                      {achievement.yearLabel ?? "Trayectoria"}
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-foreground">{achievement.title}</h3>
+                      <p className="mt-1 text-sm leading-6 text-foreground/80">{achievement.summaryEs}</p>
+                      {achievement.relatedGamesOrSeries.length > 0 && (
+                        <p className="mt-2 text-xs text-muted">
+                          {achievement.relatedGamesOrSeries.join(" · ")}
+                        </p>
+                      )}
+                    </div>
+                    {source && (
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-accent hover:underline"
+                      >
+                        Fuente
+                        <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        )}
+
+        {view.researchSources.length > 0 && (
+          <section className="mb-10 border-b border-border pb-5">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">
+              Fuentes de investigación
+            </h2>
+            <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+              {view.researchSources.map((source) => (
+                <a
+                  key={source.id}
+                  href={source.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
+                >
+                  {source.title}
+                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         <div className="mb-10 grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           <CompanyPlatformGames platforms={view.platforms} />

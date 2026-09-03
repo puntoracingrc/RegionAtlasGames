@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Database } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { AdminSeriesPanel } from "@/components/admin/admin-series-panel";
 import { AdminFunctionCard, AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
@@ -1343,13 +1344,21 @@ export function AdminEntitiesPanel({
       {showListPanel && tab !== "series" && (
       <Panel className={adminToneClass("search")}>
         <div className="mb-4 space-y-4">
-          <PanelTitle>
-            {tab === "platforms"
-              ? `Plataformas (${visiblePlatforms.length}/${platforms.length})`
-              : tab === "companies"
-                ? `Compañías (${visibleCompanies.length}/${companies.length})`
-                : `Géneros (${visibleGenres.length}/${genres.length})`}
-          </PanelTitle>
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <PanelTitle>
+              {tab === "platforms"
+                ? `Plataformas (${visiblePlatforms.length}/${platforms.length})`
+                : tab === "companies"
+                  ? `Compañías (${visibleCompanies.length}/${companies.length})`
+                  : `Géneros (${visibleGenres.length}/${genres.length})`}
+            </PanelTitle>
+            {tab === "companies" && (
+              <Link href="/admin/entidades/investigacion" className="btn-secondary px-3 py-2 text-xs">
+                <Database className="h-4 w-4" aria-hidden="true" />
+                Investigación
+              </Link>
+            )}
+          </div>
           <div className="rounded-2xl border border-border bg-background/45 p-4">
             <label className="block space-y-1">
               <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Buscar</span>

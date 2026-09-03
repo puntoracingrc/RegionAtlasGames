@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "visibility": "admin_only_except_published_projection",
+  "records": [
+    {
+      "slug": "bethesda-softworks",
+      "historyEs": "Christopher Weaver fundó Bethesda Softworks en Maryland en 1986. La editora creó The Elder Scrolls y más tarde quedó dentro de ZeniMax Media, desde donde publicó producciones de varios estudios. Microsoft adquirió ZeniMax en 2021, pero Bethesda Softworks continúa como sello editorial diferenciado de Bethesda Game Studios.",
+      "industryImpactEs": "The Elder Scrolls fue clave en la evolución del rol occidental de mundo abierto. Como editora, Bethesda también impulsó Fallout, Doom, Wolfenstein y Dishonored en sus etapas modernas.",
+      "publicationStatus": "draft",
+      "historyEvidenceReady": false,
+      "impactEvidenceReady": false,
+      "sourceIds": [
+        "source-c471523ed181c82b",
+        "source-561bbfdd90675cda",
+        "source-f3073404c8ab1ac7",
+        "source-01557bddf62b3afe",
+        "source-efca24a48c5bbb88"
+      ]
+    },
+    {
+      "slug": "capcom",
+      "historyEs": "La historia corporativa de Capcom parte de I.R.M. en Osaka en 1979; una sociedad llamada Capcom se creó para vender software en 1983 y la estructura adoptó el nombre actual tras una fusión en 1989. La empresa pasó de las recreativas a las consolas y construyó un catálogo propio que se extendió después a cine, animación y productos licenciados.",
+      "industryImpactEs": "Street Fighter II ayudó a definir la lucha competitiva de los años noventa y Resident Evil dio forma y nombre popular al survival horror. Mega Man, Monster Hunter, Devil May Cry, Ace Attorney y el motor RE Engine muestran su continuidad en acción, rol y tecnología interna.",
+      "publicationStatus": "published",
+      "historyEvidenceReady": true,
+      "impactEvidenceReady": true,
+      "sourceIds": [
+        "source-ff4c532196d0f427",
+        "source-f0239358deb239ea",
+        "source-03e42299a3b9c76a",
+        "source-1c8d44786c4347e1",
+        "source-a08a2faf3c8bbdfa",
+        "source-af5f97a27661cd86",
+        "source-d75ed2ed43cab87e"
+      ]
+    },
+    {
+      "slug": "codemasters",
+      "historyEs": "Richard y David Darling fundaron Codemasters en el Reino Unido en 1986. El estudio pasó de los microordenadores y cartuchos económicos a especializarse en conducción y competición. Electronic Arts completó su adquisición en 2021 y mantuvo Codemasters como identidad creativa dentro de su estructura.",
+      "industryImpactEs": "Micro Machines, Colin McRae Rally/Dirt, TOCA/Grid y la licencia oficial de Formula 1 hicieron de Codemasters uno de los estudios británicos de conducción más importantes.",
+      "publicationStatus": "draft",
+      "historyEvidenceReady": false,
+      "impactEvidenceReady": false,
+      "sourceIds": [
+        "source-b67bcde83a1b5dee",
+        "source-b8f30b0fdc65ea5a",
+        "source-a8327e710307b46e",
+        "source-ba3e20a693c03622"
+      ]
+    },
+    {
+      "slug": "hal-laboratory",
+      "historyEs": "HAL Laboratory se fundó en Japón en 1980 y desarrolló para ordenadores antes de establecer una relación duradera con Nintendo. Aunque ha trabajado de forma muy estrecha con esta, mantiene identidad empresarial propia. Satoru Iwata fue programador y presidente del estudio antes de dirigir Nintendo.",
+      "industryImpactEs": "Kirby es su creación más reconocible y el estudio desempeñó un papel decisivo en Super Smash Bros. También es apreciado por su capacidad técnica en plataformas de Nintendo.",
+      "publicationStatus": "draft",
+      "historyEvidenceReady": false,
+      "impactEvidenceReady": false,
+      "sourceIds": [
+        "source-e4d88d8579d85891",
+        "source-eeb085c4a6e4892a",
+        "source-0beb3deb8e29201c",
+        "source-1d6900690bfdd292"
+      ]
+    },
+    {
+      "slug": "hudson-soft",
+      "historyEs": "Hudson Soft se fundó en Sapporo en 1973 y pasó del comercio de equipos informáticos al desarrollo de software. Se convirtió en uno de los primeros terceros de Famicom y participó con NEC en la tecnología y el ecosistema de PC Engine/TurboGrafx-16. Konami aumentó progresivamente su control, convirtió la empresa en filial íntegra en 2011 y la absorbió en 2012.",
+      "industryImpactEs": "Bomberman es su legado más universal; también destacan Adventure Island, Bonk, Star Soldier y su papel técnico y editorial alrededor de PC Engine.",
+      "publicationStatus": "draft",
+      "historyEvidenceReady": false,
+      "impactEvidenceReady": false,
+      "sourceIds": [
+        "source-ba507e4fcfc3c3af",
+        "source-ce27ecda55c0f47b",
+        "source-5d481c53870c85d2",
+        "source-bef24acb940c54d5"
+      ]
+    },
+    {
+      "slug": "koei",
+      "historyEs": "Yoichi y Keiko Erikawa fundaron Koei en Japón en 1978. La compañía se especializó en estrategia histórica y simulación, y más tarde amplió su alcance con acción táctica. Koei y Tecmo formaron un holding conjunto en 2009 y sus compañías operativas se integraron en 2010.",
+      "industryImpactEs": "Nobunaga’s Ambition y Romance of the Three Kingdoms fueron referentes de estrategia histórica; Dynasty Warriors popularizó el combate multitudinario que dio lugar al subgénero musou.",
+      "publicationStatus": "draft",
+      "historyEvidenceReady": false,
+      "impactEvidenceReady": false,
+      "sourceIds": [
+        "source-88c76671dcd3f6b3",
+        "source-e39a477ab4c318f4",
+        "source-7dacf8f3c4d8fd67",
+        "source-b7b752887de8879a"
+      ]
+    },
+    {
+      "slug": "konami",
+      "historyEs": "Kagemasa Kozuki inició en Osaka un negocio de reparación y alquiler de jukeboxes en 1969; Konami Industry se constituyó en 1973 para fabricar equipos recreativos. Durante los años ochenta se expandió al ordenador, MSX y Famicom/NES, y más tarde diversificó el grupo hacia cartas, máquinas de juego y deporte. Desde 2006 la actividad de entretenimiento digital se organiza mediante una sociedad operativa diferenciada del holding.",
+      "industryImpactEs": "Konami dejó una huella decisiva con Castlevania, Contra, Metal Gear, Silent Hill y sus series de fútbol. En recreativas musicales, Dance Dance Revolution y la infraestructura conectada e-amusement ayudaron a convertir el juego rítmico y los servicios persistentes en fenómenos de salón.",
+      "publicationStatus": "published",
+      "historyEvidenceReady": true,
+      "impactEvidenceReady": true,
+      "sourceIds": [
+        "source-91870fd9e5a4f69c",
+        "source-6a4aba27d2cba13f",
+        "source-9b5d7dbf8ca152f9",
+        "source-91a230ec2927a04e",
+        "source-35ea85cce62f36e3",
+        "source-19d2490e965e5b58"
+      ]
+    },
+    {
+      "slug": "nintendo",
+      "historyEs": "Nintendo nació en Kioto en 1889 como un negocio de naipes hanafuda impulsado por Fusajirō Yamauchi. Tras décadas de diversificación, la compañía orientó su actividad hacia el entretenimiento electrónico y entró en las consolas domésticas en 1977. Game & Watch, Famicom/NES, Game Boy y sus sucesoras consolidaron un modelo en el que hardware, software y personajes propios se refuerzan mutuamente.",
+      "industryImpactEs": "Es una de las empresas más determinantes del videojuego doméstico. Ayudó a reconstruir el mercado de consolas tras la crisis norteamericana de 1983, popularizó el juego portátil moderno con Game Boy y convirtió series como Super Mario, The Legend of Zelda, Metroid y Pokémon en referencias de diseño y cultura popular.",
+      "publicationStatus": "published",
+      "historyEvidenceReady": true,
+      "impactEvidenceReady": true,
+      "sourceIds": [
+        "source-10124f8e46e792dc",
+        "source-e5449238936467c6",
+        "source-7211e176c3da9437",
+        "source-663278d0ec77d53c",
+        "source-4658675cabdf9182",
+        "source-c9e457192aa0b1c0",
+        "source-5b0c7a8cd95c404e",
+        "source-44b8b078f2fde8a4",
+        "source-2529ccd0f896e1ef"
+      ]
+    },
+    {
+      "slug": "sega",
+      "historyEs": "La línea corporativa de Sega se articula en Japón desde 1960 y adoptó el nombre Sega Enterprises tras su unión con Rosen Enterprises en 1965. Creció desde las máquinas recreativas hasta competir como fabricante de consolas entre 1983 y 2001. Después concentró su actividad en juegos, recreativas y explotación de propiedades intelectuales dentro del grupo Sega Sammy.",
+      "industryImpactEs": "Fue una referencia técnica de los salones arcade y una rival central de Nintendo durante la era de Mega Drive/Genesis. Periscope, Hang-On, Virtua Racing y Virtua Fighter marcaron etapas de la recreativa, mientras Sonic, Phantasy Star, Yakuza/Like a Dragon y sus estudios adquiridos ampliaron su legado.",
+      "publicationStatus": "published",
+      "historyEvidenceReady": true,
+      "impactEvidenceReady": true,
+      "sourceIds": [
+        "source-7e9cc2cc0ed33ef1",
+        "source-4f895a00d8a667d1",
+        "source-6bd74be3ce767ebd",
+        "source-6b96eb4eb5894de8",
+        "source-2ae44cffb0876718",
+        "source-fb10927e8c1bff4c",
+        "source-f16915ee13c6da56",
+        "source-bea01d9c10975ec9",
+        "source-bb572ddc4802df56"
+      ]
+    }
+  ]
+}

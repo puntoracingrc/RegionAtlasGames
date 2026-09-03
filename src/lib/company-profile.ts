@@ -14,6 +14,15 @@ import {
   getGameDetails,
 } from "./indexes";
 import { resolveCompanyLogo } from "./company-logo";
+import {
+  applyPublicCompanyResearch,
+  getPublicCompanyAchievements,
+  getPublicCompanyResearchSources,
+} from "./company-public-research";
+import type {
+  CompanyResearchAchievement,
+  CompanyResearchPublicSource,
+} from "./company-research-types";
 import type { CatalogGame, CompanyProfile, IndexEntry } from "./types";
 
 export type CompanyCollaborator = {
@@ -52,6 +61,8 @@ export type CompanyProfileView = {
   history: string | null;
   seoTitle: string | null;
   seoDescription: string | null;
+  researchSources: CompanyResearchPublicSource[];
+  achievements: CompanyResearchAchievement[];
   platforms: CompanyPlatformGames[];
   collaborators: CompanyCollaborator[];
   games: CatalogGame[];
@@ -62,13 +73,13 @@ const profiles = companyProfilesData as Record<string, CompanyProfile>;
 
 export function getStoredCompanyProfile(slug: string): CompanyProfile | undefined {
   const canonical = resolveCanonicalCompanySlug(slug);
-  return profiles[canonical];
+  return applyPublicCompanyResearch(profiles[canonical], canonical);
 }
 
 export async function getStoredCompanyProfileWithOverlay(slug: string): Promise<CompanyProfile | undefined> {
   const canonical = resolveCanonicalCompanySlug(slug);
   const overlayProfiles = await readAdminCompanyProfilesOverlay();
-  return overlayProfiles[canonical] ?? profiles[canonical];
+  return applyPublicCompanyResearch(overlayProfiles[canonical] ?? profiles[canonical], canonical);
 }
 
 function inferStatus(
@@ -172,6 +183,8 @@ function buildCompanyProfileViewFromProfile(
     history: usesGeneratedCatalogCopy ? null : stored?.history?.trim() || null,
     seoTitle: usesGeneratedCatalogCopy ? null : stored?.seoMeta?.seoTitle ?? null,
     seoDescription: usesGeneratedCatalogCopy ? null : stored?.seoMeta?.seoDescription ?? null,
+    researchSources: getPublicCompanyResearchSources(entry.slug),
+    achievements: getPublicCompanyAchievements(entry.slug),
     platforms: groupGamesByPlatform(games),
     collaborators: collectCollaborators(entry, entry.slug).slice(0, 24),
     games,

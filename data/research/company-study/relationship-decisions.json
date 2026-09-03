@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "visibility": "admin_only",
+  "importedRelationships": [],
+  "heldRelationshipCount": 2047,
+  "externallyVerifiedExclusions": [
+    {
+      "companySlug": "shaba-games",
+      "relationshipType": "ACQUIRED_BY",
+      "rejectedTargetQid": "Q344341",
+      "decision": "excluded_pending_research",
+      "reason": "El paquete atribuye en 2002 la compra a Activision Blizzard, creada posteriormente; la adquirente documentada fue Activision, Inc.",
+      "sourceId": "source-95c0367986b49d93",
+      "replacementImported": false
+    },
+    {
+      "companySlug": "artoon",
+      "relationshipType": "ACQUIRED_BY",
+      "rejectedTargetQid": "Q3274623",
+      "decision": "excluded_pending_research",
+      "reason": "El paquete fija la adquisición en 2010, pero la cronología corporativa sitúa la entrada como filial en 2004, el control total en 2005 y la absorción en 2011.",
+      "sourceId": "source-f971cea8b4d01310",
+      "replacementImported": false
+    }
+  ]
+}
