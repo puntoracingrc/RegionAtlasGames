@@ -233,8 +233,8 @@
     },
     "method": "wikidata"
   },
-  "acclaim": {
-    "slug": "acclaim",
+  "acclaim-japan": {
+    "slug": "acclaim-japan",
     "name": "Acclaim Japan, Ltd.",
     "wikidataId": "Q54150798",
     "logoUrl": null,
@@ -2552,8 +2552,8 @@
     },
     "method": "wikidata"
   },
-  "take-two-interactive": {
-    "slug": "take-two-interactive",
+  "take-two-interactive-europe": {
+    "slug": "take-two-interactive-europe",
     "name": "Take Two Interactive Europe",
     "wikidataId": null,
     "logoUrl": null,
@@ -3160,8 +3160,8 @@
     },
     "method": "wikidata"
   },
-  "nec": {
-    "slug": "nec",
+  "nec-international": {
+    "slug": "nec-international",
     "name": "Nec International",
     "wikidataId": null,
     "logoUrl": null,
@@ -3515,8 +3515,8 @@
     },
     "method": "wikidata"
   },
-  "koei-tecmo": {
-    "slug": "koei-tecmo",
+  "koei-tecmo-europe-ltd": {
+    "slug": "koei-tecmo-europe-ltd",
     "name": "Koei Tecmo Europe Ltd.",
     "wikidataId": null,
     "logoUrl": null,
@@ -3547,8 +3547,8 @@
     },
     "method": "wikidata"
   },
-  "idea-factory": {
-    "slug": "idea-factory",
+  "idea-factory-international": {
+    "slug": "idea-factory-international",
     "name": "Idea Factory International",
     "wikidataId": null,
     "logoUrl": null,
@@ -3819,8 +3819,8 @@
     },
     "method": "wikidata"
   },
-  "marvelous": {
-    "slug": "marvelous",
+  "marvelous-europe": {
+    "slug": "marvelous-europe",
     "name": "Marvelous Europe",
     "wikidataId": null,
     "logoUrl": null,

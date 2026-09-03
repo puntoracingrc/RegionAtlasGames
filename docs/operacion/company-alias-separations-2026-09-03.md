@@ -23,8 +23,15 @@ nombres, tanto en Python como en el resolver TypeScript de la aplicacion.
 - Indice de companias: 4.248 a 4.326.
 - 10 nombres canonicos corregidos.
 
-No se modificaron fichas de juego, catalogo, perfiles de compania ni grupos historicos.
-Las asociaciones no incluidas en los 23 clusters permanecen identicas.
+No se modificaron fichas de juego, catalogo ni grupos historicos. Las asociaciones no
+incluidas en los 23 clusters permanecen identicas.
+
+Se reasignaron seis perfiles editoriales que describian a una entidad regional pero
+estaban guardados bajo el slug de su matriz: Acclaim Japan, Idea Factory
+International, Koei Tecmo Europe Ltd., Marvelous Europe, NEC International y
+Take-Two Interactive Europe. Las introducciones y descripciones SEO generadas por
+plantilla ya no publican conteos congelados: toman los totales actuales del indice en
+cada renderizado. Los perfiles redactados manualmente o por IA conservan su texto.
 
 ## Casos bloqueados
 
@@ -48,6 +55,7 @@ vuelve a unir las entidades.
 - Comparacion exacta con el manifiesto: 1.162 de 1.162 creditos, sin movimientos extra.
 - Pruebas Python de separacion y regeneracion: correctas.
 - Pruebas TypeScript del resolver publico: correctas.
+- Pruebas de pertenencia de perfiles y conteos editoriales dinamicos: correctas.
 - Suites de coleccion, unitarias y controles de recolectores: correctas.
 - Typecheck: correcto.
 - Lint: sin errores; conserva advertencias previas del repositorio.
