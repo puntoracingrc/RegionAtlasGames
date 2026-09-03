@@ -29,7 +29,7 @@ export async function IndexEntityList({ kind }: { kind: IndexKind }) {
         <header className="mb-8 space-y-3">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold text-foreground">{meta.listTitle}</h1>
-            <p className="max-w-2xl text-muted">{indexListIntro(kind)}</p>
+            <p className="max-w-2xl text-muted">{indexListIntro(kind, items.length)}</p>
           </div>
           {kind === "series" && (
             <p className="max-w-3xl text-sm leading-6 text-muted">

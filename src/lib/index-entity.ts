@@ -134,17 +134,17 @@ export function summarizeIndexSlug(kind: IndexKind, slug: string): IndexEntitySu
 }
 
 /** Texto unificado para cabeceras de listado. */
-export function indexListIntro(kind: IndexKind): string {
+export function indexListIntro(kind: IndexKind, entityCount?: number): string {
   const stats = indexStats();
   const meta = INDEX_KIND_META[kind];
-  const count =
-    kind === "company"
+  const count = entityCount ??
+    (kind === "company"
       ? stats.companies
       : kind === "genre"
         ? stats.genres
         : kind === "series"
           ? stats.series
-          : stats.tags;
+          : stats.tags);
   const entities = `${count.toLocaleString("es-ES")} ${meta.entityLabelPlural}`;
   const fichas = `${stats.gamesWithDetails.toLocaleString("es-ES")} juegos con ficha del museo`;
   return `${entities} · ${fichas}`;
