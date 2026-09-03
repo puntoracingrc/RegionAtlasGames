@@ -60,6 +60,6 @@ export function buildCompanyIntro(view: CompanyProfileView): string {
   }
   const lifespan = companyLifespanLabel(view.foundedYear, view.closedYear);
   if (lifespan) parts.push(`(${lifespan})`);
-  parts.push(`Estado: ${companyStatusLabel(view.status).toLowerCase()}.`);
+  parts.push(`Estado: ${companyStatusLabel(view.status).toLowerCase()}`);
   return `${parts.join(" ")}.`;
 }

@@ -113,5 +113,7 @@ test("generated company copy reads current catalog counts at render time", () =>
   assert.equal(view.history, null);
   assert.equal(view.seoDescription, null);
   assert.equal(view.profilePending, false);
-  assert.match(buildCompanyIntro(view), new RegExp(`\\b${view.gameCount} juegos\\b`));
+  const intro = buildCompanyIntro(view);
+  assert.match(intro, new RegExp(`\\b${view.gameCount} juegos\\b`));
+  assert.doesNotMatch(intro, /\.\.$/);
 });
