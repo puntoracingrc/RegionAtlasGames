@@ -304,26 +304,24 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
         {unifiedOffers.length === 0 && affiliateState.status !== "loading" ? (
           <li className="px-3 py-5 text-sm text-muted">No hay anuncios disponibles ahora mismo.</li>
         ) : null}
-        {affiliateOffers.length === 0
-          ? fallbackCtas.map((fallback) => (
-              <li key={fallback.id}>
-                <a
-                  href={fallback.url}
-                  target="_blank"
-                  rel="sponsored nofollow noopener noreferrer"
-                  className="flex min-h-16 items-center justify-between gap-3 px-3 py-3 transition hover:bg-card-hover"
-                >
-                  <span className="min-w-0">
-                    <span className="block text-sm font-semibold text-foreground">
-                      {fallback.label || `Buscar en ${providerLabel(fallback.provider)}`}
-                    </span>
-                    <span className="mt-0.5 block text-xs text-muted">Búsqueda externa afiliada</span>
-                  </span>
-                  <ExternalLink size={16} className="shrink-0 text-muted" aria-hidden="true" />
-                </a>
-              </li>
-            ))
-          : null}
+        {fallbackCtas.map((fallback) => (
+          <li key={fallback.id}>
+            <a
+              href={fallback.url}
+              target="_blank"
+              rel="sponsored nofollow noopener noreferrer"
+              className="flex min-h-16 items-center justify-between gap-3 px-3 py-3 transition hover:bg-card-hover"
+            >
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold text-foreground">
+                  {fallback.label || `Buscar en ${providerLabel(fallback.provider)}`}
+                </span>
+                <span className="mt-0.5 block text-xs text-muted">Búsqueda externa afiliada</span>
+              </span>
+              <ExternalLink size={16} className="shrink-0 text-muted" aria-hidden="true" />
+            </a>
+          </li>
+        ))}
       </ul>
 
       {affiliateState.status === "error" ? (
