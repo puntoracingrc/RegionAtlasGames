@@ -74,12 +74,14 @@ test("shows PriceCharting condition estimates as orientative outside Spain", () 
   );
 });
 
-test("offers sealed as a catalog condition and sorts by its own price", () => {
+test("offers only the three public catalog conditions in their display order", () => {
   assert.deepEqual(
     PRICE_TYPE_OPTIONS.map((option) => option.value),
-    ["recommended", "sealed", "newRetail", "complete", "gameManual", "loose"],
+    ["sealed", "complete", "loose"],
   );
+});
 
+test("sorts by the selected public condition price", () => {
   const games = [
     { id: "without-sealed", title: "Without sealed", estimatedPriceSealed: null },
     { id: "higher-sealed", title: "Higher sealed", estimatedPriceSealed: 45 },
@@ -134,23 +136,25 @@ test("sorts recommended prices even when their Spanish region is not verified", 
   );
 });
 
-test("offers only condition prices compatible with each platform medium", () => {
+test("offers the same comparable states on optical and cartridge platforms", () => {
   assert.deepEqual(
     catalogPriceTypeOptions("ps3").map((option) => option.value),
-    ["recommended", "sealed", "newRetail", "complete", "loose"],
+    ["sealed", "complete", "loose"],
   );
   assert.deepEqual(
     catalogPriceTypeOptions("n64").map((option) => option.value),
-    ["recommended", "sealed", "newRetail", "complete", "gameManual", "loose"],
+    ["sealed", "complete", "loose"],
   );
   assert.equal(
     catalogPriceTypeOptions("ps3").find((option) => option.value === "loose")?.label,
     "Solo juego",
   );
-  assert.equal(normalizeCatalogPriceTypeForPlatform("gameManual", "ps3"), "recommended");
+  assert.equal(normalizeCatalogPriceTypeForPlatform("recommended", "ps3"), "complete");
+  assert.equal(normalizeCatalogPriceTypeForPlatform("newRetail", "ps5"), "complete");
+  assert.equal(normalizeCatalogPriceTypeForPlatform("gameManual", "n64"), "complete");
 });
 
-test("keeps new retail separate from sealed and exposes its own catalog sort", () => {
+test("keeps source-specific new retail prices available internally", () => {
   assert.equal(
     formatEsPriceForCard(
       {

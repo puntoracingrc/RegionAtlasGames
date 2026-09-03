@@ -2,6 +2,7 @@ import { CatalogBrowser } from "@/components/catalog-browser";
 import { SiteNav } from "@/components/site-nav";
 import {
   CATALOG_PAGE_SIZE,
+  DEFAULT_CATALOG_PRICE_TYPE,
   DEFAULT_SORT,
   filterCatalogGames,
   normalizeCatalogPriceTypeForPlatform,
@@ -50,7 +51,7 @@ export default async function CatalogPage({ searchParams }: Props) {
     parsePriceType(params?.priceType),
     initialPlatform,
   );
-  const initialSort = initialPriceType === "recommended" ? DEFAULT_SORT : "price-desc";
+  const initialSort = initialPriceType === DEFAULT_CATALOG_PRICE_TYPE ? DEFAULT_SORT : "price-desc";
 
   const [user, listingCounts] = await Promise.all([
     getCurrentUser(),
@@ -64,7 +65,7 @@ export default async function CatalogPage({ searchParams }: Props) {
     initialGenre !== "all" ||
     initialSubgenre !== "all" ||
     initialFacet !== "all" ||
-    initialPriceType !== "recommended";
+    initialPriceType !== DEFAULT_CATALOG_PRICE_TYPE;
   const initialCatalog = hasInitialFilters
     ? filterCatalogGames(
         publicListedCatalog.map(toCatalogListGame),
@@ -135,10 +136,8 @@ export default async function CatalogPage({ searchParams }: Props) {
 function parsePriceType(value: string | undefined): CatalogPriceType {
   if (
     value === "sealed" ||
-    value === "newRetail" ||
     value === "complete" ||
-    value === "gameManual" ||
     value === "loose"
   ) return value;
-  return "recommended";
+  return DEFAULT_CATALOG_PRICE_TYPE;
 }

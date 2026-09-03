@@ -4,7 +4,6 @@ import { esPriceDisplayLabel } from "@/lib/price-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { publicRegionLabelForPlatform } from "@/lib/platform-region-policy";
 import { getRegionDisplay } from "@/lib/region-display";
-import { supportsGameManualCondition } from "@/lib/collection-condition-policy";
 import type { CatalogListGame } from "@/lib/types";
 
 export type CatalogSort =
@@ -41,22 +40,19 @@ export const CATALOG_PAGE_SIZE = 48;
 
 export type CatalogPriceType = "recommended" | "sealed" | "newRetail" | "complete" | "gameManual" | "loose";
 
+export const DEFAULT_CATALOG_PRICE_TYPE: CatalogPriceType = "complete";
+
 export const PRICE_TYPE_OPTIONS: { value: CatalogPriceType; label: string }[] = [
-  { value: "recommended", label: "Precio recomendado" },
   { value: "sealed", label: "Precintado" },
-  { value: "newRetail", label: "Nuevo en tienda" },
   { value: "complete", label: "Completo" },
-  { value: "gameManual", label: "Juego + manual" },
   { value: "loose", label: "Solo juego" },
 ];
 
 export function catalogPriceTypeOptions(
   platformSlug?: string | null,
 ): { value: CatalogPriceType; label: string }[] {
-  if (!platformSlug || platformSlug === "all" || supportsGameManualCondition(platformSlug)) {
-    return PRICE_TYPE_OPTIONS;
-  }
-  return PRICE_TYPE_OPTIONS.filter((option) => option.value !== "gameManual");
+  void platformSlug;
+  return PRICE_TYPE_OPTIONS;
 }
 
 export function normalizeCatalogPriceTypeForPlatform(
@@ -65,7 +61,7 @@ export function normalizeCatalogPriceTypeForPlatform(
 ): CatalogPriceType {
   return catalogPriceTypeOptions(platformSlug).some((option) => option.value === value)
     ? value
-    : "recommended";
+    : DEFAULT_CATALOG_PRICE_TYPE;
 }
 
 export type CatalogPriceFilter = "all" | "verified" | "unverified" | "pending";
@@ -188,7 +184,7 @@ function compareNullsLast(a: number | null, b: number | null, asc: boolean): num
 export function sortCatalogListGames(
   games: CatalogListGame[],
   sort: CatalogSort,
-  priceType: CatalogPriceType = "recommended",
+  priceType: CatalogPriceType = DEFAULT_CATALOG_PRICE_TYPE,
 ): CatalogListGame[] {
   const sorted = [...games];
   sorted.sort((a, b) => {
@@ -275,7 +271,7 @@ export function filterCatalogGames(
     region,
     platform,
     sort,
-    priceType = "recommended",
+    priceType = DEFAULT_CATALOG_PRICE_TYPE,
     priceFilter,
     genre = "all",
     subgenre = "all",
