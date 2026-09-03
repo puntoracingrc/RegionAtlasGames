@@ -15626,6 +15626,26 @@
         "sealed": 17.24,
         "newRetail": null
       }
+    ],
+    "ps4-uncharted-the-lost-legacy": [
+      {
+        "at": "2026-09-03T16:32:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 15.59,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "ps4-uncharted-the-nathan-drake-collection": [
+      {
+        "at": "2026-09-03T16:32:22Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 21.0,
+        "sealed": null,
+        "newRetail": null
+      }
     ]
   }
 }
