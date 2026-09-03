@@ -305,21 +305,22 @@ export function CatalogOffersList({ catalogId, marketplaceOffers, canContact }: 
           <li className="px-3 py-5 text-sm text-muted">No hay anuncios disponibles ahora mismo.</li>
         ) : null}
         {fallbackCtas.map((fallback) => (
-          <li key={fallback.id}>
-            <a
-              href={fallback.url}
-              target="_blank"
-              rel="sponsored nofollow noopener noreferrer"
-              className="flex min-h-16 items-center justify-between gap-3 px-3 py-3 transition hover:bg-card-hover"
-            >
-              <span className="min-w-0">
-                <span className="block text-sm font-semibold text-foreground">
-                  {fallback.label || `Buscar en ${providerLabel(fallback.provider)}`}
-                </span>
-                <span className="mt-0.5 block text-xs text-muted">Búsqueda externa afiliada</span>
-              </span>
-              <ExternalLink size={16} className="shrink-0 text-muted" aria-hidden="true" />
-            </a>
+          <li key={fallback.id} className="px-3 py-3">
+            <div className="flex justify-end">
+              <a
+                href={fallback.url}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                className={`inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-center text-sm font-bold transition sm:w-auto ${
+                  fallback.provider === "amazon"
+                    ? "bg-amber-400 text-slate-950 shadow-sm shadow-amber-950/15 hover:bg-amber-300"
+                    : "bg-accent text-accent-fg hover:opacity-90"
+                }`}
+              >
+                <span>{fallback.label || `Buscar en ${providerLabel(fallback.provider)}`}</span>
+                <ExternalLink size={16} className="shrink-0" aria-hidden="true" />
+              </a>
+            </div>
           </li>
         ))}
       </ul>
