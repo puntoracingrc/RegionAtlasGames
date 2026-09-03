@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import {
   CATALOG_PAGE_SIZE,
+  DEFAULT_CATALOG_PRICE_TYPE,
   DEFAULT_SORT,
   filterCatalogGames,
   normalizeCatalogPriceTypeForPlatform,
@@ -137,7 +138,7 @@ export async function GET(request: Request) {
   const region = url.searchParams.get("region") ?? "all";
   const sort = (url.searchParams.get("sort") ?? DEFAULT_SORT) as CatalogSort;
   const priceType = normalizeCatalogPriceTypeForPlatform(
-    (url.searchParams.get("priceType") ?? "recommended") as CatalogPriceType,
+    (url.searchParams.get("priceType") ?? DEFAULT_CATALOG_PRICE_TYPE) as CatalogPriceType,
     platform,
   );
   const priceFilter = (url.searchParams.get("priceFilter") ?? "all") as CatalogPriceFilter;

@@ -13,6 +13,7 @@ import { RegionFlag } from "@/components/region-flag";
 import { RegionFilterChips } from "@/components/region-filter-chips";
 import {
   CATALOG_PAGE_SIZE,
+  DEFAULT_CATALOG_PRICE_TYPE,
   DEFAULT_SORT,
   PRICE_TYPE_OPTIONS,
   catalogPriceTypeOptions,
@@ -233,7 +234,7 @@ export function CatalogBrowser({
   initialGenre = "all",
   initialSubgenre = "all",
   initialFacet = "all",
-  initialPriceType = "recommended",
+  initialPriceType = DEFAULT_CATALOG_PRICE_TYPE,
   region: controlledRegion,
   onRegionChange,
 }: Props) {
@@ -257,7 +258,9 @@ export function CatalogBrowser({
   const [company, setCompany] = useState("");
   const [companyFocused, setCompanyFocused] = useState(false);
   const [selectedPriceType, setSelectedPriceType] = useState<CatalogPriceType>(initialPriceType);
-  const [sort, setSort] = useState<CatalogSort>(initialPriceType === "recommended" ? DEFAULT_SORT : "price-desc");
+  const [sort, setSort] = useState<CatalogSort>(
+    initialPriceType === DEFAULT_CATALOG_PRICE_TYPE ? DEFAULT_SORT : "price-desc",
+  );
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const priceFilter = "all";
   const [page, setPage] = useState(1);
@@ -422,7 +425,7 @@ export function CatalogBrowser({
       subgenre === "all" &&
       facet === "all" &&
       company.trim() === "" &&
-      priceType === "recommended" &&
+      priceType === DEFAULT_CATALOG_PRICE_TYPE &&
       sort === DEFAULT_SORT &&
       page === 1 &&
       (source.kind === "platform" || platform === "all");
@@ -505,7 +508,7 @@ export function CatalogBrowser({
     genre !== "all" ||
     subgenre !== "all" ||
     facet !== "all" ||
-    priceType !== "recommended" ||
+    priceType !== DEFAULT_CATALOG_PRICE_TYPE ||
     sort !== DEFAULT_SORT;
 
   const companySuggestions = useMemo(() => {
@@ -527,7 +530,11 @@ export function CatalogBrowser({
 
   function handlePriceTypeChange(nextPriceType: CatalogPriceType) {
     setSelectedPriceType(nextPriceType);
-    if (nextPriceType !== "recommended" && sort !== "price-asc" && sort !== "price-desc") {
+    if (
+      nextPriceType !== DEFAULT_CATALOG_PRICE_TYPE &&
+      sort !== "price-asc" &&
+      sort !== "price-desc"
+    ) {
       setSort("price-desc");
     }
   }
