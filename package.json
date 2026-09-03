@@ -68,6 +68,8 @@
     "genres:build": "python3 scripts/build_genre_entities.py",
     "companies:enrich": "python3 scripts/enrich_company_profiles.py",
     "companies:enrich:batch": "bash scripts/run_company_enrich_batches.sh",
+    "companies:logos:import": "python3 scripts/import_company_logos.py",
+    "test:company-logos": "python3 scripts/test_company_logos.py",
     "genres:tops": "python3 scripts/build_genre_tops.py",
     "catalog:fix-pc-paths": "python3 scripts/fix_catalog_pc_paths.py",
     "catalog:audit-entities": "python3 scripts/audit_catalog_html_entities.py",

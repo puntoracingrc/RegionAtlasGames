@@ -2,6 +2,7 @@ import { formatCompanyAliases, getCompanyEntity } from "./company-canonical";
 import { getCatalogGame, getPlatform, isPublicCatalogGame } from "./catalog";
 import { resolveCanonicalGenreEntity } from "./genre-canonical";
 import { getStoredCompanyProfile } from "./company-profile";
+import { resolveCompanyLogo } from "./company-logo";
 import { getEffectivePrice, isGrailGame } from "./game-highlight";
 import { summarizeIndexEntry } from "./index-entity";
 import { getCompanies, getGameDetails, getGenre, indexStats } from "./indexes";
@@ -73,6 +74,8 @@ export type CompanyCardData = {
   grailCount: number;
   pricedCount: number;
   hasProfile: boolean;
+  logoUrl: string | null;
+  logoIsProvisional: boolean;
   searchHaystack: string;
 };
 
@@ -132,6 +135,8 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
   const summary = summarizeIndexEntry(entry, "company");
   const entity = getCompanyEntity(entry.slug);
   const aliases = formatCompanyAliases(entity);
+  const storedProfile = getStoredCompanyProfile(summary.slug);
+  const logo = resolveCompanyLogo(summary.slug, storedProfile?.logoUrl);
 
   const genreSlugs = new Set<string>();
   const platformCounts = new Map<string, number>();
@@ -189,7 +194,9 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
     marketScore,
     grailCount,
     pricedCount,
-    hasProfile: Boolean(getStoredCompanyProfile(summary.slug)?.history),
+    hasProfile: Boolean(storedProfile?.history),
+    logoUrl: logo.url,
+    logoIsProvisional: logo.provisional,
     searchHaystack: buildSearchHaystack(summary.name, summary.slug, aliases),
   };
 }

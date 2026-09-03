@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "matching": "EXACT_SLUG_ONLY",
+  "companies": 4326,
+  "authenticLogos": 522,
+  "provisionalImages": 3804,
+  "compositeCreditsKeptProvisional": 383,
+  "missingFiles": 0,
+  "fuzzyAssignments": 0
+}

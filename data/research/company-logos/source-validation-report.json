@@ -1,0 +1,19 @@
+{
+  "validatedAt": "2026-09-03T18:23:58.830096+00:00",
+  "status": "PASS",
+  "companies": 4326,
+  "uniqueSlugs": 4326,
+  "logoFiles": 4326,
+  "authenticLogos": 522,
+  "placeholders": 3804,
+  "requiresManualReview": 3953,
+  "logoTypes": {
+    "REGIONATLAS_EXISTENTE": 8,
+    "WIKIMEDIA_DOCUMENTADO": 377,
+    "PLACEHOLDER_GENERADO": 3804,
+    "SITIO_OFICIAL_DOCUMENTADO": 137
+  },
+  "errors": [],
+  "warnings": [],
+  "checksumEntries": 4343
+}

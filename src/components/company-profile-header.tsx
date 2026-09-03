@@ -1,12 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import { BackLink } from "@/components/breadcrumbs";
+import { CompanyLogo } from "@/components/company-logo";
 import {
   companyLifespanLabel,
   companyStatusLabel,
   type CompanyProfileView,
 } from "@/lib/company-profile";
-import { cn } from "@/lib/cn";
 
 export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
   const lifespan = companyLifespanLabel(view.foundedYear, view.closedYear);
@@ -22,7 +21,13 @@ export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
     <header className="mt-4 mb-8 space-y-5">
       <BackLink href="/compania">Compañías</BackLink>
       <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-        <CompanyLogo name={view.name} logoUrl={view.logoUrl} />
+        <CompanyLogo
+          name={view.name}
+          logoUrl={view.logoUrl}
+          provisional={view.logoIsProvisional}
+          size="lg"
+          showProvisionalLabel
+        />
         <div className="min-w-0 flex-1 space-y-3">
           <div>
             <h1 className="text-4xl font-bold text-foreground">{view.name}</h1>
@@ -91,36 +96,5 @@ export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
         </div>
       </div>
     </header>
-  );
-}
-
-function CompanyLogo({ name, logoUrl }: { name: string; logoUrl: string | null }) {
-  const initial = name.trim().charAt(0).toUpperCase() || "?";
-
-  if (logoUrl) {
-    return (
-      <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-border bg-white p-2">
-        <Image
-          src={logoUrl}
-          alt={`Logo de ${name}`}
-          fill
-          className="object-contain p-2"
-          sizes="96px"
-          unoptimized
-        />
-      </div>
-    );
-  }
-
-  return (
-    <div
-      className={cn(
-        "flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl border border-border",
-        "bg-gradient-to-br from-accent/20 to-card text-3xl font-bold text-accent",
-      )}
-      aria-hidden
-    >
-      {initial}
-    </div>
   );
 }
