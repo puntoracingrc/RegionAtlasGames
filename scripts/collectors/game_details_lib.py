@@ -755,13 +755,22 @@ def resolve_source_parts(
 
 
 def build_indexes(details: dict[str, dict], catalog: list[dict]) -> dict[str, Any]:
+    by_id = {g["id"]: g for g in catalog}
     listed_ids = {
         g["id"]
         for g in catalog
         if g.get("listingStatus") != "excluded" and g["id"] in details and is_valid_detail(details[g["id"]])
     }
-    by_id = {g["id"]: g for g in catalog}
+    company_ids = {
+        game_id
+        for game_id, detail in details.items()
+        if game_id in by_id
+        and is_valid_detail(detail)
+        and (detail.get("developer") or detail.get("publisher"))
+    }
 
+    # Company credits remain useful for catalog reconciliation even when a
+    # duplicate release is hidden from public listings.
     save_company_entity_registry(build_company_entity_registry(details, listed_ids))
     save_genre_entity_registry(build_genre_entity_registry(details, listed_ids))
 
@@ -820,10 +829,13 @@ def build_indexes(details: dict[str, dict], catalog: list[dict]) -> dict[str, An
         if role == "publisher" and game_id not in entry["asPublisher"]:
             entry["asPublisher"].append(game_id)
 
-    for game_id in listed_ids:
+    for game_id in company_ids:
         detail = details[game_id]
         bump_entity(companies, detail.get("developer"), game_id, "developer", entity_kind="company")
         bump_entity(companies, detail.get("publisher"), game_id, "publisher", entity_kind="company")
+
+    for game_id in listed_ids:
+        detail = details[game_id]
         for genre in detail.get("genres") or []:
             bump_entity(genres, genre, game_id, entity_kind="genre")
         bump_entity(series, detail.get("series"), game_id)

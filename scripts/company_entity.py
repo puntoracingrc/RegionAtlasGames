@@ -18,10 +18,14 @@ from entity_normalize import (
 
 ROOT = Path(__file__).resolve().parents[1]
 GROUPS_PATH = ROOT / "data" / "company-groups.json"
+SEPARATIONS_PATH = ROOT / "data" / "company-separations.json"
 REGISTRY_PATH = ROOT / "data" / "index" / "company-entities.json"
 
+_manual_groups_loaded = False
 _manual_slug_to_canonical: dict[str, dict[str, str]] = {}
 _manual_prefix_rules: list[tuple[str, dict[str, str]]] = []
+_manual_independent_slugs: set[str] = set()
+_manual_name_overrides: dict[str, str] = {}
 _registry_loaded = False
 _registry: dict[str, Any] = {}
 _slug_to_canonical: dict[str, str] = {}
@@ -32,8 +36,29 @@ _entity_records: dict[str, dict[str, Any]] = {}
 
 
 def _load_manual_groups() -> None:
-    if _manual_slug_to_canonical:
+    global _manual_groups_loaded
+    if _manual_groups_loaded:
         return
+
+    if SEPARATIONS_PATH.exists():
+        separation_data = json.loads(SEPARATIONS_PATH.read_text(encoding="utf-8"))
+        for decision in separation_data.get("separations", []):
+            canonical_slug = str(decision.get("canonicalSlug") or "").strip()
+            if not canonical_slug:
+                raise ValueError("Company separation without canonicalSlug")
+            if decision.get("confidence") != "VERY_HIGH":
+                raise ValueError(f"Company separation {decision.get('clusterId')} is not VERY_HIGH")
+            canonical_name = str(decision.get("canonicalName") or "").strip()
+            if canonical_name:
+                _manual_name_overrides[canonical_slug] = canonical_name
+            for raw_slug in decision.get("independentSlugs") or []:
+                slug = str(raw_slug).strip()
+                if not slug or slug == canonical_slug:
+                    raise ValueError(f"Invalid independent company slug in {decision.get('clusterId')}")
+                if slug in _manual_independent_slugs:
+                    raise ValueError(f"Duplicate independent company slug: {slug}")
+                _manual_independent_slugs.add(slug)
+
     data = json.loads(GROUPS_PATH.read_text(encoding="utf-8"))
     for group in data.get("groups", []):
         canonical = {"slug": group["slug"], "name": group["name"]}
@@ -44,10 +69,22 @@ def _load_manual_groups() -> None:
             _manual_prefix_rules.append((prefix, canonical))
             _manual_slug_to_canonical[prefix] = canonical
     _manual_prefix_rules.sort(key=lambda item: len(item[0]), reverse=True)
+    _manual_groups_loaded = True
+
+
+def _manual_entity(slug: str) -> dict[str, str] | None:
+    override = _manual_name_overrides.get(slug)
+    if override:
+        return {"slug": slug, "name": override}
+    if slug in _manual_independent_slugs:
+        return None
+    return _manual_slug_to_canonical.get(slug)
 
 
 def _manual_canonical_slug(slug: str) -> str | None:
     _load_manual_groups()
+    if slug in _manual_independent_slugs or slug in _manual_name_overrides:
+        return slug
     direct = _manual_slug_to_canonical.get(slug)
     if direct:
         return direct["slug"]
@@ -149,7 +186,7 @@ def resolve_canonical_company(
         wikidata_id=wikidata_id,
         museum_path=museum_path,
     )
-    manual = _manual_slug_to_canonical.get(canonical_slug)
+    manual = _manual_entity(canonical_slug)
     record = _entity_records.get(canonical_slug)
     display_name = (
         (manual or {}).get("name")
@@ -244,6 +281,7 @@ def build_company_entity_registry(
         museum_path: str | None = None,
         normalized_key: str | None = None,
     ) -> None:
+        slugs = set(slugs) - _manual_independent_slugs
         if len(slugs) <= 1:
             only = next(iter(slugs), None)
             if only and _manual_canonical_slug(only):
@@ -265,7 +303,7 @@ def build_company_entity_registry(
             wikidata_ids.update(slug_wikidata.get(slug, set()))
             museum_paths.update(slug_museum.get(slug, set()))
 
-        manual = _manual_slug_to_canonical.get(canonical_slug)
+        manual = _manual_entity(canonical_slug)
         record = entities.setdefault(
             canonical_slug,
             {
@@ -327,7 +365,7 @@ def build_company_entity_registry(
     for slug, count in slug_counts.items():
         canonical = slug_to_canonical.get(slug, _manual_canonical_slug(slug) or slug)
         if canonical not in entities:
-            manual = _manual_slug_to_canonical.get(canonical)
+            manual = _manual_entity(canonical)
             entities[canonical] = {
                 "slug": canonical,
                 "name": (manual or {}).get("name") or pick_display_name(slug_names.get(slug, {slug})),
