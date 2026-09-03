@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export function buildCompaniesListMetadata(): Metadata {
   const data = getCompanyExplorerData();
-  const description = `${companyListIntro(data.stats)}. Filtra por publicadora, desarrolladora, plataforma, género y relevancia en el mercado español.`;
+  const description = `${companyListIntro(data.stats)}. Filtra por función, plataforma, género, tamaño, estado, periodo de actividad y cobertura de precios.`;
   const url = `${getSiteUrl()}/compania`;
 
   return {
