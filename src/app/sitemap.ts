@@ -5,6 +5,7 @@ import {
   getListedGamesWithEsPrice,
 } from "@/lib/catalog-url";
 import { getSiteUrl } from "@/lib/site-url";
+import { getPublicPersonProfiles } from "@/lib/person-public-research";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/plataformas`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/vitrina`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
     { url: `${base}/compania`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${base}/persona`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/genero`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/saga`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
@@ -37,5 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...platformRoutes, ...gameRoutes];
+  const personRoutes: MetadataRoute.Sitemap = getPublicPersonProfiles().map((person) => ({
+    url: `${base}/persona/${person.slug}`,
+    lastModified: new Date(person.lastChecked),
+    changeFrequency: "monthly",
+    priority: person.publicationLevel === "editorial" ? 0.6 : 0.5,
+  }));
+
+  return [...staticRoutes, ...platformRoutes, ...personRoutes, ...gameRoutes];
 }

@@ -1,0 +1,3330 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "slug": "q139902520",
+      "name": "Q139902520",
+      "qid": "Q139902520",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "q139902526",
+      "name": "Q139902526",
+      "qid": "Q139902526",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "q139902531",
+      "name": "Q139902531",
+      "qid": "Q139902531",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "q139902545",
+      "name": "Q139902545",
+      "qid": "Q139902545",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "adam-hines",
+      "name": "Adam Hines",
+      "qid": "Q26837463",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "al-lowe",
+      "name": "Al Lowe",
+      "qid": "Q961560",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "alexander-bruggemann",
+      "name": "Alexander Brüggemann",
+      "qid": "Q93362441",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "alexander-mishulin",
+      "name": "Alexander Mishulin",
+      "qid": "Q137802043",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "anne-laure-fanise",
+      "name": "Anne-Laure Fanise",
+      "qid": "Q62619567",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "arnt-jensen",
+      "name": "Arnt Jensen",
+      "qid": "Q119818764",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "augustine-yip",
+      "name": "Augustine Yip",
+      "qid": "Q96145860",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "brent-oster",
+      "name": "Brent Oster",
+      "qid": "Q96145938",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "bruce-straley",
+      "name": "Bruce Straley",
+      "qid": "Q13656882",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "cabel-sasser",
+      "name": "Cabel Sasser",
+      "qid": "Q88107222",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "carlos-andres-rocha-silva",
+      "name": "Carlos Andres Rocha Silva",
+      "qid": "Q104468486",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "carsten-fichtelmann",
+      "name": "Carsten Fichtelmann",
+      "qid": "Q18018995",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "chris-stamper",
+      "name": "Chris Stamper",
+      "qid": "Q16650381",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "chris-yates",
+      "name": "Chris Yates",
+      "qid": "Q54702411",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "christian-guillemot",
+      "name": "Christian Guillemot",
+      "qid": "Q64215076",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "christophe-sapet",
+      "name": "Christophe Sapet",
+      "qid": "Q106511363",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "christopher-andreasson",
+      "name": "Christopher Andreasson",
+      "qid": "Q77742168",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "christopher-ward",
+      "name": "Christopher Ward",
+      "qid": "Q112088543",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "chuck-brungardt",
+      "name": "Chuck Brungardt",
+      "qid": "Q26267417",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "cliff-bleszinski",
+      "name": "Cliff Bleszinski",
+      "qid": "Q2340255",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "dan-salvato",
+      "name": "Dan Salvato",
+      "qid": "Q127548795",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "david-rosen",
+      "name": "David Rosen",
+      "qid": "Q3018726",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "david-sykes",
+      "name": "David Sykes",
+      "qid": "Q58150391",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "denis-sinner",
+      "name": "Denis Sinner",
+      "qid": "Q68210190",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "dennis-wedin",
+      "name": "Dennis Wedin",
+      "qid": "Q133248568",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "dino-patti",
+      "name": "Dino Patti",
+      "qid": "Q17833819",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "dion-koster",
+      "name": "Dion Koster",
+      "qid": "Q130239163",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "ebba-ljungerud",
+      "name": "Ebba Ljungerud",
+      "qid": "Q61887834",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "eberhard-schmidt",
+      "name": "Eberhard Schmidt",
+      "qid": "Q66480880",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "eikichi-kawasaki",
+      "name": "Eikichi Kawasaki",
+      "qid": "Q3049388",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "eran-egozy",
+      "name": "Eran Egozy",
+      "qid": "Q5384855",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "eric-caen",
+      "name": "Eric Caen",
+      "qid": "Q128214944",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "ferdinando-peretti",
+      "name": "Ferdinando Peretti",
+      "qid": "Q3742651",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "florent-castelnerac",
+      "name": "Florent Castelnérac",
+      "qid": "Q52683422",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "forest-willard",
+      "name": "Forest Willard",
+      "qid": "Q99195304",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "francis-ingrand",
+      "name": "Francis Ingrand",
+      "qid": "Q137596555",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "fredrik-wester",
+      "name": "Fredrik Wester",
+      "qid": "Q6237422",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "frederic-chesnais",
+      "name": "Frédéric Chesnais",
+      "qid": "Q23926445",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "gary-foreman",
+      "name": "Gary Foreman",
+      "qid": "Q140363170",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "glenn-corpes",
+      "name": "Glenn Corpes",
+      "qid": "Q42336711",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "grant-williams",
+      "name": "Grant Williams",
+      "qid": "Q106088308",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "grzegorz-miechowski",
+      "name": "Grzegorz Miechowski",
+      "qid": "Q9281974",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "gerard-guillemot",
+      "name": "Gérard Guillemot",
+      "qid": "Q64215059",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "harold-matson",
+      "name": "Harold Matson",
+      "qid": "Q5661681",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "hashimoto-masaya",
+      "name": "Hashimoto Masaya",
+      "qid": "Q11543962",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "hermen-hulst",
+      "name": "Hermen Hulst",
+      "qid": "Q118363054",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "herve-caen",
+      "name": "Hervé Caen",
+      "qid": "Q128215010",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "ilya-karpinskiy",
+      "name": "Ilya Karpinskiy",
+      "qid": "Q137901459",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "isao-okawa",
+      "name": "Isao Okawa",
+      "qid": "Q11435137",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "ivo-wubbels",
+      "name": "Ivo Wubbels",
+      "qid": "Q138387724",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jamie-king",
+      "name": "Jamie King",
+      "qid": "Q140363019",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jan-kudera",
+      "name": "Jan Kudera",
+      "qid": "Q85625716",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jason-west",
+      "name": "Jason West",
+      "qid": "Q106492937",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jean-louis-petriat",
+      "name": "Jean-Louis Pétriat",
+      "qid": "Q140984979",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jeff-braun",
+      "name": "Jeff Braun",
+      "qid": "Q6173413",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jeff-tunnell",
+      "name": "Jeff Tunnell",
+      "qid": "Q17049083",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jen-oneal",
+      "name": "Jen Oneal",
+      "qid": "Q107815081",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jens-andersson",
+      "name": "Jens Andersson",
+      "qid": "Q115551544",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jeremiah-slaczka",
+      "name": "Jeremiah Slaczka",
+      "qid": "Q6180981",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jim-ryan",
+      "name": "Jim Ryan",
+      "qid": "Q97569309",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "joel-jewett",
+      "name": "Joel Jewett",
+      "qid": "Q112085948",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "john-schappert",
+      "name": "John Schappert",
+      "qid": "Q43380310",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jordan-mechner",
+      "name": "Jordan Mechner",
+      "qid": "Q263175",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "josef-martinovsky",
+      "name": "Josef Martinovsky",
+      "qid": "Q77742316",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "julia-pfiffer",
+      "name": "Julia Pfiffer",
+      "qid": "Q125701378",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "jurjen-katsman",
+      "name": "Jurjen Katsman",
+      "qid": "Q108333487",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "kazuo-hirai",
+      "name": "Kazuo Hirai",
+      "qid": "Q1275691",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "kedhrin-gonzalez",
+      "name": "Kedhrin Gonzalez",
+      "qid": "Q26267419",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "kenji-matsubara",
+      "name": "Kenji Matsubara",
+      "qid": "Q113370804",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "kodera-tsuyoshi",
+      "name": "Kodera Tsuyoshi",
+      "qid": "Q130318147",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "koola",
+      "name": "Koola",
+      "qid": "Q113385458",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "lars-h-barstad",
+      "name": "Lars H. Barstad",
+      "qid": "Q130241022",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "laurent-lichnewsky",
+      "name": "Laurent Lichnewsky",
+      "qid": "Q119088173",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "les-edgar",
+      "name": "Les Edgar",
+      "qid": "Q33978196",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "lori-ann-cole",
+      "name": "Lori Ann Cole",
+      "qid": "Q17467415",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "magnus-gordon-gardeback",
+      "name": "Magnus “Gordon” Gardebäck",
+      "qid": "Q18668488",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "marc-alexander-ullrich",
+      "name": "Marc Alexander Ullrich",
+      "qid": "Q1566532",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "marcus-bromander",
+      "name": "Marcus Bromander",
+      "qid": "Q99195329",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "mariina-hallikainen",
+      "name": "Mariina Hallikainen",
+      "qid": "Q98213456",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "mariona-valls-i-porta",
+      "name": "Mariona Valls i Porta",
+      "qid": "Q125621908",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "martin-kenwright",
+      "name": "Martin Kenwright",
+      "qid": "Q16732046",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "martin-klima",
+      "name": "Martin Klíma",
+      "qid": "Q95163663",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "masamitsu-niitani",
+      "name": "Masamitsu Niitani",
+      "qid": "Q11376306",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "masayuki-kato",
+      "name": "Masayuki Kato",
+      "qid": "Q115791404",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "matt-conn",
+      "name": "Matt Conn",
+      "qid": "Q16204396",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "matt-firor",
+      "name": "Matt Firor",
+      "qid": "Q6788639",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "matthew-smith",
+      "name": "Matthew Smith",
+      "qid": "Q3852276",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "mattias-snygg",
+      "name": "Mattias Snygg",
+      "qid": "Q139908324",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "maurice-sibrandi",
+      "name": "Maurice Sibrandi",
+      "qid": "Q138574269",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "maya-rogers",
+      "name": "Maya Rogers",
+      "qid": "Q16875129",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "michael-hoge",
+      "name": "Michael Hoge",
+      "qid": "Q60834058",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "michael-ruve",
+      "name": "Michael Rüve",
+      "qid": "Q68159536",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "michel-guillemot",
+      "name": "Michel Guillemot",
+      "qid": "Q3309843",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "michiel-sala",
+      "name": "Michiel Sala",
+      "qid": "Q138524996",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "mike-booth",
+      "name": "Mike Booth",
+      "qid": "Q125179312",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "mike-rose",
+      "name": "Mike Rose",
+      "qid": "Q98931717",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "mike-ybarra",
+      "name": "Mike Ybarra",
+      "qid": "Q107815206",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "miros-aw-dymek",
+      "name": "Mirosław Dymek",
+      "qid": "Q65174887",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "naoharu-yamashina",
+      "name": "Naoharu Yamashina",
+      "qid": "Q56745963",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "nels-anderson",
+      "name": "Nels Anderson",
+      "qid": "Q27923747",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "nicolas-cannasse",
+      "name": "Nicolas Cannasse",
+      "qid": "Q117042770",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "nobuo-inaba",
+      "name": "Nobuo Inaba",
+      "qid": "Q115605150",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "noirin-carmody",
+      "name": "Noirin Carmody",
+      "qid": "Q58150439",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "oleg-shpilchevsky",
+      "name": "Oleg Shpilchevsky",
+      "qid": "Q137802032",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "olof-gustafsson",
+      "name": "Olof Gustafsson",
+      "qid": "Q7088472",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "patrice-desilets",
+      "name": "Patrice Désilets",
+      "qid": "Q604942",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "patrick-buckland",
+      "name": "Patrick Buckland",
+      "qid": "Q7146164",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "paul-thelen",
+      "name": "Paul Thelen",
+      "qid": "Q7153969",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "peter-de-jong",
+      "name": "Peter de Jong",
+      "qid": "Q138574289",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "petr-vochozka",
+      "name": "Petr Vochozka",
+      "qid": "Q85625772",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "phil-robb",
+      "name": "Phil Robb",
+      "qid": "Q104390940",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "raoul-pal",
+      "name": "Raoul Pal",
+      "qid": "Q136002342",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "raph-koster",
+      "name": "Raph Koster",
+      "qid": "Q718514",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "rebekah-saltsman",
+      "name": "Rebekah Saltsman",
+      "qid": "Q125116597",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "riccardo-cangini",
+      "name": "Riccardo Cangini",
+      "qid": "Q3934393",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "ruud-van-de-moosdijk",
+      "name": "Ruud van de Moosdijk",
+      "qid": "Q138387725",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "ryan-ashley-brant",
+      "name": "Ryan Ashley Brant",
+      "qid": "Q119933903",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "ryoichi-ueda",
+      "name": "Ryoichi Ueda",
+      "qid": "Q20038867",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "samuli-syvahuoko",
+      "name": "Samuli Syvähuoko",
+      "qid": "Q23040945",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "sean-krankel",
+      "name": "Sean Krankel",
+      "qid": "Q26837438",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "sebastian-wloch",
+      "name": "Sebastian Wloch",
+      "qid": "Q120002645",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "sebastian-wojciechowski",
+      "name": "Sebastian Wojciechowski",
+      "qid": "Q18067701",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "sefton-hill",
+      "name": "Sefton Hill",
+      "qid": "Q20863157",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "senne-de-jong",
+      "name": "Senne de Jong",
+      "qid": "Q138526143",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "shuhei-yoshida",
+      "name": "Shuhei Yoshida",
+      "qid": "Q11413590",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "simon-flesser",
+      "name": "Simon Flesser",
+      "qid": "Q18668485",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "stefan-gagne",
+      "name": "Stefan Gagne",
+      "qid": "Q89292993",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "stephen-chaplin",
+      "name": "Stephen Chaplin",
+      "qid": "Q131758161",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "steve-gaynor",
+      "name": "Steve Gaynor",
+      "qid": "Q16230614",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "steven-frank",
+      "name": "Steven Frank",
+      "qid": "Q7614717",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "stewart-gilray",
+      "name": "Stewart Gilray",
+      "qid": "Q110451924",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "stine-w-rn",
+      "name": "Stine Wærn",
+      "qid": "Q115861817",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "stephane-roussel",
+      "name": "Stéphane Roussel",
+      "qid": "Q3502060",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "sylvain-passot",
+      "name": "Sylvain Passot",
+      "qid": "Q26257638",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "sebastien-benard",
+      "name": "Sébastien Bénard",
+      "qid": "Q62393772",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "tanya-jessen",
+      "name": "Tanya Jessen",
+      "qid": "Q55004332",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "tatsuya-minami",
+      "name": "Tatsuya Minami",
+      "qid": "Q11354158",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "tero-virtala",
+      "name": "Tero Virtala",
+      "qid": "Q125799651",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "terry-donovan",
+      "name": "Terry Donovan",
+      "qid": "Q140363159",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "tim-remmers",
+      "name": "Tim Remmers",
+      "qid": "Q130239119",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "tim-stamper",
+      "name": "Tim Stamper",
+      "qid": "Q10698108",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "tinka-town",
+      "name": "Tinka Town",
+      "qid": "Q60176826",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "tohru-narihiro",
+      "name": "Tohru Narihiro",
+      "qid": "Q3530395",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "tom-putzki",
+      "name": "Tom Putzki",
+      "qid": "Q117202142",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "tomas-sala",
+      "name": "Tomas Sala",
+      "qid": "Q130239913",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "toshihiro-kondo",
+      "name": "Toshihiro Kondo",
+      "qid": "Q115791481",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "toshiki-kawai",
+      "name": "Toshiki Kawai",
+      "qid": "Q30924570",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "trent-oster",
+      "name": "Trent Oster",
+      "qid": "Q96145866",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "tsuguhiko-kadokawa",
+      "name": "Tsuguhiko Kadokawa",
+      "qid": "Q9341844",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "viv",
+      "name": "Viv",
+      "qid": "Q113385765",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "wes-keltner",
+      "name": "Wes Keltner",
+      "qid": "Q26267446",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP",
+        "NO_OCCUPATION"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "yannis-bolman",
+      "name": "Yannis Bolman",
+      "qid": "Q138525804",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE",
+        "NO_COUNTRY_OR_CITIZENSHIP"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "yasumi-matsuno",
+      "name": "Yasumi Matsuno",
+      "qid": "Q2706773",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_COMPANY_OR_WORK_LINK",
+        "CURATED_SEED_NOT_MANUALLY_REVIEWED"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "yasuyoshi-tokuma",
+      "name": "Yasuyoshi Tokuma",
+      "qid": "Q11071898",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "yoan-fanise",
+      "name": "Yoan Fanise",
+      "qid": "Q62619406",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT",
+        "NO_BIRTH_DATE"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "yoshihito-kakihara",
+      "name": "Yoshihito Kakihara",
+      "qid": "Q11534986",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    },
+    {
+      "slug": "eric-viennot",
+      "name": "Éric Viennot",
+      "qid": "Q3591397",
+      "confidence": "MEDIUM",
+      "reasons": [
+        "NO_WIKIPEDIA_CONTEXT"
+      ],
+      "visibility": "blocked"
+    }
+  ],
+  "unresolvedMentions": [
+    {
+      "mention_id": "PMEN-0001",
+      "company_slug": "atlus",
+      "company_name": "Atlus Co Ltd.",
+      "raw_mention": "SEGA",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Atlus",
+      "confidence": "LOW",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0002",
+      "company_slug": "ocean",
+      "company_name": "Ocean",
+      "raw_mention": "David Ward y Jon Woods",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Ocean_Software",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0003",
+      "company_slug": "jaleco",
+      "company_name": "Jaleco",
+      "raw_mention": "Yoshiaki Kanazawa, antes de ser renombrada simplemente como Jaleco a principios de la década de 1980",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Jaleco",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0004",
+      "company_slug": "arc-system-works",
+      "company_name": "Arc System Works",
+      "raw_mention": "Minoru Kidooka en el año 1988 en la ciudad de Yokohama, Japón",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Arc_System_Works",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0005",
+      "company_slug": "jaleco-entertainment",
+      "company_name": "Jaleco Entertainment",
+      "raw_mention": "Yoshiaki Kanazawa, antes de ser renombrada simplemente como Jaleco a principios de la década de 1980",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Jaleco",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0006",
+      "company_slug": "genki",
+      "company_name": "Genki",
+      "raw_mention": "Hiroshi Hamagaki y Tomo Kimura, quienes dejaron Sega para formar la empresa",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Genki",
+      "confidence": "LOW",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0007",
+      "company_slug": "imagineer",
+      "company_name": "Imagineer",
+      "raw_mention": "Allan Jaenicke and Philip McLauchlan",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Imagineer_Systems",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0008",
+      "company_slug": "outright-games",
+      "company_name": "Outright Games LTD",
+      "raw_mention": "Terry Malham as well as his children, Terry Malham-Wallis and Stephanie Malham",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Outright_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0009",
+      "company_slug": "digital-pictures",
+      "company_name": "Digital Pictures",
+      "raw_mention": "Lode Coen, Mark Klein, Ken Melville, Anne Flaut-Reed, Kevin Welsh and Tom Zito",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Digital_Pictures",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0010",
+      "company_slug": "phoenix-games",
+      "company_name": "Phoenix Games Ltd.",
+      "raw_mention": "Willie Horden, Paul Share and Steve Share",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Phoenix_Games_B.V.",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0011",
+      "company_slug": "crave-entertainment",
+      "company_name": "Crave Entertainment",
+      "raw_mention": "Nima Taghavi",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/Crave_Entertainment",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0012",
+      "company_slug": "domark",
+      "company_name": "Domark",
+      "raw_mention": "Mark Strachan and Dominic Wheatley",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Eidos_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0013",
+      "company_slug": "park-place-productions",
+      "company_name": "Park Place Productions",
+      "raw_mention": "Michael Knox, Troy Lyndon and Stephen Quinn",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Park_Place_Productions",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0014",
+      "company_slug": "code-monkeys",
+      "company_name": "The Code Monkeys",
+      "raw_mention": "Colin Hogg, Mark Kirkby and Elliot Gay",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/The_Code_Monkeys",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0015",
+      "company_slug": "techland",
+      "company_name": "Techland",
+      "raw_mention": "Paweł Marchewka",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/Techland",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0016",
+      "company_slug": "aksys",
+      "company_name": "Aksys",
+      "raw_mention": "Akibo Shieh​ en Torrance, California el 14 de julio de 2006",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Aksys_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0017",
+      "company_slug": "enix-corporation",
+      "company_name": "Enix Corporation",
+      "raw_mention": "Yasuhiro Fukushima, y a partir de 1982 se centró en el desarrollo de videojuegos",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Enix_(empresa)",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0018",
+      "company_slug": "system-3",
+      "company_name": "System 3",
+      "raw_mention": "Mark Cale",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/System_3",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0019",
+      "company_slug": "american-video-entertainment",
+      "company_name": "American Video Entertainment",
+      "raw_mention": "Macronix",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/American_Video_Entertainment",
+      "confidence": "LOW",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0020",
+      "company_slug": "aspyr",
+      "company_name": "Aspyr",
+      "raw_mention": "Michael Rogers y Ted Staloch en Austin, Texas",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Aspyr_Media",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0021",
+      "company_slug": "serenity-forge",
+      "company_name": "Serenity Forge",
+      "raw_mention": "Zhenghua \"Z\" Yang",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Serenity_Forge",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0022",
+      "company_slug": "dtp-entertainment",
+      "company_name": "DTP Entertainment",
+      "raw_mention": "Thomas Baur y ubicado en Hamburgo",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/DTP_Entertainment",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0023",
+      "company_slug": "kaneko",
+      "company_name": "Kaneko",
+      "raw_mention": "Hiroshi Kaneko",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Kaneko",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0024",
+      "company_slug": "saber-interactive",
+      "company_name": "Saber Interactive Inc",
+      "raw_mention": "Andrey Iones, Matthew Karch y Anton Krupkin",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Saber_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0025",
+      "company_slug": "ea-bright-light",
+      "company_name": "EA Bright Light",
+      "raw_mention": "Electronic Arts",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/EA_Bright_Light",
+      "confidence": "LOW",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0026",
+      "company_slug": "nicalis",
+      "company_name": "Nicalis",
+      "raw_mention": "Tyrone Rodriguez,​ exeditor de IGN",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Nicalis",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0027",
+      "company_slug": "kylotonn",
+      "company_name": "Kylotonn",
+      "raw_mention": "Roman Vincent y Yann Tambellini",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Kylotonn",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0028",
+      "company_slug": "luxoflux",
+      "company_name": "Luxoflux",
+      "raw_mention": "Peter Morawiec y Adrian Stephens en enero de 1997, y estuvo localizada en Santa Mónica, California",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Luxoflux",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0029",
+      "company_slug": "clover-studio",
+      "company_name": "Clover Studio",
+      "raw_mention": "Capcom Japón",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Clover_Studio",
+      "confidence": "LOW",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0030",
+      "company_slug": "eidos-montreal",
+      "company_name": "Eidos Montreal",
+      "raw_mention": "Eidos Interactive",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Eidos_Montr%C3%A9al",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0031",
+      "company_slug": "ocean-software",
+      "company_name": "Ocean Software",
+      "raw_mention": "David Ward y Jon Woods",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Ocean_Software",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0032",
+      "company_slug": "page-44-studios",
+      "company_name": "Page 44 Studios",
+      "raw_mention": "General Manager Steven Apour and Director of Development Denis Fung",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Page_44_Studios",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0033",
+      "company_slug": "sucker-punch-productions",
+      "company_name": "Sucker Punch Productions",
+      "raw_mention": "Brian Fleming, Bruce Oberg, Darrell Plank, Tom y Cathy Saxton y Chris Zimmerman",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Sucker_Punch_Productions",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0034",
+      "company_slug": "zipper-interactive",
+      "company_name": "Zipper Interactive",
+      "raw_mention": "Jim Bosler y Brian Soderberg",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Zipper_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0035",
+      "company_slug": "crave",
+      "company_name": "Crave",
+      "raw_mention": "Nima Taghavi",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/Crave_Entertainment",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0036",
+      "company_slug": "ea-uk",
+      "company_name": "EA UK",
+      "raw_mention": "Electronic Arts",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/EA_Bright_Light",
+      "confidence": "LOW",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0037",
+      "company_slug": "n-space",
+      "company_name": "n-Space",
+      "raw_mention": "Eric S",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/N-Space",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0038",
+      "company_slug": "ninja-theory",
+      "company_name": "Ninja Theory",
+      "raw_mention": "Argonaut Games, a finales del 2004",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Ninja_Theory",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0039",
+      "company_slug": "aksys-games",
+      "company_name": "Aksys Games",
+      "raw_mention": "Akibo Shieh​ en Torrance, California el 14 de julio de 2006",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Aksys_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0040",
+      "company_slug": "bloober-team",
+      "company_name": "Bloober Team",
+      "raw_mention": "Piotr Babieno y Piotr Bielatowicz",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Bloober_Team",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0041",
+      "company_slug": "headup-games",
+      "company_name": "HeadUp Games",
+      "raw_mention": "Dieter Schoeller, who serves as its managing director and owns the company under Microcuts Holding",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Headup_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0042",
+      "company_slug": "sales-curve",
+      "company_name": "The Sales Curve",
+      "raw_mention": "Jane Cavanagh y cotizó en bolsa",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/SCi_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0043",
+      "company_slug": "eden-studios",
+      "company_name": "Eden Studios",
+      "raw_mention": "George Vasilakos, M",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Eden_Studios_(game_publisher)",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0044",
+      "company_slug": "ukiyotei",
+      "company_name": "Ukiyotei",
+      "raw_mention": "Kenshi Naruse, who served as its representative director",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Ukiyotei",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0045",
+      "company_slug": "krisalis-software",
+      "company_name": "Krisalis Software",
+      "raw_mention": "Tony Kavanagh, Peter Harrap, and Shaun Hollingworth",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Krisalis_Software",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0046",
+      "company_slug": "melbourne-house",
+      "company_name": "Melbourne House",
+      "raw_mention": "Alfred Milgrom and Naomi Besen and based in Melbourne, Australia",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Beam_Software",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0047",
+      "company_slug": "genius-sonority",
+      "company_name": "Genius Sonority Inc",
+      "raw_mention": "Nintendo y The Pokémon Company",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Genius_Sonority",
+      "confidence": "LOW",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0048",
+      "company_slug": "readysoft",
+      "company_name": "Readysoft",
+      "raw_mention": "David Foster, based in Ontario, Canada",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/ReadySoft",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0049",
+      "company_slug": "sci-games",
+      "company_name": "SCi Games Ltd.",
+      "raw_mention": "Jane Cavanagh y cotizó en bolsa",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/SCi_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0050",
+      "company_slug": "sproing-interactive-media",
+      "company_name": "Sproing Interactive Media",
+      "raw_mention": "Harald Riegler and Gerhard Seiler",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Sproing_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0051",
+      "company_slug": "bam-entertainment",
+      "company_name": "BAM! Entertainment",
+      "raw_mention": "Ray Musci in October 1999",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/BAM!_Entertainment",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0052",
+      "company_slug": "kodansha",
+      "company_name": "Kodansha",
+      "raw_mention": "Seiji Noma",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/K%C5%8Ddansha",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0053",
+      "company_slug": "kronos-digital-entertainment",
+      "company_name": "Kronos Digital Entertainment",
+      "raw_mention": "Stan Liu",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Kronos_Digital_Entertainment",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0054",
+      "company_slug": "rainbow-arts",
+      "company_name": "Rainbow Arts",
+      "raw_mention": "Marc Ullrich y Thomas Meiertoberens y adquirida por Rushware",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Rainbow_Arts",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0055",
+      "company_slug": "thinking-rabbit",
+      "company_name": "Thinking Rabbit",
+      "raw_mention": "Hiroyuki Imabayashi",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Thinking_Rabbit",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0056",
+      "company_slug": "tokyo-rpg-factory",
+      "company_name": "Tokyo RPG Factory",
+      "raw_mention": "Yosuke Matsuda, who became president of Square Enix",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Tokyo_RPG_Factory",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0057",
+      "company_slug": "zono",
+      "company_name": "Zono",
+      "raw_mention": "Ed Zobrist and William Novak, originally located in Costa Mesa, California",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Zono",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0058",
+      "company_slug": "dreamcatcher-interactive",
+      "company_name": "DreamCatcher Interactive",
+      "raw_mention": "Richard Wah Kan",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/DreamCatcher_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0059",
+      "company_slug": "gaijinworks",
+      "company_name": "Gaijinworks",
+      "raw_mention": "Victor Ireland in July 2006",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Gaijinworks",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0060",
+      "company_slug": "lankhor",
+      "company_name": "Lankhor",
+      "raw_mention": "Jean-Luc Langlois and Kyilkohr",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Lankhor",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0061",
+      "company_slug": "mega-cat-studios",
+      "company_name": "Mega Cat Studios",
+      "raw_mention": "James Deighan, Nick Mann y Zack Manko",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Mega_Cat_Studios",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0062",
+      "company_slug": "pathea-games",
+      "company_name": "Pathea Games",
+      "raw_mention": "Zifei Wu, who also serves as the creative director",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Pathea_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0063",
+      "company_slug": "psyonix",
+      "company_name": "Psyonix",
+      "raw_mention": "Dave Hagewood con el equipo de su empresa centrada en Internet WebSite Machines",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/Psyonix",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0064",
+      "company_slug": "team-cherry",
+      "company_name": "Team Cherry",
+      "raw_mention": "Ari Gibson y William Pellen",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Team_Cherry",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0065",
+      "company_slug": "the-code-monkeys",
+      "company_name": "The Code Monkeys",
+      "raw_mention": "Colin Hogg, Mark Kirkby and Elliot Gay",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/The_Code_Monkeys",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0066",
+      "company_slug": "bmg-interactive-entertainment",
+      "company_name": "BMG Interactive Entertainment",
+      "raw_mention": "BMG and closed",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/BMG_Interactive",
+      "confidence": "LOW",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0067",
+      "company_slug": "choice-provisions",
+      "company_name": "Choice Provisions",
+      "raw_mention": "Alex Neuse, Mike Roush, and Chris Osborn and is located in Santa Cruz, California",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Choice_Provisions",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0068",
+      "company_slug": "creatures-inc",
+      "company_name": "Creatures Inc.",
+      "raw_mention": "Tsunekazu Ishihara en noviembre de 1995, como sucesora de la compañía Ape Inc",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Creatures_(compa%C3%B1%C3%ADa)",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0069",
+      "company_slug": "nihon-telenet",
+      "company_name": "Nihon Telenet",
+      "raw_mention": "Kazuyuki Fukushima",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/Telenet_Japan",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0070",
+      "company_slug": "nippon-telenet",
+      "company_name": "Nippon Telenet",
+      "raw_mention": "Kazuyuki Fukushima",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/Telenet_Japan",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0071",
+      "company_slug": "playlogic-entertainment",
+      "company_name": "Playlogic Entertainment",
+      "raw_mention": "Rogier Smit",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Playlogic_Entertainment",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0072",
+      "company_slug": "runner-duck",
+      "company_name": "Runner Duck",
+      "raw_mention": "Dave Miller and Jon Wingrove",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Runner_Duck",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0073",
+      "company_slug": "sega-of-america",
+      "company_name": "SEGA of America",
+      "raw_mention": "Martin Bromley and Richard Stewart as Nihon Goraku Bussan on June 3, 1960",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Sega",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0074",
+      "company_slug": "shiro-games",
+      "company_name": "Shiro Games",
+      "raw_mention": "Sebastien Vidal and Nicolas Cannasse, and developed the Evoland series and Dune: Spice Wars",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Shiro_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0075",
+      "company_slug": "size-five-games",
+      "company_name": "Size Five Games",
+      "raw_mention": "Dan Marshall",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Size_Five_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0076",
+      "company_slug": "steel-wool-studios",
+      "company_name": "Steel Wool Studios",
+      "raw_mention": "Sequoia Blankenship, Andrew Dayton, Jonathan Hoffman, Joshua Qualtieri and Jason Topolski",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Steel_Wool_Studios",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0077",
+      "company_slug": "super-rare-games",
+      "company_name": "Super Rare Games",
+      "raw_mention": "George Perkins and is currently led by Perkins, Stuart Townsend, Verity Murphy, and Lindsey Reed",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Super_Rare_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0078",
+      "company_slug": "valcon-games",
+      "company_name": "Valcon Games",
+      "raw_mention": "Colin Gordon and Glenn Halseth, formerly of Kemco",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Valcon_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0079",
+      "company_slug": "wicked-witch-software",
+      "company_name": "Wicked Witch Software",
+      "raw_mention": "Daniel Visser",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Wicked_Workshop",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0080",
+      "company_slug": "17-bit",
+      "company_name": "17-BIT",
+      "raw_mention": "Jake Kazdal, exdesarrollador de Sega, que quería hacer juegos con una estética de la era de 16 bits",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/17-Bit",
+      "confidence": "LOW",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0081",
+      "company_slug": "atooi",
+      "company_name": "Atooi",
+      "raw_mention": "Gregg Hargrove and Jools Watsham, video game development veterans formerly of Iguana Entertainment",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Renegade_Kid",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0082",
+      "company_slug": "big-red-software",
+      "company_name": "Big Red Software",
+      "raw_mention": "Paul Ranson in October 1989",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Big_Red_Software",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0083",
+      "company_slug": "dreamcatcher-games",
+      "company_name": "DreamCatcher Games",
+      "raw_mention": "Richard Wah Kan",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/DreamCatcher_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0084",
+      "company_slug": "ftl",
+      "company_name": "FTL",
+      "raw_mention": "Wayne Holder",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/FTL_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0085",
+      "company_slug": "gaijin-games",
+      "company_name": "Gaijin Games",
+      "raw_mention": "Alex Neuse, Mike Roush, and Chris Osborn and is located in Santa Cruz, California",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Choice_Provisions",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0086",
+      "company_slug": "givro",
+      "company_name": "Givro",
+      "raw_mention": "Takashi Yoneda en Tokio",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/Givro_Corporation",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0087",
+      "company_slug": "headup",
+      "company_name": "Headup",
+      "raw_mention": "Dieter Schoeller, who serves as its managing director and owns the company under Microcuts Holding",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Headup_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0088",
+      "company_slug": "heart-machine",
+      "company_name": "Heart Machine",
+      "raw_mention": "Alx Preston",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Heart_Machine",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0089",
+      "company_slug": "hewson-consultants",
+      "company_name": "Hewson Consultants",
+      "raw_mention": "Andrew Hewson in the early 1980s",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Hewson_Consultants",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0090",
+      "company_slug": "iceflake-studios",
+      "company_name": "Iceflake Studios",
+      "raw_mention": "Paradox Interactive",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Iceflake_Studios",
+      "confidence": "LOW",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0091",
+      "company_slug": "image-space-incorporated",
+      "company_name": "Image Space Incorporated",
+      "raw_mention": "Kurt Kleinsorge, quien agregó socios Joseph Campana y Gjon Camaj",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Image_Space_Incorporated",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0092",
+      "company_slug": "jowood-entertainment-ag",
+      "company_name": "JoWooD Entertainment AG",
+      "raw_mention": "Andreas Tobler y dirigida actualmente por Franz Rossler",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/JoWooD_Entertainment",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0093",
+      "company_slug": "kt-racing",
+      "company_name": "KT Racing",
+      "raw_mention": "Roman Vincent y Yann Tambellini",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Kylotonn",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0094",
+      "company_slug": "lillymo-games",
+      "company_name": "Lillymo Games",
+      "raw_mention": "Barry Johnson",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Lillymo_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0095",
+      "company_slug": "neon-giant",
+      "company_name": "Neon Giant",
+      "raw_mention": "Tor Frick, Arcade Berg, Jonathan Heckley and Erik Gloersen",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Neon_Giant",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0096",
+      "company_slug": "new-blood-interactive",
+      "company_name": "New Blood Interactive",
+      "raw_mention": "Aaron Alexander, Kreyg DeZago, and Dave Oshry",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/New_Blood_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0097",
+      "company_slug": "new-world-interactive",
+      "company_name": "New World Interactive",
+      "raw_mention": "Andrew Spearin and Jeremy Blum",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/New_World_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0098",
+      "company_slug": "people-can-fly",
+      "company_name": "People Can Fly",
+      "raw_mention": "Adrian Chmielarz y localizada en Varsovia, Polonia",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/People_Can_Fly",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0099",
+      "company_slug": "pubg",
+      "company_name": "PUBG",
+      "raw_mention": "Chang Byung-gyu in Seoul in March 2007, and its subsidiaries",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Krafton",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0100",
+      "company_slug": "red-barrels",
+      "company_name": "Red Barrels",
+      "raw_mention": "David Chateauneuf, Hugo Dallaire y Philippe Morin, en junio de 2011",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Red_Barrels",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0101",
+      "company_slug": "slipgate-ironworks",
+      "company_name": "Slipgate Ironworks",
+      "raw_mention": "Frederik Schreiber",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Slipgate_Ironworks",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0102",
+      "company_slug": "snapdragon-games",
+      "company_name": "SnapDragon Games",
+      "raw_mention": "Christian von Duisburg in October 2005",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/SnapDragon_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0103",
+      "company_slug": "snapshot-games",
+      "company_name": "Snapshot Games",
+      "raw_mention": "Julian Gollop and David Kaye",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Snapshot_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0104",
+      "company_slug": "talonsoft",
+      "company_name": "Talonsoft",
+      "raw_mention": "Jim Rose y John Davidson",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/TalonSoft",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0105",
+      "company_slug": "telenet",
+      "company_name": "Telenet Japan",
+      "raw_mention": "Kazuyuki Fukushima",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/Telenet_Japan",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0106",
+      "company_slug": "two-point-studios",
+      "company_name": "Two Point Studios",
+      "raw_mention": "Ben Hymers, Mark Webley y Gary Carr",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Two_Point_Studios",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0107",
+      "company_slug": "universal-interactive",
+      "company_name": "Universal Interactive",
+      "raw_mention": "Skip Paul y Robert Biniaz de MCA el 4 de enero de 1994",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Universal_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0108",
+      "company_slug": "universal-interactive-studios",
+      "company_name": "Universal Interactive Studios",
+      "raw_mention": "Skip Paul y Robert Biniaz de MCA el 4 de enero de 1994",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Universal_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0109",
+      "company_slug": "valcon",
+      "company_name": "Valcon",
+      "raw_mention": "Colin Gordon and Glenn Halseth, formerly of Kemco",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Valcon_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0110",
+      "company_slug": "white-birds-productions",
+      "company_name": "White Birds Productions",
+      "raw_mention": "Benoît Sokal, Olivier Fontenay, Jean-Philippe Messian and Michel Bams in August 2003",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/White_Birds_Productions",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0111",
+      "company_slug": "alphadream",
+      "company_name": "AlphaDream",
+      "raw_mention": "Tetsuo Mizuno y Chihiro Fujioka en Tokio, Japón",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/AlphaDream",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0112",
+      "company_slug": "big-five-software",
+      "company_name": "Big Five Software",
+      "raw_mention": "Bill Hogue and Jeff Konyu",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Big_Five_Software",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0113",
+      "company_slug": "bigmoon-entertainment",
+      "company_name": "Bigmoon Entertainment",
+      "raw_mention": "Paulo J",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Saber_Porto",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0114",
+      "company_slug": "black-rock-studio",
+      "company_name": "Black Rock Studio",
+      "raw_mention": "Tony Beckwith",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/Black_Rock_Studio",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0115",
+      "company_slug": "blitworks-games",
+      "company_name": "Blitworks Games",
+      "raw_mention": "Swen Vincke",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Larian_Studios",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0116",
+      "company_slug": "comptons-new-media",
+      "company_name": "Compton's New Media",
+      "raw_mention": "Kevin O'Leary",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/SoftKey",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0117",
+      "company_slug": "curve",
+      "company_name": "Curve",
+      "raw_mention": "Jason Perkins",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Curve_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0118",
+      "company_slug": "digital-happiness",
+      "company_name": "Digital Happiness",
+      "raw_mention": "Rachmad Imron",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Digital_Happiness",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0119",
+      "company_slug": "dtp-entertainment-ag",
+      "company_name": "dtp entertainment AG",
+      "raw_mention": "Thomas Baur y ubicado en Hamburgo",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/DTP_Entertainment",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0120",
+      "company_slug": "frozen-codebase",
+      "company_name": "Frozen Codebase",
+      "raw_mention": "Ben Geisler",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Frozen_Codebase",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0121",
+      "company_slug": "ftl-games",
+      "company_name": "FTL Games",
+      "raw_mention": "Wayne Holder",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://es.wikipedia.org/wiki/FTL_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0122",
+      "company_slug": "gamenauts",
+      "company_name": "Gamenauts",
+      "raw_mention": "Stanley Adrianus",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Gamenauts",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0123",
+      "company_slug": "good-feel",
+      "company_name": "Good-Feel",
+      "raw_mention": "Etsunobu Ebisu, un exempleado de Konami el 10 de marzo de 2005",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Good-Feel",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0124",
+      "company_slug": "grove-street-games",
+      "company_name": "Grove Street Games",
+      "raw_mention": "Thomas Williamson y Michael Owen",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Grove_Street_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0125",
+      "company_slug": "jarhead-games",
+      "company_name": "Jarhead Games",
+      "raw_mention": "Russ Bullock, President and Executive Producer, and Bryan Ekman, VP and Creative Director",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Piranha_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0126",
+      "company_slug": "jowood",
+      "company_name": "JoWood",
+      "raw_mention": "Andreas Tobler y dirigida actualmente por Franz Rossler",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/JoWooD_Entertainment",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0127",
+      "company_slug": "krisalis",
+      "company_name": "Krisalis",
+      "raw_mention": "Tony Kavanagh, Peter Harrap, and Shaun Hollingworth",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Krisalis_Software",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0128",
+      "company_slug": "lucky-chicken-games",
+      "company_name": "Lucky Chicken Games",
+      "raw_mention": "Jamie Ottilie, Matt Saia and Jonnathan Hilliard",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Lucky_Chicken_Games",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0129",
+      "company_slug": "playlogic-international-n-v",
+      "company_name": "Playlogic International N.V",
+      "raw_mention": "Rogier Smit",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Playlogic_Entertainment",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0130",
+      "company_slug": "renovation-products",
+      "company_name": "Renovation Products",
+      "raw_mention": "Kazuyuki Fukushima",
+      "classification": "UNRESOLVED_PERSON_NAME",
+      "source_url": "https://en.wikipedia.org/wiki/Telenet_Japan",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0131",
+      "company_slug": "saber",
+      "company_name": "Saber",
+      "raw_mention": "Andrey Iones, Matthew Karch y Anton Krupkin",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://es.wikipedia.org/wiki/Saber_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0132",
+      "company_slug": "sproing",
+      "company_name": "sproing",
+      "raw_mention": "Harald Riegler and Gerhard Seiler",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Sproing_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0133",
+      "company_slug": "sproing-interactive",
+      "company_name": "Sproing Interactive",
+      "raw_mention": "Harald Riegler and Gerhard Seiler",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Sproing_Interactive",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0134",
+      "company_slug": "steel-wool-games",
+      "company_name": "Steel Wool Games",
+      "raw_mention": "Sequoia Blankenship, Andrew Dayton, Jonathan Hoffman, Joshua Qualtieri and Jason Topolski",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Steel_Wool_Studios",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0135",
+      "company_slug": "synthetic-dimensions",
+      "company_name": "Synthetic Dimensions",
+      "raw_mention": "Kevin Bulmer and his partner Kate Copestake and closed",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Synthetic_Dimensions",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0136",
+      "company_slug": "transgaming-technologies",
+      "company_name": "Transgaming Technologies",
+      "raw_mention": "Gavriel State, who ran the Linux product division at Corel",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Findev",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0137",
+      "company_slug": "universomo",
+      "company_name": "Universomo",
+      "raw_mention": "THQ on May 9, 2007",
+      "classification": "NON_HUMAN_ORGANIZATION_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/Universomo",
+      "confidence": "LOW",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    },
+    {
+      "mention_id": "PMEN-0138",
+      "company_slug": "vir2l-studios",
+      "company_name": "Vir2L Studios",
+      "raw_mention": "Christopher Weaver and Robert A",
+      "classification": "COMPOSITE_TEXT_MENTION",
+      "source_url": "https://en.wikipedia.org/wiki/ZeniMax_Media",
+      "confidence": "MEDIUM",
+      "requires_review": true,
+      "recommended_action": "Separar nombres, comprobar que cada candidato es una persona y asignar QID antes de crear perfiles."
+    }
+  ]
+}

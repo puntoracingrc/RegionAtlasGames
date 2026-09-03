@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Database } from "lucide-react";
+import { Database, UsersRound } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { AdminSeriesPanel } from "@/components/admin/admin-series-panel";
 import { AdminFunctionCard, AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
@@ -1353,10 +1353,16 @@ export function AdminEntitiesPanel({
                   : `Géneros (${visibleGenres.length}/${genres.length})`}
             </PanelTitle>
             {tab === "companies" && (
-              <Link href="/admin/entidades/investigacion" className="btn-secondary px-3 py-2 text-xs">
-                <Database className="h-4 w-4" aria-hidden="true" />
-                Investigación
-              </Link>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/admin/entidades/investigacion" className="btn-secondary gap-2 px-3 py-2 text-xs">
+                  <Database className="h-4 w-4" aria-hidden="true" />
+                  Investigación
+                </Link>
+                <Link href="/admin/entidades/personas" className="btn-secondary gap-2 px-3 py-2 text-xs">
+                  <UsersRound className="h-4 w-4" aria-hidden="true" />
+                  Personas
+                </Link>
+              </div>
             )}
           </div>
           <div className="rounded-2xl border border-border bg-background/45 p-4">
