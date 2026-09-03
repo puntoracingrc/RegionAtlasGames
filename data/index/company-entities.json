@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-02T12:00:00+02:00",
+  "generatedAt": "2026-09-03T06:03:22Z",
   "stats": {
-    "entities": 4243,
-    "aliases": 246,
-    "autoNormalized": 150,
+    "entities": 4321,
+    "aliases": 168,
+    "autoNormalized": 140,
     "autoWikidata": 0,
     "autoMuseum": 0
   },
@@ -807,19 +807,17 @@
     },
     "acclaim": {
       "slug": "acclaim",
-      "name": "Acclaim Japan",
-      "mergeMethod": "normalized",
-      "aliasSlugs": [
-        "acclaim-japan"
-      ],
+      "name": "Acclaim Entertainment",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
       "aliasNames": [
-        "Acclaim"
+        "Acclaim",
+        "Acclaim Japan"
       ],
       "wikidataIds": [],
       "museumPaths": [
         "/desarrolladoras-de-software/acclaim",
-        "/publicadoras-de-juegos/acclaim",
-        "/publicadoras-de-juegos/acclaim-japan"
+        "/publicadoras-de-juegos/acclaim"
       ]
     },
     "acclaim-entertainment": {
@@ -841,6 +839,17 @@
       "aliasNames": [],
       "wikidataIds": [],
       "museumPaths": []
+    },
+    "acclaim-japan": {
+      "slug": "acclaim-japan",
+      "name": "Acclaim Japan",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": [
+        "/publicadoras-de-juegos/acclaim-japan"
+      ]
     },
     "acclaim-max-sports": {
       "slug": "acclaim-max-sports",
@@ -1040,18 +1049,8 @@
       "slug": "activision",
       "name": "Activision",
       "mergeMethod": "manual",
-      "aliasSlugs": [
-        "activision-blizzard",
-        "activision-o2",
-        "activision-publishing",
-        "activision-value"
-      ],
-      "aliasNames": [
-        "Activision Blizzard",
-        "Activision O2",
-        "Activision Publishing",
-        "Activision Value"
-      ],
+      "aliasSlugs": [],
+      "aliasNames": [],
       "wikidataIds": [
         "Q200491"
       ],
@@ -1059,6 +1058,42 @@
         "/desarrolladoras-de-software/activision",
         "/publicadoras-de-juegos/activision"
       ]
+    },
+    "activision-blizzard": {
+      "slug": "activision-blizzard",
+      "name": "Activision Blizzard",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "activision-o2": {
+      "slug": "activision-o2",
+      "name": "Activision O2",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "activision-publishing": {
+      "slug": "activision-publishing",
+      "name": "Activision Publishing",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "activision-value": {
+      "slug": "activision-value",
+      "name": "Activision Value",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
     },
     "activison": {
       "slug": "activison",
@@ -3641,47 +3676,106 @@
       "wikidataIds": [],
       "museumPaths": []
     },
+    "bandai": {
+      "slug": "bandai",
+      "name": "Bandai",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": [
+        "/desarrolladoras-de-software/bandai",
+        "/publicadoras-de-juegos/bandai"
+      ]
+    },
+    "bandai-america-inc": {
+      "slug": "bandai-america-inc",
+      "name": "Bandai America Inc.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": [
+        "/publicadoras-de-juegos/bandai-america-inc"
+      ]
+    },
+    "bandai-entertainment": {
+      "slug": "bandai-entertainment",
+      "name": "Bandai Entertainment",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
     "bandai-namco-entertainment": {
       "slug": "bandai-namco-entertainment",
       "name": "Bandai Namco Entertainment",
       "mergeMethod": "manual",
       "aliasSlugs": [
-        "bandai",
-        "bandai-america-inc",
-        "bandai-entertainment",
         "bandai-namco",
-        "bandai-namco-entertainment-8-4-ltd",
-        "bandai-namco-entertainment-europe",
-        "bandai-namco-entertainment-europe-s-a-s",
-        "bandai-namco-entertainment-germany",
         "bandai-namco-entertainment-inc",
-        "bandai-namco-europe",
         "bandai-namco-games",
-        "bandai-shinsei",
         "namco-bandai",
         "namco-bandai-entertainment",
         "namco-bandai-games",
-        "namco-bandai-games-europe",
-        "namco-bandai-games-europe-sas",
         "namco-bandai-games-inc"
       ],
       "aliasNames": [
-        "BANDAI NAMCO Entertainment",
-        "BANDAI NAMCO Entertainment Europe S.A.S",
-        "Bandai Namco Entertainment Europe",
-        "Bandai Namco Entertainment Europe S.A.S.",
-        "Bandai Namco Entertainment Inc.",
-        "Bandai Namco entertainment"
+        "Namco Bandai Games",
+        "Namco Bandai Games Inc"
       ],
       "wikidataIds": [
         "Q1194689"
       ],
       "museumPaths": [
-        "/desarrolladoras-de-software/bandai",
-        "/publicadoras-de-juegos/bandai",
-        "/publicadoras-de-juegos/bandai-america-inc",
-        "/publicadoras-de-juegos/bandai-shinsei"
+        "/desarrolladoras-de-software/bandai"
       ]
+    },
+    "bandai-namco-entertainment-8-4-ltd": {
+      "slug": "bandai-namco-entertainment-8-4-ltd",
+      "name": "Bandai Namco Entertainment, 8-4, Ltd.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "bandai-namco-entertainment-europe": {
+      "slug": "bandai-namco-entertainment-europe",
+      "name": "Bandai Namco Entertainment Europe",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "bandai-namco-entertainment-europe-s-a-s": {
+      "slug": "bandai-namco-entertainment-europe-s-a-s",
+      "name": "Bandai Namco Entertainment Europe S.A.S.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "bandai-namco-entertainment-germany": {
+      "slug": "bandai-namco-entertainment-germany",
+      "name": "BANDAI NAMCO Entertainment Germany",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "bandai-namco-europe": {
+      "slug": "bandai-namco-europe",
+      "name": "Bandai Namco Europe",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
     },
     "bandai-namco-studio": {
       "slug": "bandai-namco-studio",
@@ -3713,6 +3807,17 @@
       "aliasNames": [],
       "wikidataIds": [],
       "museumPaths": []
+    },
+    "bandai-shinsei": {
+      "slug": "bandai-shinsei",
+      "name": "Bandai Shinsei",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": [
+        "/publicadoras-de-juegos/bandai-shinsei"
+      ]
     },
     "bandai-visual-emotion-digital-software": {
       "slug": "bandai-visual-emotion-digital-software",
@@ -5268,6 +5373,15 @@
     "bold-games": {
       "slug": "bold-games",
       "name": "Bold Games",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "bolt-production": {
+      "slug": "bolt-production",
+      "name": "Bolt Production",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -7833,6 +7947,15 @@
         "/desarrolladoras-de-software/createch"
       ]
     },
+    "creative": {
+      "slug": "creative",
+      "name": "Creative",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
     "creative-assembly": {
       "slug": "creative-assembly",
       "name": "The Creative Assembly",
@@ -8168,6 +8291,15 @@
     "curve-digital": {
       "slug": "curve-digital",
       "name": "Curve Digital",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "curveball": {
+      "slug": "curveball",
+      "name": "Curveball",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -11026,25 +11158,54 @@
       "name": "Electronic Arts",
       "mergeMethod": "manual",
       "aliasSlugs": [
-        "electronic-arts-black-pearl-software",
-        "electronic-arts-canada",
-        "electronic-arts-square",
-        "electronic-arts-square-square-ea",
-        "electronic-arts-victor"
+        "electronic-arts-square"
       ],
       "aliasNames": [
-        "Electronic Arts Canada",
-        "Electronic Arts Square",
-        "Electronic Arts Square (Square EA)",
-        "Electronic Arts Victor",
-        "Electronic Arts, Black Pearl Software"
+        "Electronic Arts Square"
       ],
       "wikidataIds": [
         "Q173941"
       ],
       "museumPaths": [
         "/desarrolladoras-de-software/electronic-arts",
-        "/publicadoras-de-juegos/electronic-arts",
+        "/publicadoras-de-juegos/electronic-arts"
+      ]
+    },
+    "electronic-arts-black-pearl-software": {
+      "slug": "electronic-arts-black-pearl-software",
+      "name": "Electronic Arts, Black Pearl Software",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "electronic-arts-canada": {
+      "slug": "electronic-arts-canada",
+      "name": "Electronic Arts Canada",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "electronic-arts-square-square-ea": {
+      "slug": "electronic-arts-square-square-ea",
+      "name": "Electronic Arts Square (Square EA)",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "electronic-arts-victor": {
+      "slug": "electronic-arts-victor",
+      "name": "Electronic Arts Victor",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": [
         "/publicadoras-de-juegos/electronic-arts-victor"
       ]
     },
@@ -11170,14 +11331,10 @@
     },
     "empire-interactive": {
       "slug": "empire-interactive",
-      "name": "Empire Interactive Europe",
-      "mergeMethod": "normalized",
-      "aliasSlugs": [
-        "empire-interactive-europe"
-      ],
-      "aliasNames": [
-        "Empire Interactive"
-      ],
+      "name": "Empire Interactive",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
+      "aliasNames": [],
       "wikidataIds": [
         "Q2714179"
       ],
@@ -11188,6 +11345,15 @@
     "empire-interactive-entertainment": {
       "slug": "empire-interactive-entertainment",
       "name": "Empire Interactive Entertainment",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "empire-interactive-europe": {
+      "slug": "empire-interactive-europe",
+      "name": "Empire Interactive Europe",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -11241,23 +11407,31 @@
         "/desarrolladoras-de-software/enigma-variations"
       ]
     },
+    "enix-america-inc": {
+      "slug": "enix-america-inc",
+      "name": "Enix America Inc.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": [
+        "/publicadoras-de-juegos/enix-america-inc"
+      ]
+    },
     "enix-corporation": {
       "slug": "enix-corporation",
-      "name": "Enix America Inc.",
-      "mergeMethod": "normalized",
+      "name": "Enix Corporation",
+      "mergeMethod": "manual",
       "aliasSlugs": [
-        "enix",
-        "enix-america-inc"
+        "enix"
       ],
       "aliasNames": [
-        "Enix",
-        "Enix Corporation"
+        "Enix"
       ],
       "wikidataIds": [],
       "museumPaths": [
         "/desarrolladoras-de-software/enix-corporation",
         "/publicadoras-de-juegos/enix",
-        "/publicadoras-de-juegos/enix-america-inc",
         "/publicadoras-de-juegos/enix-corporation"
       ]
     },
@@ -11892,6 +12066,15 @@
       "wikidataIds": [],
       "museumPaths": []
     },
+    "far-out": {
+      "slug": "far-out",
+      "name": "Far Out",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
     "farmind-limited": {
       "slug": "farmind-limited",
       "name": "Farmind Limited",
@@ -12273,6 +12456,15 @@
     "flashbulb-games": {
       "slug": "flashbulb-games",
       "name": "Flashbulb Games",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "flashpoint": {
+      "slug": "flashpoint",
+      "name": "Flashpoint",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -16410,15 +16602,13 @@
     },
     "idea-factory": {
       "slug": "idea-factory",
-      "name": "Idea Factory International",
-      "mergeMethod": "normalized",
-      "aliasSlugs": [
-        "idea-factory-international"
-      ],
+      "name": "Idea Factory Co., Ltd.",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
       "aliasNames": [
         "IDEA FACTORY",
-        "IDEA FACTORY INTERNATIONAL",
-        "Idea Factory"
+        "Idea Factory",
+        "Idea Factory International"
       ],
       "wikidataIds": [],
       "museumPaths": [
@@ -16455,6 +16645,15 @@
     "idea-factory-compile-heart-sting": {
       "slug": "idea-factory-compile-heart-sting",
       "name": "Idea Factory/Compile Heart/Sting",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "idea-factory-international": {
+      "slug": "idea-factory-international",
+      "name": "Idea Factory International",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -19078,19 +19277,39 @@
     },
     "koei-tecmo": {
       "slug": "koei-tecmo",
-      "name": "Koei Tecmo Europe Ltd.",
-      "mergeMethod": "normalized",
-      "aliasSlugs": [
-        "koei-tecmo-america",
-        "koei-tecmo-europe",
-        "koei-tecmo-europe-ltd"
-      ],
+      "name": "Koei Tecmo",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
       "aliasNames": [
-        "KOEI TECMO AMERICA",
-        "Koei Tecmo",
-        "Koei Tecmo America",
-        "Koei Tecmo Europe"
+        "Koei Tecmo Europe Ltd."
       ],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "koei-tecmo-america": {
+      "slug": "koei-tecmo-america",
+      "name": "Koei Tecmo America",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "koei-tecmo-europe": {
+      "slug": "koei-tecmo-europe",
+      "name": "Koei Tecmo Europe",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "koei-tecmo-europe-ltd": {
+      "slug": "koei-tecmo-europe-ltd",
+      "name": "Koei Tecmo Europe Ltd.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
       "wikidataIds": [],
       "museumPaths": []
     },
@@ -19214,14 +19433,9 @@
       "slug": "konami",
       "name": "Konami",
       "mergeMethod": "manual",
-      "aliasSlugs": [
-        "konami-digital-entertainment",
-        "konami-of-europe"
-      ],
+      "aliasSlugs": [],
       "aliasNames": [
         "KONAMI",
-        "Konami Digital Entertainment",
-        "Konami of Europe",
         "konami"
       ],
       "wikidataIds": [
@@ -19297,6 +19511,15 @@
       "wikidataIds": [],
       "museumPaths": []
     },
+    "konami-digital-entertainment": {
+      "slug": "konami-digital-entertainment",
+      "name": "Konami Digital Entertainment",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
     "konami-factor-5": {
       "slug": "konami-factor-5",
       "name": "Konami, Factor 5",
@@ -19309,6 +19532,15 @@
     "konami-limited-run-games": {
       "slug": "konami-limited-run-games",
       "name": "Konami / Limited Run Games",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "konami-of-europe": {
+      "slug": "konami-of-europe",
+      "name": "Konami of Europe",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -21411,15 +21643,11 @@
     },
     "marvelous": {
       "slug": "marvelous",
-      "name": "Marvelous Europe",
-      "mergeMethod": "normalized",
-      "aliasSlugs": [
-        "marvelous-europe",
-        "marvelous-inc"
-      ],
+      "name": "Marvelous",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
       "aliasNames": [
-        "Marvelous",
-        "Marvelous Inc",
+        "Marvelous Europe",
         "Marvelous!"
       ],
       "wikidataIds": [],
@@ -21447,9 +21675,27 @@
       "wikidataIds": [],
       "museumPaths": []
     },
+    "marvelous-europe": {
+      "slug": "marvelous-europe",
+      "name": "Marvelous Europe",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
     "marvelous-honey-parade-games": {
       "slug": "marvelous-honey-parade-games",
       "name": "Marvelous/Honey Parade Games",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "marvelous-inc": {
+      "slug": "marvelous-inc",
+      "name": "Marvelous Inc",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -22476,17 +22722,18 @@
       "slug": "microsoft",
       "name": "Microsoft",
       "mergeMethod": "manual",
-      "aliasSlugs": [
-        "microsoft-game-studios",
-        "xbox-game-studios"
-      ],
-      "aliasNames": [
-        "Microsoft Game Studios",
-        "Xbox Game Studios"
-      ],
-      "wikidataIds": [
-        "Q73801"
-      ],
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "microsoft-game-studios": {
+      "slug": "microsoft-game-studios",
+      "name": "Microsoft Game Studios",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
       "museumPaths": []
     },
     "microvision": {
@@ -23880,6 +24127,24 @@
       "wikidataIds": [],
       "museumPaths": []
     },
+    "namco-bandai-games-europe": {
+      "slug": "namco-bandai-games-europe",
+      "name": "Namco Bandai Games Europe",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "namco-bandai-games-europe-sas": {
+      "slug": "namco-bandai-games-europe-sas",
+      "name": "Namco Bandai Games Europe SAS",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
     "namco-bandia": {
       "slug": "namco-bandia",
       "name": "Namco Bandia",
@@ -24059,18 +24324,15 @@
     },
     "nec": {
       "slug": "nec",
-      "name": "Nec International",
-      "mergeMethod": "normalized",
-      "aliasSlugs": [
-        "nec-international"
-      ],
+      "name": "NEC Corporation",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
       "aliasNames": [
         "NEC"
       ],
       "wikidataIds": [],
       "museumPaths": [
-        "/desarrolladoras-de-software/nec",
-        "/publicadoras-de-juegos/nec-international"
+        "/desarrolladoras-de-software/nec"
       ]
     },
     "nec-home-electronics": {
@@ -24095,9 +24357,29 @@
         "/publicadoras-de-juegos/nec-interchannel"
       ]
     },
+    "nec-international": {
+      "slug": "nec-international",
+      "name": "Nec International",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": [
+        "/publicadoras-de-juegos/nec-international"
+      ]
+    },
     "neco-software": {
       "slug": "neco-software",
       "name": "Neco Software",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "nejcraft": {
+      "slug": "nejcraft",
+      "name": "NEJCRAFT",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -24779,13 +25061,9 @@
       "slug": "nintendo",
       "name": "Nintendo",
       "mergeMethod": "manual",
-      "aliasSlugs": [
-        "nintendo-software-technology",
-        "nintendo-software-technology-corporation"
-      ],
+      "aliasSlugs": [],
       "aliasNames": [
-        "Nintendo Software Technology",
-        "Nintendo Software Technology Corporation"
+        "nintendo"
       ],
       "wikidataIds": [
         "Q8093"
@@ -24914,6 +25192,24 @@
       "wikidataIds": [
         "Q2633052"
       ],
+      "museumPaths": []
+    },
+    "nintendo-software-technology": {
+      "slug": "nintendo-software-technology",
+      "name": "Nintendo Software Technology",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "nintendo-software-technology-corporation": {
+      "slug": "nintendo-software-technology-corporation",
+      "name": "Nintendo Software Technology Corporation",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
       "museumPaths": []
     },
     "nintendo-spd": {
@@ -27668,6 +27964,15 @@
     "plaion": {
       "slug": "plaion",
       "name": "Plaion",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "plaion-replai": {
+      "slug": "plaion-replai",
+      "name": "PLAION REPLAI",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -30977,12 +31282,10 @@
       "name": "Sammy Corporation",
       "mergeMethod": "normalized",
       "aliasSlugs": [
-        "sammy-corporation",
-        "sammy-europe"
+        "sammy-corporation"
       ],
       "aliasNames": [
-        "Sammy",
-        "Sammy Europe"
+        "Sammy"
       ],
       "wikidataIds": [],
       "museumPaths": []
@@ -30998,6 +31301,15 @@
         "/desarrolladoras-de-software/sammy-entertainment",
         "/publicadoras-de-juegos/sammy-entertainment"
       ]
+    },
+    "sammy-europe": {
+      "slug": "sammy-europe",
+      "name": "Sammy Europe",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
     },
     "sammy-studios": {
       "slug": "sammy-studios",
@@ -31636,22 +31948,15 @@
       "slug": "sega",
       "name": "Sega",
       "mergeMethod": "manual",
-      "aliasSlugs": [
-        "sega-of-america",
-        "segasoft"
-      ],
+      "aliasSlugs": [],
       "aliasNames": [
         "SEGA",
-        "SEGA of America",
-        "Sega of America",
-        "SegaSoft",
         "sega"
       ],
       "wikidataIds": [],
       "museumPaths": [
         "/desarrolladoras-de-software/sega",
-        "/publicadoras-de-juegos/sega",
-        "/publicadoras-de-juegos/segasoft"
+        "/publicadoras-de-juegos/sega"
       ]
     },
     "sega-am1": {
@@ -31923,6 +32228,15 @@
       "wikidataIds": [],
       "museumPaths": []
     },
+    "sega-of-america": {
+      "slug": "sega-of-america",
+      "name": "SEGA of America",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
     "sega-of-america-paul-hutchinson": {
       "slug": "sega-of-america-paul-hutchinson",
       "name": "Sega of America, Paul Hutchinson",
@@ -32030,6 +32344,17 @@
       "aliasNames": [],
       "wikidataIds": [],
       "museumPaths": []
+    },
+    "segasoft": {
+      "slug": "segasoft",
+      "name": "SegaSoft",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": [
+        "/publicadoras-de-juegos/segasoft"
+      ]
     },
     "sei": {
       "slug": "sei",
@@ -32689,6 +33014,15 @@
     "silver-dollar-games": {
       "slug": "silver-dollar-games",
       "name": "Silver Dollar Games",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "silver-lining": {
+      "slug": "silver-lining",
+      "name": "Silver Lining",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -33694,9 +34028,84 @@
       "wikidataIds": [],
       "museumPaths": []
     },
+    "sony": {
+      "slug": "sony",
+      "name": "Sony",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "sony-computer-entertainment-america": {
+      "slug": "sony-computer-entertainment-america",
+      "name": "Sony Computer Entertainment America",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "sony-computer-entertainment-america-ltd": {
+      "slug": "sony-computer-entertainment-america-ltd",
+      "name": "Sony Computer Entertainment America Ltd.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "sony-computer-entertainment-europe": {
+      "slug": "sony-computer-entertainment-europe",
+      "name": "Sony Computer Entertainment Europe",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "sony-computer-entertainment-europe-ltd": {
+      "slug": "sony-computer-entertainment-europe-ltd",
+      "name": "SONY Computer Entertainment Europe, Ltd",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "sony-computer-entertainment-japan-asia": {
+      "slug": "sony-computer-entertainment-japan-asia",
+      "name": "Sony Computer Entertainment Japan Asia",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
     "sony-electronic-publishing": {
       "slug": "sony-electronic-publishing",
       "name": "Sony Electronic Publishing",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "sony-imagesoft": {
+      "slug": "sony-imagesoft",
+      "name": "Sony Imagesoft",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": [
+        "/desarrolladoras-de-software/sony-imagesoft",
+        "/publicadoras-de-juegos/sony-imagesoft"
+      ]
+    },
+    "sony-imagesoft-amp-disney-software": {
+      "slug": "sony-imagesoft-amp-disney-software",
+      "name": "Sony Imagesoft & Disney Software",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -33709,55 +34118,98 @@
       "mergeMethod": "manual",
       "aliasSlugs": [
         "sie-sony-interactive-entertainment",
-        "sony",
         "sony-computer",
         "sony-computer-entertainement",
         "sony-computer-entertainment",
-        "sony-computer-entertainment-america",
-        "sony-computer-entertainment-america-ltd",
-        "sony-computer-entertainment-europe",
-        "sony-computer-entertainment-europe-ltd",
         "sony-computer-entertainment-inc",
-        "sony-computer-entertainment-japan-asia",
         "sony-electronics",
-        "sony-imagesoft",
-        "sony-imagesoft-amp-disney-software",
-        "sony-interactive-entertainment-america",
-        "sony-interactive-entertainment-europe",
-        "sony-interactive-entertainment-europe-ltd",
-        "sony-interactive-entertainment-mojang",
-        "sony-interactive-entertainment-playstation-studios",
         "sony-interactive-entertainment-sie"
       ],
       "aliasNames": [
-        "Sony Interactive Entertainment America",
-        "Sony Interactive Entertainment Europe",
-        "Sony Interactive Entertainment Europe Ltd.",
+        "SIE (Sony Interactive Entertainment)",
+        "SONY Interactive Entertainment (SIE)",
+        "Sony Computer",
+        "Sony Computer Entertainement",
+        "Sony Computer Entertainment",
+        "Sony Computer Entertainment Inc",
+        "Sony Computer Entertainment Inc.",
+        "Sony Computer Entertainment inc",
+        "Sony Computer Entertainment, Inc",
+        "Sony Electronics",
+        "Sony Interactive Entertainment (SIE)",
         "Sony Interactive entertainment"
       ],
       "wikidataIds": [
         "Q18594"
       ],
       "museumPaths": [
-        "/desarrolladoras-de-software/sony-imagesoft",
-        "/publicadoras-de-juegos/sony-electronics",
-        "/publicadoras-de-juegos/sony-imagesoft"
+        "/publicadoras-de-juegos/sony-electronics"
       ]
+    },
+    "sony-interactive-entertainment-america": {
+      "slug": "sony-interactive-entertainment-america",
+      "name": "Sony Interactive Entertainment America",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "sony-interactive-entertainment-europe": {
+      "slug": "sony-interactive-entertainment-europe",
+      "name": "Sony Interactive Entertainment Europe",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "sony-interactive-entertainment-europe-ltd": {
+      "slug": "sony-interactive-entertainment-europe-ltd",
+      "name": "Sony Interactive Entertainment Europe Ltd.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "sony-interactive-entertainment-mojang": {
+      "slug": "sony-interactive-entertainment-mojang",
+      "name": "Sony Interactive Entertainment, Mojang",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "sony-interactive-entertainment-playstation-studios": {
+      "slug": "sony-interactive-entertainment-playstation-studios",
+      "name": "Sony Interactive Entertainment, PlayStation Studios",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
     },
     "sony-music-entertainment": {
       "slug": "sony-music-entertainment",
-      "name": "Sony Music Entertainment (Japan) Inc.",
-      "mergeMethod": "normalized",
-      "aliasSlugs": [
-        "sony-music-entertainment-japan-inc"
-      ],
-      "aliasNames": [
-        "Sony Music Entertainment"
-      ],
+      "name": "Sony Music Entertainment",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
+      "aliasNames": [],
       "wikidataIds": [],
       "museumPaths": [
         "/publicadoras-de-juegos/sony-music-entertainment"
       ]
+    },
+    "sony-music-entertainment-japan-inc": {
+      "slug": "sony-music-entertainment-japan-inc",
+      "name": "Sony Music Entertainment (Japan) Inc.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
     },
     "sony-online-entertainment": {
       "slug": "sony-online-entertainment",
@@ -34180,34 +34632,28 @@
       "wikidataIds": [],
       "museumPaths": []
     },
+    "square": {
+      "slug": "square",
+      "name": "Square",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": [
+        "/desarrolladoras-de-software/square",
+        "/publicadoras-de-juegos/square"
+      ]
+    },
     "square-enix": {
       "slug": "square-enix",
       "name": "Square Enix",
       "mergeMethod": "manual",
       "aliasSlugs": [
-        "square",
-        "square-enix-1st-production-department",
-        "square-enix-1st-production-department-indieszero-co-ltd",
-        "square-enix-acquire",
-        "square-enix-business-division-1",
-        "square-enix-business-division-2",
-        "square-enix-business-division-3",
-        "square-enix-business-division-5",
-        "square-enix-co-ltd",
-        "square-enix-europe",
-        "square-enix-indieszero",
-        "square-enix-level-5",
-        "square-enix-ltd",
-        "square-enix-nex-entertainment",
-        "square-enix-product-development-division-1",
-        "square-enix-racjin",
-        "square-enix-tri-ace-tose",
-        "squaresoft"
+        "square-enix-co-ltd"
       ],
       "aliasNames": [
         "SQUARE ENIX",
-        "Square Enix Europe",
-        "Square Enix Ltd.",
+        "Square Enix Co., Ltd.",
         "Square enix",
         "Square-Enix",
         "square Enix"
@@ -34216,13 +34662,156 @@
         "Q207784"
       ],
       "museumPaths": [
-        "/desarrolladoras-de-software/square",
-        "/publicadoras-de-juegos/square"
+        "/desarrolladoras-de-software/square"
       ]
+    },
+    "square-enix-1st-production-department": {
+      "slug": "square-enix-1st-production-department",
+      "name": "Square Enix 1st Production Department",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-1st-production-department-indieszero-co-ltd": {
+      "slug": "square-enix-1st-production-department-indieszero-co-ltd",
+      "name": "Square Enix 1st Production Department, indieszero Co., Ltd.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-acquire": {
+      "slug": "square-enix-acquire",
+      "name": "Square Enix, Acquire",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-business-division-1": {
+      "slug": "square-enix-business-division-1",
+      "name": "Square Enix Business Division 1",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-business-division-2": {
+      "slug": "square-enix-business-division-2",
+      "name": "Square Enix Business Division 2",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-business-division-3": {
+      "slug": "square-enix-business-division-3",
+      "name": "Square Enix Business Division 3",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-business-division-5": {
+      "slug": "square-enix-business-division-5",
+      "name": "Square Enix Business Division 5",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-europe": {
+      "slug": "square-enix-europe",
+      "name": "Square Enix Europe",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-indieszero": {
+      "slug": "square-enix-indieszero",
+      "name": "Square Enix, indieszero",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-level-5": {
+      "slug": "square-enix-level-5",
+      "name": "Square Enix, Level 5",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-ltd": {
+      "slug": "square-enix-ltd",
+      "name": "Square Enix Ltd.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-nex-entertainment": {
+      "slug": "square-enix-nex-entertainment",
+      "name": "Square Enix, Nex Entertainment",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-product-development-division-1": {
+      "slug": "square-enix-product-development-division-1",
+      "name": "Square Enix Product Development Division 1",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-racjin": {
+      "slug": "square-enix-racjin",
+      "name": "Square Enix, Racjin",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "square-enix-tri-ace-tose": {
+      "slug": "square-enix-tri-ace-tose",
+      "name": "Square Enix, tri-Ace, Tose",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
     },
     "squareenix": {
       "slug": "squareenix",
       "name": "SquareEnix",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "squaresoft": {
+      "slug": "squaresoft",
+      "name": "SquareSoft",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -34556,6 +35145,15 @@
     "storybird-studio": {
       "slug": "storybird-studio",
       "name": "STORYBIRD Studio",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "straight4-studios": {
+      "slug": "straight4-studios",
+      "name": "Straight4 Studios",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -34971,6 +35569,15 @@
       "museumPaths": [
         "/desarrolladoras-de-software/sun-l"
       ]
+    },
+    "sunblink": {
+      "slug": "sunblink",
+      "name": "Sunblink",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
     },
     "sunfish": {
       "slug": "sunfish",
@@ -35639,14 +36246,11 @@
     },
     "take-two-interactive": {
       "slug": "take-two-interactive",
-      "name": "Take Two Interactive Europe",
-      "mergeMethod": "normalized",
-      "aliasSlugs": [
-        "take-two-interactive-europe"
-      ],
+      "name": "Take-Two Interactive",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
       "aliasNames": [
-        "Take Two Interactive",
-        "Take-Two Interactive"
+        "Take Two Interactive"
       ],
       "wikidataIds": [
         "Q94933"
@@ -35654,6 +36258,15 @@
       "museumPaths": [
         "/publicadoras-de-juegos/take-two-interactive"
       ]
+    },
+    "take-two-interactive-europe": {
+      "slug": "take-two-interactive-europe",
+      "name": "Take Two Interactive Europe",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
     },
     "take-two-interactive-software": {
       "slug": "take-two-interactive-software",
@@ -35927,14 +36540,19 @@
     },
     "tdk-mediactive": {
       "slug": "tdk-mediactive",
+      "name": "TDK Mediactive",
+      "mergeMethod": "manual",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "tdk-mediactive-europe": {
+      "slug": "tdk-mediactive-europe",
       "name": "TDK Mediactive Europe",
-      "mergeMethod": "normalized",
-      "aliasSlugs": [
-        "tdk-mediactive-europe"
-      ],
-      "aliasNames": [
-        "TDK Mediactive"
-      ],
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
       "wikidataIds": [],
       "museumPaths": []
     },
@@ -36993,13 +37611,20 @@
       "name": "THQ Nordic GmbH",
       "mergeMethod": "normalized",
       "aliasSlugs": [
-        "thq-nordic-gmbh",
-        "thq-nordic-inc"
+        "thq-nordic-gmbh"
       ],
       "aliasNames": [
-        "THQ Nordic",
-        "THQ Nordic Inc"
+        "THQ Nordic"
       ],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "thq-nordic-inc": {
+      "slug": "thq-nordic-inc",
+      "name": "THQ Nordic Inc",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
       "wikidataIds": [],
       "museumPaths": []
     },
@@ -37164,6 +37789,27 @@
       ],
       "wikidataIds": [],
       "museumPaths": []
+    },
+    "time-warner": {
+      "slug": "time-warner",
+      "name": "Time Warner",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "time-warner-interactive": {
+      "slug": "time-warner-interactive",
+      "name": "Time Warner Interactive",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": [
+        "/desarrolladoras-de-software/time-warner-interactive",
+        "/publicadoras-de-juegos/time-warner-interactive"
+      ]
     },
     "tiny-bull-studios": {
       "slug": "tiny-bull-studios",
@@ -38465,18 +39111,13 @@
       "name": "Ubisoft",
       "mergeMethod": "manual",
       "aliasSlugs": [
-        "ubisoft-divertissements-inc",
-        "ubisoft-entertainment",
-        "ubisoft-inc"
+        "ubisoft-entertainment"
       ],
       "aliasNames": [
         "UBISOFT",
         "UbiSoft",
-        "Ubisoft Divertissements Inc",
-        "Ubisoft Divertissements Inc.",
         "Ubisoft Entertainment",
         "Ubisoft entertainment",
-        "Ubisoft, Inc.",
         "ubisoft"
       ],
       "wikidataIds": [
@@ -38507,6 +39148,24 @@
     "ubisoft-bucharest": {
       "slug": "ubisoft-bucharest",
       "name": "Ubisoft Bucharest",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "ubisoft-divertissements-inc": {
+      "slug": "ubisoft-divertissements-inc",
+      "name": "Ubisoft Divertissements Inc.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "ubisoft-inc": {
+      "slug": "ubisoft-inc",
+      "name": "Ubisoft, Inc.",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -39369,6 +40028,15 @@
     "vcc-entertainment-gmbh-amp-co-kg": {
       "slug": "vcc-entertainment-gmbh-amp-co-kg",
       "name": "VCC Entertainment GmbH & Co KG",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "vea-games": {
+      "slug": "vea-games",
+      "name": "VEA Games",
       "mergeMethod": "slug",
       "aliasSlugs": [],
       "aliasNames": [],
@@ -40258,6 +40926,24 @@
       "wikidataIds": [],
       "museumPaths": []
     },
+    "warner-bros": {
+      "slug": "warner-bros",
+      "name": "Warner Bros.",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
+    "warner-bros-entertainment": {
+      "slug": "warner-bros-entertainment",
+      "name": "Warner Bros. Entertainment",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [],
+      "museumPaths": []
+    },
     "warner-bros-games-dc": {
       "slug": "warner-bros-games-dc",
       "name": "Warner Bros. Games/DC",
@@ -40272,34 +40958,22 @@
       "name": "Warner Bros. Interactive Entertainment",
       "mergeMethod": "manual",
       "aliasSlugs": [
-        "time-warner",
-        "time-warner-interactive",
-        "warner-bros",
-        "warner-bros-entertainment",
         "warner-bros-games",
         "warner-bros-interactive",
         "warner-brothers",
         "warner-brothers-games"
       ],
       "aliasNames": [
-        "Time Warner",
-        "Time Warner Interactive",
-        "Warner Bros",
         "Warner Bros Games",
         "Warner Bros Interactive",
         "Warner Bros Interactive Entertainment",
-        "Warner Bros.",
-        "Warner Bros. Entertainment",
         "Warner Bros. Games",
         "Warner Bros. Interactive",
         "Warner Brothers",
         "Warner Brothers Games"
       ],
       "wikidataIds": [],
-      "museumPaths": [
-        "/desarrolladoras-de-software/time-warner-interactive",
-        "/publicadoras-de-juegos/time-warner-interactive"
-      ]
+      "museumPaths": []
     },
     "warner-bros-montreal": {
       "slug": "warner-bros-montreal",
@@ -41013,6 +41687,17 @@
       "aliasSlugs": [],
       "aliasNames": [],
       "wikidataIds": [],
+      "museumPaths": []
+    },
+    "xbox-game-studios": {
+      "slug": "xbox-game-studios",
+      "name": "Xbox Game Studios",
+      "mergeMethod": "slug",
+      "aliasSlugs": [],
+      "aliasNames": [],
+      "wikidataIds": [
+        "Q73801"
+      ],
       "museumPaths": []
     },
     "xbox-games-studios": {
@@ -41878,119 +42563,15 @@
       "museumPaths": [
         "/desarrolladoras-de-software/zyrinx"
       ]
-    },
-    "silver-lining": {
-      "slug": "silver-lining",
-      "name": "Silver Lining",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
-    },
-    "creative": {
-      "slug": "creative",
-      "name": "Creative",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
-    },
-    "far-out": {
-      "slug": "far-out",
-      "name": "Far Out",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
-    },
-    "sunblink": {
-      "slug": "sunblink",
-      "name": "Sunblink",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
-    },
-    "curveball": {
-      "slug": "curveball",
-      "name": "Curveball",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
-    },
-    "nejcraft": {
-      "slug": "nejcraft",
-      "name": "NEJCRAFT",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
-    },
-    "bolt-production": {
-      "slug": "bolt-production",
-      "name": "Bolt Production",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
-    },
-    "vea-games": {
-      "slug": "vea-games",
-      "name": "VEA Games",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
-    },
-    "straight4-studios": {
-      "slug": "straight4-studios",
-      "name": "Straight4 Studios",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
-    },
-    "flashpoint": {
-      "slug": "flashpoint",
-      "name": "Flashpoint",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
-    },
-    "plaion-replai": {
-      "slug": "plaion-replai",
-      "name": "PLAION REPLAI",
-      "mergeMethod": "slug",
-      "aliasSlugs": [],
-      "aliasNames": [],
-      "wikidataIds": [],
-      "museumPaths": []
     }
   },
   "slugToCanonical": {
     "49games": "49games",
     "49games-gmbh": "49games",
     "acclaim": "acclaim",
-    "acclaim-japan": "acclaim",
     "active-gaming-media": "active-gaming-media",
     "active-gaming-media-inc": "active-gaming-media",
     "activision": "activision",
-    "activision-blizzard": "activision",
-    "activision-o2": "activision",
-    "activision-publishing": "activision",
-    "activision-value": "activision",
     "aerosoft": "aerosoft",
     "aerosoft-gmbh": "aerosoft",
     "aesir-interactive": "aesir-interactive-gmbh",
@@ -42019,21 +42600,12 @@
     "atlus-co-ltd": "atlus",
     "atomic-planet-entertainment": "atomic-planet-entertainment",
     "atomic-planet-entertainment-limited": "atomic-planet-entertainment",
-    "bandai": "bandai-namco-entertainment",
-    "bandai-america-inc": "bandai-namco-entertainment",
-    "bandai-entertainment": "bandai-namco-entertainment",
     "bandai-namco": "bandai-namco-entertainment",
     "bandai-namco-entertainment": "bandai-namco-entertainment",
-    "bandai-namco-entertainment-8-4-ltd": "bandai-namco-entertainment",
-    "bandai-namco-entertainment-europe": "bandai-namco-entertainment",
-    "bandai-namco-entertainment-europe-s-a-s": "bandai-namco-entertainment",
-    "bandai-namco-entertainment-germany": "bandai-namco-entertainment",
     "bandai-namco-entertainment-inc": "bandai-namco-entertainment",
-    "bandai-namco-europe": "bandai-namco-entertainment",
     "bandai-namco-games": "bandai-namco-entertainment",
     "bandai-namco-studio": "bandai-namco-studio",
     "bandai-namco-studio-inc": "bandai-namco-studio",
-    "bandai-shinsei": "bandai-namco-entertainment",
     "beep": "beep",
     "beep-japan": "beep",
     "big-blue-bubble": "big-blue-bubble",
@@ -42075,15 +42647,9 @@
     "east-technology": "east-technology",
     "east-technology-corp": "east-technology",
     "electronic-arts": "electronic-arts",
-    "electronic-arts-black-pearl-software": "electronic-arts",
-    "electronic-arts-canada": "electronic-arts",
     "electronic-arts-square": "electronic-arts",
-    "electronic-arts-square-square-ea": "electronic-arts",
-    "electronic-arts-victor": "electronic-arts",
     "empire-interactive": "empire-interactive",
-    "empire-interactive-europe": "empire-interactive",
     "enix": "enix-corporation",
-    "enix-america-inc": "enix-corporation",
     "enix-corporation": "enix-corporation",
     "fci": "fci-inc",
     "fci-inc": "fci-inc",
@@ -42124,7 +42690,6 @@
     "hopoo-games": "hopoo-games",
     "hopoo-games-llc": "hopoo-games",
     "idea-factory": "idea-factory",
-    "idea-factory-international": "idea-factory",
     "ignition-entertainment": "ignition-entertainment",
     "ignition-entertainment-ltd": "ignition-entertainment",
     "independent-arts-software": "independent-arts-software",
@@ -42146,12 +42711,7 @@
     "keoken-interactive": "keoken-interactive",
     "keoken-interactive-inc": "keoken-interactive",
     "koei-tecmo": "koei-tecmo",
-    "koei-tecmo-america": "koei-tecmo",
-    "koei-tecmo-europe": "koei-tecmo",
-    "koei-tecmo-europe-ltd": "koei-tecmo",
     "konami": "konami",
-    "konami-digital-entertainment": "konami",
-    "konami-of-europe": "konami",
     "krafton": "krafton",
     "krafton-inc": "krafton",
     "kuju-entertainment": "kuju-entertainment",
@@ -42163,8 +42723,6 @@
     "marvelous": "marvelous",
     "marvelous-entertainment": "marvelous-entertainment",
     "marvelous-entertainment-inc": "marvelous-entertainment",
-    "marvelous-europe": "marvelous",
-    "marvelous-inc": "marvelous",
     "mastertronic-group": "mastertronic-group",
     "mastertronic-group-limited": "mastertronic-group",
     "mastertronic-group-ltd": "mastertronic-group",
@@ -42173,7 +42731,6 @@
     "metro3d": "metro3d",
     "metro3d-europe": "metro3d",
     "microsoft": "microsoft",
-    "microsoft-game-studios": "microsoft",
     "midas-interactive-entertainment": "midas-interactive-entertainment",
     "midas-interactive-entertainment-ltd": "midas-interactive-entertainment",
     "mindscape": "mindscape",
@@ -42186,19 +42743,14 @@
     "namco-bandai": "bandai-namco-entertainment",
     "namco-bandai-entertainment": "bandai-namco-entertainment",
     "namco-bandai-games": "bandai-namco-entertainment",
-    "namco-bandai-games-europe": "bandai-namco-entertainment",
-    "namco-bandai-games-europe-sas": "bandai-namco-entertainment",
     "namco-bandai-games-inc": "bandai-namco-entertainment",
     "namco-ltd": "namco",
     "nec": "nec",
-    "nec-international": "nec",
     "neos": "neos",
     "neos-corporation": "neos",
     "nihon-falcom": "nihon-falcom",
     "nihon-falcom-corporation": "nihon-falcom",
     "nintendo": "nintendo",
-    "nintendo-software-technology": "nintendo",
-    "nintendo-software-technology-corporation": "nintendo",
     "noise": "noise-inc",
     "noise-inc": "noise-inc",
     "numskull-games": "numskull-games",
@@ -42251,14 +42803,11 @@
     "saffire-corporation": "saffire-corporation",
     "sammy": "sammy",
     "sammy-corporation": "sammy",
-    "sammy-europe": "sammy",
     "scee": "scee",
     "scee-ltd": "scee",
     "sci-games": "sci-games",
     "sci-games-ltd": "sci-games",
     "sega": "sega",
-    "sega-of-america": "sega",
-    "segasoft": "sega",
     "seta": "seta",
     "seta-corporation": "seta",
     "sevenone-intermedia": "sevenone-intermedia",
@@ -42272,47 +42821,16 @@
     "software-creations-ltd": "software-creations",
     "soleil": "soleil",
     "soleil-ltd": "soleil",
-    "sony": "sony-interactive-entertainment",
     "sony-computer": "sony-interactive-entertainment",
     "sony-computer-entertainement": "sony-interactive-entertainment",
     "sony-computer-entertainment": "sony-interactive-entertainment",
-    "sony-computer-entertainment-america": "sony-interactive-entertainment",
-    "sony-computer-entertainment-america-ltd": "sony-interactive-entertainment",
-    "sony-computer-entertainment-europe": "sony-interactive-entertainment",
-    "sony-computer-entertainment-europe-ltd": "sony-interactive-entertainment",
     "sony-computer-entertainment-inc": "sony-interactive-entertainment",
-    "sony-computer-entertainment-japan-asia": "sony-interactive-entertainment",
     "sony-electronics": "sony-interactive-entertainment",
-    "sony-imagesoft": "sony-interactive-entertainment",
-    "sony-imagesoft-amp-disney-software": "sony-interactive-entertainment",
     "sony-interactive-entertainment": "sony-interactive-entertainment",
-    "sony-interactive-entertainment-america": "sony-interactive-entertainment",
-    "sony-interactive-entertainment-europe": "sony-interactive-entertainment",
-    "sony-interactive-entertainment-europe-ltd": "sony-interactive-entertainment",
-    "sony-interactive-entertainment-mojang": "sony-interactive-entertainment",
-    "sony-interactive-entertainment-playstation-studios": "sony-interactive-entertainment",
     "sony-interactive-entertainment-sie": "sony-interactive-entertainment",
     "sony-music-entertainment": "sony-music-entertainment",
-    "sony-music-entertainment-japan-inc": "sony-music-entertainment",
-    "square": "square-enix",
     "square-enix": "square-enix",
-    "square-enix-1st-production-department": "square-enix",
-    "square-enix-1st-production-department-indieszero-co-ltd": "square-enix",
-    "square-enix-acquire": "square-enix",
-    "square-enix-business-division-1": "square-enix",
-    "square-enix-business-division-2": "square-enix",
-    "square-enix-business-division-3": "square-enix",
-    "square-enix-business-division-5": "square-enix",
     "square-enix-co-ltd": "square-enix",
-    "square-enix-europe": "square-enix",
-    "square-enix-indieszero": "square-enix",
-    "square-enix-level-5": "square-enix",
-    "square-enix-ltd": "square-enix",
-    "square-enix-nex-entertainment": "square-enix",
-    "square-enix-product-development-division-1": "square-enix",
-    "square-enix-racjin": "square-enix",
-    "square-enix-tri-ace-tose": "square-enix",
-    "squaresoft": "square-enix",
     "stainless-games": "stainless-games",
     "stainless-games-ltd": "stainless-games",
     "supermassive-games": "supermassive-games",
@@ -42320,14 +42838,12 @@
     "taito": "taito",
     "taito-corporation": "taito",
     "take-two-interactive": "take-two-interactive",
-    "take-two-interactive-europe": "take-two-interactive",
     "take-two-interactive-software": "take-two-interactive-software",
     "take-two-interactive-software-europe": "take-two-interactive-software",
     "take-two-interactive-software-europe-ltd": "take-two-interactive-software",
     "tamsoft": "tamsoft",
     "tamsoft-corporation": "tamsoft",
     "tdk-mediactive": "tdk-mediactive",
-    "tdk-mediactive-europe": "tdk-mediactive",
     "technos": "technos-japan",
     "technos-japan": "technos-japan",
     "technos-japan-corp": "technos-japan",
@@ -42339,11 +42855,8 @@
     "thq-inc": "thq",
     "thq-nordic": "thq-nordic",
     "thq-nordic-gmbh": "thq-nordic",
-    "thq-nordic-inc": "thq-nordic",
     "tikipod": "tikipod",
     "tikipod-limited": "tikipod",
-    "time-warner": "warner-bros-interactive-entertainment",
-    "time-warner-interactive": "warner-bros-interactive-entertainment",
     "tomy": "tomy-corporation",
     "tomy-corporation": "tomy-corporation",
     "tose": "tose",
@@ -42357,9 +42870,7 @@
     "tt-games": "tt-games",
     "tt-games-ltd": "tt-games",
     "ubisoft": "ubisoft",
-    "ubisoft-divertissements-inc": "ubisoft",
     "ubisoft-entertainment": "ubisoft",
-    "ubisoft-inc": "ubisoft",
     "uig": "uig",
     "uig-gmbh": "uig",
     "us-gold": "us-gold",
@@ -42370,8 +42881,6 @@
     "visco-corporation": "visco",
     "voxler": "voxler",
     "voxler-sas": "voxler",
-    "warner-bros": "warner-bros-interactive-entertainment",
-    "warner-bros-entertainment": "warner-bros-interactive-entertainment",
     "warner-bros-games": "warner-bros-interactive-entertainment",
     "warner-bros-interactive": "warner-bros-interactive-entertainment",
     "warner-bros-interactive-entertainment": "warner-bros-interactive-entertainment",
@@ -42383,7 +42892,6 @@
     "winking-entertainment-corporation": "winking-entertainment",
     "wired-productions": "wired-productions",
     "wired-productions-ltd": "wired-productions",
-    "xbox-game-studios": "microsoft",
     "ys-net": "ys-net",
     "ys-net-inc": "ys-net",
     "zoo": "zoo",
@@ -42393,7 +42901,6 @@
   "museumPathToCanonical": {},
   "normalizedToCanonical": {
     "49games": "49games",
-    "acclaim": "acclaim",
     "active gaming media": "active-gaming-media",
     "aerosoft": "aerosoft",
     "aesir interactive": "aesir-interactive-gmbh",
@@ -42409,8 +42916,6 @@
     "atari": "atari",
     "atlus": "atlus",
     "atomic planet entertainment": "atomic-planet-entertainment",
-    "bandai": "bandai-namco-entertainment",
-    "bandai namco": "bandai-namco-entertainment",
     "bandai namco entertainment": "bandai-namco-entertainment",
     "bandai namco studio": "bandai-namco-studio",
     "beep": "beep",
@@ -42432,7 +42937,6 @@
     "drinkbox studios": "drinkbox-studios",
     "dtp young entertainment": "dtp-young-entertainment",
     "east technology": "east-technology",
-    "empire interactive": "empire-interactive",
     "enix": "enix-corporation",
     "fci": "fci-inc",
     "free radical design": "free-radical-design",
@@ -42453,7 +42957,6 @@
     "happinet": "happinet",
     "hello games": "hello-games",
     "hopoo games": "hopoo-games",
-    "idea factory": "idea-factory",
     "ignition entertainment": "ignition-entertainment",
     "independent arts software": "independent-arts-software",
     "intenium": "intenium",
@@ -42464,12 +42967,10 @@
     "kadokawa": "kadokawa",
     "kemco": "kemco",
     "keoken interactive": "keoken-interactive",
-    "koei tecmo": "koei-tecmo",
     "krafton": "krafton",
     "kuju entertainment": "kuju-entertainment",
     "lucasfilm games": "lucasfilm-games",
     "ludia": "ludia-inc",
-    "marvelous": "marvelous",
     "marvelous entertainment": "marvelous-entertainment",
     "mastertronic group": "mastertronic-group",
     "mere mortals": "mere-mortals",
@@ -42480,10 +42981,8 @@
     "mydearest": "mydearest",
     "namco": "namco",
     "namco bandai games": "bandai-namco-entertainment",
-    "nec": "nec",
     "neos": "neos",
     "nihon falcom": "nihon-falcom",
-    "nintendo software technology": "nintendo",
     "noise": "noise-inc",
     "numskull games": "numskull-games",
     "nway": "nway",
@@ -42518,16 +43017,11 @@
     "snk": "snk",
     "software creations": "software-creations",
     "soleil": "soleil",
-    "sony interactive entertainment": "sony-interactive-entertainment",
-    "sony music entertainment": "sony-music-entertainment",
-    "square enix": "square-enix",
     "stainless games": "stainless-games",
     "supermassive games": "supermassive-games",
     "taito": "taito",
-    "take two interactive": "take-two-interactive",
     "take two interactive software": "take-two-interactive-software",
     "tamsoft": "tamsoft",
-    "tdk mediactive": "tdk-mediactive",
     "technos": "technos-japan",
     "telenet": "telenet",
     "teque london": "teque-london",

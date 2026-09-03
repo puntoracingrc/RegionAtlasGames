@@ -143,6 +143,8 @@ function buildCompanyProfileViewFromProfile(
   const gameIds = new Set(games.map((game) => game.id));
   const foundedYear = stored?.foundedYear ?? null;
   const closedYear = stored?.closedYear ?? null;
+  const usesGeneratedCatalogCopy =
+    stored?.method === "template" || stored?.method === "wikidata";
 
   return {
     slug: entry.slug,
@@ -162,9 +164,10 @@ function buildCompanyProfileViewFromProfile(
     predecessorCompany: stored?.predecessorCompany ?? null,
     successorCompany: stored?.successorCompany ?? null,
     logoUrl: stored?.logoUrl ?? null,
-    history: stored?.history?.trim() || null,
-    seoTitle: stored?.seoMeta?.seoTitle ?? null,
-    seoDescription: stored?.seoMeta?.seoDescription ?? null,
+    // Generated summaries embed catalog counts, so render those figures from the live index.
+    history: usesGeneratedCatalogCopy ? null : stored?.history?.trim() || null,
+    seoTitle: usesGeneratedCatalogCopy ? null : stored?.seoMeta?.seoTitle ?? null,
+    seoDescription: usesGeneratedCatalogCopy ? null : stored?.seoMeta?.seoDescription ?? null,
     platforms: groupGamesByPlatform(games),
     collaborators: collectCollaborators(entry, entry.slug).slice(0, 24),
     games,

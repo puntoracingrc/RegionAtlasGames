@@ -1,4 +1,5 @@
 import companyGroupsData from "../../data/company-groups.json";
+import companySeparationsData from "../../data/company-separations.json";
 import companyEntitiesData from "../../data/index/company-entities.json";
 import {
   decodeEntityText,
@@ -31,6 +32,15 @@ type CompanyGroupsFile = {
   groups: CompanyGroup[];
 };
 
+type CompanySeparationsFile = {
+  separations: {
+    canonicalSlug: string;
+    canonicalName?: string;
+    confidence: string;
+    independentSlugs: string[];
+  }[];
+};
+
 type CompanyEntitiesFile = {
   entities: Record<string, CompanyEntityRecord>;
   slugToCanonical: Record<string, string>;
@@ -40,10 +50,28 @@ type CompanyEntitiesFile = {
 };
 
 const groupsFile = companyGroupsData as CompanyGroupsFile;
+const separationsFile = companySeparationsData as CompanySeparationsFile;
 const registryFile = companyEntitiesData as CompanyEntitiesFile;
 
 const manualSlugToCanonical = new Map<string, { slug: string; name: string }>();
 const prefixRules: { prefix: string; canonical: { slug: string; name: string } }[] = [];
+const independentSlugs = new Set<string>();
+const canonicalNameOverrides = new Map<string, string>();
+
+for (const separation of separationsFile.separations) {
+  if (separation.confidence !== "VERY_HIGH") {
+    throw new Error(`Company separation ${separation.canonicalSlug} is not VERY_HIGH`);
+  }
+  if (separation.canonicalName) {
+    canonicalNameOverrides.set(separation.canonicalSlug, separation.canonicalName);
+  }
+  for (const slug of separation.independentSlugs) {
+    if (slug === separation.canonicalSlug || independentSlugs.has(slug)) {
+      throw new Error(`Invalid independent company slug: ${slug}`);
+    }
+    independentSlugs.add(slug);
+  }
+}
 
 for (const group of groupsFile.groups) {
   const canonical = { slug: group.slug, name: group.name };
@@ -66,6 +94,7 @@ const normalizedToCanonical = new Map(Object.entries(registryFile.normalizedToCa
 const entityRecords = registryFile.entities ?? {};
 
 function manualCanonicalSlug(slug: string): string | null {
+  if (independentSlugs.has(slug) || canonicalNameOverrides.has(slug)) return slug;
   const direct = manualSlugToCanonical.get(slug);
   if (direct) return direct.slug;
   for (const { prefix, canonical } of prefixRules) {
@@ -135,11 +164,14 @@ export function resolveCanonicalCompany(
   hints?: Omit<ResolveCompanyHints, "name">,
 ): { slug: string; name: string } {
   const canonicalSlug = resolveCanonicalCompanySlug(slug, { name, ...hints });
-  const manual = manualSlugToCanonical.get(canonicalSlug);
+  const manual = independentSlugs.has(canonicalSlug)
+    ? undefined
+    : manualSlugToCanonical.get(canonicalSlug);
   const record = entityRecords[canonicalSlug];
   return {
     slug: canonicalSlug,
     name:
+      canonicalNameOverrides.get(canonicalSlug) ??
       manual?.name ??
       record?.name ??
       pickDisplayName([name ?? "", slug]) ??

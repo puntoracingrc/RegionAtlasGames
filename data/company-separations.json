@@ -1,0 +1,310 @@
+{
+  "version": 1,
+  "source": {
+    "file": "RegionAtlas_company_audit_2026-09-03.zip",
+    "sha256": "9b3153da39bd7a06343df9aa2ad7f8bbd5fb7d6702196367cd0b0bf84de947e3",
+    "approvedAt": "2026-09-03",
+    "approvedBy": "user"
+  },
+  "policy": {
+    "decision": "SPLIT_CLUSTER",
+    "minimumConfidence": "VERY_HIGH",
+    "precedence": "Independent slugs win over manual groups, Wikidata, museum paths, and normalized names."
+  },
+  "separations": [
+    {
+      "clusterId": "A002",
+      "canonicalSlug": "acclaim",
+      "canonicalName": "Acclaim Entertainment",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "acclaim-japan"
+      ]
+    },
+    {
+      "clusterId": "A004",
+      "canonicalSlug": "activision",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "activision-blizzard",
+        "activision-o2",
+        "activision-publishing",
+        "activision-value"
+      ]
+    },
+    {
+      "clusterId": "A021",
+      "canonicalSlug": "bandai-namco-entertainment",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "bandai",
+        "bandai-america-inc",
+        "bandai-entertainment",
+        "bandai-namco-entertainment-8-4-ltd",
+        "bandai-namco-entertainment-europe",
+        "bandai-namco-entertainment-europe-s-a-s",
+        "bandai-namco-entertainment-germany",
+        "bandai-namco-europe",
+        "bandai-shinsei",
+        "namco-bandai-games-europe",
+        "namco-bandai-games-europe-sas"
+      ]
+    },
+    {
+      "clusterId": "A043",
+      "canonicalSlug": "electronic-arts",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "electronic-arts-black-pearl-software",
+        "electronic-arts-canada",
+        "electronic-arts-square-square-ea",
+        "electronic-arts-victor"
+      ]
+    },
+    {
+      "clusterId": "A044",
+      "canonicalSlug": "empire-interactive",
+      "canonicalName": "Empire Interactive",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "empire-interactive-europe"
+      ]
+    },
+    {
+      "clusterId": "A045",
+      "canonicalSlug": "enix-corporation",
+      "canonicalName": "Enix Corporation",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "enix-america-inc"
+      ]
+    },
+    {
+      "clusterId": "A064",
+      "canonicalSlug": "idea-factory",
+      "canonicalName": "Idea Factory Co., Ltd.",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "idea-factory-international"
+      ]
+    },
+    {
+      "clusterId": "A076",
+      "canonicalSlug": "koei-tecmo",
+      "canonicalName": "Koei Tecmo",
+      "classification": "EMPRESAS_HERMANAS",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "koei-tecmo-america",
+        "koei-tecmo-europe",
+        "koei-tecmo-europe-ltd"
+      ]
+    },
+    {
+      "clusterId": "A077",
+      "canonicalSlug": "konami",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "konami-digital-entertainment",
+        "konami-of-europe"
+      ]
+    },
+    {
+      "clusterId": "A083",
+      "canonicalSlug": "marvelous",
+      "canonicalName": "Marvelous",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "marvelous-europe",
+        "marvelous-inc"
+      ]
+    },
+    {
+      "clusterId": "A090",
+      "canonicalSlug": "microsoft",
+      "classification": "DIVISION_O_ESTUDIO",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "microsoft-game-studios",
+        "xbox-game-studios"
+      ]
+    },
+    {
+      "clusterId": "A096",
+      "canonicalSlug": "nec",
+      "canonicalName": "NEC Corporation",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "nec-international"
+      ]
+    },
+    {
+      "clusterId": "A099",
+      "canonicalSlug": "nintendo",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "nintendo-software-technology",
+        "nintendo-software-technology-corporation"
+      ]
+    },
+    {
+      "clusterId": "A125",
+      "canonicalSlug": "sammy",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "sammy-europe"
+      ]
+    },
+    {
+      "clusterId": "A127",
+      "canonicalSlug": "sega",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "sega-of-america",
+        "segasoft"
+      ]
+    },
+    {
+      "clusterId": "A134",
+      "canonicalSlug": "sony-interactive-entertainment",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "sony",
+        "sony-computer-entertainment-america",
+        "sony-computer-entertainment-america-ltd",
+        "sony-computer-entertainment-europe",
+        "sony-computer-entertainment-europe-ltd",
+        "sony-computer-entertainment-japan-asia",
+        "sony-imagesoft",
+        "sony-imagesoft-amp-disney-software",
+        "sony-interactive-entertainment-america",
+        "sony-interactive-entertainment-europe",
+        "sony-interactive-entertainment-europe-ltd",
+        "sony-interactive-entertainment-mojang",
+        "sony-interactive-entertainment-playstation-studios"
+      ]
+    },
+    {
+      "clusterId": "A135",
+      "canonicalSlug": "sony-music-entertainment",
+      "canonicalName": "Sony Music Entertainment",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "sony-music-entertainment-japan-inc"
+      ]
+    },
+    {
+      "clusterId": "A136",
+      "canonicalSlug": "square-enix",
+      "classification": "PREDECESORA_SUCESORA",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "square",
+        "square-enix-1st-production-department",
+        "square-enix-1st-production-department-indieszero-co-ltd",
+        "square-enix-acquire",
+        "square-enix-business-division-1",
+        "square-enix-business-division-2",
+        "square-enix-business-division-3",
+        "square-enix-business-division-5",
+        "square-enix-europe",
+        "square-enix-indieszero",
+        "square-enix-level-5",
+        "square-enix-ltd",
+        "square-enix-nex-entertainment",
+        "square-enix-product-development-division-1",
+        "square-enix-racjin",
+        "square-enix-tri-ace-tose",
+        "squaresoft"
+      ]
+    },
+    {
+      "clusterId": "A140",
+      "canonicalSlug": "take-two-interactive",
+      "canonicalName": "Take-Two Interactive",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "take-two-interactive-europe"
+      ]
+    },
+    {
+      "clusterId": "A143",
+      "canonicalSlug": "tdk-mediactive",
+      "canonicalName": "TDK Mediactive",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "tdk-mediactive-europe"
+      ]
+    },
+    {
+      "clusterId": "A148",
+      "canonicalSlug": "thq-nordic",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "thq-nordic-inc"
+      ]
+    },
+    {
+      "clusterId": "A156",
+      "canonicalSlug": "ubisoft",
+      "classification": "MATRIZ_FILIAL",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "ubisoft-divertissements-inc",
+        "ubisoft-inc"
+      ]
+    },
+    {
+      "clusterId": "A162",
+      "canonicalSlug": "warner-bros-interactive-entertainment",
+      "classification": "DIVISION_O_ESTUDIO",
+      "confidence": "VERY_HIGH",
+      "independentSlugs": [
+        "time-warner",
+        "time-warner-interactive",
+        "warner-bros",
+        "warner-bros-entertainment"
+      ]
+    }
+  ],
+  "blocked": [
+    {
+      "clusterId": "A017",
+      "canonicalSlug": "atari",
+      "reason": "CONFIDENCE_BELOW_VERY_HIGH"
+    },
+    {
+      "clusterId": "A087",
+      "canonicalSlug": "mastiff",
+      "reason": "TEMPORAL_OR_IDENTIFIER_COLLISION"
+    },
+    {
+      "clusterId": "A131",
+      "canonicalSlug": "snk",
+      "reason": "TEMPORAL_OR_IDENTIFIER_COLLISION"
+    },
+    {
+      "clusterId": "A168",
+      "canonicalSlug": "zushi-games",
+      "reason": "TEMPORAL_OR_IDENTIFIER_COLLISION"
+    }
+  ]
+}
