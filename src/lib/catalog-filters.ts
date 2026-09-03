@@ -1,6 +1,6 @@
 import { catalogSearchTokens } from "@/lib/catalog-search-normalize";
 import { findGameFacetEntityBySlug, getGameFacetsTaxonomy } from "@/lib/game-facets/taxonomy";
-import { hasVerifiedEsPrice, esPriceDisplayLabel } from "@/lib/price-display";
+import { esPriceDisplayLabel } from "@/lib/price-display";
 import { regionSortRank } from "@/lib/platform-catalog-insights";
 import { publicRegionLabelForPlatform } from "@/lib/platform-region-policy";
 import { getRegionDisplay } from "@/lib/region-display";
@@ -167,10 +167,15 @@ function priceKey(game: CatalogListGame, priceType: CatalogPriceType): number | 
   if (priceType === "complete") return game.estimatedPriceComplete ?? null;
   if (priceType === "gameManual") return game.estimatedPriceGameManual ?? null;
   if (priceType === "loose") return game.estimatedPriceLoose ?? null;
-  if (hasVerifiedEsPrice(game) && game.recommendedPrice != null) {
-    return game.recommendedPrice;
-  }
-  return null;
+  return (
+    game.recommendedPrice ??
+    game.estimatedPriceComplete ??
+    game.estimatedPriceGameManual ??
+    game.estimatedPriceLoose ??
+    game.estimatedPriceSealed ??
+    game.estimatedPriceNewRetail ??
+    null
+  );
 }
 
 function compareNullsLast(a: number | null, b: number | null, asc: boolean): number {
