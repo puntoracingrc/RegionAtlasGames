@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Imagen provisional para Dracue</title>
+  <desc id="desc">Marcador neutral; no es un logotipo oficial.</desc>
+  <rect width="1200" height="600" rx="16" fill="#101827"/>
+  <rect x="18" y="18" width="1164" height="564" rx="10" fill="none" stroke="#475569" stroke-width="4"/>
+  <text x="600" y="82" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#94A3B8">REGIONATLAS</text>
+  <text text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="700" fill="#F8FAFC">
+    <tspan x="600" y="295">Dracue</tspan>
+  </text>
+  <text x="600" y="500" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" fill="#F59E0B">IMAGEN PROVISIONAL</text>
+  <text x="600" y="540" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" fill="#94A3B8">LOGO NO DOCUMENTADO · dracue</text>
+</svg>

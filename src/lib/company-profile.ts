@@ -13,6 +13,7 @@ import {
   getCompany,
   getGameDetails,
 } from "./indexes";
+import { resolveCompanyLogo } from "./company-logo";
 import type { CatalogGame, CompanyProfile, IndexEntry } from "./types";
 
 export type CompanyCollaborator = {
@@ -47,6 +48,7 @@ export type CompanyProfileView = {
   predecessorCompany: CompanyProfile["predecessorCompany"] | null;
   successorCompany: CompanyProfile["successorCompany"] | null;
   logoUrl: string | null;
+  logoIsProvisional: boolean;
   history: string | null;
   seoTitle: string | null;
   seoDescription: string | null;
@@ -143,6 +145,7 @@ function buildCompanyProfileViewFromProfile(
   const gameIds = new Set(games.map((game) => game.id));
   const foundedYear = stored?.foundedYear ?? null;
   const closedYear = stored?.closedYear ?? null;
+  const logo = resolveCompanyLogo(entry.slug, stored?.logoUrl);
   const usesGeneratedCatalogCopy =
     stored?.method === "template" || stored?.method === "wikidata";
 
@@ -163,7 +166,8 @@ function buildCompanyProfileViewFromProfile(
     mergedWithCompany: stored?.mergedWithCompany ?? null,
     predecessorCompany: stored?.predecessorCompany ?? null,
     successorCompany: stored?.successorCompany ?? null,
-    logoUrl: stored?.logoUrl ?? null,
+    logoUrl: logo.url,
+    logoIsProvisional: logo.provisional,
     // Generated summaries embed catalog counts, so render those figures from the live index.
     history: usesGeneratedCatalogCopy ? null : stored?.history?.trim() || null,
     seoTitle: usesGeneratedCatalogCopy ? null : stored?.seoMeta?.seoTitle ?? null,

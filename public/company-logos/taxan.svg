@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   width="192.756"
+   height="192.756"
+   viewBox="0 0 192.756 192.756"
+   enable-background="new 0 0 612 792"
+   xml:space="preserve"
+   inkscape:version="0.48+devel r11577"
+   sodipodi:docname="taxan.svg"><metadata
+   id="metadata3204"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><cc:license
+         rdf:resource="" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs3202" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1440"
+   inkscape:window-height="825"
+   id="namedview3200"
+   showgrid="false"
+   inkscape:zoom="2.3838384"
+   inkscape:cx="47.642042"
+   inkscape:cy="113.71056"
+   inkscape:window-x="-9"
+   inkscape:window-y="-9"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1"
+   width="0px"
+   height="0px"
+   fit-margin-top="0"
+   fit-margin-left="0"
+   fit-margin-right="0"
+   fit-margin-bottom="0" />
+<g
+   id="g3190"
+   transform="translate(-209.15551,-300.08528)">
+	<polygon
+   points="209,300 401.756,300 401.756,492.756 209,492.756 209,300 "
+   id="polygon3192"
+   style="fill:#ffffff;fill-rule:evenodd;clip-rule:evenodd" />
+	<path
+   d="m 316.688,379.349 -6.76,0 -9.359,9.359 -7.149,-9.359 -16.38,0 13.519,19.368 -8.969,9.621 -14.299,-28.989 -12.089,0 -14.169,29.377 0,-25.088 8.58,0 0,-4.29 -32.108,0 0,4.29 10.399,0 c 0.13,0 0.26,0 0.26,0.13 l 0,29.637 15.858,0 11.31,-24.828 c 0,0 0.13,0 0.13,0.13 l 11.829,24.698 15.859,0 10.14,-10.529 7.279,10.529 19.499,0 11.568,-25.868 11.699,25.868 18.459,0 0,-24.698 16.509,24.698 14.949,0 0,-34.057 -3.77,0 0,24.047 c 0,0.131 -0.26,0.26 -0.391,0.26 l -16.769,-24.307 -14.948,0 0,26.909 -14.04,-26.909 -13.259,0 -14.299,31.458 -12.999,-17.679 13.911,-13.778 0,0 z"
+   id="path3194"
+   inkscape:connector-curvature="0"
+   style="fill:#979798;fill-rule:evenodd;clip-rule:evenodd" />
+	<path
+   d="m 333.066,402.617 c 2.989,0 5.459,2.471 5.459,5.33 0,2.99 -2.47,5.459 -5.459,5.459 -2.86,0 -5.33,-2.469 -5.33,-5.459 0,-2.859 2.47,-5.33 5.33,-5.33 l 0,0 z"
+   id="path3196"
+   inkscape:connector-curvature="0"
+   style="fill:#979798;fill-rule:evenodd;clip-rule:evenodd" />
+	<path
+   d="m 256.761,402.617 c 2.99,0 5.459,2.471 5.459,5.459 0,2.861 -2.47,5.33 -5.459,5.33 -2.86,0 -5.33,-2.469 -5.33,-5.33 10e-4,-2.988 2.47,-5.459 5.33,-5.459 l 0,0 z"
+   id="path3198"
+   inkscape:connector-curvature="0"
+   style="fill:#979798;fill-rule:evenodd;clip-rule:evenodd" />
+</g>
+</svg>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { CompanyLogo } from "@/components/company-logo";
 import { cn } from "@/lib/cn";
 
 type CompanyRoleKind = "publisher" | "developer" | "both";
@@ -36,6 +37,8 @@ type CompanyCardData = {
   grailCount: number;
   pricedCount: number;
   hasProfile: boolean;
+  logoUrl: string | null;
+  logoIsProvisional: boolean;
   searchHaystack: string;
 };
 type CompanyFilterOption = { slug: string; name: string; count: number };
@@ -390,16 +393,24 @@ function CompanyPreviewSection({
 }) {
   if (items.length === 0) return null;
   return (
-    <section className="rounded-2xl border border-border bg-card p-4">
+    <section className="min-w-0 rounded-2xl border border-border bg-card p-4">
       <h2 className="text-lg font-semibold text-foreground">{title}</h2>
       <div className="mt-3 grid gap-2 sm:grid-cols-2">
         {items.map((company) => (
           <Link
             key={company.slug}
             href={`/compania/${company.slug}`}
-            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-background/50 px-3 py-2 text-sm transition hover:border-accent/40 hover:bg-card-hover"
+            className="flex min-w-0 items-center justify-between gap-3 rounded-xl border border-border bg-background/50 px-3 py-2 text-sm transition hover:border-accent/40 hover:bg-card-hover"
           >
-            <span className="truncate font-semibold text-foreground">{company.name}</span>
+            <span className="flex min-w-0 items-center gap-2">
+              <CompanyLogo
+                name={company.name}
+                logoUrl={company.logoUrl}
+                provisional={company.logoIsProvisional}
+                size="sm"
+              />
+              <span className="truncate font-semibold text-foreground">{company.name}</span>
+            </span>
             <span className="shrink-0 text-xs font-semibold text-accent">
               {company.gameCount.toLocaleString("es-ES")}
             </span>
@@ -430,13 +441,25 @@ function CompanyGrid({
           href={`/compania/${company.slug}`}
           className="flex min-h-[178px] flex-col rounded-2xl border border-border bg-card p-4 transition hover:border-accent/40 hover:bg-card-hover"
         >
-          <div className="flex flex-wrap items-start justify-between gap-2">
-            <h3 className="font-semibold leading-snug text-foreground">{company.name}</h3>
-            <RoleBadge roleKind={company.roleKind} />
+          <div className="flex items-start gap-3">
+            <CompanyLogo
+              name={company.name}
+              logoUrl={company.logoUrl}
+              provisional={company.logoIsProvisional}
+              size="md"
+            />
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-start justify-between gap-2">
+                <h3 className="line-clamp-2 font-semibold leading-snug text-foreground">
+                  {company.name}
+                </h3>
+                <RoleBadge roleKind={company.roleKind} />
+              </div>
+              <p className="mt-1 text-sm text-accent">
+                {company.gameCount.toLocaleString("es-ES")} juegos
+              </p>
+            </div>
           </div>
-          <p className="mt-1 text-sm text-accent">
-            {company.gameCount.toLocaleString("es-ES")} juegos
-          </p>
           {(company.developerCount > 0 || company.publisherCount > 0) && (
             <p className="mt-1 text-xs text-muted">
               Dev {company.developerCount.toLocaleString("es-ES")} · Pub{" "}
