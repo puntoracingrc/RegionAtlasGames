@@ -1,4 +1,3 @@
-import "server-only";
 import companyLogoAssetsData from "../../data/company-logo-assets.json";
 
 export type CompanyLogoAsset = {
