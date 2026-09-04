@@ -13,7 +13,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DECISIONS_FILE = ROOT / "data/research/company-credit-verified-batch-1.csv"
 REPORT_FILE = ROOT / "data/research/company-credit-verified-batch-1-report.json"
-EXPECTED_ROWS = 59_626
+EXPECTED_BATCH_ROWS = 59_626
+EXPECTED_ROWS = 65_434
 EXPECTED_BATCH = "company-credit-verified-batch-1"
 EXPECTED_REVIEW_DATE = "2026-09-04"
 
@@ -45,10 +46,10 @@ def main() -> int:
     assert len(catalog) == EXPECTED_ROWS
     assert len({row["id"] for row in catalog}) == EXPECTED_ROWS
     assert report["catalog"] == {
-        "rowsBefore": EXPECTED_ROWS,
-        "rowsAfter": EXPECTED_ROWS,
-        "idsBefore": EXPECTED_ROWS,
-        "idsAfter": EXPECTED_ROWS,
+        "rowsBefore": EXPECTED_BATCH_ROWS,
+        "rowsAfter": EXPECTED_BATCH_ROWS,
+        "idsBefore": EXPECTED_BATCH_ROWS,
+        "idsAfter": EXPECTED_BATCH_ROWS,
     }
 
     mutations = [
