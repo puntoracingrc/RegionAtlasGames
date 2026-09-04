@@ -21,7 +21,7 @@ Las decisiones seguras proceden exclusivamente de los casos aprobados en la espe
 
 ## Consumidores
 
-La búsqueda reproducible encontró 215 coincidencias en 40 archivos. El detalle exacto, con línea y patrón, está en `consumer-audit.json`.
+La búsqueda reproducible encontró 328 coincidencias en 54 archivos. El detalle exacto, con línea y patrón, está en `consumer-audit.json`.
 
 ## Bloqueos previos a escritura canónica
 
