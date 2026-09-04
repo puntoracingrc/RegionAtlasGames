@@ -1,0 +1,2073 @@
+{
+  "schemaVersion": 1,
+  "baselineRevision": "8a1b296359ed2108590067602e5c8d2442e57031",
+  "scannedRoots": [
+    "src",
+    "scripts"
+  ],
+  "matchCount": 215,
+  "fileCount": 40,
+  "files": [
+    "scripts/audit-franchise-migration.ts",
+    "scripts/backfill_company_roles.py",
+    "scripts/collectors/game_description_ai.py",
+    "scripts/collectors/game_details_lib.py",
+    "scripts/collectors/serialstation_details.py",
+    "scripts/collectors/wikidata_details.py",
+    "scripts/enrich_serialstation.py",
+    "scripts/import_game_release_catalog.py",
+    "scripts/seed_neogeo_aes_plus_catalog.py",
+    "src/app/admin/page.tsx",
+    "src/app/api/admin/entities/series/[slug]/route.ts",
+    "src/app/api/admin/entities/series/route.ts",
+    "src/app/api/admin/games/route.ts",
+    "src/app/catalogo/[slug]/page.tsx",
+    "src/app/catalogo/page.tsx",
+    "src/app/compania/[slug]/page.tsx",
+    "src/app/sitemap.ts",
+    "src/components/admin/admin-bulk-game-actions-panel.tsx",
+    "src/components/admin/admin-entities-panel.tsx",
+    "src/components/admin/admin-management-panel.tsx",
+    "src/components/admin/admin-series-panel.tsx",
+    "src/components/admin/admin-similar-games-panel.tsx",
+    "src/components/company-profile-detail.tsx",
+    "src/components/index-entity-detail.tsx",
+    "src/components/index-entity-header.tsx",
+    "src/components/index-entity-list.tsx",
+    "src/components/index-grid.tsx",
+    "src/components/saga-mascot-welcome.tsx",
+    "src/components/series-profile-panel.tsx",
+    "src/components/site-nav.tsx",
+    "src/lib/admin-series-ai-fill.ts",
+    "src/lib/admin-series-manager.test.ts",
+    "src/lib/admin-series-manager.ts",
+    "src/lib/admin-title-similarity.ts",
+    "src/lib/console-mascots.ts",
+    "src/lib/covers-upload.ts",
+    "src/lib/index-entity.ts",
+    "src/lib/indexes.ts",
+    "src/lib/saga-mascots.ts",
+    "src/lib/series-profile.ts"
+  ],
+  "matches": [
+    {
+      "file": "scripts/audit-franchise-migration.ts",
+      "line": 122,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "museumPath: base?.museumPath ?? `/saga/${slug}`,"
+    },
+    {
+      "file": "scripts/audit-franchise-migration.ts",
+      "line": 139,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "{ id: \"route-saga\", regex: /\\/saga(?:\\/|\\b)/g },"
+    },
+    {
+      "file": "scripts/audit-franchise-migration.ts",
+      "line": 144,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "{ id: \"saga-copy\", regex: /\\b(?:Saga|Sagas|saga|sagas)\\b/g },"
+    },
+    {
+      "file": "scripts/audit-franchise-migration.ts",
+      "line": 299,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "url: `/saga/${entry.slug}`,"
+    },
+    {
+      "file": "scripts/audit-franchise-migration.ts",
+      "line": 372,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "const report = `# Migración franquicias/sagas — Fase 0\\n\\n` +"
+    },
+    {
+      "file": "scripts/audit-franchise-migration.ts",
+      "line": 378,
+      "patterns": [
+        "details-series"
+      ],
+      "text": "`- ${snapshot.counts.detailsWithSeries.toLocaleString(\"es-ES\")} fichas declaran \\`details.series\\`; ${snapshot.counts.uniqueIndexedSeriesGames.toLocaleString(\"es-ES\")} juegos únicos están en el índice efectivo.\\n` +"
+    },
+    {
+      "file": "scripts/audit-franchise-migration.ts",
+      "line": 382,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "`- Sagas/subseries seguras: ${dryRun.counts.series}.\\n` +"
+    },
+    {
+      "file": "scripts/audit-franchise-migration.ts",
+      "line": 390,
+      "patterns": [
+        "details-series"
+      ],
+      "text": "`2. Mantener la discrepancia de \\`details.series\\` identificada y no ocultarla con la migración.\\n` +"
+    },
+    {
+      "file": "scripts/backfill_company_roles.py",
+      "line": 55,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": None,"
+    },
+    {
+      "file": "scripts/collectors/game_description_ai.py",
+      "line": 144,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": (d.get(\"series\") or {}).get(\"name\"),"
+    },
+    {
+      "file": "scripts/collectors/game_description_ai.py",
+      "line": 167,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "extras.append(f\", perteneciente a la saga {facts['series']}\")"
+    },
+    {
+      "file": "scripts/collectors/game_details_lib.py",
+      "line": 252,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "elif label in {\"Desarrolla\", \"Publica\", \"Saga juego\", \"Saga\"} and links:"
+    },
+    {
+      "file": "scripts/collectors/game_details_lib.py",
+      "line": 277,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "series = fields.get(\"Saga juego\") or fields.get(\"Saga\")"
+    },
+    {
+      "file": "scripts/collectors/game_details_lib.py",
+      "line": 288,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": series,"
+    },
+    {
+      "file": "scripts/collectors/game_details_lib.py",
+      "line": 335,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": None,"
+    },
+    {
+      "file": "scripts/collectors/game_details_lib.py",
+      "line": 499,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": None,"
+    },
+    {
+      "file": "scripts/collectors/game_details_lib.py",
+      "line": 851,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": dict(sorted(series.items(), key=lambda x: (-x[1][\"gameCount\"], x[0]))),"
+    },
+    {
+      "file": "scripts/collectors/game_details_lib.py",
+      "line": 856,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": len(series),"
+    },
+    {
+      "file": "scripts/collectors/serialstation_details.py",
+      "line": 287,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": series,"
+    },
+    {
+      "file": "scripts/collectors/wikidata_details.py",
+      "line": 314,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": series,"
+    },
+    {
+      "file": "scripts/enrich_serialstation.py",
+      "line": 67,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "help=\"Solo juegos con huecos (referencia/dev/pub/saga) sin fuente SerialStation\","
+    },
+    {
+      "file": "scripts/import_game_release_catalog.py",
+      "line": 327,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": None,"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 42,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": (\"Fatal Fury\", \"fatal-fury\"),"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 54,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": (\"Metal Slug\", \"metal-slug\"),"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 66,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": (\"The King of Fighters\", \"the-king-of-fighters\"),"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 78,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": None,"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 89,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": (\"Samurai Shodown\", \"samurai-shodown\"),"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 93,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "\"contundente de la saga.\""
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 101,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": (\"Shock Troopers\", \"shock-troopers\"),"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 112,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": (\"Twinkle Star Sprites\", \"twinkle-star-sprites\"),"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 123,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": None,"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 134,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": (\"Magician Lord\", \"magician-lord\"),"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 145,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": None,"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 226,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": series,"
+    },
+    {
+      "file": "scripts/seed_neogeo_aes_plus_catalog.py",
+      "line": 241,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": \"official\","
+    },
+    {
+      "file": "src/app/admin/page.tsx",
+      "line": 22,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "description: \"Crear, editar o eliminar juegos, sagas, entidades y taxonomías.\","
+    },
+    {
+      "file": "src/app/api/admin/entities/series/[slug]/route.ts",
+      "line": 7,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "getAdminSeries,"
+    },
+    {
+      "file": "src/app/api/admin/entities/series/[slug]/route.ts",
+      "line": 20,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const result = await getAdminSeries(slug);"
+    },
+    {
+      "file": "src/app/api/admin/entities/series/route.ts",
+      "line": 6,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "listAdminSeriesGamePlatforms,"
+    },
+    {
+      "file": "src/app/api/admin/entities/series/route.ts",
+      "line": 7,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "listAdminSeries,"
+    },
+    {
+      "file": "src/app/api/admin/entities/series/route.ts",
+      "line": 21,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "return NextResponse.json({ ok: true, platforms: listAdminSeriesGamePlatforms() });"
+    },
+    {
+      "file": "src/app/api/admin/entities/series/route.ts",
+      "line": 46,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const series = await listAdminSeries({ q, limit });"
+    },
+    {
+      "file": "src/app/api/admin/games/route.ts",
+      "line": 185,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "\"Revisa los juegos parecidos antes de crear la ficha. Puede ser la misma saga o un duplicado que ya tenías.\","
+    },
+    {
+      "file": "src/app/catalogo/[slug]/page.tsx",
+      "line": 51,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "import { listPublicSeriesForGame } from \"@/lib/admin-series-manager\";"
+    },
+    {
+      "file": "src/app/catalogo/[slug]/page.tsx",
+      "line": 135,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const publicSeries = await listPublicSeriesForGame(game.id);"
+    },
+    {
+      "file": "src/app/catalogo/[slug]/page.tsx",
+      "line": 142,
+      "patterns": [
+        "details-series",
+        "series-symbol"
+      ],
+      "text": "details?.series && !publicSeries.some((series) => series.slug === details.series?.slug)"
+    },
+    {
+      "file": "src/app/catalogo/[slug]/page.tsx",
+      "line": 145,
+      "patterns": [
+        "details-series"
+      ],
+      "text": "slug: details.series.slug,"
+    },
+    {
+      "file": "src/app/catalogo/[slug]/page.tsx",
+      "line": 146,
+      "patterns": [
+        "details-series"
+      ],
+      "text": "name: details.series.name,"
+    },
+    {
+      "file": "src/app/catalogo/[slug]/page.tsx",
+      "line": 153,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const seriesLinks = [...publicSeries, ...detailsSeries];"
+    },
+    {
+      "file": "src/app/catalogo/[slug]/page.tsx",
+      "line": 465,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "label={seriesLinks.length === 1 ? \"Saga\" : \"Sagas\"}"
+    },
+    {
+      "file": "src/app/catalogo/[slug]/page.tsx",
+      "line": 471,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "href={`/saga/${series.slug}`}"
+    },
+    {
+      "file": "src/app/catalogo/page.tsx",
+      "line": 101,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "género, saga, referencia, plataforma o región."
+    },
+    {
+      "file": "src/app/compania/[slug]/page.tsx",
+      "line": 9,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "import { listPublicSeriesForGames } from \"@/lib/admin-series-manager\";"
+    },
+    {
+      "file": "src/app/compania/[slug]/page.tsx",
+      "line": 32,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const series = await listPublicSeriesForGames(view.games.map((game) => game.id));"
+    },
+    {
+      "file": "src/app/sitemap.ts",
+      "line": 23,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "{ url: `${base}/saga`, lastModified: now, changeFrequency: \"monthly\", priority: 0.6 },"
+    },
+    {
+      "file": "src/components/admin/admin-bulk-game-actions-panel.tsx",
+      "line": 354,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Filtra juegos, pásalos a una lista editable y aplica etiquetas o facetas en bloque sin depender de una saga."
+    },
+    {
+      "file": "src/components/admin/admin-bulk-game-actions-panel.tsx",
+      "line": 359,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Gestionar sagas"
+    },
+    {
+      "file": "src/components/admin/admin-entities-panel.tsx",
+      "line": 69,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "{ id: \"series\", label: \"Sagas\" },"
+    },
+    {
+      "file": "src/components/admin/admin-management-panel.tsx",
+      "line": 33,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "{ id: \"series\", label: \"Sagas\", helper: \"Universos y agrupaciones.\" },"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 558,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setError(data.error ?? \"No se pudieron cargar las sagas.\");"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 565,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setError(\"Error de red al cargar sagas.\");"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 610,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setError(data.error ?? \"No se pudo cargar la saga.\");"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 626,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setError(\"Error de red al cargar la saga.\");"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 703,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setError(data.error ?? \"No se pudo crear la saga.\");"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 713,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setMessage(`Saga «${created.name}» creada.`);"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 718,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setError(\"Error de red al crear la saga.\");"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 748,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setMessage(\"Juego añadido a la saga.\");"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 752,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setMessage(`Añadidos ${data.addedCount ?? 0} juegos a la saga.`);"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 760,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setMessage(\"Juego sacado de la saga.\");"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 768,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setMessage(\"Descripción de saga guardada.\");"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 792,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setError(data.error ?? \"No se pudo generar la descripción de la saga.\");"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 798,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "setError(\"Error de red al generar la descripción de saga.\");"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 893,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "<PanelTitle eyebrow=\"Sagas\">Crear saga</PanelTitle>"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 920,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "placeholder=\"Texto editorial de la saga. Puedes dejarlo vacío y regenerarlo con IA después.\""
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 929,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "placeholder=\"https://... o /saga-backgrounds/...\""
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 975,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "{saving ? \"Creando…\" : \"Crear saga\"}"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 983,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "<PanelTitle eyebrow=\"Buscar\">Seleccionar saga</PanelTitle>"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 988,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "placeholder=\"Buscar saga…\""
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 991,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "<p className=\"text-sm text-muted\">Cargando sagas…</p>"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1028,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "<p className=\"text-sm text-muted\">Cargando saga…</p>"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1033,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "<PanelTitle eyebrow=\"Gestión de saga\">{detail.series.name}</PanelTitle>"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1035,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "{detail.series.gameCount} juegos ordenados manualmente en esta saga."
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1038,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "<Link href={`/saga/${detail.series.slug}`} target=\"_blank\" className=\"btn-secondary\">"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1046,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "title=\"Descripción de la saga\""
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1073,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "placeholder=\"Descripción editorial de la saga…\""
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1099,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "description=\"Se muestra solo dentro del bloque principal de la saga. Puedes pegar una URL, importarla al hosting o subir una imagen desde tu Mac.\""
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1117,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Esta saga todavía no tiene fondo propio. Si no guardas uno, solo algunas sagas de prueba usan imagen fija."
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1127,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "placeholder=\"https://... o /saga-backgrounds/...\""
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1190,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Guarda la URL, la intensidad y la legibilidad aunque la saga use una imagen fija de prueba."
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1245,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "description=\"Busca en el catálogo y añade resultados a esta saga.\""
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1329,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Los contadores son de los juegos incluidos en esta saga."
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1539,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Sacar de la saga"
+    },
+    {
+      "file": "src/components/admin/admin-series-panel.tsx",
+      "line": 1561,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "<p className=\"text-sm text-muted\">Selecciona una saga para editarla.</p>"
+    },
+    {
+      "file": "src/components/admin/admin-similar-games-panel.tsx",
+      "line": 85,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "{pendingRegion}). Revisa la lista: a veces coinciden por la misma saga, pero otras"
+    },
+    {
+      "file": "src/components/company-profile-detail.tsx",
+      "line": 162,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "<h2 className=\"text-lg font-semibold text-foreground\">Sagas relacionadas</h2>"
+    },
+    {
+      "file": "src/components/company-profile-detail.tsx",
+      "line": 164,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Sagas donde aparece al menos un juego de {view.name}."
+    },
+    {
+      "file": "src/components/company-profile-detail.tsx",
+      "line": 168,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "{series.length} {series.length === 1 ? \"saga\" : \"sagas\"}"
+    },
+    {
+      "file": "src/components/company-profile-detail.tsx",
+      "line": 179,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "href={`/saga/${item.slug}`}"
+    },
+    {
+      "file": "src/components/company-profile-detail.tsx",
+      "line": 187,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "{item.gameCount > 0 ? ` · ${item.gameCount} en la saga` : \"\"}"
+    },
+    {
+      "file": "src/components/index-entity-detail.tsx",
+      "line": 4,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "import { SagaMascotWelcome } from \"@/components/saga-mascot-welcome\";"
+    },
+    {
+      "file": "src/components/index-entity-detail.tsx",
+      "line": 7,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "import { getPublicSeriesIndexEntry } from \"@/lib/admin-series-manager\";"
+    },
+    {
+      "file": "src/components/index-entity-detail.tsx",
+      "line": 11,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "import { buildSeriesProfile } from \"@/lib/series-profile\";"
+    },
+    {
+      "file": "src/components/index-entity-detail.tsx",
+      "line": 16,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "\"final-fantasy\": \"/saga-backgrounds/final-fantasy.webp\","
+    },
+    {
+      "file": "src/components/index-entity-detail.tsx",
+      "line": 17,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "\"hollow-knight\": \"/saga-backgrounds/hollow-knight.webp\","
+    },
+    {
+      "file": "src/components/index-entity-detail.tsx",
+      "line": 18,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "\"resident-evil\": \"/saga-backgrounds/resident-evil.jpg\","
+    },
+    {
+      "file": "src/components/index-entity-detail.tsx",
+      "line": 22,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const publicSeriesEntry = kind === \"series\" ? await getPublicSeriesIndexEntry(slug) : null;"
+    },
+    {
+      "file": "src/components/index-entity-detail.tsx",
+      "line": 23,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const summary = publicSeriesEntry"
+    },
+    {
+      "file": "src/components/index-entity-detail.tsx",
+      "line": 24,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "? summarizeIndexEntry(publicSeriesEntry, \"series\", { withGames: true })"
+    },
+    {
+      "file": "src/components/index-entity-detail.tsx",
+      "line": 31,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const seriesProfile = kind === \"series\" ? buildSeriesProfile(summary.entry, summary.games) : null;"
+    },
+    {
+      "file": "src/components/index-entity-detail.tsx",
+      "line": 53,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "<div id=\"saga-games\" />"
+    },
+    {
+      "file": "src/components/index-entity-header.tsx",
+      "line": 14,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "? `Saga ${summary.name}`"
+    },
+    {
+      "file": "src/components/index-entity-list.tsx",
+      "line": 3,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "import { listPublicSeriesIndexEntries } from \"@/lib/admin-series-manager\";"
+    },
+    {
+      "file": "src/components/index-entity-list.tsx",
+      "line": 9,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const items = kind === \"series\" ? await listPublicSeriesIndexEntries() : getIndexList(kind);"
+    },
+    {
+      "file": "src/components/index-entity-list.tsx",
+      "line": 36,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Agrupaciones por saga o franquicia: Final Fantasy, Resident Evil, Mario, Zelda,"
+    },
+    {
+      "file": "src/components/index-grid.tsx",
+      "line": 20,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "basePath: \"/compania\" | \"/genero\" | \"/saga\" | \"/etiqueta\";"
+    },
+    {
+      "file": "src/components/index-grid.tsx",
+      "line": 25,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "series: { searchLabel: \"saga\", basePath: \"/saga\" },"
+    },
+    {
+      "file": "src/components/saga-mascot-welcome.tsx",
+      "line": 4,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "import { buildSagaMascotLine, getSagaMascot } from \"@/lib/saga-mascots\";"
+    },
+    {
+      "file": "src/components/saga-mascot-welcome.tsx",
+      "line": 33,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Mensaje original de la mascota, inspirado en el tono de la saga."
+    },
+    {
+      "file": "src/components/saga-mascot-welcome.tsx",
+      "line": 40,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "href=\"#saga-games\""
+    },
+    {
+      "file": "src/components/saga-mascot-welcome.tsx",
+      "line": 46,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "href=\"/saga\""
+    },
+    {
+      "file": "src/components/saga-mascot-welcome.tsx",
+      "line": 49,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Ver todas las sagas"
+    },
+    {
+      "file": "src/components/series-profile-panel.tsx",
+      "line": 66,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Saga / franquicia"
+    },
+    {
+      "file": "src/components/series-profile-panel.tsx",
+      "line": 105,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "Plataformas en la saga"
+    },
+    {
+      "file": "src/components/series-profile-panel.tsx",
+      "line": 138,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "<p className=\"text-sm text-muted\">Aún no hay compañías enlazadas a esta saga.</p>"
+    },
+    {
+      "file": "src/components/site-nav.tsx",
+      "line": 17,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "{ href: \"/saga\", label: \"Sagas\" },"
+    },
+    {
+      "file": "src/lib/admin-series-ai-fill.ts",
+      "line": 2,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "import { getAdminSeries } from \"./admin-series-manager\";"
+    },
+    {
+      "file": "src/lib/admin-series-ai-fill.ts",
+      "line": 70,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "`${seriesName} videojuego saga`,"
+    },
+    {
+      "file": "src/lib/admin-series-ai-fill.ts",
+      "line": 110,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "const query = `\"${name}\" videojuego saga historia evolución`;"
+    },
+    {
+      "file": "src/lib/admin-series-ai-fill.ts",
+      "line": 145,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const detail = await getAdminSeries(slug);"
+    },
+    {
+      "file": "src/lib/admin-series-ai-fill.ts",
+      "line": 166,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "\"Genera una descripción de saga/franquicia para una página pública. \" +"
+    },
+    {
+      "file": "src/lib/admin-series-ai-fill.ts",
+      "line": 167,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "\"Prioriza la historia real de la saga según referencias externas: origen, evolución, cambios de nombre, estudios/editores relevantes, hitos y legado. \" +"
+    },
+    {
+      "file": "src/lib/admin-series-ai-fill.ts",
+      "line": 175,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "`Saga: ${detail.series.name}\\n` +"
+    },
+    {
+      "file": "src/lib/admin-series-ai-fill.ts",
+      "line": 183,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "`Juegos de la saga:\\n${JSON.stringify(games, null, 2)}`;"
+    },
+    {
+      "file": "src/lib/admin-series-manager.test.ts",
+      "line": 7,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "test(\"keeps bundled saga memberships when runtime data files are unavailable\", async () => {"
+    },
+    {
+      "file": "src/lib/admin-series-manager.test.ts",
+      "line": 30,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const { listPublicSeriesIndexEntries } = await import(\"./admin-series-manager\");"
+    },
+    {
+      "file": "src/lib/admin-series-manager.test.ts",
+      "line": 31,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const entries = await listPublicSeriesIndexEntries();"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 134,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "let publicSeriesCachePromise: Promise<PublicSeriesCache> | null = null;"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 192,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "export async function listPublicSeriesIndexEntries(): Promise<IndexEntry[]> {"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 193,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "return [...(await getPublicSeriesCache()).entries];"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 196,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "export async function getPublicSeriesIndexEntry(slug: string): Promise<IndexEntry | null> {"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 198,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "return (await getPublicSeriesCache()).bySlug.get(normalizedSlug) ?? null;"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 201,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "export async function listPublicSeriesForGame(gameId: string): Promise<PublicSeriesReference[]> {"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 205,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "return [...((await getPublicSeriesCache()).byGameId.get(normalizedGameId) ?? [])];"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 208,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "export async function listPublicSeriesForGames(gameIds: string[]): Promise<PublicSeriesReference[]> {"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 212,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const entries = (await getPublicSeriesCache()).entries;"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 232,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "async function getPublicSeriesCache(): Promise<PublicSeriesCache> {"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 233,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "publicSeriesCachePromise ??= buildPublicSeriesCache();"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 234,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "return publicSeriesCachePromise;"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 237,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "async function buildPublicSeriesCache(): Promise<PublicSeriesCache> {"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 275,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "publicSeriesCachePromise = null;"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 482,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "museumPath: staticEntry?.museumPath ?? `/saga/${slug}`,"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 612,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "export async function listAdminSeries(input?: { q?: string; limit?: number }): Promise<AdminSeriesRow[]> {"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 629,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "export function listAdminSeriesGamePlatforms(): AdminSeriesPlatformOption[] {"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 647,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "platforms: listAdminSeriesGamePlatforms(),"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 677,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "export async function getAdminSeries(slug: string): Promise<AdminSeriesDetail | { error: string }> {"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 684,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "if (!entry) return { error: \"Saga no encontrada.\" };"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 708,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "if (!current) return { error: \"Saga no encontrada.\" };"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 722,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const series = await getAdminSeries(normalizedSlug);"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 737,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "if (!current) return { error: \"Saga no encontrada.\" };"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 777,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const series = await getAdminSeries(normalizedSlug);"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 901,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "if (!name) return { error: \"Falta el nombre de la saga.\" };"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 922,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "if (index[slug] || overlay.series[slug]) return { error: `Ya existe la saga «${slug}».` };"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 928,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "museumPath: `/saga/${slug}`,"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 982,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "if (!entry) return { error: \"Saga no encontrada.\" };"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 1008,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const series = await getAdminSeries(normalizedSlug);"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 1024,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "if (!entry) return { error: \"Saga no encontrada.\" };"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 1044,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const series = await getAdminSeries(normalizedSlug);"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 1110,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "if (!entry) return { error: \"Saga no encontrada.\" };"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 1130,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const series = await getAdminSeries(normalizedSlug);"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 1169,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const series = await getAdminSeries(normalizedSlug);"
+    },
+    {
+      "file": "src/lib/admin-series-manager.ts",
+      "line": 1229,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const updated = await getAdminSeries(normalizedSlug);"
+    },
+    {
+      "file": "src/lib/admin-title-similarity.ts",
+      "line": 101,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "return `Comparte «${shared.slice(0, 3).join(\"», «\")}» — puede ser la misma saga, pero otro volúmen o entrega.`;"
+    },
+    {
+      "file": "src/lib/console-mascots.ts",
+      "line": 121,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "\"complete-platform\": [\"Saga de cartuchos completada. Esto sí que es Super.\"],"
+    },
+    {
+      "file": "src/lib/covers-upload.ts",
+      "line": 70,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "return remoteRoot.replace(/\\/covers$/i, \"/saga-backgrounds\");"
+    },
+    {
+      "file": "src/lib/covers-upload.ts",
+      "line": 74,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "return COVERS_PUBLIC_BASE_URL.replace(/\\/covers\\/?$/i, \"/saga-backgrounds\");"
+    },
+    {
+      "file": "src/lib/covers-upload.ts",
+      "line": 162,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "if (!slug) return { error: \"Slug de saga inválido.\" };"
+    },
+    {
+      "file": "src/lib/covers-upload.ts",
+      "line": 172,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "return { error: \"La subida de fondos de saga requiere SFTP en este momento.\" };"
+    },
+    {
+      "file": "src/lib/covers-upload.ts",
+      "line": 175,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "const tmpDir = path.join(os.tmpdir(), \"region-atlas-saga-backgrounds\");"
+    },
+    {
+      "file": "src/lib/covers-upload.ts",
+      "line": 196,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "? `No se pudo subir el fondo de saga al CDN: ${detail.slice(0, 700)}`"
+    },
+    {
+      "file": "src/lib/covers-upload.ts",
+      "line": 197,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": ": \"No se pudo subir el fondo de saga al CDN.\";"
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 9,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "getSeries,"
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 10,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "getSeriesList,"
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 41,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "basePath: \"/compania\" | \"/genero\" | \"/saga\" | \"/etiqueta\";"
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 63,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "listTitle: \"Sagas\","
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 64,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "backLabel: \"Sagas\","
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 65,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "searchLabel: \"saga\","
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 66,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "basePath: \"/saga\","
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 67,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "entityLabel: \"saga\","
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 68,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "entityLabelPlural: \"sagas\","
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 86,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "case \"series\":"
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 87,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "return getSeries(slug);"
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 99,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "case \"series\":"
+    },
+    {
+      "file": "src/lib/index-entity.ts",
+      "line": 100,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "return getSeriesList();"
+    },
+    {
+      "file": "src/lib/indexes.ts",
+      "line": 121,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "export function getSeries(slug: string): IndexEntry | undefined {"
+    },
+    {
+      "file": "src/lib/indexes.ts",
+      "line": 139,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "export function getSeriesList(): IndexEntry[] {"
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 24,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "imageSrc: \"/mascots/sagas/ps5-elden-ring.png\","
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 25,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "alt: \"Mascota PS5 vestida como guardián de una saga fantástica\","
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 26,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "eyebrow: \"Guardián de sagas\","
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 35,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "\"Alza la mirada, coleccionista: cada saga guarda ediciones, regiones y reliquias que no se entregan al primero que pasa.\","
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 38,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "\"Si buscas una saga completa, prepara inventario, paciencia y unas cuantas runas.\","
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 45,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "imageSrc: \"/mascots/sagas/ps5-resident-evil.png\","
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 46,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "alt: \"Mascota PS5 equipada como superviviente de una saga de survival horror\","
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 56,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "\"Bienvenido, superviviente. Has entrado en una saga clasificada como biohazard.\","
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 58,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "\"No soy policía, pero puedo investigar esta saga ficha a ficha.\","
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 65,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "imageSrc: \"/mascots/sagas/ps5-final-fantasy-cloud.png\","
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 79,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "\"Trae gil, paciencia y una lista de deseos: esta saga no se completa con una sola invocación.\","
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 113,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "return `La saga ${profile.name} reúne ${gameText} en ${platformText}. Revisa cada capítulo con calma: el cristal también mira región, edición y estado.`;"
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 117,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "return `La saga ${profile.name} contiene ${gameText} repartidos en ${platformText}. Mantén la calma: revisa ediciones, remakes, regiones y precios antes de abrir la siguiente puerta.`;"
+    },
+    {
+      "file": "src/lib/saga-mascots.ts",
+      "line": 120,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "return `La saga ${profile.name} ha dejado ${gameText} en ${platformText}. Examina cada edición con cuidado: algunas reliquias brillan menos de lo que valen.`;"
+    },
+    {
+      "file": "src/lib/series-profile.ts",
+      "line": 89,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "function buildSeriesDescription(input: {"
+    },
+    {
+      "file": "src/lib/series-profile.ts",
+      "line": 109,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "function buildSeriesHistory(input: {"
+    },
+    {
+      "file": "src/lib/series-profile.ts",
+      "line": 126,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "return `Como saga o franquicia, ${input.name} permite ver de un vistazo cómo se ha distribuido la serie entre plataformas, regiones y compañías. En este índice aparecen juegos fechados en ${years}${"
+    },
+    {
+      "file": "src/lib/series-profile.ts",
+      "line": 131,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): SeriesProfile {"
+    },
+    {
+      "file": "src/lib/series-profile.ts",
+      "line": 193,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "buildSeriesDescription({"
+    },
+    {
+      "file": "src/lib/series-profile.ts",
+      "line": 202,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "buildSeriesHistory({"
+    }
+  ],
+  "dataSurfaces": [
+    {
+      "file": "data/admin/series-overlay.snapshot.json",
+      "patterns": [
+        {
+          "id": "route-saga",
+          "count": 1
+        },
+        {
+          "id": "series-field",
+          "count": 1
+        },
+        {
+          "id": "saga-copy",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "file": "data/catalog-seed-reports/legacy-collection-ps5-2026-08-31.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "data/catalog.json",
+      "patterns": [
+        {
+          "id": "route-saga",
+          "count": 20
+        },
+        {
+          "id": "saga-copy",
+          "count": 989
+        }
+      ]
+    },
+    {
+      "file": "data/collection.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "data/company-role-backfill-report.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 12
+        }
+      ]
+    },
+    {
+      "file": "data/ebay-regional-campaigns/ps4.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "file": "data/franchise-system/classification-overrides.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "file": "data/franchise-system/series-classification.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "file": "data/game-details.json",
+      "patterns": [
+        {
+          "id": "route-saga",
+          "count": 8
+        },
+        {
+          "id": "series-field",
+          "count": 34971
+        },
+        {
+          "id": "saga-copy",
+          "count": 146
+        }
+      ]
+    },
+    {
+      "file": "data/games.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "file": "data/genre-tops.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "data/import-aliases/pricecharting-nes-japan.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "data/import-aliases/pricecharting-snes-japan.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "data/index/companies.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 160
+        }
+      ]
+    },
+    {
+      "file": "data/index/genres.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 78
+        }
+      ]
+    },
+    {
+      "file": "data/index/series.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "file": "data/museum-details-report.json",
+      "patterns": [
+        {
+          "id": "series-field",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "data/museum-seed-report.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "data/price-history.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "file": "data/provisional-price-seeds/ps4-pal-es-page-10-2026-08-31.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "data/research/company-study/public.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "data/research/person-study/core.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "docs/facet-review-and-apply-workflow-v1.md",
+      "patterns": [
+        {
+          "id": "route-saga",
+          "count": 1
+        },
+        {
+          "id": "saga-copy",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "docs/game-genre-data-quality-audit-v1.md",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "docs/research/company-study-publication-2026-09-03.md",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "docs/research/franchise-series-migration-phase-0-2026-09-04.md",
+      "patterns": [
+        {
+          "id": "details-series",
+          "count": 2
+        },
+        {
+          "id": "saga-copy",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "docs/research/pricecharting-nes-usa-price-update-2026-09-02.md",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}
