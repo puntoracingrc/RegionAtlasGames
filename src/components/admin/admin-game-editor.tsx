@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { adminToneClass } from "@/components/admin/admin-visual";
+import { AdminGameFranchisePanel } from "@/components/admin/admin-game-franchise-panel";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 import type { AdminGameDraft } from "@/lib/admin-draft-types";
 import { recomputeCatalogId } from "@/lib/admin-draft-patch";
@@ -1417,6 +1418,12 @@ export function AdminGameEditor({
           )}
           {priceJob && <PriceCollectionLivePanel job={priceJob} />}
         </Panel>
+        {isPublished && !locked && (
+          <Panel className={adminToneClass("edit")}>
+            <PanelTitle eyebrow="Clasificación editorial">Franquicias, sagas y relaciones</PanelTitle>
+            <AdminGameFranchisePanel gameId={catalogId ?? draft.catalogId} />
+          </Panel>
+        )}
       </div>
 
       <aside className="space-y-4">

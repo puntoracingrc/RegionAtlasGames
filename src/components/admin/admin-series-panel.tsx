@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { AdminSeriesFranchisePanel } from "@/components/admin/admin-series-franchise-panel";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AdminFunctionCard, AdminFunctionHeader, AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
-import { Badge, Panel, PanelTitle } from "@/components/ui";
+import { Panel, PanelTitle } from "@/components/ui";
 import taxonomyData from "../../../data/game-facets-taxonomy.json";
 import type {
   AdminSeriesDetail,
@@ -1039,6 +1040,10 @@ export function AdminSeriesPanel({
                   Ver página pública
                 </Link>
               </div>
+
+              <AdminFunctionCard tone="neutral">
+                <AdminSeriesFranchisePanel key={detail.series.slug} seriesSlug={detail.series.slug} />
+              </AdminFunctionCard>
 
               <AdminFunctionCard tone="edit">
                 <AdminFunctionHeader

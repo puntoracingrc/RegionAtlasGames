@@ -4,11 +4,12 @@ import Link from "next/link";
 import { Database, UsersRound } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { AdminSeriesPanel } from "@/components/admin/admin-series-panel";
+import { AdminFranchisesPanel } from "@/components/admin/admin-franchises-panel";
 import { AdminFunctionCard, AdminNotice, adminToneClass } from "@/components/admin/admin-visual";
 import { Badge, Panel, PanelTitle } from "@/components/ui";
 
 type EntityTab = "platforms" | "companies" | "genres";
-type Tab = EntityTab | "series";
+type Tab = EntityTab | "franchises" | "series";
 
 type PlatformRow = {
   slug: string;
@@ -66,7 +67,8 @@ const tabs: { id: Tab; label: string }[] = [
   { id: "platforms", label: "Plataformas" },
   { id: "companies", label: "Compañías" },
   { id: "genres", label: "Géneros" },
-  { id: "series", label: "Sagas" },
+  { id: "franchises", label: "Franquicias" },
+  { id: "series", label: "Sagas / Subseries" },
 ];
 
 const sortOptions: { value: EntitySort; label: string }[] = [
@@ -1340,8 +1342,9 @@ export function AdminEntitiesPanel({
       )}
 
       {tab === "series" && <AdminSeriesPanel mode={mode} lockTab={lockTab} />}
+      {tab === "franchises" && <AdminFranchisesPanel />}
 
-      {showListPanel && tab !== "series" && (
+      {showListPanel && tab !== "series" && tab !== "franchises" && (
       <Panel className={adminToneClass("search")}>
         <div className="mb-4 space-y-4">
           <div className="flex flex-wrap items-start justify-between gap-3">
