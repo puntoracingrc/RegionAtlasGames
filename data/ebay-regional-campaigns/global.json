@@ -9,8 +9,8 @@
     "batchSize": 250,
     "searchBudgetPerRun": 250,
     "dailySearchBudget": 1000,
-    "dailySearchesUsed": 269,
-    "dailySearchesRemaining": 731,
+    "dailySearchesUsed": 519,
+    "dailySearchesRemaining": 481,
     "regions": [
       "PAL España",
       "PAL Europa"
@@ -20,38 +20,38 @@
   "currentPlatform": "nes",
   "currentPlatformName": "Nintendo Entertainment System",
   "currentRegion": "PAL Europa",
-  "updatedAt": "2026-09-04T16:28:32Z",
+  "updatedAt": "2026-09-04T20:58:08Z",
   "lastRun": {
-    "at": "2026-09-04T16:28:32Z",
-    "platformSlug": "ps4",
-    "platformName": "PlayStation 4",
+    "at": "2026-09-04T20:58:08Z",
+    "platformSlug": "nes",
+    "platformName": "Nintendo Entertainment System",
     "region": "PAL Europa",
-    "selected": 1,
-    "processed": 1,
-    "matched": 0,
-    "listingsAdded": 0,
+    "selected": 250,
+    "processed": 250,
+    "matched": 45,
+    "listingsAdded": 55,
     "regionalReroutes": 0,
-    "regionalReviews": 7,
-    "apiSearches": 1,
+    "regionalReviews": 867,
+    "apiSearches": 250,
     "searchBudget": 250,
-    "searchBudgetExhausted": false,
+    "searchBudgetExhausted": true,
     "failed": 0,
     "systemicError": null,
     "coverCandidatesAdded": 0
   },
   "dailyUsage": {
     "date": "2026-09-04",
-    "apiSearches": 269
+    "apiSearches": 519
   },
   "totals": {
     "catalogGames": 25761,
-    "completed": 3044,
-    "matched": 344,
-    "noMatch": 2700,
+    "completed": 3294,
+    "matched": 389,
+    "noMatch": 2905,
     "deferred": 0,
-    "pending": 22717
+    "pending": 22467
   },
-  "estimatedRunsRemaining": 91,
+  "estimatedRunsRemaining": 90,
   "estimatedDaysRemaining": 23,
   "platforms": [
     {
@@ -100,16 +100,16 @@
     {
       "platformSlug": "nes",
       "platformName": "Nintendo Entertainment System",
-      "status": "ready",
+      "status": "running",
       "currentRegion": "PAL Europa",
-      "updatedAt": null,
+      "updatedAt": "2026-09-04T20:58:08Z",
       "totals": {
         "catalogGames": 464,
-        "completed": 0,
-        "matched": 0,
-        "noMatch": 0,
+        "completed": 250,
+        "matched": 45,
+        "noMatch": 205,
         "deferred": 0,
-        "pending": 464
+        "pending": 214
       },
       "regions": [
         {
@@ -119,11 +119,11 @@
           "marketScope": "multi_region",
           "originLabel": "Europa multirregión",
           "total": 464,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
+          "completed": 250,
+          "matched": 45,
+          "noMatch": 205,
           "deferred": 0,
-          "pending": 464
+          "pending": 214
         }
       ]
     },
@@ -1177,6 +1177,14 @@
       "level": "info",
       "message": "PlayStation 4 · PAL Europa: 1/1 consultados, 0 con evidencias, 0 anuncios aceptados, 0 aprovechados en otra región, 7 a revisión, 0 fallos, 0 aplazados.",
       "platformSlug": "ps4",
+      "region": "PAL Europa",
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-04T20:58:08Z",
+      "level": "info",
+      "message": "Nintendo Entertainment System · PAL Europa: 250/250 consultados, 45 con evidencias, 55 anuncios aceptados, 0 aprovechados en otra región, 867 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "nes",
       "region": "PAL Europa",
       "coverCandidatesAdded": 0
     }
