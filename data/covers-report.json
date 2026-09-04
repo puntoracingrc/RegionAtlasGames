@@ -1,142 +1,50 @@
 {
-  "generatedAt": "2026-06-13T12:17:55",
-  "targets": 20111,
-  "downloaded": 20095,
+  "generatedAt": "2026-09-04T00:00:00",
+  "scope": {
+    "region": "Japón",
+    "platforms": [
+      "ps1",
+      "ps2",
+      "ps3",
+      "ps5"
+    ]
+  },
+  "targets": 5808,
+  "downloaded": 5690,
   "skippedExisting": 0,
-  "missingSource": 12,
-  "downloadErrors": 4,
+  "missingSource": 118,
+  "downloadErrors": 0,
   "bySource": {
-    "museum": 8593,
-    "pricecharting": 7188,
-    "wikipedia": 9,
-    "existing": 4309
+    "museum": 0,
+    "pricecharting": 5690,
+    "wikipedia": 0,
+    "existing": 0
   },
   "byPlatform": {
-    "3ds": {
-      "downloaded": 398,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "dreamcast": {
-      "downloaded": 950,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "ds": {
-      "downloaded": 1738,
-      "missingSource": 1,
-      "downloadErrors": 1,
-      "skippedExisting": 0
-    },
-    "gameboy": {
-      "downloaded": 1788,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "gamecube": {
-      "downloaded": 483,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "gamegear": {
-      "downloaded": 636,
-      "missingSource": 0,
-      "downloadErrors": 1,
-      "skippedExisting": 0
-    },
-    "mastersystem": {
-      "downloaded": 500,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "megacd": {
-      "downloaded": 372,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "megadrive": {
-      "downloaded": 1679,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "n64": {
-      "downloaded": 775,
-      "missingSource": 0,
-      "downloadErrors": 1,
-      "skippedExisting": 0
-    },
-    "neogeo": {
-      "downloaded": 212,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "neogeocd": {
-      "downloaded": 161,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "neogeopocket": {
-      "downloaded": 165,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "nes": {
-      "downloaded": 2166,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
     "ps1": {
-      "downloaded": 1542,
-      "missingSource": 0,
+      "downloaded": 2284,
+      "missingSource": 29,
       "downloadErrors": 0,
       "skippedExisting": 0
     },
     "ps2": {
-      "downloaded": 6,
-      "missingSource": 6,
+      "downloaded": 2207,
+      "missingSource": 49,
       "downloadErrors": 0,
       "skippedExisting": 0
     },
     "ps3": {
-      "downloaded": 1361,
-      "missingSource": 1,
+      "downloaded": 861,
+      "missingSource": 28,
       "downloadErrors": 0,
       "skippedExisting": 0
     },
-    "saturn": {
-      "downloaded": 1596,
-      "missingSource": 1,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "sega32x": {
-      "downloaded": 82,
-      "missingSource": 0,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "snes": {
-      "downloaded": 2193,
-      "missingSource": 1,
-      "downloadErrors": 1,
-      "skippedExisting": 0
-    },
-    "wii": {
-      "downloaded": 1292,
-      "missingSource": 2,
+    "ps5": {
+      "downloaded": 338,
+      "missingSource": 12,
       "downloadErrors": 0,
       "skippedExisting": 0
     }
-  }
+  },
+  "note": "Cobertura agregada de la importación japonesa; los casos sin portada no se sustituyen."
 }

@@ -33,7 +33,11 @@ REQUEST_DELAY = 1.6
 
 # Plataformas con catálogo PC en las tres regiones
 MULTIREGION_PLATFORMS: dict[str, list[str]] = {
+    "ps1": ["japan"],
+    "ps2": ["japan"],
+    "ps3": ["japan"],
     "ps4": ["pal", "usa", "japan"],
+    "ps5": ["japan"],
 }
 
 REGION_CONFIG: dict[str, dict[str, str | None]] = {
@@ -112,13 +116,61 @@ def post_console_page(pc_path: str, cursor: int) -> str:
         return ""
 
 
-def parse_games(page_html: str, pc_path: str) -> list[tuple[str, str]]:
-    pattern = rf'href="(/game/{re.escape(pc_path)}/[^"]+)"[^>]*>([^<]+)</a>'
-    out: list[tuple[str, str]] = []
-    for href, title in re.findall(pattern, page_html):
-        clean = html.unescape(title.strip())
-        if clean:
-            out.append((href.strip(), clean))
+def parse_usd_price(cell_html: str) -> float | None:
+    text = html.unescape(re.sub(r"<[^>]+>", " ", cell_html))
+    match = re.search(r"\$([\d,]+(?:\.\d{1,2})?)", text)
+    if not match:
+        return None
+    return float(match.group(1).replace(",", ""))
+
+
+def parse_games(page_html: str, pc_path: str, collected_at: str) -> list[dict]:
+    path_pattern = re.compile(
+        r'<td[^>]*class="[^"]*\btitle\b[^"]*"[^>]*>.*?'
+        rf'<a[^>]*href="(?:https://www\.pricecharting\.com)?(/game/{re.escape(pc_path)}/[^"]+)"'
+        r"[^>]*>(.*?)</a>",
+        re.I | re.S,
+    )
+    out: list[dict] = []
+    for row in re.findall(r"<tr\b[^>]*>(.*?)</tr>", page_html, re.I | re.S):
+        path_match = path_pattern.search(row)
+        if not path_match:
+            continue
+        clean = html.unescape(re.sub(r"<[^>]+>", "", path_match.group(2))).strip()
+        if not clean:
+            continue
+
+        pc_id_match = re.search(
+            r'<td[^>]*class="[^"]*\btitle\b[^"]*"[^>]*title="(\d+)"',
+            row,
+            re.I,
+        )
+        if not pc_id_match:
+            pc_id_match = re.search(r'title="(\d+)"', row, re.I)
+
+        prices: dict[str, float | None] = {}
+        for field, css_class in (
+            ("priceChartingLooseUsd", "used_price"),
+            ("priceChartingCompleteUsd", "cib_price"),
+            ("priceChartingSealedUsd", "new_price"),
+        ):
+            cell_match = re.search(
+                rf'<td[^>]*class="[^"]*\b{css_class}\b[^"]*"[^>]*>(.*?)</td>',
+                row,
+                re.I | re.S,
+            )
+            prices[field] = parse_usd_price(cell_match.group(1)) if cell_match else None
+
+        out.append(
+            {
+                "pcPath": path_match.group(1).strip(),
+                "title": clean,
+                "pcId": int(pc_id_match.group(1)) if pc_id_match else None,
+                **prices,
+                "priceChartingCurrency": "USD",
+                "priceChartingCollectedAt": collected_at,
+            }
+        )
     return out
 
 
@@ -132,12 +184,13 @@ def catalog_id(platform_slug: str, pc_slug: str, region_key: str) -> str:
 
 def make_game(
     platform_slug: str,
-    pc_href: str,
-    title: str,
+    scraped: dict,
     region_key: str,
     pc_console: str,
 ) -> dict:
     cfg = REGION_CONFIG[region_key]
+    pc_href = scraped["pcPath"]
+    title = scraped["title"]
     pc_slug = pc_href.rsplit("/", 1)[-1]
     cat_id = catalog_id(platform_slug, pc_slug, region_key)
     bucket = "usa" if region_key == "usa" else "japan" if region_key == "japan" else "pal"
@@ -152,7 +205,7 @@ def make_game(
         "listingStatus": "listed",
         "coverUrl": None,
         "pcPath": pc_href,
-        "pcId": None,
+        "pcId": scraped.get("pcId"),
         "pcRegion": pc_region_label(bucket, pc_console),
         "pcCondition": None,
         "matchConfidence": cfg["match_confidence"],
@@ -165,6 +218,11 @@ def make_game(
         "updatedAt": None,
         "hasEsPrice": False,
         "seedSource": cfg["seed_source"],
+        "priceChartingLooseUsd": scraped.get("priceChartingLooseUsd"),
+        "priceChartingCompleteUsd": scraped.get("priceChartingCompleteUsd"),
+        "priceChartingSealedUsd": scraped.get("priceChartingSealedUsd"),
+        "priceChartingCurrency": scraped.get("priceChartingCurrency"),
+        "priceChartingCollectedAt": scraped.get("priceChartingCollectedAt"),
     }
     if cfg["museum_region"]:
         game["museumRegion"] = cfg["museum_region"]
@@ -176,6 +234,7 @@ def scrape_console(platform_slug: str, pc_path: str, region_key: str) -> list[di
     games: list[dict] = []
     cursor = 0
     batch = 0
+    collected_at = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 
     while batch < 120:
         page_html = (
@@ -186,16 +245,17 @@ def scrape_console(platform_slug: str, pc_path: str, region_key: str) -> list[di
         if not page_html:
             break
 
-        matches = parse_games(page_html, pc_path)
+        matches = parse_games(page_html, pc_path, collected_at)
         if not matches:
             break
 
         new_count = 0
-        for pc_href, title in matches:
+        for scraped in matches:
+            pc_href = scraped["pcPath"]
             if pc_href in seen:
                 continue
             seen.add(pc_href)
-            games.append(make_game(platform_slug, pc_href, title, region_key, pc_path))
+            games.append(make_game(platform_slug, scraped, region_key, pc_path))
             new_count += 1
 
         print(
@@ -234,6 +294,17 @@ def merge_catalog(existing: list[dict], incoming: list[dict]) -> tuple[list[dict
                 if game.get(key) and cur.get(key) != game.get(key):
                     cur[key] = game[key]
                     changed = True
+            for key in (
+                "pcId",
+                "priceChartingLooseUsd",
+                "priceChartingCompleteUsd",
+                "priceChartingSealedUsd",
+                "priceChartingCurrency",
+                "priceChartingCollectedAt",
+            ):
+                if cur.get(key) != game.get(key):
+                    cur[key] = game.get(key)
+                    changed = True
             if changed:
                 updated += 1
             continue
@@ -259,7 +330,7 @@ def merge_catalog(existing: list[dict], incoming: list[dict]) -> tuple[list[dict
             by_pc_path[pc_path] = game
         added += 1
 
-    merged = sorted(by_id.values(), key=lambda g: (g["platformSlug"], g["title"].lower()))
+    merged = list(by_id.values())
     return merged, added, updated
 
 
