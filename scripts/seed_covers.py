@@ -21,6 +21,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -210,6 +211,12 @@ def save_cover_image(raw: bytes, dest: Path) -> bool:
     return save_cover_jpeg(raw, dest)
 
 
+def download_cover(task: tuple[str, str, str, Path, str]) -> bool:
+    _, _, _, dest, remote = task
+    raw = fetch_bytes(remote)
+    return bool(raw and save_cover_image(raw, dest))
+
+
 def needed_pc_console_paths(platforms: set[str], catalog: list[dict]) -> set[str]:
     paths = {PC_CONSOLE_PATHS[p] for p in platforms if p in PC_CONSOLE_PATHS}
     for game in catalog:
@@ -253,18 +260,35 @@ def update_meta(catalog: list[dict]) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Descarga portadas locales (Museo + PC + Wikipedia)")
     parser.add_argument("--platforms", help="Slugs separados por coma")
+    parser.add_argument("--regions", help="Regiones exactas separadas por coma")
+    parser.add_argument("--covers-root", help="Raíz local temporal o persistente para las portadas")
+    parser.add_argument("--workers", type=int, default=8, help="Descargas simultáneas (default: 8)")
     parser.add_argument("--limit", type=int, help="Máximo de juegos a procesar")
     parser.add_argument("--force", action="store_true", help="Re-descargar aunque ya haya /covers/")
     parser.add_argument("--skip-pc-map", action="store_true", help="No refrescar mapa PriceCharting")
+    parser.add_argument(
+        "--strict-pc-map",
+        action="store_true",
+        help="Usar solo URLs ya presentes en el mapa PriceCharting",
+    )
     parser.add_argument("--no-wikipedia", action="store_true", help="No usar Wikipedia como fallback")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
-    covers_root = ensure_covers_root(require_external_storage=True)
+    if args.covers_root:
+        covers_root = Path(args.covers_root).expanduser()
+        covers_root.mkdir(parents=True, exist_ok=True)
+    else:
+        covers_root = ensure_covers_root(require_external_storage=True)
     print(f"Almacén portadas: {covers_root}")
 
     platform_filter = (
         {p.strip() for p in args.platforms.split(",") if p.strip()} if args.platforms else None
+    )
+    region_filter = (
+        {r.strip().casefold() for r in args.regions.split(",") if r.strip()}
+        if args.regions
+        else None
     )
 
     catalog = json.loads(CATALOG_FILE.read_text(encoding="utf-8"))
@@ -277,6 +301,7 @@ def main() -> None:
         for g in catalog
         if g.get("listingStatus") != "excluded"
         and (not platform_filter or g["platformSlug"] in platform_filter)
+        and (not region_filter or str(g.get("region") or "").casefold() in region_filter)
         and (
             args.force
             or not is_local_cover(g.get("coverUrl"))
@@ -296,7 +321,7 @@ def main() -> None:
         pc_platforms = {g["platformSlug"] for g in targets if g.get("pcPath")}
         if pc_platforms:
             print(f"Actualizando mapa PriceCharting ({len(pc_platforms)} plataformas)...")
-            pc_map = build_pc_maps(pc_platforms, force=False, catalog=catalog)
+            pc_map = build_pc_maps(pc_platforms, force=False, catalog=targets)
 
     used_names: dict[str, set[str]] = {}
     for g in catalog:
@@ -314,6 +339,7 @@ def main() -> None:
         "bySource": {"museum": 0, "pricecharting": 0, "wikipedia": 0, "existing": 0},
         "byPlatform": {},
     }
+    pending_downloads: list[tuple[str, str, str, Path, str]] = []
 
     for idx, game in enumerate(targets, start=1):
         game_id = game["id"]
@@ -333,13 +359,17 @@ def main() -> None:
             plat_stats["skippedExisting"] += 1
             continue
 
-        remote, source = resolve_cover_url(
-            game,
-            pc_map=pc_map,
-            museum_cache=museum_cache,
-            wiki_cache=wiki_cache,
-            allow_wikipedia=not args.no_wikipedia,
-        )
+        if args.strict_pc_map:
+            remote = pc_map.get(str(game.get("pcPath") or ""))
+            source = "pricecharting" if remote else None
+        else:
+            remote, source = resolve_cover_url(
+                game,
+                pc_map=pc_map,
+                museum_cache=museum_cache,
+                wiki_cache=wiki_cache,
+                allow_wikipedia=not args.no_wikipedia,
+            )
         if not remote:
             report["missingSource"] += 1
             plat_stats["missingSource"] += 1
@@ -350,35 +380,49 @@ def main() -> None:
 
         filename = pick_filename(game["title"], platform, used_names)
         dest = local_cover_path(platform, filename, root=covers_root)
-        if not args.dry_run:
-            raw = fetch_bytes(remote)
-            if not raw or not save_cover_image(raw, dest):
-                report["downloadErrors"] += 1
-                plat_stats["downloadErrors"] += 1
-                continue
-            public_url = public_cover_url(platform, filename)
-            by_id[game_id]["coverUrl"] = public_url
+        if args.dry_run:
             report["downloaded"] += 1
             plat_stats["downloaded"] += 1
         else:
-            report["downloaded"] += 1
-            plat_stats["downloaded"] += 1
+            pending_downloads.append((game_id, platform, filename, dest, remote))
 
-        if idx % SAVE_EVERY == 0:
-            if not args.dry_run:
-                save_json(MUSEUM_CACHE_FILE, museum_cache)
-                save_json(WIKI_CACHE_FILE, wiki_cache)
-                save_json(PC_MAP_FILE, pc_map)
-                CATALOG_FILE.write_text(
-                    json.dumps(list(by_id.values()), ensure_ascii=False, indent=2),
-                    encoding="utf-8",
-                )
+        if args.dry_run and idx % SAVE_EVERY == 0:
             print(
                 f"  [{idx}/{len(targets)}] ok={report['downloaded']} "
                 f"missing={report['missingSource']} err={report['downloadErrors']} "
                 f"sources={report['bySource']}",
                 flush=True,
             )
+
+    if not args.dry_run:
+        workers = max(1, args.workers)
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            results = executor.map(download_cover, pending_downloads)
+            for completed, (task, ok) in enumerate(zip(pending_downloads, results), start=1):
+                game_id, platform, filename, _, _ = task
+                plat_stats = report["byPlatform"][platform]
+                if ok:
+                    by_id[game_id]["coverUrl"] = public_cover_url(platform, filename)
+                    report["downloaded"] += 1
+                    plat_stats["downloaded"] += 1
+                else:
+                    report["downloadErrors"] += 1
+                    plat_stats["downloadErrors"] += 1
+
+                if completed % SAVE_EVERY == 0:
+                    save_json(MUSEUM_CACHE_FILE, museum_cache)
+                    save_json(WIKI_CACHE_FILE, wiki_cache)
+                    save_json(PC_MAP_FILE, pc_map)
+                    CATALOG_FILE.write_text(
+                        json.dumps(list(by_id.values()), ensure_ascii=False, indent=2),
+                        encoding="utf-8",
+                    )
+                    print(
+                        f"  [{completed}/{len(pending_downloads)}] ok={report['downloaded']} "
+                        f"missing={report['missingSource']} err={report['downloadErrors']} "
+                        f"sources={report['bySource']}",
+                        flush=True,
+                    )
 
     if not args.dry_run:
         save_json(MUSEUM_CACHE_FILE, museum_cache)
