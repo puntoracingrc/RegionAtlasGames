@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-03",
+  "baseCommit": "7ef7bc8516eca5635b77aca02da8b0ddcc9bb5f7",
+  "sourcePackage": {
+    "name": "estudio-companias-regionatlas-2026-09-03.zip",
+    "sha256": "865720182050a854a1cc903e9a6dd0c9d7fa1d3756375b637df0f42e62f0829f"
+  },
+  "auditArtifacts": {
+    "candidate-research-core.json": "ef19e9015036177742ae5715a7d15772f224167d446cbf4585c225fc48a463d7",
+    "candidate-editorial-staging.json": "a62472532c0e305ee1feb0614ca79436929bd23be90cabba47337b161cf91693",
+    "candidate-public-child-records.json": "15ceeb5a26f9f8aee0fc0786aa7195ddf63361822c224ad2729d9c6ee51ccb28",
+    "review-gates.json": "01d02854db06e0fc609308cf02d7f735a5f6a1c5b6bfc6cb7991bcafe2bfb363",
+    "report.json": "79ef314e42cee650ffe8304ad73174ff5658a60ff2a1e79bcbdbaa7c94d32310"
+  },
+  "counts": {
+    "totalCompanies": 4326,
+    "internalCore": 1400,
+    "blocked": 2926,
+    "publishedHistories": 4,
+    "publishedAchievements": 7,
+    "publishedQidCorrections": 3,
+    "qidCollisionGroups": 259,
+    "qidCollisionSlugs": 576,
+    "blockedIndividuals": 12,
+    "blockedCompositeProfiles": 383,
+    "publishedRelationships": 0
+  },
+  "protectedFileHashes": {
+    "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
+    "data/company-groups.json": "68463bcaa8b9df3df1ddb2804b122c1b717e656cde6f691f16ce5012fba02d64",
+    "data/company-separations.json": "c3293b49d5fec9ef6eab11c5219d50e7312a44c6cf84c9f54bcab0318f060896",
+    "data/index/companies.json": "23979fd694d7ea6cf0d132b04d1b16a7513b7493e0086a386c775b9d9952f13b",
+    "data/index/company-entities.json": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
+    "data/game-details.json": "108fccad5892f28fb6a7301fcb2754cbcbd7116f889b6ed17a2e10a98ba4e8e3"
+  },
+  "generatedFiles": [
+    "core.json",
+    "provenance.json",
+    "sources.json",
+    "review.json",
+    "editorial.json",
+    "public.json",
+    "relationship-decisions.json",
+    "manifest.json"
+  ],
+  "rollback": {
+    "mode": "additive_layer",
+    "instructions": "Remove this research directory and its loader imports. No canonical profile, entity, slug or game-credit file was overwritten by the import."
+  }
+}

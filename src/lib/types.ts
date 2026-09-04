@@ -182,7 +182,7 @@ export type CompanyProfile = {
   seoMeta?: CompanyProfileSeoMeta | null;
   sources?: CompanyProfileSources;
   generatedAt?: string | null;
-  method?: "ai" | "template" | "wikidata" | null;
+  method?: "ai" | "template" | "wikidata" | "research" | null;
 };
 
 export type PlatformStatus = "closed" | "semi-closed" | "open";
