@@ -41,6 +41,11 @@ export function PlatformCard({
         <div>
           <ManufacturerLogo manufacturer={platform.manufacturer} />
           <h3 className="mt-1 text-xl font-bold text-foreground">{platform.shortName}</h3>
+          {platform.spainReleaseYear ? (
+            <p className="mt-1 text-[11px] font-semibold text-muted/90">
+              Desde {platform.spainReleaseYear} en España
+            </p>
+          ) : null}
         </div>
       </div>
 
@@ -79,9 +84,30 @@ export function PlatformGrid({
   items: Platform[];
   ownedItems?: CollectionView[];
 }) {
+  const manufacturerOrder = new Map<Platform["manufacturer"], number>();
+  for (const platform of items) {
+    if (!manufacturerOrder.has(platform.manufacturer)) {
+      manufacturerOrder.set(platform.manufacturer, manufacturerOrder.size);
+    }
+  }
+
+  const sortedItems = [...items].sort((a, b) => {
+    const manufacturerDelta =
+      (manufacturerOrder.get(a.manufacturer) ?? Number.MAX_SAFE_INTEGER) -
+      (manufacturerOrder.get(b.manufacturer) ?? Number.MAX_SAFE_INTEGER);
+    if (manufacturerDelta !== 0) return manufacturerDelta;
+
+    const releaseYearDelta =
+      (a.spainReleaseYear ?? Number.MAX_SAFE_INTEGER) -
+      (b.spainReleaseYear ?? Number.MAX_SAFE_INTEGER);
+    if (releaseYearDelta !== 0) return releaseYearDelta;
+
+    return a.sortOrder - b.sortOrder || a.name.localeCompare(b.name, "es");
+  });
+
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {items.map((p) => (
+      {sortedItems.map((p) => (
         <PlatformCard key={p.slug} platform={p} ownedItems={ownedItems} />
       ))}
     </div>

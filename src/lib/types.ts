@@ -214,6 +214,7 @@ export type Platform = {
   status: PlatformStatus;
   estimatedCatalogSize: number;
   sortOrder: number;
+  spainReleaseYear?: number;
   description: string;
   active?: boolean;
   newsEnabled?: boolean;
