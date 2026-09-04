@@ -46,7 +46,7 @@ export function SeriesProfilePanel({
 
   return (
     <section className="mb-8 grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-      <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-5 shadow-sm">
+      <div className="relative min-w-0 overflow-hidden rounded-3xl border border-border bg-card p-5 shadow-sm">
         {backgroundImage ? (
           <>
             <div
@@ -104,7 +104,7 @@ export function SeriesProfilePanel({
         </div>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid min-w-0 gap-4">
         <div className="rounded-3xl border border-border bg-card p-5 shadow-sm">
           <h3 className="text-sm font-black uppercase tracking-wider text-foreground">
             Plataformas en {entityKind === "franchise" ? "la franquicia" : "la saga"}
@@ -131,7 +131,7 @@ export function SeriesProfilePanel({
               <Link
                 key={company.slug}
                 href={`/compania/${company.slug}`}
-                className="flex items-center justify-between gap-3 rounded-2xl border border-border bg-background/60 px-3 py-2 text-sm transition hover:border-accent/50 hover:text-accent"
+                className="flex min-w-0 items-center justify-between gap-3 rounded-2xl border border-border bg-background/60 px-3 py-2 text-sm transition hover:border-accent/50 hover:text-accent"
               >
                 <span className="min-w-0 truncate font-semibold">{company.name}</span>
                 <span className="shrink-0 text-xs text-muted">
