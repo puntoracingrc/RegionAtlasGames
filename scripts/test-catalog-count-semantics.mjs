@@ -15,9 +15,24 @@ const meta = readJson("data/meta.json");
 const catalogIds = new Set(catalog.map((entry) => entry.id));
 const publicCatalogEntryCount = catalog.filter((entry) => entry.listingStatus !== "excluded").length;
 
-assert.equal(catalog.length, 59_626, "catalog row count changed");
-assert.equal(catalogIds.size, 59_626, "catalog IDs are no longer unique or complete");
-assert.equal(Object.keys(companies).length, 4_326, "company count changed");
+assert.ok(Array.isArray(catalog), "catalog must be an array");
+assert.ok(catalog.length > 0, "catalog must contain entries");
+assert.ok(catalog.every((entry) => typeof entry.id === "string" && entry.id.length > 0), "catalog IDs must be valid");
+assert.equal(catalogIds.size, catalog.length, "catalog IDs must be unique");
+
+assert.ok(companies && typeof companies === "object" && !Array.isArray(companies), "company index must be an object");
+const companyEntries = Object.entries(companies);
+assert.ok(companyEntries.length > 0, "company index must contain entries");
+for (const [slug, company] of companyEntries) {
+  assert.equal(company.slug, slug, `company index key does not match slug: ${slug}`);
+  assert.ok(typeof company.name === "string" && company.name.length > 0, `company name is missing: ${slug}`);
+  assert.ok(Array.isArray(company.gameIds), `company gameIds must be an array: ${slug}`);
+  assert.equal(company.gameCount, company.gameIds.length, `company catalog count drifted: ${slug}`);
+  assert.ok(
+    company.gameIds.every((catalogId) => catalogIds.has(catalogId)),
+    `company index references an unknown catalog ID: ${slug}`,
+  );
+}
 assert.equal(meta.catalogListed, publicCatalogEntryCount, "public catalog metadata count drifted");
 
 const componentFiles = [
@@ -96,7 +111,9 @@ for (const relativePath of [
   assert.ok(read(relativePath).includes("catalogEntryCount"), `${relativePath} lacks catalogEntryCount`);
 }
 
+const formatCount = new Intl.NumberFormat("en-US").format;
 console.log(
-  "OK catalog count semantics: 59,626 catalog records, 59,626 unique IDs, " +
-    "4,326 companies and explicit public ficha counts",
+  `OK catalog count semantics: ${formatCount(catalog.length)} catalog records, ` +
+    `${formatCount(catalogIds.size)} unique IDs, ${formatCount(companyEntries.length)} companies ` +
+    "and explicit public ficha counts",
 );

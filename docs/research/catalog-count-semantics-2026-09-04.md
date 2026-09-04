@@ -54,13 +54,42 @@ región o edición. Estos valores no son un recuento de obras únicas.
 Los textos editoriales que hablan de videojuegos como concepto se mantienen. No se ha hecho un
 reemplazo global de la palabra «juego».
 
+## Corte de esta PR
+
+La comparación entre la base `65ee15f9f8b137b0477d74f20a66138a97407b4e` y el HEAD
+de la PR confirma para este corte:
+
+- 59.626 fichas antes y después;
+- 59.626 IDs únicos antes y después;
+- 4.326 compañías antes y después;
+- `data/catalog.json` sin cambios;
+- `data/index/companies.json` sin cambios;
+- cero cambios en IDs, URLs, portadas, precios o créditos, al no existir cambios en los datos
+  que contienen esos campos.
+
+La comprobación reproducible es:
+
+```bash
+git diff --exit-code 65ee15f9f8b137b0477d74f20a66138a97407b4e -- \
+  data/catalog.json data/index/companies.json
+```
+
+El comando termina con código `0`. Además, los blobs Git de la base y de la rama coinciden
+exactamente: `data/catalog.json` es `8ecde38c6dbbd2729ad92723be9662fb8a0f0c8a` y
+`data/index/companies.json` es `131114090dacc8e35492deb1b551184524b9fbd4` en ambos
+extremos.
+
+Estas cifras documentan la ausencia de mutaciones de datos en esta PR. No son restricciones
+permanentes de producto ni se incluyen como igualdades en la suite global.
+
 ## Verificación reproducible
 
 `npm run test:catalog-count-semantics` comprueba:
 
-- 59.626 filas de catálogo;
-- 59.626 IDs únicos;
-- 4.326 compañías;
+- que el catálogo existe y todos sus IDs son válidos y únicos;
+- que el número de IDs únicos coincide dinámicamente con el número de fichas;
+- que el índice de compañías existe, tiene entradas válidas y solo referencia IDs del
+  catálogo;
 - paridad entre `meta.catalogListed` y las fichas públicas no excluidas;
 - ausencia de campos de conteo ambiguos en DTO y componentes públicos;
 - pluralización española;
@@ -68,6 +97,9 @@ reemplazo global de la palabra «juego».
 - una saga con varias plataformas y regiones;
 - un género y sus metadatos;
 - rótulos semánticos de filtros y orden.
+
+El script informa los tamaños actuales calculándolos en tiempo de ejecución. Añadir una ficha
+o una compañía válida no exige editar la prueba.
 
 ## QA local
 
