@@ -1,13 +1,14 @@
 {
   "schemaVersion": 1,
-  "baselineRevision": "8a1b296359ed2108590067602e5c8d2442e57031",
+  "baselineRevision": "e69fb94f72ca51080eb6c5abcee47a9099e57524",
   "scannedRoots": [
     "src",
     "scripts"
   ],
-  "matchCount": 328,
-  "fileCount": 55,
+  "matchCount": 338,
+  "fileCount": 58,
   "files": [
+    "scripts/apply_company_credit_verified_batch.py",
     "scripts/audit-franchise-migration.ts",
     "scripts/backfill_company_roles.py",
     "scripts/build-franchise-system.ts",
@@ -18,6 +19,7 @@
     "scripts/enrich_serialstation.py",
     "scripts/import_game_release_catalog.py",
     "scripts/seed_neogeo_aes_plus_catalog.py",
+    "scripts/test-catalog-count-semantics.mjs",
     "scripts/verify-franchise-migration.ts",
     "src/app/admin/page.tsx",
     "src/app/api/admin/entities/franchises/route.ts",
@@ -52,6 +54,7 @@
     "src/lib/admin-series-manager.test.ts",
     "src/lib/admin-series-manager.ts",
     "src/lib/admin-title-similarity.ts",
+    "src/lib/catalog-count-semantics.test.ts",
     "src/lib/console-mascots.ts",
     "src/lib/covers-upload.ts",
     "src/lib/franchise-domain.test.ts",
@@ -66,8 +69,16 @@
   ],
   "matches": [
     {
+      "file": "scripts/apply_company_credit_verified_batch.py",
+      "line": 199,
+      "patterns": [
+        "series-field"
+      ],
+      "text": "\"series\": None,"
+    },
+    {
       "file": "scripts/audit-franchise-migration.ts",
-      "line": 121,
+      "line": 139,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -76,7 +87,7 @@
     },
     {
       "file": "scripts/audit-franchise-migration.ts",
-      "line": 138,
+      "line": 156,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -85,7 +96,7 @@
     },
     {
       "file": "scripts/audit-franchise-migration.ts",
-      "line": 143,
+      "line": 161,
       "patterns": [
         "saga-copy"
       ],
@@ -93,7 +104,7 @@
     },
     {
       "file": "scripts/audit-franchise-migration.ts",
-      "line": 298,
+      "line": 316,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -102,7 +113,25 @@
     },
     {
       "file": "scripts/audit-franchise-migration.ts",
-      "line": 371,
+      "line": 419,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "legacyUrl: `/saga/${row.slug}`,"
+    },
+    {
+      "file": "scripts/audit-franchise-migration.ts",
+      "line": 428,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "legacyUrl: `/saga/${row.slug}`,"
+    },
+    {
+      "file": "scripts/audit-franchise-migration.ts",
+      "line": 436,
       "patterns": [
         "saga-copy"
       ],
@@ -110,15 +139,15 @@
     },
     {
       "file": "scripts/audit-franchise-migration.ts",
-      "line": 377,
+      "line": 442,
       "patterns": [
         "details-series"
       ],
-      "text": "`- ${snapshot.counts.detailsWithSeries.toLocaleString(\"es-ES\")} fichas declaran \\`details.series\\`; ${snapshot.counts.uniqueIndexedSeriesGames.toLocaleString(\"es-ES\")} juegos únicos están en el índice efectivo.\\n` +"
+      "text": "`- ${snapshot.counts.detailsWithSeries.toLocaleString(\"es-ES\")} fichas declaran \\`details.series\\`; ${snapshot.counts.uniqueIndexedSeriesCatalogEntries.toLocaleString(\"es-ES\")} fichas únicas están en el índice efectivo.\\n` +"
     },
     {
       "file": "scripts/audit-franchise-migration.ts",
-      "line": 381,
+      "line": 446,
       "patterns": [
         "saga-copy"
       ],
@@ -126,7 +155,7 @@
     },
     {
       "file": "scripts/audit-franchise-migration.ts",
-      "line": 389,
+      "line": 454,
       "patterns": [
         "details-series"
       ],
@@ -142,7 +171,7 @@
     },
     {
       "file": "scripts/build-franchise-system.ts",
-      "line": 287,
+      "line": 288,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -151,7 +180,7 @@
     },
     {
       "file": "scripts/build-franchise-system.ts",
-      "line": 354,
+      "line": 355,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -368,8 +397,17 @@
       "text": "\"series\": \"official\","
     },
     {
+      "file": "scripts/test-catalog-count-semantics.mjs",
+      "line": 64,
+      "patterns": [
+        "route-saga",
+        "saga-copy"
+      ],
+      "text": "\"src/lib/saga-mascots.ts\","
+    },
+    {
       "file": "scripts/verify-franchise-migration.ts",
-      "line": 134,
+      "line": 202,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -378,7 +416,7 @@
     },
     {
       "file": "scripts/verify-franchise-migration.ts",
-      "line": 170,
+      "line": 281,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -387,11 +425,27 @@
     },
     {
       "file": "scripts/verify-franchise-migration.ts",
-      "line": 223,
+      "line": 382,
       "patterns": [
         "saga-copy"
       ],
       "text": "const markdown = `# Verificación pre/post de franquicias y sagas\\n\\n` +"
+    },
+    {
+      "file": "scripts/verify-franchise-migration.ts",
+      "line": 390,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "`- Franquicias: ${Object.keys(franchiseFile.entities).length}; relaciones ficha-franquicia: ${gameRelationFile.relations.length}; relaciones saga-franquicia: ${seriesRelationFile.relations.length}.\\n` +"
+    },
+    {
+      "file": "scripts/verify-franchise-migration.ts",
+      "line": 391,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "`- Clasificación conservadora: ${promotedClassificationSlugs.length} promociones, ${retainedClassificationSlugs.length} sagas y ${ambiguousClassificationRows.length} entradas legacy ambiguas intactas.\\n\\n` +"
     },
     {
       "file": "src/app/admin/page.tsx",
@@ -582,7 +636,7 @@
     },
     {
       "file": "src/app/catalogo/page.tsx",
-      "line": 101,
+      "line": 102,
       "patterns": [
         "saga-copy"
       ],
@@ -606,15 +660,15 @@
     },
     {
       "file": "src/app/compania/[slug]/page.tsx",
-      "line": 36,
+      "line": 41,
       "patterns": [
         "series-symbol"
       ],
-      "text": "const series = (await listPublicSeriesForGames(gameIds)).filter("
+      "text": "const series = (await listPublicSeriesForGames(catalogIds)).filter("
     },
     {
       "file": "src/app/compania/[slug]/page.tsx",
-      "line": 37,
+      "line": 42,
       "patterns": [
         "series-symbol"
       ],
@@ -630,7 +684,7 @@
     },
     {
       "file": "src/app/saga/[slug]/page.tsx",
-      "line": 5,
+      "line": 6,
       "patterns": [
         "series-symbol"
       ],
@@ -638,7 +692,7 @@
     },
     {
       "file": "src/app/saga/[slug]/page.tsx",
-      "line": 13,
+      "line": 15,
       "patterns": [
         "series-symbol"
       ],
@@ -646,7 +700,7 @@
     },
     {
       "file": "src/app/saga/[slug]/page.tsx",
-      "line": 15,
+      "line": 17,
       "patterns": [
         "series-symbol"
       ],
@@ -654,7 +708,7 @@
     },
     {
       "file": "src/app/saga/[slug]/page.tsx",
-      "line": 16,
+      "line": 18,
       "patterns": [
         "saga-copy"
       ],
@@ -662,7 +716,7 @@
     },
     {
       "file": "src/app/saga/[slug]/page.tsx",
-      "line": 18,
+      "line": 21,
       "patterns": [
         "saga-copy"
       ],
@@ -670,7 +724,7 @@
     },
     {
       "file": "src/app/saga/[slug]/page.tsx",
-      "line": 22,
+      "line": 25,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -679,7 +733,7 @@
     },
     {
       "file": "src/app/saga/[slug]/page.tsx",
-      "line": 28,
+      "line": 31,
       "patterns": [
         "series-symbol"
       ],
@@ -798,7 +852,7 @@
       "patterns": [
         "saga-copy"
       ],
-      "text": "{franchise.gameCount} {franchise.gameCount === 1 ? \"juego\" : \"juegos\"} · {franchise.seriesCount} {franchise.seriesCount === 1 ? \"saga\" : \"sagas\"} · {franchise.status === \"published\" ? \"Publicada\" : \"Borrador\"}"
+      "text": "{franchise.catalogEntryCount} {franchise.catalogEntryCount === 1 ? \"ficha\" : \"fichas\"} · {franchise.seriesCount} {franchise.seriesCount === 1 ? \"saga\" : \"sagas\"} · {franchise.status === \"published\" ? \"Publicada\" : \"Borrador\"}"
     },
     {
       "file": "src/components/admin/admin-franchises-panel.tsx",
@@ -1191,7 +1245,7 @@
     },
     {
       "file": "src/components/company-catalog-groups.tsx",
-      "line": 21,
+      "line": 22,
       "patterns": [
         "saga-copy"
       ],
@@ -1199,7 +1253,7 @@
     },
     {
       "file": "src/components/company-catalog-groups.tsx",
-      "line": 22,
+      "line": 23,
       "patterns": [
         "saga-copy"
       ],
@@ -1207,7 +1261,7 @@
     },
     {
       "file": "src/components/company-catalog-groups.tsx",
-      "line": 23,
+      "line": 24,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1216,7 +1270,7 @@
     },
     {
       "file": "src/components/company-catalog-groups.tsx",
-      "line": 30,
+      "line": 31,
       "patterns": [
         "saga-copy"
       ],
@@ -1224,19 +1278,19 @@
     },
     {
       "file": "src/components/company-catalog-groups.tsx",
-      "line": 33,
+      "line": 34,
       "patterns": [
         "saga-copy"
       ],
-      "text": "{isFranchise ? \"Franquicias\" : \"Sagas y subseries\"} con al menos un juego de {companyName}."
+      "text": "{isFranchise ? \"Franquicias\" : \"Sagas y subseries\"} con al menos una ficha atribuida a {companyName}."
     },
     {
       "file": "src/components/company-catalog-groups.tsx",
-      "line": 49,
+      "line": 51,
       "patterns": [
         "saga-copy"
       ],
-      "text": "{item.gameCount > 0 ? ` · ${item.gameCount} en ${isFranchise ? \"la franquicia\" : \"la saga\"}` : \"\"}"
+      "text": "? ` · ${formatCatalogEntryCount(item.catalogEntryCount)} en ${isFranchise ? \"la franquicia\" : \"la saga\"}`"
     },
     {
       "file": "src/components/index-entity-detail.tsx",
@@ -1281,7 +1335,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 26,
+      "line": 27,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1290,7 +1344,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 27,
+      "line": 28,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1299,7 +1353,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 28,
+      "line": 29,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1308,7 +1362,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 33,
+      "line": 34,
       "patterns": [
         "series-symbol"
       ],
@@ -1316,7 +1370,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 35,
+      "line": 36,
       "patterns": [
         "series-symbol"
       ],
@@ -1324,7 +1378,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 36,
+      "line": 37,
       "patterns": [
         "series-symbol"
       ],
@@ -1332,7 +1386,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 48,
+      "line": 49,
       "patterns": [
         "series-symbol"
       ],
@@ -1340,7 +1394,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 59,
+      "line": 60,
       "patterns": [
         "series-symbol"
       ],
@@ -1348,7 +1402,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 62,
+      "line": 63,
       "patterns": [
         "series-symbol"
       ],
@@ -1356,7 +1410,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 88,
+      "line": 89,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1365,7 +1419,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 125,
+      "line": 126,
       "patterns": [
         "saga-copy"
       ],
@@ -1373,7 +1427,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 130,
+      "line": 131,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1382,7 +1436,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 141,
+      "line": 142,
       "patterns": [
         "saga-copy"
       ],
@@ -1390,7 +1444,7 @@
     },
     {
       "file": "src/components/index-entity-header.tsx",
-      "line": 19,
+      "line": 20,
       "patterns": [
         "saga-copy"
       ],
@@ -1398,7 +1452,7 @@
     },
     {
       "file": "src/components/index-entity-header.tsx",
-      "line": 24,
+      "line": 25,
       "patterns": [
         "saga-copy"
       ],
@@ -1414,7 +1468,7 @@
     },
     {
       "file": "src/components/index-entity-list.tsx",
-      "line": 7,
+      "line": 12,
       "patterns": [
         "series-symbol"
       ],
@@ -1422,7 +1476,7 @@
     },
     {
       "file": "src/components/index-entity-list.tsx",
-      "line": 12,
+      "line": 17,
       "patterns": [
         "series-symbol"
       ],
@@ -1430,7 +1484,7 @@
     },
     {
       "file": "src/components/index-entity-list.tsx",
-      "line": 42,
+      "line": 47,
       "patterns": [
         "saga-copy"
       ],
@@ -1438,7 +1492,7 @@
     },
     {
       "file": "src/components/index-grid.tsx",
-      "line": 20,
+      "line": 21,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1447,7 +1501,7 @@
     },
     {
       "file": "src/components/index-grid.tsx",
-      "line": 26,
+      "line": 27,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1498,7 +1552,7 @@
     },
     {
       "file": "src/components/series-profile-panel.tsx",
-      "line": 68,
+      "line": 69,
       "patterns": [
         "saga-copy"
       ],
@@ -1506,7 +1560,7 @@
     },
     {
       "file": "src/components/series-profile-panel.tsx",
-      "line": 107,
+      "line": 110,
       "patterns": [
         "saga-copy"
       ],
@@ -1514,7 +1568,7 @@
     },
     {
       "file": "src/components/series-profile-panel.tsx",
-      "line": 141,
+      "line": 144,
       "patterns": [
         "saga-copy"
       ],
@@ -1522,7 +1576,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.test.ts",
-      "line": 45,
+      "line": 60,
       "patterns": [
         "series-symbol"
       ],
@@ -1530,7 +1584,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.test.ts",
-      "line": 67,
+      "line": 82,
       "patterns": [
         "saga-copy"
       ],
@@ -1594,7 +1648,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 331,
+      "line": 332,
       "patterns": [
         "series-symbol"
       ],
@@ -1602,7 +1656,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 333,
+      "line": 334,
       "patterns": [
         "series-symbol"
       ],
@@ -1610,7 +1664,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 337,
+      "line": 338,
       "patterns": [
         "series-symbol"
       ],
@@ -1618,7 +1672,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 349,
+      "line": 350,
       "patterns": [
         "series-symbol"
       ],
@@ -1626,7 +1680,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 356,
+      "line": 357,
       "patterns": [
         "series-symbol"
       ],
@@ -1634,7 +1688,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 382,
+      "line": 384,
       "patterns": [
         "series-symbol"
       ],
@@ -1642,7 +1696,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 420,
+      "line": 422,
       "patterns": [
         "series-symbol"
       ],
@@ -1650,7 +1704,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 423,
+      "line": 425,
       "patterns": [
         "series-symbol",
         "saga-copy"
@@ -1659,7 +1713,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 431,
+      "line": 433,
       "patterns": [
         "series-symbol"
       ],
@@ -1667,7 +1721,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 459,
+      "line": 461,
       "patterns": [
         "series-symbol"
       ],
@@ -1675,7 +1729,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 460,
+      "line": 462,
       "patterns": [
         "series-symbol"
       ],
@@ -1683,7 +1737,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 479,
+      "line": 481,
       "patterns": [
         "series-symbol"
       ],
@@ -1691,7 +1745,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 547,
+      "line": 549,
       "patterns": [
         "series-symbol"
       ],
@@ -1699,7 +1753,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 548,
+      "line": 550,
       "patterns": [
         "saga-copy"
       ],
@@ -1707,7 +1761,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 691,
+      "line": 693,
       "patterns": [
         "saga-copy"
       ],
@@ -1715,7 +1769,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 728,
+      "line": 730,
       "patterns": [
         "series-symbol"
       ],
@@ -1723,15 +1777,15 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 768,
+      "line": 770,
       "patterns": [
         "series-symbol"
       ],
-      "text": "export async function listAdminSeriesOptions(): Promise<Array<{ slug: string; name: string; gameCount: number }>> {"
+      "text": "export async function listAdminSeriesOptions(): Promise<Array<{"
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 769,
+      "line": 775,
       "patterns": [
         "series-symbol"
       ],
@@ -1739,7 +1793,7 @@
     },
     {
       "file": "src/lib/admin-franchise-manager.ts",
-      "line": 770,
+      "line": 776,
       "patterns": [
         "series-symbol"
       ],
@@ -2124,6 +2178,38 @@
       "text": "return `Comparte «${shared.slice(0, 3).join(\"», «\")}» — puede ser la misma saga, pero otro volúmen o entrega.`;"
     },
     {
+      "file": "src/lib/catalog-count-semantics.test.ts",
+      "line": 20,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "import { gamesForIndex, getSeries } from \"./indexes\";"
+    },
+    {
+      "file": "src/lib/catalog-count-semantics.test.ts",
+      "line": 21,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "import { buildSeriesProfile } from \"./series-profile\";"
+    },
+    {
+      "file": "src/lib/catalog-count-semantics.test.ts",
+      "line": 89,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const seriesEntry = getSeries(\"call-of-duty\");"
+    },
+    {
+      "file": "src/lib/catalog-count-semantics.test.ts",
+      "line": 92,
+      "patterns": [
+        "series-symbol"
+      ],
+      "text": "const series = buildSeriesProfile(seriesEntry, seriesGames);"
+    },
+    {
       "file": "src/lib/console-mascots.ts",
       "line": 121,
       "patterns": [
@@ -2264,7 +2350,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 46,
+      "line": 66,
       "patterns": [
         "saga-copy"
       ],
@@ -2272,7 +2358,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 49,
+      "line": 74,
       "patterns": [
         "series-symbol"
       ],
@@ -2280,7 +2366,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 50,
+      "line": 75,
       "patterns": [
         "series-symbol"
       ],
@@ -2288,7 +2374,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 52,
+      "line": 77,
       "patterns": [
         "series-symbol"
       ],
@@ -2296,7 +2382,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 59,
+      "line": 93,
       "patterns": [
         "series-symbol"
       ],
@@ -2304,7 +2390,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 73,
+      "line": 107,
       "patterns": [
         "saga-copy"
       ],
@@ -2312,7 +2398,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 78,
+      "line": 112,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -2321,7 +2407,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 79,
+      "line": 113,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -2330,7 +2416,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 80,
+      "line": 114,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -2339,7 +2425,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 83,
+      "line": 117,
       "patterns": [
         "saga-copy"
       ],
@@ -2347,7 +2433,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 96,
+      "line": 132,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -2356,7 +2442,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 123,
+      "line": 159,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -2446,7 +2532,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 10,
+      "line": 11,
       "patterns": [
         "series-symbol"
       ],
@@ -2454,7 +2540,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 11,
+      "line": 12,
       "patterns": [
         "series-symbol"
       ],
@@ -2462,7 +2548,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 42,
+      "line": 52,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -2471,7 +2557,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 72,
+      "line": 82,
       "patterns": [
         "saga-copy"
       ],
@@ -2479,7 +2565,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 73,
+      "line": 83,
       "patterns": [
         "saga-copy"
       ],
@@ -2487,7 +2573,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 74,
+      "line": 84,
       "patterns": [
         "saga-copy"
       ],
@@ -2495,7 +2581,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 75,
+      "line": 85,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -2504,7 +2590,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 76,
+      "line": 86,
       "patterns": [
         "saga-copy"
       ],
@@ -2512,7 +2598,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 77,
+      "line": 87,
       "patterns": [
         "saga-copy"
       ],
@@ -2520,7 +2606,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 97,
+      "line": 107,
       "patterns": [
         "series-field"
       ],
@@ -2528,7 +2614,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 98,
+      "line": 108,
       "patterns": [
         "series-symbol"
       ],
@@ -2536,7 +2622,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 112,
+      "line": 122,
       "patterns": [
         "series-field"
       ],
@@ -2544,7 +2630,7 @@
     },
     {
       "file": "src/lib/index-entity.ts",
-      "line": 113,
+      "line": 123,
       "patterns": [
         "series-symbol"
       ],
@@ -2568,7 +2654,7 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 24,
+      "line": 25,
       "patterns": [
         "saga-copy"
       ],
@@ -2576,7 +2662,7 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 25,
+      "line": 26,
       "patterns": [
         "saga-copy"
       ],
@@ -2584,7 +2670,7 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 26,
+      "line": 27,
       "patterns": [
         "saga-copy"
       ],
@@ -2592,7 +2678,7 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 35,
+      "line": 36,
       "patterns": [
         "saga-copy"
       ],
@@ -2600,7 +2686,7 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 38,
+      "line": 39,
       "patterns": [
         "saga-copy"
       ],
@@ -2608,7 +2694,7 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 45,
+      "line": 46,
       "patterns": [
         "saga-copy"
       ],
@@ -2616,7 +2702,7 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 46,
+      "line": 47,
       "patterns": [
         "saga-copy"
       ],
@@ -2624,7 +2710,7 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 56,
+      "line": 57,
       "patterns": [
         "saga-copy"
       ],
@@ -2632,7 +2718,7 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 58,
+      "line": 59,
       "patterns": [
         "saga-copy"
       ],
@@ -2640,7 +2726,7 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 65,
+      "line": 66,
       "patterns": [
         "saga-copy"
       ],
@@ -2648,7 +2734,7 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 79,
+      "line": 80,
       "patterns": [
         "saga-copy"
       ],
@@ -2656,31 +2742,31 @@
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 113,
+      "line": 112,
       "patterns": [
         "saga-copy"
       ],
-      "text": "return `La saga ${profile.name} reúne ${gameText} en ${platformText}. Revisa cada capítulo con calma: el cristal también mira región, edición y estado.`;"
+      "text": "return `La saga ${profile.name} reúne ${entryText} en ${platformText}. Revisa cada capítulo con calma: el cristal también mira región, edición y estado.`;"
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 117,
+      "line": 116,
       "patterns": [
         "saga-copy"
       ],
-      "text": "return `La saga ${profile.name} contiene ${gameText} repartidos en ${platformText}. Mantén la calma: revisa ediciones, remakes, regiones y precios antes de abrir la siguiente puerta.`;"
+      "text": "return `La saga ${profile.name} contiene ${entryText} repartidas en ${platformText}. Mantén la calma: revisa ediciones, remakes, regiones y precios antes de abrir la siguiente puerta.`;"
     },
     {
       "file": "src/lib/saga-mascots.ts",
-      "line": 120,
+      "line": 119,
       "patterns": [
         "saga-copy"
       ],
-      "text": "return `La saga ${profile.name} ha dejado ${gameText} en ${platformText}. Examina cada edición con cuidado: algunas reliquias brillan menos de lo que valen.`;"
+      "text": "return `La saga ${profile.name} ha dejado ${entryText} en ${platformText}. Examina cada edición con cuidado: algunas reliquias brillan menos de lo que valen.`;"
     },
     {
       "file": "src/lib/series-profile.ts",
-      "line": 89,
+      "line": 90,
       "patterns": [
         "series-symbol"
       ],
@@ -2688,7 +2774,7 @@
     },
     {
       "file": "src/lib/series-profile.ts",
-      "line": 103,
+      "line": 104,
       "patterns": [
         "saga-copy"
       ],
@@ -2696,7 +2782,7 @@
     },
     {
       "file": "src/lib/series-profile.ts",
-      "line": 111,
+      "line": 110,
       "patterns": [
         "series-symbol"
       ],
@@ -2704,7 +2790,7 @@
     },
     {
       "file": "src/lib/series-profile.ts",
-      "line": 129,
+      "line": 128,
       "patterns": [
         "saga-copy"
       ],
@@ -2712,7 +2798,7 @@
     },
     {
       "file": "src/lib/series-profile.ts",
-      "line": 135,
+      "line": 134,
       "patterns": [
         "series-symbol"
       ],
@@ -2720,7 +2806,7 @@
     },
     {
       "file": "src/lib/series-profile.ts",
-      "line": 208,
+      "line": 207,
       "patterns": [
         "series-symbol"
       ],
@@ -2728,7 +2814,7 @@
     },
     {
       "file": "src/lib/series-profile.ts",
-      "line": 218,
+      "line": 217,
       "patterns": [
         "series-symbol"
       ],
@@ -2860,7 +2946,7 @@
         },
         {
           "id": "series-field",
-          "count": 34971
+          "count": 34972
         },
         {
           "id": "saga-copy",
@@ -3004,6 +3090,19 @@
         {
           "id": "saga-copy",
           "count": 1
+        }
+      ]
+    },
+    {
+      "file": "docs/research/catalog-count-semantics-2026-09-04.md",
+      "patterns": [
+        {
+          "id": "route-saga",
+          "count": 2
+        },
+        {
+          "id": "saga-copy",
+          "count": 6
         }
       ]
     },

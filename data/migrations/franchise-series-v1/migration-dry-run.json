@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "baselineRevision": "8a1b296359ed2108590067602e5c8d2442e57031",
+  "baselineRevision": "e69fb94f72ca51080eb6c5abcee47a9099e57524",
   "counts": {
     "franchises": 9,
     "promotedLegacySeries": 8,
     "retainedSeries": 7,
     "seriesFranchiseRelations": 8,
-    "gameFranchiseRelations": 340,
+    "catalogEntryFranchiseRelations": 340,
     "entityRelationships": 1,
     "legacyRedirects": 8
   },
@@ -15,18 +15,18 @@
       "legacy": {
         "type": "series",
         "slug": "final-fantasy",
-        "games": 140
+        "catalogEntries": 140
       },
       "target": {
         "type": "franchise",
         "id": "franchise:final-fantasy",
         "slug": "final-fantasy",
-        "directGames": 140,
-        "effectiveGames": 140
+        "directCatalogEntries": 140,
+        "effectiveCatalogEntries": 140
       },
-      "lostDirectGameIds": [],
-      "unexpectedDirectGameIds": [],
-      "inheritedGameIds": [],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [],
       "directMembershipParity": true,
       "redirect": "/saga/final-fantasy -> /franquicia/final-fantasy"
     },
@@ -34,18 +34,18 @@
       "legacy": {
         "type": "series",
         "slug": "lego",
-        "games": 18
+        "catalogEntries": 18
       },
       "target": {
         "type": "franchise",
         "id": "franchise:lego",
         "slug": "lego",
-        "directGames": 18,
-        "effectiveGames": 46
+        "directCatalogEntries": 18,
+        "effectiveCatalogEntries": 46
       },
-      "lostDirectGameIds": [],
-      "unexpectedDirectGameIds": [],
-      "inheritedGameIds": [
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [
         "ps1-lego-racers",
         "ps2-drome-racers",
         "ps2-harry-potter-collection",
@@ -82,18 +82,18 @@
       "legacy": {
         "type": "series",
         "slug": "mega-man",
-        "games": 6
+        "catalogEntries": 6
       },
       "target": {
         "type": "franchise",
         "id": "franchise:mega-man",
         "slug": "mega-man",
-        "directGames": 6,
-        "effectiveGames": 15
+        "directCatalogEntries": 6,
+        "effectiveCatalogEntries": 15
       },
-      "lostDirectGameIds": [],
-      "unexpectedDirectGameIds": [],
-      "inheritedGameIds": [
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [
         "ps1-mega-man-x3",
         "ps1-mega-man-x4",
         "ps1-mega-man-x5",
@@ -111,18 +111,18 @@
       "legacy": {
         "type": "series",
         "slug": "need-for-speed",
-        "games": 35
+        "catalogEntries": 35
       },
       "target": {
         "type": "franchise",
         "id": "franchise:need-for-speed",
         "slug": "need-for-speed",
-        "directGames": 35,
-        "effectiveGames": 35
+        "directCatalogEntries": 35,
+        "effectiveCatalogEntries": 35
       },
-      "lostDirectGameIds": [],
-      "unexpectedDirectGameIds": [],
-      "inheritedGameIds": [],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [],
       "directMembershipParity": true,
       "redirect": "/saga/need-for-speed -> /franquicia/need-for-speed"
     },
@@ -130,18 +130,18 @@
       "legacy": {
         "type": "series",
         "slug": "resident-evil",
-        "games": 35
+        "catalogEntries": 35
       },
       "target": {
         "type": "franchise",
         "id": "franchise:resident-evil",
         "slug": "resident-evil",
-        "directGames": 35,
-        "effectiveGames": 35
+        "directCatalogEntries": 35,
+        "effectiveCatalogEntries": 35
       },
-      "lostDirectGameIds": [],
-      "unexpectedDirectGameIds": [],
-      "inheritedGameIds": [],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [],
       "directMembershipParity": true,
       "redirect": "/saga/resident-evil -> /franquicia/resident-evil"
     },
@@ -149,18 +149,18 @@
       "legacy": {
         "type": "series",
         "slug": "sonic-the-hedgehog",
-        "games": 30
+        "catalogEntries": 30
       },
       "target": {
         "type": "franchise",
         "id": "franchise:sonic-the-hedgehog",
         "slug": "sonic-the-hedgehog",
-        "directGames": 30,
-        "effectiveGames": 30
+        "directCatalogEntries": 30,
+        "effectiveCatalogEntries": 30
       },
-      "lostDirectGameIds": [],
-      "unexpectedDirectGameIds": [],
-      "inheritedGameIds": [],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [],
       "directMembershipParity": true,
       "redirect": "/saga/sonic-the-hedgehog -> /franquicia/sonic-the-hedgehog"
     },
@@ -168,18 +168,18 @@
       "legacy": {
         "type": "series",
         "slug": "star-wars",
-        "games": 21
+        "catalogEntries": 21
       },
       "target": {
         "type": "franchise",
         "id": "franchise:star-wars",
         "slug": "star-wars",
-        "directGames": 21,
-        "effectiveGames": 32
+        "directCatalogEntries": 21,
+        "effectiveCatalogEntries": 32
       },
-      "lostDirectGameIds": [],
-      "unexpectedDirectGameIds": [],
-      "inheritedGameIds": [
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [
         "ps2-lego-star-wars",
         "ps2-lego-star-wars-ii-original-trilogy",
         "ps3-lego-star-wars-complete-saga",
@@ -199,22 +199,26 @@
       "legacy": {
         "type": "series",
         "slug": "time-crisis",
-        "games": 6
+        "catalogEntries": 6
       },
       "target": {
         "type": "franchise",
         "id": "franchise:time-crisis",
         "slug": "time-crisis",
-        "directGames": 6,
-        "effectiveGames": 6
+        "directCatalogEntries": 6,
+        "effectiveCatalogEntries": 6
       },
-      "lostDirectGameIds": [],
-      "unexpectedDirectGameIds": [],
-      "inheritedGameIds": [],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [],
       "directMembershipParity": true,
       "redirect": "/saga/time-crisis -> /franquicia/time-crisis"
     }
   ],
+  "identifierSemantics": {
+    "persistedField": "gameId",
+    "meaning": "Existing catalog_id for one catalogued edition; not a logical game work."
+  },
   "unchanged": {
     "catalogFile": "data/catalog.json",
     "gameDetailsFile": "data/game-details.json",

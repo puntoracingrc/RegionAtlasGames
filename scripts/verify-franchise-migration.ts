@@ -155,7 +155,7 @@ const currentCatalogIds = catalog.map((game) => game.id);
 const baselineCatalogIds = snapshot.catalogIdentity.map((game) => game.id);
 const catalogIdSet = new Set(currentCatalogIds);
 const catalogUrls = catalogIdentity.map((game) => game.url);
-const uniqueCatalogUrlCount = new Set(catalogUrls).size;
+const baselineCatalogUrls = snapshot.catalogIdentity.map((game) => game.url);
 const franchiseIdSet = new Set(Object.values(franchiseFile.entities).map((franchise) => franchise.id));
 const redirectBySlug = new Map(redirectFile.redirects.map((redirect) => [redirect.legacySeriesSlug, redirect]));
 const classificationRows = Object.values(classificationFile.entries);
@@ -286,8 +286,8 @@ const legacyUrlOutcomes = Object.keys(snapshot.series).sort().map((slug) => ({
 const checks = {
   catalogCount: catalog.length === snapshot.counts.catalogEntries,
   catalogIdsUnique: catalogIdSet.size === catalog.length,
-  catalogUrlsUnique: uniqueCatalogUrlCount === catalogUrls.length,
   catalogIdsAndOrder: sameArray(currentCatalogIds, baselineCatalogIds),
+  catalogUrlsAndOrder: sameArray(catalogUrls, baselineCatalogUrls),
   catalogIdentityChecksum: sha256(catalogIdentity) === snapshot.checksums.catalogIdentitySha256,
   companyCount: companySlugs.length === snapshot.counts.companies,
   companyIdentityChecksum: sha256(companySlugs) === snapshot.checksums.companyIdentitySha256,

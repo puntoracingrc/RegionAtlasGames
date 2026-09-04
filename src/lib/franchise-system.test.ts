@@ -124,10 +124,13 @@ test("canonical distingue franquicias, sagas reales y aliases legacy", async () 
   const realSeriesMetadata = await generateSeriesMetadata({
     params: Promise.resolve({ slug: "mega-man-x" }),
   });
+  const countFallbackMetadata = await generateFranchiseMetadata({
+    params: Promise.resolve({ slug: "mario" }),
+  });
 
   assert.equal(franchiseMetadata.alternates?.canonical, "/franquicia/final-fantasy");
-  assert.match(String(franchiseMetadata.description), /fichas/);
-  assert.doesNotMatch(String(franchiseMetadata.description), /\d[\d.]* juegos/);
+  assert.match(String(countFallbackMetadata.description), /fichas?/);
+  assert.doesNotMatch(String(countFallbackMetadata.description), /\d[\d.]* juegos/);
   assert.equal(redirectedSeriesMetadata.alternates?.canonical, "/franquicia/final-fantasy");
   assert.equal(realSeriesMetadata.alternates?.canonical, "/saga/mega-man-x");
 });
