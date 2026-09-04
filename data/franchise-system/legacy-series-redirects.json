@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "redirects": [
+    {
+      "source": "/saga/final-fantasy",
+      "destination": "/franquicia/final-fantasy",
+      "permanent": true,
+      "legacySeriesSlug": "final-fantasy",
+      "franchiseId": "franchise:final-fantasy"
+    },
+    {
+      "source": "/saga/lego",
+      "destination": "/franquicia/lego",
+      "permanent": true,
+      "legacySeriesSlug": "lego",
+      "franchiseId": "franchise:lego"
+    },
+    {
+      "source": "/saga/mega-man",
+      "destination": "/franquicia/mega-man",
+      "permanent": true,
+      "legacySeriesSlug": "mega-man",
+      "franchiseId": "franchise:mega-man"
+    },
+    {
+      "source": "/saga/need-for-speed",
+      "destination": "/franquicia/need-for-speed",
+      "permanent": true,
+      "legacySeriesSlug": "need-for-speed",
+      "franchiseId": "franchise:need-for-speed"
+    },
+    {
+      "source": "/saga/resident-evil",
+      "destination": "/franquicia/resident-evil",
+      "permanent": true,
+      "legacySeriesSlug": "resident-evil",
+      "franchiseId": "franchise:resident-evil"
+    },
+    {
+      "source": "/saga/sonic-the-hedgehog",
+      "destination": "/franquicia/sonic-the-hedgehog",
+      "permanent": true,
+      "legacySeriesSlug": "sonic-the-hedgehog",
+      "franchiseId": "franchise:sonic-the-hedgehog"
+    },
+    {
+      "source": "/saga/star-wars",
+      "destination": "/franquicia/star-wars",
+      "permanent": true,
+      "legacySeriesSlug": "star-wars",
+      "franchiseId": "franchise:star-wars"
+    },
+    {
+      "source": "/saga/time-crisis",
+      "destination": "/franquicia/time-crisis",
+      "permanent": true,
+      "legacySeriesSlug": "time-crisis",
+      "franchiseId": "franchise:time-crisis"
+    }
+  ]
+}

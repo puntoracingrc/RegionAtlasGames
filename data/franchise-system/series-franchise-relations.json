@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "relations": [
+    {
+      "seriesSlug": "dissidia-final-fantasy",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "source": "user-approved-franchise-series-migration-spec",
+      "confidence": "high",
+      "reviewedAt": "2026-09-04"
+    },
+    {
+      "seriesSlug": "lego-batman",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "source": "user-approved-franchise-series-migration-spec",
+      "confidence": "high",
+      "reviewedAt": "2026-09-04"
+    },
+    {
+      "seriesSlug": "lego-harry-potter",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "source": "user-approved-franchise-series-migration-spec",
+      "confidence": "high",
+      "reviewedAt": "2026-09-04"
+    },
+    {
+      "seriesSlug": "lego-racers",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "source": "user-approved-franchise-series-migration-spec",
+      "confidence": "high",
+      "reviewedAt": "2026-09-04"
+    },
+    {
+      "seriesSlug": "lego-star-wars",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "source": "user-approved-franchise-series-migration-spec",
+      "confidence": "high",
+      "reviewedAt": "2026-09-04"
+    },
+    {
+      "seriesSlug": "lego-star-wars",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "source": "user-approved-franchise-series-migration-spec",
+      "confidence": "high",
+      "reviewedAt": "2026-09-04"
+    },
+    {
+      "seriesSlug": "mega-man-x",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "source": "user-approved-franchise-series-migration-spec",
+      "confidence": "high",
+      "reviewedAt": "2026-09-04"
+    },
+    {
+      "seriesSlug": "super-mario",
+      "franchiseId": "franchise:mario",
+      "franchiseSlug": "mario",
+      "primary": true,
+      "source": "user-approved-franchise-series-migration-spec",
+      "confidence": "high",
+      "reviewedAt": "2026-09-04"
+    }
+  ]
+}

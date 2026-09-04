@@ -4,7 +4,6 @@ import path from "node:path";
 import { gzipSync } from "node:zlib";
 import { buildCatalogSeoSlug } from "../src/lib/catalog-path";
 
-type JsonRecord = Record<string, unknown>;
 type Classification = "franchise" | "series" | "ambiguous";
 type Confidence = "high" | "medium" | "low";
 
@@ -239,7 +238,7 @@ function writeOrCheck(filePath: string, value: unknown) {
 }
 
 function writeOrCheckGzip(filePath: string, value: unknown) {
-  const next = gzipSync(Buffer.from(stableJson(value)), { level: 9, mtime: 0 });
+  const next = gzipSync(Buffer.from(stableJson(value)), { level: 9 });
   if (checkOnly) {
     const current = existsSync(filePath) ? readFileSync(filePath) : Buffer.alloc(0);
     if (!current.equals(next)) throw new Error(`Artifact out of date: ${path.relative(ROOT, filePath)}`);

@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "baselineRevision": "8a1b296359ed2108590067602e5c8d2442e57031",
+  "counts": {
+    "franchises": 9,
+    "promotedLegacySeries": 8,
+    "retainedSeries": 7,
+    "seriesFranchiseRelations": 8,
+    "gameFranchiseRelations": 340,
+    "entityRelationships": 1,
+    "legacyRedirects": 8
+  },
+  "promotions": [
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "final-fantasy",
+        "games": 140
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:final-fantasy",
+        "slug": "final-fantasy",
+        "directGames": 140,
+        "effectiveGames": 140
+      },
+      "lostDirectGameIds": [],
+      "unexpectedDirectGameIds": [],
+      "inheritedGameIds": [],
+      "directMembershipParity": true,
+      "redirect": "/saga/final-fantasy -> /franquicia/final-fantasy"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "lego",
+        "games": 18
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:lego",
+        "slug": "lego",
+        "directGames": 18,
+        "effectiveGames": 46
+      },
+      "lostDirectGameIds": [],
+      "unexpectedDirectGameIds": [],
+      "inheritedGameIds": [
+        "ps1-lego-racers",
+        "ps2-drome-racers",
+        "ps2-harry-potter-collection",
+        "ps2-lego-racers-2",
+        "ps2-lego-star-wars",
+        "ps2-lego-star-wars-ii-original-trilogy",
+        "ps3-lego-batman-2-dc-super-heroes",
+        "ps3-lego-batman-3-beyond-gotham",
+        "ps3-lego-batman-the-videogame",
+        "ps3-lego-harry-potter-years-1-4",
+        "ps3-lego-harry-potter-years-5-7",
+        "ps3-lego-star-wars-complete-saga",
+        "ps3-lego-star-wars-iii-the-clone-wars",
+        "ps3-lego-star-wars-the-force-awakens",
+        "ps4-japon-lego-batman-3-beyond-gotham",
+        "ps4-japon-lego-dc-super-villains",
+        "ps4-lego-batman-3-beyond-gotham",
+        "ps4-lego-dc-super-villains",
+        "ps4-lego-harry-potter-collection",
+        "ps4-lego-star-wars-the-force-awakens",
+        "ps4-lego-star-wars-the-force-awakens-plush-edition",
+        "ps4-lego-star-wars-the-skywalker-saga",
+        "ps4-lego-star-wars-the-skywalker-saga-galactic-edition",
+        "ps4-usa-lego-batman-3-beyond-gotham",
+        "ps4-usa-lego-dc-super-villains",
+        "ps4-usa-lego-harry-potter-collection",
+        "ps4-usa-lego-star-wars-the-force-awakens",
+        "ps4-usa-lego-star-wars-the-skywalker-saga"
+      ],
+      "directMembershipParity": true,
+      "redirect": "/saga/lego -> /franquicia/lego"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "mega-man",
+        "games": 6
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:mega-man",
+        "slug": "mega-man",
+        "directGames": 6,
+        "effectiveGames": 15
+      },
+      "lostDirectGameIds": [],
+      "unexpectedDirectGameIds": [],
+      "inheritedGameIds": [
+        "ps1-mega-man-x3",
+        "ps1-mega-man-x4",
+        "ps1-mega-man-x5",
+        "ps1-mega-man-x6",
+        "ps2-mega-man-x-command-mission",
+        "ps2-mega-man-x7",
+        "ps2-mega-man-x8",
+        "ps4-usa-mega-man-x-legacy-collection",
+        "ps4-usa-mega-man-x-legacy-collection-2"
+      ],
+      "directMembershipParity": true,
+      "redirect": "/saga/mega-man -> /franquicia/mega-man"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "need-for-speed",
+        "games": 35
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:need-for-speed",
+        "slug": "need-for-speed",
+        "directGames": 35,
+        "effectiveGames": 35
+      },
+      "lostDirectGameIds": [],
+      "unexpectedDirectGameIds": [],
+      "inheritedGameIds": [],
+      "directMembershipParity": true,
+      "redirect": "/saga/need-for-speed -> /franquicia/need-for-speed"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "resident-evil",
+        "games": 35
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:resident-evil",
+        "slug": "resident-evil",
+        "directGames": 35,
+        "effectiveGames": 35
+      },
+      "lostDirectGameIds": [],
+      "unexpectedDirectGameIds": [],
+      "inheritedGameIds": [],
+      "directMembershipParity": true,
+      "redirect": "/saga/resident-evil -> /franquicia/resident-evil"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "sonic-the-hedgehog",
+        "games": 30
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:sonic-the-hedgehog",
+        "slug": "sonic-the-hedgehog",
+        "directGames": 30,
+        "effectiveGames": 30
+      },
+      "lostDirectGameIds": [],
+      "unexpectedDirectGameIds": [],
+      "inheritedGameIds": [],
+      "directMembershipParity": true,
+      "redirect": "/saga/sonic-the-hedgehog -> /franquicia/sonic-the-hedgehog"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "star-wars",
+        "games": 21
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:star-wars",
+        "slug": "star-wars",
+        "directGames": 21,
+        "effectiveGames": 32
+      },
+      "lostDirectGameIds": [],
+      "unexpectedDirectGameIds": [],
+      "inheritedGameIds": [
+        "ps2-lego-star-wars",
+        "ps2-lego-star-wars-ii-original-trilogy",
+        "ps3-lego-star-wars-complete-saga",
+        "ps3-lego-star-wars-iii-the-clone-wars",
+        "ps3-lego-star-wars-the-force-awakens",
+        "ps4-lego-star-wars-the-force-awakens",
+        "ps4-lego-star-wars-the-force-awakens-plush-edition",
+        "ps4-lego-star-wars-the-skywalker-saga",
+        "ps4-lego-star-wars-the-skywalker-saga-galactic-edition",
+        "ps4-usa-lego-star-wars-the-force-awakens",
+        "ps4-usa-lego-star-wars-the-skywalker-saga"
+      ],
+      "directMembershipParity": true,
+      "redirect": "/saga/star-wars -> /franquicia/star-wars"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "time-crisis",
+        "games": 6
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:time-crisis",
+        "slug": "time-crisis",
+        "directGames": 6,
+        "effectiveGames": 6
+      },
+      "lostDirectGameIds": [],
+      "unexpectedDirectGameIds": [],
+      "inheritedGameIds": [],
+      "directMembershipParity": true,
+      "redirect": "/saga/time-crisis -> /franquicia/time-crisis"
+    }
+  ],
+  "unchanged": {
+    "catalogFile": "data/catalog.json",
+    "gameDetailsFile": "data/game-details.json",
+    "companyIndexFile": "data/index/companies.json",
+    "seriesIndexFile": "data/index/series.json"
+  }
+}
