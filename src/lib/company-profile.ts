@@ -30,23 +30,23 @@ import type { CatalogGame, CompanyProfile, IndexEntry } from "./types";
 export type CompanyCollaborator = {
   slug: string;
   name: string;
-  count: number;
+  catalogEntryCount: number;
   role: "developer" | "publisher";
 };
 
 export type CompanyPlatformGames = {
   platformSlug: string;
   platformName: string;
-  count: number;
+  catalogEntryCount: number;
   games: CatalogGame[];
 };
 
 export type CompanyProfileView = {
   slug: string;
   name: string;
-  gameCount: number;
-  developerCount: number;
-  publisherCount: number;
+  catalogEntryCount: number;
+  developerCatalogEntryCount: number;
+  publisherCatalogEntryCount: number;
   alsoKnownAs: string[];
   wikidataId: string | null;
   foundedYear: number | null;
@@ -110,8 +110,8 @@ function collectCollaborators(entry: IndexEntry, selfSlug: string): CompanyColla
       if (dev.slug === selfSlug) continue;
       const key = `developer:${dev.slug}`;
       const existing = counts.get(key);
-      if (existing) existing.count += 1;
-      else counts.set(key, { slug: dev.slug, name: dev.name, count: 1, role: "developer" });
+      if (existing) existing.catalogEntryCount += 1;
+      else counts.set(key, { slug: dev.slug, name: dev.name, catalogEntryCount: 1, role: "developer" });
     }
 
     if (asDev && details.publisher) {
@@ -119,13 +119,13 @@ function collectCollaborators(entry: IndexEntry, selfSlug: string): CompanyColla
       if (pub.slug === selfSlug) continue;
       const key = `publisher:${pub.slug}`;
       const existing = counts.get(key);
-      if (existing) existing.count += 1;
-      else counts.set(key, { slug: pub.slug, name: pub.name, count: 1, role: "publisher" });
+      if (existing) existing.catalogEntryCount += 1;
+      else counts.set(key, { slug: pub.slug, name: pub.name, catalogEntryCount: 1, role: "publisher" });
     }
   }
 
   return [...counts.values()].sort(
-    (a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"),
+    (a, b) => b.catalogEntryCount - a.catalogEntryCount || a.name.localeCompare(b.name, "es"),
   );
 }
 
@@ -141,10 +141,14 @@ function groupGamesByPlatform(games: CatalogGame[]): CompanyPlatformGames[] {
     .map(([platformSlug, platformGames]) => ({
       platformSlug,
       platformName: getPlatform(platformSlug)?.shortName ?? platformSlug,
-      count: platformGames.length,
+      catalogEntryCount: platformGames.length,
       games: [...platformGames].sort((a, b) => a.title.localeCompare(b.title, "es")),
     }))
-    .sort((a, b) => b.count - a.count || a.platformName.localeCompare(b.platformName, "es"));
+    .sort(
+      (a, b) =>
+        b.catalogEntryCount - a.catalogEntryCount ||
+        a.platformName.localeCompare(b.platformName, "es"),
+    );
 }
 
 function buildCompanyProfileViewFromProfile(
@@ -166,9 +170,9 @@ function buildCompanyProfileViewFromProfile(
   return {
     slug: entry.slug,
     name: stored?.name ?? entry.name,
-    gameCount: games.length,
-    developerCount: entry.asDeveloper?.filter((id) => gameIds.has(id)).length ?? 0,
-    publisherCount: entry.asPublisher?.filter((id) => gameIds.has(id)).length ?? 0,
+    catalogEntryCount: games.length,
+    developerCatalogEntryCount: entry.asDeveloper?.filter((id) => gameIds.has(id)).length ?? 0,
+    publisherCatalogEntryCount: entry.asPublisher?.filter((id) => gameIds.has(id)).length ?? 0,
     alsoKnownAs: formatCompanyAliases(entity),
     wikidataId: stored?.wikidataId ?? entry.wikidataId ?? entity?.wikidataIds?.[0] ?? null,
     foundedYear,

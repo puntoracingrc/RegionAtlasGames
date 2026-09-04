@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { formatCatalogEntryCount } from "./catalog-entry-count";
 import type { CompanyProfileView } from "./company-profile";
 import { companyLifespanLabel, companyStatusLabel } from "./company-profile";
 import { getSiteUrl } from "./site-url";
@@ -14,12 +15,12 @@ export function buildCompanyMetadata(view: CompanyProfileView): Metadata {
   const url = `${base}/compania/${view.slug}`;
   const lifespan = companyLifespanLabel(view.foundedYear, view.closedYear);
   const fallbackDescription = [
-    `${view.name}: ${view.gameCount.toLocaleString("es-ES")} juegos en el catálogo retro de Region Atlas.`,
-    view.developerCount > 0
-      ? `${view.developerCount.toLocaleString("es-ES")} como desarrolladora.`
+    `${view.name}: ${formatCatalogEntryCount(view.catalogEntryCount)} en el catálogo retro de Region Atlas.`,
+    view.developerCatalogEntryCount > 0
+      ? `${formatCatalogEntryCount(view.developerCatalogEntryCount)} como desarrolladora.`
       : null,
-    view.publisherCount > 0
-      ? `${view.publisherCount.toLocaleString("es-ES")} como publicadora.`
+    view.publisherCatalogEntryCount > 0
+      ? `${formatCatalogEntryCount(view.publisherCatalogEntryCount)} como publicadora.`
       : null,
     lifespan,
   ]
@@ -47,16 +48,16 @@ export function buildCompanyMetadata(view: CompanyProfileView): Metadata {
 export function buildCompanyIntro(view: CompanyProfileView): string {
   if (view.history) return view.history;
   const parts = [
-    `${view.name} aparece en ${view.gameCount.toLocaleString("es-ES")} juegos del catálogo Region Atlas`,
+    `${view.name} aparece en ${formatCatalogEntryCount(view.catalogEntryCount)} del catálogo Region Atlas`,
   ];
-  if (view.developerCount > 0 && view.publisherCount > 0) {
+  if (view.developerCatalogEntryCount > 0 && view.publisherCatalogEntryCount > 0) {
     parts.push(
-      `como desarrolladora (${view.developerCount.toLocaleString("es-ES")}) y publicadora (${view.publisherCount.toLocaleString("es-ES")})`,
+      `como desarrolladora (${formatCatalogEntryCount(view.developerCatalogEntryCount)}) y publicadora (${formatCatalogEntryCount(view.publisherCatalogEntryCount)})`,
     );
-  } else if (view.developerCount > 0) {
-    parts.push(`principalmente como desarrolladora (${view.developerCount.toLocaleString("es-ES")} títulos)`);
-  } else if (view.publisherCount > 0) {
-    parts.push(`principalmente como publicadora (${view.publisherCount.toLocaleString("es-ES")} títulos)`);
+  } else if (view.developerCatalogEntryCount > 0) {
+    parts.push(`principalmente como desarrolladora (${formatCatalogEntryCount(view.developerCatalogEntryCount)})`);
+  } else if (view.publisherCatalogEntryCount > 0) {
+    parts.push(`principalmente como publicadora (${formatCatalogEntryCount(view.publisherCatalogEntryCount)})`);
   }
   const lifespan = companyLifespanLabel(view.foundedYear, view.closedYear);
   if (lifespan) parts.push(`(${lifespan})`);

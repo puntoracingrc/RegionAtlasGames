@@ -1,4 +1,5 @@
 import { buildCatalogSeoSlug } from "./catalog-path";
+import { formatCatalogEntryCount } from "./catalog-entry-count";
 import { getPlatform } from "./catalog";
 import { getGameDetails } from "./indexes";
 import type { CatalogGame, DetailEntity, IndexEntry } from "./types";
@@ -9,14 +10,14 @@ export type SeriesCompanySummary = {
   name: string;
   slug: string;
   role: SeriesCompanyRole;
-  gameCount: number;
+  catalogEntryCount: number;
   gameIds: string[];
 };
 
 export type SeriesPlatformSummary = {
   slug: string;
   name: string;
-  count: number;
+  catalogEntryCount: number;
 };
 
 export type SeriesTimelineGame = {
@@ -31,7 +32,7 @@ export type SeriesTimelineGame = {
 export type SeriesProfile = {
   slug: string;
   name: string;
-  gameCount: number;
+  catalogEntryCount: number;
   platformCount: number;
   companyCount: number;
   firstYear: number | null;
@@ -56,7 +57,7 @@ function addCompany(
       name: entity.name,
       slug: entity.slug,
       role,
-      gameCount: 0,
+      catalogEntryCount: 0,
       gameIds: [],
       developerIds: new Set<string>(),
       publisherIds: new Set<string>(),
@@ -67,7 +68,7 @@ function addCompany(
 
   if (!existing.gameIds.includes(gameId)) {
     existing.gameIds.push(gameId);
-    existing.gameCount += 1;
+    existing.catalogEntryCount += 1;
   }
   if (role === "developer") existing.developerIds.add(gameId);
   if (role === "publisher") existing.publisherIds.add(gameId);
@@ -88,7 +89,7 @@ function formatYearRange(firstYear: number | null, latestYear: number | null): s
 
 function buildSeriesDescription(input: {
   name: string;
-  gameCount: number;
+  catalogEntryCount: number;
   platformCount: number;
   firstYear: number | null;
   latestYear: number | null;
@@ -99,9 +100,7 @@ function buildSeriesDescription(input: {
     .map((platform) => platform.name)
     .join(", ");
   const yearRange = formatYearRange(input.firstYear, input.latestYear);
-  return `${input.name} agrupa ${input.gameCount.toLocaleString("es-ES")} ficha${
-    input.gameCount === 1 ? "" : "s"
-  } del catálogo de Region Atlas, repartidas en ${input.platformCount.toLocaleString("es-ES")} plataforma${
+  return `${input.name} agrupa ${formatCatalogEntryCount(input.catalogEntryCount)} del catálogo de Region Atlas, repartidas en ${input.platformCount.toLocaleString("es-ES")} plataforma${
     input.platformCount === 1 ? "" : "s"
   }${platformText ? ` como ${platformText}` : ""}. Esta página reúne sus ediciones, regiones y precios para consultar la franquicia como una entidad completa (${yearRange}).`;
 }
@@ -123,7 +122,7 @@ function buildSeriesHistory(input: {
     .join(", ");
   const years = formatYearRange(input.firstYear, input.latestYear);
 
-  return `Como saga o franquicia, ${input.name} permite ver de un vistazo cómo se ha distribuido la serie entre plataformas, regiones y compañías. En este índice aparecen juegos fechados en ${years}${
+  return `Como saga o franquicia, ${input.name} permite ver de un vistazo cómo se ha distribuido la serie entre plataformas, regiones y compañías. En este índice aparecen fichas fechadas en ${years}${
     mainCompanies ? `, con participación destacada de ${mainCompanies}` : ""
   }${mainPlatforms ? ` y presencia en ${mainPlatforms}` : ""}. Esta primera versión usa los metadatos actuales del catálogo; la descripción editorial podrá enriquecerse con IA o revisión manual más adelante.`;
 }
@@ -145,9 +144,9 @@ export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): Ser
       ({
         slug: game.platformSlug,
         name: platform?.shortName ?? game.platformSlug.toUpperCase(),
-        count: 0,
+        catalogEntryCount: 0,
       } satisfies SeriesPlatformSummary);
-    platformSummary.count += 1;
+    platformSummary.catalogEntryCount += 1;
     platformMap.set(game.platformSlug, platformSummary);
 
     if (details?.year) years.push(details.year);
@@ -163,10 +162,16 @@ export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): Ser
     });
   }
 
-  const platforms = [...platformMap.values()].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"));
+  const platforms = [...platformMap.values()].sort(
+    (a, b) =>
+      b.catalogEntryCount - a.catalogEntryCount || a.name.localeCompare(b.name, "es"),
+  );
   const companies = [...companyMap.values()]
     .map(({ developerIds: _developerIds, publisherIds: _publisherIds, ...company }) => company)
-    .sort((a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es"));
+    .sort(
+      (a, b) =>
+        b.catalogEntryCount - a.catalogEntryCount || a.name.localeCompare(b.name, "es"),
+    );
   const firstYear = years.length ? Math.min(...years) : null;
   const latestYear = years.length ? Math.max(...years) : null;
   const sortedTimeline = timeline.sort(
@@ -180,7 +185,7 @@ export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): Ser
   return {
     slug: entry.slug,
     name: entry.name,
-    gameCount: games.length,
+    catalogEntryCount: games.length,
     platformCount: platforms.length,
     companyCount: companies.length,
     firstYear,
@@ -192,7 +197,7 @@ export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): Ser
       editorialDescription ||
       buildSeriesDescription({
         name: entry.name,
-        gameCount: games.length,
+        catalogEntryCount: games.length,
         platformCount: platforms.length,
         firstYear,
         latestYear,

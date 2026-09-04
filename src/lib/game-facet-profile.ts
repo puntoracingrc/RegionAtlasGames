@@ -1,4 +1,5 @@
 import { publicListedCatalog } from "@/lib/catalog";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { normalizeCatalogSearchSlug, normalizeCatalogSearchText } from "@/lib/catalog-search-normalize";
 import { resolveCanonicalGenreEntity } from "@/lib/genre-canonical";
 import { getGameDetails } from "@/lib/indexes";
@@ -15,6 +16,7 @@ export type GameFacetProfileView = {
   entity: GameFacetTaxonomyEntity;
   title: string;
   subtitle: string;
+  catalogEntryCount: number;
   games: CatalogGame[];
   recommendedGames: CatalogGame[];
   originGame?: CatalogGame;
@@ -160,7 +162,8 @@ export async function buildGameFacetProfileView(
   return {
     entity,
     title: entity.name,
-    subtitle: `${games.length.toLocaleString("es-ES")} juegos relacionados`,
+    subtitle: `${formatCatalogEntryCount(games.length)} ${games.length === 1 ? "relacionada" : "relacionadas"}`,
+    catalogEntryCount: games.length,
     games,
     recommendedGames,
     originGame,

@@ -77,7 +77,7 @@ export default async function PlatformPage({ params, searchParams }: Props) {
           <div className="rounded-2xl border border-dashed border-border p-12 text-center">
             <p className="text-lg text-foreground/80">Catálogo en construcción</p>
             <p className="mt-2 text-sm text-muted">
-              Aún no hay juegos indexados para esta plataforma.
+              Aún no hay fichas catalogadas para esta plataforma.
             </p>
           </div>
         ) : (
@@ -90,7 +90,7 @@ export default async function PlatformPage({ params, searchParams }: Props) {
             <PlatformCatalogSection
               platform={platform}
               games={initialGames}
-              totalGames={catalogGames.length}
+              totalCatalogEntryCount={catalogGames.length}
               insights={buildPlatformCatalogInsights(catalogGames, platform.slug)}
               regions={publicCatalogRegionFilterOptionsForPlatform(platform.slug)}
               genres={publicGenreFilterOptions()}

@@ -3,6 +3,7 @@ import { getCatalogGame, getPlatform, isPublicCatalogGame } from "./catalog";
 import { resolveCanonicalGenreEntity } from "./genre-canonical";
 import { getStoredCompanyProfile } from "./company-profile";
 import { resolveCompanyLogo } from "./company-logo";
+import { formatCatalogEntryCount } from "./catalog-entry-count";
 import { getEffectivePrice, isGrailGame } from "./game-highlight";
 import { summarizeIndexEntry } from "./index-entity";
 import { getCompanies, getGameDetails, getGenre, indexStats } from "./indexes";
@@ -66,9 +67,12 @@ export const COMPANY_PAGE_SIZE = 120;
 
 let explorerCache: CompanyExplorerData | null = null;
 
-function classifyRole(developerCount: number, publisherCount: number): CompanyRoleKind {
-  if (developerCount > 0 && publisherCount > 0) return "both";
-  if (publisherCount > 0) return "publisher";
+function classifyRole(
+  developerCatalogEntryCount: number,
+  publisherCatalogEntryCount: number,
+): CompanyRoleKind {
+  if (developerCatalogEntryCount > 0 && publisherCatalogEntryCount > 0) return "both";
+  if (publisherCatalogEntryCount > 0) return "publisher";
   return "developer";
 }
 
@@ -137,10 +141,10 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
   const platformCounts = new Map<string, number>();
   const priceValues: number[] = [];
   let marketScore = 0;
-  let grailCount = 0;
-  let pricedCount = 0;
-  let developerCount = 0;
-  let publisherCount = 0;
+  let highValueCatalogEntryCount = 0;
+  let pricedCatalogEntryCount = 0;
+  let developerCatalogEntryCount = 0;
+  let publisherCatalogEntryCount = 0;
   let firstReleaseYear: number | null = null;
   let latestReleaseYear: number | null = null;
   const developerIds = new Set(summary.entry.asDeveloper ?? []);
@@ -151,8 +155,8 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
     if (!game || !isPublicCatalogGame(game)) continue;
 
     platformCounts.set(game.platformSlug, (platformCounts.get(game.platformSlug) ?? 0) + 1);
-    if (developerIds.has(gameId)) developerCount += 1;
-    if (publisherIds.has(gameId)) publisherCount += 1;
+    if (developerIds.has(gameId)) developerCatalogEntryCount += 1;
+    if (publisherIds.has(gameId)) publisherCatalogEntryCount += 1;
 
     const details = getGameDetails(gameId);
     for (const genre of details?.genres ?? []) {
@@ -169,9 +173,9 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
     if (price != null && price > 0) {
       marketScore += price;
       priceValues.push(price);
-      pricedCount += 1;
+      pricedCatalogEntryCount += 1;
     }
-    if (isGrailGame(game)) grailCount += 1;
+    if (isGrailGame(game)) highValueCatalogEntryCount += 1;
   }
 
   const platforms = [...platformCounts.entries()]
@@ -181,26 +185,26 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
       name: getPlatform(slug)?.shortName ?? slug,
     }))
     .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"));
-  const gameCount = [...platformCounts.values()].reduce((total, count) => total + count, 0);
+  const catalogEntryCount = [...platformCounts.values()].reduce((total, count) => total + count, 0);
   const platformPreview = platforms
     .slice(0, PLATFORM_PREVIEW)
-    .map((platform) => `${platform.name} (${platform.count})`)
+    .map((platform) => `${platform.name} (${formatCatalogEntryCount(platform.count)})`)
     .join(" · ");
 
   return {
     slug: summary.slug,
     name: summary.name,
-    gameCount,
-    developerCount,
-    publisherCount,
-    roleKind: classifyRole(developerCount, publisherCount),
+    catalogEntryCount,
+    developerCatalogEntryCount,
+    publisherCatalogEntryCount,
+    roleKind: classifyRole(developerCatalogEntryCount, publisherCatalogEntryCount),
     platformSlugs: platforms.map((platform) => platform.slug),
     platformPreview,
     genreSlugs: [...genreSlugs],
     marketScore,
     medianPrice: median(priceValues),
-    grailCount,
-    pricedCount,
+    highValueCatalogEntryCount,
+    pricedCatalogEntryCount,
     firstReleaseYear,
     latestReleaseYear,
     activityPeriods: activityPeriods.size > 0 ? [...activityPeriods] : ["unknown"],
@@ -224,14 +228,17 @@ function buildFilterOptions(
     }
   }
   return [...counts.entries()]
-    .map(([slug, count]) => ({ slug, name: nameForSlug(slug), count }))
-    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "es"));
+    .map(([slug, companyCount]) => ({ slug, name: nameForSlug(slug), companyCount }))
+    .sort(
+      (a, b) =>
+        b.companyCount - a.companyCount || a.name.localeCompare(b.name, "es"),
+    );
 }
 
 export function getCompanyExplorerData(): CompanyExplorerData {
   if (explorerCache) return explorerCache;
 
-  const companies = getCompanies().map(enrichCompany).filter((company) => company.gameCount > 0);
+  const companies = getCompanies().map(enrichCompany).filter((company) => company.catalogEntryCount > 0);
   const statsMeta = indexStats();
 
   explorerCache = {
@@ -265,7 +272,7 @@ export function getCompanyExplorerData(): CompanyExplorerData {
       developers: companies.filter((c) => c.roleKind === "developer").length,
       dualRole: companies.filter((c) => c.roleKind === "both").length,
       withProfile: companies.filter((c) => c.hasProfile).length,
-      gamesWithDetails: statsMeta.gamesWithDetails ?? 0,
+      catalogEntriesWithDetails: statsMeta.gamesWithDetails ?? 0,
     },
   };
 
@@ -332,11 +339,11 @@ function matchesRole(company: CompanyCardData, role: CompanyRoleFilter): boolean
 function matchesMarket(company: CompanyCardData, market: CompanyMarketFilter): boolean {
   switch (market) {
     case "collectible":
-      return company.grailCount > 0;
+      return company.highValueCatalogEntryCount > 0;
     case "priced":
-      return company.pricedCount > 0;
+      return company.pricedCatalogEntryCount > 0;
     case "unpriced":
-      return company.pricedCount === 0;
+      return company.pricedCatalogEntryCount === 0;
     default:
       return true;
   }
@@ -345,15 +352,15 @@ function matchesMarket(company: CompanyCardData, market: CompanyMarketFilter): b
 function matchesCatalogSize(company: CompanyCardData, size: CompanyCatalogSizeFilter): boolean {
   switch (size) {
     case "micro":
-      return company.gameCount <= 4;
+      return company.catalogEntryCount <= 4;
     case "small":
-      return company.gameCount >= 5 && company.gameCount <= 19;
+      return company.catalogEntryCount >= 5 && company.catalogEntryCount <= 19;
     case "medium":
-      return company.gameCount >= 20 && company.gameCount <= 49;
+      return company.catalogEntryCount >= 20 && company.catalogEntryCount <= 49;
     case "large":
-      return company.gameCount >= 50 && company.gameCount <= 199;
+      return company.catalogEntryCount >= 50 && company.catalogEntryCount <= 199;
     case "major":
-      return company.gameCount >= 200;
+      return company.catalogEntryCount >= 200;
     default:
       return true;
   }
@@ -376,26 +383,26 @@ function sortCompanies(list: CompanyCardData[], sort: CompanySort): CompanyCardD
       case "name-desc":
         return compareCompanyNamesDescending(a.name, b.name);
       case "games-asc":
-        return a.gameCount - b.gameCount || a.name.localeCompare(b.name, "es");
+        return a.catalogEntryCount - b.catalogEntryCount || a.name.localeCompare(b.name, "es");
       case "games-desc":
-        return b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es");
+        return b.catalogEntryCount - a.catalogEntryCount || a.name.localeCompare(b.name, "es");
       case "market-desc":
         return (
           b.marketScore - a.marketScore ||
-          b.grailCount - a.grailCount ||
-          b.gameCount - a.gameCount ||
+          b.highValueCatalogEntryCount - a.highValueCatalogEntryCount ||
+          b.catalogEntryCount - a.catalogEntryCount ||
           a.name.localeCompare(b.name, "es")
         );
       case "median-desc":
         return (
           (b.medianPrice ?? Number.NEGATIVE_INFINITY) -
             (a.medianPrice ?? Number.NEGATIVE_INFINITY) ||
-          b.pricedCount - a.pricedCount ||
+          b.pricedCatalogEntryCount - a.pricedCatalogEntryCount ||
           a.name.localeCompare(b.name, "es")
         );
       case "grails-desc":
         return (
-          b.grailCount - a.grailCount ||
+          b.highValueCatalogEntryCount - a.highValueCatalogEntryCount ||
           b.marketScore - a.marketScore ||
           a.name.localeCompare(b.name, "es")
         );
@@ -403,19 +410,19 @@ function sortCompanies(list: CompanyCardData[], sort: CompanySort): CompanyCardD
         return (
           (b.latestReleaseYear ?? Number.NEGATIVE_INFINITY) -
             (a.latestReleaseYear ?? Number.NEGATIVE_INFINITY) ||
-          b.gameCount - a.gameCount ||
+          b.catalogEntryCount - a.catalogEntryCount ||
           a.name.localeCompare(b.name, "es")
         );
       case "dev-desc":
         return (
-          b.developerCount - a.developerCount ||
-          b.gameCount - a.gameCount ||
+          b.developerCatalogEntryCount - a.developerCatalogEntryCount ||
+          b.catalogEntryCount - a.catalogEntryCount ||
           a.name.localeCompare(b.name, "es")
         );
       case "pub-desc":
         return (
-          b.publisherCount - a.publisherCount ||
-          b.gameCount - a.gameCount ||
+          b.publisherCatalogEntryCount - a.publisherCatalogEntryCount ||
+          b.catalogEntryCount - a.catalogEntryCount ||
           a.name.localeCompare(b.name, "es")
         );
       default:
@@ -462,6 +469,6 @@ export function companyListIntro(stats: CompanyExplorerData["stats"]): string {
     `${stats.publishers.toLocaleString("es-ES")} solo publicadoras`,
     `${stats.developers.toLocaleString("es-ES")} solo desarrolladoras`,
     `${stats.dualRole.toLocaleString("es-ES")} con ambos roles`,
-    `${stats.gamesWithDetails.toLocaleString("es-ES")} juegos con ficha`,
+    `${formatCatalogEntryCount(stats.catalogEntriesWithDetails)} con información detallada`,
   ].join(" · ");
 }

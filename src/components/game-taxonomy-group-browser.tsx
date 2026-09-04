@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import type { PublicTaxonomyGroup } from "@/lib/game-taxonomy-groups";
 import { normalizeCatalogSearchText } from "@/lib/catalog-search-normalize";
 
@@ -37,7 +38,7 @@ export function GameTaxonomyGroupBrowser({ groups }: { groups: PublicTaxonomyGro
   const visibleTerms = filteredGroups.reduce((total, group) => total + group.terms.length, 0);
 
   return (
-    <div className="space-y-6">
+    <div className="min-w-0 space-y-6">
       <div className="rounded-2xl border border-border bg-card p-4 shadow-sm md:p-5">
         <label className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted" htmlFor="taxonomy-search">
           Buscar dentro de géneros y etiquetas
@@ -55,11 +56,14 @@ export function GameTaxonomyGroupBrowser({ groups }: { groups: PublicTaxonomyGro
         </p>
       </div>
 
-      <div className="grid gap-4">
+      <div className="grid min-w-0 gap-4">
         {filteredGroups.map((group) => (
-          <section key={group.number} className="rounded-2xl border border-border bg-card/80 p-4 shadow-sm md:p-5">
+          <section
+            key={group.number}
+            className="min-w-0 max-w-full rounded-2xl border border-border bg-card/80 p-4 shadow-sm md:p-5"
+          >
             <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-              <div>
+              <div className="min-w-0">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
                   {String(group.number).padStart(2, "0")}
                 </p>
@@ -72,12 +76,12 @@ export function GameTaxonomyGroupBrowser({ groups }: { groups: PublicTaxonomyGro
             </div>
 
             {group.terms.length > 0 ? (
-              <div className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="mt-4 grid min-w-0 gap-2 sm:grid-cols-2 xl:grid-cols-3">
                 {group.terms.map((term) => (
                   <Link
                     key={`${group.number}-${term.type}-${term.slug}`}
                     href={term.href}
-                    className="group rounded-xl border border-border bg-background/55 p-3 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-card-hover"
+                    className="group min-w-0 rounded-xl border border-border bg-background/55 p-3 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-card-hover"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0">
@@ -86,12 +90,14 @@ export function GameTaxonomyGroupBrowser({ groups }: { groups: PublicTaxonomyGro
                           {typeLabel[term.type]}{term.family ? ` · ${term.family}` : ""}
                         </p>
                       </div>
-                      <span className="rounded-full bg-accent/10 px-2 py-1 text-xs font-bold text-accent">
-                        {term.count == null ? "—" : term.count.toLocaleString("es-ES")}
+                      <span className="shrink-0 whitespace-nowrap rounded-full bg-accent/10 px-2 py-1 text-xs font-bold text-accent">
+                        {term.catalogEntryCount == null
+                          ? "Sin recuento"
+                          : formatCatalogEntryCount(term.catalogEntryCount)}
                       </span>
                     </div>
                     {term.aliases.length > 0 && (
-                      <p className="mt-2 line-clamp-2 text-xs leading-5 text-muted/90">
+                      <p className="mt-2 line-clamp-2 break-words text-xs leading-5 text-muted/90">
                         Alias: {term.aliases.slice(0, 8).join(", ")}
                       </p>
                     )}

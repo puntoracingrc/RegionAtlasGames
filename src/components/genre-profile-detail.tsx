@@ -81,14 +81,14 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn, fromCata
           <div>
             <h2 className="text-xl font-bold text-foreground">Catálogo completo</h2>
             <p className="mt-1 text-sm text-foreground/75">
-              Explora y filtra todos los juegos del género {view.name}.
+              Explora y filtra todas las fichas del género {view.name}.
             </p>
           </div>
           <CatalogBrowser
             games={initialGames}
             contextName={view.name}
             source={{ kind: "genre", slug: view.slug }}
-            totalCount={view.games.length}
+            totalCatalogEntryCount={view.catalogEntryCount}
             regions={publicCatalogRegionFilterOptions()}
             regionsByPlatform={publicCatalogRegionFilterOptionsByPlatform()}
             platforms={publicPlatformFilterOptions()}

@@ -18,7 +18,7 @@ export default async function PlatformsPage() {
           <h1 className="text-3xl font-bold text-foreground">Plataformas</h1>
           <p className="max-w-2xl text-muted">
             {platforms.length} sistemas activos con catálogo multiregión —{" "}
-            {meta.catalogListed.toLocaleString("es-ES")} títulos indexados.
+            {meta.catalogListed.toLocaleString("es-ES")} fichas catalogadas.
           </p>
         </header>
         <PlatformGrid items={platforms} ownedItems={ownedItems} />

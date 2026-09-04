@@ -2,7 +2,12 @@ import { IndexGrid } from "@/components/index-grid";
 import { SiteNav } from "@/components/site-nav";
 import { listPublicSeriesIndexEntries } from "@/lib/admin-series-manager";
 import type { IndexKind } from "@/lib/index-entity";
-import { INDEX_KIND_META, getIndexList, indexListIntro } from "@/lib/index-entity";
+import {
+  INDEX_KIND_META,
+  getIndexList,
+  indexListIntro,
+  toPublicIndexEntityListItem,
+} from "@/lib/index-entity";
 
 export async function IndexEntityList({ kind }: { kind: IndexKind }) {
   const meta = INDEX_KIND_META[kind];
@@ -45,7 +50,7 @@ export async function IndexEntityList({ kind }: { kind: IndexKind }) {
             </p>
           )}
         </header>
-        <IndexGrid items={items} kind={kind} />
+        <IndexGrid items={items.map(toPublicIndexEntityListItem)} kind={kind} />
       </main>
     </>
   );

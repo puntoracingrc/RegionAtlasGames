@@ -1,8 +1,9 @@
 import { BackLink } from "@/components/breadcrumbs";
 import { CatalogGameListLink } from "@/components/catalog-game-list-link";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { genreGameHref, type GenreProfileView } from "@/lib/genre-profile";
 
-const MAX_PLATFORM_PREVIEW_GAMES = 24;
+const MAX_PLATFORM_PREVIEW_ENTRIES = 24;
 
 export function GenreReferenceTop({ view }: { view: GenreProfileView }) {
   if (view.referenceTops.length === 0) return null;
@@ -47,7 +48,7 @@ export function GenreProfileHeader({ view }: { view: GenreProfileView }) {
       <BackLink href="/genero">Géneros</BackLink>
       <h1 className="text-4xl font-bold text-foreground">{view.name}</h1>
       <p className="text-foreground/85">
-        {view.gameCount.toLocaleString("es-ES")} juegos en el catálogo Region Atlas
+        {formatCatalogEntryCount(view.catalogEntryCount)} en el catálogo Region Atlas
       </p>
       {view.alsoKnownAs.length > 0 && (
         <p className="max-w-3xl text-sm text-foreground/75">
@@ -65,7 +66,7 @@ export function GenrePlatformGames({ view }: { view: GenreProfileView }) {
   return (
     <section className="space-y-3">
       <div>
-        <h2 className="text-xl font-bold text-foreground">Juegos por plataforma</h2>
+        <h2 className="text-xl font-bold text-foreground">Fichas por plataforma</h2>
         <p className="mt-1 text-sm text-foreground/75">
           Desplegable con enlaces al catálogo Region Atlas.
         </p>
@@ -80,21 +81,21 @@ export function GenrePlatformGames({ view }: { view: GenreProfileView }) {
               <span className="font-medium text-foreground">
                 {platform.platformName}
                 <span className="ml-2 text-sm font-normal text-foreground/70">
-                  ({platform.count.toLocaleString("es-ES")})
+                  ({formatCatalogEntryCount(platform.catalogEntryCount)})
                 </span>
               </span>
               <span className="text-xs text-muted transition group-open:rotate-180">▼</span>
             </summary>
             <ul className="max-h-80 space-y-1 overflow-y-auto border-t border-border/70 px-4 py-3">
-              {platform.games.slice(0, MAX_PLATFORM_PREVIEW_GAMES).map((game) => (
+              {platform.games.slice(0, MAX_PLATFORM_PREVIEW_ENTRIES).map((game) => (
                 <li key={game.id}>
                   <CatalogGameListLink game={game} href={genreGameHref(game)} />
                 </li>
               ))}
-              {platform.games.length > MAX_PLATFORM_PREVIEW_GAMES && (
+              {platform.games.length > MAX_PLATFORM_PREVIEW_ENTRIES && (
                 <li className="pt-2 text-xs text-muted">
-                  Mostrando {MAX_PLATFORM_PREVIEW_GAMES.toLocaleString("es-ES")} de{" "}
-                  {platform.games.length.toLocaleString("es-ES")}. Usa el catálogo completo
+                  Mostrando {formatCatalogEntryCount(MAX_PLATFORM_PREVIEW_ENTRIES)} de{" "}
+                  {formatCatalogEntryCount(platform.games.length)}. Usa el catálogo completo
                   inferior para paginar, buscar y filtrar esta plataforma.
                 </li>
               )}

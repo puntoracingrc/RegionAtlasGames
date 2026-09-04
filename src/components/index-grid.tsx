@@ -2,17 +2,18 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { IndexEntry } from "@/lib/types";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
+import type { PublicIndexEntityListItem } from "@/lib/index-entity";
 
 type IndexKind = "company" | "genre" | "series" | "tag";
 
 type Props = {
-  items: IndexEntry[];
+  items: PublicIndexEntityListItem[];
   kind: IndexKind;
 };
 
 const PLATFORM_PREVIEW = 4;
-type EntitySort = "most-games" | "least-games" | "az" | "za";
+type EntitySort = "most-entries" | "least-entries" | "az" | "za";
 const INDEX_KIND_META: Record<
   IndexKind,
   {
@@ -30,7 +31,7 @@ export function IndexGrid({ items, kind }: Props) {
   const meta = INDEX_KIND_META[kind];
   const [q, setQ] = useState("");
   const [letter, setLetter] = useState("all");
-  const [sort, setSort] = useState<EntitySort>("most-games");
+  const [sort, setSort] = useState<EntitySort>("most-entries");
 
   const letters = useMemo(() => {
     const set = new Set<string>();
@@ -48,13 +49,13 @@ export function IndexGrid({ items, kind }: Props) {
 
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
-    const matchesLetter = (item: IndexEntry) => {
+    const matchesLetter = (item: PublicIndexEntityListItem) => {
       if (letter === "all") return true;
       const first = item.name.trim().charAt(0).toLocaleUpperCase("es-ES");
       if (letter === "0-9") return !/[A-ZÁÉÍÓÚÑÜ]/i.test(first);
       return first === letter;
     };
-    const matchesSearch = (item: IndexEntry) =>
+    const matchesSearch = (item: PublicIndexEntityListItem) =>
       !needle ||
       item.name.toLowerCase().includes(needle) ||
       item.slug.toLowerCase().includes(needle);
@@ -63,17 +64,17 @@ export function IndexGrid({ items, kind }: Props) {
       .sort((a, b) => {
         if (sort === "az") return a.name.localeCompare(b.name, "es");
         if (sort === "za") return b.name.localeCompare(a.name, "es");
-        if (sort === "least-games") {
-          return a.gameCount - b.gameCount || a.name.localeCompare(b.name, "es");
+        if (sort === "least-entries") {
+          return a.catalogEntryCount - b.catalogEntryCount || a.name.localeCompare(b.name, "es");
         }
-        return b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es");
+        return b.catalogEntryCount - a.catalogEntryCount || a.name.localeCompare(b.name, "es");
       })
       .slice(0, needle ? 240 : 160);
   }, [items, letter, q, sort]);
 
   const sortOptions: Array<{ value: EntitySort; label: string }> = [
-    { value: "most-games", label: "Más juegos" },
-    { value: "least-games", label: "Menos juegos" },
+    { value: "most-entries", label: "Más fichas" },
+    { value: "least-entries", label: "Menos fichas" },
     { value: "az", label: "A-Z" },
     { value: "za", label: "Z-A" },
   ];
@@ -146,11 +147,11 @@ export function IndexGrid({ items, kind }: Props) {
 
       <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filtered.map((item) => {
-          const platforms = Object.entries(item.byPlatform ?? {})
+          const platforms = Object.entries(item.catalogEntriesByPlatform)
             .map(([slug, count]) => ({ name: slug.toUpperCase(), count }))
             .sort((a, b) => b.count - a.count);
-          const developerCount = item.asDeveloper?.length ?? 0;
-          const publisherCount = item.asPublisher?.length ?? 0;
+          const developerCount = item.developerCatalogEntryCount;
+          const publisherCount = item.publisherCatalogEntryCount;
           return (
             <Link
               key={item.slug}
@@ -159,21 +160,21 @@ export function IndexGrid({ items, kind }: Props) {
             >
               <h2 className="font-semibold text-foreground">{item.name}</h2>
               <p className="mt-1 text-sm text-accent">
-                {item.gameCount.toLocaleString("es-ES")} juegos
+                {formatCatalogEntryCount(item.catalogEntryCount)}
               </p>
               {platforms.length > 0 && (
                 <p className="mt-2 line-clamp-2 text-xs text-muted">
                   {platforms
                     .slice(0, PLATFORM_PREVIEW)
-                    .map((platform) => `${platform.name} (${platform.count})`)
+                    .map((platform) => `${platform.name} (${formatCatalogEntryCount(platform.count)})`)
                     .join(" · ")}
                 </p>
               )}
               {kind === "company" &&
                 (developerCount > 0 || publisherCount > 0) && (
                   <p className="mt-2 text-[11px] uppercase tracking-wider text-muted">
-                    Dev {developerCount.toLocaleString("es-ES")} · Pub{" "}
-                    {publisherCount.toLocaleString("es-ES")}
+                    Desarrollo: {formatCatalogEntryCount(developerCount)} · Publicación:{" "}
+                    {formatCatalogEntryCount(publisherCount)}
                   </p>
                 )}
             </Link>

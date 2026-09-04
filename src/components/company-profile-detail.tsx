@@ -6,14 +6,21 @@ import { CompanyPlatformGames } from "@/components/company-platform-games";
 import { CompanyProfileHeader } from "@/components/company-profile-header";
 import { PersonPortrait } from "@/components/person-portrait";
 import { SiteNav } from "@/components/site-nav";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { buildCompanyIntro } from "@/lib/company-seo";
 import type { CompanyProfileView } from "@/lib/company-profile";
-import type { PublicSeriesReference } from "@/lib/admin-series-manager";
+
+export type CompanyRelatedSeries = {
+  slug: string;
+  name: string;
+  catalogEntryCount: number;
+  matchedCatalogEntryCount: number;
+};
 
 type Props = {
   view: CompanyProfileView;
-  series: PublicSeriesReference[];
+  series: CompanyRelatedSeries[];
   ownedCatalogIds: string[];
   isLoggedIn: boolean;
 };
@@ -161,7 +168,7 @@ export function CompanyProfileDetail({ view, series, ownedCatalogIds, isLoggedIn
               <div>
                 <h2 className="text-lg font-semibold text-foreground">Sagas relacionadas</h2>
                 <p className="mt-1 text-sm text-foreground/75">
-                  Sagas donde aparece al menos un juego de {view.name}.
+                  Sagas donde aparece al menos una ficha atribuida a {view.name}.
                 </p>
               </div>
               <span className="rounded-full border border-border px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
@@ -182,9 +189,10 @@ export function CompanyProfileDetail({ view, series, ownedCatalogIds, isLoggedIn
                     {item.name}
                   </Link>
                   <span className="text-sm text-muted">
-                    {item.matchedGameCount} {item.matchedGameCount === 1 ? "juego" : "juegos"} de{" "}
-                    {view.name}
-                    {item.gameCount > 0 ? ` · ${item.gameCount} en la saga` : ""}
+                    {formatCatalogEntryCount(item.matchedCatalogEntryCount)} de {view.name}
+                    {item.catalogEntryCount > 0
+                      ? ` · ${formatCatalogEntryCount(item.catalogEntryCount)} en la saga`
+                      : ""}
                   </span>
                 </li>
               ))}
@@ -196,7 +204,7 @@ export function CompanyProfileDetail({ view, series, ownedCatalogIds, isLoggedIn
           <div>
             <h2 className="text-xl font-bold text-foreground">Catálogo completo · {view.name}</h2>
             <p className="mt-1 text-sm text-foreground/75">
-              Explora y filtra todos los juegos de {view.name} en Region Atlas.
+              Explora y filtra todas las fichas atribuidas a {view.name} en Region Atlas.
             </p>
           </div>
           <EntityBrowser

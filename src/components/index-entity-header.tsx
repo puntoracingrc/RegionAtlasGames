@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { BackLink } from "@/components/breadcrumbs";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import type { IndexEntitySummary } from "@/lib/index-entity";
 import { INDEX_KIND_META, indexEntitySubtitle } from "@/lib/index-entity";
 
@@ -43,7 +43,7 @@ export function IndexEntityHeader({ summary }: { summary: IndexEntitySummary }) 
               key={platform.slug}
               className="rounded-full border border-border bg-card-hover px-3 py-1 text-xs text-foreground/80 dark:border-transparent dark:bg-white/10"
             >
-              {platform.name}: {platform.count.toLocaleString("es-ES")}
+              {platform.name}: {formatCatalogEntryCount(platform.catalogEntryCount)}
             </span>
           ))}
         </div>

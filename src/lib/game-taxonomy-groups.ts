@@ -13,7 +13,7 @@ export type PublicTaxonomyTerm = {
   searchAliases: string[];
   description: string;
   href: string;
-  count: number | null;
+  catalogEntryCount: number | null;
 };
 
 export type PublicTaxonomyGroup = {
@@ -142,7 +142,10 @@ function hrefForEntity(entity: GameFacetTaxonomyEntity): string {
   return entity.type === "genre" ? `/genero/${entity.slug}` : `/etiqueta/${entity.slug}`;
 }
 
-function countForEntity(entity: GameFacetTaxonomyEntity, facetCounts: Record<string, number> | null): number | null {
+function catalogEntryCountForEntity(
+  entity: GameFacetTaxonomyEntity,
+  facetCounts: Record<string, number> | null,
+): number | null {
   if (entity.type === "genre") {
     return getGenre(entity.slug)?.gameCount ?? getGenre(entity.id)?.gameCount ?? facetCounts?.[entity.slug] ?? 0;
   }
@@ -161,7 +164,7 @@ function toTerm(entity: GameFacetTaxonomyEntity, facetCounts: Record<string, num
     searchAliases: entity.searchAliases ?? [],
     description: entity.description,
     href: hrefForEntity(entity),
-    count: countForEntity(entity, facetCounts),
+    catalogEntryCount: catalogEntryCountForEntity(entity, facetCounts),
   };
 }
 
@@ -176,6 +179,10 @@ export async function getPublicTaxonomyGroups(options: { includeFacetCounts?: bo
     terms: entities
       .filter(group.include)
       .map((entity) => toTerm(entity, facetCounts))
-      .sort((a, b) => (b.count ?? -1) - (a.count ?? -1) || a.name.localeCompare(b.name, "es", { sensitivity: "base" })),
+      .sort(
+        (a, b) =>
+          (b.catalogEntryCount ?? -1) - (a.catalogEntryCount ?? -1) ||
+          a.name.localeCompare(b.name, "es", { sensitivity: "base" }),
+      ),
   })).filter((group) => group.terms.length > 0);
 }

@@ -99,7 +99,7 @@ export async function GameFacetProfileDetail({
             games={games}
             contextName={view.title}
             source={{ kind: "taxonomy", filter: view.entity.type, slug: view.entity.slug }}
-            totalCount={view.games.length}
+            totalCatalogEntryCount={view.catalogEntryCount}
             regions={publicCatalogRegionFilterOptions()}
             regionsByPlatform={publicCatalogRegionFilterOptionsByPlatform()}
             platforms={publicPlatformFilterOptions()}

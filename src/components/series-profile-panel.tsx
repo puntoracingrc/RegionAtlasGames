@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import type { SeriesProfile } from "@/lib/series-profile";
 
 function roleLabel(role: "developer" | "publisher" | "both"): string {
@@ -74,9 +75,11 @@ export function SeriesProfilePanel({
 
           <div className="mt-5 grid gap-3 sm:grid-cols-4">
             <div className="rounded-2xl border border-border bg-background/70 p-3 shadow-sm backdrop-blur">
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">Juegos</p>
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted">
+                Fichas catalogadas
+              </p>
               <p className="mt-1 text-2xl font-black text-foreground">
-                {profile.gameCount.toLocaleString("es-ES")}
+                {profile.catalogEntryCount.toLocaleString("es-ES")}
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-background/70 p-3 shadow-sm backdrop-blur">
@@ -111,7 +114,7 @@ export function SeriesProfilePanel({
                 href={`/plataforma/${platform.slug}`}
                 className="rounded-full border border-border bg-background/70 px-3 py-1.5 text-xs font-semibold text-foreground transition hover:border-accent/50 hover:text-accent"
               >
-                {platform.name} · {platform.count.toLocaleString("es-ES")}
+                {platform.name} · {formatCatalogEntryCount(platform.catalogEntryCount)}
               </Link>
             ))}
           </div>
@@ -130,7 +133,7 @@ export function SeriesProfilePanel({
               >
                 <span className="min-w-0 truncate font-semibold">{company.name}</span>
                 <span className="shrink-0 text-xs text-muted">
-                  {roleLabel(company.role)} · {company.gameCount.toLocaleString("es-ES")}
+                  {roleLabel(company.role)} · {formatCatalogEntryCount(company.catalogEntryCount)}
                 </span>
               </Link>
             ))}

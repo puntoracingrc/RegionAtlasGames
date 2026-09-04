@@ -130,12 +130,12 @@ export function getCollectionByPlatform(slug: string): CollectionView[] {
 
 export function getPlatformStats(slug: string, ownedItems: CollectionView[] = []) {
   const platform = getPlatform(slug);
-  const listed = meta.listedByPlatform[slug] ?? 0;
+  const catalogEntryCount = meta.listedByPlatform[slug] ?? 0;
   const owned = ownedItems.filter((c) => c.platformSlug === slug).length;
   const estimated = platform?.estimatedCatalogSize ?? 0;
   const completion = estimated > 0 ? Math.round((owned / estimated) * 100) : 0;
 
-  return { platform, listed, owned, estimated, completion };
+  return { platform, catalogEntryCount, owned, estimated, completion };
 }
 
 export function getPlatformRegions(slug: string): string[] {

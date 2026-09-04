@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BackLink } from "@/components/breadcrumbs";
 import { CompanyLogo } from "@/components/company-logo";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import {
   companyLifespanLabel,
   companyStatusLabel,
@@ -32,22 +33,22 @@ export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
           <div>
             <h1 className="text-4xl font-bold text-foreground">{view.name}</h1>
             <p className="mt-2 text-foreground/85">
-              {view.gameCount.toLocaleString("es-ES")} juegos en el catálogo
-              {view.developerCount > 0 && (
-                <> · {view.developerCount.toLocaleString("es-ES")} como desarrolladora</>
+              {formatCatalogEntryCount(view.catalogEntryCount)} en el catálogo
+              {view.developerCatalogEntryCount > 0 && (
+                <> · {formatCatalogEntryCount(view.developerCatalogEntryCount)} como desarrolladora</>
               )}
-              {view.publisherCount > 0 && (
-                <> · {view.publisherCount.toLocaleString("es-ES")} como publicadora</>
+              {view.publisherCatalogEntryCount > 0 && (
+                <> · {formatCatalogEntryCount(view.publisherCatalogEntryCount)} como publicadora</>
               )}
             </p>
           </div>
           <div className="flex flex-wrap gap-2 text-sm">
-            {view.developerCount > 0 && (
+            {view.developerCatalogEntryCount > 0 && (
               <span className="rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-violet-900 dark:text-violet-100">
                 Desarrolladora
               </span>
             )}
-            {view.publisherCount > 0 && (
+            {view.publisherCatalogEntryCount > 0 && (
               <span className="rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-1 text-sky-900 dark:text-sky-100">
                 Publicadora
               </span>

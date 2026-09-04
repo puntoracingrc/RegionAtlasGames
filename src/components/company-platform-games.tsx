@@ -1,4 +1,5 @@
 import { CatalogGameListLink } from "@/components/catalog-game-list-link";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { companyGameHref, type CompanyPlatformGames } from "@/lib/company-profile";
 
 export function CompanyPlatformGames({ platforms }: { platforms: CompanyPlatformGames[] }) {
@@ -7,7 +8,7 @@ export function CompanyPlatformGames({ platforms }: { platforms: CompanyPlatform
   return (
     <section className="space-y-3">
       <div>
-        <h2 className="text-xl font-bold text-foreground">Juegos por plataforma</h2>
+        <h2 className="text-xl font-bold text-foreground">Fichas por plataforma</h2>
         <p className="mt-1 text-sm text-foreground/75">
           Desplegable con enlaces a las fichas del catálogo Region Atlas.
         </p>
@@ -22,7 +23,7 @@ export function CompanyPlatformGames({ platforms }: { platforms: CompanyPlatform
               <span className="font-medium text-foreground">
                 {platform.platformName}
                 <span className="ml-2 text-sm font-normal text-foreground/70">
-                  ({platform.count.toLocaleString("es-ES")})
+                  ({formatCatalogEntryCount(platform.catalogEntryCount)})
                 </span>
               </span>
               <span className="text-xs text-muted transition group-open:rotate-180">▼</span>

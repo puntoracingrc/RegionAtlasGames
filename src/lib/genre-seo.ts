@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { formatCatalogEntryCount } from "./catalog-entry-count";
 import type { GenreProfileView } from "./genre-profile";
 import { getSiteUrl } from "./site-url";
 
@@ -12,7 +13,9 @@ export function buildGenreMetadata(view: GenreProfileView): Metadata {
   const base = getSiteUrl();
   const url = `${base}/genero/${view.slug}`;
   const description = clipMeta(
-    `${view.name}: ${view.gameCount.toLocaleString("es-ES")} juegos retro clasificados en Region Atlas por plataforma y región PAL.`,
+    `${view.name}: ${formatCatalogEntryCount(view.catalogEntryCount)} ${
+      view.catalogEntryCount === 1 ? "clasificada" : "clasificadas"
+    } en Region Atlas por plataforma y región.`,
     160,
   );
   const title = `${view.name} · género retro | Region Atlas`;
@@ -27,7 +30,7 @@ export function buildGenreMetadata(view: GenreProfileView): Metadata {
 
 export function buildGenreIntro(view: GenreProfileView): string {
   const parts = [
-    `El género ${view.name} reúne ${view.gameCount.toLocaleString("es-ES")} juegos del catálogo Region Atlas`,
+    `El género ${view.name} reúne ${formatCatalogEntryCount(view.catalogEntryCount)} del catálogo Region Atlas`,
   ];
   if (view.alsoKnownAs.length > 0) {
     parts.push(` (también indexado como ${view.alsoKnownAs.slice(0, 3).join(", ")})`);
