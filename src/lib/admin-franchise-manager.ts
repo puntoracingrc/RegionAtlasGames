@@ -58,14 +58,14 @@ type MutationResult = { ok: true } | { error: string };
 type CreateMutationResult = { slug: string } | { error: string };
 
 export type AdminFranchiseRow = FranchiseEntity & {
-  gameCount: number;
-  directGameCount: number;
+  catalogEntryCount: number;
+  directCatalogEntryCount: number;
   seriesCount: number;
 };
 
 export type AdminFranchiseDetail = {
   franchise: AdminFranchiseRow;
-  games: Array<{
+  catalogEntries: Array<{
     id: string;
     title: string;
     platformSlug: string;
@@ -77,7 +77,7 @@ export type AdminFranchiseDetail = {
   series: Array<{
     slug: string;
     name: string;
-    gameCount: number;
+    catalogEntryCount: number;
     primary: boolean;
   }>;
   relationships: EntityRelationshipDisplay[];
@@ -107,8 +107,8 @@ export type AdminGameFranchiseContext = {
     membership: GameFranchiseRelation["membership"] | null;
     role: FranchiseRole | null;
   }>;
-  series: Array<{ slug: string; name: string; gameCount: number }>;
-  seriesOptions: Array<{ slug: string; name: string; gameCount: number }>;
+  series: Array<{ slug: string; name: string; catalogEntryCount: number }>;
+  seriesOptions: Array<{ slug: string; name: string; catalogEntryCount: number }>;
   relationships: EntityRelationshipDisplay[];
 };
 
@@ -248,8 +248,8 @@ function toAdminRow(state: FranchiseSystemState, franchise: FranchiseEntity): Ad
   const gameRelations = state.gameFranchiseRelations.filter((relation) => relation.franchiseId === franchise.id);
   return {
     ...franchise,
-    gameCount: new Set(gameRelations.map((relation) => relation.gameId)).size,
-    directGameCount: new Set(
+    catalogEntryCount: new Set(gameRelations.map((relation) => relation.gameId)).size,
+    directCatalogEntryCount: new Set(
       gameRelations
         .filter((relation) => relation.membership === "direct" || relation.membership === "direct_and_inherited")
         .map((relation) => relation.gameId),
@@ -279,30 +279,31 @@ export async function getPublicFranchiseIndexEntry(slug: string): Promise<IndexE
     : null;
 }
 
-export async function listPublicFranchisesForGames(
-  gameIds: string[],
+export async function listPublicFranchisesForCatalogEntries(
+  catalogIds: string[],
 ): Promise<PublicFranchiseReference[]> {
-  const selected = new Set(gameIds.map((id) => id.trim()).filter(Boolean));
+  const selected = new Set(catalogIds.map((id) => id.trim()).filter(Boolean));
   if (selected.size === 0) return [];
   return (await listPublicFranchiseIndexEntries())
     .map((entry) => {
-      const matchedGameIds = entry.gameIds.filter((id) => selected.has(id));
+      const matchedCatalogIds = entry.gameIds.filter((id) => selected.has(id));
       return {
         slug: entry.slug,
         name: entry.name,
-        gameCount: entry.gameCount,
-        matchedGameCount: matchedGameIds.length,
-        matchedGameIds,
+        catalogEntryCount: entry.gameCount,
+        matchedCatalogEntryCount: matchedCatalogIds.length,
+        matchedCatalogIds,
       };
     })
-    .filter((entry) => entry.matchedGameCount > 0)
-    .sort((a, b) => b.matchedGameCount - a.matchedGameCount || a.name.localeCompare(b.name, "es"));
+    .filter((entry) => entry.matchedCatalogEntryCount > 0)
+    .sort((a, b) =>
+      b.matchedCatalogEntryCount - a.matchedCatalogEntryCount || a.name.localeCompare(b.name, "es"));
 }
 
-export async function getPublicFranchisesForGame(gameId: string): Promise<FranchiseReference[]> {
+export async function getPublicFranchisesForCatalogEntry(catalogId: string): Promise<FranchiseReference[]> {
   const state = await readState();
   return state.gameFranchiseRelations
-    .filter((relation) => relation.gameId === gameId)
+    .filter((relation) => relation.gameId === catalogId)
     .map((relation) => {
       const franchise = franchiseById(state, relation.franchiseId);
       return franchise?.status === "published"
@@ -368,7 +369,8 @@ export async function listAdminFranchises(input?: { q?: string }): Promise<Admin
   return Object.values(state.franchises)
     .map((franchise) => toAdminRow(state, franchise))
     .filter((franchise) => !q || franchise.name.toLocaleLowerCase("es").includes(q) || franchise.slug.includes(q))
-    .sort((a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es", { numeric: true }));
+    .sort((a, b) =>
+      b.catalogEntryCount - a.catalogEntryCount || a.name.localeCompare(b.name, "es", { numeric: true }));
 }
 
 export async function getAdminFranchise(slug: string): Promise<AdminFranchiseDetail | { error: string }> {
@@ -383,12 +385,12 @@ export async function getAdminFranchise(slug: string): Promise<AdminFranchiseDet
       return {
         slug: relation.seriesSlug,
         name: entry?.name ?? relation.seriesSlug,
-        gameCount: entry?.gameCount ?? 0,
+        catalogEntryCount: entry?.gameCount ?? 0,
         primary: relation.primary,
       };
     }),
   );
-  const games = state.gameFranchiseRelations
+  const catalogEntries = state.gameFranchiseRelations
     .filter((relation) => relation.franchiseId === franchise.id)
     .map((relation) => {
       const game = getCatalogGame(relation.gameId);
@@ -408,7 +410,7 @@ export async function getAdminFranchise(slug: string): Promise<AdminFranchiseDet
     .sort((a, b) => a.title.localeCompare(b.title, "es", { numeric: true }));
   return {
     franchise: row,
-    games,
+    catalogEntries,
     series: series.sort((a, b) => Number(b.primary) - Number(a.primary) || a.name.localeCompare(b.name, "es")),
     relationships: getEntityRelationshipDisplays(
       { type: "franchise", id: franchise.id },
@@ -449,7 +451,7 @@ export async function getAdminSeriesFranchiseContext(
 export async function getAdminGameFranchiseContext(
   gameId: string,
 ): Promise<AdminGameFranchiseContext | { error: string }> {
-  if (!getCatalogGame(gameId)) return { error: "Juego no encontrado." };
+  if (!getCatalogGame(gameId)) return { error: "Ficha de catálogo no encontrada." };
   const state = await readState();
   const memberships = new Map(
     state.gameFranchiseRelations
@@ -458,7 +460,7 @@ export async function getAdminGameFranchiseContext(
   );
   const series = (await listPublicSeriesForGame(gameId))
     .filter((entry) => !getLegacySeriesRedirect(entry.slug))
-    .map((entry) => ({ slug: entry.slug, name: entry.name, gameCount: entry.gameCount }));
+    .map((entry) => ({ slug: entry.slug, name: entry.name, catalogEntryCount: entry.gameCount }));
   return {
     franchises: Object.values(state.franchises)
       .map((franchise) => {
@@ -634,7 +636,7 @@ export async function addAdminGameFranchise(input: {
   primary?: boolean;
   role?: FranchiseRole | null;
 }): Promise<{ ok: true } | { error: string }> {
-  if (!getCatalogGame(input.gameId)) return { error: "Juego no encontrado." };
+  if (!getCatalogGame(input.gameId)) return { error: "Ficha de catálogo no encontrada." };
   return mutateState<MutationResult>((state) => {
     const franchise = state.franchises[input.franchiseSlug];
     if (!franchise) return { state, result: { error: "Franquicia no encontrada." } };
@@ -765,12 +767,26 @@ export async function removeAdminEntityRelationship(id: string): Promise<{ ok: t
   });
 }
 
-export async function listAdminSeriesOptions(): Promise<Array<{ slug: string; name: string; gameCount: number }>> {
+export async function listAdminSeriesOptions(): Promise<Array<{
+  slug: string;
+  name: string;
+  catalogEntryCount: number;
+}>> {
   return (await listPublicSeriesIndexEntries())
     .filter((entry) => !getLegacySeriesRedirect(entry.slug))
     .map((entry) => ({
       slug: entry.slug,
       name: entry.name,
-      gameCount: entry.gameCount,
+      catalogEntryCount: entry.gameCount,
     }));
+}
+
+export async function resetAdminFranchiseOverlay(): Promise<{ ok: true }> {
+  const mutation: JsonMutation<FranchiseOverlayDocument, { ok: true }> = () => ({
+    next: emptyDocument(),
+    result: { ok: true },
+  });
+  return shouldUseBlobStorage()
+    ? mutateBlobJsonDocument(blobOptions(), mutation)
+    : mutateDiskJsonDocument(diskOptions(), mutation);
 }

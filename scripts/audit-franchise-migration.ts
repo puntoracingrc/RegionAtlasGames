@@ -73,9 +73,23 @@ type OverrideFile = {
 };
 
 const ROOT = process.cwd();
-const BASELINE_REVISION = "8a1b296359ed2108590067602e5c8d2442e57031";
+const BASELINE_REVISION = "e69fb94f72ca51080eb6c5abcee47a9099e57524";
 const OUTPUT_DIR = path.join(ROOT, "data", "migrations", "franchise-series-v1");
 const DOC_FILE = path.join(ROOT, "docs", "research", "franchise-series-migration-phase-0-2026-09-04.md");
+const PROTECTED_BASE_FILES = [
+  "data/catalog.json",
+  "data/game-details.json",
+  "data/index/companies.json",
+  "data/index/series.json",
+  "data/meta.json",
+  "data/price-sync-state.json",
+  "data/ebay-regional-campaigns/cover-candidates.json",
+  "data/ebay-regional-campaigns/global.json",
+  "data/ebay-regional-campaigns/nes.json",
+  "data/ebay-regional-campaigns/ps4.json",
+  "data/research/company-credit-verified-batch-1-report.json",
+  "data/research/company-credit-verified-batch-1.csv",
+] as const;
 const args = new Set(process.argv.slice(2));
 const checkOnly = args.has("--check");
 const overlayArg = process.argv.find((arg) => arg.startsWith("--series-overlay="));
@@ -93,6 +107,10 @@ function stableJson(value: unknown): string {
 
 function sha256(value: unknown): string {
   return createHash("sha256").update(stableJson(value)).digest("hex");
+}
+
+function fileSha256(relativePath: string): string {
+  return createHash("sha256").update(readFileSync(path.join(ROOT, relativePath))).digest("hex");
 }
 
 function unique(values: string[]): string[] {
@@ -269,7 +287,7 @@ const classification = Object.fromEntries(
         slug: entry.slug,
         name: entry.name,
         classification: decision.classification,
-        gameCount: entry.gameIds.length,
+        catalogEntryCount: entry.gameIds.length,
         proposedFranchise: decision.targetFranchise ?? null,
         relatedFranchises: decision.franchises ?? [],
         primaryFranchise: decision.primaryFranchise ?? null,
@@ -297,7 +315,7 @@ const snapshotSeries = Object.fromEntries(
       legacyIdentity: entry.slug,
       url: `/saga/${entry.slug}`,
       published: entry.active !== false,
-      gameCount: entry.gameIds.length,
+      catalogEntryCount: entry.gameIds.length,
       gameIds: entry.gameIds,
       gameIdsSha256: sha256(entry.gameIds),
       platforms: derivePlatforms(entry.gameIds, catalogById),
@@ -319,6 +337,9 @@ const catalogIdentity = catalog.map((game) => ({
   listingStatus: game.listingStatus,
 }));
 const companyIndex = readJson<Record<string, SeriesEntry>>(path.join(ROOT, "data", "index", "companies.json"));
+const protectedFilesSha256 = Object.fromEntries(
+  PROTECTED_BASE_FILES.map((relativePath) => [relativePath, fileSha256(relativePath)]),
+);
 const snapshot = {
   schemaVersion: 1,
   baselineRevision: BASELINE_REVISION,
@@ -328,12 +349,12 @@ const snapshot = {
     updatedAt: overlay.updatedAt ?? null,
   },
   counts: {
-    catalogGames: catalog.length,
-    publicCatalogGames: catalog.filter((game) => game.listingStatus !== "excluded").length,
+    catalogEntries: catalog.length,
+    publicCatalogEntries: catalog.filter((game) => game.listingStatus !== "excluded").length,
     companies: Object.keys(companyIndex).length,
     legacySeries: Object.keys(series).length,
     detailsWithSeries: detailSeriesGameIds.length,
-    uniqueIndexedSeriesGames: indexedSeriesGameIds.length,
+    uniqueIndexedSeriesCatalogEntries: indexedSeriesGameIds.length,
   },
   checksums: {
     catalogIdentitySha256: sha256(catalogIdentity),
@@ -341,6 +362,7 @@ const snapshot = {
     legacySeriesMembershipSha256: sha256(Object.fromEntries(
       Object.entries(snapshotSeries).map(([slug, value]) => [slug, value.gameIds]),
     )),
+    protectedFilesSha256,
   },
   discrepancies: {
     detailSeriesGamesNotIndexed: detailSeriesGameIds.filter((id) => !indexedSeriesGameIds.includes(id)).sort(),
@@ -367,14 +389,57 @@ const dryRun = {
   rows: dryRunRows,
 };
 
+const rollbackManifest = {
+  schemaVersion: 1,
+  baselineRevision: BASELINE_REVISION,
+  strategy: "Discard the franchise overlay/state and continue serving the untouched legacy series reader.",
+  identifierSemantics: {
+    persistedField: "gameId",
+    meaning: "Existing catalog_id for one catalogued edition; not a logical game work.",
+  },
+  protectedFilesSha256,
+  legacyState: {
+    snapshot: "data/migrations/franchise-series-v1/pre-migration-snapshot.json.gz",
+    effectiveSeriesOverlay: "data/migrations/franchise-series-v1/production-series-overlay-effective.json",
+    legacySeriesCount: Object.keys(snapshotSeries).length,
+    membershipSha256: snapshot.checksums.legacySeriesMembershipSha256,
+  },
+  generatedStateFiles: [
+    "data/franchise-system/franchises.json",
+    "data/franchise-system/series-franchise-relations.json",
+    "data/franchise-system/game-franchise-relations.json",
+    "data/franchise-system/entity-relationships.json",
+    "data/franchise-system/legacy-series-redirects.json",
+  ],
+  promotedLegacySeries: dryRunRows
+    .filter((row) => row.classification === "franchise" && row.confidence === "high")
+    .map((row) => ({
+      legacySeriesSlug: row.slug,
+      franchiseSlug: row.proposedFranchise ?? row.slug,
+      legacyUrl: `/saga/${row.slug}`,
+      catalogIds: snapshotSeries[row.slug]?.gameIds ?? [],
+      catalogIdsSha256: snapshotSeries[row.slug]?.gameIdsSha256 ?? null,
+      editorial: snapshotSeries[row.slug]?.editorial ?? null,
+    })),
+  retainedSeries: dryRunRows
+    .filter((row) => row.classification === "series" && row.confidence === "high")
+    .map((row) => ({
+      seriesSlug: row.slug,
+      legacyUrl: `/saga/${row.slug}`,
+      catalogIds: snapshotSeries[row.slug]?.gameIds ?? [],
+      catalogIdsSha256: snapshotSeries[row.slug]?.gameIdsSha256 ?? null,
+      editorial: snapshotSeries[row.slug]?.editorial ?? null,
+    })),
+};
+
 const consumerAudit = buildConsumerAudit();
 const report = `# Migración franquicias/sagas — Fase 0\n\n` +
   `Base auditada: \`${BASELINE_REVISION}\`.\n\n` +
   `## Estado congelado\n\n` +
-  `- ${snapshot.counts.catalogGames.toLocaleString("es-ES")} fichas de catálogo; ${snapshot.counts.publicCatalogGames.toLocaleString("es-ES")} no excluidas.\n` +
+  `- ${snapshot.counts.catalogEntries.toLocaleString("es-ES")} fichas de catálogo; ${snapshot.counts.publicCatalogEntries.toLocaleString("es-ES")} no excluidas.\n` +
   `- ${snapshot.counts.companies.toLocaleString("es-ES")} compañías indexadas.\n` +
   `- ${snapshot.counts.legacySeries.toLocaleString("es-ES")} agrupaciones legacy.\n` +
-  `- ${snapshot.counts.detailsWithSeries.toLocaleString("es-ES")} fichas declaran \`details.series\`; ${snapshot.counts.uniqueIndexedSeriesGames.toLocaleString("es-ES")} juegos únicos están en el índice efectivo.\n` +
+  `- ${snapshot.counts.detailsWithSeries.toLocaleString("es-ES")} fichas declaran \`details.series\`; ${snapshot.counts.uniqueIndexedSeriesCatalogEntries.toLocaleString("es-ES")} fichas únicas están en el índice efectivo.\n` +
   `- Overlay administrativo incluido: ${snapshot.overlay.included ? "sí" : "no; repetir con --series-overlay=<ruta> antes de aplicar datos en Production"}.\n\n` +
   `## Clasificación conservadora\n\n` +
   `- Franquicias seguras: ${dryRun.counts.franchise}.\n` +
@@ -388,7 +453,9 @@ const report = `# Migración franquicias/sagas — Fase 0\n\n` +
   `1. Incorporar el overlay administrativo de Production al snapshot final.\n` +
   `2. Mantener la discrepancia de \`details.series\` identificada y no ocultarla con la migración.\n` +
   `3. Demostrar por checksum que IDs, URLs y compañías no cambian.\n` +
-  `4. Aplicar únicamente las decisiones \`high\`; todo \`ambiguous\` conserva su URL y membresía.\n`;
+  `4. Aplicar únicamente las decisiones \`high\`; todo \`ambiguous\` conserva su URL y membresía.\n\n` +
+  `## Semántica de identificadores y rollback\n\n` +
+  `En los ficheros persistidos de esta migración, \`gameId\` es el \`catalog_id\` existente de una ficha/edición catalogada. No representa una obra lógica futura. \`rollback-manifest.json\` conserva hashes de la base, membresías legacy y contenido editorial para volver al lector anterior sin tocar el catálogo.\n`;
 
 writeOrCheck(path.join(ROOT, "data", "franchise-system", "series-classification.json"), {
   schemaVersion: 1,
@@ -399,6 +466,7 @@ writeOrCheck(path.join(ROOT, "data", "franchise-system", "series-classification.
 writeOrCheckGzip(path.join(OUTPUT_DIR, "pre-migration-snapshot.json.gz"), snapshot);
 writeOrCheck(path.join(OUTPUT_DIR, "classification-dry-run.json"), dryRun);
 writeOrCheck(path.join(OUTPUT_DIR, "consumer-audit.json"), consumerAudit);
+writeOrCheck(path.join(OUTPUT_DIR, "rollback-manifest.json"), rollbackManifest);
 writeOrCheck(DOC_FILE, report);
 
 console.log(JSON.stringify({

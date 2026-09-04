@@ -7,7 +7,7 @@ import { buildCompanyMetadata } from "@/lib/company-seo";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { getCurrentUser } from "@/lib/users";
 import { listPublicSeriesForGames } from "@/lib/admin-series-manager";
-import { listPublicFranchisesForGames } from "@/lib/admin-franchise-manager";
+import { listPublicFranchisesForCatalogEntries } from "@/lib/admin-franchise-manager";
 import { getLegacySeriesRedirect } from "@/lib/franchise-system";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -31,14 +31,14 @@ export default async function CompanyPage({ params }: Props) {
 
   const user = await getCurrentUser();
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
-  const gameIds = view.games.map((game) => game.id);
-  const franchises = (await listPublicFranchisesForGames(gameIds)).map((item) => ({
+  const catalogIds = view.games.map((game) => game.id);
+  const franchises = (await listPublicFranchisesForCatalogEntries(catalogIds)).map((item) => ({
     slug: item.slug,
     name: item.name,
-    catalogEntryCount: item.gameCount,
-    matchedCatalogEntryCount: item.matchedGameCount,
+    catalogEntryCount: item.catalogEntryCount,
+    matchedCatalogEntryCount: item.matchedCatalogEntryCount,
   }));
-  const series = (await listPublicSeriesForGames(gameIds)).filter(
+  const series = (await listPublicSeriesForGames(catalogIds)).filter(
     (entry) => !getLegacySeriesRedirect(entry.slug),
   ).map((item) => ({
     slug: item.slug,

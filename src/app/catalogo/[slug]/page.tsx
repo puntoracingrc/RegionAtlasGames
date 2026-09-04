@@ -54,7 +54,7 @@ import {
 } from "@/lib/franchise-system";
 import {
   getPublicFranchiseRelationships,
-  getPublicFranchisesForGame,
+  getPublicFranchisesForCatalogEntry,
 } from "@/lib/admin-franchise-manager";
 import type { FranchiseRole } from "@/lib/franchise-types";
 import { findGameFacetEntityByNameOrAlias, findGameFacetEntityBySlug } from "@/lib/game-facets/taxonomy";
@@ -153,7 +153,7 @@ export default async function CatalogGamePage({ params }: Props) {
   const publicSeries = (await listPublicSeriesForGame(game.id)).filter(
     (series) => !getLegacySeriesRedirect(series.slug),
   );
-  const franchiseLinks = await getPublicFranchisesForGame(game.id);
+  const franchiseLinks = await getPublicFranchisesForCatalogEntry(game.id);
   const gameRelationships = await getPublicFranchiseRelationships({ type: "game", id: game.id });
   const youtubeVideos = (details?.videos ?? [])
     .filter((video) => video.provider === "youtube" && video.videoId)

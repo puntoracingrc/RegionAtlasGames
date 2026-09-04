@@ -23,7 +23,7 @@ type ClassificationEntry = {
   slug: string;
   name: string;
   classification: Classification;
-  gameCount: number;
+  catalogEntryCount: number;
   proposedFranchise: string | null;
   relatedFranchises: string[];
   primaryFranchise: string | null;
@@ -77,6 +77,7 @@ type SeriesFranchiseRelation = {
 };
 
 type GameFranchiseRelation = {
+  /** Existing catalog_id for one catalogued edition, not a logical game work. */
   gameId: string;
   franchiseId: string;
   franchiseSlug: string;
@@ -337,18 +338,18 @@ const promotions = [...franchises.values()]
       legacy: {
         type: "series",
         slug: franchise.legacySeriesSlug,
-        games: legacyGameIds.length,
+        catalogEntries: legacyGameIds.length,
       },
       target: {
         type: "franchise",
         id: franchise.id,
         slug: franchise.slug,
-        directGames: directGameIds.length,
-        effectiveGames: unique([...directGameIds, ...inheritedGameIds]).length,
+        directCatalogEntries: directGameIds.length,
+        effectiveCatalogEntries: unique([...directGameIds, ...inheritedGameIds]).length,
       },
-      lostDirectGameIds: legacyGameIds.filter((id) => !directGameIds.includes(id)),
-      unexpectedDirectGameIds: directGameIds.filter((id) => !legacyGameIds.includes(id)),
-      inheritedGameIds: inheritedGameIds.filter((id) => !directGameIds.includes(id)),
+      lostDirectCatalogIds: legacyGameIds.filter((id) => !directGameIds.includes(id)),
+      unexpectedDirectCatalogIds: directGameIds.filter((id) => !legacyGameIds.includes(id)),
+      inheritedCatalogIds: inheritedGameIds.filter((id) => !directGameIds.includes(id)),
       directMembershipParity: legacyGameIds.length === directGameIds.length &&
         legacyGameIds.every((id) => directGameIds.includes(id)),
       redirect: `/saga/${franchise.legacySeriesSlug} -> /franquicia/${franchise.slug}`,
@@ -368,11 +369,15 @@ const report = {
     promotedLegacySeries: promotions.length,
     retainedSeries: seriesFranchiseRelations.filter((relation) => relation.primary).length,
     seriesFranchiseRelations: seriesFranchiseRelations.length,
-    gameFranchiseRelations: gameFranchiseRelations.length,
+    catalogEntryFranchiseRelations: gameFranchiseRelations.length,
     entityRelationships: entityRelationships.length,
     legacyRedirects: legacyRedirects.length,
   },
   promotions,
+  identifierSemantics: {
+    persistedField: "gameId",
+    meaning: "Existing catalog_id for one catalogued edition; not a logical game work.",
+  },
   unchanged: {
     catalogFile: "data/catalog.json",
     gameDetailsFile: "data/game-details.json",

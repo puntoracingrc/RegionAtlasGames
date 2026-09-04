@@ -132,7 +132,7 @@ export function AdminGameFranchisePanel({ gameId }: { gameId: string }) {
         <div className="mt-3 flex flex-col gap-3 sm:flex-row">
           <select className="input flex-1" value={seriesSlug} onChange={(event) => setSeriesSlug(event.target.value)}>
             <option value="">Seleccionar…</option>
-            {availableSeries.map((series) => <option key={series.slug} value={series.slug}>{series.name} ({series.gameCount})</option>)}
+            {availableSeries.map((series) => <option key={series.slug} value={series.slug}>{series.name} ({series.catalogEntryCount} fichas)</option>)}
           </select>
           <button type="button" className="btn-primary inline-flex items-center justify-center gap-2" disabled={!seriesSlug || saving} onClick={() => void request(`/api/admin/entities/series/${encodeURIComponent(seriesSlug)}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "add-game", gameId }) }, "Saga asociada.")}><Plus className="h-4 w-4" aria-hidden="true" /> Asociar saga</button>
         </div>

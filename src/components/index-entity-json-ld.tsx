@@ -26,7 +26,7 @@ export function IndexEntityJsonLd({
       mainEntity: {
         "@type": "ItemList",
         name: `${meta.listTitle}: ${summary.name}`,
-        numberOfItems: summary.gameCount,
+        numberOfItems: summary.catalogEntryCount,
       },
     },
     {

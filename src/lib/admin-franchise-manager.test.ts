@@ -6,6 +6,19 @@ import test from "node:test";
 
 test("administra franquicias y relaciones en un overlay reversible sin tocar los datos base", async () => {
   const previousCwd = process.cwd();
+  const protectedBasePaths = [
+    "data/catalog.json",
+    "data/game-details.json",
+    "data/index/companies.json",
+    "data/index/series.json",
+    "data/franchise-system/franchises.json",
+  ];
+  const protectedBaseContents = new Map(
+    protectedBasePaths.map((relativePath) => [
+      relativePath,
+      readFileSync(path.join(previousCwd, relativePath), "utf8"),
+    ]),
+  );
   const previousEnv = {
     BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
     BLOB_STORE_ID: process.env.BLOB_STORE_ID,
@@ -21,6 +34,8 @@ test("administra franquicias y relaciones en un overlay reversible sin tocar los
     const manager = await import("./admin-franchise-manager");
     const initial = await manager.listAdminFranchises();
     assert.equal(initial.length, 9);
+    assert.ok(initial.every((franchise) => Object.hasOwn(franchise, "catalogEntryCount")));
+    assert.ok(initial.every((franchise) => !Object.hasOwn(franchise, "gameCount")));
 
     const created = await manager.createAdminFranchise({
       name: "Franquicia de prueba",
@@ -55,10 +70,10 @@ test("administra franquicias y relaciones en un overlay reversible sin tocar los
     const withSeries = await manager.getAdminFranchise("franquicia-prueba");
     assert.ok(!("error" in withSeries));
     assert.ok(withSeries.series.some((series) => series.slug === candidateSeries.slug));
-    assert.ok(withSeries.games.length > 0);
-    assert.ok(withSeries.games.every((game) => game.membership === "inherited"));
+    assert.ok(withSeries.catalogEntries.length > 0);
+    assert.ok(withSeries.catalogEntries.every((game) => game.membership === "inherited"));
 
-    const inheritedGame = withSeries.games[0];
+    const inheritedGame = withSeries.catalogEntries[0];
     assert.deepEqual(
       await manager.removeAdminGameFranchise({
         gameId: inheritedGame.id,
@@ -111,12 +126,21 @@ test("administra franquicias y relaciones en un overlay reversible sin tocar los
     const withoutSeries = await manager.getAdminFranchise("franquicia-prueba");
     assert.ok(!("error" in withoutSeries));
     assert.equal(withoutSeries.series.length, 0);
-    assert.equal(withoutSeries.games.find((game) => game.id === inheritedGame.id)?.membership, "direct");
+    assert.equal(withoutSeries.catalogEntries.find((game) => game.id === inheritedGame.id)?.membership, "direct");
 
     const overlayPath = path.join(temporaryCwd, "data", "admin", "franchise-system-overlay.json");
     const overlay = JSON.parse(readFileSync(overlayPath, "utf8"));
     assert.equal(overlay.schemaVersion, 1);
     assert.equal(overlay.state.franchises["franquicia-prueba"].id, "franchise:franquicia-prueba");
+
+    assert.deepEqual(await manager.resetAdminFranchiseOverlay(), { ok: true });
+    const resetOverlay = JSON.parse(readFileSync(overlayPath, "utf8"));
+    assert.equal(resetOverlay.state, null);
+    assert.equal((await manager.listAdminFranchises()).length, initial.length);
+    assert.equal(await manager.getPublicFranchiseEntity("franquicia-prueba"), null);
+    for (const [relativePath, original] of protectedBaseContents) {
+      assert.equal(readFileSync(path.join(previousCwd, relativePath), "utf8"), original);
+    }
   } finally {
     process.chdir(previousCwd);
     for (const [key, value] of Object.entries(previousEnv)) {

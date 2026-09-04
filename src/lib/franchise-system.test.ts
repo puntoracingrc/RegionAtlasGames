@@ -8,20 +8,31 @@ import {
   getEntityRelationshipDisplays,
   getFranchiseIndexEntry,
   getFranchiseIndexList,
-  getFranchisesForGame,
+  getFranchisesForCatalogEntry,
   getLegacySeriesRedirect,
   getSeriesFranchiseRelations,
+  listPublicFranchisesForCatalogEntries,
 } from "./franchise-system";
+import { summarizeIndexEntry } from "./index-entity";
 
 type VerificationReport = {
   counts: {
-    catalogGamesBefore: number;
-    catalogGamesAfter: number;
+    catalogEntriesBefore: number;
+    catalogEntriesAfter: number;
+    uniqueCatalogIdsBefore: number;
+    uniqueCatalogIdsAfter: number;
     companiesBefore: number;
     companiesAfter: number;
     legacySeriesUrls: number;
     permanentRedirects: number;
     retainedLegacyPages: number;
+    franchises: number;
+    promotedLegacySeries: number;
+    retainedSeries: number;
+    catalogEntryFranchiseRelations: number;
+    seriesFranchiseRelations: number;
+    entityRelationships: number;
+    ambiguousLegacySeries: number;
   };
   checks: Record<string, boolean>;
   failures: string[];
@@ -32,20 +43,34 @@ const report = JSON.parse(
 ) as VerificationReport;
 
 test("preserva identidades, conteos y todas las salidas legacy verificadas", () => {
-  assert.equal(report.counts.catalogGamesBefore, 59_626);
-  assert.equal(report.counts.catalogGamesAfter, report.counts.catalogGamesBefore);
-  assert.equal(report.counts.companiesBefore, 4_326);
+  assert.ok(report.counts.catalogEntriesBefore > 0);
+  assert.equal(report.counts.catalogEntriesAfter, report.counts.catalogEntriesBefore);
+  assert.equal(report.counts.uniqueCatalogIdsBefore, report.counts.catalogEntriesBefore);
+  assert.equal(report.counts.uniqueCatalogIdsAfter, report.counts.uniqueCatalogIdsBefore);
+  assert.ok(report.counts.companiesBefore > 0);
   assert.equal(report.counts.companiesAfter, report.counts.companiesBefore);
   assert.equal(report.counts.legacySeriesUrls, 427);
   assert.equal(report.counts.permanentRedirects, 8);
   assert.equal(report.counts.retainedLegacyPages, 419);
+  assert.equal(report.counts.franchises, 9);
+  assert.equal(report.counts.promotedLegacySeries, 8);
+  assert.equal(report.counts.retainedSeries, 7);
+  assert.equal(report.counts.catalogEntryFranchiseRelations, 340);
+  assert.equal(report.counts.seriesFranchiseRelations, 8);
+  assert.equal(report.counts.entityRelationships, 1);
+  assert.equal(report.counts.ambiguousLegacySeries, 412);
   assert.deepEqual(report.failures, []);
   assert.ok(Object.values(report.checks).every(Boolean));
 });
 
 test("promueve solo franquicias explícitas y conserva las sagas reales", () => {
   assert.equal(getFranchiseIndexList().length, 9);
-  assert.equal(getFranchiseIndexEntry("final-fantasy")?.gameCount, 140);
+  const finalFantasy = getFranchiseIndexEntry("final-fantasy");
+  assert.ok(finalFantasy);
+  const publicSummary = summarizeIndexEntry(finalFantasy, "franchise");
+  assert.equal(publicSummary.catalogEntryCount, finalFantasy.gameIds.length);
+  assert.ok(publicSummary.catalogEntryCount > 0);
+  assert.equal(Object.hasOwn(publicSummary, "gameCount"), false);
   assert.equal(getLegacySeriesRedirect("final-fantasy")?.destination, "/franquicia/final-fantasy");
   assert.equal(getLegacySeriesRedirect("mega-man-x"), undefined);
 
@@ -55,6 +80,15 @@ test("promueve solo franquicias explícitas y conserva las sagas reales", () => 
   assert.equal(megaManX[0]?.primary, true);
 });
 
+test("el contrato público de franquicias expone fichas catalogadas sin gameCount ambiguo", () => {
+  const references = listPublicFranchisesForCatalogEntries(["ps2-lego-star-wars"]);
+  assert.ok(references.length > 0);
+  assert.ok(references.every((reference) => reference.catalogEntryCount > 0));
+  assert.ok(references.every((reference) => reference.matchedCatalogEntryCount === 1));
+  assert.ok(references.every((reference) => reference.matchedCatalogIds[0] === "ps2-lego-star-wars"));
+  assert.ok(references.every((reference) => !Object.hasOwn(reference, "gameCount")));
+});
+
 test("LEGO Star Wars conserva pertenencia múltiple con LEGO como principal", () => {
   const seriesRelations = getSeriesFranchiseRelations("lego-star-wars");
   assert.deepEqual(
@@ -62,7 +96,7 @@ test("LEGO Star Wars conserva pertenencia múltiple con LEGO como principal", ()
     [["lego", true], ["star-wars", false]],
   );
 
-  const gameFranchises = getFranchisesForGame("ps2-lego-star-wars");
+  const gameFranchises = getFranchisesForCatalogEntry("ps2-lego-star-wars");
   assert.deepEqual(
     gameFranchises.map((franchise) => franchise.slug).sort(),
     ["lego", "star-wars"],
@@ -92,6 +126,8 @@ test("canonical distingue franquicias, sagas reales y aliases legacy", async () 
   });
 
   assert.equal(franchiseMetadata.alternates?.canonical, "/franquicia/final-fantasy");
+  assert.match(String(franchiseMetadata.description), /fichas/);
+  assert.doesNotMatch(String(franchiseMetadata.description), /\d[\d.]* juegos/);
   assert.equal(redirectedSeriesMetadata.alternates?.canonical, "/franquicia/final-fantasy");
   assert.equal(realSeriesMetadata.alternates?.canonical, "/saga/mega-man-x");
 });

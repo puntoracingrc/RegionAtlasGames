@@ -6,7 +6,7 @@ import type {
 } from "./franchise-types";
 
 export const FRANCHISE_ENTITY_LABELS: Record<RelationshipEntityType, string> = {
-  game: "Juego",
+  game: "Ficha de catálogo",
   series: "Saga / Subserie",
   franchise: "Franquicia",
 };

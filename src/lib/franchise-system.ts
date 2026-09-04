@@ -61,9 +61,9 @@ const redirectByLegacySlug = new Map(legacyRedirects.map((redirect) => [redirect
 export type PublicFranchiseReference = {
   slug: string;
   name: string;
-  gameCount: number;
-  matchedGameCount: number;
-  matchedGameIds: string[];
+  catalogEntryCount: number;
+  matchedCatalogEntryCount: number;
+  matchedCatalogIds: string[];
 };
 
 export type EntityRelationshipDisplay = {
@@ -123,25 +123,25 @@ export function getFranchiseIndexList(): IndexEntry[] {
     .sort((a, b) => b.gameCount - a.gameCount || a.name.localeCompare(b.name, "es", { numeric: true }));
 }
 
-export function listPublicFranchisesForGames(gameIds: string[]): PublicFranchiseReference[] {
-  const selectedGameIds = new Set(gameIds.map((id) => id.trim()).filter(Boolean));
-  if (selectedGameIds.size === 0) return [];
+export function listPublicFranchisesForCatalogEntries(catalogIds: string[]): PublicFranchiseReference[] {
+  const selectedCatalogIds = new Set(catalogIds.map((id) => id.trim()).filter(Boolean));
+  if (selectedCatalogIds.size === 0) return [];
 
   return getFranchiseIndexList()
     .map((entry) => {
-      const matchedGameIds = entry.gameIds.filter((id) => selectedGameIds.has(id));
+      const matchedCatalogIds = entry.gameIds.filter((id) => selectedCatalogIds.has(id));
       return {
         slug: entry.slug,
         name: entry.name,
-        gameCount: entry.gameCount,
-        matchedGameCount: matchedGameIds.length,
-        matchedGameIds,
+        catalogEntryCount: entry.gameCount,
+        matchedCatalogEntryCount: matchedCatalogIds.length,
+        matchedCatalogIds,
       };
     })
-    .filter((entry) => entry.matchedGameCount > 0)
+    .filter((entry) => entry.matchedCatalogEntryCount > 0)
     .sort(
       (a, b) =>
-        b.matchedGameCount - a.matchedGameCount ||
+        b.matchedCatalogEntryCount - a.matchedCatalogEntryCount ||
         a.name.localeCompare(b.name, "es", { numeric: true }),
     );
 }
@@ -170,8 +170,8 @@ export function getGameFranchiseRelations(gameId: string): GameFranchiseRelation
   return [...(gameRelationsByGameId.get(gameId) ?? [])];
 }
 
-export function getFranchisesForGame(gameId: string): FranchiseReference[] {
-  return getGameFranchiseRelations(gameId)
+export function getFranchisesForCatalogEntry(catalogId: string): FranchiseReference[] {
+  return getGameFranchiseRelations(catalogId)
     .map((relation) => {
       const franchise = franchiseEntities[relation.franchiseSlug];
       if (!franchise || franchise.status !== "published") return null;

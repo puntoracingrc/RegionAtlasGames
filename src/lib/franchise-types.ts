@@ -44,7 +44,7 @@ export type SeriesClassificationEntry = {
   slug: string;
   name: string;
   classification: SeriesClassification;
-  gameCount: number;
+  catalogEntryCount: number;
   proposedFranchise: string | null;
   relatedFranchises: string[];
   primaryFranchise: string | null;
@@ -64,6 +64,10 @@ export type SeriesFranchiseRelation = {
 };
 
 export type GameFranchiseRelation = {
+  /**
+   * Compatibility name for migration v1. This is an existing CatalogGame.id
+   * (catalog_id for one catalogued edition), never a logical game-work ID.
+   */
   gameId: string;
   franchiseId: string;
   franchiseSlug: string;

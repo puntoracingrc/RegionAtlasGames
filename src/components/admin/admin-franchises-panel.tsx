@@ -16,7 +16,7 @@ import {
 } from "@/lib/franchise-labels";
 import type { FranchiseRole, RelationshipEntityType, RelationshipType } from "@/lib/franchise-types";
 
-type SeriesOption = { slug: string; name: string; gameCount: number };
+type SeriesOption = { slug: string; name: string; catalogEntryCount: number };
 
 export function AdminFranchisesPanel() {
   const [franchises, setFranchises] = useState<AdminFranchiseRow[]>([]);
@@ -201,7 +201,7 @@ export function AdminFranchisesPanel() {
                 >
                   <span className="block font-semibold text-foreground">{franchise.name}</span>
                   <span className="mt-1 block text-xs text-muted">
-                    {franchise.gameCount} {franchise.gameCount === 1 ? "juego" : "juegos"} · {franchise.seriesCount} {franchise.seriesCount === 1 ? "saga" : "sagas"} · {franchise.status === "published" ? "Publicada" : "Borrador"}
+                    {franchise.catalogEntryCount} {franchise.catalogEntryCount === 1 ? "ficha" : "fichas"} · {franchise.seriesCount} {franchise.seriesCount === 1 ? "saga" : "sagas"} · {franchise.status === "published" ? "Publicada" : "Borrador"}
                   </span>
                 </button>
               ))}
@@ -265,7 +265,7 @@ export function AdminFranchisesPanel() {
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Saga</span>
                   <select className="input" value={seriesSlug} onChange={(event) => setSeriesSlug(event.target.value)}>
                     <option value="">Seleccionar…</option>
-                    {seriesOptions.map((series) => <option key={series.slug} value={series.slug}>{series.name} ({series.gameCount})</option>)}
+                    {seriesOptions.map((series) => <option key={series.slug} value={series.slug}>{series.name} ({series.catalogEntryCount} fichas)</option>)}
                   </select>
                 </label>
                 <label className="flex items-center gap-2 pb-2 text-sm font-semibold text-foreground">
@@ -280,7 +280,7 @@ export function AdminFranchisesPanel() {
                   <li key={series.slug} className="flex flex-wrap items-center justify-between gap-3 py-3">
                     <div>
                       <Link href={`/saga/${series.slug}`} target="_blank" className="font-semibold text-foreground hover:text-accent">{series.name}</Link>
-                      <p className="text-xs text-muted">{series.gameCount} {series.gameCount === 1 ? "juego" : "juegos"}{series.primary ? " · Principal" : " · Relacionada"}</p>
+                      <p className="text-xs text-muted">{series.catalogEntryCount} {series.catalogEntryCount === 1 ? "ficha" : "fichas"}{series.primary ? " · Principal" : " · Relacionada"}</p>
                     </div>
                     <div className="flex gap-2">
                       {!series.primary && <button type="button" className="btn-secondary px-3 py-1.5 text-xs" disabled={saving} onClick={() => void patchSelected({ action: "set-series", seriesSlug: series.slug, primary: true }, "Franquicia principal actualizada.")}>Hacer principal</button>}
@@ -294,7 +294,7 @@ export function AdminFranchisesPanel() {
             </Panel>
 
             <Panel className={adminToneClass("edit")}>
-              <PanelTitle eyebrow="Pertenencia directa">Juegos</PanelTitle>
+              <PanelTitle eyebrow="Pertenencia directa">Fichas de catálogo</PanelTitle>
               <div className="mt-4 grid gap-3 lg:grid-cols-[minmax(0,1fr)_11rem_auto_auto] lg:items-end">
                 <label className="space-y-1">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Catalog ID</span>
@@ -307,10 +307,10 @@ export function AdminFranchisesPanel() {
                   </select>
                 </label>
                 <label className="flex items-center gap-2 pb-2 text-sm font-semibold text-foreground"><input type="checkbox" checked={gamePrimary} onChange={(event) => setGamePrimary(event.target.checked)} /> Principal</label>
-                <button type="button" className="btn-primary inline-flex items-center gap-2" disabled={!gameId.trim() || saving} onClick={() => void patchSelected({ action: "add-game", gameId: gameId.trim(), primary: gamePrimary, role: gameRole || null }, "Juego asociado.")}><Plus className="h-4 w-4" aria-hidden="true" /> Asociar</button>
+                <button type="button" className="btn-primary inline-flex items-center gap-2" disabled={!gameId.trim() || saving} onClick={() => void patchSelected({ action: "add-game", gameId: gameId.trim(), primary: gamePrimary, role: gameRole || null }, "Ficha asociada.")}><Plus className="h-4 w-4" aria-hidden="true" /> Asociar</button>
               </div>
               <div className="mt-4 max-h-[420px] overflow-auto border-y border-border">
-                {detail.games.map((game) => (
+                {detail.catalogEntries.map((game) => (
                   <div key={game.id} className="flex flex-wrap items-center justify-between gap-3 border-b border-border py-3 last:border-b-0">
                     <div className="min-w-0">
                       <p className="truncate font-semibold text-foreground">{game.title}</p>

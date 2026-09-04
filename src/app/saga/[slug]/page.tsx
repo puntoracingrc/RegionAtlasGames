@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { permanentRedirect } from "next/navigation";
 import { IndexEntityDetail } from "@/components/index-entity-detail";
 import { getPublicSeriesIndexEntry } from "@/lib/admin-series-manager";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { getLegacySeriesRedirect } from "@/lib/franchise-system";
+import { summarizeIndexEntry } from "@/lib/index-entity";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -14,11 +16,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (redirect) return { alternates: { canonical: redirect.destination } };
   const series = await getPublicSeriesIndexEntry(slug);
   if (!series) return { title: "Saga no encontrada" };
+  const summary = summarizeIndexEntry(series, "series");
   return {
     title: `${series.name} · Saga`,
     description:
       series.description?.trim() ||
-      `${series.name} reúne ${series.gameCount.toLocaleString("es-ES")} juegos en Region Atlas.`,
+      `${series.name} reúne ${formatCatalogEntryCount(summary.catalogEntryCount)} en Region Atlas.`,
     alternates: { canonical: `/saga/${series.slug}` },
   };
 }

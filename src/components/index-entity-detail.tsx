@@ -21,6 +21,7 @@ import { summarizeIndexEntry, summarizeIndexSlug } from "@/lib/index-entity";
 import { buildSeriesProfile } from "@/lib/series-profile";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { getCurrentUser } from "@/lib/users";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 
 const SERIES_BACKGROUND_IMAGES: Record<string, string> = {
   "final-fantasy": "/saga-backgrounds/final-fantasy.webp",
@@ -131,7 +132,7 @@ export async function IndexEntityDetail({ kind, slug }: { kind: IndexKind; slug:
                 className="flex items-center justify-between gap-3 rounded-md border border-border bg-card px-3 py-2 text-sm transition hover:border-accent/45"
               >
                 <span className="font-semibold text-foreground">{entry.name}</span>
-                <span className="text-muted">{entry.gameCount.toLocaleString("es-ES")}</span>
+                <span className="text-muted">{formatCatalogEntryCount(entry.gameIds.length)}</span>
               </Link>
             ))}
           </div>
