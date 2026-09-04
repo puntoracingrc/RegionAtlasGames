@@ -7,6 +7,7 @@
     "status": "closed",
     "estimatedCatalogSize": 2166,
     "sortOrder": 1,
+    "spainReleaseYear": 1987,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
   },
   {
@@ -17,6 +18,7 @@
     "status": "closed",
     "estimatedCatalogSize": 2761,
     "sortOrder": 2,
+    "spainReleaseYear": 1992,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
   },
   {
@@ -27,6 +29,7 @@
     "status": "closed",
     "estimatedCatalogSize": 776,
     "sortOrder": 3,
+    "spainReleaseYear": 1997,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
   },
   {
@@ -37,6 +40,7 @@
     "status": "closed",
     "estimatedCatalogSize": 2510,
     "sortOrder": 4,
+    "spainReleaseYear": 1990,
     "description": "Catálogo multirregión (PAL España provisional, PAL Europa, NTSC USA y NTSC-J Japón)."
   },
   {
@@ -47,6 +51,7 @@
     "status": "closed",
     "estimatedCatalogSize": 220,
     "sortOrder": 5,
+    "spainReleaseYear": 2002,
     "description": "Catálogo oficial PAL España."
   },
   {
@@ -57,6 +62,7 @@
     "status": "closed",
     "estimatedCatalogSize": 350,
     "sortOrder": 6,
+    "spainReleaseYear": 2006,
     "description": "Catálogo oficial PAL España."
   },
   {
@@ -67,6 +73,7 @@
     "status": "closed",
     "estimatedCatalogSize": 600,
     "sortOrder": 7,
+    "spainReleaseYear": 2005,
     "description": "Catálogo oficial PAL España."
   },
   {
@@ -77,6 +84,7 @@
     "status": "closed",
     "estimatedCatalogSize": 480,
     "sortOrder": 8,
+    "spainReleaseYear": 2011,
     "description": "Catálogo oficial PAL España."
   },
   {
@@ -87,6 +95,7 @@
     "status": "closed",
     "estimatedCatalogSize": 500,
     "sortOrder": 9,
+    "spainReleaseYear": 1988,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
   },
   {
@@ -97,6 +106,7 @@
     "status": "closed",
     "estimatedCatalogSize": 1679,
     "sortOrder": 10,
+    "spainReleaseYear": 1990,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
   },
   {
@@ -107,6 +117,7 @@
     "status": "closed",
     "estimatedCatalogSize": 82,
     "sortOrder": 11,
+    "spainReleaseYear": 1994,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
   },
   {
@@ -117,6 +128,7 @@
     "status": "closed",
     "estimatedCatalogSize": 372,
     "sortOrder": 12,
+    "spainReleaseYear": 1993,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
   },
   {
@@ -127,6 +139,7 @@
     "status": "closed",
     "estimatedCatalogSize": 1597,
     "sortOrder": 13,
+    "spainReleaseYear": 1995,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
   },
   {
@@ -137,6 +150,7 @@
     "status": "closed",
     "estimatedCatalogSize": 950,
     "sortOrder": 14,
+    "spainReleaseYear": 1999,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
   },
   {
@@ -147,6 +161,7 @@
     "status": "closed",
     "estimatedCatalogSize": 637,
     "sortOrder": 15,
+    "spainReleaseYear": 1991,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón)."
   },
   {
@@ -157,6 +172,7 @@
     "status": "closed",
     "estimatedCatalogSize": 248,
     "sortOrder": 16,
+    "spainReleaseYear": 1991,
     "description": "Catálogo con dos variantes regionales: Occidental y Japonesa."
   },
   {
@@ -167,6 +183,7 @@
     "status": "open",
     "estimatedCatalogSize": 20,
     "sortOrder": 16.5,
+    "spainReleaseYear": 2026,
     "active": true,
     "newsEnabled": true,
     "description": "Catálogo abierto de reediciones físicas oficiales para NEOGEO AES+, separadas en versiones Internacional y Japonesa."
@@ -179,6 +196,7 @@
     "status": "closed",
     "estimatedCatalogSize": 183,
     "sortOrder": 17,
+    "spainReleaseYear": 1996,
     "description": "Catálogo físico organizado en sus dos familias comerciales: Occidental y Japonesa."
   },
   {
@@ -189,6 +207,7 @@
     "status": "closed",
     "estimatedCatalogSize": 169,
     "sortOrder": 18,
+    "spainReleaseYear": 1999,
     "description": "Catálogo físico organizado en sus tres familias comerciales: USA, Europea y Japonesa."
   },
   {
@@ -199,6 +218,7 @@
     "status": "closed",
     "estimatedCatalogSize": 750,
     "sortOrder": 19,
+    "spainReleaseYear": 1995,
     "description": "Catálogo oficial PAL España."
   },
   {
@@ -209,6 +229,7 @@
     "status": "closed",
     "estimatedCatalogSize": 1200,
     "sortOrder": 20,
+    "spainReleaseYear": 2000,
     "description": "Catálogo oficial PAL España."
   },
   {
@@ -219,6 +240,7 @@
     "status": "closed",
     "estimatedCatalogSize": 800,
     "sortOrder": 21,
+    "spainReleaseYear": 2007,
     "description": "Catálogo oficial PAL España."
   },
   {
@@ -229,6 +251,7 @@
     "status": "semi-closed",
     "estimatedCatalogSize": 12000,
     "sortOrder": 22,
+    "spainReleaseYear": 2013,
     "description": "Catálogo multiregión (PAL, NTSC USA y NTSC-J Japón) desde PriceCharting."
   },
   {
@@ -239,6 +262,7 @@
     "status": "open",
     "estimatedCatalogSize": 390,
     "sortOrder": 23,
+    "spainReleaseYear": 2020,
     "active": true,
     "newsEnabled": true,
     "description": "Catálogo abierto de PlayStation 5, iniciado con lanzamientos físicos disponibles en GAME España y ampliado mediante revisión administrativa."
@@ -251,6 +275,7 @@
     "status": "semi-closed",
     "estimatedCatalogSize": 548,
     "sortOrder": 24,
+    "spainReleaseYear": 2012,
     "active": true,
     "newsEnabled": false,
     "description": "Catálogo físico con ediciones PAL España provisionales y NTSC USA, separadas por región."
@@ -263,6 +288,7 @@
     "status": "semi-closed",
     "estimatedCatalogSize": 2349,
     "sortOrder": 25,
+    "spainReleaseYear": 2005,
     "active": true,
     "newsEnabled": false,
     "description": "Catálogo físico con ediciones PAL España provisionales (base PAL Europa) y NTSC USA; precios USA por estado de conservación."
@@ -275,6 +301,7 @@
     "status": "open",
     "estimatedCatalogSize": 76,
     "sortOrder": 8,
+    "spainReleaseYear": 2025,
     "active": true,
     "newsEnabled": true,
     "description": "Catálogo abierto de Nintendo Switch 2, iniciado con lanzamientos físicos disponibles en GAME España y ampliado mediante revisión administrativa."
@@ -287,6 +314,7 @@
     "status": "open",
     "estimatedCatalogSize": 3301,
     "sortOrder": 8,
+    "spainReleaseYear": 2017,
     "active": true,
     "newsEnabled": true,
     "description": "Catálogo abierto y multirregión de Nintendo Switch, con ediciones PAL España provisionales basadas en PAL Europa y fichas NTSC USA con precios PriceCharting convertidos a EUR."
@@ -299,6 +327,7 @@
     "status": "semi-closed",
     "estimatedCatalogSize": 0,
     "sortOrder": 28,
+    "spainReleaseYear": 2012,
     "active": false,
     "newsEnabled": false,
     "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
@@ -311,6 +340,7 @@
     "status": "semi-closed",
     "estimatedCatalogSize": 0,
     "sortOrder": 29,
+    "spainReleaseYear": 2001,
     "active": false,
     "newsEnabled": false,
     "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
@@ -323,6 +353,7 @@
     "status": "semi-closed",
     "estimatedCatalogSize": 0,
     "sortOrder": 30,
+    "spainReleaseYear": 2020,
     "active": false,
     "newsEnabled": false,
     "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
@@ -335,6 +366,7 @@
     "status": "semi-closed",
     "estimatedCatalogSize": 0,
     "sortOrder": 31,
+    "spainReleaseYear": 2013,
     "active": false,
     "newsEnabled": false,
     "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
@@ -347,6 +379,7 @@
     "status": "semi-closed",
     "estimatedCatalogSize": 0,
     "sortOrder": 32,
+    "spainReleaseYear": 2005,
     "active": false,
     "newsEnabled": false,
     "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
@@ -359,6 +392,7 @@
     "status": "semi-closed",
     "estimatedCatalogSize": 0,
     "sortOrder": 33,
+    "spainReleaseYear": 2002,
     "active": false,
     "newsEnabled": false,
     "description": "Plataforma preparada para revisión interna, todavía no publicada en la web pública."
