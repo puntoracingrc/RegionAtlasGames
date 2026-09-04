@@ -1036,5 +1036,57 @@
     "/compania/ubisoft",
     "/compania/vicarious-visions",
     "/compania/xpec-entertainment"
-  ]
+  ],
+  "finalVerification": {
+    "previousHead": "db5ef9d8e8e220c70cffd78b3495802114a97d68",
+    "rebasedBase": "9e55502e0dd5062be3ab346d53344e0d6391d4a6",
+    "functionalHeadAfterRebase": "855e87ffa9f2f4d51469acf6fae9928362acd0d4",
+    "rangeDiff": "1: db5ef9d = 1: 855e87f Apply verified company credit batch 1",
+    "scope": {
+      "mutations": 19,
+      "addMissing": 8,
+      "replace": 11,
+      "changedCatalogIds": 14,
+      "retainedWithoutRewrite": 7,
+      "highReplacementsBlocked": 3,
+      "scopeExpanded": false
+    },
+    "catalog": {
+      "rowsBefore": 59626,
+      "rowsAfter": 59626,
+      "uniqueIdsBefore": 59626,
+      "uniqueIdsAfter": 59626,
+      "addedIds": 0,
+      "removedIds": 0,
+      "changedUrls": 0,
+      "unexpectedDetailIds": 0
+    },
+    "commands": {
+      "packageComparator": "PASS",
+      "batchComparator": "PASS",
+      "semanticCreditTest": "PASS",
+      "typecheck": "PASS",
+      "lint": "PASS_WITH_37_PREEXISTING_WARNINGS",
+      "unit": "PASS_182",
+      "collectorControls": "PASS",
+      "affiliateOffersV1": "PASS",
+      "build": "PASS"
+    },
+    "qa": {
+      "companyPagesChecked": 9,
+      "desktopViewport": "1280x720",
+      "mobileViewport": "390x844",
+      "brokenImages": 0,
+      "consoleErrors": 0,
+      "horizontalOverflow": 0,
+      "activisionExactRegionalCreditsVisible": true,
+      "squareEnixNonJapaneseTargetCreditsAbsent": true,
+      "squareEnixJapaneseTargetCreditRetained": true
+    },
+    "preexistingWarnings": [
+      "ps4-1971-project-helios genre strategy not in index",
+      "ps4-1971-project-helios-collector%27s-edition genre strategy not in index",
+      "xbox360-spec-ops-the-line genre shooter not in index"
+    ]
+  }
 }
