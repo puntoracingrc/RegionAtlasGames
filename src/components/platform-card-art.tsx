@@ -26,6 +26,8 @@ export const PLATFORM_IMAGE_SLUGS = new Set([
   "ps3",
   "ps4",
   "ps5",
+  "psvita",
+  "psp",
   "switch",
   "switch2",
 ]);
@@ -36,6 +38,8 @@ const PLATFORM_ART_CLASS: Partial<Record<string, string>> = {
   gamecube: "bottom-5 right-5 h-[88px] w-[132px] sm:h-[96px] sm:w-[142px]",
   megacd: "bottom-3 right-5 h-[84px] w-[136px] sm:h-[92px] sm:w-[148px]",
   ps5: "bottom-2 right-4 h-[108px] w-[104px] sm:h-[116px] sm:w-[112px]",
+  psvita: "bottom-4 right-4 h-[78px] w-[148px] sm:h-[84px] sm:w-[158px]",
+  psp: "bottom-4 right-4 h-[76px] w-[148px] sm:h-[82px] sm:w-[158px]",
   switch: "bottom-3 right-4 h-[86px] w-[146px] sm:h-[90px] sm:w-[154px]",
   switch2: "bottom-3 right-4 h-[86px] w-[146px] sm:h-[90px] sm:w-[154px]",
   "neogeo-aes-plus": "bottom-2 right-3 h-[100px] w-[150px] sm:h-[108px] sm:w-[162px]",
