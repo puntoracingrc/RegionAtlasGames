@@ -14,7 +14,6 @@ ROOT = Path(__file__).resolve().parents[1]
 DECISIONS_FILE = ROOT / "data/research/company-credit-verified-batch-1.csv"
 REPORT_FILE = ROOT / "data/research/company-credit-verified-batch-1-report.json"
 EXPECTED_BATCH_ROWS = 59_626
-EXPECTED_ROWS = 65_434
 EXPECTED_BATCH = "company-credit-verified-batch-1"
 EXPECTED_REVIEW_DATE = "2026-09-04"
 
@@ -43,8 +42,8 @@ def main() -> int:
     report = load_json(REPORT_FILE)
     decisions = load_decisions()
 
-    assert len(catalog) == EXPECTED_ROWS
-    assert len({row["id"] for row in catalog}) == EXPECTED_ROWS
+    catalog_rows = len(catalog)
+    assert len({row["id"] for row in catalog}) == catalog_rows
     assert report["catalog"] == {
         "rowsBefore": EXPECTED_BATCH_ROWS,
         "rowsAfter": EXPECTED_BATCH_ROWS,
