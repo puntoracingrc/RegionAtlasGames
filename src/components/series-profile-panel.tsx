@@ -10,11 +10,13 @@ function roleLabel(role: "developer" | "publisher" | "both"): string {
 
 export function SeriesProfilePanel({
   profile,
+  entityKind = "series",
   backgroundImage,
   backgroundOpacity = 68,
   backgroundReadability = "normal",
 }: {
   profile: SeriesProfile;
+  entityKind?: "franchise" | "series";
   backgroundImage?: string | null;
   backgroundOpacity?: number | null;
   backgroundReadability?: "soft" | "normal" | "strong" | null;
@@ -64,10 +66,10 @@ export function SeriesProfilePanel({
         ) : null}
         <div className="relative">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
-            Saga / franquicia
+            {entityKind === "franchise" ? "Franquicia" : "Saga / Subserie"}
           </p>
           <h2 className="mt-2 text-2xl font-black text-foreground">
-            Universo {profile.name}
+            Perfil de {profile.name}
           </h2>
           <p className="mt-3 max-w-4xl text-sm leading-7 text-muted">
             {profile.description}
@@ -105,7 +107,7 @@ export function SeriesProfilePanel({
       <div className="grid gap-4">
         <div className="rounded-3xl border border-border bg-card p-5 shadow-sm">
           <h3 className="text-sm font-black uppercase tracking-wider text-foreground">
-            Plataformas en la saga
+            Plataformas en {entityKind === "franchise" ? "la franquicia" : "la saga"}
           </h3>
           <div className="mt-3 flex flex-wrap gap-2">
             {profile.platforms.slice(0, 12).map((platform) => (
@@ -138,7 +140,9 @@ export function SeriesProfilePanel({
               </Link>
             ))}
             {profile.companies.length === 0 && (
-              <p className="text-sm text-muted">Aún no hay compañías enlazadas a esta saga.</p>
+              <p className="text-sm text-muted">
+                Aún no hay compañías enlazadas a {entityKind === "franchise" ? "esta franquicia" : "esta saga"}.
+              </p>
             )}
           </div>
         </div>

@@ -175,7 +175,7 @@ test("builds every public biography and fact source only from explicit editorial
   }
 });
 
-test("keeps every non-editorial identity out of public routes, sitemap and inverse links", () => {
+test("keeps every non-editorial identity out of public routes, sitemap and inverse links", async () => {
   const publicSlugs = new Set(getPublicPersonSlugs());
   const nonPublic = core.filter((person) => person.visibility !== "published");
 
@@ -185,7 +185,7 @@ test("keeps every non-editorial identity out of public routes, sitemap and inver
     assert.equal(getPublicPersonView(person.slug), undefined, person.slug);
   }
 
-  const sitemapSlugs = buildSitemap()
+  const sitemapSlugs = (await buildSitemap())
     .map((entry) => new URL(entry.url).pathname)
     .filter((pathname) => pathname.startsWith("/persona/"))
     .map((pathname) => decodeURIComponent(pathname.slice("/persona/".length)));

@@ -1,6 +1,7 @@
 import { IndexGrid } from "@/components/index-grid";
 import { SiteNav } from "@/components/site-nav";
 import { listPublicSeriesIndexEntries } from "@/lib/admin-series-manager";
+import { listPublicFranchiseIndexEntries } from "@/lib/admin-franchise-manager";
 import type { IndexKind } from "@/lib/index-entity";
 import {
   INDEX_KIND_META,
@@ -8,10 +9,15 @@ import {
   indexListIntro,
   toPublicIndexEntityListItem,
 } from "@/lib/index-entity";
+import { getLegacySeriesRedirect } from "@/lib/franchise-system";
 
 export async function IndexEntityList({ kind }: { kind: IndexKind }) {
   const meta = INDEX_KIND_META[kind];
-  const items = kind === "series" ? await listPublicSeriesIndexEntries() : getIndexList(kind);
+  const items = kind === "series"
+    ? (await listPublicSeriesIndexEntries()).filter((entry) => !getLegacySeriesRedirect(entry.slug))
+    : kind === "franchise"
+      ? await listPublicFranchiseIndexEntries()
+      : getIndexList(kind);
 
   if (items.length === 0) {
     return (
@@ -38,8 +44,14 @@ export async function IndexEntityList({ kind }: { kind: IndexKind }) {
           </div>
           {kind === "series" && (
             <p className="max-w-3xl text-sm leading-6 text-muted">
-              Agrupaciones por saga o franquicia: Final Fantasy, Resident Evil, Mario, Zelda,
-              FIFA/EA Sports FC y otras familias que cruzan plataformas, compañías y regiones.
+              Sagas y subseries concretas dentro de una franquicia, organizadas sin crear
+              niveles artificiales para remakes, spin-offs o crossovers.
+            </p>
+          )}
+          {kind === "franchise" && (
+            <p className="max-w-3xl text-sm leading-6 text-muted">
+              Agrupaciones de videojuegos conectadas por una misma propiedad, universo,
+              marca o continuidad editorial.
             </p>
           )}
           {kind === "tag" && (

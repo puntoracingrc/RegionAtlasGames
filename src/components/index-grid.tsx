@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import type { PublicIndexEntityListItem } from "@/lib/index-entity";
 
-type IndexKind = "company" | "genre" | "series" | "tag";
+type IndexKind = "company" | "franchise" | "genre" | "series" | "tag";
 
 type Props = {
   items: PublicIndexEntityListItem[];
@@ -18,10 +18,11 @@ const INDEX_KIND_META: Record<
   IndexKind,
   {
     searchLabel: string;
-    basePath: "/compania" | "/genero" | "/saga" | "/etiqueta";
+    basePath: "/compania" | "/franquicia" | "/genero" | "/saga" | "/etiqueta";
   }
 > = {
   company: { searchLabel: "compañía", basePath: "/compania" },
+  franchise: { searchLabel: "franquicia", basePath: "/franquicia" },
   genre: { searchLabel: "género", basePath: "/genero" },
   series: { searchLabel: "saga", basePath: "/saga" },
   tag: { searchLabel: "etiqueta", basePath: "/etiqueta" },

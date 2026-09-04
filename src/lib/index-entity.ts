@@ -1,6 +1,7 @@
 import type { CatalogGame, IndexEntry } from "./types";
 import { formatCatalogEntryCount } from "./catalog-entry-count";
 import { formatCompanyAliases, getCompanyEntity } from "./company-canonical";
+import { getFranchiseIndexEntry, getFranchiseIndexList } from "./franchise-system";
 import {
   gamesForIndex,
   getCompanies,
@@ -16,7 +17,7 @@ import {
   resolveIndexEntry,
 } from "./indexes";
 
-export type IndexKind = "company" | "genre" | "series" | "tag";
+export type IndexKind = "company" | "franchise" | "genre" | "series" | "tag";
 
 export type IndexEntitySummary = {
   kind: IndexKind;
@@ -48,7 +49,7 @@ export const INDEX_KIND_META: Record<
     listTitle: string;
     backLabel: string;
     searchLabel: string;
-    basePath: "/compania" | "/genero" | "/saga" | "/etiqueta";
+    basePath: "/compania" | "/franquicia" | "/genero" | "/saga" | "/etiqueta";
     entityLabel: string;
     entityLabelPlural: string;
   }
@@ -60,6 +61,14 @@ export const INDEX_KIND_META: Record<
     basePath: "/compania",
     entityLabel: "compañía",
     entityLabelPlural: "compañías",
+  },
+  franchise: {
+    listTitle: "Franquicias",
+    backLabel: "Franquicias",
+    searchLabel: "franquicia",
+    basePath: "/franquicia",
+    entityLabel: "franquicia",
+    entityLabelPlural: "franquicias",
   },
   genre: {
     listTitle: "Géneros",
@@ -91,6 +100,8 @@ export function getIndexEntry(kind: IndexKind, slug: string): IndexEntry | undef
   switch (kind) {
     case "company":
       return getCompany(slug);
+    case "franchise":
+      return getFranchiseIndexEntry(slug);
     case "genre":
       return getGenre(slug);
     case "series":
@@ -104,6 +115,8 @@ export function getIndexList(kind: IndexKind): IndexEntry[] {
   switch (kind) {
     case "company":
       return getCompanies();
+    case "franchise":
+      return getFranchiseIndexList();
     case "genre":
       return getGenres();
     case "series":
@@ -166,6 +179,8 @@ export function indexListIntro(kind: IndexKind, entityCount?: number): string {
   const count = entityCount ??
     (kind === "company"
       ? stats.companies
+      : kind === "franchise"
+        ? getFranchiseIndexList().length
       : kind === "genre"
         ? stats.genres
         : kind === "series"
