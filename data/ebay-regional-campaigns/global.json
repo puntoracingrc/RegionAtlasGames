@@ -9,30 +9,30 @@
     "batchSize": 250,
     "searchBudgetPerRun": 250,
     "dailySearchBudget": 1000,
-    "dailySearchesUsed": 268,
-    "dailySearchesRemaining": 732,
+    "dailySearchesUsed": 269,
+    "dailySearchesRemaining": 731,
     "regions": [
       "PAL España",
       "PAL Europa"
     ]
   },
   "status": "running",
-  "currentPlatform": "ps4",
-  "currentPlatformName": "PlayStation 4",
+  "currentPlatform": "nes",
+  "currentPlatformName": "Nintendo Entertainment System",
   "currentRegion": "PAL Europa",
-  "updatedAt": "2026-09-04T11:28:43Z",
+  "updatedAt": "2026-09-04T16:28:32Z",
   "lastRun": {
-    "at": "2026-09-04T11:28:43Z",
+    "at": "2026-09-04T16:28:32Z",
     "platformSlug": "ps4",
     "platformName": "PlayStation 4",
-    "region": "PAL España",
-    "selected": 18,
-    "processed": 18,
+    "region": "PAL Europa",
+    "selected": 1,
+    "processed": 1,
     "matched": 0,
     "listingsAdded": 0,
     "regionalReroutes": 0,
-    "regionalReviews": 14,
-    "apiSearches": 18,
+    "regionalReviews": 7,
+    "apiSearches": 1,
     "searchBudget": 250,
     "searchBudgetExhausted": false,
     "failed": 0,
@@ -41,15 +41,15 @@
   },
   "dailyUsage": {
     "date": "2026-09-04",
-    "apiSearches": 268
+    "apiSearches": 269
   },
   "totals": {
     "catalogGames": 25761,
-    "completed": 3043,
+    "completed": 3044,
     "matched": 344,
-    "noMatch": 2699,
+    "noMatch": 2700,
     "deferred": 0,
-    "pending": 22718
+    "pending": 22717
   },
   "estimatedRunsRemaining": 91,
   "estimatedDaysRemaining": 23,
@@ -57,16 +57,16 @@
     {
       "platformSlug": "ps4",
       "platformName": "PlayStation 4",
-      "status": "running",
-      "currentRegion": "PAL Europa",
-      "updatedAt": "2026-09-04T11:28:43Z",
+      "status": "completed",
+      "currentRegion": null,
+      "updatedAt": "2026-09-04T16:28:32Z",
       "totals": {
         "catalogGames": 3044,
-        "completed": 3043,
+        "completed": 3044,
         "matched": 344,
-        "noMatch": 2699,
+        "noMatch": 2700,
         "deferred": 0,
-        "pending": 1
+        "pending": 0
       },
       "regions": [
         {
@@ -89,11 +89,11 @@
           "marketScope": "multi_region",
           "originLabel": "Europa multirregión",
           "total": 1,
-          "completed": 0,
+          "completed": 1,
           "matched": 0,
-          "noMatch": 0,
+          "noMatch": 1,
           "deferred": 0,
-          "pending": 1
+          "pending": 0
         }
       ]
     },
@@ -1170,6 +1170,14 @@
       "message": "PlayStation 4 · PAL España: 18/18 consultados, 0 con evidencias, 0 anuncios aceptados, 0 aprovechados en otra región, 14 a revisión, 0 fallos, 0 aplazados.",
       "platformSlug": "ps4",
       "region": "PAL España",
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-04T16:28:32Z",
+      "level": "info",
+      "message": "PlayStation 4 · PAL Europa: 1/1 consultados, 0 con evidencias, 0 anuncios aceptados, 0 aprovechados en otra región, 7 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "ps4",
+      "region": "PAL Europa",
       "coverCandidatesAdded": 0
     }
   ]

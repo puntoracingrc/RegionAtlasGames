@@ -5,21 +5,21 @@
   "platformName": "PlayStation 4",
   "marketplaceId": "EBAY_ES",
   "destinationCountry": "ES",
-  "status": "running",
-  "currentRegion": "PAL Europa",
-  "updatedAt": "2026-09-04T11:28:43Z",
+  "status": "completed",
+  "currentRegion": null,
+  "updatedAt": "2026-09-04T16:28:32Z",
   "lastRun": {
-    "at": "2026-09-04T11:28:43Z",
+    "at": "2026-09-04T16:28:32Z",
     "platformSlug": "ps4",
     "platformName": "PlayStation 4",
-    "region": "PAL España",
-    "selected": 18,
-    "processed": 18,
+    "region": "PAL Europa",
+    "selected": 1,
+    "processed": 1,
     "matched": 0,
     "listingsAdded": 0,
     "regionalReroutes": 0,
-    "regionalReviews": 14,
-    "apiSearches": 18,
+    "regionalReviews": 7,
+    "apiSearches": 1,
     "searchBudget": 250,
     "searchBudgetExhausted": false,
     "failed": 0,
@@ -6141,25 +6141,29 @@
       "marketScope": "multi_region",
       "originLabel": "Europa multirregión",
       "total": 1,
-      "completed": 0,
+      "completed": 1,
       "matched": 0,
-      "noMatch": 0,
+      "noMatch": 1,
       "deferred": 0,
-      "pending": 1,
-      "completedCatalogIds": [],
+      "pending": 0,
+      "completedCatalogIds": [
+        "ps4-1971-project-helios"
+      ],
       "matchedCatalogIds": [],
-      "noMatchCatalogIds": [],
+      "noMatchCatalogIds": [
+        "ps4-1971-project-helios"
+      ],
       "deferredCatalogIds": [],
       "failureAttempts": {}
     }
   },
   "totals": {
     "catalogGames": 3044,
-    "completed": 3043,
+    "completed": 3044,
     "matched": 344,
-    "noMatch": 2699,
+    "noMatch": 2700,
     "deferred": 0,
-    "pending": 1
+    "pending": 0
   },
   "log": [
     {
@@ -6378,6 +6382,14 @@
       "message": "PlayStation 4 · PAL España: 18/18 consultados, 0 con evidencias, 0 anuncios aceptados, 0 aprovechados en otra región, 14 a revisión, 0 fallos, 0 aplazados.",
       "platformSlug": "ps4",
       "region": "PAL España",
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-04T16:28:32Z",
+      "level": "info",
+      "message": "PlayStation 4 · PAL Europa: 1/1 consultados, 0 con evidencias, 0 anuncios aceptados, 0 aprovechados en otra región, 7 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "ps4",
+      "region": "PAL Europa",
       "coverCandidatesAdded": 0
     }
   ]
