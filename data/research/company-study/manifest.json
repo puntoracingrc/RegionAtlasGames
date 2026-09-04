@@ -30,10 +30,26 @@
     "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
     "data/company-groups.json": "68463bcaa8b9df3df1ddb2804b122c1b717e656cde6f691f16ce5012fba02d64",
     "data/company-separations.json": "c3293b49d5fec9ef6eab11c5219d50e7312a44c6cf84c9f54bcab0318f060896",
-    "data/index/companies.json": "23979fd694d7ea6cf0d132b04d1b16a7513b7493e0086a386c775b9d9952f13b",
+    "data/index/companies.json": "d774c621f0289cdfeae1141361fc4483e84037432d82499a5f7ab83afafe48bb",
     "data/index/company-entities.json": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
-    "data/game-details.json": "108fccad5892f28fb6a7301fcb2754cbcbd7116f889b6ed17a2e10a98ba4e8e3"
+    "data/game-details.json": "1d2c55d28fc6ea79865a3faab0cc2f811cd7f49c34107e42f5eaefefc8bc2833"
   },
+  "protectedFileHashUpdates": [
+    {
+      "batchId": "company-credit-verified-batch-1",
+      "reviewedAt": "2026-09-04",
+      "files": {
+        "data/index/companies.json": {
+          "before": "23979fd694d7ea6cf0d132b04d1b16a7513b7493e0086a386c775b9d9952f13b",
+          "after": "d774c621f0289cdfeae1141361fc4483e84037432d82499a5f7ab83afafe48bb"
+        },
+        "data/game-details.json": {
+          "before": "108fccad5892f28fb6a7301fcb2754cbcbd7116f889b6ed17a2e10a98ba4e8e3",
+          "after": "1d2c55d28fc6ea79865a3faab0cc2f811cd7f49c34107e42f5eaefefc8bc2833"
+        }
+      }
+    }
+  ],
   "generatedFiles": [
     "core.json",
     "provenance.json",

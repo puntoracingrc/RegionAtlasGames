@@ -229,6 +229,11 @@ export type PersonResearchManifest = {
     portraitHotlinkingAllowed: false;
   };
   protectedFileHashes: Record<string, string>;
+  protectedFileHashUpdates?: {
+    batchId: string;
+    reviewedAt: string;
+    files: Record<string, { before: string; after: string }>;
+  }[];
   portraitHashes: Record<string, string>;
   editorialApprovalHash: string;
 };

@@ -412,6 +412,10 @@ test("preserves catalog, company and prior research files byte for byte", () => 
   for (const [relativePath, expectedHash] of Object.entries(manifest.protectedFileHashes)) {
     assert.equal(sha256File(relativePath), expectedHash, relativePath);
   }
+  assert.deepEqual(
+    manifest.protectedFileHashUpdates?.map((update) => update.batchId),
+    ["company-credit-verified-batch-1"],
+  );
 });
 
 test("public modules never import internal people datasets", () => {
