@@ -1,0 +1,511 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-09-04",
+  "canonicalCompanyAliases": {
+    "blizzard": "blizzard-entertainment",
+    "ea-maxis": "maxis",
+    "micro-prose": "microprose",
+    "nintendo-entertainment-analysis-and-development": "nintendo-ead",
+    "revolution": "revolution-software"
+  },
+  "approvedRelations": [
+    {
+      "id": "PCR-00009",
+      "sourceId": "PSRC-B73FD9C26629"
+    },
+    {
+      "id": "PCR-00261",
+      "sourceId": "PSRC-487FA7781E2A",
+      "start": "1991"
+    }
+  ],
+  "knownBlockedRelations": {
+    "PCR-00093": "Cronología imposible: Michael Kogan falleció antes de la fundación atribuida a Quest.",
+    "PCR-00319": "No se hereda la fundación de un antecesor remoto a Vivendi Universal Games.",
+    "PCR-00320": "La dirección de Vivendi no acredita automáticamente un cargo en su antigua división de videojuegos.",
+    "PCR-00322": "La relación con Vivendi no acredita automáticamente pertenencia al consejo de su antigua división de videojuegos.",
+    "PCR-00513": "Fundar Microsoft no convierte a Bill Gates en fundador de Xbox Game Studios.",
+    "PCR-00514": "Fundar Microsoft no convierte a Bill Gates en fundador de Microsoft Game Studios.",
+    "PCR-00603": "Homónimo: Brown, Boveri & Cie no es British Broadcasting Corporation.",
+    "PCR-00604": "Homónimo: Brown, Boveri & Cie no es British Broadcasting Corporation.",
+    "PCR-00765": "Wikidata P108 no demuestra empleo de Hideki Kamiya en Sega.",
+    "PCR-00766": "Wikidata P108 no demuestra empleo de Hideki Kamiya en Bandai Namco Entertainment."
+  },
+  "profiles": [
+    {
+      "slug": "aleksei-pazhitnov",
+      "factSourceIds": ["PSRC-64A81B8B5B88"],
+      "originDisplay": "Moscú · Rusia",
+      "occupationNames": ["programador", "diseñador de juegos", "matemático"],
+      "biographyClaims": [
+        {
+          "text": "Alekséi Pázhitnov creó Tetris en 1984 mientras trabajaba como programador en Moscú.",
+          "sourceIds": ["PSRC-18D2AE875D16", "PSRC-0FF91A2DC3FC"]
+        },
+        {
+          "text": "La posterior licencia para Game Boy ayudó a convertir el diseño en un fenómeno internacional.",
+          "sourceIds": ["PSRC-18D2AE875D16"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00012"],
+      "awardIds": [],
+      "curiosityIds": ["PCUR-00001"]
+    },
+    {
+      "slug": "amy-hennig",
+      "factSourceIds": ["PSRC-D2F1872044CB"],
+      "originDisplay": "Estados Unidos",
+      "occupationNames": ["guionista de videojuegos", "director creativo", "diseñador de videojuegos"],
+      "biographyClaims": [
+        {
+          "text": "Amy Hennig desarrolló una trayectoria centrada en la escritura, la dirección creativa y la narrativa interactiva.",
+          "sourceIds": ["PSRC-03B854A9DD75"]
+        },
+        {
+          "text": "Fue guionista y directora de Legacy of Kain: Soul Reaver y dirigió creativamente los dos primeros Uncharted.",
+          "sourceIds": ["PSRC-03B854A9DD75"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00020", "PWORK-00021", "PWORK-00022"],
+      "awardIds": ["PAWD-00013", "PAWD-00014"],
+      "curiosityIds": ["PCUR-00002"]
+    },
+    {
+      "slug": "danielle-bunten-berry",
+      "factSourceIds": ["PSRC-25072D12071E"],
+      "originDisplay": "San Luis · Estados Unidos",
+      "occupationNames": ["informático teórico", "ingeniero"],
+      "biographyClaims": [
+        {
+          "text": "Danielle Bunten Berry diseñó juegos de estrategia y simulación que daban un papel central a la interacción entre jugadores.",
+          "sourceIds": ["PSRC-9581974AAAA9"]
+        },
+        {
+          "text": "M.U.L.E. y The Seven Cities of Gold son dos de sus trabajos más influyentes.",
+          "sourceIds": ["PSRC-9581974AAAA9"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00035", "PWORK-00036"],
+      "awardIds": [],
+      "curiosityIds": ["PCUR-00003"]
+    },
+    {
+      "slug": "gabe-newell",
+      "factSourceIds": ["PSRC-D1CADE948072"],
+      "originDisplay": "Estados Unidos",
+      "occupationNames": ["diseñador de juegos", "programador", "emprendedor"],
+      "biographyClaims": [
+        {
+          "text": "Gabe Newell impulsó el desarrollo de Half-Life y la expansión de Steam como plataforma de distribución digital.",
+          "sourceIds": ["PSRC-52FBFF4A8A48"]
+        },
+        {
+          "text": "Su trayectoria combina producción de videojuegos, tecnología y dirección empresarial.",
+          "sourceIds": ["PSRC-52FBFF4A8A48", "PSRC-B28A31CD3EBB"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00051", "PWORK-00052"],
+      "awardIds": ["PAWD-00114", "PAWD-00115"],
+      "curiosityIds": []
+    },
+    {
+      "slug": "gunpei-yokoi",
+      "factSourceIds": ["PSRC-4ED96FE3493E"],
+      "originDisplay": "Kioto · Japón",
+      "occupationNames": ["diseñador de juegos", "ingeniero"],
+      "biographyClaims": [
+        {
+          "text": "Gunpei Yokoi tuvo un papel decisivo en el desarrollo de Game & Watch y Game Boy.",
+          "sourceIds": ["PSRC-D6B4E7B979BC"]
+        },
+        {
+          "text": "También participó como productor en títulos como Metroid.",
+          "sourceIds": ["PSRC-D6B4E7B979BC"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00060", "PWORK-00061", "PWORK-00062"],
+      "awardIds": ["PAWD-00144"],
+      "curiosityIds": ["PCUR-00005"]
+    },
+    {
+      "slug": "hideo-kojima",
+      "factSourceIds": ["PSRC-94B1B77B7B59"],
+      "originDisplay": "Japón",
+      "occupationNames": ["diseñador de videojuegos", "productor de videojuegos", "guionista"],
+      "biographyClaims": [
+        {
+          "text": "Hideo Kojima dirigió y diseñó Metal Gear, y más tarde dirigió, produjo y escribió Metal Gear Solid.",
+          "sourceIds": ["PSRC-4FC41B5522CD", "PSRC-DC90759F9CD8"]
+        },
+        {
+          "text": "En Death Stranding volvió a combinar dirección, diseño y guion.",
+          "sourceIds": ["PSRC-4FC41B5522CD"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00069", "PWORK-00070", "PWORK-00071"],
+      "awardIds": ["PAWD-00163", "PAWD-00164", "PAWD-00166", "PAWD-00167"],
+      "curiosityIds": ["PCUR-00006"]
+    },
+    {
+      "slug": "hidetaka-miyazaki",
+      "factSourceIds": ["PSRC-0F5949B9E4F6"],
+      "originDisplay": "Shizuoka · Japón",
+      "occupationNames": ["diseñador de videojuegos", "guionista de videojuegos", "director creativo"],
+      "biographyClaims": [
+        {
+          "text": "Hidetaka Miyazaki dirigió Demon's Souls, Dark Souls y Elden Ring.",
+          "sourceIds": ["PSRC-8C55F77E38F3", "PSRC-C89F1759037D"]
+        },
+        {
+          "text": "Su trabajo consolidó una forma de rol de acción basada en observación, riesgo y narración ambiental.",
+          "sourceIds": ["PSRC-8C55F77E38F3"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00076", "PWORK-00077", "PWORK-00078"],
+      "awardIds": ["PAWD-00168", "PAWD-00169"],
+      "curiosityIds": []
+    },
+    {
+      "slug": "hironobu-sakaguchi",
+      "factSourceIds": ["PSRC-A0CE30269AB7"],
+      "originDisplay": "Hitachi · Japón",
+      "occupationNames": ["productor de videojuegos"],
+      "biographyClaims": [
+        {
+          "text": "Hironobu Sakaguchi creó y dirigió el primer Final Fantasy y participó después en Final Fantasy VII como productor y autor del concepto original.",
+          "sourceIds": ["PSRC-6FF005C30280", "PSRC-59E82970A4D8"]
+        },
+        {
+          "text": "Más adelante creó y produjo Lost Odyssey.",
+          "sourceIds": ["PSRC-6FF005C30280"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00080", "PWORK-00081", "PWORK-00082"],
+      "awardIds": ["PAWD-00170"],
+      "curiosityIds": []
+    },
+    {
+      "slug": "john-carmack",
+      "factSourceIds": ["PSRC-00F54E635911"],
+      "originDisplay": "Estados Unidos",
+      "occupationNames": ["director de tecnología", "programador", "ingeniero"],
+      "biographyClaims": [
+        {
+          "text": "John Carmack fue programador principal de Wolfenstein 3D, Doom y Quake y desarrolló tecnología gráfica decisiva para esos títulos.",
+          "sourceIds": ["PSRC-0BACC3D4504B", "PSRC-1B562957AB21"]
+        },
+        {
+          "text": "Su carrera posterior también abarcó realidad virtual e ingeniería aeroespacial.",
+          "sourceIds": ["PSRC-1B562957AB21"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00096", "PWORK-00097", "PWORK-00098"],
+      "awardIds": ["PAWD-00185", "PAWD-00186"],
+      "curiosityIds": []
+    },
+    {
+      "slug": "john-romero",
+      "factSourceIds": ["PSRC-AB13B31C49B8"],
+      "originDisplay": "Estados Unidos",
+      "occupationNames": ["programador de videojuegos", "director de videojuegos", "diseñador de juegos"],
+      "biographyClaims": [
+        {
+          "text": "John Romero combinó diseño, programación y dirección en Wolfenstein 3D, Doom y Quake.",
+          "sourceIds": ["PSRC-C14DC6C48CEB"]
+        },
+        {
+          "text": "Su trabajo es especialmente reconocido por el diseño y el ritmo de niveles de acción en primera persona.",
+          "sourceIds": ["PSRC-C14DC6C48CEB"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00100", "PWORK-00101", "PWORK-00102"],
+      "awardIds": [],
+      "curiosityIds": ["PCUR-00010"]
+    },
+    {
+      "slug": "ken-kutaragi",
+      "factSourceIds": ["PSRC-0A9E608A331B"],
+      "originDisplay": "Tokio · Japón",
+      "occupationNames": ["inventor", "empresario"],
+      "biographyClaims": [
+        {
+          "text": "Ken Kutaragi lideró el proyecto tecnológico que desembocó en la primera PlayStation.",
+          "sourceIds": ["PSRC-BFD017BD9439"]
+        },
+        {
+          "text": "Después ocupó la presidencia y la dirección ejecutiva durante la expansión de las siguientes generaciones de la plataforma.",
+          "sourceIds": ["PSRC-BFD017BD9439"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00114"],
+      "awardIds": ["PAWD-00196"],
+      "curiosityIds": []
+    },
+    {
+      "slug": "ralph-h-baer",
+      "factSourceIds": ["PSRC-4AE63851F306"],
+      "originDisplay": "Rodalben · Estados Unidos",
+      "occupationNames": ["inventor", "ingeniero eléctrico"],
+      "biographyClaims": [
+        {
+          "text": "Ralph H. Baer desarrolló junto a su equipo la Brown Box, prototipo que sirvió de base para Magnavox Odyssey en 1972.",
+          "sourceIds": ["PSRC-BF298F3F59D0"]
+        },
+        {
+          "text": "También participó en la creación del juego electrónico Simon.",
+          "sourceIds": ["PSRC-579D98C2E22A"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00159", "PWORK-00160"],
+      "awardIds": ["PAWD-00248", "PAWD-00249", "PAWD-00250"],
+      "curiosityIds": ["PCUR-00012"]
+    },
+    {
+      "slug": "richard-garriott",
+      "factSourceIds": ["PSRC-18C5CAD11C16"],
+      "originDisplay": "Cambridge · Reino Unido",
+      "occupationNames": ["programador", "desarrollador de videojuegos", "diseñador de juegos"],
+      "biographyClaims": [
+        {
+          "text": "Richard Garriott creó Ultima y participó en el desarrollo de Ultima Online.",
+          "sourceIds": ["PSRC-53B44CFE322A"]
+        },
+        {
+          "text": "Su trayectoria combina diseño de mundos, producción y proyectos de exploración espacial.",
+          "sourceIds": ["PSRC-53B44CFE322A"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00165", "PWORK-00166"],
+      "awardIds": ["PAWD-00258"],
+      "curiosityIds": ["PCUR-00013"]
+    },
+    {
+      "slug": "rieko-kodama",
+      "factSourceIds": ["PSRC-0F966B7A1E3A"],
+      "originDisplay": "Yokosuka · Japón",
+      "occupationNames": ["artista de videojuegos", "director de videojuegos", "productor de videojuegos"],
+      "biographyClaims": [
+        {
+          "text": "Rieko Kodama trabajó como artista y diseñadora en Phantasy Star, dirigió Phantasy Star IV y produjo Skies of Arcadia.",
+          "sourceIds": ["PSRC-31D2244D825D"]
+        },
+        {
+          "text": "Su trayectoria recorrió varias generaciones de juegos de rol japoneses.",
+          "sourceIds": ["PSRC-31D2244D825D", "PSRC-12D2EA8E6338"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00170", "PWORK-00171", "PWORK-00172"],
+      "awardIds": ["PAWD-00259"],
+      "curiosityIds": ["PCUR-00014"]
+    },
+    {
+      "slug": "roberta-williams",
+      "factSourceIds": ["PSRC-A9FD35952D74"],
+      "originDisplay": "California · Estados Unidos",
+      "occupationNames": ["diseñador de videojuegos", "escritor"],
+      "biographyClaims": [
+        {
+          "text": "Roberta Williams diseñó y escribió Mystery House y King's Quest.",
+          "sourceIds": ["PSRC-3492041D062F"]
+        },
+        {
+          "text": "Más tarde dirigió, diseñó y escribió Phantasmagoria, una producción de terror de gran escala para su época.",
+          "sourceIds": ["PSRC-3492041D062F"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00176", "PWORK-00177", "PWORK-00178"],
+      "awardIds": ["PAWD-00260"],
+      "curiosityIds": ["PCUR-00015"]
+    },
+    {
+      "slug": "satoru-iwata",
+      "factSourceIds": ["PSRC-618584201394"],
+      "originDisplay": "Sapporo · Japón",
+      "occupationNames": ["programador de videojuegos", "productor de videojuegos", "productor ejecutivo"],
+      "biographyClaims": [
+        {
+          "text": "Satoru Iwata comenzó como programador y llegó a presidir HAL Laboratory antes de asumir responsabilidades ejecutivas de alcance internacional.",
+          "sourceIds": ["PSRC-B73FD9C26629"]
+        },
+        {
+          "text": "Durante su etapa como presidente impulsó Nintendo DS y Wii y mantuvo un contacto público directo mediante entrevistas técnicas y presentaciones.",
+          "sourceIds": ["PSRC-B73FD9C26629", "PSRC-B63439B07F28"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00183", "PWORK-00184", "PWORK-00185"],
+      "awardIds": [],
+      "curiosityIds": ["PCUR-00016"]
+    },
+    {
+      "slug": "satoshi-tajiri",
+      "factSourceIds": ["PSRC-6E54D10AE6B2"],
+      "originDisplay": "Tokio · Japón",
+      "occupationNames": ["director de videojuegos", "desarrollador de videojuegos"],
+      "biographyClaims": [
+        {
+          "text": "Satoshi Tajiri concibió Pokémon y dirigió Pokémon Red and Green, publicados en Japón en 1996.",
+          "sourceIds": ["PSRC-1D3FFD4FDD91"]
+        },
+        {
+          "text": "La idea de intercambiar criaturas mediante el cable de Game Boy fue central en el proyecto.",
+          "sourceIds": ["PSRC-1D3FFD4FDD91"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00187"],
+      "awardIds": [],
+      "curiosityIds": ["PCUR-00017"]
+    },
+    {
+      "slug": "shigeru-miyamoto",
+      "factSourceIds": ["PSRC-C9B3621D13EF"],
+      "originDisplay": "Kioto · Japón",
+      "occupationNames": ["diseñador de videojuegos", "productor de videojuegos"],
+      "biographyClaims": [
+        {
+          "text": "Shigeru Miyamoto dirigió y diseñó Donkey Kong y participó de forma decisiva en Super Mario Bros. y The Legend of Zelda.",
+          "sourceIds": ["PSRC-BE4664D1F643", "PSRC-C34C11C1CC06"]
+        },
+        {
+          "text": "Su trabajo posterior incluye la creación y producción de Pikmin.",
+          "sourceIds": ["PSRC-BE4664D1F643"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00194", "PWORK-00195", "PWORK-00196", "PWORK-00197"],
+      "awardIds": ["PAWD-00266", "PAWD-00267", "PAWD-00270", "PAWD-00272", "PAWD-00273"],
+      "curiosityIds": ["PCUR-00018"]
+    },
+    {
+      "slug": "shinji-mikami",
+      "factSourceIds": ["PSRC-2ADBF9AFB65A"],
+      "originDisplay": "Iwakuni · Japón",
+      "occupationNames": ["productor de videojuegos", "diseñador de videojuegos"],
+      "biographyClaims": [
+        {
+          "text": "Shinji Mikami dirigió Resident Evil y Resident Evil 4.",
+          "sourceIds": ["PSRC-14AB65604ABC"]
+        },
+        {
+          "text": "Su trabajo ayudó a definir primero el survival horror y después una influyente perspectiva de acción en tercera persona.",
+          "sourceIds": ["PSRC-14AB65604ABC"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00201", "PWORK-00202", "PWORK-00203"],
+      "awardIds": [],
+      "curiosityIds": ["PCUR-00019"]
+    },
+    {
+      "slug": "sid-meier",
+      "factSourceIds": ["PSRC-370273AAF931"],
+      "originDisplay": "Canadá · Estados Unidos",
+      "occupationNames": ["diseñador de videojuegos", "programador", "productor de videojuegos"],
+      "biographyClaims": [
+        {
+          "text": "Sid Meier diseñó y programó Pirates!, Railroad Tycoon y Civilization.",
+          "sourceIds": ["PSRC-0778444EB8B1", "PSRC-030BCE3A30BC"]
+        },
+        {
+          "text": "Su obra convirtió procesos históricos y técnicos en sistemas de decisiones accesibles para el jugador.",
+          "sourceIds": ["PSRC-030BCE3A30BC"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00205", "PWORK-00206", "PWORK-00207"],
+      "awardIds": ["PAWD-00274"],
+      "curiosityIds": ["PCUR-00020"]
+    },
+    {
+      "slug": "tim-sweeney",
+      "factSourceIds": ["PSRC-591FE8C85AB4"],
+      "originDisplay": "Estados Unidos",
+      "occupationNames": ["empresario", "desarrollador de videojuegos"],
+      "biographyClaims": [
+        {
+          "text": "Tim Sweeney fundó Epic Games en 1991 y continúa como su director ejecutivo.",
+          "sourceIds": ["PSRC-487FA7781E2A"]
+        },
+        {
+          "text": "Su trayectoria técnica está vinculada a ZZT y al desarrollo inicial de Unreal Engine.",
+          "sourceIds": ["PSRC-487FA7781E2A"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00213", "PWORK-00214"],
+      "awardIds": ["PAWD-00339"],
+      "curiosityIds": ["PCUR-00021"]
+    },
+    {
+      "slug": "toru-iwatani",
+      "factSourceIds": ["PSRC-044E811E20B2"],
+      "originDisplay": "Tokio · Japón",
+      "occupationNames": ["diseñador de videojuegos", "profesor"],
+      "biographyClaims": [
+        {
+          "text": "Tōru Iwatani creó y diseñó Pac-Man, estrenado en 1980.",
+          "sourceIds": ["PSRC-ACA49175A2F4"]
+        },
+        {
+          "text": "El juego combinó un laberinto legible, persecución y cambios de situación mediante las píldoras de poder.",
+          "sourceIds": ["PSRC-ACA49175A2F4"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00225"],
+      "awardIds": ["PAWD-00346"],
+      "curiosityIds": []
+    },
+    {
+      "slug": "will-wright",
+      "factSourceIds": ["PSRC-AE3021614037"],
+      "originDisplay": "Atlanta · Estados Unidos",
+      "occupationNames": ["diseñador de juegos", "desarrollador de videojuegos"],
+      "biographyClaims": [
+        {
+          "text": "Will Wright diseñó SimCity y creó The Sims, dos referentes de la simulación de sistemas y vida cotidiana.",
+          "sourceIds": ["PSRC-030BCE3A30BC"]
+        },
+        {
+          "text": "Más tarde fue el diseñador principal de Spore.",
+          "sourceIds": ["PSRC-030BCE3A30BC"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00230", "PWORK-00231", "PWORK-00232"],
+      "awardIds": ["PAWD-00348", "PAWD-00349"],
+      "curiosityIds": ["PCUR-00023"]
+    },
+    {
+      "slug": "yoko-taro",
+      "factSourceIds": ["PSRC-EF97D3BC6F24"],
+      "originDisplay": "Nagoya · Japón",
+      "occupationNames": ["guionista de videojuegos", "diseñador de videojuegos", "director de videojuegos"],
+      "biographyClaims": [
+        {
+          "text": "Yoko Taro dirigió y escribió Drakengard, NieR y NieR: Automata.",
+          "sourceIds": ["PSRC-531D807C05F2"]
+        },
+        {
+          "text": "Sus juegos recurren a múltiples finales y cambios de perspectiva para desarrollar sus relatos.",
+          "sourceIds": ["PSRC-531D807C05F2"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00234", "PWORK-00235", "PWORK-00236"],
+      "awardIds": [],
+      "curiosityIds": []
+    },
+    {
+      "slug": "yu-suzuki",
+      "factSourceIds": ["PSRC-8E6D1382A3E7"],
+      "originDisplay": "Kamaishi · Japón",
+      "occupationNames": ["productor de videojuegos", "director de videojuegos"],
+      "biographyClaims": [
+        {
+          "text": "Yū Suzuki dirigió y produjo Out Run, Virtua Fighter y Shenmue.",
+          "sourceIds": ["PSRC-12D2EA8E6338", "PSRC-31D2244D825D"]
+        },
+        {
+          "text": "Su carrera conecta las grandes cabinas recreativas con proyectos narrativos de mundo abierto.",
+          "sourceIds": ["PSRC-12D2EA8E6338"]
+        }
+      ],
+      "exactCreditIds": ["PWORK-00243", "PWORK-00244", "PWORK-00245"],
+      "awardIds": [],
+      "curiosityIds": ["PCUR-00025"]
+    }
+  ]
+}

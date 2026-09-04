@@ -4,6 +4,7 @@ import { EntityBrowser } from "@/components/catalog-browser";
 import { CompanyCollaborators } from "@/components/company-collaborators";
 import { CompanyPlatformGames } from "@/components/company-platform-games";
 import { CompanyProfileHeader } from "@/components/company-profile-header";
+import { PersonPortrait } from "@/components/person-portrait";
 import { SiteNav } from "@/components/site-nav";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { buildCompanyIntro } from "@/lib/company-seo";
@@ -106,6 +107,46 @@ export function CompanyProfileDetail({ view, series, ownedCatalogIds, isLoggedIn
                 </a>
               ))}
             </div>
+          </section>
+        )}
+
+        {view.people.length > 0 && (
+          <section className="mb-10 border-y border-border py-5 md:py-6">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <h2 className="text-lg font-semibold text-foreground">Personas vinculadas</h2>
+                <p className="mt-1 text-sm text-foreground/75">
+                  Relaciones profesionales publicadas con fuente y revisión.
+                </p>
+              </div>
+              <span className="text-sm font-semibold text-muted">
+                {view.people.length} {view.people.length === 1 ? "persona" : "personas"}
+              </span>
+            </div>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {view.people.map((person) => (
+                <li key={person.slug}>
+                  <Link
+                    href={`/persona/${person.slug}`}
+                    className="grid min-h-20 grid-cols-[3.5rem_minmax(0,1fr)] gap-3 rounded-lg border border-border bg-card p-2.5 transition hover:border-accent/35 hover:bg-card-hover"
+                  >
+                    <PersonPortrait
+                      src={person.portraitPath}
+                      name={person.name}
+                      sizes="56px"
+                      className="h-14 w-14 rounded-md border border-border"
+                    />
+                    <div className="min-w-0 self-center">
+                      <h3 className="truncate text-sm font-semibold text-foreground">{person.name}</h3>
+                      <p className="mt-1 line-clamp-2 text-xs leading-4 text-muted">
+                        {person.roles.join(" · ")}
+                        {person.periods.length > 0 ? ` · ${person.periods.join(" · ")}` : ""}
+                      </p>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </section>
         )}
 

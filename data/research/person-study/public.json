@@ -1,0 +1,4394 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-03T20:30:51.514332+00:00",
+  "profiles": [
+    {
+      "slug": "aleksei-pazhitnov",
+      "name": "Alekséi Pázhitnov",
+      "qid": "Q92600",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Alexey Pajitnov",
+        "Pajitnov",
+        "Aleksei Pazhitnov",
+        "Alexey Pazhitnov",
+        "Alexey Leonidovich Pajitnov"
+      ],
+      "nativeNames": [
+        "Алексей Леонидович Пажитнов"
+      ],
+      "birthDate": "1955-04-16",
+      "birthYear": 1955,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Moscú · Rusia",
+      "occupations": [
+        {
+          "qid": "Q5482740",
+          "name": "programador",
+          "source_urls": []
+        },
+        {
+          "qid": "Q3630699",
+          "name": "diseñador de juegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q170790",
+          "name": "matemático",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Alekséi Pázhitnov creó Tetris en 1984 mientras trabajaba como programador en Moscú. La posterior licencia para Game Boy ayudó a convertir el diseño en un fenómeno internacional.",
+      "biographyClaims": [
+        {
+          "text": "Alekséi Pázhitnov creó Tetris en 1984 mientras trabajaba como programador en Moscú.",
+          "sourceIds": [
+            "PSRC-18D2AE875D16",
+            "PSRC-0FF91A2DC3FC"
+          ]
+        },
+        {
+          "text": "La posterior licencia para Game Boy ayudó a convertir el diseño en un fenómeno internacional.",
+          "sourceIds": [
+            "PSRC-18D2AE875D16"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/aleksei-pazhitnov.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alexey_Pajitnov_GDC_2024_(cropped).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Official GDC",
+        "credit": "https://www.flickr.com/photos/officialgdc/53606761581/",
+        "attributionRequired": true,
+        "sourceId": "PSRC-E1942E1365D7"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-64A81B8B5B88"
+        ],
+        "life": [
+          "PSRC-64A81B8B5B88"
+        ],
+        "originDisplay": [
+          "PSRC-64A81B8B5B88"
+        ],
+        "occupations": [
+          "PSRC-64A81B8B5B88"
+        ],
+        "biographyEs": [
+          "PSRC-0FF91A2DC3FC",
+          "PSRC-18D2AE875D16"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-0FF91A2DC3FC",
+        "PSRC-18D2AE875D16",
+        "PSRC-64A81B8B5B88"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "amy-hennig",
+      "name": "Amy Hennig",
+      "qid": "Q2844562",
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [],
+      "birthDate": "1964-08-19",
+      "birthYear": 1964,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Estados Unidos",
+      "occupations": [
+        {
+          "qid": "Q3476620",
+          "name": "guionista de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q667982",
+          "name": "director creativo",
+          "source_urls": []
+        },
+        {
+          "qid": "Q18882335",
+          "name": "diseñador de videojuegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Amy Hennig desarrolló una trayectoria centrada en la escritura, la dirección creativa y la narrativa interactiva. Fue guionista y directora de Legacy of Kain: Soul Reaver y dirigió creativamente los dos primeros Uncharted.",
+      "biographyClaims": [
+        {
+          "text": "Amy Hennig desarrolló una trayectoria centrada en la escritura, la dirección creativa y la narrativa interactiva.",
+          "sourceIds": [
+            "PSRC-03B854A9DD75"
+          ]
+        },
+        {
+          "text": "Fue guionista y directora de Legacy of Kain: Soul Reaver y dirigió creativamente los dos primeros Uncharted.",
+          "sourceIds": [
+            "PSRC-03B854A9DD75"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/amy-hennig.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amy_hennig_gdca_2019_cropped.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Official GDC",
+        "credit": "_GEN2277_1",
+        "attributionRequired": true,
+        "sourceId": "PSRC-BE3D0598EDF9"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-D2F1872044CB"
+        ],
+        "life": [
+          "PSRC-D2F1872044CB"
+        ],
+        "originDisplay": [
+          "PSRC-D2F1872044CB"
+        ],
+        "occupations": [
+          "PSRC-D2F1872044CB"
+        ],
+        "biographyEs": [
+          "PSRC-03B854A9DD75"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-03B854A9DD75",
+        "PSRC-D2F1872044CB"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "danielle-bunten-berry",
+      "name": "Danielle Bunten Berry",
+      "qid": "Q11440",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Daniel Paul Bunten",
+        "Dan Bunten"
+      ],
+      "nativeNames": [],
+      "birthDate": "1949-02-19",
+      "birthYear": 1949,
+      "birthPrecision": "DAY",
+      "deathDate": "1998-07-03",
+      "deathYear": 1998,
+      "deathPrecision": "DAY",
+      "lifeStatus": "DECEASED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "San Luis · Estados Unidos",
+      "occupations": [
+        {
+          "qid": "Q82594",
+          "name": "informático teórico",
+          "source_urls": []
+        },
+        {
+          "qid": "Q81096",
+          "name": "ingeniero",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Danielle Bunten Berry diseñó juegos de estrategia y simulación que daban un papel central a la interacción entre jugadores. M.U.L.E. y The Seven Cities of Gold son dos de sus trabajos más influyentes.",
+      "biographyClaims": [
+        {
+          "text": "Danielle Bunten Berry diseñó juegos de estrategia y simulación que daban un papel central a la interacción entre jugadores.",
+          "sourceIds": [
+            "PSRC-9581974AAAA9"
+          ]
+        },
+        {
+          "text": "M.U.L.E. y The Seven Cities of Gold son dos de sus trabajos más influyentes.",
+          "sourceIds": [
+            "PSRC-9581974AAAA9"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PSRC-25072D12071E"
+        ],
+        "life": [
+          "PSRC-25072D12071E"
+        ],
+        "originDisplay": [
+          "PSRC-25072D12071E"
+        ],
+        "occupations": [
+          "PSRC-25072D12071E"
+        ],
+        "biographyEs": [
+          "PSRC-9581974AAAA9"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-25072D12071E",
+        "PSRC-9581974AAAA9"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "gabe-newell",
+      "name": "Gabe Newell",
+      "qid": "Q347418",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Gabe Logan Newell",
+        "Gaben",
+        "GabeN",
+        "Lord Gaben"
+      ],
+      "nativeNames": [
+        "Gabe Newell"
+      ],
+      "birthDate": "1962-11-03",
+      "birthYear": 1962,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Estados Unidos",
+      "occupations": [
+        {
+          "qid": "Q3630699",
+          "name": "diseñador de juegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q5482740",
+          "name": "programador",
+          "source_urls": []
+        },
+        {
+          "qid": "Q131524",
+          "name": "emprendedor",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Gabe Newell impulsó el desarrollo de Half-Life y la expansión de Steam como plataforma de distribución digital. Su trayectoria combina producción de videojuegos, tecnología y dirección empresarial.",
+      "biographyClaims": [
+        {
+          "text": "Gabe Newell impulsó el desarrollo de Half-Life y la expansión de Steam como plataforma de distribución digital.",
+          "sourceIds": [
+            "PSRC-52FBFF4A8A48"
+          ]
+        },
+        {
+          "text": "Su trayectoria combina producción de videojuegos, tecnología y dirección empresarial.",
+          "sourceIds": [
+            "PSRC-52FBFF4A8A48",
+            "PSRC-B28A31CD3EBB"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/gabe-newell.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gabe_Newell_GDC_2010_(cropped_2).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Official GDC",
+        "credit": "https://www.flickr.com/photos/officialgdc/4427575126/",
+        "attributionRequired": true,
+        "sourceId": "PSRC-809C77F63F9F"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-D1CADE948072"
+        ],
+        "life": [
+          "PSRC-D1CADE948072"
+        ],
+        "originDisplay": [
+          "PSRC-D1CADE948072"
+        ],
+        "occupations": [
+          "PSRC-D1CADE948072"
+        ],
+        "biographyEs": [
+          "PSRC-52FBFF4A8A48",
+          "PSRC-B28A31CD3EBB"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-52FBFF4A8A48",
+        "PSRC-B28A31CD3EBB",
+        "PSRC-D1CADE948072"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "gunpei-yokoi",
+      "name": "Gunpei Yokoi",
+      "qid": "Q366261",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Gumpei Yokoi"
+      ],
+      "nativeNames": [
+        "横井 軍平"
+      ],
+      "birthDate": "1941-09-10",
+      "birthYear": 1941,
+      "birthPrecision": "DAY",
+      "deathDate": "1997-10-04",
+      "deathYear": 1997,
+      "deathPrecision": "DAY",
+      "lifeStatus": "DECEASED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Kioto · Japón",
+      "occupations": [
+        {
+          "qid": "Q3630699",
+          "name": "diseñador de juegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q81096",
+          "name": "ingeniero",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Gunpei Yokoi tuvo un papel decisivo en el desarrollo de Game & Watch y Game Boy. También participó como productor en títulos como Metroid.",
+      "biographyClaims": [
+        {
+          "text": "Gunpei Yokoi tuvo un papel decisivo en el desarrollo de Game & Watch y Game Boy.",
+          "sourceIds": [
+            "PSRC-D6B4E7B979BC"
+          ]
+        },
+        {
+          "text": "También participó como productor en títulos como Metroid.",
+          "sourceIds": [
+            "PSRC-D6B4E7B979BC"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PSRC-4ED96FE3493E"
+        ],
+        "life": [
+          "PSRC-4ED96FE3493E"
+        ],
+        "originDisplay": [
+          "PSRC-4ED96FE3493E"
+        ],
+        "occupations": [
+          "PSRC-4ED96FE3493E"
+        ],
+        "biographyEs": [
+          "PSRC-D6B4E7B979BC"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-4ED96FE3493E",
+        "PSRC-D6B4E7B979BC"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "hideo-kojima",
+      "name": "Hideo Kojima",
+      "qid": "Q315577",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Kojima Hideo"
+      ],
+      "nativeNames": [
+        "小島秀夫"
+      ],
+      "birthDate": "1963-08-24",
+      "birthYear": 1963,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Japón",
+      "occupations": [
+        {
+          "qid": "Q18882335",
+          "name": "diseñador de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q2702296",
+          "name": "productor de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q28389",
+          "name": "guionista",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Hideo Kojima dirigió y diseñó Metal Gear, y más tarde dirigió, produjo y escribió Metal Gear Solid. En Death Stranding volvió a combinar dirección, diseño y guion.",
+      "biographyClaims": [
+        {
+          "text": "Hideo Kojima dirigió y diseñó Metal Gear, y más tarde dirigió, produjo y escribió Metal Gear Solid.",
+          "sourceIds": [
+            "PSRC-4FC41B5522CD",
+            "PSRC-DC90759F9CD8"
+          ]
+        },
+        {
+          "text": "En Death Stranding volvió a combinar dirección, diseño y guion.",
+          "sourceIds": [
+            "PSRC-4FC41B5522CD"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/hideo-kojima.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hideo_Kojima_2025_SXSW_(cropped).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Kolby Ari",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "sourceId": "PSRC-86BA0F599AF5"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-94B1B77B7B59"
+        ],
+        "life": [
+          "PSRC-94B1B77B7B59"
+        ],
+        "originDisplay": [
+          "PSRC-94B1B77B7B59"
+        ],
+        "occupations": [
+          "PSRC-94B1B77B7B59"
+        ],
+        "biographyEs": [
+          "PSRC-4FC41B5522CD",
+          "PSRC-DC90759F9CD8"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-4FC41B5522CD",
+        "PSRC-94B1B77B7B59",
+        "PSRC-DC90759F9CD8"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "hidetaka-miyazaki",
+      "name": "Hidetaka Miyazaki",
+      "qid": "Q11454590",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Miyazaki Hidetaka"
+      ],
+      "nativeNames": [
+        "宮崎英高"
+      ],
+      "birthDate": "1974-09-19",
+      "birthYear": 1974,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Shizuoka · Japón",
+      "occupations": [
+        {
+          "qid": "Q18882335",
+          "name": "diseñador de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q3476620",
+          "name": "guionista de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q667982",
+          "name": "director creativo",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Hidetaka Miyazaki dirigió Demon's Souls, Dark Souls y Elden Ring. Su trabajo consolidó una forma de rol de acción basada en observación, riesgo y narración ambiental.",
+      "biographyClaims": [
+        {
+          "text": "Hidetaka Miyazaki dirigió Demon's Souls, Dark Souls y Elden Ring.",
+          "sourceIds": [
+            "PSRC-8C55F77E38F3",
+            "PSRC-C89F1759037D"
+          ]
+        },
+        {
+          "text": "Su trabajo consolidó una forma de rol de acción basada en observación, riesgo y narración ambiental.",
+          "sourceIds": [
+            "PSRC-8C55F77E38F3"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/hidetaka-miyazaki.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hidetaka_Miyazaki,_The_Game_Awards_2022_(cropped).png",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Zion Grassl",
+        "credit": "https://twitter.com/ZionDood/status/1601354162024771585",
+        "attributionRequired": true,
+        "sourceId": "PSRC-EFC2A81F14C1"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-0F5949B9E4F6"
+        ],
+        "life": [
+          "PSRC-0F5949B9E4F6"
+        ],
+        "originDisplay": [
+          "PSRC-0F5949B9E4F6"
+        ],
+        "occupations": [
+          "PSRC-0F5949B9E4F6"
+        ],
+        "biographyEs": [
+          "PSRC-8C55F77E38F3",
+          "PSRC-C89F1759037D"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-0F5949B9E4F6",
+        "PSRC-8C55F77E38F3",
+        "PSRC-C89F1759037D"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "hironobu-sakaguchi",
+      "name": "Hironobu Sakaguchi",
+      "qid": "Q312525",
+      "publicationLevel": "editorial",
+      "aliases": [],
+      "nativeNames": [
+        "坂口 博信"
+      ],
+      "birthDate": "1962-11-25",
+      "birthYear": 1962,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Hitachi · Japón",
+      "occupations": [
+        {
+          "qid": "Q2702296",
+          "name": "productor de videojuegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Hironobu Sakaguchi creó y dirigió el primer Final Fantasy y participó después en Final Fantasy VII como productor y autor del concepto original. Más adelante creó y produjo Lost Odyssey.",
+      "biographyClaims": [
+        {
+          "text": "Hironobu Sakaguchi creó y dirigió el primer Final Fantasy y participó después en Final Fantasy VII como productor y autor del concepto original.",
+          "sourceIds": [
+            "PSRC-6FF005C30280",
+            "PSRC-59E82970A4D8"
+          ]
+        },
+        {
+          "text": "Más adelante creó y produjo Lost Odyssey.",
+          "sourceIds": [
+            "PSRC-6FF005C30280"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/hironobu-sakaguchi.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hironobu_Sakaguchi_20070706_Japan_Expo_2.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist": "Georges Seguin ( Okki )",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "sourceId": "PSRC-88348E308F14"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-A0CE30269AB7"
+        ],
+        "life": [
+          "PSRC-A0CE30269AB7"
+        ],
+        "originDisplay": [
+          "PSRC-A0CE30269AB7"
+        ],
+        "occupations": [
+          "PSRC-A0CE30269AB7"
+        ],
+        "biographyEs": [
+          "PSRC-59E82970A4D8",
+          "PSRC-6FF005C30280"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-59E82970A4D8",
+        "PSRC-6FF005C30280",
+        "PSRC-A0CE30269AB7"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "john-carmack",
+      "name": "John Carmack",
+      "qid": "Q92605",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "john D. Carmack"
+      ],
+      "nativeNames": [
+        "John Carmack"
+      ],
+      "birthDate": "1970-08-21",
+      "birthYear": 1970,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Estados Unidos",
+      "occupations": [
+        {
+          "qid": "Q5287861",
+          "name": "director de tecnología",
+          "source_urls": []
+        },
+        {
+          "qid": "Q5482740",
+          "name": "programador",
+          "source_urls": []
+        },
+        {
+          "qid": "Q81096",
+          "name": "ingeniero",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "John Carmack fue programador principal de Wolfenstein 3D, Doom y Quake y desarrolló tecnología gráfica decisiva para esos títulos. Su carrera posterior también abarcó realidad virtual e ingeniería aeroespacial.",
+      "biographyClaims": [
+        {
+          "text": "John Carmack fue programador principal de Wolfenstein 3D, Doom y Quake y desarrolló tecnología gráfica decisiva para esos títulos.",
+          "sourceIds": [
+            "PSRC-0BACC3D4504B",
+            "PSRC-1B562957AB21"
+          ]
+        },
+        {
+          "text": "Su carrera posterior también abarcó realidad virtual e ingeniería aeroespacial.",
+          "sourceIds": [
+            "PSRC-1B562957AB21"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/john-carmack.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:John_Carmack_2025.jpg",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "artist": "RoboSabs",
+        "credit": "Own work",
+        "attributionRequired": false,
+        "sourceId": "PSRC-FD4B021D93CC"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-00F54E635911"
+        ],
+        "life": [
+          "PSRC-00F54E635911"
+        ],
+        "originDisplay": [
+          "PSRC-00F54E635911"
+        ],
+        "occupations": [
+          "PSRC-00F54E635911"
+        ],
+        "biographyEs": [
+          "PSRC-0BACC3D4504B",
+          "PSRC-1B562957AB21"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-00F54E635911",
+        "PSRC-0BACC3D4504B",
+        "PSRC-1B562957AB21"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "john-romero",
+      "name": "John Romero",
+      "qid": "Q280045",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Alfonso John Romero"
+      ],
+      "nativeNames": [],
+      "birthDate": "1967-10-28",
+      "birthYear": 1967,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Estados Unidos",
+      "occupations": [
+        {
+          "qid": "Q863368",
+          "name": "programador de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q63538345",
+          "name": "director de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "",
+          "name": "diseñador de juegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "John Romero combinó diseño, programación y dirección en Wolfenstein 3D, Doom y Quake. Su trabajo es especialmente reconocido por el diseño y el ritmo de niveles de acción en primera persona.",
+      "biographyClaims": [
+        {
+          "text": "John Romero combinó diseño, programación y dirección en Wolfenstein 3D, Doom y Quake.",
+          "sourceIds": [
+            "PSRC-C14DC6C48CEB"
+          ]
+        },
+        {
+          "text": "Su trabajo es especialmente reconocido por el diseño y el ritmo de niveles de acción en primera persona.",
+          "sourceIds": [
+            "PSRC-C14DC6C48CEB"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/john-romero.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:John_Romero_-_GDC_2022_(cropped).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Official GDC",
+        "credit": "https://www.flickr.com/photos/officialgdc/51957328405/",
+        "attributionRequired": true,
+        "sourceId": "PSRC-AFE7934A591C"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-AB13B31C49B8"
+        ],
+        "life": [
+          "PSRC-AB13B31C49B8"
+        ],
+        "originDisplay": [
+          "PSRC-AB13B31C49B8"
+        ],
+        "occupations": [
+          "PSRC-AB13B31C49B8"
+        ],
+        "biographyEs": [
+          "PSRC-C14DC6C48CEB"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-AB13B31C49B8",
+        "PSRC-C14DC6C48CEB"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "ken-kutaragi",
+      "name": "Ken Kutaragi",
+      "qid": "Q557018",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "\"Padre de la Playstation\"",
+        "Kutaragi Ken"
+      ],
+      "nativeNames": [
+        "久夛良木 健"
+      ],
+      "birthDate": "1950-08-02",
+      "birthYear": 1950,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Tokio · Japón",
+      "occupations": [
+        {
+          "qid": "Q205375",
+          "name": "inventor",
+          "source_urls": []
+        },
+        {
+          "qid": "Q43845",
+          "name": "empresario",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Ken Kutaragi lideró el proyecto tecnológico que desembocó en la primera PlayStation. Después ocupó la presidencia y la dirección ejecutiva durante la expansión de las siguientes generaciones de la plataforma.",
+      "biographyClaims": [
+        {
+          "text": "Ken Kutaragi lideró el proyecto tecnológico que desembocó en la primera PlayStation.",
+          "sourceIds": [
+            "PSRC-BFD017BD9439"
+          ]
+        },
+        {
+          "text": "Después ocupó la presidencia y la dirección ejecutiva durante la expansión de las siguientes generaciones de la plataforma.",
+          "sourceIds": [
+            "PSRC-BFD017BD9439"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/ken-kutaragi.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ken_kutaragi.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Joi Ito",
+        "credit": "flickr (cropped)",
+        "attributionRequired": true,
+        "sourceId": "PSRC-A21539E0C626"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-0A9E608A331B"
+        ],
+        "life": [
+          "PSRC-0A9E608A331B"
+        ],
+        "originDisplay": [
+          "PSRC-0A9E608A331B"
+        ],
+        "occupations": [
+          "PSRC-0A9E608A331B"
+        ],
+        "biographyEs": [
+          "PSRC-BFD017BD9439"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-0A9E608A331B",
+        "PSRC-BFD017BD9439"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "ralph-h-baer",
+      "name": "Ralph H. Baer",
+      "qid": "Q70997",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Ralph H Baer",
+        "Ralph Baer",
+        "Ralph Hendrikson Baer",
+        "Ralph Henry Baer",
+        "Rudolf Henric Baer"
+      ],
+      "nativeNames": [
+        "Ralph H. Baer"
+      ],
+      "birthDate": "1922-03-08",
+      "birthYear": 1922,
+      "birthPrecision": "DAY",
+      "deathDate": "2014-12-06",
+      "deathYear": 2014,
+      "deathPrecision": "DAY",
+      "lifeStatus": "DECEASED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Rodalben · Estados Unidos",
+      "occupations": [
+        {
+          "qid": "Q205375",
+          "name": "inventor",
+          "source_urls": []
+        },
+        {
+          "qid": "Q1326886",
+          "name": "ingeniero eléctrico",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Ralph H. Baer desarrolló junto a su equipo la Brown Box, prototipo que sirvió de base para Magnavox Odyssey en 1972. También participó en la creación del juego electrónico Simon.",
+      "biographyClaims": [
+        {
+          "text": "Ralph H. Baer desarrolló junto a su equipo la Brown Box, prototipo que sirvió de base para Magnavox Odyssey en 1972.",
+          "sourceIds": [
+            "PSRC-BF298F3F59D0"
+          ]
+        },
+        {
+          "text": "También participó en la creación del juego electrónico Simon.",
+          "sourceIds": [
+            "PSRC-579D98C2E22A"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/ralph-h-baer.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ralph-Baer.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "artist": "Michael Schilling",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "sourceId": "PSRC-8E8ECBE9C9AE"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-4AE63851F306"
+        ],
+        "life": [
+          "PSRC-4AE63851F306"
+        ],
+        "originDisplay": [
+          "PSRC-4AE63851F306"
+        ],
+        "occupations": [
+          "PSRC-4AE63851F306"
+        ],
+        "biographyEs": [
+          "PSRC-579D98C2E22A",
+          "PSRC-BF298F3F59D0"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-4AE63851F306",
+        "PSRC-579D98C2E22A",
+        "PSRC-BF298F3F59D0"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "richard-garriott",
+      "name": "Richard Garriott",
+      "qid": "Q319269",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Richard Garriot",
+        "Richard Allen Garriott",
+        "Richard Garriott de Cayeux",
+        "Lord British",
+        "General British",
+        "Richard Allen Garriott de Cayeux"
+      ],
+      "nativeNames": [
+        "Richard Allen Garriott"
+      ],
+      "birthDate": "1961-07-04",
+      "birthYear": 1961,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Cambridge · Reino Unido",
+      "occupations": [
+        {
+          "qid": "Q5482740",
+          "name": "programador",
+          "source_urls": []
+        },
+        {
+          "qid": "Q58287519",
+          "name": "desarrollador de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q3630699",
+          "name": "diseñador de juegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Richard Garriott creó Ultima y participó en el desarrollo de Ultima Online. Su trayectoria combina diseño de mundos, producción y proyectos de exploración espacial.",
+      "biographyClaims": [
+        {
+          "text": "Richard Garriott creó Ultima y participó en el desarrollo de Ultima Online.",
+          "sourceIds": [
+            "PSRC-53B44CFE322A"
+          ]
+        },
+        {
+          "text": "Su trayectoria combina diseño de mundos, producción y proyectos de exploración espacial.",
+          "sourceIds": [
+            "PSRC-53B44CFE322A"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/richard-garriott.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Richard_garriott_july_2008.jpg",
+        "license": "Public domain",
+        "licenseUrl": null,
+        "artist": "NASA",
+        "credit": "http://spaceflight.nasa.gov/gallery/images/station/crew-18/html/jsc2008e056334.html",
+        "attributionRequired": false,
+        "sourceId": "PSRC-FFF3CF6F9351"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-18C5CAD11C16"
+        ],
+        "life": [
+          "PSRC-18C5CAD11C16"
+        ],
+        "originDisplay": [
+          "PSRC-18C5CAD11C16"
+        ],
+        "occupations": [
+          "PSRC-18C5CAD11C16"
+        ],
+        "biographyEs": [
+          "PSRC-53B44CFE322A"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-18C5CAD11C16",
+        "PSRC-53B44CFE322A"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "rieko-kodama",
+      "name": "Rieko Kodama",
+      "qid": "Q7333106",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Phenix Rie",
+        "Phoenix Rie"
+      ],
+      "nativeNames": [
+        "小玉 理恵子"
+      ],
+      "birthDate": "1963-05-23",
+      "birthYear": 1963,
+      "birthPrecision": "DAY",
+      "deathDate": "2022-05-09",
+      "deathYear": 2022,
+      "deathPrecision": "DAY",
+      "lifeStatus": "DECEASED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Yokosuka · Japón",
+      "occupations": [
+        {
+          "qid": "Q3191582",
+          "name": "artista de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q63538345",
+          "name": "director de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q2702296",
+          "name": "productor de videojuegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Rieko Kodama trabajó como artista y diseñadora en Phantasy Star, dirigió Phantasy Star IV y produjo Skies of Arcadia. Su trayectoria recorrió varias generaciones de juegos de rol japoneses.",
+      "biographyClaims": [
+        {
+          "text": "Rieko Kodama trabajó como artista y diseñadora en Phantasy Star, dirigió Phantasy Star IV y produjo Skies of Arcadia.",
+          "sourceIds": [
+            "PSRC-31D2244D825D"
+          ]
+        },
+        {
+          "text": "Su trayectoria recorrió varias generaciones de juegos de rol japoneses.",
+          "sourceIds": [
+            "PSRC-31D2244D825D",
+            "PSRC-12D2EA8E6338"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PSRC-0F966B7A1E3A"
+        ],
+        "life": [
+          "PSRC-0F966B7A1E3A"
+        ],
+        "originDisplay": [
+          "PSRC-0F966B7A1E3A"
+        ],
+        "occupations": [
+          "PSRC-0F966B7A1E3A"
+        ],
+        "biographyEs": [
+          "PSRC-12D2EA8E6338",
+          "PSRC-31D2244D825D"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-0F966B7A1E3A",
+        "PSRC-12D2EA8E6338",
+        "PSRC-31D2244D825D"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "roberta-williams",
+      "name": "Roberta Williams",
+      "qid": "Q55176",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Roberta Heuer Williams"
+      ],
+      "nativeNames": [
+        "Roberta Lynn Williams"
+      ],
+      "birthDate": "1953-02-16",
+      "birthYear": 1953,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "California · Estados Unidos",
+      "occupations": [
+        {
+          "qid": "Q18882335",
+          "name": "diseñador de videojuegos",
+          "source_urls": [
+            "https://arstechnica.com/gaming/2022/04/roberta-and-ken-williams-open-up-about-their-first-video-game-in-25-years"
+          ]
+        },
+        {
+          "qid": "Q36180",
+          "name": "escritor",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Roberta Williams diseñó y escribió Mystery House y King's Quest. Más tarde dirigió, diseñó y escribió Phantasmagoria, una producción de terror de gran escala para su época.",
+      "biographyClaims": [
+        {
+          "text": "Roberta Williams diseñó y escribió Mystery House y King's Quest.",
+          "sourceIds": [
+            "PSRC-3492041D062F"
+          ]
+        },
+        {
+          "text": "Más tarde dirigió, diseñó y escribió Phantasmagoria, una producción de terror de gran escala para su época.",
+          "sourceIds": [
+            "PSRC-3492041D062F"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/roberta-williams.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Roberta_Williams_Adventure_Game_Fan_Fair_Tacoma_Washington_July_2024_(cropped).jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "artist": "Guywelch2000",
+        "credit": "Own work",
+        "attributionRequired": true,
+        "sourceId": "PSRC-AB494116EA1F"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-A9FD35952D74"
+        ],
+        "life": [
+          "PSRC-A9FD35952D74"
+        ],
+        "originDisplay": [
+          "PSRC-A9FD35952D74"
+        ],
+        "occupations": [
+          "PSRC-A9FD35952D74"
+        ],
+        "biographyEs": [
+          "PSRC-3492041D062F"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-3492041D062F",
+        "PSRC-A9FD35952D74"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "satoru-iwata",
+      "name": "Satoru Iwata",
+      "qid": "Q316013",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Iwata Satoru",
+        "Iwata"
+      ],
+      "nativeNames": [
+        "岩田 聡"
+      ],
+      "birthDate": "1959-12-06",
+      "birthYear": 1959,
+      "birthPrecision": "DAY",
+      "deathDate": "2015-07-11",
+      "deathYear": 2015,
+      "deathPrecision": "DAY",
+      "lifeStatus": "DECEASED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Sapporo · Japón",
+      "occupations": [
+        {
+          "qid": "Q863368",
+          "name": "programador de videojuegos",
+          "source_urls": [
+            "https://www.gamasutra.com/view/news/248403/Satoru_Iwata_in_quotes_The_personality_the_programmer_the_leader.php"
+          ]
+        },
+        {
+          "qid": "Q2702296",
+          "name": "productor de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q1053574",
+          "name": "productor ejecutivo",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Satoru Iwata comenzó como programador y llegó a presidir HAL Laboratory antes de asumir responsabilidades ejecutivas de alcance internacional. Durante su etapa como presidente impulsó Nintendo DS y Wii y mantuvo un contacto público directo mediante entrevistas técnicas y presentaciones.",
+      "biographyClaims": [
+        {
+          "text": "Satoru Iwata comenzó como programador y llegó a presidir HAL Laboratory antes de asumir responsabilidades ejecutivas de alcance internacional.",
+          "sourceIds": [
+            "PSRC-B73FD9C26629"
+          ]
+        },
+        {
+          "text": "Durante su etapa como presidente impulsó Nintendo DS y Wii y mantuvo un contacto público directo mediante entrevistas técnicas y presentaciones.",
+          "sourceIds": [
+            "PSRC-B73FD9C26629",
+            "PSRC-B63439B07F28"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/satoru-iwata.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Satoru_Iwata_-_Game_Developers_Conference_2011_-_Day_2_(1).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Official GDC",
+        "credit": "Flickr : GDC 2011 3/2 (day 2)",
+        "attributionRequired": true,
+        "sourceId": "PSRC-B058BC232211"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-618584201394"
+        ],
+        "life": [
+          "PSRC-618584201394"
+        ],
+        "originDisplay": [
+          "PSRC-618584201394"
+        ],
+        "occupations": [
+          "PSRC-618584201394"
+        ],
+        "biographyEs": [
+          "PSRC-B63439B07F28",
+          "PSRC-B73FD9C26629"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-618584201394",
+        "PSRC-B63439B07F28",
+        "PSRC-B73FD9C26629"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "satoshi-tajiri",
+      "name": "Satoshi Tajiri",
+      "qid": "Q295218",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Tajiri Satoshi"
+      ],
+      "nativeNames": [
+        "田尻 智"
+      ],
+      "birthDate": "1965-08-28",
+      "birthYear": 1965,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Tokio · Japón",
+      "occupations": [
+        {
+          "qid": "Q63538345",
+          "name": "director de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q58287519",
+          "name": "desarrollador de videojuegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Satoshi Tajiri concibió Pokémon y dirigió Pokémon Red and Green, publicados en Japón en 1996. La idea de intercambiar criaturas mediante el cable de Game Boy fue central en el proyecto.",
+      "biographyClaims": [
+        {
+          "text": "Satoshi Tajiri concibió Pokémon y dirigió Pokémon Red and Green, publicados en Japón en 1996.",
+          "sourceIds": [
+            "PSRC-1D3FFD4FDD91"
+          ]
+        },
+        {
+          "text": "La idea de intercambiar criaturas mediante el cable de Game Boy fue central en el proyecto.",
+          "sourceIds": [
+            "PSRC-1D3FFD4FDD91"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": null,
+      "fieldSources": {
+        "identity": [
+          "PSRC-6E54D10AE6B2"
+        ],
+        "life": [
+          "PSRC-6E54D10AE6B2"
+        ],
+        "originDisplay": [
+          "PSRC-6E54D10AE6B2"
+        ],
+        "occupations": [
+          "PSRC-6E54D10AE6B2"
+        ],
+        "biographyEs": [
+          "PSRC-1D3FFD4FDD91"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-1D3FFD4FDD91",
+        "PSRC-6E54D10AE6B2"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "shigeru-miyamoto",
+      "name": "Shigeru Miyamoto",
+      "qid": "Q12382",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Miyamoto Shigeru"
+      ],
+      "nativeNames": [
+        "宮本茂"
+      ],
+      "birthDate": "1952-11-16",
+      "birthYear": 1952,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Kioto · Japón",
+      "occupations": [
+        {
+          "qid": "Q18882335",
+          "name": "diseñador de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q2702296",
+          "name": "productor de videojuegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Shigeru Miyamoto dirigió y diseñó Donkey Kong y participó de forma decisiva en Super Mario Bros. y The Legend of Zelda. Su trabajo posterior incluye la creación y producción de Pikmin.",
+      "biographyClaims": [
+        {
+          "text": "Shigeru Miyamoto dirigió y diseñó Donkey Kong y participó de forma decisiva en Super Mario Bros. y The Legend of Zelda.",
+          "sourceIds": [
+            "PSRC-BE4664D1F643",
+            "PSRC-C34C11C1CC06"
+          ]
+        },
+        {
+          "text": "Su trabajo posterior incluye la creación y producción de Pikmin.",
+          "sourceIds": [
+            "PSRC-BE4664D1F643"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/shigeru-miyamoto.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shigeru_Miyamoto_20150610_(cropped).jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "artist": "Minister's Secretariat Personnel Division",
+        "credit": "令和元年度 文化功労者：文部科学省",
+        "attributionRequired": true,
+        "sourceId": "PSRC-915FC421E2BB"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-C9B3621D13EF"
+        ],
+        "life": [
+          "PSRC-C9B3621D13EF"
+        ],
+        "originDisplay": [
+          "PSRC-C9B3621D13EF"
+        ],
+        "occupations": [
+          "PSRC-C9B3621D13EF"
+        ],
+        "biographyEs": [
+          "PSRC-BE4664D1F643",
+          "PSRC-C34C11C1CC06"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-BE4664D1F643",
+        "PSRC-C34C11C1CC06",
+        "PSRC-C9B3621D13EF"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "shinji-mikami",
+      "name": "Shinji Mikami",
+      "qid": "Q741631",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Mikami Shinji"
+      ],
+      "nativeNames": [
+        "三上真司"
+      ],
+      "birthDate": "1965-08-11",
+      "birthYear": 1965,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Iwakuni · Japón",
+      "occupations": [
+        {
+          "qid": "Q2702296",
+          "name": "productor de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q18882335",
+          "name": "diseñador de videojuegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Shinji Mikami dirigió Resident Evil y Resident Evil 4. Su trabajo ayudó a definir primero el survival horror y después una influyente perspectiva de acción en tercera persona.",
+      "biographyClaims": [
+        {
+          "text": "Shinji Mikami dirigió Resident Evil y Resident Evil 4.",
+          "sourceIds": [
+            "PSRC-14AB65604ABC"
+          ]
+        },
+        {
+          "text": "Su trabajo ayudó a definir primero el survival horror y después una influyente perspectiva de acción en tercera persona.",
+          "sourceIds": [
+            "PSRC-14AB65604ABC"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/shinji-mikami.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinji_Mikami_April_2013_3.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "artist": "Antonio Fucito",
+        "credit": "https://www.flickr.com/photos/tanzen80/8679754601/",
+        "attributionRequired": true,
+        "sourceId": "PSRC-ED13540CA7AB"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-2ADBF9AFB65A"
+        ],
+        "life": [
+          "PSRC-2ADBF9AFB65A"
+        ],
+        "originDisplay": [
+          "PSRC-2ADBF9AFB65A"
+        ],
+        "occupations": [
+          "PSRC-2ADBF9AFB65A"
+        ],
+        "biographyEs": [
+          "PSRC-14AB65604ABC"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-14AB65604ABC",
+        "PSRC-2ADBF9AFB65A"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "sid-meier",
+      "name": "Sid Meier",
+      "qid": "Q92616",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Sidney K. \"Sid\" Meier"
+      ],
+      "nativeNames": [
+        "Sid Meier"
+      ],
+      "birthDate": "1954-02-24",
+      "birthYear": 1954,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Canadá · Estados Unidos",
+      "occupations": [
+        {
+          "qid": "Q18882335",
+          "name": "diseñador de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q5482740",
+          "name": "programador",
+          "source_urls": []
+        },
+        {
+          "qid": "Q2702296",
+          "name": "productor de videojuegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Sid Meier diseñó y programó Pirates!, Railroad Tycoon y Civilization. Su obra convirtió procesos históricos y técnicos en sistemas de decisiones accesibles para el jugador.",
+      "biographyClaims": [
+        {
+          "text": "Sid Meier diseñó y programó Pirates!, Railroad Tycoon y Civilization.",
+          "sourceIds": [
+            "PSRC-0778444EB8B1",
+            "PSRC-030BCE3A30BC"
+          ]
+        },
+        {
+          "text": "Su obra convirtió procesos históricos y técnicos en sistemas de decisiones accesibles para el jugador.",
+          "sourceIds": [
+            "PSRC-030BCE3A30BC"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/sid-meier.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sid_Meier_2015-02-25_(cropped).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "artist": "Guerric",
+        "credit": "Sid Meier",
+        "attributionRequired": true,
+        "sourceId": "PSRC-5F182CB2666F"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-370273AAF931"
+        ],
+        "life": [
+          "PSRC-370273AAF931"
+        ],
+        "originDisplay": [
+          "PSRC-370273AAF931"
+        ],
+        "occupations": [
+          "PSRC-370273AAF931"
+        ],
+        "biographyEs": [
+          "PSRC-030BCE3A30BC",
+          "PSRC-0778444EB8B1"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-030BCE3A30BC",
+        "PSRC-0778444EB8B1",
+        "PSRC-370273AAF931"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "tim-sweeney",
+      "name": "Tim Sweeney",
+      "qid": "Q323671",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Timothy Dean Sweeney",
+        "Tim Epic"
+      ],
+      "nativeNames": [
+        "Tim Sweeney"
+      ],
+      "birthDate": "1970",
+      "birthYear": 1970,
+      "birthPrecision": "YEAR",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Estados Unidos",
+      "occupations": [
+        {
+          "qid": "Q43845",
+          "name": "empresario",
+          "source_urls": []
+        },
+        {
+          "qid": "Q58287519",
+          "name": "desarrollador de videojuegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Tim Sweeney fundó Epic Games en 1991 y continúa como su director ejecutivo. Su trayectoria técnica está vinculada a ZZT y al desarrollo inicial de Unreal Engine.",
+      "biographyClaims": [
+        {
+          "text": "Tim Sweeney fundó Epic Games en 1991 y continúa como su director ejecutivo.",
+          "sourceIds": [
+            "PSRC-487FA7781E2A"
+          ]
+        },
+        {
+          "text": "Su trayectoria técnica está vinculada a ZZT y al desarrollo inicial de Unreal Engine.",
+          "sourceIds": [
+            "PSRC-487FA7781E2A"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/tim-sweeney.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tim_Sweeney,_GDCA_2017_(portrait_crop).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Official GDC",
+        "credit": "_DSC5777",
+        "attributionRequired": true,
+        "sourceId": "PSRC-FDA42F971CCD"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-591FE8C85AB4"
+        ],
+        "life": [
+          "PSRC-591FE8C85AB4"
+        ],
+        "originDisplay": [
+          "PSRC-591FE8C85AB4"
+        ],
+        "occupations": [
+          "PSRC-591FE8C85AB4"
+        ],
+        "biographyEs": [
+          "PSRC-487FA7781E2A"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-487FA7781E2A",
+        "PSRC-591FE8C85AB4"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "toru-iwatani",
+      "name": "Tōru Iwatani",
+      "qid": "Q956020",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Toru Iwatani",
+        "Touru Iwatani",
+        "Iwatani Tōru"
+      ],
+      "nativeNames": [
+        "岩谷徹"
+      ],
+      "birthDate": "1955-01-25",
+      "birthYear": 1955,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Tokio · Japón",
+      "occupations": [
+        {
+          "qid": "Q18882335",
+          "name": "diseñador de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q37226",
+          "name": "profesor",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Tōru Iwatani creó y diseñó Pac-Man, estrenado en 1980. El juego combinó un laberinto legible, persecución y cambios de situación mediante las píldoras de poder.",
+      "biographyClaims": [
+        {
+          "text": "Tōru Iwatani creó y diseñó Pac-Man, estrenado en 1980.",
+          "sourceIds": [
+            "PSRC-ACA49175A2F4"
+          ]
+        },
+        {
+          "text": "El juego combinó un laberinto legible, persecución y cambios de situación mediante las píldoras de poder.",
+          "sourceIds": [
+            "PSRC-ACA49175A2F4"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/toru-iwatani.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toru_Iwatani_Gamelab_Barcelona_2015_(crop).png",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "artist": "Amadalvarez",
+        "credit": "This image has been extracted from another file",
+        "attributionRequired": true,
+        "sourceId": "PSRC-EB3F4B378341"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-044E811E20B2"
+        ],
+        "life": [
+          "PSRC-044E811E20B2"
+        ],
+        "originDisplay": [
+          "PSRC-044E811E20B2"
+        ],
+        "occupations": [
+          "PSRC-044E811E20B2"
+        ],
+        "biographyEs": [
+          "PSRC-ACA49175A2F4"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-044E811E20B2",
+        "PSRC-ACA49175A2F4"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "will-wright",
+      "name": "Will Wright",
+      "qid": "Q309493",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "William R. Wright",
+        "William Ralph Wright",
+        "William Ralph, Jr. Wright"
+      ],
+      "nativeNames": [
+        "Will Wright"
+      ],
+      "birthDate": "1960-01-20",
+      "birthYear": 1960,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Atlanta · Estados Unidos",
+      "occupations": [
+        {
+          "qid": "Q3630699",
+          "name": "diseñador de juegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q58287519",
+          "name": "desarrollador de videojuegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Will Wright diseñó SimCity y creó The Sims, dos referentes de la simulación de sistemas y vida cotidiana. Más tarde fue el diseñador principal de Spore.",
+      "biographyClaims": [
+        {
+          "text": "Will Wright diseñó SimCity y creó The Sims, dos referentes de la simulación de sistemas y vida cotidiana.",
+          "sourceIds": [
+            "PSRC-030BCE3A30BC"
+          ]
+        },
+        {
+          "text": "Más tarde fue el diseñador principal de Spore.",
+          "sourceIds": [
+            "PSRC-030BCE3A30BC"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/will-wright.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Will_Wright_-_Game_Developers_Conference_2010_(2).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Official GDC",
+        "credit": "Game Developers Choice Awards @ GDC 2010",
+        "attributionRequired": true,
+        "sourceId": "PSRC-C99EE5807CBF"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-AE3021614037"
+        ],
+        "life": [
+          "PSRC-AE3021614037"
+        ],
+        "originDisplay": [
+          "PSRC-AE3021614037"
+        ],
+        "occupations": [
+          "PSRC-AE3021614037"
+        ],
+        "biographyEs": [
+          "PSRC-030BCE3A30BC"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-030BCE3A30BC",
+        "PSRC-AE3021614037"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "yoko-taro",
+      "name": "Yoko Taro",
+      "qid": "Q11542446",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Taro Yoko"
+      ],
+      "nativeNames": [
+        "横尾太郎"
+      ],
+      "birthDate": "1970-06-06",
+      "birthYear": 1970,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Nagoya · Japón",
+      "occupations": [
+        {
+          "qid": "Q3476620",
+          "name": "guionista de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q18882335",
+          "name": "diseñador de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "Q63538345",
+          "name": "director de videojuegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Yoko Taro dirigió y escribió Drakengard, NieR y NieR: Automata. Sus juegos recurren a múltiples finales y cambios de perspectiva para desarrollar sus relatos.",
+      "biographyClaims": [
+        {
+          "text": "Yoko Taro dirigió y escribió Drakengard, NieR y NieR: Automata.",
+          "sourceIds": [
+            "PSRC-531D807C05F2"
+          ]
+        },
+        {
+          "text": "Sus juegos recurren a múltiples finales y cambios de perspectiva para desarrollar sus relatos.",
+          "sourceIds": [
+            "PSRC-531D807C05F2"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/yoko-taro.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yoko_Taro_cropped.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Axem Titanium",
+        "credit": "Cropped from File:GDCA - Yoko Taro.jpg",
+        "attributionRequired": true,
+        "sourceId": "PSRC-B81311B2D753"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-EF97D3BC6F24"
+        ],
+        "life": [
+          "PSRC-EF97D3BC6F24"
+        ],
+        "originDisplay": [
+          "PSRC-EF97D3BC6F24"
+        ],
+        "occupations": [
+          "PSRC-EF97D3BC6F24"
+        ],
+        "biographyEs": [
+          "PSRC-531D807C05F2"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-531D807C05F2",
+        "PSRC-EF97D3BC6F24"
+      ],
+      "lastChecked": "2026-09-04"
+    },
+    {
+      "slug": "yu-suzuki",
+      "name": "Yū Suzuki",
+      "qid": "Q282263",
+      "publicationLevel": "editorial",
+      "aliases": [
+        "Yu Suzuki",
+        "Yuu Suzuki"
+      ],
+      "nativeNames": [
+        "鈴木裕"
+      ],
+      "birthDate": "1958-06-10",
+      "birthYear": 1958,
+      "birthPrecision": "DAY",
+      "deathDate": null,
+      "deathYear": null,
+      "deathPrecision": null,
+      "lifeStatus": "NO_DEATH_RECORDED",
+      "birthPlace": null,
+      "citizenships": [],
+      "originDisplay": "Kamaishi · Japón",
+      "occupations": [
+        {
+          "qid": "Q2702296",
+          "name": "productor de videojuegos",
+          "source_urls": []
+        },
+        {
+          "qid": "",
+          "name": "director de videojuegos",
+          "source_urls": []
+        }
+      ],
+      "fieldsOfWork": [],
+      "education": [],
+      "careerStart": null,
+      "careerEnd": null,
+      "officialWebsites": [],
+      "biographyEs": "Yū Suzuki dirigió y produjo Out Run, Virtua Fighter y Shenmue. Su carrera conecta las grandes cabinas recreativas con proyectos narrativos de mundo abierto.",
+      "biographyClaims": [
+        {
+          "text": "Yū Suzuki dirigió y produjo Out Run, Virtua Fighter y Shenmue.",
+          "sourceIds": [
+            "PSRC-12D2EA8E6338",
+            "PSRC-31D2244D825D"
+          ]
+        },
+        {
+          "text": "Su carrera conecta las grandes cabinas recreativas con proyectos narrativos de mundo abierto.",
+          "sourceIds": [
+            "PSRC-12D2EA8E6338"
+          ]
+        }
+      ],
+      "careerSummaryEs": null,
+      "industryImpactEs": null,
+      "publicReceptionEs": null,
+      "portrait": {
+        "path": "/person-portraits/yu-suzuki.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yu_Suzuki_-_Game_Developers_Conference_2011_-_Day_3.jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "artist": "Yu Suzuki - Game Developers Conference 2011 - Day 3 (2).jpg : Official GDC derivative work: Masem",
+        "credit": "This file was derived from: Yu Suzuki - Game Developers Conference 2011 - Day 3 (2).jpg",
+        "attributionRequired": true,
+        "sourceId": "PSRC-5FA667C3CED7"
+      },
+      "fieldSources": {
+        "identity": [
+          "PSRC-8E6D1382A3E7"
+        ],
+        "life": [
+          "PSRC-8E6D1382A3E7"
+        ],
+        "originDisplay": [
+          "PSRC-8E6D1382A3E7"
+        ],
+        "occupations": [
+          "PSRC-8E6D1382A3E7"
+        ],
+        "biographyEs": [
+          "PSRC-12D2EA8E6338",
+          "PSRC-31D2244D825D"
+        ]
+      },
+      "sourceIds": [
+        "PSRC-12D2EA8E6338",
+        "PSRC-31D2244D825D",
+        "PSRC-8E6D1382A3E7"
+      ],
+      "lastChecked": "2026-09-04"
+    }
+  ],
+  "companyRelations": [
+    {
+      "id": "PCR-00009",
+      "personSlug": "satoru-iwata",
+      "companySlug": "hal-laboratory",
+      "companyName": "HAL Laboratory",
+      "role": "PRESIDENT_AND_DEVELOPER",
+      "roleLabelEs": "Programador y presidente",
+      "start": null,
+      "end": "2000",
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PSRC-B73FD9C26629",
+      "relationOrigin": "COMPANY_RESEARCH_PACKAGE",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    },
+    {
+      "id": "PCR-00261",
+      "personSlug": "tim-sweeney",
+      "companySlug": "epic-games",
+      "companyName": "Epic Games",
+      "role": "FOUNDER",
+      "roleLabelEs": "Fundador/a",
+      "start": "1991",
+      "end": null,
+      "pointInTime": null,
+      "confidence": "HIGH",
+      "sourceId": "PSRC-487FA7781E2A",
+      "relationOrigin": "COMPANY_RESEARCH_PACKAGE",
+      "verificationStatus": "INDEPENDENT_SOURCE_VERIFIED"
+    }
+  ],
+  "positions": [],
+  "exactCredits": [
+    {
+      "id": "PWORK-00012",
+      "personSlug": "aleksei-pazhitnov",
+      "workQid": null,
+      "title": "Tetris",
+      "year": 1984,
+      "role": "CREACIÓN_Y_PROGRAMACIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-18D2AE875D16"
+    },
+    {
+      "id": "PWORK-00020",
+      "personSlug": "amy-hennig",
+      "workQid": null,
+      "title": "Legacy of Kain: Soul Reaver",
+      "year": 1999,
+      "role": "DIRECCIÓN_Y_GUION",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-03B854A9DD75"
+    },
+    {
+      "id": "PWORK-00021",
+      "personSlug": "amy-hennig",
+      "workQid": null,
+      "title": "Uncharted: Drake's Fortune",
+      "year": 2007,
+      "role": "DIRECCIÓN_Y_GUION",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-03B854A9DD75"
+    },
+    {
+      "id": "PWORK-00022",
+      "personSlug": "amy-hennig",
+      "workQid": null,
+      "title": "Uncharted 2: Among Thieves",
+      "year": 2009,
+      "role": "DIRECCIÓN_CREATIVA_Y_GUION",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-03B854A9DD75"
+    },
+    {
+      "id": "PWORK-00035",
+      "personSlug": "danielle-bunten-berry",
+      "workQid": null,
+      "title": "M.U.L.E.",
+      "year": 1983,
+      "role": "DISEÑO_Y_DIRECCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-9581974AAAA9"
+    },
+    {
+      "id": "PWORK-00036",
+      "personSlug": "danielle-bunten-berry",
+      "workQid": null,
+      "title": "The Seven Cities of Gold",
+      "year": 1984,
+      "role": "DISEÑO_Y_DIRECCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-9581974AAAA9"
+    },
+    {
+      "id": "PWORK-00051",
+      "personSlug": "gabe-newell",
+      "workQid": null,
+      "title": "Half-Life",
+      "year": 1998,
+      "role": "LIDERAZGO_EMPRESARIAL_Y_PRODUCCIÓN_EJECUTIVA",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-52FBFF4A8A48"
+    },
+    {
+      "id": "PWORK-00052",
+      "personSlug": "gabe-newell",
+      "workQid": null,
+      "title": "Steam",
+      "year": 2003,
+      "role": "LIDERAZGO_EMPRESARIAL",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-52FBFF4A8A48"
+    },
+    {
+      "id": "PWORK-00060",
+      "personSlug": "gunpei-yokoi",
+      "workQid": null,
+      "title": "Game & Watch",
+      "year": 1980,
+      "role": "CONCEPTO_Y_PRODUCCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-D6B4E7B979BC"
+    },
+    {
+      "id": "PWORK-00061",
+      "personSlug": "gunpei-yokoi",
+      "workQid": null,
+      "title": "Game Boy",
+      "year": 1989,
+      "role": "LIDERAZGO_DE_DESARROLLO",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-D6B4E7B979BC"
+    },
+    {
+      "id": "PWORK-00062",
+      "personSlug": "gunpei-yokoi",
+      "workQid": null,
+      "title": "Metroid",
+      "year": 1986,
+      "role": "PRODUCCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-D6B4E7B979BC"
+    },
+    {
+      "id": "PWORK-00069",
+      "personSlug": "hideo-kojima",
+      "workQid": null,
+      "title": "Metal Gear",
+      "year": 1987,
+      "role": "DIRECCIÓN_Y_DISEÑO",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-4FC41B5522CD"
+    },
+    {
+      "id": "PWORK-00070",
+      "personSlug": "hideo-kojima",
+      "workQid": null,
+      "title": "Metal Gear Solid",
+      "year": 1998,
+      "role": "DIRECCIÓN_PRODUCCIÓN_Y_GUION",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-4FC41B5522CD"
+    },
+    {
+      "id": "PWORK-00071",
+      "personSlug": "hideo-kojima",
+      "workQid": null,
+      "title": "Death Stranding",
+      "year": 2019,
+      "role": "DIRECCIÓN_DISEÑO_Y_GUION",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-4FC41B5522CD"
+    },
+    {
+      "id": "PWORK-00076",
+      "personSlug": "hidetaka-miyazaki",
+      "workQid": null,
+      "title": "Demon's Souls",
+      "year": 2009,
+      "role": "DIRECCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-8C55F77E38F3"
+    },
+    {
+      "id": "PWORK-00077",
+      "personSlug": "hidetaka-miyazaki",
+      "workQid": null,
+      "title": "Dark Souls",
+      "year": 2011,
+      "role": "DIRECCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-8C55F77E38F3"
+    },
+    {
+      "id": "PWORK-00078",
+      "personSlug": "hidetaka-miyazaki",
+      "workQid": null,
+      "title": "Elden Ring",
+      "year": 2022,
+      "role": "DIRECCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-8C55F77E38F3"
+    },
+    {
+      "id": "PWORK-00080",
+      "personSlug": "hironobu-sakaguchi",
+      "workQid": null,
+      "title": "Final Fantasy",
+      "year": 1987,
+      "role": "CREACIÓN_Y_DIRECCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-6FF005C30280"
+    },
+    {
+      "id": "PWORK-00081",
+      "personSlug": "hironobu-sakaguchi",
+      "workQid": null,
+      "title": "Final Fantasy VII",
+      "year": 1997,
+      "role": "PRODUCCIÓN_Y_CONCEPTO_ORIGINAL",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-6FF005C30280"
+    },
+    {
+      "id": "PWORK-00082",
+      "personSlug": "hironobu-sakaguchi",
+      "workQid": null,
+      "title": "Lost Odyssey",
+      "year": 2007,
+      "role": "CREACIÓN_Y_PRODUCCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-6FF005C30280"
+    },
+    {
+      "id": "PWORK-00096",
+      "personSlug": "john-carmack",
+      "workQid": null,
+      "title": "Wolfenstein 3D",
+      "year": 1992,
+      "role": "PROGRAMACIÓN_PRINCIPAL",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-0BACC3D4504B"
+    },
+    {
+      "id": "PWORK-00097",
+      "personSlug": "john-carmack",
+      "workQid": null,
+      "title": "Doom",
+      "year": 1993,
+      "role": "PROGRAMACIÓN_PRINCIPAL_Y_MOTOR",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-0BACC3D4504B"
+    },
+    {
+      "id": "PWORK-00098",
+      "personSlug": "john-carmack",
+      "workQid": null,
+      "title": "Quake",
+      "year": 1996,
+      "role": "PROGRAMACIÓN_PRINCIPAL_Y_MOTOR",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-0BACC3D4504B"
+    },
+    {
+      "id": "PWORK-00100",
+      "personSlug": "john-romero",
+      "workQid": null,
+      "title": "Wolfenstein 3D",
+      "year": 1992,
+      "role": "DISEÑO_Y_PROGRAMACIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-C14DC6C48CEB"
+    },
+    {
+      "id": "PWORK-00101",
+      "personSlug": "john-romero",
+      "workQid": null,
+      "title": "Doom",
+      "year": 1993,
+      "role": "DISEÑO_DE_NIVELES_Y_PROGRAMACIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-C14DC6C48CEB"
+    },
+    {
+      "id": "PWORK-00102",
+      "personSlug": "john-romero",
+      "workQid": null,
+      "title": "Quake",
+      "year": 1996,
+      "role": "DISEÑO_Y_DIRECCIÓN_INICIAL",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-C14DC6C48CEB"
+    },
+    {
+      "id": "PWORK-00114",
+      "personSlug": "ken-kutaragi",
+      "workQid": null,
+      "title": "PlayStation",
+      "year": 1994,
+      "role": "LIDERAZGO_DE_PLATAFORMA",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-BFD017BD9439"
+    },
+    {
+      "id": "PWORK-00159",
+      "personSlug": "ralph-h-baer",
+      "workQid": null,
+      "title": "Brown Box",
+      "year": 1968,
+      "role": "INVENCIÓN_Y_PROTOTIPO",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-BF298F3F59D0"
+    },
+    {
+      "id": "PWORK-00160",
+      "personSlug": "ralph-h-baer",
+      "workQid": null,
+      "title": "Magnavox Odyssey",
+      "year": 1972,
+      "role": "TECNOLOGÍA_BASE_Y_DISEÑO",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-BF298F3F59D0"
+    },
+    {
+      "id": "PWORK-00165",
+      "personSlug": "richard-garriott",
+      "workQid": null,
+      "title": "Ultima",
+      "year": 1981,
+      "role": "CREACIÓN_DISEÑO_Y_PROGRAMACIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-53B44CFE322A"
+    },
+    {
+      "id": "PWORK-00166",
+      "personSlug": "richard-garriott",
+      "workQid": null,
+      "title": "Ultima Online",
+      "year": 1997,
+      "role": "PRODUCCIÓN_EJECUTIVA_Y_CREACIÓN_DE_UNIVERSO",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-53B44CFE322A"
+    },
+    {
+      "id": "PWORK-00170",
+      "personSlug": "rieko-kodama",
+      "workQid": null,
+      "title": "Phantasy Star",
+      "year": 1987,
+      "role": "DISEÑO_GRÁFICO",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-31D2244D825D"
+    },
+    {
+      "id": "PWORK-00171",
+      "personSlug": "rieko-kodama",
+      "workQid": null,
+      "title": "Phantasy Star IV",
+      "year": 1993,
+      "role": "DIRECCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-31D2244D825D"
+    },
+    {
+      "id": "PWORK-00172",
+      "personSlug": "rieko-kodama",
+      "workQid": null,
+      "title": "Skies of Arcadia",
+      "year": 2000,
+      "role": "PRODUCCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-31D2244D825D"
+    },
+    {
+      "id": "PWORK-00176",
+      "personSlug": "roberta-williams",
+      "workQid": null,
+      "title": "Mystery House",
+      "year": 1980,
+      "role": "DISEÑO_Y_GUION",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-3492041D062F"
+    },
+    {
+      "id": "PWORK-00177",
+      "personSlug": "roberta-williams",
+      "workQid": null,
+      "title": "King's Quest",
+      "year": 1984,
+      "role": "DISEÑO_Y_GUION",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-3492041D062F"
+    },
+    {
+      "id": "PWORK-00178",
+      "personSlug": "roberta-williams",
+      "workQid": null,
+      "title": "Phantasmagoria",
+      "year": 1995,
+      "role": "DISEÑO_DIRECCIÓN_Y_GUION",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-3492041D062F"
+    },
+    {
+      "id": "PWORK-00183",
+      "personSlug": "satoru-iwata",
+      "workQid": null,
+      "title": "Balloon Fight",
+      "year": 1984,
+      "role": "PROGRAMACIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-B73FD9C26629"
+    },
+    {
+      "id": "PWORK-00184",
+      "personSlug": "satoru-iwata",
+      "workQid": null,
+      "title": "EarthBound",
+      "year": 1994,
+      "role": "APOYO_TÉCNICO_Y_PROGRAMACIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-B73FD9C26629"
+    },
+    {
+      "id": "PWORK-00185",
+      "personSlug": "satoru-iwata",
+      "workQid": null,
+      "title": "Pokémon Gold and Silver",
+      "year": 1999,
+      "role": "APOYO_TÉCNICO",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-B73FD9C26629"
+    },
+    {
+      "id": "PWORK-00187",
+      "personSlug": "satoshi-tajiri",
+      "workQid": null,
+      "title": "Pokémon Red and Green",
+      "year": 1996,
+      "role": "CREACIÓN_Y_DIRECCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-1D3FFD4FDD91"
+    },
+    {
+      "id": "PWORK-00194",
+      "personSlug": "shigeru-miyamoto",
+      "workQid": null,
+      "title": "Donkey Kong",
+      "year": 1981,
+      "role": "DIRECCIÓN_Y_DISEÑO",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-BE4664D1F643"
+    },
+    {
+      "id": "PWORK-00195",
+      "personSlug": "shigeru-miyamoto",
+      "workQid": null,
+      "title": "Super Mario Bros.",
+      "year": 1985,
+      "role": "DISEÑO_Y_PRODUCCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-BE4664D1F643"
+    },
+    {
+      "id": "PWORK-00196",
+      "personSlug": "shigeru-miyamoto",
+      "workQid": null,
+      "title": "The Legend of Zelda",
+      "year": 1986,
+      "role": "DIRECCIÓN_Y_PRODUCCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-BE4664D1F643"
+    },
+    {
+      "id": "PWORK-00197",
+      "personSlug": "shigeru-miyamoto",
+      "workQid": null,
+      "title": "Pikmin",
+      "year": 2001,
+      "role": "CREACIÓN_Y_PRODUCCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-BE4664D1F643"
+    },
+    {
+      "id": "PWORK-00201",
+      "personSlug": "shinji-mikami",
+      "workQid": null,
+      "title": "Resident Evil",
+      "year": 1996,
+      "role": "DIRECCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-14AB65604ABC"
+    },
+    {
+      "id": "PWORK-00202",
+      "personSlug": "shinji-mikami",
+      "workQid": null,
+      "title": "Resident Evil 4",
+      "year": 2005,
+      "role": "DIRECCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-14AB65604ABC"
+    },
+    {
+      "id": "PWORK-00203",
+      "personSlug": "shinji-mikami",
+      "workQid": null,
+      "title": "The Evil Within",
+      "year": 2014,
+      "role": "DIRECCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-14AB65604ABC"
+    },
+    {
+      "id": "PWORK-00205",
+      "personSlug": "sid-meier",
+      "workQid": null,
+      "title": "Sid Meier's Pirates!",
+      "year": 1987,
+      "role": "DISEÑO_Y_PROGRAMACIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-0778444EB8B1"
+    },
+    {
+      "id": "PWORK-00206",
+      "personSlug": "sid-meier",
+      "workQid": null,
+      "title": "Sid Meier's Railroad Tycoon",
+      "year": 1990,
+      "role": "DISEÑO_Y_PROGRAMACIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-0778444EB8B1"
+    },
+    {
+      "id": "PWORK-00207",
+      "personSlug": "sid-meier",
+      "workQid": null,
+      "title": "Sid Meier's Civilization",
+      "year": 1991,
+      "role": "DISEÑO_Y_PROGRAMACIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-0778444EB8B1"
+    },
+    {
+      "id": "PWORK-00213",
+      "personSlug": "tim-sweeney",
+      "workQid": null,
+      "title": "ZZT",
+      "year": 1991,
+      "role": "DISEÑO_Y_PROGRAMACIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-487FA7781E2A"
+    },
+    {
+      "id": "PWORK-00214",
+      "personSlug": "tim-sweeney",
+      "workQid": null,
+      "title": "Unreal Engine",
+      "year": 1998,
+      "role": "ARQUITECTURA_TÉCNICA_INICIAL",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-487FA7781E2A"
+    },
+    {
+      "id": "PWORK-00225",
+      "personSlug": "toru-iwatani",
+      "workQid": null,
+      "title": "Pac-Man",
+      "year": 1980,
+      "role": "CREACIÓN_Y_DISEÑO",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-ACA49175A2F4"
+    },
+    {
+      "id": "PWORK-00230",
+      "personSlug": "will-wright",
+      "workQid": null,
+      "title": "SimCity",
+      "year": 1989,
+      "role": "DISEÑO",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-030BCE3A30BC"
+    },
+    {
+      "id": "PWORK-00231",
+      "personSlug": "will-wright",
+      "workQid": null,
+      "title": "The Sims",
+      "year": 2000,
+      "role": "CREACIÓN_Y_DISEÑO",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-030BCE3A30BC"
+    },
+    {
+      "id": "PWORK-00232",
+      "personSlug": "will-wright",
+      "workQid": null,
+      "title": "Spore",
+      "year": 2008,
+      "role": "DISEÑO_PRINCIPAL",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-030BCE3A30BC"
+    },
+    {
+      "id": "PWORK-00234",
+      "personSlug": "yoko-taro",
+      "workQid": null,
+      "title": "Drakengard",
+      "year": 2003,
+      "role": "DIRECCIÓN_Y_GUION",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-531D807C05F2"
+    },
+    {
+      "id": "PWORK-00235",
+      "personSlug": "yoko-taro",
+      "workQid": null,
+      "title": "NieR",
+      "year": 2010,
+      "role": "DIRECCIÓN_Y_GUION",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-531D807C05F2"
+    },
+    {
+      "id": "PWORK-00236",
+      "personSlug": "yoko-taro",
+      "workQid": null,
+      "title": "NieR: Automata",
+      "year": 2017,
+      "role": "DIRECCIÓN_Y_GUION",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-531D807C05F2"
+    },
+    {
+      "id": "PWORK-00243",
+      "personSlug": "yu-suzuki",
+      "workQid": null,
+      "title": "Out Run",
+      "year": 1986,
+      "role": "DIRECCIÓN_Y_PRODUCCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-12D2EA8E6338"
+    },
+    {
+      "id": "PWORK-00244",
+      "personSlug": "yu-suzuki",
+      "workQid": null,
+      "title": "Virtua Fighter",
+      "year": 1993,
+      "role": "DIRECCIÓN_Y_PRODUCCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-12D2EA8E6338"
+    },
+    {
+      "id": "PWORK-00245",
+      "personSlug": "yu-suzuki",
+      "workQid": null,
+      "title": "Shenmue",
+      "year": 1999,
+      "role": "DIRECCIÓN_Y_PRODUCCIÓN",
+      "relationshipPrecision": "EXACT_EDITORIAL_CREDIT",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-12D2EA8E6338"
+    }
+  ],
+  "relatedWorks": [],
+  "awards": [
+    {
+      "id": "PAWD-00013",
+      "personSlug": "amy-hennig",
+      "name": "British Academy Games Special Award",
+      "date": "2016-06-12",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-B923FC99F820"
+    },
+    {
+      "id": "PAWD-00014",
+      "personSlug": "amy-hennig",
+      "name": "Game Developers Choice Award - Lifetime Achievement",
+      "date": "2019",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-9F6931B8D9B8"
+    },
+    {
+      "id": "PAWD-00114",
+      "personSlug": "gabe-newell",
+      "name": "D.I.C.E. Awards",
+      "date": "2013",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-2609098C17BE"
+    },
+    {
+      "id": "PAWD-00115",
+      "personSlug": "gabe-newell",
+      "name": "BAFTA Academy Fellowship Award",
+      "date": "2013-03-05",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-B28A31CD3EBB"
+    },
+    {
+      "id": "PAWD-00144",
+      "personSlug": "gunpei-yokoi",
+      "name": "Game Developers Choice Award - Lifetime Achievement",
+      "date": "2003",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-9F6931B8D9B8"
+    },
+    {
+      "id": "PAWD-00163",
+      "personSlug": "hideo-kojima",
+      "name": "Game Developers Choice Award - Lifetime Achievement",
+      "date": "2009",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-9F6931B8D9B8"
+    },
+    {
+      "id": "PAWD-00164",
+      "personSlug": "hideo-kojima",
+      "name": "The Game Awards – Industry Icon",
+      "date": "2016-12-01",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-DE98B8AB2B04"
+    },
+    {
+      "id": "PAWD-00166",
+      "personSlug": "hideo-kojima",
+      "name": "BAFTA Academy Fellowship Award",
+      "date": "2020-04-02",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-734787AB296A"
+    },
+    {
+      "id": "PAWD-00167",
+      "personSlug": "hideo-kojima",
+      "name": "Art Encouragement Prizes",
+      "date": null,
+      "confidence": "HIGH",
+      "sourceId": "PSRC-75A870293E36"
+    },
+    {
+      "id": "PAWD-00168",
+      "personSlug": "hidetaka-miyazaki",
+      "name": "lifetime achievement award",
+      "date": null,
+      "confidence": "HIGH",
+      "sourceId": "PSRC-BEAD4EF6A068"
+    },
+    {
+      "id": "PAWD-00169",
+      "personSlug": "hidetaka-miyazaki",
+      "name": "Time 100",
+      "date": "2023",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-2C8465759F1C"
+    },
+    {
+      "id": "PAWD-00170",
+      "personSlug": "hironobu-sakaguchi",
+      "name": "Game Developers Choice Award - Lifetime Achievement",
+      "date": "2015",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-9F6931B8D9B8"
+    },
+    {
+      "id": "PAWD-00185",
+      "personSlug": "john-carmack",
+      "name": "Game Developers Choice Award - Lifetime Achievement",
+      "date": "2010",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-9F6931B8D9B8"
+    },
+    {
+      "id": "PAWD-00186",
+      "personSlug": "john-carmack",
+      "name": "BAFTA Academy Fellowship Award",
+      "date": "2016-04-07",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-1B562957AB21"
+    },
+    {
+      "id": "PAWD-00196",
+      "personSlug": "ken-kutaragi",
+      "name": "Game Developers Choice Award - Lifetime Achievement",
+      "date": "2014",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-9F6931B8D9B8"
+    },
+    {
+      "id": "PAWD-00248",
+      "personSlug": "ralph-h-baer",
+      "name": "Medalla Nacional de Tecnología e Innovación",
+      "date": "2008-02-13",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-71FC1C4DC8C3"
+    },
+    {
+      "id": "PAWD-00249",
+      "personSlug": "ralph-h-baer",
+      "name": "Premio Masaru Ibuka de la Electrónica de Consumo IEEE",
+      "date": "2008",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-701C804BC52B"
+    },
+    {
+      "id": "PAWD-00250",
+      "personSlug": "ralph-h-baer",
+      "name": "Medalla Edison",
+      "date": "2014",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-F1908A0FDA51"
+    },
+    {
+      "id": "PAWD-00258",
+      "personSlug": "richard-garriott",
+      "name": "Game Developers Choice Award - Lifetime Achievement",
+      "date": "2006",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-9F6931B8D9B8"
+    },
+    {
+      "id": "PAWD-00259",
+      "personSlug": "rieko-kodama",
+      "name": "Game Developers Choice Award - Pioneer",
+      "date": "2019",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-6BE273729234"
+    },
+    {
+      "id": "PAWD-00260",
+      "personSlug": "roberta-williams",
+      "name": "The Game Awards – Industry Icon",
+      "date": "2014-12-05",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-62BA82E56F9F"
+    },
+    {
+      "id": "PAWD-00266",
+      "personSlug": "shigeru-miyamoto",
+      "name": "caballero de la Orden de las Artes y las Letras",
+      "date": "2006",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-6A36B8720363"
+    },
+    {
+      "id": "PAWD-00267",
+      "personSlug": "shigeru-miyamoto",
+      "name": "Game Developers Choice Award - Lifetime Achievement",
+      "date": "2007",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-9F6931B8D9B8"
+    },
+    {
+      "id": "PAWD-00270",
+      "personSlug": "shigeru-miyamoto",
+      "name": "Japan Game Awards Minister of Economy, Trade and Industry Award",
+      "date": "2008",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-A63C777CB72E"
+    },
+    {
+      "id": "PAWD-00272",
+      "personSlug": "shigeru-miyamoto",
+      "name": "BAFTA Academy Fellowship Award",
+      "date": "2010-03-19",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-C34C11C1CC06"
+    },
+    {
+      "id": "PAWD-00273",
+      "personSlug": "shigeru-miyamoto",
+      "name": "Premio Princesa de Asturias de Comunicación y Humanidades",
+      "date": "2012-05-23",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-B0A645C73195"
+    },
+    {
+      "id": "PAWD-00274",
+      "personSlug": "sid-meier",
+      "name": "Game Developers Choice Award - Lifetime Achievement",
+      "date": "2008",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-9F6931B8D9B8"
+    },
+    {
+      "id": "PAWD-00339",
+      "personSlug": "tim-sweeney",
+      "name": "Game Developers Choice Award - Lifetime Achievement",
+      "date": "2017",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-9F6931B8D9B8"
+    },
+    {
+      "id": "PAWD-00346",
+      "personSlug": "toru-iwatani",
+      "name": "CEDEC Awards - Special Award",
+      "date": "2015",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-70E598E2F960"
+    },
+    {
+      "id": "PAWD-00348",
+      "personSlug": "will-wright",
+      "name": "BAFTA Academy Fellowship Award",
+      "date": "2007-10-23",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-C8D9B168D3A2"
+    },
+    {
+      "id": "PAWD-00349",
+      "personSlug": "will-wright",
+      "name": "Game Developers Choice Award - Lifetime Achievement",
+      "date": "2001",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-9F6931B8D9B8"
+    }
+  ],
+  "curiosities": [
+    {
+      "id": "PCUR-00001",
+      "personSlug": "aleksei-pazhitnov",
+      "summaryEs": "El nombre combina el prefijo griego tetra, por las cuatro piezas de cada figura, con el tenis, uno de los deportes preferidos de su creador.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-18D2AE875D16"
+    },
+    {
+      "id": "PCUR-00002",
+      "personSlug": "amy-hennig",
+      "summaryEs": "Su formación y primeros intereses estaban próximos al cine, pero terminó aplicando esa sensibilidad a estructuras interactivas y producción de videojuegos.",
+      "confidence": "MEDIUM",
+      "sourceId": "PSRC-03B854A9DD75"
+    },
+    {
+      "id": "PCUR-00003",
+      "personSlug": "danielle-bunten-berry",
+      "summaryEs": "Defendía que los juegos eran especialmente valiosos cuando hacían que las personas jugaran entre sí, no solamente contra la máquina.",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-9581974AAAA9"
+    },
+    {
+      "id": "PCUR-00005",
+      "personSlug": "gunpei-yokoi",
+      "summaryEs": "El concepto de Game & Watch se asocia a haber observado a un pasajero entreteniéndose con una calculadora durante un trayecto.",
+      "confidence": "MEDIUM",
+      "sourceId": "PSRC-D6B4E7B979BC"
+    },
+    {
+      "id": "PCUR-00006",
+      "personSlug": "hideo-kojima",
+      "summaryEs": "Su afición declarada al cine forma parte de su identidad pública y se refleja en reparto, montaje y promoción de sus juegos.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-4FC41B5522CD"
+    },
+    {
+      "id": "PCUR-00010",
+      "personSlug": "john-romero",
+      "summaryEs": "Ha preservado y divulgado numerosos materiales de desarrollo, prototipos y relatos sobre los primeros años de id Software.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-C14DC6C48CEB"
+    },
+    {
+      "id": "PCUR-00012",
+      "personSlug": "ralph-h-baer",
+      "summaryEs": "La Brown Box conserva literalmente una cubierta de imitación de madera y forma parte de la colección del Smithsonian.",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-BF298F3F59D0"
+    },
+    {
+      "id": "PCUR-00013",
+      "personSlug": "richard-garriott",
+      "summaryEs": "Viajó a la Estación Espacial Internacional en 2008 y es una de las pocas grandes figuras del videojuego que también ha realizado un vuelo espacial.",
+      "confidence": "VERY_HIGH",
+      "sourceId": "PSRC-53B44CFE322A"
+    },
+    {
+      "id": "PCUR-00014",
+      "personSlug": "rieko-kodama",
+      "summaryEs": "En algunos juegos iniciales utilizó nombres abreviados o seudónimos en los créditos, una práctica habitual en estudios japoneses de la época.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-31D2244D825D"
+    },
+    {
+      "id": "PCUR-00015",
+      "personSlug": "roberta-williams",
+      "summaryEs": "Mystery House nació después de que la pareja buscara trasladar el atractivo de las aventuras de texto a una presentación con gráficos.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-3492041D062F"
+    },
+    {
+      "id": "PCUR-00016",
+      "personSlug": "satoru-iwata",
+      "summaryEs": "Incluso como presidente continuaba presentándose como programador y participaba personalmente en discusiones técnicas.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-B73FD9C26629"
+    },
+    {
+      "id": "PCUR-00017",
+      "personSlug": "satoshi-tajiri",
+      "summaryEs": "Su afición infantil a coleccionar insectos suele citarse como una de las raíces de la idea de capturar y catalogar criaturas.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-1D3FFD4FDD91"
+    },
+    {
+      "id": "PCUR-00018",
+      "personSlug": "shigeru-miyamoto",
+      "summaryEs": "La exploración de los alrededores y cuevas de su infancia aparece con frecuencia como antecedente creativo de The Legend of Zelda.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-BE4664D1F643"
+    },
+    {
+      "id": "PCUR-00019",
+      "personSlug": "shinji-mikami",
+      "summaryEs": "Resident Evil 4 cambió varias veces de dirección antes de llegar al diseño que después influiría en gran parte de la acción en tercera persona.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-14AB65604ABC"
+    },
+    {
+      "id": "PCUR-00020",
+      "personSlug": "sid-meier",
+      "summaryEs": "La inclusión de su nombre en los títulos se convirtió en una de las firmas comerciales más conocidas del medio.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-0778444EB8B1"
+    },
+    {
+      "id": "PCUR-00021",
+      "personSlug": "tim-sweeney",
+      "summaryEs": "ZZT utilizó caracteres de texto para construir mundos editables y ya vinculaba juego, programación y creación por parte del usuario.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-487FA7781E2A"
+    },
+    {
+      "id": "PCUR-00023",
+      "personSlug": "will-wright",
+      "summaryEs": "Su interés por arquitectura, modelos y sistemas complejos aparece reiteradamente en el origen de sus simulaciones.",
+      "confidence": "MEDIUM",
+      "sourceId": "PSRC-030BCE3A30BC"
+    },
+    {
+      "id": "PCUR-00025",
+      "personSlug": "yu-suzuki",
+      "summaryEs": "Su carrera abarca desde cabinas hidráulicas de arcade hasta la financiación colectiva de Shenmue III décadas después.",
+      "confidence": "HIGH",
+      "sourceId": "PSRC-12D2EA8E6338"
+    }
+  ],
+  "sources": [
+    {
+      "id": "PSRC-00F54E635911",
+      "url": "https://www.wikidata.org/wiki/Q92605",
+      "title": "Wikidata: John Carmack",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-030BCE3A30BC",
+      "url": "https://www.interactive.org/",
+      "title": "interactive.org",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-03B854A9DD75",
+      "url": "https://skydance.com/new-media/",
+      "title": "skydance.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-044E811E20B2",
+      "url": "https://www.wikidata.org/wiki/Q956020",
+      "title": "Wikidata: Tōru Iwatani",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-0778444EB8B1",
+      "url": "https://firaxis.com/",
+      "title": "firaxis.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-0A9E608A331B",
+      "url": "https://www.wikidata.org/wiki/Q557018",
+      "title": "Wikidata: Ken Kutaragi",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-0BACC3D4504B",
+      "url": "https://www.idsoftware.com/",
+      "title": "idsoftware.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-0F5949B9E4F6",
+      "url": "https://www.wikidata.org/wiki/Q11454590",
+      "title": "Wikidata: Hidetaka Miyazaki",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-0F966B7A1E3A",
+      "url": "https://www.wikidata.org/wiki/Q7333106",
+      "title": "Wikidata: Rieko Kodama",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-0FF91A2DC3FC",
+      "url": "https://tetris.com/about",
+      "title": "tetris.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-12D2EA8E6338",
+      "url": "https://www.sega.co.jp/en/company/history/",
+      "title": "sega.co.jp",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-14AB65604ABC",
+      "url": "https://www.capcom.co.jp/ir/english/company/history.html",
+      "title": "capcom.co.jp",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-18C5CAD11C16",
+      "url": "https://www.wikidata.org/wiki/Q319269",
+      "title": "Wikidata: Richard Garriott",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-18D2AE875D16",
+      "url": "https://tetris.com/corporate-bios",
+      "title": "tetris.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-1B562957AB21",
+      "url": "https://www.bafta.org/media-centre/press-releases/john-carmack-to-be-honoured-with-bafta-fellowship/",
+      "title": "bafta.org",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-1D3FFD4FDD91",
+      "url": "https://www.gamefreak.co.jp/company/about/",
+      "title": "gamefreak.co.jp",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-25072D12071E",
+      "url": "https://www.wikidata.org/wiki/Q11440",
+      "title": "Wikidata: Danielle Bunten Berry",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-2609098C17BE",
+      "url": "https://www.interactive.org/special_awards/details.asp?idSpecialAwards=25",
+      "title": "interactive.org",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-2ADBF9AFB65A",
+      "url": "https://www.wikidata.org/wiki/Q741631",
+      "title": "Wikidata: Shinji Mikami",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-2C8465759F1C",
+      "url": "https://time.com/collection/100-most-influential-people-2023/6269962/hidetaka-miyazaki/",
+      "title": "time.com",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-31D2244D825D",
+      "url": "https://gamechoiceawards.com/archive/",
+      "title": "gamechoiceawards.com",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-3492041D062F",
+      "url": "https://www.sierragamers.com/roberta-williams/",
+      "title": "sierragamers.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-370273AAF931",
+      "url": "https://www.wikidata.org/wiki/Q92616",
+      "title": "Wikidata: Sid Meier",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-487FA7781E2A",
+      "url": "https://www.epicgames.com/site/en-US/about",
+      "title": "epicgames.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-4AE63851F306",
+      "url": "https://www.wikidata.org/wiki/Q70997",
+      "title": "Wikidata: Ralph H. Baer",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-4ED96FE3493E",
+      "url": "https://www.wikidata.org/wiki/Q366261",
+      "title": "Wikidata: Gunpei Yokoi",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-4FC41B5522CD",
+      "url": "https://www.kojimaproductions.jp/en/company",
+      "title": "kojimaproductions.jp",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-52FBFF4A8A48",
+      "url": "https://www.valvesoftware.com/en/about",
+      "title": "valvesoftware.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-531D807C05F2",
+      "url": "https://www.square-enix-games.com/",
+      "title": "square-enix-games.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-53B44CFE322A",
+      "url": "https://www.richardgarriott.com/",
+      "title": "richardgarriott.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-579D98C2E22A",
+      "url": "https://www.invent.org/inductees/ralph-h-baer",
+      "title": "invent.org",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-591FE8C85AB4",
+      "url": "https://www.wikidata.org/wiki/Q323671",
+      "title": "Wikidata: Tim Sweeney",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-59E82970A4D8",
+      "url": "https://www.hd.square-enix.com/eng/company/history.html",
+      "title": "hd.square-enix.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-5F182CB2666F",
+      "url": "https://commons.wikimedia.org/wiki/File:Sid_Meier_2015-02-25_(cropped).jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-5FA667C3CED7",
+      "url": "https://commons.wikimedia.org/wiki/File:Yu_Suzuki_-_Game_Developers_Conference_2011_-_Day_3.jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-618584201394",
+      "url": "https://www.wikidata.org/wiki/Q316013",
+      "title": "Wikidata: Satoru Iwata",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-62BA82E56F9F",
+      "url": "https://www.polygon.com/2014/12/5/7343105/the-game-awards-2014-winners",
+      "title": "polygon.com",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-64A81B8B5B88",
+      "url": "https://www.wikidata.org/wiki/Q92600",
+      "title": "Wikidata: Alekséi Pázhitnov",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-6A36B8720363",
+      "url": "https://www.ouest-france.fr/gaming/eric-chahi-distingue-de-l-ordre-national-du-merite-une-excellente-nouvelle-pour-le-jeu-video-970510fc-acc1-11eb-bcfd-058885220c6f",
+      "title": "ouest-france.fr",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-6BE273729234",
+      "url": "https://variety.com/2019/gaming/news/rieko-kodama-gdca-2019-pioneer-award-1203110809/",
+      "title": "variety.com",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-6E54D10AE6B2",
+      "url": "https://www.wikidata.org/wiki/Q295218",
+      "title": "Wikidata: Satoshi Tajiri",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-6FF005C30280",
+      "url": "https://www.mistwalkercorp.com/",
+      "title": "mistwalkercorp.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-701C804BC52B",
+      "url": "https://corporate-awards.ieee.org/wp-content/uploads/ibuka-rl.pdf",
+      "title": "corporate-awards.ieee.org",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-70E598E2F960",
+      "url": "https://cedec.cesa.or.jp/2015/event/awards_prize.html",
+      "title": "cedec.cesa.or.jp",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-71FC1C4DC8C3",
+      "url": "https://www.nationalmedals.org/laureates",
+      "title": "nationalmedals.org",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-734787AB296A",
+      "url": "https://gamemo.confidence-media.jp/495",
+      "title": "gamemo.confidence-media.jp",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-75A870293E36",
+      "url": "https://www.famitsu.com/news/202203/09253998.html",
+      "title": "famitsu.com",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-809C77F63F9F",
+      "url": "https://commons.wikimedia.org/wiki/File:Gabe_Newell_GDC_2010_(cropped_2).jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-86BA0F599AF5",
+      "url": "https://commons.wikimedia.org/wiki/File:Hideo_Kojima_2025_SXSW_(cropped).jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-88348E308F14",
+      "url": "https://commons.wikimedia.org/wiki/File:Hironobu_Sakaguchi_20070706_Japan_Expo_2.jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-8C55F77E38F3",
+      "url": "https://www.fromsoftware.jp/ww/",
+      "title": "fromsoftware.jp",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-8E6D1382A3E7",
+      "url": "https://www.wikidata.org/wiki/Q282263",
+      "title": "Wikidata: Yū Suzuki",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-8E8ECBE9C9AE",
+      "url": "https://commons.wikimedia.org/wiki/File:Ralph-Baer.jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-915FC421E2BB",
+      "url": "https://commons.wikimedia.org/wiki/File:Shigeru_Miyamoto_20150610_(cropped).jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-94B1B77B7B59",
+      "url": "https://www.wikidata.org/wiki/Q315577",
+      "title": "Wikidata: Hideo Kojima",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-9581974AAAA9",
+      "url": "https://gamechoiceawards.com/spotlight-1998/",
+      "title": "gamechoiceawards.com",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-9F6931B8D9B8",
+      "url": "https://www.gamechoiceawards.com/archive/lifetime",
+      "title": "gamechoiceawards.com",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-A0CE30269AB7",
+      "url": "https://www.wikidata.org/wiki/Q312525",
+      "title": "Wikidata: Hironobu Sakaguchi",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-A21539E0C626",
+      "url": "https://commons.wikimedia.org/wiki/File:Ken_kutaragi.jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-A63C777CB72E",
+      "url": "https://awards.cesa.or.jp/2008/minprize.html",
+      "title": "awards.cesa.or.jp",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-A9FD35952D74",
+      "url": "https://www.wikidata.org/wiki/Q55176",
+      "title": "Wikidata: Roberta Williams",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-AB13B31C49B8",
+      "url": "https://www.wikidata.org/wiki/Q280045",
+      "title": "Wikidata: John Romero",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-AB494116EA1F",
+      "url": "https://commons.wikimedia.org/wiki/File:Roberta_Williams_Adventure_Game_Fan_Fair_Tacoma_Washington_July_2024_(cropped).jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-ACA49175A2F4",
+      "url": "https://www.bandainamcoent.com/games/pac-man",
+      "title": "bandainamcoent.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-AE3021614037",
+      "url": "https://www.wikidata.org/wiki/Q309493",
+      "title": "Wikidata: Will Wright",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-AFE7934A591C",
+      "url": "https://commons.wikimedia.org/wiki/File:John_Romero_-_GDC_2022_(cropped).jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-B058BC232211",
+      "url": "https://commons.wikimedia.org/wiki/File:Satoru_Iwata_-_Game_Developers_Conference_2011_-_Day_2_(1).jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-B0A645C73195",
+      "url": "http://www.fpa.es/es/premios-princesa-de-asturias/premiados/2012-shigeru-miyamoto.html?especifica=0",
+      "title": "fpa.es",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-B28A31CD3EBB",
+      "url": "https://www.bafta.org/media-centre/press-releases/valves-gabe-newell-to-be-honoured-with-bafta-fellowship/",
+      "title": "bafta.org",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-B63439B07F28",
+      "url": "https://www.nintendo.co.jp/ir/pdf/2015/150713e.pdf",
+      "title": "nintendo.co.jp",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-B73FD9C26629",
+      "url": "https://iwataasks.nintendo.com/",
+      "title": "iwataasks.nintendo.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-B81311B2D753",
+      "url": "https://commons.wikimedia.org/wiki/File:Yoko_Taro_cropped.jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-B923FC99F820",
+      "url": "https://www.bafta.org/stories/amy-hennig-games-special-award/",
+      "title": "bafta.org",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-BE3D0598EDF9",
+      "url": "https://commons.wikimedia.org/wiki/File:Amy_hennig_gdca_2019_cropped.jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-BE4664D1F643",
+      "url": "https://iwataasks.nintendo.com/interviews/wii/wii_music/0/0/",
+      "title": "iwataasks.nintendo.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-BEAD4EF6A068",
+      "url": "https://www.gamesradar.com/dark-souls-creator-hidetaki-miyazaki-takes-the-lifetime-achievement-award-at-the-golden-joystick-awards-2018/",
+      "title": "gamesradar.com",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-BF298F3F59D0",
+      "url": "https://americanhistory.si.edu/collections/object/nmah_1301997",
+      "title": "americanhistory.si.edu",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-BFD017BD9439",
+      "url": "https://sonyinteractive.com/en/our-company/",
+      "title": "sonyinteractive.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-C14DC6C48CEB",
+      "url": "https://romero.com/",
+      "title": "romero.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-C34C11C1CC06",
+      "url": "https://www.bafta.org/stories/2010-academy-fellow-shigeru-miyamoto/",
+      "title": "bafta.org",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-C89F1759037D",
+      "url": "https://thegameawards.com/rewind/year-2022",
+      "title": "thegameawards.com",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-C8D9B168D3A2",
+      "url": "https://www.bafta.org/stories/will-wright-bafta-fellow-in-2007/",
+      "title": "bafta.org",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-C99EE5807CBF",
+      "url": "https://commons.wikimedia.org/wiki/File:Will_Wright_-_Game_Developers_Conference_2010_(2).jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-C9B3621D13EF",
+      "url": "https://www.wikidata.org/wiki/Q12382",
+      "title": "Wikidata: Shigeru Miyamoto",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-D1CADE948072",
+      "url": "https://www.wikidata.org/wiki/Q347418",
+      "title": "Wikidata: Gabe Newell",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-D2F1872044CB",
+      "url": "https://www.wikidata.org/wiki/Q2844562",
+      "title": "Wikidata: Amy Hennig",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-D6B4E7B979BC",
+      "url": "https://www.nintendo.com/en-gb/Hardware/Nintendo-History/Nintendo-History-625945.html",
+      "title": "nintendo.com",
+      "kind": "OFFICIAL_OR_FIRST_PARTY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-DC90759F9CD8",
+      "url": "https://www.bafta.org/stories/the-fellowship-2020-hideo-kojima/",
+      "title": "bafta.org",
+      "kind": "AWARD_OR_CULTURAL_INSTITUTION",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": true
+    },
+    {
+      "id": "PSRC-DE98B8AB2B04",
+      "url": "https://www.polygon.com/2016/12/1/13784410/the-game-awards-winners",
+      "title": "polygon.com",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-E1942E1365D7",
+      "url": "https://commons.wikimedia.org/wiki/File:Alexey_Pajitnov_GDC_2024_(cropped).jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-EB3F4B378341",
+      "url": "https://commons.wikimedia.org/wiki/File:Toru_Iwatani_Gamelab_Barcelona_2015_(crop).png",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-ED13540CA7AB",
+      "url": "https://commons.wikimedia.org/wiki/File:Shinji_Mikami_April_2013_3.jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-EF97D3BC6F24",
+      "url": "https://www.wikidata.org/wiki/Q11542446",
+      "title": "Wikidata: Yoko Taro",
+      "kind": "STRUCTURED_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-EFC2A81F14C1",
+      "url": "https://commons.wikimedia.org/wiki/File:Hidetaka_Miyazaki,_The_Game_Awards_2022_(cropped).png",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-F1908A0FDA51",
+      "url": "https://www.ieee.org/content/dam/ieee-org/ieee/web/org/about/awards/recipients/edison-rl.pdf",
+      "title": "ieee.org",
+      "kind": "SPECIALIST_OR_SECONDARY",
+      "reliability": "MEDIUM",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-FD4B021D93CC",
+      "url": "https://commons.wikimedia.org/wiki/File:John_Carmack_2025.jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-FDA42F971CCD",
+      "url": "https://commons.wikimedia.org/wiki/File:Tim_Sweeney,_GDCA_2017_(portrait_crop).jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    },
+    {
+      "id": "PSRC-FFF3CF6F9351",
+      "url": "https://commons.wikimedia.org/wiki/File:Richard_garriott_july_2008.jpg",
+      "title": "Wikimedia Commons",
+      "kind": "MEDIA_REPOSITORY",
+      "reliability": "HIGH",
+      "language": null,
+      "retrievedAt": "2026-09-03T20:30:51.514332+00:00",
+      "verifiedPrimary": false
+    }
+  ]
+}

@@ -23,6 +23,8 @@ import type {
   CompanyResearchAchievement,
   CompanyResearchPublicSource,
 } from "./company-research-types";
+import { getPublicPeopleForCompany } from "./person-public-research";
+import type { CompanyPersonLink } from "./person-research-types";
 import type { CatalogGame, CompanyProfile, IndexEntry } from "./types";
 
 export type CompanyCollaborator = {
@@ -63,6 +65,7 @@ export type CompanyProfileView = {
   seoDescription: string | null;
   researchSources: CompanyResearchPublicSource[];
   achievements: CompanyResearchAchievement[];
+  people: CompanyPersonLink[];
   platforms: CompanyPlatformGames[];
   collaborators: CompanyCollaborator[];
   games: CatalogGame[];
@@ -185,6 +188,7 @@ function buildCompanyProfileViewFromProfile(
     seoDescription: usesGeneratedCatalogCopy ? null : stored?.seoMeta?.seoDescription ?? null,
     researchSources: getPublicCompanyResearchSources(entry.slug),
     achievements: getPublicCompanyAchievements(entry.slug),
+    people: getPublicPeopleForCompany(entry.slug),
     platforms: groupGamesByPlatform(games),
     collaborators: collectCollaborators(entry, entry.slug).slice(0, 24),
     games,
