@@ -1,5 +1,6 @@
 import { CatalogBrowser } from "@/components/catalog-browser";
 import { SiteNav } from "@/components/site-nav";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import {
   CATALOG_PAGE_SIZE,
   DEFAULT_CATALOG_PRICE_TYPE,
@@ -97,7 +98,7 @@ export default async function CatalogPage({ searchParams }: Props) {
           </p>
           <h1 className="text-3xl font-bold text-foreground">Buscar en todo Region Atlas</h1>
           <p className="max-w-3xl text-muted">
-            Explora {publicListedCatalog.length.toLocaleString("es-ES")} juegos por título, compañía,
+            Explora {formatCatalogEntryCount(publicListedCatalog.length)} por título, compañía,
             género, saga, referencia, plataforma o región.
           </p>
         </header>
@@ -106,7 +107,7 @@ export default async function CatalogPage({ searchParams }: Props) {
           games={initialGames}
           contextName="todo el catálogo"
           source={{ kind: "catalog" }}
-          totalCount={initialCatalog.total}
+          totalCatalogEntryCount={initialCatalog.total}
           regions={publicCatalogRegionFilterOptions()}
           regionsByPlatform={publicCatalogRegionFilterOptionsByPlatform()}
           platforms={publicPlatformFilterOptions()}

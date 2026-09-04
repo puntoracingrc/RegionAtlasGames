@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp, RotateCcw, Search, SlidersHorizontal } from "lu
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { CompanyLogo } from "@/components/company-logo";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { cn } from "@/lib/cn";
 import {
   COMPANY_ACTIVITY_OPTIONS,
@@ -223,7 +224,7 @@ export function CompanyExplorer({
               <option value="all">Todas las plataformas</option>
               {platformOptions.map((platform) => (
                 <option key={platform.slug} value={platform.slug}>
-                  {platform.name} ({platform.count})
+                  {platform.name} ({platform.companyCount.toLocaleString("es-ES")} compañías)
                 </option>
               ))}
             </select>
@@ -237,7 +238,7 @@ export function CompanyExplorer({
               <option value="all">Todos los géneros</option>
               {genreOptions.slice(0, 80).map((genre) => (
                 <option key={genre.slug} value={genre.slug}>
-                  {genre.name} ({genre.count})
+                  {genre.name} ({genre.companyCount.toLocaleString("es-ES")} compañías)
                 </option>
               ))}
             </select>
@@ -500,7 +501,7 @@ function CompanyPreviewSection({
               <span className="truncate font-semibold text-foreground">{company.name}</span>
             </span>
             <span className="shrink-0 text-xs font-semibold text-accent">
-              {company.gameCount.toLocaleString("es-ES")}
+              {formatCatalogEntryCount(company.catalogEntryCount)}
             </span>
           </Link>
         ))}
@@ -546,15 +547,14 @@ function CompanyGrid({
                 <RoleBadge roleKind={company.roleKind} />
               </div>
               <p className="mt-1 text-sm text-accent">
-                {company.gameCount.toLocaleString("es-ES")}{" "}
-                {company.gameCount === 1 ? "juego" : "juegos"}
+                {formatCatalogEntryCount(company.catalogEntryCount)}
               </p>
             </div>
           </div>
-          {(company.developerCount > 0 || company.publisherCount > 0) && (
+          {(company.developerCatalogEntryCount > 0 || company.publisherCatalogEntryCount > 0) && (
             <p className="mt-1 text-xs text-muted">
-              Dev {company.developerCount.toLocaleString("es-ES")} · Pub{" "}
-              {company.publisherCount.toLocaleString("es-ES")}
+              Desarrollo: {formatCatalogEntryCount(company.developerCatalogEntryCount)} · Publicación:{" "}
+              {formatCatalogEntryCount(company.publisherCatalogEntryCount)}
             </p>
           )}
           {company.platformPreview && (
@@ -567,14 +567,14 @@ function CompanyGrid({
                 Perfil
               </span>
             )}
-            {company.grailCount > 0 && (
+            {company.highValueCatalogEntryCount > 0 && (
               <span className="rounded-md bg-amber-500/15 px-2 py-0.5 text-[10px] text-amber-800 dark:text-amber-200">
-                {company.grailCount} alto valor
+                {formatCatalogEntryCount(company.highValueCatalogEntryCount)} de alto valor
               </span>
             )}
-            {company.pricedCount > 0 && (
+            {company.pricedCatalogEntryCount > 0 && (
               <span className="rounded-md bg-emerald-500/10 px-2 py-0.5 text-[10px] text-emerald-700 dark:text-emerald-200">
-                {company.pricedCount} con precio
+                {formatCatalogEntryCount(company.pricedCatalogEntryCount)} con precio
               </span>
             )}
           </div>
@@ -605,7 +605,7 @@ function CompanySortMetric({
       ? "Precio mediano sin datos"
       : `Precio mediano · ${euroFormatter.format(company.medianPrice)}`;
   } else if (sort === "grails-desc") {
-    label = `${company.grailCount.toLocaleString("es-ES")} ${company.grailCount === 1 ? "título" : "títulos"} de alto valor`;
+    label = `${formatCatalogEntryCount(company.highValueCatalogEntryCount)} de alto valor`;
   } else if (sort === "recent-desc") {
     label = company.latestReleaseYear == null
       ? "Actividad sin fecha"

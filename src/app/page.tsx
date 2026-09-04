@@ -325,7 +325,7 @@ async function PublicHome() {
       />
 
       <section className="my-8 grid grid-cols-2 border-y border-border/70 md:grid-cols-4" aria-label="Cobertura del catálogo">
-        <PublicStat value={publicListedCatalog.length.toLocaleString("es-ES")} label="Juegos" />
+        <PublicStat value={publicListedCatalog.length.toLocaleString("es-ES")} label="Fichas catalogadas" />
         <PublicStat value={String(platforms.length)} label="Plataformas" />
         <PublicStat value={indexes.companies.toLocaleString("es-ES")} label="Compañías" />
         <PublicStat value={(meta.gamesWithDetails ?? 0).toLocaleString("es-ES")} label="Fichas completas" />

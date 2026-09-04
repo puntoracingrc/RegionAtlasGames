@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import type { CompanyCollaborator } from "@/lib/company-profile";
 
 export function CompanyCollaborators({
@@ -50,7 +51,7 @@ function CollaboratorList({
               {item.name}
             </Link>
             <span className="shrink-0 text-xs text-muted">
-              {item.count.toLocaleString("es-ES")} juegos
+              {formatCatalogEntryCount(item.catalogEntryCount)}
             </span>
           </li>
         ))}

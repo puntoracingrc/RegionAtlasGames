@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PlatformCardArt } from "@/components/platform-card-art";
 import { ManufacturerLogo } from "@/components/manufacturer-logo";
 import { RegionFlag } from "@/components/region-flag";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import type { CollectionView, Platform } from "@/lib/types";
 import { getPlatformRegions, getPlatformStats } from "@/lib/catalog";
 
@@ -25,10 +26,9 @@ export function PlatformCard({
 }) {
   const stats = getPlatformStats(platform.slug, ownedItems);
   const regions = getPlatformRegions(platform.slug);
-  const listedLabel =
-    stats.listed === 1
-      ? "1 título listado"
-      : `${stats.listed.toLocaleString("es-ES")} títulos listados`;
+  const listedLabel = `${formatCatalogEntryCount(stats.catalogEntryCount)} ${
+    stats.catalogEntryCount === 1 ? "catalogada" : "catalogadas"
+  }`;
 
   return (
     <Link

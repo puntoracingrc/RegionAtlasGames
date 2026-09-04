@@ -27,7 +27,7 @@ const MANUFACTURER_STYLE = {
 type Props = {
   platform: Platform;
   games: CatalogListGame[];
-  totalGames: number;
+  totalCatalogEntryCount: number;
   insights: PlatformCatalogInsights;
   regions: CatalogRegionFilterOption[];
   genres: CatalogTaxonomyFilterOption[];
@@ -49,7 +49,7 @@ type Props = {
 export function PlatformCatalogSection({
   platform,
   games,
-  totalGames,
+  totalCatalogEntryCount,
   insights,
   regions,
   genres,
@@ -127,7 +127,7 @@ export function PlatformCatalogSection({
         games={games}
         contextName={platform.shortName}
         source={{ kind: "platform", slug: platform.slug }}
-        totalCount={totalGames}
+        totalCatalogEntryCount={totalCatalogEntryCount}
         regions={regions}
         genres={genres}
         subgenres={subgenres}

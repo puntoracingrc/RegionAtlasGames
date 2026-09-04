@@ -12,17 +12,17 @@ function company(overrides: Partial<CompanyCardData> = {}): CompanyCardData {
   return {
     slug: name.toLowerCase().replaceAll(" ", "-"),
     name,
-    gameCount: 1,
-    developerCount: 0,
-    publisherCount: 1,
+    catalogEntryCount: 1,
+    developerCatalogEntryCount: 0,
+    publisherCatalogEntryCount: 1,
     roleKind: "publisher",
     platformSlugs: ["ps4"],
-    platformPreview: "PS4 (1)",
+    platformPreview: "PS4 (1 ficha)",
     genreSlugs: ["accion"],
     marketScore: 0,
     medianPrice: null,
-    grailCount: 0,
-    pricedCount: 0,
+    highValueCatalogEntryCount: 0,
+    pricedCatalogEntryCount: 0,
     firstReleaseYear: 2018,
     latestReleaseYear: 2018,
     activityPeriods: ["2010s"],
@@ -80,24 +80,24 @@ test("role filters include dual-role companies", () => {
 });
 
 test("catalog-size bands have exact non-overlapping boundaries", () => {
-  const companies = [4, 5, 19, 20, 49, 50, 199, 200].map((gameCount) =>
-    company({ name: `Company ${gameCount}`, gameCount }),
+  const companies = [4, 5, 19, 20, 49, 50, 199, 200].map((catalogEntryCount) =>
+    company({ name: `Company ${catalogEntryCount}`, catalogEntryCount }),
   );
 
   assert.deepEqual(
     filterCompanies(companies, filters({ size: "small" }))
-      .map((item) => item.gameCount)
+      .map((item) => item.catalogEntryCount)
       .sort((a, b) => a - b),
     [5, 19],
   );
   assert.deepEqual(
     filterCompanies(companies, filters({ size: "large" }))
-      .map((item) => item.gameCount)
+      .map((item) => item.catalogEntryCount)
       .sort((a, b) => a - b),
     [50, 199],
   );
   assert.deepEqual(
-    filterCompanies(companies, filters({ size: "major" })).map((item) => item.gameCount),
+    filterCompanies(companies, filters({ size: "major" })).map((item) => item.catalogEntryCount),
     [200],
   );
 });
@@ -107,19 +107,19 @@ test("advanced filters combine status, activity and price coverage", () => {
     name: "Match",
     companyStatus: "defunct",
     activityPeriods: ["1990s", "2000s"],
-    pricedCount: 3,
+    pricedCatalogEntryCount: 3,
   });
   const wrongStatus = company({
     name: "Active",
     companyStatus: "active",
     activityPeriods: ["1990s"],
-    pricedCount: 3,
+    pricedCatalogEntryCount: 3,
   });
   const wrongPeriod = company({
     name: "Eighties",
     companyStatus: "defunct",
     activityPeriods: ["1980s"],
-    pricedCount: 3,
+    pricedCatalogEntryCount: 3,
   });
 
   const result = filterCompanies(
@@ -135,16 +135,16 @@ test("economic and recent sorts use their displayed metrics", () => {
     name: "Older",
     marketScore: 500,
     medianPrice: 90,
-    grailCount: 4,
-    pricedCount: 5,
+    highValueCatalogEntryCount: 4,
+    pricedCatalogEntryCount: 5,
     latestReleaseYear: 2005,
   });
   const newer = company({
     name: "Newer",
     marketScore: 800,
     medianPrice: 40,
-    grailCount: 2,
-    pricedCount: 20,
+    highValueCatalogEntryCount: 2,
+    pricedCatalogEntryCount: 20,
     latestReleaseYear: 2025,
   });
 

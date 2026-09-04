@@ -147,6 +147,7 @@ export type IndexEntry = {
   museumPath: string;
   gameIds: string[];
   byPlatform: Record<string, number>;
+  /** Number of catalog records (`catalog_id`), not deduplicated videogame works. */
   gameCount: number;
   description?: string | null;
   backgroundImageUrl?: string | null;
@@ -504,14 +505,17 @@ export type CatalogMeta = {
   source: string;
   catalogScope: string;
   platformCount: number;
+  /** Number of public catalog records (`catalog_id`), not unique works. */
   catalogListed: number;
   catalogExcluded?: number;
   catalogTotal?: number;
   catalogEstimatedTotal: number;
+  /** Public catalog-record counts grouped by platform. */
   listedByPlatform: Record<string, number>;
   excludedByPlatform?: Record<string, number>;
   curationByCategory?: Record<string, number>;
   lastCuratedAt?: string;
+  /** Catalog records with a detail payload. */
   gamesWithDetails?: number;
   indexCompanies?: number;
   indexGenres?: number;

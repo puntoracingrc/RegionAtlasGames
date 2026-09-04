@@ -61,23 +61,23 @@ export const DEFAULT_COMPANY_FILTERS: CompanyIndexFilters = {
 export const COMPANY_SORT_OPTIONS: { value: CompanySort; label: string }[] = [
   { value: "name-asc", label: "Nombre (A → Z)" },
   { value: "name-desc", label: "Nombre (Z → A)" },
-  { value: "games-desc", label: "Más juegos en catálogo" },
-  { value: "pub-desc", label: "Más títulos publicados" },
-  { value: "dev-desc", label: "Más títulos desarrollados" },
+  { value: "games-desc", label: "Más fichas en catálogo" },
+  { value: "pub-desc", label: "Más fichas como publicadora" },
+  { value: "dev-desc", label: "Más fichas como desarrolladora" },
   { value: "median-desc", label: "Mayor precio mediano" },
   { value: "market-desc", label: "Mayor valor acumulado" },
-  { value: "grails-desc", label: "Más títulos de alto valor" },
+  { value: "grails-desc", label: "Más fichas de alto valor" },
   { value: "recent-desc", label: "Actividad más reciente" },
-  { value: "games-asc", label: "Menos juegos en catálogo" },
+  { value: "games-asc", label: "Menos fichas en catálogo" },
 ];
 
 export const COMPANY_SIZE_OPTIONS: { value: CompanyCatalogSizeFilter; label: string }[] = [
   { value: "all", label: "Cualquier tamaño" },
-  { value: "micro", label: "1-4 juegos" },
-  { value: "small", label: "5-19 juegos" },
-  { value: "medium", label: "20-49 juegos" },
-  { value: "large", label: "50-199 juegos" },
-  { value: "major", label: "200 o más juegos" },
+  { value: "micro", label: "1-4 fichas" },
+  { value: "small", label: "5-19 fichas" },
+  { value: "medium", label: "20-49 fichas" },
+  { value: "large", label: "50-199 fichas" },
+  { value: "major", label: "200 o más fichas" },
 ];
 
 export const COMPANY_STATUS_OPTIONS: { value: CompanyStatusFilter; label: string }[] = [
@@ -116,17 +116,17 @@ export const COMPANY_ROLE_FILTER_VALUES: CompanyRoleFilter[] = [
 export type CompanyCardData = {
   slug: string;
   name: string;
-  gameCount: number;
-  developerCount: number;
-  publisherCount: number;
+  catalogEntryCount: number;
+  developerCatalogEntryCount: number;
+  publisherCatalogEntryCount: number;
   roleKind: CompanyRoleKind;
   platformSlugs: string[];
   platformPreview: string;
   genreSlugs: string[];
   marketScore: number;
   medianPrice: number | null;
-  grailCount: number;
-  pricedCount: number;
+  highValueCatalogEntryCount: number;
+  pricedCatalogEntryCount: number;
   firstReleaseYear: number | null;
   latestReleaseYear: number | null;
   activityPeriods: CompanyActivityFilter[];
@@ -137,7 +137,7 @@ export type CompanyCardData = {
   searchHaystack: string;
 };
 
-export type CompanyFilterOption = { slug: string; name: string; count: number };
+export type CompanyFilterOption = { slug: string; name: string; companyCount: number };
 
 export type CompanyExplorerData = {
   companies: CompanyCardData[];
@@ -153,7 +153,7 @@ export type CompanyExplorerData = {
     developers: number;
     dualRole: number;
     withProfile: number;
-    gamesWithDetails: number;
+    catalogEntriesWithDetails: number;
   };
 };
 

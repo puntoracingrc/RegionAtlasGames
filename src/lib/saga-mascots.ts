@@ -1,4 +1,5 @@
 import type { SeriesProfile } from "@/lib/series-profile";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 
 export type SagaMascotTone = "elden-ring" | "final-fantasy" | "resident-evil";
 
@@ -93,7 +94,7 @@ export function getSagaMascot(slug?: string): SagaMascot | null {
 }
 
 export function buildSagaMascotLine(
-  profile?: Pick<SeriesProfile, "name" | "gameCount" | "platformCount">,
+  profile?: Pick<SeriesProfile, "name" | "catalogEntryCount" | "platformCount">,
   mascot?: SagaMascot,
 ) {
   if (!mascot) return "";
@@ -102,20 +103,18 @@ export function buildSagaMascotLine(
     return mascot.lines[0];
   }
 
-  const gameText = `${profile.gameCount.toLocaleString("es-ES")} ${
-    profile.gameCount === 1 ? "título" : "títulos"
-  }`;
+  const entryText = formatCatalogEntryCount(profile.catalogEntryCount);
   const platformText = `${profile.platformCount.toLocaleString("es-ES")} ${
     profile.platformCount === 1 ? "plataforma" : "plataformas"
   }`;
 
   if (mascot.tone === "final-fantasy") {
-    return `La saga ${profile.name} reúne ${gameText} en ${platformText}. Revisa cada capítulo con calma: el cristal también mira región, edición y estado.`;
+    return `La saga ${profile.name} reúne ${entryText} en ${platformText}. Revisa cada capítulo con calma: el cristal también mira región, edición y estado.`;
   }
 
   if (mascot.tone === "resident-evil") {
-    return `La saga ${profile.name} contiene ${gameText} repartidos en ${platformText}. Mantén la calma: revisa ediciones, remakes, regiones y precios antes de abrir la siguiente puerta.`;
+    return `La saga ${profile.name} contiene ${entryText} repartidas en ${platformText}. Mantén la calma: revisa ediciones, remakes, regiones y precios antes de abrir la siguiente puerta.`;
   }
 
-  return `La saga ${profile.name} ha dejado ${gameText} en ${platformText}. Examina cada edición con cuidado: algunas reliquias brillan menos de lo que valen.`;
+  return `La saga ${profile.name} ha dejado ${entryText} en ${platformText}. Examina cada edición con cuidado: algunas reliquias brillan menos de lo que valen.`;
 }

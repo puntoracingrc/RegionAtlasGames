@@ -29,7 +29,14 @@ export default async function CompanyPage({ params }: Props) {
 
   const user = await getCurrentUser();
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
-  const series = await listPublicSeriesForGames(view.games.map((game) => game.id));
+  const series = (await listPublicSeriesForGames(view.games.map((game) => game.id))).map(
+    (item) => ({
+      slug: item.slug,
+      name: item.name,
+      catalogEntryCount: item.gameCount,
+      matchedCatalogEntryCount: item.matchedGameCount,
+    }),
+  );
 
   return (
     <CompanyProfileDetail

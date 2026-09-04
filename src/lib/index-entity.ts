@@ -1,4 +1,5 @@
 import type { CatalogGame, IndexEntry } from "./types";
+import { formatCatalogEntryCount } from "./catalog-entry-count";
 import { formatCompanyAliases, getCompanyEntity } from "./company-canonical";
 import {
   gamesForIndex,
@@ -22,14 +23,23 @@ export type IndexEntitySummary = {
   entry: IndexEntry;
   name: string;
   slug: string;
-  gameCount: number;
+  catalogEntryCount: number;
   games: CatalogGame[];
-  platforms: ReturnType<typeof platformBreakdown>;
-  developerCount: number;
-  publisherCount: number;
+  platforms: Array<{ slug: string; name: string; catalogEntryCount: number }>;
+  developerCatalogEntryCount: number;
+  publisherCatalogEntryCount: number;
   alsoKnownAs?: string[];
   wikidataId?: string | null;
   mergeMethod?: IndexEntry["mergeMethod"];
+};
+
+export type PublicIndexEntityListItem = {
+  name: string;
+  slug: string;
+  catalogEntryCount: number;
+  catalogEntriesByPlatform: Record<string, number>;
+  developerCatalogEntryCount: number;
+  publisherCatalogEntryCount: number;
 };
 
 export const INDEX_KIND_META: Record<
@@ -116,14 +126,30 @@ export function summarizeIndexEntry(
     entry: resolved,
     name: resolved.name,
     slug: resolved.slug,
-    gameCount: resolved.gameCount,
+    catalogEntryCount: resolved.gameCount,
     games,
-    platforms: platformBreakdown(resolved),
-    developerCount: resolved.asDeveloper?.length ?? 0,
-    publisherCount: resolved.asPublisher?.length ?? 0,
+    platforms: platformBreakdown(resolved).map((platform) => ({
+      slug: platform.slug,
+      name: platform.name,
+      catalogEntryCount: platform.count,
+    })),
+    developerCatalogEntryCount: resolved.asDeveloper?.length ?? 0,
+    publisherCatalogEntryCount: resolved.asPublisher?.length ?? 0,
     alsoKnownAs: kind === "company" ? formatCompanyAliases(companyEntity) : undefined,
     wikidataId: resolved.wikidataId ?? companyEntity?.wikidataIds?.[0] ?? null,
     mergeMethod: resolved.mergeMethod,
+  };
+}
+
+export function toPublicIndexEntityListItem(entry: IndexEntry): PublicIndexEntityListItem {
+  const resolved = resolveIndexEntry(entry);
+  return {
+    name: resolved.name,
+    slug: resolved.slug,
+    catalogEntryCount: resolved.gameCount,
+    catalogEntriesByPlatform: resolved.byPlatform,
+    developerCatalogEntryCount: resolved.asDeveloper?.length ?? 0,
+    publisherCatalogEntryCount: resolved.asPublisher?.length ?? 0,
   };
 }
 
@@ -146,22 +172,22 @@ export function indexListIntro(kind: IndexKind, entityCount?: number): string {
           ? stats.series
           : stats.tags);
   const entities = `${count.toLocaleString("es-ES")} ${meta.entityLabelPlural}`;
-  const fichas = `${stats.gamesWithDetails.toLocaleString("es-ES")} juegos con ficha del museo`;
+  const fichas = `${formatCatalogEntryCount(stats.gamesWithDetails)} con información detallada`;
   return `${entities} · ${fichas}`;
 }
 
 /** Subtítulo unificado para ficha de entidad. */
 export function indexEntitySubtitle(summary: IndexEntitySummary): string {
-  const count = summary.gameCount.toLocaleString("es-ES");
+  const count = formatCatalogEntryCount(summary.catalogEntryCount);
   if (summary.kind !== "company") {
-    return `${count} juegos en el catálogo`;
+    return `${count} en el catálogo`;
   }
-  const parts = [`${count} juegos en el catálogo`];
-  if (summary.developerCount > 0) {
-    parts.push(`${summary.developerCount.toLocaleString("es-ES")} como desarrolladora`);
+  const parts = [`${count} en el catálogo`];
+  if (summary.developerCatalogEntryCount > 0) {
+    parts.push(`${formatCatalogEntryCount(summary.developerCatalogEntryCount)} como desarrolladora`);
   }
-  if (summary.publisherCount > 0) {
-    parts.push(`${summary.publisherCount.toLocaleString("es-ES")} como publicadora`);
+  if (summary.publisherCatalogEntryCount > 0) {
+    parts.push(`${formatCatalogEntryCount(summary.publisherCatalogEntryCount)} como publicadora`);
   }
   return parts.join(" · ");
 }

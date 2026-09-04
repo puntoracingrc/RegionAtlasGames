@@ -35,6 +35,7 @@ import {
 } from "@/lib/catalog-filters";
 import type { CatalogListGame } from "@/lib/types";
 import { catalogGamePath } from "@/lib/catalog-path";
+import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
 import { getCoverSrc } from "@/lib/cover-url";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
@@ -178,7 +179,7 @@ type Props = {
     | { kind: "catalog" }
     | { kind: "genre"; slug: string }
     | { kind: "taxonomy"; filter: "genre" | "subgenre" | "facet"; slug: string };
-  totalCount?: number;
+  totalCatalogEntryCount?: number;
   regions?: CatalogRegionFilterOption[];
   regionsByPlatform?: Record<string, CatalogRegionFilterOption[]>;
   platforms?: CatalogPlatformFilterOption[];
@@ -211,7 +212,7 @@ export function CatalogBrowser({
   games,
   contextName,
   source,
-  totalCount,
+  totalCatalogEntryCount,
   regions: initialRegions,
   regionsByPlatform,
   platforms: initialPlatforms,
@@ -265,7 +266,7 @@ export function CatalogBrowser({
   const priceFilter = "all";
   const [page, setPage] = useState(1);
   const [serverItems, setServerItems] = useState(games);
-  const [serverTotal, setServerTotal] = useState(totalCount ?? games.length);
+  const [serverTotal, setServerTotal] = useState(totalCatalogEntryCount ?? games.length);
   const [isLoading, setIsLoading] = useState(false);
   const canShowPriceLegend = showPriceLegend && source?.kind !== "platform";
   const [savedStateLoaded, setSavedStateLoaded] = useState(!persistKey);
@@ -432,7 +433,7 @@ export function CatalogBrowser({
 
     if (defaultServerView) {
       setServerItems(games);
-      setServerTotal(totalCount ?? games.length);
+      setServerTotal(totalCatalogEntryCount ?? games.length);
       setActiveRegions(regions);
       setActiveGenres(genres);
       setActiveSubgenres(subgenres);
@@ -492,7 +493,7 @@ export function CatalogBrowser({
       controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [companies, company, facet, facets, games, genre, genres, page, platform, priceType, q, region, regions, sort, source, subgenre, subgenres, totalCount]);
+  }, [companies, company, facet, facets, games, genre, genres, page, platform, priceType, q, region, regions, sort, source, subgenre, subgenres, totalCatalogEntryCount]);
 
   const pageItems = useMemo(() => {
     if (source) return filteredItems;
@@ -761,15 +762,15 @@ export function CatalogBrowser({
           <div className="flex flex-col gap-2 rounded-2xl border border-border/70 bg-background/55 p-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
             <p className="text-sm font-medium text-muted">
               {total === 0 ? (
-                <>0 resultados en {contextName}</>
+                <>0 fichas en {contextName}</>
               ) : totalPages > 1 ? (
                 <>
-                  Mostrando {resultStart.toLocaleString("es-ES")}–{resultEnd.toLocaleString("es-ES")} de{" "}
+                  Mostrando fichas {resultStart.toLocaleString("es-ES")}–{resultEnd.toLocaleString("es-ES")} de{" "}
                   {total.toLocaleString("es-ES")} en {contextName}
                 </>
               ) : (
                 <>
-                  {total.toLocaleString("es-ES")} resultado{total !== 1 ? "s" : ""} en {contextName}
+                  {formatCatalogEntryCount(total)} en {contextName}
                 </>
               )}
             </p>
@@ -815,7 +816,7 @@ export function CatalogBrowser({
 
       {pageItems.length === 0 ? (
         <div className="rounded-xl border border-dashed border-border py-12 text-center text-sm text-muted">
-          Ningún juego coincide. Prueba otro término, compañía o referencia.
+          Ninguna ficha coincide. Prueba otro término, compañía o referencia.
         </div>
       ) : (
         <>

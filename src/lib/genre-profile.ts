@@ -12,14 +12,14 @@ import type { CatalogGame } from "./types";
 export type GenrePlatformGames = {
   platformSlug: string;
   platformName: string;
-  count: number;
+  catalogEntryCount: number;
   games: CatalogGame[];
 };
 
 export type GenreProfileView = {
   slug: string;
   name: string;
-  gameCount: number;
+  catalogEntryCount: number;
   alsoKnownAs: string[];
   platforms: GenrePlatformGames[];
   referenceTops: GenrePlatformReferenceTop[];
@@ -37,10 +37,14 @@ function groupGamesByPlatform(games: CatalogGame[]): GenrePlatformGames[] {
     .map(([platformSlug, platformGames]) => ({
       platformSlug,
       platformName: getPlatform(platformSlug)?.shortName ?? platformSlug,
-      count: platformGames.length,
+      catalogEntryCount: platformGames.length,
       games: [...platformGames].sort((a, b) => a.title.localeCompare(b.title, "es")),
     }))
-    .sort((a, b) => b.count - a.count || a.platformName.localeCompare(b.platformName, "es"));
+    .sort(
+      (a, b) =>
+        b.catalogEntryCount - a.catalogEntryCount ||
+        a.platformName.localeCompare(b.platformName, "es"),
+    );
 }
 
 export function buildGenreProfileView(slug: string): GenreProfileView | undefined {
@@ -51,7 +55,7 @@ export function buildGenreProfileView(slug: string): GenreProfileView | undefine
   return {
     slug: entry.slug,
     name: entry.name,
-    gameCount: games.length,
+    catalogEntryCount: games.length,
     alsoKnownAs: formatGenreAliases(entity),
     platforms: groupGamesByPlatform(games),
     referenceTops: getGenreReferenceTops(entry.slug),
