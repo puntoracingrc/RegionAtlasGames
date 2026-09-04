@@ -7,40 +7,16 @@ import { AdminFunctionCard, AdminNotice, adminToneClass } from "@/components/adm
 import { Panel, PanelTitle } from "@/components/ui";
 import type { AdminFranchiseDetail, AdminFranchiseRow } from "@/lib/admin-franchise-manager";
 import { ENTITY_TYPES, RELATIONSHIP_TYPES } from "@/lib/franchise-types";
+import {
+  FRANCHISE_ENTITY_LABELS,
+  FRANCHISE_MEMBERSHIP_LABELS,
+  FRANCHISE_RELATIONSHIP_LABELS,
+  FRANCHISE_ROLE_LABELS,
+  FRANCHISE_ROLE_OPTIONS,
+} from "@/lib/franchise-labels";
 import type { FranchiseRole, RelationshipEntityType, RelationshipType } from "@/lib/franchise-types";
 
 type SeriesOption = { slug: string; name: string; gameCount: number };
-
-const ENTITY_LABELS: Record<RelationshipEntityType, string> = {
-  game: "Juego",
-  series: "Saga / Subserie",
-  franchise: "Franquicia",
-};
-
-const RELATIONSHIP_LABELS: Record<RelationshipType, string> = {
-  sequel_to: "Secuela de",
-  prequel_to: "Precuela de",
-  spin_off_of: "Spin-off de",
-  remake_of: "Remake de",
-  remaster_of: "Remasterización de",
-  reboot_of: "Reinicio de",
-  crossover_with: "Crossover con",
-  derived_from: "Derivada de",
-  expansion_of: "Expansión de",
-  standalone_expansion_of: "Expansión independiente de",
-  successor_of: "Sucesora de",
-  parent_of: "Entidad principal de",
-  subseries_of: "Subserie de",
-  compilation_of: "Recopilación de",
-};
-
-const ROLE_OPTIONS: Array<{ value: FranchiseRole | ""; label: string }> = [
-  { value: "", label: "Sin rol" },
-  { value: "mainline", label: "Serie principal" },
-  { value: "spin_off", label: "Spin-off" },
-  { value: "side_story", label: "Historia paralela" },
-  { value: "crossover", label: "Crossover" },
-];
 
 export function AdminFranchisesPanel() {
   const [franchises, setFranchises] = useState<AdminFranchiseRow[]>([]);
@@ -225,7 +201,7 @@ export function AdminFranchisesPanel() {
                 >
                   <span className="block font-semibold text-foreground">{franchise.name}</span>
                   <span className="mt-1 block text-xs text-muted">
-                    {franchise.gameCount} juegos · {franchise.seriesCount} sagas · {franchise.status === "published" ? "Publicada" : "Borrador"}
+                    {franchise.gameCount} {franchise.gameCount === 1 ? "juego" : "juegos"} · {franchise.seriesCount} {franchise.seriesCount === 1 ? "saga" : "sagas"} · {franchise.status === "published" ? "Publicada" : "Borrador"}
                   </span>
                 </button>
               ))}
@@ -304,7 +280,7 @@ export function AdminFranchisesPanel() {
                   <li key={series.slug} className="flex flex-wrap items-center justify-between gap-3 py-3">
                     <div>
                       <Link href={`/saga/${series.slug}`} target="_blank" className="font-semibold text-foreground hover:text-accent">{series.name}</Link>
-                      <p className="text-xs text-muted">{series.gameCount} juegos{series.primary ? " · Principal" : " · Relacionada"}</p>
+                      <p className="text-xs text-muted">{series.gameCount} {series.gameCount === 1 ? "juego" : "juegos"}{series.primary ? " · Principal" : " · Relacionada"}</p>
                     </div>
                     <div className="flex gap-2">
                       {!series.primary && <button type="button" className="btn-secondary px-3 py-1.5 text-xs" disabled={saving} onClick={() => void patchSelected({ action: "set-series", seriesSlug: series.slug, primary: true }, "Franquicia principal actualizada.")}>Hacer principal</button>}
@@ -327,7 +303,7 @@ export function AdminFranchisesPanel() {
                 <label className="space-y-1">
                   <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Rol</span>
                   <select className="input" value={gameRole} onChange={(event) => setGameRole(event.target.value as FranchiseRole | "")}>
-                    {ROLE_OPTIONS.map((option) => <option key={option.value || "none"} value={option.value}>{option.label}</option>)}
+                    {FRANCHISE_ROLE_OPTIONS.map((option) => <option key={option.value || "none"} value={option.value}>{option.label}</option>)}
                   </select>
                 </label>
                 <label className="flex items-center gap-2 pb-2 text-sm font-semibold text-foreground"><input type="checkbox" checked={gamePrimary} onChange={(event) => setGamePrimary(event.target.checked)} /> Principal</label>
@@ -338,7 +314,7 @@ export function AdminFranchisesPanel() {
                   <div key={game.id} className="flex flex-wrap items-center justify-between gap-3 border-b border-border py-3 last:border-b-0">
                     <div className="min-w-0">
                       <p className="truncate font-semibold text-foreground">{game.title}</p>
-                      <p className="text-xs text-muted">{game.id} · {game.membership}{game.role ? ` · ${game.role}` : ""}</p>
+                      <p className="text-xs text-muted">{game.id} · {FRANCHISE_MEMBERSHIP_LABELS[game.membership]}{game.role ? ` · ${FRANCHISE_ROLE_LABELS[game.role]}` : ""}</p>
                     </div>
                     {game.membership !== "inherited" && <button type="button" className="btn-secondary inline-flex items-center gap-1 px-3 py-1.5 text-xs text-red-700" disabled={saving} onClick={() => void patchSelected({ action: "remove-game", gameId: game.id }, "Pertenencia directa retirada.")}><Trash2 className="h-3.5 w-3.5" aria-hidden="true" /> Retirar directa</button>}
                   </div>
@@ -349,10 +325,10 @@ export function AdminFranchisesPanel() {
             <Panel className={adminToneClass("edit")}>
               <PanelTitle eyebrow="Semántica">Relaciones entre entidades</PanelTitle>
               <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
-                <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Origen</span><select className="input" value={sourceType} onChange={(event) => setSourceType(event.target.value as RelationshipEntityType)}>{ENTITY_TYPES.map((type) => <option key={type} value={type}>{ENTITY_LABELS[type]}</option>)}</select></label>
+                <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Origen</span><select className="input" value={sourceType} onChange={(event) => setSourceType(event.target.value as RelationshipEntityType)}>{ENTITY_TYPES.map((type) => <option key={type} value={type}>{FRANCHISE_ENTITY_LABELS[type]}</option>)}</select></label>
                 <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">ID origen</span><input className="input font-mono text-xs" value={sourceId} onChange={(event) => setSourceId(event.target.value)} /></label>
-                <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Relación</span><select className="input" value={relationshipType} onChange={(event) => setRelationshipType(event.target.value as RelationshipType)}>{RELATIONSHIP_TYPES.map((type) => <option key={type} value={type}>{RELATIONSHIP_LABELS[type]}</option>)}</select></label>
-                <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Destino</span><select className="input" value={targetType} onChange={(event) => setTargetType(event.target.value as RelationshipEntityType)}>{ENTITY_TYPES.map((type) => <option key={type} value={type}>{ENTITY_LABELS[type]}</option>)}</select></label>
+                <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Relación</span><select className="input" value={relationshipType} onChange={(event) => setRelationshipType(event.target.value as RelationshipType)}>{RELATIONSHIP_TYPES.map((type) => <option key={type} value={type}>{FRANCHISE_RELATIONSHIP_LABELS[type]}</option>)}</select></label>
+                <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Destino</span><select className="input" value={targetType} onChange={(event) => setTargetType(event.target.value as RelationshipEntityType)}>{ENTITY_TYPES.map((type) => <option key={type} value={type}>{FRANCHISE_ENTITY_LABELS[type]}</option>)}</select></label>
                 <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">ID destino</span><input className="input font-mono text-xs" value={targetId} onChange={(event) => setTargetId(event.target.value)} /></label>
               </div>
               <button type="button" className="btn-primary mt-3 inline-flex items-center gap-2" disabled={!sourceId.trim() || !targetId.trim() || saving} onClick={() => void patchSelected({ action: "add-relationship", sourceType, sourceId: sourceId.trim(), targetType, targetId: targetId.trim(), relationshipType }, "Relación añadida.")}><Plus className="h-4 w-4" aria-hidden="true" /> Añadir relación</button>

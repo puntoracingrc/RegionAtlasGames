@@ -6,7 +6,7 @@
     "scripts"
   ],
   "matchCount": 328,
-  "fileCount": 54,
+  "fileCount": 55,
   "files": [
     "scripts/audit-franchise-migration.ts",
     "scripts/backfill_company_roles.py",
@@ -56,6 +56,7 @@
     "src/lib/covers-upload.ts",
     "src/lib/franchise-domain.test.ts",
     "src/lib/franchise-domain.ts",
+    "src/lib/franchise-labels.ts",
     "src/lib/franchise-system.test.ts",
     "src/lib/franchise-system.ts",
     "src/lib/index-entity.ts",
@@ -785,15 +786,7 @@
     },
     {
       "file": "src/components/admin/admin-franchises-panel.tsx",
-      "line": 16,
-      "patterns": [
-        "saga-copy"
-      ],
-      "text": "series: \"Saga / Subserie\","
-    },
-    {
-      "file": "src/components/admin/admin-franchises-panel.tsx",
-      "line": 89,
+      "line": 65,
       "patterns": [
         "saga-copy"
       ],
@@ -801,15 +794,15 @@
     },
     {
       "file": "src/components/admin/admin-franchises-panel.tsx",
-      "line": 228,
+      "line": 204,
       "patterns": [
         "saga-copy"
       ],
-      "text": "{franchise.gameCount} juegos · {franchise.seriesCount} sagas · {franchise.status === \"published\" ? \"Publicada\" : \"Borrador\"}"
+      "text": "{franchise.gameCount} {franchise.gameCount === 1 ? \"juego\" : \"juegos\"} · {franchise.seriesCount} {franchise.seriesCount === 1 ? \"saga\" : \"sagas\"} · {franchise.status === \"published\" ? \"Publicada\" : \"Borrador\"}"
     },
     {
       "file": "src/components/admin/admin-franchises-panel.tsx",
-      "line": 286,
+      "line": 262,
       "patterns": [
         "saga-copy"
       ],
@@ -817,7 +810,7 @@
     },
     {
       "file": "src/components/admin/admin-franchises-panel.tsx",
-      "line": 289,
+      "line": 265,
       "patterns": [
         "saga-copy"
       ],
@@ -825,7 +818,7 @@
     },
     {
       "file": "src/components/admin/admin-franchises-panel.tsx",
-      "line": 298,
+      "line": 274,
       "patterns": [
         "saga-copy"
       ],
@@ -833,7 +826,7 @@
     },
     {
       "file": "src/components/admin/admin-franchises-panel.tsx",
-      "line": 306,
+      "line": 282,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -850,7 +843,7 @@
     },
     {
       "file": "src/components/admin/admin-game-franchise-panel.tsx",
-      "line": 36,
+      "line": 34,
       "patterns": [
         "saga-copy"
       ],
@@ -858,7 +851,7 @@
     },
     {
       "file": "src/components/admin/admin-game-franchise-panel.tsx",
-      "line": 71,
+      "line": 69,
       "patterns": [
         "saga-copy"
       ],
@@ -866,7 +859,7 @@
     },
     {
       "file": "src/components/admin/admin-game-franchise-panel.tsx",
-      "line": 133,
+      "line": 131,
       "patterns": [
         "saga-copy"
       ],
@@ -874,7 +867,7 @@
     },
     {
       "file": "src/components/admin/admin-game-franchise-panel.tsx",
-      "line": 139,
+      "line": 137,
       "patterns": [
         "saga-copy"
       ],
@@ -882,7 +875,7 @@
     },
     {
       "file": "src/components/admin/admin-game-franchise-panel.tsx",
-      "line": 144,
+      "line": 142,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -891,7 +884,7 @@
     },
     {
       "file": "src/components/admin/admin-game-franchise-panel.tsx",
-      "line": 145,
+      "line": 143,
       "patterns": [
         "saga-copy"
       ],
@@ -907,7 +900,7 @@
     },
     {
       "file": "src/components/admin/admin-series-franchise-panel.tsx",
-      "line": 13,
+      "line": 14,
       "patterns": [
         "saga-copy"
       ],
@@ -2235,6 +2228,14 @@
         "saga-copy"
       ],
       "text": "error: \"No se puede retirar la franquicia mientras el juego siga vinculado a una saga que pertenece a ella.\","
+    },
+    {
+      "file": "src/lib/franchise-labels.ts",
+      "line": 10,
+      "patterns": [
+        "saga-copy"
+      ],
+      "text": "series: \"Saga / Subserie\","
     },
     {
       "file": "src/lib/franchise-system.test.ts",

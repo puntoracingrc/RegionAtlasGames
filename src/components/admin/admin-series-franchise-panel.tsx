@@ -5,6 +5,7 @@ import { Plus, Trash2 } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { AdminNotice } from "@/components/admin/admin-visual";
 import type { AdminSeriesFranchiseContext } from "@/lib/admin-franchise-manager";
+import { FRANCHISE_ENTITY_LABELS, FRANCHISE_RELATIONSHIP_LABELS } from "@/lib/franchise-labels";
 import { ENTITY_TYPES, RELATIONSHIP_TYPES } from "@/lib/franchise-types";
 import type { RelationshipEntityType, RelationshipType } from "@/lib/franchise-types";
 
@@ -164,8 +165,8 @@ export function AdminSeriesFranchisePanel({ seriesSlug }: { seriesSlug: string }
       <div>
         <h3 className="font-semibold text-foreground">Relaciones semánticas</h3>
         <div className="mt-3 grid gap-3 md:grid-cols-3">
-          <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Tipo</span><select className="input" value={relationshipType} onChange={(event) => setRelationshipType(event.target.value as RelationshipType)}>{RELATIONSHIP_TYPES.map((type) => <option key={type} value={type}>{type}</option>)}</select></label>
-          <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Entidad destino</span><select className="input" value={targetType} onChange={(event) => setTargetType(event.target.value as RelationshipEntityType)}>{ENTITY_TYPES.map((type) => <option key={type} value={type}>{type}</option>)}</select></label>
+          <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Tipo</span><select className="input" value={relationshipType} onChange={(event) => setRelationshipType(event.target.value as RelationshipType)}>{RELATIONSHIP_TYPES.map((type) => <option key={type} value={type}>{FRANCHISE_RELATIONSHIP_LABELS[type]}</option>)}</select></label>
+          <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Entidad destino</span><select className="input" value={targetType} onChange={(event) => setTargetType(event.target.value as RelationshipEntityType)}>{ENTITY_TYPES.map((type) => <option key={type} value={type}>{FRANCHISE_ENTITY_LABELS[type]}</option>)}</select></label>
           <label className="space-y-1"><span className="text-[10px] font-semibold uppercase tracking-wider text-muted">ID destino</span><input className="input font-mono text-xs" value={targetId} onChange={(event) => setTargetId(event.target.value)} placeholder="slug, franchise:slug o catalog ID" /></label>
         </div>
         <button type="button" className="btn-primary mt-3 inline-flex items-center gap-2" disabled={!targetId.trim() || saving} onClick={() => void addRelationship()}><Plus className="h-4 w-4" aria-hidden="true" /> Añadir relación</button>

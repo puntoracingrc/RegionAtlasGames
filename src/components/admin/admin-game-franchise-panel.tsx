@@ -5,16 +5,14 @@ import { Plus, Save, Trash2 } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { AdminNotice } from "@/components/admin/admin-visual";
 import type { AdminGameFranchiseContext } from "@/lib/admin-franchise-manager";
+import {
+  FRANCHISE_ENTITY_LABELS,
+  FRANCHISE_MEMBERSHIP_LABELS,
+  FRANCHISE_RELATIONSHIP_LABELS,
+  FRANCHISE_ROLE_OPTIONS,
+} from "@/lib/franchise-labels";
 import { ENTITY_TYPES, RELATIONSHIP_TYPES } from "@/lib/franchise-types";
 import type { FranchiseRole, RelationshipEntityType, RelationshipType } from "@/lib/franchise-types";
-
-const ROLE_OPTIONS: Array<{ value: FranchiseRole | ""; label: string }> = [
-  { value: "", label: "Sin rol" },
-  { value: "mainline", label: "Serie principal" },
-  { value: "spin_off", label: "Spin-off" },
-  { value: "side_story", label: "Historia paralela" },
-  { value: "crossover", label: "Crossover" },
-];
 
 export function AdminGameFranchisePanel({ gameId }: { gameId: string }) {
   const [context, setContext] = useState<AdminGameFranchiseContext | null>(null);
@@ -92,7 +90,7 @@ export function AdminGameFranchisePanel({ gameId }: { gameId: string }) {
           <label className="space-y-1">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-muted">Rol</span>
             <select className="input" value={franchiseRole} onChange={(event) => setFranchiseRole(event.target.value as FranchiseRole | "")}>
-              {ROLE_OPTIONS.map((option) => <option key={option.value || "none"} value={option.value}>{option.label}</option>)}
+              {FRANCHISE_ROLE_OPTIONS.map((option) => <option key={option.value || "none"} value={option.value}>{option.label}</option>)}
             </select>
           </label>
           <label className="flex items-center gap-2 pb-2 text-sm font-semibold text-foreground"><input type="checkbox" checked={franchisePrimary} onChange={(event) => setFranchisePrimary(event.target.checked)} /> Principal</label>
@@ -104,7 +102,7 @@ export function AdminGameFranchisePanel({ gameId }: { gameId: string }) {
             <li key={franchise.id} className="grid gap-3 py-3 lg:grid-cols-[minmax(0,1fr)_11rem_auto_auto] lg:items-center">
               <div>
                 <Link href={`/franquicia/${franchise.slug}`} target="_blank" className="font-semibold text-foreground hover:text-accent">{franchise.name}</Link>
-                <p className="text-xs text-muted">{franchise.membership}{franchise.primary ? " · Principal" : ""}</p>
+                <p className="text-xs text-muted">{franchise.membership ? FRANCHISE_MEMBERSHIP_LABELS[franchise.membership] : "Sin pertenencia"}{franchise.primary ? " · Principal" : ""}</p>
               </div>
               <select
                 className="input"
@@ -117,7 +115,7 @@ export function AdminGameFranchisePanel({ gameId }: { gameId: string }) {
                   } : current);
                 }}
               >
-                {ROLE_OPTIONS.map((option) => <option key={option.value || "none"} value={option.value}>{option.label}</option>)}
+                {FRANCHISE_ROLE_OPTIONS.map((option) => <option key={option.value || "none"} value={option.value}>{option.label}</option>)}
               </select>
               <label className="flex items-center gap-2 text-sm font-semibold text-foreground"><input type="checkbox" checked={franchise.primary} onChange={(event) => setContext((current) => current ? { ...current, franchises: current.franchises.map((item) => item.id === franchise.id ? { ...item, primary: event.target.checked } : event.target.checked && item.selected ? { ...item, primary: false } : item) } : current)} /> Principal</label>
               <div className="flex gap-2">
@@ -151,8 +149,8 @@ export function AdminGameFranchisePanel({ gameId }: { gameId: string }) {
       <section className="border-t border-border pt-5">
         <h3 className="font-semibold text-foreground">Relaciones</h3>
         <div className="mt-3 grid gap-3 md:grid-cols-3">
-          <select className="input" value={relationshipType} onChange={(event) => setRelationshipType(event.target.value as RelationshipType)}>{RELATIONSHIP_TYPES.map((type) => <option key={type} value={type}>{type}</option>)}</select>
-          <select className="input" value={targetType} onChange={(event) => setTargetType(event.target.value as RelationshipEntityType)}>{ENTITY_TYPES.map((type) => <option key={type} value={type}>{type}</option>)}</select>
+          <select className="input" value={relationshipType} onChange={(event) => setRelationshipType(event.target.value as RelationshipType)}>{RELATIONSHIP_TYPES.map((type) => <option key={type} value={type}>{FRANCHISE_RELATIONSHIP_LABELS[type]}</option>)}</select>
+          <select className="input" value={targetType} onChange={(event) => setTargetType(event.target.value as RelationshipEntityType)}>{ENTITY_TYPES.map((type) => <option key={type} value={type}>{FRANCHISE_ENTITY_LABELS[type]}</option>)}</select>
           <input className="input font-mono text-xs" value={targetId} onChange={(event) => setTargetId(event.target.value)} placeholder="ID de destino" />
         </div>
         <button type="button" className="btn-primary mt-3 inline-flex items-center gap-2" disabled={!targetId.trim() || saving} onClick={() => void request("/api/admin/entities/relationships", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ sourceType: "game", sourceId: gameId, targetType, targetId: targetId.trim(), relationshipType }) }, "Relación añadida.")}><Plus className="h-4 w-4" aria-hidden="true" /> Añadir relación</button>
