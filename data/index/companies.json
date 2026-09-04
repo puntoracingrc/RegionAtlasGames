@@ -16575,7 +16575,9 @@
       "ps4-assassin%27s-creed-syndicate",
       "ps4-usa-ghost-recon-breakpoint-wolves-collector%27s-edition",
       "ps4-riders-republic",
-      "ps4-rocksmith-2014-edition"
+      "ps4-rocksmith-2014-edition",
+      "ps3-splinter-cell-blacklist",
+      "ps3-usa-splinter-cell-blacklist"
     ],
     "byPlatform": {
       "3ds": 14,
@@ -16587,7 +16589,7 @@
       "nes": 1,
       "ps1": 19,
       "ps2": 51,
-      "ps3": 51,
+      "ps3": 53,
       "ps4": 195,
       "saturn": 2,
       "wii": 109,
@@ -17195,9 +17197,11 @@
       "ps5-the-rogue-prince-of-persia",
       "switch2-monopoly-star-wars",
       "switch2-the-rogue-prince-of-persia",
-      "switch2-the-rogue-prince-of-persia-immortal-edition"
+      "switch2-the-rogue-prince-of-persia-immortal-edition",
+      "ps3-splinter-cell-blacklist",
+      "ps3-usa-splinter-cell-blacklist"
     ],
-    "gameCount": 516
+    "gameCount": 518
   },
   "activision": {
     "name": "Activision",
@@ -17682,12 +17686,23 @@
       "ps4-crash-team-rumble-deluxe-edition",
       "nes-pal-eu-ultimate-air-combat",
       "ps3-usa-cabela-s-adventure-camp",
-      "ps3-usa-saints-row-gat-out-of-hell"
+      "ps3-usa-saints-row-gat-out-of-hell",
+      "ds-007-quantum-of-solace",
+      "ps2-007-quantum-of-solace",
+      "ps2-usa-007-quantum-of-solace",
+      "ps3-007-quantum-of-solace",
+      "ps3-usa-007-quantum-of-solace",
+      "ps3-call-of-duty-advanced-warfare",
+      "ps3-usa-call-of-duty-advanced-warfare",
+      "ps4-call-of-duty-advanced-warfare",
+      "ps4-usa-call-of-duty-advanced-warfare",
+      "ps3-skylanders-spyro%27s-adventure",
+      "ps3-usa-skylanders-spyro-s-adventure"
     ],
     "byPlatform": {
       "3ds": 16,
       "dreamcast": 15,
-      "ds": 16,
+      "ds": 17,
       "gameboy": 10,
       "gamecube": 3,
       "mastersystem": 6,
@@ -17696,9 +17711,9 @@
       "n64": 21,
       "nes": 24,
       "ps1": 13,
-      "ps2": 68,
-      "ps3": 54,
-      "ps4": 102,
+      "ps2": 70,
+      "ps3": 60,
+      "ps4": 104,
       "saturn": 7,
       "snes": 3,
       "wii": 112,
@@ -18205,9 +18220,20 @@
       "ps2-return-to-castle-wolfenstein-operation-resurrection",
       "ps2-madagascar",
       "ps5-crash-team-rumble-deluxe-edition",
-      "ps4-crash-team-rumble-deluxe-edition"
+      "ps4-crash-team-rumble-deluxe-edition",
+      "ds-007-quantum-of-solace",
+      "ps2-007-quantum-of-solace",
+      "ps2-usa-007-quantum-of-solace",
+      "ps3-007-quantum-of-solace",
+      "ps3-usa-007-quantum-of-solace",
+      "ps3-call-of-duty-advanced-warfare",
+      "ps3-usa-call-of-duty-advanced-warfare",
+      "ps4-call-of-duty-advanced-warfare",
+      "ps4-usa-call-of-duty-advanced-warfare",
+      "ps3-skylanders-spyro%27s-adventure",
+      "ps3-usa-skylanders-spyro-s-adventure"
     ],
-    "gameCount": 479
+    "gameCount": 490
   },
   "square-enix": {
     "name": "Square Enix",
@@ -18241,7 +18267,6 @@
       "ps4-usa-dragon-quest-heroes",
       "ps4-usa-shadow-of-the-tomb-raider-definitive-edition",
       "ps4-usa-final-fantasy-xiv-a-realm-reborn",
-      "ps2-007-quantum-of-solace",
       "ps4-usa-life-is-strange-true-colors",
       "ps4-japon-seiken-densetsu-2-secret-of-mana-collector%27s-edition",
       "ps4-usa-lara-croft-and-the-temple-of-osiris",
@@ -18250,7 +18275,6 @@
       "ps4-japon-final-fantasy-tactics-the-ivalice-chronicles-deluxe-edition",
       "ps4-final-fantasy-vii-remake",
       "ps4-usa-final-fantasy-xii-the-zodiac-age-collector%27s-edition",
-      "ps3-splinter-cell-blacklist",
       "ps4-usa-nier-replicant-ver122474487139",
       "ps4-japon-dragon-quest-xi",
       "ps4-usa-the-diofield-chronicle-collector%27s-edition",
@@ -18308,7 +18332,6 @@
       "ps4-japon-dragon-quest-x-the-five-awakened-races-off-line-deluxe-edition",
       "ps4-usa-just-cause-3-collector%27s-edition",
       "ps4-shadow-of-the-tomb-raider",
-      "ps3-call-of-duty-advanced-warfare",
       "ps4-usa-nier-automata-day-one",
       "ps4-japon-octopath-traveler-0",
       "ps4-world-of-final-fantasy",
@@ -18322,7 +18345,6 @@
       "ps4-usa-crisis-core-final-fantasy-vii-reunion",
       "ps4-usa-call-of-duty-ghosts",
       "ps4-usa-neo-the-world-ends-with-you",
-      "ps4-usa-call-of-duty-advanced-warfare",
       "ps4-usa-just-cause-4-steelbook-edition",
       "ps4-japon-nier-automata-collector%27s-edition",
       "ps4-japon-million-arthur-arcana-blood",
@@ -18371,7 +18393,6 @@
       "wii-mensa-academy",
       "3ds-kingdom-hearts-3d-dream-drop-distance",
       "ps4-japon-neo-the-world-ends-with-you-limited-edition",
-      "ps3-skylanders-spyro%27s-adventure",
       "ps3-call-of-duty-ghosts",
       "ps4-usa-legend-of-mana",
       "ps4-usa-star-ocean-integrity-and-faithlessness",
@@ -18387,7 +18408,6 @@
       "ps4-usa-shadow-of-the-tomb-raider-limited-steelbook-edition",
       "ps4-usa-just-cause-3",
       "ps4-usa-outriders",
-      "ps4-call-of-duty-advanced-warfare",
       "ps4-usa-final-fantasy-vii-remake-deluxe-edition",
       "ps4-deus-ex-mankind-divided",
       "ps4-japon-romancing-saga-2-revenge-of-the-seven",
@@ -18476,7 +18496,6 @@
       "ps4-usa-final-fantasy-i-vi-collection",
       "ps4-kingdom-hearts-all-in-one-package",
       "ps4-japon-oninaki",
-      "ps3-007-quantum-of-solace",
       "ps4-usa-left-alive",
       "ps4-japon-infinity-strash-dragon-quest-the-adventure-of-dai",
       "ps2-valkyrie-profile-2-silmeria",
@@ -18507,7 +18526,6 @@
       "switch2-dragon-quest-vii-reimagined",
       "switch2-final-fantasy-vii-remake-intergrade",
       "switch2-octopath-traveler-0",
-      "gameboy-es-mystic-quest",
       "ps1-usa-final-fantasy-ix",
       "ps1-usa-final-fantasy-vii",
       "ps1-usa-final-fantasy-viii",
@@ -18538,11 +18556,10 @@
     "byPlatform": {
       "3ds": 7,
       "ds": 2,
-      "gameboy": 1,
       "ps1": 11,
-      "ps2": 12,
-      "ps3": 34,
-      "ps4": 236,
+      "ps2": 11,
+      "ps3": 30,
+      "ps4": 234,
       "snes": 1,
       "wii": 6,
       "ps5": 7,
@@ -18622,7 +18639,6 @@
       "ps4-final-fantasy-i-vi-collection-pixel-remaster",
       "ps4-usa-kingdom-hearts-iii",
       "ps4-japon-final-fantasy-xv-film-collections-box",
-      "gameboy-es-mystic-quest",
       "ps1-usa-final-fantasy-ix",
       "ps1-usa-final-fantasy-vii",
       "ps1-usa-final-fantasy-viii",
@@ -18684,7 +18700,6 @@
       "ps4-usa-dragon-quest-heroes",
       "ps4-usa-shadow-of-the-tomb-raider-definitive-edition",
       "ps4-usa-final-fantasy-xiv-a-realm-reborn",
-      "ps2-007-quantum-of-solace",
       "ps4-usa-life-is-strange-true-colors",
       "ps4-japon-seiken-densetsu-2-secret-of-mana-collector%27s-edition",
       "ps4-usa-lara-croft-and-the-temple-of-osiris",
@@ -18693,7 +18708,6 @@
       "ps4-japon-final-fantasy-tactics-the-ivalice-chronicles-deluxe-edition",
       "ps4-final-fantasy-vii-remake",
       "ps4-usa-final-fantasy-xii-the-zodiac-age-collector%27s-edition",
-      "ps3-splinter-cell-blacklist",
       "ps4-usa-nier-replicant-ver122474487139",
       "ps4-japon-dragon-quest-xi",
       "ps4-usa-the-diofield-chronicle-collector%27s-edition",
@@ -18749,7 +18763,6 @@
       "ps4-japon-dragon-quest-x-the-five-awakened-races-off-line-deluxe-edition",
       "ps4-usa-just-cause-3-collector%27s-edition",
       "ps4-shadow-of-the-tomb-raider",
-      "ps3-call-of-duty-advanced-warfare",
       "ps4-usa-nier-automata-day-one",
       "ps4-japon-octopath-traveler-0",
       "ps4-world-of-final-fantasy",
@@ -18762,7 +18775,6 @@
       "ps4-usa-crisis-core-final-fantasy-vii-reunion",
       "ps4-usa-call-of-duty-ghosts",
       "ps4-usa-neo-the-world-ends-with-you",
-      "ps4-usa-call-of-duty-advanced-warfare",
       "ps4-usa-just-cause-4-steelbook-edition",
       "ps4-japon-nier-automata-collector%27s-edition",
       "ps4-japon-million-arthur-arcana-blood",
@@ -18810,7 +18822,6 @@
       "ps3-kingdom-hearts-hd-15-remix",
       "3ds-kingdom-hearts-3d-dream-drop-distance",
       "ps4-japon-neo-the-world-ends-with-you-limited-edition",
-      "ps3-skylanders-spyro%27s-adventure",
       "ps3-call-of-duty-ghosts",
       "ps4-usa-legend-of-mana",
       "ps4-usa-star-ocean-integrity-and-faithlessness",
@@ -18825,7 +18836,6 @@
       "ps4-usa-shadow-of-the-tomb-raider-limited-steelbook-edition",
       "ps4-usa-just-cause-3",
       "ps4-usa-outriders",
-      "ps4-call-of-duty-advanced-warfare",
       "ps4-usa-final-fantasy-vii-remake-deluxe-edition",
       "ps4-deus-ex-mankind-divided",
       "ps4-japon-romancing-saga-2-revenge-of-the-seven",
@@ -18909,7 +18919,6 @@
       "ps4-usa-final-fantasy-i-vi-collection",
       "ps4-kingdom-hearts-all-in-one-package",
       "ps4-japon-oninaki",
-      "ps3-007-quantum-of-solace",
       "ps4-usa-left-alive",
       "ps4-japon-infinity-strash-dragon-quest-the-adventure-of-dai",
       "ps2-valkyrie-profile-2-silmeria",
@@ -18941,7 +18950,7 @@
       "switch2-final-fantasy-vii-remake-intergrade",
       "switch2-octopath-traveler-0"
     ],
-    "gameCount": 320
+    "gameCount": 312
   },
   "ea-sports": {
     "name": "EA Sports",
@@ -33762,7 +33771,6 @@
       "ps1-mortal-kombat-4",
       "ps1-legend",
       "wii-goldeneye-007",
-      "ps3-007-quantum-of-solace",
       "gamegear-tarzan-lord-of-the-jungle",
       "n64-pal-war-gods",
       "nes-lethal-weapon",
@@ -33783,7 +33791,6 @@
       "ps2-usa-ice-age-2-the-meltdown",
       "ps2-usa-pirates-of-the-caribbean-at-world-s-end",
       "ps3-usa-007-legends",
-      "ps3-usa-007-quantum-of-solace",
       "ps3-usa-goldeneye-007-reloaded",
       "ps3-usa-vancouver-2010"
     ],
@@ -33796,7 +33803,7 @@
       "nes": 6,
       "ps1": 11,
       "ps2": 15,
-      "ps3": 10,
+      "ps3": 8,
       "saturn": 2,
       "wii": 6
     },
@@ -33870,7 +33877,6 @@
       "ps1-mortal-kombat-4",
       "ps1-legend",
       "wii-goldeneye-007",
-      "ps3-007-quantum-of-solace",
       "gamegear-tarzan-lord-of-the-jungle",
       "n64-pal-war-gods",
       "nes-lethal-weapon",
@@ -33891,12 +33897,11 @@
       "ps2-usa-ice-age-2-the-meltdown",
       "ps2-usa-pirates-of-the-caribbean-at-world-s-end",
       "ps3-usa-007-legends",
-      "ps3-usa-007-quantum-of-solace",
       "ps3-usa-goldeneye-007-reloaded",
       "ps3-usa-vancouver-2010"
     ],
     "asPublisher": [],
-    "gameCount": 93
+    "gameCount": 91
   },
   "flying-edge": {
     "name": "Flying Edge",
@@ -45538,14 +45543,16 @@
       "ps2-usa-spiderman-2",
       "ps2-usa-ultimate-spiderman",
       "ps3-usa-call-of-duty-3",
-      "ps4-usa-call-of-duty-vanguard"
+      "ps4-usa-call-of-duty-vanguard",
+      "ps3-007-quantum-of-solace",
+      "ps3-usa-007-quantum-of-solace"
     ],
     "byPlatform": {
       "dreamcast": 9,
       "n64": 4,
       "ps1": 4,
       "ps2": 10,
-      "ps3": 5,
+      "ps3": 7,
       "ps4": 7,
       "wii": 4
     },
@@ -45592,10 +45599,12 @@
       "ps2-usa-spiderman-2",
       "ps2-usa-ultimate-spiderman",
       "ps3-usa-call-of-duty-3",
-      "ps4-usa-call-of-duty-vanguard"
+      "ps4-usa-call-of-duty-vanguard",
+      "ps3-007-quantum-of-solace",
+      "ps3-usa-007-quantum-of-solace"
     ],
     "asPublisher": [],
-    "gameCount": 43
+    "gameCount": 45
   },
   "black-pearl-software": {
     "name": "Black Pearl Software",
@@ -47393,13 +47402,15 @@
       "ps2-usa-madagascar",
       "ps3-usa-skylander-s-giants-starter-pack",
       "ps4-usa-crash-team-rumble",
-      "ps4-usa-skylanders-imaginators-starter-pack-featuring-crash-bandicoot"
+      "ps4-usa-skylanders-imaginators-starter-pack-featuring-crash-bandicoot",
+      "ps3-skylanders-spyro%27s-adventure",
+      "ps3-usa-skylanders-spyro-s-adventure"
     ],
     "byPlatform": {
       "3ds": 1,
       "ps1": 2,
       "ps2": 4,
-      "ps3": 6,
+      "ps3": 8,
       "ps4": 13,
       "saturn": 1,
       "wii": 10
@@ -47441,10 +47452,12 @@
       "ps2-usa-madagascar",
       "ps3-usa-skylander-s-giants-starter-pack",
       "ps4-usa-crash-team-rumble",
-      "ps4-usa-skylanders-imaginators-starter-pack-featuring-crash-bandicoot"
+      "ps4-usa-skylanders-imaginators-starter-pack-featuring-crash-bandicoot",
+      "ps3-skylanders-spyro%27s-adventure",
+      "ps3-usa-skylanders-spyro-s-adventure"
     ],
     "asPublisher": [],
-    "gameCount": 37
+    "gameCount": 39
   },
   "banpresto": {
     "name": "Banpresto",
@@ -49363,11 +49376,12 @@
       "ps1-usa-spiderman-2-enter-electro",
       "ps1-usa-tony-hawk-4",
       "ps2-usa-crash-nitro-kart",
-      "ps2-usa-spiderman-3"
+      "ps2-usa-spiderman-3",
+      "ds-007-quantum-of-solace"
     ],
     "byPlatform": {
       "3ds": 1,
-      "ds": 5,
+      "ds": 6,
       "n64": 1,
       "ps1": 4,
       "ps2": 4,
@@ -49406,10 +49420,11 @@
       "ps1-usa-spiderman-2-enter-electro",
       "ps1-usa-tony-hawk-4",
       "ps2-usa-crash-nitro-kart",
-      "ps2-usa-spiderman-3"
+      "ps2-usa-spiderman-3",
+      "ds-007-quantum-of-solace"
     ],
     "asPublisher": [],
-    "gameCount": 31
+    "gameCount": 32
   },
   "video-system": {
     "name": "Video System",
@@ -93585,20 +93600,17 @@
     "museumPath": "",
     "gameIds": [
       "wii-the-hardy-boys-the-hidden-theft",
-      "wii-kung-fu-panda",
-      "ps3-skylanders-spyro%27s-adventure"
+      "wii-kung-fu-panda"
     ],
     "byPlatform": {
-      "ps3": 1,
       "wii": 2
     },
     "asDeveloper": [
       "wii-the-hardy-boys-the-hidden-theft",
-      "wii-kung-fu-panda",
-      "ps3-skylanders-spyro%27s-adventure"
+      "wii-kung-fu-panda"
     ],
     "asPublisher": [],
-    "gameCount": 3
+    "gameCount": 2
   },
   "xplosiv": {
     "name": "Xplosiv",
@@ -142694,10 +142706,11 @@
       "nes-rad-racer",
       "nes-japon-final-fantasy-ii",
       "nes-japon-final-fantasy",
-      "nes-japon-hanjuku-hero"
+      "nes-japon-hanjuku-hero",
+      "gameboy-es-mystic-quest"
     ],
     "byPlatform": {
-      "gameboy": 5,
+      "gameboy": 6,
       "nes": 17,
       "snes": 1
     },
@@ -142719,7 +142732,8 @@
       "nes-japon-kings-knight",
       "nes-rad-racer",
       "nes-japon-final-fantasy-ii",
-      "nes-japon-final-fantasy"
+      "nes-japon-final-fantasy",
+      "gameboy-es-mystic-quest"
     ],
     "asPublisher": [
       "nes-usa-rad-racer-ii",
@@ -142742,7 +142756,7 @@
       "nes-japon-final-fantasy-ii",
       "nes-japon-hanjuku-hero"
     ],
-    "gameCount": 23
+    "gameCount": 24
   },
   "square-enix-1st-production-department": {
     "name": "Square Enix 1st Production Department",

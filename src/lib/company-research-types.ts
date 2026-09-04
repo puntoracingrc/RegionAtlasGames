@@ -100,6 +100,11 @@ export type CompanyResearchManifest = {
     publishedRelationships: number;
   };
   protectedFileHashes: Record<string, string>;
+  protectedFileHashUpdates?: {
+    batchId: string;
+    reviewedAt: string;
+    files: Record<string, { before: string; after: string }>;
+  }[];
 };
 
 export type CompanyResearchAdminRecord = {

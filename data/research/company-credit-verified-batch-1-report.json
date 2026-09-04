@@ -1,0 +1,1040 @@
+{
+  "schemaVersion": 1,
+  "batchId": "company-credit-verified-batch-1",
+  "reviewedAt": "2026-09-04",
+  "baseCommit": "8a1b296359ed2108590067602e5c8d2442e57031",
+  "sourcePackageSha256": "5f1ef245ff18cf855896d8f8e5e42bf4959befbb723a5fa92665e91f82e740a8",
+  "decisionFileSha256": "d0ec58edbeaca7d2be1364e5763f7f6662af595e4373b62dcdfbd35fbabed52f",
+  "dryRun": false,
+  "writesPerformed": true,
+  "catalog": {
+    "rowsBefore": 59626,
+    "rowsAfter": 59626,
+    "idsBefore": 59626,
+    "idsAfter": 59626
+  },
+  "summary": {
+    "decisions": 29,
+    "mutations": 19,
+    "addMissing": 8,
+    "replace": 11,
+    "changedCatalogIds": 14,
+    "createdDetailRecords": 1,
+    "confirmedCurrentNotRewritten": 5,
+    "highRetainNotRewritten": 2,
+    "highReplaceBlocked": 3
+  },
+  "detailChanges": [
+    {
+      "catalogId": "ds-007-quantum-of-solace",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    },
+    {
+      "catalogId": "gameboy-es-mystic-quest",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ]
+    },
+    {
+      "catalogId": "ps2-007-quantum-of-solace",
+      "fields": [
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    },
+    {
+      "catalogId": "ps2-usa-007-quantum-of-solace",
+      "fields": [
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    },
+    {
+      "catalogId": "ps3-007-quantum-of-solace",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    },
+    {
+      "catalogId": "ps3-call-of-duty-advanced-warfare",
+      "fields": [
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    },
+    {
+      "catalogId": "ps3-skylanders-spyro%27s-adventure",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    },
+    {
+      "catalogId": "ps3-splinter-cell-blacklist",
+      "fields": [
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    },
+    {
+      "catalogId": "ps3-usa-007-quantum-of-solace",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    },
+    {
+      "catalogId": "ps3-usa-call-of-duty-advanced-warfare",
+      "fields": [
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    },
+    {
+      "catalogId": "ps3-usa-skylanders-spyro-s-adventure",
+      "fields": [
+        "developer",
+        "fetchedAt",
+        "fieldProvenance",
+        "fieldSources",
+        "genres",
+        "mergedAt",
+        "publisher",
+        "sources"
+      ]
+    },
+    {
+      "catalogId": "ps3-usa-splinter-cell-blacklist",
+      "fields": [
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    },
+    {
+      "catalogId": "ps4-call-of-duty-advanced-warfare",
+      "fields": [
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    },
+    {
+      "catalogId": "ps4-usa-call-of-duty-advanced-warfare",
+      "fields": [
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ]
+    }
+  ],
+  "mutations": [
+    {
+      "catalogId": "ds-007-quantum-of-solace",
+      "title": "007 Quantum of Solace",
+      "platform": "ds",
+      "region": "PAL_ES",
+      "role": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Vicarious Visions",
+        "slug": "vicarious-visions",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+        ],
+        "evidenceSummary": "Official platform mapping assigns the DS version to Vicarious Visions.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ds-007-quantum-of-solace",
+      "title": "007 Quantum of Solace",
+      "platform": "ds",
+      "region": "PAL_ES",
+      "role": "publisher",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+        ],
+        "evidenceSummary": "Activision announced the European and North American retail launch.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps2-007-quantum-of-solace",
+      "title": "007 Quantum of Solace",
+      "platform": "ps2",
+      "region": "PAL_ES",
+      "role": "publisher",
+      "action": "REPLACE",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Square Enix",
+        "slug": "square-enix",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "7875c4b3-cfeb-4530-9c4a-4ced4d0caac2",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game",
+          "https://www.jp.square-enix.com/company/en/news/2009/"
+        ],
+        "evidenceSummary": "Square Enix's role was Japan-specific; the PAL row must not inherit it.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps2-usa-007-quantum-of-solace",
+      "title": "007 Quantum of Solace",
+      "platform": "ps2",
+      "region": "USA",
+      "role": "publisher",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+        ],
+        "evidenceSummary": "Activision announced the North American retail launch.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-007-quantum-of-solace",
+      "title": "007 Quantum of Solace",
+      "platform": "ps3",
+      "region": "PAL_ES",
+      "role": "developer",
+      "action": "REPLACE",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Eurocom",
+        "slug": "eurocom",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "51adfa75-2c85-4999-b267-02308d7bdcdc",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Treyarch",
+        "slug": "treyarch",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+        ],
+        "evidenceSummary": "Official platform mapping assigns the PS3 version to Treyarch, not Eurocom.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-007-quantum-of-solace",
+      "title": "007 Quantum of Solace",
+      "platform": "ps3",
+      "region": "PAL_ES",
+      "role": "publisher",
+      "action": "REPLACE",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Square Enix",
+        "slug": "square-enix",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "7875c4b3-cfeb-4530-9c4a-4ced4d0caac2",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game",
+          "https://www.jp.square-enix.com/company/en/news/2009/"
+        ],
+        "evidenceSummary": "Square Enix published the Japanese release only; this is a PAL row.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-usa-007-quantum-of-solace",
+      "title": "007 Quantum of Solace",
+      "platform": "ps3",
+      "region": "USA",
+      "role": "developer",
+      "action": "REPLACE",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Eurocom",
+        "slug": "eurocom",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "51adfa75-2c85-4999-b267-02308d7bdcdc",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Treyarch",
+        "slug": "treyarch",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+        ],
+        "evidenceSummary": "Official platform mapping assigns the PS3 version to Treyarch.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-usa-007-quantum-of-solace",
+      "title": "007 Quantum of Solace",
+      "platform": "ps3",
+      "region": "USA",
+      "role": "publisher",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+        ],
+        "evidenceSummary": "Activision announced the North American retail launch.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-call-of-duty-advanced-warfare",
+      "title": "Call of Duty Advanced Warfare",
+      "platform": "ps3",
+      "region": "PAL_ES",
+      "role": "publisher",
+      "action": "REPLACE",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Square Enix",
+        "slug": "square-enix",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "7875c4b3-cfeb-4530-9c4a-4ced4d0caac2",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.activision.com/games/call-of-duty/call-of-duty-advanced-warfare",
+          "https://www.jp.square-enix.com/game/detail/codaw/"
+        ],
+        "evidenceSummary": "Square Enix's supported role is Japanese; PAL publisher should be Activision.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-usa-call-of-duty-advanced-warfare",
+      "title": "Call of Duty Advanced Warfare",
+      "platform": "ps3",
+      "region": "USA",
+      "role": "publisher",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.activision.com/games/call-of-duty/call-of-duty-advanced-warfare"
+        ],
+        "evidenceSummary": "Activision is the non-Japanese publisher.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps4-call-of-duty-advanced-warfare",
+      "title": "Call of Duty Advanced Warfare",
+      "platform": "ps4",
+      "region": "PAL_ES",
+      "role": "publisher",
+      "action": "REPLACE",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Square Enix",
+        "slug": "square-enix",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "7875c4b3-cfeb-4530-9c4a-4ced4d0caac2",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.xbox.com/nl-NL/games/store/call-of-duty-advanced-warfare/c5bh6mg77vt5",
+          "https://www.jp.square-enix.com/game/detail/codaw/"
+        ],
+        "evidenceSummary": "Square Enix is supported only for Japan; this is a PAL row.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps4-usa-call-of-duty-advanced-warfare",
+      "title": "Call of Duty Advanced Warfare",
+      "platform": "ps4",
+      "region": "USA",
+      "role": "publisher",
+      "action": "REPLACE",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Square Enix",
+        "slug": "square-enix",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "7875c4b3-cfeb-4530-9c4a-4ced4d0caac2",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.xbox.com/nl-NL/games/store/call-of-duty-advanced-warfare/c5bh6mg77vt5",
+          "https://www.jp.square-enix.com/game/detail/codaw/"
+        ],
+        "evidenceSummary": "Square Enix's supported role is Japan-specific; this is a USA row.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-skylanders-spyro%27s-adventure",
+      "title": "Skylanders: Spyro's Adventure",
+      "platform": "ps3",
+      "region": "PAL_ES",
+      "role": "developer",
+      "action": "REPLACE",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "XPEC Entertainment",
+        "slug": "xpec-entertainment",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "6bf30ac7-aded-4a2e-84af-1a061b3d204a",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Toys for Bob",
+        "slug": "toys-for-bob",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.activision.com/games/skylanders/skylanders-spyros-adventure",
+          "https://investor.activision.com/static-files/9bda83fb-9cb4-4887-8aeb-5a4d70d96215"
+        ],
+        "evidenceSummary": "Official Activision sources identify Toys for Bob as the console game's studio.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-skylanders-spyro%27s-adventure",
+      "title": "Skylanders: Spyro's Adventure",
+      "platform": "ps3",
+      "region": "PAL_ES",
+      "role": "publisher",
+      "action": "REPLACE",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Square Enix",
+        "slug": "square-enix",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "7875c4b3-cfeb-4530-9c4a-4ced4d0caac2",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/static-files/9bda83fb-9cb4-4887-8aeb-5a4d70d96215"
+        ],
+        "evidenceSummary": "Activision announced and published the worldwide console release; Square Enix is imported territorial leakage.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-usa-skylanders-spyro-s-adventure",
+      "title": "Skylanders Spyro's Adventure",
+      "platform": "ps3",
+      "region": "USA",
+      "role": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Toys for Bob",
+        "slug": "toys-for-bob",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.activision.com/games/skylanders/skylanders-spyros-adventure",
+          "https://investor.activision.com/static-files/9bda83fb-9cb4-4887-8aeb-5a4d70d96215"
+        ],
+        "evidenceSummary": "Official Activision sources identify Toys for Bob.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-usa-skylanders-spyro-s-adventure",
+      "title": "Skylanders Spyro's Adventure",
+      "platform": "ps3",
+      "region": "USA",
+      "role": "publisher",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/static-files/9bda83fb-9cb4-4887-8aeb-5a4d70d96215"
+        ],
+        "evidenceSummary": "Official Activision release supports the USA publisher.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-splinter-cell-blacklist",
+      "title": "Splinter Cell: Blacklist",
+      "platform": "ps3",
+      "region": "PAL_ES",
+      "role": "publisher",
+      "action": "REPLACE",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Square Enix",
+        "slug": "square-enix",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "7875c4b3-cfeb-4530-9c4a-4ced4d0caac2",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Ubisoft",
+        "slug": "ubisoft",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.steampowered.com/app/235600/Tom_Clancys_Splinter_Cell_Blacklist/",
+          "https://news.ubisoft.com/en-us/article/2xK7FikFTBzQ4Gv97IVMfl/from-splinter-cell-blacklist-to-far-cry-6-10-years-at-ubisoft-toronto-and-beyond"
+        ],
+        "evidenceSummary": "The PAL row inherited Square Enix from unscoped data; official listing names Ubisoft.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "ps3-usa-splinter-cell-blacklist",
+      "title": "Splinter Cell: Blacklist",
+      "platform": "ps3",
+      "region": "USA",
+      "role": "publisher",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Ubisoft",
+        "slug": "ubisoft",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.steampowered.com/app/235600/Tom_Clancys_Splinter_Cell_Blacklist/"
+        ],
+        "evidenceSummary": "Official distribution listing names Ubisoft as publisher.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    },
+    {
+      "catalogId": "gameboy-es-mystic-quest",
+      "title": "Mystic Quest",
+      "platform": "gameboy",
+      "region": "PAL_ES",
+      "role": "developer",
+      "action": "REPLACE",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Square Enix",
+        "slug": "square-enix",
+        "museumPath": "/desarrolladoras-de-software/square",
+        "pcPath": null,
+        "source": "museum"
+      },
+      "after": {
+        "name": "Square",
+        "slug": "square",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.hd.square-enix.com/eng/company/history.html"
+        ],
+        "evidenceSummary": "The sibling source already names Square and Square Enix did not exist until April 2003.",
+        "reviewedAt": "2026-09-04",
+        "reviewBatch": "company-credit-verified-batch-1"
+      }
+    }
+  ],
+  "protectedDecisions": [
+    {
+      "catalogId": "ps2-007-quantum-of-solace",
+      "role": "developer",
+      "action": "RETAIN",
+      "confidence": "VERY_HIGH",
+      "publicationGate": "ELIGIBLE_AFTER_CODEX_DIFF_AND_TESTS",
+      "value": {
+        "name": "Eurocom",
+        "slug": "eurocom",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "51adfa75-2c85-4999-b267-02308d7bdcdc",
+        "source": "serialstation"
+      }
+    },
+    {
+      "catalogId": "ps2-usa-007-quantum-of-solace",
+      "role": "developer",
+      "action": "RETAIN",
+      "confidence": "VERY_HIGH",
+      "publicationGate": "ELIGIBLE_AFTER_CODEX_DIFF_AND_TESTS",
+      "value": {
+        "name": "Eurocom",
+        "slug": "eurocom",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "51adfa75-2c85-4999-b267-02308d7bdcdc",
+        "source": "serialstation"
+      }
+    },
+    {
+      "catalogId": "ps3-call-of-duty-advanced-warfare",
+      "role": "developer",
+      "action": "RETAIN",
+      "confidence": "HIGH",
+      "publicationGate": "MANUAL_REVIEW_REQUIRED",
+      "value": {
+        "name": "High Moon",
+        "slug": "high-moon",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "f0712774-ac6c-45c6-b4d1-302aad8d29cf",
+        "source": "serialstation"
+      }
+    },
+    {
+      "catalogId": "ps3-usa-call-of-duty-advanced-warfare",
+      "role": "developer",
+      "action": "RETAIN",
+      "confidence": "HIGH",
+      "publicationGate": "MANUAL_REVIEW_REQUIRED",
+      "value": {
+        "name": "High Moon",
+        "slug": "high-moon",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "f0712774-ac6c-45c6-b4d1-302aad8d29cf",
+        "source": "serialstation"
+      }
+    },
+    {
+      "catalogId": "ps4-call-of-duty-advanced-warfare",
+      "role": "developer",
+      "action": "REPLACE",
+      "confidence": "HIGH",
+      "publicationGate": "MANUAL_REVIEW_REQUIRED",
+      "value": {
+        "name": "High Moon",
+        "slug": "high-moon",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "f0712774-ac6c-45c6-b4d1-302aad8d29cf",
+        "source": "serialstation"
+      }
+    },
+    {
+      "catalogId": "ps4-usa-call-of-duty-advanced-warfare",
+      "role": "developer",
+      "action": "REPLACE",
+      "confidence": "HIGH",
+      "publicationGate": "MANUAL_REVIEW_REQUIRED",
+      "value": {
+        "name": "High Moon",
+        "slug": "high-moon",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "f0712774-ac6c-45c6-b4d1-302aad8d29cf",
+        "source": "serialstation"
+      }
+    },
+    {
+      "catalogId": "ps4-japon-call-of-duty-advanced-warfare",
+      "role": "developer",
+      "action": "REPLACE",
+      "confidence": "HIGH",
+      "publicationGate": "MANUAL_REVIEW_REQUIRED",
+      "value": {
+        "name": "High Moon",
+        "slug": "high-moon",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "f0712774-ac6c-45c6-b4d1-302aad8d29cf",
+        "source": "serialstation"
+      }
+    },
+    {
+      "catalogId": "ps4-japon-call-of-duty-advanced-warfare",
+      "role": "publisher",
+      "action": "RETAIN_AS_REGIONAL_PUBLISHER",
+      "confidence": "VERY_HIGH",
+      "publicationGate": "ELIGIBLE_AFTER_CODEX_DIFF_AND_TESTS",
+      "value": {
+        "name": "Square Enix",
+        "slug": "square-enix",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "7875c4b3-cfeb-4530-9c4a-4ced4d0caac2",
+        "source": "serialstation"
+      }
+    },
+    {
+      "catalogId": "ps3-splinter-cell-blacklist",
+      "role": "developer",
+      "action": "RETAIN",
+      "confidence": "VERY_HIGH",
+      "publicationGate": "ELIGIBLE_AFTER_CODEX_DIFF_AND_TESTS",
+      "value": {
+        "name": "Ubisoft Toronto",
+        "slug": "ubisoft-toronto",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "564e82b6-7a71-46a3-b55e-0c36a4a4ed3f",
+        "source": "serialstation"
+      }
+    },
+    {
+      "catalogId": "ps3-usa-splinter-cell-blacklist",
+      "role": "developer",
+      "action": "RETAIN",
+      "confidence": "VERY_HIGH",
+      "publicationGate": "ELIGIBLE_AFTER_CODEX_DIFF_AND_TESTS",
+      "value": {
+        "name": "Ubisoft Toronto",
+        "slug": "ubisoft-toronto",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "564e82b6-7a71-46a3-b55e-0c36a4a4ed3f",
+        "source": "serialstation"
+      }
+    }
+  ],
+  "companyIndexChanges": [
+    {
+      "slug": "activision",
+      "page": "/compania/activision",
+      "before": {
+        "gameCount": 479,
+        "developerCount": 38,
+        "publisherCount": 461
+      },
+      "after": {
+        "gameCount": 490,
+        "developerCount": 38,
+        "publisherCount": 472
+      }
+    },
+    {
+      "slug": "eurocom",
+      "page": "/compania/eurocom",
+      "before": {
+        "gameCount": 93,
+        "developerCount": 93,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 91,
+        "developerCount": 91,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "square",
+      "page": "/compania/square",
+      "before": {
+        "gameCount": 23,
+        "developerCount": 18,
+        "publisherCount": 19
+      },
+      "after": {
+        "gameCount": 24,
+        "developerCount": 19,
+        "publisherCount": 19
+      }
+    },
+    {
+      "slug": "square-enix",
+      "page": "/compania/square-enix",
+      "before": {
+        "gameCount": 320,
+        "developerCount": 107,
+        "publisherCount": 282
+      },
+      "after": {
+        "gameCount": 312,
+        "developerCount": 106,
+        "publisherCount": 275
+      }
+    },
+    {
+      "slug": "toys-for-bob",
+      "page": "/compania/toys-for-bob",
+      "before": {
+        "gameCount": 37,
+        "developerCount": 37,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 39,
+        "developerCount": 39,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "treyarch",
+      "page": "/compania/treyarch",
+      "before": {
+        "gameCount": 43,
+        "developerCount": 43,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 45,
+        "developerCount": 45,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "ubisoft",
+      "page": "/compania/ubisoft",
+      "before": {
+        "gameCount": 516,
+        "developerCount": 115,
+        "publisherCount": 484
+      },
+      "after": {
+        "gameCount": 518,
+        "developerCount": 115,
+        "publisherCount": 486
+      }
+    },
+    {
+      "slug": "vicarious-visions",
+      "page": "/compania/vicarious-visions",
+      "before": {
+        "gameCount": 31,
+        "developerCount": 31,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 32,
+        "developerCount": 32,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "xpec-entertainment",
+      "page": "/compania/xpec-entertainment",
+      "before": {
+        "gameCount": 3,
+        "developerCount": 3,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 2,
+        "developerCount": 2,
+        "publisherCount": 0
+      }
+    }
+  ],
+  "affectedCompanyPages": [
+    "/compania/activision",
+    "/compania/eurocom",
+    "/compania/square",
+    "/compania/square-enix",
+    "/compania/toys-for-bob",
+    "/compania/treyarch",
+    "/compania/ubisoft",
+    "/compania/vicarious-visions",
+    "/compania/xpec-entertainment"
+  ]
+}

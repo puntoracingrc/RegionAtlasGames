@@ -35,13 +35,29 @@
     "portraitHotlinkingAllowed": false
   },
   "protectedFileHashes": {
-    "data/game-details.json": "108fccad5892f28fb6a7301fcb2754cbcbd7116f889b6ed17a2e10a98ba4e8e3",
+    "data/game-details.json": "1d2c55d28fc6ea79865a3faab0cc2f811cd7f49c34107e42f5eaefefc8bc2833",
     "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
-    "data/index/companies.json": "23979fd694d7ea6cf0d132b04d1b16a7513b7493e0086a386c775b9d9952f13b",
+    "data/index/companies.json": "d774c621f0289cdfeae1141361fc4483e84037432d82499a5f7ab83afafe48bb",
     "data/index/company-entities.json": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
     "data/research/company-study/core.json": "89f85d051468bb1de1f3ddc2e5d9e252dc9ea219c91b8927ba148a97116d2f28",
     "data/research/company-study/public.json": "c713018d6617b92508f9342569b74c3dfb79c87a6f64f77c47e93ac2e047c7e8"
   },
+  "protectedFileHashUpdates": [
+    {
+      "batchId": "company-credit-verified-batch-1",
+      "reviewedAt": "2026-09-04",
+      "files": {
+        "data/game-details.json": {
+          "before": "108fccad5892f28fb6a7301fcb2754cbcbd7116f889b6ed17a2e10a98ba4e8e3",
+          "after": "1d2c55d28fc6ea79865a3faab0cc2f811cd7f49c34107e42f5eaefefc8bc2833"
+        },
+        "data/index/companies.json": {
+          "before": "23979fd694d7ea6cf0d132b04d1b16a7513b7493e0086a386c775b9d9952f13b",
+          "after": "d774c621f0289cdfeae1141361fc4483e84037432d82499a5f7ab83afafe48bb"
+        }
+      }
+    }
+  ],
   "editorialApprovalHash": "f00c72f9bdf70487ac6cc4f8cb676c3d4c5c7d221870129c79922dadee6e9774",
   "portraitHashes": {
     "adam-saltsman": "0958d093df8bce2b035b6231794845cada49952e0e8feac647f122ae2a2bb8e9",

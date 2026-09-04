@@ -152,6 +152,10 @@ test("preserves every protected canonical file byte for byte", () => {
   for (const [relativePath, expectedHash] of Object.entries(manifest.protectedFileHashes)) {
     assert.equal(sha256File(relativePath), expectedHash, relativePath);
   }
+  assert.deepEqual(
+    manifest.protectedFileHashUpdates?.map((update) => update.batchId),
+    ["company-credit-verified-batch-1"],
+  );
 });
 
 test("keeps internal research out of public route and sitemap module graphs", () => {

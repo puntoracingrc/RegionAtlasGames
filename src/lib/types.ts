@@ -1,4 +1,11 @@
-export type DetailEntitySource = "museum" | "pricecharting" | "serialstation" | "wikidata" | "game-es" | "merged";
+export type DetailEntitySource =
+  | "museum"
+  | "pricecharting"
+  | "serialstation"
+  | "wikidata"
+  | "game-es"
+  | "official"
+  | "merged";
 
 export type DetailEntity = {
   name: string;
@@ -43,6 +50,14 @@ export type GameDetailsSources = {
 };
 
 export type GameDetailsSeoFaq = { question: string; answer: string };
+
+export type GameDetailsFieldProvenance = {
+  source: GameDetailsFieldSource;
+  evidenceUrls: string[];
+  evidenceSummary: string;
+  reviewedAt: string;
+  reviewBatch: string;
+};
 
 export type GameDetailsSeoMeta = {
   seoTitle?: string;
@@ -107,6 +122,9 @@ export type GameDetails = {
       | "support",
       GameDetailsFieldSource
     >
+  >;
+  fieldProvenance?: Partial<
+    Record<"developer" | "publisher", GameDetailsFieldProvenance>
   >;
   fetchedAt: string;
   mergedAt?: string;
