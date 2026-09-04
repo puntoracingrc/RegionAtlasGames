@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "baselineRevision": "e69fb94f72ca51080eb6c5abcee47a9099e57524",
+  "baselineRevision": "61bba364b897ace5f5d4340108ccb5eff64a2910",
   "identifierSemantics": {
     "persistedField": "gameId",
     "meaning": "Existing catalog_id for one catalogued edition; not a logical game work."
   },
   "counts": {
-    "catalogEntriesBefore": 59626,
-    "catalogEntriesAfter": 59626,
-    "uniqueCatalogIdsBefore": 59626,
-    "uniqueCatalogIdsAfter": 59626,
+    "catalogEntriesBefore": 65434,
+    "catalogEntriesAfter": 65434,
+    "uniqueCatalogIdsBefore": 65434,
+    "uniqueCatalogIdsAfter": 65434,
     "companiesBefore": 4326,
     "companiesAfter": 4326,
     "legacySeriesUrls": 427,

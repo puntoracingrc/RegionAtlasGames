@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "baselineRevision": "e69fb94f72ca51080eb6c5abcee47a9099e57524",
+  "baselineRevision": "61bba364b897ace5f5d4340108ccb5eff64a2910",
   "strategy": "Discard the franchise overlay/state and continue serving the untouched legacy series reader.",
   "identifierSemantics": {
     "persistedField": "gameId",
     "meaning": "Existing catalog_id for one catalogued edition; not a logical game work."
   },
   "protectedFilesSha256": {
-    "data/catalog.json": "86c3a2bda0e086f06636e196196ef10e338cff3a6935b0e4a9b3e275617b8cab",
+    "data/catalog.json": "47c733af7f9bf4d99e008e3448d365fc4958db0c8942ef2beae1e386c68baa70",
     "data/game-details.json": "1d2c55d28fc6ea79865a3faab0cc2f811cd7f49c34107e42f5eaefefc8bc2833",
     "data/index/companies.json": "d774c621f0289cdfeae1141361fc4483e84037432d82499a5f7ab83afafe48bb",
     "data/index/series.json": "a98edf9ee06c2f917f114283f7100c9660d2f35339158556d31991f7f50ea1ba",
-    "data/meta.json": "d0689e989bce98232f479926c4510da76dbd4c2393f2eb6de0d0e942a3ff9460",
+    "data/meta.json": "6c4f8c7731400822e9e1c86b32011ee50baf65c3cd16416f6b46ad5d024bd8e6",
     "data/price-sync-state.json": "8aea0b45a5751c88bfa8aadc86f53b7e9441cc26179e2b5993f7b53f8b00aa50",
     "data/ebay-regional-campaigns/cover-candidates.json": "c9eeca121d7935524fae465bdace28f1ded380fc79fa1d018b04e3f0e1cb5637",
     "data/ebay-regional-campaigns/global.json": "3a9b050b609478d191f1068a335bf1c21ce2f12745963865b1e49b5b1c2c1868",

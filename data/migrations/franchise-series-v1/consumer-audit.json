@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "baselineRevision": "e69fb94f72ca51080eb6c5abcee47a9099e57524",
+  "baselineRevision": "61bba364b897ace5f5d4340108ccb5eff64a2910",
   "scannedRoots": [
     "src",
     "scripts"
@@ -2433,7 +2433,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 132,
+      "line": 135,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -2442,7 +2442,7 @@
     },
     {
       "file": "src/lib/franchise-system.test.ts",
-      "line": 159,
+      "line": 162,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -2853,11 +2853,11 @@
       "patterns": [
         {
           "id": "route-saga",
-          "count": 20
+          "count": 26
         },
         {
           "id": "saga-copy",
-          "count": 989
+          "count": 1136
         }
       ]
     },
