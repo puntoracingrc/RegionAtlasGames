@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-09-05T04:46:17Z",
+  "lastRunAt": "2026-09-05T10:45:11Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -987,6 +987,69 @@
           "nes-zelda-ii-the-adventure-of-link-small-box"
         ]
       }
+    },
+    "snes": {
+      "lastSyncAt": "2026-09-05T10:43:58Z",
+      "source": "eBay ES",
+      "gamesTargeted": 3,
+      "gamesUpdated": 2,
+      "wallapopGamesUpdated": 0,
+      "ebayGamesUpdated": 2,
+      "vintedGamesUpdated": 0,
+      "gamesSkippedNoData": 1,
+      "gamesRejectedOutliers": 0,
+      "gamesRejectedUnverifiedRegion": 0,
+      "gamesRejectedRegionMismatch": 0,
+      "gamesRejectedInsufficientEvidence": 0,
+      "cexGamesUpdated": 0,
+      "cexGamesSkipped": 0,
+      "jgoGamesUpdated": 0,
+      "jgoGamesSkipped": 0,
+      "cholloGamesUpdated": 0,
+      "cholloGamesSkipped": 0,
+      "kaotoGamesUpdated": 0,
+      "kaotoGamesSkipped": 0,
+      "tcnsGamesUpdated": 0,
+      "tcnsGamesSkipped": 0,
+      "tcGamesUpdated": 0,
+      "tcGamesSkipped": 0,
+      "gameGamesUpdated": 0,
+      "coveragePct": 66.7,
+      "priceListTotalGames": 3,
+      "priceListPricedBefore": 0,
+      "priceListPricedAfter": 2,
+      "priceListPricedDelta": 2,
+      "priceListCoverageBeforePct": 0.0,
+      "priceListCoverageAfterPct": 66.7,
+      "priceListCoverageDeltaPct": 66.7,
+      "ebayDeliveryGamesUpdated": 2,
+      "regionPolicy": "Reglas en data/region-evidence-rules.json",
+      "aiSummary": {
+        "openAiConfigured": true,
+        "sources": [
+          {
+            "source": "ebay-es",
+            "aiRows": 7,
+            "resolved": 7,
+            "review": 0,
+            "rejected": 0
+          }
+        ],
+        "conditionVision": {
+          "calls": 1,
+          "resolved": 1,
+          "skipped_no_images": 0,
+          "skipped_no_key": 0,
+          "skipped_has_bucket": 0,
+          "skipped_no_hints": 0
+        }
+      },
+      "scope": "catalog_ids",
+      "catalogIds": [
+        "snes-espana-addams-family",
+        "snes-espana-earth-defense-force",
+        "snes-sonic-blast-man"
+      ]
     }
   },
   "regions": {
@@ -1687,6 +1750,51 @@
             "nes-zelda-ii-the-adventure-of-link-small-box"
           ]
         }
+      }
+    },
+    "snes": {
+      "España": {
+        "lastSyncAt": "2026-09-05T10:43:58Z",
+        "source": "eBay ES",
+        "gamesTargeted": 3,
+        "gamesUpdated": 2,
+        "wallapopGamesUpdated": 0,
+        "ebayGamesUpdated": 2,
+        "vintedGamesUpdated": 0,
+        "coveragePct": 66.7,
+        "priceListTotalGames": 3,
+        "priceListPricedBefore": 0,
+        "priceListPricedAfter": 2,
+        "priceListPricedDelta": 2,
+        "priceListCoverageBeforePct": 0.0,
+        "priceListCoverageAfterPct": 66.7,
+        "priceListCoverageDeltaPct": 66.7,
+        "aiSummary": {
+          "openAiConfigured": true,
+          "sources": [
+            {
+              "source": "ebay-es",
+              "aiRows": 7,
+              "resolved": 7,
+              "review": 0,
+              "rejected": 0
+            }
+          ],
+          "conditionVision": {
+            "calls": 1,
+            "resolved": 1,
+            "skipped_no_images": 0,
+            "skipped_no_key": 0,
+            "skipped_has_bucket": 0,
+            "skipped_no_hints": 0
+          }
+        },
+        "scope": "catalog_ids",
+        "catalogIds": [
+          "snes-espana-addams-family",
+          "snes-espana-earth-defense-force",
+          "snes-sonic-blast-man"
+        ]
       }
     }
   }

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 2,
+  "campaignId": "ebay-global-regional-v1",
+  "platformSlug": "snes",
+  "platformName": "Super Nintendo",
+  "marketplaceId": "EBAY_ES",
+  "destinationCountry": "ES",
+  "status": "running",
+  "currentRegion": "PAL Europa",
+  "updatedAt": "2026-09-05T10:45:11Z",
+  "lastRun": {
+    "at": "2026-09-05T10:45:11Z",
+    "platformSlug": "snes",
+    "platformName": "Super Nintendo",
+    "region": "España",
+    "selected": 3,
+    "processed": 3,
+    "matched": 3,
+    "listingsAdded": 7,
+    "regionalReroutes": 0,
+    "regionalReviews": 5,
+    "apiSearches": 3,
+    "searchBudget": 250,
+    "searchBudgetExhausted": false,
+    "failed": 0,
+    "systemicError": null,
+    "coverCandidatesAdded": 0
+  },
+  "regions": {
+    "espana": {
+      "key": "espana",
+      "label": "España",
+      "catalogRegion": "España",
+      "marketScope": "country",
+      "originLabel": "España",
+      "total": 3,
+      "completed": 3,
+      "matched": 3,
+      "noMatch": 0,
+      "deferred": 0,
+      "pending": 0,
+      "completedCatalogIds": [
+        "snes-espana-addams-family",
+        "snes-espana-earth-defense-force",
+        "snes-sonic-blast-man"
+      ],
+      "matchedCatalogIds": [
+        "snes-espana-addams-family",
+        "snes-espana-earth-defense-force",
+        "snes-sonic-blast-man"
+      ],
+      "noMatchCatalogIds": [],
+      "deferredCatalogIds": [],
+      "failureAttempts": {}
+    },
+    "pal_europa": {
+      "key": "pal_europa",
+      "label": "PAL Europa",
+      "catalogRegion": "PAL Europa",
+      "marketScope": "multi_region",
+      "originLabel": "Europa multirregión",
+      "total": 658,
+      "completed": 0,
+      "matched": 0,
+      "noMatch": 0,
+      "deferred": 0,
+      "pending": 658,
+      "completedCatalogIds": [],
+      "matchedCatalogIds": [],
+      "noMatchCatalogIds": [],
+      "deferredCatalogIds": [],
+      "failureAttempts": {}
+    }
+  },
+  "totals": {
+    "catalogGames": 661,
+    "completed": 3,
+    "matched": 3,
+    "noMatch": 0,
+    "deferred": 0,
+    "pending": 658
+  },
+  "log": [
+    {
+      "at": "2026-09-05T10:45:11Z",
+      "level": "info",
+      "message": "Super Nintendo · España: 3/3 consultados, 3 con evidencias, 7 anuncios aceptados, 0 aprovechados en otra región, 5 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "snes",
+      "region": "España",
+      "coverCandidatesAdded": 0
+    }
+  ]
+}

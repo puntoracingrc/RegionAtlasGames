@@ -9,8 +9,8 @@
     "batchSize": 250,
     "searchBudgetPerRun": 250,
     "dailySearchBudget": 1000,
-    "dailySearchesUsed": 214,
-    "dailySearchesRemaining": 786,
+    "dailySearchesUsed": 217,
+    "dailySearchesRemaining": 783,
     "regions": [
       "PAL España",
       "PAL Europa"
@@ -19,20 +19,20 @@
   "status": "running",
   "currentPlatform": "snes",
   "currentPlatformName": "Super Nintendo",
-  "currentRegion": "España",
-  "updatedAt": "2026-09-05T04:46:17Z",
+  "currentRegion": "PAL Europa",
+  "updatedAt": "2026-09-05T10:45:11Z",
   "lastRun": {
-    "at": "2026-09-05T04:46:17Z",
-    "platformSlug": "nes",
-    "platformName": "Nintendo Entertainment System",
-    "region": "PAL Europa",
-    "selected": 214,
-    "processed": 214,
-    "matched": 37,
-    "listingsAdded": 48,
+    "at": "2026-09-05T10:45:11Z",
+    "platformSlug": "snes",
+    "platformName": "Super Nintendo",
+    "region": "España",
+    "selected": 3,
+    "processed": 3,
+    "matched": 3,
+    "listingsAdded": 7,
     "regionalReroutes": 0,
-    "regionalReviews": 785,
-    "apiSearches": 214,
+    "regionalReviews": 5,
+    "apiSearches": 3,
     "searchBudget": 250,
     "searchBudgetExhausted": false,
     "failed": 0,
@@ -41,15 +41,15 @@
   },
   "dailyUsage": {
     "date": "2026-09-05",
-    "apiSearches": 214
+    "apiSearches": 217
   },
   "totals": {
     "catalogGames": 25779,
-    "completed": 3508,
-    "matched": 426,
+    "completed": 3511,
+    "matched": 429,
     "noMatch": 3082,
     "deferred": 0,
-    "pending": 22271
+    "pending": 22268
   },
   "estimatedRunsRemaining": 90,
   "estimatedDaysRemaining": 23,
@@ -130,16 +130,16 @@
     {
       "platformSlug": "snes",
       "platformName": "Super Nintendo",
-      "status": "ready",
-      "currentRegion": "España",
-      "updatedAt": null,
+      "status": "running",
+      "currentRegion": "PAL Europa",
+      "updatedAt": "2026-09-05T10:45:11Z",
       "totals": {
         "catalogGames": 661,
-        "completed": 0,
-        "matched": 0,
+        "completed": 3,
+        "matched": 3,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 661
+        "pending": 658
       },
       "regions": [
         {
@@ -149,11 +149,11 @@
           "marketScope": "country",
           "originLabel": "España",
           "total": 3,
-          "completed": 0,
-          "matched": 0,
+          "completed": 3,
+          "matched": 3,
           "noMatch": 0,
           "deferred": 0,
-          "pending": 3
+          "pending": 0
         },
         {
           "key": "pal_europa",
@@ -1194,6 +1194,14 @@
       "message": "Nintendo Entertainment System · PAL Europa: 214/214 consultados, 37 con evidencias, 48 anuncios aceptados, 0 aprovechados en otra región, 785 a revisión, 0 fallos, 0 aplazados.",
       "platformSlug": "nes",
       "region": "PAL Europa",
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-05T10:45:11Z",
+      "level": "info",
+      "message": "Super Nintendo · España: 3/3 consultados, 3 con evidencias, 7 anuncios aceptados, 0 aprovechados en otra región, 5 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "snes",
+      "region": "España",
       "coverCandidatesAdded": 0
     }
   ]

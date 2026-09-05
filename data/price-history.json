@@ -15646,6 +15646,26 @@
         "sealed": null,
         "newRetail": null
       }
+    ],
+    "snes-espana-earth-defense-force": [
+      {
+        "at": "2026-09-05T10:43:58Z",
+        "loose": null,
+        "gameManual": 40.47,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "snes-sonic-blast-man": [
+      {
+        "at": "2026-09-05T10:43:58Z",
+        "loose": null,
+        "gameManual": 95.5,
+        "complete": 474.98,
+        "sealed": null,
+        "newRetail": null
+      }
     ]
   }
 }
