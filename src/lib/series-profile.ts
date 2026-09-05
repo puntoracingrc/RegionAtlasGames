@@ -88,6 +88,7 @@ function formatYearRange(firstYear: number | null, latestYear: number | null): s
 }
 
 function buildSeriesDescription(input: {
+  entityKind: "franchise" | "series";
   name: string;
   catalogEntryCount: number;
   platformCount: number;
@@ -100,12 +101,14 @@ function buildSeriesDescription(input: {
     .map((platform) => platform.name)
     .join(", ");
   const yearRange = formatYearRange(input.firstYear, input.latestYear);
-  return `${input.name} agrupa ${formatCatalogEntryCount(input.catalogEntryCount)} del catálogo de Region Atlas, repartidas en ${input.platformCount.toLocaleString("es-ES")} plataforma${
+  const entityLabel = input.entityKind === "franchise" ? "La franquicia" : "La saga o subserie";
+  return `${entityLabel} ${input.name} agrupa ${formatCatalogEntryCount(input.catalogEntryCount)} del catálogo de Region Atlas, repartidas en ${input.platformCount.toLocaleString("es-ES")} plataforma${
     input.platformCount === 1 ? "" : "s"
-  }${platformText ? ` como ${platformText}` : ""}. Esta página reúne sus ediciones, regiones y precios para consultar la franquicia como una entidad completa (${yearRange}).`;
+  }${platformText ? ` como ${platformText}` : ""}. Su recorrido documentado abarca ${yearRange}.`;
 }
 
 function buildSeriesHistory(input: {
+  entityKind: "franchise" | "series";
   name: string;
   firstYear: number | null;
   latestYear: number | null;
@@ -122,12 +125,18 @@ function buildSeriesHistory(input: {
     .join(", ");
   const years = formatYearRange(input.firstYear, input.latestYear);
 
-  return `Como saga o franquicia, ${input.name} permite ver de un vistazo cómo se ha distribuido la serie entre plataformas, regiones y compañías. En este índice aparecen fichas fechadas en ${years}${
+  const entityLabel = input.entityKind === "franchise" ? "franquicia" : "saga o subserie";
+  return `${input.name} se documenta como ${entityLabel} a través de fichas fechadas en ${years}${
     mainCompanies ? `, con participación destacada de ${mainCompanies}` : ""
-  }${mainPlatforms ? ` y presencia en ${mainPlatforms}` : ""}. Esta primera versión usa los metadatos actuales del catálogo; la descripción editorial podrá enriquecerse con IA o revisión manual más adelante.`;
+  }${mainPlatforms ? ` y presencia en ${mainPlatforms}` : ""}.`;
 }
 
-export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): SeriesProfile {
+export function buildSeriesProfile(
+  entry: IndexEntry,
+  games: CatalogGame[],
+  options?: { entityKind?: "franchise" | "series" },
+): SeriesProfile {
+  const entityKind = options?.entityKind ?? "series";
   const platformMap = new Map<string, SeriesPlatformSummary>();
   const companyMap = new Map<
     string,
@@ -196,6 +205,7 @@ export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): Ser
     description:
       editorialDescription ||
       buildSeriesDescription({
+        entityKind,
         name: entry.name,
         catalogEntryCount: games.length,
         platformCount: platforms.length,
@@ -205,6 +215,7 @@ export function buildSeriesProfile(entry: IndexEntry, games: CatalogGame[]): Ser
       }),
     history:
       buildSeriesHistory({
+        entityKind,
         name: entry.name,
         firstYear,
         latestYear,

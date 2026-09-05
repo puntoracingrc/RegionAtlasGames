@@ -14,7 +14,7 @@ const LINKS = [
   { href: "/plataformas", label: "Plataformas" },
   { href: "/compania", label: "Compañías" },
   { href: "/persona", label: "Personas" },
-  { href: "/saga", label: "Sagas" },
+  { href: "/franquicia", label: "Franquicias" },
   { href: "/vitrina", label: "Vitrina" },
   { href: "/coleccion", label: "Mi colección" },
 ];

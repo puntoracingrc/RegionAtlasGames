@@ -49,6 +49,14 @@ import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCurrentUser } from "@/lib/users";
 import { listPublicSeriesForGame } from "@/lib/admin-series-manager";
+import {
+  getLegacySeriesRedirect,
+} from "@/lib/franchise-system";
+import {
+  getPublicFranchiseRelationships,
+  getPublicFranchisesForCatalogEntry,
+} from "@/lib/admin-franchise-manager";
+import type { FranchiseRole } from "@/lib/franchise-types";
 import { findGameFacetEntityByNameOrAlias, findGameFacetEntityBySlug } from "@/lib/game-facets/taxonomy";
 import {
   cleanSupportLabel,
@@ -97,6 +105,16 @@ function getYoutubeWatchUrl(video: GameVideo) {
   return video.url || `https://www.youtube.com/watch?v=${encodeURIComponent(video.videoId)}`;
 }
 
+function franchiseRoleLabel(role: FranchiseRole): string {
+  const labels: Record<FranchiseRole, string> = {
+    mainline: "Serie principal",
+    spin_off: "Spin-off",
+    side_story: "Historia paralela",
+    crossover: "Crossover",
+  };
+  return labels[role];
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const game = await resolveCatalogGameWithOverlay(slug);
@@ -132,14 +150,20 @@ export default async function CatalogGamePage({ params }: Props) {
   const similar = getSimilarGames(game);
   const faqs = buildGameFaq(game, platform, details);
   const priceHistory = hasPriceHistory(game.id) ? getPriceHistory(game.id) : [];
-  const publicSeries = await listPublicSeriesForGame(game.id);
+  const publicSeries = (await listPublicSeriesForGame(game.id)).filter(
+    (series) => !getLegacySeriesRedirect(series.slug),
+  );
+  const franchiseLinks = await getPublicFranchisesForCatalogEntry(game.id);
+  const gameRelationships = await getPublicFranchiseRelationships({ type: "game", id: game.id });
   const youtubeVideos = (details?.videos ?? [])
     .filter((video) => video.provider === "youtube" && video.videoId)
     .slice(0, 4);
   const featuredVideo = youtubeVideos[0];
   const secondaryVideos = youtubeVideos.slice(1);
   const detailsSeries =
-    details?.series && !publicSeries.some((series) => series.slug === details.series?.slug)
+    details?.series &&
+    !getLegacySeriesRedirect(details.series.slug) &&
+    !publicSeries.some((series) => series.slug === details.series?.slug)
       ? [
           {
             slug: details.series.slug,
@@ -460,6 +484,24 @@ export default async function CatalogGamePage({ params }: Props) {
                       />
                     </>
                   )}
+                  {franchiseLinks.length > 0 && (
+                    <DetailRow
+                      label={franchiseLinks.length === 1 ? "Franquicia" : "Franquicias"}
+                      value={
+                        <span className="flex flex-wrap gap-1.5">
+                          {franchiseLinks.map((franchise) => (
+                            <Link
+                              key={franchise.id}
+                              href={`/franquicia/${franchise.slug}`}
+                              className="rounded-md bg-white/10 px-2 py-0.5 text-xs text-accent/90 hover:bg-white/15"
+                            >
+                              {franchise.name}
+                            </Link>
+                          ))}
+                        </span>
+                      }
+                    />
+                  )}
                   {seriesLinks.length > 0 && (
                     <DetailRow
                       label={seriesLinks.length === 1 ? "Saga" : "Sagas"}
@@ -473,6 +515,32 @@ export default async function CatalogGamePage({ params }: Props) {
                             >
                               {series.name}
                             </Link>
+                          ))}
+                        </span>
+                      }
+                    />
+                  )}
+                  {franchiseLinks.some((franchise) => franchise.role) && (
+                    <DetailRow
+                      label="Rol"
+                      value={franchiseLinks
+                        .filter((franchise) => franchise.role)
+                        .map((franchise) => `${franchiseRoleLabel(franchise.role!)} · ${franchise.name}`)
+                        .join(" · ")}
+                    />
+                  )}
+                  {gameRelationships.length > 0 && (
+                    <DetailRow
+                      label="Relaciones"
+                      value={
+                        <span className="flex flex-wrap gap-x-3 gap-y-1">
+                          {gameRelationships.map((relationship) => (
+                            <span key={relationship.id} className="text-xs text-muted">
+                              {relationship.label}{" "}
+                              <Link href={relationship.href} className="font-semibold text-accent hover:underline">
+                                {relationship.entityName}
+                              </Link>
+                            </span>
                           ))}
                         </span>
                       }

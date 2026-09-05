@@ -1,0 +1,3772 @@
+{
+  "schemaVersion": 1,
+  "relations": [
+    {
+      "gameId": "3ds-final-fantasy-explorers",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "3ds-theatrhythm-final-fantasy",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "3ds-theatrhythm-final-fantasy-curtain-call",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "3ds-theatrhythm-final-fantasy-curtain-call-limited-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ds-final-fantasy-crystal-chronicles-echoes-of-time",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ds-final-fantasy-crystal-chronicles-ring-of-fates",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ds-final-fantasy-fables-chocobo-tales",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ds-final-fantasy-iii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ds-final-fantasy-iv",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ds-final-fantasy-tactics-a2",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ds-final-fantasy-the-4-heroes-of-light",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ds-final-fantasy-xii-revenant-wings",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "gamecube-final-fantasy-crystal-chronicles",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "nes-japon-final-fantasy",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "nes-japon-final-fantasy-i-ii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "nes-japon-final-fantasy-ii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "nes-japon-final-fantasy-iii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "nes-super-mario-bros",
+      "franchiseId": "franchise:mario",
+      "franchiseSlug": "mario",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "super-mario"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "nes-usa-final-fantasy",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-final-fantasy-anthology",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-final-fantasy-ix",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-final-fantasy-origins",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-final-fantasy-vi",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-final-fantasy-vii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-final-fantasy-viii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-lego-racers",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-racers"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-lego-rock-raiders",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-mega-man-8",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-mega-man-battle-&amp;-chase",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-mega-man-x3",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "mega-man-x"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-mega-man-x4",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "mega-man-x"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-mega-man-x5",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "mega-man-x"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-mega-man-x6",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "mega-man-x"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-need-for-speed",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-need-for-speed-3-hot-pursuit",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-need-for-speed-high-stakes",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-need-for-speed-ii",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-need-for-speed-porsche",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-resident-evil",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-resident-evil-2",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-resident-evil-director%27s-cut",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-resident-evil-survivor",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-star-wars-dark-forces",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-star-wars-episode-i-jedi-power-battles",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-star-wars-episode-i-the-phantom-menace",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-time-crisis",
+      "franchiseId": "franchise:time-crisis",
+      "franchiseSlug": "time-crisis",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps1-time-crisis-project-titan",
+      "franchiseId": "franchise:time-crisis",
+      "franchiseSlug": "time-crisis",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-crisis-zone",
+      "franchiseId": "franchise:time-crisis",
+      "franchiseSlug": "time-crisis",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-drome-racers",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-racers"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-final-fantasy-vii-dirge-of-cerberus",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-final-fantasy-x",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-final-fantasy-x-2",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-final-fantasy-xii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-lego-racers-2",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-racers"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-lego-star-wars",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-lego-star-wars",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-lego-star-wars-ii-original-trilogy",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-lego-star-wars-ii-original-trilogy",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-mega-man-x-command-mission",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "mega-man-x"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-mega-man-x7",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "mega-man-x"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-mega-man-x8",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "mega-man-x"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-need-for-speed-carbon",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-need-for-speed-hot-pursuit-2",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-need-for-speed-most-wanted",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-need-for-speed-prostreet",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-need-for-speed-undercover",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-need-for-speed-underground",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-need-for-speed-underground-2",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-resident-evil-4",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-resident-evil-code-veronica-x",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-resident-evil-dead-aim",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-resident-evil-outbreak",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-resident-evil-outbreak-file-2",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-shadow-the-hedgehog",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-sonic-gems-collection",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-sonic-heroes",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-sonic-mega-collection-plus",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-sonic-riders",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-sonic-riders-zero-gravity",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-sonic-unleashed",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-star-wars-battlefront",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-star-wars-clone-wars",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-star-wars-episode-iii-revenge-of-the-sith",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-star-wars-starfighter",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-star-wars-super-bombad-racing",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps2-time-crisis-3",
+      "franchiseId": "franchise:time-crisis",
+      "franchiseSlug": "time-crisis",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-final-fantasy-x-x-2-hd-remaster",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-final-fantasy-xiii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-final-fantasy-xiii-2",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-final-fantasy-xiv-a-realm-reborn",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-final-fantasy-xiv-a-realm-reborn-nordic-limited-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-batman-2-dc-super-heroes",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-batman"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-batman-3-beyond-gotham",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-batman"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-batman-the-videogame",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-batman"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-harry-potter-years-1-4",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-harry-potter"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-harry-potter-years-5-7",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-harry-potter"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-movie-videogame",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-star-wars-complete-saga",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-star-wars-complete-saga",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-star-wars-iii-the-clone-wars",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-star-wars-iii-the-clone-wars",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-star-wars-the-force-awakens",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lego-star-wars-the-force-awakens",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-lightning-returns-final-fantasy-xiii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-need-for-speed-carbon",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-need-for-speed-hot-pursuit",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-need-for-speed-hot-pursuit-limited-edition",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-need-for-speed-most-wanted",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-need-for-speed-prostreet",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-need-for-speed-rivals",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-need-for-speed-shift",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-need-for-speed-the-run",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-need-for-speed-undercover",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-resident-evil-5",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-resident-evil-6",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-resident-evil-operation-raccoon-city",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-resident-evil-revelations",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-resident-evil-revelations-2",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-shift-2-unleashed",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-sonic-&amp;-all-stars-racing-transformed",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-sonic-&amp;-sega-all-stars-racing",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-sonic-generations",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-sonic-the-hedgehog",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-sonic-unleashed",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-star-wars-the-force-unleashed-ii",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-time-crisis-4",
+      "franchiseId": "franchise:time-crisis",
+      "franchiseSlug": "time-crisis",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps3-time-crisis-razing-storm",
+      "franchiseId": "franchise:time-crisis",
+      "franchiseSlug": "time-crisis",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-crisis-core-final-fantasy-vii-reunion",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-dissidia-final-fantasy-nt",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct_and_inherited",
+      "inheritedFromSeriesSlugs": [
+        "dissidia-final-fantasy"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-dissidia",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct_and_inherited",
+      "inheritedFromSeriesSlugs": [
+        "dissidia-final-fantasy"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-i-vi-aniversary-collection-eng",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-i-vi-aniversary-collection-esp",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-i-vi-collection-anniversary-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-i-vi-collection-pixel-remaster",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-type-0-hd",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-vii-rebirth",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-vii-rebirth-deluxe",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-vii-remake",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-vii-remake-deluxe",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-viii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-viii-remastered",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-x-x-2-hd-remaster",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xii-the-zodiac-age",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xii-the-zodiac-age-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xiv-a-realm-reborn",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xiv-a-realm-reborn-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xiv-complete-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xiv-online-complete-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xiv-online-heavensward",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xiv-online-starter-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xiv-shadowbringers",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xiv-stormblood",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xv",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-final-fantasy-xv-royal-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-biohazard-7-resident-evil",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-crisis-core-final-fantasy-vii-reunion-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-dissidia-final-fantasy-nt",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct_and_inherited",
+      "inheritedFromSeriesSlugs": [
+        "dissidia-final-fantasy"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-crystal-chronicles-remastered-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-tactics-the-ivalice-chronicles-deluxe-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-type-0-hd",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-type-0-hd-console-pack-in",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-vii-remake",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-vii-remake-1st-class-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-x-x-2-hd-remaster",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-xiv-online-shinsei-eorzea",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-xiv-online-starter-pack",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-xiv-stormblood-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-xv",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-xv-deluxe-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-xv-film-collections-box",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-xv-luna-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-final-fantasy-xv-ultimate-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-itadaki-street-dragon-quest-and-final-fantasy-30th-anniversary",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-lego-batman-3-beyond-gotham",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-batman"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-lego-city-undercover",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-lego-dc-super-villains",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-batman"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-lego-movie-2",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-lego-movie-videogame",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-need-for-speed",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-need-for-speed-payback",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-sonic-frontiers",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-star-wars-battlefront",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-star-wars-jedi-fallen-order",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-star-wars-squadrons",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-team-sonic-racing",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-world-of-final-fantasy",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-japon-world-of-final-fantasy-mori-mori-box",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-2k-drive",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-batman-3-beyond-gotham",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-batman"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-brawls",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-city-undercover",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-dc-super-villains",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-batman"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-harry-potter-collection",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-harry-potter"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-marvel-super-heroes-2",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-movie-2-videogame",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-movie-videogame",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-star-wars-the-force-awakens",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-star-wars-the-force-awakens",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-star-wars-the-force-awakens-plush-edition",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-star-wars-the-force-awakens-plush-edition",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-star-wars-the-skywalker-saga",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-star-wars-the-skywalker-saga",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-star-wars-the-skywalker-saga-galactic-edition",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-star-wars-the-skywalker-saga-galactic-edition",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-lego-super-heroes-2",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-mega-man-11",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-need-for-speed",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-need-for-speed-heat",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-need-for-speed-hot-pursuit-remastered",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-need-for-speed-payback",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-need-for-speed-rivals",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-resident-evil-3",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-resident-evil-4",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-resident-evil-5",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-resident-evil-6",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-resident-evil-7-biohazard",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-resident-evil-7-biohazard-gold-edition",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-resident-evil-origins-collection",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-resident-evil-revelations",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-resident-evil-revelations-2",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-resident-evil-village",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-sonic-forces",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-sonic-frontiers",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-sonic-origins-plus",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-sonic-racing-crossworlds",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-sonic-superstars",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-sonic-team-racing",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-sonic-x-shadow-generations",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-star-wars-battlefront",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-star-wars-battlefront-ii",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-star-wars-jedi-fallen-order",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-star-wars-squadrons",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-stranger-of-paradise-final-fantasy-origin",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-team-sonic-racing",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-theatrhythm-final-bar-line",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-crisis-core-final-fantasy-vii-reunion",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-dissidia-final-fantasy-nt",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct_and_inherited",
+      "inheritedFromSeriesSlugs": [
+        "dissidia-final-fantasy"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-dissidia-final-fantasy-nt-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-dissidia-final-fantasy-nt-steelbook-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-i-vi-collection",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-i-vi-collection-pixel-remaster",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-i-vi-collection-pixel-remaster-anniversary-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-type-0-hd",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-type-0-hd-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-vii-remake",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-vii-remake-1st-class-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-vii-remake-deluxe-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-vii-remake-walmart-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-x-x-2-hd-remaster",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-x-x-2-hd-remaster-limited-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xii-the-zodiac-age",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xii-the-zodiac-age-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xii-the-zodiac-age-limited-steelbook-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xiv-a-realm-reborn",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xiv-a-realm-reborn-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xiv-complete-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xiv-online-complete-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xiv-online-complete-experience",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xiv-online-heavensward",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xiv-online-heavensward-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xiv-shadowbringers",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xiv-shadowbringers-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xiv-stormblood",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xiv-stormblood-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xv",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xv-day-one-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xv-deluxe-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xv-royal-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-final-fantasy-xv-ultimate-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-2k-drive",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-batman-3-beyond-gotham",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-batman"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-brawls",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-city-undercover",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-dc-super-villains",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-batman"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-harry-potter-collection",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-harry-potter"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-marvel-super-heroes-2",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-movie-2-videogame",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-movie-videogame",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-star-wars-the-force-awakens",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-star-wars-the-force-awakens",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-star-wars-the-skywalker-saga",
+      "franchiseId": "franchise:lego",
+      "franchiseSlug": "lego",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-lego-star-wars-the-skywalker-saga",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": false,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "lego-star-wars"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-mega-man-11",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-mega-man-legacy-collection",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-mega-man-legacy-collection-2",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-mega-man-x-legacy-collection",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "mega-man-x"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-mega-man-x-legacy-collection-2",
+      "franchiseId": "franchise:mega-man",
+      "franchiseSlug": "mega-man",
+      "primary": true,
+      "membership": "inherited",
+      "inheritedFromSeriesSlugs": [
+        "mega-man-x"
+      ],
+      "source": "series-franchise-propagation",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-need-for-speed",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-need-for-speed-heat",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-need-for-speed-hot-pursuit-remastered",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-need-for-speed-payback",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-need-for-speed-rivals",
+      "franchiseId": "franchise:need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-resident-evil-3",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-resident-evil-4",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-resident-evil-5",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-resident-evil-6",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-resident-evil-7-biohazard",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-resident-evil-7-biohazard-gold-edition",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-resident-evil-origins-collection",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-resident-evil-revelations",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-resident-evil-revelations-2",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-resident-evil-village",
+      "franchiseId": "franchise:resident-evil",
+      "franchiseSlug": "resident-evil",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-sonic-colors-ultimate",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-sonic-forces",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-sonic-frontiers",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-sonic-mania",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-sonic-racing-crossworlds",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-sonic-superstars",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-sonic-x-shadow-generations",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-star-wars-battlefront",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-star-wars-battlefront-ii",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-star-wars-battlefront-ii-elite-trooper-deluxe-edition",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-star-wars-jedi-fallen-order",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-star-wars-squadrons",
+      "franchiseId": "franchise:star-wars",
+      "franchiseSlug": "star-wars",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-stranger-of-paradise-final-fantasy-origin",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-team-sonic-racing",
+      "franchiseId": "franchise:sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-theatrhythm-final-bar-line",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-world-of-final-fantasy",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-world-of-final-fantasy-collector%27s-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-usa-world-of-final-fantasy-limited-edition",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "ps4-world-of-final-fantasy",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "snes-japon-final-fantasy-iv",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "snes-japon-final-fantasy-iv-easy-type",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "snes-japon-final-fantasy-usa-mystic-quest",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "snes-japon-final-fantasy-v",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "snes-japon-final-fantasy-vi",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "snes-usa-final-fantasy-ii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "snes-usa-final-fantasy-iii",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "snes-usa-final-fantasy-mystic-quest",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "wii-final-fantasy-crystal-chronicles-echoes-of-time",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "wii-final-fantasy-crystal-chronicles-the-crystal-bearers",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    },
+    {
+      "gameId": "wii-final-fantasy-fables-chocobo%27s-dungeon",
+      "franchiseId": "franchise:final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "primary": true,
+      "membership": "direct",
+      "inheritedFromSeriesSlugs": [],
+      "source": "legacy-series-promotion",
+      "reviewedAt": "2026-09-04",
+      "role": null
+    }
+  ]
+}

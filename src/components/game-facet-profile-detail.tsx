@@ -1,5 +1,6 @@
 import { CatalogBrowser } from "@/components/catalog-browser";
 import { CatalogGameCard } from "@/components/game-card";
+import { IndexEntityJsonLd } from "@/components/index-entity-json-ld";
 import { SiteNav } from "@/components/site-nav";
 import { CATALOG_PAGE_SIZE } from "@/lib/catalog-filters";
 import { CATALOG_GRID_CLASS } from "@/lib/cover-aspect";
@@ -44,9 +45,24 @@ export async function GameFacetProfileDetail({
     .map(toCatalogCardGame);
   const recommendedGames = view.recommendedGames.map(toCatalogListGame);
   const typeLabel = entityTypeLabel(view.entity.type);
+  const indexKind = view.entity.type === "genre" ? "genre" : "tag";
+  const indexLabel = indexKind === "genre" ? "Géneros" : "Etiquetas";
+  const indexHref = indexKind === "genre" ? "/genero" : "/etiqueta";
 
   return (
     <>
+      <IndexEntityJsonLd
+        summary={{
+          kind: indexKind,
+          name: view.title,
+          slug: view.entity.slug,
+          catalogEntryCount: view.catalogEntryCount,
+        }}
+        breadcrumbs={[
+          { label: indexLabel, href: indexHref },
+          { label: view.title },
+        ]}
+      />
       <SiteNav />
       <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
         <header className="mb-8 rounded-2xl border border-border bg-card p-5 shadow-sm md:p-6">

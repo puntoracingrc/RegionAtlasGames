@@ -6,10 +6,13 @@ import {
 } from "@/lib/catalog-url";
 import { getSiteUrl } from "@/lib/site-url";
 import { getPublicPersonProfiles } from "@/lib/person-public-research";
+import { listPublicSeriesIndexEntries } from "@/lib/admin-series-manager";
+import { listPublicFranchiseIndexEntries } from "@/lib/admin-franchise-manager";
+import { getLegacySeriesRedirect } from "@/lib/franchise-system";
 
 export const dynamic = "force-dynamic";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = getSiteUrl();
   const now = new Date();
 
@@ -20,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/compania`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/persona`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/genero`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${base}/franquicia`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/saga`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 
@@ -46,5 +50,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...platformRoutes, ...personRoutes, ...gameRoutes];
+  const franchiseRoutes: MetadataRoute.Sitemap = (await listPublicFranchiseIndexEntries()).map((franchise) => ({
+    url: `${base}/franquicia/${franchise.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.65,
+  }));
+
+  const seriesRoutes: MetadataRoute.Sitemap = (await listPublicSeriesIndexEntries())
+    .filter((series) => !getLegacySeriesRedirect(series.slug))
+    .map((series) => ({
+      url: `${base}/saga/${series.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.55,
+    }));
+
+  return [
+    ...staticRoutes,
+    ...platformRoutes,
+    ...franchiseRoutes,
+    ...seriesRoutes,
+    ...personRoutes,
+    ...gameRoutes,
+  ];
 }

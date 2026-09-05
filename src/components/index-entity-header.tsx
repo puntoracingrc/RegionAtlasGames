@@ -1,14 +1,25 @@
-import { BackLink } from "@/components/breadcrumbs";
+import { BackLink, Breadcrumbs, type BreadcrumbItem } from "@/components/breadcrumbs";
 import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import type { IndexEntitySummary } from "@/lib/index-entity";
 import { INDEX_KIND_META, indexEntitySubtitle } from "@/lib/index-entity";
 
-export function IndexEntityHeader({ summary }: { summary: IndexEntitySummary }) {
+export function IndexEntityHeader({
+  summary,
+  breadcrumbs,
+}: {
+  summary: IndexEntitySummary;
+  breadcrumbs?: BreadcrumbItem[];
+}) {
   const meta = INDEX_KIND_META[summary.kind];
 
   return (
     <header className="mt-4 mb-8 space-y-4">
-      <BackLink href={meta.basePath}>{meta.backLabel}</BackLink>
+      {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : <BackLink href={meta.basePath}>{meta.backLabel}</BackLink>}
+      {(summary.kind === "franchise" || summary.kind === "series") && (
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+          {summary.kind === "franchise" ? "Franquicia" : "Saga / Subserie"}
+        </p>
+      )}
       <h1 className="text-4xl font-bold text-foreground">
         {summary.kind === "series"
           ? `Saga ${summary.name}`
@@ -17,12 +28,6 @@ export function IndexEntityHeader({ summary }: { summary: IndexEntitySummary }) 
             : summary.name}
       </h1>
       <p className="text-foreground/85">{indexEntitySubtitle(summary)}</p>
-      {summary.kind === "series" && (
-        <p className="max-w-3xl text-sm leading-6 text-foreground/75">
-          También puedes leer estas agrupaciones como franquicias: juegos conectados por marca,
-          universo, personajes, numeración o continuidad editorial.
-        </p>
-      )}
       {summary.kind === "tag" && (
         <p className="max-w-3xl text-sm leading-6 text-foreground/75">
           Las etiquetas son una capa flexible estilo Steam: ayudan a afinar temas, tono,

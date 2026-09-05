@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-04",
+  "source": "user-approved-franchise-series-migration-spec",
+  "additionalFranchises": [
+    {
+      "id": "franchise:mario",
+      "slug": "mario",
+      "name": "Mario",
+      "status": "published",
+      "confidence": "high",
+      "notes": "Franquicia principal para la saga legacy Super Mario; no reemplaza ni redirige su URL."
+    }
+  ],
+  "decisions": {
+    "dissidia-final-fantasy": {
+      "classification": "series",
+      "franchises": ["final-fantasy"],
+      "primaryFranchise": "final-fantasy",
+      "confidence": "high",
+      "notes": "Subserie citada expresamente dentro de Final Fantasy en la especificación aprobada."
+    },
+    "final-fantasy": {
+      "classification": "franchise",
+      "targetFranchise": "final-fantasy",
+      "confidence": "high",
+      "notes": "Caso de promoción y validación definido expresamente por el usuario."
+    },
+    "lego": {
+      "classification": "franchise",
+      "targetFranchise": "lego",
+      "confidence": "high",
+      "notes": "Caso de promoción y validación definido expresamente por el usuario."
+    },
+    "lego-batman": {
+      "classification": "series",
+      "franchises": ["lego"],
+      "primaryFranchise": "lego",
+      "confidence": "high",
+      "notes": "Saga citada expresamente bajo LEGO en la especificación aprobada."
+    },
+    "lego-harry-potter": {
+      "classification": "series",
+      "franchises": ["lego"],
+      "primaryFranchise": "lego",
+      "confidence": "high",
+      "notes": "Saga citada expresamente bajo LEGO en la especificación aprobada."
+    },
+    "lego-racers": {
+      "classification": "series",
+      "franchises": ["lego"],
+      "primaryFranchise": "lego",
+      "confidence": "high",
+      "notes": "Saga citada expresamente bajo LEGO en la especificación aprobada."
+    },
+    "lego-star-wars": {
+      "classification": "series",
+      "franchises": ["lego", "star-wars"],
+      "primaryFranchise": "lego",
+      "confidence": "high",
+      "notes": "Caso many-to-many definido expresamente: LEGO principal y Star Wars relacionada."
+    },
+    "mega-man": {
+      "classification": "franchise",
+      "targetFranchise": "mega-man",
+      "confidence": "high",
+      "notes": "Caso de promoción y validación definido expresamente por el usuario."
+    },
+    "mega-man-x": {
+      "classification": "series",
+      "franchises": ["mega-man"],
+      "primaryFranchise": "mega-man",
+      "confidence": "high",
+      "notes": "Subserie citada expresamente bajo Mega Man en la especificación aprobada."
+    },
+    "need-for-speed": {
+      "classification": "franchise",
+      "targetFranchise": "need-for-speed",
+      "confidence": "high",
+      "notes": "Incluida expresamente entre los ejemplos de franquicia aprobados."
+    },
+    "resident-evil": {
+      "classification": "franchise",
+      "targetFranchise": "resident-evil",
+      "confidence": "high",
+      "notes": "Incluida expresamente entre los ejemplos de franquicia aprobados."
+    },
+    "sonic-the-hedgehog": {
+      "classification": "franchise",
+      "targetFranchise": "sonic-the-hedgehog",
+      "confidence": "high",
+      "notes": "Corresponde al ejemplo de franquicia Sonic de la especificación aprobada."
+    },
+    "star-wars": {
+      "classification": "franchise",
+      "targetFranchise": "star-wars",
+      "confidence": "high",
+      "notes": "Necesaria para la pertenencia secundaria expresamente aprobada de LEGO Star Wars."
+    },
+    "super-mario": {
+      "classification": "series",
+      "franchises": ["mario"],
+      "primaryFranchise": "mario",
+      "confidence": "high",
+      "notes": "Se conserva como saga/subserie y se vincula a la franquicia Mario sin redirect."
+    },
+    "time-crisis": {
+      "classification": "franchise",
+      "targetFranchise": "time-crisis",
+      "confidence": "high",
+      "notes": "Caso sin subseries definido expresamente por el usuario."
+    }
+  }
+}

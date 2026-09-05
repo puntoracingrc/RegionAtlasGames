@@ -37,6 +37,7 @@ assert.equal(meta.catalogListed, publicCatalogEntryCount, "public catalog metada
 
 const componentFiles = [
   "src/app/catalogo/page.tsx",
+  "src/app/franquicia/[slug]/page.tsx",
   "src/app/page.tsx",
   "src/app/plataforma/[slug]/page.tsx",
   "src/app/plataformas/page.tsx",
@@ -47,10 +48,13 @@ const componentFiles = [
   "src/components/company-platform-games.tsx",
   "src/components/game-facet-profile-detail.tsx",
   "src/components/company-collaborators.tsx",
+  "src/components/company-catalog-groups.tsx",
   "src/components/game-taxonomy-group-browser.tsx",
   "src/components/genre-profile-detail.tsx",
   "src/components/genre-profile-sections.tsx",
   "src/components/index-entity-header.tsx",
+  "src/components/index-entity-detail.tsx",
+  "src/components/index-entity-json-ld.tsx",
   "src/components/index-grid.tsx",
   "src/components/platform-card.tsx",
   "src/components/platform-catalog-section.tsx",
@@ -107,9 +111,25 @@ for (const relativePath of [
   "src/lib/series-profile.ts",
   "src/lib/game-facet-profile.ts",
   "src/lib/game-taxonomy-groups.ts",
+  "src/lib/franchise-system.ts",
 ]) {
   assert.ok(read(relativePath).includes("catalogEntryCount"), `${relativePath} lacks catalogEntryCount`);
 }
+
+const franchiseContract = read("src/lib/franchise-system.ts");
+const publicFranchiseReference = franchiseContract.match(
+  /export type PublicFranchiseReference = \{[\s\S]*?\n\};/,
+)?.[0] ?? "";
+assert.ok(publicFranchiseReference.includes("catalogEntryCount"), "franchise public DTO lacks catalogEntryCount");
+assert.ok(
+  publicFranchiseReference.includes("matchedCatalogEntryCount"),
+  "franchise public DTO lacks matchedCatalogEntryCount",
+);
+assert.doesNotMatch(
+  publicFranchiseReference,
+  /\b(?:gameCount|matchedGameCount):/,
+  "franchise public DTO exposes an ambiguous legacy count",
+);
 
 const formatCount = new Intl.NumberFormat("en-US").format;
 console.log(

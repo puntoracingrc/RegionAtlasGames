@@ -1,0 +1,723 @@
+{
+  "schemaVersion": 1,
+  "baselineRevision": "51ffae99dfed693c893b99ff7d29ba166a69e2f7",
+  "strategy": "Discard the franchise overlay/state and continue serving the untouched legacy series reader.",
+  "identifierSemantics": {
+    "persistedField": "gameId",
+    "meaning": "Existing catalog_id for one catalogued edition; not a logical game work."
+  },
+  "protectedFilesSha256": {
+    "data/catalog.json": "aa33390154b9d90b064328a62c089245e12749abf71618f8d83e9a02b274137a",
+    "data/game-details.json": "1d2c55d28fc6ea79865a3faab0cc2f811cd7f49c34107e42f5eaefefc8bc2833",
+    "data/index/companies.json": "d774c621f0289cdfeae1141361fc4483e84037432d82499a5f7ab83afafe48bb",
+    "data/index/series.json": "a98edf9ee06c2f917f114283f7100c9660d2f35339158556d31991f7f50ea1ba",
+    "data/meta.json": "49cfabc4664b4417f6e16cf943afc3369e5692d77c5775acef4ecb27eed87a16",
+    "data/price-sync-state.json": "7be0004315cbaed258e579cd48af76f88fe96865eb7b91695f940feb456c8384",
+    "data/ebay-regional-campaigns/cover-candidates.json": "36692112d8f36380fc8db3db63a51e5b6af29994f47b635e87563317a71bb436",
+    "data/ebay-regional-campaigns/global.json": "26ed91c6d082b596363fb1e7a17576ebf4789141494536bc1bdb612c41e1b1ce",
+    "data/ebay-regional-campaigns/nes.json": "c0e370dd577c4e0c11709cac1722c154ff50131cf9e7962281b1d2ffa6f11b39",
+    "data/ebay-regional-campaigns/ps4.json": "fa374b40f06bc10a20842d6b6107d7b97f75f1af457483310bf990d35737f13a",
+    "data/research/company-credit-verified-batch-1-report.json": "4c38f5ff93c13a5ead251164d09ebb5edce70341bd420425001978f937ad88f4",
+    "data/research/company-credit-verified-batch-1.csv": "d0ec58edbeaca7d2be1364e5763f7f6662af595e4373b62dcdfbd35fbabed52f"
+  },
+  "curationState": {
+    "membershipExclusionsFile": "data/franchise-system/membership-exclusions.json",
+    "membershipExclusionsSha256": "8873c77ab1fba75ca36f8ffbfcd9b23d2ccaab09c6f9df5b752ddb56fb8c75c6",
+    "editorialOverridesFile": "data/franchise-system/editorial-overrides.json",
+    "editorialOverridesSha256": "44cd1be11e5b26b171320f020c83732b4d461a40caa8e675be02a44c27554373",
+    "membershipExclusions": [
+      {
+        "catalogId": "gameboy-japon-seiken-densetsu-final-fantasy-gaiden",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Square Enix identifica esta edición como la primera entrega de Seiken Densetsu/Mana. El subtítulo Final Fantasy Gaiden documenta su presentación histórica, pero no basta para mantener una pertenencia directa a la franquicia Final Fantasy.",
+        "sourceUrls": [
+          "https://www.jp.square-enix.com/game/detail/seiken/",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-adventure",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Final Fantasy Adventure es el título norteamericano de la primera entrega de Mana. La asociación con Final Fantasy se conserva como contexto histórico de marca, no como pertenencia directa.",
+        "sourceUrls": [
+          "https://mana.square-enix-games.com/en-gb",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix identifica The Final Fantasy Legend como la edición norteamericana de Makai Toushi SaGa y como origen de la franquicia SaGa. El nombre regional no acredita pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-ii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend II entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-iii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend III entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps1-wanted",
+        "entityType": "franchise",
+        "entityId": "franchise:need-for-speed",
+        "entitySlug": "need-for-speed",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "Wanted (SLES-04158) es un shooter de NAPS Team publicado por Phoenix Games y no pertenece a Need for Speed.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/111925/wanted/",
+          "https://psxdatacenter.com/games/P/W/SLES-04158.html"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps2-harry-potter-collection",
+        "entityType": "series",
+        "entityId": "lego-harry-potter",
+        "entitySlug": "lego-harry-potter",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "Harry Potter Collection reúne juegos convencionales de Harry Potter publicados por Electronic Arts; no es una entrega de LEGO Harry Potter.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/30951/harry-potter-collection/",
+          "https://www.bestbuy.com/site/harry-potter-collection-playstation-2/8441484.p?skuId=8441484"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps2-harry-potter-collection",
+        "entityType": "franchise",
+        "entityId": "franchise:lego",
+        "entitySlug": "lego",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "La recopilación de Electronic Arts no contiene juegos LEGO y no debe heredarse hacia la franquicia LEGO desde la agrupación legacy incorrecta.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/30951/harry-potter-collection/",
+          "https://www.bestbuy.com/site/harry-potter-collection-playstation-2/8441484.p?skuId=8441484"
+        ],
+        "reviewedAt": "2026-09-05"
+      }
+    ],
+    "franchiseEditorialOverrides": {
+      "final-fantasy": {
+        "description": null,
+        "classification": "wrong_entity_content",
+        "confidence": "high",
+        "reason": "El texto legacy describe la historia corporativa de Square Enix, incluida la fusión de Square y Enix y la adquisición de Eidos; no es un perfil editorial de la franquicia Final Fantasy.",
+        "sourceUrls": [
+          "https://www.hd.square-enix.com/eng/company/history.html"
+        ],
+        "reviewedAt": "2026-09-05"
+      }
+    }
+  },
+  "legacyState": {
+    "snapshot": "data/migrations/franchise-series-v1/pre-migration-snapshot.json.gz",
+    "effectiveSeriesOverlay": "data/migrations/franchise-series-v1/production-series-overlay-effective.json",
+    "legacySeriesCount": 427,
+    "membershipSha256": "2191ffe3a1f0d6cabc0851b21d0577e051ea939ab84d7a1524169ee19b8f186c"
+  },
+  "generatedStateFiles": [
+    "data/franchise-system/franchises.json",
+    "data/franchise-system/series-franchise-relations.json",
+    "data/franchise-system/game-franchise-relations.json",
+    "data/franchise-system/entity-relationships.json",
+    "data/franchise-system/legacy-series-redirects.json"
+  ],
+  "promotedLegacySeries": [
+    {
+      "legacySeriesSlug": "final-fantasy",
+      "franchiseSlug": "final-fantasy",
+      "legacyUrl": "/saga/final-fantasy",
+      "catalogIds": [
+        "ps4-crisis-core-final-fantasy-vii-reunion",
+        "ps4-usa-crisis-core-final-fantasy-vii-reunion",
+        "ps4-japon-crisis-core-final-fantasy-vii-reunion-collector%27s-edition",
+        "ps4-dissidia-final-fantasy-nt",
+        "ps4-usa-dissidia-final-fantasy-nt",
+        "ps4-usa-dissidia-final-fantasy-nt-collector%27s-edition",
+        "ps4-usa-dissidia-final-fantasy-nt-steelbook-edition",
+        "ps4-japon-dissidia-final-fantasy-nt",
+        "nes-japon-final-fantasy",
+        "nes-usa-final-fantasy",
+        "gameboy-usa-final-fantasy-adventure",
+        "ps1-final-fantasy-anthology",
+        "gamecube-final-fantasy-crystal-chronicles",
+        "ds-final-fantasy-crystal-chronicles-ring-of-fates",
+        "ds-final-fantasy-crystal-chronicles-echoes-of-time",
+        "wii-final-fantasy-crystal-chronicles-echoes-of-time",
+        "ps4-japon-final-fantasy-crystal-chronicles-remastered-edition",
+        "wii-final-fantasy-crystal-chronicles-the-crystal-bearers",
+        "ps4-final-fantasy-dissidia",
+        "3ds-final-fantasy-explorers",
+        "ds-final-fantasy-fables-chocobo-tales",
+        "wii-final-fantasy-fables-chocobo%27s-dungeon",
+        "ps4-final-fantasy-i-vi-aniversary-collection-eng",
+        "ps4-final-fantasy-i-vi-aniversary-collection-esp",
+        "nes-japon-final-fantasy-i-ii",
+        "ps4-usa-final-fantasy-i-vi-collection",
+        "ps4-final-fantasy-i-vi-collection-pixel-remaster",
+        "ps4-usa-final-fantasy-i-vi-collection-pixel-remaster",
+        "ps4-usa-final-fantasy-i-vi-collection-pixel-remaster-anniversary-edition",
+        "ps4-final-fantasy-i-vi-collection-anniversary-edition",
+        "nes-japon-final-fantasy-ii",
+        "snes-usa-final-fantasy-ii",
+        "ds-final-fantasy-iii",
+        "nes-japon-final-fantasy-iii",
+        "snes-usa-final-fantasy-iii",
+        "ds-final-fantasy-iv",
+        "snes-japon-final-fantasy-iv",
+        "snes-japon-final-fantasy-iv-easy-type",
+        "ps1-final-fantasy-ix",
+        "gameboy-usa-final-fantasy-legend-ii",
+        "gameboy-usa-final-fantasy-legend-iii",
+        "ps1-final-fantasy-origins",
+        "ds-final-fantasy-tactics-a2",
+        "ps4-japon-final-fantasy-tactics-the-ivalice-chronicles-deluxe-edition",
+        "ps4-final-fantasy-type-0-hd",
+        "ps4-japon-final-fantasy-type-0-hd",
+        "ps4-usa-final-fantasy-type-0-hd",
+        "ps4-usa-final-fantasy-type-0-hd-collector%27s-edition",
+        "ps4-japon-final-fantasy-type-0-hd-console-pack-in",
+        "snes-japon-final-fantasy-usa-mystic-quest",
+        "snes-japon-final-fantasy-v",
+        "ps1-final-fantasy-vi",
+        "snes-japon-final-fantasy-vi",
+        "ps1-final-fantasy-vii",
+        "ps2-final-fantasy-vii-dirge-of-cerberus",
+        "ps4-final-fantasy-vii-rebirth",
+        "ps4-final-fantasy-vii-rebirth-deluxe",
+        "ps4-final-fantasy-vii-remake",
+        "ps4-japon-final-fantasy-vii-remake",
+        "ps4-usa-final-fantasy-vii-remake",
+        "ps4-usa-final-fantasy-vii-remake-1st-class-edition",
+        "ps4-japon-final-fantasy-vii-remake-1st-class-edition",
+        "ps4-usa-final-fantasy-vii-remake-deluxe-edition",
+        "ps4-usa-final-fantasy-vii-remake-walmart-edition",
+        "ps4-final-fantasy-vii-remake-deluxe",
+        "ps4-final-fantasy-viii",
+        "ps1-final-fantasy-viii",
+        "ps4-final-fantasy-viii-remastered",
+        "ps2-final-fantasy-x",
+        "ps4-usa-final-fantasy-x-x-2-hd-remaster",
+        "ps4-japon-final-fantasy-x-x-2-hd-remaster",
+        "ps4-final-fantasy-x-x-2-hd-remaster",
+        "ps3-final-fantasy-x-x-2-hd-remaster",
+        "ps4-usa-final-fantasy-x-x-2-hd-remaster-limited-edition",
+        "ps2-final-fantasy-x-2",
+        "ps4-final-fantasy-xii",
+        "ps2-final-fantasy-xii",
+        "ds-final-fantasy-xii-revenant-wings",
+        "ps4-final-fantasy-xii-the-zodiac-age",
+        "ps4-usa-final-fantasy-xii-the-zodiac-age",
+        "ps4-usa-final-fantasy-xii-the-zodiac-age-collector%27s-edition",
+        "ps4-final-fantasy-xii-the-zodiac-age-collector%27s-edition",
+        "ps4-usa-final-fantasy-xii-the-zodiac-age-limited-steelbook-edition",
+        "ps3-final-fantasy-xiii",
+        "ps3-final-fantasy-xiii-2",
+        "ps4-final-fantasy-xiv-a-realm-reborn",
+        "ps3-final-fantasy-xiv-a-realm-reborn-nordic-limited-edition",
+        "ps4-final-fantasy-xiv-complete-edition",
+        "ps4-usa-final-fantasy-xiv-complete-edition",
+        "ps4-final-fantasy-xiv-online-complete-edition",
+        "ps4-usa-final-fantasy-xiv-online-complete-edition",
+        "ps4-usa-final-fantasy-xiv-online-complete-experience",
+        "ps4-final-fantasy-xiv-online-heavensward",
+        "ps4-usa-final-fantasy-xiv-online-heavensward",
+        "ps4-usa-final-fantasy-xiv-online-heavensward-collector%27s-edition",
+        "ps4-japon-final-fantasy-xiv-online-shinsei-eorzea",
+        "ps4-final-fantasy-xiv-online-starter-edition",
+        "ps4-japon-final-fantasy-xiv-online-starter-pack",
+        "ps4-usa-final-fantasy-xiv-a-realm-reborn",
+        "ps3-final-fantasy-xiv-a-realm-reborn",
+        "ps4-usa-final-fantasy-xiv-a-realm-reborn-collector%27s-edition",
+        "ps4-final-fantasy-xiv-a-realm-reborn-collector%27s-edition",
+        "ps4-final-fantasy-xiv-shadowbringers",
+        "ps4-usa-final-fantasy-xiv-shadowbringers",
+        "ps4-usa-final-fantasy-xiv-shadowbringers-collector%27s-edition",
+        "ps4-final-fantasy-xiv-stormblood",
+        "ps4-usa-final-fantasy-xiv-stormblood",
+        "ps4-usa-final-fantasy-xiv-stormblood-collector%27s-edition",
+        "ps4-japon-final-fantasy-xiv-stormblood-collector%27s-edition",
+        "ps4-final-fantasy-xv",
+        "ps4-usa-final-fantasy-xv",
+        "ps4-japon-final-fantasy-xv",
+        "ps4-usa-final-fantasy-xv-day-one-edition",
+        "ps4-usa-final-fantasy-xv-deluxe-edition",
+        "ps4-japon-final-fantasy-xv-deluxe-edition",
+        "ps4-japon-final-fantasy-xv-film-collections-box",
+        "ps4-usa-final-fantasy-xv-royal-edition",
+        "ps4-usa-final-fantasy-xv-ultimate-collector%27s-edition",
+        "ps4-japon-final-fantasy-xv-ultimate-collector%27s-edition",
+        "ps4-japon-final-fantasy-xv-luna-edition",
+        "ps4-final-fantasy-xv-royal-edition",
+        "snes-usa-final-fantasy-mystic-quest",
+        "ds-final-fantasy-the-4-heroes-of-light",
+        "ps4-japon-itadaki-street-dragon-quest-and-final-fantasy-30th-anniversary",
+        "ps3-lightning-returns-final-fantasy-xiii",
+        "gameboy-japon-seiken-densetsu-final-fantasy-gaiden",
+        "ps4-usa-stranger-of-paradise-final-fantasy-origin",
+        "ps4-stranger-of-paradise-final-fantasy-origin",
+        "gameboy-usa-final-fantasy-legend",
+        "ps4-theatrhythm-final-bar-line",
+        "ps4-usa-theatrhythm-final-bar-line",
+        "3ds-theatrhythm-final-fantasy-curtain-call-limited-edition",
+        "3ds-theatrhythm-final-fantasy",
+        "3ds-theatrhythm-final-fantasy-curtain-call",
+        "ps4-usa-world-of-final-fantasy",
+        "ps4-world-of-final-fantasy",
+        "ps4-japon-world-of-final-fantasy",
+        "ps4-usa-world-of-final-fantasy-collector%27s-edition",
+        "ps4-usa-world-of-final-fantasy-limited-edition",
+        "ps4-japon-world-of-final-fantasy-mori-mori-box"
+      ],
+      "catalogIdsSha256": "c4647b1d177e387fb420297f1f111392b8b52ef4b650f61faf0347c4c714133a",
+      "editorial": {
+        "description": "Square Enix es una importante compañía japonesa de videojuegos nacida en 2003 tras la fusión de Square y Enix. Sus raíces se remontan a Enix, fundada en 1975, y Square, fundada en 1983. Ambas se hicieron famosas por crear algunos de los JRPG más influyentes de la historia.\n\nEnix destacó con **Dragon Quest**, lanzado en 1986, que ayudó a definir el rol en consolas. Square alcanzó el éxito con **Final Fantasy**, creado por Hironobu Sakaguchi en 1987 cuando la empresa atravesaba dificultades. Durante los años 90, ambas compañías vivieron una época dorada con sagas como **Final Fantasy**, **Dragon Quest**, **Chrono Trigger** y, más tarde, **Kingdom Hearts**.\n\nTras fusionarse en 2003, Square Enix combinó la capacidad técnica y narrativa de Square con la fuerza comercial de Enix en Japón. En 2009 amplió su presencia internacional al adquirir **Eidos Interactive**, incorporando franquicias occidentales como **Tomb Raider**, **Deus Ex** y **Hitman**.",
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "legacySeriesSlug": "lego",
+      "franchiseSlug": "lego",
+      "legacyUrl": "/saga/lego",
+      "catalogIds": [
+        "ps4-japon-lego-city-undercover",
+        "ps4-usa-lego-marvel-super-heroes-2",
+        "ps4-usa-lego-brawls",
+        "ps4-lego-super-heroes-2",
+        "ps1-lego-rock-raiders",
+        "ps4-japon-lego-movie-2",
+        "ps4-usa-lego-movie-2-videogame",
+        "ps4-usa-lego-2k-drive",
+        "ps4-lego-2k-drive",
+        "ps4-lego-city-undercover",
+        "ps4-lego-brawls",
+        "ps4-lego-movie-2-videogame",
+        "ps4-japon-lego-movie-videogame",
+        "ps4-usa-lego-city-undercover",
+        "ps4-lego-marvel-super-heroes-2",
+        "ps4-lego-movie-videogame",
+        "ps3-lego-movie-videogame",
+        "ps4-usa-lego-movie-videogame"
+      ],
+      "catalogIdsSha256": "8961ccafa40d6ce5da514bb6e4d179017ea024115dca2db48f8e8d6fc7bb3743",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "legacySeriesSlug": "mega-man",
+      "franchiseSlug": "mega-man",
+      "legacyUrl": "/saga/mega-man",
+      "catalogIds": [
+        "ps4-usa-mega-man-11",
+        "ps1-mega-man-8",
+        "ps4-mega-man-11",
+        "ps4-usa-mega-man-legacy-collection-2",
+        "ps4-usa-mega-man-legacy-collection",
+        "ps1-mega-man-battle-&amp;-chase"
+      ],
+      "catalogIdsSha256": "5e6f2b321dc3f03c215f3d9a62396342c3e5c44ede6b886b59ee17846a7fd5e7",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "legacySeriesSlug": "need-for-speed",
+      "franchiseSlug": "need-for-speed",
+      "legacyUrl": "/saga/need-for-speed",
+      "catalogIds": [
+        "ps3-need-for-speed-most-wanted",
+        "ps4-need-for-speed-hot-pursuit-remastered",
+        "ps3-need-for-speed-carbon",
+        "ps2-need-for-speed-prostreet",
+        "ps3-need-for-speed-the-run",
+        "ps1-need-for-speed-3-hot-pursuit",
+        "ps3-need-for-speed-hot-pursuit",
+        "ps3-need-for-speed-undercover",
+        "ps2-need-for-speed-carbon",
+        "ps3-need-for-speed-rivals",
+        "ps1-wanted",
+        "ps3-need-for-speed-prostreet",
+        "ps4-japon-need-for-speed-payback",
+        "ps3-shift-2-unleashed",
+        "ps4-need-for-speed-payback",
+        "ps2-need-for-speed-undercover",
+        "ps2-need-for-speed-hot-pursuit-2",
+        "ps4-usa-need-for-speed",
+        "ps3-need-for-speed-shift",
+        "ps4-need-for-speed-rivals",
+        "ps1-need-for-speed-ii",
+        "ps2-need-for-speed-most-wanted",
+        "ps4-usa-need-for-speed-heat",
+        "ps4-need-for-speed",
+        "ps2-need-for-speed-underground-2",
+        "ps1-need-for-speed-porsche",
+        "ps1-need-for-speed-high-stakes",
+        "ps4-usa-need-for-speed-payback",
+        "ps3-need-for-speed-hot-pursuit-limited-edition",
+        "ps2-need-for-speed-underground",
+        "ps1-need-for-speed",
+        "ps4-usa-need-for-speed-hot-pursuit-remastered",
+        "ps4-japon-need-for-speed",
+        "ps4-need-for-speed-heat",
+        "ps4-usa-need-for-speed-rivals"
+      ],
+      "catalogIdsSha256": "a52f6c12c0ccf0dec86295697f8851ac7980f5af5c98f7c41408520713dc7b52",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "legacySeriesSlug": "resident-evil",
+      "franchiseSlug": "resident-evil",
+      "legacyUrl": "/saga/resident-evil",
+      "catalogIds": [
+        "ps4-usa-resident-evil-7-biohazard",
+        "ps4-usa-resident-evil-village",
+        "ps4-resident-evil-village",
+        "ps1-resident-evil-director%27s-cut",
+        "ps3-resident-evil-6",
+        "ps2-resident-evil-outbreak-file-2",
+        "ps4-usa-resident-evil-5",
+        "ps4-resident-evil-5",
+        "ps1-resident-evil-2",
+        "ps4-resident-evil-6",
+        "ps4-resident-evil-7-biohazard-gold-edition",
+        "ps3-resident-evil-5",
+        "ps4-japon-biohazard-7-resident-evil",
+        "ps4-resident-evil-origins-collection",
+        "ps1-resident-evil-survivor",
+        "ps2-resident-evil-4",
+        "ps3-resident-evil-revelations-2",
+        "ps4-usa-resident-evil-4",
+        "ps4-resident-evil-3",
+        "ps3-resident-evil-operation-raccoon-city",
+        "ps4-usa-resident-evil-revelations",
+        "ps1-resident-evil",
+        "ps4-usa-resident-evil-7-biohazard-gold-edition",
+        "ps4-resident-evil-4",
+        "ps4-usa-resident-evil-revelations-2",
+        "ps4-resident-evil-revelations-2",
+        "ps4-usa-resident-evil-6",
+        "ps2-resident-evil-dead-aim",
+        "ps4-usa-resident-evil-origins-collection",
+        "ps2-resident-evil-outbreak",
+        "ps4-resident-evil-7-biohazard",
+        "ps3-resident-evil-revelations",
+        "ps4-resident-evil-revelations",
+        "ps4-usa-resident-evil-3",
+        "ps2-resident-evil-code-veronica-x"
+      ],
+      "catalogIdsSha256": "903cef7e3d126468c127205303c78ac38dd4407f749b16c5bdd08ce1a0bf7771",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "legacySeriesSlug": "sonic-the-hedgehog",
+      "franchiseSlug": "sonic-the-hedgehog",
+      "legacyUrl": "/saga/sonic-the-hedgehog",
+      "catalogIds": [
+        "ps4-usa-sonic-x-shadow-generations",
+        "ps4-usa-sonic-mania",
+        "ps3-sonic-generations",
+        "ps3-sonic-the-hedgehog",
+        "ps4-japon-team-sonic-racing",
+        "ps4-usa-sonic-frontiers",
+        "ps2-sonic-riders-zero-gravity",
+        "ps4-usa-sonic-superstars",
+        "ps2-sonic-riders",
+        "ps4-sonic-frontiers",
+        "ps4-usa-sonic-forces",
+        "ps4-usa-sonic-colors-ultimate",
+        "ps4-usa-sonic-racing-crossworlds",
+        "ps3-sonic-&amp;-sega-all-stars-racing",
+        "ps2-sonic-unleashed",
+        "ps4-team-sonic-racing",
+        "ps3-sonic-unleashed",
+        "ps2-sonic-gems-collection",
+        "ps3-sonic-&amp;-all-stars-racing-transformed",
+        "ps4-sonic-forces",
+        "ps2-sonic-mega-collection-plus",
+        "ps2-shadow-the-hedgehog",
+        "ps4-usa-team-sonic-racing",
+        "ps4-sonic-x-shadow-generations",
+        "ps2-sonic-heroes",
+        "ps4-sonic-superstars",
+        "ps4-sonic-racing-crossworlds",
+        "ps4-sonic-origins-plus",
+        "ps4-sonic-team-racing",
+        "ps4-japon-sonic-frontiers"
+      ],
+      "catalogIdsSha256": "8bea2b11575a4bf42fd0ba147d42d960d3067aaf0008ce0b74bea9a72b416263",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "legacySeriesSlug": "star-wars",
+      "franchiseSlug": "star-wars",
+      "legacyUrl": "/saga/star-wars",
+      "catalogIds": [
+        "ps2-star-wars-clone-wars",
+        "ps2-star-wars-battlefront",
+        "ps2-star-wars-episode-iii-revenge-of-the-sith",
+        "ps4-usa-star-wars-battlefront-ii",
+        "ps1-star-wars-dark-forces",
+        "ps4-japon-star-wars-battlefront",
+        "ps2-star-wars-starfighter",
+        "ps2-star-wars-super-bombad-racing",
+        "ps4-star-wars-jedi-fallen-order",
+        "ps4-star-wars-battlefront",
+        "ps4-japon-star-wars-jedi-fallen-order",
+        "ps4-usa-star-wars-battlefront",
+        "ps1-star-wars-episode-i-the-phantom-menace",
+        "ps1-star-wars-episode-i-jedi-power-battles",
+        "ps3-star-wars-the-force-unleashed-ii",
+        "ps4-usa-star-wars-squadrons",
+        "ps4-japon-star-wars-squadrons",
+        "ps4-usa-star-wars-battlefront-ii-elite-trooper-deluxe-edition",
+        "ps4-star-wars-squadrons",
+        "ps4-usa-star-wars-jedi-fallen-order",
+        "ps4-star-wars-battlefront-ii"
+      ],
+      "catalogIdsSha256": "27d7986dfd7057424dd5849e74a31870cc69829fcda117e87d1a086110518b41",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "legacySeriesSlug": "time-crisis",
+      "franchiseSlug": "time-crisis",
+      "legacyUrl": "/saga/time-crisis",
+      "catalogIds": [
+        "ps2-time-crisis-3",
+        "ps2-crisis-zone",
+        "ps1-time-crisis",
+        "ps3-time-crisis-razing-storm",
+        "ps3-time-crisis-4",
+        "ps1-time-crisis-project-titan"
+      ],
+      "catalogIdsSha256": "ec08013ede47404ec8cc59922cf92144fbe727cfb8f079e137cd991dbb8ce9c4",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    }
+  ],
+  "retainedSeries": [
+    {
+      "seriesSlug": "dissidia-final-fantasy",
+      "legacyUrl": "/saga/dissidia-final-fantasy",
+      "catalogIds": [
+        "ps4-dissidia-final-fantasy-nt",
+        "ps4-japon-dissidia-final-fantasy-nt",
+        "ps4-usa-dissidia-final-fantasy-nt",
+        "ps4-final-fantasy-dissidia"
+      ],
+      "catalogIdsSha256": "885873baaa45f8d32853fee53bf8d418049a13c7e23ecabaacf89bcc0fc694b8",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "seriesSlug": "lego-batman",
+      "legacyUrl": "/saga/lego-batman",
+      "catalogIds": [
+        "ps4-lego-dc-super-villains",
+        "ps4-japon-lego-dc-super-villains",
+        "ps3-lego-batman-3-beyond-gotham",
+        "ps4-usa-lego-dc-super-villains",
+        "ps4-usa-lego-batman-3-beyond-gotham",
+        "ps3-lego-batman-2-dc-super-heroes",
+        "ps4-japon-lego-batman-3-beyond-gotham",
+        "ps3-lego-batman-the-videogame",
+        "ps4-lego-batman-3-beyond-gotham"
+      ],
+      "catalogIdsSha256": "34713fe13602eb6d3c40661703e426dc6bc5b9619acdb44817fc34f2fade9207",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "seriesSlug": "lego-harry-potter",
+      "legacyUrl": "/saga/lego-harry-potter",
+      "catalogIds": [
+        "ps3-lego-harry-potter-years-1-4",
+        "ps4-usa-lego-harry-potter-collection",
+        "ps2-harry-potter-collection",
+        "ps4-lego-harry-potter-collection",
+        "ps3-lego-harry-potter-years-5-7"
+      ],
+      "catalogIdsSha256": "40ff5b397027d3957c468c326a49c6abdf5bda0f72ef7b7fac67fb04c4138e55",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "seriesSlug": "lego-racers",
+      "legacyUrl": "/saga/lego-racers",
+      "catalogIds": [
+        "ps2-drome-racers",
+        "ps2-lego-racers-2",
+        "ps1-lego-racers"
+      ],
+      "catalogIdsSha256": "851426fa6a7a897c498b16e2d2aaf8f2135dfe852d8f4eca914cda4dcee862d2",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "seriesSlug": "lego-star-wars",
+      "legacyUrl": "/saga/lego-star-wars",
+      "catalogIds": [
+        "ps4-usa-lego-star-wars-the-force-awakens",
+        "ps3-lego-star-wars-the-force-awakens",
+        "ps4-lego-star-wars-the-force-awakens",
+        "ps4-lego-star-wars-the-skywalker-saga",
+        "ps3-lego-star-wars-complete-saga",
+        "ps2-lego-star-wars",
+        "ps4-usa-lego-star-wars-the-skywalker-saga",
+        "ps4-lego-star-wars-the-force-awakens-plush-edition",
+        "ps2-lego-star-wars-ii-original-trilogy",
+        "ps3-lego-star-wars-iii-the-clone-wars",
+        "ps4-lego-star-wars-the-skywalker-saga-galactic-edition"
+      ],
+      "catalogIdsSha256": "4897607476ea16f69e126f0fba4ddb524efcd76ae348576b17370a04c2eb6a26",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "seriesSlug": "mega-man-x",
+      "legacyUrl": "/saga/mega-man-x",
+      "catalogIds": [
+        "ps4-usa-mega-man-x-legacy-collection",
+        "ps2-mega-man-x8",
+        "ps2-mega-man-x7",
+        "ps2-mega-man-x-command-mission",
+        "ps1-mega-man-x4",
+        "ps1-mega-man-x5",
+        "ps1-mega-man-x3",
+        "ps1-mega-man-x6",
+        "ps4-usa-mega-man-x-legacy-collection-2"
+      ],
+      "catalogIdsSha256": "dea09c40a7dfc1516c0f9b970e280e953d044bc4457a746f66d443a8e289c79f",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    },
+    {
+      "seriesSlug": "super-mario",
+      "legacyUrl": "/saga/super-mario",
+      "catalogIds": [
+        "nes-super-mario-bros"
+      ],
+      "catalogIdsSha256": "559ad4e03d5b362261ab3215a983046938cf2292ac9cff2835f755af3058e29a",
+      "editorial": {
+        "description": null,
+        "backgroundImageUrl": null,
+        "backgroundImageOpacity": null,
+        "backgroundReadability": null,
+        "museumPath": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "baselineRevision": "51ffae99dfed693c893b99ff7d29ba166a69e2f7",
+  "counts": {
+    "franchises": 9,
+    "promotedLegacySeries": 8,
+    "retainedSeries": 7,
+    "seriesFranchiseRelations": 8,
+    "catalogEntryFranchiseRelations": 333,
+    "entityRelationships": 1,
+    "legacyRedirects": 8,
+    "approvedMembershipExclusions": 8,
+    "franchiseEditorialOverrides": 1
+  },
+  "promotions": [
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "final-fantasy",
+        "catalogEntries": 140
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:final-fantasy",
+        "slug": "final-fantasy",
+        "directCatalogEntries": 135,
+        "effectiveCatalogEntries": 135
+      },
+      "approvedExcludedCatalogIds": [
+        "gameboy-japon-seiken-densetsu-final-fantasy-gaiden",
+        "gameboy-usa-final-fantasy-adventure",
+        "gameboy-usa-final-fantasy-legend",
+        "gameboy-usa-final-fantasy-legend-ii",
+        "gameboy-usa-final-fantasy-legend-iii"
+      ],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [],
+      "effectiveDirectMembershipParity": true,
+      "redirect": "/saga/final-fantasy -> /franquicia/final-fantasy"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "lego",
+        "catalogEntries": 18
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:lego",
+        "slug": "lego",
+        "directCatalogEntries": 18,
+        "effectiveCatalogEntries": 45
+      },
+      "approvedExcludedCatalogIds": [],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [
+        "ps1-lego-racers",
+        "ps2-drome-racers",
+        "ps2-lego-racers-2",
+        "ps2-lego-star-wars",
+        "ps2-lego-star-wars-ii-original-trilogy",
+        "ps3-lego-batman-2-dc-super-heroes",
+        "ps3-lego-batman-3-beyond-gotham",
+        "ps3-lego-batman-the-videogame",
+        "ps3-lego-harry-potter-years-1-4",
+        "ps3-lego-harry-potter-years-5-7",
+        "ps3-lego-star-wars-complete-saga",
+        "ps3-lego-star-wars-iii-the-clone-wars",
+        "ps3-lego-star-wars-the-force-awakens",
+        "ps4-japon-lego-batman-3-beyond-gotham",
+        "ps4-japon-lego-dc-super-villains",
+        "ps4-lego-batman-3-beyond-gotham",
+        "ps4-lego-dc-super-villains",
+        "ps4-lego-harry-potter-collection",
+        "ps4-lego-star-wars-the-force-awakens",
+        "ps4-lego-star-wars-the-force-awakens-plush-edition",
+        "ps4-lego-star-wars-the-skywalker-saga",
+        "ps4-lego-star-wars-the-skywalker-saga-galactic-edition",
+        "ps4-usa-lego-batman-3-beyond-gotham",
+        "ps4-usa-lego-dc-super-villains",
+        "ps4-usa-lego-harry-potter-collection",
+        "ps4-usa-lego-star-wars-the-force-awakens",
+        "ps4-usa-lego-star-wars-the-skywalker-saga"
+      ],
+      "effectiveDirectMembershipParity": true,
+      "redirect": "/saga/lego -> /franquicia/lego"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "mega-man",
+        "catalogEntries": 6
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:mega-man",
+        "slug": "mega-man",
+        "directCatalogEntries": 6,
+        "effectiveCatalogEntries": 15
+      },
+      "approvedExcludedCatalogIds": [],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [
+        "ps1-mega-man-x3",
+        "ps1-mega-man-x4",
+        "ps1-mega-man-x5",
+        "ps1-mega-man-x6",
+        "ps2-mega-man-x-command-mission",
+        "ps2-mega-man-x7",
+        "ps2-mega-man-x8",
+        "ps4-usa-mega-man-x-legacy-collection",
+        "ps4-usa-mega-man-x-legacy-collection-2"
+      ],
+      "effectiveDirectMembershipParity": true,
+      "redirect": "/saga/mega-man -> /franquicia/mega-man"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "need-for-speed",
+        "catalogEntries": 35
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:need-for-speed",
+        "slug": "need-for-speed",
+        "directCatalogEntries": 34,
+        "effectiveCatalogEntries": 34
+      },
+      "approvedExcludedCatalogIds": [
+        "ps1-wanted"
+      ],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [],
+      "effectiveDirectMembershipParity": true,
+      "redirect": "/saga/need-for-speed -> /franquicia/need-for-speed"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "resident-evil",
+        "catalogEntries": 35
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:resident-evil",
+        "slug": "resident-evil",
+        "directCatalogEntries": 35,
+        "effectiveCatalogEntries": 35
+      },
+      "approvedExcludedCatalogIds": [],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [],
+      "effectiveDirectMembershipParity": true,
+      "redirect": "/saga/resident-evil -> /franquicia/resident-evil"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "sonic-the-hedgehog",
+        "catalogEntries": 30
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:sonic-the-hedgehog",
+        "slug": "sonic-the-hedgehog",
+        "directCatalogEntries": 30,
+        "effectiveCatalogEntries": 30
+      },
+      "approvedExcludedCatalogIds": [],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [],
+      "effectiveDirectMembershipParity": true,
+      "redirect": "/saga/sonic-the-hedgehog -> /franquicia/sonic-the-hedgehog"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "star-wars",
+        "catalogEntries": 21
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:star-wars",
+        "slug": "star-wars",
+        "directCatalogEntries": 21,
+        "effectiveCatalogEntries": 32
+      },
+      "approvedExcludedCatalogIds": [],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [
+        "ps2-lego-star-wars",
+        "ps2-lego-star-wars-ii-original-trilogy",
+        "ps3-lego-star-wars-complete-saga",
+        "ps3-lego-star-wars-iii-the-clone-wars",
+        "ps3-lego-star-wars-the-force-awakens",
+        "ps4-lego-star-wars-the-force-awakens",
+        "ps4-lego-star-wars-the-force-awakens-plush-edition",
+        "ps4-lego-star-wars-the-skywalker-saga",
+        "ps4-lego-star-wars-the-skywalker-saga-galactic-edition",
+        "ps4-usa-lego-star-wars-the-force-awakens",
+        "ps4-usa-lego-star-wars-the-skywalker-saga"
+      ],
+      "effectiveDirectMembershipParity": true,
+      "redirect": "/saga/star-wars -> /franquicia/star-wars"
+    },
+    {
+      "legacy": {
+        "type": "series",
+        "slug": "time-crisis",
+        "catalogEntries": 6
+      },
+      "target": {
+        "type": "franchise",
+        "id": "franchise:time-crisis",
+        "slug": "time-crisis",
+        "directCatalogEntries": 6,
+        "effectiveCatalogEntries": 6
+      },
+      "approvedExcludedCatalogIds": [],
+      "lostDirectCatalogIds": [],
+      "unexpectedDirectCatalogIds": [],
+      "inheritedCatalogIds": [],
+      "effectiveDirectMembershipParity": true,
+      "redirect": "/saga/time-crisis -> /franquicia/time-crisis"
+    }
+  ],
+  "curation": {
+    "membershipReviewBatch": "franchise-series-semantic-review-2026-09-05",
+    "editorialReviewBatch": "franchise-series-semantic-review-2026-09-05",
+    "membershipExclusions": [
+      {
+        "catalogId": "gameboy-japon-seiken-densetsu-final-fantasy-gaiden",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Square Enix identifica esta edición como la primera entrega de Seiken Densetsu/Mana. El subtítulo Final Fantasy Gaiden documenta su presentación histórica, pero no basta para mantener una pertenencia directa a la franquicia Final Fantasy.",
+        "sourceUrls": [
+          "https://www.jp.square-enix.com/game/detail/seiken/",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-adventure",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Final Fantasy Adventure es el título norteamericano de la primera entrega de Mana. La asociación con Final Fantasy se conserva como contexto histórico de marca, no como pertenencia directa.",
+        "sourceUrls": [
+          "https://mana.square-enix-games.com/en-gb",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix identifica The Final Fantasy Legend como la edición norteamericana de Makai Toushi SaGa y como origen de la franquicia SaGa. El nombre regional no acredita pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-ii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend II entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-iii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend III entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps1-wanted",
+        "entityType": "franchise",
+        "entityId": "franchise:need-for-speed",
+        "entitySlug": "need-for-speed",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "Wanted (SLES-04158) es un shooter de NAPS Team publicado por Phoenix Games y no pertenece a Need for Speed.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/111925/wanted/",
+          "https://psxdatacenter.com/games/P/W/SLES-04158.html"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps2-harry-potter-collection",
+        "entityType": "series",
+        "entityId": "lego-harry-potter",
+        "entitySlug": "lego-harry-potter",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "Harry Potter Collection reúne juegos convencionales de Harry Potter publicados por Electronic Arts; no es una entrega de LEGO Harry Potter.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/30951/harry-potter-collection/",
+          "https://www.bestbuy.com/site/harry-potter-collection-playstation-2/8441484.p?skuId=8441484"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps2-harry-potter-collection",
+        "entityType": "franchise",
+        "entityId": "franchise:lego",
+        "entitySlug": "lego",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "La recopilación de Electronic Arts no contiene juegos LEGO y no debe heredarse hacia la franquicia LEGO desde la agrupación legacy incorrecta.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/30951/harry-potter-collection/",
+          "https://www.bestbuy.com/site/harry-potter-collection-playstation-2/8441484.p?skuId=8441484"
+        ],
+        "reviewedAt": "2026-09-05"
+      }
+    ],
+    "franchiseEditorialOverrides": {
+      "final-fantasy": {
+        "description": null,
+        "classification": "wrong_entity_content",
+        "confidence": "high",
+        "reason": "El texto legacy describe la historia corporativa de Square Enix, incluida la fusión de Square y Enix y la adquisición de Eidos; no es un perfil editorial de la franquicia Final Fantasy.",
+        "sourceUrls": [
+          "https://www.hd.square-enix.com/eng/company/history.html"
+        ],
+        "reviewedAt": "2026-09-05"
+      }
+    }
+  },
+  "identifierSemantics": {
+    "persistedField": "gameId",
+    "meaning": "Existing catalog_id for one catalogued edition; not a logical game work."
+  },
+  "unchanged": {
+    "catalogFile": "data/catalog.json",
+    "gameDetailsFile": "data/game-details.json",
+    "companyIndexFile": "data/index/companies.json",
+    "seriesIndexFile": "data/index/series.json"
+  }
+}

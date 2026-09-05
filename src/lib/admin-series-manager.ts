@@ -5,6 +5,7 @@ import seriesIndexData from "../../data/index/series.json";
 import { canWriteCatalogFiles } from "./admin-auth";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { catalog as bundledCatalog } from "./catalog";
+import { filterEffectiveSeriesCatalogIds } from "./franchise-curation";
 import { findGameFacetEntityByNameOrAlias, getGameFacetsTaxonomy } from "./game-facets/taxonomy";
 import { slugify } from "./slug";
 import type { CatalogGame, DetailEntity, GameDetails, IndexEntry } from "./types";
@@ -472,8 +473,11 @@ function effectiveSeriesEntry(
   // Preserve the canonical index membership and layer admin changes on top.
   const baseGameIds = staticEntry?.gameIds ?? overlayEntry?.gameIds ?? [];
   const removals = new Set(overlayEntry?.removals ?? []);
-  const gameIds = uniqueStrings([...baseGameIds, ...(overlayEntry?.additions ?? [])]).filter(
-    (id) => !removals.has(id),
+  const gameIds = filterEffectiveSeriesCatalogIds(
+    slug,
+    uniqueStrings([...baseGameIds, ...(overlayEntry?.additions ?? [])]).filter(
+      (id) => !removals.has(id),
+    ),
   );
 
   return {

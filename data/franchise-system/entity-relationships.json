@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "relationships": [
+    {
+      "id": "relationship:series:mega-man-x:derived-from:franchise:mega-man",
+      "sourceType": "series",
+      "sourceId": "mega-man-x",
+      "targetType": "franchise",
+      "targetId": "franchise:mega-man",
+      "relationshipType": "derived_from",
+      "source": "user-approved-franchise-series-migration-spec",
+      "confidence": "high",
+      "reviewedAt": "2026-09-04"
+    }
+  ]
+}

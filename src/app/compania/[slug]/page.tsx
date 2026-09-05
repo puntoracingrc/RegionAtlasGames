@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { CompanyProfileDetail } from "@/components/company-profile-detail";
+import { IndexEntityJsonLd } from "@/components/index-entity-json-ld";
 import { resolveCanonicalCompanySlug } from "@/lib/company-canonical";
 import { buildCompanyProfileViewWithOverlay } from "@/lib/company-profile";
 import { buildCompanyMetadata } from "@/lib/company-seo";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { getCurrentUser } from "@/lib/users";
 import { listPublicSeriesForGames } from "@/lib/admin-series-manager";
+import { listPublicFranchisesForCatalogEntries } from "@/lib/admin-franchise-manager";
+import { getLegacySeriesRedirect } from "@/lib/franchise-system";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -29,21 +32,43 @@ export default async function CompanyPage({ params }: Props) {
 
   const user = await getCurrentUser();
   const ownedCatalogIds = user ? await getOwnedCatalogIds(user.id) : [];
-  const series = (await listPublicSeriesForGames(view.games.map((game) => game.id))).map(
-    (item) => ({
-      slug: item.slug,
-      name: item.name,
-      catalogEntryCount: item.gameCount,
-      matchedCatalogEntryCount: item.matchedGameCount,
-    }),
-  );
+  const catalogIds = view.games.map((game) => game.id);
+  const franchises = (await listPublicFranchisesForCatalogEntries(catalogIds)).map((item) => ({
+    slug: item.slug,
+    name: item.name,
+    catalogEntryCount: item.catalogEntryCount,
+    matchedCatalogEntryCount: item.matchedCatalogEntryCount,
+  }));
+  const series = (await listPublicSeriesForGames(catalogIds)).filter(
+    (entry) => !getLegacySeriesRedirect(entry.slug),
+  ).map((item) => ({
+    slug: item.slug,
+    name: item.name,
+    catalogEntryCount: item.gameCount,
+    matchedCatalogEntryCount: item.matchedGameCount,
+  }));
 
   return (
-    <CompanyProfileDetail
-      view={view}
-      series={series}
-      ownedCatalogIds={ownedCatalogIds}
-      isLoggedIn={!!user}
-    />
+    <>
+      <IndexEntityJsonLd
+        summary={{
+          kind: "company",
+          name: view.name,
+          slug: view.slug,
+          catalogEntryCount: view.catalogEntryCount,
+        }}
+        breadcrumbs={[
+          { label: "Compañías", href: "/compania" },
+          { label: view.name },
+        ]}
+      />
+      <CompanyProfileDetail
+        view={view}
+        franchises={franchises}
+        series={series}
+        ownedCatalogIds={ownedCatalogIds}
+        isLoggedIn={!!user}
+      />
+    </>
   );
 }

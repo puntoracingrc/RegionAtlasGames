@@ -2,16 +2,16 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { EntityBrowser } from "@/components/catalog-browser";
 import { CompanyCollaborators } from "@/components/company-collaborators";
+import { CompanyCatalogGroups } from "@/components/company-catalog-groups";
 import { CompanyPlatformGames } from "@/components/company-platform-games";
 import { CompanyProfileHeader } from "@/components/company-profile-header";
 import { PersonPortrait } from "@/components/person-portrait";
 import { SiteNav } from "@/components/site-nav";
-import { formatCatalogEntryCount } from "@/lib/catalog-entry-count";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
 import { buildCompanyIntro } from "@/lib/company-seo";
 import type { CompanyProfileView } from "@/lib/company-profile";
 
-export type CompanyRelatedSeries = {
+export type CompanyRelatedCatalogGroup = {
   slug: string;
   name: string;
   catalogEntryCount: number;
@@ -20,12 +20,13 @@ export type CompanyRelatedSeries = {
 
 type Props = {
   view: CompanyProfileView;
-  series: CompanyRelatedSeries[];
+  franchises: CompanyRelatedCatalogGroup[];
+  series: CompanyRelatedCatalogGroup[];
   ownedCatalogIds: string[];
   isLoggedIn: boolean;
 };
 
-export function CompanyProfileDetail({ view, series, ownedCatalogIds, isLoggedIn }: Props) {
+export function CompanyProfileDetail({ view, franchises, series, ownedCatalogIds, isLoggedIn }: Props) {
   const intro = buildCompanyIntro(view);
   const introParagraphs = intro.split(/\n{2,}/).map((paragraph) => paragraph.trim()).filter(Boolean);
   const games = view.games.map(toCatalogListGame);
@@ -162,43 +163,8 @@ export function CompanyProfileDetail({ view, series, ownedCatalogIds, isLoggedIn
           <CompanyCollaborators collaborators={view.collaborators} selfName={view.name} />
         </div>
 
-        {series.length > 0 && (
-          <section className="mb-10 rounded-2xl border border-border bg-card p-5 md:p-6">
-            <div className="flex flex-wrap items-start justify-between gap-3">
-              <div>
-                <h2 className="text-lg font-semibold text-foreground">Sagas relacionadas</h2>
-                <p className="mt-1 text-sm text-foreground/75">
-                  Sagas donde aparece al menos una ficha atribuida a {view.name}.
-                </p>
-              </div>
-              <span className="rounded-full border border-border px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-                {series.length} {series.length === 1 ? "saga" : "sagas"}
-              </span>
-            </div>
-
-            <ul className="mt-4 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-background/45">
-              {series.map((item) => (
-                <li
-                  key={item.slug}
-                  className="flex flex-wrap items-center justify-between gap-3 px-4 py-3"
-                >
-                  <Link
-                    href={`/saga/${item.slug}`}
-                    className="font-semibold text-foreground hover:text-accent"
-                  >
-                    {item.name}
-                  </Link>
-                  <span className="text-sm text-muted">
-                    {formatCatalogEntryCount(item.matchedCatalogEntryCount)} de {view.name}
-                    {item.catalogEntryCount > 0
-                      ? ` · ${formatCatalogEntryCount(item.catalogEntryCount)} en la saga`
-                      : ""}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+        <CompanyCatalogGroups companyName={view.name} groups={franchises} kind="franchise" />
+        <CompanyCatalogGroups companyName={view.name} groups={series} kind="series" />
 
         <section className="space-y-4">
           <div>
