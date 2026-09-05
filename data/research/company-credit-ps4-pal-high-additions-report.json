@@ -160,6 +160,28 @@
       "consoleErrors": 0,
       "overflowFailures": 0
     },
-    "previewQa": "PENDING"
+    "previewQa": {
+      "status": "20/20 PASS",
+      "evidenceHead": "5f5ac41157e60455451d35b9bbef916d53dde074",
+      "deploymentId": "dpl_GtHMzzNxUqXuxHcQdw3tQ32R5oS4",
+      "deploymentUrl": "https://regionatlas-m2gagf5uq-persianas-almar-web-s-projects.vercel.app",
+      "viewports": [
+        "1440x1000",
+        "390x844"
+      ],
+      "routes": 20,
+      "brokenImages": 0,
+      "consoleErrors": 0,
+      "overflowFailures": 0,
+      "visualInspection": "PASS",
+      "notes": "The first cold Capcom navigation timed out after the page loaded; its immediate retry passed. A long mobile screenshot repeated stitched pixels, while DOM counts and a viewport screenshot confirmed one instance of every section."
+    },
+    "previewPackaging": {
+      "status": "PASS",
+      "previousFailure": "The first Preview exceeded the 250 MB function limit by 0.31 MB.",
+      "resolution": "Offline PS4 PAL audit reports and CSV files remain versioned but are excluded from server function traces.",
+      "adminGameFunctionTraceMiB": 242.51,
+      "excludedRuntimeEvidenceFiles": 10
+    }
   }
 }

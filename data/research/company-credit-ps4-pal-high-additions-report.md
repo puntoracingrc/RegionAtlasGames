@@ -44,6 +44,7 @@ Fecha de revision: 2026-09-05
 - Ofertas afiliadas: PASS.
 - Build: PASS.
 - QA local: 20/20 rutas en 1440x1000 y 390x844; 0 imagenes rotas, 0 errores de consola y 0 desbordamientos.
-- QA de Preview: pendiente del deployment del HEAD de la PR.
+- QA de Preview: 20/20 rutas PASS en `dpl_GtHMzzNxUqXuxHcQdw3tQ32R5oS4` para el HEAD de evidencia `5f5ac41157e60455451d35b9bbef916d53dde074`, en 1440x1000 y 390x844; 0 imagenes rotas, 0 errores de consola y 0 desbordamientos.
+- Empaquetado de Preview: PASS. Los informes y CSV offline del lote siguen versionados, pero se excluyen de las funciones; la traza local de `admin/juegos/[catalogId]` baja a 242.51 MiB y Vercel queda READY.
 
 Incidencia previa fuera de alcance: la portada ya existente de `Asterix & Obelix XXL: Romastered` muestra arte de Nintendo Switch. Este lote no modifica `catalog.json` ni portadas.
