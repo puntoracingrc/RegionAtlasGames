@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-09-05T04:26:38",
-  "targets": 996,
-  "downloaded": 995,
+  "generatedAt": "2026-09-05T04:47:10",
+  "targets": 2077,
+  "downloaded": 2077,
   "skippedExisting": 0,
-  "missingSource": 1,
+  "missingSource": 0,
   "downloadErrors": 0,
   "bySource": {
     "museum": 0,
-    "pricecharting": 995,
+    "pricecharting": 2077,
     "wikipedia": 0,
     "existing": 0
   },
   "byPlatform": {
     "ds": {
-      "downloaded": 995,
-      "missingSource": 1,
+      "downloaded": 2077,
+      "missingSource": 0,
       "downloadErrors": 0,
       "skippedExisting": 0
     }
   },
   "scope": {
-    "region": "Japón",
+    "region": "USA",
     "platforms": [
       "ds"
     ]
   },
-  "note": "Portadas exactas de la importación japonesa de Nintendo DS; el caso sin origen no se sustituye."
+  "note": "Portadas exactas de la importación USA de Nintendo DS."
 }
