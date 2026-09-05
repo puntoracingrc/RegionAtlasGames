@@ -173,6 +173,24 @@ test("a newer verified static company credit survives a stale details overlay", 
   assert.equal(merged.description, overlayDetails.description);
 });
 
+test("a verified individual credit survives a stale details overlay as a person", () => {
+  const staticDetails = getVerifiedCompanyCreditDetails("ps4-unmetal");
+  assert.ok(staticDetails?.individualCredits);
+
+  const merged = mergeVerifiedCompanyCredits(staticDetails, details());
+
+  assert.deepEqual(
+    merged.individualCredits?.map((credit) => credit.person.slug),
+    ["francisco-tellez-de-meneses"],
+  );
+  assert.equal(
+    merged.companyCredits?.some(
+      (credit) => credit.company.slug === "francisco-tellez-de-meneses",
+    ),
+    false,
+  );
+});
+
 test("a newer runtime company credit remains authoritative", () => {
   const staticDetails: GameDetails = {
     ...details(),

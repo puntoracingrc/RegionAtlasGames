@@ -173,9 +173,14 @@ class CompanyEntitySeparationsTest(unittest.TestCase):
                 if slug not in self.independent:
                     continue
                 expected_games[slug].add(game_id)
-                if role == "developer":
+                if role in {
+                    "developer",
+                    "originalDeveloper",
+                    "portDeveloper",
+                    "remasterDeveloper",
+                }:
                     expected_developers[slug].add(game_id)
-                elif role == "publisher":
+                elif role in {"publisher", "originalPublisher", "regionalPublisher"}:
                     expected_publishers[slug].add(game_id)
                 elif role == "digitalPublisher":
                     expected_digital_publishers[slug].add(game_id)

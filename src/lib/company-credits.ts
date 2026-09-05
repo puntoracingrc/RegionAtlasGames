@@ -7,10 +7,29 @@ import type {
 
 export const COMPANY_CREDIT_ROLE_LABELS: Record<GameCompanyCreditRole, string> = {
   developer: "Desarrolladora",
+  originalDeveloper: "Desarrolladora original",
+  portDeveloper: "Estudio del port",
+  remasterDeveloper: "Estudio de la remasterización",
   publisher: "Publicadora",
+  originalPublisher: "Publicadora original",
+  regionalPublisher: "Publicadora regional",
   digitalPublisher: "Editora digital",
   physicalPublisherOrDistributor: "Editora o distribuidora física",
 };
+
+const DEVELOPER_ROLES = new Set<GameCompanyCreditRole>([
+  "developer",
+  "originalDeveloper",
+  "portDeveloper",
+  "remasterDeveloper",
+]);
+
+const PUBLISHER_ROLES = new Set<GameCompanyCreditRole>([
+  "publisher",
+  "originalPublisher",
+  "regionalPublisher",
+  "digitalPublisher",
+]);
 
 function legacyCredit(
   role: "developer" | "publisher",
@@ -35,14 +54,13 @@ export function resolveGameCompanyCredits(
   details: Pick<GameDetails, "companyCredits" | "developer" | "publisher">,
 ): GameCompanyCredit[] {
   const explicit = details.companyCredits ?? [];
-  const roles = new Set(explicit.map((credit) => credit.role));
   const credits = [...explicit];
 
-  if (!roles.has("developer")) {
+  if (!explicit.some((credit) => DEVELOPER_ROLES.has(credit.role))) {
     const developer = legacyCredit("developer", details.developer);
     if (developer) credits.push(developer);
   }
-  if (!roles.has("publisher")) {
+  if (!explicit.some((credit) => PUBLISHER_ROLES.has(credit.role))) {
     const publisher = legacyCredit("publisher", details.publisher);
     if (publisher) credits.push(publisher);
   }

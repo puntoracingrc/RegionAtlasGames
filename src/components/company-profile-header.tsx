@@ -10,13 +10,35 @@ import {
 
 export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
   const lifespan = companyLifespanLabel(view.foundedYear, view.closedYear);
-  const relations = [
-    view.parentCompany ? { label: "Pertenece a", company: view.parentCompany } : null,
-    view.acquiredByCompany ? { label: "Comprada / absorbida por", company: view.acquiredByCompany } : null,
-    view.mergedWithCompany ? { label: "Fusionada con", company: view.mergedWithCompany } : null,
-    view.predecessorCompany ? { label: "Viene de", company: view.predecessorCompany } : null,
-    view.successorCompany ? { label: "Se convirtió en", company: view.successorCompany } : null,
-  ].filter(Boolean) as { label: string; company: { slug: string; name: string } }[];
+  type HeaderRelation = {
+    label: string;
+    company: { slug: string; name: string };
+    evidenceUrl: string | null;
+  };
+  const legacyRelations = [
+    view.parentCompany ? { label: "Pertenece a", company: view.parentCompany, evidenceUrl: null } : null,
+    view.acquiredByCompany
+      ? { label: "Comprada / absorbida por", company: view.acquiredByCompany, evidenceUrl: null }
+      : null,
+    view.mergedWithCompany
+      ? { label: "Fusionada con", company: view.mergedWithCompany, evidenceUrl: null }
+      : null,
+    view.predecessorCompany
+      ? { label: "Viene de", company: view.predecessorCompany, evidenceUrl: null }
+      : null,
+    view.successorCompany
+      ? { label: "Se convirtió en", company: view.successorCompany, evidenceUrl: null }
+      : null,
+  ].filter(Boolean) as HeaderRelation[];
+  const relationKeys = new Set<string>();
+  const relations: HeaderRelation[] = [...legacyRelations, ...view.verifiedRelations].filter(
+    (relation) => {
+      const key = `${relation.label}:${relation.company.slug}`;
+      if (relationKeys.has(key)) return false;
+      relationKeys.add(key);
+      return true;
+    },
+  );
 
   return (
     <header className="mt-4 mb-8 space-y-5">
@@ -97,16 +119,30 @@ export function CompanyProfileHeader({ view }: { view: CompanyProfileView }) {
               </h2>
               <div className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
                 {relations.map((relation) => (
-                  <Link
+                  <div
                     key={`${relation.label}:${relation.company.slug}`}
-                    href={`/compania/${relation.company.slug}`}
                     className="rounded-2xl border border-border bg-background/80 px-4 py-3 text-foreground/85 transition hover:border-accent/50 hover:bg-accent/10 hover:text-accent"
                   >
                     <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
                       {relation.label}
                     </span>
-                    <span className="font-semibold">{relation.company.name}</span>
-                  </Link>
+                    <Link
+                      href={`/compania/${relation.company.slug}`}
+                      className="font-semibold hover:underline"
+                    >
+                      {relation.company.name}
+                    </Link>
+                    {relation.evidenceUrl && (
+                      <a
+                        href={relation.evidenceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-1 block text-xs text-muted hover:text-accent hover:underline"
+                      >
+                        Fuente verificada
+                      </a>
+                    )}
+                  </div>
                 ))}
               </div>
             </section>

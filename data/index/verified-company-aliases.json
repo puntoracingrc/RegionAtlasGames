@@ -1,0 +1,323 @@
+{
+  "schemaVersion": 1,
+  "batchId": "company-credit-ps4-pal-compilations-2026-09-05",
+  "reviewedAt": "2026-09-05",
+  "aliases": [
+    {
+      "companySlug": "3dclouds",
+      "displayName": "3DClouds",
+      "aliases": [
+        "3D Clouds",
+        "3DClouds S.r.l."
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/en-gb/product/EP3678-CUSA15741_00-RWRBASEGAME00001"
+        ],
+        "evidenceSummary": "3DClouds desarrolla; Outright Games publica. Outright Games y OUTRIGHT GAMES LLC son nombre comercial y razón social de la misma editora.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "blowfish-studios",
+      "displayName": "Blowfish Studios",
+      "aliases": [
+        "Blowfish Studios Pty Ltd"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.strictlylimitedgames.com/en-gb/products/infinite-beyond-the-mind-limited-tanya-edition-ps4"
+        ],
+        "evidenceSummary": "Emilie Coyo desarrolla; Blowfish Studios publica el juego. Strictly Limited Games produce la edición física Tanya, limitada a 1.500 copias y diferenciada de Olga solo por la presentación.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "digerati",
+      "displayName": "Digerati",
+      "aliases": [
+        "Digerati Distribution"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.gematsu.com/2020/06/nihilistic-action-platformer-nongunz-doppelganger-edition-announced-for-ps4-xbox-one-switch-and-pc"
+        ],
+        "evidenceSummary": "Brainwash Gang desarrolla; Digerati publica. Digerati y Digerati Distribution son denominaciones del mismo publisher, no dos compañías con roles diferentes.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "fromsoftware",
+      "displayName": "FromSoftware",
+      "aliases": [
+        "FromSoftware, Inc.",
+        "From Software"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://en.bandainamcoent.eu/armored-core/armored-core-vi-fires-of-rubicon"
+        ],
+        "evidenceSummary": "Mismo juego y créditos que la edición estándar; conservar contenidos y valoración propios de Collector's Edition",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "honey-parade-games",
+      "displayName": "Honey Parade Games",
+      "aliases": [
+        "HONEY∞PARADE GAMES, Inc."
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/en-gb/concept/230935"
+        ],
+        "evidenceSummary": "HONEY∞PARADE GAMES desarrolla el remake. La Bountiful Beauties europea la publica Marvelous Europe; XSEED es la marca norteamericana de Marvelous USA y no debe figurar como desarrolladora PAL.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "jandusoft",
+      "displayName": "JanduSoft",
+      "aliases": [
+        "JanduSoft S.L."
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/nl-nl/product/EP3111-CUSA19518_00-JANDUSOFT0000001"
+        ],
+        "evidenceSummary": "JanduSoft y JANDUSOFT S.L. son el nombre comercial y la razón social de la misma compañía; figura como publisher en PlayStation Store y es responsable del juego.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "koei-tecmo-europe",
+      "displayName": "Koei Tecmo Europe",
+      "aliases": [
+        "Koei Tecmo Europe Limited"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.koeitecmoeurope.com/manual/sphereofinfluence/en/"
+        ],
+        "evidenceSummary": "Koei Tecmo Games desarrolla y publica la obra; Koei Tecmo Europe gestiona la edición y comercialización PAL. Son entidades relacionadas, pero la filial europea no sustituye al estudio desarrollador.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "koei-tecmo-games",
+      "displayName": "KOEI Tecmo Games",
+      "aliases": [
+        "Koei Tecmo Games Co., Ltd."
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.koeitecmoeurope.com/manual/sphereofinfluence/en/"
+        ],
+        "evidenceSummary": "Koei Tecmo Games desarrolla y publica la obra; Koei Tecmo Europe gestiona la edición y comercialización PAL. Son entidades relacionadas, pero la filial europea no sustituye al estudio desarrollador.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "milestone-s-r-l",
+      "displayName": "Milestone S.r.l.",
+      "aliases": [
+        "Milestone",
+        "MILESTONE SRL"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.steampowered.com/app/456780/DUCATI__90th_Anniversary/"
+        ],
+        "evidenceSummary": "Milestone, Milestone S.r.l. y MILESTONE SRL son variantes del nombre de la misma sociedad; desarrolló y publicó el juego.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "outright-games",
+      "displayName": "Outright Games LTD",
+      "aliases": [
+        "Outright Games LLC",
+        "OUTRIGHT GAMES LLC"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/en-gb/product/EP3678-CUSA15741_00-RWRBASEGAME00001"
+        ],
+        "evidenceSummary": "3DClouds desarrolla; Outright Games publica. Outright Games y OUTRIGHT GAMES LLC son nombre comercial y razón social de la misma editora.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "phantom-8",
+      "displayName": "Phantom 8",
+      "aliases": [
+        "Phantom 8 Studio UG"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://phantom8.studio/"
+        ],
+        "evidenceSummary": "Phantom 8 Studio y Phantom 8 Studio UG son nombre comercial y razón social de la misma compañía; desarrolló y publicó el juego.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "pix-39-n-love",
+      "displayName": "Pix 'n Love",
+      "aliases": [
+        "Pix’n Love",
+        "Pix 'n Love"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.pixnlove.com/more/934-young-souls-collector-s-edition-ps4-9782371881686.html"
+        ],
+        "evidenceSummary": "1P2P Studio desarrolla y The Arcade Crew publica el juego. Pix’n Love produce la Collector’s Edition física numerada de 500 copias; no es desarrolladora.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "raiser-games",
+      "displayName": "Raiser Games",
+      "aliases": [
+        "Raiser Games S.L."
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://news.xbox.com/en-us/2021/10/19/youtubers-life-2-is-now-available-for-xbox-one-and-xbox-series-xs/"
+        ],
+        "evidenceSummary": "U-Play Online desarrolla y Raiser Games publica. PlayStation Store puede mostrar UPLAY ONLINE SL como titular regional; eso no elimina el crédito editorial de Raiser Games.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "rising-star-games",
+      "displayName": "Rising Star Games limited",
+      "aliases": [
+        "Rising Star Games Ltd."
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.supergonk.co.uk/trailblazers/"
+        ],
+        "evidenceSummary": "Supergonk desarrolla y Rising Star Games publica. Thunderful Games es el grupo relacionado/propietario, pero no debe reemplazar el crédito editorial histórico de Rising Star Games.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "soedesco",
+      "displayName": "Soedesco",
+      "aliases": [
+        "SOEDESCO"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.soedesco.com/news/lemon-cake-launches-today-on-all-major-digital-platforms"
+        ],
+        "evidenceSummary": "Cozy Bee Games, estudio unipersonal de Éloïse Laroche, desarrolla; SOEDESCO publica las versiones de consola.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "team17",
+      "displayName": "Team17",
+      "aliases": [
+        "Team17 Digital Ltd.",
+        "Team 17 Digital Ltd.",
+        "Team 17"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/en-gb/product/EP4064-CUSA10869_00-GENESISALPHA1000"
+        ],
+        "evidenceSummary": "Radiation Blue desarrolla y Team17 publica. Team17 y Team 17 Digital Ltd. son nombre comercial y razón social del mismo publisher.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "tinybuild",
+      "displayName": "tinyBuild",
+      "aliases": [
+        "tinyBuild LLC",
+        "TINYBUILD LLC"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://news.xbox.com/en-us/2018/12/06/hello-neighbor-hide-and-seek-is-now-available-for-xbox-one/"
+        ],
+        "evidenceSummary": "Dynamic Pixels desarrolla y tinyBuild publica. tinyBuild y TINYBUILD LLC son marca y razón social de la misma compañía.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "u-play-online",
+      "displayName": "U-Play Online",
+      "aliases": [
+        "U-Play Online S.L.",
+        "UPLAY ONLINE SL"
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://news.xbox.com/en-us/2021/10/19/youtubers-life-2-is-now-available-for-xbox-one-and-xbox-series-xs/"
+        ],
+        "evidenceSummary": "U-Play Online desarrolla y Raiser Games publica. PlayStation Store puede mostrar UPLAY ONLINE SL como titular regional; eso no elimina el crédito editorial de Raiser Games.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "companySlug": "wild-sphere-s-l-u",
+      "displayName": "Wild Sphere S.L.U.",
+      "aliases": [
+        "WildSphere",
+        "Wild Sphere",
+        "WILD SPHERE S.L.",
+        "WildSphere S.L."
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.steampowered.com/app/1819180/Oxide_Room_104/"
+        ],
+        "evidenceSummary": "WildSphere, WILD SPHERE S.L. y WildSphere S.L. son la misma desarrolladora. También autopublica digitalmente; algunas ediciones físicas acreditan a Perp Games.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    }
+  ]
+}

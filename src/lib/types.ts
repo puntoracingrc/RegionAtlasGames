@@ -64,7 +64,12 @@ export type GameDetailsFieldProvenance = {
 
 export type GameCompanyCreditRole =
   | "developer"
+  | "originalDeveloper"
+  | "portDeveloper"
+  | "remasterDeveloper"
   | "publisher"
+  | "originalPublisher"
+  | "regionalPublisher"
   | "digitalPublisher"
   | "physicalPublisherOrDistributor";
 
@@ -74,6 +79,14 @@ export type GameCompanyCredit = {
   provenance: GameDetailsFieldProvenance & {
     previousValues?: string[];
   };
+};
+
+export type GameIndividualCreditRole = "developer";
+
+export type GameIndividualCredit = {
+  role: GameIndividualCreditRole;
+  person: DetailEntity;
+  provenance: GameDetailsFieldProvenance;
 };
 
 export type GameDetailsSeoMeta = {
@@ -113,6 +126,8 @@ export type GameDetails = {
   publisher: DetailEntity | null;
   /** Créditos editoriales separados por función; admite co-desarrollo sin fusionar entidades. */
   companyCredits?: GameCompanyCredit[];
+  /** Personas acreditadas sin convertirlas artificialmente en compañías. */
+  individualCredits?: GameIndividualCredit[];
   genres: DetailEntity[];
   /** Subgéneros controlados por la taxonomía nueva. No sustituyen al género principal. */
   subgenres?: DetailEntity[];
@@ -289,7 +304,13 @@ export type CatalogGame = {
   regionalPackagingUpdatedAt?: string | null;
   listingStatus: "listed" | "pending" | "excluded";
   /** Tipo material del registro. Ausente equivale a videojuego por compatibilidad legacy. */
-  catalogKind?: "game" | "accessory" | "console" | "console_bundle" | "subscription";
+  catalogKind?:
+    | "game"
+    | "accessory"
+    | "console"
+    | "console_bundle"
+    | "subscription"
+    | "non_game_marker";
   hardwareMetadata?: {
     brand?: string | null;
     manufacturer?: string | null;

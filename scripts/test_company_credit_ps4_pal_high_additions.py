@@ -136,16 +136,27 @@ def main() -> int:
 
         field = row["target_field"]
         detail = details[row["catalog_id"]]
-        assert detail[field] == importer.desired_entity(row, companies)
-        assert detail["fieldSources"][field] == importer.source_for(row)
-        assert detail["fieldProvenance"][field] == importer.desired_provenance(row)
+        provenance = detail["fieldProvenance"][field]
+        if provenance["reviewBatch"] == BATCH_ID:
+            assert detail[field] == importer.desired_entity(row, companies)
+            assert detail["fieldSources"][field] == importer.source_for(row)
+            assert provenance == importer.desired_provenance(row)
+        else:
+            assert importer.is_allowed_successor_application(row, detail)
         assert verified["credits"][row["catalog_id"]][field] == detail[field]
-        assert verified["credits"][row["catalog_id"]]["fieldProvenance"][field] == detail["fieldProvenance"][field]
+        assert verified["credits"][row["catalog_id"]]["fieldProvenance"][field] == provenance
 
         role_key = "asDeveloper" if field == "developer" else "asPublisher"
         company = companies[row["proposed_company_slug"]]
         assert row["catalog_id"] in company[role_key]
         assert row["catalog_id"] in company["gameIds"]
+
+    assert {
+        (row["catalog_id"], row["target_field"])
+        for row in ready
+        if details[row["catalog_id"]]["fieldProvenance"][row["target_field"]]["reviewBatch"]
+        == importer.SUCCESSOR_BATCH_ID
+    } == set(importer.ALLOWED_SUCCESSOR_APPLICATIONS)
 
     assert all(row["publication_status"].endswith("BLOCKED") for row in replacements)
     assert all(row["recommended_action"] == "RETAIN" for row in retains)

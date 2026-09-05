@@ -29,6 +29,7 @@ function isGameDetails(value: unknown): value is GameDetails {
     detail.developer ||
       detail.publisher ||
       (detail.companyCredits?.length ?? 0) > 0 ||
+      (detail.individualCredits?.length ?? 0) > 0 ||
       (detail.genres?.length ?? 0) > 0 ||
       detail.reference ||
       detail.year,

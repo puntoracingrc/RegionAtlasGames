@@ -139,7 +139,7 @@ function compareCompanyNamesDescending(a: string, b: string): number {
 function enrichCompany(entry: IndexEntry): CompanyCardData {
   const summary = summarizeIndexEntry(entry, "company");
   const entity = getCompanyEntity(entry.slug);
-  const aliases = formatCompanyAliases(entity);
+  const aliases = formatCompanyAliases(entity, entry.aliasNames);
   const storedProfile = getStoredCompanyProfile(summary.slug);
   const logo = resolveCompanyLogo(summary.slug, storedProfile?.logoUrl);
 

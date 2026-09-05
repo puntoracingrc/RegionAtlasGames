@@ -202,6 +202,8 @@ function mergeIndexEntries(
   const asPublisher = new Set<string>();
   const asDigitalPublisher = new Set<string>();
   const asPhysicalPublisherOrDistributor = new Set<string>();
+  const aliasSlugs = new Set<string>(entity?.aliasSlugs ?? []);
+  const aliasNames = new Set<string>(entity?.aliasNames ?? []);
   const byPlatform: Record<string, number> = {};
   let museumPath = "";
 
@@ -213,6 +215,10 @@ function mergeIndexEntries(
     for (const id of entry.asPhysicalPublisherOrDistributor ?? []) {
       asPhysicalPublisherOrDistributor.add(id);
     }
+    for (const slug of entry.aliasSlugs ?? []) aliasSlugs.add(slug);
+    for (const name of entry.aliasNames ?? []) aliasNames.add(name);
+    if (entry.slug !== canonical.slug) aliasSlugs.add(entry.slug);
+    if (entry.name !== canonical.name) aliasNames.add(entry.name);
     for (const [platform, count] of Object.entries(entry.byPlatform)) {
       byPlatform[platform] = (byPlatform[platform] ?? 0) + count;
     }
@@ -231,8 +237,8 @@ function mergeIndexEntries(
     ),
     mergeMethod: entity?.mergeMethod,
     wikidataId: entity?.wikidataIds?.[0] ?? null,
-    aliasSlugs: entity?.aliasSlugs?.length ? entity.aliasSlugs : undefined,
-    aliasNames: entity?.aliasNames?.length ? entity.aliasNames : undefined,
+    aliasSlugs: aliasSlugs.size > 0 ? [...aliasSlugs] : undefined,
+    aliasNames: aliasNames.size > 0 ? [...aliasNames] : undefined,
   };
 
   if (asDeveloper.size > 0) {
@@ -283,8 +289,13 @@ export function companyEntityWikidataUrl(wikidataId: string): string {
   return `https://www.wikidata.org/wiki/${encodeURIComponent(wikidataId)}`;
 }
 
-export function formatCompanyAliases(entity?: CompanyEntityRecord, limit = 6): string[] {
-  if (!entity) return [];
-  const names = entity.aliasNames.map(decodeEntityText).filter(Boolean);
+export function formatCompanyAliases(
+  entity?: CompanyEntityRecord,
+  extraNames: readonly string[] = [],
+  limit = 6,
+): string[] {
+  const names = [...(entity?.aliasNames ?? []), ...extraNames]
+    .map(decodeEntityText)
+    .filter(Boolean);
   return [...new Set(names)].slice(0, limit);
 }

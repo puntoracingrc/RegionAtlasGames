@@ -5,6 +5,7 @@ import type {
   GameDetails,
   GameDetailsFieldProvenance,
   GameDetailsFieldSource,
+  GameIndividualCredit,
 } from "./types";
 
 const TODOCONSOLAS_SOURCE_FIELDS = [
@@ -38,6 +39,7 @@ type VerifiedCompanyCreditDetails = {
     Record<VerifiedDetailsField, GameDetailsFieldProvenance>
   >;
   companyCredits?: GameCompanyCredit[];
+  individualCredits?: GameIndividualCredit[];
 };
 
 function sourceTimestamp(value: string | null | undefined): number {
@@ -109,6 +111,34 @@ export function mergeVerifiedCompanyCredits(
     JSON.stringify(mergedCompanyCredits) !== JSON.stringify(currentCompanyCredits)
   ) {
     merged.companyCredits = mergedCompanyCredits;
+  }
+
+  const currentIndividualCredits = currentDetails?.individualCredits ?? [];
+  const mergedIndividualCredits = [...currentIndividualCredits];
+  for (const role of new Set((staticDetails.individualCredits ?? []).map((credit) => credit.role))) {
+    const staticRoleCredits = (staticDetails.individualCredits ?? []).filter(
+      (credit) => credit.role === role && hasCompleteFieldProvenance(credit.provenance),
+    );
+    if (staticRoleCredits.length === 0) continue;
+    const currentRoleCredits = currentIndividualCredits.filter((credit) => credit.role === role);
+    const staticReviewedAt = Math.max(
+      ...staticRoleCredits.map((credit) => sourceTimestamp(credit.provenance.reviewedAt)),
+    );
+    const currentReviewedAt = Math.max(
+      Number.NEGATIVE_INFINITY,
+      ...currentRoleCredits.map((credit) => sourceTimestamp(credit.provenance.reviewedAt)),
+    );
+    if (currentRoleCredits.length > 0 && currentReviewedAt >= staticReviewedAt) continue;
+    for (let index = mergedIndividualCredits.length - 1; index >= 0; index -= 1) {
+      if (mergedIndividualCredits[index].role === role) mergedIndividualCredits.splice(index, 1);
+    }
+    mergedIndividualCredits.push(...staticRoleCredits);
+  }
+  if (
+    mergedIndividualCredits.length > 0 &&
+    JSON.stringify(mergedIndividualCredits) !== JSON.stringify(currentIndividualCredits)
+  ) {
+    merged.individualCredits = mergedIndividualCredits;
   }
 
   for (const field of VERIFIED_DETAILS_FIELDS) {

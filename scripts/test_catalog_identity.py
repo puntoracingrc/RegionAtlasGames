@@ -52,7 +52,34 @@ def test_audit_marks_collection_collisions() -> None:
     report = duplicate_report(catalog, [{"catalogId": "ps4-adam-owned"}])
     assert report["duplicateGroups"] == 1
     assert report["ownedDuplicateGroups"] == 1
+    assert report["acknowledgedOwnedDuplicateGroups"] == 0
+    assert report["unacknowledgedOwnedDuplicateGroups"] == 1
     assert report["groups"][0]["ownedCatalogIds"] == ["ps4-adam-owned"]
+
+    reviewed = duplicate_report(
+        catalog,
+        [{"catalogId": "ps4-adam-owned"}],
+        {
+            "variants": [
+                {
+                    "variantCatalogId": "ps4-adam-owned",
+                    "canonicalCatalogId": "ps4-adam-encoded",
+                    "relationshipType": "same_product_candidate",
+                    "status": "requires_review",
+                    "provenance": {
+                        "reviewBatch": "example-review",
+                        "reviewedAt": "2026-09-05",
+                        "evidenceUrls": ["https://example.com/evidence"],
+                        "evidenceSummary": "Same product candidate; physical identifiers pending.",
+                    },
+                }
+            ]
+        },
+    )
+    assert reviewed["ownedDuplicateGroups"] == 1
+    assert reviewed["acknowledgedOwnedDuplicateGroups"] == 1
+    assert reviewed["unacknowledgedOwnedDuplicateGroups"] == 0
+    assert reviewed["groups"][0]["acknowledgedReview"] is True
 
 
 if __name__ == "__main__":

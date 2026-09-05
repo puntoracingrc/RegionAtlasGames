@@ -1,0 +1,2060 @@
+{
+  "schemaVersion": 1,
+  "batchId": "company-credit-ps4-pal-compilations-2026-09-05",
+  "reviewedAt": "2026-09-05",
+  "compilations": [
+    {
+      "id": "compilation:annapurna-ultimate-collection",
+      "catalogId": "ps4-annapurna-ultimate-collection",
+      "title": "Annapurna Ultimate Collection",
+      "status": "verified",
+      "componentCount": 8,
+      "components": [
+        {
+          "position": 1,
+          "title": "Donut County",
+          "developerCredit": "Ben Esposito",
+          "publisherCredit": "Annapurna Interactive",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+            ],
+            "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Gorogoa",
+          "developerCredit": "Buried Signal / Jason Roberts",
+          "publisherCredit": "Annapurna Interactive",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+            ],
+            "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "Kentucky Route Zero: TV Edition",
+          "developerCredit": "Cardboard Computer",
+          "publisherCredit": "Annapurna Interactive",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+            ],
+            "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 4,
+          "title": "Outer Wilds",
+          "developerCredit": "Mobius Digital",
+          "publisherCredit": "Annapurna Interactive",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+            ],
+            "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 5,
+          "title": "Sayonara Wild Hearts",
+          "developerCredit": "Simogo",
+          "publisherCredit": "Annapurna Interactive",
+          "notes": "Juego completo",
+          "catalogId": "ps4-sayonara-wild-hearts",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+            ],
+            "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 6,
+          "title": "Telling Lies",
+          "developerCredit": "Half Mermaid / Sam Barlow",
+          "publisherCredit": "Annapurna Interactive",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+            ],
+            "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 7,
+          "title": "Wattam",
+          "developerCredit": "Funomena",
+          "publisherCredit": "Annapurna Interactive",
+          "notes": "Diseñado por Keita Takahashi",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+            ],
+            "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 8,
+          "title": "What Remains of Edith Finch",
+          "developerCredit": "Giant Sparrow",
+          "publisherCredit": "Annapurna Interactive",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+            ],
+            "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+        ],
+        "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:playlink-games-collection",
+      "catalogId": "ps4-playlink-games-collection",
+      "title": "PlayLink Games Collection",
+      "status": "verified",
+      "componentCount": 4,
+      "components": [
+        {
+          "position": 1,
+          "title": "Hidden Agenda",
+          "developerCredit": "Supermassive Games",
+          "publisherCredit": "Sony Interactive Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-hidden-agenda",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://retrovideogames.nl/product/play-link-for-ps4-4-games-in-1-playstation-4/"
+            ],
+            "evidenceSummary": "Registrar cuatro componentes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Knowledge is Power",
+          "developerCredit": "Wish Studios",
+          "publisherCredit": "Sony Interactive Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-knowledge-is-power",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://retrovideogames.nl/product/play-link-for-ps4-4-games-in-1-playstation-4/"
+            ],
+            "evidenceSummary": "Registrar cuatro componentes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "SingStar Celebration",
+          "developerCredit": "London Studio",
+          "publisherCredit": "Sony Interactive Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-singstar-celebration",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://retrovideogames.nl/product/play-link-for-ps4-4-games-in-1-playstation-4/"
+            ],
+            "evidenceSummary": "Registrar cuatro componentes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 4,
+          "title": "That's You!",
+          "developerCredit": "Wish Studios",
+          "publisherCredit": "Sony Interactive Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-that%27s-you",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://retrovideogames.nl/product/play-link-for-ps4-4-games-in-1-playstation-4/"
+            ],
+            "evidenceSummary": "Registrar cuatro componentes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://retrovideogames.nl/product/play-link-for-ps4-4-games-in-1-playstation-4/"
+        ],
+        "evidenceSummary": "Registrar cuatro componentes",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:terra-trilogy",
+      "catalogId": "ps4-terra-trilogy",
+      "title": "Terra Trilogy",
+      "status": "verified",
+      "componentCount": 3,
+      "components": [
+        {
+          "position": 1,
+          "title": "Terra Lander DX",
+          "developerCredit": "DM Media / Daniel Gallagher",
+          "publisherCredit": "Funbox Media",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://funboxmedia.co.uk/terra-trilogy-ps4/"
+            ],
+            "evidenceSummary": "Los tres juegos son de DM Media; puede mostrarse desarrolladora común además de los componentes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Terra Lander II: Rockslide Rescue",
+          "developerCredit": "DM Media / Daniel Gallagher",
+          "publisherCredit": "Funbox Media",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://funboxmedia.co.uk/terra-trilogy-ps4/"
+            ],
+            "evidenceSummary": "Los tres juegos son de DM Media; puede mostrarse desarrolladora común además de los componentes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "Terra Bomber",
+          "developerCredit": "DM Media / Daniel Gallagher",
+          "publisherCredit": "Funbox Media",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://funboxmedia.co.uk/terra-trilogy-ps4/"
+            ],
+            "evidenceSummary": "Los tres juegos son de DM Media; puede mostrarse desarrolladora común además de los componentes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://funboxmedia.co.uk/terra-trilogy-ps4/"
+        ],
+        "evidenceSummary": "Los tres juegos son de DM Media; puede mostrarse desarrolladora común además de los componentes",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:the-giants-industry-and-transport-bundle",
+      "catalogId": "ps4-the-giants-industry-and-transport-bundle",
+      "title": "The Giants: Industry and Transport Bundle",
+      "status": "verified",
+      "componentCount": 2,
+      "components": [
+        {
+          "position": 1,
+          "title": "Industry Giant 2",
+          "developerCredit": "Fancy Bytes / Reactor",
+          "publisherCredit": "United Independent Entertainment",
+          "notes": "Versión PS4",
+          "catalogId": "ps4-industry-giant-2",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP8935-CUSA06505_00-THEGIANTSBUNDEU0"
+            ],
+            "evidenceSummary": "Registrar Industry Giant 2 y Transport Giant",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Transport Giant",
+          "developerCredit": "Fancy Bytes / Reactor",
+          "publisherCredit": "United Independent Entertainment",
+          "notes": "Versión PS4",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP8935-CUSA06505_00-THEGIANTSBUNDEU0"
+            ],
+            "evidenceSummary": "Registrar Industry Giant 2 y Transport Giant",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/en-gb/product/EP8935-CUSA06505_00-THEGIANTSBUNDEU0"
+        ],
+        "evidenceSummary": "Registrar Industry Giant 2 y Transport Giant",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:mafia-trilogy",
+      "catalogId": "ps4-mafia-trilogy",
+      "title": "Mafia Trilogy",
+      "status": "verified",
+      "componentCount": 3,
+      "components": [
+        {
+          "position": 1,
+          "title": "Mafia: Definitive Edition",
+          "developerCredit": "Hangar 13",
+          "publisherCredit": "2K Games",
+          "notes": "Juego completo",
+          "catalogId": "ps4-mafia-definitive-edition",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.2k.com/game/buy-mafia-trilogy"
+            ],
+            "evidenceSummary": "Separar los tres Definitive Edition",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Mafia II: Definitive Edition",
+          "developerCredit": "d3t / Hangar 13",
+          "publisherCredit": "2K Games",
+          "notes": "Remaster del juego de 2K Czech",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.2k.com/game/buy-mafia-trilogy"
+            ],
+            "evidenceSummary": "Separar los tres Definitive Edition",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "Mafia III: Definitive Edition",
+          "developerCredit": "Hangar 13",
+          "publisherCredit": "2K Games",
+          "notes": "Juego y contenidos",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.2k.com/game/buy-mafia-trilogy"
+            ],
+            "evidenceSummary": "Separar los tres Definitive Edition",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.2k.com/game/buy-mafia-trilogy"
+        ],
+        "evidenceSummary": "Separar los tres Definitive Edition",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:star-wars-jedi-knight-collection",
+      "catalogId": "ps4-star-wars-jedi-knight-collection",
+      "title": "Star Wars Jedi Knight Collection",
+      "status": "verified",
+      "componentCount": 2,
+      "components": [
+        {
+          "position": 1,
+          "title": "Star Wars Jedi Knight II: Jedi Outcast",
+          "developerCredit": "Raven Software; port PS4 de Aspyr",
+          "publisherCredit": "LucasArts / THQ Nordic",
+          "notes": "Conservar crédito original y port",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.com/Star-Wars-Jedi-Knight-Collection-PlayStation/dp/B09FCFP89M"
+            ],
+            "evidenceSummary": "Conservar desarrollador original Raven y port moderno de Aspyr",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Star Wars Jedi Knight: Jedi Academy",
+          "developerCredit": "Raven Software; port PS4 de Aspyr",
+          "publisherCredit": "LucasArts / THQ Nordic",
+          "notes": "Conservar crédito original y port",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.com/Star-Wars-Jedi-Knight-Collection-PlayStation/dp/B09FCFP89M"
+            ],
+            "evidenceSummary": "Conservar desarrollador original Raven y port moderno de Aspyr",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.amazon.com/Star-Wars-Jedi-Knight-Collection-PlayStation/dp/B09FCFP89M"
+        ],
+        "evidenceSummary": "Conservar desarrollador original Raven y port moderno de Aspyr",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:sonic-mania-plus-and-sonic-forces-double-pack",
+      "catalogId": "ps4-sonic-mania-plus-and-sonic-forces-double-pack",
+      "title": "Sonic Mania Plus and Sonic Forces Double Pack",
+      "status": "verified",
+      "componentCount": 2,
+      "components": [
+        {
+          "position": 1,
+          "title": "Sonic Mania Plus",
+          "developerCredit": "Christian Whitehead / Headcannon / PagodaWest Games",
+          "publisherCredit": "Sega",
+          "notes": "Juego completo",
+          "catalogId": "ps4-sonic-mania-plus",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.coolshop.co.uk/product/sonic-mania-plus-and-sonic-forces-double-pack/AK4C8P/"
+            ],
+            "evidenceSummary": "Registrar los dos juegos y sus equipos diferentes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Sonic Forces",
+          "developerCredit": "Sonic Team",
+          "publisherCredit": "Sega",
+          "notes": "Juego completo",
+          "catalogId": "ps4-sonic-forces",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.coolshop.co.uk/product/sonic-mania-plus-and-sonic-forces-double-pack/AK4C8P/"
+            ],
+            "evidenceSummary": "Registrar los dos juegos y sus equipos diferentes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.coolshop.co.uk/product/sonic-mania-plus-and-sonic-forces-double-pack/AK4C8P/"
+        ],
+        "evidenceSummary": "Registrar los dos juegos y sus equipos diferentes",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:wolfenstein-alt-history-collection",
+      "catalogId": "ps4-wolfenstein-alt-history-collection",
+      "title": "Wolfenstein Alt History Collection",
+      "status": "verified",
+      "componentCount": 4,
+      "components": [
+        {
+          "position": 1,
+          "title": "Wolfenstein: The New Order",
+          "developerCredit": "MachineGames",
+          "publisherCredit": "Bethesda Softworks",
+          "notes": "Juego completo",
+          "catalogId": "ps4-wolfenstein-the-new-order",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP1003-CUSA13094_00-WOLFALTHISTORYEU"
+            ],
+            "evidenceSummary": "Registrar cuatro componentes; Youngblood tiene codesarrollo",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Wolfenstein: The Old Blood",
+          "developerCredit": "MachineGames",
+          "publisherCredit": "Bethesda Softworks",
+          "notes": "Juego completo",
+          "catalogId": "ps4-wolfenstein-the-old-blood",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP1003-CUSA13094_00-WOLFALTHISTORYEU"
+            ],
+            "evidenceSummary": "Registrar cuatro componentes; Youngblood tiene codesarrollo",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "Wolfenstein II: The New Colossus",
+          "developerCredit": "MachineGames",
+          "publisherCredit": "Bethesda Softworks",
+          "notes": "Juego completo",
+          "catalogId": "ps4-wolfenstein-ii-the-new-colossus",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP1003-CUSA13094_00-WOLFALTHISTORYEU"
+            ],
+            "evidenceSummary": "Registrar cuatro componentes; Youngblood tiene codesarrollo",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 4,
+          "title": "Wolfenstein: Youngblood",
+          "developerCredit": "MachineGames / Arkane Studios",
+          "publisherCredit": "Bethesda Softworks",
+          "notes": "Codesarrollo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP1003-CUSA13094_00-WOLFALTHISTORYEU"
+            ],
+            "evidenceSummary": "Registrar cuatro componentes; Youngblood tiene codesarrollo",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/en-gb/product/EP1003-CUSA13094_00-WOLFALTHISTORYEU"
+        ],
+        "evidenceSummary": "Registrar cuatro componentes; Youngblood tiene codesarrollo",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:doctor-who-duo-bundle",
+      "catalogId": "ps4-doctor-who-duo-bundle",
+      "title": "Doctor Who: Duo Bundle",
+      "status": "verified",
+      "componentCount": 2,
+      "components": [
+        {
+          "position": 1,
+          "title": "Doctor Who: The Edge of Reality",
+          "developerCredit": "Maze Theory",
+          "publisherCredit": "Maze Theory / Maximum Games",
+          "notes": "Deluxe Edition",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://merchandise.thedoctorwhosite.co.uk/doctor-who-the-edge-of-reality-the-lonely-assassins-ps4/"
+            ],
+            "evidenceSummary": "Separar Edge of Reality y Lonely Assassins",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Doctor Who: The Lonely Assassins",
+          "developerCredit": "Kaigan Games / Maze Theory",
+          "publisherCredit": "Maze Theory / Maximum Games",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://merchandise.thedoctorwhosite.co.uk/doctor-who-the-edge-of-reality-the-lonely-assassins-ps4/"
+            ],
+            "evidenceSummary": "Separar Edge of Reality y Lonely Assassins",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://merchandise.thedoctorwhosite.co.uk/doctor-who-the-edge-of-reality-the-lonely-assassins-ps4/"
+        ],
+        "evidenceSummary": "Separar Edge of Reality y Lonely Assassins",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:dishonored-prey-the-arkane-collection",
+      "catalogId": "ps4-dishonored-prey-the-arkane-collection",
+      "title": "Dishonored & Prey: The Arkane Collection",
+      "status": "verified",
+      "componentCount": 4,
+      "components": [
+        {
+          "position": 1,
+          "title": "Dishonored: Definitive Edition",
+          "developerCredit": "Arkane Studios",
+          "publisherCredit": "Bethesda Softworks",
+          "notes": "Juego completo y DLC",
+          "catalogId": "ps4-dishonored-definitive-edition",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamelife.it/en/swp44002-dishonored-prey-the-arkane-collection"
+            ],
+            "evidenceSummary": "Registrar cuatro juegos; diferenciar Arkane Lyon y Arkane Austin",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Dishonored 2",
+          "developerCredit": "Arkane Studios",
+          "publisherCredit": "Bethesda Softworks",
+          "notes": "Juego completo",
+          "catalogId": "ps4-dishonored-2",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamelife.it/en/swp44002-dishonored-prey-the-arkane-collection"
+            ],
+            "evidenceSummary": "Registrar cuatro juegos; diferenciar Arkane Lyon y Arkane Austin",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "Dishonored: Death of the Outsider",
+          "developerCredit": "Arkane Studios",
+          "publisherCredit": "Bethesda Softworks",
+          "notes": "Juego completo",
+          "catalogId": "ps4-dishonored-death-of-the-outsider",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamelife.it/en/swp44002-dishonored-prey-the-arkane-collection"
+            ],
+            "evidenceSummary": "Registrar cuatro juegos; diferenciar Arkane Lyon y Arkane Austin",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 4,
+          "title": "Prey",
+          "developerCredit": "Arkane Studios Austin",
+          "publisherCredit": "Bethesda Softworks",
+          "notes": "Juego completo",
+          "catalogId": "ps4-prey",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamelife.it/en/swp44002-dishonored-prey-the-arkane-collection"
+            ],
+            "evidenceSummary": "Registrar cuatro juegos; diferenciar Arkane Lyon y Arkane Austin",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.gamelife.it/en/swp44002-dishonored-prey-the-arkane-collection"
+        ],
+        "evidenceSummary": "Registrar cuatro juegos; diferenciar Arkane Lyon y Arkane Austin",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:dishonored-the-complete-collection",
+      "catalogId": "ps4-dishonored-complete-collection",
+      "title": "Dishonored: The Complete Collection",
+      "status": "verified",
+      "componentCount": 3,
+      "components": [
+        {
+          "position": 1,
+          "title": "Dishonored: Definitive Edition",
+          "developerCredit": "Arkane Studios",
+          "publisherCredit": "Bethesda Softworks",
+          "notes": "Código digital según edición física",
+          "catalogId": "ps4-dishonored-definitive-edition",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.co.uk/Bethesda-5055856430346-Dishonored-Complete-Collection/dp/B0BXH1SQF8"
+            ],
+            "evidenceSummary": "Registrar tres juegos y señalar contenido en disco/código cuando sea posible",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Dishonored 2",
+          "developerCredit": "Arkane Studios",
+          "publisherCredit": "Bethesda Softworks",
+          "notes": "Código digital según edición física",
+          "catalogId": "ps4-dishonored-2",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.co.uk/Bethesda-5055856430346-Dishonored-Complete-Collection/dp/B0BXH1SQF8"
+            ],
+            "evidenceSummary": "Registrar tres juegos y señalar contenido en disco/código cuando sea posible",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "Dishonored: Death of the Outsider",
+          "developerCredit": "Arkane Studios",
+          "publisherCredit": "Bethesda Softworks",
+          "notes": "Disco según edición física",
+          "catalogId": "ps4-dishonored-death-of-the-outsider",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.co.uk/Bethesda-5055856430346-Dishonored-Complete-Collection/dp/B0BXH1SQF8"
+            ],
+            "evidenceSummary": "Registrar tres juegos y señalar contenido en disco/código cuando sea posible",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.amazon.co.uk/Bethesda-5055856430346-Dishonored-Complete-Collection/dp/B0BXH1SQF8"
+        ],
+        "evidenceSummary": "Registrar tres juegos y señalar contenido en disco/código cuando sea posible",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:dark-thrones-witch-hunter-double-pack",
+      "catalogId": "ps4-dark-thrones-&amp;-witch-hunter-double-pack",
+      "title": "Dark Thrones / Witch Hunter Double Pack",
+      "status": "verified",
+      "componentCount": 2,
+      "components": [
+        {
+          "position": 1,
+          "title": "Dark Thrones",
+          "developerCredit": "NYX Digital; licencia de Inlogic Games",
+          "publisherCredit": "Funbox Media",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://funboxmedia.co.uk/dark-thrones-witch-hunter-double-pack-ps4/"
+            ],
+            "evidenceSummary": "Ambos desarrollados por NYX Digital bajo licencia de Inlogic Games",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Witch Hunter",
+          "developerCredit": "NYX Digital; licencia de Inlogic Games",
+          "publisherCredit": "Funbox Media",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://funboxmedia.co.uk/dark-thrones-witch-hunter-double-pack-ps4/"
+            ],
+            "evidenceSummary": "Ambos desarrollados por NYX Digital bajo licencia de Inlogic Games",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://funboxmedia.co.uk/dark-thrones-witch-hunter-double-pack-ps4/"
+        ],
+        "evidenceSummary": "Ambos desarrollados por NYX Digital bajo licencia de Inlogic Games",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:persona-5-persona-5-dancing-in-starlight-2-hits-pack",
+      "catalogId": "ps4-persona-5-&#43;-persona-5-dancing-the-starlight-day-one-edition-2-hits-pack",
+      "title": "Persona 5 + Persona 5: Dancing in Starlight [2 Hits Pack]",
+      "status": "verified",
+      "componentCount": 2,
+      "components": [
+        {
+          "position": 1,
+          "title": "Persona 5",
+          "developerCredit": "P-Studio",
+          "publisherCredit": "Atlus",
+          "notes": "Juego completo",
+          "catalogId": "ps4-persona-5",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://atlus.com/persona5/"
+            ],
+            "evidenceSummary": "Registrar ambos juegos; comparten P-Studio pero son obras distintas",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Persona 5: Dancing in Starlight",
+          "developerCredit": "P-Studio",
+          "publisherCredit": "Atlus",
+          "notes": "Juego completo",
+          "catalogId": "ps4-persona-5-dancing-in-starlight",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://atlus.com/persona5/"
+            ],
+            "evidenceSummary": "Registrar ambos juegos; comparten P-Studio pero son obras distintas",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://atlus.com/persona5/"
+        ],
+        "evidenceSummary": "Registrar ambos juegos; comparten P-Studio pero son obras distintas",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:spyro-reignited-trilogy-crash-bandicoot-n-sane-trilogy",
+      "catalogId": "ps4-spyro-reignited-trilogy-&amp;-crash-bandicoot-n-sane-trilogy",
+      "title": "Spyro Reignited Trilogy & Crash Bandicoot N. Sane Trilogy",
+      "status": "verified",
+      "componentCount": 2,
+      "components": [
+        {
+          "position": 1,
+          "title": "Spyro Reignited Trilogy",
+          "developerCredit": "Toys for Bob",
+          "publisherCredit": "Activision",
+          "notes": "Recopilatorio componente",
+          "catalogId": "ps4-spyro-reignited-trilogy",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.activision.com/games/spyro/spyro-reignited-trilogy"
+            ],
+            "evidenceSummary": "Registrar los dos recopilatorios como componentes independientes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Crash Bandicoot N. Sane Trilogy",
+          "developerCredit": "Vicarious Visions",
+          "publisherCredit": "Activision",
+          "notes": "Recopilatorio componente",
+          "catalogId": "ps4-crash-bandicoot-n-sane-trilogy",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.activision.com/games/spyro/spyro-reignited-trilogy"
+            ],
+            "evidenceSummary": "Registrar los dos recopilatorios como componentes independientes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.activision.com/games/spyro/spyro-reignited-trilogy"
+        ],
+        "evidenceSummary": "Registrar los dos recopilatorios como componentes independientes",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:crash-team-racing-spyro-reignited-trilogy",
+      "catalogId": "ps4-crash-team-racing-&amp;-spyro-reignited-trilogy",
+      "title": "Crash Team Racing & Spyro Reignited Trilogy",
+      "status": "verified",
+      "componentCount": 2,
+      "components": [
+        {
+          "position": 1,
+          "title": "Crash Team Racing Nitro-Fueled",
+          "developerCredit": "Beenox",
+          "publisherCredit": "Activision",
+          "notes": "Juego completo",
+          "catalogId": "ps4-crash-team-racing-nitro-fueled",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.activision.com/games/crash/crash-team-racing-nitro-fueled"
+            ],
+            "evidenceSummary": "Registrar ambos componentes y sus estudios",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Spyro Reignited Trilogy",
+          "developerCredit": "Toys for Bob",
+          "publisherCredit": "Activision",
+          "notes": "Recopilatorio componente",
+          "catalogId": "ps4-spyro-reignited-trilogy",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.activision.com/games/crash/crash-team-racing-nitro-fueled"
+            ],
+            "evidenceSummary": "Registrar ambos componentes y sus estudios",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.activision.com/games/crash/crash-team-racing-nitro-fueled"
+        ],
+        "evidenceSummary": "Registrar ambos componentes y sus estudios",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:dragon-ball-fighterz-dragon-ball-xenoverse-2",
+      "catalogId": "ps4-dragon-ball-fighterz-&#43;-dragon-ball-xenoverse-2",
+      "title": "Dragon Ball FighterZ + Dragon Ball Xenoverse 2",
+      "status": "verified",
+      "componentCount": 2,
+      "components": [
+        {
+          "position": 1,
+          "title": "Dragon Ball FighterZ",
+          "developerCredit": "Arc System Works",
+          "publisherCredit": "Bandai Namco Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-dragon-ball-fighterz",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://en.bandainamcoent.eu/dragon-ball"
+            ],
+            "evidenceSummary": "Registrar FighterZ y Xenoverse 2 por separado",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Dragon Ball Xenoverse 2",
+          "developerCredit": "Dimps",
+          "publisherCredit": "Bandai Namco Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-dragon-ball-xenoverse-2",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://en.bandainamcoent.eu/dragon-ball"
+            ],
+            "evidenceSummary": "Registrar FighterZ y Xenoverse 2 por separado",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://en.bandainamcoent.eu/dragon-ball"
+        ],
+        "evidenceSummary": "Registrar FighterZ y Xenoverse 2 por separado",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:dragon-ball-xenoverse-1-2-double-pack",
+      "catalogId": "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack",
+      "title": "Dragon Ball Xenoverse 1 & 2 Double Pack",
+      "status": "verified",
+      "componentCount": 2,
+      "components": [
+        {
+          "position": 1,
+          "title": "Dragon Ball Xenoverse",
+          "developerCredit": "Dimps",
+          "publisherCredit": "Bandai Namco Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-dragon-ball-xenoverse",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://en.bandainamcoent.eu/dragon-ball"
+            ],
+            "evidenceSummary": "Registrar Xenoverse y Xenoverse 2 como dos obras",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Dragon Ball Xenoverse 2",
+          "developerCredit": "Dimps",
+          "publisherCredit": "Bandai Namco Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-dragon-ball-xenoverse-2",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://en.bandainamcoent.eu/dragon-ball"
+            ],
+            "evidenceSummary": "Registrar Xenoverse y Xenoverse 2 como dos obras",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://en.bandainamcoent.eu/dragon-ball"
+        ],
+        "evidenceSummary": "Registrar Xenoverse y Xenoverse 2 como dos obras",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:tales-of-zestiria-berseria-vesperia-triple-pack",
+      "catalogId": "ps4-tales-of-zestiria-&#43;-tales-of-berseria-&#43;-tales-of-vesperia-triple-pack-bundle",
+      "title": "Tales of Zestiria + Berseria + Vesperia Triple Pack",
+      "status": "verified",
+      "componentCount": 3,
+      "components": [
+        {
+          "position": 1,
+          "title": "Tales of Zestiria",
+          "developerCredit": "Bandai Namco Studios",
+          "publisherCredit": "Bandai Namco Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-tales-of-zestiria",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.pricecharting.com/game/pal-playstation-4/tales-of-zestiria-%2B-tales-of-berseria-%2B-tales-of-vesperia-triple-pack-bundle"
+            ],
+            "evidenceSummary": "Registrar tres juegos independientes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Tales of Berseria",
+          "developerCredit": "Bandai Namco Studios",
+          "publisherCredit": "Bandai Namco Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-tales-of-berseria",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.pricecharting.com/game/pal-playstation-4/tales-of-zestiria-%2B-tales-of-berseria-%2B-tales-of-vesperia-triple-pack-bundle"
+            ],
+            "evidenceSummary": "Registrar tres juegos independientes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "Tales of Vesperia: Definitive Edition",
+          "developerCredit": "Bandai Namco Studios; remaster de QLOC",
+          "publisherCredit": "Bandai Namco Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-tales-of-vesperia-definitive-edition",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.pricecharting.com/game/pal-playstation-4/tales-of-zestiria-%2B-tales-of-berseria-%2B-tales-of-vesperia-triple-pack-bundle"
+            ],
+            "evidenceSummary": "Registrar tres juegos independientes",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.pricecharting.com/game/pal-playstation-4/tales-of-zestiria-%2B-tales-of-berseria-%2B-tales-of-vesperia-triple-pack-bundle"
+        ],
+        "evidenceSummary": "Registrar tres juegos independientes",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:the-ultimate-vr-collection",
+      "catalogId": "ps4-the-ultimate-vr-collection",
+      "title": "The Ultimate VR Collection",
+      "status": "verified",
+      "componentCount": 5,
+      "components": [
+        {
+          "position": 1,
+          "title": "DEXED",
+          "developerCredit": "Ninja Theory",
+          "publisherCredit": "Ninja Theory / Perp Games",
+          "notes": "Juego completo PS VR",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.co.uk/Ultimate-VR-Collection-Great-Games/dp/B077C2L97W"
+            ],
+            "evidenceSummary": "Registrar los cinco componentes y su desarrolladora propia",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Bandit Six: Combined Arms",
+          "developerCredit": "Climax Studios",
+          "publisherCredit": "Climax Studios / Perp Games",
+          "notes": "Juego completo PS VR",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.co.uk/Ultimate-VR-Collection-Great-Games/dp/B077C2L97W"
+            ],
+            "evidenceSummary": "Registrar los cinco componentes y su desarrolladora propia",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "Unearthing Mars",
+          "developerCredit": "Winking Entertainment",
+          "publisherCredit": "Winking Entertainment / Perp Games",
+          "notes": "Juego completo PS VR",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.co.uk/Ultimate-VR-Collection-Great-Games/dp/B077C2L97W"
+            ],
+            "evidenceSummary": "Registrar los cinco componentes y su desarrolladora propia",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 4,
+          "title": "FATED: The Silent Oath",
+          "developerCredit": "Frima Studio",
+          "publisherCredit": "Frima Originals / Perp Games",
+          "notes": "Juego completo PS VR",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.co.uk/Ultimate-VR-Collection-Great-Games/dp/B077C2L97W"
+            ],
+            "evidenceSummary": "Registrar los cinco componentes y su desarrolladora propia",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 5,
+          "title": "Korix",
+          "developerCredit": "StellarVR",
+          "publisherCredit": "StellarVR / Perp Games",
+          "notes": "Juego completo PS VR",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.co.uk/Ultimate-VR-Collection-Great-Games/dp/B077C2L97W"
+            ],
+            "evidenceSummary": "Registrar los cinco componentes y su desarrolladora propia",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.amazon.co.uk/Ultimate-VR-Collection-Great-Games/dp/B077C2L97W"
+        ],
+        "evidenceSummary": "Registrar los cinco componentes y su desarrolladora propia",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:the-truth-is-out-there-mystery-adventure-pack",
+      "catalogId": "ps4-the-truth-is-out-there-mystery-adventure-pack",
+      "title": "The Truth Is Out There: Mystery Adventure Pack",
+      "status": "verified",
+      "componentCount": 3,
+      "components": [
+        {
+          "position": 1,
+          "title": "Pineview Drive",
+          "developerCredit": "VIS-Games",
+          "publisherCredit": "United Independent Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-pineview-drive",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.co.uk/Truth-out-There-Pineview-Nightfall/dp/B093HWDMV4"
+            ],
+            "evidenceSummary": "Normalizar el título y registrar tres juegos; existe otra ficha con 'Out Here'",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Joe's Diner",
+          "developerCredit": "VIS-Games",
+          "publisherCredit": "United Independent Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-joe%27s-diner",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.co.uk/Truth-out-There-Pineview-Nightfall/dp/B093HWDMV4"
+            ],
+            "evidenceSummary": "Normalizar el título y registrar tres juegos; existe otra ficha con 'Out Here'",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "The Nightfall",
+          "developerCredit": "VIS-Games",
+          "publisherCredit": "United Independent Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-the-nightfall",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.amazon.co.uk/Truth-out-There-Pineview-Nightfall/dp/B093HWDMV4"
+            ],
+            "evidenceSummary": "Normalizar el título y registrar tres juegos; existe otra ficha con 'Out Here'",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.amazon.co.uk/Truth-out-There-Pineview-Nightfall/dp/B093HWDMV4"
+        ],
+        "evidenceSummary": "Normalizar el título y registrar tres juegos; existe otra ficha con 'Out Here'",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:world-of-simulators",
+      "catalogId": "ps4-world-of-simulators",
+      "title": "World of Simulators",
+      "status": "verified",
+      "componentCount": 4,
+      "components": [
+        {
+          "position": 1,
+          "title": "Firefighters: The Simulation",
+          "developerCredit": "VIS-Games",
+          "publisherCredit": "United Independent Entertainment",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://psprices.com/region-gb/game/3418364/world-of-simulators-bundle"
+            ],
+            "evidenceSummary": "Registrar los cuatro simuladores por separado",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Professional Construction: The Simulation",
+          "developerCredit": "VIS-Games",
+          "publisherCredit": "United Independent Entertainment",
+          "notes": "Juego completo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://psprices.com/region-gb/game/3418364/world-of-simulators-bundle"
+            ],
+            "evidenceSummary": "Registrar los cuatro simuladores por separado",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "Professional Farmer 2017",
+          "developerCredit": "VIS-Games / Kittehface Software",
+          "publisherCredit": "United Independent Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-professional-farmer-2017",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://psprices.com/region-gb/game/3418364/world-of-simulators-bundle"
+            ],
+            "evidenceSummary": "Registrar los cuatro simuladores por separado",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 4,
+          "title": "Forestry 2017: The Simulation",
+          "developerCredit": "Joindots / SilentFuture",
+          "publisherCredit": "United Independent Entertainment",
+          "notes": "Juego completo",
+          "catalogId": "ps4-forestry-2017",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://psprices.com/region-gb/game/3418364/world-of-simulators-bundle"
+            ],
+            "evidenceSummary": "Registrar los cuatro simuladores por separado",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://psprices.com/region-gb/game/3418364/world-of-simulators-bundle"
+        ],
+        "evidenceSummary": "Registrar los cuatro simuladores por separado",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:wonder-boy-anniversary-collection",
+      "catalogId": "ps4-wonder-boy-anniversary-collection",
+      "title": "Wonder Boy Anniversary Collection",
+      "status": "verified",
+      "componentCount": 6,
+      "components": [
+        {
+          "position": 1,
+          "title": "Wonder Boy",
+          "developerCredit": "Westone Bit Entertainment; port de Bliss Brain",
+          "publisherCredit": "ININ Games",
+          "notes": "6 versiones incluidas",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP6090-CUSA32586_00-WONDERBOYPS4EUXX"
+            ],
+            "evidenceSummary": "Seis obras y 21 versiones; no contar las 21 versiones como juegos distintos",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Wonder Boy in Monster Land",
+          "developerCredit": "Westone Bit Entertainment; port de Bliss Brain",
+          "publisherCredit": "ININ Games",
+          "notes": "4 versiones incluidas",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP6090-CUSA32586_00-WONDERBOYPS4EUXX"
+            ],
+            "evidenceSummary": "Seis obras y 21 versiones; no contar las 21 versiones como juegos distintos",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "Wonder Boy III: Monster Lair",
+          "developerCredit": "Westone Bit Entertainment; port de Bliss Brain",
+          "publisherCredit": "ININ Games",
+          "notes": "2 versiones incluidas",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP6090-CUSA32586_00-WONDERBOYPS4EUXX"
+            ],
+            "evidenceSummary": "Seis obras y 21 versiones; no contar las 21 versiones como juegos distintos",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 4,
+          "title": "Wonder Boy III: The Dragon's Trap",
+          "developerCredit": "Westone Bit Entertainment; port de Bliss Brain",
+          "publisherCredit": "ININ Games",
+          "notes": "4 versiones incluidas",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP6090-CUSA32586_00-WONDERBOYPS4EUXX"
+            ],
+            "evidenceSummary": "Seis obras y 21 versiones; no contar las 21 versiones como juegos distintos",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 5,
+          "title": "Wonder Boy in Monster World",
+          "developerCredit": "Westone Bit Entertainment; port de Bliss Brain",
+          "publisherCredit": "ININ Games",
+          "notes": "3 versiones incluidas",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP6090-CUSA32586_00-WONDERBOYPS4EUXX"
+            ],
+            "evidenceSummary": "Seis obras y 21 versiones; no contar las 21 versiones como juegos distintos",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 6,
+          "title": "Monster World IV",
+          "developerCredit": "Westone Bit Entertainment; port de Bliss Brain",
+          "publisherCredit": "ININ Games",
+          "notes": "2 versiones incluidas",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://store.playstation.com/en-gb/product/EP6090-CUSA32586_00-WONDERBOYPS4EUXX"
+            ],
+            "evidenceSummary": "Seis obras y 21 versiones; no contar las 21 versiones como juegos distintos",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/en-gb/product/EP6090-CUSA32586_00-WONDERBOYPS4EUXX"
+        ],
+        "evidenceSummary": "Seis obras y 21 versiones; no contar las 21 versiones como juegos distintos",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:wonder-boy-collection",
+      "catalogId": "ps4-wonder-boy-collection",
+      "title": "Wonder Boy Collection",
+      "status": "verified",
+      "componentCount": 4,
+      "components": [
+        {
+          "position": 1,
+          "title": "Wonder Boy",
+          "developerCredit": "Westone Bit Entertainment; port de Bliss Brain",
+          "publisherCredit": "ININ Games",
+          "notes": "Juego clásico",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://iningames.com/products/wonder-boy-collection-playstation-4"
+            ],
+            "evidenceSummary": "Es una selección menor distinta de Anniversary Collection",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "Wonder Boy in Monster Land",
+          "developerCredit": "Westone Bit Entertainment; port de Bliss Brain",
+          "publisherCredit": "ININ Games",
+          "notes": "Juego clásico",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://iningames.com/products/wonder-boy-collection-playstation-4"
+            ],
+            "evidenceSummary": "Es una selección menor distinta de Anniversary Collection",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "Wonder Boy in Monster World",
+          "developerCredit": "Westone Bit Entertainment; port de Bliss Brain",
+          "publisherCredit": "ININ Games",
+          "notes": "Juego clásico",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://iningames.com/products/wonder-boy-collection-playstation-4"
+            ],
+            "evidenceSummary": "Es una selección menor distinta de Anniversary Collection",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 4,
+          "title": "Monster World IV",
+          "developerCredit": "Westone Bit Entertainment; port de Bliss Brain",
+          "publisherCredit": "ININ Games",
+          "notes": "Juego clásico",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://iningames.com/products/wonder-boy-collection-playstation-4"
+            ],
+            "evidenceSummary": "Es una selección menor distinta de Anniversary Collection",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://iningames.com/products/wonder-boy-collection-playstation-4"
+        ],
+        "evidenceSummary": "Es una selección menor distinta de Anniversary Collection",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "compilation:playstation-vr-demo-disc-pal-europa",
+      "catalogId": null,
+      "title": "PlayStation VR Demo Disc (PAL Europa)",
+      "status": "requires_review",
+      "componentCount": 8,
+      "components": [
+        {
+          "position": 1,
+          "title": "DriveClub VR",
+          "developerCredit": "Evolution Studios",
+          "publisherCredit": "Sony Interactive Entertainment",
+          "notes": "Demo",
+          "catalogId": "ps4-driveclub-vr",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamesradar.com/playstation-vr-comes-with-a-demo-disc-for-8-games-including-driveclub-vr-and-rigs/"
+            ],
+            "evidenceSummary": "Usar la lista PAL europea de ocho demos; no mezclar con el disco USA de 18",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 2,
+          "title": "PlayStation VR Worlds",
+          "developerCredit": "London Studio",
+          "publisherCredit": "Sony Interactive Entertainment",
+          "notes": "Demo: Ocean Descent",
+          "catalogId": "ps4-playstation-vr-worlds",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamesradar.com/playstation-vr-comes-with-a-demo-disc-for-8-games-including-driveclub-vr-and-rigs/"
+            ],
+            "evidenceSummary": "Usar la lista PAL europea de ocho demos; no mezclar con el disco USA de 18",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 3,
+          "title": "RIGS: Mechanized Combat League",
+          "developerCredit": "Guerrilla Cambridge",
+          "publisherCredit": "Sony Interactive Entertainment",
+          "notes": "Demo",
+          "catalogId": "ps4-rigs-mechanized-combat-league",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamesradar.com/playstation-vr-comes-with-a-demo-disc-for-8-games-including-driveclub-vr-and-rigs/"
+            ],
+            "evidenceSummary": "Usar la lista PAL europea de ocho demos; no mezclar con el disco USA de 18",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 4,
+          "title": "Tumble VR",
+          "developerCredit": "Supermassive Games",
+          "publisherCredit": "Sony Interactive Entertainment",
+          "notes": "Demo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamesradar.com/playstation-vr-comes-with-a-demo-disc-for-8-games-including-driveclub-vr-and-rigs/"
+            ],
+            "evidenceSummary": "Usar la lista PAL europea de ocho demos; no mezclar con el disco USA de 18",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 5,
+          "title": "Battlezone",
+          "developerCredit": "Rebellion Developments",
+          "publisherCredit": "Rebellion Developments",
+          "notes": "Demo",
+          "catalogId": "ps4-battlezone",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamesradar.com/playstation-vr-comes-with-a-demo-disc-for-8-games-including-driveclub-vr-and-rigs/"
+            ],
+            "evidenceSummary": "Usar la lista PAL europea de ocho demos; no mezclar con el disco USA de 18",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 6,
+          "title": "EVE: Valkyrie",
+          "developerCredit": "CCP Games",
+          "publisherCredit": "CCP Games",
+          "notes": "Demo",
+          "catalogId": "ps4-eve-valkyrie",
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamesradar.com/playstation-vr-comes-with-a-demo-disc-for-8-games-including-driveclub-vr-and-rigs/"
+            ],
+            "evidenceSummary": "Usar la lista PAL europea de ocho demos; no mezclar con el disco USA de 18",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 7,
+          "title": "Wayward Sky",
+          "developerCredit": "Uber Entertainment",
+          "publisherCredit": "Uber Entertainment",
+          "notes": "Demo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamesradar.com/playstation-vr-comes-with-a-demo-disc-for-8-games-including-driveclub-vr-and-rigs/"
+            ],
+            "evidenceSummary": "Usar la lista PAL europea de ocho demos; no mezclar con el disco USA de 18",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        },
+        {
+          "position": 8,
+          "title": "Headmaster",
+          "developerCredit": "Frame Interactive",
+          "publisherCredit": "Frame Interactive",
+          "notes": "Demo",
+          "catalogId": null,
+          "provenance": {
+            "source": "research",
+            "evidenceUrls": [
+              "https://www.gamesradar.com/playstation-vr-comes-with-a-demo-disc-for-8-games-including-driveclub-vr-and-rigs/"
+            ],
+            "evidenceSummary": "Usar la lista PAL europea de ocho demos; no mezclar con el disco USA de 18",
+            "reviewedAt": "2026-09-05",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        }
+      ],
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.gamesradar.com/playstation-vr-comes-with-a-demo-disc-for-8-games-including-driveclub-vr-and-rigs/"
+        ],
+        "evidenceSummary": "Usar la lista PAL europea de ocho demos; no mezclar con el disco USA de 18",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    }
+  ],
+  "variants": [
+    {
+      "variantCatalogId": "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition",
+      "canonicalCatalogId": "ps4-armored-core-vi-fires-of-rubicon",
+      "relationshipType": "edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://en.bandainamcoent.eu/armored-core/armored-core-vi-fires-of-rubicon"
+        ],
+        "evidenceSummary": "Mismo juego y créditos que la edición estándar; conservar contenidos y valoración propios de Collector's Edition",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-armored-core-vi-fires-of-rubicon-launch-edition",
+      "canonicalCatalogId": "ps4-armored-core-vi-fires-of-rubicon",
+      "relationshipType": "edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://en.bandainamcoent.eu/armored-core/armored-core-vi-fires-of-rubicon"
+        ],
+        "evidenceSummary": "No es otro juego: edición de lanzamiento con póster, tarjetas y pegatinas",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-blasphemous-coleccionista",
+      "canonicalCatalogId": "ps4-blasphemous",
+      "relationshipType": "edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.pricecharting.com/game/pal-playstation-4/blasphemous-collector%27s-edition"
+        ],
+        "evidenceSummary": "The Game Kitchen desarrolla; Team17 publica el juego; Selecta Play prepara/distribuye la edición física coleccionista",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-cyberpunk-2077-samurai-pack",
+      "canonicalCatalogId": "ps4-cyberpunk-2077",
+      "relationshipType": "edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.cyberpunk.net/"
+        ],
+        "evidenceSummary": "CD Projekt RED es el estudio desarrollador del grupo CD Projekt; Samurai Pack debe tratarse como variante/promoción, no como juego distinto",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-dark-souls-ii-scholar-of-the-first-sin-not-for-resale",
+      "canonicalCatalogId": "ps4-dark-souls-ii-scholar-of-the-first-sin",
+      "relationshipType": "bundle_variant_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.rewayverkopen.nl/products/dark-souls-ii-scholar-of-the-first-sin-not-for-resale-playstation-4"
+        ],
+        "evidenceSummary": "Es el mismo juego; Not for Resale es atributo de una copia de bundle con posible valoración independiente",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-gylt-collector%27s-edition",
+      "canonicalCatalogId": "ps4-gylt",
+      "relationshipType": "edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://en.tesuragames.com/gylt-collectors-physical-edition-for-nintendo-switch-is-here/"
+        ],
+        "evidenceSummary": "Tequila Works desarrolla; Tesura Games publica/distribuye la edición física coleccionista de PS4. Mantener la edición como variante del mismo juego.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-infinite-beyond-the-mind-tanya-edition",
+      "canonicalCatalogId": "ps4-infinite-beyond-the-mind-olga-edition",
+      "relationshipType": "sibling_edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.strictlylimitedgames.com/en-gb/products/infinite-beyond-the-mind-limited-tanya-edition-ps4"
+        ],
+        "evidenceSummary": "Emilie Coyo desarrolla; Blowfish Studios publica el juego. Strictly Limited Games produce la edición física Tanya, limitada a 1.500 copias y diferenciada de Olga solo por la presentación.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-middle-earth-shadow-of-mordor-game-of-the-year",
+      "canonicalCatalogId": "ps4-middle-earth-shadow-of-mordor",
+      "relationshipType": "edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.steampowered.com/app/241930/Middleearth_Shadow_of_Mordor/"
+        ],
+        "evidenceSummary": "Monolith Productions desarrolla la versión PS4. Warner Bros. Interactive Entertainment y Warner Bros. Games son denominaciones histórica y actual del publisher; GOTY añade el contenido descargable.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-okinawa-rush-black-mantis-edition",
+      "canonicalCatalogId": "ps4-okinawa-rush",
+      "relationshipType": "edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.pixelheart.eu/en/produit/okinawa-rush-black-mantis-edition-ps4-eur/"
+        ],
+        "evidenceSummary": "Sokaikan desarrolla. No Gravity Games participa en la publicación general y PixelHeart edita la versión física Black Mantis, limitada a 1.000 unidades en PS4; no es otro juego.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-okinawa-rush-limited-edition",
+      "canonicalCatalogId": "ps4-okinawa-rush",
+      "relationshipType": "edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://limitedgamenews.com/2020/10/24/okinawa-rush-playstation-4-nintendo-switch-xbox-one/"
+        ],
+        "evidenceSummary": "Mismos créditos que Black Mantis y el juego estándar. Es otra presentación física; conservar como variante coleccionable y no duplicar la obra.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-senran-kagura-burst-renewal-bountiful-beauties",
+      "canonicalCatalogId": "ps4-senran-kagura-burst-renewal",
+      "relationshipType": "edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/en-gb/concept/230935"
+        ],
+        "evidenceSummary": "HONEY∞PARADE GAMES desarrolla el remake. La Bountiful Beauties europea la publica Marvelous Europe; XSEED es la marca norteamericana de Marvelous USA y no debe figurar como desarrolladora PAL.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-young-souls-collector%27s-edition",
+      "canonicalCatalogId": "ps4-young-souls",
+      "relationshipType": "edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.pixnlove.com/more/934-young-souls-collector-s-edition-ps4-9782371881686.html"
+        ],
+        "evidenceSummary": "1P2P Studio desarrolla y The Arcade Crew publica el juego. Pix’n Love produce la Collector’s Edition física numerada de 500 copias; no es desarrolladora.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-young-souls-deluxe-edition",
+      "canonicalCatalogId": "ps4-young-souls",
+      "relationshipType": "edition_of",
+      "status": "verified",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/nl-nl/product/EP5539-CUSA29073_00-7040277275145224"
+        ],
+        "evidenceSummary": "Misma obra y créditos que la edición estándar. Registrar Deluxe como variante comercial y verificar sus contenidos/EAN; 1P2P sigue siendo la desarrolladora.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-dishonored-pray-arkane-collection",
+      "canonicalCatalogId": "ps4-dishonored-prey-the-arkane-collection",
+      "relationshipType": "same_product_candidate",
+      "status": "requires_review",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.gamelife.it/en/swp44002-dishonored-prey-the-arkane-collection"
+        ],
+        "evidenceSummary": "Corregir Pray → Prey y consolidar si los identificadores físicos coinciden",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "variantCatalogId": "ps4-the-truth-is-out-here-mystery-adventure-pack",
+      "canonicalCatalogId": "ps4-the-truth-is-out-there-mystery-adventure-pack",
+      "relationshipType": "same_product_candidate",
+      "status": "requires_review",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.amazon.co.uk/Truth-out-There-Pineview-Nightfall/dp/B093HWDMV4"
+        ],
+        "evidenceSummary": "Conservar una entidad y enlazar ambas fichas; comprobar EAN/CUSA antes de borrar una",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    }
+  ]
+}

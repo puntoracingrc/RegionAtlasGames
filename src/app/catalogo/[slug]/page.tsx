@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CollectionToggle } from "@/components/collection-toggle";
 import { CatalogMarketplacePanel } from "@/components/catalog-marketplace-panel";
+import { CatalogCommercialRelationsPanel } from "@/components/catalog-commercial-relations-panel";
 import { GameFaq } from "@/components/game-faq";
 import { GameJsonLd } from "@/components/game-json-ld";
 import { GamePriceHero } from "@/components/game-price-hero";
@@ -50,6 +51,7 @@ import {
   resolveGameCompanyCredits,
 } from "@/lib/company-credits";
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
+import { getCatalogRouteRedirect } from "@/lib/catalog-route-redirects";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCurrentUser } from "@/lib/users";
 import { listPublicSeriesForGame } from "@/lib/admin-series-manager";
@@ -121,7 +123,8 @@ function franchiseRoleLabel(role: FranchiseRole): string {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const game = await resolveCatalogGameWithOverlay(slug);
+  const routeRedirect = getCatalogRouteRedirect(slug);
+  const game = await resolveCatalogGameWithOverlay(routeRedirect?.targetCatalogId ?? slug);
   if (!game || !isPublicCatalogGame(game)) return { title: "Juego no encontrado" };
   const details = await getGameDetailsWithOverlay(game.id);
   return buildGameMetadata(game, details);
@@ -129,6 +132,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CatalogGamePage({ params }: Props) {
   const { slug } = await params;
+  const routeRedirect = getCatalogRouteRedirect(slug);
+  if (routeRedirect) {
+    const target = await resolveCatalogGameWithOverlay(routeRedirect.targetCatalogId);
+    if (target && isPublicCatalogGame(target)) permanentRedirect(catalogGamePath(target));
+  }
   const game = await resolveCatalogGameWithOverlay(slug);
   if (!game || !isPublicCatalogGame(game)) notFound();
 
@@ -148,7 +156,12 @@ export default async function CatalogGamePage({ params }: Props) {
     ? (
         [
           "developer",
+          "originalDeveloper",
+          "portDeveloper",
+          "remasterDeveloper",
           "publisher",
+          "originalPublisher",
+          "regionalPublisher",
           "digitalPublisher",
           "physicalPublisherOrDistributor",
         ] as GameCompanyCreditRole[]
@@ -196,6 +209,9 @@ export default async function CatalogGamePage({ params }: Props) {
   const seriesLinks = [...publicSeries, ...detailsSeries];
   const subgenreEntities = details?.subgenres ?? [];
   const facetEntities = [...(details?.facets ?? []), ...(details?.tags ?? [])];
+  const individualDeveloperCredits = (details?.individualCredits ?? []).filter(
+    (credit) => credit.role === "developer",
+  );
 
   const breadcrumbItems = [
     { label: "Inicio", href: "/" },
@@ -300,6 +316,8 @@ export default async function CatalogGamePage({ params }: Props) {
             )}
 
             <GameProductReference game={game} details={details} />
+
+            <CatalogCommercialRelationsPanel catalogId={game.id} />
 
             {showPhysicalEdition && (
               <Panel>
@@ -465,6 +483,14 @@ export default async function CatalogGamePage({ params }: Props) {
                       }
                     />
                   ))}
+                  {individualDeveloperCredits.length > 0 && (
+                    <DetailRow
+                      label="Desarrollo individual"
+                      value={individualDeveloperCredits
+                        .map((credit) => credit.person.name)
+                        .join(" · ")}
+                    />
+                  )}
                   <DetailRow
                     label="Géneros"
                     value={

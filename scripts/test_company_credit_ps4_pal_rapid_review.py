@@ -42,6 +42,14 @@ def batch_credits(detail: dict, role: str | None = None) -> list[dict]:
     ]
 
 
+def effective_decision_credits(importer, row: dict, detail: dict) -> list[dict]:
+    role = importer.ROLE_NAMES[row["role"]]
+    credits = batch_credits(detail, role)
+    if [credit["company"]["slug"] for credit in credits] == row["company_slugs"].split(" | "):
+        return credits
+    return importer.allowed_successor_role_credits(row, detail)
+
+
 def main() -> int:
     importer = load_module(
         "scripts/apply_company_credit_ps4_pal_rapid_review.py",
@@ -77,13 +85,13 @@ def main() -> int:
         for row in decisions
     )
 
-    all_batch_credits = [
+    effective_credits = [
         credit
-        for detail in details.values()
-        for credit in batch_credits(detail)
+        for row in decisions
+        for credit in effective_decision_credits(importer, row, details[row["catalog_id"]])
     ]
-    assert len(all_batch_credits) == 1660
-    assert Counter(credit["role"] for credit in all_batch_credits) == {
+    assert len(effective_credits) == 1660
+    assert Counter(credit["role"] for credit in effective_credits) == {
         "developer": 661,
         "publisher": 2,
         "digitalPublisher": 60,
@@ -93,17 +101,24 @@ def main() -> int:
         credit["provenance"]["evidenceUrls"]
         and credit["provenance"]["evidenceSummary"]
         and credit["provenance"]["reviewedAt"] == "2026-09-05"
-        for credit in all_batch_credits
+        for credit in effective_credits
     )
 
     for row in decisions:
         role = importer.ROLE_NAMES[row["role"]]
-        credits = batch_credits(details[row["catalog_id"]], role)
-        assert [credit["company"]["slug"] for credit in credits] == row[
-            "company_slugs"
-        ].split(" | ")
-        for slug in row["company_slugs"].split(" | "):
+        credits = effective_decision_credits(importer, row, details[row["catalog_id"]])
+        assert credits
+        for slug in [credit["company"]["slug"] for credit in credits]:
             assert row["catalog_id"] in companies[slug][importer.ROLE_INDEX_FIELDS[row["role"]]]
+
+    assert {
+        (row["catalog_id"], importer.ROLE_NAMES[row["role"]])
+        for row in decisions
+        if any(
+            credit.get("provenance", {}).get("reviewBatch") == importer.SUCCESSOR_BATCH_ID
+            for credit in effective_decision_credits(importer, row, details[row["catalog_id"]])
+        )
+    } == set(importer.ALLOWED_SUCCESSOR_ROLE_CREDITS)
 
     separated = details["ps4-3d-mini-golf"]
     assert [credit["company"]["slug"] for credit in batch_credits(separated, "developer")] == [

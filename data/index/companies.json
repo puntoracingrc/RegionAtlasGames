@@ -1100,7 +1100,6 @@
       "megadrive-ecco-the-dolphin",
       "ps2-yakuza",
       "gamegear-japon-donald-duck-no-4-tsu-no-hihou",
-      "ps4-sonic-mania-plus-and-sonic-forces-double-pack",
       "ps4-japon-hatsune-miku-project-diva-future-tone-dx",
       "gamegear-japon-eternal-legend-eien-no-densetsu",
       "mastersystem-ultima-iv",
@@ -2226,7 +2225,8 @@
       "ps4-yakuza-like-a-dragon-day-ichi-steelbook-edition",
       "ps4-demon-slayer-the-hinokami-chronicles",
       "ps4-dungeons-of-the-endless-signature-edition",
-      "ps4-sonic-colours-ultimate"
+      "ps4-sonic-colours-ultimate",
+      "ps4-sonic-mania-plus-and-sonic-forces-double-pack"
     ],
     "byPlatform": {
       "3ds": 5,
@@ -3955,7 +3955,6 @@
       "megadrive-ecco-the-dolphin",
       "ps2-yakuza",
       "gamegear-japon-donald-duck-no-4-tsu-no-hihou",
-      "ps4-sonic-mania-plus-and-sonic-forces-double-pack",
       "ps4-japon-hatsune-miku-project-diva-future-tone-dx",
       "gamegear-japon-eternal-legend-eien-no-densetsu",
       "mastersystem-ultima-iv",
@@ -5059,7 +5058,8 @@
       "ps4-yakuza-6-the-song-of-life-playstation-hits",
       "ps4-yakuza-kiwami-2-playstation-hits",
       "ps4-yakuza-kiwami-2-steelbook-edition",
-      "ps4-yakuza-like-a-dragon-day-ichi-steelbook-edition"
+      "ps4-yakuza-like-a-dragon-day-ichi-steelbook-edition",
+      "ps4-sonic-mania-plus-and-sonic-forces-double-pack"
     ],
     "gameCount": 2223,
     "asPhysicalPublisherOrDistributor": [
@@ -5067,7 +5067,8 @@
       "ps4-dungeons-of-the-endless-signature-edition",
       "ps4-olympic-games-tokyo-2020",
       "ps4-sonic-colours-ultimate",
-      "ps4-sonic-x-shadow-generations"
+      "ps4-sonic-x-shadow-generations",
+      "ps4-sonic-mania-plus-and-sonic-forces-double-pack"
     ]
   },
   "nintendo": {
@@ -7587,14 +7588,15 @@
       "ps4-uncharted-4-el-desenlace-del-ladron-ps-hits",
       "ps4-uncharted-el-legado-perdido",
       "ps4-until-dawn-rush-of-blood",
-      "ps4-vr-demo-disc"
+      "ps4-vr-demo-disc",
+      "ps4-playlink-games-collection"
     ],
     "byPlatform": {
       "gameboy": 1,
       "ps1": 68,
       "ps2": 100,
       "ps3": 77,
-      "ps4": 218,
+      "ps4": 219,
       "ps5": 20
     },
     "asDeveloper": [
@@ -8071,9 +8073,10 @@
       "ps4-uncharted-the-nathan-drake-collection-special-edition",
       "ps4-until-dawn-extended-edition",
       "ps4-until-dawn-playstation-hits",
-      "ps4-until-dawn-steelbook-edition"
+      "ps4-until-dawn-steelbook-edition",
+      "ps4-playlink-games-collection"
     ],
-    "gameCount": 484,
+    "gameCount": 485,
     "asPhysicalPublisherOrDistributor": [
       "ps4-astro-bot-rescue-mission",
       "ps4-bloodborne-goty",
@@ -8108,7 +8111,8 @@
       "ps4-uncharted-4-el-desenlace-del-ladron-ps-hits",
       "ps4-uncharted-el-legado-perdido",
       "ps4-until-dawn-rush-of-blood",
-      "ps4-vr-demo-disc"
+      "ps4-vr-demo-disc",
+      "ps4-playlink-games-collection"
     ]
   },
   "electronic-arts": {
@@ -13050,7 +13054,6 @@
       "ps3-usa-super-street-fighter-iv",
       "ps3-usa-ultimate-marvel-vs-capcom-3",
       "ps4-ace-attorney-investigations-collection",
-      "ps4-ghost-trick-phantom-detective",
       "ps4-usa-monster-hunter-world-collector%27s-edition",
       "ps4-street-fighter-v",
       "ps4-marvel-vs-capcom-infinite-collector%27s-edition",
@@ -13108,7 +13111,8 @@
       "ps4-resident-evil-4-remake-steelbook",
       "ps4-resident-evil-4-gold-edition",
       "ps4-resident-evil-7-steelbook",
-      "ps4-resident-evil-8-village"
+      "ps4-resident-evil-8-village",
+      "ps4-ghost-trick-phantom-detective"
     ],
     "byPlatform": {
       "3ds": 5,
@@ -13550,7 +13554,6 @@
       "ps3-usa-super-street-fighter-iv",
       "ps3-usa-ultimate-marvel-vs-capcom-3",
       "ps4-ace-attorney-investigations-collection",
-      "ps4-ghost-trick-phantom-detective",
       "ps4-usa-monster-hunter-world",
       "ps4-usa-monster-hunter-world-collector%27s-edition",
       "ps4-japon-street-fighter-v",
@@ -13611,7 +13614,8 @@
       "ps4-resident-evil-7-steelbook",
       "ps4-resident-evil-8-village",
       "ps4-street-fighter-6-years-1-2-fighters-edition",
-      "ps4-street-fighter-6-lenticular-edition"
+      "ps4-street-fighter-6-lenticular-edition",
+      "ps4-ghost-trick-phantom-detective"
     ],
     "asPublisher": [
       "ps4-usa-resident-evil-7-biohazard",
@@ -14162,7 +14166,8 @@
       "ps4-resident-evil-7-biohazard-steelbook-edition",
       "ps4-resident-evil-village-steelbook-edition",
       "ps4-street-fighter-v-champion-edition",
-      "ps4-street-fighter-v-playstation-hits"
+      "ps4-street-fighter-v-playstation-hits",
+      "ps4-ghost-trick-phantom-detective"
     ],
     "gameCount": 710,
     "asPhysicalPublisherOrDistributor": [
@@ -14180,7 +14185,8 @@
       "ps4-resident-evil-7-steelbook",
       "ps4-resident-evil-8-village",
       "ps4-resident-evil-origins-collection",
-      "ps4-street-fighter-6-lenticular-edition"
+      "ps4-street-fighter-6-lenticular-edition",
+      "ps4-ghost-trick-phantom-detective"
     ]
   },
   "snk": {
@@ -15845,7 +15851,6 @@
       "ps4-usa-one-piece-burning-blood-marineford-edition",
       "ps4-usa-tales-of-berseria-playstation-hits",
       "ps4-usa-jump-force-ultimate-edition",
-      "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack",
       "ps3-tekken-tag-tournament-2",
       "ps4-armored-core-vi-fires-of-rubicon",
       "ps4-the-dark-pictures-anthology-volume-2",
@@ -16042,7 +16047,13 @@
       "ps4-jujutsu-kaisen-cursed-clash",
       "ps4-little-nightmares-complete-edition",
       "ps4-sand-land-collector%27s-edition",
-      "ps4-sand-land-collector-edition"
+      "ps4-sand-land-collector-edition",
+      "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition",
+      "ps4-armored-core-vi-fires-of-rubicon-launch-edition",
+      "ps4-dark-souls-ii-scholar-of-the-first-sin-not-for-resale",
+      "ps4-dragon-ball-fighterz-&#43;-dragon-ball-xenoverse-2",
+      "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack",
+      "ps4-tales-of-zestiria-&#43;-tales-of-berseria-&#43;-tales-of-vesperia-triple-pack-bundle"
     ],
     "byPlatform": {
       "3ds": 13,
@@ -16051,7 +16062,7 @@
       "ps1": 3,
       "ps2": 8,
       "ps3": 55,
-      "ps4": 236,
+      "ps4": 241,
       "ps5": 10,
       "switch2": 7,
       "wii": 23
@@ -16266,7 +16277,6 @@
       "ps4-usa-one-piece-burning-blood-marineford-edition",
       "ps4-usa-tales-of-berseria-playstation-hits",
       "ps4-usa-jump-force-ultimate-edition",
-      "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack",
       "ps3-tekken-tag-tournament-2",
       "ps4-armored-core-vi-fires-of-rubicon",
       "ps4-the-dark-pictures-anthology-volume-2",
@@ -16448,14 +16458,23 @@
       "ps4-tales-of-vesperia-definitive-edition-premium-edition",
       "ps4-tekken-7-collector%27s-edition",
       "ps4-tekken-7-deluxe-edition",
-      "ps4-tekken-7-legendary-edition"
+      "ps4-tekken-7-legendary-edition",
+      "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition",
+      "ps4-armored-core-vi-fires-of-rubicon-launch-edition",
+      "ps4-dark-souls-ii-scholar-of-the-first-sin-not-for-resale",
+      "ps4-dragon-ball-fighterz-&#43;-dragon-ball-xenoverse-2",
+      "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack",
+      "ps4-tales-of-zestiria-&#43;-tales-of-berseria-&#43;-tales-of-vesperia-triple-pack-bundle"
     ],
-    "gameCount": 360,
+    "gameCount": 365,
     "asPhysicalPublisherOrDistributor": [
       "ps4-jujutsu-kaisen-cursed-clash",
       "ps4-little-nightmares-complete-edition",
       "ps4-sand-land-collector%27s-edition",
-      "ps4-sand-land-collector-edition"
+      "ps4-sand-land-collector-edition",
+      "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition",
+      "ps4-armored-core-vi-fires-of-rubicon-launch-edition",
+      "ps4-tales-of-zestiria-&#43;-tales-of-berseria-&#43;-tales-of-vesperia-triple-pack-bundle"
     ]
   },
   "ubisoft": {
@@ -18202,7 +18221,6 @@
       "ps4-cabela%27s-african-adventures",
       "ps4-call-of-duty-black-ops-4-especialista",
       "ps4-call-of-duty-black-ops-iii-zombie-chronicles",
-      "ps4-crash-team-racing-&amp;-spyro-reignited-trilogy",
       "ps4-deadpool-masacre",
       "ps4-destiny-2-forsaken-legendary-collection",
       "ps4-destiny-2-los-renegados",
@@ -18218,8 +18236,9 @@
       "ps4-skylanders-swap-force-starter-pack",
       "ps4-skylanders-trap-team-dark-edition-starter-pack",
       "ps4-snoopy%27s-grand-adventure",
+      "ps4-tony-hawk%27s-pro-skater-1-and-2-collector%27s-edition",
       "ps4-spyro-reignited-trilogy-&amp;-crash-bandicoot-n-sane-trilogy",
-      "ps4-tony-hawk%27s-pro-skater-1-and-2-collector%27s-edition"
+      "ps4-crash-team-racing-&amp;-spyro-reignited-trilogy"
     ],
     "byPlatform": {
       "3ds": 16,
@@ -18761,14 +18780,15 @@
       "ps4-call-of-duty-advanced-warfare-gold-edition",
       "ps4-call-of-duty-black-ops-4-specialist-edition",
       "ps4-call-of-duty-ghosts-hardened-edition",
-      "ps4-sekiro-shadows-die-twice-collector%27s-edition"
+      "ps4-sekiro-shadows-die-twice-collector%27s-edition",
+      "ps4-spyro-reignited-trilogy-&amp;-crash-bandicoot-n-sane-trilogy",
+      "ps4-crash-team-racing-&amp;-spyro-reignited-trilogy"
     ],
     "gameCount": 519,
     "asPhysicalPublisherOrDistributor": [
       "ps4-cabela%27s-african-adventures",
       "ps4-call-of-duty-black-ops-4-especialista",
       "ps4-call-of-duty-black-ops-iii-zombie-chronicles",
-      "ps4-crash-team-racing-&amp;-spyro-reignited-trilogy",
       "ps4-deadpool-masacre",
       "ps4-destiny-2-forsaken-legendary-collection",
       "ps4-destiny-2-los-renegados",
@@ -18784,11 +18804,12 @@
       "ps4-skylanders-swap-force-starter-pack",
       "ps4-skylanders-trap-team-dark-edition-starter-pack",
       "ps4-snoopy%27s-grand-adventure",
-      "ps4-spyro-reignited-trilogy-&amp;-crash-bandicoot-n-sane-trilogy",
       "ps4-tony-hawk-5",
       "ps4-tony-hawk%27s-pro-skater-1-and-2",
       "ps4-tony-hawk%27s-pro-skater-1-and-2-collector%27s-edition",
-      "ps4-crash-team-rumble-deluxe-edition"
+      "ps4-crash-team-rumble-deluxe-edition",
+      "ps4-spyro-reignited-trilogy-&amp;-crash-bandicoot-n-sane-trilogy",
+      "ps4-crash-team-racing-&amp;-spyro-reignited-trilogy"
     ]
   },
   "square-enix": {
@@ -24295,14 +24316,16 @@
       "ps4-outlast-trinity",
       "ps4-scribblenauts-mega-pack",
       "ps4-scribblenauts-showdown",
-      "ps4-sombras-de-guerra"
+      "ps4-sombras-de-guerra",
+      "ps4-batman-arkham-vr",
+      "ps4-middle-earth-shadow-of-mordor-game-of-the-year"
     ],
     "byPlatform": {
       "3ds": 6,
       "ds": 5,
       "ps2": 4,
       "ps3": 10,
-      "ps4": 75,
+      "ps4": 77,
       "ps5": 1,
       "wii": 23
     },
@@ -24399,9 +24422,11 @@
       "ps4-usa-lego-star-wars-the-skywalker-saga-deluxe-edition",
       "ps2-lego-batman-the-video-game",
       "ps4-usa-hogwarts-legacy",
-      "ps5-hogwarts-legacy-standard"
+      "ps5-hogwarts-legacy-standard",
+      "ps4-batman-arkham-vr",
+      "ps4-middle-earth-shadow-of-mordor-game-of-the-year"
     ],
-    "gameCount": 124,
+    "gameCount": 126,
     "asPhysicalPublisherOrDistributor": [
       "ps4-back-4-blood",
       "ps4-back-4-blood-special-edition",
@@ -24435,7 +24460,9 @@
       "ps4-mortal-kombat-x-steelbook",
       "ps4-mortal-kombat-xl-ultimate-fight-bundle",
       "ps4-outlast-trinity",
-      "ps4-sombras-de-guerra"
+      "ps4-sombras-de-guerra",
+      "ps4-batman-arkham-vr",
+      "ps4-middle-earth-shadow-of-mordor-game-of-the-year"
     ],
     "asDigitalPublisher": [
       "ps4-scribblenauts-mega-pack",
@@ -25520,8 +25547,8 @@
       "ps4-soul-hackers-2-collector%27s-edition",
       "ps4-dragons-crwon-pro",
       "ps4-odin-sphere",
-      "ps4-persona-5-&#43;-persona-5-dancing-the-starlight-day-one-edition-2-hits-pack",
-      "ps4-persona-5-dancing-in-starlight"
+      "ps4-persona-5-dancing-in-starlight",
+      "ps4-persona-5-&#43;-persona-5-dancing-the-starlight-day-one-edition-2-hits-pack"
     ],
     "byPlatform": {
       "3ds": 13,
@@ -25762,14 +25789,15 @@
       "ps4-catherine-full-body-launch-edition",
       "ps4-catherine-full-body-premium-edition",
       "ps4-dragon%27s-crown-pro-battle-hardened-edition",
-      "ps4-odin-sphere-leifthrasir-storybook-edition"
+      "ps4-odin-sphere-leifthrasir-storybook-edition",
+      "ps4-persona-5-&#43;-persona-5-dancing-the-starlight-day-one-edition-2-hits-pack"
     ],
     "gameCount": 174,
     "asPhysicalPublisherOrDistributor": [
       "ps4-dragons-crwon-pro",
       "ps4-odin-sphere",
-      "ps4-persona-5-&#43;-persona-5-dancing-the-starlight-day-one-edition-2-hits-pack",
-      "ps4-persona-5-dancing-in-starlight"
+      "ps4-persona-5-dancing-in-starlight",
+      "ps4-persona-5-&#43;-persona-5-dancing-the-starlight-day-one-edition-2-hits-pack"
     ]
   },
   "data-east": {
@@ -29439,10 +29467,12 @@
       "ps4-speaking-simulator",
       "ps4-spellcaster-university",
       "ps4-swordbreaker",
-      "ps4-train-valley-collection-deluxe-edition"
+      "ps4-train-valley-collection-deluxe-edition",
+      "ps4-jets-%27n%27-guns-2",
+      "ps4-jets%27n%27guns-2"
     ],
     "byPlatform": {
-      "ps4": 126,
+      "ps4": 128,
       "ps5": 13
     },
     "asDeveloper": [
@@ -29570,9 +29600,11 @@
       "ps5-skautfold-moonless-knight",
       "ps5-sonic-wings-reunion",
       "ps5-sonic-wings-reunion-collector-edition",
-      "ps5-suicide-guy-vr-deluxe"
+      "ps5-suicide-guy-vr-deluxe",
+      "ps4-jets-%27n%27-guns-2",
+      "ps4-jets%27n%27guns-2"
     ],
-    "gameCount": 139,
+    "gameCount": 141,
     "asPhysicalPublisherOrDistributor": [
       "ps4-8doors-arum%27s-afterlife-adventure",
       "ps4-acalesia",
@@ -29590,7 +29622,9 @@
       "ps4-speaking-simulator",
       "ps4-spellcaster-university",
       "ps4-swordbreaker",
-      "ps4-train-valley-collection-deluxe-edition"
+      "ps4-train-valley-collection-deluxe-edition",
+      "ps4-jets-%27n%27-guns-2",
+      "ps4-jets%27n%27guns-2"
     ]
   },
   "thq-nordic": {
@@ -29718,10 +29752,11 @@
       "ps4-titan-quest-collector%27s-edition",
       "ps4-we-sing",
       "ps4-we-sing-2-mic-bundle",
-      "ps4-we-sing-pop-2-mic-bundle"
+      "ps4-we-sing-pop-2-mic-bundle",
+      "ps4-star-wars-jedi-knight-collection"
     ],
     "byPlatform": {
-      "ps4": 114,
+      "ps4": 115,
       "ps5": 5,
       "switch2": 2
     },
@@ -29846,7 +29881,7 @@
       "switch2-reanimal-deluxe-edition",
       "ps4-dcl-drone-championship-league-the-game"
     ],
-    "gameCount": 121,
+    "gameCount": 122,
     "asPhysicalPublisherOrDistributor": [
       "ps4-black-mirror",
       "ps4-dcl-the-game",
@@ -29858,7 +29893,8 @@
       "ps4-we-sing-2-mic-bundle",
       "ps4-we-sing-pop",
       "ps4-we-sing-pop-2-mic-bundle",
-      "ps4-dcl-drone-championship-league-the-game"
+      "ps4-dcl-drone-championship-league-the-game",
+      "ps4-star-wars-jedi-knight-collection"
     ]
   },
   "beam-software": {
@@ -31280,7 +31316,6 @@
       "ps4-usa-doom-vfr",
       "ps4-action-pack-doom-vfr-&#43;-doom-3-vr",
       "ps4-usa-fallout-4",
-      "ps4-dishonored-complete-collection",
       "ps4-usa-wolfenstein-the-new-order",
       "ps4-usa-doom-collector%27s-edition",
       "ps4-usa-elder-scrolls-online-morrowind-collector%27s-edition",
@@ -31308,7 +31343,6 @@
       "ps4-the-evil-within-steelbook-edition",
       "ps4-wolfenstein-the-new-order-occupied-edition",
       "ps4-wolfenstein-the-new-order-playstation-hits",
-      "ps4-dishonored-pray-arkane-collection",
       "ps4-doom-anthology-collector%27s-edition",
       "ps4-doom-vfr",
       "ps4-elder-scorlls-online-morrowind",
@@ -31324,16 +31358,19 @@
       "ps4-fallout-4-pipboy-edition",
       "ps4-fallout-76-wastelanders",
       "ps4-the-evil-within-double-feature",
-      "ps4-wolfenstein-alt-history-collection",
       "ps4-wolfenstein-cyberpilot",
       "ps4-wolfenstein-the-new-order-eb-games",
       "ps4-wolfenstein-the-new-order-and-the-old-blood",
-      "ps4-wolfenstein-triple-pack"
+      "ps4-wolfenstein-triple-pack",
+      "ps4-wolfenstein-alt-history-collection",
+      "ps4-dishonored-prey-the-arkane-collection",
+      "ps4-dishonored-complete-collection",
+      "ps4-dishonored-pray-arkane-collection"
     ],
     "byPlatform": {
       "nes": 3,
       "ps3": 7,
-      "ps4": 104,
+      "ps4": 105,
       "wii": 2
     },
     "asDeveloper": [
@@ -31407,7 +31444,6 @@
       "ps4-usa-doom-vfr",
       "ps4-action-pack-doom-vfr-&#43;-doom-3-vr",
       "ps4-usa-fallout-4",
-      "ps4-dishonored-complete-collection",
       "ps4-usa-wolfenstein-the-new-order",
       "ps4-usa-doom-collector%27s-edition",
       "ps4-usa-elder-scrolls-online-morrowind-collector%27s-edition",
@@ -31433,11 +31469,14 @@
       "ps4-the-evil-within-2-steelbook-edition",
       "ps4-the-evil-within-steelbook-edition",
       "ps4-wolfenstein-the-new-order-occupied-edition",
-      "ps4-wolfenstein-the-new-order-playstation-hits"
+      "ps4-wolfenstein-the-new-order-playstation-hits",
+      "ps4-wolfenstein-alt-history-collection",
+      "ps4-dishonored-prey-the-arkane-collection",
+      "ps4-dishonored-complete-collection",
+      "ps4-dishonored-pray-arkane-collection"
     ],
-    "gameCount": 116,
+    "gameCount": 117,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-dishonored-pray-arkane-collection",
       "ps4-doom-anthology-collector%27s-edition",
       "ps4-doom-slayers-collection",
       "ps4-doom-vfr",
@@ -31454,11 +31493,14 @@
       "ps4-fallout-4-pipboy-edition",
       "ps4-fallout-76-wastelanders",
       "ps4-the-evil-within-double-feature",
-      "ps4-wolfenstein-alt-history-collection",
       "ps4-wolfenstein-cyberpilot",
       "ps4-wolfenstein-the-new-order-eb-games",
       "ps4-wolfenstein-the-new-order-and-the-old-blood",
-      "ps4-wolfenstein-triple-pack"
+      "ps4-wolfenstein-triple-pack",
+      "ps4-wolfenstein-alt-history-collection",
+      "ps4-dishonored-prey-the-arkane-collection",
+      "ps4-dishonored-complete-collection",
+      "ps4-dishonored-pray-arkane-collection"
     ]
   },
   "visual-concepts": {
@@ -32240,13 +32282,14 @@
       "ps4-shantae-half-genie-hero-ultimate-edition-collector%27s-edition",
       "ps4-song-of-memories-encore-edition",
       "ps4-under-night-in-birth-exelate-st",
-      "ps4-valthirian-arc-hero-school-story"
+      "ps4-valthirian-arc-hero-school-story",
+      "ps4-adventure-academia-the-fractured-continent"
     ],
     "byPlatform": {
       "ds": 1,
       "ps2": 1,
       "ps3": 4,
-      "ps4": 100,
+      "ps4": 101,
       "ps5": 6,
       "wii": 1
     },
@@ -32347,9 +32390,10 @@
       "ps4-dusk-diver-day-one",
       "ps4-metal-max-xeno-reborn-limited-edition",
       "ps4-our-world-is-ended-day-one-edition",
-      "ps4-root-letter-limited-edition"
+      "ps4-root-letter-limited-edition",
+      "ps4-adventure-academia-the-fractured-continent"
     ],
-    "gameCount": 113,
+    "gameCount": 114,
     "asPhysicalPublisherOrDistributor": [
       "ps4-arcade-spirits-the-new-challengers",
       "ps4-cat-quest-&#43;-cat-quest-ii-pawsome-pack",
@@ -32367,7 +32411,8 @@
       "ps4-pocket-bravery",
       "ps4-shantae-half-genie-hero-ultimate-edition-collector%27s-edition",
       "ps4-song-of-memories-encore-edition",
-      "ps4-valthirian-arc-hero-school-story"
+      "ps4-valthirian-arc-hero-school-story",
+      "ps4-adventure-academia-the-fractured-continent"
     ],
     "asDigitalPublisher": [
       "ps4-guilty-gear-xrd-rev-2",
@@ -34197,7 +34242,6 @@
       "ps4-five-nights-at-freddy%27s-help-wanted",
       "ps4-afterimage-deluxe-edition",
       "ps4-armagallant-decks-of-destiny",
-      "ps4-doctor-who-duo-bundle",
       "ps4-fobia-st-dinfna-hotel",
       "ps4-golf-club",
       "ps4-golf-club-2",
@@ -34208,7 +34252,8 @@
       "ps4-troll-and-i",
       "ps4-wwi-isonzo-italian-front-deluxe-edition",
       "ps4-wwi-tannenberg-eastern-front",
-      "ps4-wwi-verdun-western-front"
+      "ps4-wwi-verdun-western-front",
+      "ps4-doctor-who-duo-bundle"
     ],
     "byPlatform": {
       "ds": 1,
@@ -34318,7 +34363,6 @@
     "asPhysicalPublisherOrDistributor": [
       "ps4-afterimage-deluxe-edition",
       "ps4-armagallant-decks-of-destiny",
-      "ps4-doctor-who-duo-bundle",
       "ps4-fobia-st-dinfna-hotel",
       "ps4-golf-club",
       "ps4-golf-club-2",
@@ -34329,7 +34373,8 @@
       "ps4-troll-and-i",
       "ps4-wwi-isonzo-italian-front-deluxe-edition",
       "ps4-wwi-tannenberg-eastern-front",
-      "ps4-wwi-verdun-western-front"
+      "ps4-wwi-verdun-western-front",
+      "ps4-doctor-who-duo-bundle"
     ]
   },
   "2k-games": {
@@ -34337,7 +34382,6 @@
     "slug": "2k-games",
     "museumPath": "",
     "gameIds": [
-      "ps4-mafia-trilogy",
       "ps4-usa-marvel-midnight-suns",
       "ps4-usa-nba-2k16",
       "wii-fantastic-four-rise-of-the-silver-surfer",
@@ -34422,7 +34466,8 @@
       "ps4-mafia-3",
       "ps4-mafia-edicion-definitiva",
       "ps4-the-golf-club-2019",
-      "ps4-wwe-2k20-smackdown-20th-anniversary-edition"
+      "ps4-wwe-2k20-smackdown-20th-anniversary-edition",
+      "ps4-mafia-trilogy"
     ],
     "byPlatform": {
       "ps2": 2,
@@ -34434,7 +34479,6 @@
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-mafia-trilogy",
       "ps4-usa-marvel-midnight-suns",
       "ps4-usa-nba-2k16",
       "wii-fantastic-four-rise-of-the-silver-surfer",
@@ -34514,7 +34558,8 @@
       "ps5-topspin-2k25",
       "xbox360-spec-ops-the-line",
       "ps4-borderlands-3-deluxe-edition",
-      "ps4-borderlands-3-super-deluxe-edition"
+      "ps4-borderlands-3-super-deluxe-edition",
+      "ps4-mafia-trilogy"
     ],
     "gameCount": 86,
     "asPhysicalPublisherOrDistributor": [
@@ -34522,7 +34567,8 @@
       "ps4-mafia-3",
       "ps4-mafia-edicion-definitiva",
       "ps4-the-golf-club-2019",
-      "ps4-wwe-2k20-smackdown-20th-anniversary-edition"
+      "ps4-wwe-2k20-smackdown-20th-anniversary-edition",
+      "ps4-mafia-trilogy"
     ]
   },
   "ubi-soft": {
@@ -36471,12 +36517,13 @@
       "ps4-neptunia-riders-vs-dogoos-magazine-edition",
       "ps4-code-realize-bouquet-of-rainbows",
       "ps4-code-realize-wintertide-miracles",
-      "ps4-death-end-re;quest-triple-pack"
+      "ps4-death-end-re;quest-triple-pack",
+      "ps4-date-a-live-rio-reincarnation"
     ],
     "byPlatform": {
       "dreamcast": 1,
       "ps3": 3,
-      "ps4": 55
+      "ps4": 56
     },
     "asDeveloper": [
       "ps4-usa-touhou-spell-carnival",
@@ -36488,7 +36535,8 @@
       "ps4-death-end-re;quest-limited-edition",
       "ps4-code-realize-bouquet-of-rainbows",
       "ps4-code-realize-wintertide-miracles",
-      "ps4-death-end-re;quest-triple-pack"
+      "ps4-death-end-re;quest-triple-pack",
+      "ps4-date-a-live-rio-reincarnation"
     ],
     "asPublisher": [
       "ps4-usa-date-a-live-rio-reincarnation-limited-edition",
@@ -36541,7 +36589,7 @@
       "ps4-hyperdimension-neptunia-re;birth3-v-generation",
       "ps4-neptunia-riders-vs-dogoos-magazine-edition"
     ],
-    "gameCount": 59
+    "gameCount": 60
   },
   "jaleco-entertainment": {
     "name": "Jaleco Entertainment",
@@ -37636,7 +37684,8 @@
       "ps1-usa-herc-s-adventures",
       "ps2-usa-star-wars-bounty-hunter",
       "ps2-usa-star-wars-starfighter",
-      "ps3-usa-star-wars-the-force-unleashed-ii"
+      "ps3-usa-star-wars-the-force-unleashed-ii",
+      "ps4-star-wars-jedi-knight-collection"
     ],
     "byPlatform": {
       "3ds": 1,
@@ -37650,7 +37699,7 @@
       "ps1": 4,
       "ps2": 13,
       "ps3": 7,
-      "ps4": 4,
+      "ps4": 5,
       "saturn": 1,
       "snes": 1,
       "wii": 10
@@ -37728,9 +37777,10 @@
       "ps2-mercenaries",
       "wii-thrillville-off-the-rails",
       "ps3-monkey-island-special-edition-collection",
-      "ps2-indiana-jones-and-the-staff-of-kings"
+      "ps2-indiana-jones-and-the-staff-of-kings",
+      "ps4-star-wars-jedi-knight-collection"
     ],
-    "gameCount": 65
+    "gameCount": 66
   },
   "sims": {
     "name": "Sims",
@@ -38518,7 +38568,6 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-bite-the-bullet-collector%27s-edition",
-      "ps4-wonder-boy-anniversary-collection",
       "ps4-umihara-kawase-bazooka",
       "ps4-gundemoniums",
       "ps4-xeno-crisis",
@@ -38591,18 +38640,19 @@
       "ps4-the-journey-down-trilogy",
       "ps4-the-journey-down-trilogy-39-99",
       "ps4-vesper-zero-light-edition-29-99",
-      "ps4-xenocrisis"
+      "ps4-xenocrisis",
+      "ps4-infinite-beyond-the-mind-tanya-edition",
+      "ps4-wonder-boy-anniversary-collection"
     ],
     "byPlatform": {
       "megadrive": 1,
-      "ps4": 71,
+      "ps4": 72,
       "ps5": 2,
       "snes": 1
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps4-usa-bite-the-bullet-collector%27s-edition",
-      "ps4-wonder-boy-anniversary-collection",
       "ps4-umihara-kawase-bazooka",
       "ps4-gundemoniums",
       "ps4-xeno-crisis",
@@ -38664,7 +38714,7 @@
       "ps5-shadow-gambit-the-cursed-crew-complete-edition-deluxe-edition",
       "ps5-shadow-gambit-the-cursed-crew-complete-edition-limited-edition"
     ],
-    "gameCount": 75,
+    "gameCount": 76,
     "asPhysicalPublisherOrDistributor": [
       "ps4-cannon-dancer-osman-collector%27s-edition",
       "ps4-epics-of-hammerwatch-heroes-edition",
@@ -38678,7 +38728,9 @@
       "ps4-the-journey-down-trilogy",
       "ps4-the-journey-down-trilogy-39-99",
       "ps4-vesper-zero-light-edition-29-99",
-      "ps4-xenocrisis"
+      "ps4-xenocrisis",
+      "ps4-infinite-beyond-the-mind-tanya-edition",
+      "ps4-wonder-boy-anniversary-collection"
     ]
   },
   "adk": {
@@ -40319,10 +40371,11 @@
       "ps4-defunct",
       "ps4-nero-nothing-ever-remains-obscure",
       "ps4-omen-of-sorrow-ingles",
-      "ps4-saint-kotar"
+      "ps4-saint-kotar",
+      "ps4-lemon-cake"
     ],
     "byPlatform": {
-      "ps4": 64,
+      "ps4": 65,
       "ps5": 2
     },
     "asDeveloper": [
@@ -40386,9 +40439,10 @@
       "ps4-usa-awesomenauts-assemble",
       "ps5-petit-island",
       "ps5-real-farm-premium-edition",
-      "ps4-8-bit-armies-limited-edition"
+      "ps4-8-bit-armies-limited-edition",
+      "ps4-lemon-cake"
     ],
-    "gameCount": 66,
+    "gameCount": 67,
     "asPhysicalPublisherOrDistributor": [
       "ps4-adam-s-venture-origins",
       "ps4-airoheart",
@@ -40396,7 +40450,11 @@
       "ps4-defunct",
       "ps4-nero-nothing-ever-remains-obscure",
       "ps4-omen-of-sorrow-ingles",
-      "ps4-saint-kotar"
+      "ps4-saint-kotar",
+      "ps4-lemon-cake"
+    ],
+    "aliasNames": [
+      "SOEDESCO"
     ]
   },
   "vic-tokai": {
@@ -40995,7 +41053,6 @@
       "ps4-usa-box-vr",
       "ps4-usa-the-persistence",
       "ps4-apex-construct",
-      "ps4-the-ultimate-vr-collection",
       "ps4-windlands-2",
       "ps4-gravitational",
       "ps4-usa-golem",
@@ -41052,10 +41109,14 @@
       "ps4-coolpaintr-vr",
       "ps4-ghost-giant",
       "ps4-ultimate-vr-collection-by-survios",
-      "ps4-zen-studios-vr-collection"
+      "ps4-zen-studios-vr-collection",
+      "ps4-oxide-room-104",
+      "ps4-quivr",
+      "ps4-the-american-dream",
+      "ps4-the-ultimate-vr-collection"
     ],
     "byPlatform": {
-      "ps4": 57,
+      "ps4": 60,
       "ps5": 7
     },
     "asDeveloper": [],
@@ -41066,7 +41127,6 @@
       "ps4-usa-box-vr",
       "ps4-usa-the-persistence",
       "ps4-apex-construct",
-      "ps4-the-ultimate-vr-collection",
       "ps4-windlands-2",
       "ps4-gravitational",
       "ps4-usa-golem",
@@ -41121,12 +41181,16 @@
       "ps5-underdogs",
       "ps5-wanderer-the-fragments-of-fate"
     ],
-    "gameCount": 64,
+    "gameCount": 67,
     "asPhysicalPublisherOrDistributor": [
       "ps4-coolpaintr-vr",
       "ps4-ghost-giant",
       "ps4-ultimate-vr-collection-by-survios",
-      "ps4-zen-studios-vr-collection"
+      "ps4-zen-studios-vr-collection",
+      "ps4-oxide-room-104",
+      "ps4-quivr",
+      "ps4-the-american-dream",
+      "ps4-the-ultimate-vr-collection"
     ]
   },
   "tose-software": {
@@ -41486,11 +41550,11 @@
       "ps3-usa-hyperdimension-neptunia-mk2",
       "ps3-usa-hyperdimension-neptunia-victory",
       "ps3-usa-mugen-souls",
-      "ps4-date-a-live-rio-reincarnation",
       "ps4-omega-quintet",
       "ps4-usa-omega-quintet",
       "ps4-neptunia-riders-vs-dogoos",
-      "ps4-hyperdimension-neptunia-re;birth-triple-pack"
+      "ps4-hyperdimension-neptunia-re;birth-triple-pack",
+      "ps4-date-a-live-rio-reincarnation"
     ],
     "byPlatform": {
       "3ds": 1,
@@ -41547,11 +41611,11 @@
       "ps3-usa-hyperdimension-neptunia-mk2",
       "ps3-usa-hyperdimension-neptunia-victory",
       "ps3-usa-mugen-souls",
-      "ps4-date-a-live-rio-reincarnation",
       "ps4-omega-quintet",
       "ps4-usa-omega-quintet",
       "ps4-neptunia-riders-vs-dogoos",
-      "ps4-hyperdimension-neptunia-re;birth-triple-pack"
+      "ps4-hyperdimension-neptunia-re;birth-triple-pack",
+      "ps4-date-a-live-rio-reincarnation"
     ],
     "asPublisher": [
       "ps4-fairy-fencer-f-advent-dark-force",
@@ -42902,7 +42966,10 @@
       "ps4-dark-souls-trilogy",
       "ps4-dark-souls-trilogy-collector%27s-edition",
       "ps4-elden-ring-lanzamiento",
-      "ps4-sekiro-goty"
+      "ps4-sekiro-goty",
+      "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition",
+      "ps4-armored-core-vi-fires-of-rubicon-launch-edition",
+      "ps4-dark-souls-ii-scholar-of-the-first-sin-not-for-resale"
     ],
     "byPlatform": {
       "dreamcast": 1,
@@ -42911,7 +42978,7 @@
       "ps1": 4,
       "ps2": 22,
       "ps3": 18,
-      "ps4": 25
+      "ps4": 28
     },
     "asDeveloper": [
       "ps4-sekiro-shadows-die-twice",
@@ -42986,7 +43053,10 @@
       "ps4-dark-souls-trilogy",
       "ps4-dark-souls-trilogy-collector%27s-edition",
       "ps4-elden-ring-lanzamiento",
-      "ps4-sekiro-goty"
+      "ps4-sekiro-goty",
+      "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition",
+      "ps4-armored-core-vi-fires-of-rubicon-launch-edition",
+      "ps4-dark-souls-ii-scholar-of-the-first-sin-not-for-resale"
     ],
     "asPublisher": [
       "ps3-3d-dot-game-heroes",
@@ -43005,7 +43075,11 @@
       "ps3-armored-core-4",
       "ps3-armored-core-for-answer"
     ],
-    "gameCount": 75
+    "gameCount": 78,
+    "aliasNames": [
+      "FromSoftware, Inc.",
+      "From Software"
+    ]
   },
   "spike-chunsoft": {
     "name": "Spike Chunsoft",
@@ -44595,14 +44669,13 @@
       "ps4-senran-kagura-estival-versus-bahonkas-edition",
       "ps4-senran-kagura-estival-versus-festival-edition",
       "ps4-senran-kagura-estival-versus-sports-special",
-      "ps4-school-girl-zombie-hunter",
-      "ps4-senran-kagura-burst-renewal-bountiful-beauties"
+      "ps4-school-girl-zombie-hunter"
     ],
     "byPlatform": {
       "3ds": 2,
       "ps1": 3,
       "ps2": 7,
-      "ps4": 34,
+      "ps4": 33,
       "saturn": 2,
       "wii": 5
     },
@@ -44658,11 +44731,10 @@
       "ps4-senran-kagura-estival-versus-bahonkas-edition",
       "ps4-senran-kagura-estival-versus-festival-edition",
       "ps4-senran-kagura-estival-versus-sports-special",
-      "ps4-school-girl-zombie-hunter",
-      "ps4-senran-kagura-burst-renewal-bountiful-beauties"
+      "ps4-school-girl-zombie-hunter"
     ],
     "asPublisher": [],
-    "gameCount": 53
+    "gameCount": 52
   },
   "tradewest": {
     "name": "Tradewest",
@@ -45865,10 +45937,12 @@
       "ps4-transformers-earthspark-expedition",
       "ps4-transformers-galactic-trials",
       "ps4-trollhunters-defenders-of-arcadia",
-      "ps4-ugly-dolls-an-imperfect-adventure"
+      "ps4-ugly-dolls-an-imperfect-adventure",
+      "ps4-race-with-ryan",
+      "ps4-ryan%27s-rescue-squad"
     ],
     "byPlatform": {
-      "ps4": 78,
+      "ps4": 80,
       "ps5": 9
     },
     "asDeveloper": [
@@ -45923,9 +45997,11 @@
       "ps5-monster-high-skulltimate-secrets",
       "ps5-my-little-pony-misterio-en-los-altos-de-cefiro",
       "ps5-paw-patrol-mundo-dino",
-      "ps5-the-grinch-christmas-adventures-complete-edition"
+      "ps5-the-grinch-christmas-adventures-complete-edition",
+      "ps4-race-with-ryan",
+      "ps4-ryan%27s-rescue-squad"
     ],
-    "gameCount": 87,
+    "gameCount": 89,
     "asPhysicalPublisherOrDistributor": [
       "ps4-baby-shark-sing-and-swim-party",
       "ps4-barbie-horse-trails",
@@ -45964,11 +46040,17 @@
       "ps4-transformers-earthspark-expedition",
       "ps4-transformers-galactic-trials",
       "ps4-trollhunters-defenders-of-arcadia",
-      "ps4-ugly-dolls-an-imperfect-adventure"
+      "ps4-ugly-dolls-an-imperfect-adventure",
+      "ps4-race-with-ryan",
+      "ps4-ryan%27s-rescue-squad"
     ],
     "asDigitalPublisher": [
       "ps4-dragons-dawn-of-new-riders",
       "ps4-race-with-ryan-road-trip-deluxe-edition"
+    ],
+    "aliasNames": [
+      "Outright Games LLC",
+      "OUTRIGHT GAMES LLC"
     ]
   },
   "seta": {
@@ -48495,8 +48577,8 @@
       "ps5-outer-wilds-archaeologist-edition",
       "ps5-scott-pilgrim-ex",
       "ps5-tales-of-the-shire-a-the-lord-of-the-rings-game",
-      "ps4-annapurna-ultimate-collection",
-      "ps4-sea-of-stars"
+      "ps4-sea-of-stars",
+      "ps4-annapurna-ultimate-collection"
     ],
     "byPlatform": {
       "ps4": 34,
@@ -48544,8 +48626,8 @@
     ],
     "gameCount": 39,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-annapurna-ultimate-collection",
-      "ps4-sea-of-stars"
+      "ps4-sea-of-stars",
+      "ps4-annapurna-ultimate-collection"
     ]
   },
   "london-studio": {
@@ -48765,7 +48847,6 @@
       "3ds-sonic-generations",
       "ps4-saint-seiya-soldiers%27-soul",
       "ps4-usa-los-caballeros-del-zodiaco-alma-de-soldados-with-dlc",
-      "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack",
       "ps3-saint-seiya-soldiers-soul-knights-of-the-zodiac",
       "ps3-dragon-ball-z-burst-limit",
       "3ds-sonic-lost-world",
@@ -48789,20 +48870,20 @@
       "ps2-usa-dragon-ball-z-infinite-world",
       "ps3-usa-dragon-ball-xenoverse",
       "ps4-usa-sword-art-online-fatal-bullet",
-      "ps4-the-rumble-fish-2",
       "ps4-dragon-ball-the-breakers-special-edition",
       "ps4-dragon-ball-xenoverse-2-collector%27s-edition",
       "ps4-dragon-ball-xenoverse-playstation-hits",
       "ps4-dragon-ball-xenoverse-trunks%27-travel-edition",
       "ps4-sword-art-online-fatal-bullet-collector%27s-edition",
-      "ps4-sword-art-online-fatal-bullet-complete-edition"
+      "ps4-sword-art-online-fatal-bullet-complete-edition",
+      "ps4-the-rumble-fish-2"
     ],
     "byPlatform": {
       "3ds": 3,
       "ds": 1,
       "ps2": 11,
       "ps3": 6,
-      "ps4": 23
+      "ps4": 22
     },
     "asDeveloper": [
       "ps4-usa-dragon-ball-xenoverse-day-one",
@@ -48818,7 +48899,6 @@
       "3ds-sonic-generations",
       "ps4-saint-seiya-soldiers%27-soul",
       "ps4-usa-los-caballeros-del-zodiaco-alma-de-soldados-with-dlc",
-      "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack",
       "ps3-saint-seiya-soldiers-soul-knights-of-the-zodiac",
       "ps3-dragon-ball-z-burst-limit",
       "3ds-sonic-lost-world",
@@ -48842,16 +48922,16 @@
       "ps2-usa-dragon-ball-z-infinite-world",
       "ps3-usa-dragon-ball-xenoverse",
       "ps4-usa-sword-art-online-fatal-bullet",
-      "ps4-the-rumble-fish-2",
       "ps4-dragon-ball-the-breakers-special-edition",
       "ps4-dragon-ball-xenoverse-2-collector%27s-edition",
       "ps4-dragon-ball-xenoverse-playstation-hits",
       "ps4-dragon-ball-xenoverse-trunks%27-travel-edition",
       "ps4-sword-art-online-fatal-bullet-collector%27s-edition",
-      "ps4-sword-art-online-fatal-bullet-complete-edition"
+      "ps4-sword-art-online-fatal-bullet-complete-edition",
+      "ps4-the-rumble-fish-2"
     ],
     "asPublisher": [],
-    "gameCount": 44
+    "gameCount": 43
   },
   "harmonix": {
     "name": "Harmonix",
@@ -49086,14 +49166,15 @@
       "ps4-ginga-force",
       "ds-bakushow",
       "ps2-growlanser-heritage-of-war",
-      "ps4-kromaia"
+      "ps4-kromaia",
+      "ps4-trailblazers"
     ],
     "byPlatform": {
       "3ds": 5,
       "ds": 7,
       "ps2": 3,
       "ps3": 1,
-      "ps4": 10,
+      "ps4": 11,
       "wii": 6
     },
     "asDeveloper": [
@@ -49130,11 +49211,16 @@
       "ds-luminous-arc-2",
       "ps4-ginga-force",
       "ds-bakushow",
-      "ps2-growlanser-heritage-of-war"
+      "ps2-growlanser-heritage-of-war",
+      "ps4-trailblazers"
     ],
-    "gameCount": 32,
+    "gameCount": 33,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-kromaia"
+      "ps4-kromaia",
+      "ps4-trailblazers"
+    ],
+    "aliasNames": [
+      "Rising Star Games Ltd."
     ]
   },
   "telltale-games": {
@@ -51798,12 +51884,13 @@
       "ps4-persona-5-strikers",
       "ps4-fairy-tail-guild-box",
       "ps4-fatesamurai-remnant",
-      "ps4-fairy-tail-2"
+      "ps4-fairy-tail-2",
+      "ps4-nobunaga%27s-ambition-sphere-of-influence-ascension"
     ],
     "byPlatform": {
       "ps2": 1,
       "ps3": 2,
-      "ps4": 27
+      "ps4": 28
     },
     "asDeveloper": [
       "ps4-usa-fatal-frame-maiden-of-black-water",
@@ -51814,7 +51901,8 @@
       "ps4-usa-romance-of-the-three-kingdoms-xiv",
       "ps4-usa-fatal-frame-mask-of-the-lunar-eclipse",
       "ps4-romance-of-the-three-kingdoms-xiv",
-      "ps4-persona-5-strikers"
+      "ps4-persona-5-strikers",
+      "ps4-nobunaga%27s-ambition-sphere-of-influence-ascension"
     ],
     "asPublisher": [
       "ps3-dynasty-warriors-8",
@@ -51839,13 +51927,17 @@
       "ps4-usa-samurai-warriors-5",
       "ps4-usa-fatal-frame-mask-of-the-lunar-eclipse",
       "ps4-usa-dead-or-alive-5-last-round",
-      "ps2-g1-jockey"
+      "ps2-g1-jockey",
+      "ps4-nobunaga%27s-ambition-sphere-of-influence-ascension"
     ],
-    "gameCount": 30,
+    "gameCount": 31,
     "asPhysicalPublisherOrDistributor": [
       "ps4-fairy-tail-guild-box",
       "ps4-fatesamurai-remnant",
       "ps4-fairy-tail-2"
+    ],
+    "aliasNames": [
+      "Koei Tecmo Games Co., Ltd."
     ]
   },
   "pack-video": {
@@ -53538,13 +53630,12 @@
       "ps4-usa-crazy-chicken-xtreme",
       "ps4-willy-morgan-and-the-curse-of-bone-town",
       "ps4-ancestors-legacy-conqueror%27s-edition",
-      "ps4-dark-thrones-&amp;-witch-hunter-double-pack",
       "ps4-seed-of-life",
       "ps4-strike-force-2-terrorist-hunt",
       "ps4-real-heroes-firefighter"
     ],
     "byPlatform": {
-      "ps4": 29
+      "ps4": 28
     },
     "asDeveloper": [
       "ps4-usa-willy-morgan-and-the-curse-of-bone-town",
@@ -53574,10 +53665,9 @@
       "ps4-usa-daymare-1994-sandcastle-collector%27s-edition",
       "ps4-usa-crazy-chicken-xtreme"
     ],
-    "gameCount": 29,
+    "gameCount": 28,
     "asPhysicalPublisherOrDistributor": [
       "ps4-ancestors-legacy-conqueror%27s-edition",
-      "ps4-dark-thrones-&amp;-witch-hunter-double-pack",
       "ps4-seed-of-life",
       "ps4-strike-force-2-terrorist-hunt",
       "ps4-real-heroes-firefighter"
@@ -53898,13 +53988,14 @@
       "ps3-usa-aegis-of-earth-protonovus-assault",
       "ps3-usa-akiba-s-trip-undead-undressed",
       "ps4-kamiwaza-way-of-the-thief",
-      "ps4-octopath-traveler-2"
+      "ps4-octopath-traveler-2",
+      "ps4-adventure-academia-the-fractured-continent"
     ],
     "byPlatform": {
       "ps1": 4,
       "ps2": 4,
       "ps3": 5,
-      "ps4": 16,
+      "ps4": 17,
       "wii": 1
     },
     "asDeveloper": [
@@ -53937,7 +54028,8 @@
       "ps3-usa-aegis-of-earth-protonovus-assault",
       "ps3-usa-akiba-s-trip-undead-undressed",
       "ps4-kamiwaza-way-of-the-thief",
-      "ps4-octopath-traveler-2"
+      "ps4-octopath-traveler-2",
+      "ps4-adventure-academia-the-fractured-continent"
     ],
     "asPublisher": [
       "ps4-usa-akiba%27s-trip-undead-&amp;-undressed",
@@ -53950,7 +54042,7 @@
       "ps4-akiba%27s-beat",
       "ps4-usa-akiba%27s-beat"
     ],
-    "gameCount": 30
+    "gameCount": 31
   },
   "bit-managers": {
     "name": "Bit Managers",
@@ -58979,7 +59071,6 @@
     "slug": "uig-entertainment",
     "museumPath": "",
     "gameIds": [
-      "ps4-the-giants-industry-and-transport-bundle",
       "ps4-usa-firefighters-airport-fire-department",
       "ps4-firefighters-airport-fire-department",
       "ps4-usa-world-of-simulators",
@@ -58997,12 +59088,15 @@
       "ps3-kick-ass-2",
       "ps4-usa-joe%27s-diner",
       "ps4-mountain-rescue-simulator",
-      "ps4-professional-farmer-american-dream"
+      "ps4-professional-farmer-american-dream",
+      "ps4-the-truth-is-out-there-mystery-adventure-pack",
+      "ps4-world-of-simulators",
+      "ps4-the-truth-is-out-here-mystery-adventure-pack"
     ],
     "byPlatform": {
       "ds": 1,
       "ps3": 1,
-      "ps4": 17
+      "ps4": 19
     },
     "asDeveloper": [
       "ps4-joe%27s-diner",
@@ -59015,7 +59109,6 @@
       "ps4-professional-farmer-american-dream"
     ],
     "asPublisher": [
-      "ps4-the-giants-industry-and-transport-bundle",
       "ps4-usa-firefighters-airport-fire-department",
       "ps4-firefighters-airport-fire-department",
       "ps4-usa-world-of-simulators",
@@ -59030,9 +59123,18 @@
       "ps4-realms-of-arkania-blade-of-destiny",
       "ps4-industry-giant-2",
       "ps4-pineview-drive",
-      "ps3-kick-ass-2"
+      "ps3-kick-ass-2",
+      "ps4-professional-farmer-american-dream",
+      "ps4-the-truth-is-out-there-mystery-adventure-pack",
+      "ps4-world-of-simulators",
+      "ps4-the-truth-is-out-here-mystery-adventure-pack"
     ],
-    "gameCount": 19
+    "gameCount": 21,
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-the-truth-is-out-there-mystery-adventure-pack",
+      "ps4-world-of-simulators",
+      "ps4-the-truth-is-out-here-mystery-adventure-pack"
+    ]
   },
   "wayforward-technologies": {
     "name": "WayForward Technologies",
@@ -59810,12 +59912,13 @@
       "ps1-usa-superbike-2000",
       "ps4-usa-motogp-17",
       "ps4-ride-4",
-      "ps4-monster-jam-showdown"
+      "ps4-monster-jam-showdown",
+      "ps4-ducati-90th-anniversary"
     ],
     "byPlatform": {
       "ps1": 3,
       "ps3": 1,
-      "ps4": 16
+      "ps4": 17
     },
     "asDeveloper": [
       "ps4-motogp-19",
@@ -59836,7 +59939,8 @@
       "ps4-motogp-22",
       "ps1-usa-superbike-2000",
       "ps4-usa-motogp-17",
-      "ps4-ride-4"
+      "ps4-ride-4",
+      "ps4-ducati-90th-anniversary"
     ],
     "asPublisher": [
       "ps4-motogp-19",
@@ -59848,11 +59952,17 @@
       "ps4-usa-hot-wheels-unleashed",
       "ps4-motogp-21",
       "ps4-motogp-20",
-      "ps4-motogp-22"
+      "ps4-motogp-22",
+      "ps4-ducati-90th-anniversary"
     ],
-    "gameCount": 20,
+    "gameCount": 21,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-monster-jam-showdown"
+      "ps4-monster-jam-showdown",
+      "ps4-ducati-90th-anniversary"
+    ],
+    "aliasNames": [
+      "Milestone",
+      "MILESTONE SRL"
     ]
   },
   "paradigm": {
@@ -60163,10 +60273,11 @@
       "ps4-usa-prison-architect",
       "ps4-usa-strange-brigade",
       "ps4-usa-sniper-elite-v2-remastered",
-      "ps4-no-straight-roads-collector%27s-edition"
+      "ps4-no-straight-roads-collector%27s-edition",
+      "ps4-the-occupation"
     ],
     "byPlatform": {
-      "ps4": 17
+      "ps4": 18
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -60188,7 +60299,10 @@
       "ps4-usa-sniper-elite-v2-remastered",
       "ps4-no-straight-roads-collector%27s-edition"
     ],
-    "gameCount": 17
+    "gameCount": 18,
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-the-occupation"
+    ]
   },
   "stormfront-studios": {
     "name": "Stormfront Studios",
@@ -62137,11 +62251,11 @@
       "ps4-beyond-enemy-lines-2-enhanced-edition",
       "ps4-contraptions-collection",
       "ps4-space-hulk",
-      "ps4-terra-trilogy",
-      "ps4-the-truth-is-out-here-mystery-adventure-pack",
-      "ps4-the-truth-is-out-there-mystery-adventure-pack",
       "ps4-vegas-party",
-      "ps4-warhammer-40,000-deathwatch"
+      "ps4-warhammer-40,000-deathwatch",
+      "ps4-classic-racers-elite",
+      "ps4-terra-trilogy",
+      "ps4-dark-thrones-&amp;-witch-hunter-double-pack"
     ],
     "byPlatform": {
       "3ds": 1,
@@ -62176,7 +62290,10 @@
       "ps5-sengoku-dynasty-ultimate-edition",
       "ps5-warplanes-double-pack",
       "ps5-wwi-tannenberg-eastern-front",
-      "ps5-wwi-verdun-western-front"
+      "ps5-wwi-verdun-western-front",
+      "ps4-classic-racers-elite",
+      "ps4-terra-trilogy",
+      "ps4-dark-thrones-&amp;-witch-hunter-double-pack"
     ],
     "gameCount": 33,
     "asPhysicalPublisherOrDistributor": [
@@ -62185,11 +62302,11 @@
       "ps4-beyond-enemy-lines-2-enhanced-edition",
       "ps4-contraptions-collection",
       "ps4-space-hulk",
-      "ps4-terra-trilogy",
-      "ps4-the-truth-is-out-here-mystery-adventure-pack",
-      "ps4-the-truth-is-out-there-mystery-adventure-pack",
       "ps4-vegas-party",
-      "ps4-warhammer-40,000-deathwatch"
+      "ps4-warhammer-40,000-deathwatch",
+      "ps4-classic-racers-elite",
+      "ps4-terra-trilogy",
+      "ps4-dark-thrones-&amp;-witch-hunter-double-pack"
     ]
   },
   "gearbox-publishing": {
@@ -62258,10 +62375,11 @@
       "ps4-usa-a-hat-in-time",
       "ps4-a-hat-in-time",
       "ps4-ghost-song",
-      "ps4-moonscars"
+      "ps4-moonscars",
+      "ps4-the-occupation"
     ],
     "byPlatform": {
-      "ps4": 16
+      "ps4": 17
     },
     "asDeveloper": [
       "ps4-usa-unpacking"
@@ -62279,9 +62397,10 @@
       "ps4-void-bastards",
       "ps4-signalis",
       "ps4-usa-a-hat-in-time",
-      "ps4-a-hat-in-time"
+      "ps4-a-hat-in-time",
+      "ps4-the-occupation"
     ],
-    "gameCount": 16,
+    "gameCount": 17,
     "asPhysicalPublisherOrDistributor": [
       "ps4-ghost-song",
       "ps4-moonscars"
@@ -62411,11 +62530,12 @@
       "ps4-slaps-and-beans-90th-anniversary-edition",
       "ps4-steel-empire-chronicles-39-99",
       "ps4-trouble-witches-final-episode-01-daughters-of-amalgam",
-      "ps4-wonder-boy-collection",
-      "ps4-ion-fury-double-shot-edition"
+      "ps4-ion-fury-double-shot-edition",
+      "ps4-wonder-boy-anniversary-collection",
+      "ps4-wonder-boy-collection"
     ],
     "byPlatform": {
-      "ps4": 34
+      "ps4": 35
     },
     "asDeveloper": [
       "ps4-usa-wonder-boy-asha-in-monster-world",
@@ -62441,9 +62561,11 @@
       "ps4-cotton-reboot-strictly-limited-dx-x68000-edition",
       "ps4-umihara-kawase-bazooka-steelbook-edition",
       "ps4-wonder-boy-asha-in-monster-world-collector%27s-edition",
-      "ps4-wonder-boy-asha-in-monster-world-mega-collector%27s-edition"
+      "ps4-wonder-boy-asha-in-monster-world-mega-collector%27s-edition",
+      "ps4-wonder-boy-anniversary-collection",
+      "ps4-wonder-boy-collection"
     ],
-    "gameCount": 34,
+    "gameCount": 35,
     "asPhysicalPublisherOrDistributor": [
       "ps4-dariusburst-another-chronicle-ex&#43;",
       "ps4-irem-collection-volume-1-limited-edition",
@@ -62456,8 +62578,9 @@
       "ps4-slaps-and-beans-90th-anniversary-edition",
       "ps4-steel-empire-chronicles-39-99",
       "ps4-trouble-witches-final-episode-01-daughters-of-amalgam",
-      "ps4-wonder-boy-collection",
-      "ps4-ion-fury-double-shot-edition"
+      "ps4-ion-fury-double-shot-edition",
+      "ps4-wonder-boy-anniversary-collection",
+      "ps4-wonder-boy-collection"
     ]
   },
   "left-field-productions": {
@@ -63221,17 +63344,18 @@
       "ps4-usa-star-wars-jedi-knight-ii-jedi-outcast",
       "ps4-usa-tomb-raider-i-iii-remastered",
       "ps4-usa-star-wars-episode-1-racer",
-      "ps4-star-wars-jedi-knight-collection",
       "ps4-observer-system-redux-day-one-edition",
       "ps4-star-wars-racer-and-commando-combo",
       "ps4-torn",
       "ps5-legacy-of-kain-soul-reaver-1-y-2-remastered",
       "ps5-tomb-raider-i-ii-iii-remastered",
       "ps5-tomb-raider-iv-vi-remastered-starring-lara-croft",
-      "ps4-usa-tomb-raider-iv-vi-remastered"
+      "ps4-usa-tomb-raider-iv-vi-remastered",
+      "ps4-observer-system-redux",
+      "ps4-star-wars-jedi-knight-collection"
     ],
     "byPlatform": {
-      "ps4": 14,
+      "ps4": 15,
       "ps5": 3
     },
     "asDeveloper": [
@@ -63242,10 +63366,10 @@
       "ps4-usa-star-wars-jedi-knight-jedi-academy",
       "ps4-usa-star-wars-jedi-knight-ii-jedi-outcast",
       "ps4-usa-star-wars-episode-1-racer",
-      "ps4-star-wars-jedi-knight-collection",
       "ps4-star-wars-racer-and-commando-combo",
       "ps4-torn",
-      "ps4-usa-tomb-raider-iv-vi-remastered"
+      "ps4-usa-tomb-raider-iv-vi-remastered",
+      "ps4-star-wars-jedi-knight-collection"
     ],
     "asPublisher": [
       "ps4-tomb-raider-iv-vi-remastered",
@@ -63256,9 +63380,10 @@
       "ps4-torn",
       "ps5-legacy-of-kain-soul-reaver-1-y-2-remastered",
       "ps5-tomb-raider-i-ii-iii-remastered",
-      "ps5-tomb-raider-iv-vi-remastered-starring-lara-croft"
+      "ps5-tomb-raider-iv-vi-remastered-starring-lara-croft",
+      "ps4-observer-system-redux"
     ],
-    "gameCount": 17
+    "gameCount": 18
   },
   "bandai-namco-studios": {
     "name": "Bandai Namco Studios",
@@ -63326,13 +63451,12 @@
       "ps4-usa-elder-scrolls-v-skyrim-dragonborn-bundle",
       "ps4-elder-scrolls-online-greymoor-collector%27s-edition",
       "ps4-usa-fallout-76-wastelanders",
-      "ps4-dishonored-prey-the-arkane-collection",
       "ps4-japon-psycho-break-2",
       "ps4-elder-scrolls-online-tamriel-unlimited-crown-edition",
       "ps4-fallout-76-wastelanders"
     ],
     "byPlatform": {
-      "ps4": 14
+      "ps4": 13
     },
     "asDeveloper": [
       "ps4-usa-elder-scrolls-v-skyrim-anniversary-edition",
@@ -63351,11 +63475,10 @@
       "ps4-usa-elder-scrolls-v-skyrim-dragonborn-bundle",
       "ps4-elder-scrolls-online-greymoor-collector%27s-edition",
       "ps4-usa-fallout-76-wastelanders",
-      "ps4-dishonored-prey-the-arkane-collection",
       "ps4-japon-psycho-break-2",
       "ps4-elder-scrolls-online-tamriel-unlimited-crown-edition"
     ],
-    "gameCount": 14
+    "gameCount": 13
   },
   "broderbund-software": {
     "name": "Broderbund Software",
@@ -64145,12 +64268,13 @@
       "saturn-japon-solo-crisis",
       "dreamcast-usa-evolution-2-far-promise",
       "neogeopocket-pal-evolution-eternal-dungeons",
-      "dreamcast-usa-evolution"
+      "dreamcast-usa-evolution",
+      "ps4-date-a-live-rio-reincarnation"
     ],
     "byPlatform": {
       "dreamcast": 6,
       "neogeopocket": 2,
-      "ps4": 1,
+      "ps4": 2,
       "saturn": 2,
       "snes": 2
     },
@@ -64167,12 +64291,13 @@
       "saturn-japon-solo-crisis",
       "dreamcast-usa-evolution-2-far-promise",
       "neogeopocket-pal-evolution-eternal-dungeons",
-      "dreamcast-usa-evolution"
+      "dreamcast-usa-evolution",
+      "ps4-date-a-live-rio-reincarnation"
     ],
     "asPublisher": [
       "saturn-japon-baroque"
     ],
-    "gameCount": 13
+    "gameCount": 14
   },
   "system-sacom": {
     "name": "System Sacom",
@@ -64247,12 +64372,15 @@
       "ps4-the-knight-witch-deluxe-edition",
       "ps4-worms-battleground-&#43;-worms-wmd",
       "ps4-worms-battlegrounds-&#43;-worms-wmd",
-      "ps4-worms-wmd-all-stars"
+      "ps4-worms-wmd-all-stars",
+      "ps4-blasphemous-coleccionista",
+      "ps4-genesis-alpha-one",
+      "ps4-hokko-life"
     ],
     "byPlatform": {
       "ps1": 5,
       "ps3": 2,
-      "ps4": 15,
+      "ps4": 18,
       "saturn": 3,
       "wii": 2
     },
@@ -64280,9 +64408,12 @@
       "ps4-usa-the-knight-witch-deluxe-edition",
       "ps4-yoku%27s-island-express",
       "ps4-blasphemous-deluxe-edition",
-      "ps4-yooka-laylee"
+      "ps4-yooka-laylee",
+      "ps4-blasphemous-coleccionista",
+      "ps4-genesis-alpha-one",
+      "ps4-hokko-life"
     ],
-    "gameCount": 27,
+    "gameCount": 30,
     "asPhysicalPublisherOrDistributor": [
       "ps4-dredge-deluxe-edition",
       "ps4-killer-frequency",
@@ -64292,7 +64423,14 @@
       "ps4-the-knight-witch-deluxe-edition",
       "ps4-worms-battleground-&#43;-worms-wmd",
       "ps4-worms-battlegrounds-&#43;-worms-wmd",
-      "ps4-worms-wmd-all-stars"
+      "ps4-worms-wmd-all-stars",
+      "ps4-genesis-alpha-one",
+      "ps4-hokko-life"
+    ],
+    "aliasNames": [
+      "Team17 Digital Ltd.",
+      "Team 17 Digital Ltd.",
+      "Team 17"
     ]
   },
   "u-s-gold": {
@@ -67001,8 +67139,8 @@
       "ps4-cyberpunk-2077-day-one",
       "ps4-cyberpunk-2077-with-extras",
       "ps4-cyberpunk-2077-fan-bundle",
-      "ps4-cyberpunk-2077-samurai-pack",
-      "ps4-cyberpunk-2077-edicion-day-one"
+      "ps4-cyberpunk-2077-edicion-day-one",
+      "ps4-cyberpunk-2077-samurai-pack"
     ],
     "byPlatform": {
       "ps4": 17,
@@ -67024,8 +67162,8 @@
       "ps4-cyberpunk-2077-day-one",
       "ps4-cyberpunk-2077-with-extras",
       "ps4-cyberpunk-2077-fan-bundle",
-      "ps4-cyberpunk-2077-samurai-pack",
-      "ps4-cyberpunk-2077-edicion-day-one"
+      "ps4-cyberpunk-2077-edicion-day-one",
+      "ps4-cyberpunk-2077-samurai-pack"
     ],
     "asPublisher": [
       "ps4-the-witcher-3-wild-hunt-expansion-pack-hearts-of-stone",
@@ -68081,12 +68219,13 @@
       "ps4-hyperdimension-neptunia-re;birth3-v-generation",
       "ps4-little-witch-nobeta",
       "ps4-mado-monogatari-fia-and-the-wondrous-academy",
-      "ps4-terminator-2d-no-fate-day-one-edition"
+      "ps4-terminator-2d-no-fate-day-one-edition",
+      "ps4-date-a-live-rio-reincarnation"
     ],
     "byPlatform": {
       "3ds": 1,
       "ps3": 1,
-      "ps4": 13,
+      "ps4": 14,
       "ps5": 2,
       "wii": 3
     },
@@ -68106,9 +68245,10 @@
       "ps4-terminator-resistance",
       "wii-rogue-trooper-quartz-zone-massacre",
       "ps5-terminator-2d-no-fate-standard-edition",
-      "ps5-xeno-crisis"
+      "ps5-xeno-crisis",
+      "ps4-date-a-live-rio-reincarnation"
     ],
-    "gameCount": 20,
+    "gameCount": 21,
     "asDigitalPublisher": [
       "ps4-death-end-re;quest-code-z-day-one-edition",
       "ps4-hyperdimension-neptunia-re;birth2-sisters-generation",
@@ -68118,7 +68258,8 @@
     ],
     "asPhysicalPublisherOrDistributor": [
       "ps4-hyperdimension-neptunia-re;birth-triple-pack",
-      "ps4-terminator-2d-no-fate-day-one-edition"
+      "ps4-terminator-2d-no-fate-day-one-edition",
+      "ps4-date-a-live-rio-reincarnation"
     ]
   },
   "riverhill-soft": {
@@ -68922,8 +69063,6 @@
       "ps4-dishonored-2",
       "ps4-usa-dishonored-2-limited-edition",
       "ps4-dishonored-definitive-edition",
-      "ps4-dishonored-complete-collection",
-      "ps4-dishonored-prey-the-arkane-collection",
       "ps4-usa-prey-steelbook-edition",
       "ps4-usa-dishonored-2-le-royal-protector-bundle",
       "ps4-dishonored-2-collector%27s-edition",
@@ -68934,7 +69073,7 @@
       "ps4-prey-steelbook-edition"
     ],
     "byPlatform": {
-      "ps4": 16
+      "ps4": 14
     },
     "asDeveloper": [
       "ps4-usa-prey",
@@ -68943,8 +69082,6 @@
       "ps4-dishonored-2",
       "ps4-usa-dishonored-2-limited-edition",
       "ps4-dishonored-definitive-edition",
-      "ps4-dishonored-complete-collection",
-      "ps4-dishonored-prey-the-arkane-collection",
       "ps4-usa-prey-steelbook-edition",
       "ps4-usa-dishonored-2-le-royal-protector-bundle",
       "ps4-dishonored-2-collector%27s-edition",
@@ -68955,7 +69092,7 @@
       "ps4-prey-steelbook-edition"
     ],
     "asPublisher": [],
-    "gameCount": 16
+    "gameCount": 14
   },
   "audiogenic-software": {
     "name": "Audiogenic Software",
@@ -70057,13 +70194,14 @@
       "dreamcast-usa-soldier-fortune",
       "ps2-usa-marvel-ultimate-alliance",
       "ps2-usa-x-men-legends",
-      "ps3-usa-wolfenstein"
+      "ps3-usa-wolfenstein",
+      "ps4-star-wars-jedi-knight-collection"
     ],
     "byPlatform": {
       "dreamcast": 2,
       "ps2": 5,
       "ps3": 3,
-      "ps4": 1,
+      "ps4": 2,
       "saturn": 2
     },
     "asDeveloper": [
@@ -70079,10 +70217,11 @@
       "dreamcast-usa-soldier-fortune",
       "ps2-usa-marvel-ultimate-alliance",
       "ps2-usa-x-men-legends",
-      "ps3-usa-wolfenstein"
+      "ps3-usa-wolfenstein",
+      "ps4-star-wars-jedi-knight-collection"
     ],
     "asPublisher": [],
-    "gameCount": 13
+    "gameCount": 14
   },
   "rebellion-developments": {
     "name": "Rebellion Developments",
@@ -70104,12 +70243,13 @@
       "ps4-sniper-elite-4",
       "ps4-sniper-elite-resistance",
       "ps4-zombie-army-trilogy",
-      "ps4-zombie-army-trilogy-survivor-edition"
+      "ps4-zombie-army-trilogy-survivor-edition",
+      "ps4-rogue-trooper-redux"
     ],
     "byPlatform": {
       "ps2": 1,
       "ps3": 2,
-      "ps4": 10,
+      "ps4": 11,
       "wii": 3
     },
     "asDeveloper": [
@@ -70128,7 +70268,8 @@
       "ps4-sniper-elite-4",
       "ps4-sniper-elite-resistance",
       "ps4-zombie-army-trilogy",
-      "ps4-zombie-army-trilogy-survivor-edition"
+      "ps4-zombie-army-trilogy-survivor-edition",
+      "ps4-rogue-trooper-redux"
     ],
     "asPublisher": [
       "ps4-usa-sniper-elite-4-limited-edition",
@@ -70137,7 +70278,7 @@
       "ps4-evil-genius-2",
       "ps4-usa-sniper-elite-4"
     ],
-    "gameCount": 16
+    "gameCount": 17
   },
   "scarab": {
     "name": "Scarab",
@@ -72345,10 +72486,11 @@
       "ps4-the-last-spell",
       "ps4-metal-slug-tactics",
       "ps4-last-blade-2",
-      "ps4-last-blade-2-collector%27s-edition"
+      "ps4-last-blade-2-collector%27s-edition",
+      "ps4-young-souls-collector%27s-edition"
     ],
     "byPlatform": {
-      "ps4": 11
+      "ps4": 12
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -72362,10 +72504,15 @@
       "ps4-the-last-spell",
       "ps4-metal-slug-tactics"
     ],
-    "gameCount": 11,
+    "gameCount": 12,
     "asPhysicalPublisherOrDistributor": [
       "ps4-last-blade-2",
-      "ps4-last-blade-2-collector%27s-edition"
+      "ps4-last-blade-2-collector%27s-edition",
+      "ps4-young-souls-collector%27s-edition"
+    ],
+    "aliasNames": [
+      "Pix’n Love",
+      "Pix 'n Love"
     ]
   },
   "quintet": {
@@ -73645,10 +73792,11 @@
       "ps4-usa-observer",
       "ps4-usa-crawl",
       "ps4-observer-system-redux-day-one-edition",
-      "switch2-cronos-the-new-dawn"
+      "switch2-cronos-the-new-dawn",
+      "ps4-observer-system-redux"
     ],
     "byPlatform": {
-      "ps4": 8,
+      "ps4": 9,
       "switch2": 1
     },
     "asDeveloper": [
@@ -73659,14 +73807,15 @@
       "ps4-usa-observer-system-redux",
       "ps4-usa-observer",
       "ps4-usa-crawl",
-      "ps4-observer-system-redux-day-one-edition"
+      "ps4-observer-system-redux-day-one-edition",
+      "ps4-observer-system-redux"
     ],
     "asPublisher": [
       "ps4-usa-observer-system-redux",
       "ps4-usa-crawl",
       "switch2-cronos-the-new-dawn"
     ],
-    "gameCount": 9
+    "gameCount": 10
   },
   "bmg-japan": {
     "name": "BMG Japan",
@@ -74877,9 +75026,9 @@
       "ps4-batman-arkham-knight-game-of-the-year-edition",
       "ps4-batman-arkham-knight-playstation-hits",
       "ps4-batman-arkham-knight-special-edition",
-      "ps4-batman-arkham-vr",
       "ps4-batman-arkham-asylum-comic-edition",
-      "ps4-batman-arkham-collection-steel-book"
+      "ps4-batman-arkham-collection-steel-book",
+      "ps4-batman-arkham-vr"
     ],
     "byPlatform": {
       "ps2": 2,
@@ -74903,9 +75052,9 @@
       "ps4-batman-arkham-knight-game-of-the-year-edition",
       "ps4-batman-arkham-knight-playstation-hits",
       "ps4-batman-arkham-knight-special-edition",
-      "ps4-batman-arkham-vr",
       "ps4-batman-arkham-asylum-comic-edition",
-      "ps4-batman-arkham-collection-steel-book"
+      "ps4-batman-arkham-collection-steel-book",
+      "ps4-batman-arkham-vr"
     ],
     "asPublisher": [],
     "gameCount": 19
@@ -75119,10 +75268,13 @@
       "ps4-ak-xolotl",
       "ps4-ankora-lost-days-&amp;-deiland-pocket-planet",
       "ps4-chronicles-of-2-heroes-amaterasu%27s-wrath-collector%27s-edition",
-      "ps4-zapling-bygone-deluxe-edition"
+      "ps4-zapling-bygone-deluxe-edition",
+      "ps4-gylt-collector%27s-edition",
+      "ps4-koa-and-the-five-pirates-of-mara",
+      "ps4-unmetal"
     ],
     "byPlatform": {
-      "ps4": 12,
+      "ps4": 15,
       "ps5": 24,
       "switch2": 2
     },
@@ -75163,12 +75315,15 @@
       "switch2-outbound",
       "switch2-outbound-collector-s-edition"
     ],
-    "gameCount": 38,
+    "gameCount": 41,
     "asPhysicalPublisherOrDistributor": [
       "ps4-ak-xolotl",
       "ps4-ankora-lost-days-&amp;-deiland-pocket-planet",
       "ps4-chronicles-of-2-heroes-amaterasu%27s-wrath-collector%27s-edition",
-      "ps4-zapling-bygone-deluxe-edition"
+      "ps4-zapling-bygone-deluxe-edition",
+      "ps4-gylt-collector%27s-edition",
+      "ps4-koa-and-the-five-pirates-of-mara",
+      "ps4-unmetal"
     ]
   },
   "tgl": {
@@ -76337,7 +76492,6 @@
     "slug": "hangar-13",
     "museumPath": "",
     "gameIds": [
-      "ps4-mafia-trilogy",
       "ps4-usa-mafia-iii-collector%27s-edition",
       "ps4-mafia-definitive-edition",
       "ps4-usa-mafia-definitive-edition",
@@ -76348,10 +76502,9 @@
       "ps4-mafia-edicion-definitiva"
     ],
     "byPlatform": {
-      "ps4": 9
+      "ps4": 8
     },
     "asDeveloper": [
-      "ps4-mafia-trilogy",
       "ps4-usa-mafia-iii-collector%27s-edition",
       "ps4-mafia-definitive-edition",
       "ps4-usa-mafia-definitive-edition",
@@ -76362,7 +76515,7 @@
       "ps4-mafia-edicion-definitiva"
     ],
     "asPublisher": [],
-    "gameCount": 9
+    "gameCount": 8
   },
   "hertz": {
     "name": "Hertz",
@@ -77470,10 +77623,11 @@
       "ps4-usa-sexy-brutale",
       "ps4-usa-rime",
       "ps4-gylt",
-      "ps4-rime-collector%27s-edition"
+      "ps4-rime-collector%27s-edition",
+      "ps4-gylt-collector%27s-edition"
     ],
     "byPlatform": {
-      "ps4": 8
+      "ps4": 9
     },
     "asDeveloper": [
       "ps4-rime",
@@ -77481,13 +77635,15 @@
       "ps4-the-invisible-hours",
       "ps4-usa-rime",
       "ps4-gylt",
-      "ps4-rime-collector%27s-edition"
+      "ps4-rime-collector%27s-edition",
+      "ps4-gylt-collector%27s-edition"
     ],
     "asPublisher": [
       "ps4-usa-the-sexy-brutale-full-house-edition",
-      "ps4-usa-sexy-brutale"
+      "ps4-usa-sexy-brutale",
+      "ps4-gylt-collector%27s-edition"
     ],
-    "gameCount": 8
+    "gameCount": 9
   },
   "tonkin-house": {
     "name": "Tonkin House",
@@ -77784,10 +77940,11 @@
       "ps4-minecraft-story-mode-season-two",
       "ps4-usa-minecraft-story-mode-season-two",
       "ps4-japon-the-rumble-fish-2-collector%27s-edition",
-      "ps4-japon-astria-ascending"
+      "ps4-japon-astria-ascending",
+      "ps4-the-rumble-fish-2"
     ],
     "byPlatform": {
-      "ps4": 6
+      "ps4": 7
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -77796,9 +77953,13 @@
       "ps4-minecraft-story-mode-season-two",
       "ps4-usa-minecraft-story-mode-season-two",
       "ps4-japon-the-rumble-fish-2-collector%27s-edition",
-      "ps4-japon-astria-ascending"
+      "ps4-japon-astria-ascending",
+      "ps4-the-rumble-fish-2"
     ],
-    "gameCount": 6
+    "gameCount": 7,
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-the-rumble-fish-2"
+    ]
   },
   "4a-games": {
     "name": "4A Games",
@@ -79060,10 +79221,11 @@
       "ps4-senran-kagura-burst-renewal",
       "ps4-usa-kandagawa-jet-girls",
       "ps4-japon-kandagawa-jet-girls-dx-jet-pack",
-      "ps4-japon-senran-kagura-burst-renewal"
+      "ps4-japon-senran-kagura-burst-renewal",
+      "ps4-senran-kagura-burst-renewal-bountiful-beauties"
     ],
     "byPlatform": {
-      "ps4": 6
+      "ps4": 7
     },
     "asDeveloper": [
       "ps4-japon-kandagawa-jet-girls",
@@ -79071,10 +79233,14 @@
       "ps4-senran-kagura-burst-renewal",
       "ps4-usa-kandagawa-jet-girls",
       "ps4-japon-kandagawa-jet-girls-dx-jet-pack",
-      "ps4-japon-senran-kagura-burst-renewal"
+      "ps4-japon-senran-kagura-burst-renewal",
+      "ps4-senran-kagura-burst-renewal-bountiful-beauties"
     ],
     "asPublisher": [],
-    "gameCount": 6
+    "gameCount": 7,
+    "aliasNames": [
+      "HONEY∞PARADE GAMES, Inc."
+    ]
   },
   "incredible-technologies": {
     "name": "Incredible Technologies",
@@ -79144,12 +79310,13 @@
       "ds-youda-safari",
       "ps4-boerderij-leven",
       "ps4-winter-sports-games",
-      "ps4-harvest-life"
+      "ps4-harvest-life",
+      "ps4-dracula-s-legacy"
     ],
     "byPlatform": {
       "3ds": 3,
       "ds": 3,
-      "ps4": 3
+      "ps4": 4
     },
     "asDeveloper": [
       "3ds-garden-scapes",
@@ -79160,11 +79327,13 @@
       "ps4-boerderij-leven"
     ],
     "asPublisher": [
-      "3ds-mahjong-3d"
+      "3ds-mahjong-3d",
+      "ps4-dracula-s-legacy"
     ],
-    "gameCount": 9,
+    "gameCount": 10,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-winter-sports-games"
+      "ps4-winter-sports-games",
+      "ps4-dracula-s-legacy"
     ],
     "asDigitalPublisher": [
       "ps4-harvest-life"
@@ -79626,8 +79795,8 @@
       "ps4-middle-earth-shadow-of-war-mithril-edition",
       "ps4-middle-earth-shadow-of-war-silver-edition",
       "ps4-middle-earth-shadow-of-war-special-edition",
-      "ps4-middle-earth-shadow-of-mordor-game-of-the-year",
-      "ps4-sombras-de-guerra"
+      "ps4-sombras-de-guerra",
+      "ps4-middle-earth-shadow-of-mordor-game-of-the-year"
     ],
     "byPlatform": {
       "ps3": 2,
@@ -79645,8 +79814,8 @@
       "ps4-middle-earth-shadow-of-war-mithril-edition",
       "ps4-middle-earth-shadow-of-war-silver-edition",
       "ps4-middle-earth-shadow-of-war-special-edition",
-      "ps4-middle-earth-shadow-of-mordor-game-of-the-year",
-      "ps4-sombras-de-guerra"
+      "ps4-sombras-de-guerra",
+      "ps4-middle-earth-shadow-of-mordor-game-of-the-year"
     ],
     "asPublisher": [],
     "gameCount": 13
@@ -79942,11 +80111,13 @@
       "ps4-wallachia-reign-of-dracula",
       "ps4-demons-of-asteborg",
       "3ds-andro-dunos-ii",
-      "ps4-tanuki-justice"
+      "ps4-tanuki-justice",
+      "ps4-okinawa-rush-black-mantis-edition",
+      "ps4-okinawa-rush-limited-edition"
     ],
     "byPlatform": {
       "3ds": 1,
-      "ps4": 5
+      "ps4": 7
     },
     "asDeveloper": [
       "ps4-wallachia-reign-of-dracula"
@@ -79959,7 +80130,11 @@
       "3ds-andro-dunos-ii",
       "ps4-tanuki-justice"
     ],
-    "gameCount": 6
+    "gameCount": 8,
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-okinawa-rush-black-mantis-edition",
+      "ps4-okinawa-rush-limited-edition"
+    ]
   },
   "playstation-studios": {
     "name": "PlayStation Studios",
@@ -85571,11 +85746,10 @@
       "ps4-road-maintenance-simulator",
       "ps4-tram-sim-console-edition-deluxe-edition",
       "ps4-truck-&amp;-logistics-simulator",
-      "ps4-world-of-simulators",
       "ps4-autobahn-police-sim-3-complete-edition"
     ],
     "byPlatform": {
-      "ps4": 12
+      "ps4": 11
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -85584,7 +85758,7 @@
       "ps4-alpine-the-simulation-game",
       "ps4-autobahn-police-simulator-2"
     ],
-    "gameCount": 12,
+    "gameCount": 11,
     "asPhysicalPublisherOrDistributor": [
       "ps4-autobahn-police-simulator-3",
       "ps4-emergency-call-the-attack-squad",
@@ -85592,7 +85766,6 @@
       "ps4-road-maintenance-simulator",
       "ps4-tram-sim-console-edition-deluxe-edition",
       "ps4-truck-&amp;-logistics-simulator",
-      "ps4-world-of-simulators",
       "ps4-autobahn-police-sim-3-complete-edition"
     ]
   },
@@ -85755,10 +85928,11 @@
       "ps4-usa-stray",
       "ps4-sayonara-wild-hearts",
       "ps4-usa-stray-iam8bit-exclusive-edition",
-      "ps4-usa-kentucky-route-zero"
+      "ps4-usa-kentucky-route-zero",
+      "ps4-annapurna-ultimate-collection"
     ],
     "byPlatform": {
-      "ps4": 4
+      "ps4": 5
     },
     "asDeveloper": [
       "ps4-usa-kentucky-route-zero"
@@ -85766,9 +85940,10 @@
     "asPublisher": [
       "ps4-usa-stray",
       "ps4-sayonara-wild-hearts",
-      "ps4-usa-stray-iam8bit-exclusive-edition"
+      "ps4-usa-stray-iam8bit-exclusive-edition",
+      "ps4-annapurna-ultimate-collection"
     ],
-    "gameCount": 4
+    "gameCount": 5
   },
   "aquiris-game-studio": {
     "name": "Aquiris Game Studio",
@@ -89365,10 +89540,11 @@
       "ps5-ziggurat-ii",
       "ps4-masterchef-el-videojuego-oficial",
       "ps4-minabo-a-walk-through-life-day-one-edition",
-      "ps4-tadeo-jones-la-tabla-esmeralda"
+      "ps4-tadeo-jones-la-tabla-esmeralda",
+      "ps4-blasphemous-coleccionista"
     ],
     "byPlatform": {
-      "ps4": 7,
+      "ps4": 8,
       "ps5": 11
     },
     "asDeveloper": [
@@ -89393,11 +89569,12 @@
       "ps4-masterchef-el-videojuego-oficial",
       "ps4-minabo-a-walk-through-life-day-one-edition"
     ],
-    "gameCount": 18,
+    "gameCount": 19,
     "asPhysicalPublisherOrDistributor": [
       "ps4-tadeo-jones-la-tabla-esmeralda",
       "ps4-minabo-a-walk-through-life-day-one-edition",
-      "ps4-masterchef-el-videojuego-oficial"
+      "ps4-masterchef-el-videojuego-oficial",
+      "ps4-blasphemous-coleccionista"
     ]
   },
   "sensory-sweep-studios": {
@@ -91536,20 +91713,25 @@
     "gameIds": [
       "ps2-under-the-skin",
       "ps3-super-street-fighter-iv",
-      "ps4-dragon%27s-dogma-dark-arisen"
+      "ps4-dragon%27s-dogma-dark-arisen",
+      "ps4-ghost-trick-phantom-detective"
     ],
     "byPlatform": {
       "ps2": 1,
       "ps3": 1,
-      "ps4": 1
+      "ps4": 2
     },
     "asDeveloper": [],
     "asPublisher": [
       "ps2-under-the-skin",
       "ps3-super-street-fighter-iv",
-      "ps4-dragon%27s-dogma-dark-arisen"
+      "ps4-dragon%27s-dogma-dark-arisen",
+      "ps4-ghost-trick-phantom-detective"
     ],
-    "gameCount": 3
+    "gameCount": 4,
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-ghost-trick-phantom-detective"
+    ]
   },
   "chaosmonger-studio": {
     "name": "Chaosmonger Studio",
@@ -93395,23 +93577,21 @@
       "ps4-moorhuhn-kart-2",
       "ps4-crazy-chicken-kart-2",
       "ps4-usa-crazy-chicken-xtreme",
-      "ps4-memorrha",
       "ps4-my-life-riding-stables-3",
       "ps4-ravensburger-labyrinth"
     ],
     "byPlatform": {
-      "ps4": 6
+      "ps4": 5
     },
     "asDeveloper": [
       "ps4-moorhuhn-kart-2",
       "ps4-crazy-chicken-kart-2",
       "ps4-usa-crazy-chicken-xtreme",
-      "ps4-memorrha",
       "ps4-my-life-riding-stables-3",
       "ps4-ravensburger-labyrinth"
     ],
     "asPublisher": [],
-    "gameCount": 6
+    "gameCount": 5
   },
   "lab-zero": {
     "name": "Lab Zero",
@@ -95671,7 +95851,9 @@
       "ps4-usa-roombo-first-blood",
       "ps4-the-american-dream"
     ],
-    "asPublisher": [],
+    "asPublisher": [
+      "ps4-the-american-dream"
+    ],
     "gameCount": 4
   },
   "sce-cambridge-studio": {
@@ -96984,10 +97166,11 @@
       "ps4-superepic-the-entertainment-war-badge-edition",
       "ps4-superepic-the-entertainment-war-special-limited-edition",
       "ps4-treasures-of-the-aegean-collector%27s-edition",
-      "ps4-superepic-badge-edition"
+      "ps4-superepic-badge-edition",
+      "ps4-koa-and-the-five-pirates-of-mara"
     ],
     "byPlatform": {
-      "ps4": 8
+      "ps4": 9
     },
     "asDeveloper": [
       "ps4-usa-superepic-the-entertainment-war",
@@ -96997,10 +97180,11 @@
       "ps4-superepic-the-entertainment-war-badge-edition",
       "ps4-superepic-the-entertainment-war-special-limited-edition",
       "ps4-treasures-of-the-aegean-collector%27s-edition",
-      "ps4-superepic-badge-edition"
+      "ps4-superepic-badge-edition",
+      "ps4-koa-and-the-five-pirates-of-mara"
     ],
     "asPublisher": [],
-    "gameCount": 8
+    "gameCount": 9
   },
   "valcon-games": {
     "name": "Valcon Games",
@@ -97028,23 +97212,20 @@
     "museumPath": "/desarrolladoras-de-software/various",
     "gameIds": [
       "gamecube-2-games-in-1-the-incredibles-&#43;-finding-nemo",
-      "ps4-the-ultimate-vr-collection",
       "nes-maxi-15-pack",
       "nes-pal-eu-maxi-15-pack"
     ],
     "byPlatform": {
       "gamecube": 1,
-      "nes": 2,
-      "ps4": 1
+      "nes": 2
     },
     "asDeveloper": [
       "gamecube-2-games-in-1-the-incredibles-&#43;-finding-nemo",
-      "ps4-the-ultimate-vr-collection",
       "nes-maxi-15-pack",
       "nes-pal-eu-maxi-15-pack"
     ],
     "asPublisher": [],
-    "gameCount": 4
+    "gameCount": 3
   },
   "vatical-entertainment": {
     "name": "Vatical Entertainment",
@@ -97172,20 +97353,24 @@
       "ps4-clockwork-aquario",
       "ps4-usa-clockwork-aquario",
       "megadrive-pal-wonder-boy-iii-monster-lair",
-      "ps4-japon-clockwork-aquario"
+      "ps4-japon-clockwork-aquario",
+      "ps4-wonder-boy-anniversary-collection",
+      "ps4-wonder-boy-collection"
     ],
     "byPlatform": {
       "megadrive": 1,
-      "ps4": 3
+      "ps4": 5
     },
     "asDeveloper": [
       "ps4-clockwork-aquario",
       "ps4-usa-clockwork-aquario",
       "megadrive-pal-wonder-boy-iii-monster-lair",
-      "ps4-japon-clockwork-aquario"
+      "ps4-japon-clockwork-aquario",
+      "ps4-wonder-boy-anniversary-collection",
+      "ps4-wonder-boy-collection"
     ],
     "asPublisher": [],
-    "gameCount": 4
+    "gameCount": 6
   },
   "white-owls": {
     "name": "White Owls",
@@ -98863,19 +99048,22 @@
     "slug": "bliss-brain",
     "museumPath": "",
     "gameIds": [
-      "ps4-wonder-boy-anniversary-collection",
       "ps4-usa-wonder-boy-collection",
+      "ps4-wonder-boy-anniversary-collection",
       "ps4-wonder-boy-collection"
     ],
     "byPlatform": {
       "ps4": 3
     },
     "asDeveloper": [
-      "ps4-wonder-boy-anniversary-collection",
       "ps4-usa-wonder-boy-collection",
+      "ps4-wonder-boy-anniversary-collection",
       "ps4-wonder-boy-collection"
     ],
-    "asPublisher": [],
+    "asPublisher": [
+      "ps4-wonder-boy-anniversary-collection",
+      "ps4-wonder-boy-collection"
+    ],
     "gameCount": 3
   },
   "blizzard": {
@@ -101319,9 +101507,9 @@
       "ps4-usa-air-conflicts-double-pack",
       "ps4-air-conflicts-double-pack",
       "ps4-air-conflicts-pacific-carriers",
-      "ps4-air-conflicts-secret-wars",
       "ps4-shadows-awakening",
-      "ps4-vikings-wolves-of-midgard"
+      "ps4-vikings-wolves-of-midgard",
+      "ps4-air-conflicts-secret-wars"
     ],
     "byPlatform": {
       "ps4": 6
@@ -101330,9 +101518,9 @@
       "ps4-usa-air-conflicts-double-pack",
       "ps4-air-conflicts-double-pack",
       "ps4-air-conflicts-pacific-carriers",
-      "ps4-air-conflicts-secret-wars",
       "ps4-shadows-awakening",
-      "ps4-vikings-wolves-of-midgard"
+      "ps4-vikings-wolves-of-midgard",
+      "ps4-air-conflicts-secret-wars"
     ],
     "asPublisher": [],
     "gameCount": 6
@@ -102112,18 +102300,20 @@
     "museumPath": "",
     "gameIds": [
       "ps4-japon-dogfighter-world-war-2",
-      "ps4-gungrave-gore"
+      "ps4-gungrave-gore",
+      "ps4-gungrave-vr"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 3
     },
     "asDeveloper": [
-      "ps4-gungrave-gore"
+      "ps4-gungrave-gore",
+      "ps4-gungrave-vr"
     ],
     "asPublisher": [
       "ps4-japon-dogfighter-world-war-2"
     ],
-    "gameCount": 2
+    "gameCount": 3
   },
   "illusion-softworks": {
     "name": "Illusion Softworks",
@@ -102690,20 +102880,28 @@
       "ps4-usa-regions-of-ruin",
       "ps4-sword-of-the-necromancer",
       "ps4-sword-of-the-necromancer-ultra-collector%27s-edition",
-      "ps4-astronite"
+      "ps4-astronite",
+      "ps4-indiecalypse"
     ],
     "byPlatform": {
-      "ps4": 4
+      "ps4": 5
     },
-    "asDeveloper": [],
+    "asDeveloper": [
+      "ps4-indiecalypse"
+    ],
     "asPublisher": [
       "ps4-usa-regions-of-ruin",
       "ps4-sword-of-the-necromancer",
-      "ps4-sword-of-the-necromancer-ultra-collector%27s-edition"
+      "ps4-sword-of-the-necromancer-ultra-collector%27s-edition",
+      "ps4-indiecalypse"
     ],
-    "gameCount": 4,
+    "gameCount": 5,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-astronite"
+      "ps4-astronite",
+      "ps4-indiecalypse"
+    ],
+    "aliasNames": [
+      "JanduSoft S.L."
     ]
   },
   "jester": {
@@ -103600,20 +103798,23 @@
       "ps4-usa-angry-alligator",
       "ps4-usa-speed-3-grand-prix",
       "ps4-slide-stars",
-      "ps4-super-street-the-game"
+      "ps4-super-street-the-game",
+      "ps4-mickey-storm-and-the-cursed-mask"
     ],
     "byPlatform": {
-      "ps4": 4
+      "ps4": 5
     },
     "asDeveloper": [
       "ps4-usa-angry-alligator"
     ],
     "asPublisher": [
-      "ps4-usa-speed-3-grand-prix"
+      "ps4-usa-speed-3-grand-prix",
+      "ps4-mickey-storm-and-the-cursed-mask"
     ],
-    "gameCount": 4,
+    "gameCount": 5,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-slide-stars"
+      "ps4-slide-stars",
+      "ps4-mickey-storm-and-the-cursed-mask"
     ],
     "asDigitalPublisher": [
       "ps4-super-street-the-game"
@@ -103721,18 +103922,16 @@
     "slug": "lucasfilm-games-thq-nordic",
     "museumPath": "",
     "gameIds": [
-      "ps4-star-wars-jedi-knight-collection",
       "ps4-star-wars-racer-and-commando-combo"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 1
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-star-wars-jedi-knight-collection",
       "ps4-star-wars-racer-and-commando-combo"
     ],
-    "gameCount": 2
+    "gameCount": 1
   },
   "m-two": {
     "name": "M-Two",
@@ -108274,19 +108473,23 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-dark-devotion-devoted-bundle",
-      "ps4-the-last-spell"
+      "ps4-the-last-spell",
+      "ps4-young-souls-collector%27s-edition",
+      "ps4-young-souls-deluxe-edition"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 4
     },
     "asDeveloper": [
       "ps4-usa-dark-devotion-devoted-bundle",
       "ps4-the-last-spell"
     ],
     "asPublisher": [
-      "ps4-usa-dark-devotion-devoted-bundle"
+      "ps4-usa-dark-devotion-devoted-bundle",
+      "ps4-young-souls-collector%27s-edition",
+      "ps4-young-souls-deluxe-edition"
     ],
-    "gameCount": 2
+    "gameCount": 4
   },
   "the-bitmap-brothers": {
     "name": "The Bitmap Brothers",
@@ -110074,18 +110277,22 @@
     "gameIds": [
       "ps4-young-souls",
       "ps4-japon-young-souls",
-      "ps4-usa-young-souls"
+      "ps4-usa-young-souls",
+      "ps4-young-souls-collector%27s-edition",
+      "ps4-young-souls-deluxe-edition"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 5
     },
     "asDeveloper": [
       "ps4-young-souls",
       "ps4-japon-young-souls",
-      "ps4-usa-young-souls"
+      "ps4-usa-young-souls",
+      "ps4-young-souls-collector%27s-edition",
+      "ps4-young-souls-deluxe-edition"
     ],
     "asPublisher": [],
-    "gameCount": 3
+    "gameCount": 5
   },
   "2-ton-studios": {
     "name": "2 Ton Studios",
@@ -110297,17 +110504,23 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-all-star-fruit-racing",
-      "ps4-hot-wheels-monster-trucks-stunt-mayhem"
+      "ps4-hot-wheels-monster-trucks-stunt-mayhem",
+      "ps4-race-with-ryan"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 3
     },
     "asDeveloper": [
       "ps4-usa-all-star-fruit-racing",
-      "ps4-hot-wheels-monster-trucks-stunt-mayhem"
+      "ps4-hot-wheels-monster-trucks-stunt-mayhem",
+      "ps4-race-with-ryan"
     ],
     "asPublisher": [],
-    "gameCount": 2
+    "gameCount": 3,
+    "aliasNames": [
+      "3D Clouds",
+      "3DClouds S.r.l."
+    ]
   },
   "3do-games": {
     "name": "3DO Games",
@@ -113865,16 +114078,22 @@
     "slug": "blowfish-studios",
     "museumPath": "",
     "gameIds": [
-      "ps4-obey-me"
+      "ps4-obey-me",
+      "ps4-infinite-beyond-the-mind-tanya-edition"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 2
     },
     "asDeveloper": [
       "ps4-obey-me"
     ],
-    "asPublisher": [],
-    "gameCount": 1
+    "asPublisher": [
+      "ps4-infinite-beyond-the-mind-tanya-edition"
+    ],
+    "gameCount": 2,
+    "aliasNames": [
+      "Blowfish Studios Pty Ltd"
+    ]
   },
   "blowfish-studios-amp-green-man-gaming": {
     "name": "Blowfish Studios & Green man gaming",
@@ -115433,18 +115652,16 @@
     "slug": "clear-stage-studios",
     "museumPath": "",
     "gameIds": [
-      "ps4-usa-ryan%27s-rescue-squad",
-      "ps4-ryan%27s-rescue-squad"
+      "ps4-usa-ryan%27s-rescue-squad"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 1
     },
     "asDeveloper": [
-      "ps4-usa-ryan%27s-rescue-squad",
-      "ps4-ryan%27s-rescue-squad"
+      "ps4-usa-ryan%27s-rescue-squad"
     ],
     "asPublisher": [],
-    "gameCount": 2
+    "gameCount": 1
   },
   "clear-water-games": {
     "name": "Clear Water Games",
@@ -116956,18 +117173,16 @@
     "slug": "dark-computer-entertainment-limited",
     "museumPath": "",
     "gameIds": [
-      "ps4-usa-terra-trilogy",
-      "ps4-terra-trilogy"
+      "ps4-usa-terra-trilogy"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 1
     },
     "asDeveloper": [
-      "ps4-usa-terra-trilogy",
-      "ps4-terra-trilogy"
+      "ps4-usa-terra-trilogy"
     ],
     "asPublisher": [],
-    "gameCount": 2
+    "gameCount": 1
   },
   "dark-energy-digital": {
     "name": "Dark Energy Digital",
@@ -117828,16 +118043,28 @@
     "slug": "digerati",
     "museumPath": "",
     "gameIds": [
-      "ps4-usa-blacksea-odyssey"
+      "ps4-usa-blacksea-odyssey",
+      "ps4-demon-pit",
+      "ps4-nongunz-doppelganger-edition"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 3
     },
     "asDeveloper": [
       "ps4-usa-blacksea-odyssey"
     ],
-    "asPublisher": [],
-    "gameCount": 1
+    "asPublisher": [
+      "ps4-demon-pit",
+      "ps4-nongunz-doppelganger-edition"
+    ],
+    "gameCount": 3,
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-demon-pit",
+      "ps4-nongunz-doppelganger-edition"
+    ],
+    "aliasNames": [
+      "Digerati Distribution"
+    ]
   },
   "digerati-distribution": {
     "name": "Digerati Distribution",
@@ -118328,18 +118555,16 @@
     "slug": "doomcube-psychicsoftware-stage-clear-studios-psychic-games-limited",
     "museumPath": "",
     "gameIds": [
-      "ps4-usa-demon-pit",
-      "ps4-demon-pit"
+      "ps4-usa-demon-pit"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 1
     },
     "asDeveloper": [
-      "ps4-usa-demon-pit",
-      "ps4-demon-pit"
+      "ps4-usa-demon-pit"
     ],
     "asPublisher": [],
-    "gameCount": 2
+    "gameCount": 1
   },
   "doragon-entertainment": {
     "name": "Doragon Entertainment",
@@ -120509,17 +120734,11 @@
     "name": "Forces: Sonic Team. Mania: Christian Whitehead, Pagodawest Games, Headcannon, Hyperkinetc Studios",
     "slug": "forces-sonic-team-mania-christian-whitehead-pagodawest-games-headcannon-hyperkinetc-studios",
     "museumPath": "",
-    "gameIds": [
-      "ps4-sonic-mania-plus-and-sonic-forces-double-pack"
-    ],
-    "byPlatform": {
-      "ps4": 1
-    },
-    "asDeveloper": [
-      "ps4-sonic-mania-plus-and-sonic-forces-double-pack"
-    ],
+    "gameIds": [],
+    "byPlatform": {},
+    "asDeveloper": [],
     "asPublisher": [],
-    "gameCount": 1
+    "gameCount": 0
   },
   "forever-entertainment-sa": {
     "name": "Forever Entertainment SA",
@@ -124490,17 +124709,19 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-daymare-1998",
-      "ps4-daymare-1998-black-edition"
+      "ps4-daymare-1998-black-edition",
+      "ps4-daymare-1994-sandcastle"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 3
     },
     "asDeveloper": [
       "ps4-usa-daymare-1998",
-      "ps4-daymare-1998-black-edition"
+      "ps4-daymare-1998-black-edition",
+      "ps4-daymare-1994-sandcastle"
     ],
     "asPublisher": [],
-    "gameCount": 2
+    "gameCount": 3
   },
   "invader-studios-slipgate-ironworks": {
     "name": "Invader Studios, Slipgate Ironworks",
@@ -126339,18 +126560,21 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-willy-morgan-and-the-curse-of-bone-town",
-      "ps4-daymare-1994-sandcastle-limited-edition"
+      "ps4-daymare-1994-sandcastle-limited-edition",
+      "ps4-daymare-1994-sandcastle"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 3
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-usa-willy-morgan-and-the-curse-of-bone-town"
+      "ps4-usa-willy-morgan-and-the-curse-of-bone-town",
+      "ps4-daymare-1994-sandcastle"
     ],
-    "gameCount": 2,
+    "gameCount": 3,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-daymare-1994-sandcastle-limited-edition"
+      "ps4-daymare-1994-sandcastle-limited-edition",
+      "ps4-daymare-1994-sandcastle"
     ]
   },
   "level-5-amp-capcom": {
@@ -127648,22 +127872,25 @@
       "ps4-mein-gestut",
       "ps4-bibi-&amp;-tina-at-the-horse-farm",
       "ps4-my-life-riding-stables-3",
-      "ps4-my-riding-stables-2-a-new-adventure"
+      "ps4-my-riding-stables-2-a-new-adventure",
+      "ps4-memorrha"
     ],
     "byPlatform": {
-      "ps4": 4
+      "ps4": 5
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-mein-gestut"
+      "ps4-mein-gestut",
+      "ps4-memorrha"
     ],
-    "gameCount": 4,
+    "gameCount": 5,
     "asDigitalPublisher": [
       "ps4-bibi-&amp;-tina-at-the-horse-farm",
       "ps4-my-riding-stables-2-a-new-adventure"
     ],
     "asPhysicalPublisherOrDistributor": [
-      "ps4-my-life-riding-stables-3"
+      "ps4-my-life-riding-stables-3",
+      "ps4-memorrha"
     ]
   },
   "markt-amp-technik-verlag": {
@@ -128662,7 +128889,6 @@
     "museumPath": "",
     "gameIds": [
       "ps2-sbk-08-superbike-world-championship",
-      "ps4-ducati-90th-anniversary",
       "ps4-motogp-18",
       "ps4-ride-2",
       "ps4-motogp-14",
@@ -128675,10 +128901,9 @@
     ],
     "byPlatform": {
       "ps2": 1,
-      "ps4": 10
+      "ps4": 9
     },
     "asDeveloper": [
-      "ps4-ducati-90th-anniversary",
       "ps4-motogp-18",
       "ps4-ride-2",
       "ps4-motogp-14",
@@ -128692,7 +128917,7 @@
     "asPublisher": [
       "ps2-sbk-08-superbike-world-championship"
     ],
-    "gameCount": 11
+    "gameCount": 10
   },
   "milestones": {
     "name": "Milestones",
@@ -131154,18 +131379,20 @@
     "gameIds": [
       "ps4-usa-battle-of-rebels",
       "ps4-chicken-range",
-      "ps4-world-quiz"
+      "ps4-world-quiz",
+      "ps4-dark-thrones-&amp;-witch-hunter-double-pack"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 4
     },
     "asDeveloper": [
       "ps4-usa-battle-of-rebels",
       "ps4-chicken-range",
-      "ps4-world-quiz"
+      "ps4-world-quiz",
+      "ps4-dark-thrones-&amp;-witch-hunter-double-pack"
     ],
     "asPublisher": [],
-    "gameCount": 3
+    "gameCount": 4
   },
   "o-t-k-games": {
     "name": "O.T.K Games",
@@ -132531,16 +132758,26 @@
     "slug": "phantom-8",
     "museumPath": "",
     "gameIds": [
-      "ps4-usa-past-cure"
+      "ps4-usa-past-cure",
+      "ps4-past-cure"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 2
     },
-    "asDeveloper": [],
-    "asPublisher": [
-      "ps4-usa-past-cure"
+    "asDeveloper": [
+      "ps4-past-cure"
     ],
-    "gameCount": 1
+    "asPublisher": [
+      "ps4-usa-past-cure",
+      "ps4-past-cure"
+    ],
+    "gameCount": 2,
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-past-cure"
+    ],
+    "aliasNames": [
+      "Phantom 8 Studio UG"
+    ]
   },
   "phenomedia": {
     "name": "Phenomedia",
@@ -134107,10 +134344,11 @@
       "ps4-99-vidas",
       "ps4-99-vidas-collector%27s-edition",
       "ps4-breakers-collection",
-      "ps4-vasara-collection"
+      "ps4-vasara-collection",
+      "ps4-milli-&amp;-greg"
     ],
     "byPlatform": {
-      "ps4": 5
+      "ps4": 6
     },
     "asDeveloper": [
       "ps4-zero-tolerance-collection-special-edition",
@@ -134119,8 +134357,13 @@
       "ps4-breakers-collection",
       "ps4-vasara-collection"
     ],
-    "asPublisher": [],
-    "gameCount": 5
+    "asPublisher": [
+      "ps4-milli-&amp;-greg"
+    ],
+    "gameCount": 6,
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-milli-&amp;-greg"
+    ]
   },
   "qubyte-interactive-rising-moon-games": {
     "name": "QUByte Interactive / Rising Moon Games",
@@ -134339,18 +134582,23 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-song-of-horror-limited-run",
-      "ps4-youtubers-life-omg"
+      "ps4-youtubers-life-omg",
+      "ps4-youtubers-life-2"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 3
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-usa-song-of-horror-limited-run"
+      "ps4-usa-song-of-horror-limited-run",
+      "ps4-youtubers-life-2"
     ],
-    "gameCount": 2,
+    "gameCount": 3,
     "asPhysicalPublisherOrDistributor": [
       "ps4-youtubers-life-omg"
+    ],
+    "aliasNames": [
+      "Raiser Games S.L."
     ]
   },
   "raising-hell-software": {
@@ -134374,16 +134622,20 @@
     "slug": "rake-in-grass",
     "museumPath": "",
     "gameIds": [
-      "ps4-jets%27n%27guns-2-deluxe-edition"
+      "ps4-jets%27n%27guns-2-deluxe-edition",
+      "ps4-jets-%27n%27-guns-2",
+      "ps4-jets%27n%27guns-2"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 3
     },
     "asDeveloper": [
-      "ps4-jets%27n%27guns-2-deluxe-edition"
+      "ps4-jets%27n%27guns-2-deluxe-edition",
+      "ps4-jets-%27n%27-guns-2",
+      "ps4-jets%27n%27guns-2"
     ],
     "asPublisher": [],
-    "gameCount": 1
+    "gameCount": 3
   },
   "rareware": {
     "name": "Rareware",
@@ -134635,16 +134887,22 @@
     "slug": "rebellion-interactive",
     "museumPath": "",
     "gameIds": [
-      "ps4-usa-zombie-army-4-dead-war"
+      "ps4-usa-zombie-army-4-dead-war",
+      "ps4-rogue-trooper-redux"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 2
     },
     "asDeveloper": [
       "ps4-usa-zombie-army-4-dead-war"
     ],
-    "asPublisher": [],
-    "gameCount": 1
+    "asPublisher": [
+      "ps4-rogue-trooper-redux"
+    ],
+    "gameCount": 2,
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-rogue-trooper-redux"
+    ]
   },
   "red-art-games-505-games": {
     "name": "Red Art Games, 505 Games",
@@ -135069,18 +135327,25 @@
     "slug": "relevo",
     "museumPath": "",
     "gameIds": [
-      "ps4-baboon"
+      "ps4-baboon",
+      "ps4-dynasty-feud",
+      "ps4-mindtaker"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 3
     },
     "asDeveloper": [
-      "ps4-baboon"
+      "ps4-baboon",
+      "ps4-mindtaker"
     ],
     "asPublisher": [
-      "ps4-baboon"
+      "ps4-baboon",
+      "ps4-dynasty-feud"
     ],
-    "gameCount": 1
+    "gameCount": 3,
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-dynasty-feud"
+    ]
   },
   "renovation": {
     "name": "Renovation",
@@ -138218,17 +138483,19 @@
     "museumPath": "",
     "gameIds": [
       "ps4-usa-the-last-kids-on-earth-and-the-staff-of-doom",
-      "ps4-the-last-kids-on-earth-and-the-staff-of-doom"
+      "ps4-the-last-kids-on-earth-and-the-staff-of-doom",
+      "ps4-ryan%27s-rescue-squad"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 3
     },
     "asDeveloper": [
       "ps4-usa-the-last-kids-on-earth-and-the-staff-of-doom",
-      "ps4-the-last-kids-on-earth-and-the-staff-of-doom"
+      "ps4-the-last-kids-on-earth-and-the-staff-of-doom",
+      "ps4-ryan%27s-rescue-squad"
     ],
     "asPublisher": [],
-    "gameCount": 2
+    "gameCount": 3
   },
   "starfish-sd": {
     "name": "Starfish SD",
@@ -140199,16 +140466,19 @@
     "slug": "the-munky",
     "museumPath": "",
     "gameIds": [
-      "ps4-drunkn-bar-fight"
+      "ps4-drunkn-bar-fight",
+      "ps4-quivr"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 2
     },
     "asDeveloper": [
       "ps4-drunkn-bar-fight"
     ],
-    "asPublisher": [],
-    "gameCount": 1
+    "asPublisher": [
+      "ps4-quivr"
+    ],
+    "gameCount": 2
   },
   "the-neverhood": {
     "name": "The Neverhood",
@@ -141527,9 +141797,9 @@
     "gameIds": [
       "ps4-japon-youtubers-life-2",
       "ps4-usa-youtubers-life-2",
-      "ps4-youtubers-life-2",
       "ps4-tadeo-jones-y-el-manuscrito-perdido",
-      "ps4-youtubers-life-omg"
+      "ps4-youtubers-life-omg",
+      "ps4-youtubers-life-2"
     ],
     "byPlatform": {
       "ps4": 5
@@ -141537,12 +141807,16 @@
     "asDeveloper": [
       "ps4-japon-youtubers-life-2",
       "ps4-usa-youtubers-life-2",
-      "ps4-youtubers-life-2",
       "ps4-tadeo-jones-y-el-manuscrito-perdido",
-      "ps4-youtubers-life-omg"
+      "ps4-youtubers-life-omg",
+      "ps4-youtubers-life-2"
     ],
     "asPublisher": [],
-    "gameCount": 5
+    "gameCount": 5,
+    "aliasNames": [
+      "U-Play Online S.L.",
+      "UPLAY ONLINE SL"
+    ]
   },
   "u-s-gold-krisalis": {
     "name": "U.S. Gold, Krisalis",
@@ -142324,14 +142598,17 @@
     "slug": "versus-evil",
     "museumPath": "",
     "gameIds": [
-      "ps4-unmetal-collector%27s-edition"
+      "ps4-unmetal-collector%27s-edition",
+      "ps4-unmetal"
     ],
     "byPlatform": {
-      "ps4": 1
+      "ps4": 2
     },
     "asDeveloper": [],
-    "asPublisher": [],
-    "gameCount": 1,
+    "asPublisher": [
+      "ps4-unmetal"
+    ],
+    "gameCount": 2,
     "asPhysicalPublisherOrDistributor": [
       "ps4-unmetal-collector%27s-edition"
     ]
@@ -143245,18 +143522,20 @@
     "gameIds": [
       "ps4-usa-ether-one",
       "ps4-ether-one",
-      "ps4-ether-one-limited-edition"
+      "ps4-ether-one-limited-edition",
+      "ps4-the-occupation"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 4
     },
     "asDeveloper": [
       "ps4-usa-ether-one",
       "ps4-ether-one",
-      "ps4-ether-one-limited-edition"
+      "ps4-ether-one-limited-edition",
+      "ps4-the-occupation"
     ],
     "asPublisher": [],
-    "gameCount": 3
+    "gameCount": 4
   },
   "white-park-bay": {
     "name": "White Park Bay",
@@ -143337,8 +143616,16 @@
       "ps4-usa-oxide-room-104",
       "ps4-oxide-room-104"
     ],
-    "asPublisher": [],
-    "gameCount": 2
+    "asPublisher": [
+      "ps4-oxide-room-104"
+    ],
+    "gameCount": 2,
+    "aliasNames": [
+      "WildSphere",
+      "Wild Sphere",
+      "WILD SPHERE S.L.",
+      "WildSphere S.L."
+    ]
   },
   "wildbits-studio": {
     "name": "Wildbits studio",
@@ -145311,16 +145598,20 @@
       "ps4-seven-deadly-sins-knights-of-britannia-collector%27s-edition",
       "ps4-soul-calibur-vi",
       "ps4-tales-of-symphonia-remastered",
-      "ps4-tales-of-symphonia-remastered-chosen-edition"
+      "ps4-tales-of-symphonia-remastered-chosen-edition",
+      "ps4-dragon-ball-fighterz-&#43;-dragon-ball-xenoverse-2",
+      "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack"
     ],
     "byPlatform": {
-      "ps4": 23
+      "ps4": 25
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-dark-pictures-anthology-little-hope"
+      "ps4-dark-pictures-anthology-little-hope",
+      "ps4-dragon-ball-fighterz-&#43;-dragon-ball-xenoverse-2",
+      "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack"
     ],
-    "gameCount": 23,
+    "gameCount": 25,
     "asPhysicalPublisherOrDistributor": [
       "ps4-cyberpunk-2077-edicion-day-one",
       "ps4-dark-pictures-anthology-house-of-ashes",
@@ -145343,7 +145634,9 @@
       "ps4-seven-deadly-sins-knights-of-britannia-collector%27s-edition",
       "ps4-soul-calibur-vi",
       "ps4-tales-of-symphonia-remastered",
-      "ps4-tales-of-symphonia-remastered-chosen-edition"
+      "ps4-tales-of-symphonia-remastered-chosen-edition",
+      "ps4-dragon-ball-fighterz-&#43;-dragon-ball-xenoverse-2",
+      "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack"
     ]
   },
   "bandai-namco-entertainment-europe-s-a-s": {
@@ -145717,10 +146010,11 @@
       "ps4-megadimension-neptunia-viir",
       "ps4-touhou-spell-carnival",
       "ps4-touhou-spell-carnival-day-one-edition",
-      "ps4-touhou-spell-carnival-limited-edition"
+      "ps4-touhou-spell-carnival-limited-edition",
+      "ps4-date-a-live-rio-reincarnation"
     ],
     "byPlatform": {
-      "ps4": 28
+      "ps4": 29
     },
     "asDeveloper": [
       "ps4-usa-death-end-re;quest-2-limited-edition"
@@ -145745,7 +146039,7 @@
       "ps4-usa-scar-lead-salvation",
       "ps4-usa-touhou-spell-carnival-limited-edition"
     ],
-    "gameCount": 28,
+    "gameCount": 29,
     "asPhysicalPublisherOrDistributor": [
       "ps4-cyberdimension-4-goddesses-online",
       "ps4-date-a-live-rio-reincarnation-limited-edition",
@@ -145756,7 +146050,8 @@
       "ps4-megadimension-neptunia-viir",
       "ps4-touhou-spell-carnival",
       "ps4-touhou-spell-carnival-day-one-edition",
-      "ps4-touhou-spell-carnival-limited-edition"
+      "ps4-touhou-spell-carnival-limited-edition",
+      "ps4-date-a-live-rio-reincarnation"
     ]
   },
   "koei-tecmo-america": {
@@ -145794,16 +146089,18 @@
       "ps4-nights-of-azure-2",
       "ps4-wo-long-fallen-dynasty",
       "ps4-wo-long-fallen-dynasty-steelbook-edition",
-      "ps4-wolong-fallen-dinasty"
+      "ps4-wolong-fallen-dinasty",
+      "ps4-nobunaga%27s-ambition-sphere-of-influence-ascension"
     ],
     "byPlatform": {
-      "ps4": 11
+      "ps4": 12
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-blue-reflection-second-light"
+      "ps4-blue-reflection-second-light",
+      "ps4-nobunaga%27s-ambition-sphere-of-influence-ascension"
     ],
-    "gameCount": 11,
+    "gameCount": 12,
     "asPhysicalPublisherOrDistributor": [
       "ps4-ataque-a-los-titanes-wings-of-freedom",
       "ps4-atelier-lydie-&amp;-suelle-limited-edition",
@@ -145814,7 +146111,11 @@
       "ps4-nights-of-azure-2",
       "ps4-wo-long-fallen-dynasty",
       "ps4-wo-long-fallen-dynasty-steelbook-edition",
-      "ps4-wolong-fallen-dinasty"
+      "ps4-wolong-fallen-dinasty",
+      "ps4-nobunaga%27s-ambition-sphere-of-influence-ascension"
+    ],
+    "aliasNames": [
+      "Koei Tecmo Europe Limited"
     ]
   },
   "koei-tecmo-europe-ltd": {
@@ -145910,13 +146211,14 @@
       "ps1-pro-evolution-soccer",
       "ps4-pro-evolution-soccer-2015",
       "ps4-metal-gear-solid-v-the-definitive-experience-playstation-hits",
-      "ps4-arcade-classics-anniversary-collection"
+      "ps4-arcade-classics-anniversary-collection",
+      "ps4-super-crazy-rhythm-castle"
     ],
     "byPlatform": {
       "ps1": 7,
       "ps2": 16,
       "ps3": 21,
-      "ps4": 23
+      "ps4": 24
     },
     "asDeveloper": [
       "ps4-japon-jikkyou-powerful-pro-yakyuu-2018",
@@ -146032,9 +146334,13 @@
       "ps1-x2",
       "ps3-silent-hill-homecoming",
       "ps1-pro-evolution-soccer",
-      "ps4-pro-evolution-soccer-2015"
+      "ps4-pro-evolution-soccer-2015",
+      "ps4-super-crazy-rhythm-castle"
     ],
-    "gameCount": 67
+    "gameCount": 68,
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-super-crazy-rhythm-castle"
+    ]
   },
   "konami-of-europe": {
     "name": "Konami of Europe",
@@ -146058,18 +146364,24 @@
     "museumPath": "",
     "gameIds": [
       "ps4-dead-or-school",
-      "ps4-senran-kagura-estival"
+      "ps4-senran-kagura-estival",
+      "ps4-gungrave-vr",
+      "ps4-senran-kagura-burst-renewal-bountiful-beauties"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 4
     },
     "asDeveloper": [],
     "asPublisher": [
-      "ps4-dead-or-school"
+      "ps4-dead-or-school",
+      "ps4-gungrave-vr",
+      "ps4-senran-kagura-burst-renewal-bountiful-beauties"
     ],
-    "gameCount": 2,
+    "gameCount": 4,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-senran-kagura-estival"
+      "ps4-senran-kagura-estival",
+      "ps4-gungrave-vr",
+      "ps4-senran-kagura-burst-renewal-bountiful-beauties"
     ]
   },
   "marvelous-inc": {
@@ -147249,12 +147561,11 @@
       "ps4-horizon-zero-dawn",
       "ps4-dreams",
       "ps4-nioh",
-      "ps1-moto-racer-world-tour",
-      "ps4-playlink-games-collection"
+      "ps1-moto-racer-world-tour"
     ],
     "byPlatform": {
       "ps1": 1,
-      "ps4": 4
+      "ps4": 3
     },
     "asDeveloper": [],
     "asPublisher": [
@@ -147263,10 +147574,8 @@
       "ps4-nioh",
       "ps1-moto-racer-world-tour"
     ],
-    "gameCount": 5,
-    "asPhysicalPublisherOrDistributor": [
-      "ps4-playlink-games-collection"
-    ]
+    "gameCount": 4,
+    "asPhysicalPublisherOrDistributor": []
   },
   "sony-interactive-entertainment-europe-ltd": {
     "name": "Sony Interactive Entertainment Europe Ltd.",
@@ -148493,16 +148802,20 @@
     "museumPath": "",
     "gameIds": [
       "ps4-ankora-lost-days-&amp;-deiland-pocket-planet",
-      "ps4-koa-and-the-five-pirates-of-mara-collector%27s-edition"
+      "ps4-koa-and-the-five-pirates-of-mara-collector%27s-edition",
+      "ps4-koa-and-the-five-pirates-of-mara"
     ],
     "byPlatform": {
-      "ps4": 2
+      "ps4": 3
     },
-    "gameCount": 2,
+    "gameCount": 3,
     "asDeveloper": [
-      "ps4-ankora-lost-days-&amp;-deiland-pocket-planet"
+      "ps4-ankora-lost-days-&amp;-deiland-pocket-planet",
+      "ps4-koa-and-the-five-pirates-of-mara"
     ],
-    "asPublisher": [],
+    "asPublisher": [
+      "ps4-koa-and-the-five-pirates-of-mara"
+    ],
     "asDigitalPublisher": [],
     "asPhysicalPublisherOrDistributor": [
       "ps4-koa-and-the-five-pirates-of-mara-collector%27s-edition"
@@ -149081,21 +149394,26 @@
       "ps4-airport-simulator-day-&amp;-night",
       "ps4-bus-driver-simulator-countryside",
       "ps4-forestry-2017",
-      "ps4-mountain-rescue-simulator"
+      "ps4-mountain-rescue-simulator",
+      "ps4-professional-farmer-american-dream"
     ],
     "byPlatform": {
-      "ps4": 4
+      "ps4": 5
     },
-    "gameCount": 4,
+    "gameCount": 5,
     "asDeveloper": [],
-    "asPublisher": [],
+    "asPublisher": [
+      "ps4-professional-farmer-american-dream"
+    ],
     "asDigitalPublisher": [
       "ps4-airport-simulator-day-&amp;-night",
       "ps4-bus-driver-simulator-countryside",
       "ps4-forestry-2017",
       "ps4-mountain-rescue-simulator"
     ],
-    "asPhysicalPublisherOrDistributor": []
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-professional-farmer-american-dream"
+    ]
   },
   "it-matters-games": {
     "name": "It Matters Games",
@@ -149960,20 +150278,30 @@
     "gameIds": [
       "ps4-hello-neighbor-2",
       "ps4-hello-neighbor-2-deluxe-edition",
-      "ps4-trash-sailors"
+      "ps4-trash-sailors",
+      "ps4-hello-neighbor-hide-&amp;-seek",
+      "ps4-unmetal"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 5
     },
-    "gameCount": 3,
+    "gameCount": 5,
     "asDeveloper": [],
-    "asPublisher": [],
+    "asPublisher": [
+      "ps4-hello-neighbor-hide-&amp;-seek"
+    ],
     "asDigitalPublisher": [
-      "ps4-trash-sailors"
+      "ps4-trash-sailors",
+      "ps4-unmetal"
     ],
     "asPhysicalPublisherOrDistributor": [
       "ps4-hello-neighbor-2",
-      "ps4-hello-neighbor-2-deluxe-edition"
+      "ps4-hello-neighbor-2-deluxe-edition",
+      "ps4-hello-neighbor-hide-&amp;-seek"
+    ],
+    "aliasNames": [
+      "tinyBuild LLC",
+      "TINYBUILD LLC"
     ]
   },
   "thunderful-games-ltd": {
@@ -150135,19 +150463,29 @@
     "gameIds": [
       "ps4-30-nights-pine-view-drive-&amp;-joe%27s-diner",
       "ps4-joes-diner",
-      "ps4-the-professionals-farming-&amp;-forestry"
+      "ps4-the-professionals-farming-&amp;-forestry",
+      "ps4-the-giants-industry-and-transport-bundle",
+      "ps4-the-truth-is-out-there-mystery-adventure-pack",
+      "ps4-world-of-simulators",
+      "ps4-the-truth-is-out-here-mystery-adventure-pack"
     ],
     "byPlatform": {
-      "ps4": 3
+      "ps4": 7
     },
-    "gameCount": 3,
+    "gameCount": 7,
     "asDeveloper": [],
-    "asPublisher": [],
+    "asPublisher": [
+      "ps4-the-giants-industry-and-transport-bundle",
+      "ps4-the-truth-is-out-there-mystery-adventure-pack",
+      "ps4-world-of-simulators",
+      "ps4-the-truth-is-out-here-mystery-adventure-pack"
+    ],
     "asDigitalPublisher": [],
     "asPhysicalPublisherOrDistributor": [
       "ps4-30-nights-pine-view-drive-&amp;-joe%27s-diner",
       "ps4-joes-diner",
-      "ps4-the-professionals-farming-&amp;-forestry"
+      "ps4-the-professionals-farming-&amp;-forestry",
+      "ps4-the-giants-industry-and-transport-bundle"
     ]
   },
   "urban-games": {
@@ -150403,6 +150741,615 @@
     "gameCount": 1,
     "asDeveloper": [
       "ps4-the-last-guardian-concept-art-sleeve"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "2ndboss": {
+    "name": "2ndBoss",
+    "slug": "2ndboss",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-milli-&amp;-greg"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-milli-&amp;-greg"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "2tainment": {
+    "name": "2tainment GmbH",
+    "slug": "2tainment",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-air-conflicts-secret-wars"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps4-air-conflicts-secret-wars"
+    ],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-air-conflicts-secret-wars"
+    ],
+    "aliasNames": [
+      "2tainment"
+    ]
+  },
+  "alvios": {
+    "name": "Alvios",
+    "slug": "alvios",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-quivr"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-quivr"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": [],
+    "aliasNames": [
+      "Alvios Inc."
+    ]
+  },
+  "bit-planet-games": {
+    "name": "Bit Planet Games",
+    "slug": "bit-planet-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-ultrawings"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-ultrawings"
+    ],
+    "asPublisher": [
+      "ps4-ultrawings"
+    ],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-ultrawings"
+    ],
+    "aliasNames": [
+      "Bit Planet Games, LLC",
+      "BIT PLANET GAMES LLC"
+    ]
+  },
+  "blueteak": {
+    "name": "Blueteak",
+    "slug": "blueteak",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-quivr"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-quivr"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "brainwash-gang": {
+    "name": "Brainwash Gang",
+    "slug": "brainwash-gang",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-nongunz-doppelganger-edition"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-nongunz-doppelganger-edition"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "carry-castle": {
+    "name": "Carry Castle",
+    "slug": "carry-castle",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-source-of-madness"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-source-of-madness"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": [],
+    "aliasNames": [
+      "Carry Castle AB"
+    ]
+  },
+  "cd-projekt": {
+    "name": "CD Projekt",
+    "slug": "cd-projekt",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-cyberpunk-2077-samurai-pack"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps4-cyberpunk-2077-samurai-pack"
+    ],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "cozy-bee-games": {
+    "name": "Cozy Bee Games",
+    "slug": "cozy-bee-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-lemon-cake"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-lemon-cake"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "dm-media": {
+    "name": "DM Media",
+    "slug": "dm-media",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-terra-trilogy"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-terra-trilogy"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "doomcube": {
+    "name": "DoomCube",
+    "slug": "doomcube",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-demon-pit"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-demon-pit"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "dynamic-pixels": {
+    "name": "Dynamic Pixels",
+    "slug": "dynamic-pixels",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-hello-neighbor-hide-&amp;-seek"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-hello-neighbor-hide-&amp;-seek"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "gamajun-games": {
+    "name": "Gamajun Games",
+    "slug": "gamajun-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-street-power-football"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-street-power-football"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "jetdogs-studios": {
+    "name": "Jetdogs Studios",
+    "slug": "jetdogs-studios",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-dracula-s-legacy"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-dracula-s-legacy"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "kaia-studios": {
+    "name": "Kaia Studios",
+    "slug": "kaia-studios",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-dynasty-feud"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-dynasty-feud"
+    ],
+    "asPublisher": [
+      "ps4-dynasty-feud"
+    ],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "maze-theory": {
+    "name": "Maze Theory",
+    "slug": "maze-theory",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-doctor-who-duo-bundle"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps4-doctor-who-duo-bundle"
+    ],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "no-gravity-games": {
+    "name": "No Gravity Games",
+    "slug": "no-gravity-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-okinawa-rush-black-mantis-edition",
+      "ps4-okinawa-rush-limited-edition"
+    ],
+    "byPlatform": {
+      "ps4": 2
+    },
+    "gameCount": 2,
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps4-okinawa-rush-black-mantis-edition",
+      "ps4-okinawa-rush-limited-edition"
+    ],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "psychic-software": {
+    "name": "Psychic Software",
+    "slug": "psychic-software",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-demon-pit"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-demon-pit"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "second-impact-games": {
+    "name": "Second Impact Games",
+    "slug": "second-impact-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-super-crazy-rhythm-castle"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-super-crazy-rhythm-castle"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": [],
+    "aliasNames": [
+      "Second Impact Games Ltd."
+    ]
+  },
+  "sfl-interactive": {
+    "name": "SFL Interactive",
+    "slug": "sfl-interactive",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-street-power-football"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-street-power-football"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "sokaikan-ltd": {
+    "name": "Sokaikan Ltd.",
+    "slug": "sokaikan-ltd",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-okinawa-rush-black-mantis-edition",
+      "ps4-okinawa-rush-limited-edition"
+    ],
+    "byPlatform": {
+      "ps4": 2
+    },
+    "gameCount": 2,
+    "asDeveloper": [
+      "ps4-okinawa-rush-black-mantis-edition",
+      "ps4-okinawa-rush-limited-edition"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "sticky-stone-studio": {
+    "name": "StickyStoneStudio",
+    "slug": "sticky-stone-studio",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-memorrha"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-memorrha"
+    ],
+    "asPublisher": [
+      "ps4-memorrha"
+    ],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": [],
+    "aliasNames": [
+      "Sticky Stone Studio"
+    ]
+  },
+  "suncrest-games": {
+    "name": "Suncrest Games",
+    "slug": "suncrest-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-the-rumble-fish-2"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-the-rumble-fish-2"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "supergonk": {
+    "name": "Supergonk",
+    "slug": "supergonk",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-trailblazers"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-trailblazers"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": [],
+    "aliasNames": [
+      "Supergonk Ltd."
+    ]
+  },
+  "superhot-team": {
+    "name": "SUPERHOT Team",
+    "slug": "superhot-team",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-superhot-vr"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-superhot-vr"
+    ],
+    "asPublisher": [
+      "ps4-superhot-vr"
+    ],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-superhot-vr"
+    ],
+    "aliasNames": [
+      "SUPERHOT Sp. z o.o."
+    ]
+  },
+  "talpa-games": {
+    "name": "Talpa Games",
+    "slug": "talpa-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-koa-and-the-five-pirates-of-mara"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-koa-and-the-five-pirates-of-mara"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "thunderful-publishing": {
+    "name": "Thunderful Publishing",
+    "slug": "thunderful-publishing",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-source-of-madness"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [],
+    "asPublisher": [
+      "ps4-source-of-madness"
+    ],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": [
+      "ps4-source-of-madness"
+    ],
+    "aliasNames": [
+      "Thunderful Publishing AB"
+    ]
+  },
+  "ticktock-games": {
+    "name": "TickTock Games",
+    "slug": "ticktock-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-rogue-trooper-redux"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-rogue-trooper-redux"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "unepic-games": {
+    "name": "UnEpic Games",
+    "slug": "unepic-games",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-unmetal"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-unmetal"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": [],
+    "aliasNames": [
+      "UnEpic Fran"
+    ]
+  },
+  "virtualware": {
+    "name": "Virtualware",
+    "slug": "virtualware",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-mindtaker"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-mindtaker"
+    ],
+    "asPublisher": [],
+    "asDigitalPublisher": [],
+    "asPhysicalPublisherOrDistributor": []
+  },
+  "wonderscope": {
+    "name": "Wonderscope",
+    "slug": "wonderscope",
+    "museumPath": "",
+    "gameIds": [
+      "ps4-hokko-life"
+    ],
+    "byPlatform": {
+      "ps4": 1
+    },
+    "gameCount": 1,
+    "asDeveloper": [
+      "ps4-hokko-life"
     ],
     "asPublisher": [],
     "asDigitalPublisher": [],

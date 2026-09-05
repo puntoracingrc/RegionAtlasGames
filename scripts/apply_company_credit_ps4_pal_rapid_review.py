@@ -37,6 +37,27 @@ MANIFEST_FILES = (
 BATCH_ID = "company-credit-ps4-pal-rapid-review-2026-09-05"
 REVIEWED_AT = "2026-09-05"
 REVIEWED_AT_TIMESTAMP = "2026-09-05T12:00:00Z"
+SUCCESSOR_BATCH_ID = "company-credit-ps4-pal-compilations-2026-09-05"
+ALLOWED_SUCCESSOR_ROLE_CREDITS = {
+    ("ps4-annapurna-ultimate-collection", "physicalPublisherOrDistributor"): ("iam8bit",),
+    ("ps4-blasphemous-coleccionista", "developer"): ("the-game-kitchen",),
+    ("ps4-crash-team-racing-&amp;-spyro-reignited-trilogy", "physicalPublisherOrDistributor"): ("activision",),
+    ("ps4-cyberpunk-2077-samurai-pack", "developer"): ("cd-projekt-red",),
+    ("ps4-dark-thrones-&amp;-witch-hunter-double-pack", "physicalPublisherOrDistributor"): ("funbox-media",),
+    ("ps4-dishonored-pray-arkane-collection", "physicalPublisherOrDistributor"): ("bethesda-softworks",),
+    ("ps4-doctor-who-duo-bundle", "physicalPublisherOrDistributor"): ("maximum-games",),
+    ("ps4-middle-earth-shadow-of-mordor-game-of-the-year", "developer"): ("monolith-productions",),
+    ("ps4-persona-5-&#43;-persona-5-dancing-the-starlight-day-one-edition-2-hits-pack", "physicalPublisherOrDistributor"): ("atlus",),
+    ("ps4-playlink-games-collection", "physicalPublisherOrDistributor"): ("sony-interactive-entertainment",),
+    ("ps4-senran-kagura-burst-renewal-bountiful-beauties", "developer"): ("honey-parade-games",),
+    ("ps4-spyro-reignited-trilogy-&amp;-crash-bandicoot-n-sane-trilogy", "physicalPublisherOrDistributor"): ("activision",),
+    ("ps4-terra-trilogy", "physicalPublisherOrDistributor"): ("funbox-media",),
+    ("ps4-the-truth-is-out-here-mystery-adventure-pack", "physicalPublisherOrDistributor"): ("uig-entertainment",),
+    ("ps4-the-truth-is-out-there-mystery-adventure-pack", "physicalPublisherOrDistributor"): ("uig-entertainment",),
+    ("ps4-wolfenstein-alt-history-collection", "physicalPublisherOrDistributor"): ("bethesda-softworks",),
+    ("ps4-wonder-boy-collection", "physicalPublisherOrDistributor"): ("inin-games",),
+    ("ps4-world-of-simulators", "physicalPublisherOrDistributor"): ("uig-entertainment",),
+}
 WORKBOOK_NAME = "RegionAtlas_PS4_PAL_repaso_rapido_creditos_2026-09-05.xlsx"
 WORKBOOK_SHA256 = "f8a1589ad8cfd168c202a0c6173b64994fd1c127c01ee955861b0c7226531de1"
 
@@ -86,6 +107,32 @@ PUBLISHER_ROLES = {
     "DIGITAL_PUBLISHER",
     "PHYSICAL_PUBLISHER_OR_DISTRIBUTOR",
 }
+
+
+def allowed_successor_role_credits(row: dict[str, str], detail: dict[str, Any]) -> list[dict[str, Any]]:
+    role_name = ROLE_NAMES[row["role"]]
+    allowed_slugs = ALLOWED_SUCCESSOR_ROLE_CREDITS.get((row["catalog_id"], role_name))
+    if not allowed_slugs:
+        return []
+    credits = [
+        credit
+        for credit in detail.get("companyCredits", [])
+        if credit.get("role") == role_name
+    ]
+    if tuple(credit.get("company", {}).get("slug") for credit in credits) != allowed_slugs:
+        return []
+    expected_previous = set(row["company_display_names"].split(" | "))
+    for credit in credits:
+        provenance = credit.get("provenance", {})
+        if (
+            provenance.get("reviewBatch") != SUCCESSOR_BATCH_ID
+            or provenance.get("reviewedAt") != REVIEWED_AT
+            or not provenance.get("evidenceUrls")
+            or not provenance.get("evidenceSummary")
+            or not expected_previous.issubset(set(provenance.get("previousValues", [])))
+        ):
+            return []
+    return credits
 
 # Existing duplicate aliases are resolved explicitly. This map does not merge index records.
 PREFERRED_COMPANY_SLUGS = {
@@ -1237,16 +1284,21 @@ def check_committed() -> None:
             if credit.get("role") == role_name
             and credit.get("provenance", {}).get("reviewBatch") == BATCH_ID
         ]
-        if [credit["company"]["slug"] for credit in role_credits] != expected_slugs:
+        successor_credits = allowed_successor_role_credits(row, details[row["catalog_id"]])
+        if (
+            [credit["company"]["slug"] for credit in role_credits] != expected_slugs
+            and not successor_credits
+        ):
             raise ValueError(f"Role credit mismatch for {row['catalog_id']}:{row['role']}")
+        effective_credits = role_credits or successor_credits
         if any(
             credit["provenance"].get("reviewedAt") != REVIEWED_AT
             or not credit["provenance"].get("evidenceSummary")
             or not credit["provenance"].get("evidenceUrls")
-            for credit in role_credits
+            for credit in effective_credits
         ):
             raise ValueError(f"Incomplete provenance for {row['catalog_id']}:{row['role']}")
-        for slug in expected_slugs:
+        for slug in [credit["company"]["slug"] for credit in effective_credits]:
             if row["catalog_id"] not in companies[slug][ROLE_INDEX_FIELDS[row["role"]]]:
                 raise ValueError(f"Company index missing {row['catalog_id']}:{slug}")
 

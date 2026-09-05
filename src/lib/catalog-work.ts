@@ -1,4 +1,6 @@
 import catalogWorkIdentitiesData from "../../data/index/catalog-work-identities.json";
+import { resolveVerifiedCommercialCanonicalCatalogId } from "./catalog-commercial-relations";
+import { getCatalogRedirectTargetIdForCatalogId } from "./catalog-route-redirects";
 
 type CatalogWorkIdentityIndex = {
   schemaVersion: 1;
@@ -10,5 +12,10 @@ const catalogWorkIdentities = catalogWorkIdentitiesData as CatalogWorkIdentityIn
 
 /** Identidad editorial explícita; fuera de los lotes auditados cada ficha conserva identidad propia. */
 export function getCatalogWorkKey(catalogId: string): string {
-  return catalogWorkIdentities.catalogIdToWorkKey[catalogId] ?? `catalog-entry:${catalogId}`;
+  const redirectedCatalogId = getCatalogRedirectTargetIdForCatalogId(catalogId) ?? catalogId;
+  const canonicalCatalogId = resolveVerifiedCommercialCanonicalCatalogId(redirectedCatalogId);
+  return (
+    catalogWorkIdentities.catalogIdToWorkKey[canonicalCatalogId] ??
+    `catalog-entry:${canonicalCatalogId}`
+  );
 }

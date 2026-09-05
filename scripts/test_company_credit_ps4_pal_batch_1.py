@@ -18,6 +18,7 @@ REPORT_FILE = ROOT / "data/research/company-credit-ps4-pal-batch-1-report.json"
 VERIFIED_CREDITS_FILE = ROOT / "data/index/verified-company-credits.json"
 BATCH_ID = "company-credit-ps4-pal-batch-1"
 REVIEWED_AT = "2026-09-05"
+ALLOWED_SUCCESSOR_BATCHES = {"company-credit-ps4-pal-compilations-2026-09-05"}
 
 
 def load_json(path: Path):
@@ -150,21 +151,10 @@ def main() -> int:
 
         role = decision["target_field"]
         entity = details[decision["catalog_id"]][role]
-        assert entity["name"] == decision["proposed_company"]
-        assert entity["slug"] == decision["proposed_company_slug"]
-        assert entity["source"] == "official"
-        assert details[decision["catalog_id"]]["fieldSources"][role] == "official"
         provenance = details[decision["catalog_id"]]["fieldProvenance"][role]
-        assert provenance == importer.desired_provenance(decision)
         indexed_credit = verified_credits["credits"][decision["catalog_id"]]
         assert indexed_credit[role] == entity
-        assert indexed_credit["fieldSources"][role] == "official"
         assert indexed_credit["fieldProvenance"][role] == provenance
-
-        company = companies[decision["proposed_company_slug"]]
-        role_key = "asDeveloper" if role == "developer" else "asPublisher"
-        assert decision["catalog_id"] in company[role_key]
-        assert decision["catalog_id"] in company["gameIds"]
 
         mutation = next(
             row
@@ -173,13 +163,27 @@ def main() -> int:
             and row["targetField"] == role
         )
         assert mutation["status"] == "APPLIED"
-        assert mutation["after"] == entity
-        assert mutation["provenance"] == provenance
+        assert mutation["after"]["name"] == decision["proposed_company"]
+        assert mutation["after"]["slug"] == decision["proposed_company_slug"]
+        assert mutation["provenance"] == importer.desired_provenance(decision)
         assert mutation["evidenceUrls"] == importer.split_pipe(decision["source_urls"])
         if decision["recommended_action"] == "ADD_MISSING":
             assert mutation["before"] is None
         else:
             assert mutation["before"]["name"] == decision["current_company"]
+
+        if provenance["reviewBatch"] == BATCH_ID:
+            assert entity["name"] == decision["proposed_company"]
+            assert entity["slug"] == decision["proposed_company_slug"]
+            assert entity["source"] == "official"
+            assert details[decision["catalog_id"]]["fieldSources"][role] == "official"
+            company = companies[decision["proposed_company_slug"]]
+            role_key = "asDeveloper" if role == "developer" else "asPublisher"
+            assert decision["catalog_id"] in company[role_key]
+            assert decision["catalog_id"] in company["gameIds"]
+        else:
+            assert provenance["reviewBatch"] in ALLOWED_SUCCESSOR_BATCHES
+            assert decision["proposed_company"] in provenance.get("previousValues", [])
 
     expected_special_cases = {
         ("ps4-destiny-2", "developer"): "bungie",

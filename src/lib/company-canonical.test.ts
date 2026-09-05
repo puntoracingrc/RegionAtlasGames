@@ -80,6 +80,23 @@ test("company index merging keeps an approved subsidiary independent", () => {
   assert.deepEqual(merged["nintendo-software-technology"].gameIds, ["studio-game"]);
 });
 
+test("company index merging preserves reviewed display-name aliases", () => {
+  const merged = mergeCompanyIndex({
+    digerati: {
+      name: "Digerati",
+      slug: "digerati",
+      museumPath: "",
+      gameIds: ["published-game"],
+      gameCount: 1,
+      byPlatform: { ps4: 1 },
+      asPublisher: ["published-game"],
+      aliasNames: ["Digerati Distribution"],
+    },
+  });
+
+  assert.deepEqual(merged.digerati.aliasNames, ["Digerati Distribution"]);
+});
+
 test("editorial profiles follow the detached regional entities they describe", () => {
   const movedProfiles = {
     "acclaim-japan": "Acclaim Japan, Ltd.",
@@ -116,4 +133,18 @@ test("generated company copy reads current catalog counts at render time", () =>
   const intro = buildCompanyIntro(view);
   assert.match(intro, new RegExp(`\\b${view.catalogEntryCount} fichas\\b`));
   assert.doesNotMatch(intro, /\.\.$/);
+});
+
+test("company profiles expose verified corporate relations without merging entities", () => {
+  const regional = buildCompanyProfileView("koei-tecmo-europe");
+  assert.ok(regional);
+  assert.ok(
+    regional.verifiedRelations.some(
+      (relation) =>
+        relation.label === "Entidad regional de" &&
+        relation.company.slug === "koei-tecmo-games" &&
+        Boolean(relation.evidenceUrl),
+    ),
+  );
+  assert.notEqual(regional.slug, "koei-tecmo-games");
 });

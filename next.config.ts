@@ -1,4 +1,22 @@
 import type { NextConfig } from "next";
+import catalogRouteRedirectsData from "./data/catalog-route-redirects.json";
+
+type CatalogRouteRedirectsData = {
+  redirects: Array<{
+    sourceParams: string[];
+    targetParam: string;
+    permanent: true;
+  }>;
+};
+
+const catalogRouteRedirects = (catalogRouteRedirectsData as CatalogRouteRedirectsData).redirects.flatMap(
+  (redirect) =>
+    redirect.sourceParams.map((sourceParam) => ({
+      source: `/catalogo/${sourceParam}`,
+      destination: `/catalogo/${redirect.targetParam}`,
+      permanent: redirect.permanent,
+    })),
+);
 
 const isDevelopment = process.env.NODE_ENV === "development";
 const contentSecurityPolicy = [
@@ -43,6 +61,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...catalogRouteRedirects,
       {
         source: "/:path*",
         has: [{ type: "host", value: "regionatlas.games" }],

@@ -419,6 +419,7 @@ test("preserves catalog, company and prior research files byte for byte", () => 
       "company-credit-ps4-pal-batch-1",
       "company-credit-ps4-pal-high-additions-1",
       "company-credit-ps4-pal-rapid-review-2026-09-05",
+      "company-credit-ps4-pal-compilations-2026-09-05",
     ],
   );
 });

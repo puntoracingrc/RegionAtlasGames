@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "batchId": "company-credit-ps4-pal-compilations-2026-09-05",
+  "redirects": [
+    {
+      "sourceParams": [
+        "ps4-jets-%27n%27-guns-2"
+      ],
+      "targetCatalogId": "ps4-jets%27n%27guns-2",
+      "targetParam": "jets-n-guns-2-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-05",
+      "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05",
+      "targetLocator": {
+        "catalogId": "ps4-jets%27n%27guns-2",
+        "title": "Jets'n'Guns 2",
+        "platform": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "physicalVariant": null,
+        "pcId": 6330503,
+        "ean": null,
+        "reference": null,
+        "coverUrl": "/covers/ps4/jets-39-n-39-guns-2-2.jpg",
+        "listingStatus": "listed"
+      }
+    },
+    {
+      "sourceParams": [
+        "ps4-rpg-maker",
+        "rpg-maker-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-rpg-maker-with",
+      "targetParam": "rpg-maker-with-ps4-pal-es",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-05",
+      "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05",
+      "targetLocator": {
+        "catalogId": "ps4-rpg-maker-with",
+        "title": "RPG Maker WITH",
+        "platform": "ps4",
+        "region": "PAL España",
+        "edition": "standard",
+        "physicalVariant": null,
+        "pcId": 10123123,
+        "ean": null,
+        "reference": null,
+        "coverUrl": "/covers/ps4/rpg-maker-with.jpg",
+        "listingStatus": "listed"
+      }
+    },
+    {
+      "sourceParams": [
+        "ps4-marvel-spider-man-el-reino-de-las-sombras",
+        "marvel-spider-man-el-reino-de-las-sombras-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps3-spiderman-web-of-shadows",
+      "targetParam": "spiderman-web-of-shadows-ps3-pal-es",
+      "permanent": true,
+      "reason": "wrong_platform",
+      "reviewedAt": "2026-09-05",
+      "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05",
+      "targetLocator": {
+        "catalogId": "ps3-spiderman-web-of-shadows",
+        "title": "Spiderman: Web of Shadows",
+        "platform": "ps3",
+        "region": "PAL España",
+        "edition": "standard",
+        "physicalVariant": null,
+        "pcId": 47964,
+        "ean": null,
+        "reference": null,
+        "coverUrl": "/covers/ps3/spiderman-web-of-shadows.jpg",
+        "listingStatus": "listed"
+      }
+    },
+    {
+      "sourceParams": [
+        "ps4-ratchet-clank-atrapados-en-el-tiempo",
+        "ratchet-clank-atrapados-en-el-tiempo-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps3-ratchet-&amp;-clank-a-crack-in-time",
+      "targetParam": "ratchet-clank-a-crack-in-time-ps3-pal-es",
+      "permanent": true,
+      "reason": "wrong_platform",
+      "reviewedAt": "2026-09-05",
+      "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05",
+      "targetLocator": {
+        "catalogId": "ps3-ratchet-&amp;-clank-a-crack-in-time",
+        "title": "Ratchet & Clank: A Crack in Time",
+        "platform": "ps3",
+        "region": "PAL España",
+        "edition": "standard",
+        "physicalVariant": null,
+        "pcId": 47820,
+        "ean": null,
+        "reference": null,
+        "coverUrl": "/covers/ps3/ratchet-amp-clank-a-crack-in-time.jpg",
+        "listingStatus": "listed"
+      }
+    },
+    {
+      "sourceParams": [
+        "ps4-ratchet-clank-en-busca-del-tesoro",
+        "ratchet-clank-en-busca-del-tesoro-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps3-ratchet-&amp;-clank-quest-for-booty",
+      "targetParam": "ratchet-clank-quest-for-booty-ps3-pal-es",
+      "permanent": true,
+      "reason": "wrong_platform",
+      "reviewedAt": "2026-09-05",
+      "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05",
+      "targetLocator": {
+        "catalogId": "ps3-ratchet-&amp;-clank-quest-for-booty",
+        "title": "Ratchet & Clank: Quest for Booty",
+        "platform": "ps3",
+        "region": "PAL España",
+        "edition": "standard",
+        "physicalVariant": null,
+        "pcId": 47821,
+        "ean": null,
+        "reference": null,
+        "coverUrl": "/covers/ps3/ratchet-amp-clank-quest-for-booty.jpg",
+        "listingStatus": "listed"
+      }
+    },
+    {
+      "sourceParams": [
+        "ps4-cars",
+        "cars-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps2-disney-pixar-cars",
+      "targetParam": "disney-pixar-cars-ps2-pal-es",
+      "permanent": true,
+      "reason": "wrong_platform",
+      "reviewedAt": "2026-09-05",
+      "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05",
+      "targetLocator": {
+        "catalogId": "ps2-disney-pixar-cars",
+        "title": "Disney Pixar Cars",
+        "platform": "ps2",
+        "region": "PAL España",
+        "edition": "standard",
+        "physicalVariant": null,
+        "pcId": 40918,
+        "ean": null,
+        "reference": null,
+        "coverUrl": "/covers/ps2/disney-pixar-cars.jpg",
+        "listingStatus": "listed"
+      }
+    }
+  ]
+}

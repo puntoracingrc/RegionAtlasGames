@@ -1,0 +1,5008 @@
+{
+  "schemaVersion": 1,
+  "batchId": "company-credit-ps4-pal-compilations-2026-09-05",
+  "reviewedAt": "2026-09-05",
+  "source": {
+    "name": "RegionAtlas_PS4_PAL_recopilatorios_resueltos_2026-09-05.xlsx",
+    "sha256": "f3e63293c80e30723a17f1447001fb2be3b7bc6a08c24808caad09f4035b52ef"
+  },
+  "writesPerformed": true,
+  "summary": {
+    "catalogRowsBefore": 73104,
+    "catalogRowsAfter": 73104,
+    "uniqueIdsBefore": 73104,
+    "uniqueIdsAfter": 73104,
+    "companiesBefore": 4450,
+    "companiesAfter": 4481,
+    "editorialCatalogEntries": 58,
+    "compilationsDocumented": 24,
+    "compilationsLinked": 23,
+    "componentsDocumented": 82,
+    "componentsLinkedExactly": 42,
+    "variantRelations": 15,
+    "verifiedVariantRelations": 13,
+    "companyCreditsByRole": {
+      "developer": 63,
+      "digitalPublisher": 1,
+      "originalDeveloper": 6,
+      "originalPublisher": 72,
+      "physicalPublisherOrDistributor": 79,
+      "portDeveloper": 5,
+      "regionalPublisher": 20,
+      "remasterDeveloper": 1
+    },
+    "individualCredits": 3,
+    "aliasesNormalized": 19,
+    "corporateRelations": 6,
+    "safeRedirects": 6,
+    "blockedCases": 9,
+    "catalogEntriesChanged": 19,
+    "detailsChanged": 83,
+    "companiesChanged": 141,
+    "companiesCreated": 31,
+    "actions": {
+      "ADD_COMPONENT": 82,
+      "ADD_CORPORATE_RELATION": 6,
+      "ADD_CO_DEVELOPER": 4,
+      "LINK_VARIANT": 13,
+      "MERGE_DUPLICATE": 2,
+      "MOVE_PLATFORM": 4,
+      "NORMALIZE_ALIAS": 19,
+      "REMOVE_GENERIC_NON_GAME": 1,
+      "REQUIRES_REVIEW": 9,
+      "UPDATE_CREDITS": 77
+    }
+  },
+  "locators": [
+    {
+      "catalogId": "ps2-disney-pixar-cars",
+      "title": "Disney Pixar Cars",
+      "platform": "ps2",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 40918,
+      "ean": "4005209077392,4005209076616,4005209077415",
+      "reference": null,
+      "coverUrl": "/covers/ps2/disney-pixar-cars.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps3-ratchet-&amp;-clank-a-crack-in-time",
+      "title": "Ratchet & Clank: A Crack in Time",
+      "platform": "ps3",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 47820,
+      "ean": null,
+      "reference": "BCAS-20098",
+      "coverUrl": "/covers/ps3/ratchet-amp-clank-a-crack-in-time.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps3-ratchet-&amp;-clank-quest-for-booty",
+      "title": "Ratchet & Clank: Quest for Booty",
+      "platform": "ps3",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 47821,
+      "ean": null,
+      "reference": "BCAS-20052",
+      "coverUrl": "/covers/ps3/ratchet-amp-clank-quest-for-booty.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps3-spiderman-web-of-shadows",
+      "title": "Spiderman: Web of Shadows",
+      "platform": "ps3",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 47964,
+      "ean": "5030917062445",
+      "reference": null,
+      "coverUrl": "/covers/ps3/spiderman-web-of-shadows.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-adventure-academia-the-fractured-continent",
+      "title": "Adventure Academia: The Fractured Continent",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 5977753,
+      "ean": null,
+      "reference": "CUSA-30196",
+      "coverUrl": "/covers/ps4/adventure-academia-the-fractured-continent.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-air-conflicts-secret-wars",
+      "title": "Air Conflicts Secret Wars",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 57283,
+      "ean": null,
+      "reference": "BLES-01316",
+      "coverUrl": "/covers/ps4/air-conflicts-secret-wars.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-annapurna-ultimate-collection",
+      "title": "Annapurna Ultimate Collection",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 1341791,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/annapurna-ultimate-collection.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-armored-core-vi-fires-of-rubicon",
+      "title": "Armored Core VI: Fires Of Rubicon",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 5691027,
+      "ean": null,
+      "reference": "CUSA-25368",
+      "coverUrl": "/covers/ps4/armored-core-vi-fires-of-rubicon.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition",
+      "title": "Armored Core VI: Fires Of Rubicon [Collector's Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-armored-core-vi-fires-of-rubicon-launch-edition",
+      "title": "Armored Core VI: Fires Of Rubicon [Launch Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-batman-arkham-vr",
+      "title": "Batman Arkham VR",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 57318,
+      "ean": null,
+      "reference": "CUSA-05335",
+      "coverUrl": "/covers/ps4/batman-arkham-vr.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-blasphemous",
+      "title": "Blasphemous",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 2154871,
+      "ean": "8424365720984",
+      "reference": "CUSA-16261",
+      "coverUrl": "/covers/ps4/blasphemous.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-blasphemous-coleccionista",
+      "title": "Blasphemous Coleccionista",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 2154873,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/blasphemous-coleccionista.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-cars",
+      "title": "Cars",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": "CUSA-29721",
+      "coverUrl": "/covers/ps4/cars.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-classic-racers-elite",
+      "title": "Classic Racers Elite",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 7532713,
+      "ean": null,
+      "reference": "CUSA-27197",
+      "coverUrl": "/covers/ps4/classic-racers-elite.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-crash-team-racing-&amp;-spyro-reignited-trilogy",
+      "title": "Crash Team Racing & Spyro Reignited Trilogy",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 2263075,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/crash-team-racing-amp-spyro-reignited-trilogy.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-cyberpunk-2077",
+      "title": "Cyberpunk 2077",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 2904792,
+      "ean": "3391892006032,3391892006025",
+      "reference": "CUSA-16496",
+      "coverUrl": "/covers/ps4/cyberpunk-2077.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-cyberpunk-2077-samurai-pack",
+      "title": "Cyberpunk 2077 [Samurai Pack]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-dark-souls-ii-scholar-of-the-first-sin",
+      "title": "Dark Souls II Scholar of the First Sin",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 57717,
+      "ean": null,
+      "reference": "BLES-02135",
+      "coverUrl": "/covers/ps4/dark-souls-ii-scholar-of-the-first-sin.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-dark-souls-ii-scholar-of-the-first-sin-not-for-resale",
+      "title": "Dark Souls II Scholar Of The First Sin [Not For Resale]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-dark-thrones-&amp;-witch-hunter-double-pack",
+      "title": "Dark Thrones & Witch Hunter Double Pack",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/dark-thrones-amp-witch-hunter-double-pack.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-date-a-live-rio-reincarnation",
+      "title": "Date A Live: Rio Reincarnation",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 4781362,
+      "ean": null,
+      "reference": "CUSA-08868",
+      "coverUrl": "/covers/ps4/date-a-live-rio-reincarnation.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-daymare-1994-sandcastle",
+      "title": "Daymare 1994 Sandcastle",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 5770612,
+      "ean": null,
+      "reference": "CUSA-35770",
+      "coverUrl": "/covers/ps4/daymare-1994-sandcastle.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-demon-pit",
+      "title": "Demon Pit",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 3621155,
+      "ean": null,
+      "reference": "CUSA-17607",
+      "coverUrl": "/covers/ps4/demon-pit.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-dishonored-complete-collection",
+      "title": "Dishonored Complete Collection",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 6240292,
+      "ean": "5055856427629",
+      "reference": null,
+      "coverUrl": "/covers/ps4/dishonored-complete-collection.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-dishonored-pray-arkane-collection",
+      "title": "Dishonored & Pray Arkane Collection",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/dishonored-pray-arkane-collection.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-dishonored-prey-the-arkane-collection",
+      "title": "Dishonored Prey: The Arkane Collection",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 222503,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/dishonored-prey-the-arkane-collection.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-doctor-who-duo-bundle",
+      "title": "Doctor Who: Duo Bundle",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 5977774,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/doctor-who-duo-bundle.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-dracula-s-legacy",
+      "title": "Dracula's Legacy",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 13866687,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/dracula-s-legacy.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-dragon-ball-fighterz-&#43;-dragon-ball-xenoverse-2",
+      "title": "Dragon Ball Fighterz + Dragon Ball Xenoverse 2",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/dragon-ball-fighterz-43-dragon-ball-xenoverse-2.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack",
+      "title": "Dragon Ball Xenoverse 1 & 2 Double Pack",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 2291096,
+      "ean": "3391892001754",
+      "reference": null,
+      "coverUrl": "/covers/ps4/dragon-ball-xenoverse-1-amp-2-double-pack.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-ducati-90th-anniversary",
+      "title": "Ducati : 90th Anniversary",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 57370,
+      "ean": null,
+      "reference": "CUSA-05245",
+      "coverUrl": "/covers/ps4/ducati-90th-anniversary.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-dynasty-feud",
+      "title": "Dynasty Feud",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 6041904,
+      "ean": null,
+      "reference": "CUSA-08917",
+      "coverUrl": "/covers/ps4/dynasty-feud.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-genesis-alpha-one",
+      "title": "Genesis Alpha One",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 57406,
+      "ean": null,
+      "reference": "CUSA-10869",
+      "coverUrl": "/covers/ps4/genesis-alpha-one.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-ghost-trick-phantom-detective",
+      "title": "Ghost Trick: Phantom Detective",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 7845232,
+      "ean": null,
+      "reference": "CUSA-34040",
+      "coverUrl": "/covers/ps4/ghost-trick-phantom-detective.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-gungrave-vr",
+      "title": "Gungrave VR",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 4360744,
+      "ean": null,
+      "reference": "CUSA-09355",
+      "coverUrl": "/covers/ps4/gungrave-vr.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-gylt",
+      "title": "Gylt",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 5964806,
+      "ean": "8436016712286",
+      "reference": "CUSA-40344",
+      "coverUrl": "/covers/ps4/gylt.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-gylt-collector%27s-edition",
+      "title": "GYLT [Collector's Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-hello-neighbor-hide-&amp;-seek",
+      "title": "Hello Neighbor: Hide & Seek",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": "CUSA-13970",
+      "coverUrl": "/covers/ps4/hello-neighbor-hide-amp-seek.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-hokko-life",
+      "title": "Hokko Life",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 4998594,
+      "ean": null,
+      "reference": "CUSA-30507",
+      "coverUrl": "/covers/ps4/hokko-life.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-indiecalypse",
+      "title": "Indiecalypse",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 98609,
+      "ean": null,
+      "reference": "CUSA-19518",
+      "coverUrl": "/covers/ps4/indiecalypse.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-infinite-beyond-the-mind-olga-edition",
+      "title": "Infinite - Beyond The Mind [Olga Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 11499493,
+      "ean": "4260650746741",
+      "reference": null,
+      "coverUrl": "/covers/ps4/infinite-beyond-the-mind-olga-edition.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-infinite-beyond-the-mind-tanya-edition",
+      "title": "Infinite Beyond The Mind [Tanya Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 11454473,
+      "ean": "4260650746758",
+      "reference": null,
+      "coverUrl": "/covers/ps4/infinite-beyond-the-mind-tanya-edition.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-jets%27n%27guns-2",
+      "title": "Jets'n'Guns 2",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 6330503,
+      "ean": "3760328373107",
+      "reference": "CUSA-42625",
+      "coverUrl": "/covers/ps4/jets-39-n-39-guns-2-2.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-jets-%27n%27-guns-2",
+      "title": "Jets 'N' Guns 2",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 12925666,
+      "ean": null,
+      "reference": "CUSA-42625",
+      "coverUrl": "/covers/ps4/jets-39-n-39-guns-2.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-koa-and-the-five-pirates-of-mara",
+      "title": "Koa and the Five Pirates of Mara",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 6167015,
+      "ean": null,
+      "reference": "CUSA-39399",
+      "coverUrl": "/covers/ps4/koa-and-the-five-pirates-of-mara.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-lemon-cake",
+      "title": "Lemon Cake",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 5492782,
+      "ean": null,
+      "reference": "CUSA-33487",
+      "coverUrl": "/covers/ps4/lemon-cake.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-mafia-trilogy",
+      "title": "Mafia Trilogy",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 160025,
+      "ean": "5026555428262",
+      "reference": "PLJS-36154",
+      "coverUrl": "/covers/ps4/mafia-trilogy.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-marvel-spider-man-el-reino-de-las-sombras",
+      "title": "Marvel Spider Man El reino de las sombras",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/marvel-spider-man-el-reino-de-las-sombras.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-memorrha",
+      "title": "Memorrha",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 7286271,
+      "ean": null,
+      "reference": "CUSA-43764",
+      "coverUrl": "/covers/ps4/memorrha.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-mickey-storm-and-the-cursed-mask",
+      "title": "Mickey Storm And The Cursed Mask",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 7274400,
+      "ean": null,
+      "reference": "CUSA-25923",
+      "coverUrl": "/covers/ps4/mickey-storm-and-the-cursed-mask.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-middle-earth-shadow-of-mordor",
+      "title": "Middle-earth Shadow of Mordor",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 57806,
+      "ean": "5051895267011",
+      "reference": "BLES-01745",
+      "coverUrl": "/covers/ps4/middle-earth-shadow-of-mordor.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-middle-earth-shadow-of-mordor-game-of-the-year",
+      "title": "Middle Earth: Shadow of Mordor [Game of the Year]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 62344,
+      "ean": "5051895395530",
+      "reference": null,
+      "coverUrl": "/covers/ps4/middle-earth-shadow-of-mordor-game-of-the-year.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-milli-&amp;-greg",
+      "title": "Milli & Greg",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 4135431,
+      "ean": null,
+      "reference": "CUSA-29972",
+      "coverUrl": "/covers/ps4/milli-amp-greg.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-mindtaker",
+      "title": "Mindtaker",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 7286269,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/mindtaker.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-nobunaga%27s-ambition-sphere-of-influence-ascension",
+      "title": "Nobunaga's Ambition Sphere of Influence [Ascension]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-nongunz-doppelganger-edition",
+      "title": "Nongunz: Doppelganger Edition",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 4916466,
+      "ean": "3760328370199",
+      "reference": "CUSA-23643",
+      "coverUrl": "/covers/ps4/nongunz-doppelganger-edition.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-not-for-resale",
+      "title": "[Not For Resale]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-observer-system-redux",
+      "title": "Observer System Redux",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 4135196,
+      "ean": null,
+      "reference": "CUSA-27090",
+      "coverUrl": "/covers/ps4/observer-system-redux.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-okinawa-rush",
+      "title": "Okinawa Rush",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 3335414,
+      "ean": "800265939950",
+      "reference": "CUSA-27284",
+      "coverUrl": "/covers/ps4/okinawa-rush.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-okinawa-rush-black-mantis-edition",
+      "title": "Okinawa Rush [Black Mantis Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-okinawa-rush-limited-edition",
+      "title": "Okinawa Rush [Limited Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-oxide-room-104",
+      "title": "Oxide Room 104",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 5770616,
+      "ean": null,
+      "reference": "CUSA-31637",
+      "coverUrl": "/covers/ps4/oxide-room-104.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-past-cure",
+      "title": "Past Cure",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 57840,
+      "ean": "4260563640013",
+      "reference": "CUSA-07370",
+      "coverUrl": "/covers/ps4/past-cure.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-persona-5-&#43;-persona-5-dancing-the-starlight-day-one-edition-2-hits-pack",
+      "title": "Persona 5 + Persona 5: Dancing The Starlight - Day One Edition [2 Hits Pack]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/persona-5-43-persona-5-dancing-the-starlight-day-one-edition-2-hits-pack.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-playlink-games-collection",
+      "title": "PlayLink Games Collection",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 6327003,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/playlink-games-collection.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-professional-farmer-american-dream",
+      "title": "Professional Farmer: American Dream",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 7313094,
+      "ean": null,
+      "reference": "CUSA-09298",
+      "coverUrl": "/covers/ps4/professional-farmer-american-dream.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-quivr",
+      "title": "QuiVR",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 67302,
+      "ean": null,
+      "reference": "CUSA-10675",
+      "coverUrl": "/covers/ps4/quivr.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-race-with-ryan",
+      "title": "Race with Ryan",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 6009598,
+      "ean": null,
+      "reference": "CUSA-15718",
+      "coverUrl": "/covers/ps4/race-with-ryan.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-ratchet-clank-atrapados-en-el-tiempo",
+      "title": "Ratchet & Clank Atrapados en el tiempo",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/ratchet-clank-atrapados-en-el-tiempo.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-ratchet-clank-en-busca-del-tesoro",
+      "title": "Ratchet & Clank En busca del tesoro",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/ratchet-clank-en-busca-del-tesoro.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-rogue-trooper-redux",
+      "title": "Rogue Trooper Redux",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 57545,
+      "ean": "5060236968739",
+      "reference": "CUSA-08409",
+      "coverUrl": "/covers/ps4/rogue-trooper-redux.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-rpg-maker",
+      "title": "RPG Maker",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 8451169,
+      "ean": null,
+      "reference": "CUSA-46369",
+      "coverUrl": "/covers/ps4/rpg-maker.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-rpg-maker-with",
+      "title": "RPG Maker WITH",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 10123123,
+      "ean": null,
+      "reference": "CUSA-46369",
+      "coverUrl": "/covers/ps4/rpg-maker-with.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-ryan%27s-rescue-squad",
+      "title": "Ryan's Rescue Squad",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 5978774,
+      "ean": null,
+      "reference": "CUSA-27884",
+      "coverUrl": "/covers/ps4/ryan-39-s-rescue-squad.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-senran-kagura-burst-renewal",
+      "title": "Senran Kagura Burst Re:Newal",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 57566,
+      "ean": null,
+      "reference": "CUSA-09269",
+      "coverUrl": "/covers/ps4/senran-kagura-burst-re-newal.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-senran-kagura-burst-renewal-bountiful-beauties",
+      "title": "Senran Kagura Burst Re:Newal [Bountiful Beauties]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-sonic-mania-plus-and-sonic-forces-double-pack",
+      "title": "Sonic Mania Plus And Sonic Forces Double Pack",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 6755347,
+      "ean": "5055277034765",
+      "reference": null,
+      "coverUrl": "/covers/ps4/sonic-mania-plus-and-sonic-forces-double-pack.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-source-of-madness",
+      "title": "Source of Madness",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 5962265,
+      "ean": "0604565505361",
+      "reference": "CUSA-32719",
+      "coverUrl": "/covers/ps4/source-of-madness.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-spyro-reignited-trilogy-&amp;-crash-bandicoot-n-sane-trilogy",
+      "title": "Spyro Reignited Trilogy & Crash Bandicoot N Sane Trilogy",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/spyro-reignited-trilogy-amp-crash-bandicoot-n-sane-trilogy.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-star-wars-jedi-knight-collection",
+      "title": "Star Wars Jedi Knight Collection",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 2736754,
+      "ean": "9120080076878",
+      "reference": null,
+      "coverUrl": "/covers/ps4/star-wars-jedi-knight-collection.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-street-power-football",
+      "title": "Street Power Football",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 5434818,
+      "ean": "5016488135825",
+      "reference": "CUSA-20023",
+      "coverUrl": "/covers/ps4/street-power-football.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-super-crazy-rhythm-castle",
+      "title": "Super Crazy Rhythm Castle",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 6167041,
+      "ean": null,
+      "reference": "CUSA-31584",
+      "coverUrl": "/covers/ps4/super-crazy-rhythm-castle.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-superhot-vr",
+      "title": "Superhot VR",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 64703,
+      "ean": "711719973966",
+      "reference": "CUSA-08165",
+      "coverUrl": "/covers/ps4/superhot-vr.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-tales-of-zestiria-&#43;-tales-of-berseria-&#43;-tales-of-vesperia-triple-pack-bundle",
+      "title": "Tales of Zestiria + Tales of Berseria + Tales of Vesperia [Triple Pack Bundle]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/tales-of-zestiria-43-tales-of-berseria-43-tales-of-vesperia-triple-pack-bundle.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-terra-trilogy",
+      "title": "Terra Trilogy",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 4034102,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/terra-trilogy.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-the-american-dream",
+      "title": "The American Dream",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 65022,
+      "ean": "5060522090731",
+      "reference": "CUSA-07971",
+      "coverUrl": "/covers/ps4/the-american-dream.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-the-giants-industry-and-transport-bundle",
+      "title": "The Giants: Industry And Transport Bundle",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 9175649,
+      "ean": "4020636152849",
+      "reference": null,
+      "coverUrl": "/covers/ps4/the-giants-industry-and-transport-bundle.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-the-occupation",
+      "title": "The Occupation",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 57620,
+      "ean": null,
+      "reference": "CUSA-13119",
+      "coverUrl": "/covers/ps4/the-occupation.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-the-rumble-fish-2",
+      "title": "The Rumble Fish 2",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 7311795,
+      "ean": null,
+      "reference": "CUSA-34435",
+      "coverUrl": "/covers/ps4/the-rumble-fish-2.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-the-truth-is-out-here-mystery-adventure-pack",
+      "title": "The Truth is Out Here Mystery Adventure Pack",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/the-truth-is-out-here-mystery-adventure-pack.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-the-truth-is-out-there-mystery-adventure-pack",
+      "title": "The Truth Is Out There: Mystery Adventure Pack",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 2726718,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/the-truth-is-out-there-mystery-adventure-pack.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-the-ultimate-vr-collection",
+      "title": "The Ultimate VR Collection",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 1975189,
+      "ean": "5060522090410",
+      "reference": null,
+      "coverUrl": "/covers/ps4/the-ultimate-vr-collection.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-trailblazers",
+      "title": "Trailblazers",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 7287313,
+      "ean": null,
+      "reference": "CUSA-10651",
+      "coverUrl": "/covers/ps4/trailblazers.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-ultrawings",
+      "title": "Ultrawings",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 67305,
+      "ean": "5060522093671",
+      "reference": "CUSA-07445",
+      "coverUrl": "/covers/ps4/ultrawings.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-unmetal",
+      "title": "Unmetal",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 5428534,
+      "ean": "8436016711968",
+      "reference": "CUSA-27670",
+      "coverUrl": "/covers/ps4/unmetal.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-wolfenstein-alt-history-collection",
+      "title": "Wolfenstein Alt History Collection",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 3685268,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/wolfenstein-alt-history-collection.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-wonder-boy-anniversary-collection",
+      "title": "Wonder Boy Anniversary Collection",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 4848821,
+      "ean": "4260650743931",
+      "reference": "CUSA-32583",
+      "coverUrl": "/covers/ps4/wonder-boy-anniversary-collection.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-wonder-boy-collection",
+      "title": "Wonder Boy Collection",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 4856874,
+      "ean": null,
+      "reference": "CUSA-31418",
+      "coverUrl": "/covers/ps4/wonder-boy-collection.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-world-of-simulators",
+      "title": "World Of Simulators",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 8964910,
+      "ean": null,
+      "reference": null,
+      "coverUrl": "/covers/ps4/world-of-simulators.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-young-souls",
+      "title": "Young Souls",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 3847572,
+      "ean": "3770017623260",
+      "reference": "CUSA-29073",
+      "coverUrl": "/covers/ps4/young-souls.jpg",
+      "listingStatus": "listed"
+    },
+    {
+      "catalogId": "ps4-young-souls-collector%27s-edition",
+      "title": "Young Souls [Collector's Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-young-souls-deluxe-edition",
+      "title": "Young Souls [Deluxe Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": null,
+      "ean": null,
+      "reference": null,
+      "coverUrl": null,
+      "listingStatus": "excluded"
+    },
+    {
+      "catalogId": "ps4-youtubers-life-2",
+      "title": "Youtubers Life 2",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "physicalVariant": null,
+      "pcId": 7312026,
+      "ean": null,
+      "reference": "CUSA-26443",
+      "coverUrl": "/covers/ps4/youtubers-life-2.jpg",
+      "listingStatus": "listed"
+    }
+  ],
+  "catalogBeforeAfter": {
+    "ps4-not-for-resale": {
+      "before": {
+        "title": "[Not For Resale]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "promo",
+        "excludeReason": "not-for-resale"
+      },
+      "after": {
+        "title": "[Not For Resale]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "non_game_marker",
+        "excludeCategory": "promo",
+        "excludeReason": "Generic Not For Resale marker; not a videogame"
+      },
+      "changedKeys": [
+        "catalogKind",
+        "excludeReason"
+      ]
+    },
+    "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition": {
+      "before": {
+        "title": "Armored Core VI: Fires Of Rubicon [Collector&#39;s Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "variant",
+        "excludeReason": "duplicate-variant"
+      },
+      "after": {
+        "title": "Armored Core VI: Fires Of Rubicon [Collector&#39;s Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-armored-core-vi-fires-of-rubicon-launch-edition": {
+      "before": {
+        "title": "Armored Core VI: Fires Of Rubicon [Launch Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "variant",
+        "excludeReason": "duplicate-variant"
+      },
+      "after": {
+        "title": "Armored Core VI: Fires Of Rubicon [Launch Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-cars": {
+      "before": {
+        "title": "Cars",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "after": {
+        "title": "Cars",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "wrong-platform",
+        "excludeReason": "Misidentified PS4 record; redirected by company-credit-ps4-pal-compilations-2026-09-05"
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-cyberpunk-2077-samurai-pack": {
+      "before": {
+        "title": "Cyberpunk 2077 [Samurai Pack]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "variant",
+        "excludeReason": "duplicate-variant"
+      },
+      "after": {
+        "title": "Cyberpunk 2077 [Samurai Pack]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-dark-souls-ii-scholar-of-the-first-sin-not-for-resale": {
+      "before": {
+        "title": "Dark Souls II Scholar Of The First Sin [Not For Resale]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "promo",
+        "excludeReason": "not-for-resale"
+      },
+      "after": {
+        "title": "Dark Souls II Scholar Of The First Sin [Not For Resale]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus",
+        "physicalVariant"
+      ]
+    },
+    "ps4-dishonored-pray-arkane-collection": {
+      "before": {
+        "title": "Dishonored & Pray Arkane Collection",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "after": {
+        "title": "Dishonored & Prey: The Arkane Collection",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "title"
+      ]
+    },
+    "ps4-gylt-collector%27s-edition": {
+      "before": {
+        "title": "GYLT [Collector&#39;s Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "variant",
+        "excludeReason": "duplicate-variant"
+      },
+      "after": {
+        "title": "GYLT [Collector&#39;s Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-jets-%27n%27-guns-2": {
+      "before": {
+        "title": "Jets &#39;N&#39; Guns 2",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "after": {
+        "title": "Jets &#39;N&#39; Guns 2",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "duplicate",
+        "excludeReason": "Consolidated by company-credit-ps4-pal-compilations-2026-09-05; permanent redirect retained"
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-marvel-spider-man-el-reino-de-las-sombras": {
+      "before": {
+        "title": "Marvel Spider Man El reino de las sombras",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "after": {
+        "title": "Marvel Spider Man El reino de las sombras",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "wrong-platform",
+        "excludeReason": "Misidentified PS4 record; redirected by company-credit-ps4-pal-compilations-2026-09-05"
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-okinawa-rush-black-mantis-edition": {
+      "before": {
+        "title": "Okinawa Rush [Black Mantis Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "variant",
+        "excludeReason": "duplicate-variant"
+      },
+      "after": {
+        "title": "Okinawa Rush [Black Mantis Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-okinawa-rush-limited-edition": {
+      "before": {
+        "title": "Okinawa Rush [Limited Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "variant",
+        "excludeReason": "duplicate-variant"
+      },
+      "after": {
+        "title": "Okinawa Rush [Limited Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-ratchet-clank-atrapados-en-el-tiempo": {
+      "before": {
+        "title": "Ratchet & Clank Atrapados en el tiempo",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "after": {
+        "title": "Ratchet & Clank Atrapados en el tiempo",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "wrong-platform",
+        "excludeReason": "Misidentified PS4 record; redirected by company-credit-ps4-pal-compilations-2026-09-05"
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-ratchet-clank-en-busca-del-tesoro": {
+      "before": {
+        "title": "Ratchet & Clank En busca del tesoro",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "after": {
+        "title": "Ratchet & Clank En busca del tesoro",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "wrong-platform",
+        "excludeReason": "Misidentified PS4 record; redirected by company-credit-ps4-pal-compilations-2026-09-05"
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-rpg-maker": {
+      "before": {
+        "title": "RPG Maker",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "after": {
+        "title": "RPG Maker",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "duplicate",
+        "excludeReason": "Consolidated by company-credit-ps4-pal-compilations-2026-09-05; permanent redirect retained"
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-senran-kagura-burst-renewal-bountiful-beauties": {
+      "before": {
+        "title": "Senran Kagura Burst Re:Newal [Bountiful Beauties]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "variant",
+        "excludeReason": "duplicate-variant"
+      },
+      "after": {
+        "title": "Senran Kagura Burst Re:Newal [Bountiful Beauties]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-the-truth-is-out-here-mystery-adventure-pack": {
+      "before": {
+        "title": "The Truth is Out Here Mystery Adventure Pack",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "after": {
+        "title": "The Truth Is Out There: Mystery Adventure Pack",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "title"
+      ]
+    },
+    "ps4-young-souls-collector%27s-edition": {
+      "before": {
+        "title": "Young Souls [Collector&#39;s Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "variant",
+        "excludeReason": "duplicate-variant"
+      },
+      "after": {
+        "title": "Young Souls [Collector&#39;s Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    },
+    "ps4-young-souls-deluxe-edition": {
+      "before": {
+        "title": "Young Souls [Deluxe Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "excluded",
+        "catalogKind": "game",
+        "excludeCategory": "variant",
+        "excludeReason": "duplicate-variant"
+      },
+      "after": {
+        "title": "Young Souls [Deluxe Edition]",
+        "platformSlug": "ps4",
+        "region": "PAL España",
+        "listingStatus": "listed",
+        "catalogKind": "game",
+        "excludeCategory": null,
+        "excludeReason": null
+      },
+      "changedKeys": [
+        "excludeCategory",
+        "excludeReason",
+        "listingStatus"
+      ]
+    }
+  },
+  "detailsBeforeAfter": {
+    "ps4-infinite-beyond-the-mind-tanya-edition": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Blowfish Studios",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Blowfish Studios",
+            "slug": "blowfish-studios",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Strictly Limited Games",
+            "slug": "strictly-limited-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": [
+          {
+            "role": "developer",
+            "person": "Emilie Coyo",
+            "slug": "emilie-coyo",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ]
+      }
+    },
+    "ps4-demon-pit": {
+      "before": {
+        "developer": "DoomCube, PsychicSoftware, Stage Clear Studios, Psychic Games Limited",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Psychic Software",
+        "publisher": "Digerati",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Psychic Software",
+            "slug": "psychic-software",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "developer",
+            "company": "DoomCube",
+            "slug": "doomcube",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Digerati",
+            "slug": "digerati",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Digerati",
+            "slug": "digerati",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-hello-neighbor-hide-&amp;-seek": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Dynamic Pixels",
+        "publisher": "tinyBuild",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Dynamic Pixels",
+            "slug": "dynamic-pixels",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "tinyBuild",
+            "slug": "tinybuild",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "tinyBuild",
+            "slug": "tinybuild",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-wolfenstein-alt-history-collection": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Bethesda Softworks",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-air-conflicts-secret-wars": {
+      "before": {
+        "developer": "Games Farm",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Games Farm",
+        "publisher": "2tainment GmbH",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Games Farm",
+            "slug": "games-farm",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "2tainment GmbH",
+            "slug": "2tainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "2tainment GmbH",
+            "slug": "2tainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-superhot-vr": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "SUPERHOT Team",
+        "publisher": "SUPERHOT Team",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "SUPERHOT Team",
+            "slug": "superhot-team",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "SUPERHOT Team",
+            "slug": "superhot-team",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "SUPERHOT Team",
+            "slug": "superhot-team",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-source-of-madness": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Carry Castle",
+        "publisher": "Thunderful Publishing",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Carry Castle",
+            "slug": "carry-castle",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Thunderful Publishing",
+            "slug": "thunderful-publishing",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Thunderful Publishing",
+            "slug": "thunderful-publishing",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-world-of-simulators": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Aerosoft GmbH",
+            "slug": "aerosoft",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "United Independent Entertainment",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "United Independent Entertainment",
+            "slug": "united-independent-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "UIG Entertainment",
+            "slug": "uig-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "UIG Entertainment",
+            "slug": "uig-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-playlink-games-collection": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Sony Interactive Entertainment Europe",
+            "slug": "sony-interactive-entertainment-europe",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Sony Interactive Entertainment",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Sony Interactive Entertainment",
+            "slug": "sony-interactive-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Sony Interactive Entertainment",
+            "slug": "sony-interactive-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-armored-core-vi-fires-of-rubicon-launch-edition": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "FromSoftware",
+        "publisher": "Bandai Namco Entertainment",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "FromSoftware",
+            "slug": "fromsoftware",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Bandai Namco Entertainment",
+            "slug": "bandai-namco-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bandai Namco Entertainment",
+            "slug": "bandai-namco-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-terra-trilogy": {
+      "before": {
+        "developer": "Dark Computer Entertainment Limited",
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Funbox Media",
+            "slug": "funbox-media",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "DM Media",
+        "publisher": "Funbox Media",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "DM Media",
+            "slug": "dm-media",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Funbox Media",
+            "slug": "funbox-media",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Funbox Media",
+            "slug": "funbox-media",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-young-souls-deluxe-edition": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "1P2P Studio",
+        "publisher": "The Arcade Crew",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "1P2P Studio",
+            "slug": "1p2p-studio",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "The Arcade Crew",
+            "slug": "the-arcade-crew",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-mafia-trilogy": {
+      "before": {
+        "developer": "Hangar 13",
+        "publisher": "2K Games",
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "2K Games",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "2K Games",
+            "slug": "2k-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "2K Games",
+            "slug": "2k-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-professional-farmer-american-dream": {
+      "before": {
+        "developer": "UIG Entertainment",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "UIG Entertainment",
+        "publisher": "UIG Entertainment",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "UIG Entertainment",
+            "slug": "uig-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "UIG Entertainment",
+            "slug": "uig-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Iridium Media Group GmbH",
+            "slug": "iridium-media-group-gmbh",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Iridium Media Group GmbH",
+            "slug": "iridium-media-group-gmbh",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-rogue-trooper-redux": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Rebellion Developments",
+        "publisher": "Rebellion Interactive",
+        "companyCredits": [
+          {
+            "role": "originalDeveloper",
+            "company": "Rebellion Developments",
+            "slug": "rebellion-developments",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "remasterDeveloper",
+            "company": "TickTock Games",
+            "slug": "ticktock-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Rebellion Interactive",
+            "slug": "rebellion-interactive",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Rebellion Interactive",
+            "slug": "rebellion-interactive",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-ryan%27s-rescue-squad": {
+      "before": {
+        "developer": "Clear Stage Studios",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Stage Clear Studios",
+        "publisher": "Outright Games LTD",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Stage Clear Studios",
+            "slug": "stage-clear-studios",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Outright Games LTD",
+            "slug": "outright-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Outright Games LTD",
+            "slug": "outright-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-dragon-ball-fighterz-&#43;-dragon-ball-xenoverse-2": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Bandai Namco Entertainment",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Bandai Namco Entertainment",
+            "slug": "bandai-namco-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Bandai Namco Entertainment Europe",
+            "slug": "bandai-namco-entertainment-europe",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bandai Namco Entertainment Europe",
+            "slug": "bandai-namco-entertainment-europe",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-race-with-ryan": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "3DClouds",
+        "publisher": "Outright Games LTD",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "3DClouds",
+            "slug": "3dclouds",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Outright Games LTD",
+            "slug": "outright-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Outright Games LTD",
+            "slug": "outright-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-street-power-football": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "SFL Interactive",
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "SFL Interactive",
+            "slug": "sfl-interactive",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "developer",
+            "company": "Gamajun Games",
+            "slug": "gamajun-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-genesis-alpha-one": {
+      "before": {
+        "developer": "Radiation Blue",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Radiation Blue",
+        "publisher": "Team17",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Radiation Blue",
+            "slug": "radiation-blue",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Team17",
+            "slug": "team17",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Team17",
+            "slug": "team17",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-memorrha": {
+      "before": {
+        "developer": "Korion Interactive",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "StickyStoneStudio",
+        "publisher": "StickyStoneStudio",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "StickyStoneStudio",
+            "slug": "sticky-stone-studio",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "StickyStoneStudio",
+            "slug": "sticky-stone-studio",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Markt+Technik Verlag GmbH",
+            "slug": "markt-43-technik-verlag-gmbh",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Markt+Technik Verlag GmbH",
+            "slug": "markt-43-technik-verlag-gmbh",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-the-rumble-fish-2": {
+      "before": {
+        "developer": "Dimps Corporation",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Dimps Corporation",
+        "publisher": "3goo",
+        "companyCredits": [
+          {
+            "role": "originalDeveloper",
+            "company": "Dimps Corporation",
+            "slug": "dimps-corporation",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "portDeveloper",
+            "company": "Suncrest Games",
+            "slug": "suncrest-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "3goo",
+            "slug": "3goo",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "3goo",
+            "slug": "3goo",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-young-souls-collector%27s-edition": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "1P2P Studio",
+        "publisher": "The Arcade Crew",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "1P2P Studio",
+            "slug": "1p2p-studio",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "The Arcade Crew",
+            "slug": "the-arcade-crew",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Pix 'n Love",
+            "slug": "pix-39-n-love",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "FromSoftware",
+        "publisher": "Bandai Namco Entertainment",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "FromSoftware",
+            "slug": "fromsoftware",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Bandai Namco Entertainment",
+            "slug": "bandai-namco-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bandai Namco Entertainment",
+            "slug": "bandai-namco-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-wonder-boy-collection": {
+      "before": {
+        "developer": "Bliss Brain",
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "ININ Games",
+            "slug": "inin-games",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Westone Bit Entertainment",
+        "publisher": "Bliss Brain",
+        "companyCredits": [
+          {
+            "role": "originalDeveloper",
+            "company": "Westone Bit Entertainment",
+            "slug": "westone-bit-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "portDeveloper",
+            "company": "Bliss Brain",
+            "slug": "bliss-brain",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Bliss Brain",
+            "slug": "bliss-brain",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "ININ Games",
+            "slug": "inin-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "ININ Games",
+            "slug": "inin-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-trailblazers": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Supergonk",
+        "publisher": "Rising Star Games limited",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Supergonk",
+            "slug": "supergonk",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Rising Star Games limited",
+            "slug": "rising-star-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Rising Star Games limited",
+            "slug": "rising-star-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-youtubers-life-2": {
+      "before": {
+        "developer": "U-Play Online",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "U-Play Online",
+        "publisher": "Raiser Games",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "U-Play Online",
+            "slug": "u-play-online",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Raiser Games",
+            "slug": "raiser-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-classic-racers-elite": {
+      "before": {
+        "developer": "Vision Reelle",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Vision Reelle",
+        "publisher": "Funbox Media",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Vision Reelle",
+            "slug": "vision-reelle",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Funbox Media",
+            "slug": "funbox-media",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Funbox Media",
+            "slug": "funbox-media",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-the-american-dream": {
+      "before": {
+        "developer": "Samurai Punk",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Samurai Punk",
+        "publisher": "Samurai Punk",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Samurai Punk",
+            "slug": "samurai-punk",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Samurai Punk",
+            "slug": "samurai-punk",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Perp Games",
+            "slug": "perp-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-dishonored-complete-collection": {
+      "before": {
+        "developer": "Arkane Studios",
+        "publisher": "Bethesda Softworks",
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Bethesda Softworks",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-ultrawings": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Bit Planet Games",
+        "publisher": "Bit Planet Games",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Bit Planet Games",
+            "slug": "bit-planet-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Bit Planet Games",
+            "slug": "bit-planet-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bit Planet Games",
+            "slug": "bit-planet-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-the-truth-is-out-there-mystery-adventure-pack": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Funbox Media",
+            "slug": "funbox-media",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "United Independent Entertainment",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "United Independent Entertainment",
+            "slug": "united-independent-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "UIG Entertainment",
+            "slug": "uig-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "UIG Entertainment",
+            "slug": "uig-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-okinawa-rush-limited-edition": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Sokaikan Ltd.",
+        "publisher": "No Gravity Games",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Sokaikan Ltd.",
+            "slug": "sokaikan-ltd",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "No Gravity Games",
+            "slug": "no-gravity-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "PIXELHEART Corporation",
+            "slug": "pixelheart",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-cyberpunk-2077-samurai-pack": {
+      "before": {
+        "developer": "CD Projekt RED",
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "CD Projekt RED",
+            "slug": "cd-projekt-red",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "CD Projekt RED",
+        "publisher": "CD Projekt",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "CD Projekt RED",
+            "slug": "cd-projekt-red",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "CD Projekt",
+            "slug": "cd-projekt",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-tales-of-zestiria-&#43;-tales-of-berseria-&#43;-tales-of-vesperia-triple-pack-bundle": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Bandai Namco Entertainment",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Bandai Namco Entertainment",
+            "slug": "bandai-namco-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bandai Namco Entertainment",
+            "slug": "bandai-namco-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-ducati-90th-anniversary": {
+      "before": {
+        "developer": "Milestone srl",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Milestone S.r.l.",
+        "publisher": "Milestone S.r.l.",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Milestone S.r.l.",
+            "slug": "milestone-s-r-l",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Milestone S.r.l.",
+            "slug": "milestone-s-r-l",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Milestone S.r.l.",
+            "slug": "milestone-s-r-l",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-mickey-storm-and-the-cursed-mask": {
+      "before": {
+        "developer": "Triangle Studios",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Triangle Studios",
+        "publisher": "Lion Castle",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Triangle Studios",
+            "slug": "triangle-studios",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Lion Castle",
+            "slug": "lion-castle",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Lion Castle",
+            "slug": "lion-castle",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-dark-thrones-&amp;-witch-hunter-double-pack": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "GS2 Games",
+            "slug": "gs2-games",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "NYX Digital",
+        "publisher": "Funbox Media",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "NYX Digital",
+            "slug": "nyx-digital",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Funbox Media",
+            "slug": "funbox-media",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Funbox Media",
+            "slug": "funbox-media",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-jets-%27n%27-guns-2": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Rake in Grass",
+        "publisher": "Red Art Games",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Rake in Grass",
+            "slug": "rake-in-grass",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Red Art Games",
+            "slug": "red-art-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Red Art Games",
+            "slug": "red-art-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-middle-earth-shadow-of-mordor-game-of-the-year": {
+      "before": {
+        "developer": "Monolith Productions",
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Monolith Productions",
+            "slug": "monolith-productions",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Monolith Productions",
+        "publisher": "Warner Bros. Interactive Entertainment",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Monolith Productions",
+            "slug": "monolith-productions",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Warner Bros. Interactive Entertainment",
+            "slug": "warner-bros-interactive-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Warner Bros. Interactive Entertainment",
+            "slug": "warner-bros-interactive-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-crash-team-racing-&amp;-spyro-reignited-trilogy": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Activision",
+            "slug": "activision",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Activision",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Activision",
+            "slug": "activision",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Activision",
+            "slug": "activision",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-doctor-who-duo-bundle": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Maximum Games",
+            "slug": "maximum-games",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Maze Theory",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Maze Theory",
+            "slug": "maze-theory",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Maximum Games",
+            "slug": "maximum-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-gylt-collector%27s-edition": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Tequila Works",
+        "publisher": "Tequila Works",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Tequila Works",
+            "slug": "tequila-works",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Tequila Works",
+            "slug": "tequila-works",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Tesura Games",
+            "slug": "tesura-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-blasphemous-coleccionista": {
+      "before": {
+        "developer": "The Game Kitchen",
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "The Game Kitchen",
+            "slug": "the-game-kitchen",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "The Game Kitchen",
+        "publisher": "Team17",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "The Game Kitchen",
+            "slug": "the-game-kitchen",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Team17",
+            "slug": "team17",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Selecta Play",
+            "slug": "selecta-play",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-past-cure": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Phantom 8",
+        "publisher": "Phantom 8",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Phantom 8",
+            "slug": "phantom-8",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Phantom 8",
+            "slug": "phantom-8",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Phantom 8",
+            "slug": "phantom-8",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-star-wars-jedi-knight-collection": {
+      "before": {
+        "developer": "Aspyr",
+        "publisher": "Lucasfilm Games / THQ Nordic",
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Raven Software",
+        "publisher": "LucasArts",
+        "companyCredits": [
+          {
+            "role": "originalDeveloper",
+            "company": "Raven Software",
+            "slug": "raven-software",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "portDeveloper",
+            "company": "Aspyr",
+            "slug": "aspyr",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "LucasArts",
+            "slug": "lucasarts",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "THQ Nordic GmbH",
+            "slug": "thq-nordic",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-koa-and-the-five-pirates-of-mara": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Chibig",
+        "publisher": "Chibig",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Chibig",
+            "slug": "chibig",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "developer",
+            "company": "Talpa Games",
+            "slug": "talpa-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "developer",
+            "company": "Undercoders",
+            "slug": "undercoders",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Chibig",
+            "slug": "chibig",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Tesura Games",
+            "slug": "tesura-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-oxide-room-104": {
+      "before": {
+        "developer": "Wild Sphere S.L.U.",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Wild Sphere S.L.U.",
+        "publisher": "Wild Sphere S.L.U.",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Wild Sphere S.L.U.",
+            "slug": "wild-sphere-s-l-u",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Wild Sphere S.L.U.",
+            "slug": "wild-sphere-s-l-u",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Perp Games",
+            "slug": "perp-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-date-a-live-rio-reincarnation": {
+      "before": {
+        "developer": "Compile Heart",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Idea Factory Co., Ltd.",
+        "publisher": "Reef Entertainment",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Idea Factory Co., Ltd.",
+            "slug": "idea-factory",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "developer",
+            "company": "Compile Heart",
+            "slug": "compile-heart",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "developer",
+            "company": "Sting",
+            "slug": "sting",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Reef Entertainment",
+            "slug": "reef-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Idea Factory International",
+            "slug": "idea-factory-international",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Reef Entertainment",
+            "slug": "reef-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-dark-souls-ii-scholar-of-the-first-sin-not-for-resale": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "FromSoftware",
+        "publisher": "Bandai Namco Entertainment",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "FromSoftware",
+            "slug": "fromsoftware",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Bandai Namco Entertainment",
+            "slug": "bandai-namco-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-quivr": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Blueteak",
+        "publisher": "The Munky",
+        "companyCredits": [
+          {
+            "role": "originalDeveloper",
+            "company": "Blueteak",
+            "slug": "blueteak",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "portDeveloper",
+            "company": "Alvios",
+            "slug": "alvios",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "The Munky",
+            "slug": "the-munky",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Perp Games",
+            "slug": "perp-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-dishonored-pray-arkane-collection": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Bethesda Softworks",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-persona-5-&#43;-persona-5-dancing-the-starlight-day-one-edition-2-hits-pack": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Atlus Co Ltd.",
+            "slug": "atlus",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Atlus Co Ltd.",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Atlus Co Ltd.",
+            "slug": "atlus",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Atlus Co Ltd.",
+            "slug": "atlus",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-the-truth-is-out-here-mystery-adventure-pack": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Funbox Media",
+            "slug": "funbox-media",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "United Independent Entertainment",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "United Independent Entertainment",
+            "slug": "united-independent-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "UIG Entertainment",
+            "slug": "uig-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "UIG Entertainment",
+            "slug": "uig-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-ghost-trick-phantom-detective": {
+      "before": {
+        "developer": "Capcom",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Capcom",
+        "publisher": "Capcom",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Capcom",
+            "slug": "capcom",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Capcom",
+            "slug": "capcom",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "CE Europe Ltd.",
+            "slug": "ce-europe-ltd",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Capcom",
+            "slug": "capcom",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "CE Europe Ltd.",
+            "slug": "ce-europe-ltd",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-nongunz-doppelganger-edition": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Brainwash Gang",
+        "publisher": "Digerati",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Brainwash Gang",
+            "slug": "brainwash-gang",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Digerati",
+            "slug": "digerati",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Digerati",
+            "slug": "digerati",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-jets%27n%27guns-2": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Rake in Grass",
+        "publisher": "Red Art Games",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Rake in Grass",
+            "slug": "rake-in-grass",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Red Art Games",
+            "slug": "red-art-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Red Art Games",
+            "slug": "red-art-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-the-ultimate-vr-collection": {
+      "before": {
+        "developer": "Various",
+        "publisher": "Perp Games",
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Perp Games",
+            "slug": "perp-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-daymare-1994-sandcastle": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Invader Studios S.R.L.",
+        "publisher": "Leonardo Interactive",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Invader Studios S.R.L.",
+            "slug": "invader-studios-s-r-l",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Leonardo Interactive",
+            "slug": "leonardo-interactive",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Leonardo Interactive",
+            "slug": "leonardo-interactive",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-dracula-s-legacy": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Jetdogs Studios",
+        "publisher": "Joindots GmbH",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Jetdogs Studios",
+            "slug": "jetdogs-studios",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Joindots GmbH",
+            "slug": "joindots",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Joindots GmbH",
+            "slug": "joindots",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-sonic-mania-plus-and-sonic-forces-double-pack": {
+      "before": {
+        "developer": "Forces: Sonic Team. Mania: Christian Whitehead, Pagodawest Games, Headcannon, Hyperkinetc Studios",
+        "publisher": "Sega",
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Sega",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Sega",
+            "slug": "sega",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Sega",
+            "slug": "sega",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-super-crazy-rhythm-castle": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Second Impact Games",
+        "publisher": "Konami Digital Entertainment",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Second Impact Games",
+            "slug": "second-impact-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Konami Digital Entertainment",
+            "slug": "konami-digital-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Konami Digital Entertainment",
+            "slug": "konami-digital-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-the-occupation": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "White Paper Games",
+        "publisher": "Humble Games",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "White Paper Games",
+            "slug": "white-paper-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Humble Games",
+            "slug": "humble-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Sold Out",
+            "slug": "sold-out",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-hokko-life": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Wonderscope",
+        "publisher": "Team17",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Wonderscope",
+            "slug": "wonderscope",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Team17",
+            "slug": "team17",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Team17",
+            "slug": "team17",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-dragon-ball-xenoverse-1-&amp;-2-double-pack": {
+      "before": {
+        "developer": "Dimps",
+        "publisher": "Bandai Namco",
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Bandai Namco Entertainment",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Bandai Namco Entertainment",
+            "slug": "bandai-namco-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Bandai Namco Entertainment Europe",
+            "slug": "bandai-namco-entertainment-europe",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bandai Namco Entertainment Europe",
+            "slug": "bandai-namco-entertainment-europe",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-dynasty-feud": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Kaia Studios",
+        "publisher": "Kaia Studios",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Kaia Studios",
+            "slug": "kaia-studios",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Kaia Studios",
+            "slug": "kaia-studios",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Relevo",
+            "slug": "relevo",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Relevo",
+            "slug": "relevo",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-nobunaga%27s-ambition-sphere-of-influence-ascension": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "KOEI Tecmo Games",
+        "publisher": "KOEI Tecmo Games",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "KOEI Tecmo Games",
+            "slug": "koei-tecmo-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "KOEI Tecmo Games",
+            "slug": "koei-tecmo-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Koei Tecmo Europe",
+            "slug": "koei-tecmo-europe",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Koei Tecmo Europe",
+            "slug": "koei-tecmo-europe",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-batman-arkham-vr": {
+      "before": {
+        "developer": "Rocksteady Studios",
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Rocksteady Studios",
+        "publisher": "Warner Bros. Interactive Entertainment",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Rocksteady Studios",
+            "slug": "rocksteady-studios",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Warner Bros. Interactive Entertainment",
+            "slug": "warner-bros-interactive-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Warner Bros. Interactive Entertainment",
+            "slug": "warner-bros-interactive-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-okinawa-rush-black-mantis-edition": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Sokaikan Ltd.",
+        "publisher": "No Gravity Games",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Sokaikan Ltd.",
+            "slug": "sokaikan-ltd",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "No Gravity Games",
+            "slug": "no-gravity-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "PIXELHEART Corporation",
+            "slug": "pixelheart",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-wonder-boy-anniversary-collection": {
+      "before": {
+        "developer": "Bliss Brain",
+        "publisher": "Strictly Limited Games",
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Westone Bit Entertainment",
+        "publisher": "Bliss Brain",
+        "companyCredits": [
+          {
+            "role": "originalDeveloper",
+            "company": "Westone Bit Entertainment",
+            "slug": "westone-bit-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "portDeveloper",
+            "company": "Bliss Brain",
+            "slug": "bliss-brain",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Bliss Brain",
+            "slug": "bliss-brain",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "ININ Games",
+            "slug": "inin-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "ININ Games",
+            "slug": "inin-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Strictly Limited Games",
+            "slug": "strictly-limited-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-lemon-cake": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Cozy Bee Games",
+        "publisher": "Soedesco",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Cozy Bee Games",
+            "slug": "cozy-bee-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Soedesco",
+            "slug": "soedesco",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Soedesco",
+            "slug": "soedesco",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": [
+          {
+            "role": "developer",
+            "person": "Éloïse Laroche",
+            "slug": "eloise-laroche",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ]
+      }
+    },
+    "ps4-unmetal": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "UnEpic Games",
+        "publisher": "Versus Evil",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "UnEpic Games",
+            "slug": "unepic-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Versus Evil",
+            "slug": "versus-evil",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "digitalPublisher",
+            "company": "tinyBuild",
+            "slug": "tinybuild",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Tesura Games",
+            "slug": "tesura-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": [
+          {
+            "role": "developer",
+            "person": "Francisco Téllez de Meneses",
+            "slug": "francisco-tellez-de-meneses",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ]
+      }
+    },
+    "ps4-spyro-reignited-trilogy-&amp;-crash-bandicoot-n-sane-trilogy": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Activision",
+            "slug": "activision",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Activision",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Activision",
+            "slug": "activision",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Activision",
+            "slug": "activision",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-indiecalypse": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "JanduSoft",
+        "publisher": "JanduSoft",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "JanduSoft",
+            "slug": "jandusoft",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "JanduSoft",
+            "slug": "jandusoft",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "JanduSoft",
+            "slug": "jandusoft",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-adventure-academia-the-fractured-continent": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Acquire",
+        "publisher": "PQube Ltd.",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Acquire",
+            "slug": "acquire",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "PQube Ltd.",
+            "slug": "pqube",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "PQube Ltd.",
+            "slug": "pqube",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-observer-system-redux": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Bloober Team",
+        "publisher": "Aspyr",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Bloober Team",
+            "slug": "bloober-team",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "Aspyr",
+            "slug": "aspyr",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-dishonored-prey-the-arkane-collection": {
+      "before": {
+        "developer": "Arkane Studios",
+        "publisher": "Bethesda",
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Bethesda Softworks",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Bethesda Softworks",
+            "slug": "bethesda-softworks",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-milli-&amp;-greg": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "2ndBoss",
+        "publisher": "QUByte",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "2ndBoss",
+            "slug": "2ndboss",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "originalPublisher",
+            "company": "QUByte",
+            "slug": "qubyte",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "QUByte",
+            "slug": "qubyte",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-the-giants-industry-and-transport-bundle": {
+      "before": {
+        "developer": null,
+        "publisher": "UIG ENTERTAINMENT",
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "United Independent Entertainment",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "United Independent Entertainment",
+            "slug": "united-independent-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "United Independent Entertainment",
+            "slug": "united-independent-entertainment",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-senran-kagura-burst-renewal-bountiful-beauties": {
+      "before": {
+        "developer": "Tamsoft Corporation",
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Tamsoft Corporation",
+            "slug": "tamsoft",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Honey Parade Games",
+        "publisher": "Marvelous Europe",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "Honey Parade Games",
+            "slug": "honey-parade-games",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Marvelous Europe",
+            "slug": "marvelous-europe",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Marvelous Europe",
+            "slug": "marvelous-europe",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-mindtaker": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Sony Interactive Entertainment España",
+            "slug": "sony-interactive-entertainment-espana",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "Relevo",
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Sony Interactive Entertainment España",
+            "slug": "sony-interactive-entertainment-espana",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          },
+          {
+            "role": "developer",
+            "company": "Relevo",
+            "slug": "relevo",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "developer",
+            "company": "Virtualware",
+            "slug": "virtualware",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-gungrave-vr": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": "IGGYMOB",
+        "publisher": "Marvelous Europe",
+        "companyCredits": [
+          {
+            "role": "developer",
+            "company": "IGGYMOB",
+            "slug": "iggymob",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "regionalPublisher",
+            "company": "Marvelous Europe",
+            "slug": "marvelous-europe",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Marvelous Europe",
+            "slug": "marvelous-europe",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    },
+    "ps4-annapurna-ultimate-collection": {
+      "before": {
+        "developer": null,
+        "publisher": null,
+        "companyCredits": [
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Iam8bit",
+            "slug": "iam8bit",
+            "reviewBatch": "company-credit-ps4-pal-rapid-review-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      },
+      "after": {
+        "developer": null,
+        "publisher": "Annapurna Interactive",
+        "companyCredits": [
+          {
+            "role": "originalPublisher",
+            "company": "Annapurna Interactive",
+            "slug": "annapurna-interactive",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          },
+          {
+            "role": "physicalPublisherOrDistributor",
+            "company": "Iam8bit",
+            "slug": "iam8bit",
+            "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+          }
+        ],
+        "individualCredits": []
+      }
+    }
+  },
+  "companiesCreated": [
+    "2ndboss",
+    "2tainment",
+    "alvios",
+    "bit-planet-games",
+    "blueteak",
+    "brainwash-gang",
+    "carry-castle",
+    "cd-projekt",
+    "cozy-bee-games",
+    "dm-media",
+    "doomcube",
+    "dynamic-pixels",
+    "gamajun-games",
+    "jetdogs-studios",
+    "kaia-studios",
+    "maze-theory",
+    "no-gravity-games",
+    "psychic-software",
+    "second-impact-games",
+    "sfl-interactive",
+    "sokaikan-ltd",
+    "sticky-stone-studio",
+    "suncrest-games",
+    "supergonk",
+    "superhot-team",
+    "talpa-games",
+    "thunderful-publishing",
+    "ticktock-games",
+    "unepic-games",
+    "virtualware",
+    "wonderscope"
+  ],
+  "companiesChanged": [
+    "1p2p-studio",
+    "2k-games",
+    "2ndboss",
+    "2tainment",
+    "3dclouds",
+    "3goo",
+    "acquire",
+    "activision",
+    "aerosoft",
+    "alvios",
+    "annapurna-interactive",
+    "arkane-studios",
+    "aspyr",
+    "atlus",
+    "bandai-namco-entertainment",
+    "bandai-namco-entertainment-europe",
+    "bethesda",
+    "bethesda-softworks",
+    "bit-planet-games",
+    "bliss-brain",
+    "bloober-team",
+    "blowfish-studios",
+    "blueteak",
+    "brainwash-gang",
+    "capcom",
+    "carry-castle",
+    "cd-projekt",
+    "cd-projekt-red",
+    "ce-europe-ltd",
+    "chibig",
+    "clear-stage-studios",
+    "compile-heart",
+    "cozy-bee-games",
+    "dark-computer-entertainment-limited",
+    "digerati",
+    "dimps-corporation",
+    "dm-media",
+    "doomcube",
+    "doomcube-psychicsoftware-stage-clear-studios-psychic-games-limited",
+    "dynamic-pixels",
+    "forces-sonic-team-mania-christian-whitehead-pagodawest-games-headcannon-hyperkinetc-studios",
+    "fromsoftware",
+    "funbox-media",
+    "gamajun-games",
+    "games-farm",
+    "gs2-games",
+    "hangar-13",
+    "honey-parade-games",
+    "humble-games",
+    "iam8bit",
+    "idea-factory",
+    "idea-factory-international",
+    "iggymob",
+    "inin-games",
+    "invader-studios-s-r-l",
+    "iridium-media-group-gmbh",
+    "jandusoft",
+    "jetdogs-studios",
+    "joindots",
+    "kaia-studios",
+    "koei-tecmo-europe",
+    "koei-tecmo-games",
+    "konami-digital-entertainment",
+    "korion-interactive",
+    "leonardo-interactive",
+    "lion-castle",
+    "lucasarts",
+    "lucasfilm-games-thq-nordic",
+    "markt-43-technik-verlag-gmbh",
+    "marvelous",
+    "marvelous-europe",
+    "maximum-games",
+    "maze-theory",
+    "milestone-s-r-l",
+    "milestone-srl",
+    "monolith-productions",
+    "no-gravity-games",
+    "nyx-digital",
+    "outright-games",
+    "perp-games",
+    "phantom-8",
+    "pix-39-n-love",
+    "pixelheart",
+    "pqube",
+    "psychic-software",
+    "qubyte",
+    "radiation-blue",
+    "raiser-games",
+    "rake-in-grass",
+    "raven-software",
+    "rebellion-developments",
+    "rebellion-interactive",
+    "red-art-games",
+    "reef-entertainment",
+    "relevo",
+    "rising-star-games",
+    "rocksteady-studios",
+    "samurai-punk",
+    "second-impact-games",
+    "sega",
+    "selecta-play",
+    "sfl-interactive",
+    "soedesco",
+    "sokaikan-ltd",
+    "sold-out",
+    "sony-interactive-entertainment",
+    "sony-interactive-entertainment-europe",
+    "stage-clear-studios",
+    "sticky-stone-studio",
+    "sting",
+    "strictly-limited-games",
+    "suncrest-games",
+    "supergonk",
+    "superhot-team",
+    "talpa-games",
+    "tamsoft",
+    "team17",
+    "tequila-works",
+    "tesura-games",
+    "the-arcade-crew",
+    "the-game-kitchen",
+    "the-munky",
+    "thq-nordic",
+    "thunderful-publishing",
+    "ticktock-games",
+    "tinybuild",
+    "triangle-studios",
+    "u-play-online",
+    "uig-entertainment",
+    "undercoders",
+    "unepic-games",
+    "united-independent-entertainment",
+    "various",
+    "versus-evil",
+    "virtualware",
+    "vision-reelle",
+    "warner-bros-interactive-entertainment",
+    "westone-bit-entertainment",
+    "white-paper-games",
+    "wild-sphere-s-l-u",
+    "wonderscope"
+  ],
+  "blockedCases": [
+    {
+      "key": "playstation-vr-demo-disc-pal-europe",
+      "reason": "No existe una ficha PAL Europa identificable; no se mezcla con el disco USA de 18 demos."
+    },
+    {
+      "key": "ps4-cyberpunk-2077-samurai-pack:physical",
+      "reason": "La editora física depende del EAN concreto, ausente en la ficha."
+    },
+    {
+      "key": "ps4-observer-system-redux:physical",
+      "reason": "El editor físico cambia por territorio y la ficha no aporta EAN suficiente."
+    },
+    {
+      "key": "ps4-street-power-football:publisher",
+      "reason": "Maximum Games y Nacon cambian según territorio/SKU; no se elige uno sin identificador."
+    },
+    {
+      "key": "ps4-young-souls-deluxe-edition:physical",
+      "reason": "La editora física debe confirmarse por EAN de la Deluxe concreta."
+    },
+    {
+      "key": "ps4-youtubers-life-2:physical",
+      "reason": "El distribuidor físico depende del territorio de la edición."
+    },
+    {
+      "key": "ps4-mindtaker:publisher",
+      "reason": "El propio libro deja el publisher por confirmar."
+    },
+    {
+      "key": "dishonored-arkane-physical-consolidation",
+      "reason": "La errata está demostrada, pero faltan EAN/CUSA para eliminar una ficha física."
+    },
+    {
+      "key": "truth-out-there-physical-consolidation",
+      "reason": "La variante de título está demostrada, pero faltan EAN/CUSA para eliminar una ficha física."
+    }
+  ],
+  "scopeChecks": {
+    "catalogRowsPreserved": true,
+    "catalogIdsPreserved": true,
+    "catalogIdsUnique": true,
+    "urlInputsRegionsEditionsPreserved": true,
+    "coversAndPricesPreserved": true,
+    "detailsOnlyWorkbookScope": true,
+    "companiesOnlyCreditScope": true,
+    "noCrossRegionPropagation": true,
+    "allBlockedCasesRemainUnpublished": true
+  },
+  "verification": {
+    "semanticTest": "PASS (83 fichas acreditadas, 247 creditos de compania, 82 componentes, 13 variantes verificadas, 6 redirects y 9 casos bloqueados)",
+    "typecheck": "PASS",
+    "lint": "PASS (0 errores; 35 avisos preexistentes fuera del alcance)",
+    "unitTests": "PASS (220/220)",
+    "collectorControls": "PASS",
+    "affiliateOffersV1": "PASS",
+    "build": "PASS",
+    "localQa": "PASS (1440x1000 y 390x844; recopilatorios, co-desarrollos, roles historicos, variantes, relaciones corporativas y redirects; sin overflow, imagenes rotas ni errores de consola)",
+    "previewQa": "PENDING"
+  }
+}

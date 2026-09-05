@@ -42,6 +42,17 @@ OUTPUT_FILES = {
 BATCH_ID = "company-credit-ps4-pal-high-additions-1"
 REVIEWED_AT = "2026-09-05"
 REVIEWED_AT_TIMESTAMP = "2026-09-05T00:00:00Z"
+SUCCESSOR_BATCH_ID = "company-credit-ps4-pal-compilations-2026-09-05"
+ALLOWED_SUCCESSOR_APPLICATIONS = {
+    ("ps4-air-conflicts-secret-wars", "developer"): {
+        "companySlug": "games-farm",
+        "previousValue": "Games Farm",
+    },
+    ("ps4-batman-arkham-vr", "developer"): {
+        "companySlug": "rocksteady-studios",
+        "previousValue": "Rocksteady Studios",
+    },
+}
 SOURCE_SNAPSHOT = "e6e0d88793e5ac0a6d5ea4b3bfb665427f90abfa"
 SOURCE_PACKAGE_SHA256 = "b19148e273b952d18854623b4b4f07f85b6b07277d4917a0d0bea0899082a081"
 FIRST_PR_BASE = "2ab671e1e974ef627434edd2ab3d2a2aec2e7468"
@@ -191,6 +202,28 @@ def desired_provenance(row: dict[str, str]) -> dict[str, Any]:
         "reviewedAt": REVIEWED_AT,
         "reviewBatch": BATCH_ID,
     }
+
+
+def is_allowed_successor_application(
+    row: dict[str, str], detail: dict[str, Any]
+) -> bool:
+    field = row["target_field"]
+    allowed = ALLOWED_SUCCESSOR_APPLICATIONS.get((row["catalog_id"], field))
+    if not allowed:
+        return False
+    entity = detail.get(field)
+    provenance = (detail.get("fieldProvenance") or {}).get(field) or {}
+    field_source = (detail.get("fieldSources") or {}).get(field)
+    return (
+        company_slug(entity) == allowed["companySlug"] == row["proposed_company_slug"]
+        and company_name(entity) == row["proposed_company"]
+        and provenance.get("reviewBatch") == SUCCESSOR_BATCH_ID
+        and allowed["previousValue"] in provenance.get("previousValues", [])
+        and provenance.get("source") == field_source == entity.get("source")
+        and bool(provenance.get("evidenceUrls"))
+        and bool(provenance.get("evidenceSummary"))
+        and provenance.get("reviewedAt") == REVIEWED_AT
+    )
 
 
 def new_detail() -> dict[str, Any]:
@@ -1093,7 +1126,13 @@ def check_committed() -> dict[str, Any]:
         raise ValueError("Committed additions contain duplicate fields")
 
     evaluations = evaluate_additions(additions, catalog, details, companies)
-    if any(row["status"] != "ALREADY_APPLIED" for row in evaluations):
+    invalid_evaluations = [
+        evaluation
+        for row, evaluation in zip(additions, evaluations)
+        if evaluation["status"] != "ALREADY_APPLIED"
+        and not is_allowed_successor_application(row, details.get(row["catalog_id"], {}))
+    ]
+    if invalid_evaluations:
         raise ValueError("Committed HIGH additions are not applied exactly")
     if report["writesPerformed"] is not True or report["summary"]["appliedAdditions"] != len(additions):
         raise ValueError("Structured report is not an applied 749-row report")
