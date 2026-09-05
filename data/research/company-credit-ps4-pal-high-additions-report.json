@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "batchId": "company-credit-ps4-pal-high-additions-1",
+  "reviewedAt": "2026-09-05",
+  "sourceSnapshot": "e6e0d88793e5ac0a6d5ea4b3bfb665427f90abfa",
+  "sourcePackageSha256": "b19148e273b952d18854623b4b4f07f85b6b07277d4917a0d0bea0899082a081",
+  "git": {
+    "firstPrBase": "2ab671e1e974ef627434edd2ab3d2a2aec2e7468",
+    "firstPrHead": "2fe23bbaf0980b68b0ecc4ca8388a03c6cd38464",
+    "secondPhaseBase": "2fe23bbaf0980b68b0ecc4ca8388a03c6cd38464",
+    "headAtGeneration": "2fe23bbaf0980b68b0ecc4ca8388a03c6cd38464",
+    "stackedBaseBranch": "codex/company-credit-ps4-pal-batch-1-20260905"
+  },
+  "packageManifest": {
+    "filesChecked": 34,
+    "failures": []
+  },
+  "writesPerformed": true,
+  "sourceCut": {
+    "initial": {
+      "rows": 2397,
+      "developer": 1344,
+      "publisher": 1053,
+      "retain": 1538,
+      "add": 759,
+      "replace": 100
+    },
+    "identifierBlocked": {
+      "rows": 126,
+      "retain": 110,
+      "add": 10,
+      "replace": 6
+    },
+    "ready": {
+      "rows": 749,
+      "developer": 591,
+      "publisher": 158,
+      "catalogIds": 657,
+      "bothFields": 92,
+      "retains": 1428,
+      "cleanReplacements": 94
+    }
+  },
+  "summary": {
+    "publicationCandidates": 2397,
+    "appliedAdditions": 749,
+    "developerAdditions": 591,
+    "publisherAdditions": 158,
+    "changedCatalogIds": 657,
+    "bothFields": 92,
+    "retains": 1428,
+    "replacementCandidates": 100,
+    "cleanReplacementCandidates": 94,
+    "identifierBlocked": 126,
+    "conflictingCandidateGroups": 67,
+    "unresolvedEntityRows": 894,
+    "createdDetailRecords": 507,
+    "staleInput": 0
+  },
+  "catalog": {
+    "rowsBefore": 73104,
+    "rowsAfter": 73104,
+    "idsBefore": 73104,
+    "idsAfter": 73104,
+    "sha256Before": "461eb63430f82153c8685c3acce937ffa26912efa37bd34d88ad2e93a6a62704",
+    "sha256After": "461eb63430f82153c8685c3acce937ffa26912efa37bd34d88ad2e93a6a62704",
+    "unchanged": true
+  },
+  "companies": {
+    "rowsBefore": 4326,
+    "rowsAfter": 4326,
+    "created": 0
+  },
+  "details": {
+    "sha256Before": "3ccc72efd3287c0d2af03d7fe64f7658b289f3d6cc101166cad21e13ed4fd90e",
+    "sha256After": "6b4ed21017888ba68717f6eee4e0028abc84d26bb3f8d93bfa5ce20ec65b2819",
+    "changedCatalogIds": 657,
+    "createdRecords": 507
+  },
+  "residualQueue": {
+    "rows": 3382,
+    "categories": {
+      "COMPANY_ENTITY_UNRESOLVED": 693,
+      "COMPOSITE_CREDIT": 84,
+      "HIGH_REPLACEMENT_CONFLICT": 97,
+      "IDENTIFIER_OR_TITLE_CONFLICT": 225,
+      "MISSING_BOTH_CORE_ROLES": 1785,
+      "MISSING_DEVELOPER": 185,
+      "MISSING_PHYSICAL_PUBLISHER": 831,
+      "MULTIPLE_HIGH_COMPANIES": 66,
+      "MULTI_PRODUCT_REVIEW": 163,
+      "SOURCE_FETCH_FAILED": 99
+    }
+  },
+  "artifacts": {
+    "publicationCandidates": "data/research/ps4-pal-high-publication-candidates.csv",
+    "additionsReady": "data/research/ps4-pal-high-additions-ready.csv",
+    "retains": "data/research/ps4-pal-high-retains.csv",
+    "replacementsReview": "data/research/ps4-pal-high-replacements-review.csv",
+    "identifierBlocked": "data/research/ps4-pal-high-identifier-blocked.csv",
+    "conflictingCandidates": "data/research/ps4-pal-high-conflicting-candidates.csv",
+    "unresolvedEntities": "data/research/ps4-pal-high-unresolved-entities.csv",
+    "residualQueue": "data/research/ps4-pal-residual-company-research-queue.csv"
+  },
+  "scopeChecks": {
+    "onlyHighConfidence": true,
+    "onlyAddMissing": true,
+    "noHighReplacements": true,
+    "noDigitalPublisherAsPhysical": true,
+    "noIdentifierWarningsApplied": true,
+    "uniqueCanonicalCompanyPerField": true,
+    "noFirstBatchDuplicates": true,
+    "changedDetailsOnlyForReadyCatalogIds": true,
+    "changedCompanyIndexOnlyForReferencedSlugs": true,
+    "allChangedCatalogRowsArePs4Pal": true,
+    "catalogIdsUrlsTitlesRegionsEditionsCoversPricesCusaUnchanged": true,
+    "noRegionalPlatformOrEditionPropagation": true,
+    "noCompaniesCreated": true
+  },
+  "protectedFileHashes": {
+    "data/game-details.json": {
+      "before": "3ccc72efd3287c0d2af03d7fe64f7658b289f3d6cc101166cad21e13ed4fd90e",
+      "after": "6b4ed21017888ba68717f6eee4e0028abc84d26bb3f8d93bfa5ce20ec65b2819"
+    },
+    "data/index/companies.json": {
+      "before": "67f2cc88adbed4af832f6f55077542fe98aae241f4bf4dbc274df3b53ca390ce",
+      "after": "757a1440917dbb516a60e1ec751bc22c684373ae0182559ef5fe0ab8a6d37b9d"
+    }
+  },
+  "verification": {
+    "semanticComparator": "PASS",
+    "typecheck": "PASS",
+    "lint": "PASS (0 errors, 35 pre-existing warnings)",
+    "unitTests": "217/217 PASS",
+    "catalogCountSemantics": "7/7 PASS",
+    "collectorControls": "PASS",
+    "affiliateOffersV1": "PASS",
+    "build": "PASS",
+    "localVisualQa": {
+      "status": "20/20 PASS",
+      "viewports": [
+        "1440x1000",
+        "390x844"
+      ],
+      "catalogEntries": [
+        "ps4-asterix-&amp;-obelix-xxl-romastered",
+        "ps4-air-conflicts-pacific-carriers",
+        "ps4-yooka-laylee",
+        "ps4-anima-gate-of-memories-arcane-edition",
+        "ps4-call-of-duty-ghosts-limited-edition"
+      ],
+      "companySlugs": [
+        "capcom",
+        "osome-studio",
+        "games-farm",
+        "team17",
+        "sony-interactive-entertainment"
+      ],
+      "brokenImages": 0,
+      "consoleErrors": 0,
+      "overflowFailures": 0
+    },
+    "previewQa": "PENDING"
+  }
+}

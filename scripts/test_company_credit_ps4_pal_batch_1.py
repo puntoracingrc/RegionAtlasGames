@@ -310,10 +310,18 @@ def main() -> int:
             if row["batchId"] == BATCH_ID
         )
         assert update["reviewedAt"] == REVIEWED_AT
+        next_update = next(
+            row
+            for row in manifest["protectedFileHashUpdates"]
+            if row["batchId"] == "company-credit-ps4-pal-high-additions-1"
+        )
         assert {
             protected_path: values["after"]
             for protected_path, values in update["files"].items()
-        } == expected_hashes
+        } == {
+            protected_path: values["before"]
+            for protected_path, values in next_update["files"].items()
+        }
 
     print(
         "OK PS4 PAL company credits: 53 exact mutations, 49 entries, "

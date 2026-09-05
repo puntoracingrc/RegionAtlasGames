@@ -35,9 +35,9 @@
     "portraitHotlinkingAllowed": false
   },
   "protectedFileHashes": {
-    "data/game-details.json": "3ccc72efd3287c0d2af03d7fe64f7658b289f3d6cc101166cad21e13ed4fd90e",
+    "data/game-details.json": "6b4ed21017888ba68717f6eee4e0028abc84d26bb3f8d93bfa5ce20ec65b2819",
     "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
-    "data/index/companies.json": "67f2cc88adbed4af832f6f55077542fe98aae241f4bf4dbc274df3b53ca390ce",
+    "data/index/companies.json": "757a1440917dbb516a60e1ec751bc22c684373ae0182559ef5fe0ab8a6d37b9d",
     "data/index/company-entities.json": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
     "data/research/company-study/core.json": "89f85d051468bb1de1f3ddc2e5d9e252dc9ea219c91b8927ba148a97116d2f28",
     "data/research/company-study/public.json": "c713018d6617b92508f9342569b74c3dfb79c87a6f64f77c47e93ac2e047c7e8"
@@ -68,6 +68,20 @@
         "data/index/companies.json": {
           "before": "d774c621f0289cdfeae1141361fc4483e84037432d82499a5f7ab83afafe48bb",
           "after": "67f2cc88adbed4af832f6f55077542fe98aae241f4bf4dbc274df3b53ca390ce"
+        }
+      }
+    },
+    {
+      "batchId": "company-credit-ps4-pal-high-additions-1",
+      "reviewedAt": "2026-09-05",
+      "files": {
+        "data/game-details.json": {
+          "before": "3ccc72efd3287c0d2af03d7fe64f7658b289f3d6cc101166cad21e13ed4fd90e",
+          "after": "6b4ed21017888ba68717f6eee4e0028abc84d26bb3f8d93bfa5ce20ec65b2819"
+        },
+        "data/index/companies.json": {
+          "before": "67f2cc88adbed4af832f6f55077542fe98aae241f4bf4dbc274df3b53ca390ce",
+          "after": "757a1440917dbb516a60e1ec751bc22c684373ae0182559ef5fe0ab8a6d37b9d"
         }
       }
     }
