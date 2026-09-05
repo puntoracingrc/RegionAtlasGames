@@ -24,13 +24,21 @@ function readDetails() {
 function mergePublicDetailFields(base, publicDetails) {
   if (!isGameDetails(publicDetails)) return base;
 
+  const preferReviewedDescription =
+    base.description !== undefined && base.fieldSources?.description === "research";
+  const preferReviewedSeo = base.seoMeta !== undefined && base.fieldSources?.seoMeta === "research";
+
   return {
     ...base,
-    ...(publicDetails.description !== undefined ? { description: publicDetails.description } : {}),
-    ...(publicDetails.descriptionMeta !== undefined
+    ...(!preferReviewedDescription && publicDetails.description !== undefined
+      ? { description: publicDetails.description }
+      : {}),
+    ...(!preferReviewedDescription && publicDetails.descriptionMeta !== undefined
       ? { descriptionMeta: publicDetails.descriptionMeta }
       : {}),
-    ...(publicDetails.seoMeta !== undefined ? { seoMeta: publicDetails.seoMeta } : {}),
+    ...(!preferReviewedSeo && publicDetails.seoMeta !== undefined
+      ? { seoMeta: publicDetails.seoMeta }
+      : {}),
     ...(publicDetails.videos !== undefined ? { videos: publicDetails.videos } : {}),
     ...("pegi" in publicDetails ? { pegi: publicDetails.pegi } : {}),
   };

@@ -75941,9 +75941,11 @@
         "publisher": {
           "source": "research",
           "evidenceUrls": [
-            "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+            "https://gamingcypher.com/annapurna-interactive-physical-playstation-4-box-sets-available-now/",
+            "https://www.iam8bit.com/products/annapurna-interactive-deluxe-limited-edition",
+            "https://www.pricecharting.com/game/playstation-4/annapurna-interactive-ultimate-ps4-collection"
           ],
-          "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+          "evidenceSummary": "La Ultimate es la edición retail norteamericana distribuida por Skybound Games; la Deluxe es una edición distinta y exclusiva de iam8bit. Ambas recopilan ocho juegos de estudios diferentes publicados por Annapurna Interactive.",
           "reviewedAt": "2026-09-05",
           "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05",
           "previousValues": [
@@ -75965,9 +75967,11 @@
           "provenance": {
             "source": "research",
             "evidenceUrls": [
-              "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+              "https://gamingcypher.com/annapurna-interactive-physical-playstation-4-box-sets-available-now/",
+              "https://www.iam8bit.com/products/annapurna-interactive-deluxe-limited-edition",
+              "https://www.pricecharting.com/game/playstation-4/annapurna-interactive-ultimate-ps4-collection"
             ],
-            "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+            "evidenceSummary": "La Ultimate es la edición retail norteamericana distribuida por Skybound Games; la Deluxe es una edición distinta y exclusiva de iam8bit. Ambas recopilan ocho juegos de estudios diferentes publicados por Annapurna Interactive.",
             "reviewedAt": "2026-09-05",
             "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05",
             "previousValues": [
@@ -75979,8 +75983,8 @@
         {
           "role": "physicalPublisherOrDistributor",
           "company": {
-            "name": "Iam8bit",
-            "slug": "iam8bit",
+            "name": "Skybound Games",
+            "slug": "skybound-games",
             "museumPath": null,
             "pcPath": null,
             "source": "research"
@@ -75988,9 +75992,11 @@
           "provenance": {
             "source": "research",
             "evidenceUrls": [
-              "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+              "https://gamingcypher.com/annapurna-interactive-physical-playstation-4-box-sets-available-now/",
+              "https://www.iam8bit.com/products/annapurna-interactive-deluxe-limited-edition",
+              "https://www.pricecharting.com/game/playstation-4/annapurna-interactive-ultimate-ps4-collection"
             ],
-            "evidenceSummary": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+            "evidenceSummary": "La Ultimate es la edición retail norteamericana distribuida por Skybound Games; la Deluxe es una edición distinta y exclusiva de iam8bit. Ambas recopilan ocho juegos de estudios diferentes publicados por Annapurna Interactive.",
             "reviewedAt": "2026-09-05",
             "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05",
             "previousValues": [

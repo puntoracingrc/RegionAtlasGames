@@ -23,6 +23,17 @@
     "catalogIdBefore": "ps4-annapurna-ultimate-collection",
     "catalogIdAfter": "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
   },
+  "editionEvidence": {
+    "ultimateRegion": "USA",
+    "ultimatePhysicalDistributor": "Skybound Games",
+    "deluxeRegion": "USA",
+    "deluxePhysicalPublisher": "iam8bit",
+    "urls": [
+      "https://gamingcypher.com/annapurna-interactive-physical-playstation-4-box-sets-available-now/",
+      "https://www.iam8bit.com/products/annapurna-interactive-deluxe-limited-edition",
+      "https://www.pricecharting.com/game/playstation-4/annapurna-interactive-ultimate-ps4-collection"
+    ]
+  },
   "checks": {
     "catalogRowsPreserved": true,
     "catalogIdsPreserved": true,

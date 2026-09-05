@@ -39,7 +39,7 @@ REVIEWED_AT = "2026-09-05"
 REVIEWED_AT_TIMESTAMP = "2026-09-05T12:00:00Z"
 SUCCESSOR_BATCH_ID = "company-credit-ps4-pal-compilations-2026-09-05"
 ALLOWED_SUCCESSOR_ROLE_CREDITS = {
-    ("ps4-annapurna-ultimate-collection", "physicalPublisherOrDistributor"): ("iam8bit",),
+    ("ps4-annapurna-ultimate-collection", "physicalPublisherOrDistributor"): ("skybound-games",),
     ("ps4-blasphemous-coleccionista", "developer"): ("the-game-kitchen",),
     ("ps4-crash-team-racing-&amp;-spyro-reignited-trilogy", "physicalPublisherOrDistributor"): ("activision",),
     ("ps4-cyberpunk-2077-samurai-pack", "developer"): ("cd-projekt-red",),

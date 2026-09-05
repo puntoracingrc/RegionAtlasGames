@@ -48577,11 +48577,10 @@
       "ps5-outer-wilds-archaeologist-edition",
       "ps5-scott-pilgrim-ex",
       "ps5-tales-of-the-shire-a-the-lord-of-the-rings-game",
-      "ps4-sea-of-stars",
-      "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
+      "ps4-sea-of-stars"
     ],
     "byPlatform": {
-      "ps4": 34,
+      "ps4": 33,
       "ps5": 5
     },
     "asDeveloper": [],
@@ -48624,10 +48623,9 @@
       "ps5-scott-pilgrim-ex",
       "ps5-tales-of-the-shire-a-the-lord-of-the-rings-game"
     ],
-    "gameCount": 39,
+    "gameCount": 38,
     "asPhysicalPublisherOrDistributor": [
-      "ps4-sea-of-stars",
-      "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
+      "ps4-sea-of-stars"
     ]
   },
   "london-studio": {
@@ -62994,10 +62992,11 @@
       "ps4-usa-slime-rancher",
       "switch2-goodnight-universe",
       "ps4-baldur%27s-gate-1-&amp;-2-enhanced-edition",
-      "ps4-baldur%27s-gate-1-&amp;-2-enhanced-edition-collector%27s-pack"
+      "ps4-baldur%27s-gate-1-&amp;-2-enhanced-edition-collector%27s-pack",
+      "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
     ],
     "byPlatform": {
-      "ps4": 15,
+      "ps4": 16,
       "switch2": 1
     },
     "asDeveloper": [
@@ -63019,11 +63018,12 @@
       "ps4-usa-slime-rancher",
       "switch2-goodnight-universe"
     ],
-    "gameCount": 16,
+    "gameCount": 17,
     "asPhysicalPublisherOrDistributor": [
       "ps4-baldur%27s-gate-1-&amp;-2-enhanced-edition",
       "ps4-baldur%27s-gate-1-&amp;-2-enhanced-edition-collector%27s-pack",
-      "ps4-planescape-torment-&amp;-icewind-dale-enhanced-editions"
+      "ps4-planescape-torment-&amp;-icewind-dale-enhanced-editions",
+      "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
     ]
   },
   "teeny-weeny-games": {

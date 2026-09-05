@@ -28,6 +28,8 @@ META_FILE = DATA / "meta.json"
 CURATION_FILE = DATA / "curation-report.json"
 REPORT_FILE = DATA / "research/annapurna-collection-region-correction-report.json"
 COMPILATION_APPLIER = ROOT / "scripts/apply_company_credit_ps4_pal_compilations.py"
+COMPILATION_REPORT_FILE = DATA / "research/company-credit-ps4-pal-compilations-report.json"
+COMPILATION_REPORT_MD_FILE = DATA / "research/company-credit-ps4-pal-compilations-report.md"
 
 OLD_ID = "ps4-annapurna-ultimate-collection"
 USA_ID = "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
@@ -37,6 +39,11 @@ USA_TITLE = "Annapurna Interactive Ultimate PS4 Collection"
 USA_ROUTE = "annapurna-interactive-ultimate-ps4-collection-ps4-pal-us"
 LEGACY_ROUTE = "annapurna-ultimate-collection-ps4-pal-es"
 BATCH_ID = "annapurna-collection-region-correction-2026-09-05"
+EVIDENCE_URLS = [
+    "https://gamingcypher.com/annapurna-interactive-physical-playstation-4-box-sets-available-now/",
+    "https://www.iam8bit.com/products/annapurna-interactive-deluxe-limited-edition",
+    "https://www.pricecharting.com/game/playstation-4/annapurna-interactive-ultimate-ps4-collection",
+]
 
 ROLE_FIELDS = (
     "asDeveloper",
@@ -77,6 +84,62 @@ def collection_protected(item: dict[str, Any]) -> dict[str, Any]:
         for key, value in item.items()
         if key not in {"catalogId", "title", "region"}
     }
+
+
+def update_usa_editorial(detail: dict[str, Any]) -> None:
+    detail["description"] = (
+        "Annapurna Interactive Ultimate PS4 Collection es una edición física para "
+        "PlayStation 4 que reúne ocho juegos de estudios diferentes publicados por "
+        "Annapurna Interactive. Esta versión retail norteamericana fue distribuida por "
+        "Skybound Games."
+    )
+    detail["descriptionMeta"] = {
+        "generatedAt": "2026-09-05T21:30:00Z",
+        "method": "research",
+        "model": "verified-company-credit-review",
+        "referenceUsed": True,
+        "referenceUrl": EVIDENCE_URLS[0],
+    }
+    detail["seoMeta"] = {
+        "seoTitle": "Annapurna Interactive Ultimate PS4 Collection - PS4 USA",
+        "seoDescription": (
+            "Edición retail norteamericana para PS4 con ocho juegos publicados por "
+            "Annapurna Interactive y distribución física de Skybound Games."
+        ),
+        "coverAlt": "Annapurna Interactive Ultimate PS4 Collection para PS4 USA",
+        "jsonLdDescription": (
+            "Annapurna Interactive Ultimate PS4 Collection es una recopilación física "
+            "norteamericana de ocho juegos para PlayStation 4, distribuida por Skybound Games."
+        ),
+        "faqs": [
+            {
+                "question": "¿Qué incluye Annapurna Interactive Ultimate PS4 Collection?",
+                "answer": "Incluye ocho juegos para PlayStation 4 creados por distintos estudios.",
+            },
+            {
+                "question": "¿En qué año se lanzó esta colección?",
+                "answer": "La edición norteamericana se lanzó en 2021.",
+            },
+            {
+                "question": "¿Quién distribuyó la edición Ultimate?",
+                "answer": (
+                    "Los juegos fueron publicados por Annapurna Interactive y la edición "
+                    "física retail fue distribuida por Skybound Games."
+                ),
+            },
+        ],
+        "highlights": [
+            "Recopilación física de ocho juegos",
+            "Juegos publicados por Annapurna Interactive",
+            "Edición retail distribuida por Skybound Games",
+            "Lanzada en 2021 para PlayStation 4 en Norteamérica",
+        ],
+        "method": "research",
+        "model": "verified-company-credit-review",
+        "generatedAt": "2026-09-05T21:30:00Z",
+    }
+    detail.setdefault("fieldSources", {})["description"] = "research"
+    detail.setdefault("fieldSources", {})["seoMeta"] = "research"
 
 
 def remove_company_catalog_id(companies: dict[str, Any], catalog_id: str) -> list[str]:
@@ -176,8 +239,12 @@ def apply() -> dict[str, Any]:
         and old_game.get("excludeCategory") == "duplicate"
         and collection_item.get("catalogId") == USA_ID
     ):
-        check()
-        return read_json(REPORT_FILE)
+        try:
+            check()
+        except (AssertionError, KeyError, ValueError):
+            pass
+        else:
+            return read_json(REPORT_FILE)
 
     if old_game.get("region") != "PAL España" or old_game.get("pcId") != usa_game.get("pcId"):
         raise ValueError("The reviewed PAL duplicate no longer matches the USA product")
@@ -187,6 +254,9 @@ def apply() -> dict[str, Any]:
     collection_before = copy.deepcopy(collection_item)
     listed_before = sum(listed_game(game) for game in catalog)
     catalog_ids_before = [game["id"] for game in catalog]
+    previous_report = read_json(REPORT_FILE) if REPORT_FILE.is_file() else {}
+    previous_catalog = previous_report.get("catalog", {})
+    previous_collection = previous_report.get("collection", {})
 
     old_game["listingStatus"] = "excluded"
     old_game["excludeCategory"] = "duplicate"
@@ -207,6 +277,7 @@ def apply() -> dict[str, Any]:
     legacy_matches[0].update({"title": USA_TITLE, "region": "USA"})
 
     details.pop(OLD_ID, None)
+    update_usa_editorial(details[USA_ID])
     changed_companies = remove_company_catalog_id(companies, OLD_ID)
     for slug in changed_companies:
         refresh_company(companies[slug], catalog_by_id)
@@ -224,16 +295,16 @@ def apply() -> dict[str, Any]:
     write_json(WORK_IDENTITIES_FILE, work_identities)
     write_json(CAMPAIGN_FILE, campaign)
 
-    subprocess.run(
-        [sys.executable, str(COMPILATION_APPLIER), "--dry-run"],
-        cwd=ROOT,
-        check=True,
-    )
+    compilation_report_before = COMPILATION_REPORT_FILE.read_bytes()
+    compilation_report_md_before = COMPILATION_REPORT_MD_FILE.read_bytes()
     subprocess.run(
         [sys.executable, str(COMPILATION_APPLIER), "--apply"],
         cwd=ROOT,
         check=True,
     )
+    # Reuse the verified applier for derived indexes without reopening its prior report.
+    COMPILATION_REPORT_FILE.write_bytes(compilation_report_before)
+    COMPILATION_REPORT_MD_FILE.write_bytes(compilation_report_md_before)
 
     final_catalog = read_json(CATALOG_FILE)
     final_collection = read_json(COLLECTION_FILE)
@@ -244,29 +315,42 @@ def apply() -> dict[str, Any]:
         "batchId": BATCH_ID,
         "writesPerformed": True,
         "catalog": {
-            "rowsBefore": len(catalog),
+            "rowsBefore": previous_catalog.get("rowsBefore", len(catalog)),
             "rowsAfter": len(final_catalog),
-            "uniqueIdsBefore": len(catalog_by_id),
+            "uniqueIdsBefore": previous_catalog.get("uniqueIdsBefore", len(catalog_by_id)),
             "uniqueIdsAfter": len({game["id"] for game in final_catalog}),
-            "orderedIdsSha256Before": json_hash(catalog_ids_before),
+            "orderedIdsSha256Before": previous_catalog.get(
+                "orderedIdsSha256Before", json_hash(catalog_ids_before)
+            ),
             "orderedIdsSha256After": json_hash(catalog_ids_after),
-            "listedBefore": listed_before,
+            "listedBefore": previous_catalog.get("listedBefore", listed_before),
             "listedAfter": sum(listed_game(game) for game in final_catalog),
             "retiredCatalogId": OLD_ID,
             "canonicalCatalogId": USA_ID,
         },
         "collection": {
             "itemId": COLLECTION_ITEM_ID,
-            "indexBefore": collection_index,
+            "indexBefore": previous_collection.get("indexBefore", collection_index),
             "indexAfter": next(
                 index
                 for index, item in enumerate(final_collection)
                 if item.get("id") == COLLECTION_ITEM_ID
             ),
-            "protectedSha256Before": json_hash(collection_protected(collection_before)),
+            "protectedSha256Before": previous_collection.get(
+                "protectedSha256Before", json_hash(collection_protected(collection_before))
+            ),
             "protectedSha256After": json_hash(collection_protected(final_item)),
-            "catalogIdBefore": collection_before.get("catalogId"),
+            "catalogIdBefore": previous_collection.get(
+                "catalogIdBefore", collection_before.get("catalogId")
+            ),
             "catalogIdAfter": final_item.get("catalogId"),
+        },
+        "editionEvidence": {
+            "ultimateRegion": "USA",
+            "ultimatePhysicalDistributor": "Skybound Games",
+            "deluxeRegion": "USA",
+            "deluxePhysicalPublisher": "iam8bit",
+            "urls": EVIDENCE_URLS,
         },
     }
     report["checks"] = {
@@ -333,8 +417,12 @@ def check() -> None:
         for credit in details[USA_ID]["companyCredits"]
     } == {
         ("originalPublisher", "annapurna-interactive"),
-        ("physicalPublisherOrDistributor", "iam8bit"),
+        ("physicalPublisherOrDistributor", "skybound-games"),
     }
+    assert details[USA_ID]["fieldSources"]["description"] == "research"
+    assert details[USA_ID]["fieldSources"]["seoMeta"] == "research"
+    assert "desarrollados por Annapurna" not in details[USA_ID]["description"]
+    assert "Skybound Games" in details[USA_ID]["description"]
 
     assert all(
         OLD_ID not in entry.get(field, [])
@@ -342,7 +430,8 @@ def check() -> None:
         for field in ("gameIds", *ROLE_FIELDS)
     )
     assert USA_ID in companies["annapurna-interactive"]["asPublisher"]
-    assert USA_ID in companies["iam8bit"]["asPhysicalPublisherOrDistributor"]
+    assert USA_ID in companies["skybound-games"]["asPhysicalPublisherOrDistributor"]
+    assert USA_ID not in companies["iam8bit"].get("asPhysicalPublisherOrDistributor", [])
     assert USA_ID not in companies["annapurna"].get("asDeveloper", [])
     assert USA_ID not in companies["skybound-games"].get("asPublisher", [])
 

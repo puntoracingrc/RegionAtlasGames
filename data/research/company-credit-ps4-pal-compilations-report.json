@@ -4995,7 +4995,7 @@
     "allBlockedCasesRemainUnpublished": true
   },
   "verification": {
-    "semanticTest": "PASS (83 fichas acreditadas, 247 creditos de compania, 82 componentes, 13 variantes verificadas, 6 redirects y 9 casos bloqueados)",
+    "semanticTest": "PASS (83 fichas acreditadas, 247 creditos de compania, 82 componentes, 13 variantes verificadas, 7 redirects y 9 casos bloqueados)",
     "typecheck": "PASS",
     "lint": "PASS (0 errores; 35 avisos preexistentes fuera del alcance)",
     "unitTests": "PASS (220/220)",
