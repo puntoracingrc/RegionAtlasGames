@@ -218,7 +218,7 @@ def download_cover(task: tuple[str, str, str, Path, str]) -> bool:
 
 
 def needed_pc_console_paths(platforms: set[str], catalog: list[dict]) -> set[str]:
-    paths = {PC_CONSOLE_PATHS[p] for p in platforms if p in PC_CONSOLE_PATHS}
+    paths: set[str] = set()
     for game in catalog:
         if game.get("platformSlug") not in platforms:
             continue
@@ -227,7 +227,9 @@ def needed_pc_console_paths(platforms: set[str], catalog: list[dict]) -> set[str
             parts = pc_path.split("/")
             if len(parts) >= 3 and parts[2]:
                 paths.add(parts[2])
-    return paths
+    if paths:
+        return paths
+    return {PC_CONSOLE_PATHS[p] for p in platforms if p in PC_CONSOLE_PATHS}
 
 
 def build_pc_maps(platforms: set[str], force: bool, catalog: list[dict] | None = None) -> dict[str, str]:

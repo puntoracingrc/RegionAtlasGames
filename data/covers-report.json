@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-09-05T04:05:19",
-  "targets": 19,
-  "downloaded": 18,
+  "generatedAt": "2026-09-05T04:26:38",
+  "targets": 996,
+  "downloaded": 995,
   "skippedExisting": 0,
   "missingSource": 1,
   "downloadErrors": 0,
   "bySource": {
     "museum": 0,
-    "pricecharting": 18,
+    "pricecharting": 995,
     "wikipedia": 0,
     "existing": 0
   },
   "byPlatform": {
     "ds": {
-      "downloaded": 18,
+      "downloaded": 995,
       "missingSource": 1,
       "downloadErrors": 0,
       "skippedExisting": 0
     }
   },
   "scope": {
-    "region": "PAL España",
+    "region": "Japón",
     "platforms": [
       "ds"
     ]
   },
-  "note": "Portadas pendientes del repaso PAL de Nintendo DS; el caso sin origen no se sustituye."
+  "note": "Portadas exactas de la importación japonesa de Nintendo DS; el caso sin origen no se sustituye."
 }
