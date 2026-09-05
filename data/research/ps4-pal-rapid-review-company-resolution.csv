@@ -1,0 +1,538 @@
+sourceName,slug,displayName,resolution,existing
+110 Industries,110-industries,110 Industries,exact-name-or-alias,True
+1C Company,1c-company,1C Company,new-exact-credit-entity,False
+1C Entertainment,1c-entertainment,1C Entertainment,exact-name-or-alias,True
+1CC Games,1cc-games,1CC Games,new-exact-credit-entity,False
+1st Playable Productions,1st-playable-productions,1st Playable Productions,exact-name-or-alias,True
+2Awesome Studio,2awesome-studios,2Awesome Studios,explicit-existing,True
+2K,2k,2k,exact-name-or-alias,True
+2K Games,2k-games,2K Games,exact-name-or-alias,True
+34BigThings,34bigthings,34BigThings,new-exact-credit-entity,False
+3D Realms,3d-realms,3D Realms,exact-name-or-alias,True
+505 Games,505-games,505 Games,explicit-existing,True
+A Heartful of Games,aheartfulofgames,aheartfulofgames,exact-name-or-alias,True
+AG PROGRAMAS DE COMPUTADORES LTDA ME,ag-programas-de-computadores-ltda-me,AG PROGRAMAS DE COMPUTADORES LTDA ME,new-exact-credit-entity,False
+AOne Games,aone-games,AOne Games,exact-name-or-alias,True
+AQUASTYLE,aqua-style,Aqua Style,exact-name-or-alias,True
+ASTRAGON ENTERTAINMENT GMBH,astragon,Astragon,explicit-existing,True
+Abylight Studios,abylight,Abylight,explicit-existing,True
+Acquire,acquire,Acquire,exact-name-or-alias,True
+Activision,activision,Activision,exact-name-or-alias,True
+Activision Publishing,activision-publishing,Activision Publishing,exact-name-or-alias,True
+Aerosoft,aerosoft,Aerosoft GmbH,exact-name-or-alias,True
+Aksys Games,aksys-games,Aksys Games,exact-name-or-alias,True
+Aksys Games Localization Inc.,aksys-games-localization,Aksys Games Localization,explicit-existing,True
+Alawar Premium,alawar-premium,Alawar Premium,new-exact-credit-entity,False
+Amazon Game Studios,amazon-game-studios,Amazon Game Studios,new-exact-credit-entity,False
+Amplitude Studios,amplitude-studios,Amplitude Studios,exact-name-or-alias,True
+Anima Project,anima-project,Anima Project,exact-name-or-alias,True
+Animatoon Studio,animatoon-studio,Animatoon Studio,new-exact-credit-entity,False
+Anshar Studios,anshar-studios,Anshar Studios,new-exact-credit-entity,False
+Appeal Studios,appeal-studios,Appeal Studios,new-exact-credit-entity,False
+Arzest,arzest,Arzest,exact-name-or-alias,True
+Asobo Studio,asobo-studio,Asobo Studio,exact-name-or-alias,True
+Astragon Entertainment,astragon,Astragon,explicit-existing,True
+Atari,atari,Atari Europe,exact-name-or-alias,True
+Atlus,atlus,Atlus Co Ltd.,exact-name-or-alias,True
+Avalanche Software,avalanche-software,Avalanche Software,exact-name-or-alias,True
+Avalanche Studios,avalanche-studios,Avalanche Studios,exact-name-or-alias,True
+BANDAI NAMCO Entertainment,bandai-namco-entertainment,Bandai Namco Entertainment,exact-name-or-alias,True
+BAkau,bakau,BAkau,new-exact-credit-entity,False
+BUG-Studio,bug-studio,BUG-Studio,new-exact-credit-entity,False
+BadLand Games,badland-games,BadLand Games,exact-name-or-alias,True
+BadLand Publishing,badland-publishing,BadLand Publishing,exact-name-or-alias,True
+Balio Studio,balio-studio,Balio Studio,new-exact-credit-entity,False
+Bandai Namco Entertainment,bandai-namco-entertainment,Bandai Namco Entertainment,exact-name-or-alias,True
+Bandai Namco Entertainment Europe,bandai-namco-entertainment-europe,Bandai Namco Entertainment Europe,exact-name-or-alias,True
+Bandai Namco Studios,bandai-namco-studios,Bandai Namco Studios,exact-name-or-alias,True
+Beamdog,beamdog,Beamdog,exact-name-or-alias,True
+Beenox,beenox,Beenox,exact-name-or-alias,True
+Behaviour Interactive,behaviour-interactive,Behaviour Interactive,exact-name-or-alias,True
+Bend Studio,bend-studio,Bend Studio,exact-name-or-alias,True
+Benoit Varasse trading as Pix Arts,benoit-varasse-trading-as-pix-arts,Benoit Varasse trading as Pix Arts,new-exact-credit-entity,False
+Bethesda Game Studios,bethesda-game-studios,Bethesda Game Studios,exact-name-or-alias,True
+Bethesda Softworks,bethesda-softworks,Bethesda Softworks,exact-name-or-alias,True
+Big Ant Studios,big-ant-studios,Big Ant Studios,exact-name-or-alias,True
+Big Bad Wolf,big-bad-wolf,Big Bad Wolf,exact-name-or-alias,True
+Bigben Interactive,bigben-interactive,BigBen Interactive,explicit-existing,True
+Binary Haze Interactive,binary-haze-interactive,Binary Haze Interactive,exact-name-or-alias,True
+Bitmap Bureau,bitmap-bureau,Bitmap Bureau,exact-name-or-alias,True
+Black Forest Games,black-forest-games,Black Forest Games,exact-name-or-alias,True
+BlackMill Games,blackmill-games,BlackMill Games,new-exact-credit-entity,False
+BlackPixel Studio,blackpixel-studio,BlackPixel Studio,new-exact-credit-entity,False
+Blind Squirrel Games,blind-squirrel-games,Blind Squirrel Games,exact-name-or-alias,True
+BlitWorks Games,blitworks-games,Blitworks Games,exact-name-or-alias,True
+Blizzard Entertainment,blizzard-entertainment,Blizzard Entertainment,exact-name-or-alias,True
+Bluepoint Games,bluepoint-games,Bluepoint Games,exact-name-or-alias,True
+Breakpoint Studio,breakpoint-studio,Breakpoint Studio,new-exact-credit-entity,False
+Bruner House,bruner-house,Bruner House,new-exact-credit-entity,False
+Buka Entertainment,buka-entertainment,Buka Entertainment,new-exact-credit-entity,False
+Bungie,bungie,Bungie,exact-name-or-alias,True
+CARBON GAMES LIMITED,carbon-games-limited,CARBON GAMES LIMITED,new-exact-credit-entity,False
+CCP Games,ccp-games,CCP Games,new-exact-credit-entity,False
+CD PROJEKT RED,cd-projekt-red,CD Projekt RED,exact-name-or-alias,True
+CD Projekt Red,cd-projekt-red,CD Projekt RED,exact-name-or-alias,True
+CI Games,ci-games,CI Games,exact-name-or-alias,True
+CITY CONNECTION,city-connection,City Connection,exact-name-or-alias,True
+CONTACT SALES LTD,contact-sales-ltd,CONTACT SALES LTD,new-exact-credit-entity,False
+CUBETYPE,cubetype,CUBETYPE,new-exact-credit-entity,False
+Caged Element,caged-element,Caged Element,exact-name-or-alias,True
+Caipirinha Games,caipirinha-games,Caipirinha Games,exact-name-or-alias,True
+Camouflaj,camouflaj,Camouflaj,exact-name-or-alias,True
+Capcom,capcom,Capcom,exact-name-or-alias,True
+Capcom Vancouver,capcom-vancouver,Capcom Vancouver,exact-name-or-alias,True
+Cauldron,cauldron,Cauldron Ltd,exact-name-or-alias,True
+Cavalier Game Studios Ltd,cavalier-game-studios,Cavalier Game Studios,explicit-existing,True
+Cave Monsters,cave-monsters,Cave Monsters,exact-name-or-alias,True
+Chibig,chibig,Chibig,new-exact-credit-entity,False
+Chibig Studio,chibig,Chibig,explicit-new,False
+Chronos Unterhaltungssoftware,chronos-unterhaltungssoftware,Chronos Unterhaltungssoftware,new-exact-credit-entity,False
+City Connection,city-connection,City Connection,exact-name-or-alias,True
+Clap Hanz,clap-hanz,Clap Hanz,exact-name-or-alias,True
+Clear River Games,clear-river-games,Clear River Games,exact-name-or-alias,True
+Clever Beans,clever-beans,Clever Beans,new-exact-credit-entity,False
+Climax Studios,climax-studios,Climax Studios,exact-name-or-alias,True
+ClockStone,clockstone,ClockStone,exact-name-or-alias,True
+Code Mystics,code-mystics,Code Mystics,exact-name-or-alias,True
+Codemasters,codemasters,Codemasters,exact-name-or-alias,True
+Coldwood Interactive,coldwood-interactive,ColdWood Interactive,exact-name-or-alias,True
+Compile Heart,compile-heart,Compile Heart,exact-name-or-alias,True
+Cordens Interactive,cordens-interactive,Cordens Interactive,new-exact-credit-entity,False
+Crackshell,crackshell,Crackshell,new-exact-credit-entity,False
+Crazy Monkey Studios,crazy-monkey-studios,Crazy Monkey Studios,exact-name-or-alias,True
+Crenetic,crenetic,Crenetic,exact-name-or-alias,True
+Crystal Dynamics,crystal-dynamics,Crystal Dynamics,exact-name-or-alias,True
+Crytek,crytek,Crytek,exact-name-or-alias,True
+Curve Games,curve-digital,Curve Digital,explicit-existing,True
+Cyanide Studio,cyanide-studio,Cyanide Studio,exact-name-or-alias,True
+CyberConnect2,cyberconnect2,CyberConnect2,explicit-existing,True
+DAEDALIC ENTERTAINMENT,daedalic-entertainment,Daedalic Entertainment,exact-name-or-alias,True
+DANIEL WENGENROTH,daniel-wengenroth,DANIEL WENGENROTH,new-exact-credit-entity,False
+DIGITAL ECLIPSE,digital-eclipse,Digital Eclipse,exact-name-or-alias,True
+Daedalic Entertainment,daedalic-entertainment,Daedalic Entertainment,exact-name-or-alias,True
+Dambuster Studios,dambuster-studios,Dambuster Studios,exact-name-or-alias,True
+Darril Arts,darril-arts,Darril Arts,exact-name-or-alias,True
+Dear Villagers,dear-villagers,Dear Villagers,exact-name-or-alias,True
+Deep Silver,deep-silver,Deep SIlver,exact-name-or-alias,True
+Deepnight Games,deepnight-games,Deepnight Games,exact-name-or-alias,True
+Delphine Software,delphine-software-international,Delphine Software International,explicit-existing,True
+Dennaton Games,dennaton-games,Dennaton Games,exact-name-or-alias,True
+Destructive Creations,destructive-creations,Destructive Creations,exact-name-or-alias,True
+Devolver Digital,devolver-digital,Devolver Digital,exact-name-or-alias,True
+Digital Eclipse,digital-eclipse,Digital Eclipse,exact-name-or-alias,True
+Digital Illusions,digital-illusions,Digital Illusions,exact-name-or-alias,True
+Digital Lounge,digital-lounge,The Digital Lounge,new-exact-credit-entity,False
+Disney Interactive Studios,disney-interactive-studios,Disney Interactive Studios,exact-name-or-alias,True
+Dolores Entertainment S.L.,dolores-entertainment,Dolores Entertainment,explicit-existing,True
+DotEmu,dotemu,DotEmu,explicit-existing,True
+Dotemu,dotemu,DotEmu,explicit-existing,True
+Double Eleven,double-eleven,Double Eleven,exact-name-or-alias,True
+Dovetail Games,dovetail-games,Dovetail Games,exact-name-or-alias,True
+Draw Distance,draw-distance,Draw Distance,exact-name-or-alias,True
+Dreamloop Games,dreamloop-games,Dreamloop Games,new-exact-credit-entity,False
+DrinkBox Studios,drinkbox-studios,DrinkBox Studios Inc.,exact-name-or-alias,True
+DuCats Games Studio,ducats-games-studio,DuCats Games Studio,new-exact-credit-entity,False
+EA Canada,ea-canada,EA Canada,exact-name-or-alias,True
+EA Orlando,ea-orlando,EA Orlando,exact-name-or-alias,True
+EA Sports,ea-sports,EA Sports,exact-name-or-alias,True
+EA Vancouver,ea-vancouver,EA Vancouver,exact-name-or-alias,True
+EPOS Game Studios,epos-game-studios,EPOS Game Studios,new-exact-credit-entity,False
+EVGENIY KOLPAKOV,evgeniy-kolpakov,EVGENIY KOLPAKOV,new-exact-credit-entity,False
+Eastasiasoft,eastasiasoft,EastAsiaSoft,explicit-existing,True
+Eclipse Games,eclipse-games,Eclipse Games,exact-name-or-alias,True
+Elden Pixels,elden-pixels,Elden Pixels,exact-name-or-alias,True
+Electronic Arts,electronic-arts,Electronic Arts,exact-name-or-alias,True
+Emilie Coyo,emilie-coyo,Emilie Coyo,new-exact-credit-entity,False
+Endroad,endroad,Endroad,new-exact-credit-entity,False
+Epic Games,epic-games,Epic Games,exact-name-or-alias,True
+Epic Games Publishing,epic-games-publishing,Epic Games Publishing,new-exact-credit-entity,False
+Epicenter Studios,epicenter-studios,Epicenter Studios,exact-name-or-alias,True
+EuroVideo Medien,eurovideo,EUROVIDEO,explicit-existing,True
+Evolution Studios,evolution-studios,Evolution Studios,exact-name-or-alias,True
+Expansive Worlds,expansive-worlds,Expansive Worlds,new-exact-credit-entity,False
+Experience,experience,Experience,exact-name-or-alias,True
+FISHING PLANET LLC,fishing-planet-llc,FISHING PLANET LLC,new-exact-credit-entity,False
+FLYING CARPETS GAMES,flying-carpets-games,FLYING CARPETS GAMES,new-exact-credit-entity,False
+FORGE REPLY S.R.L.,forge-reply-s-r-l,FORGE REPLY S.R.L.,new-exact-credit-entity,False
+Factor 5,factor-5,Factor 5,exact-name-or-alias,True
+Fangamer,fangamer,Fangamer,exact-name-or-alias,True
+Farsight Technologies,farsight-technologies,FarSight Technologies,exact-name-or-alias,True
+Fatshark,fatshark,Fatshark,new-exact-credit-entity,False
+Feardemic,feardemic,Feardemic,exact-name-or-alias,True
+Finji,finji,Finji,exact-name-or-alias,True
+First Contact Entertainment,first-contact-entertainment,First Contact Entertainment,exact-name-or-alias,True
+Flazm,flazm,Flazm,new-exact-credit-entity,False
+Focus Home Interactive,focus-home-interactive,Focus Home Interactive,exact-name-or-alias,True
+Forever Entertainment,forever-entertainment,Forever Entertainment,exact-name-or-alias,True
+FreeStyleGames,freestylegames,FreeStyleGames,exact-name-or-alias,True
+FromSoftware,fromsoftware,FromSoftware,explicit-existing,True
+Frontier Developments,frontier-developments,Frontier Developments,exact-name-or-alias,True
+Frontier Foundry,frontier-foundry,Frontier Foundry,new-exact-credit-entity,False
+Frozenbyte,frozenbyte,Frozenbyte,exact-name-or-alias,True
+Funbox Media,funbox-media,Funbox Media,explicit-existing,True
+Funcom,funcom,Funcom,exact-name-or-alias,True
+Future Tech Lab,future-tech-lab,Future Tech Lab,new-exact-credit-entity,False
+GAMEMILL ENTERTAINMENT,gamemill-entertainment,GameMill Entertainment,explicit-existing,True
+GIANTS Software,giants-software,GIANTS Software,exact-name-or-alias,True
+GRAFFITI GAMES,graffiti-games,Graffiti Games,exact-name-or-alias,True
+GS2 GAMES,gs2-games,GS2 Games,exact-name-or-alias,True
+GS2 Games,gs2-games,GS2 Games,exact-name-or-alias,True
+Gaijinworks,gaijinworks,Gaijinworks,exact-name-or-alias,True
+Game Arts,game-arts,Game Arts,explicit-existing,True
+Game Mechanic Studios,game-mechanic-studios,Game Mechanic Studios,new-exact-credit-entity,False
+GameMill Entertainment,gamemill-entertainment,GameMill Entertainment,explicit-existing,True
+Gameloft Montreal,gameloft-montreal,Gameloft Montreal,new-exact-credit-entity,False
+Games Farm,games-farm,Games Farm,explicit-existing,True
+Gaming Minds Studios,gaming-minds-studios,Gaming Minds Studios,exact-name-or-alias,True
+Gammera Nest,gammera-nest,Gammera Nest,new-exact-credit-entity,False
+Gearbox Publishing,gearbox-publishing,Gearbox Publishing,exact-name-or-alias,True
+Gearbox Software,gearbox-software,Gearbox Software,exact-name-or-alias,True
+Ghost Town Games,ghost-town-games,Ghost Town Games,exact-name-or-alias,True
+Granzella,granzella,Granzella Inc.,exact-name-or-alias,True
+Graphite Lab,graphite-lab,Graphite Lab,new-exact-credit-entity,False
+Grasshopper Manufacture,grasshopper-manufacture,Grasshopper Manufacture,exact-name-or-alias,True
+Green Lava Studios,green-lava-studios,Green Lava Studios,exact-name-or-alias,True
+Ground Shatter,ground-shatter,Ground Shatter,exact-name-or-alias,True
+Grove Street Games,grove-street-games,Grove Street Games,exact-name-or-alias,True
+Guerrilla Games,guerrilla-games,Guerrilla Games,exact-name-or-alias,True
+Gun Interactive,gun-interactive,Gun Interactive,exact-name-or-alias,True
+Gun Media,gun-media,Gun Media,exact-name-or-alias,True
+Gust,gust,Gust,exact-name-or-alias,True
+HB Studios,hb-studios,HB Studios,exact-name-or-alias,True
+HEADUP GAMES,headup-games,HeadUp Games,exact-name-or-alias,True
+HIGHWIRE GAMES,highwire-games,Highwire Games,exact-name-or-alias,True
+Haemimont Games,haemimont-games,Haemimont Games,exact-name-or-alias,True
+Halfbrick Studios,halfbrick-studios,Halfbrick Studios,exact-name-or-alias,True
+Hammer Labs,hammer-labs,Hammer Labs,new-exact-credit-entity,False
+HandyGames,handygames,HandyGames,explicit-existing,True
+Hangar 13,hangar-13,Hangar 13,exact-name-or-alias,True
+Harmonix,harmonix,Harmonix,exact-name-or-alias,True
+Harmonix Music Systems,harmonix,Harmonix,explicit-existing,True
+Headbang Club,headbang-club,Headbang Club,new-exact-credit-entity,False
+Headup Games,headup-games,HeadUp Games,exact-name-or-alias,True
+Higgs Games,higgs-games,Higgs Games,new-exact-credit-entity,False
+High Moon Studios,high-moon-studios,High Moon Studios,exact-name-or-alias,True
+Home Ent Suppliers,home-ent-suppliers,Home Ent Suppliers,new-exact-credit-entity,False
+Humble Games,humble-games,Humble Games,exact-name-or-alias,True
+IMGN.PRO,imgn-pro,IMGN.Pro,exact-name-or-alias,True
+ININ Games,inin-games,ININ Games,exact-name-or-alias,True
+IO Interactive,io-interactive,IO Interactive,exact-name-or-alias,True
+Idea Factory,idea-factory,"Idea Factory Co., Ltd.",exact-name-or-alias,True
+Idea Factory International,idea-factory-international,Idea Factory International,explicit-existing,True
+IllFonic,illfonic,IllFonic,exact-name-or-alias,True
+Image & Form Games,image-amp-form-games,Image & Form Games,exact-name-or-alias,True
+Imaginary Monsters,imaginary-monsters,Imaginary Monsters,new-exact-credit-entity,False
+Impulse Gear,impulse-gear,Impulse Gear,exact-name-or-alias,True
+InXile Entertainment,inxile-entertainment,InXile Entertainment,exact-name-or-alias,True
+Infinigon Games,infinigon,Infinigon,explicit-existing,True
+Insomniac Games,insomniac-games,Insomniac Games,exact-name-or-alias,True
+Inti Creates,inti-creates,Inti Creates,exact-name-or-alias,True
+Iridium Media Group GmbH,iridium-media-group-gmbh,Iridium Media Group GmbH,new-exact-credit-entity,False
+It Matters Games,it-matters-games,It Matters Games,new-exact-credit-entity,False
+Italic Pig,italic-pig,Italic Pig,new-exact-credit-entity,False
+Ivory Tower,ivory-tower,Ivory Tower,exact-name-or-alias,True
+JOINDOTS GMBH,joindots,Joindots GmbH,exact-name-or-alias,True
+JanduSoft,jandusoft,JanduSoft,exact-name-or-alias,True
+Japan Studio,japan-studio,JAPAN Studio,exact-name-or-alias,True
+Joindots,joindots,Joindots GmbH,exact-name-or-alias,True
+Junction Point Studios,junction-point,Junction Point,explicit-existing,True
+KEMCO,kemco,Kemco Corporation,exact-name-or-alias,True
+KRAFTON,krafton,Krafton Inc.,exact-name-or-alias,True
+Kalypso Media,kalypso-media,Kalypso Media,exact-name-or-alias,True
+Kepler Interactive,kepler-interactive,Kepler Interactive,exact-name-or-alias,True
+KintoGames,kintogames,KintoGames,new-exact-credit-entity,False
+Kite Games,kite-games,Kite Games,new-exact-credit-entity,False
+Koch Media,koch-media,KOCH Media,exact-name-or-alias,True
+Koei Tecmo Europe,koei-tecmo-europe,Koei Tecmo Europe,exact-name-or-alias,True
+Koei Tecmo Games,koei-tecmo-games,KOEI Tecmo Games,exact-name-or-alias,True
+Kojima Productions,kojima-productions,Kojima Productions,exact-name-or-alias,True
+Konami,konami,Konami,exact-name-or-alias,True
+Konami Digital Entertainment,konami-digital-entertainment,Konami Digital Entertainment,exact-name-or-alias,True
+Koo Games,koo-games,Koo Games,new-exact-credit-entity,False
+Korion Interactive,korion-interactive,Korion Interactive,exact-name-or-alias,True
+Kylotonn,kylotonn,Kylotonn,exact-name-or-alias,True
+LION CASTLE,lion-castle,Lion Castle,exact-name-or-alias,True
+Larian Studios,larian-studios,Larian Studios,new-exact-credit-entity,False
+Le Cortex,le-cortex,Le Cortex,exact-name-or-alias,True
+Leonardo Interactive,leonardo-interactive,Leonardo Interactive,exact-name-or-alias,True
+Level-5,level-5,Level 5,exact-name-or-alias,True
+Limited Run Games,limited-run-games,Limited Run Games,exact-name-or-alias,True
+Lion Castle Entertainment,lion-castle,Lion Castle,explicit-existing,True
+Little Orbit,little-orbit,Little Orbit,explicit-existing,True
+Live Wire,live-wire,Live Wire,exact-name-or-alias,True
+Locomalito,locamalito,Locamalito,explicit-existing,True
+London Studio,london-studio,London Studio,exact-name-or-alias,True
+Lost The Game Studios,lost-the-game-studios,Lost The Game Studios,new-exact-credit-entity,False
+LuGus Studios,lugus-studios,LuGus Studios,new-exact-credit-entity,False
+Lunatic Pixels,lunatic-pixels,Lunatic Pixels,exact-name-or-alias,True
+M2,m2,M2,exact-name-or-alias,True
+MAGES.,mages,Mages.,exact-name-or-alias,True
+MARKT+TECHNIK VERLAG GMBH,markt-43-technik-verlag-gmbh,Markt+Technik Verlag GmbH,exact-name-or-alias,True
+MachineGames,machinegames,MachineGames,explicit-existing,True
+Mad Catz,mad-catz,Mad Catz,explicit-existing,True
+Maga Animation Studio,maga-animation-studio,Maga Animation Studio,new-exact-credit-entity,False
+Magic Pockets,magic-pockets,Magic Pockets,exact-name-or-alias,True
+Making Port,making-port,Making Port,new-exact-credit-entity,False
+Markt+Technik,markt-technik,Markt Technik,explicit-existing,True
+Markt+Technik Verlag,markt-amp-technik-verlag,Markt & Technik Verlag,exact-name-or-alias,True
+Marvelous Europe,marvelous-europe,Marvelous Europe,explicit-existing,True
+Mastiff,mastiff,Mastiff,exact-name-or-alias,True
+Maximum Entertainment,maximum-games,Maximum Games,explicit-existing,True
+Maximum Games,maximum-games,Maximum Games,exact-name-or-alias,True
+Maxis,maxis,Maxis,exact-name-or-alias,True
+Mebius,mebius,Mebius,exact-name-or-alias,True
+Media.Vision,media-vision,Media Vision,exact-name-or-alias,True
+Mediascape,mediascape,Mediascape,exact-name-or-alias,True
+MegaPixel Studio,megapixel-studio,MegaPixel Studio,exact-name-or-alias,True
+Merge Games,merge-games,Merge Games,exact-name-or-alias,True
+Meridiem Games,meridiem-games,Meridiem Games,exact-name-or-alias,True
+Microids,microids,Microids,exact-name-or-alias,True
+Microsoft Corporation,microsoft,Microsoft,explicit-existing,True
+Microsoft Studios,microsoft-game-studios,Microsoft Game Studios,explicit-existing,True
+Milestone,milestone,MileStone,exact-name-or-alias,True
+Milestone S.r.l.,milestone-s-r-l,Milestone S.r.l.,explicit-existing,True
+Mindscape,mindscape,Mindscape Inc,exact-name-or-alias,True
+Misc Games,misc-games,Misc Games,new-exact-credit-entity,False
+Mitchell Corporation,mitchell-corporation,Mitchell Corporation,exact-name-or-alias,True
+Modus Games,modus-games,Modus Games,exact-name-or-alias,True
+Mojang Studios,mojang-studios,Mojang Studios,exact-name-or-alias,True
+Monolith Productions,monolith-productions,Monolith Productions,exact-name-or-alias,True
+Moon Factory Studios,moon-factory-studios,Moon Factory Studios,new-exact-credit-entity,False
+Moragami,moragami,Moragami,exact-name-or-alias,True
+Morne Venter,morne-venter,Morne Venter,new-exact-credit-entity,False
+Motion Twin,motion-twin,Motion Twin,exact-name-or-alias,True
+NACON SA,nacon,Nacon,explicit-existing,True
+NEOWIZ,neowiz,Neowiz,exact-name-or-alias,True
+NIGHTHAWK INTERACTIVE LLC,nighthawk-interactive,Nighthawk Interactive,explicit-existing,True
+NIGORO,nigoro,Nigoro,exact-name-or-alias,True
+NIS America,nis-america,NIS America,exact-name-or-alias,True
+NUMSKULL GAMES LTD,numskull-games,Numskull Games Ltd.,exact-name-or-alias,True
+Nacon,nacon,Nacon,exact-name-or-alias,True
+Natsume,natsume,Natsume,exact-name-or-alias,True
+Natsume Atari,natsume-atari,Natsume Atari,exact-name-or-alias,True
+Naughty Dog,naughty-dog,Naughty Dog,exact-name-or-alias,True
+Nementic Games,nementic-games,Nementic Games,new-exact-credit-entity,False
+Neon Giant,neon-giant,Neon Giant,exact-name-or-alias,True
+NetherRealm Studios,netherrealm-studios,NetherRealm Studios,exact-name-or-alias,True
+Nicalis,nicalis,Nicalis,exact-name-or-alias,True
+Nightdive Studios,nightdive-studios,NightDive Studios,explicit-existing,True
+Nihon Falcom,nihon-falcom,Nihon Falcom Corporation,exact-name-or-alias,True
+Nippon Ichi Software,nippon-ichi-software,Nippon Ichi Software,exact-name-or-alias,True
+No Brakes Games,no-brakes-games,No Brakes Games,exact-name-or-alias,True
+No More Robots,no-more-robots,No More Robots,exact-name-or-alias,True
+Nomad Games,nomad-games,Nomad Games,exact-name-or-alias,True
+Nordic Games,nordic-games,Nordic Games,exact-name-or-alias,True
+NukGames,nukgames,NukGames,new-exact-credit-entity,False
+Numskull Games,numskull-games,Numskull Games Ltd.,exact-name-or-alias,True
+OSome Studio,osome-studio,OSome Studio,exact-name-or-alias,True
+OUTRIGHT GAMES LLC,outright-games,Outright Games LTD,explicit-existing,True
+Oddworld Inhabitants,oddworld-inhabitants,Oddworld Inhabitants,exact-name-or-alias,True
+Omega Force,omega-force,Omega Force,exact-name-or-alias,True
+One or Eight,one-or-eight,One or Eight,new-exact-credit-entity,False
+Outright Games,outright-games,Outright Games LTD,exact-name-or-alias,True
+Overkill Software,overkill-software,Overkill Software,new-exact-credit-entity,False
+P-Studio,p-studio,P Studio,exact-name-or-alias,True
+PES Productions,pes-productions,PES Productions,exact-name-or-alias,True
+PHL Collective,phl-collective,PHL Collective,exact-name-or-alias,True
+PID Games,pid-games,PID Games,exact-name-or-alias,True
+PLATINUMGAMES INC.,platinumgames,PlatinumGames Inc,exact-name-or-alias,True
+PLAYISM,playism,Playism,exact-name-or-alias,True
+PM Studios,pm-studios,PM Studios,exact-name-or-alias,True
+PQube,pqube,PQube Ltd.,exact-name-or-alias,True
+PQube Ltd,pqube,PQube Ltd.,exact-name-or-alias,True
+PQube Ltd.,pqube,PQube Ltd.,exact-name-or-alias,True
+Pastagames,pasta-games,Pasta Games,exact-name-or-alias,True
+Paul Cuisset,paul-cuisset,Paul Cuisset,new-exact-credit-entity,False
+Pendulo Studios,pendulo-studios,Pendulo Studios,exact-name-or-alias,True
+People Can Fly,people-can-fly,People Can Fly,exact-name-or-alias,True
+Perp Games,perp-games,Perp Games,exact-name-or-alias,True
+Petit Fabrik,petit-fabrik,Petit Fabrik,exact-name-or-alias,True
+Phenomedia Publishing,phenomedia,Phenomedia,explicit-existing,True
+Piranha Games,piranha-games,Piranha Games,new-exact-credit-entity,False
+Pix'n Love,pix-39-n-love,Pix 'n Love,explicit-existing,True
+Pixel Lantern,pixel-lantern,Pixel Lantern,new-exact-credit-entity,False
+Pixelsplit Games GmbH,pixelsplit-games-gmbh,Pixelsplit Games GmbH,new-exact-credit-entity,False
+Pix’n Love Games,pixn-love-games,Pix’n Love Games,explicit-existing,True
+Plaion,plaion,Plaion,exact-name-or-alias,True
+Planet Entertainment,planet-entertainment,Planet Entertainment,new-exact-credit-entity,False
+Platine Dispositif,platine-dispositif,Platine Dispositif,new-exact-credit-entity,False
+Platinedispositif,platine-dispositif,Platine Dispositif,explicit-new,False
+PlatinumGames,platinumgames,PlatinumGames Inc,explicit-existing,True
+Playdead,playdead,Playdead,exact-name-or-alias,True
+Polygon Art,polygon-art,Polygon Art,new-exact-credit-entity,False
+Pretty Soon S.A.,pretty-soon-s-a,Pretty Soon S.A.,new-exact-credit-entity,False
+Prime Matter,prime-matter,Prime Matter,exact-name-or-alias,True
+Project Siren,project-siren,Project Siren,exact-name-or-alias,True
+Pyramid,pyramid,Pyramid,exact-name-or-alias,True
+QUANTIC DREAM SA,quantic-dream,Quantic Dream,explicit-existing,True
+QUByte Interactive,qubyte,QUByte,explicit-existing,True
+RECOTECHNOLOGY S.L.,recotechnology-s-l,Recotechnology S.L.,exact-name-or-alias,True
+Raiser Games,raiser-games,Raiser Games,exact-name-or-alias,True
+Ratalaika Games,ratalaika-games,Ratalaika Games,exact-name-or-alias,True
+Ravenscourt,ravenscourt,Ravenscourt,exact-name-or-alias,True
+Raylight Games,raylight-studios,Raylight Studios,explicit-existing,True
+Realmforge Studios,realmforge-studios,Realmforge Studios,exact-name-or-alias,True
+Rebellion Developments,rebellion-developments,Rebellion Developments,exact-name-or-alias,True
+Red Art Games,red-art-games,Red Art Games,exact-name-or-alias,True
+Red Hook Studios,red-hook-studios,Red Hook Studios,exact-name-or-alias,True
+Redblack Spade,redblack-spade,Redblack Spade,new-exact-credit-entity,False
+Reef Entertainment,reef-entertainment,Reef Entertainment,exact-name-or-alias,True
+Reforged Studios Publishing (Malta) Limited,reforged-studios-publishing-malta-limited,Reforged Studios Publishing (Malta) Limited,new-exact-credit-entity,False
+Repixel8 Ltd,repixel8-ltd,Repixel8 Ltd,new-exact-credit-entity,False
+Revolution software,revolution-software,Revolution Software,exact-name-or-alias,True
+Rising Star Games,rising-star-games,Rising Star Games limited,exact-name-or-alias,True
+Robomodo,robomodo,Robomodo,exact-name-or-alias,True
+Rock Nano Global,rock-nano-global,Rock Nano Global,new-exact-credit-entity,False
+Rocksteady Studios,rocksteady-studios,Rocksteady Studios,exact-name-or-alias,True
+Rodeo Games,rodeo-games,Rodeo Games,new-exact-credit-entity,False
+Rogueside,rogueside,Rogueside,new-exact-credit-entity,False
+Roll7,roll7,roll7,exact-name-or-alias,True
+Ryu Ga Gotoku Studio,ryu-ga-gotoku-studio,Ryu Ga Gotoku Studio,exact-name-or-alias,True
+SEGA,sega,Sega,exact-name-or-alias,True
+SIMS,sims,Sims,exact-name-or-alias,True
+SNK,snk,SNK Corporation,exact-name-or-alias,True
+SOEDESCO,soedesco,Soedesco,exact-name-or-alias,True
+SYSTEM 3 SOFTWARE,system-3-software-ltd,System 3 Software Ltd,explicit-existing,True
+Saber Interactive,saber-interactive,Saber Interactive Inc,exact-name-or-alias,True
+Santa Monica Studio,santa-monica-studio,Santa Monica Studio,exact-name-or-alias,True
+Scott Cawthon,scott-cawthon,Scott Cawthon,new-exact-credit-entity,False
+SebaGamesDev,sebagamesdev,SebaGamesDev,new-exact-credit-entity,False
+Secret Mode,secret-mode,Secret Mode,new-exact-credit-entity,False
+Sega,sega,Sega,exact-name-or-alias,True
+Selecta Play,selecta-play,Selecta Play,exact-name-or-alias,True
+SkyGoblin,skygoblin,SkyGoblin,new-exact-credit-entity,False
+Skybound Games,skybound-games,Skybound Games,exact-name-or-alias,True
+Skyhook Games,skyhook-games,Skyhook Games,new-exact-credit-entity,False
+Slipgate Studios,slipgate-studios,Slipgate Studios,new-exact-credit-entity,False
+Snail Games USA,snail-games-usa,Snail Games USA,exact-name-or-alias,True
+Sobaka Studio,sobaka-studio,Sobaka Studio,exact-name-or-alias,True
+Soedesco,soedesco,Soedesco,exact-name-or-alias,True
+Sometimes You,sometimes-you,Sometimes You,exact-name-or-alias,True
+Somnium Games,somnium-games,Somnium Games,exact-name-or-alias,True
+Sony Computer Entertainment,sony-interactive-entertainment,Sony Interactive Entertainment,exact-name-or-alias,True
+Sony Computer Entertainment España,sony-computer-entertainment-espana,Sony Computer Entertainment España,new-exact-credit-entity,False
+Sony Computer Entertainment Europe,sony-computer-entertainment-europe,Sony Computer Entertainment Europe,exact-name-or-alias,True
+Sony Interactive Entertainment,sony-interactive-entertainment,Sony Interactive Entertainment,exact-name-or-alias,True
+Sony Interactive Entertainment España,sony-interactive-entertainment-espana,Sony Interactive Entertainment España,new-exact-credit-entity,False
+Sony Interactive Entertainment Europe,sony-interactive-entertainment-europe,Sony Interactive Entertainment Europe,exact-name-or-alias,True
+Spiders,spiders,Spiders,exact-name-or-alias,True
+Spike Chunsoft,spike-chunsoft,Spike Chunsoft,exact-name-or-alias,True
+Spiral House,spiral-house,Spiral House,exact-name-or-alias,True
+Spotlight by Quantic Dream,spotlight-by-quantic-dream,Spotlight by Quantic Dream,new-exact-credit-entity,False
+Square Enix,square-enix,Square Enix,explicit-existing,True
+Square Enix Business Division 1,square-enix-business-division-1,Square Enix Business Division 1,exact-name-or-alias,True
+Square Enix Creative Business Unit I,square-enix-creative-business-unit-i,Square Enix Creative Business Unit I,new-exact-credit-entity,False
+Square Enix Creative Business Unit III,square-enix-creative-business-unit-iii,Square Enix Creative Business Unit III,new-exact-credit-entity,False
+Starbreeze Publishing,starbreeze-publishing,Starbreeze Publishing,new-exact-credit-entity,False
+Starfish-SD,starfish-sd,Starfish SD,exact-name-or-alias,True
+Steel Wool Studios,steel-wool-studios,Steel Wool Studios,exact-name-or-alias,True
+Steve Gal,steve-gal,Steve Gal,new-exact-credit-entity,False
+Stoic,stoic,Stoic,new-exact-credit-entity,False
+Stormind Games,stormind-games,Stormind Games,exact-name-or-alias,True
+Strictly Limited Games,strictly-limited-games,Strictly Limited Games,exact-name-or-alias,True
+Success,success,Success,exact-name-or-alias,True
+Sumo Digital,sumo-digital,SUMO Digital,exact-name-or-alias,True
+Sumo Nottingham,sumo-nottingham,Sumo Nottingham,new-exact-credit-entity,False
+Super Evil Megacorp,super-evil-megacorp,Super Evil Megacorp,exact-name-or-alias,True
+Supermassive Games,supermassive-games,SuperMassive Games Ltd.,exact-name-or-alias,True
+Survios,survios,Survios,exact-name-or-alias,True
+THQ Nordic,thq-nordic,THQ Nordic GmbH,exact-name-or-alias,True
+THREE FIELDS ENTERTAINMENT LIMITED,three-fields-entertainment,Three Fields Entertainment,explicit-existing,True
+TINYBUILD LLC,tinybuild,tinyBuild,explicit-new,False
+TT Games,tt-games,TT Games Ltd,exact-name-or-alias,True
+Taito,taito,Taito Corporation,exact-name-or-alias,True
+Tamsoft,tamsoft,Tamsoft Corporation,exact-name-or-alias,True
+Tango Gameworks,tango-gameworks,Tango Gameworks,exact-name-or-alias,True
+Tarsier Studios,tarsier-studios,Tarsier Studios,exact-name-or-alias,True
+Tate Multimedia,tate-multimedia,Tate Multimedia,exact-name-or-alias,True
+Team Cherry,team-cherry,Team Cherry,exact-name-or-alias,True
+Team Ninja,team-ninja,Team NINJA,exact-name-or-alias,True
+Team17,team17,Team17,explicit-existing,True
+Team6 Game Studios,team6-game-studios,Team6 Game Studios,exact-name-or-alias,True
+Techland,techland,Techland,exact-name-or-alias,True
+Telltale Games,telltale-games,TellTale Games,exact-name-or-alias,True
+Tesura Games,tesura-games,Tesura Games,exact-name-or-alias,True
+Teyon,teyon,Teyon,exact-name-or-alias,True
+The Digital Lounge,digital-lounge,The Digital Lounge,explicit-new,False
+The Game Kitchen,the-game-kitchen,The Game Kitchen,exact-name-or-alias,True
+The Gentlebros,the-gentlebros,The Gentlebros,exact-name-or-alias,True
+Thunderful Games Ltd,thunderful-games-ltd,Thunderful Games Ltd,new-exact-credit-entity,False
+Tivola Games,tivola,Tivola,explicit-existing,True
+Toge Productions,toge-productions,Toge Productions,exact-name-or-alias,True
+Toplitz Productions,toplitz-productions,Toplitz Productions,exact-name-or-alias,True
+Torn Banner Studios,torn-banner-studios,Torn Banner Studios,new-exact-credit-entity,False
+Tortuga Team,tortuga-team,Tortuga Team,exact-name-or-alias,True
+Toylogic,toylogic,Toylogic,exact-name-or-alias,True
+Toys For Bob,toys-for-bob,Toys For Bob,explicit-existing,True
+Toys for Bob,toys-for-bob,Toys For Bob,explicit-existing,True
+"Trailmark Games, LLC",trailmark-games-llc,"Trailmark Games, LLC",new-exact-credit-entity,False
+Treyarch,treyarch,Treyarch Corporation,exact-name-or-alias,True
+Tribute Games,tribute-games,Tribute Games,exact-name-or-alias,True
+Trinity Team,trinity-team,Trinity Team,new-exact-credit-entity,False
+Tuque Games,tuque-games,Tuque Games,new-exact-credit-entity,False
+U-Play Online,u-play-online,U-Play Online,exact-name-or-alias,True
+UNREALITY S.L.,unreality-s-l,UNREALITY S.L.,new-exact-credit-entity,False
+Ubisoft,ubisoft,Ubisoft,explicit-existing,True
+Ubisoft Annecy,ubisoft-annecy,Ubisoft Annecy,exact-name-or-alias,True
+Ubisoft Bordeaux,ubisoft-bordeaux,Ubisoft Bordeaux,new-exact-credit-entity,False
+Ubisoft Montpellier,ubisoft-montpellier,Ubisoft Montpellier,exact-name-or-alias,True
+Ubisoft Montreal,ubisoft-montreal,Ubisoft Montreal,exact-name-or-alias,True
+Ubisoft Paris,ubisoft-paris,Ubisoft Paris,exact-name-or-alias,True
+Ubisoft Quebec,ubisoft-quebec,Ubisoft Quebec,exact-name-or-alias,True
+Ubisoft San Francisco,ubisoft-san-francisco,Ubisoft San Francisco,exact-name-or-alias,True
+Ubisoft Sofia,ubisoft-sofia,Ubisoft Sofia,exact-name-or-alias,True
+Ubisoft Toronto,ubisoft-toronto,Ubisoft Toronto,exact-name-or-alias,True
+Undercoders,undercoders,Undercoders,exact-name-or-alias,True
+Unfold Games,unfold-games,Unfold Games,new-exact-credit-entity,False
+United Independent Entertainment,united-independent-entertainment,United Independent Entertainment,new-exact-credit-entity,False
+United Independent Entertainment GmbH,united-independent-entertainment,United Independent Entertainment,explicit-new,False
+Urban Games,urban-games,Urban Games,new-exact-credit-entity,False
+VEWO Interactive,vewo-interactive,VEWO Interactive,new-exact-credit-entity,False
+VIS-Games,vis-games,VIS Games,exact-name-or-alias,True
+VISION GAMES PUBLISHING,vision-games-publishing,Vision Games Publishing,exact-name-or-alias,True
+Vanillaware,vanillaware,Vanillaware,exact-name-or-alias,True
+Versus Evil,versus-evil,Versus Evil,exact-name-or-alias,True
+Vertigo Games,vertigo-games,Vertigo Games,exact-name-or-alias,True
+Vicarious Visions,vicarious-visions,Vicarious Visions,exact-name-or-alias,True
+ViewApp,viewapp,ViewApp,new-exact-credit-entity,False
+Visual Concepts,visual-concepts,Visual Concepts,exact-name-or-alias,True
+Vitei Backroom,vitei-backroom,Vitei Backroom,new-exact-credit-entity,False
+Voidpoint,voidpoint,Voidpoint,exact-name-or-alias,True
+Volition,volition,Volition,exact-name-or-alias,True
+Voxler,voxler,Voxler SAS,exact-name-or-alias,True
+WARNER BROS. INTERACTIVE,warner-bros-interactive-entertainment,Warner Bros. Interactive Entertainment,exact-name-or-alias,True
+Wales Interactive,wales-interactive,Wales Interactive,exact-name-or-alias,True
+Wargaming,wargaming,Wargaming,new-exact-credit-entity,False
+Warhorse Studios,warhorse-studios,Warhorse Studios,exact-name-or-alias,True
+Warner Bros. Games,warner-bros-interactive-entertainment,Warner Bros. Interactive Entertainment,exact-name-or-alias,True
+Warner Bros. Interactive Entertainment,warner-bros-interactive-entertainment,Warner Bros. Interactive Entertainment,exact-name-or-alias,True
+Wastelands Interactive,wastelands-interactive,Wastelands Interactive,new-exact-credit-entity,False
+Well Played,well-played,Well Played,new-exact-credit-entity,False
+WhiteMoon Dreams,whitemoon-dreams,WhiteMoon Dreams,new-exact-credit-entity,False
+Wild River Games,wild-river-games,Wild River Games,exact-name-or-alias,True
+WildSphere,wild-sphere,Wild Sphere,exact-name-or-alias,True
+Wildbit Studios,wildbits-studio,Wildbits studio,explicit-existing,True
+Wired Productions,wired-productions,Wired Productions Ltd.,exact-name-or-alias,True
+Wizards of the Coast,wizards-of-the-coast,Wizards of the Coast,new-exact-credit-entity,False
+Yippee Entertainment,yippee-entertainment,Yippee Entertainment,new-exact-credit-entity,False
+Yogscast Games,yogscast-games,Yogscast Games,new-exact-credit-entity,False
+Z-SOFTWARE GMBH,z-software,Z-Software,explicit-existing,True
+Z-Software,z-software,Z-Software,exact-name-or-alias,True
+Zen Studios,zen-studios,Zen Studios,exact-name-or-alias,True
+ZeniMax Online Studios,zenimax-online-studios,ZeniMax Online Studios,exact-name-or-alias,True
+Zerouno Games,zerouno-games,ZeroUno Games,exact-name-or-alias,True
+Zoink Games,zoink,Zoink!,explicit-existing,True
+Zoo Corporation,zoo,Zoo Corporation,exact-name-or-alias,True
+astragon Entertainment,astragon,Astragon,explicit-existing,True
+bitComposer Interactive,bitcomposer,bitComposer,explicit-existing,True
+bumblebee,bumblebee,bumblebee,new-exact-credit-entity,False
+eastasiasoft,eastasiasoft,EastAsiaSoft,explicit-existing,True
+fluckyMachine,fluckymachine,fluckyMachine,new-exact-credit-entity,False
+genDESIGN,gendesign,genDESIGN,new-exact-credit-entity,False
+h.a.n.d.,h-a-n-d,h.a.n.d. Inc,exact-name-or-alias,True
+iam8bit,iam8bit,Iam8bit,exact-name-or-alias,True
+id Software,id-software,Id Software,exact-name-or-alias,True
+inXile Entertainment,inxile-entertainment,InXile Entertainment,exact-name-or-alias,True
+nDreams,ndreams,nDreams,exact-name-or-alias,True
+tinyBuild,tinybuild,tinyBuild,explicit-new,False
+tri-Ace,tri-ace,Tri-Ace Inc.,exact-name-or-alias,True

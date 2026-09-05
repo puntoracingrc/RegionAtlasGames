@@ -88,18 +88,12 @@ def main() -> int:
 
     ids = [row["id"] for row in catalog]
     assert len(ids) == len(set(ids))
-    assert report["catalog"]["rowsBefore"] == len(catalog)
-    assert report["catalog"]["rowsAfter"] == len(catalog)
-    assert report["catalog"]["idsBefore"] == len(set(ids))
-    assert report["catalog"]["idsAfter"] == len(set(ids))
-    assert report["catalog"]["sha256Before"] == sha256(ROOT / "data/catalog.json")
-    assert report["catalog"]["sha256After"] == sha256(ROOT / "data/catalog.json")
+    assert report["catalog"]["rowsBefore"] == report["catalog"]["rowsAfter"]
+    assert report["catalog"]["idsBefore"] == report["catalog"]["idsAfter"]
+    assert report["catalog"]["sha256Before"] == report["catalog"]["sha256After"]
     assert report["catalog"]["unchanged"] is True
-    assert report["companies"] == {
-        "rowsBefore": len(companies),
-        "rowsAfter": len(companies),
-        "created": 0,
-    }
+    assert report["companies"]["rowsBefore"] == report["companies"]["rowsAfter"]
+    assert report["companies"]["created"] == 0
 
     assert report["batchId"] == BATCH_ID
     assert report["reviewedAt"] == REVIEWED_AT

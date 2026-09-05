@@ -22,8 +22,12 @@ export const catalog = (catalogData as CatalogGame[]).map(normalizeCatalogGamePr
 export const collection = collectionData as CollectionItem[];
 export const meta = metaData as CatalogMeta;
 
+export function isGameCatalogEntry(game: CatalogGame): boolean {
+  return !game.catalogKind || game.catalogKind === "game";
+}
+
 export function isListedGame(game: CatalogGame): boolean {
-  return game.listingStatus !== "excluded";
+  return game.listingStatus !== "excluded" && isGameCatalogEntry(game);
 }
 
 export const listedCatalog = catalog.filter(isListedGame);
@@ -41,7 +45,7 @@ export function isPublicPlatformSlug(slug: string): boolean {
 }
 
 export function isPublicCatalogGame(game: CatalogGame): boolean {
-  return isPublicPlatformSlug(game.platformSlug);
+  return isListedGame(game) && isPublicPlatformSlug(game.platformSlug);
 }
 
 export const publicListedCatalog = listedCatalog.filter(isPublicCatalogGame);

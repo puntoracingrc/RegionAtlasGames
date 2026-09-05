@@ -44,7 +44,11 @@ import {
   describeRegionalPackagingVariant,
   normalizeRegionalPackaging,
 } from "@/lib/regional-packaging";
-import { resolveGameEntityLinks } from "@/lib/entity-links";
+import { companyEntityLink, resolveGameEntityLinks } from "@/lib/entity-links";
+import {
+  COMPANY_CREDIT_ROLE_LABELS,
+  resolveGameCompanyCredits,
+} from "@/lib/company-credits";
 import { getPriceHistory, hasPriceHistory } from "@/lib/price-history";
 import { getRegionDisplay } from "@/lib/region-display";
 import { getCurrentUser } from "@/lib/users";
@@ -64,7 +68,7 @@ import {
   formatGameReleaseDate,
   formatPlayerCount,
 } from "@/lib/game-detail-display";
-import type { DetailEntity, GameVideo } from "@/lib/types";
+import type { DetailEntity, GameCompanyCreditRole, GameVideo } from "@/lib/types";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -140,6 +144,21 @@ export default async function CatalogGamePage({ params }: Props) {
   const platform = getPlatform(game.platformSlug);
   const details = await getGameDetailsWithOverlay(game.id);
   const entityLinks = details ? resolveGameEntityLinks(details) : null;
+  const companyCreditGroups = details
+    ? (
+        [
+          "developer",
+          "publisher",
+          "digitalPublisher",
+          "physicalPublisherOrDistributor",
+        ] as GameCompanyCreditRole[]
+      )
+        .map((role) => ({
+          role,
+          credits: resolveGameCompanyCredits(details).filter((credit) => credit.role === role),
+        }))
+        .filter((group) => group.credits.length > 0)
+    : [];
   const grail = isGrailGame(game);
   const topSegment = isTopInSegment(game);
   const priceStatus = catalogPriceDisplayLabel(game);
@@ -421,36 +440,31 @@ export default async function CatalogGamePage({ params }: Props) {
                     label="Jugadores"
                     value={formatPlayerCount(details.players)}
                   />
-                  <DetailRow
-                    label="Desarrolladora"
-                    value={
-                      entityLinks?.developer ? (
-                        <Link
-                          href={entityLinks.developer.href}
-                          className="text-accent hover:underline"
-                        >
-                          {entityLinks.developer.name}
-                        </Link>
-                      ) : (
-                        details.developer?.name ?? "—"
-                      )
-                    }
-                  />
-                  <DetailRow
-                    label="Publicadora"
-                    value={
-                      entityLinks?.publisher ? (
-                        <Link
-                          href={entityLinks.publisher.href}
-                          className="text-accent hover:underline"
-                        >
-                          {entityLinks.publisher.name}
-                        </Link>
-                      ) : (
-                        details.publisher?.name ?? "—"
-                      )
-                    }
-                  />
+                  {companyCreditGroups.map((group) => (
+                    <DetailRow
+                      key={group.role}
+                      label={COMPANY_CREDIT_ROLE_LABELS[group.role]}
+                      value={
+                        <span className="flex flex-wrap gap-x-2 gap-y-1">
+                          {group.credits.map((credit, index) => {
+                            const link = companyEntityLink(credit.company);
+                            return (
+                              <span key={`${group.role}:${credit.company.slug}`}>
+                                {index > 0 && <span className="mr-2 text-muted">·</span>}
+                                {link ? (
+                                  <Link href={link.href} className="text-accent hover:underline">
+                                    {link.name}
+                                  </Link>
+                                ) : (
+                                  credit.company.name
+                                )}
+                              </span>
+                            );
+                          })}
+                        </span>
+                      }
+                    />
+                  ))}
                   <DetailRow
                     label="Géneros"
                     value={

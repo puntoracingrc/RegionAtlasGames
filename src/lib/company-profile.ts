@@ -2,6 +2,7 @@ import companyProfilesData from "../../data/company-profiles.json";
 import { readAdminCompanyProfilesOverlay } from "./admin-entity-catalog";
 import { catalogGamePath } from "./catalog-url";
 import { getPlatform, isPublicCatalogGame } from "./catalog";
+import { getCatalogWorkKey } from "./catalog-work";
 import {
   formatCompanyAliases,
   getCompanyEntity,
@@ -45,8 +46,11 @@ export type CompanyProfileView = {
   slug: string;
   name: string;
   catalogEntryCount: number;
+  uniqueWorkCount: number;
   developerCatalogEntryCount: number;
   publisherCatalogEntryCount: number;
+  digitalPublisherCatalogEntryCount: number;
+  physicalPublisherCatalogEntryCount: number;
   alsoKnownAs: string[];
   wikidataId: string | null;
   foundedYear: number | null;
@@ -171,8 +175,13 @@ function buildCompanyProfileViewFromProfile(
     slug: entry.slug,
     name: stored?.name ?? entry.name,
     catalogEntryCount: games.length,
+    uniqueWorkCount: new Set(games.map((game) => getCatalogWorkKey(game.id))).size,
     developerCatalogEntryCount: entry.asDeveloper?.filter((id) => gameIds.has(id)).length ?? 0,
     publisherCatalogEntryCount: entry.asPublisher?.filter((id) => gameIds.has(id)).length ?? 0,
+    digitalPublisherCatalogEntryCount:
+      entry.asDigitalPublisher?.filter((id) => gameIds.has(id)).length ?? 0,
+    physicalPublisherCatalogEntryCount:
+      entry.asPhysicalPublisherOrDistributor?.filter((id) => gameIds.has(id)).length ?? 0,
     alsoKnownAs: formatCompanyAliases(entity),
     wikidataId: stored?.wikidataId ?? entry.wikidataId ?? entity?.wikidataIds?.[0] ?? null,
     foundedYear,

@@ -44,7 +44,14 @@ def build_index(details: dict[str, Any]) -> dict[str, Any]:
             if isinstance(detail.get(field), dict)
             and complete_provenance((detail.get("fieldProvenance") or {}).get(field))
         ]
-        if not verified_fields:
+        verified_company_credits = [
+            credit
+            for credit in detail.get("companyCredits") or []
+            if isinstance(credit, dict)
+            and isinstance(credit.get("company"), dict)
+            and complete_provenance(credit.get("provenance"))
+        ]
+        if not verified_fields and not verified_company_credits:
             continue
 
         credits[catalog_id] = {
@@ -58,9 +65,10 @@ def build_index(details: dict[str, Any]) -> dict[str, Any]:
             "fieldProvenance": {
                 field: detail["fieldProvenance"][field] for field in verified_fields
             },
+            "companyCredits": verified_company_credits,
         }
 
-    return {"schemaVersion": 1, "credits": credits}
+    return {"schemaVersion": 2, "credits": credits}
 
 
 def write_json(path: Path, value: Any) -> None:
@@ -88,12 +96,12 @@ def main() -> int:
                 "data/index/verified-company-credits.json is missing or out of sync"
             )
 
-    field_count = sum(
-        len(entry["fieldProvenance"]) for entry in expected["credits"].values()
-    )
+    field_count = sum(len(entry["fieldProvenance"]) for entry in expected["credits"].values())
+    role_credit_count = sum(len(entry["companyCredits"]) for entry in expected["credits"].values())
     print(
         "OK verified company credit index: "
-        f"{len(expected['credits'])} entries, {field_count} fields"
+        f"{len(expected['credits'])} entries, {field_count} legacy fields, "
+        f"{role_credit_count} role-separated credits"
     )
     return 0
 

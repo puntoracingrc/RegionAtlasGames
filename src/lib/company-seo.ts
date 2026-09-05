@@ -15,12 +15,18 @@ export function buildCompanyMetadata(view: CompanyProfileView): Metadata {
   const url = `${base}/compania/${view.slug}`;
   const lifespan = companyLifespanLabel(view.foundedYear, view.closedYear);
   const fallbackDescription = [
-    `${view.name}: ${formatCatalogEntryCount(view.catalogEntryCount)} en el catálogo retro de Region Atlas.`,
+    `${view.name}: ${view.uniqueWorkCount.toLocaleString("es-ES")} ${view.uniqueWorkCount === 1 ? "obra" : "obras"} en ${formatCatalogEntryCount(view.catalogEntryCount)} catalogadas, incluidas sus ediciones, en Region Atlas.`,
     view.developerCatalogEntryCount > 0
       ? `${formatCatalogEntryCount(view.developerCatalogEntryCount)} como desarrolladora.`
       : null,
     view.publisherCatalogEntryCount > 0
       ? `${formatCatalogEntryCount(view.publisherCatalogEntryCount)} como publicadora.`
+      : null,
+    view.digitalPublisherCatalogEntryCount > 0
+      ? `${formatCatalogEntryCount(view.digitalPublisherCatalogEntryCount)} como editora digital.`
+      : null,
+    view.physicalPublisherCatalogEntryCount > 0
+      ? `${formatCatalogEntryCount(view.physicalPublisherCatalogEntryCount)} en edición o distribución física.`
       : null,
     lifespan,
   ]
@@ -48,7 +54,7 @@ export function buildCompanyMetadata(view: CompanyProfileView): Metadata {
 export function buildCompanyIntro(view: CompanyProfileView): string {
   if (view.history) return view.history;
   const parts = [
-    `${view.name} aparece en ${formatCatalogEntryCount(view.catalogEntryCount)} del catálogo Region Atlas`,
+    `${view.name} aparece vinculada a ${view.uniqueWorkCount.toLocaleString("es-ES")} ${view.uniqueWorkCount === 1 ? "obra" : "obras"} mediante ${formatCatalogEntryCount(view.catalogEntryCount)} catalogadas, incluidas sus ediciones, en Region Atlas`,
   ];
   if (view.developerCatalogEntryCount > 0 && view.publisherCatalogEntryCount > 0) {
     parts.push(
@@ -58,6 +64,14 @@ export function buildCompanyIntro(view: CompanyProfileView): string {
     parts.push(`principalmente como desarrolladora (${formatCatalogEntryCount(view.developerCatalogEntryCount)})`);
   } else if (view.publisherCatalogEntryCount > 0) {
     parts.push(`principalmente como publicadora (${formatCatalogEntryCount(view.publisherCatalogEntryCount)})`);
+  }
+  if (view.digitalPublisherCatalogEntryCount > 0) {
+    parts.push(`con ${formatCatalogEntryCount(view.digitalPublisherCatalogEntryCount)} como editora digital`);
+  }
+  if (view.physicalPublisherCatalogEntryCount > 0) {
+    parts.push(
+      `con ${formatCatalogEntryCount(view.physicalPublisherCatalogEntryCount)} en edición o distribución física`,
+    );
   }
   const lifespan = companyLifespanLabel(view.foundedYear, view.closedYear);
   if (lifespan) parts.push(`(${lifespan})`);
