@@ -314,12 +314,12 @@
     "shortName": "Switch",
     "manufacturer": "nintendo",
     "status": "open",
-    "estimatedCatalogSize": 3301,
+    "estimatedCatalogSize": 8785,
     "sortOrder": 8,
     "spainReleaseYear": 2017,
     "active": true,
     "newsEnabled": true,
-    "description": "Catálogo abierto y multirregión de Nintendo Switch, con ediciones PAL España provisionales basadas en PAL Europa y fichas NTSC USA con precios PriceCharting convertidos a EUR."
+    "description": "Catálogo abierto y multirregión de Nintendo Switch, con ediciones PAL España provisionales basadas en PAL Europa y fichas NTSC USA y NTSC-J Japón con precios PriceCharting."
   },
   {
     "slug": "wiiu",
