@@ -35,7 +35,7 @@ REQUEST_DELAY = 1.6
 
 # Plataformas con catálogo PC en las tres regiones
 MULTIREGION_PLATFORMS: dict[str, list[str]] = {
-    "ds": ["pal"],
+    "ds": ["pal", "japan"],
     "ps1": ["japan"],
     "ps2": ["japan"],
     "ps3": ["japan"],
