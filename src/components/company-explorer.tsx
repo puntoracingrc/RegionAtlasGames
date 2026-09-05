@@ -547,16 +547,29 @@ function CompanyGrid({
                 <RoleBadge roleKind={company.roleKind} />
               </div>
               <p className="mt-1 text-sm text-accent">
-                {formatCatalogEntryCount(company.catalogEntryCount)}
+                {company.uniqueWorkCount.toLocaleString("es-ES")} {company.uniqueWorkCount === 1 ? "obra" : "obras"}
+                {company.uniqueWorkCount !== company.catalogEntryCount && (
+                  <> · {formatCatalogEntryCount(company.catalogEntryCount)}</>
+                )}
               </p>
             </div>
           </div>
-          {(company.developerCatalogEntryCount > 0 || company.publisherCatalogEntryCount > 0) && (
-            <p className="mt-1 text-xs text-muted">
-              Desarrollo: {formatCatalogEntryCount(company.developerCatalogEntryCount)} · Publicación:{" "}
-              {formatCatalogEntryCount(company.publisherCatalogEntryCount)}
-            </p>
-          )}
+          <p className="mt-1 line-clamp-2 text-xs text-muted">
+            {[
+              company.developerCatalogEntryCount > 0
+                ? `Desarrollo: ${formatCatalogEntryCount(company.developerCatalogEntryCount)}`
+                : null,
+              company.publisherCatalogEntryCount > 0
+                ? `Publicación: ${formatCatalogEntryCount(company.publisherCatalogEntryCount)}`
+                : null,
+              company.digitalPublisherCatalogEntryCount > 0
+                ? `Edición digital: ${formatCatalogEntryCount(company.digitalPublisherCatalogEntryCount)}`
+                : null,
+              company.physicalPublisherCatalogEntryCount > 0
+                ? `Distribución física: ${formatCatalogEntryCount(company.physicalPublisherCatalogEntryCount)}`
+                : null,
+            ].filter(Boolean).join(" · ")}
+          </p>
           {company.platformPreview && (
             <p className="mt-2 line-clamp-2 text-xs text-muted">{company.platformPreview}</p>
           )}

@@ -1,12 +1,12 @@
 {
   "total": 73104,
-  "listed": 70932,
-  "excluded": 2172,
+  "listed": 70928,
+  "excluded": 2176,
   "byCategory": {
-    "accessory": 143,
+    "accessory": 145,
     "demo": 5,
-    "hardware": 122,
-    "other": 13,
+    "hardware": 123,
+    "other": 14,
     "promo": 156,
     "variant": 1347,
     "whitelist": 386
@@ -30,7 +30,7 @@
     "ps1": 6142,
     "ps2": 7944,
     "ps3": 5343,
-    "ps4": 8496,
+    "ps4": 8492,
     "ps5": 4805,
     "psp": 2349,
     "psvita": 838,
@@ -54,7 +54,7 @@
     "ps1": 42,
     "ps2": 93,
     "ps3": 39,
-    "ps4": 1220,
+    "ps4": 1224,
     "ps5": 2,
     "snes": 88,
     "wii": 176

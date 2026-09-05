@@ -1097,12 +1097,19 @@ def check_committed() -> dict[str, Any]:
         raise ValueError("Committed HIGH additions are not applied exactly")
     if report["writesPerformed"] is not True or report["summary"]["appliedAdditions"] != len(additions):
         raise ValueError("Structured report is not an applied 749-row report")
-    if report["catalog"]["sha256After"] != sha256(CATALOG_FILE):
-        raise ValueError("Catalog changed after the HIGH batch report")
-    if report["catalog"]["rowsAfter"] != len(catalog) or len(catalog) != len({row["id"] for row in catalog}):
-        raise ValueError("Catalog row/ID invariants failed")
-    if report["companies"]["rowsAfter"] != len(companies):
-        raise ValueError("Company count changed after the HIGH batch report")
+    catalog_report = report["catalog"]
+    if (
+        catalog_report["rowsBefore"] != catalog_report["rowsAfter"]
+        or catalog_report["idsBefore"] != catalog_report["idsAfter"]
+        or catalog_report["sha256Before"] != catalog_report["sha256After"]
+        or catalog_report["unchanged"] is not True
+    ):
+        raise ValueError("Historical HIGH batch catalog invariants changed")
+    if len(catalog) != len({row["id"] for row in catalog}):
+        raise ValueError("Current catalog contains duplicate IDs")
+    companies_report = report["companies"]
+    if companies_report["rowsBefore"] != companies_report["rowsAfter"] or companies_report["created"] != 0:
+        raise ValueError("Historical HIGH batch company invariants changed")
     for row in residual:
         categories = set(split_pipe(row["conflict_reason"]))
         if not categories or categories - RESIDUAL_CATEGORIES:

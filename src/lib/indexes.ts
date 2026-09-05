@@ -5,7 +5,7 @@ import { mergeCompanyIndex, resolveCanonicalCompanySlug } from "./company-canoni
 import { mergeGenreIndex, resolveCanonicalGenreSlug } from "./genre-canonical";
 import { normalizeGameDetailsPresentation } from "./catalog-presentation";
 import type { CatalogGame, GameDetails, IndexEntry } from "./types";
-import { getCatalogGame, getPlatform, meta } from "./catalog";
+import { getCatalogGame, getPlatform, isPublicCatalogGame, meta } from "./catalog";
 
 /** Índices precalculados (data/index/*.json). Regenerar con npm run details:indexes (incluye sync de entidades). */
 
@@ -28,6 +28,7 @@ function isGameDetails(value: unknown): value is GameDetails {
   return Boolean(
     detail.developer ||
       detail.publisher ||
+      (detail.companyCredits?.length ?? 0) > 0 ||
       (detail.genres?.length ?? 0) > 0 ||
       detail.reference ||
       detail.year,
@@ -76,7 +77,7 @@ const tagList = Object.values(tagsIndex).sort(
 export function resolveIndexEntry(entry: IndexEntry): IndexEntry {
   const games = entry.gameIds
     .map((id) => getCatalogGame(id))
-    .filter((g): g is CatalogGame => Boolean(g));
+    .filter((g): g is CatalogGame => Boolean(g && isPublicCatalogGame(g)));
   const gameIds = games.map((g) => g.id);
   const byPlatform: Record<string, number> = {};
   for (const game of games) {
@@ -97,6 +98,14 @@ export function resolveIndexEntry(entry: IndexEntry): IndexEntry {
   }
   if (entry.asPublisher) {
     resolved.asPublisher = entry.asPublisher.filter((id) => gameIds.includes(id));
+  }
+  if (entry.asDigitalPublisher) {
+    resolved.asDigitalPublisher = entry.asDigitalPublisher.filter((id) => gameIds.includes(id));
+  }
+  if (entry.asPhysicalPublisherOrDistributor) {
+    resolved.asPhysicalPublisherOrDistributor = entry.asPhysicalPublisherOrDistributor.filter(
+      (id) => gameIds.includes(id),
+    );
   }
 
   return resolved;

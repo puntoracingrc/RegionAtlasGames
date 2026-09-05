@@ -106,16 +106,12 @@ def main() -> int:
 
     catalog_by_id = {row["id"]: row for row in catalog}
     assert len(catalog_by_id) == len(catalog)
-    assert report["catalog"]["rowsBefore"] == len(catalog)
-    assert report["catalog"]["rowsAfter"] == len(catalog)
-    assert report["catalog"]["idsBefore"] == len(catalog)
-    assert report["catalog"]["idsAfter"] == len(catalog)
+    assert report["catalog"]["rowsBefore"] == report["catalog"]["rowsAfter"]
+    assert report["catalog"]["idsBefore"] == report["catalog"]["idsAfter"]
+    assert report["catalog"]["sha256Before"] == report["catalog"]["sha256After"]
     assert report["catalog"]["unchanged"] is True
-    assert report["companies"] == {
-        "rowsBefore": len(companies),
-        "rowsAfter": len(companies),
-        "created": 0,
-    }
+    assert report["companies"]["rowsBefore"] == report["companies"]["rowsAfter"]
+    assert report["companies"]["created"] == 0
 
     for row in ready:
         importer.validate_row_shape(row)
@@ -228,12 +224,22 @@ def main() -> int:
         "data/research/person-study/manifest.json",
     ):
         manifest = load_json(ROOT / relative_path)
-        assert {key: manifest["protectedFileHashes"][key] for key in current_hashes} == current_hashes
+        updates = manifest["protectedFileHashUpdates"]
         update = next(
-            row for row in manifest["protectedFileHashUpdates"] if row["batchId"] == BATCH_ID
+            row for row in updates if row["batchId"] == BATCH_ID
         )
         assert update["reviewedAt"] == REVIEWED_AT
         assert {key: value["after"] for key, value in update["files"].items()} == current_hashes
+        update_index = updates.index(update)
+        for key, batch_hash in current_hashes.items():
+            next_update = next(
+                (row for row in updates[update_index + 1 :] if key in row.get("files", {})),
+                None,
+            )
+            if next_update:
+                assert next_update["files"][key]["before"] == batch_hash
+            else:
+                assert manifest["protectedFileHashes"][key] == batch_hash
 
     print(
         "OK PS4 PAL HIGH credits: 749 exact additions over 657 entries, "

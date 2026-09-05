@@ -1,6 +1,7 @@
 import type {
   CatalogGame,
   DetailEntity,
+  GameCompanyCredit,
   GameDetails,
   GameDetailsFieldProvenance,
   GameDetailsFieldSource,
@@ -36,6 +37,7 @@ type VerifiedCompanyCreditDetails = {
   fieldProvenance?: Partial<
     Record<VerifiedDetailsField, GameDetailsFieldProvenance>
   >;
+  companyCredits?: GameCompanyCredit[];
 };
 
 function sourceTimestamp(value: string | null | undefined): number {
@@ -79,6 +81,35 @@ export function mergeVerifiedCompanyCredits(
       };
   let fieldSources = currentDetails?.fieldSources;
   let fieldProvenance = currentDetails?.fieldProvenance;
+
+  const currentCompanyCredits = currentDetails?.companyCredits ?? [];
+  const mergedCompanyCredits = [...currentCompanyCredits];
+  for (const role of new Set((staticDetails.companyCredits ?? []).map((credit) => credit.role))) {
+    const staticRoleCredits = (staticDetails.companyCredits ?? []).filter(
+      (credit) => credit.role === role && hasCompleteFieldProvenance(credit.provenance),
+    );
+    if (staticRoleCredits.length === 0) continue;
+    const currentRoleCredits = currentCompanyCredits.filter((credit) => credit.role === role);
+    const staticReviewedAt = Math.max(
+      ...staticRoleCredits.map((credit) => sourceTimestamp(credit.provenance.reviewedAt)),
+    );
+    const currentReviewedAt = Math.max(
+      Number.NEGATIVE_INFINITY,
+      ...currentRoleCredits.map((credit) => sourceTimestamp(credit.provenance.reviewedAt)),
+    );
+    if (currentRoleCredits.length > 0 && currentReviewedAt >= staticReviewedAt) continue;
+    for (let index = mergedCompanyCredits.length - 1; index >= 0; index -= 1) {
+      if (mergedCompanyCredits[index].role === role) mergedCompanyCredits.splice(index, 1);
+    }
+    mergedCompanyCredits.push(...staticRoleCredits);
+  }
+
+  if (
+    mergedCompanyCredits.length > 0 &&
+    JSON.stringify(mergedCompanyCredits) !== JSON.stringify(currentCompanyCredits)
+  ) {
+    merged.companyCredits = mergedCompanyCredits;
+  }
 
   for (const field of VERIFIED_DETAILS_FIELDS) {
     const staticValue = staticDetails[field];

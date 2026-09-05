@@ -140,30 +140,47 @@ class CompanyEntitySeparationsTest(unittest.TestCase):
         details = json.loads(DETAILS_FILE.read_text(encoding="utf-8"))
         registry = json.loads(REGISTRY_FILE.read_text(encoding="utf-8"))
         companies = json.loads(COMPANIES_FILE.read_text(encoding="utf-8"))
-        catalog_ids = {game["id"] for game in catalog}
+        catalog_by_id = {game["id"]: game for game in catalog}
         company_ids = {
             game_id
             for game_id, detail in details.items()
-            if game_id in catalog_ids
-            and is_valid_detail(detail)
-            and (detail.get("developer") or detail.get("publisher"))
+            if game_id in catalog_by_id
+            and catalog_by_id[game_id].get("catalogKind", "game") == "game"
+            and (is_valid_detail(detail) or detail.get("companyCredits"))
+            and (detail.get("developer") or detail.get("publisher") or detail.get("companyCredits"))
         }
 
         expected_games: dict[str, set[str]] = {slug: set() for slug in self.independent}
         expected_developers: dict[str, set[str]] = {slug: set() for slug in self.independent}
         expected_publishers: dict[str, set[str]] = {slug: set() for slug in self.independent}
+        expected_digital_publishers: dict[str, set[str]] = {
+            slug: set() for slug in self.independent
+        }
+        expected_physical_publishers: dict[str, set[str]] = {
+            slug: set() for slug in self.independent
+        }
         for game_id in company_ids:
             detail = details[game_id]
-            for role in ("developer", "publisher"):
-                credit = detail.get(role) or {}
+            credits = [
+                {"role": role, "company": detail.get(role) or {}}
+                for role in ("developer", "publisher")
+            ]
+            credits.extend(detail.get("companyCredits") or [])
+            for item in credits:
+                role = item.get("role")
+                credit = item.get("company") or {}
                 slug = credit.get("slug")
                 if slug not in self.independent:
                     continue
                 expected_games[slug].add(game_id)
                 if role == "developer":
                     expected_developers[slug].add(game_id)
-                else:
+                elif role == "publisher":
                     expected_publishers[slug].add(game_id)
+                elif role == "digitalPublisher":
+                    expected_digital_publishers[slug].add(game_id)
+                elif role == "physicalPublisherOrDistributor":
+                    expected_physical_publishers[slug].add(game_id)
 
         for decision in self.decisions:
             canonical = registry["entities"][decision["canonicalSlug"]]
@@ -175,6 +192,14 @@ class CompanyEntitySeparationsTest(unittest.TestCase):
                 self.assertEqual(set(companies[slug]["gameIds"]), expected_games[slug])
                 self.assertEqual(set(companies[slug]["asDeveloper"]), expected_developers[slug])
                 self.assertEqual(set(companies[slug]["asPublisher"]), expected_publishers[slug])
+                self.assertEqual(
+                    set(companies[slug].get("asDigitalPublisher", [])),
+                    expected_digital_publishers[slug],
+                )
+                self.assertEqual(
+                    set(companies[slug].get("asPhysicalPublisherOrDistributor", [])),
+                    expected_physical_publishers[slug],
+                )
 
         self.assertNotIn(
             "/desarrolladoras-de-software/bandai",

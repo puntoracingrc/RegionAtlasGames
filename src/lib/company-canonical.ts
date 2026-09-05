@@ -200,6 +200,8 @@ function mergeIndexEntries(
   const gameIds = new Set<string>();
   const asDeveloper = new Set<string>();
   const asPublisher = new Set<string>();
+  const asDigitalPublisher = new Set<string>();
+  const asPhysicalPublisherOrDistributor = new Set<string>();
   const byPlatform: Record<string, number> = {};
   let museumPath = "";
 
@@ -207,6 +209,10 @@ function mergeIndexEntries(
     for (const id of entry.gameIds) gameIds.add(id);
     for (const id of entry.asDeveloper ?? []) asDeveloper.add(id);
     for (const id of entry.asPublisher ?? []) asPublisher.add(id);
+    for (const id of entry.asDigitalPublisher ?? []) asDigitalPublisher.add(id);
+    for (const id of entry.asPhysicalPublisherOrDistributor ?? []) {
+      asPhysicalPublisherOrDistributor.add(id);
+    }
     for (const [platform, count] of Object.entries(entry.byPlatform)) {
       byPlatform[platform] = (byPlatform[platform] ?? 0) + count;
     }
@@ -234,6 +240,14 @@ function mergeIndexEntries(
   }
   if (asPublisher.size > 0) {
     merged.asPublisher = [...asPublisher].filter((id) => gameIds.has(id));
+  }
+  if (asDigitalPublisher.size > 0) {
+    merged.asDigitalPublisher = [...asDigitalPublisher].filter((id) => gameIds.has(id));
+  }
+  if (asPhysicalPublisherOrDistributor.size > 0) {
+    merged.asPhysicalPublisherOrDistributor = [...asPhysicalPublisherOrDistributor].filter((id) =>
+      gameIds.has(id),
+    );
   }
 
   return merged;

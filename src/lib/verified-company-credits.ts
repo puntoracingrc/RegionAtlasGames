@@ -1,6 +1,7 @@
 import verifiedCreditsData from "../../data/index/verified-company-credits.json";
 import type {
   DetailEntity,
+  GameCompanyCredit,
   GameDetailsFieldProvenance,
   GameDetailsFieldSource,
 } from "./types";
@@ -12,10 +13,11 @@ export type VerifiedCompanyCreditDetails = {
   fieldProvenance: Partial<
     Record<"developer" | "publisher", GameDetailsFieldProvenance>
   >;
+  companyCredits?: GameCompanyCredit[];
 };
 
 type VerifiedCompanyCreditIndex = {
-  schemaVersion: 1;
+  schemaVersion: 2;
   credits: Record<string, VerifiedCompanyCreditDetails>;
 };
 
