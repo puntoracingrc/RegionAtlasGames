@@ -164,10 +164,18 @@ def main() -> int:
             if row["batchId"] == EXPECTED_BATCH
         )
         assert update["reviewedAt"] == EXPECTED_REVIEW_DATE
+        next_update = next(
+            row
+            for row in manifest["protectedFileHashUpdates"]
+            if row["batchId"] == "company-credit-ps4-pal-batch-1"
+        )
         assert {
             protected_path: values["after"]
             for protected_path, values in update["files"].items()
-        } == expected_hashes
+        } == {
+            protected_path: values["before"]
+            for protected_path, values in next_update["files"].items()
+        }
 
     print(
         "OK company credit verified batch 1: "

@@ -154,7 +154,7 @@ test("preserves every protected canonical file byte for byte", () => {
   }
   assert.deepEqual(
     manifest.protectedFileHashUpdates?.map((update) => update.batchId),
-    ["company-credit-verified-batch-1"],
+    ["company-credit-verified-batch-1", "company-credit-ps4-pal-batch-1"],
   );
 });
 
