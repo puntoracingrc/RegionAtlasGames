@@ -9,47 +9,47 @@
     "batchSize": 250,
     "searchBudgetPerRun": 250,
     "dailySearchBudget": 1000,
-    "dailySearchesUsed": 519,
-    "dailySearchesRemaining": 481,
+    "dailySearchesUsed": 214,
+    "dailySearchesRemaining": 786,
     "regions": [
       "PAL España",
       "PAL Europa"
     ]
   },
   "status": "running",
-  "currentPlatform": "nes",
-  "currentPlatformName": "Nintendo Entertainment System",
-  "currentRegion": "PAL Europa",
-  "updatedAt": "2026-09-04T20:58:08Z",
+  "currentPlatform": "snes",
+  "currentPlatformName": "Super Nintendo",
+  "currentRegion": "España",
+  "updatedAt": "2026-09-05T04:46:17Z",
   "lastRun": {
-    "at": "2026-09-04T20:58:08Z",
+    "at": "2026-09-05T04:46:17Z",
     "platformSlug": "nes",
     "platformName": "Nintendo Entertainment System",
     "region": "PAL Europa",
-    "selected": 250,
-    "processed": 250,
-    "matched": 45,
-    "listingsAdded": 55,
+    "selected": 214,
+    "processed": 214,
+    "matched": 37,
+    "listingsAdded": 48,
     "regionalReroutes": 0,
-    "regionalReviews": 867,
-    "apiSearches": 250,
+    "regionalReviews": 785,
+    "apiSearches": 214,
     "searchBudget": 250,
-    "searchBudgetExhausted": true,
+    "searchBudgetExhausted": false,
     "failed": 0,
     "systemicError": null,
     "coverCandidatesAdded": 0
   },
   "dailyUsage": {
-    "date": "2026-09-04",
-    "apiSearches": 519
+    "date": "2026-09-05",
+    "apiSearches": 214
   },
   "totals": {
-    "catalogGames": 25761,
-    "completed": 3294,
-    "matched": 389,
-    "noMatch": 2905,
+    "catalogGames": 25779,
+    "completed": 3508,
+    "matched": 426,
+    "noMatch": 3082,
     "deferred": 0,
-    "pending": 22467
+    "pending": 22271
   },
   "estimatedRunsRemaining": 90,
   "estimatedDaysRemaining": 23,
@@ -100,16 +100,16 @@
     {
       "platformSlug": "nes",
       "platformName": "Nintendo Entertainment System",
-      "status": "running",
-      "currentRegion": "PAL Europa",
-      "updatedAt": "2026-09-04T20:58:08Z",
+      "status": "completed",
+      "currentRegion": null,
+      "updatedAt": "2026-09-05T04:46:17Z",
       "totals": {
         "catalogGames": 464,
-        "completed": 250,
-        "matched": 45,
-        "noMatch": 205,
+        "completed": 464,
+        "matched": 82,
+        "noMatch": 382,
         "deferred": 0,
-        "pending": 214
+        "pending": 0
       },
       "regions": [
         {
@@ -119,11 +119,11 @@
           "marketScope": "multi_region",
           "originLabel": "Europa multirregión",
           "total": 464,
-          "completed": 250,
-          "matched": 45,
-          "noMatch": 205,
+          "completed": 464,
+          "matched": 82,
+          "noMatch": 382,
           "deferred": 0,
-          "pending": 214
+          "pending": 0
         }
       ]
     },
@@ -323,12 +323,12 @@
       "currentRegion": "PAL España",
       "updatedAt": null,
       "totals": {
-        "catalogGames": 1740,
+        "catalogGames": 1758,
         "completed": 0,
         "matched": 0,
         "noMatch": 0,
         "deferred": 0,
-        "pending": 1740
+        "pending": 1758
       },
       "regions": [
         {
@@ -337,12 +337,12 @@
           "catalogRegion": "PAL España",
           "marketScope": "country",
           "originLabel": "España",
-          "total": 1740,
+          "total": 1758,
           "completed": 0,
           "matched": 0,
           "noMatch": 0,
           "deferred": 0,
-          "pending": 1740
+          "pending": 1758
         }
       ]
     },
@@ -1184,6 +1184,14 @@
       "at": "2026-09-04T20:58:08Z",
       "level": "info",
       "message": "Nintendo Entertainment System · PAL Europa: 250/250 consultados, 45 con evidencias, 55 anuncios aceptados, 0 aprovechados en otra región, 867 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "nes",
+      "region": "PAL Europa",
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-05T04:46:17Z",
+      "level": "info",
+      "message": "Nintendo Entertainment System · PAL Europa: 214/214 consultados, 37 con evidencias, 48 anuncios aceptados, 0 aprovechados en otra región, 785 a revisión, 0 fallos, 0 aplazados.",
       "platformSlug": "nes",
       "region": "PAL Europa",
       "coverCandidatesAdded": 0
