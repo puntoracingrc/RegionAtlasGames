@@ -1,0 +1,4923 @@
+{
+  "schemaVersion": 1,
+  "scope": "AWARDS-PERSONS-V1 baseline; candidates only, no publication or identity changes",
+  "baseSha": "2f4abf82a229a8afe59a3212bdc0e2643d984028",
+  "protectedFileHashes": {
+    "data/catalog.json": "ca6c8183130a9eb8be872a6cc0e37a10aae7cc4825f1d71f245fd90b6ada73c0",
+    "data/meta.json": "ccddf1b2dbbe21838aef938668f6ee65a9f96c62d83650d349d9c93a212cd3e8",
+    "data/game-details.json": "14469e97884f47fb744f929b53ff80bcb412a7fadabc7d042c031e445a65fb66",
+    "data/index/companies.json": "e7dec236270d670d42b4b0fbf6c74f02425e3e66484adb0f4ed5b2f376391f0a",
+    "data/index/company-entities.json": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
+    "data/index/catalog-work-identities.json": "fa0e916777f55dffb33469e192c4fa3b39004aa274db89d8f4e7e10527b402b3",
+    "data/research/person-study/public.json": "cb99fbb2153c7fc14454972647b23bdef78cced6953dd6a226b0c0c29bc4d370",
+    "data/research/person-study/manifest.json": "89a6cbb1fbfced3630734c675f2456477b0c781abc0a21698e4df4083542764c",
+    "data/research/person-editorial-approvals.json": "f00c72f9bdf70487ac6cc4f8cb676c3d4c5c7d221870129c79922dadee6e9774",
+    "data/research/company-study/public.json": "c713018d6617b92508f9342569b74c3dfb79c87a6f64f77c47e93ac2e047c7e8"
+  },
+  "catalog": {
+    "rows": 73104,
+    "uniqueIds": 73104,
+    "companies": 4481,
+    "idsHash": "4cd6f484455ca83985b8f7f72d2186a96f3ce62f6d086f4f285c0c00ed9c3063",
+    "urlsHash": "e06319cb2e41f446066f217b8c103577380c45ac073d9708355936bca1b37f09"
+  },
+  "people": {
+    "total": 488,
+    "public": 25,
+    "publicExactCredits": 63,
+    "existingAwards": 364,
+    "publicAwards": 31
+  },
+  "priorityPeople": [
+    {
+      "requestedSlug": "hidetaka-miyazaki",
+      "identity": {
+        "name": "Hidetaka Miyazaki",
+        "slug": "hidetaka-miyazaki",
+        "qid": "Q11454590",
+        "visibility": "published"
+      },
+      "exactCredits": [
+        {
+          "work_id": "PWORK-00076",
+          "person_slug": "hidetaka-miyazaki",
+          "person_qid": "Q11454590",
+          "work_qid": "",
+          "title": "Demon's Souls",
+          "year": 2009,
+          "role": "DIRECCIÓN",
+          "relationship_precision": "EXACT_EDITORIAL_CREDIT",
+          "source_id": "PSRC-8C55F77E38F3",
+          "source_url": "https://www.fromsoftware.jp/ww/",
+          "confidence": "VERY_HIGH",
+          "requires_review": false,
+          "notes": "Crédito editorial estructurado; mantener separado de la simple asociación P800.",
+          "publication_status": "published"
+        },
+        {
+          "work_id": "PWORK-00077",
+          "person_slug": "hidetaka-miyazaki",
+          "person_qid": "Q11454590",
+          "work_qid": "",
+          "title": "Dark Souls",
+          "year": 2011,
+          "role": "DIRECCIÓN",
+          "relationship_precision": "EXACT_EDITORIAL_CREDIT",
+          "source_id": "PSRC-8C55F77E38F3",
+          "source_url": "https://www.fromsoftware.jp/ww/",
+          "confidence": "VERY_HIGH",
+          "requires_review": false,
+          "notes": "Crédito editorial estructurado; mantener separado de la simple asociación P800.",
+          "publication_status": "published"
+        },
+        {
+          "work_id": "PWORK-00078",
+          "person_slug": "hidetaka-miyazaki",
+          "person_qid": "Q11454590",
+          "work_qid": "",
+          "title": "Elden Ring",
+          "year": 2022,
+          "role": "DIRECCIÓN",
+          "relationship_precision": "EXACT_EDITORIAL_CREDIT",
+          "source_id": "PSRC-8C55F77E38F3",
+          "source_url": "https://www.fromsoftware.jp/ww/",
+          "confidence": "VERY_HIGH",
+          "requires_review": false,
+          "notes": "Crédito editorial estructurado; mantener separado de la simple asociación P800.",
+          "publication_status": "published"
+        }
+      ],
+      "awards": [
+        {
+          "award_id": "PAWD-00168",
+          "person_slug": "hidetaka-miyazaki",
+          "person_qid": "Q11454590",
+          "award_qid": "Q105727509",
+          "award_name": "lifetime achievement award",
+          "date": "",
+          "source_id": "PSRC-BEAD4EF6A068",
+          "source_url": "https://www.gamesradar.com/dark-souls-creator-hidetaki-miyazaki-takes-the-lifetime-achievement-award-at-the-golden-joystick-awards-2018/",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "published"
+        },
+        {
+          "award_id": "PAWD-00169",
+          "person_slug": "hidetaka-miyazaki",
+          "person_qid": "Q11454590",
+          "award_qid": "Q604370",
+          "award_name": "Time 100",
+          "date": "2023",
+          "source_id": "PSRC-2C8465759F1C",
+          "source_url": "https://time.com/collection/100-most-influential-people-2023/6269962/hidetaka-miyazaki/",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "published"
+        }
+      ],
+      "action": "ENRICH_EXISTING_NO_CREATE"
+    },
+    {
+      "requestedSlug": "hideo-kojima",
+      "identity": {
+        "name": "Hideo Kojima",
+        "slug": "hideo-kojima",
+        "qid": "Q315577",
+        "visibility": "published"
+      },
+      "exactCredits": [
+        {
+          "work_id": "PWORK-00069",
+          "person_slug": "hideo-kojima",
+          "person_qid": "Q315577",
+          "work_qid": "",
+          "title": "Metal Gear",
+          "year": 1987,
+          "role": "DIRECCIÓN_Y_DISEÑO",
+          "relationship_precision": "EXACT_EDITORIAL_CREDIT",
+          "source_id": "PSRC-4FC41B5522CD",
+          "source_url": "https://www.kojimaproductions.jp/en/company",
+          "confidence": "VERY_HIGH",
+          "requires_review": false,
+          "notes": "Crédito editorial estructurado; mantener separado de la simple asociación P800.",
+          "publication_status": "published"
+        },
+        {
+          "work_id": "PWORK-00070",
+          "person_slug": "hideo-kojima",
+          "person_qid": "Q315577",
+          "work_qid": "",
+          "title": "Metal Gear Solid",
+          "year": 1998,
+          "role": "DIRECCIÓN_PRODUCCIÓN_Y_GUION",
+          "relationship_precision": "EXACT_EDITORIAL_CREDIT",
+          "source_id": "PSRC-4FC41B5522CD",
+          "source_url": "https://www.kojimaproductions.jp/en/company",
+          "confidence": "VERY_HIGH",
+          "requires_review": false,
+          "notes": "Crédito editorial estructurado; mantener separado de la simple asociación P800.",
+          "publication_status": "published"
+        },
+        {
+          "work_id": "PWORK-00071",
+          "person_slug": "hideo-kojima",
+          "person_qid": "Q315577",
+          "work_qid": "",
+          "title": "Death Stranding",
+          "year": 2019,
+          "role": "DIRECCIÓN_DISEÑO_Y_GUION",
+          "relationship_precision": "EXACT_EDITORIAL_CREDIT",
+          "source_id": "PSRC-4FC41B5522CD",
+          "source_url": "https://www.kojimaproductions.jp/en/company",
+          "confidence": "VERY_HIGH",
+          "requires_review": false,
+          "notes": "Crédito editorial estructurado; mantener separado de la simple asociación P800.",
+          "publication_status": "published"
+        }
+      ],
+      "awards": [
+        {
+          "award_id": "PAWD-00163",
+          "person_slug": "hideo-kojima",
+          "person_qid": "Q315577",
+          "award_qid": "Q60586674",
+          "award_name": "Game Developers Choice Award - Lifetime Achievement",
+          "date": "2009",
+          "source_id": "PSRC-9F6931B8D9B8",
+          "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "published"
+        },
+        {
+          "award_id": "PAWD-00164",
+          "person_slug": "hideo-kojima",
+          "person_qid": "Q315577",
+          "award_qid": "Q131449417",
+          "award_name": "The Game Awards – Industry Icon",
+          "date": "2016-12-01",
+          "source_id": "PSRC-DE98B8AB2B04",
+          "source_url": "https://www.polygon.com/2016/12/1/13784410/the-game-awards-winners",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "published"
+        },
+        {
+          "award_id": "PAWD-00165",
+          "person_slug": "hideo-kojima",
+          "person_qid": "Q315577",
+          "award_qid": "Q106152511",
+          "award_name": "Japan Game Awards Annual Work Category Excellence Award",
+          "date": "",
+          "source_id": "PSRC-491A152F2095",
+          "source_url": "https://awards.cesa.or.jp/2020/prize/year/04.html",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "internal"
+        },
+        {
+          "award_id": "PAWD-00166",
+          "person_slug": "hideo-kojima",
+          "person_qid": "Q315577",
+          "award_qid": "Q787148",
+          "award_name": "BAFTA Academy Fellowship Award",
+          "date": "2020-04-02",
+          "source_id": "PSRC-734787AB296A",
+          "source_url": "https://gamemo.confidence-media.jp/495",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "published"
+        },
+        {
+          "award_id": "PAWD-00167",
+          "person_slug": "hideo-kojima",
+          "person_qid": "Q315577",
+          "award_qid": "Q11615995",
+          "award_name": "Art Encouragement Prizes",
+          "date": "",
+          "source_id": "PSRC-75A870293E36",
+          "source_url": "https://www.famitsu.com/news/202203/09253998.html",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "published"
+        }
+      ],
+      "action": "ENRICH_EXISTING_NO_CREATE"
+    },
+    {
+      "requestedSlug": "swen-vincke",
+      "identity": null,
+      "exactCredits": [],
+      "awards": [],
+      "action": "SEARCH_AND_REVIEW_IDENTITY_NO_AUTO_CREATE"
+    },
+    {
+      "requestedSlug": "sam-lake",
+      "identity": {
+        "name": "Sam Lake",
+        "slug": "sam-lake",
+        "qid": "Q1065520",
+        "visibility": "admin_structured"
+      },
+      "exactCredits": [],
+      "awards": [],
+      "action": "INTERNAL_ONLY_NO_PROMOTION"
+    },
+    {
+      "requestedSlug": "neil-druckmann",
+      "identity": {
+        "name": "Neil Druckmann",
+        "slug": "neil-druckmann",
+        "qid": "Q13655731",
+        "visibility": "admin_structured"
+      },
+      "exactCredits": [],
+      "awards": [],
+      "action": "INTERNAL_ONLY_NO_PROMOTION"
+    },
+    {
+      "requestedSlug": "todd-howard",
+      "identity": {
+        "name": "Todd Howard",
+        "slug": "todd-howard",
+        "qid": "Q2606967",
+        "visibility": "admin_structured"
+      },
+      "exactCredits": [],
+      "awards": [
+        {
+          "award_id": "PAWD-00340",
+          "person_slug": "todd-howard",
+          "person_qid": "Q2606967",
+          "award_qid": "Q60586674",
+          "award_name": "Game Developers Choice Award - Lifetime Achievement",
+          "date": "2016",
+          "source_id": "PSRC-9F6931B8D9B8",
+          "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "internal"
+        }
+      ],
+      "action": "INTERNAL_ONLY_NO_PROMOTION"
+    },
+    {
+      "requestedSlug": "josef-fares",
+      "identity": {
+        "name": "Josef Fares",
+        "slug": "josef-fares",
+        "qid": "Q1345960",
+        "visibility": "admin_structured"
+      },
+      "exactCredits": [],
+      "awards": [
+        {
+          "award_id": "PAWD-00188",
+          "person_slug": "josef-fares",
+          "person_qid": "Q1345960",
+          "award_qid": "Q182366",
+          "award_name": "Nordic Council Film Prize",
+          "date": "2006",
+          "source_id": "PSRC-34013293CE67",
+          "source_url": "https://www.wikidata.org/wiki/Q1345960",
+          "confidence": "MEDIUM",
+          "requires_review": true,
+          "publication_status": "internal"
+        }
+      ],
+      "action": "INTERNAL_ONLY_NO_PROMOTION"
+    },
+    {
+      "requestedSlug": "guillaume-broche",
+      "identity": null,
+      "exactCredits": [],
+      "awards": [],
+      "action": "SEARCH_AND_REVIEW_IDENTITY_NO_AUTO_CREATE"
+    },
+    {
+      "requestedSlug": "eric-barone",
+      "identity": {
+        "name": "Eric Barone",
+        "slug": "eric-barone",
+        "qid": "Q44914560",
+        "visibility": "admin_structured"
+      },
+      "exactCredits": [],
+      "awards": [
+        {
+          "award_id": "PAWD-00109",
+          "person_slug": "eric-barone",
+          "person_qid": "Q44914560",
+          "award_qid": "Q28453732",
+          "award_name": "30 Under 30 (Forbes)",
+          "date": "",
+          "source_id": "PSRC-E7FA7B4F3651",
+          "source_url": "https://www.wikidata.org/wiki/Q44914560",
+          "confidence": "MEDIUM",
+          "requires_review": true,
+          "publication_status": "internal"
+        }
+      ],
+      "action": "INTERNAL_ONLY_NO_PROMOTION"
+    },
+    {
+      "requestedSlug": "naoki-yoshida",
+      "identity": {
+        "name": "Naoki Yoshida",
+        "slug": "naoki-yoshida",
+        "qid": "Q6964576",
+        "visibility": "admin_structured"
+      },
+      "exactCredits": [],
+      "awards": [],
+      "action": "INTERNAL_ONLY_NO_PROMOTION"
+    },
+    {
+      "requestedSlug": "shigeru-miyamoto",
+      "identity": {
+        "name": "Shigeru Miyamoto",
+        "slug": "shigeru-miyamoto",
+        "qid": "Q12382",
+        "visibility": "published"
+      },
+      "exactCredits": [
+        {
+          "work_id": "PWORK-00194",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "work_qid": "",
+          "title": "Donkey Kong",
+          "year": 1981,
+          "role": "DIRECCIÓN_Y_DISEÑO",
+          "relationship_precision": "EXACT_EDITORIAL_CREDIT",
+          "source_id": "PSRC-BE4664D1F643",
+          "source_url": "https://iwataasks.nintendo.com/interviews/wii/wii_music/0/0/",
+          "confidence": "VERY_HIGH",
+          "requires_review": false,
+          "notes": "Crédito editorial estructurado; mantener separado de la simple asociación P800.",
+          "publication_status": "published"
+        },
+        {
+          "work_id": "PWORK-00195",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "work_qid": "",
+          "title": "Super Mario Bros.",
+          "year": 1985,
+          "role": "DISEÑO_Y_PRODUCCIÓN",
+          "relationship_precision": "EXACT_EDITORIAL_CREDIT",
+          "source_id": "PSRC-BE4664D1F643",
+          "source_url": "https://iwataasks.nintendo.com/interviews/wii/wii_music/0/0/",
+          "confidence": "VERY_HIGH",
+          "requires_review": false,
+          "notes": "Crédito editorial estructurado; mantener separado de la simple asociación P800.",
+          "publication_status": "published"
+        },
+        {
+          "work_id": "PWORK-00196",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "work_qid": "",
+          "title": "The Legend of Zelda",
+          "year": 1986,
+          "role": "DIRECCIÓN_Y_PRODUCCIÓN",
+          "relationship_precision": "EXACT_EDITORIAL_CREDIT",
+          "source_id": "PSRC-BE4664D1F643",
+          "source_url": "https://iwataasks.nintendo.com/interviews/wii/wii_music/0/0/",
+          "confidence": "VERY_HIGH",
+          "requires_review": false,
+          "notes": "Crédito editorial estructurado; mantener separado de la simple asociación P800.",
+          "publication_status": "published"
+        },
+        {
+          "work_id": "PWORK-00197",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "work_qid": "",
+          "title": "Pikmin",
+          "year": 2001,
+          "role": "CREACIÓN_Y_PRODUCCIÓN",
+          "relationship_precision": "EXACT_EDITORIAL_CREDIT",
+          "source_id": "PSRC-BE4664D1F643",
+          "source_url": "https://iwataasks.nintendo.com/interviews/wii/wii_music/0/0/",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "notes": "Crédito editorial estructurado; mantener separado de la simple asociación P800.",
+          "publication_status": "published"
+        }
+      ],
+      "awards": [
+        {
+          "award_id": "PAWD-00264",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "award_qid": "Q51702931",
+          "award_name": "premio Japan Inter-Design",
+          "date": "1990",
+          "source_id": "PSRC-C9B3621D13EF",
+          "source_url": "https://www.wikidata.org/wiki/Q12382",
+          "confidence": "MEDIUM",
+          "requires_review": true,
+          "publication_status": "internal"
+        },
+        {
+          "award_id": "PAWD-00265",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "award_qid": "Q51703028",
+          "award_name": "AMD Award - Best Producer/Director",
+          "date": "1997",
+          "source_id": "PSRC-C9B3621D13EF",
+          "source_url": "https://www.wikidata.org/wiki/Q12382",
+          "confidence": "MEDIUM",
+          "requires_review": true,
+          "publication_status": "internal"
+        },
+        {
+          "award_id": "PAWD-00266",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "award_qid": "Q13452528",
+          "award_name": "caballero de la Orden de las Artes y las Letras",
+          "date": "2006",
+          "source_id": "PSRC-6A36B8720363",
+          "source_url": "https://www.ouest-france.fr/gaming/eric-chahi-distingue-de-l-ordre-national-du-merite-une-excellente-nouvelle-pour-le-jeu-video-970510fc-acc1-11eb-bcfd-058885220c6f",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "published"
+        },
+        {
+          "award_id": "PAWD-00267",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "award_qid": "Q60586674",
+          "award_name": "Game Developers Choice Award - Lifetime Achievement",
+          "date": "2007",
+          "source_id": "PSRC-9F6931B8D9B8",
+          "source_url": "https://www.gamechoiceawards.com/archive/lifetime",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "published"
+        },
+        {
+          "award_id": "PAWD-00268",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "award_qid": "Q51703209",
+          "award_name": "The Jim Henson Celebration Honor",
+          "date": "2008",
+          "source_id": "PSRC-C9B3621D13EF",
+          "source_url": "https://www.wikidata.org/wiki/Q12382",
+          "confidence": "MEDIUM",
+          "requires_review": true,
+          "publication_status": "internal"
+        },
+        {
+          "award_id": "PAWD-00269",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "award_qid": "Q51703377",
+          "award_name": "CEDEC Awards - Special Award",
+          "date": "2008",
+          "source_id": "PSRC-C9B3621D13EF",
+          "source_url": "https://www.wikidata.org/wiki/Q12382",
+          "confidence": "MEDIUM",
+          "requires_review": true,
+          "publication_status": "internal"
+        },
+        {
+          "award_id": "PAWD-00270",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "award_qid": "Q106154739",
+          "award_name": "Japan Game Awards Minister of Economy, Trade and Industry Award",
+          "date": "2008",
+          "source_id": "PSRC-A63C777CB72E",
+          "source_url": "https://awards.cesa.or.jp/2008/minprize.html",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "published"
+        },
+        {
+          "award_id": "PAWD-00271",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "award_qid": "Q51703323",
+          "award_name": "Digital Content Expo Asiagraph Award Tsumugi Prize",
+          "date": "2009",
+          "source_id": "PSRC-C9B3621D13EF",
+          "source_url": "https://www.wikidata.org/wiki/Q12382",
+          "confidence": "MEDIUM",
+          "requires_review": true,
+          "publication_status": "internal"
+        },
+        {
+          "award_id": "PAWD-00272",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "award_qid": "Q787148",
+          "award_name": "BAFTA Academy Fellowship Award",
+          "date": "2010-03-19",
+          "source_id": "PSRC-C34C11C1CC06",
+          "source_url": "https://www.bafta.org/stories/2010-academy-fellow-shigeru-miyamoto/",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "published"
+        },
+        {
+          "award_id": "PAWD-00273",
+          "person_slug": "shigeru-miyamoto",
+          "person_qid": "Q12382",
+          "award_qid": "Q3323451",
+          "award_name": "Premio Princesa de Asturias de Comunicación y Humanidades",
+          "date": "2012-05-23",
+          "source_id": "PSRC-B0A645C73195",
+          "source_url": "http://www.fpa.es/es/premios-princesa-de-asturias/premiados/2012-shigeru-miyamoto.html?especifica=0",
+          "confidence": "HIGH",
+          "requires_review": false,
+          "publication_status": "published"
+        }
+      ],
+      "action": "ENRICH_EXISTING_NO_CREATE"
+    }
+  ],
+  "workCandidates": [
+    {
+      "title": "It Takes Two",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps4-it-takes-two",
+          "title": "It Takes Two",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-it-takes-two",
+          "companies": [
+            {
+              "slug": "hazelight-studios",
+              "role": "developer"
+            },
+            {
+              "slug": "ea-originals-label",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-it-takes-two",
+          "title": "It Takes Two",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-it-takes-two",
+          "companies": [
+            {
+              "slug": "hazelight-studios",
+              "role": "developer"
+            },
+            {
+              "slug": "ea-originals-label",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-it-takes-two",
+          "title": "It Takes Two",
+          "platform": "switch",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch-it-takes-two",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-it-takes-two",
+          "title": "It Takes Two",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-it-takes-two",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Elden Ring",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps4-elden-ring",
+          "title": "Elden Ring",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-elden-ring",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-elden-ring",
+          "title": "Elden Ring",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-elden-ring",
+          "companies": [
+            {
+              "slug": "bandai-namco-entertainment",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-elden-ring-collector%27s-edition",
+          "title": "Elden Ring [Collector&#39;s Edition]",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-elden-ring-collector%27s-edition",
+          "companies": [
+            {
+              "slug": "bandai-namco-entertainment",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-elden-ring-collector%27s-edition",
+          "title": "Elden Ring [Collector's Edition]",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-elden-ring-collector%27s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-elden-ring-launch-edition",
+          "title": "Elden Ring [Launch Edition]",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-elden-ring-launch-edition",
+          "companies": [
+            {
+              "slug": "bandai-namco-entertainment",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-elden-ring-premium-collector%27s-edition",
+          "title": "Elden Ring [Premium Collector&#39;s Edition]",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-elden-ring-premium-collector%27s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-elden-ring-premium-collector%27s-edition",
+          "title": "Elden Ring [Premium Collector's Edition]",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-elden-ring-premium-collector%27s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-elden-ring-promo",
+          "title": "Elden Ring [Promo]",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-elden-ring-promo",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-elden-ring-lanzamiento",
+          "title": "Elden Ring Lanzamiento",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "elden ring",
+          "companies": [
+            {
+              "slug": "fromsoftware",
+              "role": "developer"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-elden-ring-nightreign",
+          "title": "Elden Ring Nightreign",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-elden-ring-nightreign",
+          "companies": [
+            {
+              "slug": "bandai-namco-entertainment",
+              "role": "publisher"
+            },
+            {
+              "slug": "from-software",
+              "role": "developer"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-elden-ring-nightreign-seekers-edition",
+          "title": "Elden Ring Nightreign [Seekers Edition]",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-elden-ring-nightreign-seekers-edition",
+          "companies": [
+            {
+              "slug": "bandai-namco-entertainment",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-elden-ring-nightreign-seekers-edition",
+          "title": "Elden Ring Nightreign Seekers Edition",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-elden-ring-nightreign-seekers-edition",
+          "companies": [
+            {
+              "slug": "bandai-namco-entertainment",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch2-elden-ring-tarnished-edition",
+          "title": "Elden Ring Tarnished Edition",
+          "platform": "switch2",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch2-elden-ring-tarnished-edition",
+          "companies": [
+            {
+              "slug": "bandai-namco-entertainment",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-elden-ring",
+          "title": "Elden Ring",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-elden-ring",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-elden-ring-shadow-of-the-erdtree-edition-ciab-79-99",
+          "title": "Elden Ring Shadow Of The Erdtree Edition CIAB 79,99",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-elden-ring-shadow-of-the-erdtree-edition-ciab-79-99",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-elden-ring-collector-s-edition",
+          "title": "Elden Ring [Collector's Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-elden-ring-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-elden-ring-shadow-of-the-erdtree",
+          "title": "Elden Ring: Shadow of the Erdtree",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-elden-ring-shadow-of-the-erdtree",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-elden-ring-launch-edition",
+          "title": "Elden Ring [Launch Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-elden-ring-launch-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-elden-ring-nightreign",
+          "title": "Elden Ring Nightreign",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-elden-ring-nightreign",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-elden-ring-shadow-of-the-erdtree-collector-s-edition",
+          "title": "Elden Ring: Shadow of the Erdtree [Collector's Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-elden-ring-shadow-of-the-erdtree-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-elden-ring-steelbook-edition",
+          "title": "Elden Ring [Steelbook Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-elden-ring-steelbook-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-elden-ring-nightreign-collector-s-edition",
+          "title": "Elden Ring Nightreign [Collector's Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-elden-ring-nightreign-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-elden-ring",
+          "title": "Elden Ring",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-elden-ring",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-elden-ring-collector-s-edition",
+          "title": "Elden Ring [Collector's Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-elden-ring-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-elden-ring-nightreign",
+          "title": "Elden Ring Nightreign",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-elden-ring-nightreign",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-elden-ring-nightreign-amazon-deluxe-edition",
+          "title": "Elden Ring Nightreign [Amazon Deluxe Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-elden-ring-nightreign-amazon-deluxe-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-elden-ring-nightreign-collector-s-edition",
+          "title": "Elden Ring Nightreign [Collector's Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-elden-ring-nightreign-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-elden-ring-nightreign-deluxe-editon",
+          "title": "Elden Ring Nightreign [Deluxe Editon]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-elden-ring-nightreign-deluxe-editon",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-elden-ring-premium-collector-s-edition",
+          "title": "Elden Ring [Premium Collector's Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-elden-ring-premium-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-elden-ring-shadow-of-the-erdtree",
+          "title": "Elden Ring: Shadow Of The Erdtree",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-elden-ring-shadow-of-the-erdtree",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-elden-ring-shadow-of-the-erdtree-collector-s-edition",
+          "title": "Elden Ring: Shadow Of The Erdtree [Collector's Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-elden-ring-shadow-of-the-erdtree-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-elden-ring-steelbook",
+          "title": "Elden Ring [Steelbook]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-elden-ring-steelbook",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch2-usa-elden-ring-tarnished-edition",
+          "title": "Elden Ring: Tarnished Edition",
+          "platform": "switch2",
+          "region": "USA",
+          "workKey": "catalog-entry:switch2-usa-elden-ring-tarnished-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-japon-elden-ring-shadow-of-the-erdtree",
+          "title": "Elden Ring: Shadow Of The Erdtree",
+          "platform": "ps5",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps5-japon-elden-ring-shadow-of-the-erdtree",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-japon-elden-ring-shadow-of-the-erdtree-collector%27s-edition",
+          "title": "Elden Ring: Shadow Of The Erdtree [Collector's Edition]",
+          "platform": "ps5",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps5-japon-elden-ring-shadow-of-the-erdtree-collector%27s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Baldur's Gate 3",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps5-baldur-s-gate-iii-deluxe-edition",
+          "title": "Baldur's Gate III [Deluxe Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-baldur-s-gate-iii-deluxe-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-baldur-s-gate-iii-collector-s-edition",
+          "title": "Baldur's Gate III [Collector's Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-baldur-s-gate-iii-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-baldur-s-gate-iii-deluxe-edition",
+          "title": "Baldur's Gate III [Deluxe Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-baldur-s-gate-iii-deluxe-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-japon-baldur%27s-gate-iii",
+          "title": "Baldur's Gate III",
+          "platform": "ps5",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps5-japon-baldur%27s-gate-iii",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Astro Bot",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps4-astro-bot-rescue-mission",
+          "title": "Astro Bot Rescue Mission",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "astro bot rescue mission",
+          "companies": [
+            {
+              "slug": "japan-studio",
+              "role": "developer"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-astro-bot-rescue-mission",
+          "title": "Astro Bot Rescue Mission",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-astro-bot-rescue-mission",
+          "companies": [
+            {
+              "slug": "japan-studio",
+              "role": "developer"
+            },
+            {
+              "slug": "sony",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-japon-astro-bot-rescue-mission",
+          "title": "Astro Bot Rescue Mission",
+          "platform": "ps4",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps4-japon-astro-bot-rescue-mission",
+          "companies": [
+            {
+              "slug": "sony-interactive-entertainment",
+              "role": "publisher"
+            },
+            {
+              "slug": "japan-studio",
+              "role": "developer"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-astro-bot-rescue-mission-not-for-resale",
+          "title": "Astro Bot Rescue Mission [Not For Resale]",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-astro-bot-rescue-mission-not-for-resale",
+          "companies": [
+            {
+              "slug": "sony-interactive-entertainment",
+              "role": "publisher"
+            },
+            {
+              "slug": "japan-studio",
+              "role": "developer"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-playstation-vr-bundle-astro-bot-&#43;-moss-&#43;-demo-disc-20-&#43;-ps-camera",
+          "title": "Playstation VR Bundle [Astro Bot + Moss + Demo Disc 2.0 + PS Camera]",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-playstation-vr-bundle-astro-bot-&#43;-moss-&#43;-demo-disc-20-&#43;-ps-camera",
+          "companies": [
+            {
+              "slug": "sony",
+              "role": "developer"
+            },
+            {
+              "slug": "sony",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-astro-bot",
+          "title": "Astro Bot",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-astro-bot",
+          "companies": [
+            {
+              "slug": "sony-interactive-entertainment",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-astro-bot",
+          "title": "Astro Bot",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-astro-bot",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-astro-bot-steelbook-edition",
+          "title": "Astro Bot [Steelbook Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-astro-bot-steelbook-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Clair Obscur: Expedition 33",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps5-clair-obscur-expedition-33",
+          "title": "Clair Obscur: Expedition 33",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-clair-obscur-expedition-33",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-clair-obscur-expedition-33-lumiere-edition",
+          "title": "Clair Obscur: Expedition 33 [Lumiere Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-clair-obscur-expedition-33-lumiere-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-clair-obscur-expedition-33-monolith-set",
+          "title": "Clair Obscur: Expedition 33 [Monolith Set]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-clair-obscur-expedition-33-monolith-set",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-clair-obscur-expedition-33-mirror-edition",
+          "title": "Clair Obscur: Expedition 33 [Mirror Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-clair-obscur-expedition-33-mirror-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-clair-obscur-expedition-33-collector-s-edition",
+          "title": "Clair Obscur: Expedition 33 [Collector's Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-clair-obscur-expedition-33-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-clair-obscur-expedition-33",
+          "title": "Clair Obscur: Expedition 33",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-clair-obscur-expedition-33",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-clair-obscur-expedition-33-collector-s-edition",
+          "title": "Clair Obscur: Expedition 33 [Collector's Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-clair-obscur-expedition-33-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-clair-obscur-expedition-33-lumiere-edition",
+          "title": "Clair Obscur: Expedition 33 [Lumiere Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-clair-obscur-expedition-33-lumiere-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-clair-obscur-expedition-33-mirror-edition",
+          "title": "Clair Obscur: Expedition 33 [Mirror Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-clair-obscur-expedition-33-mirror-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-clair-obscur-expedition-33-monolith-set",
+          "title": "Clair Obscur: Expedition 33 [Monolith Set]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-clair-obscur-expedition-33-monolith-set",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-japon-clair-obscur-expedition-33",
+          "title": "Clair Obscur: Expedition 33",
+          "platform": "ps5",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps5-japon-clair-obscur-expedition-33",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Hades",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps2-saint-seiya-the-hades",
+          "title": "Saint Seiya: The Hades",
+          "platform": "ps2",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps2-saint-seiya-the-hades",
+          "companies": [
+            {
+              "slug": "dimps-corporation",
+              "role": "developer"
+            },
+            {
+              "slug": "atari-sa",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-hades",
+          "title": "Hades",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-hades",
+          "companies": [
+            {
+              "slug": "supergiant-games",
+              "role": "developer"
+            },
+            {
+              "slug": "private-division",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-hades",
+          "title": "Hades",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-hades",
+          "companies": [
+            {
+              "slug": "supergiant-games",
+              "role": "developer"
+            },
+            {
+              "slug": "private-division",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "saturn-japon-hansha-de-spark",
+          "title": "Hansha de Spark!",
+          "platform": "saturn",
+          "region": "Japón",
+          "workKey": "catalog-entry:saturn-japon-hansha-de-spark",
+          "companies": [
+            {
+              "slug": "jiiku-sieg",
+              "role": "developer"
+            },
+            {
+              "slug": "jiiku-sieg",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch2-hades-ii",
+          "title": "Hades II",
+          "platform": "switch2",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch2-hades-ii",
+          "companies": [
+            {
+              "slug": "nintendo",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-hades",
+          "title": "Hades",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-hades",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-hades",
+          "title": "Hades",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-hades",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch2-usa-hades-ii",
+          "title": "Hades II",
+          "platform": "switch2",
+          "region": "USA",
+          "workKey": "catalog-entry:switch2-usa-hades-ii",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-hades-limited-edition",
+          "title": "Hades [Limited Edition]",
+          "platform": "switch",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch-hades-limited-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-hades",
+          "title": "Hades",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-hades",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps2-japon-saint-seiya-the-hades",
+          "title": "Saint Seiya: The Hades",
+          "platform": "ps2",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps2-japon-saint-seiya-the-hades",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch2-japon-hades-ii",
+          "title": "Hades II",
+          "platform": "switch2",
+          "region": "Japón",
+          "workKey": "catalog-entry:switch2-japon-hades-ii",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-japon-hades",
+          "title": "Hades",
+          "platform": "switch",
+          "region": "Japón",
+          "workKey": "catalog-entry:switch-japon-hades",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Returnal",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps5-returnal",
+          "title": "Returnal",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-returnal",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-returnal",
+          "title": "Returnal",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-returnal",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-japon-returnal",
+          "title": "Returnal",
+          "platform": "ps5",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps5-japon-returnal",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Vampire Survivors",
+      "publicationAllowed": false,
+      "candidates": []
+    },
+    {
+      "title": "Inscryption",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps5-usa-inscryption",
+          "title": "Inscryption",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-inscryption",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-inscryption-special-reserve",
+          "title": "Inscryption [Special Reserve]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-inscryption-special-reserve",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-inscryption-special-reserve-single",
+          "title": "Inscryption [Special Reserve Single]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-inscryption-special-reserve-single",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-inscryption-special-reserve",
+          "title": "Inscryption [Special Reserve]",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-inscryption-special-reserve",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-inscryption-special-reserve-single",
+          "title": "Inscryption [Special Reserve Single]",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-inscryption-special-reserve-single",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Balatro",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps5-balatro-special-edition",
+          "title": "Balatro: Special Edition",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-balatro-special-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-balatro-special-edition",
+          "title": "Balatro [Special Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-balatro-special-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-balatro-special-edition",
+          "title": "Balatro: Special Edition",
+          "platform": "switch",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch-balatro-special-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-balatro-special-edition",
+          "title": "Balatro: Special Edition",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-balatro-special-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-japon-balatro",
+          "title": "Balatro",
+          "platform": "ps5",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps5-japon-balatro",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-japon-balatro",
+          "title": "Balatro",
+          "platform": "switch",
+          "region": "Japón",
+          "workKey": "catalog-entry:switch-japon-balatro",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil Village",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps4-resident-evil-village",
+          "title": "Resident Evil Village",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-resident-evil-village",
+          "companies": [
+            {
+              "slug": "capcom",
+              "role": "developer"
+            },
+            {
+              "slug": "capcom",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-resident-evil-village",
+          "title": "Resident Evil Village",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-resident-evil-village",
+          "companies": [
+            {
+              "slug": "capcom",
+              "role": "developer"
+            },
+            {
+              "slug": "capcom",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-resident-evil-village-collector%27s-edition",
+          "title": "Resident Evil Village [Collector&#39;s Edition]",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-resident-evil-village-collector%27s-edition",
+          "companies": [
+            {
+              "slug": "capcom",
+              "role": "developer"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-resident-evil-village-collector%27s-edition",
+          "title": "Resident Evil Village [Collector's Edition]",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-resident-evil-village-collector%27s-edition",
+          "companies": [
+            {
+              "slug": "capcom",
+              "role": "developer"
+            },
+            {
+              "slug": "capcom",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-resident-evil-village-deluxe-edition",
+          "title": "Resident Evil Village [Deluxe Edition]",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-resident-evil-village-deluxe-edition",
+          "companies": [
+            {
+              "slug": "capcom",
+              "role": "developer"
+            },
+            {
+              "slug": "capcom",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-resident-evil-village-gold-edition",
+          "title": "Resident Evil Village [Gold Edition]",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-resident-evil-village-gold-edition",
+          "companies": [
+            {
+              "slug": "capcom",
+              "role": "developer"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-resident-evil-village-gold-edition",
+          "title": "Resident Evil Village [Gold edition]",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-resident-evil-village-gold-edition",
+          "companies": [
+            {
+              "slug": "capcom",
+              "role": "developer"
+            },
+            {
+              "slug": "capcom",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-resident-evil-village-steelbook-edition",
+          "title": "Resident Evil Village [Steelbook Edition]",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-resident-evil-village-steelbook-edition",
+          "companies": [
+            {
+              "slug": "capcom",
+              "role": "developer"
+            },
+            {
+              "slug": "capcom",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-resident-evil-village-gold-edition",
+          "title": "Resident Evil Village Gold Edition",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-resident-evil-village-gold-edition",
+          "companies": [
+            {
+              "slug": "capcom",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-resident-evil-village-steelbook-edition",
+          "title": "Resident Evil Village [Steelbook Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-resident-evil-village-steelbook-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-resident-evil-village",
+          "title": "Resident Evil Village",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-resident-evil-village",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-resident-evil-village-collector-s-edition",
+          "title": "Resident Evil Village [Collector's Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-resident-evil-village-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-resident-evil-village-lenticular-cover",
+          "title": "Resident Evil Village [Lenticular Cover]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-resident-evil-village-lenticular-cover",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-resident-evil-village",
+          "title": "Resident Evil Village",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-resident-evil-village",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-resident-evil-village-collector-s-edition",
+          "title": "Resident Evil Village [Collector's Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-resident-evil-village-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-resident-evil-village-deluxe-edition",
+          "title": "Resident Evil Village [Deluxe Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-resident-evil-village-deluxe-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-resident-evil-village-gold-edition",
+          "title": "Resident Evil Village [Gold Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-resident-evil-village-gold-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-resident-evil-village-steelbook-edition",
+          "title": "Resident Evil Village [Steelbook Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-resident-evil-village-steelbook-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Black Myth: Wukong",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps5-black-myth-wukong",
+          "title": "Black Myth: Wukong",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-black-myth-wukong",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-black-myth-wukong",
+          "title": "Black Myth: Wukong",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-black-myth-wukong",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-black-myth-wukong-collector-s-edition",
+          "title": "Black Myth: Wukong [Collector's Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-black-myth-wukong-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-japon-black-myth-wukong",
+          "title": "Black Myth: Wukong",
+          "platform": "ps5",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps5-japon-black-myth-wukong",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Ghost of Tsushima",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps4-ghost-of-tsushima",
+          "title": "Ghost of Tsushima",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-ghost-of-tsushima",
+          "companies": [
+            {
+              "slug": "sucker-punch-productions-l-l-c",
+              "role": "developer"
+            },
+            {
+              "slug": "sony-interactive-entertainment-europe-ltd",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-ghost-of-tsushima",
+          "title": "Ghost of Tsushima",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-ghost-of-tsushima",
+          "companies": [
+            {
+              "slug": "sucker-punch",
+              "role": "developer"
+            },
+            {
+              "slug": "sony",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-ghost-of-tsushima-collector%27s-edition",
+          "title": "Ghost of Tsushima [Collector&#39;s Edition]",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-ghost-of-tsushima-collector%27s-edition",
+          "companies": [
+            {
+              "slug": "sucker-punch-productions",
+              "role": "developer"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-ghost-of-tsushima-collector%27s-edition",
+          "title": "Ghost of Tsushima [Collector's Edition]",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-ghost-of-tsushima-collector%27s-edition",
+          "companies": [
+            {
+              "slug": "sucker-punch",
+              "role": "developer"
+            },
+            {
+              "slug": "sony",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-ghost-of-tsushima-launch-edition",
+          "title": "Ghost of Tsushima [Launch Edition]",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-ghost-of-tsushima-launch-edition",
+          "companies": [
+            {
+              "slug": "sucker-punch-productions",
+              "role": "developer"
+            },
+            {
+              "slug": "sie",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-ghost-of-tsushima-special-edition",
+          "title": "Ghost of Tsushima [Special Edition]",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-ghost-of-tsushima-special-edition",
+          "companies": [
+            {
+              "slug": "sony-interactive-entertainment",
+              "role": "publisher"
+            },
+            {
+              "slug": "sucker-punch-productions",
+              "role": "developer"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-ghost-of-tsushima-special-edition",
+          "title": "Ghost of Tsushima [Special Edition]",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-ghost-of-tsushima-special-edition",
+          "companies": [
+            {
+              "slug": "sucker-punch",
+              "role": "developer"
+            },
+            {
+              "slug": "sony",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-ghost-of-tsushima-director%27s-cut",
+          "title": "Ghost of Tsushima: Director&#39;s Cut",
+          "platform": "ps4",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps4-ghost-of-tsushima-director%27s-cut",
+          "companies": [
+            {
+              "slug": "sucker-punch-productions-l-l-c",
+              "role": "developer"
+            },
+            {
+              "slug": "sony-interactive-entertainment-europe-ltd",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-usa-ghost-of-tsushima-director%27s-cut",
+          "title": "Ghost of Tsushima: Director's Cut",
+          "platform": "ps4",
+          "region": "USA",
+          "workKey": "catalog-entry:ps4-usa-ghost-of-tsushima-director%27s-cut",
+          "companies": [
+            {
+              "slug": "sucker-punch",
+              "role": "developer"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-ghost-of-tsushima-director-s-cut",
+          "title": "Ghost of Tsushima: Director´s Cut",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-ghost-of-tsushima-director-s-cut",
+          "companies": [
+            {
+              "slug": "sony-interactive-entertainment",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-ghost-of-tsushima-directors-cut",
+          "title": "Ghost of Tsushima Directors Cut",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-ghost-of-tsushima-directors-cut",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-ghost-of-tsushima-director-s-cut",
+          "title": "Ghost Of Tsushima: Director's Cut",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-ghost-of-tsushima-director-s-cut",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-japon-ghost-of-tsushima-director%27s-cut",
+          "title": "Ghost Of Tsushima: Director's Cut",
+          "platform": "ps5",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps5-japon-ghost-of-tsushima-director%27s-cut",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Monster Hunter Rise",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "switch-monster-hunter-rise",
+          "title": "Monster Hunter Rise",
+          "platform": "switch",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch-monster-hunter-rise",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-monster-hunter-rise-collector-s-edition",
+          "title": "Monster Hunter Rise [Collector's Edition]",
+          "platform": "switch",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch-monster-hunter-rise-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-monster-hunter-rise-sunbreak",
+          "title": "Monster Hunter Rise Sunbreak",
+          "platform": "switch",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch-monster-hunter-rise-sunbreak",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-monster-hunter-rise-sunbreak-code-in-box",
+          "title": "Monster Hunter Rise Sunbreak [Code in Box]",
+          "platform": "switch",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch-monster-hunter-rise-sunbreak-code-in-box",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-monster-hunter-rise",
+          "title": "Monster Hunter Rise",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-monster-hunter-rise",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-monster-hunter-rise-collector-s-edition",
+          "title": "Monster Hunter Rise [Collector's Edition]",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-monster-hunter-rise-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-monster-hunter-rise-deluxe-edition",
+          "title": "Monster Hunter Rise [Deluxe Edition]",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-monster-hunter-rise-deluxe-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-monster-hunter-rise-sunbreak",
+          "title": "Monster Hunter Rise Sunbreak",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-monster-hunter-rise-sunbreak",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-monster-hunter-rise-sunbreak-collector-s-edition",
+          "title": "Monster Hunter Rise Sunbreak [Collector's Edition]",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-monster-hunter-rise-sunbreak-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-japon-monster-hunter-rise-+-monster-hunter-stories-2-twin-pack",
+          "title": "Monster Hunter Rise + Monster Hunter Stories 2 Twin Pack",
+          "platform": "switch",
+          "region": "Japón",
+          "workKey": "catalog-entry:switch-japon-monster-hunter-rise-+-monster-hunter-stories-2-twin-pack",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-japon-nintendo-switch-monster-hunter-rise-edition",
+          "title": "Nintendo Switch Monster Hunter Rise Edition",
+          "platform": "switch",
+          "region": "Japón",
+          "workKey": "catalog-entry:switch-japon-nintendo-switch-monster-hunter-rise-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Monster Hunter Rise: Sunbreak",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "switch-monster-hunter-rise-sunbreak",
+          "title": "Monster Hunter Rise Sunbreak",
+          "platform": "switch",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch-monster-hunter-rise-sunbreak",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-monster-hunter-rise-sunbreak-code-in-box",
+          "title": "Monster Hunter Rise Sunbreak [Code in Box]",
+          "platform": "switch",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch-monster-hunter-rise-sunbreak-code-in-box",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-monster-hunter-rise-sunbreak",
+          "title": "Monster Hunter Rise Sunbreak",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-monster-hunter-rise-sunbreak",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-monster-hunter-rise-sunbreak-collector-s-edition",
+          "title": "Monster Hunter Rise Sunbreak [Collector's Edition]",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-monster-hunter-rise-sunbreak-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "The Legend of Zelda: Tears of the Kingdom",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "switch2-the-legend-of-zelda-tears-of-the-kingdom-nsw2-edition",
+          "title": "The Legend of Zelda: Tears of the Kingdom - NSW2 Edition",
+          "platform": "switch2",
+          "region": "PAL España",
+          "workKey": "catalog-entry:switch2-the-legend-of-zelda-tears-of-the-kingdom-nsw2-edition",
+          "companies": [
+            {
+              "slug": "nintendo",
+              "role": "publisher"
+            }
+          ],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Metaphor: ReFantazio",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps4-japon-metaphor-re-fantazio",
+          "title": "Metaphor Re Fantazio",
+          "platform": "ps4",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps4-japon-metaphor-re-fantazio",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps4-japon-metaphor-refantazio-35th-anniversary-edition",
+          "title": "Metaphor: ReFantazio [35th Anniversary Edition]",
+          "platform": "ps4",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps4-japon-metaphor-refantazio-35th-anniversary-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-metaphor-refantazio",
+          "title": "Metaphor: ReFantazio",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-metaphor-refantazio",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-metaphor-refantazio-collector-s-edition",
+          "title": "Metaphor: ReFantazio [Collector's Edition]",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-metaphor-refantazio-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-metaphor-refantazio",
+          "title": "Metaphor: ReFantazio",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-metaphor-refantazio",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-metaphor-refantazio-collector-s-edition",
+          "title": "Metaphor: ReFantazio [Collector's Edition]",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-metaphor-refantazio-collector-s-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-japon-metaphor-refantazio",
+          "title": "Metaphor: ReFantazio",
+          "platform": "ps5",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps5-japon-metaphor-refantazio",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-japon-metaphor-refantazio-35th-anniversary-edition",
+          "title": "Metaphor: ReFantazio [35th Anniversary Edition]",
+          "platform": "ps5",
+          "region": "Japón",
+          "workKey": "catalog-entry:ps5-japon-metaphor-refantazio-35th-anniversary-edition",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Umurangi Generation",
+      "publicationAllowed": false,
+      "candidates": [
+        {
+          "id": "ps5-umurangi-generation",
+          "title": "Umurangi Generation",
+          "platform": "ps5",
+          "region": "PAL España",
+          "workKey": "catalog-entry:ps5-umurangi-generation",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "ps5-usa-umurangi-generation-deluxe-kit",
+          "title": "Umurangi Generation Deluxe Kit",
+          "platform": "ps5",
+          "region": "USA",
+          "workKey": "catalog-entry:ps5-usa-umurangi-generation-deluxe-kit",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        },
+        {
+          "id": "switch-usa-umurangi-generation-deluxe-kit",
+          "title": "Umurangi Generation Deluxe Kit",
+          "platform": "switch",
+          "region": "USA",
+          "workKey": "catalog-entry:switch-usa-umurangi-generation-deluxe-kit",
+          "companies": [],
+          "status": "REQUIRES_EXPLICIT_IDENTITY_REVIEW"
+        }
+      ]
+    },
+    {
+      "title": "Betrayal at Club Low",
+      "publicationAllowed": false,
+      "candidates": []
+    },
+    {
+      "title": "Venba",
+      "publicationAllowed": false,
+      "candidates": []
+    },
+    {
+      "title": "Consume Me",
+      "publicationAllowed": false,
+      "candidates": []
+    },
+    {
+      "title": "Titanium Court",
+      "publicationAllowed": false,
+      "candidates": []
+    }
+  ],
+  "legacyAwards": [
+    {
+      "id": "PAWD-00001",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://awards.cesa.or.jp/2014/prize/prize_04.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00002",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://comicbook.com/anime/news/dragon-ball-akira-toriyama-eisner-award-nomination-2019/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00003",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.animenewsnetwork.com/interest/2019-05-31/dragonball-creator-akira-toriyama-knighted-by-france/.147351",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00004",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q208582",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00005",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://gpi.noosfere.org/gpi-2006/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00006",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2829704",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00007",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2829704",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00008",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://gpi.noosfere.org/gpi-2018/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00009",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2829704",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00010",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://gpi.noosfere.org/gpi-2020/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00011",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://prixlibranous.org/livres-primes/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00012",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamasutra.com/php-bin/news_index.php?story=12732",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00013",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.bafta.org/stories/amy-hennig-games-special-award/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00014",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00015",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2863252",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00016",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2863252",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00017",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2863252",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00018",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2863252",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00019",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2863252",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00020",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q559783",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00021",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q559783",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00022",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q559783",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00023",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.lemonde.fr/pixels/article/2022/03/10/jeux-video-la-ceremonie-des-pegases-recompense-deathloop-et-road-96_6116999_4408996.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00024",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "http://chamberybd.fr/ledition-2011/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00025",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q355288",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00026",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q355288",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00027",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q355288",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00028",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q355288",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00029",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q355288",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00030",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q355288",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00031",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q355288",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00032",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://commencement.umich.edu/wp-content/uploads/2022/08/SpringCommencement2022.pdf",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00033",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.infoworld.com/article/2644044/queen-grants-knighthood-to-bill-gates.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00034",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.nationalmedals.org/laureates/bill-gates",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00035",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.indiatoday.in/india/story/bill-gates-melinda-padma-bhushan-india-foundation-social-work-237379-2015-01-25",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00036",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://likumi.lv/ta/id/199478-par-atzinibas-krusta-pieskirsanu-un-apbalvosanu-ar-goda-zimi",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00037",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "http://www.laskerfoundation.org/awards/show/advancing-global-health-through-enlightened-philanthropy/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00038",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.whitehouse.gov/the-press-office/2016/11/16/president-obama-names-recipients-presidential-medal-freedom",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00039",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "http://www.fulbright.org/about-us/news/2010_Fulbright_Prize",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00040",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bbc.com/news/11310420",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00041",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bcs.org/more/about-us/history-of-bcs/distinguished-fellowship-distfbcs/roll-of-distinguished-fellows/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00042",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.unfpa.org/news/united-nations-population-award-presented-bill-and-melinda-gates-asian-parliamentarians",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00043",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "http://www.gettyimages.com/pictures/microsoft-chairman-bill-gates-left-receives-the-aztec-eagle-news-photo-94587215",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00044",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "http://www.ordens.presidencia.pt/?idc=154",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00045",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "http://www.nasonline.org/news-and-multimedia/news/jan-23-2013-pwm.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00046",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "http://www.cdep.ro/pls/legis/legis_pck.htp_act_text?idt=78535",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00047",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.parismatch.com/Actu/International/Bill-et-Melinda-Gates-une-medaille-pour-le-coeur-1242938",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00048",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.fi.edu/laureates/william-h-gates",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00049",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "http://www.moe.gov.cn/s78/A22/xwb_left/moe_829/tnull_44386.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00050",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.forskning.se/2002/01/16/bill-gates-craig-venter-och-david-king-hedersdoktorer-vid-kth/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00051",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://computersweden.idg.se/2.2683/1.104789/karolinska-gor-bill-gates-till-hedersdoktor",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00052",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q5284",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00053",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q5284",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00054",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://ig.ft.com/sites/person-of-the-year/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00055",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.spiegel.de/lebenundlernen/uni/bill-gates-in-harvard-lametta-fuer-den-verlorenen-sohn-a-487470.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00056",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://rp-online.de/panorama/fernsehen/bill-gates-bekommt-bambi-auszeichnung_aid-14424731",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00057",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.fi.edu/en/laureates/william-h-gates",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00058",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q5284",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00059",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.cnbcindonesia.com/tech/20250924082337-37-669668/bill-gates-dapat-bintang-jasa-prabowo-antarkan-langsung-ke-new-york",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00060",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bafta.org/media-centre/press-releases/brenda-romero-to-receive-bafta-special-award/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00061",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.polygon.com/2015/12/3/9846760/the-game-awards-2015-winners",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00062",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2926654",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00063",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2926654",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00064",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://mcvuk.com/development-news/carol-shaw-awarded-industry-icon-honour-at-the-game-awards/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00065",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q983594",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00066",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2536856",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00067",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q954975",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00068",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q954975",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00069",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.sisyfos.cz/clanek/1618-bludne-balvany-za-rok-2025",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00070",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.oscars.org/oscars/ceremonies/1938",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00071",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q364342",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00072",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q364342",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00073",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q364342",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00074",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q364342",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00075",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q364342",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00076",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1173809",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00077",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1173809",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00078",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1173809",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00079",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www5.open.ac.uk/students/ceremonies/sites/www.open.ac.uk.students.ceremonies/files/files/Honorary%20graduate%20cumulative%20list(7).xlsx",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00080",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bafta.org/media-centre/press-releases/david-braben-to-be-honoured-with-bafta-fellowship/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00081",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q218686",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00082",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q115055",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00083",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q115055",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00084",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamespot.com/articles/re4-named-game-of-year-at-spike-awards/1100-6140144/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00085",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.polygon.com/clair-obscur-gdc-awards-win-sweep/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00086",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.lefigaro.fr/jeux-video/eiji-aonuma-co-createur-des-jeux-video-zelda-nomme-chevalier-de-l-ordre-des-arts-et-des-lettres-20231102",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00087",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://royalsociety.org/news/2018/05/distinguished-scientists-elected-fellows-royal-society-2018/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00088",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q317521",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00089",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://time.com/person-of-the-year-2021-elon-musk/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00090",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q317521",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00091",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.ft.com/content/a7f75d25-d710-4aaa-9f57-49e24d67744d",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00092",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.smenet.org/Professional-Development/Awards-Competitions/Award-Recipients/John-Fritz-Medal-Award",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00093",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.sharecast.com/news/general-news/donald-trump-sadiq-khan-and-elon-musk-among-times-100-most-influential-people-of-2018--3253291.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00094",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q317521",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00095",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.carnegie.org/awards/great-immigrants/2010-great-immigrants/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00096",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.welt.de/wirtschaft/article216274010/Elon-Musk-bekommt-Axel-Springer-Award.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00097",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.teslarati.com/tesla-spacex-ceo-elon-musk-receives-stephen-hawking-medal/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00098",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.pcmag.com/news/edison-awards-honor-elon-musk-lenovos-yang-yuanqing",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00099",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.heinleinprize.com/hall-of-fame",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00100",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://living-legends-of-aviation.myshopify.com/pages/elon-musk",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00101",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.metropoles.com/brasil/musk-recebe-de-bolsonaro-a-medalha-de-ordem-do-merito-da-defesa",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00102",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.nae.edu/270224.aspx",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00103",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://seas.yale.edu/news-events/news/seas-celebrates-class-2015-honors-innovators-elon-musk-and-dean-kamen",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00104",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q317521",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00105",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.ithistory.org/honor-roll/dr-elon-musk#:~:text=In%202010he%20was%20elected%20to,University%20of%20Surrey%20in%20England.",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00106",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.skeptic.org.uk/2024/10/elon-musk-beats-dragons-den-star-steven-bartlett-to-rusty-razor-pseudoscience-award/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00107",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://time.com/collections/100-most-influential-people-2025/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00108",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.president.gov.ua/documents/8352026-61293",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00109",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q44914560",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00110",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00111",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3742651",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00112",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "http://www.culture.gouv.fr/Nous-connaitre/Organisation/Conseil-de-l-Ordre-des-Arts-et-des-Lettres/Arretes-de-Nominations-dans-l-ordre-des-Arts-et-des-Lettres/Nomination-dans-l-ordre-des-Arts-et-des-Lettres-janvier-2013",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00113",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2487840",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00114",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.interactive.org/special_awards/details.asp?idSpecialAwards=25",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00115",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.bafta.org/media-centre/press-releases/valves-gabe-newell-to-be-honoured-with-bafta-fellowship/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00116",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q38222",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00117",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q38222",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00118",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q38222",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00119",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://d23.com/walt-disney-legend/george-lucas/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00120",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q38222",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00121",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q38222",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00122",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q38222",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00123",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.comic-con.org/awards/inkpot",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00124",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.thehugoawards.org/hugo-history/1978-hugo-awards/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00125",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.thehugoawards.org/hugo-history/1981-hugo-awards/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00126",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.thehugoawards.org/hugo-history/1982-hugo-awards/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00127",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.thehugoawards.org/hugo-history/1984-hugo-awards/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00128",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.thehugoawards.org/hugo-history/1990-hugo-awards/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00129",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://womeninfilm.org/updates/wif-awards-retrospective/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00130",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q38222",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00131",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bfmtv.com/culture/video-george-lucas-jodie-foster-et-claude-lelouch-decores-de-la-legion-d-honneur-a-l-elysee-par-emmanuel-macron_VN-202607150596.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00132",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q562492",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00133",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q562492",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00134",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q562492",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00135",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q562492",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00136",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q562492",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00137",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q562492",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00138",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q562492",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00139",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q562492",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00140",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q562492",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00141",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00142",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3105330",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00143",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3120329",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00144",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00145",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q64215059",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00146",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.acbd.fr/8335/actualites/echolands-t1-prix-comics-acbd-2023/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00147",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q23261",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00148",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q23261",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00149",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://natalie.mu/eiga/news/223847",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00150",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://prizesworld.com/prizes/name/庵野秀明",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00151",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://prizesworld.com/prizes/name/%E5%BA%B5%E9%87%8E%E7%A7%80%E6%98%8E",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00152",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://animeanime.jp/article/2017/07/22/34719.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00153",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://natalie.mu/eiga/news/475752",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00154",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.japan-academy-prize.jp/prizes/?t=40",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00155",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.japan-academy-prize.jp/prizes/?t=40",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00156",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.japan-academy-prize.jp/prizes/?t=45",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00157",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q23261",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00158",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q23261",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00159",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.kinenote.com/main/award/kinejun/y2016.aspx",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00160",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q23261",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00161",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://news.mynavi.jp/article/20080402-animeaward2008/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00162",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://animefestival.jp/ja/post/15548/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00163",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00164",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.polygon.com/2016/12/1/13784410/the-game-awards-winners",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00165",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://awards.cesa.or.jp/2020/prize/year/04.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00166",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://gamemo.confidence-media.jp/495",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00167",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.famitsu.com/news/202203/09253998.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00168",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamesradar.com/dark-souls-creator-hidetaki-miyazaki-takes-the-lifetime-achievement-award-at-the-golden-joystick-awards-2018/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00169",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://time.com/collection/100-most-influential-people-2023/6269962/hidetaka-miyazaki/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00170",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00171",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q5364081",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00172",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://dutchgameawards.nl/2025/12/04/and-the-winners-of-the-dutch-game-awards-2025-are/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00173",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamesindustry.biz/igda-names-game-developers-choice-award-winners",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00174",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.museumofplay.org/games/bejeweled/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00175",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.museumofplay.org/games/bejeweled/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00176",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://aaspeechesdb.oscars.org/link/085-204/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00177",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q550426",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00178",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q550426",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00179",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://womeninfilm.org/updates/wif-awards-retrospective/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00180",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q6176240",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00181",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://academiejeuvideo.org/edition-2020",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00182",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q88874261",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00183",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q15968449",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00184",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q92605",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00185",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00186",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.bafta.org/media-centre/press-releases/john-carmack-to-be-honoured-with-bafta-fellowship/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00187",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q263175",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00188",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1345960",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00189",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1707966",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00190",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.oscars.org/oscars/ceremonies/1953",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00191",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q11359112",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00192",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q11359112",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00193",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q11359112",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00194",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q21699221",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00195",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q557018",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00196",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00197",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.polygon.com/2014/12/5/7343105/the-game-awards-2014-winners",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00198",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q11638233",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00199",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q11638233",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00200",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3219157",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00201",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3219157",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00202",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3219157",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00203",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3219157",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00204",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3219157",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00205",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bafta.org/awards/games?award-year=2005",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00206",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q319682",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00207",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q319682",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00208",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.oscars.org/oscars/ceremonies/1951",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00209",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.polygon.com/2015/12/3/9846760/the-game-awards-2015-winners",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00210",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.polygon.com/indie-game-awards-2025-winners-list/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00211",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3288538",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00212",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1373662",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00213",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00214",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bafta.org/media-centre/press-releases/minecraft-mastermind-markus-persson-to-receive-bafta-special-award/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00215",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://awards.cesa.or.jp/2015/prize/prize_04.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00216",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q6782765",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00217",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q6782765",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00218",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q52994",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00219",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://next.liberation.fr/images/2020/09/25/michel-ancel-si-j-etais-reste-il-n-y-aurait-pas-eu-de-beyond-good-and-evil-2_1800385",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00220",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q962209",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00221",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://centerforinquiry.org/news/10-new-fellows-elected-to-committee-for-skeptical-inquiry/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00222",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.invent.org/inductees/milton-bradley",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00223",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q56745963",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00224",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00225",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00226",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00227",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00228",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00229",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00230",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00231",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.thersa.org/about/albert-medal/past-winners",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00232",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00233",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00234",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00235",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00236",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7721",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00237",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://academiejeuvideo.org/edition-2023",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00238",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://frenchamerican.org/young-leaders/earlier-classes/2000/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00239",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bafta.org/stories/2009-academy-fellow-nolan-bushnell/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00240",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7067431",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00241",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7067431",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00242",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7067431",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00243",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q7151528",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00244",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q164565",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00245",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q164565",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00246",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00247",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bafta.org/awards/games?award-year=2011",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00248",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.nationalmedals.org/laureates",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00249",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://corporate-awards.ieee.org/wp-content/uploads/ibuka-rl.pdf",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00250",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.ieee.org/content/dam/ieee-org/ieee/web/org/about/awards/recipients/edison-rl.pdf",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00251",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q70997",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00252",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.grammy.com/grammys/artists/raphael-saadiq/13827",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00253",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1337779",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00254",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q14569862",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00255",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00256",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q2567234",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00257",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.polygon.com/clair-obscur-gdc-awards-win-sweep/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00258",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00259",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://variety.com/2019/gaming/news/rieko-kodama-gdca-2019-pioneer-award-1203110809/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00260",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.polygon.com/2014/12/5/7343105/the-game-awards-2014-winners",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00261",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamasutra.com/view/news/358772/Adventure_game_trailblazer_Roberta_Williams_to_receive_Pioneer_Award_at_GDC_2020.php",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00262",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bafta.org/awards/games?award-year=2005",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00263",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q295218",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00264",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q12382",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00265",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q12382",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00266",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.ouest-france.fr/gaming/eric-chahi-distingue-de-l-ordre-national-du-merite-une-excellente-nouvelle-pour-le-jeu-video-970510fc-acc1-11eb-bcfd-058885220c6f",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00267",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00268",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q12382",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00269",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q12382",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00270",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://awards.cesa.or.jp/2008/minprize.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00271",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q12382",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00272",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.bafta.org/stories/2010-academy-fellow-shigeru-miyamoto/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00273",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "http://www.fpa.es/es/premios-princesa-de-asturias/premiados/2012-shigeru-miyamoto.html?especifica=0",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00274",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00275",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00276",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00277",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00278",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bundespraesident.de/SharedDocs/Downloads/DE/verdienstorden.pdf?__blob=publicationFile",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00279",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00280",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00281",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00282",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00283",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.oscars.org/oscars/ceremonies/1994",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00284",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.oscars.org/oscars/ceremonies/1999",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00285",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.oscars.org/oscars/ceremonies/1994",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00286",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00287",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00288",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00289",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00290",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00291",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00292",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00293",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00294",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00295",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00296",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00297",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00298",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00299",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00300",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00301",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00302",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00303",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00304",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.loc.gov/about/awards-and-honors/living-legends/steven-spielberg/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00305",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.comic-con.org/awards/inkpot/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00306",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00307",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://crsreports.congress.gov/product/pdf/R/R47639",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00308",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00309",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00310",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00311",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://goldenglobes.com/person/steven-spielberg/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00312",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.festival-cannes.com/p/steven-spielberg/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00313",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00314",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00315",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00316",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00317",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00318",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00319",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.harvard.edu/on-campus/commencement/honorary-degrees",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00320",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00321",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bafta.org/awards/film/david-lean-award-for-achievement-in-direction",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00322",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00323",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00324",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00325",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00326",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.vanityfair.fr/ecrans/article/golden-globes-2023-palmares-complet",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00327",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00328",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00329",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00330",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00331",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00332",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00333",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q8877",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00334",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://walkoffame.com/sumner-redstone/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00335",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://theemmys.tv/trusteesaward/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00336",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00337",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.bafta.org/media-centre/press-releases/tim-schafer-to-receive-bafta-fellowship/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00338",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q523191",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00339",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00340",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00341",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q105167",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00342",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://dutchgameawards.nl/nominees-2021/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00343",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q983176",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00344",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3324428",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00345",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://awards.cesa.or.jp/2011/prize/prize_04.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00346",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://cedec.cesa.or.jp/2015/event/awards_prize.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00347",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00348",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.bafta.org/stories/will-wright-bafta-fellow-in-2007/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00349",
+      "existingVisibility": "published",
+      "proposedClassification": "GENERAL_RECOGNITION",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00350",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q134382",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00351",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://njhalloffame.org/2015-nominees/william-fox/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00352",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3571729",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00353",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3571729",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00354",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q11071898",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00355",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q1333672",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00356",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://academiejeuvideo.org/edition-2020",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00357",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3573697",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00358",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q940867",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00359",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://awards.cesa.or.jp/2010/prize/prize_04.html",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00360",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.nikkei.com/article/DGXZQOUA31C8A0R31C25A0000000/",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00361",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.gamechoiceawards.com/archive/lifetime",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00362",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://academiejeuvideo.org/edition-2021",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00363",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042846616",
+      "formalResultId": null
+    },
+    {
+      "id": "PAWD-00364",
+      "existingVisibility": "internal",
+      "proposedClassification": "NEEDS_REVIEW",
+      "sourceUrl": "https://www.wikidata.org/wiki/Q3591397",
+      "formalResultId": null
+    }
+  ]
+}
