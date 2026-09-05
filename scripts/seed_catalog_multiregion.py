@@ -37,6 +37,7 @@ REQUEST_DELAY = 1.6
 MULTIREGION_PLATFORMS: dict[str, list[str]] = {
     "ds": ["pal", "usa", "japan"],
     "3ds": ["japan", "usa"],
+    "switch2": ["japan"],
     "ps1": ["japan"],
     "ps2": ["japan"],
     "ps3": ["japan"],

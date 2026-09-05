@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-09-05T05:31:11",
-  "targets": 693,
-  "downloaded": 693,
+  "generatedAt": "2026-09-05T06:10:56",
+  "targets": 46,
+  "downloaded": 46,
   "skippedExisting": 0,
   "missingSource": 0,
   "downloadErrors": 0,
   "bySource": {
     "museum": 0,
-    "pricecharting": 693,
+    "pricecharting": 46,
     "wikipedia": 0,
     "existing": 0
   },
   "byPlatform": {
-    "3ds": {
-      "downloaded": 693,
+    "switch2": {
+      "downloaded": 46,
       "missingSource": 0,
       "downloadErrors": 0,
       "skippedExisting": 0
