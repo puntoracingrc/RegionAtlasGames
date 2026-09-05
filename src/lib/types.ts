@@ -5,6 +5,7 @@ export type DetailEntitySource =
   | "wikidata"
   | "game-es"
   | "official"
+  | "research"
   | "merged";
 
 export type DetailEntity = {
@@ -26,7 +27,8 @@ export type GameDetailsFieldSource =
   | "serialstation"
   | "wikidata"
   | "game-es"
-  | "official";
+  | "official"
+  | "research";
 
 export type GameDetailsSources = {
   museum?: { museumPath: string; fetchedAt: string };
@@ -54,9 +56,37 @@ export type GameDetailsSeoFaq = { question: string; answer: string };
 export type GameDetailsFieldProvenance = {
   source: GameDetailsFieldSource;
   evidenceUrls: string[];
+  evidenceCatalogIds?: string[];
   evidenceSummary: string;
   reviewedAt: string;
   reviewBatch: string;
+};
+
+export type GameCompanyCreditRole =
+  | "developer"
+  | "originalDeveloper"
+  | "portDeveloper"
+  | "remasterDeveloper"
+  | "publisher"
+  | "originalPublisher"
+  | "regionalPublisher"
+  | "digitalPublisher"
+  | "physicalPublisherOrDistributor";
+
+export type GameCompanyCredit = {
+  role: GameCompanyCreditRole;
+  company: DetailEntity;
+  provenance: GameDetailsFieldProvenance & {
+    previousValues?: string[];
+  };
+};
+
+export type GameIndividualCreditRole = "developer";
+
+export type GameIndividualCredit = {
+  role: GameIndividualCreditRole;
+  person: DetailEntity;
+  provenance: GameDetailsFieldProvenance;
 };
 
 export type GameDetailsSeoMeta = {
@@ -94,6 +124,10 @@ export type GameDetails = {
   support: string | null;
   developer: DetailEntity | null;
   publisher: DetailEntity | null;
+  /** Créditos editoriales separados por función; admite co-desarrollo sin fusionar entidades. */
+  companyCredits?: GameCompanyCredit[];
+  /** Personas acreditadas sin convertirlas artificialmente en compañías. */
+  individualCredits?: GameIndividualCredit[];
   genres: DetailEntity[];
   /** Subgéneros controlados por la taxonomía nueva. No sustituyen al género principal. */
   subgenres?: DetailEntity[];
@@ -156,6 +190,8 @@ export type IndexEntry = {
   active?: boolean;
   asDeveloper?: string[];
   asPublisher?: string[];
+  asDigitalPublisher?: string[];
+  asPhysicalPublisherOrDistributor?: string[];
   wikidataId?: string | null;
   aliasSlugs?: string[];
   aliasNames?: string[];
@@ -267,6 +303,23 @@ export type CatalogGame = {
   regionalPackagingSource?: string | null;
   regionalPackagingUpdatedAt?: string | null;
   listingStatus: "listed" | "pending" | "excluded";
+  /** Tipo material del registro. Ausente equivale a videojuego por compatibilidad legacy. */
+  catalogKind?:
+    | "game"
+    | "accessory"
+    | "console"
+    | "console_bundle"
+    | "subscription"
+    | "non_game_marker";
+  hardwareMetadata?: {
+    brand?: string | null;
+    manufacturer?: string | null;
+    model?: string | null;
+    ean?: string | null;
+    sourceUrls?: string[];
+    reviewedAt: string;
+    reviewBatch: string;
+  } | null;
   excludeCategory?: string | null;
   excludeReason?: string | null;
   museumRegion?: string | null;

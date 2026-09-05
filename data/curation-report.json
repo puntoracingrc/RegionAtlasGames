@@ -3,13 +3,15 @@
   "listed": 70932,
   "excluded": 2172,
   "byCategory": {
-    "accessory": 143,
+    "accessory": 145,
     "demo": 5,
-    "hardware": 122,
-    "other": 13,
-    "promo": 156,
-    "variant": 1347,
-    "whitelist": 386
+    "hardware": 123,
+    "other": 14,
+    "promo": 155,
+    "variant": 1338,
+    "whitelist": 386,
+    "duplicate": 2,
+    "wrong-platform": 4
   },
   "listedByPlatform": {
     "3ds": 1708,

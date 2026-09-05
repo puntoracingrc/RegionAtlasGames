@@ -2,6 +2,7 @@ import companyProfilesData from "../../data/company-profiles.json";
 import { readAdminCompanyProfilesOverlay } from "./admin-entity-catalog";
 import { catalogGamePath } from "./catalog-url";
 import { getPlatform, isPublicCatalogGame } from "./catalog";
+import { getCatalogWorkKey } from "./catalog-work";
 import {
   formatCompanyAliases,
   getCompanyEntity,
@@ -24,6 +25,10 @@ import type {
   CompanyResearchPublicSource,
 } from "./company-research-types";
 import { getPublicPeopleForCompany } from "./person-public-research";
+import {
+  getVerifiedCompanyRelations,
+  verifiedCompanyRelationLabel,
+} from "./verified-company-relations";
 import type { CompanyPersonLink } from "./person-research-types";
 import type { CatalogGame, CompanyProfile, IndexEntry } from "./types";
 
@@ -41,12 +46,22 @@ export type CompanyPlatformGames = {
   games: CatalogGame[];
 };
 
+export type CompanyVerifiedRelation = {
+  id: string;
+  label: string;
+  company: { slug: string; name: string };
+  evidenceUrl: string | null;
+};
+
 export type CompanyProfileView = {
   slug: string;
   name: string;
   catalogEntryCount: number;
+  uniqueWorkCount: number;
   developerCatalogEntryCount: number;
   publisherCatalogEntryCount: number;
+  digitalPublisherCatalogEntryCount: number;
+  physicalPublisherCatalogEntryCount: number;
   alsoKnownAs: string[];
   wikidataId: string | null;
   foundedYear: number | null;
@@ -58,6 +73,7 @@ export type CompanyProfileView = {
   mergedWithCompany: CompanyProfile["mergedWithCompany"] | null;
   predecessorCompany: CompanyProfile["predecessorCompany"] | null;
   successorCompany: CompanyProfile["successorCompany"] | null;
+  verifiedRelations: CompanyVerifiedRelation[];
   logoUrl: string | null;
   logoIsProvisional: boolean;
   history: string | null;
@@ -166,14 +182,35 @@ function buildCompanyProfileViewFromProfile(
   const logo = resolveCompanyLogo(entry.slug, stored?.logoUrl);
   const usesGeneratedCatalogCopy =
     stored?.method === "template" || stored?.method === "wikidata";
+  const verifiedRelations = getVerifiedCompanyRelations(entry.slug).map((relation) => {
+    const relatedSlug =
+      relation.direction === "source"
+        ? relation.targetCompanySlug
+        : relation.sourceCompanySlug;
+    const relatedCompany = getCompany(relatedSlug);
+    return {
+      id: relation.id,
+      label: verifiedCompanyRelationLabel(relation.relationshipType, relation.direction),
+      company: {
+        slug: relatedCompany?.slug ?? relatedSlug,
+        name: relatedCompany?.name ?? relatedSlug,
+      },
+      evidenceUrl: relation.provenance.evidenceUrls[0] ?? null,
+    };
+  });
 
   return {
     slug: entry.slug,
     name: stored?.name ?? entry.name,
     catalogEntryCount: games.length,
+    uniqueWorkCount: new Set(games.map((game) => getCatalogWorkKey(game.id))).size,
     developerCatalogEntryCount: entry.asDeveloper?.filter((id) => gameIds.has(id)).length ?? 0,
     publisherCatalogEntryCount: entry.asPublisher?.filter((id) => gameIds.has(id)).length ?? 0,
-    alsoKnownAs: formatCompanyAliases(entity),
+    digitalPublisherCatalogEntryCount:
+      entry.asDigitalPublisher?.filter((id) => gameIds.has(id)).length ?? 0,
+    physicalPublisherCatalogEntryCount:
+      entry.asPhysicalPublisherOrDistributor?.filter((id) => gameIds.has(id)).length ?? 0,
+    alsoKnownAs: formatCompanyAliases(entity, entry.aliasNames),
     wikidataId: stored?.wikidataId ?? entry.wikidataId ?? entity?.wikidataIds?.[0] ?? null,
     foundedYear,
     closedYear,
@@ -184,6 +221,7 @@ function buildCompanyProfileViewFromProfile(
     mergedWithCompany: stored?.mergedWithCompany ?? null,
     predecessorCompany: stored?.predecessorCompany ?? null,
     successorCompany: stored?.successorCompany ?? null,
+    verifiedRelations,
     logoUrl: logo.url,
     logoIsProvisional: logo.provisional,
     // Generated summaries embed catalog counts, so render those figures from the live index.

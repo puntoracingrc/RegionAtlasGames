@@ -1,4 +1,22 @@
 import type { NextConfig } from "next";
+import catalogRouteRedirectsData from "./data/catalog-route-redirects.json";
+
+type CatalogRouteRedirectsData = {
+  redirects: Array<{
+    sourceParams: string[];
+    targetParam: string;
+    permanent: true;
+  }>;
+};
+
+const catalogRouteRedirects = (catalogRouteRedirectsData as CatalogRouteRedirectsData).redirects.flatMap(
+  (redirect) =>
+    redirect.sourceParams.map((sourceParam) => ({
+      source: `/catalogo/${sourceParam}`,
+      destination: `/catalogo/${redirect.targetParam}`,
+      permanent: redirect.permanent,
+    })),
+);
 
 const isDevelopment = process.env.NODE_ENV === "development";
 const contentSecurityPolicy = [
@@ -43,6 +61,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...catalogRouteRedirects,
       {
         source: "/:path*",
         has: [{ type: "host", value: "regionatlas.games" }],
@@ -82,6 +101,11 @@ const nextConfig: NextConfig = {
       "data/covers-report.json",
       "data/covers-upload-one.txt",
       "data/logs/**",
+      "data/research/company-credit-ps4-pal-high-additions-report.*",
+      "data/research/company-credit-ps4-pal-compilations-*",
+      "data/research/ps4-pal-compilations-source.json",
+      "data/research/ps4-pal-high-*.csv",
+      "data/research/ps4-pal-residual-company-research-queue.csv",
       "data/**/*.local.json",
       "public/catalog-details/**",
       "public/mascots/**",

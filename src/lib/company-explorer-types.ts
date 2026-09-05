@@ -117,8 +117,11 @@ export type CompanyCardData = {
   slug: string;
   name: string;
   catalogEntryCount: number;
+  uniqueWorkCount: number;
   developerCatalogEntryCount: number;
   publisherCatalogEntryCount: number;
+  digitalPublisherCatalogEntryCount: number;
+  physicalPublisherCatalogEntryCount: number;
   roleKind: CompanyRoleKind;
   platformSlugs: string[];
   platformPreview: string;

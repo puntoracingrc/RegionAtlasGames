@@ -1,0 +1,1581 @@
+{
+  "schemaVersion": 1,
+  "batchId": "company-credit-ps4-pal-compilations-2026-09-05",
+  "workbook": {
+    "name": "RegionAtlas_PS4_PAL_recopilatorios_resueltos_2026-09-05.xlsx",
+    "sha256": "f3e63293c80e30723a17f1447001fb2be3b7bc6a08c24808caad09f4035b52ef"
+  },
+  "sheets": {
+    "Recopilatorios": [
+      {
+        "recopilatorio": "Annapurna Ultimate Collection",
+        "componentes": 8,
+        "estado": "RESUELTO",
+        "editora_original": "Annapurna Interactive",
+        "edicion_fisica": "iam8bit",
+        "accion_regionatlas": "Registrar ocho relaciones de componente; no asignar desarrolladora única",
+        "fuente_principal": "https://kotaku.com/games/annapurna-interactive-ultimate-collection"
+      },
+      {
+        "recopilatorio": "PlayLink Games Collection",
+        "componentes": 4,
+        "estado": "RESUELTO",
+        "editora_original": "Sony Interactive Entertainment",
+        "edicion_fisica": "Sony Interactive Entertainment",
+        "accion_regionatlas": "Registrar cuatro componentes",
+        "fuente_principal": "https://retrovideogames.nl/product/play-link-for-ps4-4-games-in-1-playstation-4/"
+      },
+      {
+        "recopilatorio": "Terra Trilogy",
+        "componentes": 3,
+        "estado": "RESUELTO",
+        "editora_original": "Funbox Media",
+        "edicion_fisica": "Funbox Media",
+        "accion_regionatlas": "Los tres juegos son de DM Media; puede mostrarse desarrolladora común además de los componentes",
+        "fuente_principal": "https://funboxmedia.co.uk/terra-trilogy-ps4/"
+      },
+      {
+        "recopilatorio": "The Giants: Industry and Transport Bundle",
+        "componentes": 2,
+        "estado": "RESUELTO",
+        "editora_original": "United Independent Entertainment",
+        "edicion_fisica": "United Independent Entertainment",
+        "accion_regionatlas": "Registrar Industry Giant 2 y Transport Giant",
+        "fuente_principal": "https://store.playstation.com/en-gb/product/EP8935-CUSA06505_00-THEGIANTSBUNDEU0"
+      },
+      {
+        "recopilatorio": "Mafia Trilogy",
+        "componentes": 3,
+        "estado": "RESUELTO",
+        "editora_original": "2K Games",
+        "edicion_fisica": "2K Games",
+        "accion_regionatlas": "Separar los tres Definitive Edition",
+        "fuente_principal": "https://store.2k.com/game/buy-mafia-trilogy"
+      },
+      {
+        "recopilatorio": "Star Wars Jedi Knight Collection",
+        "componentes": 2,
+        "estado": "RESUELTO",
+        "editora_original": "LucasArts",
+        "edicion_fisica": "THQ Nordic",
+        "accion_regionatlas": "Conservar desarrollador original Raven y port moderno de Aspyr",
+        "fuente_principal": "https://www.amazon.com/Star-Wars-Jedi-Knight-Collection-PlayStation/dp/B09FCFP89M"
+      },
+      {
+        "recopilatorio": "Sonic Mania Plus and Sonic Forces Double Pack",
+        "componentes": 2,
+        "estado": "RESUELTO",
+        "editora_original": "Sega",
+        "edicion_fisica": "Sega",
+        "accion_regionatlas": "Registrar los dos juegos y sus equipos diferentes",
+        "fuente_principal": "https://www.coolshop.co.uk/product/sonic-mania-plus-and-sonic-forces-double-pack/AK4C8P/"
+      },
+      {
+        "recopilatorio": "Wolfenstein Alt History Collection",
+        "componentes": 4,
+        "estado": "RESUELTO",
+        "editora_original": "Bethesda Softworks",
+        "edicion_fisica": "Bethesda Softworks",
+        "accion_regionatlas": "Registrar cuatro componentes; Youngblood tiene codesarrollo",
+        "fuente_principal": "https://store.playstation.com/en-gb/product/EP1003-CUSA13094_00-WOLFALTHISTORYEU"
+      },
+      {
+        "recopilatorio": "Doctor Who: Duo Bundle",
+        "componentes": 2,
+        "estado": "RESUELTO",
+        "editora_original": "Maze Theory",
+        "edicion_fisica": "Maximum Games",
+        "accion_regionatlas": "Separar Edge of Reality y Lonely Assassins",
+        "fuente_principal": "https://merchandise.thedoctorwhosite.co.uk/doctor-who-the-edge-of-reality-the-lonely-assassins-ps4/"
+      },
+      {
+        "recopilatorio": "Dishonored & Prey: The Arkane Collection",
+        "componentes": 4,
+        "estado": "RESUELTO",
+        "editora_original": "Bethesda Softworks",
+        "edicion_fisica": "Bethesda Softworks",
+        "accion_regionatlas": "Registrar cuatro juegos; diferenciar Arkane Lyon y Arkane Austin",
+        "fuente_principal": "https://www.gamelife.it/en/swp44002-dishonored-prey-the-arkane-collection"
+      },
+      {
+        "recopilatorio": "Dishonored: The Complete Collection",
+        "componentes": 3,
+        "estado": "RESUELTO",
+        "editora_original": "Bethesda Softworks",
+        "edicion_fisica": "Bethesda Softworks",
+        "accion_regionatlas": "Registrar tres juegos y señalar contenido en disco/código cuando sea posible",
+        "fuente_principal": "https://www.amazon.co.uk/Bethesda-5055856430346-Dishonored-Complete-Collection/dp/B0BXH1SQF8"
+      },
+      {
+        "recopilatorio": "Dark Thrones / Witch Hunter Double Pack",
+        "componentes": 2,
+        "estado": "RESUELTO",
+        "editora_original": "Funbox Media",
+        "edicion_fisica": "Funbox Media",
+        "accion_regionatlas": "Ambos desarrollados por NYX Digital bajo licencia de Inlogic Games",
+        "fuente_principal": "https://funboxmedia.co.uk/dark-thrones-witch-hunter-double-pack-ps4/"
+      },
+      {
+        "recopilatorio": "Persona 5 + Persona 5: Dancing in Starlight [2 Hits Pack]",
+        "componentes": 2,
+        "estado": "RESUELTO",
+        "editora_original": "Atlus",
+        "edicion_fisica": "Atlus",
+        "accion_regionatlas": "Registrar ambos juegos; comparten P-Studio pero son obras distintas",
+        "fuente_principal": "https://atlus.com/persona5/"
+      },
+      {
+        "recopilatorio": "Spyro Reignited Trilogy & Crash Bandicoot N. Sane Trilogy",
+        "componentes": 2,
+        "estado": "RESUELTO",
+        "editora_original": "Activision",
+        "edicion_fisica": "Activision",
+        "accion_regionatlas": "Registrar los dos recopilatorios como componentes independientes",
+        "fuente_principal": "https://www.activision.com/games/spyro/spyro-reignited-trilogy"
+      },
+      {
+        "recopilatorio": "Crash Team Racing & Spyro Reignited Trilogy",
+        "componentes": 2,
+        "estado": "RESUELTO",
+        "editora_original": "Activision",
+        "edicion_fisica": "Activision",
+        "accion_regionatlas": "Registrar ambos componentes y sus estudios",
+        "fuente_principal": "https://www.activision.com/games/crash/crash-team-racing-nitro-fueled"
+      },
+      {
+        "recopilatorio": "Dragon Ball FighterZ + Dragon Ball Xenoverse 2",
+        "componentes": 2,
+        "estado": "RESUELTO",
+        "editora_original": "Bandai Namco Entertainment",
+        "edicion_fisica": "Bandai Namco Entertainment Europe",
+        "accion_regionatlas": "Registrar FighterZ y Xenoverse 2 por separado",
+        "fuente_principal": "https://en.bandainamcoent.eu/dragon-ball"
+      },
+      {
+        "recopilatorio": "Dragon Ball Xenoverse 1 & 2 Double Pack",
+        "componentes": 2,
+        "estado": "RESUELTO",
+        "editora_original": "Bandai Namco Entertainment",
+        "edicion_fisica": "Bandai Namco Entertainment Europe",
+        "accion_regionatlas": "Registrar Xenoverse y Xenoverse 2 como dos obras",
+        "fuente_principal": "https://en.bandainamcoent.eu/dragon-ball"
+      },
+      {
+        "recopilatorio": "Tales of Zestiria + Berseria + Vesperia Triple Pack",
+        "componentes": 3,
+        "estado": "RESUELTO",
+        "editora_original": "Bandai Namco Entertainment",
+        "edicion_fisica": "Bandai Namco Entertainment",
+        "accion_regionatlas": "Registrar tres juegos independientes",
+        "fuente_principal": "https://www.pricecharting.com/game/pal-playstation-4/tales-of-zestiria-%2B-tales-of-berseria-%2B-tales-of-vesperia-triple-pack-bundle"
+      },
+      {
+        "recopilatorio": "The Ultimate VR Collection",
+        "componentes": 5,
+        "estado": "RESUELTO",
+        "editora_original": "Varios",
+        "edicion_fisica": "Perp Games",
+        "accion_regionatlas": "Registrar los cinco componentes y su desarrolladora propia",
+        "fuente_principal": "https://www.amazon.co.uk/Ultimate-VR-Collection-Great-Games/dp/B077C2L97W"
+      },
+      {
+        "recopilatorio": "The Truth Is Out There: Mystery Adventure Pack",
+        "componentes": 3,
+        "estado": "RESUELTO",
+        "editora_original": "United Independent Entertainment",
+        "edicion_fisica": "UIG Entertainment",
+        "accion_regionatlas": "Normalizar el título y registrar tres juegos; existe otra ficha con 'Out Here'",
+        "fuente_principal": "https://www.amazon.co.uk/Truth-out-There-Pineview-Nightfall/dp/B093HWDMV4"
+      },
+      {
+        "recopilatorio": "World of Simulators",
+        "componentes": 4,
+        "estado": "RESUELTO",
+        "editora_original": "United Independent Entertainment",
+        "edicion_fisica": "UIG Entertainment",
+        "accion_regionatlas": "Registrar los cuatro simuladores por separado",
+        "fuente_principal": "https://psprices.com/region-gb/game/3418364/world-of-simulators-bundle"
+      },
+      {
+        "recopilatorio": "Wonder Boy Anniversary Collection",
+        "componentes": 6,
+        "estado": "RESUELTO",
+        "editora_original": "ININ Games",
+        "edicion_fisica": "ININ Games / Strictly Limited Games",
+        "accion_regionatlas": "Seis obras y 21 versiones; no contar las 21 versiones como juegos distintos",
+        "fuente_principal": "https://store.playstation.com/en-gb/product/EP6090-CUSA32586_00-WONDERBOYPS4EUXX"
+      },
+      {
+        "recopilatorio": "Wonder Boy Collection",
+        "componentes": 4,
+        "estado": "RESUELTO",
+        "editora_original": "ININ Games",
+        "edicion_fisica": "ININ Games",
+        "accion_regionatlas": "Es una selección menor distinta de Anniversary Collection",
+        "fuente_principal": "https://iningames.com/products/wonder-boy-collection-playstation-4"
+      },
+      {
+        "recopilatorio": "PlayStation VR Demo Disc (PAL Europa)",
+        "componentes": 8,
+        "estado": "RESUELTO_CON_ADVERTENCIA",
+        "editora_original": "Sony Interactive Entertainment",
+        "edicion_fisica": "Sony Interactive Entertainment",
+        "accion_regionatlas": "Usar la lista PAL europea de ocho demos; no mezclar con el disco USA de 18",
+        "fuente_principal": "https://www.gamesradar.com/playstation-vr-comes-with-a-demo-disc-for-8-games-including-driveclub-vr-and-rigs/"
+      }
+    ],
+    "Componentes": [
+      {
+        "recopilatorio": "Annapurna Ultimate Collection",
+        "juego_componente": "Donut County",
+        "desarrolladora": "Ben Esposito",
+        "editora": "Annapurna Interactive",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Annapurna Ultimate Collection",
+        "juego_componente": "Gorogoa",
+        "desarrolladora": "Buried Signal / Jason Roberts",
+        "editora": "Annapurna Interactive",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Annapurna Ultimate Collection",
+        "juego_componente": "Kentucky Route Zero: TV Edition",
+        "desarrolladora": "Cardboard Computer",
+        "editora": "Annapurna Interactive",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Annapurna Ultimate Collection",
+        "juego_componente": "Outer Wilds",
+        "desarrolladora": "Mobius Digital",
+        "editora": "Annapurna Interactive",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Annapurna Ultimate Collection",
+        "juego_componente": "Sayonara Wild Hearts",
+        "desarrolladora": "Simogo",
+        "editora": "Annapurna Interactive",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Annapurna Ultimate Collection",
+        "juego_componente": "Telling Lies",
+        "desarrolladora": "Half Mermaid / Sam Barlow",
+        "editora": "Annapurna Interactive",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Annapurna Ultimate Collection",
+        "juego_componente": "Wattam",
+        "desarrolladora": "Funomena",
+        "editora": "Annapurna Interactive",
+        "notas": "Diseñado por Keita Takahashi"
+      },
+      {
+        "recopilatorio": "Annapurna Ultimate Collection",
+        "juego_componente": "What Remains of Edith Finch",
+        "desarrolladora": "Giant Sparrow",
+        "editora": "Annapurna Interactive",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "PlayLink Games Collection",
+        "juego_componente": "Hidden Agenda",
+        "desarrolladora": "Supermassive Games",
+        "editora": "Sony Interactive Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "PlayLink Games Collection",
+        "juego_componente": "Knowledge is Power",
+        "desarrolladora": "Wish Studios",
+        "editora": "Sony Interactive Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "PlayLink Games Collection",
+        "juego_componente": "SingStar Celebration",
+        "desarrolladora": "London Studio",
+        "editora": "Sony Interactive Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "PlayLink Games Collection",
+        "juego_componente": "That's You!",
+        "desarrolladora": "Wish Studios",
+        "editora": "Sony Interactive Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Terra Trilogy",
+        "juego_componente": "Terra Lander DX",
+        "desarrolladora": "DM Media / Daniel Gallagher",
+        "editora": "Funbox Media",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Terra Trilogy",
+        "juego_componente": "Terra Lander II: Rockslide Rescue",
+        "desarrolladora": "DM Media / Daniel Gallagher",
+        "editora": "Funbox Media",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Terra Trilogy",
+        "juego_componente": "Terra Bomber",
+        "desarrolladora": "DM Media / Daniel Gallagher",
+        "editora": "Funbox Media",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "The Giants: Industry and Transport Bundle",
+        "juego_componente": "Industry Giant 2",
+        "desarrolladora": "Fancy Bytes / Reactor",
+        "editora": "United Independent Entertainment",
+        "notas": "Versión PS4"
+      },
+      {
+        "recopilatorio": "The Giants: Industry and Transport Bundle",
+        "juego_componente": "Transport Giant",
+        "desarrolladora": "Fancy Bytes / Reactor",
+        "editora": "United Independent Entertainment",
+        "notas": "Versión PS4"
+      },
+      {
+        "recopilatorio": "Mafia Trilogy",
+        "juego_componente": "Mafia: Definitive Edition",
+        "desarrolladora": "Hangar 13",
+        "editora": "2K Games",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Mafia Trilogy",
+        "juego_componente": "Mafia II: Definitive Edition",
+        "desarrolladora": "d3t / Hangar 13",
+        "editora": "2K Games",
+        "notas": "Remaster del juego de 2K Czech"
+      },
+      {
+        "recopilatorio": "Mafia Trilogy",
+        "juego_componente": "Mafia III: Definitive Edition",
+        "desarrolladora": "Hangar 13",
+        "editora": "2K Games",
+        "notas": "Juego y contenidos"
+      },
+      {
+        "recopilatorio": "Star Wars Jedi Knight Collection",
+        "juego_componente": "Star Wars Jedi Knight II: Jedi Outcast",
+        "desarrolladora": "Raven Software; port PS4 de Aspyr",
+        "editora": "LucasArts / THQ Nordic",
+        "notas": "Conservar crédito original y port"
+      },
+      {
+        "recopilatorio": "Star Wars Jedi Knight Collection",
+        "juego_componente": "Star Wars Jedi Knight: Jedi Academy",
+        "desarrolladora": "Raven Software; port PS4 de Aspyr",
+        "editora": "LucasArts / THQ Nordic",
+        "notas": "Conservar crédito original y port"
+      },
+      {
+        "recopilatorio": "Sonic Mania Plus and Sonic Forces Double Pack",
+        "juego_componente": "Sonic Mania Plus",
+        "desarrolladora": "Christian Whitehead / Headcannon / PagodaWest Games",
+        "editora": "Sega",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Sonic Mania Plus and Sonic Forces Double Pack",
+        "juego_componente": "Sonic Forces",
+        "desarrolladora": "Sonic Team",
+        "editora": "Sega",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Wolfenstein Alt History Collection",
+        "juego_componente": "Wolfenstein: The New Order",
+        "desarrolladora": "MachineGames",
+        "editora": "Bethesda Softworks",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Wolfenstein Alt History Collection",
+        "juego_componente": "Wolfenstein: The Old Blood",
+        "desarrolladora": "MachineGames",
+        "editora": "Bethesda Softworks",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Wolfenstein Alt History Collection",
+        "juego_componente": "Wolfenstein II: The New Colossus",
+        "desarrolladora": "MachineGames",
+        "editora": "Bethesda Softworks",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Wolfenstein Alt History Collection",
+        "juego_componente": "Wolfenstein: Youngblood",
+        "desarrolladora": "MachineGames / Arkane Studios",
+        "editora": "Bethesda Softworks",
+        "notas": "Codesarrollo"
+      },
+      {
+        "recopilatorio": "Doctor Who: Duo Bundle",
+        "juego_componente": "Doctor Who: The Edge of Reality",
+        "desarrolladora": "Maze Theory",
+        "editora": "Maze Theory / Maximum Games",
+        "notas": "Deluxe Edition"
+      },
+      {
+        "recopilatorio": "Doctor Who: Duo Bundle",
+        "juego_componente": "Doctor Who: The Lonely Assassins",
+        "desarrolladora": "Kaigan Games / Maze Theory",
+        "editora": "Maze Theory / Maximum Games",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Dishonored & Prey: The Arkane Collection",
+        "juego_componente": "Dishonored: Definitive Edition",
+        "desarrolladora": "Arkane Studios",
+        "editora": "Bethesda Softworks",
+        "notas": "Juego completo y DLC"
+      },
+      {
+        "recopilatorio": "Dishonored & Prey: The Arkane Collection",
+        "juego_componente": "Dishonored 2",
+        "desarrolladora": "Arkane Studios",
+        "editora": "Bethesda Softworks",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Dishonored & Prey: The Arkane Collection",
+        "juego_componente": "Dishonored: Death of the Outsider",
+        "desarrolladora": "Arkane Studios",
+        "editora": "Bethesda Softworks",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Dishonored & Prey: The Arkane Collection",
+        "juego_componente": "Prey",
+        "desarrolladora": "Arkane Studios Austin",
+        "editora": "Bethesda Softworks",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Dishonored: The Complete Collection",
+        "juego_componente": "Dishonored: Definitive Edition",
+        "desarrolladora": "Arkane Studios",
+        "editora": "Bethesda Softworks",
+        "notas": "Código digital según edición física"
+      },
+      {
+        "recopilatorio": "Dishonored: The Complete Collection",
+        "juego_componente": "Dishonored 2",
+        "desarrolladora": "Arkane Studios",
+        "editora": "Bethesda Softworks",
+        "notas": "Código digital según edición física"
+      },
+      {
+        "recopilatorio": "Dishonored: The Complete Collection",
+        "juego_componente": "Dishonored: Death of the Outsider",
+        "desarrolladora": "Arkane Studios",
+        "editora": "Bethesda Softworks",
+        "notas": "Disco según edición física"
+      },
+      {
+        "recopilatorio": "Dark Thrones / Witch Hunter Double Pack",
+        "juego_componente": "Dark Thrones",
+        "desarrolladora": "NYX Digital; licencia de Inlogic Games",
+        "editora": "Funbox Media",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Dark Thrones / Witch Hunter Double Pack",
+        "juego_componente": "Witch Hunter",
+        "desarrolladora": "NYX Digital; licencia de Inlogic Games",
+        "editora": "Funbox Media",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Persona 5 + Persona 5: Dancing in Starlight [2 Hits Pack]",
+        "juego_componente": "Persona 5",
+        "desarrolladora": "P-Studio",
+        "editora": "Atlus",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Persona 5 + Persona 5: Dancing in Starlight [2 Hits Pack]",
+        "juego_componente": "Persona 5: Dancing in Starlight",
+        "desarrolladora": "P-Studio",
+        "editora": "Atlus",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Spyro Reignited Trilogy & Crash Bandicoot N. Sane Trilogy",
+        "juego_componente": "Spyro Reignited Trilogy",
+        "desarrolladora": "Toys for Bob",
+        "editora": "Activision",
+        "notas": "Recopilatorio componente"
+      },
+      {
+        "recopilatorio": "Spyro Reignited Trilogy & Crash Bandicoot N. Sane Trilogy",
+        "juego_componente": "Crash Bandicoot N. Sane Trilogy",
+        "desarrolladora": "Vicarious Visions",
+        "editora": "Activision",
+        "notas": "Recopilatorio componente"
+      },
+      {
+        "recopilatorio": "Crash Team Racing & Spyro Reignited Trilogy",
+        "juego_componente": "Crash Team Racing Nitro-Fueled",
+        "desarrolladora": "Beenox",
+        "editora": "Activision",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Crash Team Racing & Spyro Reignited Trilogy",
+        "juego_componente": "Spyro Reignited Trilogy",
+        "desarrolladora": "Toys for Bob",
+        "editora": "Activision",
+        "notas": "Recopilatorio componente"
+      },
+      {
+        "recopilatorio": "Dragon Ball FighterZ + Dragon Ball Xenoverse 2",
+        "juego_componente": "Dragon Ball FighterZ",
+        "desarrolladora": "Arc System Works",
+        "editora": "Bandai Namco Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Dragon Ball FighterZ + Dragon Ball Xenoverse 2",
+        "juego_componente": "Dragon Ball Xenoverse 2",
+        "desarrolladora": "Dimps",
+        "editora": "Bandai Namco Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Dragon Ball Xenoverse 1 & 2 Double Pack",
+        "juego_componente": "Dragon Ball Xenoverse",
+        "desarrolladora": "Dimps",
+        "editora": "Bandai Namco Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Dragon Ball Xenoverse 1 & 2 Double Pack",
+        "juego_componente": "Dragon Ball Xenoverse 2",
+        "desarrolladora": "Dimps",
+        "editora": "Bandai Namco Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Tales of Zestiria + Berseria + Vesperia Triple Pack",
+        "juego_componente": "Tales of Zestiria",
+        "desarrolladora": "Bandai Namco Studios",
+        "editora": "Bandai Namco Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Tales of Zestiria + Berseria + Vesperia Triple Pack",
+        "juego_componente": "Tales of Berseria",
+        "desarrolladora": "Bandai Namco Studios",
+        "editora": "Bandai Namco Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Tales of Zestiria + Berseria + Vesperia Triple Pack",
+        "juego_componente": "Tales of Vesperia: Definitive Edition",
+        "desarrolladora": "Bandai Namco Studios; remaster de QLOC",
+        "editora": "Bandai Namco Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "The Ultimate VR Collection",
+        "juego_componente": "DEXED",
+        "desarrolladora": "Ninja Theory",
+        "editora": "Ninja Theory / Perp Games",
+        "notas": "Juego completo PS VR"
+      },
+      {
+        "recopilatorio": "The Ultimate VR Collection",
+        "juego_componente": "Bandit Six: Combined Arms",
+        "desarrolladora": "Climax Studios",
+        "editora": "Climax Studios / Perp Games",
+        "notas": "Juego completo PS VR"
+      },
+      {
+        "recopilatorio": "The Ultimate VR Collection",
+        "juego_componente": "Unearthing Mars",
+        "desarrolladora": "Winking Entertainment",
+        "editora": "Winking Entertainment / Perp Games",
+        "notas": "Juego completo PS VR"
+      },
+      {
+        "recopilatorio": "The Ultimate VR Collection",
+        "juego_componente": "FATED: The Silent Oath",
+        "desarrolladora": "Frima Studio",
+        "editora": "Frima Originals / Perp Games",
+        "notas": "Juego completo PS VR"
+      },
+      {
+        "recopilatorio": "The Ultimate VR Collection",
+        "juego_componente": "Korix",
+        "desarrolladora": "StellarVR",
+        "editora": "StellarVR / Perp Games",
+        "notas": "Juego completo PS VR"
+      },
+      {
+        "recopilatorio": "The Truth Is Out There: Mystery Adventure Pack",
+        "juego_componente": "Pineview Drive",
+        "desarrolladora": "VIS-Games",
+        "editora": "United Independent Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "The Truth Is Out There: Mystery Adventure Pack",
+        "juego_componente": "Joe's Diner",
+        "desarrolladora": "VIS-Games",
+        "editora": "United Independent Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "The Truth Is Out There: Mystery Adventure Pack",
+        "juego_componente": "The Nightfall",
+        "desarrolladora": "VIS-Games",
+        "editora": "United Independent Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "World of Simulators",
+        "juego_componente": "Firefighters: The Simulation",
+        "desarrolladora": "VIS-Games",
+        "editora": "United Independent Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "World of Simulators",
+        "juego_componente": "Professional Construction: The Simulation",
+        "desarrolladora": "VIS-Games",
+        "editora": "United Independent Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "World of Simulators",
+        "juego_componente": "Professional Farmer 2017",
+        "desarrolladora": "VIS-Games / Kittehface Software",
+        "editora": "United Independent Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "World of Simulators",
+        "juego_componente": "Forestry 2017: The Simulation",
+        "desarrolladora": "Joindots / SilentFuture",
+        "editora": "United Independent Entertainment",
+        "notas": "Juego completo"
+      },
+      {
+        "recopilatorio": "Wonder Boy Anniversary Collection",
+        "juego_componente": "Wonder Boy",
+        "desarrolladora": "Westone Bit Entertainment; port de Bliss Brain",
+        "editora": "ININ Games",
+        "notas": "6 versiones incluidas"
+      },
+      {
+        "recopilatorio": "Wonder Boy Anniversary Collection",
+        "juego_componente": "Wonder Boy in Monster Land",
+        "desarrolladora": "Westone Bit Entertainment; port de Bliss Brain",
+        "editora": "ININ Games",
+        "notas": "4 versiones incluidas"
+      },
+      {
+        "recopilatorio": "Wonder Boy Anniversary Collection",
+        "juego_componente": "Wonder Boy III: Monster Lair",
+        "desarrolladora": "Westone Bit Entertainment; port de Bliss Brain",
+        "editora": "ININ Games",
+        "notas": "2 versiones incluidas"
+      },
+      {
+        "recopilatorio": "Wonder Boy Anniversary Collection",
+        "juego_componente": "Wonder Boy III: The Dragon's Trap",
+        "desarrolladora": "Westone Bit Entertainment; port de Bliss Brain",
+        "editora": "ININ Games",
+        "notas": "4 versiones incluidas"
+      },
+      {
+        "recopilatorio": "Wonder Boy Anniversary Collection",
+        "juego_componente": "Wonder Boy in Monster World",
+        "desarrolladora": "Westone Bit Entertainment; port de Bliss Brain",
+        "editora": "ININ Games",
+        "notas": "3 versiones incluidas"
+      },
+      {
+        "recopilatorio": "Wonder Boy Anniversary Collection",
+        "juego_componente": "Monster World IV",
+        "desarrolladora": "Westone Bit Entertainment; port de Bliss Brain",
+        "editora": "ININ Games",
+        "notas": "2 versiones incluidas"
+      },
+      {
+        "recopilatorio": "Wonder Boy Collection",
+        "juego_componente": "Wonder Boy",
+        "desarrolladora": "Westone Bit Entertainment; port de Bliss Brain",
+        "editora": "ININ Games",
+        "notas": "Juego clásico"
+      },
+      {
+        "recopilatorio": "Wonder Boy Collection",
+        "juego_componente": "Wonder Boy in Monster Land",
+        "desarrolladora": "Westone Bit Entertainment; port de Bliss Brain",
+        "editora": "ININ Games",
+        "notas": "Juego clásico"
+      },
+      {
+        "recopilatorio": "Wonder Boy Collection",
+        "juego_componente": "Wonder Boy in Monster World",
+        "desarrolladora": "Westone Bit Entertainment; port de Bliss Brain",
+        "editora": "ININ Games",
+        "notas": "Juego clásico"
+      },
+      {
+        "recopilatorio": "Wonder Boy Collection",
+        "juego_componente": "Monster World IV",
+        "desarrolladora": "Westone Bit Entertainment; port de Bliss Brain",
+        "editora": "ININ Games",
+        "notas": "Juego clásico"
+      },
+      {
+        "recopilatorio": "PlayStation VR Demo Disc (PAL Europa)",
+        "juego_componente": "DriveClub VR",
+        "desarrolladora": "Evolution Studios",
+        "editora": "Sony Interactive Entertainment",
+        "notas": "Demo"
+      },
+      {
+        "recopilatorio": "PlayStation VR Demo Disc (PAL Europa)",
+        "juego_componente": "PlayStation VR Worlds",
+        "desarrolladora": "London Studio",
+        "editora": "Sony Interactive Entertainment",
+        "notas": "Demo: Ocean Descent"
+      },
+      {
+        "recopilatorio": "PlayStation VR Demo Disc (PAL Europa)",
+        "juego_componente": "RIGS: Mechanized Combat League",
+        "desarrolladora": "Guerrilla Cambridge",
+        "editora": "Sony Interactive Entertainment",
+        "notas": "Demo"
+      },
+      {
+        "recopilatorio": "PlayStation VR Demo Disc (PAL Europa)",
+        "juego_componente": "Tumble VR",
+        "desarrolladora": "Supermassive Games",
+        "editora": "Sony Interactive Entertainment",
+        "notas": "Demo"
+      },
+      {
+        "recopilatorio": "PlayStation VR Demo Disc (PAL Europa)",
+        "juego_componente": "Battlezone",
+        "desarrolladora": "Rebellion Developments",
+        "editora": "Rebellion Developments",
+        "notas": "Demo"
+      },
+      {
+        "recopilatorio": "PlayStation VR Demo Disc (PAL Europa)",
+        "juego_componente": "EVE: Valkyrie",
+        "desarrolladora": "CCP Games",
+        "editora": "CCP Games",
+        "notas": "Demo"
+      },
+      {
+        "recopilatorio": "PlayStation VR Demo Disc (PAL Europa)",
+        "juego_componente": "Wayward Sky",
+        "desarrolladora": "Uber Entertainment",
+        "editora": "Uber Entertainment",
+        "notas": "Demo"
+      },
+      {
+        "recopilatorio": "PlayStation VR Demo Disc (PAL Europa)",
+        "juego_componente": "Headmaster",
+        "desarrolladora": "Frame Interactive",
+        "editora": "Frame Interactive",
+        "notas": "Demo"
+      }
+    ],
+    "Duplicados catálogo": [
+      {
+        "titulo_canonico": "The Truth Is Out There: Mystery Adventure Pack",
+        "variante_catalogo": "The Truth is Out Here Mystery Adventure Pack",
+        "clasificacion": "MISMO_PRODUCTO / VARIANTE_DE_TITULO",
+        "accion_recomendada": "Conservar una entidad y enlazar ambas fichas; comprobar EAN/CUSA antes de borrar una"
+      },
+      {
+        "titulo_canonico": "Dishonored & Prey: The Arkane Collection",
+        "variante_catalogo": "Dishonored & Pray Arkane Collection",
+        "clasificacion": "MISMO_PRODUCTO / ERRATA",
+        "accion_recomendada": "Corregir Pray → Prey y consolidar si los identificadores físicos coinciden"
+      },
+      {
+        "titulo_canonico": "Dishonored & Prey: The Arkane Collection",
+        "variante_catalogo": "Dishonored Prey: The Arkane Collection",
+        "clasificacion": "MISMO_PRODUCTO / VARIANTE_DE_TITULO",
+        "accion_recomendada": "Normalizar puntuación; no crear otro recopilatorio"
+      }
+    ],
+    "Lote 8 solicitado": [
+      {
+        "caso": 1,
+        "paquete": "Crash Team Racing + Spyro Reignited Trilogy",
+        "clasificacion": "PRODUCTO_DISTINTO",
+        "publisher_paquete": "Activision",
+        "componentes_y_desarrolladoras": "Crash Team Racing Nitro-Fueled — Beenox; Spyro Reignited Trilogy — Toys for Bob",
+        "accion_regionatlas": "Registrar dos componentes; Spyro contiene tres remakes internos",
+        "fuente": "https://kotaku.com/games/crash-team-racing-nitro-fueled-plus-spyro-reignited-trilogy-bundle"
+      },
+      {
+        "caso": 2,
+        "paquete": "Dark Thrones + Witch Hunter Double Pack",
+        "clasificacion": "PRODUCTO_DISTINTO",
+        "publisher_paquete": "Funbox Media",
+        "componentes_y_desarrolladoras": "Dark Thrones — NYX Digital; Witch Hunter — NYX Digital",
+        "accion_regionatlas": "Conservar Inlogic Games como licenciante, no como segundo juego o editora física",
+        "fuente": "https://funboxmedia.co.uk/dark-thrones-witch-hunter-double-pack-ps4/"
+      },
+      {
+        "caso": 3,
+        "paquete": "Dishonored & Prey: The Arkane Collection",
+        "clasificacion": "PRODUCTO_CANONICO",
+        "publisher_paquete": "Bethesda Softworks",
+        "componentes_y_desarrolladoras": "Dishonored: Definitive Edition — Arkane Studios; Dishonored 2 — Arkane Lyon; Death of the Outsider — Arkane Lyon; Prey — Arkane Austin",
+        "accion_regionatlas": "Registrar cuatro componentes y diferenciar Lyon/Austin",
+        "fuente": "https://www.amazon.co.uk/Dishonored-Prey-Arkane-Collection-PS4/dp/B08LJ3LXGG"
+      },
+      {
+        "caso": 4,
+        "paquete": "Dishonored: The Complete Collection",
+        "clasificacion": "PRODUCTO_DISTINTO",
+        "publisher_paquete": "Bethesda Softworks",
+        "componentes_y_desarrolladoras": "Dishonored: Definitive Edition — Arkane Studios; Dishonored 2 — Arkane Lyon; Death of the Outsider — Arkane Lyon",
+        "accion_regionatlas": "Registrar tres componentes; disco/código es atributo de la edición",
+        "fuente": "https://www.amazon.de/Dishonored-Complete-Collection-PlayStation-4/dp/B088S1YXRS"
+      },
+      {
+        "caso": 5,
+        "paquete": "Dishonored Prey: The Arkane Collection",
+        "clasificacion": "DUPLICADO_DEL_CASO_3",
+        "publisher_paquete": "Bethesda Softworks",
+        "componentes_y_desarrolladoras": "Los mismos cuatro componentes del caso 3",
+        "accion_regionatlas": "Normalizar como Dishonored & Prey: The Arkane Collection; comprobar EAN/CUSA antes de eliminar la ficha duplicada",
+        "fuente": "https://www.amazon.co.uk/Dishonored-Prey-Arkane-Collection-PS4/dp/B08LJ3LXGG"
+      },
+      {
+        "caso": 6,
+        "paquete": "Doctor Who: Duo Bundle",
+        "clasificacion": "PRODUCTO_DISTINTO",
+        "publisher_paquete": "Maximum Games",
+        "componentes_y_desarrolladoras": "The Edge of Reality — Maze Theory / Just Add Water; The Lonely Assassins — Kaigan Games / Maze Theory",
+        "accion_regionatlas": "Registrar dos componentes; cosméticos y pegatinas no son juegos",
+        "fuente": "https://www.amazon.com/Doctor-Who-Duo-Bundle-PlayStation-4/dp/B0B2F85CRN"
+      },
+      {
+        "caso": 7,
+        "paquete": "Dragon Ball FighterZ + Dragon Ball Xenoverse 2",
+        "clasificacion": "PRODUCTO_DISTINTO",
+        "publisher_paquete": "Bandai Namco Entertainment",
+        "componentes_y_desarrolladoras": "Dragon Ball FighterZ — Arc System Works; Dragon Ball Xenoverse 2 — Dimps",
+        "accion_regionatlas": "Registrar dos componentes con desarrolladoras diferentes",
+        "fuente": "https://as.com/meristation/2021/11/12/noticias/1636700232_176025.html"
+      },
+      {
+        "caso": 8,
+        "paquete": "Dragon Ball Xenoverse 1 & 2 Double Pack",
+        "clasificacion": "PRODUCTO_DISTINTO",
+        "publisher_paquete": "Bandai Namco Entertainment",
+        "componentes_y_desarrolladoras": "Dragon Ball Xenoverse — Dimps; Dragon Ball Xenoverse 2 — Dimps",
+        "accion_regionatlas": "Registrar dos componentes aunque compartan desarrolladora; conservar Bandai Namco Games como nombre histórico del primer editor",
+        "fuente": "https://www.ebay.co.uk/itm/116801380430"
+      }
+    ],
+    "Plataforma incorrecta": [
+      {
+        "titulo_catalogo": "Marvel Spider-Man: El Reino de las Sombras",
+        "identidad_correcta": "Spider-Man: Web of Shadows",
+        "plataformas_reales": "PS3 / Xbox 360 / Wii / PC; también versiones PS2, PSP y DS",
+        "version_ps4": "NO",
+        "desarrolladora": "Shaba Games / Treyarch (versión PS3)",
+        "publisher": "Activision",
+        "accion_regionatlas": "EXCLUIR_DE_PS4",
+        "motivo": "No tuvo SKU ni edición nativa de PS4",
+        "fuente": "https://www.mobygames.com/game/41616/spider-man-web-of-shadows/"
+      },
+      {
+        "titulo_catalogo": "Ratchet & Clank: Atrapados en el tiempo",
+        "identidad_correcta": "Ratchet & Clank Future: A Crack in Time",
+        "plataformas_reales": "PlayStation 3",
+        "version_ps4": "NO",
+        "desarrolladora": "Insomniac Games",
+        "publisher": "Sony Computer Entertainment",
+        "accion_regionatlas": "EXCLUIR_DE_PS4",
+        "motivo": "Su disponibilidad posterior mediante streaming no lo convierte en juego de PS4",
+        "fuente": "https://blog.playstation.com/2021/06/04/celebrating-the-evolution-of-ratchet-clank-on-playstation/"
+      },
+      {
+        "titulo_catalogo": "Ratchet & Clank: En busca del tesoro",
+        "identidad_correcta": "Ratchet & Clank Future: Quest for Booty",
+        "plataformas_reales": "PlayStation 3",
+        "version_ps4": "NO",
+        "desarrolladora": "Insomniac Games",
+        "publisher": "Sony Computer Entertainment",
+        "accion_regionatlas": "EXCLUIR_DE_PS4",
+        "motivo": "PlayStation Plus lo identifica expresamente como título de PS3",
+        "fuente": "https://blog.playstation.com/2022/11/04/celebrating-20-years-of-ratchet-clank/"
+      }
+    ],
+    "Identidad ambigua": [
+      {
+        "titulo_catalogo": "[Not For Resale]",
+        "identidad_correcta": "NO_ES_UN_JUEGO",
+        "plataforma": "No aplicable",
+        "desarrolladora": "No aplicable",
+        "publisher": "No aplicable",
+        "lanzamiento": "No aplicable",
+        "accion_regionatlas": "ELIMINAR_COMO_FICHA_GENERICA",
+        "conclusion": "Not For Resale es una marca de variante que aparece en copias de distintos juegos incluidas en packs. No debe existir como juego independiente. Cada ejemplar debe asociarse a su título real y conservar Not For Resale como atributo de edición coleccionable, con valoración propia si procede."
+      },
+      {
+        "titulo_catalogo": "RPG Maker",
+        "identidad_correcta": "RPG MAKER WITH",
+        "plataforma": "PlayStation 4",
+        "desarrolladora": "Gotcha Gotcha Games Inc.",
+        "publisher": "NIS America",
+        "lanzamiento": "2025-02-21 (Occidente)",
+        "accion_regionatlas": "RENOMBRAR_Y_PUBLICAR",
+        "conclusion": "La portada aportada identifica inequívocamente RPG MAKER WITH. NIS America es publisher; no es la desarrolladora.",
+        "fuente": "https://nisamerica.com/rpg-maker-with/"
+      },
+      {
+        "titulo_catalogo": "Cars",
+        "identidad_correcta": "Disney/Pixar Cars",
+        "plataforma": "PlayStation 2",
+        "desarrolladora": "Rainbow Studios",
+        "publisher": "THQ",
+        "lanzamiento": "2006",
+        "accion_regionatlas": "MOVER_A_PS2",
+        "conclusion": "La portada aportada corresponde al juego de Rayo McQueen para PS2, no a Cars 3 ni a Project CARS.",
+        "fuente": "https://ps2.gamespy.com/playstation-2/disneypixars-cars/"
+      }
+    ],
+    "Históricos y codesarrollo": [
+      {
+        "tipo": "RECOPILATORIO_HISTORICO",
+        "titulo": "Wonder Boy Anniversary Collection",
+        "alcance": "6 juegos / 21 versiones",
+        "desarrollador_original": "Westone Bit Entertainment",
+        "responsable_moderno": "Bliss Brain",
+        "publisher": "Bliss Brain; edición física de Strictly Limited Games / ININ Games",
+        "accion_regionatlas": "Mantener Westone como desarrolladora original de cada obra; Bliss Brain solo como responsable de los ports y funciones modernas",
+        "fuente": "https://blissbrain.co.jp/wonder-boy-anniversary-collection/"
+      },
+      {
+        "tipo": "RECOPILATORIO_HISTORICO",
+        "titulo": "Wonder Boy Collection",
+        "alcance": "4 juegos",
+        "desarrollador_original": "Westone Bit Entertainment",
+        "responsable_moderno": "Bliss Brain",
+        "publisher": "Bliss Brain / ININ Games",
+        "accion_regionatlas": "Mantener los créditos originales por componente; no sustituir Westone por Bliss Brain",
+        "fuente": "https://iningames.com/products/wonder-boy-collection-playstation-4"
+      },
+      {
+        "tipo": "CODESARROLLO",
+        "titulo": "Mindtaker",
+        "alcance": "1 juego",
+        "desarrollador_original": "Relevo Videogames + Virtualware",
+        "responsable_moderno": "No aplicable",
+        "publisher": "Por confirmar en la ficha comercial",
+        "accion_regionatlas": "Registrar ambas compañías como codesarrolladoras; no elegir una sola",
+        "fuente": "https://www.devuego.es/blog/2016/06/06/relevo-y-virtualware-se-alian-para-crear-mindtaker-un-videojuego-de-terror-para-playstation-4-y-pc/"
+      }
+    ],
+    "Lote editorial 01": [
+      {
+        "numero": 0,
+        "titulo_edicion": "Adventure Academia: The Fractured Continent",
+        "desarrolladora": "Acquire",
+        "publisher_juego": "PQube",
+        "publisher_distribuidor_fisico": "PQube",
+        "clasificacion": "CREDITOS_SEPARADOS",
+        "conclusion": "Acquire desarrolla; PQube publica y distribuye la edición occidental",
+        "fuente": "https://pqube.co.uk/games/adventure-academia-the-fractured-continent/"
+      },
+      {
+        "numero": 1,
+        "titulo_edicion": "Air Conflicts: Secret Wars Ultimate Edition",
+        "desarrolladora": "Games Farm",
+        "publisher_juego": "2tainment GmbH",
+        "publisher_distribuidor_fisico": "2tainment GmbH",
+        "clasificacion": "CREDITOS_SEPARADOS",
+        "conclusion": "En PS4 PAL: Games Farm desarrolla y 2tainment publica",
+        "fuente": "https://store.playstation.com/nl-NL/product/EP2607-CUSA05482_00-ACSECRETWARS0000"
+      },
+      {
+        "numero": 2,
+        "titulo_edicion": "Armored Core VI: Fires of Rubicon Collector's Edition",
+        "desarrolladora": "FromSoftware, Inc.",
+        "publisher_juego": "Bandai Namco Entertainment",
+        "publisher_distribuidor_fisico": "Bandai Namco Entertainment",
+        "clasificacion": "VARIANTE_EDICION",
+        "conclusion": "Mismo juego y créditos que la edición estándar; conservar contenidos y valoración propios de Collector's Edition",
+        "fuente": "https://en.bandainamcoent.eu/armored-core/armored-core-vi-fires-of-rubicon"
+      },
+      {
+        "numero": 3,
+        "titulo_edicion": "Armored Core VI: Fires of Rubicon Launch Edition",
+        "desarrolladora": "FromSoftware, Inc.",
+        "publisher_juego": "Bandai Namco Entertainment",
+        "publisher_distribuidor_fisico": "Bandai Namco Entertainment",
+        "clasificacion": "VARIANTE_EDICION",
+        "conclusion": "No es otro juego: edición de lanzamiento con póster, tarjetas y pegatinas",
+        "fuente": "https://en.bandainamcoent.eu/armored-core/armored-core-vi-fires-of-rubicon"
+      },
+      {
+        "numero": 4,
+        "titulo_edicion": "Batman: Arkham VR",
+        "desarrolladora": "Rocksteady Studios",
+        "publisher_juego": "Warner Bros. Interactive Entertainment",
+        "publisher_distribuidor_fisico": "Warner Bros. Interactive Entertainment",
+        "clasificacion": "CORREGIR_DESARROLLADORA",
+        "conclusion": "WARNER BROS. INTERACTIVE y Warner Bros. Interactive son el mismo publisher; Rocksteady es la desarrolladora",
+        "fuente": "https://rocksteadyltd.com/"
+      },
+      {
+        "numero": 5,
+        "titulo_edicion": "Blasphemous Coleccionista",
+        "desarrolladora": "The Game Kitchen",
+        "publisher_juego": "Team17",
+        "publisher_distribuidor_fisico": "Selecta Play",
+        "clasificacion": "CORREGIR_Y_SEPARAR_ROLES",
+        "conclusion": "The Game Kitchen desarrolla; Team17 publica el juego; Selecta Play prepara/distribuye la edición física coleccionista",
+        "fuente": "https://www.pricecharting.com/game/pal-playstation-4/blasphemous-collector%27s-edition"
+      },
+      {
+        "numero": 6,
+        "titulo_edicion": "Classic Racers Elite",
+        "desarrolladora": "Vision Réelle",
+        "publisher_juego": "Funbox Media",
+        "publisher_distribuidor_fisico": "Funbox Media",
+        "clasificacion": "CREDITOS_SEPARADOS",
+        "conclusion": "Vision Réelle desarrolla; Funbox Media publica las versiones física y digital",
+        "fuente": "https://funboxmedia.co.uk/classic-racers-elite-ps4/"
+      },
+      {
+        "numero": 7,
+        "titulo_edicion": "Cyberpunk 2077 Samurai Pack",
+        "desarrolladora": "CD Projekt RED",
+        "publisher_juego": "CD Projekt",
+        "publisher_distribuidor_fisico": "Por confirmar según EAN del pack",
+        "clasificacion": "VARIANTE_EDICION",
+        "conclusion": "CD Projekt RED es el estudio desarrollador del grupo CD Projekt; Samurai Pack debe tratarse como variante/promoción, no como juego distinto",
+        "fuente": "https://www.cyberpunk.net/"
+      },
+      {
+        "numero": 8,
+        "titulo_edicion": "Dark Souls II: Scholar of the First Sin [Not for Resale]",
+        "desarrolladora": "FromSoftware",
+        "publisher_juego": "Bandai Namco Entertainment",
+        "publisher_distribuidor_fisico": "Incluida en bundle de consola",
+        "clasificacion": "VARIANTE_NOT_FOR_RESALE",
+        "conclusion": "Es el mismo juego; Not for Resale es atributo de una copia de bundle con posible valoración independiente",
+        "fuente": "https://www.rewayverkopen.nl/products/dark-souls-ii-scholar-of-the-first-sin-not-for-resale-playstation-4"
+      },
+      {
+        "numero": 9,
+        "titulo_edicion": "Date A Live: Rio Reincarnation",
+        "desarrolladora": "Idea Factory / Compile Heart / Sting",
+        "publisher_juego": "Reef Entertainment (PS Store PAL)",
+        "publisher_distribuidor_fisico": "Idea Factory International / Reef Entertainment",
+        "clasificacion": "CREDITOS_REGIONALES",
+        "conclusion": "El PS Store europeo acredita desarrollo a Idea Factory y publicación PAL a Reef; IFI actúa como licenciante/editor según territorio",
+        "fuente": "https://store.playstation.com/de-de/product/EP4060-CUSA15766_00-DATEALIVERIOREIN"
+      },
+      {
+        "numero": 10,
+        "titulo_edicion": "Daymare 1994: Sandcastle",
+        "desarrolladora": "Invader Studios",
+        "publisher_juego": "Leonardo Interactive",
+        "publisher_distribuidor_fisico": "Leonardo Interactive / distribuidor físico territorial",
+        "clasificacion": "INVERTIR_CREDITOS",
+        "conclusion": "La lista original tenía los roles invertidos: Invader Studios desarrolla y Leonardo Interactive publica",
+        "fuente": "https://leonardointeractive.com/tag/daymare-1994-sandcastle/"
+      }
+    ],
+    "Lote editorial 02": [
+      {
+        "numero": 11,
+        "titulo_edicion": "Demon Pit",
+        "desarrolladora": "Psychic Software / DoomCube",
+        "publisher_juego": "Digerati",
+        "publisher_distribuidor_fisico": "Digerati",
+        "clasificacion": "CORREGIR_Y_ANADIR_CODESARROLLO",
+        "conclusion": "Digerati es publisher; Psychic Software y DoomCube son codesarrolladoras. No reducir el crédito únicamente a Psychic Games.",
+        "fuente": "https://www.psychicsoftware.com/category/demon-pit/"
+      },
+      {
+        "numero": 12,
+        "titulo_edicion": "Ducati: 90th Anniversary",
+        "desarrolladora": "Milestone S.r.l.",
+        "publisher_juego": "Milestone S.r.l.",
+        "publisher_distribuidor_fisico": "Milestone S.r.l.",
+        "clasificacion": "MISMA_ENTIDAD",
+        "conclusion": "Milestone, Milestone S.r.l. y MILESTONE SRL son variantes del nombre de la misma sociedad; desarrolló y publicó el juego.",
+        "fuente": "https://store.steampowered.com/app/456780/DUCATI__90th_Anniversary/"
+      },
+      {
+        "numero": 13,
+        "titulo_edicion": "Dynasty Feud",
+        "desarrolladora": "Kaia Studios",
+        "publisher_juego": "Kaia Studios (original) / Relevo Videogames (PS Store PAL)",
+        "publisher_distribuidor_fisico": "Relevo Videogames",
+        "clasificacion": "CREDITOS_REGIONALES",
+        "conclusion": "Kaia Studios desarrolló y publicó originalmente. La ficha PAL de PlayStation acredita a Relevo Videogames como publisher de esa versión; no es desarrolladora.",
+        "fuente": "https://store.playstation.com/nl-be/product/EP2718-CUSA08917_00-PS40000000000001"
+      },
+      {
+        "numero": 14,
+        "titulo_edicion": "Genesis Alpha One",
+        "desarrolladora": "Radiation Blue",
+        "publisher_juego": "Team17 Digital Ltd.",
+        "publisher_distribuidor_fisico": "Team17 Digital Ltd.",
+        "clasificacion": "CORREGIR_DESARROLLADORA",
+        "conclusion": "Radiation Blue desarrolla y Team17 publica. Team17 y Team 17 Digital Ltd. son nombre comercial y razón social del mismo publisher.",
+        "fuente": "https://store.playstation.com/en-gb/product/EP4064-CUSA10869_00-GENESISALPHA1000"
+      },
+      {
+        "numero": 15,
+        "titulo_edicion": "Ghost Trick: Phantom Detective",
+        "desarrolladora": "Capcom",
+        "publisher_juego": "Capcom / CE Europe Limited",
+        "publisher_distribuidor_fisico": "Capcom / CE Europe Limited",
+        "clasificacion": "ALIAS_REGIONAL_SOCIEDAD",
+        "conclusion": "Capcom desarrolla y publica. CE Europe Limited es la entidad jurídica europea que figura como publisher en PlayStation Store, no una desarrolladora distinta.",
+        "fuente": "https://store.playstation.com/nl-be/product/EP0102-CUSA34094_00-GHOSTTRICKDEMO00"
+      },
+      {
+        "numero": 16,
+        "titulo_edicion": "Gungrave VR",
+        "desarrolladora": "IGGYMOB",
+        "publisher_juego": "Marvelous Europe",
+        "publisher_distribuidor_fisico": "Marvelous Europe",
+        "clasificacion": "CORREGIR_ROLES_REGIONALES",
+        "conclusion": "IGGYMOB desarrolla. En Europa publica Marvelous Europe; XSEED Games fue la marca editorial norteamericana de Marvelous USA, no la desarrolladora.",
+        "fuente": "https://marvelous-usa.com/2018/07/18/xseed-games-reveals-contents-of-the-much-anticipated-physical-editions-for-gungrave-vr-and-gal-metal/"
+      },
+      {
+        "numero": 17,
+        "titulo_edicion": "GYLT Collector's Edition",
+        "desarrolladora": "Tequila Works",
+        "publisher_juego": "Tequila Works / Tesura Games",
+        "publisher_distribuidor_fisico": "Tesura Games",
+        "clasificacion": "EDICION_FISICA",
+        "conclusion": "Tequila Works desarrolla; Tesura Games publica/distribuye la edición física coleccionista de PS4. Mantener la edición como variante del mismo juego.",
+        "fuente": "https://en.tesuragames.com/gylt-collectors-physical-edition-for-nintendo-switch-is-here/"
+      },
+      {
+        "numero": 18,
+        "titulo_edicion": "Hello Neighbor: Hide & Seek",
+        "desarrolladora": "Dynamic Pixels",
+        "publisher_juego": "tinyBuild",
+        "publisher_distribuidor_fisico": "tinyBuild LLC",
+        "clasificacion": "MISMA_ENTIDAD_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "Dynamic Pixels desarrolla y tinyBuild publica. tinyBuild y TINYBUILD LLC son marca y razón social de la misma compañía.",
+        "fuente": "https://news.xbox.com/en-us/2018/12/06/hello-neighbor-hide-and-seek-is-now-available-for-xbox-one/"
+      },
+      {
+        "numero": 19,
+        "titulo_edicion": "Hokko Life",
+        "desarrolladora": "Wonderscope",
+        "publisher_juego": "Team17 Digital Ltd.",
+        "publisher_distribuidor_fisico": "Team17 Digital Ltd.",
+        "clasificacion": "MISMA_ENTIDAD_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "Wonderscope, estudio de Robert Tatnell, desarrolla; Team17 publica. Team17 y Team 17 Digital Ltd. son la misma entidad editorial.",
+        "fuente": "https://fireshinegames.co.uk/games/hokko-life/"
+      },
+      {
+        "numero": 20,
+        "titulo_edicion": "Indiecalypse",
+        "desarrolladora": "JanduSoft S.L.",
+        "publisher_juego": "JanduSoft S.L.",
+        "publisher_distribuidor_fisico": "JanduSoft S.L.",
+        "clasificacion": "MISMA_ENTIDAD",
+        "conclusion": "JanduSoft y JANDUSOFT S.L. son el nombre comercial y la razón social de la misma compañía; figura como publisher en PlayStation Store y es responsable del juego.",
+        "fuente": "https://store.playstation.com/nl-nl/product/EP3111-CUSA19518_00-JANDUSOFT0000001"
+      }
+    ],
+    "Lote editorial 03": [
+      {
+        "numero": 21,
+        "titulo_edicion": "Infinite: Beyond the Mind — Tanya Edition",
+        "desarrolladora": "Emilie Coyo",
+        "publisher_juego": "Blowfish Studios Pty Ltd",
+        "publisher_distribuidor_fisico": "Strictly Limited Games",
+        "clasificacion": "VARIANTE_EDICION_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "Emilie Coyo desarrolla; Blowfish Studios publica el juego. Strictly Limited Games produce la edición física Tanya, limitada a 1.500 copias y diferenciada de Olga solo por la presentación.",
+        "fuente": "https://www.strictlylimitedgames.com/en-gb/products/infinite-beyond-the-mind-limited-tanya-edition-ps4"
+      },
+      {
+        "numero": 22,
+        "titulo_edicion": "Jets 'N' Guns 2",
+        "desarrolladora": "Rake in Grass",
+        "publisher_juego": "Red Art Games (PS4/PS5)",
+        "publisher_distribuidor_fisico": "Red Art Games",
+        "clasificacion": "DUPLICADO_DE_TITULO",
+        "conclusion": "Rake in Grass desarrolla; Red Art Games publica la versión de PlayStation. Esta ficha y Jets’n’Guns 2 son el mismo juego y deben consolidarse conservando variantes físicas si difieren.",
+        "fuente": "https://www.redartgames.com/games/611-jets-n-guns-2-ps4.html"
+      },
+      {
+        "numero": 23,
+        "titulo_edicion": "Jets’n’Guns 2",
+        "desarrolladora": "Rake in Grass",
+        "publisher_juego": "Red Art Games (PS4/PS5)",
+        "publisher_distribuidor_fisico": "Red Art Games",
+        "clasificacion": "DUPLICADO_DE_TITULO",
+        "conclusion": "Duplicado del caso 22 causado por apóstrofos y espaciado. Usar como título canónico Jets’n’Guns 2 y comprobar EAN antes de eliminar una ficha física.",
+        "fuente": "https://store.playstation.com/de-de/product/EP5098-PPSA17163_00-0959201449924357"
+      },
+      {
+        "numero": 24,
+        "titulo_edicion": "Koa and the Five Pirates of Mara",
+        "desarrolladora": "Chibig / Talpa Games / Undercoders",
+        "publisher_juego": "Chibig",
+        "publisher_distribuidor_fisico": "Tesura Games (edición física)",
+        "clasificacion": "ANADIR_CODESARROLLADORAS",
+        "conclusion": "El juego fue codesarrollado por Chibig, Talpa Games y Undercoders. Chibig publica el juego; Tesura Games figura en la edición física coleccionista.",
+        "fuente": "https://www.undercoders.com/game/koa/"
+      },
+      {
+        "numero": 25,
+        "titulo_edicion": "Lemon Cake",
+        "desarrolladora": "Cozy Bee Games / Éloïse Laroche",
+        "publisher_juego": "SOEDESCO",
+        "publisher_distribuidor_fisico": "SOEDESCO",
+        "clasificacion": "CREDITOS_SEPARADOS",
+        "conclusion": "Cozy Bee Games, estudio unipersonal de Éloïse Laroche, desarrolla; SOEDESCO publica las versiones de consola.",
+        "fuente": "https://www.soedesco.com/news/lemon-cake-launches-today-on-all-major-digital-platforms"
+      },
+      {
+        "numero": 26,
+        "titulo_edicion": "Memorrha",
+        "desarrolladora": "StickyStoneStudio",
+        "publisher_juego": "Markt+Technik Verlag GmbH (PS4 PAL)",
+        "publisher_distribuidor_fisico": "Markt+Technik Verlag GmbH",
+        "clasificacion": "CREDITOS_REGIONALES",
+        "conclusion": "StickyStoneStudio desarrolla y publicó originalmente en PC; Markt+Technik Verlag figura como publisher de la versión PS4 europea.",
+        "fuente": "https://store.playstation.com/en-gb/product/EP3024-CUSA43764_00-MEMORRHAPS4EUROP"
+      },
+      {
+        "numero": 27,
+        "titulo_edicion": "Mickey Storm and the Cursed Mask",
+        "desarrolladora": "Triangle Studios B.V.",
+        "publisher_juego": "Lion Castle B.V.",
+        "publisher_distribuidor_fisico": "Lion Castle B.V.",
+        "clasificacion": "MISMA_ENTIDAD_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "Triangle Studios desarrolla. Lion Castle Entertainment, LION CASTLE y Lion Castle B.V. representan el nombre comercial y la sociedad del mismo publisher.",
+        "fuente": "https://news.xbox.com/en-us/2021/08/23/mickey-storm-and-the-cursed-mask-is-now-available-for-xbox-one-and-xbox-series-xs/"
+      },
+      {
+        "numero": 28,
+        "titulo_edicion": "Middle-earth: Shadow of Mordor — Game of the Year Edition",
+        "desarrolladora": "Monolith Productions",
+        "publisher_juego": "Warner Bros. Interactive Entertainment / Warner Bros. Games",
+        "publisher_distribuidor_fisico": "Warner Bros. Interactive Entertainment",
+        "clasificacion": "MISMA_ENTIDAD_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "Monolith Productions desarrolla la versión PS4. Warner Bros. Interactive Entertainment y Warner Bros. Games son denominaciones histórica y actual del publisher; GOTY añade el contenido descargable.",
+        "fuente": "https://store.steampowered.com/app/241930/Middleearth_Shadow_of_Mordor/"
+      },
+      {
+        "numero": 29,
+        "titulo_edicion": "Milli & Greg",
+        "desarrolladora": "2ndBoss",
+        "publisher_juego": "QUByte Interactive",
+        "publisher_distribuidor_fisico": "QUByte Interactive",
+        "clasificacion": "CREDITOS_SEPARADOS",
+        "conclusion": "2ndBoss desarrolla; QUByte Interactive publica la versión PS4. No invertir los roles.",
+        "fuente": "https://store.playstation.com/de-de/concept/10003560"
+      },
+      {
+        "numero": 30,
+        "titulo_edicion": "Nobunaga’s Ambition: Sphere of Influence — Ascension",
+        "desarrolladora": "Koei Tecmo Games Co., Ltd.",
+        "publisher_juego": "Koei Tecmo Games / Koei Tecmo Europe",
+        "publisher_distribuidor_fisico": "Koei Tecmo Europe",
+        "clasificacion": "FILIAL_REGIONAL_NO_DESARROLLADORA",
+        "conclusion": "Koei Tecmo Games desarrolla y publica la obra; Koei Tecmo Europe gestiona la edición y comercialización PAL. Son entidades relacionadas, pero la filial europea no sustituye al estudio desarrollador.",
+        "fuente": "https://www.koeitecmoeurope.com/manual/sphereofinfluence/en/"
+      }
+    ],
+    "Lote editorial 04": [
+      {
+        "numero": 31,
+        "titulo_edicion": "Nongunz: Doppelganger Edition",
+        "desarrolladora": "Brainwash Gang",
+        "publisher_juego": "Digerati Distribution",
+        "publisher_distribuidor_fisico": "Digerati Distribution",
+        "clasificacion": "MISMA_ENTIDAD_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "Brainwash Gang desarrolla; Digerati publica. Digerati y Digerati Distribution son denominaciones del mismo publisher, no dos compañías con roles diferentes.",
+        "fuente": "https://www.gematsu.com/2020/06/nihilistic-action-platformer-nongunz-doppelganger-edition-announced-for-ps4-xbox-one-switch-and-pc"
+      },
+      {
+        "numero": 32,
+        "titulo_edicion": "Observer: System Redux",
+        "desarrolladora": "Bloober Team",
+        "publisher_juego": "Aspyr / Bloober Team según edición",
+        "publisher_distribuidor_fisico": "Koch Media / editor físico según territorio",
+        "clasificacion": "CREDITOS_POR_EDICION",
+        "conclusion": "Bloober Team desarrolla la obra y la versión System Redux. Aspyr publicó el original y aparece asociado a varias ediciones; para la edición física concreta debe conservarse el publisher indicado por su EAN, sin convertir Aspyr en desarrolladora.",
+        "fuente": "https://observersystemredux.com/"
+      },
+      {
+        "numero": 33,
+        "titulo_edicion": "Okinawa Rush — Black Mantis Edition",
+        "desarrolladora": "Sokaikan Ltd.",
+        "publisher_juego": "No Gravity Games",
+        "publisher_distribuidor_fisico": "PixelHeart",
+        "clasificacion": "VARIANTE_EDICION",
+        "conclusion": "Sokaikan desarrolla. No Gravity Games participa en la publicación general y PixelHeart edita la versión física Black Mantis, limitada a 1.000 unidades en PS4; no es otro juego.",
+        "fuente": "https://www.pixelheart.eu/en/produit/okinawa-rush-black-mantis-edition-ps4-eur/"
+      },
+      {
+        "numero": 34,
+        "titulo_edicion": "Okinawa Rush — Limited Edition",
+        "desarrolladora": "Sokaikan Ltd.",
+        "publisher_juego": "No Gravity Games",
+        "publisher_distribuidor_fisico": "PixelHeart",
+        "clasificacion": "VARIANTE_EDICION",
+        "conclusion": "Mismos créditos que Black Mantis y el juego estándar. Es otra presentación física; conservar como variante coleccionable y no duplicar la obra.",
+        "fuente": "https://limitedgamenews.com/2020/10/24/okinawa-rush-playstation-4-nintendo-switch-xbox-one/"
+      },
+      {
+        "numero": 35,
+        "titulo_edicion": "Oxide Room 104",
+        "desarrolladora": "WildSphere S.L.",
+        "publisher_juego": "WildSphere / Perp Games según edición",
+        "publisher_distribuidor_fisico": "Perp Games según edición física",
+        "clasificacion": "MISMA_ENTIDAD_Y_CREDITOS_POR_EDICION",
+        "conclusion": "WildSphere, WILD SPHERE S.L. y WildSphere S.L. son la misma desarrolladora. También autopublica digitalmente; algunas ediciones físicas acreditan a Perp Games.",
+        "fuente": "https://store.steampowered.com/app/1819180/Oxide_Room_104/"
+      },
+      {
+        "numero": 36,
+        "titulo_edicion": "Past Cure",
+        "desarrolladora": "Phantom 8 Studio UG",
+        "publisher_juego": "Phantom 8 Studio UG",
+        "publisher_distribuidor_fisico": "Phantom 8 Studio UG",
+        "clasificacion": "MISMA_ENTIDAD",
+        "conclusion": "Phantom 8 Studio y Phantom 8 Studio UG son nombre comercial y razón social de la misma compañía; desarrolló y publicó el juego.",
+        "fuente": "https://phantom8.studio/"
+      },
+      {
+        "numero": 37,
+        "titulo_edicion": "Professional Farmer: American Dream",
+        "desarrolladora": "UIG Entertainment GmbH",
+        "publisher_juego": "UIG Entertainment GmbH / Iridium Media Group GmbH en PS Store",
+        "publisher_distribuidor_fisico": "Iridium Media Group GmbH",
+        "clasificacion": "CORREGIR_CREDITOS_Y_SEPARAR_ENTIDADES",
+        "conclusion": "Los avisos legales acreditan desarrollo y publicación a UIG Entertainment; PlayStation Store muestra a Iridium Media Group como publisher de cuenta PAL. No atribuir el desarrollo a Iridium.",
+        "fuente": "https://store.playstation.com/de-de/product/EP8935-CUSA09298_00-FARMAMERICAPS4EU"
+      },
+      {
+        "numero": 38,
+        "titulo_edicion": "QuiVR",
+        "desarrolladora": "Alvios Inc. (versión PSVR; obra original de Blueteak)",
+        "publisher_juego": "The Munky, LLC / Perp Games en físico europeo",
+        "publisher_distribuidor_fisico": "Perp Games",
+        "clasificacion": "CREDITOS_DE_PORT_Y_REGION",
+        "conclusion": "La versión PSVR acredita a Alvios como desarrolladora y a The Munky LLC en PlayStation Store; Perp Games publica la edición física europea. Conservar Blueteak como creador del juego original cuando el modelo admita créditos históricos.",
+        "fuente": "https://perpgames.com/2019/05/14/quivr-takes-aim-at-market-in-eu-territories-on-june-28/"
+      },
+      {
+        "numero": 39,
+        "titulo_edicion": "Race with Ryan",
+        "desarrolladora": "3DClouds",
+        "publisher_juego": "Outright Games LLC",
+        "publisher_distribuidor_fisico": "Outright Games LLC",
+        "clasificacion": "MISMA_ENTIDAD_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "3DClouds desarrolla; Outright Games publica. Outright Games y OUTRIGHT GAMES LLC son nombre comercial y razón social de la misma editora.",
+        "fuente": "https://store.playstation.com/en-gb/product/EP3678-CUSA15741_00-RWRBASEGAME00001"
+      },
+      {
+        "numero": 40,
+        "titulo_edicion": "Rogue Trooper Redux",
+        "desarrolladora": "TickTock Games / Rebellion Developments",
+        "publisher_juego": "Rebellion Interactive",
+        "publisher_distribuidor_fisico": "Rebellion Interactive",
+        "clasificacion": "CORREGIR_Y_CONSERVAR_CREDITOS_HISTORICOS",
+        "conclusion": "TickTock Games realizó el remaster Redux sobre el juego original de Rebellion Developments. Rebellion Interactive figura como publisher en PS Store; no debe usarse como única desarrolladora.",
+        "fuente": "https://rebellion.com/games/rogue-trooper-redux/"
+      }
+    ],
+    "Lote editorial 05": [
+      {
+        "numero": 41,
+        "titulo_edicion": "Ryan’s Rescue Squad",
+        "desarrolladora": "Stage Clear Studios",
+        "publisher_juego": "Outright Games LLC",
+        "publisher_distribuidor_fisico": "Outright Games LLC",
+        "clasificacion": "MISMA_ENTIDAD_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "Stage Clear Studios desarrolla; Outright Games publica. Outright Games y OUTRIGHT GAMES LLC son la misma editora.",
+        "fuente": "https://outrightgames.com/launches/kids-megabrand-ryans-world-video-game-ryans-rescue-squad-launches-today/"
+      },
+      {
+        "numero": 42,
+        "titulo_edicion": "Senran Kagura Burst Re:Newal — Bountiful Beauties Edition",
+        "desarrolladora": "HONEY∞PARADE GAMES, Inc.",
+        "publisher_juego": "Marvelous Europe Limited (PAL) / XSEED Games (Norteamérica)",
+        "publisher_distribuidor_fisico": "Marvelous Europe Limited",
+        "clasificacion": "EDICION_REGIONAL_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "HONEY∞PARADE GAMES desarrolla el remake. La Bountiful Beauties europea la publica Marvelous Europe; XSEED es la marca norteamericana de Marvelous USA y no debe figurar como desarrolladora PAL.",
+        "fuente": "https://store.playstation.com/en-gb/concept/230935"
+      },
+      {
+        "numero": 43,
+        "titulo_edicion": "Source of Madness",
+        "desarrolladora": "Carry Castle AB",
+        "publisher_juego": "Thunderful Publishing AB",
+        "publisher_distribuidor_fisico": "Thunderful Publishing AB",
+        "clasificacion": "DIVISION_EDITORIAL_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "Carry Castle desarrolla. Thunderful Publishing publica y forma parte de Thunderful Games/Group; registrar la división editorial sin confundirla con la desarrolladora.",
+        "fuente": "https://thunderfulgames.com/source-of-madness-release-date/"
+      },
+      {
+        "numero": 44,
+        "titulo_edicion": "Street Power Football",
+        "desarrolladora": "SFL Interactive / Gamajun Games",
+        "publisher_juego": "Maximum Games / Nacon según territorio",
+        "publisher_distribuidor_fisico": "Maximum Games / Nacon según SKU",
+        "clasificacion": "CODESARROLLO_Y_PUBLICACION_REGIONAL",
+        "conclusion": "SFL Interactive y Gamajun Games desarrollan. Maximum Games y Nacon publican según región; Microids no aparece respaldada como desarrolladora ni como publisher principal de esta edición.",
+        "fuente": "https://www.thesixthaxis.com/2020/09/10/street-power-football-review/"
+      },
+      {
+        "numero": 45,
+        "titulo_edicion": "Super Crazy Rhythm Castle",
+        "desarrolladora": "Second Impact Games Ltd.",
+        "publisher_juego": "Konami Digital Entertainment",
+        "publisher_distribuidor_fisico": "Konami Digital Entertainment",
+        "clasificacion": "MISMA_ENTIDAD_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "Second Impact Games desarrolla; Konami Digital Entertainment publica. KONAMI es la marca abreviada del mismo publisher, no la desarrolladora.",
+        "fuente": "https://store.playstation.com/de-de/product/EP0101-CUSA31584_00-9852865863836924"
+      },
+      {
+        "numero": 46,
+        "titulo_edicion": "SUPERHOT VR",
+        "desarrolladora": "SUPERHOT Team / SUPERHOT Sp. z o.o.",
+        "publisher_juego": "SUPERHOT Team / SUPERHOT Sp. z o.o.",
+        "publisher_distribuidor_fisico": "SUPERHOT Team",
+        "clasificacion": "MARCA_Y_RAZON_SOCIAL_MISMA_ENTIDAD",
+        "conclusion": "SUPERHOT Team es el nombre del estudio y SUPERHOT Sp. z o.o. su sociedad. Desarrolló y publicó esta obra independiente, reconstruida específicamente para VR.",
+        "fuente": "https://superhotgame.com/"
+      },
+      {
+        "numero": 47,
+        "titulo_edicion": "The American Dream",
+        "desarrolladora": "Samurai Punk Pty Ltd.",
+        "publisher_juego": "Samurai Punk Pty Ltd.",
+        "publisher_distribuidor_fisico": "Perp Games en edición física",
+        "clasificacion": "MARCA_Y_RAZON_SOCIAL_MISMA_ENTIDAD",
+        "conclusion": "Samurai Punk y SAMURAI PUNK PTY LTD son nombre comercial y razón social de la misma desarrolladora/editora. Perp Games interviene en la edición física.",
+        "fuente": "https://store.playstation.com/en-gb/product/EP3170-CUSA07971_00-0123012301234567/"
+      },
+      {
+        "numero": 48,
+        "titulo_edicion": "The Occupation",
+        "desarrolladora": "White Paper Games Ltd.",
+        "publisher_juego": "Humble Bundle, Inc. / Humble Games",
+        "publisher_distribuidor_fisico": "Sold Out en distribución física",
+        "clasificacion": "CORREGIR_DESARROLLADORA_Y_CONSERVAR_EDITOR_HISTORICO",
+        "conclusion": "White Paper Games desarrolla y Humble Bundle publicó originalmente. Good Games Group apareció años después para dar soporte al catálogo de Humble y no debe sustituir retrospectivamente al publisher de 2019.",
+        "fuente": "https://store.playstation.com/en-gb/product/EP3717-CUSA13141_00-THEOCCUPATIONPS4"
+      },
+      {
+        "numero": 49,
+        "titulo_edicion": "The Rumble Fish 2",
+        "desarrolladora": "Dimps Corporation / Suncrest Games (port)",
+        "publisher_juego": "3goo K.K.",
+        "publisher_distribuidor_fisico": "3goo K.K.",
+        "clasificacion": "MISMA_ENTIDAD_Y_CREDITOS_DE_PORT",
+        "conclusion": "Dimps creó el juego original y Suncrest Games realizó la conversión moderna. 3goo y 3GOO K.K. son marca y razón social del mismo publisher.",
+        "fuente": "https://suncrestgames.com/game/the-rumble-fish-2/"
+      },
+      {
+        "numero": 50,
+        "titulo_edicion": "Trailblazers",
+        "desarrolladora": "Supergonk Ltd.",
+        "publisher_juego": "Rising Star Games Ltd.",
+        "publisher_distribuidor_fisico": "Rising Star Games Ltd.",
+        "clasificacion": "CORREGIR_DESARROLLADORA_Y_RELACION_CORPORATIVA",
+        "conclusion": "Supergonk desarrolla y Rising Star Games publica. Thunderful Games es el grupo relacionado/propietario, pero no debe reemplazar el crédito editorial histórico de Rising Star Games.",
+        "fuente": "https://www.supergonk.co.uk/trailblazers/"
+      }
+    ],
+    "Lote editorial 06": [
+      {
+        "numero": 51,
+        "titulo_edicion": "Ultrawings",
+        "desarrolladora": "Bit Planet Games, LLC",
+        "publisher_juego": "Bit Planet Games, LLC",
+        "publisher_distribuidor_fisico": "Bit Planet Games, LLC",
+        "clasificacion": "MISMA_ENTIDAD",
+        "conclusion": "Bit Planet Games, BIT PLANET GAMES LLC y Bit Planet Games, LLC son variantes de la misma compañía, que desarrolló y publicó Ultrawings.",
+        "fuente": "https://store.playstation.com/nl-nl/product/EP0067-CUSA10761_00-100000ULTRAWINGS"
+      },
+      {
+        "numero": 52,
+        "titulo_edicion": "UnMetal",
+        "desarrolladora": "UnEpic Fran / UnEpic Games",
+        "publisher_juego": "Versus Evil (publicación original) / tinyBuild LLC (cuenta actual de PS Store)",
+        "publisher_distribuidor_fisico": "Tesura Games en ediciones físicas",
+        "clasificacion": "CAMBIO_DE_CONTROL_EDITORIAL_Y_CREDITOS_HISTORICOS",
+        "conclusion": "Francisco Téllez de Meneses, como UnEpic Fran, desarrolla. Versus Evil publicó el lanzamiento de PS4; tinyBuild aparece actualmente en PlayStation Store tras integrar el catálogo. No sustituir retrospectivamente a Versus Evil.",
+        "fuente": "https://en.tesuragames.com/unmetal-by-unepic-fran-releases-physically-in-a-standard-and-collectors-edition-this-year/"
+      },
+      {
+        "numero": 53,
+        "titulo_edicion": "Young Souls — Collector’s Edition",
+        "desarrolladora": "1P2P Studio",
+        "publisher_juego": "The Arcade Crew",
+        "publisher_distribuidor_fisico": "Pix’n Love",
+        "clasificacion": "EDICION_FISICA_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "1P2P Studio desarrolla y The Arcade Crew publica el juego. Pix’n Love produce la Collector’s Edition física numerada de 500 copias; no es desarrolladora.",
+        "fuente": "https://www.pixnlove.com/more/934-young-souls-collector-s-edition-ps4-9782371881686.html"
+      },
+      {
+        "numero": 54,
+        "titulo_edicion": "Young Souls — Deluxe Edition",
+        "desarrolladora": "1P2P Studio",
+        "publisher_juego": "The Arcade Crew",
+        "publisher_distribuidor_fisico": "Pix’n Love / editor físico según EAN",
+        "clasificacion": "VARIANTE_EDICION_Y_CORREGIR_DESARROLLADORA",
+        "conclusion": "Misma obra y créditos que la edición estándar. Registrar Deluxe como variante comercial y verificar sus contenidos/EAN; 1P2P sigue siendo la desarrolladora.",
+        "fuente": "https://store.playstation.com/nl-nl/product/EP5539-CUSA29073_00-7040277275145224"
+      },
+      {
+        "numero": 55,
+        "titulo_edicion": "Youtubers Life 2",
+        "desarrolladora": "U-Play Online S.L.",
+        "publisher_juego": "Raiser Games S.L.",
+        "publisher_distribuidor_fisico": "Maximum Games / distribuidor territorial según edición",
+        "clasificacion": "CREDITOS_SEPARADOS_Y_ENTIDAD_REGIONAL",
+        "conclusion": "U-Play Online desarrolla y Raiser Games publica. PlayStation Store puede mostrar UPLAY ONLINE SL como titular regional; eso no elimina el crédito editorial de Raiser Games.",
+        "fuente": "https://news.xbox.com/en-us/2021/10/19/youtubers-life-2-is-now-available-for-xbox-one-and-xbox-series-xs/"
+      },
+      {
+        "numero": 56,
+        "titulo_edicion": "Dracula’s Legacy",
+        "desarrolladora": "Jetdogs Studios",
+        "publisher_juego": "Joindots GmbH",
+        "publisher_distribuidor_fisico": "Joindots GmbH",
+        "clasificacion": "CREDITOS_SEPARADOS",
+        "conclusion": "Jetdogs Studios desarrolla y Joindots publica la versión PS4. La pareja inicial ya era correcta; deben mantenerse como dos compañías y dos roles distintos.",
+        "fuente": "https://www.joindots.de/title/draculas-legacy-en/?setLang=true"
+      }
+    ]
+  }
+}

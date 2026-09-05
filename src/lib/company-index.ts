@@ -4,6 +4,7 @@ import { resolveCanonicalGenreEntity } from "./genre-canonical";
 import { getStoredCompanyProfile } from "./company-profile";
 import { resolveCompanyLogo } from "./company-logo";
 import { formatCatalogEntryCount } from "./catalog-entry-count";
+import { getCatalogWorkKey } from "./catalog-work";
 import { getEffectivePrice, isGrailGame } from "./game-highlight";
 import { summarizeIndexEntry } from "./index-entity";
 import { getCompanies, getGameDetails, getGenre, indexStats } from "./indexes";
@@ -70,9 +71,15 @@ let explorerCache: CompanyExplorerData | null = null;
 function classifyRole(
   developerCatalogEntryCount: number,
   publisherCatalogEntryCount: number,
+  digitalPublisherCatalogEntryCount: number,
+  physicalPublisherCatalogEntryCount: number,
 ): CompanyRoleKind {
-  if (developerCatalogEntryCount > 0 && publisherCatalogEntryCount > 0) return "both";
-  if (publisherCatalogEntryCount > 0) return "publisher";
+  const publicationCount =
+    publisherCatalogEntryCount +
+    digitalPublisherCatalogEntryCount +
+    physicalPublisherCatalogEntryCount;
+  if (developerCatalogEntryCount > 0 && publicationCount > 0) return "both";
+  if (publicationCount > 0) return "publisher";
   return "developer";
 }
 
@@ -132,7 +139,7 @@ function compareCompanyNamesDescending(a: string, b: string): number {
 function enrichCompany(entry: IndexEntry): CompanyCardData {
   const summary = summarizeIndexEntry(entry, "company");
   const entity = getCompanyEntity(entry.slug);
-  const aliases = formatCompanyAliases(entity);
+  const aliases = formatCompanyAliases(entity, entry.aliasNames);
   const storedProfile = getStoredCompanyProfile(summary.slug);
   const logo = resolveCompanyLogo(summary.slug, storedProfile?.logoUrl);
 
@@ -145,10 +152,17 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
   let pricedCatalogEntryCount = 0;
   let developerCatalogEntryCount = 0;
   let publisherCatalogEntryCount = 0;
+  let digitalPublisherCatalogEntryCount = 0;
+  let physicalPublisherCatalogEntryCount = 0;
   let firstReleaseYear: number | null = null;
   let latestReleaseYear: number | null = null;
   const developerIds = new Set(summary.entry.asDeveloper ?? []);
   const publisherIds = new Set(summary.entry.asPublisher ?? []);
+  const digitalPublisherIds = new Set(summary.entry.asDigitalPublisher ?? []);
+  const physicalPublisherIds = new Set(
+    summary.entry.asPhysicalPublisherOrDistributor ?? [],
+  );
+  const workKeys = new Set<string>();
 
   for (const gameId of summary.entry.gameIds) {
     const game = getCatalogGame(gameId);
@@ -157,6 +171,9 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
     platformCounts.set(game.platformSlug, (platformCounts.get(game.platformSlug) ?? 0) + 1);
     if (developerIds.has(gameId)) developerCatalogEntryCount += 1;
     if (publisherIds.has(gameId)) publisherCatalogEntryCount += 1;
+    if (digitalPublisherIds.has(gameId)) digitalPublisherCatalogEntryCount += 1;
+    if (physicalPublisherIds.has(gameId)) physicalPublisherCatalogEntryCount += 1;
+    workKeys.add(getCatalogWorkKey(gameId));
 
     const details = getGameDetails(gameId);
     for (const genre of details?.genres ?? []) {
@@ -195,9 +212,17 @@ function enrichCompany(entry: IndexEntry): CompanyCardData {
     slug: summary.slug,
     name: summary.name,
     catalogEntryCount,
+    uniqueWorkCount: workKeys.size,
     developerCatalogEntryCount,
     publisherCatalogEntryCount,
-    roleKind: classifyRole(developerCatalogEntryCount, publisherCatalogEntryCount),
+    digitalPublisherCatalogEntryCount,
+    physicalPublisherCatalogEntryCount,
+    roleKind: classifyRole(
+      developerCatalogEntryCount,
+      publisherCatalogEntryCount,
+      digitalPublisherCatalogEntryCount,
+      physicalPublisherCatalogEntryCount,
+    ),
     platformSlugs: platforms.map((platform) => platform.slug),
     platformPreview,
     genreSlugs: [...genreSlugs],
@@ -421,7 +446,12 @@ function sortCompanies(list: CompanyCardData[], sort: CompanySort): CompanyCardD
         );
       case "pub-desc":
         return (
-          b.publisherCatalogEntryCount - a.publisherCatalogEntryCount ||
+          b.publisherCatalogEntryCount +
+            b.digitalPublisherCatalogEntryCount +
+            b.physicalPublisherCatalogEntryCount -
+            (a.publisherCatalogEntryCount +
+              a.digitalPublisherCatalogEntryCount +
+              a.physicalPublisherCatalogEntryCount) ||
           b.catalogEntryCount - a.catalogEntryCount ||
           a.name.localeCompare(b.name, "es")
         );

@@ -148,7 +148,10 @@ export function summarizeIndexEntry(
     })),
     developerCatalogEntryCount: resolved.asDeveloper?.length ?? 0,
     publisherCatalogEntryCount: resolved.asPublisher?.length ?? 0,
-    alsoKnownAs: kind === "company" ? formatCompanyAliases(companyEntity) : undefined,
+    alsoKnownAs:
+      kind === "company"
+        ? formatCompanyAliases(companyEntity, resolved.aliasNames)
+        : undefined,
     wikidataId: resolved.wikidataId ?? companyEntity?.wikidataIds?.[0] ?? null,
     mergeMethod: resolved.mergeMethod,
   };

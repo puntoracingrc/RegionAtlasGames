@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "batchId": "company-credit-ps4-pal-compilations-2026-09-05",
+  "relationships": [
+    {
+      "id": "cd-projekt-red:studio_of:cd-projekt",
+      "sourceCompanySlug": "cd-projekt-red",
+      "targetCompanySlug": "cd-projekt",
+      "relationshipType": "studio_of",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.cyberpunk.net/"
+        ],
+        "evidenceSummary": "CD Projekt RED es el estudio desarrollador del grupo CD Projekt; Samurai Pack debe tratarse como variante/promoción, no como juego distinto",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "ce-europe-ltd:regional_entity_of:capcom",
+      "sourceCompanySlug": "ce-europe-ltd",
+      "targetCompanySlug": "capcom",
+      "relationshipType": "regional_entity_of",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/nl-be/product/EP0102-CUSA34094_00-GHOSTTRICKDEMO00"
+        ],
+        "evidenceSummary": "Capcom desarrolla y publica. CE Europe Limited es la entidad jurídica europea que figura como publisher en PlayStation Store, no una desarrolladora distinta.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "marvelous-europe:regional_entity_of:marvelous",
+      "sourceCompanySlug": "marvelous-europe",
+      "targetCompanySlug": "marvelous",
+      "relationshipType": "regional_entity_of",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://store.playstation.com/en-gb/concept/230935"
+        ],
+        "evidenceSummary": "HONEY∞PARADE GAMES desarrolla el remake. La Bountiful Beauties europea la publica Marvelous Europe; XSEED es la marca norteamericana de Marvelous USA y no debe figurar como desarrolladora PAL.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "koei-tecmo-europe:regional_entity_of:koei-tecmo-games",
+      "sourceCompanySlug": "koei-tecmo-europe",
+      "targetCompanySlug": "koei-tecmo-games",
+      "relationshipType": "regional_entity_of",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.koeitecmoeurope.com/manual/sphereofinfluence/en/"
+        ],
+        "evidenceSummary": "Koei Tecmo Games desarrolla y publica la obra; Koei Tecmo Europe gestiona la edición y comercialización PAL. Son entidades relacionadas, pero la filial europea no sustituye al estudio desarrollador.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "thunderful-publishing:publishing_division_of:thunderful-games-ltd",
+      "sourceCompanySlug": "thunderful-publishing",
+      "targetCompanySlug": "thunderful-games-ltd",
+      "relationshipType": "publishing_division_of",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://thunderfulgames.com/source-of-madness-release-date/"
+        ],
+        "evidenceSummary": "Carry Castle desarrolla. Thunderful Publishing publica y forma parte de Thunderful Games/Group; registrar la división editorial sin confundirla con la desarrolladora.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    },
+    {
+      "id": "rising-star-games:owned_by:thunderful-games-ltd",
+      "sourceCompanySlug": "rising-star-games",
+      "targetCompanySlug": "thunderful-games-ltd",
+      "relationshipType": "owned_by",
+      "provenance": {
+        "source": "research",
+        "evidenceUrls": [
+          "https://www.supergonk.co.uk/trailblazers/"
+        ],
+        "evidenceSummary": "Supergonk desarrolla y Rising Star Games publica. Thunderful Games es el grupo relacionado/propietario, pero no debe reemplazar el crédito editorial histórico de Rising Star Games.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05"
+      }
+    }
+  ]
+}

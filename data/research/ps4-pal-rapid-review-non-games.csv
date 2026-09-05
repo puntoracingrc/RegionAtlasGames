@@ -1,0 +1,7 @@
+catalog_id,catalog_title,product_type,brand,manufacturer,model,ean,confidence,recommended_action,source_1,source_2
+ps4-4gamers-twin-charging-dock,4Gamers Twin Charging Dock,ACCESSORY,4Gamers,Accessories 4 Technology Ltd.,P4AEOTPLA70676,'5055269706762,VERY_HIGH,EXCLUDE_FROM_GAME_CATALOG,https://argos-support.co.uk/7033348-4gamers-twin-charging-dock-for-ps4-controllers,https://www.4gamers.net/contact-us
+ps4-limited-edition-the-last-of-us-part-ii-gold-wireless-headset,Limited Edition The Last of Us Part II Gold Wireless Headset,ACCESSORY,PlayStation,Sony Interactive Entertainment,,,HIGH,EXCLUDE_FROM_GAME_CATALOG,,
+ps4-playstation-4-glacier-white,Playstation 4 [Glacier White],CONSOLE,PlayStation,Sony Interactive Entertainment,,,VERY_HIGH,EXCLUDE_FROM_GAME_CATALOG,https://blog.playstation.com/archive/2017/01/10/introducing-the-new-glacier-white-ps4/,
+ps4-playstation-4-monster-hunter-world-limited-edition,Playstation 4 Monster Hunter World Limited Edition,CONSOLE_BUNDLE,PlayStation,Sony Interactive Entertainment,,,VERY_HIGH,EXCLUDE_FROM_GAME_CATALOG,https://blog.playstation.com/archive/2017/12/12/limited-edition-monster-hunter-world-ps4-pro-launches-alongside-the-game-on-26th-january/,
+ps4-playstation-4-proslim-vertical-stand,Playstation 4 Pro/Slim Vertical Stand,ACCESSORY,PlayStation,Sony Interactive Entertainment,,,HIGH,EXCLUDE_FROM_GAME_CATALOG,,
+ps4-playstation-plus-14-day-trial,Playstation Plus 14-Day Trial,SUBSCRIPTION,PlayStation Plus,Sony Interactive Entertainment,,,VERY_HIGH,EXCLUDE_FROM_GAME_CATALOG,https://www.playstation.com/en-gb/ps-plus/,
