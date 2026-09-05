@@ -1,20 +1,19 @@
 {
-  "generatedAt": "2026-09-05T04:36:02.574Z",
-  "targets": 1541,
-  "downloaded": 1541,
+  "generatedAt": "2026-09-05T07:07:26",
+  "targets": 1767,
+  "downloaded": 1767,
   "skippedExisting": 0,
   "missingSource": 0,
   "downloadErrors": 0,
   "bySource": {
     "museum": 0,
-    "pricecharting": 1533,
-    "manualVerified": 8,
+    "pricecharting": 1767,
     "wikipedia": 0,
     "existing": 0
   },
   "byPlatform": {
-    "switch": {
-      "downloaded": 1541,
+    "wii": {
+      "downloaded": 1767,
       "missingSource": 0,
       "downloadErrors": 0,
       "skippedExisting": 0
