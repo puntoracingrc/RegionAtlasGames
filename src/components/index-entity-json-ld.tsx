@@ -3,12 +3,17 @@ import type { IndexEntitySummary } from "@/lib/index-entity";
 import { INDEX_KIND_META } from "@/lib/index-entity";
 import { getSiteUrl } from "@/lib/site-url";
 
+type IndexEntityJsonLdSummary = Pick<
+  IndexEntitySummary,
+  "kind" | "name" | "slug" | "catalogEntryCount"
+>;
+
 function absoluteUrl(base: string, path: string): string {
   return new URL(path, `${base}/`).toString();
 }
 
 export function buildIndexEntityJsonLd(
-  summary: IndexEntitySummary,
+  summary: IndexEntityJsonLdSummary,
   breadcrumbs: BreadcrumbItem[],
   base = getSiteUrl(),
 ) {
@@ -43,7 +48,7 @@ export function IndexEntityJsonLd({
   summary,
   breadcrumbs,
 }: {
-  summary: IndexEntitySummary;
+  summary: IndexEntityJsonLdSummary;
   breadcrumbs: BreadcrumbItem[];
 }) {
   const data = buildIndexEntityJsonLd(summary, breadcrumbs);

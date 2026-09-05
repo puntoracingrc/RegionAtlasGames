@@ -1,6 +1,7 @@
 import { CatalogBrowser } from "@/components/catalog-browser";
 import { CatalogGameCard } from "@/components/game-card";
 import { GenrePlatformGames, GenreProfileHeader, GenreReferenceTop } from "@/components/genre-profile-sections";
+import { IndexEntityJsonLd } from "@/components/index-entity-json-ld";
 import { SiteNav } from "@/components/site-nav";
 import { CATALOG_PAGE_SIZE } from "@/lib/catalog-filters";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
@@ -34,6 +35,18 @@ export function GenreProfileDetail({ view, ownedCatalogIds, isLoggedIn, fromCata
 
   return (
     <>
+      <IndexEntityJsonLd
+        summary={{
+          kind: "genre",
+          name: view.name,
+          slug: view.slug,
+          catalogEntryCount: view.catalogEntryCount,
+        }}
+        breadcrumbs={[
+          { label: "Géneros", href: "/genero" },
+          { label: view.name },
+        ]}
+      />
       <SiteNav />
       <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
         <GenreProfileHeader view={view} />

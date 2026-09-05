@@ -644,7 +644,7 @@
     },
     {
       "file": "src/app/compania/[slug]/page.tsx",
-      "line": 9,
+      "line": 10,
       "patterns": [
         "series-symbol"
       ],
@@ -652,7 +652,7 @@
     },
     {
       "file": "src/app/compania/[slug]/page.tsx",
-      "line": 11,
+      "line": 12,
       "patterns": [
         "series-symbol"
       ],
@@ -660,7 +660,7 @@
     },
     {
       "file": "src/app/compania/[slug]/page.tsx",
-      "line": 41,
+      "line": 47,
       "patterns": [
         "series-symbol"
       ],
@@ -668,7 +668,7 @@
     },
     {
       "file": "src/app/compania/[slug]/page.tsx",
-      "line": 42,
+      "line": 48,
       "patterns": [
         "series-symbol"
       ],
@@ -1327,7 +1327,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 21,
+      "line": 25,
       "patterns": [
         "series-symbol"
       ],
@@ -1335,7 +1335,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 27,
+      "line": 31,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1344,7 +1344,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 28,
+      "line": 32,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1353,7 +1353,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 29,
+      "line": 33,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1362,7 +1362,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 34,
+      "line": 38,
       "patterns": [
         "series-symbol"
       ],
@@ -1370,7 +1370,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 36,
+      "line": 40,
       "patterns": [
         "series-symbol"
       ],
@@ -1378,7 +1378,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 37,
+      "line": 41,
       "patterns": [
         "series-symbol"
       ],
@@ -1386,7 +1386,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 49,
+      "line": 53,
       "patterns": [
         "series-symbol"
       ],
@@ -1394,7 +1394,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 60,
+      "line": 64,
       "patterns": [
         "series-symbol"
       ],
@@ -1402,7 +1402,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 63,
+      "line": 67,
       "patterns": [
         "series-symbol"
       ],
@@ -1410,7 +1410,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 89,
+      "line": 93,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1419,7 +1419,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 126,
+      "line": 133,
       "patterns": [
         "saga-copy"
       ],
@@ -1427,7 +1427,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 131,
+      "line": 138,
       "patterns": [
         "route-saga",
         "saga-copy"
@@ -1436,7 +1436,7 @@
     },
     {
       "file": "src/components/index-entity-detail.tsx",
-      "line": 142,
+      "line": 149,
       "patterns": [
         "saga-copy"
       ],

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { CompanyProfileDetail } from "@/components/company-profile-detail";
+import { IndexEntityJsonLd } from "@/components/index-entity-json-ld";
 import { resolveCanonicalCompanySlug } from "@/lib/company-canonical";
 import { buildCompanyProfileViewWithOverlay } from "@/lib/company-profile";
 import { buildCompanyMetadata } from "@/lib/company-seo";
@@ -48,12 +49,26 @@ export default async function CompanyPage({ params }: Props) {
   }));
 
   return (
-    <CompanyProfileDetail
-      view={view}
-      franchises={franchises}
-      series={series}
-      ownedCatalogIds={ownedCatalogIds}
-      isLoggedIn={!!user}
-    />
+    <>
+      <IndexEntityJsonLd
+        summary={{
+          kind: "company",
+          name: view.name,
+          slug: view.slug,
+          catalogEntryCount: view.catalogEntryCount,
+        }}
+        breadcrumbs={[
+          { label: "Compañías", href: "/compania" },
+          { label: view.name },
+        ]}
+      />
+      <CompanyProfileDetail
+        view={view}
+        franchises={franchises}
+        series={series}
+        ownedCatalogIds={ownedCatalogIds}
+        isLoggedIn={!!user}
+      />
+    </>
   );
 }

@@ -16,8 +16,12 @@ import {
   getPublicSeriesFranchises,
 } from "@/lib/admin-franchise-manager";
 import { toCatalogListGame } from "@/lib/catalog-list-game";
-import type { IndexKind } from "@/lib/index-entity";
-import { summarizeIndexEntry, summarizeIndexSlug } from "@/lib/index-entity";
+import {
+  INDEX_KIND_META,
+  summarizeIndexEntry,
+  summarizeIndexSlug,
+  type IndexKind,
+} from "@/lib/index-entity";
 import { buildSeriesProfile } from "@/lib/series-profile";
 import { getOwnedCatalogIds } from "@/lib/collection-store";
 import { getCurrentUser } from "@/lib/users";
@@ -89,11 +93,14 @@ export async function IndexEntityDetail({ kind, slug }: { kind: IndexKind; slug:
             { label: "Sagas", href: "/saga" },
             { label: summary.name },
           ]
-      : undefined;
+      : [
+          { label: INDEX_KIND_META[kind].backLabel, href: INDEX_KIND_META[kind].basePath },
+          { label: summary.name },
+        ];
 
   const content = (
     <>
-      {breadcrumbs && <IndexEntityJsonLd summary={summary} breadcrumbs={breadcrumbs} />}
+      <IndexEntityJsonLd summary={summary} breadcrumbs={breadcrumbs} />
       <IndexEntityHeader summary={summary} breadcrumbs={breadcrumbs} />
       {seriesProfile && <SagaMascotWelcome profile={seriesProfile} compact />}
       {seriesProfile && (
