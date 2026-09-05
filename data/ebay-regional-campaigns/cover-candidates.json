@@ -1,10 +1,45 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-05T16:43:12Z",
+  "updatedAt": "2026-09-05T20:30:34Z",
   "totals": {
-    "games": 0,
-    "images": 0,
-    "platforms": 0
+    "games": 1,
+    "images": 1,
+    "platforms": 1
   },
-  "games": {}
+  "games": {
+    "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition": {
+      "catalogId": "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition",
+      "title": "Armored Core VI: Fires Of Rubicon [Collector&#39;s Edition]",
+      "platformSlug": "ps4",
+      "region": "PAL España",
+      "status": "pending_review",
+      "firstSeenAt": "2026-09-05T20:30:34Z",
+      "lastSeenAt": "2026-09-05T20:30:34Z",
+      "candidates": [
+        {
+          "id": "ebay-600f429202c37b11",
+          "source": "ebay_listing",
+          "assetKind": "listing_photo",
+          "persistence": "review_required",
+          "imageUrl": "https://i.ebayimg.com/images/g/S8kAAeSwTDhpNXF3/s-l225.jpg",
+          "productUrl": "https://www.ebay.es/itm/257248223506?_skw=Armored+Core+VI+Fires+Of+Rubicon+Collector%27s+Edition&hash=item3be5306112:g:S8kAAeSwTDhpNXF3",
+          "listingTitle": "ARMORED CORE VI : Fires of Rubicon COLLECTOR'S EDITION - Playstation 5 PS5 - NEW",
+          "externalId": "v1|257248223506|0",
+          "confidence": 0.9,
+          "regionEvidence": [
+            "listing_title_region",
+            "seller_states_region",
+            "cover_pal_eu",
+            "photo_region_mark",
+            "cover_spain",
+            "back_cover_language",
+            "cover_vision"
+          ],
+          "originCountry": "ES",
+          "firstSeenAt": "2026-09-05T20:30:34Z",
+          "lastSeenAt": "2026-09-05T20:30:34Z"
+        }
+      ]
+    }
+  }
 }

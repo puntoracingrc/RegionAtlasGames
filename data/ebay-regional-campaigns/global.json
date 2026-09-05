@@ -9,8 +9,8 @@
     "batchSize": 250,
     "searchBudgetPerRun": 250,
     "dailySearchBudget": 1000,
-    "dailySearchesUsed": 467,
-    "dailySearchesRemaining": 533,
+    "dailySearchesUsed": 477,
+    "dailySearchesRemaining": 523,
     "regions": [
       "PAL España",
       "PAL Europa"
@@ -20,34 +20,34 @@
   "currentPlatform": "snes",
   "currentPlatformName": "Super Nintendo",
   "currentRegion": "PAL Europa",
-  "updatedAt": "2026-09-05T16:43:12Z",
+  "updatedAt": "2026-09-05T20:30:34Z",
   "lastRun": {
-    "at": "2026-09-05T16:43:12Z",
-    "platformSlug": "snes",
-    "platformName": "Super Nintendo",
-    "region": "PAL Europa",
-    "selected": 250,
-    "processed": 250,
-    "matched": 191,
-    "listingsAdded": 555,
+    "at": "2026-09-05T20:30:34Z",
+    "platformSlug": "ps4",
+    "platformName": "PlayStation 4",
+    "region": "PAL España",
+    "selected": 10,
+    "processed": 10,
+    "matched": 1,
+    "listingsAdded": 1,
     "regionalReroutes": 0,
-    "regionalReviews": 877,
-    "apiSearches": 250,
+    "regionalReviews": 4,
+    "apiSearches": 10,
     "searchBudget": 250,
-    "searchBudgetExhausted": true,
+    "searchBudgetExhausted": false,
     "failed": 0,
     "systemicError": null,
-    "coverCandidatesAdded": 0
+    "coverCandidatesAdded": 1
   },
   "dailyUsage": {
     "date": "2026-09-05",
-    "apiSearches": 467
+    "apiSearches": 477
   },
   "totals": {
     "catalogGames": 25779,
     "completed": 3761,
-    "matched": 620,
-    "noMatch": 3141,
+    "matched": 621,
+    "noMatch": 3140,
     "deferred": 0,
     "pending": 22018
   },
@@ -59,12 +59,12 @@
       "platformName": "PlayStation 4",
       "status": "completed",
       "currentRegion": null,
-      "updatedAt": "2026-09-04T16:28:32Z",
+      "updatedAt": "2026-09-05T20:30:34Z",
       "totals": {
         "catalogGames": 3044,
         "completed": 3044,
-        "matched": 344,
-        "noMatch": 2700,
+        "matched": 345,
+        "noMatch": 2699,
         "deferred": 0,
         "pending": 0
       },
@@ -77,8 +77,8 @@
           "originLabel": "España",
           "total": 3043,
           "completed": 3043,
-          "matched": 344,
-          "noMatch": 2699,
+          "matched": 345,
+          "noMatch": 2698,
           "deferred": 0,
           "pending": 0
         },
@@ -949,9 +949,9 @@
     }
   ],
   "coverCandidates": {
-    "games": 0,
-    "images": 0,
-    "platforms": 0
+    "games": 1,
+    "images": 1,
+    "platforms": 1
   },
   "log": [
     {
@@ -1211,6 +1211,14 @@
       "platformSlug": "snes",
       "region": "PAL Europa",
       "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-05T20:30:34Z",
+      "level": "info",
+      "message": "PlayStation 4 · PAL España: 10/10 consultados, 1 con evidencias, 1 anuncios aceptados, 0 aprovechados en otra región, 4 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "ps4",
+      "region": "PAL España",
+      "coverCandidatesAdded": 1
     }
   ]
 }

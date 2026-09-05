@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-09-05T16:43:12Z",
+  "lastRunAt": "2026-09-05T20:30:34Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -120,14 +120,14 @@
         }
       },
       "lastScopedSync": {
-        "lastSyncAt": "2026-09-04T16:28:26Z",
-        "source": "Mercado ES",
-        "gamesTargeted": 1,
+        "lastSyncAt": "2026-09-05T20:29:31Z",
+        "source": "eBay ES",
+        "gamesTargeted": 10,
         "gamesUpdated": 0,
         "wallapopGamesUpdated": 0,
         "ebayGamesUpdated": 0,
         "vintedGamesUpdated": 0,
-        "gamesSkippedNoData": 1,
+        "gamesSkippedNoData": 10,
         "gamesRejectedOutliers": 0,
         "gamesRejectedUnverifiedRegion": 0,
         "gamesRejectedRegionMismatch": 0,
@@ -146,21 +146,29 @@
         "tcGamesSkipped": 0,
         "gameGamesUpdated": 0,
         "coveragePct": 0.0,
-        "priceListTotalGames": 1,
-        "priceListPricedBefore": 1,
-        "priceListPricedAfter": 1,
+        "priceListTotalGames": 3043,
+        "priceListPricedBefore": 892,
+        "priceListPricedAfter": 892,
         "priceListPricedDelta": 0,
-        "priceListCoverageBeforePct": 100.0,
-        "priceListCoverageAfterPct": 100.0,
+        "priceListCoverageBeforePct": 29.3,
+        "priceListCoverageAfterPct": 29.3,
         "priceListCoverageDeltaPct": 0.0,
         "ebayDeliveryGamesUpdated": 0,
         "regionPolicy": "Reglas en data/region-evidence-rules.json",
         "aiSummary": {
           "openAiConfigured": true,
-          "sources": [],
+          "sources": [
+            {
+              "source": "ebay-es",
+              "aiRows": 1,
+              "resolved": 1,
+              "review": 0,
+              "rejected": 0
+            }
+          ],
           "conditionVision": {
-            "calls": 0,
-            "resolved": 0,
+            "calls": 1,
+            "resolved": 1,
             "skipped_no_images": 0,
             "skipped_no_key": 0,
             "skipped_has_bucket": 0,
@@ -169,7 +177,16 @@
         },
         "scope": "catalog_ids",
         "catalogIds": [
-          "ps4-1971-project-helios"
+          "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition",
+          "ps4-armored-core-vi-fires-of-rubicon-launch-edition",
+          "ps4-cyberpunk-2077-samurai-pack",
+          "ps4-dark-souls-ii-scholar-of-the-first-sin-not-for-resale",
+          "ps4-gylt-collector%27s-edition",
+          "ps4-okinawa-rush-black-mantis-edition",
+          "ps4-okinawa-rush-limited-edition",
+          "ps4-senran-kagura-burst-renewal-bountiful-beauties",
+          "ps4-young-souls-collector%27s-edition",
+          "ps4-young-souls-deluxe-edition"
         ]
       }
     },
@@ -1401,27 +1418,35 @@
           }
         },
         "lastScopedSync": {
-          "lastSyncAt": "2026-09-04T11:28:06Z",
-          "source": "Mercado ES",
-          "gamesTargeted": 18,
+          "lastSyncAt": "2026-09-05T20:29:31Z",
+          "source": "eBay ES",
+          "gamesTargeted": 10,
           "gamesUpdated": 0,
           "wallapopGamesUpdated": 0,
           "ebayGamesUpdated": 0,
           "vintedGamesUpdated": 0,
           "coveragePct": 0.0,
           "priceListTotalGames": 3043,
-          "priceListPricedBefore": 894,
-          "priceListPricedAfter": 894,
+          "priceListPricedBefore": 892,
+          "priceListPricedAfter": 892,
           "priceListPricedDelta": 0,
-          "priceListCoverageBeforePct": 29.4,
-          "priceListCoverageAfterPct": 29.4,
+          "priceListCoverageBeforePct": 29.3,
+          "priceListCoverageAfterPct": 29.3,
           "priceListCoverageDeltaPct": 0.0,
           "aiSummary": {
             "openAiConfigured": true,
-            "sources": [],
+            "sources": [
+              {
+                "source": "ebay-es",
+                "aiRows": 1,
+                "resolved": 1,
+                "review": 0,
+                "rejected": 0
+              }
+            ],
             "conditionVision": {
-              "calls": 0,
-              "resolved": 0,
+              "calls": 1,
+              "resolved": 1,
               "skipped_no_images": 0,
               "skipped_no_key": 0,
               "skipped_has_bucket": 0,
@@ -1430,24 +1455,16 @@
           },
           "scope": "catalog_ids",
           "catalogIds": [
-            "ps4-until-dawn",
-            "ps4-valfaris",
-            "ps4-valhalla-hills-definitive-edition",
-            "ps4-valkyrie-elysium",
-            "ps4-vesper-zero-light-edition-29-99",
-            "ps4-wacht-dogs",
-            "ps4-wildshade-unicorn-champions",
-            "ps4-windlands-2",
-            "ps4-windstorm-an-unexpected-arrival",
-            "ps4-witcher-3-blood-and-wine",
-            "ps4-witcher-3-hearts-of-stone",
-            "ps4-wolong-fallen-dinasty",
-            "ps4-xenocrisis",
-            "ps4-yakuza-6-the-song-of-life",
-            "ps4-ys-ix-monstrum-nox",
-            "ps4-ys-x-nordics-deluxe-edition",
-            "ps4-zapling-bygone",
-            "ps4-zone-of-the-enders-the-2nd-runner-mars"
+            "ps4-armored-core-vi-fires-of-rubicon-collector%27s-edition",
+            "ps4-armored-core-vi-fires-of-rubicon-launch-edition",
+            "ps4-cyberpunk-2077-samurai-pack",
+            "ps4-dark-souls-ii-scholar-of-the-first-sin-not-for-resale",
+            "ps4-gylt-collector%27s-edition",
+            "ps4-okinawa-rush-black-mantis-edition",
+            "ps4-okinawa-rush-limited-edition",
+            "ps4-senran-kagura-burst-renewal-bountiful-beauties",
+            "ps4-young-souls-collector%27s-edition",
+            "ps4-young-souls-deluxe-edition"
           ]
         }
       },
