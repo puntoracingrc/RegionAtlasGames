@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "baselineRevision": "61bba364b897ace5f5d4340108ccb5eff64a2910",
+  "baselineRevision": "3a5391b44bad1d157726fa577435c7d8e6240093",
   "identifierSemantics": {
     "persistedField": "gameId",
     "meaning": "Existing catalog_id for one catalogued edition; not a logical game work."
   },
   "counts": {
-    "catalogEntriesBefore": 65434,
-    "catalogEntriesAfter": 65434,
-    "uniqueCatalogIdsBefore": 65434,
-    "uniqueCatalogIdsAfter": 65434,
+    "catalogEntriesBefore": 65452,
+    "catalogEntriesAfter": 65452,
+    "uniqueCatalogIdsBefore": 65452,
+    "uniqueCatalogIdsAfter": 65452,
     "companiesBefore": 4326,
     "companiesAfter": 4326,
     "legacySeriesUrls": 427,
@@ -18,11 +18,15 @@
     "franchises": 9,
     "promotedLegacySeries": 8,
     "retainedSeries": 7,
-    "catalogEntryFranchiseRelations": 340,
+    "catalogEntryFranchiseRelations": 333,
     "seriesFranchiseRelations": 8,
     "entityRelationships": 1,
     "ambiguousLegacySeries": 412,
-    "catalogEntriesWithMultipleFranchises": 11
+    "catalogEntriesWithMultipleFranchises": 11,
+    "approvedMembershipExclusions": 8,
+    "effectiveSeriesMembershipExclusions": 1,
+    "effectiveFranchiseMembershipExclusions": 7,
+    "franchiseEditorialOverrides": 1
   },
   "checks": {
     "catalogCount": true,
@@ -36,8 +40,13 @@
     "exactApprovedClassification": true,
     "exactApprovedMigrationScope": true,
     "ambiguousLegacyUntouched": true,
+    "approvedMembershipExclusions": true,
+    "effectiveMembershipsExact": true,
+    "positiveNonTitleMembershipsPreserved": true,
+    "gameBoyHistoricalBrandingClassified": true,
+    "finalFantasyEditorialCorrected": true,
     "promotionMembershipParity": true,
-    "promotionEditorialPreserved": true,
+    "promotionEditorialEffective": true,
     "promotionRedirects": true,
     "everyLegacyUrlHasOutcome": true,
     "exactLegacyUrlOutcomes": true,
@@ -55,94 +64,131 @@
     {
       "slug": "final-fantasy",
       "legacyCatalogEntries": 140,
-      "franchiseCatalogEntries": 140,
+      "approvedExcludedCatalogIds": [
+        "gameboy-japon-seiken-densetsu-final-fantasy-gaiden",
+        "gameboy-usa-final-fantasy-adventure",
+        "gameboy-usa-final-fantasy-legend",
+        "gameboy-usa-final-fantasy-legend-ii",
+        "gameboy-usa-final-fantasy-legend-iii"
+      ],
+      "expectedEffectiveCatalogEntries": 135,
+      "franchiseCatalogEntries": 135,
       "lostCatalogIds": [],
       "unexpectedCatalogIds": [],
-      "membershipParity": true,
-      "editorialPreserved": true,
+      "effectiveMembershipParity": true,
+      "editorialOverrideApplied": true,
+      "editorialEffective": true,
       "redirect": true,
       "canonical": "/franquicia/final-fantasy"
     },
     {
       "slug": "lego",
       "legacyCatalogEntries": 18,
+      "approvedExcludedCatalogIds": [],
+      "expectedEffectiveCatalogEntries": 18,
       "franchiseCatalogEntries": 18,
       "lostCatalogIds": [],
       "unexpectedCatalogIds": [],
-      "membershipParity": true,
-      "editorialPreserved": true,
+      "effectiveMembershipParity": true,
+      "editorialOverrideApplied": false,
+      "editorialEffective": true,
       "redirect": true,
       "canonical": "/franquicia/lego"
     },
     {
       "slug": "mega-man",
       "legacyCatalogEntries": 6,
+      "approvedExcludedCatalogIds": [],
+      "expectedEffectiveCatalogEntries": 6,
       "franchiseCatalogEntries": 6,
       "lostCatalogIds": [],
       "unexpectedCatalogIds": [],
-      "membershipParity": true,
-      "editorialPreserved": true,
+      "effectiveMembershipParity": true,
+      "editorialOverrideApplied": false,
+      "editorialEffective": true,
       "redirect": true,
       "canonical": "/franquicia/mega-man"
     },
     {
       "slug": "need-for-speed",
       "legacyCatalogEntries": 35,
-      "franchiseCatalogEntries": 35,
+      "approvedExcludedCatalogIds": [
+        "ps1-wanted"
+      ],
+      "expectedEffectiveCatalogEntries": 34,
+      "franchiseCatalogEntries": 34,
       "lostCatalogIds": [],
       "unexpectedCatalogIds": [],
-      "membershipParity": true,
-      "editorialPreserved": true,
+      "effectiveMembershipParity": true,
+      "editorialOverrideApplied": false,
+      "editorialEffective": true,
       "redirect": true,
       "canonical": "/franquicia/need-for-speed"
     },
     {
       "slug": "resident-evil",
       "legacyCatalogEntries": 35,
+      "approvedExcludedCatalogIds": [],
+      "expectedEffectiveCatalogEntries": 35,
       "franchiseCatalogEntries": 35,
       "lostCatalogIds": [],
       "unexpectedCatalogIds": [],
-      "membershipParity": true,
-      "editorialPreserved": true,
+      "effectiveMembershipParity": true,
+      "editorialOverrideApplied": false,
+      "editorialEffective": true,
       "redirect": true,
       "canonical": "/franquicia/resident-evil"
     },
     {
       "slug": "sonic-the-hedgehog",
       "legacyCatalogEntries": 30,
+      "approvedExcludedCatalogIds": [],
+      "expectedEffectiveCatalogEntries": 30,
       "franchiseCatalogEntries": 30,
       "lostCatalogIds": [],
       "unexpectedCatalogIds": [],
-      "membershipParity": true,
-      "editorialPreserved": true,
+      "effectiveMembershipParity": true,
+      "editorialOverrideApplied": false,
+      "editorialEffective": true,
       "redirect": true,
       "canonical": "/franquicia/sonic-the-hedgehog"
     },
     {
       "slug": "star-wars",
       "legacyCatalogEntries": 21,
+      "approvedExcludedCatalogIds": [],
+      "expectedEffectiveCatalogEntries": 21,
       "franchiseCatalogEntries": 21,
       "lostCatalogIds": [],
       "unexpectedCatalogIds": [],
-      "membershipParity": true,
-      "editorialPreserved": true,
+      "effectiveMembershipParity": true,
+      "editorialOverrideApplied": false,
+      "editorialEffective": true,
       "redirect": true,
       "canonical": "/franquicia/star-wars"
     },
     {
       "slug": "time-crisis",
       "legacyCatalogEntries": 6,
+      "approvedExcludedCatalogIds": [],
+      "expectedEffectiveCatalogEntries": 6,
       "franchiseCatalogEntries": 6,
       "lostCatalogIds": [],
       "unexpectedCatalogIds": [],
-      "membershipParity": true,
-      "editorialPreserved": true,
+      "effectiveMembershipParity": true,
+      "editorialOverrideApplied": false,
+      "editorialEffective": true,
       "redirect": true,
       "canonical": "/franquicia/time-crisis"
     }
   ],
   "diagnostics": {
     "seriesPropagationFailures": [],
+    "unexpectedSeriesPropagations": [],
+    "effectiveMembershipMismatches": [],
+    "unexpectedEffectiveMemberships": [],
+    "excludedEffectiveRelations": [],
+    "missingPositiveMemberships": [],
     "duplicateGameMemberships": [],
     "duplicateSeriesMemberships": [],
     "multiplePrimarySeries": [],
@@ -152,6 +198,206 @@
     "orphanSeriesRelationSlugs": [],
     "ambiguousLegacyChanges": [],
     "protectedFileMismatches": []
+  },
+  "curation": {
+    "membershipExclusions": [
+      {
+        "catalogId": "gameboy-japon-seiken-densetsu-final-fantasy-gaiden",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Square Enix identifica esta edición como la primera entrega de Seiken Densetsu/Mana. El subtítulo Final Fantasy Gaiden documenta su presentación histórica, pero no basta para mantener una pertenencia directa a la franquicia Final Fantasy.",
+        "sourceUrls": [
+          "https://www.jp.square-enix.com/game/detail/seiken/",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-adventure",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Final Fantasy Adventure es el título norteamericano de la primera entrega de Mana. La asociación con Final Fantasy se conserva como contexto histórico de marca, no como pertenencia directa.",
+        "sourceUrls": [
+          "https://mana.square-enix-games.com/en-gb",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix identifica The Final Fantasy Legend como la edición norteamericana de Makai Toushi SaGa y como origen de la franquicia SaGa. El nombre regional no acredita pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-ii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend II entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-iii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend III entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps1-wanted",
+        "entityType": "franchise",
+        "entityId": "franchise:need-for-speed",
+        "entitySlug": "need-for-speed",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "Wanted (SLES-04158) es un shooter de NAPS Team publicado por Phoenix Games y no pertenece a Need for Speed.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/111925/wanted/",
+          "https://psxdatacenter.com/games/P/W/SLES-04158.html"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps2-harry-potter-collection",
+        "entityType": "series",
+        "entityId": "lego-harry-potter",
+        "entitySlug": "lego-harry-potter",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "Harry Potter Collection reúne juegos convencionales de Harry Potter publicados por Electronic Arts; no es una entrega de LEGO Harry Potter.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/30951/harry-potter-collection/",
+          "https://www.bestbuy.com/site/harry-potter-collection-playstation-2/8441484.p?skuId=8441484"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps2-harry-potter-collection",
+        "entityType": "franchise",
+        "entityId": "franchise:lego",
+        "entitySlug": "lego",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "La recopilación de Electronic Arts no contiene juegos LEGO y no debe heredarse hacia la franquicia LEGO desde la agrupación legacy incorrecta.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/30951/harry-potter-collection/",
+          "https://www.bestbuy.com/site/harry-potter-collection-playstation-2/8441484.p?skuId=8441484"
+        ],
+        "reviewedAt": "2026-09-05"
+      }
+    ],
+    "franchiseEditorialOverrides": {
+      "final-fantasy": {
+        "description": null,
+        "classification": "wrong_entity_content",
+        "confidence": "high",
+        "reason": "El texto legacy describe la historia corporativa de Square Enix, incluida la fusión de Square y Enix y la adquisición de Eidos; no es un perfil editorial de la franquicia Final Fantasy.",
+        "sourceUrls": [
+          "https://www.hd.square-enix.com/eng/company/history.html"
+        ],
+        "reviewedAt": "2026-09-05"
+      }
+    },
+    "gameBoyDecisions": [
+      {
+        "catalogId": "gameboy-japon-seiken-densetsu-final-fantasy-gaiden",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Square Enix identifica esta edición como la primera entrega de Seiken Densetsu/Mana. El subtítulo Final Fantasy Gaiden documenta su presentación histórica, pero no basta para mantener una pertenencia directa a la franquicia Final Fantasy.",
+        "sourceUrls": [
+          "https://www.jp.square-enix.com/game/detail/seiken/",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-adventure",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Final Fantasy Adventure es el título norteamericano de la primera entrega de Mana. La asociación con Final Fantasy se conserva como contexto histórico de marca, no como pertenencia directa.",
+        "sourceUrls": [
+          "https://mana.square-enix-games.com/en-gb",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix identifica The Final Fantasy Legend como la edición norteamericana de Makai Toushi SaGa y como origen de la franquicia SaGa. El nombre regional no acredita pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-ii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend II entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-iii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend III entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      }
+    ]
   },
   "legacyUrlOutcomes": [
     {

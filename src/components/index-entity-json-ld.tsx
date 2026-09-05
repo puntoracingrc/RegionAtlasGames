@@ -7,17 +7,14 @@ function absoluteUrl(base: string, path: string): string {
   return new URL(path, `${base}/`).toString();
 }
 
-export function IndexEntityJsonLd({
-  summary,
-  breadcrumbs,
-}: {
-  summary: IndexEntitySummary;
-  breadcrumbs: BreadcrumbItem[];
-}) {
-  const base = getSiteUrl();
+export function buildIndexEntityJsonLd(
+  summary: IndexEntitySummary,
+  breadcrumbs: BreadcrumbItem[],
+  base = getSiteUrl(),
+) {
   const meta = INDEX_KIND_META[summary.kind];
   const currentPath = `${meta.basePath}/${summary.slug}`;
-  const data = [
+  return [
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
@@ -25,7 +22,7 @@ export function IndexEntityJsonLd({
       url: absoluteUrl(base, currentPath),
       mainEntity: {
         "@type": "ItemList",
-        name: `${meta.listTitle}: ${summary.name}`,
+        name: `Fichas catalogadas de ${summary.name}`,
         numberOfItems: summary.catalogEntryCount,
       },
     },
@@ -39,7 +36,17 @@ export function IndexEntityJsonLd({
         item: absoluteUrl(base, item.href ?? currentPath),
       })),
     },
-  ];
+  ] as const;
+}
+
+export function IndexEntityJsonLd({
+  summary,
+  breadcrumbs,
+}: {
+  summary: IndexEntitySummary;
+  breadcrumbs: BreadcrumbItem[];
+}) {
+  const data = buildIndexEntityJsonLd(summary, breadcrumbs);
 
   return (
     <script

@@ -134,61 +134,6 @@
       "role": null
     },
     {
-      "gameId": "gameboy-japon-seiken-densetsu-final-fantasy-gaiden",
-      "franchiseId": "franchise:final-fantasy",
-      "franchiseSlug": "final-fantasy",
-      "primary": true,
-      "membership": "direct",
-      "inheritedFromSeriesSlugs": [],
-      "source": "legacy-series-promotion",
-      "reviewedAt": "2026-09-04",
-      "role": null
-    },
-    {
-      "gameId": "gameboy-usa-final-fantasy-adventure",
-      "franchiseId": "franchise:final-fantasy",
-      "franchiseSlug": "final-fantasy",
-      "primary": true,
-      "membership": "direct",
-      "inheritedFromSeriesSlugs": [],
-      "source": "legacy-series-promotion",
-      "reviewedAt": "2026-09-04",
-      "role": null
-    },
-    {
-      "gameId": "gameboy-usa-final-fantasy-legend",
-      "franchiseId": "franchise:final-fantasy",
-      "franchiseSlug": "final-fantasy",
-      "primary": true,
-      "membership": "direct",
-      "inheritedFromSeriesSlugs": [],
-      "source": "legacy-series-promotion",
-      "reviewedAt": "2026-09-04",
-      "role": null
-    },
-    {
-      "gameId": "gameboy-usa-final-fantasy-legend-ii",
-      "franchiseId": "franchise:final-fantasy",
-      "franchiseSlug": "final-fantasy",
-      "primary": true,
-      "membership": "direct",
-      "inheritedFromSeriesSlugs": [],
-      "source": "legacy-series-promotion",
-      "reviewedAt": "2026-09-04",
-      "role": null
-    },
-    {
-      "gameId": "gameboy-usa-final-fantasy-legend-iii",
-      "franchiseId": "franchise:final-fantasy",
-      "franchiseSlug": "final-fantasy",
-      "primary": true,
-      "membership": "direct",
-      "inheritedFromSeriesSlugs": [],
-      "source": "legacy-series-promotion",
-      "reviewedAt": "2026-09-04",
-      "role": null
-    },
-    {
       "gameId": "gamecube-final-fantasy-crystal-chronicles",
       "franchiseId": "franchise:final-fantasy",
       "franchiseSlug": "final-fantasy",
@@ -586,17 +531,6 @@
       "role": null
     },
     {
-      "gameId": "ps1-wanted",
-      "franchiseId": "franchise:need-for-speed",
-      "franchiseSlug": "need-for-speed",
-      "primary": true,
-      "membership": "direct",
-      "inheritedFromSeriesSlugs": [],
-      "source": "legacy-series-promotion",
-      "reviewedAt": "2026-09-04",
-      "role": null
-    },
-    {
       "gameId": "ps2-crisis-zone",
       "franchiseId": "franchise:time-crisis",
       "franchiseSlug": "time-crisis",
@@ -661,19 +595,6 @@
       "membership": "direct",
       "inheritedFromSeriesSlugs": [],
       "source": "legacy-series-promotion",
-      "reviewedAt": "2026-09-04",
-      "role": null
-    },
-    {
-      "gameId": "ps2-harry-potter-collection",
-      "franchiseId": "franchise:lego",
-      "franchiseSlug": "lego",
-      "primary": true,
-      "membership": "inherited",
-      "inheritedFromSeriesSlugs": [
-        "lego-harry-potter"
-      ],
-      "source": "series-franchise-propagation",
       "reviewedAt": "2026-09-04",
       "role": null
     },

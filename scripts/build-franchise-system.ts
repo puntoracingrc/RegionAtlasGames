@@ -1,5 +1,13 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import {
+  filterEffectiveSeriesCatalogIds,
+  getFranchiseCurationMetadata,
+  getFranchiseEditorialOverride,
+  getFranchiseEditorialOverrides,
+  getMembershipExclusion,
+  getMembershipExclusions,
+} from "../src/lib/franchise-curation";
 
 type Classification = "franchise" | "series" | "ambiguous";
 type Confidence = "high" | "medium" | "low";
@@ -152,6 +160,9 @@ const overrides = readJson<OverrideFile>(path.join(SYSTEM_DIR, "classification-o
 const staticSeries = readJson<Record<string, SeriesEntry>>(path.join(ROOT, "data", "index", "series.json"));
 const productionOverlay = readJson<EffectiveOverlay>(path.join(MIGRATION_DIR, "production-series-overlay-effective.json"));
 const series = effectiveSeries(staticSeries, productionOverlay);
+const membershipExclusions = getMembershipExclusions();
+const franchiseEditorialOverrides = getFranchiseEditorialOverrides();
+const curationMetadata = getFranchiseCurationMetadata();
 
 const franchises = new Map<string, FranchiseEntity>();
 for (const entry of Object.values(classification.entries)) {
@@ -159,13 +170,14 @@ for (const entry of Object.values(classification.entries)) {
   const legacy = series[entry.slug];
   if (!legacy) throw new Error(`Missing effective legacy series: ${entry.slug}`);
   const slug = entry.proposedFranchise ?? entry.slug;
+  const editorialOverride = getFranchiseEditorialOverride(slug);
   franchises.set(slug, {
     id: `franchise:${slug}`,
     slug,
     name: legacy.name,
     status: "published",
     legacySeriesSlug: entry.slug,
-    description: legacy.description ?? null,
+    description: editorialOverride ? editorialOverride.description : legacy.description ?? null,
     backgroundImageUrl: legacy.backgroundImageUrl ?? null,
     backgroundImageOpacity: legacy.backgroundImageOpacity ?? null,
     backgroundReadability: legacy.backgroundReadability ?? null,
@@ -227,6 +239,7 @@ type MembershipInput = Pick<
 };
 
 function upsertMembership(input: MembershipInput) {
+  if (getMembershipExclusion(input.gameId, "franchise", input.franchiseId)) return;
   const key = `${input.gameId}\0${input.franchiseId}`;
   const current = membershipMap.get(key);
   const inheritedFromSeriesSlugs = unique([
@@ -265,7 +278,11 @@ for (const franchise of franchises.values()) {
 }
 
 for (const relation of seriesFranchiseRelations) {
-  for (const gameId of series[relation.seriesSlug]?.gameIds ?? []) {
+  const effectiveSeriesCatalogIds = filterEffectiveSeriesCatalogIds(
+    relation.seriesSlug,
+    series[relation.seriesSlug]?.gameIds ?? [],
+  );
+  for (const gameId of effectiveSeriesCatalogIds) {
     upsertMembership({
       gameId,
       franchiseId: relation.franchiseId,
@@ -332,6 +349,12 @@ const promotions = [...franchises.values()]
   .filter((franchise) => franchise.legacySeriesSlug)
   .map((franchise) => {
     const legacyGameIds = series[franchise.legacySeriesSlug!]?.gameIds ?? [];
+    const approvedExclusions = membershipExclusions.filter((entry) =>
+      entry.entityType === "franchise" &&
+      entry.entityId === franchise.id &&
+      legacyGameIds.includes(entry.catalogId));
+    const approvedExcludedCatalogIds = approvedExclusions.map((entry) => entry.catalogId).sort();
+    const expectedDirectGameIds = legacyGameIds.filter((id) => !approvedExcludedCatalogIds.includes(id));
     const directGameIds = unique(directGameIdsByFranchise.get(franchise.slug) ?? []);
     const inheritedGameIds = unique(inheritedGameIdsByFranchise.get(franchise.slug) ?? []);
     return {
@@ -347,18 +370,19 @@ const promotions = [...franchises.values()]
         directCatalogEntries: directGameIds.length,
         effectiveCatalogEntries: unique([...directGameIds, ...inheritedGameIds]).length,
       },
-      lostDirectCatalogIds: legacyGameIds.filter((id) => !directGameIds.includes(id)),
-      unexpectedDirectCatalogIds: directGameIds.filter((id) => !legacyGameIds.includes(id)),
+      approvedExcludedCatalogIds,
+      lostDirectCatalogIds: expectedDirectGameIds.filter((id) => !directGameIds.includes(id)),
+      unexpectedDirectCatalogIds: directGameIds.filter((id) => !expectedDirectGameIds.includes(id)),
       inheritedCatalogIds: inheritedGameIds.filter((id) => !directGameIds.includes(id)),
-      directMembershipParity: legacyGameIds.length === directGameIds.length &&
-        legacyGameIds.every((id) => directGameIds.includes(id)),
+      effectiveDirectMembershipParity: expectedDirectGameIds.length === directGameIds.length &&
+        expectedDirectGameIds.every((id) => directGameIds.includes(id)),
       redirect: `/saga/${franchise.legacySeriesSlug} -> /franquicia/${franchise.slug}`,
     };
   })
   .sort((a, b) => (a.legacy.slug ?? "").localeCompare(b.legacy.slug ?? ""));
 
-if (promotions.some((promotion) => !promotion.directMembershipParity)) {
-  throw new Error("A promoted franchise does not preserve its complete direct legacy membership.");
+if (promotions.some((promotion) => !promotion.effectiveDirectMembershipParity)) {
+  throw new Error("A promoted franchise does not match legacy membership after approved exclusions.");
 }
 
 const report = {
@@ -372,8 +396,15 @@ const report = {
     catalogEntryFranchiseRelations: gameFranchiseRelations.length,
     entityRelationships: entityRelationships.length,
     legacyRedirects: legacyRedirects.length,
+    approvedMembershipExclusions: membershipExclusions.length,
+    franchiseEditorialOverrides: Object.keys(franchiseEditorialOverrides).length,
   },
   promotions,
+  curation: {
+    ...curationMetadata,
+    membershipExclusions,
+    franchiseEditorialOverrides,
+  },
   identifierSemantics: {
     persistedField: "gameId",
     meaning: "Existing catalog_id for one catalogued edition; not a logical game work.",

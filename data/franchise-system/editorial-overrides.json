@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "reviewBatch": "franchise-series-semantic-review-2026-09-05",
+  "franchises": {
+    "final-fantasy": {
+      "description": null,
+      "classification": "wrong_entity_content",
+      "confidence": "high",
+      "reason": "El texto legacy describe la historia corporativa de Square Enix, incluida la fusión de Square y Enix y la adquisición de Eidos; no es un perfil editorial de la franquicia Final Fantasy.",
+      "sourceUrls": [
+        "https://www.hd.square-enix.com/eng/company/history.html"
+      ],
+      "reviewedAt": "2026-09-05"
+    }
+  }
+}

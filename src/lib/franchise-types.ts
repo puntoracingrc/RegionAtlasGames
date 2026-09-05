@@ -3,6 +3,11 @@ export type SeriesClassification = "franchise" | "series" | "ambiguous";
 export type FranchiseConfidence = "high" | "medium" | "low";
 export type FranchiseRole = "mainline" | "spin_off" | "side_story" | "crossover";
 export type FranchiseMembership = "direct" | "inherited" | "direct_and_inherited";
+export type MembershipExclusionEntityType = "series" | "franchise";
+export type MembershipExclusionClassification =
+  | "false_positive"
+  | "historical_branding"
+  | "regional_rebranding";
 
 export const ENTITY_TYPES = ["game", "series", "franchise"] as const;
 export type RelationshipEntityType = (typeof ENTITY_TYPES)[number];
@@ -80,19 +85,43 @@ export type GameFranchiseRelation = {
 };
 
 export type RelationshipEntityRef = {
+  /** `game` identifies one regional catalog entry (`catalog_id`), not a logical game work. */
   type: RelationshipEntityType;
   id: string;
 };
 
 export type EntityRelationship = {
   id: string;
+  /** When this is `game`, `sourceId` is an existing regional `catalog_id`. */
   sourceType: RelationshipEntityType;
   sourceId: string;
+  /** When this is `game`, `targetId` is an existing regional `catalog_id`. */
   targetType: RelationshipEntityType;
   targetId: string;
   relationshipType: RelationshipType;
   source: string;
   confidence: FranchiseConfidence;
+  reviewedAt: string;
+};
+
+export type MembershipExclusion = {
+  catalogId: string;
+  entityType: MembershipExclusionEntityType;
+  entityId: string;
+  entitySlug: string;
+  classification: MembershipExclusionClassification;
+  confidence: FranchiseConfidence;
+  reason: string;
+  sourceUrls: string[];
+  reviewedAt: string;
+};
+
+export type FranchiseEditorialOverride = {
+  description: string | null;
+  classification: "wrong_entity_content";
+  confidence: FranchiseConfidence;
+  reason: string;
+  sourceUrls: string[];
   reviewedAt: string;
 };
 

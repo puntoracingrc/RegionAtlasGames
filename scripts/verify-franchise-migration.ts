@@ -5,9 +5,11 @@ import { gunzipSync } from "node:zlib";
 import { buildCatalogSeoSlug } from "../src/lib/catalog-path";
 import type {
   EntityRelationship,
+  FranchiseEditorialOverride,
   FranchiseEntity,
   GameFranchiseRelation,
   LegacySeriesRedirect,
+  MembershipExclusion,
   SeriesClassificationEntry,
   SeriesFranchiseRelation,
 } from "../src/lib/franchise-types";
@@ -55,6 +57,14 @@ type RollbackManifest = {
   baselineRevision: string;
   identifierSemantics: { persistedField: string; meaning: string };
   protectedFilesSha256: Record<string, string>;
+  curationState: {
+    membershipExclusionsFile: string;
+    membershipExclusionsSha256: string;
+    editorialOverridesFile: string;
+    editorialOverridesSha256: string;
+    membershipExclusions: MembershipExclusion[];
+    franchiseEditorialOverrides: Record<string, FranchiseEditorialOverride>;
+  };
   legacyState: {
     legacySeriesCount: number;
     membershipSha256: string;
@@ -90,6 +100,16 @@ const EXPECTED_RETAINED_SERIES = [
   "lego-star-wars",
   "mega-man-x",
   "super-mario",
+] as const;
+const EXPECTED_EXCLUSION_KEYS = [
+  "gameboy-japon-seiken-densetsu-final-fantasy-gaiden\0franchise\0franchise:final-fantasy",
+  "gameboy-usa-final-fantasy-adventure\0franchise\0franchise:final-fantasy",
+  "gameboy-usa-final-fantasy-legend\0franchise\0franchise:final-fantasy",
+  "gameboy-usa-final-fantasy-legend-ii\0franchise\0franchise:final-fantasy",
+  "gameboy-usa-final-fantasy-legend-iii\0franchise\0franchise:final-fantasy",
+  "ps1-wanted\0franchise\0franchise:need-for-speed",
+  "ps2-harry-potter-collection\0franchise\0franchise:lego",
+  "ps2-harry-potter-collection\0series\0lego-harry-potter",
 ] as const;
 
 const ROOT = process.cwd();
@@ -139,10 +159,29 @@ const gameRelationFile = readJson<{ relations: GameFranchiseRelation[] }>("data/
 const seriesRelationFile = readJson<{ relations: SeriesFranchiseRelation[] }>("data/franchise-system/series-franchise-relations.json");
 const relationshipFile = readJson<{ relationships: EntityRelationship[] }>("data/franchise-system/entity-relationships.json");
 const redirectFile = readJson<{ redirects: LegacySeriesRedirect[] }>("data/franchise-system/legacy-series-redirects.json");
+const membershipExclusionFile = readJson<{ exclusions: MembershipExclusion[] }>(
+  "data/franchise-system/membership-exclusions.json",
+);
+const editorialOverrideFile = readJson<{ franchises: Record<string, FranchiseEditorialOverride> }>(
+  "data/franchise-system/editorial-overrides.json",
+);
 const classificationFile = readJson<{ entries: Record<string, SeriesClassificationEntry> }>(
   "data/franchise-system/series-classification.json",
 );
 const rollbackManifest = readJson<RollbackManifest>("data/migrations/franchise-series-v1/rollback-manifest.json");
+const membershipExclusions = membershipExclusionFile.exclusions;
+const exclusionByKey = new Map(membershipExclusions.map((entry) => [
+  `${entry.catalogId}\0${entry.entityType}\0${entry.entityId}`,
+  entry,
+]));
+
+function membershipExclusion(
+  catalogId: string,
+  entityType: "series" | "franchise",
+  entityId: string,
+): MembershipExclusion | undefined {
+  return exclusionByKey.get(`${catalogId}\0${entityType}\0${entityId}`);
+}
 
 const catalogIdentity = catalog.map((game) => ({
   id: game.id,
@@ -177,6 +216,13 @@ const promotionRows = Object.values(franchiseFile.entities)
   .map((franchise) => {
     const legacySlug = franchise.legacySeriesSlug!;
     const legacy = snapshot.series[legacySlug];
+    const approvedExclusions = membershipExclusions
+      .filter((entry) =>
+        entry.entityType === "franchise" &&
+        entry.entityId === franchise.id &&
+        legacy?.gameIds.includes(entry.catalogId))
+      .sort((a, b) => a.catalogId.localeCompare(b.catalogId));
+    const approvedExcludedCatalogIds = approvedExclusions.map((entry) => entry.catalogId);
     const directGameIds = gameRelationFile.relations
       .filter((relation) =>
         relation.franchiseId === franchise.id &&
@@ -185,20 +231,29 @@ const promotionRows = Object.values(franchiseFile.entities)
       .map((relation) => relation.gameId)
       .sort();
     const legacyGameIds = [...(legacy?.gameIds ?? [])].sort();
+    const expectedEffectiveGameIds = legacyGameIds
+      .filter((catalogId) => !approvedExcludedCatalogIds.includes(catalogId));
     const redirect = redirectBySlug.get(legacySlug);
-    const editorialPreserved = Boolean(legacy) &&
-      franchise.description === legacy.editorial.description &&
+    const editorialOverride = editorialOverrideFile.franchises[franchise.slug];
+    const expectedDescription = editorialOverride
+      ? editorialOverride.description
+      : legacy?.editorial.description ?? null;
+    const editorialEffective = Boolean(legacy) &&
+      franchise.description === expectedDescription &&
       franchise.backgroundImageUrl === legacy.editorial.backgroundImageUrl &&
       franchise.backgroundImageOpacity === legacy.editorial.backgroundImageOpacity &&
       franchise.backgroundReadability === legacy.editorial.backgroundReadability;
     return {
       slug: legacySlug,
       legacyCatalogEntries: legacyGameIds.length,
+      approvedExcludedCatalogIds,
+      expectedEffectiveCatalogEntries: expectedEffectiveGameIds.length,
       franchiseCatalogEntries: directGameIds.length,
-      lostCatalogIds: legacyGameIds.filter((id) => !directGameIds.includes(id)),
-      unexpectedCatalogIds: directGameIds.filter((id) => !legacyGameIds.includes(id)),
-      membershipParity: sameArray(legacyGameIds, directGameIds),
-      editorialPreserved,
+      lostCatalogIds: expectedEffectiveGameIds.filter((id) => !directGameIds.includes(id)),
+      unexpectedCatalogIds: directGameIds.filter((id) => !expectedEffectiveGameIds.includes(id)),
+      effectiveMembershipParity: sameArray(expectedEffectiveGameIds, directGameIds),
+      editorialOverrideApplied: Boolean(editorialOverride),
+      editorialEffective,
       redirect: redirect?.source === `/saga/${legacySlug}` &&
         redirect.destination === `/franquicia/${franchise.slug}` &&
         redirect.permanent === true,
@@ -207,16 +262,92 @@ const promotionRows = Object.values(franchiseFile.entities)
   })
   .sort((a, b) => a.slug.localeCompare(b.slug));
 
-const seriesPropagationFailures = seriesRelationFile.relations.flatMap((seriesRelation) => {
-  const legacyGameIds = snapshot.series[seriesRelation.seriesSlug]?.gameIds ?? [];
-  return legacyGameIds
+const expectedSeriesCatalogIds = (seriesRelation: SeriesFranchiseRelation) =>
+  (snapshot.series[seriesRelation.seriesSlug]?.gameIds ?? [])
+    .filter((catalogId) => !membershipExclusion(catalogId, "series", seriesRelation.seriesSlug))
+    .filter((catalogId) => !membershipExclusion(catalogId, "franchise", seriesRelation.franchiseId));
+
+const seriesPropagationFailures = seriesRelationFile.relations.flatMap((seriesRelation) =>
+  expectedSeriesCatalogIds(seriesRelation)
     .filter((gameId) => !gameRelationFile.relations.some((gameRelation) =>
       gameRelation.gameId === gameId &&
       gameRelation.franchiseId === seriesRelation.franchiseId &&
       gameRelation.inheritedFromSeriesSlugs.includes(seriesRelation.seriesSlug),
     ))
-    .map((gameId) => ({ seriesSlug: seriesRelation.seriesSlug, franchiseId: seriesRelation.franchiseId, gameId }));
+    .map((gameId) => ({ seriesSlug: seriesRelation.seriesSlug, franchiseId: seriesRelation.franchiseId, gameId })));
+const unexpectedSeriesPropagations = seriesRelationFile.relations.flatMap((seriesRelation) => {
+  const expectedIds = new Set(expectedSeriesCatalogIds(seriesRelation));
+  return gameRelationFile.relations
+    .filter((gameRelation) =>
+      gameRelation.franchiseId === seriesRelation.franchiseId &&
+      gameRelation.inheritedFromSeriesSlugs.includes(seriesRelation.seriesSlug) &&
+      !expectedIds.has(gameRelation.gameId))
+    .map((gameRelation) => ({
+      seriesSlug: seriesRelation.seriesSlug,
+      franchiseId: seriesRelation.franchiseId,
+      gameId: gameRelation.gameId,
+    }));
 });
+
+type ExpectedMembership = {
+  direct: boolean;
+  inheritedFromSeriesSlugs: Set<string>;
+  primary: boolean;
+};
+const expectedMemberships = new Map<string, ExpectedMembership>();
+function addExpectedMembership(
+  catalogId: string,
+  franchiseId: string,
+  primary: boolean,
+  inheritedFromSeriesSlug?: string,
+) {
+  if (membershipExclusion(catalogId, "franchise", franchiseId)) return;
+  const key = `${catalogId}\0${franchiseId}`;
+  const current = expectedMemberships.get(key) ?? {
+    direct: false,
+    inheritedFromSeriesSlugs: new Set<string>(),
+    primary: false,
+  };
+  if (inheritedFromSeriesSlug) current.inheritedFromSeriesSlugs.add(inheritedFromSeriesSlug);
+  else current.direct = true;
+  current.primary ||= primary;
+  expectedMemberships.set(key, current);
+}
+
+for (const franchise of Object.values(franchiseFile.entities)) {
+  if (!franchise.legacySeriesSlug) continue;
+  for (const catalogId of snapshot.series[franchise.legacySeriesSlug]?.gameIds ?? []) {
+    addExpectedMembership(catalogId, franchise.id, true);
+  }
+}
+for (const seriesRelation of seriesRelationFile.relations) {
+  for (const catalogId of expectedSeriesCatalogIds(seriesRelation)) {
+    addExpectedMembership(catalogId, seriesRelation.franchiseId, seriesRelation.primary, seriesRelation.seriesSlug);
+  }
+}
+
+const generatedMembershipByKey = new Map(gameRelationFile.relations.map((relation) => [
+  `${relation.gameId}\0${relation.franchiseId}`,
+  relation,
+]));
+const effectiveMembershipMismatches = [...expectedMemberships.entries()].flatMap(([key, expected]) => {
+  const generated = generatedMembershipByKey.get(key);
+  const expectedInherited = [...expected.inheritedFromSeriesSlugs].sort();
+  const expectedType = expected.direct && expectedInherited.length > 0
+    ? "direct_and_inherited"
+    : expected.direct
+      ? "direct"
+      : "inherited";
+  if (
+    generated &&
+    generated.membership === expectedType &&
+    generated.primary === expected.primary &&
+    sameArray(generated.inheritedFromSeriesSlugs, expectedInherited)
+  ) return [];
+  return [{ key, expectedType, expectedPrimary: expected.primary, expectedInherited, generated }];
+});
+const unexpectedEffectiveMemberships = [...generatedMembershipByKey.keys()]
+  .filter((key) => !expectedMemberships.has(key));
 
 const duplicateGameMemberships = gameRelationFile.relations
   .map((relation) => `${relation.gameId}\0${relation.franchiseId}`)
@@ -261,6 +392,51 @@ const expectedRelationship = relationshipFile.relationships.length === 1 &&
   relationshipFile.relationships[0]?.targetType === "franchise" &&
   relationshipFile.relationships[0]?.targetId === "franchise:mega-man" &&
   relationshipFile.relationships[0]?.relationshipType === "derived_from";
+const actualExclusionKeys = membershipExclusions
+  .map((entry) => `${entry.catalogId}\0${entry.entityType}\0${entry.entityId}`)
+  .sort();
+const exclusionEvidenceValid = membershipExclusions.every((entry) =>
+  catalogIdSet.has(entry.catalogId) &&
+  entry.confidence === "high" &&
+  entry.reason.trim().length > 0 &&
+  entry.sourceUrls.length > 0 &&
+  entry.sourceUrls.every((url) => /^https:\/\//.test(url)) &&
+  (entry.entityType === "franchise"
+    ? franchiseIdSet.has(entry.entityId)
+    : Boolean(snapshot.series[entry.entityId])));
+const excludedEffectiveRelations = membershipExclusions
+  .filter((entry) => entry.entityType === "franchise")
+  .filter((entry) => gameRelationFile.relations.some((relation) =>
+    relation.gameId === entry.catalogId && relation.franchiseId === entry.entityId));
+const positiveMemberships = [
+  ["ps3-shift-2-unleashed", "need-for-speed"],
+  ["ps2-drome-racers", "lego"],
+  ["ps2-crisis-zone", "time-crisis"],
+  ["ps2-shadow-the-hedgehog", "sonic-the-hedgehog"],
+] as const;
+const missingPositiveMemberships = positiveMemberships.filter(([catalogId, franchiseSlug]) =>
+  !gameRelationFile.relations.some((relation) =>
+    relation.gameId === catalogId && relation.franchiseSlug === franchiseSlug));
+const gameBoyDecisionIds = [
+  "gameboy-japon-seiken-densetsu-final-fantasy-gaiden",
+  "gameboy-usa-final-fantasy-adventure",
+  "gameboy-usa-final-fantasy-legend",
+  "gameboy-usa-final-fantasy-legend-ii",
+  "gameboy-usa-final-fantasy-legend-iii",
+] as const;
+const gameBoyDecisionsValid = gameBoyDecisionIds.every((catalogId) => {
+  const decision = membershipExclusion(catalogId, "franchise", "franchise:final-fantasy");
+  return Boolean(decision) &&
+    (decision?.classification === "historical_branding" ||
+      decision?.classification === "regional_rebranding") &&
+    !gameRelationFile.relations.some((relation) =>
+      relation.gameId === catalogId && relation.franchiseId === "franchise:final-fantasy");
+});
+const finalFantasyEditorialOverride = editorialOverrideFile.franchises["final-fantasy"];
+const finalFantasyEditorialValid = Boolean(finalFantasyEditorialOverride) &&
+  finalFantasyEditorialOverride.description === null &&
+  finalFantasyEditorialOverride.classification === "wrong_entity_content" &&
+  franchiseFile.entities["final-fantasy"]?.description === null;
 const rollbackPromotionSlugs = rollbackManifest.promotedLegacySeries
   .map((entry) => entry.legacySeriesSlug)
   .sort();
@@ -300,12 +476,22 @@ const checks = {
     Object.keys(franchiseFile.entities).length === 9 &&
     promotionRows.length === 8 &&
     seriesRelationFile.relations.length === 8 &&
-    gameRelationFile.relations.length === 340 &&
+    gameRelationFile.relations.length === expectedMemberships.size &&
     relationshipFile.relationships.length === 1 &&
     redirectFile.redirects.length === 8,
   ambiguousLegacyUntouched: ambiguousLegacyChanges.length === 0,
-  promotionMembershipParity: promotionRows.every((row) => row.membershipParity),
-  promotionEditorialPreserved: promotionRows.every((row) => row.editorialPreserved),
+  approvedMembershipExclusions:
+    sameArray(actualExclusionKeys, [...EXPECTED_EXCLUSION_KEYS].sort()) &&
+    exclusionEvidenceValid &&
+    excludedEffectiveRelations.length === 0,
+  effectiveMembershipsExact:
+    effectiveMembershipMismatches.length === 0 &&
+    unexpectedEffectiveMemberships.length === 0,
+  positiveNonTitleMembershipsPreserved: missingPositiveMemberships.length === 0,
+  gameBoyHistoricalBrandingClassified: gameBoyDecisionsValid,
+  finalFantasyEditorialCorrected: finalFantasyEditorialValid,
+  promotionMembershipParity: promotionRows.every((row) => row.effectiveMembershipParity),
+  promotionEditorialEffective: promotionRows.every((row) => row.editorialEffective),
   promotionRedirects: promotionRows.every((row) => row.redirect),
   everyLegacyUrlHasOutcome: legacyUrlOutcomes.length === snapshot.counts.legacySeries &&
     legacyUrlOutcomes.every((row) => row.outcome === "200" || row.outcome === "permanent_redirect"),
@@ -313,7 +499,9 @@ const checks = {
     legacyUrlOutcomes.length === 427 &&
     legacyUrlOutcomes.filter((row) => row.outcome === "permanent_redirect").length === 8 &&
     legacyUrlOutcomes.filter((row) => row.outcome === "200").length === 419,
-  seriesPropagation: seriesPropagationFailures.length === 0,
+  seriesPropagation:
+    seriesPropagationFailures.length === 0 &&
+    unexpectedSeriesPropagations.length === 0,
   noDuplicateMemberships: duplicateGameMemberships.length === 0 && duplicateSeriesMemberships.length === 0,
   noMultiplePrimaryMemberships: multiplePrimarySeries.length === 0 && multiplePrimaryGames.length === 0,
   noOrphanRelations:
@@ -331,6 +519,12 @@ const checks = {
     rollbackManifest.identifierSemantics.meaning.includes("catalog_id") &&
     rollbackManifest.legacyState.legacySeriesCount === snapshot.counts.legacySeries &&
     rollbackManifest.legacyState.membershipSha256 === snapshot.checksums.legacySeriesMembershipSha256 &&
+    rollbackManifest.curationState.membershipExclusionsFile === "data/franchise-system/membership-exclusions.json" &&
+    rollbackManifest.curationState.membershipExclusionsSha256 === fileSha256("data/franchise-system/membership-exclusions.json") &&
+    rollbackManifest.curationState.editorialOverridesFile === "data/franchise-system/editorial-overrides.json" &&
+    rollbackManifest.curationState.editorialOverridesSha256 === fileSha256("data/franchise-system/editorial-overrides.json") &&
+    sha256(rollbackManifest.curationState.membershipExclusions) === sha256(membershipExclusions) &&
+    sha256(rollbackManifest.curationState.franchiseEditorialOverrides) === sha256(editorialOverrideFile.franchises) &&
     sameArray(rollbackPromotionSlugs, [...EXPECTED_PROMOTED_SERIES].sort()) &&
     sameArray(rollbackSeriesSlugs, [...EXPECTED_RETAINED_SERIES].sort()) &&
     rollbackMembershipsMatch &&
@@ -360,12 +554,21 @@ const report = {
     entityRelationships: relationshipFile.relationships.length,
     ambiguousLegacySeries: ambiguousClassificationRows.length,
     catalogEntriesWithMultipleFranchises: catalogIdsWithMultipleFranchises.length,
+    approvedMembershipExclusions: membershipExclusions.length,
+    effectiveSeriesMembershipExclusions: membershipExclusions.filter((entry) => entry.entityType === "series").length,
+    effectiveFranchiseMembershipExclusions: membershipExclusions.filter((entry) => entry.entityType === "franchise").length,
+    franchiseEditorialOverrides: Object.keys(editorialOverrideFile.franchises).length,
   },
   checks,
   failures,
   promotions: promotionRows,
   diagnostics: {
     seriesPropagationFailures,
+    unexpectedSeriesPropagations,
+    effectiveMembershipMismatches,
+    unexpectedEffectiveMemberships,
+    excludedEffectiveRelations,
+    missingPositiveMemberships,
     duplicateGameMemberships,
     duplicateSeriesMemberships,
     multiplePrimarySeries,
@@ -375,6 +578,12 @@ const report = {
     orphanSeriesRelationSlugs: [...new Set(orphanSeriesRelations)].sort(),
     ambiguousLegacyChanges,
     protectedFileMismatches,
+  },
+  curation: {
+    membershipExclusions,
+    franchiseEditorialOverrides: editorialOverrideFile.franchises,
+    gameBoyDecisions: gameBoyDecisionIds.map((catalogId) =>
+      membershipExclusion(catalogId, "franchise", "franchise:final-fantasy")),
   },
   legacyUrlOutcomes,
 };
@@ -389,9 +598,22 @@ const markdown = `# Verificación pre/post de franquicias y sagas\n\n` +
   `- URLs legacy: ${legacyUrlOutcomes.length.toLocaleString("es-ES")}; ${redirectFile.redirects.length} redirects permanentes y ${legacyUrlOutcomes.length - redirectFile.redirects.length} páginas conservadas.\n` +
   `- Franquicias: ${Object.keys(franchiseFile.entities).length}; relaciones ficha-franquicia: ${gameRelationFile.relations.length}; relaciones saga-franquicia: ${seriesRelationFile.relations.length}.\n` +
   `- Clasificación conservadora: ${promotedClassificationSlugs.length} promociones, ${retainedClassificationSlugs.length} sagas y ${ambiguousClassificationRows.length} entradas legacy ambiguas intactas.\n\n` +
+  `## Exclusiones editoriales verificadas\n\n` +
+  `La pertenencia efectiva se calcula como la pertenencia legacy menos las exclusiones aprobadas. El snapshot legacy y los ficheros protegidos no se modifican.\n\n` +
+  `| catalog_id | Entidad | Clasificación | Confianza | Evidencia |\n` +
+  `| --- | --- | --- | --- | --- |\n` +
+  membershipExclusions.map((entry) =>
+    `| \`${entry.catalogId}\` | ${entry.entityType} \`${entry.entitySlug}\` | ${entry.classification} | ${entry.confidence} | ${entry.sourceUrls.map((url, index) => `[${index + 1}](${url})`).join(" · ")} |`,
+  ).join("\n") +
+  `\n\nFinal Fantasy queda sin la biografía corporativa de Square Enix: la descripción efectiva es \`null\` y la decisión permanece trazada en \`editorial-overrides.json\`.\n\n` +
+  `### Revisión Game Boy\n\n` +
+  `- \`gameboy-japon-seiken-densetsu-final-fantasy-gaiden\`: origen japonés de Mana/Seiken Densetsu; “Final Fantasy Gaiden” queda como contexto histórico de marca, no pertenencia directa.\n` +
+  `- \`gameboy-usa-final-fantasy-adventure\`: versión norteamericana de la primera entrega de Mana; marca histórica, no pertenencia directa.\n` +
+  `- \`gameboy-usa-final-fantasy-legend\`, \`-ii\` y \`-iii\`: primeras entregas de SaGa con denominación regional Final Fantasy Legend; rebranding regional, no pertenencia directa.\n` +
+  `No se crea todavía una pertenencia a Mana o SaGa porque esas franquicias no forman parte del lote aprobado.\n\n` +
   `## Promociones\n\n` +
   promotionRows.map((row) =>
-    `- ${row.slug}: ${row.legacyCatalogEntries} → ${row.franchiseCatalogEntries} fichas; membresía ${row.membershipParity ? "PASS" : "FAIL"}; editorial ${row.editorialPreserved ? "PASS" : "FAIL"}; redirect ${row.redirect ? "PASS" : "FAIL"}.`,
+    `- ${row.slug}: ${row.legacyCatalogEntries} legacy − ${row.approvedExcludedCatalogIds.length} exclusiones = ${row.franchiseCatalogEntries} efectivas; membresía ${row.effectiveMembershipParity ? "PASS" : "FAIL"}; editorial ${row.editorialEffective ? "PASS" : "FAIL"}; redirect ${row.redirect ? "PASS" : "FAIL"}.`,
   ).join("\n") +
   `\n\n## Identificadores y rollback\n\n` +
   `El campo persistido \`gameId\` significa \`catalog_id\`: identifica una ficha/edición ya existente, no una obra lógica nueva. El rollback descarta el estado de franquicias y vuelve al lector legacy conservado; los hashes de catálogo, precios, créditos, compañías, series y contenido editorial se verifican contra la base \`${snapshot.baselineRevision}\`.\n\n` +

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "baselineRevision": "61bba364b897ace5f5d4340108ccb5eff64a2910",
+  "baselineRevision": "3a5391b44bad1d157726fa577435c7d8e6240093",
   "entities": {
     "final-fantasy": {
       "id": "franchise:final-fantasy",
@@ -8,7 +8,7 @@
       "name": "Final Fantasy",
       "status": "published",
       "legacySeriesSlug": "final-fantasy",
-      "description": "Square Enix es una importante compañía japonesa de videojuegos nacida en 2003 tras la fusión de Square y Enix. Sus raíces se remontan a Enix, fundada en 1975, y Square, fundada en 1983. Ambas se hicieron famosas por crear algunos de los JRPG más influyentes de la historia.\n\nEnix destacó con **Dragon Quest**, lanzado en 1986, que ayudó a definir el rol en consolas. Square alcanzó el éxito con **Final Fantasy**, creado por Hironobu Sakaguchi en 1987 cuando la empresa atravesaba dificultades. Durante los años 90, ambas compañías vivieron una época dorada con sagas como **Final Fantasy**, **Dragon Quest**, **Chrono Trigger** y, más tarde, **Kingdom Hearts**.\n\nTras fusionarse en 2003, Square Enix combinó la capacidad técnica y narrativa de Square con la fuerza comercial de Enix en Japón. En 2009 amplió su presencia internacional al adquirir **Eidos Interactive**, incorporando franquicias occidentales como **Tomb Raider**, **Deus Ex** y **Hitman**.",
+      "description": null,
       "backgroundImageUrl": null,
       "backgroundImageOpacity": null,
       "backgroundReadability": null,

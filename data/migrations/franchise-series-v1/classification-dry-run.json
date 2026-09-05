@@ -1,13 +1,15 @@
 {
   "schemaVersion": 1,
-  "baselineRevision": "61bba364b897ace5f5d4340108ccb5eff64a2910",
+  "baselineRevision": "3a5391b44bad1d157726fa577435c7d8e6240093",
   "source": "user-approved-franchise-series-migration-spec",
   "counts": {
     "total": 427,
     "franchise": 8,
     "series": 7,
     "ambiguous": 412,
-    "additionalFranchises": 1
+    "additionalFranchises": 1,
+    "approvedMembershipExclusions": 8,
+    "franchiseEditorialOverrides": 1
   },
   "additionalFranchises": [
     {
@@ -19,6 +21,136 @@
       "notes": "Franquicia principal para la saga legacy Super Mario; no reemplaza ni redirige su URL."
     }
   ],
+  "curation": {
+    "membershipReviewBatch": "franchise-series-semantic-review-2026-09-05",
+    "editorialReviewBatch": "franchise-series-semantic-review-2026-09-05",
+    "membershipExclusions": [
+      {
+        "catalogId": "gameboy-japon-seiken-densetsu-final-fantasy-gaiden",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Square Enix identifica esta edición como la primera entrega de Seiken Densetsu/Mana. El subtítulo Final Fantasy Gaiden documenta su presentación histórica, pero no basta para mantener una pertenencia directa a la franquicia Final Fantasy.",
+        "sourceUrls": [
+          "https://www.jp.square-enix.com/game/detail/seiken/",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-adventure",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Final Fantasy Adventure es el título norteamericano de la primera entrega de Mana. La asociación con Final Fantasy se conserva como contexto histórico de marca, no como pertenencia directa.",
+        "sourceUrls": [
+          "https://mana.square-enix-games.com/en-gb",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix identifica The Final Fantasy Legend como la edición norteamericana de Makai Toushi SaGa y como origen de la franquicia SaGa. El nombre regional no acredita pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-ii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend II entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-iii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend III entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps1-wanted",
+        "entityType": "franchise",
+        "entityId": "franchise:need-for-speed",
+        "entitySlug": "need-for-speed",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "Wanted (SLES-04158) es un shooter de NAPS Team publicado por Phoenix Games y no pertenece a Need for Speed.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/111925/wanted/",
+          "https://psxdatacenter.com/games/P/W/SLES-04158.html"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps2-harry-potter-collection",
+        "entityType": "series",
+        "entityId": "lego-harry-potter",
+        "entitySlug": "lego-harry-potter",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "Harry Potter Collection reúne juegos convencionales de Harry Potter publicados por Electronic Arts; no es una entrega de LEGO Harry Potter.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/30951/harry-potter-collection/",
+          "https://www.bestbuy.com/site/harry-potter-collection-playstation-2/8441484.p?skuId=8441484"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps2-harry-potter-collection",
+        "entityType": "franchise",
+        "entityId": "franchise:lego",
+        "entitySlug": "lego",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "La recopilación de Electronic Arts no contiene juegos LEGO y no debe heredarse hacia la franquicia LEGO desde la agrupación legacy incorrecta.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/30951/harry-potter-collection/",
+          "https://www.bestbuy.com/site/harry-potter-collection-playstation-2/8441484.p?skuId=8441484"
+        ],
+        "reviewedAt": "2026-09-05"
+      }
+    ],
+    "franchiseEditorialOverrides": {
+      "final-fantasy": {
+        "description": null,
+        "classification": "wrong_entity_content",
+        "confidence": "high",
+        "reason": "El texto legacy describe la historia corporativa de Square Enix, incluida la fusión de Square y Enix y la adquisición de Eidos; no es un perfil editorial de la franquicia Final Fantasy.",
+        "sourceUrls": [
+          "https://www.hd.square-enix.com/eng/company/history.html"
+        ],
+        "reviewedAt": "2026-09-05"
+      }
+    }
+  },
   "rows": [
     {
       "slug": "a-bug-s-life",

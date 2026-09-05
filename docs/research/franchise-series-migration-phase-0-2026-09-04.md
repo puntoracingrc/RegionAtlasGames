@@ -1,10 +1,10 @@
 # Migración franquicias/sagas — Fase 0
 
-Base auditada: `61bba364b897ace5f5d4340108ccb5eff64a2910`.
+Base auditada: `3a5391b44bad1d157726fa577435c7d8e6240093`.
 
 ## Estado congelado
 
-- 65.434 fichas de catálogo; 63.262 no excluidas.
+- 65.452 fichas de catálogo; 63.280 no excluidas.
 - 4326 compañías indexadas.
 - 427 agrupaciones legacy.
 - 2718 fichas declaran `details.series`; 2963 fichas únicas están en el índice efectivo.
@@ -17,11 +17,17 @@ Base auditada: `61bba364b897ace5f5d4340108ccb5eff64a2910`.
 - Ambiguas, sin migración destructiva: 412.
 - Franquicias nuevas sin redirect legacy: 1.
 
+## Correcciones semánticas aprobadas
+
+- Exclusiones de pertenencia trazables: 8.
+- Anulaciones editoriales trazables: 1.
+- Las membresías legacy permanecen en el snapshot; el estado efectivo aplica estas decisiones antes de propagar y contar.
+
 Las decisiones seguras proceden exclusivamente de los casos aprobados en la especificación. El resto permanece legacy; no se usa coincidencia de título como fuente de verdad.
 
 ## Consumidores
 
-La búsqueda reproducible encontró 338 coincidencias en 58 archivos. El detalle exacto, con línea y patrón, está en `consumer-audit.json`.
+La búsqueda reproducible encontró 343 coincidencias en 58 archivos. El detalle exacto, con línea y patrón, está en `consumer-audit.json`.
 
 ## Bloqueos previos a escritura canónica
 

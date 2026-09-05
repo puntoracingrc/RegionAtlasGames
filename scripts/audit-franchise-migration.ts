@@ -3,6 +3,11 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSy
 import path from "node:path";
 import { gzipSync } from "node:zlib";
 import { buildCatalogSeoSlug } from "../src/lib/catalog-path";
+import {
+  getFranchiseCurationMetadata,
+  getFranchiseEditorialOverrides,
+  getMembershipExclusions,
+} from "../src/lib/franchise-curation";
 
 type Classification = "franchise" | "series" | "ambiguous";
 type Confidence = "high" | "medium" | "low";
@@ -73,7 +78,7 @@ type OverrideFile = {
 };
 
 const ROOT = process.cwd();
-const BASELINE_REVISION = "61bba364b897ace5f5d4340108ccb5eff64a2910";
+const BASELINE_REVISION = "3a5391b44bad1d157726fa577435c7d8e6240093";
 const OUTPUT_DIR = path.join(ROOT, "data", "migrations", "franchise-series-v1");
 const DOC_FILE = path.join(ROOT, "docs", "research", "franchise-series-migration-phase-0-2026-09-04.md");
 const PROTECTED_BASE_FILES = [
@@ -270,9 +275,45 @@ const catalog = readJson<CatalogGame[]>(path.join(ROOT, "data", "catalog.json"))
 const details = readJson<Record<string, GameDetails>>(path.join(ROOT, "data", "game-details.json"));
 const staticSeries = readJson<Record<string, SeriesEntry>>(path.join(ROOT, "data", "index", "series.json"));
 const overrides = readJson<OverrideFile>(path.join(ROOT, "data", "franchise-system", "classification-overrides.json"));
+const membershipExclusions = getMembershipExclusions();
+const franchiseEditorialOverrides = getFranchiseEditorialOverrides();
+const curationMetadata = getFranchiseCurationMetadata();
 const overlay = overlayPath && existsSync(overlayPath) ? readJson<SeriesOverlay>(overlayPath) : { series: {} };
 const series = effectiveSeries(staticSeries, overlay);
 const catalogById = new Map(catalog.map((game) => [game.id, game]));
+const approvedFranchiseIds = new Set([
+  ...Object.entries(overrides.decisions)
+    .filter(([, decision]) => decision.classification === "franchise" && decision.confidence === "high")
+    .map(([slug, decision]) => `franchise:${decision.targetFranchise ?? slug}`),
+  ...overrides.additionalFranchises.map((entry) => entry.id),
+]);
+const exclusionKeys = membershipExclusions.map((entry) =>
+  `${entry.catalogId}\0${entry.entityType}\0${entry.entityId}`);
+if (new Set(exclusionKeys).size !== exclusionKeys.length) {
+  throw new Error("Duplicate franchise membership exclusion.");
+}
+for (const exclusion of membershipExclusions) {
+  if (!catalogById.has(exclusion.catalogId)) {
+    throw new Error(`Membership exclusion references an unknown catalog_id: ${exclusion.catalogId}`);
+  }
+  if (exclusion.entityType === "series" && !series[exclusion.entityId]) {
+    throw new Error(`Membership exclusion references an unknown series: ${exclusion.entityId}`);
+  }
+  if (exclusion.entityType === "franchise" && !approvedFranchiseIds.has(exclusion.entityId)) {
+    throw new Error(`Membership exclusion references an unknown franchise: ${exclusion.entityId}`);
+  }
+  if (exclusion.confidence !== "high" || exclusion.sourceUrls.length === 0) {
+    throw new Error(`Membership exclusion is not fully evidenced: ${exclusion.catalogId}`);
+  }
+}
+for (const [franchiseSlug, override] of Object.entries(franchiseEditorialOverrides)) {
+  if (!approvedFranchiseIds.has(`franchise:${franchiseSlug}`)) {
+    throw new Error(`Editorial override references an unknown franchise: ${franchiseSlug}`);
+  }
+  if (override.confidence !== "high" || override.reason.trim().length === 0) {
+    throw new Error(`Editorial override is not fully reviewed: ${franchiseSlug}`);
+  }
+}
 
 const classification = Object.fromEntries(
   Object.values(series)
@@ -384,8 +425,15 @@ const dryRun = {
     series: dryRunRows.filter((row) => row.classification === "series").length,
     ambiguous: dryRunRows.filter((row) => row.classification === "ambiguous").length,
     additionalFranchises: overrides.additionalFranchises.length,
+    approvedMembershipExclusions: membershipExclusions.length,
+    franchiseEditorialOverrides: Object.keys(franchiseEditorialOverrides).length,
   },
   additionalFranchises: overrides.additionalFranchises,
+  curation: {
+    ...curationMetadata,
+    membershipExclusions,
+    franchiseEditorialOverrides,
+  },
   rows: dryRunRows,
 };
 
@@ -398,6 +446,14 @@ const rollbackManifest = {
     meaning: "Existing catalog_id for one catalogued edition; not a logical game work.",
   },
   protectedFilesSha256,
+  curationState: {
+    membershipExclusionsFile: "data/franchise-system/membership-exclusions.json",
+    membershipExclusionsSha256: fileSha256("data/franchise-system/membership-exclusions.json"),
+    editorialOverridesFile: "data/franchise-system/editorial-overrides.json",
+    editorialOverridesSha256: fileSha256("data/franchise-system/editorial-overrides.json"),
+    membershipExclusions,
+    franchiseEditorialOverrides,
+  },
   legacyState: {
     snapshot: "data/migrations/franchise-series-v1/pre-migration-snapshot.json.gz",
     effectiveSeriesOverlay: "data/migrations/franchise-series-v1/production-series-overlay-effective.json",
@@ -446,6 +502,10 @@ const report = `# Migración franquicias/sagas — Fase 0\n\n` +
   `- Sagas/subseries seguras: ${dryRun.counts.series}.\n` +
   `- Ambiguas, sin migración destructiva: ${dryRun.counts.ambiguous}.\n` +
   `- Franquicias nuevas sin redirect legacy: ${dryRun.counts.additionalFranchises}.\n\n` +
+  `## Correcciones semánticas aprobadas\n\n` +
+  `- Exclusiones de pertenencia trazables: ${membershipExclusions.length}.\n` +
+  `- Anulaciones editoriales trazables: ${Object.keys(franchiseEditorialOverrides).length}.\n` +
+  `- Las membresías legacy permanecen en el snapshot; el estado efectivo aplica estas decisiones antes de propagar y contar.\n\n` +
   `Las decisiones seguras proceden exclusivamente de los casos aprobados en la especificación. El resto permanece legacy; no se usa coincidencia de título como fuente de verdad.\n\n` +
   `## Consumidores\n\n` +
   `La búsqueda reproducible encontró ${consumerAudit.matchCount.toLocaleString("es-ES")} coincidencias en ${consumerAudit.fileCount.toLocaleString("es-ES")} archivos. El detalle exacto, con línea y patrón, está en \`consumer-audit.json\`.\n\n` +

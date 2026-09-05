@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "baselineRevision": "61bba364b897ace5f5d4340108ccb5eff64a2910",
+  "baselineRevision": "3a5391b44bad1d157726fa577435c7d8e6240093",
   "strategy": "Discard the franchise overlay/state and continue serving the untouched legacy series reader.",
   "identifierSemantics": {
     "persistedField": "gameId",
     "meaning": "Existing catalog_id for one catalogued edition; not a logical game work."
   },
   "protectedFilesSha256": {
-    "data/catalog.json": "47c733af7f9bf4d99e008e3448d365fc4958db0c8942ef2beae1e386c68baa70",
+    "data/catalog.json": "ba79ec3d939e074b366f0816dc34c11aa308c65e02e96a157e6a32304097956e",
     "data/game-details.json": "1d2c55d28fc6ea79865a3faab0cc2f811cd7f49c34107e42f5eaefefc8bc2833",
     "data/index/companies.json": "d774c621f0289cdfeae1141361fc4483e84037432d82499a5f7ab83afafe48bb",
     "data/index/series.json": "a98edf9ee06c2f917f114283f7100c9660d2f35339158556d31991f7f50ea1ba",
-    "data/meta.json": "6c4f8c7731400822e9e1c86b32011ee50baf65c3cd16416f6b46ad5d024bd8e6",
+    "data/meta.json": "a8de9198a7de34be51bd1f1239be66b8126acf69969c8afff9b51493aa5b4a4d",
     "data/price-sync-state.json": "8aea0b45a5751c88bfa8aadc86f53b7e9441cc26179e2b5993f7b53f8b00aa50",
     "data/ebay-regional-campaigns/cover-candidates.json": "c9eeca121d7935524fae465bdace28f1ded380fc79fa1d018b04e3f0e1cb5637",
     "data/ebay-regional-campaigns/global.json": "3a9b050b609478d191f1068a335bf1c21ce2f12745963865b1e49b5b1c2c1868",
@@ -19,6 +19,138 @@
     "data/ebay-regional-campaigns/ps4.json": "fa374b40f06bc10a20842d6b6107d7b97f75f1af457483310bf990d35737f13a",
     "data/research/company-credit-verified-batch-1-report.json": "4c38f5ff93c13a5ead251164d09ebb5edce70341bd420425001978f937ad88f4",
     "data/research/company-credit-verified-batch-1.csv": "d0ec58edbeaca7d2be1364e5763f7f6662af595e4373b62dcdfbd35fbabed52f"
+  },
+  "curationState": {
+    "membershipExclusionsFile": "data/franchise-system/membership-exclusions.json",
+    "membershipExclusionsSha256": "8873c77ab1fba75ca36f8ffbfcd9b23d2ccaab09c6f9df5b752ddb56fb8c75c6",
+    "editorialOverridesFile": "data/franchise-system/editorial-overrides.json",
+    "editorialOverridesSha256": "44cd1be11e5b26b171320f020c83732b4d461a40caa8e675be02a44c27554373",
+    "membershipExclusions": [
+      {
+        "catalogId": "gameboy-japon-seiken-densetsu-final-fantasy-gaiden",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Square Enix identifica esta edición como la primera entrega de Seiken Densetsu/Mana. El subtítulo Final Fantasy Gaiden documenta su presentación histórica, pero no basta para mantener una pertenencia directa a la franquicia Final Fantasy.",
+        "sourceUrls": [
+          "https://www.jp.square-enix.com/game/detail/seiken/",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-adventure",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "historical_branding",
+        "confidence": "high",
+        "reason": "Final Fantasy Adventure es el título norteamericano de la primera entrega de Mana. La asociación con Final Fantasy se conserva como contexto histórico de marca, no como pertenencia directa.",
+        "sourceUrls": [
+          "https://mana.square-enix-games.com/en-gb",
+          "https://mana.square-enix-games.com/en-us/games/collection-of-mana"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix identifica The Final Fantasy Legend como la edición norteamericana de Makai Toushi SaGa y como origen de la franquicia SaGa. El nombre regional no acredita pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-ii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend II entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "gameboy-usa-final-fantasy-legend-iii",
+        "entityType": "franchise",
+        "entityId": "franchise:final-fantasy",
+        "entitySlug": "final-fantasy",
+        "classification": "regional_rebranding",
+        "confidence": "high",
+        "reason": "Square Enix incluye Final Fantasy Legend III entre los tres juegos Game Boy originales de SaGa. Su título norteamericano es una marca regional, no una pertenencia directa a Final Fantasy.",
+        "sourceUrls": [
+          "https://www.square-enix.com/saga/en-us/about/",
+          "https://www.square-enix-games.com/en_GB/home/collection-of-saga-final-fantasy-legend-is-available-now"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps1-wanted",
+        "entityType": "franchise",
+        "entityId": "franchise:need-for-speed",
+        "entitySlug": "need-for-speed",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "Wanted (SLES-04158) es un shooter de NAPS Team publicado por Phoenix Games y no pertenece a Need for Speed.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/111925/wanted/",
+          "https://psxdatacenter.com/games/P/W/SLES-04158.html"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps2-harry-potter-collection",
+        "entityType": "series",
+        "entityId": "lego-harry-potter",
+        "entitySlug": "lego-harry-potter",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "Harry Potter Collection reúne juegos convencionales de Harry Potter publicados por Electronic Arts; no es una entrega de LEGO Harry Potter.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/30951/harry-potter-collection/",
+          "https://www.bestbuy.com/site/harry-potter-collection-playstation-2/8441484.p?skuId=8441484"
+        ],
+        "reviewedAt": "2026-09-05"
+      },
+      {
+        "catalogId": "ps2-harry-potter-collection",
+        "entityType": "franchise",
+        "entityId": "franchise:lego",
+        "entitySlug": "lego",
+        "classification": "false_positive",
+        "confidence": "high",
+        "reason": "La recopilación de Electronic Arts no contiene juegos LEGO y no debe heredarse hacia la franquicia LEGO desde la agrupación legacy incorrecta.",
+        "sourceUrls": [
+          "https://www.mobygames.com/game/30951/harry-potter-collection/",
+          "https://www.bestbuy.com/site/harry-potter-collection-playstation-2/8441484.p?skuId=8441484"
+        ],
+        "reviewedAt": "2026-09-05"
+      }
+    ],
+    "franchiseEditorialOverrides": {
+      "final-fantasy": {
+        "description": null,
+        "classification": "wrong_entity_content",
+        "confidence": "high",
+        "reason": "El texto legacy describe la historia corporativa de Square Enix, incluida la fusión de Square y Enix y la adquisición de Eidos; no es un perfil editorial de la franquicia Final Fantasy.",
+        "sourceUrls": [
+          "https://www.hd.square-enix.com/eng/company/history.html"
+        ],
+        "reviewedAt": "2026-09-05"
+      }
+    }
   },
   "legacyState": {
     "snapshot": "data/migrations/franchise-series-v1/pre-migration-snapshot.json.gz",
