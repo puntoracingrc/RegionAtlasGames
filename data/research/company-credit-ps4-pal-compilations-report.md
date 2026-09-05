@@ -66,6 +66,6 @@ Fuente: `RegionAtlas_PS4_PAL_recopilatorios_resueltos_2026-09-05.xlsx` (`f3e6329
 - affiliateOffersV1: PASS.
 - build: PASS.
 - localQa: PASS en 1440 × 1000 y 390 × 844. Revisados recopilatorios, co-desarrollos, roles históricos, variantes, relaciones corporativas y redirects; sin overflow, imágenes rotas ni errores de consola.
-- previewQa: PENDING.
+- previewQa: PASS en `dpl_DrtKQkYZw1gvtBnYFsj6PTLpqZVA`, escritorio 1440 × 1000 y móvil 390 × 844. Diez vistas semánticas sin overflow, imágenes rotas ni errores de consola; las 11 rutas legacy responden 308 al destino exacto y los 6 destinos canónicos responden 200.
 
 La PR permanece en borrador y no autoriza fusión ni despliegue a Production.

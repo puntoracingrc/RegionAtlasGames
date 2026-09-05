@@ -5003,6 +5003,6 @@
     "affiliateOffersV1": "PASS",
     "build": "PASS",
     "localQa": "PASS (1440x1000 y 390x844; recopilatorios, co-desarrollos, roles historicos, variantes, relaciones corporativas y redirects; sin overflow, imagenes rotas ni errores de consola)",
-    "previewQa": "PENDING"
+    "previewQa": "PASS (deployment dpl_DrtKQkYZw1gvtBnYFsj6PTLpqZVA; escritorio 1440x1000 y móvil 390x844; 10 vistas semánticas sin overflow, imágenes rotas ni errores de consola; 11 rutas legacy responden 308 al destino exacto y 6 destinos canónicos responden 200)"
   }
 }
