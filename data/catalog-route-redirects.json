@@ -4,6 +4,31 @@
   "redirects": [
     {
       "sourceParams": [
+        "ps4-annapurna-ultimate-collection",
+        "annapurna-ultimate-collection-ps4-pal-es"
+      ],
+      "targetCatalogId": "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
+      "targetParam": "annapurna-interactive-ultimate-ps4-collection-ps4-pal-us",
+      "permanent": true,
+      "reason": "same_product",
+      "reviewedAt": "2026-09-05",
+      "reviewBatch": "company-credit-ps4-pal-compilations-2026-09-05",
+      "targetLocator": {
+        "catalogId": "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
+        "title": "Annapurna Interactive Ultimate PS4 Collection",
+        "platform": "ps4",
+        "region": "USA",
+        "edition": "standard",
+        "physicalVariant": null,
+        "pcId": 1341791,
+        "ean": null,
+        "reference": null,
+        "coverUrl": "/covers/ps4/annapurna-interactive-ultimate-ps4-collection.jpg",
+        "listingStatus": "listed"
+      }
+    },
+    {
+      "sourceParams": [
         "ps4-jets-%27n%27-guns-2"
       ],
       "targetCatalogId": "ps4-jets%27n%27guns-2",

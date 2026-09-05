@@ -48578,7 +48578,7 @@
       "ps5-scott-pilgrim-ex",
       "ps5-tales-of-the-shire-a-the-lord-of-the-rings-game",
       "ps4-sea-of-stars",
-      "ps4-annapurna-ultimate-collection"
+      "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
     ],
     "byPlatform": {
       "ps4": 34,
@@ -48627,7 +48627,7 @@
     "gameCount": 39,
     "asPhysicalPublisherOrDistributor": [
       "ps4-sea-of-stars",
-      "ps4-annapurna-ultimate-collection"
+      "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
     ]
   },
   "london-studio": {
@@ -62986,7 +62986,6 @@
       "ps4-usa-gang-beasts",
       "ps4-usa-rainbow-billy-the-curse-of-the-leviathan",
       "ps4-usa-neverwinter-nights-enhanced-edition",
-      "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
       "ps4-usa-baldur%27s-gate-planescape-neverwinter-ultimate-collector%27s-edition",
       "ps4-usa-the-walking-dead-the-telltale-definitive-series",
       "ps4-usa-the-walking-dead-final-season",
@@ -62998,7 +62997,7 @@
       "ps4-baldur%27s-gate-1-&amp;-2-enhanced-edition-collector%27s-pack"
     ],
     "byPlatform": {
-      "ps4": 16,
+      "ps4": 15,
       "switch2": 1
     },
     "asDeveloper": [
@@ -63012,7 +63011,6 @@
       "ps4-usa-gang-beasts",
       "ps4-usa-rainbow-billy-the-curse-of-the-leviathan",
       "ps4-usa-neverwinter-nights-enhanced-edition",
-      "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
       "ps4-usa-baldur%27s-gate-planescape-neverwinter-ultimate-collector%27s-edition",
       "ps4-usa-the-walking-dead-the-telltale-definitive-series",
       "ps4-usa-the-walking-dead-final-season",
@@ -63021,7 +63019,7 @@
       "ps4-usa-slime-rancher",
       "switch2-goodnight-universe"
     ],
-    "gameCount": 17,
+    "gameCount": 16,
     "asPhysicalPublisherOrDistributor": [
       "ps4-baldur%27s-gate-1-&amp;-2-enhanced-edition",
       "ps4-baldur%27s-gate-1-&amp;-2-enhanced-edition-collector%27s-pack",
@@ -85929,7 +85927,7 @@
       "ps4-sayonara-wild-hearts",
       "ps4-usa-stray-iam8bit-exclusive-edition",
       "ps4-usa-kentucky-route-zero",
-      "ps4-annapurna-ultimate-collection"
+      "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
     ],
     "byPlatform": {
       "ps4": 5
@@ -85941,7 +85939,7 @@
       "ps4-usa-stray",
       "ps4-sayonara-wild-hearts",
       "ps4-usa-stray-iam8bit-exclusive-edition",
-      "ps4-annapurna-ultimate-collection"
+      "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
     ],
     "gameCount": 5
   },
@@ -111807,17 +111805,11 @@
     "name": "Annapurna",
     "slug": "annapurna",
     "museumPath": "",
-    "gameIds": [
-      "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
-    ],
-    "byPlatform": {
-      "ps4": 1
-    },
-    "asDeveloper": [
-      "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
-    ],
+    "gameIds": [],
+    "byPlatform": {},
+    "asDeveloper": [],
     "asPublisher": [],
-    "gameCount": 1
+    "gameCount": 0
   },
   "annix-studios": {
     "name": "Annix Studios",

@@ -128,7 +128,7 @@ EDITORIAL_ID_BY_NUMBER = {
 }
 
 BUNDLE_ID_BY_NAME = {
-    "Annapurna Ultimate Collection": "ps4-annapurna-ultimate-collection",
+    "Annapurna Ultimate Collection": "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
     "PlayLink Games Collection": "ps4-playlink-games-collection",
     "Terra Trilogy": "ps4-terra-trilogy",
     "The Giants: Industry and Transport Bundle": "ps4-the-giants-industry-and-transport-bundle",
@@ -152,6 +152,10 @@ BUNDLE_ID_BY_NAME = {
     "Wonder Boy Anniversary Collection": "ps4-wonder-boy-anniversary-collection",
     "Wonder Boy Collection": "ps4-wonder-boy-collection",
     "PlayStation VR Demo Disc (PAL Europa)": None,
+}
+
+BUNDLE_PUBLIC_TITLES = {
+    "Annapurna Ultimate Collection": "Annapurna Interactive Ultimate PS4 Collection",
 }
 
 # Exact component links only. Missing values remain useful structured credits but
@@ -470,6 +474,7 @@ RELIST_VARIANT_IDS = {
 }
 
 SAFE_DUPLICATE_REDIRECTS = {
+    "ps4-annapurna-ultimate-collection": "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
     "ps4-jets-%27n%27-guns-2": "ps4-jets%27n%27guns-2",
     "ps4-rpg-maker": "ps4-rpg-maker-with",
 }
@@ -1280,7 +1285,7 @@ def build_commercial_relations(
             {
                 "id": f"compilation:{normalized(name).replace(' ', '-')}",
                 "catalogId": catalog_id,
-                "title": name,
+                "title": BUNDLE_PUBLIC_TITLES.get(name, name),
                 "status": "verified" if catalog_id else "requires_review",
                 "componentCount": len(components),
                 "components": components,
@@ -1338,7 +1343,9 @@ def catalog_seo_param(game: dict[str, Any]) -> str:
         "PAL España": "pal-es",
         "PAL Europa": "pal-eu",
         "PAL UK": "pal-uk",
+        "USA": "pal-us",
         "NTSC USA": "pal-us",
+        "Japón": "pal-jp",
         "NTSC-J": "pal-jp",
     }.get(region)
     if not short:

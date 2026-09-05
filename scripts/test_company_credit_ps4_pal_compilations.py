@@ -11,12 +11,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BATCH_ID = "company-credit-ps4-pal-compilations-2026-09-05"
+ANNAPURNA_LEGACY_PAL_ID = "ps4-annapurna-ultimate-collection"
+ANNAPURNA_USA_ID = "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
 EXPECTED_ACTIONS = {
     "ADD_COMPONENT": 82,
     "ADD_CORPORATE_RELATION": 6,
     "ADD_CO_DEVELOPER": 4,
     "LINK_VARIANT": 13,
-    "MERGE_DUPLICATE": 2,
+    "MERGE_DUPLICATE": 3,
     "MOVE_PLATFORM": 4,
     "NORMALIZE_ALIAS": 19,
     "REMOVE_GENERIC_NON_GAME": 1,
@@ -117,10 +119,21 @@ def main() -> int:
     }
     assert len(batch_catalog_ids) == 83
     assert all(
-        catalog_by_id[catalog_id]["platformSlug"] == "ps4"
-        and str(catalog_by_id[catalog_id]["region"]).startswith("PAL")
+        (
+            catalog_by_id[catalog_id]["platformSlug"] == "ps4"
+            and str(catalog_by_id[catalog_id]["region"]).startswith("PAL")
+        )
+        or (
+            catalog_id == ANNAPURNA_USA_ID
+            and catalog_by_id[catalog_id]["platformSlug"] == "ps4"
+            and catalog_by_id[catalog_id]["region"] == "USA"
+        )
         for catalog_id in batch_catalog_ids
     )
+    assert ANNAPURNA_LEGACY_PAL_ID not in batch_catalog_ids
+    assert catalog_by_id[ANNAPURNA_LEGACY_PAL_ID]["listingStatus"] == "excluded"
+    assert catalog_by_id[ANNAPURNA_LEGACY_PAL_ID]["excludeCategory"] == "duplicate"
+    assert catalog_by_id[ANNAPURNA_USA_ID]["listingStatus"] == "listed"
 
     assert developer_slugs(details, "ps4-demon-pit") == ["psychic-software", "doomcube"]
     assert developer_slugs(details, "ps4-koa-and-the-five-pirates-of-mara") == [
@@ -195,7 +208,7 @@ def main() -> int:
         for relation in company_relations["relationships"]
     )
 
-    assert len(redirects["redirects"]) == 6
+    assert len(redirects["redirects"]) == 7
     for redirect in redirects["redirects"]:
         assert redirect["targetCatalogId"] in catalog_by_id
         assert catalog_by_id[redirect["targetCatalogId"]]["listingStatus"] == "listed"
@@ -210,7 +223,7 @@ def main() -> int:
 
     print(
         "OK PS4 PAL compilations semantics: 83 credited entries, 247 company credits, "
-        "82 components, 13 verified variants, 6 redirects and 9 blocked cases"
+        "82 components, 13 verified variants, 7 redirects and 9 blocked cases"
     )
     return 0
 

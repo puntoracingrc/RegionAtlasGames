@@ -35,9 +35,9 @@
     "portraitHotlinkingAllowed": false
   },
   "protectedFileHashes": {
-    "data/game-details.json": "42bc9208038909987c98007c528d4267b0bc32784b58a45b8a616c6f76b4a4fb",
+    "data/game-details.json": "a3c5c1640cc73ec8a97858e483a2bc591f891dde193c7f5675cc4c706042f7c3",
     "data/company-profiles.json": "9b5d04423de8d206735f1a8ac9d7c39f90d6c0af9b69895e54557befdb3c5c8b",
-    "data/index/companies.json": "0aee9c3cd18d1eabe88885e564576b0672e47f14bd5c23047a6c1ab4ae2f8f3f",
+    "data/index/companies.json": "0f2b0f74195f66a5ac936278421e2dbe4081373f1ce7c7085c4195c69571da21",
     "data/index/company-entities.json": "f023dd45d1091f05ed0862ea1642da089c18d5b6be2b8d10f50975dbc3780ca6",
     "data/research/company-study/core.json": "89f85d051468bb1de1f3ddc2e5d9e252dc9ea219c91b8927ba148a97116d2f28",
     "data/research/company-study/public.json": "c713018d6617b92508f9342569b74c3dfb79c87a6f64f77c47e93ac2e047c7e8"
@@ -105,11 +105,11 @@
       "files": {
         "data/game-details.json": {
           "before": "a939c69208c456c1ee79618a92a09090bbc70eabd161acecd8456bc17a034250",
-          "after": "42bc9208038909987c98007c528d4267b0bc32784b58a45b8a616c6f76b4a4fb"
+          "after": "a3c5c1640cc73ec8a97858e483a2bc591f891dde193c7f5675cc4c706042f7c3"
         },
         "data/index/companies.json": {
           "before": "265255c5752789bc72ef7673c30d6335ff454f54918b55be6d3e8a4e94cdf296",
-          "after": "0aee9c3cd18d1eabe88885e564576b0672e47f14bd5c23047a6c1ab4ae2f8f3f"
+          "after": "0f2b0f74195f66a5ac936278421e2dbe4081373f1ce7c7085c4195c69571da21"
         }
       }
     }
