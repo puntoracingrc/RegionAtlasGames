@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-09-05T04:47:10",
-  "targets": 2077,
-  "downloaded": 2077,
+  "generatedAt": "2026-09-05T05:07:36",
+  "targets": 532,
+  "downloaded": 532,
   "skippedExisting": 0,
   "missingSource": 0,
   "downloadErrors": 0,
   "bySource": {
     "museum": 0,
-    "pricecharting": 2077,
+    "pricecharting": 532,
     "wikipedia": 0,
     "existing": 0
   },
   "byPlatform": {
-    "ds": {
-      "downloaded": 2077,
+    "3ds": {
+      "downloaded": 532,
       "missingSource": 0,
       "downloadErrors": 0,
       "skippedExisting": 0
     }
   },
   "scope": {
-    "region": "USA",
+    "region": "Japón",
     "platforms": [
-      "ds"
+      "3ds"
     ]
   },
-  "note": "Portadas exactas de la importación USA de Nintendo DS."
+  "note": "Portadas exactas de la importación japonesa de Nintendo 3DS."
 }

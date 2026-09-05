@@ -84,10 +84,10 @@
     "shortName": "Nintendo 3DS",
     "manufacturer": "nintendo",
     "status": "closed",
-    "estimatedCatalogSize": 480,
+    "estimatedCatalogSize": 1151,
     "sortOrder": 8,
     "spainReleaseYear": 2011,
-    "description": "Catálogo oficial PAL España."
+    "description": "Catálogo físico multirregión con ediciones PAL España y NTSC-J Japón, con precios PriceCharting por estado de conservación."
   },
   {
     "slug": "mastersystem",

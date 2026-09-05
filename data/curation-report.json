@@ -1,6 +1,6 @@
 {
-  "total": 68525,
-  "listed": 66353,
+  "total": 69057,
+  "listed": 66885,
   "excluded": 2172,
   "byCategory": {
     "accessory": 143,
@@ -12,7 +12,7 @@
     "whitelist": 386
   },
   "listedByPlatform": {
-    "3ds": 483,
+    "3ds": 1015,
     "dreamcast": 950,
     "ds": 4831,
     "gameboy": 2510,
