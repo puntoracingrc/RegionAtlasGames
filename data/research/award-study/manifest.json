@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-06",
+  "researchHash": "e3f27da3d0aa7ac1966a753122fe47c68db0b641c7cd4278f8513cb96c0d1e8d",
+  "counts": {
+    "series": 0,
+    "editions": 0,
+    "categories": 0,
+    "publishedResults": 0,
+    "internalResults": 0,
+    "gameRecipients": 0,
+    "personRecipients": 0,
+    "companyRecipients": 0,
+    "workLinks": 0,
+    "personWorkLinks": 0,
+    "sources": 0,
+    "unresolved": 0
+  },
+  "policies": {
+    "publicImportsOnlyPublicJson": true,
+    "gameAwardIsPersonalAward": false,
+    "automaticPersonMergeAllowed": false,
+    "automaticCompanyInheritanceAllowed": false,
+    "fuzzyWorkMatchCanPublish": false,
+    "wikidataOnlyMajorAwardCanPublish": false
+  }
+}
