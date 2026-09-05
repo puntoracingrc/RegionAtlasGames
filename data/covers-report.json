@@ -1,50 +1,29 @@
 {
-  "generatedAt": "2026-09-04T00:00:00",
-  "scope": {
-    "region": "Japón",
-    "platforms": [
-      "ps1",
-      "ps2",
-      "ps3",
-      "ps5"
-    ]
-  },
-  "targets": 5808,
-  "downloaded": 5690,
+  "generatedAt": "2026-09-05T04:05:19",
+  "targets": 19,
+  "downloaded": 18,
   "skippedExisting": 0,
-  "missingSource": 118,
+  "missingSource": 1,
   "downloadErrors": 0,
   "bySource": {
     "museum": 0,
-    "pricecharting": 5690,
+    "pricecharting": 18,
     "wikipedia": 0,
     "existing": 0
   },
   "byPlatform": {
-    "ps1": {
-      "downloaded": 2284,
-      "missingSource": 29,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "ps2": {
-      "downloaded": 2207,
-      "missingSource": 49,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "ps3": {
-      "downloaded": 861,
-      "missingSource": 28,
-      "downloadErrors": 0,
-      "skippedExisting": 0
-    },
-    "ps5": {
-      "downloaded": 338,
-      "missingSource": 12,
+    "ds": {
+      "downloaded": 18,
+      "missingSource": 1,
       "downloadErrors": 0,
       "skippedExisting": 0
     }
   },
-  "note": "Cobertura agregada de la importación japonesa; los casos sin portada no se sustituyen."
+  "scope": {
+    "region": "PAL España",
+    "platforms": [
+      "ds"
+    ]
+  },
+  "note": "Portadas pendientes del repaso PAL de Nintendo DS; el caso sin origen no se sustituye."
 }

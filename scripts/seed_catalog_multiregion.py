@@ -12,6 +12,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,12 +28,14 @@ from collectors.pc_region_paths import (  # noqa: E402
 PLATFORMS_FILE = ROOT / "data" / "platforms.json"
 CATALOG_FILE = ROOT / "data" / "catalog.json"
 META_FILE = ROOT / "data" / "meta.json"
+CURATION_REPORT_FILE = ROOT / "data" / "curation-report.json"
 
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 REQUEST_DELAY = 1.6
 
 # Plataformas con catálogo PC en las tres regiones
 MULTIREGION_PLATFORMS: dict[str, list[str]] = {
+    "ds": ["pal"],
     "ps1": ["japan"],
     "ps2": ["japan"],
     "ps3": ["japan"],
@@ -163,7 +166,7 @@ def parse_games(page_html: str, pc_path: str, collected_at: str) -> list[dict]:
 
         out.append(
             {
-                "pcPath": path_match.group(1).strip(),
+                "pcPath": html.unescape(path_match.group(1).strip()),
                 "title": clean,
                 "pcId": int(pc_id_match.group(1)) if pc_id_match else None,
                 **prices,
@@ -361,6 +364,29 @@ def update_meta(catalog: list[dict]) -> None:
     META_FILE.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def update_curation_report(catalog: list[dict]) -> None:
+    existing_report = (
+        json.loads(CURATION_REPORT_FILE.read_text(encoding="utf-8"))
+        if CURATION_REPORT_FILE.exists()
+        else {}
+    )
+    listed = [game for game in catalog if game.get("listingStatus") != "excluded"]
+    excluded = [game for game in catalog if game.get("listingStatus") == "excluded"]
+    listed_by_platform = Counter(str(game["platformSlug"]) for game in listed)
+    excluded_by_platform = Counter(str(game["platformSlug"]) for game in excluded)
+    report = {
+        "total": len(catalog),
+        "listed": len(listed),
+        "excluded": len(excluded),
+        "byCategory": existing_report.get("byCategory", {}),
+        "listedByPlatform": dict(sorted(listed_by_platform.items())),
+        "excludedByPlatform": dict(sorted(excluded_by_platform.items())),
+    }
+    CURATION_REPORT_FILE.write_text(
+        json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
 def resolve_pc_path(platform_slug: str, region_key: str) -> str | None:
     cfg = REGION_CONFIG[region_key]
     console_map = CONSOLE_MAPS[str(cfg["console_map"])]
@@ -406,6 +432,7 @@ def main(
 
     CATALOG_FILE.write_text(json.dumps(existing, ensure_ascii=False, indent=2), encoding="utf-8")
     update_meta(existing)
+    update_curation_report(existing)
     print(
         f"\nCatálogo: {len(existing)} juegos (+{total_added} nuevos, ~{total_updated} actualizados)"
     )

@@ -264,6 +264,11 @@ def main() -> None:
     parser.add_argument("--covers-root", help="Raíz local temporal o persistente para las portadas")
     parser.add_argument("--workers", type=int, default=8, help="Descargas simultáneas (default: 8)")
     parser.add_argument("--limit", type=int, help="Máximo de juegos a procesar")
+    parser.add_argument(
+        "--missing-cover-only",
+        action="store_true",
+        help="Procesar solo fichas que todavía no tienen coverUrl",
+    )
     parser.add_argument("--force", action="store_true", help="Re-descargar aunque ya haya /covers/")
     parser.add_argument("--skip-pc-map", action="store_true", help="No refrescar mapa PriceCharting")
     parser.add_argument(
@@ -302,6 +307,7 @@ def main() -> None:
         if g.get("listingStatus") != "excluded"
         and (not platform_filter or g["platformSlug"] in platform_filter)
         and (not region_filter or str(g.get("region") or "").casefold() in region_filter)
+        and (not args.missing_cover_only or not g.get("coverUrl"))
         and (
             args.force
             or not is_local_cover(g.get("coverUrl"))

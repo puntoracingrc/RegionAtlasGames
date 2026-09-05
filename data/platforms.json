@@ -71,10 +71,12 @@
     "shortName": "Nintendo DS",
     "manufacturer": "nintendo",
     "status": "closed",
-    "estimatedCatalogSize": 600,
+    "estimatedCatalogSize": 1810,
     "sortOrder": 7,
     "spainReleaseYear": 2005,
-    "description": "Catálogo oficial PAL España."
+    "active": true,
+    "newsEnabled": false,
+    "description": "Catálogo físico PAL España provisional basado en PAL Europa, con precios PriceCharting por estado de conservación."
   },
   {
     "slug": "3ds",
