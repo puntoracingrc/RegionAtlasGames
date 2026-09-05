@@ -60,10 +60,10 @@
     "shortName": "Wii",
     "manufacturer": "nintendo",
     "status": "closed",
-    "estimatedCatalogSize": 350,
+    "estimatedCatalogSize": 3237,
     "sortOrder": 6,
     "spainReleaseYear": 2006,
-    "description": "Catálogo oficial PAL España."
+    "description": "Catálogo multirregión de Nintendo Wii con fichas PAL España y NTSC-USA y precios PriceCharting."
   },
   {
     "slug": "ds",
