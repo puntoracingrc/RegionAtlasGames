@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "batchId": "annapurna-collection-region-correction-2026-09-05",
+  "writesPerformed": true,
+  "catalog": {
+    "rowsBefore": 73104,
+    "rowsAfter": 73104,
+    "uniqueIdsBefore": 73104,
+    "uniqueIdsAfter": 73104,
+    "orderedIdsSha256Before": "2aca891e09c0116cfbf1d7f4eff0052bba7de62efd269d21b35ecaeddc7a1b9f",
+    "orderedIdsSha256After": "2aca891e09c0116cfbf1d7f4eff0052bba7de62efd269d21b35ecaeddc7a1b9f",
+    "listedBefore": 70932,
+    "listedAfter": 70931,
+    "retiredCatalogId": "ps4-annapurna-ultimate-collection",
+    "canonicalCatalogId": "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
+  },
+  "collection": {
+    "itemId": "annapurna-ultimate-collection",
+    "indexBefore": 15,
+    "indexAfter": 15,
+    "protectedSha256Before": "b06381167c1355bcdd73eca04980ed70d087d7805011930a431d616962c37e0f",
+    "protectedSha256After": "b06381167c1355bcdd73eca04980ed70d087d7805011930a431d616962c37e0f",
+    "catalogIdBefore": "ps4-annapurna-ultimate-collection",
+    "catalogIdAfter": "ps4-usa-annapurna-interactive-ultimate-ps4-collection"
+  },
+  "editionEvidence": {
+    "ultimateRegion": "USA",
+    "ultimatePhysicalDistributor": "Skybound Games",
+    "deluxeRegion": "USA",
+    "deluxePhysicalPublisher": "iam8bit",
+    "urls": [
+      "https://gamingcypher.com/annapurna-interactive-physical-playstation-4-box-sets-available-now/",
+      "https://www.iam8bit.com/products/annapurna-interactive-deluxe-limited-edition",
+      "https://www.pricecharting.com/game/playstation-4/annapurna-interactive-ultimate-ps4-collection"
+    ]
+  },
+  "checks": {
+    "catalogRowsPreserved": true,
+    "catalogIdsPreserved": true,
+    "onePublicRecordRetired": true,
+    "collectionPositionPreserved": true,
+    "collectionDataPreserved": true
+  }
+}

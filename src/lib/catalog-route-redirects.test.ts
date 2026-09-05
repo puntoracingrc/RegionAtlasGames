@@ -28,6 +28,17 @@ test("redirects workbook-scoped wrong-platform records to their verified catalog
   assert.equal(getCatalogRouteRedirect("unrelated-game"), undefined);
 });
 
+test("redirects the retired PAL Annapurna record to the real USA collection", () => {
+  assert.equal(
+    getCatalogRouteRedirect("ps4-annapurna-ultimate-collection")?.targetCatalogId,
+    "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
+  );
+  assert.equal(
+    getCatalogRouteRedirect("annapurna-ultimate-collection-ps4-pal-es")?.targetParam,
+    "annapurna-interactive-ultimate-ps4-collection-ps4-pal-us",
+  );
+});
+
 test("every consolidated slug has a stable canonical destination", () => {
   const redirect = getCatalogRouteRedirect("ps4-rpg-maker");
 

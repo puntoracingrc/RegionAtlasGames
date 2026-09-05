@@ -128,7 +128,7 @@ EDITORIAL_ID_BY_NUMBER = {
 }
 
 BUNDLE_ID_BY_NAME = {
-    "Annapurna Ultimate Collection": "ps4-annapurna-ultimate-collection",
+    "Annapurna Ultimate Collection": "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
     "PlayLink Games Collection": "ps4-playlink-games-collection",
     "Terra Trilogy": "ps4-terra-trilogy",
     "The Giants: Industry and Transport Bundle": "ps4-the-giants-industry-and-transport-bundle",
@@ -152,6 +152,10 @@ BUNDLE_ID_BY_NAME = {
     "Wonder Boy Anniversary Collection": "ps4-wonder-boy-anniversary-collection",
     "Wonder Boy Collection": "ps4-wonder-boy-collection",
     "PlayStation VR Demo Disc (PAL Europa)": None,
+}
+
+BUNDLE_PUBLIC_TITLES = {
+    "Annapurna Ultimate Collection": "Annapurna Interactive Ultimate PS4 Collection",
 }
 
 # Exact component links only. Missing values remain useful structured credits but
@@ -406,7 +410,7 @@ MINDTAKER_ID = "ps4-mindtaker"
 MINDTAKER_CREDITS = [c("developer", "relevo"), c("developer", "virtualware")]
 
 BUNDLE_CREDIT_PLANS = {
-    "Annapurna Ultimate Collection": [c("originalPublisher", "annapurna-interactive"), c("physicalPublisherOrDistributor", "iam8bit")],
+    "Annapurna Ultimate Collection": [c("originalPublisher", "annapurna-interactive"), c("physicalPublisherOrDistributor", "skybound-games")],
     "PlayLink Games Collection": [c("originalPublisher", "sony-interactive-entertainment"), c("physicalPublisherOrDistributor", "sony-interactive-entertainment")],
     "Terra Trilogy": [c("developer", "dm-media"), c("originalPublisher", "funbox-media"), c("physicalPublisherOrDistributor", "funbox-media")],
     "The Giants: Industry and Transport Bundle": [c("originalPublisher", "united-independent-entertainment"), c("physicalPublisherOrDistributor", "united-independent-entertainment")],
@@ -429,6 +433,21 @@ BUNDLE_CREDIT_PLANS = {
     "World of Simulators": [c("originalPublisher", "united-independent-entertainment"), c("regionalPublisher", "uig-entertainment"), c("physicalPublisherOrDistributor", "uig-entertainment")],
     "Wonder Boy Anniversary Collection": [c("originalDeveloper", "westone-bit-entertainment"), c("portDeveloper", "bliss-brain"), c("originalPublisher", "bliss-brain"), c("regionalPublisher", "inin-games"), c("physicalPublisherOrDistributor", "inin-games"), c("physicalPublisherOrDistributor", "strictly-limited-games")],
     "Wonder Boy Collection": [c("originalDeveloper", "westone-bit-entertainment"), c("portDeveloper", "bliss-brain"), c("originalPublisher", "bliss-brain"), c("regionalPublisher", "inin-games"), c("physicalPublisherOrDistributor", "inin-games")],
+}
+
+BUNDLE_SOURCE_OVERRIDES = {
+    "Annapurna Ultimate Collection": {
+        "evidenceUrls": [
+            "https://gamingcypher.com/annapurna-interactive-physical-playstation-4-box-sets-available-now/",
+            "https://www.iam8bit.com/products/annapurna-interactive-deluxe-limited-edition",
+            "https://www.pricecharting.com/game/playstation-4/annapurna-interactive-ultimate-ps4-collection",
+        ],
+        "summary": (
+            "La Ultimate es la edición retail norteamericana distribuida por Skybound Games; "
+            "la Deluxe es una edición distinta y exclusiva de iam8bit. Ambas recopilan ocho "
+            "juegos de estudios diferentes publicados por Annapurna Interactive."
+        ),
+    },
 }
 
 # Both spelling variants are workbook-scoped physical records. They receive the
@@ -470,6 +489,7 @@ RELIST_VARIANT_IDS = {
 }
 
 SAFE_DUPLICATE_REDIRECTS = {
+    "ps4-annapurna-ultimate-collection": "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
     "ps4-jets-%27n%27-guns-2": "ps4-jets%27n%27guns-2",
     "ps4-rpg-maker": "ps4-rpg-maker-with",
 }
@@ -715,11 +735,20 @@ def editorial_rows(source: dict[str, Any]) -> dict[int, dict[str, Any]]:
 
 
 def source_for_bundle(source: dict[str, Any], bundle_name: str) -> dict[str, Any]:
-    return next(
+    row = next(
         row
         for row in source["sheets"]["Recopilatorios"]
         if row["recopilatorio"] == bundle_name
     )
+    override = BUNDLE_SOURCE_OVERRIDES.get(bundle_name)
+    if not override:
+        return row
+    return {
+        **row,
+        "fuente": override["evidenceUrls"][0],
+        "conclusion": override["summary"],
+        "_evidenceUrls": override["evidenceUrls"],
+    }
 
 
 def source_for_mindtaker(source: dict[str, Any]) -> dict[str, Any]:
@@ -911,7 +940,7 @@ def build_actions(source: dict[str, Any]) -> list[dict[str, Any]]:
 def provenance(row: dict[str, Any], previous_values: list[str] | None = None) -> dict[str, Any]:
     result: dict[str, Any] = {
         "source": "research",
-        "evidenceUrls": [source_url(row)],
+        "evidenceUrls": row.get("_evidenceUrls", [source_url(row)]),
         "evidenceSummary": source_summary(row),
         "reviewedAt": REVIEWED_AT,
         "reviewBatch": BATCH_ID,
@@ -1280,7 +1309,7 @@ def build_commercial_relations(
             {
                 "id": f"compilation:{normalized(name).replace(' ', '-')}",
                 "catalogId": catalog_id,
-                "title": name,
+                "title": BUNDLE_PUBLIC_TITLES.get(name, name),
                 "status": "verified" if catalog_id else "requires_review",
                 "componentCount": len(components),
                 "components": components,
@@ -1338,7 +1367,9 @@ def catalog_seo_param(game: dict[str, Any]) -> str:
         "PAL España": "pal-es",
         "PAL Europa": "pal-eu",
         "PAL UK": "pal-uk",
+        "USA": "pal-us",
         "NTSC USA": "pal-us",
+        "Japón": "pal-jp",
         "NTSC-J": "pal-jp",
     }.get(region)
     if not short:

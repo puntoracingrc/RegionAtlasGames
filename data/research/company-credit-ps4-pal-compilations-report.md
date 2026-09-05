@@ -11,7 +11,7 @@ Fuente: `RegionAtlas_PS4_PAL_recopilatorios_resueltos_2026-09-05.xlsx` (`f3e6329
 - Variantes relacionadas: 15 (13 verificadas; el resto conserva revisión física pendiente).
 - Alias normalizados: 19.
 - Relaciones corporativas verificadas: 6.
-- Redirecciones permanentes seguras: 6.
+- Redirecciones permanentes seguras: 7.
 - Casos bloqueados: 9.
 
 ## Acciones del dry-run
@@ -20,7 +20,7 @@ Fuente: `RegionAtlas_PS4_PAL_recopilatorios_resueltos_2026-09-05.xlsx` (`f3e6329
 - ADD_CORPORATE_RELATION: 6.
 - ADD_CO_DEVELOPER: 4.
 - LINK_VARIANT: 13.
-- MERGE_DUPLICATE: 2.
+- MERGE_DUPLICATE: 3.
 - MOVE_PLATFORM: 4.
 - NORMALIZE_ALIAS: 19.
 - REMOVE_GENERIC_NON_GAME: 1.
@@ -58,7 +58,7 @@ Fuente: `RegionAtlas_PS4_PAL_recopilatorios_resueltos_2026-09-05.xlsx` (`f3e6329
 
 ## Verificación
 
-- semanticTest: PASS (83 fichas acreditadas, 247 créditos de compañía, 82 componentes, 13 variantes verificadas, 6 redirects y 9 casos bloqueados).
+- semanticTest: PASS (83 fichas acreditadas, 247 créditos de compañía, 82 componentes, 13 variantes verificadas, 7 redirects y 9 casos bloqueados).
 - typecheck: PASS.
 - lint: PASS (0 errores; 35 avisos preexistentes fuera del alcance).
 - unitTests: PASS (220/220).
@@ -69,3 +69,5 @@ Fuente: `RegionAtlas_PS4_PAL_recopilatorios_resueltos_2026-09-05.xlsx` (`f3e6329
 - previewQa: PASS en `dpl_DrtKQkYZw1gvtBnYFsj6PTLpqZVA`, escritorio 1440 × 1000 y móvil 390 × 844. Diez vistas semánticas sin overflow, imágenes rotas ni errores de consola; las 11 rutas legacy responden 308 al destino exacto y los 6 destinos canónicos responden 200.
 
 La PR permanece en borrador y no autoriza fusión ni despliegue a Production.
+
+Corrección posterior: la ficha PAL España de Annapurna se retiró como duplicado y conserva una redirección permanente a `ps4-usa-annapurna-interactive-ultimate-ps4-collection`. La evidencia completa está en `annapurna-collection-region-correction-report.json`.

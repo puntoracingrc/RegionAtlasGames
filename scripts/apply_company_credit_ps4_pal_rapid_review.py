@@ -39,7 +39,7 @@ REVIEWED_AT = "2026-09-05"
 REVIEWED_AT_TIMESTAMP = "2026-09-05T12:00:00Z"
 SUCCESSOR_BATCH_ID = "company-credit-ps4-pal-compilations-2026-09-05"
 ALLOWED_SUCCESSOR_ROLE_CREDITS = {
-    ("ps4-annapurna-ultimate-collection", "physicalPublisherOrDistributor"): ("iam8bit",),
+    ("ps4-annapurna-ultimate-collection", "physicalPublisherOrDistributor"): ("skybound-games",),
     ("ps4-blasphemous-coleccionista", "developer"): ("the-game-kitchen",),
     ("ps4-crash-team-racing-&amp;-spyro-reignited-trilogy", "physicalPublisherOrDistributor"): ("activision",),
     ("ps4-cyberpunk-2077-samurai-pack", "developer"): ("cd-projekt-red",),
@@ -57,6 +57,9 @@ ALLOWED_SUCCESSOR_ROLE_CREDITS = {
     ("ps4-wolfenstein-alt-history-collection", "physicalPublisherOrDistributor"): ("bethesda-softworks",),
     ("ps4-wonder-boy-collection", "physicalPublisherOrDistributor"): ("inin-games",),
     ("ps4-world-of-simulators", "physicalPublisherOrDistributor"): ("uig-entertainment",),
+}
+SUCCESSOR_CATALOG_IDS = {
+    "ps4-annapurna-ultimate-collection": "ps4-usa-annapurna-interactive-ultimate-ps4-collection",
 }
 WORKBOOK_NAME = "RegionAtlas_PS4_PAL_repaso_rapido_creditos_2026-09-05.xlsx"
 WORKBOOK_SHA256 = "f8a1589ad8cfd168c202a0c6173b64994fd1c127c01ee955861b0c7226531de1"
@@ -122,6 +125,7 @@ def allowed_successor_role_credits(row: dict[str, str], detail: dict[str, Any]) 
     if tuple(credit.get("company", {}).get("slug") for credit in credits) != allowed_slugs:
         return []
     expected_previous = set(row["company_display_names"].split(" | "))
+    catalog_was_reassigned = row["catalog_id"] in SUCCESSOR_CATALOG_IDS
     for credit in credits:
         provenance = credit.get("provenance", {})
         if (
@@ -129,7 +133,10 @@ def allowed_successor_role_credits(row: dict[str, str], detail: dict[str, Any]) 
             or provenance.get("reviewedAt") != REVIEWED_AT
             or not provenance.get("evidenceUrls")
             or not provenance.get("evidenceSummary")
-            or not expected_previous.issubset(set(provenance.get("previousValues", [])))
+            or (
+                not catalog_was_reassigned
+                and not expected_previous.issubset(set(provenance.get("previousValues", [])))
+            )
         ):
             return []
     return credits
@@ -1276,15 +1283,20 @@ def check_committed() -> None:
         raise ValueError("Blocked conflicts changed")
 
     for row in decisions:
+        effective_catalog_id = SUCCESSOR_CATALOG_IDS.get(
+            row["catalog_id"], row["catalog_id"]
+        )
         role_name = ROLE_NAMES[row["role"]]
         expected_slugs = row["company_slugs"].split(" | ")
         role_credits = [
             credit
-            for credit in details[row["catalog_id"]].get("companyCredits", [])
+            for credit in details[effective_catalog_id].get("companyCredits", [])
             if credit.get("role") == role_name
             and credit.get("provenance", {}).get("reviewBatch") == BATCH_ID
         ]
-        successor_credits = allowed_successor_role_credits(row, details[row["catalog_id"]])
+        successor_credits = allowed_successor_role_credits(
+            row, details[effective_catalog_id]
+        )
         if (
             [credit["company"]["slug"] for credit in role_credits] != expected_slugs
             and not successor_credits
@@ -1299,8 +1311,8 @@ def check_committed() -> None:
         ):
             raise ValueError(f"Incomplete provenance for {row['catalog_id']}:{row['role']}")
         for slug in [credit["company"]["slug"] for credit in effective_credits]:
-            if row["catalog_id"] not in companies[slug][ROLE_INDEX_FIELDS[row["role"]]]:
-                raise ValueError(f"Company index missing {row['catalog_id']}:{slug}")
+            if effective_catalog_id not in companies[slug][ROLE_INDEX_FIELDS[row["role"]]]:
+                raise ValueError(f"Company index missing {effective_catalog_id}:{slug}")
 
     conflict_keys = {(row["catalog_id"], ROLE_NAMES[row["role"]]) for row in conflicts}
     for catalog_id, role_name in conflict_keys:

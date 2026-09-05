@@ -31,10 +31,10 @@
       "key": "pal_es",
       "label": "PAL España",
       "catalogRegion": "PAL España",
-      "total": 3043,
-      "completed": 3043,
+      "total": 3042,
+      "completed": 3042,
       "matched": 345,
-      "noMatch": 2698,
+      "noMatch": 2697,
       "deferred": 0,
       "pending": 0,
       "completedCatalogIds": [
@@ -2539,7 +2539,6 @@
         "ps4-alan-wake",
         "ps4-ambition-record",
         "ps4-anima-gate-of-memories",
-        "ps4-annapurna-ultimate-collection",
         "ps4-another-world",
         "ps4-antarctica-88",
         "ps4-arcade-classics-anniversary-collection",
@@ -5587,7 +5586,6 @@
         "ps4-alan-wake",
         "ps4-ambition-record",
         "ps4-anima-gate-of-memories",
-        "ps4-annapurna-ultimate-collection",
         "ps4-another-world",
         "ps4-antarctica-88",
         "ps4-arcade-classics-anniversary-collection",
@@ -6158,10 +6156,10 @@
     }
   },
   "totals": {
-    "catalogGames": 3044,
-    "completed": 3044,
+    "catalogGames": 3043,
+    "completed": 3043,
     "matched": 345,
-    "noMatch": 2699,
+    "noMatch": 2698,
     "deferred": 0,
     "pending": 0
   },

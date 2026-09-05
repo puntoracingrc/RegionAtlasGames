@@ -50,6 +50,10 @@ def effective_decision_credits(importer, row: dict, detail: dict) -> list[dict]:
     return importer.allowed_successor_role_credits(row, detail)
 
 
+def effective_catalog_id(importer, row: dict) -> str:
+    return importer.SUCCESSOR_CATALOG_IDS.get(row["catalog_id"], row["catalog_id"])
+
+
 def main() -> int:
     importer = load_module(
         "scripts/apply_company_credit_ps4_pal_rapid_review.py",
@@ -88,7 +92,9 @@ def main() -> int:
     effective_credits = [
         credit
         for row in decisions
-        for credit in effective_decision_credits(importer, row, details[row["catalog_id"]])
+        for credit in effective_decision_credits(
+            importer, row, details[effective_catalog_id(importer, row)]
+        )
     ]
     assert len(effective_credits) == 1660
     assert Counter(credit["role"] for credit in effective_credits) == {
@@ -105,18 +111,21 @@ def main() -> int:
     )
 
     for row in decisions:
+        catalog_id = effective_catalog_id(importer, row)
         role = importer.ROLE_NAMES[row["role"]]
-        credits = effective_decision_credits(importer, row, details[row["catalog_id"]])
+        credits = effective_decision_credits(importer, row, details[catalog_id])
         assert credits
         for slug in [credit["company"]["slug"] for credit in credits]:
-            assert row["catalog_id"] in companies[slug][importer.ROLE_INDEX_FIELDS[row["role"]]]
+            assert catalog_id in companies[slug][importer.ROLE_INDEX_FIELDS[row["role"]]]
 
     assert {
         (row["catalog_id"], importer.ROLE_NAMES[row["role"]])
         for row in decisions
         if any(
             credit.get("provenance", {}).get("reviewBatch") == importer.SUCCESSOR_BATCH_ID
-            for credit in effective_decision_credits(importer, row, details[row["catalog_id"]])
+            for credit in effective_decision_credits(
+                importer, row, details[effective_catalog_id(importer, row)]
+            )
         )
     } == set(importer.ALLOWED_SUCCESSOR_ROLE_CREDITS)
 
