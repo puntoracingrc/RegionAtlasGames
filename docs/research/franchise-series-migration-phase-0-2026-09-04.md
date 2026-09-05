@@ -1,10 +1,10 @@
 # Migración franquicias/sagas — Fase 0
 
-Base auditada: `3a5391b44bad1d157726fa577435c7d8e6240093`.
+Base auditada: `51ffae99dfed693c893b99ff7d29ba166a69e2f7`.
 
 ## Estado congelado
 
-- 65.452 fichas de catálogo; 63.280 no excluidas.
+- 73.104 fichas de catálogo; 70.932 no excluidas.
 - 4326 compañías indexadas.
 - 427 agrupaciones legacy.
 - 2718 fichas declaran `details.series`; 2963 fichas únicas están en el índice efectivo.

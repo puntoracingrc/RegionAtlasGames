@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "baselineRevision": "3a5391b44bad1d157726fa577435c7d8e6240093",
+  "baselineRevision": "51ffae99dfed693c893b99ff7d29ba166a69e2f7",
   "strategy": "Discard the franchise overlay/state and continue serving the untouched legacy series reader.",
   "identifierSemantics": {
     "persistedField": "gameId",
     "meaning": "Existing catalog_id for one catalogued edition; not a logical game work."
   },
   "protectedFilesSha256": {
-    "data/catalog.json": "ba79ec3d939e074b366f0816dc34c11aa308c65e02e96a157e6a32304097956e",
+    "data/catalog.json": "aa33390154b9d90b064328a62c089245e12749abf71618f8d83e9a02b274137a",
     "data/game-details.json": "1d2c55d28fc6ea79865a3faab0cc2f811cd7f49c34107e42f5eaefefc8bc2833",
     "data/index/companies.json": "d774c621f0289cdfeae1141361fc4483e84037432d82499a5f7ab83afafe48bb",
     "data/index/series.json": "a98edf9ee06c2f917f114283f7100c9660d2f35339158556d31991f7f50ea1ba",
-    "data/meta.json": "a8de9198a7de34be51bd1f1239be66b8126acf69969c8afff9b51493aa5b4a4d",
-    "data/price-sync-state.json": "8aea0b45a5751c88bfa8aadc86f53b7e9441cc26179e2b5993f7b53f8b00aa50",
-    "data/ebay-regional-campaigns/cover-candidates.json": "c9eeca121d7935524fae465bdace28f1ded380fc79fa1d018b04e3f0e1cb5637",
-    "data/ebay-regional-campaigns/global.json": "3a9b050b609478d191f1068a335bf1c21ce2f12745963865b1e49b5b1c2c1868",
-    "data/ebay-regional-campaigns/nes.json": "852b003ab513633fc7af8e8280ecf3f54402f1795c65d0365feb99abc7499750",
+    "data/meta.json": "49cfabc4664b4417f6e16cf943afc3369e5692d77c5775acef4ecb27eed87a16",
+    "data/price-sync-state.json": "7be0004315cbaed258e579cd48af76f88fe96865eb7b91695f940feb456c8384",
+    "data/ebay-regional-campaigns/cover-candidates.json": "36692112d8f36380fc8db3db63a51e5b6af29994f47b635e87563317a71bb436",
+    "data/ebay-regional-campaigns/global.json": "26ed91c6d082b596363fb1e7a17576ebf4789141494536bc1bdb612c41e1b1ce",
+    "data/ebay-regional-campaigns/nes.json": "c0e370dd577c4e0c11709cac1722c154ff50131cf9e7962281b1d2ffa6f11b39",
     "data/ebay-regional-campaigns/ps4.json": "fa374b40f06bc10a20842d6b6107d7b97f75f1af457483310bf990d35737f13a",
     "data/research/company-credit-verified-batch-1-report.json": "4c38f5ff93c13a5ead251164d09ebb5edce70341bd420425001978f937ad88f4",
     "data/research/company-credit-verified-batch-1.csv": "d0ec58edbeaca7d2be1364e5763f7f6662af595e4373b62dcdfbd35fbabed52f"

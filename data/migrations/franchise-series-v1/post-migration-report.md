@@ -1,6 +1,6 @@
 # Verificación pre/post de franquicias y sagas
 
-Base: `3a5391b44bad1d157726fa577435c7d8e6240093`.
+Base: `51ffae99dfed693c893b99ff7d29ba166a69e2f7`.
 
 ## Invariantes
 
@@ -36,7 +36,7 @@ Base: `3a5391b44bad1d157726fa577435c7d8e6240093`.
 
 ## Conteos
 
-- Fichas: 65.452 antes / 65.452 después; 65.452 IDs únicos.
+- Fichas: 73.104 antes / 73.104 después; 73.104 IDs únicos.
 - Compañías: 4326 antes / 4326 después.
 - URLs legacy: 427; 8 redirects permanentes y 419 páginas conservadas.
 - Franquicias: 9; relaciones ficha-franquicia: 333; relaciones saga-franquicia: 8.
@@ -79,6 +79,6 @@ No se crea todavía una pertenencia a Mana o SaGa porque esas franquicias no for
 
 ## Identificadores y rollback
 
-El campo persistido `gameId` significa `catalog_id`: identifica una ficha/edición ya existente, no una obra lógica nueva. El rollback descarta el estado de franquicias y vuelve al lector legacy conservado; los hashes de catálogo, precios, créditos, compañías, series y contenido editorial se verifican contra la base `3a5391b44bad1d157726fa577435c7d8e6240093`.
+El campo persistido `gameId` significa `catalog_id`: identifica una ficha/edición ya existente, no una obra lógica nueva. El rollback descarta el estado de franquicias y vuelve al lector legacy conservado; los hashes de catálogo, precios, créditos, compañías, series y contenido editorial se verifican contra la base `51ffae99dfed693c893b99ff7d29ba166a69e2f7`.
 
 Los resultados HTTP, canonical, sitemap y QA visual se validan adicionalmente contra Preview; este informe verifica el estado de datos y el contrato de rutas esperado.

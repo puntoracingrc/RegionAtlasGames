@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "baselineRevision": "3a5391b44bad1d157726fa577435c7d8e6240093",
+  "baselineRevision": "51ffae99dfed693c893b99ff7d29ba166a69e2f7",
   "scannedRoots": [
     "src",
     "scripts"
@@ -660,7 +660,7 @@
     },
     {
       "file": "src/app/compania/[slug]/page.tsx",
-      "line": 47,
+      "line": 42,
       "patterns": [
         "series-symbol"
       ],
@@ -668,7 +668,7 @@
     },
     {
       "file": "src/app/compania/[slug]/page.tsx",
-      "line": 48,
+      "line": 43,
       "patterns": [
         "series-symbol"
       ],
@@ -2893,11 +2893,11 @@
       "patterns": [
         {
           "id": "route-saga",
-          "count": 26
+          "count": 38
         },
         {
           "id": "saga-copy",
-          "count": 1136
+          "count": 1294
         }
       ]
     },
@@ -2916,6 +2916,15 @@
         {
           "id": "saga-copy",
           "count": 12
+        }
+      ]
+    },
+    {
+      "file": "data/ebay-regional-campaigns/nes.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 4
         }
       ]
     },
@@ -3085,6 +3094,15 @@
         {
           "id": "saga-copy",
           "count": 3
+        }
+      ]
+    },
+    {
+      "file": "data/price-sync-state.json",
+      "patterns": [
+        {
+          "id": "saga-copy",
+          "count": 4
         }
       ]
     },

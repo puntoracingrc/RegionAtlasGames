@@ -78,7 +78,7 @@ type OverrideFile = {
 };
 
 const ROOT = process.cwd();
-const BASELINE_REVISION = "3a5391b44bad1d157726fa577435c7d8e6240093";
+const BASELINE_REVISION = "51ffae99dfed693c893b99ff7d29ba166a69e2f7";
 const OUTPUT_DIR = path.join(ROOT, "data", "migrations", "franchise-series-v1");
 const DOC_FILE = path.join(ROOT, "docs", "research", "franchise-series-migration-phase-0-2026-09-04.md");
 const PROTECTED_BASE_FILES = [
