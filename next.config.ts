@@ -102,6 +102,8 @@ const nextConfig: NextConfig = {
       "data/covers-upload-one.txt",
       "data/logs/**",
       "data/research/company-credit-ps4-pal-high-additions-report.*",
+      "data/research/company-credit-ps4-pal-compilations-*",
+      "data/research/ps4-pal-compilations-source.json",
       "data/research/ps4-pal-high-*.csv",
       "data/research/ps4-pal-residual-company-research-queue.csv",
       "data/**/*.local.json",
