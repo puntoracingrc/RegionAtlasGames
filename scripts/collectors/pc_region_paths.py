@@ -82,6 +82,7 @@ JP_PC_CONSOLE: dict[str, str] = {
     "wii": "jp-wii",
     "ds": "jp-nintendo-ds",
     "3ds": "jp-nintendo-3ds",
+    "switch": "jp-nintendo-switch",
     "switch2": "jp-nintendo-switch-2",
     "megadrive": "jp-sega-mega-drive",
     "sega32x": "sega-32x",
