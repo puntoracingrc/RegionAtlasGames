@@ -1,6 +1,6 @@
 {
-  "total": 69750,
-  "listed": 67578,
+  "total": 69796,
+  "listed": 67624,
   "excluded": 2172,
   "byCategory": {
     "accessory": 143,
@@ -38,7 +38,7 @@
     "sega32x": 82,
     "snes": 2881,
     "switch": 7244,
-    "switch2": 318,
+    "switch2": 364,
     "wii": 1294,
     "xbox360": 1
   },

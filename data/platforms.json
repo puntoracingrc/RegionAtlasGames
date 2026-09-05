@@ -301,12 +301,12 @@
     "shortName": "Switch 2",
     "manufacturer": "nintendo",
     "status": "open",
-    "estimatedCatalogSize": 76,
+    "estimatedCatalogSize": 364,
     "sortOrder": 8,
     "spainReleaseYear": 2025,
     "active": true,
     "newsEnabled": true,
-    "description": "Catálogo abierto de Nintendo Switch 2, iniciado con lanzamientos físicos disponibles en GAME España y ampliado mediante revisión administrativa."
+    "description": "Catálogo abierto multirregión de Nintendo Switch 2, iniciado con lanzamientos físicos disponibles en GAME España y ampliado con ediciones NTSC-J Japón y precios PriceCharting."
   },
   {
     "slug": "switch",
