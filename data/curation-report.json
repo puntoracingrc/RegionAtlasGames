@@ -1,6 +1,6 @@
 {
-  "total": 66448,
-  "listed": 64276,
+  "total": 68525,
+  "listed": 66353,
   "excluded": 2172,
   "byCategory": {
     "accessory": 143,
@@ -14,7 +14,7 @@
   "listedByPlatform": {
     "3ds": 483,
     "dreamcast": 950,
-    "ds": 2754,
+    "ds": 4831,
     "gameboy": 2510,
     "gamecube": 1329,
     "gamegear": 637,
