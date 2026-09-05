@@ -1,0 +1,4212 @@
+{
+  "schemaVersion": 1,
+  "batchId": "company-credit-ps4-pal-batch-1",
+  "reviewedAt": "2026-09-05",
+  "sourceSnapshot": "e6e0d88793e5ac0a6d5ea4b3bfb665427f90abfa",
+  "baseCommit": "2ab671e1e974ef627434edd2ab3d2a2aec2e7468",
+  "sourcePackageSha256": "b19148e273b952d18854623b4b4f07f85b6b07277d4917a0d0bea0899082a081",
+  "decisionFileSha256": "aeeccf9f3d007fcc7cf772c25f947513f8ac12bf6e1ac8fbe7109a6ab15f6ecc",
+  "dryRun": {
+    "readyRows": 53,
+    "blockedRows": 0,
+    "addMissing": 48,
+    "replaceOrAddVerified": 5,
+    "catalogIds": 49,
+    "differencesFromExpected": {
+      "rows": 0,
+      "addMissing": 0,
+      "replaceOrAddVerified": 0,
+      "catalogIds": 0
+    }
+  },
+  "packageControls": {
+    "performed": true,
+    "manifest": {
+      "filesChecked": 34,
+      "failures": []
+    },
+    "packageValidation": {
+      "status": "PASS",
+      "checks": 21,
+      "catalogEntries": 4266,
+      "catalogIdsUnique": 4266,
+      "proposals": 18392,
+      "readyActions": 124,
+      "approvedMutations": 53,
+      "provisionalWorks": 2805,
+      "entryStatus": {
+        "CREDIT_CONFLICT_REVIEW": 841,
+        "RESEARCHED_MEDIUM": 1535,
+        "UNRESOLVED_ROLE": 1025,
+        "CONFIRMED_OR_HIGH_CONFIDENCE": 624,
+        "NON_GAME_EXCLUDED": 74,
+        "MULTI_PRODUCT_SPLIT_REQUIRED": 163,
+        "VERIFIED_CORRECTION": 4
+      },
+      "guardrail": "No RegionAtlas catalog file was modified."
+    },
+    "proposalRows": 18392,
+    "highConfidenceTargetCandidates": 53,
+    "competingCandidates": [],
+    "sourceApprovedCsvSha256": "6e8b53dc470258b2625f6a9a82523d1ef67731a0f617a8a9dbc2418b278c4192",
+    "normalizedDecisionCsvSha256": "aeeccf9f3d007fcc7cf772c25f947513f8ac12bf6e1ac8fbe7109a6ab15f6ecc",
+    "proposalsCsvSha256": "c766970f31592379f5d8016ac3ec6ea03e4169097aac7a5340ac5f55e9a9d232"
+  },
+  "writesPerformed": true,
+  "catalog": {
+    "rowsBefore": 73104,
+    "rowsAfter": 73104,
+    "idsBefore": 73104,
+    "idsAfter": 73104,
+    "sha256Before": "461eb63430f82153c8685c3acce937ffa26912efa37bd34d88ad2e93a6a62704",
+    "sha256After": "461eb63430f82153c8685c3acce937ffa26912efa37bd34d88ad2e93a6a62704",
+    "unchanged": true
+  },
+  "companies": {
+    "rowsBefore": 4326,
+    "rowsAfter": 4326,
+    "created": 0
+  },
+  "summary": {
+    "decisions": 53,
+    "mutations": 53,
+    "addMissing": 48,
+    "replaceOrAddVerified": 5,
+    "developerCredits": 49,
+    "publisherCredits": 4,
+    "changedCatalogIds": 49,
+    "createdDetailRecords": 8,
+    "staleInput": 0,
+    "competingHighConfidenceCandidates": 0,
+    "orphanedCurrentCompanySlugs": [
+      "namco-bandai-entertainment"
+    ]
+  },
+  "mutations": [
+    {
+      "rowNumber": 1,
+      "catalogId": "ps4-airport-simulator-2019",
+      "title": "Airport Simulator 2019",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Toplitz Productions",
+        "slug": "toplitz-productions",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "toplitz-productions",
+      "sourceNames": [
+        "Toplitz Productions"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_PS4_RELEASE"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK_OR_PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP3550-CUSA12902_00-AIRPORTSIMPS4EU0",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+      ],
+      "evidenceSummary": "Developed by Toplitz Productions | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP3550-CUSA12902_00-AIRPORTSIMPS4EU0",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+        ],
+        "evidenceSummary": "Developed by Toplitz Productions | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 2,
+      "catalogId": "ps4-ben-10",
+      "title": "Ben 10",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Torus Games",
+        "slug": "torus-games",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "torus-games",
+      "sourceNames": [
+        "Torus Games Pty Ltd",
+        "Torus Games"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIDATA"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP3678-CUSA09538_00-BEN1000000000000",
+        "https://store.steampowered.com/app/703180",
+        "https://www.wikidata.org/wiki/Q63183228",
+        "https://gamesdb.launchbox-app.com/games/details/441353"
+      ],
+      "evidenceSummary": "Developed by Torus Games Pty Ltd | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP3678-CUSA09538_00-BEN1000000000000",
+          "https://store.steampowered.com/app/703180",
+          "https://www.wikidata.org/wiki/Q63183228",
+          "https://gamesdb.launchbox-app.com/games/details/441353"
+        ],
+        "evidenceSummary": "Developed by Torus Games Pty Ltd | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 3,
+      "catalogId": "ps4-big-bobby-car-the-big-race",
+      "title": "Big Bobby Car The Big Race",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Independent Arts Software GmbH",
+        "slug": "independent-arts-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "independent-arts-software",
+      "sourceNames": [
+        "Independent Arts Software GmbH"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP8218-CUSA20568_00-BOBBYCARGAME01EU",
+        "https://store.steampowered.com/app/1374700"
+      ],
+      "evidenceSummary": "Developed by Independent Arts Software GmbH 2020 Wild River Games GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP8218-CUSA20568_00-BOBBYCARGAME01EU",
+          "https://store.steampowered.com/app/1374700"
+        ],
+        "evidenceSummary": "Developed by Independent Arts Software GmbH 2020 Wild River Games GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 4,
+      "catalogId": "ps4-candle-the-power-of-the-flame",
+      "title": "Candle: The Power of the Flame",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Teku Studios",
+        "slug": "teku-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "teku-studios",
+      "sourceNames": [
+        "Teku Studios"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_PS4_RELEASE"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK_OR_PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP1121-CUSA12065_00-CANDLE0000000001",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+      ],
+      "evidenceSummary": "developed by Teku Studios, published by Merge Games Ltd | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP1121-CUSA12065_00-CANDLE0000000001",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+        ],
+        "evidenceSummary": "developed by Teku Studios, published by Merge Games Ltd | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 5,
+      "catalogId": "ps4-chicken-range",
+      "title": "Chicken Range",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "NYX Digital",
+        "slug": "nyx-digital",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "nyx-digital",
+      "sourceNames": [
+        "NYX DIGITAL LTD"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4358-CUSA11931_00-CHICKENRANGE0000"
+      ],
+      "evidenceSummary": "Developed by NYX DIGITAL LTD",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4358-CUSA11931_00-CHICKENRANGE0000"
+        ],
+        "evidenceSummary": "Developed by NYX DIGITAL LTD",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 6,
+      "catalogId": "ps4-crazy-machines-vr",
+      "title": "Crazy Machines VR",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "FAKT Software",
+        "slug": "fakt-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "fakt-software",
+      "sourceNames": [
+        "FAKT Software GmbH",
+        "Fakt Software"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP0841-CUSA13142_00-YDH2K8LVCNBMVT2Y",
+        "https://store.steampowered.com/app/802690",
+        "https://gamesdb.launchbox-app.com/games/details/447379"
+      ],
+      "evidenceSummary": "Developed by FAKT Software GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP0841-CUSA13142_00-YDH2K8LVCNBMVT2Y",
+          "https://store.steampowered.com/app/802690",
+          "https://gamesdb.launchbox-app.com/games/details/447379"
+        ],
+        "evidenceSummary": "Developed by FAKT Software GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 7,
+      "catalogId": "ps4-dead-synchronicity-tomorrow-comes-today",
+      "title": "Dead Synchronicity Tomorrow Comes Today",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Fictiorama Studios",
+        "slug": "fictiorama-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "fictiorama-studios",
+      "sourceNames": [
+        "Fictiorama studios",
+        "Fictiorama Studios"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP1160-CUSA05345_00-DEADSYNCHRONICIT",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/339190",
+        "https://gamesdb.launchbox-app.com/games/details/192929"
+      ],
+      "evidenceSummary": "Developed by Fictiorama studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP1160-CUSA05345_00-DEADSYNCHRONICIT",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/339190",
+          "https://gamesdb.launchbox-app.com/games/details/192929"
+        ],
+        "evidenceSummary": "Developed by Fictiorama studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 8,
+      "catalogId": "ps4-destiny-2",
+      "title": "Destiny 2",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "REPLACE_OR_ADD_VERIFIED",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Wolf Team",
+        "slug": "wolf-team",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "ccc7446f-94e2-40f7-9c3b-8384fa119712",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Bungie",
+        "slug": "bungie",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "bungie",
+      "sourceNames": [
+        "Bungie"
+      ],
+      "sourceKinds": [
+        "ACTIVISION_OFFICIAL_PRESS_RELEASE",
+        "LAUNCHBOX_GAMES_DB",
+        "PRICECHARTING_EXACT_PAL_PAGE",
+        "STEAM_STORE",
+        "WIKIDATA",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT",
+        "B_EXACT_PHYSICAL",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PHYSICAL_EDITION",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+        "https://www.pricecharting.com/game/pal-playstation-4/destiny-2",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/1085660",
+        "https://www.wikidata.org/wiki/Q29045915",
+        "https://gamesdb.launchbox-app.com/games/details/171656"
+      ],
+      "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La ficha enlazada de la edición física PAL atribuye el desarrollo a esta compañía. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+          "https://www.pricecharting.com/game/pal-playstation-4/destiny-2",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/1085660",
+          "https://www.wikidata.org/wiki/Q29045915",
+          "https://gamesdb.launchbox-app.com/games/details/171656"
+        ],
+        "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La ficha enlazada de la edición física PAL atribuye el desarrollo a esta compañía. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 9,
+      "catalogId": "ps4-destiny-2",
+      "title": "Destiny 2",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "PHYSICAL_PUBLISHER_OR_DISTRIBUTOR",
+      "targetField": "publisher",
+      "action": "REPLACE_OR_ADD_VERIFIED",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Namco",
+        "slug": "namco",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "37483f68-d430-4f50-bd3e-d755079bcc56",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "activision",
+      "sourceNames": [
+        "Activision"
+      ],
+      "sourceKinds": [
+        "ACTIVISION_OFFICIAL_PRESS_RELEASE",
+        "PRICECHARTING_EXACT_PAL_PAGE",
+        "WIKIPEDIA_PS4_LIST_PAL"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT",
+        "B_EXACT_PHYSICAL",
+        "B_PAL_RELEASE"
+      ],
+      "evidenceScope": [
+        "EXACT_PHYSICAL_EDITION",
+        "PAL_RELEASE",
+        "PS4_PAL_PRODUCT_LINE"
+      ],
+      "evidenceUrls": [
+        "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+        "https://www.pricecharting.com/game/pal-playstation-4/destiny-2",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+      ],
+      "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La ficha exacta de la edición física PAL etiqueta a esta compañía como Publisher; puede representar publicación o distribución física. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+          "https://www.pricecharting.com/game/pal-playstation-4/destiny-2",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+        ],
+        "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La ficha exacta de la edición física PAL etiqueta a esta compañía como Publisher; puede representar publicación o distribución física. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 10,
+      "catalogId": "ps4-destiny-2-collector%27s-edition",
+      "title": "Destiny 2 [Collector's Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Bungie",
+        "slug": "bungie",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "bungie",
+      "sourceNames": [
+        "Bungie"
+      ],
+      "sourceKinds": [
+        "ACTIVISION_OFFICIAL_PRESS_RELEASE",
+        "LAUNCHBOX_GAMES_DB",
+        "STEAM_STORE",
+        "WIKIDATA",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/1085660",
+        "https://www.wikidata.org/wiki/Q29045915",
+        "https://gamesdb.launchbox-app.com/games/details/171656"
+      ],
+      "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/1085660",
+          "https://www.wikidata.org/wiki/Q29045915",
+          "https://gamesdb.launchbox-app.com/games/details/171656"
+        ],
+        "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 11,
+      "catalogId": "ps4-destiny-2-collector%27s-edition",
+      "title": "Destiny 2 [Collector's Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "PHYSICAL_PUBLISHER_OR_DISTRIBUTOR",
+      "targetField": "publisher",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "activision",
+      "sourceNames": [
+        "Activision"
+      ],
+      "sourceKinds": [
+        "ACTIVISION_OFFICIAL_PRESS_RELEASE",
+        "WIKIPEDIA_PS4_LIST_PAL"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT",
+        "B_PAL_RELEASE"
+      ],
+      "evidenceScope": [
+        "PAL_RELEASE",
+        "PS4_PAL_PRODUCT_LINE"
+      ],
+      "evidenceUrls": [
+        "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+      ],
+      "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+        ],
+        "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 12,
+      "catalogId": "ps4-destiny-2-limited-edition",
+      "title": "Destiny 2 [Limited Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Bungie",
+        "slug": "bungie",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "bungie",
+      "sourceNames": [
+        "Bungie"
+      ],
+      "sourceKinds": [
+        "ACTIVISION_OFFICIAL_PRESS_RELEASE",
+        "LAUNCHBOX_GAMES_DB",
+        "STEAM_STORE",
+        "WIKIDATA",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/1085660",
+        "https://www.wikidata.org/wiki/Q29045915",
+        "https://gamesdb.launchbox-app.com/games/details/171656"
+      ],
+      "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/1085660",
+          "https://www.wikidata.org/wiki/Q29045915",
+          "https://gamesdb.launchbox-app.com/games/details/171656"
+        ],
+        "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 13,
+      "catalogId": "ps4-destiny-2-limited-edition",
+      "title": "Destiny 2 [Limited Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "PHYSICAL_PUBLISHER_OR_DISTRIBUTOR",
+      "targetField": "publisher",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "activision",
+      "sourceNames": [
+        "Activision"
+      ],
+      "sourceKinds": [
+        "ACTIVISION_OFFICIAL_PRESS_RELEASE",
+        "WIKIPEDIA_PS4_LIST_PAL"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT",
+        "B_PAL_RELEASE"
+      ],
+      "evidenceScope": [
+        "PAL_RELEASE",
+        "PS4_PAL_PRODUCT_LINE"
+      ],
+      "evidenceUrls": [
+        "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+      ],
+      "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+        ],
+        "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 14,
+      "catalogId": "ps4-destiny-2-promo-not-for-resale",
+      "title": "Destiny 2 [Promo Not For Resale]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Bungie",
+        "slug": "bungie",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "bungie",
+      "sourceNames": [
+        "Bungie"
+      ],
+      "sourceKinds": [
+        "ACTIVISION_OFFICIAL_PRESS_RELEASE",
+        "LAUNCHBOX_GAMES_DB",
+        "STEAM_STORE",
+        "WIKIDATA",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/1085660",
+        "https://www.wikidata.org/wiki/Q29045915",
+        "https://gamesdb.launchbox-app.com/games/details/171656"
+      ],
+      "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/1085660",
+          "https://www.wikidata.org/wiki/Q29045915",
+          "https://gamesdb.launchbox-app.com/games/details/171656"
+        ],
+        "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 15,
+      "catalogId": "ps4-destiny-2-promo-not-for-resale",
+      "title": "Destiny 2 [Promo Not For Resale]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "PHYSICAL_PUBLISHER_OR_DISTRIBUTOR",
+      "targetField": "publisher",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "activision",
+      "sourceNames": [
+        "Activision"
+      ],
+      "sourceKinds": [
+        "ACTIVISION_OFFICIAL_PRESS_RELEASE",
+        "WIKIPEDIA_PS4_LIST_PAL"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT",
+        "B_PAL_RELEASE"
+      ],
+      "evidenceScope": [
+        "PAL_RELEASE",
+        "PS4_PAL_PRODUCT_LINE"
+      ],
+      "evidenceUrls": [
+        "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+      ],
+      "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+        ],
+        "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 16,
+      "catalogId": "ps4-dirt-rally-20",
+      "title": "Dirt Rally 2.0",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Codemasters",
+        "slug": "codemasters",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "codemasters",
+      "sourceNames": [
+        "Codemasters"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4001-CUSA12747_00-DIRTRALLY2EU0001",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/690790",
+        "https://gamesdb.launchbox-app.com/games/details/177945"
+      ],
+      "evidenceSummary": "Developed and published by Codemasters | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4001-CUSA12747_00-DIRTRALLY2EU0001",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/690790",
+          "https://gamesdb.launchbox-app.com/games/details/177945"
+        ],
+        "evidenceSummary": "Developed and published by Codemasters | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 17,
+      "catalogId": "ps4-dragons-dawn-of-new-riders",
+      "title": "Dragons Dawn Of New Riders",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Climax Studios",
+        "slug": "climax-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "climax-studios",
+      "sourceNames": [
+        "Climax Studios Ltd",
+        "Climax Studios"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP3678-CUSA12945_00-HTTYD3BASEGAME01",
+        "https://gamesdb.launchbox-app.com/games/details/207806"
+      ],
+      "evidenceSummary": "Developed by Climax Studios Ltd | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP3678-CUSA12945_00-HTTYD3BASEGAME01",
+          "https://gamesdb.launchbox-app.com/games/details/207806"
+        ],
+        "evidenceSummary": "Developed by Climax Studios Ltd | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 18,
+      "catalogId": "ps4-ducati-90th-anniversary",
+      "title": "Ducati : 90th Anniversary",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Milestone srl",
+        "slug": "milestone-srl",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "milestone-srl",
+      "sourceNames": [
+        "Milestone SRL"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4356-CUSA05245_00-DUCATIFULLGAME00"
+      ],
+      "evidenceSummary": "Developed by Milestone SRL All rights reserved",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4356-CUSA05245_00-DUCATIFULLGAME00"
+        ],
+        "evidenceSummary": "Developed by Milestone SRL All rights reserved",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 19,
+      "catalogId": "ps4-farming-simulator-19",
+      "title": "Farming Simulator 19",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "GIANTS Software",
+        "slug": "giants-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "giants-software",
+      "sourceNames": [
+        "GIANTS Software Gmbh",
+        "Giants Software"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIDATA",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4133-CUSA11593_00-FARMINGSIMULAT19",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/787860",
+        "https://www.wikidata.org/wiki/Q58897626",
+        "https://gamesdb.launchbox-app.com/games/details/193195"
+      ],
+      "evidenceSummary": "Developed by GIANTS Software Gmbh | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4133-CUSA11593_00-FARMINGSIMULAT19",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/787860",
+          "https://www.wikidata.org/wiki/Q58897626",
+          "https://gamesdb.launchbox-app.com/games/details/193195"
+        ],
+        "evidenceSummary": "Developed by GIANTS Software Gmbh | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 20,
+      "catalogId": "ps4-flockers",
+      "title": "Flockers",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Team17 Digital Limited",
+        "slug": "team17-digital-limited",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "team17-digital-limited",
+      "sourceNames": [
+        "Team17 Digital Ltd",
+        "Team17 Digital Limited"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4064-CUSA00854_00-FLOCKERSZZZZZZZZ",
+        "https://store.steampowered.com/app/260330"
+      ],
+      "evidenceSummary": "Developed by Team17 Digital Ltd | Developed and published by Team17 Digital Limited | Developed by Team17 Digital Ltd 2014 | Developed and published by Team17 Digital Ltd | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4064-CUSA00854_00-FLOCKERSZZZZZZZZ",
+          "https://store.steampowered.com/app/260330"
+        ],
+        "evidenceSummary": "Developed by Team17 Digital Ltd | Developed and published by Team17 Digital Limited | Developed by Team17 Digital Ltd 2014 | Developed and published by Team17 Digital Ltd | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 21,
+      "catalogId": "ps4-heart-&amp;-slash",
+      "title": "Heart & Slash",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "aheartfulofgames",
+        "slug": "aheartfulofgames",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "aheartfulofgames",
+      "sourceNames": [
+        "Aheartfulofgames",
+        "aheartfulofgames",
+        "AHEARTFULOFGAMES"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP1160-CUSA04531_00-0000000000000000",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/326840",
+        "https://gamesdb.launchbox-app.com/games/details/473282"
+      ],
+      "evidenceSummary": "Developed by Aheartfulofgames | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP1160-CUSA04531_00-0000000000000000",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/326840",
+          "https://gamesdb.launchbox-app.com/games/details/473282"
+        ],
+        "evidenceSummary": "Developed by Aheartfulofgames | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 22,
+      "catalogId": "ps4-hogwarts-legacy",
+      "title": "Hogwarts Legacy",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "REPLACE_OR_ADD_VERIFIED",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Avalanche Studios",
+        "slug": "avalanche-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "pricecharting"
+      },
+      "after": {
+        "name": "Avalanche Software",
+        "slug": "avalanche-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "avalanche-software",
+      "sourceNames": [
+        "Avalanche Software"
+      ],
+      "sourceKinds": [
+        "HOGWARTS_LEGACY_OFFICIAL_SITE",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "A_PRIMARY_EXACT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://www.hogwartslegacy.com/en-us",
+        "https://store.playstation.com/es-es/product/EP1018-CUSA12771_00-HOGWARTSLEGACY01",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/990080"
+      ],
+      "evidenceSummary": "La web oficial acredita expresamente el software de Hogwarts Legacy a Avalanche Software y muestra la versión de PlayStation 4. | Developed by Avalanche Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.hogwartslegacy.com/en-us",
+          "https://store.playstation.com/es-es/product/EP1018-CUSA12771_00-HOGWARTSLEGACY01",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/990080"
+        ],
+        "evidenceSummary": "La web oficial acredita expresamente el software de Hogwarts Legacy a Avalanche Software y muestra la versión de PlayStation 4. | Developed by Avalanche Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 23,
+      "catalogId": "ps4-hogwarts-legacy-collector%27s-edition",
+      "title": "Hogwarts Legacy [Collector's Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Avalanche Software",
+        "slug": "avalanche-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "avalanche-software",
+      "sourceNames": [
+        "Avalanche Software"
+      ],
+      "sourceKinds": [
+        "HOGWARTS_LEGACY_OFFICIAL_SITE",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_MATCHED_TITLE_CREDIT",
+        "A_PRIMARY_EXACT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE"
+      ],
+      "evidenceScope": [
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "MATCHED_PS4_PRODUCT"
+      ],
+      "evidenceUrls": [
+        "https://www.hogwartslegacy.com/en-us",
+        "https://store.playstation.com/es-es/product/EP1018-CUSA12771_00-HOGWARTSLEGACY01",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/990080"
+      ],
+      "evidenceSummary": "La web oficial acredita expresamente el software de Hogwarts Legacy a Avalanche Software y muestra la versión de PlayStation 4. | Developed by Avalanche Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.hogwartslegacy.com/en-us",
+          "https://store.playstation.com/es-es/product/EP1018-CUSA12771_00-HOGWARTSLEGACY01",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/990080"
+        ],
+        "evidenceSummary": "La web oficial acredita expresamente el software de Hogwarts Legacy a Avalanche Software y muestra la versión de PlayStation 4. | Developed by Avalanche Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 24,
+      "catalogId": "ps4-hogwarts-legacy-deluxe-edition",
+      "title": "Hogwarts Legacy [Deluxe Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Avalanche Software",
+        "slug": "avalanche-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "avalanche-software",
+      "sourceNames": [
+        "Avalanche Software"
+      ],
+      "sourceKinds": [
+        "HOGWARTS_LEGACY_OFFICIAL_SITE",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_MATCHED_TITLE_CREDIT",
+        "A_PRIMARY_EXACT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE"
+      ],
+      "evidenceScope": [
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "MATCHED_PS4_PRODUCT"
+      ],
+      "evidenceUrls": [
+        "https://www.hogwartslegacy.com/en-us",
+        "https://store.playstation.com/es-es/product/EP1018-CUSA12771_00-HOGWARTSLEGACY01",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/990080"
+      ],
+      "evidenceSummary": "La web oficial acredita expresamente el software de Hogwarts Legacy a Avalanche Software y muestra la versión de PlayStation 4. | Developed by Avalanche Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.hogwartslegacy.com/en-us",
+          "https://store.playstation.com/es-es/product/EP1018-CUSA12771_00-HOGWARTSLEGACY01",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/990080"
+        ],
+        "evidenceSummary": "La web oficial acredita expresamente el software de Hogwarts Legacy a Avalanche Software y muestra la versión de PlayStation 4. | Developed by Avalanche Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 25,
+      "catalogId": "ps4-hunting-simulator",
+      "title": "Hunting Simulator",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Neopica",
+        "slug": "neopica",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "neopica",
+      "sourceNames": [
+        "Neopica"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "WIKIDATA"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4008-CUSA07164_00-HUNTINGSIMULATOR",
+        "https://www.wikidata.org/wiki/Q52124656",
+        "https://gamesdb.launchbox-app.com/games/details/447564"
+      ],
+      "evidenceSummary": "developed by Neopica | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4008-CUSA07164_00-HUNTINGSIMULATOR",
+          "https://www.wikidata.org/wiki/Q52124656",
+          "https://gamesdb.launchbox-app.com/games/details/447564"
+        ],
+        "evidenceSummary": "developed by Neopica | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 26,
+      "catalogId": "ps4-injustice-2",
+      "title": "Injustice 2",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "NetherRealm Studios",
+        "slug": "netherrealm-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "netherrealm-studios",
+      "sourceNames": [
+        "NetherRealm Studios"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIDATA",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP1018-CUSA05459_00-INJUSTICE2000000",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+        "https://store.steampowered.com/app/627270",
+        "https://www.wikidata.org/wiki/Q24717189",
+        "https://gamesdb.launchbox-app.com/games/details/149753"
+      ],
+      "evidenceSummary": "Developed by NetherRealm Studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP1018-CUSA05459_00-INJUSTICE2000000",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+          "https://store.steampowered.com/app/627270",
+          "https://www.wikidata.org/wiki/Q24717189",
+          "https://gamesdb.launchbox-app.com/games/details/149753"
+        ],
+        "evidenceSummary": "Developed by NetherRealm Studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 27,
+      "catalogId": "ps4-marvel-avengers",
+      "title": "Marvel Avengers",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "REPLACE_OR_ADD_VERIFIED",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "TT Games",
+        "slug": "tt-games",
+        "museumPath": null,
+        "pcPath": null,
+        "serialstationId": "b6df455b-6f80-42eb-b46f-062794c818b6",
+        "source": "serialstation"
+      },
+      "after": {
+        "name": "Crystal Dynamics",
+        "slug": "crystal-dynamics",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "crystal-dynamics",
+      "sourceNames": [
+        "Crystal Dynamics"
+      ],
+      "sourceKinds": [
+        "CRYSTAL_DYNAMICS_OFFICIAL_PROJECT",
+        "PRICECHARTING_EXACT_PAL_PAGE"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT",
+        "B_EXACT_PHYSICAL"
+      ],
+      "evidenceScope": [
+        "EXACT_PHYSICAL_EDITION",
+        "GAME_WORK"
+      ],
+      "evidenceUrls": [
+        "https://www.crystaldynamics.com/projects/marvels-avengers/",
+        "https://www.pricecharting.com/game/pal-playstation-4/marvel-avengers"
+      ],
+      "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4. | La ficha enlazada de la edición física PAL atribuye el desarrollo a esta compañía.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.crystaldynamics.com/projects/marvels-avengers/",
+          "https://www.pricecharting.com/game/pal-playstation-4/marvel-avengers"
+        ],
+        "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4. | La ficha enlazada de la edición física PAL atribuye el desarrollo a esta compañía.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 28,
+      "catalogId": "ps4-marvel-avengers-deluxe-edition",
+      "title": "Marvel Avengers [Deluxe Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Crystal Dynamics",
+        "slug": "crystal-dynamics",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "crystal-dynamics",
+      "sourceNames": [
+        "Crystal Dynamics"
+      ],
+      "sourceKinds": [
+        "CRYSTAL_DYNAMICS_OFFICIAL_PROJECT"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT"
+      ],
+      "evidenceScope": [
+        "GAME_WORK"
+      ],
+      "evidenceUrls": [
+        "https://www.crystaldynamics.com/projects/marvels-avengers/"
+      ],
+      "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.crystaldynamics.com/projects/marvels-avengers/"
+        ],
+        "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 29,
+      "catalogId": "ps4-marvel-avengers-earth%27s-mightiest-edition",
+      "title": "Marvel Avengers [Earth's Mightiest Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Crystal Dynamics",
+        "slug": "crystal-dynamics",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "crystal-dynamics",
+      "sourceNames": [
+        "Crystal Dynamics"
+      ],
+      "sourceKinds": [
+        "CRYSTAL_DYNAMICS_OFFICIAL_PROJECT"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT"
+      ],
+      "evidenceScope": [
+        "GAME_WORK"
+      ],
+      "evidenceUrls": [
+        "https://www.crystaldynamics.com/projects/marvels-avengers/"
+      ],
+      "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.crystaldynamics.com/projects/marvels-avengers/"
+        ],
+        "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 30,
+      "catalogId": "ps4-marvel-avengers-steelbook-edition",
+      "title": "Marvel Avengers [Steelbook Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Crystal Dynamics",
+        "slug": "crystal-dynamics",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "crystal-dynamics",
+      "sourceNames": [
+        "Crystal Dynamics"
+      ],
+      "sourceKinds": [
+        "CRYSTAL_DYNAMICS_OFFICIAL_PROJECT"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT"
+      ],
+      "evidenceScope": [
+        "GAME_WORK"
+      ],
+      "evidenceUrls": [
+        "https://www.crystaldynamics.com/projects/marvels-avengers/"
+      ],
+      "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.crystaldynamics.com/projects/marvels-avengers/"
+        ],
+        "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 31,
+      "catalogId": "ps4-memorrha",
+      "title": "Memorrha",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Korion Interactive",
+        "slug": "korion-interactive",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "korion-interactive",
+      "sourceNames": [
+        "Korion Interactive GmbH"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP3024-CUSA43764_00-MEMORRHAPS4EUROP"
+      ],
+      "evidenceSummary": "Developed by Korion Interactive GmbH",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP3024-CUSA43764_00-MEMORRHAPS4EUROP"
+        ],
+        "evidenceSummary": "Developed by Korion Interactive GmbH",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 32,
+      "catalogId": "ps4-metro-redux",
+      "title": "Metro Redux",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "4A Games",
+        "slug": "4a-games",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "4a-games",
+      "sourceNames": [
+        "4A Games"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "WIKIDATA"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4062-CUSA00593_00-MCOMPLREDUXDISC1",
+        "https://www.wikidata.org/wiki/Q19906377",
+        "https://gamesdb.launchbox-app.com/games/details/21405"
+      ],
+      "evidenceSummary": "Developed by 4A Games | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4062-CUSA00593_00-MCOMPLREDUXDISC1",
+          "https://www.wikidata.org/wiki/Q19906377",
+          "https://gamesdb.launchbox-app.com/games/details/21405"
+        ],
+        "evidenceSummary": "Developed by 4A Games | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 33,
+      "catalogId": "ps4-monster-jam-steel-titans",
+      "title": "Monster Jam: Steel Titans",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Rainbow Studios",
+        "slug": "rainbow-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "rainbow-studios",
+      "sourceNames": [
+        "Rainbow Studios"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4389-CUSA13260_00-MONSTERJAM1EU000",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+        "https://store.steampowered.com/app/824280",
+        "https://gamesdb.launchbox-app.com/games/details/212671"
+      ],
+      "evidenceSummary": "Developed by Rainbow Studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4389-CUSA13260_00-MONSTERJAM1EU000",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+          "https://store.steampowered.com/app/824280",
+          "https://gamesdb.launchbox-app.com/games/details/212671"
+        ],
+        "evidenceSummary": "Developed by Rainbow Studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 34,
+      "catalogId": "ps4-moto-racer-4",
+      "title": "Moto Racer 4",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Artefacts Studio",
+        "slug": "artefacts-studio",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "artefacts-studio",
+      "sourceNames": [
+        "Artefacts Studio"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4295-CUSA05029_00-AI201610MR400001",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+        "https://store.steampowered.com/app/417430"
+      ],
+      "evidenceSummary": "Developed by Artefacts Studio | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4295-CUSA05029_00-AI201610MR400001",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+          "https://store.steampowered.com/app/417430"
+        ],
+        "evidenceSummary": "Developed by Artefacts Studio | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 35,
+      "catalogId": "ps4-motogp-18",
+      "title": "MotoGP 18",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Milestone srl",
+        "slug": "milestone-srl",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "milestone-srl",
+      "sourceNames": [
+        "Milestone SRL",
+        "Milestone srl"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_PS4_RELEASE"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK_OR_PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4356-CUSA09842_00-MOTOGP18FULLGAME",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)"
+      ],
+      "evidenceSummary": "Developed by Milestone SRL All rights reserved | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4356-CUSA09842_00-MOTOGP18FULLGAME",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)"
+        ],
+        "evidenceSummary": "Developed by Milestone SRL All rights reserved | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 36,
+      "catalogId": "ps4-mountain-rescue-simulator",
+      "title": "Mountain Rescue Simulator",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "UIG Entertainment",
+        "slug": "uig-entertainment",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "uig-entertainment",
+      "sourceNames": [
+        "UIG Entertainment"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP8935-CUSA15214_00-MOUNTAINRESPS4EU"
+      ],
+      "evidenceSummary": "Developed by UIG Entertainment",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP8935-CUSA15214_00-MOUNTAINRESPS4EU"
+        ],
+        "evidenceSummary": "Developed by UIG Entertainment",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 37,
+      "catalogId": "ps4-mx-vs-atv-all-out",
+      "title": "MX vs. ATV All Out",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Rainbow Studios",
+        "slug": "rainbow-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "rainbow-studios",
+      "sourceNames": [
+        "Rainbow Studios"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIDATA",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4389-CUSA06877_00-MXVSATVNEXTEU001",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+        "https://store.steampowered.com/app/520940",
+        "https://www.wikidata.org/wiki/Q124068175"
+      ],
+      "evidenceSummary": "Developed by Rainbow Studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4389-CUSA06877_00-MXVSATVNEXTEU001",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+          "https://store.steampowered.com/app/520940",
+          "https://www.wikidata.org/wiki/Q124068175"
+        ],
+        "evidenceSummary": "Developed by Rainbow Studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 38,
+      "catalogId": "ps4-my-life-riding-stables-3",
+      "title": "My Life: Riding Stables 3",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Korion Interactive",
+        "slug": "korion-interactive",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "korion-interactive",
+      "sourceNames": [
+        "Korion Interactive GmbH",
+        "Korion Interactive"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP3024-CUSA33990_00-RIDINGSTABLES3EU",
+        "https://store.steampowered.com/app/1962150"
+      ],
+      "evidenceSummary": "Developed by Korion Interactive GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP3024-CUSA33990_00-RIDINGSTABLES3EU",
+          "https://store.steampowered.com/app/1962150"
+        ],
+        "evidenceSummary": "Developed by Korion Interactive GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 39,
+      "catalogId": "ps4-my-little-riding-champion",
+      "title": "My Little Riding Champion",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Caipirinha Games",
+        "slug": "caipirinha-games",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "caipirinha-games",
+      "sourceNames": [
+        "Caipirinha Games"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIDATA"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4008-CUSA13577_00-MLRCSIEE00000000",
+        "https://store.steampowered.com/app/789900",
+        "https://www.wikidata.org/wiki/Q122379708",
+        "https://gamesdb.launchbox-app.com/games/details/476463"
+      ],
+      "evidenceSummary": "Developed by Caipirinha Games | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4008-CUSA13577_00-MLRCSIEE00000000",
+          "https://store.steampowered.com/app/789900",
+          "https://www.wikidata.org/wiki/Q122379708",
+          "https://gamesdb.launchbox-app.com/games/details/476463"
+        ],
+        "evidenceSummary": "Developed by Caipirinha Games | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 40,
+      "catalogId": "ps4-one-piece-world-seeker",
+      "title": "One Piece World Seeker",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "REPLACE_OR_ADD_VERIFIED",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": {
+        "name": "Namco Bandai Entertainment",
+        "slug": "namco-bandai-entertainment",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "pricecharting"
+      },
+      "after": {
+        "name": "Ganbarion",
+        "slug": "ganbarion",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "ganbarion",
+      "sourceNames": [
+        "Ganbarion",
+        "GANBARION Co Ltd."
+      ],
+      "sourceKinds": [
+        "GANBARION_OFFICIAL_WORKS",
+        "LAUNCHBOX_GAMES_DB",
+        "STEAM_STORE",
+        "WIKIDATA",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_PRIMARY_EXACT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://www.ganbarion.co.jp/en/",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+        "https://store.steampowered.com/app/755500",
+        "https://www.wikidata.org/wiki/Q47474014",
+        "https://gamesdb.launchbox-app.com/games/details/190238"
+      ],
+      "evidenceSummary": "La web oficial de Ganbarion identifica a GANBARION Co., Ltd. como desarrolladora de ONE PIECE WORLD SEEKER para PS4. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://www.ganbarion.co.jp/en/",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+          "https://store.steampowered.com/app/755500",
+          "https://www.wikidata.org/wiki/Q47474014",
+          "https://gamesdb.launchbox-app.com/games/details/190238"
+        ],
+        "evidenceSummary": "La web oficial de Ganbarion identifica a GANBARION Co., Ltd. como desarrolladora de ONE PIECE WORLD SEEKER para PS4. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 41,
+      "catalogId": "ps4-pillars-of-eternity-complete-edition",
+      "title": "Pillars of Eternity Complete Edition",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Obsidian Entertainment",
+        "slug": "obsidian-entertainment",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "obsidian-entertainment",
+      "sourceNames": [
+        "Obsidian Entertainment Inc"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4139-CUSA06880_00-PILLARSPS4MAIN00"
+      ],
+      "evidenceSummary": "Developed by Obsidian Entertainment Inc Published by Paradox Interactive AB",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4139-CUSA06880_00-PILLARSPS4MAIN00"
+        ],
+        "evidenceSummary": "Developed by Obsidian Entertainment Inc Published by Paradox Interactive AB",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 42,
+      "catalogId": "ps4-professional-farmer-2017",
+      "title": "Professional Farmer 2017",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Visual Imagination Software",
+        "slug": "visual-imagination-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "visual-imagination-software",
+      "sourceNames": [
+        "Visual Imagination Software"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP8935-CUSA04690_00-FARM17PS4EU00000"
+      ],
+      "evidenceSummary": "developed by Visual Imagination Software",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP8935-CUSA04690_00-FARM17PS4EU00000"
+        ],
+        "evidenceSummary": "developed by Visual Imagination Software",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 43,
+      "catalogId": "ps4-professional-farmer-american-dream",
+      "title": "Professional Farmer: American Dream",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "UIG Entertainment",
+        "slug": "uig-entertainment",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "uig-entertainment",
+      "sourceNames": [
+        "UIG Entertainment"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP8935-CUSA09298_00-FARMAMERICAPS4EU"
+      ],
+      "evidenceSummary": "Developed by UIG Entertainment",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP8935-CUSA09298_00-FARMAMERICAPS4EU"
+        ],
+        "evidenceSummary": "Developed by UIG Entertainment",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 44,
+      "catalogId": "ps4-ride-2",
+      "title": "Ride 2",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Milestone srl",
+        "slug": "milestone-srl",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "milestone-srl",
+      "sourceNames": [
+        "Milestone SRL",
+        "Milestone srl"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_PS4_RELEASE"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK_OR_PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4356-CUSA05921_00-RIDE2FULLGAME000",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)"
+      ],
+      "evidenceSummary": "Developed by Milestone SRL All rights reserved | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4356-CUSA05921_00-RIDE2FULLGAME000",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)"
+        ],
+        "evidenceSummary": "Developed by Milestone SRL All rights reserved | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 45,
+      "catalogId": "ps4-rugby-18",
+      "title": "Rugby 18",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "EKO Software",
+        "slug": "eko-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "eko-software",
+      "sourceNames": [
+        "Eko Software",
+        "EKO Software"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIDATA",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4008-CUSA07761_00-EKORUGBY18SCEE00",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+        "https://store.steampowered.com/app/627450",
+        "https://www.wikidata.org/wiki/Q43154193"
+      ],
+      "evidenceSummary": "developed by Eko Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4008-CUSA07761_00-EKORUGBY18SCEE00",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+          "https://store.steampowered.com/app/627450",
+          "https://www.wikidata.org/wiki/Q43154193"
+        ],
+        "evidenceSummary": "developed by Eko Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 46,
+      "catalogId": "ps4-space-hulk-tactics",
+      "title": "Space Hulk Tactics",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Cyanide Studio",
+        "slug": "cyanide-studio",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "cyanide-studio",
+      "sourceNames": [
+        "Cyanide Studio"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4133-CUSA10360_00-SPACEHULKTACTICS",
+        "https://store.steampowered.com/app/492230"
+      ],
+      "evidenceSummary": "developed by Cyanide Studio, published by Focus Home Interactive | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4133-CUSA10360_00-SPACEHULKTACTICS",
+          "https://store.steampowered.com/app/492230"
+        ],
+        "evidenceSummary": "developed by Cyanide Studio, published by Focus Home Interactive | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 47,
+      "catalogId": "ps4-terminator-2d-no-fate-day-one-edition",
+      "title": "Terminator 2D No Fate [Day One Edition]",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Bitmap Bureau",
+        "slug": "bitmap-bureau",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "bitmap-bureau",
+      "sourceNames": [
+        "Bitmap Bureau Ltd",
+        "Bitmap Bureau"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIDATA"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4060-CUSA51101_00-T2DNFMAINGAMEPS4",
+        "https://store.steampowered.com/app/1718460",
+        "https://www.wikidata.org/wiki/Q132807990",
+        "https://gamesdb.launchbox-app.com/games/details/466312"
+      ],
+      "evidenceSummary": "Developed by Bitmap Bureau Ltd | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4060-CUSA51101_00-T2DNFMAINGAMEPS4",
+          "https://store.steampowered.com/app/1718460",
+          "https://www.wikidata.org/wiki/Q132807990",
+          "https://gamesdb.launchbox-app.com/games/details/466312"
+        ],
+        "evidenceSummary": "Developed by Bitmap Bureau Ltd | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 48,
+      "catalogId": "ps4-the-unicorn-princess",
+      "title": "The Unicorn Princess",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Caipirinha Games",
+        "slug": "caipirinha-games",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "caipirinha-games",
+      "sourceNames": [
+        "Caipirinha Games GmbH",
+        "Caipirinha Games"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4008-CUSA16783_00-TUPSIEE000000000",
+        "https://store.steampowered.com/app/970940"
+      ],
+      "evidenceSummary": "Developed by Caipirinha Games GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4008-CUSA16783_00-TUPSIEE000000000",
+          "https://store.steampowered.com/app/970940"
+        ],
+        "evidenceSummary": "Developed by Caipirinha Games GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 49,
+      "catalogId": "ps4-tt-isle-of-man-ride-on-the-edge-2",
+      "title": "TT Isle of Man: Ride on the Edge 2",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "KT Racing",
+        "slug": "kt-racing",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "kt-racing",
+      "sourceNames": [
+        "KT Racing"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4008-CUSA17001_00-TT2SIEE000000000",
+        "https://store.steampowered.com/app/1082180"
+      ],
+      "evidenceSummary": "developed by KT Racing | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4008-CUSA17001_00-TT2SIEE000000000",
+          "https://store.steampowered.com/app/1082180"
+        ],
+        "evidenceSummary": "developed by KT Racing | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 50,
+      "catalogId": "ps4-until-dawn-rush-of-blood",
+      "title": "Until Dawn Rush of Blood",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "SuperMassive Games Ltd.",
+        "slug": "supermassive-games",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "supermassive-games",
+      "sourceNames": [
+        "Supermassive Games",
+        "Supermassive Games Ltd"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP9000-CUSA02350_00-RUSHOFBLOOD00001",
+        "https://gamesdb.launchbox-app.com/games/details/154179"
+      ],
+      "evidenceSummary": "Developed by Supermassive Games | Developed by Supermassive Games Ltd | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP9000-CUSA02350_00-RUSHOFBLOOD00001",
+          "https://gamesdb.launchbox-app.com/games/details/154179"
+        ],
+        "evidenceSummary": "Developed by Supermassive Games | Developed by Supermassive Games Ltd | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 51,
+      "catalogId": "ps4-wonder-boy-the-dragon%27s-trap",
+      "title": "Wonder Boy: The Dragon's Trap",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Lizardcube",
+        "slug": "lizardcube",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "lizardcube",
+      "sourceNames": [
+        "Lizardcube"
+      ],
+      "sourceKinds": [
+        "LAUNCHBOX_GAMES_DB",
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE",
+        "PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP1470-CUSA06649_00-DOTWBDRAGONSTRAP",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+        "https://store.steampowered.com/app/543260",
+        "https://gamesdb.launchbox-app.com/games/details/149684"
+      ],
+      "evidenceSummary": "Developed by Lizardcube | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP1470-CUSA06649_00-DOTWBDRAGONSTRAP",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+          "https://store.steampowered.com/app/543260",
+          "https://gamesdb.launchbox-app.com/games/details/149684"
+        ],
+        "evidenceSummary": "Developed by Lizardcube | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 52,
+      "catalogId": "ps4-world-quiz",
+      "title": "World Quiz",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "NYX Digital",
+        "slug": "nyx-digital",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "nyx-digital",
+      "sourceNames": [
+        "NYX DIGITAL LTD"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP4358-CUSA30199_00-WORLDQUIZEUR0000"
+      ],
+      "evidenceSummary": "Developed by NYX DIGITAL LTD",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP4358-CUSA30199_00-WORLDQUIZEUR0000"
+        ],
+        "evidenceSummary": "Developed by NYX DIGITAL LTD",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    },
+    {
+      "rowNumber": 53,
+      "catalogId": "ps4-xeno-crisis",
+      "title": "Xeno Crisis",
+      "platform": "ps4",
+      "region": "PAL España",
+      "edition": "standard",
+      "role": "DEVELOPER",
+      "targetField": "developer",
+      "action": "ADD_MISSING",
+      "confidence": "VERY_HIGH",
+      "status": "APPLIED",
+      "before": null,
+      "after": {
+        "name": "Bitmap Bureau",
+        "slug": "bitmap-bureau",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "proposedCompanySlug": "bitmap-bureau",
+      "sourceNames": [
+        "Bitmap Bureau Ltd",
+        "Bitmap Bureau"
+      ],
+      "sourceKinds": [
+        "PLAYSTATION_STORE_EXPLICIT_CREDIT",
+        "STEAM_STORE",
+        "WIKIDATA",
+        "WIKIPEDIA_PS4_LIST"
+      ],
+      "sourceGrades": [
+        "A_OFFICIAL_EXACT_PRODUCT_CREDIT",
+        "B_OTHER_PLATFORM",
+        "B_PS4_RELEASE",
+        "C_DISCOVERY"
+      ],
+      "evidenceScope": [
+        "EXACT_PS4_PRODUCT",
+        "GAME_WORK",
+        "GAME_WORK_OR_PS4_RELEASE"
+      ],
+      "evidenceUrls": [
+        "https://store.playstation.com/es-es/product/EP2492-CUSA12045_00-XENOCRISIS000000",
+        "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+        "https://store.steampowered.com/app/464260",
+        "https://www.wikidata.org/wiki/Q104586761"
+      ],
+      "evidenceSummary": "Developed by Bitmap Bureau Ltd | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora.",
+      "provenance": {
+        "source": "official",
+        "evidenceUrls": [
+          "https://store.playstation.com/es-es/product/EP2492-CUSA12045_00-XENOCRISIS000000",
+          "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+          "https://store.steampowered.com/app/464260",
+          "https://www.wikidata.org/wiki/Q104586761"
+        ],
+        "evidenceSummary": "Developed by Bitmap Bureau Ltd | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora.",
+        "reviewedAt": "2026-09-05",
+        "reviewBatch": "company-credit-ps4-pal-batch-1"
+      }
+    }
+  ],
+  "blockedDecisions": [],
+  "detailChanges": [
+    {
+      "catalogId": "ps4-airport-simulator-2019",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-ben-10",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-big-bobby-car-the-big-race",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-candle-the-power-of-the-flame",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-chicken-range",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-crazy-machines-vr",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-dead-synchronicity-tomorrow-comes-today",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-destiny-2",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources",
+        "publisher"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-destiny-2-collector%27s-edition",
+      "fields": [
+        "developer",
+        "fetchedAt",
+        "fieldProvenance",
+        "fieldSources",
+        "genres",
+        "mergedAt",
+        "publisher",
+        "sources"
+      ],
+      "createdDetailRecord": true
+    },
+    {
+      "catalogId": "ps4-destiny-2-limited-edition",
+      "fields": [
+        "developer",
+        "fetchedAt",
+        "fieldProvenance",
+        "fieldSources",
+        "genres",
+        "mergedAt",
+        "publisher",
+        "sources"
+      ],
+      "createdDetailRecord": true
+    },
+    {
+      "catalogId": "ps4-destiny-2-promo-not-for-resale",
+      "fields": [
+        "developer",
+        "fetchedAt",
+        "fieldProvenance",
+        "fieldSources",
+        "genres",
+        "mergedAt",
+        "publisher",
+        "sources"
+      ],
+      "createdDetailRecord": true
+    },
+    {
+      "catalogId": "ps4-dirt-rally-20",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-dragons-dawn-of-new-riders",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-ducati-90th-anniversary",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-farming-simulator-19",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-flockers",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-heart-&amp;-slash",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-hogwarts-legacy",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-hogwarts-legacy-collector%27s-edition",
+      "fields": [
+        "developer",
+        "fetchedAt",
+        "fieldProvenance",
+        "fieldSources",
+        "genres",
+        "mergedAt",
+        "sources"
+      ],
+      "createdDetailRecord": true
+    },
+    {
+      "catalogId": "ps4-hogwarts-legacy-deluxe-edition",
+      "fields": [
+        "developer",
+        "fetchedAt",
+        "fieldProvenance",
+        "fieldSources",
+        "genres",
+        "mergedAt",
+        "sources"
+      ],
+      "createdDetailRecord": true
+    },
+    {
+      "catalogId": "ps4-hunting-simulator",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-injustice-2",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-marvel-avengers",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-marvel-avengers-deluxe-edition",
+      "fields": [
+        "developer",
+        "fetchedAt",
+        "fieldProvenance",
+        "fieldSources",
+        "genres",
+        "mergedAt",
+        "sources"
+      ],
+      "createdDetailRecord": true
+    },
+    {
+      "catalogId": "ps4-marvel-avengers-earth%27s-mightiest-edition",
+      "fields": [
+        "developer",
+        "fetchedAt",
+        "fieldProvenance",
+        "fieldSources",
+        "genres",
+        "mergedAt",
+        "sources"
+      ],
+      "createdDetailRecord": true
+    },
+    {
+      "catalogId": "ps4-marvel-avengers-steelbook-edition",
+      "fields": [
+        "developer",
+        "fetchedAt",
+        "fieldProvenance",
+        "fieldSources",
+        "genres",
+        "mergedAt",
+        "sources"
+      ],
+      "createdDetailRecord": true
+    },
+    {
+      "catalogId": "ps4-memorrha",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-metro-redux",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-monster-jam-steel-titans",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-moto-racer-4",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-motogp-18",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-mountain-rescue-simulator",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-mx-vs-atv-all-out",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-my-life-riding-stables-3",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-my-little-riding-champion",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-one-piece-world-seeker",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-pillars-of-eternity-complete-edition",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-professional-farmer-2017",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-professional-farmer-american-dream",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-ride-2",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-rugby-18",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-space-hulk-tactics",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-terminator-2d-no-fate-day-one-edition",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-the-unicorn-princess",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-tt-isle-of-man-ride-on-the-edge-2",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-until-dawn-rush-of-blood",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-wonder-boy-the-dragon%27s-trap",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-world-quiz",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    },
+    {
+      "catalogId": "ps4-xeno-crisis",
+      "fields": [
+        "developer",
+        "fieldProvenance",
+        "fieldSources"
+      ],
+      "createdDetailRecord": false
+    }
+  ],
+  "companyIndexChanges": [
+    {
+      "slug": "4a-games",
+      "page": "/compania/4a-games",
+      "before": {
+        "gameCount": 6,
+        "developerCount": 6,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 7,
+        "developerCount": 7,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "activision",
+      "page": "/compania/activision",
+      "before": {
+        "gameCount": 490,
+        "developerCount": 38,
+        "publisherCount": 472
+      },
+      "after": {
+        "gameCount": 494,
+        "developerCount": 38,
+        "publisherCount": 476
+      }
+    },
+    {
+      "slug": "aheartfulofgames",
+      "page": "/compania/aheartfulofgames",
+      "before": {
+        "gameCount": 1,
+        "developerCount": 1,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 2,
+        "developerCount": 2,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "artefacts-studio",
+      "page": "/compania/artefacts-studio",
+      "before": {
+        "gameCount": 5,
+        "developerCount": 5,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 6,
+        "developerCount": 6,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "avalanche-software",
+      "page": "/compania/avalanche-software",
+      "before": {
+        "gameCount": 53,
+        "developerCount": 53,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 56,
+        "developerCount": 56,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "avalanche-studios",
+      "page": "/compania/avalanche-studios",
+      "before": {
+        "gameCount": 23,
+        "developerCount": 23,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 22,
+        "developerCount": 22,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "bitmap-bureau",
+      "page": "/compania/bitmap-bureau",
+      "before": {
+        "gameCount": 7,
+        "developerCount": 7,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 9,
+        "developerCount": 9,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "bungie",
+      "page": "/compania/bungie",
+      "before": {
+        "gameCount": 12,
+        "developerCount": 11,
+        "publisherCount": 5
+      },
+      "after": {
+        "gameCount": 16,
+        "developerCount": 15,
+        "publisherCount": 5
+      }
+    },
+    {
+      "slug": "caipirinha-games",
+      "page": "/compania/caipirinha-games",
+      "before": {
+        "gameCount": 2,
+        "developerCount": 2,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 4,
+        "developerCount": 4,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "climax-studios",
+      "page": "/compania/climax-studios",
+      "before": {
+        "gameCount": 21,
+        "developerCount": 21,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 22,
+        "developerCount": 22,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "codemasters",
+      "page": "/compania/codemasters",
+      "before": {
+        "gameCount": 156,
+        "developerCount": 102,
+        "publisherCount": 104
+      },
+      "after": {
+        "gameCount": 157,
+        "developerCount": 103,
+        "publisherCount": 104
+      }
+    },
+    {
+      "slug": "crystal-dynamics",
+      "page": "/compania/crystal-dynamics",
+      "before": {
+        "gameCount": 59,
+        "developerCount": 51,
+        "publisherCount": 13
+      },
+      "after": {
+        "gameCount": 63,
+        "developerCount": 55,
+        "publisherCount": 13
+      }
+    },
+    {
+      "slug": "cyanide-studio",
+      "page": "/compania/cyanide-studio",
+      "before": {
+        "gameCount": 8,
+        "developerCount": 8,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 9,
+        "developerCount": 9,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "eko-software",
+      "page": "/compania/eko-software",
+      "before": {
+        "gameCount": 6,
+        "developerCount": 6,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 7,
+        "developerCount": 7,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "fakt-software",
+      "page": "/compania/fakt-software",
+      "before": {
+        "gameCount": 2,
+        "developerCount": 2,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 3,
+        "developerCount": 3,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "fictiorama-studios",
+      "page": "/compania/fictiorama-studios",
+      "before": {
+        "gameCount": 1,
+        "developerCount": 1,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 2,
+        "developerCount": 2,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "ganbarion",
+      "page": "/compania/ganbarion",
+      "before": {
+        "gameCount": 5,
+        "developerCount": 5,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 6,
+        "developerCount": 6,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "giants-software",
+      "page": "/compania/giants-software",
+      "before": {
+        "gameCount": 2,
+        "developerCount": 1,
+        "publisherCount": 1
+      },
+      "after": {
+        "gameCount": 3,
+        "developerCount": 2,
+        "publisherCount": 1
+      }
+    },
+    {
+      "slug": "independent-arts-software",
+      "page": "/compania/independent-arts-software",
+      "before": {
+        "gameCount": 8,
+        "developerCount": 8,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 9,
+        "developerCount": 9,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "korion-interactive",
+      "page": "/compania/korion-interactive",
+      "before": {
+        "gameCount": 3,
+        "developerCount": 3,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 5,
+        "developerCount": 5,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "kt-racing",
+      "page": "/compania/kt-racing",
+      "before": {
+        "gameCount": 2,
+        "developerCount": 2,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 3,
+        "developerCount": 3,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "lizardcube",
+      "page": "/compania/lizardcube",
+      "before": {
+        "gameCount": 5,
+        "developerCount": 5,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 6,
+        "developerCount": 6,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "milestone-srl",
+      "page": "/compania/milestone-srl",
+      "before": {
+        "gameCount": 1,
+        "developerCount": 0,
+        "publisherCount": 1
+      },
+      "after": {
+        "gameCount": 4,
+        "developerCount": 3,
+        "publisherCount": 1
+      }
+    },
+    {
+      "slug": "namco",
+      "page": "/compania/namco",
+      "before": {
+        "gameCount": 278,
+        "developerCount": 202,
+        "publisherCount": 201
+      },
+      "after": {
+        "gameCount": 277,
+        "developerCount": 202,
+        "publisherCount": 200
+      }
+    },
+    {
+      "slug": "neopica",
+      "page": "/compania/neopica",
+      "before": {
+        "gameCount": 6,
+        "developerCount": 6,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 7,
+        "developerCount": 7,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "netherrealm-studios",
+      "page": "/compania/netherrealm-studios",
+      "before": {
+        "gameCount": 18,
+        "developerCount": 18,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 19,
+        "developerCount": 19,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "nyx-digital",
+      "page": "/compania/nyx-digital",
+      "before": {
+        "gameCount": 1,
+        "developerCount": 1,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 3,
+        "developerCount": 3,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "obsidian-entertainment",
+      "page": "/compania/obsidian-entertainment",
+      "before": {
+        "gameCount": 8,
+        "developerCount": 8,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 9,
+        "developerCount": 9,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "rainbow-studios",
+      "page": "/compania/rainbow-studios",
+      "before": {
+        "gameCount": 15,
+        "developerCount": 15,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 17,
+        "developerCount": 17,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "supermassive-games",
+      "page": "/compania/supermassive-games",
+      "before": {
+        "gameCount": 19,
+        "developerCount": 19,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 20,
+        "developerCount": 20,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "team17-digital-limited",
+      "page": "/compania/team17-digital-limited",
+      "before": {
+        "gameCount": 3,
+        "developerCount": 2,
+        "publisherCount": 1
+      },
+      "after": {
+        "gameCount": 4,
+        "developerCount": 3,
+        "publisherCount": 1
+      }
+    },
+    {
+      "slug": "teku-studios",
+      "page": "/compania/teku-studios",
+      "before": {
+        "gameCount": 1,
+        "developerCount": 1,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 2,
+        "developerCount": 2,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "toplitz-productions",
+      "page": "/compania/toplitz-productions",
+      "before": {
+        "gameCount": 1,
+        "developerCount": 0,
+        "publisherCount": 1
+      },
+      "after": {
+        "gameCount": 2,
+        "developerCount": 1,
+        "publisherCount": 1
+      }
+    },
+    {
+      "slug": "torus-games",
+      "page": "/compania/torus-games",
+      "before": {
+        "gameCount": 29,
+        "developerCount": 29,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 30,
+        "developerCount": 30,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "tt-games",
+      "page": "/compania/tt-games",
+      "before": {
+        "gameCount": 107,
+        "developerCount": 106,
+        "publisherCount": 1
+      },
+      "after": {
+        "gameCount": 106,
+        "developerCount": 105,
+        "publisherCount": 1
+      }
+    },
+    {
+      "slug": "uig-entertainment",
+      "page": "/compania/uig-entertainment",
+      "before": {
+        "gameCount": 17,
+        "developerCount": 6,
+        "publisherCount": 16
+      },
+      "after": {
+        "gameCount": 19,
+        "developerCount": 8,
+        "publisherCount": 16
+      }
+    },
+    {
+      "slug": "visual-imagination-software",
+      "page": "/compania/visual-imagination-software",
+      "before": {
+        "gameCount": 1,
+        "developerCount": 1,
+        "publisherCount": 0
+      },
+      "after": {
+        "gameCount": 2,
+        "developerCount": 2,
+        "publisherCount": 0
+      }
+    },
+    {
+      "slug": "wolf-team",
+      "page": "/compania/wolf-team",
+      "before": {
+        "gameCount": 33,
+        "developerCount": 29,
+        "publisherCount": 19
+      },
+      "after": {
+        "gameCount": 32,
+        "developerCount": 28,
+        "publisherCount": 19
+      }
+    }
+  ],
+  "affectedCompanyPages": [
+    "/compania/4a-games",
+    "/compania/activision",
+    "/compania/aheartfulofgames",
+    "/compania/artefacts-studio",
+    "/compania/avalanche-software",
+    "/compania/avalanche-studios",
+    "/compania/bitmap-bureau",
+    "/compania/bungie",
+    "/compania/caipirinha-games",
+    "/compania/climax-studios",
+    "/compania/codemasters",
+    "/compania/crystal-dynamics",
+    "/compania/cyanide-studio",
+    "/compania/eko-software",
+    "/compania/fakt-software",
+    "/compania/fictiorama-studios",
+    "/compania/ganbarion",
+    "/compania/giants-software",
+    "/compania/independent-arts-software",
+    "/compania/korion-interactive",
+    "/compania/kt-racing",
+    "/compania/lizardcube",
+    "/compania/milestone-srl",
+    "/compania/namco",
+    "/compania/neopica",
+    "/compania/netherrealm-studios",
+    "/compania/nyx-digital",
+    "/compania/obsidian-entertainment",
+    "/compania/rainbow-studios",
+    "/compania/supermassive-games",
+    "/compania/team17-digital-limited",
+    "/compania/teku-studios",
+    "/compania/toplitz-productions",
+    "/compania/torus-games",
+    "/compania/tt-games",
+    "/compania/uig-entertainment",
+    "/compania/visual-imagination-software",
+    "/compania/wolf-team"
+  ],
+  "scopeChecks": {
+    "changedDetailsOnlyForApprovedCatalogIds": true,
+    "changedCompanyIndexOnlyForReferencedSlugs": true,
+    "allChangedCatalogRowsArePs4Pal": true,
+    "catalogIdsAndUrlsUnchanged": true,
+    "noRegionalOrPlatformPropagation": true,
+    "noCompaniesCreated": true
+  },
+  "protectedFileHashes": {
+    "data/game-details.json": {
+      "before": "1d2c55d28fc6ea79865a3faab0cc2f811cd7f49c34107e42f5eaefefc8bc2833",
+      "after": "3ccc72efd3287c0d2af03d7fe64f7658b289f3d6cc101166cad21e13ed4fd90e"
+    },
+    "data/index/companies.json": {
+      "before": "d774c621f0289cdfeae1141361fc4483e84037432d82499a5f7ab83afafe48bb",
+      "after": "67f2cc88adbed4af832f6f55077542fe98aae241f4bf4dbc274df3b53ca390ce"
+    }
+  },
+  "verification": {
+    "packageSemanticControls": "21/21 PASS",
+    "catalogCountSemantics": "7/7 PASS",
+    "companyCreditBatchTest": "PASS",
+    "previousCompanyCreditBatchRegression": "PASS",
+    "typecheck": "PASS",
+    "lint": {
+      "status": "PASS",
+      "errors": 0,
+      "preExistingWarnings": 35
+    },
+    "runtimeOverlayCreditMerge": {
+      "status": "5/5 PASS",
+      "fields": [
+        "developer",
+        "publisher"
+      ],
+      "verifiedStaticWinsWhenNewerOrOverlayEmpty": true,
+      "newerVerifiedRuntimeWins": true,
+      "unverifiedStaticCannotReplaceRuntime": true,
+      "unrelatedOverlayFieldsPreserved": true,
+      "verifiedFallbackWhenStaticUnavailable": true
+    },
+    "verifiedCompanyCreditIndex": {
+      "status": "PASS",
+      "entries": 63,
+      "fields": 72,
+      "derivedOnlyFromCompleteFieldProvenance": true,
+      "bytes": 67476
+    },
+    "unitTests": "217/217 PASS",
+    "collectorControls": "PASS",
+    "affiliateOffersV1": "PASS",
+    "build": "PASS",
+    "localVisualQa": {
+      "status": "20/20 PASS",
+      "viewports": [
+        "1440x1000",
+        "390x844"
+      ],
+      "catalogEntries": [
+        "ps4-destiny-2",
+        "ps4-hogwarts-legacy",
+        "ps4-marvel-avengers",
+        "ps4-one-piece-world-seeker",
+        "ps4-airport-simulator-2019"
+      ],
+      "companySlugs": [
+        "bungie",
+        "activision",
+        "avalanche-software",
+        "crystal-dynamics",
+        "ganbarion"
+      ],
+      "brokenImages": 0,
+      "consoleErrors": 0,
+      "pageErrors": 0,
+      "overflowFailures": 0
+    }
+  }
+}

@@ -1,4 +1,10 @@
-import type { CatalogGame } from "./types";
+import type {
+  CatalogGame,
+  DetailEntity,
+  GameDetails,
+  GameDetailsFieldProvenance,
+  GameDetailsFieldSource,
+} from "./types";
 
 const TODOCONSOLAS_SOURCE_FIELDS = [
   "tcnsRetailPrice",
@@ -21,10 +27,92 @@ const REGIONAL_PACKAGING_FIELDS = [
   "regionalPackagingUpdatedAt",
 ] as const satisfies readonly (keyof CatalogGame)[];
 
+const VERIFIED_DETAILS_FIELDS = ["developer", "publisher"] as const;
+type VerifiedDetailsField = (typeof VERIFIED_DETAILS_FIELDS)[number];
+type VerifiedCompanyCreditDetails = {
+  developer: DetailEntity | null;
+  publisher: DetailEntity | null;
+  fieldSources?: Partial<Record<VerifiedDetailsField, GameDetailsFieldSource>>;
+  fieldProvenance?: Partial<
+    Record<VerifiedDetailsField, GameDetailsFieldProvenance>
+  >;
+};
+
 function sourceTimestamp(value: string | null | undefined): number {
   if (!value) return Number.NEGATIVE_INFINITY;
   const parsed = Date.parse(value);
   return Number.isFinite(parsed) ? parsed : Number.NEGATIVE_INFINITY;
+}
+
+function hasCompleteFieldProvenance(
+  provenance: GameDetailsFieldProvenance | undefined,
+): provenance is GameDetailsFieldProvenance {
+  return Boolean(
+    provenance &&
+      sourceTimestamp(provenance.reviewedAt) > Number.NEGATIVE_INFINITY &&
+      provenance.reviewBatch.trim() &&
+      provenance.evidenceSummary.trim() &&
+      provenance.evidenceUrls.some((url) => url.trim()),
+  );
+}
+
+export function mergeVerifiedCompanyCredits(
+  staticDetails: VerifiedCompanyCreditDetails,
+  currentDetails?: GameDetails,
+): GameDetails {
+  const merged: GameDetails = currentDetails
+    ? { ...currentDetails }
+    : {
+        year: null,
+        releaseDate: null,
+        reference: null,
+        players: null,
+        support: null,
+        developer: null,
+        publisher: null,
+        genres: [],
+        series: null,
+        fetchedAt:
+          staticDetails.fieldProvenance?.developer?.reviewedAt ??
+          staticDetails.fieldProvenance?.publisher?.reviewedAt ??
+          "1970-01-01",
+      };
+  let fieldSources = currentDetails?.fieldSources;
+  let fieldProvenance = currentDetails?.fieldProvenance;
+
+  for (const field of VERIFIED_DETAILS_FIELDS) {
+    const staticValue = staticDetails[field];
+    const staticProvenance = staticDetails.fieldProvenance?.[field];
+    if (!staticValue || !hasCompleteFieldProvenance(staticProvenance)) continue;
+
+    const currentValue = currentDetails?.[field];
+    const currentProvenance = currentDetails?.fieldProvenance?.[field];
+    const staticReviewedAt = sourceTimestamp(staticProvenance.reviewedAt);
+    if (
+      currentValue &&
+      hasCompleteFieldProvenance(currentProvenance) &&
+      staticReviewedAt <= sourceTimestamp(currentProvenance.reviewedAt)
+    ) {
+      continue;
+    }
+
+    merged[field] = staticValue;
+    fieldSources = {
+      ...fieldSources,
+      [field]: staticDetails.fieldSources?.[field] ?? staticProvenance.source,
+    };
+    fieldProvenance = {
+      ...fieldProvenance,
+      [field]: staticProvenance,
+    };
+  }
+
+  if (fieldSources !== currentDetails?.fieldSources) merged.fieldSources = fieldSources;
+  if (fieldProvenance !== currentDetails?.fieldProvenance) {
+    merged.fieldProvenance = fieldProvenance;
+  }
+
+  return merged;
 }
 
 export function mergeCatalogGameWithOverlay(

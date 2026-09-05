@@ -1,0 +1,1766 @@
+{
+  "schemaVersion": 1,
+  "credits": {
+    "ds-007-quantum-of-solace": {
+      "developer": {
+        "name": "Vicarious Visions",
+        "slug": "vicarious-visions",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "developer": "official",
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+          ],
+          "evidenceSummary": "Official platform mapping assigns the DS version to Vicarious Visions.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        },
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+          ],
+          "evidenceSummary": "Activision announced the European and North American retail launch.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "gameboy-es-mystic-quest": {
+      "developer": {
+        "name": "Square",
+        "slug": "square",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.hd.square-enix.com/eng/company/history.html"
+          ],
+          "evidenceSummary": "The sibling source already names Square and Square Enix did not exist until April 2003.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps2-007-quantum-of-solace": {
+      "developer": null,
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game",
+            "https://www.jp.square-enix.com/company/en/news/2009/"
+          ],
+          "evidenceSummary": "Square Enix's role was Japan-specific; the PAL row must not inherit it.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps2-usa-007-quantum-of-solace": {
+      "developer": null,
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+          ],
+          "evidenceSummary": "Activision announced the North American retail launch.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps3-007-quantum-of-solace": {
+      "developer": {
+        "name": "Treyarch",
+        "slug": "treyarch",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "developer": "official",
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+          ],
+          "evidenceSummary": "Official platform mapping assigns the PS3 version to Treyarch, not Eurocom.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        },
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game",
+            "https://www.jp.square-enix.com/company/en/news/2009/"
+          ],
+          "evidenceSummary": "Square Enix published the Japanese release only; this is a PAL row.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps3-call-of-duty-advanced-warfare": {
+      "developer": null,
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.activision.com/games/call-of-duty/call-of-duty-advanced-warfare",
+            "https://www.jp.square-enix.com/game/detail/codaw/"
+          ],
+          "evidenceSummary": "Square Enix's supported role is Japanese; PAL publisher should be Activision.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps3-skylanders-spyro%27s-adventure": {
+      "developer": {
+        "name": "Toys for Bob",
+        "slug": "toys-for-bob",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "developer": "official",
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.activision.com/games/skylanders/skylanders-spyros-adventure",
+            "https://investor.activision.com/static-files/9bda83fb-9cb4-4887-8aeb-5a4d70d96215"
+          ],
+          "evidenceSummary": "Official Activision sources identify Toys for Bob as the console game's studio.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        },
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/static-files/9bda83fb-9cb4-4887-8aeb-5a4d70d96215"
+          ],
+          "evidenceSummary": "Activision announced and published the worldwide console release; Square Enix is imported territorial leakage.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps3-splinter-cell-blacklist": {
+      "developer": null,
+      "publisher": {
+        "name": "Ubisoft",
+        "slug": "ubisoft",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.steampowered.com/app/235600/Tom_Clancys_Splinter_Cell_Blacklist/",
+            "https://news.ubisoft.com/en-us/article/2xK7FikFTBzQ4Gv97IVMfl/from-splinter-cell-blacklist-to-far-cry-6-10-years-at-ubisoft-toronto-and-beyond"
+          ],
+          "evidenceSummary": "The PAL row inherited Square Enix from unscoped data; official listing names Ubisoft.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps3-usa-007-quantum-of-solace": {
+      "developer": {
+        "name": "Treyarch",
+        "slug": "treyarch",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "developer": "official",
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+          ],
+          "evidenceSummary": "Official platform mapping assigns the PS3 version to Treyarch.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        },
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/mi6-confirms-activisions-007-status-quantum-solacetm-video-game"
+          ],
+          "evidenceSummary": "Activision announced the North American retail launch.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps3-usa-call-of-duty-advanced-warfare": {
+      "developer": null,
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.activision.com/games/call-of-duty/call-of-duty-advanced-warfare"
+          ],
+          "evidenceSummary": "Activision is the non-Japanese publisher.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps3-usa-skylanders-spyro-s-adventure": {
+      "developer": {
+        "name": "Toys for Bob",
+        "slug": "toys-for-bob",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "developer": "official",
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.activision.com/games/skylanders/skylanders-spyros-adventure",
+            "https://investor.activision.com/static-files/9bda83fb-9cb4-4887-8aeb-5a4d70d96215"
+          ],
+          "evidenceSummary": "Official Activision sources identify Toys for Bob.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        },
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/static-files/9bda83fb-9cb4-4887-8aeb-5a4d70d96215"
+          ],
+          "evidenceSummary": "Official Activision release supports the USA publisher.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps3-usa-splinter-cell-blacklist": {
+      "developer": null,
+      "publisher": {
+        "name": "Ubisoft",
+        "slug": "ubisoft",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.steampowered.com/app/235600/Tom_Clancys_Splinter_Cell_Blacklist/"
+          ],
+          "evidenceSummary": "Official distribution listing names Ubisoft as publisher.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps4-airport-simulator-2019": {
+      "developer": {
+        "name": "Toplitz Productions",
+        "slug": "toplitz-productions",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP3550-CUSA12902_00-AIRPORTSIMPS4EU0",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+          ],
+          "evidenceSummary": "Developed by Toplitz Productions | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-ben-10": {
+      "developer": {
+        "name": "Torus Games",
+        "slug": "torus-games",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP3678-CUSA09538_00-BEN1000000000000",
+            "https://store.steampowered.com/app/703180",
+            "https://www.wikidata.org/wiki/Q63183228",
+            "https://gamesdb.launchbox-app.com/games/details/441353"
+          ],
+          "evidenceSummary": "Developed by Torus Games Pty Ltd | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-big-bobby-car-the-big-race": {
+      "developer": {
+        "name": "Independent Arts Software GmbH",
+        "slug": "independent-arts-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP8218-CUSA20568_00-BOBBYCARGAME01EU",
+            "https://store.steampowered.com/app/1374700"
+          ],
+          "evidenceSummary": "Developed by Independent Arts Software GmbH 2020 Wild River Games GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-call-of-duty-advanced-warfare": {
+      "developer": null,
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.xbox.com/nl-NL/games/store/call-of-duty-advanced-warfare/c5bh6mg77vt5",
+            "https://www.jp.square-enix.com/game/detail/codaw/"
+          ],
+          "evidenceSummary": "Square Enix is supported only for Japan; this is a PAL row.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps4-candle-the-power-of-the-flame": {
+      "developer": {
+        "name": "Teku Studios",
+        "slug": "teku-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP1121-CUSA12065_00-CANDLE0000000001",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+          ],
+          "evidenceSummary": "developed by Teku Studios, published by Merge Games Ltd | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-chicken-range": {
+      "developer": {
+        "name": "NYX Digital",
+        "slug": "nyx-digital",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4358-CUSA11931_00-CHICKENRANGE0000"
+          ],
+          "evidenceSummary": "Developed by NYX DIGITAL LTD",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-crazy-machines-vr": {
+      "developer": {
+        "name": "FAKT Software",
+        "slug": "fakt-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP0841-CUSA13142_00-YDH2K8LVCNBMVT2Y",
+            "https://store.steampowered.com/app/802690",
+            "https://gamesdb.launchbox-app.com/games/details/447379"
+          ],
+          "evidenceSummary": "Developed by FAKT Software GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-dead-synchronicity-tomorrow-comes-today": {
+      "developer": {
+        "name": "Fictiorama Studios",
+        "slug": "fictiorama-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP1160-CUSA05345_00-DEADSYNCHRONICIT",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/339190",
+            "https://gamesdb.launchbox-app.com/games/details/192929"
+          ],
+          "evidenceSummary": "Developed by Fictiorama studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-destiny-2": {
+      "developer": {
+        "name": "Bungie",
+        "slug": "bungie",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "developer": "official",
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+            "https://www.pricecharting.com/game/pal-playstation-4/destiny-2",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/1085660",
+            "https://www.wikidata.org/wiki/Q29045915",
+            "https://gamesdb.launchbox-app.com/games/details/171656"
+          ],
+          "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La ficha enlazada de la edición física PAL atribuye el desarrollo a esta compañía. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        },
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+            "https://www.pricecharting.com/game/pal-playstation-4/destiny-2",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+          ],
+          "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La ficha exacta de la edición física PAL etiqueta a esta compañía como Publisher; puede representar publicación o distribución física. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-destiny-2-collector%27s-edition": {
+      "developer": {
+        "name": "Bungie",
+        "slug": "bungie",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "developer": "official",
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/1085660",
+            "https://www.wikidata.org/wiki/Q29045915",
+            "https://gamesdb.launchbox-app.com/games/details/171656"
+          ],
+          "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        },
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+          ],
+          "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-destiny-2-limited-edition": {
+      "developer": {
+        "name": "Bungie",
+        "slug": "bungie",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "developer": "official",
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/1085660",
+            "https://www.wikidata.org/wiki/Q29045915",
+            "https://gamesdb.launchbox-app.com/games/details/171656"
+          ],
+          "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        },
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+          ],
+          "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-destiny-2-promo-not-for-resale": {
+      "developer": {
+        "name": "Bungie",
+        "slug": "bungie",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "developer": "official",
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/1085660",
+            "https://www.wikidata.org/wiki/Q29045915",
+            "https://gamesdb.launchbox-app.com/games/details/171656"
+          ],
+          "evidenceSummary": "Activision identifica a Bungie como estudio de desarrollo de Destiny 2 y describe el lanzamiento de PS4 del 6 de septiembre de 2017. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        },
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://investor.activision.com/news-releases/news-release-details/destiny-2-delivers-biggest-console-video-game-launch-week-year",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)"
+          ],
+          "evidenceSummary": "La nota oficial declara expresamente que Destiny 2 fue publicado y distribuido por Activision y enumera las ediciones Limited y Collector's. | La columna PAL de la lista de PS4 atribuye la publicación a esta compañía.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-dirt-rally-20": {
+      "developer": {
+        "name": "Codemasters",
+        "slug": "codemasters",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4001-CUSA12747_00-DIRTRALLY2EU0001",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/690790",
+            "https://gamesdb.launchbox-app.com/games/details/177945"
+          ],
+          "evidenceSummary": "Developed and published by Codemasters | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-dragons-dawn-of-new-riders": {
+      "developer": {
+        "name": "Climax Studios",
+        "slug": "climax-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP3678-CUSA12945_00-HTTYD3BASEGAME01",
+            "https://gamesdb.launchbox-app.com/games/details/207806"
+          ],
+          "evidenceSummary": "Developed by Climax Studios Ltd | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-ducati-90th-anniversary": {
+      "developer": {
+        "name": "Milestone srl",
+        "slug": "milestone-srl",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4356-CUSA05245_00-DUCATIFULLGAME00"
+          ],
+          "evidenceSummary": "Developed by Milestone SRL All rights reserved",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-farming-simulator-19": {
+      "developer": {
+        "name": "GIANTS Software",
+        "slug": "giants-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4133-CUSA11593_00-FARMINGSIMULAT19",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/787860",
+            "https://www.wikidata.org/wiki/Q58897626",
+            "https://gamesdb.launchbox-app.com/games/details/193195"
+          ],
+          "evidenceSummary": "Developed by GIANTS Software Gmbh | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-flockers": {
+      "developer": {
+        "name": "Team17 Digital Limited",
+        "slug": "team17-digital-limited",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4064-CUSA00854_00-FLOCKERSZZZZZZZZ",
+            "https://store.steampowered.com/app/260330"
+          ],
+          "evidenceSummary": "Developed by Team17 Digital Ltd | Developed and published by Team17 Digital Limited | Developed by Team17 Digital Ltd 2014 | Developed and published by Team17 Digital Ltd | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-heart-&amp;-slash": {
+      "developer": {
+        "name": "aheartfulofgames",
+        "slug": "aheartfulofgames",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP1160-CUSA04531_00-0000000000000000",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/326840",
+            "https://gamesdb.launchbox-app.com/games/details/473282"
+          ],
+          "evidenceSummary": "Developed by Aheartfulofgames | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-hogwarts-legacy": {
+      "developer": {
+        "name": "Avalanche Software",
+        "slug": "avalanche-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.hogwartslegacy.com/en-us",
+            "https://store.playstation.com/es-es/product/EP1018-CUSA12771_00-HOGWARTSLEGACY01",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/990080"
+          ],
+          "evidenceSummary": "La web oficial acredita expresamente el software de Hogwarts Legacy a Avalanche Software y muestra la versión de PlayStation 4. | Developed by Avalanche Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-hogwarts-legacy-collector%27s-edition": {
+      "developer": {
+        "name": "Avalanche Software",
+        "slug": "avalanche-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.hogwartslegacy.com/en-us",
+            "https://store.playstation.com/es-es/product/EP1018-CUSA12771_00-HOGWARTSLEGACY01",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/990080"
+          ],
+          "evidenceSummary": "La web oficial acredita expresamente el software de Hogwarts Legacy a Avalanche Software y muestra la versión de PlayStation 4. | Developed by Avalanche Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-hogwarts-legacy-deluxe-edition": {
+      "developer": {
+        "name": "Avalanche Software",
+        "slug": "avalanche-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.hogwartslegacy.com/en-us",
+            "https://store.playstation.com/es-es/product/EP1018-CUSA12771_00-HOGWARTSLEGACY01",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/990080"
+          ],
+          "evidenceSummary": "La web oficial acredita expresamente el software de Hogwarts Legacy a Avalanche Software y muestra la versión de PlayStation 4. | Developed by Avalanche Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-hunting-simulator": {
+      "developer": {
+        "name": "Neopica",
+        "slug": "neopica",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4008-CUSA07164_00-HUNTINGSIMULATOR",
+            "https://www.wikidata.org/wiki/Q52124656",
+            "https://gamesdb.launchbox-app.com/games/details/447564"
+          ],
+          "evidenceSummary": "developed by Neopica | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-injustice-2": {
+      "developer": {
+        "name": "NetherRealm Studios",
+        "slug": "netherrealm-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP1018-CUSA05459_00-INJUSTICE2000000",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(A%E2%80%93L)",
+            "https://store.steampowered.com/app/627270",
+            "https://www.wikidata.org/wiki/Q24717189",
+            "https://gamesdb.launchbox-app.com/games/details/149753"
+          ],
+          "evidenceSummary": "Developed by NetherRealm Studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-marvel-avengers": {
+      "developer": {
+        "name": "Crystal Dynamics",
+        "slug": "crystal-dynamics",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.crystaldynamics.com/projects/marvels-avengers/",
+            "https://www.pricecharting.com/game/pal-playstation-4/marvel-avengers"
+          ],
+          "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4. | La ficha enlazada de la edición física PAL atribuye el desarrollo a esta compañía.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-marvel-avengers-deluxe-edition": {
+      "developer": {
+        "name": "Crystal Dynamics",
+        "slug": "crystal-dynamics",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.crystaldynamics.com/projects/marvels-avengers/"
+          ],
+          "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-marvel-avengers-earth%27s-mightiest-edition": {
+      "developer": {
+        "name": "Crystal Dynamics",
+        "slug": "crystal-dynamics",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.crystaldynamics.com/projects/marvels-avengers/"
+          ],
+          "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-marvel-avengers-steelbook-edition": {
+      "developer": {
+        "name": "Crystal Dynamics",
+        "slug": "crystal-dynamics",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.crystaldynamics.com/projects/marvels-avengers/"
+          ],
+          "evidenceSummary": "Marvel's Avengers figura en la cartera oficial de Crystal Dynamics con fecha y plataformas, incluida PlayStation 4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-memorrha": {
+      "developer": {
+        "name": "Korion Interactive",
+        "slug": "korion-interactive",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP3024-CUSA43764_00-MEMORRHAPS4EUROP"
+          ],
+          "evidenceSummary": "Developed by Korion Interactive GmbH",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-metro-redux": {
+      "developer": {
+        "name": "4A Games",
+        "slug": "4a-games",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4062-CUSA00593_00-MCOMPLREDUXDISC1",
+            "https://www.wikidata.org/wiki/Q19906377",
+            "https://gamesdb.launchbox-app.com/games/details/21405"
+          ],
+          "evidenceSummary": "Developed by 4A Games | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-monster-jam-steel-titans": {
+      "developer": {
+        "name": "Rainbow Studios",
+        "slug": "rainbow-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4389-CUSA13260_00-MONSTERJAM1EU000",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+            "https://store.steampowered.com/app/824280",
+            "https://gamesdb.launchbox-app.com/games/details/212671"
+          ],
+          "evidenceSummary": "Developed by Rainbow Studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-moto-racer-4": {
+      "developer": {
+        "name": "Artefacts Studio",
+        "slug": "artefacts-studio",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4295-CUSA05029_00-AI201610MR400001",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+            "https://store.steampowered.com/app/417430"
+          ],
+          "evidenceSummary": "Developed by Artefacts Studio | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-motogp-18": {
+      "developer": {
+        "name": "Milestone srl",
+        "slug": "milestone-srl",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4356-CUSA09842_00-MOTOGP18FULLGAME",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)"
+          ],
+          "evidenceSummary": "Developed by Milestone SRL All rights reserved | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-mountain-rescue-simulator": {
+      "developer": {
+        "name": "UIG Entertainment",
+        "slug": "uig-entertainment",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP8935-CUSA15214_00-MOUNTAINRESPS4EU"
+          ],
+          "evidenceSummary": "Developed by UIG Entertainment",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-mx-vs-atv-all-out": {
+      "developer": {
+        "name": "Rainbow Studios",
+        "slug": "rainbow-studios",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4389-CUSA06877_00-MXVSATVNEXTEU001",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+            "https://store.steampowered.com/app/520940",
+            "https://www.wikidata.org/wiki/Q124068175"
+          ],
+          "evidenceSummary": "Developed by Rainbow Studios | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-my-life-riding-stables-3": {
+      "developer": {
+        "name": "Korion Interactive",
+        "slug": "korion-interactive",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP3024-CUSA33990_00-RIDINGSTABLES3EU",
+            "https://store.steampowered.com/app/1962150"
+          ],
+          "evidenceSummary": "Developed by Korion Interactive GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-my-little-riding-champion": {
+      "developer": {
+        "name": "Caipirinha Games",
+        "slug": "caipirinha-games",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4008-CUSA13577_00-MLRCSIEE00000000",
+            "https://store.steampowered.com/app/789900",
+            "https://www.wikidata.org/wiki/Q122379708",
+            "https://gamesdb.launchbox-app.com/games/details/476463"
+          ],
+          "evidenceSummary": "Developed by Caipirinha Games | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-one-piece-world-seeker": {
+      "developer": {
+        "name": "Ganbarion",
+        "slug": "ganbarion",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.ganbarion.co.jp/en/",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+            "https://store.steampowered.com/app/755500",
+            "https://www.wikidata.org/wiki/Q47474014",
+            "https://gamesdb.launchbox-app.com/games/details/190238"
+          ],
+          "evidenceSummary": "La web oficial de Ganbarion identifica a GANBARION Co., Ltd. como desarrolladora de ONE PIECE WORLD SEEKER para PS4. | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-pillars-of-eternity-complete-edition": {
+      "developer": {
+        "name": "Obsidian Entertainment",
+        "slug": "obsidian-entertainment",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4139-CUSA06880_00-PILLARSPS4MAIN00"
+          ],
+          "evidenceSummary": "Developed by Obsidian Entertainment Inc Published by Paradox Interactive AB",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-professional-farmer-2017": {
+      "developer": {
+        "name": "Visual Imagination Software",
+        "slug": "visual-imagination-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP8935-CUSA04690_00-FARM17PS4EU00000"
+          ],
+          "evidenceSummary": "developed by Visual Imagination Software",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-professional-farmer-american-dream": {
+      "developer": {
+        "name": "UIG Entertainment",
+        "slug": "uig-entertainment",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP8935-CUSA09298_00-FARMAMERICAPS4EU"
+          ],
+          "evidenceSummary": "Developed by UIG Entertainment",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-ride-2": {
+      "developer": {
+        "name": "Milestone srl",
+        "slug": "milestone-srl",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4356-CUSA05921_00-RIDE2FULLGAME000",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)"
+          ],
+          "evidenceSummary": "Developed by Milestone SRL All rights reserved | La lista específica de PS4 atribuye el desarrollo a esta compañía.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-rugby-18": {
+      "developer": {
+        "name": "EKO Software",
+        "slug": "eko-software",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4008-CUSA07761_00-EKORUGBY18SCEE00",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+            "https://store.steampowered.com/app/627450",
+            "https://www.wikidata.org/wiki/Q43154193"
+          ],
+          "evidenceSummary": "developed by Eko Software | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-space-hulk-tactics": {
+      "developer": {
+        "name": "Cyanide Studio",
+        "slug": "cyanide-studio",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4133-CUSA10360_00-SPACEHULKTACTICS",
+            "https://store.steampowered.com/app/492230"
+          ],
+          "evidenceSummary": "developed by Cyanide Studio, published by Focus Home Interactive | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-terminator-2d-no-fate-day-one-edition": {
+      "developer": {
+        "name": "Bitmap Bureau",
+        "slug": "bitmap-bureau",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4060-CUSA51101_00-T2DNFMAINGAMEPS4",
+            "https://store.steampowered.com/app/1718460",
+            "https://www.wikidata.org/wiki/Q132807990",
+            "https://gamesdb.launchbox-app.com/games/details/466312"
+          ],
+          "evidenceSummary": "Developed by Bitmap Bureau Ltd | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-the-unicorn-princess": {
+      "developer": {
+        "name": "Caipirinha Games",
+        "slug": "caipirinha-games",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4008-CUSA16783_00-TUPSIEE000000000",
+            "https://store.steampowered.com/app/970940"
+          ],
+          "evidenceSummary": "Developed by Caipirinha Games GmbH | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-tt-isle-of-man-ride-on-the-edge-2": {
+      "developer": {
+        "name": "KT Racing",
+        "slug": "kt-racing",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4008-CUSA17001_00-TT2SIEE000000000",
+            "https://store.steampowered.com/app/1082180"
+          ],
+          "evidenceSummary": "developed by KT Racing | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-until-dawn-rush-of-blood": {
+      "developer": {
+        "name": "SuperMassive Games Ltd.",
+        "slug": "supermassive-games",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP9000-CUSA02350_00-RUSHOFBLOOD00001",
+            "https://gamesdb.launchbox-app.com/games/details/154179"
+          ],
+          "evidenceSummary": "Developed by Supermassive Games | Developed by Supermassive Games Ltd | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-usa-call-of-duty-advanced-warfare": {
+      "developer": null,
+      "publisher": {
+        "name": "Activision",
+        "slug": "activision",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "fieldSources": {
+        "publisher": "official"
+      },
+      "fieldProvenance": {
+        "publisher": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://www.xbox.com/nl-NL/games/store/call-of-duty-advanced-warfare/c5bh6mg77vt5",
+            "https://www.jp.square-enix.com/game/detail/codaw/"
+          ],
+          "evidenceSummary": "Square Enix's supported role is Japan-specific; this is a USA row.",
+          "reviewedAt": "2026-09-04",
+          "reviewBatch": "company-credit-verified-batch-1"
+        }
+      }
+    },
+    "ps4-wonder-boy-the-dragon%27s-trap": {
+      "developer": {
+        "name": "Lizardcube",
+        "slug": "lizardcube",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP1470-CUSA06649_00-DOTWBDRAGONSTRAP",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+            "https://store.steampowered.com/app/543260",
+            "https://gamesdb.launchbox-app.com/games/details/149684"
+          ],
+          "evidenceSummary": "Developed by Lizardcube | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | LaunchBox registra esta desarrolladora para su ficha de PS4.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-world-quiz": {
+      "developer": {
+        "name": "NYX Digital",
+        "slug": "nyx-digital",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP4358-CUSA30199_00-WORLDQUIZEUR0000"
+          ],
+          "evidenceSummary": "Developed by NYX DIGITAL LTD",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    },
+    "ps4-xeno-crisis": {
+      "developer": {
+        "name": "Bitmap Bureau",
+        "slug": "bitmap-bureau",
+        "museumPath": null,
+        "pcPath": null,
+        "source": "official"
+      },
+      "publisher": null,
+      "fieldSources": {
+        "developer": "official"
+      },
+      "fieldProvenance": {
+        "developer": {
+          "source": "official",
+          "evidenceUrls": [
+            "https://store.playstation.com/es-es/product/EP2492-CUSA12045_00-XENOCRISIS000000",
+            "https://en.wikipedia.org/wiki/List_of_PlayStation_4_games_(M%E2%80%93Z)",
+            "https://store.steampowered.com/app/464260",
+            "https://www.wikidata.org/wiki/Q104586761"
+          ],
+          "evidenceSummary": "Developed by Bitmap Bureau Ltd | La lista específica de PS4 atribuye el desarrollo a esta compañía. | La ficha comercial de Steam confirma la desarrolladora de la obra, no necesariamente el port de PS4. | Wikidata registra la compañía como desarrolladora.",
+          "reviewedAt": "2026-09-05",
+          "reviewBatch": "company-credit-ps4-pal-batch-1"
+        }
+      }
+    }
+  }
+}

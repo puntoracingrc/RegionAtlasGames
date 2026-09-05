@@ -5,10 +5,12 @@ import { getCatalogGame, listedCatalog } from "./catalog";
 import {
   mergeCatalogGameWithOverlay,
   mergeCatalogPlatformGames,
+  mergeVerifiedCompanyCredits,
   resolveCatalogOverlayCandidate,
 } from "./catalog-overlay-merge";
 import { blobAuthConfigured, blobAuthOptions } from "./blob-auth";
 import { getStaticGameDetails } from "./static-game-details";
+import { getVerifiedCompanyCreditDetails } from "./verified-company-credits";
 import {
   normalizeCatalogGamePresentation,
   normalizeGameDetailsPresentation,
@@ -263,24 +265,39 @@ export async function resolveCatalogGameWithOverlay(
 }
 
 export async function getGameDetailsWithOverlay(id: string): Promise<GameDetails | undefined> {
+  const verifiedDetails = getVerifiedCompanyCreditDetails(id);
   const overlay = await readCatalogOverlayDetails(id);
-  if (overlay) return normalizeGameDetailsPresentation(overlay);
+  if (overlay) {
+    return normalizeGameDetailsPresentation(
+      verifiedDetails ? mergeVerifiedCompanyCredits(verifiedDetails, overlay) : overlay,
+    );
+  }
 
   const platformSlug = getCatalogGame(id)?.platformSlug;
   const staticDetails = await getStaticGameDetails(id, platformSlug);
   const { getGameDetails } = await import("./indexes");
   const indexedDetails = getGameDetails(id);
-  if (!staticDetails) return indexedDetails;
-  if (!indexedDetails) return normalizeGameDetailsPresentation(staticDetails);
+  const staticSource = !staticDetails
+    ? indexedDetails
+    : !indexedDetails
+      ? staticDetails
+      : {
+          ...indexedDetails,
+          description: staticDetails.description ?? indexedDetails.description,
+          descriptionMeta: staticDetails.descriptionMeta ?? indexedDetails.descriptionMeta,
+          seoMeta: staticDetails.seoMeta ?? indexedDetails.seoMeta,
+          videos: staticDetails.videos ?? indexedDetails.videos,
+          ...("pegi" in staticDetails
+            ? { pegi: (staticDetails as GameDetails & { pegi?: unknown }).pegi }
+            : {}),
+        };
 
-  return normalizeGameDetailsPresentation({
-    ...indexedDetails,
-    description: staticDetails.description ?? indexedDetails.description,
-    descriptionMeta: staticDetails.descriptionMeta ?? indexedDetails.descriptionMeta,
-    seoMeta: staticDetails.seoMeta ?? indexedDetails.seoMeta,
-    videos: staticDetails.videos ?? indexedDetails.videos,
-    ...("pegi" in staticDetails ? { pegi: (staticDetails as GameDetails & { pegi?: unknown }).pegi } : {}),
-  });
+  if (!verifiedDetails) {
+    return staticSource ? normalizeGameDetailsPresentation(staticSource) : undefined;
+  }
+  return normalizeGameDetailsPresentation(
+    mergeVerifiedCompanyCredits(verifiedDetails, staticSource),
+  );
 }
 
 export async function getCatalogByPlatformWithOverlay(platformSlug: string): Promise<CatalogGame[]> {
