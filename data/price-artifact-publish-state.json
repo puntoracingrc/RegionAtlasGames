@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "todoconsolasCampaigns": [
-    "20260829T181547Z"
+    "20260829T181547Z",
+    "20260905T201323Z"
   ],
   "gameJobs": [],
   "wallapopJobs": [
@@ -49,5 +50,5 @@
     "wallapop-pal-1788241066-b5edc6",
     "wallapop-pal-1788243180-36d05b"
   ],
-  "updatedAt": "2026-09-01T12:03:32Z"
+  "updatedAt": "2026-09-06T14:19:22.856766Z"
 }
