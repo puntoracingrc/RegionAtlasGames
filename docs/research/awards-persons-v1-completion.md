@@ -63,6 +63,8 @@ The historical PS4 rapid-review checks previously required the shared identity m
 
 The first Vercel Preview passed compilation but exceeded the 250 MB function packaging limit (250.65 MB for an Admin route). Award research inputs are now excluded from function file tracing. The public artifact remains statically imported and compiled into server code; no runtime reader uses raw award research files. This preserves the public-data-only boundary without enabling a larger-function beta or changing production environment variables.
 
+Production packaging has a slightly different footprint: after PR #195 merged, `admin/precios` hit the same 250 MB ceiling even though Preview had passed. A narrowly scoped release follow-up excludes only `data/research/company-logos/manifest.csv` (1,936,680 bytes) from function tracing. There are no runtime consumers under `src`; it is an audit CSV, not the `company-logo-assets.json` used by the site. The CSV remains committed, and logos, company data, runtime readers and environment variables are unchanged. Production must pass again before closure.
+
 ## Reproduction
 
 ```sh

@@ -109,6 +109,7 @@ const nextConfig: NextConfig = {
       // Award runtime data is statically imported from public.json; research is build-time only.
       "data/research/award-study/**",
       "data/research/award-editorial-approvals.json",
+      "data/research/company-logos/manifest.csv",
       "data/**/*.local.json",
       "public/catalog-details/**",
       "public/mascots/**",
