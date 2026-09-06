@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { CollectionValueChart } from "@/components/collection-value-chart";
-import { HomeCatalogSearch } from "@/components/home-catalog-search";
+import { HomeSearch } from "@/components/home-search";
 import { NewsStrip } from "@/components/news-strip";
 import { SiteNav } from "@/components/site-nav";
 import { Panel } from "@/components/ui";
@@ -21,7 +21,6 @@ import {
   meta,
   publicListedCatalog,
 } from "@/lib/catalog";
-import { publicGenreFilterOptions, publicRegionFilterOptions } from "@/lib/catalog-filters";
 import { catalogGamePath } from "@/lib/catalog-seo";
 import { readUserCollection, summarizeCollectionForPlan } from "@/lib/collection-store";
 import { getUserCommunicationOverview } from "@/lib/conversations";
@@ -103,6 +102,8 @@ async function PersonalHome({ user }: { user: PublicUser }) {
           </Link>
         </div>
       </header>
+
+      <HomeSearch />
 
       <section className="mb-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="Resumen de colección">
         <DashboardMetric
@@ -314,15 +315,7 @@ async function PublicHome() {
         </div>
       </header>
 
-      <HomeCatalogSearch
-        platforms={platforms.map((platform) => ({
-          slug: platform.slug,
-          name: platform.name,
-          shortName: platform.shortName,
-        }))}
-        regions={publicRegionFilterOptions()}
-        genres={publicGenreFilterOptions()}
-      />
+      <HomeSearch />
 
       <section className="my-8 grid grid-cols-2 border-y border-border/70 md:grid-cols-4" aria-label="Cobertura del catálogo">
         <PublicStat value={publicListedCatalog.length.toLocaleString("es-ES")} label="Fichas catalogadas" />
