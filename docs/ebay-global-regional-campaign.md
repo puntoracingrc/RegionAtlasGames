@@ -44,6 +44,27 @@ La misma respuesta de eBay alimenta `data/ebay-regional-campaigns/cover-candidat
 
 ## Operación
 
+### Saldo de IA agotado
+
+Los errores `insufficient_quota`, `credit_balance_exhausted` y
+`billing_hard_limit_reached` pausan la campaña. Un 429 temporal no se interpreta
+como falta de saldo. El lote interrumpido no se sincroniza ni se marca como
+completado o sin coincidencias; sus llamadas eBay sí cuentan en el presupuesto.
+El estado global persiste `status=paused` y `pauseReason=ai_balance_exhausted`.
+Admin muestra «Pausado por saldo agotado de IA». Las ejecuciones programadas
+posteriores salen sin realizar búsquedas mientras persista esa pausa.
+
+Después de recargar OpenAI, ejecutar manualmente el workflow con
+«Reanudar tras recargar saldo de IA». No es una recarga automática ni una
+comprobación del saldo: si OpenAI vuelve a rechazar la llamada, se pausa de nuevo.
+La pausa sale con código cero para que el workflow publique su estado en Git;
+no representa una tanda de datos completada. El aviso aparece en Admin tras
+desplegar ese commit de estado.
+
+El modelo de visión por defecto es `gpt-4o-mini`; puede sobrescribirse mediante
+`OPENAI_VISION_MODEL` o, en su defecto, `OPENAI_MODEL`. Este workflow no configura
+ninguna de esas sobrescrituras. El modelo recibe imágenes, no solo sus títulos.
+
 ```bash
 python3 scripts/run_ebay_regional_campaign.py --dry-run --batch-size 250 --search-budget 250
 python3 scripts/run_ebay_regional_campaign.py --platform ps4 --dry-run --batch-size 25 --search-budget 25

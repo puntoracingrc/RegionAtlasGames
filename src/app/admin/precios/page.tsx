@@ -81,6 +81,7 @@ type EbayGlobalCampaign = {
   status?: string;
   currentPlatform?: string | null;
   currentPlatformName?: string | null;
+  pauseReason?: string;
   currentRegion?: string | null;
   updatedAt?: string | null;
   totals?: EbayCampaignTotals;
@@ -843,8 +844,8 @@ export default async function AdminPricesPage({
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Badge tone={ebayCampaign.status === "blocked" ? "rose" : ebayTotals.deferred ? "amber" : "green"}>
-              {ebayCampaign.status ?? "sin estado"}
+            <Badge tone={ebayCampaign.pauseReason || ebayCampaign.status === "blocked" ? "rose" : ebayTotals.deferred ? "amber" : "green"}>
+              {ebayCampaign.pauseReason === "ai_balance_exhausted" ? "Pausado por saldo agotado de IA" : ebayCampaign.status ?? "sin estado"}
             </Badge>
             <a
               href="https://github.com/puntoracingrc/RegionAtlasGames/actions/workflows/ebay-ps4-regional-campaign.yml"
@@ -857,6 +858,11 @@ export default async function AdminPricesPage({
           </div>
         </div>
 
+        {ebayCampaign.pauseReason === "ai_balance_exhausted" && (
+          <p role="alert" className="mt-3 text-sm text-foreground">
+            Recarga el saldo de OpenAI y activa «Reanudar tras recargar saldo de IA» en la campaña de GitHub. Las fichas del lote siguen pendientes.
+          </p>
+        )}
         <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-6">
           <AdminStatTile tone="status" label="Consultados" value={`${ebayCompleted}/${ebayTotal || "—"}`} helper={`${ebayProgress}% del catálogo activo`} />
           <AdminStatTile tone="status" label="Con evidencias" value={ebayTotals.matched ?? 0} helper="al menos un anuncio aceptado" />

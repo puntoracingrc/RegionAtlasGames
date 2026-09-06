@@ -41,6 +41,10 @@ def game(
 
 
 def main() -> None:
+    import unittest
+    from test_ai_balance_pause import BalancePauseTests
+    result = unittest.TextTestRunner().run(unittest.defaultTestLoader.loadTestsFromTestCase(BalancePauseTests))
+    assert result.wasSuccessful(), "AI balance pause regression"
     assert campaign_region_in_scope("PAL España")
     assert campaign_region_in_scope("España")
     assert campaign_region_in_scope("PAL Europa")

@@ -9,6 +9,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 from typing import Any
+from collectors.ai_balance import check_billing_error
 
 from collectors.common import load_json, now_iso, save_json
 from collectors.cache_policy import attach_policy_version, cache_policy_matches
@@ -146,7 +147,10 @@ def classify_condition_from_images(
             ]
         )
         parsed = json.loads(raw)
-    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, json.JSONDecodeError, KeyError, RuntimeError):
+    except urllib.error.HTTPError as exc:
+        check_billing_error(exc)
+        return None, 0.0, "vision_error"
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, KeyError, RuntimeError):
         return None, 0.0, "vision_error"
 
     bucket_raw = parsed.get("bucket")
