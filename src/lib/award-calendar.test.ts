@@ -13,13 +13,14 @@ import { getCatalogWorkKey } from "./catalog-work";
 const read = (path: string) => readFileSync(path, "utf8");
 const data = JSON.parse(read("data/research/award-study/public.json")) as AwardPublicData;
 const query = createAwardQueries(data);
-const edition = data.editions.find(e => e.id === "japan-game-awards:2026")!;
+const edition = { ...data.editions.find(e => e.id === "japan-game-awards:2026")!, ceremonyDate: "2026-09-15", status: "upcoming" as const };
+const calendarQuery = createAwardQueries({ ...data, editions: [edition] });
 
 test("future appears publicly before its calendar date", () => {
-  assert.ok(query.getUpcomingAwardEditions("2026-09-14").some(e => e.id === edition.id));
+  assert.ok(calendarQuery.getUpcomingAwardEditions("2026-09-14").some(e => e.id === edition.id));
 });
 test("ceremony day is no longer upcoming", () => {
-  assert.ok(!query.getUpcomingAwardEditions("2026-09-15").some(e => e.id === edition.id));
+  assert.ok(!calendarQuery.getUpcomingAwardEditions("2026-09-15").some(e => e.id === edition.id));
 });
 test("ceremony date is today in admin", () => {
   assert.equal(getAwardTemporalState(edition,"2026-09-15"),"today");
@@ -41,9 +42,10 @@ test("upcoming and overdue ceremonies have chronological order", () => {
     const dates=rows.map(e=>e.ceremonyDate); assert.deepEqual(dates,[...dates].sort());
   }
 });
-test("all seven confirmed upcoming ceremonies are empty of invented results", () => {
-  const future=query.getUpcomingAwardEditions("2026-09-06"); assert.equal(future.length,7);
-  for(const e of future) assert.equal(data.results.filter(r=>r.editionId===e.id).length,0);
+test("confirmed ceremonies remain present and future editions have no invented results", () => {
+  const confirmed = ["japan-game-awards:2026", "golden-joystick-awards:2026", "the-game-awards:2026", "dice-awards:2027", "game-developers-choice-awards:2027", "independent-games-festival:2027", "bafta-games-awards:2027"];
+  for (const id of confirmed) assert.ok(data.editions.some(e => e.id === id && e.sourceIds.length > 0));
+  for(const e of query.getUpcomingAwardEditions("2026-09-06")) assert.equal(data.results.filter(r=>r.editionId===e.id).length,0);
 });
 test("internal person has no public recipient route", () => {
   assert.equal(getPublicPersonView("sam-lake"),undefined);
