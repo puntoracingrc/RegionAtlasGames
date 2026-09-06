@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+from collectors.ai_usage import record_usage
 import json
 import os
 import re
@@ -153,6 +154,7 @@ def _openai_vision(messages: list[dict[str, Any]]) -> str:
     )
     with urllib.request.urlopen(req, timeout=90) as resp:
         payload = json.loads(resp.read().decode("utf-8"))
+    record_usage(payload, model=model, operation="region_cover_vision")
     return str(payload["choices"][0]["message"]["content"])
 
 

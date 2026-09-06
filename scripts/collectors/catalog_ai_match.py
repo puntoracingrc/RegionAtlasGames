@@ -1,6 +1,7 @@
 """Disambiguación catálogo ↔ producto con LLM (casos ambiguos, todas las fuentes)."""
 
 from __future__ import annotations
+from collectors.ai_usage import record_usage
 
 import json
 import os
@@ -85,6 +86,7 @@ def _openai_chat(messages: list[dict[str, str]]) -> str:
     )
     with urllib.request.urlopen(req, timeout=60) as resp:
         payload = json.loads(resp.read().decode("utf-8"))
+    record_usage(payload, model=model, operation="catalog_ai_match")
     return str(payload["choices"][0]["message"]["content"])
 
 
