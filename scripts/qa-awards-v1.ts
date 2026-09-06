@@ -25,19 +25,23 @@ try {
     for (const [index,path] of routes.entries()) {
       const url = new URL(path,base).href;
       const response = await fetch(url,{headers:{Connection:"close"}}); assert.equal(response.status,200,url);
+      run("console","--clear");
+      run("errors","--clear");
       run("open",url);
       run("eval",`(async()=>{for(const img of document.images){img.loading='eager';}await Promise.all(Array.from(document.images).map(i=>Promise.race([i.decode().catch(()=>{}),new Promise(r=>setTimeout(r,15000))])));return true;})()`);
       const data = run("eval",`({url:location.href,title:document.title,h1:document.querySelector('h1')?.textContent,overflow:document.documentElement.scrollWidth>innerWidth+1,broken:Array.from(document.images).filter(i=>i.getClientRects().length&&i.complete&&i.naturalWidth===0).map(i=>i.currentSrc),canonical:document.querySelector('link[rel=canonical]')?.getAttribute('href'),awardHeadings:Array.from(document.querySelectorAll('h2,h3')).filter(e=>e.textContent?.includes('Premios')).map(e=>e.textContent)})`).result;
       const errors = run("errors").errors;
+      const consoleErrors = run("console").messages.filter((m:{type:string}) => m.type === "error");
       run("screenshot",`${out}/${name}-${index}.png`);
       if (path.startsWith("/persona/") || path.startsWith("/catalogo/") || path.startsWith("/compania/")) {
         run("eval",`(()=>{const e=Array.from(document.querySelectorAll('h2,h3')).find(e=>e.textContent==='Premios y reconocimientos');e?.scrollIntoView({block:'start'});return !!e;})()`);
         run("screenshot",`${out}/${name}-${index}-awards.png`);
       }
-      results.push({viewport:name,path,status:response.status,...data,errors});
+      results.push({viewport:name,path,status:response.status,...data,errors,consoleErrors});
       writeFileSync(`${out}/report.json`,JSON.stringify({base,results},null,2)+"\n");
       assert.ok(!data.overflow,`Overflow: ${name} ${path}`);
       assert.deepEqual(errors,[],`Console: ${path}`);
+      assert.deepEqual(consoleErrors,[],`Console messages: ${path}`);
       assert.deepEqual(data.broken,[],`Images: ${path}`);
       if (path.startsWith("/premios")) assert.equal(new URL(data.canonical).pathname,path,`Canonical: ${path}`);
       if (path.startsWith("/persona/") || path.startsWith("/catalogo/") || path.startsWith("/compania/")) assert.equal(data.awardHeadings.filter((h:string) => h === "Premios y reconocimientos").length,1,`Single awards block: ${path}`);
