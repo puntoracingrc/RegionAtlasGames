@@ -9,6 +9,7 @@ import { getPublicPersonProfiles } from "@/lib/person-public-research";
 import { listPublicSeriesIndexEntries } from "@/lib/admin-series-manager";
 import { listPublicFranchiseIndexEntries } from "@/lib/admin-franchise-manager";
 import { getLegacySeriesRedirect } from "@/lib/franchise-system";
+import { getAwardSitemapEntries } from "@/lib/award-public-research";
 
 export const dynamic = "force-dynamic";
 
@@ -67,6 +68,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
 
   return [
+    ...getAwardSitemapEntries().map(path => ({ url: `${base}${path}`, changeFrequency: "monthly" as const, priority: 0.6 })),
     ...staticRoutes,
     ...platformRoutes,
     ...franchiseRoutes,

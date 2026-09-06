@@ -24,10 +24,15 @@ export function createAwardQueries(awards: AwardPublicData) {
     const unique = [...new Map(rows.map(r => [r.id, r])).values()];
     const wins = unique.filter(isWinningAwardResult);
     const major = wins.filter(r => awards.categories.some(c => c.id === r.categoryId && c.categoryType === "top_game" && c.prestigeGroup === "major_global"));
-    return { wins: wins.length, nominations: unique.filter(r => r.resultType === "nominee").length, majorTopAwardCount: major.length, majorTopAwardOrganizationCount: new Set(major.map(r => r.seriesSlug)).size };
+    return { wins: wins.length, nominations: unique.filter(r => r.resultType === "nominee" || r.resultType === "finalist").length, majorTopAwardCount: major.length, majorTopAwardOrganizationCount: new Set(major.map(r => r.seriesSlug)).size };
   };
   return {
+    getAwardWork: (workKey: string) => awards.workLinks.find(w => w.workKey === workKey),
+    getAwardSources: (ids: string[]) => awards.sources.filter(s => ids.includes(s.id)),
+    getAwardResultContext: (result: AwardPublicResult) => ({ series: getSeries(result.seriesSlug)!, edition: awards.editions.find(e => e.id === result.editionId)!, category: awards.categories.find(c => c.id === result.categoryId)! }),
+    getLinkedLegacyAwardIds: () => new Set(awards.legacyLinks.map(l => l.legacyAwardId)),
     getPublicAwardSeries: () => awards.series,
+    getUpcomingAwardEditions: () => awards.editions.filter(e => e.status === "upcoming" && e.ceremonyDate).sort((a,b) => a.ceremonyDate!.localeCompare(b.ceremonyDate!)),
     getPublicAwardSeriesSlugs: () => awards.series.map(s => s.slug),
     getAwardSeriesView: (seriesSlug: string) => getSeries(seriesSlug) ? { series: getSeries(seriesSlug)!, editions: awards.editions.filter(e => e.seriesSlug === seriesSlug), categories: awards.categories.filter(c => c.seriesSlug === seriesSlug), results: results.filter(r => r.seriesSlug === seriesSlug) } : undefined,
     getAwardEditionView: (seriesSlug: string, year: number) => { const edition = getEdition(seriesSlug, year); return edition ? { edition, results: results.filter(r => r.editionId === edition.id) } : undefined; },
@@ -48,4 +53,6 @@ export const {
   getAwardCategoryHistory, getAwardsForWorkKey, getDirectAwardsForPerson, getWorkAwardsForPerson,
   getDirectAwardsForCompany, getDevelopedGameAwardsForCompany, getPublishedGameAwardsForCompany,
   getLatestAwardWinners, getAwardSitemapEntries, getAwardStats,
+  getAwardWork, getAwardSources, getAwardResultContext, getLinkedLegacyAwardIds,
+  getUpcomingAwardEditions,
 } = createAwardQueries(data as AwardPublicData);
