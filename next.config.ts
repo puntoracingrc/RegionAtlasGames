@@ -106,6 +106,9 @@ const nextConfig: NextConfig = {
       "data/research/ps4-pal-compilations-source.json",
       "data/research/ps4-pal-high-*.csv",
       "data/research/ps4-pal-residual-company-research-queue.csv",
+      // Award runtime data is statically imported from public.json; research is build-time only.
+      "data/research/award-study/**",
+      "data/research/award-editorial-approvals.json",
       "data/**/*.local.json",
       "public/catalog-details/**",
       "public/mascots/**",

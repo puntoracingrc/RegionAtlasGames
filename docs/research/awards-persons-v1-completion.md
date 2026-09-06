@@ -61,6 +61,8 @@ Run `node scripts/verify-awards-v1-scope.mjs aa65457c7acc54e33745b1615c96a5997ce
 
 The historical PS4 rapid-review checks previously required the shared identity map to have exactly their old size. They now check every original mapping as an exact subset, preserving the existing Annapurna successor exception. No batch credit or catalog data changes accompany this compatibility adjustment.
 
+The first Vercel Preview passed compilation but exceeded the 250 MB function packaging limit (250.65 MB for an Admin route). Award research inputs are now excluded from function file tracing. The public artifact remains statically imported and compiled into server code; no runtime reader uses raw award research files. This preserves the public-data-only boundary without enabling a larger-function beta or changing production environment variables.
+
 ## Reproduction
 
 ```sh
