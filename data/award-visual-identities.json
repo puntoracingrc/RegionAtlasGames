@@ -1,9 +1,126 @@
 {
-  "the-game-awards": {"logoPath":"/award-logos/TGA_HORIZONTAL_LOGOTYPE.svg","logoDarkPath":null,"sourceUrl":"https://thegameawards.com/about","downloadUrl":"https://cdn.thegameawards.com/frontend/_temp/about/media_kit/TGA-2025-LogoPack.zip","usageStatus":"official_media_kit","credit":"The Game Awards","reviewedAt":"2026-09-06","editionYear":null,"notes":"Logotipo horizontal negro sin año del media kit oficial. Sin modificaciones, sobre blanco y con espacio libre."},
-  "japan-game-awards": {"logoPath":"/award-logos/japan-game-awards-2026.jpg","logoDarkPath":null,"sourceUrl":"https://awards.cesa.or.jp/en/download/","downloadUrl":"https://awards.cesa.or.jp/images/logo.jpg","usageStatus":"official_download","credit":"CESA","reviewedAt":"2026-09-06","editionYear":2026,"notes":"Descarga oficial para identificación editorial, sin modificación. Marca anual: no se aplica a otras ediciones. No se reutilizan banners promocionales de votación."},
-  "dice-awards": {"logoPath":"/award-logos/29th-DICE-Awards-Blue-h.png","logoDarkPath":null,"sourceUrl":"https://www.interactive.org/about/aias_media_assets.asp","downloadUrl":"https://www.interactive.org/images/about/29th-DICE-Awards.zip","usageStatus":"official_download","credit":"Academy of Interactive Arts & Sciences","reviewedAt":"2026-09-06","editionYear":2026,"notes":"Programa oficial de assets: preservar forma y amplio espacio libre. Logo de la edición 29, no se aplica a otras ediciones."},
-  "bafta-games-awards": {"logoPath":null,"logoDarkPath":null,"sourceUrl":"https://www.bafta.org/media-centre/logo-branding/","usageStatus":"permission_required","credit":"BAFTA","reviewedAt":"2026-09-06","editionYear":null,"notes":"Todo uso requiere aprobación. RegionAtlas no dispone de permiso documentado."},
-  "game-developers-choice-awards": {"logoPath":null,"logoDarkPath":null,"sourceUrl":"https://gamechoiceawards.com/","usageStatus":"permission_required","credit":null,"reviewedAt":"2026-09-06","editionYear":null,"notes":"No se ha verificado permiso de reutilización editorial del logo para RegionAtlas."},
-  "golden-joystick-awards": {"logoPath":null,"logoDarkPath":null,"sourceUrl":"https://www.futureevents.uk/goldenjoystickawards2026/home","usageStatus":"permission_required","credit":null,"reviewedAt":"2026-09-06","editionYear":null,"notes":"Fecha verificada en Future. No se ha verificado autorización de uso del logo."},
-  "independent-games-festival": {"logoPath":null,"logoDarkPath":null,"sourceUrl":"https://igf.com/igf-competition-rules/","usageStatus":"permission_required","credit":null,"reviewedAt":"2026-09-06","editionYear":null,"notes":"Las reglas conceden uso de laureles a finalistas y ganadores; no acreditan permiso para RegionAtlas."}
+  "the-game-awards": {
+    "logoPath": "/award-logos/TGA_HORIZONTAL_LOGOTYPE.svg",
+    "logoDarkPath": null,
+    "sourceUrl": "https://thegameawards.com/about",
+    "downloadUrl": "https://cdn.thegameawards.com/frontend/_temp/about/media_kit/TGA-2025-LogoPack.zip",
+    "usageStatus": "official_media_kit",
+    "credit": "The Game Awards",
+    "reviewedAt": "2026-09-06",
+    "editionYear": null,
+    "notes": "Logotipo horizontal negro sin año del media kit oficial. Sin modificaciones, sobre blanco y con espacio libre."
+  },
+  "japan-game-awards": {
+    "logoPath": "/award-logos/japan-game-awards-2026.jpg",
+    "logoDarkPath": null,
+    "sourceUrl": "https://awards.cesa.or.jp/en/download/",
+    "downloadUrl": "https://awards.cesa.or.jp/images/logo.jpg",
+    "usageStatus": "official_download",
+    "credit": "CESA",
+    "reviewedAt": "2026-09-06",
+    "editionYear": 2026,
+    "notes": "Descarga oficial para identificación editorial, sin modificación. Marca anual: no se aplica a otras ediciones. No se reutilizan banners promocionales de votación.",
+    "editions": {
+      "2023": {
+        "logoPath": "/award-logos/japan-game-awards-2023.png",
+        "logoDarkPath": null,
+        "sourceUrl": "https://awards.cesa.or.jp/2023/en/download/",
+        "downloadUrl": "https://awards.cesa.or.jp/2023/en/download/img/logo.png",
+        "usageStatus": "official_download",
+        "credit": "CESA",
+        "reviewedAt": "2026-09-06",
+        "editionYear": 2023,
+        "notes": "Logo oficial de 2023. Solo para esta edición, sin modificaciones."
+      },
+      "2024": {
+        "logoPath": "/award-logos/japan-game-awards-2024.svg",
+        "logoDarkPath": null,
+        "sourceUrl": "https://awards.cesa.or.jp/2024/en/download/",
+        "downloadUrl": "https://awards.cesa.or.jp/2024/images/logo.svg",
+        "usageStatus": "official_download",
+        "credit": "CESA",
+        "reviewedAt": "2026-09-06",
+        "editionYear": 2024,
+        "notes": "Logo anual oficial, sin modificaciones. No se aplica a otras ediciones."
+      },
+      "2025": {
+        "logoPath": "/award-logos/japan-game-awards-2025.jpg",
+        "logoDarkPath": null,
+        "sourceUrl": "https://awards.cesa.or.jp/2025/en/download/",
+        "downloadUrl": "https://awards.cesa.or.jp/2025/images/logo.jpg",
+        "usageStatus": "official_download",
+        "credit": "CESA",
+        "reviewedAt": "2026-09-06",
+        "editionYear": 2025,
+        "notes": "Logo anual oficial, sin modificaciones. No se aplica a otras ediciones."
+      }
+    }
+  },
+  "dice-awards": {
+    "logoPath": "/award-logos/dice-awards.png",
+    "logoDarkPath": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:D.I.C.E._Awards_logo.png",
+    "usageStatus": "public_domain_textlogo",
+    "credit": "Academy of Interactive Arts & Sciences",
+    "reviewedAt": "2026-09-06",
+    "editionYear": null,
+    "license": "PD-textlogo",
+    "notes": "Logo sin año para identificación editorial. Commons documenta PD-textlogo; no implica patrocinio ni permiso de marca. Archivo sin modificaciones.",
+    "editions": {
+      "2026": {
+        "logoPath": "/award-logos/29th-DICE-Awards-Blue-h.png",
+        "logoDarkPath": null,
+        "sourceUrl": "https://www.interactive.org/about/aias_media_assets.asp",
+        "downloadUrl": "https://www.interactive.org/images/about/29th-DICE-Awards.zip",
+        "usageStatus": "official_download",
+        "credit": "Academy of Interactive Arts & Sciences",
+        "reviewedAt": "2026-09-06",
+        "editionYear": 2026,
+        "notes": "Programa oficial de assets: preservar forma y amplio espacio libre. Logo de la edición 29, no se aplica a otras ediciones."
+      }
+    }
+  },
+  "bafta-games-awards": {
+    "logoPath": null,
+    "logoDarkPath": null,
+    "sourceUrl": "https://www.bafta.org/media-centre/logo-branding/",
+    "usageStatus": "permission_required",
+    "credit": "BAFTA",
+    "reviewedAt": "2026-09-06",
+    "editionYear": null,
+    "notes": "Todo uso requiere aprobación. RegionAtlas no dispone de permiso documentado."
+  },
+  "game-developers-choice-awards": {
+    "logoPath": "/award-logos/gdca.svg",
+    "logoDarkPath": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Game_Developers_Choice_Awards.svg",
+    "usageStatus": "public_domain_textlogo",
+    "credit": "Informa PLC",
+    "reviewedAt": "2026-09-06",
+    "editionYear": null,
+    "license": "PD-textlogo",
+    "notes": "Logo sin año para identificación editorial. Commons documenta PD-textlogo; no implica patrocinio ni permiso de marca. Archivo sin modificaciones."
+  },
+  "golden-joystick-awards": {
+    "logoPath": "/award-logos/golden-joystick.svg",
+    "logoDarkPath": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_Joystick_Awards_Logo.svg",
+    "usageStatus": "public_domain_textlogo",
+    "credit": "Future Publishing Limited",
+    "reviewedAt": "2026-09-06",
+    "editionYear": null,
+    "license": "PD-textlogo",
+    "notes": "Logo sin año para identificación editorial. Commons documenta PD-textlogo; no implica patrocinio ni permiso de marca. Archivo sin modificaciones."
+  },
+  "independent-games-festival": {
+    "logoPath": "/award-logos/igf.svg",
+    "logoDarkPath": null,
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Independent_Games_Festival_Logo.svg",
+    "usageStatus": "public_domain_textlogo",
+    "credit": "Independent Games Festival",
+    "reviewedAt": "2026-09-06",
+    "editionYear": null,
+    "license": "PD-textlogo",
+    "notes": "Logo sin año para identificación editorial. Commons documenta PD-textlogo; no implica patrocinio ni permiso de marca. Archivo sin modificaciones."
+  }
 }

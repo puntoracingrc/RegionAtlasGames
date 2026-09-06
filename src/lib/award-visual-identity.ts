@@ -4,13 +4,19 @@ export type AwardVisualIdentity = {
   logoPath: string | null;
   logoDarkPath: string | null;
   sourceUrl: string;
-  usageStatus: "official_media_kit" | "official_download" | "permission_verified" | "permission_required" | "unavailable";
+  usageStatus: "official_media_kit" | "official_download" | "permission_verified" | "public_domain_textlogo" | "permission_required" | "unavailable";
   credit: string | null;
   editionYear: number | null;
+  editions?: Record<string, AwardVisualIdentity>;
 };
 
+export function awardIdentityForYear(identity: AwardVisualIdentity | undefined, year?: number): AwardVisualIdentity | undefined {
+  return year === undefined ? identity : identity?.editions?.[String(year)] ?? identity;
+}
+
 export function approvedAwardLogo(identity: AwardVisualIdentity | undefined, year?: number): string | null {
-  if (!identity || !["official_media_kit", "official_download", "permission_verified"].includes(identity.usageStatus)) return null;
+  identity = awardIdentityForYear(identity, year);
+  if (!identity || !["official_media_kit", "official_download", "permission_verified", "public_domain_textlogo"].includes(identity.usageStatus)) return null;
   if (year !== undefined && identity.editionYear !== null && identity.editionYear !== year) return null;
   return identity.logoPath?.startsWith("/award-logos/") ? identity.logoPath : null;
 }
