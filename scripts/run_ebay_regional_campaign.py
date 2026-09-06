@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from collectors.common import load_json, now_iso, save_json  # noqa: E402
+from collectors.ai_usage import usage_batch, summarize_usage  # noqa: E402
 from collectors.ebay_cover_candidates import empty_cover_queue, merge_cover_candidates  # noqa: E402
 from collectors.ebay_region_policy import ebay_regional_policy  # noqa: E402
 
@@ -643,7 +644,11 @@ def main() -> None:
     validate_runtime_environment()
     platform_slug = str(platform_state["platformSlug"])
 
-    with tempfile.TemporaryDirectory(prefix=f"region-atlas-ebay-{platform_slug}-") as temp_dir:
+    with usage_batch(
+        GLOBAL_STATE_FILE.parent / "ai-usage", platform=platform_slug, region=region["catalogRegion"],
+        selected=len(selected), githubRunId=os.environ.get("GITHUB_RUN_ID"),
+        githubRunAttempt=os.environ.get("GITHUB_RUN_ATTEMPT"),
+    ) as usage_file, tempfile.TemporaryDirectory(prefix=f"region-atlas-ebay-{platform_slug}-") as temp_dir:
         temp = Path(temp_dir)
         ids_file = temp / "catalog-ids.json"
         sync_ids_file = temp / "sync-catalog-ids.json"
@@ -738,6 +743,10 @@ def main() -> None:
             systemic_error=systemic_error,
         )
         last_entry = platform_state["log"][-1]
+        ai_usage = summarize_usage(usage_file)
+        platform_state["lastRun"]["aiUsage"] = ai_usage
+        last_entry["aiUsage"] = ai_usage
+        print("OpenAI tokens de la tanda: " + str(ai_usage))
         daily_usage["apiSearches"] = min(
             DAILY_SEARCH_BUDGET,
             int(daily_usage["apiSearches"]) + api_searches,

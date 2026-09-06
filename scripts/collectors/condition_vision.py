@@ -1,6 +1,7 @@
 """Clasificación de estado (suelto / completo / precintado) con visión."""
 
 from __future__ import annotations
+from collectors.ai_usage import record_usage
 
 import hashlib
 import json
@@ -75,6 +76,7 @@ def _openai_vision(messages: list[dict[str, Any]]) -> str:
     )
     with urllib.request.urlopen(req, timeout=90) as resp:
         payload = json.loads(resp.read().decode("utf-8"))
+    record_usage(payload, model=model, operation="condition_vision")
     return str(payload["choices"][0]["message"]["content"])
 
 

@@ -11,6 +11,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from collectors.ai_balance import AiBalanceExhausted, check_billing_error
+from collectors.ai_usage import record_usage
 import run_ebay_regional_campaign as campaign
 
 
@@ -54,6 +55,8 @@ class BalancePauseTests(unittest.TestCase):
 
             def collect(command):
                 self.assertIn("collect_ebay_es.py", command[1])
+                record_usage({"usage": {"prompt_tokens": 10, "completion_tokens": 2,
+                              "total_tokens": 12}}, model="test-model", operation="test")
                 report = Path(command[command.index("--report-output") + 1])
                 report.write_text(json.dumps({"pauseReason": "ai_balance_exhausted", "apiSearches": 1, "catalogIdsProcessed": ["test"], "catalogIdsWithListings": ["test"], "listingsAdded": 1}))
                 return 0
@@ -65,6 +68,8 @@ class BalancePauseTests(unittest.TestCase):
                 self.assertEqual(state["totals"]["completed"], 0)
                 self.assertEqual(state["totals"]["pending"], 1)
                 self.assertEqual(state["dailyUsage"]["apiSearches"], 1)
+                self.assertEqual(state["lastRun"]["aiUsage"]["totalTokens"], 12)
+                self.assertEqual(len(list((root / "ai-usage").glob("*.jsonl"))), 1)
                 self.assertEqual(json.loads(catalog_file.read_text()), catalog)
                 run.assert_called_once()
                 campaign.main()
