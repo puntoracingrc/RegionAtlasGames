@@ -141,3 +141,22 @@ test("public query layer imports only the generated award artifact", () => {
   const imports = [...source.matchAll(/from\s+["']([^"']+)["']/g)].map(m => m[1]);
   assert.deepEqual(imports.filter(p => p.includes("award-study")), ["../../data/research/award-study/public.json"]);
 });
+
+test("official games without a catalog identity never propagate by title or QID", () => {
+  const { data, context } = fixture();
+  data.results[0].recipients = [{ type: "game", workKey: null, displayName: "Test game", workQid: "Q123" }];
+  const output = buildAwardPublicData(data, context).publicData;
+  const q = createAwardQueries(output);
+  assert.equal(output.results.length, 1);
+  assert.equal(q.getAwardsForWorkKey("audited-work").length, 0);
+  assert.equal(q.getAwardsForWorkKey("Test game").length, 0);
+  assert.equal(q.getWorkAwardsForPerson("person").length, 0);
+  assert.equal(q.getDevelopedGameAwardsForCompany("studio").length, 0);
+});
+
+test("different unlinked joint winners remain distinct official recipients", () => {
+  const { data, context } = fixture();
+  data.results[0].shared = true;
+  data.results[0].recipients = ["Game A", "Game B"].map(displayName => ({ type: "game" as const, workKey: null, displayName }));
+  assert.equal(buildAwardPublicData(data, context).publicData.results[0].recipients.length, 2);
+});

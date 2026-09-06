@@ -1,0 +1,17 @@
+{
+  "batch":"AWARDS-PERSONS-V1",
+  "reviewedAt":"2026-09-06",
+  "records":[
+    {"slug":"hidetaka-miyazaki","qid":"Q11454590","action":"MATCH_ENRICH","status":"PUBLIC_EXISTING","evidence":"Premio personal Golden Joystick 2018 y crédito exacto de dirección de Elden Ring. No se atribuye GOTY a la persona."},
+    {"slug":"hideo-kojima","qid":"Q315577","action":"MATCH_ENRICH","status":"PUBLIC_EXISTING","evidence":"Fellowship, Lifetime Achievement, Hall of Fame e Industry Icon. Death Stranding enlazado mediante PWORK-00071, sin convertir premios de dirección o música de la obra en premios personales."},
+    {"slug":"shigeru-miyamoto","qid":"Q12382","action":"MATCH_ENRICH","status":"PUBLIC_EXISTING","evidence":"Fellowship 2010, Hall of Fame 1998 y Lifetime Achievement 2007. Conservados reconocimientos externos a las siete organizaciones."},
+    {"slug":"sam-lake","qid":"Q1065520","action":"MATCH_ENRICH_INTERNAL","status":"NEEDS_REVIEW","evidence":"GDCA confirma Lifetime Achievement 2025. La persona sigue READY_STRUCTURED; falta aprobación editorial pública. No convertir Creative Director de Control en Game Director.","urls":["https://gamechoiceawards.com/archive-lifetime-achievement-award/"]},
+    {"slug":"todd-howard","qid":"Q2606967","action":"MATCH_ENRICH_INTERNAL","status":"NEEDS_REVIEW","evidence":"GDCA confirma Lifetime Achievement 2016. Sigue READY_STRUCTURED; falta aprobación editorial pública.","urls":["https://gamechoiceawards.com/archive-lifetime-achievement-award/"]},
+    {"slug":"eric-barone","qid":"Q44914560","action":"MATCH_KEEP_INTERNAL","status":"NEEDS_REVIEW","evidence":"READY_STRUCTURED. No hay decisión editorial pública ni premio personal de este lote confirmado con fuente primaria."},
+    {"slug":"josef-fares","qid":"Q1345960","action":"MATCH_KEEP_INTERNAL","status":"NEEDS_REVIEW","evidence":"READY_STRUCTURED. El GOTY de It Takes Two no autoriza un premio personal ni la publicación del perfil."},
+    {"slug":"naoki-yoshida","qid":"Q6964576","action":"MATCH_KEEP_INTERNAL","status":"NEEDS_REVIEW","evidence":"READY_STRUCTURED. No confundir producción con dirección; falta aprobación editorial pública."},
+    {"slug":"neil-druckmann","qid":"Q13655731","action":"MATCH_KEEP_INTERNAL","status":"NEEDS_REVIEW","evidence":"READY_STRUCTURED. No heredar premios de Naughty Dog; falta aprobación editorial pública."},
+    {"slug":"swen-vincke","qid":"Q17125907","action":"IDENTITY_CANDIDATE_ONLY","status":"NEEDS_REVIEW","evidence":"QID humano localizado y AIAS identifica al fundador y director de Larian. No existe perfil editorial aprobado; no crear automáticamente ni heredar GOTY de Baldur's Gate 3.","urls":["https://www.wikidata.org/wiki/Q17125907","https://www.diceeurope.org/dice_speakers/details.asp?idSpeaker=10379"]},
+    {"slug":"guillaume-broche","qid":null,"action":"IDENTITY_CANDIDATE_ONLY","status":"NEEDS_REVIEW","evidence":"Identidad profesional localizada en el equipo oficial de Sandfall. QID no resuelto con seguridad; no crear una persona solo por nombre.","urls":["https://www.sandfall.co/team"]}
+  ]
+}

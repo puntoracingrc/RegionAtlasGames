@@ -24,7 +24,8 @@ export type AwardCategory = {
   successorCategoryId: string | null; sourceIds: string[];
 };
 export type AwardRecipientRef =
-  | { type: "game"; workKey: string; displayName: string; workQid?: string | null }
+  // An official recipient can exist without a verified physical catalog identity.
+  | { type: "game"; workKey: string | null; displayName: string; workQid?: string | null }
   | { type: "person"; personSlug: string | null; displayName: string; personQid?: string | null }
   | { type: "company"; companySlug: string | null; displayName: string }
   | { type: "team" | "other"; key: string; displayName: string };

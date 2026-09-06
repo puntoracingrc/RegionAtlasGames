@@ -77,7 +77,7 @@ export function buildAwardPublicData(data: AwardResearchData, context: AwardBuil
     requireValue(["winner", "nominee", "finalist", "honorable_mention", "recipient", "special_recognition"].includes(r.resultType), `Invalid result type ${r.id}`);
     evidence(r.sourceIds);
     requireValue(r.recipients.length > 0, `Missing recipient ${r.id}`);
-    unique(r.recipients.map(p => p.type === "game" ? `game:${p.workKey}` : p.type === "person" ? `person:${p.personQid ?? p.personSlug ?? p.displayName}` : p.type === "company" ? `company:${p.companySlug ?? p.displayName}` : `${p.type}:${p.key}`), "recipients");
+    unique(r.recipients.map(p => p.type === "game" ? `game:${p.workKey ?? p.displayName}` : p.type === "person" ? `person:${p.personQid ?? p.personSlug ?? p.displayName}` : p.type === "company" ? `company:${p.companySlug ?? p.displayName}` : `${p.type}:${p.key}`), "recipients");
     for (const p of r.recipients) {
       const fields = p.type === "game" ? "type workKey displayName workQid" : p.type === "person" ? "type personSlug displayName personQid" : p.type === "company" ? "type companySlug displayName" : "type key displayName";
       requireValue(Object.keys(p).every(k => fields.split(" ").includes(k)), `Unexpected private recipient field ${r.id}`);
@@ -85,8 +85,8 @@ export function buildAwardPublicData(data: AwardResearchData, context: AwardBuil
       requireValue(["game", "person", "company", "team", "other"].includes(p.type), `Unknown recipient type ${r.id}`);
       if (p.type === "person" && p.personSlug) requireValue(context.publicPeople.has(p.personSlug) && (!p.personQid || context.publicPeople.get(p.personSlug) === p.personQid), `Non-public or mismatched person ${r.id}`);
       if (p.type === "company" && p.companySlug) requireValue(context.companies.has(p.companySlug), `Unknown company ${r.id}`);
-      if (p.type === "game") requireValue(works.has(p.workKey), `Unaudited award work ${r.id}`);
-      const identity = p.type === "game" ? p.workKey : p.type === "person" ? p.personQid ?? p.personSlug ?? p.displayName : p.type === "company" ? p.companySlug ?? p.displayName : p.key;
+      if (p.type === "game") requireValue(p.workKey === null || works.has(p.workKey), `Unaudited award work ${r.id}`);
+      const identity = p.type === "game" ? p.workKey ?? p.displayName : p.type === "person" ? p.personQid ?? p.personSlug ?? p.displayName : p.type === "company" ? p.companySlug ?? p.displayName : p.key;
       const fact = `${r.editionId}:${r.categoryId}:${p.type}:${identity}`;
       requireValue(!resultFacts.has(fact), `Duplicate award fact ${r.id}`);
       resultFacts.add(fact);
@@ -111,7 +111,7 @@ export function buildAwardPublicData(data: AwardResearchData, context: AwardBuil
   const review: { id: string; reason: string }[] = [];
   const publicResults: AwardPublicResult[] = [];
   for (const r of data.results) {
-    const ready = approved("result", r.id) && r.publicationStatus === "published" && r.verificationStatus === "VERIFIED" && r.confidence === "HIGH" && primaryEvidence(r.sourceIds) && publicEditions.some(e => e.id === r.editionId) && publicCategories.some(c => c.id === r.categoryId) && r.recipients.every(p => p.type !== "game" || workKeys.has(p.workKey));
+    const ready = approved("result", r.id) && r.publicationStatus === "published" && r.verificationStatus === "VERIFIED" && r.confidence === "HIGH" && primaryEvidence(r.sourceIds) && publicEditions.some(e => e.id === r.editionId) && publicCategories.some(c => c.id === r.categoryId) && r.recipients.every(p => p.type !== "game" || p.workKey === null || workKeys.has(p.workKey));
     if (!ready) { review.push({ id: r.id, reason: "Unapproved, unverified or unresolved publication dependency" }); continue; }
     const edition = editions.get(r.editionId)!;
     requireValue(!isWinningAwardResult(r) || ["completed", "corrected"].includes(edition.status), `Winner in unfinished edition ${r.id}`);

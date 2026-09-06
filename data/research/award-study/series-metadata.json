@@ -1,0 +1,19 @@
+{
+  "series": [
+    {"slug":"the-game-awards","foundedYear":2014,"scope":"Internacional","selectionModel":"Votación combinada: jurado internacional (90 %) y público (10 %), salvo categorías con reglas propias.","specialization":"Videojuegos y disciplinas creativas","url":"https://thegameawards.com/faq"},
+    {"slug":"dice-awards","foundedYear":1998,"scope":"Internacional","selectionModel":"Paneles de profesionales seleccionan finalistas y los miembros de la Academy of Interactive Arts & Sciences votan según las reglas de cada categoría.","specialization":"Reconocimiento profesional entre pares","url":"https://www.interactive.org/awards/voting_rules.asp"},
+    {"slug":"bafta-games-awards","foundedYear":2004,"scope":"Internacional","selectionModel":"La votación combina miembros de BAFTA Games y jurados especializados según la categoría. Best Game se decide mediante el voto de sus miembros.","specialization":"Excelencia creativa y técnica","url":"https://www.bafta.org/awards/games-rules/"},
+    {"slug":"game-developers-choice-awards","foundedYear":2001,"scope":"Internacional","selectionModel":"ICAN y el comité de premios participan en las rondas de nominación y selección. Audience Award utiliza una votación pública independiente.","specialization":"Comunidad profesional de desarrollo","url":"https://gamechoiceawards.com/rules/"},
+    {"slug":"golden-joystick-awards","foundedYear":1983,"scope":"Internacional","selectionModel":"Un panel prepara las candidaturas y el público vota al Ultimate Game of the Year. Algunos reconocimientos especiales los decide el jurado.","specialization":"Votación de jugadores","url":"https://www.gamesradar.com/goldenjoystickawards/"},
+    {"slug":"japan-game-awards","foundedYear":1997,"scope":"Juegos publicados en Japón","selectionModel":"El comité de CESA selecciona los premiados después de la votación pública, considerando sus resultados junto con criterios creativos y técnicos.","specialization":"Mercado japonés, incluidas obras internacionales","url":"https://awards.cesa.or.jp/en/year/overview/"},
+    {"slug":"independent-games-festival","foundedYear":1998,"scope":"Internacional","selectionModel":"Un comité de nominación evalúa las obras y jurados especializados seleccionan finalistas. El conjunto de jurados interviene en el gran premio.","specialization":"Desarrollo independiente","url":"https://igf.com/igf-competition-rules/"}
+  ],
+  "editions": [
+    {"seriesSlug":"the-game-awards","year":2025,"date":"2025-12-11","status":"completed","venue":"Peacock Theater","city":"Los Ángeles","url":"https://thegameawards.com/news/the-game-awards-breaks-viewership-record"},
+    {"seriesSlug":"the-game-awards","year":2026,"date":"2026-12-10","status":"upcoming","venue":"Peacock Theater","city":"Los Ángeles","url":"https://thegameawards.com/faq"},
+    {"seriesSlug":"bafta-games-awards","year":2026,"date":"2026-04-17","status":"completed","venue":null,"city":null,"url":"https://www.bafta.org/media-centre/press-releases/winners-2026-games-awards/"},
+    {"seriesSlug":"golden-joystick-awards","year":2025,"date":"2025-11-20","status":"completed","venue":null,"city":null,"url":"https://www.gamesradar.com/games/action-rpg/clair-obscur-expedition-33-ultimate-game-of-the-year-golden-joystick-awards-2025/"},
+    {"seriesSlug":"japan-game-awards","year":2025,"date":"2025-09-23","status":"completed","venue":"Iino Hall","city":"Tokio","url":"https://awards.cesa.or.jp/year/history/29.html"},
+    {"seriesSlug":"independent-games-festival","year":2027,"date":"2027-03-03","status":"upcoming","venue":"Moscone Center","city":"San Francisco","url":"https://igf.com/igf-competition-rules/"}
+  ]
+}
