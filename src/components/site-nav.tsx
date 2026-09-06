@@ -24,14 +24,18 @@ const INDUSTRY_LINKS = [
   { href: "/franquicia", label: "Franquicias" },
 ];
 
+function isIndustrySection(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`)
+    || (href === "/franquicia" && (pathname === "/saga" || pathname.startsWith("/saga/")));
+}
+
 function IndustryNavigation({ pathname, mobile = false, onNavigate }: {
   pathname: string;
   mobile?: boolean;
   onNavigate?: () => void;
 }) {
   const ref = useRef<HTMLDetailsElement>(null);
-  const active = INDUSTRY_LINKS.some(({ href }) => pathname === href || pathname.startsWith(`${href}/`))
-    || pathname === "/saga" || pathname.startsWith("/saga/");
+  const active = INDUSTRY_LINKS.some(({ href }) => isIndustrySection(pathname, href));
 
   useEffect(() => {
     const closeOutside = (event: PointerEvent) => {
@@ -69,7 +73,7 @@ function IndustryNavigation({ pathname, mobile = false, onNavigate }: {
         mobile ? "ml-3 border-l border-border pl-2" : "absolute right-0 top-full z-50 mt-3 min-w-48 rounded-lg border border-border bg-card p-2 shadow-lg",
       )}>
         {INDUSTRY_LINKS.map(({ href, label }) => {
-          const selected = pathname === href || pathname.startsWith(`${href}/`);
+          const selected = isIndustrySection(pathname, href);
           return <li key={href}>
             <IntentLink href={href} aria-current={selected ? "page" : undefined}
               className={cn("block rounded-md px-3 py-2.5 text-sm transition hover:bg-card-hover focus-visible:outline-2 focus-visible:outline-accent", selected ? "font-medium text-accent" : "text-foreground")}
@@ -218,6 +222,32 @@ export function SiteNav({
           </button>
         </div>
       </div>
+
+      {INDUSTRY_LINKS.some(({ href }) => isIndustrySection(pathname, href)) && (
+        <nav aria-label="Secciones de Industria" className="border-t border-border/70">
+          <ul className="mx-auto flex max-w-[1600px] items-center gap-1 overflow-x-auto px-4 md:gap-4 md:px-6">
+            {INDUSTRY_LINKS.map(({ href, label }) => {
+              const selected = isIndustrySection(pathname, href);
+              return (
+                <li key={href} className="shrink-0">
+                  <IntentLink
+                    href={href}
+                    aria-current={selected ? "page" : undefined}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      "block whitespace-nowrap border-b-2 px-2 py-3 text-sm transition hover:text-foreground focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent md:px-3",
+                      selected ? "border-accent font-semibold text-accent" : "border-transparent text-muted",
+                    )}
+                  >
+                    {label}
+                    <LinkPendingFeedback label={`Abriendo ${label}…`} />
+                  </IntentLink>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      )}
 
       {open && (
         <>
