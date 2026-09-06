@@ -1,16 +1,20 @@
 import Link from "next/link";
-import { ArrowUpRight, Trophy } from "lucide-react";
+import { connection } from "next/server";
+import { awardCalendarDay } from "@/lib/award-calendar";
+import { ArrowUpRight } from "lucide-react";
+import { AwardLogo } from "@/components/award-logo";
 import { AwardPageShell } from "@/components/award-page-shell";
 import { AwardResultList, AwardRecipient } from "@/components/award-results";
 import { getPublicAwardSeries, getAwardSeriesView, getLatestAwardWinners, getUpcomingAwardEditions } from "@/lib/award-public-research";
 import { awardMetadata } from "@/lib/award-seo";
 
 export const metadata = awardMetadata("Premios del videojuego", "/premios", "Ganadores, obras y trayectorias reconocidas. Archivo de los principales premios del videojuego, con fuentes oficiales.");
-export default function AwardsPage() {
+export default async function AwardsPage() {
+  await connection();
   const series = getPublicAwardSeries();
   const latest = getLatestAwardWinners();
   const winners = series.flatMap(s => latest.find(r => r.seriesSlug === s.slug && getAwardSeriesView(s.slug)!.categories.some(c => c.id === r.categoryId && c.categoryType === "top_game")) ?? []);
-  const upcoming = getUpcomingAwardEditions();
+  const upcoming = getUpcomingAwardEditions(awardCalendarDay(new Date()));
   const workGroups = new Map<string, typeof winners>();
   for (const result of winners) {
     const recipient = result.recipients[0];
@@ -25,7 +29,7 @@ export default function AwardsPage() {
     <section className="border-t border-border py-7"><h2 className="mb-5 text-xl font-bold">Premios y archivos</h2>
       <div className="grid gap-4 sm:grid-cols-2">{series.map(s => {
         const view = getAwardSeriesView(s.slug)!;
-        return <article key={s.id} className="min-w-0 rounded-lg border border-border bg-card p-5"><Trophy className="mb-3 h-5 w-5 text-accent" aria-hidden="true" /><h3 className="text-lg font-bold"><Link href={`/premios/${s.slug}`} className="hover:text-accent">{s.canonicalName}</Link></h3><p className="mt-2 text-sm leading-6 text-muted">{s.descriptionEs}</p><div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted"><span>{view.editions.length} ediciones</span><span>{view.results.length} resultados</span></div></article>;
+        return <Link key={s.id} href={`/premios/${s.slug}`} className="min-w-0 rounded-lg border border-border bg-card p-5 hover:border-accent"><AwardLogo slug={s.slug} name={s.canonicalName} /><h3 className="mt-3 text-lg font-bold">{s.canonicalName}</h3><p className="mt-2 text-sm leading-6 text-muted">{s.descriptionEs}</p><div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted"><span>{view.editions.length} ediciones</span><span>{view.results.length} resultados</span></div></Link>;
       })}</div>
     </section>
   </AwardPageShell>;

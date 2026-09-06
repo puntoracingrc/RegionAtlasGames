@@ -9,6 +9,11 @@
     {"slug":"independent-games-festival","foundedYear":1998,"scope":"Internacional","selectionModel":"Un comité de nominación evalúa las obras y jurados especializados seleccionan finalistas. El conjunto de jurados interviene en el gran premio.","specialization":"Desarrollo independiente","url":"https://igf.com/igf-competition-rules/"}
   ],
   "editions": [
+    {"seriesSlug":"japan-game-awards","year":2026,"date":"2026-09-15","status":"upcoming","venue":"Hulic Hall Tokyo","city":"Tokio","url":"https://awards.cesa.or.jp/overview/"},
+    {"seriesSlug":"golden-joystick-awards","year":2026,"date":"2026-11-11","status":"upcoming","venue":"Troxy","city":"Londres","url":"https://www.futureevents.uk/goldenjoystickawards2026/home"},
+    {"seriesSlug":"dice-awards","year":2027,"date":"2027-02-18","status":"upcoming","venue":null,"city":"Las Vegas","url":"https://www.interactive.org/awards/30th_annual_dice_awards_submissions_now_open.asp"},
+    {"seriesSlug":"game-developers-choice-awards","year":2027,"date":"2027-03-02","status":"upcoming","venue":null,"city":"San Francisco","url":"https://gamechoiceawards.com/ceremony/"},
+    {"seriesSlug":"bafta-games-awards","year":2027,"date":"2027-04-14","status":"upcoming","venue":null,"city":"Londres","url":"https://www.bafta.org/media-centre/press-releases/2027-bafta-games-awards-entries-open/"},
     {"seriesSlug":"the-game-awards","year":2025,"date":"2025-12-11","status":"completed","venue":"Peacock Theater","city":"Los Ángeles","url":"https://thegameawards.com/news/the-game-awards-breaks-viewership-record"},
     {"seriesSlug":"the-game-awards","year":2026,"date":"2026-12-10","status":"upcoming","venue":"Peacock Theater","city":"Los Ángeles","url":"https://thegameawards.com/faq"},
     {"seriesSlug":"bafta-games-awards","year":2026,"date":"2026-04-17","status":"completed","venue":null,"city":null,"url":"https://www.bafta.org/media-centre/press-releases/winners-2026-games-awards/"},

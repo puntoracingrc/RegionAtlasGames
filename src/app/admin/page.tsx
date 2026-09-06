@@ -7,6 +7,9 @@ import { AdminNotice, AdminStatTile, adminToneClass } from "@/components/admin/a
 import { Panel, PanelTitle } from "@/components/ui";
 import { adminHealthTone } from "@/lib/admin-operations-health";
 import { getAdminOperationsOverview } from "@/lib/admin-operations-overview";
+import Link from "next/link";
+import { awardCalendarDay } from "@/lib/award-calendar";
+import { getPendingAwardEditions } from "@/lib/award-public-research";
 
 const quickActions = [
   {
@@ -76,10 +79,14 @@ const quickActions = [
 
 export default async function AdminDashboardPage() {
   const overview = await getAdminOperationsOverview();
+  const awardsPending = getPendingAwardEditions(awardCalendarDay(new Date())).length;
   const actionSignals = overview.signals.filter((signal) => signal.level === "action" || signal.level === "watch");
 
   return (
     <div className="space-y-6">
+      <AdminNotice tone={awardsPending ? "search" : "status"}>
+        <Link href="/admin/premios" className="font-semibold underline">Premios · {awardsPending} pendientes</Link>
+      </AdminNotice>
       <Panel className={adminToneClass(adminHealthTone(overview.overall.level))}>
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>

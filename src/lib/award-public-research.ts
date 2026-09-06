@@ -1,5 +1,6 @@
 import data from "../../data/research/award-study/public.json";
 import { isWinningAwardResult } from "./award-domain";
+import { getAwardTemporalState, pendingAwardEditions } from "./award-calendar";
 import type { AwardPublicData, AwardPublicResult } from "./award-research-types";
 
 export function createAwardQueries(awards: AwardPublicData) {
@@ -32,7 +33,8 @@ export function createAwardQueries(awards: AwardPublicData) {
     getAwardResultContext: (result: AwardPublicResult) => ({ series: getSeries(result.seriesSlug)!, edition: awards.editions.find(e => e.id === result.editionId)!, category: awards.categories.find(c => c.id === result.categoryId)! }),
     getLinkedLegacyAwardIds: () => new Set(awards.legacyLinks.map(l => l.legacyAwardId)),
     getPublicAwardSeries: () => awards.series,
-    getUpcomingAwardEditions: () => awards.editions.filter(e => e.status === "upcoming" && e.ceremonyDate).sort((a,b) => a.ceremonyDate!.localeCompare(b.ceremonyDate!)),
+    getUpcomingAwardEditions: (today: string) => awards.editions.filter(e => getAwardTemporalState(e, today) === "future").sort((a,b) => a.ceremonyDate!.localeCompare(b.ceremonyDate!)),
+    getPendingAwardEditions: (today: string) => pendingAwardEditions(awards.editions, today),
     getPublicAwardSeriesSlugs: () => awards.series.map(s => s.slug),
     getAwardSeriesView: (seriesSlug: string) => getSeries(seriesSlug) ? { series: getSeries(seriesSlug)!, editions: awards.editions.filter(e => e.seriesSlug === seriesSlug), categories: awards.categories.filter(c => c.seriesSlug === seriesSlug), results: results.filter(r => r.seriesSlug === seriesSlug) } : undefined,
     getAwardEditionView: (seriesSlug: string, year: number) => { const edition = getEdition(seriesSlug, year); return edition ? { edition, results: results.filter(r => r.editionId === edition.id) } : undefined; },
@@ -54,5 +56,5 @@ export const {
   getDirectAwardsForCompany, getDevelopedGameAwardsForCompany, getPublishedGameAwardsForCompany,
   getLatestAwardWinners, getAwardSitemapEntries, getAwardStats,
   getAwardWork, getAwardSources, getAwardResultContext, getLinkedLegacyAwardIds,
-  getUpcomingAwardEditions,
+  getUpcomingAwardEditions, getPendingAwardEditions,
 } = createAwardQueries(data as AwardPublicData);

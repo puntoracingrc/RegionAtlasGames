@@ -1,10 +1,10 @@
 {
   "version": 1,
   "generatedAt": "2026-09-06",
-  "researchHash": "b2a232de9557642c7bab72a9b1d885eba7ef9c3452581bb7b30828e077488eff",
+  "researchHash": "21b0a1607262a96a6f96c745a814c56500236875e5e700452242844608fff2c8",
   "counts": {
     "series": 7,
-    "editions": 183,
+    "editions": 188,
     "categories": 20,
     "publishedResults": 221,
     "internalResults": 0,
@@ -13,7 +13,7 @@
     "companyRecipients": 0,
     "workLinks": 17,
     "personWorkLinks": 2,
-    "sources": 114,
+    "sources": 119,
     "unresolved": 0
   },
   "policies": {

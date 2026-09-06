@@ -8,12 +8,14 @@ export function PersonPortrait({
   sizes,
   priority = false,
   className,
+  fit = "cover",
 }: {
   src: string | null;
   name: string;
   sizes: string;
   priority?: boolean;
   className?: string;
+  fit?: "cover" | "contain";
 }) {
   return (
     <div className={cn("relative overflow-hidden bg-card-hover", className)}>
@@ -24,7 +26,7 @@ export function PersonPortrait({
           fill
           priority={priority}
           sizes={sizes}
-          className="object-cover"
+          className={fit === "contain" ? "object-contain object-center" : "object-cover"}
         />
       ) : (
         <div className="flex h-full w-full items-center justify-center text-muted/65" aria-label="Sin retrato">

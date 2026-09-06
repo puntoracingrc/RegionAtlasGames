@@ -10,6 +10,7 @@ const links = [
   { href: "/admin/higiene", label: "Higiene", icon: "⌁" },
   { href: "/admin/ia", label: "IA", icon: "✦" },
   { href: "/admin/noticias", label: "Noticias", icon: "◫" },
+  { href: "/admin/premios", label: "Premios", icon: "◫" },
   { href: "/admin/precios", label: "Recolección", icon: "€" },
   { href: "/admin/ventas", label: "Ventas", icon: "◎" },
   { href: "/admin/importacion", label: "Importar", icon: "⇪" },

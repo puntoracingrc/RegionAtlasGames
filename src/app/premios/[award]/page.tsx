@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AwardPageShell } from "@/components/award-page-shell";
+import { AwardLogo } from "@/components/award-logo";
 import { AwardResultList } from "@/components/award-results";
 import { getAwardSeriesView } from "@/lib/award-public-research";
 import { awardMetadata } from "@/lib/award-seo";
@@ -14,6 +15,7 @@ export default async function AwardSeriesPage({ params }: Props) {
   const { series, editions, categories, results } = view;
   const top = categories.filter(c => c.categoryType === "top_game");
   return <AwardPageShell title={series.canonicalName} description={series.descriptionEs}>
+    <AwardLogo slug={award} name={series.canonicalName} />
     <dl className="flex flex-wrap gap-x-8 gap-y-4 border-b border-border py-5 text-sm">{[["Ediciones documentadas", editions.length], ["Categorías importadas", categories.length], ["Resultados verificados", results.length]].map(([label, value]) => <div key={label}><dt className="text-muted">{label}</dt><dd className="mt-1 text-xl font-bold">{value}</dd></div>)}</dl>
     <dl className="grid gap-5 border-b border-border py-6 text-sm sm:grid-cols-3">{[["Organización", series.organizer], ["Selección", series.selectionModel], ["Especialidad", series.specialization]].filter(([, value]) => value).map(([label, value]) => <div key={label}><dt className="font-semibold">{label}</dt><dd className="mt-2 leading-6 text-muted">{value}</dd></div>)}</dl>
     <section className="py-6"><h2 className="text-xl font-bold">Archivo anual</h2><div className="mt-4 flex flex-wrap gap-3">{[...editions].sort((a,b) => b.editionYear-a.editionYear).map(e => <Link key={e.id} href={`/premios/${award}/${e.editionYear}`} className="border-b border-border px-2 py-2 font-semibold text-accent hover:underline">{e.editionYear}</Link>)}</div></section>

@@ -311,7 +311,6 @@ export default async function CatalogGamePage({ params }: Props) {
             </header>
 
             <GamePriceHero game={game} />
-            <CatalogAwards catalogId={game.id} />
 
             {priceHistory.length > 0 && (
               <GamePriceHistoryChart catalogId={game.id} history={priceHistory} />
@@ -445,6 +444,8 @@ export default async function CatalogGamePage({ params }: Props) {
                 </ul>
               )}
             </Panel>
+
+            <CatalogAwards catalogId={game.id} />
 
             {details && (
               <Panel>
