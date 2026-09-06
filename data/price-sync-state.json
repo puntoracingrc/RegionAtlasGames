@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-09-06T12:01:59Z",
+  "lastRunAt": "2026-09-06T15:35:15Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -230,7 +230,77 @@
       "cholloGamesUpdated": 39,
       "cholloGamesSkipped": 0,
       "coveragePct": 0.0,
-      "regionPolicy": "Reglas en data/region-evidence-rules.json"
+      "regionPolicy": "Reglas en data/region-evidence-rules.json",
+      "lastScopedSync": {
+        "lastSyncAt": "2026-09-06T15:33:32Z",
+        "source": "eBay ES",
+        "gamesTargeted": 10,
+        "gamesUpdated": 2,
+        "wallapopGamesUpdated": 0,
+        "ebayGamesUpdated": 2,
+        "vintedGamesUpdated": 0,
+        "gamesSkippedNoData": 8,
+        "gamesRejectedOutliers": 0,
+        "gamesRejectedUnverifiedRegion": 0,
+        "gamesRejectedRegionMismatch": 0,
+        "gamesRejectedInsufficientEvidence": 0,
+        "cexGamesUpdated": 0,
+        "cexGamesSkipped": 0,
+        "jgoGamesUpdated": 0,
+        "jgoGamesSkipped": 0,
+        "cholloGamesUpdated": 0,
+        "cholloGamesSkipped": 0,
+        "kaotoGamesUpdated": 0,
+        "kaotoGamesSkipped": 0,
+        "tcnsGamesUpdated": 0,
+        "tcnsGamesSkipped": 0,
+        "tcGamesUpdated": 0,
+        "tcGamesSkipped": 0,
+        "gameGamesUpdated": 0,
+        "coveragePct": 20.0,
+        "priceListTotalGames": 9,
+        "priceListPricedBefore": 0,
+        "priceListPricedAfter": 2,
+        "priceListPricedDelta": 2,
+        "priceListCoverageBeforePct": 0.0,
+        "priceListCoverageAfterPct": 22.2,
+        "priceListCoverageDeltaPct": 22.2,
+        "ebayDeliveryGamesUpdated": 1,
+        "regionPolicy": "Reglas en data/region-evidence-rules.json",
+        "aiSummary": {
+          "openAiConfigured": true,
+          "sources": [
+            {
+              "source": "ebay-es",
+              "aiRows": 9,
+              "resolved": 9,
+              "review": 0,
+              "rejected": 0
+            }
+          ],
+          "conditionVision": {
+            "calls": 1,
+            "resolved": 1,
+            "skipped_no_images": 0,
+            "skipped_no_key": 0,
+            "skipped_has_bucket": 0,
+            "skipped_no_hints": 2
+          }
+        },
+        "scope": "catalog_ids",
+        "catalogIds": [
+          "n64-espana-mrc-multi-racing-championship",
+          "n64-espana-pokemon-snap",
+          "n64-espana-pokemon-stadium-2",
+          "n64-espana-world-cup-98",
+          "n64-fifa-99",
+          "n64-fifa-road-to-world-cup-98",
+          "n64-mission-impossible",
+          "n64-pal-eu-pokemon-snap",
+          "n64-pokemon-stadium-2",
+          "n64-south-park-chef%27s-luv-shack"
+        ]
+      }
     },
     "megadrive": {
       "lastSyncAt": "2026-06-13T00:20:00Z",
@@ -2518,6 +2588,58 @@
             "snes-zombies"
           ]
         }
+      }
+    },
+    "n64": {
+      "España": {
+        "lastSyncAt": "2026-09-06T15:33:32Z",
+        "source": "eBay ES",
+        "gamesTargeted": 10,
+        "gamesUpdated": 2,
+        "wallapopGamesUpdated": 0,
+        "ebayGamesUpdated": 2,
+        "vintedGamesUpdated": 0,
+        "coveragePct": 20.0,
+        "priceListTotalGames": 9,
+        "priceListPricedBefore": 0,
+        "priceListPricedAfter": 2,
+        "priceListPricedDelta": 2,
+        "priceListCoverageBeforePct": 0.0,
+        "priceListCoverageAfterPct": 22.2,
+        "priceListCoverageDeltaPct": 22.2,
+        "aiSummary": {
+          "openAiConfigured": true,
+          "sources": [
+            {
+              "source": "ebay-es",
+              "aiRows": 9,
+              "resolved": 9,
+              "review": 0,
+              "rejected": 0
+            }
+          ],
+          "conditionVision": {
+            "calls": 1,
+            "resolved": 1,
+            "skipped_no_images": 0,
+            "skipped_no_key": 0,
+            "skipped_has_bucket": 0,
+            "skipped_no_hints": 2
+          }
+        },
+        "scope": "catalog_ids",
+        "catalogIds": [
+          "n64-espana-mrc-multi-racing-championship",
+          "n64-espana-pokemon-snap",
+          "n64-espana-pokemon-stadium-2",
+          "n64-espana-world-cup-98",
+          "n64-fifa-99",
+          "n64-fifa-road-to-world-cup-98",
+          "n64-mission-impossible",
+          "n64-pal-eu-pokemon-snap",
+          "n64-pokemon-stadium-2",
+          "n64-south-park-chef%27s-luv-shack"
+        ]
       }
     }
   }

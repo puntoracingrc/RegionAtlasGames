@@ -9,8 +9,8 @@
     "batchSize": 250,
     "searchBudgetPerRun": 250,
     "dailySearchBudget": 1000,
-    "dailySearchesUsed": 408,
-    "dailySearchesRemaining": 592,
+    "dailySearchesUsed": 417,
+    "dailySearchesRemaining": 583,
     "regions": [
       "PAL España",
       "PAL Europa"
@@ -19,20 +19,20 @@
   "status": "running",
   "currentPlatform": "n64",
   "currentPlatformName": "Nintendo 64",
-  "currentRegion": "España",
-  "updatedAt": "2026-09-06T12:01:59Z",
+  "currentRegion": "PAL Europa",
+  "updatedAt": "2026-09-06T15:35:15Z",
   "lastRun": {
-    "at": "2026-09-06T12:01:59Z",
-    "platformSlug": "snes",
-    "platformName": "Super Nintendo",
-    "region": "PAL Europa",
-    "selected": 158,
-    "processed": 158,
-    "matched": 114,
-    "listingsAdded": 358,
-    "regionalReroutes": 0,
-    "regionalReviews": 537,
-    "apiSearches": 158,
+    "at": "2026-09-06T15:35:15Z",
+    "platformSlug": "n64",
+    "platformName": "Nintendo 64",
+    "region": "España",
+    "selected": 9,
+    "processed": 9,
+    "matched": 3,
+    "listingsAdded": 9,
+    "regionalReroutes": 1,
+    "regionalReviews": 12,
+    "apiSearches": 9,
     "searchBudget": 250,
     "searchBudgetExhausted": false,
     "failed": 0,
@@ -41,15 +41,15 @@
   },
   "dailyUsage": {
     "date": "2026-09-06",
-    "apiSearches": 408
+    "apiSearches": 417
   },
   "totals": {
-    "catalogGames": 25778,
-    "completed": 4168,
-    "matched": 918,
-    "noMatch": 3250,
+    "catalogGames": 25777,
+    "completed": 4176,
+    "matched": 920,
+    "noMatch": 3256,
     "deferred": 0,
-    "pending": 21610
+    "pending": 21601
   },
   "estimatedRunsRemaining": 87,
   "estimatedDaysRemaining": 22,
@@ -134,9 +134,9 @@
       "currentRegion": null,
       "updatedAt": "2026-09-06T12:01:59Z",
       "totals": {
-        "catalogGames": 661,
-        "completed": 661,
-        "matched": 491,
+        "catalogGames": 660,
+        "completed": 660,
+        "matched": 490,
         "noMatch": 170,
         "deferred": 0,
         "pending": 0
@@ -148,9 +148,9 @@
           "catalogRegion": "España",
           "marketScope": "country",
           "originLabel": "España",
-          "total": 3,
-          "completed": 3,
-          "matched": 3,
+          "total": 2,
+          "completed": 2,
+          "matched": 2,
           "noMatch": 0,
           "deferred": 0,
           "pending": 0
@@ -173,16 +173,16 @@
     {
       "platformSlug": "n64",
       "platformName": "Nintendo 64",
-      "status": "ready",
-      "currentRegion": "España",
-      "updatedAt": null,
+      "status": "running",
+      "currentRegion": "PAL Europa",
+      "updatedAt": "2026-09-06T15:35:15Z",
       "totals": {
         "catalogGames": 278,
-        "completed": 0,
-        "matched": 0,
-        "noMatch": 0,
+        "completed": 9,
+        "matched": 3,
+        "noMatch": 6,
         "deferred": 0,
-        "pending": 278
+        "pending": 269
       },
       "regions": [
         {
@@ -192,11 +192,11 @@
           "marketScope": "country",
           "originLabel": "España",
           "total": 9,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
+          "completed": 9,
+          "matched": 3,
+          "noMatch": 6,
           "deferred": 0,
-          "pending": 9
+          "pending": 0
         },
         {
           "key": "pal_europa",
@@ -1234,6 +1234,14 @@
       "message": "Super Nintendo · PAL Europa: 158/158 consultados, 114 con evidencias, 358 anuncios aceptados, 0 aprovechados en otra región, 537 a revisión, 0 fallos, 0 aplazados.",
       "platformSlug": "snes",
       "region": "PAL Europa",
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-06T15:35:15Z",
+      "level": "info",
+      "message": "Nintendo 64 · España: 9/9 consultados, 3 con evidencias, 9 anuncios aceptados, 1 aprovechados en otra región, 12 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "n64",
+      "region": "España",
       "coverCandidatesAdded": 0
     }
   ]

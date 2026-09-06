@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 2,
+  "campaignId": "ebay-global-regional-v1",
+  "platformSlug": "n64",
+  "platformName": "Nintendo 64",
+  "marketplaceId": "EBAY_ES",
+  "destinationCountry": "ES",
+  "status": "running",
+  "currentRegion": "PAL Europa",
+  "updatedAt": "2026-09-06T15:35:15Z",
+  "lastRun": {
+    "at": "2026-09-06T15:35:15Z",
+    "platformSlug": "n64",
+    "platformName": "Nintendo 64",
+    "region": "España",
+    "selected": 9,
+    "processed": 9,
+    "matched": 3,
+    "listingsAdded": 9,
+    "regionalReroutes": 1,
+    "regionalReviews": 12,
+    "apiSearches": 9,
+    "searchBudget": 250,
+    "searchBudgetExhausted": false,
+    "failed": 0,
+    "systemicError": null,
+    "coverCandidatesAdded": 0
+  },
+  "regions": {
+    "espana": {
+      "key": "espana",
+      "label": "España",
+      "catalogRegion": "España",
+      "marketScope": "country",
+      "originLabel": "España",
+      "total": 9,
+      "completed": 9,
+      "matched": 3,
+      "noMatch": 6,
+      "deferred": 0,
+      "pending": 0,
+      "completedCatalogIds": [
+        "n64-fifa-99",
+        "n64-fifa-road-to-world-cup-98",
+        "n64-mission-impossible",
+        "n64-espana-mrc-multi-racing-championship",
+        "n64-espana-pokemon-snap",
+        "n64-espana-pokemon-stadium-2",
+        "n64-pokemon-stadium-2",
+        "n64-south-park-chef%27s-luv-shack",
+        "n64-espana-world-cup-98"
+      ],
+      "matchedCatalogIds": [
+        "n64-fifa-99",
+        "n64-espana-pokemon-snap",
+        "n64-espana-world-cup-98"
+      ],
+      "noMatchCatalogIds": [
+        "n64-fifa-road-to-world-cup-98",
+        "n64-mission-impossible",
+        "n64-espana-mrc-multi-racing-championship",
+        "n64-espana-pokemon-stadium-2",
+        "n64-pokemon-stadium-2",
+        "n64-south-park-chef%27s-luv-shack"
+      ],
+      "deferredCatalogIds": [],
+      "failureAttempts": {}
+    },
+    "pal_europa": {
+      "key": "pal_europa",
+      "label": "PAL Europa",
+      "catalogRegion": "PAL Europa",
+      "marketScope": "multi_region",
+      "originLabel": "Europa multirregión",
+      "total": 269,
+      "completed": 0,
+      "matched": 0,
+      "noMatch": 0,
+      "deferred": 0,
+      "pending": 269,
+      "completedCatalogIds": [],
+      "matchedCatalogIds": [],
+      "noMatchCatalogIds": [],
+      "deferredCatalogIds": [],
+      "failureAttempts": {}
+    }
+  },
+  "totals": {
+    "catalogGames": 278,
+    "completed": 9,
+    "matched": 3,
+    "noMatch": 6,
+    "deferred": 0,
+    "pending": 269
+  },
+  "log": [
+    {
+      "at": "2026-09-06T15:35:15Z",
+      "level": "info",
+      "message": "Nintendo 64 · España: 9/9 consultados, 3 con evidencias, 9 anuncios aceptados, 1 aprovechados en otra región, 12 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "n64",
+      "region": "España",
+      "coverCandidatesAdded": 0
+    }
+  ]
+}
