@@ -58,7 +58,7 @@ test("every old personal recognition has an explicit disposition", () => {
 });
 
 test("future editions have no invented winners and finalists are not wins", () => {
-  for (const e of query.getUpcomingAwardEditions()) assert.equal(query.getAwardEditionView(e.seriesSlug,e.editionYear)!.results.length, 0);
+  for (const e of query.getUpcomingAwardEditions("2026-09-06")) assert.equal(query.getAwardEditionView(e.seriesSlug,e.editionYear)!.results.length, 0);
   const bg = query.getAwardsForWorkKey(getCatalogWorkKey("ps5-usa-baldur-s-gate-iii-deluxe-edition"));
   assert.ok(query.getAwardStats(bg).nominations > 0);
   const used = new Set([...awards.series,...awards.editions,...awards.categories,...awards.results,...awards.workLinks,...awards.personWorkLinks,...awards.companyWorkLinks].flatMap(r => r.sourceIds));

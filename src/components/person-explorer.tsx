@@ -41,6 +41,7 @@ function PersonCard({ person, priority = false }: { person: PersonCardData; prio
         name={person.name}
         sizes="(max-width: 640px) 50vw, (max-width: 1280px) 25vw, 18vw"
         priority={priority}
+        fit="contain"
         className="h-44 w-full border-b border-border"
       />
       <div className="flex min-w-0 flex-col p-3.5">

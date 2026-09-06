@@ -4,6 +4,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { catalogGamePath } from "../src/lib/catalog-url";
 import { getCatalogGame } from "../src/lib/catalog";
+import { getPublicAwardSeries } from "../src/lib/award-public-research";
 
 const base = process.argv[2];
 const output = process.argv[3];
@@ -18,6 +19,7 @@ const run = (...args:string[]) => {
 };
 const routes = ["/premios","/premios/the-game-awards","/premios/game-developers-choice-awards/2024","/premios/the-game-awards/categoria/game-of-the-year","/premios/ultimos-ganadores","/premios/the-game-awards/2026","/persona/hidetaka-miyazaki","/persona/hideo-kojima","/persona/shigeru-miyamoto","/compania/fromsoftware","/compania/sony-interactive-entertainment","/compania/larian-studios",...["ps4-elden-ring","ps5-usa-baldur-s-gate-iii-deluxe-edition","ps5-astro-bot","ps5-clair-obscur-expedition-33"].map(id => {const g=getCatalogGame(id);assert.ok(g,id);return catalogGamePath(g);})];
 const results:unknown[] = [];
+routes.push("/persona", "/premios/the-game-awards/2025", "/premios/bafta-games-awards/2020", ...getPublicAwardSeries().map(s => `/premios/${s.slug}`).filter(path => !routes.includes(path)));
 async function main() {
 try {
   for (const [name,width,height] of [["desktop",1440,1000],["mobile",390,844]] as const) {

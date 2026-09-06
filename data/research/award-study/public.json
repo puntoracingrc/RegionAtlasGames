@@ -2866,6 +2866,81 @@
       ]
     },
     {
+      "id": "japan-game-awards:2026",
+      "seriesSlug": "japan-game-awards",
+      "editionYear": 2026,
+      "editionNumber": null,
+      "ceremonyDate": "2026-09-15",
+      "eligibilityPeriod": null,
+      "venue": "Hulic Hall Tokyo",
+      "city": "Tokio",
+      "status": "upcoming",
+      "officialUrl": "https://awards.cesa.or.jp/overview/",
+      "sourceIds": [
+        "AW-SRC-813fb3aeeabf"
+      ]
+    },
+    {
+      "id": "golden-joystick-awards:2026",
+      "seriesSlug": "golden-joystick-awards",
+      "editionYear": 2026,
+      "editionNumber": null,
+      "ceremonyDate": "2026-11-11",
+      "eligibilityPeriod": null,
+      "venue": "Troxy",
+      "city": "Londres",
+      "status": "upcoming",
+      "officialUrl": "https://www.futureevents.uk/goldenjoystickawards2026/home",
+      "sourceIds": [
+        "AW-SRC-886edaa3eb8f"
+      ]
+    },
+    {
+      "id": "dice-awards:2027",
+      "seriesSlug": "dice-awards",
+      "editionYear": 2027,
+      "editionNumber": null,
+      "ceremonyDate": "2027-02-18",
+      "eligibilityPeriod": null,
+      "venue": null,
+      "city": "Las Vegas",
+      "status": "upcoming",
+      "officialUrl": "https://www.interactive.org/awards/30th_annual_dice_awards_submissions_now_open.asp",
+      "sourceIds": [
+        "AW-SRC-265f180734a7"
+      ]
+    },
+    {
+      "id": "game-developers-choice-awards:2027",
+      "seriesSlug": "game-developers-choice-awards",
+      "editionYear": 2027,
+      "editionNumber": null,
+      "ceremonyDate": "2027-03-02",
+      "eligibilityPeriod": null,
+      "venue": null,
+      "city": "San Francisco",
+      "status": "upcoming",
+      "officialUrl": "https://gamechoiceawards.com/ceremony/",
+      "sourceIds": [
+        "AW-SRC-6a918c2e29bb"
+      ]
+    },
+    {
+      "id": "bafta-games-awards:2027",
+      "seriesSlug": "bafta-games-awards",
+      "editionYear": 2027,
+      "editionNumber": null,
+      "ceremonyDate": "2027-04-14",
+      "eligibilityPeriod": null,
+      "venue": null,
+      "city": "Londres",
+      "status": "upcoming",
+      "officialUrl": "https://www.bafta.org/media-centre/press-releases/2027-bafta-games-awards-entries-open/",
+      "sourceIds": [
+        "AW-SRC-601b5a58a01c"
+      ]
+    },
+    {
       "id": "the-game-awards:2026",
       "seriesSlug": "the-game-awards",
       "editionYear": 2026,
@@ -8701,6 +8776,46 @@
       "retrievedAt": "2026-09-06",
       "verifiedPrimary": true,
       "evidenceSummary": "Baldur's Gate 3: winner en Best Design, 2024. Baldur's Gate 3: winner en Best Narrative, 2024. Baldur's Gate 3: winner en Audience Award, 2024. Baldur's Gate 3: finalist en Best Audio, 2024. Cocoon: finalist en Game of the Year, 2024. Dave the Diver: finalist en Game of the Year, 2024. Dredge: finalist en Game of the Year, 2024. Marvel's Spider-Man 2: finalist en Game of the Year, 2024. The Legend of Zelda: Tears of the Kingdom: finalist en Game of the Year, 2024."
+    },
+    {
+      "id": "AW-SRC-813fb3aeeabf",
+      "url": "https://awards.cesa.or.jp/overview/",
+      "title": "japan-game-awards 2026: ceremonia",
+      "retrievedAt": "2026-09-06",
+      "verifiedPrimary": true,
+      "evidenceSummary": "Ceremonia documentada: 2026-09-15."
+    },
+    {
+      "id": "AW-SRC-886edaa3eb8f",
+      "url": "https://www.futureevents.uk/goldenjoystickawards2026/home",
+      "title": "golden-joystick-awards 2026: ceremonia",
+      "retrievedAt": "2026-09-06",
+      "verifiedPrimary": true,
+      "evidenceSummary": "Ceremonia documentada: 2026-11-11."
+    },
+    {
+      "id": "AW-SRC-265f180734a7",
+      "url": "https://www.interactive.org/awards/30th_annual_dice_awards_submissions_now_open.asp",
+      "title": "dice-awards 2027: ceremonia",
+      "retrievedAt": "2026-09-06",
+      "verifiedPrimary": true,
+      "evidenceSummary": "Ceremonia documentada: 2027-02-18."
+    },
+    {
+      "id": "AW-SRC-6a918c2e29bb",
+      "url": "https://gamechoiceawards.com/ceremony/",
+      "title": "game-developers-choice-awards 2027: ceremonia",
+      "retrievedAt": "2026-09-06",
+      "verifiedPrimary": true,
+      "evidenceSummary": "Ceremonia documentada: 2027-03-02."
+    },
+    {
+      "id": "AW-SRC-601b5a58a01c",
+      "url": "https://www.bafta.org/media-centre/press-releases/2027-bafta-games-awards-entries-open/",
+      "title": "bafta-games-awards 2027: ceremonia",
+      "retrievedAt": "2026-09-06",
+      "verifiedPrimary": true,
+      "evidenceSummary": "Ceremonia documentada: 2027-04-14."
     },
     {
       "id": "AW-SRC-6fc5c723c5d7",
