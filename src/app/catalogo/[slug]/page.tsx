@@ -33,6 +33,7 @@ import {
 } from "@/lib/catalog-seo";
 import { resolveCatalogGameWithOverlay, getGameDetailsWithOverlay } from "@/lib/catalog-runtime-overlay";
 import { getCoverSrc } from "@/lib/cover-url";
+import { CatalogAwards } from "@/components/award-results";
 import { decodeHtmlEntities } from "@/lib/decode-html-entities";
 import { getPlatform, isPublicCatalogGame } from "@/lib/catalog";
 import { grailLabel, isGrailGame, isTopInSegment, topSegmentLabel } from "@/lib/game-highlight";
@@ -310,6 +311,7 @@ export default async function CatalogGamePage({ params }: Props) {
             </header>
 
             <GamePriceHero game={game} />
+            <CatalogAwards catalogId={game.id} />
 
             {priceHistory.length > 0 && (
               <GamePriceHistoryChart catalogId={game.id} history={priceHistory} />

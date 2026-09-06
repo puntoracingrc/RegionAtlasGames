@@ -1275,10 +1275,11 @@ def check_committed() -> None:
         raise ValueError("Committed report is not the applied report")
     if not all(report["scopeChecksAfter"].values()):
         raise ValueError("A committed post-apply scope check failed")
-    if len(work_index["catalogIdToWorkKey"]) != EXPECTED["scopeCatalogIds"]:
-        raise ValueError("Committed work map lost catalog IDs")
-    if len(set(work_index["catalogIdToWorkKey"].values())) != EXPECTED["workIdentities"]:
-        raise ValueError("Committed work identity count changed")
+    batch_identities = build_work_identities(resolved, conflicts, non_games)
+    for catalog_id, work_key_value in batch_identities.items():
+        effective_id = SUCCESSOR_CATALOG_IDS.get(catalog_id, catalog_id)
+        if work_index["catalogIdToWorkKey"].get(effective_id) != work_key_value:
+            raise ValueError(f"Committed batch work identity changed: {effective_id}")
     if read_json(BLOCKED_FILE)["count"] != EXPECTED["conflicts"]:
         raise ValueError("Blocked conflicts changed")
 

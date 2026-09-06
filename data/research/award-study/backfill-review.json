@@ -1,0 +1,830 @@
+{
+  "batch": "AWARDS-PERSONS-V1",
+  "records": [
+    {
+      "key": "golden-joystick-awards:historical-gaps",
+      "status": "NEEDS_REVIEW",
+      "reason": "La retrospectiva oficial no documenta ganadores de 1993-1995 ni 1997-2001. No se inventan ediciones. Los años históricos publicados conservan la etiqueta anual de la retrospectiva, no una fecha de ceremonia deducida."
+    },
+    {
+      "key": "the-game-awards:2026",
+      "status": "NEEDS_REVIEW",
+      "reason": "Sin ganador confirmado. No crear resultado."
+    },
+    {
+      "key": "golden-joystick-awards:2026",
+      "status": "NEEDS_REVIEW",
+      "reason": "Sin ganador confirmado. No crear resultado."
+    },
+    {
+      "key": "japan-game-awards:2026",
+      "status": "NEEDS_REVIEW",
+      "reason": "Sin ganador confirmado. No crear resultado."
+    },
+    {
+      "key": "Monster Hunter Rise: Sunbreak",
+      "status": "NEEDS_REVIEW",
+      "reason": "Premio oficial de la expansión confirmado; falta acreditar las fichas físicas de expansión frente a bundles. No enlazar al juego base."
+    },
+    {
+      "key": "bafta-games-awards:2023:725e5f832f",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Vampire Survivors. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2023:c1430c8a08",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Monster Hunter Rise: Sunbreak. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2023:ff205a2f1c",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Betrayal at Club Low. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2024:e4ec377723",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Venba. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2025:ba6daa5de1",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Consume Me. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2026:f2a23aa09e",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Titanium Court. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2004:4c4ec5de97",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Call of Duty. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2005:738b62bae0",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Half-Life 2. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2006:1de386aab3",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Tom Clancy's Ghost Recon Advanced Warfighter. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2007:b2eaa18a52",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: BioShock. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2009:071b728ca4",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Super Mario Galaxy. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2010:fe77a82ed6",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Batman: Arkham Asylum. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2011:5089958bc1",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Mass Effect 2. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2012:955d2d6454",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Portal 2. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2013:73c462ac08",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Dishonored. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2014:205d7c6771",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Last of Us. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2015:373d368333",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Destiny. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2016:453c1fd6fc",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Fallout 4. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2017:d77bdb3a1c",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Uncharted 4: A Thief's End. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2018:9d6d8b7c22",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: What Remains of Edith Finch. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2019:4beb2041bc",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: God of War. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "bafta-games-awards:2020:57d324e3b3",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Outer Wilds. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:1998:4247610017",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: GoldenEye 007. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:1999:86fcffbbf3",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Legend of Zelda: Ocarina of Time. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2000:86f2c61dbf",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Sims. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2001:1d62567e82",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Diablo II. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2002:04e755c979",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Halo: Combat Evolved. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2003:d193c61939",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Battlefield 1942. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2004:4c4ec5de97",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Call of Duty. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2005:738b62bae0",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Half-Life 2. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2006:fceea01ce1",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: God of War (2005). Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2007:7ccafa8da1",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Gears of War. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2008:d6c769bc59",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Call of Duty 4: Modern Warfare. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2009:ae7c75e4ed",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: LittleBigPlanet. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2010:e2ed4bf2ba",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Uncharted 2: Among Thieves. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2011:5089958bc1",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Mass Effect 2. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2012:710b86fa89",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Elder Scrolls V: Skyrim. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2013:fe50ed105f",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Journey. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2014:205d7c6771",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Last of Us. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2015:b5e3c1673f",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Dragon Age: Inquisition. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2016:453c1fd6fc",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Fallout 4. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2017:608031181c",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Overwatch. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2018:4114927e0e",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Legend of Zelda: Breath of the Wild. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2019:4beb2041bc",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: God of War. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "dice-awards:2020:093e3f0f7d",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Untitled Goose Game. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2001:86f2c61dbf",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Sims. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2002:1e1112ec13",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Grand Theft Auto III. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2003:90d2c51de5",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Metroid Prime. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2004:ce1760a781",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Star Wars: Knights of the Old Republic. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2005:738b62bae0",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Half-Life 2. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2006:1cb5f87e6a",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Shadow of the Colossus. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2007:7ccafa8da1",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Gears of War. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2008:b65ffe0cec",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Portal. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2009:2c3e318e41",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Fallout 3. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2010:e2ed4bf2ba",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Uncharted 2: Among Thieves. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2011:38d4151858",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Red Dead Redemption. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2012:710b86fa89",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Elder Scrolls V: Skyrim. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2013:fe50ed105f",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Journey. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2014:205d7c6771",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Last of Us. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2015:0e160fe277",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Middle-earth: Shadow of Mordor. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2016:1e2fd2d0ad",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Witcher 3: Wild Hunt. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2017:608031181c",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Overwatch. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2018:4114927e0e",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Legend of Zelda: Breath of the Wild. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2019:4beb2041bc",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: God of War. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2020:093e3f0f7d",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Untitled Goose Game. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:1983:a2aef3d691",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Jetpac. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:1984:d05cc6a1b0",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Knight Lore. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:1985:6246e3f926",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Way of the Exploding Fist. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:1986:5847da60fe",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Gauntlet. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:1987:33bc8cd0f7",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Out Run. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:1988:92b7211c28",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Speedball. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:1989:c39190f669",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Kick Off. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:1990:d321b085e5",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Kick Off 2. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:1991:817130ca07",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Sonic the Hedgehog. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:1992:f423f68932",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Street Fighter II. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:1996:7a7c8c131e",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Super Mario 64. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2002:1e1112ec13",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Grand Theft Auto III. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2003:ff140592d6",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Grand Theft Auto: Vice City. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2004:283e0afe24",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Doom 3. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2005:4b59902d0f",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Grand Theft Auto: San Andreas. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2006:b62107f519",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Elder Scrolls IV: Oblivion. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2007:7ccafa8da1",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Gears of War. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2008:08c5115f35",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Left 4 Dead. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2009:2c3e318e41",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Fallout 3. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2010:5089958bc1",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Mass Effect 2. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2011:955d2d6454",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Portal 2. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2012:710b86fa89",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Elder Scrolls V: Skyrim. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2013:f387a84bed",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Grand Theft Auto V. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2014:9263d198ab",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Dark Souls II. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2015:1e2fd2d0ad",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Witcher 3: Wild Hunt. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2016:991a1e87d6",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Dark Souls III. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2017:4114927e0e",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Legend of Zelda: Breath of the Wild. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2018:e8cb25ff1f",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Fortnite Battle Royale. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2019:e183ddc8ba",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Resident Evil 2 (2019). Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "golden-joystick-awards:2020:7d3688b1f9",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Last of Us Part II. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:1999:d1b155e452",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Fire and Darkness. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2000:b0d6b8d538",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Tread Marks. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2001:2c36f3d2d9",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Shattered Galaxy. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2002:2901dc986e",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Bad Milk. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2003:8050d57524",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Wild Earth. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2004:e61a34cf9b",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Savage: The Battle for Newerth. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2004:889bf0864f",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Oasis. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2005:6bd34976d6",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Gish. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2005:0959dffdb5",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Wik and the Fable of Souls. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2006:b24aeedcaa",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Darwinia. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2007:507136b0d7",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Aquaria. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2008:bcbbd3934a",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Crayon Physics Deluxe. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2009:81c66e27c8",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Blueberry Garden. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2010:935018cc41",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Monaco. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2011:e098b8a25b",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Minecraft. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2012:9d139938ce",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Fez. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2013:8ea9ede055",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Cart Life. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2014:9715b765ae",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Papers, Please. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2015:57d324e3b3",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Outer Wilds. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2016:10c7eb5610",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Her Story. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2017:6759bdbf20",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Quadrilateral Cowboy. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2018:e121d4c5e8",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Night in the Woods. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2019:079e7922d0",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Return of the Obra Dinn. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "independent-games-festival:2020:5e156ab46d",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: A Short Hike. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:1997:c1a349ea2d",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Sakura Wars. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:1998:c760dbe5f4",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Final Fantasy VII. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:1999:86fcffbbf3",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Legend of Zelda: Ocarina of Time. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2000:c24a1f00ee",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Doko Demo Issyo. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2001:7faa3480a3",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Phantasy Star Online. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2002:567c914cfc",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Final Fantasy X. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2003:ab2e421ed5",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Taiko no Tatsujin: Tatakon de Dodon ga Don. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2003:c02eece034",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Final Fantasy XI. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2004:1614b61c17",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Monster Hunter. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2005:52cac67cbd",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Dragon Quest VIII: Journey of the Cursed King. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2006:82bd868c31",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Brain Age: Train Your Brain in Minutes a Day!. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2006:d7d799a33c",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Final Fantasy XII. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2007:1ed37b3198",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Wii Sports. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2007:4508b6f4b8",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Monster Hunter Portable 2nd. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2008:5fd7281a67",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Wii Fit. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2008:aacf4459ab",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Monster Hunter Portable 2nd G. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2009:6e3ff6780d",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Mario Kart Wii. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2009:c7c09a21ce",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Metal Gear Solid 4: Guns of the Patriots. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2010:33031781fc",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: New Super Mario Bros. Wii. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2011:98663838ef",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Monster Hunter Portable 3rd. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2012:53e3a73737",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Gravity Rush. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2013:fb24a756a0",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Animal Crossing: New Leaf. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2014:9d82095973",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Monster Hunter 4. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2014:1e0f0201e1",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Yo-kai Watch. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2015:49a182573e",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Yo-kai Watch 2: Ganso / Honke / Shinuchi. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2016:6f3f2d2be3",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Splatoon. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2017:4114927e0e",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Legend of Zelda: Breath of the Wild. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2018:950bb7013d",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Monster Hunter: World. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2019:90b764a0aa",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Super Smash Bros. Ultimate. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "japan-game-awards:2020:da43ed5e42",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Animal Crossing: New Horizons. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "the-game-awards:2014:b5e3c1673f",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Dragon Age: Inquisition. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "the-game-awards:2015:1e2fd2d0ad",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Witcher 3: Wild Hunt. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "the-game-awards:2016:608031181c",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Overwatch. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "the-game-awards:2017:4114927e0e",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Legend of Zelda: Breath of the Wild. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "the-game-awards:2018:4a0a20d857",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: God of War (2018). Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "the-game-awards:2019:9d42df7f95",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Sekiro: Shadows Die Twice. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "the-game-awards:2020:7d3688b1f9",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: The Last of Us Part II. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2024:game-of-the-year:d7214f6278",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Cocoon. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2024:game-of-the-year:458293e927",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Dave the Diver. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2024:game-of-the-year:77490a3a72",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Dredge. Resultado oficial publicado sin propagar."
+    },
+    {
+      "key": "game-developers-choice-awards:2024:game-of-the-year:2929d77adf",
+      "status": "NEEDS_REVIEW",
+      "reason": "Identidad de catálogo pendiente: Marvel's Spider-Man 2. Resultado oficial publicado sin propagar."
+    }
+  ]
+}

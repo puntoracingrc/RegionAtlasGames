@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { PersonPortrait } from "@/components/person-portrait";
 import { SiteNav } from "@/components/site-nav";
+import { AwardResults, AwardRecipient } from "@/components/award-results";
+import { getDirectAwardsForPerson, getWorkAwardsForPerson, getLinkedLegacyAwardIds, getAwardWork } from "@/lib/award-public-research";
 import {
   humanizePersonRole,
   personLifeLabel,
@@ -47,6 +49,10 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
   const life = personLifeLabel(profile);
   const founded = view.companyRelations.filter((relation) => relation.role === "FOUNDER");
   const directSources = new Map(view.sources.map((source) => [source.id, source]));
+  const personalAwards = getDirectAwardsForPerson(profile.slug);
+  const workAwards = getWorkAwardsForPerson(profile.slug);
+  const linkedLegacyAwards = getLinkedLegacyAwardIds();
+  const legacyAwards = view.awards.filter(award => !linkedLegacyAwards.has(award.id));
 
   return (
     <>
@@ -219,14 +225,17 @@ export function PersonProfileDetail({ view }: { view: PersonPublicView }) {
           </section>
         )}
 
-        {(view.awards.length > 0 || view.curiosities.length > 0) && (
+        {(legacyAwards.length > 0 || personalAwards.length > 0 || workAwards.length > 0 || view.curiosities.length > 0) && (
           <section className="grid gap-8 border-b border-border py-8 lg:grid-cols-2">
-            {view.awards.length > 0 && (
+            {(legacyAwards.length > 0 || personalAwards.length > 0 || workAwards.length > 0) && (
               <div>
-                <SectionTitle detail={view.awards.length}>Premios y reconocimientos</SectionTitle>
+                <SectionTitle>Premios y reconocimientos</SectionTitle>
+                {(personalAwards.length > 0 || legacyAwards.length > 0) && <h3 className="mt-5 font-semibold">Premios personales y reconocimientos</h3>}
+                <AwardResults results={personalAwards} recipients={false} />
                 <ul className="mt-4 divide-y divide-border border-y border-border">
-                  {view.awards.map((award) => <li key={award.id} className="flex items-start justify-between gap-3 py-3 text-sm"><span className="font-medium text-foreground">{award.name}</span><span className="shrink-0 text-xs text-muted">{award.date ?? "Sin fecha"}</span></li>)}
+                  {legacyAwards.map((award) => <li key={award.id} className="flex items-start justify-between gap-3 py-3 text-sm"><span className="font-medium text-foreground">{award.name}</span><span className="shrink-0 text-xs text-muted">{award.date ?? "Sin fecha"}</span></li>)}
                 </ul>
+                {workAwards.length > 0 && <div className="mt-6"><h3 className="font-semibold">Premios asociados a sus obras</h3>{workAwards.map(work => <div key={work.workKey} className="mt-4 border-t border-border pt-4"><AwardRecipient recipient={{ type: "game", workKey: work.workKey, displayName: getAwardWork(work.workKey)!.displayName }} /><p className="mt-2 text-sm text-muted">Rol: {work.roles.map(humanizePersonRole).join(" / ")}</p><p className="mt-1 text-xs font-semibold text-muted">Premio concedido a la obra</p><AwardResults results={work.results} recipients={false} /></div>)}</div>}
               </div>
             )}
             {view.curiosities.length > 0 && (

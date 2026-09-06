@@ -160,8 +160,12 @@ def main() -> int:
         ] == ["clever-beans", "epos-game-studios"]
     assert not batch_credits(details["ps4-usa-wipeout-omega-collection"])
 
-    assert len(work_index["catalogIdToWorkKey"]) >= 1199
-    assert len(set(work_index["catalogIdToWorkKey"].values())) == 1070
+    batch_identities = importer.build_work_identities(
+        importer.read_csv(importer.SOURCE_RESOLVED), conflicts, non_games
+    )
+    for catalog_id, expected_key in batch_identities.items():
+        effective_id = importer.SUCCESSOR_CATALOG_IDS.get(catalog_id, catalog_id)
+        assert work_index["catalogIdToWorkKey"].get(effective_id) == expected_key
     assert report["summary"]["sourceReportedWorkIdentities"] == 1071
 
     non_game_ids = {row["catalog_id"] for row in non_games}

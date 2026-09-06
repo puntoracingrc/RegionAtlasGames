@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CompanyAwards } from "@/components/award-results";
 import { ExternalLink } from "lucide-react";
 import { EntityBrowser } from "@/components/catalog-browser";
 import { CompanyCollaborators } from "@/components/company-collaborators";
@@ -36,6 +37,7 @@ export function CompanyProfileDetail({ view, franchises, series, ownedCatalogIds
       <SiteNav />
       <main className="mx-auto max-w-[1600px] px-4 py-8 md:px-6">
         <CompanyProfileHeader view={view} />
+        <CompanyAwards companySlug={view.slug} />
 
         <section className="mb-10 rounded-2xl border border-border bg-card p-5 md:p-6">
           <h2 className="text-lg font-semibold text-foreground">Sobre {view.name}</h2>

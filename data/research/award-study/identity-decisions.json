@@ -1,0 +1,356 @@
+{
+  "batch": "AWARDS-PERSONS-V1",
+  "reviewedAt": "2026-09-06",
+  "records": [
+    {
+      "catalogId": "ps4-death-stranding",
+      "title": "Death Stranding",
+      "workKey": "catalog-entry:ps4-death-stranding",
+      "sourceId": "AW-SRC-9ba105f40fa0",
+      "note": "Obra original de 2019 para PS4. No se enlaza Director's Cut ni Death Stranding 2."
+    },
+    {
+      "catalogId": "ps4-usa-death-stranding",
+      "title": "Death Stranding",
+      "workKey": "catalog-entry:ps4-death-stranding",
+      "sourceId": "AW-SRC-9ba105f40fa0",
+      "note": "Obra original de 2019 para PS4. No se enlaza Director's Cut ni Death Stranding 2."
+    },
+    {
+      "catalogId": "ps4-japon-death-stranding",
+      "title": "Death Stranding",
+      "workKey": "catalog-entry:ps4-death-stranding",
+      "sourceId": "AW-SRC-9ba105f40fa0",
+      "note": "Obra original de 2019 para PS4. No se enlaza Director's Cut ni Death Stranding 2."
+    },
+    {
+      "catalogId": "ps4-elden-ring",
+      "title": "Elden Ring",
+      "workKey": "catalog-entry:ps4-elden-ring",
+      "sourceId": "AW-SRC-58e97148a2ee",
+      "note": "Juego base en PS4/PS5 y ediciones físicas con el mismo disco. Excluidos Nightreign, Tarnished Edition, Erdtree y lotes de contenido no comprobado."
+    },
+    {
+      "catalogId": "ps4-usa-elden-ring",
+      "title": "Elden Ring",
+      "workKey": "catalog-entry:ps4-elden-ring",
+      "sourceId": "AW-SRC-58e97148a2ee",
+      "note": "Juego base en PS4/PS5 y ediciones físicas con el mismo disco. Excluidos Nightreign, Tarnished Edition, Erdtree y lotes de contenido no comprobado."
+    },
+    {
+      "catalogId": "ps5-elden-ring",
+      "title": "Elden Ring",
+      "workKey": "catalog-entry:ps4-elden-ring",
+      "sourceId": "AW-SRC-58e97148a2ee",
+      "note": "Juego base en PS4/PS5 y ediciones físicas con el mismo disco. Excluidos Nightreign, Tarnished Edition, Erdtree y lotes de contenido no comprobado."
+    },
+    {
+      "catalogId": "ps5-usa-elden-ring",
+      "title": "Elden Ring",
+      "workKey": "catalog-entry:ps4-elden-ring",
+      "sourceId": "AW-SRC-58e97148a2ee",
+      "note": "Juego base en PS4/PS5 y ediciones físicas con el mismo disco. Excluidos Nightreign, Tarnished Edition, Erdtree y lotes de contenido no comprobado."
+    },
+    {
+      "catalogId": "ps4-elden-ring-collector%27s-edition",
+      "title": "Elden Ring [Collector&#39;s Edition]",
+      "workKey": "catalog-entry:ps4-elden-ring",
+      "sourceId": "AW-SRC-58e97148a2ee",
+      "note": "Juego base en PS4/PS5 y ediciones físicas con el mismo disco. Excluidos Nightreign, Tarnished Edition, Erdtree y lotes de contenido no comprobado."
+    },
+    {
+      "catalogId": "ps5-elden-ring-collector-s-edition",
+      "title": "Elden Ring [Collector's Edition]",
+      "workKey": "catalog-entry:ps4-elden-ring",
+      "sourceId": "AW-SRC-58e97148a2ee",
+      "note": "Juego base en PS4/PS5 y ediciones físicas con el mismo disco. Excluidos Nightreign, Tarnished Edition, Erdtree y lotes de contenido no comprobado."
+    },
+    {
+      "catalogId": "ps4-elden-ring-launch-edition",
+      "title": "Elden Ring [Launch Edition]",
+      "workKey": "catalog-entry:ps4-elden-ring",
+      "sourceId": "AW-SRC-58e97148a2ee",
+      "note": "Juego base en PS4/PS5 y ediciones físicas con el mismo disco. Excluidos Nightreign, Tarnished Edition, Erdtree y lotes de contenido no comprobado."
+    },
+    {
+      "catalogId": "ps5-elden-ring-launch-edition",
+      "title": "Elden Ring [Launch Edition]",
+      "workKey": "catalog-entry:ps4-elden-ring",
+      "sourceId": "AW-SRC-58e97148a2ee",
+      "note": "Juego base en PS4/PS5 y ediciones físicas con el mismo disco. Excluidos Nightreign, Tarnished Edition, Erdtree y lotes de contenido no comprobado."
+    },
+    {
+      "catalogId": "ps5-baldur-s-gate-iii-deluxe-edition",
+      "title": "Baldur's Gate III [Deluxe Edition]",
+      "workKey": "catalog-entry:ps5-baldur-s-gate-iii-deluxe-edition",
+      "sourceId": "AW-SRC-7812c831de4b",
+      "note": "La edición Deluxe física contiene Baldur's Gate 3 en dos discos; no es Dark Alliance ni la recopilación Enhanced Edition."
+    },
+    {
+      "catalogId": "ps5-usa-baldur-s-gate-iii-deluxe-edition",
+      "title": "Baldur's Gate III [Deluxe Edition]",
+      "workKey": "catalog-entry:ps5-baldur-s-gate-iii-deluxe-edition",
+      "sourceId": "AW-SRC-7812c831de4b",
+      "note": "La edición Deluxe física contiene Baldur's Gate 3 en dos discos; no es Dark Alliance ni la recopilación Enhanced Edition."
+    },
+    {
+      "catalogId": "ps5-astro-bot",
+      "title": "Astro Bot",
+      "workKey": "catalog-entry:ps5-astro-bot",
+      "sourceId": "AW-SRC-7244fd3adc10",
+      "note": "Astro Bot de 2024, no Astro Bot Rescue Mission."
+    },
+    {
+      "catalogId": "ps5-usa-astro-bot",
+      "title": "Astro Bot",
+      "workKey": "catalog-entry:ps5-astro-bot",
+      "sourceId": "AW-SRC-7244fd3adc10",
+      "note": "Astro Bot de 2024, no Astro Bot Rescue Mission."
+    },
+    {
+      "catalogId": "ps5-clair-obscur-expedition-33",
+      "title": "Clair Obscur: Expedition 33",
+      "workKey": "catalog-entry:ps5-clair-obscur-expedition-33",
+      "sourceId": "AW-SRC-0b90f242fbc8",
+      "note": "Ediciones estándar de la misma obra; no se incluyen sets de contenido ambiguo."
+    },
+    {
+      "catalogId": "ps5-usa-clair-obscur-expedition-33",
+      "title": "Clair Obscur: Expedition 33",
+      "workKey": "catalog-entry:ps5-clair-obscur-expedition-33",
+      "sourceId": "AW-SRC-0b90f242fbc8",
+      "note": "Ediciones estándar de la misma obra; no se incluyen sets de contenido ambiguo."
+    },
+    {
+      "catalogId": "ps5-japon-clair-obscur-expedition-33",
+      "title": "Clair Obscur: Expedition 33",
+      "workKey": "catalog-entry:ps5-clair-obscur-expedition-33",
+      "sourceId": "AW-SRC-0b90f242fbc8",
+      "note": "Ediciones estándar de la misma obra; no se incluyen sets de contenido ambiguo."
+    },
+    {
+      "catalogId": "ps4-hades",
+      "title": "Hades",
+      "workKey": "catalog-entry:ps4-hades",
+      "sourceId": "AW-SRC-d860a96d134c",
+      "note": "Lanzamiento de Hades en consolas; no Hades II."
+    },
+    {
+      "catalogId": "ps4-usa-hades",
+      "title": "Hades",
+      "workKey": "catalog-entry:ps4-hades",
+      "sourceId": "AW-SRC-d860a96d134c",
+      "note": "Lanzamiento de Hades en consolas; no Hades II."
+    },
+    {
+      "catalogId": "ps5-hades",
+      "title": "Hades",
+      "workKey": "catalog-entry:ps4-hades",
+      "sourceId": "AW-SRC-d860a96d134c",
+      "note": "Lanzamiento de Hades en consolas; no Hades II."
+    },
+    {
+      "catalogId": "ps5-usa-hades",
+      "title": "Hades",
+      "workKey": "catalog-entry:ps4-hades",
+      "sourceId": "AW-SRC-d860a96d134c",
+      "note": "Lanzamiento de Hades en consolas; no Hades II."
+    },
+    {
+      "catalogId": "switch-usa-hades",
+      "title": "Hades",
+      "workKey": "catalog-entry:ps4-hades",
+      "sourceId": "AW-SRC-d860a96d134c",
+      "note": "Lanzamiento de Hades en consolas; no Hades II."
+    },
+    {
+      "catalogId": "switch-japon-hades",
+      "title": "Hades",
+      "workKey": "catalog-entry:ps4-hades",
+      "sourceId": "AW-SRC-d860a96d134c",
+      "note": "Lanzamiento de Hades en consolas; no Hades II."
+    },
+    {
+      "catalogId": "ps4-it-takes-two",
+      "title": "It Takes Two",
+      "workKey": "catalog-entry:ps4-it-takes-two",
+      "sourceId": "AW-SRC-dbc148e3d554",
+      "note": "Juego cooperativo de Hazelight de 2021. No se enlazan ports sin revisión."
+    },
+    {
+      "catalogId": "ps4-usa-it-takes-two",
+      "title": "It Takes Two",
+      "workKey": "catalog-entry:ps4-it-takes-two",
+      "sourceId": "AW-SRC-dbc148e3d554",
+      "note": "Juego cooperativo de Hazelight de 2021. No se enlazan ports sin revisión."
+    },
+    {
+      "catalogId": "ps5-returnal",
+      "title": "Returnal",
+      "workKey": "catalog-entry:ps5-returnal",
+      "sourceId": "AW-SRC-fecaf759013c",
+      "note": "Obra de Housemarque de 2021, fichas estándar PS5."
+    },
+    {
+      "catalogId": "ps5-usa-returnal",
+      "title": "Returnal",
+      "workKey": "catalog-entry:ps5-returnal",
+      "sourceId": "AW-SRC-fecaf759013c",
+      "note": "Obra de Housemarque de 2021, fichas estándar PS5."
+    },
+    {
+      "catalogId": "ps5-japon-returnal",
+      "title": "Returnal",
+      "workKey": "catalog-entry:ps5-returnal",
+      "sourceId": "AW-SRC-fecaf759013c",
+      "note": "Obra de Housemarque de 2021, fichas estándar PS5."
+    },
+    {
+      "catalogId": "ps4-ghost-of-tsushima",
+      "title": "Ghost of Tsushima",
+      "workKey": "catalog-entry:ps4-ghost-of-tsushima",
+      "sourceId": "AW-SRC-849b58b1ff4a",
+      "note": "Obra PS4 original de 2020. Director's Cut no se incorpora a esta decisión."
+    },
+    {
+      "catalogId": "ps4-usa-ghost-of-tsushima",
+      "title": "Ghost of Tsushima",
+      "workKey": "catalog-entry:ps4-ghost-of-tsushima",
+      "sourceId": "AW-SRC-849b58b1ff4a",
+      "note": "Obra PS4 original de 2020. Director's Cut no se incorpora a esta decisión."
+    },
+    {
+      "catalogId": "switch-zelda-tears-of-the-kingdom",
+      "title": "Zelda: Tears Of The Kingdom",
+      "workKey": "catalog-entry:switch-zelda-tears-of-the-kingdom",
+      "sourceId": "AW-SRC-5641a7e0825e",
+      "note": "Ediciones estándar Nintendo Switch. Excluidas Switch 2 y el mando Pro Controller."
+    },
+    {
+      "catalogId": "switch-usa-zelda-tears-of-the-kingdom",
+      "title": "Zelda: Tears Of the Kingdom",
+      "workKey": "catalog-entry:switch-zelda-tears-of-the-kingdom",
+      "sourceId": "AW-SRC-5641a7e0825e",
+      "note": "Ediciones estándar Nintendo Switch. Excluidas Switch 2 y el mando Pro Controller."
+    },
+    {
+      "catalogId": "switch-japon-zelda-tears-of-the-kingdom",
+      "title": "Zelda: Tears Of The Kingdom",
+      "workKey": "catalog-entry:switch-zelda-tears-of-the-kingdom",
+      "sourceId": "AW-SRC-5641a7e0825e",
+      "note": "Ediciones estándar Nintendo Switch. Excluidas Switch 2 y el mando Pro Controller."
+    },
+    {
+      "catalogId": "switch-monster-hunter-rise",
+      "title": "Monster Hunter Rise",
+      "workKey": "catalog-entry:switch-monster-hunter-rise",
+      "sourceId": "AW-SRC-744167446c4a",
+      "note": "Juego base. Sunbreak permanece sin enlace hasta acreditar si la ficha representa la expansión o un bundle."
+    },
+    {
+      "catalogId": "switch-usa-monster-hunter-rise",
+      "title": "Monster Hunter Rise",
+      "workKey": "catalog-entry:switch-monster-hunter-rise",
+      "sourceId": "AW-SRC-744167446c4a",
+      "note": "Juego base. Sunbreak permanece sin enlace hasta acreditar si la ficha representa la expansión o un bundle."
+    },
+    {
+      "catalogId": "ps5-umurangi-generation",
+      "title": "Umurangi Generation",
+      "workKey": "catalog-entry:ps5-umurangi-generation",
+      "sourceId": "AW-SRC-a0c49d863f5b",
+      "note": "Ficha de la obra homónima; no se agrupan Deluxe Kit ni otros conjuntos."
+    },
+    {
+      "catalogId": "ps5-usa-inscryption",
+      "title": "Inscryption",
+      "workKey": "catalog-entry:ps5-usa-inscryption",
+      "sourceId": "AW-SRC-a54888581b30",
+      "note": "Ficha estándar de Inscryption, sin incorporar automáticamente otras ediciones."
+    },
+    {
+      "catalogId": "ps5-japon-balatro",
+      "title": "Balatro",
+      "workKey": "catalog-entry:ps5-japon-balatro",
+      "sourceId": "AW-SRC-e84a807852bd",
+      "note": "Ediciones estándar de Balatro de LocalThunk."
+    },
+    {
+      "catalogId": "switch-japon-balatro",
+      "title": "Balatro",
+      "workKey": "catalog-entry:ps5-japon-balatro",
+      "sourceId": "AW-SRC-e84a807852bd",
+      "note": "Ediciones estándar de Balatro de LocalThunk."
+    },
+    {
+      "catalogId": "ps5-black-myth-wukong",
+      "title": "Black Myth: Wukong",
+      "workKey": "catalog-entry:ps5-black-myth-wukong",
+      "sourceId": "AW-SRC-ae7b52b1dff7",
+      "note": "Ediciones estándar de la obra de Game Science."
+    },
+    {
+      "catalogId": "ps5-usa-black-myth-wukong",
+      "title": "Black Myth: Wukong",
+      "workKey": "catalog-entry:ps5-black-myth-wukong",
+      "sourceId": "AW-SRC-ae7b52b1dff7",
+      "note": "Ediciones estándar de la obra de Game Science."
+    },
+    {
+      "catalogId": "ps5-japon-black-myth-wukong",
+      "title": "Black Myth: Wukong",
+      "workKey": "catalog-entry:ps5-black-myth-wukong",
+      "sourceId": "AW-SRC-ae7b52b1dff7",
+      "note": "Ediciones estándar de la obra de Game Science."
+    },
+    {
+      "catalogId": "ps4-resident-evil-village",
+      "title": "Resident Evil Village",
+      "workKey": "catalog-entry:ps4-resident-evil-village",
+      "sourceId": "AW-SRC-811224a510e8",
+      "note": "Juego base; excluidas Gold y otras ediciones con expansiones."
+    },
+    {
+      "catalogId": "ps4-usa-resident-evil-village",
+      "title": "Resident Evil Village",
+      "workKey": "catalog-entry:ps4-resident-evil-village",
+      "sourceId": "AW-SRC-811224a510e8",
+      "note": "Juego base; excluidas Gold y otras ediciones con expansiones."
+    },
+    {
+      "catalogId": "ps5-resident-evil-village",
+      "title": "Resident Evil Village",
+      "workKey": "catalog-entry:ps4-resident-evil-village",
+      "sourceId": "AW-SRC-811224a510e8",
+      "note": "Juego base; excluidas Gold y otras ediciones con expansiones."
+    },
+    {
+      "catalogId": "ps5-usa-resident-evil-village",
+      "title": "Resident Evil Village",
+      "workKey": "catalog-entry:ps4-resident-evil-village",
+      "sourceId": "AW-SRC-811224a510e8",
+      "note": "Juego base; excluidas Gold y otras ediciones con expansiones."
+    },
+    {
+      "catalogId": "ps5-metaphor-refantazio",
+      "title": "Metaphor: ReFantazio",
+      "workKey": "catalog-entry:ps5-metaphor-refantazio",
+      "sourceId": "AW-SRC-e5c40600fec2",
+      "note": "Ediciones estándar PS5, no sets con contenido sin comprobar."
+    },
+    {
+      "catalogId": "ps5-usa-metaphor-refantazio",
+      "title": "Metaphor: ReFantazio",
+      "workKey": "catalog-entry:ps5-metaphor-refantazio",
+      "sourceId": "AW-SRC-e5c40600fec2",
+      "note": "Ediciones estándar PS5, no sets con contenido sin comprobar."
+    },
+    {
+      "catalogId": "ps5-japon-metaphor-refantazio",
+      "title": "Metaphor: ReFantazio",
+      "workKey": "catalog-entry:ps5-metaphor-refantazio",
+      "sourceId": "AW-SRC-e5c40600fec2",
+      "note": "Ediciones estándar PS5, no sets con contenido sin comprobar."
+    }
+  ]
+}
