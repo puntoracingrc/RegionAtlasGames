@@ -20,7 +20,7 @@
     "ps3",
     "ps4"
   ],
-  "lastRunAt": "2026-09-06T06:14:43Z",
+  "lastRunAt": "2026-09-06T12:03:31Z",
   "nextPlatformSlug": "nes",
   "platforms": {
     "dreamcast": {
@@ -64,7 +64,7 @@
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     },
     "ps4": {
-      "lastSyncAt": "2026-08-30T05:31:52Z",
+      "lastSyncAt": "2026-09-05T20:13:23Z",
       "source": "eBay ES",
       "gamesTargeted": 53,
       "gamesUpdated": 18,
@@ -84,7 +84,7 @@
       "cholloGamesSkipped": 0,
       "kaotoGamesUpdated": 0,
       "kaotoGamesSkipped": 0,
-      "tcnsGamesUpdated": 0,
+      "tcnsGamesUpdated": 287,
       "tcnsGamesSkipped": 0,
       "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
@@ -188,7 +188,17 @@
           "ps4-young-souls-collector%27s-edition",
           "ps4-young-souls-deluxe-edition"
         ]
-      }
+      },
+      "sourceRuns": {
+        "todoconsolas": {
+          "lastSyncAt": "2026-09-05T20:13:23Z",
+          "gamesTargeted": 8495,
+          "gamesUpdated": 287,
+          "gamesSkipped": 0,
+          "policy": "tcns_exact_title_region_used_v1"
+        }
+      },
+      "conditionPriceGamesUpdated": 0
     },
     "saturn": {
       "lastSyncAt": "2026-06-12T22:48:57Z",
@@ -308,7 +318,7 @@
       "regionPolicy": "Reglas en data/region-evidence-rules.json"
     },
     "ps5": {
-      "lastSyncAt": "2026-08-29T11:51:48Z",
+      "lastSyncAt": "2026-09-05T20:13:23Z",
       "source": "Mercado ES",
       "gamesTargeted": 61,
       "gamesUpdated": 0,
@@ -328,7 +338,7 @@
       "cholloGamesSkipped": 0,
       "kaotoGamesUpdated": 0,
       "kaotoGamesSkipped": 0,
-      "tcnsGamesUpdated": 31,
+      "tcnsGamesUpdated": 63,
       "tcnsGamesSkipped": 0,
       "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
@@ -356,16 +366,17 @@
       },
       "sourceRuns": {
         "todoconsolas": {
-          "lastSyncAt": "2026-08-29T11:51:48Z",
-          "gamesTargeted": 31,
-          "gamesUpdated": 31,
+          "lastSyncAt": "2026-09-05T20:13:23Z",
+          "gamesTargeted": 4805,
+          "gamesUpdated": 63,
           "gamesSkipped": 0,
           "policy": "tcns_exact_title_region_used_v1"
         }
-      }
+      },
+      "conditionPriceGamesUpdated": 0
     },
     "switch2": {
-      "lastSyncAt": "2026-08-29T22:26:49Z",
+      "lastSyncAt": "2026-09-05T20:13:23Z",
       "source": "Mercado ES",
       "gamesTargeted": 1,
       "gamesUpdated": 0,
@@ -385,7 +396,7 @@
       "cholloGamesSkipped": 0,
       "kaotoGamesUpdated": 0,
       "kaotoGamesSkipped": 0,
-      "tcnsGamesUpdated": 18,
+      "tcnsGamesUpdated": 4,
       "tcnsGamesSkipped": 0,
       "tcGamesUpdated": 0,
       "tcGamesSkipped": 0,
@@ -413,13 +424,14 @@
       },
       "sourceRuns": {
         "todoconsolas": {
-          "lastSyncAt": "2026-08-29T22:26:49Z",
-          "gamesTargeted": 18,
-          "gamesUpdated": 18,
+          "lastSyncAt": "2026-09-05T20:13:23Z",
+          "gamesTargeted": 364,
+          "gamesUpdated": 4,
           "gamesSkipped": 0,
           "policy": "tcns_exact_title_region_used_v1"
         }
-      }
+      },
+      "conditionPriceGamesUpdated": 0
     },
     "nes": {
       "lastSyncAt": "2026-09-04T20:50:42Z",
