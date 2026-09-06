@@ -49,7 +49,9 @@ jobs:
         run: npm run test:unit
 
       - name: Collector safety tests
-        run: npm run test:collector-controls
+        run: |
+          npm run test:collector-controls
+          python3 scripts/test_ai_usage.py
 
       - name: Affiliate offer tests
         run: npm run test:affiliate-offers-v1
