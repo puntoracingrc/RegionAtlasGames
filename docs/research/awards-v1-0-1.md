@@ -44,3 +44,11 @@ Los logos se guardan localmente, sin hotlink, recorte ni recoloreado. No hay com
 - Build: correcto; `/premios` y `/admin/premios` son rutas dinámicas.
 - Corte de catálogo: 73.104 fichas e IDs únicos, 4.481 compañías. Son cifras del informe, no restricciones permanentes.
 - Preview y Production: pendientes de cierre; no declarar publicado hasta completar ambos controles.
+
+## QA local
+
+- 50 combinaciones ruta/viewport correctas (25 rutas en escritorio y móvil), más seis rutas negativas con 404 esperado.
+- Sin errores de consola, imágenes rotas ni overflow; canonicals y unicidad de los bloques de premios correctos.
+- Revisados visualmente el listado de personas y el encuadre completo de los retratos, sin cambiar las fotografías originales.
+- Evidencia local: `artifacts/awards-v101-local/report.json` y capturas en el directorio de trabajo compartido.
+- La comprobación autenticada de Admin sigue pendiente; no se sustituye por el control de rutas públicas.
