@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "engine": "todoconsolas_weekly_public_categories",
+  "campaignId": "20260905T201323Z",
+  "status": "ready_for_git",
+  "startedAt": "2026-09-05T20:13:23Z",
+  "updatedAt": "2026-09-06T02:33:52Z",
+  "completedAt": "2026-09-06T02:33:52Z",
+  "nextDueAt": "2026-09-13T02:33:52Z",
+  "blockedUntil": null,
+  "lastError": null,
+  "lastAction": "campaign_completed",
+  "settings": {
+    "intervalDays": 7,
+    "pagesPerRun": 1,
+    "delaySeconds": 8.0,
+    "jitterSeconds": 3.0,
+    "publishMode": "git_review_required",
+    "productPagesVisited": false,
+    "internalSearchUsed": false
+  },
+  "platforms": [
+    "ps4",
+    "ps5",
+    "switch2"
+  ],
+  "units": [
+    {
+      "id": "28-juegos-ps4",
+      "categoryPath": "28-juegos-ps4",
+      "platformSlugs": [
+        "ps4"
+      ],
+      "status": "complete",
+      "nextPage": 38,
+      "lastPage": 37,
+      "pagesProcessed": 37,
+      "productsRead": 886,
+      "preownedConsidered": 577,
+      "exactListings": 288,
+      "reviewListings": 289,
+      "updatedAt": "2026-09-05T22:32:08Z",
+      "completedAt": "2026-09-05T22:32:08Z"
+    },
+    {
+      "id": "359-juegos-ps5",
+      "categoryPath": "359-juegos-ps5",
+      "platformSlugs": [
+        "ps5"
+      ],
+      "status": "complete",
+      "nextPage": 53,
+      "lastPage": 52,
+      "pagesProcessed": 52,
+      "productsRead": 264,
+      "preownedConsidered": 101,
+      "exactListings": 63,
+      "reviewListings": 38,
+      "updatedAt": "2026-09-06T01:51:30Z",
+      "completedAt": "2026-09-06T01:51:30Z"
+    },
+    {
+      "id": "392-juegos-switch-2",
+      "categoryPath": "392-juegos-switch-2",
+      "platformSlugs": [
+        "switch2"
+      ],
+      "status": "complete",
+      "nextPage": 12,
+      "lastPage": 11,
+      "pagesProcessed": 11,
+      "productsRead": 24,
+      "preownedConsidered": 6,
+      "exactListings": 4,
+      "reviewListings": 2,
+      "updatedAt": "2026-09-06T02:33:52Z",
+      "completedAt": "2026-09-06T02:33:52Z"
+    }
+  ],
+  "progress": {
+    "unitsCompleted": 3,
+    "unitsTotal": 3,
+    "pagesProcessed": 100,
+    "knownPagesTotal": 100,
+    "productsRead": 1174,
+    "preownedConsidered": 684,
+    "exactListings": 355,
+    "reviewListings": 329
+  },
+  "lastSlice": {
+    "schemaVersion": 1,
+    "campaignId": "20260905T201323Z",
+    "collectedAt": "2026-09-06T02:33:52Z",
+    "categoryPath": "392-juegos-switch-2",
+    "platformSlugs": [
+      "switch2"
+    ],
+    "pages": [
+      {
+        "categoryPath": "392-juegos-switch-2",
+        "page": 11,
+        "lastPage": 11,
+        "products": 0
+      }
+    ],
+    "productsRead": 0,
+    "preownedConsidered": 0,
+    "triage": {},
+    "ingests": {}
+  },
+  "enabled": true,
+  "runnerId": "windows-pc-worker",
+  "hostname": "PC",
+  "workerCheckedAt": "2026-09-06T02:33:52Z",
+  "exitCode": 0
+}
