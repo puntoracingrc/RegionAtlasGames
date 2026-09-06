@@ -1,12 +1,12 @@
 {
   "total": 73104,
-  "listed": 70931,
-  "excluded": 2173,
+  "listed": 70930,
+  "excluded": 2174,
   "byCategory": {
     "accessory": 145,
     "demo": 5,
     "hardware": 123,
-    "other": 14,
+    "other": 15,
     "promo": 155,
     "variant": 1338,
     "whitelist": 386,
@@ -38,7 +38,7 @@
     "psvita": 838,
     "saturn": 1597,
     "sega32x": 82,
-    "snes": 2881,
+    "snes": 2880,
     "switch": 8785,
     "switch2": 364,
     "wii": 3061,
@@ -58,7 +58,7 @@
     "ps3": 39,
     "ps4": 1221,
     "ps5": 2,
-    "snes": 88,
+    "snes": 89,
     "wii": 176
   }
 }
