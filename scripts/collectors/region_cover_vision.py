@@ -12,6 +12,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from collectors.ai_balance import check_billing_error
 
 from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.condition_buckets import DISPLAY_BUCKETS
@@ -320,7 +321,10 @@ def classify_region_from_cover(
             ]
         )
         parsed = json.loads(raw)
-    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, json.JSONDecodeError, KeyError, RuntimeError):
+    except urllib.error.HTTPError as exc:
+        check_billing_error(exc)
+        return None
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, KeyError, RuntimeError):
         return None
 
     observations = normalize_visual_observations(parsed.get("observations"), image_limit=len(urls))

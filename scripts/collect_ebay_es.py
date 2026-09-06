@@ -22,6 +22,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
+from collectors.ai_balance import AiBalanceExhausted
 
 from build_ingest_template import validate_ingest  # noqa: E402
 from collectors.cache_policy import attach_policy_version  # noqa: E402
@@ -992,6 +993,9 @@ def main() -> None:
                 )
             report["catalogIdsProcessed"].append(catalog_id)
 
+        except AiBalanceExhausted:
+            report["pauseReason"] = "ai_balance_exhausted"
+            break
         except Exception as exc:  # noqa: BLE001
             report["errors"].append({"catalogId": catalog_id, "error": str(exc)})
             report["catalogIdsFailed"].append(catalog_id)

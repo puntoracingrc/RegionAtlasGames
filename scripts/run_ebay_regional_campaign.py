@@ -557,6 +557,10 @@ def main() -> None:
     platform_state, region, selected = select_global_batch(states, catalog, selection_order, batch_size)
     cover_queue = load_json(COVER_CANDIDATES_FILE, empty_cover_queue())
     global_current = load_json(GLOBAL_STATE_FILE, {})
+    if global_current.get("pauseReason") == "ai_balance_exhausted" and os.environ.get("EBAY_RESUME_AI_BALANCE") != "true":
+        print("Pausado por saldo agotado de IA. Recarga el saldo y reanuda la campaña manualmente.")
+        return
+    global_current.pop("pauseReason", None)
     daily_usage = current_daily_usage(global_current)
     daily_remaining = max(0, DAILY_SEARCH_BUDGET - int(daily_usage["apiSearches"]))
     effective_search_budget = min(search_budget, daily_remaining)
@@ -645,6 +649,8 @@ def main() -> None:
         sync_ids_file = temp / "sync-catalog-ids.json"
         ingest_file = temp / "ingest.json"
         report_file = temp / "report.json"
+        balance_signal = temp / "ai-balance.txt"
+        os.environ["PRICE_AI_BALANCE_SIGNAL"] = str(balance_signal)
         save_json(ids_file, selected)
 
         collector = [
@@ -680,7 +686,9 @@ def main() -> None:
         ]
 
         systemic_error: str | None = None
-        if collector_code != 0:
+        if balance_signal.exists() or report.get("pauseReason") == "ai_balance_exhausted":
+            systemic_error = "Pausado por saldo agotado de IA"
+        elif collector_code != 0:
             systemic_error = f"El collector terminó con código {collector_code}; el lote no se aplicó."
         elif not processed and failed and len(failed) >= len(selected):
             systemic_error = "Todas las consultas del lote fallaron; se conserva el mismo lote para reintentar."
@@ -703,7 +711,9 @@ def main() -> None:
                 "--no-advance-rotation",
             ]
             sync_code = run_command(sync_command)
-            if sync_code != 0:
+            if balance_signal.exists():
+                systemic_error = "Pausado por saldo agotado de IA"
+            elif sync_code != 0:
                 systemic_error = f"El sync terminó con código {sync_code}; no se marca el lote como completado."
 
         if systemic_error:
@@ -762,9 +772,15 @@ def main() -> None:
             cover_queue=cover_queue,
         )
         save_json(state_path(platform_slug), states[platform_slug])
+        if balance_signal.exists() or report.get("pauseReason") == "ai_balance_exhausted":
+            global_state["status"] = "paused"
+            global_state["pauseReason"] = "ai_balance_exhausted"
         save_json(COVER_CANDIDATES_FILE, cover_queue)
         save_json(GLOBAL_STATE_FILE, global_state)
         write_github_output(global_state)
+        if global_state.get("pauseReason") == "ai_balance_exhausted":
+            print("::warning::Pausado por saldo agotado de IA. El lote permanece pendiente.")
+            return
         if systemic_error:
             raise SystemExit(systemic_error)
 
