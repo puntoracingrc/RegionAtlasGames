@@ -1,7 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { AuthNav } from "@/components/auth-nav";
 import { SiteLogo } from "@/components/site-logo";
 import { cn } from "@/lib/cn";
@@ -11,14 +12,76 @@ import { LinkPendingFeedback } from "@/components/link-pending-feedback";
 
 const LINKS = [
   { href: "/", label: "Inicio" },
+  { href: "/vitrina", label: "Vitrina" },
   { href: "/plataformas", label: "Plataformas" },
+  { href: "/coleccion", label: "Mi colección" },
+];
+
+const INDUSTRY_LINKS = [
   { href: "/compania", label: "Compañías" },
   { href: "/persona", label: "Personas" },
   { href: "/premios", label: "Premios" },
   { href: "/franquicia", label: "Franquicias" },
-  { href: "/vitrina", label: "Vitrina" },
-  { href: "/coleccion", label: "Mi colección" },
 ];
+
+function IndustryNavigation({ pathname, mobile = false, onNavigate }: {
+  pathname: string;
+  mobile?: boolean;
+  onNavigate?: () => void;
+}) {
+  const ref = useRef<HTMLDetailsElement>(null);
+  const active = INDUSTRY_LINKS.some(({ href }) => pathname === href || pathname.startsWith(`${href}/`))
+    || pathname === "/saga" || pathname.startsWith("/saga/");
+
+  useEffect(() => {
+    const closeOutside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !ref.current?.contains(event.target) && ref.current) {
+        ref.current.open = false;
+      }
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    return () => document.removeEventListener("pointerdown", closeOutside);
+  }, []);
+
+  useEffect(() => {
+    if (ref.current) ref.current.open = false;
+  }, [pathname]);
+
+  return (
+    <details ref={ref} className="group relative" onKeyDown={(event) => {
+      if (event.key === "Escape" && ref.current?.open) {
+        ref.current.open = false;
+        ref.current.querySelector("summary")?.focus();
+        event.stopPropagation();
+      }
+    }} onBlur={(event) => {
+      if (!event.currentTarget.contains(event.relatedTarget)) event.currentTarget.open = false;
+    }}>
+      <summary className={cn(
+        "flex cursor-pointer list-none items-center gap-1.5 rounded-md transition hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent [&::-webkit-details-marker]:hidden",
+        mobile && "px-3 py-2.5 text-sm",
+        active ? "font-medium text-accent" : "text-muted",
+      )}>
+        Industria <ChevronDown aria-hidden className="h-4 w-4 transition-transform group-open:rotate-180" />
+      </summary>
+      <ul className={cn(
+        "space-y-1",
+        mobile ? "ml-3 border-l border-border pl-2" : "absolute right-0 top-full z-50 mt-3 min-w-48 rounded-lg border border-border bg-card p-2 shadow-lg",
+      )}>
+        {INDUSTRY_LINKS.map(({ href, label }) => {
+          const selected = pathname === href || pathname.startsWith(`${href}/`);
+          return <li key={href}>
+            <IntentLink href={href} aria-current={selected ? "page" : undefined}
+              className={cn("block rounded-md px-3 py-2.5 text-sm transition hover:bg-card-hover focus-visible:outline-2 focus-visible:outline-accent", selected ? "font-medium text-accent" : "text-foreground")}
+              onClick={() => { if (ref.current) ref.current.open = false; onNavigate?.(); }}>
+              {label}<LinkPendingFeedback label={`Abriendo ${label}…`} />
+            </IntentLink>
+          </li>;
+        })}
+      </ul>
+    </details>
+  );
+}
 
 const ADMIN_LINK = { href: "/admin", label: "Admin" };
 const CONTRIBUTOR_LINK = { href: "/contribuir", label: "Contribuir" };
@@ -119,6 +182,7 @@ export function SiteNav({
                 <LinkPendingFeedback label={`Abriendo ${link.label}…`} />
               </IntentLink>
             ))}
+            <IndustryNavigation pathname={pathname} />
           </div>
 
           <AuthNav initialUser={initialUser} />
@@ -165,7 +229,7 @@ export function SiteNav({
           />
           <div
             id="site-mobile-menu"
-            className="relative z-50 border-t border-border bg-nav px-4 py-3 lg:hidden"
+            className="relative z-50 max-h-[calc(100dvh-64px)] overflow-y-auto border-t border-border bg-nav px-4 py-3 lg:hidden"
           >
             <ul className="space-y-1">
               {navLinks.map((link) => {
@@ -191,6 +255,7 @@ export function SiteNav({
                   </li>
                 );
               })}
+              <li><IndustryNavigation pathname={pathname} mobile onNavigate={() => setOpen(false)} /></li>
             </ul>
           </div>
         </>

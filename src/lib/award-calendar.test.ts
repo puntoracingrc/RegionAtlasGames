@@ -8,6 +8,7 @@ import type { AwardPublicData } from "./award-research-types";
 import { getPublicPersonView } from "./person-public-research";
 import { getCompany } from "./indexes";
 import { getCatalogGame } from "./catalog";
+import { getAwardRecipientVisual } from "./award-recipient-visual";
 import { getCatalogWorkKey } from "./catalog-work";
 
 const read = (path: string) => readFileSync(path, "utf8");
@@ -65,8 +66,32 @@ test("permission-required assets are not rendered even with an assigned path", (
 });
 test("BAFTA fallback has no asset and dated logos cannot label another edition", () => {
   assert.equal(approvedAwardLogo(getAwardVisualIdentity("bafta-games-awards")),null);
-  assert.equal(approvedAwardLogo(getAwardVisualIdentity("japan-game-awards"),2025),null);
+  assert.equal(approvedAwardLogo(getAwardVisualIdentity("japan-game-awards"),2022),null);
   for(const series of data.series) { const path=approvedAwardLogo(getAwardVisualIdentity(series.slug)); if(path) assert.ok(existsSync(`public${path}`)); }
+});
+test("generic award logos work across editions and exact dated assets take precedence", () => {
+  for (const slug of ["dice-awards", "game-developers-choice-awards", "golden-joystick-awards", "independent-games-festival"]) {
+    const path = approvedAwardLogo(getAwardVisualIdentity(slug), 2023);
+    assert.ok(path && existsSync(`public${path}`));
+  }
+  assert.equal(approvedAwardLogo(getAwardVisualIdentity("dice-awards"), 2026), "/award-logos/29th-DICE-Awards-Blue-h.png");
+  assert.equal(approvedAwardLogo(getAwardVisualIdentity("japan-game-awards"), 2023), "/award-logos/japan-game-awards-2023.png");
+  assert.ok(existsSync("public/award-logos/japan-game-awards-2023.png"));
+  for (const year of [2024, 2025, 2026]) {
+    const path = approvedAwardLogo(getAwardVisualIdentity("japan-game-awards"), year);
+    assert.ok(path && existsSync(`public${path}`));
+  }
+  assert.equal(approvedAwardLogo(getAwardVisualIdentity("japan-game-awards"), 2022), null);
+});
+test("digital recipient art is exact, sourced and never inferred from missing catalog membership", () => {
+  const result = data.results.find(r => r.id === "independent-games-festival:2026:f2a23aa09e")!;
+  const visual = getAwardRecipientVisual(result.recipients[0], result.id);
+  assert.ok(visual && existsSync(`public${visual.imagePath}`));
+  assert.equal(visual.format, "digital");
+  assert.equal(getAwardRecipientVisual(result.recipients[0], "other-result"), undefined);
+  assert.equal(getAwardRecipientVisual(result.recipients[0], result.id, 1), undefined);
+  assert.equal(getAwardRecipientVisual({type: "game", workKey: "physical-work", displayName: "Titanium Court"}, result.id), undefined);
+  assert.equal(getAwardRecipientVisual({type: "game", workKey: null, displayName: "Other game"}, result.id), undefined);
 });
 test("CatalogAwards is between description and details", () => {
   const page=read("src/app/catalogo/[slug]/page.tsx");

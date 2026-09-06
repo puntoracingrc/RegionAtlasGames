@@ -17,12 +17,14 @@ import { approvedAwardLogo, getAwardVisualIdentity } from "@/lib/award-visual-id
 import { CompanyLogo } from "@/components/company-logo";
 import { PersonPortrait } from "@/components/person-portrait";
 import { AwardLogo } from "@/components/award-logo";
+import { getAwardRecipientVisual } from "@/lib/award-recipient-visual";
 
 export function getAwardCatalogGame(workKey: string) {
   return getAwardWork(workKey)?.catalogIdsVerified.map(getCatalogGame).find(g => g && isPublicCatalogGame(g));
 }
 
-export function AwardRecipient({ recipient, image = false }: { recipient: AwardRecipientRef; image?: boolean }) {
+export function AwardRecipient({ recipient, image = false, resultId, recipientIndex = 0 }: { recipient: AwardRecipientRef; image?: boolean; resultId?: string; recipientIndex?: number }) {
+  const digital = getAwardRecipientVisual(recipient, resultId, recipientIndex);
   const game = recipient.type === "game" && recipient.workKey ? getAwardCatalogGame(recipient.workKey) : undefined;
   const cover = game ? getCoverSrc(game.coverUrl, game.id) : null;
   const person = recipient.type === "person" && recipient.personSlug ? getPublicPersonView(recipient.personSlug)?.profile : undefined;
@@ -31,11 +33,13 @@ export function AwardRecipient({ recipient, image = false }: { recipient: AwardR
   const href = game ? catalogGamePath(game) : person ? `/persona/${person.slug}` : company ? `/compania/${company.slug}` : null;
   const visual = cover ? <Image src={cover} alt={recipient.displayName} width={64} height={88} sizes="64px" unoptimized className="h-[88px] w-16 shrink-0 object-contain" />
     : person ? <PersonPortrait src={person.portrait?.path ?? null} name={person.name} sizes="64px" fit="contain" className="h-[88px] w-16" />
-    : company && logo?.url ? <CompanyLogo name={company.name} logoUrl={logo.url} provisional={logo.provisional} /> : null;
+    : company && logo?.url ? <CompanyLogo name={company.name} logoUrl={logo.url} provisional={logo.provisional} />
+    : digital ? <Image src={digital.imagePath} alt={`Ilustración oficial de ${recipient.displayName}, versión digital`} width={112} height={88} sizes="112px" className="h-[88px] w-28 shrink-0 object-contain" /> : null;
   const name = href ? <Link href={href} className="font-semibold hover:text-accent hover:underline">{recipient.displayName}</Link> : <span className="font-semibold">{recipient.displayName}</span>;
   return <div className="flex min-w-0 items-center gap-3">
     {image && visual && href && <Link href={href} className="shrink-0">{visual}</Link>}
-    <div className="min-w-0 break-words">{name}</div>
+    {image && visual && !href && digital && <a href={digital.officialUrl} target="_blank" rel="noreferrer" className="shrink-0" aria-label={`Web oficial de ${recipient.displayName}`}>{visual}</a>}
+    <div className="min-w-0 break-words">{name}{digital?.format === "digital" && <div className="mt-1 text-xs font-medium text-muted">Digital</div>}</div>
   </div>;
 }
 
@@ -54,7 +58,7 @@ export function AwardResultList({ results, recipients = true, covers = false }: 
             <Link href={`/premios/${series.slug}/${edition.editionYear}`} className="font-semibold hover:text-accent">{series.shortName ?? series.canonicalName} {edition.editionYear}</Link>
             <span>{labels[result.resultType]}{result.shared ? " · Compartido" : ""}</span>
           </div>
-          {recipients && result.recipients.map((recipient, index) => <AwardRecipient key={index} recipient={recipient} image={covers} />)}
+          {recipients && result.recipients.map((recipient, index) => <AwardRecipient key={index} recipient={recipient} image={covers} resultId={result.id} recipientIndex={index} />)}
           <Link href={`/premios/${series.slug}/categoria/${category.slug}`} className="inline-block text-sm text-accent hover:underline">{result.officialLabel ?? category.displayName}</Link>
         </div>
         <div className="flex flex-wrap items-start gap-3 text-xs sm:max-w-48">

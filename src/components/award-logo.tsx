@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { approvedAwardLogo, getAwardVisualIdentity } from "@/lib/award-visual-identity";
+import { approvedAwardLogo, awardIdentityForYear, getAwardVisualIdentity } from "@/lib/award-visual-identity";
 
 export function AwardLogo({ slug, name, year, small = false }: { slug: string; name: string; year?: number; small?: boolean }) {
-  const identity = getAwardVisualIdentity(slug);
+  const identity = awardIdentityForYear(getAwardVisualIdentity(slug), year);
   const src = approvedAwardLogo(identity, year);
   if (!src) return null;
   return <div className={`relative shrink-0 rounded bg-white ${small ? "h-10 w-16" : "h-24 w-48"}`}>
