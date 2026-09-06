@@ -82,7 +82,6 @@ export function CompanyExplorer({
   platformOptions,
   genreOptions,
   filterCounts,
-  stats,
   totalCount,
   initials,
   grouped,
@@ -158,25 +157,6 @@ export function CompanyExplorer({
 
   return (
     <div className="space-y-6">
-      <section className="grid grid-cols-2 gap-2 md:gap-3 xl:grid-cols-4">
-        <StatCard label="Compañías" value={stats.total.toLocaleString("es-ES")} hint="Fichas unificadas" />
-        <StatCard
-          label="Publicadoras"
-          value={stats.publishers.toLocaleString("es-ES")}
-          hint="Solo publican"
-        />
-        <StatCard
-          label="Desarrolladoras"
-          value={stats.developers.toLocaleString("es-ES")}
-          hint="Solo desarrollan"
-        />
-        <StatCard
-          label="Perfiles enriquecidos"
-          value={stats.withProfile.toLocaleString("es-ES")}
-          hint="Historia, logo y SEO"
-        />
-      </section>
-
       <div className="flex flex-wrap gap-2">
         {ROLE_TABS.map((tab) => (
           <button
@@ -641,15 +621,5 @@ function RoleBadge({ roleKind }: { roleKind: CompanyExplorerData["companies"][nu
     >
       {companyRoleLabel(roleKind)}
     </span>
-  );
-}
-
-function StatCard({ label, value, hint }: { label: string; value: string; hint: string }) {
-  return (
-    <article className="flex min-h-[116px] flex-col rounded-2xl border border-border bg-gradient-to-br from-white/[0.05] to-transparent p-3 md:min-h-[126px] md:p-5">
-      <p className="text-[11px] leading-tight uppercase text-muted md:text-xs">{label}</p>
-      <p className="mt-2 text-2xl font-bold text-accent md:text-3xl">{value}</p>
-      <p className="mt-auto pt-1 text-xs text-muted md:text-sm">{hint}</p>
-    </article>
   );
 }
