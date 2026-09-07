@@ -12,7 +12,7 @@ from collectors import region_research as research
 
 class ResearchTests(unittest.TestCase):
     def test_documentary_records_are_traceable_and_component_scoped(self):
-        for path in (research.RESEARCH_FILE, research.SNES_RESEARCH_FILE):
+        for path in (research.RESEARCH_FILE, research.SNES_RESEARCH_FILE, research.MEGADRIVE_RESEARCH_FILE):
             document = json.loads(path.read_text())
             entries = document["inspectionRules"] + document["gameReferences"]
             ids = [entry["id"] for entry in entries]
@@ -85,7 +85,8 @@ class ResearchTests(unittest.TestCase):
         self.assertNotIn("SFRG-K2-0", research.region_research_prompt("snes", "snes-secret-of-mana-2-homebrew"))
 
     def test_prompt_remains_bounded_as_reference_collection_grows(self):
-        for platform, path in (("gameboy", research.RESEARCH_FILE), ("snes", research.SNES_RESEARCH_FILE)):
+        for platform, path in (("gameboy", research.RESEARCH_FILE), ("snes", research.SNES_RESEARCH_FILE),
+                               ("megadrive", research.MEGADRIVE_RESEARCH_FILE)):
             document = json.loads(path.read_text())
             catalog_ids = {i for e in document["gameReferences"] for i in e["catalogIds"]}
             for catalog_id in catalog_ids | {None}:
@@ -136,8 +137,99 @@ class ResearchTests(unittest.TestCase):
                 self.assertEqual(entry["binding"], "comparison_only_not_catalog_region_evidence")
 
     def test_other_platforms_unchanged(self):
-        for platform in ("ps4", "gameboycolor", "gba", "ds"):
+        for platform in ("ps4", "gameboycolor", "gba", "ds", "megacd", "32x", "genesis"):
             self.assertEqual(research.region_research_prompt(platform, "gameboy-es-asterix"), "")
+
+    def test_megadrive_images_are_traceable_not_rehosted(self):
+        document = json.loads(research.MEGADRIVE_RESEARCH_FILE.read_text())
+        images = document["imageReferences"]
+        self.assertEqual(document["coverage"]["imagesVisuallyReviewed"], len(images))
+        self.assertEqual(len({image["url"] for image in images.values()}), len(images))
+        used_images = set()
+        for entry in document["gameReferences"]:
+            for image_id in entry["imageIds"]:
+                image = images[image_id]
+                used_images.add(image_id)
+                self.assertIn(image["sourceId"], entry["sourceIds"])
+                source = document["sources"][image["sourceId"]]
+                self.assertTrue(source["attribution"])
+                self.assertEqual(source["license"], "not_established_no_images_copied")
+                self.assertTrue(image["finding"])
+                self.assertTrue(image["url"].startswith("https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/"))
+        self.assertEqual(used_images, set(images))
+
+    def test_megadrive_exact_pal_bindings(self):
+        document = json.loads(research.MEGADRIVE_RESEARCH_FILE.read_text())
+        catalog = {row["id"]: row for row in json.loads(
+            (research.MEGADRIVE_RESEARCH_FILE.parents[2] / "data/catalog.json").read_text())}
+        for entry in document["gameReferences"]:
+            self.assertEqual(entry["binding"], "comparison_only_not_catalog_region_evidence")
+            self.assertTrue(entry["catalogIds"])
+            for catalog_id in entry["catalogIds"]:
+                self.assertEqual(catalog[catalog_id]["platformSlug"], "megadrive")
+                self.assertIn(catalog[catalog_id]["region"], {"PAL Europa", "PAL España"})
+                self.assertIn(entry["text"], research.region_research_prompt("megadrive", catalog_id))
+
+    def test_megadrive_does_not_propagate_between_editions_or_games(self):
+        document = json.loads(research.MEGADRIVE_RESEARCH_FILE.read_text())
+        references = document["gameReferences"]
+        catalog = json.loads((research.MEGADRIVE_RESEARCH_FILE.parents[2] / "data/catalog.json").read_text())
+        bound_ids = {i for entry in references for i in entry["catalogIds"]}
+        # Check every other Mega Drive entry, including packs and non-PAL editions.
+        general = research.region_research_prompt("megadrive", None)
+        for row in catalog:
+            if row["platformSlug"] == "megadrive" and row["id"] not in bound_ids:
+                self.assertEqual(research.region_research_prompt("megadrive", row["id"]), general)
+        for platform in ("gameboy", "snes", "megacd", "32x"):
+            prompt = research.region_research_prompt(platform, "megadrive-micro-machines")
+            for entry in references:
+                self.assertNotIn(entry["text"], prompt)
+        for catalog_id in ("megadrive-micro-machines-military", "megadrive-fifa-road-to-world-cup-98"):
+            self.assertNotIn("Arcadia", research.region_research_prompt("megadrive", catalog_id))
+
+    def test_megadrive_disputed_claims_never_enter_prompt(self):
+        document = json.loads(research.MEGADRIVE_RESEARCH_FILE.read_text())
+        catalog_ids = {i for entry in document["gameReferences"] for i in entry["catalogIds"]}
+        for claim in document["disputedClaims"]:
+            self.assertTrue(claim["neededEvidence"])
+            for source in claim["sourceIds"]:
+                self.assertIn(source, document["sources"])
+            for catalog_id in catalog_ids | {None}:
+                self.assertNotIn(claim["summary"], research.region_research_prompt("megadrive", catalog_id))
+        prompt = research.region_research_prompt("megadrive", "megadrive-world-of-illusion")
+        self.assertIn("paginas 2-3", prompt)
+        self.assertIn("conservar la discrepancia", prompt)
+
+    def test_megadrive_pending_reference_is_not_rendered(self):
+        document = json.loads(research.MEGADRIVE_RESEARCH_FILE.read_text())
+        entry = document["gameReferences"][0]
+        entry["status"] = "pending_primary_evidence"
+        with patch.object(research.json, "loads", return_value=document):
+            prompt = research.region_research_prompt("megadrive", entry["catalogIds"][0])
+        self.assertNotIn(entry["text"], prompt)
+
+    def test_megadrive_reference_images_are_not_listing_evidence(self):
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch.object(vision, "VISION_CACHE_DIR", Path(tmp)), \
+                patch.object(vision, "game_region_profile", return_value=None), \
+                patch.object(vision, "region_cover_vision_available", return_value=True), \
+                patch.object(vision, "_openai_vision", return_value=json.dumps({
+                    "listingRegion": "unknown", "regionMatchesCatalog": False,
+                    "isTargetGame": True, "confidence": 0.5, "observations": []
+                })) as api:
+            result = vision.classify_region_from_cover(
+                ["https://example.test/aladdin.jpg"], title="Aladdin", game_title="Aladdin",
+                platform_slug="megadrive", catalog_region="PAL Europa", source="ebay",
+                catalog_id="megadrive-pal-disneys-aladdin", use_cache=False,
+            )
+            payload = json.dumps(api.call_args.args[0])
+            self.assertIn("16-BIT CARTRIDGE", payload)
+            self.assertIn("https://example.test/aladdin.jpg", payload)
+            self.assertNotIn("spinecard-com-s3", payload)
+            self.assertEqual(result.observations, [])
+            self.assertEqual(result.evidence, [])
+            self.assertIsNone(result.listing_region)
+            self.assertFalse(result.region_matches_catalog)
 
     def test_specific_references_are_not_propagated(self):
         prompt = research.region_research_prompt("gameboy", "gameboy-es-asterix")
