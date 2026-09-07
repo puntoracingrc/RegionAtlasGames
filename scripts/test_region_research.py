@@ -12,7 +12,8 @@ from collectors import region_research as research
 
 class ResearchTests(unittest.TestCase):
     def test_documentary_records_are_traceable_and_component_scoped(self):
-        for path in (research.RESEARCH_FILE, research.SNES_RESEARCH_FILE, research.MEGADRIVE_RESEARCH_FILE):
+        for path in (research.RESEARCH_FILE, research.SNES_RESEARCH_FILE,
+                     research.MEGADRIVE_RESEARCH_FILE, research.NES_RESEARCH_FILE):
             document = json.loads(path.read_text())
             entries = document["inspectionRules"] + document["gameReferences"]
             ids = [entry["id"] for entry in entries]
@@ -86,7 +87,8 @@ class ResearchTests(unittest.TestCase):
 
     def test_prompt_remains_bounded_as_reference_collection_grows(self):
         for platform, path in (("gameboy", research.RESEARCH_FILE), ("snes", research.SNES_RESEARCH_FILE),
-                               ("megadrive", research.MEGADRIVE_RESEARCH_FILE)):
+                               ("megadrive", research.MEGADRIVE_RESEARCH_FILE),
+                               ("nes", research.NES_RESEARCH_FILE)):
             document = json.loads(path.read_text())
             catalog_ids = {i for e in document["gameReferences"] for i in e["catalogIds"]}
             for catalog_id in catalog_ids | {None}:
@@ -232,8 +234,104 @@ class ResearchTests(unittest.TestCase):
                 self.assertEqual(entry["binding"], "comparison_only_not_catalog_region_evidence")
 
     def test_other_platforms_unchanged(self):
-        for platform in ("ps4", "gameboycolor", "gba", "ds", "megacd", "32x", "genesis"):
+        for platform in ("ps4", "gameboycolor", "gba", "ds", "megacd", "32x", "genesis", "famicom"):
             self.assertEqual(research.region_research_prompt(platform, "gameboy-es-asterix"), "")
+
+    def test_nes_visual_records_are_traceable_and_not_rehosted(self):
+        document = json.loads(research.NES_RESEARCH_FILE.read_text())
+        images = document["imageReferences"]
+        self.assertEqual(document["coverage"]["imagesVisuallyReviewed"], len(images))
+        self.assertEqual(len({image["url"] for image in images.values()}), len(images))
+        used = set()
+        for entry in document["inspectionRules"] + document["gameReferences"]:
+            for image_id in entry.get("imageIds", []):
+                used.add(image_id)
+                image = images[image_id]
+                self.assertIn(image["sourceId"], entry["sourceIds"])
+                source = document["sources"][image["sourceId"]]
+                self.assertTrue(source["attribution"])
+                self.assertEqual(source["license"], "not_established_no_images_copied")
+                self.assertTrue(image["finding"])
+                self.assertTrue(image["url"].startswith("https://"))
+        self.assertEqual(used, set(images))
+
+    def test_nes_exact_bindings_do_not_classify_other_editions(self):
+        document = json.loads(research.NES_RESEARCH_FILE.read_text())
+        catalog = {row["id"]: row for row in json.loads(
+            (research.NES_RESEARCH_FILE.parents[2] / "data/catalog.json").read_text())}
+        bound_ids = set()
+        for entry in document["gameReferences"]:
+            self.assertEqual(entry["binding"], "comparison_only_not_catalog_region_evidence")
+            for catalog_id in entry["catalogIds"]:
+                bound_ids.add(catalog_id)
+                self.assertEqual(catalog[catalog_id]["platformSlug"], "nes")
+                self.assertIn(catalog[catalog_id]["region"], {"PAL Europa", "PAL España"})
+        general = research.region_research_prompt("nes", None)
+        for row in catalog.values():
+            if row["platformSlug"] == "nes" and row["id"] not in bound_ids:
+                self.assertEqual(research.region_research_prompt("nes", row["id"]), general)
+        for entry in document["gameReferences"]:
+            for platform in ("snes", "gameboy", "megadrive", "famicom"):
+                self.assertNotIn(entry["text"], research.region_research_prompt(platform, entry["catalogIds"][0]))
+
+    def test_nes_pending_table_and_hearsay_never_enter_prompt(self):
+        document = json.loads(research.NES_RESEARCH_FILE.read_text())
+        pending = [entry for entry in document["gameReferences"] if entry["status"] != "reviewed_guidance"]
+        self.assertEqual({entry["id"] for entry in pending}, {
+            "nes-popeye-fourth-print-manual", "nes-zelda-table-lead", "nes-zelda2-table-lead"})
+        for entry in pending:
+            self.assertTrue(entry["neededEvidence"])
+            for catalog_id in entry["catalogIds"]:
+                self.assertNotIn(entry["text"], research.region_research_prompt("nes", catalog_id))
+        for catalog_id in {i for entry in document["gameReferences"] for i in entry["catalogIds"]} | {None}:
+            prompt = research.region_research_prompt("nes", catalog_id)
+            self.assertNotIn("NESE-P-ZL", prompt)
+            self.assertNotIn("NESE-P-AL", prompt)
+            for claim in document["disputedClaims"]:
+                self.assertNotIn(claim["summary"], prompt)
+                self.assertTrue(claim["neededEvidence"])
+                for source in claim["sourceIds"]:
+                    self.assertIn(source, document["sources"])
+
+    def test_nes_guidance_keeps_components_and_corrections_separate(self):
+        punch = research.region_research_prompt("nes", "nes-pal-eu-mike-tyson-s-punch-out")
+        self.assertIn("No imponer tres tornillos = Gamebit", punch)
+        self.assertIn("no rechazar solo por tornillos planos ni certificar originalidad", punch)
+        popeye = research.region_research_prompt("nes", "nes-pal-popeye")
+        self.assertIn("no reclasifica la ficha como caja pequena", popeye)
+        self.assertNotIn("SPACO/Tres Cantos", research.region_research_prompt(
+            "nes", "nes-pal-eu-popeye-arcade-classics-series"))
+        smb = research.region_research_prompt("nes", "nes-pal-eu-super-mario-bros")
+        self.assertIn("NO asignacion israelita al catalogo", smb)
+        self.assertIn("NES-SM-ISR", smb)
+        self.assertNotIn("NES-SM-ISR", research.region_research_prompt("nes", "nes-super-mario-bros-scn"))
+        self.assertIn("NESE-P-GS", research.region_research_prompt("nes", "nes-gumshoe"))
+        self.assertNotIn("NESE-P-GS", research.region_research_prompt("nes", "nes-usa-gumshoe"))
+
+    def test_nes_research_does_not_fabricate_listing_observations(self):
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch.object(vision, "VISION_CACHE_DIR", Path(tmp)), \
+                patch.object(vision, "game_region_profile", return_value=None), \
+                patch.object(vision, "region_cover_vision_available", return_value=True), \
+                patch.object(vision, "_openai_vision", return_value=json.dumps({
+                    "listingRegion": "unknown", "regionMatchesCatalog": False,
+                    "isTargetGame": True, "confidence": 0.5, "observations": []
+                })) as api:
+            result = vision.classify_region_from_cover(
+                ["https://example.test/popeye.jpg"], title="Popeye", game_title="Popeye",
+                platform_slug="nes", catalog_region="PAL Europa", source="ebay",
+                catalog_id="nes-pal-popeye", use_cache=False,
+            )
+            payload = json.dumps(api.call_args.args[0])
+            self.assertIn("SPACO/Tres Cantos", payload)
+            self.assertIn("https://example.test/popeye.jpg", payload)
+            self.assertNotIn("image.ibb.co", payload)
+            self.assertNotIn("spinecard-com-s3", payload)
+            self.assertNotIn("NESE-P-ZL", payload)
+            self.assertEqual(result.observations, [])
+            self.assertEqual(result.evidence, [])
+            self.assertIsNone(result.listing_region)
+            self.assertFalse(result.region_matches_catalog)
 
     def test_megadrive_images_are_traceable_not_rehosted(self):
         document = json.loads(research.MEGADRIVE_RESEARCH_FILE.read_text())

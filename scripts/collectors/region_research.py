@@ -8,11 +8,12 @@ from pathlib import Path
 RESEARCH_FILE = Path(__file__).resolve().parents[2] / "data/region-research/gameboy.json"
 SNES_RESEARCH_FILE = RESEARCH_FILE.with_name("snes.json")
 MEGADRIVE_RESEARCH_FILE = RESEARCH_FILE.with_name("megadrive.json")
+NES_RESEARCH_FILE = RESEARCH_FILE.with_name("nes.json")
 
 
 def region_research_prompt(platform_slug: str, catalog_id: str | None) -> str:
     files = {"gameboy": RESEARCH_FILE, "snes": SNES_RESEARCH_FILE,
-             "megadrive": MEGADRIVE_RESEARCH_FILE}
+             "megadrive": MEGADRIVE_RESEARCH_FILE, "nes": NES_RESEARCH_FILE}
     path = files.get(platform_slug)
     if path is None or not path.exists():
         return ""
