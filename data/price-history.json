@@ -19516,6 +19516,106 @@
         "sealed": null,
         "newRetail": null
       }
+    ],
+    "n64-pal-wcwnwo-revenge": [
+      {
+        "at": "2026-09-07T04:54:02Z",
+        "loose": null,
+        "gameManual": 15.79,
+        "complete": 49.43,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "n64-pal-wetrix": [
+      {
+        "at": "2026-09-07T04:54:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 91.67,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "n64-wipeout": [
+      {
+        "at": "2026-09-07T04:54:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 74.95,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "n64-world-driver-championship": [
+      {
+        "at": "2026-09-07T04:54:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 62.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "n64-pal-wwf-no-mercy": [
+      {
+        "at": "2026-09-07T04:54:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 165.93,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "n64-pal-wwf-war-zone": [
+      {
+        "at": "2026-09-07T04:54:02Z",
+        "loose": 10.52,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "n64-xg2-extreme-g-2": [
+      {
+        "at": "2026-09-07T04:54:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 54.64,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "n64-yoshi%27s-story": [
+      {
+        "at": "2026-09-07T04:54:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 110.94,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "n64-zelda-ocarina-of-time": [
+      {
+        "at": "2026-09-07T04:54:02Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 96.47,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "n64-pal-eu-yannick-noah-all-star-tennis-99": [
+      {
+        "at": "2026-09-07T04:54:02Z",
+        "loose": null,
+        "gameManual": 9.97,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
     ]
   }
 }

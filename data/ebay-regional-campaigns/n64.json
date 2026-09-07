@@ -5,40 +5,40 @@
   "platformName": "Nintendo 64",
   "marketplaceId": "EBAY_ES",
   "destinationCountry": "ES",
-  "status": "running",
-  "currentRegion": "PAL Europa",
-  "updatedAt": "2026-09-06T21:49:08Z",
+  "status": "completed",
+  "currentRegion": null,
+  "updatedAt": "2026-09-07T05:02:24Z",
   "lastRun": {
-    "at": "2026-09-06T21:49:08Z",
+    "at": "2026-09-07T05:02:24Z",
     "platformSlug": "n64",
     "platformName": "Nintendo 64",
     "region": "PAL Europa",
-    "selected": 250,
-    "processed": 250,
-    "matched": 212,
-    "listingsAdded": 652,
-    "regionalReroutes": 2,
-    "regionalReviews": 771,
-    "apiSearches": 250,
+    "selected": 19,
+    "processed": 19,
+    "matched": 12,
+    "listingsAdded": 46,
+    "regionalReroutes": 0,
+    "regionalReviews": 63,
+    "apiSearches": 19,
     "searchBudget": 250,
-    "searchBudgetExhausted": true,
+    "searchBudgetExhausted": false,
     "failed": 0,
     "systemicError": null,
     "aiUsage": {
-      "batchId": "a66d60731f834ce789403d66921ab499",
-      "responses": 1726,
+      "batchId": "ec24169bc296486694bc42ecd8287116",
+      "responses": 133,
       "responsesMissingUsage": 0,
-      "inputTokens": 62940817,
-      "cachedInputTokens": 34176,
-      "outputTokens": 335314,
-      "totalTokens": 63276131,
+      "inputTokens": 4865394,
+      "cachedInputTokens": 0,
+      "outputTokens": 25062,
+      "totalTokens": 4890456,
       "responsesMissingCacheUsage": 0,
       "byModel": {
         "gpt-4o-mini-2024-07-18": {
-          "inputTokens": 62940817,
-          "outputTokens": 335314,
-          "totalTokens": 63276131,
-          "cachedInputTokens": 34176
+          "inputTokens": 4865394,
+          "outputTokens": 25062,
+          "totalTokens": 4890456,
+          "cachedInputTokens": 0
         }
       }
     },
@@ -91,11 +91,11 @@
       "marketScope": "multi_region",
       "originLabel": "Europa multirregión",
       "total": 269,
-      "completed": 250,
-      "matched": 212,
-      "noMatch": 38,
+      "completed": 269,
+      "matched": 224,
+      "noMatch": 45,
       "deferred": 0,
-      "pending": 19,
+      "pending": 0,
       "completedCatalogIds": [
         "n64-007-world-is-not-enough",
         "n64-007-goldeneye",
@@ -346,7 +346,26 @@
         "n64-pal-wayne-gretzkys-3d-hockey",
         "n64-pal-wayne-gretzkys-3d-hockey-98",
         "n64-pal-eu-wcw-mayhem",
-        "n64-pal-wcw-vs-nwo-world-tour"
+        "n64-pal-wcw-vs-nwo-world-tour",
+        "n64-pal-wcwnwo-revenge",
+        "n64-pal-wetrix",
+        "n64-wipeout",
+        "n64-pal-eu-world-cup-98",
+        "n64-world-driver-championship",
+        "n64-pal-worms-armageddon",
+        "n64-pal-wwf-attitude",
+        "n64-pal-wwf-no-mercy",
+        "n64-pal-wwf-war-zone",
+        "n64-pal-wwf-wrestlemania-2000",
+        "n64-xena-warrior-princess",
+        "n64-pal-eu-xeno-crisis-homebrew",
+        "n64-xg2-extreme-g-2",
+        "n64-pal-eu-yannick-noah-all-star-tennis-99",
+        "n64-yoshi%27s-story",
+        "n64-zelda-majora%27s-mask",
+        "n64-pal-eu-zelda-majora-s-mask-adventure-set",
+        "n64-zelda-majora%27s-mask-limited-edition",
+        "n64-zelda-ocarina-of-time"
       ],
       "matchedCatalogIds": [
         "n64-007-world-is-not-enough",
@@ -560,7 +579,19 @@
         "n64-wave-race-64-players-choice",
         "n64-pal-wayne-gretzkys-3d-hockey",
         "n64-pal-wayne-gretzkys-3d-hockey-98",
-        "n64-pal-wcw-vs-nwo-world-tour"
+        "n64-pal-wcw-vs-nwo-world-tour",
+        "n64-pal-wcwnwo-revenge",
+        "n64-pal-wetrix",
+        "n64-wipeout",
+        "n64-world-driver-championship",
+        "n64-pal-wwf-no-mercy",
+        "n64-pal-wwf-war-zone",
+        "n64-pal-wwf-wrestlemania-2000",
+        "n64-xg2-extreme-g-2",
+        "n64-pal-eu-yannick-noah-all-star-tennis-99",
+        "n64-yoshi%27s-story",
+        "n64-zelda-majora%27s-mask-limited-edition",
+        "n64-zelda-ocarina-of-time"
       ],
       "noMatchCatalogIds": [
         "n64-pal-1080-teneighty-snowboarding-players-choice",
@@ -600,7 +631,14 @@
         "n64-pal-toy-story-2-buzz-lightyear-rescue",
         "n64-vigilante-8",
         "n64-virtual-pool",
-        "n64-pal-eu-wcw-mayhem"
+        "n64-pal-eu-wcw-mayhem",
+        "n64-pal-eu-world-cup-98",
+        "n64-pal-worms-armageddon",
+        "n64-pal-wwf-attitude",
+        "n64-xena-warrior-princess",
+        "n64-pal-eu-xeno-crisis-homebrew",
+        "n64-zelda-majora%27s-mask",
+        "n64-pal-eu-zelda-majora-s-mask-adventure-set"
       ],
       "deferredCatalogIds": [],
       "failureAttempts": {}
@@ -608,11 +646,11 @@
   },
   "totals": {
     "catalogGames": 278,
-    "completed": 259,
-    "matched": 215,
-    "noMatch": 44,
+    "completed": 278,
+    "matched": 227,
+    "noMatch": 51,
     "deferred": 0,
-    "pending": 19
+    "pending": 0
   },
   "log": [
     {
@@ -644,6 +682,32 @@
             "outputTokens": 335314,
             "totalTokens": 63276131,
             "cachedInputTokens": 34176
+          }
+        }
+      },
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-07T05:02:24Z",
+      "level": "info",
+      "message": "Nintendo 64 · PAL Europa: 19/19 consultados, 12 con evidencias, 46 anuncios aceptados, 0 aprovechados en otra región, 63 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "n64",
+      "region": "PAL Europa",
+      "aiUsage": {
+        "batchId": "ec24169bc296486694bc42ecd8287116",
+        "responses": 133,
+        "responsesMissingUsage": 0,
+        "inputTokens": 4865394,
+        "cachedInputTokens": 0,
+        "outputTokens": 25062,
+        "totalTokens": 4890456,
+        "responsesMissingCacheUsage": 0,
+        "byModel": {
+          "gpt-4o-mini-2024-07-18": {
+            "inputTokens": 4865394,
+            "outputTokens": 25062,
+            "totalTokens": 4890456,
+            "cachedInputTokens": 0
           }
         }
       },
