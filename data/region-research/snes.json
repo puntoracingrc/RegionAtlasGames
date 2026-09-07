@@ -2,8 +2,10 @@
   "schemaVersion": 1,
   "platformSlug": "snes",
   "reviewedAt": "2026-09-07",
-  "batch": "snes-documentary-v2",
+  "batch": "snes-documentary-v3",
   "mode": "inspection_guidance_not_acceptance",
+  "lastPassCoverage": {"postRanges": [[118, 137], [330, 349]], "postsRead": 40, "newlyReadPosts": 20, "imagesVisuallyReviewed": 22, "unavailableImages": 2, "exhaustiveThreadReview": false},
+  "imagePolicy": "Source URLs and visual findings only. No photos copied, rehosted or supplied as listing images to OpenAI; rights not established. A photographed specimen does not establish factory pairing.",
   "sources": {
     "codes": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/2", "kind": "community_guide", "attribution": "SpineCard; MikeHaggar; guia atribuida a TRIBCN y VirtuaNEStor", "license": "not_established_no_images_copied"},
     "distribution": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/1", "kind": "community_guide"},
@@ -22,8 +24,48 @@
     "illusion-scans": {"url": "https://snescentral.com/article.php?id=0387", "kind": "physical_scan_database"},
     "zelda-scans": {"url": "https://snescentral.com/article.php?id=0164", "kind": "physical_scan_database"},
     "translation-claim": {"url": "https://foro.spinecard.com/t/1176/344", "kind": "community_discussion", "use": "disputed_claims_only"},
-    "translation-objection": {"url": "https://foro.spinecard.com/t/1176/347", "kind": "community_discussion", "use": "disputed_claims_only"}
+    "translation-objection": {"url": "https://foro.spinecard.com/t/1176/347", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "manchester-photos": {"url": "https://foro.spinecard.com/t/1176/122", "kind": "community_specimen_photos_and_press", "attribution": "SpineCard; Sergio (post); includes photos of Nintendo Accion no. 31", "license": "not_established_no_images_copied"},
+    "desert-photos": {"url": "https://foro.spinecard.com/t/1176/123", "kind": "community_specimen_comparison", "attribution": "SpineCard; Sergio (post)", "license": "not_established_no_images_copied"},
+    "brutal-photos": {"url": "https://foro.spinecard.com/t/1176/127", "kind": "community_specimen_comparison", "attribution": "SpineCard; Sergio (post)", "license": "not_established_no_images_copied"},
+    "brutal-difference": {"url": "https://foro.spinecard.com/t/1176/128", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "brutal-print-claim": {"url": "https://foro.spinecard.com/t/1176/129", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "supplement-alternative": {"url": "https://foro.spinecard.com/t/1176/130", "kind": "community_discussion", "attribution": "SpineCard; setolam (post)", "license": "not_established_no_images_copied", "use": "disputed_claims_only"},
+    "yoshi-rear-photos": {"url": "https://foro.spinecard.com/t/1176/331", "kind": "community_specimen_comparison", "attribution": "SpineCard; mefisto1201 (post; includes screenshots of other photos)", "license": "not_established_no_images_copied"},
+    "yoshi-stock-hypothesis": {"url": "https://foro.spinecard.com/t/1176/339", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "ranma-pairing-claim": {"url": "https://foro.spinecard.com/t/1176/132", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "tennis-pairing-claim": {"url": "https://foro.spinecard.com/t/1176/136", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "tintin-fah-claim": {"url": "https://foro.spinecard.com/t/1176/125", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "kirby-marketplace-claim": {"url": "https://foro.spinecard.com/t/1176/348", "kind": "marketplace_claim_quoted_in_forum", "use": "disputed_claims_only"}
   },
+  "imageReferences": {
+    "desert-front": {"sourceId": "desert-photos", "url": "https://uploads.tapatalk-cdn.com/20190113/9ad11a9f05c972e2fb5c61b83008b628.jpg", "finding": "Frontal de Desert Fighter, Super Nintendo PAL, fotografiado de lado. No se deduce variante por el frontal solo."},
+    "desert-back": {"sourceId": "desert-photos", "url": "https://uploads.tapatalk-cdn.com/20190113/210fb4d3745187abf6bf01de9bbf00d1.jpg", "finding": "Trasera en ingles con pegatina blanca de instrucciones en castellano y DRO SOFT S.A.; la orientacion esta invertida."},
+    "desert-sticker": {"sourceId": "desert-photos", "url": "https://uploads.tapatalk-cdn.com/20190113/29587c07ef291d40ad8db937a50fa826.jpg", "finding": "Detalle legible de la misma pegatina: anuncia instrucciones en castellano y distribucion por DRO SOFT S.A., con direccion de Madrid. No autentica la pegatina del anuncio actual."},
+    "desert-contents": {"sourceId": "desert-photos", "url": "https://uploads.tapatalk-cdn.com/20190113/70493fdbdb8a9bece8f72d416ef5dec2.jpg", "finding": "Caja, cartucho embolsado, manual a color y documento monocromo con portada diferente. La bolsa no demuestra precinto de fabrica."},
+    "desert-supplement": {"sourceId": "desert-photos", "url": "https://uploads.tapatalk-cdn.com/20190113/4c8d8ce224ec5f4c503c8dd280376b0d.jpg", "finding": "Portada monocroma con titulo Desert Fighter y manual de instrucciones en espanol. No se muestra el interior ni el numero completo de paginas."},
+    "manchester-front": {"sourceId": "manchester-photos", "url": "https://uploads.tapatalk-cdn.com/20190112/c5ff6dc891a2d7c51c375e17bb778e99.jpg", "finding": "Caja Manchester United Championship Soccer con pegatina Arcadia y texto de distribucion en la zona izquierda del frontal."},
+    "manchester-back": {"sourceId": "manchester-photos", "url": "https://uploads.tapatalk-cdn.com/20190112/280498fc63861bdad277bf59d1d96137.jpg", "finding": "Trasera multilingue, incluido espanol; esto no verifica los idiomas del software."},
+    "manchester-contents": {"sourceId": "manchester-photos", "url": "https://uploads.tapatalk-cdn.com/20190112/a236673d2d1d46567d9b27f43eed5d72.jpg", "finding": "Caja con pegatina, manual a color y cartucho en bandeja. No se ve el interior del manual ni se certifica emparejamiento de fabrica."},
+    "manchester-press": {"sourceId": "manchester-photos", "url": "https://uploads.tapatalk-cdn.com/20190112/d9b732ffb1df8ada2caafcc4b51f9213.jpg", "finding": "Doble pagina de revista espanola dedicada al juego. Es evidencia de cobertura contemporanea, no de procedencia de cada ejemplar o contenido obligatorio."},
+    "manchester-magazine": {"sourceId": "manchester-photos", "url": "https://uploads.tapatalk-cdn.com/20190112/82026cc2bbfa1fb8cc58e985bdece1ef.jpg", "finding": "Portada de Nintendo Accion con numero 31 visible, coherente con la revista citada por el autor del post."},
+    "brutal-front": {"sourceId": "brutal-photos", "url": "https://uploads.tapatalk-cdn.com/20190220/5831b524ff0ffd82b053bf52bf91be5f.jpg", "finding": "Frontal de Brutal con pegatina PROEIN sobre la zona del logotipo GameTek."},
+    "brutal-back": {"sourceId": "brutal-photos", "url": "https://uploads.tapatalk-cdn.com/20190220/6f07c602576d42536c6a42ebeb255375.jpg", "finding": "Trasera con descripciones en ingles y frances; no equivale a manual completo o ROM bilingue."},
+    "brutal-spine": {"sourceId": "brutal-photos", "url": "https://uploads.tapatalk-cdn.com/20190220/858591686d550e98d966a0634beac22b.jpg", "finding": "Canto de caja con avisos impresos en varios idiomas. No es una foto de solapa interior con codigo de edicion completo."},
+    "brutal-sticker": {"sourceId": "brutal-photos", "url": "https://uploads.tapatalk-cdn.com/20190220/b7c75ed36992bccb7c5022b8a074f48c.jpg", "finding": "Detalle de la pegatina PROEIN, division software y direccion de Madrid, sobre el frontal."},
+    "brutal-contents": {"sourceId": "brutal-photos", "url": "https://uploads.tapatalk-cdn.com/20190220/18f3c0995eb5dafddf83e62a5e7c30db.jpg", "finding": "Conjunto fotografiado con caja, cartucho, manual a color y varios documentos. No define un inventario obligatorio para todas las tiradas."},
+    "brutal-sheet": {"sourceId": "brutal-photos", "url": "https://uploads.tapatalk-cdn.com/20190220/7927d3a35c9130682f6942464bd8509b.jpg", "finding": "Folio en espanol con controles y apartados de juego; el ultimo apartado visible termina tras su frase introductoria. No se ve aqui el reverso."},
+    "brutal-sheet-lower": {"sourceId": "brutal-photos", "url": "https://uploads.tapatalk-cdn.com/20190220/8343702ec60cb1dcbb54f00fdabc23af.jpg", "finding": "Acercamiento a la parte inferior del mismo texto del folio; no es una segunda cara diferente."},
+    "brutal-sheet-upper": {"sourceId": "brutal-photos", "url": "https://uploads.tapatalk-cdn.com/20190220/ee6d9e08647f065a643dd1b6ee64f11d.jpg", "finding": "Acercamiento al titulo y controles del mismo folio. Las tres fotos no demuestran tres paginas distintas."},
+    "yoshi-noe-front": {"sourceId": "yoshi-rear-photos", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/d/8/d8efc07d7e7c36de0da407391a5bc786e9ba6fcf.jpeg", "finding": "Frontal legible SNSP-YI-NOE, PAL VERSION. No se identifica el contenido de ROM por esta foto."},
+    "yoshi-german-back": {"sourceId": "yoshi-rear-photos", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/5/8/589e982078a29f53b67713476d7caf82a7991edb.jpeg", "finding": "Trasera con advertencias en aleman y referencia 03-SNSP-NOE. Es una etiqueta de advertencias, no el codigo de identidad del juego."},
+    "yoshi-second-front": {"sourceId": "yoshi-rear-photos", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/9/5/95cacd76df1eb6d4d68e7f6cbdb37628d717e8f0.jpeg", "finding": "Captura de una foto de otro frontal SNSP-YI-NOE. La relacion con la siguiente trasera procede de la presentacion del post, no de una secuencia continua verificada."},
+    "yoshi-spanish-back": {"sourceId": "yoshi-rear-photos", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/6/9/69feaa4df580ad213c55ae0f6f83acc4523a259a.jpeg", "finding": "Captura con advertencias traseras en espanol. No se ven capas bajo la etiqueta, alarma, PCB, caja o manual; no permite certificar el origen de la combinacion."}
+  },
+  "unavailableImages": [
+    {"sourceId": "supplement-alternative", "url": "https://images2.imgbox.com/72/4e/1PzhTGmy_o.jpg", "status": "placeholder_not_evidence", "finding": "El navegador muestra aviso de miniatura temporalmente no disponible, no el folio."},
+    {"sourceId": "supplement-alternative", "url": "https://images2.imgbox.com/c0/aa/2h65o8MG_o.jpg", "status": "placeholder_not_evidence", "finding": "Mismo aviso del alojamiento; no se ha comparado esta supuesta segunda cara."}
+  ],
   "inspectionRules": [
     {"id": "snes-components", "sourceIds": ["codes", "inventory"], "text": "Fotografiar solapas, etiqueta frontal y trasera del cartucho, y portada del manual; conservar codigos completos por pieza. No sustituirlos por el codigo de fabricacion del dorso de la caja."},
     {"id": "snes-distribution", "sourceIds": ["distribution"], "text": "La guia describe distribuciones espanolizadas y conjuntos italiano-espanoles. Pedir pruebas de pegatinas, distribuidor y suplementos; no asumir que toda pieza no-ESP invalida el conjunto ni que una pegatina espanola autentica su distribucion."},
@@ -31,12 +73,13 @@
     {"id": "snes-completeness", "sourceIds": ["codes"], "text": "Comprobar contenido por edicion y tirada, no imponer un inventario universal. Un envoltorio no prueba precinto original. No crear obligaciones de accesorios desde esta guia."},
     {"id": "snes-evidence-boundary", "sourceIds": ["inventory"], "text": "Un inventario de coleccion documenta posesion actual, no procedencia de fabrica. Las referencias son comparadores: no rellenar observations, idioma, region ni estado del anuncio con datos de otra copia."},
     {"id": "snes-incomplete-scan-index", "sourceIds": ["yoshi-scans"], "text": "Las tablas de cartuchos, cajas y placas son inventarios separados e incompletos: una variante ausente no prueba inexistencia, y dos piezas de tablas distintas no prueban una pareja de fabrica. No generalizar una etiqueta a todas las tiradas."},
-    {"id": "snes-language-proof", "sourceIds": ["evermore-scans", "illusion-scans"], "text": "Separar idioma impreso, idioma jugable y mercado. Un texto 'instrucciones en castellano' acredita instrucciones, no traduccion de la ROM. Comparar codigo de etiqueta y, solo si hay foto, codigo del chip; no inventar el interior de un cartucho cerrado."}
+    {"id": "snes-language-proof", "sourceIds": ["evermore-scans", "illusion-scans"], "text": "Separar idioma impreso, idioma jugable y mercado. Un texto 'instrucciones en castellano' acredita instrucciones, no traduccion de la ROM. Comparar codigo de etiqueta y, solo si hay foto, codigo del chip; no inventar el interior de un cartucho cerrado."},
+    {"id": "snes-warning-vs-game-label", "sourceIds": ["yoshi-rear-photos"], "text": "Distinguir etiqueta frontal del juego y etiqueta trasera de advertencias. Registrar idioma y referencia de ambas por separado; una trasera espanola no identifica el juego, su ROM ni la procedencia original. No deducir capas o alarma bajo una pegatina no levantada."}
   ],
   "gameReferences": [
     {"id": "snes-kart-esp-inventory", "status": "reviewed_guidance", "catalogIds": ["snes-pal-super-mario-kart"], "sourceIds": ["inventory"], "binding": "comparison_only_not_catalog_region_evidence", "text": "Super Mario Kart: Ereza registra SNSP-MK-ESP en caja, manual y cartucho de su copia. Comparar cada pieza actual; no extrapolar a Nintendo Classics, packs de consola o otras regiones."},
     {"id": "snes-world-revisions-inventory", "status": "reviewed_guidance", "catalogIds": ["snes-pal-eu-super-mario-world"], "sourceIds": ["inventory"], "binding": "comparison_only_not_catalog_region_evidence", "text": "Super Mario World: inventario de Ereza con caja SNSP-MW-ESP, manual SNSP-MW-ESP-2 y cartucho SNSP-MW-ESP-1. Es una observacion de coleccion, no certificacion de un conjunto original; requiere contraste antes de aceptar combinaciones."},
-    {"id": "snes-yoshi-noe-exception", "status": "pending_primary_evidence", "catalogIds": ["snes-super-mario-world-2-yoshi%27s-island"], "sourceIds": ["yoshi", "inventory"], "binding": "comparison_only_not_catalog_region_evidence", "text": "La guia afirma cartuchos NOE para Espana. El inventario anota EUR y comenta NOE. Discrepancia sin resolver: no habilitar excepcion automatica.", "neededEvidence": ["Fotos actuales legibles de ambas etiquetas, caja y manual del mismo ejemplar", "Procedencia de distribucion espanola"]},
+    {"id": "snes-yoshi-noe-exception", "status": "pending_primary_evidence", "catalogIds": ["snes-super-mario-world-2-yoshi%27s-island"], "sourceIds": ["yoshi", "inventory", "yoshi-rear-photos"], "binding": "comparison_only_not_catalog_region_evidence", "text": "La guia afirma cartuchos NOE para Espana. Las fotos del post 331 muestran frontales NOE y traseras de distinto idioma, pero no certifican emparejamiento original con caja ESP. El inventario anota EUR y comenta NOE. No habilitar excepcion automatica.", "neededEvidence": ["Vistas vinculadas de ambas etiquetas, caja y manual del mismo ejemplar", "Procedencia documentada de su distribucion espanola y asociacion original"]},
     {"id": "snes-illusion-guide", "status": "pending_primary_evidence", "catalogIds": ["snes-illusion-of-time-big-box-spanish", "snes-illusion-of-time-big-box"], "sourceIds": ["illusion"], "binding": "comparison_only_not_catalog_region_evidence", "text": "La guia describe caja grande con guia en lugar de manual. Falta contraste fotografico antes de cambiar manualExpected o contenido obligatorio.", "neededEvidence": ["Escaneo de contenidos y documentacion de la edicion exacta"]},
     {"id": "snes-cookie-arcadia", "status": "pending_primary_evidence", "catalogIds": ["snes-pal-eu-yoshi-s-cookie"], "sourceIds": ["cookie"], "binding": "comparison_only_not_catalog_region_evidence", "text": "La guia describe UKV con pegatina y manual suplementario de Arcadia. Falta evidencia accesible del conjunto para habilitar la excepcion espanola.", "neededEvidence": ["Fotos de pegatina, suplemento y codigos del mismo conjunto"]},
     {
@@ -102,11 +145,47 @@
       "binding": "comparison_only_not_catalog_region_evidence",
       "componentCodes": {"box": ["SNSP-AF2P-EUR"], "manual": ["SNSP-AF2P-EUR"], "cartridge": ["SNSP-AF2P-EUR"]},
       "text": "Breath of Fire II: Ereza registra SNSP-AF2P-EUR en las tres piezas y documentacion suplementaria. Pedir fotos del suplemento y sus idiomas, sin deducir idioma jugable ni convertir los accesorios de esa coleccion en contenido obligatorio universal. No aplicar a las fichas USA con titulo parecido."
+    },
+    {
+      "id": "snes-desert-drosoft-photos", "status": "reviewed_guidance",
+      "catalogIds": ["snes-desert-fighter"], "sourceIds": ["desert-photos"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "imageIds": ["desert-front", "desert-back", "desert-sticker", "desert-contents", "desert-supplement"],
+      "text": "Desert Fighter: las fotos del post 123 muestran trasera inglesa con pegatina DRO SOFT S.A. que anuncia instrucciones en castellano, manual a color y suplemento monocromo de portada diferente. Pedir trasera completa, detalle de pegatina y todas las paginas del suplemento actual. No descartar por manual adicional en blanco y negro solo, ni autenticarlo por parecido; la foto de portada no prueba su interior, ROM ni conjunto de fabrica."
+    },
+    {
+      "id": "snes-manchester-arcadia-photos", "status": "reviewed_guidance",
+      "catalogIds": ["snes-manchester-united-championship-soccer"], "sourceIds": ["manchester-photos"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "imageIds": ["manchester-front", "manchester-back", "manchester-contents", "manchester-press", "manchester-magazine"],
+      "text": "Manchester United Championship Soccer: buscar pegatina Arcadia en la zona izquierda del frontal; la trasera fotografiada es multilingue e incluye espanol. Pedir codigos de caja/cartucho y manual actual. Las fotos de Nintendo Accion 31 corroboran cobertura del juego en prensa espanola, no el origen de cada copia. No extender Arcadia a otros juegos ni convertir foto de coleccion en emparejamiento obligatorio."
+    },
+    {
+      "id": "snes-brutal-proein-sheet", "status": "reviewed_guidance",
+      "catalogIds": ["snes-pal-brutal-paws-fury"], "sourceIds": ["brutal-photos"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "imageIds": ["brutal-front", "brutal-back", "brutal-spine", "brutal-sticker", "brutal-contents", "brutal-sheet", "brutal-sheet-lower", "brutal-sheet-upper"],
+      "text": "Brutal Paws of Fury: comparar pegatina PROEIN sobre GameTek, trasera inglesa/francesa, manual a color y folio espanol de controles. Los acercamientos muestran la misma cara del folio, no varias paginas. Pedir ambas caras y texto completo; no resolver automaticamente la discrepancia del debate sobre impresion incompleta o variante. El suplemento fotografiado no demuestra autenticidad, estado completo o idioma de ROM."
+    },
+    {
+      "id": "snes-yoshi-rear-warning-comparison", "status": "reviewed_guidance",
+      "catalogIds": ["snes-super-mario-world-2-yoshi%27s-island"], "sourceIds": ["yoshi-rear-photos"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "imageIds": ["yoshi-noe-front", "yoshi-german-back", "yoshi-second-front", "yoshi-spanish-back"],
+      "componentCodes": {"cartridge": ["SNSP-YI-NOE"]},
+      "text": "Yoshi's Island: el post 331 compara dos frontales SNSP-YI-NOE y traseras con advertencias en aleman o espanol. Fotografiar ambas caras del mismo cartucho actual y asociarlas a caja/manual documentados. Las capturas de otro ejemplar no prueban conjunto original, pegatina superpuesta, alarma oculta ni ROM. No universalizar NOE, no equipararlo a EUR ni extrapolar esta comparacion a Classics, Big Box o packs; la excepcion espanola permanece bloqueada."
     }
   ],
   "disputedClaims": [
     {"id": "yoshi-single-label-and-two-revisions", "status": "contradicted_as_universal", "sourceIds": ["yoshi-discussion", "yoshi-label-claim", "yoshi-scans"], "summary": "El debate reduce etiquetas y revisiones; el indice documenta varias etiquetas PAL y SPAL-YI-2. Esto no resuelve que cartucho acompano cada caja espanola."},
-    {"id": "official-spanish-translations-list", "status": "pending_primary_evidence", "sourceIds": ["translation-claim", "translation-objection"], "summary": "Una respuesta tardia atribuye traducciones oficiales espanolas a varios juegos y otras lo cuestionan. No importar esa lista ni la negacion global como idiomas verificados."}
+    {"id": "official-spanish-translations-list", "status": "pending_primary_evidence", "sourceIds": ["translation-claim", "translation-objection"], "summary": "Una respuesta tardia atribuye traducciones oficiales espanolas a varios juegos y otras lo cuestionan. No importar esa lista ni la negacion global como idiomas verificados."},
+    {"id": "yoshi-noe-stock-reuse", "status": "pending_primary_evidence", "sourceIds": ["yoshi-stock-hypothesis"], "summary": "La respuesta 339 propone aprovechamiento de stock NOE para juegos antiguos; no demuestra origen, cantidades ni combinaciones de fabrica.", "neededEvidence": ["Documentacion de pedidos o distribucion fechada por juego y tirada"]},
+    {"id": "yoshi-hidden-alarm", "status": "pending_primary_evidence", "sourceIds": ["yoshi-label-claim", "yoshi-rear-photos"], "summary": "La afirmacion de alarma tapada y etiqueta NOE debajo no es visible en las fotos consultadas y no se adopta como hecho.", "neededEvidence": ["Documentacion verificable de la etiqueta y sistema descritos, sin inferir capas ocultas"]},
+    {"id": "brutal-missing-printing", "status": "pending_primary_evidence", "sourceIds": ["brutal-difference", "brutal-print-claim", "supplement-alternative", "brutal-photos"], "summary": "Hay desacuerdo sobre las caras y extension del folio; las fotos alternativas de imgbox ya no muestran el documento. Ni error de impresion original ni falsificacion quedan demostrados.", "neededEvidence": ["Escaneos completos de ambas caras de ambos documentos y procedencia de los ejemplares"]},
+    {"id": "ranma-esp-only-pairing", "status": "pending_primary_evidence", "sourceIds": ["ranma-pairing-claim"], "summary": "No convertir la respuesta sobre cartucho/manual ESP de Ranma en rechazo universal de otras asociaciones o distribuciones.", "neededEvidence": ["Fotos por componente y procedencia de la tirada exacta"]},
+    {"id": "tennis-eur-black-vs-classics", "status": "pending_primary_evidence", "sourceIds": ["tennis-pairing-claim"], "summary": "La respuesta sobre Classics con cartucho EUR no demuestra el emparejamiento de las cajas negras consultadas.", "neededEvidence": ["Separar y documentar caja negra, Classics y cada tirada; no propagar entre ediciones"]},
+    {"id": "tintin-fah-secondary-market", "status": "pending_visual_review", "sourceIds": ["tintin-fah-claim"], "summary": "La mencion de Tintin FAH no prueba distribucion espanola ni se ha contrastado visualmente en esta pasada.", "neededEvidence": ["Revisar las fotos y evidencia de destino comercial del ejemplar"]},
+    {"id": "kirby-fah-pink-spanish-manual", "status": "pending_primary_evidence", "sourceIds": ["kirby-marketplace-claim"], "summary": "La caja rosa FAH con manual espanolizado aparece como afirmacion de un anuncio enlazado; no es confirmacion independiente de lanzamiento espanol.", "neededEvidence": ["Fotos completas de esa variante y evidencia independiente de distribucion"]}
   ],
   "blockedClaims": [
     "NOE determina automaticamente el pais del conjunto completo.",
@@ -118,6 +197,11 @@
     "Solo existen las revisiones PAL 0 y 1 de Yoshi's Island.",
     "Todas las etiquetas PAL de Yoshi's Island son NOE.",
     "Instrucciones en castellano significa necesariamente ROM traducida al espanol.",
-    "La lista de traducciones de una respuesta del foro es evidencia de localizacion oficial."
+    "La lista de traducciones de una respuesta del foro es evidencia de localizacion oficial.",
+    "Toda pegatina de distribuidor certifica automaticamente PAL Espana.",
+    "Un folio monocromo demuestra reproduccion o, a la inversa, originalidad.",
+    "La trasera espanola de un cartucho identifica su ROM y juego.",
+    "Una alarma o etiqueta inferior no visible puede anotarse como observada.",
+    "Una variante Classics prueba el contenido de todas las cajas negras."
   ]
 }

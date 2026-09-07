@@ -123,6 +123,101 @@ class ResearchTests(unittest.TestCase):
         self.assertNotIn("SNSP-MK-ESP", research.region_research_prompt("snes", "snes-super-mario-kart"))
         self.assertNotIn("SNSP-MK-ESP", research.region_research_prompt("gameboy", "snes-pal-super-mario-kart"))
 
+    def test_snes_new_visual_sources_are_traceable(self):
+        document = json.loads(research.SNES_RESEARCH_FILE.read_text())
+        images = document["imageReferences"]
+        unavailable = document["unavailableImages"]
+        self.assertEqual(document["lastPassCoverage"]["imagesVisuallyReviewed"], len(images))
+        self.assertEqual(document["lastPassCoverage"]["unavailableImages"], len(unavailable))
+        urls = {image["url"] for image in images.values()}
+        self.assertEqual(len(urls), len(images))
+        self.assertTrue(urls.isdisjoint(image["url"] for image in unavailable))
+        used = set()
+        for entry in document["gameReferences"]:
+            for image_id in entry.get("imageIds", []):
+                used.add(image_id)
+                image = images[image_id]
+                self.assertIn(image["sourceId"], entry["sourceIds"])
+                source = document["sources"][image["sourceId"]]
+                self.assertTrue(source["attribution"])
+                self.assertEqual(source["license"], "not_established_no_images_copied")
+                self.assertTrue(image["finding"])
+                self.assertTrue(image["url"].startswith("https://"))
+        self.assertEqual(used, set(images))
+        for image in unavailable:
+            self.assertIn(image["sourceId"], document["sources"])
+            self.assertEqual(image["status"], "placeholder_not_evidence")
+
+    def test_snes_distributor_guides_do_not_propagate(self):
+        cases = (
+            ("snes-desert-fighter", "DRO SOFT S.A."),
+            ("snes-manchester-united-championship-soccer", "Arcadia"),
+            ("snes-pal-brutal-paws-fury", "PROEIN"),
+        )
+        for catalog_id, distributor in cases:
+            self.assertIn(distributor, research.region_research_prompt("snes", catalog_id))
+            for other_id, _ in cases:
+                if other_id != catalog_id:
+                    self.assertNotIn(distributor, research.region_research_prompt("snes", other_id))
+            for platform in ("gameboy", "megadrive", "megacd"):
+                self.assertNotIn(distributor, research.region_research_prompt(platform, catalog_id))
+        self.assertNotIn("PROEIN", research.region_research_prompt("snes", "snes-brutal-paws-of-fury"))
+        self.assertNotIn("DRO SOFT S.A.", research.region_research_prompt(
+            "snes", "snes-japon-desert-fighter-suna-no-arashi-sakusen"))
+
+    def test_snes_yoshi_photos_leave_original_exception_blocked(self):
+        document = json.loads(research.SNES_RESEARCH_FILE.read_text())
+        by_id = {entry["id"]: entry for entry in document["gameReferences"]}
+        pending = by_id["snes-yoshi-noe-exception"]
+        self.assertEqual(pending["status"], "pending_primary_evidence")
+        self.assertTrue(pending["neededEvidence"])
+        entry = by_id["snes-yoshi-rear-warning-comparison"]
+        prompt = research.region_research_prompt("snes", entry["catalogIds"][0])
+        self.assertNotIn(pending["text"], prompt)
+        self.assertIn(entry["text"], prompt)
+        self.assertIn("excepcion espanola permanece bloqueada", prompt)
+        for catalog_id in ("snes-super-mario-world-2-yoshi%27s-island-big-box",
+                           "snes-pal-eu-super-mario-world-2-yoshi-s-island-big-box",
+                           "snes-super-nintendo-console-yoshi%27s-island-action-pack"):
+            self.assertNotIn(entry["text"], research.region_research_prompt("snes", catalog_id))
+
+    def test_snes_unavailable_images_and_disputes_not_rendered(self):
+        document = json.loads(research.SNES_RESEARCH_FILE.read_text())
+        catalog_ids = {i for entry in document["gameReferences"] for i in entry["catalogIds"]}
+        for catalog_id in catalog_ids | {None}:
+            prompt = research.region_research_prompt("snes", catalog_id)
+            for claim in document["disputedClaims"]:
+                self.assertNotIn(claim["summary"], prompt)
+                for source in claim["sourceIds"]:
+                    self.assertIn(source, document["sources"])
+            for image in document["unavailableImages"]:
+                self.assertNotIn(image["url"], prompt)
+                self.assertNotIn(image["finding"], prompt)
+
+    def test_snes_photos_do_not_fabricate_listing_evidence(self):
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch.object(vision, "VISION_CACHE_DIR", Path(tmp)), \
+                patch.object(vision, "game_region_profile", return_value=None), \
+                patch.object(vision, "region_cover_vision_available", return_value=True), \
+                patch.object(vision, "_openai_vision", return_value=json.dumps({
+                    "listingRegion": "unknown", "regionMatchesCatalog": False,
+                    "isTargetGame": True, "confidence": 0.5, "observations": []
+                })) as api:
+            result = vision.classify_region_from_cover(
+                ["https://example.test/desert.jpg"], title="Desert Fighter", game_title="Desert Fighter",
+                platform_slug="snes", catalog_region="PAL Europa", source="ebay",
+                catalog_id="snes-desert-fighter", use_cache=False,
+            )
+            payload = json.dumps(api.call_args.args[0])
+            self.assertIn("DRO SOFT S.A.", payload)
+            self.assertIn("https://example.test/desert.jpg", payload)
+            self.assertNotIn("uploads.tapatalk-cdn.com", payload)
+            self.assertNotIn("spinecard-com-s3", payload)
+            self.assertEqual(result.observations, [])
+            self.assertEqual(result.evidence, [])
+            self.assertIsNone(result.listing_region)
+            self.assertFalse(result.region_matches_catalog)
+
     def test_sources_and_exact_catalog_bindings(self):
         document = json.loads(research.RESEARCH_FILE.read_text())
         root = research.RESEARCH_FILE.parents[2]
