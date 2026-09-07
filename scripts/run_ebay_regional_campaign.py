@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from collectors.common import load_json, now_iso, save_json  # noqa: E402
 from collectors.ai_usage import usage_batch, summarize_usage  # noqa: E402
+from collectors.ebay_review_inbox import publish_review_inbox  # noqa: E402
 from collectors.ebay_cover_candidates import empty_cover_queue, merge_cover_candidates  # noqa: E402
 from collectors.ebay_region_policy import ebay_regional_policy  # noqa: E402
 
@@ -652,8 +653,10 @@ def main() -> None:
         temp = Path(temp_dir)
         ids_file = temp / "catalog-ids.json"
         sync_ids_file = temp / "sync-catalog-ids.json"
-        ingest_file = temp / "ingest.json"
-        report_file = temp / "report.json"
+        audit_dir = GLOBAL_STATE_FILE.parent / "audit" / usage_file.stem
+        audit_dir.mkdir(parents=True, exist_ok=True)
+        ingest_file = audit_dir / "ingest.json"
+        report_file = audit_dir / "report.json"
         balance_signal = temp / "ai-balance.txt"
         os.environ["PRICE_AI_BALANCE_SIGNAL"] = str(balance_signal)
         save_json(ids_file, selected)
@@ -675,6 +678,11 @@ def main() -> None:
             "--report-output", str(report_file),
         ]
         collector_code = run_command(collector)
+        if ingest_file.exists():
+            publish_review_inbox(
+                GLOBAL_STATE_FILE.parent / "review-queue.json",
+                load_json(ingest_file, {}), platform_slug, usage_file.stem,
+            )
         report = load_json(report_file, {}) if report_file.exists() else {}
         processed = [str(value) for value in report.get("catalogIdsProcessed") or []]
         failed = [str(value) for value in report.get("catalogIdsFailed") or []]

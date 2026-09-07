@@ -17,6 +17,8 @@ import {
 } from "./original-game-contents";
 import type { CatalogGame } from "./types";
 import catalogData from "../../data/catalog.json";
+import ebayReviewInbox from "../../data/ebay-regional-campaigns/review-queue.json";
+import { mergeEbayReviewInbox } from "./ebay-review-inbox";
 
 const REVIEW_FILE =
   process.env.ADMIN_PRICE_REVIEW_FILE ??
@@ -298,7 +300,7 @@ async function readQueueFromWorker(): Promise<PriceReviewQueue | null> {
       headers: { Accept: "application/json" },
     });
     if (!response.ok) return null;
-    return normalizeQueue(await response.json());
+    return mergeEbayReviewInbox(normalizeQueue(await response.json()), normalizeQueue(ebayReviewInbox));
   } catch {
     return null;
   }
@@ -306,9 +308,9 @@ async function readQueueFromWorker(): Promise<PriceReviewQueue | null> {
 
 function readQueueFromDisk(): PriceReviewQueue {
   try {
-    return normalizeQueue(JSON.parse(readFileSync(REVIEW_FILE, "utf8")));
+    return mergeEbayReviewInbox(normalizeQueue(JSON.parse(readFileSync(REVIEW_FILE, "utf8"))), normalizeQueue(ebayReviewInbox));
   } catch {
-    return emptyQueue();
+    return mergeEbayReviewInbox(emptyQueue(), normalizeQueue(ebayReviewInbox));
   }
 }
 
@@ -399,9 +401,19 @@ async function writeWorkerFile(remote: string, payload: Buffer): Promise<{ ok: t
   }
 }
 
+async function syncEbayInboxForPc(): Promise<{ error: string } | null> {
+  if (!ebayReviewInbox.items.length) return null;
+  const queue = await readQueueFromWorker();
+  if (!queue) return { error: "No se pudo leer la cola remota; no se envía el trabajo ni se sobrescribe la revisión." };
+  const result = await writeQueue(queue);
+  return result.workerSynced ? null : { error: result.error || "No se pudo sincronizar la revisión eBay con el PC." };
+}
+
 export async function startPriceReviewPcVisionJob(
   input: PriceReviewAutoRetroplayzoneInput = {},
 ): Promise<PriceReviewPcVisionJobResult | { error: string }> {
+  const inboxSync = await syncEbayInboxForPc();
+  if (inboxSync) return inboxSync;
   const jobId = `review-vision-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
   const now = new Date().toISOString();
   const visionLimit = normalizeVisionLimit({ ...input, visionLimit: input.visionLimit ?? 25 });
@@ -440,6 +452,8 @@ export async function startPriceReviewPcVisionJob(
 export async function startPriceReviewPcImageJob(
   input: PriceReviewPcImageJobInput = {},
 ): Promise<PriceReviewPcVisionJobResult | { error: string }> {
+  const inboxSync = await syncEbayInboxForPc();
+  if (inboxSync) return inboxSync;
   const jobId = `review-images-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
   const now = new Date().toISOString();
   const rawLimit = Number(input.mediaLimit ?? 1_000);

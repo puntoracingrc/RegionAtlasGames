@@ -52,6 +52,8 @@ jobs:
         run: |
           npm run test:collector-controls
           python3 scripts/test_ai_usage.py
+          python3 scripts/test_ebay_review_inbox.py
+          npx tsx --test src/lib/ebay-review-inbox.test.ts
 
       - name: Affiliate offer tests
         run: npm run test:affiliate-offers-v1
