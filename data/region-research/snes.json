@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "platformSlug": "snes",
+  "reviewedAt": "2026-09-07",
+  "batch": "snes-documentary-v1",
+  "mode": "inspection_guidance_not_acceptance",
+  "sources": {
+    "codes": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/2", "kind": "community_guide", "attribution": "SpineCard; MikeHaggar; guia atribuida a TRIBCN y VirtuaNEStor", "license": "not_established_no_images_copied"},
+    "distribution": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/1", "kind": "community_guide"},
+    "inventory": {"url": "https://snes.ereza.cat/", "kind": "owner_specimen_inventory", "attribution": "Ereza", "license": "not_established_no_images_copied", "limit": "Registra piezas de una coleccion actual, no demuestra su asociacion de fabrica."},
+    "yoshi": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/13", "kind": "community_guide"},
+    "illusion": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/8", "kind": "community_guide"},
+    "cookie": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/15", "kind": "community_guide"}
+  },
+  "inspectionRules": [
+    {"id": "snes-components", "sourceIds": ["codes", "inventory"], "text": "Fotografiar solapas, etiqueta frontal y trasera del cartucho, y portada del manual; conservar codigos completos por pieza. No sustituirlos por el codigo de fabricacion del dorso de la caja."},
+    {"id": "snes-distribution", "sourceIds": ["distribution"], "text": "La guia describe distribuciones espanolizadas y conjuntos italiano-espanoles. Pedir pruebas de pegatinas, distribuidor y suplementos; no asumir que toda pieza no-ESP invalida el conjunto ni que una pegatina espanola autentica su distribucion."},
+    {"id": "snes-revisions", "sourceIds": ["codes", "inventory"], "text": "Conservar sufijos numericos por componente. Una diferencia entre revisiones requiere contraste del ejemplar; no demuestra automaticamente mezcla, falsificacion o cambio de ROM."},
+    {"id": "snes-completeness", "sourceIds": ["codes"], "text": "Comprobar contenido por edicion y tirada, no imponer un inventario universal. Un envoltorio no prueba precinto original. No crear obligaciones de accesorios desde esta guia."},
+    {"id": "snes-evidence-boundary", "sourceIds": ["inventory"], "text": "Un inventario de coleccion documenta posesion actual, no procedencia de fabrica. Las referencias son comparadores: no rellenar observations, idioma, region ni estado del anuncio con datos de otra copia."}
+  ],
+  "gameReferences": [
+    {"id": "snes-kart-esp-inventory", "status": "reviewed_guidance", "catalogIds": ["snes-pal-super-mario-kart"], "sourceIds": ["inventory"], "binding": "comparison_only_not_catalog_region_evidence", "text": "Super Mario Kart: Ereza registra SNSP-MK-ESP en caja, manual y cartucho de su copia. Comparar cada pieza actual; no extrapolar a Nintendo Classics, packs de consola o otras regiones."},
+    {"id": "snes-world-revisions-inventory", "status": "reviewed_guidance", "catalogIds": ["snes-pal-eu-super-mario-world"], "sourceIds": ["inventory"], "binding": "comparison_only_not_catalog_region_evidence", "text": "Super Mario World: inventario de Ereza con caja SNSP-MW-ESP, manual SNSP-MW-ESP-2 y cartucho SNSP-MW-ESP-1. Es una observacion de coleccion, no certificacion de un conjunto original; requiere contraste antes de aceptar combinaciones."},
+    {"id": "snes-yoshi-noe-exception", "status": "pending_primary_evidence", "catalogIds": ["snes-super-mario-world-2-yoshi%27s-island"], "sourceIds": ["yoshi", "inventory"], "binding": "comparison_only_not_catalog_region_evidence", "text": "La guia afirma cartuchos NOE para Espana. El inventario anota EUR y comenta NOE. Discrepancia sin resolver: no habilitar excepcion automatica.", "neededEvidence": ["Fotos actuales legibles de ambas etiquetas, caja y manual del mismo ejemplar", "Procedencia de distribucion espanola"]},
+    {"id": "snes-illusion-guide", "status": "pending_primary_evidence", "catalogIds": ["snes-illusion-of-time-big-box-spanish", "snes-illusion-of-time-big-box"], "sourceIds": ["illusion"], "binding": "comparison_only_not_catalog_region_evidence", "text": "La guia describe caja grande con guia en lugar de manual. Falta contraste fotografico antes de cambiar manualExpected o contenido obligatorio.", "neededEvidence": ["Escaneo de contenidos y documentacion de la edicion exacta"]},
+    {"id": "snes-cookie-arcadia", "status": "pending_primary_evidence", "catalogIds": ["snes-pal-eu-yoshi-s-cookie"], "sourceIds": ["cookie"], "binding": "comparison_only_not_catalog_region_evidence", "text": "La guia describe UKV con pegatina y manual suplementario de Arcadia. Falta evidencia accesible del conjunto para habilitar la excepcion espanola.", "neededEvidence": ["Fotos de pegatina, suplemento y codigos del mismo conjunto"]}
+  ],
+  "blockedClaims": [
+    "NOE determina automaticamente el pais del conjunto completo.",
+    "NEAI o EUR garantizan idioma jugable espanol.",
+    "Todos los juegos comparten contenido obligatorio y precinto.",
+    "Una lista de coleccion certifica ensamblaje de fabrica.",
+    "Ausencia en la guia demuestra que nunca se vendio en Espana.",
+    "Las reglas Game Boy se pueden reutilizar como codificacion SNES."
+  ]
+}

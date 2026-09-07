@@ -11,6 +11,33 @@ from collectors import region_research as research
 
 
 class ResearchTests(unittest.TestCase):
+    def test_snes_sources_and_exact_bindings(self):
+        document = json.loads(research.SNES_RESEARCH_FILE.read_text())
+        root = research.SNES_RESEARCH_FILE.parents[2]
+        catalog = {row["id"]: row for row in json.loads((root / "data/catalog.json").read_text())}
+        for entry in document["inspectionRules"] + document["gameReferences"]:
+            for source in entry["sourceIds"]:
+                self.assertTrue(document["sources"][source]["url"].startswith("https://"))
+            for catalog_id in entry.get("catalogIds", []):
+                self.assertEqual(catalog[catalog_id]["platformSlug"], "snes")
+                self.assertIn(catalog[catalog_id]["region"], {"PAL Europa", "PAL España"})
+
+    def test_snes_pending_exceptions_not_in_prompt(self):
+        for catalog_id in ("snes-super-mario-world-2-yoshi%27s-island",
+                           "snes-illusion-of-time-big-box-spanish", "snes-pal-eu-yoshi-s-cookie"):
+            prompt = research.region_research_prompt("snes", catalog_id)
+            self.assertNotIn("Arcadia", prompt)
+            self.assertNotIn("cartuchos NOE", prompt)
+            self.assertNotIn("guia en lugar", prompt)
+
+    def test_snes_does_not_borrow_other_games_or_platform_references(self):
+        prompt = research.region_research_prompt("snes", "snes-pal-super-mario-kart")
+        self.assertIn("SNSP-MK-ESP", prompt)
+        self.assertNotIn("SNSP-MW-ESP-2", prompt)
+        self.assertNotIn("DMG-", prompt)
+        self.assertNotIn("SNSP-MK-ESP", research.region_research_prompt("snes", "snes-super-mario-kart"))
+        self.assertNotIn("SNSP-MK-ESP", research.region_research_prompt("gameboy", "snes-pal-super-mario-kart"))
+
     def test_sources_and_exact_catalog_bindings(self):
         document = json.loads(research.RESEARCH_FILE.read_text())
         root = research.RESEARCH_FILE.parents[2]
