@@ -1,4 +1,4 @@
-# Game Boy: investigacion documental v1
+# Game Boy: investigacion documental v2
 
 Fecha de revision: 2026-09-07. Alcance exclusivo: orientar la inspeccion del
 engine. No modifica el catalogo, precios, regiones, decisiones ni umbrales.
@@ -16,7 +16,7 @@ distingue referencias de etiqueta, ROM y placa. Datos bajo CC-BY-SA-4.0; el JSON
 conserva atribucion y licencia por fuente. Las notas derivadas de esas entradas
 se distribuyen bajo esa misma licencia. No se han copiado fotografias.
 
-Tres referencias documentales, asociadas explicitamente a seis IDs PAL
+La primera pasada aporto tres referencias, asociadas explicitamente a seis IDs PAL
 (Europa/Espana), SOLO como comparacion entre variantes, no como prueba de la
 region o idioma de esas seis fichas:
 
@@ -40,7 +40,7 @@ autenticidad de las fotos de anuncios.
 
 `data/region-research/gameboy.json` conserva procedencia, fecha, lote, reglas
 de inspeccion, afirmaciones bloqueadas y referencias por `catalog_id` exacto.
-`region_research_prompt` incorpora al analisis visual cinco precauciones
+`region_research_prompt` incorpora al analisis visual siete precauciones
 generales y solo las referencias de la ficha solicitada. No busca por titulo
 ni propaga a secuelas, otras plataformas o variantes USA/Japon.
 
@@ -66,9 +66,31 @@ Rollback: retirar la llamada a `region_research_prompt` en el clasificador.
 No hay migracion de datos ni decisiones que deshacer. La memoria humana se
 mantiene intacta. Publicacion y evaluacion real quedan separadas del estudio.
 
-Resultados locales: 6/6 pruebas nuevas, `test_collector_intelligence.py`,
+Resultados de la primera pasada: 6/6 pruebas nuevas, `test_collector_intelligence.py`,
 `test_wallapop_evidence.py` y 3/3 `test_ai_balance_pause.py` correctos.
 Los avisos de saldo en esta ultima prueba son simulados, no estado del worker.
 `git diff --check` correcto; catalogo, detalles, companias y meta sin cambios
 frente a la base `5bdea9d983506f3e413639424bc434a88a77e603`.
 No se ha ejecutado un build local: no hay cambios de interfaz ni TypeScript.
+
+## Ampliacion v2
+
+Se anaden once fichas de referencia de Game Boy Database: diez utilizables
+como guia de inspeccion y una pendiente de identificar su edicion exacta en
+Region Atlas. Total: 14 referencias, 13 utilizables para 16 IDs PAL explicitos.
+La variante Comic Classics de Asterix & Obelix permanece sin vinculacion;
+no se asigna por parecido a la ficha estandar.
+
+Los datos por componente se conservan en `componentCodes`, separados de
+afirmaciones literales ambiguas en `componentClaimsVerbatim`. Las alternativas
+de manual de Wario y Zelda no se expanden ni se convierten en contenido
+obligatorio. El texto resumido que ya consume el engine incluye los codigos
+y donde mirar; estos campos documentales no escriben observaciones.
+
+Se ha leido visualmente la etiqueta de Pokemon Rojo y la tabla de idiomas de
+Zelda ESP-2 en el navegador. No se han auditado todas las fotografias de las
+bases ni anuncios del worker. La lectura visual de una bandera de idioma
+sigue siendo una afirmacion de esa fuente, no una prueba ejecutando la ROM.
+
+Cobertura, hallazgos, pendientes y limites completos:
+[repaso conjunto v2](regional-research-v2.md).

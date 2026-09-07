@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "platformSlug": "snes",
   "reviewedAt": "2026-09-07",
-  "batch": "snes-documentary-v1",
+  "batch": "snes-documentary-v2",
   "mode": "inspection_guidance_not_acceptance",
   "sources": {
     "codes": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/2", "kind": "community_guide", "attribution": "SpineCard; MikeHaggar; guia atribuida a TRIBCN y VirtuaNEStor", "license": "not_established_no_images_copied"},
@@ -10,21 +10,103 @@
     "inventory": {"url": "https://snes.ereza.cat/", "kind": "owner_specimen_inventory", "attribution": "Ereza", "license": "not_established_no_images_copied", "limit": "Registra piezas de una coleccion actual, no demuestra su asociacion de fabrica."},
     "yoshi": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/13", "kind": "community_guide"},
     "illusion": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/8", "kind": "community_guide"},
-    "cookie": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/15", "kind": "community_guide"}
+    "cookie": {"url": "https://foro.spinecard.com/t/super-nintendo-pal-espana-la-guia-del-coleccionista-definitiva/1176/15", "kind": "community_guide"},
+    "yoshi-scans": {"url": "https://snescentral.com/article.php?id=0674", "kind": "physical_scan_database", "attribution": "SNES Central; Evan G. and contributors", "license": "permission_required_no_images_copied"},
+    "yoshi-box-back": {"url": "https://snescentral.com/box.php?id=0674&num=2&side=back", "kind": "reference_box_scan", "attribution": "SNES Central; Pablo Jose Blanco Sanchez", "license": "permission_required_no_images_copied"},
+    "yoshi-discussion": {"url": "https://foro.spinecard.com/t/1176/336", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "yoshi-label-claim": {"url": "https://foro.spinecard.com/t/1176/338", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "mana-scans": {"url": "https://snescentral.com/article.php?id=0603", "kind": "physical_scan_database"},
+    "evermore-scans": {"url": "https://snescentral.com/article.php?id=0602", "kind": "physical_scan_database"},
+    "evermore-esp-label": {"url": "https://snescentral.com/cart.php?id=0602&num=3", "kind": "reference_label_scan", "attribution": "SNES Central; Kester W", "license": "permission_required_no_images_copied"},
+    "lufia-scans": {"url": "https://snescentral.com/article.php?id=0063", "kind": "physical_scan_database"},
+    "illusion-scans": {"url": "https://snescentral.com/article.php?id=0387", "kind": "physical_scan_database"},
+    "zelda-scans": {"url": "https://snescentral.com/article.php?id=0164", "kind": "physical_scan_database"},
+    "translation-claim": {"url": "https://foro.spinecard.com/t/1176/344", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "translation-objection": {"url": "https://foro.spinecard.com/t/1176/347", "kind": "community_discussion", "use": "disputed_claims_only"}
   },
   "inspectionRules": [
     {"id": "snes-components", "sourceIds": ["codes", "inventory"], "text": "Fotografiar solapas, etiqueta frontal y trasera del cartucho, y portada del manual; conservar codigos completos por pieza. No sustituirlos por el codigo de fabricacion del dorso de la caja."},
     {"id": "snes-distribution", "sourceIds": ["distribution"], "text": "La guia describe distribuciones espanolizadas y conjuntos italiano-espanoles. Pedir pruebas de pegatinas, distribuidor y suplementos; no asumir que toda pieza no-ESP invalida el conjunto ni que una pegatina espanola autentica su distribucion."},
     {"id": "snes-revisions", "sourceIds": ["codes", "inventory"], "text": "Conservar sufijos numericos por componente. Una diferencia entre revisiones requiere contraste del ejemplar; no demuestra automaticamente mezcla, falsificacion o cambio de ROM."},
     {"id": "snes-completeness", "sourceIds": ["codes"], "text": "Comprobar contenido por edicion y tirada, no imponer un inventario universal. Un envoltorio no prueba precinto original. No crear obligaciones de accesorios desde esta guia."},
-    {"id": "snes-evidence-boundary", "sourceIds": ["inventory"], "text": "Un inventario de coleccion documenta posesion actual, no procedencia de fabrica. Las referencias son comparadores: no rellenar observations, idioma, region ni estado del anuncio con datos de otra copia."}
+    {"id": "snes-evidence-boundary", "sourceIds": ["inventory"], "text": "Un inventario de coleccion documenta posesion actual, no procedencia de fabrica. Las referencias son comparadores: no rellenar observations, idioma, region ni estado del anuncio con datos de otra copia."},
+    {"id": "snes-incomplete-scan-index", "sourceIds": ["yoshi-scans"], "text": "Las tablas de cartuchos, cajas y placas son inventarios separados e incompletos: una variante ausente no prueba inexistencia, y dos piezas de tablas distintas no prueban una pareja de fabrica. No generalizar una etiqueta a todas las tiradas."},
+    {"id": "snes-language-proof", "sourceIds": ["evermore-scans", "illusion-scans"], "text": "Separar idioma impreso, idioma jugable y mercado. Un texto 'instrucciones en castellano' acredita instrucciones, no traduccion de la ROM. Comparar codigo de etiqueta y, solo si hay foto, codigo del chip; no inventar el interior de un cartucho cerrado."}
   ],
   "gameReferences": [
     {"id": "snes-kart-esp-inventory", "status": "reviewed_guidance", "catalogIds": ["snes-pal-super-mario-kart"], "sourceIds": ["inventory"], "binding": "comparison_only_not_catalog_region_evidence", "text": "Super Mario Kart: Ereza registra SNSP-MK-ESP en caja, manual y cartucho de su copia. Comparar cada pieza actual; no extrapolar a Nintendo Classics, packs de consola o otras regiones."},
     {"id": "snes-world-revisions-inventory", "status": "reviewed_guidance", "catalogIds": ["snes-pal-eu-super-mario-world"], "sourceIds": ["inventory"], "binding": "comparison_only_not_catalog_region_evidence", "text": "Super Mario World: inventario de Ereza con caja SNSP-MW-ESP, manual SNSP-MW-ESP-2 y cartucho SNSP-MW-ESP-1. Es una observacion de coleccion, no certificacion de un conjunto original; requiere contraste antes de aceptar combinaciones."},
     {"id": "snes-yoshi-noe-exception", "status": "pending_primary_evidence", "catalogIds": ["snes-super-mario-world-2-yoshi%27s-island"], "sourceIds": ["yoshi", "inventory"], "binding": "comparison_only_not_catalog_region_evidence", "text": "La guia afirma cartuchos NOE para Espana. El inventario anota EUR y comenta NOE. Discrepancia sin resolver: no habilitar excepcion automatica.", "neededEvidence": ["Fotos actuales legibles de ambas etiquetas, caja y manual del mismo ejemplar", "Procedencia de distribucion espanola"]},
     {"id": "snes-illusion-guide", "status": "pending_primary_evidence", "catalogIds": ["snes-illusion-of-time-big-box-spanish", "snes-illusion-of-time-big-box"], "sourceIds": ["illusion"], "binding": "comparison_only_not_catalog_region_evidence", "text": "La guia describe caja grande con guia en lugar de manual. Falta contraste fotografico antes de cambiar manualExpected o contenido obligatorio.", "neededEvidence": ["Escaneo de contenidos y documentacion de la edicion exacta"]},
-    {"id": "snes-cookie-arcadia", "status": "pending_primary_evidence", "catalogIds": ["snes-pal-eu-yoshi-s-cookie"], "sourceIds": ["cookie"], "binding": "comparison_only_not_catalog_region_evidence", "text": "La guia describe UKV con pegatina y manual suplementario de Arcadia. Falta evidencia accesible del conjunto para habilitar la excepcion espanola.", "neededEvidence": ["Fotos de pegatina, suplemento y codigos del mismo conjunto"]}
+    {"id": "snes-cookie-arcadia", "status": "pending_primary_evidence", "catalogIds": ["snes-pal-eu-yoshi-s-cookie"], "sourceIds": ["cookie"], "binding": "comparison_only_not_catalog_region_evidence", "text": "La guia describe UKV con pegatina y manual suplementario de Arcadia. Falta evidencia accesible del conjunto para habilitar la excepcion espanola.", "neededEvidence": ["Fotos de pegatina, suplemento y codigos del mismo conjunto"]},
+    {
+      "id": "snes-yoshi-separate-scans", "status": "reviewed_guidance",
+      "catalogIds": ["snes-super-mario-world-2-yoshi%27s-island"], "sourceIds": ["yoshi-scans"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["SNSP-YI-ESP"], "cartridge": ["SNSP-YI-AUS", "SNSP-YI-FAH", "SNSP-YI-NOE", "SNSP-YI-UKV"], "romChip": ["SPAL-YI-0", "SPAL-YI-1", "SPAL-YI-2"]},
+      "componentAssociation": "independent_scan_records_not_factory_pairings",
+      "visualReview": {"sourceId": "yoshi-box-back", "finding": "Escaneo con texto espanol, solapas SNSP-YI-ESP e indicacion de instrucciones en castellano; no incluye cartucho ni demuestra idioma de ROM."},
+      "text": "Yoshi's Island: SNES Central documenta caja SNSP-YI-ESP y, por separado, etiquetas SNSP-YI-AUS, SNSP-YI-FAH, SNSP-YI-NOE y SNSP-YI-UKV. Fotografiar solapas y ambas etiquetas del cartucho actual. Las placas incluyen SPAL-YI-0, SPAL-YI-1 y SPAL-YI-2: no limitar revisiones a 0/1. Los registros separados no prueban caja ESP + cartucho NOE de fabrica; esa excepcion sigue pendiente."
+    },
+    {
+      "id": "snes-evermore-language-codes", "status": "reviewed_guidance",
+      "catalogIds": ["snes-secret-of-evermore"], "sourceIds": ["evermore-scans"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"cartridge": ["SNSP-AEOS-ESP", "SNSP-AEOF-FRA", "SNSP-AEOD-NOE", "SNSP-AEOP-HOL"], "romChip": ["SPAL-AEOS-1"]},
+      "componentAssociation": "independent_scan_records_not_factory_pairings",
+      "visualReview": {"sourceId": "evermore-esp-label", "finding": "SNSP-AEOS-ESP visible bajo PAL VERSION, en la zona derecha de la etiqueta. No se inspecciona el interior de ese cartucho."},
+      "text": "Secret of Evermore: SNES Central identifica SNSP-AEOS-ESP como version en espanol, frente a SNSP-AEOF-FRA (frances) y SNSP-AEOD-NOE (aleman); tambien documenta SNSP-AEOP-HOL y chip espanol SPAL-AEOS-1. Leer el codigo bajo PAL VERSION a la derecha, sin convertir una S en regla universal de idioma ni asignar un chip no fotografiado. No determina contenido de Big Box."
+    },
+    {
+      "id": "snes-illusion-cart-rom", "status": "reviewed_guidance",
+      "catalogIds": ["snes-illusion-of-time"], "sourceIds": ["illusion-scans"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"cartridge": ["SNSP-JG-ESP", "SNSP-JG-NOE/SFRG"], "romChip": ["SESP-JG-0", "SFRG-JG-0", "SPAL-JG-0"]},
+      "componentAssociation": "independent_scan_records_not_factory_pairings",
+      "text": "Illusion of Time: etiqueta SNSP-JG-ESP y placa con ROM SESP-JG-0 documentadas para Espana. La fuente distingue SNSP-JG-NOE/SFRG, SFRG-JG-0 y SPAL-JG-0: transcribir completos, no truncar /SFRG. Revisar etiqueta actual y ROM solo si visible. Estos escaneos no resuelven el contenido de la caja grande ni si sustituia manual por guia."
+    },
+    {
+      "id": "snes-mana-inventory-vs-index", "status": "reviewed_guidance",
+      "catalogIds": ["snes-secret-of-mana"], "sourceIds": ["inventory", "mana-scans"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["SNSP-K2-ESP"], "manual": ["SNSP-K2-ESP"], "cartridge": ["SNSP-K2-ESP"], "romChip": ["SFRG-K2-0", "SPAL-K2-0", "SPAL-K2-1"]},
+      "componentAssociation": "inventory_components_and_independent_rom_records_not_factory_pairings",
+      "text": "Secret of Mana: Ereza registra SNSP-K2-ESP en caja, manual y cartucho; no es certificacion de fabrica. SNES Central diferencia ROM SFRG-K2-0 de SPAL-K2-0 y SPAL-K2-1, sin vincular esos chips a la copia de Ereza. Pedir etiqueta y prueba de idioma; ni ESP impreso ni falta de una etiqueta en el indice demuestran traduccion oficial o inexistencia. No aplicar al homebrew Secret of Mana 2."
+    },
+    {
+      "id": "snes-lufia-identity-codes", "status": "reviewed_guidance",
+      "catalogIds": ["snes-lufia"], "sourceIds": ["inventory", "lufia-scans"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["SNSP-ANIS-ESP"], "manual": ["SNSP-ANIS-ESP"], "cartridge": ["SNSP-ANIS-ESP", "SNSP-ANIH-HOL"], "romChip": ["SPAL-ANIH-0"]},
+      "componentAssociation": "inventory_components_and_independent_scan_records_not_factory_pairings",
+      "text": "Lufia europeo corresponde a Lufia II: Rise of the Sinistrals en USA, no al primer Lufia. Ereza registra SNSP-ANIS-ESP en sus tres piezas; SNES Central documenta por separado SNSP-ANIH-HOL y ROM SPAL-ANIH-0 en neerlandes. Pedir etiqueta completa y embalaje, no asumir ingles o espanol de HOL/EUR ni emparejar ese chip con el cartucho ESP."
+    },
+    {
+      "id": "snes-zelda-language-variants", "status": "reviewed_guidance",
+      "catalogIds": ["snes-zelda-link-to-the-past"], "sourceIds": ["zelda-scans"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"cartridge": ["SNSP-ZL-NOE/SFRG", "SNS-ZF-CAN", "SNS-ZL-CAN"]},
+      "componentAssociation": "independent_scan_records_not_factory_pairings",
+      "text": "Zelda A Link to the Past: comparar etiqueta completa, no solo pais. SNES Central diferencia SNSP-ZL-NOE/SFRG aleman y las etiquetas canadienses SNS-ZF-CAN (frances) y SNS-ZL-CAN. Son comparadores para detectar variantes, no admision de Canada como PAL ni evidencia de una traduccion oficial espanola. Una caja ESP o texto de anuncio no resuelve el idioma de ROM."
+    },
+    {
+      "id": "snes-terranigma-esp-inventory", "status": "reviewed_guidance",
+      "catalogIds": ["snes-terranigma"], "sourceIds": ["inventory"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["SNSP-AQTS-ESP"], "manual": ["SNSP-AQTS-ESP"], "cartridge": ["SNSP-AQTS-ESP"]},
+      "text": "Terranigma: inventario de Ereza con SNSP-AQTS-ESP en las tres piezas. Pedir solapa, manual y etiqueta actual como comparacion documental, sin exigir ese inventario a otras variantes ni trasladarlo al contenido de Big Box. La lista de un propietario no prueba originalidad del conjunto."
+    },
+    {
+      "id": "snes-breath-fire2-eur-inventory", "status": "reviewed_guidance",
+      "catalogIds": ["snes-pal-breath-fire-ii"], "sourceIds": ["inventory"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["SNSP-AF2P-EUR"], "manual": ["SNSP-AF2P-EUR"], "cartridge": ["SNSP-AF2P-EUR"]},
+      "text": "Breath of Fire II: Ereza registra SNSP-AF2P-EUR en las tres piezas y documentacion suplementaria. Pedir fotos del suplemento y sus idiomas, sin deducir idioma jugable ni convertir los accesorios de esa coleccion en contenido obligatorio universal. No aplicar a las fichas USA con titulo parecido."
+    }
+  ],
+  "disputedClaims": [
+    {"id": "yoshi-single-label-and-two-revisions", "status": "contradicted_as_universal", "sourceIds": ["yoshi-discussion", "yoshi-label-claim", "yoshi-scans"], "summary": "El debate reduce etiquetas y revisiones; el indice documenta varias etiquetas PAL y SPAL-YI-2. Esto no resuelve que cartucho acompano cada caja espanola."},
+    {"id": "official-spanish-translations-list", "status": "pending_primary_evidence", "sourceIds": ["translation-claim", "translation-objection"], "summary": "Una respuesta tardia atribuye traducciones oficiales espanolas a varios juegos y otras lo cuestionan. No importar esa lista ni la negacion global como idiomas verificados."}
   ],
   "blockedClaims": [
     "NOE determina automaticamente el pais del conjunto completo.",
@@ -32,6 +114,10 @@
     "Todos los juegos comparten contenido obligatorio y precinto.",
     "Una lista de coleccion certifica ensamblaje de fabrica.",
     "Ausencia en la guia demuestra que nunca se vendio en Espana.",
-    "Las reglas Game Boy se pueden reutilizar como codificacion SNES."
+    "Las reglas Game Boy se pueden reutilizar como codificacion SNES.",
+    "Solo existen las revisiones PAL 0 y 1 de Yoshi's Island.",
+    "Todas las etiquetas PAL de Yoshi's Island son NOE.",
+    "Instrucciones en castellano significa necesariamente ROM traducida al espanol.",
+    "La lista de traducciones de una respuesta del foro es evidencia de localizacion oficial."
   ]
 }

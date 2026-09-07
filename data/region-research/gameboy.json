@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "platformSlug": "gameboy",
   "reviewedAt": "2026-09-07",
-  "batch": "gameboy-documentary-v1",
+  "batch": "gameboy-documentary-v2",
   "mode": "inspection_guidance_not_acceptance",
   "sources": {
     "spinecard": {"url": "https://foro.spinecard.com/t/guia-regiones-juegos-game-boy/20014/3", "kind": "community_guide", "use": "discovery_only"},
@@ -10,14 +10,29 @@
     "asterix": {"url": "https://gbhwdb.gekkio.fi/cartridges/DMG-XAX-0/", "kind": "physical_specimen_database", "attribution": "Gekkio and contributors; Granmastro Entry #1", "license": "CC-BY-SA-4.0"},
     "addams": {"url": "https://gbhwdb.gekkio.fi/cartridges/DMG-AFX-0/", "kind": "physical_specimen_database", "attribution": "Gekkio and contributors; Alex G Entry #1", "license": "CC-BY-SA-4.0"},
     "flintstones": {"url": "https://www.game-boy-database.com/game-FE-730-FRG.html", "kind": "collector_specimen_database", "attribution": "Game Boy Database; Rpghcg", "license": "not_established_no_images_copied"},
-    "revisions": {"url": "https://www.game-boy-database.com/fullset-FRG.html", "kind": "collector_specimen_database", "license": "not_established_no_images_copied"}
+    "revisions": {"url": "https://www.game-boy-database.com/fullset-FRG.html", "kind": "collector_specimen_database", "license": "not_established_no_images_copied"},
+    "esp-index": {"url": "https://www.game-boy-database.com/fullset-ESP.html", "kind": "collector_specimen_index", "use": "discovery_only"},
+    "pokemon-red-nesp": {"url": "https://www.game-boy-database.com/game-APAS-1534-NESP.html", "kind": "collector_specimen_database", "attribution": "Game Boy Database", "license": "not_established_no_images_copied"},
+    "pokemon-red-photo": {"url": "https://www.game-boy-database.com/cartridges/1534.jpg", "kind": "reference_label_photo", "attribution": "Game Boy Database", "license": "not_established_no_images_copied"},
+    "pokemon-yellow-nesp": {"url": "https://www.game-boy-database.com/game-APSS-1530-NESP.html", "kind": "collector_specimen_database"},
+    "dk-land-esp2": {"url": "https://www.game-boy-database.com/game-YT-529-ESP-2.html", "kind": "collector_specimen_database"},
+    "dk-land2-neai": {"url": "https://www.game-boy-database.com/game-ADDP-4529-NEAI.html", "kind": "collector_specimen_database"},
+    "mario-land-neai": {"url": "https://www.game-boy-database.com/game-ML-4575-NEAI.html", "kind": "collector_specimen_database"},
+    "tetris-neai1": {"url": "https://www.game-boy-database.com/game-TR-4984-NEAI-1.html", "kind": "collector_specimen_database"},
+    "mickey-esp": {"url": "https://www.game-boy-database.com/game-M2-2397-ESP.html", "kind": "collector_specimen_database"},
+    "wario-neai": {"url": "https://www.game-boy-database.com/game-WJ-2868-NEAI.html", "kind": "collector_specimen_database", "attribution": "Game Boy Database; Steven"},
+    "zelda-esp2": {"url": "https://www.game-boy-database.com/game-ZL-2797-ESP-2.html", "kind": "collector_specimen_database"},
+    "aladdin-nesp": {"url": "https://www.game-boy-database.com/game-ALAP-2936-NESP.html", "kind": "collector_specimen_database"},
+    "asterix-obelix-comic": {"url": "https://www.game-boy-database.com/game-AXOP-4158-NESP.html", "kind": "collector_specimen_database"}
   },
   "inspectionRules": [
     {"id": "separate-components", "sourceIds": ["hardware", "flintstones"], "text": "Transcribe por separado los codigos legibles de etiqueta del cartucho, caja/solapas y manual. No atribuyas el codigo de una pieza al conjunto ni a otra pieza ausente. Si faltan fotos de una pieza, su informacion es desconocida."},
     {"id": "rom-is-not-label", "sourceIds": ["hardware", "asterix", "addams"], "text": "Distingue codigo de producto de la etiqueta, identificador ROM y referencia de PCB. Una PCB DMG-BEAN compartida no identifica juego, pais ni idioma por si sola. No impongas a todo DMG un unico formato de codigo."},
     {"id": "language-is-separate", "sourceIds": ["asterix", "addams"], "text": "Idioma jugable, idioma impreso y mercado de distribucion son datos independientes. FAH, EUR, GPS o una ultima letra no prueban por si solos idioma espanol ni distribucion en Espana. No deduzcas idioma jugable de la caja."},
     {"id": "preserve-revisions", "sourceIds": ["revisions"], "text": "Conserva el codigo completo y su sufijo de revision; no limites la revision a 1 ni la interpretes automaticamente como una revision de ROM. La base documenta FRG-2, FRG-3 y FRG-4."},
-    {"id": "current-listing-only", "sourceIds": ["hardware", "flintstones"], "text": "Estas referencias documentan ejemplares concretos, no el anuncio actual. No copies sus codigos a observations ni uses su existencia para confirmar regionMatchesCatalog. Una referencia FRG/FAH no demuestra ni excluye una distribucion espanola con embalaje distinto; exige evidencia del ejemplar vendido."}
+    {"id": "current-listing-only", "sourceIds": ["hardware", "flintstones"], "text": "Estas referencias documentan ejemplares concretos, no el anuncio actual. No copies sus codigos a observations ni uses su existencia para confirmar regionMatchesCatalog. Una referencia FRG/FAH no demuestra ni excluye una distribucion espanola con embalaje distinto; exige evidencia del ejemplar vendido."},
+    {"id": "component-combinations", "sourceIds": ["pokemon-red-nesp", "wario-neai"], "text": "Hay referencias con sufijos distintos entre caja, manual y cartucho. Una diferencia no basta para declarar un conjunto incorrecto, ni la coincidencia con una base autentica su origen de fabrica. Identifica primero variante y pieza; las alternativas de manual no implican que deban venir dos manuales."},
+    {"id": "reference-language-scope", "sourceIds": ["zelda-esp2"], "text": "Cuando una fuente distingue idiomas de caja, manual y juego, conserva esa separacion y su alcance de variante. No conviertas una bandera de idioma o el nombre de un archivo de imagen en evidencia observada del anuncio; tampoco atribuyas al juego el idioma de sus instrucciones."}
   ],
   "gameReferences": [
     {
@@ -40,6 +55,88 @@
       "sourceIds": ["flintstones"],
       "binding": "comparison_only_not_catalog_region_evidence",
       "text": "The Flintstones: King Rock Treasure Island: la ficha documental FRG registra DMG-FE-FRG por separado en solapa, manual y cartucho, y 30318 en solapa. Inspecciona esas piezas en el anuncio. El foro pregunta si hubo una version espanolizada pero no lo demuestra. No confundir con The Flintstones (pelicula); no dar por probada una edicion ESP ni igualdad de todas las ROM."
+    },
+    {
+      "id": "pokemon-red-nesp-components", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-pokemon-red"], "sourceIds": ["pokemon-red-nesp"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-APAS-NESP"], "manual": ["DMG-APAS-NESP"], "cartridge": ["DMG-APAS-ESP"]},
+      "visualReview": {"sourceId": "pokemon-red-photo", "finding": "Codigo DMG-APAS-ESP legible en el lateral izquierdo de la etiqueta; texto impreso en espanol. No se verifica ROM ni conjunto."},
+      "text": "Pokemon Rojo, referencia NESP: solapa y manual DMG-APAS-NESP; cartucho DMG-APAS-ESP. Pedir solapas y lateral izquierdo de la etiqueta. La foto de referencia permite leer ESP, pero no acredita el cartucho vendido ni su ROM. No exigir NESP tambien en cartucho, ni aplicar a Azul, Amarillo, blisters o reediciones."
+    },
+    {
+      "id": "pokemon-yellow-nesp-components", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-pokemon-yellow"], "sourceIds": ["pokemon-yellow-nesp"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-APSS-NESP"], "manual": ["DMG-APSS-NESP"], "cartridge": ["DMG-APSS-ESP"]},
+      "text": "Pokemon Amarillo, referencia NESP: solapa y manual DMG-APSS-NESP; cartucho DMG-APSS-ESP. Pedir codigos de las tres piezas y distinguir APSS de APAS de Rojo. No extrapolar al blister ni autenticar una carcasa amarilla sin revisar la etiqueta actual."
+    },
+    {
+      "id": "dk-land-esp2-components", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-donkey-kong-land"], "sourceIds": ["dk-land-esp2"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-YT-ESP-2"], "manual": ["DMG-YT-ESP-2"], "cartridge": ["DMG-YT-ESP"]},
+      "text": "Donkey Kong Land ESP-2: solapa y manual DMG-YT-ESP-2; cartucho DMG-YT-ESP en la fuente. Fotografiar los tres codigos; la revision de caja no obliga a ese mismo sufijo en el cartucho. No extender a Land 2, III o Classic Series."
+    },
+    {
+      "id": "dk-land2-neai-components", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-donkey-kong-land-2"], "sourceIds": ["dk-land2-neai"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-ADDP-NEAI"], "manual": ["DMG-ADDP-NITA-1"], "cartridge": ["DMG-ADDP-EUR-1"]},
+      "text": "Donkey Kong Land 2 NEAI: la referencia registra solapa DMG-ADDP-NEAI, manual DMG-ADDP-NITA-1 y cartucho DMG-ADDP-EUR-1. Pedir la contraportada del manual y los idiomas impresos, sin asumir manual espanol porque la caja sea NEAI. Comparador de variante, no prueba de distribucion espanola; no extender a Nintendo Classics."
+    },
+    {
+      "id": "mario-land-neai-components", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-super-mario-land"], "sourceIds": ["mario-land-neai"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-ML-NEAI"], "manual": ["DMG-ML-NEAI"], "cartridge": ["DMG-ML-EUR"]},
+      "text": "Super Mario Land NEAI: solapa y manual DMG-ML-NEAI; cartucho DMG-ML-EUR. Pedir los tres componentes, sin deducir que cualquier cartucho EUR incluye embalaje espanol. ML identifica esta referencia, no Mario Land 2 ni Wario Land."
+    },
+    {
+      "id": "tetris-neai1-components", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-tetris"], "sourceIds": ["tetris-neai1"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-TR-NEAI-1"], "manual": ["DMG-TR-ITA-5"], "cartridge": ["DMG-TR-EUR"]},
+      "text": "Tetris NEAI-1: la fuente registra solapa DMG-TR-NEAI-1, manual DMG-TR-ITA-5 y cartucho DMG-TR-EUR. Inspeccionar manual y tirada; conservar ITA-5 literalmente. No convertir esa combinacion documentada en aceptacion automatica para Espana, ni aplicarla a packs de consola o Tetris 2."
+    },
+    {
+      "id": "mickey-esp-components", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-mickey-mouse"], "sourceIds": ["mickey-esp"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-M2-ESP"], "manual": ["DMG-M2-ESP"], "cartridge": ["DMG-M2-ESP"]},
+      "text": "Mickey Mouse ESP: solapa, manual y cartucho DMG-M2-ESP en la referencia. Contrastar titulo e imagen junto al codigo; M2 en esta ficha no autoriza identificar otro juego ni una secuela por semejanza del identificador."
+    },
+    {
+      "id": "wario-neai-manual-alternatives", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-wario-land-super-mario-land-3"], "sourceIds": ["wario-neai"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-WJ-NEAI"], "cartridge": ["DMG-WJ-EUR"]},
+      "componentClaimsVerbatim": {"manual": "DMG-WJ-ESP-3 or ITA-2"},
+      "text": "Wario Land: Super Mario Land 3 NEAI: caja DMG-WJ-NEAI y cartucho DMG-WJ-EUR. La fuente ofrece el manual como alternativa 'DMG-WJ-ESP-3 or ITA-2', no como dos piezas obligatorias ni un codigo unico. Pedir foto de portada/contraportada del manual vendido y no completar la abreviatura a ciegas. No extrapolar a Nintendo Classics."
+    },
+    {
+      "id": "zelda-esp2-language-components", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-zelda-link-s-awakening"], "sourceIds": ["zelda-esp2"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-ZL-ESP-2"], "cartridge": ["DMG-ZL-ESP-1"]},
+      "componentClaimsVerbatim": {"manual": "DMG-ZL-ESP-2 or ESP-3", "secondaryFlap": "30906"},
+      "visualReview": {"sourceId": "zelda-esp2", "finding": "La tabla muestra bandera espanola para caja/manual y britanica para idioma del juego. Es lectura visual de metadatos de la fuente, no prueba jugable ni foto de anuncio."},
+      "text": "Zelda Link's Awakening ESP-2: caja DMG-ZL-ESP-2, cartucho DMG-ZL-ESP-1 y manual con alternativa 'DMG-ZL-ESP-2 or ESP-3'. La fuente distingue caja/manual en espanol y juego en ingles: ESP no basta para afirmar traduccion. Pedir codigos y, para idioma jugable, prueba de esa ROM. No extender a DX de Game Boy Color o reediciones Classics."
+    },
+    {
+      "id": "aladdin-nesp-components", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-aladdin"], "sourceIds": ["aladdin-nesp"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-ALAP-NESP"], "manual": ["DMG-ALAP-NEU-5"], "cartridge": ["DMG-ALAP-EUR-1"]},
+      "text": "Aladdin NESP: solapa DMG-ALAP-NESP, manual DMG-ALAP-NEU-5 y cartucho DMG-ALAP-EUR-1 en la fuente. Fotografiar manual y solapas, conservar NEU-5; no inventar NESP en piezas ausentes ni inferir idioma jugable de estos sufijos. No aplicar a la version de Game Boy Color."
+    },
+    {
+      "id": "asterix-obelix-comic-unbound", "status": "pending_catalog_binding",
+      "catalogIds": [], "sourceIds": ["asterix-obelix-comic"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-AXOP-NESP"], "manual": ["DMG-AXOP-EUR"], "cartridge": ["DMG-AXOP-EUR"]},
+      "text": "Asterix & Obelix Comic Classics NESP: solapa DMG-AXOP-NESP, manual y cartucho DMG-AXOP-EUR. La variante Comic Classics no tiene vinculacion exacta revisada en el catalogo; no asignar a la edicion estandar por titulo parecido.",
+      "neededEvidence": ["Identidad de catalogo de la edicion Comic Classics, sin reutilizar un ID estandar"]
     }
   ],
   "blockedClaims": [
@@ -49,6 +146,10 @@
     "P significa siempre multilingue con espanol.",
     "Una etiqueta o carcasa espanola demuestra el origen de todo el conjunto.",
     "El ejemplar FRG de Flintstones demuestra una distribucion espanola.",
-    "Estas reglas de DMG se pueden propagar sin revision a Game Boy Color, Advance, DS o Switch."
+    "Estas reglas de DMG se pueden propagar sin revision a Game Boy Color, Advance, DS o Switch.",
+    "Toda caja NESP debe incluir un cartucho NESP.",
+    "NEAI implica siempre manual espanol.",
+    "Las alternativas de manual de una base significan que vienen todos los manuales juntos.",
+    "El Zelda Link's Awakening con caja ESP tiene necesariamente textos jugables en espanol."
   ]
 }

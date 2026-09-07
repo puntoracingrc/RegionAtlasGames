@@ -1,4 +1,4 @@
-# Super Nintendo: preparacion documental del engine
+# Super Nintendo: preparacion documental del engine v2
 
 Revision 2026-09-07. Ampliacion de la capa documental de la PR #208, aun en
 borrador. No altera catalogo, precios, reglas deterministas, memoria humana,
@@ -20,7 +20,7 @@ https://www.nintendo.co.jp/clvs/manuals/es/index.html
 Esa pagina sirve como ruta futura. No demuestra la distribucion original
 espanola de las ediciones fisicas; no se usa como fuente de codigos PAL ESP.
 
-## Entrega
+## Primera entrega (v1)
 
 - Cinco precauciones generales de inspeccion, con fuentes.
 - Dos referencias documentales por ID exacto: Super Mario Kart y Super Mario
@@ -55,7 +55,7 @@ y provocar nuevas consultas al invalidar cache. No hay precision medida.
 Rollback: retirar `snes` de la lista del cargador, conservando la investigacion.
 No existen cambios de datos o decisiones que revertir.
 
-## Verificacion local
+## Verificacion local de v1
 
 9/9 pruebas de investigacion correctas, incluyendo exclusion de pendientes,
 IDs existentes y aislamiento entre juegos/plataformas. Tambien pasan
@@ -63,3 +63,24 @@ IDs existentes y aislamiento entre juegos/plataformas. Tambien pasan
 No se ejecuta build local para esta ampliacion Python/documental; los checks
 remotos son una fase distinta. No hay verificacion de anuncios reales ni
 publicacion en Production.
+
+## Ampliacion v2
+
+Se han revisado tambien las 30 ultimas respuestas disponibles del hilo y las
+tablas de etiquetas, cajas y ROM de seis juegos en SNES Central. Hay nuevas
+referencias para Yoshi's Island, Secret of Evermore, Illusion of Time, Secret
+of Mana, Lufia, Zelda, Terranigma y Breath of Fire II. Total: 13 referencias,
+10 utilizables como guia; las tres excepciones originales siguen pendientes.
+
+Las tablas de escaneos no prueban que dos piezas fueran vendidas juntas.
+`componentAssociation` conserva expresamente esa limitacion cuando aparecen
+referencias de ROM o registros de distintas fuentes. El engine solo recibe
+el resumen de inspeccion por ID, no una regla nueva de aceptacion.
+
+Se han inspeccionado visualmente en el navegador la trasera de la caja ESP de
+Yoshi's Island y la etiqueta ESP de Secret of Evermore. Eso no valida la pareja
+NOE/ESP ni constituye auditoria de anuncios. Las afirmaciones discutidas sobre
+traducciones se conservan en `disputedClaims`, fuera del prompt.
+
+Cobertura, hallazgos, pendientes y limites completos:
+[repaso conjunto v2](regional-research-v2.md).
