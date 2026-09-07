@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "platformSlug": "gameboy",
+  "reviewedAt": "2026-09-07",
+  "batch": "gameboy-documentary-v1",
+  "mode": "inspection_guidance_not_acceptance",
+  "sources": {
+    "spinecard": {"url": "https://foro.spinecard.com/t/guia-regiones-juegos-game-boy/20014/3", "kind": "community_guide", "use": "discovery_only"},
+    "hardware": {"url": "https://gbhwdb.gekkio.fi/cartridges/gb.html", "kind": "physical_specimen_database", "attribution": "Gekkio and contributors", "license": "CC-BY-SA-4.0"},
+    "asterix": {"url": "https://gbhwdb.gekkio.fi/cartridges/DMG-XAX-0/", "kind": "physical_specimen_database", "attribution": "Gekkio and contributors; Granmastro Entry #1", "license": "CC-BY-SA-4.0"},
+    "addams": {"url": "https://gbhwdb.gekkio.fi/cartridges/DMG-AFX-0/", "kind": "physical_specimen_database", "attribution": "Gekkio and contributors; Alex G Entry #1", "license": "CC-BY-SA-4.0"},
+    "flintstones": {"url": "https://www.game-boy-database.com/game-FE-730-FRG.html", "kind": "collector_specimen_database", "attribution": "Game Boy Database; Rpghcg", "license": "not_established_no_images_copied"},
+    "revisions": {"url": "https://www.game-boy-database.com/fullset-FRG.html", "kind": "collector_specimen_database", "license": "not_established_no_images_copied"}
+  },
+  "inspectionRules": [
+    {"id": "separate-components", "sourceIds": ["hardware", "flintstones"], "text": "Transcribe por separado los codigos legibles de etiqueta del cartucho, caja/solapas y manual. No atribuyas el codigo de una pieza al conjunto ni a otra pieza ausente. Si faltan fotos de una pieza, su informacion es desconocida."},
+    {"id": "rom-is-not-label", "sourceIds": ["hardware", "asterix", "addams"], "text": "Distingue codigo de producto de la etiqueta, identificador ROM y referencia de PCB. Una PCB DMG-BEAN compartida no identifica juego, pais ni idioma por si sola. No impongas a todo DMG un unico formato de codigo."},
+    {"id": "language-is-separate", "sourceIds": ["asterix", "addams"], "text": "Idioma jugable, idioma impreso y mercado de distribucion son datos independientes. FAH, EUR, GPS o una ultima letra no prueban por si solos idioma espanol ni distribucion en Espana. No deduzcas idioma jugable de la caja."},
+    {"id": "preserve-revisions", "sourceIds": ["revisions"], "text": "Conserva el codigo completo y su sufijo de revision; no limites la revision a 1 ni la interpretes automaticamente como una revision de ROM. La base documenta FRG-2, FRG-3 y FRG-4."},
+    {"id": "current-listing-only", "sourceIds": ["hardware", "flintstones"], "text": "Estas referencias documentan ejemplares concretos, no el anuncio actual. No copies sus codigos a observations ni uses su existencia para confirmar regionMatchesCatalog. Una referencia FRG/FAH no demuestra ni excluye una distribucion espanola con embalaje distinto; exige evidencia del ejemplar vendido."}
+  ],
+  "gameReferences": [
+    {
+      "id": "asterix-fah-specimen",
+      "catalogIds": ["gameboy-asterix", "gameboy-es-asterix"],
+      "sourceIds": ["asterix"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "text": "Asterix: el ejemplar documentado lleva etiqueta DMG-XA-FAH y ROM ID DMG-XAX-0. La fuente describe esa ROM como En/Fr/De/Es/It. Mira la etiqueta y el embalaje actual: disponer de espanol en esa ROM no convierte ese cartucho en una edicion ESP. No extrapolar a Asterix & Obelix."
+    },
+    {
+      "id": "addams-fah-specimen",
+      "catalogIds": ["gameboy-pal-addams-family", "gameboy-es-addams-family"],
+      "sourceIds": ["addams"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "text": "The Addams Family: la referencia tiene etiqueta DMG-AF-FAH y ROM ID DMG-AFX-0; la fuente describe En/Fr/De, no espanol. Comparar codigo completo y componentes actuales. No extrapolar a Pugsley's Scavenger Hunt ni deducir idioma o pais de todas las ediciones del juego."
+    },
+    {
+      "id": "flintstones-frg-specimen",
+      "catalogIds": ["gameboy-pal-flintstones-king-rock-treasure-island", "gameboy-es-flintstones-king-rock-treasure-island"],
+      "sourceIds": ["flintstones"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "text": "The Flintstones: King Rock Treasure Island: la ficha documental FRG registra DMG-FE-FRG por separado en solapa, manual y cartucho, y 30318 en solapa. Inspecciona esas piezas en el anuncio. El foro pregunta si hubo una version espanolizada pero no lo demuestra. No confundir con The Flintstones (pelicula); no dar por probada una edicion ESP ni igualdad de todas las ROM."
+    }
+  ],
+  "blockedClaims": [
+    "La revision siempre es 1.",
+    "FRG significa RDA.",
+    "El sufijo territorial determina siempre el idioma jugable.",
+    "P significa siempre multilingue con espanol.",
+    "Una etiqueta o carcasa espanola demuestra el origen de todo el conjunto.",
+    "El ejemplar FRG de Flintstones demuestra una distribucion espanola.",
+    "Estas reglas de DMG se pueden propagar sin revision a Game Boy Color, Advance, DS o Switch."
+  ]
+}

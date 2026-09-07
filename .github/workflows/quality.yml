@@ -53,6 +53,7 @@ jobs:
           npm run test:collector-controls
           python3 scripts/test_ai_usage.py
           python3 scripts/test_ebay_review_inbox.py
+          python3 scripts/test_region_research.py
           npx tsx --test src/lib/ebay-review-inbox.test.ts
 
       - name: Affiliate offer tests

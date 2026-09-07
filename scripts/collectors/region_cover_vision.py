@@ -19,6 +19,7 @@ from collectors.cache_policy import attach_policy_version, cache_policy_matches
 from collectors.condition_buckets import DISPLAY_BUCKETS
 from collectors.game_content_profile import manual_missing_declared, missing_original_contents
 from collectors.game_region_learning import game_region_profile
+from collectors.region_research import region_research_prompt
 from collectors.physical_edition import physical_edition_label, physical_edition_markers
 from collectors.regional_packaging import (
     infer_region_from_visual_observations,
@@ -182,6 +183,7 @@ def classify_region_from_cover(
         return None
 
     learned_profile = game_region_profile(catalog_id)
+    research_prompt = region_research_prompt(platform_slug, catalog_id)
     packaging = normalize_regional_packaging(regional_packaging)
     packaging_rules = regional_packaging_prompt(packaging)
     packaging_block = f"{packaging_rules}\n" if packaging_rules else ""
@@ -202,6 +204,10 @@ def classify_region_from_cover(
             *urls,
         ]
     )
+
+    # Include documentary revisions even when the caller supplies a cache key.
+    if research_prompt:
+        key += "|research:" + hashlib.sha256(research_prompt.encode("utf-8")).hexdigest()
 
     cached: dict[str, Any] | None = None
     if use_cache:
@@ -280,6 +286,8 @@ def classify_region_from_cover(
             ),
         }
     ]
+    if research_prompt:
+        user_content.append({"type": "text", "text": research_prompt})
     if learned_profile:
         examples = learned_profile.get("approvedExamples") or []
         learned_lines = [
