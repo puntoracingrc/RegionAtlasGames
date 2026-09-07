@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "platformSlug": "megadrive",
+  "reviewedAt": "2026-09-07",
+  "batch": "megadrive-documentary-v1",
+  "mode": "inspection_guidance_not_acceptance",
+  "coverage": {"postsRead": 81, "imagesVisuallyReviewed": 17, "exhaustiveVariantInventory": false},
+  "imagePolicy": "Reference URLs only; rights not established. No images copied, rehosted or sent to listing vision. A forum specimen is not evidence of the current listing or a factory pairing.",
+  "sources": {
+    "overview": {"url": "https://foro.spinecard.com/t/29528/1", "kind": "community_specimen_comparison", "attribution": "SpineCard; besapiens (post; some photos attributed to others)", "license": "not_established_no_images_copied"},
+    "lion": {"url": "https://foro.spinecard.com/t/29528/18", "kind": "community_specimen_comparison", "attribution": "SpineCard; Pota (post)", "license": "not_established_no_images_copied"},
+    "psycho": {"url": "https://foro.spinecard.com/t/29528/19", "kind": "community_specimen_comparison", "attribution": "SpineCard; Yago (post)", "license": "not_established_no_images_copied"},
+    "military-contents": {"url": "https://foro.spinecard.com/t/29528/21", "kind": "community_specimen_comparison", "attribution": "SpineCard; Murcie_Lag0 (post)", "license": "not_established_no_images_copied"},
+    "aladdin": {"url": "https://foro.spinecard.com/t/29528/26", "kind": "community_specimen_comparison", "attribution": "SpineCard; DavYMai (post)", "license": "not_established_no_images_copied"},
+    "military": {"url": "https://foro.spinecard.com/t/29528/32", "kind": "community_specimen_comparison", "attribution": "SpineCard; besapiens (post); contents photo also in post 21", "license": "not_established_no_images_copied"},
+    "fifa": {"url": "https://foro.spinecard.com/t/29528/33", "kind": "community_specimen_comparison", "attribution": "SpineCard; besapiens (post)", "license": "not_established_no_images_copied"},
+    "damage": {"url": "https://foro.spinecard.com/t/29528/54", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "virtua": {"url": "https://foro.spinecard.com/t/29528/55", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "carnage": {"url": "https://foro.spinecard.com/t/29528/70", "kind": "community_specimen_comparison", "attribution": "SpineCard; besapiens (post)", "license": "not_established_no_images_copied"},
+    "carnage-chronology": {"url": "https://foro.spinecard.com/t/29528/73", "kind": "community_discussion", "use": "disputed_claims_only"},
+    "ghouls": {"url": "https://foro.spinecard.com/t/29528/74", "kind": "community_specimen_comparison", "attribution": "SpineCard; Ecthelion (post)", "license": "not_established_no_images_copied"},
+    "micro": {"url": "https://foro.spinecard.com/t/29528/81", "kind": "community_specimen_comparison", "attribution": "SpineCard; besapiens (post)", "license": "not_established_no_images_copied"}
+  },
+  "imageReferences": {
+    "lion-spanish": {"sourceId": "lion", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/e/3/e3ea5dc0cd41efd65a19a476ba81174138be42d6.jpeg", "finding": "Caja El Rey Leon junto a cartucho The Lion King; portada del manual con varios titulos localizados. Insignia 24 megas abajo a la izquierda."},
+    "lion-english": {"sourceId": "lion", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/d/1/d1f4fa8775970f8f78339feb51239aca440d3ed9.jpeg", "finding": "Caja y etiqueta The Lion King; manual con varios titulos localizados. Insignia 24 megas abajo a la derecha."},
+    "aladdin-front": {"sourceId": "aladdin", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/4/b/4b00b9bf7aa835732f5e3d9e9152091bf8041bb8.jpeg", "finding": "Dos composiciones frontales: cambia el area inferior de la ilustracion, posicion del titulo y franja cuadriculada con indicacion 16-BIT CARTRIDGE."},
+    "aladdin-back": {"sourceId": "aladdin", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/a/9/a932f7d753a72cacfe8d1c70d4c464c8e37c5b64.jpeg", "finding": "Ambas traseras multilingues incluyen espanol; una indica ensamblaje britanico y otra fabricacion japonesa. Se observa el mismo codigo de barras en ambas, pese a las diferencias de impresion."},
+    "world-back": {"sourceId": "overview", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/8/2/820d63b5f980f22403964e0ea11c293346ee24ee.jpeg", "finding": "Dos traseras multilingues similares, ambas con fabricacion japonesa; pequenas diferencias de colocacion del texto."},
+    "world-manual-45": {"sourceId": "overview", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/6/9/69af1cec7fa117dde2103f7c39165ae374717e68.jpeg", "finding": "Los dos manuales muestran instrucciones multilingues de inicio en las paginas visibles 4 y 5."},
+    "world-manual-23": {"sourceId": "overview", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/2/7/273bbc9cd5d78d7b889b4f688d5d3e9777b52698.jpeg", "finding": "En la apertura fotografiada 2-3, uno muestra advertencias de epilepsia y el otro dibujos de Sonic con mucho espacio blanco. No coincide con la paginacion 1-2 descrita en el texto del post."},
+    "psycho-english": {"sourceId": "psycho", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/c/8/c823fe2ef9b97608018318b9f7b09eef526df128.jpeg", "finding": "Caja y funda con texto ingles y distintivo 3 BALL ACTION en la esquina inferior derecha."},
+    "psycho-german": {"sourceId": "psycho", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/7/3/7328789b23eb3eed5357e67721888af95fbbb676.jpeg", "finding": "Portada con texto aleman, distintivo 3 KUGEL ACTION e indicacion KOMPLETT IN DEUTSCH con bandera alemana abajo a la derecha."},
+    "military-front": {"sourceId": "military", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/9/2/9200d8073d0de8683af19334e9f02c56cc4aae6b.jpeg", "finding": "Comparacion de portadas inglesa y alemana. La alemana lleva pegatina con bandera espanola que anuncia instrucciones en castellano."},
+    "military-contents": {"sourceId": "military-contents", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/2/e/2e70235282b9f5a03c9bedd39ef3077883d71a24.jpeg", "finding": "Manual con titulo aleman junto a papeles separados en espanol y cartucho J-Cart. No se identifica distribuidor en lo observado."},
+    "fifa-contents": {"sourceId": "fifa", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/6/f/6f50908c8708a18baaf633458236c27ff369528e.jpeg", "finding": "Una caja dice Rumbo al Mundial y otra Road to World Cup; cambian foto frontal y manual. La segunda lleva pegatina de instrucciones y papeles en espanol. El manual de la primera enumera ingles, frances, espanol y portugues."},
+    "carnage-carts": {"sourceId": "carnage", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/4/b/4b988d99f012de56dbcaff0e7976ec8c6274ae7f.jpeg", "finding": "Se comparan cartuchos negros y rojos con etiquetas Mega Drive y cajas de apariencia similar."},
+    "carnage-contents": {"sourceId": "carnage", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/0/e/0e538181146a149b16a61cb4419c59d0df93edc1.jpeg", "finding": "Dos conjuntos fotografiados con cartuchos de distinto color, cajas y portadas de manual similares; no demuestra asociacion original de fabrica."},
+    "carnage-pcbs": {"sourceId": "carnage", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/d/5/d5609d97dfc10798d9ef81c82e73790c9b1b79a9.jpeg", "finding": "Tres cartuchos, dos rojos y uno negro, junto a placas con distintas distribuciones de componentes. No se transcriben codigos de chip poco legibles ni se asigna una unica placa a cada color."},
+    "ghouls-pcbs": {"sourceId": "ghouls", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/9/6/96763a3e1a297fc8279edaed71cf0fd8b08a29e4.jpeg", "finding": "Dos placas abiertas de tamano y componentes distintos, con fechas impresas 1990 y 1989. La atribucion a Ghouls 'n Ghosts procede del post: esta foto no muestra etiquetas frontales para confirmar por si sola la identidad."},
+    "micro-contents": {"sourceId": "micro", "url": "https://spinecard-com-s3.s3.dualstack.eu-west-1.amazonaws.com/original/3X/b/4/b4dcb6d361695f009bae927a8b66c7f3a7af93fd.jpeg", "finding": "Dos conjuntos con distintas puntuaciones impresas y manuales; a la derecha se ven pegatina Arcadia y papel con Arcadia Software S.A. y Madrid. La presencia de la marca no certifica la asociacion de fabrica del conjunto."}
+  },
+  "inspectionRules": [
+    {"id": "md-separate-components", "sourceIds": ["overview", "military", "fifa"], "text": "Inspeccionar portada, lomo, trasera, etiqueta del cartucho, manual y suplementos por separado. Registrar lo visible en cada componente del anuncio; una foto de coleccion no certifica un conjunto de fabrica ni sus accesorios obligatorios."},
+    {"id": "md-manufacturing-not-market", "sourceIds": ["aladdin"], "text": "Separar pais de fabricacion/ensamblaje y mercado de venta. Made in Japan o Assembled in U.K. no bastan para asignar NTSC-J o UK. Buscar tambien identidad Mega Drive/Genesis, textos, referencias y documentacion del ejemplar actual."},
+    {"id": "md-print-not-rom", "sourceIds": ["lion", "psycho"], "text": "Distinguir idioma de caja, instrucciones y software. Un titulo localizado, bandera o publicidad de idioma no prueba por si solo la ROM ni el idioma de todos los componentes. Solicitar evidencia del juego cuando importe el idioma jugable."},
+    {"id": "md-supplement-provenance", "sourceIds": ["military", "fifa", "micro"], "text": "Una pegatina o suplemento en espanol orienta donde mirar, no autoriza PAL Espana. Fotografiar marca, direccion y texto completos; no trasladar el distribuidor de otro juego ni inferir precinto o procedencia oficial."},
+    {"id": "md-layout-before-colour", "sourceIds": ["aladdin", "psycho", "lion"], "text": "Comparar composicion, leyendas y zonas concretas antes que tonalidades: luz, desgaste y escaneo afectan el color. Una diferencia de impresion o un codigo de barras compartido no resuelve por si sola la variante."},
+    {"id": "md-pcb-not-authentication", "sourceIds": ["carnage", "ghouls"], "text": "Carcasas y placas distintas son candidatos a comparar, no veredictos de autenticidad, cronologia o rareza. Registrar placa y chips solo si hay fotos legibles; no inventar el interior de un cartucho cerrado ni extrapolar a Genesis, Mega CD o 32X."},
+    {"id": "md-reference-boundary", "sourceIds": ["overview"], "text": "Este hilo mezcla ejemplares de distintos mercados y no es un inventario exhaustivo de variantes espanolas. Las referencias no rellenan observations ni evidencia del anuncio actual. Si faltan vistas decisivas o hay conflicto, mantener unknown y revision humana."}
+  ],
+  "gameReferences": [
+    {
+      "id": "md-aladdin-print-layout", "status": "reviewed_guidance", "catalogIds": ["megadrive-pal-disneys-aladdin"], "sourceIds": ["aladdin"],
+      "binding": "comparison_only_not_catalog_region_evidence", "imageIds": ["aladdin-front", "aladdin-back"],
+      "text": "Aladdin: pedir frontal completo y leyenda inferior trasera. Comparar franja cuadriculada/16-BIT CARTRIDGE, posicion del titulo y recorte del dibujo. Las dos fotos muestran el mismo codigo de barras pero ensamblaje UK frente a fabricacion japonesa: no clasificar mercado desde esos paises ni variante desde el EAN solo. Comparar manual/cartucho aparte; no extender al pack Aladdin + Lion King."
+    },
+    {
+      "id": "md-lion-localized-cover", "status": "reviewed_guidance", "catalogIds": ["megadrive-the-lion-king"], "sourceIds": ["lion"],
+      "binding": "comparison_only_not_catalog_region_evidence", "imageIds": ["lion-spanish", "lion-english"],
+      "text": "The Lion King: comparar titulo de portada y posicion de insignia 24 megas. La foto de caja El Rey Leon muestra cartucho The Lion King y portada de manual con varios titulos; la otra portada esta en ingles. No declarar mezcla por esa diferencia de titulo sola ni deducir idioma jugable. No demuestra que todas las combinaciones fueran originales."
+    },
+    {
+      "id": "md-world-manual-opening", "status": "reviewed_guidance", "catalogIds": ["megadrive-world-of-illusion"], "sourceIds": ["overview"],
+      "binding": "comparison_only_not_catalog_region_evidence", "imageIds": ["world-back", "world-manual-45", "world-manual-23"],
+      "text": "World of Illusion: pedir apertura inicial del manual con numeros de pagina visibles. La foto compara paginas 2-3 con advertencias frente a dibujos de Sonic, y paginas 4-5 de instrucciones similares. El texto del foro habla de 1-2: conservar la discrepancia, no imponer su paginacion. No concluir hojas faltantes, orden de tiradas o ahorro de costes por espacios blancos."
+    },
+    {
+      "id": "md-psycho-bottom-right", "status": "reviewed_guidance", "catalogIds": ["megadrive-psycho-pinball"], "sourceIds": ["psycho"],
+      "binding": "comparison_only_not_catalog_region_evidence", "imageIds": ["psycho-english", "psycho-german"],
+      "text": "Psycho Pinball: enfocar esquina inferior derecha y comparar funda, caja y manual por separado. Referencias visibles: 3 BALL ACTION frente a 3 KUGEL ACTION y KOMPLETT IN DEUTSCH con bandera alemana. Sirven para contrastar impresion localizada, no para asignar automaticamente mercado de todo el conjunto o idioma de ROM."
+    },
+    {
+      "id": "md-military-spanish-supplement", "status": "reviewed_guidance", "catalogIds": ["megadrive-micro-machines-military"], "sourceIds": ["military", "military-contents"],
+      "binding": "comparison_only_not_catalog_region_evidence", "imageIds": ["military-front", "military-contents"],
+      "text": "Micro Machines Military: las fotos muestran portada/manual alemanes, pegatina de instrucciones en castellano y papeles espanoles separados. Pedir anverso/reverso legibles del suplemento y pegatina del anuncio. Distribuidor y originalidad de esa asociacion siguen sin confirmar; no habilitar excepcion espanola ni atribuirla al distribuidor de Micro Machines 1."
+    },
+    {
+      "id": "md-micro-arcadia-visible", "status": "reviewed_guidance", "catalogIds": ["megadrive-micro-machines"], "sourceIds": ["micro"],
+      "binding": "comparison_only_not_catalog_region_evidence", "imageIds": ["micro-contents"],
+      "text": "Micro Machines 1: en uno de los conjuntos comparados se ven pegatina Arcadia y papel Arcadia Software S.A. con Madrid; tambien cambian puntuaciones impresas y portada del manual. Pedir esas zonas del ejemplar actual. Marca visible no certifica conjunto de fabrica; no trasladarla a Military, Turbo Tournament 96 ni FIFA 98."
+    },
+    {
+      "id": "md-fifa98-packaging", "status": "reviewed_guidance", "catalogIds": ["megadrive-fifa-road-to-world-cup-98"], "sourceIds": ["fifa"],
+      "binding": "comparison_only_not_catalog_region_evidence", "imageIds": ["fifa-contents"],
+      "text": "FIFA 98: comparar Rumbo al Mundial frente a Road to World Cup, foto de portada y lista de idiomas del manual. La segunda caja fotografiada tiene pegatina de instrucciones y papeles espanoles. Solicitar textos de esos suplementos; su distribuidor y procedencia original no estan confirmados. No deducir ROM espanola ni trasladar a FIFA 97 o versiones de otras plataformas."
+    },
+    {
+      "id": "md-carnage-shell-and-pcb", "status": "reviewed_guidance", "catalogIds": ["megadrive-pal-spider-man-venom-maximum-carnage", "megadrive-spiderman-and-venom-maximum-carnage"], "sourceIds": ["carnage"],
+      "binding": "comparison_only_not_catalog_region_evidence", "imageIds": ["carnage-carts", "carnage-contents", "carnage-pcbs"],
+      "text": "Maximum Carnage: las referencias Mega Drive incluyen carcasas rojas y negras, y tres placas con distinta disposicion. Comparar etiqueta, carcasa y PCB si esta fotografiada; el color solo no prueba autenticidad, region ni una placa unica. No adoptar orden de tiradas, ventas o rareza del debate, ni importar conclusiones de Genesis USA."
+    },
+    {
+      "id": "md-ghouls-pcb-comparison", "status": "reviewed_guidance", "catalogIds": ["megadrive-pal-ghouls-n-ghosts"], "sourceIds": ["ghouls"],
+      "binding": "comparison_only_not_catalog_region_evidence", "imageIds": ["ghouls-pcbs"],
+      "text": "Ghouls 'n Ghosts: el post atribuye al juego dos placas de distinto tamano y chips, con fechas impresas 1989/1990. La foto no ensena etiquetas frontales para confirmar sola su identidad. Si un anuncio ofrece PCB, pedir tambien etiqueta y codigos legibles; diferencia de placa no basta para declarar falsificacion, region o nueva version de ROM."
+    }
+  ],
+  "disputedClaims": [
+    {"id": "military-official-distributor", "status": "pending_primary_evidence", "sourceIds": ["military", "military-contents"], "summary": "No se ha identificado quien anadio el suplemento espanol de Military ni si era distribucion oficial.", "neededEvidence": ["Marca y texto completos del suplemento", "Documentacion de distribucion de la edicion exacta"]},
+    {"id": "fifa-official-distributor", "status": "pending_primary_evidence", "sourceIds": ["fifa"], "summary": "El suplemento espanol de FIFA 98 no permite atribuir distribuidor o procedencia de fabrica.", "neededEvidence": ["Suplemento completo y documentacion de distribucion"]},
+    {"id": "world-page-number-and-cause", "status": "partly_contradicted_pending_history", "sourceIds": ["overview"], "summary": "La paginacion descrita 1-2 difiere de la apertura 2-3 fotografiada; la explicacion economica y cronologia no estan demostradas.", "neededEvidence": ["Escaneos completos de ambos manuales", "Documentacion fechada de tiradas"]},
+    {"id": "carnage-colour-chronology", "status": "pending_primary_evidence", "sourceIds": ["carnage-chronology"], "summary": "No adoptar primera tirada negra y roja posterior por bajas ventas como historia confirmada.", "neededEvidence": ["Documentacion fechada de tiradas PAL y ventas, no inferencia por color"]},
+    {"id": "virtua-small-promotional-cart", "status": "pending_primary_evidence", "sourceIds": ["virtua"], "summary": "La supuesta variante promocional alemana de Virtua Racing con cartucho pequeno queda pendiente; no crea una excepcion de autenticidad.", "neededEvidence": ["PCB y etiquetas legibles del mismo ejemplar", "Documentacion de la promocion"]},
+    {"id": "megadrivz-retracted-joke", "status": "excluded_retracted_claim", "sourceIds": ["damage"], "summary": "La broma MegaDrivZ se rectifica como dano del impreso; no convertirla en detector de reproducciones.", "neededEvidence": ["Una evaluacion de autenticidad requeriria evidencia propia, no esa broma"]}
+  ],
+  "blockedClaims": [
+    "Made in Japan demuestra region comercial japonesa.",
+    "El mismo EAN demuestra la misma variante de impresion.",
+    "Caja espanola obliga a que el titulo del cartucho sea espanol.",
+    "Una pegatina de instrucciones prueba ROM en espanol o distribucion oficial.",
+    "Arcadia en Micro Machines 1 demuestra Arcadia en Military o FIFA 98.",
+    "Rojo o negro permite autenticar y fechar Maximum Carnage sin mas evidencia.",
+    "PCB diferente demuestra reproduccion o ROM diferente.",
+    "Todas las variantes del hilo pertenecen a PAL Espana.",
+    "Una foto de otra copia puede rellenar observations del anuncio actual."
+  ]
+}
