@@ -9,8 +9,8 @@
     "batchSize": 250,
     "searchBudgetPerRun": 250,
     "dailySearchBudget": 1000,
-    "dailySearchesUsed": 269,
-    "dailySearchesRemaining": 731,
+    "dailySearchesUsed": 511,
+    "dailySearchesRemaining": 489,
     "regions": [
       "PAL España",
       "PAL Europa"
@@ -19,39 +19,39 @@
   "status": "running",
   "currentPlatform": "gameboy",
   "currentPlatformName": "Nintendo Game Boy",
-  "currentRegion": "PAL España",
-  "updatedAt": "2026-09-07T13:45:00Z",
+  "currentRegion": "PAL Europa",
+  "updatedAt": "2026-09-07T22:18:03Z",
   "lastRun": {
-    "at": "2026-09-07T13:45:00Z",
+    "at": "2026-09-07T22:18:03Z",
     "platformSlug": "gameboy",
     "platformName": "Nintendo Game Boy",
     "region": "PAL España",
-    "selected": 250,
-    "processed": 250,
-    "matched": 93,
-    "listingsAdded": 305,
-    "regionalReroutes": 167,
-    "regionalReviews": 272,
-    "apiSearches": 250,
+    "selected": 242,
+    "processed": 242,
+    "matched": 74,
+    "listingsAdded": 208,
+    "regionalReroutes": 102,
+    "regionalReviews": 269,
+    "apiSearches": 242,
     "searchBudget": 250,
-    "searchBudgetExhausted": true,
+    "searchBudgetExhausted": false,
     "failed": 0,
     "systemicError": null,
     "aiUsage": {
-      "batchId": "50d61245f32741deb52e44ed196da8b6",
-      "responses": 1298,
+      "batchId": "19ba6b21570e4ea7abd3d04a6ea23790",
+      "responses": 1189,
       "responsesMissingUsage": 0,
-      "inputTokens": 46026696,
-      "cachedInputTokens": 40704,
-      "outputTokens": 193583,
-      "totalTokens": 46220279,
+      "inputTokens": 43573823,
+      "cachedInputTokens": 163072,
+      "outputTokens": 162715,
+      "totalTokens": 43736538,
       "responsesMissingCacheUsage": 0,
       "byModel": {
         "gpt-4o-mini-2024-07-18": {
-          "inputTokens": 46026696,
-          "outputTokens": 193583,
-          "totalTokens": 46220279,
-          "cachedInputTokens": 40704
+          "inputTokens": 43573823,
+          "outputTokens": 162715,
+          "totalTokens": 43736538,
+          "cachedInputTokens": 163072
         }
       }
     },
@@ -59,18 +59,18 @@
   },
   "dailyUsage": {
     "date": "2026-09-07",
-    "apiSearches": 269
+    "apiSearches": 511
   },
   "totals": {
     "catalogGames": 25777,
-    "completed": 4695,
-    "matched": 1237,
-    "noMatch": 3458,
+    "completed": 4937,
+    "matched": 1311,
+    "noMatch": 3626,
     "deferred": 0,
-    "pending": 21082
+    "pending": 20840
   },
-  "estimatedRunsRemaining": 85,
-  "estimatedDaysRemaining": 22,
+  "estimatedRunsRemaining": 84,
+  "estimatedDaysRemaining": 21,
   "platforms": [
     {
       "platformSlug": "ps4",
@@ -235,15 +235,15 @@
       "platformSlug": "gameboy",
       "platformName": "Nintendo Game Boy",
       "status": "running",
-      "currentRegion": "PAL España",
-      "updatedAt": "2026-09-07T13:45:00Z",
+      "currentRegion": "PAL Europa",
+      "updatedAt": "2026-09-07T22:18:03Z",
       "totals": {
         "catalogGames": 962,
-        "completed": 250,
-        "matched": 93,
-        "noMatch": 157,
+        "completed": 492,
+        "matched": 167,
+        "noMatch": 325,
         "deferred": 0,
-        "pending": 712
+        "pending": 470
       },
       "regions": [
         {
@@ -253,11 +253,11 @@
           "marketScope": "country",
           "originLabel": "España",
           "total": 492,
-          "completed": 250,
-          "matched": 93,
-          "noMatch": 157,
+          "completed": 492,
+          "matched": 167,
+          "noMatch": 325,
           "deferred": 0,
-          "pending": 242
+          "pending": 0
         },
         {
           "key": "pal_europa",
@@ -1335,6 +1335,32 @@
             "outputTokens": 193583,
             "totalTokens": 46220279,
             "cachedInputTokens": 40704
+          }
+        }
+      },
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-07T22:18:03Z",
+      "level": "info",
+      "message": "Nintendo Game Boy · PAL España: 242/242 consultados, 74 con evidencias, 208 anuncios aceptados, 102 aprovechados en otra región, 269 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "gameboy",
+      "region": "PAL España",
+      "aiUsage": {
+        "batchId": "19ba6b21570e4ea7abd3d04a6ea23790",
+        "responses": 1189,
+        "responsesMissingUsage": 0,
+        "inputTokens": 43573823,
+        "cachedInputTokens": 163072,
+        "outputTokens": 162715,
+        "totalTokens": 43736538,
+        "responsesMissingCacheUsage": 0,
+        "byModel": {
+          "gpt-4o-mini-2024-07-18": {
+            "inputTokens": 43573823,
+            "outputTokens": 162715,
+            "totalTokens": 43736538,
+            "cachedInputTokens": 163072
           }
         }
       },
