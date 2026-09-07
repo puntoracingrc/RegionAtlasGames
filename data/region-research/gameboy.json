@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "platformSlug": "gameboy",
   "reviewedAt": "2026-09-07",
-  "batch": "gameboy-documentary-v2",
+  "batch": "gameboy-documentary-v3-legado",
   "mode": "inspection_guidance_not_acceptance",
   "sources": {
     "spinecard": {"url": "https://foro.spinecard.com/t/guia-regiones-juegos-game-boy/20014/3", "kind": "community_guide", "use": "discovery_only"},
@@ -23,7 +23,36 @@
     "wario-neai": {"url": "https://www.game-boy-database.com/game-WJ-2868-NEAI.html", "kind": "collector_specimen_database", "attribution": "Game Boy Database; Steven"},
     "zelda-esp2": {"url": "https://www.game-boy-database.com/game-ZL-2797-ESP-2.html", "kind": "collector_specimen_database"},
     "aladdin-nesp": {"url": "https://www.game-boy-database.com/game-ALAP-2936-NESP.html", "kind": "collector_specimen_database"},
-    "asterix-obelix-comic": {"url": "https://www.game-boy-database.com/game-AXOP-4158-NESP.html", "kind": "collector_specimen_database"}
+    "asterix-obelix-comic": {"url": "https://www.game-boy-database.com/game-AXOP-4158-NESP.html", "kind": "collector_specimen_database"},
+    "legado-esp-list": {"url": "https://www.legadodelpixel.es/foro/general/listado-completo-juegos-gameboy-esp-espanoles-en-actualizacion/", "kind": "community_specimen_guide", "attribution": "Daniels; recopilacion con Gachan, Francifer, Piteta, Ser-1 e Ivan; fotos con marcas Gachan/Pizarritas", "license": "not_established_no_images_copied", "use": "discovery_and_visually_reviewed_specimens_not_listing_evidence"},
+    "legado-kwirk-248": {"url": "https://www.legadodelpixel.es/foro/general/listado-completo-juegos-gameboy-esp-espanoles-en-actualizacion/#post-248", "kind": "community_specimen_photos", "attribution": "alfheim, 26/10/2020, respuesta 248", "license": "not_established_no_images_copied"}
+  },
+  "lastPassCoverage": {
+    "reviewedAt": "2026-09-07",
+    "sourceIds": ["legado-esp-list", "legado-kwirk-248"],
+    "accessiblePagesReviewed": 1,
+    "mainPostExpandableBlocks": 401,
+    "mainPostUniqueImageUrls": 792,
+    "mainPostMissingPhotoMentions": 41,
+    "imagesVisuallyReviewed": 11,
+    "newUsableGameReferences": 4,
+    "newPendingGameReferences": 2,
+    "scope": "Inventario DOM del post 132 y lectura de la primera pagina; muestra visual de cuatro juegos, no auditoria de todas las fotos ni de todos los juegos citados.",
+    "unavailablePages": [{"url": "https://www.legadodelpixel.es/foro/general/listado-completo-juegos-gameboy-esp-espanoles-en-actualizacion/paged/2/", "status": "browser_http_502_not_reviewed"}],
+    "sourceHistoricalCount": {"value": 445, "asOf": "2020-08-25", "meaning": "Cifra declarada por el autor; incluye variantes y no demuestra 445 obras distintas verificadas."}
+  },
+  "imageReferences": {
+    "legado-batman-front": {"sourceId": "legado-esp-list", "url": "https://i50.photobucket.com/albums/f303/jesusmartinezvales/IMG-20150209-WA0012_zpsosvp6cie.jpg", "finding": "Batman The Video Game: caja con adhesivo que anuncia instrucciones en castellano, cartucho y manuales con encabezados aleman y espanol. Marca Pizarritas; no se transcriben codigos ilegibles."},
+    "legado-batman-back": {"sourceId": "legado-esp-list", "url": "https://i50.photobucket.com/albums/f303/jesusmartinezvales/IMG-20150212-WA0006_zpsszfmrbmf.jpg", "finding": "Trasera de caja con texto aleman y adhesivo azul SPACO S.A.; papeles con marcas ERBE IBERICA y LAGUNA, y condiciones SPACO. La fotografia conjunta no prueba asociacion de fabrica ni procedencia del anuncio."},
+    "legado-waterworld-front": {"sourceId": "legado-esp-list", "url": "https://i50.photobucket.com/albums/f303/jesusmartinezvales/IMG-20150507-WA0040_zps9v5bmcip.jpg", "finding": "Caja Waterworld con marcas GiG/Ocean, manual con encabezado MANUALE DI ISTRUZIONI, cartucho e inserto Club Nintendo. No se verifica el codigo del cartucho."},
+    "legado-waterworld-back": {"sourceId": "legado-esp-list", "url": "https://i50.photobucket.com/albums/f303/jesusmartinezvales/IMG-20150507-WA0039_zpsl6gxkboy.jpg", "finding": "Descripcion trasera de caja en espanol; reverso del manual con GiG y direccion italiana. La afirmacion del pie sobre cartucho ITA no queda verificada por esta vista."},
+    "legado-kwirk-front": {"sourceId": "legado-kwirk-248", "url": "https://i.imgur.com/m57NjJ7.jpg", "finding": "Caja y manual con subtitulo espanol de Kwirk, cartucho, revista e inserto; fotografia de conjunto, no inventario obligatorio para todas las ediciones."},
+    "legado-kwirk-back": {"sourceId": "legado-kwirk-248", "url": "https://i.imgur.com/wZ66koQ.jpg", "finding": "Trasera de la caja, reverso del manual y papeles del conjunto. No se leen con certeza todos los codigos a esta escala."},
+    "legado-kwirk-distributor": {"sourceId": "legado-kwirk-248", "url": "https://i.imgur.com/DzDHE8N.jpg", "finding": "Lateral de caja con Nintendo Espana S.A. y direccion madrilena legibles. Evidencia del embalaje fotografiado, no del idioma jugable."},
+    "legado-kwirk-flap": {"sourceId": "legado-kwirk-248", "url": "https://i.imgur.com/KEP2sC2.jpg", "finding": "Solapa amarilla de la caja: codigo impreso en dos lineas DMG-AP / ESP-2. No atribuir ESP-2 al cartucho o manual."},
+    "legado-kwirk-inner-flap": {"sourceId": "legado-kwirk-248", "url": "https://i.imgur.com/WqqVCxU.jpg", "finding": "Detalle de otra solapa: DMG-AP / ESP-2. Se conserva la revision como dato de caja; no se identifica una revision de ROM."},
+    "legado-flintstones-movie-front": {"sourceId": "legado-esp-list", "url": "https://i1198.photobucket.com/albums/aa446/gachantado/IMG_2449copia.jpg", "finding": "Portada fotografica de los actores de The Flintstones, marca Ocean, manual y hoja de advertencia en frances. Es el juego de la pelicula, no King Rock Treasure Island."},
+    "legado-flintstones-movie-back": {"sourceId": "legado-esp-list", "url": "https://i1198.photobucket.com/albums/aa446/gachantado/IMG_2450copia.jpg", "finding": "Trasera con varios idiomas, marcas Ocean/Sony Imagesoft y manual. No se transcriben codigos pequenos ni se deduce idioma de ROM."}
   },
   "inspectionRules": [
     {"id": "separate-components", "sourceIds": ["hardware", "flintstones"], "text": "Transcribe por separado los codigos legibles de etiqueta del cartucho, caja/solapas y manual. No atribuyas el codigo de una pieza al conjunto ni a otra pieza ausente. Si faltan fotos de una pieza, su informacion es desconocida."},
@@ -32,7 +61,9 @@
     {"id": "preserve-revisions", "sourceIds": ["revisions"], "text": "Conserva el codigo completo y su sufijo de revision; no limites la revision a 1 ni la interpretes automaticamente como una revision de ROM. La base documenta FRG-2, FRG-3 y FRG-4."},
     {"id": "current-listing-only", "sourceIds": ["hardware", "flintstones"], "text": "Estas referencias documentan ejemplares concretos, no el anuncio actual. No copies sus codigos a observations ni uses su existencia para confirmar regionMatchesCatalog. Una referencia FRG/FAH no demuestra ni excluye una distribucion espanola con embalaje distinto; exige evidencia del ejemplar vendido."},
     {"id": "component-combinations", "sourceIds": ["pokemon-red-nesp", "wario-neai"], "text": "Hay referencias con sufijos distintos entre caja, manual y cartucho. Una diferencia no basta para declarar un conjunto incorrecto, ni la coincidencia con una base autentica su origen de fabrica. Identifica primero variante y pieza; las alternativas de manual no implican que deban venir dos manuales."},
-    {"id": "reference-language-scope", "sourceIds": ["zelda-esp2"], "text": "Cuando una fuente distingue idiomas de caja, manual y juego, conserva esa separacion y su alcance de variante. No conviertas una bandera de idioma o el nombre de un archivo de imagen en evidencia observada del anuncio; tampoco atribuyas al juego el idioma de sus instrucciones."}
+    {"id": "reference-language-scope", "sourceIds": ["zelda-esp2"], "text": "Cuando una fuente distingue idiomas de caja, manual y juego, conserva esa separacion y su alcance de variante. No conviertas una bandera de idioma o el nombre de un archivo de imagen en evidencia observada del anuncio; tampoco atribuyas al juego el idioma de sus instrucciones."},
+    {"id": "spanish-characteristics-not-rom", "sourceIds": ["legado-esp-list"], "text": "Un listado de caracteristicas ESP mezcla embalajes, multilingues y espanolizados: estar incluido no prueba textos jugables en espanol. No aplicar al anuncio la convencion editorial version espanola por defecto, ni convertir todos los titulos o reediciones de la lista en ediciones ESP."},
+    {"id": "localized-packaging-inspection", "sourceIds": ["legado-esp-list"], "text": "Para investigar una espanolizacion, pedir trasera, adhesivo completo, solapas y suplemento o manual del ejemplar vendido. Separar lo fotografiado de lo afirmado por el pie. Una pegatina no autentica el conjunto; una marca de distribucion no establece creditos de desarrolladora/publicadora. No trasladar piezas entre ediciones estandar, Classics o packs."}
   ],
   "gameReferences": [
     {
@@ -137,6 +168,50 @@
       "componentCodes": {"box": ["DMG-AXOP-NESP"], "manual": ["DMG-AXOP-EUR"], "cartridge": ["DMG-AXOP-EUR"]},
       "text": "Asterix & Obelix Comic Classics NESP: solapa DMG-AXOP-NESP, manual y cartucho DMG-AXOP-EUR. La variante Comic Classics no tiene vinculacion exacta revisada en el catalogo; no asignar a la edicion estandar por titulo parecido.",
       "neededEvidence": ["Identidad de catalogo de la edicion Comic Classics, sin reutilizar un ID estandar"]
+    },
+    {
+      "id": "legado-batman-localized-packaging", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-batman-the-video-game"], "sourceIds": ["legado-esp-list"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "imageIds": ["legado-batman-front", "legado-batman-back"],
+      "text": "Batman The Video Game: la variante que el foro llama NOE espanolizada muestra caja en aleman, adhesivo SPACO S.A. y manuales con encabezados aleman/espanol. Pedir reverso de caja y manuales actuales; los papeles fotografiados tambien muestran ERBE IBERICA y LAGUNA, sin probar combinacion de fabrica. NOE es clasificacion de la fuente, no codigo transcrito de esta foto. No aplicar a Return of the Joker, Forever o The Animated Series ni afirmar ROM espanola."
+    },
+    {
+      "id": "legado-waterworld-components", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-waterworld"], "sourceIds": ["legado-esp-list"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "imageIds": ["legado-waterworld-front", "legado-waterworld-back"],
+      "text": "Waterworld: las fotos muestran descripcion de caja en espanol, manual MANUALE DI ISTRUZIONI y marcas GiG/Ocean. Pedir contraportada de caja/manual y etiqueta del cartucho; el pie afirma cartucho ITA, pero ese codigo no se verifica en las vistas revisadas. Caja espanola no implica manual ni juego en espanol. No rechazar o aceptar todo el conjunto por un solo componente, ni propagar a otra plataforma."
+    },
+    {
+      "id": "legado-kwirk-esp2-box", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-kwirk"], "sourceIds": ["legado-kwirk-248"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "componentCodes": {"box": ["DMG-AP-ESP-2"]},
+      "componentClaimsVerbatim": {"printedBoxCodeLines": ["DMG-AP", "ESP-2"]},
+      "imageIds": ["legado-kwirk-front", "legado-kwirk-back", "legado-kwirk-distributor", "legado-kwirk-flap", "legado-kwirk-inner-flap"],
+      "text": "Kwirk: alfheim aporta caja con Nintendo Espana S.A. y solapas impresas DMG-AP / ESP-2, normalizadas aqui como DMG-AP-ESP-2. Fotografiar lateral y solapas; es codigo de caja, no codigo observado de cartucho/manual ni revision de ROM. Revista y papeles de esa foto no pasan a contenido obligatorio de todo Kwirk. No atribuir esta tirada al anuncio solo por titulo ni extender a Kwirk USA."
+    },
+    {
+      "id": "legado-flintstones-movie-identity", "status": "reviewed_guidance",
+      "catalogIds": ["gameboy-es-flintstones"], "sourceIds": ["legado-esp-list"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "imageIds": ["legado-flintstones-movie-front", "legado-flintstones-movie-back"],
+      "text": "The Flintstones de la pelicula: la referencia muestra portada con actores y Ocean, trasera multilingue y hoja francesa. Contrastar portada, subtitulo y componentes del anuncio. Estas fotos no corresponden a King Rock Treasure Island ni resuelven su posible espanolizacion; no transferirlas a esa otra ficha ni inferir idioma jugable."
+    },
+    {
+      "id": "legado-darkwing-spanish-rom-unverified", "status": "pending_rom_evidence",
+      "catalogIds": ["gameboy-es-darkwing-duck"], "sourceIds": ["legado-esp-list"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "text": "Darkwing Duck: el listado afirma textos en pantalla en castellano; pendiente de prueba de juego/ROM vinculada a una variante concreta. No convertir el pie editorial en idioma jugable verificado.",
+      "neededEvidence": ["Identificador de cartucho/ROM y captura jugable o documentacion primaria de idioma para esa variante; las fotos de esta entrada no se revisaron en esta pasada"]
+    },
+    {
+      "id": "legado-boxxle-ii-localized-unbound", "status": "pending_catalog_binding",
+      "catalogIds": [], "sourceIds": ["legado-esp-list"],
+      "binding": "comparison_only_not_catalog_region_evidence",
+      "text": "Boxxle II: la lista describe una variante USA espanolizada con hoja de instrucciones. No hay vinculacion exacta revisada a esa edicion en el catalogo; no usar Boxxle I ni convertir un ID USA/PAL generico por semejanza de titulo.",
+      "neededEvidence": ["Fotos de variante, suplemento y procedencia; no inspeccionadas visualmente en esta pasada", "Vinculacion exacta de la edicion espanolizada sin cambiar region de otra ficha"]
     }
   ],
   "blockedClaims": [
@@ -150,6 +225,10 @@
     "Toda caja NESP debe incluir un cartucho NESP.",
     "NEAI implica siempre manual espanol.",
     "Las alternativas de manual de una base significan que vienen todos los manuales juntos.",
-    "El Zelda Link's Awakening con caja ESP tiene necesariamente textos jugables en espanol."
+    "El Zelda Link's Awakening con caja ESP tiene necesariamente textos jugables en espanol.",
+    "La cifra historica de 445 entradas demuestra 445 obras distintas o el inventario actual completo.",
+    "Todos los juegos del listado ESP tienen textos jugables en castellano.",
+    "Las fotos de The Flintstones de la pelicula confirman King Rock Treasure Island espanolizado.",
+    "Una distribuidora impresa en un suplemento debe sustituir los creditos del catalogo."
   ]
 }

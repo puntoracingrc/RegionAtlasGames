@@ -50,6 +50,68 @@ class ResearchTests(unittest.TestCase):
             self.assertIn(code, research.region_research_prompt("gameboy", catalog_id))
             self.assertNotIn(code, research.region_research_prompt("gameboy", other_id))
 
+    def test_legado_photos_are_traceable_not_listing_images(self):
+        document = json.loads(research.RESEARCH_FILE.read_text())
+        images = document["imageReferences"]
+        self.assertEqual(document["lastPassCoverage"]["imagesVisuallyReviewed"], len(images))
+        self.assertEqual(len(images), len({image["url"] for image in images.values()}))
+        used = set()
+        for entry in document["gameReferences"]:
+            for image_id in entry.get("imageIds", []):
+                used.add(image_id)
+                image = images[image_id]
+                self.assertIn(image["sourceId"], entry["sourceIds"])
+                source = document["sources"][image["sourceId"]]
+                self.assertTrue(source["attribution"])
+                self.assertEqual(source["license"], "not_established_no_images_copied")
+                self.assertTrue(image["finding"])
+                self.assertTrue(image["url"].startswith("https://"))
+                for catalog_id in entry["catalogIds"]:
+                    self.assertNotIn(image["url"], research.region_research_prompt("gameboy", catalog_id))
+        self.assertEqual(used, set(images))
+
+    def test_legado_guidance_is_exact_id_and_component_scoped(self):
+        document = json.loads(research.RESEARCH_FILE.read_text())
+        catalog = {row["id"]: row for row in json.loads(
+            (research.RESEARCH_FILE.parents[2] / "data/catalog.json").read_text())}
+        for entry in document["gameReferences"]:
+            if not entry["id"].startswith("legado-"):
+                continue
+            for catalog_id in entry["catalogIds"]:
+                self.assertEqual(catalog[catalog_id]["platformSlug"], "gameboy")
+                self.assertEqual(catalog[catalog_id]["region"], "PAL España")
+                for platform in ("snes", "gameboycolor", "gba", "nes"):
+                    self.assertNotIn(entry["text"], research.region_research_prompt(platform, catalog_id))
+            for unrelated in ("gameboy-usa-kwirk", "gameboy-kwirk", "gameboy-waterworld",
+                              "gameboy-es-batman-return-of-the-joker", "gameboy-es-boxxle",
+                              "gameboy-es-flintstones-king-rock-treasure-island"):
+                self.assertNotIn(entry["text"], research.region_research_prompt("gameboy", unrelated))
+        kwirk = next(e for e in document["gameReferences"] if e["id"] == "legado-kwirk-esp2-box")
+        self.assertEqual(kwirk["componentCodes"], {"box": ["DMG-AP-ESP-2"]})
+        self.assertEqual(kwirk["componentClaimsVerbatim"]["printedBoxCodeLines"], ["DMG-AP", "ESP-2"])
+
+    def test_legado_unverified_language_and_variant_stay_out_of_prompt(self):
+        document = json.loads(research.RESEARCH_FILE.read_text())
+        pending = {e["id"]: e for e in document["gameReferences"]
+                   if e["id"].startswith("legado-") and e["status"] != "reviewed_guidance"}
+        self.assertEqual(set(pending), {"legado-darkwing-spanish-rom-unverified", "legado-boxxle-ii-localized-unbound"})
+        self.assertEqual(pending["legado-boxxle-ii-localized-unbound"]["catalogIds"], [])
+        for catalog_id in (None, "gameboy-es-darkwing-duck", "gameboy-es-boxxle", "gameboy-boxxle-ii"):
+            prompt = research.region_research_prompt("gameboy", catalog_id)
+            for entry in pending.values():
+                self.assertNotIn(entry["text"], prompt)
+            self.assertNotIn("445", prompt)
+            for claim in document["blockedClaims"]:
+                self.assertNotIn(claim, prompt)
+
+    def test_legado_film_does_not_resolve_king_rock_spanish_variant(self):
+        film = research.region_research_prompt("gameboy", "gameboy-es-flintstones")
+        king_rock = research.region_research_prompt("gameboy", "gameboy-es-flintstones-king-rock-treasure-island")
+        self.assertIn("portada con actores", film)
+        self.assertNotIn("DMG-FE-FRG", film)
+        self.assertIn("no dar por probada una edicion ESP", king_rock)
+        self.assertNotIn("portada con actores", king_rock)
+
     def test_unbound_comic_classics_never_reaches_standard_game(self):
         document = json.loads(research.RESEARCH_FILE.read_text())
         entry = next(e for e in document["gameReferences"] if e["id"] == "asterix-obelix-comic-unbound")
