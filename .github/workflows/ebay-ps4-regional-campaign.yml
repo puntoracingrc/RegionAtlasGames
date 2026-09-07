@@ -87,6 +87,21 @@ jobs:
           python3 scripts/test_ebay_regional_routing.py
           python3 scripts/test_ebay_regional_campaign.py
           python3 scripts/test_ai_usage.py
+          python3 scripts/test_ebay_review_inbox.py
+
+      - name: Preserve eBay review evidence
+        if: always() && inputs.dry_run != true
+        uses: actions/upload-artifact@v4
+        with:
+          name: ebay-review-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            data/ebay-regional-campaigns/audit/
+            data/ebay-regional-campaigns/review-queue.json
+            data/price-ingest/cache/region-cover-vision/
+            data/price-ingest/cache/condition-vision/
+            data/price-ingest/cache/ebay-listings/
+          if-no-files-found: warn
+          retention-days: 90
 
       - name: Preserve per-batch OpenAI usage (including failed runs)
         if: always() && inputs.dry_run != true
