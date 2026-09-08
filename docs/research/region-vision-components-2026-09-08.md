@@ -1,7 +1,7 @@
 # Regional vision: component preservation and identity gates
 
 Date: 2026-09-08. Implementation base: `da7d18038adf2feba3e97c86377d7923b74e816b`.
-Status: review branch only. No Production changes or automatic review decisions.
+Status: publication authorized; release checks pending. No automatic review decisions.
 
 ## Changes
 
@@ -57,4 +57,12 @@ Local evidence retained outside the repository under `artifacts/gameboy-model-co
 
 At this branch's base and after implementation: 73,107 catalog rows and 73,107 unique IDs. `data/catalog.json`, `data/index/companies.json` and the eBay review queue are byte-identical to the base. No tracked changes under `data/`, `public/` or `src/`: no IDs, URLs, covers, prices, credits or public pages changed. These counts describe this audit cut, not permanent product assertions.
 
-Only the private review branch is prepared. Keep its worktree until review/merge and requested release validation; other worktrees and the dirty main checkout are untouched.
+The user authorized publication after the comparison. Keep this PR's worktree until merge and requested Production validation; other worktrees and the dirty main checkout are untouched. Authorization to publish code does not turn this diagnostic into approved regional decisions.
+
+## Deployment packaging
+
+Both the initial Preview (`dpl_GUqAhKgwrJG6ntFhS9FyayRWukXi`) and the base commit's Production build (`dpl_H3vDKnzzN6WLaxtPHC4regfppmwb`) failed because the `admin/precios` serverless package was 251.66 MB, above Vercel's 250 MB limit. This is packaged code/data, not newly uploaded listing photographs.
+
+The release excludes only `data/migrations/franchise-series-v1/**` and `data/company-role-backfill-report.json` from server output tracing. Consumer search finds the former in offline audit/build/verification scripts and a test, and the latter in the offline company-role backfill script; neither is a runtime input. All files remain in Git and in the build workspace for audits, tests and rollback. Their traced size before exclusion was 2,863,962 bytes. Runtime catalog, company/person research, queue, images, account settings and server storage are unchanged. No Vercel environment variables or function limits are changed.
+
+The second local build passes. Its `admin/precios/page.js.nft.json` decreases from 262,761,923 to 259,897,961 bytes (247.86 MiB on macOS; Vercel's Linux package is verified separately). Trace assertions confirm the offline files are absent, catalog/details/companies/queue and runtime company/person research remain present, and the worker-sync trace includes the updated vision, packaging and condition-resolver scripts. The 15 component tests pass again after the configuration adjustment.

@@ -101,6 +101,9 @@ const nextConfig: NextConfig = {
       "data/covers-report.json",
       "data/covers-upload-one.txt",
       "data/logs/**",
+      // Offline migration/backfill evidence is retained in Git, not read by runtime routes.
+      "data/migrations/franchise-series-v1/**",
+      "data/company-role-backfill-report.json",
       // Raw worker journals and the offline replay report are not runtime inputs.
       "data/ebay-regional-campaigns/ai-usage/**",
       "data/research/gameboy-reviewed-batch-report.json",
