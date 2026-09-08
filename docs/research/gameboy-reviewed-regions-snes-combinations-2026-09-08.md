@@ -138,8 +138,13 @@ correspondiente; este documento no sustituye esas comprobaciones.
 
 El despliegue de la base 521dc58 ya habia fallado en Vercel: la funcion
 `admin/juegos/[catalogId]` ocupaba 250.63 MB, por encima de su limite. Se excluyen
-del tracing unicamente los diarios JSONL crudos de tokens del worker y el informe
-offline de este lote. Ninguno es leido por las rutas de la web; la interfaz usa
+del tracing unicamente los diarios JSONL crudos de tokens del worker, el informe
+offline de este lote y el indice historico `company-logos/history-routes.json`.
+Ninguno es leido por las rutas de la web; la interfaz usa
 el resumen `lastRun.aiUsage`. Los diarios, el informe, las decisiones de cola y
 los datos de aprendizaje siguen conservados en Git; no se cambian limites ni
 variables del proveedor. La Preview verifica el paquete real de Linux.
+
+La primera Preview resolvio el limite de admin/juegos pero senalo admin/precios
+(250.42 MB); el indice de investigacion de logos supone otros 3.79 MiB que no
+deben formar parte de ninguna funcion. Los perfiles y logos publicos no cambian.

@@ -113,6 +113,7 @@ const nextConfig: NextConfig = {
       "data/research/award-study/**",
       "data/research/award-editorial-approvals.json",
       "data/research/company-logos/manifest.csv",
+      "data/research/company-logos/history-routes.json",
       "data/**/*.local.json",
       "public/catalog-details/**",
       "public/mascots/**",
