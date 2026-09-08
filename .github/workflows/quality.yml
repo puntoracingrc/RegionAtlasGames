@@ -54,6 +54,7 @@ jobs:
           python3 scripts/test_ai_usage.py
           python3 scripts/test_ebay_review_inbox.py
           python3 scripts/test_region_research.py
+          python3 scripts/test_region_vision_components.py
           python3 scripts/test_reviewed_regional_learning.py
           npx tsx --test src/lib/ebay-review-inbox.test.ts
 

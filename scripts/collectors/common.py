@@ -322,6 +322,7 @@ def to_ingest_listing(
 
     verified = _verified
     vision_condition: str | None = None
+    vision_notes: list[str] = []
     if platform_slug:
         from collectors.listing_region_enrich import (
             enrich_listing_region_from_cover,
@@ -336,7 +337,7 @@ def to_ingest_listing(
             ai_conf=float(ai_conf or 0),
             ok_ref=True,
         ):
-            listing_region, evidence, ai_conf, verified, vision_condition, _ = (
+            listing_region, evidence, ai_conf, verified, vision_condition, vision_notes = (
                 enrich_listing_region_from_cover(
                     platform_slug=platform_slug,
                     catalog_region=catalog_region,
@@ -393,6 +394,8 @@ def to_ingest_listing(
         row["productUrl"] = product_url
     if vision_condition:
         row["condition"] = vision_condition
+    elif "cover_vision_condition_unknown" in vision_notes:
+        row["conditionResolvedBy"] = "cover_vision_unknown"
     if image_scratch.get("imageUrls"):
         row["imageUrls"] = image_scratch["imageUrls"]
         row["imageUrl"] = image_scratch.get("imageUrl")
