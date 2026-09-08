@@ -9,8 +9,8 @@
     "batchSize": 250,
     "searchBudgetPerRun": 250,
     "dailySearchBudget": 1000,
-    "dailySearchesUsed": 720,
-    "dailySearchesRemaining": 280,
+    "dailySearchesUsed": 970,
+    "dailySearchesRemaining": 30,
     "regions": [
       "PAL España",
       "PAL Europa"
@@ -20,38 +20,38 @@
   "currentPlatform": "gamecube",
   "currentPlatformName": "Nintendo GameCube",
   "currentRegion": "PAL España",
-  "updatedAt": "2026-09-08T17:54:22Z",
+  "updatedAt": "2026-09-08T22:22:40Z",
   "lastRun": {
-    "at": "2026-09-08T17:54:22Z",
+    "at": "2026-09-08T22:22:40Z",
     "platformSlug": "gamecube",
     "platformName": "Nintendo GameCube",
     "region": "PAL España",
     "selected": 250,
     "processed": 250,
-    "matched": 79,
-    "listingsAdded": 123,
+    "matched": 66,
+    "listingsAdded": 115,
     "regionalReroutes": 0,
-    "regionalReviews": 508,
+    "regionalReviews": 503,
     "apiSearches": 250,
     "searchBudget": 250,
     "searchBudgetExhausted": true,
     "failed": 0,
     "systemicError": null,
     "aiUsage": {
-      "batchId": "6fb4944935e34a08adfff56214c743bd",
-      "responses": 969,
+      "batchId": "9d5d5fbbc7594db4a41481eb3a5dc46a",
+      "responses": 986,
       "responsesMissingUsage": 0,
-      "inputTokens": 32355894,
-      "cachedInputTokens": 72704,
-      "outputTokens": 362990,
-      "totalTokens": 32718884,
+      "inputTokens": 32933386,
+      "cachedInputTokens": 464128,
+      "outputTokens": 369142,
+      "totalTokens": 33302528,
       "responsesMissingCacheUsage": 0,
       "byModel": {
         "gpt-4o-mini-2024-07-18": {
-          "inputTokens": 32355894,
-          "outputTokens": 362990,
-          "totalTokens": 32718884,
-          "cachedInputTokens": 72704
+          "inputTokens": 32933386,
+          "outputTokens": 369142,
+          "totalTokens": 33302528,
+          "cachedInputTokens": 464128
         }
       }
     },
@@ -59,18 +59,18 @@
   },
   "dailyUsage": {
     "date": "2026-09-08",
-    "apiSearches": 720
+    "apiSearches": 970
   },
   "totals": {
     "catalogGames": 25777,
-    "completed": 5657,
-    "matched": 1613,
-    "noMatch": 4044,
+    "completed": 5907,
+    "matched": 1679,
+    "noMatch": 4228,
     "deferred": 0,
-    "pending": 20120
+    "pending": 19870
   },
-  "estimatedRunsRemaining": 81,
-  "estimatedDaysRemaining": 21,
+  "estimatedRunsRemaining": 80,
+  "estimatedDaysRemaining": 20,
   "platforms": [
     {
       "platformSlug": "ps4",
@@ -279,14 +279,14 @@
       "platformName": "Nintendo GameCube",
       "status": "running",
       "currentRegion": "PAL España",
-      "updatedAt": "2026-09-08T17:54:22Z",
+      "updatedAt": "2026-09-08T22:22:40Z",
       "totals": {
         "catalogGames": 551,
-        "completed": 250,
-        "matched": 79,
-        "noMatch": 171,
+        "completed": 500,
+        "matched": 145,
+        "noMatch": 355,
         "deferred": 0,
-        "pending": 301
+        "pending": 51
       },
       "regions": [
         {
@@ -296,11 +296,11 @@
           "marketScope": "country",
           "originLabel": "España",
           "total": 551,
-          "completed": 250,
-          "matched": 79,
-          "noMatch": 171,
+          "completed": 500,
+          "matched": 145,
+          "noMatch": 355,
           "deferred": 0,
-          "pending": 301
+          "pending": 51
         }
       ]
     },
@@ -1439,6 +1439,32 @@
             "outputTokens": 362990,
             "totalTokens": 32718884,
             "cachedInputTokens": 72704
+          }
+        }
+      },
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-08T22:22:40Z",
+      "level": "info",
+      "message": "Nintendo GameCube · PAL España: 250/250 consultados, 66 con evidencias, 115 anuncios aceptados, 0 aprovechados en otra región, 503 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "gamecube",
+      "region": "PAL España",
+      "aiUsage": {
+        "batchId": "9d5d5fbbc7594db4a41481eb3a5dc46a",
+        "responses": 986,
+        "responsesMissingUsage": 0,
+        "inputTokens": 32933386,
+        "cachedInputTokens": 464128,
+        "outputTokens": 369142,
+        "totalTokens": 33302528,
+        "responsesMissingCacheUsage": 0,
+        "byModel": {
+          "gpt-4o-mini-2024-07-18": {
+            "inputTokens": 32933386,
+            "outputTokens": 369142,
+            "totalTokens": 33302528,
+            "cachedInputTokens": 464128
           }
         }
       },

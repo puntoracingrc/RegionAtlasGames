@@ -23240,6 +23240,2366 @@
         "sealed": null,
         "newRetail": null
       }
+    ],
+    "gamecube-medal-of-honor-rising-sun-player%27s-choice-pal-gamecube": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 6.32,
+        "sealed": 18.12,
+        "newRetail": null
+      }
+    ],
+    "gamecube-mega-man-network-transmission": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 29.21,
+        "gameManual": null,
+        "complete": 35.41,
+        "sealed": 99.22,
+        "newRetail": null
+      }
+    ],
+    "gamecube-mega-man-x-command-mission": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 35.58,
+        "gameManual": null,
+        "complete": 82.08,
+        "sealed": 229.51,
+        "newRetail": null
+      }
+    ],
+    "gamecube-men-in-black-ii-alien-escape": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 2.52,
+        "gameManual": null,
+        "complete": 14.13,
+        "sealed": 39.69,
+        "newRetail": null
+      }
+    ],
+    "gamecube-mercedes-benz-world-racing": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.37,
+        "sealed": 40.55,
+        "newRetail": null
+      }
+    ],
+    "gamecube-metal-arms-glitch-in-the-system": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.47,
+        "gameManual": null,
+        "complete": 22.2,
+        "sealed": 73.8,
+        "newRetail": null
+      }
+    ],
+    "gamecube-metal-gear-solid-twin-snakes": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 70.52,
+        "gameManual": null,
+        "complete": 178.5,
+        "sealed": 182.93,
+        "newRetail": null
+      }
+    ],
+    "gamecube-metal-gear-solid-twin-snakes-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 81.81,
+        "sealed": 229.51,
+        "newRetail": null
+      }
+    ],
+    "gamecube-metroid-prime": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 16.73,
+        "gameManual": null,
+        "complete": 16.83,
+        "sealed": 150.15,
+        "newRetail": null
+      }
+    ],
+    "gamecube-metroid-prime-2-echoes": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 16.97,
+        "gameManual": null,
+        "complete": 31.46,
+        "sealed": 134.22,
+        "newRetail": null
+      }
+    ],
+    "gamecube-metroid-prime-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.93,
+        "gameManual": null,
+        "complete": 11.67,
+        "sealed": 32.79,
+        "newRetail": null
+      }
+    ],
+    "gamecube-micro-machines": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 16.7,
+        "gameManual": null,
+        "complete": 23.8,
+        "sealed": 107.47,
+        "newRetail": null
+      }
+    ],
+    "gamecube-minority-report": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.32,
+        "gameManual": null,
+        "complete": 5.88,
+        "sealed": 16.39,
+        "newRetail": null
+      }
+    ],
+    "gamecube-mission-impossible-operation-surma": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.61,
+        "gameManual": null,
+        "complete": 26.89,
+        "sealed": 75.06,
+        "newRetail": null
+      }
+    ],
+    "gamecube-monopoly-party": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.42,
+        "gameManual": null,
+        "complete": 9.4,
+        "sealed": 26.75,
+        "newRetail": null
+      }
+    ],
+    "gamecube-monster-house": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.71,
+        "gameManual": null,
+        "complete": 20.13,
+        "sealed": 41.17,
+        "newRetail": null
+      }
+    ],
+    "gamecube-monster-jam-maximum-destruction": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.92,
+        "gameManual": null,
+        "complete": 14.47,
+        "sealed": 40.55,
+        "newRetail": null
+      }
+    ],
+    "gamecube-monsters-inc": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.76,
+        "gameManual": null,
+        "complete": 10.43,
+        "sealed": 29.34,
+        "newRetail": null
+      }
+    ],
+    "gamecube-mortal-kombat-deadly-alliance": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.08,
+        "gameManual": null,
+        "complete": 12.63,
+        "sealed": 35.38,
+        "newRetail": null
+      }
+    ],
+    "gamecube-mx-superfly": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.52,
+        "gameManual": null,
+        "complete": 8.94,
+        "sealed": 25.02,
+        "newRetail": null
+      }
+    ],
+    "gamecube-mystic-heroes": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 17.94,
+        "gameManual": null,
+        "complete": 23.47,
+        "sealed": 34.81,
+        "newRetail": null
+      }
+    ],
+    "gamecube-namco-museum-50th-anniversary": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 28.69,
+        "gameManual": null,
+        "complete": 49.3,
+        "sealed": 138.05,
+        "newRetail": null
+      }
+    ],
+    "gamecube-naruto-clash-of-ninja": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.67,
+        "gameManual": null,
+        "complete": 13.29,
+        "sealed": 45.13,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nba-2k3": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.6,
+        "gameManual": null,
+        "complete": 12.48,
+        "sealed": 37.73,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nba-courtside-2002": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 4.84,
+        "gameManual": null,
+        "complete": 23.8,
+        "sealed": 50.09,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nba-live-2003": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.63,
+        "gameManual": null,
+        "complete": 7.98,
+        "sealed": 22.43,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nba-live-2004": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.97,
+        "gameManual": null,
+        "complete": 19.25,
+        "sealed": 18.12,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nba-live-2005": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 4.97,
+        "gameManual": null,
+        "complete": 6.88,
+        "sealed": 19.54,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nba-live-2006": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.53,
+        "gameManual": null,
+        "complete": 17.75,
+        "sealed": 50.04,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nba-street-vol-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 15.09,
+        "gameManual": null,
+        "complete": 23.28,
+        "sealed": 79.9,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nba-street-vol-3": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 17.88,
+        "gameManual": null,
+        "complete": 23.24,
+        "sealed": 64.71,
+        "newRetail": null
+      }
+    ],
+    "gamecube-need-for-speed-carbon": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11.34,
+        "gameManual": null,
+        "complete": 11.77,
+        "sealed": 48.71,
+        "newRetail": null
+      }
+    ],
+    "gamecube-need-for-speed-hot-pursuit-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 14.38,
+        "gameManual": null,
+        "complete": 14.5,
+        "sealed": 44.77,
+        "newRetail": null
+      }
+    ],
+    "gamecube-need-for-speed-most-wanted": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 13.09,
+        "gameManual": null,
+        "complete": 16.02,
+        "sealed": 44.87,
+        "newRetail": null
+      }
+    ],
+    "gamecube-need-for-speed-underground": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.72,
+        "gameManual": null,
+        "complete": 6.98,
+        "sealed": 144.99,
+        "newRetail": null
+      }
+    ],
+    "gamecube-need-for-speed-underground-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11.25,
+        "gameManual": null,
+        "complete": 15.23,
+        "sealed": 86.9,
+        "newRetail": null
+      }
+    ],
+    "gamecube-need-for-speed-underground-2-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.5,
+        "sealed": 40.55,
+        "newRetail": null
+      }
+    ],
+    "gamecube-need-for-speed-underground-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 8.26,
+        "sealed": 26.78,
+        "newRetail": null
+      }
+    ],
+    "gamecube-neighbours-from-hell": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 25.01,
+        "gameManual": null,
+        "complete": 36.69,
+        "sealed": 88.13,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nfl-2k3": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.45,
+        "gameManual": null,
+        "complete": 6.7,
+        "sealed": 25.79,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nfl-street": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.19,
+        "gameManual": null,
+        "complete": 7.02,
+        "sealed": 30.86,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nfl-street-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.15,
+        "gameManual": null,
+        "complete": 12.94,
+        "sealed": 36.24,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nhl-06": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11.87,
+        "gameManual": null,
+        "complete": 16.98,
+        "sealed": 47.45,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nhl-2003": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 3.53,
+        "gameManual": null,
+        "complete": 7.12,
+        "sealed": 19.84,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nhl-2004": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 2.23,
+        "gameManual": null,
+        "complete": 3.89,
+        "sealed": 32.55,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nhl-2005": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.27,
+        "gameManual": null,
+        "complete": 7.76,
+        "sealed": 16.8,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nhl-2k3": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.06,
+        "gameManual": null,
+        "complete": 10.01,
+        "sealed": 20.2,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nhl-hitz-2002": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11.58,
+        "gameManual": null,
+        "complete": 14.18,
+        "sealed": 39.69,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nhl-hitz-2003": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.32,
+        "gameManual": null,
+        "complete": 14.1,
+        "sealed": 39.69,
+        "newRetail": null
+      }
+    ],
+    "gamecube-nickelodeon-party-blast": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.9,
+        "gameManual": null,
+        "complete": 13.21,
+        "sealed": 37.1,
+        "newRetail": null
+      }
+    ],
+    "gamecube-odama": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.54,
+        "gameManual": null,
+        "complete": 44.38,
+        "sealed": 155.15,
+        "newRetail": null
+      }
+    ],
+    "gamecube-odama-big-box": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 76.92,
+        "sealed": 215.7,
+        "newRetail": null
+      }
+    ],
+    "gamecube-open-season": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 4.25,
+        "gameManual": null,
+        "complete": 11.98,
+        "sealed": 33.65,
+        "newRetail": null
+      }
+    ],
+    "gamecube-outlaw-golf": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.83,
+        "gameManual": null,
+        "complete": 13.33,
+        "sealed": 37.1,
+        "newRetail": null
+      }
+    ],
+    "gamecube-over-the-hedge": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 13.84,
+        "gameManual": null,
+        "complete": 17.94,
+        "sealed": 50.04,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pn-03": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 14.23,
+        "gameManual": null,
+        "complete": 34.55,
+        "sealed": 57.72,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pac-man-vs": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.28,
+        "gameManual": null,
+        "complete": 16.07,
+        "sealed": 44.87,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pac-man-world-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 22.19,
+        "gameManual": null,
+        "complete": 28.72,
+        "sealed": 80.24,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pac-man-world-3": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 27.15,
+        "gameManual": null,
+        "complete": 28.9,
+        "sealed": 61.04,
+        "newRetail": null
+      }
+    ],
+    "gamecube-paper-mario-thousand-year-door": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 56.41,
+        "gameManual": null,
+        "complete": 57.22,
+        "sealed": 228.12,
+        "newRetail": null
+      }
+    ],
+    "gamecube-peter-jackson%27s-king-kong": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.26,
+        "gameManual": null,
+        "complete": 9.97,
+        "sealed": 32.51,
+        "newRetail": null
+      }
+    ],
+    "gamecube-phantasy-star-online-iii-card-revolution": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.64,
+        "gameManual": null,
+        "complete": 29.79,
+        "sealed": 51.77,
+        "newRetail": null
+      }
+    ],
+    "gamecube-phantasy-star-online-episode-i-&amp;-ii": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 19.77,
+        "gameManual": null,
+        "complete": 21.8,
+        "sealed": 74.01,
+        "newRetail": null
+      }
+    ],
+    "gamecube-piglet%27s-big-game": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 22.28,
+        "gameManual": null,
+        "complete": 23.04,
+        "sealed": 115.57,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pikmin": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.4,
+        "gameManual": null,
+        "complete": 13.67,
+        "sealed": 74.83,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pikmin-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 31.46,
+        "gameManual": null,
+        "complete": 41.22,
+        "sealed": 203.88,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pikmin-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11.61,
+        "gameManual": null,
+        "complete": 15.49,
+        "sealed": 43.14,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pitfall-the-lost-expedition": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 16.08,
+        "gameManual": null,
+        "complete": 21.61,
+        "sealed": 72.28,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pokemon-box": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 118.97,
+        "gameManual": null,
+        "complete": 176.13,
+        "sealed": 383.01,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pokemon-box-big-box": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 681.79,
+        "sealed": 1909.4,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pokemon-channel": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 63.2,
+        "gameManual": null,
+        "complete": 102.43,
+        "sealed": 215.43,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pokemon-colosseum": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 42.58,
+        "gameManual": null,
+        "complete": 55.69,
+        "sealed": 476.32,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pokemon-colosseum-bonus-disc": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 91.89,
+        "gameManual": null,
+        "complete": 131.27,
+        "sealed": 367.56,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pokemon-colosseum-with-pokemon-box-ruby-&amp;-sapphire": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 160.83,
+        "sealed": 450.39,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pokemon-xd-gale-of-darkness": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 157.99,
+        "gameManual": null,
+        "complete": 200.48,
+        "sealed": 821,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pool-paradise": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.67,
+        "gameManual": null,
+        "complete": 10.46,
+        "sealed": 29.34,
+        "newRetail": null
+      }
+    ],
+    "gamecube-power-rangers-dino-thunder": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 33.49,
+        "gameManual": null,
+        "complete": 39.18,
+        "sealed": 109.58,
+        "newRetail": null
+      }
+    ],
+    "gamecube-powerpuff-girls-relish-rampage-pickled-edition": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 54.54,
+        "sealed": 152.72,
+        "newRetail": null
+      }
+    ],
+    "gamecube-prince-of-persia-sands-of-time": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.24,
+        "gameManual": null,
+        "complete": 14.87,
+        "sealed": 79.69,
+        "newRetail": null
+      }
+    ],
+    "gamecube-prince-of-persia-two-thrones": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.31,
+        "gameManual": null,
+        "complete": 13.86,
+        "sealed": 38.83,
+        "newRetail": null
+      }
+    ],
+    "gamecube-prince-of-persia-warrior-within": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.41,
+        "gameManual": null,
+        "complete": 11.3,
+        "sealed": 39.03,
+        "newRetail": null
+      }
+    ],
+    "gamecube-prince-of-persia-warrior-within-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 8.87,
+        "sealed": 25.02,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pro-rally": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 2.92,
+        "gameManual": null,
+        "complete": 15.15,
+        "sealed": 42.28,
+        "newRetail": null
+      }
+    ],
+    "gamecube-pro-tennis-wta-tour": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.18,
+        "gameManual": null,
+        "complete": 10.29,
+        "sealed": 28.47,
+        "newRetail": null
+      }
+    ],
+    "gamecube-puyo-pop-fever": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11.33,
+        "gameManual": null,
+        "complete": 15.24,
+        "sealed": 30.07,
+        "newRetail": null
+      }
+    ],
+    "gamecube-r-racing": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 16.89,
+        "gameManual": null,
+        "complete": 28.29,
+        "sealed": 57.32,
+        "newRetail": null
+      }
+    ],
+    "gamecube-rainbow-six-3": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.45,
+        "gameManual": null,
+        "complete": 9.67,
+        "sealed": 31.79,
+        "newRetail": null
+      }
+    ],
+    "gamecube-rainbow-six-lockdown": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 2.61,
+        "gameManual": null,
+        "complete": 11.95,
+        "sealed": 43.32,
+        "newRetail": null
+      }
+    ],
+    "gamecube-rally-championship": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.34,
+        "gameManual": null,
+        "complete": 14.18,
+        "sealed": 39.69,
+        "newRetail": null
+      }
+    ],
+    "gamecube-ratatouille": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.7,
+        "gameManual": null,
+        "complete": 79.56,
+        "sealed": 222.61,
+        "newRetail": null
+      }
+    ],
+    "gamecube-rayman-3-hoodlum-havoc": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.65,
+        "gameManual": null,
+        "complete": 17.87,
+        "sealed": 176.5,
+        "newRetail": null
+      }
+    ],
+    "gamecube-rayman-3-hoodlum-havoc-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.34,
+        "gameManual": null,
+        "complete": 13.34,
+        "sealed": 37.1,
+        "newRetail": null
+      }
+    ],
+    "gamecube-red-card-2003": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 2.29,
+        "gameManual": null,
+        "complete": 3.84,
+        "sealed": 10.35,
+        "newRetail": null
+      }
+    ],
+    "gamecube-red-faction-ii": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.38,
+        "gameManual": null,
+        "complete": 9.64,
+        "sealed": 26.75,
+        "newRetail": null
+      }
+    ],
+    "gamecube-reign-of-fire": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.28,
+        "gameManual": null,
+        "complete": 9.14,
+        "sealed": 25.88,
+        "newRetail": null
+      }
+    ],
+    "gamecube-resident-evil": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.79,
+        "gameManual": null,
+        "complete": 12.39,
+        "sealed": 99.2,
+        "newRetail": null
+      }
+    ],
+    "gamecube-resident-evil-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 25.78,
+        "gameManual": null,
+        "complete": 67.54,
+        "sealed": 199.45,
+        "newRetail": null
+      }
+    ],
+    "gamecube-resident-evil-3-nemesis": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 40.97,
+        "gameManual": null,
+        "complete": 51.16,
+        "sealed": 166.07,
+        "newRetail": null
+      }
+    ],
+    "gamecube-resident-evil-4": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 15.72,
+        "gameManual": null,
+        "complete": 23.94,
+        "sealed": 130.27,
+        "newRetail": null
+      }
+    ],
+    "gamecube-resident-evil-4-collector%27s-edition": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 72.78,
+        "gameManual": null,
+        "complete": 105.69,
+        "sealed": 295.94,
+        "newRetail": null
+      }
+    ],
+    "gamecube-resident-evil-4-limited-evil-edition-case": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 107.32,
+        "sealed": 300.26,
+        "newRetail": null
+      }
+    ],
+    "gamecube-resident-evil-code-veronica-x": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 53.49,
+        "gameManual": null,
+        "complete": 69.25,
+        "sealed": 129.64,
+        "newRetail": null
+      }
+    ],
+    "gamecube-resident-evil-zero": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.52,
+        "gameManual": null,
+        "complete": 18.86,
+        "sealed": 79.32,
+        "newRetail": null
+      }
+    ],
+    "gamecube-resident-evil-zero-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 12.85,
+        "sealed": 69.1,
+        "newRetail": null
+      }
+    ],
+    "gamecube-ribbit-king": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 86.33,
+        "gameManual": null,
+        "complete": 184.06,
+        "sealed": 334.8,
+        "newRetail": null
+      }
+    ],
+    "gamecube-robotech-battlecry": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 15.75,
+        "gameManual": null,
+        "complete": 27.14,
+        "sealed": 75.93,
+        "newRetail": null
+      }
+    ],
+    "gamecube-robots": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.34,
+        "gameManual": null,
+        "complete": 7.56,
+        "sealed": 30.19,
+        "newRetail": null
+      }
+    ],
+    "gamecube-rocket-power-beach-bandits": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.85,
+        "gameManual": null,
+        "complete": 14.42,
+        "sealed": 69.85,
+        "newRetail": null
+      }
+    ],
+    "gamecube-rocky": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.58,
+        "gameManual": null,
+        "complete": 6.71,
+        "sealed": 39.73,
+        "newRetail": null
+      }
+    ],
+    "gamecube-rogue-ops": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 17.19,
+        "gameManual": null,
+        "complete": 17.52,
+        "sealed": 50,
+        "newRetail": null
+      }
+    ],
+    "gamecube-rugrats-royal-ransom": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.65,
+        "gameManual": null,
+        "complete": 16.8,
+        "sealed": 47.45,
+        "newRetail": null
+      }
+    ],
+    "gamecube-samurai-jack-shadow-of-aku": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 25.79,
+        "gameManual": null,
+        "complete": 25.79,
+        "sealed": 55.21,
+        "newRetail": null
+      }
+    ],
+    "gamecube-scooby-doo-mystery-mayhem": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11.83,
+        "gameManual": null,
+        "complete": 31.23,
+        "sealed": 53.99,
+        "newRetail": null
+      }
+    ],
+    "gamecube-scooby-doo-night-of-100-frights": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.87,
+        "gameManual": null,
+        "complete": 10.23,
+        "sealed": 40.97,
+        "newRetail": null
+      }
+    ],
+    "gamecube-scooby-doo-unmasked": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 13,
+        "gameManual": null,
+        "complete": 19.42,
+        "sealed": 54.36,
+        "newRetail": null
+      }
+    ],
+    "gamecube-second-sight": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 13.29,
+        "gameManual": null,
+        "complete": 13.85,
+        "sealed": 18.9,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sega-soccer-slam": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 13.44,
+        "gameManual": null,
+        "complete": 15.09,
+        "sealed": 40.34,
+        "newRetail": null
+      }
+    ],
+    "gamecube-serious-sam-next-encounter": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 16.7,
+        "gameManual": null,
+        "complete": 18.23,
+        "sealed": 50.91,
+        "newRetail": null
+      }
+    ],
+    "gamecube-shadow-the-hedgehog": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 37.9,
+        "gameManual": null,
+        "complete": 44.95,
+        "sealed": 125.97,
+        "newRetail": null
+      }
+    ],
+    "gamecube-shamu%27s-deep-sea-adventures": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 33.11,
+        "sealed": 92.32,
+        "newRetail": null
+      }
+    ],
+    "gamecube-shark-tale": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.38,
+        "gameManual": null,
+        "complete": 7.38,
+        "sealed": 20.71,
+        "newRetail": null
+      }
+    ],
+    "gamecube-shrek-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.59,
+        "gameManual": null,
+        "complete": 7.2,
+        "sealed": 22.99,
+        "newRetail": null
+      }
+    ],
+    "gamecube-shrek-2-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.95,
+        "sealed": 42.28,
+        "newRetail": null
+      }
+    ],
+    "gamecube-shrek-extra-large": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.14,
+        "gameManual": null,
+        "complete": 15.35,
+        "sealed": 29.81,
+        "newRetail": null
+      }
+    ],
+    "gamecube-shrek-smash-and-crash-racing": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 30.25,
+        "sealed": 84.56,
+        "newRetail": null
+      }
+    ],
+    "gamecube-shrek-super-party": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 30.89,
+        "gameManual": null,
+        "complete": 40.06,
+        "sealed": 112.17,
+        "newRetail": null
+      }
+    ],
+    "gamecube-shrek-superslam": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 3.22,
+        "gameManual": null,
+        "complete": 14.88,
+        "sealed": 25.82,
+        "newRetail": null
+      }
+    ],
+    "gamecube-skies-of-arcadia-legends": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 75.15,
+        "gameManual": null,
+        "complete": 112.13,
+        "sealed": 228.51,
+        "newRetail": null
+      }
+    ],
+    "gamecube-smuggler%27s-run": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.94,
+        "gameManual": null,
+        "complete": 8.78,
+        "sealed": 34.59,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sonic-adventure-2-battle": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 13.73,
+        "gameManual": null,
+        "complete": 18.7,
+        "sealed": 120.35,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sonic-adventure-2-battle-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 16.38,
+        "gameManual": null,
+        "complete": 21.26,
+        "sealed": 59.53,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sonic-adventure-dx": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 28.58,
+        "gameManual": null,
+        "complete": 15.47,
+        "sealed": 178.09,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sonic-adventure-dx-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 20.97,
+        "gameManual": null,
+        "complete": 26.52,
+        "sealed": 74.2,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sonic-gems-collection": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 29.23,
+        "gameManual": null,
+        "complete": 32.75,
+        "sealed": 91.46,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sonic-heroes": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.51,
+        "gameManual": null,
+        "complete": 12.67,
+        "sealed": 83.88,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sonic-heroes-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11.58,
+        "gameManual": null,
+        "complete": 18.21,
+        "sealed": 137,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sonic-mega-collection": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11.52,
+        "gameManual": null,
+        "complete": 12.23,
+        "sealed": 34.51,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sonic-mega-collection-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.09,
+        "gameManual": null,
+        "complete": 12.15,
+        "sealed": 33.65,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sonic-riders": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 35.5,
+        "gameManual": null,
+        "complete": 51.67,
+        "sealed": 144.95,
+        "newRetail": null
+      }
+    ],
+    "gamecube-soul-calibur-ii": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.45,
+        "gameManual": null,
+        "complete": 10.6,
+        "sealed": 162.28,
+        "newRetail": null
+      }
+    ],
+    "gamecube-soul-calibur-ii-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 16.18,
+        "gameManual": null,
+        "complete": 21.28,
+        "sealed": 59.53,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spartan-total-warrior": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 4.81,
+        "gameManual": null,
+        "complete": 20.66,
+        "sealed": 57.81,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spawn-armageddon": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 19.65,
+        "gameManual": null,
+        "complete": 48.11,
+        "sealed": 134.6,
+        "newRetail": null
+      }
+    ],
+    "gamecube-speed-challenge": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 14.54,
+        "gameManual": null,
+        "complete": 18.81,
+        "sealed": 52.63,
+        "newRetail": null
+      }
+    ],
+    "gamecube-speed-kings": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 14.51,
+        "gameManual": null,
+        "complete": 20.04,
+        "sealed": 56.08,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sphinx-and-the-cursed-mummy": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 16.43,
+        "gameManual": null,
+        "complete": 19.68,
+        "sealed": 55.22,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spiderman": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.92,
+        "gameManual": null,
+        "complete": 7.88,
+        "sealed": 25.35,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spiderman-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.37,
+        "gameManual": null,
+        "complete": 9.03,
+        "sealed": 25.02,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spiderman-2-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 28.9,
+        "sealed": 81.1,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spiderman-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 14.53,
+        "sealed": 40.55,
+        "newRetail": null
+      }
+    ],
+    "gamecube-splinter-cell": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.03,
+        "gameManual": null,
+        "complete": 8.2,
+        "sealed": 23.3,
+        "newRetail": null
+      }
+    ],
+    "gamecube-splinter-cell-chaos-theory": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.3,
+        "gameManual": null,
+        "complete": 14.94,
+        "sealed": 41.42,
+        "newRetail": null
+      }
+    ],
+    "gamecube-splinter-cell-double-agent": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 14.07,
+        "gameManual": null,
+        "complete": 15.77,
+        "sealed": 44,
+        "newRetail": null
+      }
+    ],
+    "gamecube-splinter-cell-pandora-tomorrow": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.26,
+        "gameManual": null,
+        "complete": 7.75,
+        "sealed": 27.55,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spongebob-squarepants-&amp;-friends-unite": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 16.16,
+        "gameManual": null,
+        "complete": 23.75,
+        "sealed": 64.79,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spongebob-squarepants-battle-for-bikini-bottom": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 30.43,
+        "gameManual": null,
+        "complete": 34.91,
+        "sealed": 97.5,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spongebob-squarepants-creature-from-krusty-krab": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 21.42,
+        "gameManual": null,
+        "complete": 30.75,
+        "sealed": 86.28,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spongebob-squarepants-lights-camera-pants": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.05,
+        "gameManual": null,
+        "complete": 19.04,
+        "sealed": 53.49,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spongebob-squarepants-revenge-of-the-flying-dutchman": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 19.27,
+        "gameManual": null,
+        "complete": 35.67,
+        "sealed": 100.09,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spongebob-squarepants-the-movie": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 19.7,
+        "gameManual": null,
+        "complete": 21,
+        "sealed": 58.67,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spy-hunter": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.41,
+        "gameManual": null,
+        "complete": 11.37,
+        "sealed": 19.09,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spyro-a-heros-tail": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.91,
+        "gameManual": null,
+        "complete": 13.77,
+        "sealed": 38.83,
+        "newRetail": null
+      }
+    ],
+    "gamecube-spyro-enter-the-dragonfly": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.99,
+        "gameManual": null,
+        "complete": 9.4,
+        "sealed": 46.68,
+        "newRetail": null
+      }
+    ],
+    "gamecube-ssx-3": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.46,
+        "gameManual": null,
+        "complete": 10.95,
+        "sealed": 31.06,
+        "newRetail": null
+      }
+    ],
+    "gamecube-ssx-on-tour": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.78,
+        "gameManual": null,
+        "complete": 11.04,
+        "sealed": 50.43,
+        "newRetail": null
+      }
+    ],
+    "gamecube-ssx-tricky": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.17,
+        "gameManual": null,
+        "complete": 12.53,
+        "sealed": 29.93,
+        "newRetail": null
+      }
+    ],
+    "gamecube-star-fox-adventures": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 13.44,
+        "gameManual": null,
+        "complete": 63.45,
+        "sealed": 140.54,
+        "newRetail": null
+      }
+    ],
+    "gamecube-star-fox-adventures-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.74,
+        "gameManual": null,
+        "complete": 13.06,
+        "sealed": 36.24,
+        "newRetail": null
+      }
+    ],
+    "gamecube-star-fox-assault": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 39.07,
+        "gameManual": null,
+        "complete": 94.1,
+        "sealed": 274.18,
+        "newRetail": null
+      }
+    ],
+    "gamecube-star-wars-bounty-hunter": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.95,
+        "gameManual": null,
+        "complete": 9.03,
+        "sealed": 27.56,
+        "newRetail": null
+      }
+    ],
+    "gamecube-star-wars-clone-wars": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.55,
+        "gameManual": null,
+        "complete": 6.99,
+        "sealed": 19.84,
+        "newRetail": null
+      }
+    ],
+    "gamecube-star-wars-jedi-knight-ii-jedi-outcast": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.43,
+        "gameManual": null,
+        "complete": 11.04,
+        "sealed": 58.95,
+        "newRetail": null
+      }
+    ],
+    "gamecube-star-wars-rebel-strike": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.58,
+        "gameManual": null,
+        "complete": 9.78,
+        "sealed": 39.59,
+        "newRetail": null
+      }
+    ],
+    "gamecube-star-wars-rebel-strike-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 20.03,
+        "sealed": 56.08,
+        "newRetail": null
+      }
+    ],
+    "gamecube-star-wars-rebel-strike-preview-disc": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 3.86,
+        "gameManual": null,
+        "complete": 24.1,
+        "sealed": 67.3,
+        "newRetail": null
+      }
+    ],
+    "gamecube-star-wars-rogue-leader": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.51,
+        "gameManual": null,
+        "complete": 91.72,
+        "sealed": 77.34,
+        "newRetail": null
+      }
+    ],
+    "gamecube-starsky-&amp;-hutch": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.32,
+        "gameManual": null,
+        "complete": 10.47,
+        "sealed": 12.99,
+        "newRetail": null
+      }
+    ],
+    "gamecube-street-racing-syndicate": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 13.87,
+        "gameManual": null,
+        "complete": 20.62,
+        "sealed": 138.98,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sum-of-all-fears": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.25,
+        "gameManual": null,
+        "complete": 13.12,
+        "sealed": 37.1,
+        "newRetail": null
+      }
+    ],
+    "gamecube-summoner-a-goddess-reborn": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 13.48,
+        "gameManual": null,
+        "complete": 23.73,
+        "sealed": 66.44,
+        "newRetail": null
+      }
+    ],
+    "gamecube-super-bust-a-move-all-stars": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11,
+        "gameManual": null,
+        "complete": 15.98,
+        "sealed": 44.87,
+        "newRetail": null
+      }
+    ],
+    "gamecube-super-mario-sunshine": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 17.37,
+        "gameManual": null,
+        "complete": 20.45,
+        "sealed": 301.98,
+        "newRetail": null
+      }
+    ],
+    "gamecube-super-mario-sunshine-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 14,
+        "gameManual": null,
+        "complete": 19.05,
+        "sealed": 229.32,
+        "newRetail": null
+      }
+    ],
+    "gamecube-super-monkey-ball": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.26,
+        "gameManual": null,
+        "complete": 9.49,
+        "sealed": 50.82,
+        "newRetail": null
+      }
+    ],
+    "gamecube-super-monkey-ball-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.33,
+        "gameManual": null,
+        "complete": 12.44,
+        "sealed": 57.21,
+        "newRetail": null
+      }
+    ],
+    "gamecube-super-monkey-ball-adventure": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.45,
+        "gameManual": null,
+        "complete": 19.8,
+        "sealed": 29.28,
+        "newRetail": null
+      }
+    ],
+    "gamecube-super-smash-bros-melee": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 22.44,
+        "gameManual": null,
+        "complete": 27.71,
+        "sealed": 143.92,
+        "newRetail": null
+      }
+    ],
+    "gamecube-super-smash-bros-melee-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 17.39,
+        "gameManual": null,
+        "complete": 21.48,
+        "sealed": 60.4,
+        "newRetail": null
+      }
+    ],
+    "gamecube-superman-shadow-of-apokolips": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 32.96,
+        "gameManual": null,
+        "complete": 92.11,
+        "sealed": 139.83,
+        "newRetail": null
+      }
+    ],
+    "gamecube-sx-superstar": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11.83,
+        "gameManual": null,
+        "complete": 11.95,
+        "sealed": 25.18,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tak-2-the-staff-of-dreams": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 17.77,
+        "gameManual": null,
+        "complete": 21,
+        "sealed": 58.67,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tak-and-the-power-of-juju": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.33,
+        "gameManual": null,
+        "complete": 15.55,
+        "sealed": 43.14,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tak-great-juju-challenge": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 19.62,
+        "gameManual": null,
+        "complete": 25.49,
+        "sealed": 39.29,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tales-of-symphonia": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 18.4,
+        "gameManual": null,
+        "complete": 24.69,
+        "sealed": 40.31,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tarzan-freeride": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 3.53,
+        "gameManual": null,
+        "complete": 8.21,
+        "sealed": 23.3,
+        "newRetail": null
+      }
+    ],
+    "gamecube-taxi-3": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 19.62,
+        "sealed": 55.22,
+        "newRetail": null
+      }
+    ],
+    "gamecube-taz-wanted": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.36,
+        "gameManual": null,
+        "complete": 14.53,
+        "sealed": 40.55,
+        "newRetail": null
+      }
+    ],
+    "gamecube-teen-titans": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 206.8,
+        "gameManual": null,
+        "complete": 294.97,
+        "sealed": 825.71,
+        "newRetail": null
+      }
+    ],
+    "gamecube-teenage-mutant-ninja-turtles": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 28.14,
+        "gameManual": null,
+        "complete": 51.31,
+        "sealed": 147.37,
+        "newRetail": null
+      }
+    ],
+    "gamecube-teenage-mutant-ninja-turtles-2-battle-nexus": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 48.65,
+        "gameManual": null,
+        "complete": 172.56,
+        "sealed": 483.18,
+        "newRetail": null
+      }
+    ],
+    "gamecube-terminator-3-redemption": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.61,
+        "gameManual": null,
+        "complete": 16.75,
+        "sealed": 46.59,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tetris-worlds": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.53,
+        "gameManual": null,
+        "complete": 17.36,
+        "sealed": 28.55,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-hobbit": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 14.18,
+        "gameManual": null,
+        "complete": 19.86,
+        "sealed": 55.22,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-incredible-hulk-ultimate-destruction": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 25.91,
+        "gameManual": null,
+        "complete": 37.57,
+        "sealed": 105.26,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-incredibles": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.38,
+        "gameManual": null,
+        "complete": 9.59,
+        "sealed": 38.05,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-incredibles-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.95,
+        "gameManual": null,
+        "complete": 7.64,
+        "sealed": 21.57,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-incredibles-rise-of-the-underminer": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.68,
+        "gameManual": null,
+        "complete": 10.22,
+        "sealed": 28.47,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-polar-express": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 13.95,
+        "gameManual": null,
+        "complete": 15.69,
+        "sealed": 54.7,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-scorpion-king-rise-of-the-akkadian": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 4.37,
+        "gameManual": null,
+        "complete": 9.65,
+        "sealed": 20.76,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-simpsons-hit-and-run": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 31.2,
+        "gameManual": null,
+        "complete": 43.18,
+        "sealed": 56.62,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-simpsons-road-rage": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 21.28,
+        "gameManual": null,
+        "complete": 24.69,
+        "sealed": 72.79,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-simpsons-hit-&amp;-run-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 34.87,
+        "gameManual": null,
+        "complete": 35.95,
+        "sealed": 100.95,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-sims": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 4.9,
+        "gameManual": null,
+        "complete": 7.52,
+        "sealed": 20.22,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-sims-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.27,
+        "gameManual": null,
+        "complete": 13.19,
+        "sealed": 37.1,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-sims-2-pets": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 10.68,
+        "gameManual": null,
+        "complete": 12.59,
+        "sealed": 21.78,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-sims-bustin%27-out": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 7.84,
+        "gameManual": null,
+        "complete": 8.01,
+        "sealed": 22.43,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-sims-bustin%27-out-player%27s-choice": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.06,
+        "gameManual": null,
+        "complete": 11.6,
+        "sealed": 32.79,
+        "newRetail": null
+      }
+    ],
+    "gamecube-the-urbz-sims-in-the-city": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.22,
+        "gameManual": null,
+        "complete": 13.3,
+        "sealed": 37.1,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tiger-woods-2003": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 3.37,
+        "gameManual": null,
+        "complete": 9.92,
+        "sealed": 21.3,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tiger-woods-2004": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 3.37,
+        "gameManual": null,
+        "complete": 5.76,
+        "sealed": 21.74,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tiger-woods-2005": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.87,
+        "gameManual": null,
+        "complete": 7.41,
+        "sealed": 20.71,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tiger-woods-2006": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.26,
+        "gameManual": null,
+        "complete": 9.64,
+        "sealed": 26.75,
+        "newRetail": null
+      }
+    ],
+    "gamecube-time-splitters-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 4.92,
+        "gameManual": null,
+        "complete": 9.08,
+        "sealed": 67.15,
+        "newRetail": null
+      }
+    ],
+    "gamecube-time-splitters-future-perfect": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 14.77,
+        "gameManual": null,
+        "complete": 23.2,
+        "sealed": 59.09,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tmnt": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 169.24,
+        "sealed": 473.68,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tomb-raider-legend": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 22.54,
+        "gameManual": null,
+        "complete": 30.58,
+        "sealed": 86.01,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tony-hawk-3": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 9.07,
+        "gameManual": null,
+        "complete": 9.93,
+        "sealed": 43.4,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tony-hawk-4": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.33,
+        "gameManual": null,
+        "complete": 9.42,
+        "sealed": 26.75,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tony-hawk-american-wasteland": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 8.21,
+        "gameManual": null,
+        "complete": 9.24,
+        "sealed": 25.88,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tony-hawk-underground": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.5,
+        "gameManual": null,
+        "complete": 8.38,
+        "sealed": 23.75,
+        "newRetail": null
+      }
+    ],
+    "gamecube-tony-hawk-underground-2": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 6.89,
+        "gameManual": null,
+        "complete": 11.65,
+        "sealed": 15.96,
+        "newRetail": null
+      }
+    ],
+    "gamecube-top-angler": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 12.09,
+        "gameManual": null,
+        "complete": 17.26,
+        "sealed": 48.32,
+        "newRetail": null
+      }
+    ],
+    "gamecube-top-gun-combat-zones": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.09,
+        "gameManual": null,
+        "complete": 7.45,
+        "sealed": 14.37,
+        "newRetail": null
+      }
+    ],
+    "gamecube-true-crime-new-york-city": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 11.81,
+        "gameManual": null,
+        "complete": 12.12,
+        "sealed": 51.09,
+        "newRetail": null
+      }
+    ],
+    "gamecube-true-crime-streets-of-la": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.54,
+        "gameManual": null,
+        "complete": 7.48,
+        "sealed": 18.02,
+        "newRetail": null
+      }
+    ],
+    "gamecube-turok-evolution": [
+      {
+        "at": "2026-09-08T21:15:35Z",
+        "loose": 5.19,
+        "gameManual": null,
+        "complete": 7.47,
+        "sealed": 56.9,
+        "newRetail": null
+      }
     ]
   }
 }
