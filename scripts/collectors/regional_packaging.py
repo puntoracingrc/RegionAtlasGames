@@ -21,6 +21,9 @@ LANGUAGE_LABELS = {
 
 RATING_SYSTEMS = {"PEGI", "ESRB", "CERO", "USK", "ACB", "BBFC", "ELSPA"}
 IMAGE_ROLES = {"front", "back", "spine", "disc", "cartridge", "manual", "seal", "other"}
+COMPONENTS = {"box", "game", "manual", "supplement", "extra", "seal", "other"}
+ROLE_COMPONENTS = {"front": "box", "back": "box", "spine": "box", "disc": "game",
+                   "cartridge": "game", "manual": "manual", "seal": "seal"}
 
 
 def _languages(value: Any) -> list[str]:
@@ -112,12 +115,17 @@ def _clean_list(value: Any, *, limit: int, max_length: int) -> list[str]:
     return result[:limit]
 
 
-def normalize_visual_observations(value: Any, *, image_limit: int = 8) -> list[dict[str, Any]]:
+def normalize_visual_observations(
+    value: Any, *, image_limit: int = 8, require_listing_source: bool = False,
+) -> list[dict[str, Any]]:
     if not isinstance(value, list):
         return []
     observations: list[dict[str, Any]] = []
     for index, item in enumerate(value):
         if not isinstance(item, dict):
+            continue
+        source = item.get("imageSource")
+        if source not in (None, "listing") or (require_listing_source and source != "listing"):
             continue
         try:
             image_index = int(item.get("imageIndex") or index + 1)
@@ -144,8 +152,7 @@ def normalize_visual_observations(value: Any, *, image_limit: int = 8) -> list[d
             for digits in (re.sub(r"\D", "", raw) for raw in _clean_list(item.get("barcodes"), limit=4, max_length=24))
             if 8 <= len(digits) <= 14
         ]
-        observations.append(
-            {
+        observation = {
                 "imageIndex": image_index,
                 "role": role,
                 "ratingSystems": list(dict.fromkeys(ratings))[:4],
@@ -155,8 +162,21 @@ def normalize_visual_observations(value: Any, *, image_limit: int = 8) -> list[d
                 "distributors": _clean_list(item.get("distributors"), limit=6, max_length=80),
                 "editionMarkers": _clean_list(item.get("editionMarkers"), limit=6, max_length=80),
             }
-        )
-    return observations[:image_limit]
+        if source == "listing":
+            observation["imageSource"] = source
+        component = str(item.get("component") or "").strip().lower()
+        if component in COMPONENTS:
+            observation["component"] = component
+        if isinstance(item.get("textSnippets"), list):
+            observation["textSnippets"] = _clean_list(item["textSnippets"], limit=12, max_length=180)
+        if item.get("contentName"):
+            observation["contentName"] = str(item["contentName"]).strip()[:80]
+        if observation not in observations:
+            observations.append(observation)
+        # Bound components, not photos: one photograph can show a whole opened set.
+        if len(observations) >= max(0, image_limit) * 12:
+            break
+    return observations
 
 
 def _normalized_text(value: str) -> str:

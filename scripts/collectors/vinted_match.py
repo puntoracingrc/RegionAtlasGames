@@ -195,6 +195,9 @@ def product_to_ingest_row(
     bucket = infer_vinted_condition_bucket(product, full_text)
     if vision_condition in DISPLAY_BUCKETS:
         bucket = vision_condition
+    elif "cover_vision_condition_unknown" in vision_notes:
+        bucket = None
+        row["conditionResolvedBy"] = "cover_vision_unknown"
     if bucket and bucket in DISPLAY_BUCKETS:
         row["condition"] = bucket
     if "cover_vision" in evidence and region_verified:

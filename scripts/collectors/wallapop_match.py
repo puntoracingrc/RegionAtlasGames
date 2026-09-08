@@ -391,6 +391,9 @@ def product_to_ingest_row(
             row["conditionConflictDetected"] = True
         bucket = vision_condition
         row["conditionResolvedBy"] = "cover_vision"
+    elif "cover_vision_condition_unknown" in vision_notes:
+        bucket = None
+        row["conditionResolvedBy"] = "cover_vision_unknown"
     if bucket:
         row["condition"] = bucket
     if ai_result and match_method == "search":

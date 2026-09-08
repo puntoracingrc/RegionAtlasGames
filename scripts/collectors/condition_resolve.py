@@ -130,6 +130,9 @@ def resolve_condition_bucket(
     Devuelve (estado, method) con method: text | vision | none.
     estado ∈ loose | game_manual | complete | sealed | None
     """
+    # Do not undo a completed visual assessment with seller text or another automatic call.
+    if row.get("conditionResolvedBy") == "cover_vision_unknown":
+        return None, "none"
     title = str(row.get("title") or "")
     condition_raw = str(row.get("condition") or "")
     if manual_expected is None and isinstance(row.get("manualExpected"), bool):

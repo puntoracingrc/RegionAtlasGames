@@ -140,6 +140,8 @@ def enrich_listing_region_from_cover(
         notes.append("cover_vision_required")
         return listing_region, evidence, ai_conf, False, condition, notes
 
+    if "cover_vision" in evidence and condition is None:
+        notes.append("cover_vision_condition_unknown")
     if "cover_vision" in evidence and verified:
         notes.append("cover_vision_verified")
     elif "cover_vision" in evidence:
@@ -246,6 +248,10 @@ def apply_region_enrichment_to_row(
 
     if vision_condition in DISPLAY_BUCKETS:
         row["condition"] = vision_condition
+    elif "cover_vision_condition_unknown" in vision_notes:
+        row.pop("condition", None)
+        row.pop("conditionBucket", None)
+        row["conditionResolvedBy"] = "cover_vision_unknown"
 
     if "cover_vision" in evidence and region_verified:
         base_method = str(row.get("matchMethod") or "title")
