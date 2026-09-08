@@ -19655,6 +19655,14 @@
         "complete": 72.65,
         "sealed": null,
         "newRetail": null
+      },
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 63.69,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "gameboy-pal-castlevania-adventure": [
@@ -19663,6 +19671,14 @@
         "loose": null,
         "gameManual": 4.9,
         "complete": null,
+        "sealed": null,
+        "newRetail": null
+      },
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": 4.9,
+        "complete": 152.4,
         "sealed": null,
         "newRetail": null
       }
@@ -19743,6 +19759,14 @@
         "loose": null,
         "gameManual": 12.76,
         "complete": null,
+        "sealed": null,
+        "newRetail": null
+      },
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": 12.76,
+        "complete": 170.28,
         "sealed": null,
         "newRetail": null
       }
@@ -19973,6 +19997,14 @@
         "complete": null,
         "sealed": null,
         "newRetail": null
+      },
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": 20.28,
+        "complete": 191.95,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "gameboy-pal-prehistorik-man": [
@@ -19983,6 +20015,14 @@
         "complete": null,
         "sealed": null,
         "newRetail": null
+      },
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": 23.68,
+        "gameManual": 53.85,
+        "complete": 122.46,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "gameboy-pal-primal-rage": [
@@ -19991,6 +20031,14 @@
         "loose": null,
         "gameManual": 10.4,
         "complete": null,
+        "sealed": null,
+        "newRetail": null
+      },
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": 10.4,
+        "complete": 32.45,
         "sealed": null,
         "newRetail": null
       }
@@ -20031,6 +20079,14 @@
         "loose": null,
         "gameManual": 28.73,
         "complete": null,
+        "sealed": null,
+        "newRetail": null
+      },
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": 45.0,
+        "gameManual": 28.73,
+        "complete": 98.95,
         "sealed": null,
         "newRetail": null
       }
@@ -20491,6 +20547,336 @@
         "loose": null,
         "gameManual": null,
         "complete": 179.38,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-blades-steel": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 53.82,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-killer-instinct": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 87.45,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-kirbys-pinball-land": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 59.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-kirbys-star-stacker": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": 75.0,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-krustys-fun-house": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 52.42,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-madden-96": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 40.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-marios-picross": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 59.92,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-mystic-quest": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 153.67,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-mystical-ninja-starring-goemon": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 117.49,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-nba-live-96": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": null,
+        "sealed": 71.97,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-riddick-bowe-boxing": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 69.33,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-robocop-versus-terminator": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 167.45,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-sneaky-snakes": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 130.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-solar-striker": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 78.62,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-speedball-2-brutal-deluxe": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 86.22,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-spider-man-3-invasion-spider-slayers": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 226.49,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-star-trek-generations-beyond-nexus": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 54.33,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-super-mario-land-3-wario-land": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": 16.95,
+        "gameManual": 18.37,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-tetris-2": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 50.72,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-tetris-plus": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 28.48,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-blues-brothers-jukebox-adventure": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 154.07,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-bugs-bunny-crazy-castle": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 59.99,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-king-fighters-heat-battle": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": 49.97,
+        "gameManual": 54.5,
+        "complete": 259.95,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-legend-zelda-links-awakening": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": 79.9,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-simpsons-bart-vs-juggernauts": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 69.97,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-spirit-f-1": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 45.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-titus-fox": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 149.82,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-top-ranking-tennis": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 144.45,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-vegas-stakes": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 30.93,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-wario-blast-featuring-bomberman": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 104.95,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-wwf-war-zone": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": 10.64,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-yogi-bears-gold-rush": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 62.2,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-yoshis-cookie": [
+      {
+        "at": "2026-09-08T11:28:29Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 235.0,
         "sealed": null,
         "newRetail": null
       }
