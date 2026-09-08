@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { mergeScannerPerceptions, normalizeScannerPerception, normalizeScannerReasoning, type ScannerSource } from "./game-scanner";
+import { mergeScannerPerceptions, normalizeScannerPerception, normalizeScannerReasoning, scannerInterpretationSkipReason, SCANNER_SKIP_LABELS, type ScannerSource } from "./game-scanner";
 import { exactScannerCatalogIds, scannerDocumentaryKnowledge, scannerUsageFromResponse } from "./scanner-knowledge";
 
 const observation = { photo: 1, component: "game", description: "Cartucho", codes: ["DMG-ESP"], texts: [], languages: ["en"], distributors: [] };
@@ -77,6 +77,89 @@ test("independent photo readings map back to the correct global photo and compon
 test("conflicting game identities in different photos remain unresolved", () => {
   const merged = mergeScannerPerceptions([perception, { ...perception, title: "Tetris 2" }]);
   assert.equal(merged.title, null);
-  assert.equal(merged.platformSlug, null);
+  assert.equal(merged.platformSlug, "gameboy");
+  assert.equal(merged.identityConflict, true);
   assert.equal(merged.identityConfidence, 0);
+  assert.equal(scannerInterpretationSkipReason(merged, "gameboy"), "identity_conflict");
+  assert.equal(normalizeScannerReasoning({ region: { value: "PAL España", observationIds: ["o1"] } }, merged, sources, "gameboy").region.value, null);
+});
+
+test("GT64 reviewed abbreviated/full title keeps observed N64 platform and longest observed title", () => {
+  const merged = mergeScannerPerceptions([
+    { ...perception, platformSlug: "n64", title: "GT64" },
+    { ...perception, platformSlug: "n64", title: "GT 64 Championship Edition" },
+    { ...perception, platformSlug: null, title: null, identityConfidence: 0 },
+  ]);
+  assert.equal(merged.title, "GT 64 Championship Edition");
+  assert.equal(merged.platformSlug, "n64");
+  assert.equal(merged.identityConflict, false);
+  assert.equal(merged.titleAliasId, "gt64-n64-title-20260908");
+  assert.equal(scannerInterpretationSkipReason(merged, "n64"), null);
+  assert.deepEqual(merged.photoReadings?.map((p) => p.title), ["GT64", "GT 64 Championship Edition", null]);
+});
+
+test("an alias never fills an unobserved subtitle, region or component pairing", () => {
+  const merged = mergeScannerPerceptions([{ ...perception, platformSlug: "n64", title: "GT64" }]);
+  assert.equal(merged.title, "GT64");
+  assert.equal(normalizeScannerReasoning({}, merged, [], "n64").region.value, null);
+  assert.equal(normalizeScannerReasoning({ composition: { status: "compatible", observationIds: ["o1", "o2"], sourceIds: ["documented"] } }, merged, sources, "n64").composition.status, "unknown");
+});
+
+test("unknown reverse-side identity and ordinary spacing do not veto a clear front", () => {
+  const merged = mergeScannerPerceptions([
+    { ...perception, title: "GT64", platformSlug: "n64" },
+    { ...perception, title: "GT 64", platformSlug: "n64" },
+    { ...perception, title: null, platformSlug: "n64", identityConfidence: 0 },
+    { ...perception, title: null, platformSlug: null, identityConfidence: 0 },
+  ]);
+  assert.equal(merged.platformSlug, "n64");
+  assert.equal(merged.identityConflict, false);
+  assert.equal(merged.identityConfidence, 0.95);
+});
+
+test("title aliases are platform scoped and never authorize a sequel or unreviewed edition suffix", () => {
+  for (const [platformSlug, title] of [["gameboy", "GT 64 Championship Edition"], ["n64", "GT 64 2"], ["n64", "GT 64 Deluxe"], ["n64", "GT 64 Championship Racing"]]) {
+    const merged = mergeScannerPerceptions([{ ...perception, platformSlug, title: "GT64" }, { ...perception, platformSlug, title }]);
+    assert.equal(merged.identityConflict, true);
+    assert.equal(scannerInterpretationSkipReason(merged, platformSlug), "identity_conflict");
+  }
+});
+
+test("conflicting platforms remain blocked even with equal game names", () => {
+  const merged = mergeScannerPerceptions([perception, { ...perception, platformSlug: "snes" }]);
+  assert.equal(merged.platformSlug, null);
+  assert.equal(merged.platformConflict, true);
+  assert.equal(scannerInterpretationSkipReason(merged, "gameboy"), "platform_conflict");
+});
+
+test("multiple titles in a single photo cannot be silently accepted as one specimen", () => {
+  const multi = normalizeScannerPerception({ ...perception, multipleGames: true, title: null }, 1);
+  const merged = mergeScannerPerceptions([multi, perception]);
+  assert.equal(merged.platformSlug, "gameboy");
+  assert.equal(scannerInterpretationSkipReason(merged, "gameboy"), "identity_conflict");
+  assert.equal(normalizeScannerPerception({ multipleGames: "true" }, 1).multipleGames, false);
+});
+
+test("critical conflict diagnostics survive the uncertainty cap and photo doubts retain scope", () => {
+  const doubts = Array.from({ length: 12 }, (_, i) => `Duda local ${i}`);
+  const merged = mergeScannerPerceptions([{ ...perception, uncertainties: doubts }, { ...perception, title: "Tetris 2", uncertainties: ["Solo se ve la trasera."] }]);
+  assert.equal(merged.uncertainties.length, 12);
+  assert.equal(merged.uncertainties[0], SCANNER_SKIP_LABELS.identity_conflict);
+  assert.ok(merged.uncertainties[1].startsWith("Foto 1:"));
+  assert.deepEqual(merged.photoReadings?.[1].uncertainties, ["Solo se ve la trasera."]);
+});
+
+test("catalog candidates use only reviewed title equivalences and retain separate regional IDs", () => {
+  const rows = [
+    { id: "eu", title: "GT 64", platformSlug: "n64" },
+    { id: "us", title: "GT 64: Championship Edition", platformSlug: "n64" },
+    { id: "sequel", title: "GT 64 2", platformSlug: "n64" },
+    { id: "other", title: "GT 64", platformSlug: "gameboy" },
+    { id: "excluded", title: "GT 64", platformSlug: "n64", listingStatus: "excluded" },
+  ];
+  const snapshot = JSON.stringify(rows);
+  const merged = mergeScannerPerceptions([{ ...perception, title: "GT64", platformSlug: "n64" }]);
+  assert.deepEqual(exactScannerCatalogIds(rows, merged, "n64"), ["eu", "us"]);
+  assert.equal(JSON.stringify(rows), snapshot);
+  assert.deepEqual(exactScannerCatalogIds(rows, { ...merged, identityConflict: true }, "n64"), []);
 });

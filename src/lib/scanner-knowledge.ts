@@ -7,7 +7,7 @@ import snesDistributions from "../../data/region-research/snes-distributions.jso
 import megadrive from "../../data/region-research/megadrive.json";
 import nes from "../../data/region-research/nes.json";
 import { loadMarketplaceCollectorLearning } from "./marketplace-collector-context";
-import { object, scannerText, type ScannerPerception, type ScannerSource } from "./game-scanner";
+import { object, scannerEquivalentTitles, scannerText, type ScannerPerception, type ScannerSource } from "./game-scanner";
 
 type ResearchEntry = { id: string; text: string; status?: string; sourceIds: string[]; catalogIds?: string[]; distributionVariants?: unknown[] };
 type ResearchDocument = {
@@ -24,12 +24,12 @@ function normalizeTitle(title: string): string {
 }
 
 export function exactScannerCatalogIds(catalog: CatalogIdentity[], perception: ScannerPerception, platformSlug: string): string[] {
-  if (perception.identityConfidence < 0.85 || perception.platformSlug !== platformSlug || !perception.title) return [];
-  const title = normalizeTitle(perception.title);
-  if (!title) return [];
+  if (perception.identityConflict || perception.platformConflict || perception.identityConfidence < 0.85 || perception.platformSlug !== platformSlug || !perception.title) return [];
+  const titles = scannerEquivalentTitles(perception.title, platformSlug).map(normalizeTitle).filter(Boolean);
+  if (!titles.length) return [];
   return catalog.filter((game) => game.platformSlug === platformSlug && game.listingStatus !== "excluded"
     && (!game.catalogKind || game.catalogKind === "game")
-    && [game.title, game.titlePc].some((name) => name && normalizeTitle(name) === title)).map((game) => game.id);
+    && [game.title, game.titlePc].some((name) => name && titles.includes(normalizeTitle(name)))).map((game) => game.id);
 }
 
 export function scannerDocumentaryKnowledge(platformSlug: string, catalogIds: string[]) {

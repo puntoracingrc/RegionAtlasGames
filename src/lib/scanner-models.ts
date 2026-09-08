@@ -17,6 +17,11 @@ export function scannerModel(value: unknown) {
   return SCANNER_MODELS.find((model) => model.id === value);
 }
 
+export function scannerPerceptionMode(model: ScannerModelId): "joint" | "per_photo" {
+  // Mini's high-detail tile budget needs isolated images; larger models can compare the full set.
+  return model === "gpt-4o-mini" ? "per_photo" : "joint";
+}
+
 export function scannerModelsForAccess(advanced: boolean) {
   return SCANNER_MODELS.filter((model) => advanced || model.id === SCANNER_DEFAULT_MODEL);
 }
