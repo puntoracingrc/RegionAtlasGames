@@ -15,6 +15,7 @@ const LINKS = [
   { href: "/vitrina", label: "Vitrina" },
   { href: "/plataformas", label: "Plataformas" },
   { href: "/coleccion", label: "Mi colección" },
+  { href: "/escaner", label: "Escáner" },
 ];
 
 const INDUSTRY_LINKS = [

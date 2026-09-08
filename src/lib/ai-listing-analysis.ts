@@ -10,10 +10,8 @@ import { getCatalogGame } from "./catalog";
 import { fingerprintListingPhoto, perceptualHashDistance } from "./listing-photo-sharp";
 import { MAX_DUPLICATE_PHOTO_DISTANCE, missingRequiredPhotos } from "./listing-photos";
 import { getMarketplaceCollectorContext } from "./marketplace-collector-context";
-import {
-  mutateMarketplaceDocument,
-  readMarketplaceDocument,
-} from "./marketplace-document-store";
+import { consumeAiQuota } from "./ai-quota";
+export { consumeAiQuota, getAiUsageCount, aiQuotaRemaining } from "./ai-quota";
 import type {
   AiListingAnalysis,
   ListingPhoto,
@@ -23,13 +21,10 @@ import type {
 } from "./marketplace-types";
 import { listingAskingPriceEur } from "./marketplace-listing-values";
 import { evaluateListingVisionEvidence } from "./marketplace-verification";
-import { aiQuotaForPlan } from "./plans";
 import { safeRemoteFetch } from "./remote-fetch";
 
-const USAGE_DOCUMENT = "ai-usage.json";
 const MAX_REMOTE_PHOTO_BYTES = 12 * 1024 * 1024;
 
-type UsageRow = { userId: string; month: string; count: number };
 type ResolvedPhoto = {
   photo: ListingPhoto;
   buffer: Buffer;
@@ -38,56 +33,10 @@ type ResolvedPhoto = {
   perceptualHash: string;
 };
 
-function monthKey(d = new Date()): string {
-  return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
-}
-
 function shouldUseBlobStorage(): boolean {
   assertDurableBlobConfigured();
   if (process.env.VERCEL) return blobAuthConfigured();
   return Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim());
-}
-
-async function readUsage(): Promise<UsageRow[]> {
-  return readMarketplaceDocument<UsageRow>(USAGE_DOCUMENT);
-}
-
-export async function getAiUsageCount(userId: string): Promise<number> {
-  const key = monthKey();
-  return (await readUsage()).find((row) => row.userId === userId && row.month === key)?.count ?? 0;
-}
-
-export async function consumeAiQuota(
-  userId: string,
-  plan: UserPlan,
-): Promise<{ allowed: boolean; count: number; remaining: number }> {
-  const key = monthKey();
-  const limit = aiQuotaForPlan(plan);
-  return mutateMarketplaceDocument<UsageRow, { allowed: boolean; count: number; remaining: number }>(
-    USAGE_DOCUMENT,
-    (rows) => {
-      const index = rows.findIndex((row) => row.userId === userId && row.month === key);
-      const count = index === -1 ? 0 : rows[index].count;
-      if (count >= limit) {
-        return {
-          next: rows,
-          result: { allowed: false, count, remaining: 0 },
-          changed: false,
-        };
-      }
-      const nextCount = count + 1;
-      if (index === -1) rows.push({ userId, month: key, count: nextCount });
-      else rows[index].count = nextCount;
-      return {
-        next: rows,
-        result: { allowed: true, count: nextCount, remaining: Math.max(0, limit - nextCount) },
-      };
-    },
-  );
-}
-
-export async function aiQuotaRemaining(userId: string, plan: UserPlan): Promise<number> {
-  return Math.max(0, aiQuotaForPlan(plan) - await getAiUsageCount(userId));
 }
 
 function listingPhotoBlobPath(listingId: string, slot: string): string {
