@@ -9,8 +9,8 @@
     "batchSize": 250,
     "searchBudgetPerRun": 250,
     "dailySearchBudget": 1000,
-    "dailySearchesUsed": 511,
-    "dailySearchesRemaining": 489,
+    "dailySearchesUsed": 250,
+    "dailySearchesRemaining": 750,
     "regions": [
       "PAL España",
       "PAL Europa"
@@ -20,56 +20,56 @@
   "currentPlatform": "gameboy",
   "currentPlatformName": "Nintendo Game Boy",
   "currentRegion": "PAL Europa",
-  "updatedAt": "2026-09-07T22:18:03Z",
+  "updatedAt": "2026-09-08T05:46:21Z",
   "lastRun": {
-    "at": "2026-09-07T22:18:03Z",
+    "at": "2026-09-08T05:46:21Z",
     "platformSlug": "gameboy",
     "platformName": "Nintendo Game Boy",
-    "region": "PAL España",
-    "selected": 242,
-    "processed": 242,
-    "matched": 74,
-    "listingsAdded": 208,
-    "regionalReroutes": 102,
-    "regionalReviews": 269,
-    "apiSearches": 242,
+    "region": "PAL Europa",
+    "selected": 250,
+    "processed": 250,
+    "matched": 107,
+    "listingsAdded": 190,
+    "regionalReroutes": 19,
+    "regionalReviews": 1009,
+    "apiSearches": 250,
     "searchBudget": 250,
-    "searchBudgetExhausted": false,
+    "searchBudgetExhausted": true,
     "failed": 0,
     "systemicError": null,
     "aiUsage": {
-      "batchId": "19ba6b21570e4ea7abd3d04a6ea23790",
-      "responses": 1189,
+      "batchId": "84e89a8e095d4177acef8b858179f166",
+      "responses": 1498,
       "responsesMissingUsage": 0,
-      "inputTokens": 43573823,
-      "cachedInputTokens": 163072,
-      "outputTokens": 162715,
-      "totalTokens": 43736538,
+      "inputTokens": 54122773,
+      "cachedInputTokens": 64384,
+      "outputTokens": 240043,
+      "totalTokens": 54362816,
       "responsesMissingCacheUsage": 0,
       "byModel": {
         "gpt-4o-mini-2024-07-18": {
-          "inputTokens": 43573823,
-          "outputTokens": 162715,
-          "totalTokens": 43736538,
-          "cachedInputTokens": 163072
+          "inputTokens": 54122773,
+          "outputTokens": 240043,
+          "totalTokens": 54362816,
+          "cachedInputTokens": 64384
         }
       }
     },
     "coverCandidatesAdded": 0
   },
   "dailyUsage": {
-    "date": "2026-09-07",
-    "apiSearches": 511
+    "date": "2026-09-08",
+    "apiSearches": 250
   },
   "totals": {
     "catalogGames": 25777,
-    "completed": 4937,
-    "matched": 1311,
-    "noMatch": 3626,
+    "completed": 5187,
+    "matched": 1418,
+    "noMatch": 3769,
     "deferred": 0,
-    "pending": 20840
+    "pending": 20590
   },
-  "estimatedRunsRemaining": 84,
+  "estimatedRunsRemaining": 83,
   "estimatedDaysRemaining": 21,
   "platforms": [
     {
@@ -236,14 +236,14 @@
       "platformName": "Nintendo Game Boy",
       "status": "running",
       "currentRegion": "PAL Europa",
-      "updatedAt": "2026-09-07T22:18:03Z",
+      "updatedAt": "2026-09-08T05:46:21Z",
       "totals": {
         "catalogGames": 962,
-        "completed": 492,
-        "matched": 167,
-        "noMatch": 325,
+        "completed": 742,
+        "matched": 274,
+        "noMatch": 468,
         "deferred": 0,
-        "pending": 470
+        "pending": 220
       },
       "regions": [
         {
@@ -266,11 +266,11 @@
           "marketScope": "multi_region",
           "originLabel": "Europa multirregión",
           "total": 470,
-          "completed": 0,
-          "matched": 0,
-          "noMatch": 0,
+          "completed": 250,
+          "matched": 107,
+          "noMatch": 143,
           "deferred": 0,
-          "pending": 470
+          "pending": 220
         }
       ]
     },
@@ -1361,6 +1361,32 @@
             "outputTokens": 162715,
             "totalTokens": 43736538,
             "cachedInputTokens": 163072
+          }
+        }
+      },
+      "coverCandidatesAdded": 0
+    },
+    {
+      "at": "2026-09-08T05:46:21Z",
+      "level": "info",
+      "message": "Nintendo Game Boy · PAL Europa: 250/250 consultados, 107 con evidencias, 190 anuncios aceptados, 19 aprovechados en otra región, 1009 a revisión, 0 fallos, 0 aplazados.",
+      "platformSlug": "gameboy",
+      "region": "PAL Europa",
+      "aiUsage": {
+        "batchId": "84e89a8e095d4177acef8b858179f166",
+        "responses": 1498,
+        "responsesMissingUsage": 0,
+        "inputTokens": 54122773,
+        "cachedInputTokens": 64384,
+        "outputTokens": 240043,
+        "totalTokens": 54362816,
+        "responsesMissingCacheUsage": 0,
+        "byModel": {
+          "gpt-4o-mini-2024-07-18": {
+            "inputTokens": 54122773,
+            "outputTokens": 240043,
+            "totalTokens": 54362816,
+            "cachedInputTokens": 64384
           }
         }
       },

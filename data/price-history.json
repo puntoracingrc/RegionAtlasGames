@@ -19915,6 +19915,14 @@
         "complete": null,
         "sealed": null,
         "newRetail": null
+      },
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": 19.71,
+        "gameManual": 20.24,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
       }
     ],
     "gameboy-es-lemmings": [
@@ -20163,6 +20171,326 @@
         "loose": null,
         "gameManual": 36.48,
         "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-4-1-funpak-volume-ii": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 64.99,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-adventure-island-ii-aliens-paradise": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 299.95,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-alleyway": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": 14.95,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-bart-simpsons-escape-from-camp-deadly": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 41.93,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-bill-teds-excellent-game-boy": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 92.56,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-bionic-commando": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 182.45,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-boulder-dash": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 104.96,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-boxxle-ii": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 950.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-burai-fighter-deluxe": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 116.63,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-casino-funpak": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 22.71,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-donkey-kong-land-iii": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": 15.72,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-double-dragon": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 109.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-dr-franken-ii": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 80.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-gear-works": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 100.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-jurassic-park-part-2-chaos-continues": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 265.55,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-kid-icarus-myths-and-monsters": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 281.88,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-king-zoo": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 34.5,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-konami-golf": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 64.95,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-lucle": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 202.47,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-magnetic-soccer": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 74.99,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-mercenary-force": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 136.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-mickeys-dangerous-chase": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 49.95,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-milons-secret-castle": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 124.97,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-mole-mania": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": 69.81,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-monster-max": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": 21.49,
+        "gameManual": null,
+        "complete": null,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-montezumas-return": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 82.32,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-nba-all-star-challenge-2": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 52.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-nigel-mansells-world-championship-racing": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 31.6,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pinball-deluxe": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 67.71,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-pinball-fantasies": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 84.45,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-pokemon-red-version": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 296.0,
+        "sealed": null,
+        "newRetail": null
+      }
+    ],
+    "gameboy-pal-popeye-2": [
+      {
+        "at": "2026-09-08T04:49:51Z",
+        "loose": null,
+        "gameManual": null,
+        "complete": 179.38,
         "sealed": null,
         "newRetail": null
       }
