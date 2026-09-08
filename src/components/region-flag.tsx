@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { AU, DE, ES, GB, JP, US } from "country-flag-icons/react/3x2";
+import { AU, DE, ES, GB, IT, JP, US } from "country-flag-icons/react/3x2";
 import { FlagEu, FlagUnknown } from "@/components/flag-icons";
 import { getRegionDisplay, type RegionFlagCode } from "@/lib/region-display";
 import { cn } from "@/lib/cn";
@@ -22,6 +22,7 @@ const FLAG_COMPONENTS: Record<RegionFlagCode, FlagComponent> = {
   JP,
   GB,
   DE,
+  IT,
   AU,
   UNKNOWN: FlagUnknown,
 };

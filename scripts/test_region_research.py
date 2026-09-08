@@ -172,10 +172,14 @@ class ResearchTests(unittest.TestCase):
                 self.assertIn(catalog[catalog_id]["region"], {"PAL Europa", "PAL España"})
 
     def test_snes_pending_exceptions_not_in_prompt(self):
+        document = json.loads(research.SNES_RESEARCH_FILE.read_text())
+        pending = [entry["text"] for entry in document["gameReferences"]
+                   if entry.get("status") == "pending_primary_evidence"]
         for catalog_id in ("snes-super-mario-world-2-yoshi%27s-island",
                            "snes-illusion-of-time-big-box-spanish", "snes-pal-eu-yoshi-s-cookie"):
             prompt = research.region_research_prompt("snes", catalog_id)
-            self.assertNotIn("Arcadia", prompt)
+            for claim in pending:
+                self.assertNotIn(claim, prompt)
             self.assertNotIn("cartuchos NOE", prompt)
             self.assertNotIn("guia en lugar", prompt)
 
@@ -494,7 +498,8 @@ class ResearchTests(unittest.TestCase):
             self.assertNotIn("DMG-XA-FAH", research.region_research_prompt("gameboy", catalog_id))
 
     def test_missing_research_has_legacy_fallback(self):
-        with patch.object(research, "RESEARCH_FILE", Path("/nonexistent/research.json")):
+        with patch.object(research, "RESEARCH_FILE", Path("/nonexistent/research.json")), \
+                patch.object(research, "GAMEBOY_REVIEWED_FILE", Path("/nonexistent/reviewed.json")):
             self.assertEqual(research.region_research_prompt("gameboy", None), "")
 
     def test_vision_consumes_guidance_without_fabricating_observations(self):

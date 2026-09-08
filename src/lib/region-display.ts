@@ -1,4 +1,4 @@
-export type RegionFlagCode = "ES" | "EU" | "US" | "JP" | "GB" | "DE" | "AU" | "UNKNOWN";
+export type RegionFlagCode = "ES" | "EU" | "US" | "JP" | "GB" | "DE" | "IT" | "AU" | "UNKNOWN";
 
 export type RegionDisplay = {
   flagCode: RegionFlagCode;
@@ -13,6 +13,7 @@ const REGION_MAP: Record<string, RegionDisplay> = {
   "pal uk/eng": { flagCode: "GB", label: "PAL UK", shortLabel: "UK" },
   "pal uk": { flagCode: "GB", label: "PAL UK", shortLabel: "UK" },
   "pal alemania": { flagCode: "DE", label: "PAL Alemania", shortLabel: "DE" },
+  "pal italia": { flagCode: "IT", label: "PAL Italia", shortLabel: "IT" },
   usa: { flagCode: "US", label: "NTSC USA", shortLabel: "US" },
   "ntsc usa": { flagCode: "US", label: "NTSC USA", shortLabel: "US" },
   japón: { flagCode: "JP", label: "NTSC-J Japón", shortLabel: "JP" },

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-07T22:16:25Z",
+  "updatedAt": "2026-09-08",
   "items": [
     {
       "id": "4ac5756bde075b4438d5",
@@ -73,7 +73,7 @@
     },
     {
       "id": "76231edf85c2a7beca2e",
-      "status": "pending",
+      "status": "rejected",
       "source": "ebay-es",
       "platformSlug": "gameboy",
       "targetRegion": "PAL Europa",
@@ -91,10 +91,9 @@
       "triageMatchedReference": null,
       "evidence": {
         "url": "https://www.ebay.es/itm/143915168489?_skw=Monster+Max&hash=item21820332e9:g:x4gAAOSwGB1f~DO2",
-        "imageUrl": "https://i.ebayimg.com/images/g/x4gAAOSwGB1f~DO2/s-l225.jpg",
+        "imageUrl": "https://i.ebayimg.com/images/g/x4gAAOSwGB1f~DO2/s-l1600.webp",
         "imageUrls": [
-          "https://i.ebayimg.com/images/g/x4gAAOSwGB1f~DO2/s-l225.jpg",
-          "https://i.ebayimg.com/images/g/x4gAAOSwGB1f~DO2/s-l960.jpg"
+          "https://i.ebayimg.com/images/g/x4gAAOSwGB1f~DO2/s-l1600.webp"
         ],
         "description": null,
         "characteristics": null,
@@ -102,18 +101,17 @@
         "catalogTitle": null,
         "catalogCoverUrl": null,
         "regionEvidence": [
-          "listing_title_region",
-          "seller_states_region",
-          "cover_pal_eu",
-          "photo_region_mark",
-          "cover_vision"
+          "human_reviewed_physical_components"
         ],
         "matchMethod": null,
         "matchScore": null,
         "matchMargin": null,
         "matchAlternatives": [],
         "aiConfidence": 0.9,
-        "reviewNotes": [],
+        "reviewNotes": [
+          "Exclude the merchandise listing, not a regional edition to discover.",
+          "Printed game artwork on merchandise is not evidence for a physical game listing or for its regional packaging."
+        ],
         "conditionRaw": null,
         "manualExpected": true,
         "manualExpectationSource": "platform_generation_default",
@@ -136,7 +134,15 @@
       "jobId": "19ba6b21570e4ea7abd3d04a6ea23790",
       "collectedAt": "2026-09-07T21:36:07Z",
       "createdAt": "2026-09-07T22:16:25Z",
-      "updatedAt": "2026-09-07T22:16:25Z"
+      "updatedAt": "2026-09-08",
+      "decidedAt": "2026-09-08",
+      "decision": {
+        "action": "reject",
+        "note": "Exclude the merchandise listing, not a regional edition to discover. Printed game artwork on merchandise is not evidence for a physical game listing or for its regional packaging.",
+        "reviewBatch": "gameboy-visual-reviewed-20260908",
+        "reviewer": "Codex visual audit; application explicitly authorized by user",
+        "reasonCode": "non_game"
+      }
     },
     {
       "id": "89e9dd63450296e8b3d7",
@@ -3403,16 +3409,16 @@
     },
     {
       "id": "2a6afc6eda62de70cc2e",
-      "status": "pending",
+      "status": "accepted",
       "source": "ebay-es",
       "platformSlug": "gameboy",
       "targetRegion": "PAL Europa",
-      "detectedRegion": "PAL Europa",
-      "catalogId": "gameboy-pal-super-hunchback",
-      "candidateCatalogId": "gameboy-pal-super-hunchback",
+      "detectedRegion": "PAL UK/ENG",
+      "catalogId": "gameboy-uk-super-hunchback",
+      "candidateCatalogId": "gameboy-uk-super-hunchback",
       "listingTitle": "GAME BOY Super Hunchback. Starring Quasimodo. PAL UKV. Como Nuevo",
       "priceEur": 245.0,
-      "condition": "unknown",
+      "condition": "complete",
       "reason": "estado_desconocido",
       "triageBucket": "manual_match",
       "triageReason": "estado_desconocido",
@@ -3421,10 +3427,10 @@
       "triageMatchedReference": null,
       "evidence": {
         "url": "https://www.ebay.es/itm/407058967122?_skw=Super+Hunchback&hash=item5ec69aea52:g:ZdgAAeSwBRxqToPw",
-        "imageUrl": "https://i.ebayimg.com/images/g/ZdgAAeSwBRxqToPw/s-l225.jpg",
+        "imageUrl": "https://i.ebayimg.com/images/g/ZdgAAeSwBRxqToPw/s-l1600.webp",
         "imageUrls": [
-          "https://i.ebayimg.com/images/g/ZdgAAeSwBRxqToPw/s-l225.jpg",
-          "https://i.ebayimg.com/images/g/ZdgAAeSwBRxqToPw/s-l1600.jpg"
+          "https://i.ebayimg.com/images/g/ZdgAAeSwBRxqToPw/s-l1600.webp",
+          "https://i.ebayimg.com/images/g/xZ4AAeSw7EJqToPX/s-l1600.webp"
         ],
         "description": null,
         "characteristics": null,
@@ -3432,17 +3438,17 @@
         "catalogTitle": null,
         "catalogCoverUrl": null,
         "regionEvidence": [
-          "cover_pal_eu",
-          "listing_title_region",
-          "photo_region_mark",
-          "cover_vision"
+          "human_reviewed_physical_components"
         ],
         "matchMethod": null,
         "matchScore": null,
         "matchMargin": null,
         "matchAlternatives": [],
         "aiConfidence": 0.9,
-        "reviewNotes": [],
+        "reviewNotes": [
+          "UKV cartridge and manual agree and identify a UK regional version absent from the pinned Game Boy catalog.",
+          "Do not invent a box-flap code or migrate the existing Spanish/European records. Photo 11 was not inspected."
+        ],
         "conditionRaw": null,
         "manualExpected": true,
         "manualExpectationSource": "platform_generation_default",
@@ -3465,7 +3471,17 @@
       "jobId": "19ba6b21570e4ea7abd3d04a6ea23790",
       "collectedAt": "2026-09-07T21:36:07Z",
       "createdAt": "2026-09-07T22:16:25Z",
-      "updatedAt": "2026-09-07T22:16:25Z"
+      "updatedAt": "2026-09-08",
+      "decidedAt": "2026-09-08",
+      "decision": {
+        "action": "accept",
+        "note": "UKV cartridge and manual agree and identify a UK regional version absent from the pinned Game Boy catalog. Do not invent a box-flap code or migrate the existing Spanish/European records. Photo 11 was not inspected.",
+        "reviewBatch": "gameboy-visual-reviewed-20260908",
+        "reviewer": "Codex visual audit; application explicitly authorized by user",
+        "catalogId": "gameboy-uk-super-hunchback",
+        "region": "PAL UK/ENG",
+        "condition": "complete"
+      }
     },
     {
       "id": "2feb133c68bdfcbb8098",
@@ -4180,16 +4196,16 @@
     },
     {
       "id": "6c35ef46ae7b1c1a62ae",
-      "status": "pending",
+      "status": "accepted",
       "source": "ebay-es",
       "platformSlug": "gameboy",
       "targetRegion": "PAL España",
-      "detectedRegion": "PAL España",
-      "catalogId": "gameboy-es-tetris-attack",
-      "candidateCatalogId": "gameboy-es-tetris-attack",
+      "detectedRegion": "PAL Europa",
+      "catalogId": "gameboy-pal-tetris-attack",
+      "candidateCatalogId": "gameboy-pal-tetris-attack",
       "listingTitle": "Nintendo Game Boy Tetris Attack DMG-AYLP-EUR España",
       "priceEur": 45.0,
-      "condition": "unknown",
+      "condition": "loose",
       "reason": "estado_desconocido",
       "triageBucket": "manual_match",
       "triageReason": "estado_desconocido",
@@ -4198,10 +4214,10 @@
       "triageMatchedReference": null,
       "evidence": {
         "url": "https://www.ebay.es/itm/305715721792?_skw=Tetris+Attack&hash=item472e13b640:g:430AAOSw4dJms016&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGYv6NvHVaBLohMHMe8iaO9H5as%2FesUX7zRVpT8lSV9WgmBsscsW%2FmVb3OpgBCUk9zEkNlQ78xJULxVlfXexh5MWOz%2BSQQn3YcKt0NQxZMmZwEthAWTWKr2SLldo1RJtT2NaPKR5tUHxqziOqWxNRmXA%2FzoojXL31MoTAWKQt%2Fxfk1G%2BPlZTM3D%2FXG1usCXUByu8qWZhRQg7SDVC533oTrNLIndHLTYr4et7SNz8YXphNL4OUr%2ByZwBaCqZ5yOggxpMTHRH4Z6fIop0knq%2BcC0A4UCyzrQtLzAUpfRyKWnZw0Q%3D%3D",
-        "imageUrl": "https://i.ebayimg.com/images/g/430AAOSw4dJms016/s-l225.jpg",
+        "imageUrl": "https://i.ebayimg.com/images/g/430AAOSw4dJms016/s-l1600.webp",
         "imageUrls": [
-          "https://i.ebayimg.com/images/g/430AAOSw4dJms016/s-l225.jpg",
-          "https://i.ebayimg.com/images/g/430AAOSw4dJms016/s-l1600.jpg"
+          "https://i.ebayimg.com/images/g/430AAOSw4dJms016/s-l1600.webp",
+          "https://i.ebayimg.com/images/g/~xkAAOSwShBms05g/s-l1600.webp"
         ],
         "description": null,
         "characteristics": null,
@@ -4209,15 +4225,17 @@
         "catalogTitle": null,
         "catalogCoverUrl": null,
         "regionEvidence": [
-          "cover_spain",
-          "listing_title_region"
+          "human_reviewed_physical_components"
         ],
         "matchMethod": null,
         "matchScore": null,
         "matchMargin": null,
         "matchAlternatives": [],
         "aiConfidence": 0.88,
-        "reviewNotes": [],
+        "reviewNotes": [
+          "Recover as a loose EUR cartridge, without assigning a Spanish-exclusive distribution from the listing title.",
+          "An EUR cartridge can have been distributed in Spain; this photograph alone does not demonstrate that national edition."
+        ],
         "conditionRaw": null,
         "manualExpected": true,
         "manualExpectationSource": "platform_generation_default",
@@ -4240,7 +4258,17 @@
       "jobId": "19ba6b21570e4ea7abd3d04a6ea23790",
       "collectedAt": "2026-09-07T21:36:07Z",
       "createdAt": "2026-09-07T22:16:25Z",
-      "updatedAt": "2026-09-07T22:16:25Z"
+      "updatedAt": "2026-09-08",
+      "decidedAt": "2026-09-08",
+      "decision": {
+        "action": "accept",
+        "note": "Recover as a loose EUR cartridge, without assigning a Spanish-exclusive distribution from the listing title. An EUR cartridge can have been distributed in Spain; this photograph alone does not demonstrate that national edition.",
+        "reviewBatch": "gameboy-visual-reviewed-20260908",
+        "reviewer": "Codex visual audit; application explicitly authorized by user",
+        "catalogId": "gameboy-pal-tetris-attack",
+        "region": "PAL Europa",
+        "condition": "loose"
+      }
     },
     {
       "id": "ba198ebd35385ee7cd6a",
@@ -4784,7 +4812,7 @@
     },
     {
       "id": "74f1b486ba2398b1d771",
-      "status": "pending",
+      "status": "rejected",
       "source": "ebay-es",
       "platformSlug": "gameboy",
       "targetRegion": "PAL España",
@@ -4802,10 +4830,9 @@
       "triageMatchedReference": null,
       "evidence": {
         "url": "https://www.ebay.es/itm/275605922422?_skw=Waterworld&hash=item402b64a276:g:K6QAAOSwp31jtn18&amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGacEFzqOwu1AMwenfbNraP2WVPwLPO0rhZCA2dZyjXzvOez86gA8AzGd9m93hID4Dc3ZGzE8LYs9AArvksxk4TxZqRg5156WBoNvrrEUSvHc9jVdLgc%2Bi2qlZwXecZcvE%2FU4l2JIkqTU4Dg%2FtmT7wwNYXqGbjT3N8rQgVsJyimoqE9R5Nf5SaoPfmMFNe9o3%2BWA10C00wi5LaQ9XvFWSxC%2BsudtfikaK%2Bv7tYNCns2XTX0aiq90a4LTQEpUSTajMf8lrcZqzGwTzdiLEuyrOiXx",
-        "imageUrl": "https://i.ebayimg.com/images/g/K6QAAOSwp31jtn18/s-l225.jpg",
+        "imageUrl": "https://i.ebayimg.com/images/g/K6QAAOSwp31jtn18/s-l300.webp",
         "imageUrls": [
-          "https://i.ebayimg.com/images/g/K6QAAOSwp31jtn18/s-l225.jpg",
-          "https://i.ebayimg.com/images/g/K6QAAOSwp31jtn18/s-l1600.jpg"
+          "https://i.ebayimg.com/images/g/K6QAAOSwp31jtn18/s-l300.webp"
         ],
         "description": null,
         "characteristics": null,
@@ -4813,14 +4840,17 @@
         "catalogTitle": null,
         "catalogCoverUrl": null,
         "regionEvidence": [
-          "cover_spain"
+          "human_reviewed_physical_components"
         ],
         "matchMethod": null,
         "matchScore": null,
         "matchMargin": null,
         "matchAlternatives": [],
         "aiConfidence": 0.88,
-        "reviewNotes": [],
+        "reviewNotes": [
+          "Exclude a different product category rather than leaving its game condition unresolved.",
+          "Spanish film packaging says nothing about the Spanish Game Boy release of the same name."
+        ],
         "conditionRaw": null,
         "manualExpected": true,
         "manualExpectationSource": "platform_generation_default",
@@ -4843,7 +4873,15 @@
       "jobId": "19ba6b21570e4ea7abd3d04a6ea23790",
       "collectedAt": "2026-09-07T21:36:07Z",
       "createdAt": "2026-09-07T22:16:25Z",
-      "updatedAt": "2026-09-07T22:16:25Z"
+      "updatedAt": "2026-09-08",
+      "decidedAt": "2026-09-08",
+      "decision": {
+        "action": "reject",
+        "note": "Exclude a different product category rather than leaving its game condition unresolved. Spanish film packaging says nothing about the Spanish Game Boy release of the same name.",
+        "reviewBatch": "gameboy-visual-reviewed-20260908",
+        "reviewer": "Codex visual audit; application explicitly authorized by user",
+        "reasonCode": "non_game"
+      }
     },
     {
       "id": "e481b3ef00a5c39ec19a",
@@ -12607,16 +12645,16 @@
     },
     {
       "id": "015abdf8d0b2447508d4",
-      "status": "pending",
+      "status": "accepted",
       "source": "ebay-es",
       "platformSlug": "gameboy",
       "targetRegion": "PAL España",
-      "detectedRegion": "PAL Europa",
-      "catalogId": null,
-      "candidateCatalogId": "gameboy-pal-quarth",
+      "detectedRegion": "USA",
+      "catalogId": "gameboy-usa-quarth",
+      "candidateCatalogId": "gameboy-usa-quarth",
       "listingTitle": "★ Nintendo Game Boy Quarth ★ PAL",
       "priceEur": 9.99,
-      "condition": "unknown",
+      "condition": "loose",
       "reason": "regional_confirmation_missing",
       "triageBucket": "manual_match",
       "triageReason": "regional_confirmation_missing",
@@ -12625,10 +12663,9 @@
       "triageMatchedReference": null,
       "evidence": {
         "url": "https://www.ebay.es/itm/127861119657?_skw=Quarth&hash=item1dc51ddaa9:g:70cAAeSwFbNqA0aQ",
-        "imageUrl": "https://i.ebayimg.com/images/g/70cAAeSwFbNqA0aQ/s-l225.jpg",
+        "imageUrl": "https://i.ebayimg.com/images/g/70cAAeSwFbNqA0aQ/s-l1600.webp",
         "imageUrls": [
-          "https://i.ebayimg.com/images/g/70cAAeSwFbNqA0aQ/s-l225.jpg",
-          "https://i.ebayimg.com/images/g/70cAAeSwFbNqA0aQ/s-l1600.jpg"
+          "https://i.ebayimg.com/images/g/70cAAeSwFbNqA0aQ/s-l1600.webp"
         ],
         "description": null,
         "characteristics": null,
@@ -12636,8 +12673,7 @@
         "catalogTitle": null,
         "catalogCoverUrl": null,
         "regionEvidence": [
-          "cover_pal_eu",
-          "listing_title_region"
+          "human_reviewed_physical_components"
         ],
         "matchMethod": null,
         "matchScore": null,
@@ -12652,8 +12688,8 @@
         ],
         "aiConfidence": 0.87,
         "reviewNotes": [
-          "regional_confirmation_missing",
-          "Región detectada: PAL Europa; no se aplica a la ficha buscada."
+          "Recognizable USA loose cartridge with an existing USA entry. Not eligible to price the Spanish or European ficha.",
+          "Recovering the correct region does not authorize changing the worker's daily search scope or starting a USA campaign."
         ],
         "conditionRaw": null,
         "manualExpected": true,
@@ -12677,7 +12713,17 @@
       "jobId": "19ba6b21570e4ea7abd3d04a6ea23790",
       "collectedAt": "2026-09-07T21:36:07Z",
       "createdAt": "2026-09-07T22:16:25Z",
-      "updatedAt": "2026-09-07T22:16:25Z"
+      "updatedAt": "2026-09-08",
+      "decidedAt": "2026-09-08",
+      "decision": {
+        "action": "accept",
+        "note": "Recognizable USA loose cartridge with an existing USA entry. Not eligible to price the Spanish or European ficha. Recovering the correct region does not authorize changing the worker's daily search scope or starting a USA campaign.",
+        "reviewBatch": "gameboy-visual-reviewed-20260908",
+        "reviewer": "Codex visual audit; application explicitly authorized by user",
+        "catalogId": "gameboy-usa-quarth",
+        "region": "USA",
+        "condition": "loose"
+      }
     },
     {
       "id": "c96ba854a60b0b1162e4",
@@ -14962,13 +15008,13 @@
     },
     {
       "id": "d7f572a1f0c11eea4e20",
-      "status": "pending",
+      "status": "accepted",
       "source": "ebay-es",
       "platformSlug": "gameboy",
       "targetRegion": "PAL España",
       "detectedRegion": "PAL Alemania",
-      "catalogId": null,
-      "candidateCatalogId": null,
+      "catalogId": "gameboy-de-snoopys-magic-show",
+      "candidateCatalogId": "gameboy-de-snoopys-magic-show",
       "listingTitle": "Snoopy’s Magic Show  Gameboy",
       "priceEur": 65.0,
       "condition": "complete",
@@ -14980,10 +15026,11 @@
       "triageMatchedReference": null,
       "evidence": {
         "url": "https://www.ebay.es/itm/146943102104?_skw=Snoopy%27s+Magic+Show&hash=item22367dcc98:g:RQkAAeSwNaJpC74M",
-        "imageUrl": "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l225.jpg",
+        "imageUrl": "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l1600.webp",
         "imageUrls": [
-          "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l225.jpg",
-          "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l1600.jpg"
+          "https://i.ebayimg.com/images/g/RQkAAeSwNaJpC74M/s-l1600.webp",
+          "https://i.ebayimg.com/images/g/qUcAAeSwTp9pC74P/s-l1600.webp",
+          "https://i.ebayimg.com/images/g/oXgAAeSwZAdpC74P/s-l1600.webp"
         ],
         "description": null,
         "characteristics": null,
@@ -14991,13 +15038,7 @@
         "catalogTitle": null,
         "catalogCoverUrl": null,
         "regionEvidence": [
-          "listing_title_region",
-          "seller_states_region",
-          "cover_pal_eu",
-          "cover_spain",
-          "photo_region_mark",
-          "sku_regional",
-          "cover_vision"
+          "human_reviewed_physical_components"
         ],
         "matchMethod": null,
         "matchScore": null,
@@ -15005,8 +15046,8 @@
         "matchAlternatives": [],
         "aiConfidence": 1.0,
         "reviewNotes": [
-          "regional_variant_missing",
-          "Región detectada: PAL Alemania; no se aplica a la ficha buscada."
+          "German localized packaging with explicit distributor evidence, not merely a German seller. This regional entry is absent.",
+          "The printed German packaging does not prove German gameplay text."
         ],
         "conditionRaw": null,
         "manualExpected": true,
@@ -15030,7 +15071,17 @@
       "jobId": "19ba6b21570e4ea7abd3d04a6ea23790",
       "collectedAt": "2026-09-07T21:36:07Z",
       "createdAt": "2026-09-07T22:16:25Z",
-      "updatedAt": "2026-09-07T22:16:25Z"
+      "updatedAt": "2026-09-08",
+      "decidedAt": "2026-09-08",
+      "decision": {
+        "action": "accept",
+        "note": "German localized packaging with explicit distributor evidence, not merely a German seller. This regional entry is absent. The printed German packaging does not prove German gameplay text.",
+        "reviewBatch": "gameboy-visual-reviewed-20260908",
+        "reviewer": "Codex visual audit; application explicitly authorized by user",
+        "catalogId": "gameboy-de-snoopys-magic-show",
+        "region": "PAL Alemania",
+        "condition": "complete"
+      }
     },
     {
       "id": "a2d667a2f28a4e39fa1b",
@@ -16723,16 +16774,16 @@
     },
     {
       "id": "994405522fc7b76a0a33",
-      "status": "pending",
+      "status": "accepted",
       "source": "ebay-es",
       "platformSlug": "gameboy",
       "targetRegion": "PAL España",
-      "detectedRegion": "PAL Europa",
-      "catalogId": null,
-      "candidateCatalogId": "gameboy-super-mario-land",
+      "detectedRegion": "PAL España",
+      "catalogId": "gameboy-es-super-mario-land-2",
+      "candidateCatalogId": "gameboy-es-super-mario-land-2",
       "listingTitle": "GAMEBOY -  SUPER MARIO  LAND 2 , PAL ESPAÑOL , SOLO CARTUCHO , ORIGINAL",
       "priceEur": 25.0,
-      "condition": "game_manual",
+      "condition": "loose",
       "reason": "regional_confirmation_missing",
       "triageBucket": "manual_match",
       "triageReason": "regional_confirmation_missing",
@@ -16741,10 +16792,9 @@
       "triageMatchedReference": null,
       "evidence": {
         "url": "https://www.ebay.es/itm/800612078639?_skw=Super+Mario+Land&hash=itemba6832d42f:g:k-sAAeSwcShqgZ3H",
-        "imageUrl": "https://i.ebayimg.com/images/g/k-sAAeSwcShqgZ3H/s-l225.jpg",
+        "imageUrl": "https://i.ebayimg.com/images/g/k-sAAeSwcShqgZ3H/s-l1600.webp",
         "imageUrls": [
-          "https://i.ebayimg.com/images/g/k-sAAeSwcShqgZ3H/s-l225.jpg",
-          "https://i.ebayimg.com/images/g/k-sAAeSwcShqgZ3H/s-l1600.jpg"
+          "https://i.ebayimg.com/images/g/k-sAAeSwcShqgZ3H/s-l1600.webp"
         ],
         "description": null,
         "characteristics": null,
@@ -16752,10 +16802,7 @@
         "catalogTitle": null,
         "catalogCoverUrl": null,
         "regionEvidence": [
-          "cover_pal_eu",
-          "listing_title_region",
-          "cover_spain",
-          "cover_vision"
+          "human_reviewed_physical_components"
         ],
         "matchMethod": null,
         "matchScore": null,
@@ -16770,8 +16817,8 @@
         ],
         "aiConfidence": 0.9,
         "reviewNotes": [
-          "regional_confirmation_missing",
-          "Región detectada: PAL Europa; no se aplica a la ficha buscada."
+          "Recover Spanish entry for Super Mario Land 2. The batch searched Super Mario Land 1, read the code incorrectly and asserted a manual not present.",
+          "Do not attach this listing to Super Mario Land 1 or infer gameplay Spanish from the cartridge label."
         ],
         "conditionRaw": null,
         "manualExpected": true,
@@ -16795,7 +16842,17 @@
       "jobId": "19ba6b21570e4ea7abd3d04a6ea23790",
       "collectedAt": "2026-09-07T21:36:07Z",
       "createdAt": "2026-09-07T22:16:25Z",
-      "updatedAt": "2026-09-07T22:16:25Z"
+      "updatedAt": "2026-09-08",
+      "decidedAt": "2026-09-08",
+      "decision": {
+        "action": "accept",
+        "note": "Recover Spanish entry for Super Mario Land 2. The batch searched Super Mario Land 1, read the code incorrectly and asserted a manual not present. Do not attach this listing to Super Mario Land 1 or infer gameplay Spanish from the cartridge label.",
+        "reviewBatch": "gameboy-visual-reviewed-20260908",
+        "reviewer": "Codex visual audit; application explicitly authorized by user",
+        "catalogId": "gameboy-es-super-mario-land-2",
+        "region": "PAL España",
+        "condition": "loose"
+      }
     },
     {
       "id": "92ca6741a71766a97eb6",
@@ -17783,13 +17840,13 @@
     },
     {
       "id": "2e7645bc3a0305d6661c",
-      "status": "pending",
+      "status": "accepted",
       "source": "ebay-es",
       "platformSlug": "gameboy",
       "targetRegion": "PAL España",
       "detectedRegion": "PAL Italia",
-      "catalogId": null,
-      "candidateCatalogId": "gameboy-tetris",
+      "catalogId": "gameboy-it-tetris",
+      "candidateCatalogId": "gameboy-it-tetris",
       "listingTitle": "TETRIS GIOCO NINTENDO GAME BOY PAL ITALIANO CIB SUPER COMPLETO RARO GIG ITA",
       "priceEur": 349.95,
       "condition": "complete",
@@ -17801,10 +17858,9 @@
       "triageMatchedReference": null,
       "evidence": {
         "url": "https://www.ebay.es/itm/137429610296?_skw=Tetris&hash=item1fff716f38:g:594AAeSw9AZqM~zs&amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGa3vipTZ8qmrA0pNEBV8ns2xpaNMpoy5vYXQA6WqYO5bByr4%2FhU6iKDCGmWtBNvxvpAehEdpTv5mBfgJOzTJdWRAt29wWZMr0hIGUXnEI3WpU1AFUYxoT3wwQi8kBvAiTWj1DzazgD3AJRjCytLFlQL%2FwSS9kfA58huDnAY2pXpF9wG4XbjtAxjuJdZBtgmpqbEzogDEVp5RU6ZfQZOnT3SD%2FK9d3b5hoVsCdOvzJOe9QTeZyX%2BXsBsPW%2F2MtYkWuU8DqAH6iNQOdErmtHcijE3",
-        "imageUrl": "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l225.jpg",
+        "imageUrl": "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.webp",
         "imageUrls": [
-          "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l225.jpg",
-          "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.jpg"
+          "https://i.ebayimg.com/images/g/594AAeSw9AZqM~zs/s-l1600.webp"
         ],
         "description": null,
         "characteristics": null,
@@ -17812,11 +17868,7 @@
         "catalogTitle": null,
         "catalogCoverUrl": null,
         "regionEvidence": [
-          "cover_pal_eu",
-          "listing_title_region",
-          "photo_region_mark",
-          "sku_regional",
-          "cover_vision"
+          "human_reviewed_physical_components"
         ],
         "matchMethod": null,
         "matchScore": null,
@@ -17831,8 +17883,8 @@
         ],
         "aiConfidence": 0.9,
         "reviewNotes": [
-          "regional_signal_conflict",
-          "Región detectada: PAL Italia; no se aplica a la ficha buscada."
+          "Italian localized packaging is positive evidence. The worker already detected Italy but left a conflict against the Spanish target; no Italian Game Boy catalog entries exist at the pinned snapshot.",
+          "Do not adopt the worker's alleged PEGI or DMG-TR-ITA-3: neither was independently read in this review. Do not copy the Spanish price to a new Italian entry."
         ],
         "conditionRaw": null,
         "manualExpected": true,
@@ -17856,7 +17908,17 @@
       "jobId": "19ba6b21570e4ea7abd3d04a6ea23790",
       "collectedAt": "2026-09-07T21:36:07Z",
       "createdAt": "2026-09-07T22:16:25Z",
-      "updatedAt": "2026-09-07T22:16:25Z"
+      "updatedAt": "2026-09-08",
+      "decidedAt": "2026-09-08",
+      "decision": {
+        "action": "accept",
+        "note": "Italian localized packaging is positive evidence. The worker already detected Italy but left a conflict against the Spanish target; no Italian Game Boy catalog entries exist at the pinned snapshot. Do not adopt the worker's alleged PEGI or DMG-TR-ITA-3: neither was independently read in this review. Do not copy the Spanish price to a new Italian entry.",
+        "reviewBatch": "gameboy-visual-reviewed-20260908",
+        "reviewer": "Codex visual audit; application explicitly authorized by user",
+        "catalogId": "gameboy-it-tetris",
+        "region": "PAL Italia",
+        "condition": "complete"
+      }
     },
     {
       "id": "f6aedc00e11faccc137c",
@@ -20539,16 +20601,16 @@
     },
     {
       "id": "3e5cf57f4a78743f4a89",
-      "status": "pending",
+      "status": "accepted",
       "source": "ebay-es",
       "platformSlug": "gameboy",
       "targetRegion": "PAL España",
       "detectedRegion": "PAL Europa",
-      "catalogId": null,
-      "candidateCatalogId": null,
+      "catalogId": "gameboy-pal-super-mario-land-3-wario-land",
+      "candidateCatalogId": "gameboy-pal-super-mario-land-3-wario-land",
       "listingTitle": "TARA Pegatina: Wario Land: Super Mario Land 3 GB (SP) [PO247047]",
       "priceEur": 16.95,
-      "condition": "game_manual",
+      "condition": "loose",
       "reason": "regional_variant_missing",
       "triageBucket": "manual_match",
       "triageReason": "regional_variant_missing",
@@ -20557,10 +20619,9 @@
       "triageMatchedReference": null,
       "evidence": {
         "url": "https://www.ebay.es/itm/267775480937?_skw=Wario+Land+Super+Mario+Land+3&hash=item3e58a99469:g:XHAAAeSweY5qmhvT&amdata=enc%3AAQALAAABAACCtXRWQnOEpyOqnQQ8KGYQQ%2FS1trglqj44wwrS2eQnsmKs2I2Y5C8%2FDDSEJreVlUA69Fxzf4mQ3LGyto7zgoFIiIbHjCohvD6nrms7rNqvbT3MvyOI7Ojib4dRiVn2dC1KyHWgZOQYcNvM1456GU2wxjZyMs8Z%2Fmv7hlNi9u0AeOTrrdaRLQ4FWGRSLwrA3JQXBEFHZuVfj3mccW8Y14MYU00u%2FPY3G%2FzJhgXMBAfDfOp8PAL%2FzLrGkkJILNoIAlfSOxm6E9BEd4iKghW7xbGeGXs%2BF44rZto6j7eyEpStvuCk7GtdLrfELIs8RHBjofZgLSBEAtKicdiXsTS%2Bqcw%3D",
-        "imageUrl": "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l225.jpg",
+        "imageUrl": "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.webp",
         "imageUrls": [
-          "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l225.jpg",
-          "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.jpg"
+          "https://i.ebayimg.com/images/g/XHAAAeSweY5qmhvT/s-l1600.webp"
         ],
         "description": null,
         "characteristics": null,
@@ -20568,10 +20629,7 @@
         "catalogTitle": null,
         "catalogCoverUrl": null,
         "regionEvidence": [
-          "listing_title_region",
-          "cover_pal_eu",
-          "photo_region_mark",
-          "cover_vision"
+          "human_reviewed_physical_components"
         ],
         "matchMethod": null,
         "matchScore": null,
@@ -20579,8 +20637,8 @@
         "matchAlternatives": [],
         "aiConfidence": 0.9,
         "reviewNotes": [
-          "regional_variant_missing",
-          "Región detectada: PAL Europa; no se aplica a la ficha buscada."
+          "European ficha exists under Super Mario Land 3: Wario Land. The missing-variant decision is a matching failure, not evidence that a new entry is needed.",
+          "The photographed EUR cartridge does not distinguish Spain from other European distribution. The worker's PEGI and Spanish-language observations were not visible."
         ],
         "conditionRaw": null,
         "manualExpected": true,
@@ -20604,7 +20662,17 @@
       "jobId": "19ba6b21570e4ea7abd3d04a6ea23790",
       "collectedAt": "2026-09-07T21:36:07Z",
       "createdAt": "2026-09-07T22:16:25Z",
-      "updatedAt": "2026-09-07T22:16:25Z"
+      "updatedAt": "2026-09-08",
+      "decidedAt": "2026-09-08",
+      "decision": {
+        "action": "accept",
+        "note": "European ficha exists under Super Mario Land 3: Wario Land. The missing-variant decision is a matching failure, not evidence that a new entry is needed. The photographed EUR cartridge does not distinguish Spain from other European distribution. The worker's PEGI and Spanish-language observations were not visible.",
+        "reviewBatch": "gameboy-visual-reviewed-20260908",
+        "reviewer": "Codex visual audit; application explicitly authorized by user",
+        "catalogId": "gameboy-pal-super-mario-land-3-wario-land",
+        "region": "PAL Europa",
+        "condition": "loose"
+      }
     },
     {
       "id": "176f0b446b5cbb22546c",
@@ -22777,16 +22845,16 @@
     },
     {
       "id": "2a15931917249023d109",
-      "status": "pending",
+      "status": "accepted",
       "source": "ebay-es",
       "platformSlug": "gameboy",
       "targetRegion": "PAL España",
       "detectedRegion": "PAL Europa",
-      "catalogId": null,
-      "candidateCatalogId": null,
+      "catalogId": "gameboy-legend-zelda-links-awakening",
+      "candidateCatalogId": "gameboy-legend-zelda-links-awakening",
       "listingTitle": "Legend of Zelda Link's Awakening Nintendo Game boy PAL  - original!",
       "priceEur": 79.9,
-      "condition": "unknown",
+      "condition": "loose",
       "reason": "regional_variant_missing",
       "triageBucket": "manual_match",
       "triageReason": "regional_variant_missing",
@@ -22795,25 +22863,26 @@
       "triageMatchedReference": null,
       "evidence": {
         "url": "https://www.ebay.es/itm/800220276200?_skw=Zelda+Link%27s+Awakening&hash=itemba50d865e8:g:9IQAAeSw1nlplbyV",
-        "imageUrl": "https://i.ebayimg.com/images/g/9IQAAeSw1nlplbyV/s-l225.jpg",
+        "imageUrl": "https://i.ebayimg.com/images/g/9IQAAeSw1nlplbyV/s-l1600.webp",
         "imageUrls": [
-          "https://i.ebayimg.com/images/g/9IQAAeSw1nlplbyV/s-l225.jpg",
-          "https://i.ebayimg.com/images/g/9IQAAeSw1nlplbyV/s-l1600.jpg"
+          "https://i.ebayimg.com/images/g/9IQAAeSw1nlplbyV/s-l1600.webp"
         ],
         "description": null,
         "characteristics": null,
         "externalId": "v1|800220276200|0",
         "catalogTitle": null,
         "catalogCoverUrl": null,
-        "regionEvidence": [],
+        "regionEvidence": [
+          "human_reviewed_physical_components"
+        ],
         "matchMethod": null,
         "matchScore": null,
         "matchMargin": null,
         "matchAlternatives": [],
         "aiConfidence": null,
         "reviewNotes": [
-          "regional_variant_missing",
-          "Región detectada: PAL Europa; no se aplica a la ficha buscada."
+          "Existing European ficha found under an alternative title. Recover the loose listing there, without creating a duplicate.",
+          "Do not associate this with DX, Game Boy Color or the Switch remake."
         ],
         "conditionRaw": null,
         "manualExpected": null,
@@ -22835,7 +22904,17 @@
       "jobId": "19ba6b21570e4ea7abd3d04a6ea23790",
       "collectedAt": "2026-09-07T21:36:07Z",
       "createdAt": "2026-09-07T22:16:25Z",
-      "updatedAt": "2026-09-07T22:16:25Z"
+      "updatedAt": "2026-09-08",
+      "decidedAt": "2026-09-08",
+      "decision": {
+        "action": "accept",
+        "note": "Existing European ficha found under an alternative title. Recover the loose listing there, without creating a duplicate. Do not associate this with DX, Game Boy Color or the Switch remake.",
+        "reviewBatch": "gameboy-visual-reviewed-20260908",
+        "reviewer": "Codex visual audit; application explicitly authorized by user",
+        "catalogId": "gameboy-legend-zelda-links-awakening",
+        "region": "PAL Europa",
+        "condition": "loose"
+      }
     },
     {
       "id": "c294d42a03b6ee366c98",
@@ -23186,7 +23265,163 @@
       "collectedAt": "2026-09-07T21:36:07Z",
       "createdAt": "2026-09-07T22:16:25Z",
       "updatedAt": "2026-09-07T22:16:25Z"
+    },
+    {
+      "id": "4bf4e0b7299441413507",
+      "status": "rejected",
+      "source": "ebay-es",
+      "platformSlug": "gameboy",
+      "targetRegion": "PAL España",
+      "detectedRegion": "PAL España",
+      "catalogId": "gameboy-es-super-mario-land-2",
+      "candidateCatalogId": "gameboy-es-super-mario-land-2",
+      "listingTitle": "Manual Super Mario Land 2 6 Golden Coins Nintendo Gameboy Game Boy Dmg-Mq-Fah-1",
+      "priceEur": 12,
+      "condition": "game_manual",
+      "reason": "non_game",
+      "evidence": {
+        "url": "https://www.ebay.es/itm/297478441978?_skw=Super+Mario+Land+2&hash=item454318cbfa:g:l58AAeSwoNBoeoug&amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZm2gFUM7QRsL2jgMyHb7nBMhkETnlQ%2FfB6YQ8hegOB4i9pjCpyW5EzIsmgBJ36HQCAkROnx53mTl4hBEoyWWXJs%2F11NwWXD%2BcwjqDevcIpw7N1X4bF397citHkjxX52sFzHHVP3oYHf5Hh2lBkpQ%2FnTdh2cwhPUtNAUMS%2FdbMpkKuVvLdFWazKhFr%2FandhRkPK4tEMspzmNkY1PDSh8Null7Y5EOmB1WJw4yByoJ%2FmI9esOXpG5pkuiiH74dagoKmHybM9c2hCMTT8Ql%2Fl%2FfQ%2BYDxOT18hvStraenMvt%2BIog%3D%3D",
+        "externalId": "v1|297478441978|0",
+        "imageUrl": "https://i.ebayimg.com/images/g/l58AAeSwoNBoeoug/s-l1600.webp",
+        "imageUrls": [
+          "https://i.ebayimg.com/images/g/l58AAeSwoNBoeoug/s-l1600.webp"
+        ],
+        "regionEvidence": [
+          "human_reviewed_physical_components"
+        ],
+        "reviewNotes": [
+          "The batch includes this as Spanish game_manual. Exclude from game-plus-manual pricing: the game itself is not included.",
+          "FAH manual is neither evidence of a Spanish whole edition nor a reason to update the price of an entire game. Presence in ingest.listings is not proof of publication."
+        ]
+      },
+      "jobId": "19ba6b21570e4ea7abd3d04a6ea23790",
+      "createdAt": "2026-09-08",
+      "decidedAt": "2026-09-08",
+      "updatedAt": "2026-09-08",
+      "decision": {
+        "action": "reject",
+        "note": "The batch includes this as Spanish game_manual. Exclude from game-plus-manual pricing: the game itself is not included. FAH manual is neither evidence of a Spanish whole edition nor a reason to update the price of an entire game. Presence in ingest.listings is not proof of publication.",
+        "reviewBatch": "gameboy-visual-reviewed-20260908",
+        "reviewer": "Codex visual audit; application explicitly authorized by user",
+        "reasonCode": "non_game"
+      }
     }
   ],
-  "decisions": []
+  "decisions": [
+    {
+      "id": "2e7645bc3a0305d6661c",
+      "at": "2026-09-08",
+      "action": "accept",
+      "note": "Italian localized packaging is positive evidence. The worker already detected Italy but left a conflict against the Spanish target; no Italian Game Boy catalog entries exist at the pinned snapshot. Do not adopt the worker's alleged PEGI or DMG-TR-ITA-3: neither was independently read in this review. Do not copy the Spanish price to a new Italian entry.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-it-tetris",
+      "region": "PAL Italia",
+      "condition": "complete"
+    },
+    {
+      "id": "994405522fc7b76a0a33",
+      "at": "2026-09-08",
+      "action": "accept",
+      "note": "Recover Spanish entry for Super Mario Land 2. The batch searched Super Mario Land 1, read the code incorrectly and asserted a manual not present. Do not attach this listing to Super Mario Land 1 or infer gameplay Spanish from the cartridge label.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-es-super-mario-land-2",
+      "region": "PAL España",
+      "condition": "loose"
+    },
+    {
+      "id": "3e5cf57f4a78743f4a89",
+      "at": "2026-09-08",
+      "action": "accept",
+      "note": "European ficha exists under Super Mario Land 3: Wario Land. The missing-variant decision is a matching failure, not evidence that a new entry is needed. The photographed EUR cartridge does not distinguish Spain from other European distribution. The worker's PEGI and Spanish-language observations were not visible.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-pal-super-mario-land-3-wario-land",
+      "region": "PAL Europa",
+      "condition": "loose"
+    },
+    {
+      "id": "6c35ef46ae7b1c1a62ae",
+      "at": "2026-09-08",
+      "action": "accept",
+      "note": "Recover as a loose EUR cartridge, without assigning a Spanish-exclusive distribution from the listing title. An EUR cartridge can have been distributed in Spain; this photograph alone does not demonstrate that national edition.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-pal-tetris-attack",
+      "region": "PAL Europa",
+      "condition": "loose"
+    },
+    {
+      "id": "2a6afc6eda62de70cc2e",
+      "at": "2026-09-08",
+      "action": "accept",
+      "note": "UKV cartridge and manual agree and identify a UK regional version absent from the pinned Game Boy catalog. Do not invent a box-flap code or migrate the existing Spanish/European records. Photo 11 was not inspected.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-uk-super-hunchback",
+      "region": "PAL UK/ENG",
+      "condition": "complete"
+    },
+    {
+      "id": "d7f572a1f0c11eea4e20",
+      "at": "2026-09-08",
+      "action": "accept",
+      "note": "German localized packaging with explicit distributor evidence, not merely a German seller. This regional entry is absent. The printed German packaging does not prove German gameplay text.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-de-snoopys-magic-show",
+      "region": "PAL Alemania",
+      "condition": "complete"
+    },
+    {
+      "id": "2a15931917249023d109",
+      "at": "2026-09-08",
+      "action": "accept",
+      "note": "Existing European ficha found under an alternative title. Recover the loose listing there, without creating a duplicate. Do not associate this with DX, Game Boy Color or the Switch remake.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-legend-zelda-links-awakening",
+      "region": "PAL Europa",
+      "condition": "loose"
+    },
+    {
+      "id": "015abdf8d0b2447508d4",
+      "at": "2026-09-08",
+      "action": "accept",
+      "note": "Recognizable USA loose cartridge with an existing USA entry. Not eligible to price the Spanish or European ficha. Recovering the correct region does not authorize changing the worker's daily search scope or starting a USA campaign.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "catalogId": "gameboy-usa-quarth",
+      "region": "USA",
+      "condition": "loose"
+    },
+    {
+      "id": "76231edf85c2a7beca2e",
+      "at": "2026-09-08",
+      "action": "reject",
+      "note": "Exclude the merchandise listing, not a regional edition to discover. Printed game artwork on merchandise is not evidence for a physical game listing or for its regional packaging.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "reasonCode": "non_game"
+    },
+    {
+      "id": "74f1b486ba2398b1d771",
+      "at": "2026-09-08",
+      "action": "reject",
+      "note": "Exclude a different product category rather than leaving its game condition unresolved. Spanish film packaging says nothing about the Spanish Game Boy release of the same name.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "reasonCode": "non_game"
+    },
+    {
+      "id": "4bf4e0b7299441413507",
+      "at": "2026-09-08",
+      "action": "reject",
+      "note": "The batch includes this as Spanish game_manual. Exclude from game-plus-manual pricing: the game itself is not included. FAH manual is neither evidence of a Spanish whole edition nor a reason to update the price of an entire game. Presence in ingest.listings is not proof of publication.",
+      "reviewBatch": "gameboy-visual-reviewed-20260908",
+      "reviewer": "Codex visual audit; application explicitly authorized by user",
+      "reasonCode": "non_game"
+    }
+  ]
 }

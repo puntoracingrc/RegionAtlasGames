@@ -6,6 +6,8 @@ import {
 } from "@/lib/platform-region-policy";
 import { getRegionDisplay } from "@/lib/region-display";
 import { buildPlatformCatalogInsights } from "@/lib/platform-catalog-insights";
+import { catalogGamePath } from "@/lib/catalog-path";
+import { publicRegionFilterOptions } from "@/lib/catalog-filters";
 
 test("Neo Geo AES exposes only Western and Japanese region families", () => {
   assert.deepEqual(publicRegionLabelsForPlatform("neogeo"), ["Occidental", "Japonesa"]);
@@ -50,4 +52,11 @@ test("Neo Geo Pocket exposes its three commercial regions with concise labels", 
 
 test("other platforms keep their catalog-derived region policy", () => {
   assert.equal(publicRegionLabelsForPlatform("ps2"), null);
+});
+
+test("the reviewed Italian entry has its own display, filter and canonical region", () => {
+  assert.deepEqual(getRegionDisplay("PAL Italia"), { flagCode: "IT", label: "PAL Italia", shortLabel: "IT" });
+  assert.ok(publicRegionFilterOptions().some(({ value }) => value === "PAL Italia"));
+  assert.equal(catalogGamePath({ slug: "tetris", platformSlug: "gameboy", region: "PAL Italia" }),
+    "/catalogo/tetris-gameboy-pal-it");
 });
