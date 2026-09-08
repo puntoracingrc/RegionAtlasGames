@@ -24,7 +24,7 @@ export type MarketplaceCollectorContext = {
   rejectedReferenceImageUrls: string[];
 };
 
-async function loadSnapshot(): Promise<CollectorLearningSnapshot | null> {
+export async function loadMarketplaceCollectorLearning(): Promise<CollectorLearningSnapshot | null> {
   const now = Date.now();
   if (cache && now - cache.loadedAt < CACHE_MS) return cache.snapshot;
 
@@ -55,7 +55,7 @@ export async function getMarketplaceCollectorContext(
   catalogId: string,
   region: string,
 ): Promise<MarketplaceCollectorContext> {
-  const snapshot = await loadSnapshot();
+  const snapshot = await loadMarketplaceCollectorLearning();
   const game = snapshot?.games?.[catalogId];
   if (!game) {
     return {

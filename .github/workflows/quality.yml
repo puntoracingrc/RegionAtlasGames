@@ -48,6 +48,9 @@ jobs:
       - name: Unit tests
         run: npm run test:unit
 
+      - name: Scanner tests
+        run: npm run test:scanner
+
       - name: Collector safety tests
         run: |
           npm run test:collector-controls
