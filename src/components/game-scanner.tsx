@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Camera, Download, ExternalLink, Eye, FolderOpen, LoaderCircle, ScanLine, Trash2, X } from "lucide-react";
-import { SCANNER_COMPONENT_LABELS, SCANNER_MAX_HINT, SCANNER_MAX_PHOTOS, type ScannerResult } from "@/lib/game-scanner";
+import { SCANNER_COMPONENT_LABELS, SCANNER_MAX_HINT, SCANNER_MAX_PHOTOS, SCANNER_SKIP_LABELS, type ScannerResult } from "@/lib/game-scanner";
 import { prepareScannerPhoto } from "@/lib/scanner-photo-client";
 import { prefersNativeCamera } from "@/lib/scanner-camera-client";
 import { ScannerCamera } from "@/components/scanner-camera";
@@ -239,7 +239,8 @@ export function GameScanner({ platforms }: { platforms: Platform[] }) {
           <div><p className="text-sm text-muted">Región sugerida</p><p className="mt-1 text-lg font-semibold">{result.region.value || "No determinada"}</p><p className="mt-1 text-sm text-muted">{result.region.explanation}</p><ResultEvidence result={result} evidence={result.region} /></div>
           <div><p className="text-sm text-muted">Combinación de piezas</p><p className="mt-1 text-lg font-semibold">{{ compatible: "Compatible con una referencia", possible_mismatch: "Posible mezcla de piezas", unknown: "Sin confirmar" }[result.composition.status]}</p><p className="mt-1 text-sm text-muted">{result.composition.explanation}</p><ResultEvidence result={result} evidence={result.composition} /></div>
         </div>
-        {!result.platformMatches && <p role="status" className="border-l-2 border-amber-500 pl-3 text-sm">La plataforma observada no coincide con la seleccionada o no se distingue. No se ha asignado una región.</p>}
+        {result.interpretation?.status === "skipped" ? <p role="status" className="border-l-2 border-amber-500 pl-3 text-sm">Interpretación no ejecutada: {SCANNER_SKIP_LABELS[result.interpretation.reason]}</p>
+          : !result.platformMatches && <p role="status" className="border-l-2 border-amber-500 pl-3 text-sm">La plataforma observada no coincide con la seleccionada o no se distingue. No se ha asignado una región.</p>}
         <section><h3 className="mb-1 font-semibold">Observaciones por foto</h3>
           <p className="mb-3 text-xs text-muted">Lecturas automáticas pendientes de contraste; los textos pequeños pueden interpretarse incorrectamente.</p>
           <div className="divide-y divide-border border-y border-border">{result.perception.observations.map((observation) => <details key={observation.id} className="py-3" open>
@@ -259,6 +260,9 @@ export function GameScanner({ platforms }: { platforms: Platform[] }) {
         {(result.perception.uncertainties.length > 0 || result.nextPhotos.length > 0) && <section><h3 className="mb-2 font-semibold">Por confirmar</h3><ul className="list-disc space-y-1 pl-5 text-sm text-muted">{[...result.perception.uncertainties, ...result.nextPhotos].map((text, index) => <li key={index}>{text}</li>)}</ul></section>}
         <details className="border-t border-border pt-4"><summary className="cursor-pointer text-sm font-medium">Fuentes y procedencia</summary>
           <p className="mt-3 text-xs text-muted">{result.model} · {result.policy} · {new Date(result.analyzedAt).toLocaleString("es-ES")}</p>
+          {result.interpretation && <p className="mt-2 text-sm text-muted">{result.interpretation.status === "completed" ? "Lectura de fotos e interpretación completadas." : `Lectura de fotos completada. Interpretación omitida: ${SCANNER_SKIP_LABELS[result.interpretation.reason]}`}</p>}
+          {result.perceptionMode && <p className="mt-2 text-sm text-muted">{result.perceptionMode === "joint" ? "Fotos analizadas conjuntamente." : "Fotos analizadas por separado; interpretación conjunta de las lecturas."}</p>}
+          {result.perception.titleAliasId && <p className="mt-2 text-xs text-muted">Equivalencia de título revisada: {result.perception.titleAliasId}. No confirma región ni compatibilidad de piezas.</p>}
           <p className="mt-2 text-xs text-muted">Solicitudes: {result.usage.requests} · Entrada: {result.usage.inputTokens ?? "No disponible"} · Salida: {result.usage.outputTokens ?? "No disponible"} · Entrada en caché (incluida en entrada): {result.usage.cachedInputTokens ?? "No disponible"}</p>
           <p className="mt-2 text-sm text-muted">{result.knowledge.platformGuidance ? "Guía documental de plataforma consultada." : "Sin guía documental específica para esta plataforma."} {result.knowledge.exactGameMatches ? `${result.knowledge.exactGameMatches} fichas candidatas por título y plataforma; no confirman la edición.` : "Sin coincidencia exacta para consultar referencias de un juego concreto."} {!result.knowledge.learningAvailable && "El aprendizaje revisado remoto no estaba disponible."}</p>
           <ul className="mt-3 space-y-2">{result.sources.map((source) => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer" className="inline-flex max-w-full items-start gap-1 break-all text-xs text-accent underline">{source.label}<ExternalLink className="h-3 w-3 shrink-0" /></a></li>)}</ul>

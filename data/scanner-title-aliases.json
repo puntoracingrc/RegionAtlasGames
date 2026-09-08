@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "scope": "title_identity_only_not_regional_edition_or_component_compatibility",
+  "groups": [
+    {
+      "id": "gt64-n64-title-20260908",
+      "status": "reviewed_title_equivalence",
+      "platformSlug": "n64",
+      "titles": ["GT 64", "GT 64: Championship Edition"],
+      "reviewedAt": "2026-09-08",
+      "provenance": {
+        "kind": "reviewed_user_specimen",
+        "caseId": "gt64-n64-20260908",
+        "photos": [1, 3, 5, 6],
+        "evidence": "Frontal de caja, cartucho y portada de manual muestran GT64 y el subtitulo Championship Edition. Revision visual del ejemplar aportado por el usuario; no acredita region ni combinacion original de piezas."
+      }
+    }
+  ]
+}
